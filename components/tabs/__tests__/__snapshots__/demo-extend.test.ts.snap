@@ -594,7 +594,7 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md extend context cor
     style="margin-bottom:16px"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -1601,7 +1601,7 @@ Array [
         class="ant-tabs-extra-content"
       >
         <button
-          class="ant-btn"
+          class="ant-btn ant-btn-default"
           type="button"
         >
           <span>
@@ -1708,7 +1708,7 @@ Array [
         class="ant-tabs-extra-content"
       >
         <button
-          class="ant-btn tabs-extra-demo-button"
+          class="ant-btn ant-btn-default tabs-extra-demo-button"
           type="button"
         >
           <span>
@@ -1822,7 +1822,7 @@ Array [
         class="ant-tabs-extra-content"
       >
         <button
-          class="ant-btn"
+          class="ant-btn ant-btn-default"
           type="button"
         >
           <span>

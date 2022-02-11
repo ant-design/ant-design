@@ -2428,7 +2428,7 @@ exports[`renders ./components/select/demo/debug.md extend context correctly 1`] 
     AntDesign
   </span>
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span>

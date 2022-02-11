@@ -195,7 +195,7 @@ exports[`renders ./components/space/demo/base.md extend context correctly 1`] = 
             type="file"
           />
           <button
-            class="ant-btn"
+            class="ant-btn ant-btn-default"
             type="button"
           >
             <span
@@ -232,7 +232,7 @@ exports[`renders ./components/space/demo/base.md extend context correctly 1`] = 
     class="ant-space-item"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -293,7 +293,7 @@ exports[`renders ./components/space/demo/base.md extend context correctly 1`] = 
                 class="ant-popover-buttons"
               >
                 <button
-                  class="ant-btn ant-btn-sm"
+                  class="ant-btn ant-btn-default ant-btn-sm"
                   type="button"
                 >
                   <span>
@@ -394,7 +394,7 @@ Array [
       style="margin-right:8px"
     >
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span>
@@ -446,7 +446,7 @@ exports[`renders ./components/space/demo/debug.md extend context correctly 1`] =
     style="margin-right:8px"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -465,7 +465,7 @@ exports[`renders ./components/space/demo/debug.md extend context correctly 1`] =
     style="margin-right:8px"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -526,7 +526,7 @@ exports[`renders ./components/space/demo/debug.md extend context correctly 1`] =
                 class="ant-popover-buttons"
               >
                 <button
-                  class="ant-btn ant-btn-sm"
+                  class="ant-btn ant-btn-default ant-btn-sm"
                   type="button"
                 >
                   <span>
@@ -557,7 +557,7 @@ exports[`renders ./components/space/demo/debug.md extend context correctly 1`] =
       style="display:inline-block;cursor:not-allowed"
     >
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         disabled=""
         style="pointer-events:none"
         type="button"
@@ -621,7 +621,7 @@ exports[`renders ./components/space/demo/debug.md extend context correctly 1`] =
                 class="ant-popover-buttons"
               >
                 <button
-                  class="ant-btn ant-btn-sm"
+                  class="ant-btn ant-btn-default ant-btn-sm"
                   type="button"
                 >
                   <span>
@@ -803,7 +803,7 @@ Array [
       style="margin-right:8px"
     >
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span>
@@ -976,7 +976,7 @@ exports[`renders ./components/space/demo/wrap.md extend context correctly 1`] = 
     style="margin-right:8px;padding-bottom:16px"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -989,7 +989,7 @@ exports[`renders ./components/space/demo/wrap.md extend context correctly 1`] = 
     style="margin-right:8px;padding-bottom:16px"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -1002,7 +1002,7 @@ exports[`renders ./components/space/demo/wrap.md extend context correctly 1`] = 
     style="margin-right:8px;padding-bottom:16px"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -1015,7 +1015,7 @@ exports[`renders ./components/space/demo/wrap.md extend context correctly 1`] = 
     style="margin-right:8px;padding-bottom:16px"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -1028,7 +1028,7 @@ exports[`renders ./components/space/demo/wrap.md extend context correctly 1`] = 
     style="margin-right:8px;padding-bottom:16px"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -1041,7 +1041,7 @@ exports[`renders ./components/space/demo/wrap.md extend context correctly 1`] = 
     style="margin-right:8px;padding-bottom:16px"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -1054,7 +1054,7 @@ exports[`renders ./components/space/demo/wrap.md extend context correctly 1`] = 
     style="margin-right:8px;padding-bottom:16px"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -1067,7 +1067,7 @@ exports[`renders ./components/space/demo/wrap.md extend context correctly 1`] = 
     style="margin-right:8px;padding-bottom:16px"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -1080,7 +1080,7 @@ exports[`renders ./components/space/demo/wrap.md extend context correctly 1`] = 
     style="margin-right:8px;padding-bottom:16px"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -1093,7 +1093,7 @@ exports[`renders ./components/space/demo/wrap.md extend context correctly 1`] = 
     style="margin-right:8px;padding-bottom:16px"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -1106,7 +1106,7 @@ exports[`renders ./components/space/demo/wrap.md extend context correctly 1`] = 
     style="margin-right:8px;padding-bottom:16px"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -1119,7 +1119,7 @@ exports[`renders ./components/space/demo/wrap.md extend context correctly 1`] = 
     style="margin-right:8px;padding-bottom:16px"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -1132,7 +1132,7 @@ exports[`renders ./components/space/demo/wrap.md extend context correctly 1`] = 
     style="margin-right:8px;padding-bottom:16px"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -1145,7 +1145,7 @@ exports[`renders ./components/space/demo/wrap.md extend context correctly 1`] = 
     style="margin-right:8px;padding-bottom:16px"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -1158,7 +1158,7 @@ exports[`renders ./components/space/demo/wrap.md extend context correctly 1`] = 
     style="margin-right:8px;padding-bottom:16px"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -1171,7 +1171,7 @@ exports[`renders ./components/space/demo/wrap.md extend context correctly 1`] = 
     style="margin-right:8px;padding-bottom:16px"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -1184,7 +1184,7 @@ exports[`renders ./components/space/demo/wrap.md extend context correctly 1`] = 
     style="margin-right:8px;padding-bottom:16px"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -1197,7 +1197,7 @@ exports[`renders ./components/space/demo/wrap.md extend context correctly 1`] = 
     style="margin-right:8px;padding-bottom:16px"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -1210,7 +1210,7 @@ exports[`renders ./components/space/demo/wrap.md extend context correctly 1`] = 
     style="margin-right:8px;padding-bottom:16px"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -1223,7 +1223,7 @@ exports[`renders ./components/space/demo/wrap.md extend context correctly 1`] = 
     style="padding-bottom:16px"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>

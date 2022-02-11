@@ -361,7 +361,7 @@ exports[`renders ./components/notification/demo/with-icon.md correctly 1`] = `
     style="margin-right:8px"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -374,7 +374,7 @@ exports[`renders ./components/notification/demo/with-icon.md correctly 1`] = `
     style="margin-right:8px"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -387,7 +387,7 @@ exports[`renders ./components/notification/demo/with-icon.md correctly 1`] = `
     style="margin-right:8px"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -399,7 +399,7 @@ exports[`renders ./components/notification/demo/with-icon.md correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>

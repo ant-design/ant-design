@@ -1118,7 +1118,7 @@ exports[`renders ./components/result/demo/error.md correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -1305,7 +1305,7 @@ exports[`renders ./components/result/demo/success.md correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>

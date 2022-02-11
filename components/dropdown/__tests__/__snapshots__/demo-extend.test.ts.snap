@@ -3,7 +3,7 @@
 exports[`renders ./components/dropdown/demo/arrow.md extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-dropdown-trigger"
+    class="ant-btn ant-btn-default ant-dropdown-trigger"
     type="button"
   >
     <span>
@@ -216,7 +216,7 @@ Array [
     </div>
   </div>,
   <button
-    class="ant-btn ant-dropdown-trigger"
+    class="ant-btn ant-btn-default ant-dropdown-trigger"
     type="button"
   >
     <span>
@@ -429,7 +429,7 @@ Array [
     </div>
   </div>,
   <button
-    class="ant-btn ant-dropdown-trigger"
+    class="ant-btn ant-btn-default ant-dropdown-trigger"
     type="button"
   >
     <span>
@@ -643,7 +643,7 @@ Array [
   </div>,
   <br />,
   <button
-    class="ant-btn ant-dropdown-trigger"
+    class="ant-btn ant-btn-default ant-dropdown-trigger"
     type="button"
   >
     <span>
@@ -856,7 +856,7 @@ Array [
     </div>
   </div>,
   <button
-    class="ant-btn ant-dropdown-trigger"
+    class="ant-btn ant-btn-default ant-dropdown-trigger"
     type="button"
   >
     <span>
@@ -1069,7 +1069,7 @@ Array [
     </div>
   </div>,
   <button
-    class="ant-btn ant-dropdown-trigger"
+    class="ant-btn ant-btn-default ant-dropdown-trigger"
     type="button"
   >
     <span>
@@ -1797,7 +1797,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md extend context co
       class="ant-btn-group ant-dropdown-button"
     >
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span>
@@ -1805,7 +1805,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md extend context co
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-icon-only ant-dropdown-trigger"
+        class="ant-btn ant-btn-default ant-btn-icon-only ant-dropdown-trigger"
         type="button"
       >
         <span
@@ -2079,7 +2079,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md extend context co
       class="ant-btn-group ant-dropdown-button"
     >
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span>
@@ -2087,7 +2087,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md extend context co
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-icon-only ant-dropdown-trigger"
+        class="ant-btn ant-btn-default ant-btn-icon-only ant-dropdown-trigger"
         type="button"
       >
         <span
@@ -2361,7 +2361,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md extend context co
       class="ant-btn-group ant-dropdown-button"
     >
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         disabled=""
         type="button"
       >
@@ -2370,7 +2370,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md extend context co
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-icon-only ant-dropdown-trigger"
+        class="ant-btn ant-btn-default ant-btn-icon-only ant-dropdown-trigger"
         disabled=""
         type="button"
       >
@@ -2645,7 +2645,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md extend context co
       class="ant-btn-group ant-dropdown-button"
     >
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span>
@@ -2677,7 +2677,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md extend context co
         </div>
       </div>
       <button
-        class="ant-btn ant-btn-icon-only ant-btn-loading ant-dropdown-trigger"
+        class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-loading ant-dropdown-trigger"
         type="button"
       >
         <span
@@ -2952,7 +2952,7 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md extend context co
     style="padding-bottom:8px"
   >
     <button
-      class="ant-btn ant-dropdown-trigger"
+      class="ant-btn ant-btn-default ant-dropdown-trigger"
       type="button"
     >
       <span>
@@ -4066,7 +4066,7 @@ exports[`renders ./components/dropdown/demo/loading.md extend context correctly 
       class="ant-btn-group ant-dropdown-button"
     >
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span>
@@ -4074,7 +4074,7 @@ exports[`renders ./components/dropdown/demo/loading.md extend context correctly 
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-icon-only ant-dropdown-trigger"
+        class="ant-btn ant-btn-default ant-btn-icon-only ant-dropdown-trigger"
         type="button"
       >
         <span
@@ -5535,7 +5535,7 @@ exports[`renders ./components/dropdown/demo/placement.md extend context correctl
         style="margin-right:8px;padding-bottom:8px"
       >
         <button
-          class="ant-btn ant-dropdown-trigger"
+          class="ant-btn ant-btn-default ant-dropdown-trigger"
           type="button"
         >
           <span>
@@ -5750,7 +5750,7 @@ exports[`renders ./components/dropdown/demo/placement.md extend context correctl
         style="margin-right:8px;padding-bottom:8px"
       >
         <button
-          class="ant-btn ant-dropdown-trigger"
+          class="ant-btn ant-btn-default ant-dropdown-trigger"
           type="button"
         >
           <span>
@@ -5965,7 +5965,7 @@ exports[`renders ./components/dropdown/demo/placement.md extend context correctl
         style="padding-bottom:8px"
       >
         <button
-          class="ant-btn ant-dropdown-trigger"
+          class="ant-btn ant-btn-default ant-dropdown-trigger"
           type="button"
         >
           <span>
@@ -6189,7 +6189,7 @@ exports[`renders ./components/dropdown/demo/placement.md extend context correctl
         style="margin-right:8px;padding-bottom:8px"
       >
         <button
-          class="ant-btn ant-dropdown-trigger"
+          class="ant-btn ant-btn-default ant-dropdown-trigger"
           type="button"
         >
           <span>
@@ -6404,7 +6404,7 @@ exports[`renders ./components/dropdown/demo/placement.md extend context correctl
         style="margin-right:8px;padding-bottom:8px"
       >
         <button
-          class="ant-btn ant-dropdown-trigger"
+          class="ant-btn ant-btn-default ant-dropdown-trigger"
           type="button"
         >
           <span>
@@ -6619,7 +6619,7 @@ exports[`renders ./components/dropdown/demo/placement.md extend context correctl
         style="padding-bottom:8px"
       >
         <button
-          class="ant-btn ant-dropdown-trigger"
+          class="ant-btn ant-btn-default ant-dropdown-trigger"
           type="button"
         >
           <span>
