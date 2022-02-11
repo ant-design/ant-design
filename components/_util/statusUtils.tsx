@@ -5,6 +5,10 @@ import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import classNames from 'classnames';
 import { ValidateStatus } from '../form/FormItem';
+import { tuple } from './type';
+
+const InputStatuses = tuple('warning', 'error', '');
+export type InputStatus = typeof InputStatuses[number];
 
 const iconMap = {
   success: CheckCircleFilled,

@@ -13,7 +13,7 @@ import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import devWarning from '../_util/devWarning';
 import { getInputClassName, hasPrefixSuffix } from './utils';
 import { FormItemStatusContext } from '../form/context';
-import { getFeedbackIcon } from '../_util/statusUtils';
+import { getFeedbackIcon, InputStatus } from '../_util/statusUtils';
 
 export interface InputFocusOptions extends FocusOptions {
   cursor?: 'start' | 'end' | 'all';
@@ -62,7 +62,7 @@ export interface InputProps
   showCount?: boolean | ShowCountProps;
   bordered?: boolean;
   htmlSize?: number;
-  status?: ValidateStatus;
+  status?: InputStatus;
 }
 
 export function fixControlledValue<T>(value: T) {

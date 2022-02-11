@@ -1,15 +1,14 @@
-import * as React from 'react';
-import classNames from 'classnames';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
-import { ValidateStatus } from '../form/FormItem';
-import { tuple } from '../_util/type';
-import type { InputProps } from './Input';
+import classNames from 'classnames';
+import * as React from 'react';
 import { DirectionType } from '../config-provider';
 import { SizeType } from '../config-provider/SizeContext';
-import { cloneElement } from '../_util/reactNode';
-import { getInputClassName, hasPrefixSuffix } from './utils';
 import { FormItemStatusContext, FormItemStatusContextProps } from '../form/context';
-import { getStatusClassNames } from '../_util/statusUtils';
+import { cloneElement } from '../_util/reactNode';
+import { getStatusClassNames, InputStatus } from '../_util/statusUtils';
+import { tuple } from '../_util/type';
+import type { InputProps } from './Input';
+import { getInputClassName, hasPrefixSuffix } from './utils';
 
 const ClearableInputType = tuple('text', 'input');
 
@@ -43,7 +42,7 @@ export interface ClearableInputProps extends BasicProps {
   addonBefore?: React.ReactNode;
   addonAfter?: React.ReactNode;
   triggerFocus?: () => void;
-  status?: ValidateStatus;
+  status?: InputStatus;
 }
 
 class ClearableLabeledInput extends React.Component<ClearableInputProps> {

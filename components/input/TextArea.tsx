@@ -1,16 +1,15 @@
-import * as React from 'react';
+import classNames from 'classnames';
 import RcTextArea, { TextAreaProps as RcTextAreaProps } from 'rc-textarea';
 import ResizableTextArea from 'rc-textarea/lib/ResizableTextArea';
-import omit from 'rc-util/lib/omit';
-import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import ClearableLabeledInput from './ClearableLabeledInput';
+import omit from 'rc-util/lib/omit';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
-import { fixControlledValue, resolveOnChange, triggerFocus, InputFocusOptions } from './Input';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
-import { ValidateStatus } from '../form/FormItem';
-import { getFeedbackIcon, getStatusClassNames } from '../_util/statusUtils';
 import { FormItemStatusContext } from '../form/context';
+import { getFeedbackIcon, getStatusClassNames, InputStatus } from '../_util/statusUtils';
+import ClearableLabeledInput from './ClearableLabeledInput';
+import { fixControlledValue, InputFocusOptions, resolveOnChange, triggerFocus } from './Input';
 
 interface ShowCountProps {
   formatter: (args: { count: number; maxLength?: number }) => string;
@@ -25,7 +24,7 @@ export interface TextAreaProps extends RcTextAreaProps {
   bordered?: boolean;
   showCount?: boolean | ShowCountProps;
   size?: SizeType;
-  status?: ValidateStatus;
+  status?: InputStatus;
 }
 
 export interface TextAreaRef {
