@@ -137,7 +137,7 @@ exports[`renders ./components/mentions/demo/form.md correctly 1`] = `
           </button>
              
           <button
-            class="ant-btn"
+            class="ant-btn ant-btn-default"
             type="button"
           >
             <span>

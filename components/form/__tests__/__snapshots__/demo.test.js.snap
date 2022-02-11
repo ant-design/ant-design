@@ -261,7 +261,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
           </span>
         </button>
         <button
-          class="ant-btn"
+          class="ant-btn ant-btn-default"
           style="margin:0 8px"
           type="button"
         >
@@ -747,7 +747,7 @@ exports[`renders ./components/form/demo/control-hooks.md correctly 1`] = `
             </span>
           </button>
           <button
-            class="ant-btn"
+            class="ant-btn ant-btn-default"
             type="button"
           >
             <span>
@@ -914,7 +914,7 @@ exports[`renders ./components/form/demo/control-ref.md correctly 1`] = `
             </span>
           </button>
           <button
-            class="ant-btn"
+            class="ant-btn ant-btn-default"
             type="button"
           >
             <span>
@@ -2385,7 +2385,7 @@ exports[`renders ./components/form/demo/form-context.md correctly 1`] = `
             </span>
           </button>
           <button
-            class="ant-btn"
+            class="ant-btn ant-btn-default"
             style="margin:0 8px"
             type="button"
           >
@@ -3558,7 +3558,7 @@ exports[`renders ./components/form/demo/ref-item.md correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span>
@@ -4404,7 +4404,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
               style="padding-left:4px;padding-right:4px"
             >
               <button
-                class="ant-btn"
+                class="ant-btn ant-btn-default"
                 type="button"
               >
                 <span>
@@ -5327,7 +5327,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <button
-            class="ant-btn"
+            class="ant-btn ant-btn-default"
             type="button"
           >
             <span>
@@ -7050,7 +7050,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                   type="file"
                 />
                 <button
-                  class="ant-btn"
+                  class="ant-btn ant-btn-default"
                   type="button"
                 >
                   <span
@@ -8615,7 +8615,7 @@ exports[`renders ./components/form/demo/warning-only.md correctly 1`] = `
               class="ant-space-item"
             >
               <button
-                class="ant-btn"
+                class="ant-btn ant-btn-default"
                 type="button"
               >
                 <span>

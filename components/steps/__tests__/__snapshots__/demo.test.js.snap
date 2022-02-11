@@ -1376,7 +1376,7 @@ exports[`renders ./components/steps/demo/progress.md correctly 1`] = `
 exports[`renders ./components/steps/demo/progress-debug.md correctly 1`] = `
 Array [
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span>
@@ -1384,7 +1384,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span>
@@ -1392,7 +1392,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span>
@@ -1400,7 +1400,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span>
@@ -1408,7 +1408,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span>
@@ -1416,7 +1416,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span>
@@ -1424,7 +1424,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span>
