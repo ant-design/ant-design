@@ -74,4 +74,20 @@ describe('Cascader.typescript', () => {
     );
     expect(wrapper).toBeTruthy();
   });
+
+  it('onChange', () => {
+    test('single', () => {
+      const wrapper = mount(
+        <Cascader multiple={false} onChange={(values: (string | number)[]) => values} />,
+      );
+      expect(wrapper).toBeTruthy();
+    });
+
+    test('multiple', () => {
+      const wrapper = mount(
+        <Cascader multiple onChange={(values: (string | number)[][]) => values} />,
+      );
+      expect(wrapper).toBeTruthy();
+    });
+  });
 });
