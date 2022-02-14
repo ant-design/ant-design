@@ -196,10 +196,7 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
     e?.preventDefault();
     e?.stopPropagation();
 
-    if (copyConfig.text === undefined) {
-      copyConfig.text = String(children);
-    }
-    copy(copyConfig.text || '');
+    copy(copyConfig.text || String(children) || '');
 
     setCopied(true);
 
