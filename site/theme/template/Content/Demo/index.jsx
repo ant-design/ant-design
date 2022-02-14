@@ -212,7 +212,6 @@ class Demo extends React.Component {
         .replace(/import\s+(?:React,\s+)?{(\s+[^}]*\s+)}\s+from\s+'react'/, `const { $1 } = React;`)
         .replace(/import\s+{(\s+[^}]*\s+)}\s+from\s+'antd';/, 'const { $1 } = antd;')
         .replace(/import\s+{(\s+[^}]*\s+)}\s+from\s+'@ant-design\/icons';/, 'const { $1 } = icons;')
-        .replace("import moment from 'moment';", '')
         .replace(/import\s+{\s+(.*)\s+}\s+from\s+'react-router';/, 'const { $1 } = ReactRouter;')
         .replace(
           /import\s+{\s+(.*)\s+}\s+from\s+'react-router-dom';/,
@@ -226,7 +225,6 @@ class Demo extends React.Component {
       js_external: [
         'react@16.x/umd/react.development.js',
         'react-dom@16.x/umd/react-dom.development.js',
-        'moment/min/moment-with-locales.js',
         // eslint-disable-next-line no-undef
         `antd@${antdReproduceVersion}/dist/antd-with-locales.js`,
         `@ant-design/icons/dist/index.umd.js`,

@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from 'enzyme';
-import moment from 'moment';
+import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
 import ConfigProvider from '..';
 import Alert from '../../alert';
 import Anchor from '../../anchor';
@@ -55,6 +56,7 @@ import Tree from '../../tree';
 import TreeSelect from '../../tree-select';
 import Upload from '../../upload';
 
+dayjs.extend(customParseFormat);
 jest.mock('rc-util/lib/Portal');
 
 describe('ConfigProvider', () => {
@@ -181,8 +183,8 @@ describe('ConfigProvider', () => {
     // Calendar
     testPair('Calendar', props => (
       <div>
-        <Calendar {...props} value={moment('2000-09-03')} mode="month" />
-        <Calendar {...props} value={moment('2000-09-03')} mode="year" />
+        <Calendar {...props} value={dayjs('2000-09-03')} mode="month" />
+        <Calendar {...props} value={dayjs('2000-09-03')} mode="year" />
       </div>
     ));
 
@@ -540,7 +542,7 @@ describe('ConfigProvider', () => {
 
     // TimePicker
     testPair('TimePicker', props => (
-      <TimePicker {...props} open defaultOpenValue={moment('00:00:00', 'HH:mm:ss')} />
+      <TimePicker {...props} open defaultOpenValue={dayjs('00:00:00', 'HH:mm:ss')} />
     ));
 
     // Timeline

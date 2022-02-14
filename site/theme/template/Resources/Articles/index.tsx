@@ -1,6 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import * as React from 'react';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { Tabs, Skeleton, Avatar, Divider, Empty } from 'antd';
 import { useSiteData } from '../../Home/util';
@@ -70,7 +70,7 @@ export default () => {
   const mergedData = React.useMemo(() => {
     const yearData: Record<number | string, Record<string, Article[]>> = {};
     articles[isZhCN ? 'cn' : 'en']?.forEach(article => {
-      const year = moment(article.date).year();
+      const year = dayjs(article.date).year();
       yearData[year] = yearData[year] || {};
       yearData[year][article.type] = [...(yearData[year][article.type] || []), article];
     });

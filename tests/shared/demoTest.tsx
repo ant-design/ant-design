@@ -3,7 +3,7 @@ import * as React from 'react';
 import glob from 'glob';
 import { render } from 'enzyme';
 import MockDate from 'mockdate';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import { TriggerProps } from 'rc-trigger';
 import { excludeWarning } from './excludeWarning';
 
@@ -69,7 +69,7 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
       () => {
         const errSpy = excludeWarning();
 
-        MockDate.set(moment('2016-11-22').valueOf());
+        MockDate.set(dayjs('2016-11-22').valueOf());
         let demo = require(`../.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
 
         // Inject Trigger status unless skipped

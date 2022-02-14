@@ -18,9 +18,9 @@ When data is in the form of dates, such as schedules, timetables, prices calenda
 
 ```jsx
 // The default locale is en-US, if you want to use other locale, just set locale in entry file globally.
-// import moment from 'moment';
-// import 'moment/locale/zh-cn';
-// moment.locale('zh-cn');
+// import dayjs from 'dayjs';
+// import 'dayjs/locale/zh-cn';
+// dayjs.locale('zh-cn');
 
 <Calendar
   dateCellRender={dateCellRender}
