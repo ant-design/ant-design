@@ -1884,9 +1884,7 @@ describe('Table.filter', () => {
                   value: '456',
                 },
               ],
-              filterSearch: (input, record) => {
-                return record.value.indexOf(input) > -1;
-              },
+              filterSearch: (input, record) => record.value.indexOf(input) > -1,
             },
           ],
         }),
