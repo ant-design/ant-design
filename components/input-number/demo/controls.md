@@ -19,8 +19,7 @@ import { InputNumber } from 'antd';
 import { ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons';
 
 ReactDOM.render(
-  <InputNumber
-    controls={{ upIcon: <ArrowUpOutlined />, downIcon: <ArrowDownOutlined/> }}
-  />
-, mountNode);
+  <InputNumber controls={{ upIcon: <ArrowUpOutlined />, downIcon: <ArrowDownOutlined /> }} />,
+  mountNode,
+);
 ```
