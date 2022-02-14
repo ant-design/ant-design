@@ -1,10 +1,13 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import moment from 'moment';
+import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
 import DatePicker from '..';
 import { setMockDate, resetMockDate } from '../../../tests/utils';
 import { openPicker, selectCell, closePicker } from './utils';
 import focusTest from '../../../tests/shared/focusTest';
+
+dayjs.extend(customParseFormat);
 
 const { RangePicker } = DatePicker;
 
@@ -21,7 +24,7 @@ describe('RangePicker', () => {
 
   // issue: https://github.com/ant-design/ant-design/issues/5872
   it('should not throw error when value is reset to `[]`', () => {
-    const birthday = moment('2000-01-01', 'YYYY-MM-DD');
+    const birthday = dayjs('2000-01-01', 'YYYY-MM-DD');
     const wrapper = mount(<RangePicker value={[birthday, birthday]} open />);
     wrapper.setProps({ value: [] });
 
@@ -81,8 +84,8 @@ describe('RangePicker', () => {
       const wrapper = mount(
         <RangePicker
           ranges={{
-            Today: [moment(), moment()],
-            'This Month': [moment().startOf('month'), moment().endOf('month')],
+            Today: [dayjs(), dayjs()],
+            'This Month': [dayjs().startOf('month'), dayjs().endOf('month')],
           }}
           open
         />,

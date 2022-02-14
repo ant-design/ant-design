@@ -1,6 +1,6 @@
 import React from 'react';
 import MockDate from 'mockdate';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import { mount } from 'enzyme';
 import Statistic from '..';
 import { formatTimeStr } from '../utils';
@@ -14,7 +14,7 @@ describe('Statistic', () => {
   rtlTest(Statistic);
 
   beforeAll(() => {
-    MockDate.set(moment('2018-11-28 00:00:00').valueOf());
+    MockDate.set(dayjs('2018-11-28 00:00:00').valueOf());
   });
 
   afterAll(() => {
@@ -64,7 +64,7 @@ describe('Statistic', () => {
 
   describe('Countdown', () => {
     it('render correctly', () => {
-      const now = moment().add(2, 'd').add(11, 'h').add(28, 'm').add(9, 's').add(3, 'ms');
+      const now = dayjs().add(2, 'd').add(11, 'h').add(28, 'm').add(9, 's').add(3, 'ms');
 
       [
         ['H:m:s', '59:28:9'],
@@ -149,7 +149,7 @@ describe('Statistic', () => {
         const onFinish = jest.fn();
         const wrapper = mount(<Statistic.Countdown value={now} onFinish={onFinish} />);
         wrapper.update();
-        MockDate.set(moment('2019-11-28 00:00:00').valueOf());
+        MockDate.set(dayjs('2019-11-28 00:00:00').valueOf());
         await sleep(100);
         expect(onFinish).toHaveBeenCalled();
       });

@@ -35,13 +35,6 @@ function injectLessVariables(config, variables) {
   return config;
 }
 
-// noParse still leave `require('./locale' + name)` in dist files
-// ignore is better: http://stackoverflow.com/q/25384360
-function ignoreMomentLocale(webpackConfig) {
-  delete webpackConfig.module.noParse;
-  webpackConfig.plugins.push(new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/));
-}
-
 function addLocales(webpackConfig) {
   let packageName = 'antd-with-locales';
   if (webpackConfig.entry['antd.min']) {
@@ -49,15 +42,6 @@ function addLocales(webpackConfig) {
   }
   webpackConfig.entry[packageName] = './index-with-locales.js';
   webpackConfig.output.filename = '[name].js';
-}
-
-function externalMoment(config) {
-  config.externals.moment = {
-    root: 'moment',
-    commonjs2: 'moment',
-    commonjs: 'moment',
-    amd: 'moment',
-  };
 }
 
 function injectWarningCondition(config) {
@@ -80,9 +64,6 @@ function injectWarningCondition(config) {
 
 function processWebpackThemeConfig(themeConfig, theme, vars) {
   themeConfig.forEach(config => {
-    ignoreMomentLocale(config);
-    externalMoment(config);
-
     // rename default entry to ${theme} entry
     Object.keys(config.entry).forEach(entryName => {
       const originPath = config.entry[entryName];
@@ -138,8 +119,6 @@ webpackConfig.forEach(config => {
 
 if (process.env.RUN_ENV === 'PRODUCTION') {
   webpackConfig.forEach(config => {
-    ignoreMomentLocale(config);
-    externalMoment(config);
     addLocales(config);
     // Reduce non-minified dist files size
     config.optimization.usedExports = true;

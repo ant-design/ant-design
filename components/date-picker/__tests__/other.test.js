@@ -1,12 +1,15 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
-import moment from 'moment';
+import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
 import DatePicker from '..';
 import LocaleProvider from '../../locale-provider';
 import locale from '../../locale-provider/zh_CN';
 import ConfigProvider from '../../config-provider';
 import jaJP from '../../locale/ja_JP';
 import zhTW from '../locale/zh_TW';
+
+dayjs.extend(customParseFormat);
 
 const { MonthPicker, WeekPicker } = DatePicker;
 
@@ -22,7 +25,7 @@ describe('Picker format by locale', () => {
     },
   };
 
-  const date = moment('2000-01-01', 'YYYY-MM-DD');
+  const date = dayjs('2000-01-01', 'YYYY-MM-DD');
   function matchPicker(name, Picker, props) {
     it(name, () => {
       const wrapper = mount(
@@ -43,14 +46,14 @@ describe('Picker format by locale', () => {
 
 describe('MonthPicker and WeekPicker', () => {
   it('render MonthPicker', () => {
-    const birthday = moment('2000-01-01', 'YYYY-MM-DD').locale('zh-cn');
+    const birthday = dayjs('2000-01-01', 'YYYY-MM-DD').locale('zh-cn');
     const wrapper = mount(<MonthPicker open />);
     wrapper.setProps({ value: birthday });
     expect(render(wrapper.find('Trigger').instance().getComponent())).toMatchSnapshot();
   });
 
   it('render WeekPicker', () => {
-    const birthday = moment('2000-01-01', 'YYYY-MM-DD').locale('zh-cn');
+    const birthday = dayjs('2000-01-01', 'YYYY-MM-DD').locale('zh-cn');
     const wrapper = mount(<WeekPicker open />);
     wrapper.setProps({ value: birthday });
     expect(render(wrapper.find('Trigger').instance().getComponent())).toMatchSnapshot();

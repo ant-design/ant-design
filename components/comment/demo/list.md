@@ -15,7 +15,7 @@ Displaying a series of comments using the `antd` List Component.
 
 ```jsx
 import { Comment, Tooltip, List } from 'antd';
-import moment from 'moment';
+import dayjs from 'dayjs';
 
 const data = [
   {
@@ -30,8 +30,8 @@ const data = [
       </p>
     ),
     datetime: (
-      <Tooltip title={moment().subtract(1, 'days').format('YYYY-MM-DD HH:mm:ss')}>
-        <span>{moment().subtract(1, 'days').fromNow()}</span>
+      <Tooltip title={dayjs().subtract(1, 'days').format('YYYY-MM-DD HH:mm:ss')}>
+        <span>{dayjs().subtract(1, 'days').fromNow()}</span>
       </Tooltip>
     ),
   },
@@ -47,8 +47,8 @@ const data = [
       </p>
     ),
     datetime: (
-      <Tooltip title={moment().subtract(2, 'days').format('YYYY-MM-DD HH:mm:ss')}>
-        <span>{moment().subtract(2, 'days').fromNow()}</span>
+      <Tooltip title={dayjs().subtract(2, 'days').format('YYYY-MM-DD HH:mm:ss')}>
+        <span>{dayjs().subtract(2, 'days').fromNow()}</span>
       </Tooltip>
     ),
   },

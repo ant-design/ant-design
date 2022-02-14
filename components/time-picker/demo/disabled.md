@@ -15,7 +15,10 @@ A disabled state of the `TimePicker`.
 
 ```jsx
 import { TimePicker } from 'antd';
-import moment from 'moment';
+import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
 
-ReactDOM.render(<TimePicker defaultValue={moment('12:08:23', 'HH:mm:ss')} disabled />, mountNode);
+dayjs.extend(customParseFormat);
+
+ReactDOM.render(<TimePicker defaultValue={dayjs('12:08:23', 'HH:mm:ss')} disabled />, mountNode);
 ```

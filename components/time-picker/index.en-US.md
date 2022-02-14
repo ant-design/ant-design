@@ -18,9 +18,12 @@ By clicking the input box, you can select a time from a popup panel.
 ---
 
 ```jsx
-import moment from 'moment';
+import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat'
 
-<TimePicker defaultValue={moment('13:30:56', 'HH:mm:ss')} />;
+dayjs.extend(customParseFormat)
+
+<TimePicker defaultValue={dayjs('13:30:56', 'HH:mm:ss')} />;
 ```
 
 | Property | Description | Type | Default | Version |
@@ -31,7 +34,7 @@ import moment from 'moment';
 | className | The className of picker | string | - |  |
 | clearIcon | The custom clear icon | ReactNode | - |  |
 | clearText | The clear tooltip of icon | string | clear |  |
-| defaultValue | To set default time | [moment](http://momentjs.com/) | - |  |
+| defaultValue | To set default time | [dayjs](http://day.js.org/) | - |  |
 | disabled | Determine whether the TimePicker is disabled | boolean | false |  |
 | disabledHours | To specify the hours that cannot be selected | function() | - |  |
 | disabledMinutes | To specify the minutes that cannot be selected | function(selectedHour) | - |  |
@@ -51,25 +54,25 @@ import moment from 'moment';
 | showNow | Whether to show `Now` button on panel | boolean | - | 4.4.0 |
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
 | use12Hours | Display as 12 hours format, with default format `h:mm:ss a` | boolean | false |  |
-| value | To set time | [moment](http://momentjs.com/) | - |  |
-| onChange | A callback function, can be executed when the selected time is changing | function(time: moment, timeString: string): void | - |  |
+| value | To set time | [dayjs](http://day.js.org/) | - |  |
+| onChange | A callback function, can be executed when the selected time is changing | function(time: dayjs, timeString: string): void | - |  |
 | onOpenChange | A callback function which will be called while panel opening/closing | (open: boolean) => void | - |  |
-| onSelect | A callback function, executes when a value is selected | function(time: moment): void | - |  |
+| onSelect | A callback function, executes when a value is selected | function(time: dayjs): void | - |  |
 
 ## Methods
 
-| Name | Description | Version |
-| --- | --- | --- |
-| blur() | Remove focus |  |
-| focus() | Get focus |  |
+| Name    | Description  | Version |
+| ------- | ------------ | ------- |
+| blur()  | Remove focus |         |
+| focus() | Get focus    |         |
 
 ### RangePicker
 
 Same props from [RangePicker](/components/date-picker/#RangePicker) of DatePicker. And includes additional props:
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| order | Order start and end time | boolean | true | 4.1.0 |
+| Property | Description              | Type    | Default | Version |
+| -------- | ------------------------ | ------- | ------- | ------- |
+| order    | Order start and end time | boolean | true    | 4.1.0   |
 
 <style>
 .code-box-demo .ant-picker { margin: 0 8px 12px 0; }

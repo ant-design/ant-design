@@ -151,7 +151,7 @@ module.exports = {
         /.*\.md/,
         /lodash/,
         /jquery/,
-        /moment/,
+        /dayjs/,
         /core-js/,
         /jsonml/,
         /ramda/,
