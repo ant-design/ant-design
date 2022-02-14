@@ -60,12 +60,12 @@ const BreadcrumbItem: BreadcrumbItemInterface = ({
   link = renderBreadcrumbNode(link);
   if (children) {
     return (
-      <li>
+      <span>
         {link}
         {separator && (
           <span className={`${prefixCls}-separator`}>{separator}</span>
         )}
-      </li>
+      </span>
     );
   }
   return null;
