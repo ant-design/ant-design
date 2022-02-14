@@ -19,18 +19,10 @@ import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
 
 const ValidateInputs: React.FC = () => (
   <Space direction="vertical" style={{ width: '100%' }}>
-    <Input status="error" />
-    <Input status="warning" />
-    <Input status="error" prefix={<ClockCircleOutlined />} />
-    <Input status="warning" prefix={<ClockCircleOutlined />} />
-    <Input.Password status="error" />
-    <Input.Password status="warning" />
-    <Input.Search status="error" />
-    <Input.Search status="warning" />
-    <Input.TextArea status="error" />
-    <Input.TextArea status="warning" />
-    <Input addonBefore="http://" allowClear status="error" />
-    <Input addonBefore="http://" allowClear status="warning" />
+    <Input status="error" placeholder="Error" />
+    <Input status="warning" placeholder="Warning" />
+    <Input status="error" prefix={<ClockCircleOutlined />} placeholder="Error with prefix" />
+    <Input status="warning" prefix={<ClockCircleOutlined />} placeholder="Warning with prefix" />
   </Space>
 );
 
