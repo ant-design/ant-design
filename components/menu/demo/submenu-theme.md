@@ -1,7 +1,7 @@
 ---
 order: 5
 title:
-  zh-CN: 主题
+  zh-CN: 子菜单主题
   en-US: Sub-menu theme
 ---
 
