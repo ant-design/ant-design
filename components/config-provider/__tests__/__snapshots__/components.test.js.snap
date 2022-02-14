@@ -1203,7 +1203,7 @@ exports[`ConfigProvider components Breadcrumb prefixCls 1`] = `
 exports[`ConfigProvider components Button configProvider 1`] = `
 <div>
   <button
-    class="config-btn"
+    class="config-btn config-btn-default"
     type="button"
   >
     <span>
@@ -1214,7 +1214,7 @@ exports[`ConfigProvider components Button configProvider 1`] = `
     class="config-btn-group"
   >
     <button
-      class="config-btn"
+      class="config-btn config-btn-default"
       type="button"
     >
       <span>
@@ -1222,7 +1222,7 @@ exports[`ConfigProvider components Button configProvider 1`] = `
       </span>
     </button>
     <button
-      class="config-btn"
+      class="config-btn config-btn-default"
       type="button"
     >
       <span>
@@ -1236,7 +1236,7 @@ exports[`ConfigProvider components Button configProvider 1`] = `
 exports[`ConfigProvider components Button configProvider componentSize large 1`] = `
 <div>
   <button
-    class="config-btn config-btn-lg"
+    class="config-btn config-btn-default config-btn-lg"
     type="button"
   >
     <span>
@@ -1247,7 +1247,7 @@ exports[`ConfigProvider components Button configProvider componentSize large 1`]
     class="config-btn-group"
   >
     <button
-      class="config-btn config-btn-lg"
+      class="config-btn config-btn-default config-btn-lg"
       type="button"
     >
       <span>
@@ -1255,7 +1255,7 @@ exports[`ConfigProvider components Button configProvider componentSize large 1`]
       </span>
     </button>
     <button
-      class="config-btn config-btn-lg"
+      class="config-btn config-btn-default config-btn-lg"
       type="button"
     >
       <span>
@@ -1269,7 +1269,7 @@ exports[`ConfigProvider components Button configProvider componentSize large 1`]
 exports[`ConfigProvider components Button configProvider componentSize middle 1`] = `
 <div>
   <button
-    class="config-btn"
+    class="config-btn config-btn-default"
     type="button"
   >
     <span>
@@ -1280,7 +1280,7 @@ exports[`ConfigProvider components Button configProvider componentSize middle 1`
     class="config-btn-group"
   >
     <button
-      class="config-btn"
+      class="config-btn config-btn-default"
       type="button"
     >
       <span>
@@ -1288,7 +1288,7 @@ exports[`ConfigProvider components Button configProvider componentSize middle 1`
       </span>
     </button>
     <button
-      class="config-btn"
+      class="config-btn config-btn-default"
       type="button"
     >
       <span>
@@ -1302,7 +1302,7 @@ exports[`ConfigProvider components Button configProvider componentSize middle 1`
 exports[`ConfigProvider components Button configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div>
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span>
@@ -1313,7 +1313,7 @@ exports[`ConfigProvider components Button configProvider virtual and dropdownMat
     class="ant-btn-group"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -1321,7 +1321,7 @@ exports[`ConfigProvider components Button configProvider virtual and dropdownMat
       </span>
     </button>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -1335,7 +1335,7 @@ exports[`ConfigProvider components Button configProvider virtual and dropdownMat
 exports[`ConfigProvider components Button normal 1`] = `
 <div>
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span>
@@ -1346,7 +1346,7 @@ exports[`ConfigProvider components Button normal 1`] = `
     class="ant-btn-group"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -1354,7 +1354,7 @@ exports[`ConfigProvider components Button normal 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -1368,7 +1368,7 @@ exports[`ConfigProvider components Button normal 1`] = `
 exports[`ConfigProvider components Button prefixCls 1`] = `
 <div>
   <button
-    class="prefix-Button"
+    class="prefix-Button prefix-Button-default"
     type="button"
   >
     <span>
@@ -1379,7 +1379,7 @@ exports[`ConfigProvider components Button prefixCls 1`] = `
     class="prefix-Button"
   >
     <button
-      class="prefix-Button"
+      class="prefix-Button prefix-Button-default"
       type="button"
     >
       <span>
@@ -1387,7 +1387,7 @@ exports[`ConfigProvider components Button prefixCls 1`] = `
       </span>
     </button>
     <button
-      class="prefix-Button"
+      class="prefix-Button prefix-Button-default"
       type="button"
     >
       <span>
@@ -12701,7 +12701,7 @@ exports[`ConfigProvider components Dropdown configProvider 1`] = `
   class="config-btn-group config-dropdown-button"
 >
   <button
-    class="config-btn"
+    class="config-btn config-btn-default"
     type="button"
   >
     <span>
@@ -12709,7 +12709,7 @@ exports[`ConfigProvider components Dropdown configProvider 1`] = `
     </span>
   </button>
   <button
-    class="config-btn config-btn-icon-only config-dropdown-trigger"
+    class="config-btn config-btn-default config-btn-icon-only config-dropdown-trigger"
     type="button"
   >
     <span
@@ -12740,7 +12740,7 @@ exports[`ConfigProvider components Dropdown configProvider componentSize large 1
   class="config-btn-group config-dropdown-button"
 >
   <button
-    class="config-btn config-btn-lg"
+    class="config-btn config-btn-default config-btn-lg"
     type="button"
   >
     <span>
@@ -12748,7 +12748,7 @@ exports[`ConfigProvider components Dropdown configProvider componentSize large 1
     </span>
   </button>
   <button
-    class="config-btn config-btn-lg config-btn-icon-only config-dropdown-trigger"
+    class="config-btn config-btn-default config-btn-lg config-btn-icon-only config-dropdown-trigger"
     type="button"
   >
     <span
@@ -12779,7 +12779,7 @@ exports[`ConfigProvider components Dropdown configProvider componentSize middle 
   class="config-btn-group config-dropdown-button"
 >
   <button
-    class="config-btn"
+    class="config-btn config-btn-default"
     type="button"
   >
     <span>
@@ -12787,7 +12787,7 @@ exports[`ConfigProvider components Dropdown configProvider componentSize middle 
     </span>
   </button>
   <button
-    class="config-btn config-btn-icon-only config-dropdown-trigger"
+    class="config-btn config-btn-default config-btn-icon-only config-dropdown-trigger"
     type="button"
   >
     <span
@@ -12818,7 +12818,7 @@ exports[`ConfigProvider components Dropdown configProvider virtual and dropdownM
   class="ant-btn-group ant-dropdown-button"
 >
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span>
@@ -12826,7 +12826,7 @@ exports[`ConfigProvider components Dropdown configProvider virtual and dropdownM
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-icon-only ant-dropdown-trigger"
+    class="ant-btn ant-btn-default ant-btn-icon-only ant-dropdown-trigger"
     type="button"
   >
     <span
@@ -12857,7 +12857,7 @@ exports[`ConfigProvider components Dropdown normal 1`] = `
   class="ant-btn-group ant-dropdown-button"
 >
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span>
@@ -12865,7 +12865,7 @@ exports[`ConfigProvider components Dropdown normal 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-icon-only ant-dropdown-trigger"
+    class="ant-btn ant-btn-default ant-btn-icon-only ant-dropdown-trigger"
     type="button"
   >
     <span
@@ -12896,7 +12896,7 @@ exports[`ConfigProvider components Dropdown prefixCls 1`] = `
   class="ant-btn-group prefix-Dropdown"
 >
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span>
@@ -12904,7 +12904,7 @@ exports[`ConfigProvider components Dropdown prefixCls 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-icon-only ant-dropdown-trigger"
+    class="ant-btn ant-btn-default ant-btn-icon-only ant-dropdown-trigger"
     type="button"
   >
     <span
@@ -13693,7 +13693,7 @@ exports[`ConfigProvider components Input configProvider 1`] = `
           class="config-input-group-addon"
         >
           <button
-            class="config-btn config-btn-icon-only config-input-search-button"
+            class="config-btn config-btn-default config-btn-icon-only config-input-search-button"
             type="button"
           >
             <span
@@ -13788,7 +13788,7 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
           class="config-input-group-addon"
         >
           <button
-            class="config-btn config-btn-lg config-btn-icon-only config-input-search-button"
+            class="config-btn config-btn-default config-btn-lg config-btn-icon-only config-input-search-button"
             type="button"
           >
             <span
@@ -13883,7 +13883,7 @@ exports[`ConfigProvider components Input configProvider componentSize middle 1`]
           class="config-input-group-addon"
         >
           <button
-            class="config-btn config-btn-icon-only config-input-search-button"
+            class="config-btn config-btn-default config-btn-icon-only config-input-search-button"
             type="button"
           >
             <span
@@ -13978,7 +13978,7 @@ exports[`ConfigProvider components Input configProvider virtual and dropdownMatc
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-icon-only ant-input-search-button"
+            class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
             type="button"
           >
             <span
@@ -14073,7 +14073,7 @@ exports[`ConfigProvider components Input normal 1`] = `
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-icon-only ant-input-search-button"
+            class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
             type="button"
           >
             <span
@@ -14168,7 +14168,7 @@ exports[`ConfigProvider components Input prefixCls 1`] = `
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-icon-only prefix-Input-button"
+            class="ant-btn ant-btn-default ant-btn-icon-only prefix-Input-button"
             type="button"
           >
             <span
@@ -15654,7 +15654,7 @@ exports[`ConfigProvider components Modal configProvider 1`] = `
             class="config-modal-footer"
           >
             <button
-              class="config-btn"
+              class="config-btn config-btn-default"
               type="button"
             >
               <span>
@@ -15746,7 +15746,7 @@ exports[`ConfigProvider components Modal configProvider componentSize large 1`] 
             class="config-modal-footer"
           >
             <button
-              class="config-btn config-btn-lg"
+              class="config-btn config-btn-default config-btn-lg"
               type="button"
             >
               <span>
@@ -15838,7 +15838,7 @@ exports[`ConfigProvider components Modal configProvider componentSize middle 1`]
             class="config-modal-footer"
           >
             <button
-              class="config-btn"
+              class="config-btn config-btn-default"
               type="button"
             >
               <span>
@@ -15930,7 +15930,7 @@ exports[`ConfigProvider components Modal configProvider virtual and dropdownMatc
             class="ant-modal-footer"
           >
             <button
-              class="ant-btn"
+              class="ant-btn ant-btn-default"
               type="button"
             >
               <span>
@@ -16022,7 +16022,7 @@ exports[`ConfigProvider components Modal normal 1`] = `
             class="ant-modal-footer"
           >
             <button
-              class="ant-btn"
+              class="ant-btn ant-btn-default"
               type="button"
             >
               <span>
@@ -16114,7 +16114,7 @@ exports[`ConfigProvider components Modal prefixCls 1`] = `
             class="prefix-Modal-footer"
           >
             <button
-              class="ant-btn"
+              class="ant-btn ant-btn-default"
               type="button"
             >
               <span>
@@ -18121,7 +18121,7 @@ exports[`ConfigProvider components Popconfirm configProvider 1`] = `
               class="config-popover-buttons"
             >
               <button
-                class="config-btn config-btn-sm"
+                class="config-btn config-btn-default config-btn-sm"
                 type="button"
               >
                 <span>
@@ -18204,7 +18204,7 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize large
               class="config-popover-buttons"
             >
               <button
-                class="config-btn config-btn-sm"
+                class="config-btn config-btn-default config-btn-sm"
                 type="button"
               >
                 <span>
@@ -18287,7 +18287,7 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize middl
               class="config-popover-buttons"
             >
               <button
-                class="config-btn config-btn-sm"
+                class="config-btn config-btn-default config-btn-sm"
                 type="button"
               >
                 <span>
@@ -18370,7 +18370,7 @@ exports[`ConfigProvider components Popconfirm configProvider virtual and dropdow
               class="ant-popover-buttons"
             >
               <button
-                class="ant-btn ant-btn-sm"
+                class="ant-btn ant-btn-default ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -18453,7 +18453,7 @@ exports[`ConfigProvider components Popconfirm normal 1`] = `
               class="ant-popover-buttons"
             >
               <button
-                class="ant-btn ant-btn-sm"
+                class="ant-btn ant-btn-default ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -18536,7 +18536,7 @@ exports[`ConfigProvider components Popconfirm prefixCls 1`] = `
               class="prefix-Popconfirm-buttons"
             >
               <button
-                class="ant-btn ant-btn-sm"
+                class="ant-btn ant-btn-default ant-btn-sm"
                 type="button"
               >
                 <span>

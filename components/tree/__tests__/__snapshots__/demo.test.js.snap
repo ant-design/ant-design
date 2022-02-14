@@ -3627,7 +3627,7 @@ exports[`renders ./components/tree/demo/search.md correctly 1`] = `
         class="ant-input-group-addon"
       >
         <button
-          class="ant-btn ant-btn-icon-only ant-input-search-button"
+          class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
           type="button"
         >
           <span

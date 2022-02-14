@@ -59,7 +59,7 @@ Array [
         class="ant-page-header-heading-extra"
       >
         <button
-          class="ant-btn"
+          class="ant-btn ant-btn-default"
           type="button"
         >
           <span>
@@ -67,7 +67,7 @@ Array [
           </span>
         </button>
         <button
-          class="ant-btn"
+          class="ant-btn ant-btn-default"
           type="button"
         >
           <span>
@@ -273,7 +273,7 @@ Array [
         class="ant-page-header-heading-extra"
       >
         <button
-          class="ant-btn"
+          class="ant-btn ant-btn-default"
           type="button"
         >
           <span>
@@ -281,7 +281,7 @@ Array [
           </span>
         </button>
         <button
-          class="ant-btn"
+          class="ant-btn ant-btn-default"
           type="button"
         >
           <span>
@@ -631,7 +631,7 @@ exports[`renders ./components/page-header/demo/content.md extend context correct
       class="ant-page-header-heading-extra"
     >
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span>
@@ -639,7 +639,7 @@ exports[`renders ./components/page-header/demo/content.md extend context correct
         </span>
       </button>
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span>
@@ -655,7 +655,7 @@ exports[`renders ./components/page-header/demo/content.md extend context correct
         </span>
       </button>
       <button
-        class="ant-btn ant-dropdown-trigger"
+        class="ant-btn ant-btn-default ant-dropdown-trigger"
         style="border:none;padding:0"
         type="button"
       >
@@ -1011,7 +1011,7 @@ exports[`renders ./components/page-header/demo/ghost.md extend context correctly
         class="ant-page-header-heading-extra"
       >
         <button
-          class="ant-btn"
+          class="ant-btn ant-btn-default"
           type="button"
         >
           <span>
@@ -1019,7 +1019,7 @@ exports[`renders ./components/page-header/demo/ghost.md extend context correctly
           </span>
         </button>
         <button
-          class="ant-btn"
+          class="ant-btn ant-btn-default"
           type="button"
         >
           <span>
@@ -1219,7 +1219,7 @@ exports[`renders ./components/page-header/demo/responsive.md extend context corr
       class="ant-page-header-heading-extra"
     >
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span>
@@ -1227,7 +1227,7 @@ exports[`renders ./components/page-header/demo/responsive.md extend context corr
         </span>
       </button>
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span>
