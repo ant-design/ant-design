@@ -42,7 +42,7 @@ function renderFilterItems({
   filteredKeys: Key[];
   filterMultiple: boolean;
   searchValue: string;
-  filterSearch: Function | boolean;
+  filterSearch: ((input: string, record: {}) => boolean) | boolean;
 }) {
   return filters.map((filter, index) => {
     const key = String(filter.value);
@@ -92,7 +92,7 @@ export interface FilterDropdownProps<RecordType> {
   filterState?: FilterState<RecordType>;
   filterMultiple: boolean;
   filterMode?: 'menu' | 'tree';
-  filterSearch?: boolean | Function;
+  filterSearch?: boolean | ((input: string, record: {}) => boolean);
   columnKey: Key;
   children: React.ReactNode;
   triggerFilter: (filterState: FilterState<RecordType>) => void;
