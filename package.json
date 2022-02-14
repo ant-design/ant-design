@@ -88,6 +88,7 @@
     "site:theme-dark": "cross-env ESBUILD=1 ANT_THEME=dark bisheng build -c ./site/bisheng.config.js",
     "site:theme-compact": "cross-env ESBUILD=1 ANT_THEME=compact bisheng build -c ./site/bisheng.config.js",
     "site": "npm run site:theme && cross-env NODE_ICU_DATA=node_modules/full-icu ESBUILD=1 bisheng build --ssr -c ./site/bisheng.config.js",
+    "site-tmp": "cross-env NODE_ICU_DATA=node_modules/full-icu ESBUILD=1 bisheng build --ssr -c ./site/bisheng.config.js",
     "sort": "npx sort-package-json",
     "sort-api": "antd-tools run sort-api-table",
     "start": "antd-tools run clean && cross-env NODE_ENV=development concurrently \"bisheng start -c ./site/bisheng.config.js\"",
@@ -112,7 +113,7 @@
   ],
   "dependencies": {
     "@ant-design/colors": "^6.0.0",
-    "@ant-design/cssinjs": "~0.0.0-alpha.4",
+    "@ant-design/cssinjs": "~0.0.0-alpha.7",
     "@ant-design/icons": "^4.7.0",
     "@ant-design/react-slick": "~0.28.1",
     "@babel/runtime": "^7.12.5",

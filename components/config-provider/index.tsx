@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { StyleProvider } from '@ant-design/cssinjs';
 import IconContext from '@ant-design/icons/lib/components/Context';
 import { FormProvider as RcFormProvider } from 'rc-field-form';
 import { ValidateMessages } from 'rc-field-form/lib/interface';
@@ -255,7 +256,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     childNode = <SizeContextProvider size={componentSize}>{childNode}</SizeContextProvider>;
   }
 
-  // Dynamic theme
+  // ================================ Dynamic theme ================================
   const memoTheme = React.useMemo(
     () => ({
       token: {
@@ -271,10 +272,15 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     );
   }
 
+  // Wrapper with StyleProvider to enable ssr
+  childNode = <StyleProvider>{childNode}</StyleProvider>;
+
+  // =================================== Render ===================================
   return <ConfigContext.Provider value={memoedConfig}>{childNode}</ConfigContext.Provider>;
 };
 
 const ConfigProvider: React.FC<ConfigProviderProps> & {
+  /** @private internal Usage. do not use in your production */
   ConfigContext: typeof ConfigContext;
   SizeContext: typeof SizeContext;
   config: typeof setGlobalConfig;
@@ -307,7 +313,6 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
   );
 };
 
-/** @private internal Usage. do not use in your production */
 ConfigProvider.ConfigContext = ConfigContext;
 ConfigProvider.SizeContext = SizeContext;
 ConfigProvider.config = setGlobalConfig;
