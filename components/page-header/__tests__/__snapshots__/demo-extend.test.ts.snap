@@ -455,56 +455,61 @@ exports[`renders ./components/page-header/demo/breadcrumb.md extend context corr
 <div
   class="ant-page-header site-page-header has-breadcrumb ant-page-header-ghost"
 >
-  <div
-    class="ant-breadcrumb"
+  <nav
+    aria-label="Breadcrumb"
   >
-    <span>
-      <span
-        class="ant-breadcrumb-link"
-      >
-        <a
-          href="#/index"
+    <ol
+      class="ant-breadcrumb"
+      style="display:flex;flex-wrap:wrap"
+    >
+      <li>
+        <span
+          class="ant-breadcrumb-link"
         >
-          First-level Menu
-        </a>
-      </span>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
-      </span>
-    </span>
-    <span>
-      <span
-        class="ant-breadcrumb-link"
-      >
-        <a
-          href="#/index/first"
-        >
-          Second-level Menu
-        </a>
-      </span>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
-      </span>
-    </span>
-    <span>
-      <span
-        class="ant-breadcrumb-link"
-      >
-        <span>
-          Third-level Menu
+          <a
+            href="#/index"
+          >
+            First-level Menu
+          </a>
         </span>
-      </span>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
-      </span>
-    </span>
-  </div>
+        <span
+          class="ant-breadcrumb-separator"
+        >
+          /
+        </span>
+      </li>
+      <li>
+        <span
+          class="ant-breadcrumb-link"
+        >
+          <a
+            href="#/index/first"
+          >
+            Second-level Menu
+          </a>
+        </span>
+        <span
+          class="ant-breadcrumb-separator"
+        >
+          /
+        </span>
+      </li>
+      <li>
+        <span
+          class="ant-breadcrumb-link"
+        >
+          <span>
+            Third-level Menu
+          </span>
+        </span>
+        <span
+          class="ant-breadcrumb-separator"
+        >
+          /
+        </span>
+      </li>
+    </ol>
+  </nav>
   <div
     class="ant-page-header-heading"
   >
@@ -532,56 +537,61 @@ exports[`renders ./components/page-header/demo/content.md extend context correct
 <div
   class="ant-page-header site-page-header has-breadcrumb ant-page-header-ghost"
 >
-  <div
-    class="ant-breadcrumb"
+  <nav
+    aria-label="Breadcrumb"
   >
-    <span>
-      <span
-        class="ant-breadcrumb-link"
-      >
-        <a
-          href="#/index"
+    <ol
+      class="ant-breadcrumb"
+      style="display:flex;flex-wrap:wrap"
+    >
+      <li>
+        <span
+          class="ant-breadcrumb-link"
         >
-          First-level Menu
-        </a>
-      </span>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
-      </span>
-    </span>
-    <span>
-      <span
-        class="ant-breadcrumb-link"
-      >
-        <a
-          href="#/index/first"
-        >
-          Second-level Menu
-        </a>
-      </span>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
-      </span>
-    </span>
-    <span>
-      <span
-        class="ant-breadcrumb-link"
-      >
-        <span>
-          Third-level Menu
+          <a
+            href="#/index"
+          >
+            First-level Menu
+          </a>
         </span>
-      </span>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
-      </span>
-    </span>
-  </div>
+        <span
+          class="ant-breadcrumb-separator"
+        >
+          /
+        </span>
+      </li>
+      <li>
+        <span
+          class="ant-breadcrumb-link"
+        >
+          <a
+            href="#/index/first"
+          >
+            Second-level Menu
+          </a>
+        </span>
+        <span
+          class="ant-breadcrumb-separator"
+        >
+          /
+        </span>
+      </li>
+      <li>
+        <span
+          class="ant-breadcrumb-link"
+        >
+          <span>
+            Third-level Menu
+          </span>
+        </span>
+        <span
+          class="ant-breadcrumb-separator"
+        >
+          /
+        </span>
+      </li>
+    </ol>
+  </nav>
   <div
     class="ant-page-header-heading"
   >
