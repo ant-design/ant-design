@@ -83,7 +83,7 @@ const columns = [
       },
     ],
     onFilter: (value, record) => record.address.startsWith(value),
-    filterSearch: true,
+    filterSearch:(input, record) => record.value.indexOf(input) > -1,
     width: '40%',
   },
 ];

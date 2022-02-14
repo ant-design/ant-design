@@ -35,12 +35,14 @@ function renderFilterItems({
   filteredKeys,
   filterMultiple,
   searchValue,
+  filterSearch,
 }: {
   filters: ColumnFilterItem[];
   prefixCls: string;
   filteredKeys: Key[];
   filterMultiple: boolean;
   searchValue: string;
+  filterSearch: Function | boolean;
 }) {
   return filters.map((filter, index) => {
     const key = String(filter.value);
@@ -58,6 +60,7 @@ function renderFilterItems({
             filteredKeys,
             filterMultiple,
             searchValue,
+            filterSearch,
           })}
         </Menu.SubMenu>
       );
@@ -72,6 +75,9 @@ function renderFilterItems({
       </Menu.Item>
     );
     if (searchValue.trim()) {
+      if (typeof filterSearch === 'function') {
+        return filterSearch(searchValue, filter) ? item : undefined;
+      }
       return searchValueMatched(searchValue, filter.text) ? item : undefined;
     }
     return item;
@@ -86,7 +92,7 @@ export interface FilterDropdownProps<RecordType> {
   filterState?: FilterState<RecordType>;
   filterMultiple: boolean;
   filterMode?: 'menu' | 'tree';
-  filterSearch?: boolean;
+  filterSearch?: boolean | Function;
   columnKey: Key;
   children: React.ReactNode;
   triggerFilter: (filterState: FilterState<RecordType>) => void;
@@ -353,6 +359,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
           >
             {renderFilterItems({
               filters: column.filters || [],
+              filterSearch,
               prefixCls,
               filteredKeys: getFilteredKeysSync(),
               filterMultiple,

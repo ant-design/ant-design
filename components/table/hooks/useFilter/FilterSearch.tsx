@@ -6,7 +6,7 @@ import { TableLocale } from '../../interface';
 interface FilterSearchProps {
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  filterSearch: Boolean;
+  filterSearch: boolean | Function;
   tablePrefixCls: string;
   locale: TableLocale;
 }
