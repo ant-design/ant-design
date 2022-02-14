@@ -1,5 +1,6 @@
 import * as React from 'react';
 import toArray from 'rc-util/lib/Children/toArray';
+import useIsomorphicLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 
 export interface EllipsisProps {
   enabledMeasure?: boolean;
@@ -93,20 +94,20 @@ const Ellipsis = ({ enabledMeasure, children, text, width, rows, onEllipsis }: E
   }, [enabledMeasure, walkingState, children, nodeList, midLen, totalLen]);
 
   // ======================== Walk ========================
-  React.useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (enabledMeasure && width && totalLen) {
       setWalkingState(PREPARE);
       setCutLength([0, Math.ceil(totalLen / 2), totalLen]);
     }
   }, [enabledMeasure, width, text, totalLen, rows]);
 
-  React.useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (walkingState === PREPARE) {
       setSingleRowHeight(singleRowRef.current?.offsetHeight || 0);
     }
   }, [walkingState]);
 
-  React.useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (singleRowHeight) {
       if (walkingState === PREPARE) {
         // Ignore if position is enough
