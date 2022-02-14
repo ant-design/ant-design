@@ -20176,27 +20176,96 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
           class="ant-form-item-control-input-content"
         >
           <div
-            class="ant-input-number"
+            class="ant-input-number-affix-wrapper ant-input-number-affix-wrapper-status-success ant-input-number-affix-wrapper-has-feedback"
             style="width:100%"
           >
             <div
-              class="ant-input-number-handler-wrap"
+              class="ant-input-number ant-input-number-status-success"
             >
-              <span
-                aria-disabled="false"
-                aria-label="Increase Value"
-                class="ant-input-number-handler ant-input-number-handler-up"
-                role="button"
-                unselectable="on"
+              <div
+                class="ant-input-number-handler-wrap"
               >
                 <span
-                  aria-label="up"
-                  class="anticon anticon-up ant-input-number-handler-up-inner"
+                  aria-disabled="false"
+                  aria-label="Increase Value"
+                  class="ant-input-number-handler ant-input-number-handler-up"
+                  role="button"
+                  unselectable="on"
+                >
+                  <span
+                    aria-label="up"
+                    class="anticon anticon-up ant-input-number-handler-up-inner"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="up"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span
+                  aria-disabled="false"
+                  aria-label="Decrease Value"
+                  class="ant-input-number-handler ant-input-number-handler-down"
+                  role="button"
+                  unselectable="on"
+                >
+                  <span
+                    aria-label="down"
+                    class="anticon anticon-down ant-input-number-handler-down-inner"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="down"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+              </div>
+              <div
+                class="ant-input-number-input-wrap"
+              >
+                <input
+                  autocomplete="off"
+                  class="ant-input-number-input"
+                  role="spinbutton"
+                  step="1"
+                  value=""
+                />
+              </div>
+            </div>
+            <span
+              class="ant-input-number-suffix"
+            >
+              <span
+                class="ant-input-number-feedback-icon"
+              >
+                <span
+                  aria-label="check-circle"
+                  class="anticon anticon-check-circle"
                   role="img"
                 >
                   <svg
                     aria-hidden="true"
-                    data-icon="up"
+                    data-icon="check-circle"
                     fill="currentColor"
                     focusable="false"
                     height="1em"
@@ -20204,50 +20273,12 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
                     width="1em"
                   >
                     <path
-                      d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
                     />
                   </svg>
                 </span>
               </span>
-              <span
-                aria-disabled="false"
-                aria-label="Decrease Value"
-                class="ant-input-number-handler ant-input-number-handler-down"
-                role="button"
-                unselectable="on"
-              >
-                <span
-                  aria-label="down"
-                  class="anticon anticon-down ant-input-number-handler-down-inner"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="down"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                    />
-                  </svg>
-                </span>
-              </span>
-            </div>
-            <div
-              class="ant-input-number-input-wrap"
-            >
-              <input
-                autocomplete="off"
-                class="ant-input-number-input"
-                role="spinbutton"
-                step="1"
-                value=""
-              />
-            </div>
+            </span>
           </div>
         </div>
       </div>
