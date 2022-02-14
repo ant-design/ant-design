@@ -15,6 +15,25 @@ timeline: true
 
 ---
 
+## 4.18.7
+
+`2022-02-14`
+
+- Typography
+  - 🛠 修复 Typography 在 SSR 渲染时警告 `useLayoutEffect` 的问题。[#33818](https://github.com/ant-design/ant-design/pull/33818) [@SoYoung210](https://github.com/SoYoung210)
+  - 🐞 修复 Typography 配置 `ellipsis` 后在某些情况下会出现滚动条的问题。[#34007](https://github.com/ant-design/ant-design/pull/34007)
+  - 🐞 Typography 复制按钮点击事件不在冒泡。[#33998](https://github.com/ant-design/ant-design/pull/33998) [@linxianxi](https://github.com/linxianxi)
+  - 🐞 修复 Typography 中编辑和拷贝按钮无法响应 Enter 按键的问题。[#33976](https://github.com/ant-design/ant-design/pull/33976) [@mrwd2009](https://github.com/mrwd2009)
+- 🐞 修复 Form 波兰语中表单校验部分文案未定义的问题。[#34024](https://github.com/ant-design/ant-design/pull/34024) [@MichalPodeszwa](https://github.com/MichalPodeszwa)
+- 🐞 修复 Input.TextArea 设置 `maxLength` 时光标位置会影响超出部分截取的问题。[#33910](https://github.com/ant-design/ant-design/pull/33910) [@chenyizhongx](https://github.com/chenyizhongx)
+- 💄 Button 对于 `type=default` 也会提供 `.ant-btn-default` 的样式类名。[#34013](https://github.com/ant-design/ant-design/pull/34013)
+- 💄 优化 Menu `:focus-visible` 的样式。[#34008](https://github.com/ant-design/ant-design/pull/34008)
+- 💄 修复 Pagination 和 Rate 在 Safari 下部分样式丢失的问题，比如分页按钮禁用样式失效。[#34002](https://github.com/ant-design/ant-design/pull/34002)
+- 💄 修复 Row 与 Col 在配置 `prefixCls` 的样式问题。[#33969](https://github.com/ant-design/ant-design/pull/33969) [@mic-web](https://github.com/mic-web)
+- 🐞 修复 Icon 自定义颜色无效的问题。[#33951](https://github.com/ant-design/ant-design/pull/33951) [@MadCcc](https://github.com/MadCcc)
+- TypeScript
+  - 🤖 优化 Cascader `multiple` 属性对应的 `onChange` 类型推断。[#33947](https://github.com/ant-design/ant-design/pull/33947) [@babycannotsay](https://github.com/babycannotsay)
+
 ## 4.18.6
 
 `2022-02-07`
