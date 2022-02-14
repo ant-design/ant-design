@@ -42,7 +42,7 @@ function renderFilterItems({
   filteredKeys: Key[];
   filterMultiple: boolean;
   searchValue: string;
-  filterSearch: ((input: string, record: {}) => boolean) | boolean;
+  filterSearch: boolean | ((input: string, record: {}) => boolean);
 }) {
   return filters.map((filter, index) => {
     const key = String(filter.value);
