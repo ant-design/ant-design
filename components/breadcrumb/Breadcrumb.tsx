@@ -143,9 +143,11 @@ const Breadcrumb: BreadcrumbInterface = ({
   );
 
   return (
-    <div className={breadcrumbClassName} style={style} {...restProps}>
-      {crumbs}
-    </div>
+    <nav aria-label="Breadcrumb">
+      <ol className={breadcrumbClassName} style={{...style, display: 'flex', flexWrap: 'wrap'}} {...restProps}>
+        {crumbs}
+      </ol>
+    </nav>
   );
 };
 
