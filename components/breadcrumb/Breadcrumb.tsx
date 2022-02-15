@@ -140,11 +140,12 @@ const Breadcrumb: BreadcrumbInterface = ({
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    'flex-wrap',
   );
 
   return (
     <nav {...restProps}>
-      <ol className={breadcrumbClassName} style={{...style, display: 'flex', flexWrap: 'wrap'}} >
+      <ol className={breadcrumbClassName} style={style} >
         {crumbs}
       </ol>
     </nav>
