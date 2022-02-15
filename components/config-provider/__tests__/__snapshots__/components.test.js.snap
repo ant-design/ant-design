@@ -985,189 +985,201 @@ exports[`ConfigProvider components Badge prefixCls 1`] = `
 `;
 
 exports[`ConfigProvider components Breadcrumb configProvider 1`] = `
-<div
+<nav
   class="config-breadcrumb"
 >
-  <span>
-    <span
-      class="config-breadcrumb-link"
-    >
-      Bamboo
-    </span>
-    <span
-      class="config-breadcrumb-separator"
-    >
-      /
-    </span>
-  </span>
-  <span>
-    <span
-      class="config-breadcrumb-link"
-    >
-      Light
-    </span>
-    <span
-      class="config-breadcrumb-separator"
-    >
-      /
-    </span>
-  </span>
-</div>
+  <ol>
+    <li>
+      <span
+        class="config-breadcrumb-link"
+      >
+        Bamboo
+      </span>
+      <span
+        class="config-breadcrumb-separator"
+      >
+        /
+      </span>
+    </li>
+    <li>
+      <span
+        class="config-breadcrumb-link"
+      >
+        Light
+      </span>
+      <span
+        class="config-breadcrumb-separator"
+      >
+        /
+      </span>
+    </li>
+  </ol>
+</nav>
 `;
 
 exports[`ConfigProvider components Breadcrumb configProvider componentSize large 1`] = `
-<div
+<nav
   class="config-breadcrumb"
 >
-  <span>
-    <span
-      class="config-breadcrumb-link"
-    >
-      Bamboo
-    </span>
-    <span
-      class="config-breadcrumb-separator"
-    >
-      /
-    </span>
-  </span>
-  <span>
-    <span
-      class="config-breadcrumb-link"
-    >
-      Light
-    </span>
-    <span
-      class="config-breadcrumb-separator"
-    >
-      /
-    </span>
-  </span>
-</div>
+  <ol>
+    <li>
+      <span
+        class="config-breadcrumb-link"
+      >
+        Bamboo
+      </span>
+      <span
+        class="config-breadcrumb-separator"
+      >
+        /
+      </span>
+    </li>
+    <li>
+      <span
+        class="config-breadcrumb-link"
+      >
+        Light
+      </span>
+      <span
+        class="config-breadcrumb-separator"
+      >
+        /
+      </span>
+    </li>
+  </ol>
+</nav>
 `;
 
 exports[`ConfigProvider components Breadcrumb configProvider componentSize middle 1`] = `
-<div
+<nav
   class="config-breadcrumb"
 >
-  <span>
-    <span
-      class="config-breadcrumb-link"
-    >
-      Bamboo
-    </span>
-    <span
-      class="config-breadcrumb-separator"
-    >
-      /
-    </span>
-  </span>
-  <span>
-    <span
-      class="config-breadcrumb-link"
-    >
-      Light
-    </span>
-    <span
-      class="config-breadcrumb-separator"
-    >
-      /
-    </span>
-  </span>
-</div>
+  <ol>
+    <li>
+      <span
+        class="config-breadcrumb-link"
+      >
+        Bamboo
+      </span>
+      <span
+        class="config-breadcrumb-separator"
+      >
+        /
+      </span>
+    </li>
+    <li>
+      <span
+        class="config-breadcrumb-link"
+      >
+        Light
+      </span>
+      <span
+        class="config-breadcrumb-separator"
+      >
+        /
+      </span>
+    </li>
+  </ol>
+</nav>
 `;
 
 exports[`ConfigProvider components Breadcrumb configProvider virtual and dropdownMatchSelectWidth 1`] = `
-<div
+<nav
   class="ant-breadcrumb"
 >
-  <span>
-    <span
-      class="ant-breadcrumb-link"
-    >
-      Bamboo
-    </span>
-    <span
-      class="ant-breadcrumb-separator"
-    >
-      /
-    </span>
-  </span>
-  <span>
-    <span
-      class="ant-breadcrumb-link"
-    >
-      Light
-    </span>
-    <span
-      class="ant-breadcrumb-separator"
-    >
-      /
-    </span>
-  </span>
-</div>
+  <ol>
+    <li>
+      <span
+        class="ant-breadcrumb-link"
+      >
+        Bamboo
+      </span>
+      <span
+        class="ant-breadcrumb-separator"
+      >
+        /
+      </span>
+    </li>
+    <li>
+      <span
+        class="ant-breadcrumb-link"
+      >
+        Light
+      </span>
+      <span
+        class="ant-breadcrumb-separator"
+      >
+        /
+      </span>
+    </li>
+  </ol>
+</nav>
 `;
 
 exports[`ConfigProvider components Breadcrumb normal 1`] = `
-<div
+<nav
   class="ant-breadcrumb"
 >
-  <span>
-    <span
-      class="ant-breadcrumb-link"
-    >
-      Bamboo
-    </span>
-    <span
-      class="ant-breadcrumb-separator"
-    >
-      /
-    </span>
-  </span>
-  <span>
-    <span
-      class="ant-breadcrumb-link"
-    >
-      Light
-    </span>
-    <span
-      class="ant-breadcrumb-separator"
-    >
-      /
-    </span>
-  </span>
-</div>
+  <ol>
+    <li>
+      <span
+        class="ant-breadcrumb-link"
+      >
+        Bamboo
+      </span>
+      <span
+        class="ant-breadcrumb-separator"
+      >
+        /
+      </span>
+    </li>
+    <li>
+      <span
+        class="ant-breadcrumb-link"
+      >
+        Light
+      </span>
+      <span
+        class="ant-breadcrumb-separator"
+      >
+        /
+      </span>
+    </li>
+  </ol>
+</nav>
 `;
 
 exports[`ConfigProvider components Breadcrumb prefixCls 1`] = `
-<div
+<nav
   class="prefix-Breadcrumb"
 >
-  <span>
-    <span
-      class="prefix-Breadcrumb-link"
-    >
-      Bamboo
-    </span>
-    <span
-      class="prefix-Breadcrumb-separator"
-    >
-      /
-    </span>
-  </span>
-  <span>
-    <span
-      class="prefix-Breadcrumb-link"
-    >
-      Light
-    </span>
-    <span
-      class="prefix-Breadcrumb-separator"
-    >
-      /
-    </span>
-  </span>
-</div>
+  <ol>
+    <li>
+      <span
+        class="prefix-Breadcrumb-link"
+      >
+        Bamboo
+      </span>
+      <span
+        class="prefix-Breadcrumb-separator"
+      >
+        /
+      </span>
+    </li>
+    <li>
+      <span
+        class="prefix-Breadcrumb-link"
+      >
+        Light
+      </span>
+      <span
+        class="prefix-Breadcrumb-separator"
+      >
+        /
+      </span>
+    </li>
+  </ol>
+</nav>
 `;
 
 exports[`ConfigProvider components Button configProvider 1`] = `
