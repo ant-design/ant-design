@@ -1069,7 +1069,7 @@ Array [
     </div>
   </div>,
   <button
-    class="ant-btn ant-dropdown-trigger"
+    class="ant-btn ant-btn-default ant-dropdown-trigger"
     type="button"
   >
     <span>
@@ -1287,7 +1287,7 @@ Array [
 exports[`renders ./components/dropdown/demo/arrow-center.md extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-dropdown-trigger"
+    class="ant-btn ant-btn-default ant-dropdown-trigger"
     type="button"
   >
     <span>
@@ -1500,7 +1500,7 @@ Array [
     </div>
   </div>,
   <button
-    class="ant-btn ant-dropdown-trigger"
+    class="ant-btn ant-btn-default ant-dropdown-trigger"
     type="button"
   >
     <span>
@@ -1713,7 +1713,7 @@ Array [
     </div>
   </div>,
   <button
-    class="ant-btn ant-dropdown-trigger"
+    class="ant-btn ant-btn-default ant-dropdown-trigger"
     type="button"
   >
     <span>
@@ -1927,7 +1927,7 @@ Array [
   </div>,
   <br />,
   <button
-    class="ant-btn ant-dropdown-trigger"
+    class="ant-btn ant-btn-default ant-dropdown-trigger"
     type="button"
   >
     <span>
@@ -2140,7 +2140,7 @@ Array [
     </div>
   </div>,
   <button
-    class="ant-btn ant-dropdown-trigger"
+    class="ant-btn ant-btn-default ant-dropdown-trigger"
     type="button"
   >
     <span>
