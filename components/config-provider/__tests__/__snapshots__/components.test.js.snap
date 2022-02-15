@@ -985,9 +985,7 @@ exports[`ConfigProvider components Badge prefixCls 1`] = `
 `;
 
 exports[`ConfigProvider components Breadcrumb configProvider 1`] = `
-<nav
-  aria-label="Breadcrumb"
->
+<nav>
   <ol
     class="config-breadcrumb"
     style="display:flex;flex-wrap:wrap"
@@ -1021,9 +1019,7 @@ exports[`ConfigProvider components Breadcrumb configProvider 1`] = `
 `;
 
 exports[`ConfigProvider components Breadcrumb configProvider componentSize large 1`] = `
-<nav
-  aria-label="Breadcrumb"
->
+<nav>
   <ol
     class="config-breadcrumb"
     style="display:flex;flex-wrap:wrap"
@@ -1057,9 +1053,7 @@ exports[`ConfigProvider components Breadcrumb configProvider componentSize large
 `;
 
 exports[`ConfigProvider components Breadcrumb configProvider componentSize middle 1`] = `
-<nav
-  aria-label="Breadcrumb"
->
+<nav>
   <ol
     class="config-breadcrumb"
     style="display:flex;flex-wrap:wrap"
@@ -1093,9 +1087,7 @@ exports[`ConfigProvider components Breadcrumb configProvider componentSize middl
 `;
 
 exports[`ConfigProvider components Breadcrumb configProvider virtual and dropdownMatchSelectWidth 1`] = `
-<nav
-  aria-label="Breadcrumb"
->
+<nav>
   <ol
     class="ant-breadcrumb"
     style="display:flex;flex-wrap:wrap"
@@ -1129,9 +1121,7 @@ exports[`ConfigProvider components Breadcrumb configProvider virtual and dropdow
 `;
 
 exports[`ConfigProvider components Breadcrumb normal 1`] = `
-<nav
-  aria-label="Breadcrumb"
->
+<nav>
   <ol
     class="ant-breadcrumb"
     style="display:flex;flex-wrap:wrap"
@@ -1165,9 +1155,7 @@ exports[`ConfigProvider components Breadcrumb normal 1`] = `
 `;
 
 exports[`ConfigProvider components Breadcrumb prefixCls 1`] = `
-<nav
-  aria-label="Breadcrumb"
->
+<nav>
   <ol
     class="prefix-Breadcrumb"
     style="display:flex;flex-wrap:wrap"

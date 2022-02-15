@@ -74,9 +74,7 @@ exports[`react router react router 3 1`] = `
     ]
   }
 >
-  <nav
-    aria-label="Breadcrumb"
-  >
+  <nav>
     <ol
       className="ant-breadcrumb"
       style={

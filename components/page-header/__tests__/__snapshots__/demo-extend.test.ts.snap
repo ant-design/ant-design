@@ -455,9 +455,7 @@ exports[`renders ./components/page-header/demo/breadcrumb.md extend context corr
 <div
   class="ant-page-header site-page-header has-breadcrumb ant-page-header-ghost"
 >
-  <nav
-    aria-label="Breadcrumb"
-  >
+  <nav>
     <ol
       class="ant-breadcrumb"
       style="display:flex;flex-wrap:wrap"
@@ -537,9 +535,7 @@ exports[`renders ./components/page-header/demo/content.md extend context correct
 <div
   class="ant-page-header site-page-header has-breadcrumb ant-page-header-ghost"
 >
-  <nav
-    aria-label="Breadcrumb"
-  >
+  <nav>
     <ol
       class="ant-breadcrumb"
       style="display:flex;flex-wrap:wrap"

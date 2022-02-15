@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/breadcrumb/demo/basic.md correctly 1`] = `
-<nav
-  aria-label="Breadcrumb"
->
+<nav>
   <ol
     class="ant-breadcrumb"
     style="display:flex;flex-wrap:wrap"
@@ -69,9 +67,7 @@ exports[`renders ./components/breadcrumb/demo/basic.md correctly 1`] = `
 `;
 
 exports[`renders ./components/breadcrumb/demo/overlay.md correctly 1`] = `
-<nav
-  aria-label="Breadcrumb"
->
+<nav>
   <ol
     class="ant-breadcrumb"
     style="display:flex;flex-wrap:wrap"
@@ -160,9 +156,7 @@ exports[`renders ./components/breadcrumb/demo/overlay.md correctly 1`] = `
 `;
 
 exports[`renders ./components/breadcrumb/demo/separator.md correctly 1`] = `
-<nav
-  aria-label="Breadcrumb"
->
+<nav>
   <ol
     class="ant-breadcrumb"
     style="display:flex;flex-wrap:wrap"
@@ -222,9 +216,7 @@ exports[`renders ./components/breadcrumb/demo/separator.md correctly 1`] = `
 `;
 
 exports[`renders ./components/breadcrumb/demo/separator-component.md correctly 1`] = `
-<nav
-  aria-label="Breadcrumb"
->
+<nav>
   <ol
     class="ant-breadcrumb"
     style="display:flex;flex-wrap:wrap"
@@ -279,9 +271,7 @@ exports[`renders ./components/breadcrumb/demo/separator-component.md correctly 1
 `;
 
 exports[`renders ./components/breadcrumb/demo/withIcon.md correctly 1`] = `
-<nav
-  aria-label="Breadcrumb"
->
+<nav>
   <ol
     class="ant-breadcrumb"
     style="display:flex;flex-wrap:wrap"

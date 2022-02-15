@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Breadcrumb filter React.Fragment 1`] = `
-<nav
-  aria-label="Breadcrumb"
->
+<nav>
   <ol
     class="ant-breadcrumb"
     style="display:flex;flex-wrap:wrap"
@@ -38,9 +36,7 @@ exports[`Breadcrumb filter React.Fragment 1`] = `
 `;
 
 exports[`Breadcrumb rtl render component should be rendered correctly in RTL direction 1`] = `
-<nav
-  aria-label="Breadcrumb"
->
+<nav>
   <ol
     class="ant-breadcrumb ant-breadcrumb-rtl"
     style="display: flex; flex-wrap: wrap;"
@@ -49,9 +45,7 @@ exports[`Breadcrumb rtl render component should be rendered correctly in RTL dir
 `;
 
 exports[`Breadcrumb should accept undefined routes 1`] = `
-<nav
-  aria-label="Breadcrumb"
->
+<nav>
   <ol
     class="ant-breadcrumb"
     style="display:flex;flex-wrap:wrap"
@@ -60,9 +54,7 @@ exports[`Breadcrumb should accept undefined routes 1`] = `
 `;
 
 exports[`Breadcrumb should allow Breadcrumb.Item is null or undefined 1`] = `
-<nav
-  aria-label="Breadcrumb"
->
+<nav>
   <ol
     class="ant-breadcrumb"
     style="display:flex;flex-wrap:wrap"
@@ -84,9 +76,7 @@ exports[`Breadcrumb should allow Breadcrumb.Item is null or undefined 1`] = `
 `;
 
 exports[`Breadcrumb should not display Breadcrumb Item when its children is falsy 1`] = `
-<nav
-  aria-label="Breadcrumb"
->
+<nav>
   <ol
     class="ant-breadcrumb"
     style="display:flex;flex-wrap:wrap"
@@ -120,9 +110,7 @@ exports[`Breadcrumb should not display Breadcrumb Item when its children is fals
 `;
 
 exports[`Breadcrumb should render a menu 1`] = `
-<nav
-  aria-label="Breadcrumb"
->
+<nav>
   <ol
     class="ant-breadcrumb"
     style="display:flex;flex-wrap:wrap"
@@ -215,9 +203,7 @@ exports[`Breadcrumb should render a menu 1`] = `
 `;
 
 exports[`Breadcrumb should support Breadcrumb.Item default separator 1`] = `
-<nav
-  aria-label="Breadcrumb"
->
+<nav>
   <ol
     class="ant-breadcrumb"
     style="display:flex;flex-wrap:wrap"
@@ -265,9 +251,7 @@ exports[`Breadcrumb should support Breadcrumb.Item default separator 1`] = `
 `;
 
 exports[`Breadcrumb should support React.Fragment and falsy children 1`] = `
-<nav
-  aria-label="Breadcrumb"
->
+<nav>
   <ol
     class="ant-breadcrumb"
     style="display:flex;flex-wrap:wrap"
@@ -315,11 +299,10 @@ exports[`Breadcrumb should support React.Fragment and falsy children 1`] = `
 
 exports[`Breadcrumb should support custom attribute 1`] = `
 <nav
-  aria-label="Breadcrumb"
+  data-custom="custom"
 >
   <ol
     class="ant-breadcrumb"
-    data-custom="custom"
     style="display:flex;flex-wrap:wrap"
   >
     <li>

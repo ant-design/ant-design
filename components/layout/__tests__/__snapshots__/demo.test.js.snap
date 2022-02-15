@@ -381,9 +381,7 @@ exports[`renders ./components/layout/demo/fixed.md correctly 1`] = `
     class="ant-layout-content site-layout"
     style="padding:0 50px;margin-top:64px"
   >
-    <nav
-      aria-label="Breadcrumb"
-    >
+    <nav>
       <ol
         class="ant-breadcrumb"
         style="margin:16px 0;display:flex;flex-wrap:wrap"
@@ -1257,9 +1255,7 @@ exports[`renders ./components/layout/demo/side.md correctly 1`] = `
       class="ant-layout-content"
       style="margin:0 16px"
     >
-      <nav
-        aria-label="Breadcrumb"
-      >
+      <nav>
         <ol
           class="ant-breadcrumb"
           style="margin:16px 0;display:flex;flex-wrap:wrap"
@@ -1550,9 +1546,7 @@ exports[`renders ./components/layout/demo/top.md correctly 1`] = `
     class="ant-layout-content"
     style="padding:0 50px"
   >
-    <nav
-      aria-label="Breadcrumb"
-    >
+    <nav>
       <ol
         class="ant-breadcrumb"
         style="margin:16px 0;display:flex;flex-wrap:wrap"
@@ -1709,9 +1703,7 @@ exports[`renders ./components/layout/demo/top-side.md correctly 1`] = `
     class="ant-layout-content"
     style="padding:0 50px"
   >
-    <nav
-      aria-label="Breadcrumb"
-    >
+    <nav>
       <ol
         class="ant-breadcrumb"
         style="margin:16px 0;display:flex;flex-wrap:wrap"
@@ -2271,9 +2263,7 @@ exports[`renders ./components/layout/demo/top-side-2.md correctly 1`] = `
       class="ant-layout"
       style="padding:0 24px 24px"
     >
-      <nav
-        aria-label="Breadcrumb"
-      >
+      <nav>
         <ol
           class="ant-breadcrumb"
           style="margin:16px 0;display:flex;flex-wrap:wrap"
