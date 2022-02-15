@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { StyleProvider } from '@ant-design/cssinjs';
 import IconContext from '@ant-design/icons/lib/components/Context';
 import { FormProvider as RcFormProvider } from 'rc-field-form';
 import { ValidateMessages } from 'rc-field-form/lib/interface';
@@ -271,9 +270,6 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
       <DesignTokenContext.Provider value={memoTheme}>{childNode}</DesignTokenContext.Provider>
     );
   }
-
-  // Wrapper with StyleProvider to enable ssr
-  childNode = <StyleProvider>{childNode}</StyleProvider>;
 
   // =================================== Render ===================================
   return <ConfigContext.Provider value={memoedConfig}>{childNode}</ConfigContext.Provider>;

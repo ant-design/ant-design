@@ -18,7 +18,6 @@ import * as utils from '../utils';
 import defaultDesignToken from '../../../../components/_util/theme/default';
 
 import DynamicTheme from './DynamicTheme';
-import SSR from './SSR';
 
 if (typeof window !== 'undefined' && navigator.serviceWorker) {
   navigator.serviceWorker.getRegistrations().then(registrations => {
@@ -222,60 +221,58 @@ export default class Layout extends React.Component {
         ? '基于 Ant Design 设计体系的 React UI 组件库，用于研发企业级中后台产品。'
         : 'An enterprise-class UI design language and React UI library with a set of high-quality React components, one of best React UI library for enterprises';
     return (
-      <SSR>
-        <SiteContext.Provider value={{ isMobile, direction, theme, setTheme, setIframeTheme }}>
-          <HelmetProvider context={helmetContext}>
-            <Helmet encodeSpecialCharacters={false}>
-              <html
-                lang={appLocale.locale === 'zh-CN' ? 'zh' : 'en'}
-                data-direction={direction}
-                className={classNames({
-                  [`rtl`]: direction === 'rtl',
-                })}
-              />
-              <title>{title}</title>
-              <link
-                rel="apple-touch-icon-precomposed"
-                sizes="144x144"
-                href="https://gw.alipayobjects.com/zos/antfincdn/UmVnt3t4T0/antd.png"
-              />
-              <meta name="description" content={description} />
-              <meta property="og:title" content={title} />
-              <meta property="og:type" content="website" />
-              <meta
-                property="og:image"
-                content="https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png"
-              />
-            </Helmet>
-            <IntlProvider
-              locale={appLocale.locale}
-              messages={appLocale.messages}
-              defaultLocale="en-US"
+      <SiteContext.Provider value={{ isMobile, direction, theme, setTheme, setIframeTheme }}>
+        <HelmetProvider context={helmetContext}>
+          <Helmet encodeSpecialCharacters={false}>
+            <html
+              lang={appLocale.locale === 'zh-CN' ? 'zh' : 'en'}
+              data-direction={direction}
+              className={classNames({
+                [`rtl`]: direction === 'rtl',
+              })}
+            />
+            <title>{title}</title>
+            <link
+              rel="apple-touch-icon-precomposed"
+              sizes="144x144"
+              href="https://gw.alipayobjects.com/zos/antfincdn/UmVnt3t4T0/antd.png"
+            />
+            <meta name="description" content={description} />
+            <meta property="og:title" content={title} />
+            <meta property="og:type" content="website" />
+            <meta
+              property="og:image"
+              content="https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png"
+            />
+          </Helmet>
+          <IntlProvider
+            locale={appLocale.locale}
+            messages={appLocale.messages}
+            defaultLocale="en-US"
+          >
+            <ConfigProvider
+              locale={appLocale.locale === 'zh-CN' ? zhCN : null}
+              direction={direction}
+              theme={{
+                token: designToken,
+              }}
             >
-              <ConfigProvider
-                locale={appLocale.locale === 'zh-CN' ? zhCN : null}
-                direction={direction}
-                theme={{
-                  token: designToken,
-                }}
-              >
-                <Header {...restProps} changeDirection={this.changeDirection} />
-                {children}
+              <Header {...restProps} changeDirection={this.changeDirection} />
+              {children}
 
-                <DynamicTheme
-                  defaultToken={designToken}
-                  onChangeTheme={newToken => {
-                    console.log('Change Theme:', newToken);
-                    this.setState({
-                      designToken: newToken,
-                    });
-                  }}
-                />
-              </ConfigProvider>
-            </IntlProvider>
-          </HelmetProvider>
-        </SiteContext.Provider>
-      </SSR>
+              <DynamicTheme
+                defaultToken={designToken}
+                onChangeTheme={newToken => {
+                  console.log('Change Theme:', newToken);
+                  this.setState({
+                    designToken: newToken,
+                  });
+                }}
+              />
+            </ConfigProvider>
+          </IntlProvider>
+        </HelmetProvider>
+      </SiteContext.Provider>
     );
   }
 }

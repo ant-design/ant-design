@@ -158,7 +158,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
   const prefixCls = getPrefixCls('btn', customizePrefixCls);
 
   // Style
-  useStyle(prefixCls);
+  const wrapSSR = useStyle(prefixCls);
 
   const size = React.useContext(SizeContext);
   const [innerLoading, setLoading] = React.useState<Loading>(!!loading);
@@ -272,15 +272,15 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
 
   const linkButtonRestProps = omit(rest as AnchorButtonProps & { navigate: any }, ['navigate']);
   if (linkButtonRestProps.href !== undefined) {
-    return (
+    return wrapSSR(
       <a {...linkButtonRestProps} className={classes} onClick={handleClick} ref={buttonRef}>
         {iconNode}
         {kids}
-      </a>
+      </a>,
     );
   }
 
-  const buttonNode = (
+  let buttonNode = (
     <button
       {...(rest as NativeButtonProps)}
       type={htmlType}
@@ -293,11 +293,11 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
     </button>
   );
 
-  if (isUnborderedButtonType(type)) {
-    return buttonNode;
+  if (!isUnborderedButtonType(type)) {
+    buttonNode = <Wave disabled={!!innerLoading}>{buttonNode}</Wave>;
   }
 
-  return <Wave disabled={!!innerLoading}>{buttonNode}</Wave>;
+  return wrapSSR(buttonNode);
 };
 
 const Button = React.forwardRef<unknown, ButtonProps>(InternalButton) as CompoundedComponent;

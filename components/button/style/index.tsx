@@ -376,7 +376,7 @@ const genSizeLargeButtonStyle = (
 export default function useStyle(prefixCls: string) {
   const [theme, token, iconPrefixCls, hashId] = useToken();
 
-  useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
+  return useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
     // Shared
     withPrefix(genSharedButtonStyle(prefixCls, iconPrefixCls, token), prefixCls),
 
