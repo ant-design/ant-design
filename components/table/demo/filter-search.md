@@ -1,20 +1,19 @@
 ---
-order: 6.1
-version: 4.17.0
+order: 6.2
+version: 4.19.0
 title:
-  en-US: Filter in Tree
-  zh-CN: 树型筛选菜单
+  en-US: Filter search
+  zh-CN: 自定义筛选
 ---
 
 ## zh-CN
 
-可以使用 `filterMode` 来修改筛选菜单的 UI，可选值有 `menu`（默认）和 `tree`。
+`filterSearch` 用于开启筛选项的搜索,通过`filterSearch:(input, record) => boolean`设置自定义筛选方法
 
 ## en-US
 
-You can use `filterMode` to change default filter interface, options: `menu`(default) and `tree`.
-
-> `filterSearch` is used for making filter dropdown items searchable.
+`filterSearch` is used for making filter dropdown items searchable,use `filterSearch:(input, record) => boolean` set
+custom filter function
 
 ```jsx
 import { Table } from 'antd';
@@ -31,35 +30,15 @@ const columns = [
       {
         text: 'Category 1',
         value: 'Category 1',
-        children: [
-          {
-            text: 'Yellow',
-            value: 'Yellow',
-          },
-          {
-            text: 'Pink',
-            value: 'Pink',
-          },
-        ],
       },
       {
         text: 'Category 2',
         value: 'Category 2',
-        children: [
-          {
-            text: 'Green',
-            value: 'Green',
-          },
-          {
-            text: 'Black',
-            value: 'Black',
-          },
-        ],
       },
     ],
     filterMode: 'tree',
     filterSearch: true,
-    onFilter: (value, record) => record.name.includes(value),
+    onFilter: (value, record) => record.address.startsWith(value),
     width: '30%',
   },
   {
@@ -72,16 +51,16 @@ const columns = [
     dataIndex: 'address',
     filters: [
       {
-        text: 'London',
+        text: <span>London</span>,
         value: 'London',
       },
       {
-        text: 'New York',
+        text: <span>New York</span>,
         value: 'New York',
       },
     ],
     onFilter: (value, record) => record.address.startsWith(value),
-    filterSearch: true,
+    filterSearch:(input, record) => record.value.indexOf(input) > -1,
     width: '40%',
   },
 ];
