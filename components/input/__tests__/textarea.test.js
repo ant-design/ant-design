@@ -110,6 +110,64 @@ describe('TextArea', () => {
         expect.objectContaining({ target: expect.objectContaining({ value: '竹' }) }),
       );
     });
+
+    // 字符输入
+    it('should not cut off string when cursor position is not at the end', () => {
+      const onChange = jest.fn();
+      const wrapper = mount(<TextArea maxLength={6} defaultValue="123456" onChange={onChange} />);
+      wrapper
+        .find('textarea')
+        .simulate('change', { target: { selectionStart: 1, value: 'w123456' } });
+      wrapper
+        .find('textarea')
+        .simulate('change', { target: { selectionStart: 3, value: '123w456' } });
+      expect(wrapper.find('textarea').at(0).getDOMNode().value).toBe('123456');
+    });
+
+    // 拼音输入
+    // 1. 光标位于最后，且当前字符数未达到6个，若选中的字符 + 原字符的长度超过6个，则将最终的字符按照maxlength截断
+    it('when the input method is pinyin and the cursor is at the end, should use maxLength to crop', () => {
+      const onChange = jest.fn();
+      const wrapper = mount(<TextArea maxLength={6} defaultValue="1234" onChange={onChange} />);
+      wrapper.find('textarea').instance().value = '1234'; // enzyme not support change `currentTarget`
+      wrapper.find('textarea').instance().selectionStart = 4;
+      wrapper.find('textarea').simulate('compositionStart');
+
+      wrapper
+        .find('textarea')
+        .simulate('change', { target: { selectionStart: 9, value: '1234z z z' } });
+      wrapper
+        .find('textarea')
+        .simulate('change', { target: { selectionStart: 7, value: '1234组织者' } });
+
+      wrapper.find('textarea').instance().value = '1234组织者';
+      wrapper.find('textarea').instance().selectionStart = 7;
+      wrapper.find('textarea').simulate('compositionEnd');
+
+      expect(wrapper.find('textarea').at(0).getDOMNode().value).toBe('1234组织');
+    });
+
+    // 2. 光标位于中间或开头，且当前字符数未达到6个，若选中的字符 + 原字符的长度超过6个，则显示原有字符
+    it('when the input method is Pinyin and the cursor is in the middle, should display the original string', () => {
+      const onChange = jest.fn();
+      const wrapper = mount(<TextArea maxLength={6} defaultValue="1234" onChange={onChange} />);
+      wrapper.find('textarea').instance().value = '1234'; // enzyme not support change `currentTarget`
+      wrapper.find('textarea').instance().selectionStart = 2;
+      wrapper.find('textarea').simulate('compositionStart');
+
+      wrapper
+        .find('textarea')
+        .simulate('change', { target: { selectionStart: 2, value: '12z z z34' } });
+      wrapper
+        .find('textarea')
+        .simulate('change', { target: { selectionStart: 5, value: '12组织者34' } });
+
+      wrapper.find('textarea').instance().value = '12组织者34';
+      wrapper.find('textarea').instance().selectionStart = 5;
+      wrapper.find('textarea').simulate('compositionEnd');
+
+      expect(wrapper.find('textarea').at(0).getDOMNode().value).toBe('1234');
+    });
   });
 
   it('when prop value not in this.props, resizeTextarea should be called', async () => {
