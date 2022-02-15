@@ -11,7 +11,14 @@ import type { CheckboxChangeEvent } from '../../../checkbox';
 import Radio from '../../../radio';
 import Dropdown from '../../../dropdown';
 import Empty from '../../../empty';
-import { ColumnType, ColumnFilterItem, Key, TableLocale, GetPopupContainer } from '../../interface';
+import {
+  ColumnType,
+  ColumnFilterItem,
+  Key,
+  TableLocale,
+  GetPopupContainer,
+  FilterSearchType,
+} from '../../interface';
 import FilterDropdownMenuWrapper from './FilterWrapper';
 import FilterSearch from './FilterSearch';
 import { FilterState, flattenKeys } from '.';
@@ -42,7 +49,7 @@ function renderFilterItems({
   filteredKeys: Key[];
   filterMultiple: boolean;
   searchValue: string;
-  filterSearch: boolean | ((input: string, record: {}) => boolean);
+  filterSearch: FilterSearchType;
 }) {
   return filters.map((filter, index) => {
     const key = String(filter.value);
@@ -92,7 +99,7 @@ export interface FilterDropdownProps<RecordType> {
   filterState?: FilterState<RecordType>;
   filterMultiple: boolean;
   filterMode?: 'menu' | 'tree';
-  filterSearch?: boolean | ((input: string, record: {}) => boolean);
+  filterSearch?: FilterSearchType;
   columnKey: Key;
   children: React.ReactNode;
   triggerFilter: (filterState: FilterState<RecordType>) => void;
