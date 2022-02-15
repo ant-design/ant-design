@@ -455,11 +455,10 @@ exports[`renders ./components/page-header/demo/breadcrumb.md correctly 1`] = `
 <div
   class="ant-page-header site-page-header has-breadcrumb ant-page-header-ghost"
 >
-  <nav>
-    <ol
-      class="ant-breadcrumb"
-      style="display:flex;flex-wrap:wrap"
-    >
+  <nav
+    class="ant-breadcrumb"
+  >
+    <ol>
       <li>
         <span
           class="ant-breadcrumb-link"
@@ -535,11 +534,10 @@ exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
 <div
   class="ant-page-header site-page-header has-breadcrumb ant-page-header-ghost"
 >
-  <nav>
-    <ol
-      class="ant-breadcrumb"
-      style="display:flex;flex-wrap:wrap"
-    >
+  <nav
+    class="ant-breadcrumb"
+  >
+    <ol>
       <li>
         <span
           class="ant-breadcrumb-link"

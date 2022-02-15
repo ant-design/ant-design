@@ -1,11 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/breadcrumb/demo/basic.md extend context correctly 1`] = `
-<nav>
-  <ol
-    class="ant-breadcrumb"
-    style="display:flex;flex-wrap:wrap"
-  >
+<nav
+  class="ant-breadcrumb"
+>
+  <ol>
     <li>
       <span
         class="ant-breadcrumb-link"
@@ -67,11 +66,10 @@ exports[`renders ./components/breadcrumb/demo/basic.md extend context correctly 
 `;
 
 exports[`renders ./components/breadcrumb/demo/overlay.md extend context correctly 1`] = `
-<nav>
-  <ol
-    class="ant-breadcrumb"
-    style="display:flex;flex-wrap:wrap"
-  >
+<nav
+  class="ant-breadcrumb"
+>
+  <ol>
     <li>
       <span
         class="ant-breadcrumb-link"
@@ -358,11 +356,10 @@ exports[`renders ./components/breadcrumb/demo/overlay.md extend context correctl
 `;
 
 exports[`renders ./components/breadcrumb/demo/separator.md extend context correctly 1`] = `
-<nav>
-  <ol
-    class="ant-breadcrumb"
-    style="display:flex;flex-wrap:wrap"
-  >
+<nav
+  class="ant-breadcrumb"
+>
+  <ol>
     <li>
       <span
         class="ant-breadcrumb-link"
@@ -418,11 +415,10 @@ exports[`renders ./components/breadcrumb/demo/separator.md extend context correc
 `;
 
 exports[`renders ./components/breadcrumb/demo/separator-component.md extend context correctly 1`] = `
-<nav>
-  <ol
-    class="ant-breadcrumb"
-    style="display:flex;flex-wrap:wrap"
-  >
+<nav
+  class="ant-breadcrumb"
+>
+  <ol>
     <li>
       <span
         class="ant-breadcrumb-link"
@@ -473,11 +469,10 @@ exports[`renders ./components/breadcrumb/demo/separator-component.md extend cont
 `;
 
 exports[`renders ./components/breadcrumb/demo/withIcon.md extend context correctly 1`] = `
-<nav>
-  <ol
-    class="ant-breadcrumb"
-    style="display:flex;flex-wrap:wrap"
-  >
+<nav
+  class="ant-breadcrumb"
+>
+  <ol>
     <li>
       <a
         class="ant-breadcrumb-link"

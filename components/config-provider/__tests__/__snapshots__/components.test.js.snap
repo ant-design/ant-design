@@ -985,11 +985,10 @@ exports[`ConfigProvider components Badge prefixCls 1`] = `
 `;
 
 exports[`ConfigProvider components Breadcrumb configProvider 1`] = `
-<nav>
-  <ol
-    class="config-breadcrumb"
-    style="display:flex;flex-wrap:wrap"
-  >
+<nav
+  class="config-breadcrumb"
+>
+  <ol>
     <li>
       <span
         class="config-breadcrumb-link"
@@ -1019,11 +1018,10 @@ exports[`ConfigProvider components Breadcrumb configProvider 1`] = `
 `;
 
 exports[`ConfigProvider components Breadcrumb configProvider componentSize large 1`] = `
-<nav>
-  <ol
-    class="config-breadcrumb"
-    style="display:flex;flex-wrap:wrap"
-  >
+<nav
+  class="config-breadcrumb"
+>
+  <ol>
     <li>
       <span
         class="config-breadcrumb-link"
@@ -1053,11 +1051,10 @@ exports[`ConfigProvider components Breadcrumb configProvider componentSize large
 `;
 
 exports[`ConfigProvider components Breadcrumb configProvider componentSize middle 1`] = `
-<nav>
-  <ol
-    class="config-breadcrumb"
-    style="display:flex;flex-wrap:wrap"
-  >
+<nav
+  class="config-breadcrumb"
+>
+  <ol>
     <li>
       <span
         class="config-breadcrumb-link"
@@ -1087,11 +1084,10 @@ exports[`ConfigProvider components Breadcrumb configProvider componentSize middl
 `;
 
 exports[`ConfigProvider components Breadcrumb configProvider virtual and dropdownMatchSelectWidth 1`] = `
-<nav>
-  <ol
-    class="ant-breadcrumb"
-    style="display:flex;flex-wrap:wrap"
-  >
+<nav
+  class="ant-breadcrumb"
+>
+  <ol>
     <li>
       <span
         class="ant-breadcrumb-link"
@@ -1121,11 +1117,10 @@ exports[`ConfigProvider components Breadcrumb configProvider virtual and dropdow
 `;
 
 exports[`ConfigProvider components Breadcrumb normal 1`] = `
-<nav>
-  <ol
-    class="ant-breadcrumb"
-    style="display:flex;flex-wrap:wrap"
-  >
+<nav
+  class="ant-breadcrumb"
+>
+  <ol>
     <li>
       <span
         class="ant-breadcrumb-link"
@@ -1155,11 +1150,10 @@ exports[`ConfigProvider components Breadcrumb normal 1`] = `
 `;
 
 exports[`ConfigProvider components Breadcrumb prefixCls 1`] = `
-<nav>
-  <ol
-    class="prefix-Breadcrumb"
-    style="display:flex;flex-wrap:wrap"
-  >
+<nav
+  class="prefix-Breadcrumb"
+>
+  <ol>
     <li>
       <span
         class="prefix-Breadcrumb-link"

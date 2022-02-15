@@ -13,6 +13,11 @@
     font-size: @breadcrumb-icon-font-size;
   }
 
+  ol {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
   a {
     color: @breadcrumb-link-color;
     transition: color 0.3s;
@@ -22,7 +27,7 @@
     }
   }
 
-  & > li:last-child {
+  li:last-child {
     color: @breadcrumb-last-item-color;
 
     a {
@@ -30,7 +35,7 @@
     }
   }
 
-  & > li:last-child &-separator {
+  li:last-child &-separator {
     display: none;
   }
 
@@ -51,11 +56,6 @@
       margin-left: 4px;
     }
   }
-}
-
-.flex-wrap {
-  display: flex;
-  flex-wrap: wrap;
 }
 
 @import './rtl';
