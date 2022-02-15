@@ -19,6 +19,26 @@ function fixEmojiLength(value: string, maxLength: number) {
   return [...(value || '')].slice(0, maxLength).join('');
 }
 
+function setTriggerValue(
+  isCursorInEnd: boolean,
+  preValue: string,
+  triggerValue: string,
+  maxLength: number,
+) {
+  let newTriggerValue = triggerValue;
+  if (isCursorInEnd) {
+    // 光标在尾部，直接截断
+    newTriggerValue = fixEmojiLength(triggerValue, maxLength!);
+  } else if (
+    [...(preValue || '')].length < triggerValue.length &&
+    [...(triggerValue || '')].length > maxLength!
+  ) {
+    // 光标在中间，如果最后的值超过最大值，则采用原先的值
+    newTriggerValue = preValue;
+  }
+  return newTriggerValue;
+}
+
 export interface TextAreaProps extends RcTextAreaProps {
   allowClear?: boolean;
   bordered?: boolean;
@@ -61,6 +81,8 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
     const clearableInputRef = React.useRef<ClearableLabeledInput>(null);
 
     const [compositing, setCompositing] = React.useState(false);
+    const oldCompositionValueRef = React.useRef<string>();
+    const oldSelectionStartRef = React.useRef<number>(0);
 
     const [value, setValue] = useMergedState(props.defaultValue, {
       value: props.value,
@@ -80,6 +102,10 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
 
     const onInternalCompositionStart: React.CompositionEventHandler<HTMLTextAreaElement> = e => {
       setCompositing(true);
+      // 拼音输入前保存一份旧值
+      oldCompositionValueRef.current = value as string;
+      // 保存旧的光标位置
+      oldSelectionStartRef.current = e.currentTarget.selectionStart;
       onCompositionStart?.(e);
     };
 
@@ -88,9 +114,16 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
 
       let triggerValue = e.currentTarget.value;
       if (hasMaxLength) {
-        triggerValue = fixEmojiLength(triggerValue, maxLength!);
+        const isCursorInEnd =
+          oldSelectionStartRef.current >= maxLength! + 1 ||
+          oldSelectionStartRef.current === oldCompositionValueRef.current?.length;
+        triggerValue = setTriggerValue(
+          isCursorInEnd,
+          oldCompositionValueRef.current as string,
+          triggerValue,
+          maxLength!,
+        );
       }
-
       // Patch composition onChange when value changed
       if (triggerValue !== value) {
         handleSetValue(triggerValue);
@@ -103,9 +136,13 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
     const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
       let triggerValue = e.target.value;
       if (!compositing && hasMaxLength) {
-        triggerValue = fixEmojiLength(triggerValue, maxLength!);
+        // 1. 复制粘贴超过maxlength的情况 2.未超过maxlength的情况
+        const isCursorInEnd =
+          e.target.selectionStart >= maxLength! + 1 ||
+          e.target.selectionStart === triggerValue.length ||
+          !e.target.selectionStart;
+        triggerValue = setTriggerValue(isCursorInEnd, value as string, triggerValue, maxLength!);
       }
-
       handleSetValue(triggerValue);
       resolveOnChange(e.currentTarget, e, onChange, triggerValue);
     };

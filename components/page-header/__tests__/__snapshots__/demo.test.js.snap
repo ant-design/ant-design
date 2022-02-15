@@ -59,7 +59,7 @@ Array [
         class="ant-page-header-heading-extra"
       >
         <button
-          class="ant-btn"
+          class="ant-btn ant-btn-default"
           type="button"
         >
           <span>
@@ -67,7 +67,7 @@ Array [
           </span>
         </button>
         <button
-          class="ant-btn"
+          class="ant-btn ant-btn-default"
           type="button"
         >
           <span>
@@ -273,7 +273,7 @@ Array [
         class="ant-page-header-heading-extra"
       >
         <button
-          class="ant-btn"
+          class="ant-btn ant-btn-default"
           type="button"
         >
           <span>
@@ -281,7 +281,7 @@ Array [
           </span>
         </button>
         <button
-          class="ant-btn"
+          class="ant-btn ant-btn-default"
           type="button"
         >
           <span>
@@ -621,7 +621,7 @@ exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
       class="ant-page-header-heading-extra"
     >
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span>
@@ -629,7 +629,7 @@ exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
         </span>
       </button>
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span>
@@ -645,7 +645,7 @@ exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
         </span>
       </button>
       <button
-        class="ant-btn ant-dropdown-trigger"
+        class="ant-btn ant-btn-default ant-dropdown-trigger"
         style="border:none;padding:0"
         type="button"
       >
@@ -799,7 +799,7 @@ exports[`renders ./components/page-header/demo/ghost.md correctly 1`] = `
         class="ant-page-header-heading-extra"
       >
         <button
-          class="ant-btn"
+          class="ant-btn ant-btn-default"
           type="button"
         >
           <span>
@@ -807,7 +807,7 @@ exports[`renders ./components/page-header/demo/ghost.md correctly 1`] = `
           </span>
         </button>
         <button
-          class="ant-btn"
+          class="ant-btn ant-btn-default"
           type="button"
         >
           <span>
@@ -1007,7 +1007,7 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
       class="ant-page-header-heading-extra"
     >
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span>
@@ -1015,7 +1015,7 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
         </span>
       </button>
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span>

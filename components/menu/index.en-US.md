@@ -43,7 +43,7 @@ More layouts with navigation: [Layout](/components/layout).
 | mode | Type of menu | `vertical` \| `horizontal` \| `inline` | `vertical` |  |
 | multiple | Allows selection of multiple items | boolean | false |  |
 | openKeys | Array with the keys of currently opened sub-menus | string\[] | - |  |
-| overflowedIndicator | Customized icon when menu is collapsed | ReactNode | - |  |
+| overflowedIndicator | Customized the ellipsis icon when menu is collapsed horizontally | ReactNode | `<EllipsisOutlined />` |  |
 | selectable | Allows selecting menu items | boolean | true |  |
 | selectedKeys | Array with the keys of currently selected menu items | string\[] | - |  |
 | style | Style of the root node | CSSProperties | - |  |

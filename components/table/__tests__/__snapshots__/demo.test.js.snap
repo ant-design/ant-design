@@ -13145,7 +13145,7 @@ Array [
       style="margin-right:8px"
     >
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span>
@@ -13158,7 +13158,7 @@ Array [
       style="margin-right:8px"
     >
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span>
@@ -13170,7 +13170,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span>
