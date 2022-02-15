@@ -118,7 +118,7 @@ Array [
       class="ant-alert-action"
     >
       <button
-        class="ant-btn ant-btn-sm ant-btn-dangerous"
+        class="ant-btn ant-btn-default ant-btn-sm ant-btn-dangerous"
         type="button"
       >
         <span>
@@ -954,7 +954,7 @@ Array [
 
 exports[`renders ./components/alert/demo/error-boundary.md correctly 1`] = `
 <button
-  class="ant-btn ant-btn-dangerous"
+  class="ant-btn ant-btn-default ant-btn-dangerous"
   type="button"
 >
   <span>

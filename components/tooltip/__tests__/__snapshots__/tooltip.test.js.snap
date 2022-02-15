@@ -8,7 +8,7 @@ exports[`Tooltip should hide when mouse leave antd disabled component Button 1`]
   style="display: inline-block; cursor: not-allowed;"
 >
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     disabled=""
     style="pointer-events: none;"
     type="button"

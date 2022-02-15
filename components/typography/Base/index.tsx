@@ -10,6 +10,7 @@ import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CopyOutlined from '@ant-design/icons/CopyOutlined';
 import ResizeObserver from 'rc-resize-observer';
 import { AutoSizeType } from 'rc-textarea/lib/ResizableTextArea';
+import useIsomorphicLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 import { ConfigContext } from '../../config-provider';
 import { useLocaleReceiver } from '../../locale-provider/LocaleReceiver';
 import TransButton from '../../_util/transButton';
@@ -168,8 +169,8 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
     }
   }, [editing]);
 
-  const onEditClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.preventDefault();
+  const onEditClick = (e?: React.MouseEvent<HTMLDivElement>) => {
+    e?.preventDefault();
     triggerEdit(true);
   };
 
@@ -192,8 +193,9 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
     clearTimeout(copyIdRef.current!);
   };
 
-  const onCopyClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.preventDefault();
+  const onCopyClick = (e?: React.MouseEvent<HTMLDivElement>) => {
+    e?.preventDefault();
+    e?.stopPropagation();
 
     if (copyConfig.text === undefined) {
       copyConfig.text = String(children);
@@ -243,7 +245,7 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
     [mergedEnableEllipsis, ellipsisConfig, enableEdit, enableCopy],
   );
 
-  React.useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (enableEllipsis && !needMeasureEllipsis) {
       setIsLineClampSupport(isStyleSupport('webkitLineClamp'));
       setIsTextOverflowSupport(isStyleSupport('textOverflow'));

@@ -59,8 +59,18 @@
       }
     }
 
-    &:focus-visible,
     &:hover {
+      border-color: @primary-color;
+      transition: all 0.3s;
+
+      a {
+        color: @primary-color;
+      }
+    }
+
+    // cannot merge with `&:hover`
+    // see https://github.com/ant-design/ant-design/pull/34002
+    &:focus-visible {
       border-color: @primary-color;
       transition: all 0.3s;
 
@@ -78,13 +88,19 @@
         color: @primary-color;
       }
 
-      &:focus-visible,
       &:hover {
         border-color: @primary-5;
       }
 
-      &:focus-visible a,
+      &:focus-visible {
+        border-color: @primary-5;
+      }
+
       &:hover a {
+        color: @primary-5;
+      }
+
+      &:focus-visible a {
         color: @primary-5;
       }
     }
@@ -130,8 +146,16 @@
       }
     }
 
-    &:focus-visible,
     &:hover {
+      .@{pagination-prefix-cls}-item-link-icon {
+        opacity: 1;
+      }
+      .@{pagination-prefix-cls}-item-ellipsis {
+        opacity: 0;
+      }
+    }
+
+    &:focus-visible {
       .@{pagination-prefix-cls}-item-link-icon {
         opacity: 1;
       }
@@ -194,7 +218,11 @@
       transition: all 0.3s;
     }
 
-    &:focus-visible .@{pagination-prefix-cls}-item-link,
+    &:focus-visible .@{pagination-prefix-cls}-item-link {
+      color: @primary-color;
+      border-color: @primary-color;
+    }
+
     &:hover .@{pagination-prefix-cls}-item-link {
       color: @primary-color;
       border-color: @primary-color;
@@ -203,7 +231,15 @@
 
   &-disabled {
     &,
-    &:hover,
+    &:hover {
+      cursor: not-allowed;
+      .@{pagination-prefix-cls}-item-link {
+        color: @disabled-color;
+        border-color: @border-color-base;
+        cursor: not-allowed;
+      }
+    }
+
     &:focus-visible {
       cursor: not-allowed;
       .@{pagination-prefix-cls}-item-link {

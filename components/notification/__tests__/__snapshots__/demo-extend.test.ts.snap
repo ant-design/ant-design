@@ -432,7 +432,7 @@ exports[`renders ./components/notification/demo/with-icon.md extend context corr
     style="margin-right:8px"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -445,7 +445,7 @@ exports[`renders ./components/notification/demo/with-icon.md extend context corr
     style="margin-right:8px"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -458,7 +458,7 @@ exports[`renders ./components/notification/demo/with-icon.md extend context corr
     style="margin-right:8px"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -470,7 +470,7 @@ exports[`renders ./components/notification/demo/with-icon.md extend context corr
     class="ant-space-item"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
