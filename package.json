@@ -277,7 +277,7 @@
     "stylelint": "^14.0.0",
     "stylelint-config-prettier": "^9.0.2",
     "stylelint-config-rational-order": "^0.1.2",
-    "stylelint-config-standard": "^24.0.0",
+    "stylelint-config-standard": "^25.0.0",
     "stylelint-declaration-block-no-ignored-properties": "^2.1.0",
     "stylelint-order": "^5.0.0",
     "theme-switcher": "^1.0.2",
