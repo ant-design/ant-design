@@ -261,7 +261,7 @@ exports[`renders ./components/form/demo/advanced-search.md extend context correc
           </span>
         </button>
         <button
-          class="ant-btn"
+          class="ant-btn ant-btn-default"
           style="margin:0 8px"
           type="button"
         >
@@ -846,7 +846,7 @@ exports[`renders ./components/form/demo/control-hooks.md extend context correctl
             </span>
           </button>
           <button
-            class="ant-btn"
+            class="ant-btn ant-btn-default"
             type="button"
           >
             <span>
@@ -1112,7 +1112,7 @@ exports[`renders ./components/form/demo/control-ref.md extend context correctly 
             </span>
           </button>
           <button
-            class="ant-btn"
+            class="ant-btn ant-btn-default"
             type="button"
           >
             <span>
@@ -2747,7 +2747,7 @@ exports[`renders ./components/form/demo/form-context.md extend context correctly
             </span>
           </button>
           <button
-            class="ant-btn"
+            class="ant-btn ant-btn-default"
             style="margin:0 8px"
             type="button"
           >
@@ -2985,7 +2985,7 @@ exports[`renders ./components/form/demo/label-debug.md extend context correctly 
           longtextlongtextlongtextlongtextlongtextlongtextlongtext
           <span
             aria-hidden="true"
-            style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;width:9999px"
+            style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;word-break:keep-all;white-space:nowrap"
           >
             lg
           </span>
@@ -3039,7 +3039,7 @@ exports[`renders ./components/form/demo/label-debug.md extend context correctly 
           longtext longtext longtext longtext longtext longtext longtext
           <span
             aria-hidden="true"
-            style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;width:9999px"
+            style="position:fixed;display:block;left:0;top:0;z-index:-9999;visibility:hidden;pointer-events:none;word-break:keep-all;white-space:nowrap"
           >
             lg
           </span>
@@ -3920,7 +3920,7 @@ exports[`renders ./components/form/demo/ref-item.md extend context correctly 1`]
     </span>
   </button>
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span>
@@ -5157,7 +5157,7 @@ exports[`renders ./components/form/demo/register.md extend context correctly 1`]
               style="padding-left:4px;padding-right:4px"
             >
               <button
-                class="ant-btn"
+                class="ant-btn ant-btn-default"
                 type="button"
               >
                 <span>
@@ -6890,7 +6890,7 @@ exports[`renders ./components/form/demo/size.md extend context correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <button
-            class="ant-btn"
+            class="ant-btn ant-btn-default"
             type="button"
           >
             <span>
@@ -15825,7 +15825,7 @@ exports[`renders ./components/form/demo/validate-other.md extend context correct
                   type="file"
                 />
                 <button
-                  class="ant-btn"
+                  class="ant-btn ant-btn-default"
                   type="button"
                 >
                   <span
@@ -20729,7 +20729,7 @@ exports[`renders ./components/form/demo/warning-only.md extend context correctly
               class="ant-space-item"
             >
               <button
-                class="ant-btn"
+                class="ant-btn ant-btn-default"
                 type="button"
               >
                 <span>

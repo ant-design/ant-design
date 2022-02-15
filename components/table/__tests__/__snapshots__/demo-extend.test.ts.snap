@@ -1363,7 +1363,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md extend context c
                                   style="margin-right:8px"
                                 >
                                   <button
-                                    class="ant-btn ant-btn-sm"
+                                    class="ant-btn ant-btn-default ant-btn-sm"
                                     style="width:90px"
                                     type="button"
                                   >
@@ -1486,7 +1486,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md extend context c
                                   style="margin-right:8px"
                                 >
                                   <button
-                                    class="ant-btn ant-btn-sm"
+                                    class="ant-btn ant-btn-default ant-btn-sm"
                                     style="width:90px"
                                     type="button"
                                   >
@@ -1687,7 +1687,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md extend context c
                                   style="margin-right:8px"
                                 >
                                   <button
-                                    class="ant-btn ant-btn-sm"
+                                    class="ant-btn ant-btn-default ant-btn-sm"
                                     style="width:90px"
                                     type="button"
                                   >
@@ -4766,7 +4766,7 @@ exports[`renders ./components/table/demo/edit-cell.md extend context correctly 1
                                   class="ant-popover-buttons"
                                 >
                                   <button
-                                    class="ant-btn ant-btn-sm"
+                                    class="ant-btn ant-btn-default ant-btn-sm"
                                     type="button"
                                   >
                                     <span>
@@ -4873,7 +4873,7 @@ exports[`renders ./components/table/demo/edit-cell.md extend context correctly 1
                                   class="ant-popover-buttons"
                                 >
                                   <button
-                                    class="ant-btn ant-btn-sm"
+                                    class="ant-btn ant-btn-default ant-btn-sm"
                                     type="button"
                                   >
                                     <span>
@@ -16425,7 +16425,7 @@ Array [
       style="margin-right:8px"
     >
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span>
@@ -16438,7 +16438,7 @@ Array [
       style="margin-right:8px"
     >
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span>
@@ -16450,7 +16450,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span>

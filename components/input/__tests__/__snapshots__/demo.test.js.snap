@@ -1311,7 +1311,7 @@ exports[`renders ./components/input/demo/focus.md correctly 1`] = `
         style="margin-right:8px;padding-bottom:8px"
       >
         <button
-          class="ant-btn"
+          class="ant-btn ant-btn-default"
           type="button"
         >
           <span>
@@ -1324,7 +1324,7 @@ exports[`renders ./components/input/demo/focus.md correctly 1`] = `
         style="margin-right:8px;padding-bottom:8px"
       >
         <button
-          class="ant-btn"
+          class="ant-btn ant-btn-default"
           type="button"
         >
           <span>
@@ -1337,7 +1337,7 @@ exports[`renders ./components/input/demo/focus.md correctly 1`] = `
         style="margin-right:8px;padding-bottom:8px"
       >
         <button
-          class="ant-btn"
+          class="ant-btn ant-btn-default"
           type="button"
         >
           <span>
@@ -1350,7 +1350,7 @@ exports[`renders ./components/input/demo/focus.md correctly 1`] = `
         style="margin-right:8px;padding-bottom:8px"
       >
         <button
-          class="ant-btn"
+          class="ant-btn ant-btn-default"
           type="button"
         >
           <span>
@@ -1479,7 +1479,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       value="git@github.com:ant-design/ant-design.git"
     />
     <button
-      class="ant-btn ant-btn-icon-only"
+      class="ant-btn ant-btn-default ant-btn-icon-only"
       type="button"
     >
       <span
@@ -1621,7 +1621,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-icon-only ant-input-search-button"
+            class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
             type="button"
           >
             <span
@@ -1691,7 +1691,7 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-icon-only ant-input-search-button"
+            class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
             type="button"
           >
             <span
@@ -2660,7 +2660,7 @@ exports[`renders ./components/input/demo/search-input.md correctly 1`] = `
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-icon-only ant-input-search-button"
+            class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
             type="button"
           >
             <span
@@ -2736,7 +2736,7 @@ exports[`renders ./components/input/demo/search-input.md correctly 1`] = `
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-icon-only ant-input-search-button"
+            class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
             type="button"
           >
             <span
@@ -2817,7 +2817,7 @@ exports[`renders ./components/input/demo/search-input.md correctly 1`] = `
           class="ant-input-group-addon"
         >
           <button
-            class="ant-btn ant-btn-icon-only ant-input-search-button"
+            class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
             type="button"
           >
             <span
@@ -3029,7 +3029,7 @@ Array [
         class="ant-input-group-addon"
       >
         <button
-          class="ant-btn ant-btn-icon-only ant-btn-loading ant-input-search-button"
+          class="ant-btn ant-btn-default ant-btn-icon-only ant-btn-loading ant-input-search-button"
           type="button"
         >
           <span
@@ -3415,16 +3415,25 @@ exports[`renders ./components/input/demo/status.md correctly 1`] = `
 `;
 
 exports[`renders ./components/input/demo/textarea.md correctly 1`] = `
-<textarea
-  class="ant-input"
-  rows="4"
-/>
+Array [
+  <textarea
+    class="ant-input"
+    rows="4"
+  />,
+  <br />,
+  <br />,
+  <textarea
+    class="ant-input"
+    placeholder="maxLength is 6"
+    rows="4"
+  />,
+]
 `;
 
 exports[`renders ./components/input/demo/textarea-resize.md correctly 1`] = `
 Array [
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     style="margin-bottom:16px"
     type="button"
   >

@@ -2,7 +2,8 @@ import * as React from 'react';
 import classNames from 'classnames';
 import RcCascader from 'rc-cascader';
 import type {
-  CascaderProps as RcCascaderProps,
+  SingleCascaderProps as RcSingleCascaderProps,
+  MultipleCascaderProps as RcMultipleCascaderProps,
   ShowSearchType,
   FieldNames,
   BaseOptionType,
@@ -80,8 +81,16 @@ const defaultSearchRender: ShowSearchType['render'] = (inputValue, path, prefixC
   return optionList;
 };
 
-export interface CascaderProps<DataNodeType>
-  extends Omit<RcCascaderProps, 'checkable' | 'options'> {
+type SingleCascaderProps = Omit<RcSingleCascaderProps, 'checkable' | 'options'> & {
+  multiple?: false;
+};
+type MultipleCascaderProps = Omit<RcMultipleCascaderProps, 'checkable' | 'options'> & {
+  multiple: true;
+};
+
+type UnionCascaderProps = SingleCascaderProps | MultipleCascaderProps;
+
+export type CascaderProps<DataNodeType> = UnionCascaderProps & {
   multiple?: boolean;
   size?: SizeType;
   bordered?: boolean;

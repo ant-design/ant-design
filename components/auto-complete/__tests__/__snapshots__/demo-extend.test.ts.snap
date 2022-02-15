@@ -129,7 +129,7 @@ exports[`renders ./components/auto-complete/demo/certain-category.md extend cont
             class="ant-input-group-addon"
           >
             <button
-              class="ant-btn ant-btn-lg ant-btn-icon-only ant-input-search-button"
+              class="ant-btn ant-btn-default ant-btn-lg ant-btn-icon-only ant-input-search-button"
               type="button"
             >
               <span
@@ -1395,7 +1395,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                         class="ant-input-group-addon"
                       >
                         <button
-                          class="ant-btn ant-btn-icon-only ant-input-search-button"
+                          class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
                           type="button"
                         >
                           <span
@@ -1618,7 +1618,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                         class="ant-input-group-addon"
                       >
                         <button
-                          class="ant-btn ant-btn-icon-only ant-input-search-button"
+                          class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
                           type="button"
                         >
                           <span
