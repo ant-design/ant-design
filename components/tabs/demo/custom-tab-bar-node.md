@@ -7,59 +7,54 @@ title:
 
 ## zh-CN
 
-使用 `react-dnd` 实现标签可拖拽。
+使用 `react-dnd@15+` 实现标签可拖拽。
 
 ## en-US
 
-Use `react-dnd` to make tabs draggable.
+Use `react-dnd@15+` to make tabs draggable.
 
 ```jsx
+import React, { useRef, cloneElement } from 'react';
 import { Tabs } from 'antd';
-import { DndProvider, DragSource, DropTarget } from 'react-dnd';
+import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 
 const { TabPane } = Tabs;
 
-// Drag & Drop node
-class TabNode extends React.Component {
-  render() {
-    const { connectDragSource, connectDropTarget, children } = this.props;
+const type = 'DraggableTabNode';
 
-    return connectDragSource(connectDropTarget(children));
-  }
-}
-
-const cardTarget = {
-  drop(props, monitor) {
-    const dragKey = monitor.getItem().index;
-    const hoverKey = props.index;
-
-    if (dragKey === hoverKey) {
-      return;
-    }
-
-    props.moveTabNode(dragKey, hoverKey);
-    monitor.getItem().index = hoverKey;
-  },
+const DraggableTabNode = ({ index, children, moveNode }) => {
+  const ref = useRef();
+  const [{ isOver, dropClassName }, drop] = useDrop({
+    accept: type,
+    collect: monitor => {
+      const { index: dragIndex } = monitor.getItem() || {};
+      if (dragIndex === index) {
+        return {};
+      }
+      return {
+        isOver: monitor.isOver(),
+        dropClassName: 'dropping',
+      };
+    },
+    drop: item => {
+      moveNode(item.index, index);
+    },
+  });
+  const [, drag] = useDrag({
+    type,
+    item: { index },
+    collect: monitor => ({
+      isDragging: monitor.isDragging(),
+    }),
+  });
+  drop(drag(ref));
+  return (
+    <div ref={ref} style={{ marginRight: 24 }} className={isOver ? dropClassName : ''}>
+      {children}
+    </div>
+  );
 };
-
-const cardSource = {
-  beginDrag(props) {
-    return {
-      id: props.id,
-      index: props.index,
-    };
-  },
-};
-
-const WrapTabNode = DropTarget('DND_NODE', cardTarget, connect => ({
-  connectDropTarget: connect.dropTarget(),
-}))(
-  DragSource('DND_NODE', cardSource, (connect, monitor) => ({
-    connectDragSource: connect.dragSource(),
-    isDragging: monitor.isDragging(),
-  }))(TabNode),
-);
 
 class DraggableTabs extends React.Component {
   state = {
@@ -90,9 +85,9 @@ class DraggableTabs extends React.Component {
   renderTabBar = (props, DefaultTabBar) => (
     <DefaultTabBar {...props}>
       {node => (
-        <WrapTabNode key={node.key} index={node.key} moveTabNode={this.moveTabNode}>
+        <DraggableTabNode key={node.key} index={node.key} moveNode={this.moveTabNode}>
           {node}
-        </WrapTabNode>
+        </DraggableTabNode>
       )}
     </DefaultTabBar>
   );
@@ -150,4 +145,11 @@ ReactDOM.render(
   </DraggableTabs>,
   mountNode,
 );
+```
+
+```css
+.dropping {
+  background: #fefefe;
+  transition: all 0.3s;
+}
 ```

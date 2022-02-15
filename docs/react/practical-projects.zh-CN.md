@@ -97,7 +97,34 @@ export default ProductList;
 
 文件名则对应最终 model 的 name，你可以通过插件提供的 API 来消费 model 中的数据。
 
-我们以一个简单的表格作为示例。首先需要新建文件 `src/models/useProductList.ts`。
+我们以一个简单的表格作为示例。首先新建一个 `src/services/product.ts` 存放产品相关的接口。
+
+```tsx
+/*
+export function queryProductList() {
+  return fetch('/api/products').then(res => res.json());
+}
+*/
+// 先用 setTimeout 模拟一个请求，正常的写法如上所示
+export function queryProductList() {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve([
+        {
+          id: 1,
+          name: 'dva',
+        },
+        {
+          id: 2,
+          name: 'antd',
+        },
+      ]);
+    }, 2000);
+  });
+}
+```
+
+然后新建文件 `src/models/useProductList.ts`。
 
 ```tsx
 import { useRequest } from 'umi';

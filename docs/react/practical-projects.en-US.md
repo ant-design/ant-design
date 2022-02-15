@@ -100,7 +100,34 @@ export default ProductList;
 
 The file name corresponds to the name of the final model, and you can consume the data in the model through the API provided by the plug-in.
 
-Let's take a simple table as an example. First you need to create a new file `src/models/useProductList.ts`.
+Let's take a simple table as an example. First we create a new file `src/services/product.ts` for remote API.
+
+```tsx
+/*
+export function queryProductList() {
+  return fetch('/api/products').then(res => res.json());
+}
+*/
+// mock request service by setTimeout
+export function queryProductList() {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve([
+        {
+          id: 1,
+          name: 'dva',
+        },
+        {
+          id: 2,
+          name: 'antd',
+        },
+      ]);
+    }, 2000);
+  });
+}
+```
+
+Then you need to create a new file `src/models/useProductList.ts`.
 
 ```tsx
 import { useRequest } from 'umi';

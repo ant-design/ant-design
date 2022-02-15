@@ -294,7 +294,7 @@ Array [
     </span>
   </span>,
   <button
-    class="ant-btn ant-btn-sm"
+    class="ant-btn ant-btn-default ant-btn-sm"
     style="margin:0 16px;vertical-align:middle"
     type="button"
   >
@@ -303,7 +303,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn ant-btn-sm"
+    class="ant-btn ant-btn-default ant-btn-sm"
     style="vertical-align:middle"
     type="button"
   >
@@ -869,7 +869,7 @@ exports[`renders ./components/avatar/demo/responsive.md extend context correctly
 exports[`renders ./components/avatar/demo/toggle-debug.md extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span>
@@ -877,7 +877,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span>
@@ -885,7 +885,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span>
