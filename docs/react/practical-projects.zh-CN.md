@@ -213,7 +213,7 @@ export default (
 );
 ```
 
-点击这里[快速开始](https://prolayout.ant.design/getting-started)。
+点击这里[快速开始](https://procomponents.ant.design/components/layout)。
 
 ## ProTable
 
@@ -266,7 +266,7 @@ const Products = () => {
 };
 ```
 
-ProTable 提供了预设逻辑来处理 loading，分页 和搜索表单，可以大大减少代码量，点击这里[快速开始](https://protable.ant.design/getting-started)。
+ProTable 提供了预设逻辑来处理 loading，分页 和搜索表单，可以大大减少代码量，点击这里[快速开始](https://procomponents.ant.design/components/table)。
 
 ## 构建应用
 
@@ -296,5 +296,5 @@ $ yarn build
 - 理解 [umi 的路由](https://umijs.org/zh/guide/router.html)
 - 理解 [如何部署 umi 应用](https://umijs.org/zh/guide/deploy.html)
 - 开箱即用的脚手架 [Ant Design Pro](https://pro.ant.design)
-- 高级布局 [ProLayout](https://prolayout.ant.design)
-- 高级表格 [ProTable](https://protable.ant.design)
+- 高级布局 [ProLayout](https://procomponents.ant.design/components/layout)
+- 高级表格 [ProTable](https://procomponents.ant.design/components/table)

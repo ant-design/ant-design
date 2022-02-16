@@ -210,7 +210,7 @@ export default (
 );
 ```
 
-Click here [Quick Start](https://prolayout.ant.design/getting-started).
+Click here [Quick Start](https://procomponents.ant.design/en-US/components/layout).
 
 ## ProTable
 
@@ -263,7 +263,7 @@ const Products = () => {
 };
 ```
 
-ProTable provides preset logic to handle loading, pagination and search forms, which can greatly reduce the amount of code, click here [Quick Start](https://protable.ant.design/getting-started).
+ProTable provides preset logic to handle loading, pagination and search forms, which can greatly reduce the amount of code, click here [ProTable](https://procomponents.ant.design/en-US/components/table).
 
 ## Build
 
@@ -293,5 +293,5 @@ You can:
 - Know [the umi routes](https://umijs.org/zh/guide/router.html)
 - Know [how to deploy umi application](https://umijs.org/zh/guide/deploy.html)
 - Scaffolding out of the box [Ant Design Pro](https://pro.ant.design)
-- Advanced Layout [ProLayout](https://prolayout.ant.design)
-- Advanced Table [ProTable](https://protable.ant.design)
+- Advanced Layout [ProLayout](https://procomponents.ant.design/en-US/components/layout)
+- Advanced Table [ProTable](https://procomponents.ant.design/en-US/components/table)
