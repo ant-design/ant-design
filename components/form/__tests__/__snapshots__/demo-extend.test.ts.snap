@@ -20584,7 +20584,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
           class="ant-form-item-control-input-content"
         >
           <div
-            class="ant-mentions"
+            class="ant-mentions ant-mentions-status-error"
           >
             <textarea
               class="rc-textarea"
