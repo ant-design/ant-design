@@ -48,6 +48,7 @@ import moment from 'moment';
 | renderExtraFooter | Called from time picker panel to render some addon to its bottom | () => ReactNode | - |  |
 | secondStep | Interval between seconds in picker | number | 1 |  |
 | showNow | Whether to show `Now` button on panel | boolean | - | 4.4.0 |
+| status | Set validation status | 'error' \| 'warning' \| 'success' \| 'validating' | - | 4.19.0 |
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
 | use12Hours | Display as 12 hours format, with default format `h:mm:ss a` | boolean | false |  |
 | value | To set time | [moment](http://momentjs.com/) | - |  |

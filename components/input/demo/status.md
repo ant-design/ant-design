@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Add status to Input with `status`, which could be `error` or `warning`。
+Add status to Input with `status`, which could be `error` or `warning`.
 
 ```tsx
 import { Input, Space } from 'antd';

@@ -74,6 +74,7 @@ import locale from 'antd/lib/locale/zh_CN';
 | popupStyle | 额外的弹出日历样式 | CSSProperties | {} |  |
 | prevIcon | 自定义上一个图标 | ReactNode | - | 4.17.0 |
 | size | 输入框大小，`large` 高度为 40px，`small` 为 24px，默认是 32px | `large` \| `middle` \| `small` | - |  |
+| status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | style | 自定义输入框样式 | CSSProperties | {} |  |
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
 | superNextIcon | 自定义 `<<` 切换图标 | ReactNode | - | 4.17.0 |
