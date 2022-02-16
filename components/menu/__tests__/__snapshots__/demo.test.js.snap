@@ -998,6 +998,103 @@ Array [
 ]
 `;
 
+exports[`renders ./components/menu/demo/submenu-theme.md correctly 1`] = `
+Array [
+  <button
+    aria-checked="false"
+    class="ant-switch"
+    role="switch"
+    type="button"
+  >
+    <div
+      class="ant-switch-handle"
+    />
+    <span
+      class="ant-switch-inner"
+    >
+      Light
+    </span>
+  </button>,
+  <br />,
+  <br />,
+  <ul
+    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-dark"
+    data-menu-list="true"
+    role="menu"
+    style="width:256px"
+    tabindex="0"
+  >
+    <li
+      class="ant-menu-submenu ant-menu-submenu-vertical ant-menu-submenu-open"
+      role="none"
+      theme="light"
+    >
+      <div
+        aria-expanded="true"
+        aria-haspopup="true"
+        class="ant-menu-submenu-title"
+        role="menuitem"
+        tabindex="-1"
+      >
+        <span
+          aria-label="mail"
+          class="anticon anticon-mail ant-menu-item-icon"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="mail"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 110.8V792H136V270.8l-27.6-21.5 39.3-50.5 42.8 33.3h643.1l42.8-33.3 39.3 50.5-27.7 21.5zM833.6 232L512 482 190.4 232l-42.8-33.3-39.3 50.5 27.6 21.5 341.6 265.6a55.99 55.99 0 0068.7 0L888 270.8l27.6-21.5-39.3-50.5-42.7 33.2z"
+            />
+          </svg>
+        </span>
+        <span
+          class="ant-menu-title-content"
+        >
+          Navigation One
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+    <li
+      class="ant-menu-item ant-menu-item-only-child"
+      role="menuitem"
+      tabindex="-1"
+    >
+      <span
+        class="ant-menu-title-content"
+      >
+        Option 5
+      </span>
+    </li>
+    <li
+      class="ant-menu-item ant-menu-item-only-child"
+      role="menuitem"
+      tabindex="-1"
+    >
+      <span
+        class="ant-menu-title-content"
+      >
+        Option 6
+      </span>
+    </li>
+  </ul>,
+  <div
+    aria-hidden="true"
+    style="display:none"
+  />,
+]
+`;
+
 exports[`renders ./components/menu/demo/switch-mode.md correctly 1`] = `
 Array [
   <button

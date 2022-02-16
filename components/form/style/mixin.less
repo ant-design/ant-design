@@ -10,39 +10,9 @@
   .@{ant-prefix}-form-item-split {
     color: @text-color;
   }
-  // 输入框的不同校验状态
-  :not(.@{ant-prefix}-input-disabled):not(.@{ant-prefix}-input-borderless).@{ant-prefix}-input,
-  :not(.@{ant-prefix}-input-affix-wrapper-disabled):not(.@{ant-prefix}-input-affix-wrapper-borderless).@{ant-prefix}-input-affix-wrapper,
-  :not(.@{ant-prefix}-input-number-affix-wrapper-disabled):not(.@{ant-prefix}-input-number-affix-wrapper-borderless).@{ant-prefix}-input-number-affix-wrapper {
-    &,
-    &:hover {
-      background-color: @background-color;
-      border-color: @border-color;
-    }
-
-    &:focus,
-    &-focused {
-      .active(@border-color, @hoverBorderColor, @outlineColor);
-    }
-  }
 
   .@{ant-prefix}-calendar-picker-open .@{ant-prefix}-calendar-picker-input {
     .active(@border-color, @hoverBorderColor, @outlineColor);
-  }
-
-  .@{ant-prefix}-input-prefix,
-  .@{ant-prefix}-input-number-prefix {
-    color: @text-color;
-  }
-
-  .@{ant-prefix}-input-group-addon,
-  .@{ant-prefix}-input-number-group-addon {
-    color: @text-color;
-    border-color: @border-color;
-  }
-
-  .has-feedback {
-    color: @text-color;
   }
 }
 
