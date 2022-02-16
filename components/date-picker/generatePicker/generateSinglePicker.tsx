@@ -9,7 +9,7 @@ import { GenerateConfig } from 'rc-picker/lib/generate/index';
 import enUS from '../locale/en_US';
 import { getPlaceholder, transPlacement2DropdownAlign } from '../util';
 import devWarning from '../../_util/devWarning';
-import { ConfigConsumerProps, ConfigContext } from '../../config-provider';
+import { ConfigContext, ConfigConsumerProps } from '../../config-provider';
 import LocaleReceiver from '../../locale-provider/LocaleReceiver';
 import SizeContext from '../../config-provider/SizeContext';
 import {
