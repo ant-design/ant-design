@@ -1,5 +1,6 @@
 ---
 order: 19
+version: 4.19.0
 title:
   zh-CN: 自定义校验
   en-US: Customized Validation
@@ -7,7 +8,7 @@ title:
 
 ## zh-CN
 
-使用 `status` 为 InputNumber 添加状态。可选 `error` 或者 `warning`。
+使用 `status` 为 InputNumber 添加状态，可选 `error` 或者 `warning`。
 
 ## en-US
 
