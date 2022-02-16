@@ -6,9 +6,12 @@ import classNames from 'classnames';
 import RcSelect, { Option, OptGroup, SelectProps as RcSelectProps, BaseSelectRef } from 'rc-select';
 import type { BaseOptionType, DefaultOptionType } from 'rc-select/lib/Select';
 import { OptionProps } from 'rc-select/lib/Option';
+import { useContext } from 'react';
 import { ConfigContext } from '../config-provider';
 import getIcons from './utils/iconUtil';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
+import { FormItemStatusContext } from '../form/context';
+import { getMergedStatus, getStatusClassNames, InputStatus } from '../_util/statusUtils';
 import { getTransitionName, getTransitionDirection, SelectCommonPlacement } from '../_util/motion';
 
 type RawValue = string | number;
@@ -42,6 +45,7 @@ export interface SelectProps<
   > {
   placement?: SelectCommonPlacement;
   mode?: 'multiple' | 'tags';
+  status?: InputStatus;
 }
 
 const SECRET_COMBOBOX_MODE_DO_NOT_USE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
@@ -58,6 +62,8 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     listItemHeight = 24,
     size: customizeSize,
     notFoundContent,
+    status: customStatus,
+    showArrow,
     ...props
   }: SelectProps<OptionType>,
   ref: React.Ref<BaseSelectRef>,
@@ -90,6 +96,12 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
   }, [props.mode]);
 
   const isMultiple = mode === 'multiple' || mode === 'tags';
+  const mergedShowArrow =
+    showArrow !== undefined ? showArrow : props.loading || !(isMultiple || mode === 'combobox');
+
+  // ===================== Validation Status =====================
+  const { status: contextStatus, hasFeedback } = useContext(FormItemStatusContext);
+  const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
   // ===================== Empty =====================
   let mergedNotFound: React.ReactNode;
@@ -105,6 +117,9 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
   const { suffixIcon, itemIcon, removeIcon, clearIcon } = getIcons({
     ...props,
     multiple: isMultiple,
+    status: mergedStatus,
+    hasFeedback,
+    showArrow: mergedShowArrow,
     prefixCls,
   });
 
@@ -122,6 +137,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-borderless`]: !bordered,
     },
+    getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
     className,
   );
 
@@ -160,6 +176,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       className={mergedClassName}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       dropdownClassName={rcSelectRtlDropDownClassName}
+      showArrow={hasFeedback || showArrow}
     />
   );
 };
