@@ -143,9 +143,11 @@ const Breadcrumb: BreadcrumbInterface = ({
   );
 
   return (
-    <div className={breadcrumbClassName} style={style} {...restProps}>
-      {crumbs}
-    </div>
+    <nav className={breadcrumbClassName} style={style} {...restProps}>
+      <ol>
+        {crumbs}
+      </ol>
+    </nav>
   );
 };
 
