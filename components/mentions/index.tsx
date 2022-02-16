@@ -1,11 +1,11 @@
+import * as React from 'react';
 import classNames from 'classnames';
 import RcMentions from 'rc-mentions';
 import { MentionsProps as RcMentionsProps } from 'rc-mentions/lib/Mentions';
 import { composeRef } from 'rc-util/lib/ref';
-import * as React from 'react';
+import Spin from '../spin';
 import { ConfigContext } from '../config-provider';
 import { FormItemStatusContext } from '../form/context';
-import Spin from '../spin';
 import {
   getFeedbackIcon,
   getMergedStatus,
