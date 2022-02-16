@@ -123,7 +123,7 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
       [`${prefixCls}-focused`]: focused,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
-    getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
+    getStatusClassNames(prefixCls, mergedStatus),
     !hasFeedback && className,
   );
 
