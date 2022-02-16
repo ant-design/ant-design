@@ -1,8 +1,8 @@
 ---
 order: 19
 title:
-  zh-CN: 自定义校验
-  en-US: Customized Validation
+  zh-CN: 自定义状态
+  en-US: Status
 ---
 
 ## zh-CN
