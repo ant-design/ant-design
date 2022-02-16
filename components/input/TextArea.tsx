@@ -80,7 +80,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
     const size = React.useContext(SizeContext);
 
     const { status: contextStatus, hasFeedback } = React.useContext(FormItemStatusContext);
-    const mergedStatus = getMergedStatus({ contextStatus, customStatus });
+    const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
     const innerRef = React.useRef<RcTextArea>(null);
     const clearableInputRef = React.useRef<ClearableLabeledInput>(null);

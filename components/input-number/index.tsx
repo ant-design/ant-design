@@ -72,7 +72,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   }
 
   const { hasFeedback, status: contextStatus } = useContext(FormItemStatusContext);
-  const mergedStatus = getMergedStatus({ contextStatus, customStatus });
+  const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
   const mergeSize = customizeSize || size;
   const inputNumberClass = classNames(

@@ -40,10 +40,5 @@ export function getStatusClassNames(
   });
 }
 
-export const getMergedStatus = ({
-  contextStatus,
-  customStatus,
-}: {
-  contextStatus?: ValidateStatus;
-  customStatus?: InputStatus;
-}) => customStatus || contextStatus;
+export const getMergedStatus = (contextStatus?: ValidateStatus, customStatus?: InputStatus) =>
+  customStatus || contextStatus;

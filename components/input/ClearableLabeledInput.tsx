@@ -143,7 +143,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
       },
       getStatusClassNames(
         `${prefixCls}-affix-wrapper`,
-        getMergedStatus({ contextStatus, customStatus }),
+        getMergedStatus(contextStatus, customStatus),
         hasFeedback,
       ),
     );
@@ -207,7 +207,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
       },
       getStatusClassNames(
         `${prefixCls}-group-wrapper`,
-        getMergedStatus({ contextStatus, customStatus }),
+        getMergedStatus(contextStatus, customStatus),
         hasFeedback,
       ),
       className,
@@ -254,7 +254,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
       `${prefixCls}-affix-wrapper-textarea-with-clear-btn`,
       getStatusClassNames(
         `${prefixCls}-affix-wrapper`,
-        getMergedStatus({ contextStatus, customStatus }),
+        getMergedStatus(contextStatus, customStatus),
         hasFeedback,
       ),
       {

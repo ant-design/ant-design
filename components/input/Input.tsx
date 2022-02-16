@@ -422,7 +422,7 @@ class Input extends React.Component<InputProps, InputState> {
         {size => (
           <FormItemStatusContext.Consumer>
             {({ status: contextStatus, hasFeedback }) => {
-              const mergedStatus = getMergedStatus({ contextStatus, customStatus });
+              const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
               return (
                 <ClearableLabeledInput
