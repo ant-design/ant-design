@@ -7,7 +7,12 @@ import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import { FormItemStatusContext } from '../form/context';
-import { getFeedbackIcon, getStatusClassNames, InputStatus } from '../_util/statusUtils';
+import {
+  getFeedbackIcon,
+  getStatusClassNames,
+  InputStatus,
+  getMergedStatus,
+} from '../_util/statusUtils';
 import ClearableLabeledInput from './ClearableLabeledInput';
 import { fixControlledValue, InputFocusOptions, resolveOnChange, triggerFocus } from './Input';
 
@@ -75,7 +80,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
     const size = React.useContext(SizeContext);
 
     const { status: contextStatus, hasFeedback } = React.useContext(FormItemStatusContext);
-    const mergedStatus = contextStatus || customStatus;
+    const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
     const innerRef = React.useRef<RcTextArea>(null);
     const clearableInputRef = React.useRef<ClearableLabeledInput>(null);

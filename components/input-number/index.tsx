@@ -1,12 +1,19 @@
-import * as React from 'react';
+import DownOutlined from '@ant-design/icons/DownOutlined';
+import UpOutlined from '@ant-design/icons/UpOutlined';
 import classNames from 'classnames';
 import RcInputNumber, { InputNumberProps as RcInputNumberProps } from 'rc-input-number';
-import UpOutlined from '@ant-design/icons/UpOutlined';
-import DownOutlined from '@ant-design/icons/DownOutlined';
-
+import * as React from 'react';
+import { useContext } from 'react';
 import { ConfigContext } from '../config-provider';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
+import { FormItemStatusContext } from '../form/context';
 import { cloneElement } from '../_util/reactNode';
+import {
+  getFeedbackIcon,
+  getStatusClassNames,
+  InputStatus,
+  getMergedStatus,
+} from '../_util/statusUtils';
 
 type ValueType = string | number;
 
@@ -18,6 +25,7 @@ export interface InputNumberProps<T extends ValueType = ValueType>
   prefix?: React.ReactNode;
   size?: SizeType;
   bordered?: boolean;
+  status?: InputStatus;
   controls?: boolean | { upIcon?: React.ReactNode; downIcon?: React.ReactNode };
 }
 
@@ -38,6 +46,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     prefix,
     bordered = true,
     readOnly,
+    status: customStatus,
     controls,
     ...others
   } = props;
@@ -62,6 +71,9 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       );
   }
 
+  const { hasFeedback, status: contextStatus } = useContext(FormItemStatusContext);
+  const mergedStatus = getMergedStatus(contextStatus, customStatus);
+
   const mergeSize = customizeSize || size;
   const inputNumberClass = classNames(
     {
@@ -71,6 +83,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       [`${prefixCls}-readonly`]: readOnly,
       [`${prefixCls}-borderless`]: !bordered,
     },
+    getStatusClassNames(prefixCls, mergedStatus),
     className,
   );
 
@@ -87,25 +100,30 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     />
   );
 
-  if (prefix != null) {
-    const affixWrapperCls = classNames(`${prefixCls}-affix-wrapper`, {
-      [`${prefixCls}-affix-wrapper-focused`]: focused,
-      [`${prefixCls}-affix-wrapper-disabled`]: props.disabled,
-      [`${prefixCls}-affix-wrapper-sm`]: size === 'small',
-      [`${prefixCls}-affix-wrapper-lg`]: size === 'large',
-      [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
-      [`${prefixCls}-affix-wrapper-readonly`]: readOnly,
-      [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
-      // className will go to addon wrapper
-      [`${className}`]: !(addonBefore || addonAfter) && className,
-    });
+  if (prefix != null || hasFeedback) {
+    const affixWrapperCls = classNames(
+      `${prefixCls}-affix-wrapper`,
+      getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus, hasFeedback),
+      {
+        [`${prefixCls}-affix-wrapper-focused`]: focused,
+        [`${prefixCls}-affix-wrapper-disabled`]: props.disabled,
+        [`${prefixCls}-affix-wrapper-sm`]: size === 'small',
+        [`${prefixCls}-affix-wrapper-lg`]: size === 'large',
+        [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
+        [`${prefixCls}-affix-wrapper-readonly`]: readOnly,
+        [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
+        // className will go to addon wrapper
+        [`${className}`]: !(addonBefore || addonAfter) && className,
+      },
+    );
+
     element = (
       <div
         className={affixWrapperCls}
         style={props.style}
         onMouseUp={() => inputRef.current!.focus()}
       >
-        <span className={`${prefixCls}-prefix`}>{prefix}</span>
+        {prefix && <span className={`${prefixCls}-prefix`}>{prefix}</span>}
         {cloneElement(element, {
           style: null,
           value: props.value,
@@ -118,6 +136,9 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
             props.onBlur?.(event);
           },
         })}
+        {hasFeedback && (
+          <span className={`${prefixCls}-suffix`}>{getFeedbackIcon(prefixCls, mergedStatus)}</span>
+        )}
       </div>
     );
   }
@@ -141,6 +162,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
         [`${prefixCls}-group-wrapper-lg`]: size === 'large',
         [`${prefixCls}-group-wrapper-rtl`]: direction === 'rtl',
       },
+      getStatusClassNames(`${prefixCls}-group-wrapper`, mergedStatus, hasFeedback),
       className,
     );
     element = (

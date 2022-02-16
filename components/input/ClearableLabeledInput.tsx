@@ -5,7 +5,7 @@ import { DirectionType } from '../config-provider';
 import { SizeType } from '../config-provider/SizeContext';
 import { FormItemStatusContext, FormItemStatusContextProps } from '../form/context';
 import { cloneElement } from '../_util/reactNode';
-import { getStatusClassNames, InputStatus } from '../_util/statusUtils';
+import { getMergedStatus, getStatusClassNames, InputStatus } from '../_util/statusUtils';
 import { tuple } from '../_util/type';
 import type { InputProps } from './Input';
 import { getInputClassName, hasPrefixSuffix } from './utils';
@@ -141,7 +141,11 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
         // className will go to addon wrapper
         [`${className}`]: !hasAddon(this.props) && className,
       },
-      getStatusClassNames(`${prefixCls}-affix-wrapper`, contextStatus || customStatus, hasFeedback),
+      getStatusClassNames(
+        `${prefixCls}-affix-wrapper`,
+        getMergedStatus(contextStatus, customStatus),
+        hasFeedback,
+      ),
     );
     return (
       <span
@@ -201,7 +205,11 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
         [`${prefixCls}-group-wrapper-lg`]: size === 'large',
         [`${prefixCls}-group-wrapper-rtl`]: direction === 'rtl',
       },
-      getStatusClassNames(`${prefixCls}-group-wrapper`, contextStatus || customStatus, hasFeedback),
+      getStatusClassNames(
+        `${prefixCls}-group-wrapper`,
+        getMergedStatus(contextStatus, customStatus),
+        hasFeedback,
+      ),
       className,
     );
 
@@ -244,7 +252,11 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
     const affixWrapperCls = classNames(
       `${prefixCls}-affix-wrapper`,
       `${prefixCls}-affix-wrapper-textarea-with-clear-btn`,
-      getStatusClassNames(`${prefixCls}-affix-wrapper`, contextStatus || customStatus, hasFeedback),
+      getStatusClassNames(
+        `${prefixCls}-affix-wrapper`,
+        getMergedStatus(contextStatus, customStatus),
+        hasFeedback,
+      ),
       {
         [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
         [`${prefixCls}-affix-wrapper-borderless`]: !bordered,

@@ -13,7 +13,7 @@ import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import devWarning from '../_util/devWarning';
 import { getInputClassName, hasPrefixSuffix } from './utils';
 import { FormItemStatusContext } from '../form/context';
-import { getFeedbackIcon, InputStatus } from '../_util/statusUtils';
+import { getFeedbackIcon, InputStatus, getMergedStatus } from '../_util/statusUtils';
 
 export interface InputFocusOptions extends FocusOptions {
   cursor?: 'start' | 'end' | 'all';
@@ -422,7 +422,7 @@ class Input extends React.Component<InputProps, InputState> {
         {size => (
           <FormItemStatusContext.Consumer>
             {({ status: contextStatus, hasFeedback }) => {
-              const mergedStatus = contextStatus || customStatus;
+              const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
               return (
                 <ClearableLabeledInput

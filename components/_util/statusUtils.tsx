@@ -39,3 +39,6 @@ export function getStatusClassNames(
     [`${prefixCls}-has-feedback`]: hasFeedback,
   });
 }
+
+export const getMergedStatus = (contextStatus?: ValidateStatus, customStatus?: InputStatus) =>
+  customStatus || contextStatus;
