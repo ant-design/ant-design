@@ -155,7 +155,7 @@ ReactDOM.render(
       <Input.Password allowClear placeholder="with input password and allowClear" />
     </Form.Item>
 
-    <Form.Item label="Fail" validateStatus="error">
+    <Form.Item label="Fail" validateStatus="error" hasFeedback>
       <Mentions />
     </Form.Item>
 
