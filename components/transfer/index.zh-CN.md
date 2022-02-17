@@ -39,6 +39,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/QAXskNI4G/Transfer.svg
 | selectedKeys | 设置哪些项应该被选中 | string\[] | \[] |  |
 | showSearch | 是否显示搜索框 | boolean | false |  |
 | showSelectAll | 是否展示全选勾选框 | boolean | true |  |
+| status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | targetKeys | 显示在右侧框数据的 key 集合 | string\[] | \[] |  |
 | titles | 标题集合，顺序从左至右 | ReactNode\[] | - |  |
 | onChange | 选项在两栏之间转移时的回调函数 | (targetKeys, direction, moveKeys): void | - |  |
