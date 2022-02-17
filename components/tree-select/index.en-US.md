@@ -43,6 +43,7 @@ Tree selection control.
 | showCheckedStrategy | The way show selected item in box when `treeCheckable` set. **Default:** just show child nodes. **`TreeSelect.SHOW_ALL`:** show all checked treeNodes (include parent treeNode). **`TreeSelect.SHOW_PARENT`:** show checked treeNodes (just show parent treeNode) | `TreeSelect.SHOW_ALL` \| `TreeSelect.SHOW_PARENT` \| `TreeSelect.SHOW_CHILD` | `TreeSelect.SHOW_CHILD` |  |
 | showSearch | Support search or not | boolean | single: false \| multiple: true |  |
 | size | To set the size of the select input | `large` \| `middle` \| `small` | - |  |
+| status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | suffixIcon | The custom suffix icon,you must set `showArrow` to `true` manually in multiple selection mode | ReactNode | - |  |
 | switcherIcon | customize collapse \| expand icon of tree node | ReactNode | - |  |
 | tagRender | Customize tag render when `multiple` | (props) => ReactNode | - |  |
