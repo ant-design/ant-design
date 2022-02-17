@@ -24,12 +24,12 @@ export function registerTheme(globalPrefixCls: string, theme: Theme) {
     const colorPalettes = generate(baseColor.toRgbString());
 
     variables[`${type}-color`] = formatColor(baseColor);
-    variables[`${type}-color-disabled`] = colorPalettes[1];
+    variables[`${type}-color-disabled`] = colorPalettes[0];
     variables[`${type}-color-hover`] = colorPalettes[4];
-    variables[`${type}-color-active`] = colorPalettes[7];
+    variables[`${type}-color-active`] = colorPalettes[6];
     variables[`${type}-color-outline`] = baseColor.clone().setAlpha(0.2).toRgbString();
-    variables[`${type}-color-deprecated-bg`] = colorPalettes[1];
-    variables[`${type}-color-deprecated-border`] = colorPalettes[3];
+    variables[`${type}-color-deprecated-bg`] = colorPalettes[0];
+    variables[`${type}-color-deprecated-border`] = colorPalettes[2];
   };
 
   // ================ Primary Color ================
