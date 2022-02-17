@@ -7,10 +7,14 @@ import { ConfigContext } from '../config-provider';
 import SizeContext from '../config-provider/SizeContext';
 import { RadioGroupContextProvider } from './context';
 import getDataOrAriaProps from '../_util/getDataOrAriaProps';
+import { FormItemStatusContext } from '../form/context';
+import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 
 const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const size = React.useContext(SizeContext);
+
+  const { status: contextStatus } = React.useContext(FormItemStatusContext);
 
   const [value, setValue] = useMergedState(props.defaultValue, {
     value: props.value,
@@ -42,9 +46,11 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
       id,
       onMouseEnter,
       onMouseLeave,
+      status: customStatus,
     } = props;
     const prefixCls = getPrefixCls('radio', customizePrefixCls);
     const groupPrefixCls = `${prefixCls}-group`;
+    const mergedStatus = getMergedStatus(contextStatus, customStatus);
     let childrenToRender = children;
     // 如果存在 options, 优先使用
     if (options && options.length > 0) {
@@ -88,6 +94,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
         [`${groupPrefixCls}-${mergedSize}`]: mergedSize,
         [`${groupPrefixCls}-rtl`]: direction === 'rtl',
       },
+      getStatusClassNames(groupPrefixCls, mergedStatus),
       className,
     );
     return (

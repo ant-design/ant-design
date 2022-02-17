@@ -37,6 +37,7 @@ Radio group can wrap a group of `Radio`。
 | options | Set children optional | string\[] \| number\[] \| Array&lt;{ label: string value: string disabled?: boolean }> | - |  |
 | optionType | Set Radio optionType | `default` \| `button` | `default` | 4.4.0 |
 | size | The size of radio button style | `large` \| `middle` \| `small` | - |  |
+| status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | value | Used for setting the currently selected value | any | - |  |
 | onChange | The callback function that is triggered when the state changes | function(e:Event) | - |  |
 
