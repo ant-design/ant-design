@@ -4,6 +4,7 @@ import glob from 'glob';
 import { render } from 'enzyme';
 import MockDate from 'mockdate';
 import moment from 'moment';
+import { StyleProvider, createCache } from '@ant-design/cssinjs';
 import { TriggerProps } from 'rc-trigger';
 import { excludeWarning } from './excludeWarning';
 
@@ -84,6 +85,9 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
             </TriggerMockContext.Provider>
           );
         }
+
+        // Inject cssinjs cache to avoid create <style /> element
+        demo = <StyleProvider cache={createCache()}>{demo}</StyleProvider>;
 
         const wrapper = render(demo);
 
