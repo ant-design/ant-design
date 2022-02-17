@@ -23,7 +23,7 @@ const Status: React.FC = () => (
       status="warning"
       style={{ width: '100%' }}
       multiple
-      placeholder="warning multiple"
+      placeholder="Warning multiple"
     />
   </Space>
 );

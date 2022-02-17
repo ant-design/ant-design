@@ -514,7 +514,7 @@ exports[`renders ./components/tree-select/demo/status.md correctly 1`] = `
         <span
           class="ant-select-selection-placeholder"
         >
-          warning multiple
+          Warning multiple
         </span>
       </div>
     </div>
