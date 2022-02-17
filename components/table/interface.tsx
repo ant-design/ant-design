@@ -201,3 +201,5 @@ type TablePaginationPosition =
 export interface TablePaginationConfig extends PaginationProps {
   position?: TablePaginationPosition[];
 }
+
+export type FilterSearchType = boolean | ((input: string, record: {}) => boolean);
