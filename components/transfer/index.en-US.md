@@ -36,6 +36,7 @@ One or more elements can be selected from either column, one click on the proper
 | selectedKeys | A set of keys of selected items | string\[] | \[] |  |
 | showSearch | If included, a search box is shown on each column | boolean | false |  |
 | showSelectAll | Show select all checkbox on the header | boolean | true |  |
+| status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | targetKeys | A set of keys of elements that are listed on the right column | string\[] | \[] |  |
 | titles | A set of titles that are sorted from left to right | ReactNode\[] | - |  |
 | onChange | A callback function that is executed when the transfer between columns is complete | (targetKeys, direction, moveKeys): void | - |  |
