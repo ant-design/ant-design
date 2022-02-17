@@ -107,8 +107,8 @@ ReactDOM.render(
     <Form.Item
       label="Validating"
       hasFeedback
-      validateStatus="validating"
-      help="The information is being validated..."
+      validateStatus="error"
+      help="Something breaks the rule."
     >
       <Cascader placeholder="I'm Cascader" options={[{ value: 'xx', label: 'xx' }]} allowClear />
     </Form.Item>
