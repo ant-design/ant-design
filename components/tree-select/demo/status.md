@@ -1,5 +1,6 @@
 ---
 order: 9
+version: 4.19.0
 title:
   zh-CN: 自定义状态
   en-US: Status
