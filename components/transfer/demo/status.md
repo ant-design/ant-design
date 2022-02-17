@@ -8,22 +8,22 @@ title:
 
 ## zh-CN
 
-使用 `status` 为 Transfer 添加状态。
+使用 `status` 为 Transfer 添加状态，可选 `error` 或者 `warning`。
 
 ## en-US
 
-Add status to Transfer with `status`.
+Add status to Transfer with `status`, which could be `error` or `warning`.
 
 ```jsx
 import React from 'react';
 import { Transfer, Space } from 'antd';
 
-const App = () => (
+const Status = () => (
   <Space direction="vertical">
     <Transfer status="error" />
     <Transfer status="warning" showSearch />
   </Space>
 );
 
-ReactDOM.render(<App />, mountNode);
+ReactDOM.render(<Status />, mountNode);
 ```
