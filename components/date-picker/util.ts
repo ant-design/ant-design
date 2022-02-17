@@ -42,6 +42,9 @@ export function getRangePlaceholder(
   if (picker === 'year' && locale.lang.yearPlaceholder) {
     return locale.lang.rangeYearPlaceholder;
   }
+  if (picker === 'quarter' && locale.lang.quarterPlaceholder) {
+    return locale.lang.rangeQuarterPlaceholder;
+  }
   if (picker === 'month' && locale.lang.monthPlaceholder) {
     return locale.lang.rangeMonthPlaceholder;
   }

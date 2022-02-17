@@ -45,6 +45,7 @@ Cascade selection box.
 | placement | Use preset popup align config from builtinPlacements | `bottomLeft` `bottomRight` `topLeft` `topRight` | `bottomLeft` | 4.17.0 |
 | showSearch | Whether show search input in single mode | boolean \| [Object](#showSearch) | false |  |
 | size | The input size | `large` \| `middle` \| `small` | - |  |
+| status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | style | The additional style | CSSProperties | - |  |
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
 | tagRender | Customize tag render when `multiple` | (props) => ReactNode | - | 4.17.0 |

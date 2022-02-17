@@ -300,7 +300,7 @@
     },
     {
       "path": "./dist/antd.min.css",
-      "maxSize": "65 kB"
+      "maxSize": "66 kB"
     },
     {
       "path": "./dist/antd.dark.min.css",
@@ -308,11 +308,11 @@
     },
     {
       "path": "./dist/antd.compact.min.css",
-      "maxSize": "65 kB"
+      "maxSize": "66 kB"
     },
     {
       "path": "./dist/antd.variable.min.css",
-      "maxSize": "66 kB"
+      "maxSize": "67 kB"
     }
   ],
   "tnpm": {
