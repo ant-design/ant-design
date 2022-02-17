@@ -139,8 +139,6 @@ function InternalTable<RecordType extends object = any>(
     '`index` parameter of `rowKey` function is deprecated. There is no guarantee that it will work as expected.',
   );
 
-  console.error('render 2333!!!');
-
   const baseColumns = React.useMemo(
     () => columns || convertChildrenToColumns(children),
     [columns, children],
