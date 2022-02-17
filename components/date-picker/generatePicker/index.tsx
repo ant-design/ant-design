@@ -102,6 +102,7 @@ export type AdditionalPickerLocaleLangProps = {
   monthPlaceholder?: string;
   weekPlaceholder?: string;
   rangeYearPlaceholder?: [string, string];
+  rangeQuarterPlaceholder?: [string, string];
   rangeMonthPlaceholder?: [string, string];
   rangeWeekPlaceholder?: [string, string];
   rangePlaceholder?: [string, string];
