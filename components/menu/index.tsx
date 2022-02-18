@@ -6,12 +6,12 @@ import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
 import memoize from 'memoize-one';
 import SubMenu, { SubMenuProps } from './SubMenu';
 import Item, { MenuItemProps } from './MenuItem';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { ConfigConsumer, ConfigConsumerProps, DirectionType } from '../config-provider';
 import devWarning from '../_util/devWarning';
 import { SiderContext, SiderContextProps } from '../layout/Sider';
 import collapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
-import MenuContext, { MenuTheme } from './MenuContext';
+import MenuContext, { MenuTheme, MenuContextProps } from './MenuContext';
 import MenuDivider from './MenuDivider';
 
 export { MenuDividerProps } from './MenuDivider';
@@ -66,6 +66,23 @@ class InternalMenu extends React.Component<InternalMenuProps> {
     return inlineCollapsed;
   }
 
+  getMemoizedContextValue = memoize(
+    (
+      cls: string,
+      collapsed: boolean | undefined,
+      the: MenuTheme | undefined,
+      dir: DirectionType,
+      disableMenuItemTitleTooltip: boolean | undefined,
+    ): MenuContextProps => ({
+      prefixCls: cls,
+      inlineCollapsed: collapsed || false,
+      antdMenuTheme: the,
+      direction: dir,
+      firstLevel: true,
+      disableMenuItemTitleTooltip,
+    }),
+  );
+
   renderMenu = ({ getPopupContainer, getPrefixCls, direction }: ConfigConsumerProps) => {
     const rootPrefixCls = getPrefixCls();
 
@@ -91,14 +108,13 @@ class InternalMenu extends React.Component<InternalMenuProps> {
     const menuClassName = classNames(`${prefixCls}-${theme}`, className);
 
     // TODO: refactor menu with function component
-    const contextValue = memoize((cls, collapsed, the, dir, disableMenuItemTitleTooltip) => ({
-      prefixCls: cls,
-      inlineCollapsed: collapsed || false,
-      antdMenuTheme: the,
-      direction: dir,
-      firstLevel: true,
-      disableMenuItemTitleTooltip,
-    }))(prefixCls, inlineCollapsed, theme, direction, _internalDisableMenuItemTitleTooltip);
+    const contextValue = this.getMemoizedContextValue(
+      prefixCls,
+      inlineCollapsed,
+      theme,
+      direction,
+      _internalDisableMenuItemTitleTooltip,
+    );
 
     return (
       <MenuContext.Provider value={contextValue}>
