@@ -53,8 +53,8 @@ export function registerTheme(globalPrefixCls: string, theme: Theme) {
     );
 
     const primaryActiveColor = new TinyColor(primaryColors[0]);
-    variables['primary-color-active-deprecated-f-30'] = formatColor(primaryActiveColor, c =>
-      c.setAlpha(c.getAlpha() * 0.3),
+    variables['primary-color-active-deprecated-f-20'] = formatColor(primaryActiveColor, c =>
+      c.setAlpha(c.getAlpha() * 0.2),
     );
     variables['primary-color-active-deprecated-d-02'] = formatColor(primaryActiveColor, c =>
       c.darken(2),
