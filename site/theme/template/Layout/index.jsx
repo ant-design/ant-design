@@ -15,6 +15,9 @@ import SiteContext from './SiteContext';
 import enLocale from '../../en-US';
 import cnLocale from '../../zh-CN';
 import * as utils from '../utils';
+import defaultDesignToken from '../../../../components/_util/theme/default';
+
+import DynamicTheme from './DynamicTheme';
 
 if (typeof window !== 'undefined' && navigator.serviceWorker) {
   navigator.serviceWorker.getRegistrations().then(registrations => {
@@ -78,6 +81,7 @@ export default class Layout extends React.Component {
       setTheme: this.setTheme,
       direction: 'ltr',
       setIframeTheme: this.setIframeTheme,
+      designToken: defaultDesignToken,
     };
   }
 
@@ -206,7 +210,8 @@ export default class Layout extends React.Component {
 
   render() {
     const { children, helmetContext = {}, ...restProps } = this.props;
-    const { appLocale, direction, isMobile, theme, setTheme, setIframeTheme } = this.state;
+    const { appLocale, direction, isMobile, theme, setTheme, setIframeTheme, designToken } =
+      this.state;
     const title =
       appLocale.locale === 'zh-CN'
         ? 'Ant Design - 一套企业级 UI 设计语言和 React 组件库'
@@ -248,9 +253,22 @@ export default class Layout extends React.Component {
             <ConfigProvider
               locale={appLocale.locale === 'zh-CN' ? zhCN : null}
               direction={direction}
+              theme={{
+                token: designToken,
+              }}
             >
               <Header {...restProps} changeDirection={this.changeDirection} />
               {children}
+
+              <DynamicTheme
+                defaultToken={designToken}
+                onChangeTheme={newToken => {
+                  console.log('Change Theme:', newToken);
+                  this.setState({
+                    designToken: newToken,
+                  });
+                }}
+              />
             </ConfigProvider>
           </IntlProvider>
         </HelmetProvider>

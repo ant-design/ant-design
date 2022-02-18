@@ -4,6 +4,8 @@ import { Locale } from '../locale-provider';
 import { SizeType } from './SizeContext';
 import { RequiredMark } from '../form/Form';
 
+export const defaultIconPrefixCls = 'anticon';
+
 export interface Theme {
   primaryColor?: string;
   infoColor?: string;
@@ -58,6 +60,8 @@ export const ConfigContext = React.createContext<ConfigConsumerProps>({
   getPrefixCls: defaultGetPrefixCls,
 
   renderEmpty: defaultRenderEmpty,
+
+  iconPrefixCls: defaultIconPrefixCls,
 });
 
 export const ConfigConsumer = ConfigContext.Consumer;
