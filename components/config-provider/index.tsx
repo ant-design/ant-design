@@ -84,7 +84,7 @@ export interface ConfigProviderProps {
   virtual?: boolean;
   dropdownMatchSelectWidth?: boolean;
   theme?: {
-    token?: DesignToken;
+    token?: Partial<DesignToken>;
   };
 }
 

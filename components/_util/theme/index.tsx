@@ -78,7 +78,7 @@ export const ThemeContext = React.createContext(
 );
 
 export const DesignTokenContext = React.createContext<{
-  token?: Partial<DesignToken>;
+  token: Partial<DesignToken>;
   hashed?: string | boolean;
 }>({
   token: defaultDesignToken,
@@ -87,8 +87,7 @@ export const DesignTokenContext = React.createContext<{
 // ================================== Hook ==================================
 export function useToken() {
   const { iconPrefixCls } = React.useContext(ConfigContext);
-  const { token: rootDesignToken = defaultDesignToken, hashed } =
-    React.useContext(DesignTokenContext);
+  const { token: rootDesignToken, hashed } = React.useContext(DesignTokenContext);
   const theme = React.useContext(ThemeContext);
 
   const salt = `${version}-${hashed || ''}`;
