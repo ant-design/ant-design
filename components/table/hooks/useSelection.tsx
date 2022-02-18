@@ -56,16 +56,13 @@ export type INTERNAL_SELECTION_ITEM =
 function flattenData<RecordType>(
   data: RecordType[] | undefined,
   childrenColumnName: string,
+  list: RecordType[] = [],
 ): RecordType[] {
-  let list: RecordType[] = [];
   (data || []).forEach(record => {
     list.push(record);
 
     if (record && typeof record === 'object' && childrenColumnName in record) {
-      list = [
-        ...list,
-        ...flattenData<RecordType>((record as any)[childrenColumnName], childrenColumnName),
-      ];
+      flattenData((record as any)[childrenColumnName], childrenColumnName, list);
     }
   });
 
@@ -158,8 +155,8 @@ export default function useSelection<RecordType>(
 
   // Get flatten data
   const flattedData = useMemo(
-    () => flattenData(pageData, childrenColumnName),
-    [pageData, childrenColumnName],
+    () => (!rowSelection ? [] : flattenData(pageData, childrenColumnName)),
+    [pageData, childrenColumnName, !rowSelection],
   );
 
   // Get all checkbox props
