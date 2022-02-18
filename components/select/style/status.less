@@ -2,7 +2,7 @@
 
 @select-prefix-cls: ~'@{ant-prefix}-select';
 
-.status-color(
+.select-status-color(
   @text-color;
   @border-color;
   @background-color;
@@ -28,11 +28,11 @@
 .select-status-base(@prefix-cls) {
   .@{prefix-cls} {
     &-status-error {
-      .status-color(@error-color, @error-color, @select-background, @error-color-hover, @error-color-outline);
+      .select-status-color(@error-color, @error-color, @select-background, @error-color-hover, @error-color-outline);
     }
 
     &-status-warning {
-      .status-color(@warning-color, @warning-color, @input-bg, @warning-color-hover, @warning-color-outline);
+      .select-status-color(@warning-color, @warning-color, @input-bg, @warning-color-hover, @warning-color-outline);
     }
 
     &-status-success {

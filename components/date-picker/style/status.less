@@ -2,7 +2,7 @@
 
 @picker-prefix-cls: ~'@{ant-prefix}-picker';
 
-.status-color(
+.picker-status-color(
   @text-color: @input-color;
   @border-color: @input-border-color;
   @background-color: @input-bg;
@@ -29,11 +29,11 @@
 
 .@{picker-prefix-cls} {
   &-status-error {
-    .status-color(@error-color, @error-color, @input-bg, @error-color-hover, @error-color-outline);
+    .picker-status-color(@error-color, @error-color, @input-bg, @error-color-hover, @error-color-outline);
   }
 
   &-status-warning {
-    .status-color(@warning-color, @warning-color, @input-bg, @warning-color-hover, @warning-color-outline);
+    .picker-status-color(@warning-color, @warning-color, @input-bg, @warning-color-hover, @warning-color-outline);
   }
 
   &-status-validating {
