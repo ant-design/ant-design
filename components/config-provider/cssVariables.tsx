@@ -49,12 +49,12 @@ export function registerTheme(globalPrefixCls: string, theme: Theme) {
     variables['primary-color-deprecated-t-20'] = formatColor(primaryColor, c => c.tint(20));
     variables['primary-color-deprecated-t-50'] = formatColor(primaryColor, c => c.tint(50));
     variables['primary-color-deprecated-f-12'] = formatColor(primaryColor, c =>
-      c.setAlpha(c.getAlpha() * 0.12),
+      c.setAlpha(0.12),
     );
 
     const primaryActiveColor = new TinyColor(primaryColors[0]);
     variables['primary-color-active-deprecated-f-20'] = formatColor(primaryActiveColor, c =>
-      c.setAlpha(c.getAlpha() * 0.2),
+      c.setAlpha(0.2),
     );
     variables['primary-color-active-deprecated-d-02'] = formatColor(primaryActiveColor, c =>
       c.darken(2),
