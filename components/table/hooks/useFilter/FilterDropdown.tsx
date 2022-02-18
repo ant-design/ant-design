@@ -203,7 +203,11 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     internalTriggerFilter(getFilteredKeysSync());
   };
 
-  const onReset = () => {
+  const onReset = ({ closeDropdown } = { closeDropdown: true }) => {
+    if (closeDropdown) {
+      triggerVisible(false);
+    }
+    internalTriggerFilter([]);
     setSearchValue('');
     setFilteredKeysSync([]);
   };
@@ -367,7 +371,12 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
       <>
         {getFilterComponent()}
         <div className={`${prefixCls}-dropdown-btns`}>
-          <Button type="link" size="small" disabled={selectedKeys.length === 0} onClick={onReset}>
+          <Button
+            type="link"
+            size="small"
+            disabled={selectedKeys.length === 0}
+            onClick={() => onReset()}
+          >
             {locale.filterReset}
           </Button>
           <Button type="primary" size="small" onClick={onConfirm}>

@@ -168,7 +168,7 @@ describe('Table.filter', () => {
         <span onClick={() => confirm()} id="confirm">
           Confirm
         </span>
-        <span onClick={() => clearFilters()} id="reset">
+        <span onClick={() => clearFilters({})} id="reset">
           Reset
         </span>
         <span
@@ -700,10 +700,11 @@ describe('Table.filter', () => {
     expect(renderedNames(wrapper)).toEqual(['Jack']);
 
     wrapper.find('.ant-dropdown-trigger').first().simulate('click');
+    expect(wrapper.find('Dropdown').first().props().visible).toBe(true);
     wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-link').simulate('click');
     wrapper.update();
-    expect(wrapper.find('Dropdown').first().props().visible).toBe(true);
-    expect(renderedNames(wrapper)).toEqual(['Jack']);
+    expect(wrapper.find('Dropdown').first().props().visible).toBe(false);
+    expect(renderedNames(wrapper)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
     wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-primary').simulate('click');
     expect(renderedNames(wrapper)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
     expect(wrapper.find('Dropdown').first().props().visible).toBe(false);
