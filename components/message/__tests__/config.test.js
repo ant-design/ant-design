@@ -47,6 +47,27 @@ describe('message.config', () => {
     expect(document.querySelectorAll('.custom-container').length).toBe(1);
   });
 
+  it('should be able to config getContainer, although messageInstance already exists', () => {
+    const container1 = document.createElement('div');
+    const container2 = document.createElement('div');
+    document.body.appendChild(container1);
+    document.body.appendChild(container2);
+    expect(container1.querySelector('.ant-message-notice')).toBeFalsy();
+    expect(container2.querySelector('.ant-message-notice')).toBeFalsy();
+    message.config({
+      getContainer: () => container1,
+    });
+    message.info('mounted in container1');
+    expect(container1.querySelector('.ant-message-notice')).toBeTruthy();
+    message.config({
+      getContainer: () => container2,
+    });
+    message.info('mounted in container2');
+    expect(container2.querySelector('.ant-message-notice')).toBeTruthy();
+    document.body.removeChild(container1);
+    document.body.removeChild(container2);
+  });
+
   it('should be able to config maxCount', () => {
     message.config({
       maxCount: 5,
