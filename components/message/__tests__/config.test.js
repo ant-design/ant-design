@@ -47,27 +47,6 @@ describe('message.config', () => {
     expect(document.querySelectorAll('.custom-container').length).toBe(1);
   });
 
-  it('should be able to config getContainer, although messageInstance already exists', () => {
-    const container1 = document.createElement('div');
-    const container2 = document.createElement('div');
-    document.body.appendChild(container1);
-    document.body.appendChild(container2);
-    expect(container1.querySelector('.ant-message-notice')).toBeFalsy();
-    expect(container2.querySelector('.ant-message-notice')).toBeFalsy();
-    message.config({
-      getContainer: () => container1,
-    });
-    message.info('mounted in container1');
-    expect(container1.querySelector('.ant-message-notice')).toBeTruthy();
-    message.config({
-      getContainer: () => container2,
-    });
-    message.info('mounted in container2');
-    expect(container2.querySelector('.ant-message-notice')).toBeTruthy();
-    document.body.removeChild(container1);
-    document.body.removeChild(container2);
-  });
-
   it('should be able to config maxCount', () => {
     message.config({
       maxCount: 5,
@@ -145,5 +124,36 @@ describe('message.config', () => {
     message.config({
       transitionName: 'ant-move-up',
     });
+  });
+
+  it('should be able to config getContainer, although messageInstance already exists', () => {
+    function createContainer() {
+      const container = document.createElement('div');
+      document.body.appendChild(container);
+      return [
+        container,
+        () => {
+          document.body.removeChild(container);
+        },
+      ];
+    }
+    const [container1, removeContainer1] = createContainer();
+    const [container2, removeContainer2] = createContainer();
+    expect(container1.querySelector('.ant-message-notice')).toBeFalsy();
+    expect(container2.querySelector('.ant-message-notice')).toBeFalsy();
+    message.config({
+      getContainer: () => container1,
+    });
+    const messageText1 = 'mounted in container1';
+    message.info(messageText1);
+    expect(container1.querySelector('.ant-message-notice').textContent).toEqual(messageText1);
+    message.config({
+      getContainer: () => container2,
+    });
+    const messageText2 = 'mounted in container2';
+    message.info(messageText2);
+    expect(container2.querySelector('.ant-message-notice').textContent).toEqual(messageText2);
+    removeContainer1();
+    removeContainer2();
   });
 });
