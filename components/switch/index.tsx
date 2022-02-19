@@ -36,6 +36,8 @@ interface CompoundedComponent
   __ANT_SWITCH: boolean;
 }
 
+export type SwitchInterface = CompoundedComponent;
+
 const Switch = React.forwardRef<unknown, SwitchProps>(
   (
     {

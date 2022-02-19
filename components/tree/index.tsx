@@ -11,6 +11,7 @@ export {
   AntTreeNodeSelectedEvent,
   AntdTreeNodeAttribute,
   AntTreeNodeProps,
+  TreeInterface,
 } from './Tree';
 
 export { ExpandAction as DirectoryTreeExpandAction, DirectoryTreeProps } from './DirectoryTree';

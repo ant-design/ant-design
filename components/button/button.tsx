@@ -130,6 +130,8 @@ interface CompoundedComponent
   __ANT_BUTTON: boolean;
 }
 
+export type ButtonInterface = CompoundedComponent;
+
 type Loading = number | boolean;
 
 const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (props, ref) => {

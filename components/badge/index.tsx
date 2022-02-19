@@ -16,6 +16,8 @@ interface CompoundedComponent extends React.FC<BadgeProps> {
   Ribbon: typeof Ribbon;
 }
 
+export type BadgeInterface = CompoundedComponent;
+
 export interface BadgeProps {
   /** Number to show in badge */
   count?: React.ReactNode;

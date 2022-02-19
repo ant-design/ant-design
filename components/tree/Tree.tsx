@@ -151,6 +151,8 @@ type CompoundedComponent = (<T extends BasicDataNode | DataNode = DataNode>(
   DirectoryTree: typeof DirectoryTree;
 };
 
+export type TreeInterface = CompoundedComponent;
+
 const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
   const { getPrefixCls, direction, virtual } = React.useContext(ConfigContext);
   const {

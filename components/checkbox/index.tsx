@@ -11,6 +11,8 @@ interface CompoundedComponent
   __ANT_CHECKBOX: boolean;
 }
 
+export type CheckboxInterface = CompoundedComponent;
+
 const Checkbox = InternalCheckbox as CompoundedComponent;
 
 Checkbox.Group = Group;

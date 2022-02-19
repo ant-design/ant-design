@@ -10,6 +10,8 @@ interface CompoundedComponent
   Group: typeof Group;
 }
 
+export type AvatarInterface = CompoundedComponent;
+
 const Avatar = InternalAvatar as CompoundedComponent;
 Avatar.Group = Group;
 

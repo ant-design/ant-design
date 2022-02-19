@@ -19,6 +19,8 @@ interface CompoundedComponent
   Button: typeof Button;
 }
 
+export type RadioInterface = CompoundedComponent;
+
 const Radio = InternalRadio as CompoundedComponent;
 Radio.Button = Button;
 Radio.Group = Group;

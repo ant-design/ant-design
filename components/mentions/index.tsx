@@ -44,6 +44,8 @@ interface CompoundedComponent
   getMentions: (value: string, config?: MentionsConfig) => MentionsEntity[];
 }
 
+export type MentionsInterface = CompoundedComponent;
+
 const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = (
   {
     prefixCls: customizePrefixCls,
