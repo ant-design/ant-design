@@ -134,6 +134,32 @@ describe('Form', () => {
 
       jest.useRealTimers();
     });
+    it('should not change `initialValues` passed to `Form`', async () => {
+      const initialValues = { users: [{ first: 'aaa' }] };
+      const wrapper = mount(
+        <Form initialValues={initialValues} preserve={false}>
+          <Form.List name="users">
+            {fields => (
+              <>
+                {fields.map(({ key, name, ...restField }) => (
+                  <Form.Item
+                    key={key}
+                    {...restField}
+                    name={[name, 'first']}
+                    rules={[{ required: true, message: '' }]}
+                  >
+                    <Input />
+                  </Form.Item>
+                ))}
+              </>
+            )}
+          </Form.List>
+        </Form>,
+      );
+      wrapper.unmount();
+      await sleep(50);
+      expect(initialValues).toEqual({ users: [{ first: 'aaa' }] });
+    });
   });
 
   it('`shouldUpdate` should work with render props', () => {

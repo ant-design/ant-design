@@ -5,6 +5,7 @@ import FieldForm, { List } from 'rc-field-form';
 import { FormProps as RcFormProps } from 'rc-field-form/lib/Form';
 import { ValidateErrorEntity } from 'rc-field-form/lib/interface';
 import { Options } from 'scroll-into-view-if-needed';
+import cloneDeep from 'lodash/cloneDeep';
 import { ColProps } from '../grid/col';
 import { ConfigContext } from '../config-provider';
 import { FormContext, FormContextProps } from './context';
@@ -52,6 +53,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
     requiredMark,
     onFinishFailed,
     name,
+    initialValues,
     ...restFormProps
   } = props;
 
@@ -70,6 +72,8 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
 
     return true;
   }, [hideRequiredMark, requiredMark, contextForm]);
+
+  const clonedInitialValues = useMemo(() => cloneDeep(initialValues), [initialValues]);
 
   const mergedColon = colon ?? contextForm?.colon;
 
@@ -126,6 +130,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
         <FieldForm
           id={name}
           {...restFormProps}
+          initialValues={clonedInitialValues}
           name={name}
           onFinishFailed={onInternalFinishFailed}
           form={wrapForm}
