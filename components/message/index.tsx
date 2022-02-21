@@ -54,6 +54,7 @@ function setMessageConfig(options: ConfigOptions) {
   }
   if (options.getContainer !== undefined) {
     getContainer = options.getContainer;
+    messageInstance = null; // delete messageInstance for new getContainer
   }
   if (options.transitionName !== undefined) {
     transitionName = options.transitionName;
