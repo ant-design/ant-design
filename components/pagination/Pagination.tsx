@@ -39,9 +39,10 @@ const Pagination: React.FC<PaginationProps> = ({
   size,
   locale: customLocale,
   selectComponentClass,
+  responsive,
   ...restProps
 }) => {
-  const { xs } = useBreakpoint();
+  const { xs } = useBreakpoint(responsive);
 
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('pagination', customizePrefixCls);
@@ -91,7 +92,7 @@ const Pagination: React.FC<PaginationProps> = ({
 
   const renderPagination = (contextLocale: PaginationLocale) => {
     const locale = { ...contextLocale, ...customLocale };
-    const isSmall = size === 'small' || !!(xs && !size && restProps.responsive);
+    const isSmall = size === 'small' || !!(xs && !size && responsive);
     const selectPrefixCls = getPrefixCls('select', customizeSelectPrefixCls);
     const extendedClassName = classNames(
       {
