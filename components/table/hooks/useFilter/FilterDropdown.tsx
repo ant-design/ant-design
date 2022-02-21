@@ -198,16 +198,20 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     });
   };
 
-  const onConfirm = () => {
-    triggerVisible(false);
-    internalTriggerFilter(getFilteredKeysSync());
-  };
-
-  const onReset = ({ closeDropdown } = { closeDropdown: true }) => {
+  const onConfirm = ({ closeDropdown } = { closeDropdown: true }) => {
     if (closeDropdown) {
       triggerVisible(false);
     }
-    internalTriggerFilter([]);
+    internalTriggerFilter(getFilteredKeysSync());
+  };
+
+  const onReset = ({ confirm, closeDropdown } = { confirm: true, closeDropdown: true }) => {
+    if (confirm) {
+      internalTriggerFilter([]);
+    }
+    if (closeDropdown) {
+      triggerVisible(false);
+    }
     setSearchValue('');
     setFilteredKeysSync([]);
   };
@@ -379,7 +383,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
           >
             {locale.filterReset}
           </Button>
-          <Button type="primary" size="small" onClick={onConfirm}>
+          <Button type="primary" size="small" onClick={() => onConfirm()}>
             {locale.filterConfirm}
           </Button>
         </div>
