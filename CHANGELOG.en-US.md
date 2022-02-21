@@ -19,7 +19,7 @@ timeline: true
 
 `2022-02-21`
 
-- 🐞 Fix `getContainer` config not working bug when called multi-times via message.config. [#34123](https://github.com/ant-design/ant-design/pull/34123) [@TrickyPi](https://github.com/TrickyPi)
+- 🐞 Fix `getContainer` config not working bug when called multi-times via `message.config`. [#34123](https://github.com/ant-design/ant-design/pull/34123) [@TrickyPi](https://github.com/TrickyPi)
 - 🐞 Fix invalid context value cache in Menu component. [#34121](https://github.com/ant-design/ant-design/pull/34121) [@mrwd2009](https://github.com/mrwd2009)
 - 🐞 Fix ConfigProvider config theme on server side crash, and warning for useless in SSR instead. [#34118](https://github.com/ant-design/ant-design/pull/34118)
 - Table

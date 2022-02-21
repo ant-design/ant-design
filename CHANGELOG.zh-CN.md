@@ -19,7 +19,7 @@ timeline: true
 
 `2022-02-21`
 
-- 🐞 修复 message.config 多次配置`getContainer` 时无法生效的问题。[#34123](https://github.com/ant-design/ant-design/pull/34123) [@TrickyPi](https://github.com/TrickyPi)
+- 🐞 修复 `message.config` 多次配置`getContainer` 时无法生效的问题。[#34123](https://github.com/ant-design/ant-design/pull/34123) [@TrickyPi](https://github.com/TrickyPi)
 - 🐞 修复 Menu 组件中无效的缓存逻辑。[#34121](https://github.com/ant-design/ant-design/pull/34121) [@mrwd2009](https://github.com/mrwd2009)
 - 🐞 修复 ConfigProvider 在服务端配置主题会崩溃的问题，同时现在会提示动态主题于 SSR 上无效。[#34118](https://github.com/ant-design/ant-design/pull/34118)
 - Table
