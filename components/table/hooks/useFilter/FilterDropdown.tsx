@@ -18,6 +18,11 @@ import { FilterState, flattenKeys } from '.';
 import useSyncState from '../../../_util/hooks/useSyncState';
 import { ConfigContext } from '../../../config-provider/context';
 
+interface FilterRestProps {
+  confirm?: Boolean;
+  closeDropdown?: Boolean;
+}
+
 function hasSubMenu(filters: ColumnFilterItem[]) {
   return filters.some(({ children }) => children);
 }
@@ -198,14 +203,14 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     });
   };
 
-  const onConfirm = ({ closeDropdown } = { closeDropdown: true }) => {
-    if (closeDropdown) {
-      triggerVisible(false);
-    }
+  const onConfirm = () => {
+    triggerVisible(false);
     internalTriggerFilter(getFilteredKeysSync());
   };
 
-  const onReset = ({ confirm, closeDropdown } = { confirm: true, closeDropdown: true }) => {
+  const onReset = (
+    { confirm, closeDropdown }: FilterRestProps = { confirm: true, closeDropdown: true },
+  ) => {
     if (confirm) {
       internalTriggerFilter([]);
     }
@@ -383,7 +388,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
           >
             {locale.filterReset}
           </Button>
-          <Button type="primary" size="small" onClick={() => onConfirm()}>
+          <Button type="primary" size="small" onClick={onConfirm}>
             {locale.filterConfirm}
           </Button>
         </div>
