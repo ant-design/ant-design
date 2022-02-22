@@ -73,6 +73,7 @@ export type ColumnTitle<RecordType> =
 
 export type FilterValue = (Key | boolean)[];
 export type FilterKey = Key[] | null;
+export type FilterSearchType = boolean | ((input: string, record: {}) => boolean);
 export interface FilterConfirmProps {
   closeDropdown: boolean;
 }
@@ -201,5 +202,3 @@ type TablePaginationPosition =
 export interface TablePaginationConfig extends PaginationProps {
   position?: TablePaginationPosition[];
 }
-
-export type FilterSearchType = boolean | ((input: string, record: {}) => boolean);
