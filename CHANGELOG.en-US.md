@@ -15,6 +15,23 @@ timeline: true
 
 ---
 
+## 4.18.8
+
+`2022-02-21`
+
+- 🐞 Fix `getContainer` config not working bug when called multi-times via `message.config`. [#34123](https://github.com/ant-design/ant-design/pull/34123) [@TrickyPi](https://github.com/TrickyPi)
+- 🐞 Fix invalid context value cache in Menu component. [#34121](https://github.com/ant-design/ant-design/pull/34121) [@mrwd2009](https://github.com/mrwd2009)
+- 🐞 Fix ConfigProvider config theme on server side crash, and warning for useless in SSR instead. [#34118](https://github.com/ant-design/ant-design/pull/34118)
+- Table
+  - ⚡️ Fix Table render twice on first mount. [#34106](https://github.com/ant-design/ant-design/pull/34106)
+  - ⚡️ Optimized Table rendering performance, now will skip useless rendering when deprecated `column.render: () => { children, props }` method is not used. [#34075](https://github.com/ant-design/ant-design/pull/34075)
+- 🐞 Fix incorrect copy text of Typography after children is updated when enable `copyable`. [#34034](https://github.com/ant-design/ant-design/pull/34034) [@opopeieie](https://github.com/opopeieie)
+- ⚡️ Optimize Avatar, List, Pagination, Steps to avoid additional render on mount if unnecessary. [34122](https://github.com/ant-design/ant-design/pull/34122)
+- 💄 Fix Form broken style when Select item is too long in horizontal layout. [#34117](https://github.com/ant-design/ant-design/pull/34117)
+- 🇸🇰 Improve texts for Table, Form and Modal in `sk_SK`. [#34061](https://github.com/ant-design/ant-design/pull/34061) [@xseman](https://github.com/xseman)
+- TypeScript
+  - 🤖 Export `SiderProps` type from Layout component. [#34137](https://github.com/ant-design/ant-design/pull/34137) [@Picsong](https://github.com/Picsong)
+
 ## 4.18.7
 
 `2022-02-14`

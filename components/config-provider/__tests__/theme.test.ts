@@ -1,7 +1,17 @@
 import { kebabCase } from 'lodash';
+import canUseDom from 'rc-util/lib/Dom/canUseDom';
 import ConfigProvider from '..';
+import { resetWarned } from '../../_util/devWarning';
+
+let mockCanUseDom = true;
+
+jest.mock('rc-util/lib/Dom/canUseDom', () => () => mockCanUseDom);
 
 describe('ConfigProvider.Theme', () => {
+  beforeEach(() => {
+    mockCanUseDom = true;
+  });
+
   const colorList = ['primaryColor', 'successColor', 'warningColor', 'errorColor', 'infoColor'];
 
   colorList.forEach(colorName => {
@@ -21,5 +31,22 @@ describe('ConfigProvider.Theme', () => {
 
       expect(themeStyle.innerHTML).toContain(`--bamboo-${kebabCase(colorName)}: rgb(0, 0, 255)`);
     });
+  });
+
+  it('warning for SSR', () => {
+    resetWarned();
+
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    mockCanUseDom = false;
+    expect(canUseDom()).toBeFalsy();
+
+    ConfigProvider.config({
+      theme: {},
+    });
+
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: ConfigProvider] SSR do not support dynamic theme with css variables.',
+    );
+    errorSpy.mockRestore();
   });
 });
