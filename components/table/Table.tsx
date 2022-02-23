@@ -83,6 +83,7 @@ export interface TableProps<RecordType>
   size?: SizeType;
   bordered?: boolean;
   locale?: TableLocale;
+  emptyRender?: React.ReactNode;
 
   onChange?: (
     pagination: TablePaginationConfig,
@@ -130,6 +131,7 @@ function InternalTable<RecordType extends object = any>(
     scroll,
     sortDirections,
     locale,
+    emptyRender,
     showSorterTooltip = true,
   } = props;
 
@@ -514,7 +516,7 @@ function InternalTable<RecordType extends object = any>(
           data={pageData}
           rowKey={getRowKey}
           rowClassName={internalRowClassName}
-          emptyText={(locale && locale.emptyText) || renderEmpty('Table')}
+          emptyText={emptyRender || (locale && locale.emptyText) || renderEmpty('Table')}
           // Internal
           internalHooks={INTERNAL_HOOKS}
           internalRefs={internalRefs as any}
