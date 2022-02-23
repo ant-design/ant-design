@@ -13367,7 +13367,7 @@ exports[`ConfigProvider components Form configProvider 1`] = `
           class="config-form-item-control-input-content"
         >
           <input
-            class="config-input"
+            class="config-input config-input-status-error"
             type="text"
             value=""
           />
@@ -13405,7 +13405,7 @@ exports[`ConfigProvider components Form configProvider componentSize large 1`] =
           class="config-form-item-control-input-content"
         >
           <input
-            class="config-input config-input-lg"
+            class="config-input config-input-lg config-input-status-error"
             type="text"
             value=""
           />
@@ -13443,7 +13443,7 @@ exports[`ConfigProvider components Form configProvider componentSize middle 1`] 
           class="config-form-item-control-input-content"
         >
           <input
-            class="config-input"
+            class="config-input config-input-status-error"
             type="text"
             value=""
           />
@@ -13481,7 +13481,7 @@ exports[`ConfigProvider components Form configProvider virtual and dropdownMatch
           class="ant-form-item-control-input-content"
         >
           <input
-            class="ant-input"
+            class="ant-input ant-input-status-error"
             type="text"
             value=""
           />
@@ -13519,7 +13519,7 @@ exports[`ConfigProvider components Form normal 1`] = `
           class="ant-form-item-control-input-content"
         >
           <input
-            class="ant-input"
+            class="ant-input ant-input-status-error"
             type="text"
             value=""
           />
@@ -13557,7 +13557,7 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
           class="prefix-Form-item-control-input-content"
         >
           <input
-            class="prefix-Form"
+            class="prefix-Form prefix-Form-status-error"
             type="text"
             value=""
           />

@@ -206,3 +206,39 @@ Array [
   </div>,
 ]
 `;
+
+exports[`renders ./components/mentions/demo/status.md extend context correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical"
+>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <div
+      class="ant-mentions ant-mentions-status-error"
+    >
+      <textarea
+        class="rc-textarea"
+        rows="1"
+      >
+        @afc163
+      </textarea>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-mentions ant-mentions-status-warning"
+    >
+      <textarea
+        class="rc-textarea"
+        rows="1"
+      >
+        @afc163
+      </textarea>
+    </div>
+  </div>
+</div>
+`;

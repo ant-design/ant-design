@@ -126,7 +126,7 @@
     "rc-collapse": "~3.1.0",
     "rc-dialog": "~8.6.0",
     "rc-drawer": "~4.4.2",
-    "rc-dropdown": "~3.2.5",
+    "rc-dropdown": "~3.3.2",
     "rc-field-form": "~1.23.0",
     "rc-image": "~5.2.5",
     "rc-input-number": "~7.3.0",
@@ -135,7 +135,7 @@
     "rc-motion": "^2.4.4",
     "rc-notification": "~4.5.7",
     "rc-pagination": "~3.1.9",
-    "rc-picker": "~2.5.17",
+    "rc-picker": "~2.6.4",
     "rc-progress": "~3.2.1",
     "rc-rate": "~2.9.0",
     "rc-resize-observer": "^1.2.0",
@@ -300,7 +300,7 @@
     },
     {
       "path": "./dist/antd.min.css",
-      "maxSize": "65 kB"
+      "maxSize": "66 kB"
     },
     {
       "path": "./dist/antd.dark.min.css",
@@ -308,11 +308,11 @@
     },
     {
       "path": "./dist/antd.compact.min.css",
-      "maxSize": "65 kB"
+      "maxSize": "66 kB"
     },
     {
       "path": "./dist/antd.variable.min.css",
-      "maxSize": "65 kB"
+      "maxSize": "66 kB"
     }
   ],
   "tnpm": {

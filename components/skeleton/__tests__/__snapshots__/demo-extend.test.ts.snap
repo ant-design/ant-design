@@ -138,7 +138,6 @@ Array [
       >
         <span
           class="ant-skeleton-input"
-          style="width:200px"
         />
       </div>
     </div>
@@ -150,6 +149,15 @@ Array [
   >
     <span
       class="ant-skeleton-button"
+    />
+  </div>,
+  <br />,
+  <br />,
+  <div
+    class="ant-skeleton ant-skeleton-element"
+  >
+    <span
+      class="ant-skeleton-input"
     />
   </div>,
   <br />,
@@ -227,9 +235,9 @@ Array [
       >
         <label
           class=""
-          title="Button Block"
+          title="Button and Input Block"
         >
-          Button Block
+          Button and Input Block
         </label>
       </div>
       <div
