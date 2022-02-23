@@ -75,6 +75,7 @@ interface Option {
   label?: React.ReactNode;
   disabled?: boolean;
   children?: Option[];
+  isLeaf?: boolean;
 }
 ```
 
