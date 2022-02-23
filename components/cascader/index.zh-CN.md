@@ -77,6 +77,7 @@ interface Option {
   label?: React.ReactNode;
   disabled?: boolean;
   children?: Option[];
+  // 设置为叶子节点 (设置了 `loadData` 时有效)。为 `false` 时会强制将其作为父节
   isLeaf?: boolean;
 }
 ```

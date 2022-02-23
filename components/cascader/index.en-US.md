@@ -75,6 +75,7 @@ interface Option {
   label?: React.ReactNode;
   disabled?: boolean;
   children?: Option[];
+  // Determines if this is a leaf node(effective when `loadData` is specified). `false` will force trade TreeNode as a parent node
   isLeaf?: boolean;
 }
 ```
