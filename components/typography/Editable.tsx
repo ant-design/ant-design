@@ -20,6 +20,7 @@ interface EditableProps {
   maxLength?: number;
   autoSize?: boolean | AutoSizeType;
   enterIcon?: React.ReactNode;
+  component?: string;
 }
 
 const Editable: React.FC<EditableProps> = ({
@@ -34,6 +35,7 @@ const Editable: React.FC<EditableProps> = ({
   onSave,
   onCancel,
   onEnd,
+  component,
   enterIcon = <EnterOutlined />,
 }) => {
   const ref = React.useRef<any>();
@@ -108,7 +110,7 @@ const Editable: React.FC<EditableProps> = ({
     confirmChange();
   };
 
-  const textAreaClassName = classNames(
+  const textAreaDivClassName = classNames(
     prefixCls,
     `${prefixCls}-edit-content`,
     {
@@ -117,8 +119,10 @@ const Editable: React.FC<EditableProps> = ({
     className,
   );
 
+  const textAreaClassName = component ? `${prefixCls}-${component}` : '';
+
   return (
-    <div className={textAreaClassName} style={style}>
+    <div className={textAreaDivClassName} style={style}>
       <TextArea
         ref={ref as any}
         maxLength={maxLength}
@@ -132,6 +136,7 @@ const Editable: React.FC<EditableProps> = ({
         aria-label={ariaLabel}
         rows={1}
         autoSize={autoSize}
+        className={textAreaClassName}
       />
       {enterIcon !== null
         ? cloneElement(enterIcon, { className: `${prefixCls}-edit-content-confirm` })
