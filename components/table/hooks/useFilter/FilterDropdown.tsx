@@ -209,7 +209,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   };
 
   const onReset = (
-    { confirm, closeDropdown }: FilterRestProps = { confirm: true, closeDropdown: true },
+    { confirm, closeDropdown }: FilterRestProps = { confirm: false, closeDropdown: false },
   ) => {
     if (confirm) {
       internalTriggerFilter([]);
