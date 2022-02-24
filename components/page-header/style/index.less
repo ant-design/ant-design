@@ -6,7 +6,7 @@
 .@{pageheader-prefix-cls} {
   .reset-component();
   position: relative;
-  padding: @page-header-padding-vertical @page-header-padding;
+  padding: @page-header-padding-top @page-header-padding @page-header-padding-bottom;
   background-color: @component-background;
 
   &-ghost {
@@ -40,7 +40,7 @@
   }
 
   .@{ant-prefix}-breadcrumb + &-heading {
-    margin-top: @margin-xs;
+    margin-top: @page-header-heading-breadcrumb-margin-top;
   }
 
   .text-overflow-ellipsis() {

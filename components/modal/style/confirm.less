@@ -23,7 +23,7 @@
       overflow: hidden;
       color: @heading-color;
       font-weight: 500;
-      font-size: @font-size-lg;
+      font-size: @modal-confirm-body-title-font-size;
       line-height: 1.4;
     }
 
@@ -40,7 +40,7 @@
 
       // `content` after `icon` should set marginLeft
       + .@{confirm-prefix-cls}-title + .@{confirm-prefix-cls}-content {
-        margin-left: 38px;
+        margin-left: @modal-confirm-body-content-icon-margin-left;
       }
     }
   }

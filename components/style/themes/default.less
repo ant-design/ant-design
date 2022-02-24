@@ -283,10 +283,12 @@
 @divider-text-padding: 1em;
 @divider-orientation-margin: 5%;
 @divider-color: rgba(0, 0, 0, 6%);
+@divider-vertical-margin: 8px;
 
 // Dropdown
 @dropdown-selected-color: @primary-color;
 @dropdown-menu-submenu-disabled-bg: @component-background;
+@dropdown-selected-bg: @item-active-bg;
 
 // Empty
 @empty-font-size: @font-size-base;
@@ -309,6 +311,7 @@
 @radio-disabled-button-checked-bg: @disabled-active-bg;
 @radio-disabled-button-checked-color: @disabled-color;
 @radio-wrapper-margin-right: 8px;
+@radio-button-wrapper-padding: @padding-md - 1px;
 
 // Media queries breakpoints
 // @screen-xs and @screen-xs-min is not used in Grid
@@ -518,6 +521,15 @@
 @tooltip-distance: @tooltip-arrow-width - 1px + 4px;
 // Tooltip arrow color
 @tooltip-arrow-color: @tooltip-bg;
+@tooltip-inner-box-shadow: @box-shadow-base;
+@tooltip-placement-bottom-arrow-top: @tooltip-distance - sqrt(@tooltip-arrow-width * @tooltip-arrow-width * 2) +
+3 * 2;
+@tooltip-placement-top-arrow-bottom: @tooltip-distance - sqrt(@tooltip-arrow-width * @tooltip-arrow-width * 2) +
+3 * 2;
+@tooltip-placement-right-arrow-left: @tooltip-distance - sqrt(@tooltip-arrow-width * @tooltip-arrow-width * 2) +
+3 * 2;
+@tooltip-placement-left-arrow-right: @tooltip-distance - sqrt(@tooltip-arrow-width * @tooltip-arrow-width * 2) +
+3 * 2;
 
 // Popover
 // ---
@@ -563,6 +575,8 @@
 @modal-footer-border-width: @border-width-base;
 @modal-mask-bg: fade(@black, 45%);
 @modal-confirm-body-padding: 32px 32px 24px;
+@modal-confirm-body-title-font-size: @font-size-lg;
+@modal-confirm-body-content-icon-margin-left: 38px;
 
 // Progress
 // --
@@ -647,6 +661,7 @@
 @table-font-size-md: @table-font-size;
 @table-font-size-sm: @table-font-size;
 @table-header-cell-split-color: rgba(0, 0, 0, 0.06);
+@table-header-cell-split-width: 1px;
 // Sorter
 // Legacy: `table-header-sort-active-bg` is used for hover not real active
 @table-header-sort-active-bg: rgba(0, 0, 0, 0.04);
@@ -658,6 +673,7 @@
 @table-filter-dropdown-bg: @component-background;
 @table-expand-icon-bg: @component-background;
 @table-selection-column-width: 32px;
+@table-selection-column-padding-left: @padding-xs;
 // Sticky
 @table-sticky-scroll-bar-bg: fade(#000, 35%);
 @table-sticky-scroll-bar-radius: 4px;
@@ -845,6 +861,8 @@
 // ---
 @page-header-padding: @padding-lg;
 @page-header-padding-vertical: @padding-md;
+@page-header-padding-top: @padding-md;
+@page-header-padding-bottom: @padding-md;
 @page-header-padding-breadcrumb: @padding-sm;
 @page-header-content-padding-vertical: @padding-sm;
 @page-header-back-color: #000;
@@ -852,6 +870,7 @@
 @page-header-heading-title: @heading-4-size;
 @page-header-heading-sub-title: 14px;
 @page-header-tabs-tab-font-size: 16px;
+@page-header-heading-breadcrumb-margin-top: @margin-xs;
 
 // Breadcrumb
 // ---
@@ -989,6 +1008,8 @@
 @drawer-footer-padding-vertical: @modal-footer-padding-vertical;
 @drawer-footer-padding-horizontal: @modal-footer-padding-horizontal;
 @drawer-header-close-size: 56px;
+@drawer-header-title-font-size: @font-size-lg;
+@drawer-header-title-line-height: 22px;
 
 // Timeline
 // ---
