@@ -12,8 +12,7 @@ title:
 
 ## en-US
 
-`filterSearch` is used for making filter dropdown items searchable,use `filterSearch:(input, record) => boolean` set
-custom filter function
+`filterSearch` is used to enable search of filter items, and you can set a custom filter method through `filterSearch:(input, record) => boolean`.
 
 ```jsx
 import { Table } from 'antd';
