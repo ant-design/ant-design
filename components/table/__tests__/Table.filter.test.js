@@ -2052,4 +2052,71 @@ describe('Table.filter', () => {
     wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-primary').simulate('click');
     expect(renderedNames(wrapper)).toEqual(['Jack']);
   });
+
+  it('clearFilters should support params', () => {
+    const filterConfig = [
+      ['Jack', 'NoParams', {}, ['Jack'], true],
+      ['Lucy', 'Confirm', { confirm: true }, ['Jack', 'Lucy', 'Tom', 'Jerry'], true],
+      ['Tom', 'Close', { closeDropdown: true }, ['Tom'], false],
+      [
+        'Jerry',
+        'Params',
+        { closeDropdown: true, confirm: true },
+        ['Jack', 'Lucy', 'Tom', 'Jerry'],
+        false,
+      ],
+    ];
+    const filter = ({ prefixCls, setSelectedKeys, confirm, clearFilters }) => (
+      <div className={`${prefixCls}-view`} id="customFilter">
+        {filterConfig.map(([text, id, param]) => (
+          <>
+            <span
+              onClick={() => {
+                setSelectedKeys([text]);
+                confirm();
+              }}
+              id={`set${id}`}
+            >
+              setSelectedKeys
+            </span>
+            <span onClick={() => clearFilters(param)} id={`reset${id}`}>
+              Reset
+            </span>
+          </>
+        ))}
+      </div>
+    );
+
+    const wrapper = mount(
+      createTable({
+        columns: [
+          {
+            ...column,
+            filterDropdown: filter,
+          },
+        ],
+      }),
+    );
+
+    function getFilterMenu() {
+      return wrapper.find('FilterDropdown');
+    }
+
+    // check if renderer well
+    wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
+    expect(wrapper.find('#customFilter')).toMatchSnapshot();
+    expect(getFilterMenu().props().filterState.filteredKeys).toBeFalsy();
+
+    filterConfig.forEach(([text, id, , res1, res2]) => {
+      wrapper.find(`#set${id}`).simulate('click');
+      wrapper.update();
+      expect(renderedNames(wrapper)).toEqual([text]);
+
+      wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
+      wrapper.find(`#reset${id}`).simulate('click');
+      wrapper.update();
+      expect(renderedNames(wrapper)).toEqual(res1);
+      expect(wrapper.find('Dropdown').first().props().visible).toBe(res2);
+    });
+  });
 });
