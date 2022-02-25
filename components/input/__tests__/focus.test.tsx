@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
-import { InputRef } from 'rc-input';
+import { InputRef } from '../Input';
 import Input from '..';
 
 const { TextArea } = Input;

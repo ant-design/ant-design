@@ -1,12 +1,11 @@
 import * as React from 'react';
-import { InputRef } from 'rc-input';
-import InternalInput, { InputProps } from './Input';
+import InternalInput, { InputProps, InputRef } from './Input';
 import Group from './Group';
 import Search from './Search';
 import TextArea from './TextArea';
 import Password from './Password';
 
-export { InputProps } from './Input';
+export { InputProps, InputRef } from './Input';
 export { GroupProps } from './Group';
 export { SearchProps } from './Search';
 export { TextAreaProps } from './TextArea';

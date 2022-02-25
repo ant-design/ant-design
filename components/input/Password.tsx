@@ -5,9 +5,8 @@ import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import EyeInvisibleOutlined from '@ant-design/icons/EyeInvisibleOutlined';
 
 import { useState } from 'react';
-import { InputRef } from 'rc-input';
+import Input, { InputRef, InputProps } from './Input';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import Input, { InputProps } from './Input';
 
 export interface PasswordProps extends InputProps {
   readonly inputPrefixCls?: string;
