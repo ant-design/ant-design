@@ -3,7 +3,6 @@ import { mount } from 'enzyme';
 // eslint-disable-next-line import/no-unresolved
 import Form from '../../form';
 import Input from '..';
-import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 
@@ -18,7 +17,6 @@ describe('Input', () => {
     errorSpy.mockRestore();
   });
 
-  focusTest(Input);
   mountTest(Input);
   mountTest(Input.Group);
 
@@ -31,8 +29,9 @@ describe('Input', () => {
   });
 
   it('select()', () => {
-    const wrapper = mount(<Input />);
-    wrapper.instance().select();
+    const ref = React.createRef();
+    mount(<Input ref={ref} />);
+    ref.current?.select();
   });
 
   it('should support size', () => {
@@ -63,8 +62,8 @@ describe('Input', () => {
       expect(errorSpy).not.toHaveBeenCalled();
     });
     it('trigger warning', () => {
-      const wrapper = mount(<Input />, { attachTo: document.body });
-      wrapper.find('input').instance().focus();
+      const wrapper = mount(<Input />);
+      wrapper.find('input').first().getDOMNode().focus();
       wrapper.setProps({
         suffix: 'light',
       });
@@ -78,10 +77,11 @@ describe('Input', () => {
   it('set mouse cursor position', () => {
     const defaultValue = '11111';
     const valLength = defaultValue.length;
-    const wrapper = mount(<Input autoFocus defaultValue={defaultValue} />);
-    wrapper.instance().setSelectionRange(valLength, valLength);
-    expect(wrapper.instance().input.selectionStart).toEqual(5);
-    expect(wrapper.instance().input.selectionEnd).toEqual(5);
+    const ref = React.createRef();
+    const wrapper = mount(<Input ref={ref} autoFocus defaultValue={defaultValue} />);
+    ref.current?.setSelectionRange(valLength, valLength);
+    expect(wrapper.find('input').first().getDOMNode().selectionStart).toEqual(5);
+    expect(wrapper.find('input').first().getDOMNode().selectionEnd).toEqual(5);
   });
 });
 

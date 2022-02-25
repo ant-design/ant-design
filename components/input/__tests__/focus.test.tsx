@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
+import { InputRef } from 'rc-input';
 import Input from '..';
 
 const { TextArea } = Input;
@@ -30,7 +31,7 @@ describe('Input.Focus', () => {
   });
 
   it('start', () => {
-    const ref = React.createRef<Input>();
+    const ref = React.createRef<InputRef>();
     mount(<Input ref={ref} defaultValue="light" />);
     ref.current!.focus({ cursor: 'start' });
 
@@ -39,7 +40,7 @@ describe('Input.Focus', () => {
   });
 
   it('end', () => {
-    const ref = React.createRef<Input>();
+    const ref = React.createRef<InputRef>();
     mount(<Input ref={ref} defaultValue="light" />);
     ref.current!.focus({ cursor: 'end' });
 
@@ -62,6 +63,7 @@ describe('Input.Focus', () => {
     expect(wrapper.exists('.ant-input-affix-wrapper-focused')).toBeTruthy();
 
     wrapper.setProps({ disabled: true });
+    wrapper.update();
     expect(wrapper.exists('.ant-input-affix-wrapper-focused')).toBeFalsy();
   });
 });
