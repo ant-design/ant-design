@@ -96,6 +96,7 @@ module.exports = {
     'react/require-default-props': 0,
     'react/sort-comp': 0,
     'react/display-name': 0,
+    'react/jsx-key': 0,
     'react/static-property-placement': 0,
     'react/jsx-no-bind': 0, // Should not check test file
     'react/no-find-dom-node': 0,
