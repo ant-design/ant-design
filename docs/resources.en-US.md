@@ -77,7 +77,7 @@ Please find below some of the design resources and tools about Ant Design that w
 - MasterGo
   - https://mastergo-local-default.oss-cn-beijing.aliyuncs.com/ant-design-mastergo.svg
   - Use fully components and templates on MasterGo
-  - https://mastergo.com/files/resource-detail/48875182463245?origin=%2Ffiles%2Fhome
+  - https://mastergo.com/community/resource/31
 
 ## Articles
 
