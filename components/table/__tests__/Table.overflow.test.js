@@ -43,7 +43,7 @@ describe('Table.overflow', () => {
     const wrapper = mount(
       <div style={{ width: 200 }}>
         {/* eslint-disable-next-line react/jsx-key */}
-        <Table rowKey={'name'} dataSource={data} columns={columns} />
+        <Table rowKey="name" dataSource={data} columns={columns} />
       </div>,
     );
 
