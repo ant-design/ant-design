@@ -86,7 +86,6 @@ export const DesignTokenContext = React.createContext<{
 
 // ================================== Hook ==================================
 export function useToken() {
-  const { iconPrefixCls } = React.useContext(ConfigContext);
   const { token: rootDesignToken, hashed } = React.useContext(DesignTokenContext);
   const theme = React.useContext(ThemeContext);
 
@@ -95,7 +94,7 @@ export function useToken() {
   const [token, hashId] = useCacheToken(theme, [defaultDesignToken, rootDesignToken], {
     salt,
   });
-  return [theme, token, iconPrefixCls, hashed ? hashId : ''];
+  return [theme, token, hashed ? hashId : ''];
 }
 
 // ================================== Util ==================================

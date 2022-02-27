@@ -373,8 +373,8 @@ const genSizeLargeButtonStyle = (
 };
 
 // ============================== Export ==============================
-export default function useStyle(prefixCls: string) {
-  const [theme, token, iconPrefixCls, hashId] = useToken();
+export default function useStyle(prefixCls: string, iconPrefixCls: string) {
+  const [theme, token, hashId] = useToken();
 
   return useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
     // Shared
