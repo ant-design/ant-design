@@ -115,19 +115,10 @@
     top: -2px;
     width: 8px;
     height: 8px;
-    margin-left: -4px;
     background-color: @component-background;
     border: 2px solid @slider-dot-border-color;
     border-radius: 50%;
     cursor: pointer;
-
-    &:first-child {
-      margin-left: -4px;
-    }
-
-    &:last-child {
-      margin-left: -4px;
-    }
 
     &-active {
       border-color: @slider-dot-border-color-active;
@@ -200,8 +191,7 @@
 
     .@{slider-prefix-cls}-dot {
       top: auto;
-      left: 2px;
-      margin-bottom: -4px;
+      margin-left: -2px;
     }
   }
 
