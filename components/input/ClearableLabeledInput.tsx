@@ -56,10 +56,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
   };
 
   renderClearIcon(prefixCls: string) {
-    const { allowClear, value, disabled, readOnly, handleReset, suffix } = this.props;
-    if (!allowClear) {
-      return null;
-    }
+    const { value, disabled, readOnly, handleReset, suffix } = this.props;
     const needClear = !disabled && !readOnly && value;
     const className = `${prefixCls}-clear-icon`;
     return (

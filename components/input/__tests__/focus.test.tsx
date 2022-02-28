@@ -32,7 +32,7 @@ describe('Input.Focus', () => {
 
   it('start', () => {
     const ref = React.createRef<InputRef>();
-    mount(<Input ref={ref} defaultValue="light" />);
+    mount(<TextArea ref={ref} defaultValue="light" />);
     ref.current!.focus({ cursor: 'start' });
 
     expect(focus).toHaveBeenCalled();
@@ -41,7 +41,7 @@ describe('Input.Focus', () => {
 
   it('end', () => {
     const ref = React.createRef<InputRef>();
-    mount(<Input ref={ref} defaultValue="light" />);
+    mount(<TextArea ref={ref} defaultValue="light" />);
     ref.current!.focus({ cursor: 'end' });
 
     expect(focus).toHaveBeenCalled();
