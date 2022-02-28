@@ -19,14 +19,14 @@ timeline: true
 
 `2022-02-28`
 
-- 🆕 New Theme
+- 🆕 New theme less variable
   - Add variable for aliyun theme of Radio. [#34194](https://github.com/ant-design/ant-design/pull/34194) [@qdzhaoxiaodao](https://github.com/qdzhaoxiaodao)
   - Add variable for aliyun theme of Divider. [#34187](https://github.com/ant-design/ant-design/pull/34187) [@qdzhaoxiaodao](https://github.com/qdzhaoxiaodao)
   - Add variable for aliyun theme of Modal. [#34191](https://github.com/ant-design/ant-design/pull/34191) [@qdzhaoxiaodao](https://github.com/qdzhaoxiaodao)
   - Add variable for aliyun theme of Dropdown. [#34189](https://github.com/ant-design/ant-design/pull/34189) [@qdzhaoxiaodao](https://github.com/qdzhaoxiaodao)
   - Add variable for aliyun theme of Drawer. [#34188](https://github.com/ant-design/ant-design/pull/34188) [@qdzhaoxiaodao](https://github.com/qdzhaoxiaodao)
 - 🐞 Fix to Form that `initialValues` would change if `preserve` is `false`. [#34153](https://github.com/ant-design/ant-design/pull/34153)
-- 💄 Fix Dropdown item wrap style when text is long. [#34177](https://github.com/ant-design/ant-design/pull/34177)
+- 💄 Fix Dropdown item wrap style when text is too long. [#34177](https://github.com/ant-design/ant-design/pull/34177)
 - TypeScript
   - 🐞 Fix Upload `onChange` parameter generic passing. [#34161](https://github.com/ant-design/ant-design/pull/34161) [@wangcch](https://github.com/wangcch)
 

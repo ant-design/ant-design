@@ -19,7 +19,7 @@ timeline: true
 
 `2022-02-28`
 
-- 🆕 新主题
+- 🆕 新主题变量
   - 为 Radio 组件添加阿里云主题变量。[#34194](https://github.com/ant-design/ant-design/pull/34194) [@qdzhaoxiaodao](https://github.com/qdzhaoxiaodao)
   - 为 Divider 组件添加阿里云主题变量。[#34187](https://github.com/ant-design/ant-design/pull/34187) [@qdzhaoxiaodao](https://github.com/qdzhaoxiaodao)
   - 为 Modal 组件添加阿里云主题变量。[#34191](https://github.com/ant-design/ant-design/pull/34191) [@qdzhaoxiaodao](https://github.com/qdzhaoxiaodao)
