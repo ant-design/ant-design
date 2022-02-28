@@ -4262,7 +4262,7 @@ exports[`renders ./components/form/demo/register.md extend context correctly 1`]
           class="ant-form-item-control-input-content"
         >
           <span
-            class="ant-input-affix-wrapper ant-input-affix-wrapper-has-feedback ant-input-password"
+            class="ant-input-affix-wrapper ant-input-password ant-input-affix-wrapper-has-feedback"
           >
             <input
               action="click"
@@ -4327,7 +4327,7 @@ exports[`renders ./components/form/demo/register.md extend context correctly 1`]
           class="ant-form-item-control-input-content"
         >
           <span
-            class="ant-input-affix-wrapper ant-input-affix-wrapper-has-feedback ant-input-password"
+            class="ant-input-affix-wrapper ant-input-password ant-input-affix-wrapper-has-feedback"
           >
             <input
               action="click"
@@ -20780,7 +20780,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
           class="ant-form-item-control-input-content"
         >
           <span
-            class="ant-input-affix-wrapper ant-input-affix-wrapper-status-warning ant-input-affix-wrapper-has-feedback ant-input-password"
+            class="ant-input-affix-wrapper ant-input-password ant-input-affix-wrapper-status-warning ant-input-affix-wrapper-has-feedback"
           >
             <input
               action="click"
@@ -20867,7 +20867,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
           class="ant-form-item-control-input-content"
         >
           <span
-            class="ant-input-affix-wrapper ant-input-affix-wrapper-status-error ant-input-affix-wrapper-has-feedback ant-input-password"
+            class="ant-input-affix-wrapper ant-input-password ant-input-affix-wrapper-status-error ant-input-affix-wrapper-has-feedback"
           >
             <input
               action="click"

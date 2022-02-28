@@ -9152,7 +9152,7 @@ exports[`renders ./components/input/demo/search-input.md extend context correctl
     style="margin-bottom:8px"
   >
     <span
-      class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-search ant-input-search-large ant-input-search-with-button"
+      class="ant-input-group-wrapper ant-input-search ant-input-search-large ant-input-search-with-button ant-input-group-wrapper-lg"
     >
       <span
         class="ant-input-wrapper ant-input-group"
@@ -9215,7 +9215,7 @@ exports[`renders ./components/input/demo/search-input.md extend context correctl
     class="ant-space-item"
   >
     <span
-      class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-search ant-input-search-large ant-input-search-with-button"
+      class="ant-input-group-wrapper ant-input-search ant-input-search-large ant-input-search-with-button ant-input-group-wrapper-lg"
     >
       <span
         class="ant-input-wrapper ant-input-group"
@@ -9371,7 +9371,7 @@ Array [
   <br />,
   <br />,
   <span
-    class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-search ant-input-search-large ant-input-search-with-button"
+    class="ant-input-group-wrapper ant-input-search ant-input-search-large ant-input-search-with-button ant-input-group-wrapper-lg"
   >
     <span
       class="ant-input-wrapper ant-input-group"
