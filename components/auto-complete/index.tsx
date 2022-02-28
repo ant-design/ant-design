@@ -17,7 +17,7 @@ import Select, {
   InternalSelectProps,
   RefSelectProps,
 } from '../select';
-import { ConfigContext } from '../config-provider';
+import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import devWarning from '../_util/devWarning';
 import { isValidElement } from '../_util/reactNode';
 import { InputStatus } from '../_util/statusUtils';
@@ -51,8 +51,6 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
 ) => {
   const { prefixCls: customizePrefixCls, className, children, dataSource } = props;
   const childNodes: React.ReactElement[] = toArray(children);
-  const { getPrefixCls } = React.useContext(ConfigContext);
-  const prefixCls = getPrefixCls('select', customizePrefixCls);
 
   // ============================= Input =============================
   let customizeInput: React.ReactElement | undefined;
@@ -117,19 +115,27 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
   }, []);
 
   return (
-    <Select
-      ref={ref}
-      {...omit(props, ['dataSource'])}
-      prefixCls={prefixCls}
-      className={classNames(`${prefixCls}-auto-complete`, className)}
-      mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE as any}
-      {...{
-        // Internal api
-        getInputElement,
+    <ConfigConsumer>
+      {({ getPrefixCls }: ConfigConsumerProps) => {
+        const prefixCls = getPrefixCls('select', customizePrefixCls);
+
+        return (
+          <Select
+            ref={ref}
+            {...omit(props, ['dataSource'])}
+            prefixCls={prefixCls}
+            className={classNames(`${prefixCls}-auto-complete`, className)}
+            mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE as any}
+            {...{
+              // Internal api
+              getInputElement,
+            }}
+          >
+            {optionChildren}
+          </Select>
+        );
       }}
-    >
-      {optionChildren}
-    </Select>
+    </ConfigConsumer>
   );
 };
 
