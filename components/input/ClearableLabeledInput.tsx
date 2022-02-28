@@ -8,7 +8,6 @@ import { cloneElement } from '../_util/reactNode';
 import { getMergedStatus, getStatusClassNames, InputStatus } from '../_util/statusUtils';
 import { tuple } from '../_util/type';
 import type { InputProps } from './Input';
-import { getInputClassName, hasPrefixSuffix } from './utils';
 
 const ClearableInputType = tuple('text', 'input');
 
@@ -81,151 +80,6 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
     );
   }
 
-  renderSuffix(prefixCls: string) {
-    const { suffix, allowClear } = this.props;
-    if (suffix || allowClear) {
-      return (
-        <span className={`${prefixCls}-suffix`}>
-          {this.renderClearIcon(prefixCls)}
-          {suffix}
-        </span>
-      );
-    }
-    return null;
-  }
-
-  renderLabeledIcon(
-    prefixCls: string,
-    element: React.ReactElement,
-    statusContext: FormItemStatusContextProps,
-  ) {
-    const {
-      focused,
-      value,
-      prefix,
-      className,
-      size,
-      suffix,
-      disabled,
-      allowClear,
-      direction,
-      style,
-      readOnly,
-      bordered,
-      hidden,
-      status: customStatus,
-    } = this.props;
-
-    const { status: contextStatus, hasFeedback } = statusContext;
-
-    if (!hasPrefixSuffix(this.props)) {
-      return cloneElement(element, {
-        value,
-      });
-    }
-
-    const suffixNode = this.renderSuffix(prefixCls);
-    const prefixNode = prefix ? <span className={`${prefixCls}-prefix`}>{prefix}</span> : null;
-
-    const affixWrapperCls = classNames(
-      `${prefixCls}-affix-wrapper`,
-      {
-        [`${prefixCls}-affix-wrapper-focused`]: focused,
-        [`${prefixCls}-affix-wrapper-disabled`]: disabled,
-        [`${prefixCls}-affix-wrapper-sm`]: size === 'small',
-        [`${prefixCls}-affix-wrapper-lg`]: size === 'large',
-        [`${prefixCls}-affix-wrapper-input-with-clear-btn`]: suffix && allowClear && value,
-        [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
-        [`${prefixCls}-affix-wrapper-readonly`]: readOnly,
-        [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
-        // className will go to addon wrapper
-        [`${className}`]: !hasAddon(this.props) && className,
-      },
-      getStatusClassNames(
-        `${prefixCls}-affix-wrapper`,
-        getMergedStatus(contextStatus, customStatus),
-        hasFeedback,
-      ),
-    );
-    return (
-      <span
-        ref={this.containerRef}
-        className={affixWrapperCls}
-        style={style}
-        onMouseUp={this.onInputMouseUp}
-        hidden={hidden}
-      >
-        {prefixNode}
-        {cloneElement(element, {
-          style: null,
-          value,
-          className: getInputClassName(prefixCls, bordered, size, disabled),
-        })}
-        {suffixNode}
-      </span>
-    );
-  }
-
-  renderInputWithLabel(
-    prefixCls: string,
-    labeledElement: React.ReactElement,
-    statusContext: FormItemStatusContextProps,
-  ) {
-    const {
-      addonBefore,
-      addonAfter,
-      style,
-      size,
-      className,
-      direction,
-      hidden,
-      status: customStatus,
-    } = this.props;
-    const { status: contextStatus, hasFeedback } = statusContext;
-    // Not wrap when there is not addons
-    if (!hasAddon(this.props)) {
-      return labeledElement;
-    }
-
-    const wrapperClassName = `${prefixCls}-group`;
-    const addonClassName = `${wrapperClassName}-addon`;
-    const addonBeforeNode = addonBefore ? (
-      <span className={addonClassName}>{addonBefore}</span>
-    ) : null;
-    const addonAfterNode = addonAfter ? <span className={addonClassName}>{addonAfter}</span> : null;
-
-    const mergedWrapperClassName = classNames(`${prefixCls}-wrapper`, wrapperClassName, {
-      [`${wrapperClassName}-rtl`]: direction === 'rtl',
-    });
-
-    const mergedGroupClassName = classNames(
-      `${prefixCls}-group-wrapper`,
-      {
-        [`${prefixCls}-group-wrapper-sm`]: size === 'small',
-        [`${prefixCls}-group-wrapper-lg`]: size === 'large',
-        [`${prefixCls}-group-wrapper-rtl`]: direction === 'rtl',
-      },
-      getStatusClassNames(
-        `${prefixCls}-group-wrapper`,
-        getMergedStatus(contextStatus, customStatus),
-        hasFeedback,
-      ),
-      className,
-    );
-
-    // Need another wrapper for changing display:table to display:inline-block
-    // and put style prop in wrapper
-    return (
-      <span className={mergedGroupClassName} style={style} hidden={hidden}>
-        <span className={mergedWrapperClassName}>
-          {addonBeforeNode}
-          {cloneElement(labeledElement, { style: null })}
-          {addonAfterNode}
-        </span>
-      </span>
-    );
-  }
-
   renderTextAreaWithClearIcon(
     prefixCls: string,
     element: React.ReactElement,
@@ -283,11 +137,6 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
           if (inputType === ClearableInputType[0]) {
             return this.renderTextAreaWithClearIcon(prefixCls, element, statusContext);
           }
-          return this.renderInputWithLabel(
-            prefixCls,
-            this.renderLabeledIcon(prefixCls, element, statusContext),
-            statusContext,
-          );
         }}
       </FormItemStatusContext.Consumer>
     );
