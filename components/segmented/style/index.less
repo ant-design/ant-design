@@ -1,22 +1,8 @@
 @import '../../style/themes/index';
 @import '../../style/mixins/index';
+@import './mixins.less';
 
 @segmented-prefix-cls: ~'@{ant-prefix}-segmented';
-
-.segmented-disabled-item() {
-  &,
-  &:hover,
-  &:focus {
-    color: @disabled-color;
-    cursor: not-allowed;
-  }
-}
-
-.segmented-item-selected() {
-  background-color: white;
-  box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.05), 0 1px 4px -1px rgba(25, 15, 15, 0.07),
-    0 0 1px 0 rgba(0, 0, 0, 0.08);
-}
 
 .@{segmented-prefix-cls} {
   .reset-component();
@@ -24,24 +10,19 @@
   position: relative;
 
   display: inline-flex;
-  padding: 2px;
+  align-items: stretch;
+  justify-items: flex-start;
 
   background-color: rgba(0, 0, 0, 0.04);
 
   border-radius: 2px;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.04);
 
   &-item {
     position: relative;
-    box-sizing: border-box;
-    height: 28px;
-    padding: 4px 30px;
-    color: @text-color;
-
-    // handle text ellipsis
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    word-break: keep-all;
-    border-radius: 1px;
+    min-height: 28px;
+    padding: 4px 10px;
+    text-align: center;
     cursor: pointer;
 
     &-selected {
@@ -61,6 +42,17 @@
     &-label {
       z-index: 2;
     }
+
+    &-input {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 0;
+      height: 0;
+      opacity: 0;
+      pointer-events: none;
+    }
   }
 
   // disabled styles
@@ -74,17 +66,16 @@
     .segmented-item-selected();
 
     position: absolute;
-    top: 2px;
-    left: 0px;
+    top: 0;
+    left: 0;
     width: 0;
-    height: 28px;
+    height: 100%;
+    padding: 4px 0;
+  }
 
-    // transition effect when `enter-active`
-    &-motion-enter-active {
-      transition: transform 0.3s @ease-in-out, width 0.3s @ease-in-out;
-      will-change: transform, width;
-    }
+  // transition effect when `enter-active`
+  &-thumb-motion-enter-active {
+    transition: transform 0.3s @ease-in-out, width 0.3s @ease-in-out;
+    will-change: transform, width;
   }
 }
-
-@import './responsive';

@@ -19,9 +19,12 @@ import { Segmented } from 'antd';
 ReactDOM.render(
   <>
     <Segmented options={['iOS', 'Android', 'Web']} />
-    <Segmented options={['13333333333', '057110000', '02110086']} />
+    <br />
+    <Segmented options={['Daily', 'Weekly', 'Monthly', 'Quarterly', 'Yearly']} />
+    <br />
     <Segmented options={['iOS', 'Android', 'Web']} disabled />
-    <Segmented options={['iOS', { title: 'Android', value: 'Android', disabled: true }, 'Web']} />
+    <br />
+    <Segmented options={['iOS', { label: 'Android', value: 'Android', disabled: true }, 'Web']} />
   </>,
   mountNode,
 );

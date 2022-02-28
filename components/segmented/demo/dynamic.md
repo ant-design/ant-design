@@ -19,9 +19,9 @@ import { Segmented, Button } from 'antd';
 
 const defaultOptions1 = ['iOS', 'Android', 'Web'];
 const defaultOptions2 = [
-  { title: 'iOS', value: 'iOS' },
-  { title: 'Android', value: 'Android' },
-  { title: 'Web', value: 'Web' },
+  { label: 'iOS', value: 'iOS' },
+  { label: 'Android', value: 'Android' },
+  'Web',
 ];
 
 const Demo: React.FC = () => {
@@ -34,25 +34,26 @@ const Demo: React.FC = () => {
 
   const handleLoadOptions2 = () => {
     setOptions2([
-      { title: 'Electron', value: 'Electron' },
+      { label: 'Electron', value: 'Electron' },
       'Mini App',
       ...defaultOptions2.reverse(),
     ]);
   };
 
   return (
-    <>
-      <div>
-        <Segmented options={options1} />
-        <Button type="primary" onClick={handleLoadOptions1}>
-          load option1
-        </Button>
-        <Segmented options={options2} defaultValue="Android" />
-        <Button type="primary" onClick={handleLoadOptions2}>
-          load option2
-        </Button>
-      </div>
-    </>
+    <div>
+      <Segmented options={options1} />
+      <br />
+      <Button type="primary" onClick={handleLoadOptions1} style={{ marginBottom: 10 }}>
+        load option now
+      </Button>
+      <br />
+      <Segmented options={options2} defaultValue="Android" />
+      <br />
+      <Button type="primary" onClick={handleLoadOptions2}>
+        load option now
+      </Button>
+    </div>
   );
 };
 

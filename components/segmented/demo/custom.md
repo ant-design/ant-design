@@ -18,7 +18,20 @@ import { Segmented } from 'antd';
 
 ReactDOM.render(
   <div>
-    <Segmented options={[1, 2, 3]} />
+    <Segmented
+      options={[
+        {
+          label: (
+            <div>
+              第一季度
+              <br />
+              2022.01~03
+            </div>
+          ),
+          value: 'hello',
+        },
+      ]}
+    />
   </div>,
   mountNode,
 );
