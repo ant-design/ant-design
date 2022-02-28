@@ -66,7 +66,6 @@
   transition: margin-bottom @animation-duration-slow 0.017s linear;
 
   &-with-help {
-    margin-bottom: 0;
     transition: none;
   }
 
@@ -204,7 +203,9 @@
 
   &-explain-connected {
     height: 0;
-    min-height: 0;
+    min-height: @form-item-margin-bottom;
+    margin-top: -@form-item-margin-bottom;
+    transform: translateY(@form-item-margin-bottom);
     opacity: 0;
   }
 
