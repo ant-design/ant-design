@@ -1,6 +1,6 @@
 import React, { forwardRef, useContext, useEffect, useRef } from 'react';
 import RcInput, { InputProps as RcInputProps, InputRef } from 'rc-input';
-import { CloseCircleFilled } from '@ant-design/icons';
+import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import classNames from 'classnames';
 import { composeRef } from 'rc-util/lib/ref';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
