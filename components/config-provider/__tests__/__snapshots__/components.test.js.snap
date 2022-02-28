@@ -21904,14 +21904,14 @@ exports[`ConfigProvider components Skeleton prefixCls 1`] = `
 
 exports[`ConfigProvider components Slider configProvider 1`] = `
 <div
-  class="config-slider"
+  class="config-slider config-slider-horizontal"
 >
   <div
     class="config-slider-rail"
   />
   <div
     class="config-slider-track"
-    style="left:0%;right:auto;width:0%"
+    style="left:0%;width:0%"
   />
   <div
     class="config-slider-step"
@@ -21923,7 +21923,7 @@ exports[`ConfigProvider components Slider configProvider 1`] = `
     aria-valuenow="0"
     class="config-slider-handle config-tooltip-open"
     role="slider"
-    style="left:0%;right:auto;transform:translateX(-50%)"
+    style="left:0%;transform:translateX(-50%)"
     tabindex="0"
   />
   <div>
@@ -21950,22 +21950,19 @@ exports[`ConfigProvider components Slider configProvider 1`] = `
       </div>
     </div>
   </div>
-  <div
-    class="config-slider-mark"
-  />
 </div>
 `;
 
 exports[`ConfigProvider components Slider configProvider componentSize large 1`] = `
 <div
-  class="config-slider"
+  class="config-slider config-slider-horizontal"
 >
   <div
     class="config-slider-rail"
   />
   <div
     class="config-slider-track"
-    style="left:0%;right:auto;width:0%"
+    style="left:0%;width:0%"
   />
   <div
     class="config-slider-step"
@@ -21977,7 +21974,7 @@ exports[`ConfigProvider components Slider configProvider componentSize large 1`]
     aria-valuenow="0"
     class="config-slider-handle config-tooltip-open"
     role="slider"
-    style="left:0%;right:auto;transform:translateX(-50%)"
+    style="left:0%;transform:translateX(-50%)"
     tabindex="0"
   />
   <div>
@@ -22004,22 +22001,19 @@ exports[`ConfigProvider components Slider configProvider componentSize large 1`]
       </div>
     </div>
   </div>
-  <div
-    class="config-slider-mark"
-  />
 </div>
 `;
 
 exports[`ConfigProvider components Slider configProvider componentSize middle 1`] = `
 <div
-  class="config-slider"
+  class="config-slider config-slider-horizontal"
 >
   <div
     class="config-slider-rail"
   />
   <div
     class="config-slider-track"
-    style="left:0%;right:auto;width:0%"
+    style="left:0%;width:0%"
   />
   <div
     class="config-slider-step"
@@ -22031,7 +22025,7 @@ exports[`ConfigProvider components Slider configProvider componentSize middle 1`
     aria-valuenow="0"
     class="config-slider-handle config-tooltip-open"
     role="slider"
-    style="left:0%;right:auto;transform:translateX(-50%)"
+    style="left:0%;transform:translateX(-50%)"
     tabindex="0"
   />
   <div>
@@ -22058,22 +22052,19 @@ exports[`ConfigProvider components Slider configProvider componentSize middle 1`
       </div>
     </div>
   </div>
-  <div
-    class="config-slider-mark"
-  />
 </div>
 `;
 
 exports[`ConfigProvider components Slider configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
-  class="ant-slider"
+  class="ant-slider ant-slider-horizontal"
 >
   <div
     class="ant-slider-rail"
   />
   <div
     class="ant-slider-track"
-    style="left:0%;right:auto;width:0%"
+    style="left:0%;width:0%"
   />
   <div
     class="ant-slider-step"
@@ -22085,7 +22076,7 @@ exports[`ConfigProvider components Slider configProvider virtual and dropdownMat
     aria-valuenow="0"
     class="ant-slider-handle ant-tooltip-open"
     role="slider"
-    style="left:0%;right:auto;transform:translateX(-50%)"
+    style="left:0%;transform:translateX(-50%)"
     tabindex="0"
   />
   <div>
@@ -22112,22 +22103,19 @@ exports[`ConfigProvider components Slider configProvider virtual and dropdownMat
       </div>
     </div>
   </div>
-  <div
-    class="ant-slider-mark"
-  />
 </div>
 `;
 
 exports[`ConfigProvider components Slider normal 1`] = `
 <div
-  class="ant-slider"
+  class="ant-slider ant-slider-horizontal"
 >
   <div
     class="ant-slider-rail"
   />
   <div
     class="ant-slider-track"
-    style="left:0%;right:auto;width:0%"
+    style="left:0%;width:0%"
   />
   <div
     class="ant-slider-step"
@@ -22139,7 +22127,7 @@ exports[`ConfigProvider components Slider normal 1`] = `
     aria-valuenow="0"
     class="ant-slider-handle ant-tooltip-open"
     role="slider"
-    style="left:0%;right:auto;transform:translateX(-50%)"
+    style="left:0%;transform:translateX(-50%)"
     tabindex="0"
   />
   <div>
@@ -22166,22 +22154,19 @@ exports[`ConfigProvider components Slider normal 1`] = `
       </div>
     </div>
   </div>
-  <div
-    class="ant-slider-mark"
-  />
 </div>
 `;
 
 exports[`ConfigProvider components Slider prefixCls 1`] = `
 <div
-  class="prefix-Slider"
+  class="prefix-Slider prefix-Slider-horizontal"
 >
   <div
     class="prefix-Slider-rail"
   />
   <div
     class="prefix-Slider-track"
-    style="left:0%;right:auto;width:0%"
+    style="left:0%;width:0%"
   />
   <div
     class="prefix-Slider-step"
@@ -22193,7 +22178,7 @@ exports[`ConfigProvider components Slider prefixCls 1`] = `
     aria-valuenow="0"
     class="prefix-Slider-handle prefix-Slider-tooltip-open"
     role="slider"
-    style="left:0%;right:auto;transform:translateX(-50%)"
+    style="left:0%;transform:translateX(-50%)"
     tabindex="0"
   />
   <div>
@@ -22220,9 +22205,6 @@ exports[`ConfigProvider components Slider prefixCls 1`] = `
       </div>
     </div>
   </div>
-  <div
-    class="prefix-Slider-mark"
-  />
 </div>
 `;
 
