@@ -8,6 +8,25 @@
   "plugins": ["stylelint-declaration-block-no-ignored-properties"],
   "rules": {
     "function-name-case": ["lower", { "ignoreFunctions": ["/colorPalette/"] }],
+    "function-no-unknown": [
+      true,
+      {
+        "ignoreFunctions": [
+          "fade",
+          "tint",
+          "darken",
+          "ceil",
+          "fadein",
+          "floor",
+          "unit",
+          "shade",
+          "lighten",
+          "percentage",
+          "-",
+          "~`colorPalette"
+        ]
+      }
+    ],
     "no-descending-specificity": null,
     "no-invalid-position-at-import-rule": null,
     "declaration-empty-line-before": null,

@@ -66,6 +66,10 @@ toc: false
   - https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*dxzdQYWlmjMAAAAAAAAAAAAAARQnAQ
   - 可在「即时设计」在线免费使用的全套组件和模板
   - https://js.design/antd
+- MasterGo 组件包
+  - https://mastergo-local-default.oss-cn-beijing.aliyuncs.com/ant-design-mastergo.svg
+  - 可在「MasterGo」在线免费使用的全套组件和模板
+  - https://mastergo.com/community/?utm_source=antdesign&utm_medium=link&utm_campaign=resource&cata_name=AntDesign
 
 ## 文章
 

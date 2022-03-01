@@ -283,10 +283,12 @@
 @divider-text-padding: 1em;
 @divider-orientation-margin: 5%;
 @divider-color: rgba(0, 0, 0, 6%);
+@divider-vertical-gutter: 8px;
 
 // Dropdown
 @dropdown-selected-color: @primary-color;
 @dropdown-menu-submenu-disabled-bg: @component-background;
+@dropdown-selected-bg: @item-active-bg;
 
 // Empty
 @empty-font-size: @font-size-base;
@@ -306,6 +308,7 @@
 @radio-button-color: @btn-default-color;
 @radio-button-hover-color: @primary-5;
 @radio-button-active-color: @primary-7;
+@radio-button-padding-horizontal: @padding-md - 1px;
 @radio-disabled-button-checked-bg: @disabled-active-bg;
 @radio-disabled-button-checked-color: @disabled-color;
 @radio-wrapper-margin-right: 8px;
@@ -563,6 +566,7 @@
 @modal-footer-border-width: @border-width-base;
 @modal-mask-bg: fade(@black, 45%);
 @modal-confirm-body-padding: 32px 32px 24px;
+@modal-confirm-title-font-size: @font-size-lg;
 
 // Progress
 // --
@@ -989,6 +993,8 @@
 @drawer-footer-padding-vertical: @modal-footer-padding-vertical;
 @drawer-footer-padding-horizontal: @modal-footer-padding-horizontal;
 @drawer-header-close-size: 56px;
+@drawer-title-font-size: @font-size-lg;
+@drawer-title-line-height: 22px;
 
 // Timeline
 // ---

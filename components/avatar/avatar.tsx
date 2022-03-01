@@ -102,7 +102,10 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
 
   const size = customSize === 'default' ? groupSize : customSize;
 
-  const screens = useBreakpoint();
+  const needResponsive = Object.keys(typeof size === 'object' ? size || {} : {}).some(key =>
+    ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].includes(key),
+  );
+  const screens = useBreakpoint(needResponsive);
   const responsiveSizeStyle: React.CSSProperties = React.useMemo(() => {
     if (typeof size !== 'object') {
       return {};

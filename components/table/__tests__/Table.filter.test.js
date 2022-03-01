@@ -1100,7 +1100,7 @@ describe('Table.filter', () => {
   it('should support getPopupContainer', () => {
     const getPopupContainer = jest.fn(node => node.parentNode);
 
-    const wrapper = mount(
+    mount(
       createTable({
         columns: [
           {
@@ -1111,13 +1111,14 @@ describe('Table.filter', () => {
         getPopupContainer,
       }),
     );
-    expect(wrapper.render()).toMatchSnapshot();
     expect(getPopupContainer).toHaveBeenCalled();
   });
 
   it('should support getPopupContainer from ConfigProvider', () => {
-    const wrapper = mount(
-      <ConfigProvider getPopupContainer={node => node.parentNode}>
+    const getPopupContainer = jest.fn(node => node.parentNode);
+
+    mount(
+      <ConfigProvider getPopupContainer={getPopupContainer}>
         {createTable({
           columns: [
             {
@@ -1128,7 +1129,7 @@ describe('Table.filter', () => {
         })}
       </ConfigProvider>,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(getPopupContainer).toHaveBeenCalled();
   });
 
   it('pass visible prop to filterDropdown', () => {
