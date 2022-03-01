@@ -4,6 +4,9 @@ import { CSSObject, Theme, useCacheToken, useStyleRegister } from '@ant-design/c
 import defaultDesignToken from './default';
 import version from '../../version';
 import { ConfigContext } from '../../config-provider';
+import { resetComponent } from './util';
+
+export { resetComponent };
 
 export interface DesignToken {
   primaryColor: string;
@@ -14,6 +17,7 @@ export interface DesignToken {
   borderRadius: number;
   borderColor: string;
   easeInOut: string;
+  easeOutBack: string;
 
   fontSize: number;
   textColor: string;
@@ -24,14 +28,15 @@ export interface DesignToken {
   padding: number;
   margin: number;
 
+  background: string;
   componentBackground: string;
   componentBackgroundDisabled: string;
 
-  duration: string;
+  duration: number;
 }
 
 /** This is temporary token definition since final token definition is not ready yet. */
-export interface DerivativeToken extends DesignToken {
+export interface DerivativeToken extends Omit<DesignToken, 'duration'> {
   primaryHoverColor: string;
   primaryActiveColor: string;
   errorHoverColor: string;
@@ -44,6 +49,9 @@ export interface DerivativeToken extends DesignToken {
   heightLG: number;
   paddingXS: number;
   marginXS: number;
+
+  duration: string;
+  durationFast: string;
 }
 
 export { useStyleRegister };
@@ -69,6 +77,9 @@ function derivative(designToken: DesignToken): DerivativeToken {
     heightLG: designToken.height * 1.25,
     paddingXS: designToken.padding * 0.5,
     marginXS: designToken.margin * 0.5,
+
+    duration: `${designToken.duration}s`,
+    durationFast: `${designToken.duration / 3}s`,
   };
 }
 
