@@ -2,15 +2,8 @@
 // import './index.less';
 
 // deps-lint-skip-all
-import { CSSInterpolation, CSSObject, Keyframes } from '@ant-design/cssinjs';
-import { TinyColor } from '@ctrl/tinycolor';
-import {
-  DerivativeToken,
-  useStyleRegister,
-  useToken,
-  withPrefix,
-  resetComponent,
-} from '../../_util/theme';
+import { CSSObject, Keyframes } from '@ant-design/cssinjs';
+import { DerivativeToken, useStyleRegister, useToken, resetComponent } from '../../_util/theme';
 
 // ============================== Motion ==============================
 const antCheckboxEffect = new Keyframes('antCheckboxEffect', {

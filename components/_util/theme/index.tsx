@@ -3,7 +3,6 @@ import { generate } from '@ant-design/colors';
 import { CSSObject, Theme, useCacheToken, useStyleRegister } from '@ant-design/cssinjs';
 import defaultDesignToken from './default';
 import version from '../../version';
-import { ConfigContext } from '../../config-provider';
 import { resetComponent } from './util';
 
 export { resetComponent };
