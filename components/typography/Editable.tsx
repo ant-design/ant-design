@@ -110,23 +110,24 @@ const Editable: React.FC<EditableProps> = ({
     confirmChange();
   };
 
-  const textAreaDivClassName = classNames(
+  const textClassName = component ? `${prefixCls}-${component}` : '';
+
+  const textAreaClassName = classNames(
     prefixCls,
     `${prefixCls}-edit-content`,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    textClassName,
   );
 
-  const textAreaClassName = component ? `${prefixCls}-${component}` : '';
-
   return (
-    <div className={textAreaDivClassName} style={style}>
+    <div className={textAreaClassName} style={style}>
       <TextArea
         ref={ref as any}
         maxLength={maxLength}
-        value={current}
+        value={current.trim()}
         onChange={onChange}
         onKeyDown={onKeyDown}
         onKeyUp={onKeyUp}
@@ -136,7 +137,6 @@ const Editable: React.FC<EditableProps> = ({
         aria-label={ariaLabel}
         rows={1}
         autoSize={autoSize}
-        className={textAreaClassName}
       />
       {enterIcon !== null
         ? cloneElement(enterIcon, { className: `${prefixCls}-edit-content-confirm` })
