@@ -107,7 +107,7 @@ exports[`renders ./components/auto-complete/demo/certain-category.md extend cont
       class="ant-select-selection-search"
     >
       <span
-        class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-search ant-input-search-large ant-select-selection-search-input"
+        class="ant-input-group-wrapper ant-input-search ant-input-search-large ant-select-selection-search-input ant-input-group-wrapper-lg"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -1989,7 +1989,7 @@ exports[`renders ./components/auto-complete/demo/uncertain-category.md extend co
       class="ant-select-selection-search"
     >
       <span
-        class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-search ant-input-search-large ant-input-search-with-button ant-select-selection-search-input"
+        class="ant-input-group-wrapper ant-input-search ant-input-search-large ant-input-search-with-button ant-select-selection-search-input ant-input-group-wrapper-lg"
       >
         <span
           class="ant-input-wrapper ant-input-group"

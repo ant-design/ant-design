@@ -13744,7 +13744,7 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
       value=""
     />
     <span
-      class="config-input-group-wrapper config-input-group-wrapper-lg config-input-search config-input-search-large"
+      class="config-input-group-wrapper config-input-search config-input-search-large config-input-group-wrapper-lg"
     >
       <span
         class="config-input-wrapper config-input-group"
@@ -13786,11 +13786,11 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
     </span>
   </span>
   <span
-    class="config-input-affix-wrapper config-input-affix-wrapper-lg config-input-password"
+    class="config-input-affix-wrapper config-input-password config-input-affix-wrapper-lg"
   >
     <input
       action="click"
-      class="config-input config-input-lg"
+      class="config-input"
       type="password"
       value=""
     />
