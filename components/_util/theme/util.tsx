@@ -1,5 +1,5 @@
 /* eslint-disable import/prefer-default-export */
-import { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
+import { CSSObject } from '@ant-design/cssinjs';
 import type { DerivativeToken } from '.';
 
 export const resetComponent = (token: DerivativeToken): CSSObject => ({
