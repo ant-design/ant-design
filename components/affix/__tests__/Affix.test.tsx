@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount, ReactWrapper } from 'enzyme';
-import Affix, { AffixProps, AffixState } from '..';
+import Affix, { AffixProps, AffixState, AffixClass } from '..';
 import { getObserverEntities } from '../utils';
 import Button from '../../button';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -17,7 +17,7 @@ class AffixMounter extends React.Component<{
 }> {
   private container: HTMLDivElement;
 
-  public affix: Affix;
+  public affix: AffixClass;
 
   componentDidMount() {
     this.container.addEventListener = jest
@@ -58,7 +58,7 @@ describe('Affix Render', () => {
 
   const domMock = jest.spyOn(HTMLElement.prototype, 'getBoundingClientRect');
   let affixMounterWrapper: ReactWrapper<unknown, unknown, AffixMounter>;
-  let affixWrapper: ReactWrapper<AffixProps, AffixState, Affix>;
+  let affixWrapper: ReactWrapper<AffixProps, AffixState, AffixClass>;
 
   const classRect: Record<string, DOMRect> = {
     container: {
@@ -155,11 +155,24 @@ describe('Affix Render', () => {
       document.body.innerHTML = '<div id="mounter" />';
       const container = document.querySelector('#id') as HTMLDivElement;
       const getTarget = () => container;
-      affixWrapper = mount(<Affix target={getTarget}>{null}</Affix>);
+      class AffixWrapper extends React.Component {
+        render() {
+          return (
+            // eslint-disable-next-line react/no-string-refs
+            <Affix ref="affixRef" target={getTarget}>
+              {null}
+            </Affix>
+          );
+        }
+      }
+      affixWrapper = mount(<AffixWrapper />);
       affixWrapper.setProps({ target: () => null });
-      expect(affixWrapper.instance().state.status).toBe(0);
-      expect(affixWrapper.instance().state.affixStyle).toBe(undefined);
-      expect(affixWrapper.instance().state.placeholderStyle).toBe(undefined);
+
+      const affixState = affixWrapper.ref('affixRef').state as unknown as AffixState;
+
+      expect(affixState.status).toBe(0);
+      expect(affixState.affixStyle).toBe(undefined);
+      expect(affixState.placeholderStyle).toBe(undefined);
     });
 
     it('instance change', async () => {
