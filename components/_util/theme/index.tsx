@@ -3,9 +3,9 @@ import { generate } from '@ant-design/colors';
 import { CSSObject, Theme, useCacheToken, useStyleRegister } from '@ant-design/cssinjs';
 import defaultDesignToken from './default';
 import version from '../../version';
-import { resetComponent } from './util';
+import { resetComponent, placeholder } from './util';
 
-export { resetComponent };
+export { resetComponent, placeholder };
 
 export interface DesignToken {
   primaryColor: string;

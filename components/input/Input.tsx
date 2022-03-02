@@ -1,16 +1,25 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
+import { forwardRef } from 'react';
 import type Group from './Group';
 import type Search from './Search';
 import type TextArea from './TextArea';
 import type Password from './Password';
 import { LiteralUnion } from '../_util/type';
 import ClearableLabeledInput from './ClearableLabeledInput';
-import { ConfigConsumer, ConfigConsumerProps, DirectionType } from '../config-provider';
+import {
+  ConfigConsumer,
+  ConfigConsumerProps,
+  ConfigContext,
+  DirectionType,
+} from '../config-provider';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import devWarning from '../_util/devWarning';
 import { getInputClassName, hasPrefixSuffix } from './utils';
+
+// CSSINJS
+import useStyle from './style';
 
 export interface InputFocusOptions extends FocusOptions {
   cursor?: 'start' | 'end' | 'all';
@@ -422,4 +431,14 @@ class Input extends React.Component<InputProps, InputState> {
   }
 }
 
-export default Input;
+const WrapInput = forwardRef<Input, InputProps>((props, ref) => {
+  const { getPrefixCls, iconPrefixCls } = React.useContext(ConfigContext);
+  const prefixCls = getPrefixCls('btn', props.prefixCls);
+
+  // Style
+  const wrapSSR = useStyle(prefixCls, iconPrefixCls);
+
+  return wrapSSR(<Input ref={ref} {...props} />);
+});
+
+export default WrapInput;
