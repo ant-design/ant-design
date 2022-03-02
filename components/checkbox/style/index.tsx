@@ -206,11 +206,14 @@ export const genCheckboxStyle = (
 };
 
 // ============================== Export ==============================
+export function getStyle(prefixCls: string, token: DerivativeToken, hashId: string) {
+  return [genCheckboxStyle(prefixCls, token, hashId), antCheckboxEffect];
+}
+
 export default function useStyle(prefixCls: string) {
   const [theme, token, hashId] = useToken();
 
-  return useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-    genCheckboxStyle(prefixCls, token, hashId),
-    antCheckboxEffect,
-  ]);
+  return useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () =>
+    getStyle(prefixCls, token, hashId),
+  );
 }
