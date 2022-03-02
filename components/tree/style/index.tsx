@@ -60,11 +60,13 @@ type TreeToken = DerivativeToken & {
   treeNodeCls: string;
   treeNodePadding: number;
   treeTitleHeight: number;
-  treeCheckBoxMargin: [number, number];
 };
 
 export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string): CSSObject => {
-  const { treeCls, treeNodeCls, treeNodePadding, treeTitleHeight, treeCheckBoxMargin } = token;
+  const { treeCls, treeNodeCls, treeNodePadding, treeTitleHeight } = token;
+
+  const treeCheckBoxMarginVertical = (treeTitleHeight - token.fontSizeLG) / 2;
+  const treeCheckBoxMarginHorizontal = token.paddingXS;
 
   return {
     [treeCls]: {
@@ -228,7 +230,8 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
       // >>> Checkbox
       '&-checkbox': {
         top: 'initial',
-        margin: `${treeCheckBoxMargin[0]}px ${treeCheckBoxMargin[1]}px 0 0`,
+        marginInlineEnd: treeCheckBoxMarginHorizontal,
+        marginBlockStart: treeCheckBoxMarginVertical,
       },
 
       // >>> Title
@@ -340,7 +343,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
 
 // =============================== RTL ================================
 export const genRTLStyle = (token: TreeToken): CSSObject => {
-  const { treeCls, treeNodeCls, treeCheckBoxMargin, treeTitleHeight } = token;
+  const { treeCls, treeNodeCls, treeTitleHeight } = token;
 
   return {
     [treeCls]: {
@@ -391,13 +394,6 @@ export const genRTLStyle = (token: TreeToken): CSSObject => {
           },
         },
       },
-
-      // >>> Checkbox
-      '&-checkbox': {
-        [`${treeCls}-rtl&`]: {
-          margin: `${treeCheckBoxMargin[0]}px 0 0 ${treeCheckBoxMargin[1]}px`,
-        },
-      },
     },
   };
 };
@@ -414,18 +410,12 @@ export const genTreeStyle = (
   const treeNodePadding = token.paddingXS / 2;
   const treeTitleHeight = token.heightSM;
 
-  const treeCheckBoxMargin: [number, number] = [
-    (treeTitleHeight - token.fontSizeLG) / 2,
-    token.paddingXS,
-  ];
-
   const treeToken = {
     ...token,
     treeCls,
     treeNodeCls,
     treeNodePadding,
     treeTitleHeight,
-    treeCheckBoxMargin,
   };
 
   return [
