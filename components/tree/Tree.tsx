@@ -226,7 +226,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
       draggable={draggableConfig as any}
     >
       {children}
-    </RcTree>
+    </RcTree>,
   );
 }) as unknown as CompoundedComponent;
 
