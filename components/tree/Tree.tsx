@@ -8,6 +8,7 @@ import { ConfigContext } from '../config-provider';
 import collapseMotion from '../_util/motion';
 import renderSwitcherIcon from './utils/iconUtil';
 import dropIndicatorRender from './utils/dropIndicator';
+import useStyle from './style';
 
 export interface AntdTreeNodeAttribute {
   eventKey: string;
@@ -172,6 +173,8 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     dropIndicatorRender,
   };
 
+  const wrapSSR = useStyle(prefixCls);
+
   const draggableConfig = React.useMemo(() => {
     if (!draggable) {
       return false;
@@ -198,7 +201,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     return mergedDraggable;
   }, [draggable]);
 
-  return (
+  return wrapSSR(
     <RcTree
       itemHeight={20}
       ref={ref}
@@ -223,7 +226,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
       draggable={draggableConfig as any}
     >
       {children}
-    </RcTree>
+    </RcTree>,
   );
 }) as unknown as CompoundedComponent;
 
