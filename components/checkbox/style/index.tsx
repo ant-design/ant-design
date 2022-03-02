@@ -133,11 +133,20 @@ export const genCheckboxStyle = (
       },
     },
 
-    // ==================== Checked ====================
+    // ===================== Hover =====================
     // Wrapper
     [`${wrapperCls}:hover ${checkboxCls}:after`]: {
       visibility: 'visible',
     },
+
+    // Wrapper & Wrapper > Checkbox
+    [`${wrapperCls}:hover, ${checkboxCls}:hover, ${checkboxCls}-input:focus +`]: {
+      [`${checkboxCls}-inner`]: {
+        borderColor: token.primaryColor,
+      },
+    },
+
+    // ==================== Checked ====================
 
     // Wrapper > Checkbox
     [`${checkboxCls}-checked`]: {
@@ -170,12 +179,12 @@ export const genCheckboxStyle = (
 
     // ==================== Disable ====================
     // Wrapper
-    [`${wrapperCls}:disabled`]: {
+    [`${wrapperCls}-disabled`]: {
       cursor: 'not-allowed',
     },
 
     // Wrapper > Checkbox
-    [`${checkboxCls}-disabled`]: {
+    [`${checkboxCls}${checkboxCls}-disabled`]: {
       // Wrapper > Checkbox > input
       [`&, ${checkboxCls}-input`]: {
         cursor: 'not-allowed',
