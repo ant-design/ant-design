@@ -17,7 +17,7 @@ class AffixMounter extends React.Component<{
 }> {
   private container: HTMLDivElement;
 
-  public affix: Affix;
+  public affix: React.Component<AffixProps, AffixState>;
 
   componentDidMount() {
     this.container.addEventListener = jest
@@ -58,7 +58,7 @@ describe('Affix Render', () => {
 
   const domMock = jest.spyOn(HTMLElement.prototype, 'getBoundingClientRect');
   let affixMounterWrapper: ReactWrapper<unknown, unknown, AffixMounter>;
-  let affixWrapper: ReactWrapper<AffixProps, AffixState, Affix>;
+  let affixWrapper: ReactWrapper<AffixProps, AffixState, React.Component<AffixProps, AffixState>>;
 
   const classRect: Record<string, DOMRect> = {
     container: {
