@@ -126,7 +126,7 @@ class Affix extends React.Component<AffixProps, AffixState> {
 
   getOffsetTop = () => {
     const { offsetBottom, offsetTop } = this.props;
-    return (offsetBottom === undefined && offsetTop === undefined) ? 0 : offsetTop;
+    return offsetBottom === undefined && offsetTop === undefined ? 0 : offsetTop;
   };
 
   getOffsetBottom = () => this.props.offsetBottom;
@@ -286,4 +286,8 @@ class Affix extends React.Component<AffixProps, AffixState> {
   }
 }
 
-export default Affix;
+const AffixFC = React.forwardRef<Affix, AffixProps>((props, ref) => (
+  <Affix {...props} ref={ref} />
+)) as unknown as typeof Affix;
+
+export default AffixFC;

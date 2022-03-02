@@ -157,9 +157,9 @@ describe('Affix Render', () => {
       const getTarget = () => container;
       affixWrapper = mount(<Affix target={getTarget}>{null}</Affix>);
       affixWrapper.setProps({ target: () => null });
-      expect(affixWrapper.instance().state.status).toBe(0);
-      expect(affixWrapper.instance().state.affixStyle).toBe(undefined);
-      expect(affixWrapper.instance().state.placeholderStyle).toBe(undefined);
+      expect(affixWrapper.find('Affix').state().status).toBe(0);
+      expect(affixWrapper.find('Affix').state().affixStyle).toBe(undefined);
+      expect(affixWrapper.find('Affix').state().placeholderStyle).toBe(undefined);
     });
 
     it('instance change', async () => {
