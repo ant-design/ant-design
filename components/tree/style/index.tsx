@@ -28,16 +28,31 @@ const getSwitchStyle = (prefixCls: string, token: DerivativeToken): CSSObject =>
     },
   },
 });
-//   .@{tree-prefix-cls}-switcher-icon,
-//   .@{select-tree-prefix-cls}-switcher-icon {
-//     display: inline-block;
-//     font-size: 10px;
-//     vertical-align: baseline;
 
-//     svg {
-//       transition: transform 0.3s;
-//     }
-//   }
+// =============================== Drop ===============================
+const getDropIndicatorStyle = (prefixCls: string, token: DerivativeToken) => ({
+  [`.${prefixCls}-drop-indicator`]: {
+    position: 'absolute',
+    // it should displayed over the following node
+    zIndex: 1,
+    height: 2,
+    backgroundColor: token.primaryColor,
+    borderRadius: 1,
+    pointerEvents: 'none',
+
+    '&:after': {
+      position: 'absolute',
+      top: -3,
+      left: -6,
+      width: 8,
+      height: 8,
+      backgroundColor: 'transparent',
+      border: `2px solid ${token.primaryColor}`,
+      borderRadius: '50%',
+      content: '""',
+    },
+  },
+});
 
 // =============================== Base ===============================
 export const genBaseStyle = (
@@ -74,6 +89,8 @@ export const genBaseStyle = (
           // >>> Title
           [`${treeCls}-node-content-wrapper`]: {
             flex: 'auto',
+            display: 'flex',
+            flexWrap: 'nowrap',
           },
 
           // >>> Drag
@@ -228,24 +245,94 @@ export const genBaseStyle = (
         cursor: 'pointer',
         transition: `all ${token.duration}, border 0s, line-height 0s, box-shadow 0s`,
 
-          '&:hover': {
-            // backgroundColor: @tree-node-hover-bg;
-          }
-        //   &.@{custom-tree-prefix-cls}-node-selected {
-        //     background-color: @tree-node-selected-bg;
-        //   }
-        //   // Icon
-        //   .@{custom-tree-prefix-cls}-iconEle {
-        //     display: inline-block;
-        //     width: @tree-title-height;
-        //     height: @tree-title-height;
-        //     line-height: @tree-title-height;
-        //     text-align: center;
-        //     vertical-align: top;
-        //     &:empty {
-        //       display: none;
-        //     }
-        //   }
+        '&:hover': {
+          backgroundColor: token.itemHoverBackground,
+        },
+
+        [`&${treeCls}-node-selected`]: {
+          backgroundColor: token.tmpPrimaryHoverColorWeak,
+        },
+
+        // Icon
+        [`${treeCls}-iconEle`]: {
+          display: 'inline-block',
+          width: treeTitleHeight,
+          height: treeTitleHeight,
+          lineHeight: `${treeTitleHeight}px`,
+          textAlign: 'center',
+          verticalAlign: 'top',
+
+          '&:empty': {
+            display: 'none',
+          },
+        },
+      },
+
+      // https://github.com/ant-design/ant-design/issues/28217
+      '&-unselectable &-node-content-wrapper:hover': {
+        backgroundColor: 'transparent',
+      },
+
+      // ==================== Draggable =====================
+      '&-node-content-wrapper': {
+        lineHeight: `${treeTitleHeight}px`,
+        userSelect: 'none',
+
+        ...getDropIndicatorStyle(prefixCls, token),
+      },
+
+      [`${treeNodeCls}.drop-container`]: {
+        '> [draggable]': {
+          boxShadow: `0 0 0 2px ${token.primaryColor}`,
+        },
+      },
+
+      // ==================== Show Line =====================
+      '&-show-line': {
+        // ================ Indent lines ================
+        [`${treeCls}-indent`]: {
+          '&-unit': {
+            position: 'relative',
+            height: '100%',
+
+            '&:before': {
+              position: 'absolute',
+              top: 0,
+              right: treeTitleHeight / 2,
+              bottom: -treeNodePadding,
+              borderRight: `1px solid ${token.borderColor}`,
+              content: '""',
+            },
+
+            '&-end': {
+              '&:before': {
+                display: 'none',
+              },
+            },
+          },
+        },
+
+        // ============== Cover Background ==============
+        [`${treeCls}-switcher`]: {
+          background: token.componentBackground,
+
+          '&-line-icon': {
+            // https://github.com/ant-design/ant-design/issues/32813
+            verticalAlign: '-0.15em',
+          },
+        },
+      },
+
+      [`${treeNodeCls}-leaf-last`]: {
+        [`${treeCls}-switcher`]: {
+          '&-leaf-line': {
+            '&:before': {
+              top: 'auto !important',
+              bottom: 'auto !important',
+              height: `${treeTitleHeight / 2}px !important`,
+            },
+          },
+        },
       },
     },
   };

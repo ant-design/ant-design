@@ -42,6 +42,7 @@ export interface DerivativeToken extends Omit<DesignToken, 'duration'> {
   primaryActiveColor: string;
   errorHoverColor: string;
   errorActiveColor: string;
+  itemActiveBackground: string;
 
   linkColor: string;
   fontSizeSM: number;
@@ -74,6 +75,8 @@ function derivative(designToken: DesignToken): DerivativeToken {
 
     errorHoverColor: errorColors[4],
     errorActiveColor: errorColors[6],
+
+    itemActiveBackground: primaryColors[1],
 
     linkColor: designToken.primaryColor,
     fontSizeSM: designToken.fontSize - 2,

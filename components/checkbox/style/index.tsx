@@ -1,6 +1,3 @@
-// import '../../style/index.less';
-// import './index.less';
-
 // deps-lint-skip-all
 import { CSSObject, Keyframes } from '@ant-design/cssinjs';
 import { DerivativeToken, useStyleRegister, useToken, resetComponent } from '../../_util/theme';
@@ -66,6 +63,7 @@ export const genCheckboxStyle = (
       position: 'relative',
       whiteSpace: 'nowrap',
       lineHeight: 1,
+      cursor: 'pointer',
 
       // Wrapper > Checkbox > input
       '&-input': {
@@ -181,7 +179,6 @@ export const genCheckboxStyle = (
       // Wrapper > Checkbox > input
       [`&, ${checkboxCls}-input`]: {
         cursor: 'not-allowed',
-        pointerEvents: 'none',
       },
 
       // Wrapper > Checkbox > inner
