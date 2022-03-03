@@ -107,7 +107,7 @@ exports[`renders ./components/auto-complete/demo/certain-category.md extend cont
       class="ant-select-selection-search"
     >
       <span
-        class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-search ant-input-search-large ant-select-selection-search-input"
+        class="ant-input-group-wrapper ant-input-search ant-input-search-large ant-select-selection-search-input ant-input-group-wrapper-lg"
       >
         <span
           class="ant-input-wrapper ant-input-group"
@@ -1876,6 +1876,107 @@ exports[`renders ./components/auto-complete/demo/options.md extend context corre
 </div>
 `;
 
+exports[`renders ./components/auto-complete/demo/status.md extend context correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical"
+  style="width:100%"
+>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <div
+      class="ant-select ant-select-status-error ant-select-auto-complete ant-select-single ant-select-show-search"
+      style="width:200px"
+    >
+      <div
+        class="ant-select-selector"
+      >
+        <span
+          class="ant-select-selection-search"
+        >
+          <input
+            aria-activedescendant="undefined_list_0"
+            aria-autocomplete="list"
+            aria-controls="undefined_list"
+            aria-haspopup="listbox"
+            aria-owns="undefined_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            role="combobox"
+            type="search"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-placeholder"
+        />
+      </div>
+      <div>
+        <div
+          class="ant-select-dropdown ant-select-dropdown-empty"
+          style="opacity:0;pointer-events:none"
+        >
+          <div>
+            <div
+              class="ant-select-item-empty"
+              id="undefined_list"
+              role="listbox"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-select ant-select-status-warning ant-select-auto-complete ant-select-single ant-select-show-search"
+      style="width:200px"
+    >
+      <div
+        class="ant-select-selector"
+      >
+        <span
+          class="ant-select-selection-search"
+        >
+          <input
+            aria-activedescendant="undefined_list_0"
+            aria-autocomplete="list"
+            aria-controls="undefined_list"
+            aria-haspopup="listbox"
+            aria-owns="undefined_list"
+            autocomplete="off"
+            class="ant-select-selection-search-input"
+            role="combobox"
+            type="search"
+            value=""
+          />
+        </span>
+        <span
+          class="ant-select-selection-placeholder"
+        />
+      </div>
+      <div>
+        <div
+          class="ant-select-dropdown ant-select-dropdown-empty"
+          style="opacity:0;pointer-events:none"
+        >
+          <div>
+            <div
+              class="ant-select-item-empty"
+              id="undefined_list"
+              role="listbox"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders ./components/auto-complete/demo/uncertain-category.md extend context correctly 1`] = `
 <div
   class="ant-select ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
@@ -1888,7 +1989,7 @@ exports[`renders ./components/auto-complete/demo/uncertain-category.md extend co
       class="ant-select-selection-search"
     >
       <span
-        class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-search ant-input-search-large ant-input-search-with-button ant-select-selection-search-input"
+        class="ant-input-group-wrapper ant-input-search ant-input-search-large ant-input-search-with-button ant-select-selection-search-input ant-input-group-wrapper-lg"
       >
         <span
           class="ant-input-wrapper ant-input-group"

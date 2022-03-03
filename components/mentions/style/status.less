@@ -1,0 +1,43 @@
+@import '../../input/style/mixin';
+
+@mention-prefix-cls: ~'@{ant-prefix}-mentions';
+@input-prefix-cls: ~'@{ant-prefix}-input';
+
+.@{mention-prefix-cls} {
+  &-status-error {
+    .status-color(@mention-prefix-cls, @error-color, @error-color, @input-bg, @error-color-hover, @error-color-outline);
+    .status-color-common(@input-prefix-cls, @error-color, @error-color, @input-bg, @error-color-hover, @error-color-outline);
+  }
+
+  &-status-warning {
+    .status-color(@mention-prefix-cls, @warning-color, @warning-color, @input-bg, @warning-color-hover, @warning-color-outline);
+    .status-color-common(@input-prefix-cls, @warning-color, @warning-color, @input-bg, @warning-color-hover, @warning-color-outline);
+  }
+
+  &-affix-wrapper {
+    position: relative;
+
+    .@{mention-prefix-cls}-feedback-icon {
+      position: absolute;
+      top: 0;
+      right: @input-padding-horizontal-base;
+      bottom: 0;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      margin: auto;
+    }
+
+    &-status-error {
+      .@{mention-prefix-cls}-feedback-icon {
+        color: @error-color;
+      }
+    }
+
+    &-has-warning {
+      .@{mention-prefix-cls}-feedback-icon {
+        color: @warning-color;
+      }
+    }
+  }
+}

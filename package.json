@@ -128,21 +128,22 @@
     "rc-collapse": "~3.1.0",
     "rc-dialog": "~8.6.0",
     "rc-drawer": "~4.4.2",
-    "rc-dropdown": "~3.2.5",
+    "rc-dropdown": "~3.3.2",
     "rc-field-form": "~1.23.0",
     "rc-image": "~5.2.5",
+    "rc-input": "^0.0.1-alpha.3",
     "rc-input-number": "~7.3.0",
     "rc-mentions": "~1.6.1",
     "rc-menu": "~9.2.1",
     "rc-motion": "^2.4.4",
     "rc-notification": "~4.5.7",
     "rc-pagination": "~3.1.9",
-    "rc-picker": "~2.5.17",
+    "rc-picker": "~2.6.4",
     "rc-progress": "~3.2.1",
     "rc-rate": "~2.9.0",
     "rc-resize-observer": "^1.2.0",
     "rc-select": "~14.0.0-alpha.15",
-    "rc-slider": "~9.7.4",
+    "rc-slider": "~10.0.0-alpha.4",
     "rc-steps": "~4.1.0",
     "rc-switch": "~3.2.0",
     "rc-table": "~7.23.0",
@@ -164,6 +165,8 @@
     "@docsearch/react": "^3.0.0-alpha.39",
     "@qixian.cs/github-contributors-list": "^1.0.3",
     "@stackblitz/sdk": "^1.3.0",
+    "@testing-library/jest-dom": "^5.16.2",
+    "@testing-library/react": "^12.1.3",
     "@types/enzyme": "^3.10.5",
     "@types/gtag.js": "^0.0.8",
     "@types/jest": "^27.0.0",
@@ -283,7 +286,7 @@
     "stylelint-declaration-block-no-ignored-properties": "^2.1.0",
     "stylelint-order": "^5.0.0",
     "theme-switcher": "^1.0.2",
-    "typescript": "~4.5.2",
+    "typescript": "~4.6.2",
     "webpack-bundle-analyzer": "^4.1.0",
     "xhr-mock": "^2.4.1",
     "yaml-front-matter": "^4.0.0"
@@ -302,7 +305,7 @@
     },
     {
       "path": "./dist/antd.min.css",
-      "maxSize": "65 kB"
+      "maxSize": "66 kB"
     },
     {
       "path": "./dist/antd.dark.min.css",
@@ -310,11 +313,11 @@
     },
     {
       "path": "./dist/antd.compact.min.css",
-      "maxSize": "65 kB"
+      "maxSize": "66 kB"
     },
     {
       "path": "./dist/antd.variable.min.css",
-      "maxSize": "65 kB"
+      "maxSize": "66 kB"
     }
   ],
   "tnpm": {
