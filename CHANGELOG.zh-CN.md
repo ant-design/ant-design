@@ -15,6 +15,35 @@ timeline: true
 
 ---
 
+## 4.19.0
+
+`2022-03-03`
+
+- 🛠 引入 rc-input 重构 Input 组件为 FunctionComponent。[#34206](https://github.com/ant-design/ant-design/pull/34206)
+- 🆕 Table `filterSearch` 属性支持自定义搜索条件。[#34085](https://github.com/ant-design/ant-design/pull/34085) [@heiyu4585](https://github.com/heiyu4585)
+- 🆕 Table `FilterDropdown` 支持参数 `clearFilters(confirm: false, closeDropdown: false)` 控制筛选。[#34120](https://github.com/ant-design/ant-design/pull/34120) [@heiyu4585](https://github.com/heiyu4585)
+- 🆕 输入组件支持自定义状态。
+  - Transfer [#34098](https://github.com/ant-design/ant-design/pull/34098)
+  - AutoComplete [#34096](https://github.com/ant-design/ant-design/pull/34096)
+  - TreeSelect [#34093](https://github.com/ant-design/ant-design/pull/34093)
+  - Cascader [#34086](https://github.com/ant-design/ant-design/pull/34086)
+  - Select [#34084](https://github.com/ant-design/ant-design/pull/34084)
+  - DatePicker 和 TimePicker [#34073](https://github.com/ant-design/ant-design/pull/34073)
+  - Mentions [#34071](https://github.com/ant-design/ant-design/pull/34071)
+  - InputNumber [#34042](https://github.com/ant-design/ant-design/pull/34042)
+  - Input [#33995](https://github.com/ant-design/ant-design/pull/33995)
+- 🆕 InputNumber 组件支持自定义向上 icon 和向下 icon。[#33914](https://github.com/ant-design/ant-design/pull/33914) [@heiyu4585](https://github.com/heiyu4585)
+- 🆕 Notification 组件弹窗位置新增支持 `top` / `bottom`。 [#33871](https://github.com/ant-design/ant-design/pull/33871) [@heiyu4585](https://github.com/heiyu4585)
+- 🆕 Select、Cascader、DatePicker 等组件新增 `placement` 用于自定义弹层方向。 [#33641](https://github.com/ant-design/ant-design/pull/33541) [@ONLY-yours](https://github.com/ONLY-yours)
+- 🆕 Dropdown 组件支持指向元素正中间，并且支持 `top` `bottom` 两种 `placement`。 [#33658](https://github.com/ant-design/ant-design/pull/33658)
+- 🆕 Skeleton.Input 添加 `block` 属性。 [#33672](https://github.com/ant-design/ant-design/pull/33672) [@woochanleee](https://github.com/woochanleee)
+- 🆕 Table 增加 `aria-sort` 属性以优化屏幕阅读器的使用体验。 [#33603](https://github.com/ant-design/ant-design/pull/33603) [@dgreene1](https://github.com/dgreene1)
+- 🆕 合并 TimePicker `disabledHours`、`disabledMinutes`、`disabledSeconds` 至 `disabledTime` 以保持与 DatePicker 接口一致性。 [#33503](https://github.com/ant-design/ant-design/pull/33503)
+- ⌨️ 优化 Dropdown 键盘交互。[#33893](https://github.com/ant-design/ant-design/pull/33893) [@github-actions](https://github.com/github-actions)
+- 💄 优化部分组件箭头样式。 [#33710](https://github.com/ant-design/ant-design/pull/33710)
+- 💄 修改部分边框颜色和进度条的背景色为透明色以适应有色背景。 [#33506](https://github.com/ant-design/ant-design/pull/33506)
+- 💄 Space support custom children `key`. [#33607](https://github.com/ant-design/ant-design/pull/33607) [@qin20](https://github.com/qin20)
+
 ## 4.18.9
 
 `2022-02-28`

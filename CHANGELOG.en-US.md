@@ -15,6 +15,35 @@ timeline: true
 
 ---
 
+## 4.19.0
+
+`2022-03-03`
+
+- 🛠 Refactor Input with rc-input. [#34206](https://github.com/ant-design/ant-design/pull/34206)
+- 🆕 Table `filterSearch` supports custom search function. [#34085](https://github.com/ant-design/ant-design/pull/34085) [@heiyu4585](https://github.com/heiyu4585)
+- 🆕 Table `FilterDropdown` support `clearFilters({ confirm: false, closeDropdown: false })`. [#34120](https://github.com/ant-design/ant-design/pull/34120) [@heiyu4585](https://github.com/heiyu4585)
+- 🆕 Data entry components support custom status.
+  - Transfer [#34098](https://github.com/ant-design/ant-design/pull/34098)
+  - AutoComplete [#34096](https://github.com/ant-design/ant-design/pull/34096)
+  - TreeSelect [#34093](https://github.com/ant-design/ant-design/pull/34093)
+  - Cascader [#34086](https://github.com/ant-design/ant-design/pull/34086)
+  - Select [#34084](https://github.com/ant-design/ant-design/pull/34084)
+  - DatePicker and TimePicker [#34073](https://github.com/ant-design/ant-design/pull/34073)
+  - Mentions [#34071](https://github.com/ant-design/ant-design/pull/34071)
+  - InputNumber [#34042](https://github.com/ant-design/ant-design/pull/34042)
+  - Input [#33995](https://github.com/ant-design/ant-design/pull/33995)
+- 🆕 InputNumber support customize `upIcon` / `downIcon`. [#33914](https://github.com/ant-design/ant-design/pull/33914) [@heiyu4585](https://github.com/heiyu4585)
+- 🆕 Notification `placement` support `top` / `bottom` [#33871](https://github.com/ant-design/ant-design/pull/33871) [@heiyu4585](https://github.com/heiyu4585)
+- 🆕 Select, Cascades, DatePicker now support `placement` property. [#33641](https://github.com/ant-design/ant-design/pull/33541) [@ONLY-yours](https://github.com/ONLY-yours)
+- 🆕 Dropdown support arrow pointing at center and `top` `bottom` placement. [#33658](https://github.com/ant-design/ant-design/pull/33658)
+- 🆕 Skeleton.Input Adds `block` prop. [#33672](https://github.com/ant-design/ant-design/pull/33672) [@woochanleee](https://github.com/woochanleee)
+- 🆕 Table adds `aria-sort` attribute for screen readers. [#33603](https://github.com/ant-design/ant-design/pull/33603) [@dgreene1](https://github.com/dgreene1)
+- 🆕 Move TimePicker `disabledHours`, `disabledMinutes`, `disabledSeconds` into `disabledTime` to align with DatePicker. [#33503](https://github.com/ant-design/ant-design/pull/33503)
+- ⌨️ Optimize dropdown accessbility. [#33893](https://github.com/ant-design/ant-design/pull/33893) [@github-actions](https://github.com/github-actions)
+- 💄 Optimize arrow style for some components. [#33710](https://github.com/ant-design/ant-design/pull/33710)
+- 💄 Modify the color of some borders and the background color of the progress bar to be transparent to suit the colored background. [#33506](https://github.com/ant-design/ant-design/pull/33506)
+- 💄 Space support custom children `key`. [#33607](https://github.com/ant-design/ant-design/pull/33607) [@qin20](https://github.com/qin20)
+
 ## 4.18.9
 
 `2022-02-28`
