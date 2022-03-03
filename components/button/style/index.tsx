@@ -1,7 +1,6 @@
 // deps-lint-skip-all
 import { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-import React from 'react';
 import {
   DerivativeToken,
   UseComponentStyleResult,
