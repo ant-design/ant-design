@@ -21,6 +21,7 @@ export interface DesignToken {
   fontSize: number;
   textColor: string;
   textColorDisabled: string;
+  textColorInverse: string;
 
   itemHoverBackground: string;
 

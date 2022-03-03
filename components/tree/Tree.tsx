@@ -173,7 +173,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     dropIndicatorRender,
   };
 
-  const wrapSSR = useStyle(prefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const draggableConfig = React.useMemo(() => {
     if (!draggable) {
@@ -216,6 +216,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
           [`${prefixCls}-rtl`]: direction === 'rtl',
         },
         className,
+        hashId,
       )}
       direction={direction}
       checkable={checkable ? <span className={`${prefixCls}-checkbox-inner`} /> : checkable}
