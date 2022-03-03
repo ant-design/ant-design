@@ -55,7 +55,7 @@ export const genBaseStyle = (alertCls: string, token: AlertToken): CSSObject => 
     fontSize,
     fontSizeLG,
     borderRadius,
-    tmpEaseInOutCirc,
+    easeInOutCirc,
     alertMessageColor,
     alertWithDescriptionIconSize,
     alertWithDescriptionPaddingVertical,
@@ -120,9 +120,9 @@ export const genBaseStyle = (alertCls: string, token: AlertToken): CSSObject => 
       '&&-motion-leave': {
         overflow: 'hidden',
         opacity: 1,
-        transition: `max-height 0.3s ${tmpEaseInOutCirc}, opacity 0.3s ${tmpEaseInOutCirc},
-        padding-top 0.3s ${tmpEaseInOutCirc}, padding-bottom 0.3s ${tmpEaseInOutCirc},
-        margin-bottom 0.3s ${tmpEaseInOutCirc}`,
+        transition: `max-height 0.3s ${easeInOutCirc}, opacity 0.3s ${easeInOutCirc},
+        padding-top 0.3s ${easeInOutCirc}, padding-bottom 0.3s ${easeInOutCirc},
+        margin-bottom 0.3s ${easeInOutCirc}`,
       },
 
       '&&-motion-leave-active': {
@@ -278,27 +278,27 @@ export const genAlertStyle = (
 ): CSSInterpolation => {
   const alertCls = `.${prefixCls}`;
 
-  const alertMessageColor = token.tmpHeadingColor;
-  const alertCloseColor = token.tmpTextColorSecondary;
-  const alertCloseHoverColor = token.tmpIconColorHover;
+  const alertMessageColor = token.headingColor;
+  const alertCloseColor = token.textColorSecondary;
+  const alertCloseHoverColor = token.iconColorHover;
   const alertWithDescriptionIconSize = 24;
   const alertWithDescriptionPaddingVertical = `${token.padding - 1}px`;
   const alertWithDescriptionNoIconPaddingVertical = `${token.padding - 1}px`;
   const alertWithDescriptionPadding = `${alertWithDescriptionPaddingVertical} 15px ${alertWithDescriptionNoIconPaddingVertical} ${alertWithDescriptionIconSize}px`;
 
-  const infoColors = generate(token.tmpInfoColor);
+  const infoColors = generate(token.infoColor);
   const alertInfoBgColor = infoColors[0];
-  const alertInfoIconColor = token.tmpInfoColor;
+  const alertInfoIconColor = token.infoColor;
   const alertInfoBorderColor = infoColors[2];
 
-  const successColors = generate(token.tmpSuccessColor);
+  const successColors = generate(token.successColor);
   const alertSuccessBgColor = successColors[0];
-  const alertSuccessIconColor = token.tmpSuccessColor;
+  const alertSuccessIconColor = token.successColor;
   const alertSuccessBorderColor = successColors[2];
 
-  const warningColors = generate(token.tmpWarningColor);
+  const warningColors = generate(token.warningColor);
   const alertWarningBgColor = warningColors[0];
-  const alertWarningIconColor = token.tmpWarningColor;
+  const alertWarningIconColor = token.warningColor;
   const alertWarningBorderColor = warningColors[2];
 
   const errorColors = generate(token.errorColor);

@@ -1,7 +1,6 @@
 import React from 'react';
 import { generate } from '@ant-design/colors';
 import { CSSObject, Theme, useCacheToken, useStyleRegister } from '@ant-design/cssinjs';
-import { TinyColor } from '@ctrl/tinycolor';
 import defaultDesignToken from './default';
 import version from '../../version';
 import { resetComponent } from './util';
@@ -10,19 +9,30 @@ export { resetComponent };
 
 export interface DesignToken {
   primaryColor: string;
+  successColor: string;
+  warningColor: string;
   errorColor: string;
+  infoColor: string;
+
   lineHeight: number;
   borderWidth: number;
   borderStyle: string;
   borderRadius: number;
   borderColor: string;
+
   easeInOut: string;
+  easeInOutCirc: string;
   easeOutBack: string;
 
   fontSize: number;
   textColor: string;
+  textColorSecondary: string;
   textColorDisabled: string;
   textColorInverse: string;
+
+  headingColor: string;
+
+  iconColorHover: string;
 
   itemHoverBackground: string;
 
@@ -59,13 +69,6 @@ export interface DerivativeToken extends Omit<DesignToken, 'duration'> {
 
   // TMP
   tmpPrimaryHoverColorWeak: string;
-  tmpHeadingColor: string;
-  tmpEaseInOutCirc: string;
-  tmpSuccessColor: string;
-  tmpInfoColor: string;
-  tmpWarningColor: string;
-  tmpTextColorSecondary: string;
-  tmpIconColorHover: string;
 }
 
 export { useStyleRegister };
@@ -74,21 +77,11 @@ export { useStyleRegister };
 function derivative(designToken: DesignToken): DerivativeToken {
   const primaryColors = generate(designToken.primaryColor);
   const errorColors = generate(designToken.errorColor);
-  const successColors = generate('#52c41a');
-  const warningColors = generate('#faad14');
 
   return {
     ...designToken,
 
     tmpPrimaryHoverColorWeak: primaryColors[0],
-    tmpHeadingColor: new TinyColor('#000').setAlpha(0.85).toRgbString(),
-    tmpEaseInOutCirc: `cubic-bezier(0.78, 0.14, 0.15, 0.86)`,
-    tmpSuccessColor: successColors[5],
-    tmpInfoColor: designToken.primaryColor,
-    tmpWarningColor: warningColors[5],
-    tmpTextColorSecondary: new TinyColor('#000').setAlpha(0.45).toRgbString(),
-    tmpIconColorHover: new TinyColor('#000').setAlpha(0.75).toRgbString(),
-
     primaryHoverColor: primaryColors[4],
     primaryActiveColor: primaryColors[6],
 
