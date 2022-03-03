@@ -656,7 +656,7 @@ Array [
   <h1
     class="ant-typography"
   >
-     h1. Ant Design
+    h1. Ant Design
     <div
       aria-label="Edit"
       class="ant-typography-edit"
@@ -712,7 +712,7 @@ Array [
   <h2
     class="ant-typography"
   >
-     h2. Ant Design
+    h2. Ant Design
     <div
       aria-label="Edit"
       class="ant-typography-edit"
@@ -768,7 +768,7 @@ Array [
   <h3
     class="ant-typography"
   >
-     h3. Ant Design
+    h3. Ant Design
     <div
       aria-label="Edit"
       class="ant-typography-edit"
@@ -824,7 +824,7 @@ Array [
   <h4
     class="ant-typography"
   >
-     h4. Ant Design
+    h4. Ant Design
     <div
       aria-label="Edit"
       class="ant-typography-edit"
@@ -880,7 +880,7 @@ Array [
   <h5
     class="ant-typography"
   >
-     h5. Ant Design
+    h5. Ant Design
     <div
       aria-label="Edit"
       class="ant-typography-edit"
