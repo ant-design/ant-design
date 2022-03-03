@@ -85,7 +85,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
   }, [restProps.value]);
 
   const prefixCls = getPrefixCls('checkbox', customizePrefixCls);
-  const wrapSSR = useStyle(prefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const checkboxProps: CheckboxProps = { ...restProps };
   if (checkboxGroup && !skipGroup) {
@@ -109,10 +109,14 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
       [`${prefixCls}-wrapper-disabled`]: checkboxProps.disabled,
     },
     className,
+    hashId,
   );
-  const checkboxClass = classNames({
-    [`${prefixCls}-indeterminate`]: indeterminate,
-  });
+  const checkboxClass = classNames(
+    {
+      [`${prefixCls}-indeterminate`]: indeterminate,
+    },
+    hashId,
+  );
   return wrapSSR(
     // eslint-disable-next-line jsx-a11y/label-has-associated-control
     <label

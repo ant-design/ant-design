@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { TinyColor } from '@ctrl/tinycolor';
-import { Drawer, Form, Input, Button, InputNumber } from 'antd';
+import { Drawer, Form, Input, Button, InputNumber, Checkbox } from 'antd';
 import { useIntl } from 'react-intl';
 import { BugOutlined } from '@ant-design/icons';
 import { DesignToken } from '../../../../components/_util/theme';
@@ -95,6 +95,10 @@ export default ({ onChangeTheme, defaultToken }: ThemeConfigProps) => {
               </Form.Item>
             );
           })}
+
+          <Form.Item name="hashed" valuePropName="checked">
+            <Checkbox>Bind Style on hash className</Checkbox>
+          </Form.Item>
         </Form>
       </Drawer>
     </>

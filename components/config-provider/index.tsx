@@ -85,6 +85,7 @@ export interface ConfigProviderProps {
   dropdownMatchSelectWidth?: boolean;
   theme?: {
     token?: Partial<DesignToken>;
+    hashed?: boolean;
   };
 }
 
@@ -262,10 +263,12 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
         ...defaultThemeToken,
         ...theme?.token,
       },
+      hashed: theme?.hashed,
     }),
-    [theme?.token],
+    [theme?.token, theme?.hashed],
   );
-  if (theme?.token) {
+
+  if (theme?.token || theme?.hashed) {
     childNode = (
       <DesignTokenContext.Provider value={memoTheme}>{childNode}</DesignTokenContext.Provider>
     );

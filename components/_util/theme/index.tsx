@@ -104,7 +104,7 @@ export const DesignTokenContext = React.createContext<{
 });
 
 // ================================== Hook ==================================
-export function useToken() {
+export function useToken(): [Theme<DesignToken, DerivativeToken>, DerivativeToken, string] {
   const { token: rootDesignToken, hashed } = React.useContext(DesignTokenContext);
   const theme = React.useContext(ThemeContext);
 
@@ -115,6 +115,8 @@ export function useToken() {
   });
   return [theme, token, hashed ? hashId : ''];
 }
+
+export type UseComponentStyleResult = [(node: React.ReactNode) => React.ReactElement, string];
 
 // ================================== Util ==================================
 export function withPrefix(
