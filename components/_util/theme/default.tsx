@@ -19,6 +19,7 @@ const defaultDesignToken: DesignToken = {
   fontSize: 14,
   textColor: new TinyColor('#000').setAlpha(0.85).toRgbString(),
   textColorDisabled: new TinyColor('#000').setAlpha(0.25).toRgbString(),
+  textColorInverse: '#fff',
 
   itemHoverBackground: '#f5f5f5',
 
