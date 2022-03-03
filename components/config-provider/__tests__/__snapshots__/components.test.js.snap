@@ -13367,7 +13367,7 @@ exports[`ConfigProvider components Form configProvider 1`] = `
           class="config-form-item-control-input-content"
         >
           <input
-            class="config-input"
+            class="config-input config-input-status-error"
             type="text"
             value=""
           />
@@ -13405,7 +13405,7 @@ exports[`ConfigProvider components Form configProvider componentSize large 1`] =
           class="config-form-item-control-input-content"
         >
           <input
-            class="config-input config-input-lg"
+            class="config-input config-input-lg config-input-status-error"
             type="text"
             value=""
           />
@@ -13443,7 +13443,7 @@ exports[`ConfigProvider components Form configProvider componentSize middle 1`] 
           class="config-form-item-control-input-content"
         >
           <input
-            class="config-input"
+            class="config-input config-input-status-error"
             type="text"
             value=""
           />
@@ -13481,7 +13481,7 @@ exports[`ConfigProvider components Form configProvider virtual and dropdownMatch
           class="ant-form-item-control-input-content"
         >
           <input
-            class="ant-input"
+            class="ant-input ant-input-status-error"
             type="text"
             value=""
           />
@@ -13519,7 +13519,7 @@ exports[`ConfigProvider components Form normal 1`] = `
           class="ant-form-item-control-input-content"
         >
           <input
-            class="ant-input"
+            class="ant-input ant-input-status-error"
             type="text"
             value=""
           />
@@ -13557,7 +13557,7 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
           class="prefix-Form-item-control-input-content"
         >
           <input
-            class="prefix-Form"
+            class="prefix-Form prefix-Form-status-error"
             type="text"
             value=""
           />
@@ -13744,7 +13744,7 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
       value=""
     />
     <span
-      class="config-input-group-wrapper config-input-group-wrapper-lg config-input-search config-input-search-large"
+      class="config-input-group-wrapper config-input-search config-input-search-large config-input-group-wrapper-lg"
     >
       <span
         class="config-input-wrapper config-input-group"
@@ -13786,11 +13786,11 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
     </span>
   </span>
   <span
-    class="config-input-affix-wrapper config-input-affix-wrapper-lg config-input-password"
+    class="config-input-affix-wrapper config-input-password config-input-affix-wrapper-lg"
   >
     <input
       action="click"
-      class="config-input config-input-lg"
+      class="config-input"
       type="password"
       value=""
     />
@@ -21904,14 +21904,14 @@ exports[`ConfigProvider components Skeleton prefixCls 1`] = `
 
 exports[`ConfigProvider components Slider configProvider 1`] = `
 <div
-  class="config-slider"
+  class="config-slider config-slider-horizontal"
 >
   <div
     class="config-slider-rail"
   />
   <div
     class="config-slider-track"
-    style="left:0%;right:auto;width:0%"
+    style="left:0%;width:0%"
   />
   <div
     class="config-slider-step"
@@ -21923,7 +21923,7 @@ exports[`ConfigProvider components Slider configProvider 1`] = `
     aria-valuenow="0"
     class="config-slider-handle config-tooltip-open"
     role="slider"
-    style="left:0%;right:auto;transform:translateX(-50%)"
+    style="left:0%;transform:translateX(-50%)"
     tabindex="0"
   />
   <div>
@@ -21950,22 +21950,19 @@ exports[`ConfigProvider components Slider configProvider 1`] = `
       </div>
     </div>
   </div>
-  <div
-    class="config-slider-mark"
-  />
 </div>
 `;
 
 exports[`ConfigProvider components Slider configProvider componentSize large 1`] = `
 <div
-  class="config-slider"
+  class="config-slider config-slider-horizontal"
 >
   <div
     class="config-slider-rail"
   />
   <div
     class="config-slider-track"
-    style="left:0%;right:auto;width:0%"
+    style="left:0%;width:0%"
   />
   <div
     class="config-slider-step"
@@ -21977,7 +21974,7 @@ exports[`ConfigProvider components Slider configProvider componentSize large 1`]
     aria-valuenow="0"
     class="config-slider-handle config-tooltip-open"
     role="slider"
-    style="left:0%;right:auto;transform:translateX(-50%)"
+    style="left:0%;transform:translateX(-50%)"
     tabindex="0"
   />
   <div>
@@ -22004,22 +22001,19 @@ exports[`ConfigProvider components Slider configProvider componentSize large 1`]
       </div>
     </div>
   </div>
-  <div
-    class="config-slider-mark"
-  />
 </div>
 `;
 
 exports[`ConfigProvider components Slider configProvider componentSize middle 1`] = `
 <div
-  class="config-slider"
+  class="config-slider config-slider-horizontal"
 >
   <div
     class="config-slider-rail"
   />
   <div
     class="config-slider-track"
-    style="left:0%;right:auto;width:0%"
+    style="left:0%;width:0%"
   />
   <div
     class="config-slider-step"
@@ -22031,7 +22025,7 @@ exports[`ConfigProvider components Slider configProvider componentSize middle 1`
     aria-valuenow="0"
     class="config-slider-handle config-tooltip-open"
     role="slider"
-    style="left:0%;right:auto;transform:translateX(-50%)"
+    style="left:0%;transform:translateX(-50%)"
     tabindex="0"
   />
   <div>
@@ -22058,22 +22052,19 @@ exports[`ConfigProvider components Slider configProvider componentSize middle 1`
       </div>
     </div>
   </div>
-  <div
-    class="config-slider-mark"
-  />
 </div>
 `;
 
 exports[`ConfigProvider components Slider configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
-  class="ant-slider"
+  class="ant-slider ant-slider-horizontal"
 >
   <div
     class="ant-slider-rail"
   />
   <div
     class="ant-slider-track"
-    style="left:0%;right:auto;width:0%"
+    style="left:0%;width:0%"
   />
   <div
     class="ant-slider-step"
@@ -22085,7 +22076,7 @@ exports[`ConfigProvider components Slider configProvider virtual and dropdownMat
     aria-valuenow="0"
     class="ant-slider-handle ant-tooltip-open"
     role="slider"
-    style="left:0%;right:auto;transform:translateX(-50%)"
+    style="left:0%;transform:translateX(-50%)"
     tabindex="0"
   />
   <div>
@@ -22112,22 +22103,19 @@ exports[`ConfigProvider components Slider configProvider virtual and dropdownMat
       </div>
     </div>
   </div>
-  <div
-    class="ant-slider-mark"
-  />
 </div>
 `;
 
 exports[`ConfigProvider components Slider normal 1`] = `
 <div
-  class="ant-slider"
+  class="ant-slider ant-slider-horizontal"
 >
   <div
     class="ant-slider-rail"
   />
   <div
     class="ant-slider-track"
-    style="left:0%;right:auto;width:0%"
+    style="left:0%;width:0%"
   />
   <div
     class="ant-slider-step"
@@ -22139,7 +22127,7 @@ exports[`ConfigProvider components Slider normal 1`] = `
     aria-valuenow="0"
     class="ant-slider-handle ant-tooltip-open"
     role="slider"
-    style="left:0%;right:auto;transform:translateX(-50%)"
+    style="left:0%;transform:translateX(-50%)"
     tabindex="0"
   />
   <div>
@@ -22166,22 +22154,19 @@ exports[`ConfigProvider components Slider normal 1`] = `
       </div>
     </div>
   </div>
-  <div
-    class="ant-slider-mark"
-  />
 </div>
 `;
 
 exports[`ConfigProvider components Slider prefixCls 1`] = `
 <div
-  class="prefix-Slider"
+  class="prefix-Slider prefix-Slider-horizontal"
 >
   <div
     class="prefix-Slider-rail"
   />
   <div
     class="prefix-Slider-track"
-    style="left:0%;right:auto;width:0%"
+    style="left:0%;width:0%"
   />
   <div
     class="prefix-Slider-step"
@@ -22193,7 +22178,7 @@ exports[`ConfigProvider components Slider prefixCls 1`] = `
     aria-valuenow="0"
     class="prefix-Slider-handle prefix-Slider-tooltip-open"
     role="slider"
-    style="left:0%;right:auto;transform:translateX(-50%)"
+    style="left:0%;transform:translateX(-50%)"
     tabindex="0"
   />
   <div>
@@ -22220,9 +22205,6 @@ exports[`ConfigProvider components Slider prefixCls 1`] = `
       </div>
     </div>
   </div>
-  <div
-    class="prefix-Slider-mark"
-  />
 </div>
 `;
 

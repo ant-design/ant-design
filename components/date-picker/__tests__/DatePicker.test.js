@@ -199,4 +199,36 @@ describe('DatePicker', () => {
     expect(year).toBe(startDate.format('YYYY'));
     expect(wrapper.find('.ant-picker-time-panel').length).toBe(1);
   });
+
+  it('placement api work correctly ', () => {
+    const popupAlignDefault = (points = ['tl', 'bl'], offset = [0, 4]) => ({
+      points,
+      offset,
+      overflow: {
+        adjustX: 1,
+        adjustY: 1,
+      },
+    });
+
+    const wrapper = mount(
+      <DatePicker.RangePicker defaultValue={moment()} placement="bottomLeft" />,
+    );
+    expect(wrapper.find('Trigger').prop('popupAlign')).toEqual(popupAlignDefault(['tl', 'bl']));
+    wrapper.setProps({
+      placement: 'bottomRight',
+    });
+    expect(wrapper.find('Trigger').prop('popupAlign')).toEqual(popupAlignDefault(['tr', 'br']));
+    wrapper.setProps({
+      placement: 'topLeft',
+    });
+    expect(wrapper.find('Trigger').prop('popupAlign')).toEqual(
+      popupAlignDefault(['bl', 'tl'], [0, -4]),
+    );
+    wrapper.setProps({
+      placement: 'topRight',
+    });
+    expect(wrapper.find('Trigger').prop('popupAlign')).toEqual(
+      popupAlignDefault(['br', 'tr'], [0, -4]),
+    );
+  });
 });

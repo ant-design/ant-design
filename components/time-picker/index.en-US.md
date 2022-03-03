@@ -33,9 +33,7 @@ import moment from 'moment';
 | clearText | The clear tooltip of icon | string | clear |  |
 | defaultValue | To set default time | [moment](http://momentjs.com/) | - |  |
 | disabled | Determine whether the TimePicker is disabled | boolean | false |  |
-| disabledHours | To specify the hours that cannot be selected | function() | - |  |
-| disabledMinutes | To specify the minutes that cannot be selected | function(selectedHour) | - |  |
-| disabledSeconds | To specify the seconds that cannot be selected | function(selectedHour, selectedMinute) | - |  |
+| disabledTime | To specify the time that cannot be selected | [DisabledTime](#DisabledTime) | - | 4.19.0 |
 | format | To set the time format | string | `HH:mm:ss` |  |
 | getPopupContainer | To set the container of the floating layer, while the default is to create a div element in body | function(trigger) | - |  |
 | hideDisabledOptions | Whether hide the options that can not be selected | boolean | false |  |
@@ -44,11 +42,13 @@ import moment from 'moment';
 | minuteStep | Interval between minutes in picker | number | 1 |  |
 | open | Whether to popup panel | boolean | false |  |
 | placeholder | Display when there's no value | string \| \[string, string] | `Select a time` |  |
+| placement | The position where the selection box pops up | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
 | popupClassName | The className of panel | string | - |  |
 | popupStyle | The style of panel | CSSProperties | - |  |
 | renderExtraFooter | Called from time picker panel to render some addon to its bottom | () => ReactNode | - |  |
 | secondStep | Interval between seconds in picker | number | 1 |  |
 | showNow | Whether to show `Now` button on panel | boolean | - | 4.4.0 |
+| status | Set validation status | 'error' \| 'warning' \| 'success' \| 'validating' | - | 4.19.0 |
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
 | use12Hours | Display as 12 hours format, with default format `h:mm:ss a` | boolean | false |  |
 | value | To set time | [moment](http://momentjs.com/) | - |  |
@@ -56,12 +56,22 @@ import moment from 'moment';
 | onOpenChange | A callback function which will be called while panel opening/closing | (open: boolean) => void | - |  |
 | onSelect | A callback function, executes when a value is selected | function(time: moment): void | - |  |
 
+#### DisabledTime
+
+```typescript
+type DisabledTime = (now: Moment) => {
+  disabledHours?: () => number[];
+  disabledMinutes?: (selectedHour: number) => number[];
+  disabledSeconds?: (selectedHour: number, selectedMinute: number) => number[];
+};
+```
+
 ## Methods
 
-| Name | Description | Version |
-| --- | --- | --- |
-| blur() | Remove focus |  |
-| focus() | Get focus |  |
+| Name    | Description  | Version |
+| ------- | ------------ | ------- |
+| blur()  | Remove focus |         |
+| focus() | Get focus    |         |
 
 ### RangePicker
 
@@ -69,7 +79,21 @@ Same props from [RangePicker](/components/date-picker/#RangePicker) of DatePicke
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| disabledTime | To specify the time that cannot be selected | [RangeDisabledTime](#RangeDisabledTime) | - | 4.19.0 |
 | order | Order start and end time | boolean | true | 4.1.0 |
+
+### RangeDisabledTime
+
+```typescript
+type RangeDisabledTime = (
+  now: Moment,
+  type = 'start' | 'end',
+) => {
+  disabledHours?: () => number[];
+  disabledMinutes?: (selectedHour: number) => number[];
+  disabledSeconds?: (selectedHour: number, selectedMinute: number) => number[];
+};
+```
 
 <style>
 .code-box-demo .ant-picker { margin: 0 8px 12px 0; }

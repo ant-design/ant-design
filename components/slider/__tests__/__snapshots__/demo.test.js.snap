@@ -3,14 +3,14 @@
 exports[`renders ./components/slider/demo/basic.md correctly 1`] = `
 Array [
   <div
-    class="ant-slider"
+    class="ant-slider ant-slider-horizontal"
   >
     <div
       class="ant-slider-rail"
     />
     <div
       class="ant-slider-track"
-      style="left:0%;right:auto;width:30%"
+      style="left:0%;width:30%"
     />
     <div
       class="ant-slider-step"
@@ -22,22 +22,19 @@ Array [
       aria-valuenow="30"
       class="ant-slider-handle"
       role="slider"
-      style="left:30%;right:auto;transform:translateX(-50%)"
+      style="left:30%;transform:translateX(-50%)"
       tabindex="0"
-    />
-    <div
-      class="ant-slider-mark"
     />
   </div>,
   <div
-    class="ant-slider"
+    class="ant-slider ant-slider-horizontal"
   >
     <div
       class="ant-slider-rail"
     />
     <div
       class="ant-slider-track ant-slider-track-1"
-      style="left:20%;right:auto;width:30%"
+      style="left:20%;width:30%"
     />
     <div
       class="ant-slider-step"
@@ -49,7 +46,7 @@ Array [
       aria-valuenow="20"
       class="ant-slider-handle ant-slider-handle-1"
       role="slider"
-      style="left:20%;right:auto;transform:translateX(-50%)"
+      style="left:20%;transform:translateX(-50%)"
       tabindex="0"
     />
     <div
@@ -59,11 +56,8 @@ Array [
       aria-valuenow="50"
       class="ant-slider-handle ant-slider-handle-2"
       role="slider"
-      style="left:50%;right:auto;transform:translateX(-50%)"
+      style="left:50%;transform:translateX(-50%)"
       tabindex="0"
-    />
-    <div
-      class="ant-slider-mark"
     />
   </div>,
   "Disabled: ",
@@ -85,14 +79,14 @@ Array [
 
 exports[`renders ./components/slider/demo/dragableTrack.md correctly 1`] = `
 <div
-  class="ant-slider"
+  class="ant-slider ant-slider-horizontal"
 >
   <div
     class="ant-slider-rail"
   />
   <div
     class="ant-slider-track ant-slider-track-1"
-    style="left:20%;right:auto;width:30%"
+    style="left:20%;width:30%"
   />
   <div
     class="ant-slider-step"
@@ -104,7 +98,7 @@ exports[`renders ./components/slider/demo/dragableTrack.md correctly 1`] = `
     aria-valuenow="20"
     class="ant-slider-handle ant-slider-handle-1"
     role="slider"
-    style="left:20%;right:auto;transform:translateX(-50%)"
+    style="left:20%;transform:translateX(-50%)"
     tabindex="0"
   />
   <div
@@ -114,11 +108,8 @@ exports[`renders ./components/slider/demo/dragableTrack.md correctly 1`] = `
     aria-valuenow="50"
     class="ant-slider-handle ant-slider-handle-2"
     role="slider"
-    style="left:50%;right:auto;transform:translateX(-50%)"
+    style="left:50%;transform:translateX(-50%)"
     tabindex="0"
-  />
-  <div
-    class="ant-slider-mark"
   />
 </div>
 `;
@@ -126,14 +117,14 @@ exports[`renders ./components/slider/demo/dragableTrack.md correctly 1`] = `
 exports[`renders ./components/slider/demo/event.md correctly 1`] = `
 Array [
   <div
-    class="ant-slider"
+    class="ant-slider ant-slider-horizontal"
   >
     <div
       class="ant-slider-rail"
     />
     <div
       class="ant-slider-track"
-      style="left:0%;right:auto;width:30%"
+      style="left:0%;width:30%"
     />
     <div
       class="ant-slider-step"
@@ -145,22 +136,19 @@ Array [
       aria-valuenow="30"
       class="ant-slider-handle"
       role="slider"
-      style="left:30%;right:auto;transform:translateX(-50%)"
+      style="left:30%;transform:translateX(-50%)"
       tabindex="0"
-    />
-    <div
-      class="ant-slider-mark"
     />
   </div>,
   <div
-    class="ant-slider"
+    class="ant-slider ant-slider-horizontal"
   >
     <div
       class="ant-slider-rail"
     />
     <div
       class="ant-slider-track ant-slider-track-1"
-      style="left:20%;right:auto;width:30%"
+      style="left:20%;width:30%"
     />
     <div
       class="ant-slider-step"
@@ -172,7 +160,7 @@ Array [
       aria-valuenow="20"
       class="ant-slider-handle ant-slider-handle-1"
       role="slider"
-      style="left:20%;right:auto;transform:translateX(-50%)"
+      style="left:20%;transform:translateX(-50%)"
       tabindex="0"
     />
     <div
@@ -182,11 +170,8 @@ Array [
       aria-valuenow="50"
       class="ant-slider-handle ant-slider-handle-2"
       role="slider"
-      style="left:50%;right:auto;transform:translateX(-50%)"
+      style="left:50%;transform:translateX(-50%)"
       tabindex="0"
-    />
-    <div
-      class="ant-slider-mark"
     />
   </div>,
 ]
@@ -216,14 +201,14 @@ exports[`renders ./components/slider/demo/icon-slider.md correctly 1`] = `
     </svg>
   </span>
   <div
-    class="ant-slider"
+    class="ant-slider ant-slider-horizontal"
   >
     <div
       class="ant-slider-rail"
     />
     <div
       class="ant-slider-track"
-      style="left:0%;right:auto;width:0%"
+      style="left:0%;width:0%"
     />
     <div
       class="ant-slider-step"
@@ -235,11 +220,8 @@ exports[`renders ./components/slider/demo/icon-slider.md correctly 1`] = `
       aria-valuenow="0"
       class="ant-slider-handle"
       role="slider"
-      style="left:0%;right:auto;transform:translateX(-50%)"
+      style="left:0%;transform:translateX(-50%)"
       tabindex="0"
-    />
-    <div
-      class="ant-slider-mark"
     />
   </div>
   <span
@@ -273,14 +255,14 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
       class="ant-col ant-col-12"
     >
       <div
-        class="ant-slider"
+        class="ant-slider ant-slider-horizontal"
       >
         <div
           class="ant-slider-rail"
         />
         <div
           class="ant-slider-track"
-          style="left:0%;right:auto;width:0%"
+          style="left:0%;width:0%"
         />
         <div
           class="ant-slider-step"
@@ -292,11 +274,8 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
           aria-valuenow="1"
           class="ant-slider-handle"
           role="slider"
-          style="left:0%;right:auto;transform:translateX(-50%)"
+          style="left:0%;transform:translateX(-50%)"
           tabindex="0"
-        />
-        <div
-          class="ant-slider-mark"
         />
       </div>
     </div>
@@ -389,14 +368,14 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
       class="ant-col ant-col-12"
     >
       <div
-        class="ant-slider"
+        class="ant-slider ant-slider-horizontal"
       >
         <div
           class="ant-slider-rail"
         />
         <div
           class="ant-slider-track"
-          style="left:0%;right:auto;width:0%"
+          style="left:0%;width:0%"
         />
         <div
           class="ant-slider-step"
@@ -408,11 +387,8 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
           aria-valuenow="0"
           class="ant-slider-handle"
           role="slider"
-          style="left:0%;right:auto;transform:translateX(-50%)"
+          style="left:0%;transform:translateX(-50%)"
           tabindex="0"
-        />
-        <div
-          class="ant-slider-mark"
         />
       </div>
     </div>
@@ -507,33 +483,33 @@ Array [
     included=true
   </h4>,
   <div
-    class="ant-slider ant-slider-with-marks"
+    class="ant-slider ant-slider-horizontal ant-slider-with-marks"
   >
     <div
       class="ant-slider-rail"
     />
     <div
       class="ant-slider-track"
-      style="left:0%;right:auto;width:37%"
+      style="left:0%;width:37%"
     />
     <div
       class="ant-slider-step"
     >
       <span
         class="ant-slider-dot ant-slider-dot-active"
-        style="left:0%"
+        style="left:0%;transform:translateX(-50%)"
       />
       <span
         class="ant-slider-dot ant-slider-dot-active"
-        style="left:26%"
+        style="left:26%;transform:translateX(-50%)"
       />
       <span
         class="ant-slider-dot ant-slider-dot-active"
-        style="left:37%"
+        style="left:37%;transform:translateX(-50%)"
       />
       <span
         class="ant-slider-dot"
-        style="left:100%"
+        style="left:100%;transform:translateX(-50%)"
       />
     </div>
     <div
@@ -543,7 +519,7 @@ Array [
       aria-valuenow="37"
       class="ant-slider-handle"
       role="slider"
-      style="left:37%;right:auto;transform:translateX(-50%)"
+      style="left:37%;transform:translateX(-50%)"
       tabindex="0"
     />
     <div
@@ -551,25 +527,25 @@ Array [
     >
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:0%"
+        style="left:0%;transform:translateX(-50%)"
       >
         0°C
       </span>
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:26%"
+        style="left:26%;transform:translateX(-50%)"
       >
         26°C
       </span>
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:37%"
+        style="left:37%;transform:translateX(-50%)"
       >
         37°C
       </span>
       <span
         class="ant-slider-mark-text"
-        style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:100%;color:#f50"
+        style="left:100%;transform:translateX(-50%);color:#f50"
       >
         <strong>
           100°C
@@ -578,33 +554,33 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-slider ant-slider-with-marks"
+    class="ant-slider ant-slider-horizontal ant-slider-with-marks"
   >
     <div
       class="ant-slider-rail"
     />
     <div
       class="ant-slider-track ant-slider-track-1"
-      style="left:26%;right:auto;width:11%"
+      style="left:26%;width:11%"
     />
     <div
       class="ant-slider-step"
     >
       <span
         class="ant-slider-dot"
-        style="left:0%"
+        style="left:0%;transform:translateX(-50%)"
       />
       <span
         class="ant-slider-dot ant-slider-dot-active"
-        style="left:26%"
+        style="left:26%;transform:translateX(-50%)"
       />
       <span
         class="ant-slider-dot ant-slider-dot-active"
-        style="left:37%"
+        style="left:37%;transform:translateX(-50%)"
       />
       <span
         class="ant-slider-dot"
-        style="left:100%"
+        style="left:100%;transform:translateX(-50%)"
       />
     </div>
     <div
@@ -614,7 +590,7 @@ Array [
       aria-valuenow="26"
       class="ant-slider-handle ant-slider-handle-1"
       role="slider"
-      style="left:26%;right:auto;transform:translateX(-50%)"
+      style="left:26%;transform:translateX(-50%)"
       tabindex="0"
     />
     <div
@@ -624,7 +600,7 @@ Array [
       aria-valuenow="37"
       class="ant-slider-handle ant-slider-handle-2"
       role="slider"
-      style="left:37%;right:auto;transform:translateX(-50%)"
+      style="left:37%;transform:translateX(-50%)"
       tabindex="0"
     />
     <div
@@ -632,25 +608,25 @@ Array [
     >
       <span
         class="ant-slider-mark-text"
-        style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:0%"
+        style="left:0%;transform:translateX(-50%)"
       >
         0°C
       </span>
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:26%"
+        style="left:26%;transform:translateX(-50%)"
       >
         26°C
       </span>
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:37%"
+        style="left:37%;transform:translateX(-50%)"
       >
         37°C
       </span>
       <span
         class="ant-slider-mark-text"
-        style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:100%;color:#f50"
+        style="left:100%;transform:translateX(-50%);color:#f50"
       >
         <strong>
           100°C
@@ -662,7 +638,7 @@ Array [
     included=false
   </h4>,
   <div
-    class="ant-slider ant-slider-with-marks"
+    class="ant-slider ant-slider-horizontal ant-slider-with-marks"
   >
     <div
       class="ant-slider-rail"
@@ -672,19 +648,19 @@ Array [
     >
       <span
         class="ant-slider-dot"
-        style="left:0%"
+        style="left:0%;transform:translateX(-50%)"
       />
       <span
         class="ant-slider-dot"
-        style="left:26%"
-      />
-      <span
-        class="ant-slider-dot ant-slider-dot-active"
-        style="left:37%"
+        style="left:26%;transform:translateX(-50%)"
       />
       <span
         class="ant-slider-dot"
-        style="left:100%"
+        style="left:37%;transform:translateX(-50%)"
+      />
+      <span
+        class="ant-slider-dot"
+        style="left:100%;transform:translateX(-50%)"
       />
     </div>
     <div
@@ -694,7 +670,7 @@ Array [
       aria-valuenow="37"
       class="ant-slider-handle"
       role="slider"
-      style="left:37%;right:auto;transform:translateX(-50%)"
+      style="left:37%;transform:translateX(-50%)"
       tabindex="0"
     />
     <div
@@ -702,25 +678,25 @@ Array [
     >
       <span
         class="ant-slider-mark-text"
-        style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:0%"
+        style="left:0%;transform:translateX(-50%)"
       >
         0°C
       </span>
       <span
         class="ant-slider-mark-text"
-        style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:26%"
+        style="left:26%;transform:translateX(-50%)"
       >
         26°C
       </span>
       <span
-        class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:37%"
+        class="ant-slider-mark-text"
+        style="left:37%;transform:translateX(-50%)"
       >
         37°C
       </span>
       <span
         class="ant-slider-mark-text"
-        style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:100%;color:#f50"
+        style="left:100%;transform:translateX(-50%);color:#f50"
       >
         <strong>
           100°C
@@ -732,33 +708,33 @@ Array [
     marks & step
   </h4>,
   <div
-    class="ant-slider ant-slider-with-marks"
+    class="ant-slider ant-slider-horizontal ant-slider-with-marks"
   >
     <div
       class="ant-slider-rail"
     />
     <div
       class="ant-slider-track"
-      style="left:0%;right:auto;width:37%"
+      style="left:0%;width:37%"
     />
     <div
       class="ant-slider-step"
     >
       <span
         class="ant-slider-dot ant-slider-dot-active"
-        style="left:0%"
+        style="left:0%;transform:translateX(-50%)"
       />
       <span
         class="ant-slider-dot ant-slider-dot-active"
-        style="left:26%"
+        style="left:26%;transform:translateX(-50%)"
       />
       <span
         class="ant-slider-dot ant-slider-dot-active"
-        style="left:37%"
+        style="left:37%;transform:translateX(-50%)"
       />
       <span
         class="ant-slider-dot"
-        style="left:100%"
+        style="left:100%;transform:translateX(-50%)"
       />
     </div>
     <div
@@ -768,7 +744,7 @@ Array [
       aria-valuenow="37"
       class="ant-slider-handle"
       role="slider"
-      style="left:37%;right:auto;transform:translateX(-50%)"
+      style="left:37%;transform:translateX(-50%)"
       tabindex="0"
     />
     <div
@@ -776,25 +752,25 @@ Array [
     >
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:0%"
+        style="left:0%;transform:translateX(-50%)"
       >
         0°C
       </span>
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:26%"
+        style="left:26%;transform:translateX(-50%)"
       >
         26°C
       </span>
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:37%"
+        style="left:37%;transform:translateX(-50%)"
       >
         37°C
       </span>
       <span
         class="ant-slider-mark-text"
-        style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:100%;color:#f50"
+        style="left:100%;transform:translateX(-50%);color:#f50"
       >
         <strong>
           100°C
@@ -806,33 +782,33 @@ Array [
     step=null
   </h4>,
   <div
-    class="ant-slider ant-slider-with-marks"
+    class="ant-slider ant-slider-horizontal ant-slider-with-marks"
   >
     <div
       class="ant-slider-rail"
     />
     <div
       class="ant-slider-track"
-      style="left:0%;right:auto;width:37%"
+      style="left:0%;width:37%"
     />
     <div
       class="ant-slider-step"
     >
       <span
         class="ant-slider-dot ant-slider-dot-active"
-        style="left:0%"
+        style="left:0%;transform:translateX(-50%)"
       />
       <span
         class="ant-slider-dot ant-slider-dot-active"
-        style="left:26%"
+        style="left:26%;transform:translateX(-50%)"
       />
       <span
         class="ant-slider-dot ant-slider-dot-active"
-        style="left:37%"
+        style="left:37%;transform:translateX(-50%)"
       />
       <span
         class="ant-slider-dot"
-        style="left:100%"
+        style="left:100%;transform:translateX(-50%)"
       />
     </div>
     <div
@@ -842,7 +818,7 @@ Array [
       aria-valuenow="37"
       class="ant-slider-handle"
       role="slider"
-      style="left:37%;right:auto;transform:translateX(-50%)"
+      style="left:37%;transform:translateX(-50%)"
       tabindex="0"
     />
     <div
@@ -850,25 +826,25 @@ Array [
     >
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:0%"
+        style="left:0%;transform:translateX(-50%)"
       >
         0°C
       </span>
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:26%"
+        style="left:26%;transform:translateX(-50%)"
       >
         26°C
       </span>
       <span
         class="ant-slider-mark-text ant-slider-mark-text-active"
-        style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:37%"
+        style="left:37%;transform:translateX(-50%)"
       >
         37°C
       </span>
       <span
         class="ant-slider-mark-text"
-        style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:100%;color:#f50"
+        style="left:100%;transform:translateX(-50%);color:#f50"
       >
         <strong>
           100°C
@@ -882,14 +858,14 @@ Array [
 exports[`renders ./components/slider/demo/reverse.md correctly 1`] = `
 Array [
   <div
-    class="ant-slider"
+    class="ant-slider ant-slider-horizontal"
   >
     <div
       class="ant-slider-rail"
     />
     <div
       class="ant-slider-track"
-      style="right:0%;left:auto;width:30%"
+      style="right:0%;width:30%"
     />
     <div
       class="ant-slider-step"
@@ -901,22 +877,19 @@ Array [
       aria-valuenow="30"
       class="ant-slider-handle"
       role="slider"
-      style="right:30%;left:auto;transform:translateX(+50%)"
+      style="right:30%;transform:translateX(50%)"
       tabindex="0"
-    />
-    <div
-      class="ant-slider-mark"
     />
   </div>,
   <div
-    class="ant-slider"
+    class="ant-slider ant-slider-horizontal"
   >
     <div
       class="ant-slider-rail"
     />
     <div
       class="ant-slider-track ant-slider-track-1"
-      style="right:20%;left:auto;width:30%"
+      style="right:20%;width:30%"
     />
     <div
       class="ant-slider-step"
@@ -928,7 +901,7 @@ Array [
       aria-valuenow="20"
       class="ant-slider-handle ant-slider-handle-1"
       role="slider"
-      style="right:20%;left:auto;transform:translateX(+50%)"
+      style="right:20%;transform:translateX(50%)"
       tabindex="0"
     />
     <div
@@ -938,11 +911,8 @@ Array [
       aria-valuenow="50"
       class="ant-slider-handle ant-slider-handle-2"
       role="slider"
-      style="right:50%;left:auto;transform:translateX(+50%)"
+      style="right:50%;transform:translateX(50%)"
       tabindex="0"
-    />
-    <div
-      class="ant-slider-mark"
     />
   </div>,
   "Reversed: ",
@@ -1019,14 +989,14 @@ exports[`renders ./components/slider/demo/show-tooltip.md correctly 1`] = `
 exports[`renders ./components/slider/demo/tip-formatter.md correctly 1`] = `
 Array [
   <div
-    class="ant-slider"
+    class="ant-slider ant-slider-horizontal"
   >
     <div
       class="ant-slider-rail"
     />
     <div
       class="ant-slider-track"
-      style="left:0%;right:auto;width:0%"
+      style="left:0%;width:0%"
     />
     <div
       class="ant-slider-step"
@@ -1038,22 +1008,19 @@ Array [
       aria-valuenow="0"
       class="ant-slider-handle"
       role="slider"
-      style="left:0%;right:auto;transform:translateX(-50%)"
+      style="left:0%;transform:translateX(-50%)"
       tabindex="0"
-    />
-    <div
-      class="ant-slider-mark"
     />
   </div>,
   <div
-    class="ant-slider"
+    class="ant-slider ant-slider-horizontal"
   >
     <div
       class="ant-slider-rail"
     />
     <div
       class="ant-slider-track"
-      style="left:0%;right:auto;width:0%"
+      style="left:0%;width:0%"
     />
     <div
       class="ant-slider-step"
@@ -1065,11 +1032,8 @@ Array [
       aria-valuenow="0"
       class="ant-slider-handle"
       role="slider"
-      style="left:0%;right:auto;transform:translateX(-50%)"
+      style="left:0%;transform:translateX(-50%)"
       tabindex="0"
-    />
-    <div
-      class="ant-slider-mark"
     />
   </div>,
 ]
@@ -1088,7 +1052,7 @@ Array [
       />
       <div
         class="ant-slider-track"
-        style="bottom:0%;top:auto;height:30%"
+        style="bottom:0%;height:30%"
       />
       <div
         class="ant-slider-step"
@@ -1100,11 +1064,8 @@ Array [
         aria-valuenow="30"
         class="ant-slider-handle"
         role="slider"
-        style="bottom:30%;top:auto;transform:translateY(+50%)"
+        style="bottom:30%;transform:translateY(50%)"
         tabindex="0"
-      />
-      <div
-        class="ant-slider-mark"
       />
     </div>
   </div>,
@@ -1119,7 +1080,7 @@ Array [
       />
       <div
         class="ant-slider-track ant-slider-track-1"
-        style="bottom:20%;top:auto;height:30%"
+        style="bottom:20%;height:30%"
       />
       <div
         class="ant-slider-step"
@@ -1131,7 +1092,7 @@ Array [
         aria-valuenow="20"
         class="ant-slider-handle ant-slider-handle-1"
         role="slider"
-        style="bottom:20%;top:auto;transform:translateY(+50%)"
+        style="bottom:20%;transform:translateY(50%)"
         tabindex="0"
       />
       <div
@@ -1141,11 +1102,8 @@ Array [
         aria-valuenow="50"
         class="ant-slider-handle ant-slider-handle-2"
         role="slider"
-        style="bottom:50%;top:auto;transform:translateY(+50%)"
+        style="bottom:50%;transform:translateY(50%)"
         tabindex="0"
-      />
-      <div
-        class="ant-slider-mark"
       />
     </div>
   </div>,
@@ -1153,33 +1111,33 @@ Array [
     style="display:inline-block;height:300px;margin-left:70px"
   >
     <div
-      class="ant-slider ant-slider-with-marks ant-slider-vertical"
+      class="ant-slider ant-slider-vertical ant-slider-with-marks"
     >
       <div
         class="ant-slider-rail"
       />
       <div
         class="ant-slider-track ant-slider-track-1"
-        style="bottom:26%;top:auto;height:11%"
+        style="bottom:26%;height:11%"
       />
       <div
         class="ant-slider-step"
       >
         <span
           class="ant-slider-dot"
-          style="bottom:0%"
+          style="bottom:0%;transform:translateY(50%)"
         />
         <span
           class="ant-slider-dot ant-slider-dot-active"
-          style="bottom:26%"
+          style="bottom:26%;transform:translateY(50%)"
         />
         <span
           class="ant-slider-dot ant-slider-dot-active"
-          style="bottom:37%"
+          style="bottom:37%;transform:translateY(50%)"
         />
         <span
           class="ant-slider-dot"
-          style="bottom:100%"
+          style="bottom:100%;transform:translateY(50%)"
         />
       </div>
       <div
@@ -1189,7 +1147,7 @@ Array [
         aria-valuenow="26"
         class="ant-slider-handle ant-slider-handle-1"
         role="slider"
-        style="bottom:26%;top:auto;transform:translateY(+50%)"
+        style="bottom:26%;transform:translateY(50%)"
         tabindex="0"
       />
       <div
@@ -1199,7 +1157,7 @@ Array [
         aria-valuenow="37"
         class="ant-slider-handle ant-slider-handle-2"
         role="slider"
-        style="bottom:37%;top:auto;transform:translateY(+50%)"
+        style="bottom:37%;transform:translateY(50%)"
         tabindex="0"
       />
       <div
@@ -1207,25 +1165,25 @@ Array [
       >
         <span
           class="ant-slider-mark-text"
-          style="margin-bottom:-50%;bottom:0%"
+          style="bottom:0%;transform:translateY(50%)"
         >
           0°C
         </span>
         <span
           class="ant-slider-mark-text ant-slider-mark-text-active"
-          style="margin-bottom:-50%;bottom:26%"
+          style="bottom:26%;transform:translateY(50%)"
         >
           26°C
         </span>
         <span
           class="ant-slider-mark-text ant-slider-mark-text-active"
-          style="margin-bottom:-50%;bottom:37%"
+          style="bottom:37%;transform:translateY(50%)"
         >
           37°C
         </span>
         <span
           class="ant-slider-mark-text"
-          style="margin-bottom:-50%;bottom:100%;color:#f50"
+          style="bottom:100%;transform:translateY(50%);color:#f50"
         >
           <strong>
             100°C
