@@ -1,0 +1,82 @@
+@import './mixin';
+
+@input-prefix-cls: ~'@{ant-prefix}-input';
+
+@input-wrapper-cls: @input-prefix-cls, ~'@{input-prefix-cls}-affix-wrapper';
+
+each(@input-wrapper-cls, {
+  .@{value} {
+    &-status-error {
+      .status-color(@value, @error-color, @error-color, @input-bg, @error-color-hover, @error-color-outline);
+      .status-color-common(@input-prefix-cls, @error-color, @error-color, @input-bg, @error-color-hover, @error-color-outline);
+    }
+
+    &-status-warning {
+      .status-color(@value, @warning-color, @warning-color, @input-bg, @warning-color-hover, @warning-color-outline);
+      .status-color-common(@input-prefix-cls, @warning-color, @warning-color, @input-bg, @warning-color-hover, @warning-color-outline);
+    }
+  }
+});
+
+.@{input-prefix-cls}-textarea,
+.@{input-prefix-cls}-affix-wrapper {
+  &-status-validating {
+    .@{input-prefix-cls}-feedback-icon {
+      display: inline-block;
+      color: @primary-color;
+    }
+  }
+
+  &-status-success {
+    .@{input-prefix-cls}-feedback-icon {
+      color: @success-color;
+      animation-name: diffZoomIn1 !important;
+    }
+  }
+}
+
+.@{input-prefix-cls}-textarea {
+  &-status-error {
+    .@{input-prefix-cls}-feedback-icon {
+      color: @error-color;
+    }
+  }
+
+  &-status-warning {
+    .@{input-prefix-cls}-feedback-icon {
+      color: @warning-color;
+    }
+  }
+
+  .@{input-prefix-cls}-feedback-icon {
+    position: absolute;
+    top: 0;
+    right: @input-padding-horizontal-base;
+    bottom: 0;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    margin: auto;
+  }
+
+  &-status-error,
+  &-status-warning,
+  &-status-success,
+  &-status-validating {
+    &.@{input-prefix-cls}-textarea-has-feedback {
+      .@{input-prefix-cls} {
+        padding-right: 24px;
+      }
+    }
+  }
+}
+
+.@{input-prefix-cls}-group-wrapper {
+  &-status-error {
+    .group-status-color(@input-prefix-cls, @error-color, @error-color);
+  }
+
+  &-status-warning {
+    .group-status-color(@input-prefix-cls, @warning-color, @warning-color);
+  }
+}

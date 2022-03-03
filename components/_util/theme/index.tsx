@@ -21,6 +21,7 @@ export interface DesignToken {
   fontSize: number;
   textColor: string;
   textColorDisabled: string;
+  textColorInverse: string;
 
   itemHoverBackground: string;
 
@@ -104,17 +105,23 @@ export const DesignTokenContext = React.createContext<{
 });
 
 // ================================== Hook ==================================
-export function useToken() {
+export function useToken(): [Theme<DesignToken, DerivativeToken>, DerivativeToken, string] {
   const { token: rootDesignToken, hashed } = React.useContext(DesignTokenContext);
   const theme = React.useContext(ThemeContext);
 
   const salt = `${version}-${hashed || ''}`;
 
-  const [token, hashId] = useCacheToken(theme, [defaultDesignToken, rootDesignToken], {
-    salt,
-  });
+  const [token, hashId] = useCacheToken<DerivativeToken, DesignToken>(
+    theme,
+    [defaultDesignToken, rootDesignToken],
+    {
+      salt,
+    },
+  );
   return [theme, token, hashed ? hashId : ''];
 }
+
+export type UseComponentStyleResult = [(node: React.ReactNode) => React.ReactElement, string];
 
 // ================================== Util ==================================
 export function withPrefix(

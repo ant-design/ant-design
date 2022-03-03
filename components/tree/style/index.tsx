@@ -3,7 +3,13 @@
 
 // deps-lint-skip-all
 import { CSSObject, CSSInterpolation, Keyframes } from '@ant-design/cssinjs';
-import { DerivativeToken, useStyleRegister, useToken, resetComponent } from '../../_util/theme';
+import {
+  DerivativeToken,
+  useStyleRegister,
+  useToken,
+  resetComponent,
+  UseComponentStyleResult,
+} from '../../_util/theme';
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
 
 // ============================ Keyframes =============================
@@ -80,7 +86,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
       },
 
       // =================== Virtual List ===================
-      '&-list-holder-inner': {
+      [`${treeCls}-list-holder-inner`]: {
         alignItems: 'flex-start',
       },
 
@@ -91,8 +97,6 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
           // >>> Title
           [`${treeCls}-node-content-wrapper`]: {
             flex: 'auto',
-            display: 'flex',
-            flexWrap: 'nowrap',
           },
 
           // >>> Drag
@@ -147,7 +151,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
       },
 
       // >>> Indent
-      '&-indent': {
+      [`${treeCls}-indent`]: {
         alignSelf: 'stretch',
         whiteSpace: 'nowrap',
         userSelect: 'none',
@@ -158,7 +162,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
       },
 
       // >>> Drag Handler
-      '&-draggable-icon': {
+      [`${treeCls}-draggable-icon`]: {
         width: treeTitleHeight,
         lineHeight: `${treeTitleHeight}px`,
         textAlign: 'center',
@@ -171,7 +175,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
       },
 
       // >>> Switcher
-      '&-switcher': {
+      [`${treeCls}-switcher`]: {
         ...getSwitchStyle(prefixCls, token),
         position: 'relative',
         flex: 'none',
@@ -228,14 +232,16 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
       },
 
       // >>> Checkbox
-      '&-checkbox': {
+      [`${treeCls}-checkbox`]: {
         top: 'initial',
         marginInlineEnd: treeCheckBoxMarginHorizontal,
         marginBlockStart: treeCheckBoxMarginVertical,
       },
 
       // >>> Title
-      '& &-node-content-wrapper': {
+      [`& ${treeCls}-node-content-wrapper`]: {
+        display: 'flex',
+        flexWrap: 'nowrap',
         position: 'relative',
         zIndex: 'auto',
         minHeight: treeTitleHeight,
@@ -272,12 +278,12 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
       },
 
       // https://github.com/ant-design/ant-design/issues/28217
-      '&-unselectable &-node-content-wrapper:hover': {
+      [`${treeCls}-unselectable ${treeCls}-node-content-wrapper:hover`]: {
         backgroundColor: 'transparent',
       },
 
       // ==================== Draggable =====================
-      '&-node-content-wrapper': {
+      [`${treeCls}-node-content-wrapper`]: {
         lineHeight: `${treeTitleHeight}px`,
         userSelect: 'none',
 
@@ -366,7 +372,7 @@ export const genRTLStyle = (token: TreeToken): CSSObject => {
       },
 
       // >>> Switcher
-      '&-switcher': {
+      [`${treeCls}-switcher`]: {
         '&_close': {
           [`${treeCls}-switcher-icon`]: {
             svg: {
@@ -391,6 +397,84 @@ export const genRTLStyle = (token: TreeToken): CSSObject => {
                 borderLeft: `1px solid ${token.borderColor}`,
               },
             },
+          },
+        },
+      },
+    },
+  };
+};
+
+// ============================ Directory =============================
+export const genDirectoryStyle = (token: TreeToken): CSSObject => {
+  const { treeCls, treeNodeCls, treeNodePadding } = token;
+
+  return {
+    [`${treeCls}${treeCls}-directory`]: {
+      // ================== TreeNode ==================
+      [treeNodeCls]: {
+        position: 'relative',
+
+        // Hover color
+        '&:before': {
+          position: 'absolute',
+          top: 0,
+          right: 0,
+          bottom: treeNodePadding,
+          left: 0,
+          transition: `background-color ${token.duration}`,
+          content: '""',
+          pointerEvents: 'none',
+        },
+
+        '&:hover': {
+          '&:before': {
+            background: token.itemHoverBackground,
+          },
+        },
+
+        // Elements
+        '> *': {
+          zIndex: 1,
+        },
+
+        // >>> Switcher
+        [`${treeCls}-switcher`]: {
+          transition: `color ${token.duration}`,
+        },
+
+        // >>> Title
+        [`${treeCls}-node-content-wrapper`]: {
+          borderRadius: 0,
+          userSelect: 'none',
+
+          '&:hover': {
+            background: 'transparent',
+          },
+
+          [`&.${treeCls}-node-selected`]: {
+            color: token.textColorInverse,
+            background: 'transparent',
+          },
+        },
+
+        // ============= Selected =============
+        '&-selected': {
+          [`
+            &:hover::before,
+            &::before
+          `]: {
+            background: token.primaryColor,
+          },
+
+          // >>> Switcher
+          [`${treeCls}-switcher`]: {
+            color: token.textColorInverse,
+          },
+
+          // >>> Title
+          [`${treeCls}-node-content-wrapper`]: {
+            color: token.textColorInverse,
+            background: 'transparent',
           },
         },
       },
@@ -423,16 +507,21 @@ export const genTreeStyle = (
     genBaseStyle(prefixCls, treeToken, hashId),
     // RTL
     genRTLStyle(treeToken),
+    // Directory
+    genDirectoryStyle(treeToken),
   ];
 };
 
 // ============================== Export ==============================
-export default function useStyle(prefixCls: string) {
+export default function useStyle(prefixCls: string): UseComponentStyleResult {
   const [theme, token, hashId] = useToken();
 
-  return useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-    getCheckboxStyle(`${prefixCls}-checkbox`, token, hashId),
-    genTreeStyle(prefixCls, token, hashId),
-    treeNodeFX,
-  ]);
+  return [
+    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
+      getCheckboxStyle(`${prefixCls}-checkbox`, token, hashId),
+      genTreeStyle(prefixCls, token, hashId),
+      treeNodeFX,
+    ]),
+    hashId,
+  ];
 }

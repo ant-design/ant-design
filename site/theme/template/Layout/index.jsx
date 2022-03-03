@@ -82,6 +82,7 @@ export default class Layout extends React.Component {
       direction: 'ltr',
       setIframeTheme: this.setIframeTheme,
       designToken: defaultDesignToken,
+      hashedStyle: true,
     };
   }
 
@@ -210,8 +211,16 @@ export default class Layout extends React.Component {
 
   render() {
     const { children, helmetContext = {}, ...restProps } = this.props;
-    const { appLocale, direction, isMobile, theme, setTheme, setIframeTheme, designToken } =
-      this.state;
+    const {
+      appLocale,
+      direction,
+      isMobile,
+      theme,
+      setTheme,
+      setIframeTheme,
+      designToken,
+      hashedStyle,
+    } = this.state;
     const title =
       appLocale.locale === 'zh-CN'
         ? 'Ant Design - 一套企业级 UI 设计语言和 React 组件库'
@@ -255,17 +264,23 @@ export default class Layout extends React.Component {
               direction={direction}
               theme={{
                 token: designToken,
+                hashed: hashedStyle,
               }}
             >
               <Header {...restProps} changeDirection={this.changeDirection} />
               {children}
 
               <DynamicTheme
-                defaultToken={designToken}
+                defaultToken={{
+                  ...designToken,
+                  hashed: hashedStyle,
+                }}
                 onChangeTheme={newToken => {
                   console.log('Change Theme:', newToken);
+                  const { hashed, ...restToken } = newToken;
                   this.setState({
-                    designToken: newToken,
+                    designToken: restToken,
+                    hashedStyle: hashed,
                   });
                 }}
               />

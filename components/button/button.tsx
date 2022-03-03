@@ -159,7 +159,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
   const prefixCls = getPrefixCls('btn', customizePrefixCls);
 
   // Style
-  const wrapSSR = useStyle(prefixCls, iconPrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls);
 
   const size = React.useContext(SizeContext);
   const [innerLoading, setLoading] = React.useState<Loading>(!!loading);
@@ -244,6 +244,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
 
   const classes = classNames(
     prefixCls,
+    hashId,
     {
       [`${prefixCls}-${shape}`]: shape !== 'default' && shape, // Note: Shape also has `default`
       [`${prefixCls}-${type}`]: type,

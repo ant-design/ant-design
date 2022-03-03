@@ -11,7 +11,7 @@ import { sleep } from '../../../tests/utils';
 describe('Slider', () => {
   mountTest(Slider);
   rtlTest(Slider);
-  focusTest(Slider, { refFocus: true });
+  focusTest(Slider, { testLib: true });
 
   it('should show tooltip when hovering slider handler', () => {
     const wrapper = mount(<Slider defaultValue={30} />);
@@ -51,7 +51,7 @@ describe('Slider', () => {
     const wrapper = mount(
       <Slider marks={marks} defaultValue={intentionallyWrongValue} step={null} tooltipVisible />,
     );
-    expect(wrapper.find('.ant-slider-handle').get(0).props).toHaveProperty('value', 48);
+    expect(wrapper.find('.ant-slider-handle').get(0).props).toHaveProperty('aria-valuenow', 48);
   });
 
   it('when step is not null, thumb can be slided to the multiples of step', () => {
@@ -62,7 +62,7 @@ describe('Slider', () => {
     };
 
     const wrapper = mount(<Slider marks={marks} defaultValue={49} step={1} tooltipVisible />);
-    expect(wrapper.find('.ant-slider-handle').get(0).props).toHaveProperty('value', 49);
+    expect(wrapper.find('.ant-slider-handle').get(0).props).toHaveProperty('aria-valuenow', 49);
   });
 
   it('when step is undefined, thumb can be slided to the multiples of step', () => {
@@ -75,7 +75,7 @@ describe('Slider', () => {
     const wrapper = mount(
       <Slider marks={marks} defaultValue={49} step={undefined} tooltipVisible />,
     );
-    expect(wrapper.find('.ant-slider-handle').get(0).props).toHaveProperty('value', 49);
+    expect(wrapper.find('.ant-slider-handle').get(0).props).toHaveProperty('aria-valuenow', 49);
   });
 
   it('should render in RTL direction', () => {

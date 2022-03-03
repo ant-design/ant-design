@@ -4857,24 +4857,29 @@ Array [
       class="ant-input-suffix"
     >
       <span
-        aria-label="close-circle"
-        class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+        class="ant-input-clear-icon ant-input-clear-icon-hidden"
         role="button"
         tabindex="-1"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="close-circle"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="close-circle"
+          class="anticon anticon-close-circle"
+          role="img"
         >
-          <path
-            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            data-icon="close-circle"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+            />
+          </svg>
+        </span>
       </span>
     </span>
   </span>,
@@ -5004,7 +5009,7 @@ exports[`renders ./components/input/demo/borderless-debug.md extend context corr
     class="ant-input-affix-wrapper ant-input-affix-wrapper-borderless"
   >
     <input
-      class="ant-input ant-input-borderless"
+      class="ant-input"
       placeholder="Unbordered"
       type="text"
       value=""
@@ -5013,24 +5018,29 @@ exports[`renders ./components/input/demo/borderless-debug.md extend context corr
       class="ant-input-suffix"
     >
       <span
-        aria-label="close-circle"
-        class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+        class="ant-input-clear-icon ant-input-clear-icon-hidden"
         role="button"
         tabindex="-1"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="close-circle"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="close-circle"
+          class="anticon anticon-close-circle"
+          role="img"
         >
-          <path
-            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            data-icon="close-circle"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+            />
+          </svg>
+        </span>
       </span>
     </span>
   </span>
@@ -5043,7 +5053,7 @@ exports[`renders ./components/input/demo/borderless-debug.md extend context corr
       ￥
     </span>
     <input
-      class="ant-input ant-input-borderless"
+      class="ant-input"
       type="text"
       value=""
     />
@@ -5062,7 +5072,7 @@ exports[`renders ./components/input/demo/borderless-debug.md extend context corr
       ￥
     </span>
     <input
-      class="ant-input ant-input-disabled ant-input-borderless"
+      class="ant-input ant-input-disabled"
       disabled=""
       type="text"
       value=""
@@ -5485,24 +5495,29 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
             class="ant-input-suffix"
           >
             <span
-              aria-label="close-circle"
-              class="anticon anticon-close-circle ant-input-clear-icon"
+              class="ant-input-clear-icon"
               role="button"
               tabindex="-1"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="close-circle"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
+              <span
+                aria-label="close-circle"
+                class="anticon anticon-close-circle"
+                role="img"
               >
-                <path
-                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                />
-              </svg>
+                <svg
+                  aria-hidden="true"
+                  data-icon="close-circle"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                  />
+                </svg>
+              </span>
             </span>
           </span>
         </span>
@@ -5555,24 +5570,29 @@ exports[`renders ./components/input/demo/group.md extend context correctly 1`] =
             class="ant-input-suffix"
           >
             <span
-              aria-label="close-circle"
-              class="anticon anticon-close-circle ant-input-clear-icon"
+              class="ant-input-clear-icon"
               role="button"
               tabindex="-1"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="close-circle"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
+              <span
+                aria-label="close-circle"
+                class="anticon anticon-close-circle"
+                role="img"
               >
-                <path
-                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                />
-              </svg>
+                <svg
+                  aria-hidden="true"
+                  data-icon="close-circle"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                  />
+                </svg>
+              </span>
             </span>
           </span>
         </span>
@@ -8937,24 +8957,29 @@ exports[`renders ./components/input/demo/search-input.md extend context correctl
             class="ant-input-suffix"
           >
             <span
-              aria-label="close-circle"
-              class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+              class="ant-input-clear-icon ant-input-clear-icon-hidden"
               role="button"
               tabindex="-1"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="close-circle"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
+              <span
+                aria-label="close-circle"
+                class="anticon anticon-close-circle"
+                role="img"
               >
-                <path
-                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                />
-              </svg>
+                <svg
+                  aria-hidden="true"
+                  data-icon="close-circle"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                  />
+                </svg>
+              </span>
             </span>
           </span>
         </span>
@@ -9018,24 +9043,29 @@ exports[`renders ./components/input/demo/search-input.md extend context correctl
             class="ant-input-suffix"
           >
             <span
-              aria-label="close-circle"
-              class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+              class="ant-input-clear-icon ant-input-clear-icon-hidden"
               role="button"
               tabindex="-1"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="close-circle"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
+              <span
+                aria-label="close-circle"
+                class="anticon anticon-close-circle"
+                role="img"
               >
-                <path
-                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                />
-              </svg>
+                <svg
+                  aria-hidden="true"
+                  data-icon="close-circle"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                  />
+                </svg>
+              </span>
             </span>
           </span>
         </span>
@@ -9122,7 +9152,7 @@ exports[`renders ./components/input/demo/search-input.md extend context correctl
     style="margin-bottom:8px"
   >
     <span
-      class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-search ant-input-search-large ant-input-search-with-button"
+      class="ant-input-group-wrapper ant-input-search ant-input-search-large ant-input-search-with-button ant-input-group-wrapper-lg"
     >
       <span
         class="ant-input-wrapper ant-input-group"
@@ -9131,7 +9161,7 @@ exports[`renders ./components/input/demo/search-input.md extend context correctl
           class="ant-input-affix-wrapper ant-input-affix-wrapper-lg"
         >
           <input
-            class="ant-input ant-input-lg"
+            class="ant-input"
             placeholder="input search text"
             type="text"
             value=""
@@ -9140,24 +9170,29 @@ exports[`renders ./components/input/demo/search-input.md extend context correctl
             class="ant-input-suffix"
           >
             <span
-              aria-label="close-circle"
-              class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+              class="ant-input-clear-icon ant-input-clear-icon-hidden"
               role="button"
               tabindex="-1"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="close-circle"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
+              <span
+                aria-label="close-circle"
+                class="anticon anticon-close-circle"
+                role="img"
               >
-                <path
-                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                />
-              </svg>
+                <svg
+                  aria-hidden="true"
+                  data-icon="close-circle"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                  />
+                </svg>
+              </span>
             </span>
           </span>
         </span>
@@ -9180,7 +9215,7 @@ exports[`renders ./components/input/demo/search-input.md extend context correctl
     class="ant-space-item"
   >
     <span
-      class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-search ant-input-search-large ant-input-search-with-button"
+      class="ant-input-group-wrapper ant-input-search ant-input-search-large ant-input-search-with-button ant-input-group-wrapper-lg"
     >
       <span
         class="ant-input-wrapper ant-input-group"
@@ -9189,7 +9224,7 @@ exports[`renders ./components/input/demo/search-input.md extend context correctl
           class="ant-input-affix-wrapper ant-input-affix-wrapper-lg"
         >
           <input
-            class="ant-input ant-input-lg"
+            class="ant-input"
             placeholder="input search text"
             type="text"
             value=""
@@ -9336,7 +9371,7 @@ Array [
   <br />,
   <br />,
   <span
-    class="ant-input-group-wrapper ant-input-group-wrapper-lg ant-input-search ant-input-search-large ant-input-search-with-button"
+    class="ant-input-group-wrapper ant-input-search ant-input-search-large ant-input-search-with-button ant-input-group-wrapper-lg"
   >
     <span
       class="ant-input-wrapper ant-input-group"
@@ -9450,7 +9485,7 @@ Array [
       </span>
     </span>
     <input
-      class="ant-input ant-input-lg"
+      class="ant-input"
       placeholder="large size"
       type="text"
       value=""
@@ -9520,13 +9555,124 @@ Array [
       </span>
     </span>
     <input
-      class="ant-input ant-input-sm"
+      class="ant-input"
       placeholder="small size"
       type="text"
       value=""
     />
   </span>,
 ]
+`;
+
+exports[`renders ./components/input/demo/status.md extend context correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical"
+  style="width:100%"
+>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <input
+      class="ant-input ant-input-status-error"
+      placeholder="Error"
+      type="text"
+      value=""
+    />
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <input
+      class="ant-input ant-input-status-warning"
+      placeholder="Warning"
+      type="text"
+      value=""
+    />
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <span
+      class="ant-input-affix-wrapper ant-input-affix-wrapper-status-error"
+    >
+      <span
+        class="ant-input-prefix"
+      >
+        <span
+          aria-label="clock-circle"
+          class="anticon anticon-clock-circle"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="clock-circle"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+            />
+            <path
+              d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
+            />
+          </svg>
+        </span>
+      </span>
+      <input
+        class="ant-input"
+        placeholder="Error with prefix"
+        type="text"
+        value=""
+      />
+    </span>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <span
+      class="ant-input-affix-wrapper ant-input-affix-wrapper-status-warning"
+    >
+      <span
+        class="ant-input-prefix"
+      >
+        <span
+          aria-label="clock-circle"
+          class="anticon anticon-clock-circle"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="clock-circle"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+            />
+            <path
+              d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
+            />
+          </svg>
+        </span>
+      </span>
+      <input
+        class="ant-input"
+        placeholder="Warning with prefix"
+        type="text"
+        value=""
+      />
+    </span>
+  </div>
+</div>
 `;
 
 exports[`renders ./components/input/demo/textarea.md extend context correctly 1`] = `

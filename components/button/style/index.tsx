@@ -1,7 +1,13 @@
 // deps-lint-skip-all
 import { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-import { DerivativeToken, useStyleRegister, useToken, withPrefix } from '../../_util/theme';
+import {
+  DerivativeToken,
+  UseComponentStyleResult,
+  useStyleRegister,
+  useToken,
+  withPrefix,
+} from '../../_util/theme';
 
 // ============================== Shared ==============================
 const genSharedButtonStyle = (
@@ -373,19 +379,25 @@ const genSizeLargeButtonStyle = (
 };
 
 // ============================== Export ==============================
-export default function useStyle(prefixCls: string, iconPrefixCls: string) {
+export default function useStyle(
+  prefixCls: string,
+  iconPrefixCls: string,
+): UseComponentStyleResult {
   const [theme, token, hashId] = useToken();
 
-  return useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-    // Shared
-    withPrefix(genSharedButtonStyle(prefixCls, iconPrefixCls, token), prefixCls),
+  return [
+    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
+      // Shared
+      withPrefix(genSharedButtonStyle(prefixCls, iconPrefixCls, token), prefixCls),
 
-    // Size
-    genSizeSmallButtonStyle(prefixCls, iconPrefixCls, token),
-    genSizeBaseButtonStyle(prefixCls, iconPrefixCls, token),
-    genSizeLargeButtonStyle(prefixCls, iconPrefixCls, token),
+      // Size
+      genSizeSmallButtonStyle(prefixCls, iconPrefixCls, token),
+      genSizeBaseButtonStyle(prefixCls, iconPrefixCls, token),
+      genSizeLargeButtonStyle(prefixCls, iconPrefixCls, token),
 
-    // Group (type, ghost, danger, disabled, loading)
-    genTypeButtonStyle(prefixCls, token),
-  ]);
+      // Group (type, ghost, danger, disabled, loading)
+      genTypeButtonStyle(prefixCls, token),
+    ]),
+    hashId,
+  ];
 }

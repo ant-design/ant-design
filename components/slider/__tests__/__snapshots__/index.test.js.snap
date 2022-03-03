@@ -2,7 +2,7 @@
 
 exports[`Slider rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-slider ant-slider-rtl"
+  class="ant-slider ant-slider-rtl ant-slider-horizontal"
 >
   <div
     class="ant-slider-rail"
@@ -21,25 +21,22 @@ exports[`Slider rtl render component should be rendered correctly in RTL directi
     aria-valuenow="0"
     class="ant-slider-handle"
     role="slider"
-    style="right: 0%; transform: translateX(+50%);"
+    style="right: 0%; transform: translateX(50%);"
     tabindex="0"
-  />
-  <div
-    class="ant-slider-mark"
   />
 </div>
 `;
 
 exports[`Slider should render in RTL direction 1`] = `
 <div
-  class="ant-slider ant-slider-rtl"
+  class="ant-slider ant-slider-rtl ant-slider-horizontal"
 >
   <div
     class="ant-slider-rail"
   />
   <div
     class="ant-slider-track"
-    style="right:0%;left:auto;width:30%"
+    style="right:0%;width:30%"
   />
   <div
     class="ant-slider-step"
@@ -51,7 +48,7 @@ exports[`Slider should render in RTL direction 1`] = `
     aria-valuenow="30"
     class="ant-slider-handle ant-tooltip-open"
     role="slider"
-    style="right:30%;left:auto;transform:translateX(+50%)"
+    style="right:30%;transform:translateX(50%)"
     tabindex="0"
   />
   <div>
@@ -78,9 +75,6 @@ exports[`Slider should render in RTL direction 1`] = `
       </div>
     </div>
   </div>
-  <div
-    class="ant-slider-mark"
-  />
 </div>
 `;
 
