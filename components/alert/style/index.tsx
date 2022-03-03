@@ -73,7 +73,7 @@ export const genBaseStyle = (alertCls: string, token: AlertToken): CSSObject => 
       wordWrap: 'break-word',
       borderRadius: `${borderRadius}px`,
 
-      '&-contet': {
+      '&-content': {
         flex: 1,
         minWidth: 0,
       },
@@ -193,8 +193,8 @@ export const genActionStyle = (alertCls: string, iconPrefixCls: string, token: A
         marginLeft: marginXS,
         padding: 0,
         overflow: 'hidden',
-        fontSize: fontSizeSM,
-        lineHeight: fontSizeSM,
+        fontSize: `${fontSizeSM}px`,
+        lineHeight: `${fontSizeSM}px`,
         backgroundColor: 'transparent',
         border: 'none',
         outline: 'none',
@@ -287,24 +287,24 @@ export const genAlertStyle = (
   const alertWithDescriptionPadding = `${alertWithDescriptionPaddingVertical} 15px ${alertWithDescriptionNoIconPaddingVertical} ${alertWithDescriptionIconSize}px`;
 
   const infoColors = generate(token.tmpInfoColor);
-  const alertInfoBgColor = infoColors[1];
+  const alertInfoBgColor = infoColors[0];
   const alertInfoIconColor = token.tmpInfoColor;
-  const alertInfoBorderColor = infoColors[3];
+  const alertInfoBorderColor = infoColors[2];
 
   const successColors = generate(token.tmpSuccessColor);
-  const alertSuccessBgColor = successColors[1];
+  const alertSuccessBgColor = successColors[0];
   const alertSuccessIconColor = token.tmpSuccessColor;
-  const alertSuccessBorderColor = successColors[3];
+  const alertSuccessBorderColor = successColors[2];
 
   const warningColors = generate(token.tmpWarningColor);
-  const alertWarningBgColor = warningColors[1];
+  const alertWarningBgColor = warningColors[0];
   const alertWarningIconColor = token.tmpWarningColor;
-  const alertWarningBorderColor = warningColors[3];
+  const alertWarningBorderColor = warningColors[2];
 
   const errorColors = generate(token.errorColor);
-  const alertErrorBgColor = errorColors[1];
+  const alertErrorBgColor = errorColors[0];
   const alertErrorIconColor = token.errorColor;
-  const alertErrorBorderColor = errorColors[3];
+  const alertErrorBorderColor = errorColors[2];
 
   const alertToken = {
     ...token,

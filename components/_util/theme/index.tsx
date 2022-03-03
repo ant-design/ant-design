@@ -83,9 +83,9 @@ function derivative(designToken: DesignToken): DerivativeToken {
     tmpPrimaryHoverColorWeak: primaryColors[0],
     tmpHeadingColor: new TinyColor('#000').setAlpha(0.85).toRgbString(),
     tmpEaseInOutCirc: `cubic-bezier(0.78, 0.14, 0.15, 0.86)`,
-    tmpSuccessColor: successColors[6],
+    tmpSuccessColor: successColors[5],
     tmpInfoColor: designToken.primaryColor,
-    tmpWarningColor: warningColors[6],
+    tmpWarningColor: warningColors[5],
     tmpTextColorSecondary: new TinyColor('#000').setAlpha(0.45).toRgbString(),
     tmpIconColorHover: new TinyColor('#000').setAlpha(0.75).toRgbString(),
 
