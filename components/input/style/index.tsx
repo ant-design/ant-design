@@ -1,5 +1,5 @@
 // deps-lint-skip-all
-import { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
+import { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 import {
   DerivativeToken,
@@ -139,235 +139,191 @@ export const genBasicInputStyle = (
   },
 });
 
-const genInputGroupStyle = (prefixCls: string, token: InputToken): CSSInterpolation => [
-  {
-    position: 'relative',
-    display: 'table',
+const genInputGroupStyle = (prefixCls: string, token: InputToken): CSSObject => ({
+  position: 'relative',
+  display: 'table',
+  width: '100%',
+  borderCollapse: 'separate',
+  borderSpacing: 0,
+
+  // Undo padding and float of grid classes
+  [`&[class*='col-']`]: {
+    paddingRight: '8px',
+
+    '&:last-child': {
+      paddingRight: 0,
+    },
+  },
+
+  [`&-addon, &-wrap, > .${prefixCls}`]: {
+    display: 'table-cell',
+
+    '&:not(:first-child):not(:last-child)': {
+      borderRadius: 0,
+    },
+  },
+
+  '&-addon, &-wrap': {
+    width: '1px',
+    whiteSpace: 'nowrap',
+    verticalAlign: 'middle',
+  },
+
+  '&-wrap > *': {
+    display: 'block !important',
+  },
+
+  [`.${prefixCls}`]: {
+    float: 'left',
     width: '100%',
-    borderCollapse: 'separate',
-    borderSpacing: 0,
+    marginBottom: 0,
+    textAlign: 'inherit',
 
-    // Undo padding and float of grid classes
-    [`&[class*='col-']`]: {
-      paddingRight: '8px',
-
-      '&:last-child': {
-        paddingRight: 0,
-      },
+    '&:focus': {
+      zIndex: 1, // Fix https://gw.alipayobjects.com/zos/rmsportal/DHNpoqfMXSfrSnlZvhsJ.png
+      borderRightWidth: '1px',
     },
 
-    [`&-addon, &-wrap, > .${prefixCls}`]: {
-      display: 'table-cell',
+    '&:hover': {
+      zIndex: 1,
+      borderRightWidth: '1px',
 
-      '&:not(:first-child):not(:last-child)': {
-        borderRadius: 0,
-      },
-    },
-
-    '&-addon, &-wrap': {
-      width: '1px',
-      whiteSpace: 'nowrap',
-      verticalAlign: 'middle',
-    },
-
-    '&-wrap > *': {
-      display: 'block !important',
-    },
-
-    [`.${prefixCls}`]: {
-      float: 'left',
-      width: '100%',
-      marginBottom: 0,
-      textAlign: 'inherit',
-
-      '&:focus': {
-        zIndex: 1, // Fix https://gw.alipayobjects.com/zos/rmsportal/DHNpoqfMXSfrSnlZvhsJ.png
-        borderRightWidth: '1px',
-      },
-
-      '&:hover': {
-        zIndex: 1,
-        borderRightWidth: '1px',
-
-        [`.ant-input-search-with-button &`]: {
-          // FIXME: ant
-          zIndex: 0,
-        },
-      },
-    },
-
-    '&-addon': {
-      position: 'relative',
-      padding: `0 ${token.padding - 1}px`, // FIXME: paddingSM
-      color: token.textColor,
-      fontWeight: 'normal',
-      fontSize: token.fontSize,
-      textAlign: 'center',
-      backgroundColor: token.componentBackground, // FIXME: backgorundColorLight,
-      border: `${token.borderWidth}px ${token.borderStyle} ${token.borderColor}`,
-      borderRadius: token.borderRadius,
-      transition: 'all 0.3s',
-
-      // Reset Select's style in addon
-      '.ant-select': {
+      [`.ant-input-search-with-button &`]: {
         // FIXME: ant
-        margin: `-${token.inputPaddingVertical + 1}px -${token.padding - 1}px`, // FIXME: paddingSM
-
-        '&.ant-select-single:not(.ant-select-customize-input)': {
-          '.ant-select-selector': {
-            backgroundColor: 'inherit',
-            border: `${token.borderWidth}px ${token.borderStyle} transparent`,
-            boxShadow: 'none',
-          },
-        },
-
-        '&-open, &-focused': {
-          '.ant-select-selector': {
-            color: token.primaryColor,
-          },
-        },
+        zIndex: 0,
       },
+    },
+  },
 
-      // https://github.com/ant-design/ant-design/issues/31333
-      '.ant-cascader-picker': {
-        margin: `-9px -${token.padding - 1}px`, // FIXME: paddingSM
-        backgroundColor: 'transparent',
-        '.ant-cascader-input': {
-          textAlign: 'left',
-          border: 0,
+  '&-addon': {
+    position: 'relative',
+    padding: `0 ${token.padding - 1}px`, // FIXME: paddingSM
+    color: token.textColor,
+    fontWeight: 'normal',
+    fontSize: token.fontSize,
+    textAlign: 'center',
+    backgroundColor: token.componentBackground, // FIXME: backgorundColorLight,
+    border: `${token.borderWidth}px ${token.borderStyle} ${token.borderColor}`,
+    borderRadius: token.borderRadius,
+    transition: 'all 0.3s',
+
+    // Reset Select's style in addon
+    '.ant-select': {
+      // FIXME: ant
+      margin: `-${token.inputPaddingVertical + 1}px -${token.padding - 1}px`, // FIXME: paddingSM
+
+      '&.ant-select-single:not(.ant-select-customize-input)': {
+        '.ant-select-selector': {
+          backgroundColor: 'inherit',
+          border: `${token.borderWidth}px ${token.borderStyle} transparent`,
           boxShadow: 'none',
         },
       },
+
+      '&-open, &-focused': {
+        '.ant-select-selector': {
+          color: token.primaryColor,
+        },
+      },
     },
 
-    // Reset rounded corners
-    [`> .${prefixCls}:first-child, &-addon:first-child`]: {
+    // https://github.com/ant-design/ant-design/issues/31333
+    '.ant-cascader-picker': {
+      margin: `-9px -${token.padding - 1}px`, // FIXME: paddingSM
+      backgroundColor: 'transparent',
+      '.ant-cascader-input': {
+        textAlign: 'left',
+        border: 0,
+        boxShadow: 'none',
+      },
+    },
+  },
+
+  // Reset rounded corners
+  [`> .${prefixCls}:first-child, &-addon:first-child`]: {
+    borderTopRightRadius: 0,
+    borderBottomRightRadius: 0,
+
+    // Reset Select's style in addon
+    'ant-select .ant-select-selector': {
+      // FIXME: ant
       borderTopRightRadius: 0,
       borderBottomRightRadius: 0,
-
-      // Reset Select's style in addon
-      'ant-select .ant-select-selector': {
-        // FIXME: ant
-        borderTopRightRadius: 0,
-        borderBottomRightRadius: 0,
-      },
     },
+  },
 
-    [`> .${prefixCls}-affix-wrapper`]: {
-      [`&:not(:first-child) .${prefixCls}`]: {
-        borderTopLeftRadius: 0,
-        borderBottomLeftRadius: 0,
-      },
-
-      [`&:not(:last-child) .${prefixCls}`]: {
-        borderTopRightRadius: 0,
-        borderBottomRightRadius: 0,
-      },
-    },
-
-    '&-addon:first-child': {
-      borderRight: 0,
-    },
-
-    '&-addon:last-child': {
-      borderLeft: 0,
-    },
-
-    [`> .${prefixCls}:last-child, &-addon:last-child`]: {
+  [`> .${prefixCls}-affix-wrapper`]: {
+    [`&:not(:first-child) .${prefixCls}`]: {
       borderTopLeftRadius: 0,
       borderBottomLeftRadius: 0,
+    },
 
-      // Reset Select's style in addon
-      '.ant-select .ant-select-selector': {
-        borderTopLeftRadius: 0,
-        borderBottomLeftRadius: 0,
+    [`&:not(:last-child) .${prefixCls}`]: {
+      borderTopRightRadius: 0,
+      borderBottomRightRadius: 0,
+    },
+  },
+
+  '&-addon:first-child': {
+    borderRight: 0,
+  },
+
+  '&-addon:last-child': {
+    borderLeft: 0,
+  },
+
+  [`> .${prefixCls}:last-child, &-addon:last-child`]: {
+    borderTopLeftRadius: 0,
+    borderBottomLeftRadius: 0,
+
+    // Reset Select's style in addon
+    '.ant-select .ant-select-selector': {
+      borderTopLeftRadius: 0,
+      borderBottomLeftRadius: 0,
+    },
+  },
+
+  // Sizing options
+  [`&-lg .${prefixCls}, &-lg > &-addon`]: {
+    ...genInputLargeStyle(token),
+  },
+
+  [`&-sm .${prefixCls}, &-sm > &-addon`]: {
+    ...genInputSmallStyle(token),
+  },
+
+  // Fix https://github.com/ant-design/ant-design/issues/5754
+  '&-lg .ant-select-single .ant-select-selector': {
+    height: token.heightLG,
+  },
+
+  '&-sm .ant-select-single .ant-select-selector': {
+    height: token.heightSM,
+  },
+
+  [`.${prefixCls}-affix-wrapper`]: {
+    '&:not(:last-child)': {
+      borderTopRightRadius: 0,
+      borderBottomRightRadius: 0,
+      '.ant-input-search &': {
+        borderTopLeftRadius: token.borderRadius,
+        borderBottomLeftRadius: token.borderRadius,
       },
     },
 
-    // Sizing options
-    [`&-lg .${prefixCls}, &-lg > &-addon`]: {
-      ...genInputLargeStyle(token),
+    '&:not(:first-child), .ant-input-search &:not(:first-child)': {
+      borderTopLeftRadius: 0,
+      borderBottomLeftRadius: 0,
     },
+  },
 
-    [`&-sm .${prefixCls}, &-sm > &-addon`]: {
-      ...genInputSmallStyle(token),
-    },
+  '&&-compact': {
+    display: 'block',
+    // .clearfix(),
 
-    // Fix https://github.com/ant-design/ant-design/issues/5754
-    '&-lg .ant-select-single .ant-select-selector': {
-      height: token.heightLG,
-    },
-
-    '&-sm .ant-select-single .ant-select-selector': {
-      height: token.heightSM,
-    },
-
-    [`.${prefixCls}-affix-wrapper`]: {
-      '&:not(:last-child)': {
-        borderTopRightRadius: 0,
-        borderBottomRightRadius: 0,
-        '.ant-input-search &': {
-          borderTopLeftRadius: token.borderRadius,
-          borderBottomLeftRadius: token.borderRadius,
-        },
-      },
-
-      '&:not(:first-child), .ant-input-search &:not(:first-child)': {
-        borderTopLeftRadius: 0,
-        borderBottomLeftRadius: 0,
-      },
-    },
-
-    '&&-compact': {
-      display: 'block',
-      // .clearfix(),
-
-      [`&-addon, &-wrap, > .${prefixCls}`]: {
-        '&:not(:first-child):not(:last-child)': {
-          borderRightWidth: token.borderWidth,
-
-          '&:hover': {
-            zIndex: 1,
-          },
-
-          '&:focus': {
-            zIndex: 1,
-          },
-        },
-      },
-
-      '& > *': {
-        display: 'inline-block',
-        float: 'none',
-        verticalAlign: 'top', // https://github.com/ant-design/ant-design-pro/issues/139
-        borderRadius: 0,
-      },
-
-      [`& > .${prefixCls}-affix-wrapper`]: {
-        display: 'inline-flex',
-      },
-
-      '& > .ant-picker-range': {
-        display: 'inline-flex',
-      },
-
-      '& > *:not(:last-child)': {
-        marginRight: -token.borderWidth,
+    [`&-addon, &-wrap, > .${prefixCls}`]: {
+      '&:not(:first-child):not(:last-child)': {
         borderRightWidth: token.borderWidth,
-      },
-
-      // Undo float for .ant-input-group .ant-input
-      [`.${prefixCls}`]: {
-        float: 'none',
-      },
-
-      // reset border for Select, DatePicker, AutoComplete, Cascader, Mention, TimePicker, Input
-      [`& > .ant-select > .ant-select-selector,
-      & > .ant-select-auto-complete .ant-input,
-      & > .ant-cascader-picker .ant-input,
-      & > .ant-input-group-wrapper .ant-input`]: {
-        borderRightWidth: token.borderWidth,
-        borderRadius: 0,
 
         '&:hover': {
           zIndex: 1,
@@ -377,143 +333,101 @@ const genInputGroupStyle = (prefixCls: string, token: InputToken): CSSInterpolat
           zIndex: 1,
         },
       },
+    },
 
-      '& > .ant-select-focused': {
+    '& > *': {
+      display: 'inline-block',
+      float: 'none',
+      verticalAlign: 'top', // https://github.com/ant-design/ant-design-pro/issues/139
+      borderRadius: 0,
+    },
+
+    [`& > .${prefixCls}-affix-wrapper`]: {
+      display: 'inline-flex',
+    },
+
+    '& > .ant-picker-range': {
+      display: 'inline-flex',
+    },
+
+    '& > *:not(:last-child)': {
+      marginRight: -token.borderWidth,
+      borderRightWidth: token.borderWidth,
+    },
+
+    // Undo float for .ant-input-group .ant-input
+    [`.${prefixCls}`]: {
+      float: 'none',
+    },
+
+    // reset border for Select, DatePicker, AutoComplete, Cascader, Mention, TimePicker, Input
+    [`& > .ant-select > .ant-select-selector,
+      & > .ant-select-auto-complete .ant-input,
+      & > .ant-cascader-picker .ant-input,
+      & > .ant-input-group-wrapper .ant-input`]: {
+      borderRightWidth: token.borderWidth,
+      borderRadius: 0,
+
+      '&:hover': {
         zIndex: 1,
       },
 
-      // update z-index for arrow icon
-      '& > .ant-select > .ant-select-arrow': {
-        zIndex: 1, // https://github.com/ant-design/ant-design/issues/20371
+      '&:focus': {
+        zIndex: 1,
       },
+    },
 
-      [`& > *:first-child,
+    '& > .ant-select-focused': {
+      zIndex: 1,
+    },
+
+    // update z-index for arrow icon
+    '& > .ant-select > .ant-select-arrow': {
+      zIndex: 1, // https://github.com/ant-design/ant-design/issues/20371
+    },
+
+    [`& > *:first-child,
       & > .ant-select:first-child > .ant-select-selector,
       & > .ant-select-auto-complete:first-child .ant-input,
       & > .ant-cascader-picker:first-child .ant-input`]: {
-        borderTopLeftRadius: token.borderRadius,
-        borderBottomLeftRadius: token.borderRadius,
-      },
+      borderTopLeftRadius: token.borderRadius,
+      borderBottomLeftRadius: token.borderRadius,
+    },
 
-      [`& > *:last-child,
+    [`& > *:last-child,
       & > .ant-select:last-child > .ant-select-selector,
       & > .ant-cascader-picker:last-child .ant-input,
       & > .ant-cascader-picker-focused:last-child .ant-input`]: {
-        borderRightWidth: token.borderWidth,
-        borderTopRightRadius: token.borderRadius,
-        borderBottomRightRadius: token.borderRadius,
-      },
+      borderRightWidth: token.borderWidth,
+      borderTopRightRadius: token.borderRadius,
+      borderBottomRightRadius: token.borderRadius,
+    },
 
-      // https://github.com/ant-design/ant-design/issues/12493
-      '& > .ant-select-auto-complete .ant-input': {
-        verticalAlign: 'top',
-      },
+    // https://github.com/ant-design/ant-design/issues/12493
+    '& > .ant-select-auto-complete .ant-input': {
+      verticalAlign: 'top',
+    },
 
-      '.ant-input-group-wrapper + .ant-input-group-wrapper': {
-        marginLeft: -1,
-        '.ant-input-affix-wrapper': {
+    '.ant-input-group-wrapper + .ant-input-group-wrapper': {
+      marginLeft: -1,
+      '.ant-input-affix-wrapper': {
+        borderRadius: 0,
+      },
+    },
+
+    '.ant-input-group-wrapper:not(:last-child)': {
+      '&.ant-input-search > .ant-input-group': {
+        '& > .ant-input-group-addon > .ant-input-search-button': {
           borderRadius: 0,
         },
-      },
 
-      '.ant-input-group-wrapper:not(:last-child)': {
-        '&.ant-input-search > .ant-input-group': {
-          '& > .ant-input-group-addon > .ant-input-search-button': {
-            borderRadius: 0,
-          },
-
-          '& > .ant-input': {
-            borderRadius: `${token.borderRadius}px 0 0 ${token.borderRadius}px`,
-          },
+        '& > .ant-input': {
+          borderRadius: `${token.borderRadius}px 0 0 ${token.borderRadius}px`,
         },
       },
     },
   },
-
-  // RTL
-  {
-    [`> .${prefixCls}-rtl:first-child, &-rtl &-addon:first-child`]: {
-      borderRadius: `0 ${token.borderRadius}px ${token.borderRadius}px 0`,
-    },
-
-    '&-addon:first-child': {
-      [`.${prefixCls}-group-rtl &`]: {
-        borderRight: `${token.borderWidth}px ${token.borderStyle} ${token.borderColor}`,
-        borderLeft: 0,
-      },
-    },
-
-    '&-addon:last-child': {
-      [`.${prefixCls}-group-rtl &`]: {
-        borderRight: 0,
-        borderLeft: `${token.borderWidth}px ${token.borderStyle} ${token.borderColor}`,
-      },
-    },
-
-    [`> .${prefixCls}:last-child, &-addon:last-child`]: {
-      [`.${prefixCls}-group-rtl&`]: {
-        borderRadius: `${token.borderRadius}px 0 0 ${token.borderRadius}px`,
-      },
-    },
-
-    [`.${prefixCls}-affix-wrapper`]: {
-      '&:not(:first-child)': {
-        [`.${prefixCls}-group-rtl&`]: {
-          borderRadius: `${token.borderRadius}px 0 0 ${token.borderRadius}px`,
-        },
-      },
-
-      '&:not(:last-child)': {
-        [`.${prefixCls}-group-rtl&`]: {
-          borderRadius: `0 ${token.borderRadius}px ${token.borderRadius}px 0`,
-        },
-      },
-    },
-
-    '&&-compact': {
-      '& > *:not(:last-child)': {
-        [`.${prefixCls}-group-rtl&`]: {
-          marginRight: 0,
-          marginLeft: -token.borderWidth,
-          borderLeftWidth: token.borderWidth,
-        },
-      },
-
-      [`& > *:first-child,
-& > .ant-select:first-child > .ant-select-selector,
-& > .ant-select-auto-complete:first-child .ant-input,
-& > .ant-cascader-picker:first-child .ant-input`]: {
-        [`.${prefixCls}-group-rtl&`]: {
-          borderRadius: `0 ${token.borderRadius}px ${token.borderRadius}px 0`,
-        },
-      },
-
-      [`& > *:last-child,
-& > .ant-select:last-child > .ant-select-selector,
-& > .ant-select-auto-complete:last-child .ant-input,
-& > .ant-cascader-picker:last-child .ant-input,
-& > .ant-cascader-picker-focused:last-child .ant-input`]: {
-        [`.${prefixCls}-group-rtl&`]: {
-          borderLeftWidth: token.borderWidth,
-          borderRadius: `${token.borderRadius}px 0 0 ${token.borderRadius}px`,
-        },
-      },
-
-      [`.${prefixCls}-group-wrapper-rtl + .${prefixCls}-group-wrapper-rtl`]: {
-        marginRight: '-1px',
-        marginLeft: 0,
-      },
-
-      [`.${prefixCls}-group-wrapper-rtl:not(:last-child)`]: {
-        [`&.${prefixCls}-search > .${prefixCls}-group`]: {
-          [`& > .${prefixCls}`]: {
-            borderRadius: `0 ${token.borderRadius}px ${token.borderRadius}px 0`,
-          },
-        },
-      },
-    },
-  },
-];
+});
 
 const genInputStyle = (prefixCls: string, theme: any, token: InputToken): CSSObject => ({
   ...resetComponent(token),
@@ -744,6 +658,87 @@ const genRTLStyle = (prefixCls: string, searchPrefixCls: string, token: InputTok
 
     '&-rtl': {
       direction: 'rtl',
+    },
+
+    [`> .${prefixCls}-rtl:first-child, &-rtl &-addon:first-child`]: {
+      borderRadius: `0 ${token.borderRadius}px ${token.borderRadius}px 0`,
+    },
+
+    '&-addon:first-child': {
+      [`.${prefixCls}-group-rtl &`]: {
+        borderRight: `${token.borderWidth}px ${token.borderStyle} ${token.borderColor}`,
+        borderLeft: 0,
+      },
+    },
+
+    '&-addon:last-child': {
+      [`.${prefixCls}-group-rtl &`]: {
+        borderRight: 0,
+        borderLeft: `${token.borderWidth}px ${token.borderStyle} ${token.borderColor}`,
+      },
+    },
+
+    [`> .${prefixCls}:last-child, &-addon:last-child`]: {
+      [`.${prefixCls}-group-rtl&`]: {
+        borderRadius: `${token.borderRadius}px 0 0 ${token.borderRadius}px`,
+      },
+    },
+
+    [`.${prefixCls}-affix-wrapper`]: {
+      '&:not(:first-child)': {
+        [`.${prefixCls}-group-rtl&`]: {
+          borderRadius: `${token.borderRadius}px 0 0 ${token.borderRadius}px`,
+        },
+      },
+
+      '&:not(:last-child)': {
+        [`.${prefixCls}-group-rtl&`]: {
+          borderRadius: `0 ${token.borderRadius}px ${token.borderRadius}px 0`,
+        },
+      },
+    },
+
+    '&&-compact': {
+      '& > *:not(:last-child)': {
+        [`.${prefixCls}-group-rtl&`]: {
+          marginRight: 0,
+          marginLeft: -token.borderWidth,
+          borderLeftWidth: token.borderWidth,
+        },
+      },
+
+      [`& > *:first-child,
+& > .ant-select:first-child > .ant-select-selector,
+& > .ant-select-auto-complete:first-child .ant-input,
+& > .ant-cascader-picker:first-child .ant-input`]: {
+        [`.${prefixCls}-group-rtl&`]: {
+          borderRadius: `0 ${token.borderRadius}px ${token.borderRadius}px 0`,
+        },
+      },
+
+      [`& > *:last-child,
+& > .ant-select:last-child > .ant-select-selector,
+& > .ant-select-auto-complete:last-child .ant-input,
+& > .ant-cascader-picker:last-child .ant-input,
+& > .ant-cascader-picker-focused:last-child .ant-input`]: {
+        [`.${prefixCls}-group-rtl&`]: {
+          borderLeftWidth: token.borderWidth,
+          borderRadius: `${token.borderRadius}px 0 0 ${token.borderRadius}px`,
+        },
+      },
+
+      [`.${prefixCls}-group-wrapper-rtl + .${prefixCls}-group-wrapper-rtl`]: {
+        marginRight: '-1px',
+        marginLeft: 0,
+      },
+
+      [`.${prefixCls}-group-wrapper-rtl:not(:last-child)`]: {
+        [`&.${prefixCls}-search > .${prefixCls}-group`]: {
+          [`& > .${prefixCls}`]: {
+            borderRadius: `0 ${token.borderRadius}px ${token.borderRadius}px 0`,
+          },
+        },
+      },
     },
   },
 
