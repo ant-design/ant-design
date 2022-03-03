@@ -111,9 +111,13 @@ export function useToken(): [Theme<DesignToken, DerivativeToken>, DerivativeToke
 
   const salt = `${version}-${hashed || ''}`;
 
-  const [token, hashId] = useCacheToken(theme, [defaultDesignToken, rootDesignToken], {
-    salt,
-  });
+  const [token, hashId] = useCacheToken<DerivativeToken, DesignToken>(
+    theme,
+    [defaultDesignToken, rootDesignToken],
+    {
+      salt,
+    },
+  );
   return [theme, token, hashed ? hashId : ''];
 }
 
