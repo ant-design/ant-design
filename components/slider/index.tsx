@@ -1,18 +1,11 @@
 import * as React from 'react';
-import RcSlider, { Range as RcRange, Handle as RcHandle } from 'rc-slider';
+import RcSlider, { SliderProps as RcSliderProps } from 'rc-slider';
 import classNames from 'classnames';
 import { TooltipPlacement } from '../tooltip';
 import SliderTooltip from './SliderTooltip';
 import { ConfigContext } from '../config-provider';
 
-export interface SliderMarks {
-  [key: number]:
-    | React.ReactNode
-    | {
-        style: React.CSSProperties;
-        label: React.ReactNode;
-      };
-}
+export type SliderMarks = RcSliderProps['marks'];
 
 interface HandleGeneratorInfo {
   value?: number;
@@ -93,43 +86,6 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
       return direction === 'rtl' ? 'left' : 'right';
     };
 
-    const handleWithTooltip: HandleGeneratorFn = ({
-      tooltipPrefixCls,
-      prefixCls,
-      info: { value, dragging, index, ...restProps },
-    }) => {
-      const {
-        tipFormatter,
-        tooltipVisible,
-        tooltipPlacement,
-        getTooltipPopupContainer,
-        vertical,
-      } = props;
-      const isTipFormatter = tipFormatter ? visibles[index] || dragging : false;
-      const visible = tooltipVisible || (tooltipVisible === undefined && isTipFormatter);
-      const rootPrefixCls = getPrefixCls();
-
-      return (
-        <SliderTooltip
-          prefixCls={tooltipPrefixCls}
-          title={tipFormatter ? tipFormatter(value) : ''}
-          visible={visible}
-          placement={getTooltipPlacement(tooltipPlacement, vertical)}
-          transitionName={`${rootPrefixCls}-zoom-down`}
-          key={index}
-          overlayClassName={`${prefixCls}-tooltip`}
-          getPopupContainer={getTooltipPopupContainer || getPopupContainer}
-        >
-          <RcHandle
-            {...restProps}
-            value={value}
-            onMouseEnter={() => toggleTooltipVisible(index, true)}
-            onMouseLeave={() => toggleTooltipVisible(index, false)}
-          />
-        </SliderTooltip>
-      );
-    };
-
     const {
       prefixCls: customizePrefixCls,
       tooltipPrefixCls: customizeTooltipPrefixCls,
@@ -148,45 +104,57 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
       restProps.reverse = !restProps.reverse;
     }
 
-    // extrack draggableTrack from range={{ ... }}
-    let draggableTrack: boolean | undefined;
-    if (typeof range === 'object') {
-      draggableTrack = range.draggableTrack;
-    }
+    // Range config
+    const [mergedRange, draggableTrack] = React.useMemo(() => {
+      if (!range) {
+        return [false];
+      }
 
-    if (range) {
+      return typeof range === 'object' ? [true, range.draggableTrack] : [true, false];
+    }, [range]);
+
+    const handleRender: RcSliderProps['handleRender'] = (node, info) => {
+      const { index, dragging } = info;
+
+      const rootPrefixCls = getPrefixCls();
+      const { tipFormatter, tooltipVisible, tooltipPlacement, getTooltipPopupContainer, vertical } =
+        props;
+
+      const isTipFormatter = tipFormatter ? visibles[index] || dragging : false;
+      const visible = tooltipVisible || (tooltipVisible === undefined && isTipFormatter);
+
+      const passedProps = {
+        ...node.props,
+        onMouseEnter: () => toggleTooltipVisible(index, true),
+        onMouseLeave: () => toggleTooltipVisible(index, false),
+      };
+
       return (
-        <RcRange
-          {...(restProps as SliderRangeProps)}
-          step={restProps.step!}
-          draggableTrack={draggableTrack}
-          className={cls}
-          ref={ref}
-          handle={(info: HandleGeneratorInfo) =>
-            handleWithTooltip({
-              tooltipPrefixCls,
-              prefixCls,
-              info,
-            })
-          }
-          prefixCls={prefixCls}
-        />
+        <SliderTooltip
+          prefixCls={tooltipPrefixCls}
+          title={tipFormatter ? tipFormatter(info.value) : ''}
+          visible={visible}
+          placement={getTooltipPlacement(tooltipPlacement, vertical)}
+          transitionName={`${rootPrefixCls}-zoom-down`}
+          key={index}
+          overlayClassName={`${prefixCls}-tooltip`}
+          getPopupContainer={getTooltipPopupContainer || getPopupContainer}
+        >
+          {React.cloneElement(node, passedProps)}
+        </SliderTooltip>
       );
-    }
+    };
+
     return (
       <RcSlider
-        {...(restProps as SliderSingleProps)}
+        {...(restProps as SliderRangeProps)}
         step={restProps.step!}
+        range={mergedRange}
+        draggableTrack={draggableTrack}
         className={cls}
         ref={ref}
-        handle={(info: HandleGeneratorInfo) =>
-          handleWithTooltip({
-            tooltipPrefixCls,
-            prefixCls,
-            info,
-          })
-        }
         prefixCls={prefixCls}
+        handleRender={handleRender}
       />
     );
   },

@@ -6,10 +6,13 @@ import classNames from 'classnames';
 import RcSelect, { Option, OptGroup, SelectProps as RcSelectProps, BaseSelectRef } from 'rc-select';
 import type { BaseOptionType, DefaultOptionType } from 'rc-select/lib/Select';
 import { OptionProps } from 'rc-select/lib/Option';
+import { useContext } from 'react';
 import { ConfigContext } from '../config-provider';
 import getIcons from './utils/iconUtil';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
-import { getTransitionName } from '../_util/motion';
+import { FormItemStatusContext } from '../form/context';
+import { getMergedStatus, getStatusClassNames, InputStatus } from '../_util/statusUtils';
+import { getTransitionName, getTransitionDirection, SelectCommonPlacement } from '../_util/motion';
 
 type RawValue = string | number;
 
@@ -38,9 +41,11 @@ export interface SelectProps<
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 > extends Omit<
     InternalSelectProps<ValueType, OptionType>,
-    'inputIcon' | 'mode' | 'getInputElement' | 'getRawInputElement' | 'backfill'
+    'inputIcon' | 'mode' | 'getInputElement' | 'getRawInputElement' | 'backfill' | 'placement'
   > {
+  placement?: SelectCommonPlacement;
   mode?: 'multiple' | 'tags';
+  status?: InputStatus;
 }
 
 const SECRET_COMBOBOX_MODE_DO_NOT_USE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
@@ -53,9 +58,12 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     getPopupContainer,
     dropdownClassName,
     listHeight = 256,
+    placement,
     listItemHeight = 24,
     size: customizeSize,
     notFoundContent,
+    status: customStatus,
+    showArrow,
     ...props
   }: SelectProps<OptionType>,
   ref: React.Ref<BaseSelectRef>,
@@ -88,6 +96,12 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
   }, [props.mode]);
 
   const isMultiple = mode === 'multiple' || mode === 'tags';
+  const mergedShowArrow =
+    showArrow !== undefined ? showArrow : props.loading || !(isMultiple || mode === 'combobox');
+
+  // ===================== Validation Status =====================
+  const { status: contextStatus, hasFeedback } = useContext(FormItemStatusContext);
+  const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
   // ===================== Empty =====================
   let mergedNotFound: React.ReactNode;
@@ -103,6 +117,9 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
   const { suffixIcon, itemIcon, removeIcon, clearIcon } = getIcons({
     ...props,
     multiple: isMultiple,
+    status: mergedStatus,
+    hasFeedback,
+    showArrow: mergedShowArrow,
     prefixCls,
   });
 
@@ -120,8 +137,19 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-borderless`]: !bordered,
     },
+    getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
     className,
   );
+
+  // ===================== Placement =====================
+  const getPlacement = () => {
+    if (placement !== undefined) {
+      return placement;
+    }
+    return direction === 'rtl'
+      ? ('bottomRight' as SelectCommonPlacement)
+      : ('bottomLeft' as SelectCommonPlacement);
+  };
 
   return (
     <RcSelect<any, any>
@@ -129,11 +157,16 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       virtual={virtual}
       dropdownMatchSelectWidth={dropdownMatchSelectWidth}
       {...selectProps}
-      transitionName={getTransitionName(rootPrefixCls, 'slide-up', props.transitionName)}
+      transitionName={getTransitionName(
+        rootPrefixCls,
+        getTransitionDirection(placement),
+        props.transitionName,
+      )}
       listHeight={listHeight}
       listItemHeight={listItemHeight}
       mode={mode as any}
       prefixCls={prefixCls}
+      placement={getPlacement()}
       direction={direction}
       inputIcon={suffixIcon}
       menuItemSelectedIcon={itemIcon}
@@ -143,6 +176,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       className={mergedClassName}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       dropdownClassName={rcSelectRtlDropDownClassName}
+      showArrow={hasFeedback || showArrow}
     />
   );
 };

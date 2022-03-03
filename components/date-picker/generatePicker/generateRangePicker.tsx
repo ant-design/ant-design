@@ -10,7 +10,7 @@ import enUS from '../locale/en_US';
 import { ConfigContext, ConfigConsumerProps } from '../../config-provider';
 import SizeContext from '../../config-provider/SizeContext';
 import LocaleReceiver from '../../locale-provider/LocaleReceiver';
-import { getRangePlaceholder } from '../util';
+import { getRangePlaceholder, transPlacement2DropdownAlign } from '../util';
 import { RangePickerProps, PickerLocale, getTimeProps, Components } from '.';
 import { PickerComponentClass } from './interface';
 
@@ -43,6 +43,7 @@ export default function generateRangePicker<DateType>(
         prefixCls: customizePrefixCls,
         getPopupContainer: customGetPopupContainer,
         className,
+        placement,
         size: customizeSize,
         bordered = true,
         placeholder,
@@ -73,6 +74,7 @@ export default function generateRangePicker<DateType>(
                   </span>
                 }
                 ref={this.pickerRef}
+                dropdownAlign={transPlacement2DropdownAlign(direction, placement)}
                 placeholder={getRangePlaceholder(picker, locale, placeholder)}
                 suffixIcon={picker === 'time' ? <ClockCircleOutlined /> : <CalendarOutlined />}
                 clearIcon={<CloseCircleFilled />}

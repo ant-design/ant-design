@@ -2,7 +2,7 @@ import * as React from 'react';
 import { SubMenu as RcSubMenu, useFullPath } from 'rc-menu';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-import MenuContext from './MenuContext';
+import MenuContext, { MenuTheme } from './MenuContext';
 import { isValidElement, cloneElement } from '../_util/reactNode';
 
 interface TitleEventEntity {
@@ -23,10 +23,11 @@ export interface SubMenuProps {
   popupOffset?: [number, number];
   popupClassName?: string;
   children?: React.ReactNode;
+  theme?: MenuTheme;
 }
 
 function SubMenu(props: SubMenuProps) {
-  const { popupClassName, icon, title } = props;
+  const { popupClassName, icon, title, theme } = props;
   const context = React.useContext(MenuContext);
   const { prefixCls, inlineCollapsed, antdMenuTheme } = context;
 
@@ -71,7 +72,11 @@ function SubMenu(props: SubMenuProps) {
       <RcSubMenu
         {...omit(props, ['icon'])}
         title={titleNode}
-        popupClassName={classNames(prefixCls, `${prefixCls}-${antdMenuTheme}`, popupClassName)}
+        popupClassName={classNames(
+          prefixCls,
+          `${prefixCls}-${theme || antdMenuTheme}`,
+          popupClassName,
+        )}
       />
     </MenuContext.Provider>
   );

@@ -2,7 +2,7 @@
 
 exports[`Input.Search rtl render component should be rendered correctly in RTL direction 1`] = `
 <span
-  class="ant-input-group-wrapper ant-input-group-wrapper-rtl ant-input-search ant-input-search-rtl"
+  class="ant-input-group-wrapper ant-input-search ant-input-search-rtl ant-input-group-wrapper-rtl"
 >
   <span
     class="ant-input-wrapper ant-input-group ant-input-group-rtl"

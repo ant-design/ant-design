@@ -8,7 +8,7 @@
   &-affix-wrapper {
     .input();
     // or number handler will cover form status
-    position: static;
+    position: relative;
     display: inline-flex;
     width: 90px;
     padding: 0;
@@ -49,13 +49,32 @@
       visibility: hidden;
       content: '\a0';
     }
+
+    .@{ant-prefix}-input-number-handler-wrap {
+      z-index: 2;
+    }
   }
 
-  &-prefix {
+  &-prefix,
+  &-suffix {
     display: flex;
     flex: none;
     align-items: center;
+    pointer-events: none;
+  }
+
+  &-prefix {
     margin-inline-end: @input-affix-margin;
+  }
+
+  &-suffix {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    height: 100%;
+    margin-right: @input-padding-horizontal-base;
+    margin-left: @input-affix-margin;
   }
 }
 

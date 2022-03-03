@@ -14,7 +14,7 @@ title:
 Skeleton Button, Avatar, Input and Image.
 
 ```jsx
-import { Skeleton, Space, Divider, Switch, Form, Radio } from 'antd';
+import { Skeleton, Space, Divider, Switch, Form, Radio, Button, Input } from 'antd';
 
 class Demo extends React.Component {
   state = {
@@ -48,11 +48,14 @@ class Demo extends React.Component {
         <Space>
           <Skeleton.Button active={active} size={size} shape={buttonShape} block={block} />
           <Skeleton.Avatar active={active} size={size} shape={avatarShape} />
-          <Skeleton.Input style={{ width: 200 }} active={active} size={size} />
+          <Skeleton.Input active={active} size={size} />
         </Space>
         <br />
         <br />
         <Skeleton.Button active={active} size={size} shape={buttonShape} block={block} />
+        <br />
+        <br />
+        <Skeleton.Input active={active} size={size} block={block} />
         <br />
         <br />
         <Skeleton.Image />
@@ -61,7 +64,7 @@ class Demo extends React.Component {
           <Form.Item label="Active">
             <Switch checked={active} onChange={this.handleActiveChange} />
           </Form.Item>
-          <Form.Item label="Button Block">
+          <Form.Item label="Button and Input Block">
             <Switch checked={block} onChange={this.handleBlockChange} />
           </Form.Item>
           <Form.Item label="Size">

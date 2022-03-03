@@ -1,10 +1,5 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
-import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
-import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
-import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
-
 import Col, { ColProps } from '../grid/col';
 import { ValidateStatus } from './FormItem';
 import { FormContext, FormItemPrefixContext } from './context';
@@ -15,8 +10,6 @@ interface FormItemInputMiscProps {
   children: React.ReactNode;
   errors: React.ReactNode[];
   warnings: React.ReactNode[];
-  hasFeedback?: boolean;
-  validateStatus?: ValidateStatus;
   /** @private Internal Usage, do not use in any of your production. */
   _internalItemRender?: {
     mark: string;
@@ -38,13 +31,6 @@ export interface FormItemInputProps {
   help?: React.ReactNode;
 }
 
-const iconMap: { [key: string]: any } = {
-  success: CheckCircleFilled,
-  warning: ExclamationCircleFilled,
-  error: CloseCircleFilled,
-  validating: LoadingOutlined,
-};
-
 const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = props => {
   const {
     prefixCls,
@@ -53,9 +39,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = pro
     children,
     errors,
     warnings,
-    hasFeedback,
     _internalItemRender: formItemRender,
-    validateStatus,
     extra,
     help,
   } = props;
@@ -67,15 +51,6 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = pro
 
   const className = classNames(`${baseClassName}-control`, mergedWrapperCol.className);
 
-  // Should provides additional icon if `hasFeedback`
-  const IconNode = validateStatus && iconMap[validateStatus];
-  const icon =
-    hasFeedback && IconNode ? (
-      <span className={`${baseClassName}-children-icon`}>
-        <IconNode />
-      </span>
-    ) : null;
-
   // Pass to sub FormItem should not with col info
   const subFormContext = React.useMemo(() => ({ ...formContext }), [formContext]);
   delete subFormContext.labelCol;
@@ -84,7 +59,6 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = pro
   const inputDom = (
     <div className={`${baseClassName}-control-input`}>
       <div className={`${baseClassName}-control-input-content`}>{children}</div>
-      {icon}
     </div>
   );
   const formItemContext = React.useMemo(() => ({ prefixCls, status }), [prefixCls, status]);

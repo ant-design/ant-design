@@ -23,7 +23,17 @@ We provide properties like `validateStatus` `help` `hasFeedback` to customize yo
 
 ```tsx
 import { SmileOutlined } from '@ant-design/icons';
-import { Form, Input, DatePicker, TimePicker, Select, Cascader, InputNumber, Mentions } from 'antd';
+import {
+  Form,
+  Input,
+  DatePicker,
+  TimePicker,
+  Select,
+  Cascader,
+  InputNumber,
+  Mentions,
+  TreeSelect,
+} from 'antd';
 
 const { Option } = Select;
 
@@ -87,7 +97,7 @@ ReactDOM.render(
     </Form.Item>
 
     <Form.Item label="Error" hasFeedback validateStatus="error">
-      <Select allowClear>
+      <Select placeholder="I'm Select" allowClear>
         <Option value="1">Option 1</Option>
         <Option value="2">Option 2</Option>
         <Option value="3">Option 3</Option>
@@ -97,10 +107,18 @@ ReactDOM.render(
     <Form.Item
       label="Validating"
       hasFeedback
-      validateStatus="validating"
-      help="The information is being validated..."
+      validateStatus="error"
+      help="Something breaks the rule."
     >
-      <Cascader options={[{ value: 'xx', label: 'xx' }]} allowClear />
+      <Cascader placeholder="I'm Cascader" options={[{ value: 'xx', label: 'xx' }]} allowClear />
+    </Form.Item>
+
+    <Form.Item label="Warning" hasFeedback validateStatus="warning" help="Need to be checked">
+      <TreeSelect
+        placeholder="I'm TreeSelect"
+        treeData={[{ value: 'xx', label: 'xx' }]}
+        allowClear
+      />
     </Form.Item>
 
     <Form.Item label="inline" style={{ marginBottom: 0 }}>
@@ -137,8 +155,12 @@ ReactDOM.render(
       <Input.Password allowClear placeholder="with input password and allowClear" />
     </Form.Item>
 
-    <Form.Item label="Fail" validateStatus="error">
+    <Form.Item label="Fail" validateStatus="error" hasFeedback>
       <Mentions />
+    </Form.Item>
+
+    <Form.Item label="Fail" validateStatus="error" hasFeedback help="Should have something">
+      <Input.TextArea allowClear showCount />
     </Form.Item>
   </Form>,
   mountNode,

@@ -635,7 +635,7 @@ Array [
           >
             <span
               class="ant-tooltip-arrow-content"
-              style="background:#f50"
+              style="--antd-arrow-background-color:#f50"
             />
           </div>
           <div
@@ -669,7 +669,7 @@ Array [
           >
             <span
               class="ant-tooltip-arrow-content"
-              style="background:#2db7f5"
+              style="--antd-arrow-background-color:#2db7f5"
             />
           </div>
           <div
@@ -703,7 +703,7 @@ Array [
           >
             <span
               class="ant-tooltip-arrow-content"
-              style="background:#87d068"
+              style="--antd-arrow-background-color:#87d068"
             />
           </div>
           <div
@@ -737,7 +737,7 @@ Array [
           >
             <span
               class="ant-tooltip-arrow-content"
-              style="background:#108ee9"
+              style="--antd-arrow-background-color:#108ee9"
             />
           </div>
           <div
