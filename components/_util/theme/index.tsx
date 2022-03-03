@@ -22,6 +22,8 @@ export interface DesignToken {
   textColor: string;
   textColorDisabled: string;
 
+  itemHoverBackground: string;
+
   height: number;
 
   padding: number;
@@ -40,6 +42,7 @@ export interface DerivativeToken extends Omit<DesignToken, 'duration'> {
   primaryActiveColor: string;
   errorHoverColor: string;
   errorActiveColor: string;
+  itemActiveBackground: string;
 
   linkColor: string;
   fontSizeSM: number;
@@ -51,6 +54,9 @@ export interface DerivativeToken extends Omit<DesignToken, 'duration'> {
 
   duration: string;
   durationFast: string;
+
+  // TMP
+  tmpPrimaryHoverColorWeak: string;
 }
 
 export { useStyleRegister };
@@ -63,11 +69,14 @@ function derivative(designToken: DesignToken): DerivativeToken {
   return {
     ...designToken,
 
+    tmpPrimaryHoverColorWeak: primaryColors[0],
     primaryHoverColor: primaryColors[4],
     primaryActiveColor: primaryColors[6],
 
     errorHoverColor: errorColors[4],
     errorActiveColor: errorColors[6],
+
+    itemActiveBackground: primaryColors[1],
 
     linkColor: designToken.primaryColor,
     fontSizeSM: designToken.fontSize - 2,

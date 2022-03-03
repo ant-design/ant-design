@@ -20,6 +20,8 @@ const defaultDesignToken: DesignToken = {
   textColor: new TinyColor('#000').setAlpha(0.85).toRgbString(),
   textColorDisabled: new TinyColor('#000').setAlpha(0.25).toRgbString(),
 
+  itemHoverBackground: '#f5f5f5',
+
   height: 32,
 
   padding: 16,

@@ -1,6 +1,3 @@
-// import '../../style/index.less';
-// import './index.less';
-
 // deps-lint-skip-all
 import { CSSObject, Keyframes } from '@ant-design/cssinjs';
 import { DerivativeToken, useStyleRegister, useToken, resetComponent } from '../../_util/theme';
@@ -66,6 +63,7 @@ export const genCheckboxStyle = (
       position: 'relative',
       whiteSpace: 'nowrap',
       lineHeight: 1,
+      cursor: 'pointer',
 
       // Wrapper > Checkbox > input
       '&-input': {
@@ -135,11 +133,24 @@ export const genCheckboxStyle = (
       },
     },
 
-    // ==================== Checked ====================
+    // ===================== Hover =====================
     // Wrapper
     [`${wrapperCls}:hover ${checkboxCls}:after`]: {
       visibility: 'visible',
     },
+
+    // Wrapper & Wrapper > Checkbox
+    [`
+      ${wrapperCls}:hover:not(${wrapperCls}-disabled),
+      ${checkboxCls}:hover:not(${checkboxCls}-disabled),
+      ${checkboxCls}-input:focus +
+    `]: {
+      [`${checkboxCls}-inner`]: {
+        borderColor: token.primaryColor,
+      },
+    },
+
+    // ==================== Checked ====================
 
     // Wrapper > Checkbox
     [`${checkboxCls}-checked`]: {
@@ -172,7 +183,7 @@ export const genCheckboxStyle = (
 
     // ==================== Disable ====================
     // Wrapper
-    [`${wrapperCls}:disabled`]: {
+    [`${wrapperCls}-disabled`]: {
       cursor: 'not-allowed',
     },
 
@@ -181,7 +192,6 @@ export const genCheckboxStyle = (
       // Wrapper > Checkbox > input
       [`&, ${checkboxCls}-input`]: {
         cursor: 'not-allowed',
-        pointerEvents: 'none',
       },
 
       // Wrapper > Checkbox > inner
@@ -206,11 +216,14 @@ export const genCheckboxStyle = (
 };
 
 // ============================== Export ==============================
+export function getStyle(prefixCls: string, token: DerivativeToken, hashId: string) {
+  return [genCheckboxStyle(prefixCls, token, hashId), antCheckboxEffect];
+}
+
 export default function useStyle(prefixCls: string) {
   const [theme, token, hashId] = useToken();
 
-  return useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-    genCheckboxStyle(prefixCls, token, hashId),
-    antCheckboxEffect,
-  ]);
+  return useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () =>
+    getStyle(prefixCls, token, hashId),
+  );
 }
