@@ -16,10 +16,15 @@ const defaultDesignToken: DesignToken = {
   easeInOut: `cubic-bezier(0.645, 0.045, 0.355, 1)`,
   easeOutBack: `cubic-bezier(0.12, 0.4, 0.29, 1.46)`,
 
+  outlineWidth: 2,
+  outlineBlurSize: 0,
+
   fontSize: 14,
   textColor: new TinyColor('#000').setAlpha(0.85).toRgbString(),
   textColorDisabled: new TinyColor('#000').setAlpha(0.25).toRgbString(),
+  textColorSecondary: new TinyColor('#000').setAlpha(0.45).toRgbString(),
   textColorInverse: '#fff',
+  placeholderColor: new TinyColor({ h: 0, s: 0, v: 75 }).setAlpha(0.5).toRgbString(),
 
   itemHoverBackground: '#f5f5f5',
 

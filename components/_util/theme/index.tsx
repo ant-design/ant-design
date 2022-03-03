@@ -1,11 +1,12 @@
 import React from 'react';
 import { generate } from '@ant-design/colors';
+import { TinyColor } from '@ctrl/tinycolor';
 import { CSSObject, Theme, useCacheToken, useStyleRegister } from '@ant-design/cssinjs';
 import defaultDesignToken from './default';
 import version from '../../version';
-import { resetComponent } from './util';
+import { resetComponent, resetIcon } from './util';
 
-export { resetComponent };
+export { resetComponent, resetIcon };
 
 export interface DesignToken {
   primaryColor: string;
@@ -18,10 +19,15 @@ export interface DesignToken {
   easeInOut: string;
   easeOutBack: string;
 
+  outlineWidth: number;
+  outlineBlurSize: number;
+
   fontSize: number;
   textColor: string;
   textColorDisabled: string;
+  textColorSecondary: string;
   textColorInverse: string;
+  placeholderColor: string;
 
   itemHoverBackground: string;
 
@@ -41,6 +47,7 @@ export interface DesignToken {
 export interface DerivativeToken extends Omit<DesignToken, 'duration'> {
   primaryHoverColor: string;
   primaryActiveColor: string;
+  primaryOutlineColor: string;
   errorHoverColor: string;
   errorActiveColor: string;
   itemActiveBackground: string;
@@ -50,6 +57,7 @@ export interface DerivativeToken extends Omit<DesignToken, 'duration'> {
   fontSizeLG: number;
   heightSM: number;
   heightLG: number;
+  paddingSM: number;
   paddingXS: number;
   marginXS: number;
 
@@ -64,8 +72,10 @@ export { useStyleRegister };
 
 // =============================== Derivative ===============================
 function derivative(designToken: DesignToken): DerivativeToken {
-  const primaryColors = generate(designToken.primaryColor);
-  const errorColors = generate(designToken.errorColor);
+  const { primaryColor, errorColor } = designToken;
+
+  const primaryColors = generate(primaryColor);
+  const errorColors = generate(errorColor);
 
   return {
     ...designToken,
@@ -73,17 +83,19 @@ function derivative(designToken: DesignToken): DerivativeToken {
     tmpPrimaryHoverColorWeak: primaryColors[0],
     primaryHoverColor: primaryColors[4],
     primaryActiveColor: primaryColors[6],
+    primaryOutlineColor: new TinyColor(primaryColor).setAlpha(0.2).toRgbString(),
 
     errorHoverColor: errorColors[4],
     errorActiveColor: errorColors[6],
 
     itemActiveBackground: primaryColors[1],
 
-    linkColor: designToken.primaryColor,
+    linkColor: primaryColor,
     fontSizeSM: designToken.fontSize - 2,
     fontSizeLG: designToken.fontSize + 2,
     heightSM: designToken.height * 0.75,
     heightLG: designToken.height * 1.25,
+    paddingSM: designToken.padding / 4 * 3,
     paddingXS: designToken.padding * 0.5,
     marginXS: designToken.margin * 0.5,
 

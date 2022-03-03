@@ -10,6 +10,7 @@ import { ConfigContext } from '../config-provider';
 import getIcons from './utils/iconUtil';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import { getTransitionName } from '../_util/motion';
+import useStyle from './style';
 
 type RawValue = string | number;
 
@@ -63,6 +64,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
   const {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
+    iconPrefixCls,
     renderEmpty,
     direction,
     virtual,
@@ -72,6 +74,8 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
 
   const prefixCls = getPrefixCls('select', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
+
+  const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls);
 
   const mode = React.useMemo(() => {
     const { mode: m } = props as InternalSelectProps<OptionType>;
@@ -121,9 +125,10 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       [`${prefixCls}-borderless`]: !bordered,
     },
     className,
+    hashId,
   );
 
-  return (
+  return wrapSSR(
     <RcSelect<any, any>
       ref={ref as any}
       virtual={virtual}
@@ -143,7 +148,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       className={mergedClassName}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       dropdownClassName={rcSelectRtlDropDownClassName}
-    />
+    />,
   );
 };
 
