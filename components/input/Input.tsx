@@ -2,10 +2,6 @@ import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import { forwardRef } from 'react';
-import type Group from './Group';
-import type Search from './Search';
-import type TextArea from './TextArea';
-import type Password from './Password';
 import { LiteralUnion } from '../_util/type';
 import ClearableLabeledInput from './ClearableLabeledInput';
 import {
@@ -167,14 +163,6 @@ export interface InputState {
 }
 
 class Input extends React.Component<InputProps, InputState> {
-  static Group: typeof Group;
-
-  static Search: typeof Search;
-
-  static TextArea: typeof TextArea;
-
-  static Password: typeof Password;
-
   static defaultProps = {
     type: 'text',
   };
@@ -433,12 +421,14 @@ class Input extends React.Component<InputProps, InputState> {
 
 const WrapInput = forwardRef<Input, InputProps>((props, ref) => {
   const { getPrefixCls, iconPrefixCls } = React.useContext(ConfigContext);
-  const prefixCls = getPrefixCls('btn', props.prefixCls);
+  const prefixCls = getPrefixCls('input', props.prefixCls);
 
   // Style
   const wrapSSR = useStyle(prefixCls, iconPrefixCls);
 
   return wrapSSR(<Input ref={ref} {...props} />);
 });
+
+export type InputRef = Input;
 
 export default WrapInput;
