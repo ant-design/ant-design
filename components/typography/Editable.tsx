@@ -127,7 +127,7 @@ const Editable: React.FC<EditableProps> = ({
       <TextArea
         ref={ref as any}
         maxLength={maxLength}
-        value={current.trim()}
+        value={current}
         onChange={onChange}
         onKeyDown={onKeyDown}
         onKeyUp={onKeyUp}
