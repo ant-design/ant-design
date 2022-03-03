@@ -69,7 +69,7 @@ toc: false
 - MasterGo 组件包
   - https://mastergo-local-default.oss-cn-beijing.aliyuncs.com/ant-design-mastergo.svg
   - 可在「MasterGo」在线免费使用的全套组件和模板
-  - https://mastergo.com/community/resource/31
+  - https://mastergo.com/community/?utm_source=antdesign&utm_medium=link&utm_campaign=resource&cata_name=AntDesign
 
 ## 文章
 
