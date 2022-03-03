@@ -11,7 +11,7 @@ import {
   useToken,
   resetComponent,
   UseComponentStyleResult,
- } from '../../_util/theme';
+} from '../../_util/theme';
 
 // FIXME: missing token
 type AlertToken = DerivativeToken & {
@@ -37,8 +37,8 @@ type AlertToken = DerivativeToken & {
 
   alertWithDescriptionIconSize: number,
   alertWithDescriptionPadding: string,
-  alertWithDescriptionPaddingVertical: string,
-  alertWithDescriptionNoIconPaddingVertical: string,
+  alertWithDescriptionPaddingVertical: number,
+  alertWithDescriptionNoIconPaddingVertical: number,
 }
 
 const genAlertTypeStyle = (bgColor: string, borderColor: string, iconColor: string, token: AlertToken, alertCls: string): CSSObject => ({
@@ -51,6 +51,7 @@ const genAlertTypeStyle = (bgColor: string, borderColor: string, iconColor: stri
 
 export const genBaseStyle = (alertCls: string, token: AlertToken): CSSObject => {
   const {
+    duration,
     marginXS,
     fontSize,
     fontSizeLG,
@@ -71,7 +72,7 @@ export const genBaseStyle = (alertCls: string, token: AlertToken): CSSObject => 
       alignItems: 'center',
       padding: '8px 15px',
       wordWrap: 'break-word',
-      borderRadius: `${borderRadius}px`,
+      borderRadius,
 
       '&-content': {
         flex: 1,
@@ -79,7 +80,7 @@ export const genBaseStyle = (alertCls: string, token: AlertToken): CSSObject => 
       },
 
       '&-icon': {
-        marginRight: `${marginXS}px`,
+        marginInlineEnd: marginXS,
       },
 
       '&-description': {
@@ -98,8 +99,8 @@ export const genBaseStyle = (alertCls: string, token: AlertToken): CSSObject => 
       },
 
       '&-with-description &-icon': {
-        marginRight: alertWithDescriptionPaddingVertical,
-        fontSize: `${alertWithDescriptionIconSize}px`,
+        marginInlineEnd: alertWithDescriptionPaddingVertical,
+        fontSize: alertWithDescriptionIconSize,
       },
 
       '&-with-description &-message': {
@@ -120,9 +121,9 @@ export const genBaseStyle = (alertCls: string, token: AlertToken): CSSObject => 
       '&&-motion-leave': {
         overflow: 'hidden',
         opacity: 1,
-        transition: `max-height 0.3s ${easeInOutCirc}, opacity 0.3s ${easeInOutCirc},
-        padding-top 0.3s ${easeInOutCirc}, padding-bottom 0.3s ${easeInOutCirc},
-        margin-bottom 0.3s ${easeInOutCirc}`,
+        transition: `max-height ${duration} ${easeInOutCirc}, opacity ${duration} ${easeInOutCirc},
+        padding-top ${duration} ${easeInOutCirc}, padding-bottom ${duration} ${easeInOutCirc},
+        margin-bottom ${duration} ${easeInOutCirc}`,
       },
 
       '&&-motion-leave-active': {
@@ -135,7 +136,7 @@ export const genBaseStyle = (alertCls: string, token: AlertToken): CSSObject => 
 
       '&-banner': {
         marginBottom: 0,
-        border: 0,
+        border: '0 !important',
         borderRadius: 0,
       },
     },
@@ -160,6 +161,7 @@ export const genTypeStyle = (alertCls: string, token: AlertToken): CSSObject => 
     alertErrorIconColor,
     alertErrorBorderColor,
   } = token;
+
   return {
     [alertCls]: {
       '&-success': genAlertTypeStyle(alertSuccessBgColor, alertSuccessBorderColor, alertSuccessIconColor, token, alertCls),
@@ -178,22 +180,24 @@ export const genTypeStyle = (alertCls: string, token: AlertToken): CSSObject => 
 
 export const genActionStyle = (alertCls: string, iconPrefixCls: string, token: AlertToken): CSSObject => {
   const {
+    duration,
     marginXS,
     fontSizeSM,
     alertCloseColor,
     alertCloseHoverColor,
   } = token;
+
   return {
     [alertCls]: {
       '&-action': {
-        marginLeft: marginXS,
+        marginInlineStart: marginXS,
       },
 
       '&-close-icon': {
-        marginLeft: marginXS,
+        marginInlineStart: marginXS,
         padding: 0,
         overflow: 'hidden',
-        fontSize: `${fontSizeSM}px`,
+        fontSize: fontSizeSM,
         lineHeight: `${fontSizeSM}px`,
         backgroundColor: 'transparent',
         border: 'none',
@@ -202,7 +206,7 @@ export const genActionStyle = (alertCls: string, iconPrefixCls: string, token: A
 
         [`.${iconPrefixCls}-close`]: {
           color: alertCloseColor,
-          transition: 'color 0.3s',
+          transition: `color ${duration}`,
           '&:hover': {
             color: alertCloseHoverColor,
           },
@@ -211,7 +215,7 @@ export const genActionStyle = (alertCls: string, iconPrefixCls: string, token: A
 
       '&-close-text': {
         color: alertCloseColor,
-        transition: 'color 0.3s',
+        transition: `color ${duration}`,
         '&:hover': {
           color: alertCloseHoverColor,
         },
@@ -222,7 +226,6 @@ export const genActionStyle = (alertCls: string, iconPrefixCls: string, token: A
 
 export const genRTLStyle = (alertCls: string, token: AlertToken): CSSObject => {
   const {
-    marginXS,
     alertWithDescriptionIconSize,
     alertWithDescriptionPaddingVertical,
   } = token;
@@ -233,38 +236,10 @@ export const genRTLStyle = (alertCls: string, token: AlertToken): CSSObject => {
         direction: 'rtl',
       },
 
-      '&-icon': {
-        [`${alertCls}-rtl &`]: {
-          marginRight: 'auto',
-          marginLeft: marginXS,
-        },
-      },
-
-      '&-action': {
-        [`${alertCls}-rtl &`]: {
-          marginRight: marginXS,
-          marginLeft: 'auto',
-        },
-      },
-
-      '&-close-icon': {
-        [`${alertCls}-rtl &`]: {
-          marginRight: marginXS,
-          marginLeft: 'auto',
-        },
-      },
-
       '&-with-description': {
         [`${alertCls}-rtl&`]: {
           paddingRight: alertWithDescriptionIconSize,
           paddingLeft: alertWithDescriptionPaddingVertical,
-        },
-
-        [`${alertCls}-icon`]: {
-          [`${alertCls}-rtl&`]: {
-            marginRight: 'auto',
-            marginLeft: alertWithDescriptionPaddingVertical,
-          },
         },
       },
     },
@@ -281,11 +256,13 @@ export const genAlertStyle = (
   const alertMessageColor = token.headingColor;
   const alertCloseColor = token.textColorSecondary;
   const alertCloseHoverColor = token.iconColorHover;
+  // FIXME
   const alertWithDescriptionIconSize = 24;
-  const alertWithDescriptionPaddingVertical = `${token.padding - 1}px`;
-  const alertWithDescriptionNoIconPaddingVertical = `${token.padding - 1}px`;
-  const alertWithDescriptionPadding = `${alertWithDescriptionPaddingVertical} 15px ${alertWithDescriptionNoIconPaddingVertical} ${alertWithDescriptionIconSize}px`;
+  const alertWithDescriptionPaddingVertical = token.padding - 1;
+  const alertWithDescriptionNoIconPaddingVertical = token.padding - 1;
+  const alertWithDescriptionPadding = `${alertWithDescriptionPaddingVertical}px 15px ${alertWithDescriptionNoIconPaddingVertical}px ${alertWithDescriptionIconSize}px`;
 
+  // FIXME
   const infoColors = generate(token.infoColor);
   const alertInfoBgColor = infoColors[0];
   const alertInfoIconColor = token.infoColor;
