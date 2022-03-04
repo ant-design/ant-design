@@ -74,16 +74,16 @@ export const genBaseStyle = (alertCls: string, token: AlertToken): CSSObject => 
       wordWrap: 'break-word',
       borderRadius,
 
-      '&-content': {
+      [`${alertCls}-content`]: {
         flex: 1,
         minWidth: 0,
       },
 
-      '&-icon': {
+      [`${alertCls}-icon`]: {
         marginInlineEnd: marginXS,
       },
 
-      '&-description': {
+      [`${alertCls}-description`]: {
         display: 'none',
         fontSize,
         lineHeight: `${fontSize + 8}px`,
@@ -98,7 +98,7 @@ export const genBaseStyle = (alertCls: string, token: AlertToken): CSSObject => 
         padding: `${alertWithDescriptionNoIconPaddingVertical}px 15px`,
       },
 
-      [`${alertCls}-with-description &-icon`]: {
+      [`&-with-description &-icon`]: {
         marginInlineEnd: alertWithDescriptionPaddingVertical,
         fontSize: alertWithDescriptionIconSize,
       },
