@@ -1,6 +1,7 @@
 import React from 'react';
 import { generate } from '@ant-design/colors';
 import { CSSObject, Theme, useCacheToken, useStyleRegister } from '@ant-design/cssinjs';
+import { TinyColor } from '@ctrl/tinycolor';
 import defaultDesignToken from './default';
 import version from '../../version';
 import { resetComponent, placeholder } from './util';
@@ -58,6 +59,9 @@ export interface DerivativeToken extends Omit<DesignToken, 'duration'> {
 
   // TMP
   tmpPrimaryHoverColorWeak: string;
+  tmpBackgroundLight: string;
+  tmpPaddingSM: number;
+  tmpTextColorSecondary: string;
 }
 
 export { useStyleRegister };
@@ -89,6 +93,10 @@ function derivative(designToken: DesignToken): DerivativeToken {
 
     duration: `${designToken.duration}s`,
     durationFast: `${designToken.duration / 3}s`,
+
+    tmpBackgroundLight: new TinyColor({ h: 0, s: 0, v: '98%' }).toHexString(),
+    tmpPaddingSM: 12,
+    tmpTextColorSecondary: new TinyColor('#000').setAlpha('0.45').toHex8String(),
   };
 }
 

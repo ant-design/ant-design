@@ -16,6 +16,7 @@ interface InputToken extends DerivativeToken {
   inputPaddingVertical: number;
   inputPaddingVerticalLG: number;
   inputPaddingVerticalSM: number;
+  inputPaddingHorizontal: number;
 }
 
 export const genHoverStyle = (
@@ -66,9 +67,13 @@ export const genDisabledStyle = (prefixCls: string, token: DerivativeToken): CSS
   },
 });
 
-const genInputLargeStyle = (token: InputToken): CSSObject => ({
-  padding: `${token.inputPaddingVerticalLG}px ${token.padding - 1}px`, // FIXME: padding-sm
+const genInputLargeStyle = (prefixCls: string, token: InputToken): CSSObject => ({
+  padding: `${token.inputPaddingVerticalLG}px ${token.inputPaddingHorizontal}px`,
   fontSize: token.fontSizeLG,
+
+  [`.${prefixCls}`]: {
+    fontSize: token.fontSizeLG,
+  },
 });
 
 const genInputSmallStyle = (token: InputToken): CSSObject => ({
@@ -84,7 +89,7 @@ export const genBasicInputStyle = (
   display: 'inline-block',
   width: '100%',
   minWidth: 0,
-  padding: `${token.inputPaddingVertical}px ${token.padding - 1}px`, // FIXME: padding-sm
+  padding: `${token.inputPaddingVertical}px ${token.inputPaddingHorizontal}px`,
   color: token.textColor,
   fontSize: token.fontSize,
   lineHeight: token.lineHeight,
@@ -129,7 +134,7 @@ export const genBasicInputStyle = (
 
   // Size
   '&-lg': {
-    ...genInputLargeStyle(token),
+    ...genInputLargeStyle(prefixCls, token),
   },
   '&-sm': {
     ...genInputSmallStyle(token),
@@ -156,7 +161,25 @@ const genInputGroupStyle = (prefixCls: string, token: InputToken): CSSObject => 
     },
   },
 
-  [`&-addon, &-wrap, > .${prefixCls}`]: {
+  // Sizing options
+  [`&-lg .${prefixCls}, &-lg > .${prefixCls}-group-addon`]: {
+    ...genInputLargeStyle(prefixCls, token),
+  },
+
+  [`&-sm .${prefixCls}, &-sm > .${prefixCls}-group-addon`]: {
+    ...genInputSmallStyle(token),
+  },
+
+  // Fix https://github.com/ant-design/ant-design/issues/5754
+  '&-lg .ant-select-single .ant-select-selector': {
+    height: token.heightLG,
+  },
+
+  '&-sm .ant-select-single .ant-select-selector': {
+    height: token.heightSM,
+  },
+
+  [`> .${prefixCls}`]: {
     display: 'table-cell',
 
     '&:not(:first-child):not(:last-child)': {
@@ -164,14 +187,73 @@ const genInputGroupStyle = (prefixCls: string, token: InputToken): CSSObject => 
     },
   },
 
-  '&-addon, &-wrap': {
-    width: '1px',
-    whiteSpace: 'nowrap',
-    verticalAlign: 'middle',
-  },
+  [`.${prefixCls}-group`]: {
+    [`&-addon, &-wrap`]: {
+      display: 'table-cell',
+      width: '1px',
+      whiteSpace: 'nowrap',
+      verticalAlign: 'middle',
 
-  '&-wrap > *': {
-    display: 'block !important',
+      '&:not(:first-child):not(:last-child)': {
+        borderRadius: 0,
+      },
+    },
+
+    '&-wrap > *': {
+      display: 'block !important',
+    },
+
+    '&-addon': {
+      position: 'relative',
+      padding: `0 ${token.inputPaddingHorizontal}px`,
+      color: token.textColor,
+      fontWeight: 'normal',
+      fontSize: token.fontSize,
+      textAlign: 'center',
+      backgroundColor: token.tmpBackgroundLight,
+      border: `${token.borderWidth}px ${token.borderStyle} ${token.borderColor}`,
+      borderRadius: token.borderRadius,
+      transition: 'all 0.3s',
+
+      // Reset Select's style in addon
+      '.ant-select': {
+        // FIXME: ant
+        margin: `-${token.inputPaddingVertical + 1}px -${token.inputPaddingHorizontal}px`,
+
+        '&.ant-select-single:not(.ant-select-customize-input)': {
+          '.ant-select-selector': {
+            backgroundColor: 'inherit',
+            border: `${token.borderWidth}px ${token.borderStyle} transparent`,
+            boxShadow: 'none',
+          },
+        },
+
+        '&-open, &-focused': {
+          '.ant-select-selector': {
+            color: token.primaryColor,
+          },
+        },
+      },
+
+      // https://github.com/ant-design/ant-design/issues/31333
+      '.ant-cascader-picker': {
+        margin: `-9px -${token.inputPaddingHorizontal}px`,
+        backgroundColor: 'transparent',
+        '.ant-cascader-input': {
+          textAlign: 'left',
+          border: 0,
+          boxShadow: 'none',
+        },
+      },
+    },
+
+    '&-addon:first-child': {
+      borderRight: 0,
+    },
+
+    '&-addon:last-child': {
+      borderLeft: 0,
+    },
   },
 
   [`.${prefixCls}`]: {
@@ -196,52 +278,8 @@ const genInputGroupStyle = (prefixCls: string, token: InputToken): CSSObject => 
     },
   },
 
-  '&-addon': {
-    position: 'relative',
-    padding: `0 ${token.padding - 1}px`, // FIXME: paddingSM
-    color: token.textColor,
-    fontWeight: 'normal',
-    fontSize: token.fontSize,
-    textAlign: 'center',
-    backgroundColor: token.componentBackground, // FIXME: backgorundColorLight,
-    border: `${token.borderWidth}px ${token.borderStyle} ${token.borderColor}`,
-    borderRadius: token.borderRadius,
-    transition: 'all 0.3s',
-
-    // Reset Select's style in addon
-    '.ant-select': {
-      // FIXME: ant
-      margin: `-${token.inputPaddingVertical + 1}px -${token.padding - 1}px`, // FIXME: paddingSM
-
-      '&.ant-select-single:not(.ant-select-customize-input)': {
-        '.ant-select-selector': {
-          backgroundColor: 'inherit',
-          border: `${token.borderWidth}px ${token.borderStyle} transparent`,
-          boxShadow: 'none',
-        },
-      },
-
-      '&-open, &-focused': {
-        '.ant-select-selector': {
-          color: token.primaryColor,
-        },
-      },
-    },
-
-    // https://github.com/ant-design/ant-design/issues/31333
-    '.ant-cascader-picker': {
-      margin: `-9px -${token.padding - 1}px`, // FIXME: paddingSM
-      backgroundColor: 'transparent',
-      '.ant-cascader-input': {
-        textAlign: 'left',
-        border: 0,
-        boxShadow: 'none',
-      },
-    },
-  },
-
   // Reset rounded corners
-  [`> .${prefixCls}:first-child, &-addon:first-child`]: {
+  [`> .${prefixCls}:first-child, .${prefixCls}-group-addon:first-child`]: {
     borderTopRightRadius: 0,
     borderBottomRightRadius: 0,
 
@@ -265,15 +303,7 @@ const genInputGroupStyle = (prefixCls: string, token: InputToken): CSSObject => 
     },
   },
 
-  '&-addon:first-child': {
-    borderRight: 0,
-  },
-
-  '&-addon:last-child': {
-    borderLeft: 0,
-  },
-
-  [`> .${prefixCls}:last-child, &-addon:last-child`]: {
+  [`> .${prefixCls}:last-child, .${prefixCls}-group-addon:last-child`]: {
     borderTopLeftRadius: 0,
     borderBottomLeftRadius: 0,
 
@@ -284,35 +314,17 @@ const genInputGroupStyle = (prefixCls: string, token: InputToken): CSSObject => 
     },
   },
 
-  // Sizing options
-  [`&-lg .${prefixCls}, &-lg > &-addon`]: {
-    ...genInputLargeStyle(token),
-  },
-
-  [`&-sm .${prefixCls}, &-sm > &-addon`]: {
-    ...genInputSmallStyle(token),
-  },
-
-  // Fix https://github.com/ant-design/ant-design/issues/5754
-  '&-lg .ant-select-single .ant-select-selector': {
-    height: token.heightLG,
-  },
-
-  '&-sm .ant-select-single .ant-select-selector': {
-    height: token.heightSM,
-  },
-
   [`.${prefixCls}-affix-wrapper`]: {
     '&:not(:last-child)': {
       borderTopRightRadius: 0,
       borderBottomRightRadius: 0,
-      '.ant-input-search &': {
+      [`.${prefixCls}-search &`]: {
         borderTopLeftRadius: token.borderRadius,
         borderBottomLeftRadius: token.borderRadius,
       },
     },
 
-    '&:not(:first-child), .ant-input-search &:not(:first-child)': {
+    [`&:not(:first-child), .${prefixCls}-search &:not(:first-child)`]: {
       borderTopLeftRadius: 0,
       borderBottomLeftRadius: 0,
     },
@@ -322,7 +334,7 @@ const genInputGroupStyle = (prefixCls: string, token: InputToken): CSSObject => 
     display: 'block',
     // .clearfix(),
 
-    [`&-addon, &-wrap, > .${prefixCls}`]: {
+    [`.${prefixCls}-group-addon, .${prefixCls}-group-wrap, > .${prefixCls}`]: {
       '&:not(:first-child):not(:last-child)': {
         borderRightWidth: token.borderWidth,
 
@@ -448,7 +460,7 @@ const genAllowClearStyle = (prefixCls: string, token: InputToken): CSSObject => 
     transition: 'color 0.3s',
 
     '&:hover': {
-      color: 'token.secondaryColor', // FIXME: secondaryColor
+      color: token.tmpTextColorSecondary,
     },
 
     '&:active': {
@@ -524,7 +536,7 @@ const genAffixStyle = (prefixCls: string, theme: any, token: InputToken): CSSObj
     },
 
     '&-show-count-suffix': {
-      color: 'token.secondaryColor', // FIXME: secondaryColor
+      color: token.tmpTextColorSecondary,
     },
 
     '&-show-count-has-suffix': {
@@ -594,7 +606,7 @@ const genSearchInputStyle = (
       },
 
       [`.${searchPrefixCls}-button:not(.ant-btn-primary)`]: {
-        color: 'token.secondary', // FIXME: secondaryColor
+        color: token.tmpTextColorSecondary,
 
         '&.ant-btn-loading::before': {
           top: 0,
@@ -606,7 +618,7 @@ const genSearchInputStyle = (
     },
   },
 
-  '&-button': {
+  [`.${searchPrefixCls}-button`]: {
     height: token.height,
 
     '&:hover, &:focus': {
@@ -614,11 +626,11 @@ const genSearchInputStyle = (
     },
   },
 
-  '&-large &-button': {
+  [`&-large .${searchPrefixCls}-button`]: {
     height: token.heightLG,
   },
 
-  '&-small &-button': {
+  [`&-small .${searchPrefixCls}-button`]: {
     height: token.heightSM,
   },
 });
@@ -812,6 +824,7 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
         token.borderWidth,
       0,
     ),
+    inputPaddingHorizontal: token.tmpPaddingSM - 1,
   };
 
   const affixWrapperPrefixCls = `${prefixCls}-affix-wrapper`;
