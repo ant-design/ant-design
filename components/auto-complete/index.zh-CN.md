@@ -48,6 +48,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/qtJm4yt45/AutoComplete.svg
 | onFocus | 获得焦点时的回调 | function() | - |  |
 | onSearch | 搜索补全项的时候调用 | function(value) | - |  |
 | onSelect | 被选中时调用，参数为选中项的 value 值 | function(value, option) | - |  |
+| onClear | 清除内容时回调 | function | - | 4.6.0 |
 
 ## 方法
 

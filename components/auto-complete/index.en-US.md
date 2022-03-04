@@ -46,6 +46,7 @@ The differences with Select are:
 | onFocus | Called when entering the component | function() | - |  |
 | onSearch | Called when searching items | function(value) | - |  |
 | onSelect | Called when a option is selected. param is option's value and option instance | function(value, option) | - |  |
+| onClear | Called when clear | function | - | 4.6.0 |
 
 ## Methods
 
