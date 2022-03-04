@@ -5,8 +5,31 @@ import { CSSObject, Theme, useCacheToken, useStyleRegister } from '@ant-design/c
 import defaultDesignToken from './default';
 import version from '../../version';
 import { resetComponent, resetIcon } from './util';
+import {
+  initSlideMotion,
+  slideUpIn,
+  slideUpOut,
+  slideDownIn,
+  slideDownOut,
+  slideLeftIn,
+  slideLeftOut,
+  slideRightIn,
+  slideRightOut,
+} from './util/slide';
 
-export { resetComponent, resetIcon };
+export {
+  resetComponent,
+  resetIcon,
+  initSlideMotion,
+  slideUpIn,
+  slideUpOut,
+  slideDownIn,
+  slideDownOut,
+  slideLeftIn,
+  slideLeftOut,
+  slideRightIn,
+  slideRightOut,
+};
 
 export interface DesignToken {
   primaryColor: string;
@@ -16,22 +39,28 @@ export interface DesignToken {
   borderStyle: string;
   borderRadius: number;
   borderColor: string;
+  borderColorSplit: string;
   easeInOut: string;
   easeOutBack: string;
+  easeInQuint: string;
+  easeOutQuint: string;
 
   outlineWidth: number;
   outlineBlurSize: number;
 
   fontSize: number;
+  fontFamily: string;
   textColor: string;
   textColorDisabled: string;
   textColorSecondary: string;
   textColorInverse: string;
   placeholderColor: string;
 
+  iconColorHover: string;
+
   itemHoverBackground: string;
 
-  height: number;
+  controlHeight: number;
 
   padding: number;
   margin: number;
@@ -41,6 +70,10 @@ export interface DesignToken {
   componentBackgroundDisabled: string;
 
   duration: number;
+
+  zIndexDropdown: number;
+
+  boxShadow?: string;
 }
 
 /** This is temporary token definition since final token definition is not ready yet. */
@@ -55,10 +88,14 @@ export interface DerivativeToken extends Omit<DesignToken, 'duration'> {
   linkColor: string;
   fontSizeSM: number;
   fontSizeLG: number;
-  heightSM: number;
-  heightLG: number;
+  /** @private Only Used for control inside component like Multiple Select inner selection item */
+  controlHeightXS: number;
+  controlHeightSM: number;
+  controlHeightLG: number;
+  controlPaddingHorizontal: number;
   paddingSM: number;
   paddingXS: number;
+  paddingXXS: number;
   marginXS: number;
 
   duration: string;
@@ -77,7 +114,15 @@ function derivative(designToken: DesignToken): DerivativeToken {
   const primaryColors = generate(primaryColor);
   const errorColors = generate(errorColor);
 
+  const paddingSM = (designToken.padding / 4) * 3;
+
   return {
+    // FIXME: Need design token
+    boxShadow: `
+    0 3px 6px -4px rgba(0, 0, 0, 0.12),
+    0 6px 16px 0 rgba(0, 0, 0, 0.08),
+    0 9px 28px 8px rgba(0, 0, 0, 0.05)`,
+
     ...designToken,
 
     tmpPrimaryHoverColorWeak: primaryColors[0],
@@ -88,15 +133,18 @@ function derivative(designToken: DesignToken): DerivativeToken {
     errorHoverColor: errorColors[4],
     errorActiveColor: errorColors[6],
 
-    itemActiveBackground: primaryColors[1],
+    itemActiveBackground: primaryColors[0],
 
     linkColor: primaryColor,
     fontSizeSM: designToken.fontSize - 2,
     fontSizeLG: designToken.fontSize + 2,
-    heightSM: designToken.height * 0.75,
-    heightLG: designToken.height * 1.25,
-    paddingSM: designToken.padding / 4 * 3,
+    controlHeightXS: designToken.controlHeight / 2,
+    controlHeightSM: designToken.controlHeight * 0.75,
+    controlHeightLG: designToken.controlHeight * 1.25,
+    controlPaddingHorizontal: paddingSM,
+    paddingSM,
     paddingXS: designToken.padding * 0.5,
+    paddingXXS: designToken.padding * 0.25,
     marginXS: designToken.margin * 0.5,
 
     duration: `${designToken.duration}s`,

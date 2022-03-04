@@ -5,20 +5,24 @@
 import '../../empty/style';
 
 // deps-lint-skip-all
-import { CSSObject, CSSInterpolation, Keyframes } from '@ant-design/cssinjs';
+import { CSSObject, CSSInterpolation } from '@ant-design/cssinjs';
 import {
   DerivativeToken,
   useStyleRegister,
   useToken,
   resetComponent,
   resetIcon,
-  withPrefix,
   UseComponentStyleResult,
 } from '../../_util/theme';
 import genSingleStyle from './single';
+import genMultipleStyle from './multiple';
+import genDropdownStyle from './dropdown';
 
 export type SelectToken = DerivativeToken & {
+  rootPrefixCls: string;
+  antCls: string;
   selectCls: string;
+  iconPrefixCls: string;
   inputPaddingHorizontalBase: number;
   selectHeightWithoutBorder: number;
 };
@@ -109,20 +113,25 @@ const getSearchInputWithoutBorderStyle = (token: SelectToken): CSSObject => {
 
 // ============================== Styles ==============================
 export const genSelectStyle = (
+  rootPrefixCls: string,
   prefixCls: string,
   iconPrefixCls: string,
   token: DerivativeToken,
   hashId: string,
 ): CSSInterpolation => {
+  const antCls = `.${rootPrefixCls}`;
   const selectCls = `.${prefixCls}`;
 
-  const inputPaddingHorizontalBase = token.paddingSM - 1;
+  const inputPaddingHorizontalBase = token.controlPaddingHorizontal - 1;
 
-  const selectHeightWithoutBorder = token.height - token.borderWidth * 2;
+  const selectHeightWithoutBorder = token.controlHeight - token.borderWidth * 2;
 
   const selectToken = {
     ...token,
+    rootPrefixCls,
+    antCls,
     selectCls,
+    iconPrefixCls,
     inputPaddingHorizontalBase,
     selectHeightWithoutBorder,
   };
@@ -230,16 +239,30 @@ export const genSelectStyle = (
             opacity: 1,
           },
         },
+
+        // ======================= Border-less =======================
+        [`&-borderless ${selectCls}-selector`]: {
+          backgroundColor: `transparent !important`,
+          borderColor: `transparent !important`,
+          boxShadow: `none !important`,
+        },
       },
     },
 
     // Single Select
-    genSingleStyle(prefixCls, iconPrefixCls, selectToken, hashId),
+    genSingleStyle(selectToken),
+
+    // Multiple Select
+    genMultipleStyle(selectToken),
+
+    // Dropdown
+    genDropdownStyle(selectToken, hashId),
   ];
 };
 
 // ============================== Export ==============================
 export default function useStyle(
+  rootPrefixCls: string,
   prefixCls: string,
   iconPrefixCls: string,
 ): UseComponentStyleResult {
@@ -247,7 +270,7 @@ export default function useStyle(
 
   return [
     useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      genSelectStyle(prefixCls, iconPrefixCls, token, hashId),
+      genSelectStyle(rootPrefixCls, prefixCls, iconPrefixCls, token, hashId),
     ]),
     hashId,
   ];

@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import { CSSObject } from '@ant-design/cssinjs';
-import type { DerivativeToken } from '.';
+import type { DerivativeToken } from '..';
 
 export const resetComponent = (token: DerivativeToken): CSSObject => ({
   boxSizing: 'border-box',

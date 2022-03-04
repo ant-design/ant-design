@@ -1,21 +1,7 @@
-import { CSSObject, Keyframes } from '@ant-design/cssinjs';
-import {
-  DerivativeToken,
-  useStyleRegister,
-  useToken,
-  resetComponent,
-  resetIcon,
-  withPrefix,
-  UseComponentStyleResult,
-} from '../../_util/theme';
+import { CSSObject } from '@ant-design/cssinjs';
 import type { SelectToken } from '.';
 
-export default function genSingleStyle(
-  prefixCls: string,
-  iconPrefixCls: string,
-  token: SelectToken,
-  hashId: string,
-): CSSObject {
+export default function genSingleStyle(token: SelectToken): CSSObject {
   const { selectCls, inputPaddingHorizontalBase, selectHeightWithoutBorder } = token;
 
   const selectionItemPadding = Math.ceil(token.fontSize * 1.25);
@@ -99,7 +85,7 @@ export default function genSingleStyle(
       [`&:not(${selectCls}-customize-input)`]: {
         [`${selectCls}-selector`]: {
           width: '100%',
-          height: token.height,
+          height: token.controlHeight,
           padding: `0 ${inputPaddingHorizontalBase}px`,
 
           [`${selectCls}-selection-search-input`]: {

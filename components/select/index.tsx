@@ -84,7 +84,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
   const prefixCls = getPrefixCls('select', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
 
-  const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls);
+  const [wrapSSR, hashId] = useStyle(rootPrefixCls, prefixCls, iconPrefixCls);
 
   const mode = React.useMemo(() => {
     const { mode: m } = props as InternalSelectProps<OptionType>;
@@ -130,9 +130,13 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
 
   const selectProps = omit(props as typeof props & { itemIcon: any }, ['suffixIcon', 'itemIcon']);
 
-  const rcSelectRtlDropDownClassName = classNames(dropdownClassName, {
-    [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
-  });
+  const rcSelectRtlDropDownClassName = classNames(
+    dropdownClassName,
+    {
+      [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
+    },
+    hashId,
+  );
 
   const mergedSize = customizeSize || size;
   const mergedClassName = classNames(

@@ -54,16 +54,16 @@ const genHoverActiveButtonStyle = (hoverStyle: CSSObject, activeStyle: CSSObject
 
 // ============================== Shape ===============================
 const genCircleButtonStyle = (token: DerivativeToken): CSSObject => ({
-  minWidth: token.height,
+  minWidth: token.controlHeight,
   paddingLeft: 0,
   paddingRight: 0,
   borderRadius: '50%',
 });
 
 const genRoundButtonStyle = (token: DerivativeToken): CSSObject => ({
-  borderRadius: token.height,
-  paddingLeft: token.height / 2,
-  paddingRight: token.height / 2,
+  borderRadius: token.controlHeight,
+  paddingLeft: token.controlHeight / 2,
+  paddingRight: token.controlHeight / 2,
   width: 'auto',
 });
 
@@ -296,7 +296,7 @@ const genSizeButtonStyle = (
 ): CSSInterpolation => {
   const paddingVertical = Math.max(
     0,
-    (token.height - token.fontSize * token.lineHeight) / 2 - token.borderWidth,
+    (token.controlHeight - token.fontSize * token.lineHeight) / 2 - token.borderWidth,
   );
   const paddingHorizontal = token.padding - token.borderWidth;
 
@@ -307,11 +307,11 @@ const genSizeButtonStyle = (
     withPrefix(
       {
         fontSize: token.fontSize,
-        height: token.height,
+        height: token.controlHeight,
         padding: `${paddingVertical}px ${paddingHorizontal}px`,
 
         [`&${iconOnlyCls}`]: {
-          width: token.height,
+          width: token.controlHeight,
           paddingLeft: 0,
           paddingRight: 0,
 
@@ -357,7 +357,7 @@ const genSizeSmallButtonStyle = (
 ): CSSInterpolation => {
   const largeToken: DerivativeToken = {
     ...token,
-    height: token.heightSM,
+    controlHeight: token.controlHeightSM,
     padding: token.paddingXS,
   };
 
@@ -371,7 +371,7 @@ const genSizeLargeButtonStyle = (
 ): CSSInterpolation => {
   const largeToken: DerivativeToken = {
     ...token,
-    height: token.heightLG,
+    controlHeight: token.controlHeightLG,
     fontSize: token.fontSizeLG,
   };
 

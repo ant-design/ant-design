@@ -12,23 +12,31 @@ const defaultDesignToken: DesignToken = {
   borderStyle: 'solid',
   borderRadius: 2,
   borderColor: new TinyColor({ h: 0, s: 0, v: 85 }).toHexString(),
+  borderColorSplit: new TinyColor({ h: 0, s: 0, v: 94 }).toHexString(),
 
   easeInOut: `cubic-bezier(0.645, 0.045, 0.355, 1)`,
   easeOutBack: `cubic-bezier(0.12, 0.4, 0.29, 1.46)`,
+  easeInQuint: `cubic-bezier(0.755, 0.05, 0.855, 0.06)`,
+  easeOutQuint: `cubic-bezier(0.23, 1, 0.32, 1)`,
 
   outlineWidth: 2,
   outlineBlurSize: 0,
 
   fontSize: 14,
+  fontFamily: `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+  'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+  'Noto Color Emoji'`,
   textColor: new TinyColor('#000').setAlpha(0.85).toRgbString(),
   textColorDisabled: new TinyColor('#000').setAlpha(0.25).toRgbString(),
   textColorSecondary: new TinyColor('#000').setAlpha(0.45).toRgbString(),
   textColorInverse: '#fff',
   placeholderColor: new TinyColor({ h: 0, s: 0, v: 75 }).setAlpha(0.5).toRgbString(),
 
+  iconColorHover: new TinyColor('#000').setAlpha(0.75).toRgbString(),
+
   itemHoverBackground: '#f5f5f5',
 
-  height: 32,
+  controlHeight: 32,
 
   padding: 16,
   margin: 16,
@@ -38,6 +46,8 @@ const defaultDesignToken: DesignToken = {
   componentBackgroundDisabled: new TinyColor({ h: 0, s: 0, v: 96 }).toHexString(),
 
   duration: 0.3,
+
+  zIndexDropdown: 1050,
 };
 
 export default defaultDesignToken;
