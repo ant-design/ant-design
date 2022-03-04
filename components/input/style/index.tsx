@@ -5,6 +5,7 @@ import {
   DerivativeToken,
   placeholder,
   resetComponent,
+  UseComponentStyleResult,
   useStyleRegister,
   useToken,
   withPrefix,
@@ -432,91 +433,11 @@ const genInputGroupStyle = (prefixCls: string, token: InputToken): CSSObject => 
 const genInputStyle = (prefixCls: string, theme: any, token: InputToken): CSSObject => ({
   ...resetComponent(token),
   ...genBasicInputStyle(prefixCls, theme, token),
-
-  // Style for input-group: input with label, with button or dropdown...
-  '&-group': {
-    ...resetComponent(token),
-    ...genInputGroupStyle(prefixCls, token),
-
-    '&-wrapper': {
-      display: 'inline-block',
-      width: '100%',
-      textAlign: 'start',
-      verticalAlign: 'top', // https://github.com/ant-design/ant-design/issues/6403
-    },
-  },
 });
 
-const genAffixStyle = (prefixCls: string, theme: any, token: InputToken): CSSObject => ({
-  '&-affix-wrapper': {
-    ...genBasicInputStyle(prefixCls, theme, token),
-    display: 'inline-flex',
-
-    '&:not(&-disabled):hover': {
-      ...genHoverStyle(prefixCls, token),
-      zIndex: 1,
-      [`.${prefixCls}-search-with-button &`]: {
-        zIndex: 0,
-      },
-    },
-
-    '&-focused, &:focus': {
-      zIndex: 1,
-    },
-
-    '&-disabled': {
-      [`.${prefixCls}[disabled]`]: {
-        background: 'transparent',
-      },
-    },
-
-    [`> input.${prefixCls}`]: {
-      padding: 0,
-      border: 'none',
-      outline: 'none',
-
-      '&:focus': {
-        boxShadow: 'none !important',
-      },
-    },
-
-    '&::before': {
-      width: 0,
-      visibility: 'hidden',
-      content: '\\a0',
-    },
-  },
-
-  '&-prefix, &-suffix': {
-    display: 'flex',
-    flex: 'none',
-    alignItems: 'center',
-  },
-
-  '&-show-count-suffix': {
-    color: 'token.secondaryColor', // FIXME: secondaryColor
-  },
-
-  '&-show-count-has-suffix': {
-    marginRight: '2px',
-  },
-
-  '&-prefix': {
-    marginRight: token.inputAffixMargin,
-  },
-
-  '&-suffix': {
-    marginLeft: token.inputAffixMargin,
-  },
-});
-
-const genAllowClearStyle = (
-  prefixCls: string,
-  iconPrefixCls: string,
-  token: InputToken,
-): CSSObject => ({
+const genAllowClearStyle = (prefixCls: string, token: InputToken): CSSObject => ({
   // ========================= Input =========================
-  [`.${iconPrefixCls}.${prefixCls}-clear-icon`]: {
+  [`.${prefixCls}-clear-icon`]: {
     margin: 0,
     color: token.textColorDisabled,
     fontSize: token.fontSizeSM,
@@ -554,6 +475,84 @@ const genAllowClearStyle = (
       right: '8px',
       zIndex: 1,
     },
+  },
+});
+
+const genAffixStyle = (prefixCls: string, theme: any, token: InputToken): CSSObject => ({
+  ...genBasicInputStyle(prefixCls, theme, token),
+  display: 'inline-flex',
+
+  '&:not(&-disabled):hover': {
+    ...genHoverStyle(prefixCls, token),
+    zIndex: 1,
+    [`.${prefixCls}-search-with-button &`]: {
+      zIndex: 0,
+    },
+  },
+
+  '&-focused, &:focus': {
+    zIndex: 1,
+  },
+
+  '&-disabled': {
+    [`.${prefixCls}[disabled]`]: {
+      background: 'transparent',
+    },
+  },
+
+  [`> input.${prefixCls}`]: {
+    padding: 0,
+    border: 'none',
+    outline: 'none',
+
+    '&:focus': {
+      boxShadow: 'none !important',
+    },
+  },
+
+  '&::before': {
+    width: 0,
+    visibility: 'hidden',
+    content: '\\a0',
+  },
+
+  [`.${prefixCls}`]: {
+    '&-prefix, &-suffix': {
+      display: 'flex',
+      flex: 'none',
+      alignItems: 'center',
+    },
+
+    '&-show-count-suffix': {
+      color: 'token.secondaryColor', // FIXME: secondaryColor
+    },
+
+    '&-show-count-has-suffix': {
+      marginRight: '2px',
+    },
+
+    '&-prefix': {
+      marginRight: token.inputAffixMargin,
+    },
+
+    '&-suffix': {
+      marginLeft: token.inputAffixMargin,
+    },
+  },
+
+  ...genAllowClearStyle(prefixCls, token),
+});
+
+const genGroupStyle = (prefixCls: string, token: InputToken): CSSObject => ({
+  // Style for input-group: input with label, with button or dropdown...
+  ...resetComponent(token),
+  ...genInputGroupStyle(prefixCls, token),
+
+  '&-wrapper': {
+    display: 'inline-block',
+    width: '100%',
+    textAlign: 'start',
+    verticalAlign: 'top', // https://github.com/ant-design/ant-design/issues/6403
   },
 });
 
@@ -621,29 +620,6 @@ const genSearchInputStyle = (
 
   '&-small &-button': {
     height: token.heightSM,
-  },
-});
-
-const genIE11Style = (prefixCls: string, token: DerivativeToken): CSSObject => ({
-  // Fix Input component height issue in IE11
-  '@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)': {
-    [`.${prefixCls}`]: {
-      height: token.height,
-
-      '&-lg': {
-        height: token.heightLG,
-      },
-
-      '&-sm': {
-        height: token.heightSM,
-      },
-
-      '&-affix-wrapper': {
-        [`> input.${prefixCls}`]: {
-          height: 'auto',
-        },
-      },
-    },
   },
 });
 
@@ -817,7 +793,7 @@ const genRTLStyle = (prefixCls: string, searchPrefixCls: string, token: InputTok
 });
 
 // ============================== Export ==============================
-export default function useStyle(prefixCls: string, iconPrefixCls: string) {
+export default function useStyle(prefixCls: string): UseComponentStyleResult {
   const [theme, token, hashId] = useToken();
 
   const inputToken: InputToken = {
@@ -838,14 +814,18 @@ export default function useStyle(prefixCls: string, iconPrefixCls: string) {
     ),
   };
 
+  const affixWrapperPrefixCls = `${prefixCls}-affix-wrapper`;
+  const groupPrefixCls = `${prefixCls}-group`;
   const searchPrefixCls = `${prefixCls}-search`;
 
-  return useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-    withPrefix(genInputStyle(prefixCls, theme, inputToken), prefixCls),
-    withPrefix(genAffixStyle(prefixCls, theme, inputToken), prefixCls),
-    genAllowClearStyle(prefixCls, iconPrefixCls, inputToken),
-    withPrefix(genSearchInputStyle(prefixCls, searchPrefixCls, inputToken), searchPrefixCls),
-    genRTLStyle(prefixCls, searchPrefixCls, inputToken),
-    genIE11Style(prefixCls, inputToken),
-  ]);
+  return [
+    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
+      withPrefix(genInputStyle(prefixCls, theme, inputToken), prefixCls),
+      withPrefix(genAffixStyle(prefixCls, theme, inputToken), affixWrapperPrefixCls),
+      withPrefix(genGroupStyle(prefixCls, inputToken), groupPrefixCls),
+      withPrefix(genSearchInputStyle(prefixCls, searchPrefixCls, inputToken), searchPrefixCls),
+      genRTLStyle(prefixCls, searchPrefixCls, inputToken),
+    ]),
+    hashId,
+  ];
 }

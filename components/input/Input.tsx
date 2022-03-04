@@ -134,13 +134,13 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     suffix,
     ...rest
   } = props;
-  const { getPrefixCls, direction, input, iconPrefixCls } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, input } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('input', customizePrefixCls);
   const inputRef = useRef<InputRef>(null);
 
   // Style
-  const wrapSSR = useStyle(prefixCls, iconPrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   // ===================== Status =====================
   const size = React.useContext(SizeContext);
@@ -220,6 +220,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
           [`${prefixCls}-borderless`]: !bordered,
         },
         getStatusClassNames(prefixCls, mergedStatus),
+        hashId,
       )}
       affixWrapperClassName={classNames(
         {
@@ -229,10 +230,14 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
           [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
         },
         getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus, hasFeedback),
+        hashId,
       )}
-      wrapperClassName={classNames({
-        [`${prefixCls}-group-rtl`]: direction === 'rtl',
-      })}
+      wrapperClassName={classNames(
+        {
+          [`${prefixCls}-group-rtl`]: direction === 'rtl',
+        },
+        hashId,
+      )}
       groupClassName={classNames(
         {
           [`${prefixCls}-group-wrapper-sm`]: mergedSize === 'small',
@@ -240,6 +245,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
           [`${prefixCls}-group-wrapper-rtl`]: direction === 'rtl',
         },
         getStatusClassNames(`${prefixCls}-group-wrapper`, mergedStatus, hasFeedback),
+        hashId,
       )}
     />,
   );
