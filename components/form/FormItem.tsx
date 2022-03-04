@@ -190,7 +190,8 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
     const errorList: string[] = [...meta.errors];
     const warningList: string[] = [...meta.warnings];
 
-    Object.values(subFieldErrors).forEach(subFieldError => {
+    Object.keys(subFieldErrors).forEach(errorName => {
+      const subFieldError = subFieldErrors[errorName];
       errorList.push(...(subFieldError.errors || []));
       warningList.push(...(subFieldError.warnings || []));
     });
