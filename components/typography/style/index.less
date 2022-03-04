@@ -43,38 +43,54 @@
   }
 
   h1&,
+  div&-h1,
+  div&-h1 > textarea,
   h1 {
     .typography-title-1();
   }
 
   h2&,
+  div&-h2,
+  div&-h2 > textarea,
   h2 {
     .typography-title-2();
   }
 
   h3&,
+  div&-h3,
+  div&-h3 > textarea,
   h3 {
     .typography-title-3();
   }
 
   h4&,
+  div&-h4,
+  div&-h4 > textarea,
   h4 {
     .typography-title-4();
   }
 
   h5&,
+  div&-h5,
+  div&-h5 > textarea,
   h5 {
     .typography-title-5();
   }
 
-  h1&,
-  h2&,
-  h3&,
-  h4&,
-  h5& {
-    .@{typography-prefix-cls} + & {
-      margin-top: @typography-title-margin-top;
+  div&-h1,
+  div&-h2,
+  div&-h3,
+  div&-h4,
+  div&-h5 {
+   & > textarea {
+      margin-bottom: 0;
+      padding-top: 0;
+      padding-bottom: 0;
     }
+  }
+
+  div&-h5 > textarea {
+      padding-top: 3px;
   }
 
   div,
@@ -198,6 +214,10 @@
       right: 10px;
       bottom: 8px;
       color: @text-color-secondary;
+      // default style
+      font-weight: normal;
+      font-size: @font-size-base;
+      font-style: normal;
       pointer-events: none;
     }
 
@@ -205,6 +225,26 @@
     textarea {
       /* stylelint-disable-next-line property-no-vendor-prefix */
       -moz-transition: none;
+    }
+
+    .@{typography-prefix-cls}& {
+      &.@{typography-prefix-cls}-h1,
+      &.@{typography-prefix-cls}-h2,
+      &.@{typography-prefix-cls}-h3 {
+        margin-top: -1px;
+        margin-bottom: calc(@typography-title-margin-bottom - 1px);
+      }
+
+      &.@{typography-prefix-cls}-h4 {
+        margin-top: -2px;
+        margin-bottom: calc(@typography-title-margin-bottom - 2px);
+      }
+
+      &.@{typography-prefix-cls}-h5 {
+        margin-top: -4px;
+        margin-bottom: calc(@typography-title-margin-bottom - 4px);
+        line-height: 1;
+      }
     }
   }
 

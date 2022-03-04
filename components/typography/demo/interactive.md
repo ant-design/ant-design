@@ -59,6 +59,11 @@ const Demo = () => {
 
   return (
     <>
+      <Typography.Title editable level={1}>h1. Ant Design</Typography.Title>
+      <Typography.Title editable level={2}>h2. Ant Design</Typography.Title>
+      <Typography.Title editable level={3}>h3. Ant Design</Typography.Title>
+      <Typography.Title editable level={4}>h4. Ant Design</Typography.Title>
+      <Typography.Title editable level={5}>h5. Ant Design</Typography.Title>
       <Paragraph editable={{ onChange: setEditableStr }}>{editableStr}</Paragraph>
       <Paragraph
         editable={{
