@@ -147,9 +147,6 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     hashId,
   );
 
-<<<<<<< HEAD
-  return wrapSSR(
-=======
   // ===================== Placement =====================
   const getPlacement = () => {
     if (placement !== undefined) {
@@ -160,8 +157,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       : ('bottomLeft' as SelectCommonPlacement);
   };
 
-  return (
->>>>>>> origin/next
+  return wrapSSR(
     <RcSelect<any, any>
       ref={ref as any}
       virtual={virtual}
@@ -186,12 +182,8 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       className={mergedClassName}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       dropdownClassName={rcSelectRtlDropDownClassName}
-<<<<<<< HEAD
-    />,
-=======
       showArrow={hasFeedback || showArrow}
-    />
->>>>>>> origin/next
+    />,
   );
 };
 
