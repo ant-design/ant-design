@@ -89,23 +89,23 @@ export const genBaseStyle = (alertCls: string, token: AlertToken): CSSObject => 
         lineHeight: `${fontSize + 8}px`,
       },
 
-      '&-with-description': {
+      [`&-with-description`]: {
         alignItems: 'flex-start',
         padding: alertWithDescriptionPadding,
       },
 
-      '&-with-description&-no-icon': {
-        padding: `${alertWithDescriptionNoIconPaddingVertical} 15px`,
+      [`${alertCls}-with-description&-no-icon`]: {
+        padding: `${alertWithDescriptionNoIconPaddingVertical}px 15px`,
       },
 
-      '&-with-description &-icon': {
+      [`${alertCls}-with-description &-icon`]: {
         marginInlineEnd: alertWithDescriptionPaddingVertical,
         fontSize: alertWithDescriptionIconSize,
       },
 
-      '&-with-description &-message': {
+      [`${alertCls}-with-description &-message`]: {
         display: 'block',
-        marginTop: '4px',
+        marginBottom: '4px',
         color: alertMessageColor,
         fontSize: fontSizeLG,
       },
@@ -134,7 +134,7 @@ export const genBaseStyle = (alertCls: string, token: AlertToken): CSSObject => 
         opacity: 0,
       },
 
-      '&-banner': {
+      [`${alertCls}-banner`]: {
         marginBottom: 0,
         border: '0 !important',
         borderRadius: 0,
@@ -189,11 +189,11 @@ export const genActionStyle = (alertCls: string, iconPrefixCls: string, token: A
 
   return {
     [alertCls]: {
-      '&-action': {
+      [`${alertCls}-action`]: {
         marginInlineStart: marginXS,
       },
 
-      '&-close-icon': {
+      [`${alertCls}-close-icon`]: {
         marginInlineStart: marginXS,
         padding: 0,
         overflow: 'hidden',
