@@ -79,11 +79,11 @@ export const genBaseStyle = (alertCls: string, token: AlertToken): CSSObject => 
         minWidth: 0,
       },
 
-      [`${alertCls}-icon`]: {
+      [`&-icon`]: {
         marginInlineEnd: marginXS,
       },
 
-      [`${alertCls}-description`]: {
+      [`&-description`]: {
         display: 'none',
         fontSize,
         lineHeight: `${fontSize + 8}px`,
@@ -94,7 +94,7 @@ export const genBaseStyle = (alertCls: string, token: AlertToken): CSSObject => 
         padding: alertWithDescriptionPadding,
       },
 
-      [`${alertCls}-with-description&-no-icon`]: {
+      [`${alertCls}-with-description${alertCls}-no-icon`]: {
         padding: `${alertWithDescriptionNoIconPaddingVertical}px 15px`,
       },
 
@@ -114,7 +114,7 @@ export const genBaseStyle = (alertCls: string, token: AlertToken): CSSObject => 
         color: alertMessageColor,
       },
 
-      '&-with-description &-description': {
+      [`${alertCls}-with-description &-description`]: {
         display: 'block',
       },
 
