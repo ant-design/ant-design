@@ -33,14 +33,20 @@ export {
 
 export interface DesignToken {
   primaryColor: string;
+  successColor: string;
+  warningColor: string;
   errorColor: string;
+  infoColor: string;
+
   lineHeight: number;
   borderWidth: number;
   borderStyle: string;
   borderRadius: number;
   borderColor: string;
   borderColorSplit: string;
+
   easeInOut: string;
+  easeInOutCirc: string;
   easeOutBack: string;
   easeInQuint: string;
   easeOutQuint: string;
@@ -51,12 +57,14 @@ export interface DesignToken {
   fontSize: number;
   fontFamily: string;
   textColor: string;
-  textColorDisabled: string;
   textColorSecondary: string;
+  textColorDisabled: string;
   textColorInverse: string;
   placeholderColor: string;
 
   iconColorHover: string;
+
+  headingColor: string;
 
   itemHoverBackground: string;
 
