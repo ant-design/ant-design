@@ -326,6 +326,11 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
             <div className={`${tablePrefixCls}-filter-dropdown-tree`}>
               {filterMultiple ? (
                 <Checkbox
+                  checked={selectedKeys.length === flattenKeys(column.filters).length}
+                  indeterminate={
+                    selectedKeys.length > 0 &&
+                    selectedKeys.length < flattenKeys(column.filters).length
+                  }
                   className={`${tablePrefixCls}-filter-dropdown-checkall`}
                   onChange={onCheckAll}
                 >
