@@ -17,14 +17,12 @@ interface InputToken extends DerivativeToken {
   inputPaddingVerticalLG: number;
   inputPaddingVerticalSM: number;
   inputPaddingHorizontal: number;
+  inputBorderHoverColor: string;
+  inputBorderActiveColor: string;
 }
 
-export const genHoverStyle = (
-  prefixCls: string,
-  token: DerivativeToken,
-  color: string = token.primaryHoverColor,
-): CSSObject => ({
-  borderColor: color,
+export const genHoverStyle = (prefixCls: string, token: InputToken): CSSObject => ({
+  borderColor: token.inputBorderHoverColor,
   borderRightWidth: token.borderWidth,
 
   [`.${prefixCls}-rtl &`]: {
@@ -33,18 +31,9 @@ export const genHoverStyle = (
   },
 });
 
-export const genActiveStyle = (
-  prefixCls: string,
-  theme: any,
-  token: DerivativeToken,
-  borderColor: string = token.primaryColor,
-  hoverBorderColor: string = token.primaryHoverColor,
-  outlineColor: string = token.primaryHoverColor, // FIXME: primaryOutlineColor
-) => ({
-  borderColor: theme === 'dark' ? borderColor : hoverBorderColor,
-  boxShadow: `0 0 0 2px ${
-    theme === 'variable' ? outlineColor : new TinyColor(borderColor).setAlpha(0.2)
-  }`, // FIXME: outlineFade outlineWidth
+export const genActiveStyle = (prefixCls: string, theme: any, token: InputToken) => ({
+  borderColor: theme === 'dark' ? token.inputBorderActiveColor : token.inputBorderHoverColor,
+  boxShadow: `0 0 0 2px ${new TinyColor(token.inputBorderActiveColor).setAlpha(0.2)}`, // FIXME: outlineFade outlineWidth
   borderRightWidth: token.borderWidth,
   outline: 0,
 
@@ -54,7 +43,7 @@ export const genActiveStyle = (
   },
 });
 
-export const genDisabledStyle = (prefixCls: string, token: DerivativeToken): CSSObject => ({
+export const genDisabledStyle = (prefixCls: string, token: InputToken): CSSObject => ({
   color: token.textColorDisabled,
   backgroundColor: token.componentBackgroundDisabled,
   borderColor: token.borderColor,
@@ -63,7 +52,7 @@ export const genDisabledStyle = (prefixCls: string, token: DerivativeToken): CSS
   opacity: 1,
 
   '&:hover': {
-    ...genHoverStyle(prefixCls, token, token.borderColor),
+    ...genHoverStyle(prefixCls, { ...token, inputBorderHoverColor: token.borderColor }),
   },
 });
 
@@ -696,19 +685,19 @@ const genRTLStyle = (prefixCls: string, searchPrefixCls: string, token: InputTok
       },
 
       [`& > *:first-child,
-& > .ant-select:first-child > .ant-select-selector,
-& > .ant-select-auto-complete:first-child .ant-input,
-& > .ant-cascader-picker:first-child .ant-input`]: {
+        & > .ant-select:first-child > .ant-select-selector,
+        & > .ant-select-auto-complete:first-child .ant-input,
+        & > .ant-cascader-picker:first-child .ant-input`]: {
         [`.${prefixCls}-group-rtl&`]: {
           borderRadius: `0 ${token.borderRadius}px ${token.borderRadius}px 0`,
         },
       },
 
       [`& > *:last-child,
-& > .ant-select:last-child > .ant-select-selector,
-& > .ant-select-auto-complete:last-child .ant-input,
-& > .ant-cascader-picker:last-child .ant-input,
-& > .ant-cascader-picker-focused:last-child .ant-input`]: {
+        & > .ant-select:last-child > .ant-select-selector,
+        & > .ant-select-auto-complete:last-child .ant-input,
+        & > .ant-cascader-picker:last-child .ant-input,
+        & > .ant-cascader-picker-focused:last-child .ant-input`]: {
         [`.${prefixCls}-group-rtl&`]: {
           borderLeftWidth: token.borderWidth,
           borderRadius: `${token.borderRadius}px 0 0 ${token.borderRadius}px`,
@@ -825,6 +814,8 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
       0,
     ),
     inputPaddingHorizontal: token.tmpPaddingSM - 1,
+    inputBorderHoverColor: token.primaryHoverColor,
+    inputBorderActiveColor: token.primaryHoverColor,
   };
 
   const affixWrapperPrefixCls = `${prefixCls}-affix-wrapper`;
