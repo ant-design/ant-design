@@ -196,7 +196,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     </>
   );
 
-  const withPrefixSuffix = hasPrefixSuffix(props);
+  const withPrefixSuffix = hasPrefixSuffix(props) || hasFeedback;
 
   return (
     <RcInput
