@@ -79,7 +79,7 @@ export const genBaseStyle = (alertCls: string, token: AlertToken): CSSObject => 
         minWidth: 0,
       },
 
-      [`&-icon`]: {
+      [`${alertCls}-icon`]: {
         marginInlineEnd: marginXS,
       },
 
@@ -89,33 +89,8 @@ export const genBaseStyle = (alertCls: string, token: AlertToken): CSSObject => 
         lineHeight: `${fontSize + 8}px`,
       },
 
-      [`&-with-description`]: {
-        alignItems: 'flex-start',
-        padding: alertWithDescriptionPadding,
-      },
-
-      [`${alertCls}-with-description${alertCls}-no-icon`]: {
-        padding: `${alertWithDescriptionNoIconPaddingVertical}px 15px`,
-      },
-
-      [`&-with-description &-icon`]: {
-        marginInlineEnd: alertWithDescriptionPaddingVertical,
-        fontSize: alertWithDescriptionIconSize,
-      },
-
-      [`${alertCls}-with-description &-message`]: {
-        display: 'block',
-        marginBottom: '4px',
-        color: alertMessageColor,
-        fontSize: fontSizeLG,
-      },
-
       '&-message': {
         color: alertMessageColor,
-      },
-
-      [`${alertCls}-with-description &-description`]: {
-        display: 'block',
       },
 
       '&&-motion-leave': {
@@ -133,12 +108,37 @@ export const genBaseStyle = (alertCls: string, token: AlertToken): CSSObject => 
         paddingBottom: 0,
         opacity: 0,
       },
+    },
 
-      [`${alertCls}-banner`]: {
-        marginBottom: 0,
-        border: '0 !important',
-        borderRadius: 0,
+    [`${alertCls}-with-description`]: {
+      alignItems: 'flex-start',
+      padding: alertWithDescriptionPadding,
+
+      [`&${alertCls}-no-icon`]: {
+        padding: `${alertWithDescriptionNoIconPaddingVertical}px 15px`,
       },
+
+      [`${alertCls}-icon`]: {
+        marginInlineEnd: alertWithDescriptionPaddingVertical,
+        fontSize: alertWithDescriptionIconSize,
+      },
+
+      [`${alertCls}-message`]: {
+        display: 'block',
+        marginBottom: '4px',
+        color: alertMessageColor,
+        fontSize: fontSizeLG,
+      },
+
+      [`${alertCls}-description`]: {
+        display: 'block',
+      },
+    },
+
+    [`${alertCls}-banner`]: {
+      marginBottom: 0,
+      border: '0 !important',
+      borderRadius: 0,
     },
   };
 };
@@ -189,7 +189,7 @@ export const genActionStyle = (alertCls: string, iconPrefixCls: string, token: A
 
   return {
     [alertCls]: {
-      [`${alertCls}-action`]: {
+      [`&-action`]: {
         marginInlineStart: marginXS,
       },
 
