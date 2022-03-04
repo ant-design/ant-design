@@ -472,6 +472,29 @@ const genInputStyle = (prefixCls: string, theme: any, token: InputToken): CSSObj
   ...resetComponent(token),
   ...genBasicInputStyle(prefixCls, theme, token),
   ...genStatusStyle(prefixCls, theme, token),
+
+  '&[type="color"]': {
+    height: token.height,
+
+    [`&.${prefixCls}-lg`]: {
+      height: token.heightLG,
+    },
+    [`&.${prefixCls}-sm`]: {
+      height: token.heightSM,
+      paddingTop: 3,
+      paddingBottom: 3,
+    },
+  },
+
+  [`.${prefixCls}-password-icon`]: {
+    color: token.tmpTextColorSecondary,
+    cursor: 'pointer',
+    transition: `all ${token.duration}`,
+
+    '&:hover': {
+      color: token.tmpIconHoverColor,
+    },
+  },
 });
 
 const genAllowClearStyle = (prefixCls: string, token: InputToken): CSSObject => ({

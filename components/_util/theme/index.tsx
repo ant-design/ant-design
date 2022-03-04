@@ -64,6 +64,7 @@ export interface DerivativeToken extends Omit<DesignToken, 'duration'> {
   tmpTextColorSecondary: string;
   tmpWarningColor: string;
   tmpSuccessColor: string;
+  tmpIconHoverColor: string;
 }
 
 export { useStyleRegister };
@@ -99,6 +100,7 @@ function derivative(designToken: DesignToken): DerivativeToken {
     tmpTextColorSecondary: new TinyColor('#000').setAlpha('0.45').toHex8String(),
     tmpWarningColor: 'orange',
     tmpSuccessColor: 'green',
+    tmpIconHoverColor: new TinyColor('#000').setAlpha('0.85').toHex8String(),
     itemActiveBackground: designToken.itemHoverBackground,
   };
 }
