@@ -62,6 +62,8 @@ export interface DerivativeToken extends Omit<DesignToken, 'duration'> {
   tmpBackgroundLight: string;
   tmpPaddingSM: number;
   tmpTextColorSecondary: string;
+  tmpWarningColor: string;
+  tmpSuccessColor: string;
 }
 
 export { useStyleRegister };
@@ -81,8 +83,6 @@ function derivative(designToken: DesignToken): DerivativeToken {
     errorHoverColor: errorColors[4],
     errorActiveColor: errorColors[6],
 
-    itemActiveBackground: primaryColors[1],
-
     linkColor: designToken.primaryColor,
     fontSizeSM: designToken.fontSize - 2,
     fontSizeLG: designToken.fontSize + 2,
@@ -97,6 +97,9 @@ function derivative(designToken: DesignToken): DerivativeToken {
     tmpBackgroundLight: new TinyColor({ h: 0, s: 0, v: '98%' }).toHexString(),
     tmpPaddingSM: 12,
     tmpTextColorSecondary: new TinyColor('#000').setAlpha('0.45').toHex8String(),
+    tmpWarningColor: 'orange',
+    tmpSuccessColor: 'green',
+    itemActiveBackground: designToken.itemHoverBackground,
   };
 }
 

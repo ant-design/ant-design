@@ -69,6 +69,43 @@ const genInputSmallStyle = (token: InputToken): CSSObject => ({
   padding: `${token.inputPaddingVerticalSM}px ${token.paddingXS - 1}px`,
 });
 
+const genStatusStyle = (prefixCls: string, theme: any, token: InputToken): CSSObject => ({
+  '&-status-error:not(&-disabled):not(&-borderless)&': {
+    '&, &:hover': {
+      borderColor: token.errorColor,
+    },
+
+    '&:focus, &-focused': {
+      ...genActiveStyle(prefixCls, theme, {
+        ...token,
+        inputBorderActiveColor: token.errorColor,
+        inputBorderHoverColor: token.errorColor,
+      }),
+    },
+
+    [`.${prefixCls}-feedback-icon, .${prefixCls}-prefix`]: {
+      color: token.errorColor,
+    },
+  },
+  '&-status-warning:not(&-disabled):not(&-borderless)&': {
+    '&, &:hover': {
+      borderColor: token.tmpWarningColor,
+    },
+
+    '&:focus, &-focused': {
+      ...genActiveStyle(prefixCls, theme, {
+        ...token,
+        inputBorderActiveColor: token.tmpWarningColor,
+        inputBorderHoverColor: token.tmpWarningColor,
+      }),
+    },
+
+    [`.${prefixCls}-feedback-icon, .${prefixCls}-prefix`]: {
+      color: token.tmpWarningColor,
+    },
+  },
+});
+
 export const genBasicInputStyle = (
   prefixCls: string,
   theme: any,
@@ -434,6 +471,7 @@ const genInputGroupStyle = (prefixCls: string, token: InputToken): CSSObject => 
 const genInputStyle = (prefixCls: string, theme: any, token: InputToken): CSSObject => ({
   ...resetComponent(token),
   ...genBasicInputStyle(prefixCls, theme, token),
+  ...genStatusStyle(prefixCls, theme, token),
 });
 
 const genAllowClearStyle = (prefixCls: string, token: InputToken): CSSObject => ({
@@ -542,6 +580,21 @@ const genAffixStyle = (prefixCls: string, theme: any, token: InputToken): CSSObj
   },
 
   ...genAllowClearStyle(prefixCls, token),
+
+  // status
+  ...genStatusStyle(prefixCls, theme, token),
+  '&-status-validating': {
+    [`.${prefixCls}-feedback-icon`]: {
+      display: 'inline-block',
+      color: token.primaryColor,
+    },
+  },
+  '&-status-success': {
+    [`.${prefixCls}-feedback-icon`]: {
+      color: token.tmpSuccessColor,
+      // FIXME: animationName
+    },
+  },
 });
 
 const genGroupStyle = (prefixCls: string, token: InputToken): CSSObject => ({
@@ -554,6 +607,20 @@ const genGroupStyle = (prefixCls: string, token: InputToken): CSSObject => ({
     width: '100%',
     textAlign: 'start',
     verticalAlign: 'top', // https://github.com/ant-design/ant-design/issues/6403
+
+    // Status
+    '&-status-error': {
+      [`.${prefixCls}-group-addon`]: {
+        color: token.errorColor,
+        borderColor: token.errorColor,
+      },
+    },
+    '&-status-warning': {
+      [`.${prefixCls}-group-addon`]: {
+        color: token.tmpWarningColor,
+        borderColor: token.tmpWarningColor,
+      },
+    },
   },
 });
 
