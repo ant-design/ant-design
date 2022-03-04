@@ -625,11 +625,19 @@ const genGroupStyle = (prefixCls: string, token: InputToken): CSSObject => ({
   ...resetComponent(token),
   ...genInputGroupStyle(prefixCls, token),
 
+  '&-rtl': {
+    direction: 'rtl',
+  },
+
   '&-wrapper': {
     display: 'inline-block',
     width: '100%',
     textAlign: 'start',
     verticalAlign: 'top', // https://github.com/ant-design/ant-design/issues/6403
+
+    '&-rtl': {
+      direction: 'rtl',
+    },
 
     // Status
     '&-status-error': {
@@ -717,35 +725,26 @@ const genSearchInputStyle = (
 const genRTLStyle = (prefixCls: string, searchPrefixCls: string, token: InputToken): CSSObject => ({
   // Style for input-group: input with label, with button or dropdown...
   [`.${prefixCls}-group`]: {
-    '&-wrapper': {
-      '&-rtl': {
-        direction: 'rtl',
-      },
-    },
-
-    '&-rtl': {
-      direction: 'rtl',
-    },
-
-    [`> .${prefixCls}-rtl:first-child, &-rtl &-addon:first-child`]: {
+    [`> .${prefixCls}-rtl:first-child, &-rtl .${prefixCls}-group-addon:first-child`]: {
       borderRadius: `0 ${token.borderRadius}px ${token.borderRadius}px 0`,
     },
 
-    '&-addon:first-child': {
-      [`.${prefixCls}-group-rtl &`]: {
+    [`&-rtl`]: {
+      [`.${prefixCls}-group-addon:last-child`]: {
+        borderRight: 0,
+        borderLeft: `${token.borderWidth}px ${token.borderStyle} ${token.borderColor}`,
+
+        [`.${searchPrefixCls}-button`]: {
+          borderRadius: `${token.borderRadius}px 0 0 ${token.borderRadius}px !important`,
+        },
+      },
+      [`.${prefixCls}-group-addon:first-child`]: {
         borderRight: `${token.borderWidth}px ${token.borderStyle} ${token.borderColor}`,
         borderLeft: 0,
       },
     },
 
-    '&-addon:last-child': {
-      [`.${prefixCls}-group-rtl &`]: {
-        borderRight: 0,
-        borderLeft: `${token.borderWidth}px ${token.borderStyle} ${token.borderColor}`,
-      },
-    },
-
-    [`> .${prefixCls}:last-child, &-addon:last-child`]: {
+    [`> .${prefixCls}:last-child, .${prefixCls}-group-addon:last-child`]: {
       [`.${prefixCls}-group-rtl&`]: {
         borderRadius: `${token.borderRadius}px 0 0 ${token.borderRadius}px`,
       },
@@ -761,6 +760,12 @@ const genRTLStyle = (prefixCls: string, searchPrefixCls: string, token: InputTok
       '&:not(:last-child)': {
         [`.${prefixCls}-group-rtl&`]: {
           borderRadius: `0 ${token.borderRadius}px ${token.borderRadius}px 0`,
+        },
+      },
+
+      '&:not(:last-child):not(:first-child)': {
+        [`.${prefixCls}-group-rtl&`]: {
+          borderRadius: 0,
         },
       },
     },
