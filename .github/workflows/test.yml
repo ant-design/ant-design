@@ -94,6 +94,9 @@ jobs:
 
       - name: lint
         run: npm run lint
+
+      - name: compat check
+        run: node ./script/check-compat.js
     needs: setup
 
   tsx-demo:
