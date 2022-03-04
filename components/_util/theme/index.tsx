@@ -9,19 +9,30 @@ export { resetComponent };
 
 export interface DesignToken {
   primaryColor: string;
+  successColor: string;
+  warningColor: string;
   errorColor: string;
+  infoColor: string;
+
   lineHeight: number;
   borderWidth: number;
   borderStyle: string;
   borderRadius: number;
   borderColor: string;
+
   easeInOut: string;
+  easeInOutCirc: string;
   easeOutBack: string;
 
   fontSize: number;
   textColor: string;
+  textColorSecondary: string;
   textColorDisabled: string;
   textColorInverse: string;
+
+  headingColor: string;
+
+  iconColorHover: string;
 
   itemHoverBackground: string;
 
