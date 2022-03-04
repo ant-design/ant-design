@@ -75,6 +75,8 @@
     pointer-events: none;
 
     &-content {
+      --antd-arrow-background-color: @tooltip-bg;
+
       position: absolute;
       top: 0;
       right: 0;
@@ -84,16 +86,17 @@
       width: @tooltip-arrow-width;
       height: @tooltip-arrow-width;
       margin: auto;
-      background-color: @tooltip-bg;
+      background-color: transparent;
       content: '';
       pointer-events: auto;
+      .roundedArrow(@tooltip-arrow-width, 5px);
     }
   }
 
   &-placement-top &-arrow,
   &-placement-topLeft &-arrow,
   &-placement-topRight &-arrow {
-    bottom: @tooltip-distance - @tooltip-arrow-rotate-width;
+    bottom: @tooltip-distance - @tooltip-arrow-rotate-width + 0.24px;
 
     &-content {
       box-shadow: @tooltip-arrow-shadow-width @tooltip-arrow-shadow-width 7px fade(@black, 7%);
@@ -117,11 +120,11 @@
   &-placement-right &-arrow,
   &-placement-rightTop &-arrow,
   &-placement-rightBottom &-arrow {
-    left: @tooltip-distance - @tooltip-arrow-rotate-width;
+    left: @tooltip-distance - @tooltip-arrow-rotate-width + 0.1px;
 
     &-content {
       box-shadow: -@tooltip-arrow-shadow-width @tooltip-arrow-shadow-width 7px fade(@black, 7%);
-      transform: translateX((@tooltip-arrow-rotate-width / 2)) rotate(45deg);
+      transform: translateX((@tooltip-arrow-rotate-width / 2)) rotate(135deg);
     }
   }
 
@@ -141,11 +144,11 @@
   &-placement-left &-arrow,
   &-placement-leftTop &-arrow,
   &-placement-leftBottom &-arrow {
-    right: @tooltip-distance - @tooltip-arrow-rotate-width;
+    right: @tooltip-distance - @tooltip-arrow-rotate-width + 0.08px;
 
     &-content {
       box-shadow: @tooltip-arrow-shadow-width -@tooltip-arrow-shadow-width 7px fade(@black, 7%);
-      transform: translateX((-@tooltip-arrow-rotate-width / 2)) rotate(45deg);
+      transform: translateX((-@tooltip-arrow-rotate-width / 2)) rotate(315deg);
     }
   }
 
@@ -165,11 +168,11 @@
   &-placement-bottom &-arrow,
   &-placement-bottomLeft &-arrow,
   &-placement-bottomRight &-arrow {
-    top: @tooltip-distance - @tooltip-arrow-rotate-width;
+    top: @tooltip-distance - @tooltip-arrow-rotate-width + 0.1px;
 
     &-content {
       box-shadow: -@tooltip-arrow-shadow-width -@tooltip-arrow-shadow-width 7px fade(@black, 7%);
-      transform: translateY((@tooltip-arrow-rotate-width / 2)) rotate(45deg);
+      transform: translateY((@tooltip-arrow-rotate-width / 2)) rotate(225deg);
     }
   }
 
@@ -196,7 +199,7 @@
       background-color: @@lightColor;
     }
     .@{tooltip-prefix-cls}-arrow {
-      &-content {
+      &-content::before {
         background-color: @@lightColor;
       }
     }

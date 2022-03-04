@@ -1863,6 +1863,48 @@ describe('Table.filter', () => {
       expect(wrapper.find('li.ant-dropdown-menu-item').length).toBe(2);
     });
 
+    it('should supports filterSearch has type of function', () => {
+      jest.useFakeTimers();
+      jest.spyOn(console, 'error').mockImplementation(() => undefined);
+      const wrapper = mount(
+        createTable({
+          columns: [
+            {
+              ...column,
+              filters: [
+                {
+                  text: '123',
+                  value: '123',
+                },
+                {
+                  text: 123456,
+                  value: '456',
+                },
+                {
+                  text: <span>123</span>,
+                  value: '456',
+                },
+              ],
+              filterSearch: (input, record) => record.value.indexOf(input) > -1,
+            },
+          ],
+        }),
+      );
+      wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
+      act(() => {
+        jest.runAllTimers();
+        wrapper.update();
+      });
+      expect(wrapper.find(Menu).length).toBe(1);
+      expect(wrapper.find(Input).length).toBe(1);
+      expect(wrapper.find('li.ant-dropdown-menu-item').length).toBe(3);
+      wrapper
+        .find(Input)
+        .find('input')
+        .simulate('change', { target: { value: '456' } });
+      expect(wrapper.find('li.ant-dropdown-menu-item').length).toBe(2);
+    });
+
     it('supports check all items', () => {
       jest.useFakeTimers();
       jest.spyOn(console, 'error').mockImplementation(() => undefined);
@@ -2051,5 +2093,72 @@ describe('Table.filter', () => {
     wrapper.find('.ant-tree-node-content-wrapper').at(2).simulate('click');
     wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-primary').simulate('click');
     expect(renderedNames(wrapper)).toEqual(['Jack']);
+  });
+
+  it('clearFilters should support params', () => {
+    const filterConfig = [
+      ['Jack', 'NoParams', {}, ['Jack'], true],
+      ['Lucy', 'Confirm', { confirm: true }, ['Jack', 'Lucy', 'Tom', 'Jerry'], true],
+      ['Tom', 'Close', { closeDropdown: true }, ['Tom'], false],
+      [
+        'Jerry',
+        'Params',
+        { closeDropdown: true, confirm: true },
+        ['Jack', 'Lucy', 'Tom', 'Jerry'],
+        false,
+      ],
+    ];
+    const filter = ({ prefixCls, setSelectedKeys, confirm, clearFilters }) => (
+      <div className={`${prefixCls}-view`} id="customFilter">
+        {filterConfig.map(([text, id, param]) => (
+          <>
+            <span
+              onClick={() => {
+                setSelectedKeys([text]);
+                confirm();
+              }}
+              id={`set${id}`}
+            >
+              setSelectedKeys
+            </span>
+            <span onClick={() => clearFilters(param)} id={`reset${id}`}>
+              Reset
+            </span>
+          </>
+        ))}
+      </div>
+    );
+
+    const wrapper = mount(
+      createTable({
+        columns: [
+          {
+            ...column,
+            filterDropdown: filter,
+          },
+        ],
+      }),
+    );
+
+    function getFilterMenu() {
+      return wrapper.find('FilterDropdown');
+    }
+
+    // check if renderer well
+    wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
+    expect(wrapper.find('#customFilter')).toMatchSnapshot();
+    expect(getFilterMenu().props().filterState.filteredKeys).toBeFalsy();
+
+    filterConfig.forEach(([text, id, , res1, res2]) => {
+      wrapper.find(`#set${id}`).simulate('click');
+      wrapper.update();
+      expect(renderedNames(wrapper)).toEqual([text]);
+
+      wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
+      wrapper.find(`#reset${id}`).simulate('click');
+      wrapper.update();
+      expect(renderedNames(wrapper)).toEqual(res1);
+      expect(wrapper.find('Dropdown').first().props().visible).toBe(res2);
+    });
   });
 });

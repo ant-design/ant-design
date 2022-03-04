@@ -7864,6 +7864,829 @@ exports[`renders ./components/table/demo/filter-in-tree.md extend context correc
 </div>
 `;
 
+exports[`renders ./components/table/demo/filter-search.md extend context correctly 1`] = `
+<div
+  class="ant-table-wrapper"
+>
+  <div
+    class="ant-spin-nested-loading"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-table"
+      >
+        <div
+          class="ant-table-container"
+        >
+          <div
+            class="ant-table-content"
+          >
+            <table
+              style="table-layout:auto"
+            >
+              <colgroup>
+                <col
+                  style="width:30%"
+                />
+                <col />
+                <col
+                  style="width:40%"
+                />
+              </colgroup>
+              <thead
+                class="ant-table-thead"
+              >
+                <tr>
+                  <th
+                    class="ant-table-cell"
+                  >
+                    <div
+                      class="ant-table-filter-column"
+                    >
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Name
+                      </span>
+                      <span
+                        class="ant-dropdown-trigger ant-table-filter-trigger"
+                        role="button"
+                        tabindex="-1"
+                      >
+                        <span
+                          aria-label="filter"
+                          class="anticon anticon-filter"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="filter"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                      <div>
+                        <div
+                          class="ant-dropdown"
+                          style="opacity:0;pointer-events:none"
+                        >
+                          <div
+                            class="ant-table-filter-dropdown"
+                          >
+                            <div
+                              class="ant-table-filter-dropdown-search"
+                            >
+                              <span
+                                class="ant-input-affix-wrapper ant-table-filter-dropdown-search-input"
+                              >
+                                <span
+                                  class="ant-input-prefix"
+                                >
+                                  <span
+                                    aria-label="search"
+                                    class="anticon anticon-search"
+                                    role="img"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="search"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </span>
+                                <input
+                                  class="ant-input"
+                                  placeholder="Search in filters"
+                                  size="1"
+                                  type="text"
+                                  value=""
+                                />
+                              </span>
+                            </div>
+                            <div
+                              class="ant-table-filter-dropdown-tree"
+                            >
+                              <label
+                                class="ant-checkbox-wrapper ant-table-filter-dropdown-checkall"
+                              >
+                                <span
+                                  class="ant-checkbox"
+                                >
+                                  <input
+                                    class="ant-checkbox-input"
+                                    type="checkbox"
+                                  />
+                                  <span
+                                    class="ant-checkbox-inner"
+                                  />
+                                </span>
+                                <span>
+                                  Select all items
+                                </span>
+                              </label>
+                              <div
+                                class="ant-tree ant-tree-icon-hide ant-tree-block-node ant-tree-unselectable ant-dropdown-menu"
+                                role="tree"
+                              >
+                                <div>
+                                  <input
+                                    aria-label="for screen reader"
+                                    style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+                                    tabindex="0"
+                                    value=""
+                                  />
+                                </div>
+                                <div
+                                  aria-hidden="true"
+                                  class="ant-tree-treenode"
+                                  style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
+                                >
+                                  <div
+                                    class="ant-tree-indent"
+                                  >
+                                    <div
+                                      class="ant-tree-indent-unit"
+                                    />
+                                  </div>
+                                </div>
+                                <div
+                                  class="ant-tree-list"
+                                  style="position:relative"
+                                >
+                                  <div
+                                    class="ant-tree-list-holder"
+                                  >
+                                    <div>
+                                      <div
+                                        class="ant-tree-list-holder-inner"
+                                        style="display:flex;flex-direction:column"
+                                      >
+                                        <div
+                                          aria-grabbed="false"
+                                          class="ant-tree-treenode ant-tree-treenode-switcher-open"
+                                          draggable="false"
+                                        >
+                                          <span
+                                            aria-hidden="true"
+                                            class="ant-tree-indent"
+                                          />
+                                          <span
+                                            class="ant-tree-switcher ant-tree-switcher-noop"
+                                          />
+                                          <span
+                                            class="ant-tree-checkbox"
+                                          >
+                                            <span
+                                              class="ant-tree-checkbox-inner"
+                                            />
+                                          </span>
+                                          <span
+                                            class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+                                            title="Joe"
+                                          >
+                                            <span
+                                              class="ant-tree-title"
+                                            >
+                                              Joe
+                                            </span>
+                                          </span>
+                                        </div>
+                                        <div
+                                          aria-grabbed="false"
+                                          class="ant-tree-treenode ant-tree-treenode-switcher-open"
+                                          draggable="false"
+                                        >
+                                          <span
+                                            aria-hidden="true"
+                                            class="ant-tree-indent"
+                                          />
+                                          <span
+                                            class="ant-tree-switcher ant-tree-switcher-noop"
+                                          />
+                                          <span
+                                            class="ant-tree-checkbox"
+                                          >
+                                            <span
+                                              class="ant-tree-checkbox-inner"
+                                            />
+                                          </span>
+                                          <span
+                                            class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+                                            title="Category 1"
+                                          >
+                                            <span
+                                              class="ant-tree-title"
+                                            >
+                                              Category 1
+                                            </span>
+                                          </span>
+                                        </div>
+                                        <div
+                                          aria-grabbed="false"
+                                          class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+                                          draggable="false"
+                                        >
+                                          <span
+                                            aria-hidden="true"
+                                            class="ant-tree-indent"
+                                          />
+                                          <span
+                                            class="ant-tree-switcher ant-tree-switcher-noop"
+                                          />
+                                          <span
+                                            class="ant-tree-checkbox"
+                                          >
+                                            <span
+                                              class="ant-tree-checkbox-inner"
+                                            />
+                                          </span>
+                                          <span
+                                            class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-normal"
+                                            title="Category 2"
+                                          >
+                                            <span
+                                              class="ant-tree-title"
+                                            >
+                                              Category 2
+                                            </span>
+                                          </span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              class="ant-table-filter-dropdown-btns"
+                            >
+                              <button
+                                class="ant-btn ant-btn-link ant-btn-sm"
+                                disabled=""
+                                type="button"
+                              >
+                                <span>
+                                  Reset
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-primary ant-btn-sm"
+                                type="button"
+                              >
+                                <span>
+                                  OK
+                                </span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </th>
+                  <th
+                    class="ant-table-cell ant-table-column-has-sorters"
+                  >
+                    <div
+                      class="ant-table-column-sorters"
+                    >
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Age
+                      </span>
+                      <span
+                        class="ant-table-column-sorter ant-table-column-sorter-full"
+                      >
+                        <span
+                          class="ant-table-column-sorter-inner"
+                        >
+                          <span
+                            aria-label="caret-up"
+                            class="anticon anticon-caret-up ant-table-column-sorter-up"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="caret-up"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
+                            >
+                              <path
+                                d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                              />
+                            </svg>
+                          </span>
+                          <span
+                            aria-label="caret-down"
+                            class="anticon anticon-caret-down ant-table-column-sorter-down"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="caret-down"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="0 0 1024 1024"
+                              width="1em"
+                            >
+                              <path
+                                d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                      </span>
+                    </div>
+                    <div>
+                      <div
+                        class="ant-tooltip"
+                        style="opacity:0;pointer-events:none"
+                      >
+                        <div
+                          class="ant-tooltip-content"
+                        >
+                          <div
+                            class="ant-tooltip-arrow"
+                          >
+                            <span
+                              class="ant-tooltip-arrow-content"
+                            />
+                          </div>
+                          <div
+                            class="ant-tooltip-inner"
+                            role="tooltip"
+                          >
+                            Click to sort ascending
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                  >
+                    <div
+                      class="ant-table-filter-column"
+                    >
+                      <span
+                        class="ant-table-column-title"
+                      >
+                        Address
+                      </span>
+                      <span
+                        class="ant-dropdown-trigger ant-table-filter-trigger"
+                        role="button"
+                        tabindex="-1"
+                      >
+                        <span
+                          aria-label="filter"
+                          class="anticon anticon-filter"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="filter"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                      <div>
+                        <div
+                          class="ant-dropdown"
+                          style="opacity:0;pointer-events:none"
+                        >
+                          <div
+                            class="ant-table-filter-dropdown"
+                          >
+                            <div
+                              class="ant-table-filter-dropdown-search"
+                            >
+                              <span
+                                class="ant-input-affix-wrapper ant-table-filter-dropdown-search-input"
+                              >
+                                <span
+                                  class="ant-input-prefix"
+                                >
+                                  <span
+                                    aria-label="search"
+                                    class="anticon anticon-search"
+                                    role="img"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="search"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </span>
+                                <input
+                                  class="ant-input"
+                                  placeholder="Search in filters"
+                                  size="1"
+                                  type="text"
+                                  value=""
+                                />
+                              </span>
+                            </div>
+                            <ul
+                              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light ant-dropdown-menu-without-submenu"
+                              data-menu-list="true"
+                              role="menu"
+                              tabindex="0"
+                            >
+                              <li
+                                class="ant-dropdown-menu-item"
+                                role="menuitem"
+                                tabindex="-1"
+                              >
+                                <span
+                                  class="ant-dropdown-menu-title-content"
+                                >
+                                  <label
+                                    class="ant-checkbox-wrapper"
+                                  >
+                                    <span
+                                      class="ant-checkbox"
+                                    >
+                                      <input
+                                        class="ant-checkbox-input"
+                                        type="checkbox"
+                                      />
+                                      <span
+                                        class="ant-checkbox-inner"
+                                      />
+                                    </span>
+                                  </label>
+                                  <span>
+                                    <span>
+                                      London
+                                    </span>
+                                  </span>
+                                </span>
+                              </li>
+                              <div>
+                                <div
+                                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                                  style="opacity:0;pointer-events:none"
+                                >
+                                  <div
+                                    class="ant-tooltip-content"
+                                  >
+                                    <div
+                                      class="ant-tooltip-arrow"
+                                    >
+                                      <span
+                                        class="ant-tooltip-arrow-content"
+                                      />
+                                    </div>
+                                    <div
+                                      class="ant-tooltip-inner"
+                                      role="tooltip"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                              <li
+                                class="ant-dropdown-menu-item"
+                                role="menuitem"
+                                tabindex="-1"
+                              >
+                                <span
+                                  class="ant-dropdown-menu-title-content"
+                                >
+                                  <label
+                                    class="ant-checkbox-wrapper"
+                                  >
+                                    <span
+                                      class="ant-checkbox"
+                                    >
+                                      <input
+                                        class="ant-checkbox-input"
+                                        type="checkbox"
+                                      />
+                                      <span
+                                        class="ant-checkbox-inner"
+                                      />
+                                    </span>
+                                  </label>
+                                  <span>
+                                    <span>
+                                      New York
+                                    </span>
+                                  </span>
+                                </span>
+                              </li>
+                              <div>
+                                <div
+                                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                                  style="opacity:0;pointer-events:none"
+                                >
+                                  <div
+                                    class="ant-tooltip-content"
+                                  >
+                                    <div
+                                      class="ant-tooltip-arrow"
+                                    >
+                                      <span
+                                        class="ant-tooltip-arrow-content"
+                                      />
+                                    </div>
+                                    <div
+                                      class="ant-tooltip-inner"
+                                      role="tooltip"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                            </ul>
+                            <div
+                              aria-hidden="true"
+                              style="display:none"
+                            >
+                              <div>
+                                <div
+                                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                                  style="opacity:0;pointer-events:none"
+                                >
+                                  <div
+                                    class="ant-tooltip-content"
+                                  >
+                                    <div
+                                      class="ant-tooltip-arrow"
+                                    >
+                                      <span
+                                        class="ant-tooltip-arrow-content"
+                                      />
+                                    </div>
+                                    <div
+                                      class="ant-tooltip-inner"
+                                      role="tooltip"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                              <div>
+                                <div
+                                  class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                                  style="opacity:0;pointer-events:none"
+                                >
+                                  <div
+                                    class="ant-tooltip-content"
+                                  >
+                                    <div
+                                      class="ant-tooltip-arrow"
+                                    >
+                                      <span
+                                        class="ant-tooltip-arrow-content"
+                                      />
+                                    </div>
+                                    <div
+                                      class="ant-tooltip-inner"
+                                      role="tooltip"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              class="ant-table-filter-dropdown-btns"
+                            >
+                              <button
+                                class="ant-btn ant-btn-link ant-btn-sm"
+                                disabled=""
+                                type="button"
+                              >
+                                <span>
+                                  Reset
+                                </span>
+                              </button>
+                              <button
+                                class="ant-btn ant-btn-primary ant-btn-sm"
+                                type="button"
+                              >
+                                <span>
+                                  OK
+                                </span>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="ant-table-tbody"
+              >
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    John Brown
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Jim Green
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    42
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Joe Black
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Sidney No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="4"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Jim Red
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London No. 2 Lake Park
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <ul
+        class="ant-pagination ant-table-pagination ant-table-pagination-right"
+        unselectable="unselectable"
+      >
+        <li
+          aria-disabled="true"
+          class="ant-pagination-prev ant-pagination-disabled"
+          title="Previous Page"
+        >
+          <button
+            class="ant-pagination-item-link"
+            disabled=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              aria-label="left"
+              class="anticon anticon-left"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="left"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                />
+              </svg>
+            </span>
+          </button>
+        </li>
+        <li
+          class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          tabindex="0"
+          title="1"
+        >
+          <a
+            rel="nofollow"
+          >
+            1
+          </a>
+        </li>
+        <li
+          aria-disabled="true"
+          class="ant-pagination-next ant-pagination-disabled"
+          title="Next Page"
+        >
+          <button
+            class="ant-pagination-item-link"
+            disabled=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              aria-label="right"
+              class="anticon anticon-right"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="right"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                />
+              </svg>
+            </span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders ./components/table/demo/fixed-columns.md extend context correctly 1`] = `
 <div
   class="ant-table-wrapper"
@@ -12778,6 +13601,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                     </div>
                   </th>
                   <th
+                    aria-sort="descending"
                     class="ant-table-cell ant-table-column-sort ant-table-column-has-sorters"
                   >
                     <div

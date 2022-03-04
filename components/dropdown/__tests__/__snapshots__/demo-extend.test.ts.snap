@@ -220,7 +220,7 @@ Array [
     type="button"
   >
     <span>
-      bottomCenter
+      bottom
     </span>
   </button>,
   <div>
@@ -860,7 +860,1291 @@ Array [
     type="button"
   >
     <span>
-      topCenter
+      top
+    </span>
+  </button>,
+  <div>
+    <div
+      class="ant-dropdown ant-dropdown-show-arrow"
+      style="opacity:0;pointer-events:none"
+    >
+      <div
+        class="ant-dropdown-arrow"
+      />
+      <ul
+        class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+        data-menu-list="true"
+        role="menu"
+        tabindex="0"
+      >
+        <li
+          class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+          role="menuitem"
+          tabindex="-1"
+        >
+          <span
+            class="ant-dropdown-menu-title-content"
+          >
+            <a
+              href="https://www.antgroup.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              1st menu item
+            </a>
+          </span>
+        </li>
+        <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
+        <li
+          class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+          role="menuitem"
+          tabindex="-1"
+        >
+          <span
+            class="ant-dropdown-menu-title-content"
+          >
+            <a
+              href="https://www.aliyun.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              2nd menu item
+            </a>
+          </span>
+        </li>
+        <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
+        <li
+          class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+          role="menuitem"
+          tabindex="-1"
+        >
+          <span
+            class="ant-dropdown-menu-title-content"
+          >
+            <a
+              href="https://www.luohanacademy.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              3rd menu item
+            </a>
+          </span>
+        </li>
+        <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
+      </ul>
+      <div
+        aria-hidden="true"
+        style="display:none"
+      >
+        <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
+        <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
+        <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <button
+    class="ant-btn ant-btn-default ant-dropdown-trigger"
+    type="button"
+  >
+    <span>
+      topRight
+    </span>
+  </button>,
+  <div>
+    <div
+      class="ant-dropdown ant-dropdown-show-arrow"
+      style="opacity:0;pointer-events:none"
+    >
+      <div
+        class="ant-dropdown-arrow"
+      />
+      <ul
+        class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+        data-menu-list="true"
+        role="menu"
+        tabindex="0"
+      >
+        <li
+          class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+          role="menuitem"
+          tabindex="-1"
+        >
+          <span
+            class="ant-dropdown-menu-title-content"
+          >
+            <a
+              href="https://www.antgroup.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              1st menu item
+            </a>
+          </span>
+        </li>
+        <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
+        <li
+          class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+          role="menuitem"
+          tabindex="-1"
+        >
+          <span
+            class="ant-dropdown-menu-title-content"
+          >
+            <a
+              href="https://www.aliyun.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              2nd menu item
+            </a>
+          </span>
+        </li>
+        <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
+        <li
+          class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+          role="menuitem"
+          tabindex="-1"
+        >
+          <span
+            class="ant-dropdown-menu-title-content"
+          >
+            <a
+              href="https://www.luohanacademy.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              3rd menu item
+            </a>
+          </span>
+        </li>
+        <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
+      </ul>
+      <div
+        aria-hidden="true"
+        style="display:none"
+      >
+        <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
+        <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
+        <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders ./components/dropdown/demo/arrow-center.md extend context correctly 1`] = `
+Array [
+  <button
+    class="ant-btn ant-btn-default ant-dropdown-trigger"
+    type="button"
+  >
+    <span>
+      bottomLeft
+    </span>
+  </button>,
+  <div>
+    <div
+      class="ant-dropdown ant-dropdown-show-arrow"
+      style="opacity:0;pointer-events:none"
+    >
+      <div
+        class="ant-dropdown-arrow"
+      />
+      <ul
+        class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+        data-menu-list="true"
+        role="menu"
+        tabindex="0"
+      >
+        <li
+          class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+          role="menuitem"
+          tabindex="-1"
+        >
+          <span
+            class="ant-dropdown-menu-title-content"
+          >
+            <a
+              href="https://www.antgroup.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              1st menu item
+            </a>
+          </span>
+        </li>
+        <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
+        <li
+          class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+          role="menuitem"
+          tabindex="-1"
+        >
+          <span
+            class="ant-dropdown-menu-title-content"
+          >
+            <a
+              href="https://www.aliyun.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              2nd menu item
+            </a>
+          </span>
+        </li>
+        <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
+        <li
+          class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+          role="menuitem"
+          tabindex="-1"
+        >
+          <span
+            class="ant-dropdown-menu-title-content"
+          >
+            <a
+              href="https://www.luohanacademy.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              3rd menu item
+            </a>
+          </span>
+        </li>
+        <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
+      </ul>
+      <div
+        aria-hidden="true"
+        style="display:none"
+      >
+        <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
+        <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
+        <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <button
+    class="ant-btn ant-btn-default ant-dropdown-trigger"
+    type="button"
+  >
+    <span>
+      bottom
+    </span>
+  </button>,
+  <div>
+    <div
+      class="ant-dropdown ant-dropdown-show-arrow"
+      style="opacity:0;pointer-events:none"
+    >
+      <div
+        class="ant-dropdown-arrow"
+      />
+      <ul
+        class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+        data-menu-list="true"
+        role="menu"
+        tabindex="0"
+      >
+        <li
+          class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+          role="menuitem"
+          tabindex="-1"
+        >
+          <span
+            class="ant-dropdown-menu-title-content"
+          >
+            <a
+              href="https://www.antgroup.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              1st menu item
+            </a>
+          </span>
+        </li>
+        <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
+        <li
+          class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+          role="menuitem"
+          tabindex="-1"
+        >
+          <span
+            class="ant-dropdown-menu-title-content"
+          >
+            <a
+              href="https://www.aliyun.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              2nd menu item
+            </a>
+          </span>
+        </li>
+        <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
+        <li
+          class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+          role="menuitem"
+          tabindex="-1"
+        >
+          <span
+            class="ant-dropdown-menu-title-content"
+          >
+            <a
+              href="https://www.luohanacademy.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              3rd menu item
+            </a>
+          </span>
+        </li>
+        <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
+      </ul>
+      <div
+        aria-hidden="true"
+        style="display:none"
+      >
+        <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
+        <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
+        <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <button
+    class="ant-btn ant-btn-default ant-dropdown-trigger"
+    type="button"
+  >
+    <span>
+      bottomRight
+    </span>
+  </button>,
+  <div>
+    <div
+      class="ant-dropdown ant-dropdown-show-arrow"
+      style="opacity:0;pointer-events:none"
+    >
+      <div
+        class="ant-dropdown-arrow"
+      />
+      <ul
+        class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+        data-menu-list="true"
+        role="menu"
+        tabindex="0"
+      >
+        <li
+          class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+          role="menuitem"
+          tabindex="-1"
+        >
+          <span
+            class="ant-dropdown-menu-title-content"
+          >
+            <a
+              href="https://www.antgroup.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              1st menu item
+            </a>
+          </span>
+        </li>
+        <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
+        <li
+          class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+          role="menuitem"
+          tabindex="-1"
+        >
+          <span
+            class="ant-dropdown-menu-title-content"
+          >
+            <a
+              href="https://www.aliyun.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              2nd menu item
+            </a>
+          </span>
+        </li>
+        <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
+        <li
+          class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+          role="menuitem"
+          tabindex="-1"
+        >
+          <span
+            class="ant-dropdown-menu-title-content"
+          >
+            <a
+              href="https://www.luohanacademy.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              3rd menu item
+            </a>
+          </span>
+        </li>
+        <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
+      </ul>
+      <div
+        aria-hidden="true"
+        style="display:none"
+      >
+        <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
+        <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
+        <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <br />,
+  <button
+    class="ant-btn ant-btn-default ant-dropdown-trigger"
+    type="button"
+  >
+    <span>
+      topLeft
+    </span>
+  </button>,
+  <div>
+    <div
+      class="ant-dropdown ant-dropdown-show-arrow"
+      style="opacity:0;pointer-events:none"
+    >
+      <div
+        class="ant-dropdown-arrow"
+      />
+      <ul
+        class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+        data-menu-list="true"
+        role="menu"
+        tabindex="0"
+      >
+        <li
+          class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+          role="menuitem"
+          tabindex="-1"
+        >
+          <span
+            class="ant-dropdown-menu-title-content"
+          >
+            <a
+              href="https://www.antgroup.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              1st menu item
+            </a>
+          </span>
+        </li>
+        <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
+        <li
+          class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+          role="menuitem"
+          tabindex="-1"
+        >
+          <span
+            class="ant-dropdown-menu-title-content"
+          >
+            <a
+              href="https://www.aliyun.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              2nd menu item
+            </a>
+          </span>
+        </li>
+        <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
+        <li
+          class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+          role="menuitem"
+          tabindex="-1"
+        >
+          <span
+            class="ant-dropdown-menu-title-content"
+          >
+            <a
+              href="https://www.luohanacademy.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              3rd menu item
+            </a>
+          </span>
+        </li>
+        <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
+      </ul>
+      <div
+        aria-hidden="true"
+        style="display:none"
+      >
+        <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
+        <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
+        <div>
+          <div
+            class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+            style="opacity:0;pointer-events:none"
+          >
+            <div
+              class="ant-tooltip-content"
+            >
+              <div
+                class="ant-tooltip-arrow"
+              >
+                <span
+                  class="ant-tooltip-arrow-content"
+                />
+              </div>
+              <div
+                class="ant-tooltip-inner"
+                role="tooltip"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <button
+    class="ant-btn ant-btn-default ant-dropdown-trigger"
+    type="button"
+  >
+    <span>
+      top
     </span>
   </button>,
   <div>
@@ -5754,7 +7038,7 @@ exports[`renders ./components/dropdown/demo/placement.md extend context correctl
           type="button"
         >
           <span>
-            bottomCenter
+            bottom
           </span>
         </button>
         <div>
@@ -6408,7 +7692,7 @@ exports[`renders ./components/dropdown/demo/placement.md extend context correctl
           type="button"
         >
           <span>
-            topCenter
+            top
           </span>
         </button>
         <div>
