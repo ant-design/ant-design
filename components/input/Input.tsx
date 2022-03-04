@@ -196,6 +196,8 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     </>
   );
 
+  const withPrefixSuffix = hasPrefixSuffix(props) || hasFeedback;
+
   return (
     <RcInput
       ref={composeRef(ref, inputRef)}
@@ -207,13 +209,13 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       suffix={suffixNode}
       clearIcon={<CloseCircleFilled />}
       inputClassName={classNames(
-        {
+        !withPrefixSuffix && {
           [`${prefixCls}-sm`]: mergedSize === 'small',
           [`${prefixCls}-lg`]: mergedSize === 'large',
           [`${prefixCls}-rtl`]: direction === 'rtl',
           [`${prefixCls}-borderless`]: !bordered,
         },
-        getStatusClassNames(prefixCls, mergedStatus),
+        !withPrefixSuffix && getStatusClassNames(prefixCls, mergedStatus),
       )}
       affixWrapperClassName={classNames(
         {
