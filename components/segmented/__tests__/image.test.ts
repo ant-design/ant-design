@@ -1,5 +1,5 @@
 import { imageDemoTest } from '../../../tests/shared/imageTest';
 
 describe('Segmented image', () => {
-  imageDemoTest('back-top');
+  imageDemoTest('segmented');
 });

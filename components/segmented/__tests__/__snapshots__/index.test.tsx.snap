@@ -1,0 +1,464 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Segmented render empty segmented 1`] = `
+<div
+  class="ant-segmented"
+/>
+`;
+
+exports[`Segmented render label with ReactNode 1`] = `
+<div
+  class="ant-segmented"
+>
+  <label
+    class="ant-segmented-item ant-segmented-item-selected"
+  >
+    <input
+      checked=""
+      class="ant-segmented-item-input"
+      type="radio"
+    />
+    <span
+      class="ant-segmented-item-label"
+    >
+      Daily
+    </span>
+  </label>
+  <label
+    class="ant-segmented-item"
+  >
+    <input
+      class="ant-segmented-item-input"
+      type="radio"
+    />
+    <span
+      class="ant-segmented-item-label"
+    >
+      <div
+        id="weekly"
+      >
+        Weekly
+      </div>
+    </span>
+  </label>
+  <label
+    class="ant-segmented-item"
+  >
+    <input
+      class="ant-segmented-item-input"
+      type="radio"
+    />
+    <span
+      class="ant-segmented-item-label"
+    >
+      <h2>
+        Monthly
+      </h2>
+    </span>
+  </label>
+</div>
+`;
+
+exports[`Segmented render segmented ok 1`] = `
+<div
+  class="ant-segmented"
+>
+  <label
+    class="ant-segmented-item ant-segmented-item-selected"
+  >
+    <input
+      checked=""
+      class="ant-segmented-item-input"
+      type="radio"
+    />
+    <span
+      class="ant-segmented-item-label"
+    >
+      Daily
+    </span>
+  </label>
+  <label
+    class="ant-segmented-item"
+  >
+    <input
+      class="ant-segmented-item-input"
+      type="radio"
+    />
+    <span
+      class="ant-segmented-item-label"
+    >
+      Weekly
+    </span>
+  </label>
+  <label
+    class="ant-segmented-item"
+  >
+    <input
+      class="ant-segmented-item-input"
+      type="radio"
+    />
+    <span
+      class="ant-segmented-item-label"
+    >
+      Monthly
+    </span>
+  </label>
+</div>
+`;
+
+exports[`Segmented render segmented with CSSMotion 1`] = `
+<div
+  class="ant-segmented"
+>
+  <label
+    class="ant-segmented-item ant-segmented-item-selected"
+  >
+    <input
+      checked=""
+      class="ant-segmented-item-input"
+      type="radio"
+    />
+    <span
+      class="ant-segmented-item-label"
+    >
+      Map
+    </span>
+  </label>
+  <label
+    class="ant-segmented-item"
+  >
+    <input
+      class="ant-segmented-item-input"
+      type="radio"
+    />
+    <span
+      class="ant-segmented-item-label"
+    >
+      Transit
+    </span>
+  </label>
+  <label
+    class="ant-segmented-item"
+  >
+    <input
+      class="ant-segmented-item-input"
+      type="radio"
+    />
+    <span
+      class="ant-segmented-item-label"
+    >
+      Satellite
+    </span>
+  </label>
+</div>
+`;
+
+exports[`Segmented render segmented with mixed options 1`] = `
+<div
+  class="ant-segmented"
+>
+  <label
+    class="ant-segmented-item ant-segmented-item-selected"
+  >
+    <input
+      checked=""
+      class="ant-segmented-item-input"
+      type="radio"
+    />
+    <span
+      class="ant-segmented-item-label"
+    >
+      Daily
+    </span>
+  </label>
+  <label
+    class="ant-segmented-item"
+  >
+    <input
+      class="ant-segmented-item-input"
+      type="radio"
+    />
+    <span
+      class="ant-segmented-item-label"
+    >
+      Weekly
+    </span>
+  </label>
+  <label
+    class="ant-segmented-item"
+  >
+    <input
+      class="ant-segmented-item-input"
+      type="radio"
+    />
+    <span
+      class="ant-segmented-item-label"
+    >
+      Monthly
+    </span>
+  </label>
+</div>
+`;
+
+exports[`Segmented render segmented with numeric options 1`] = `
+<div
+  class="ant-segmented"
+>
+  <label
+    class="ant-segmented-item ant-segmented-item-selected"
+  >
+    <input
+      checked=""
+      class="ant-segmented-item-input"
+      type="radio"
+    />
+    <span
+      class="ant-segmented-item-label"
+    >
+      1
+    </span>
+  </label>
+  <label
+    class="ant-segmented-item"
+  >
+    <input
+      class="ant-segmented-item-input"
+      type="radio"
+    />
+    <span
+      class="ant-segmented-item-label"
+    >
+      2
+    </span>
+  </label>
+  <label
+    class="ant-segmented-item"
+  >
+    <input
+      class="ant-segmented-item-input"
+      type="radio"
+    />
+    <span
+      class="ant-segmented-item-label"
+    >
+      3
+    </span>
+  </label>
+  <label
+    class="ant-segmented-item"
+  >
+    <input
+      class="ant-segmented-item-input"
+      type="radio"
+    />
+    <span
+      class="ant-segmented-item-label"
+    >
+      4
+    </span>
+  </label>
+  <label
+    class="ant-segmented-item"
+  >
+    <input
+      class="ant-segmented-item-input"
+      type="radio"
+    />
+    <span
+      class="ant-segmented-item-label"
+    >
+      5
+    </span>
+  </label>
+</div>
+`;
+
+exports[`Segmented render segmented with options null/undefined 1`] = `
+<div
+  class="ant-segmented ant-segmented-disabled"
+>
+  <label
+    class="ant-segmented-item ant-segmented-item-selected"
+  >
+    <input
+      checked=""
+      class="ant-segmented-item-input"
+      type="radio"
+    />
+    <span
+      class="ant-segmented-item-label"
+    />
+  </label>
+  <label
+    class="ant-segmented-item ant-segmented-item-selected"
+  >
+    <input
+      checked=""
+      class="ant-segmented-item-input"
+      type="radio"
+    />
+    <span
+      class="ant-segmented-item-label"
+    />
+  </label>
+  <label
+    class="ant-segmented-item"
+  >
+    <input
+      class="ant-segmented-item-input"
+      type="radio"
+    />
+    <span
+      class="ant-segmented-item-label"
+    />
+  </label>
+</div>
+`;
+
+exports[`Segmented render segmented with options: disabled 1`] = `
+<div
+  class="ant-segmented"
+>
+  <label
+    class="ant-segmented-item ant-segmented-item-selected"
+  >
+    <input
+      checked=""
+      class="ant-segmented-item-input"
+      type="radio"
+    />
+    <span
+      class="ant-segmented-item-label"
+    >
+      Daily
+    </span>
+  </label>
+  <label
+    class="ant-segmented-item ant-segmented-item-disabled"
+  >
+    <input
+      class="ant-segmented-item-input"
+      disabled=""
+      type="radio"
+    />
+    <span
+      class="ant-segmented-item-label"
+    >
+      Weekly
+    </span>
+  </label>
+  <label
+    class="ant-segmented-item"
+  >
+    <input
+      class="ant-segmented-item-input"
+      type="radio"
+    />
+    <span
+      class="ant-segmented-item-label"
+    >
+      Monthly
+    </span>
+  </label>
+</div>
+`;
+
+exports[`Segmented render segmented with string options 1`] = `
+<div
+  class="ant-segmented"
+>
+  <label
+    class="ant-segmented-item ant-segmented-item-selected"
+  >
+    <input
+      checked=""
+      class="ant-segmented-item-input"
+      type="radio"
+    />
+    <span
+      class="ant-segmented-item-label"
+    >
+      Daily
+    </span>
+  </label>
+  <label
+    class="ant-segmented-item"
+  >
+    <input
+      class="ant-segmented-item-input"
+      type="radio"
+    />
+    <span
+      class="ant-segmented-item-label"
+    >
+      Weekly
+    </span>
+  </label>
+  <label
+    class="ant-segmented-item"
+  >
+    <input
+      class="ant-segmented-item-input"
+      type="radio"
+    />
+    <span
+      class="ant-segmented-item-label"
+    >
+      Monthly
+    </span>
+  </label>
+</div>
+`;
+
+exports[`Segmented render segmented: disabled 1`] = `
+<div
+  class="ant-segmented ant-segmented-disabled"
+>
+  <label
+    class="ant-segmented-item ant-segmented-item-selected"
+  >
+    <input
+      checked=""
+      class="ant-segmented-item-input"
+      type="radio"
+    />
+    <span
+      class="ant-segmented-item-label"
+    >
+      Daily
+    </span>
+  </label>
+  <label
+    class="ant-segmented-item"
+  >
+    <input
+      class="ant-segmented-item-input"
+      type="radio"
+    />
+    <span
+      class="ant-segmented-item-label"
+    >
+      Weekly
+    </span>
+  </label>
+  <label
+    class="ant-segmented-item"
+  >
+    <input
+      class="ant-segmented-item-input"
+      type="radio"
+    />
+    <span
+      class="ant-segmented-item-label"
+    >
+      Monthly
+    </span>
+  </label>
+</div>
+`;
+
+exports[`Segmented rtl render component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-segmented ant-segmented-rtl"
+/>
+`;

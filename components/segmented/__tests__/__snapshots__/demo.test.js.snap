@@ -1,47 +1,647 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders ./components/back-top/demo/basic.md correctly 1`] = `
+exports[`renders ./components/segmented/demo/basic.md correctly 1`] = `
 Array [
   <div
-    class="ant-back-top"
-  />,
-  "Scroll down to see the bottom-right",
-  <strong
-    class="site-back-top-basic"
+    class="ant-segmented"
   >
-     gray 
-  </strong>,
-  "button.",
+    <label
+      class="ant-segmented-item ant-segmented-item-selected"
+    >
+      <input
+        checked=""
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <span
+        class="ant-segmented-item-label"
+      >
+        Map
+      </span>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <span
+        class="ant-segmented-item-label"
+      >
+        Transit
+      </span>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <span
+        class="ant-segmented-item-label"
+      >
+        Satellite
+      </span>
+    </label>
+  </div>,
+  <br />,
+  <div
+    class="ant-segmented"
+  >
+    <label
+      class="ant-segmented-item ant-segmented-item-selected"
+    >
+      <input
+        checked=""
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <span
+        class="ant-segmented-item-label"
+      >
+        Daily
+      </span>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <span
+        class="ant-segmented-item-label"
+      >
+        Weekly
+      </span>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <span
+        class="ant-segmented-item-label"
+      >
+        Monthly
+      </span>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <span
+        class="ant-segmented-item-label"
+      >
+        Quarterly
+      </span>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <span
+        class="ant-segmented-item-label"
+      >
+        Yearly
+      </span>
+    </label>
+  </div>,
+  <br />,
+  <div
+    class="ant-segmented"
+  >
+    <label
+      class="ant-segmented-item ant-segmented-item-selected"
+    >
+      <input
+        checked=""
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <span
+        class="ant-segmented-item-label"
+      >
+        First
+      </span>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <span
+        class="ant-segmented-item-label"
+      >
+        Second
+      </span>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <span
+        class="ant-segmented-item-label"
+      >
+        Third
+      </span>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <span
+        class="ant-segmented-item-label"
+      >
+        Fourth
+      </span>
+    </label>
+  </div>,
+  <br />,
+  <div
+    class="ant-segmented"
+  >
+    <label
+      class="ant-segmented-item ant-segmented-item-selected"
+    >
+      <input
+        checked=""
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <span
+        class="ant-segmented-item-label"
+      >
+        123
+      </span>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <span
+        class="ant-segmented-item-label"
+      >
+        456
+      </span>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <span
+        class="ant-segmented-item-label"
+      >
+        789
+      </span>
+    </label>
+  </div>,
+  <br />,
+  <div
+    class="ant-segmented"
+  >
+    <label
+      class="ant-segmented-item ant-segmented-item-selected"
+    >
+      <input
+        checked=""
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <span
+        class="ant-segmented-item-label"
+      >
+        List
+      </span>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <span
+        class="ant-segmented-item-label"
+      >
+        Kanban
+      </span>
+    </label>
+  </div>,
 ]
 `;
 
-exports[`renders ./components/back-top/demo/custom.md correctly 1`] = `
+exports[`renders ./components/segmented/demo/controlled.md correctly 1`] = `
 <div
-  style="height:600vh;padding:8px"
+  class="ant-segmented"
 >
-  <div>
-    Scroll to bottom
-  </div>
-  <div>
-    Scroll to bottom
-  </div>
-  <div>
-    Scroll to bottom
-  </div>
-  <div>
-    Scroll to bottom
-  </div>
-  <div>
-    Scroll to bottom
-  </div>
-  <div>
-    Scroll to bottom
-  </div>
-  <div>
-    Scroll to bottom
-  </div>
+  <label
+    class="ant-segmented-item ant-segmented-item-selected"
+  >
+    <input
+      checked=""
+      class="ant-segmented-item-input"
+      type="radio"
+    />
+    <span
+      class="ant-segmented-item-label"
+    >
+      Map
+    </span>
+  </label>
+  <label
+    class="ant-segmented-item"
+  >
+    <input
+      class="ant-segmented-item-input"
+      type="radio"
+    />
+    <span
+      class="ant-segmented-item-label"
+    >
+      Transit
+    </span>
+  </label>
+  <label
+    class="ant-segmented-item"
+  >
+    <input
+      class="ant-segmented-item-input"
+      type="radio"
+    />
+    <span
+      class="ant-segmented-item-label"
+    >
+      Satellite
+    </span>
+  </label>
+</div>
+`;
+
+exports[`renders ./components/segmented/demo/custom.md correctly 1`] = `
+<div
+  class="ant-segmented"
+>
+  <label
+    class="ant-segmented-item ant-segmented-item-selected"
+  >
+    <input
+      checked=""
+      class="ant-segmented-item-input"
+      type="radio"
+    />
+    <span
+      class="ant-segmented-item-label"
+    >
+      <div>
+        Spring
+      </div>
+      <div>
+        Jan-Mar
+      </div>
+    </span>
+  </label>
+  <label
+    class="ant-segmented-item"
+  >
+    <input
+      class="ant-segmented-item-input"
+      type="radio"
+    />
+    <span
+      class="ant-segmented-item-label"
+    >
+      <div>
+        Summer
+      </div>
+      <div>
+        Apr-Jun
+      </div>
+    </span>
+  </label>
+  <label
+    class="ant-segmented-item"
+  >
+    <input
+      class="ant-segmented-item-input"
+      type="radio"
+    />
+    <span
+      class="ant-segmented-item-label"
+    >
+      <div>
+        Autumn
+      </div>
+      <div>
+        Jul-Sept
+      </div>
+    </span>
+  </label>
+  <label
+    class="ant-segmented-item"
+  >
+    <input
+      class="ant-segmented-item-input"
+      type="radio"
+    />
+    <span
+      class="ant-segmented-item-label"
+    >
+      <div>
+        Winter
+      </div>
+      <div>
+        Oct-Dec
+      </div>
+    </span>
+  </label>
+</div>
+`;
+
+exports[`renders ./components/segmented/demo/disabled.md correctly 1`] = `
+Array [
   <div
-    class="ant-back-top"
-  />
+    class="ant-segmented ant-segmented-disabled"
+  >
+    <label
+      class="ant-segmented-item ant-segmented-item-selected"
+    >
+      <input
+        checked=""
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <span
+        class="ant-segmented-item-label"
+      >
+        Map
+      </span>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <span
+        class="ant-segmented-item-label"
+      >
+        Transit
+      </span>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <span
+        class="ant-segmented-item-label"
+      >
+        Satellite
+      </span>
+    </label>
+  </div>,
+  <br />,
+  <div
+    class="ant-segmented"
+  >
+    <label
+      class="ant-segmented-item ant-segmented-item-selected"
+    >
+      <input
+        checked=""
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <span
+        class="ant-segmented-item-label"
+      >
+        Daily
+      </span>
+    </label>
+    <label
+      class="ant-segmented-item ant-segmented-item-disabled"
+    >
+      <input
+        class="ant-segmented-item-input"
+        disabled=""
+        type="radio"
+      />
+      <span
+        class="ant-segmented-item-label"
+      >
+        Weekly
+      </span>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <span
+        class="ant-segmented-item-label"
+      >
+        Monthly
+      </span>
+    </label>
+    <label
+      class="ant-segmented-item ant-segmented-item-disabled"
+    >
+      <input
+        class="ant-segmented-item-input"
+        disabled=""
+        type="radio"
+      />
+      <span
+        class="ant-segmented-item-label"
+      >
+        Quarterly
+      </span>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <span
+        class="ant-segmented-item-label"
+      >
+        Yearly
+      </span>
+    </label>
+  </div>,
+]
+`;
+
+exports[`renders ./components/segmented/demo/dynamic.md correctly 1`] = `
+Array [
+  <div
+    class="ant-segmented"
+  >
+    <label
+      class="ant-segmented-item ant-segmented-item-selected"
+    >
+      <input
+        checked=""
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <span
+        class="ant-segmented-item-label"
+      >
+        Daily
+      </span>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <span
+        class="ant-segmented-item-label"
+      >
+        Weekly
+      </span>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <span
+        class="ant-segmented-item-label"
+      >
+        Monthly
+      </span>
+    </label>
+  </div>,
+  <br />,
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
+  >
+    <span>
+      Load more options
+    </span>
+  </button>,
+]
+`;
+
+exports[`renders ./components/segmented/demo/with-icon.md correctly 1`] = `
+<div
+  class="ant-segmented"
+>
+  <label
+    class="ant-segmented-item ant-segmented-item-selected"
+  >
+    <input
+      checked=""
+      class="ant-segmented-item-input"
+      type="radio"
+    />
+    <span
+      class="ant-segmented-item-label"
+    >
+      <span
+        class="ant-segmented-item-icon"
+      >
+        <span
+          aria-label="bars"
+          class="anticon anticon-bars"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="bars"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M912 192H328c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h584c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 284H328c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h584c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 284H328c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h584c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM104 228a56 56 0 10112 0 56 56 0 10-112 0zm0 284a56 56 0 10112 0 56 56 0 10-112 0zm0 284a56 56 0 10112 0 56 56 0 10-112 0z"
+            />
+          </svg>
+        </span>
+      </span>
+      <span>
+        List
+      </span>
+    </span>
+  </label>
+  <label
+    class="ant-segmented-item"
+  >
+    <input
+      class="ant-segmented-item-input"
+      type="radio"
+    />
+    <span
+      class="ant-segmented-item-label"
+    >
+      <span
+        class="ant-segmented-item-icon"
+      >
+        <span
+          aria-label="appstore"
+          class="anticon anticon-appstore"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="appstore"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M464 144H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H212V212h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H612V212h200v200zM464 544H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H212V612h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H612V612h200v200z"
+            />
+          </svg>
+        </span>
+      </span>
+      <span>
+        Kanban
+      </span>
+    </span>
+  </label>
 </div>
 `;
