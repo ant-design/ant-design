@@ -13,10 +13,10 @@
   align-items: stretch;
   justify-items: flex-start;
 
-  background-color: rgba(0, 0, 0, 0.04);
+  background-color: @segmented-bg;
 
   border-radius: 2px;
-  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 0 0 2px @segmented-bg;
 
   &-item {
     position: relative;
@@ -27,12 +27,12 @@
 
     &-selected {
       .segmented-item-selected();
-      color: #262626;
+      color: @segmented-label-color;
     }
 
     &:hover,
     &:focus {
-      color: #262626;
+      color: @segmented-label-color;
     }
 
     &-disabled {

@@ -9,9 +9,9 @@
 }
 
 .segmented-item-selected() {
-  background-color: white;
-  box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.05), 0 1px 4px -1px rgba(25, 15, 15, 0.07),
-    0 0 1px 0 rgba(0, 0, 0, 0.08);
+  background-color: @segmented-selected-bg;
+  box-shadow: 0 2px 8px -2px fade(@black, 5%), 0 1px 4px -1px fade(@black, 7%),
+    0 0 1px 0 fade(@black, 8%);
 }
 
 .segmented-text-ellipsis {
