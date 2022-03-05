@@ -7,51 +7,33 @@ title:
 
 ## zh-CN
 
-动态加载数据.
+动态加载数据。
 
 ## en-US
 
-Load options dynamically.
+Load `options` dynamically.
 
-```jsx
-import { useState } from 'react';
+```tsx
+import React, { useState } from 'react';
 import { Segmented, Button } from 'antd';
 
-const defaultOptions1 = ['iOS', 'Android', 'Web'];
-const defaultOptions2 = [
-  { label: 'iOS', value: 'iOS' },
-  { label: 'Android', value: 'Android' },
-  'Web',
-];
+const defaultOptions = ['Daily', 'Weekly', 'Monthly'];
 
 const Demo: React.FC = () => {
-  const [options1, setOptions1] = useState(defaultOptions1);
-  const [options2, setOptions2] = useState(defaultOptions2);
+  const [options, setOptions] = useState(defaultOptions);
+  const [moreLoaded, setMoreLoaded] = useState(false);
 
-  const handleLoadOptions1 = () => {
-    setOptions1(r => r.concat('Electron', 'Mini App'));
-  };
-
-  const handleLoadOptions2 = () => {
-    setOptions2([
-      { label: 'Electron', value: 'Electron' },
-      'Mini App',
-      ...defaultOptions2.reverse(),
-    ]);
+  const handleLoadOptions = () => {
+    setOptions([...defaultOptions, 'Quarterly', 'Yearly']);
+    setMoreLoaded(true);
   };
 
   return (
     <div>
-      <Segmented options={options1} />
+      <Segmented options={options} />
       <br />
-      <Button type="primary" onClick={handleLoadOptions1} style={{ marginBottom: 10 }}>
-        load option now
-      </Button>
-      <br />
-      <Segmented options={options2} defaultValue="Android" />
-      <br />
-      <Button type="primary" onClick={handleLoadOptions2}>
-        load option now
+      <Button type="primary" disabled={moreLoaded} onClick={handleLoadOptions}>
+        Load more options
       </Button>
     </div>
   );

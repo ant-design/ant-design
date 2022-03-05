@@ -24,6 +24,8 @@ ReactDOM.render(
     <br />
     <Segmented options={['First', 'Second', 'Third', 'Fourth']} />
     <br />
+    <Segmented options={[123, 456, 789]} />
+    <br />
     <Segmented options={['List', 'Kanban']} />
   </>,
   mountNode,

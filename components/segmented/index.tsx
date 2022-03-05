@@ -15,3 +15,5 @@ const Segmented = React.forwardRef<HTMLDivElement, RCSegmentedProps>((props, ref
 Segmented.defaultProps = {};
 
 export default Segmented;
+
+export type { SegmentedValue } from 'rc-segmented';

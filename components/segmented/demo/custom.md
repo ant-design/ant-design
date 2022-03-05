@@ -23,38 +23,38 @@ ReactDOM.render(
         {
           label: (
             <>
-              <div>1st Quarter</div>
-              <div>2022.01~03</div>
+              <div>Spring</div>
+              <div>Jan-Mar</div>
             </>
           ),
-          value: 'q1',
+          value: 'spring',
         },
         {
           label: (
             <>
-              <div>2nd Quarter</div>
-              <div>2022.04~06</div>
+              <div>Summer</div>
+              <div>Apr-Jun</div>
             </>
           ),
-          value: 'q2',
+          value: 'summer',
         },
         {
           label: (
             <>
-              <div>3rd Quarter</div>
-              <div>2022.07~09</div>
+              <div>Autumn</div>
+              <div>Jul-Sept</div>
             </>
           ),
-          value: 'q3',
+          value: 'autumn',
         },
         {
           label: (
             <>
-              <div>4th Quarter</div>
-              <div>2022.10~12</div>
+              <div>Winter</div>
+              <div>Oct-Dec</div>
             </>
           ),
-          value: 'q4',
+          value: 'winter',
         },
       ]}
     />
