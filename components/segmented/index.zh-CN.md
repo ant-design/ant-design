@@ -1,6 +1,6 @@
 ---
 category: Components
-subtitle: Segmented
+subtitle: 分段控制器
 type: 数据展示
 title: Segmented
 cover: https://gw.alipayobjects.com/zos/alicdn/tX6-md4H6/Affix.svg

@@ -1,17 +1,17 @@
 ---
 order: 1
 title:
-  zh-CN: 自定义样式
-  en-US: Custom style
+  zh-CN: 自定义渲染
+  en-US: Custom Render
 ---
 
 ## zh-CN
 
-可以自定义回到顶部按钮的样式，限制宽高：`40px * 40px`。
+使用 ReactNode 自定义渲染每一个 Segmented Item。
 
 ## en-US
 
-You can customize the style of the button, just note the size limit: no more than `40px * 40px`.
+Custom each Segmented Item by ReactNode.
 
 ```jsx
 import { Segmented } from 'antd';
@@ -22,13 +22,39 @@ ReactDOM.render(
       options={[
         {
           label: (
-            <div>
-              第一季度
-              <br />
-              2022.01~03
-            </div>
+            <>
+              <div>1st Quarter</div>
+              <div>2022.01~03</div>
+            </>
           ),
-          value: 'hello',
+          value: 'q1',
+        },
+        {
+          label: (
+            <>
+              <div>2nd Quarter</div>
+              <div>2022.04~06</div>
+            </>
+          ),
+          value: 'q2',
+        },
+        {
+          label: (
+            <>
+              <div>3rd Quarter</div>
+              <div>2022.07~09</div>
+            </>
+          ),
+          value: 'q3',
+        },
+        {
+          label: (
+            <>
+              <div>4th Quarter</div>
+              <div>2022.10~12</div>
+            </>
+          ),
+          value: 'q4',
         },
       ]}
     />
