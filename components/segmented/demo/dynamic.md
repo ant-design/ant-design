@@ -29,13 +29,13 @@ const Demo: React.FC = () => {
   };
 
   return (
-    <div>
+    <>
       <Segmented options={options} />
       <br />
       <Button type="primary" disabled={moreLoaded} onClick={handleLoadOptions}>
         Load more options
       </Button>
-    </div>
+    </>
   );
 };
 

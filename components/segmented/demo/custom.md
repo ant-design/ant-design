@@ -17,48 +17,46 @@ Custom each Segmented Item by ReactNode.
 import { Segmented } from 'antd';
 
 ReactDOM.render(
-  <div>
-    <Segmented
-      options={[
-        {
-          label: (
-            <>
-              <div>Spring</div>
-              <div>Jan-Mar</div>
-            </>
-          ),
-          value: 'spring',
-        },
-        {
-          label: (
-            <>
-              <div>Summer</div>
-              <div>Apr-Jun</div>
-            </>
-          ),
-          value: 'summer',
-        },
-        {
-          label: (
-            <>
-              <div>Autumn</div>
-              <div>Jul-Sept</div>
-            </>
-          ),
-          value: 'autumn',
-        },
-        {
-          label: (
-            <>
-              <div>Winter</div>
-              <div>Oct-Dec</div>
-            </>
-          ),
-          value: 'winter',
-        },
-      ]}
-    />
-  </div>,
+  <Segmented
+    options={[
+      {
+        label: (
+          <>
+            <div>Spring</div>
+            <div>Jan-Mar</div>
+          </>
+        ),
+        value: 'spring',
+      },
+      {
+        label: (
+          <>
+            <div>Summer</div>
+            <div>Apr-Jun</div>
+          </>
+        ),
+        value: 'summer',
+      },
+      {
+        label: (
+          <>
+            <div>Autumn</div>
+            <div>Jul-Sept</div>
+          </>
+        ),
+        value: 'autumn',
+      },
+      {
+        label: (
+          <>
+            <div>Winter</div>
+            <div>Oct-Dec</div>
+          </>
+        ),
+        value: 'winter',
+      },
+    ]}
+  />,
   mountNode,
 );
 ```
