@@ -1,40 +1,35 @@
 ---
 order: 0
 title:
-  zh-CN: 基本
-  en-US: Basic
+  zh-CN: 设置图标
+  en-US: With Icon
 ---
 
 ## zh-CN
 
-最简单的用法。
+给 Segmented Item 设置 Icon。
 
 ## en-US
 
-The most basic usage.
+Set `icon` for Segmented Item.
 
 ```jsx
 import { Segmented } from 'antd';
+import { AppstoreOutlined, BarsOutlined } from '@ant-design/icons';
 
 ReactDOM.render(
   <>
-    <Segmented options={['Map', 'Transit', 'Satellite']} />
-    <br />
-    <Segmented options={['Daily', 'Weekly', 'Monthly', 'Quarterly', 'Yearly']} />
-    <br />
-    <Segmented options={['First', 'Second', 'Third', 'Fourth']} />
-    <br />
-    <Segmented options={[123, 456, 789]} />
-    <br />
     <Segmented
       options={[
         {
           label: 'List',
           value: 'List',
+          icon: <BarsOutlined />,
         },
         {
           label: 'Kanban',
           value: 'Kanban',
+          icon: <AppstoreOutlined />,
         },
       ]}
     />

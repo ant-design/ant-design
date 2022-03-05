@@ -51,9 +51,3 @@ ReactDOM.render(<Demo />, mountNode);
   margin-bottom: 10px;
 }
 ```
-
-<style>
-[data-theme="dark"] .site-back-top-basic {
-  color: rgba(255,255,255,.45);
-}
-</style>
