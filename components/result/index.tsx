@@ -12,6 +12,8 @@ import noFound from './noFound';
 import serverError from './serverError';
 import unauthorized from './unauthorized';
 
+import useStyle from './style';
+
 export const IconMap = {
   success: CheckCircleFilled,
   error: CloseCircleFilled,
@@ -92,20 +94,29 @@ const Result: ResultType = ({
   icon,
   extra,
 }) => {
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, iconPrefixCls } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('result', customizePrefixCls);
-  const className = classNames(prefixCls, `${prefixCls}-${status}`, customizeClassName, {
-    [`${prefixCls}-rtl`]: direction === 'rtl',
-  });
-  return (
+
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls);
+
+  const className = classNames(
+    prefixCls,
+    `${prefixCls}-${status}`,
+    customizeClassName,
+    { [`${prefixCls}-rtl`]: direction === 'rtl' },
+    hashId,
+  );
+
+  return wrapSSR(
     <div className={className} style={style}>
       {renderIcon(prefixCls, { status, icon })}
       <div className={`${prefixCls}-title`}>{title}</div>
       {subTitle && <div className={`${prefixCls}-subtitle`}>{subTitle}</div>}
       {renderExtra(prefixCls, { extra })}
       {children && <div className={`${prefixCls}-content`}>{children}</div>}
-    </div>
+    </div>,
   );
 };
 

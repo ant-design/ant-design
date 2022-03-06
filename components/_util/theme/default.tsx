@@ -37,7 +37,12 @@ const defaultDesignToken: DesignToken = {
   padding: 16,
   margin: 16,
 
+  // Default grey background color
   background: new TinyColor({ h: 0, s: 0, v: 96 }).toHexString(),
+
+  // background of header and selected item
+  backgroundLight: new TinyColor({ h: 0, s: 0, v: 98 }).toHexString(),
+
   componentBackground: '#fff',
   componentBackgroundDisabled: new TinyColor({ h: 0, s: 0, v: 96 }).toHexString(),
 
