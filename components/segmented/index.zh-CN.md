@@ -6,17 +6,21 @@ title: Segmented
 cover: https://gw.alipayobjects.com/zos/alicdn/tX6-md4H6/Affix.svg
 ---
 
-返回页面顶部的操作按钮。
+分段控制器。
 
 ## 何时使用
 
-- 当页面内容区域比较长时；
-- 当用户需要频繁返回顶部查看相关内容时。
+- 用于展示多个选项并允许用户选择其中单个选项；
+- 当切换选中选项时，关联区域的内容会发生变化。
 
 ## API
 
+### Segmented
+
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| options | 数据化配置选项内容 | string\[] \| number\[] \| { title, value, disabled, className? }\[] | - |  |
-| defaultValue | 默认的选中项 | string \| number |  |  |
+| options | 数据化配置选项内容 | string\[] \| number\[] \| Array<{ label: string value: string disabled?: boolean className?: string }> | [] |  |
+| defaultValue | 默认选中的值 | string \| number |  |  |
+| value | 当前选中的值 | string \| number |  |  |
+| onChange | 选项变化时的回调函数 | function(e:Event) |  |  |
 | disabled | 是否禁用 | boolean | false |  |

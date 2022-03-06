@@ -5,22 +5,19 @@ title: Segmented
 cover: https://gw.alipayobjects.com/zos/alicdn/tX6-md4H6/Affix.svg
 ---
 
-`Segmented` makes it easy to go back to the top of the page.
+Segmented Controls.
 
 ## When To Use
 
-- When the page content is very long.
-- When you need to go back to the top very frequently in order to view the contents.
+- When displaying multiple options and user can select a single option;
+- When switching the selected option, the content of the associated area changes.
 
 ## API
 
-> The distance to the bottom is set to `50px` by default, which is overridable.
->
-> If you decide to use custom styles, please note the size limit: no more than `40px * 40px`.
-
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| duration | Time to return to top（ms） | number | 450 | 4.4.0 |
-| target | Specifies the scrollable area dom node | () => HTMLElement | () => window |  |
-| visibilityHeight | The Segmented button will not show until the scroll height reaches this value | number | 400 |  |
-| onClick | A callback function, which can be executed when you click the button | function | - |  |
+| options | Set children optional | string\[] \| number\[] \| Array<{ label: string value: string disabled?: boolean className?: string }> | [] |  |
+| defaultValue | Default selected value | string \| number |  |  |
+| value | Currently selected value | string \| number |  |  |
+| onChange | The callback function that is triggered when the state changes | function(e:Event) |  |  |
+| disabled | Disable all segments | boolean | false |  |
