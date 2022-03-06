@@ -10,7 +10,7 @@ jobs:
     if: github.event.ref_type == 'tag' && (contains(github.event.ref, '-') == false)
     steps:
       - name: checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: cache package-lock.json
         uses: actions/cache@v2
@@ -43,7 +43,7 @@ jobs:
     needs: setup
     steps:
       - name: checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: restore cache from package-lock.json
         uses: actions/cache@v2
