@@ -22,8 +22,9 @@ timeline: true
 - Input
   - 🛠 Refactor Input with rc-input. [#34206](https://github.com/ant-design/ant-design/pull/34206)
   - 🆕 Support `clearIcon` prop for customizing clear icon. [#34325](https://github.com/ant-design/ant-design/pull/34325)
-- 🆕 Table `filterSearch` supports custom search function. [#34085](https://github.com/ant-design/ant-design/pull/34085) [@heiyu4585](https://github.com/heiyu4585)
-- 🆕 Table `FilterDropdown` support `clearFilters({ confirm: false, closeDropdown: false })`. [#34120](https://github.com/ant-design/ant-design/pull/34120) [@heiyu4585](https://github.com/heiyu4585)
+- Table
+  - 🆕 Add `filterSearch` to support custom search function. [#34085](https://github.com/ant-design/ant-design/pull/34085) [@heiyu4585](https://github.com/heiyu4585)
+  - 🆕 `FilterDropdown` support `clearFilters({ confirm: false, closeDropdown: false })`. [#34120](https://github.com/ant-design/ant-design/pull/34120) [@heiyu4585](https://github.com/heiyu4585)
 - 🆕 Data entry components support custom status.
   - Transfer [#34098](https://github.com/ant-design/ant-design/pull/34098)
   - AutoComplete [#34096](https://github.com/ant-design/ant-design/pull/34096)

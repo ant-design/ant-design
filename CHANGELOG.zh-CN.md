@@ -22,8 +22,9 @@ timeline: true
 - Input
   - 🛠 引入 rc-input 重构 Input 组件为 FunctionComponent。[#34206](https://github.com/ant-design/ant-design/pull/34206)
   - 🆕 新增 `clearIcon` prop，支持自定义清除按钮。 [#34325](https://github.com/ant-design/ant-design/pull/34325)
-- 🆕 Table `filterSearch` 属性支持自定义搜索条件。[#34085](https://github.com/ant-design/ant-design/pull/34085) [@heiyu4585](https://github.com/heiyu4585)
-- 🆕 Table `FilterDropdown` 支持参数 `clearFilters(confirm: false, closeDropdown: false)` 控制筛选。[#34120](https://github.com/ant-design/ant-design/pull/34120) [@heiyu4585](https://github.com/heiyu4585)
+- Table
+  - 🆕 添加 `filterSearch` 属性支持自定义搜索条件。[#34085](https://github.com/ant-design/ant-design/pull/34085) [@heiyu4585](https://github.com/heiyu4585)
+  - 🆕 `FilterDropdown` 支持参数 `clearFilters(confirm: false, closeDropdown: false)` 控制筛选。[#34120](https://github.com/ant-design/ant-design/pull/34120) [@heiyu4585](https://github.com/heiyu4585)
 - 🆕 输入组件支持自定义状态。
   - Transfer [#34098](https://github.com/ant-design/ant-design/pull/34098)
   - AutoComplete [#34096](https://github.com/ant-design/ant-design/pull/34096)
