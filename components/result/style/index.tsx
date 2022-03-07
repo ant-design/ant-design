@@ -33,6 +33,7 @@ const genBaseStyle = (
 
   // Exception Status image
   [`${resultCls} ${resultCls}-image`]: {
+    // FIXME: hard code
     width: 250,
     height: 295,
     margin: 'auto',
@@ -50,6 +51,7 @@ const genBaseStyle = (
   [`${resultCls} ${resultCls}-title`]: {
     color: token.headingColor,
     fontSize: token.resultTitleFontSize,
+    // FIXME: hard code
     lineHeight: 1.8,
     textAlign: 'center',
   },
@@ -57,6 +59,7 @@ const genBaseStyle = (
   [`${resultCls} ${resultCls}-subtitle`]: {
     color: token.textColorSecondary,
     fontSize: token.resultSubtitleFontSize,
+    // FIXME: hard code
     lineHeight: 1.6,
     textAlign: 'center',
   },
@@ -124,9 +127,11 @@ export const genResultStyle = (
   const dotIconPrefixCls = `.${iconPrefixCls}`;
 
   // compact 20
+  // FIXME: maybe we need a new token for fontSize 12px
   const resultTitleFontSize = 24;
   const resultSubtitleFontSize = token.fontSize;
   // compact 64
+  // FIXME: maybe we need a new token for fontSize 12px
   const resultIconFontSize = 72;
   const resultExtraMargin = `${token.padding * 1.5}px 0 0 0`;
 
