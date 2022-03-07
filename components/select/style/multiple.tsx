@@ -2,6 +2,8 @@ import { CSSObject, CSSInterpolation } from '@ant-design/cssinjs';
 import type { SelectToken } from '.';
 import { resetIcon } from '../../_util/theme';
 
+const FIXED_ITEM_MARGIN = 2;
+
 function getSelectItemStyle({ controlHeightSM, controlHeight, borderWidth }: SelectToken) {
   const selectItemDist = (controlHeight - controlHeightSM) / 2 - borderWidth;
   const selectItemMargin = Math.ceil(selectItemDist / 2);
@@ -14,7 +16,8 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
   const selectOverflowPrefixCls = `${selectCls}-selection-overflow`;
 
   const selectItemHeight = token.controlHeightSM;
-  const [selectItemDist, selectItemMargin] = getSelectItemStyle(token);
+  const [selectItemDist] = getSelectItemStyle(token);
+  console.log('>>>>>>', token.controlHeight, token.controlHeightSM, selectItemDist);
 
   const suffixCls = suffix ? `${selectCls}-${suffix}` : '';
 
@@ -38,6 +41,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
           flex: 'none',
           alignSelf: 'center',
           maxWidth: '100%',
+          display: 'inline-flex',
         },
       },
 
@@ -47,7 +51,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         flexWrap: 'wrap',
         alignItems: 'center',
         // Multiple is little different that horizontal is follow the vertical
-        padding: `${selectItemDist - selectItemMargin}px ${selectItemMargin * 2}px`,
+        padding: `${selectItemDist - FIXED_ITEM_MARGIN}px ${FIXED_ITEM_MARGIN * 2}px`,
 
         [`${selectCls}-show-search&`]: {
           cursor: 'text',
@@ -61,7 +65,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         '&:after': {
           display: 'inline-block',
           width: 0,
-          margin: `${selectItemMargin}px 0`,
+          margin: `${FIXED_ITEM_MARGIN}px 0`,
           lineHeight: `${selectItemHeight}px`,
           content: '"\\a0"',
         },
@@ -82,8 +86,8 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         boxSizing: 'border-box',
         maxWidth: '100%',
         height: selectItemHeight,
-        marginTop: selectItemMargin,
-        marginBottom: selectItemMargin,
+        marginTop: FIXED_ITEM_MARGIN,
+        marginBottom: FIXED_ITEM_MARGIN,
         lineHeight: `${selectItemHeight - token.borderWidth * 2}px`,
         background: token.background,
         border: `${token.borderWidth}px solid ${token.borderColorSplit}`,
@@ -91,7 +95,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         cursor: 'default',
         transition: `font-size ${token.duration}, line-height ${token.duration}, height ${token.duration}`,
         userSelect: 'none',
-        marginInlineEnd: selectItemMargin * 2,
+        marginInlineEnd: FIXED_ITEM_MARGIN * 2,
         paddingInlineStart: token.paddingXS,
         paddingInlineEnd: token.paddingXS / 2,
 
@@ -138,6 +142,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
       },
 
       [`${selectCls}-selection-search`]: {
+        display: 'inline-flex',
         position: 'relative',
         maxWidth: '100%',
         // FIXME: no sure this style
