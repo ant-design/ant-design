@@ -24,10 +24,6 @@ export type SelectToken = DerivativeToken & {
   selectCls: string;
   iconPrefixCls: string;
   inputPaddingHorizontalBase: number;
-  left: string;
-  right: string;
-  /** Used for `selectCls-rtl` */
-  selectSuffixCls: string;
 };
 
 // ============================== mixins ==============================
@@ -116,11 +112,10 @@ const getSearchInputWithoutBorderStyle = (token: SelectToken): CSSObject => {
 
 // =============================== Base ===============================
 const genBaseStyle = (token: SelectToken): CSSObject => {
-  const { selectCls, selectSuffixCls, iconPrefixCls, inputPaddingHorizontalBase, left, right } =
-    token;
+  const { selectCls, iconPrefixCls, inputPaddingHorizontalBase } = token;
 
   return {
-    [`${selectCls}${selectSuffixCls}`]: {
+    [selectCls]: {
       ...resetComponent(token),
       position: 'relative',
       display: 'inline-block',
@@ -159,8 +154,8 @@ const genBaseStyle = (token: SelectToken): CSSObject => {
         ...resetIcon(),
         position: 'absolute',
         top: '50%',
-        [left]: 'auto',
-        [right]: inputPaddingHorizontalBase,
+        insetInlineStart: 'auto',
+        insetInlineEnd: inputPaddingHorizontalBase,
         width: token.fontSizeSM,
         height: token.fontSizeSM,
         marginTop: -token.fontSizeSM / 2,
@@ -192,8 +187,8 @@ const genBaseStyle = (token: SelectToken): CSSObject => {
       [`${selectCls}-clear`]: {
         position: 'absolute',
         top: '50%',
-        [left]: 'auto',
-        [right]: inputPaddingHorizontalBase,
+        insetInlineStart: 'auto',
+        insetInlineEnd: inputPaddingHorizontalBase,
         zIndex: 1,
         display: 'inline-block',
         width: token.fontSizeSM,
@@ -240,40 +235,14 @@ export const genSelectStyle = (
 
   const inputPaddingHorizontalBase = token.controlPaddingHorizontal - 1;
 
-  const selectToken = {
+  const selectToken: SelectToken = {
     ...token,
     rootPrefixCls,
     antCls,
     selectCls,
     iconPrefixCls,
     inputPaddingHorizontalBase,
-    left: 'left',
-    right: 'right',
-    selectSuffixCls: '',
   };
-
-  const selectRTLToken = {
-    ...selectToken,
-    left: 'right',
-    right: 'left',
-    selectSuffixCls: `${selectCls}-rtl`,
-  };
-
-  function genStyles(passedToken: SelectToken) {
-    return [
-      // Base
-      genBaseStyle(passedToken),
-
-      // Single
-      genSingleStyle(passedToken),
-
-      // Multiple
-      genMultipleStyle(passedToken),
-
-      // Dropdown
-      genDropdownStyle(passedToken, hashId),
-    ];
-  }
 
   return [
     // ==================== BorderLess ====================
@@ -290,7 +259,17 @@ export const genSelectStyle = (
     // =====================================================
     // ==                       LTR                       ==
     // =====================================================
-    genStyles(selectToken),
+    // Base
+    genBaseStyle(selectToken),
+
+    // Single
+    genSingleStyle(selectToken),
+
+    // Multiple
+    genMultipleStyle(selectToken),
+
+    // Dropdown
+    genDropdownStyle(selectToken, hashId),
 
     // =====================================================
     // ==                       RTL                       ==
@@ -300,7 +279,6 @@ export const genSelectStyle = (
         direction: 'rtl',
       },
     },
-    genStyles(selectRTLToken),
   ];
 };
 

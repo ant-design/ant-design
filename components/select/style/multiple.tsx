@@ -9,7 +9,7 @@ function getSelectItemStyle({ controlHeightSM, controlHeight, borderWidth }: Sel
 }
 
 function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
-  const { selectCls, selectSuffixCls, left, right, iconPrefixCls } = token;
+  const { selectCls, iconPrefixCls } = token;
 
   const selectOverflowPrefixCls = `${selectCls}-selection-overflow`;
 
@@ -19,7 +19,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
   const suffixCls = suffix ? `${selectCls}-${suffix}` : '';
 
   return {
-    [`${selectCls}-multiple${suffixCls}${selectSuffixCls}`]: {
+    [`${selectCls}-multiple${suffixCls}`]: {
       fontSize: token.fontSize,
 
       /**
@@ -161,8 +161,8 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         '&-mirror': {
           position: 'absolute',
           top: 0,
-          [left]: 0,
-          [right]: 'auto',
+          insetInlineStart: 0,
+          insetInlineEnd: 'auto',
           zIndex: 999,
           whiteSpace: 'pre', // fix whitespace wrapping caused width calculation bug
           visibility: 'hidden',
@@ -173,8 +173,8 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
       [`${selectCls}-selection-placeholder `]: {
         position: 'absolute',
         top: '50%',
-        [left]: token.inputPaddingHorizontalBase,
-        [right]: token.inputPaddingHorizontalBase,
+        insetInlineStart: token.inputPaddingHorizontalBase,
+        insetInlineEnd: token.inputPaddingHorizontalBase,
         transform: 'translateY(-50%)',
         transition: `all ${token.duration}`,
       },
@@ -183,7 +183,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
 }
 
 export default function genMultipleStyle(token: SelectToken): CSSInterpolation {
-  const { selectCls, selectSuffixCls, left, right } = token;
+  const { selectCls } = token;
 
   const smallToken: SelectToken = {
     ...token,
@@ -200,10 +200,10 @@ export default function genMultipleStyle(token: SelectToken): CSSInterpolation {
 
     // Padding
     {
-      [`${selectCls}-multiple${selectCls}-sm${selectSuffixCls}`]: {
+      [`${selectCls}-multiple${selectCls}-sm`]: {
         [`${selectCls}-selection-placeholder`]: {
-          [left]: token.controlPaddingHorizontalSM - token.borderWidth,
-          [right]: 'auto',
+          insetInlineStart: token.controlPaddingHorizontalSM - token.borderWidth,
+          insetInlineEnd: 'auto',
         },
 
         // https://github.com/ant-design/ant-design/issues/29559

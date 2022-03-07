@@ -2,7 +2,7 @@ import { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import type { SelectToken } from '.';
 
 function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
-  const { selectCls, selectSuffixCls, left, right, inputPaddingHorizontalBase } = token;
+  const { selectCls, inputPaddingHorizontalBase } = token;
 
   const selectHeightWithoutBorder = token.controlHeight - token.borderWidth * 2;
 
@@ -11,7 +11,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
   const suffixCls = suffix ? `${selectCls}-${suffix}` : '';
 
   return {
-    [`${selectCls}-single${suffixCls}${selectSuffixCls}`]: {
+    [`${selectCls}-single${suffixCls}`]: {
       fontSize: token.fontSize,
 
       // ========================= Selector =========================
@@ -20,8 +20,8 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         [`${selectCls}-selection-search`]: {
           position: 'absolute',
           top: 0,
-          [left]: inputPaddingHorizontalBase,
-          [right]: inputPaddingHorizontalBase,
+          left: inputPaddingHorizontalBase,
+          right: inputPaddingHorizontalBase,
           bottom: 0,
 
           '&-input': {
@@ -68,12 +68,6 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         },
       },
 
-      // With arrow should provides `padding-right` to show the arrow
-      [`&${selectCls}-show-arrow ${selectCls}-selection-search`]: {
-        [left]: 'auto',
-        [right]: inputPaddingHorizontalBase + token.fontSize,
-      },
-
       [`
         &${selectCls}-show-arrow ${selectCls}-selection-item,
         &${selectCls}-show-arrow ${selectCls}-selection-placeholder
@@ -118,8 +112,8 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
 
           [`${selectCls}-selection-placeholder`]: {
             position: 'absolute',
-            [left]: 0,
-            [right]: 0,
+            left: 0,
+            right: 0,
             padding: `0 ${inputPaddingHorizontalBase}px`,
 
             '&:after': {
@@ -133,7 +127,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
 }
 
 export default function genSingleStyle(token: SelectToken): CSSInterpolation {
-  const { selectCls, selectSuffixCls, left, right } = token;
+  const { selectCls } = token;
 
   const inputPaddingHorizontalSM = token.controlPaddingHorizontalSM - token.borderWidth;
 
@@ -152,11 +146,11 @@ export default function genSingleStyle(token: SelectToken): CSSInterpolation {
 
     // padding
     {
-      [`${selectCls}-single${selectCls}-sm${selectSuffixCls}`]: {
+      [`${selectCls}-single${selectCls}-sm`]: {
         [`&:not(${selectCls}-customize-input)`]: {
           [`${selectCls}-selection-search`]: {
-            [left]: inputPaddingHorizontalSM,
-            [right]: inputPaddingHorizontalSM,
+            left: inputPaddingHorizontalSM,
+            right: inputPaddingHorizontalSM,
           },
 
           [`${selectCls}-selector`]: {
@@ -165,8 +159,8 @@ export default function genSingleStyle(token: SelectToken): CSSInterpolation {
 
           // With arrow should provides `padding-right` to show the arrow
           [`&${selectCls}-show-arrow ${selectCls}-selection-search`]: {
-            [left]: 'auto',
-            [right]: inputPaddingHorizontalSM + token.fontSize * 1.5,
+            insetInlineStart: 'auto',
+            insetInlineEnd: inputPaddingHorizontalSM + token.fontSize * 1.5,
           },
 
           [`
