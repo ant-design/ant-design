@@ -36,13 +36,13 @@ const genActiveStyle = (
   borderColor: activeBorderColor,
   // FIXME: missing variable of `@input-outline-offset`
   boxShadow: `0 0 ${token.outlineBlurSize} ${token.outlineWidth} ${outlineColor}`,
-  borderRightWidth: `${token.borderWidth} !important`,
+  borderRightWidth: `${token.borderWidth}px !important`,
   outline: 0,
 });
 
 const genHoverStyle = (token: SelectToken): CSSObject => ({
   borderColor: token.primaryColor,
-  borderRightWidth: `${token.borderWidth} !important`,
+  borderRightWidth: `${token.borderWidth}px !important`,
 });
 
 // ============================= Selector =============================
@@ -154,6 +154,7 @@ const genBaseStyle = (token: SelectToken): CSSObject => {
         ...resetIcon(),
         position: 'absolute',
         top: '50%',
+        left: 'auto',
         right: inputPaddingHorizontalBase,
         width: token.fontSizeSM,
         height: token.fontSizeSM,
@@ -186,6 +187,7 @@ const genBaseStyle = (token: SelectToken): CSSObject => {
       [`${selectCls}-clear`]: {
         position: 'absolute',
         top: '50%',
+        left: 'auto',
         right: inputPaddingHorizontalBase,
         zIndex: 1,
         display: 'inline-block',
@@ -245,13 +247,13 @@ export const genSelectStyle = (
   return [
     genBaseStyle(selectToken),
 
-    // Single Select
+    // ====================== Single ======================
     genSingleStyle(selectToken),
 
-    // Multiple Select
+    // ===================== Multiple =====================
     genMultipleStyle(selectToken),
 
-    // Border-less
+    // ==================== BorderLess ====================
     {
       [selectCls]: {
         [`&-borderless ${selectCls}-selector`]: {
@@ -262,8 +264,15 @@ export const genSelectStyle = (
       },
     },
 
-    // Dropdown
+    // ===================== Dropdown =====================
     genDropdownStyle(selectToken, hashId),
+
+    // ======================= RTL ========================
+    {
+      [`${selectCls}-rtl`]: {
+        direction: 'rtl',
+      },
+    },
   ];
 };
 

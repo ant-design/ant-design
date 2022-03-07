@@ -2,15 +2,19 @@ import { CSSObject, CSSInterpolation } from '@ant-design/cssinjs';
 import type { SelectToken } from '.';
 import { resetIcon } from '../../_util/theme';
 
-function genSizeStyle(token: SelectToken, suffix?: string): CSSInterpolation {
+function getSelectItemStyle({ controlHeightSM, controlHeight, borderWidth }: SelectToken) {
+  const selectItemDist = (controlHeight - controlHeightSM) / 2 - borderWidth;
+  const selectItemMargin = Math.ceil(selectItemDist / 2);
+  return [selectItemDist, selectItemMargin];
+}
+
+function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
   const { selectCls, iconPrefixCls } = token;
 
   const selectOverflowPrefixCls = `${selectCls}-selection-overflow`;
 
   const selectItemHeight = token.controlHeightSM;
-  const selectItemDist = (token.controlHeight - selectItemHeight) / 2 - token.borderWidth;
-
-  const selectItemMargin = Math.ceil(selectItemDist / 2);
+  const [selectItemDist, selectItemMargin] = getSelectItemStyle(token);
 
   const suffixCls = suffix ? `${selectCls}-${suffix}` : '';
 
@@ -158,6 +162,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSInterpolation {
           position: 'absolute',
           top: 0,
           left: 0,
+          right: 'auto',
           zIndex: 999,
           whiteSpace: 'pre', // fix whitespace wrapping caused width calculation bug
           visibility: 'hidden',
@@ -168,8 +173,8 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSInterpolation {
       [`${selectCls}-selection-placeholder `]: {
         position: 'absolute',
         top: '50%',
-        right: token.inputPaddingHorizontalBase,
         left: token.inputPaddingHorizontalBase,
+        right: token.inputPaddingHorizontalBase,
         transform: 'translateY(-50%)',
         transition: `all ${token.duration}`,
       },
@@ -178,18 +183,38 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSInterpolation {
 }
 
 export default function genMultipleStyle(token: SelectToken): CSSInterpolation {
+  const { selectCls } = token;
+
+  const smallToken: SelectToken = {
+    ...token,
+    controlHeight: token.controlHeightSM,
+    controlHeightSM: token.controlHeightXS,
+  };
+  const [, smSelectItemMargin] = getSelectItemStyle(token);
+
   return [
     genSizeStyle(token),
     // ======================== Small ========================
-    genSizeStyle(
-      {
-        ...token,
-        controlHeight: token.controlHeightSM,
-        controlHeightSM: token.controlHeightXS,
+    // Shared
+    genSizeStyle(smallToken, 'sm'),
+
+    // Padding
+    {
+      [`${selectCls}-multiple${selectCls}-sm`]: {
+        [`${selectCls}-selection-placeholder`]: {
+          left: token.controlPaddingHorizontalSM - token.borderWidth,
+          right: 'auto',
+        },
+
+        // https://github.com/ant-design/ant-design/issues/29559
+        [`${selectCls}-selection-search`]: {
+          marginInlineStart: smSelectItemMargin,
+        },
       },
-      'sm',
-    ),
+    },
+
     // ======================== Large ========================
+    // Shared
     genSizeStyle(
       {
         ...token,

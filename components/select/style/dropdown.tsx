@@ -40,6 +40,7 @@ export default function genSingleStyle(token: SelectToken, hashId: string): CSSI
         position: 'absolute',
         top: -9999,
         left: -9999,
+        right: 'auto',
         zIndex: token.zIndexDropdown,
         boxSizing: 'border-box',
         padding: `${token.paddingXXS}px 0`,
