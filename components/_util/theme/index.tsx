@@ -107,6 +107,7 @@ export interface DerivativeToken extends Omit<DesignToken, 'duration'> {
   marginXS: number;
 
   duration: string;
+  durationMid: string;
   durationFast: string;
 
   // TMP
@@ -156,6 +157,7 @@ function derivative(designToken: DesignToken): DerivativeToken {
     marginXS: designToken.margin * 0.5,
 
     duration: `${designToken.duration}s`,
+    durationMid: `${designToken.duration / 3 * 2}s`,
     durationFast: `${designToken.duration / 3}s`,
   };
 }
