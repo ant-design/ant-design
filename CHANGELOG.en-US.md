@@ -17,9 +17,12 @@ timeline: true
 
 ## 4.19.0
 
-`2022-03-03`
+`2022-03-08`
 
 - 💄 Optimize arrow style for some components. [#33710](https://github.com/ant-design/ant-design/pull/33710)
+
+![image](https://user-images.githubusercontent.com/27722486/157088587-ca49cc29-bf25-42d1-8c14-020b5501c62e.png)
+
 - Input
   - 🛠 Refactor Input with rc-input. [#34206](https://github.com/ant-design/ant-design/pull/34206)
     - Attention: The type and value of `ref` is modified because of refactoring from class component to function component. You can still get DOM node from `input`, and other methods such as `focus` and `blur` mentioned in document are also supported.
@@ -39,6 +42,9 @@ timeline: true
   - Mentions [#34071](https://github.com/ant-design/ant-design/pull/34071)
   - InputNumber [#34042](https://github.com/ant-design/ant-design/pull/34042)
   - Input [#33995](https://github.com/ant-design/ant-design/pull/33995)
+
+![image](https://user-images.githubusercontent.com/27722486/157089015-f96b0153-2cc4-4e04-94d6-e0e4b195d5d1.png)
+
 - 🆕 InputNumber supports `controls={{ upIcon, downIcon }}` to customize icon up and down. [#33914](https://github.com/ant-design/ant-design/pull/33914) [@heiyu4585](https://github.com/heiyu4585)
 - 🆕 Notification `placement` support `top` / `bottom` [#33871](https://github.com/ant-design/ant-design/pull/33871) [@heiyu4585](https://github.com/heiyu4585)
 - 🆕 Select, Cascades, DatePicker now support `placement` property. [#33641](https://github.com/ant-design/ant-design/pull/33541) [@ONLY-yours](https://github.com/ONLY-yours)
