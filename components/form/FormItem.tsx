@@ -261,6 +261,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
           'colon',
           'extra',
           'fieldKey',
+          'requiredMark',
           'getValueFromEvent',
           'getValueProps',
           'htmlFor',
