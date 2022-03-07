@@ -42,6 +42,8 @@ export interface DesignToken {
   margin: number;
 
   background: string;
+  backgroundLight: string;
+
   componentBackground: string;
   componentBackgroundDisabled: string;
 
