@@ -509,4 +509,11 @@ describe('TextArea allowClear', () => {
     expect(document.activeElement).toBe(wrapper.find('textarea').at(0).getDOMNode());
     wrapper.unmount();
   });
+
+  it('should display boolean value as string', () => {
+    const wrapper = mount(<TextArea value />);
+    expect(wrapper.find('textarea').first().getDOMNode().value).toBe('true');
+    wrapper.setProps({ value: false });
+    expect(wrapper.find('textarea').first().getDOMNode().value).toBe('false');
+  });
 });
