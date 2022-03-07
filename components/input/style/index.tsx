@@ -89,19 +89,19 @@ const genStatusStyle = (prefixCls: string, theme: any, token: InputToken): CSSOb
   },
   '&-status-warning:not(&-disabled):not(&-borderless)&': {
     '&, &:hover': {
-      borderColor: token.tmpWarningColor,
+      borderColor: token.warningColor,
     },
 
     '&:focus, &-focused': {
       ...genActiveStyle(prefixCls, theme, {
         ...token,
-        inputBorderActiveColor: token.tmpWarningColor,
-        inputBorderHoverColor: token.tmpWarningColor,
+        inputBorderActiveColor: token.warningColor,
+        inputBorderHoverColor: token.warningColor,
       }),
     },
 
     [`.${prefixCls}-feedback-icon, .${prefixCls}-prefix`]: {
-      color: token.tmpWarningColor,
+      color: token.warningColor,
     },
   },
 });
@@ -614,7 +614,7 @@ const genAffixStyle = (prefixCls: string, theme: any, token: InputToken): CSSObj
   },
   '&-status-success': {
     [`.${prefixCls}-feedback-icon`]: {
-      color: token.tmpSuccessColor,
+      color: token.successColor,
       // FIXME: animationName
     },
   },
@@ -648,8 +648,8 @@ const genGroupStyle = (prefixCls: string, token: InputToken): CSSObject => ({
     },
     '&-status-warning': {
       [`.${prefixCls}-group-addon`]: {
-        color: token.tmpWarningColor,
-        borderColor: token.tmpWarningColor,
+        color: token.successColor,
+        borderColor: token.successColor,
       },
     },
   },
