@@ -24,7 +24,6 @@ export type SelectToken = DerivativeToken & {
   selectCls: string;
   iconPrefixCls: string;
   inputPaddingHorizontalBase: number;
-  selectHeightWithoutBorder: number;
 };
 
 // ============================== mixins ==============================
@@ -111,6 +110,116 @@ const getSearchInputWithoutBorderStyle = (token: SelectToken): CSSObject => {
   };
 };
 
+// =============================== Base ===============================
+const genBaseStyle = (token: SelectToken): CSSObject => {
+  const { selectCls, iconPrefixCls, inputPaddingHorizontalBase } = token;
+
+  return {
+    [selectCls]: {
+      ...resetComponent(token),
+      position: 'relative',
+      display: 'inline-block',
+      cursor: 'pointer',
+
+      [`&:not(&-customize-input) ${selectCls}-selector`]: {
+        ...genSelectorStyle(token),
+        ...getSearchInputWithoutBorderStyle(token),
+      },
+
+      [`&:not(&-disabled):hover ${selectCls}-selector`]: {
+        ...genHoverStyle(token),
+      },
+
+      // ======================== Selection ========================
+      [`${selectCls}-selection-item`]: {
+        flex: 1,
+        overflow: 'hidden',
+        fontWeight: 'normal',
+        whiteSpace: 'nowrap',
+        textOverflow: 'ellipsis',
+      },
+
+      // ======================= Placeholder =======================
+      [`${selectCls}-selection-placeholder`]: {
+        flex: 1,
+        overflow: 'hidden',
+        color: token.placeholderColor,
+        whiteSpace: 'nowrap',
+        textOverflow: 'ellipsis',
+        pointerEvents: 'none',
+      },
+
+      // ========================== Arrow ==========================
+      [`${selectCls}-arrow`]: {
+        ...resetIcon(),
+        position: 'absolute',
+        top: '50%',
+        right: inputPaddingHorizontalBase,
+        width: token.fontSizeSM,
+        height: token.fontSizeSM,
+        marginTop: -token.fontSizeSM / 2,
+        color: token.textColorDisabled,
+        fontSize: token.fontSizeSM,
+        lineHeight: 1,
+        textAlign: 'center',
+        pointerEvents: 'none',
+
+        [`.${iconPrefixCls}`]: {
+          verticalAlign: 'top',
+          transition: `transform ${token.duration}`,
+
+          '> svg': {
+            verticalAlign: 'top',
+          },
+
+          [`&:not(${selectCls}-suffix)`]: {
+            pointerEvents: 'auto',
+          },
+        },
+
+        [`${selectCls}-disabled &`]: {
+          cursor: 'not-allowed',
+        },
+      },
+
+      // ========================== Clear ==========================
+      [`${selectCls}-clear`]: {
+        position: 'absolute',
+        top: '50%',
+        right: inputPaddingHorizontalBase,
+        zIndex: 1,
+        display: 'inline-block',
+        width: token.fontSizeSM,
+        height: token.fontSizeSM,
+        marginTop: -token.fontSizeSM / 2,
+        color: token.textColorDisabled,
+        fontSize: token.fontSizeSM,
+        fontStyle: 'normal',
+        lineHeight: 1,
+        textAlign: 'center',
+        textTransform: 'none',
+        background: token.componentBackground,
+        cursor: 'pointer',
+        opacity: 0,
+        transition: `color ${token.duration} ease, opacity ${token.duration} ease`,
+        textRendering: 'auto',
+
+        '&:before': {
+          display: 'block',
+        },
+
+        '&:hover': {
+          color: token.textColorSecondary,
+        },
+
+        [`${selectCls}:hover &`]: {
+          opacity: 1,
+        },
+      },
+    },
+  };
+};
+
 // ============================== Styles ==============================
 export const genSelectStyle = (
   rootPrefixCls: string,
@@ -124,8 +233,6 @@ export const genSelectStyle = (
 
   const inputPaddingHorizontalBase = token.controlPaddingHorizontal - 1;
 
-  const selectHeightWithoutBorder = token.controlHeight - token.borderWidth * 2;
-
   const selectToken = {
     ...token,
     rootPrefixCls,
@@ -133,114 +240,20 @@ export const genSelectStyle = (
     selectCls,
     iconPrefixCls,
     inputPaddingHorizontalBase,
-    selectHeightWithoutBorder,
   };
 
   return [
+    genBaseStyle(selectToken),
+
+    // Single Select
+    genSingleStyle(selectToken),
+
+    // Multiple Select
+    genMultipleStyle(selectToken),
+
+    // Border-less
     {
       [selectCls]: {
-        ...resetComponent(token),
-        position: 'relative',
-        display: 'inline-block',
-        cursor: 'pointer',
-
-        [`&:not(&-customize-input) ${selectCls}-selector`]: {
-          ...genSelectorStyle(selectToken),
-          ...getSearchInputWithoutBorderStyle(selectToken),
-        },
-
-        [`&:not(&-disabled):hover ${selectCls}-selector`]: {
-          ...genHoverStyle(selectToken),
-        },
-
-        // ======================== Selection ========================
-        [`${selectCls}-selection-item`]: {
-          flex: 1,
-          overflow: 'hidden',
-          fontWeight: 'normal',
-          whiteSpace: 'nowrap',
-          textOverflow: 'ellipsis',
-        },
-
-        // ======================= Placeholder =======================
-        [`${selectCls}-selection-placeholder`]: {
-          flex: 1,
-          overflow: 'hidden',
-          color: token.placeholderColor,
-          whiteSpace: 'nowrap',
-          textOverflow: 'ellipsis',
-          pointerEvents: 'none',
-        },
-
-        // ========================== Arrow ==========================
-        [`${selectCls}-arrow`]: {
-          ...resetIcon(),
-          position: 'absolute',
-          top: '50%',
-          right: inputPaddingHorizontalBase,
-          width: token.fontSizeSM,
-          height: token.fontSizeSM,
-          marginTop: -token.fontSizeSM / 2,
-          color: token.textColorDisabled,
-          fontSize: token.fontSizeSM,
-          lineHeight: 1,
-          textAlign: 'center',
-          pointerEvents: 'none',
-
-          [`.${iconPrefixCls}`]: {
-            verticalAlign: 'top',
-            transition: `transform ${token.duration}`,
-
-            '> svg': {
-              verticalAlign: 'top',
-            },
-
-            [`&:not(${selectCls}-suffix)`]: {
-              pointerEvents: 'auto',
-            },
-          },
-
-          [`${selectCls}-disabled &`]: {
-            cursor: 'not-allowed',
-          },
-        },
-
-        // ========================== Clear ==========================
-        [`${selectCls}-clear`]: {
-          position: 'absolute',
-          top: '50%',
-          right: inputPaddingHorizontalBase,
-          zIndex: 1,
-          display: 'inline-block',
-          width: token.fontSizeSM,
-          height: token.fontSizeSM,
-          marginTop: -token.fontSizeSM / 2,
-          color: token.textColorDisabled,
-          fontSize: token.fontSizeSM,
-          fontStyle: 'normal',
-          lineHeight: 1,
-          textAlign: 'center',
-          textTransform: 'none',
-          background: token.componentBackground,
-          cursor: 'pointer',
-          opacity: 0,
-          transition: `color ${token.duration} ease, opacity ${token.duration} ease`,
-          textRendering: 'auto',
-
-          '&:before': {
-            display: 'block',
-          },
-
-          '&:hover': {
-            color: token.textColorSecondary,
-          },
-
-          [`${selectCls}:hover &`]: {
-            opacity: 1,
-          },
-        },
-
-        // ======================= Border-less =======================
         [`&-borderless ${selectCls}-selector`]: {
           backgroundColor: `transparent !important`,
           borderColor: `transparent !important`,
@@ -248,12 +261,6 @@ export const genSelectStyle = (
         },
       },
     },
-
-    // Single Select
-    genSingleStyle(selectToken),
-
-    // Multiple Select
-    genMultipleStyle(selectToken),
 
     // Dropdown
     genDropdownStyle(selectToken, hashId),

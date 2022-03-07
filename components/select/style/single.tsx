@@ -1,13 +1,19 @@
-import { CSSObject } from '@ant-design/cssinjs';
+import { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import type { SelectToken } from '.';
 
-export default function genSingleStyle(token: SelectToken): CSSObject {
-  const { selectCls, inputPaddingHorizontalBase, selectHeightWithoutBorder } = token;
+function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
+  const { selectCls, inputPaddingHorizontalBase } = token;
+
+  const selectHeightWithoutBorder = token.controlHeight - token.borderWidth * 2;
 
   const selectionItemPadding = Math.ceil(token.fontSize * 1.25);
 
+  const suffixCls = suffix ? `${selectCls}-${suffix}` : '';
+
   return {
-    [`${selectCls}-single`]: {
+    [`${selectCls}-single${suffixCls}`]: {
+      fontSize: token.fontSize,
+
       // ========================= Selector =========================
       [`${selectCls}-selector`]: {
         display: 'flex',
@@ -121,58 +127,27 @@ export default function genSingleStyle(token: SelectToken): CSSObject {
           },
         },
       },
-
-      // // ============================================================
-      // // ==                          Size                          ==
-      // // ============================================================
-      // .select-size(@suffix, @input-height) {
-      //   @merged-cls: ~'@{select-prefix-cls}-@{suffix}';
-      //   &.@{merged-cls}:not(${selectCls}-customize-input) {
-      //     ${selectCls}-selector {
-      //       height: @input-height;
-      //       &::after,
-      //       ${selectCls}-selection-item,
-      //       ${selectCls}-selection-placeholder {
-      //         line-height: @input-height - 2 * @border-width-base;
-      //       }
-      //     }
-      //     // Not customize
-      //     &:not(${selectCls}-customize-input) {
-      //       ${selectCls}-selection-search-input {
-      //         height: @input-height - 2 * @border-width-base;
-      //       }
-      //     }
-      //   }
-      // }
-      // .select-size('lg', @select-single-item-height-lg);
-      // .select-size('sm', @input-height-sm);
-      // // Size small need additional set padding
-      // &${selectCls}-sm {
-      //   &:not(${selectCls}-customize-input) {
-      //     ${selectCls}-selection-search {
-      //       right: @input-padding-horizontal-sm;
-      //       left: @input-padding-horizontal-sm;
-      //     }
-      //     ${selectCls}-selector {
-      //       padding: 0 @input-padding-horizontal-sm;
-      //     }
-      //     // With arrow should provides `padding-right` to show the arrow
-      //     &${selectCls}-show-arrow ${selectCls}-selection-search {
-      //       right: @input-padding-horizontal-sm + @font-size-base * 1.5;
-      //     }
-      //     &${selectCls}-show-arrow ${selectCls}-selection-item,
-      //     &${selectCls}-show-arrow ${selectCls}-selection-placeholder {
-      //       padding-right: @font-size-base * 1.5;
-      //     }
-      //   }
-      // }
-      // &${selectCls}-lg {
-      //   &:not(${selectCls}-customize-input) {
-      //     ${selectCls}-selector {
-      //       padding: 0 @input-padding-horizontal-lg;
-      //     }
-      //   }
-      // }
     },
   };
+}
+
+export default function genSingleStyle(token: SelectToken): CSSInterpolation {
+  const largeToken: SelectToken = {
+    ...token,
+    controlHeight: token.controlHeightLG,
+    fontSize: token.fontSizeLG,
+  };
+
+  const smallToken: SelectToken = {
+    ...token,
+    controlHeight: token.controlHeightSM,
+  };
+
+  return [
+    genSizeStyle(token),
+    // Large
+    genSizeStyle(largeToken, 'lg'),
+    // Small
+    genSizeStyle(smallToken, 'sm'),
+  ];
 }
