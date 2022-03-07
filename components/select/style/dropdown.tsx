@@ -39,8 +39,6 @@ export default function genSingleStyle(token: SelectToken, hashId: string): CSSI
 
         position: 'absolute',
         top: -9999,
-        insetInlineStart: -9999,
-        insetInlineEnd: 'auto',
         zIndex: token.zIndexDropdown,
         boxSizing: 'border-box',
         padding: `${token.paddingXXS}px 0`,
@@ -147,9 +145,9 @@ export default function genSingleStyle(token: SelectToken, hashId: string): CSSI
         },
 
         // =========================== RTL ===========================
-        // '&-rtl': {
-        //   direction: 'rtl',
-        // },
+        '&-rtl': {
+          direction: 'rtl',
+        },
       },
     },
 
