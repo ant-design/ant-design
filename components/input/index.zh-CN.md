@@ -23,6 +23,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/xS9YEJhfe/Input.svg
 | addonBefore | 带标签的 input，设置前置标签 | ReactNode | - |  |
 | allowClear | 可以点击清除图标删除内容 | boolean | - |  |
 | bordered | 是否有边框 | boolean | true | 4.5.0 |
+| clearIcon | 清除按钮，与 `allowClear` 一同使用 | ReactNode | <CloseCircleFilled /> | 4.19.0 |
 | defaultValue | 输入框默认内容 | string | - |  |
 | disabled | 是否禁用状态，默认为 false | boolean | false |  |
 | id | 输入框的 id | string | - |  |
