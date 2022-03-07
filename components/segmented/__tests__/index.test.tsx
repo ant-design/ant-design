@@ -7,7 +7,7 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import Segmented from '..';
 import type { SegmentedValue } from '..';
 
-// Make CSSMotion working without transition support
+// Make CSSMotion working without transition
 jest.mock('rc-motion/lib/util/motion', () => {
   return {
     ...jest.requireActual('rc-motion/lib/util/motion'),
