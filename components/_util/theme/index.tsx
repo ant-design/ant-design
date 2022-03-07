@@ -93,6 +93,9 @@ export interface DerivativeToken extends Omit<DesignToken, 'duration'> {
   primaryOutlineColor: string;
   errorHoverColor: string;
   errorActiveColor: string;
+  errorOutlineColor: string;
+  warningHoverColor: string;
+  warningOutlineColor: string;
   itemActiveBackground: string;
 
   linkColor: string;
@@ -121,10 +124,11 @@ export { useStyleRegister };
 
 // =============================== Derivative ===============================
 function derivative(designToken: DesignToken): DerivativeToken {
-  const { primaryColor, errorColor } = designToken;
+  const { primaryColor, errorColor, warningColor } = designToken;
 
   const primaryColors = generate(primaryColor);
   const errorColors = generate(errorColor);
+  const warningColors = generate(warningColor);
 
   const paddingSM = (designToken.padding / 4) * 3;
   const paddingXS = designToken.padding * 0.5;
@@ -145,6 +149,10 @@ function derivative(designToken: DesignToken): DerivativeToken {
 
     errorHoverColor: errorColors[4],
     errorActiveColor: errorColors[6],
+    errorOutlineColor: new TinyColor(errorColor).setAlpha(0.2).toRgbString(),
+
+    warningHoverColor: warningColors[4],
+    warningOutlineColor: new TinyColor(warningColor).setAlpha(0.2).toRgbString(),
 
     itemActiveBackground: primaryColors[0],
 

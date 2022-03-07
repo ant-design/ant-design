@@ -26,25 +26,6 @@ export type SelectToken = DerivativeToken & {
   inputPaddingHorizontalBase: number;
 };
 
-// ============================== mixins ==============================
-// FIXME: from Input. Should merge when Input finish cssinjs.
-const genActiveStyle = (
-  token: SelectToken,
-  activeBorderColor: string = token.primaryHoverColor,
-  outlineColor: string = token.primaryOutlineColor,
-): CSSObject => ({
-  borderColor: activeBorderColor,
-  // FIXME: missing variable of `@input-outline-offset`
-  boxShadow: `0 0 ${token.outlineBlurSize} ${token.outlineWidth} ${outlineColor}`,
-  borderRightWidth: `${token.borderWidth}px !important`,
-  outline: 0,
-});
-
-const genHoverStyle = (token: SelectToken): CSSObject => ({
-  borderColor: token.primaryColor,
-  borderRightWidth: `${token.borderWidth}px !important`,
-});
-
 // ============================= Selector =============================
 const genSelectorStyle = (token: SelectToken): CSSObject => {
   const { selectCls } = token;
@@ -68,10 +49,6 @@ const genSelectorStyle = (token: SelectToken): CSSObject => {
       },
     },
 
-    [`${selectCls}-focused:not(${selectCls}-disabled)&`]: {
-      ...genActiveStyle(token),
-    },
-
     [`${selectCls}-disabled&`]: {
       color: token.textColorDisabled,
       background: token.componentBackgroundDisabled,
@@ -83,6 +60,51 @@ const genSelectorStyle = (token: SelectToken): CSSObject => {
 
       input: {
         cursor: 'not-allowed',
+      },
+    },
+  };
+};
+
+// ============================== Status ==============================
+const genStatusStyle = (
+  rootSelectCls: string,
+  token: {
+    selectCls: string;
+    borderHoverColor: string;
+    outlineColor: string;
+    outlineWidth: number;
+    outlineBlurSize: number;
+    borderWidth: number;
+  },
+  overwriteDefaultBorder: boolean = false,
+): CSSObject => {
+  const { selectCls, borderHoverColor, outlineColor } = token;
+
+  const overwriteStyle: CSSObject = overwriteDefaultBorder
+    ? {
+        [`${selectCls}-selector`]: {
+          borderColor: borderHoverColor,
+        },
+      }
+    : {};
+
+  return {
+    [rootSelectCls]: {
+      [`&:not(${selectCls}-disabled):not(${selectCls}-customize-input)`]: {
+        ...overwriteStyle,
+
+        [`${selectCls}-focused& ${selectCls}-selector`]: {
+          borderColor: borderHoverColor,
+          // FIXME: missing variable of `@input-outline-offset`
+          boxShadow: `0 0 ${token.outlineBlurSize}px ${token.outlineWidth}px ${outlineColor}`,
+          borderRightWidth: `${token.borderWidth}px !important`,
+          outline: 0,
+        },
+
+        [`&:hover ${selectCls}-selector`]: {
+          borderColor: borderHoverColor,
+          borderRightWidth: `${token.borderWidth}px !important`,
+        },
       },
     },
   };
@@ -126,9 +148,9 @@ const genBaseStyle = (token: SelectToken): CSSObject => {
         ...getSearchInputWithoutBorderStyle(token),
       },
 
-      [`&:not(&-disabled):hover ${selectCls}-selector`]: {
-        ...genHoverStyle(token),
-      },
+      // [`&:not(&-disabled):hover ${selectCls}-selector`]: {
+      //   ...genHoverStyle(token),
+      // },
 
       // ======================== Selection ========================
       [`${selectCls}-selection-item`]: {
@@ -219,6 +241,30 @@ const genBaseStyle = (token: SelectToken): CSSObject => {
         },
       },
     },
+
+    // ========================= Feedback ==========================
+    [`${selectCls}-has-feedback`]: {
+      [`${selectCls}-clear`]: {
+        insetInlineEnd: token.padding * 2,
+      },
+
+      // FIXME: what's this? @MadCcc
+      [`${selectCls}-selection-selected-value`]: {
+        paddingInlineEnd: 42,
+      },
+
+      [`${selectCls}-feedback-icon`]: {
+        fontSize: token.fontSize,
+        textAlign: 'center',
+        visibility: 'visible',
+        animation: `zoomIn ${token.duration} ${token.easeOutBack}`,
+        pointerEvents: 'none',
+
+        '&:not(:first-child)': {
+          marginInlineStart: token.marginXS,
+        },
+      },
+    },
   };
 };
 
@@ -279,6 +325,33 @@ export const genSelectStyle = (
         direction: 'rtl',
       },
     },
+
+    // =====================================================
+    // ==                     Status                      ==
+    // =====================================================
+    genStatusStyle(selectCls, {
+      ...selectToken,
+      borderHoverColor: token.primaryHoverColor,
+      outlineColor: token.primaryOutlineColor,
+    }),
+    genStatusStyle(
+      `${selectCls}-status-error`,
+      {
+        ...selectToken,
+        borderHoverColor: token.errorHoverColor,
+        outlineColor: token.errorOutlineColor,
+      },
+      true,
+    ),
+    genStatusStyle(
+      `${selectCls}-status-warning`,
+      {
+        ...selectToken,
+        borderHoverColor: token.warningHoverColor,
+        outlineColor: token.warningOutlineColor,
+      },
+      true,
+    ),
   ];
 };
 
