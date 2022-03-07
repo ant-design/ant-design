@@ -129,7 +129,7 @@
     "rc-dropdown": "~3.3.2",
     "rc-field-form": "~1.23.0",
     "rc-image": "~5.2.5",
-    "rc-input": "^0.0.1-alpha.3",
+    "rc-input": "^0.0.1-alpha.4",
     "rc-input-number": "~7.3.0",
     "rc-mentions": "~1.6.1",
     "rc-menu": "~9.2.1",
