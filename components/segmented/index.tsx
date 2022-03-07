@@ -1,4 +1,5 @@
 import * as React from 'react';
+import classNames from 'classnames';
 import RcSegmented from 'rc-segmented';
 import type {
   SegmentedProps as RCSegmentedProps,
@@ -11,15 +12,18 @@ import { ConfigContext } from '../config-provider';
 export type { SegmentedValue } from 'rc-segmented';
 
 export interface SegmentedLabeledOption extends RcSegmentedLabeledOption {
+  /** Set icon for Segmented item */
   icon?: React.ReactNode;
 }
 
 export interface SegmentedProps extends RCSegmentedProps {
   options: (SegmentedRawOption | SegmentedLabeledOption)[];
+  /** Option to fit width to its parent's width */
+  block?: boolean;
 }
 
 const Segmented = React.forwardRef<HTMLDivElement, SegmentedProps>((props, ref) => {
-  const { prefixCls: customizePrefixCls, options, ...restProps } = props;
+  const { prefixCls: customizePrefixCls, className, block, options, ...restProps } = props;
 
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('segmented', customizePrefixCls);
@@ -48,6 +52,7 @@ const Segmented = React.forwardRef<HTMLDivElement, SegmentedProps>((props, ref) 
   return (
     <RcSegmented
       {...restProps}
+      className={classNames(className, { [`${prefixCls}-block`]: block })}
       options={extendedOptions}
       ref={ref}
       prefixCls={prefixCls}

@@ -16,8 +16,9 @@ Segmented Controls.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| options | Set children optional | string\[] \| number\[] \| Array<{ label: string value: string disabled?: boolean className?: string }> | [] |  |
+| block | Option to fit width to its parent\'s width | boolean | false |  |
 | defaultValue | Default selected value | string \| number |  |  |
-| value | Currently selected value | string \| number |  |  |
-| onChange | The callback function that is triggered when the state changes | function(e:Event) |  |  |
 | disabled | Disable all segments | boolean | false |  |
+| onChange | The callback function that is triggered when the state changes | function(e:Event) |  |  |
+| options | Set children optional | string\[] \| number\[] \| Array<{ label: string value: string icon? ReactNode disabled?: boolean className?: string }> | [] |  |
+| value | Currently selected value | string \| number |  |  |
