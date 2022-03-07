@@ -64,23 +64,23 @@ const genBaseStyle = (
     textAlign: 'center',
   },
 
+  [`${resultCls} ${resultCls}-content`]: {
+    marginTop: token.padding * 1.5,
+    padding: `${token.padding * 1.5}px ${token.padding * 2.5}px`,
+    backgroundColor: token.backgroundLight,
+  },
+
   [`${resultCls} ${resultCls}-extra`]: {
     margin: token.resultExtraMargin,
     textAlign: 'center',
   },
 
   [`${resultCls} ${resultCls}-extra > *`]: {
-    marginRight: token.paddingXS,
+    marginInlineEnd: token.paddingXS,
   },
 
   [`${resultCls} ${resultCls}-extra > *:last-child`]: {
-    marginRight: 0,
-  },
-
-  [`${resultCls} ${resultCls}-content`]: {
-    marginTop: token.padding * 1.5,
-    padding: `${token.padding * 1.5}px ${token.padding * 2.5}px`,
-    backgroundColor: token.backgroundLight,
+    marginInlineEnd: 0,
   },
 });
 
@@ -100,21 +100,6 @@ const genStatusIconStyle = (
   },
   [`${resultCls}-warning ${resultCls}-icon > ${iconPrefixCls}`]: {
     color: token.resultWarningIconColor,
-  },
-});
-
-const genRTLStyle = (resultCls: string, token: ResultToken): CSSObject => ({
-  [`${resultCls}-rtl`]: {
-    direction: 'rtl',
-
-    [`& ${resultCls}-extra > *`]: {
-      marginRight: 0,
-      marginLeft: token.paddingXS,
-    },
-
-    [`& ${resultCls}-extra > *:last-child`]: {
-      marginLeft: 0,
-    },
   },
 });
 
@@ -155,7 +140,6 @@ export const genResultStyle = (
   return [
     genBaseStyle(resultCls, dotIconPrefixCls, resultToken),
     genStatusIconStyle(resultCls, dotIconPrefixCls, resultToken),
-    genRTLStyle(resultCls, resultToken),
   ];
 };
 
