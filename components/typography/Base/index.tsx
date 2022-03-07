@@ -338,6 +338,7 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
         className={className}
         style={style}
         direction={direction}
+        component={component}
         maxLength={editConfig.maxLength}
         autoSize={editConfig.autoSize}
         enterIcon={editConfig.enterIcon}
