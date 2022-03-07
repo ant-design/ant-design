@@ -5,15 +5,13 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 
 import Segmented from '..';
-import type { SegmentedValue } from '..';
+import type { SegmentedValue } from '../index';
 
 // Make CSSMotion working without transition
-jest.mock('rc-motion/lib/util/motion', () => {
-  return {
-    ...jest.requireActual('rc-motion/lib/util/motion'),
-    supportTransition: false,
-  };
-});
+jest.mock('rc-motion/lib/util/motion', () => ({
+  ...jest.requireActual('rc-motion/lib/util/motion'),
+  supportTransition: false,
+}));
 
 const prefixCls = 'ant-segmented';
 
@@ -312,7 +310,7 @@ describe('Segmented', () => {
     ).toEqual([false, false, true]);
 
     const thumb = wrapper.find(`.${prefixCls}-thumb`).at(0);
-    expect(thumb.hasClass(`${prefixCls}-thumb-motion`));
+    expect(thumb.hasClass(`${prefixCls}-thumb-motion`)).toBeTruthy();
 
     // thumb appeared
     expect(wrapper.find(`.${prefixCls}-thumb`).length).toBe(1);
@@ -329,7 +327,7 @@ describe('Segmented', () => {
 
     // thumb should move
     const thumb1 = wrapper.find(`.${prefixCls}-thumb`).at(0);
-    expect(thumb1.hasClass(`${prefixCls}-thumb-motion`));
+    expect(thumb1.hasClass(`${prefixCls}-thumb-motion`)).toBeTruthy();
 
     // thumb appeared
     expect(wrapper.find(`.${prefixCls}-thumb`).length).toBe(1);

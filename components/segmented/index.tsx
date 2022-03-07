@@ -25,23 +25,25 @@ const Segmented = React.forwardRef<HTMLDivElement, SegmentedProps>((props, ref) 
   const prefixCls = getPrefixCls('segmented', customizePrefixCls);
 
   // syntactic sugar to support `icon` for Segmented Item
-  const extendedOptions = React.useMemo(() => {
-    return options.map(option => {
-      if (typeof option === 'object' && option?.icon) {
-        const { icon, label, ...restOption } = option;
-        return {
-          ...restOption,
-          label: (
-            <>
-              <span className={`${prefixCls}-item-icon`}>{icon}</span>
-              <span>{label}</span>
-            </>
-          ),
-        };
-      }
-      return option;
-    });
-  }, [options, prefixCls]);
+  const extendedOptions = React.useMemo(
+    () =>
+      options.map(option => {
+        if (typeof option === 'object' && option?.icon) {
+          const { icon, label, ...restOption } = option;
+          return {
+            ...restOption,
+            label: (
+              <>
+                <span className={`${prefixCls}-item-icon`}>{icon}</span>
+                <span>{label}</span>
+              </>
+            ),
+          };
+        }
+        return option;
+      }),
+    [options, prefixCls],
+  );
 
   return (
     <RcSegmented
