@@ -132,22 +132,60 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
 }
 
 export default function genSingleStyle(token: SelectToken): CSSInterpolation {
-  const largeToken: SelectToken = {
-    ...token,
-    controlHeight: token.controlHeightLG,
-    fontSize: token.fontSizeLG,
-  };
+  const { selectCls } = token;
 
-  const smallToken: SelectToken = {
-    ...token,
-    controlHeight: token.controlHeightSM,
-  };
+  const inputPaddingHorizontalSM = token.controlPaddingHorizontalSM - token.borderWidth;
 
   return [
     genSizeStyle(token),
-    // Large
-    genSizeStyle(largeToken, 'lg'),
-    // Small
-    genSizeStyle(smallToken, 'sm'),
+
+    // ======================== Small ========================
+    // Shared
+    genSizeStyle(
+      {
+        ...token,
+        controlHeight: token.controlHeightSM,
+      },
+      'sm',
+    ),
+
+    // padding
+    {
+      [`${selectCls}-single${selectCls}-sm`]: {
+        [`&:not(${selectCls}-customize-input)`]: {
+          [`${selectCls}-selection-search`]: {
+            right: inputPaddingHorizontalSM,
+            left: inputPaddingHorizontalSM,
+          },
+
+          [`${selectCls}-selector`]: {
+            padding: `0 ${inputPaddingHorizontalSM}px`,
+          },
+
+          // With arrow should provides `padding-right` to show the arrow
+          [`&${selectCls}-show-arrow ${selectCls}-selection-search`]: {
+            right: inputPaddingHorizontalSM + token.fontSize * 1.5,
+          },
+
+          [`
+            &${selectCls}-show-arrow ${selectCls}-selection-item,
+            &${selectCls}-show-arrow ${selectCls}-selection-placeholder
+          `]: {
+            paddingRight: token.fontSize * 1.5,
+          },
+        },
+      },
+    },
+
+    // ======================== Large ========================
+    // Shared
+    genSizeStyle(
+      {
+        ...token,
+        controlHeight: token.controlHeightLG,
+        fontSize: token.fontSizeLG,
+      },
+      'lg',
+    ),
   ];
 }

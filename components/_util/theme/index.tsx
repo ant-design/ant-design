@@ -103,6 +103,7 @@ export interface DerivativeToken extends Omit<DesignToken, 'duration'> {
   controlHeightSM: number;
   controlHeightLG: number;
   controlPaddingHorizontal: number;
+  controlPaddingHorizontalSM: number;
   paddingSM: number;
   paddingXS: number;
   paddingXXS: number;
@@ -126,6 +127,7 @@ function derivative(designToken: DesignToken): DerivativeToken {
   const errorColors = generate(errorColor);
 
   const paddingSM = (designToken.padding / 4) * 3;
+  const paddingXS = designToken.padding * 0.5;
 
   return {
     // FIXME: Need design token
@@ -153,13 +155,14 @@ function derivative(designToken: DesignToken): DerivativeToken {
     controlHeightSM: designToken.controlHeight * 0.75,
     controlHeightLG: designToken.controlHeight * 1.25,
     controlPaddingHorizontal: paddingSM,
+    controlPaddingHorizontalSM: paddingXS,
     paddingSM,
-    paddingXS: designToken.padding * 0.5,
+    paddingXS,
     paddingXXS: designToken.padding * 0.25,
     marginXS: designToken.margin * 0.5,
 
     duration: `${designToken.duration}s`,
-    durationMid: `${designToken.duration / 3 * 2}s`,
+    durationMid: `${(designToken.duration / 3) * 2}s`,
     durationFast: `${designToken.duration / 3}s`,
   };
 }
