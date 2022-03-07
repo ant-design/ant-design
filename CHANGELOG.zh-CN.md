@@ -19,7 +19,9 @@ timeline: true
 
 `2022-03-03`
 
-- 🛠 引入 rc-input 重构 Input 组件为 FunctionComponent。[#34206](https://github.com/ant-design/ant-design/pull/34206)
+- Input
+  - 🛠 引入 rc-input 重构 Input 组件为 FunctionComponent。[#34206](https://github.com/ant-design/ant-design/pull/34206)
+  - 🆕 新增 `clearIcon` prop，支持自定义清除按钮。 [#34325](https://github.com/ant-design/ant-design/pull/34325)
 - 🆕 Table `filterSearch` 属性支持自定义搜索条件。[#34085](https://github.com/ant-design/ant-design/pull/34085) [@heiyu4585](https://github.com/heiyu4585)
 - 🆕 Table `FilterDropdown` 支持参数 `clearFilters(confirm: false, closeDropdown: false)` 控制筛选。[#34120](https://github.com/ant-design/ant-design/pull/34120) [@heiyu4585](https://github.com/heiyu4585)
 - 🆕 输入组件支持自定义状态。
@@ -39,10 +41,12 @@ timeline: true
 - 🆕 Skeleton.Input 添加 `block` 属性。 [#33672](https://github.com/ant-design/ant-design/pull/33672) [@woochanleee](https://github.com/woochanleee)
 - 🆕 Table 增加 `aria-sort` 属性以优化屏幕阅读器的使用体验。 [#33603](https://github.com/ant-design/ant-design/pull/33603) [@dgreene1](https://github.com/dgreene1)
 - 🆕 合并 TimePicker `disabledHours`、`disabledMinutes`、`disabledSeconds` 至 `disabledTime` 以保持与 DatePicker 接口一致性。 [#33503](https://github.com/ant-design/ant-design/pull/33503)
-- ⌨️ 优化 Dropdown 键盘交互。[#33893](https://github.com/ant-design/ant-design/pull/33893) [@github-actions](https://github.com/github-actions)
 - 💄 优化部分组件箭头样式。 [#33710](https://github.com/ant-design/ant-design/pull/33710)
 - 💄 修改部分边框颜色和进度条的背景色为透明色以适应有色背景。 [#33506](https://github.com/ant-design/ant-design/pull/33506)
-- 💄 Space support custom children `key`. [#33607](https://github.com/ant-design/ant-design/pull/33607) [@qin20](https://github.com/qin20)
+- 💄 Space 支持自定义 children 的 `key`。 [#33607](https://github.com/ant-design/ant-design/pull/33607) [@qin20](https://github.com/qin20)
+- 🐞 修复 Typography.Title 进入编辑模式时大小不一致的问题。 [#34169](https://github.com/ant-design/ant-design/pull/34169) [@heiyu4585](https://github.com/heiyu4585)
+- 🐞 修复 Table 列筛选器中选择全部 Checkbox 状态问题。 [#34295](https://github.com/ant-design/ant-design/pull/34295)
+- 🐞 修复 Form.Item 抛出 `React does not recognize the requiredMark prop on a DOM element` 的问题。 [#34323](https://github.com/ant-design/ant-design/pull/34323)
 
 ## 4.18.9
 
