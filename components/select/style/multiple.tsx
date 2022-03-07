@@ -1,8 +1,8 @@
-import { CSSObject } from '@ant-design/cssinjs';
+import { CSSObject, CSSInterpolation } from '@ant-design/cssinjs';
 import type { SelectToken } from '.';
 import { resetIcon } from '../../_util/theme';
 
-export default function genSingleStyle(token: SelectToken): CSSObject {
+function genSizeStyle(token: SelectToken, suffix?: string): CSSInterpolation {
   const { selectCls, iconPrefixCls } = token;
 
   const selectOverflowPrefixCls = `${selectCls}-selection-overflow`;
@@ -12,8 +12,12 @@ export default function genSingleStyle(token: SelectToken): CSSObject {
 
   const selectItemMargin = Math.ceil(selectItemDist / 2);
 
+  const suffixCls = suffix ? `${selectCls}-${suffix}` : '';
+
   return {
-    [`${selectCls}-multiple`]: {
+    [`${selectCls}-multiple${suffixCls}`]: {
+      fontSize: token.fontSize,
+
       /**
        * Do not merge `height` & `line-height` under style with `selection` & `search`, since chrome
        * may update to redesign with its align logic.
@@ -112,7 +116,7 @@ export default function genSingleStyle(token: SelectToken): CSSObject {
           lineHeight: 'inherit',
           cursor: 'pointer',
 
-          [`> ${iconPrefixCls}`]: {
+          [`> .${iconPrefixCls}`]: {
             verticalAlign: '-0.2em',
           },
 
@@ -171,4 +175,29 @@ export default function genSingleStyle(token: SelectToken): CSSObject {
       },
     },
   };
+}
+
+export default function genMultipleStyle(token: SelectToken): CSSInterpolation {
+  return [
+    genSizeStyle(token),
+    // ======================== Small ========================
+    genSizeStyle(
+      {
+        ...token,
+        controlHeight: token.controlHeightSM,
+        controlHeightSM: token.controlHeightXS,
+      },
+      'sm',
+    ),
+    // ======================== Large ========================
+    genSizeStyle(
+      {
+        ...token,
+        fontSize: token.fontSizeLG,
+        controlHeight: token.controlHeightLG,
+        controlHeightSM: token.controlHeight,
+      },
+      'lg',
+    ),
+  ];
 }
