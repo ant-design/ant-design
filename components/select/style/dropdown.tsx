@@ -27,7 +27,7 @@ const genItemStyle = (token: SelectToken): CSSObject => {
 };
 
 export default function genSingleStyle(token: SelectToken, hashId: string): CSSInterpolation {
-  const { rootPrefixCls, antCls, selectCls } = token;
+  const { rootPrefixCls, antCls, selectCls, left, right } = token;
 
   const selectItemCls = `${selectCls}-item`;
 
@@ -39,8 +39,8 @@ export default function genSingleStyle(token: SelectToken, hashId: string): CSSI
 
         position: 'absolute',
         top: -9999,
-        left: -9999,
-        right: 'auto',
+        [left]: -9999,
+        [right]: 'auto',
         zIndex: token.zIndexDropdown,
         boxSizing: 'border-box',
         padding: `${token.paddingXXS}px 0`,
@@ -141,9 +141,14 @@ export default function genSingleStyle(token: SelectToken, hashId: string): CSSI
             },
 
             '&-grouped': {
-              paddingLeft: token.controlPaddingHorizontal * 2,
+              paddingInlineStart: token.controlPaddingHorizontal * 2,
             },
           },
+        },
+
+        // =========================== RTL ===========================
+        '&-rtl': {
+          direction: 'rtl',
         },
       },
     },

@@ -24,6 +24,10 @@ export type SelectToken = DerivativeToken & {
   selectCls: string;
   iconPrefixCls: string;
   inputPaddingHorizontalBase: number;
+  left: string;
+  right: string;
+  /** Used for `selectCls-rtl` */
+  selectSuffixCls: string;
 };
 
 // ============================== mixins ==============================
@@ -112,10 +116,11 @@ const getSearchInputWithoutBorderStyle = (token: SelectToken): CSSObject => {
 
 // =============================== Base ===============================
 const genBaseStyle = (token: SelectToken): CSSObject => {
-  const { selectCls, iconPrefixCls, inputPaddingHorizontalBase } = token;
+  const { selectCls, selectSuffixCls, iconPrefixCls, inputPaddingHorizontalBase, left, right } =
+    token;
 
   return {
-    [selectCls]: {
+    [`${selectCls}${selectSuffixCls}`]: {
       ...resetComponent(token),
       position: 'relative',
       display: 'inline-block',
@@ -154,8 +159,8 @@ const genBaseStyle = (token: SelectToken): CSSObject => {
         ...resetIcon(),
         position: 'absolute',
         top: '50%',
-        left: 'auto',
-        right: inputPaddingHorizontalBase,
+        [left]: 'auto',
+        [right]: inputPaddingHorizontalBase,
         width: token.fontSizeSM,
         height: token.fontSizeSM,
         marginTop: -token.fontSizeSM / 2,
@@ -187,8 +192,8 @@ const genBaseStyle = (token: SelectToken): CSSObject => {
       [`${selectCls}-clear`]: {
         position: 'absolute',
         top: '50%',
-        left: 'auto',
-        right: inputPaddingHorizontalBase,
+        [left]: 'auto',
+        [right]: inputPaddingHorizontalBase,
         zIndex: 1,
         display: 'inline-block',
         width: token.fontSizeSM,
@@ -242,17 +247,35 @@ export const genSelectStyle = (
     selectCls,
     iconPrefixCls,
     inputPaddingHorizontalBase,
+    left: 'left',
+    right: 'right',
+    selectSuffixCls: '',
   };
 
+  const selectRTLToken = {
+    ...selectToken,
+    left: 'right',
+    right: 'left',
+    selectSuffixCls: `${selectCls}-rtl`,
+  };
+
+  function genStyles(passedToken: SelectToken) {
+    return [
+      // Base
+      genBaseStyle(passedToken),
+
+      // Single
+      genSingleStyle(passedToken),
+
+      // Multiple
+      genMultipleStyle(passedToken),
+
+      // Dropdown
+      genDropdownStyle(passedToken, hashId),
+    ];
+  }
+
   return [
-    genBaseStyle(selectToken),
-
-    // ====================== Single ======================
-    genSingleStyle(selectToken),
-
-    // ===================== Multiple =====================
-    genMultipleStyle(selectToken),
-
     // ==================== BorderLess ====================
     {
       [selectCls]: {
@@ -264,15 +287,20 @@ export const genSelectStyle = (
       },
     },
 
-    // ===================== Dropdown =====================
-    genDropdownStyle(selectToken, hashId),
+    // =====================================================
+    // ==                       LTR                       ==
+    // =====================================================
+    genStyles(selectToken),
 
-    // ======================= RTL ========================
+    // =====================================================
+    // ==                       RTL                       ==
+    // =====================================================
     {
       [`${selectCls}-rtl`]: {
         direction: 'rtl',
       },
     },
+    genStyles(selectRTLToken),
   ];
 };
 

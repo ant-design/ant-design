@@ -9,7 +9,7 @@ function getSelectItemStyle({ controlHeightSM, controlHeight, borderWidth }: Sel
 }
 
 function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
-  const { selectCls, iconPrefixCls } = token;
+  const { selectCls, selectSuffixCls, left, right, iconPrefixCls } = token;
 
   const selectOverflowPrefixCls = `${selectCls}-selection-overflow`;
 
@@ -19,7 +19,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
   const suffixCls = suffix ? `${selectCls}-${suffix}` : '';
 
   return {
-    [`${selectCls}-multiple${suffixCls}`]: {
+    [`${selectCls}-multiple${suffixCls}${selectSuffixCls}`]: {
       fontSize: token.fontSize,
 
       /**
@@ -71,7 +71,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         &${selectCls}-show-arrow ${selectCls}-selector,
         &${selectCls}-allow-clear ${selectCls}-selector
       `]: {
-        paddingRight: token.fontSizeSM + token.controlPaddingHorizontal,
+        paddingInlineEnd: token.fontSizeSM + token.controlPaddingHorizontal,
       },
 
       // ======================== Selections ========================
@@ -104,7 +104,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         // It's ok not to do this, but 24px makes bottom narrow in view should adjust
         '&-content': {
           display: 'inline-block',
-          marginRight: token.paddingXS / 2,
+          marginInlineEnd: token.paddingXS / 2,
           overflow: 'hidden',
           whiteSpace: 'pre', // fix whitespace wrapping. custom tags display all whitespace within.
           textOverflow: 'ellipsis',
@@ -161,8 +161,8 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         '&-mirror': {
           position: 'absolute',
           top: 0,
-          left: 0,
-          right: 'auto',
+          [left]: 0,
+          [right]: 'auto',
           zIndex: 999,
           whiteSpace: 'pre', // fix whitespace wrapping caused width calculation bug
           visibility: 'hidden',
@@ -173,8 +173,8 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
       [`${selectCls}-selection-placeholder `]: {
         position: 'absolute',
         top: '50%',
-        left: token.inputPaddingHorizontalBase,
-        right: token.inputPaddingHorizontalBase,
+        [left]: token.inputPaddingHorizontalBase,
+        [right]: token.inputPaddingHorizontalBase,
         transform: 'translateY(-50%)',
         transition: `all ${token.duration}`,
       },
@@ -183,7 +183,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
 }
 
 export default function genMultipleStyle(token: SelectToken): CSSInterpolation {
-  const { selectCls } = token;
+  const { selectCls, selectSuffixCls, left, right } = token;
 
   const smallToken: SelectToken = {
     ...token,
@@ -200,10 +200,10 @@ export default function genMultipleStyle(token: SelectToken): CSSInterpolation {
 
     // Padding
     {
-      [`${selectCls}-multiple${selectCls}-sm`]: {
+      [`${selectCls}-multiple${selectCls}-sm${selectSuffixCls}`]: {
         [`${selectCls}-selection-placeholder`]: {
-          left: token.controlPaddingHorizontalSM - token.borderWidth,
-          right: 'auto',
+          [left]: token.controlPaddingHorizontalSM - token.borderWidth,
+          [right]: 'auto',
         },
 
         // https://github.com/ant-design/ant-design/issues/29559
