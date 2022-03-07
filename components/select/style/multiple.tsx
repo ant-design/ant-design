@@ -17,7 +17,6 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
 
   const selectItemHeight = token.controlHeightSM;
   const [selectItemDist] = getSelectItemStyle(token);
-  console.log('>>>>>>', token.controlHeight, token.controlHeightSM, selectItemDist);
 
   const suffixCls = suffix ? `${selectCls}-${suffix}` : '';
 
