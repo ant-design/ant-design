@@ -17,9 +17,12 @@ timeline: true
 
 ## 4.19.0
 
-`2022-03-03`
+`2022-03-08`
 
 - 💄 优化部分组件箭头样式。 [#33710](https://github.com/ant-design/ant-design/pull/33710)
+
+![image](https://user-images.githubusercontent.com/27722486/157088587-ca49cc29-bf25-42d1-8c14-020b5501c62e.png)
+
 - Input
   - 🛠 引入 rc-input 重构 Input 组件为 function component。[#34206](https://github.com/ant-design/ant-design/pull/34206)
     - 注意：由于从 class component 变为 function component，Input 组件的 `ref` 类型及内容已经更新，可以通过 `import { InputRef } from 'antd'` 引入。其中的 `input` 属性作为获取 DOM 的途径被保留，同时支持 `focus` 和 `blur` 等文档中支持的方法。
@@ -39,6 +42,9 @@ timeline: true
   - Mentions [#34071](https://github.com/ant-design/ant-design/pull/34071)
   - InputNumber [#34042](https://github.com/ant-design/ant-design/pull/34042)
   - Input [#33995](https://github.com/ant-design/ant-design/pull/33995)
+
+![image](https://user-images.githubusercontent.com/27722486/157089015-f96b0153-2cc4-4e04-94d6-e0e4b195d5d1.png)
+
 - 🆕 InputNumber 组件支持 `controls={{ upIcon, downIcon }}` 用于自定义上下图标。[#33914](https://github.com/ant-design/ant-design/pull/33914) [@heiyu4585](https://github.com/heiyu4585)
 - 🆕 Notification 组件弹窗位置新增支持 `top` / `bottom`。 [#33871](https://github.com/ant-design/ant-design/pull/33871) [@heiyu4585](https://github.com/heiyu4585)
 - 🆕 Select、Cascader、DatePicker 等组件新增 `placement` 用于自定义弹层方向。 [#33641](https://github.com/ant-design/ant-design/pull/33541) [@ONLY-yours](https://github.com/ONLY-yours)
