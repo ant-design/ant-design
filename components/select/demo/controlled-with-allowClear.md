@@ -7,7 +7,7 @@ title:
 
 ## zh-CN
 
-可清除的受控下拉组件
+可清除的受控下拉组件。
 
 ## en-US
 
@@ -40,11 +40,8 @@ function App() {
       <Option value="b">B</Option>
       <Option value="c">C</Option>
     </Select>
-  )
+  );
 }
 
-ReactDOM.render(
-  <App />,
-  mountNode,
-);
+ReactDOM.render(<App />, mountNode);
 ```
