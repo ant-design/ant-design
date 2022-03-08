@@ -298,12 +298,12 @@ const genInputGroupStyle = (prefixCls: string, token: InputToken): CSSObject => 
 
     '&:focus': {
       zIndex: 1, // Fix https://gw.alipayobjects.com/zos/rmsportal/DHNpoqfMXSfrSnlZvhsJ.png
-      borderInlineEndWidth: '1px',
+      borderInlineEndWidth: 1,
     },
 
     '&:hover': {
       zIndex: 1,
-      borderInlineEndWidth: '1px',
+      borderInlineEndWidth: 1,
 
       [`.${prefixCls}-search-with-button &`]: {
         zIndex: 0,
@@ -692,7 +692,7 @@ const genSearchInputStyle = (
 
   [`> .${prefixCls}-group`]: {
     [`> .${prefixCls}-group-addon:last-child`]: {
-      insetInlineStart: '-1px',
+      insetInlineStart: -1,
       padding: 0,
       border: 0,
 
