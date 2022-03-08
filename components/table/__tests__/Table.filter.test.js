@@ -2201,27 +2201,14 @@ describe('Table.filter', () => {
   it('filterDropDown should support filterResetToDefaultFilteredValue', () => {
     jest.useFakeTimers();
     jest.spyOn(console, 'error').mockImplementation(() => undefined);
+
     const columnFilter = {
-      title: 'Name',
-      dataIndex: 'name',
-      filters: [
-        { text: 'Boy', value: 'boy' },
-        { text: 'Girl', value: 'girl' },
-        { text: 'John Brown', value: 'John Brown' },
-        {
-          text: 'Title',
-          value: 'title',
-          children: [
-            { text: 'Designer', value: 'designer' },
-            { text: 'Coder', value: 'coder' },
-          ],
-        },
-      ],
-      onFilter: filterFn,
+      ...column,
       filterMode: 'tree',
       filterSearch: true,
-      defaultFilteredValue: ['John Brown'],
+      defaultFilteredValue: ['girl'],
     };
+
     let wrapper = mount(
       createTable({
         columns: [columnFilter],
@@ -2237,14 +2224,18 @@ describe('Table.filter', () => {
       .find(Checkbox)
       .find('input')
       .simulate('change', { target: { checked: true } });
-    expect(wrapper.find('.ant-tree-checkbox-checked').length).toBe(6);
+    expect(wrapper.find('.ant-tree-checkbox-checked').length).toBe(5);
     wrapper.find('button.ant-btn-link').simulate('click', nativeEvent);
     expect(wrapper.find('.ant-tree-checkbox-checked').length).toBe(0);
 
-    columnFilter.filterResetToDefaultFilteredValue = true;
     wrapper = mount(
       createTable({
-        columns: [columnFilter],
+        columns: [
+          {
+            ...columnFilter,
+            filterResetToDefaultFilteredValue: true,
+          },
+        ],
       }),
     );
     wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
@@ -2256,9 +2247,9 @@ describe('Table.filter', () => {
       .find(Checkbox)
       .find('input')
       .simulate('change', { target: { checked: true } });
-    expect(wrapper.find('.ant-tree-checkbox-checked').length).toBe(6);
+    expect(wrapper.find('.ant-tree-checkbox-checked').length).toBe(5);
     wrapper.find('button.ant-btn-link').simulate('click', nativeEvent);
     expect(wrapper.find('.ant-tree-checkbox-checked').length).toBe(1);
-    expect(wrapper.find('.ant-tree-checkbox-checked+span').text()).toBe('John Brown');
+    expect(wrapper.find('.ant-tree-checkbox-checked+span').text()).toBe('Girl');
   });
 });
