@@ -180,10 +180,10 @@ const genInputGroupStyle = (prefixCls: string, token: InputToken): CSSObject => 
 
   // Undo padding and float of grid classes
   [`&[class*='col-']`]: {
-    paddingRight: '8px',
+    paddingInlineEnd: '8px', // FIXME: magic number
 
     '&:last-child': {
-      paddingRight: 0,
+      paddingInlineEnd: 0,
     },
   },
 
