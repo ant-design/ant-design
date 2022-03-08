@@ -20,6 +20,8 @@ timeline: true
 `2022-03-08`
 
 - 🐞 Fix less compile error related to custom status. [#34350](https://github.com/ant-design/ant-design/pull/34350)
+  - 🐞 Fix error `ReferenceError: colorPalette is not defined` when customize theme.
+  - 🐞 Fix error `Error: Invalid class or id selector syntax` when import `antd/dist/antd.css`.
 
 ## 4.19.0
 

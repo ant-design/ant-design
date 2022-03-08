@@ -19,7 +19,9 @@ timeline: true
 
 `2022-03-08`
 
-- 🐞 修复自定义校验状态 相关的 less 编译错误。[#34350](https://github.com/ant-design/ant-design/pull/34350)
+- 🐞 修复自定义状态相关的 less 编译错误 [#34350](https://github.com/ant-design/ant-design/pull/34350)
+  - 🐞 修复使用定制主题时 less 编译提示 `ReferenceError: colorPalette is not defined` 错误。
+  - 🐞 修复引入 `antd/dist/antd.css` 时提示 `Error: Invalid class or id selector syntax` 错误。
 
 ## 4.19.0
 
