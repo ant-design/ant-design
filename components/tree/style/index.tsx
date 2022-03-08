@@ -492,7 +492,7 @@ export const genTreeStyle = (
   const treeNodeCls = `${treeCls}-treenode`;
 
   const treeNodePadding = token.paddingXS / 2;
-  const treeTitleHeight = token.heightSM;
+  const treeTitleHeight = token.controlHeightSM;
 
   const treeToken = {
     ...token,

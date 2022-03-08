@@ -1964,7 +1964,11 @@ describe('Table.filter', () => {
       expect(wrapper.find('.ant-tree-checkbox').at(0).hasClass('ant-tree-checkbox-checked')).toBe(
         true,
       );
-      expect(wrapper.find('.ant-table-filter-dropdown-checkall .ant-checkbox').hasClass('ant-checkbox-indeterminate')).toBe(true);
+      expect(
+        wrapper
+          .find('.ant-table-filter-dropdown-checkall .ant-checkbox')
+          .hasClass('ant-checkbox-indeterminate'),
+      ).toBe(true);
     });
 
     it('select-all checkbox should change when all items are selected', () => {
@@ -1991,7 +1995,11 @@ describe('Table.filter', () => {
       });
       wrapper.find('.ant-tree-node-content-wrapper').at(0).simulate('click');
       wrapper.find('.ant-tree-node-content-wrapper').at(1).simulate('click');
-      expect(wrapper.find('.ant-table-filter-dropdown-checkall .ant-checkbox').hasClass('ant-checkbox-checked')).toBe(true);
+      expect(
+        wrapper
+          .find('.ant-table-filter-dropdown-checkall .ant-checkbox')
+          .hasClass('ant-checkbox-checked'),
+      ).toBe(true);
     });
   });
 

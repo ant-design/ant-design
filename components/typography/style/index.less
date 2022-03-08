@@ -43,26 +43,36 @@
   }
 
   h1&,
+  div&-h1,
+  div&-h1 > textarea,
   h1 {
     .typography-title-1();
   }
 
   h2&,
+  div&-h2,
+  div&-h2 > textarea,
   h2 {
     .typography-title-2();
   }
 
   h3&,
+  div&-h3,
+  div&-h3 > textarea,
   h3 {
     .typography-title-3();
   }
 
   h4&,
+  div&-h4,
+  div&-h4 > textarea,
   h4 {
     .typography-title-4();
   }
 
   h5&,
+  div&-h5,
+  div&-h5 > textarea,
   h5 {
     .typography-title-5();
   }
@@ -198,6 +208,10 @@
       right: 10px;
       bottom: 8px;
       color: @text-color-secondary;
+      // default style
+      font-weight: normal;
+      font-size: @font-size-base;
+      font-style: normal;
       pointer-events: none;
     }
 
