@@ -1,8 +1,8 @@
 // deps-lint-skip-all
-import { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
-import { TinyColor } from '@ctrl/tinycolor';
+import type { CSSObject } from '@ant-design/cssinjs';
 import { generate } from '@ant-design/colors';
-import { DerivativeToken, useStyleRegister, useToken, withPrefix } from '../../_util/theme';
+import { useStyleRegister, useToken } from '../../_util/theme';
+import type { DerivativeToken } from '../../_util/theme';
 
 const genTypographyStyle = ({
   prefixCls,
@@ -44,6 +44,8 @@ const genTypographyStyle = ({
       'div, p': {
         marginBottom: '1em',
       },
+
+      'h1&, div&-h1, div&-h1 > textarea, h1': {},
     },
   };
 };
