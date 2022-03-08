@@ -23,23 +23,23 @@ interface InputToken extends DerivativeToken {
 
 export const genHoverStyle = (prefixCls: string, token: InputToken): CSSObject => ({
   borderColor: token.inputBorderHoverColor,
-  borderRightWidth: token.borderWidth,
+  borderInlineEndWidth: token.borderWidth,
 
   [`.${prefixCls}-rtl &`]: {
-    borderRightWidth: 0,
-    borderLeftWidth: `${token.borderWidth}px !important`,
+    borderInlineEndWidth: 0,
+    borderInlineStartWidth: `${token.borderWidth}px !important`,
   },
 });
 
 export const genActiveStyle = (prefixCls: string, theme: any, token: InputToken) => ({
   borderColor: theme === 'dark' ? token.inputBorderActiveColor : token.inputBorderHoverColor,
   boxShadow: `0 0 0 2px ${new TinyColor(token.inputBorderActiveColor).setAlpha(0.2)}`, // FIXME: outlineFade outlineWidth
-  borderRightWidth: token.borderWidth,
+  borderInlineEndWidth: token.borderWidth,
   outline: 0,
 
   [`.${prefixCls}-rtl &`]: {
-    borderRightWidth: 0,
-    borderLeftWidth: `${token.borderWidth}px !important`,
+    borderInlineEndWidth: 0,
+    borderInlineStartWidth: `${token.borderWidth}px !important`,
   },
 });
 
@@ -158,6 +158,16 @@ export const genBasicInputStyle = (
     transition: `all ${token.duration}, height 0s`,
   },
 
+  '&-textarea': {
+    '&-rtl': {
+      direction: 'rtl',
+    },
+
+    '&-rtl&-show-count::after': {
+      textAlign: 'left',
+    },
+  },
+
   // Size
   '&-lg': {
     ...genInputLargeStyle(prefixCls, token),
@@ -274,11 +284,11 @@ const genInputGroupStyle = (prefixCls: string, token: InputToken): CSSObject => 
     },
 
     '&-addon:first-child': {
-      borderRight: 0,
+      borderInlineEnd: 0,
     },
 
     '&-addon:last-child': {
-      borderLeft: 0,
+      borderInlineStart: 0,
     },
   },
 
@@ -290,12 +300,12 @@ const genInputGroupStyle = (prefixCls: string, token: InputToken): CSSObject => 
 
     '&:focus': {
       zIndex: 1, // Fix https://gw.alipayobjects.com/zos/rmsportal/DHNpoqfMXSfrSnlZvhsJ.png
-      borderRightWidth: '1px',
+      borderInlineEndWidth: '1px',
     },
 
     '&:hover': {
       zIndex: 1,
-      borderRightWidth: '1px',
+      borderInlineEndWidth: '1px',
 
       [`.ant-input-search-with-button &`]: {
         // FIXME: ant
@@ -306,53 +316,53 @@ const genInputGroupStyle = (prefixCls: string, token: InputToken): CSSObject => 
 
   // Reset rounded corners
   [`> .${prefixCls}:first-child, .${prefixCls}-group-addon:first-child`]: {
-    borderTopRightRadius: 0,
-    borderBottomRightRadius: 0,
+    borderStartEndRadius: 0,
+    borderEndEndRadius: 0,
 
     // Reset Select's style in addon
     'ant-select .ant-select-selector': {
       // FIXME: ant
-      borderTopRightRadius: 0,
-      borderBottomRightRadius: 0,
+      borderStartEndRadius: 0,
+      borderEndEndRadius: 0,
     },
   },
 
   [`> .${prefixCls}-affix-wrapper`]: {
     [`&:not(:first-child) .${prefixCls}`]: {
-      borderTopLeftRadius: 0,
-      borderBottomLeftRadius: 0,
+      borderStartStartRadius: 0,
+      borderEndStartRadius: 0,
     },
 
     [`&:not(:last-child) .${prefixCls}`]: {
-      borderTopRightRadius: 0,
-      borderBottomRightRadius: 0,
+      borderStartEndRadius: 0,
+      borderEndEndRadius: 0,
     },
   },
 
   [`> .${prefixCls}:last-child, .${prefixCls}-group-addon:last-child`]: {
-    borderTopLeftRadius: 0,
-    borderBottomLeftRadius: 0,
+    borderStartStartRadius: 0,
+    borderEndStartRadius: 0,
 
     // Reset Select's style in addon
     '.ant-select .ant-select-selector': {
-      borderTopLeftRadius: 0,
-      borderBottomLeftRadius: 0,
+      borderStartStartRadius: 0,
+      borderEndStartRadius: 0,
     },
   },
 
   [`.${prefixCls}-affix-wrapper`]: {
     '&:not(:last-child)': {
-      borderTopRightRadius: 0,
-      borderBottomRightRadius: 0,
+      borderStartEndRadius: 0,
+      borderEndEndRadius: 0,
       [`.${prefixCls}-search &`]: {
-        borderTopLeftRadius: token.borderRadius,
-        borderBottomLeftRadius: token.borderRadius,
+        borderStartStartRadius: token.borderRadius,
+        borderEndStartRadius: token.borderRadius,
       },
     },
 
     [`&:not(:first-child), .${prefixCls}-search &:not(:first-child)`]: {
-      borderTopLeftRadius: 0,
-      borderBottomLeftRadius: 0,
+      borderStartStartRadius: 0,
+      borderEndStartRadius: 0,
     },
   },
 
@@ -362,7 +372,7 @@ const genInputGroupStyle = (prefixCls: string, token: InputToken): CSSObject => 
 
     [`.${prefixCls}-group-addon, .${prefixCls}-group-wrap, > .${prefixCls}`]: {
       '&:not(:first-child):not(:last-child)': {
-        borderRightWidth: token.borderWidth,
+        borderInlineEndWidth: token.borderWidth,
 
         '&:hover': {
           zIndex: 1,
@@ -391,7 +401,7 @@ const genInputGroupStyle = (prefixCls: string, token: InputToken): CSSObject => 
 
     '& > *:not(:last-child)': {
       marginInlineEnd: -token.borderWidth,
-      borderRightWidth: token.borderWidth,
+      borderInlineEndWidth: token.borderWidth,
     },
 
     // Undo float for .ant-input-group .ant-input
@@ -404,7 +414,7 @@ const genInputGroupStyle = (prefixCls: string, token: InputToken): CSSObject => 
       & > .ant-select-auto-complete .ant-input,
       & > .ant-cascader-picker .ant-input,
       & > .ant-input-group-wrapper .ant-input`]: {
-      borderRightWidth: token.borderWidth,
+      borderInlineEndWidth: token.borderWidth,
       borderRadius: 0,
 
       '&:hover': {
@@ -429,17 +439,17 @@ const genInputGroupStyle = (prefixCls: string, token: InputToken): CSSObject => 
       & > .ant-select:first-child > .ant-select-selector,
       & > .ant-select-auto-complete:first-child .ant-input,
       & > .ant-cascader-picker:first-child .ant-input`]: {
-      borderTopLeftRadius: token.borderRadius,
-      borderBottomLeftRadius: token.borderRadius,
+      borderStartStartRadius: token.borderRadius,
+      borderEndStartRadius: token.borderRadius,
     },
 
     [`& > *:last-child,
       & > .ant-select:last-child > .ant-select-selector,
       & > .ant-cascader-picker:last-child .ant-input,
       & > .ant-cascader-picker-focused:last-child .ant-input`]: {
-      borderRightWidth: token.borderWidth,
-      borderTopRightRadius: token.borderRadius,
-      borderBottomRightRadius: token.borderRadius,
+      borderInlineEndWidth: token.borderWidth,
+      borderStartEndRadius: token.borderRadius,
+      borderEndEndRadius: token.borderRadius,
     },
 
     // https://github.com/ant-design/ant-design/issues/12493
@@ -461,7 +471,10 @@ const genInputGroupStyle = (prefixCls: string, token: InputToken): CSSObject => 
         },
 
         '& > .ant-input': {
-          borderRadius: `${token.borderRadius}px 0 0 ${token.borderRadius}px`,
+          borderStartStartRadius: token.borderRadius,
+          borderStartEndRadius: 0,
+          borderEndEndRadius: 0,
+          borderEndStartRadius: token.borderRadius,
         },
       },
     },
@@ -513,6 +526,11 @@ const genAllowClearStyle = (prefixCls: string, token: InputToken): CSSObject => 
 
     '&-has-suffix': {
       margin: `0 ${token.inputAffixMargin}px`,
+    },
+
+    [`.${prefixCls}-affix-wrapper-rtl &`]: {
+      right: 'auto',
+      left: '8px',
     },
   },
 
@@ -671,7 +689,7 @@ const genSearchInputStyle = (
       borderColor: token.primaryHoverColor,
 
       [`+ .${prefixCls}-group-addon .${searchPrefixCls}-button:not(.@{ant-prefix}-btn-primary)`]: {
-        borderLeftColor: token.primaryHoverColor,
+        borderInlineStartColor: token.primaryHoverColor,
       },
     },
   },
@@ -695,7 +713,10 @@ const genSearchInputStyle = (
       [`.${searchPrefixCls}-button`]: {
         paddingTop: 0,
         paddingBottom: 0,
-        borderRadius: `0 ${token.borderRadius}px ${token.borderRadius}px 0`,
+        borderStartStartRadius: 0,
+        borderStartEndRadius: token.borderRadius,
+        borderEndEndRadius: token.borderRadius,
+        borderEndStartRadius: 0,
       },
 
       [`.${searchPrefixCls}-button:not(.ant-btn-primary)`]: {
@@ -726,145 +747,14 @@ const genSearchInputStyle = (
   [`&-small .${searchPrefixCls}-button`]: {
     height: token.controlHeightSM,
   },
-});
 
-const genRTLStyle = (prefixCls: string, searchPrefixCls: string, token: InputToken): CSSObject => ({
-  // Style for input-group: input with label, with button or dropdown...
-  [`.${prefixCls}-group`]: {
-    [`> .${prefixCls}-rtl:first-child, &-rtl .${prefixCls}-group-addon:first-child`]: {
-      borderRadius: `0 ${token.borderRadius}px ${token.borderRadius}px 0`,
-    },
-
-    [`&-rtl`]: {
-      [`.${prefixCls}-group-addon:last-child`]: {
-        borderRight: 0,
-        borderLeft: `${token.borderWidth}px ${token.borderStyle} ${token.borderColor}`,
-
-        [`.${searchPrefixCls}-button`]: {
-          borderRadius: `${token.borderRadius}px 0 0 ${token.borderRadius}px !important`,
-        },
-      },
-      [`.${prefixCls}-group-addon:first-child`]: {
-        borderRight: `${token.borderWidth}px ${token.borderStyle} ${token.borderColor}`,
-        borderLeft: 0,
-      },
-    },
-
-    [`> .${prefixCls}:last-child, .${prefixCls}-group-addon:last-child`]: {
-      [`.${prefixCls}-group-rtl&`]: {
-        borderRadius: `${token.borderRadius}px 0 0 ${token.borderRadius}px`,
-      },
-    },
-
-    [`.${prefixCls}-affix-wrapper`]: {
-      '&:not(:first-child)': {
-        [`.${prefixCls}-group-rtl&`]: {
-          borderRadius: `${token.borderRadius}px 0 0 ${token.borderRadius}px`,
-        },
-      },
-
-      '&:not(:last-child)': {
-        [`.${prefixCls}-group-rtl&`]: {
-          borderRadius: `0 ${token.borderRadius}px ${token.borderRadius}px 0`,
-        },
-      },
-
-      '&:not(:last-child):not(:first-child)': {
-        [`.${prefixCls}-group-rtl&`]: {
-          borderRadius: 0,
-        },
-      },
-    },
-
-    '&&-compact': {
-      '& > *:not(:last-child)': {
-        [`.${prefixCls}-group-rtl&`]: {
-          borderLeftWidth: token.borderWidth,
-        },
-      },
-
-      [`& > *:first-child,
-        & > .ant-select:first-child > .ant-select-selector,
-        & > .ant-select-auto-complete:first-child .ant-input,
-        & > .ant-cascader-picker:first-child .ant-input`]: {
-        [`.${prefixCls}-group-rtl&`]: {
-          borderRadius: `0 ${token.borderRadius}px ${token.borderRadius}px 0`,
-        },
-      },
-
-      [`& > *:last-child,
-        & > .ant-select:last-child > .ant-select-selector,
-        & > .ant-select-auto-complete:last-child .ant-input,
-        & > .ant-cascader-picker:last-child .ant-input,
-        & > .ant-cascader-picker-focused:last-child .ant-input`]: {
-        [`.${prefixCls}-group-rtl&`]: {
-          borderLeftWidth: token.borderWidth,
-          borderRadius: `${token.borderRadius}px 0 0 ${token.borderRadius}px`,
-        },
-      },
-
-      [`.${prefixCls}-group-wrapper-rtl:not(:last-child)`]: {
-        [`&.${prefixCls}-search > .${prefixCls}-group`]: {
-          [`& > .${prefixCls}`]: {
-            borderRadius: `0 ${token.borderRadius}px ${token.borderRadius}px 0`,
-          },
-        },
-      },
-    },
-  },
-
-  [`.${prefixCls}`]: {
-    '&-affix-wrapper&-affix-wrapper-rtl': {
-      [`> input.${prefixCls}`]: {
-        border: 'none',
-        outline: 'none',
-      },
-    },
-
-    '&-textarea': {
-      '&-rtl': {
-        direction: 'rtl',
-      },
-
-      '&-rtl&-show-count::after': {
-        textAlign: 'left',
-      },
-    },
-  },
-
-  // allow-clear
-  [`.${prefixCls}-clear-icon`]: {
-    [`.${prefixCls}-affix-wrapper-rtl &`]: {
-      right: 'auto',
-      left: '8px',
-    },
-  },
-
-  [`.${searchPrefixCls}-rtl`]: {
+  '&-rtl': {
     direction: 'rtl',
 
-    [`.${prefixCls}`]: {
-      '&:hover, &:focus': {
-        [`+ .${prefixCls}-group-addon .${searchPrefixCls}-button:not(.ant-btn-primary)`]: {
-          borderRightColor: token.primaryHoverColor,
-          borderLeftColor: token.borderColor,
-        },
-      },
-    },
-
     [`> .${prefixCls}-group`]: {
-      [`> .${prefixCls}-affix-wrapper`]: {
-        '&:hover, &-focused': {
-          borderRightColor: token.primaryHoverColor,
-        },
-      },
-
       [`> .${prefixCls}-group-addon`]: {
         right: '-1px',
         left: 'auto',
-        [`.${searchPrefixCls}-button`]: {
-          borderRadius: `${token.borderRadius}px 0 0 ${token.borderRadius}px`,
-        },
       },
     },
   },
@@ -908,7 +798,6 @@ export default function useStyle(
       withPrefix(genAffixStyle(prefixCls, iconPrefixCls, theme, inputToken), affixWrapperPrefixCls),
       withPrefix(genGroupStyle(prefixCls, inputToken), groupPrefixCls),
       withPrefix(genSearchInputStyle(prefixCls, searchPrefixCls, inputToken), searchPrefixCls),
-      genRTLStyle(prefixCls, searchPrefixCls, inputToken),
     ]),
     hashId,
   ];
