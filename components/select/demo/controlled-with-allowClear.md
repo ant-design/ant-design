@@ -2,7 +2,7 @@
 order: 1
 title:
   zh-CN: 可清除的受控下拉组件
-  en-US: Controllable Select with `allowClear`
+  en-US: Controlled Select with `allowClear`
 ---
 
 ## zh-CN
@@ -11,7 +11,7 @@ title:
 
 ## en-US
 
-Controllable Select with `allowClear`.
+Controlled Select with `allowClear`.
 
 ```jsx
 import { useState } from 'react';
@@ -24,9 +24,11 @@ function App() {
   const [loading, setLoading] = useState(false);
 
   function onChange(newValue) {
+    setLoading(true);
     // The `newValue` should be `undefined` when user cleared the select.
     // Delay 1 seconds then update the value.
     setTimeout(() => {
+      setLoading(false);
       setValue(newValue === undefined ? null : newValue);
     }, 1000);
   }
