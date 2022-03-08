@@ -152,7 +152,7 @@ export const genBasicInputStyle = (
   'textarea&': {
     maxWidth: '100%', // prevent textearea resize from coming out of its container
     height: 'auto',
-    minHeight: token.height,
+    minHeight: token.controlHeight,
     lineHeight: token.lineHeight,
     verticalAlign: 'bottom',
     transition: `all ${token.duration}, height 0s`,
@@ -198,11 +198,11 @@ const genInputGroupStyle = (prefixCls: string, token: InputToken): CSSObject => 
 
   // Fix https://github.com/ant-design/ant-design/issues/5754
   '&-lg .ant-select-single .ant-select-selector': {
-    height: token.heightLG,
+    height: token.controlHeightLG,
   },
 
   '&-sm .ant-select-single .ant-select-selector': {
-    height: token.heightSM,
+    height: token.controlHeightSM,
   },
 
   [`> .${prefixCls}`]: {
@@ -468,25 +468,30 @@ const genInputGroupStyle = (prefixCls: string, token: InputToken): CSSObject => 
   },
 });
 
-const genInputStyle = (prefixCls: string, theme: any, token: InputToken): CSSObject => ({
+const genInputStyle = (
+  prefixCls: string,
+  iconPrefixCls: string,
+  theme: any,
+  token: InputToken,
+): CSSObject => ({
   ...resetComponent(token),
   ...genBasicInputStyle(prefixCls, theme, token),
   ...genStatusStyle(prefixCls, theme, token),
 
   '&[type="color"]': {
-    height: token.height,
+    height: token.controlHeight,
 
     [`&.${prefixCls}-lg`]: {
-      height: token.heightLG,
+      height: token.controlHeightLG,
     },
     [`&.${prefixCls}-sm`]: {
-      height: token.heightSM,
+      height: token.controlHeightSM,
       paddingTop: 3,
       paddingBottom: 3,
     },
   },
 
-  [`.${prefixCls}-password-icon`]: {
+  [`.${prefixCls}-password-icon.${iconPrefixCls}`]: {
     color: token.tmpTextColorSecondary,
     cursor: 'pointer',
     transition: `all ${token.duration}`,
@@ -706,7 +711,7 @@ const genSearchInputStyle = (
   },
 
   [`.${searchPrefixCls}-button`]: {
-    height: token.height,
+    height: token.controlHeight,
 
     '&:hover, &:focus': {
       zIndex: 1,
@@ -714,11 +719,11 @@ const genSearchInputStyle = (
   },
 
   [`&-large .${searchPrefixCls}-button`]: {
-    height: token.heightLG,
+    height: token.controlHeightLG,
   },
 
   [`&-small .${searchPrefixCls}-button`]: {
-    height: token.heightSM,
+    height: token.controlHeightSM,
   },
 });
 
@@ -889,22 +894,25 @@ const genRTLStyle = (prefixCls: string, searchPrefixCls: string, token: InputTok
 });
 
 // ============================== Export ==============================
-export default function useStyle(prefixCls: string): UseComponentStyleResult {
+export default function useStyle(
+  prefixCls: string,
+  iconPrefixCls: string,
+): UseComponentStyleResult {
   const [theme, token, hashId] = useToken();
 
   const inputToken: InputToken = {
     ...token,
     inputAffixMargin: 4,
     inputPaddingVertical: Math.max(
-      Math.round(((token.height - token.fontSize * token.lineHeight) / 2) * 10) / 10 -
+      Math.round(((token.controlHeight - token.fontSize * token.lineHeight) / 2) * 10) / 10 -
         token.borderWidth,
       3,
     ),
     inputPaddingVerticalLG:
-      Math.ceil(((token.heightLG - token.fontSizeLG * token.lineHeight) / 2) * 10) / 10 -
+      Math.ceil(((token.controlHeightLG - token.fontSizeLG * token.lineHeight) / 2) * 10) / 10 -
       token.borderWidth,
     inputPaddingVerticalSM: Math.max(
-      Math.round(((token.heightSM - token.fontSize * token.lineHeight) / 2) * 10) / 10 -
+      Math.round(((token.controlHeightSM - token.fontSize * token.lineHeight) / 2) * 10) / 10 -
         token.borderWidth,
       0,
     ),
@@ -919,7 +927,7 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
 
   return [
     useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      withPrefix(genInputStyle(prefixCls, theme, inputToken), prefixCls),
+      withPrefix(genInputStyle(prefixCls, iconPrefixCls, theme, inputToken), prefixCls),
       withPrefix(genAffixStyle(prefixCls, theme, inputToken), affixWrapperPrefixCls),
       withPrefix(genGroupStyle(prefixCls, inputToken), groupPrefixCls),
       withPrefix(genSearchInputStyle(prefixCls, searchPrefixCls, inputToken), searchPrefixCls),
