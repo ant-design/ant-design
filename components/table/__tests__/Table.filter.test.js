@@ -2201,7 +2201,7 @@ describe('Table.filter', () => {
   it('filterDropDown should support filterResetToDefaultFilteredValue', () => {
     jest.useFakeTimers();
     jest.spyOn(console, 'error').mockImplementation(() => undefined);
-    const column = {
+    const columnFilter = {
       title: 'Name',
       dataIndex: 'name',
       filters: [
@@ -2224,7 +2224,7 @@ describe('Table.filter', () => {
     };
     let wrapper = mount(
       createTable({
-        columns: [column],
+        columns: [columnFilter],
       }),
     );
     wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
@@ -2241,10 +2241,10 @@ describe('Table.filter', () => {
     wrapper.find('button.ant-btn-link').simulate('click', nativeEvent);
     expect(wrapper.find('.ant-tree-checkbox-checked').length).toBe(0);
 
-    column.filterResetToDefaultFilteredValue = true;
+    columnFilter.filterResetToDefaultFilteredValue = true;
     wrapper = mount(
       createTable({
-        columns: [column],
+        columns: [columnFilter],
       }),
     );
     wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);

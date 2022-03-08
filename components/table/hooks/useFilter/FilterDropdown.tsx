@@ -240,7 +240,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     setSearchValue('');
 
     if (filterResetToDefaultFilteredValue) {
-      defaultFilteredValue && setFilteredKeysSync(defaultFilteredValue.map(key => String(key)));
+      setFilteredKeysSync((defaultFilteredValue || []).map(key => String(key)));
     } else {
       setFilteredKeysSync([]);
     }
