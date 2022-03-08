@@ -4,7 +4,7 @@ import { TinyColor } from '@ctrl/tinycolor';
 import { CSSObject, Theme, useCacheToken, useStyleRegister } from '@ant-design/cssinjs';
 import defaultDesignToken from './default';
 import version from '../../version';
-import { resetComponent, resetIcon, placeholder } from './util';
+import { resetComponent, resetIcon } from './util';
 import {
   initSlideMotion,
   slideUpIn,
@@ -20,7 +20,6 @@ import {
 export {
   resetComponent,
   resetIcon,
-  placeholder,
   initSlideMotion,
   slideUpIn,
   slideUpOut,

@@ -3,7 +3,6 @@ import { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 import {
   DerivativeToken,
-  placeholder,
   resetComponent,
   UseComponentStyleResult,
   useStyleRegister,
@@ -20,6 +19,23 @@ interface InputToken extends DerivativeToken {
   inputBorderHoverColor: string;
   inputBorderActiveColor: string;
 }
+
+// FIXME: magic color string
+export const genPlaceholderStyle = (
+  color: string = new TinyColor({ h: 0, s: 0, v: '75%' }).toHexString(),
+): CSSObject => ({
+  // Firefox
+  '&::-moz-placeholder': {
+    opacity: 1,
+  },
+  '&::placeholder': {
+    color,
+    userSelect: 'none', // https://github.com/ant-design/ant-design/pull/32639
+  },
+  '&:placeholder-shown': {
+    textOverflow: 'ellipsis',
+  },
+});
 
 export const genHoverStyle = (prefixCls: string, token: InputToken): CSSObject => ({
   borderColor: token.inputBorderHoverColor,
@@ -126,7 +142,7 @@ export const genBasicInputStyle = (
   borderColor: token.borderColor,
   borderRadius: token.borderRadius,
   transition: `all ${token.duration}`,
-  ...placeholder(),
+  ...genPlaceholderStyle(),
 
   '&:hover': {
     ...genHoverStyle(prefixCls, token),
