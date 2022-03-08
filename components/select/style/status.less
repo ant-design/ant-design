@@ -25,56 +25,52 @@
   }
 }
 
-.select-status-base(@prefix-cls) {
-  .@{prefix-cls} {
-    &-status-error {
-      .select-status-color(@error-color, @error-color, @select-background, @error-color-hover, @error-color-outline);
-    }
+.@{select-prefix-cls} {
+  &-status-error {
+    .select-status-color(@error-color, @error-color, @select-background, @error-color-hover, @error-color-outline);
+  }
 
-    &-status-warning {
-      .select-status-color(@warning-color, @warning-color, @input-bg, @warning-color-hover, @warning-color-outline);
-    }
+  &-status-warning {
+    .select-status-color(@warning-color, @warning-color, @input-bg, @warning-color-hover, @warning-color-outline);
+  }
 
-    &-status-success {
-      .@{prefix-cls}-feedback-icon {
-        color: @success-color;
+  &-status-success {
+    .@{select-prefix-cls}-feedback-icon {
+      color: @success-color;
+    }
+  }
+
+  &-status-validating {
+    .@{select-prefix-cls}-feedback-icon {
+      color: @primary-color;
+    }
+  }
+
+  &-status-error,
+  &-status-warning,
+  &-status-success,
+  &-status-validating {
+    &.@{select-prefix-cls}-has-feedback {
+      //.@{prefix-cls}-arrow,
+      .@{select-prefix-cls}-clear {
+        right: 32px;
       }
-    }
 
-    &-status-validating {
-      .@{prefix-cls}-feedback-icon {
-        color: @primary-color;
-      }
-    }
-
-    &-status-error,
-    &-status-warning,
-    &-status-success,
-    &-status-validating {
-      &.@{prefix-cls}-has-feedback {
-        //.@{prefix-cls}-arrow,
-        .@{prefix-cls}-clear {
-          right: 32px;
-        }
-
-        .@{prefix-cls}-selection-selected-value {
-          padding-right: 42px;
-        }
-      }
-    }
-
-    &-feedback-icon {
-      font-size: @font-size-base;
-      text-align: center;
-      visibility: visible;
-      animation: zoomIn 0.3s @ease-out-back;
-      pointer-events: none;
-
-      &:not(:first-child) {
-        margin-left: 8px;
+      .@{select-prefix-cls}-selection-selected-value {
+        padding-right: 42px;
       }
     }
   }
-}
 
-.select-status-base(@select-prefix-cls);
+  &-feedback-icon {
+    font-size: @font-size-base;
+    text-align: center;
+    visibility: visible;
+    animation: zoomIn 0.3s @ease-out-back;
+    pointer-events: none;
+
+    &:not(:first-child) {
+      margin-left: 8px;
+    }
+  }
+}

@@ -380,4 +380,9 @@ describe('Input allowClear', () => {
     wrapper.setProps({ value: false });
     expect(wrapper.find('input').first().getDOMNode().value).toBe('false');
   });
+
+  it('should support custom clearIcon', () => {
+    const wrapper = mount(<Input allowClear={{ clearIcon: 'clear' }} />);
+    expect(wrapper.find('.ant-input-clear-icon').text()).toBe('clear');
+  });
 });
