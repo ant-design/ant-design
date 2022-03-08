@@ -15,13 +15,15 @@ timeline: true
 
 ---
 
-## 4.19.1-alpha.0
+## 4.19.1
 
 `2022-03-08`
 
 - 🐞 Fix less compile error related to custom status. [#34350](https://github.com/ant-design/ant-design/pull/34350)
   - 🐞 Fix error `ReferenceError: colorPalette is not defined` when customize theme.
   - 🐞 Fix error `Error: Invalid class or id selector syntax` when import `antd/dist/antd.css`.
+- 🐞 Fix Input.Passowrd icon color in site. [#34354](https://github.com/ant-design/ant-design/pull/34354)
+- 🐞 Fix ConfigProvider `csp` sometime not effect on Icon. [#34356](https://github.com/ant-design/ant-design/pull/34356)
 
 ## 4.19.0
 
