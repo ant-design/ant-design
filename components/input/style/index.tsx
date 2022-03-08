@@ -125,7 +125,7 @@ export const genBasicInputStyle = (
   borderStyle: token.borderStyle,
   borderColor: token.borderColor,
   borderRadius: token.borderRadius,
-  transition: `all 0.3s`,
+  transition: `all ${token.duration}`,
   ...placeholder(),
 
   '&:hover': {
@@ -155,7 +155,7 @@ export const genBasicInputStyle = (
     minHeight: token.height,
     lineHeight: token.lineHeight,
     verticalAlign: 'bottom',
-    transition: 'all 0.3s, height 0s',
+    transition: `all ${token.duration}, height 0s`,
   },
 
   // Size
@@ -239,7 +239,7 @@ const genInputGroupStyle = (prefixCls: string, token: InputToken): CSSObject => 
       backgroundColor: token.tmpBackgroundLight,
       border: `${token.borderWidth}px ${token.borderStyle} ${token.borderColor}`,
       borderRadius: token.borderRadius,
-      transition: 'all 0.3s',
+      transition: `all ${token.duration}`,
 
       // Reset Select's style in addon
       '.ant-select': {
@@ -507,7 +507,7 @@ const genAllowClearStyle = (prefixCls: string, token: InputToken): CSSObject => 
     // https://github.com/ant-design/ant-design/pull/18151
     // https://codesandbox.io/s/wizardly-sun-u10br
     cursor: 'pointer',
-    transition: 'color 0.3s',
+    transition: `color ${token.duration}`,
 
     '&:hover': {
       color: token.tmpTextColorSecondary,
