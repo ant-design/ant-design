@@ -98,6 +98,8 @@ export interface DerivativeToken extends Omit<DesignToken, 'duration'> {
   warningOutlineColor: string;
   itemActiveBackground: string;
 
+  highlightColor: string;
+
   linkColor: string;
   fontSizeSM: number;
   fontSizeLG: number;
@@ -153,6 +155,8 @@ function derivative(designToken: DesignToken): DerivativeToken {
 
     warningHoverColor: warningColors[4],
     warningOutlineColor: new TinyColor(warningColor).setAlpha(0.2).toRgbString(),
+
+    highlightColor: errorColors[4], // FIXME: Should not align with error color
 
     itemActiveBackground: primaryColors[0],
 
