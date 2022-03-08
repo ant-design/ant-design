@@ -37,29 +37,19 @@ export const genPlaceholderStyle = (
   },
 });
 
-export const genHoverStyle = (prefixCls: string, token: InputToken): CSSObject => ({
+export const genHoverStyle = (token: InputToken): CSSObject => ({
   borderColor: token.inputBorderHoverColor,
   borderInlineEndWidth: token.borderWidth,
-
-  [`.${prefixCls}-rtl &`]: {
-    borderInlineEndWidth: 0,
-    borderInlineStartWidth: `${token.borderWidth}px !important`,
-  },
 });
 
-export const genActiveStyle = (prefixCls: string, theme: any, token: InputToken) => ({
+export const genActiveStyle = (theme: any, token: InputToken) => ({
   borderColor: theme === 'dark' ? token.inputBorderActiveColor : token.inputBorderHoverColor,
   boxShadow: `0 0 0 2px ${new TinyColor(token.inputBorderActiveColor).setAlpha(0.2)}`, // FIXME: outlineFade outlineWidth
   borderInlineEndWidth: token.borderWidth,
   outline: 0,
-
-  [`.${prefixCls}-rtl &`]: {
-    borderInlineEndWidth: 0,
-    borderInlineStartWidth: `${token.borderWidth}px !important`,
-  },
 });
 
-export const genDisabledStyle = (prefixCls: string, token: InputToken): CSSObject => ({
+export const genDisabledStyle = (token: InputToken): CSSObject => ({
   color: token.textColorDisabled,
   backgroundColor: token.componentBackgroundDisabled,
   borderColor: token.borderColor,
@@ -68,7 +58,7 @@ export const genDisabledStyle = (prefixCls: string, token: InputToken): CSSObjec
   opacity: 1,
 
   '&:hover': {
-    ...genHoverStyle(prefixCls, { ...token, inputBorderHoverColor: token.borderColor }),
+    ...genHoverStyle({ ...token, inputBorderHoverColor: token.borderColor }),
   },
 });
 
@@ -92,7 +82,7 @@ const genStatusStyle = (prefixCls: string, theme: any, token: InputToken): CSSOb
     },
 
     '&:focus, &-focused': {
-      ...genActiveStyle(prefixCls, theme, {
+      ...genActiveStyle(theme, {
         ...token,
         inputBorderActiveColor: token.errorColor,
         inputBorderHoverColor: token.errorColor,
@@ -109,7 +99,7 @@ const genStatusStyle = (prefixCls: string, theme: any, token: InputToken): CSSOb
     },
 
     '&:focus, &-focused': {
-      ...genActiveStyle(prefixCls, theme, {
+      ...genActiveStyle(theme, {
         ...token,
         inputBorderActiveColor: token.warningColor,
         inputBorderHoverColor: token.warningColor,
@@ -145,15 +135,15 @@ export const genBasicInputStyle = (
   ...genPlaceholderStyle(),
 
   '&:hover': {
-    ...genHoverStyle(prefixCls, token),
+    ...genHoverStyle(token),
   },
 
   '&:focus, &-focused': {
-    ...genActiveStyle(prefixCls, theme, token),
+    ...genActiveStyle(theme, token),
   },
 
   '&:disabled, &[disabled]': {
-    ...genDisabledStyle(prefixCls, token),
+    ...genDisabledStyle(token),
   },
 
   '&-borderless': {
@@ -177,10 +167,6 @@ export const genBasicInputStyle = (
   '&-textarea': {
     '&-rtl': {
       direction: 'rtl',
-    },
-
-    '&-rtl&-show-count::after': {
-      textAlign: 'left',
     },
   },
 
@@ -292,7 +278,7 @@ const genInputGroupStyle = (prefixCls: string, token: InputToken): CSSObject => 
         margin: `-9px -${token.inputPaddingHorizontal}px`,
         backgroundColor: 'transparent',
         '.ant-cascader-input': {
-          textAlign: 'left',
+          textAlign: 'start',
           border: 0,
           boxShadow: 'none',
         },
@@ -309,7 +295,7 @@ const genInputGroupStyle = (prefixCls: string, token: InputToken): CSSObject => 
   },
 
   [`.${prefixCls}`]: {
-    float: 'left',
+    float: 'inline-start',
     width: '100%',
     marginBottom: 0,
     textAlign: 'inherit',
@@ -543,11 +529,6 @@ const genAllowClearStyle = (prefixCls: string, token: InputToken): CSSObject => 
     '&-has-suffix': {
       margin: `0 ${token.inputAffixMargin}px`,
     },
-
-    [`.${prefixCls}-affix-wrapper-rtl &`]: {
-      right: 'auto',
-      left: '8px',
-    },
   },
 
   // ======================= TextArea ========================
@@ -557,8 +538,8 @@ const genAllowClearStyle = (prefixCls: string, token: InputToken): CSSObject => 
 
     [`.${prefixCls}-clear-icon`]: {
       position: 'absolute',
-      top: '8px',
-      right: '8px',
+      insetBlockStart: '8px',
+      insetInlineEnd: '8px',
       zIndex: 1,
     },
   },
@@ -574,7 +555,7 @@ const genAffixStyle = (
   display: 'inline-flex',
 
   '&:not(&-disabled):hover': {
-    ...genHoverStyle(prefixCls, token),
+    ...genHoverStyle(token),
     zIndex: 1,
     [`.${prefixCls}-search-with-button &`]: {
       zIndex: 0,
@@ -722,7 +703,7 @@ const genSearchInputStyle = (
 
   [`> .${prefixCls}-group`]: {
     [`> .${prefixCls}-group-addon:last-child`]: {
-      left: '-1px',
+      insetInlineStart: '-1px',
       padding: 0,
       border: 0,
 
@@ -739,10 +720,10 @@ const genSearchInputStyle = (
         color: token.textColorSecondary,
 
         '&.ant-btn-loading::before': {
-          top: 0,
-          right: 0,
-          bottom: 0,
-          left: 0,
+          insetInlineStart: 0,
+          insetInlineEnd: 0,
+          insetBlockStart: 0,
+          insetBlockEnd: 0,
         },
       },
     },
@@ -766,13 +747,6 @@ const genSearchInputStyle = (
 
   '&-rtl': {
     direction: 'rtl',
-
-    [`> .${prefixCls}-group`]: {
-      [`> .${prefixCls}-group-addon`]: {
-        right: '-1px',
-        left: 'auto',
-      },
-    },
   },
 });
 
