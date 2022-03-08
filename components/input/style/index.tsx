@@ -236,7 +236,7 @@ const genInputGroupStyle = (prefixCls: string, token: InputToken): CSSObject => 
       fontWeight: 'normal',
       fontSize: token.fontSize,
       textAlign: 'center',
-      backgroundColor: token.tmpBackgroundLight,
+      backgroundColor: token.backgroundLight,
       border: `${token.borderWidth}px ${token.borderStyle} ${token.borderColor}`,
       borderRadius: token.borderRadius,
       transition: `all ${token.duration}`,
@@ -390,7 +390,7 @@ const genInputGroupStyle = (prefixCls: string, token: InputToken): CSSObject => 
     },
 
     '& > *:not(:last-child)': {
-      marginRight: -token.borderWidth,
+      marginInlineEnd: -token.borderWidth,
       borderRightWidth: token.borderWidth,
     },
 
@@ -448,7 +448,7 @@ const genInputGroupStyle = (prefixCls: string, token: InputToken): CSSObject => 
     },
 
     '.ant-input-group-wrapper + .ant-input-group-wrapper': {
-      marginLeft: -1,
+      marginInlineStart: -1,
       '.ant-input-affix-wrapper': {
         borderRadius: 0,
       },
@@ -468,12 +468,7 @@ const genInputGroupStyle = (prefixCls: string, token: InputToken): CSSObject => 
   },
 });
 
-const genInputStyle = (
-  prefixCls: string,
-  iconPrefixCls: string,
-  theme: any,
-  token: InputToken,
-): CSSObject => ({
+const genInputStyle = (prefixCls: string, theme: any, token: InputToken): CSSObject => ({
   ...resetComponent(token),
   ...genBasicInputStyle(prefixCls, theme, token),
   ...genStatusStyle(prefixCls, theme, token),
@@ -488,16 +483,6 @@ const genInputStyle = (
       height: token.controlHeightSM,
       paddingTop: 3,
       paddingBottom: 3,
-    },
-  },
-
-  [`.${prefixCls}-password-icon.${iconPrefixCls}`]: {
-    color: token.tmpTextColorSecondary,
-    cursor: 'pointer',
-    transition: `all ${token.duration}`,
-
-    '&:hover': {
-      color: token.tmpIconHoverColor,
     },
   },
 });
@@ -515,7 +500,7 @@ const genAllowClearStyle = (prefixCls: string, token: InputToken): CSSObject => 
     transition: `color ${token.duration}`,
 
     '&:hover': {
-      color: token.tmpTextColorSecondary,
+      color: token.textColorSecondary,
     },
 
     '&:active': {
@@ -545,7 +530,12 @@ const genAllowClearStyle = (prefixCls: string, token: InputToken): CSSObject => 
   },
 });
 
-const genAffixStyle = (prefixCls: string, theme: any, token: InputToken): CSSObject => ({
+const genAffixStyle = (
+  prefixCls: string,
+  iconPrefixCls: string,
+  theme: any,
+  token: InputToken,
+): CSSObject => ({
   ...genBasicInputStyle(prefixCls, theme, token),
   display: 'inline-flex',
 
@@ -580,7 +570,7 @@ const genAffixStyle = (prefixCls: string, theme: any, token: InputToken): CSSObj
   '&::before': {
     width: 0,
     visibility: 'hidden',
-    content: '\\a0',
+    content: '"\\a0"',
   },
 
   [`.${prefixCls}`]: {
@@ -591,23 +581,34 @@ const genAffixStyle = (prefixCls: string, theme: any, token: InputToken): CSSObj
     },
 
     '&-show-count-suffix': {
-      color: token.tmpTextColorSecondary,
+      color: token.textColorSecondary,
     },
 
     '&-show-count-has-suffix': {
-      marginRight: '2px',
+      marginInlineEnd: '2px',
     },
 
     '&-prefix': {
-      marginRight: token.inputAffixMargin,
+      marginInlineEnd: token.inputAffixMargin,
     },
 
     '&-suffix': {
-      marginLeft: token.inputAffixMargin,
+      marginInlineStart: token.inputAffixMargin,
     },
   },
 
   ...genAllowClearStyle(prefixCls, token),
+
+  // password
+  [`.${iconPrefixCls}.${prefixCls}-password-icon`]: {
+    color: token.textColorSecondary,
+    cursor: 'pointer',
+    transition: `all ${token.duration}`,
+
+    '&:hover': {
+      color: token.iconColorHover,
+    },
+  },
 
   // status
   ...genStatusStyle(prefixCls, theme, token),
@@ -698,7 +699,7 @@ const genSearchInputStyle = (
       },
 
       [`.${searchPrefixCls}-button:not(.ant-btn-primary)`]: {
-        color: token.tmpTextColorSecondary,
+        color: token.textColorSecondary,
 
         '&.ant-btn-loading::before': {
           top: 0,
@@ -778,8 +779,6 @@ const genRTLStyle = (prefixCls: string, searchPrefixCls: string, token: InputTok
     '&&-compact': {
       '& > *:not(:last-child)': {
         [`.${prefixCls}-group-rtl&`]: {
-          marginRight: 0,
-          marginLeft: -token.borderWidth,
           borderLeftWidth: token.borderWidth,
         },
       },
@@ -804,11 +803,6 @@ const genRTLStyle = (prefixCls: string, searchPrefixCls: string, token: InputTok
         },
       },
 
-      [`.${prefixCls}-group-wrapper-rtl + .${prefixCls}-group-wrapper-rtl`]: {
-        marginRight: '-1px',
-        marginLeft: 0,
-      },
-
       [`.${prefixCls}-group-wrapper-rtl:not(:last-child)`]: {
         [`&.${prefixCls}-search > .${prefixCls}-group`]: {
           [`& > .${prefixCls}`]: {
@@ -827,16 +821,6 @@ const genRTLStyle = (prefixCls: string, searchPrefixCls: string, token: InputTok
       },
     },
 
-    '&-affix-wrapper-rtl': {
-      [`.${prefixCls}-prefix`]: {
-        margin: `0 0 0 ${token.inputAffixMargin}px`,
-      },
-
-      [`.${prefixCls}-suffix`]: {
-        margin: `0 ${token.inputAffixMargin}px 0 0`,
-      },
-    },
-
     '&-textarea': {
       '&-rtl': {
         direction: 'rtl',
@@ -850,13 +834,6 @@ const genRTLStyle = (prefixCls: string, searchPrefixCls: string, token: InputTok
 
   // allow-clear
   [`.${prefixCls}-clear-icon`]: {
-    '&-has-suffix': {
-      [`.${prefixCls}-affix-wrapper-rtl &`]: {
-        marginRight: 0,
-        marginLeft: token.inputAffixMargin,
-      },
-    },
-
     [`.${prefixCls}-affix-wrapper-rtl &`]: {
       right: 'auto',
       left: '8px',
@@ -916,7 +893,7 @@ export default function useStyle(
         token.borderWidth,
       0,
     ),
-    inputPaddingHorizontal: token.tmpPaddingSM - 1,
+    inputPaddingHorizontal: token.paddingSM - 1,
     inputBorderHoverColor: token.primaryHoverColor,
     inputBorderActiveColor: token.primaryHoverColor,
   };
@@ -927,8 +904,8 @@ export default function useStyle(
 
   return [
     useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      withPrefix(genInputStyle(prefixCls, iconPrefixCls, theme, inputToken), prefixCls),
-      withPrefix(genAffixStyle(prefixCls, theme, inputToken), affixWrapperPrefixCls),
+      withPrefix(genInputStyle(prefixCls, theme, inputToken), prefixCls),
+      withPrefix(genAffixStyle(prefixCls, iconPrefixCls, theme, inputToken), affixWrapperPrefixCls),
       withPrefix(genGroupStyle(prefixCls, inputToken), groupPrefixCls),
       withPrefix(genSearchInputStyle(prefixCls, searchPrefixCls, inputToken), searchPrefixCls),
       genRTLStyle(prefixCls, searchPrefixCls, inputToken),

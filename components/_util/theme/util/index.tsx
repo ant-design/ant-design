@@ -41,13 +41,16 @@ export const resetIcon = (): CSSObject => ({
   },
 });
 
-export const placeholder = (): CSSObject => ({
+// FIXME: magic color string
+export const placeholder = (
+  color: string = new TinyColor({ h: 0, s: 0, v: '75%' }).toHexString(),
+): CSSObject => ({
   // Firefox
   '&::-moz-placeholder': {
     opacity: 1,
   },
   '&::placeholder': {
-    color: new TinyColor({ h: 0, s: 0, v: '75%' }).toHexString(),
+    color,
     userSelect: 'none', // https://github.com/ant-design/ant-design/pull/32639
   },
   '&:placeholder-shown': {
