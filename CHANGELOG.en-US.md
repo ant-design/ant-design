@@ -19,7 +19,7 @@ timeline: true
 
 `2022-03-08`
 
-- 🐞 Fix less compile error related to custom status. [34350](https://github.com/ant-design/ant-design/pull/34350)
+- 🐞 Fix less compile error related to custom status. [#34350](https://github.com/ant-design/ant-design/pull/34350)
 
 ## 4.19.0
 
