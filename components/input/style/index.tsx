@@ -407,9 +407,9 @@ const genInputGroupStyle = (prefixCls: string, token: InputToken): CSSObject => 
 
     // reset border for Select, DatePicker, AutoComplete, Cascader, Mention, TimePicker, Input
     [`& > .ant-select > .ant-select-selector,
-      & > .ant-select-auto-complete .ant-input,
-      & > .ant-cascader-picker .ant-input,
-      & > .ant-input-group-wrapper .ant-input`]: {
+      & > .ant-select-auto-complete .${prefixCls},
+      & > .ant-cascader-picker .${prefixCls},
+      & > .${prefixCls}-group-wrapper .${prefixCls}`]: {
       borderInlineEndWidth: token.borderWidth,
       borderRadius: 0,
 
@@ -433,40 +433,40 @@ const genInputGroupStyle = (prefixCls: string, token: InputToken): CSSObject => 
 
     [`& > *:first-child,
       & > .ant-select:first-child > .ant-select-selector,
-      & > .ant-select-auto-complete:first-child .ant-input,
-      & > .ant-cascader-picker:first-child .ant-input`]: {
+      & > .ant-select-auto-complete:first-child .${prefixCls},
+      & > .ant-cascader-picker:first-child .${prefixCls}`]: {
       borderStartStartRadius: token.borderRadius,
       borderEndStartRadius: token.borderRadius,
     },
 
     [`& > *:last-child,
       & > .ant-select:last-child > .ant-select-selector,
-      & > .ant-cascader-picker:last-child .ant-input,
-      & > .ant-cascader-picker-focused:last-child .ant-input`]: {
+      & > .ant-cascader-picker:last-child .${prefixCls},
+      & > .ant-cascader-picker-focused:last-child .${prefixCls}`]: {
       borderInlineEndWidth: token.borderWidth,
       borderStartEndRadius: token.borderRadius,
       borderEndEndRadius: token.borderRadius,
     },
 
     // https://github.com/ant-design/ant-design/issues/12493
-    '& > .ant-select-auto-complete .ant-input': {
+    [`& > .ant-select-auto-complete .${prefixCls}`]: {
       verticalAlign: 'top',
     },
 
-    '.ant-input-group-wrapper + .ant-input-group-wrapper': {
-      marginInlineStart: -1,
-      '.ant-input-affix-wrapper': {
+    [`.${prefixCls}-group-wrapper + .${prefixCls}-group-wrapper`]: {
+      marginInlineStart: -1, // FIXME: magic number
+      [`.${prefixCls}-affix-wrapper`]: {
         borderRadius: 0,
       },
     },
 
-    '.ant-input-group-wrapper:not(:last-child)': {
-      '&.ant-input-search > .ant-input-group': {
-        '& > .ant-input-group-addon > .ant-input-search-button': {
+    [`.${prefixCls}-group-wrapper:not(:last-child)`]: {
+      [`&.${prefixCls}-search > .${prefixCls}-group`]: {
+        [`& > .${prefixCls}-group-addon > .${prefixCls}-search-button`]: {
           borderRadius: 0,
         },
 
-        '& > .ant-input': {
+        [`& > .${prefixCls}`]: {
           borderStartStartRadius: token.borderRadius,
           borderStartEndRadius: 0,
           borderEndEndRadius: 0,
