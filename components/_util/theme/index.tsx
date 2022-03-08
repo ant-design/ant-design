@@ -63,6 +63,8 @@ export interface DesignToken {
   textColorInverse: string;
   placeholderColor: string;
 
+  disabledColor: string;
+
   iconColorHover: string;
 
   headingColor: string;
