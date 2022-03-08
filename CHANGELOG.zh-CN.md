@@ -15,13 +15,15 @@ timeline: true
 
 ---
 
-## 4.19.1-alpha.0
+## 4.19.1
 
 `2022-03-08`
 
 - 🐞 修复自定义状态相关的 less 编译错误 [#34350](https://github.com/ant-design/ant-design/pull/34350)
   - 🐞 修复使用定制主题时 less 编译提示 `ReferenceError: colorPalette is not defined` 错误。
   - 🐞 修复引入 `antd/dist/antd.css` 时提示 `Error: Invalid class or id selector syntax` 错误。
+- 🐞 修复 Input.Passowrd 图标颜色错误。[#34354](https://github.com/ant-design/ant-design/pull/34354)
+- 🐞 修复 ConfigProvider `csp` 有时在 Icon 上不会生效的问题。[#34356](https://github.com/ant-design/ant-design/pull/34356)
 
 ## 4.19.0
 
