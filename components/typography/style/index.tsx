@@ -1,6 +1,11 @@
-import '../../style/index.less';
-import './index.less';
+// deps-lint-skip-all
+import { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
+import { TinyColor } from '@ctrl/tinycolor';
+import { DerivativeToken, useStyleRegister, useToken, withPrefix } from '../../_util/theme';
 
-// style dependencies
-import '../../tooltip/style';
-import '../../input/style';
+// ============================== Export ==============================
+export default function useStyle(prefixCls: string) {
+  const [theme, token, hashId] = useToken();
+
+  return useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => []);
+}
