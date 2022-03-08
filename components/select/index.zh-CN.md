@@ -25,7 +25,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| allowClear | 支持清除 | boolean | false |  |
+| allowClear | 支持清除，`onChange` 回调传参为 `undefined` | boolean | false |  |
 | autoClearSearchValue | 是否在选中项后清空搜索框，只在 `mode` 为 `multiple` 或 `tags` 时有效 | boolean | true |  |
 | autoFocus | 默认获取焦点 | boolean | false |  |
 | bordered | 是否有边框 | boolean | true |  |
@@ -66,7 +66,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
 | tagRender | 自定义 tag 内容 render，仅在 `mode` 为 `multiple` 或 `tags` 时生效 | (props) => ReactNode | - |  |
 | tokenSeparators | 在 `tags` 和 `multiple` 模式下自动分词的分隔符 | string\[] | - |  |
-| value | 指定当前选中的条目，多选时为一个数组。（value 数组引用未变化时，Select 不会更新） | string \| string\[]<br />number \| number\[]<br />LabeledValue \| LabeledValue\[] | - |  |
+| value | 指定当前选中的条目，多选时为一个数组。（value 数组引用未变化时，Select 不会更新） | string \| string\[]<br />number \| number\[]<br />LabeledValue \| LabeledValue\[]<br />null | - |  |
 | virtual | 设置 false 时关闭虚拟滚动 | boolean | true | 4.1.0 |
 | onBlur | 失去焦点时回调 | function | - |  |
 | onChange | 选中 option，或 input 的 value 变化时，调用此函数 | function(value, option:Option \| Array&lt;Option>) | - |  |
@@ -97,7 +97,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
 | className | Option 器类名            | string           | -      |      |
 | disabled  | 是否禁用                 | boolean          | false  |      |
 | title     | 选项上的原生 title 提示  | string           | -      |      |
-| value     | 默认根据此属性值进行筛选 | string \| number | -      |      |
+| value     | 默认根据此属性值进行筛选 | string \| number \| null | -      |      |
 
 ### OptGroup props
 

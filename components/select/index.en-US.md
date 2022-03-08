@@ -24,7 +24,7 @@ Select component to select value from options.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| allowClear | Show clear button | boolean | false |  |
+| allowClear | Show clear button. `onChange` will be called with `undefined` | boolean | false |  |
 | autoClearSearchValue | Whether the current search will be cleared on selecting an item. Only applies when `mode` is set to `multiple` or `tags` | boolean | true |  |
 | autoFocus | Get focus by default | boolean | false |  |
 | bordered | Whether has border style | boolean | true |  |
@@ -65,7 +65,7 @@ Select component to select value from options.
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
 | tagRender | Customize tag render, only applies when `mode` is set to `multiple` or `tags` | (props) => ReactNode | - |  |
 | tokenSeparators | Separator used to tokenize on `tag` and `multiple` mode | string\[] | - |  |
-| value | Current selected option (considered as a immutable array) | string \| string\[]<br />number \| number\[]<br />LabeledValue \| LabeledValue\[] | - |  |
+| value | Current selected option (considered as a immutable array) | string \| string\[]<br />number \| number\[]<br />LabeledValue \| LabeledValue\[]<br />null | - |  |
 | virtual | Disable virtual scroll when set to false | boolean | true | 4.1.0 |
 | onBlur | Called when blur | function | - |  |
 | onChange | Called when select an option or input value change | function(value, option:Option \| Array&lt;Option>) | - |  |
@@ -96,7 +96,7 @@ Select component to select value from options.
 | className | The additional class to option       | string           | -       |         |
 | disabled  | Disable this option                  | boolean          | false   |         |
 | title     | `title` attribute of Select Option   | string           | -       |         |
-| value     | Default to filter with this property | string \| number | -       |         |
+| value     | Default to filter with this property | string \| number \| null | -       |         |
 
 ### OptGroup props
 
