@@ -2,6 +2,7 @@
 import { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 import {
+  clearFix,
   DerivativeToken,
   resetComponent,
   UseComponentStyleResult,
@@ -42,9 +43,9 @@ export const genHoverStyle = (token: InputToken): CSSObject => ({
   borderInlineEndWidth: token.borderWidth,
 });
 
-export const genActiveStyle = (theme: any, token: InputToken) => ({
-  borderColor: theme === 'dark' ? token.inputBorderActiveColor : token.inputBorderHoverColor,
-  boxShadow: `0 0 0 2px ${new TinyColor(token.inputBorderActiveColor).setAlpha(0.2)}`, // FIXME: outlineFade outlineWidth
+export const genActiveStyle = (token: InputToken) => ({
+  borderColor: token.inputBorderHoverColor,
+  boxShadow: `0 0 0 ${token.outlineWidth}px ${token.primaryOutlineColor}`,
   borderInlineEndWidth: token.borderWidth,
   outline: 0,
 });
@@ -75,14 +76,14 @@ const genInputSmallStyle = (token: InputToken): CSSObject => ({
   padding: `${token.inputPaddingVerticalSM}px ${token.paddingXS - 1}px`,
 });
 
-const genStatusStyle = (prefixCls: string, theme: any, token: InputToken): CSSObject => ({
+const genStatusStyle = (prefixCls: string, token: InputToken): CSSObject => ({
   '&-status-error:not(&-disabled):not(&-borderless)&': {
     '&, &:hover': {
       borderColor: token.errorColor,
     },
 
     '&:focus, &-focused': {
-      ...genActiveStyle(theme, {
+      ...genActiveStyle({
         ...token,
         inputBorderActiveColor: token.errorColor,
         inputBorderHoverColor: token.errorColor,
@@ -99,7 +100,7 @@ const genStatusStyle = (prefixCls: string, theme: any, token: InputToken): CSSOb
     },
 
     '&:focus, &-focused': {
-      ...genActiveStyle(theme, {
+      ...genActiveStyle({
         ...token,
         inputBorderActiveColor: token.warningColor,
         inputBorderHoverColor: token.warningColor,
@@ -112,11 +113,7 @@ const genStatusStyle = (prefixCls: string, theme: any, token: InputToken): CSSOb
   },
 });
 
-export const genBasicInputStyle = (
-  prefixCls: string,
-  theme: any,
-  token: InputToken,
-): CSSObject => ({
+export const genBasicInputStyle = (prefixCls: string, token: InputToken): CSSObject => ({
   position: 'relative',
   display: 'inline-block',
   width: '100%',
@@ -139,7 +136,7 @@ export const genBasicInputStyle = (
   },
 
   '&:focus, &-focused': {
-    ...genActiveStyle(theme, token),
+    ...genActiveStyle(token),
   },
 
   '&:disabled, &[disabled]': {
@@ -192,7 +189,7 @@ const genInputGroupStyle = (prefixCls: string, token: InputToken): CSSObject => 
 
   // Undo padding and float of grid classes
   [`&[class*='col-']`]: {
-    paddingInlineEnd: '8px', // FIXME: magic number
+    paddingInlineEnd: token.paddingXS,
 
     '&:last-child': {
       paddingInlineEnd: 0,
@@ -228,7 +225,7 @@ const genInputGroupStyle = (prefixCls: string, token: InputToken): CSSObject => 
   [`.${prefixCls}-group`]: {
     [`&-addon, &-wrap`]: {
       display: 'table-cell',
-      width: '1px',
+      width: 1, // FIXME: magic number
       whiteSpace: 'nowrap',
       verticalAlign: 'middle',
 
@@ -255,7 +252,6 @@ const genInputGroupStyle = (prefixCls: string, token: InputToken): CSSObject => 
 
       // Reset Select's style in addon
       '.ant-select': {
-        // FIXME: ant
         margin: `-${token.inputPaddingVertical + 1}px -${token.inputPaddingHorizontal}px`,
 
         '&.ant-select-single:not(.ant-select-customize-input)': {
@@ -309,8 +305,7 @@ const genInputGroupStyle = (prefixCls: string, token: InputToken): CSSObject => 
       zIndex: 1,
       borderInlineEndWidth: '1px',
 
-      [`.ant-input-search-with-button &`]: {
-        // FIXME: ant
+      [`.${prefixCls}-search-with-button &`]: {
         zIndex: 0,
       },
     },
@@ -322,8 +317,7 @@ const genInputGroupStyle = (prefixCls: string, token: InputToken): CSSObject => 
     borderEndEndRadius: 0,
 
     // Reset Select's style in addon
-    'ant-select .ant-select-selector': {
-      // FIXME: ant
+    '.ant-select .ant-select-selector': {
       borderStartEndRadius: 0,
       borderEndEndRadius: 0,
     },
@@ -370,7 +364,7 @@ const genInputGroupStyle = (prefixCls: string, token: InputToken): CSSObject => 
 
   '&&-compact': {
     display: 'block',
-    // .clearfix(),
+    ...clearFix(),
 
     [`.${prefixCls}-group-addon, .${prefixCls}-group-wrap, > .${prefixCls}`]: {
       '&:not(:first-child):not(:last-child)': {
@@ -483,10 +477,10 @@ const genInputGroupStyle = (prefixCls: string, token: InputToken): CSSObject => 
   },
 });
 
-const genInputStyle = (prefixCls: string, theme: any, token: InputToken): CSSObject => ({
+const genInputStyle = (prefixCls: string, token: InputToken): CSSObject => ({
   ...resetComponent(token),
-  ...genBasicInputStyle(prefixCls, theme, token),
-  ...genStatusStyle(prefixCls, theme, token),
+  ...genBasicInputStyle(prefixCls, token),
+  ...genStatusStyle(prefixCls, token),
 
   '&[type="color"]': {
     height: token.controlHeight,
@@ -496,8 +490,8 @@ const genInputStyle = (prefixCls: string, theme: any, token: InputToken): CSSObj
     },
     [`&.${prefixCls}-sm`]: {
       height: token.controlHeightSM,
-      paddingTop: 3,
-      paddingBottom: 3,
+      paddingTop: 3, // FIXME: magic number
+      paddingBottom: 3, // FIXME: magic number
     },
   },
 });
@@ -508,7 +502,7 @@ const genAllowClearStyle = (prefixCls: string, token: InputToken): CSSObject => 
     margin: 0,
     color: token.textColorDisabled,
     fontSize: token.fontSizeSM,
-    verticalAlign: '-1px',
+    verticalAlign: -1, // FIXME: magic number
     // https://github.com/ant-design/ant-design/pull/18151
     // https://codesandbox.io/s/wizardly-sun-u10br
     cursor: 'pointer',
@@ -538,20 +532,15 @@ const genAllowClearStyle = (prefixCls: string, token: InputToken): CSSObject => 
 
     [`.${prefixCls}-clear-icon`]: {
       position: 'absolute',
-      insetBlockStart: '8px',
-      insetInlineEnd: '8px',
+      insetBlockStart: token.paddingXS,
+      insetInlineEnd: token.paddingXS,
       zIndex: 1,
     },
   },
 });
 
-const genAffixStyle = (
-  prefixCls: string,
-  iconPrefixCls: string,
-  theme: any,
-  token: InputToken,
-): CSSObject => ({
-  ...genBasicInputStyle(prefixCls, theme, token),
+const genAffixStyle = (prefixCls: string, iconPrefixCls: string, token: InputToken): CSSObject => ({
+  ...genBasicInputStyle(prefixCls, token),
   display: 'inline-flex',
 
   '&:not(&-disabled):hover': {
@@ -600,7 +589,7 @@ const genAffixStyle = (
     },
 
     '&-show-count-has-suffix': {
-      marginInlineEnd: '2px',
+      marginInlineEnd: 2, // FIXME: magic number
     },
 
     '&-prefix': {
@@ -626,7 +615,7 @@ const genAffixStyle = (
   },
 
   // status
-  ...genStatusStyle(prefixCls, theme, token),
+  ...genStatusStyle(prefixCls, token),
   '&-status-validating': {
     [`.${prefixCls}-feedback-icon`]: {
       display: 'inline-block',
@@ -759,7 +748,7 @@ export default function useStyle(
 
   const inputToken: InputToken = {
     ...token,
-    inputAffixMargin: 4,
+    inputAffixMargin: token.marginXXS,
     inputPaddingVertical: Math.max(
       Math.round(((token.controlHeight - token.fontSize * token.lineHeight) / 2) * 10) / 10 -
         token.borderWidth,
@@ -784,8 +773,8 @@ export default function useStyle(
 
   return [
     useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      withPrefix(genInputStyle(prefixCls, theme, inputToken), prefixCls),
-      withPrefix(genAffixStyle(prefixCls, iconPrefixCls, theme, inputToken), affixWrapperPrefixCls),
+      withPrefix(genInputStyle(prefixCls, inputToken), prefixCls),
+      withPrefix(genAffixStyle(prefixCls, iconPrefixCls, inputToken), affixWrapperPrefixCls),
       withPrefix(genGroupStyle(prefixCls, inputToken), groupPrefixCls),
       withPrefix(genSearchInputStyle(prefixCls, searchPrefixCls, inputToken), searchPrefixCls),
     ]),

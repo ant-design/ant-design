@@ -39,3 +39,18 @@ export const resetIcon = (): CSSObject => ({
     display: 'block',
   },
 });
+
+export const clearFix = (): CSSObject => ({
+  // https://github.com/ant-design/ant-design/issues/21301#issuecomment-583955229
+  '&::before': {
+    display: 'table',
+    content: '""',
+  },
+
+  '&::after': {
+    // https://github.com/ant-design/ant-design/issues/21864
+    display: 'table',
+    clear: 'both',
+    content: '""',
+  },
+});
