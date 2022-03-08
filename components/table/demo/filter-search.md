@@ -59,7 +59,7 @@ const columns = [
       },
     ],
     onFilter: (value, record) => record.address.startsWith(value),
-    filterSearch: (input, record) => record.value.indexOf(input) > -1,
+    filterSearch:(input, record) => record.value.indexOf(input) > -1,
     width: '40%',
   },
 ];
