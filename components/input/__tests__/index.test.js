@@ -373,4 +373,16 @@ describe('Input allowClear', () => {
     const wrapper = mount(<Input suffix="Bamboo" value={1} />);
     expect(wrapper).toBeTruthy();
   });
+
+  it('should display boolean value as string', () => {
+    const wrapper = mount(<Input value />);
+    expect(wrapper.find('input').first().getDOMNode().value).toBe('true');
+    wrapper.setProps({ value: false });
+    expect(wrapper.find('input').first().getDOMNode().value).toBe('false');
+  });
+
+  it('should support custom clearIcon', () => {
+    const wrapper = mount(<Input allowClear={{ clearIcon: 'clear' }} />);
+    expect(wrapper.find('.ant-input-clear-icon').text()).toBe('clear');
+  });
 });

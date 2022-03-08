@@ -113,7 +113,7 @@ export function triggerFocus(
 export interface InputProps
   extends Omit<
     RcInputProps,
-    'wrapperClassName' | 'groupClassName' | 'inputClassName' | 'affixWrapperClassName' | 'clearIcon'
+    'wrapperClassName' | 'groupClassName' | 'inputClassName' | 'affixWrapperClassName'
   > {
   size?: SizeType;
   status?: InputStatus;
@@ -129,6 +129,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     onBlur,
     onFocus,
     suffix,
+    allowClear,
     ...rest
   } = props;
   const { getPrefixCls, direction, input } = React.useContext(ConfigContext);
@@ -198,6 +199,14 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
 
   const withPrefixSuffix = hasPrefixSuffix(props) || hasFeedback;
 
+  // Allow clear
+  let mergedAllowClear;
+  if (typeof allowClear === 'object' && allowClear?.clearIcon) {
+    mergedAllowClear = allowClear;
+  } else if (allowClear) {
+    mergedAllowClear = { clearIcon: <CloseCircleFilled /> };
+  }
+
   return (
     <RcInput
       ref={composeRef(ref, inputRef)}
@@ -207,7 +216,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       onBlur={handleBlur}
       onFocus={handleFocus}
       suffix={suffixNode}
-      clearIcon={<CloseCircleFilled />}
+      allowClear={mergedAllowClear}
       inputClassName={classNames(
         !withPrefixSuffix && {
           [`${prefixCls}-sm`]: mergedSize === 'small',

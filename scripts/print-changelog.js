@@ -19,7 +19,7 @@ const $ = jQuery(window);
 
 const QUERY_TITLE = '.gh-header-title .js-issue-title';
 const QUERY_DESCRIPTION_LINES = '.comment-body table tbody tr';
-const QUERY_AUTHOR = '.timeline-comment-header-text .author:first';
+const QUERY_AUTHOR = '.pull-discussion-timeline .TimelineItem:first .author:first';
 // https://github.com/orgs/ant-design/teams/ant-design-collaborators/members
 const MAINTAINERS = [
   'zombiej',

@@ -15,6 +15,47 @@ timeline: true
 
 ---
 
+## 4.19.0
+
+`2022-03-08`
+
+- 💄 优化部分组件箭头样式。 [#33710](https://github.com/ant-design/ant-design/pull/33710)
+
+![image](https://user-images.githubusercontent.com/27722486/157088587-ca49cc29-bf25-42d1-8c14-020b5501c62e.png)
+
+- Input
+  - 🛠 引入 rc-input 重构 Input 组件为 function component。[#34206](https://github.com/ant-design/ant-design/pull/34206)
+    - 注意：由于从 class component 变为 function component，Input 组件的 `ref` 类型及内容已经更新，可以通过 `import { InputRef } from 'antd'` 引入。其中的 `input` 属性作为获取 DOM 的途径被保留，同时支持 `focus` 和 `blur` 等文档中支持的方法。
+  - 🆕 新增 `clearIcon` 属性，支持自定义清除按钮。 [#34325](https://github.com/ant-design/ant-design/pull/34325)
+- Table
+  - 🆕 `column.filterSearch` 属性现在支持返回一个函数用于自定义搜索条件。[#34085](https://github.com/ant-design/ant-design/pull/34085) [@heiyu4585](https://github.com/heiyu4585)
+  - 🆕 `column.filterDropdown({ clearFilters })` 支持参数 `clearFilters({ confirm: false, closeDropdown: false })` 控制筛选。[#34120](https://github.com/ant-design/ant-design/pull/34120) [@heiyu4585](https://github.com/heiyu4585)
+  - ⌨️ 增加 `aria-sort` 属性以优化屏幕阅读器的使用体验。 [#33603](https://github.com/ant-design/ant-design/pull/33603) [@dgreene1](https://github.com/dgreene1)
+  - 🐞 修复 Table 列筛选器中选择全部 Checkbox 状态问题。 [#34295](https://github.com/ant-design/ant-design/pull/34295)
+- 🆕 表单组件新增 `status` 属性以支持自定义状态。
+  - Transfer [#34098](https://github.com/ant-design/ant-design/pull/34098)
+  - AutoComplete [#34096](https://github.com/ant-design/ant-design/pull/34096)
+  - TreeSelect [#34093](https://github.com/ant-design/ant-design/pull/34093)
+  - Cascader [#34086](https://github.com/ant-design/ant-design/pull/34086)
+  - Select [#34084](https://github.com/ant-design/ant-design/pull/34084)
+  - DatePicker 和 TimePicker [#34073](https://github.com/ant-design/ant-design/pull/34073)
+  - Mentions [#34071](https://github.com/ant-design/ant-design/pull/34071)
+  - InputNumber [#34042](https://github.com/ant-design/ant-design/pull/34042)
+  - Input [#33995](https://github.com/ant-design/ant-design/pull/33995)
+
+![image](https://user-images.githubusercontent.com/27722486/157089015-f96b0153-2cc4-4e04-94d6-e0e4b195d5d1.png)
+
+- 🆕 InputNumber 组件支持 `controls={{ upIcon, downIcon }}` 用于自定义上下图标。[#33914](https://github.com/ant-design/ant-design/pull/33914) [@heiyu4585](https://github.com/heiyu4585)
+- 🆕 Notification 组件弹窗位置新增支持 `top` / `bottom`。 [#33871](https://github.com/ant-design/ant-design/pull/33871) [@heiyu4585](https://github.com/heiyu4585)
+- 🆕 Select、Cascader、DatePicker 等组件新增 `placement` 用于自定义弹层方向。 [#33641](https://github.com/ant-design/ant-design/pull/33541) [@ONLY-yours](https://github.com/ONLY-yours)
+- 🆕 Dropdown 组件支持 `arrow={{ pointAtCenter: true }}` 用于指向元素正中间，并且新增 `top` `bottom` 两种 `placement` 位置。 [#33658](https://github.com/ant-design/ant-design/pull/33658)
+- 🆕 Skeleton.Input 添加 `block` 属性。 [#33672](https://github.com/ant-design/ant-design/pull/33672) [@woochanleee](https://github.com/woochanleee)
+- 🆕 合并 TimePicker `disabledHours`、`disabledMinutes`、`disabledSeconds` 至 `disabledTime` 以保持与 DatePicker 接口一致性。 [#33503](https://github.com/ant-design/ant-design/pull/33503)
+- 💄 修改部分边框颜色和进度条的背景色为透明色以适应有色背景。 [#33506](https://github.com/ant-design/ant-design/pull/33506)
+- 💄 Space 支持自定义 children 的 `key`。 [#33607](https://github.com/ant-design/ant-design/pull/33607) [@qin20](https://github.com/qin20)
+- 🐞 修复 Typography.Title 进入编辑模式时大小不一致的问题。 [#34169](https://github.com/ant-design/ant-design/pull/34169) [@heiyu4585](https://github.com/heiyu4585)
+- 🐞 修复 Form.Item 抛出 `React does not recognize the requiredMark prop on a DOM element` 的问题。 [#34323](https://github.com/ant-design/ant-design/pull/34323)
+
 ## 4.18.9
 
 `2022-02-28`
