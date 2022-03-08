@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import { composeRef } from 'rc-util/lib/ref';
 import { ConfigContext } from '../config-provider';
 import devWarning from '../_util/devWarning';
+import useStyle from './style';
 
 export interface TypographyProps {
   id?: string;
@@ -41,17 +42,22 @@ const Typography: React.ForwardRefRenderFunction<{}, InternalTypographyProps> = 
 
   const Component = component as any;
   const prefixCls = getPrefixCls('typography', customizePrefixCls);
+
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
   const componentClassName = classNames(
     prefixCls,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    hashId,
   );
-  return (
+  return wrapSSR(
     <Component className={componentClassName} aria-label={ariaLabel} ref={mergedRef} {...restProps}>
       {children}
-    </Component>
+    </Component>,
   );
 };
 
