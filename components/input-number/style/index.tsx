@@ -1,4 +1,4 @@
-// ============================== Export ==============================
+// deps-lint-skip-all
 import { CSSObject } from '@ant-design/cssinjs';
 import {
   resetComponent,
@@ -339,6 +339,7 @@ const genAffixWrapperStyles = (token: InputNumberToken): CSSObject => ({
   },
 });
 
+// ============================== Export ==============================
 export default function useStyle(prefixCls: string): UseComponentStyleResult {
   const [theme, token, hashId] = useToken();
 
