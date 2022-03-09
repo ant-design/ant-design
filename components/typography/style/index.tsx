@@ -1,9 +1,9 @@
 // deps-lint-skip-all
-import type { CSSObject } from '@ant-design/cssinjs';
+import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { generate } from '@ant-design/colors';
 import { useStyleRegister, useToken } from '../../_util/theme';
 import type { DerivativeToken } from '../../_util/theme';
-import { getTitleStyles } from './typograhyTitle';
+import { getTitleStyles, getResetStyles } from './mixins';
 
 const genTypographyStyle = ({
   prefixCls,
@@ -11,7 +11,7 @@ const genTypographyStyle = ({
 }: {
   prefixCls: string;
   token: DerivativeToken;
-}): CSSObject => {
+}): CSSInterpolation => {
   const errorColors = generate(token.errorColor);
   const typographyTitleMarginTop = '1.2em';
 
@@ -83,6 +83,16 @@ const genTypographyStyle = ({
           marginTop: typographyTitleMarginTop,
         },
       },
+
+      [`
+      a&-ellipsis,
+      span&-ellipsis
+      `]: {
+        display: 'inline-block',
+        maxWidth: '100%',
+      },
+
+      ...getResetStyles(),
     },
   };
 };
