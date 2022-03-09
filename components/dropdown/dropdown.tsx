@@ -189,6 +189,7 @@ const Dropdown: DropdownInterface = props => {
 
   const builtinPlacements = getPlacements({
     arrowPointAtCenter: typeof arrow === 'object' && arrow.pointAtCenter,
+    autoAdjustOverflow: true,
   });
 
   return (
