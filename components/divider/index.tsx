@@ -58,8 +58,6 @@ const Divider: React.FC<DividerProps> = props => {
     ...(hasCustomMarginRight && { marginRight: orientationMargin }),
   };
 
-  const innerClassName = classNames(hashId, `${prefixCls}-inner-text`);
-
   return wrapSSR(
     <div className={classString} {...restProps} role="separator">
       {children && (
