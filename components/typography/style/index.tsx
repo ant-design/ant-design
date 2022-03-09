@@ -3,7 +3,7 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import { generate } from '@ant-design/colors';
 import { useStyleRegister, useToken } from '../../_util/theme';
 import type { DerivativeToken } from '../../_util/theme';
-import { getTitleStyles, getTitleStyle } from './typograhyTitle';
+import { getTitleStyles } from './typograhyTitle';
 
 const genTypographyStyle = ({
   prefixCls,
