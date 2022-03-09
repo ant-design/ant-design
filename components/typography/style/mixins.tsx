@@ -210,7 +210,7 @@ export const getEllipsisStyles = (): CSSObject => ({
 
   '&-ellipsis-single-line': {
     overflow: 'hidden',
-    textWverflow: 'ellipsis',
+    textOverflow: 'ellipsis',
 
     // https://blog.csdn.net/iefreer/article/details/50421025
     'a&, span&': {
