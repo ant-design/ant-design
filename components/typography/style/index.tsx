@@ -1,6 +1,5 @@
 // deps-lint-skip-all
 import type { CSSInterpolation } from '@ant-design/cssinjs';
-import { generate } from '@ant-design/colors';
 import { useStyleRegister, useToken } from '../../_util/theme';
 import type { DerivativeToken } from '../../_util/theme';
 import { getTitleStyles, getResetStyles } from './mixins';
@@ -12,7 +11,6 @@ const genTypographyStyle = ({
   prefixCls: string;
   token: DerivativeToken;
 }): CSSInterpolation => {
-  const errorColors = generate(token.errorColor);
   const typographyTitleMarginTop = '1.2em';
 
   return {
@@ -34,7 +32,7 @@ const genTypographyStyle = ({
       '&&-danger': {
         color: token.errorColor,
         'a&:active, a&:focus, a&:hover': {
-          color: errorColors[4],
+          color: token.errorColors[4],
         },
       },
 
