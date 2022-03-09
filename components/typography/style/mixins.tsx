@@ -153,3 +153,47 @@ export const getResetStyles = (): CSSObject => ({
     opacity: '0.85',
   },
 });
+
+export const getEditableStyles = (): CSSObject => ({});
+
+export const getCopiableStyles = (token: DerivativeToken): CSSObject => ({
+  '&-copy-success': {
+    [`
+    &,
+    &:hover,
+    &:focus`]: {
+      color: token.successColor,
+    },
+  },
+});
+
+export const getEllipsisStyles = (): CSSObject => ({
+  [`
+  a&-ellipsis,
+  span&-ellipsis
+  `]: {
+    display: 'inline-block',
+    maxWidth: '100%',
+  },
+
+  '&-single-line': {
+    whiteSpace: 'nowrap',
+  },
+
+  '&-ellipsis-single-line': {
+    overflow: 'hidden',
+    textWverflow: 'ellipsis',
+
+    // https://blog.csdn.net/iefreer/article/details/50421025
+    'a&, span&': {
+      verticalAlign: 'bottom',
+    },
+  },
+
+  '&-ellipsis-multiple-line': {
+    display: '-webkit-box',
+    overflow: 'hidden',
+    WebkitLineClamp: 3,
+    WebkitBoxOrient: 'vertical',
+  },
+});

@@ -104,6 +104,9 @@ export interface DerivativeToken extends Omit<DesignToken, 'duration'> {
   highlightColor: string;
 
   linkColor: string;
+  linkHoverColor: string;
+  linkActiveColor: string;
+
   fontSizeSM: number;
   fontSizeLG: number;
   /** @private Only Used for control inside component like Multiple Select inner selection item */
@@ -175,6 +178,9 @@ function derivative(designToken: DesignToken): DerivativeToken {
     itemActiveBackground: primaryColors[0],
 
     linkColor: primaryColor,
+    linkHoverColor: primaryColors[4],
+    linkActiveColor: primaryColors[6],
+
     fontSizeSM: designToken.fontSize - 2,
     fontSizeLG: designToken.fontSize + 2,
     controlHeightXS: designToken.controlHeight / 2,
