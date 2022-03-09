@@ -14,6 +14,7 @@ interface DividerToken extends DerivativeToken {
 
   dividerBorderWidth: number;
 
+  dividerNotDefaultTextPadding: number;
   dividerVerticalGutterMargin: number;
   dividerHorizontalWithTextGutterMargin: number;
   dividerHorizontalGutterMargin: number;
@@ -119,7 +120,7 @@ const genSharedDividerStyle = (token: DividerToken): CSSObject => ({
     },
 
     '.ant-divider-inner-text': {
-      paddingInlineStart: 0,
+      paddingInlineStart: `${token.dividerNotDefaultTextPadding}px`,
     },
   },
 
@@ -133,7 +134,7 @@ const genSharedDividerStyle = (token: DividerToken): CSSObject => ({
     },
 
     '.ant-divider-inner-text': {
-      paddingInlineEnd: 0,
+      paddingInlineEnd: `${token.dividerNotDefaultTextPadding}px`,
     },
   },
 });
@@ -146,6 +147,7 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
 
   const dividerBorderWidth = token.borderWidth;
 
+  const dividerNotDefaultTextPadding = 0;
   const dividerVerticalGutterMargin = token.marginXS;
   const dividerHorizontalWithTextGutterMargin = token.marginLG;
   const dividerHorizontalGutterMargin = token.margin;
@@ -157,6 +159,7 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
 
     dividerBorderWidth,
 
+    dividerNotDefaultTextPadding,
     dividerVerticalGutterMargin,
     dividerHorizontalWithTextGutterMargin,
     dividerHorizontalGutterMargin,
