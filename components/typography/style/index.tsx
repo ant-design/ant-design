@@ -10,6 +10,7 @@ import {
   getCopiableStyles,
   getEllipsisStyles,
 } from './mixins';
+import '../../input/style';
 
 const genTypographyStyle = ({
   prefixCls,
@@ -93,9 +94,9 @@ const genTypographyStyle = ({
 
       // Operation
       [`
-      &-expand,
-      &-edit,
-      &-copy
+      .${prefixCls}-expand,
+      .${prefixCls}-edit,
+      .${prefixCls}-copy
       `]: {
         ...operationUnit(token),
         marginLeft: 4,
