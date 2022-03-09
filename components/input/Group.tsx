@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useContext } from 'react';
 import classNames from 'classnames';
 import { ConfigContext } from '../config-provider';
+import useStyle from './style';
 
 export interface GroupProps {
   className?: string;
@@ -17,9 +18,11 @@ export interface GroupProps {
 }
 
 const Group: React.FC<GroupProps> = props => {
-  const { getPrefixCls, direction } = useContext(ConfigContext);
+  const { getPrefixCls, direction, iconPrefixCls } = useContext(ConfigContext);
   const { prefixCls: customizePrefixCls, className = '' } = props;
   const prefixCls = getPrefixCls('input-group', customizePrefixCls);
+  const inputPrefixCls = getPrefixCls('input');
+  const [wrapSSR, hashId] = useStyle(inputPrefixCls, iconPrefixCls);
   const cls = classNames(
     prefixCls,
     {
@@ -28,10 +31,11 @@ const Group: React.FC<GroupProps> = props => {
       [`${prefixCls}-compact`]: props.compact,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
+    hashId,
     className,
   );
 
-  return (
+  return wrapSSR(
     <span
       className={cls}
       style={props.style}
@@ -41,7 +45,7 @@ const Group: React.FC<GroupProps> = props => {
       onBlur={props.onBlur}
     >
       {props.children}
-    </span>
+    </span>,
   );
 };
 

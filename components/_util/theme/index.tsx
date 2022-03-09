@@ -4,7 +4,7 @@ import { TinyColor } from '@ctrl/tinycolor';
 import { CSSObject, Theme, useCacheToken, useStyleRegister } from '@ant-design/cssinjs';
 import defaultDesignToken from './default';
 import version from '../../version';
-import { resetComponent, resetIcon } from './util';
+import { resetComponent, resetIcon, clearFix } from './util';
 import {
   initSlideMotion,
   slideUpIn,
@@ -20,6 +20,7 @@ import {
 export {
   resetComponent,
   resetIcon,
+  clearFix,
   initSlideMotion,
   slideUpIn,
   slideUpOut,
@@ -113,6 +114,7 @@ export interface DerivativeToken extends Omit<DesignToken, 'duration'> {
   paddingXS: number;
   paddingXXS: number;
   marginXS: number;
+  marginXXS: number;
 
   duration: string;
   durationMid: string;
@@ -172,6 +174,7 @@ function derivative(designToken: DesignToken): DerivativeToken {
     paddingXS,
     paddingXXS: designToken.padding * 0.25,
     marginXS: designToken.margin * 0.5,
+    marginXXS: designToken.margin * 0.25,
 
     duration: `${designToken.duration}s`,
     durationMid: `${(designToken.duration / 3) * 2}s`,
