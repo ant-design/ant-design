@@ -54,6 +54,9 @@ const genBaseStyle = (token: TreeSelectToken, hashId: string): CSSInterpolation 
           },
         },
 
+        // ==================== Checkbox ====================
+        getCheckboxStyle(`${treePrefixCls}-checkbox`, token, hashId),
+
         // ====================== RTL =======================
         {
           '&-rtl': {
@@ -86,7 +89,6 @@ export default function useStyle(
 
   return [
     useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      getCheckboxStyle(`${treePrefixCls}-checkbox`, token, hashId),
       genBaseStyle(treeSelectToken, hashId),
     ]),
     hashId,
