@@ -154,7 +154,35 @@ export const getResetStyles = (): CSSObject => ({
   },
 });
 
-export const getEditableStyles = (): CSSObject => ({});
+export const getEditableStyles = (token: DerivativeToken): CSSObject => ({
+  '&-edit-content': {
+    position: 'relative',
+
+    'div&': {
+      left: -token.paddingSM - 1,
+      // FIXME: should be calculated from input padding
+      marginTop: -5,
+      marginBottom: 'calc(1em - 5px)',
+    },
+
+    '&-confirm': {
+      position: 'absolute',
+      right: 10,
+      bottom: 8,
+      color: token.textColorSecondary,
+      // default style
+      fontWeight: 'normal',
+      fontSize: token.fontSize,
+      fontStyle: 'normal',
+      pointerEvents: 'none',
+    },
+
+    // Fix Editable Textarea flash in Firefox
+    textarea: {
+      MozTransition: 'none',
+    },
+  },
+});
 
 export const getCopiableStyles = (token: DerivativeToken): CSSObject => ({
   '&-copy-success': {
