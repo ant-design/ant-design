@@ -30,7 +30,7 @@ const genSharedDividerStyle = (token: DividerToken): CSSObject => ({
     top: '-0.06em',
     display: 'inline-block',
     height: '0.9em',
-    margin: `0 ${token.dividerVerticalGutterMargin}`,
+    margin: `0 ${token.dividerVerticalGutterMargin}px`,
     verticalAlign: 'middle',
     borderTop: 0,
     borderInlineStart: `1px solid ${token.dividerBorderColor}`,
@@ -41,12 +41,12 @@ const genSharedDividerStyle = (token: DividerToken): CSSObject => ({
     clear: 'both',
     width: '100%',
     minWidth: '100%', // Fix https://github.com/ant-design/ant-design/issues/10914
-    margin: `${token.dividerHorizontalGutterMargin} 0`,
+    margin: `${token.dividerHorizontalGutterMargin}px 0`,
   },
 
   '&-horizontal&-with-text': {
     display: 'flex',
-    margin: `${token.dividerHorizontalWithTextGutterMargin} 0`,
+    margin: `${token.dividerHorizontalWithTextGutterMargin}px 0`,
     color: token.headingColor,
     fontWeight: 500,
     fontSize: token.fontSizeLG,
