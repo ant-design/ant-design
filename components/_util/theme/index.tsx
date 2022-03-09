@@ -63,6 +63,7 @@ export interface DerivativeToken extends Omit<DesignToken, 'duration'> {
   heightLG: number;
   paddingXS: number;
   marginXS: number;
+  marginLG: number;
 
   duration: string;
   durationFast: string;
@@ -97,6 +98,7 @@ function derivative(designToken: DesignToken): DerivativeToken {
     heightLG: designToken.height * 1.25,
     paddingXS: designToken.padding * 0.5,
     marginXS: designToken.margin * 0.5,
+    marginLG: designToken.margin * 1.5,
 
     duration: `${designToken.duration}s`,
     durationFast: `${designToken.duration / 3}s`,

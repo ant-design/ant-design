@@ -144,7 +144,7 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
   const dividerBorderColor = 'rgba(0, 0, 0, 6%)';
 
   const dividerVerticalGutterMargin = token.marginXS;
-  const dividerHorizontalWithTextGutterMargin = token.margin * 1.5;
+  const dividerHorizontalWithTextGutterMargin = token.marginLG;
   const dividerHorizontalGutterMargin = token.margin;
 
   const dividerToken: DividerToken = {
