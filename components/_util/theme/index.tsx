@@ -122,6 +122,12 @@ export interface DerivativeToken extends Omit<DesignToken, 'duration'> {
   durationMid: string;
   durationFast: string;
 
+  heading1Size: number;
+  heading2Size: number;
+  heading3Size: number;
+  heading4Size: number;
+  heading5Size: number;
+
   // TMP
   tmpPrimaryHoverColorWeak: string;
 }
@@ -181,6 +187,12 @@ function derivative(designToken: DesignToken): DerivativeToken {
     duration: `${designToken.duration}s`,
     durationMid: `${(designToken.duration / 3) * 2}s`,
     durationFast: `${designToken.duration / 3}s`,
+
+    heading1Size: Math.ceil(designToken.fontSize * 2.71),
+    heading2Size: Math.ceil(designToken.fontSize * 2.14),
+    heading3Size: Math.ceil(designToken.fontSize * 1.71),
+    heading4Size: Math.ceil(designToken.fontSize * 1.42),
+    heading5Size: Math.ceil(designToken.fontSize * 1.14),
   };
 }
 
