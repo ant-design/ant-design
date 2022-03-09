@@ -31,7 +31,7 @@ export interface InputNumberProps<T extends ValueType = ValueType>
 }
 
 const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props, ref) => {
-  const { getPrefixCls, direction, iconPrefixCls } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const size = React.useContext(SizeContext);
   const [focused, setFocus] = React.useState(false);
   const inputRef = React.useRef<HTMLInputElement>(null);
@@ -55,7 +55,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   const prefixCls = getPrefixCls('input-number', customizePrefixCls);
 
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   let upIcon = <UpOutlined className={`${prefixCls}-handler-up-inner`} />;
   let downIcon = <DownOutlined className={`${prefixCls}-handler-down-inner`} />;

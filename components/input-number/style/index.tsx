@@ -332,10 +332,7 @@ const genAffixWrapperStyles = (prefixCls: string, token: InputNumberToken): CSSO
   },
 });
 
-export default function useStyle(
-  prefixCls: string,
-  iconPrefixCls: string,
-): UseComponentStyleResult {
+export default function useStyle(prefixCls: string): UseComponentStyleResult {
   const [theme, token, hashId] = useToken();
 
   const inputNumberToken: InputNumberToken = {
