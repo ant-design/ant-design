@@ -11,7 +11,7 @@ import {
   withPrefix,
 } from '../../_util/theme';
 
-interface InputToken extends DerivativeToken {
+export interface InputToken extends DerivativeToken {
   inputAffixMargin: number;
   inputPaddingVertical: number;
   inputPaddingVerticalLG: number;
@@ -76,7 +76,7 @@ const genInputSmallStyle = (token: InputToken): CSSObject => ({
   padding: `${token.inputPaddingVerticalSM}px ${token.paddingXS - 1}px`,
 });
 
-const genStatusStyle = (prefixCls: string, token: InputToken): CSSObject => ({
+export const genStatusStyle = (prefixCls: string, token: InputToken): CSSObject => ({
   '&-status-error:not(&-disabled):not(&-borderless)&': {
     '&, &:hover': {
       borderColor: token.errorColor,
@@ -139,7 +139,7 @@ export const genBasicInputStyle = (prefixCls: string, token: InputToken): CSSObj
     ...genActiveStyle(token),
   },
 
-  '&:disabled, &[disabled]': {
+  '&-disabled, &[disabled]': {
     ...genDisabledStyle(token),
   },
 
@@ -180,7 +180,7 @@ export const genBasicInputStyle = (prefixCls: string, token: InputToken): CSSObj
   },
 });
 
-const genInputGroupStyle = (prefixCls: string, token: InputToken): CSSObject => ({
+export const genInputGroupStyle = (prefixCls: string, token: InputToken): CSSObject => ({
   position: 'relative',
   display: 'table',
   width: '100%',
