@@ -34,6 +34,14 @@ const genInputNumberStyles = (prefixCls: string, token: InputNumberToken): CSSOb
   border: `${token.borderWidth}px ${token.borderStyle} ${token.borderColor}`,
   borderRadius: token.borderRadius,
 
+  '&-rtl': {
+    direction: 'rtl',
+
+    [`.${prefixCls}-input`]: {
+      direction: 'rtl',
+    },
+  },
+
   [`&:hover .${prefixCls}-handler-wrap, &-focused .${prefixCls}-handler-wrap`]: {
     opacity: 1,
   },
