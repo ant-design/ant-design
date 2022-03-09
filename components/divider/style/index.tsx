@@ -173,7 +173,7 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
 
   return [
     useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      withPrefix(genSharedDividerStyle({ token: dividerToken, prefixCls }), prefixCls),
+      genSharedDividerStyle({ token: dividerToken, prefixCls }),
     ]),
     hashId,
   ];
