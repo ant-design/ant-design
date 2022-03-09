@@ -128,6 +128,10 @@ export interface DerivativeToken extends Omit<DesignToken, 'duration'> {
   heading4Size: number;
   heading5Size: number;
 
+  primaryColors: string[];
+  errorColors: string[];
+  warningColors: string[];
+
   // TMP
   tmpPrimaryHoverColorWeak: string;
 }
@@ -193,6 +197,10 @@ function derivative(designToken: DesignToken): DerivativeToken {
     heading3Size: Math.ceil(designToken.fontSize * 1.71),
     heading4Size: Math.ceil(designToken.fontSize * 1.42),
     heading5Size: Math.ceil(designToken.fontSize * 1.14),
+
+    primaryColors,
+    errorColors,
+    warningColors,
   };
 }
 
