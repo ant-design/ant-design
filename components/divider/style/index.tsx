@@ -141,8 +141,9 @@ const genSharedDividerStyle = (token: DividerToken): CSSObject => ({
 // ============================== Export ==============================
 export default function useStyle(prefixCls: string): UseComponentStyleResult {
   const [theme, token, hashId] = useToken();
-
+  // FIXME
   const dividerBorderColor = 'rgba(0, 0, 0, 6%)';
+
   const dividerBorderWidth = token.borderWidth;
 
   const dividerVerticalGutterMargin = token.marginXS;
