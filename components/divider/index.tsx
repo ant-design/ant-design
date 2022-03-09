@@ -63,7 +63,7 @@ const Divider: React.FC<DividerProps> = props => {
   return wrapSSR(
     <div className={classString} {...restProps} role="separator">
       {children && (
-        <span className={innerClassName} style={innerStyle}>
+        <span className={`${prefixCls}-inner-text`} style={innerStyle}>
           {children}
         </span>
       )}

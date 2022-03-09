@@ -20,8 +20,14 @@ interface DividerToken extends DerivativeToken {
   dividerHorizontalGutterMargin: number;
 }
 
+// FIXME
+interface genStyleProps {
+  token: DividerToken;
+  prefixCls: string;
+}
+
 // ============================== Shared ==============================
-const genSharedDividerStyle = (token: DividerToken): CSSObject => ({
+const genSharedDividerStyle = ({ token, prefixCls }: genStyleProps): CSSObject => ({
   ...resetComponent(token),
 
   borderBlockStart: `${token.dividerBorderWidth}px solid ${token.dividerBorderColor}`,
@@ -81,7 +87,7 @@ const genSharedDividerStyle = (token: DividerToken): CSSObject => ({
     },
   },
 
-  '&-inner-text': {
+  [`.${prefixCls}-inner-text`]: {
     display: 'inline-block',
     padding: '0 1em',
   },
@@ -167,7 +173,7 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
 
   return [
     useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      withPrefix(genSharedDividerStyle(dividerToken), prefixCls),
+      withPrefix(genSharedDividerStyle({ token: dividerToken, prefixCls }), prefixCls),
     ]),
     hashId,
   ];
