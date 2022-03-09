@@ -1,28 +1,28 @@
 // deps-lint-skip-all
 import { CSSObject } from '@ant-design/cssinjs';
-// import { TinyColor } from '@ctrl/tinycolor';
 import {
   DerivativeToken,
   useStyleRegister,
   useToken,
   UseComponentStyleResult,
   withPrefix,
+  resetComponent,
 } from '../../_util/theme';
 
-// ============================== Shared ==============================
-const genSharedDividerStyle = (token: DerivativeToken, dividerColor: string): CSSObject => ({
-  // .reset-component()
-  boxSizing: 'border-box',
-  margin: 0,
-  padding: 0,
-  color: token.textColor,
-  fontSize: token.fontSize,
-  fontVariant: 'tabular-nums',
-  lineHeight: 1.5715,
-  listStyle: 'none',
-  fontFeatureSettings: 'tnum',
+interface DividerToken extends DerivativeToken {
+  // divider-color
+  dividerBorderColor: string;
 
-  borderTop: `1px solid ${dividerColor}`,
+  dividerVerticalGutterMargin: string;
+  dividerHorizontalWithTextGutterMargin: string;
+  dividerHorizontalGutterMargin: string;
+}
+
+// ============================== Shared ==============================
+const genSharedDividerStyle = (token: DividerToken): CSSObject => ({
+  ...resetComponent(token),
+
+  borderBlockStart: `1px solid ${token.dividerBorderColor}`,
 
   // vertical
   '&-vertical': {
@@ -30,10 +30,10 @@ const genSharedDividerStyle = (token: DerivativeToken, dividerColor: string): CS
     top: '-0.06em',
     display: 'inline-block',
     height: '0.9em',
-    margin: '0 8px',
+    margin: `0 ${token.dividerVerticalGutterMargin}`,
     verticalAlign: 'middle',
     borderTop: 0,
-    borderLeft: `1px solid ${dividerColor}`,
+    borderInlineStart: `1px solid ${token.dividerBorderColor}`,
   },
 
   '&-horizontal': {
@@ -41,28 +41,27 @@ const genSharedDividerStyle = (token: DerivativeToken, dividerColor: string): CS
     clear: 'both',
     width: '100%',
     minWidth: '100%', // Fix https://github.com/ant-design/ant-design/issues/10914
-    margin: '24px 0',
+    margin: `${token.dividerHorizontalGutterMargin} 0`,
   },
 
   '&-horizontal&-with-text': {
     display: 'flex',
-    margin: '16px 0',
+    margin: `${token.dividerHorizontalWithTextGutterMargin} 0`,
     color: token.headingColor,
     fontWeight: 500,
     fontSize: token.fontSizeLG,
     whiteSpace: 'nowrap',
     textAlign: 'center',
-    borderTop: 0,
-    borderTopColor: dividerColor,
+    borderBlockStart: `0 ${token.dividerBorderColor}`,
 
     '&::before, &::after': {
       position: 'relative',
       top: '50%',
       width: '50%',
-      borderTop: '1px solid transparent',
+      borderBlockStart: '1px solid transparent',
       // Chrome not accept `inherit` in `border-top`
-      borderTopColor: 'inherit',
-      borderBottom: 0,
+      borderBlockStartColor: 'inherit',
+      borderBlockEnd: 0,
       transform: 'translateY(50%)',
       content: "''",
     },
@@ -87,9 +86,10 @@ const genSharedDividerStyle = (token: DerivativeToken, dividerColor: string): CS
 
   '&-dashed': {
     background: 'none',
-    borderColor: dividerColor,
+    borderColor: token.dividerBorderColor,
     borderStyle: 'dashed',
-    borderWidth: '1px 0 0',
+    border: 0,
+    borderBlockStart: '1px',
   },
 
   '&-horizontal&-with-text&-dashed': {
@@ -118,7 +118,7 @@ const genSharedDividerStyle = (token: DerivativeToken, dividerColor: string): CS
     },
 
     '.ant-divider-inner-text': {
-      paddingLeft: 0,
+      paddingInlineStart: 0,
     },
   },
 
@@ -132,7 +132,7 @@ const genSharedDividerStyle = (token: DerivativeToken, dividerColor: string): CS
     },
 
     '.ant-divider-inner-text': {
-      paddingRight: 0,
+      paddingInlineEnd: 0,
     },
   },
 });
@@ -141,9 +141,25 @@ const genSharedDividerStyle = (token: DerivativeToken, dividerColor: string): CS
 export default function useStyle(prefixCls: string): UseComponentStyleResult {
   const [theme, token, hashId] = useToken();
 
+  const dividerBorderColor = 'rgba(0, 0, 0, 6%)';
+
+  const dividerVerticalGutterMargin = '8px';
+  const dividerHorizontalWithTextGutterMargin = '24px';
+  const dividerHorizontalGutterMargin = '16px';
+
+  const dividerToken: DividerToken = {
+    ...token,
+
+    dividerBorderColor,
+
+    dividerVerticalGutterMargin,
+    dividerHorizontalWithTextGutterMargin,
+    dividerHorizontalGutterMargin,
+  };
+
   return [
     useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      withPrefix(genSharedDividerStyle(token, 'rgba(0, 0, 0, 6%)'), prefixCls),
+      withPrefix(genSharedDividerStyle(dividerToken), prefixCls),
       { display: 'none' },
     ]),
     hashId,
