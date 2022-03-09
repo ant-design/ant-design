@@ -219,7 +219,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
 
   const memoIconContextValue = React.useMemo(
     () => ({ prefixCls: iconPrefixCls, csp }),
-    [iconPrefixCls],
+    [iconPrefixCls, csp],
   );
 
   let childNode = children;
@@ -246,7 +246,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     );
   }
 
-  if (iconPrefixCls) {
+  if (iconPrefixCls || csp) {
     childNode = (
       <IconContext.Provider value={memoIconContextValue}>{childNode}</IconContext.Provider>
     );

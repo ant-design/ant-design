@@ -20,7 +20,7 @@ A basic widget for getting the user input is a text field. Keyboard and mouse ca
 | --- | --- | --- | --- | --- |
 | addonAfter | The label text displayed after (on the right side of) the input field | ReactNode | - |  |
 | addonBefore | The label text displayed before (on the left side of) the input field | ReactNode | - |  |
-| allowClear | If allow to remove input content with clear icon | boolean | false |  |
+| allowClear | If allow to remove input content with clear icon | boolean \| { clearIcon: ReactNode } | false |  |
 | bordered | Whether has border style | boolean | true | 4.5.0 |
 | defaultValue | The initial input content | string | - |  |
 | disabled | Whether the input is disabled | boolean | false |  |

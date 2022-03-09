@@ -15,6 +15,9 @@ import { FormItemStatusContext } from '../form/context';
 import { hasPrefixSuffix } from './utils';
 import devWarning from '../_util/devWarning';
 
+// CSSINJS
+import useStyle from './style';
+
 export interface InputFocusOptions extends FocusOptions {
   cursor?: 'start' | 'end' | 'all';
 }
@@ -113,7 +116,7 @@ export function triggerFocus(
 export interface InputProps
   extends Omit<
     RcInputProps,
-    'wrapperClassName' | 'groupClassName' | 'inputClassName' | 'affixWrapperClassName' | 'clearIcon'
+    'wrapperClassName' | 'groupClassName' | 'inputClassName' | 'affixWrapperClassName'
   > {
   size?: SizeType;
   status?: InputStatus;
@@ -129,12 +132,16 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     onBlur,
     onFocus,
     suffix,
+    allowClear,
     ...rest
   } = props;
-  const { getPrefixCls, direction, input } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, input, iconPrefixCls } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('input', customizePrefixCls);
   const inputRef = useRef<InputRef>(null);
+
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls);
 
   // ===================== Status =====================
   const size = React.useContext(SizeContext);
@@ -198,7 +205,15 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
 
   const withPrefixSuffix = hasPrefixSuffix(props) || hasFeedback;
 
-  return (
+  // Allow clear
+  let mergedAllowClear;
+  if (typeof allowClear === 'object' && allowClear?.clearIcon) {
+    mergedAllowClear = allowClear;
+  } else if (allowClear) {
+    mergedAllowClear = { clearIcon: <CloseCircleFilled /> };
+  }
+
+  return wrapSSR(
     <RcInput
       ref={composeRef(ref, inputRef)}
       prefixCls={prefixCls}
@@ -207,7 +222,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       onBlur={handleBlur}
       onFocus={handleFocus}
       suffix={suffixNode}
-      clearIcon={<CloseCircleFilled />}
+      allowClear={mergedAllowClear}
       inputClassName={classNames(
         !withPrefixSuffix && {
           [`${prefixCls}-sm`]: mergedSize === 'small',
@@ -216,6 +231,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
           [`${prefixCls}-borderless`]: !bordered,
         },
         !withPrefixSuffix && getStatusClassNames(prefixCls, mergedStatus),
+        hashId,
       )}
       affixWrapperClassName={classNames(
         {
@@ -225,10 +241,14 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
           [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
         },
         getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus, hasFeedback),
+        hashId,
       )}
-      wrapperClassName={classNames({
-        [`${prefixCls}-group-rtl`]: direction === 'rtl',
-      })}
+      wrapperClassName={classNames(
+        {
+          [`${prefixCls}-group-rtl`]: direction === 'rtl',
+        },
+        hashId,
+      )}
       groupClassName={classNames(
         {
           [`${prefixCls}-group-wrapper-sm`]: mergedSize === 'small',
@@ -236,8 +256,9 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
           [`${prefixCls}-group-wrapper-rtl`]: direction === 'rtl',
         },
         getStatusClassNames(`${prefixCls}-group-wrapper`, mergedStatus, hasFeedback),
+        hashId,
       )}
-    />
+    />,
   );
 });
 

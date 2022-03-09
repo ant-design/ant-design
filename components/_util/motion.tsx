@@ -42,5 +42,6 @@ const getTransitionName = (rootPrefixCls: string, motion: string, transitionName
   }
   return `${rootPrefixCls}-${motion}`;
 };
+
 export { getTransitionName, getTransitionDirection };
 export default collapseMotion;
