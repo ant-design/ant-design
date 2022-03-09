@@ -5,7 +5,6 @@ import {
   useStyleRegister,
   useToken,
   UseComponentStyleResult,
-  withPrefix,
   resetComponent,
 } from '../../_util/theme';
 
