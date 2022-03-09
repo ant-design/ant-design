@@ -13,9 +13,9 @@ interface DividerToken extends DerivativeToken {
   // divider-color
   dividerBorderColor: string;
 
-  dividerVerticalGutterMargin: string;
-  dividerHorizontalWithTextGutterMargin: string;
-  dividerHorizontalGutterMargin: string;
+  dividerVerticalGutterMargin: number;
+  dividerHorizontalWithTextGutterMargin: number;
+  dividerHorizontalGutterMargin: number;
 }
 
 // ============================== Shared ==============================
@@ -143,9 +143,9 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
 
   const dividerBorderColor = 'rgba(0, 0, 0, 6%)';
 
-  const dividerVerticalGutterMargin = '8px';
-  const dividerHorizontalWithTextGutterMargin = '24px';
-  const dividerHorizontalGutterMargin = '16px';
+  const dividerVerticalGutterMargin = token.marginXS;
+  const dividerHorizontalWithTextGutterMargin = token.margin * 1.5;
+  const dividerHorizontalGutterMargin = token.margin;
 
   const dividerToken: DividerToken = {
     ...token,
