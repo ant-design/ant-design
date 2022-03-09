@@ -50,7 +50,7 @@ const genTypographyStyle = ({
       },
 
       [`
-        div,
+        div&,
         p
       `]: {
         marginBottom: '1em',
@@ -101,7 +101,7 @@ const genTypographyStyle = ({
         marginLeft: 4,
       },
 
-      ...getEditableStyles(),
+      ...getEditableStyles(token),
 
       ...getCopiableStyles(token),
 
