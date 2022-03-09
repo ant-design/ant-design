@@ -1,8 +1,15 @@
 // deps-lint-skip-all
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { useStyleRegister, useToken } from '../../_util/theme';
+import { operationUnit } from '../../_util/theme/util/operationUnit';
 import type { DerivativeToken } from '../../_util/theme';
-import { getTitleStyles, getResetStyles } from './mixins';
+import {
+  getTitleStyles,
+  getResetStyles,
+  getEditableStyles,
+  getCopiableStyles,
+  getEllipsisStyles,
+} from './mixins';
 
 const genTypographyStyle = ({
   prefixCls,
@@ -82,15 +89,23 @@ const genTypographyStyle = ({
         },
       },
 
+      ...getResetStyles(),
+
+      // Operation
       [`
-      a&-ellipsis,
-      span&-ellipsis
+      &-expand,
+      &-edit,
+      &-copy
       `]: {
-        display: 'inline-block',
-        maxWidth: '100%',
+        ...operationUnit(token),
+        marginLeft: 4,
       },
 
-      ...getResetStyles(),
+      ...getEditableStyles(),
+
+      ...getCopiableStyles(token),
+
+      ...getEllipsisStyles(),
     },
   };
 };
