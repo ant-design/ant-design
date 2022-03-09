@@ -3,6 +3,7 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import { generate } from '@ant-design/colors';
 import { useStyleRegister, useToken } from '../../_util/theme';
 import type { DerivativeToken } from '../../_util/theme';
+import { getTitleStyles, getTitleStyle } from './typograhyTitle';
 
 const genTypographyStyle = ({
   prefixCls,
@@ -12,6 +13,8 @@ const genTypographyStyle = ({
   token: DerivativeToken;
 }): CSSObject => {
   const errorColors = generate(token.errorColor);
+  const typographyTitleMarginTop = '1.2em';
+
   return {
     [`.${prefixCls}`]: {
       color: token.textColor,
@@ -41,11 +44,44 @@ const genTypographyStyle = ({
         userSelect: 'none',
       },
 
-      'div, p': {
+      [`
+        div,
+        p
+      `]: {
         marginBottom: '1em',
       },
 
-      'h1&, div&-h1, div&-h1 > textarea, h1': {},
+      ...getTitleStyles(token),
+
+      [`
+      & + h1&,
+      & + h2&,
+      & + h3&,
+      & + h4&,
+      & + h5&
+      `]: {
+        marginTop: typographyTitleMarginTop,
+      },
+
+      [`
+  div,
+  ul,
+  li,
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5`]: {
+        [`
+    + h1,
+    + h2,
+    + h3,
+    + h4,
+    + h5`]: {
+          marginTop: typographyTitleMarginTop,
+        },
+      },
     },
   };
 };
