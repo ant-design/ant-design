@@ -10,8 +10,9 @@ import {
 } from '../../_util/theme';
 
 interface DividerToken extends DerivativeToken {
-  // divider-color
   dividerBorderColor: string;
+
+  dividerBorderWidth: number;
 
   dividerVerticalGutterMargin: number;
   dividerHorizontalWithTextGutterMargin: number;
@@ -22,7 +23,7 @@ interface DividerToken extends DerivativeToken {
 const genSharedDividerStyle = (token: DividerToken): CSSObject => ({
   ...resetComponent(token),
 
-  borderBlockStart: `1px solid ${token.dividerBorderColor}`,
+  borderBlockStart: `${token.dividerBorderWidth}px solid ${token.dividerBorderColor}`,
 
   // vertical
   '&-vertical': {
@@ -33,7 +34,7 @@ const genSharedDividerStyle = (token: DividerToken): CSSObject => ({
     margin: `0 ${token.dividerVerticalGutterMargin}px`,
     verticalAlign: 'middle',
     borderTop: 0,
-    borderInlineStart: `1px solid ${token.dividerBorderColor}`,
+    borderInlineStart: `${token.dividerBorderWidth}px solid ${token.dividerBorderColor}`,
   },
 
   '&-horizontal': {
@@ -58,7 +59,7 @@ const genSharedDividerStyle = (token: DividerToken): CSSObject => ({
       position: 'relative',
       top: '50%',
       width: '50%',
-      borderBlockStart: '1px solid transparent',
+      borderBlockStart: `${token.dividerBorderWidth}px solid transparent`,
       // Chrome not accept `inherit` in `border-top`
       borderBlockStartColor: 'inherit',
       borderBlockEnd: 0,
@@ -88,8 +89,8 @@ const genSharedDividerStyle = (token: DividerToken): CSSObject => ({
     background: 'none',
     borderColor: token.dividerBorderColor,
     borderStyle: 'dashed',
-    border: 0,
-    borderBlockStart: '1px',
+    borderWidth: 0,
+    borderBlockStart: `${token.dividerBorderWidth}px`,
   },
 
   '&-horizontal&-with-text&-dashed': {
@@ -99,7 +100,7 @@ const genSharedDividerStyle = (token: DividerToken): CSSObject => ({
   },
 
   '&-vertical&-dashed': {
-    borderWidth: '0 0 0 1px',
+    borderWidth: `0 0 0 ${token.dividerBorderWidth}px`,
   },
 
   '&-plain&-with-text': {
@@ -142,6 +143,7 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
   const [theme, token, hashId] = useToken();
 
   const dividerBorderColor = 'rgba(0, 0, 0, 6%)';
+  const dividerBorderWidth = token.borderWidth;
 
   const dividerVerticalGutterMargin = token.marginXS;
   const dividerHorizontalWithTextGutterMargin = token.marginLG;
@@ -151,6 +153,8 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
     ...token,
 
     dividerBorderColor,
+
+    dividerBorderWidth,
 
     dividerVerticalGutterMargin,
     dividerHorizontalWithTextGutterMargin,
