@@ -739,6 +739,27 @@ const genSearchInputStyle = (
   },
 });
 
+export const initInputToken = (token: DerivativeToken): InputToken => ({
+  ...token,
+  inputAffixMargin: token.marginXXS,
+  inputPaddingVertical: Math.max(
+    Math.round(((token.controlHeight - token.fontSize * token.lineHeight) / 2) * 10) / 10 -
+      token.borderWidth,
+    3,
+  ),
+  inputPaddingVerticalLG:
+    Math.ceil(((token.controlHeightLG - token.fontSizeLG * token.lineHeight) / 2) * 10) / 10 -
+    token.borderWidth,
+  inputPaddingVerticalSM: Math.max(
+    Math.round(((token.controlHeightSM - token.fontSize * token.lineHeight) / 2) * 10) / 10 -
+      token.borderWidth,
+    0,
+  ),
+  inputPaddingHorizontal: token.paddingSM - 1,
+  inputBorderHoverColor: token.primaryHoverColor,
+  inputBorderActiveColor: token.primaryHoverColor,
+});
+
 // ============================== Export ==============================
 export default function useStyle(
   prefixCls: string,
@@ -746,26 +767,7 @@ export default function useStyle(
 ): UseComponentStyleResult {
   const [theme, token, hashId] = useToken();
 
-  const inputToken: InputToken = {
-    ...token,
-    inputAffixMargin: token.marginXXS,
-    inputPaddingVertical: Math.max(
-      Math.round(((token.controlHeight - token.fontSize * token.lineHeight) / 2) * 10) / 10 -
-        token.borderWidth,
-      3,
-    ),
-    inputPaddingVerticalLG:
-      Math.ceil(((token.controlHeightLG - token.fontSizeLG * token.lineHeight) / 2) * 10) / 10 -
-      token.borderWidth,
-    inputPaddingVerticalSM: Math.max(
-      Math.round(((token.controlHeightSM - token.fontSize * token.lineHeight) / 2) * 10) / 10 -
-        token.borderWidth,
-      0,
-    ),
-    inputPaddingHorizontal: token.paddingSM - 1,
-    inputBorderHoverColor: token.primaryHoverColor,
-    inputBorderActiveColor: token.primaryHoverColor,
-  };
+  const inputToken: InputToken = initInputToken(token);
 
   const affixWrapperPrefixCls = `${prefixCls}-affix-wrapper`;
   const groupPrefixCls = `${prefixCls}-group`;
