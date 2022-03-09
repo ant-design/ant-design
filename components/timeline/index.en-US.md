@@ -40,7 +40,7 @@ Node of timeline
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| color | Set the circle's color to `blue`, `red`, `green`, `gray` or other custom colors | string | `blue` |
+| color | Set the circle's color to `blue`、 `red`、 `green`、 `gray` or other custom colors | string | `blue` |
 | dot | Customize timeline dot | ReactNode | - |
 | label | Set the label | ReactNode | - |
 | position | Customize node position | `left` \| `right` | - |
