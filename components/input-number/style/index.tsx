@@ -2,6 +2,7 @@
 import { CSSObject } from '@ant-design/cssinjs';
 import {
   resetComponent,
+  resetIcon,
   UseComponentStyleResult,
   useStyleRegister,
   useToken,
@@ -30,7 +31,7 @@ const genInputNumberStyles = (token: InputNumberToken): CSSObject => ({
     ...genStatusStyle(token.inputNumberCls, token),
 
     display: 'inline-block',
-    width: '90px',
+    width: 90, // FIXME: magic number
     margin: 0,
     padding: 0,
     border: `${token.borderWidth}px ${token.borderStyle} ${token.borderColor}`,
@@ -54,7 +55,7 @@ const genInputNumberStyles = (token: InputNumberToken): CSSObject => ({
       fontSize: token.fontSizeLG,
 
       [`input.${token.inputNumberCls}-input`]: {
-        height: token.controlHeightLG - 2,
+        height: token.controlHeightLG - 2 * token.borderWidth,
       },
     },
 
@@ -62,17 +63,13 @@ const genInputNumberStyles = (token: InputNumberToken): CSSObject => ({
       padding: 0,
 
       [`input.${token.inputNumberCls}-input`]: {
-        height: token.controlHeightSM - 2,
-        padding: `0 ${token.paddingXS - 1}px`,
+        height: token.controlHeightSM - 2 * token.borderWidth,
+        padding: `0 ${token.paddingXS - token.borderWidth}px`,
       },
     },
 
     '&:hover': {
       ...genHoverStyle(token),
-      '& + .ant-form-item-children-icon': {
-        opacity: 0,
-        transition: 'opacity 0.24s linear 0.24s', // FIXME: magic number
-      },
     },
 
     '&-focused': {
@@ -146,22 +143,22 @@ const genInputNumberStyles = (token: InputNumberToken): CSSObject => ({
       },
 
       '&-handler-up-inner, &-handler-down-inner': {
-        // .iconfont-mixin();
+        ...resetIcon(),
 
         position: 'absolute',
         insetInlineEnd: token.marginXXS,
-        width: 12, // FIXME: magic number
-        height: 12, // FIXME: magic number
+        width: token.controlHeightSM / 2,
+        height: token.controlHeightSM / 2,
         color: token.textColorSecondary,
-        lineHeight: 12, // FIXME: magic number
+        lineHeight: token.controlHeightSM / 2,
         transition: `all ${token.durationFast} linear`,
         userSelect: 'none',
       },
 
       '&-input': {
         width: '100%',
-        height: token.controlHeight - 2,
-        padding: `0 ${token.inputPaddingHorizontal - 1}px`,
+        height: token.controlHeight - 2 * token.borderWidth,
+        padding: `0 ${token.inputPaddingHorizontal - token.borderWidth}px`,
         textAlign: 'start',
         backgroundColor: 'transparent',
         border: 0,
@@ -192,7 +189,7 @@ const genInputNumberStyles = (token: InputNumberToken): CSSObject => ({
         borderEndEndRadius: token.borderRadius,
         borderEndStartRadius: 0,
         opacity: 0,
-        transition: 'opacity 0.24s linear 0.1s', // FIXME: magic
+        transition: `opacity ${token.durationMid} linear ${token.durationFast}`,
 
         // Fix input number inside Menu makes icon too large
         // We arise the selector priority by nest selector here
@@ -212,10 +209,10 @@ const genInputNumberStyles = (token: InputNumberToken): CSSObject => ({
         [`.${token.inputNumberCls}-borderless &`]: {
           borderInlineStartWidth: 0,
         },
-      },
 
-      '&-handler-wrap:hover &-handler': {
-        height: '40%',
+        [`&:hover .${token.inputNumberCls}-handler`]: {
+          height: '40%',
+        },
       },
 
       '&-handler-up': {
@@ -248,6 +245,7 @@ const genInputNumberStyles = (token: InputNumberToken): CSSObject => ({
         '&:hover': {
           height: '60% !important',
         },
+
         [`.${token.inputNumberCls}-borderless &`]: {
           borderBlockStartWidth: 0,
         },

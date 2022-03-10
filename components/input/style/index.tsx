@@ -755,7 +755,7 @@ export const initInputToken = (token: DerivativeToken): InputToken => ({
       token.borderWidth,
     0,
   ),
-  inputPaddingHorizontal: token.paddingSM - 1,
+  inputPaddingHorizontal: token.paddingSM - token.borderWidth,
   inputBorderHoverColor: token.primaryHoverColor,
   inputBorderActiveColor: token.primaryHoverColor,
 });
