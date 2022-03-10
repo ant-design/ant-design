@@ -69,7 +69,7 @@ const columns = [
 | --- | --- | --- | --- | --- |
 | bordered | 是否展示外边框和列边框 | boolean | false |  |
 | columns | 表格列的配置描述，具体项见下表 | [ColumnsType](#Column)\[] | - |  |
-| components | 覆盖默认的 table 元素 | [TableComponents](https://git.io/fANxz) | - |  |
+| components | 覆盖默认的 table 元素 | [TableComponents](https://github.com/ant-design/ant-design/blob/306bce385bca4487ad5c2aec9b55c31511f6f810/components/table/interface.tsx#L39) | - |  |
 | dataSource | 数据数组 | object\[] | - |  |
 | expandable | 配置展开属性 | [expandable](#expandable) | - |  |
 | footer | 表格尾部 | function(currentPageData) | - |  |

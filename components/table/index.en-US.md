@@ -62,7 +62,7 @@ const columns = [
 | --- | --- | --- | --- | --- |
 | bordered | Whether to show all table borders | boolean | false |  |
 | columns | Columns of table | [ColumnsType](#Column)\[] | - |  |
-| components | Override default table elements | [TableComponents](https://git.io/fANxz) | - |  |
+| components | Override default table elements | [TableComponents](https://github.com/ant-design/ant-design/blob/306bce385bca4487ad5c2aec9b55c31511f6f810/components/table/interface.tsx#L39) | - |  |
 | dataSource | Data record array to be displayed | object\[] | - |  |
 | expandable | Config expandable content | [expandable](#expandable) | - |  |
 | footer | Table footer renderer | function(currentPageData) | - |  |
