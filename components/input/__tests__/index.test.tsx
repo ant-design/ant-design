@@ -399,13 +399,15 @@ describe('Input allowClear', () => {
 describe('typescript types ', () => {
   it('InputProps type should support data-* attributes', () => {
     const props: InputProps = {
+      value: 123,
+
       // expect no ts error here
       'data-testid': 'test-id',
       'data-id': '12345',
     };
     const wrapper = mount(<Input {...props} />);
-    const input = wrapper.find('input').getDOMNode();
-    expect(input.getAttribute('data-test')).toBe('test-id');
+    const input = wrapper.find('input').first().getDOMNode();
+    expect(input.getAttribute('data-testid')).toBe('test-id');
     expect(input.getAttribute('data-id')).toBe('12345');
   });
 });
