@@ -14,6 +14,8 @@ import {
 import Wave from '../_util/wave';
 import { LiteralUnion } from '../_util/type';
 
+import useStyle from './style';
+
 export { CheckableTagProps } from './CheckableTag';
 
 export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
@@ -51,7 +53,7 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
   },
   ref,
 ) => {
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, iconPrefixCls } = React.useContext(ConfigContext);
   const [visible, setVisible] = React.useState(true);
 
   React.useEffect(() => {
@@ -74,6 +76,9 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
 
   const presetColor = isPresetColor();
   const prefixCls = getPrefixCls('tag', customizePrefixCls);
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls);
+
   const tagClassName = classNames(
     prefixCls,
     {
@@ -83,6 +88,7 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    hashId,
   );
 
   const handleCloseClick = (e: React.MouseEvent<HTMLElement>) => {
@@ -130,7 +136,7 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
     </span>
   );
 
-  return isNeedWave ? <Wave>{tagNode}</Wave> : tagNode;
+  return wrapSSR(isNeedWave ? <Wave>{tagNode}</Wave> : tagNode);
 };
 
 const Tag = React.forwardRef<unknown, TagProps>(InternalTag) as TagType;

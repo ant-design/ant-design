@@ -38,6 +38,21 @@ export {
   slideRightOut,
 };
 
+export type IPrimaryColor =
+  | 'blue'
+  | 'purple'
+  | 'cyan'
+  | 'green'
+  | 'magenta'
+  | 'pink'
+  | 'red'
+  | 'orange'
+  | 'yellow'
+  | 'volcano'
+  | 'geekblue'
+  | 'lime'
+  | 'gold';
+
 export interface DesignToken {
   primaryColor: string;
   successColor: string;
@@ -91,10 +106,16 @@ export interface DesignToken {
   zIndexDropdown: number;
 
   boxShadow?: string;
+
+  presetColors: Record<IPrimaryColor, string>;
 }
 
+type ColorPalettes = {
+  [key in `${IPrimaryColor}-${1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10}`]: string;
+};
+
 /** This is temporary token definition since final token definition is not ready yet. */
-export interface DerivativeToken extends Omit<DesignToken, 'duration'> {
+export interface DerivativeToken extends ColorPalettes, Omit<DesignToken, 'duration'> {
   primaryHoverColor: string;
   primaryActiveColor: string;
   primaryOutlineColor: string;
@@ -131,20 +152,54 @@ export interface DerivativeToken extends Omit<DesignToken, 'duration'> {
   // TMP
   tmpPrimaryColorWeak: string;
   tmpPrimaryHoverColorWeak: string;
+  tmpPrimaryColor6: string;
+  tmpPrimaryColor7: string;
+
+  tmpSuccessColorDeprecatedBg: string;
+  tmpWarningColorDeprecatedBg: string;
+  tmpErrorColorDeprecatedBg: string;
+  tmpInfoColorDeprecatedBg: string;
+
+  tmpSuccessColorDeprecatedBorder: string;
+  tmpWarningColorDeprecatedBorder: string;
+  tmpErrorColorDeprecatedBorder: string;
+  tmpInfoColorDeprecatedBorder: string;
 }
 
 export { useStyleRegister };
 
 // =============================== Derivative ===============================
 function derivative(designToken: DesignToken): DerivativeToken {
-  const { primaryColor, errorColor, warningColor } = designToken;
+  const { primaryColor, errorColor, warningColor, infoColor, successColor, presetColors } =
+    designToken;
 
   const primaryColors = generate(primaryColor);
   const errorColors = generate(errorColor);
   const warningColors = generate(warningColor);
+  const infoColors = generate(infoColor);
+  const successColors = generate(successColor);
 
   const paddingSM = (designToken.padding / 4) * 3;
   const paddingXS = designToken.padding * 0.5;
+
+  const colorPalettes = Object.keys(presetColors)
+    .map((colorKey: IPrimaryColor) => {
+      const colors = generate(presetColors[colorKey]);
+
+      const ret = new Array(10).fill(1).reduce((prev, _, i) => {
+        // i === 5 ? presetColors.pink : colors[index];
+        prev[`${colorKey}-${i + 1}`] = colors[i];
+        return prev;
+      }, {}) as ColorPalettes;
+      return ret;
+    })
+    .reduce((prev, cur) => {
+      prev = {
+        ...prev,
+        ...cur,
+      };
+      return prev;
+    }, {} as ColorPalettes);
 
   return {
     // FIXME: Need design token
@@ -155,8 +210,6 @@ function derivative(designToken: DesignToken): DerivativeToken {
 
     ...designToken,
 
-    tmpPrimaryColorWeak: primaryColors[2],
-    tmpPrimaryHoverColorWeak: primaryColors[0],
     primaryHoverColor: primaryColors[4],
     primaryActiveColor: primaryColors[6],
     primaryOutlineColor: new TinyColor(primaryColor).setAlpha(0.2).toRgbString(),
@@ -191,6 +244,24 @@ function derivative(designToken: DesignToken): DerivativeToken {
     duration: `${designToken.duration}s`,
     durationMid: `${(designToken.duration / 3) * 2}s`,
     durationFast: `${designToken.duration / 3}s`,
+
+    ...colorPalettes,
+
+    // TMP
+    tmpPrimaryColorWeak: primaryColors[2],
+    tmpPrimaryHoverColorWeak: primaryColors[0],
+    tmpPrimaryColor6: primaryColors[5],
+    tmpPrimaryColor7: primaryColors[6],
+
+    tmpSuccessColorDeprecatedBg: successColors[0],
+    tmpWarningColorDeprecatedBg: warningColors[0],
+    tmpErrorColorDeprecatedBg: errorColors[0],
+    tmpInfoColorDeprecatedBg: infoColors[0],
+
+    tmpSuccessColorDeprecatedBorder: successColors[2],
+    tmpWarningColorDeprecatedBorder: warningColors[2],
+    tmpErrorColorDeprecatedBorder: errorColors[2],
+    tmpInfoColorDeprecatedBorder: infoColors[2],
   };
 }
 

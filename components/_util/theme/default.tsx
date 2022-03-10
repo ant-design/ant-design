@@ -1,4 +1,6 @@
 import { TinyColor } from '@ctrl/tinycolor';
+import { presetPrimaryColors } from '@ant-design/colors';
+
 import type { DesignToken } from '.';
 
 const defaultDesignToken: DesignToken = {
@@ -59,6 +61,22 @@ const defaultDesignToken: DesignToken = {
   duration: 0.3,
 
   zIndexDropdown: 1050,
+
+  presetColors: {
+    blue: presetPrimaryColors.blue,
+    purple: presetPrimaryColors.purple,
+    cyan: presetPrimaryColors.cyan,
+    green: presetPrimaryColors.green,
+    magenta: presetPrimaryColors.magenta,
+    pink: presetPrimaryColors.pink,
+    red: presetPrimaryColors.red,
+    orange: presetPrimaryColors.orange,
+    yellow: presetPrimaryColors.yellow,
+    volcano: presetPrimaryColors.volcano,
+    geekblue: presetPrimaryColors.geekblue,
+    lime: presetPrimaryColors.lime,
+    gold: presetPrimaryColors.gold,
+  },
 };
 
 export default defaultDesignToken;
