@@ -118,6 +118,7 @@ export interface InputProps
   size?: SizeType;
   status?: InputStatus;
   bordered?: boolean;
+  [key: `data-${string}`]: string;
 }
 
 const Input = forwardRef<InputRef, InputProps>((props, ref) => {
