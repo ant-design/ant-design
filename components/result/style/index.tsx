@@ -42,10 +42,10 @@ const genBaseStyle = (
   [`${resultCls} ${resultCls}-icon`]: {
     marginBottom: token.padding * 1.5,
     textAlign: 'center',
-  },
 
-  [`${resultCls} ${resultCls}-icon > ${dotIconPrefixCls}`]: {
-    fontSize: token.resultIconFontSize,
+    [`& > ${dotIconPrefixCls}`]: {
+      fontSize: token.resultIconFontSize,
+    },
   },
 
   [`${resultCls} ${resultCls}-title`]: {
@@ -73,14 +73,14 @@ const genBaseStyle = (
   [`${resultCls} ${resultCls}-extra`]: {
     margin: token.resultExtraMargin,
     textAlign: 'center',
-  },
 
-  [`${resultCls} ${resultCls}-extra > *`]: {
-    marginInlineEnd: token.paddingXS,
-  },
+    '& > *': {
+      marginInlineEnd: token.paddingXS,
 
-  [`${resultCls} ${resultCls}-extra > *:last-child`]: {
-    marginInlineEnd: 0,
+      '&:last-child': {
+        marginInlineEnd: 0,
+      },
+    },
   },
 });
 
