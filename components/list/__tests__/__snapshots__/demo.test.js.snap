@@ -1131,6 +1131,8 @@ exports[`renders ./components/list/demo/loadmore.md correctly 1`] = `
   >
     <div>
       <div
+        aria-busy="true"
+        aria-live="polite"
         class="ant-spin ant-spin-spinning"
       >
         <span

@@ -522,6 +522,8 @@ exports[`Table renders empty table without emptyText when loading 1`] = `
   >
     <div>
       <div
+        aria-busy="true"
+        aria-live="polite"
         class="ant-spin ant-spin-spinning"
       >
         <span
