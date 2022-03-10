@@ -62,7 +62,7 @@ const columns = [
 | --- | --- | --- | --- | --- |
 | bordered | Whether to show all table borders | boolean | false |  |
 | columns | Columns of table | [ColumnsType](#Column)\[] | - |  |
-| components | Override default table elements | [TableComponents](https://git.io/fANxz) | - |  |
+| components | Override default table elements | [TableComponents](https://github.com/react-component/table/blob/75ee0064e54a4b3215694505870c9d6c817e9e4a/src/interface.ts#L129) | - |  |
 | dataSource | Data record array to be displayed | object\[] | - |  |
 | expandable | Config expandable content | [expandable](#expandable) | - |  |
 | footer | Table footer renderer | function(currentPageData) | - |  |
