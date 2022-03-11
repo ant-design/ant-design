@@ -98,7 +98,7 @@ const genTypographyStyle = ({
       .${prefixCls}-copy
       `]: {
         ...operationUnit(token),
-        marginLeft: 4,
+        marginInlineStart: 4,
       },
 
       ...getEditableStyles(token),
@@ -106,6 +106,10 @@ const genTypographyStyle = ({
       ...getCopiableStyles(token),
 
       ...getEllipsisStyles(),
+
+      '&-rtl': {
+        direction: 'rtl',
+      },
     },
   };
 };

@@ -149,7 +149,7 @@ export const getResetStyles = (): CSSObject => ({
 
   blockquote: {
     padding: '0 0 0 0.6em',
-    borderLeft: '4px solid rgba(100, 100, 100, 0.2)',
+    borderInlineStart: '4px solid rgba(100, 100, 100, 0.2)',
     opacity: '0.85',
   },
 });
@@ -159,7 +159,7 @@ export const getEditableStyles = (token: DerivativeToken): CSSObject => ({
     position: 'relative',
 
     'div&': {
-      left: -token.paddingSM - 1,
+      insetInlineStart: -token.paddingSM - 1,
       // FIXME: should be calculated from input padding
       marginTop: -5,
       marginBottom: 'calc(1em - 5px)',
@@ -167,8 +167,8 @@ export const getEditableStyles = (token: DerivativeToken): CSSObject => ({
 
     '&-confirm': {
       position: 'absolute',
-      right: 10,
-      bottom: 8,
+      insetInlineEnd: 10,
+      insetBlockEnd: 8,
       color: token.textColorSecondary,
       // default style
       fontWeight: 'normal',
