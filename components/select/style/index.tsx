@@ -98,13 +98,13 @@ const genStatusStyle = (
           borderColor: borderHoverColor,
           // FIXME: missing variable of `@input-outline-offset`
           boxShadow: `0 0 ${token.outlineBlurSize}px ${token.outlineWidth}px ${outlineColor}`,
-          borderRightWidth: `${token.borderWidth}px !important`,
+          borderInlineEndWidth: `${token.borderWidth}px !important`,
           outline: 0,
         },
 
         [`&:hover ${selectCls}-selector`]: {
           borderColor: borderHoverColor,
-          borderRightWidth: `${token.borderWidth}px !important`,
+          borderInlineEndWidth: `${token.borderWidth}px !important`,
         },
       },
     },
