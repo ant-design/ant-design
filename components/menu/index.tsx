@@ -3,20 +3,14 @@ import RcMenu, { ItemGroup, MenuProps as RcMenuProps } from 'rc-menu';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
-import memoize from 'memoize-one';
 import SubMenu, { SubMenuProps } from './SubMenu';
 import Item, { MenuItemProps } from './MenuItem';
-import {
-  ConfigConsumer,
-  ConfigConsumerProps,
-  ConfigContext,
-  DirectionType,
-} from '../config-provider';
+import { ConfigContext } from '../config-provider';
 import devWarning from '../_util/devWarning';
 import { SiderContext, SiderContextProps } from '../layout/Sider';
 import collapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
-import MenuContext, { MenuTheme, MenuContextProps } from './MenuContext';
+import MenuContext, { MenuTheme } from './MenuContext';
 import MenuDivider from './MenuDivider';
 
 export { MenuDividerProps } from './MenuDivider';
