@@ -1,6 +1,7 @@
 // deps-lint-skip-all
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { useStyleRegister, useToken } from '../../_util/theme';
+import type { UseComponentStyleResult } from '../../_util/theme';
 import { operationUnit } from '../../_util/theme/util/operationUnit';
 import {
   getTitleStyles,
@@ -111,7 +112,7 @@ const genTypographyStyle = ({
 });
 
 // ============================== Export ==============================
-export default function useStyle(prefixCls: string) {
+export default function useStyle(prefixCls: string): UseComponentStyleResult {
   const [theme, token, hashId] = useToken();
 
   const typographyToken: TypographyToken = {
