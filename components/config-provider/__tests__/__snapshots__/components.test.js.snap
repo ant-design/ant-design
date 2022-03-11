@@ -22222,6 +22222,8 @@ exports[`ConfigProvider components Slider prefixCls 1`] = `
 
 exports[`ConfigProvider components Spin configProvider 1`] = `
 <div
+  aria-busy="true"
+  aria-live="polite"
   class="config-spin config-spin-spinning"
 >
   <span
@@ -22245,6 +22247,8 @@ exports[`ConfigProvider components Spin configProvider 1`] = `
 
 exports[`ConfigProvider components Spin configProvider componentSize large 1`] = `
 <div
+  aria-busy="true"
+  aria-live="polite"
   class="config-spin config-spin-spinning"
 >
   <span
@@ -22268,6 +22272,8 @@ exports[`ConfigProvider components Spin configProvider componentSize large 1`] =
 
 exports[`ConfigProvider components Spin configProvider componentSize middle 1`] = `
 <div
+  aria-busy="true"
+  aria-live="polite"
   class="config-spin config-spin-spinning"
 >
   <span
@@ -22291,6 +22297,8 @@ exports[`ConfigProvider components Spin configProvider componentSize middle 1`] 
 
 exports[`ConfigProvider components Spin configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
+  aria-busy="true"
+  aria-live="polite"
   class="ant-spin ant-spin-spinning"
 >
   <span
@@ -22314,6 +22322,8 @@ exports[`ConfigProvider components Spin configProvider virtual and dropdownMatch
 
 exports[`ConfigProvider components Spin normal 1`] = `
 <div
+  aria-busy="true"
+  aria-live="polite"
   class="ant-spin ant-spin-spinning"
 >
   <span
@@ -22337,6 +22347,8 @@ exports[`ConfigProvider components Spin normal 1`] = `
 
 exports[`ConfigProvider components Spin prefixCls 1`] = `
 <div
+  aria-busy="true"
+  aria-live="polite"
   class="prefix-Spin prefix-Spin-spinning"
 >
   <span
