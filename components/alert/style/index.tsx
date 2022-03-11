@@ -11,10 +11,14 @@ import {
   useToken,
   resetComponent,
   UseComponentStyleResult,
+  GenerateStyle,
 } from '../../_util/theme';
 
 // FIXME: missing token
 type AlertToken = DerivativeToken & {
+  alertCls: string;
+  iconPrefixCls: string;
+
   alertMessageColor: string;
   alertCloseColor: string;
   alertCloseHoverColor: string;
@@ -36,7 +40,6 @@ type AlertToken = DerivativeToken & {
   alertErrorBorderColor: string;
 
   alertWithDescriptionIconSize: number;
-  alertWithDescriptionPadding: string;
   alertWithDescriptionPaddingVertical: number;
   alertWithDescriptionNoIconPaddingVertical: number;
 };
@@ -55,8 +58,9 @@ const genAlertTypeStyle = (
   },
 });
 
-export const genBaseStyle = (alertCls: string, token: AlertToken): CSSObject => {
+export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSObject => {
   const {
+    alertCls,
     duration,
     marginXS,
     fontSize,
@@ -67,7 +71,6 @@ export const genBaseStyle = (alertCls: string, token: AlertToken): CSSObject => 
     alertWithDescriptionIconSize,
     alertWithDescriptionPaddingVertical,
     alertWithDescriptionNoIconPaddingVertical,
-    alertWithDescriptionPadding,
   } = token;
 
   return {
@@ -79,6 +82,10 @@ export const genBaseStyle = (alertCls: string, token: AlertToken): CSSObject => 
       padding: '8px 15px',
       wordWrap: 'break-word',
       borderRadius,
+
+      '&&-rtl': {
+        direction: 'rtl',
+      },
 
       [`${alertCls}-content`]: {
         flex: 1,
@@ -118,7 +125,9 @@ export const genBaseStyle = (alertCls: string, token: AlertToken): CSSObject => 
 
     [`${alertCls}-with-description`]: {
       alignItems: 'flex-start',
-      padding: alertWithDescriptionPadding,
+      paddingInlineStart: alertWithDescriptionIconSize,
+      paddingInlineEnd: alertWithDescriptionPaddingVertical,
+      paddingBlock: alertWithDescriptionPaddingVertical,
 
       [`&${alertCls}-no-icon`]: {
         padding: `${alertWithDescriptionNoIconPaddingVertical}px 15px`,
@@ -149,8 +158,9 @@ export const genBaseStyle = (alertCls: string, token: AlertToken): CSSObject => 
   };
 };
 
-export const genTypeStyle = (alertCls: string, token: AlertToken): CSSObject => {
+export const genTypeStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSObject => {
   const {
+    alertCls,
     alertInfoBgColor,
     alertInfoIconColor,
     alertInfoBorderColor,
@@ -208,12 +218,16 @@ export const genTypeStyle = (alertCls: string, token: AlertToken): CSSObject => 
   };
 };
 
-export const genActionStyle = (
-  alertCls: string,
-  iconPrefixCls: string,
-  token: AlertToken,
-): CSSObject => {
-  const { duration, marginXS, fontSizeSM, alertCloseColor, alertCloseHoverColor } = token;
+export const genActionStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSObject => {
+  const {
+    alertCls,
+    iconPrefixCls,
+    duration,
+    marginXS,
+    fontSizeSM,
+    alertCloseColor,
+    alertCloseHoverColor,
+  } = token;
 
   return {
     [alertCls]: {
@@ -252,30 +266,18 @@ export const genActionStyle = (
   };
 };
 
-export const genRTLStyle = (alertCls: string, token: AlertToken): CSSObject => {
-  const { alertWithDescriptionIconSize, alertWithDescriptionPaddingVertical } = token;
+export const genAlertStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSInterpolation => [
+  genBaseStyle(token),
+  genTypeStyle(token),
+  genActionStyle(token),
+];
 
-  return {
-    [alertCls]: {
-      '&&-rtl': {
-        direction: 'rtl',
-      },
-
-      '&-with-description': {
-        [`${alertCls}-rtl&`]: {
-          paddingRight: alertWithDescriptionIconSize,
-          paddingLeft: alertWithDescriptionPaddingVertical,
-        },
-      },
-    },
-  };
-};
-
-export const genAlertStyle = (
+export default function useStyle(
   prefixCls: string,
   iconPrefixCls: string,
-  token: DerivativeToken,
-): CSSInterpolation => {
+): UseComponentStyleResult {
+  const [theme, token, hashId] = useToken();
+
   const alertCls = `.${prefixCls}`;
 
   const alertMessageColor = token.headingColor;
@@ -285,7 +287,6 @@ export const genAlertStyle = (
   const alertWithDescriptionIconSize = 24;
   const alertWithDescriptionPaddingVertical = token.padding - 1;
   const alertWithDescriptionNoIconPaddingVertical = token.padding - 1;
-  const alertWithDescriptionPadding = `${alertWithDescriptionPaddingVertical}px 15px ${alertWithDescriptionNoIconPaddingVertical}px ${alertWithDescriptionIconSize}px`;
 
   // FIXME
   const infoColors = generate(token.infoColor);
@@ -308,8 +309,10 @@ export const genAlertStyle = (
   const alertErrorIconColor = token.errorColor;
   const alertErrorBorderColor = errorColors[2];
 
-  const alertToken = {
+  const alertToken: AlertToken = {
     ...token,
+    alertCls,
+    iconPrefixCls,
     alertInfoBgColor,
     alertInfoIconColor,
     alertInfoBorderColor,
@@ -328,26 +331,11 @@ export const genAlertStyle = (
     alertWithDescriptionIconSize,
     alertWithDescriptionPaddingVertical,
     alertWithDescriptionNoIconPaddingVertical,
-    alertWithDescriptionPadding,
   };
 
   return [
-    genBaseStyle(alertCls, alertToken),
-    genTypeStyle(alertCls, alertToken),
-    genActionStyle(alertCls, iconPrefixCls, alertToken),
-    genRTLStyle(alertCls, alertToken),
-  ];
-};
-
-export default function useStyle(
-  prefixCls: string,
-  iconPrefixCls: string,
-): UseComponentStyleResult {
-  const [theme, token, hashId] = useToken();
-
-  return [
     useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      genAlertStyle(prefixCls, iconPrefixCls, token),
+      genAlertStyle(alertToken),
     ]),
     hashId,
   ];

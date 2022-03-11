@@ -20,8 +20,8 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         [`${selectCls}-selection-search`]: {
           position: 'absolute',
           top: 0,
-          left: inputPaddingHorizontalBase,
-          right: inputPaddingHorizontalBase,
+          insetInlineStart: inputPaddingHorizontalBase,
+          insetInlineEnd: inputPaddingHorizontalBase,
           bottom: 0,
 
           '&-input': {
@@ -112,8 +112,8 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
 
           [`${selectCls}-selection-placeholder`]: {
             position: 'absolute',
-            left: 0,
-            right: 0,
+            insetInlineStart: 0,
+            insetInlineEnd: 0,
             padding: `0 ${inputPaddingHorizontalBase}px`,
 
             '&:after': {
@@ -149,8 +149,8 @@ export default function genSingleStyle(token: SelectToken): CSSInterpolation {
       [`${selectCls}-single${selectCls}-sm`]: {
         [`&:not(${selectCls}-customize-input)`]: {
           [`${selectCls}-selection-search`]: {
-            left: inputPaddingHorizontalSM,
-            right: inputPaddingHorizontalSM,
+            insetInlineStart: inputPaddingHorizontalSM,
+            insetInlineEnd: inputPaddingHorizontalSM,
           },
 
           [`${selectCls}-selector`]: {

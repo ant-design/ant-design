@@ -69,7 +69,7 @@ const columns = [
 | --- | --- | --- | --- | --- |
 | bordered | 是否展示外边框和列边框 | boolean | false |  |
 | columns | 表格列的配置描述，具体项见下表 | [ColumnsType](#Column)\[] | - |  |
-| components | 覆盖默认的 table 元素 | [TableComponents](https://git.io/fANxz) | - |  |
+| components | 覆盖默认的 table 元素 | [TableComponents](https://github.com/react-component/table/blob/75ee0064e54a4b3215694505870c9d6c817e9e4a/src/interface.ts#L129) | - |  |
 | dataSource | 数据数组 | object\[] | - |  |
 | expandable | 配置展开属性 | [expandable](#expandable) | - |  |
 | footer | 表格尾部 | function(currentPageData) | - |  |

@@ -11,7 +11,7 @@ import {
   InputStatus,
 } from '../_util/statusUtils';
 import { ConfigContext } from '../config-provider';
-import { FormItemStatusContext } from '../form/context';
+import { FormItemStatusContext, NoFormStatus } from '../form/context';
 import { hasPrefixSuffix } from './utils';
 import devWarning from '../_util/devWarning';
 
@@ -121,6 +121,7 @@ export interface InputProps
   size?: SizeType;
   status?: InputStatus;
   bordered?: boolean;
+  [key: `data-${string}`]: string;
 }
 
 const Input = forwardRef<InputRef, InputProps>((props, ref) => {
@@ -133,6 +134,8 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     onFocus,
     suffix,
     allowClear,
+    addonAfter,
+    addonBefore,
     ...rest
   } = props;
   const { getPrefixCls, direction, input, iconPrefixCls } = React.useContext(ConfigContext);
@@ -223,6 +226,8 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       onFocus={handleFocus}
       suffix={suffixNode}
       allowClear={mergedAllowClear}
+      addonAfter={addonAfter && <NoFormStatus>{addonAfter}</NoFormStatus>}
+      addonBefore={addonBefore && <NoFormStatus>{addonBefore}</NoFormStatus>}
       inputClassName={classNames(
         !withPrefixSuffix && {
           [`${prefixCls}-sm`]: mergedSize === 'small',
