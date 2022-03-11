@@ -64,7 +64,8 @@ export const getTitleStyles = (token: DerivativeToken) => {
 export const getResetStyles = (): CSSObject => ({
   code: {
     margin: '0 0.2em',
-    padding: '0.2em 0.4em 0.1em',
+    paddingInline: '0.1em 0.2em',
+    paddingBlock: '0.4em',
     fontSize: '85%',
     background: 'rgba(150, 150, 150, 0.1)',
     border: '1px solid rgba(100, 100, 100, 0.2)',
@@ -73,7 +74,8 @@ export const getResetStyles = (): CSSObject => ({
 
   kbd: {
     margin: '0 0.2em',
-    padding: '0.15em 0.4em 0.1em',
+    paddingInline: '0.1em 0.15em',
+    paddingBlock: '0.4em',
     fontSize: '90%',
     background: 'rgba(150, 150, 150, 0.06)',
     border: '1px solid rgba(100, 100, 100, 0.2)',
@@ -101,12 +103,15 @@ export const getResetStyles = (): CSSObject => ({
 
   // list
   'ul, ol': {
-    margin: '0 0 1em',
+    marginInline: 0,
+    marginBlock: '0 1em',
     padding: 0,
 
     li: {
-      margin: '0 0 0 20px',
-      padding: '0 0 0 4px',
+      marginInline: '20px 0',
+      marginBlock: '0 0',
+      paddingInline: '4px 0',
+      paddingBlock: '0 0',
     },
   },
 
@@ -148,7 +153,8 @@ export const getResetStyles = (): CSSObject => ({
   },
 
   blockquote: {
-    padding: '0 0 0 0.6em',
+    paddingInline: '0.6em 0',
+    paddingBlock: 0,
     borderInlineStart: '4px solid rgba(100, 100, 100, 0.2)',
     opacity: '0.85',
   },
