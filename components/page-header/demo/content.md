@@ -15,7 +15,7 @@ Show all props provided by PageHeader.
 
 ```jsx
 import { PageHeader, Menu, Dropdown, Button, Tag, Typography, Row } from 'antd';
-import { EllipsisOutlined } from '@ant-design/icons';
+import { MoreOutlined } from '@ant-design/icons';
 
 const { Paragraph } = Typography;
 
@@ -40,20 +40,8 @@ const menu = (
 );
 
 const DropdownMenu = () => (
-  <Dropdown key="more" overlay={menu}>
-    <Button
-      style={{
-        border: 'none',
-        padding: 0,
-      }}
-    >
-      <EllipsisOutlined
-        style={{
-          fontSize: 20,
-          verticalAlign: 'top',
-        }}
-      />
-    </Button>
+  <Dropdown key="more" overlay={menu} placement="bottomRight">
+    <Button type="text" icon={<MoreOutlined style={{ fontSize: 20 }} />} />
   </Dropdown>
 );
 
