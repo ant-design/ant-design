@@ -8,6 +8,7 @@ import { ConfigConsumer, ConfigConsumerProps, DirectionType } from '../config-pr
 import { TagType } from '../tag';
 import Breadcrumb, { BreadcrumbProps } from '../breadcrumb';
 import Avatar, { AvatarProps } from '../avatar';
+import Space from '../space';
 import TransButton from '../_util/transButton';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 
@@ -104,7 +105,11 @@ const renderTitle = (
           {tags && <span className={`${headingPrefixCls}-tags`}>{tags}</span>}
         </div>
       )}
-      {extra && <span className={`${headingPrefixCls}-extra`}>{extra}</span>}
+      {extra && (
+        <span className={`${headingPrefixCls}-extra`}>
+          <Space>{extra}</Space>
+        </span>
+      )}
     </div>
   );
 };
