@@ -13,6 +13,7 @@ import {
   resetComponent,
   resetIcon,
   UseComponentStyleResult,
+  GenerateStyle,
 } from '../../_util/theme';
 import genSingleStyle from './single';
 import genMultipleStyle from './multiple';
@@ -27,7 +28,7 @@ export type SelectToken = DerivativeToken & {
 };
 
 // ============================= Selector =============================
-const genSelectorStyle = (token: SelectToken): CSSObject => {
+const genSelectorStyle: GenerateStyle<SelectToken, CSSObject> = token => {
   const { selectCls } = token;
 
   return {
@@ -112,7 +113,7 @@ const genStatusStyle = (
 
 // ============================== Styles ==============================
 // /* Reset search input style */
-const getSearchInputWithoutBorderStyle = (token: SelectToken): CSSObject => {
+const getSearchInputWithoutBorderStyle: GenerateStyle<SelectToken, CSSObject> = token => {
   const { selectCls } = token;
 
   return {
@@ -133,7 +134,7 @@ const getSearchInputWithoutBorderStyle = (token: SelectToken): CSSObject => {
 };
 
 // =============================== Base ===============================
-const genBaseStyle = (token: SelectToken): CSSObject => {
+const genBaseStyle: GenerateStyle<SelectToken> = token => {
   const { selectCls, iconPrefixCls, inputPaddingHorizontalBase } = token;
 
   return {
@@ -269,7 +270,7 @@ const genBaseStyle = (token: SelectToken): CSSObject => {
 };
 
 // ============================== Styles ==============================
-export const genSelectStyle = (
+const genSelectStyle = (
   rootPrefixCls: string,
   prefixCls: string,
   iconPrefixCls: string,

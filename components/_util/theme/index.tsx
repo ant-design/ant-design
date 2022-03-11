@@ -1,7 +1,13 @@
 import React from 'react';
 import { generate } from '@ant-design/colors';
 import { TinyColor } from '@ctrl/tinycolor';
-import { CSSObject, Theme, useCacheToken, useStyleRegister } from '@ant-design/cssinjs';
+import {
+  CSSInterpolation,
+  CSSObject,
+  Theme,
+  useCacheToken,
+  useStyleRegister,
+} from '@ant-design/cssinjs';
 import defaultDesignToken from './default';
 import version from '../../version';
 import { resetComponent, resetIcon, clearFix } from './util';
@@ -214,6 +220,11 @@ export function useToken(): [Theme<DesignToken, DerivativeToken>, DerivativeToke
 }
 
 export type UseComponentStyleResult = [(node: React.ReactNode) => React.ReactElement, string];
+
+export type GenerateStyle<ComponentToken extends object, ReturnType = CSSInterpolation> = (
+  token: ComponentToken,
+  hashId?: string,
+) => ReturnType;
 
 // ================================== Util ==================================
 export function withPrefix(

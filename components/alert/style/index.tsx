@@ -11,10 +11,14 @@ import {
   useToken,
   resetComponent,
   UseComponentStyleResult,
+  GenerateStyle,
 } from '../../_util/theme';
 
 // FIXME: missing token
 type AlertToken = DerivativeToken & {
+  alertCls: string;
+  iconPrefixCls: string;
+
   alertMessageColor: string;
   alertCloseColor: string;
   alertCloseHoverColor: string;
@@ -55,8 +59,9 @@ const genAlertTypeStyle = (
   },
 });
 
-export const genBaseStyle = (alertCls: string, token: AlertToken): CSSObject => {
+export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSObject => {
   const {
+    alertCls,
     duration,
     marginXS,
     fontSize,
@@ -149,8 +154,9 @@ export const genBaseStyle = (alertCls: string, token: AlertToken): CSSObject => 
   };
 };
 
-export const genTypeStyle = (alertCls: string, token: AlertToken): CSSObject => {
+export const genTypeStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSObject => {
   const {
+    alertCls,
     alertInfoBgColor,
     alertInfoIconColor,
     alertInfoBorderColor,
@@ -208,12 +214,16 @@ export const genTypeStyle = (alertCls: string, token: AlertToken): CSSObject => 
   };
 };
 
-export const genActionStyle = (
-  alertCls: string,
-  iconPrefixCls: string,
-  token: AlertToken,
-): CSSObject => {
-  const { duration, marginXS, fontSizeSM, alertCloseColor, alertCloseHoverColor } = token;
+export const genActionStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSObject => {
+  const {
+    alertCls,
+    iconPrefixCls,
+    duration,
+    marginXS,
+    fontSizeSM,
+    alertCloseColor,
+    alertCloseHoverColor,
+  } = token;
 
   return {
     [alertCls]: {
@@ -252,8 +262,8 @@ export const genActionStyle = (
   };
 };
 
-export const genRTLStyle = (alertCls: string, token: AlertToken): CSSObject => {
-  const { alertWithDescriptionIconSize, alertWithDescriptionPaddingVertical } = token;
+export const genRTLStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSObject => {
+  const { alertCls, alertWithDescriptionIconSize, alertWithDescriptionPaddingVertical } = token;
 
   return {
     [alertCls]: {
@@ -271,11 +281,19 @@ export const genRTLStyle = (alertCls: string, token: AlertToken): CSSObject => {
   };
 };
 
-export const genAlertStyle = (
+export const genAlertStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSInterpolation => [
+  genBaseStyle(token),
+  genTypeStyle(token),
+  genActionStyle(token),
+  genRTLStyle(token),
+];
+
+export default function useStyle(
   prefixCls: string,
   iconPrefixCls: string,
-  token: DerivativeToken,
-): CSSInterpolation => {
+): UseComponentStyleResult {
+  const [theme, token, hashId] = useToken();
+
   const alertCls = `.${prefixCls}`;
 
   const alertMessageColor = token.headingColor;
@@ -308,8 +326,10 @@ export const genAlertStyle = (
   const alertErrorIconColor = token.errorColor;
   const alertErrorBorderColor = errorColors[2];
 
-  const alertToken = {
+  const alertToken: AlertToken = {
     ...token,
+    alertCls,
+    iconPrefixCls,
     alertInfoBgColor,
     alertInfoIconColor,
     alertInfoBorderColor,
@@ -332,22 +352,8 @@ export const genAlertStyle = (
   };
 
   return [
-    genBaseStyle(alertCls, alertToken),
-    genTypeStyle(alertCls, alertToken),
-    genActionStyle(alertCls, iconPrefixCls, alertToken),
-    genRTLStyle(alertCls, alertToken),
-  ];
-};
-
-export default function useStyle(
-  prefixCls: string,
-  iconPrefixCls: string,
-): UseComponentStyleResult {
-  const [theme, token, hashId] = useToken();
-
-  return [
     useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      genAlertStyle(prefixCls, iconPrefixCls, token),
+      genAlertStyle(alertToken),
     ]),
     hashId,
   ];

@@ -6,9 +6,12 @@ import {
   useToken,
   UseComponentStyleResult,
   resetComponent,
+  GenerateStyle,
 } from '../../_util/theme';
 
 interface DividerToken extends DerivativeToken {
+  dividerCls: string;
+
   dividerBorderColor: string;
 
   dividerBorderWidth: number;
@@ -19,131 +22,129 @@ interface DividerToken extends DerivativeToken {
   dividerHorizontalGutterMargin: number;
 }
 
-// FIXME
-interface genStyleProps {
-  token: DividerToken;
-  prefixCls: string;
-}
-
 // ============================== Shared ==============================
-const genSharedDividerStyle = ({ token, prefixCls }: genStyleProps): CSSObject => ({
-  [`.${prefixCls}`]: {
-    ...resetComponent(token),
-    borderBlockStart: `${token.dividerBorderWidth}px solid ${token.dividerBorderColor}`,
+const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject => {
+  const { dividerCls } = token;
 
-    // vertical
-    '&-vertical': {
-      position: 'relative',
-      top: '-0.06em',
-      display: 'inline-block',
-      height: '0.9em',
-      margin: `0 ${token.dividerVerticalGutterMargin}px`,
-      verticalAlign: 'middle',
-      borderTop: 0,
-      borderInlineStart: `${token.dividerBorderWidth}px solid ${token.dividerBorderColor}`,
-    },
+  return {
+    [dividerCls]: {
+      ...resetComponent(token),
+      borderBlockStart: `${token.dividerBorderWidth}px solid ${token.dividerBorderColor}`,
 
-    '&-horizontal': {
-      display: 'flex',
-      clear: 'both',
-      width: '100%',
-      minWidth: '100%', // Fix https://github.com/ant-design/ant-design/issues/10914
-      margin: `${token.dividerHorizontalGutterMargin}px 0`,
-    },
-
-    '&-horizontal&-with-text': {
-      display: 'flex',
-      margin: `${token.dividerHorizontalWithTextGutterMargin}px 0`,
-      color: token.headingColor,
-      fontWeight: 500,
-      fontSize: token.fontSizeLG,
-      whiteSpace: 'nowrap',
-      textAlign: 'center',
-      borderBlockStart: `0 ${token.dividerBorderColor}`,
-
-      '&::before, &::after': {
+      // vertical
+      '&-vertical': {
         position: 'relative',
-        top: '50%',
-        width: '50%',
-        borderBlockStart: `${token.dividerBorderWidth}px solid transparent`,
-        // Chrome not accept `inherit` in `border-top`
-        borderBlockStartColor: 'inherit',
-        borderBlockEnd: 0,
-        transform: 'translateY(50%)',
-        content: "''",
-      },
-    },
-
-    '&-horizontal&-with-text-right': {
-      '&::before': {
-        top: '50%',
-        width: '95%',
+        top: '-0.06em',
+        display: 'inline-block',
+        height: '0.9em',
+        margin: `0 ${token.dividerVerticalGutterMargin}px`,
+        verticalAlign: 'middle',
+        borderTop: 0,
+        borderInlineStart: `${token.dividerBorderWidth}px solid ${token.dividerBorderColor}`,
       },
 
-      '&::after': {
-        top: '50%',
-        width: '5%',
-      },
-    },
-
-    [`.${prefixCls}-inner-text`]: {
-      display: 'inline-block',
-      padding: '0 1em',
-    },
-
-    '&-dashed': {
-      background: 'none',
-      borderColor: token.dividerBorderColor,
-      borderStyle: 'dashed',
-      borderWidth: 0,
-      borderBlockStart: `${token.dividerBorderWidth}px`,
-    },
-
-    '&-horizontal&-with-text&-dashed': {
-      '&::before, &::after': {
-        borderStyle: 'dashed none none',
-      },
-    },
-
-    '&-vertical&-dashed': {
-      borderWidth: `0 0 0 ${token.dividerBorderWidth}px`,
-    },
-
-    '&-plain&-with-text': {
-      color: token.textColor,
-      fontWeight: 'normal',
-      fontSize: token.fontSize,
-    },
-
-    '&-horizontal&-with-text-left&-no-default-orientation-margin-left': {
-      '&::before': {
-        width: 0,
-      },
-
-      '&::after': {
+      '&-horizontal': {
+        display: 'flex',
+        clear: 'both',
         width: '100%',
+        minWidth: '100%', // Fix https://github.com/ant-design/ant-design/issues/10914
+        margin: `${token.dividerHorizontalGutterMargin}px 0`,
       },
 
-      '.ant-divider-inner-text': {
-        paddingInlineStart: `${token.dividerNotDefaultTextPadding}px`,
+      '&-horizontal&-with-text': {
+        display: 'flex',
+        margin: `${token.dividerHorizontalWithTextGutterMargin}px 0`,
+        color: token.headingColor,
+        fontWeight: 500,
+        fontSize: token.fontSizeLG,
+        whiteSpace: 'nowrap',
+        textAlign: 'center',
+        borderBlockStart: `0 ${token.dividerBorderColor}`,
+
+        '&::before, &::after': {
+          position: 'relative',
+          top: '50%',
+          width: '50%',
+          borderBlockStart: `${token.dividerBorderWidth}px solid transparent`,
+          // Chrome not accept `inherit` in `border-top`
+          borderBlockStartColor: 'inherit',
+          borderBlockEnd: 0,
+          transform: 'translateY(50%)',
+          content: "''",
+        },
+      },
+
+      '&-horizontal&-with-text-right': {
+        '&::before': {
+          top: '50%',
+          width: '95%',
+        },
+
+        '&::after': {
+          top: '50%',
+          width: '5%',
+        },
+      },
+
+      [`${dividerCls}-inner-text`]: {
+        display: 'inline-block',
+        padding: '0 1em',
+      },
+
+      '&-dashed': {
+        background: 'none',
+        borderColor: token.dividerBorderColor,
+        borderStyle: 'dashed',
+        borderWidth: 0,
+        borderBlockStart: `${token.dividerBorderWidth}px`,
+      },
+
+      '&-horizontal&-with-text&-dashed': {
+        '&::before, &::after': {
+          borderStyle: 'dashed none none',
+        },
+      },
+
+      '&-vertical&-dashed': {
+        borderWidth: `0 0 0 ${token.dividerBorderWidth}px`,
+      },
+
+      '&-plain&-with-text': {
+        color: token.textColor,
+        fontWeight: 'normal',
+        fontSize: token.fontSize,
+      },
+
+      '&-horizontal&-with-text-left&-no-default-orientation-margin-left': {
+        '&::before': {
+          width: 0,
+        },
+
+        '&::after': {
+          width: '100%',
+        },
+
+        '.ant-divider-inner-text': {
+          paddingInlineStart: `${token.dividerNotDefaultTextPadding}px`,
+        },
+      },
+
+      '&-horizontal&-with-text-right&-no-default-orientation-margin-right': {
+        '&::before': {
+          width: '100%',
+        },
+
+        '&::after': {
+          width: 0,
+        },
+
+        '.ant-divider-inner-text': {
+          paddingInlineEnd: `${token.dividerNotDefaultTextPadding}px`,
+        },
       },
     },
-
-    '&-horizontal&-with-text-right&-no-default-orientation-margin-right': {
-      '&::before': {
-        width: '100%',
-      },
-
-      '&::after': {
-        width: 0,
-      },
-
-      '.ant-divider-inner-text': {
-        paddingInlineEnd: `${token.dividerNotDefaultTextPadding}px`,
-      },
-    },
-  },
-});
+  };
+};
 
 // ============================== Export ==============================
 export default function useStyle(prefixCls: string): UseComponentStyleResult {
@@ -161,6 +162,8 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
   const dividerToken: DividerToken = {
     ...token,
 
+    dividerCls: `.${prefixCls}`,
+
     dividerBorderColor,
 
     dividerBorderWidth,
@@ -173,7 +176,7 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
 
   return [
     useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      genSharedDividerStyle({ token: dividerToken, prefixCls }),
+      genSharedDividerStyle(dividerToken),
     ]),
     hashId,
   ];
