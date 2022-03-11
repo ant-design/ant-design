@@ -1,12 +1,17 @@
 // deps-lint-skip-all
-import { CSSInterpolation, Keyframes } from '@ant-design/cssinjs';
+import { Keyframes } from '@ant-design/cssinjs';
 import {
   DerivativeToken,
   useStyleRegister,
   useToken,
   resetComponent,
   UseComponentStyleResult,
+  GenerateStyle,
 } from '../../_util/theme';
+
+interface CheckboxToken extends DerivativeToken {
+  checkboxCls: string;
+}
 
 // ============================== Motion ==============================
 const antCheckboxEffect = new Keyframes('antCheckboxEffect', {
@@ -22,12 +27,8 @@ const antCheckboxEffect = new Keyframes('antCheckboxEffect', {
 });
 
 // ============================== Styles ==============================
-export const genCheckboxStyle = (
-  prefixCls: string,
-  token: DerivativeToken,
-  hashId: string,
-): CSSInterpolation => {
-  const checkboxCls = `.${prefixCls}`;
+export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token, hashId) => {
+  const { checkboxCls } = token;
   const wrapperCls = `${checkboxCls}-wrapper`;
 
   return [
@@ -235,7 +236,12 @@ export const genCheckboxStyle = (
 
 // ============================== Export ==============================
 export function getStyle(prefixCls: string, token: DerivativeToken, hashId: string) {
-  return [genCheckboxStyle(prefixCls, token, hashId), antCheckboxEffect];
+  const checkboxToken: CheckboxToken = {
+    ...token,
+    checkboxCls: `.${prefixCls}`,
+  };
+
+  return [genCheckboxStyle(checkboxToken, hashId), antCheckboxEffect];
 }
 
 export default function useStyle(prefixCls: string): UseComponentStyleResult {

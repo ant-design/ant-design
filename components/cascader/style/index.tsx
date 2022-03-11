@@ -8,12 +8,12 @@
 // // deps-lint-skip: form
 
 // deps-lint-skip-all
-import { CSSInterpolation } from '@ant-design/cssinjs';
 import {
   DerivativeToken,
   useStyleRegister,
   useToken,
   UseComponentStyleResult,
+  GenerateStyle,
 } from '../../_util/theme';
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
 
@@ -23,7 +23,7 @@ interface CascaderToken extends DerivativeToken {
 }
 
 // =============================== Base ===============================
-const genBaseStyle = (token: CascaderToken, hashId: string): CSSInterpolation => {
+const genBaseStyle: GenerateStyle<CascaderToken> = (token, hashId) => {
   const { prefixCls, cascaderCls } = token;
   const cascaderMenuItemCls = `${cascaderCls}-menu-item`;
   const iconCls = `
@@ -51,7 +51,7 @@ const genBaseStyle = (token: CascaderToken, hashId: string): CSSInterpolation =>
     {
       [`${cascaderCls}-dropdown`]: [
         // ==================== Checkbox ====================
-        getCheckboxStyle(`${prefixCls}-checkbox`, token, hashId),
+        getCheckboxStyle(`${prefixCls}-checkbox`, token, hashId!),
         {
           [cascaderCls]: {
             // ================== Checkbox ==================

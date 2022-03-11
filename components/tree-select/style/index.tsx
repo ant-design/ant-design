@@ -7,12 +7,12 @@
 // import '../../empty/style';
 
 // deps-lint-skip-all
-import { CSSInterpolation } from '@ant-design/cssinjs';
 import {
   DerivativeToken,
   useStyleRegister,
   useToken,
   UseComponentStyleResult,
+  GenerateStyle,
 } from '../../_util/theme';
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
 import { genTreeStyle } from '../../tree/style';
@@ -23,7 +23,7 @@ interface TreeSelectToken extends DerivativeToken {
 }
 
 // =============================== Base ===============================
-const genBaseStyle = (token: TreeSelectToken, hashId: string): CSSInterpolation => {
+const genBaseStyle: GenerateStyle<TreeSelectToken> = (token, hashId) => {
   const { selectCls, treePrefixCls } = token;
   const treeCls = `.${treePrefixCls}`;
 
@@ -38,7 +38,7 @@ const genBaseStyle = (token: TreeSelectToken, hashId: string): CSSInterpolation 
         },
 
         // ====================== Tree ======================
-        genTreeStyle(treePrefixCls, token, hashId),
+        genTreeStyle(treePrefixCls, token, hashId!),
         {
           [treeCls]: {
             borderRadius: 0,
@@ -55,7 +55,7 @@ const genBaseStyle = (token: TreeSelectToken, hashId: string): CSSInterpolation 
         },
 
         // ==================== Checkbox ====================
-        getCheckboxStyle(`${treePrefixCls}-checkbox`, token, hashId),
+        getCheckboxStyle(`${treePrefixCls}-checkbox`, token, hashId!),
 
         // ====================== RTL =======================
         {

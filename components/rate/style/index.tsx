@@ -1,11 +1,12 @@
 // deps-lint-skip-all
-import { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
+import { CSSObject } from '@ant-design/cssinjs';
 import {
   DerivativeToken,
   resetComponent,
   UseComponentStyleResult,
   useStyleRegister,
   useToken,
+  GenerateStyle,
 } from '../../_util/theme';
 
 interface RateToken extends DerivativeToken {
@@ -16,7 +17,7 @@ interface RateToken extends DerivativeToken {
   iconPrefixCls: string;
 }
 
-const genRateStarStyle = (token: RateToken): CSSObject => {
+const genRateStarStyle: GenerateStyle<RateToken, CSSObject> = token => {
   const { rateCls } = token;
 
   return {
@@ -84,7 +85,7 @@ const genRateRtlStyle = (token: RateToken): CSSObject => ({
   },
 });
 
-const genRateStyle = (token: RateToken): CSSInterpolation => {
+const genRateStyle: GenerateStyle<RateToken> = token => {
   const { rateCls } = token;
 
   return {
