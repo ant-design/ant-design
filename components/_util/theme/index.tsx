@@ -223,6 +223,7 @@ export type UseComponentStyleResult = [(node: React.ReactNode) => React.ReactEle
 
 export type GenerateStyle<ComponentToken extends object> = (
   token: ComponentToken,
+  hashId?: string,
 ) => CSSInterpolation;
 
 // ================================== Util ==================================

@@ -14,6 +14,7 @@ import {
   useStyleRegister,
   useToken,
   UseComponentStyleResult,
+  GenerateStyle,
 } from '../../_util/theme';
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
 
@@ -23,7 +24,7 @@ interface CascaderToken extends DerivativeToken {
 }
 
 // =============================== Base ===============================
-const genBaseStyle = (token: CascaderToken, hashId: string): CSSInterpolation => {
+const genBaseStyle: GenerateStyle<CascaderToken> = (token, hashId) => {
   const { prefixCls, cascaderCls } = token;
   const cascaderMenuItemCls = `${cascaderCls}-menu-item`;
   const iconCls = `
