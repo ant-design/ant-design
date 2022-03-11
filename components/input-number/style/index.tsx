@@ -1,6 +1,6 @@
 // deps-lint-skip-all
-import { CSSObject } from '@ant-design/cssinjs';
 import {
+  GenerateStyle,
   resetComponent,
   resetIcon,
   UseComponentStyleResult,
@@ -25,7 +25,7 @@ interface InputNumberToken extends InputToken {
   inputNumberHandlerActiveBgColor: string;
 }
 
-const genInputNumberStyles = (token: InputNumberToken): CSSObject => {
+const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumberToken) => {
   const {
     inputNumberCls,
     borderWidth,
@@ -289,7 +289,7 @@ const genInputNumberStyles = (token: InputNumberToken): CSSObject => {
   };
 };
 
-const genAffixWrapperStyles = (token: InputNumberToken): CSSObject => {
+const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumberToken) => {
   const { inputNumberCls, inputPaddingHorizontal, inputAffixMargin, prefixCls } = token;
 
   return {
