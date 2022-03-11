@@ -221,10 +221,10 @@ export function useToken(): [Theme<DesignToken, DerivativeToken>, DerivativeToke
 
 export type UseComponentStyleResult = [(node: React.ReactNode) => React.ReactElement, string];
 
-export type GenerateStyle<ComponentToken extends object> = (
+export type GenerateStyle<ComponentToken extends object, ReturnType = CSSInterpolation> = (
   token: ComponentToken,
   hashId?: string,
-) => CSSInterpolation;
+) => ReturnType;
 
 // ================================== Util ==================================
 export function withPrefix(
