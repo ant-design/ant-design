@@ -7,7 +7,6 @@
 // import '../../empty/style';
 
 // deps-lint-skip-all
-import { CSSInterpolation } from '@ant-design/cssinjs';
 import {
   DerivativeToken,
   useStyleRegister,

@@ -8,7 +8,6 @@
 // // deps-lint-skip: form
 
 // deps-lint-skip-all
-import { CSSInterpolation } from '@ant-design/cssinjs';
 import {
   DerivativeToken,
   useStyleRegister,
@@ -52,7 +51,7 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token, hashId) => {
     {
       [`${cascaderCls}-dropdown`]: [
         // ==================== Checkbox ====================
-        getCheckboxStyle(`${prefixCls}-checkbox`, token, hashId),
+        getCheckboxStyle(`${prefixCls}-checkbox`, token, hashId!),
         {
           [cascaderCls]: {
             // ================== Checkbox ==================

@@ -1,5 +1,5 @@
 // deps-lint-skip-all
-import { CSSInterpolation, Keyframes } from '@ant-design/cssinjs';
+import { Keyframes } from '@ant-design/cssinjs';
 import {
   DerivativeToken,
   useStyleRegister,
