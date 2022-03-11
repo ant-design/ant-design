@@ -81,6 +81,19 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
       borderRadius: token.borderRadius,
       transition: `background-color ${token.duration}`,
 
+      '&&-rtl': {
+        // >>> Switcher
+        [`${treeCls}-switcher`]: {
+          '&_close': {
+            [`${treeCls}-switcher-icon`]: {
+              svg: {
+                transform: 'rotate(90deg)',
+              },
+            },
+          },
+        },
+      },
+
       '&-focused:not(:hover):not(&-active-focused)': {
         background: token.tmpPrimaryHoverColorWeak,
       },
@@ -199,10 +212,6 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
           [`${treeCls}-switcher-icon`]: {
             svg: {
               transform: 'rotate(-90deg)',
-
-              [`${treeCls}-rtl &`]: {
-                transform: 'rotate(90deg)',
-              },
             },
           },
         },
