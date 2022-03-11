@@ -11,27 +11,25 @@ import { gold } from '@ant-design/colors';
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { DerivativeToken } from '../../_util/theme';
 
-// Typography
-// ---
-/*
-@typography-title-font-weight: 600;
-@typography-title-margin-top: 1.2em;
-@typography-title-margin-bottom: 0.5em;
-*/
-const typographyToken = {
-  titleFontWeight: 600,
-  titleMarginBottom: '0.5em',
-};
+export interface TypographyToken extends DerivativeToken {
+  typography: {
+    titleMarginTop: string;
+    titleMarginBottom: string;
+    titleFontWeight: number;
+  };
+}
 
 // eslint-disable-next-line import/prefer-default-export
 const getTitleStyle = ({
   fontSize,
   lineHeight,
   color,
+  typographyToken,
 }: {
   fontSize: number;
   lineHeight: number;
   color: string;
+  typographyToken: TypographyToken['typography'];
 }) => ({
   marginBottom: typographyToken.titleMarginBottom,
   color,
@@ -41,7 +39,7 @@ const getTitleStyle = ({
 });
 
 // eslint-disable-next-line import/prefer-default-export
-export const getTitleStyles = (token: DerivativeToken) => {
+export const getTitleStyles = (token: TypographyToken) => {
   const lineHeights = [1.23, 1.35, 1.35, 1.4, 1.5];
   const styles = {} as CSSObject;
   lineHeights.forEach((lineHeight, i) => {
@@ -56,6 +54,7 @@ export const getTitleStyles = (token: DerivativeToken) => {
       fontSize: (token as any)[`heading${i + 1}Size`],
       lineHeight,
       color: token.headingColor,
+      typographyToken: token.typography,
     });
   });
   return styles;
@@ -160,7 +159,7 @@ export const getResetStyles = (): CSSObject => ({
   },
 });
 
-export const getEditableStyles = (token: DerivativeToken): CSSObject => ({
+export const getEditableStyles = (token: TypographyToken): CSSObject => ({
   '&-edit-content': {
     position: 'relative',
 
@@ -190,7 +189,7 @@ export const getEditableStyles = (token: DerivativeToken): CSSObject => ({
   },
 });
 
-export const getCopiableStyles = (token: DerivativeToken): CSSObject => ({
+export const getCopiableStyles = (token: TypographyToken): CSSObject => ({
   '&-copy-success': {
     [`
     &,
