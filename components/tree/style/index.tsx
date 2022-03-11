@@ -49,7 +49,7 @@ const getDropIndicatorStyle = (prefixCls: string, token: DerivativeToken) => ({
     '&:after': {
       position: 'absolute',
       top: -3,
-      left: -6,
+      insetInlineStart: -6,
       width: 8,
       height: 8,
       backgroundColor: 'transparent',
@@ -81,6 +81,19 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
       borderRadius: token.borderRadius,
       transition: `background-color ${token.duration}`,
 
+      '&&-rtl': {
+        // >>> Switcher
+        [`${treeCls}-switcher`]: {
+          '&_close': {
+            [`${treeCls}-switcher-icon`]: {
+              svg: {
+                transform: 'rotate(90deg)',
+              },
+            },
+          },
+        },
+      },
+
       '&-focused:not(:hover):not(&-active-focused)': {
         background: token.tmpPrimaryHoverColorWeak,
       },
@@ -106,9 +119,9 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
             '&:after': {
               position: 'absolute',
               top: 0,
-              right: 0,
+              insetInlineEnd: 0,
               bottom: treeNodePadding,
-              left: 0,
+              insetInlineStart: 0,
               border: `1px solid ${token.primaryColor}`,
               opacity: 0,
               animation: `${treeNodeFX.getName(hashId)} ${token.duration}`,
@@ -127,6 +140,10 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
         alignItems: 'flex-start',
         padding: `0 0 ${treeNodePadding}px 0`,
         outline: 'none',
+
+        '&-rtl': {
+          direction: 'rtl',
+        },
 
         // Disabled
         '&-disabled': {
@@ -214,10 +231,10 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
           '&:before': {
             position: 'absolute',
             top: 0,
-            right: treeTitleHeight / 2,
+            insetInlineEnd: treeTitleHeight / 2,
             bottom: -treeNodePadding,
-            marginLeft: -1,
-            borderRight: `1px solid ${token.borderColor}`,
+            marginInlineStart: -1,
+            borderInlineEnd: `1px solid ${token.borderColor}`,
             content: '""',
           },
 
@@ -307,9 +324,9 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
             '&:before': {
               position: 'absolute',
               top: 0,
-              right: treeTitleHeight / 2,
+              insetInlineEnd: treeTitleHeight / 2,
               bottom: -treeNodePadding,
-              borderRight: `1px solid ${token.borderColor}`,
+              borderInlineEnd: `1px solid ${token.borderColor}`,
               content: '""',
             },
 
@@ -347,63 +364,6 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
   };
 };
 
-// =============================== RTL ================================
-export const genRTLStyle = (token: TreeToken): CSSObject => {
-  const { treeCls, treeNodeCls, treeTitleHeight } = token;
-
-  return {
-    [treeCls]: {
-      '&-rtl': {
-        direction: 'rtl',
-        [`${treeCls}-node-content-wrapper[draggable='true']`]: {
-          [`${treeCls}-drop-indicator`]: {
-            '&:after': {
-              right: -6,
-              left: 'unset',
-            },
-          },
-        },
-      },
-      // ===================== TreeNode =====================
-      [`${treeNodeCls}`]: {
-        '&-rtl': {
-          direction: 'rtl',
-        },
-      },
-
-      // >>> Switcher
-      [`${treeCls}-switcher`]: {
-        '&_close': {
-          [`${treeCls}-switcher-icon`]: {
-            svg: {
-              [`${treeCls}-rtl &`]: {
-                transform: 'rotate(90deg)',
-              },
-            },
-          },
-        },
-      },
-
-      // ==================== Show Line =====================
-      '&-show-line': {
-        // ================ Indent lines ================
-        [`${treeCls}-indent`]: {
-          '&-unit': {
-            '&:before': {
-              [`${treeCls}-rtl&`]: {
-                right: 'auto',
-                left: -(treeTitleHeight / 2) - 1,
-                borderRight: 'none',
-                borderLeft: `1px solid ${token.borderColor}`,
-              },
-            },
-          },
-        },
-      },
-    },
-  };
-};
-
 // ============================ Directory =============================
 export const genDirectoryStyle = (token: TreeToken): CSSObject => {
   const { treeCls, treeNodeCls, treeNodePadding } = token;
@@ -418,9 +378,9 @@ export const genDirectoryStyle = (token: TreeToken): CSSObject => {
         '&:before': {
           position: 'absolute',
           top: 0,
-          right: 0,
+          insetInlineEnd: 0,
           bottom: treeNodePadding,
-          left: 0,
+          insetInlineStart: 0,
           transition: `background-color ${token.duration}`,
           content: '""',
           pointerEvents: 'none',
@@ -505,8 +465,6 @@ export const genTreeStyle = (
   return [
     // Basic
     genBaseStyle(prefixCls, treeToken, hashId),
-    // RTL
-    genRTLStyle(treeToken),
     // Directory
     genDirectoryStyle(treeToken),
   ];
