@@ -273,8 +273,8 @@ export const genRTLStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSOb
 
       '&-with-description': {
         [`${alertCls}-rtl&`]: {
-          paddingRight: alertWithDescriptionIconSize,
-          paddingLeft: alertWithDescriptionPaddingVertical,
+          paddingInlineEnd: alertWithDescriptionIconSize,
+          paddingInlineStart: alertWithDescriptionPaddingVertical,
         },
       },
     },

@@ -119,8 +119,8 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token, hashId) =>
 
         // Wrapper > Checkbox + Text
         '& + span': {
-          paddingLeft: token.paddingXS,
-          paddingRight: token.paddingXS,
+          paddingInlineStart: token.paddingXS,
+          paddingInlineEnd: token.paddingXS,
         },
       },
     },
