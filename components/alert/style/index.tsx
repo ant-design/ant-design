@@ -40,7 +40,6 @@ type AlertToken = DerivativeToken & {
   alertErrorBorderColor: string;
 
   alertWithDescriptionIconSize: number;
-  alertWithDescriptionPadding: string;
   alertWithDescriptionPaddingVertical: number;
   alertWithDescriptionNoIconPaddingVertical: number;
 };
@@ -72,7 +71,6 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
     alertWithDescriptionIconSize,
     alertWithDescriptionPaddingVertical,
     alertWithDescriptionNoIconPaddingVertical,
-    alertWithDescriptionPadding,
   } = token;
 
   return {
@@ -84,6 +82,10 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
       padding: '8px 15px',
       wordWrap: 'break-word',
       borderRadius,
+
+      '&&-rtl': {
+        direction: 'rtl',
+      },
 
       [`${alertCls}-content`]: {
         flex: 1,
@@ -123,7 +125,9 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
 
     [`${alertCls}-with-description`]: {
       alignItems: 'flex-start',
-      padding: alertWithDescriptionPadding,
+      paddingInlineStart: alertWithDescriptionIconSize,
+      paddingInlineEnd: alertWithDescriptionPaddingVertical,
+      paddingBlock: alertWithDescriptionPaddingVertical,
 
       [`&${alertCls}-no-icon`]: {
         padding: `${alertWithDescriptionNoIconPaddingVertical}px 15px`,
@@ -262,30 +266,10 @@ export const genActionStyle: GenerateStyle<AlertToken> = (token: AlertToken): CS
   };
 };
 
-export const genRTLStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSObject => {
-  const { alertCls, alertWithDescriptionIconSize, alertWithDescriptionPaddingVertical } = token;
-
-  return {
-    [alertCls]: {
-      '&&-rtl': {
-        direction: 'rtl',
-      },
-
-      '&-with-description': {
-        [`${alertCls}-rtl&`]: {
-          paddingRight: alertWithDescriptionIconSize,
-          paddingLeft: alertWithDescriptionPaddingVertical,
-        },
-      },
-    },
-  };
-};
-
 export const genAlertStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSInterpolation => [
   genBaseStyle(token),
   genTypeStyle(token),
   genActionStyle(token),
-  genRTLStyle(token),
 ];
 
 export default function useStyle(
@@ -303,7 +287,6 @@ export default function useStyle(
   const alertWithDescriptionIconSize = 24;
   const alertWithDescriptionPaddingVertical = token.padding - 1;
   const alertWithDescriptionNoIconPaddingVertical = token.padding - 1;
-  const alertWithDescriptionPadding = `${alertWithDescriptionPaddingVertical}px 15px ${alertWithDescriptionNoIconPaddingVertical}px ${alertWithDescriptionIconSize}px`;
 
   // FIXME
   const infoColors = generate(token.infoColor);
@@ -348,7 +331,6 @@ export default function useStyle(
     alertWithDescriptionIconSize,
     alertWithDescriptionPaddingVertical,
     alertWithDescriptionNoIconPaddingVertical,
-    alertWithDescriptionPadding,
   };
 
   return [
