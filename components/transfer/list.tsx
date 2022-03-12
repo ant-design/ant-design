@@ -166,9 +166,9 @@ export default class TransferList<
     const { filterOption, searchValue } = this.props;
     const { filterValue } = this.state;
     if (filterOption) {
-      return filterOption(searchValue ? searchValue : filterValue, item);
+      return filterOption(searchValue || filterValue, item);
     }
-    return text.indexOf(searchValue ? searchValue : filterValue) >= 0;
+    return text.indexOf(searchValue || filterValue) >= 0;
   };
 
   // =============================== Render ===============================
@@ -350,7 +350,7 @@ export default class TransferList<
 
     const { filteredItems, filteredRenderItems } = this.getFilteredItems(
       dataSource,
-      searchValue ? searchValue : filterValue,
+      searchValue || filterValue,
     );
 
     // ================================= List Body =================================
@@ -358,7 +358,7 @@ export default class TransferList<
     const listBody = this.getListBody(
       prefixCls,
       searchPlaceholder,
-      searchValue ? searchValue : filterValue,
+      searchValue || filterValue,
       filteredItems,
       notFoundContent,
       filteredRenderItems,
