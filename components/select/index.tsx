@@ -41,11 +41,18 @@ export interface SelectProps<
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 > extends Omit<
     InternalSelectProps<ValueType, OptionType>,
-    'inputIcon' | 'mode' | 'getInputElement' | 'getRawInputElement' | 'backfill' | 'placement'
+    | 'inputIcon'
+    | 'mode'
+    | 'getInputElement'
+    | 'getRawInputElement'
+    | 'backfill'
+    | 'placement'
+    | 'onSelect'
   > {
   placement?: SelectCommonPlacement;
   mode?: 'multiple' | 'tags';
   status?: InputStatus;
+  onSelect?: (_: ValueType, options: OptionType[]) => void;
 }
 
 const SECRET_COMBOBOX_MODE_DO_NOT_USE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
