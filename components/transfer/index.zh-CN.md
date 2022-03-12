@@ -38,6 +38,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/QAXskNI4G/Transfer.svg
 | selectAllLabels | 自定义顶部多选框标题的集合 | (ReactNode \| (info: { selectedCount: number, totalCount: number }) => ReactNode)\[] | - |  |
 | selectedKeys | 设置哪些项应该被选中 | string\[] | \[] |  |
 | showSearch | 是否显示搜索框 | boolean | false |  |
+| search | 如果包含，您可以控制搜索输入值 | object \| ({targetValue: string, onChangeTargetValue: (searchValue: string => void), sourceValue: string, onChangeSourceValue: (searchValue: string => void)}) | - |  |
 | showSelectAll | 是否展示全选勾选框 | boolean | true |  |
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | targetKeys | 显示在右侧框数据的 key 集合 | string\[] | \[] |  |

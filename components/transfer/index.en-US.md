@@ -35,6 +35,7 @@ One or more elements can be selected from either column, one click on the proper
 | selectAllLabels | A set of customized labels for select all checkboxs on the header | (ReactNode \| (info: { selectedCount: number, totalCount: number }) => ReactNode)\[] | - |  |
 | selectedKeys | A set of keys of selected items | string\[] | \[] |  |
 | showSearch | If included, a search box is shown on each column | boolean | false |  |
+| search | If included, you can control the search input value | object \| ({targetValue: string, onChangeTargetValue: (searchValue: string => void), sourceValue: string, onChangeSourceValue: (searchValue: string => void)}) | - |  |
 | showSelectAll | Show select all checkbox on the header | boolean | true |  |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | targetKeys | A set of keys of elements that are listed on the right column | string\[] | \[] |  |

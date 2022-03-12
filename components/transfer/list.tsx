@@ -56,6 +56,8 @@ export interface TransferListProps<RecordType> extends TransferLocale {
   render?: (item: RecordType) => RenderResult;
   showSearch?: boolean;
   searchPlaceholder: string;
+  searchValue?: string;
+  onChangeSearch?: (searchValue: string) => void;
   itemUnit: string;
   itemsUnit: string;
   renderList?: RenderListFunction<RecordType>;
@@ -84,6 +86,7 @@ export default class TransferList<
     dataSource: [],
     titleText: '',
     showSearch: false,
+    searchValue: '',
   };
 
   timer: number;
@@ -140,27 +143,32 @@ export default class TransferList<
 
   // =============================== Filter ===============================
   handleFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { handleFilter } = this.props;
-    const {
-      target: { value: filterValue },
-    } = e;
-    this.setState({ filterValue });
+    const { handleFilter, onChangeSearch } = this.props;
+    if (onChangeSearch) {
+      onChangeSearch(e.target.value);
+    } else {
+      this.setState({ filterValue: e.target.value });
+    }
     handleFilter(e);
   };
 
   handleClear = () => {
-    const { handleClear } = this.props;
-    this.setState({ filterValue: '' });
+    const { handleClear, onChangeSearch } = this.props;
+    if (onChangeSearch) {
+      onChangeSearch('');
+    } else {
+      this.setState({ filterValue: '' });
+    }
     handleClear();
   };
 
   matchFilter = (text: string, item: RecordType) => {
+    const { filterOption, searchValue } = this.props;
     const { filterValue } = this.state;
-    const { filterOption } = this.props;
     if (filterOption) {
-      return filterOption(filterValue, item);
+      return filterOption(searchValue ? searchValue : filterValue, item);
     }
-    return text.indexOf(filterValue) >= 0;
+    return text.indexOf(searchValue ? searchValue : filterValue) >= 0;
   };
 
   // =============================== Render ===============================
@@ -301,7 +309,6 @@ export default class TransferList<
   };
 
   render() {
-    const { filterValue } = this.state;
     const {
       prefixCls,
       dataSource,
@@ -310,6 +317,7 @@ export default class TransferList<
       disabled,
       footer,
       showSearch,
+      searchValue,
       style,
       searchPlaceholder,
       notFoundContent,
@@ -327,6 +335,8 @@ export default class TransferList<
       direction,
     } = this.props;
 
+    const { filterValue } = this.state;
+
     // Custom Layout
     const footerDom =
       footer && (footer.length < 2 ? footer(this.props) : footer(this.props, { direction }));
@@ -338,14 +348,17 @@ export default class TransferList<
 
     // ====================== Get filtered, checked item list ======================
 
-    const { filteredItems, filteredRenderItems } = this.getFilteredItems(dataSource, filterValue);
+    const { filteredItems, filteredRenderItems } = this.getFilteredItems(
+      dataSource,
+      searchValue ? searchValue : filterValue,
+    );
 
     // ================================= List Body =================================
 
     const listBody = this.getListBody(
       prefixCls,
       searchPlaceholder,
-      filterValue,
+      searchValue ? searchValue : filterValue,
       filteredItems,
       notFoundContent,
       filteredRenderItems,

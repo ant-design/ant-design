@@ -61,6 +61,13 @@ export interface TransferLocale {
   removeCurrent: string;
 }
 
+interface TransferSearchState {
+  sourceValue?: string;
+  onChangeSourceValue?: (searchValue: string) => void;
+  targetValue?: string;
+  onChangeTargetValue?: (searchValue: string) => void;
+}
+
 export interface TransferProps<RecordType> {
   prefixCls?: string;
   className?: string;
@@ -77,11 +84,15 @@ export interface TransferProps<RecordType> {
   titles?: React.ReactNode[];
   operations?: string[];
   showSearch?: boolean;
+  search: TransferSearchState;
   filterOption?: (inputValue: string, item: RecordType) => boolean;
   locale?: Partial<TransferLocale>;
-  footer?: (props: TransferListProps<RecordType>, info?: {
-    direction: TransferDirection;
-  }) => React.ReactNode;
+  footer?: (
+    props: TransferListProps<RecordType>,
+    info?: {
+      direction: TransferDirection;
+    },
+  ) => React.ReactNode;
   rowKey?: (record: RecordType) => string;
   onSearch?: (direction: TransferDirection, value: string) => void;
   onScroll?: (direction: TransferDirection, e: React.SyntheticEvent<HTMLUListElement>) => void;
@@ -356,6 +367,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
               disabled,
               operations = [],
               showSearch,
+              search,
               footer,
               style,
               listStyle,
@@ -407,6 +419,8 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
                   onItemSelectAll={this.onLeftItemSelectAll}
                   render={render}
                   showSearch={showSearch}
+                  searchValue={search?.sourceValue}
+                  onChangeSearch={search?.onChangeSourceValue}
                   renderList={children}
                   footer={footer}
                   onScroll={this.handleLeftScroll}
@@ -444,6 +458,8 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
                   onItemRemove={this.onRightItemRemove}
                   render={render}
                   showSearch={showSearch}
+                  searchValue={search?.targetValue}
+                  onChangeSearch={search?.onChangeTargetValue}
                   renderList={children}
                   footer={footer}
                   onScroll={this.handleRightScroll}
