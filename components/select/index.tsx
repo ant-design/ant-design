@@ -29,11 +29,12 @@ export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[] 
 export interface InternalSelectProps<
   ValueType = any,
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
-> extends Omit<RcSelectProps<ValueType, OptionType>, 'mode'> {
+> extends Omit<RcSelectProps<ValueType, OptionType>, 'mode' | 'onSelect'> {
   suffixIcon?: React.ReactNode;
   size?: SizeType;
   mode?: 'multiple' | 'tags' | 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
   bordered?: boolean;
+  onSelect?: (_: ValueType, options: OptionType[]) => void;
 }
 
 export interface SelectProps<
@@ -41,18 +42,11 @@ export interface SelectProps<
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 > extends Omit<
     InternalSelectProps<ValueType, OptionType>,
-    | 'inputIcon'
-    | 'mode'
-    | 'getInputElement'
-    | 'getRawInputElement'
-    | 'backfill'
-    | 'placement'
-    | 'onSelect'
+    'inputIcon' | 'mode' | 'getInputElement' | 'getRawInputElement' | 'backfill' | 'placement'
   > {
   placement?: SelectCommonPlacement;
   mode?: 'multiple' | 'tags';
   status?: InputStatus;
-  onSelect?: (_: ValueType, options: OptionType[]) => void;
 }
 
 const SECRET_COMBOBOX_MODE_DO_NOT_USE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
