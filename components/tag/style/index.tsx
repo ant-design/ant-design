@@ -21,7 +21,7 @@ interface TagToken extends DerivativeToken {
 
 type CssVariableType = 'success' | 'info' | 'error' | 'warning';
 
-const genStatusColorStyle = (
+const genTagStatusStyle = (
   prefixCls: string,
   token: TagToken,
   status: 'success' | 'processing' | 'error' | 'warning',
@@ -69,7 +69,7 @@ const genBaseStyle = (
     ...resetComponent(token),
     display: 'inline-block',
     height: 'auto',
-    marginRight: token.marginXS,
+    marginInlineStart: token.marginXS,
     // hard code
     padding: '0 7px',
     fontSize: token.tagFontSize,
@@ -82,12 +82,19 @@ const genBaseStyle = (
     opacity: 1,
     transition: `all ${token.duration}`,
 
+    // RTL
+    '&&-rtl': {
+      direction: 'rtl',
+      textAlign: 'right',
+    },
+
     '&, a, a:hover': {
       color: token.tagDefaultColor,
     },
 
     [`.${prefixCls}-close-icon`]: {
-      marginLeft: 3,
+      // hard code
+      marginInlineStart: 3,
       color: token.textColorSecondary,
       // hard code
       fontSize: 10,
@@ -160,14 +167,13 @@ export const genTagStyle = (
     tagDefaultColor,
   };
 
-  // TODO: RTL | DARK THEME
   return [
     genBaseStyle(prefixCls, iconPrefixCls, tagToken),
-    genStatusColorStyle(prefixCls, tagToken, 'success', 'success'),
-    genStatusColorStyle(prefixCls, tagToken, 'processing', 'info'),
-    genStatusColorStyle(prefixCls, tagToken, 'error', 'error'),
-    genStatusColorStyle(prefixCls, tagToken, 'warning', 'warning'),
     genTagColorStyle(prefixCls, tagToken),
+    genTagStatusStyle(prefixCls, tagToken, 'success', 'success'),
+    genTagStatusStyle(prefixCls, tagToken, 'processing', 'info'),
+    genTagStatusStyle(prefixCls, tagToken, 'error', 'error'),
+    genTagStatusStyle(prefixCls, tagToken, 'warning', 'warning'),
   ];
 };
 

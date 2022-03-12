@@ -187,7 +187,6 @@ function derivative(designToken: DesignToken): DerivativeToken {
       const colors = generate(presetColors[colorKey]);
 
       const ret = new Array(10).fill(1).reduce((prev, _, i) => {
-        // i === 5 ? presetColors.pink : colors[index];
         prev[`${colorKey}-${i + 1}`] = colors[i];
         return prev;
       }, {}) as ColorPalettes;
