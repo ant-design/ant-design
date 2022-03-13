@@ -67,7 +67,7 @@ timeline: true
 - 🆕 表单组件新增 `status` 属性以支持自定义状态。
 
   - Transfer [#34098](https://github.com/ant-design/ant-design/pull/34098)
-  - AutoComplete [#34096](https://github.com/ant-design/ant-design/pull/34096
+  - AutoComplete [#34096](https://github.com/ant-design/ant-design/pull/34096)
   - TreeSelect [#34093](https://github.com/ant-design/ant-design/pull/34093)
   - Cascader [#34086](https://github.com/ant-design/ant-design/pull/34086)
   - Select [#34084](https://github.com/ant-design/ant-design/pull/34084)
