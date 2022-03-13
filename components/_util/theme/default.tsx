@@ -1,6 +1,22 @@
 import { TinyColor } from '@ctrl/tinycolor';
 
-import type { DesignToken } from '.';
+import type { DesignToken, IPresetColors } from '.';
+
+const presetColors: IPresetColors = {
+  blue: '#1890FF',
+  purple: '#722ED1',
+  cyan: '#13C2C2',
+  green: '#52C41A',
+  magenta: '#EB2F96',
+  pink: '#eb2f96',
+  red: '#F5222D',
+  orange: '#FA8C16',
+  yellow: '#FADB14',
+  volcano: '#FA541C',
+  geekblue: '#2F54EB',
+  gold: '#FAAD14',
+  lime: '#A0D911',
+};
 
 const defaultDesignToken: DesignToken = {
   primaryColor: '#1890ff',
@@ -61,21 +77,8 @@ const defaultDesignToken: DesignToken = {
 
   zIndexDropdown: 1050,
 
-  presetColors: {
-    pink: '#eb2f96',
-    red: '#F5222D',
-    volcano: '#FA541C',
-    orange: '#FA8C16',
-    gold: '#FAAD14',
-    yellow: '#FADB14',
-    lime: '#A0D911',
-    green: '#52C41A',
-    cyan: '#13C2C2',
-    blue: '#1890FF',
-    geekblue: '#2F54EB',
-    purple: '#722ED1',
-    magenta: '#EB2F96',
-  },
+  // preset color palettes
+  ...presetColors,
 };
 
 export default defaultDesignToken;

@@ -38,22 +38,39 @@ export {
   slideRightOut,
 };
 
-export type IPrimaryColor =
-  | 'blue'
-  | 'purple'
-  | 'cyan'
-  | 'green'
-  | 'magenta'
-  | 'pink'
-  | 'red'
-  | 'orange'
-  | 'yellow'
-  | 'volcano'
-  | 'geekblue'
-  | 'lime'
-  | 'gold';
+export interface IPresetColors {
+  blue: string;
+  purple: string;
+  cyan: string;
+  green: string;
+  magenta: string;
+  pink: string;
+  red: string;
+  orange: string;
+  yellow: string;
+  volcano: string;
+  geekblue: string;
+  lime: string;
+  gold: string;
+}
 
-export interface DesignToken {
+export const PresetColorKeys: ReadonlyArray<keyof IPresetColors> = [
+  'blue',
+  'purple',
+  'cyan',
+  'green',
+  'magenta',
+  'pink',
+  'red',
+  'orange',
+  'yellow',
+  'volcano',
+  'geekblue',
+  'lime',
+  'gold',
+];
+
+export interface DesignToken extends IPresetColors {
   primaryColor: string;
   successColor: string;
   warningColor: string;
@@ -106,12 +123,10 @@ export interface DesignToken {
   zIndexDropdown: number;
 
   boxShadow?: string;
-
-  presetColors: Record<IPrimaryColor, string>;
 }
 
 type ColorPalettes = {
-  [key in `${IPrimaryColor}-${1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10}`]: string;
+  [key in `${keyof IPresetColors}-${1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10}`]: string;
 };
 
 /** This is temporary token definition since final token definition is not ready yet. */
@@ -170,8 +185,7 @@ export { useStyleRegister };
 
 // =============================== Derivative ===============================
 function derivative(designToken: DesignToken): DerivativeToken {
-  const { primaryColor, errorColor, warningColor, infoColor, successColor, presetColors } =
-    designToken;
+  const { primaryColor, errorColor, warningColor, infoColor, successColor } = designToken;
 
   const primaryColors = generate(primaryColor);
   const errorColors = generate(errorColor);
@@ -182,23 +196,21 @@ function derivative(designToken: DesignToken): DerivativeToken {
   const paddingSM = (designToken.padding / 4) * 3;
   const paddingXS = designToken.padding * 0.5;
 
-  const colorPalettes = Object.keys(presetColors)
-    .map((colorKey: IPrimaryColor) => {
-      const colors = generate(presetColors[colorKey]);
+  const colorPalettes = PresetColorKeys.map((colorKey: keyof IPresetColors) => {
+    const colors = generate(designToken[colorKey]);
 
-      const ret = new Array(10).fill(1).reduce((prev, _, i) => {
-        prev[`${colorKey}-${i + 1}`] = colors[i];
-        return prev;
-      }, {}) as ColorPalettes;
-      return ret;
-    })
-    .reduce((prev, cur) => {
-      prev = {
-        ...prev,
-        ...cur,
-      };
+    const ret = new Array(10).fill(1).reduce((prev, _, i) => {
+      prev[`${colorKey}-${i + 1}`] = colors[i];
       return prev;
-    }, {} as ColorPalettes);
+    }, {}) as ColorPalettes;
+    return ret;
+  }).reduce((prev, cur) => {
+    prev = {
+      ...prev,
+      ...cur,
+    };
+    return prev;
+  }, {} as ColorPalettes);
 
   return {
     // FIXME: Need design token

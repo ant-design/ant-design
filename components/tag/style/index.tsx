@@ -2,12 +2,13 @@
 import { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import capitalize from '../../_util/capitlaize';
 import {
-  IPrimaryColor,
+  IPresetColors,
   DerivativeToken,
   useStyleRegister,
   useToken,
   resetComponent,
   UseComponentStyleResult,
+  PresetColorKeys,
 } from '../../_util/theme';
 
 interface TagToken extends DerivativeToken {
@@ -37,8 +38,8 @@ const genTagStatusStyle = (
   };
 };
 
-const genTagColorStyle = (prefixCls: string, token: TagToken): CSSInterpolation => {
-  return Object.keys(token.presetColors).reduce((prev: CSSObject, colorKey: IPrimaryColor) => {
+const genTagColorStyle = (prefixCls: string, token: TagToken): CSSInterpolation =>
+  PresetColorKeys.reduce((prev: CSSObject, colorKey: keyof IPresetColors) => {
     const lightColor = token[`${colorKey}-1`];
     const lightBorderColor = token[`${colorKey}-3`];
     const darkColor = token[`${colorKey}-6`];
@@ -57,7 +58,6 @@ const genTagColorStyle = (prefixCls: string, token: TagToken): CSSInterpolation 
       },
     };
   }, {} as CSSObject);
-};
 
 const genBaseStyle = (
   prefixCls: string,
