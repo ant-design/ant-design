@@ -7,7 +7,7 @@ const fetch = require('isomorphic-fetch');
 const open = require('open');
 const fs = require('fs-extra');
 const path = require('path');
-const simpleGit = require('simple-git/promise');
+const simpleGit = require('simple-git');
 const inquirer = require('inquirer');
 
 const { JSDOM } = jsdom;
