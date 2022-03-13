@@ -125,8 +125,10 @@ export interface DesignToken extends IPresetColors {
   boxShadow?: string;
 }
 
+type ColorPaletteKeyIndexes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
 type ColorPalettes = {
-  [key in `${keyof IPresetColors}-${1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10}`]: string;
+  [key in `${keyof IPresetColors}-${ColorPaletteKeyIndexes[number]}`]: string;
 };
 
 /** This is temporary token definition since final token definition is not ready yet. */
