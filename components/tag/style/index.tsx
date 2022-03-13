@@ -1,6 +1,6 @@
 // deps-lint-skip-all
 import { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
-import capitalize from '../../_util/capitlaize';
+import capitalize from '../../_util/capitalize';
 import {
   IPresetColors,
   DerivativeToken,
