@@ -1,7 +1,6 @@
 // deps-lint-skip-all
-import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { useStyleRegister, useToken } from '../../_util/theme';
-import type { UseComponentStyleResult } from '../../_util/theme';
+import type { UseComponentStyleResult, GenerateStyle } from '../../_util/theme';
 import { operationUnit } from '../../_util/theme/util/operationUnit';
 import {
   getTitleStyles,
@@ -12,104 +11,101 @@ import {
 } from './mixins';
 import type { TypographyToken } from './mixins';
 
-const genTypographyStyle = ({
-  prefixCls,
-  token,
-}: {
-  prefixCls: string;
-  token: TypographyToken;
-}): CSSInterpolation => ({
-  [`.${prefixCls}`]: {
-    color: token.textColor,
-    overflowWrap: 'break-word',
-    '&&-secondary': {
-      color: token.textColorSecondary,
-    },
-
-    '&&-success': {
-      color: token.successColor,
-    },
-
-    '&&-warning': {
-      color: token.warningColor,
-    },
-
-    '&&-danger': {
-      color: token.errorColor,
-      'a&:active, a&:focus, a&:hover': {
-        color: token.errorColors[4],
+const genTypographyStyle: GenerateStyle<TypographyToken> = token => {
+  const { prefixCls, titleMarginTop } = token.typography;
+  return {
+    [`.${prefixCls}`]: {
+      color: token.textColor,
+      overflowWrap: 'break-word',
+      '&&-secondary': {
+        color: token.textColorSecondary,
       },
-    },
 
-    '&&-disabled': {
-      color: token.disabledColor,
-      cursor: 'not-allowed',
-      userSelect: 'none',
-    },
+      '&&-success': {
+        color: token.successColor,
+      },
 
-    [`
-      div&,
-      p
-    `]: {
-      marginBottom: '1em',
-    },
+      '&&-warning': {
+        color: token.warningColor,
+      },
 
-    ...getTitleStyles(token),
+      '&&-danger': {
+        color: token.errorColor,
+        'a&:active, a&:focus, a&:hover': {
+          color: token.errorColors[4],
+        },
+      },
 
-    [`
-    & + h1&,
-    & + h2&,
-    & + h3&,
-    & + h4&,
-    & + h5&
-    `]: {
-      marginTop: token.typography.titleMarginTop,
-    },
+      '&&-disabled': {
+        color: token.disabledColor,
+        cursor: 'not-allowed',
+        userSelect: 'none',
+      },
 
-    [`
-    div,
-    ul,
-    li,
-    p,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5`]: {
       [`
-      + h1,
-      + h2,
-      + h3,
-      + h4,
-      + h5
+        div&,
+        p
       `]: {
-        marginTop: token.typography.titleMarginTop,
+        marginBottom: '1em',
+      },
+
+      ...getTitleStyles(token),
+
+      [`
+      & + h1&,
+      & + h2&,
+      & + h3&,
+      & + h4&,
+      & + h5&
+      `]: {
+        marginTop: titleMarginTop,
+      },
+
+      [`
+      div,
+      ul,
+      li,
+      p,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5`]: {
+        [`
+        + h1,
+        + h2,
+        + h3,
+        + h4,
+        + h5
+        `]: {
+          marginTop: titleMarginTop,
+        },
+      },
+
+      ...getResetStyles(),
+
+      // Operation
+      [`
+      .${prefixCls}-expand,
+      .${prefixCls}-edit,
+      .${prefixCls}-copy
+      `]: {
+        ...operationUnit(token),
+        marginInlineStart: 4,
+      },
+
+      ...getEditableStyles(token),
+
+      ...getCopiableStyles(token),
+
+      ...getEllipsisStyles(),
+
+      '&-rtl': {
+        direction: 'rtl',
       },
     },
-
-    ...getResetStyles(),
-
-    // Operation
-    [`
-    .${prefixCls}-expand,
-    .${prefixCls}-edit,
-    .${prefixCls}-copy
-    `]: {
-      ...operationUnit(token),
-      marginInlineStart: 4,
-    },
-
-    ...getEditableStyles(token),
-
-    ...getCopiableStyles(token),
-
-    ...getEllipsisStyles(),
-
-    '&-rtl': {
-      direction: 'rtl',
-    },
-  },
-});
+  };
+};
 
 // ============================== Export ==============================
 export default function useStyle(prefixCls: string): UseComponentStyleResult {
@@ -118,6 +114,7 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
   const typographyToken: TypographyToken = {
     ...token,
     typography: {
+      prefixCls,
       titleMarginTop: '1.2em',
       titleMarginBottom: '0.5em',
       titleFontWeight: 600,
@@ -126,7 +123,7 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
 
   return [
     useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      genTypographyStyle({ prefixCls, token: typographyToken }),
+      genTypographyStyle(typographyToken),
     ]),
     hashId,
   ];

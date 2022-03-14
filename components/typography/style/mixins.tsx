@@ -9,10 +9,11 @@
 */
 import { gold } from '@ant-design/colors';
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { DerivativeToken } from '../../_util/theme';
+import type { DerivativeToken, GenerateStyle } from '../../_util/theme';
 
 export interface TypographyToken extends DerivativeToken {
   typography: {
+    prefixCls: string;
     titleMarginTop: string;
     titleMarginBottom: string;
     titleFontWeight: number;
@@ -39,7 +40,7 @@ const getTitleStyle = ({
 });
 
 // eslint-disable-next-line import/prefer-default-export
-export const getTitleStyles = (token: TypographyToken) => {
+export const getTitleStyles: GenerateStyle<TypographyToken> = token => {
   const lineHeights = [1.23, 1.35, 1.35, 1.4, 1.5];
   const styles = {} as CSSObject;
   lineHeights.forEach((lineHeight, i) => {
@@ -60,7 +61,7 @@ export const getTitleStyles = (token: TypographyToken) => {
   return styles;
 };
 
-export const getResetStyles = (): CSSObject => ({
+export const getResetStyles: GenerateStyle<TypographyToken> = () => ({
   code: {
     margin: '0 0.2em',
     paddingInline: '0.1em 0.2em',
@@ -159,7 +160,7 @@ export const getResetStyles = (): CSSObject => ({
   },
 });
 
-export const getEditableStyles = (token: TypographyToken): CSSObject => ({
+export const getEditableStyles: GenerateStyle<TypographyToken> = token => ({
   '&-edit-content': {
     position: 'relative',
 
@@ -189,7 +190,7 @@ export const getEditableStyles = (token: TypographyToken): CSSObject => ({
   },
 });
 
-export const getCopiableStyles = (token: TypographyToken): CSSObject => ({
+export const getCopiableStyles: GenerateStyle<TypographyToken> = token => ({
   '&-copy-success': {
     [`
     &,
@@ -200,7 +201,7 @@ export const getCopiableStyles = (token: TypographyToken): CSSObject => ({
   },
 });
 
-export const getEllipsisStyles = (): CSSObject => ({
+export const getEllipsisStyles: GenerateStyle<TypographyToken> = () => ({
   [`
   a&-ellipsis,
   span&-ellipsis
