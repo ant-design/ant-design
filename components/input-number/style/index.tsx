@@ -228,7 +228,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
               justifyContent: 'center',
               minWidth: 'auto',
               marginRight: 0,
-              fontSize: '7px', // FIXME: magic
+              fontSize: 7, // FIXME: magic
             },
           },
 
