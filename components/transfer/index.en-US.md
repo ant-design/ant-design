@@ -34,7 +34,7 @@ One or more elements can be selected from either column, one click on the proper
 | render | The function to generate the item shown on a column. Based on an record (element of the dataSource array), this function should return a React element which is generated from that record. Also, it can return a plain object with `value` and `label`, `label` is a React element and `value` is for title | (record) => ReactNode | - |  |
 | selectAllLabels | A set of customized labels for select all checkboxs on the header | (ReactNode \| (info: { selectedCount: number, totalCount: number }) => ReactNode)\[] | - |  |
 | selectedKeys | A set of keys of selected items | string\[] | \[] |  |
-| showSearch | If included, a search box is shown on each column | boolean \| \[ { searchValue: string, onSearchValueChange: (value: string) => void }, { searchValue: string, onSearchValueChange: (value: string) => void } \] |  | false |  |
+| showSearch | If included, a search box is shown on each column | boolean \| \[{ searchValue: string, onSearchValueChange: (value: string) => void }, { searchValue: string, onSearchValueChange: (value: string) => void }\] |  | false |  4.20.0: Array<{ searchValue, onSearchValueChange }> |
 | showSelectAll | Show select all checkbox on the header | boolean | true |  |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | targetKeys | A set of keys of elements that are listed on the right column | string\[] | \[] |  |
