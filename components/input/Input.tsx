@@ -223,7 +223,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       addonAfter={addonAfter && <NoFormStatus>{addonAfter}</NoFormStatus>}
       addonBefore={addonBefore && <NoFormStatus>{addonBefore}</NoFormStatus>}
       inputClassName={classNames(
-        !withPrefixSuffix && {
+        {
           [`${prefixCls}-sm`]: mergedSize === 'small',
           [`${prefixCls}-lg`]: mergedSize === 'large',
           [`${prefixCls}-rtl`]: direction === 'rtl',
