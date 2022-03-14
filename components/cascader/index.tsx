@@ -131,7 +131,6 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
     getPopupContainer,
     status: customStatus,
     showArrow,
-    showCheckedStrategy,
     ...rest
   } = props;
 
@@ -286,15 +285,18 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       ref={ref}
       showArrow={hasFeedback || showArrow}
-      showCheckedStrategy={showCheckedStrategy}
     />
   );
 }) as (<OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType>(
   props: React.PropsWithChildren<CascaderProps<OptionType>> & { ref?: React.Ref<CascaderRef> },
 ) => React.ReactElement) & {
   displayName: string;
+  SHOW_PARENT?: typeof SHOW_PARENT;
+  SHOW_CHILD?: typeof SHOW_CHILD;
 };
 
 Cascader.displayName = 'Cascader';
+Cascader.SHOW_PARENT = SHOW_PARENT;
+Cascader.SHOW_CHILD = SHOW_CHILD;
 
 export default Cascader;
