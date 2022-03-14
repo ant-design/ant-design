@@ -220,12 +220,12 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           // https://github.com/ant-design/ant-design/issues/14367
           [`${inputNumberCls}-handler`]: {
             [`${inputNumberCls}-handler-up-inner,
-          ${inputNumberCls}-handler-down-inner`]: {
+              ${inputNumberCls}-handler-down-inner`]: {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               minWidth: 'auto',
-              marginRight: 0,
+              marinInlineEnd: 0,
               fontSize: 7, // FIXME: magic
             },
           },
