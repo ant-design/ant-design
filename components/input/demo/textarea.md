@@ -20,7 +20,7 @@ const { TextArea } = Input;
 
 ReactDOM.render(
   <>
-    <TextArea rows={4} />
+    <TextArea rows={4} allowClear />
     <br />
     <br />
     <TextArea rows={4} placeholder="maxLength is 6" maxLength={6} />

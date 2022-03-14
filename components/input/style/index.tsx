@@ -494,6 +494,22 @@ const genInputStyle = (prefixCls: string, token: InputToken): CSSObject => ({
       paddingBottom: 3, // FIXME: magic number
     },
   },
+
+  '&-textarea-show-count': {
+    // https://github.com/ant-design/ant-design/issues/33049
+    [`> .${prefixCls}`]: {
+      height: '100%',
+    },
+
+    '&::after': {
+      textAlign: 'end',
+      color: token.textColorSecondary,
+      whiteSpace: 'nowrap',
+      content: 'attr(data-count)',
+      pointerEvents: 'none',
+      display: 'block',
+    },
+  },
 });
 
 const genAllowClearStyle = (prefixCls: string, token: InputToken): CSSObject => ({
@@ -526,7 +542,7 @@ const genAllowClearStyle = (prefixCls: string, token: InputToken): CSSObject => 
   },
 
   // ======================= TextArea ========================
-  [`.${prefixCls}-affix-wrapper-textarea-with-clear-btn`]: {
+  '&-textarea-with-clear-btn': {
     padding: '0 !important',
     border: '0 !important',
 

@@ -15,6 +15,7 @@ import {
 } from '../_util/statusUtils';
 import ClearableLabeledInput from './ClearableLabeledInput';
 import { fixControlledValue, InputFocusOptions, resolveOnChange, triggerFocus } from './Input';
+import useStyle from './style';
 
 interface ShowCountProps {
   formatter: (args: { count: number; maxLength?: number }) => string;
@@ -76,7 +77,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
     },
     ref,
   ) => {
-    const { getPrefixCls, direction } = React.useContext(ConfigContext);
+    const { getPrefixCls, direction, iconPrefixCls } = React.useContext(ConfigContext);
     const size = React.useContext(SizeContext);
 
     const { status: contextStatus, hasFeedback } = React.useContext(FormItemStatusContext);
@@ -162,6 +163,9 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
 
     const prefixCls = getPrefixCls('input', customizePrefixCls);
 
+    // Style
+    const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls);
+
     React.useImperativeHandle(ref, () => ({
       resizableTextArea: innerRef.current?.resizableTextArea,
       focus: (option?: InputFocusOptions) => {
@@ -181,6 +185,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
             [`${prefixCls}-lg`]: size === 'large' || customizeSize === 'large',
           },
           getStatusClassNames(prefixCls, mergedStatus),
+          hashId,
         )}
         style={showCount ? undefined : style}
         prefixCls={prefixCls}
@@ -212,6 +217,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
         bordered={bordered}
         status={customStatus}
         style={showCount ? undefined : style}
+        hashId={hashId}
       />
     );
 
@@ -237,6 +243,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
             },
             getStatusClassNames(`${prefixCls}-textarea`, mergedStatus, hasFeedback),
             className,
+            hashId,
           )}
           style={style}
           data-count={dataCount}
@@ -247,7 +254,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
       );
     }
 
-    return textareaNode;
+    return wrapSSR(textareaNode);
   },
 );
 
