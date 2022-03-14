@@ -131,7 +131,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
       // Style for input-group: input with label, with button or dropdown...
       '&-group': {
         ...resetComponent(token),
-        ...genInputGroupStyle(prefixCls, token),
+        ...genInputGroupStyle(token),
 
         '&-wrapper': {
           display: 'inline-block',
@@ -289,12 +289,12 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
 };
 
 const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumberToken) => {
-  const { inputNumberCls, inputPaddingHorizontal, inputAffixMargin, prefixCls } = token;
+  const { inputNumberCls, inputPaddingHorizontal, inputAffixMargin } = token;
 
   return {
     [`${inputNumberCls}-affix-wrapper`]: {
-      ...genBasicInputStyle(prefixCls, token),
-      ...genStatusStyle(prefixCls, token),
+      ...genBasicInputStyle(token),
+      ...genStatusStyle(token),
       // or number handler will cover form status
       position: 'relative',
       display: 'inline-flex',
@@ -368,11 +368,14 @@ const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumb
 };
 
 // ============================== Export ==============================
-export default function useStyle(prefixCls: string): UseComponentStyleResult {
+export default function useStyle(
+  prefixCls: string,
+  iconPrefixCls: string,
+): UseComponentStyleResult {
   const [theme, token, hashId] = useToken();
 
   const inputNumberToken: InputNumberToken = {
-    ...initInputToken(token, prefixCls),
+    ...initInputToken(token, prefixCls, iconPrefixCls),
     inputNumberCls: `.${prefixCls}`,
     inputNumberHandlerActiveBgColor: '#f4f4f4', // FIXME: magic number
   };
