@@ -18,7 +18,7 @@ function getDefaultTarget() {
 }
 
 // Affix
-export interface AffixProps {
+export interface AffixWrapperProps {
   /** 距离窗口顶部达到指定偏移量后触发 */
   offsetTop?: number;
   /** 距离窗口底部达到指定偏移量后触发 */
@@ -31,6 +31,10 @@ export interface AffixProps {
   prefixCls?: string;
   className?: string;
   children: React.ReactNode;
+}
+
+export interface AffixProps extends AffixWrapperProps {
+  affixPrefixCls: string;
 }
 
 enum AffixStatus {
@@ -250,14 +254,20 @@ class Affix extends React.Component<AffixProps, AffixState> {
 
   // =================== Render ===================
   render() {
-    const { getPrefixCls } = this.context;
     const { affixStyle, placeholderStyle } = this.state;
-    const { prefixCls, children } = this.props;
+    const { affixPrefixCls, children } = this.props;
     const className = classNames({
-      [getPrefixCls('affix', prefixCls)]: !!affixStyle,
+      [affixPrefixCls]: !!affixStyle,
     });
 
-    let props = omit(this.props, ['prefixCls', 'offsetTop', 'offsetBottom', 'target', 'onChange']);
+    let props = omit(this.props, [
+      'prefixCls',
+      'offsetTop',
+      'offsetBottom',
+      'target',
+      'onChange',
+      'affixPrefixCls',
+    ]);
     // Omit this since `onTestUpdatePosition` only works on test.
     if (process.env.NODE_ENV === 'test') {
       props = omit(props as typeof props & { onTestUpdatePosition: any }, ['onTestUpdatePosition']);
@@ -286,7 +296,20 @@ class Affix extends React.Component<AffixProps, AffixState> {
   }
 }
 
-const AffixFC = React.forwardRef<Affix, AffixProps>((props, ref) => <Affix {...props} ref={ref} />);
+const AffixFC = React.forwardRef<Affix, AffixWrapperProps>((props, ref) => {
+  const { prefixCls: customizePrefixCls } = props;
+  const { getPrefixCls } = React.useContext(ConfigContext);
+
+  const affixPrefixCls = getPrefixCls('affix', customizePrefixCls);
+
+  const AffixProps: AffixProps = {
+    ...props,
+
+    affixPrefixCls,
+  };
+
+  return <Affix {...AffixProps} ref={ref} />;
+});
 
 if (process.env.NODE_ENV !== 'production') {
   AffixFC.displayName = 'Affix';
