@@ -143,6 +143,7 @@ export interface DerivativeToken extends Omit<DesignToken, 'duration'> {
   warningColors: string[];
 
   // TMP
+  tmpPrimaryColorWeak: string;
   tmpPrimaryHoverColorWeak: string;
 }
 
@@ -168,6 +169,7 @@ function derivative(designToken: DesignToken): DerivativeToken {
 
     ...designToken,
 
+    tmpPrimaryColorWeak: primaryColors[2],
     tmpPrimaryHoverColorWeak: primaryColors[0],
     primaryHoverColor: primaryColors[4],
     primaryActiveColor: primaryColors[6],

@@ -32,6 +32,11 @@ const genBaseStyle: GenerateStyle<ResultToken> = (token): CSSObject => {
     // Result
     [resultCls]: {
       padding: `${token.padding * 3}px ${token.padding * 2}px`,
+
+      // RTL
+      '&-rtl': {
+        direction: 'rtl',
+      },
     },
 
     // Exception Status image
