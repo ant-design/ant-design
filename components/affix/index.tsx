@@ -18,7 +18,7 @@ function getDefaultTarget() {
 }
 
 // Affix
-export interface AffixWrapperProps {
+export interface AffixProps {
   /** 距离窗口顶部达到指定偏移量后触发 */
   offsetTop?: number;
   /** 距离窗口底部达到指定偏移量后触发 */
@@ -33,7 +33,7 @@ export interface AffixWrapperProps {
   children: React.ReactNode;
 }
 
-export interface AffixProps extends AffixWrapperProps {
+export interface InternalAffixProps extends AffixProps {
   affixPrefixCls: string;
 }
 
@@ -51,7 +51,7 @@ export interface AffixState {
   prevTarget: Window | HTMLElement | null;
 }
 
-class Affix extends React.Component<AffixProps, AffixState> {
+class Affix extends React.Component<InternalAffixProps, AffixState> {
   static contextType = ConfigContext;
 
   state: AffixState = {
@@ -296,13 +296,13 @@ class Affix extends React.Component<AffixProps, AffixState> {
   }
 }
 
-const AffixFC = React.forwardRef<Affix, AffixWrapperProps>((props, ref) => {
+const AffixFC = React.forwardRef<Affix, AffixProps>((props, ref) => {
   const { prefixCls: customizePrefixCls } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
 
   const affixPrefixCls = getPrefixCls('affix', customizePrefixCls);
 
-  const AffixProps: AffixProps = {
+  const AffixProps: InternalAffixProps = {
     ...props,
 
     affixPrefixCls,
