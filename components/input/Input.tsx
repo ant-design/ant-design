@@ -149,7 +149,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
   // ===================== Focus warning =====================
-  const inputHasPrefixSuffix = hasPrefixSuffix(props);
+  const inputHasPrefixSuffix = hasPrefixSuffix(props) || !!hasFeedback;
   const prevHasPrefixSuffix = useRef<boolean>(inputHasPrefixSuffix);
   useEffect(() => {
     if (inputHasPrefixSuffix && !prevHasPrefixSuffix.current) {
@@ -158,6 +158,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
         'Input',
         `When Input is focused, dynamic add or remove prefix / suffix will make it lose focus caused by dom structure change. Read more: https://ant.design/components/input/#FAQ`,
       );
+      inputRef.current?.focus();
     }
     prevHasPrefixSuffix.current = inputHasPrefixSuffix;
   }, [inputHasPrefixSuffix]);
