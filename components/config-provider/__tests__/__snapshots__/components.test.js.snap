@@ -13790,7 +13790,7 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
   >
     <input
       action="click"
-      class="config-input"
+      class="config-input config-input-lg"
       type="password"
       value=""
     />
