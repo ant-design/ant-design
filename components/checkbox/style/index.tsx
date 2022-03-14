@@ -1,12 +1,17 @@
 // deps-lint-skip-all
-import { CSSInterpolation, Keyframes } from '@ant-design/cssinjs';
+import { Keyframes } from '@ant-design/cssinjs';
 import {
   DerivativeToken,
   useStyleRegister,
   useToken,
   resetComponent,
   UseComponentStyleResult,
+  GenerateStyle,
 } from '../../_util/theme';
+
+interface CheckboxToken extends DerivativeToken {
+  checkboxCls: string;
+}
 
 // ============================== Motion ==============================
 const antCheckboxEffect = new Keyframes('antCheckboxEffect', {
@@ -22,12 +27,8 @@ const antCheckboxEffect = new Keyframes('antCheckboxEffect', {
 });
 
 // ============================== Styles ==============================
-export const genCheckboxStyle = (
-  prefixCls: string,
-  token: DerivativeToken,
-  hashId: string,
-): CSSInterpolation => {
-  const checkboxCls = `.${prefixCls}`;
+export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token, hashId) => {
+  const { checkboxCls } = token;
   const wrapperCls = `${checkboxCls}-wrapper`;
 
   return [
@@ -88,7 +89,7 @@ export const genCheckboxStyle = (
         [`${checkboxCls}-inner`]: {
           position: 'relative',
           top: 0,
-          left: 0,
+          insetInlineStart: 0,
           display: 'block',
           width: token.fontSizeLG,
           height: token.fontSizeLG,
@@ -102,13 +103,13 @@ export const genCheckboxStyle = (
           '&:after': {
             position: 'absolute',
             top: '50%',
-            left: '21.5%',
+            insetInlineStart: '21.5%',
             display: 'table',
             width: (token.fontSizeLG / 14) * 5,
             height: (token.fontSizeLG / 14) * 8,
             border: `2px solid ${token.componentBackground}`,
             borderTop: 0,
-            borderLeft: 0,
+            borderInlineStart: 0,
             transform: 'rotate(45deg) scale(0) translate(-50%,-50%)',
             opacity: 0,
             transition: `all ${token.durationFast} cubic-bezier(.71,-.46,.88,.6), opacity ${token.durationFast}`,
@@ -118,8 +119,8 @@ export const genCheckboxStyle = (
 
         // Wrapper > Checkbox + Text
         '& + span': {
-          paddingLeft: token.paddingXS,
-          paddingRight: token.paddingXS,
+          paddingInlineStart: token.paddingXS,
+          paddingInlineEnd: token.paddingXS,
         },
       },
     },
@@ -132,7 +133,7 @@ export const genCheckboxStyle = (
           [`${checkboxCls}-inner`]: {
             '&:after': {
               top: '50%',
-              left: '50%',
+              insetInlineStart: '50%',
               width: token.fontSizeLG / 2,
               height: token.fontSizeLG / 2,
               backgroundColor: token.primaryColor,
@@ -184,7 +185,7 @@ export const genCheckboxStyle = (
         '&:after': {
           position: 'absolute',
           top: 0,
-          left: 0,
+          insetInlineStart: 0,
           width: '100%',
           height: '100%',
           border: `${token.borderWidth}px ${token.borderStyle} ${token.primaryColor}`,
@@ -235,7 +236,12 @@ export const genCheckboxStyle = (
 
 // ============================== Export ==============================
 export function getStyle(prefixCls: string, token: DerivativeToken, hashId: string) {
-  return [genCheckboxStyle(prefixCls, token, hashId), antCheckboxEffect];
+  const checkboxToken: CheckboxToken = {
+    ...token,
+    checkboxCls: `.${prefixCls}`,
+  };
+
+  return [genCheckboxStyle(checkboxToken, hashId), antCheckboxEffect];
 }
 
 export default function useStyle(prefixCls: string): UseComponentStyleResult {

@@ -1,4 +1,4 @@
-import { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
+import { CSSObject } from '@ant-design/cssinjs';
 import {
   resetComponent,
   initSlideMotion,
@@ -6,10 +6,11 @@ import {
   slideUpOut,
   slideDownIn,
   slideDownOut,
+  GenerateStyle,
 } from '../../_util/theme';
 import type { SelectToken } from '.';
 
-const genItemStyle = (token: SelectToken): CSSObject => {
+const genItemStyle: GenerateStyle<SelectToken, CSSObject> = token => {
   const { controlPaddingHorizontal } = token;
 
   return {
@@ -26,7 +27,7 @@ const genItemStyle = (token: SelectToken): CSSObject => {
   };
 };
 
-export default function genSingleStyle(token: SelectToken, hashId: string): CSSInterpolation {
+const genSingleStyle: GenerateStyle<SelectToken> = (token, hashId) => {
   const { rootPrefixCls, antCls, selectCls } = token;
 
   const selectItemCls = `${selectCls}-item`;
@@ -152,11 +153,13 @@ export default function genSingleStyle(token: SelectToken, hashId: string): CSSI
     },
 
     // Follow code may reuse in other components
-    initSlideMotion(hashId, rootPrefixCls, 'slide-up', slideUpIn, slideUpOut, token),
-    initSlideMotion(hashId, rootPrefixCls, 'slide-down', slideDownIn, slideDownOut, token),
+    initSlideMotion(hashId!, rootPrefixCls, 'slide-up', slideUpIn, slideUpOut, token),
+    initSlideMotion(hashId!, rootPrefixCls, 'slide-down', slideDownIn, slideDownOut, token),
     slideUpIn,
     slideUpOut,
     slideDownIn,
     slideDownOut,
   ];
-}
+};
+
+export default genSingleStyle;

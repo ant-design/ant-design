@@ -79,4 +79,24 @@ describe('Dropdown', () => {
       expect.stringContaining("[antd: Dropdown] You are using 'topCenter'"),
     );
   });
+
+  // zombieJ: when replaced with react test lib, it may be mock fully content
+  it('dropdown should support auto adjust placement', () => {
+    const wrapper = mount(
+      <Dropdown overlay={<div>menu</div>} visible>
+        <button type="button">button</button>
+      </Dropdown>,
+    );
+
+    expect(wrapper.find('Trigger').prop('builtinPlacements')).toEqual(
+      expect.objectContaining({
+        bottomLeft: expect.objectContaining({
+          overflow: {
+            adjustX: 1,
+            adjustY: 1,
+          },
+        }),
+      }),
+    );
+  });
 });

@@ -55,15 +55,15 @@ const genHoverActiveButtonStyle = (hoverStyle: CSSObject, activeStyle: CSSObject
 // ============================== Shape ===============================
 const genCircleButtonStyle = (token: DerivativeToken): CSSObject => ({
   minWidth: token.controlHeight,
-  paddingLeft: 0,
-  paddingRight: 0,
+  paddingInlineStart: 0,
+  paddingInlineEnd: 0,
   borderRadius: '50%',
 });
 
 const genRoundButtonStyle = (token: DerivativeToken): CSSObject => ({
   borderRadius: token.controlHeight,
-  paddingLeft: token.controlHeight / 2,
-  paddingRight: token.controlHeight / 2,
+  paddingInlineStart: token.controlHeight / 2,
+  paddingInlineEnd: token.controlHeight / 2,
   width: 'auto',
 });
 
@@ -312,8 +312,8 @@ const genSizeButtonStyle = (
 
         [`&${iconOnlyCls}`]: {
           width: token.controlHeight,
-          paddingLeft: 0,
-          paddingRight: 0,
+          paddingInlineStart: 0,
+          paddingInlineEnd: 0,
 
           '> span': {
             transform: 'scale(1.143)', // 14px -> 16px
