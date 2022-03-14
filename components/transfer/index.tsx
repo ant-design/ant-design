@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import List, { TransferListProps } from './list';
+import List, { TransferListProps, TransferSearchProps } from './list';
 import Operation from './operation';
 import Search from './search';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
@@ -61,11 +61,8 @@ export interface TransferLocale {
   removeCurrent: string;
 }
 
-interface TransferSearchState {
-  sourceValue?: string;
-  onChangeSourceValue?: (searchValue: string) => void;
-  targetValue?: string;
-  onChangeTargetValue?: (searchValue: string) => void;
+export function isTransferSearchPropsArray(object: any): object is TransferSearchProps[] {
+  return (object as TransferSearchProps[])[0] !== undefined;
 }
 
 export interface TransferProps<RecordType> {
@@ -83,8 +80,7 @@ export interface TransferProps<RecordType> {
   operationStyle?: React.CSSProperties;
   titles?: React.ReactNode[];
   operations?: string[];
-  showSearch?: boolean;
-  search: TransferSearchState;
+  showSearch?: boolean | TransferSearchProps[];
   filterOption?: (inputValue: string, item: RecordType) => boolean;
   locale?: Partial<TransferLocale>;
   footer?: (
@@ -367,7 +363,6 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
               disabled,
               operations = [],
               showSearch,
-              search,
               footer,
               style,
               listStyle,
@@ -404,6 +399,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
 
             const titles = this.getTitles(locale);
             const selectAllLabels = this.props.selectAllLabels || [];
+
             return (
               <div className={cls} style={style}>
                 <List<KeyWise<RecordType>>
@@ -418,9 +414,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
                   onItemSelect={this.onLeftItemSelect}
                   onItemSelectAll={this.onLeftItemSelectAll}
                   render={render}
-                  showSearch={showSearch}
-                  searchValue={search?.sourceValue}
-                  onChangeSearch={search?.onChangeSourceValue}
+                  showSearch={isTransferSearchPropsArray(showSearch) ? showSearch[0] : showSearch}
                   renderList={children}
                   footer={footer}
                   onScroll={this.handleLeftScroll}
@@ -457,9 +451,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
                   onItemSelectAll={this.onRightItemSelectAll}
                   onItemRemove={this.onRightItemRemove}
                   render={render}
-                  showSearch={showSearch}
-                  searchValue={search?.targetValue}
-                  onChangeSearch={search?.onChangeTargetValue}
+                  showSearch={isTransferSearchPropsArray(showSearch) ? showSearch[1] : showSearch}
                   renderList={children}
                   footer={footer}
                   onScroll={this.handleRightScroll}

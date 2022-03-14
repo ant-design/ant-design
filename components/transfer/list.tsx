@@ -40,6 +40,18 @@ export interface RenderedItem<RecordType> {
 
 type RenderListFunction<T> = (props: TransferListBodyProps<T>) => React.ReactNode;
 
+export interface TransferSearchProps {
+  searchValue: string;
+  onSearchValueChange: (value: string) => void;
+}
+
+export function isTransferSearchProps(object: any): object is TransferSearchProps {
+  return (
+    (object as TransferSearchProps).searchValue !== undefined &&
+    (object as TransferSearchProps).onSearchValueChange !== undefined
+  );
+}
+
 export interface TransferListProps<RecordType> extends TransferLocale {
   prefixCls: string;
   titleText: React.ReactNode;
@@ -54,10 +66,8 @@ export interface TransferListProps<RecordType> extends TransferLocale {
   handleClear: () => void;
   /** Render item */
   render?: (item: RecordType) => RenderResult;
-  showSearch?: boolean;
+  showSearch?: boolean | TransferSearchProps;
   searchPlaceholder: string;
-  searchValue?: string;
-  onChangeSearch?: (searchValue: string) => void;
   itemUnit: string;
   itemsUnit: string;
   renderList?: RenderListFunction<RecordType>;
@@ -143,9 +153,9 @@ export default class TransferList<
 
   // =============================== Filter ===============================
   handleFilter = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { handleFilter, onChangeSearch } = this.props;
-    if (onChangeSearch) {
-      onChangeSearch(e.target.value);
+    const { handleFilter, showSearch } = this.props;
+    if (isTransferSearchProps(showSearch)) {
+      showSearch.onSearchValueChange(e.target.value);
     } else {
       this.setState({ filterValue: e.target.value });
     }
@@ -153,9 +163,9 @@ export default class TransferList<
   };
 
   handleClear = () => {
-    const { handleClear, onChangeSearch } = this.props;
-    if (onChangeSearch) {
-      onChangeSearch('');
+    const { handleClear, showSearch } = this.props;
+    if (isTransferSearchProps(showSearch)) {
+      showSearch.onSearchValueChange('');
     } else {
       this.setState({ filterValue: '' });
     }
@@ -163,12 +173,18 @@ export default class TransferList<
   };
 
   matchFilter = (text: string, item: RecordType) => {
-    const { filterOption, searchValue } = this.props;
+    const { filterOption, showSearch } = this.props;
     const { filterValue } = this.state;
     if (filterOption) {
-      return filterOption(searchValue ? searchValue : filterValue, item);
+      return filterOption(
+        (isTransferSearchProps(showSearch) && showSearch.searchValue) || filterValue,
+        item,
+      );
     }
-    return text.indexOf(searchValue ? searchValue : filterValue) >= 0;
+    return (
+      text.indexOf((isTransferSearchProps(showSearch) && showSearch.searchValue) || filterValue) >=
+      0
+    );
   };
 
   // =============================== Render ===============================
@@ -196,7 +212,7 @@ export default class TransferList<
     filteredRenderItems: RenderedItem<RecordType>[],
     checkedKeys: string[],
     renderList?: RenderListFunction<RecordType>,
-    showSearch?: boolean,
+    showSearch?: boolean | TransferSearchProps,
     disabled?: boolean,
   ): React.ReactNode {
     const search = showSearch ? (
@@ -317,7 +333,6 @@ export default class TransferList<
       disabled,
       footer,
       showSearch,
-      searchValue,
       style,
       searchPlaceholder,
       notFoundContent,
@@ -350,7 +365,7 @@ export default class TransferList<
 
     const { filteredItems, filteredRenderItems } = this.getFilteredItems(
       dataSource,
-      searchValue ? searchValue : filterValue,
+      (isTransferSearchProps(showSearch) && showSearch.searchValue) || filterValue,
     );
 
     // ================================= List Body =================================
@@ -358,7 +373,7 @@ export default class TransferList<
     const listBody = this.getListBody(
       prefixCls,
       searchPlaceholder,
-      searchValue ? searchValue : filterValue,
+      (isTransferSearchProps(showSearch) && showSearch.searchValue) || filterValue,
       filteredItems,
       notFoundContent,
       filteredRenderItems,
