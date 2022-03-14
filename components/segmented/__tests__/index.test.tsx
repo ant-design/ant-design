@@ -332,4 +332,12 @@ describe('Segmented', () => {
     // thumb appeared
     expect(wrapper.find(`.${prefixCls}-thumb`).length).toBe(1);
   });
+
+  it('render segmented with `block`', () => {
+    const wrapper = mount(<Segmented block options={['Daily', 'Weekly', 'Monthly']} />);
+
+    expect(wrapper.render()).toMatchSnapshot();
+
+    expect(wrapper.find(`.${prefixCls}`).at(0).hasClass(`.${prefixCls}-block`)).toBeTruthy();
+  });
 });
