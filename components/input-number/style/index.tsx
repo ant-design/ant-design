@@ -47,14 +47,13 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
     componentBackground,
     durationMid,
     textColorDisabled,
-    prefixCls,
   } = token;
 
   return {
     [inputNumberCls]: {
       ...resetComponent(token),
-      ...genBasicInputStyle(prefixCls, token),
-      ...genStatusStyle(prefixCls, token),
+      ...genBasicInputStyle(token),
+      ...genStatusStyle(token),
 
       display: 'inline-block',
       width: 90, // FIXME: magic number
