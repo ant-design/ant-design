@@ -20,7 +20,6 @@ import {
 } from '../../input/style';
 
 interface InputNumberToken extends InputToken {
-  prefixCls: string;
   inputNumberCls: string;
   inputNumberHandlerActiveBgColor: string;
 }
@@ -373,8 +372,7 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
   const [theme, token, hashId] = useToken();
 
   const inputNumberToken: InputNumberToken = {
-    ...initInputToken(token),
-    prefixCls,
+    ...initInputToken(token, prefixCls),
     inputNumberCls: `.${prefixCls}`,
     inputNumberHandlerActiveBgColor: '#f4f4f4', // FIXME: magic number
   };
