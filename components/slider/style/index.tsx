@@ -184,9 +184,9 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         },
 
         [`
-              ${sliderCls}-mark-text,
-              ${sliderCls}-dot
-            `]: {
+          ${sliderCls}-mark-text,
+          ${sliderCls}-dot
+        `]: {
           cursor: `not-allowed !important`,
         },
       },
