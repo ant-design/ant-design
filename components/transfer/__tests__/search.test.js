@@ -89,4 +89,16 @@ describe('Transfer.Search', () => {
       .simulate('change', { target: { value: ' ' } });
     expect(filterOption).toHaveBeenCalledTimes(dataSource.length);
   });
+
+  it('typing value should trigger showSearch.onSearchValueChange', () => {
+    const onSearchValueChange = jest.fn();
+    const wrapper = mount(
+      <Transfer dataSource={dataSource} showSearch={{ searchValue: '', onSearchValueChange }} />,
+    );
+    wrapper
+      .find('.ant-input')
+      .at(0)
+      .simulate('change', { target: { value: 'a' } });
+    expect(onSearchValueChange).toHaveBeenCalled();
+  });
 });
