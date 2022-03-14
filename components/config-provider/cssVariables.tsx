@@ -9,7 +9,7 @@ import devWarning from '../_util/devWarning';
 
 const dynamicStyleMark = `-ant-${Date.now()}-${Math.random()}`;
 
-export function registerTheme(globalPrefixCls: string, theme: Theme) {
+export function getStyle(globalPrefixCls: string, theme: Theme) {
   const variables: Record<string, string> = {};
 
   const formatColor = (
@@ -88,15 +88,18 @@ export function registerTheme(globalPrefixCls: string, theme: Theme) {
     key => `--${globalPrefixCls}-${key}: ${variables[key]};`,
   );
 
-  if (canUseDom()) {
-    updateCSS(
-      `
+  return `
   :root {
     ${cssList.join('\n')}
   }
-  `,
-      `${dynamicStyleMark}-dynamic-theme`,
-    );
+  `.trim();
+}
+
+export function registerTheme(globalPrefixCls: string, theme: Theme) {
+  const style = getStyle(globalPrefixCls, theme);
+
+  if (canUseDom()) {
+    updateCSS(style, `${dynamicStyleMark}-dynamic-theme`);
   } else {
     devWarning(false, 'ConfigProvider', 'SSR do not support dynamic theme with css variables.');
   }

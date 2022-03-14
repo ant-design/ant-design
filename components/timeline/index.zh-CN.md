@@ -41,7 +41,7 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/vJmo00mmgR/Timeline.svg
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| color | 指定圆圈颜色 `blue`, `red`, `green`, `gray`，或自定义的色值 | string | `blue` |
+| color | 指定圆圈颜色 `blue`、`red`、`green`、`gray`，或自定义的色值 | string | `blue` |
 | dot | 自定义时间轴点 | ReactNode | - |
 | label | 设置标签 | ReactNode | - |
 | position | 自定义节点位置 | `left` \| `right` | - |
