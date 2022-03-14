@@ -200,8 +200,6 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     </>
   );
 
-  const withPrefixSuffix = hasPrefixSuffix(props) || hasFeedback;
-
   // Allow clear
   let mergedAllowClear;
   if (typeof allowClear === 'object' && allowClear?.clearIcon) {
@@ -229,7 +227,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
           [`${prefixCls}-rtl`]: direction === 'rtl',
           [`${prefixCls}-borderless`]: !bordered,
         },
-        !withPrefixSuffix && getStatusClassNames(prefixCls, mergedStatus),
+        !inputHasPrefixSuffix && getStatusClassNames(prefixCls, mergedStatus),
       )}
       affixWrapperClassName={classNames(
         {
