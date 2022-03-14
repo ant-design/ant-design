@@ -34,6 +34,8 @@ export type FieldNamesType = FieldNames;
 
 export type FilledFieldNamesType = Required<FieldNamesType>;
 
+const { SHOW_CHILD, SHOW_PARENT } = RcCascader;
+
 function highlightKeyword(str: string, lowerKeyword: string, prefixCls: string | undefined) {
   const cells = str
     .toLowerCase()
@@ -101,6 +103,7 @@ export type CascaderProps<DataNodeType> = UnionCascaderProps & {
   suffixIcon?: React.ReactNode;
   options?: DataNodeType[];
   status?: InputStatus;
+  showCheckedStrategy?: typeof SHOW_CHILD | typeof SHOW_PARENT;
 };
 
 export interface CascaderRef {
@@ -128,6 +131,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
     getPopupContainer,
     status: customStatus,
     showArrow,
+    showCheckedStrategy,
     ...rest
   } = props;
 
@@ -282,6 +286,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       ref={ref}
       showArrow={hasFeedback || showArrow}
+      showCheckedStrategy={showCheckedStrategy}
     />
   );
 }) as (<OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType>(

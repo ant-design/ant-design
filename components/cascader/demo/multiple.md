@@ -16,6 +16,7 @@ Select multiple options
 
 ```jsx
 import { Cascader } from 'antd';
+const { SHOW_CHILD } = Cascader;
 
 const options = [
   {
@@ -62,6 +63,7 @@ const App = () => {
       onChange={onChange}
       multiple
       maxTagCount="responsive"
+      showCheckedStrategy={SHOW_CHILD}
     />
   );
 };
