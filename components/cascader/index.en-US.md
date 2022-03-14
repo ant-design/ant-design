@@ -24,6 +24,7 @@ Cascade selection box.
 | allowClear | Whether allow clear | boolean | true |  |
 | autoFocus | If get focus when component mounted | boolean | false |  |
 | bordered | Whether has border style | boolean | true |  |
+| clearIcon | The custom clear icon | ReactNode | - |  |
 | changeOnSelect | (Work on single select) Change value on each selection if set to true, see above demo for details | boolean | false |  |
 | className | The additional css class | string | - |  |
 | defaultValue | Initial selected value | string\[] \| number\[] | \[] |  |
@@ -54,6 +55,7 @@ Cascade selection box.
 | onDropdownVisibleChange | Callback when popup shown or hidden | (value) => void | - | 4.17.0 |
 | multiple | Support multiple or not | boolean | - | 4.17.0 |
 | showCheckedStrategy | The way show selected item in box when `multiple` model set. ** `SHOW_CHILD`: ** just show child treeNode. **`Cascader.SHOW_PARENT`:** just show parent treeNode (when all child treeNode under the parent treeNode are checked) | `Cascader.SHOW_PARENT` \| `Cascader.SHOW_CHILD` | `Cascader.SHOW_PARENT` | 4.20.0 |
+| removeIcon | The custom remove icon | ReactNode | - |  |
 | searchValue | Set search value，Need work with `showSearch` | string | - | 4.17.0 |
 | onSearch | The callback function triggered when input changed | (search: string) => void | - | 4.17.0 |
 | dropdownMenuColumnStyle | The style of the drop-down menu column | CSSProperties | - |  |
