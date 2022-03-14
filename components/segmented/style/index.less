@@ -22,6 +22,12 @@
     display: flex;
   }
 
+  &&-block &-item {
+    flex: 1;
+    min-width: 0;
+    .segmented-text-ellipsis();
+  }
+
   &-item {
     position: relative;
     min-height: 28px;
