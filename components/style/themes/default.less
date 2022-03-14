@@ -516,7 +516,7 @@
 // Tooltip background color
 @tooltip-bg: rgba(0, 0, 0, 0.75);
 // Tooltip arrow width
-@tooltip-arrow-width: 5px;
+@tooltip-arrow-width: 8px * sqrt(2);
 // Tooltip distance with trigger
 @tooltip-distance: @tooltip-arrow-width - 1px + 4px;
 // Tooltip arrow color
@@ -532,7 +532,7 @@
 @popover-min-width: 177px;
 @popover-min-height: 32px;
 // Popover arrow width
-@popover-arrow-width: 6px;
+@popover-arrow-width: @tooltip-arrow-width;
 // Popover arrow color
 @popover-arrow-color: @popover-bg;
 // Popover outer arrow width

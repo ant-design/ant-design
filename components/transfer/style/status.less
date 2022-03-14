@@ -2,7 +2,7 @@
 
 @transfer-prefix-cls: ~'@{ant-prefix}-transfer';
 
-.status-color(@color) {
+.transfer-status-color(@color) {
   .@{transfer-prefix-cls}-list {
     border-color: @color;
 
@@ -22,10 +22,10 @@
 
 .@{transfer-prefix-cls} {
   &-status-error {
-    .status-color(@error-color);
+    .transfer-status-color(@error-color);
   }
 
   &-status-warning {
-    .status-color(@warning-color);
+    .transfer-status-color(@warning-color);
   }
 }
