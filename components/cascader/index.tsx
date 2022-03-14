@@ -103,7 +103,6 @@ export type CascaderProps<DataNodeType> = UnionCascaderProps & {
   suffixIcon?: React.ReactNode;
   options?: DataNodeType[];
   status?: InputStatus;
-  showCheckedStrategy?: typeof SHOW_CHILD | typeof SHOW_PARENT;
 };
 
 export interface CascaderRef {
@@ -287,12 +286,12 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
       showArrow={hasFeedback || showArrow}
     />
   );
-}) as (<OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType>(
+}) as unknown as (<OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType>(
   props: React.PropsWithChildren<CascaderProps<OptionType>> & { ref?: React.Ref<CascaderRef> },
 ) => React.ReactElement) & {
   displayName: string;
-  SHOW_PARENT?: typeof SHOW_PARENT;
-  SHOW_CHILD?: typeof SHOW_CHILD;
+  SHOW_PARENT: typeof SHOW_PARENT;
+  SHOW_CHILD: typeof SHOW_CHILD;
 };
 
 Cascader.displayName = 'Cascader';

@@ -16,6 +16,7 @@ Select multiple options
 
 ```jsx
 import { Cascader } from 'antd';
+
 const { SHOW_CHILD } = Cascader;
 
 const options = [
