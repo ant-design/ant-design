@@ -10,6 +10,7 @@
 import { gold } from '@ant-design/colors';
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { DerivativeToken, GenerateStyle } from '../../_util/theme';
+import { initInputToken } from '../../input/style';
 
 export interface TypographyToken extends DerivativeToken {
   typography: {
@@ -160,35 +161,39 @@ export const getResetStyles = (): CSSObject => ({
   },
 });
 
-export const getEditableStyles: GenerateStyle<TypographyToken, CSSObject> = token => ({
-  '&-edit-content': {
-    position: 'relative',
+export const getEditableStyles: GenerateStyle<TypographyToken, CSSObject> = token => {
+  const inputToken = initInputToken(token, '', '');
+  const inputShift = -inputToken.inputPaddingVertical - 1;
+  return {
+    '&-edit-content': {
+      position: 'relative',
 
-    'div&': {
-      insetInlineStart: -token.paddingSM - 1,
-      // FIXME: should be calculated from input padding
-      marginTop: -5,
-      marginBottom: 'calc(1em - 5px)',
-    },
+      'div&': {
+        insetInlineStart: -token.paddingSM,
+        // FIXME: should be calculated from input padding
+        marginTop: inputShift,
+        marginBottom: `calc(1em - ${inputShift})`,
+      },
 
-    '&-confirm': {
-      position: 'absolute',
-      insetInlineEnd: 10,
-      insetBlockEnd: 8,
-      color: token.textColorSecondary,
-      // default style
-      fontWeight: 'normal',
-      fontSize: token.fontSize,
-      fontStyle: 'normal',
-      pointerEvents: 'none',
-    },
+      [`.${token.typography.prefixCls}-edit-content-confirm`]: {
+        position: 'absolute',
+        insetInlineEnd: 10,
+        insetBlockEnd: 8,
+        color: token.textColorSecondary,
+        // default style
+        fontWeight: 'normal',
+        fontSize: token.fontSize,
+        fontStyle: 'normal',
+        pointerEvents: 'none',
+      },
 
-    // Fix Editable Textarea flash in Firefox
-    textarea: {
-      MozTransition: 'none',
+      // Fix Editable Textarea flash in Firefox
+      textarea: {
+        MozTransition: 'none',
+      },
     },
-  },
-});
+  };
+};
 
 export const getCopiableStyles: GenerateStyle<TypographyToken, CSSObject> = token => ({
   '&-copy-success': {
