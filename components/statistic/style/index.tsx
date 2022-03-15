@@ -1,6 +1,6 @@
 // deps-lint-skip-all
 import { CSSObject } from '@ant-design/cssinjs';
-import { useStyleRegister, useToken, resetComponent } from '../../_util/theme';
+import { useStyleRegister, useToken, resetComponent, GenerateStyle } from '../../_util/theme';
 import type { DerivativeToken } from '../../_util/theme';
 
 interface StatisticToken extends DerivativeToken {
@@ -10,16 +10,16 @@ interface StatisticToken extends DerivativeToken {
   statisticFontFamily: string;
 }
 
-const genStatisticStyle = (token: StatisticToken, commonToken: DerivativeToken): CSSObject => ({
+const genStatisticStyle: GenerateStyle<StatisticToken> = (token: StatisticToken): CSSObject => ({
   [`${token.statisticCls}`]: {
     ...resetComponent(token),
     [`${token.statisticCls}-title`]: {
-      marginBottom: commonToken.marginXXS,
-      color: commonToken.textColorSecondary,
+      marginBottom: token.marginXXS,
+      color: token.textColorSecondary,
       fontSize: token.statisticTitleFontSize,
     },
     [`${token.statisticCls}-content`]: {
-      color: commonToken.headingColor,
+      color: token.headingColor,
       fontSize: token.statisticContentFontSize,
       fontFamily: token.statisticFontFamily,
       [`${token.statisticCls}-content-value`]: {
@@ -53,7 +53,7 @@ export default function useStyle(prefixCls: string) {
 
   return [
     useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      genStatisticStyle(statisticToken, token),
+      genStatisticStyle(statisticToken),
     ]),
     hashId,
   ];
