@@ -30,10 +30,10 @@ const genStatisticStyle = (token: StatisticToken, commonToken: DerivativeToken):
         display: 'inline-block',
       },
       [`${token.statisticCls}-content-prefix`]: {
-        marginRight: 4,
+        marginInlineStart: 4, // FIXME: hard code
       },
       [`${token.statisticCls}-content-suffix`]: {
-        marginLeft: 4,
+        marginInlineEnd: 4, // FIXME: hard code
       },
     },
   },
@@ -47,7 +47,7 @@ export default function useStyle(prefixCls: string) {
     ...token,
     statisticCls: `.${prefixCls}`,
     statisticTitleFontSize: token.fontSize,
-    statisticContentFontSize: 24,
+    statisticContentFontSize: 24, // FIXME: hard code
     statisticFontFamily: token.fontFamily,
   };
 
