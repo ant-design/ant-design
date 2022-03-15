@@ -1,8 +1,8 @@
 import { TinyColor } from '@ctrl/tinycolor';
 
-import type { DesignToken, IPresetColors } from '.';
+import type { DesignToken, PresetColorType } from '.';
 
-const presetColors: IPresetColors = {
+const presetColors: PresetColorType = {
   blue: '#1890FF',
   purple: '#722ED1',
   cyan: '#13C2C2',

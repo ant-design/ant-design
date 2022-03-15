@@ -38,7 +38,7 @@ export {
   slideRightOut,
 };
 
-export interface IPresetColors {
+export interface PresetColorType {
   blue: string;
   purple: string;
   cyan: string;
@@ -54,7 +54,7 @@ export interface IPresetColors {
   gold: string;
 }
 
-export const PresetColorKeys: ReadonlyArray<keyof IPresetColors> = [
+export const PresetColorKeys: ReadonlyArray<keyof PresetColorType> = [
   'blue',
   'purple',
   'cyan',
@@ -70,7 +70,7 @@ export const PresetColorKeys: ReadonlyArray<keyof IPresetColors> = [
   'gold',
 ];
 
-export interface DesignToken extends IPresetColors {
+export interface DesignToken extends PresetColorType {
   primaryColor: string;
   successColor: string;
   warningColor: string;
@@ -128,7 +128,7 @@ export interface DesignToken extends IPresetColors {
 type ColorPaletteKeyIndexes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 type ColorPalettes = {
-  [key in `${keyof IPresetColors}-${ColorPaletteKeyIndexes[number]}`]: string;
+  [key in `${keyof PresetColorType}-${ColorPaletteKeyIndexes[number]}`]: string;
 };
 
 /** This is temporary token definition since final token definition is not ready yet. */
@@ -169,7 +169,9 @@ export interface DerivativeToken extends ColorPalettes, Omit<DesignToken, 'durat
   // TMP
   tmpPrimaryColorWeak: string;
   tmpPrimaryHoverColorWeak: string;
+  // Checked background for Checkable Tag
   tmpPrimaryColor6: string;
+  // Active background for Checkable Tag
   tmpPrimaryColor7: string;
 
   tmpSuccessColorDeprecatedBg: string;
@@ -198,7 +200,7 @@ function derivative(designToken: DesignToken): DerivativeToken {
   const paddingSM = (designToken.padding / 4) * 3;
   const paddingXS = designToken.padding * 0.5;
 
-  const colorPalettes = PresetColorKeys.map((colorKey: keyof IPresetColors) => {
+  const colorPalettes = PresetColorKeys.map((colorKey: keyof PresetColorType) => {
     const colors = generate(designToken[colorKey]);
 
     const ret = new Array(10).fill(1).reduce((prev, _, i) => {

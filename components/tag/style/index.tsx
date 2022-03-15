@@ -2,7 +2,7 @@
 import { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import capitalize from '../../_util/capitalize';
 import {
-  IPresetColors,
+  PresetColorType,
   DerivativeToken,
   useStyleRegister,
   useToken,
@@ -40,7 +40,7 @@ const genTagStatusStyle = (
 
 // FIXME: special preset colors
 const genTagColorStyle = (prefixCls: string, token: TagToken): CSSInterpolation =>
-  PresetColorKeys.reduce((prev: CSSObject, colorKey: keyof IPresetColors) => {
+  PresetColorKeys.reduce((prev: CSSObject, colorKey: keyof PresetColorType) => {
     const lightColor = token[`${colorKey}-1`];
     const lightBorderColor = token[`${colorKey}-3`];
     const darkColor = token[`${colorKey}-6`];
