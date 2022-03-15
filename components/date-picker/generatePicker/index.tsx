@@ -18,6 +18,7 @@ import { TimePickerLocale } from '../../time-picker';
 import generateSinglePicker from './generateSinglePicker';
 import generateRangePicker from './generateRangePicker';
 import { tuple } from '../../_util/type';
+import { InputStatus } from '../../_util/statusUtils';
 
 export const Components = { button: PickerButton, rangeItem: PickerTag };
 
@@ -81,6 +82,7 @@ type InjectDefaultProps<Props> = Omit<
   size?: SizeType;
   placement?: DataPickerPlacement;
   bordered?: boolean;
+  status?: InputStatus;
 };
 
 export type PickerLocale = {
