@@ -149,7 +149,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
   // ===================== Focus warning =====================
-  const inputHasPrefixSuffix = hasPrefixSuffix(props);
+  const inputHasPrefixSuffix = hasPrefixSuffix(props) || !!hasFeedback;
   const prevHasPrefixSuffix = useRef<boolean>(inputHasPrefixSuffix);
   useEffect(() => {
     if (inputHasPrefixSuffix && !prevHasPrefixSuffix.current) {
@@ -200,8 +200,6 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     </>
   );
 
-  const withPrefixSuffix = hasPrefixSuffix(props) || hasFeedback;
-
   // Allow clear
   let mergedAllowClear;
   if (typeof allowClear === 'object' && allowClear?.clearIcon) {
@@ -223,13 +221,13 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       addonAfter={addonAfter && <NoFormStatus>{addonAfter}</NoFormStatus>}
       addonBefore={addonBefore && <NoFormStatus>{addonBefore}</NoFormStatus>}
       inputClassName={classNames(
-        !withPrefixSuffix && {
+        {
           [`${prefixCls}-sm`]: mergedSize === 'small',
           [`${prefixCls}-lg`]: mergedSize === 'large',
           [`${prefixCls}-rtl`]: direction === 'rtl',
           [`${prefixCls}-borderless`]: !bordered,
         },
-        !withPrefixSuffix && getStatusClassNames(prefixCls, mergedStatus),
+        !inputHasPrefixSuffix && getStatusClassNames(prefixCls, mergedStatus),
       )}
       affixWrapperClassName={classNames(
         {
