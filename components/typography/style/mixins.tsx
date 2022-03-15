@@ -163,15 +163,15 @@ export const getResetStyles = (): CSSObject => ({
 
 export const getEditableStyles: GenerateStyle<TypographyToken, CSSObject> = token => {
   const inputToken = initInputToken(token, '', '');
-  const inputShift = `${-inputToken.inputPaddingVertical - 1}px`;
+  const inputShift = inputToken.inputPaddingVertical + 1;
   return {
     '&-edit-content': {
       position: 'relative',
 
       'div&': {
         insetInlineStart: -token.paddingSM,
-        marginTop: inputShift,
-        marginBottom: `calc(1em - ${inputShift})`,
+        marginTop: -inputShift,
+        marginBottom: `calc(1em - ${inputShift}px)`,
       },
 
       [`.${token.typography.prefixCls}-edit-content-confirm`]: {
@@ -186,10 +186,11 @@ export const getEditableStyles: GenerateStyle<TypographyToken, CSSObject> = toke
         pointerEvents: 'none',
       },
 
-      // Fix Editable Textarea flash in Firefox
       textarea: {
         margin: '0!important',
+        // Fix Editable Textarea flash in Firefox
         MozTransition: 'none',
+        height: '1em',
       },
     },
   };
