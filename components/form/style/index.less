@@ -60,9 +60,11 @@
 .@{form-item-prefix-cls} {
   .reset-component();
 
+  margin-bottom: @form-item-margin-bottom;
   vertical-align: top;
 
   &-with-help {
+    margin-bottom: 0;
     transition: none;
   }
 
@@ -171,9 +173,6 @@
     &:first-child:not([class^=~"'@{ant-prefix}-col-'"]):not([class*=~"' @{ant-prefix}-col-'"]) {
       width: 100%;
     }
-    .@{form-item-prefix-cls}-control .@{form-item-prefix-cls}-explain {
-      margin-bottom: 0;
-    }
   }
 
   &-control-input {
@@ -204,9 +203,6 @@
   &-explain-connected {
     height: 0;
     min-height: @form-item-margin-bottom;
-    margin-top: -@form-item-margin-bottom;
-    margin-bottom: @form-item-margin-bottom;
-    transform: translateY(@form-item-margin-bottom);
     opacity: 0;
   }
 

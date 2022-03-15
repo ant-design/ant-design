@@ -59,7 +59,7 @@ export default function ErrorList({
     ];
   }, [help, helpStatus, errors, warnings]);
 
-  return (
+  return fullKeyList.length ? (
     <div className={classNames(baseClassName, rootClassName)}>
       <CSSMotionList
         keys={fullKeyList}
@@ -85,5 +85,5 @@ export default function ErrorList({
         }}
       </CSSMotionList>
     </div>
-  );
+  ) : null;
 }
