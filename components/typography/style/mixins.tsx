@@ -40,7 +40,7 @@ const getTitleStyle = ({
 });
 
 // eslint-disable-next-line import/prefer-default-export
-export const getTitleStyles: GenerateStyle<TypographyToken> = token => {
+export const getTitleStyles: GenerateStyle<TypographyToken, CSSObject> = token => {
   const lineHeights = [1.23, 1.35, 1.35, 1.4, 1.5];
   const styles = {} as CSSObject;
   lineHeights.forEach((lineHeight, i) => {
@@ -61,7 +61,7 @@ export const getTitleStyles: GenerateStyle<TypographyToken> = token => {
   return styles;
 };
 
-export const getResetStyles: GenerateStyle<TypographyToken> = () => ({
+export const getResetStyles = (): CSSObject => ({
   code: {
     margin: '0 0.2em',
     paddingInline: '0.1em 0.2em',
@@ -160,7 +160,7 @@ export const getResetStyles: GenerateStyle<TypographyToken> = () => ({
   },
 });
 
-export const getEditableStyles: GenerateStyle<TypographyToken> = token => ({
+export const getEditableStyles: GenerateStyle<TypographyToken, CSSObject> = token => ({
   '&-edit-content': {
     position: 'relative',
 
@@ -190,7 +190,7 @@ export const getEditableStyles: GenerateStyle<TypographyToken> = token => ({
   },
 });
 
-export const getCopiableStyles: GenerateStyle<TypographyToken> = token => ({
+export const getCopiableStyles: GenerateStyle<TypographyToken, CSSObject> = token => ({
   '&-copy-success': {
     [`
     &,
@@ -201,7 +201,7 @@ export const getCopiableStyles: GenerateStyle<TypographyToken> = token => ({
   },
 });
 
-export const getEllipsisStyles: GenerateStyle<TypographyToken> = () => ({
+export const getEllipsisStyles = (): CSSObject => ({
   [`
   a&-ellipsis,
   span&-ellipsis
