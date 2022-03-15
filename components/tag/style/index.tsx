@@ -38,6 +38,7 @@ const genTagStatusStyle = (
   };
 };
 
+// FIXME: special preset colors
 const genTagColorStyle = (prefixCls: string, token: TagToken): CSSInterpolation =>
   PresetColorKeys.reduce((prev: CSSObject, colorKey: keyof IPresetColors) => {
     const lightColor = token[`${colorKey}-1`];
@@ -70,7 +71,7 @@ const genBaseStyle = (
     display: 'inline-block',
     height: 'auto',
     marginInlineStart: token.marginXS,
-    // hard code
+    // FIXME: hard code
     padding: '0 7px',
     fontSize: token.tagFontSize,
     lineHeight: token.tagLineHeight,
@@ -78,7 +79,7 @@ const genBaseStyle = (
     background: token.tagDefaultBg,
     border: `${token.borderWidth}px ${token.borderStyle} ${token.borderColor}`,
     borderRadius: token.borderRadius,
-    // hard code
+    // FIXME: hard code
     opacity: 1,
     transition: `all ${token.duration}`,
 
@@ -93,10 +94,10 @@ const genBaseStyle = (
     },
 
     [`.${prefixCls}-close-icon`]: {
-      // hard code
+      // FIXME: hard code
       marginInlineStart: 3,
       color: token.textColorSecondary,
-      // hard code
+      // FIXME: hard code
       fontSize: 10,
       cursor: 'pointer',
       transition: `all ${token.duration}`,
@@ -142,7 +143,7 @@ const genBaseStyle = (
 
     // To ensure that a space will be placed between character and `Icon`.
     [`> .${iconPrefixCls} + span, > span + .${iconPrefixCls}`]: {
-      // hard code
+      // FIXME: hard code
       marginInlineStart: 7,
     },
   },
@@ -154,7 +155,7 @@ export const genTagStyle = (
   token: DerivativeToken,
 ): CSSInterpolation => {
   const tagFontSize = token.fontSizeSM;
-  // hard code
+  // FIXME: hard code
   const tagLineHeight = '18px';
   const tagDefaultBg = token.backgroundLight;
   const tagDefaultColor = token.textColor;
