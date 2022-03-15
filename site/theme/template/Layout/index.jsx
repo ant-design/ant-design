@@ -69,6 +69,7 @@ export default class Layout extends React.Component {
   static contextType = SiteContext;
 
   isBeforeComponent = false;
+  syncIframeThemeId = null;
 
   constructor(props) {
     super(props);
@@ -137,10 +138,25 @@ export default class Layout extends React.Component {
 
     this.updateMobileMode();
     window.addEventListener('resize', this.updateMobileMode);
+
+    // Sync iframe theme with current theme
+    this.syncIframeThemeId = setInterval(() => {
+      const { designToken, hashedStyle } = this.state;
+      const content = JSON.stringify({
+        action: 'sync.theme',
+        designToken,
+        hashed: hashedStyle,
+      });
+
+      document.querySelectorAll('iframe.iframe-demo').forEach(iframe => {
+        iframe.contentWindow.postMessage(content);
+      });
+    }, 1000);
   }
 
   componentWillUnmount() {
     clearTimeout(this.timer);
+    clearInterval(this.syncIframeThemeId);
     window.removeEventListener('resize', this.updateMobileMode);
   }
 
