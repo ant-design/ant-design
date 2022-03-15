@@ -3815,6 +3815,7 @@ exports[`renders ./components/select/demo/optgroup.md extend context correctly 1
               >
                 <div
                   class="ant-select-item ant-select-item-group"
+                  title="Manager"
                 >
                   Manager
                 </div>
