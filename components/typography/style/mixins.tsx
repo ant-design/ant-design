@@ -163,7 +163,7 @@ export const getResetStyles = (): CSSObject => ({
 
 export const getEditableStyles: GenerateStyle<TypographyToken, CSSObject> = token => {
   const inputToken = initInputToken(token, '', '');
-  const inputShift = -inputToken.inputPaddingVertical - 1;
+  const inputShift = `${-inputToken.inputPaddingVertical - 1}px`;
   return {
     '&-edit-content': {
       position: 'relative',
@@ -188,6 +188,7 @@ export const getEditableStyles: GenerateStyle<TypographyToken, CSSObject> = toke
 
       // Fix Editable Textarea flash in Firefox
       textarea: {
+        margin: '0!important',
         MozTransition: 'none',
       },
     },
