@@ -170,7 +170,6 @@ export const getEditableStyles: GenerateStyle<TypographyToken, CSSObject> = toke
 
       'div&': {
         insetInlineStart: -token.paddingSM,
-        // FIXME: should be calculated from input padding
         marginTop: inputShift,
         marginBottom: `calc(1em - ${inputShift})`,
       },
