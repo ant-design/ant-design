@@ -114,7 +114,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/_0XzgOis7/Select.svg
 
 ### 点击 `dropdownRender` 里的内容浮层关闭怎么办？
 
-看下 [dropdownRender 例子](#components-select-demo-custom-dropdown-menu) 里的说明。
+自定义内容点击时会关闭浮层，如果不喜欢关闭，可以添加 `onMouseDown={e => e.preventDefault()}` 进行阻止（更多详情见 [#13448](https://github.com/ant-design/ant-design/issues/13448)）。
 
 ### 自定义 Option 样式导致滚动异常怎么办？
 

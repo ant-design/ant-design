@@ -119,6 +119,7 @@ export interface DerivativeToken extends Omit<DesignToken, 'duration'> {
   paddingSM: number;
   paddingXS: number;
   paddingXXS: number;
+  paddingLG: number;
   marginXS: number;
   marginLG: number;
   marginXXS: number;
@@ -128,6 +129,7 @@ export interface DerivativeToken extends Omit<DesignToken, 'duration'> {
   durationFast: string;
 
   // TMP
+  tmpPrimaryColorWeak: string;
   tmpPrimaryHoverColorWeak: string;
 }
 
@@ -153,6 +155,7 @@ function derivative(designToken: DesignToken): DerivativeToken {
 
     ...designToken,
 
+    tmpPrimaryColorWeak: primaryColors[2],
     tmpPrimaryHoverColorWeak: primaryColors[0],
     primaryHoverColor: primaryColors[4],
     primaryActiveColor: primaryColors[6],
@@ -181,6 +184,7 @@ function derivative(designToken: DesignToken): DerivativeToken {
     paddingSM,
     paddingXS,
     paddingXXS: designToken.padding * 0.25,
+    paddingLG: designToken.padding * 1.5,
     marginXS: designToken.margin * 0.5,
     marginLG: designToken.margin * 1.5,
     marginXXS: designToken.margin * 0.25,
