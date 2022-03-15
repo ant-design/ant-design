@@ -7,6 +7,7 @@ import Wave from '../_util/wave';
 import { ConfigContext } from '../config-provider';
 import SizeContext from '../config-provider/SizeContext';
 import devWarning from '../_util/devWarning';
+import useStyle from './style';
 
 export type SwitchSize = 'small' | 'default';
 export type SwitchChangeEventHandler = (checked: boolean, event: MouseEvent) => void;
@@ -54,7 +55,7 @@ const Switch = React.forwardRef<unknown, SwitchProps>(
       '`value` is not a valid prop, do you mean `checked`?',
     );
 
-    const { getPrefixCls, direction } = React.useContext(ConfigContext);
+    const { getPrefixCls, iconPrefixCls, direction } = React.useContext(ConfigContext);
     const size = React.useContext(SizeContext);
     const prefixCls = getPrefixCls('switch', customizePrefixCls);
     const loadingIcon = (
@@ -63,6 +64,9 @@ const Switch = React.forwardRef<unknown, SwitchProps>(
       </div>
     );
 
+    // Style
+    const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls);
+
     const classes = classNames(
       {
         [`${prefixCls}-small`]: (customizeSize || size) === 'small',
@@ -70,9 +74,10 @@ const Switch = React.forwardRef<unknown, SwitchProps>(
         [`${prefixCls}-rtl`]: direction === 'rtl',
       },
       className,
+      hashId,
     );
 
-    return (
+    return wrapSSR(
       <Wave insertExtraNode>
         <RcSwitch
           {...props}
@@ -82,7 +87,7 @@ const Switch = React.forwardRef<unknown, SwitchProps>(
           ref={ref}
           loadingIcon={loadingIcon}
         />
-      </Wave>
+      </Wave>,
     );
   },
 ) as CompoundedComponent;
