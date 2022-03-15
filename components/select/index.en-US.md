@@ -113,7 +113,7 @@ It's caused by option with different `label` and `value`. You can use `optionFil
 
 ### The dropdown is closed when click `dropdownRender` area?
 
-See the instruction in [dropdownRender example](#components-select-demo-custom-dropdown-menu).
+Dropdown menu will be closed if click `dropdownRender` area, you can prevent it by wrapping `onMouseDown={e => e.preventDefault()}` (see more at [#13448](https://github.com/ant-design/ant-design/issues/13448)).
 
 ### Why sometime customize Option cause scroll break?
 
