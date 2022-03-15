@@ -60,10 +60,7 @@
 .@{form-item-prefix-cls} {
   .reset-component();
 
-  margin-bottom: @form-item-margin-bottom;
   vertical-align: top;
-  // We delay one frame (0.017s) here to let CSSMotion goes
-  transition: margin-bottom @animation-duration-slow 0.017s linear;
 
   &-with-help {
     transition: none;
@@ -174,6 +171,9 @@
     &:first-child:not([class^=~"'@{ant-prefix}-col-'"]):not([class*=~"' @{ant-prefix}-col-'"]) {
       width: 100%;
     }
+    .@{form-item-prefix-cls}-control .@{form-item-prefix-cls}-explain {
+      margin-bottom: 0;
+    }
   }
 
   &-control-input {
@@ -205,6 +205,7 @@
     height: 0;
     min-height: @form-item-margin-bottom;
     margin-top: -@form-item-margin-bottom;
+    margin-bottom: @form-item-margin-bottom;
     transform: translateY(@form-item-margin-bottom);
     opacity: 0;
   }
