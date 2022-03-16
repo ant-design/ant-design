@@ -27,7 +27,7 @@ export type BaseType = 'secondary' | 'success' | 'warning' | 'danger';
 
 interface CopyConfig {
   text?: string;
-  onCopy?: () => void;
+  onCopy?: (event?: React.MouseEvent<HTMLDivElement>) => void;
   icon?: React.ReactNode;
   tooltips?: boolean | React.ReactNode;
 }
@@ -207,7 +207,7 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
       setCopied(false);
     }, 3000);
 
-    copyConfig.onCopy?.();
+    copyConfig.onCopy?.(e);
   };
 
   React.useEffect(() => cleanCopyId, []);
