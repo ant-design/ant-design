@@ -158,7 +158,7 @@ export const getResetStyles = (): CSSObject => ({
     paddingInline: '0.6em 0',
     paddingBlock: 0,
     borderInlineStart: '4px solid rgba(100, 100, 100, 0.2)',
-    opacity: '0.85',
+    opacity: 0.85,
   },
 });
 
@@ -177,7 +177,7 @@ export const getEditableStyles: GenerateStyle<TypographyToken, CSSObject> = toke
 
       [`.${token.typography.prefixCls}-edit-content-confirm`]: {
         position: 'absolute',
-        insetInlineEnd: 10,
+        insetInlineEnd: token.marginXS + 2,
         insetBlockEnd: token.marginXS,
         color: token.textColorSecondary,
         // default style
