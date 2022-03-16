@@ -1,0 +1,52 @@
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+
+@switch-prefix-cls: ~'@{ant-prefix}-switch';
+
+@switch-pin-size: @switch-height - 4px;
+@switch-sm-pin-size: @switch-sm-height - 4px;
+
+.@{switch-prefix-cls}-rtl {
+  direction: rtl;
+
+  .@{switch-prefix-cls}-inner {
+    margin: 0 @switch-inner-margin-max 0 @switch-inner-margin-min;
+  }
+
+  .@{switch-prefix-cls}-handle {
+    right: @switch-padding;
+    left: auto;
+  }
+
+  &:not(&-disabled):active {
+    .@{switch-prefix-cls}-handle::before {
+      right: 0;
+      left: -30%;
+    }
+
+    &.@{switch-prefix-cls}-checked {
+      .@{switch-prefix-cls}-handle::before {
+        right: -30%;
+        left: 0;
+      }
+    }
+  }
+
+  &.@{switch-prefix-cls}-checked {
+    .@{switch-prefix-cls}-inner {
+      margin: 0 @switch-inner-margin-min 0 @switch-inner-margin-max;
+    }
+
+    .@{switch-prefix-cls}-handle {
+      right: calc(100% - @switch-pin-size - @switch-padding);
+    }
+  }
+
+  &.@{switch-prefix-cls}-small {
+    &.@{switch-prefix-cls}-checked {
+      .@{switch-prefix-cls}-handle {
+        right: calc(100% - @switch-sm-pin-size - @switch-padding);
+      }
+    }
+  }
+}
