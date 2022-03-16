@@ -217,6 +217,9 @@
 
     // Fix Editable Textarea flash in Firefox
     textarea {
+      // https://stackoverflow.com/a/7695964/3040605
+      height: 1em;
+      margin: 0 !important;
       /* stylelint-disable-next-line property-no-vendor-prefix */
       -moz-transition: none;
     }

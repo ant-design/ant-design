@@ -1,5 +1,22 @@
 import { TinyColor } from '@ctrl/tinycolor';
-import type { DesignToken } from '.';
+
+import type { DesignToken, PresetColorType } from '.';
+
+const presetColors: PresetColorType = {
+  blue: '#1890FF',
+  purple: '#722ED1',
+  cyan: '#13C2C2',
+  green: '#52C41A',
+  magenta: '#EB2F96',
+  pink: '#eb2f96',
+  red: '#F5222D',
+  orange: '#FA8C16',
+  yellow: '#FADB14',
+  volcano: '#FA541C',
+  geekblue: '#2F54EB',
+  gold: '#FAAD14',
+  lime: '#A0D911',
+};
 
 const defaultDesignToken: DesignToken = {
   primaryColor: '#1890ff',
@@ -59,6 +76,9 @@ const defaultDesignToken: DesignToken = {
   duration: 0.3,
 
   zIndexDropdown: 1050,
+
+  // preset color palettes
+  ...presetColors,
 };
 
 export default defaultDesignToken;
