@@ -1,19 +1,13 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import scrollIntoView from 'scroll-into-view-if-needed';
 import Form from '..';
-import * as Util from '../util';
-
 import Input from '../../input';
 import Button from '../../button';
-import Select from '../../select';
-
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { sleep } from '../../../tests/utils';
-import ConfigProvider from '../../config-provider';
-import zhCN from '../../locale/zh_CN';
 
 jest.mock('scroll-into-view-if-needed');
 
@@ -186,6 +180,158 @@ describe('Form', () => {
     );
   });
 
+  it('input element should have the prop aria-describedby pointing to the help id when there is a help message', () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item name="test" help="This is a help">
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    const input = wrapper.find('input');
+    expect(input.prop('aria-describedby')).toBe('test_help');
+    const help = wrapper.find('.ant-form-item-explain');
+    expect(help.prop('id')).toBe('test_help');
+  });
+
+  it('input element should not have the prop aria-describedby pointing to the help id when there is a help message and name is not defined', () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item help="This is a help">
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    const input = wrapper.find('input');
+    expect(input.prop('aria-describedby')).toBeUndefined();
+    const help = wrapper.find('.ant-form-item-explain');
+    expect(help.prop('id')).toBeUndefined();
+  });
+
+  it('input element should have the prop aria-describedby concatenated with the form name pointing to the help id when there is a help message', () => {
+    const wrapper = mount(
+      <Form name="form">
+        <Form.Item name="test" help="This is a help">
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    const input = wrapper.find('input');
+    expect(input.prop('aria-describedby')).toBe('form_test_help');
+    const help = wrapper.find('.ant-form-item-explain');
+    expect(help.prop('id')).toBe('form_test_help');
+  });
+
+  it('input element should have the prop aria-describedby pointing to the help id when there are errors', async () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item name="test" rules={[{ len: 3 }, { type: 'number' }]}>
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    const input = wrapper.find('input');
+    input.simulate('change', { target: { value: 'Invalid number' } });
+    await sleep(800);
+    wrapper.update();
+
+    const inputChanged = wrapper.find('input');
+    expect(inputChanged.prop('aria-describedby')).toBe('test_help');
+    const help = wrapper.find('.ant-form-item-explain');
+    expect(help.prop('id')).toBe('test_help');
+  });
+
+  it('input element should have the prop aria-invalid when there are errors', async () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item name="test" rules={[{ len: 3 }, { type: 'number' }]}>
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    const input = wrapper.find('input');
+    input.simulate('change', { target: { value: 'Invalid number' } });
+    await sleep(800);
+    wrapper.update();
+
+    const inputChanged = wrapper.find('input');
+    expect(inputChanged.prop('aria-invalid')).toBe('true');
+  });
+
+  it('input element should have the prop aria-required when the prop `required` is true', async () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item name="test" required>
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    const input = wrapper.find('input');
+    expect(input.prop('aria-required')).toBe('true');
+  });
+
+  it('input element should have the prop aria-required when there is a rule with required', async () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item name="test" rules={[{ required: true }]}>
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    const input = wrapper.find('input');
+    expect(input.prop('aria-required')).toBe('true');
+  });
+
+  it('input element should have the prop aria-describedby pointing to the extra id when there is a extra message', () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item name="test" extra="This is a extra message">
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    const input = wrapper.find('input');
+    expect(input.prop('aria-describedby')).toBe('test_extra');
+    const extra = wrapper.find('.ant-form-item-extra');
+    expect(extra.prop('id')).toBe('test_extra');
+  });
+
+  it('input element should not have the prop aria-describedby pointing to the extra id when there is a extra message and name is not defined', () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item extra="This is a extra message">
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    const input = wrapper.find('input');
+    expect(input.prop('aria-describedby')).toBeUndefined();
+    const extra = wrapper.find('.ant-form-item-extra');
+    expect(extra.prop('id')).toBeUndefined();
+  });
+
+  it('input element should have the prop aria-describedby pointing to the help and extra id when there is a help and extra message', () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item name="test" help="This is a help" extra="This is a extra message">
+          <input />
+        </Form.Item>
+      </Form>,
+    );
+
+    const input = wrapper.find('input');
+    expect(input.prop('aria-describedby')).toBe('test_help test_extra');
+  });
+
   describe('scrollToField', () => {
     function test(name, genForm) {
       it(name, () => {
@@ -316,30 +462,16 @@ describe('Form', () => {
     expect(wrapper.find('.ant-form-item-required')).toHaveLength(1);
   });
 
-  describe('should show related className when customize help', () => {
-    it('normal', () => {
-      const wrapper = mount(
-        <Form>
-          <Form.Item help="good">
-            <input />
-          </Form.Item>
-        </Form>,
-      );
+  it('should show related className when customize help', () => {
+    const wrapper = mount(
+      <Form>
+        <Form.Item help="good">
+          <input />
+        </Form.Item>
+      </Form>,
+    );
 
-      expect(wrapper.exists('.ant-form-item-with-help')).toBeTruthy();
-    });
-
-    it('empty string', () => {
-      const wrapper = mount(
-        <Form>
-          <Form.Item help="">
-            <input />
-          </Form.Item>
-        </Form>,
-      );
-
-      expect(wrapper.exists('.ant-form-item-with-help')).toBeTruthy();
-    });
+    expect(wrapper.find('.ant-form-item-with-help').length).toBeTruthy();
   });
 
   it('warning when use v3 function', () => {
@@ -614,27 +746,6 @@ describe('Form', () => {
     expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('Bamboo is good!');
   });
 
-  // https://github.com/ant-design/ant-design/issues/33691
-  it('should keep upper locale in nested ConfigProvider', async () => {
-    const wrapper = mount(
-      <ConfigProvider locale={zhCN}>
-        <ConfigProvider>
-          <Form>
-            <Form.Item name="test" label="Bamboo" rules={[{ required: true }]}>
-              <input />
-            </Form.Item>
-          </Form>
-        </ConfigProvider>
-      </ConfigProvider>,
-    );
-
-    wrapper.find('form').simulate('submit');
-    await sleep(100);
-    wrapper.update();
-    await sleep(100);
-    expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('请输入Bamboo');
-  });
-
   it('`name` support template when label is not provided', async () => {
     const wrapper = mount(
       // eslint-disable-next-line no-template-curly-in-string
@@ -684,9 +795,7 @@ describe('Form', () => {
     await sleep(100);
     wrapper.update();
     await sleep(100);
-    expect(wrapper.find('.ant-form-item-explain div').getDOMNode().getAttribute('role')).toBe(
-      'alert',
-    );
+    expect(wrapper.find('.ant-form-item-explain').getDOMNode().getAttribute('role')).toBe('alert');
   });
 
   it('return same form instance', () => {
@@ -837,7 +946,7 @@ describe('Form', () => {
           </Form.Item>
         </Form>,
       );
-      expect(wrapper.render()).toMatchSnapshot();
+      expect(wrapper).toMatchSnapshot();
     });
 
     it('noStyle should not work when hidden', () => {
@@ -848,7 +957,7 @@ describe('Form', () => {
           </Form.Item>
         </Form>,
       );
-      expect(wrapper.render()).toMatchSnapshot();
+      expect(wrapper).toMatchSnapshot();
     });
   });
 
@@ -872,7 +981,7 @@ describe('Form', () => {
           _internalItemRender={{
             mark: 'pro_table_render',
             render: (_, doms) => (
-              <div id="_test">
+              <div id="test">
                 {doms.input}
                 {doms.errorList}
                 {doms.extra}
@@ -884,62 +993,7 @@ describe('Form', () => {
         </Form.Item>
       </Form>,
     );
-    expect(wrapper.find('#_test').exists()).toBeTruthy();
-  });
-
-  it('Form Item element id will auto add form_item prefix if form name is empty and item name is in the black list', async () => {
-    const mockFn = jest.spyOn(Util, 'getFieldId');
-    const itemName = 'parentNode';
-    // mock getFieldId old logic,if form name is empty ,and item name is parentNode,will get parentNode
-    mockFn.mockImplementation(() => itemName);
-    const { Option } = Select;
-    const Demo = () => {
-      const [open, setOpen] = useState(false);
-      return (
-        <>
-          <Form>
-            <Form.Item name={itemName}>
-              <Select
-                className="form_item_parentNode"
-                defaultValue="lucy"
-                open={open}
-                style={{ width: 120 }}
-              >
-                <Option value="jack">Jack</Option>
-                <Option value="lucy">Lucy</Option>
-                <Option value="Yiminghe">yiminghe</Option>
-              </Select>
-            </Form.Item>
-          </Form>
-          <button
-            type="button"
-            onClick={() => {
-              setOpen(true);
-            }}
-          >
-            {open ? 'show' : 'hidden'}
-          </button>
-        </>
-      );
-    };
-
-    const wrapper = mount(<Demo />, { attachTo: document.body });
-    expect(mockFn).toHaveBeenCalled();
-    expect(Util.getFieldId()).toBe(itemName);
-
-    // make sure input id is parentNode
-    expect(wrapper.find(`#${itemName}`).exists()).toBeTruthy();
-    act(() => {
-      wrapper.find('button').simulate('click');
-    });
-    expect(wrapper.find('button').text()).toBe('show');
-
-    mockFn.mockRestore();
-    // https://enzymejs.github.io/enzyme/docs/api/ShallowWrapper/update.html
-    // setProps instead of update
-    wrapper.setProps({});
-    expect(wrapper.find(`#form_item_${itemName}`).exists()).toBeTruthy();
-    wrapper.unmount();
+    expect(wrapper.find('#test').exists()).toBeTruthy();
   });
 
   describe('tooltip', () => {
