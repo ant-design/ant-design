@@ -226,7 +226,8 @@
       display: none;
     }
 
-    &-placement-bottomLeft {
+    &-placement-bottomLeft,
+    &-placement-bottomRight {
       .@{picker-prefix-cls}-range-arrow {
         top: (@arrow-size / 2) - (@arrow-size / 3) + 0.7px;
         display: block;
@@ -234,7 +235,8 @@
       }
     }
 
-    &-placement-topLeft {
+    &-placement-topLeft,
+    &-placement-topRight {
       .@{picker-prefix-cls}-range-arrow {
         bottom: (@arrow-size / 2) - (@arrow-size / 3) + 0.7px;
         display: block;
