@@ -340,4 +340,20 @@ describe('Segmented', () => {
 
     expect(wrapper.find(`.${prefixCls}`).at(0).hasClass(`.${prefixCls}-block`)).toBeTruthy();
   });
+
+  it('render segmented with `size#small`', () => {
+    const wrapper = mount(<Segmented size="small" options={['Daily', 'Weekly', 'Monthly']} />);
+
+    expect(wrapper.render()).toMatchSnapshot();
+
+    expect(wrapper.find(`.${prefixCls}`).at(0).hasClass(`.${prefixCls}-sm`)).toBeTruthy();
+  });
+
+  it('render segmented with `size#large`', () => {
+    const wrapper = mount(<Segmented size="large" options={['Daily', 'Weekly', 'Monthly']} />);
+
+    expect(wrapper.render()).toMatchSnapshot();
+
+    expect(wrapper.find(`.${prefixCls}`).at(0).hasClass(`.${prefixCls}-lg`)).toBeTruthy();
+  });
 });

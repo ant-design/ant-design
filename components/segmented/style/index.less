@@ -25,13 +25,10 @@
   &&-block &-item {
     flex: 1;
     min-width: 0;
-    .segmented-text-ellipsis();
   }
 
   &-item {
     position: relative;
-    min-height: 28px;
-    padding: 4px 10px;
     text-align: center;
     cursor: pointer;
 
@@ -51,6 +48,9 @@
 
     &-label {
       z-index: 2;
+      min-height: @input-height-base;
+      padding: @input-padding-vertical-base @input-padding-horizontal-base;
+      .segmented-text-ellipsis();
     }
 
     // syntactic sugar to add `icon` for Segmented Item
@@ -68,6 +68,18 @@
       opacity: 0;
       pointer-events: none;
     }
+  }
+
+  // size
+  &-lg &-item-label {
+    min-height: @input-height-lg;
+    padding: @input-padding-vertical-lg @input-padding-horizontal-lg;
+    font-size: @font-size-lg;
+  }
+
+  &-sm &-item-label {
+    min-height: @input-height-sm;
+    padding: @input-padding-vertical-sm @input-padding-horizontal-sm;
   }
 
   // disabled styles

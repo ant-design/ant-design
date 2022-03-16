@@ -8,6 +8,7 @@ import type {
 } from 'rc-segmented';
 
 import { ConfigContext } from '../config-provider';
+import SizeContext, { SizeType } from '../config-provider/SizeContext';
 
 export type { SegmentedValue } from 'rc-segmented';
 
@@ -16,17 +17,30 @@ export interface SegmentedLabeledOption extends RcSegmentedLabeledOption {
   icon?: React.ReactNode;
 }
 
-export interface SegmentedProps extends RCSegmentedProps {
+export interface SegmentedProps extends Omit<RCSegmentedProps, 'size'> {
   options: (SegmentedRawOption | SegmentedLabeledOption)[];
   /** Option to fit width to its parent's width */
   block?: boolean;
+  /** Option to control the display size */
+  size?: SizeType;
 }
 
 const Segmented = React.forwardRef<HTMLDivElement, SegmentedProps>((props, ref) => {
-  const { prefixCls: customizePrefixCls, className, block, options, ...restProps } = props;
+  const {
+    prefixCls: customizePrefixCls,
+    className,
+    block,
+    options,
+    size: customSize = 'middle',
+    ...restProps
+  } = props;
 
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('segmented', customizePrefixCls);
+
+  // ===================== Size =====================
+  const size = React.useContext(SizeContext);
+  const mergedSize = customSize || size;
 
   // syntactic sugar to support `icon` for Segmented Item
   const extendedOptions = React.useMemo(
@@ -52,7 +66,11 @@ const Segmented = React.forwardRef<HTMLDivElement, SegmentedProps>((props, ref) 
   return (
     <RcSegmented
       {...restProps}
-      className={classNames(className, { [`${prefixCls}-block`]: block })}
+      className={classNames(className, {
+        [`${prefixCls}-block`]: block,
+        [`${prefixCls}-sm`]: mergedSize === 'small',
+        [`${prefixCls}-lg`]: mergedSize === 'large',
+      })}
       options={extendedOptions}
       ref={ref}
       prefixCls={prefixCls}

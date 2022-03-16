@@ -24,4 +24,5 @@ cover: https://gw.alipayobjects.com/zos/alicdn/tX6-md4H6/Affix.svg
 | disabled | 是否禁用 | boolean | false |  |
 | onChange | 选项变化时的回调函数 | function(e:Event) |  |  |
 | options | 数据化配置选项内容 | string\[] \| number\[] \| Array<{ label: string value: string icon? ReactNode disabled?: boolean className?: string }> | [] |  |
+| size | 控件尺寸 | `large` \| `middle` \| `small` | - |  |
 | value | 当前选中的值 | string \| number |  |  |

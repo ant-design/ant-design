@@ -16,5 +16,8 @@ title:
 ```jsx
 import { Segmented } from 'antd';
 
-ReactDOM.render(<Segmented block options={[123, 456, 'longtext-longtext-longtext']} />, mountNode);
+ReactDOM.render(
+  <Segmented block options={[123, 456, 'longtext-longtext-longtext-longtext']} />,
+  mountNode,
+);
 ```
