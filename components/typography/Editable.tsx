@@ -9,7 +9,7 @@ import { cloneElement } from '../_util/reactNode';
 import useStyle from './style';
 
 interface EditableProps {
-  prefixCls?: string;
+  prefixCls: string;
   value: string;
   ['aria-label']?: string;
   onSave: (value: string) => void;
@@ -113,7 +113,7 @@ const Editable: React.FC<EditableProps> = ({
 
   const textClassName = component ? `${prefixCls}-${component}` : '';
 
-  const [wrapSSR, hashId] = useStyle(prefixCls || '');
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const textAreaClassName = classNames(
     prefixCls,
