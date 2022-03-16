@@ -53,6 +53,8 @@ const defaultDesignToken: DesignToken = {
   textColorInverse: '#fff',
   placeholderColor: new TinyColor({ h: 0, s: 0, v: 75 }).setAlpha(0.5).toRgbString(),
 
+  disabledColor: new TinyColor('#000').setAlpha(0.25).toRgbString(),
+
   headingColor: new TinyColor('#000').setAlpha(0.85).toRgbString(),
 
   iconColorHover: new TinyColor('#000').setAlpha(0.75).toRgbString(),

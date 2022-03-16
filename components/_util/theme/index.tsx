@@ -101,6 +101,8 @@ export interface DesignToken extends PresetColorType {
   textColorInverse: string;
   placeholderColor: string;
 
+  disabledColor: string;
+
   iconColorHover: string;
 
   headingColor: string;
@@ -146,6 +148,12 @@ export interface DerivativeToken extends ColorPalettes, Omit<DesignToken, 'durat
   highlightColor: string;
 
   linkColor: string;
+  linkHoverColor: string;
+  linkActiveColor: string;
+  linkDecoration: CSSObject['textDecoration'];
+  linkHoverDecoration: CSSObject['textDecoration'];
+  linkFocusDecoration: CSSObject['textDecoration'];
+
   fontSizeSM: number;
   fontSizeLG: number;
   /** @private Only Used for control inside component like Multiple Select inner selection item */
@@ -165,6 +173,16 @@ export interface DerivativeToken extends ColorPalettes, Omit<DesignToken, 'durat
   duration: string;
   durationMid: string;
   durationFast: string;
+
+  heading1Size: number;
+  heading2Size: number;
+  heading3Size: number;
+  heading4Size: number;
+  heading5Size: number;
+
+  primaryColors: string[];
+  errorColors: string[];
+  warningColors: string[];
 
   // TMP
   tmpPrimaryColorWeak: string;
@@ -241,6 +259,12 @@ function derivative(designToken: DesignToken): DerivativeToken {
     itemActiveBackground: primaryColors[0],
 
     linkColor: primaryColor,
+    linkHoverColor: primaryColors[4],
+    linkActiveColor: primaryColors[6],
+    linkDecoration: 'none',
+    linkHoverDecoration: 'none',
+    linkFocusDecoration: 'none',
+
     fontSizeSM: designToken.fontSize - 2,
     fontSizeLG: designToken.fontSize + 2,
     controlHeightXS: designToken.controlHeight / 2,
@@ -261,6 +285,16 @@ function derivative(designToken: DesignToken): DerivativeToken {
     durationFast: `${designToken.duration / 3}s`,
 
     ...colorPalettes,
+
+    heading1Size: Math.ceil(designToken.fontSize * 2.71),
+    heading2Size: Math.ceil(designToken.fontSize * 2.14),
+    heading3Size: Math.ceil(designToken.fontSize * 1.71),
+    heading4Size: Math.ceil(designToken.fontSize * 1.42),
+    heading5Size: Math.ceil(designToken.fontSize * 1.14),
+
+    primaryColors,
+    errorColors,
+    warningColors,
 
     // TMP
     tmpPrimaryColorWeak: primaryColors[2],
