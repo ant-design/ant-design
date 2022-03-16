@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-使用 `dropdownRender` 对下拉菜单进行自由扩展。
+使用 `dropdownRender` 对下拉菜单进行自由扩展。自定义内容点击时会关闭浮层，如果不喜欢关闭，可以添加 `onMouseDown={e => e.preventDefault()}` 进行阻止（更多详情见 [#13448](https://github.com/ant-design/ant-design/issues/13448)）。
 
 ## en-US
 
-Customize the dropdown menu via `dropdownRender`.
+Customize the dropdown menu via `dropdownRender`. Dropdown menu will be closed if click `dropdownRender` area, you can prevent it by wrapping `onMouseDown={e => e.preventDefault()}` (see more at [#13448](https://github.com/ant-design/ant-design/issues/13448)).
 
 ```jsx
 import React, { useState } from 'react';
