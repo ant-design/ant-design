@@ -42,6 +42,7 @@ const getTitleStyle = ({
 
 // eslint-disable-next-line import/prefer-default-export
 export const getTitleStyles: GenerateStyle<TypographyToken, CSSObject> = token => {
+  // FIXME: magic numbers for H1/H2/.../H5 line height
   const lineHeights = [1.23, 1.35, 1.35, 1.4, 1.5];
   const styles = {} as CSSObject;
   lineHeights.forEach((lineHeight, i) => {
@@ -139,7 +140,7 @@ export const getResetStyles = (): CSSObject => ({
     wordWrap: 'break-word',
     background: 'rgba(150, 150, 150, 0.1)',
     border: '1px solid rgba(100, 100, 100, 0.2)',
-    borderRadius: '3px',
+    borderRadius: 3,
 
     // Compatible for marked
     code: {
@@ -177,7 +178,7 @@ export const getEditableStyles: GenerateStyle<TypographyToken, CSSObject> = toke
       [`.${token.typography.prefixCls}-edit-content-confirm`]: {
         position: 'absolute',
         insetInlineEnd: 10,
-        insetBlockEnd: 8,
+        insetBlockEnd: token.marginXS,
         color: token.textColorSecondary,
         // default style
         fontWeight: 'normal',

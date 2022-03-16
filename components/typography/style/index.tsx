@@ -92,7 +92,7 @@ const genTypographyStyle: GenerateStyle<TypographyToken> = token => {
       .${prefixCls}-copy
       `]: {
         ...operationUnit(token),
-        marginInlineStart: 4,
+        marginInlineStart: token.marginXXS,
       },
 
       ...getEditableStyles(token),
