@@ -1,0 +1,12 @@
+name: ChainAlert
+on:
+  schedule:
+    - cron:  '0 0 * * *'
+  push:
+    branches: [ master ]
+jobs:
+  chainalert:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: checkmarx/chainalert-github-action@v1
