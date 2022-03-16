@@ -140,7 +140,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   const prefixCls = getPrefixCls('input', customizePrefixCls);
   const inputRef = useRef<InputRef>(null);
 
-  // ===================== Status =====================
+  // ===================== Size =====================
   const size = React.useContext(SizeContext);
   const mergedSize = customSize || size;
 
