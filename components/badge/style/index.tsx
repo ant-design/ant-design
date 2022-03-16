@@ -1,6 +1,14 @@
 // deps-lint-skip-all
 import { CSSObject, Keyframes } from '@ant-design/cssinjs';
-import { useStyleRegister, useToken, resetComponent } from '../../_util/theme';
+import {
+  useStyleRegister,
+  useToken,
+  resetComponent,
+  UseComponentStyleResult,
+  GenerateStyle,
+  PresetColorKeys,
+  PresetColorType,
+} from '../../_util/theme';
 import type { DerivativeToken } from '../../_util/theme';
 
 interface BadgeToken extends DerivativeToken {
@@ -14,6 +22,9 @@ interface BadgeToken extends DerivativeToken {
   badgeDotSize: number;
   badgeFontSizeSm: number;
   badgeStatusSize: number;
+  badgePrefixCls: string;
+  antPrefix: string;
+  iconPrefixCls: string;
 }
 
 const antStatusProcessing = new Keyframes('antStatusProcessing', {
@@ -47,33 +58,40 @@ const antBadgeLoadingCircle = new Keyframes('antBadgeLoadingCircle', {
   },
 });
 
-const tmpPreset = {
-  pink: '#eb2f96',
-};
-
-const genSharedBadgeStyle = (
+const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (
   token: BadgeToken,
-  badgePrefixCls: string,
-  numberPrefixCls: string,
-  iconPrefixCls: string,
-  ribbonPrefixCls: string,
-  ribbonWrapperPrefixCls: string,
   hashId: string,
-  commonToken: DerivativeToken,
 ): CSSObject => {
-  // 这里等https://github.com/ant-design/ant-design/pull/34422 合并后会用他的常量再改
-  const statusPreset = {} as any;
-  const statusRibbonPreset = {} as any;
+  const { badgePrefixCls, iconPrefixCls, antPrefix } = token;
+  const numberPrefixCls = `${antPrefix}-scroll-number`;
+  const ribbonPrefixCls = `${antPrefix}-ribbon`;
+  const ribbonWrapperPrefixCls = `${antPrefix}-ribbon-wrapper`;
 
-  Object.keys(tmpPreset).forEach(preset => {
-    statusPreset[`.${badgePrefixCls}-status-${preset}`] = {
-      background: tmpPreset[preset],
-    };
-    statusRibbonPreset[`&.${ribbonPrefixCls}-color-${preset}`] = {
-      background: tmpPreset[preset],
-      color: tmpPreset[preset],
-    };
-  });
+  const statusPreset = PresetColorKeys.reduce(
+    (prev: CSSObject, colorKey: keyof PresetColorType) => {
+      const darkColor = token[`${colorKey}-6`];
+      return {
+        ...prev,
+        [`.${badgePrefixCls}-status-${colorKey}`]: {
+          background: darkColor,
+        },
+      };
+    },
+    {} as CSSObject,
+  );
+  const statusRibbonPreset = PresetColorKeys.reduce(
+    (prev: CSSObject, colorKey: keyof PresetColorType) => {
+      const darkColor = token[`${colorKey}-6`];
+      return {
+        ...prev,
+        [`&.${ribbonPrefixCls}-color-${colorKey}`]: {
+          background: darkColor,
+          color: darkColor,
+        },
+      };
+    },
+    {} as CSSObject,
+  );
 
   return {
     [`.${badgePrefixCls}`]: {
@@ -95,7 +113,7 @@ const genSharedBadgeStyle = (
         textAlign: 'center',
         background: token.badgeColor,
         borderRadius: token.badgeHeight / 2,
-        boxShadow: `0 0 0 1px ${commonToken.componentBackground}`,
+        boxShadow: `0 0 0 1px ${token.componentBackground}`,
         a: {
           color: token.badgeTextColor,
         },
@@ -123,7 +141,7 @@ const genSharedBadgeStyle = (
         height: token.badgeDotSize,
         background: token.badgeColor,
         borderRadius: '100%',
-        boxShadow: `0 0 0 1px ${commonToken.componentBackground}`,
+        boxShadow: `0 0 0 1px ${token.componentBackground}`,
       },
       [`.${badgePrefixCls}-dot.${numberPrefixCls}`]: {
         transition: 'background 1.5s',
@@ -131,7 +149,7 @@ const genSharedBadgeStyle = (
       [`.${badgePrefixCls}-count, .${badgePrefixCls}-dot, .${numberPrefixCls}-custom-component`]: {
         position: 'absolute',
         top: '0',
-        right: '0',
+        insetInlineEnd: '0',
         transform: 'translate(50%, -50%)',
         transformOrigin: '100% 0%',
         [`.${iconPrefixCls}-spin`]: {
@@ -153,19 +171,19 @@ const genSharedBadgeStyle = (
         },
 
         [`.${badgePrefixCls}-status-success`]: {
-          backgroundColor: commonToken.successColor,
+          backgroundColor: token.successColor,
         },
         [`.${badgePrefixCls}-status-processing`]: {
           position: 'relative',
-          backgroundColor: commonToken.primaryColor,
+          backgroundColor: token.primaryColor,
 
           '&::after': {
             position: 'absolute',
             top: 0,
-            left: 0,
+            insetInlineStart: 0,
             width: '100%',
             height: '100%',
-            border: `1px solid ${commonToken.primaryColor}`,
+            border: `1px solid ${token.primaryColor}`,
             borderRadius: '50%',
             animation: `${antStatusProcessing.getName(hashId)} 1.2s infinite ease-in-out`,
             content: '',
@@ -176,41 +194,37 @@ const genSharedBadgeStyle = (
         },
 
         [`.${badgePrefixCls}-status-error`]: {
-          backgroundColor: commonToken.errorColor,
+          backgroundColor: token.errorColor,
         },
 
         [`.${badgePrefixCls}-status-warning`]: {
-          backgroundColor: commonToken.warningColor,
+          backgroundColor: token.warningColor,
         },
         ...statusPreset,
         [`.${badgePrefixCls}-status-text`]: {
-          marginLeft: 8,
-          color: commonToken.textColor,
-          fontSize: commonToken.fontSize,
+          marginInlineStart: 8,
+          color: token.textColor,
+          fontSize: token.fontSize,
         },
       },
       [`.${badgePrefixCls}-zoom-appear, .${badgePrefixCls}-zoom-enter`]: {
-        animation: `${antZoomBadgeIn.getName(hashId)} ${commonToken.duration} ${
-          commonToken.easeOutBack
-        }`,
+        animation: `${antZoomBadgeIn.getName(hashId)} ${token.duration} ${token.easeOutBack}`,
         animationFillMode: 'both',
       },
       [`.${badgePrefixCls}-zoom-leave`]: {
-        animation: `${antZoomBadgeOut.getName(hashId)} ${commonToken.duration} ${
-          commonToken.easeOutBack
-        }`,
+        animation: `${antZoomBadgeOut.getName(hashId)} ${token.duration} ${token.easeOutBack}`,
         animationFillMode: 'both',
       },
       [`&.${badgePrefixCls}-not-a-wrapper`]: {
         [`.${badgePrefixCls}-zoom-appear, .${badgePrefixCls}-zoom-enter`]: {
-          animation: `${antNoWrapperZoomBadgeIn.getName(hashId)} ${commonToken.duration} ${
-            commonToken.easeOutBack
+          animation: `${antNoWrapperZoomBadgeIn.getName(hashId)} ${token.duration} ${
+            token.easeOutBack
           }`,
         },
 
         [`.${badgePrefixCls}-zoom-leave`]: {
-          animation: `${antNoWrapperZoomBadgeOut.getName(hashId)} ${commonToken.duration} ${
-            commonToken.easeOutBack
+          animation: `${antNoWrapperZoomBadgeOut.getName(hashId)} ${token.duration} ${
+            token.easeOutBack
           }`,
         },
         [`&:not(.${badgePrefixCls}-status)`]: {
@@ -233,7 +247,7 @@ const genSharedBadgeStyle = (
           position: 'relative',
           display: 'inline-block',
           height: token.badgeHeight,
-          transition: `all ${commonToken.duration} ${commonToken.easeOutBack}`,
+          transition: `all ${token.duration} ${token.easeOutBack}`,
           WebkitTransformStyle: 'preserve-3d',
           WebkitBackfaceVisibility: 'hidden',
           [`> p.${numberPrefixCls}-only-unit`]: {
@@ -256,8 +270,8 @@ const genSharedBadgeStyle = (
       color: token.badgeTextColor,
       lineHeight: '22px',
       whiteSpace: 'nowrap',
-      backgroundColor: commonToken.primaryColor,
-      borderRadius: commonToken.borderRadius,
+      backgroundColor: token.primaryColor,
+      borderRadius: token.borderRadius,
       [`.${ribbonPrefixCls}-text`]: { color: '#fff' },
       [`.${ribbonPrefixCls}-corner`]: {
         position: 'absolute',
@@ -271,7 +285,7 @@ const genSharedBadgeStyle = (
         '&::after': {
           position: 'absolute',
           top: '-4px',
-          left: '-4px',
+          insetInlineStart: '-4px',
           width: 'inherit',
           height: 'inherit',
           color: 'rgba(0, 0, 0, 0.25)',
@@ -281,18 +295,18 @@ const genSharedBadgeStyle = (
       },
       ...statusRibbonPreset,
       [`&.${ribbonPrefixCls}-placement-end`]: {
-        right: '-8px',
+        insetInlineEnd: '-8px',
         borderBottomRightRadius: '0',
         [`.${ribbonPrefixCls}-corner`]: {
-          right: '0',
+          insetInlineEnd: '0',
           borderColor: 'currentcolor transparent transparent currentcolor',
         },
       },
       [`&.${ribbonPrefixCls}-placement-start`]: {
-        left: '-8px',
+        insetInlineStart: '-8px',
         borderBottomLeftRadius: '0',
         [`.${ribbonPrefixCls}-corner`]: {
-          left: '0',
+          insetInlineStart: '0',
           borderColor: 'currentcolor currentcolor transparent transparent',
         },
       },
@@ -307,19 +321,23 @@ const genSharedBadgeStyle = (
 };
 
 // ============================== Export ==============================
-export default function useStyle(antPrefix: string, badgePrefixCls: string, iconPrefixCls: string) {
+export default function useStyle(
+  antPrefix: string,
+  badgePrefixCls: string,
+  iconPrefixCls: string,
+): UseComponentStyleResult {
   const [theme, token, hashId] = useToken();
 
   const badgeZIndex = 'auto';
-  const badgeHeight = 20;
+  const badgeHeight = 20; // FIXME: hard code
   const badgeTextColor = token.componentBackground;
   const badgeFontWeight = 'normal';
   const badgeFontSize = token.fontSizeSM;
   const badgeColor = token.highlightColor;
-  const badgeHeightSm = 14;
-  const badgeDotSize = 6;
+  const badgeHeightSm = 14; // FIXME: hard code
+  const badgeDotSize = 6; // FIXME: hard code
   const badgeFontSizeSm = token.fontSizeSM;
-  const badgeStatusSize = 6;
+  const badgeStatusSize = 6; // FIXME: hard code
 
   const badgeToken: BadgeToken = {
     ...token,
@@ -333,24 +351,14 @@ export default function useStyle(antPrefix: string, badgePrefixCls: string, icon
     badgeDotSize,
     badgeFontSizeSm,
     badgeStatusSize,
+    badgePrefixCls,
+    antPrefix,
+    iconPrefixCls,
   };
-
-  const numberPrefixCls = `${antPrefix}-scroll-number`;
-  const ribbonPrefixCls = `${antPrefix}-ribbon`;
-  const ribbonWrapperPrefixCls = `${antPrefix}-ribbon-wrapper`;
 
   return [
     useStyleRegister({ theme, token, hashId, path: [badgePrefixCls] }, () => [
-      genSharedBadgeStyle(
-        badgeToken,
-        badgePrefixCls,
-        numberPrefixCls,
-        iconPrefixCls,
-        ribbonPrefixCls,
-        ribbonWrapperPrefixCls,
-        hashId,
-        token,
-      ),
+      genSharedBadgeStyle(badgeToken, hashId),
       { display: 'none' },
     ]),
     hashId,
