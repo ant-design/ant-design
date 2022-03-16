@@ -126,7 +126,7 @@ export interface ColumnGroupType<RecordType> extends Omit<ColumnType<RecordType>
   children: ColumnsType<RecordType>;
 }
 
-export type ColumnsType<RecordType = unknown> = (
+export type ColumnsType<RecordType = unknown> = readonly (
   | ColumnGroupType<RecordType>
   | ColumnType<RecordType>
 )[];
