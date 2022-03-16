@@ -50,6 +50,7 @@ const genSwitchSmallStyle: GenerateStyle<SwitchToken, CSSObject> = token => ({
 
     [`${token.switchCls}-loading-icon`]: {
       top: (token.switchPinSizeSM - 9) / 2,
+      // FIXME
       fontSize: 9,
     },
 
@@ -99,6 +100,7 @@ const genSwitchHandleStyle: GenerateStyle<SwitchToken, CSSObject> = token => {
         insetInlineStart: 0,
         backgroundColor: token.switchBg,
         borderRadius: token.switchPinSize / 2,
+        // FIXME
         boxShadow: `0 2px 4px 0 ${token.switchShadowColor}`,
         transition: `all ${token.switchDuration} ease-in-out`,
         content: '""',
@@ -111,12 +113,14 @@ const genSwitchHandleStyle: GenerateStyle<SwitchToken, CSSObject> = token => {
 
     [`&:not(${token.switchCls}-disabled):active`]: {
       [`${switchHandleCls}::before`]: {
+        // FIXME
         insetInlineEnd: '-30%',
         insetInlineStart: 0,
       },
 
       [`&${token.switchCls}-checked ${switchHandleCls}::before`]: {
         insetInlineEnd: 0,
+        // FIXME
         insetInlineStart: '-30%',
       },
     },
@@ -159,6 +163,7 @@ const genSwitchStyle = (token: SwitchToken): CSSObject => {
       verticalAlign: 'middle',
       backgroundColor: token.textColorDisabled,
       border: '0',
+      // FIXME
       borderRadius: 100,
       cursor: 'pointer',
       transition: `all ${token.switchDuration}`,
@@ -166,12 +171,14 @@ const genSwitchStyle = (token: SwitchToken): CSSObject => {
 
       '&:focus': {
         outline: 0,
+        // FIXME
         boxShadow: `0 0 0 2px ${new TinyColor(token.textColorDisabled)
           .setAlpha(0.1)
           .toRgbString()}`,
       },
 
       [`&${token.switchCls}-checked:focus`]: {
+        // FIXME
         boxShadow: `0 0 0 2px ${token.tmpPrimaryHoverColorWeak}`,
       },
 
