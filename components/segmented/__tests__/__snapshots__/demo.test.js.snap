@@ -190,6 +190,9 @@ Array [
             src="https://joeschmoe.io/api/v1/random"
           />
         </span>
+        <div>
+          User 1
+        </div>
       </div>
     </label>
     <label
@@ -213,6 +216,9 @@ Array [
             K
           </span>
         </span>
+        <div>
+          User 2
+        </div>
       </div>
     </label>
     <label
@@ -249,6 +255,9 @@ Array [
             </svg>
           </span>
         </span>
+        <div>
+          User 3
+        </div>
       </div>
     </label>
   </div>,

@@ -4,7 +4,7 @@ import { mount } from 'enzyme';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 
-import Segmented from '..';
+import Segmented from '../index';
 import type { SegmentedValue } from '../index';
 
 // Make CSSMotion working without transition
@@ -193,8 +193,8 @@ describe('Segmented', () => {
     const handleValueChange = jest.fn();
     const wrapper = mount(
       <Segmented
-        options={['Daily', 'Weekly', 'Monthly']}
         disabled
+        options={['Daily', 'Weekly', 'Monthly']}
         onChange={e => handleValueChange(e.target.value)}
       />,
     );
@@ -346,7 +346,7 @@ describe('Segmented', () => {
 
     expect(wrapper.render()).toMatchSnapshot();
 
-    expect(wrapper.find(`.${prefixCls}`).at(0).hasClass(`.${prefixCls}-block`)).toBeTruthy();
+    expect(wrapper.find(`.${prefixCls}`).at(0).hasClass(`${prefixCls}-block`)).toBeTruthy();
   });
 
   it('render segmented with `size#small`', () => {
@@ -354,7 +354,7 @@ describe('Segmented', () => {
 
     expect(wrapper.render()).toMatchSnapshot();
 
-    expect(wrapper.find(`.${prefixCls}`).at(0).hasClass(`.${prefixCls}-sm`)).toBeTruthy();
+    expect(wrapper.find(`.${prefixCls}`).at(0).hasClass(`${prefixCls}-sm`)).toBeTruthy();
   });
 
   it('render segmented with `size#large`', () => {
@@ -362,6 +362,6 @@ describe('Segmented', () => {
 
     expect(wrapper.render()).toMatchSnapshot();
 
-    expect(wrapper.find(`.${prefixCls}`).at(0).hasClass(`.${prefixCls}-lg`)).toBeTruthy();
+    expect(wrapper.find(`.${prefixCls}`).at(0).hasClass(`${prefixCls}-lg`)).toBeTruthy();
   });
 });
