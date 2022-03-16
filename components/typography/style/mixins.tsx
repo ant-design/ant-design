@@ -10,6 +10,7 @@
 import { gold } from '@ant-design/colors';
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { DerivativeToken, GenerateStyle } from '../../_util/theme';
+import { operationUnit } from '../../_util/theme/util/operationUnit';
 import { initInputToken } from '../../input/style';
 
 export interface TypographyToken extends DerivativeToken {
@@ -63,11 +64,35 @@ export const getTitleStyles: GenerateStyle<TypographyToken, CSSObject> = token =
   return styles;
 };
 
+export const getLinkStyles: GenerateStyle<TypographyToken, CSSObject> = token => ({
+  'a&, a': {
+    ...operationUnit(token),
+    textDecoration: token.linkDecoration,
+
+    '&:active, &:hover': {
+      textDecoration: token.linkHoverDecoration,
+    },
+
+    [`&[disabled], &.${token.typography.prefixCls}-disabled`]: {
+      color: token.disabledColor,
+      cursor: 'not-allowed',
+
+      '&:active, &:hover': {
+        color: '@disabled-color',
+      },
+
+      '&:active': {
+        pointerEvents: 'none',
+      },
+    },
+  },
+});
+
 export const getResetStyles = (): CSSObject => ({
   code: {
     margin: '0 0.2em',
-    paddingInline: '0.1em 0.2em',
-    paddingBlock: '0.4em',
+    paddingInline: '0.4em',
+    paddingBlock: '0.2em 0.1em',
     fontSize: '85%',
     background: 'rgba(150, 150, 150, 0.1)',
     border: '1px solid rgba(100, 100, 100, 0.2)',
@@ -76,8 +101,8 @@ export const getResetStyles = (): CSSObject => ({
 
   kbd: {
     margin: '0 0.2em',
-    paddingInline: '0.1em 0.15em',
-    paddingBlock: '0.4em',
+    paddingInline: '0.4em',
+    paddingBlock: '0.15em 0.1em',
     fontSize: '90%',
     background: 'rgba(150, 150, 150, 0.06)',
     border: '1px solid rgba(100, 100, 100, 0.2)',
@@ -111,9 +136,9 @@ export const getResetStyles = (): CSSObject => ({
 
     li: {
       marginInline: '20px 0',
-      marginBlock: '0 0',
+      marginBlock: 0,
       paddingInline: '4px 0',
-      paddingBlock: '0 0',
+      paddingBlock: 0,
     },
   },
 

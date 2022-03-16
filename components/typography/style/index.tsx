@@ -5,6 +5,7 @@ import { operationUnit } from '../../_util/theme/util/operationUnit';
 import {
   getTitleStyles,
   getResetStyles,
+  getLinkStyles,
   getEditableStyles,
   getCopiableStyles,
   getEllipsisStyles,
@@ -84,6 +85,8 @@ const genTypographyStyle: GenerateStyle<TypographyToken> = token => {
       },
 
       ...getResetStyles(),
+
+      ...getLinkStyles(token),
 
       // Operation
       [`

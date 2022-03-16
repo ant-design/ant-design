@@ -150,6 +150,9 @@ export interface DerivativeToken extends ColorPalettes, Omit<DesignToken, 'durat
   linkColor: string;
   linkHoverColor: string;
   linkActiveColor: string;
+  linkDecoration: CSSObject['textDecoration'];
+  linkHoverDecoration: CSSObject['textDecoration'];
+  linkFocusDecoration: CSSObject['textDecoration'];
 
   fontSizeSM: number;
   fontSizeLG: number;
@@ -258,6 +261,9 @@ function derivative(designToken: DesignToken): DerivativeToken {
     linkColor: primaryColor,
     linkHoverColor: primaryColors[4],
     linkActiveColor: primaryColors[6],
+    linkDecoration: 'none',
+    linkHoverDecoration: 'none',
+    linkFocusDecoration: 'none',
 
     fontSizeSM: designToken.fontSize - 2,
     fontSizeLG: designToken.fontSize + 2,
