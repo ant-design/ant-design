@@ -22,15 +22,30 @@ ReactDOM.render(
     <Segmented
       options={[
         {
-          label: <Avatar src="https://joeschmoe.io/api/v1/random" />,
+          label: (
+            <>
+              <Avatar src="https://joeschmoe.io/api/v1/random" />
+              <div>User 1</div>
+            </>
+          ),
           value: 'user1',
         },
         {
-          label: <Avatar style={{ backgroundColor: '#f56a00' }}>K</Avatar>,
+          label: (
+            <>
+              <Avatar style={{ backgroundColor: '#f56a00' }}>K</Avatar>
+              <div>User 2</div>
+            </>
+          ),
           value: 'user2',
         },
         {
-          label: <Avatar style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} />,
+          label: (
+            <>
+              <Avatar style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} />
+              <div>User 3</div>
+            </>
+          ),
           value: 'user3',
         },
       ]}
