@@ -244,17 +244,25 @@ describe('Segmented', () => {
   });
 
   it('render segmented with controlled mode', () => {
-    const Demo: React.FC = () => {
-      const [value, setValue] = React.useState<SegmentedValue>();
+    class Demo extends React.Component<{}, { value: SegmentedValue }> {
+      state = {
+        value: 'Map',
+      };
 
-      return (
-        <Segmented
-          options={['Map', 'Transit', 'Satellite']}
-          value={value}
-          onChange={e => setValue(e.target.value)}
-        />
-      );
-    };
+      render() {
+        return (
+          <Segmented
+            options={['Map', 'Transit', 'Satellite']}
+            value={this.state.value}
+            onChange={e =>
+              this.setState({
+                value: e.target.value,
+              })
+            }
+          />
+        );
+      }
+    }
 
     const wrapper = mount<typeof Demo>(<Demo />);
     wrapper.find('Segmented').find(`.${prefixCls}-item-input`).at(0).simulate('change');
