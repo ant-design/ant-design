@@ -1,6 +1,12 @@
 // deps-lint-skip-all
 import { CSSObject } from '@ant-design/cssinjs';
-import { useStyleRegister, useToken, resetComponent, GenerateStyle } from '../../_util/theme';
+import {
+  useStyleRegister,
+  useToken,
+  resetComponent,
+  GenerateStyle,
+  UseComponentStyleResult,
+} from '../../_util/theme';
 import type { DerivativeToken } from '../../_util/theme';
 
 interface StatisticToken extends DerivativeToken {
@@ -40,7 +46,7 @@ const genStatisticStyle: GenerateStyle<StatisticToken> = (token: StatisticToken)
 });
 
 // ============================== Export ==============================
-export default function useStyle(prefixCls: string) {
+export default function useStyle(prefixCls: string): UseComponentStyleResult {
   const [theme, token, hashId] = useToken();
 
   const statisticToken: StatisticToken = {

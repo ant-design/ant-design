@@ -46,7 +46,7 @@ const Statistic: React.FC<StatisticProps & ConfigConsumerProps> = props => {
   } = props;
   const valueNode = <StatisticNumber {...props} value={value} />;
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [wrapSSR, hashId] = useStyle(String(prefixCls));
   const cls = classNames(
     prefixCls,
     {
