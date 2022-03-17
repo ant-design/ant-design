@@ -76,6 +76,12 @@ function InternalMenu(props: InternalMenuProps) {
     '`inlineCollapsed` not control Menu under Sider. Should set `collapsed` on Sider instead.',
   );
 
+  devWarning(
+    !!items && !children,
+    'Menu',
+    '`children` will be removed in next major version. Please use `items` instead.',
+  );
+
   // ======================== Collapsed ========================
   // Inline Collapsed
   const mergedInlineCollapsed = React.useMemo(() => {

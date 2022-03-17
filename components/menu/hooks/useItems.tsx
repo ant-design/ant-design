@@ -24,10 +24,12 @@ interface SubMenuType extends RcSubMenuType {
 
 interface MenuItemGroupType extends RcMenuItemGroupType {
   children?: MenuItemType[];
+  key?: React.Key;
 }
 
 interface MenuDividerType extends RcMenuDividerType {
   dashed?: boolean;
+  key?: React.Key;
 }
 
 export type ItemType = MenuItemType | SubMenuType | MenuItemGroupType | MenuDividerType;
