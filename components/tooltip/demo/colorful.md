@@ -38,7 +38,7 @@ ReactDOM.render(
     <Divider orientation="left">Presets</Divider>
     <div>
       {colors.map(color => (
-        <Tooltip title="prompt text" color={color} key={color}>
+        <Tooltip visible title="prompt text" color={color} key={color}>
           <Button>{color}</Button>
         </Tooltip>
       ))}
