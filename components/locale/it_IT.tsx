@@ -17,6 +17,8 @@ const localeValues: Locale = {
     filterTitle: 'Menù Filtro',
     filterConfirm: 'OK',
     filterReset: 'Reset',
+    selectNone: 'Deseleziona tutto',
+    selectionAll: 'Seleziona tutto',
     selectAll: 'Seleziona pagina corrente',
     selectInvert: 'Inverti selezione nella pagina corrente',
     sortTitle: 'Ordina',
