@@ -145,7 +145,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
             position: 'relative',
             display: 'block',
             minWidth: 100, // FIXME: magic
-            padding: `5px ${controlPaddingHorizontal}px`,
+            padding: `5px ${controlPaddingHorizontal}px`, // FIXME: magic
             overflow: 'hidden',
             color: textColor,
             fontWeight: 'normal',
