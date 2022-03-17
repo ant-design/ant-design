@@ -113,6 +113,16 @@ const items = [
 
 #### MenuItemGroupType
 
+定义类型为 `group` 时，会作为分组处理:
+
+```ts
+const groupItem = {
+  type: 'group', // Must have
+  label: 'My Group',
+  chidlren: [],
+};
+```
+
 | 参数     | 说明         | 类型                              | 默认值 | 版本 |
 | -------- | ------------ | --------------------------------- | ------ | ---- |
 | children | 分组的菜单项 | [MenuItemType\[\]](#MenuItemType) | -      |      |
@@ -120,7 +130,13 @@ const items = [
 
 #### MenuDividerType
 
-菜单项分割线，只用在弹出菜单内。
+菜单项分割线，只用在弹出菜单内，需要定义类型为 `divider`：
+
+```ts
+const dividerItem = {
+  type: 'divider', // Must have
+};
+```
 
 | 参数   | 说明     | 类型    | 默认值 | 版本 |
 | ------ | -------- | ------- | ------ | ---- |

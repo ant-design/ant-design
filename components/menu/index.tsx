@@ -1,5 +1,11 @@
 import * as React from 'react';
 import RcMenu, { ItemGroup, MenuProps as RcMenuProps } from 'rc-menu';
+import type {
+  MenuItemType as RcMenuItemType,
+  MenuDividerType as RcMenuDividerType,
+  SubMenuType as RcSubMenuType,
+  MenuItemGroupType as RcMenuItemGroupType,
+} from 'rc-menu/lib/interface';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
@@ -19,7 +25,29 @@ export { MenuItemGroupProps } from 'rc-menu';
 
 export type MenuMode = 'vertical' | 'vertical-left' | 'vertical-right' | 'horizontal' | 'inline';
 
-export interface MenuProps extends RcMenuProps {
+interface MenuItemType extends RcMenuItemType {
+  danger?: boolean;
+  icon?: React.ReactNode;
+  title?: string;
+}
+
+interface SubMenuType extends RcSubMenuType {
+  icon?: React.ReactNode;
+  theme?: 'dark' | 'light';
+  children: ItemType[];
+}
+
+interface MenuItemGroupType extends RcMenuItemGroupType {
+  children?: MenuItemType[];
+}
+
+interface MenuDividerType extends RcMenuDividerType {
+  dashed?: boolean;
+}
+
+type ItemType = MenuItemType | SubMenuType | MenuItemGroupType | MenuDividerType;
+
+export interface MenuProps extends Omit<RcMenuProps, 'items'> {
   theme?: MenuTheme;
   inlineIndent?: number;
 
@@ -29,6 +57,8 @@ export interface MenuProps extends RcMenuProps {
    *   for removing.
    */
   _internalDisableMenuItemTitleTooltip?: boolean;
+
+  items?: ItemType[];
 }
 
 type InternalMenuProps = MenuProps &
