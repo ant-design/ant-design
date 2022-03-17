@@ -16,13 +16,13 @@ interface MenuItemType extends RcMenuItemType {
   title?: string;
 }
 
-interface SubMenuType extends RcSubMenuType {
+interface SubMenuType extends Omit<RcSubMenuType, 'children'> {
   icon?: React.ReactNode;
   theme?: 'dark' | 'light';
   children: ItemType[];
 }
 
-interface MenuItemGroupType extends RcMenuItemGroupType {
+interface MenuItemGroupType extends Omit<RcMenuItemGroupType, 'children'> {
   children?: MenuItemType[];
   key?: React.Key;
 }
