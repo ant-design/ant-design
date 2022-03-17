@@ -14,7 +14,7 @@ interface AffixToken extends DerivativeToken {
 }
 
 // ============================== Shared ==============================
-const genSharedDividerStyle: GenerateStyle<AffixToken> = (token): CSSObject => {
+const genSharedAffixStyle: GenerateStyle<AffixToken> = (token): CSSObject => {
   const { affixCls } = token;
 
   return {
@@ -40,7 +40,7 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
 
   return [
     useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      genSharedDividerStyle(affixToken),
+      genSharedAffixStyle(affixToken),
     ]),
     hashId,
   ];
