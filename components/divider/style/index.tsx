@@ -76,12 +76,12 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
 
       '&-horizontal&-with-text-left': {
         '&::before': {
-          top: '50 %',
+          top: '50%',
           width: '5%',
         },
 
         '&::after': {
-          top: '50 %',
+          top: '50%',
           width: '95%',
         },
       },
