@@ -39,6 +39,7 @@ title: 社区精选组件
 | 动画 | [react-move](https://github.com/react-tools/react-move) [Ant Motion](https://motion.ant.design/components/tween-one) [react-spring](https://www.react-spring.io) |
 | 页脚 | [rc-footer](https://github.com/react-component/footer) |
 | 水印 | [WaterMark](https://procomponents.ant.design/components/water-mark) |
+| 金额格式化 | [react-number-format](https://github.com/s-yadav/react-number-format) [react-currency-input-fiel](https://github.com/cchanxzy/react-currency-input-field) |
 
 ## 推荐产品 ✨
 
