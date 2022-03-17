@@ -2,7 +2,7 @@
 const chalk = require('chalk');
 const path = require('path');
 const fetch = require('isomorphic-fetch');
-const simpleGit = require('simple-git/promise');
+const simpleGit = require('simple-git');
 
 const cwd = process.cwd();
 const git = simpleGit(cwd);

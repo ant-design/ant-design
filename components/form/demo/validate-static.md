@@ -97,6 +97,10 @@ ReactDOM.render(
     </Form.Item>
 
     <Form.Item label="Error" hasFeedback validateStatus="error">
+      <DatePicker.RangePicker style={{ width: '100%' }} />
+    </Form.Item>
+
+    <Form.Item label="Error" hasFeedback validateStatus="error">
       <Select placeholder="I'm Select" allowClear>
         <Option value="1">Option 1</Option>
         <Option value="2">Option 2</Option>

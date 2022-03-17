@@ -15,13 +15,45 @@ timeline: true
 
 ---
 
+## 4.19.2
+
+`2022-03-13`
+
+- 🐞 Fix Dropdown not auto adjust placement when position on the edge of window. [#34390](https://github.com/ant-design/ant-design/pull/34390)
+- 💄 Change PageHeader elements margin from `12px` to `8px` inside `extra`. [#34428](https://github.com/ant-design/ant-design/pull/34428)
+- 🛠 Export css variable function in `antd/es/config-provider` folder to enable ssr requirement. [#34436](https://github.com/ant-design/ant-design/pull/34436)
+- 🛠 Refactor Menu with React hooks. [#34433](https://github.com/ant-design/ant-design/pull/34433)
+- Input
+  - 💄 Fix Input font-size when `size` is large. [#34381](https://github.com/ant-design/ant-design/pull/34381)
+  - 💄 Fix Input.Group wrong border when status is error. [#34412](https://github.com/ant-design/ant-design/pull/34412)
+- Form
+  - 🐞 Fix Form.Item removed in `form.validateFields` throw `Can't perform a React state update on an unmounted component` warning. [#34405](https://github.com/ant-design/ant-design/pull/34405)
+  - 🐞 Fix to Form that `initialValues` would change if `preserve` is false. [#34411](https://github.com/ant-design/ant-design/pull/34411)
+- Tooltip
+  - 💄 Fix Tooltip width in Safari. [#34415](https://github.com/ant-design/ant-design/pull/34415) [@jiandandkl](https://github.com/jiandandkl)
+  - 💄 Fix arrow size of Tooltip/Popover/Popconfirm. [#34407](https://github.com/ant-design/ant-design/pull/34407)
+- 💄 Remove Collapse bottom border in simple style. [#34366](https://github.com/ant-design/ant-design/pull/34366) [@PanStar](https://github.com/PanStar)
+- TypeScript
+  - 🤖 Fix Input `data-*` type definition. [#34410](https://github.com/ant-design/ant-design/pull/34410) [@GitKou](https://github.com/GitKou)
+  - 🤖 Fix Transfer `footer` type definition. [#34337](https://github.com/ant-design/ant-design/pull/34337) [@zomixi](https://github.com/zomixi)
+
+## 4.19.1
+
+`2022-03-08`
+
+- 🐞 Fix less compile error related to custom status. [#34350](https://github.com/ant-design/ant-design/pull/34350)
+  - 🐞 Fix error `ReferenceError: colorPalette is not defined` when customize theme.
+  - 🐞 Fix error `Error: Invalid class or id selector syntax` when import `antd/dist/antd.css`.
+- 🐞 Fix Input.Passowrd icon color in site. [#34354](https://github.com/ant-design/ant-design/pull/34354)
+- 🐞 Fix ConfigProvider `csp` sometime not effect on Icon. [#34356](https://github.com/ant-design/ant-design/pull/34356)
+
 ## 4.19.0
 
 `2022-03-08`
 
 - 💄 Optimize arrow style for some components. [#33710](https://github.com/ant-design/ant-design/pull/33710)
 
-![image](https://user-images.githubusercontent.com/27722486/157088587-ca49cc29-bf25-42d1-8c14-020b5501c62e.png)
+   <img src="https://user-images.githubusercontent.com/27722486/157088587-ca49cc29-bf25-42d1-8c14-020b5501c62e.png" width="500" />
 
 - Input
   - 🛠 Refactor Input with rc-input. [#34206](https://github.com/ant-design/ant-design/pull/34206)
@@ -33,6 +65,7 @@ timeline: true
   - ⌨️ Table adds `aria-sort` attribute for screen readers. [#33603](https://github.com/ant-design/ant-design/pull/33603) [@dgreene1](https://github.com/dgreene1)
   - 🐞 Fix Table filters select-all Checkbox not changed when select item. [#34295](https://github.com/ant-design/ant-design/pull/34295)
 - 🆕 Data entry components add `status` prop to support custom status.
+
   - Transfer [#34098](https://github.com/ant-design/ant-design/pull/34098)
   - AutoComplete [#34096](https://github.com/ant-design/ant-design/pull/34096)
   - TreeSelect [#34093](https://github.com/ant-design/ant-design/pull/34093)
@@ -43,7 +76,7 @@ timeline: true
   - InputNumber [#34042](https://github.com/ant-design/ant-design/pull/34042)
   - Input [#33995](https://github.com/ant-design/ant-design/pull/33995)
 
-![image](https://user-images.githubusercontent.com/27722486/157089015-f96b0153-2cc4-4e04-94d6-e0e4b195d5d1.png)
+  <img src="https://user-images.githubusercontent.com/27722486/157089015-f96b0153-2cc4-4e04-94d6-e0e4b195d5d1.png" width="500" />
 
 - 🆕 InputNumber supports `controls={{ upIcon, downIcon }}` to customize icon up and down. [#33914](https://github.com/ant-design/ant-design/pull/33914) [@heiyu4585](https://github.com/heiyu4585)
 - 🆕 Notification `placement` support `top` / `bottom` [#33871](https://github.com/ant-design/ant-design/pull/33871) [@heiyu4585](https://github.com/heiyu4585)

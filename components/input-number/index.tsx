@@ -6,7 +6,7 @@ import * as React from 'react';
 import { useContext } from 'react';
 import { ConfigContext } from '../config-provider';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
-import { FormItemStatusContext } from '../form/context';
+import { FormItemStatusContext, NoFormStatus } from '../form/context';
 import { cloneElement } from '../_util/reactNode';
 import {
   getFeedbackIcon,
@@ -168,9 +168,9 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     element = (
       <div className={mergedGroupClassName} style={props.style}>
         <div className={mergedWrapperClassName}>
-          {addonBeforeNode}
+          {addonBeforeNode && <NoFormStatus>{addonBeforeNode}</NoFormStatus>}
           {cloneElement(element, { style: null })}
-          {addonAfterNode}
+          {addonAfterNode && <NoFormStatus>{addonAfterNode}</NoFormStatus>}
         </div>
       </div>
     );
