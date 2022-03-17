@@ -1,2 +1,47 @@
-import '../../style/index.less';
-import './index.less';
+// deps-lint-skip-all
+import { CSSObject } from '@ant-design/cssinjs';
+import {
+  DerivativeToken,
+  useStyleRegister,
+  useToken,
+  UseComponentStyleResult,
+  GenerateStyle,
+} from '../../_util/theme';
+
+interface AffixToken extends DerivativeToken {
+  affixCls: string;
+  zIndexAffix: number;
+}
+
+// ============================== Shared ==============================
+const genSharedDividerStyle: GenerateStyle<AffixToken> = (token): CSSObject => {
+  const { affixCls } = token;
+
+  return {
+    [affixCls]: {
+      position: 'fixed',
+      zIndex: token.zIndexAffix,
+    },
+  };
+};
+
+// ============================== Export ==============================
+export default function useStyle(prefixCls: string): UseComponentStyleResult {
+  const [theme, token, hashId] = useToken();
+
+  const zIndexAffix = 10;
+
+  const affixToken: AffixToken = {
+    ...token,
+
+    affixCls: `.${prefixCls}`,
+    zIndexAffix,
+  };
+
+  return [
+    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
+      genSharedDividerStyle(affixToken),
+    ]),
+    hashId,
+  ];
+}

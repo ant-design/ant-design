@@ -12,6 +12,7 @@ import {
   getFixedTop,
   getFixedBottom,
 } from './utils';
+import useStyle from './style';
 
 function getDefaultTarget() {
   return typeof window !== 'undefined' ? window : null;
@@ -299,16 +300,17 @@ class Affix extends React.Component<InternalAffixProps, AffixState> {
 const AffixFC = React.forwardRef<Affix, AffixProps>((props, ref) => {
   const { prefixCls: customizePrefixCls } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
-
   const affixPrefixCls = getPrefixCls('affix', customizePrefixCls);
+
+  const [wrapSSR, hashId] = useStyle(affixPrefixCls);
 
   const AffixProps: InternalAffixProps = {
     ...props,
 
-    affixPrefixCls,
+    affixPrefixCls: classNames(hashId, affixPrefixCls),
   };
 
-  return <Affix {...AffixProps} ref={ref} />;
+  return wrapSSR(<Affix {...AffixProps} ref={ref} />);
 });
 
 if (process.env.NODE_ENV !== 'production') {
