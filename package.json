@@ -166,7 +166,7 @@
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
     "@types/enzyme": "^3.10.5",
-    "@types/gtag.js": "^0.0.9",
+    "@types/gtag.js": "^0.0.10",
     "@types/jest": "^27.0.0",
     "@types/jest-axe": "^3.5.3",
     "@types/jest-environment-puppeteer": "^5.0.0",
