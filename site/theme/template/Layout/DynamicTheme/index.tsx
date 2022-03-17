@@ -1,19 +1,22 @@
 import * as React from 'react';
 import { TinyColor } from '@ctrl/tinycolor';
-import { Drawer, Form, Input, Button, InputNumber, Checkbox } from 'antd';
+import { Drawer, Form, Input, Button, InputNumber, Checkbox, Space } from 'antd';
 import { useIntl } from 'react-intl';
-import { BugOutlined } from '@ant-design/icons';
-import { DesignToken } from '../../../../components/_util/theme';
-import defaultTheme from '../../../../components/_util/theme/default';
+import { BugOutlined, EyeOutlined } from '@ant-design/icons';
+import { DesignToken } from '../../../../../components/_util/theme';
+import defaultTheme from '../../../../../components/_util/theme/default';
+import Preview from './Preview';
 
 export interface ThemeConfigProps {
+  componentName: string;
   defaultToken: DesignToken;
   onChangeTheme: (theme: DesignToken) => void;
 }
 
-export default ({ onChangeTheme, defaultToken }: ThemeConfigProps) => {
+export default ({ onChangeTheme, defaultToken, componentName }: ThemeConfigProps) => {
   const { formatMessage } = useIntl();
   const [visible, setVisible] = React.useState(false);
+  const [previewVisible, setPreviewVisible] = React.useState(false);
   const [form] = Form.useForm();
 
   const keys = Object.keys(defaultTheme);
@@ -42,6 +45,7 @@ export default ({ onChangeTheme, defaultToken }: ThemeConfigProps) => {
       </div>
 
       <Drawer
+        mask={false}
         zIndex={10001}
         visible={visible}
         onClose={() => {
@@ -49,9 +53,12 @@ export default ({ onChangeTheme, defaultToken }: ThemeConfigProps) => {
         }}
         title={formatMessage({ id: 'app.theme.switch.dynamic' })}
         extra={
-          <Button onClick={form.submit} type="primary">
-            Submit
-          </Button>
+          <Space>
+            <Button icon={<EyeOutlined />} onClick={() => setPreviewVisible(true)} />
+            <Button onClick={form.submit} type="primary">
+              Submit
+            </Button>
+          </Space>
         }
         destroyOnClose
       >
@@ -101,6 +108,12 @@ export default ({ onChangeTheme, defaultToken }: ThemeConfigProps) => {
           </Form.Item>
         </Form>
       </Drawer>
+
+      <Preview
+        visible={previewVisible}
+        componentName={componentName}
+        onClose={() => setPreviewVisible(false)}
+      />
     </>
   );
 };

@@ -287,6 +287,7 @@ export default class Layout extends React.Component {
               {children}
 
               <DynamicTheme
+                componentName={this.props.params?.children?.replace('-cn', '')}
                 defaultToken={{
                   ...designToken,
                   hashed: hashedStyle,
