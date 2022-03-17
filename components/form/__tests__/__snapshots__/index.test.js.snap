@@ -1,492 +1,61 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Form Form item hidden noStyle should not work when hidden 1`] = `
-<ForwardRef(InternalForm)>
-  <SizeContextProvider>
-    <ForwardRef(Form)
-      className="ant-form ant-form-horizontal"
-      form={
-        Object {
-          "__INTERNAL__": Object {
-            "itemRef": [Function],
-            "name": undefined,
-          },
-          "getFieldError": [Function],
-          "getFieldInstance": [Function],
-          "getFieldValue": [Function],
-          "getFieldWarning": [Function],
-          "getFieldsError": [Function],
-          "getFieldsValue": [Function],
-          "getInternalHooks": [Function],
-          "isFieldTouched": [Function],
-          "isFieldValidating": [Function],
-          "isFieldsTouched": [Function],
-          "isFieldsValidating": [Function],
-          "resetFields": [Function],
-          "scrollToField": [Function],
-          "setFields": [Function],
-          "setFieldsValue": [Function],
-          "submit": [Function],
-          "validateFields": [Function],
-        }
-      }
-      onFinishFailed={[Function]}
+<form
+  class="ant-form ant-form-horizontal"
+>
+  <div
+    class="ant-row ant-form-item ant-form-item-hidden"
+  >
+    <div
+      class="ant-col ant-form-item-control"
     >
-      <form
-        className="ant-form ant-form-horizontal"
-        onReset={[Function]}
-        onSubmit={[Function]}
+      <div
+        class="ant-form-item-control-input"
       >
-        <FormItem
-          hidden={true}
-          name="light"
-          noStyle={true}
+        <div
+          class="ant-form-item-control-input-content"
         >
-          <WrapperField
-            hidden={true}
-            messageVariables={
-              Object {
-                "label": "light",
-              }
-            }
-            name="light"
-            noStyle={true}
-            onMetaChange={[Function]}
-            trigger="onChange"
-            validateTrigger="onChange"
-          >
-            <Field
-              fieldContext={
-                Object {
-                  "__INTERNAL__": Object {
-                    "itemRef": [Function],
-                    "name": undefined,
-                  },
-                  "getFieldError": [Function],
-                  "getFieldInstance": [Function],
-                  "getFieldValue": [Function],
-                  "getFieldWarning": [Function],
-                  "getFieldsError": [Function],
-                  "getFieldsValue": [Function],
-                  "getInternalHooks": [Function],
-                  "isFieldTouched": [Function],
-                  "isFieldValidating": [Function],
-                  "isFieldsTouched": [Function],
-                  "isFieldsValidating": [Function],
-                  "resetFields": [Function],
-                  "scrollToField": [Function],
-                  "setFields": [Function],
-                  "setFieldsValue": [Function],
-                  "submit": [Function],
-                  "validateFields": [Function],
-                  "validateTrigger": "onChange",
-                }
-              }
-              hidden={true}
-              key="_light"
-              messageVariables={
-                Object {
-                  "label": "light",
-                }
-              }
-              name={
-                Array [
-                  "light",
-                ]
-              }
-              noStyle={true}
-              onMetaChange={[Function]}
-              trigger="onChange"
-              validateTrigger="onChange"
-              valuePropName="value"
-            >
-              <Row
-                className="ant-form-item ant-form-item-hidden"
-                key="row"
-              >
-                <div
-                  className="ant-row ant-form-item ant-form-item-hidden"
-                  style={Object {}}
-                >
-                  <FormItemLabel
-                    hidden={true}
-                    htmlFor="light"
-                    name="light"
-                    noStyle={true}
-                    prefixCls="ant-form"
-                    required={false}
-                    requiredMark={true}
-                  />
-                  <FormItemInput
-                    errors={Array []}
-                    fieldId="light"
-                    hidden={true}
-                    name={Array []}
-                    noStyle={true}
-                    prefixCls="ant-form"
-                    status=""
-                    touched={false}
-                    validateStatus=""
-                    validating={false}
-                    warnings={Array []}
-                  >
-                    <Col
-                      className="ant-form-item-control"
-                    >
-                      <div
-                        className="ant-col ant-form-item-control"
-                        style={Object {}}
-                      >
-                        <div
-                          className="ant-form-item-control-input"
-                        >
-                          <div
-                            className="ant-form-item-control-input-content"
-                          >
-                            <Component
-                              childProps={
-                                Array [
-                                  undefined,
-                                  undefined,
-                                  undefined,
-                                ]
-                              }
-                              update={<ForwardRef />}
-                            >
-                              <ForwardRef
-                                id="light"
-                                onChange={[Function]}
-                              >
-                                <ForwardRef
-                                  affixWrapperClassName=""
-                                  groupClassName=""
-                                  id="light"
-                                  inputClassName=""
-                                  onBlur={[Function]}
-                                  onChange={[Function]}
-                                  onFocus={[Function]}
-                                  prefixCls="ant-input"
-                                  wrapperClassName=""
-                                >
-                                  <BaseInput
-                                    affixWrapperClassName=""
-                                    focused={false}
-                                    groupClassName=""
-                                    handleReset={[Function]}
-                                    id="light"
-                                    inputElement={
-                                      <input
-                                        className="ant-input"
-                                        id="light"
-                                        onBlur={[Function]}
-                                        onChange={[Function]}
-                                        onFocus={[Function]}
-                                        onKeyDown={[Function]}
-                                        type="text"
-                                      />
-                                    }
-                                    prefixCls="ant-input"
-                                    suffix={null}
-                                    triggerFocus={[Function]}
-                                    value=""
-                                    wrapperClassName=""
-                                  >
-                                    <input
-                                      className="ant-input"
-                                      id="light"
-                                      onBlur={[Function]}
-                                      onChange={[Function]}
-                                      onFocus={[Function]}
-                                      onKeyDown={[Function]}
-                                      type="text"
-                                      value=""
-                                    />
-                                  </BaseInput>
-                                </ForwardRef>
-                              </ForwardRef>
-                            </Component>
-                          </div>
-                        </div>
-                        <ErrorList
-                          className="ant-form-item-explain-connected"
-                          errors={Array []}
-                          fieldId="light"
-                          helpStatus=""
-                          warnings={Array []}
-                        >
-                          <CSSMotion
-                            motionAppear={false}
-                            motionDeadline={500}
-                            motionEnter={false}
-                            motionName="ant-show-help"
-                            onAppearActive={[Function]}
-                            onAppearEnd={[Function]}
-                            onAppearStart={[Function]}
-                            onEnterActive={[Function]}
-                            onEnterEnd={[Function]}
-                            onEnterStart={[Function]}
-                            onLeaveActive={[Function]}
-                            onLeaveEnd={[Function]}
-                            onLeaveStart={[Function]}
-                            visible={false}
-                          >
-                            <DomWrapper />
-                          </CSSMotion>
-                        </ErrorList>
-                      </div>
-                    </Col>
-                  </FormItemInput>
-                </div>
-              </Row>
-            </Field>
-          </WrapperField>
-        </FormItem>
-      </form>
-    </ForwardRef(Form)>
-  </SizeContextProvider>
-</ForwardRef(InternalForm)>
+          <input
+            class="ant-input"
+            id="light"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
 `;
 
 exports[`Form Form item hidden should work 1`] = `
-<ForwardRef(InternalForm)>
-  <SizeContextProvider>
-    <ForwardRef(Form)
-      className="ant-form ant-form-horizontal"
-      form={
-        Object {
-          "__INTERNAL__": Object {
-            "itemRef": [Function],
-            "name": undefined,
-          },
-          "getFieldError": [Function],
-          "getFieldInstance": [Function],
-          "getFieldValue": [Function],
-          "getFieldWarning": [Function],
-          "getFieldsError": [Function],
-          "getFieldsValue": [Function],
-          "getInternalHooks": [Function],
-          "isFieldTouched": [Function],
-          "isFieldValidating": [Function],
-          "isFieldsTouched": [Function],
-          "isFieldsValidating": [Function],
-          "resetFields": [Function],
-          "scrollToField": [Function],
-          "setFields": [Function],
-          "setFieldsValue": [Function],
-          "submit": [Function],
-          "validateFields": [Function],
-        }
-      }
-      onFinishFailed={[Function]}
+<form
+  class="ant-form ant-form-horizontal"
+>
+  <div
+    class="ant-row ant-form-item ant-form-item-hidden"
+  >
+    <div
+      class="ant-col ant-form-item-control"
     >
-      <form
-        className="ant-form ant-form-horizontal"
-        onReset={[Function]}
-        onSubmit={[Function]}
+      <div
+        class="ant-form-item-control-input"
       >
-        <FormItem
-          hidden={true}
-          name="light"
+        <div
+          class="ant-form-item-control-input-content"
         >
-          <WrapperField
-            hidden={true}
-            messageVariables={
-              Object {
-                "label": "light",
-              }
-            }
-            name="light"
-            onMetaChange={[Function]}
-            trigger="onChange"
-            validateTrigger="onChange"
-          >
-            <Field
-              fieldContext={
-                Object {
-                  "__INTERNAL__": Object {
-                    "itemRef": [Function],
-                    "name": undefined,
-                  },
-                  "getFieldError": [Function],
-                  "getFieldInstance": [Function],
-                  "getFieldValue": [Function],
-                  "getFieldWarning": [Function],
-                  "getFieldsError": [Function],
-                  "getFieldsValue": [Function],
-                  "getInternalHooks": [Function],
-                  "isFieldTouched": [Function],
-                  "isFieldValidating": [Function],
-                  "isFieldsTouched": [Function],
-                  "isFieldsValidating": [Function],
-                  "resetFields": [Function],
-                  "scrollToField": [Function],
-                  "setFields": [Function],
-                  "setFieldsValue": [Function],
-                  "submit": [Function],
-                  "validateFields": [Function],
-                  "validateTrigger": "onChange",
-                }
-              }
-              hidden={true}
-              key="_light"
-              messageVariables={
-                Object {
-                  "label": "light",
-                }
-              }
-              name={
-                Array [
-                  "light",
-                ]
-              }
-              onMetaChange={[Function]}
-              trigger="onChange"
-              validateTrigger="onChange"
-              valuePropName="value"
-            >
-              <Row
-                className="ant-form-item ant-form-item-hidden"
-                key="row"
-              >
-                <div
-                  className="ant-row ant-form-item ant-form-item-hidden"
-                  style={Object {}}
-                >
-                  <FormItemLabel
-                    hidden={true}
-                    htmlFor="light"
-                    name="light"
-                    prefixCls="ant-form"
-                    required={false}
-                    requiredMark={true}
-                  />
-                  <FormItemInput
-                    errors={Array []}
-                    fieldId="light"
-                    hidden={true}
-                    name={Array []}
-                    prefixCls="ant-form"
-                    status=""
-                    touched={false}
-                    validateStatus=""
-                    validating={false}
-                    warnings={Array []}
-                  >
-                    <Col
-                      className="ant-form-item-control"
-                    >
-                      <div
-                        className="ant-col ant-form-item-control"
-                        style={Object {}}
-                      >
-                        <div
-                          className="ant-form-item-control-input"
-                        >
-                          <div
-                            className="ant-form-item-control-input-content"
-                          >
-                            <Component
-                              childProps={
-                                Array [
-                                  undefined,
-                                  undefined,
-                                  undefined,
-                                ]
-                              }
-                              update={<ForwardRef />}
-                            >
-                              <ForwardRef
-                                id="light"
-                                onChange={[Function]}
-                              >
-                                <ForwardRef
-                                  affixWrapperClassName=""
-                                  groupClassName=""
-                                  id="light"
-                                  inputClassName=""
-                                  onBlur={[Function]}
-                                  onChange={[Function]}
-                                  onFocus={[Function]}
-                                  prefixCls="ant-input"
-                                  wrapperClassName=""
-                                >
-                                  <BaseInput
-                                    affixWrapperClassName=""
-                                    focused={false}
-                                    groupClassName=""
-                                    handleReset={[Function]}
-                                    id="light"
-                                    inputElement={
-                                      <input
-                                        className="ant-input"
-                                        id="light"
-                                        onBlur={[Function]}
-                                        onChange={[Function]}
-                                        onFocus={[Function]}
-                                        onKeyDown={[Function]}
-                                        type="text"
-                                      />
-                                    }
-                                    prefixCls="ant-input"
-                                    suffix={null}
-                                    triggerFocus={[Function]}
-                                    value=""
-                                    wrapperClassName=""
-                                  >
-                                    <input
-                                      className="ant-input"
-                                      id="light"
-                                      onBlur={[Function]}
-                                      onChange={[Function]}
-                                      onFocus={[Function]}
-                                      onKeyDown={[Function]}
-                                      type="text"
-                                      value=""
-                                    />
-                                  </BaseInput>
-                                </ForwardRef>
-                              </ForwardRef>
-                            </Component>
-                          </div>
-                        </div>
-                        <ErrorList
-                          className="ant-form-item-explain-connected"
-                          errors={Array []}
-                          fieldId="light"
-                          helpStatus=""
-                          warnings={Array []}
-                        >
-                          <CSSMotion
-                            motionAppear={false}
-                            motionDeadline={500}
-                            motionEnter={false}
-                            motionName="ant-show-help"
-                            onAppearActive={[Function]}
-                            onAppearEnd={[Function]}
-                            onAppearStart={[Function]}
-                            onEnterActive={[Function]}
-                            onEnterEnd={[Function]}
-                            onEnterStart={[Function]}
-                            onLeaveActive={[Function]}
-                            onLeaveEnd={[Function]}
-                            onLeaveStart={[Function]}
-                            visible={false}
-                          >
-                            <DomWrapper />
-                          </CSSMotion>
-                        </ErrorList>
-                      </div>
-                    </Col>
-                  </FormItemInput>
-                </div>
-              </Row>
-            </Field>
-          </WrapperField>
-        </FormItem>
-      </form>
-    </ForwardRef(Form)>
-  </SizeContextProvider>
-</ForwardRef(InternalForm)>
+          <input
+            class="ant-input"
+            id="light"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
 `;
 
 exports[`Form Form.Item should support data-*、aria-* and custom attribute 1`] = `

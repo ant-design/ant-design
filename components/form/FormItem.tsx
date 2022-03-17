@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { useContext } from 'react';
+import { useContext, useMemo } from 'react';
 import classNames from 'classnames';
 import { Field, FormInstance, FieldContext, ListContext } from 'rc-field-form';
 import { FieldProps } from 'rc-field-form/lib/Field';
 import { Meta, NamePath } from 'rc-field-form/lib/interface';
 import { supportRef } from 'rc-util/lib/ref';
+import useState from 'rc-util/lib/hooks/useState';
 import omit from 'rc-util/lib/omit';
 import Row from '../grid/row';
 import { ConfigContext } from '../config-provider';
@@ -12,7 +13,12 @@ import { tuple } from '../_util/type';
 import devWarning from '../_util/devWarning';
 import FormItemLabel, { FormItemLabelProps, LabelTooltipType } from './FormItemLabel';
 import FormItemInput, { FormItemInputProps } from './FormItemInput';
-import { FormContext, NoStyleItemContext } from './context';
+import {
+  FormContext,
+  FormItemStatusContext,
+  NoStyleItemContext,
+  FormItemStatusContextProps,
+} from './context';
 import { toArray, getFieldId } from './util';
 import { cloneElement, isValidElement } from '../_util/reactNode';
 import useFrameState from './hooks/useFrameState';
@@ -132,7 +138,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
   const [subFieldErrors, setSubFieldErrors] = useFrameState<Record<string, FieldError>>({});
 
   // >>>>> Current field errors
-  const [meta, setMeta] = React.useState<Meta>(() => genEmptyMeta());
+  const [meta, setMeta] = useState<Meta>(() => genEmptyMeta());
 
   const onMetaChange = (nextMeta: Meta & { destroy?: boolean }) => {
     // This keyInfo is not correct when field is removed
@@ -141,7 +147,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
     const keyInfo = listContext?.getKey(nextMeta.name);
 
     // Destroy will reset all the meta
-    setMeta(nextMeta.destroy ? genEmptyMeta() : nextMeta);
+    setMeta(nextMeta.destroy ? genEmptyMeta() : nextMeta, true);
 
     // Bump to parent since noStyle
     if (noStyle && notifyParentMetaChange) {
@@ -204,6 +210,28 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
   // ===================== Children Ref =====================
   const getItemRef = useItemRef();
 
+  // ======================== Status ========================
+  let mergedValidateStatus: ValidateStatus = '';
+  if (validateStatus !== undefined) {
+    mergedValidateStatus = validateStatus;
+  } else if (meta?.validating) {
+    mergedValidateStatus = 'validating';
+  } else if (debounceErrors.length) {
+    mergedValidateStatus = 'error';
+  } else if (debounceWarnings.length) {
+    mergedValidateStatus = 'warning';
+  } else if (meta?.touched) {
+    mergedValidateStatus = 'success';
+  }
+
+  const formItemStatusContext = useMemo<FormItemStatusContextProps>(
+    () => ({
+      status: mergedValidateStatus,
+      hasFeedback,
+    }),
+    [mergedValidateStatus, hasFeedback],
+  );
+
   // ======================== Render ========================
   function renderLayout(
     baseChildren: React.ReactNode,
@@ -213,23 +241,11 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
     if (noStyle && !hidden) {
       return baseChildren;
     }
-    // ======================== Status ========================
-    let mergedValidateStatus: ValidateStatus = '';
-    if (validateStatus !== undefined) {
-      mergedValidateStatus = validateStatus;
-    } else if (meta?.validating) {
-      mergedValidateStatus = 'validating';
-    } else if (debounceErrors.length) {
-      mergedValidateStatus = 'error';
-    } else if (debounceWarnings.length) {
-      mergedValidateStatus = 'warning';
-    } else if (meta?.touched) {
-      mergedValidateStatus = 'success';
-    }
 
     const itemClassName = {
       [`${prefixCls}-item`]: true,
-      [`${prefixCls}-item-with-help`]: help || debounceErrors.length || debounceWarnings.length,
+      [`${prefixCls}-item-with-help`]:
+        (help !== undefined && help !== null) || debounceErrors.length || debounceWarnings.length,
       [`${className}`]: !!className,
 
       // Status
@@ -251,6 +267,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
           'colon',
           'extra',
           'fieldKey',
+          'requiredMark',
           'getValueFromEvent',
           'getValueProps',
           'htmlFor',
@@ -285,12 +302,13 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
           warnings={debounceWarnings}
           prefixCls={prefixCls}
           status={mergedValidateStatus}
-          validateStatus={mergedValidateStatus}
           help={help}
           fieldId={fieldId}
         >
           <NoStyleItemContext.Provider value={onSubItemMetaChange}>
-            {baseChildren}
+            <FormItemStatusContext.Provider value={formItemStatusContext}>
+              {baseChildren}
+            </FormItemStatusContext.Provider>
           </NoStyleItemContext.Provider>
         </FormItemInput>
       </Row>
@@ -384,6 +402,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
           if (!childProps.id) {
             childProps.id = fieldId;
           }
+
           if (props.help || mergedErrors.length > 0 || mergedWarnings.length > 0 || props.extra) {
             const describedbyArr = [];
             if (props.help || mergedErrors.length > 0) {
@@ -407,6 +426,13 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
             childProps.ref = getItemRef(mergedName, children);
           }
 
+          // List of props that need to be watched for changes -> if changes are detected in MemoInput -> rerender
+          const watchingChildProps = [
+            childProps['aria-required'],
+            childProps['aria-invalid'],
+            childProps['aria-describedby'],
+          ];
+
           // We should keep user origin event handler
           const triggers = new Set<string>([
             ...toArray(trigger),
@@ -419,13 +445,6 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
               children.props[eventName]?.(...args);
             };
           });
-
-          // List of props that need to be watched for changes -> if changes are detected in MemoInput -> rerender
-          const watchingChildProps = [
-            childProps['aria-required'],
-            childProps['aria-invalid'],
-            childProps['aria-describedby'],
-          ];
 
           childNode = (
             <MemoInput

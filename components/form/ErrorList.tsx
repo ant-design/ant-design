@@ -66,6 +66,7 @@ export default function ErrorList({
   if (fieldId) {
     helpProps.id = `${fieldId}_help`;
   }
+
   return (
     <CSSMotion
       {...collapseMotion}
