@@ -1,11 +1,5 @@
 import * as React from 'react';
 import RcMenu, { ItemGroup, MenuProps as RcMenuProps } from 'rc-menu';
-import type {
-  MenuItemType as RcMenuItemType,
-  MenuDividerType as RcMenuDividerType,
-  SubMenuType as RcSubMenuType,
-  MenuItemGroupType as RcMenuItemGroupType,
-} from 'rc-menu/lib/interface';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
@@ -18,34 +12,14 @@ import collapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
 import MenuContext, { MenuTheme } from './MenuContext';
 import MenuDivider from './MenuDivider';
+import type { ItemType } from './hooks/useItems';
+import useItems from './hooks/useItems';
 
 export { MenuDividerProps } from './MenuDivider';
 
 export { MenuItemGroupProps } from 'rc-menu';
 
 export type MenuMode = 'vertical' | 'vertical-left' | 'vertical-right' | 'horizontal' | 'inline';
-
-interface MenuItemType extends RcMenuItemType {
-  danger?: boolean;
-  icon?: React.ReactNode;
-  title?: string;
-}
-
-interface SubMenuType extends RcSubMenuType {
-  icon?: React.ReactNode;
-  theme?: 'dark' | 'light';
-  children: ItemType[];
-}
-
-interface MenuItemGroupType extends RcMenuItemGroupType {
-  children?: MenuItemType[];
-}
-
-interface MenuDividerType extends RcMenuDividerType {
-  dashed?: boolean;
-}
-
-type ItemType = MenuItemType | SubMenuType | MenuItemGroupType | MenuDividerType;
 
 export interface MenuProps extends Omit<RcMenuProps, 'items'> {
   theme?: MenuTheme;
@@ -79,10 +53,15 @@ function InternalMenu(props: InternalMenuProps) {
     _internalDisableMenuItemTitleTooltip,
     inlineCollapsed,
     siderCollapsed,
+    items,
+    children,
     ...restProps
   } = props;
 
   const passedProps = omit(restProps, ['collapsedWidth']);
+
+  // ========================= Items ===========================
+  const mergedChildren = useItems(items) || children;
 
   // ======================== Warning ==========================
   devWarning(
@@ -144,7 +123,9 @@ function InternalMenu(props: InternalMenuProps) {
         expandIcon={cloneElement(expandIcon, {
           className: `${prefixCls}-submenu-expand-icon`,
         })}
-      />
+      >
+        {mergedChildren}
+      </RcMenu>
     </MenuContext.Provider>
   );
 }
