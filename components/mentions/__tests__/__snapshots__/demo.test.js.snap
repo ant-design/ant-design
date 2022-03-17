@@ -105,6 +105,7 @@ exports[`renders ./components/mentions/demo/form.md correctly 1`] = `
             class="ant-mentions"
           >
             <textarea
+              aria-required="true"
               class="rc-textarea"
               id="bio"
               placeholder="You can use @ to ref user here"

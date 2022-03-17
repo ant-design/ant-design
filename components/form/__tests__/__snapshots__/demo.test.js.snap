@@ -38,6 +38,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                 class="ant-form-item-control-input-content"
               >
                 <input
+                  aria-required="true"
                   class="ant-input"
                   id="advanced_search_field-0"
                   placeholder="placeholder"
@@ -77,6 +78,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                 class="ant-form-item-control-input-content"
               >
                 <div
+                  aria-required="true"
                   class="ant-select ant-select-single ant-select-show-arrow"
                 >
                   <div
@@ -91,6 +93,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                         aria-controls="advanced_search_field-1_list"
                         aria-haspopup="listbox"
                         aria-owns="advanced_search_field-1_list"
+                        aria-required="true"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
                         id="advanced_search_field-1"
@@ -169,6 +172,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                 class="ant-form-item-control-input-content"
               >
                 <input
+                  aria-required="true"
                   class="ant-input"
                   id="advanced_search_field-2"
                   placeholder="placeholder"
@@ -208,6 +212,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                 class="ant-form-item-control-input-content"
               >
                 <input
+                  aria-required="true"
                   class="ant-input"
                   id="advanced_search_field-3"
                   placeholder="placeholder"
@@ -247,6 +252,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                 class="ant-form-item-control-input-content"
               >
                 <div
+                  aria-required="true"
                   class="ant-select ant-select-single ant-select-show-arrow"
                 >
                   <div
@@ -261,6 +267,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                         aria-controls="advanced_search_field-4_list"
                         aria-haspopup="listbox"
                         aria-owns="advanced_search_field-4_list"
+                        aria-required="true"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
                         id="advanced_search_field-4"
@@ -339,6 +346,7 @@ exports[`renders ./components/form/demo/advanced-search.md correctly 1`] = `
                 class="ant-form-item-control-input-content"
               >
                 <input
+                  aria-required="true"
                   class="ant-input"
                   id="advanced_search_field-5"
                   placeholder="placeholder"
@@ -440,6 +448,7 @@ exports[`renders ./components/form/demo/basic.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <input
+            aria-required="true"
             class="ant-input"
             id="basic_username"
             type="text"
@@ -477,6 +486,7 @@ exports[`renders ./components/form/demo/basic.md correctly 1`] = `
           >
             <input
               action="click"
+              aria-required="true"
               class="ant-input"
               id="basic_password"
               type="password"
@@ -607,6 +617,7 @@ exports[`renders ./components/form/demo/col-24-debug.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <input
+            aria-required="true"
             class="ant-input"
             id="basic_username"
             type="text"
@@ -644,6 +655,7 @@ exports[`renders ./components/form/demo/col-24-debug.md correctly 1`] = `
           >
             <input
               action="click"
+              aria-required="true"
               class="ant-input"
               id="basic_password"
               type="password"
@@ -737,6 +749,7 @@ exports[`renders ./components/form/demo/control-hooks.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <input
+            aria-required="true"
             class="ant-input"
             id="control-hooks_note"
             type="text"
@@ -770,6 +783,7 @@ exports[`renders ./components/form/demo/control-hooks.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <div
+            aria-required="true"
             class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
           >
             <div
@@ -784,6 +798,7 @@ exports[`renders ./components/form/demo/control-hooks.md correctly 1`] = `
                   aria-controls="control-hooks_gender_list"
                   aria-haspopup="listbox"
                   aria-owns="control-hooks_gender_list"
+                  aria-required="true"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
                   id="control-hooks_gender"
@@ -904,6 +919,7 @@ exports[`renders ./components/form/demo/control-ref.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <input
+            aria-required="true"
             class="ant-input"
             id="control-ref_note"
             type="text"
@@ -937,6 +953,7 @@ exports[`renders ./components/form/demo/control-ref.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <div
+            aria-required="true"
             class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
           >
             <div
@@ -951,6 +968,7 @@ exports[`renders ./components/form/demo/control-ref.md correctly 1`] = `
                   aria-controls="control-ref_gender_list"
                   aria-haspopup="listbox"
                   aria-owns="control-ref_gender_list"
+                  aria-required="true"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
                   id="control-ref_gender"
@@ -1303,7 +1321,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
           class="ant-form-item-control-input-content"
         >
           <input
-            class="ant-input ant-input-status-error"
+            class="ant-input"
             placeholder="unavailable choice"
             type="text"
             value="Buggy!"
@@ -1312,10 +1330,10 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
       </div>
       <div
         class="ant-form-item-explain ant-form-item-explain-connected"
+        role="alert"
       >
         <div
           class="ant-form-item-explain-error"
-          role="alert"
         >
           Buggy!
         </div>
@@ -1345,7 +1363,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
           class="ant-form-item-control-input-content"
         >
           <input
-            class="ant-input ant-input-disabled ant-input-status-error"
+            class="ant-input ant-input-disabled"
             disabled=""
             placeholder="unavailable choice"
             type="text"
@@ -1355,10 +1373,10 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
       </div>
       <div
         class="ant-form-item-explain ant-form-item-explain-connected"
+        role="alert"
       >
         <div
           class="ant-form-item-explain-error"
-          role="alert"
         >
           Buggy!
         </div>
@@ -1420,7 +1438,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
           class="ant-form-item-control-input-content"
         >
           <input
-            class="ant-input ant-input-status-error"
+            class="ant-input"
             placeholder="unavailable choice"
             type="text"
             value="Buggy!"
@@ -1429,10 +1447,10 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
       </div>
       <div
         class="ant-form-item-explain ant-form-item-explain-connected"
+        role="alert"
       >
         <div
           class="ant-form-item-explain-error"
-          role="alert"
         >
           Buggy!
         </div>
@@ -1462,7 +1480,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
           class="ant-form-item-control-input-content"
         >
           <input
-            class="ant-input ant-input-disabled ant-input-status-error"
+            class="ant-input ant-input-disabled"
             disabled=""
             placeholder="unavailable choice"
             type="text"
@@ -1472,10 +1490,10 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
       </div>
       <div
         class="ant-form-item-explain ant-form-item-explain-connected"
+        role="alert"
       >
         <div
           class="ant-form-item-explain-error"
-          role="alert"
         >
           Buggy!
         </div>
@@ -1550,7 +1568,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
           class="ant-form-item-control-input-content"
         >
           <span
-            class="ant-input-group-wrapper ant-input-group-wrapper-status-error"
+            class="ant-input-group-wrapper"
           >
             <span
               class="ant-input-wrapper ant-input-group"
@@ -1561,7 +1579,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
                 Buggy!
               </span>
               <input
-                class="ant-input ant-input-status-error"
+                class="ant-input"
                 placeholder="unavailable choice"
                 type="text"
                 value=""
@@ -1572,10 +1590,10 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
       </div>
       <div
         class="ant-form-item-explain ant-form-item-explain-connected"
+        role="alert"
       >
         <div
           class="ant-form-item-explain-error"
-          role="alert"
         >
           Buggy!
         </div>
@@ -1605,7 +1623,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
           class="ant-form-item-control-input-content"
         >
           <span
-            class="ant-input-group-wrapper ant-input-group-wrapper-status-error"
+            class="ant-input-group-wrapper"
           >
             <span
               class="ant-input-wrapper ant-input-group"
@@ -1616,7 +1634,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
                 Buggy!
               </span>
               <input
-                class="ant-input ant-input-disabled ant-input-status-error"
+                class="ant-input ant-input-disabled"
                 disabled=""
                 placeholder="unavailable choice"
                 type="text"
@@ -1628,10 +1646,10 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
       </div>
       <div
         class="ant-form-item-explain ant-form-item-explain-connected"
+        role="alert"
       >
         <div
           class="ant-form-item-explain-error"
-          role="alert"
         >
           Buggy!
         </div>
@@ -1702,7 +1720,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
           class="ant-form-item-control-input-content"
         >
           <span
-            class="ant-input-affix-wrapper ant-input-affix-wrapper-status-error"
+            class="ant-input-affix-wrapper"
           >
             <span
               class="ant-input-prefix"
@@ -1720,10 +1738,10 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
       </div>
       <div
         class="ant-form-item-explain ant-form-item-explain-connected"
+        role="alert"
       >
         <div
           class="ant-form-item-explain-error"
-          role="alert"
         >
           Buggy!
         </div>
@@ -1753,7 +1771,7 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
           class="ant-form-item-control-input-content"
         >
           <span
-            class="ant-input-affix-wrapper ant-input-affix-wrapper-disabled ant-input-affix-wrapper-status-error"
+            class="ant-input-affix-wrapper ant-input-affix-wrapper-disabled"
           >
             <span
               class="ant-input-prefix"
@@ -1772,10 +1790,10 @@ exports[`renders ./components/form/demo/disabled-input-debug.md correctly 1`] = 
       </div>
       <div
         class="ant-form-item-explain ant-form-item-explain-connected"
+        role="alert"
       >
         <div
           class="ant-form-item-explain-error"
-          role="alert"
         >
           Buggy!
         </div>
@@ -2007,6 +2025,7 @@ exports[`renders ./components/form/demo/dynamic-form-items-complex.md correctly 
           class="ant-form-item-control-input-content"
         >
           <div
+            aria-required="true"
             class="ant-select ant-select-single ant-select-show-arrow"
           >
             <div
@@ -2021,6 +2040,7 @@ exports[`renders ./components/form/demo/dynamic-form-items-complex.md correctly 
                   aria-controls="dynamic_form_nest_item_area_list"
                   aria-haspopup="listbox"
                   aria-owns="dynamic_form_nest_item_area_list"
+                  aria-required="true"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
                   id="dynamic_form_nest_item_area"
@@ -2276,6 +2296,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <input
+            aria-required="true"
             class="ant-input"
             id="dynamic_rule_username"
             placeholder="Please input your name"
@@ -2410,6 +2431,7 @@ exports[`renders ./components/form/demo/form-context.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <input
+            aria-required="true"
             class="ant-input"
             id="basicForm_group"
             type="text"
@@ -2549,6 +2571,7 @@ Array [
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-required="true"
               class="ant-input"
               id="global_state_username"
               type="text"
@@ -2618,6 +2641,7 @@ exports[`renders ./components/form/demo/inline-login.md correctly 1`] = `
               </span>
             </span>
             <input
+              aria-required="true"
               class="ant-input"
               id="horizontal_login_username"
               placeholder="Username"
@@ -2668,6 +2692,7 @@ exports[`renders ./components/form/demo/inline-login.md correctly 1`] = `
               </span>
             </span>
             <input
+              aria-required="true"
               class="ant-input"
               id="horizontal_login_password"
               placeholder="Password"
@@ -3070,6 +3095,7 @@ exports[`renders ./components/form/demo/layout-can-wrap.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <input
+            aria-required="true"
             class="ant-input"
             id="wrap_username"
             type="text"
@@ -3105,6 +3131,7 @@ exports[`renders ./components/form/demo/layout-can-wrap.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <input
+            aria-required="true"
             class="ant-input"
             id="wrap_password"
             type="text"
@@ -3182,6 +3209,7 @@ exports[`renders ./components/form/demo/nest-messages.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <input
+            aria-required="true"
             class="ant-input"
             id="nest-messages_user_name"
             type="text"
@@ -3460,6 +3488,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
               </span>
             </span>
             <input
+              aria-required="true"
               class="ant-input"
               id="normal_login_username"
               placeholder="Username"
@@ -3510,6 +3539,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
               </span>
             </span>
             <input
+              aria-required="true"
               class="ant-input"
               id="normal_login_password"
               placeholder="Password"
@@ -3703,6 +3733,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <input
+            aria-required="true"
             class="ant-input"
             id="register_email"
             type="text"
@@ -3736,10 +3767,11 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <span
-            class="ant-input-affix-wrapper ant-input-password ant-input-affix-wrapper-has-feedback"
+            class="ant-input-affix-wrapper ant-input-password"
           >
             <input
               action="click"
+              aria-required="true"
               class="ant-input"
               id="register_password"
               type="password"
@@ -3801,10 +3833,11 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <span
-            class="ant-input-affix-wrapper ant-input-password ant-input-affix-wrapper-has-feedback"
+            class="ant-input-affix-wrapper ant-input-password"
           >
             <input
               action="click"
+              aria-required="true"
               class="ant-input"
               id="register_confirm"
               type="password"
@@ -3889,6 +3922,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <input
+            aria-required="true"
             class="ant-input"
             id="register_nickname"
             type="text"
@@ -3922,6 +3956,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <div
+            aria-required="true"
             class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
           >
             <div
@@ -3935,6 +3970,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                   aria-controls="register_residence_list"
                   aria-haspopup="listbox"
                   aria-owns="register_residence_list"
+                  aria-required="true"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
                   id="register_residence"
@@ -4106,6 +4142,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                 </div>
               </span>
               <input
+                aria-required="true"
                 class="ant-input"
                 id="register_phone"
                 type="text"
@@ -4212,6 +4249,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                   class="ant-input-number-input-wrap"
                 >
                   <input
+                    aria-required="true"
                     autocomplete="off"
                     class="ant-input-number-input"
                     id="register_donation"
@@ -4313,6 +4351,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <div
+            aria-required="true"
             class="ant-select ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
           >
             <div
@@ -4327,6 +4366,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                   aria-controls="register_website_list"
                   aria-haspopup="listbox"
                   aria-owns="register_website_list"
+                  aria-required="true"
                   autocomplete="off"
                   class="ant-input ant-select-selection-search-input"
                   id="register_website"
@@ -4374,6 +4414,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
             data-count="0 / 100"
           >
             <textarea
+              aria-required="true"
               class="ant-input"
               id="register_intro"
             />
@@ -4406,6 +4447,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <div
+            aria-required="true"
             class="ant-select ant-select-single ant-select-show-arrow"
           >
             <div
@@ -4420,6 +4462,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
                   aria-controls="register_gender_list"
                   aria-haspopup="listbox"
                   aria-owns="register_gender_list"
+                  aria-required="true"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
                   id="register_gender"
@@ -4499,6 +4542,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
               style="padding-left:4px;padding-right:4px"
             >
               <input
+                aria-required="true"
                 class="ant-input"
                 id="register_captcha"
                 type="text"
@@ -5482,6 +5526,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               class="ant-picker-input"
             >
               <input
+                aria-required="true"
                 autocomplete="off"
                 id="time_related_controls_date-picker"
                 placeholder="Select date"
@@ -5549,6 +5594,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               class="ant-picker-input"
             >
               <input
+                aria-required="true"
                 autocomplete="off"
                 id="time_related_controls_date-time-picker"
                 placeholder="Select date"
@@ -5616,6 +5662,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               class="ant-picker-input"
             >
               <input
+                aria-required="true"
                 autocomplete="off"
                 id="time_related_controls_month-picker"
                 placeholder="Select month"
@@ -5677,6 +5724,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
           class="ant-form-item-control-input-content"
         >
           <div
+            aria-required="true"
             class="ant-picker ant-picker-range"
           >
             <div
@@ -5786,6 +5834,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
           class="ant-form-item-control-input-content"
         >
           <div
+            aria-required="true"
             class="ant-picker ant-picker-range"
           >
             <div
@@ -5901,6 +5950,7 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
               class="ant-picker-input"
             >
               <input
+                aria-required="true"
                 autocomplete="off"
                 id="time_related_controls_time-picker"
                 placeholder="Select time"
@@ -6028,7 +6078,8 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <div
-            class="ant-select ant-select-has-feedback ant-select-single ant-select-show-arrow"
+            aria-required="true"
+            class="ant-select ant-select-single ant-select-show-arrow"
           >
             <div
               class="ant-select-selector"
@@ -6042,6 +6093,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                   aria-controls="validate_other_select_list"
                   aria-haspopup="listbox"
                   aria-owns="validate_other_select_list"
+                  aria-required="true"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
                   id="validate_other_select"
@@ -6114,6 +6166,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <div
+            aria-required="true"
             class="ant-select ant-select-multiple ant-select-show-search"
           >
             <div
@@ -6136,6 +6189,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                       aria-controls="validate_other_select-multiple_list"
                       aria-haspopup="listbox"
                       aria-owns="validate_other_select-multiple_list"
+                      aria-required="true"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
                       id="validate_other_select-multiple"
@@ -6544,6 +6598,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <div
+            aria-required="true"
             class="ant-radio-group ant-radio-group-outline"
             id="validate_other_radio-button"
           >
@@ -7151,6 +7206,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               >
                 <input
                   accept=""
+                  aria-describedby="validate_other_upload_extra"
                   id="validate_other_upload"
                   style="display:none"
                   type="file"
@@ -7192,6 +7248,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
       </div>
       <div
         class="ant-form-item-extra"
+        id="validate_other_upload_extra"
       >
         longgggggggggggggggggggggggggggggggggg
       </div>
@@ -7335,7 +7392,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <input
-            class="ant-input ant-input-status-error"
+            class="ant-input"
             id="error"
             placeholder="unavailable choice"
             type="text"
@@ -7345,10 +7402,10 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
       </div>
       <div
         class="ant-form-item-explain ant-form-item-explain-connected"
+        role="alert"
       >
         <div
           class="ant-form-item-explain-error"
-          role="alert"
         >
           Should be combination of numbers & alphabets
         </div>
@@ -7378,7 +7435,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <span
-            class="ant-input-affix-wrapper ant-input-affix-wrapper-status-warning"
+            class="ant-input-affix-wrapper"
           >
             <span
               class="ant-input-prefix"
@@ -7437,52 +7494,44 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         <div
           class="ant-form-item-control-input-content"
         >
-          <span
-            class="ant-input-affix-wrapper ant-input-affix-wrapper-status-validating ant-input-affix-wrapper-has-feedback"
-          >
-            <input
-              class="ant-input"
-              id="validating"
-              placeholder="I'm the content is being validated"
-              type="text"
-              value=""
-            />
-            <span
-              class="ant-input-suffix"
-            >
-              <span
-                class="ant-input-feedback-icon"
-              >
-                <span
-                  aria-label="loading"
-                  class="anticon anticon-loading anticon-spin"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="loading"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="0 0 1024 1024"
-                    width="1em"
-                  >
-                    <path
-                      d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-                    />
-                  </svg>
-                </span>
-              </span>
-            </span>
-          </span>
+          <input
+            class="ant-input"
+            id="validating"
+            placeholder="I'm the content is being validated"
+            type="text"
+            value=""
+          />
         </div>
+        <span
+          class="ant-form-item-children-icon"
+        >
+          <span
+            aria-label="loading"
+            class="anticon anticon-loading anticon-spin"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="loading"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+              />
+            </svg>
+          </span>
+        </span>
       </div>
       <div
         class="ant-form-item-explain ant-form-item-explain-connected"
+        role="alert"
       >
         <div
           class="ant-form-item-explain-validating"
-          role="alert"
         >
           The information is being validated...
         </div>
@@ -7511,45 +7560,37 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         <div
           class="ant-form-item-control-input-content"
         >
-          <span
-            class="ant-input-affix-wrapper ant-input-affix-wrapper-status-success ant-input-affix-wrapper-has-feedback"
-          >
-            <input
-              class="ant-input"
-              id="success"
-              placeholder="I'm the content"
-              type="text"
-              value=""
-            />
-            <span
-              class="ant-input-suffix"
-            >
-              <span
-                class="ant-input-feedback-icon"
-              >
-                <span
-                  aria-label="check-circle"
-                  class="anticon anticon-check-circle"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="check-circle"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
-                    />
-                  </svg>
-                </span>
-              </span>
-            </span>
-          </span>
+          <input
+            class="ant-input"
+            id="success"
+            placeholder="I'm the content"
+            type="text"
+            value=""
+          />
         </div>
+        <span
+          class="ant-form-item-children-icon"
+        >
+          <span
+            aria-label="check-circle"
+            class="anticon anticon-check-circle"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="check-circle"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
+              />
+            </svg>
+          </span>
+        </span>
       </div>
     </div>
   </div>
@@ -7575,45 +7616,37 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         <div
           class="ant-form-item-control-input-content"
         >
-          <span
-            class="ant-input-affix-wrapper ant-input-affix-wrapper-status-warning ant-input-affix-wrapper-has-feedback"
-          >
-            <input
-              class="ant-input"
-              id="warning2"
-              placeholder="Warning"
-              type="text"
-              value=""
-            />
-            <span
-              class="ant-input-suffix"
-            >
-              <span
-                class="ant-input-feedback-icon"
-              >
-                <span
-                  aria-label="exclamation-circle"
-                  class="anticon anticon-exclamation-circle"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="exclamation-circle"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                    />
-                  </svg>
-                </span>
-              </span>
-            </span>
-          </span>
+          <input
+            class="ant-input"
+            id="warning2"
+            placeholder="Warning"
+            type="text"
+            value=""
+          />
         </div>
+        <span
+          class="ant-form-item-children-icon"
+        >
+          <span
+            aria-label="exclamation-circle"
+            class="anticon anticon-exclamation-circle"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="exclamation-circle"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+              />
+            </svg>
+          </span>
+        </span>
       </div>
     </div>
   </div>
@@ -7639,52 +7672,44 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
         <div
           class="ant-form-item-control-input-content"
         >
-          <span
-            class="ant-input-affix-wrapper ant-input-affix-wrapper-status-error ant-input-affix-wrapper-has-feedback"
-          >
-            <input
-              class="ant-input"
-              id="error2"
-              placeholder="unavailable choice"
-              type="text"
-              value=""
-            />
-            <span
-              class="ant-input-suffix"
-            >
-              <span
-                class="ant-input-feedback-icon"
-              >
-                <span
-                  aria-label="close-circle"
-                  class="anticon anticon-close-circle"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="close-circle"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                    />
-                  </svg>
-                </span>
-              </span>
-            </span>
-          </span>
+          <input
+            class="ant-input"
+            id="error2"
+            placeholder="unavailable choice"
+            type="text"
+            value=""
+          />
         </div>
+        <span
+          class="ant-form-item-children-icon"
+        >
+          <span
+            aria-label="close-circle"
+            class="anticon anticon-close-circle"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="close-circle"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+              />
+            </svg>
+          </span>
+        </span>
       </div>
       <div
         class="ant-form-item-explain ant-form-item-explain-connected"
+        role="alert"
       >
         <div
           class="ant-form-item-explain-error"
-          role="alert"
         >
           Should be combination of numbers & alphabets
         </div>
@@ -7714,7 +7739,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <div
-            class="ant-picker ant-picker-status-success ant-picker-has-feedback"
+            class="ant-picker"
             style="width:100%"
           >
             <div
@@ -7750,33 +7775,33 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                     />
                   </svg>
                 </span>
-                <span
-                  class="ant-picker-feedback-icon"
-                >
-                  <span
-                    aria-label="check-circle"
-                    class="anticon anticon-check-circle"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="check-circle"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
-                      />
-                    </svg>
-                  </span>
-                </span>
               </span>
             </div>
           </div>
         </div>
+        <span
+          class="ant-form-item-children-icon"
+        >
+          <span
+            aria-label="check-circle"
+            class="anticon anticon-check-circle"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="check-circle"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
+              />
+            </svg>
+          </span>
+        </span>
       </div>
     </div>
   </div>
@@ -7803,7 +7828,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <div
-            class="ant-picker ant-picker-status-warning ant-picker-has-feedback"
+            class="ant-picker"
             style="width:100%"
           >
             <div
@@ -7842,33 +7867,33 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                     />
                   </svg>
                 </span>
-                <span
-                  class="ant-picker-feedback-icon"
-                >
-                  <span
-                    aria-label="exclamation-circle"
-                    class="anticon anticon-exclamation-circle"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="exclamation-circle"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                      />
-                    </svg>
-                  </span>
-                </span>
               </span>
             </div>
           </div>
         </div>
+        <span
+          class="ant-form-item-children-icon"
+        >
+          <span
+            aria-label="exclamation-circle"
+            class="anticon anticon-exclamation-circle"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="exclamation-circle"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+              />
+            </svg>
+          </span>
+        </span>
       </div>
     </div>
   </div>
@@ -7895,7 +7920,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <div
-            class="ant-picker ant-picker-range ant-picker-status-error ant-picker-has-feedback"
+            class="ant-picker ant-picker-range"
             style="width:100%"
           >
             <div
@@ -7974,32 +7999,32 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                   />
                 </svg>
               </span>
-              <span
-                class="ant-picker-feedback-icon"
-              >
-                <span
-                  aria-label="close-circle"
-                  class="anticon anticon-close-circle"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="close-circle"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                    />
-                  </svg>
-                </span>
-              </span>
             </span>
           </div>
         </div>
+        <span
+          class="ant-form-item-children-icon"
+        >
+          <span
+            aria-label="close-circle"
+            class="anticon anticon-close-circle"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="close-circle"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+              />
+            </svg>
+          </span>
+        </span>
       </div>
     </div>
   </div>
@@ -8026,7 +8051,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <div
-            class="ant-select ant-select-status-error ant-select-has-feedback ant-select-single ant-select-allow-clear ant-select-show-arrow"
+            class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
           >
             <div
               class="ant-select-selector"
@@ -8081,32 +8106,32 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                   />
                 </svg>
               </span>
-              <span
-                class="ant-select-feedback-icon"
-              >
-                <span
-                  aria-label="close-circle"
-                  class="anticon anticon-close-circle"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="close-circle"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                    />
-                  </svg>
-                </span>
-              </span>
             </span>
           </div>
         </div>
+        <span
+          class="ant-form-item-children-icon"
+        >
+          <span
+            aria-label="close-circle"
+            class="anticon anticon-close-circle"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="close-circle"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+              />
+            </svg>
+          </span>
+        </span>
       </div>
     </div>
   </div>
@@ -8133,7 +8158,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <div
-            class="ant-select ant-cascader ant-select-status-error ant-select-has-feedback ant-select-single ant-select-allow-clear ant-select-show-arrow"
+            class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
           >
             <div
               class="ant-select-selector"
@@ -8187,39 +8212,39 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                   />
                 </svg>
               </span>
-              <span
-                class="ant-select-feedback-icon"
-              >
-                <span
-                  aria-label="close-circle"
-                  class="anticon anticon-close-circle"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="close-circle"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                    />
-                  </svg>
-                </span>
-              </span>
             </span>
           </div>
         </div>
+        <span
+          class="ant-form-item-children-icon"
+        >
+          <span
+            aria-label="close-circle"
+            class="anticon anticon-close-circle"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="close-circle"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+              />
+            </svg>
+          </span>
+        </span>
       </div>
       <div
         class="ant-form-item-explain ant-form-item-explain-connected"
+        role="alert"
       >
         <div
           class="ant-form-item-explain-error"
-          role="alert"
         >
           Something breaks the rule.
         </div>
@@ -8249,7 +8274,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <div
-            class="ant-select ant-tree-select ant-select-status-warning ant-select-has-feedback ant-select-single ant-select-allow-clear ant-select-show-arrow"
+            class="ant-select ant-tree-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
           >
             <div
               class="ant-select-selector"
@@ -8303,39 +8328,39 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                   />
                 </svg>
               </span>
-              <span
-                class="ant-select-feedback-icon"
-              >
-                <span
-                  aria-label="exclamation-circle"
-                  class="anticon anticon-exclamation-circle"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="exclamation-circle"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                    />
-                  </svg>
-                </span>
-              </span>
             </span>
           </div>
         </div>
+        <span
+          class="ant-form-item-children-icon"
+        >
+          <span
+            aria-label="exclamation-circle"
+            class="anticon anticon-exclamation-circle"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="exclamation-circle"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+              />
+            </svg>
+          </span>
+        </span>
       </div>
       <div
         class="ant-form-item-explain ant-form-item-explain-connected"
+        role="alert"
       >
         <div
           class="ant-form-item-explain-warning"
-          role="alert"
         >
           Need to be checked
         </div>
@@ -8379,7 +8404,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    class="ant-picker ant-picker-status-error"
+                    class="ant-picker"
                   >
                     <div
                       class="ant-picker-input"
@@ -8421,10 +8446,10 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               </div>
               <div
                 class="ant-form-item-explain ant-form-item-explain-connected"
+                role="alert"
               >
                 <div
                   class="ant-form-item-explain-error"
-                  role="alert"
                 >
                   Please select right date
                 </div>
@@ -8519,96 +8544,27 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <div
-            class="ant-input-number-affix-wrapper ant-input-number-affix-wrapper-status-success ant-input-number-affix-wrapper-has-feedback"
+            class="ant-input-number"
             style="width:100%"
           >
             <div
-              class="ant-input-number ant-input-number-status-success"
-            >
-              <div
-                class="ant-input-number-handler-wrap"
-              >
-                <span
-                  aria-disabled="false"
-                  aria-label="Increase Value"
-                  class="ant-input-number-handler ant-input-number-handler-up"
-                  role="button"
-                  unselectable="on"
-                >
-                  <span
-                    aria-label="up"
-                    class="anticon anticon-up ant-input-number-handler-up-inner"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="up"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
-                      />
-                    </svg>
-                  </span>
-                </span>
-                <span
-                  aria-disabled="false"
-                  aria-label="Decrease Value"
-                  class="ant-input-number-handler ant-input-number-handler-down"
-                  role="button"
-                  unselectable="on"
-                >
-                  <span
-                    aria-label="down"
-                    class="anticon anticon-down ant-input-number-handler-down-inner"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="down"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                      />
-                    </svg>
-                  </span>
-                </span>
-              </div>
-              <div
-                class="ant-input-number-input-wrap"
-              >
-                <input
-                  autocomplete="off"
-                  class="ant-input-number-input"
-                  role="spinbutton"
-                  step="1"
-                  value=""
-                />
-              </div>
-            </div>
-            <span
-              class="ant-input-number-suffix"
+              class="ant-input-number-handler-wrap"
             >
               <span
-                class="ant-input-number-feedback-icon"
+                aria-disabled="false"
+                aria-label="Increase Value"
+                class="ant-input-number-handler ant-input-number-handler-up"
+                role="button"
+                unselectable="on"
               >
                 <span
-                  aria-label="check-circle"
-                  class="anticon anticon-check-circle"
+                  aria-label="up"
+                  class="anticon anticon-up ant-input-number-handler-up-inner"
                   role="img"
                 >
                   <svg
                     aria-hidden="true"
-                    data-icon="check-circle"
+                    data-icon="up"
                     fill="currentColor"
                     focusable="false"
                     height="1em"
@@ -8616,14 +8572,75 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                     width="1em"
                   >
                     <path
-                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
+                      d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
                     />
                   </svg>
                 </span>
               </span>
-            </span>
+              <span
+                aria-disabled="false"
+                aria-label="Decrease Value"
+                class="ant-input-number-handler ant-input-number-handler-down"
+                role="button"
+                unselectable="on"
+              >
+                <span
+                  aria-label="down"
+                  class="anticon anticon-down ant-input-number-handler-down-inner"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="down"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </div>
+            <div
+              class="ant-input-number-input-wrap"
+            >
+              <input
+                autocomplete="off"
+                class="ant-input-number-input"
+                role="spinbutton"
+                step="1"
+                value=""
+              />
+            </div>
           </div>
         </div>
+        <span
+          class="ant-form-item-children-icon"
+        >
+          <span
+            aria-label="check-circle"
+            class="anticon anticon-check-circle"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="check-circle"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
+              />
+            </svg>
+          </span>
+        </span>
       </div>
     </div>
   </div>
@@ -8650,7 +8667,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <span
-            class="ant-input-affix-wrapper ant-input-affix-wrapper-status-success ant-input-affix-wrapper-has-feedback"
+            class="ant-input-affix-wrapper"
           >
             <input
               class="ant-input"
@@ -8662,7 +8679,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
               class="ant-input-suffix"
             >
               <span
-                class="ant-input-clear-icon ant-input-clear-icon-hidden ant-input-clear-icon-has-suffix"
+                class="ant-input-clear-icon ant-input-clear-icon-hidden"
                 role="button"
                 tabindex="-1"
               >
@@ -8686,32 +8703,32 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                   </svg>
                 </span>
               </span>
-              <span
-                class="ant-input-feedback-icon"
-              >
-                <span
-                  aria-label="check-circle"
-                  class="anticon anticon-check-circle"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="check-circle"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
-                    />
-                  </svg>
-                </span>
-              </span>
             </span>
           </span>
         </div>
+        <span
+          class="ant-form-item-children-icon"
+        >
+          <span
+            aria-label="check-circle"
+            class="anticon anticon-check-circle"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="check-circle"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
+              />
+            </svg>
+          </span>
+        </span>
       </div>
     </div>
   </div>
@@ -8738,7 +8755,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <span
-            class="ant-input-affix-wrapper ant-input-password ant-input-affix-wrapper-status-warning ant-input-affix-wrapper-has-feedback"
+            class="ant-input-affix-wrapper ant-input-password"
           >
             <input
               action="click"
@@ -8773,32 +8790,32 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                   />
                 </svg>
               </span>
-              <span
-                class="ant-input-feedback-icon"
-              >
-                <span
-                  aria-label="exclamation-circle"
-                  class="anticon anticon-exclamation-circle"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="exclamation-circle"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                    />
-                  </svg>
-                </span>
-              </span>
             </span>
           </span>
         </div>
+        <span
+          class="ant-form-item-children-icon"
+        >
+          <span
+            aria-label="exclamation-circle"
+            class="anticon anticon-exclamation-circle"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="exclamation-circle"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm-32 232c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V296zm32 440a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+              />
+            </svg>
+          </span>
+        </span>
       </div>
     </div>
   </div>
@@ -8825,7 +8842,7 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <span
-            class="ant-input-affix-wrapper ant-input-password ant-input-affix-wrapper-status-error ant-input-affix-wrapper-has-feedback"
+            class="ant-input-affix-wrapper ant-input-password"
           >
             <input
               action="click"
@@ -8885,32 +8902,32 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                   />
                 </svg>
               </span>
-              <span
-                class="ant-input-feedback-icon"
-              >
-                <span
-                  aria-label="close-circle"
-                  class="anticon anticon-close-circle"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="close-circle"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                    />
-                  </svg>
-                </span>
-              </span>
             </span>
           </span>
         </div>
+        <span
+          class="ant-form-item-children-icon"
+        >
+          <span
+            aria-label="close-circle"
+            class="anticon anticon-close-circle"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="close-circle"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+              />
+            </svg>
+          </span>
+        </span>
       </div>
     </div>
   </div>
@@ -8937,41 +8954,37 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <div
-            class="ant-mentions-affix-wrapper ant-mentions-affix-wrapper-status-error ant-mentions-affix-wrapper-has-feedback"
+            class="ant-mentions"
           >
-            <div
-              class="ant-mentions ant-mentions-status-error"
-            >
-              <textarea
-                class="rc-textarea"
-                rows="1"
-              />
-            </div>
-            <span
-              class="ant-mentions-feedback-icon"
-            >
-              <span
-                aria-label="close-circle"
-                class="anticon anticon-close-circle"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="close-circle"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                  />
-                </svg>
-              </span>
-            </span>
+            <textarea
+              class="rc-textarea"
+              rows="1"
+            />
           </div>
         </div>
+        <span
+          class="ant-form-item-children-icon"
+        >
+          <span
+            aria-label="close-circle"
+            class="anticon anticon-close-circle"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="close-circle"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+              />
+            </svg>
+          </span>
+        </span>
       </div>
     </div>
   </div>
@@ -8998,14 +9011,14 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <div
-            class="ant-input-textarea ant-input-textarea-show-count ant-input-textarea-status-error ant-input-textarea-has-feedback"
+            class="ant-input-textarea ant-input-textarea-show-count"
             data-count="0"
           >
             <span
-              class="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn ant-input-affix-wrapper-status-error ant-input-affix-wrapper-has-feedback"
+              class="ant-input-affix-wrapper ant-input-affix-wrapper-textarea-with-clear-btn"
             >
               <textarea
-                class="ant-input ant-input-status-error"
+                class="ant-input"
               />
               <span
                 aria-label="close-circle"
@@ -9028,38 +9041,38 @@ exports[`renders ./components/form/demo/validate-static.md correctly 1`] = `
                 </svg>
               </span>
             </span>
-            <span
-              class="ant-input-feedback-icon"
-            >
-              <span
-                aria-label="close-circle"
-                class="anticon anticon-close-circle"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="close-circle"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                  />
-                </svg>
-              </span>
-            </span>
           </div>
         </div>
+        <span
+          class="ant-form-item-children-icon"
+        >
+          <span
+            aria-label="close-circle"
+            class="anticon anticon-close-circle"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="close-circle"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+              />
+            </svg>
+          </span>
+        </span>
       </div>
       <div
         class="ant-form-item-explain ant-form-item-explain-connected"
+        role="alert"
       >
         <div
           class="ant-form-item-explain-error"
-          role="alert"
         >
           Should have something
         </div>
@@ -9098,6 +9111,7 @@ exports[`renders ./components/form/demo/warning-only.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <input
+            aria-required="true"
             class="ant-input"
             id="url"
             placeholder="input placeholder"
@@ -9262,10 +9276,10 @@ exports[`renders ./components/form/demo/without-form-create.md correctly 1`] = `
       </div>
       <div
         class="ant-form-item-explain ant-form-item-explain-connected"
+        role="alert"
       >
         <div
           class=""
-          role="alert"
         >
           A prime is a natural number greater than 1 that has no positive divisors other than 1 and itself.
         </div>
