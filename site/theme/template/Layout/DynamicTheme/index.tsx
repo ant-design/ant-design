@@ -109,7 +109,11 @@ export default ({ onChangeTheme, defaultToken, componentName }: ThemeConfigProps
         </Form>
       </Drawer>
 
-      <Preview visible={previewVisible} componentName={componentName} />
+      <Preview
+        visible={previewVisible}
+        componentName={componentName}
+        onClose={() => setPreviewVisible(false)}
+      />
     </>
   );
 };
