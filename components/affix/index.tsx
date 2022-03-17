@@ -36,6 +36,7 @@ export interface AffixProps {
 
 export interface InternalAffixProps extends AffixProps {
   affixPrefixCls: string;
+  hashId: string;
 }
 
 enum AffixStatus {
@@ -256,8 +257,9 @@ class Affix extends React.Component<InternalAffixProps, AffixState> {
   // =================== Render ===================
   render() {
     const { affixStyle, placeholderStyle } = this.state;
-    const { affixPrefixCls, children } = this.props;
+    const { affixPrefixCls, hashId, children } = this.props;
     const className = classNames({
+      hashId,
       [affixPrefixCls]: !!affixStyle,
     });
 
@@ -307,7 +309,8 @@ const AffixFC = React.forwardRef<Affix, AffixProps>((props, ref) => {
   const AffixProps: InternalAffixProps = {
     ...props,
 
-    affixPrefixCls: classNames(hashId, affixPrefixCls),
+    affixPrefixCls,
+    hashId,
   };
 
   return wrapSSR(<Affix {...AffixProps} ref={ref} />);

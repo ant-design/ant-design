@@ -10,7 +10,6 @@ import {
 
 interface AffixToken extends DerivativeToken {
   affixCls: string;
-  zIndexAffix: number;
 }
 
 // ============================== Shared ==============================
@@ -29,14 +28,10 @@ const genSharedAffixStyle: GenerateStyle<AffixToken> = (token): CSSObject => {
 export default function useStyle(prefixCls: string): UseComponentStyleResult {
   const [theme, token, hashId] = useToken();
 
-  // FIXME
-  const zIndexAffix = 10;
-
   const affixToken: AffixToken = {
     ...token,
 
     affixCls: `.${prefixCls}`,
-    zIndexAffix,
   };
 
   return [

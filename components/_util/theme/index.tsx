@@ -123,6 +123,7 @@ export interface DesignToken extends PresetColorType {
   duration: number;
 
   zIndexDropdown: number;
+  zIndexAffix: number;
 
   boxShadow?: string;
 }
