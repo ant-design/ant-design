@@ -12,11 +12,17 @@
   display: inline-flex;
   align-items: stretch;
   justify-items: flex-start;
+  color: @segmented-label-color;
 
   background-color: @segmented-bg;
 
   border-radius: 2px;
   box-shadow: 0 0 0 2px @segmented-bg;
+
+  &:hover {
+    background-color: @segmented-hover-bg;
+    box-shadow: 0 0 0 2px @segmented-hover-bg;
+  }
 
   &&-block {
     display: flex;
@@ -34,12 +40,12 @@
 
     &-selected {
       .segmented-item-selected();
-      color: @segmented-label-color;
+      color: @segmented-label-hover-color;
     }
 
     &:hover,
     &:focus {
-      color: @segmented-label-color;
+      color: @segmented-label-hover-color;
     }
 
     &-disabled {
