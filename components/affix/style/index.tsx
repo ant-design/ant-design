@@ -29,6 +29,7 @@ const genSharedAffixStyle: GenerateStyle<AffixToken> = (token): CSSObject => {
 export default function useStyle(prefixCls: string): UseComponentStyleResult {
   const [theme, token, hashId] = useToken();
 
+  // FIXME
   const zIndexAffix = 10;
 
   const affixToken: AffixToken = {
