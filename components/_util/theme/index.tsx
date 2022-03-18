@@ -70,7 +70,46 @@ export const PresetColorKeys: ReadonlyArray<keyof PresetColorType> = [
   'gold',
 ];
 
+// 🚨🚨🚨🚨🚨 Note: Design Token is freeze. Please connect @zombieJ if need update this 🚨🚨🚨🚨🚨
 export interface DesignToken extends PresetColorType {
+  // Color
+  colorPrimary: string;
+  colorSuccess: string;
+  colorWarning: string;
+  colorError: string;
+  colorInfo: string;
+  colorText: string;
+  colorTextLightSolid: string;
+  colorBg: string;
+
+  // Font
+  fontFamily: string;
+  fontSizeBase: number;
+
+  // Grid
+  gridUnit: number;
+  gridStepBase: number;
+
+  // Line
+  lineWidth: number;
+
+  // Motion
+  motionUnit: number;
+  motionBaseStep: number;
+  motionEaseInOutCirc: string;
+  motionEaseInOut: string;
+  motionEaseOutBack: string;
+  motionEaseInQuint: string;
+  motionEaseOutQuint: string;
+
+  // Radius
+  radiusBase: number;
+
+  // Size
+  sizeUnit: number;
+  sizeBaseStep: number;
+
+  // =============== Legacy: should be remove ===============
   primaryColor: string;
   successColor: string;
   warningColor: string;
@@ -94,7 +133,7 @@ export interface DesignToken extends PresetColorType {
   outlineBlurSize: number;
 
   fontSize: number;
-  fontFamily: string;
+  // fontFamily: string;
   textColor: string;
   textColorSecondary: string;
   textColorDisabled: string;
@@ -133,8 +172,85 @@ type ColorPalettes = {
   [key in `${keyof PresetColorType}-${ColorPaletteKeyIndexes[number]}`]: string;
 };
 
-/** This is temporary token definition since final token definition is not ready yet. */
 export interface DerivativeToken extends ColorPalettes, Omit<DesignToken, 'duration'> {
+  // =================== Derivative Parts ===================
+  // Derivative Parts: is generated directly by the algorithm with DesignToken.
+  colorPrimaryHover: string;
+  colorPrimaryActive: string;
+  colorPrimaryFocus: string;
+  colorErrorHover: string;
+  colorErrorActive: string;
+  fontSizeSM: number;
+  fontSizeLG: number;
+  sizeSpace: number;
+  fontSize: number;
+  colorTextBelow: string;
+  colorTextBelow2: string;
+  sizeSpaceXS: number;
+  motionDurationBase: number;
+  motionDurationFast: number;
+  motionDurationSlow: number;
+  fontHeight: number;
+  sizeSpaceSM: number;
+  sizePaddingXXS: number;
+  gridSpaceSM: number;
+  gridSpaceBase: number;
+  motionDurationMd: number;
+  radiusLG: number;
+  radiusXL: number;
+  radiusSM: number;
+  colorTextAbove: string;
+  radiusXXL: number;
+  radiusXXXL: number;
+  gridSpaceLG: number;
+  gridSpaceXL: number;
+  gridSpaceXXL: number;
+  fontSizeXL: number;
+  colorTextAbove2: string;
+  colorBgBelow: string;
+  colorBgBelow2: string;
+
+  // ===================== Alias Parts ======================
+  // Alias Parts: Alias of the derivative parts for more meaningful name.
+  colorPrimaryBorder: string;
+  colorLink: string;
+  colorPrimaryBg: string;
+  controlHeight: number;
+  colorBgContainer: string;
+  colorBgComponent: string;
+  colorBgComponentDisabled: string;
+  controlLineType: string;
+  colorBorder: string;
+  colorHeading: string;
+  colorIconHover: string;
+  colorBgContainerHover: string;
+  controlHeightSM: number;
+  controlHeightLG: number;
+  controlOutlineWidthActive: string;
+  controlOutlineActiveStyle: string;
+  controlOutlineActiveColor: string;
+  colorPlaceholder: string;
+  colorIcon: string;
+  colorBgHover: string;
+  colorSplit: string;
+  colorTextPrimary: string;
+  controlRadius: number;
+  radiusPiece: number;
+  gridContainerMargin: number;
+  controlPaddingHorizontal: number;
+  controlItemBgSelected: number;
+  sizePaddingHorizontal: number;
+  sizePaddingHorizontalXS: number;
+  sizePaddingHorizontalSM: number;
+  sizePaddingHorizontalXXS: number;
+  controlPaddingHorizontalSM: number;
+  controlLineWidth: number;
+  controlHeightXS: number;
+  controlItemBgActive: string;
+  controlItemBgHover: string;
+  colorTextDarkSolid: string;
+
+  // =============== Legacy: should be remove ===============
   primaryHoverColor: string;
   primaryActiveColor: string;
   primaryOutlineColor: string;
@@ -154,14 +270,6 @@ export interface DerivativeToken extends ColorPalettes, Omit<DesignToken, 'durat
   linkHoverDecoration: CSSObject['textDecoration'];
   linkFocusDecoration: CSSObject['textDecoration'];
 
-  fontSizeSM: number;
-  fontSizeLG: number;
-  /** @private Only Used for control inside component like Multiple Select inner selection item */
-  controlHeightXS: number;
-  controlHeightSM: number;
-  controlHeightLG: number;
-  controlPaddingHorizontal: number;
-  controlPaddingHorizontalSM: number;
   paddingSM: number;
   paddingXS: number;
   paddingXXS: number;
@@ -235,6 +343,13 @@ function derivative(designToken: DesignToken): DerivativeToken {
   }, {} as ColorPalettes);
 
   return {
+    // =================== Derivative Parts ===================
+    // FIXME: @arvinxx fix this
+
+    // ===================== Alias Parts ======================
+    // FIXME: @arvinxx fix this
+
+    // =============== Legacy: should be remove ===============
     // FIXME: Need design token
     boxShadow: `
     0 3px 6px -4px rgba(0, 0, 0, 0.12),
