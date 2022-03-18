@@ -67,6 +67,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (
   const ribbonPrefixCls = `${antPrefix}-ribbon`;
   const ribbonWrapperPrefixCls = `${antPrefix}-ribbon-wrapper`;
 
+  // FIXME preset color 后面可能要统一重构
   const statusPreset = PresetColorKeys.reduce(
     (prev: CSSObject, colorKey: keyof PresetColorType) => {
       const darkColor = token[`${colorKey}-6`];
@@ -104,7 +105,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (
         zIndex: token.badgeZIndex,
         minWidth: token.badgeHeight,
         height: token.badgeHeight,
-        padding: '0 6px',
+        padding: '0 6px', // FIXME: hard code, copied from old less file
         color: token.badgeTextColor,
         fontWeight: token.badgeFontWeight,
         fontSize: token.badgeFontSize,
@@ -131,7 +132,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (
       },
 
       [`.${badgePrefixCls}-multiple-words`]: {
-        padding: '0 8px',
+        padding: `0 ${token.paddingXS}px`,
       },
 
       [`.${badgePrefixCls}-dot`]: {
@@ -144,16 +145,18 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (
         boxShadow: `0 0 0 1px ${token.componentBackground}`,
       },
       [`.${badgePrefixCls}-dot.${numberPrefixCls}`]: {
-        transition: 'background 1.5s',
+        transition: 'background 1.5s', // FIXME: hard code, copied from old less file
       },
       [`.${badgePrefixCls}-count, .${badgePrefixCls}-dot, .${numberPrefixCls}-custom-component`]: {
         position: 'absolute',
-        top: '0',
-        insetInlineEnd: '0',
+        top: 0,
+        insetInlineEnd: 0,
         transform: 'translate(50%, -50%)',
         transformOrigin: '100% 0%',
         [`.${iconPrefixCls}-spin`]: {
-          animation: `${antBadgeLoadingCircle.getName(hashId)} 1s infinite linear`,
+          animation: `${antBadgeLoadingCircle.getName(hashId)} ${
+            token.durationFast
+          } infinite linear`,
         },
       },
       [`&.${badgePrefixCls}-status`]: {
@@ -162,7 +165,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (
 
         [`.${badgePrefixCls}-status-dot`]: {
           position: 'relative',
-          top: '-1px',
+          top: -1, // FIXME: hard code, copied from old less file
           display: 'inline-block',
           width: token.badgeStatusSize,
           height: token.badgeStatusSize,
@@ -185,12 +188,12 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (
             height: '100%',
             border: `1px solid ${token.primaryColor}`,
             borderRadius: '50%',
-            animation: `${antStatusProcessing.getName(hashId)} 1.2s infinite ease-in-out`,
-            content: '',
+            animation: `${antStatusProcessing.getName(hashId)} 1.2s infinite ease-in-out`, // FIXME: hard code, copied from old less file
+            content: '""',
           },
         },
         [`.${badgePrefixCls}-status-default`]: {
-          backgroundColor: '#d9d9d9', // todo @normal-color;
+          backgroundColor: '#d9d9d9', // FIXME: @normal-color;
         },
 
         [`.${badgePrefixCls}-status-error`]: {
@@ -202,7 +205,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (
         },
         ...statusPreset,
         [`.${badgePrefixCls}-status-text`]: {
-          marginInlineStart: 8,
+          marginInlineStart: token.marginXS,
           color: token.textColor,
           fontSize: token.fontSize,
         },
@@ -252,7 +255,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (
           WebkitBackfaceVisibility: 'hidden',
           [`> p.${numberPrefixCls}-only-unit`]: {
             height: token.badgeHeight,
-            margin: '0',
+            margin: 0,
             WebkitTransformStyle: 'preserve-3d',
             WebkitBackfaceVisibility: 'hidden',
           },
@@ -264,11 +267,11 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (
     [`.${ribbonPrefixCls}`]: {
       ...resetComponent(token),
       position: 'absolute',
-      top: 8,
-      height: 22,
-      padding: '0 8px',
+      top: 8, // FIXME: hard code, copied from old less file
+      height: 22, // FIXME: hard code, copied from old less file
+      padding: `0 ${token.paddingXS}px`,
       color: token.badgeTextColor,
-      lineHeight: '22px',
+      lineHeight: '22px', // FIXME: hard code, copied from old less file
       whiteSpace: 'nowrap',
       backgroundColor: token.primaryColor,
       borderRadius: token.borderRadius,
@@ -276,16 +279,16 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (
       [`.${ribbonPrefixCls}-corner`]: {
         position: 'absolute',
         top: '100%',
-        width: '8px',
-        height: '8px',
+        width: 8,
+        height: 8,
         color: 'currentcolor',
-        border: '4px solid',
-        transform: 'scaleY(0.75)',
+        border: '4px solid', // FIXME: hard code, copied from old less file
+        transform: 'scaleY(0.75)', // FIXME: hard code, copied from old less file
         transformOrigin: 'top',
         '&::after': {
           position: 'absolute',
-          top: '-4px',
-          insetInlineStart: '-4px',
+          top: `${-0.5 * token.paddingXS}px`,
+          insetInlineStart: `${-0.5 * token.paddingXS}px`,
           width: 'inherit',
           height: 'inherit',
           color: 'rgba(0, 0, 0, 0.25)',
@@ -295,18 +298,18 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (
       },
       ...statusRibbonPreset,
       [`&.${ribbonPrefixCls}-placement-end`]: {
-        insetInlineEnd: '-8px',
-        borderBottomRightRadius: '0',
+        insetInlineEnd: -1 * token.marginXS,
+        borderBottomRightRadius: 0,
         [`.${ribbonPrefixCls}-corner`]: {
-          insetInlineEnd: '0',
+          insetInlineEnd: 0,
           borderColor: 'currentcolor transparent transparent currentcolor',
         },
       },
       [`&.${ribbonPrefixCls}-placement-start`]: {
-        insetInlineStart: '-8px',
-        borderBottomLeftRadius: '0',
+        insetInlineStart: -1 * token.marginXS,
+        borderBottomLeftRadius: 0,
         [`.${ribbonPrefixCls}-corner`]: {
-          insetInlineStart: '0',
+          insetInlineStart: 0,
           borderColor: 'currentcolor currentcolor transparent transparent',
         },
       },
