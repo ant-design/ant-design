@@ -254,7 +254,8 @@ function derivative(designToken: DesignToken): DerivativeToken {
     warningHoverColor: warningColors[4],
     warningOutlineColor: new TinyColor(warningColor).setAlpha(0.2).toRgbString(),
 
-    highlightColor: errorColors[4], // FIXME: Should not align with error color
+    highlightColor: errorColors[5], // FIXME: Should not align with error color
+    // FIXME: fix2 badge-color
 
     itemActiveBackground: primaryColors[0],
 
