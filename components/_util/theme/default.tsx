@@ -16,6 +16,8 @@ const presetColors: PresetColorType = {
   geekblue: '#2F54EB',
   gold: '#FAAD14',
   lime: '#A0D911',
+  white: '#fff',
+  black: '#000',
 };
 
 const defaultDesignToken: DesignToken = {
@@ -36,6 +38,7 @@ const defaultDesignToken: DesignToken = {
 
   easeInOut: `cubic-bezier(0.645, 0.045, 0.355, 1)`,
   easeInOutCirc: `cubic-bezier(0.78, 0.14, 0.15, 0.86)`,
+  easeOut: 'cubic-bezier(0.215, 0.61, 0.355, 1)',
   easeOutBack: `cubic-bezier(0.12, 0.4, 0.29, 1.46)`,
   easeInQuint: `cubic-bezier(0.755, 0.05, 0.855, 0.06)`,
   easeOutQuint: `cubic-bezier(0.23, 1, 0.32, 1)`,
@@ -78,6 +81,17 @@ const defaultDesignToken: DesignToken = {
   duration: 0.3,
 
   zIndexDropdown: 1050,
+  zIndexImage: 1080,
+  zIndexModalMask: 1000,
+
+  // Image
+  animationDurationSlow: '0.3s',
+  imageSizeBase: '48px',
+  imageFontSizeBase: '24px',
+  imageBg: ' #f5f5f5',
+  imageColor: ' #fff',
+  imageMaskFontSize: '16px',
+  imagePreviewOperationSize: '18px',
 
   // preset color palettes
   ...presetColors,

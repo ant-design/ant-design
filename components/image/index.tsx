@@ -10,18 +10,22 @@ import { getTransitionName } from '../_util/motion';
 export interface CompositionImage<P> extends React.FC<P> {
   PreviewGroup: typeof PreviewGroup;
 }
+// CSSINJS
+import useStyle from './style';
 
 const Image: CompositionImage<ImageProps> = ({
   prefixCls: customizePrefixCls,
   preview,
   ...otherProps
 }) => {
-  const { getPrefixCls } = useContext(ConfigContext);
+  const { getPrefixCls, iconPrefixCls } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('image', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
 
   const { locale: contextLocale = defaultLocale } = useContext(ConfigContext);
   const imageLocale = contextLocale.Image || defaultLocale.Image;
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls);
 
   const mergedPreview = React.useMemo(() => {
     if (preview === false) {
@@ -43,7 +47,14 @@ const Image: CompositionImage<ImageProps> = ({
     };
   }, [preview, imageLocale]);
 
-  return <RcImage prefixCls={prefixCls} preview={mergedPreview} {...otherProps} />;
+  return wrapSSR(
+    <RcImage
+      prefixCls={`${prefixCls}`}
+      preview={mergedPreview}
+      rootClassName={hashId}
+      {...otherProps}
+    />,
+  );
 };
 
 export { ImageProps };
