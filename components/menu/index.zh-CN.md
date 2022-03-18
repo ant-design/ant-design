@@ -24,10 +24,10 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3XZcjGpvK/Menu.svg
 
 ```jsx
 const items = [
-  { title: '菜单项' },
+  { label: '菜单项' },
   {
-    title: '子菜单',
-    children: [{ title: '子菜单项' }],
+    label: '子菜单',
+    children: [{ label: '子菜单项' }],
   },
 ];
 
