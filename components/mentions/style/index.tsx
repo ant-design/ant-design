@@ -16,12 +16,12 @@ import {
 } from '../../input/style';
 
 interface MentionsToken extends InputToken {
-  mentionsPrefixCls: string;
+  mentionsCls: string;
 }
 
 const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
   const {
-    mentionsPrefixCls,
+    mentionsCls,
     backgroundLight,
     textColorDisabled,
     itemHoverBackground,
@@ -39,7 +39,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
   } = token;
 
   return {
-    [`${mentionsPrefixCls}`]: {
+    [`${mentionsCls}`]: {
       ...resetComponent(token),
       ...genBasicInputStyle(token),
 
@@ -63,7 +63,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
       },
 
       // ================= Input Area =================
-      [`> textarea, ${mentionsPrefixCls}-measure`]: {
+      [`> textarea, ${mentionsCls}-measure`]: {
         minHeight: controlHeight - 2,
         margin: 0,
         padding: `${inputPaddingVertical}px ${inputPaddingHorizontal}px`,
@@ -96,7 +96,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
         ...genPlaceholderStyle(),
       },
 
-      [`${mentionsPrefixCls}-measure`]: {
+      [`${mentionsCls}-measure`]: {
         position: 'absolute',
         top: 0,
         insetInlineEnd: 0,
@@ -133,7 +133,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
           display: 'none',
         },
 
-        [`${mentionsPrefixCls}-dropdown-menu`]: {
+        [`${mentionsCls}-dropdown-menu`]: {
           maxHeight: 250, // FIXME: magic
           marginBottom: 0,
           paddingInlineStart: 0, // Override default ul/ol
@@ -209,7 +209,7 @@ export default function useStyle(
 
   const mentionsToken: MentionsToken = {
     ...initInputToken(token, prefixCls, iconPrefixCls),
-    mentionsPrefixCls: `.${prefixCls}`,
+    mentionsCls: `.${prefixCls}`,
   };
 
   return [
