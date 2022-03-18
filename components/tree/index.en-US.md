@@ -45,7 +45,6 @@ Almost anything can be represented in a tree structure. Examples include directo
 | switcherIcon | Customize collapse/expand icon of tree node | ReactNode | - |  |
 | titleRender | Customize tree node title render | (nodeData) => ReactNode | - | 4.5.0 |
 | treeData | The treeNodes data Array, if set it then you need not to construct children TreeNode. (key should be unique across the whole array) | array&lt;{ key, title, children, \[disabled, selectable] }> | - |  |
-| treeLoadedKeys | (Controlled) Set loaded tree nodes, work with `loadData` only | string[] | [] |  |
 | virtual | Disable virtual scroll when set to false | boolean | true | 4.1.0 |
 | onCheck | Callback function for when the onCheck event occurs | function(checkedKeys, e:{checked: bool, checkedNodes, node, event, halfCheckedKeys}) | - |  |
 | onDragEnd | Callback function for when the onDragEnd event occurs | function({event, node}) | - |  |
