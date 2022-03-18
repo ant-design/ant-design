@@ -4,6 +4,7 @@ import isEqual from 'lodash/isEqual';
 import FilterFilled from '@ant-design/icons/FilterFilled';
 import Button from '../../../button';
 import Menu from '../../../menu';
+import type { MenuProps } from '../../../menu';
 import Tree from '../../../tree';
 import type { DataNode, EventDataNode } from '../../../tree';
 import Checkbox from '../../../checkbox';
@@ -55,7 +56,7 @@ function renderFilterItems({
   filterMultiple: boolean;
   searchValue: string;
   filterSearch: FilterSearchType;
-}) {
+}): Required<MenuProps>['items'] {
   return filters.map((filter, index) => {
     const key = String(filter.value);
 
@@ -88,9 +89,9 @@ function renderFilterItems({
     };
     if (searchValue.trim()) {
       if (typeof filterSearch === 'function') {
-        return filterSearch(searchValue, filter) ? item : undefined;
+        return filterSearch(searchValue, filter) ? item : null;
       }
-      return searchValueMatched(searchValue, filter.text) ? item : undefined;
+      return searchValueMatched(searchValue, filter.text) ? item : null;
     }
     return item;
   });
