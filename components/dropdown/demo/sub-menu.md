@@ -50,7 +50,7 @@ const menu = (
         disabled: true,
         children: [
           {
-            label: '5th menu item',
+            label: '5d menu item',
           },
           {
             label: '6th menu item',

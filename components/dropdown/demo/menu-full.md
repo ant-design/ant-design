@@ -55,7 +55,7 @@ const items: MenuItem[] = [
   getItem('Navigation Two', 'sub2', <AppstoreOutlined />, [
     getItem('Option 5', '5'),
     getItem('Option 6', '6'),
-    getItem('Submenu', 'sub3', null, [getItem('Option 7', '7'), getItem('Option 8', '8')], 'group'),
+    getItem('Submenu', 'sub3', null, [getItem('Option 7', '7'), getItem('Option 8', '8')]),
   ]),
   getItem('Navigation Three', 'sub4', <SettingOutlined />, [
     getItem('Option 9', '9'),
