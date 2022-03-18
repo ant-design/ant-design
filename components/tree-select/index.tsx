@@ -10,13 +10,18 @@ import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import type { BaseOptionType, DefaultOptionType } from 'rc-tree-select/lib/TreeSelect';
 import type { BaseSelectRef } from 'rc-select';
+import { useContext } from 'react';
 import { ConfigContext } from '../config-provider';
 import devWarning from '../_util/devWarning';
 import { AntTreeNodeProps, TreeProps } from '../tree';
 import getIcons from '../select/utils/iconUtil';
 import renderSwitcherIcon from '../tree/utils/iconUtil';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
-import { getTransitionName } from '../_util/motion';
+import { getTransitionName, getTransitionDirection, SelectCommonPlacement } from '../_util/motion';
+import { FormItemStatusContext } from '../form/context';
+import { getMergedStatus, getStatusClassNames, InputStatus } from '../_util/statusUtils';
+import useStyle from './style';
+import useSelectStyle from '../select/style';
 
 type RawValue = string | number;
 
@@ -43,8 +48,10 @@ export interface TreeSelectProps<
   > {
   suffixIcon?: React.ReactNode;
   size?: SizeType;
+  placement?: SelectCommonPlacement;
   bordered?: boolean;
   treeLine?: TreeProps['showLine'];
+  status?: InputStatus;
 }
 
 const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionType = BaseOptionType>(
@@ -57,6 +64,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
     multiple,
     listHeight = 256,
     listItemHeight = 26,
+    placement,
     notFoundContent,
     switcherIcon,
     treeLine,
@@ -65,6 +73,8 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
     treeIcon = false,
     transitionName,
     choiceTransitionName = '',
+    status: customStatus,
+    showArrow,
     ...props
   }: TreeSelectProps<OptionType>,
   ref: React.Ref<BaseSelectRef>,
@@ -76,6 +86,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
     direction,
     virtual,
     dropdownMatchSelectWidth,
+    iconPrefixCls,
   } = React.useContext(ConfigContext);
   const size = React.useContext(SizeContext);
 
@@ -85,20 +96,37 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
     '`multiple` will always be `true` when `treeCheckable` is true',
   );
 
+  const rootPrefixCls = getPrefixCls();
   const prefixCls = getPrefixCls('select', customizePrefixCls);
   const treePrefixCls = getPrefixCls('select-tree', customizePrefixCls);
   const treeSelectPrefixCls = getPrefixCls('tree-select', customizePrefixCls);
 
-  const mergedDropdownClassName = classNames(dropdownClassName, `${treeSelectPrefixCls}-dropdown`, {
-    [`${treeSelectPrefixCls}-dropdown-rtl`]: direction === 'rtl',
-  });
+  const [wrapSelectSSR, hashId] = useSelectStyle(rootPrefixCls, prefixCls, iconPrefixCls);
+  const [wrapTreeSelectSSR] = useStyle(treeSelectPrefixCls, treePrefixCls);
+
+  const mergedDropdownClassName = classNames(
+    dropdownClassName,
+    `${treeSelectPrefixCls}-dropdown`,
+    {
+      [`${treeSelectPrefixCls}-dropdown-rtl`]: direction === 'rtl',
+    },
+    hashId,
+  );
 
   const isMultiple = !!(treeCheckable || multiple);
+  const mergedShowArrow = showArrow !== undefined ? showArrow : props.loading || !isMultiple;
+
+  // ===================== Status =====================
+  const { status: contextStatus, hasFeedback } = useContext(FormItemStatusContext);
+  const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
   // ===================== Icons =====================
   const { suffixIcon, removeIcon, clearIcon } = getIcons({
     ...props,
     multiple: isMultiple,
+    status: mergedStatus,
+    showArrow: mergedShowArrow,
+    hasFeedback,
     prefixCls,
   });
 
@@ -119,6 +147,16 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
     'switcherIcon',
   ]);
 
+  // ===================== Placement =====================
+  const getPlacement = () => {
+    if (placement !== undefined) {
+      return placement;
+    }
+    return direction === 'rtl'
+      ? ('bottomRight' as SelectCommonPlacement)
+      : ('bottomLeft' as SelectCommonPlacement);
+  };
+
   const mergedSize = customizeSize || size;
   const mergedClassName = classNames(
     !customizePrefixCls && treeSelectPrefixCls,
@@ -128,11 +166,12 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-borderless`]: !bordered,
     },
+    getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
     className,
+    hashId,
   );
-  const rootPrefixCls = getPrefixCls();
 
-  return (
+  const returnNode = (
     <RcTreeSelect
       virtual={virtual}
       dropdownMatchSelectWidth={dropdownMatchSelectWidth}
@@ -148,6 +187,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
       treeLine={!!treeLine}
       inputIcon={suffixIcon}
       multiple={multiple}
+      placement={getPlacement()}
       removeIcon={removeIcon}
       clearIcon={clearIcon}
       switcherIcon={(nodeProps: AntTreeNodeProps) =>
@@ -159,9 +199,16 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
       treeMotion={null}
       dropdownClassName={mergedDropdownClassName}
       choiceTransitionName={getTransitionName(rootPrefixCls, '', choiceTransitionName)}
-      transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
+      transitionName={getTransitionName(
+        rootPrefixCls,
+        getTransitionDirection(placement),
+        transitionName,
+      )}
+      showArrow={hasFeedback || showArrow}
     />
   );
+
+  return wrapSelectSSR(wrapTreeSelectSSR(returnNode));
 };
 
 const TreeSelectRef = React.forwardRef(InternalTreeSelect) as <

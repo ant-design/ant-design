@@ -16,7 +16,7 @@ jobs:
 
       - name: check invalid
         if: (contains(github.event.issue.body, 'ant-design-issue-helper') == false) && (steps.checkUser.outputs.result == 'false')
-        uses: actions-cool/issues-helper@v2
+        uses: actions-cool/issues-helper@v3
         with:
           actions: 'create-comment,add-labels,close-issue'
           issue-number: ${{ github.event.issue.number }}
@@ -27,7 +27,7 @@ jobs:
             你好 @${{ github.event.issue.user.login }}，为了能够进行高效沟通，我们对 issue 有一定的格式要求，你的 issue 因为不符合要求而被自动关闭。你可以通过 [issue 助手](http://new-issue.ant.design) 来创建 issue 以方便我们定位错误。谢谢配合！
 
       - name: check website
-        uses: actions-cool/issues-helper@v2
+        uses: actions-cool/issues-helper@v3
         id: checkid
         with:
           actions: 'check-issue'
@@ -37,7 +37,7 @@ jobs:
 
       - name: deal website
         if: steps.checkid.outputs.check-result == 'true'
-        uses: actions-cool/issues-helper@v2
+        uses: actions-cool/issues-helper@v3
         with:
           actions: 'create-comment,close-issue'
           issue-number: ${{ github.event.issue.number }}
@@ -63,15 +63,15 @@ jobs:
 
       - name: check ie
         if: contains(github.event.issue.body, 'ant-design-issue-helper') == true && contains(github.event.issue.title, 'IE9') == true || contains(github.event.issue.title, 'IE 9') == true || contains(github.event.issue.title, 'IE10') == true || contains(github.event.issue.title, 'IE 10') == true || contains(github.event.issue.title, 'IE11') == true || contains(github.event.issue.title, 'IE 11') == true || contains(github.event.issue.title, 'Internet Explorer') == true || contains(github.event.issue.body, 'IE9') == true || contains(github.event.issue.body, 'IE 9') == true || contains(github.event.issue.body, 'IE10') == true || contains(github.event.issue.body, 'IE 10') == true || contains(github.event.issue.body, 'IE11') == true || contains(github.event.issue.body, 'IE 11') == true || contains(github.event.issue.body, 'Internet Explorer') == true
-        uses: actions-cool/issues-helper@v2
+        uses: actions-cool/issues-helper@v3
         with:
           actions: 'add-labels'
           issue-number: ${{ github.event.issue.number }}
           labels: 'IE | Firefox | Safari,Internet Explorer'
 
-      - name: check ie
-        if: contains(github.event.issue.body, 'ant-design-issue-helper') == true && contains(github.event.issue.title, 'IE9') == true || contains(github.event.issue.title, 'IE 9') == true || contains(github.event.issue.title, 'IE10') == true || contains(github.event.issue.title, 'IE 10') == true || contains(github.event.issue.title, 'IE11') == true || contains(github.event.issue.title, 'IE 11') == true || contains(github.event.issue.title, 'Internet Explorer') == true || contains(github.event.issue.body, 'IE9') == true || contains(github.event.issue.body, 'IE 9') == true || contains(github.event.issue.body, 'IE10') == true || contains(github.event.issue.body, 'IE 10') == true
-        uses: actions-cool/issues-helper@v2
+      - name: check ie11-
+        if: contains(github.event.issue.body, 'ant-design-issue-helper') == true && contains(github.event.issue.title, 'IE9') == true || contains(github.event.issue.title, 'IE 9') == true || contains(github.event.issue.title, 'IE10') == true || contains(github.event.issue.title, 'IE 10') == true || contains(github.event.issue.body, 'IE9') == true || contains(github.event.issue.body, 'IE 9') == true || contains(github.event.issue.body, 'IE10') == true || contains(github.event.issue.body, 'IE 10') == true
+        uses: actions-cool/issues-helper@v3
         with:
           actions: 'create-comment, close-issue'
           issue-number: ${{ github.event.issue.number }}

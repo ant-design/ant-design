@@ -15,6 +15,9 @@ import SiteContext from './SiteContext';
 import enLocale from '../../en-US';
 import cnLocale from '../../zh-CN';
 import * as utils from '../utils';
+import defaultDesignToken from '../../../../components/_util/theme/default';
+
+import DynamicTheme from './DynamicTheme';
 
 if (typeof window !== 'undefined' && navigator.serviceWorker) {
   navigator.serviceWorker.getRegistrations().then(registrations => {
@@ -66,6 +69,7 @@ export default class Layout extends React.Component {
   static contextType = SiteContext;
 
   isBeforeComponent = false;
+  syncIframeThemeId = null;
 
   constructor(props) {
     super(props);
@@ -78,6 +82,8 @@ export default class Layout extends React.Component {
       setTheme: this.setTheme,
       direction: 'ltr',
       setIframeTheme: this.setIframeTheme,
+      designToken: defaultDesignToken,
+      hashedStyle: true,
     };
   }
 
@@ -132,10 +138,25 @@ export default class Layout extends React.Component {
 
     this.updateMobileMode();
     window.addEventListener('resize', this.updateMobileMode);
+
+    // Sync iframe theme with current theme
+    this.syncIframeThemeId = setInterval(() => {
+      const { designToken, hashedStyle } = this.state;
+      const content = JSON.stringify({
+        action: 'sync.theme',
+        designToken,
+        hashed: hashedStyle,
+      });
+
+      document.querySelectorAll('iframe.iframe-demo').forEach(iframe => {
+        iframe.contentWindow.postMessage(content);
+      });
+    }, 1000);
   }
 
   componentWillUnmount() {
     clearTimeout(this.timer);
+    clearInterval(this.syncIframeThemeId);
     window.removeEventListener('resize', this.updateMobileMode);
   }
 
@@ -206,7 +227,16 @@ export default class Layout extends React.Component {
 
   render() {
     const { children, helmetContext = {}, ...restProps } = this.props;
-    const { appLocale, direction, isMobile, theme, setTheme, setIframeTheme } = this.state;
+    const {
+      appLocale,
+      direction,
+      isMobile,
+      theme,
+      setTheme,
+      setIframeTheme,
+      designToken,
+      hashedStyle,
+    } = this.state;
     const title =
       appLocale.locale === 'zh-CN'
         ? 'Ant Design - 一套企业级 UI 设计语言和 React 组件库'
@@ -248,9 +278,29 @@ export default class Layout extends React.Component {
             <ConfigProvider
               locale={appLocale.locale === 'zh-CN' ? zhCN : null}
               direction={direction}
+              theme={{
+                token: designToken,
+                hashed: hashedStyle,
+              }}
             >
               <Header {...restProps} changeDirection={this.changeDirection} />
               {children}
+
+              <DynamicTheme
+                componentName={this.props.params?.children?.replace('-cn', '')}
+                defaultToken={{
+                  ...designToken,
+                  hashed: hashedStyle,
+                }}
+                onChangeTheme={newToken => {
+                  console.log('Change Theme:', newToken);
+                  const { hashed, ...restToken } = newToken;
+                  this.setState({
+                    designToken: restToken,
+                    hashedStyle: hashed,
+                  });
+                }}
+              />
             </ConfigProvider>
           </IntlProvider>
         </HelmetProvider>

@@ -10,6 +10,7 @@ import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CopyOutlined from '@ant-design/icons/CopyOutlined';
 import ResizeObserver from 'rc-resize-observer';
 import { AutoSizeType } from 'rc-textarea/lib/ResizableTextArea';
+import useIsomorphicLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 import { ConfigContext } from '../../config-provider';
 import { useLocaleReceiver } from '../../locale-provider/LocaleReceiver';
 import TransButton from '../../_util/transButton';
@@ -196,10 +197,7 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
     e?.preventDefault();
     e?.stopPropagation();
 
-    if (copyConfig.text === undefined) {
-      copyConfig.text = String(children);
-    }
-    copy(copyConfig.text || '');
+    copy(copyConfig.text || String(children) || '');
 
     setCopied(true);
 
@@ -244,7 +242,7 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
     [mergedEnableEllipsis, ellipsisConfig, enableEdit, enableCopy],
   );
 
-  React.useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (enableEllipsis && !needMeasureEllipsis) {
       setIsLineClampSupport(isStyleSupport('webkitLineClamp'));
       setIsTextOverflowSupport(isStyleSupport('textOverflow'));
@@ -340,6 +338,7 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
         className={className}
         style={style}
         direction={direction}
+        component={component}
         maxLength={editConfig.maxLength}
         autoSize={editConfig.autoSize}
         enterIcon={editConfig.enterIcon}

@@ -4,6 +4,7 @@ import RcCheckbox from 'rc-checkbox';
 import { GroupContext } from './Group';
 import { ConfigContext } from '../config-provider';
 import devWarning from '../_util/devWarning';
+import useStyle from './style';
 
 export interface AbstractCheckboxProps<T> {
   prefixCls?: string;
@@ -84,6 +85,8 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
   }, [restProps.value]);
 
   const prefixCls = getPrefixCls('checkbox', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
   const checkboxProps: CheckboxProps = { ...restProps };
   if (checkboxGroup && !skipGroup) {
     checkboxProps.onChange = (...args) => {
@@ -106,11 +109,15 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
       [`${prefixCls}-wrapper-disabled`]: checkboxProps.disabled,
     },
     className,
+    hashId,
   );
-  const checkboxClass = classNames({
-    [`${prefixCls}-indeterminate`]: indeterminate,
-  });
-  return (
+  const checkboxClass = classNames(
+    {
+      [`${prefixCls}-indeterminate`]: indeterminate,
+    },
+    hashId,
+  );
+  return wrapSSR(
     // eslint-disable-next-line jsx-a11y/label-has-associated-control
     <label
       className={classString}
@@ -120,7 +127,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
     >
       <RcCheckbox {...checkboxProps} prefixCls={prefixCls} className={checkboxClass} ref={ref} />
       {children !== undefined && <span>{children}</span>}
-    </label>
+    </label>,
   );
 };
 

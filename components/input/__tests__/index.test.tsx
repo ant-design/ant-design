@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { mount } from 'enzyme';
 // eslint-disable-next-line import/no-unresolved
 import Form from '../../form';
-import Input from '..';
-import focusTest from '../../../tests/shared/focusTest';
+import Input, { InputProps, InputRef } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 
@@ -18,7 +17,6 @@ describe('Input', () => {
     errorSpy.mockRestore();
   });
 
-  focusTest(Input);
   mountTest(Input);
   mountTest(Input.Group);
 
@@ -31,8 +29,9 @@ describe('Input', () => {
   });
 
   it('select()', () => {
-    const wrapper = mount(<Input />);
-    wrapper.instance().select();
+    const ref = React.createRef<InputRef>();
+    mount(<Input ref={ref} />);
+    ref.current?.select();
   });
 
   it('should support size', () => {
@@ -56,15 +55,15 @@ describe('Input', () => {
   describe('focus trigger warning', () => {
     it('not trigger', () => {
       const wrapper = mount(<Input suffix="bamboo" />);
-      wrapper.find('input').instance().focus();
+      (wrapper.find('input').instance() as any).focus();
       wrapper.setProps({
         suffix: 'light',
       });
       expect(errorSpy).not.toHaveBeenCalled();
     });
     it('trigger warning', () => {
-      const wrapper = mount(<Input />, { attachTo: document.body });
-      wrapper.find('input').instance().focus();
+      const wrapper = mount(<Input />);
+      wrapper.find('input').first().getDOMNode<HTMLInputElement>().focus();
       wrapper.setProps({
         suffix: 'light',
       });
@@ -78,10 +77,11 @@ describe('Input', () => {
   it('set mouse cursor position', () => {
     const defaultValue = '11111';
     const valLength = defaultValue.length;
-    const wrapper = mount(<Input autoFocus defaultValue={defaultValue} />);
-    wrapper.instance().setSelectionRange(valLength, valLength);
-    expect(wrapper.instance().input.selectionStart).toEqual(5);
-    expect(wrapper.instance().input.selectionEnd).toEqual(5);
+    const ref = React.createRef<InputRef>();
+    const wrapper = mount(<Input ref={ref} autoFocus defaultValue={defaultValue} />);
+    ref.current?.setSelectionRange(valLength, valLength);
+    expect(wrapper.find('input').first().getDOMNode<HTMLInputElement>().selectionStart).toEqual(5);
+    expect(wrapper.find('input').first().getDOMNode<HTMLInputElement>().selectionEnd).toEqual(5);
   });
 });
 
@@ -106,8 +106,12 @@ describe('prefix and suffix', () => {
       </>,
     );
 
-    expect(wrapper.find('.prefix-with-hidden').at(0).getDOMNode().hidden).toBe(true);
-    expect(wrapper.find('.suffix-with-hidden').at(0).getDOMNode().hidden).toBe(true);
+    expect(wrapper.find('.prefix-with-hidden').at(0).getDOMNode<HTMLInputElement>().hidden).toBe(
+      true,
+    );
+    expect(wrapper.find('.suffix-with-hidden').at(0).getDOMNode<HTMLInputElement>().hidden).toBe(
+      true,
+    );
   });
 });
 
@@ -143,6 +147,7 @@ describe('Input setting hidden', () => {
           showCount
           allowClear
           prefix="11"
+          // @ts-ignore
           suffix="22"
           addonBefore="http://"
           addonAfter=".com"
@@ -162,10 +167,10 @@ describe('Input setting hidden', () => {
       </>,
     );
 
-    expect(wrapper.find('.input').at(0).getDOMNode().hidden).toBe(true);
-    expect(wrapper.find('.input-search').at(0).getDOMNode().hidden).toBe(true);
-    expect(wrapper.find('.input-textarea').at(0).getDOMNode().hidden).toBe(true);
-    expect(wrapper.find('.input-password').at(0).getDOMNode().hidden).toBe(true);
+    expect(wrapper.find('.input').at(0).getDOMNode<HTMLInputElement>().hidden).toBe(true);
+    expect(wrapper.find('.input-search').at(0).getDOMNode<HTMLInputElement>().hidden).toBe(true);
+    expect(wrapper.find('.input-textarea').at(0).getDOMNode<HTMLInputElement>().hidden).toBe(true);
+    expect(wrapper.find('.input-password').at(0).getDOMNode<HTMLInputElement>().hidden).toBe(true);
   });
 });
 
@@ -250,17 +255,18 @@ describe('Input allowClear', () => {
   it('should change type when click', () => {
     const wrapper = mount(<Input allowClear />);
     wrapper.find('input').simulate('change', { target: { value: '111' } });
-    expect(wrapper.find('input').getDOMNode().value).toEqual('111');
+    expect(wrapper.find('input').getDOMNode<HTMLInputElement>().value).toEqual('111');
     expect(wrapper.render()).toMatchSnapshot();
     wrapper.find('.ant-input-clear-icon').at(0).simulate('click');
     expect(wrapper.render()).toMatchSnapshot();
-    expect(wrapper.find('input').getDOMNode().value).toEqual('');
+    expect(wrapper.find('input').getDOMNode<HTMLInputElement>().value).toEqual('');
   });
 
   it('should not show icon if value is undefined, null or empty string', () => {
+    // @ts-ignore
     const wrappers = [null, undefined, ''].map(val => mount(<Input allowClear value={val} />));
     wrappers.forEach(wrapper => {
-      expect(wrapper.find('input').getDOMNode().value).toEqual('');
+      expect(wrapper.find('input').getDOMNode<HTMLInputElement>().value).toEqual('');
       expect(wrapper.find('.ant-input-clear-icon-hidden').exists()).toBeTruthy();
       expect(wrapper.render()).toMatchSnapshot();
     });
@@ -268,41 +274,43 @@ describe('Input allowClear', () => {
 
   it('should not show icon if defaultValue is undefined, null or empty string', () => {
     const wrappers = [null, undefined, ''].map(val =>
+      // @ts-ignore
       mount(<Input allowClear defaultValue={val} />),
     );
     wrappers.forEach(wrapper => {
-      expect(wrapper.find('input').getDOMNode().value).toEqual('');
+      expect(wrapper.find('input').getDOMNode<HTMLInputElement>().value).toEqual('');
       expect(wrapper.find('.ant-input-clear-icon-hidden').exists()).toBeTruthy();
       expect(wrapper.render()).toMatchSnapshot();
     });
   });
 
   it('should trigger event correctly', () => {
-    let argumentEventObject;
+    let argumentEventObject: React.ChangeEvent<HTMLInputElement> | undefined;
+
     let argumentEventObjectValue;
-    const onChange = e => {
+    const onChange: InputProps['onChange'] = e => {
       argumentEventObject = e;
       argumentEventObjectValue = e.target.value;
     };
     const wrapper = mount(<Input allowClear defaultValue="111" onChange={onChange} />);
     wrapper.find('.ant-input-clear-icon').at(0).simulate('click');
-    expect(argumentEventObject.type).toBe('click');
+    expect(argumentEventObject?.type).toBe('click');
     expect(argumentEventObjectValue).toBe('');
-    expect(wrapper.find('input').at(0).getDOMNode().value).toBe('');
+    expect(wrapper.find('input').at(0).getDOMNode<HTMLInputElement>().value).toBe('');
   });
 
   it('should trigger event correctly on controlled mode', () => {
-    let argumentEventObject;
+    let argumentEventObject: React.ChangeEvent<HTMLInputElement> | undefined;
     let argumentEventObjectValue;
-    const onChange = e => {
+    const onChange: InputProps['onChange'] = e => {
       argumentEventObject = e;
       argumentEventObjectValue = e.target.value;
     };
     const wrapper = mount(<Input allowClear value="111" onChange={onChange} />);
     wrapper.find('.ant-input-clear-icon').at(0).simulate('click');
-    expect(argumentEventObject.type).toBe('click');
+    expect(argumentEventObject?.type).toBe('click');
     expect(argumentEventObjectValue).toBe('');
-    expect(wrapper.find('input').at(0).getDOMNode().value).toBe('111');
+    expect(wrapper.find('input').at(0).getDOMNode<HTMLInputElement>().value).toBe('111');
   });
 
   it('should focus input after clear', () => {
@@ -332,12 +340,12 @@ describe('Input allowClear', () => {
     const wrapper = mount(<Input allowClear defaultValue="value" onBlur={onBlur} />, {
       attachTo: document.body,
     });
-    wrapper.find('input').getDOMNode().focus();
+    wrapper.find('input').getDOMNode<HTMLInputElement>().focus();
     wrapper.find('.ant-input-clear-icon').at(0).simulate('mouseDown');
     wrapper.find('.ant-input-clear-icon').at(0).simulate('click');
     wrapper.find('.ant-input-clear-icon').at(0).simulate('mouseUp');
     wrapper.find('.ant-input-clear-icon').at(0).simulate('focus');
-    wrapper.find('.ant-input-clear-icon').at(0).getDOMNode().click();
+    wrapper.find('.ant-input-clear-icon').at(0).getDOMNode<HTMLInputElement>().click();
     expect(onBlur).not.toBeCalled();
     wrapper.unmount();
   });
@@ -359,12 +367,12 @@ describe('Input allowClear', () => {
 
     const wrapper = mount(<App />);
 
-    wrapper.find('input').getDOMNode().focus();
+    wrapper.find('input').getDOMNode<HTMLInputElement>().focus();
     wrapper.find('input').simulate('change', { target: { value: '111' } });
-    expect(wrapper.find('input').getDOMNode().value).toEqual('111');
+    expect(wrapper.find('input').getDOMNode<HTMLInputElement>().value).toEqual('111');
 
     wrapper.find('.ant-input-clear-icon').at(0).simulate('click');
-    expect(wrapper.find('input').getDOMNode().value).toEqual('');
+    expect(wrapper.find('input').getDOMNode<HTMLInputElement>().value).toEqual('');
 
     wrapper.unmount();
   });
@@ -372,5 +380,34 @@ describe('Input allowClear', () => {
   it('not crash when value is number', () => {
     const wrapper = mount(<Input suffix="Bamboo" value={1} />);
     expect(wrapper).toBeTruthy();
+  });
+
+  it('should display boolean value as string', () => {
+    // @ts-ignore
+    const wrapper = mount(<Input value />);
+    expect(wrapper.find('input').first().getDOMNode<HTMLInputElement>().value).toBe('true');
+    wrapper.setProps({ value: false });
+    expect(wrapper.find('input').first().getDOMNode<HTMLInputElement>().value).toBe('false');
+  });
+
+  it('should support custom clearIcon', () => {
+    const wrapper = mount(<Input allowClear={{ clearIcon: 'clear' }} />);
+    expect(wrapper.find('.ant-input-clear-icon').text()).toBe('clear');
+  });
+});
+
+describe('typescript types ', () => {
+  it('InputProps type should support data-* attributes', () => {
+    const props: InputProps = {
+      value: 123,
+
+      // expect no ts error here
+      'data-testid': 'test-id',
+      'data-id': '12345',
+    };
+    const wrapper = mount(<Input {...props} />);
+    const input = wrapper.find('input').first().getDOMNode();
+    expect(input.getAttribute('data-testid')).toBe('test-id');
+    expect(input.getAttribute('data-id')).toBe('12345');
   });
 });

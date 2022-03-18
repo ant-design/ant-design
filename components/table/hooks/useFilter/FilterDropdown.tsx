@@ -11,12 +11,24 @@ import type { CheckboxChangeEvent } from '../../../checkbox';
 import Radio from '../../../radio';
 import Dropdown from '../../../dropdown';
 import Empty from '../../../empty';
-import { ColumnType, ColumnFilterItem, Key, TableLocale, GetPopupContainer } from '../../interface';
+import {
+  ColumnType,
+  ColumnFilterItem,
+  Key,
+  TableLocale,
+  GetPopupContainer,
+  FilterSearchType,
+} from '../../interface';
 import FilterDropdownMenuWrapper from './FilterWrapper';
 import FilterSearch from './FilterSearch';
 import { FilterState, flattenKeys } from '.';
 import useSyncState from '../../../_util/hooks/useSyncState';
 import { ConfigContext } from '../../../config-provider/context';
+
+interface FilterRestProps {
+  confirm?: Boolean;
+  closeDropdown?: Boolean;
+}
 
 function hasSubMenu(filters: ColumnFilterItem[]) {
   return filters.some(({ children }) => children);
@@ -35,12 +47,14 @@ function renderFilterItems({
   filteredKeys,
   filterMultiple,
   searchValue,
+  filterSearch,
 }: {
   filters: ColumnFilterItem[];
   prefixCls: string;
   filteredKeys: Key[];
   filterMultiple: boolean;
   searchValue: string;
+  filterSearch: FilterSearchType;
 }) {
   return filters.map((filter, index) => {
     const key = String(filter.value);
@@ -58,6 +72,7 @@ function renderFilterItems({
             filteredKeys,
             filterMultiple,
             searchValue,
+            filterSearch,
           })}
         </Menu.SubMenu>
       );
@@ -72,6 +87,9 @@ function renderFilterItems({
       </Menu.Item>
     );
     if (searchValue.trim()) {
+      if (typeof filterSearch === 'function') {
+        return filterSearch(searchValue, filter) ? item : undefined;
+      }
       return searchValueMatched(searchValue, filter.text) ? item : undefined;
     }
     return item;
@@ -86,7 +104,7 @@ export interface FilterDropdownProps<RecordType> {
   filterState?: FilterState<RecordType>;
   filterMultiple: boolean;
   filterMode?: 'menu' | 'tree';
-  filterSearch?: boolean;
+  filterSearch?: FilterSearchType;
   columnKey: Key;
   children: React.ReactNode;
   triggerFilter: (filterState: FilterState<RecordType>) => void;
@@ -203,7 +221,15 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     internalTriggerFilter(getFilteredKeysSync());
   };
 
-  const onReset = () => {
+  const onReset = (
+    { confirm, closeDropdown }: FilterRestProps = { confirm: false, closeDropdown: false },
+  ) => {
+    if (confirm) {
+      internalTriggerFilter([]);
+    }
+    if (closeDropdown) {
+      triggerVisible(false);
+    }
     setSearchValue('');
     setFilteredKeysSync([]);
   };
@@ -300,6 +326,11 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
             <div className={`${tablePrefixCls}-filter-dropdown-tree`}>
               {filterMultiple ? (
                 <Checkbox
+                  checked={selectedKeys.length === flattenKeys(column.filters).length}
+                  indeterminate={
+                    selectedKeys.length > 0 &&
+                    selectedKeys.length < flattenKeys(column.filters).length
+                  }
                   className={`${tablePrefixCls}-filter-dropdown-checkall`}
                   onChange={onCheckAll}
                 >
@@ -353,6 +384,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
           >
             {renderFilterItems({
               filters: column.filters || [],
+              filterSearch,
               prefixCls,
               filteredKeys: getFilteredKeysSync(),
               filterMultiple,
@@ -367,7 +399,12 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
       <>
         {getFilterComponent()}
         <div className={`${prefixCls}-dropdown-btns`}>
-          <Button type="link" size="small" disabled={selectedKeys.length === 0} onClick={onReset}>
+          <Button
+            type="link"
+            size="small"
+            disabled={selectedKeys.length === 0}
+            onClick={() => onReset()}
+          >
             {locale.filterReset}
           </Button>
           <Button type="primary" size="small" onClick={onConfirm}>

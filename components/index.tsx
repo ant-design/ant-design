@@ -92,7 +92,7 @@ export { default as Form } from './form';
 
 export { default as Grid } from './grid';
 
-export type { InputProps } from './input';
+export type { InputProps, InputRef } from './input';
 export { default as Input } from './input';
 
 export type { ImageProps } from './image';
@@ -101,7 +101,7 @@ export { default as Image } from './image';
 export type { InputNumberProps } from './input-number';
 export { default as InputNumber } from './input-number';
 
-export type { LayoutProps } from './layout';
+export type { LayoutProps, SiderProps } from './layout';
 export { default as Layout } from './layout';
 
 export type { ListProps } from './list';

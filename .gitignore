@@ -67,3 +67,5 @@ __image_snapshots__/
 /jest-stare
 /imageSnapshots
 /imageDiffSnapshots
+
+.devcontainer*

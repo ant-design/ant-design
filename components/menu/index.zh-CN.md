@@ -44,7 +44,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3XZcjGpvK/Menu.svg
 | mode | 菜单类型，现在支持垂直、水平、和内嵌模式三种 | `vertical` \| `horizontal` \| `inline` | `vertical` |  |
 | multiple | 是否允许多选 | boolean | false |  |
 | openKeys | 当前展开的 SubMenu 菜单项 key 数组 | string\[] | - |  |
-| overflowedIndicator | 自定义 Menu 折叠时的图标 | ReactNode | - |  |
+| overflowedIndicator | 用于自定义 Menu 水平空间不足时的省略收缩的图标 | ReactNode | `<EllipsisOutlined />` |  |
 | selectable | 是否允许选中 | boolean | true |  |
 | selectedKeys | 当前选中的菜单项 key 数组 | string\[] | - |  |
 | style | 根节点样式 | CSSProperties | - |  |
@@ -91,7 +91,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3XZcjGpvK/Menu.svg
 ### Menu.SubMenu
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- |
 | children | 子菜单的菜单项 | Array&lt;MenuItem \| SubMenu> | - |  |
 | disabled | 是否禁用 | boolean | false |  |
 | icon | 菜单图标 | ReactNode | - | 4.2.0 |
@@ -100,6 +100,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3XZcjGpvK/Menu.svg
 | popupOffset | 子菜单偏移量，`mode="inline"` 时无效 | \[number, number] | - |  |
 | title | 子菜单项值 | ReactNode | - |  |
 | onTitleClick | 点击子菜单标题 | function({ key, domEvent }) | - |  |
+| theme | 设置子菜单的主题，默认从 Menu 上继承 |  | `light` \| `dark` | - | 4.19.0 |
 
 ### Menu.ItemGroup
 

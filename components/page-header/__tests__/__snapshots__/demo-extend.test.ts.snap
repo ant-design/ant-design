@@ -58,30 +58,48 @@ Array [
       <span
         class="ant-page-header-heading-extra"
       >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
+        <div
+          class="ant-space ant-space-horizontal ant-space-align-center"
         >
-          <span>
-            Operation
-          </span>
-        </button>
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            Operation
-          </span>
-        </button>
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            Primary
-          </span>
-        </button>
+          <div
+            class="ant-space-item"
+            style="margin-right:8px"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                Operation
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+            style="margin-right:8px"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                Operation
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+          >
+            <button
+              class="ant-btn ant-btn-primary"
+              type="button"
+            >
+              <span>
+                Primary
+              </span>
+            </button>
+          </div>
+        </div>
       </span>
     </div>
     <div
@@ -272,30 +290,48 @@ Array [
       <span
         class="ant-page-header-heading-extra"
       >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
+        <div
+          class="ant-space ant-space-horizontal ant-space-align-center"
         >
-          <span>
-            Operation
-          </span>
-        </button>
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            Operation
-          </span>
-        </button>
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            Primary
-          </span>
-        </button>
+          <div
+            class="ant-space-item"
+            style="margin-right:8px"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                Operation
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+            style="margin-right:8px"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                Operation
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+          >
+            <button
+              class="ant-btn ant-btn-primary"
+              type="button"
+            >
+              <span>
+                Primary
+              </span>
+            </button>
+          </div>
+        </div>
       </span>
     </div>
     <div
@@ -620,252 +656,274 @@ exports[`renders ./components/page-header/demo/content.md extend context correct
     <span
       class="ant-page-header-heading-extra"
     >
-      <button
-        class="ant-btn ant-btn-default"
-        type="button"
+      <div
+        class="ant-space ant-space-horizontal ant-space-align-center"
       >
-        <span>
-          Operation
-        </span>
-      </button>
-      <button
-        class="ant-btn ant-btn-default"
-        type="button"
-      >
-        <span>
-          Operation
-        </span>
-      </button>
-      <button
-        class="ant-btn ant-btn-primary"
-        type="button"
-      >
-        <span>
-          Primary
-        </span>
-      </button>
-      <button
-        class="ant-btn ant-btn-default ant-dropdown-trigger"
-        style="border:none;padding:0"
-        type="button"
-      >
-        <span
-          aria-label="ellipsis"
-          class="anticon anticon-ellipsis"
-          role="img"
-          style="font-size:20px;vertical-align:top"
-        >
-          <svg
-            aria-hidden="true"
-            data-icon="ellipsis"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
-          >
-            <path
-              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-            />
-          </svg>
-        </span>
-      </button>
-      <div>
         <div
-          class="ant-dropdown"
-          style="opacity:0;pointer-events:none"
+          class="ant-space-item"
+          style="margin-right:8px"
         >
-          <ul
-            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-            data-menu-list="true"
-            role="menu"
-            tabindex="0"
+          <button
+            class="ant-btn ant-btn-default"
+            type="button"
           >
-            <li
-              class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-              role="menuitem"
-              tabindex="-1"
-            >
-              <span
-                class="ant-dropdown-menu-title-content"
-              >
-                <a
-                  href="http://www.alipay.com/"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  1st menu item
-                </a>
-              </span>
-            </li>
-            <div>
-              <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
-              >
-                <div
-                  class="ant-tooltip-content"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                  >
-                    <span
-                      class="ant-tooltip-arrow-content"
-                    />
-                  </div>
-                  <div
-                    class="ant-tooltip-inner"
-                    role="tooltip"
-                  />
-                </div>
-              </div>
-            </div>
-            <li
-              class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-              role="menuitem"
-              tabindex="-1"
-            >
-              <span
-                class="ant-dropdown-menu-title-content"
-              >
-                <a
-                  href="http://www.taobao.com/"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  2nd menu item
-                </a>
-              </span>
-            </li>
-            <div>
-              <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
-              >
-                <div
-                  class="ant-tooltip-content"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                  >
-                    <span
-                      class="ant-tooltip-arrow-content"
-                    />
-                  </div>
-                  <div
-                    class="ant-tooltip-inner"
-                    role="tooltip"
-                  />
-                </div>
-              </div>
-            </div>
-            <li
-              class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-              role="menuitem"
-              tabindex="-1"
-            >
-              <span
-                class="ant-dropdown-menu-title-content"
-              >
-                <a
-                  href="http://www.tmall.com/"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  3rd menu item
-                </a>
-              </span>
-            </li>
-            <div>
-              <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
-              >
-                <div
-                  class="ant-tooltip-content"
-                >
-                  <div
-                    class="ant-tooltip-arrow"
-                  >
-                    <span
-                      class="ant-tooltip-arrow-content"
-                    />
-                  </div>
-                  <div
-                    class="ant-tooltip-inner"
-                    role="tooltip"
-                  />
-                </div>
-              </div>
-            </div>
-          </ul>
-          <div
-            aria-hidden="true"
-            style="display:none"
+            <span>
+              Operation
+            </span>
+          </button>
+        </div>
+        <div
+          class="ant-space-item"
+          style="margin-right:8px"
+        >
+          <button
+            class="ant-btn ant-btn-default"
+            type="button"
           >
-            <div>
-              <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+            <span>
+              Operation
+            </span>
+          </button>
+        </div>
+        <div
+          class="ant-space-item"
+          style="margin-right:8px"
+        >
+          <button
+            class="ant-btn ant-btn-primary"
+            type="button"
+          >
+            <span>
+              Primary
+            </span>
+          </button>
+        </div>
+        <div
+          class="ant-space-item"
+        >
+          <button
+            class="ant-btn ant-btn-text ant-btn-icon-only ant-dropdown-trigger"
+            type="button"
+          >
+            <span
+              aria-label="more"
+              class="anticon anticon-more"
+              role="img"
+              style="font-size:20px"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="more"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
               >
-                <div
-                  class="ant-tooltip-content"
+                <path
+                  d="M456 231a56 56 0 10112 0 56 56 0 10-112 0zm0 280a56 56 0 10112 0 56 56 0 10-112 0zm0 280a56 56 0 10112 0 56 56 0 10-112 0z"
+                />
+              </svg>
+            </span>
+          </button>
+          <div>
+            <div
+              class="ant-dropdown"
+              style="opacity:0;pointer-events:none"
+            >
+              <ul
+                class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+                data-menu-list="true"
+                role="menu"
+                tabindex="0"
+              >
+                <li
+                  class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+                  role="menuitem"
+                  tabindex="-1"
                 >
-                  <div
-                    class="ant-tooltip-arrow"
+                  <span
+                    class="ant-dropdown-menu-title-content"
                   >
-                    <span
-                      class="ant-tooltip-arrow-content"
-                    />
-                  </div>
+                    <a
+                      href="http://www.alipay.com/"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      1st menu item
+                    </a>
+                  </span>
+                </li>
+                <div>
                   <div
-                    class="ant-tooltip-inner"
-                    role="tooltip"
-                  />
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                    style="opacity:0;pointer-events:none"
+                  >
+                    <div
+                      class="ant-tooltip-content"
+                    >
+                      <div
+                        class="ant-tooltip-arrow"
+                      >
+                        <span
+                          class="ant-tooltip-arrow-content"
+                        />
+                      </div>
+                      <div
+                        class="ant-tooltip-inner"
+                        role="tooltip"
+                      />
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-            <div>
-              <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
-              >
-                <div
-                  class="ant-tooltip-content"
+                <li
+                  class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+                  role="menuitem"
+                  tabindex="-1"
                 >
-                  <div
-                    class="ant-tooltip-arrow"
+                  <span
+                    class="ant-dropdown-menu-title-content"
                   >
-                    <span
-                      class="ant-tooltip-arrow-content"
-                    />
-                  </div>
+                    <a
+                      href="http://www.taobao.com/"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      2nd menu item
+                    </a>
+                  </span>
+                </li>
+                <div>
                   <div
-                    class="ant-tooltip-inner"
-                    role="tooltip"
-                  />
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                    style="opacity:0;pointer-events:none"
+                  >
+                    <div
+                      class="ant-tooltip-content"
+                    >
+                      <div
+                        class="ant-tooltip-arrow"
+                      >
+                        <span
+                          class="ant-tooltip-arrow-content"
+                        />
+                      </div>
+                      <div
+                        class="ant-tooltip-inner"
+                        role="tooltip"
+                      />
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-            <div>
-              <div
-                class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
-              >
-                <div
-                  class="ant-tooltip-content"
+                <li
+                  class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
+                  role="menuitem"
+                  tabindex="-1"
                 >
-                  <div
-                    class="ant-tooltip-arrow"
+                  <span
+                    class="ant-dropdown-menu-title-content"
                   >
-                    <span
-                      class="ant-tooltip-arrow-content"
-                    />
-                  </div>
+                    <a
+                      href="http://www.tmall.com/"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      3rd menu item
+                    </a>
+                  </span>
+                </li>
+                <div>
                   <div
-                    class="ant-tooltip-inner"
-                    role="tooltip"
-                  />
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                    style="opacity:0;pointer-events:none"
+                  >
+                    <div
+                      class="ant-tooltip-content"
+                    >
+                      <div
+                        class="ant-tooltip-arrow"
+                      >
+                        <span
+                          class="ant-tooltip-arrow-content"
+                        />
+                      </div>
+                      <div
+                        class="ant-tooltip-inner"
+                        role="tooltip"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </ul>
+              <div
+                aria-hidden="true"
+                style="display:none"
+              >
+                <div>
+                  <div
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                    style="opacity:0;pointer-events:none"
+                  >
+                    <div
+                      class="ant-tooltip-content"
+                    >
+                      <div
+                        class="ant-tooltip-arrow"
+                      >
+                        <span
+                          class="ant-tooltip-arrow-content"
+                        />
+                      </div>
+                      <div
+                        class="ant-tooltip-inner"
+                        role="tooltip"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                    style="opacity:0;pointer-events:none"
+                  >
+                    <div
+                      class="ant-tooltip-content"
+                    >
+                      <div
+                        class="ant-tooltip-arrow"
+                      >
+                        <span
+                          class="ant-tooltip-arrow-content"
+                        />
+                      </div>
+                      <div
+                        class="ant-tooltip-inner"
+                        role="tooltip"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div
+                    class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
+                    style="opacity:0;pointer-events:none"
+                  >
+                    <div
+                      class="ant-tooltip-content"
+                    >
+                      <div
+                        class="ant-tooltip-arrow"
+                      >
+                        <span
+                          class="ant-tooltip-arrow-content"
+                        />
+                      </div>
+                      <div
+                        class="ant-tooltip-inner"
+                        role="tooltip"
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1000,30 +1058,48 @@ exports[`renders ./components/page-header/demo/ghost.md extend context correctly
       <span
         class="ant-page-header-heading-extra"
       >
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
+        <div
+          class="ant-space ant-space-horizontal ant-space-align-center"
         >
-          <span>
-            Operation
-          </span>
-        </button>
-        <button
-          class="ant-btn ant-btn-default"
-          type="button"
-        >
-          <span>
-            Operation
-          </span>
-        </button>
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            Primary
-          </span>
-        </button>
+          <div
+            class="ant-space-item"
+            style="margin-right:8px"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                Operation
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+            style="margin-right:8px"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                Operation
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+          >
+            <button
+              class="ant-btn ant-btn-primary"
+              type="button"
+            >
+              <span>
+                Primary
+              </span>
+            </button>
+          </div>
+        </div>
       </span>
     </div>
     <div
@@ -1208,30 +1284,48 @@ exports[`renders ./components/page-header/demo/responsive.md extend context corr
     <span
       class="ant-page-header-heading-extra"
     >
-      <button
-        class="ant-btn ant-btn-default"
-        type="button"
+      <div
+        class="ant-space ant-space-horizontal ant-space-align-center"
       >
-        <span>
-          Operation
-        </span>
-      </button>
-      <button
-        class="ant-btn ant-btn-default"
-        type="button"
-      >
-        <span>
-          Operation
-        </span>
-      </button>
-      <button
-        class="ant-btn ant-btn-primary"
-        type="button"
-      >
-        <span>
-          Primary
-        </span>
-      </button>
+        <div
+          class="ant-space-item"
+          style="margin-right:8px"
+        >
+          <button
+            class="ant-btn ant-btn-default"
+            type="button"
+          >
+            <span>
+              Operation
+            </span>
+          </button>
+        </div>
+        <div
+          class="ant-space-item"
+          style="margin-right:8px"
+        >
+          <button
+            class="ant-btn ant-btn-default"
+            type="button"
+          >
+            <span>
+              Operation
+            </span>
+          </button>
+        </div>
+        <div
+          class="ant-space-item"
+        >
+          <button
+            class="ant-btn ant-btn-primary"
+            type="button"
+          >
+            <span>
+              Primary
+            </span>
+          </button>
+        </div>
+      </div>
     </span>
   </div>
   <div

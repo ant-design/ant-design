@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "4.18.6",
+  "version": "4.19.2",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
   "keywords": [
@@ -88,13 +88,14 @@
     "site:theme-dark": "cross-env ESBUILD=1 ANT_THEME=dark bisheng build -c ./site/bisheng.config.js",
     "site:theme-compact": "cross-env ESBUILD=1 ANT_THEME=compact bisheng build -c ./site/bisheng.config.js",
     "site": "npm run site:theme && cross-env NODE_ICU_DATA=node_modules/full-icu ESBUILD=1 bisheng build --ssr -c ./site/bisheng.config.js",
+    "site-tmp": "cross-env NODE_ICU_DATA=node_modules/full-icu ESBUILD=1 bisheng build --ssr -c ./site/bisheng.config.js",
     "sort": "npx sort-package-json",
     "sort-api": "antd-tools run sort-api-table",
     "start": "antd-tools run clean && cross-env NODE_ENV=development concurrently \"bisheng start -c ./site/bisheng.config.js\"",
     "test": "jest --config .jest.js --cache=false",
     "test:update": "jest --config .jest.js --cache=false -u",
     "test-all": "sh -e ./scripts/test-all.sh",
-    "test-node": "jest --config .jest.node.js --cache=false",
+    "test-node": "npm run version && jest --config .jest.node.js --cache=false",
     "tsc": "tsc --noEmit",
     "site:test": "jest --config .jest.site.js --cache=false --force-exit",
     "test-image": "npm run dist && docker-compose run tests",
@@ -112,6 +113,7 @@
   ],
   "dependencies": {
     "@ant-design/colors": "^6.0.0",
+    "@ant-design/cssinjs": "~0.0.0-alpha.17",
     "@ant-design/icons": "^4.7.0",
     "@ant-design/react-slick": "~0.28.1",
     "@babel/runtime": "^7.12.5",
@@ -126,24 +128,25 @@
     "rc-collapse": "~3.1.0",
     "rc-dialog": "~8.6.0",
     "rc-drawer": "~4.4.2",
-    "rc-dropdown": "~3.2.5",
-    "rc-field-form": "~1.22.0-2",
+    "rc-dropdown": "~3.3.2",
+    "rc-field-form": "~1.24.0",
     "rc-image": "~5.2.5",
+    "rc-input": "~0.0.1-alpha.5",
     "rc-input-number": "~7.3.0",
     "rc-mentions": "~1.6.1",
-    "rc-menu": "~9.2.1",
+    "rc-menu": "~9.3.2",
     "rc-motion": "^2.4.4",
     "rc-notification": "~4.5.7",
     "rc-pagination": "~3.1.9",
-    "rc-picker": "~2.5.17",
+    "rc-picker": "~2.6.4",
     "rc-progress": "~3.2.1",
     "rc-rate": "~2.9.0",
     "rc-resize-observer": "^1.2.0",
-    "rc-select": "~14.0.0-alpha.15",
-    "rc-slider": "~9.7.4",
+    "rc-select": "~14.0.2",
+    "rc-slider": "~10.0.0-alpha.4",
     "rc-steps": "~4.1.0",
     "rc-switch": "~3.2.0",
-    "rc-table": "~7.22.2",
+    "rc-table": "~7.23.0",
     "rc-tabs": "~11.10.0",
     "rc-textarea": "~0.3.0",
     "rc-tooltip": "~5.1.1",
@@ -151,17 +154,19 @@
     "rc-tree-select": "~5.1.1",
     "rc-trigger": "^5.2.10",
     "rc-upload": "~4.3.0",
-    "rc-util": "^5.14.0",
+    "rc-util": "^5.19.3",
     "scroll-into-view-if-needed": "^2.2.25"
   },
   "devDependencies": {
     "@ant-design/bisheng-plugin": "^3.0.1",
     "@ant-design/hitu": "^0.0.0-alpha.13",
-    "@ant-design/tools": "^14.0.2",
+    "@ant-design/tools": "^14.1.0",
     "@docsearch/css": "^3.0.0-alpha.39",
     "@docsearch/react": "^3.0.0-alpha.39",
     "@qixian.cs/github-contributors-list": "^1.0.3",
     "@stackblitz/sdk": "^1.3.0",
+    "@testing-library/jest-dom": "^5.16.2",
+    "@testing-library/react": "^12.1.4",
     "@types/enzyme": "^3.10.5",
     "@types/gtag.js": "^0.0.8",
     "@types/jest": "^27.0.0",
@@ -209,13 +214,14 @@
     "eslint-plugin-jest": "^26.0.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-markdown": "^2.0.0",
-    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.1.2",
-    "eslint-plugin-unicorn": "^40.0.0",
+    "eslint-plugin-unicorn": "^41.0.0",
     "fetch-jsonp": "^1.1.3",
     "fs-extra": "^10.0.0",
     "full-icu": "^1.3.0",
     "glob": "^7.1.4",
+    "highlight.js": "^11.5.0",
     "http-server": "^14.0.0",
     "husky": "^7.0.1",
     "identity-obj-proxy": "^3.0.0",
@@ -225,7 +231,7 @@
     "intersection-observer": "^0.12.0",
     "isomorphic-fetch": "^3.0.0",
     "jest": "^27.0.3",
-    "jest-axe": "^5.0.1",
+    "jest-axe": "^6.0.0",
     "jest-environment-node": "^27.4.4",
     "jest-image-snapshot": "^4.5.1",
     "jest-puppeteer": "^6.0.0",
@@ -277,11 +283,11 @@
     "stylelint": "^14.0.0",
     "stylelint-config-prettier": "^9.0.2",
     "stylelint-config-rational-order": "^0.1.2",
-    "stylelint-config-standard": "^24.0.0",
+    "stylelint-config-standard": "^25.0.0",
     "stylelint-declaration-block-no-ignored-properties": "^2.1.0",
     "stylelint-order": "^5.0.0",
     "theme-switcher": "^1.0.2",
-    "typescript": "~4.5.2",
+    "typescript": "~4.6.2",
     "webpack-bundle-analyzer": "^4.1.0",
     "xhr-mock": "^2.4.1",
     "yaml-front-matter": "^4.0.0"
@@ -296,11 +302,11 @@
   "bundlesize": [
     {
       "path": "./dist/antd.min.js",
-      "maxSize": "280 kB"
+      "maxSize": "350 kB"
     },
     {
       "path": "./dist/antd.min.css",
-      "maxSize": "65 kB"
+      "maxSize": "66 kB"
     },
     {
       "path": "./dist/antd.dark.min.css",
@@ -308,11 +314,11 @@
     },
     {
       "path": "./dist/antd.compact.min.css",
-      "maxSize": "65 kB"
+      "maxSize": "66 kB"
     },
     {
       "path": "./dist/antd.variable.min.css",
-      "maxSize": "65 kB"
+      "maxSize": "66 kB"
     }
   ],
   "tnpm": {

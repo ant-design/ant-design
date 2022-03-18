@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { useContext } from 'react';
+import { useContext, useMemo } from 'react';
 import classNames from 'classnames';
 import { Field, FormInstance, FieldContext, ListContext } from 'rc-field-form';
 import { FieldProps } from 'rc-field-form/lib/Field';
 import { Meta, NamePath } from 'rc-field-form/lib/interface';
 import { supportRef } from 'rc-util/lib/ref';
+import useState from 'rc-util/lib/hooks/useState';
 import omit from 'rc-util/lib/omit';
 import Row from '../grid/row';
 import { ConfigContext } from '../config-provider';
@@ -12,7 +13,12 @@ import { tuple } from '../_util/type';
 import devWarning from '../_util/devWarning';
 import FormItemLabel, { FormItemLabelProps, LabelTooltipType } from './FormItemLabel';
 import FormItemInput, { FormItemInputProps } from './FormItemInput';
-import { FormContext, NoStyleItemContext } from './context';
+import {
+  FormContext,
+  FormItemStatusContext,
+  NoStyleItemContext,
+  FormItemStatusContextProps,
+} from './context';
 import { toArray, getFieldId } from './util';
 import { cloneElement, isValidElement } from '../_util/reactNode';
 import useFrameState from './hooks/useFrameState';
@@ -127,7 +133,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
   const [subFieldErrors, setSubFieldErrors] = useFrameState<Record<string, FieldError>>({});
 
   // >>>>> Current field errors
-  const [meta, setMeta] = React.useState<Meta>(() => genEmptyMeta());
+  const [meta, setMeta] = useState<Meta>(() => genEmptyMeta());
 
   const onMetaChange = (nextMeta: Meta & { destroy?: boolean }) => {
     // This keyInfo is not correct when field is removed
@@ -136,7 +142,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
     const keyInfo = listContext?.getKey(nextMeta.name);
 
     // Destroy will reset all the meta
-    setMeta(nextMeta.destroy ? genEmptyMeta() : nextMeta);
+    setMeta(nextMeta.destroy ? genEmptyMeta() : nextMeta, true);
 
     // Bump to parent since noStyle
     if (noStyle && notifyParentMetaChange) {
@@ -199,6 +205,28 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
   // ===================== Children Ref =====================
   const getItemRef = useItemRef();
 
+  // ======================== Status ========================
+  let mergedValidateStatus: ValidateStatus = '';
+  if (validateStatus !== undefined) {
+    mergedValidateStatus = validateStatus;
+  } else if (meta?.validating) {
+    mergedValidateStatus = 'validating';
+  } else if (debounceErrors.length) {
+    mergedValidateStatus = 'error';
+  } else if (debounceWarnings.length) {
+    mergedValidateStatus = 'warning';
+  } else if (meta?.touched) {
+    mergedValidateStatus = 'success';
+  }
+
+  const formItemStatusContext = useMemo<FormItemStatusContextProps>(
+    () => ({
+      status: mergedValidateStatus,
+      hasFeedback,
+    }),
+    [mergedValidateStatus, hasFeedback],
+  );
+
   // ======================== Render ========================
   function renderLayout(
     baseChildren: React.ReactNode,
@@ -207,19 +235,6 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
   ): React.ReactNode {
     if (noStyle && !hidden) {
       return baseChildren;
-    }
-    // ======================== Status ========================
-    let mergedValidateStatus: ValidateStatus = '';
-    if (validateStatus !== undefined) {
-      mergedValidateStatus = validateStatus;
-    } else if (meta?.validating) {
-      mergedValidateStatus = 'validating';
-    } else if (debounceErrors.length) {
-      mergedValidateStatus = 'error';
-    } else if (debounceWarnings.length) {
-      mergedValidateStatus = 'warning';
-    } else if (meta?.touched) {
-      mergedValidateStatus = 'success';
     }
 
     const itemClassName = {
@@ -247,6 +262,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
           'colon',
           'extra',
           'fieldKey',
+          'requiredMark',
           'getValueFromEvent',
           'getValueProps',
           'htmlFor',
@@ -281,11 +297,12 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
           warnings={debounceWarnings}
           prefixCls={prefixCls}
           status={mergedValidateStatus}
-          validateStatus={mergedValidateStatus}
           help={help}
         >
           <NoStyleItemContext.Provider value={onSubItemMetaChange}>
-            {baseChildren}
+            <FormItemStatusContext.Provider value={formItemStatusContext}>
+              {baseChildren}
+            </FormItemStatusContext.Provider>
           </NoStyleItemContext.Provider>
         </FormItemInput>
       </Row>

@@ -15,7 +15,7 @@ Array [
     type="button"
   >
     <span>
-      bottomCenter
+      bottom
     </span>
   </button>,
   <button
@@ -40,7 +40,61 @@ Array [
     type="button"
   >
     <span>
-      topCenter
+      top
+    </span>
+  </button>,
+  <button
+    class="ant-btn ant-btn-default ant-dropdown-trigger"
+    type="button"
+  >
+    <span>
+      topRight
+    </span>
+  </button>,
+]
+`;
+
+exports[`renders ./components/dropdown/demo/arrow-center.md correctly 1`] = `
+Array [
+  <button
+    class="ant-btn ant-btn-default ant-dropdown-trigger"
+    type="button"
+  >
+    <span>
+      bottomLeft
+    </span>
+  </button>,
+  <button
+    class="ant-btn ant-btn-default ant-dropdown-trigger"
+    type="button"
+  >
+    <span>
+      bottom
+    </span>
+  </button>,
+  <button
+    class="ant-btn ant-btn-default ant-dropdown-trigger"
+    type="button"
+  >
+    <span>
+      bottomRight
+    </span>
+  </button>,
+  <br />,
+  <button
+    class="ant-btn ant-btn-default ant-dropdown-trigger"
+    type="button"
+  >
+    <span>
+      topLeft
+    </span>
+  </button>,
+  <button
+    class="ant-btn ant-btn-default ant-dropdown-trigger"
+    type="button"
+  >
+    <span>
+      top
     </span>
   </button>,
   <button
@@ -658,7 +712,7 @@ exports[`renders ./components/dropdown/demo/placement.md correctly 1`] = `
           type="button"
         >
           <span>
-            bottomCenter
+            bottom
           </span>
         </button>
       </div>
@@ -706,7 +760,7 @@ exports[`renders ./components/dropdown/demo/placement.md correctly 1`] = `
           type="button"
         >
           <span>
-            topCenter
+            top
           </span>
         </button>
       </div>

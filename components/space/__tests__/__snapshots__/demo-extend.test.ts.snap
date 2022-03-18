@@ -321,14 +321,14 @@ exports[`renders ./components/space/demo/base.md extend context correctly 1`] = 
 exports[`renders ./components/space/demo/customize.md extend context correctly 1`] = `
 Array [
   <div
-    class="ant-slider"
+    class="ant-slider ant-slider-horizontal"
   >
     <div
       class="ant-slider-rail"
     />
     <div
       class="ant-slider-track"
-      style="left:0%;right:auto;width:8%"
+      style="left:0%;width:8%"
     />
     <div
       class="ant-slider-step"
@@ -340,7 +340,7 @@ Array [
       aria-valuenow="8"
       class="ant-slider-handle"
       role="slider"
-      style="left:8%;right:auto;transform:translateX(-50%)"
+      style="left:8%;transform:translateX(-50%)"
       tabindex="0"
     />
     <div>
@@ -367,9 +367,6 @@ Array [
         </div>
       </div>
     </div>
-    <div
-      class="ant-slider-mark"
-    />
   </div>,
   <br />,
   <br />,

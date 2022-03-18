@@ -21,13 +21,14 @@ cover: https://gw.alipayobjects.com/zos/alicdn/xS9YEJhfe/Input.svg
 | --- | --- | --- | --- | --- |
 | addonAfter | 带标签的 input，设置后置标签 | ReactNode | - |  |
 | addonBefore | 带标签的 input，设置前置标签 | ReactNode | - |  |
-| allowClear | 可以点击清除图标删除内容 | boolean | - |  |
+| allowClear | 可以点击清除图标删除内容 | boolean \| { clearIcon: ReactNode } | - |  |
 | bordered | 是否有边框 | boolean | true | 4.5.0 |
 | defaultValue | 输入框默认内容 | string | - |  |
 | disabled | 是否禁用状态，默认为 false | boolean | false |  |
 | id | 输入框的 id | string | - |  |
 | maxLength | 最大长度 | number | - |  |
 | showCount | 是否展示字数 | boolean \| { formatter: ({ count: number, maxLength?: number }) => ReactNode } | false | 4.18.0 |
+| status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | prefix | 带有前缀图标的 input | ReactNode | - |  |
 | size | 控件大小。注：标准表单内的输入框大小限制为 `large` | `large` \| `middle` \| `small` | - |  |
 | suffix | 带有后缀图标的 input | ReactNode | - |  |
