@@ -39,6 +39,8 @@ export {
 };
 
 export interface DesignToken {
+  white: string;
+  black: string;
   primaryColor: string;
   successColor: string;
   warningColor: string;
@@ -123,6 +125,7 @@ export interface DerivativeToken extends Omit<DesignToken, 'duration'> {
   marginXS: number;
   marginLG: number;
   marginXXS: number;
+  marginXss: string;
 
   duration: string;
   durationMid: string;
@@ -131,13 +134,30 @@ export interface DerivativeToken extends Omit<DesignToken, 'duration'> {
   // TMP
   tmpPrimaryColorWeak: string;
   tmpPrimaryHoverColorWeak: string;
+
+  // Image
+  animationDurationSlow: string;
+  imageSizeBase: string;
+  imageFontSizeBase: string;
+  imageBg: string;
+  imageColor: string;
+  imageMaskFontSize: string;
+  imagePreviewOperationSize: string;
+  imagePreviewOperationColor: string;
+  imagePreviewOperationDisabledColor: string;
+  zIndexImage: number;
+
+  zIndexModalMask: number;
+  modalMaskBg: string;
+
+  easeOut: string;
 }
 
 export { useStyleRegister };
 
 // =============================== Derivative ===============================
 function derivative(designToken: DesignToken): DerivativeToken {
-  const { primaryColor, errorColor, warningColor } = designToken;
+  const { primaryColor, errorColor, warningColor, black } = designToken;
 
   const primaryColors = generate(primaryColor);
   const errorColors = generate(errorColor);
@@ -187,10 +207,32 @@ function derivative(designToken: DesignToken): DerivativeToken {
     marginXS: designToken.margin * 0.5,
     marginLG: designToken.margin * 1.5,
     marginXXS: designToken.margin * 0.25,
+    // FIXME
+    marginXss: '4px',
 
     duration: `${designToken.duration}s`,
     durationMid: `${(designToken.duration / 3) * 2}s`,
     durationFast: `${designToken.duration / 3}s`,
+
+    // Image
+    animationDurationSlow: '0.3s',
+    imageSizeBase: '48px',
+    imageFontSizeBase: '24px',
+    imageBg: ' #f5f5f5',
+    imageColor: ' #fff',
+    imageMaskFontSize: '16px',
+    imagePreviewOperationSize: '18px',
+    // FIXME  @text-color-dark
+    imagePreviewOperationColor: black,
+    imagePreviewOperationDisabledColor: new TinyColor(black).setAlpha(0.25).toRgbString(),
+    zIndexImage: 1080,
+
+    // Modal
+    zIndexModalMask: 1000,
+    modalMaskBg: new TinyColor(black).setAlpha(0.45).toRgbString(),
+
+    // Animation
+    easeOut: 'cubic-bezier(0.215, 0.61, 0.355, 1)',
   };
 }
 

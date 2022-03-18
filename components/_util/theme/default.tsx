@@ -2,6 +2,8 @@ import { TinyColor } from '@ctrl/tinycolor';
 import type { DesignToken } from '.';
 
 const defaultDesignToken: DesignToken = {
+  white: '#fff',
+  black: '#000',
   primaryColor: '#1890ff',
   successColor: '#52c41a',
   warningColor: '#faad14',
