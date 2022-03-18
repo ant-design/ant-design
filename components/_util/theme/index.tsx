@@ -70,7 +70,29 @@ export const PresetColorKeys: ReadonlyArray<keyof PresetColorType> = [
   'gold',
 ];
 
-export interface DesignToken extends PresetColorType {
+export interface PresetScreenSizesType {
+  screenXS: number;
+  screenSM: number;
+  screenMD: number;
+  screenLG: number;
+  screenXL: number;
+  screenXXL: number;
+}
+
+export type PresetScreenMinSizesType = {
+  [key in `${keyof PresetScreenSizesType}Min`]: number;
+};
+
+export type PresetScreenMaxSizesType = {
+  [key in `${keyof Omit<PresetScreenSizesType, 'screenXXL'>}Max`]: number;
+};
+
+export interface PresetScreenSizesCollectType
+  extends PresetScreenSizesType,
+    PresetScreenMinSizesType,
+    PresetScreenMaxSizesType {}
+
+export interface DesignToken extends PresetColorType, PresetScreenSizesCollectType {
   primaryColor: string;
   successColor: string;
   warningColor: string;
@@ -123,6 +145,8 @@ export interface DesignToken extends PresetColorType {
   duration: number;
 
   zIndexDropdown: number;
+
+  gridColumns: number;
 
   boxShadow?: string;
 }
@@ -183,6 +207,8 @@ export interface DerivativeToken extends ColorPalettes, Omit<DesignToken, 'durat
   primaryColors: string[];
   errorColors: string[];
   warningColors: string[];
+
+  gridColumns: number;
 
   // TMP
   tmpPrimaryColorWeak: string;

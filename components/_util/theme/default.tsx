@@ -1,6 +1,12 @@
 import { TinyColor } from '@ctrl/tinycolor';
 
-import type { DesignToken, PresetColorType } from '.';
+import type {
+  DesignToken,
+  PresetColorType,
+  PresetScreenMinSizesType,
+  PresetScreenSizesType,
+  PresetScreenMaxSizesType,
+} from '.';
 
 const presetColors: PresetColorType = {
   blue: '#1890FF',
@@ -16,6 +22,33 @@ const presetColors: PresetColorType = {
   geekblue: '#2F54EB',
   gold: '#FAAD14',
   lime: '#A0D911',
+};
+
+// screenXs and screenXsMin is not used in Grid
+// smallest break point is screenMd
+const presetScreenSizes: PresetScreenSizesType = {
+  screenXS: 480,
+  screenSM: 576,
+  screenMD: 768,
+  screenLG: 992,
+  screenXL: 1200,
+  screenXXL: 1600,
+};
+
+// Deal with the default min screen size
+const presetScreenMinSizes: PresetScreenMinSizesType = Object.keys(presetScreenSizes)
+  .map((key: keyof PresetScreenSizesType) => ({
+    [`${key}Min`]: presetScreenSizes[key],
+  }))
+  .reduce((pre, cur) => ({ ...pre, ...cur }), {}) as PresetScreenMinSizesType;
+
+// Deal with the default max screen size
+const presetScreenMaxSizes: PresetScreenMaxSizesType = {
+  screenXSMax: presetScreenSizes.screenSM - 1,
+  screenSMMax: presetScreenSizes.screenMD - 1,
+  screenMDMax: presetScreenSizes.screenLG - 1,
+  screenLGMax: presetScreenSizes.screenXL - 1,
+  screenXLMax: presetScreenSizes.screenXXL - 1,
 };
 
 const defaultDesignToken: DesignToken = {
@@ -81,6 +114,12 @@ const defaultDesignToken: DesignToken = {
 
   // preset color palettes
   ...presetColors,
+
+  gridColumns: 24,
+  // preset screen size
+  ...presetScreenSizes,
+  ...presetScreenMinSizes,
+  ...presetScreenMaxSizes,
 };
 
 export default defaultDesignToken;
