@@ -29,7 +29,7 @@ const items2: MenuProps['items'] = [UserOutlined, LaptopOutlined, NotificationOu
     const key = String(index + 1);
 
     return {
-      key,
+      key: `sub${key}`,
       icon: React.createElement(icon),
       label: `subnav ${key}`,
 
