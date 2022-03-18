@@ -16,7 +16,9 @@ Displaying a series of comments using the `antd` List Component.
 ```jsx
 import { Comment, Tooltip, List } from 'antd';
 import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
 
+dayjs.extend(relativeTime);
 const data = [
   {
     actions: [<span key="comment-list-reply-to-0">Reply to</span>],
