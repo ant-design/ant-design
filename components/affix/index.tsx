@@ -270,6 +270,7 @@ class Affix extends React.Component<InternalAffixProps, AffixState> {
       'target',
       'onChange',
       'affixPrefixCls',
+      'hashClassName',
     ]);
     // Omit this since `onTestUpdatePosition` only works on test.
     if (process.env.NODE_ENV === 'test') {
@@ -304,13 +305,13 @@ const AffixFC = React.forwardRef<Affix, AffixProps>((props, ref) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
   const affixPrefixCls = getPrefixCls('affix', customizePrefixCls);
 
-  const [wrapSSR, hashClassName] = useStyle(affixPrefixCls);
+  const [wrapSSR, hashId] = useStyle(affixPrefixCls);
 
   const AffixProps: InternalAffixProps = {
     ...props,
 
     affixPrefixCls,
-    hashClassName,
+    hashClassName: hashId,
   };
 
   return wrapSSR(<Affix {...AffixProps} ref={ref} />);
