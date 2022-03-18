@@ -147,23 +147,10 @@ const genGridMediaStyle = (token: GridToken, screenSize: number, sizeCls: string
 });
 
 // ============================== Export ==============================
-export function useRowStyle(prefixCls: string): UseComponentStyleResult {
-  const [theme, token, hashId] = useToken();
-
-  const gridToken: GridToken = {
-    ...token,
-    gridCls: `.${prefixCls}`,
-  };
-
-  return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      genGridRowStyle(gridToken),
-    ]),
-    hashId,
-  ];
-}
-
-export function useColStyle(prefixCls: string): UseComponentStyleResult {
+export default function useStyle(
+  prefixCls: string,
+  componentType: 'row' | 'col',
+): UseComponentStyleResult {
   const [theme, token, hashId] = useToken();
 
   const gridToken: GridToken = {
@@ -179,17 +166,25 @@ export function useColStyle(prefixCls: string): UseComponentStyleResult {
     '-xxl': gridToken.screenXXLMin,
   };
 
+  const gridStyles =
+    componentType === 'row'
+      ? [genGridRowStyle(gridToken)]
+      : [
+          genGridColStyle(gridToken),
+          genGridStyle(gridToken, ''),
+          genGridStyle(gridToken, '-xs'),
+          Object.keys(gridMediaSizesMap)
+            .map((key: keyof typeof gridMediaSizesMap) => ({
+              ...genGridMediaStyle(gridToken, gridMediaSizesMap[key], key),
+            }))
+            .reduce((pre, cur) => ({ ...pre, ...cur }), {}),
+        ];
+
   return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      genGridColStyle(gridToken),
-      genGridStyle(gridToken, ''),
-      genGridStyle(gridToken, '-xs'),
-      Object.keys(gridMediaSizesMap)
-        .map((key: keyof typeof gridMediaSizesMap) => ({
-          ...genGridMediaStyle(gridToken, gridMediaSizesMap[key], key),
-        }))
-        .reduce((pre, cur) => ({ ...pre, ...cur }), {}),
-    ]),
+    useStyleRegister(
+      { theme, token, hashId: componentType === 'row' ? hashId : undefined, path: [prefixCls] },
+      () => gridStyles,
+    ),
     hashId,
   ];
 }

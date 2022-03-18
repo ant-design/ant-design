@@ -2,7 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import RowContext from './RowContext';
 import { ConfigContext } from '../config-provider';
-import { useColStyle } from './style';
+import useStyle from './style';
 
 // https://github.com/ant-design/ant-design/issues/14324
 type ColSpanType = number | string;
@@ -65,7 +65,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   } = props;
 
   const prefixCls = getPrefixCls('col', customizePrefixCls);
-  const [wrapSSR, hashId] = useColStyle(prefixCls);
+  const [wrapSSR] = useStyle(prefixCls, 'col');
 
   let sizeClassObj = {};
   sizes.forEach(size => {
@@ -102,7 +102,6 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
     },
     className,
     sizeClassObj,
-    hashId,
   );
 
   const mergedStyle: React.CSSProperties = {};
