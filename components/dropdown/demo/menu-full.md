@@ -63,6 +63,8 @@ const items: MenuItem[] = [
     getItem('Option 11', '11'),
     getItem('Option 12', '12'),
   ]),
+  // Not crash
+  null as any,
 ];
 
 const menu = <Menu selectedKeys={['1']} openKeys={['sub1']} items={items} />;
