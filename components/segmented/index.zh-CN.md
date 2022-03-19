@@ -15,6 +15,8 @@ cover: https://gw.alipayobjects.com/zos/alicdn/tX6-md4H6/Affix.svg
 
 ## API
 
+> 自 `antd@4.20.0` 版本开始提供该组件。
+
 ### Segmented
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
