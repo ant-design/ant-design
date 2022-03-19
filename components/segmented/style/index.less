@@ -57,6 +57,7 @@
       z-index: 2;
       min-height: @input-height-base;
       padding: @input-padding-vertical-base @input-padding-horizontal-base;
+      line-height: @input-height-base - @input-padding-vertical-base * 2;
       .segmented-text-ellipsis();
     }
 
@@ -81,11 +82,13 @@
     min-height: @input-height-lg;
     padding: @input-padding-vertical-lg @input-padding-horizontal-lg;
     font-size: @font-size-lg;
+    line-height: @input-height-lg - @input-padding-vertical-lg * 2;
   }
 
   &&-sm &-item-label {
     min-height: @input-height-sm;
     padding: @input-padding-vertical-sm @input-padding-horizontal-sm;
+    line-height: @input-height-sm - @input-padding-vertical-sm * 2;
   }
 
   // disabled styles
