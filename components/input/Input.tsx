@@ -15,6 +15,9 @@ import { FormItemStatusContext, NoFormStatus } from '../form/context';
 import { hasPrefixSuffix } from './utils';
 import devWarning from '../_util/devWarning';
 
+// CSSINJS
+import useStyle from './style';
+
 export interface InputFocusOptions extends FocusOptions {
   cursor?: 'start' | 'end' | 'all';
 }
@@ -135,10 +138,13 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     addonBefore,
     ...rest
   } = props;
-  const { getPrefixCls, direction, input } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, input, iconPrefixCls } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('input', customizePrefixCls);
   const inputRef = useRef<InputRef>(null);
+
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls);
 
   // ===================== Size =====================
   const size = React.useContext(SizeContext);
@@ -208,7 +214,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     mergedAllowClear = { clearIcon: <CloseCircleFilled /> };
   }
 
-  return (
+  return wrapSSR(
     <RcInput
       ref={composeRef(ref, inputRef)}
       prefixCls={prefixCls}
@@ -228,6 +234,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
           [`${prefixCls}-borderless`]: !bordered,
         },
         !inputHasPrefixSuffix && getStatusClassNames(prefixCls, mergedStatus),
+        hashId,
       )}
       affixWrapperClassName={classNames(
         {
@@ -237,10 +244,14 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
           [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
         },
         getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus, hasFeedback),
+        hashId,
       )}
-      wrapperClassName={classNames({
-        [`${prefixCls}-group-rtl`]: direction === 'rtl',
-      })}
+      wrapperClassName={classNames(
+        {
+          [`${prefixCls}-group-rtl`]: direction === 'rtl',
+        },
+        hashId,
+      )}
       groupClassName={classNames(
         {
           [`${prefixCls}-group-wrapper-sm`]: mergedSize === 'small',
@@ -248,8 +259,9 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
           [`${prefixCls}-group-wrapper-rtl`]: direction === 'rtl',
         },
         getStatusClassNames(`${prefixCls}-group-wrapper`, mergedStatus, hasFeedback),
+        hashId,
       )}
-    />
+    />,
   );
 });
 

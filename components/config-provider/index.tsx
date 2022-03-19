@@ -13,6 +13,7 @@ import {
   DirectionType,
   ConfigConsumerProps,
   Theme,
+  defaultIconPrefixCls,
 } from './context';
 import SizeContext, { SizeContextProvider, SizeType } from './SizeContext';
 import message from '../message';
@@ -20,6 +21,8 @@ import notification from '../notification';
 import { RequiredMark } from '../form/Form';
 import { registerTheme } from './cssVariables';
 import defaultLocale from '../locale/default';
+import { DesignToken, DesignTokenContext } from '../_util/theme';
+import defaultThemeToken from '../_util/theme/default';
 
 export {
   RenderEmptyHandler,
@@ -80,6 +83,10 @@ export interface ConfigProviderProps {
   };
   virtual?: boolean;
   dropdownMatchSelectWidth?: boolean;
+  theme?: {
+    token?: Partial<DesignToken>;
+    hashed?: boolean;
+  };
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -88,7 +95,7 @@ interface ProviderChildrenProps extends ConfigProviderProps {
 }
 
 export const defaultPrefixCls = 'ant';
-export const defaultIconPrefixCls = 'anticon';
+export { defaultIconPrefixCls };
 let globalPrefixCls: string;
 let globalIconPrefixCls: string;
 
@@ -159,6 +166,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     legacyLocale,
     parentContext,
     iconPrefixCls,
+    theme = {},
   } = props;
 
   const getPrefixCls = React.useCallback(
@@ -248,10 +256,30 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     childNode = <SizeContextProvider size={componentSize}>{childNode}</SizeContextProvider>;
   }
 
+  // ================================ Dynamic theme ================================
+  const memoTheme = React.useMemo(
+    () => ({
+      token: {
+        ...defaultThemeToken,
+        ...theme?.token,
+      },
+      hashed: theme?.hashed,
+    }),
+    [theme?.token, theme?.hashed],
+  );
+
+  if (theme?.token || theme?.hashed) {
+    childNode = (
+      <DesignTokenContext.Provider value={memoTheme}>{childNode}</DesignTokenContext.Provider>
+    );
+  }
+
+  // =================================== Render ===================================
   return <ConfigContext.Provider value={memoedConfig}>{childNode}</ConfigContext.Provider>;
 };
 
 const ConfigProvider: React.FC<ConfigProviderProps> & {
+  /** @private internal Usage. do not use in your production */
   ConfigContext: typeof ConfigContext;
   SizeContext: typeof SizeContext;
   config: typeof setGlobalConfig;
@@ -284,7 +312,6 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
   );
 };
 
-/** @private internal Usage. do not use in your production */
 ConfigProvider.ConfigContext = ConfigContext;
 ConfigProvider.SizeContext = SizeContext;
 ConfigProvider.config = setGlobalConfig;

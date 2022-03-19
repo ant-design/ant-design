@@ -6,9 +6,10 @@ import { AutoSizeType } from 'rc-textarea/lib/ResizableTextArea';
 import TextArea from '../input/TextArea';
 import { DirectionType } from '../config-provider';
 import { cloneElement } from '../_util/reactNode';
+import useStyle from './style';
 
 interface EditableProps {
-  prefixCls?: string;
+  prefixCls: string;
   value: string;
   ['aria-label']?: string;
   onSave: (value: string) => void;
@@ -112,6 +113,8 @@ const Editable: React.FC<EditableProps> = ({
 
   const textClassName = component ? `${prefixCls}-${component}` : '';
 
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
   const textAreaClassName = classNames(
     prefixCls,
     `${prefixCls}-edit-content`,
@@ -120,9 +123,10 @@ const Editable: React.FC<EditableProps> = ({
     },
     className,
     textClassName,
+    hashId,
   );
 
-  return (
+  return wrapSSR(
     <div className={textAreaClassName} style={style}>
       <TextArea
         ref={ref as any}
@@ -141,7 +145,7 @@ const Editable: React.FC<EditableProps> = ({
       {enterIcon !== null
         ? cloneElement(enterIcon, { className: `${prefixCls}-edit-content-confirm` })
         : null}
-    </div>
+    </div>,
   );
 };
 
