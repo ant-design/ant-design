@@ -1,5 +1,6 @@
 ---
 order: 0
+version: 4.20.0
 title:
   zh-CN: 受控模式
   en-US: Controlled mode
