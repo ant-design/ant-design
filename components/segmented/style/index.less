@@ -15,15 +15,19 @@
   color: @segmented-label-color;
 
   background-color: @segmented-bg;
-
   border-radius: 2px;
   box-shadow: 0 0 0 2px @segmented-bg;
 
-  &:hover {
-    background-color: @segmented-hover-bg;
-    box-shadow: 0 0 0 2px @segmented-hover-bg;
+  // hover/focus styles
+  &:not(&-disabled) {
+    &:hover,
+    &:focus {
+      background-color: @segmented-hover-bg;
+      box-shadow: 0 0 0 2px @segmented-hover-bg;
+    }
   }
 
+  // block styles
   &&-block {
     display: flex;
   }
@@ -33,6 +37,7 @@
     min-width: 0;
   }
 
+  // item styles
   &-item {
     position: relative;
     text-align: center;
@@ -46,10 +51,6 @@
     &:hover,
     &:focus {
       color: @segmented-label-hover-color;
-    }
-
-    &-disabled {
-      .segmented-disabled-item();
     }
 
     &-label {
@@ -76,7 +77,7 @@
     }
   }
 
-  // size
+  // size styles
   &&-lg &-item-label {
     min-height: @input-height-lg;
     padding: @input-padding-vertical-lg @input-padding-horizontal-lg;
@@ -90,11 +91,11 @@
 
   // disabled styles
   &-disabled &-item,
-  &-disabled &-item:hover,
-  &-disabled &-item:focus {
+  &-item-disabled {
     .segmented-disabled-item();
   }
 
+  // thumb styles
   &-thumb {
     .segmented-item-selected();
 
