@@ -20,20 +20,45 @@ import { DownOutlined } from '@ant-design/icons';
 const { SubMenu } = Menu;
 
 const menu = (
-  <Menu>
-    <Menu.ItemGroup title="Group title">
-      <Menu.Item>1st menu item</Menu.Item>
-      <Menu.Item>2nd menu item</Menu.Item>
-    </Menu.ItemGroup>
-    <SubMenu title="sub menu">
-      <Menu.Item>3rd menu item</Menu.Item>
-      <Menu.Item>4th menu item</Menu.Item>
-    </SubMenu>
-    <SubMenu title="disabled sub menu" disabled>
-      <Menu.Item>5d menu item</Menu.Item>
-      <Menu.Item>6th menu item</Menu.Item>
-    </SubMenu>
-  </Menu>
+  <Menu
+    items={[
+      {
+        type: 'group',
+        label: 'Group title',
+        children: [
+          {
+            label: '1st menu item',
+          },
+          {
+            label: '2nd menu item',
+          },
+        ],
+      },
+      {
+        label: 'sub menu',
+        children: [
+          {
+            label: '3rd menu item',
+          },
+          {
+            label: '4th menu item',
+          },
+        ],
+      },
+      {
+        label: 'disabled sub menu',
+        disabled: true,
+        children: [
+          {
+            label: '5d menu item',
+          },
+          {
+            label: '6th menu item',
+          },
+        ],
+      },
+    ]}
+  />
 );
 
 ReactDOM.render(
