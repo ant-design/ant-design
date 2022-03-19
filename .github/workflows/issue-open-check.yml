@@ -8,7 +8,7 @@ jobs:
   issue-open-check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions-cool/check-user-permission@v1
+      - uses: actions-cool/check-user-permission@v2
         id: checkUser
         with:
           require: 'write'
