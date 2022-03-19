@@ -11,7 +11,7 @@ jobs:
       - uses: visiky/dingtalk-release-notify@main
         with:
           DING_TALK_TOKEN: ${{ secrets.DINGDING_BOT_TOKEN }}
-          notify_title: '🔥 @${{ github.event.issue.user.login }} 创建了新 issue'
-          notify_body: '## { title } <hr /> { body }'
+          notify_title: '🔥 @${{ github.event.issue.user.login }} 创建了 issue：{ title }'
+          notify_body: '{ body }'
           notify_footer: '> 💬 欢迎前往 [**Ant Design GitHub Issues**]({ github.event.issue.url }) 进行讨论。'
           at_all: false # whether to ding everybody
