@@ -52,6 +52,8 @@ export interface PresetColorType {
   geekblue: string;
   lime: string;
   gold: string;
+  black: string;
+  white: string;
 }
 
 export const PresetColorKeys: ReadonlyArray<keyof PresetColorType> = [
@@ -89,6 +91,7 @@ export interface DesignToken extends PresetColorType {
   easeOutBack: string;
   easeInQuint: string;
   easeOutQuint: string;
+  easeOut: string;
 
   outlineWidth: number;
   outlineBlurSize: number;
@@ -123,6 +126,8 @@ export interface DesignToken extends PresetColorType {
   duration: number;
 
   zIndexDropdown: number;
+  zIndexImage: number;
+  zIndexModalMask: number;
 
   boxShadow?: string;
 }
@@ -201,13 +206,17 @@ export interface DerivativeToken extends ColorPalettes, Omit<DesignToken, 'durat
   tmpWarningColorDeprecatedBorder: string;
   tmpErrorColorDeprecatedBorder: string;
   tmpInfoColorDeprecatedBorder: string;
+
+  imagePreviewOperationColor: string;
+  imagePreviewOperationDisabledColor: string;
+  modalMaskBg: string;
 }
 
 export { useStyleRegister };
 
 // =============================== Derivative ===============================
 function derivative(designToken: DesignToken): DerivativeToken {
-  const { primaryColor, errorColor, warningColor, infoColor, successColor } = designToken;
+  const { primaryColor, errorColor, warningColor, infoColor, successColor, black } = designToken;
 
   const primaryColors = generate(primaryColor);
   const errorColors = generate(errorColor);
@@ -312,6 +321,10 @@ function derivative(designToken: DesignToken): DerivativeToken {
     tmpWarningColorDeprecatedBorder: warningColors[2],
     tmpErrorColorDeprecatedBorder: errorColors[2],
     tmpInfoColorDeprecatedBorder: infoColors[2],
+
+    imagePreviewOperationColor: black,
+    imagePreviewOperationDisabledColor: new TinyColor(black).setAlpha(0.25).toRgbString(),
+    modalMaskBg: new TinyColor(black).setAlpha(0.45).toRgbString(),
   };
 }
 
