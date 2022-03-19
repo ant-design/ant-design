@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: visiky/dingtalk-release-notify@main
         with:
-          DING_TALK_TOKEN: ${{ secrets.DING_TALK_ACCESS_TOKEN }}
+          DING_TALK_TOKEN: ${{ secrets.DINGDING_BOT_TOKEN }}
           notify_title: '🔥 @${{ github.event.issue.user.login }} 创建了新 issue'
           notify_body: '## { title } <hr /> { body }'
           notify_footer: '> 💬 欢迎前往 [**Ant Design GitHub Issues**]({ github.event.issue.url }) 进行讨论。'
