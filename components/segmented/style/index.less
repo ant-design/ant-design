@@ -15,6 +15,7 @@
   background-color: @segmented-bg;
   border-radius: 2px;
   box-shadow: 0 0 0 2px @segmented-bg;
+  transition: all 0.3s @ease-in-out;
 
   // hover/focus styles
   &:not(&-disabled) {
@@ -40,6 +41,7 @@
     position: relative;
     text-align: center;
     cursor: pointer;
+    transition: color 0.3s @ease-in-out;
 
     &-selected {
       .segmented-item-selected();
