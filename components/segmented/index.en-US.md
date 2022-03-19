@@ -5,7 +5,7 @@ title: Segmented
 cover: https://gw.alipayobjects.com/zos/alicdn/tX6-md4H6/Affix.svg
 ---
 
-Segmented Controls.
+Segmented Controls. This component is available since `antd@4.20.0`.
 
 ## When To Use
 

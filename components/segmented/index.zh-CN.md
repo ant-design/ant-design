@@ -6,7 +6,7 @@ title: Segmented
 cover: https://gw.alipayobjects.com/zos/alicdn/tX6-md4H6/Affix.svg
 ---
 
-分段控制器。
+分段控制器。自 `antd@4.20.0` 版本开始提供该组件。
 
 ## 何时使用
 
