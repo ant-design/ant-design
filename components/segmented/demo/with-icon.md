@@ -1,6 +1,5 @@
 ---
 order: 0
-version: 4.20.0
 title:
   zh-CN: 设置图标
   en-US: With Icon

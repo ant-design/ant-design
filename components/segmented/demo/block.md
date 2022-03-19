@@ -1,6 +1,5 @@
 ---
 order: 10
-version: 4.20.0
 title:
   zh-CN: Block 分段选择器
   en-US: Block Segmented

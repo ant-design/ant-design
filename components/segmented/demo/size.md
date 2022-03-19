@@ -1,6 +1,5 @@
 ---
 order: 1
-version: 4.20.0
 title:
   zh-CN: 三种大小
   en-US: Three sizes of Segmented

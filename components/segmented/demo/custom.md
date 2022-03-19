@@ -1,6 +1,5 @@
 ---
 order: 1
-version: 4.20.0
 title:
   zh-CN: 自定义渲染
   en-US: Custom Render
