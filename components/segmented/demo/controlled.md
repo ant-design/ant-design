@@ -13,12 +13,12 @@ title:
 
 Controlled Segmented.
 
-```tsx
+```jsx
 import React, { useState } from 'react';
-import { Segmented, SegmentedValue } from 'antd';
+import { Segmented } from 'antd';
 
 const Demo: React.FC = () => {
-  const [value, setValue] = useState<SegmentedValue>();
+  const [value, setValue] = useState('Map');
 
   return (
     <Segmented
