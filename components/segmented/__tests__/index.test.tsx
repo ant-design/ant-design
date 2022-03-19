@@ -289,7 +289,7 @@ describe('Segmented', () => {
     ]);
   });
 
-  it('render segmented with CSSMotion', () => {
+  it('render segmented with thumb', () => {
     const handleValueChange = jest.fn();
     const wrapper = mount(
       <Segmented
@@ -317,9 +317,6 @@ describe('Segmented', () => {
         .map(el => (el.getDOMNode() as HTMLInputElement).checked),
     ).toEqual([false, false, true]);
 
-    const thumb = wrapper.find(`.${prefixCls}-thumb`).at(0);
-    expect(thumb.hasClass(`${prefixCls}-thumb-motion`)).toBeTruthy();
-
     // thumb appeared
     expect(wrapper.find(`.${prefixCls}-thumb`).length).toBe(1);
 
@@ -332,10 +329,6 @@ describe('Segmented', () => {
         .find(`.${prefixCls}-item-input`)
         .map(el => (el.getDOMNode() as HTMLInputElement).checked),
     ).toEqual([false, true, false]);
-
-    // thumb should move
-    const thumb1 = wrapper.find(`.${prefixCls}-thumb`).at(0);
-    expect(thumb1.hasClass(`${prefixCls}-thumb-motion`)).toBeTruthy();
 
     // thumb appeared
     expect(wrapper.find(`.${prefixCls}-thumb`).length).toBe(1);
