@@ -83,6 +83,6 @@ jobs:
         with:
           DING_TALK_TOKEN: ${{ secrets.DINGDING_BOT_TOKEN }}
           notify_title: '🔥 @${{ github.event.issue.user.login }} 创建了 issue：${{ github.event.issue.title }}'
-          notify_body: '${{ github.event.issue.body }}'
-          notify_footer: '> 💬 前往 [**Ant Design GitHub Issue**](${{ github.event.issue.url }}) 进行讨论，社区需要你的帮助。'
+          notify_body: '### 🔥 @${{ github.event.issue.user.login }} 创建了 issue：[${{ github.event.issue.title }}](${{ github.event.issue.html_url }}) <hr /> ${{ github.event.issue.body }}'
+          notify_footer: '> 💬 欢迎前往 GitHub 进行讨论，社区可能需要你的帮助。'
           at_all: false # whether to ding everybody
