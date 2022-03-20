@@ -10,7 +10,7 @@ import {
 } from '@ant-design/cssinjs';
 import defaultDesignToken from './default';
 import version from '../../version';
-import { resetComponent, resetIcon, clearFix } from './util';
+import { resetComponent, resetIcon, clearFix, roundedArrow } from './util';
 import {
   initSlideMotion,
   slideUpIn,
@@ -27,6 +27,7 @@ export {
   resetComponent,
   resetIcon,
   clearFix,
+  roundedArrow,
   initSlideMotion,
   slideUpIn,
   slideUpOut,
@@ -122,6 +123,7 @@ export interface DesignToken extends PresetColorType {
 
   duration: number;
 
+  zIndexPopover: number;
   zIndexDropdown: number;
 
   boxShadow?: string;

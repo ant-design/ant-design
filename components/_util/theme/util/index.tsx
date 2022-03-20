@@ -2,6 +2,8 @@
 import { CSSObject } from '@ant-design/cssinjs';
 import type { DerivativeToken } from '..';
 
+export { roundedArrow } from './roundedArrow';
+
 export const resetComponent = (token: DerivativeToken): CSSObject => ({
   boxSizing: 'border-box',
   margin: 0,

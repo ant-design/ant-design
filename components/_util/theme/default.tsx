@@ -77,6 +77,7 @@ const defaultDesignToken: DesignToken = {
 
   duration: 0.3,
 
+  zIndexPopover: 1030,
   zIndexDropdown: 1050,
 
   // preset color palettes
