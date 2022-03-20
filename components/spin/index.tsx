@@ -2,9 +2,10 @@ import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import debounce from 'lodash/debounce';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { ConfigConsumer, ConfigConsumerProps, ConfigContext } from '../config-provider';
 import { tuple } from '../_util/type';
 import { isValidElement, cloneElement } from '../_util/reactNode';
+import useStyle from './style/index';
 
 const SpinSizes = tuple('small', 'default', 'large');
 export type SpinSize = typeof SpinSizes[number];
@@ -20,6 +21,8 @@ export interface SpinProps {
   delay?: number;
   wrapperClassName?: string;
   indicator?: SpinIndicator;
+  hashId?: string;
+  spinPrefixCls: string;
 }
 
 export interface SpinState {
@@ -132,7 +135,8 @@ class Spin extends React.Component<SpinProps, SpinState> {
 
   renderSpin = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
     const {
-      prefixCls: customizePrefixCls,
+      spinPrefixCls: prefixCls,
+      hashId,
       className,
       size,
       tip,
@@ -142,7 +146,6 @@ class Spin extends React.Component<SpinProps, SpinState> {
     } = this.props;
     const { spinning } = this.state;
 
-    const prefixCls = getPrefixCls('spin', customizePrefixCls);
     const spinClassName = classNames(
       prefixCls,
       {
@@ -153,6 +156,7 @@ class Spin extends React.Component<SpinProps, SpinState> {
         [`${prefixCls}-rtl`]: direction === 'rtl',
       },
       className,
+      hashId,
     );
 
     // fix https://fb.me/react-unknown-prop
@@ -165,11 +169,18 @@ class Spin extends React.Component<SpinProps, SpinState> {
       </div>
     );
     if (this.isNestedPattern()) {
-      const containerClassName = classNames(`${prefixCls}-container`, {
-        [`${prefixCls}-blur`]: spinning,
-      });
+      const containerClassName = classNames(
+        `${prefixCls}-container`,
+        {
+          [`${prefixCls}-blur`]: spinning,
+        },
+        hashId,
+      );
       return (
-        <div {...divProps} className={classNames(`${prefixCls}-nested-loading`, wrapperClassName)}>
+        <div
+          {...divProps}
+          className={classNames(`${prefixCls}-nested-loading`, wrapperClassName, hashId)}
+        >
           {spinning && <div key="loading">{spinElement}</div>}
           <div className={containerClassName} key="container">
             {this.props.children}
@@ -185,4 +196,20 @@ class Spin extends React.Component<SpinProps, SpinState> {
   }
 }
 
-export default Spin;
+const SpinFC = React.forwardRef<Spin, SpinProps>((props, ref) => {
+  const { prefixCls: customizePrefixCls } = props;
+  const { getPrefixCls } = React.useContext(ConfigContext);
+
+  const spinPrefixCls = getPrefixCls('spin', customizePrefixCls);
+
+  const [wrapSSR, hashId] = useStyle(spinPrefixCls);
+
+  const SpinProps: SpinProps = {
+    ...props,
+    spinPrefixCls,
+    hashId,
+  };
+  return wrapSSR(<Spin {...SpinProps} ref={ref} />);
+});
+
+export default SpinFC;
