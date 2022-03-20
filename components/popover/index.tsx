@@ -1,4 +1,5 @@
 import * as React from 'react';
+import classNames from 'classnames';
 import Tooltip, { AbstractTooltipProps, TooltipPlacement } from '../tooltip';
 import { ConfigContext } from '../config-provider';
 import { getRenderPropValue, RenderFunction } from '../_util/getRenderPropValue';
@@ -30,10 +31,15 @@ const Popover = React.forwardRef<unknown, PopoverProps>(
     const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls);
     const rootPrefixCls = getPrefixCls();
 
+    const cls = classNames(
+      prefixCls,
+      hashId,
+    );
+
     return wrapSSR(
       <Tooltip
         {...otherProps}
-        prefixCls={prefixCls}
+        prefixCls={cls}
         ref={ref as any}
         overlay={getOverlay(prefixCls)}
         transitionName={getTransitionName(rootPrefixCls, 'zoom-big', otherProps.transitionName)}
