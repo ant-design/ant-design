@@ -74,6 +74,18 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
         },
       },
 
+      '&-horizontal&-with-text-left': {
+        '&::before': {
+          top: '50%',
+          width: '5%',
+        },
+
+        '&::after': {
+          top: '50%',
+          width: '95%',
+        },
+      },
+
       '&-horizontal&-with-text-right': {
         '&::before': {
           top: '50%',
@@ -156,8 +168,8 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
 
   const dividerNotDefaultTextPadding = 0;
   const dividerVerticalGutterMargin = token.marginXS;
-  const dividerHorizontalWithTextGutterMargin = token.marginLG;
-  const dividerHorizontalGutterMargin = token.margin;
+  const dividerHorizontalWithTextGutterMargin = token.margin;
+  const dividerHorizontalGutterMargin = token.marginLG;
 
   const dividerToken: DividerToken = {
     ...token,
