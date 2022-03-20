@@ -15,7 +15,7 @@ jobs:
           check-bot: true
 
       - name: check invalid
-        if: (contains(github.event.issue.body, 'ant-design-issue-helper') == false) && (steps.checkUser.outputs.check-result == 'false')
+        if: (contains(github.event.issue.body, 'ant-design-issue-helper') == false) && (steps.checkUser.outputs.require-result == 'false')
         uses: actions-cool/issues-helper@v3
         with:
           actions: 'create-comment,add-labels,close-issue'
