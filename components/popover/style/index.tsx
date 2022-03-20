@@ -88,14 +88,14 @@ const genBaseStyle: GenerateStyle<PopoverToken> = token => {
         display: 'none',
       },
 
-      '&-inner': {
+      [`${popoverCls}-inner`]: {
         backgroundColor: popoverBg,
         backgroundClip: 'padding-box',
         borderRadius,
         boxShadow,
       },
 
-      '&-title': {
+      [`${popoverCls}-title`]: {
         minWidth: popoverMinWidth,
         minHeight: popoverMinHeight,
         margin: 0,
@@ -105,11 +105,12 @@ const genBaseStyle: GenerateStyle<PopoverToken> = token => {
         borderBottom: `1px solid ${borderColorSplit}`,
       },
 
-      '&-inner-content': {
+      [`${popoverCls}-inner-content`]: {
         padding: `${paddingSM}px ${popoverPaddingHorizonta}px`,
         color: popoverColor,
       },
 
+      // FIXME 没找到使用地方，先保留
       '&-message': {
         position: 'relative',
         padding: '4px 0 12px',
@@ -128,6 +129,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = token => {
         },
       },
 
+      // FIXME 没找到使用地方，先保留
       '&-buttons': {
         marginBottom: 4,
         textAlign: 'end',
@@ -137,7 +139,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = token => {
         },
       },
 
-      '&-arrow': {
+      [`${popoverCls}-arrow`]: {
         position: 'absolute',
         display: 'block',
         width: popoverArrowRotateWidth,
@@ -211,106 +213,106 @@ const genPlacementStyle: GenerateStyle<PopoverToken> = token => {
       },
 
       [`
-        &-placement-top &-arrow,
-        &-placement-topLeft &-arrow,
-        &-placement-topRight &-arrow
+        &-placement-top ${popoverCls}-arrow,
+        &-placement-topLeft ${popoverCls}-arrow,
+        &-placement-topRight ${popoverCls}-arrow
       `]: {
         bottom: popoverDistance - popoverArrowRotateWidth,
 
         '&-content': {
           boxShadow: `3px 3px 7px ${new TinyColor('#000').setAlpha(0.07).toRgbString()}`,
-          transform: `translateY((-${popoverArrowRotateWidth} / 2)) rotate(45deg)`,
+          transform: `translateY(-${popoverArrowRotateWidth / 2}px) rotate(45deg)`,
         },
       },
 
-      '&-placement-top &-arrow': {
+      [`&-placement-top ${popoverCls}-arrow`]: {
         left: '50%',
         transform: 'translateX(-50%)',
       },
 
-      '&-placement-topLeft &-arrow': {
+      [`&-placement-topLeft ${popoverCls}-arrow`]: {
         left: popoverArrowOffsetHorizontal,
       },
 
-      '&-placement-topRight &-arrow': {
+      [`&-placement-topRight ${popoverCls}-arrow`]: {
         right: popoverArrowOffsetHorizontal,
       },
 
       [`
-        &-placement-right &-arrow,
-        &-placement-rightTop &-arrow,
-        &-placement-rightBottom &-arrow
+        &-placement-right ${popoverCls}-arrow,
+        &-placement-rightTop ${popoverCls}-arrow,
+        &-placement-rightBottom ${popoverCls}-arrow
       `]: {
         left: popoverDistance - popoverArrowRotateWidth,
 
         '&-content': {
           boxShadow: `3px 3px 7px ${new TinyColor('#000').setAlpha(0.07).toRgbString()}`,
-          transform: `translateX((${popoverArrowRotateWidth} / 2)) rotate(135deg)`,
+          transform: `translateX(${popoverArrowRotateWidth / 2}px) rotate(135deg)`,
         },
       },
 
-      '&-placement-right &-arrow': {
+      [`&-placement-right ${popoverCls}-arrow`]: {
         top: '50%',
         transform: 'translateY(-50%)',
       },
 
-      '&-placement-rightTop &-arrow': {
+      [`&-placement-rightTop ${popoverCls}-arrow`]: {
         top: popoverArrowOffsetVertical,
       },
 
-      '&-placement-rightBottom &-arrow': {
+      [`&-placement-rightBottom ${popoverCls}-arrow`]: {
         bottom: popoverArrowOffsetVertical,
       },
 
       [`
-        &-placement-bottom &-arrow,
-        &-placement-bottomLeft &-arrow,
-        &-placement-bottomRight &-arrow
+        &-placement-bottom ${popoverCls}-arrow,
+        &-placement-bottomLeft ${popoverCls}-arrow,
+        &-placement-bottomRight ${popoverCls}-arrow
       `]: {
         top: popoverDistance - popoverArrowRotateWidth,
 
         '&-content': {
           boxShadow: `2px 2px 5px ${new TinyColor('#000').setAlpha(0.06).toRgbString()}`,
-          transform: `translateY((${popoverArrowRotateWidth} / 2)) rotate(-135deg)`,
+          transform: `translateY(${popoverArrowRotateWidth / 2}px) rotate(-135deg)`,
         },
       },
 
-      '&-placement-bottom &-arrow': {
+      [`&-placement-bottom ${popoverCls}-arrow`]: {
         left: '50%',
         transform: 'translateX(-50%)',
       },
 
-      '&-placement-bottomLeft &-arrow': {
+      [`&-placement-bottomLeft ${popoverCls}-arrow`]: {
         left: popoverArrowOffsetHorizontal,
       },
 
-      '&-placement-bottomRight &-arrow': {
+      [`&-placement-bottomRight ${popoverCls}-arrow`]: {
         right: popoverArrowOffsetHorizontal,
       },
 
       [`
-        &-placement-left &-arrow,
-        &-placement-leftTop &-arrow,
-        &-placement-leftBottom &-arrow
+        &-placement-left ${popoverCls}-arrow,
+        &-placement-leftTop ${popoverCls}-arrow,
+        &-placement-leftBottom ${popoverCls}-arrow
       `]: {
         right: popoverDistance - popoverArrowRotateWidth,
 
         '&-content': {
           boxShadow: `3px 3px 7px ${new TinyColor('#000').setAlpha(0.07).toRgbString()}`,
-          transform: `translateX((-${popoverArrowRotateWidth} / 2)) rotate(-45deg)`,
+          transform: `translateX(-${popoverArrowRotateWidth / 2}px) rotate(-45deg)`,
         },
       },
 
-      '&-placement-left &-arrow': {
+      [`&-placement-left ${popoverCls}-arrow`]: {
         top: '50%',
         transform: 'translateY(-50%)',
       },
 
-      '&-placement-leftTop &-arrow': {
+      [`&-placement-leftTop ${popoverCls}-arrow`]: {
         top: popoverArrowOffsetVertical,
       },
 
-      '&-placement-leftBottom &-arrow': {
+      [`&-placement-leftBottom ${popoverCls}-arrow`]: {
         bottom: popoverArrowOffsetVertical,
       },
     },
@@ -353,7 +355,7 @@ export default function useStyle(
 
   const popoverBg = token.componentBackground;
   // FIXME
-  const popoverArrowWidth = 8 * (2 ** 0.5);
+  const popoverArrowWidth = 8 * Math.sqrt(2);
 
   const popoverToken = {
     ...token,
@@ -367,9 +369,9 @@ export default function useStyle(
     popoverArrowWidth,
     popoverArrowColor: popoverBg,
     popoverArrowOuterColor: popoverBg,
-    popoverDistance: popoverArrowWidth + 3,
+    popoverDistance: popoverArrowWidth + 4,
     popoverPaddingHorizonta: token.padding,
-    popoverArrowRotateWidth: (popoverArrowWidth * popoverArrowWidth * 2) ** 0.5,
+    popoverArrowRotateWidth: Math.sqrt(popoverArrowWidth * popoverArrowWidth * 2),
     // FIXME
     popoverArrowOffsetVertical: 12,
     popoverArrowOffsetHorizontal: 16,

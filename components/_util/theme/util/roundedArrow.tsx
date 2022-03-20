@@ -7,12 +7,12 @@ export const roundedArrow = (
   outerRadius: number,
   bgColor: string,
 ): CSSObject => {
-  const cornerHeight = outerRadius * (1 - 1 / (2 ** 0.5));
+  const cornerHeight = outerRadius * (1 - 1 / Math.sqrt(2));
   const { borderRadius } = defaultDesignToken;
 
   const ax = width - cornerHeight;
   const ay = 2 * width + cornerHeight;
-  const bx = ax + outerRadius * (1 / 2 ** 0.5);
+  const bx = ax + outerRadius * (1 / Math.sqrt(2));
   const by = 2 * width;
   const cx = 2 * width - borderRadius;
   const cy = 2 * width;
@@ -21,7 +21,7 @@ export const roundedArrow = (
   const fx = 2 * width + cornerHeight;
   const fy = width - cornerHeight;
   const ex = 2 * width;
-  const ey = fy + outerRadius * (1 / 2 ** 0.5);
+  const ey = fy + outerRadius * (1 / Math.sqrt(2));
 
   return {
     borderRadius: `0 0 ${borderRadius}px 0`,
@@ -33,7 +33,7 @@ export const roundedArrow = (
       left: -width,
       width: width * 3,
       height: width * 3,
-      background: `linear-gradient(to left, ${bgColor} 50%, ${bgColor} 50%) no-repeat ${Math.ceil(-width + 1)} ${Math.ceil(-width + 1)}`,
+      background: `linear-gradient(to left, ${bgColor} 50%, ${bgColor} 50%) no-repeat ${Math.ceil(-width + 1)}px ${Math.ceil(-width + 1)}px`,
       content: '""',
       clipPath: `path('M ${ax} ${ay} A ${outerRadius} ${outerRadius} 0 0 1 ${bx} ${by} L ${cx} ${cy} A ${borderRadius} ${borderRadius} 0 0 0 ${dx} ${dy} L ${ex} ${ey} A ${outerRadius} ${outerRadius} 0 0 1 ${fx} ${fy} Z')`,
     },
