@@ -247,53 +247,6 @@ exports[`Segmented render segmented with \`size#small\` 1`] = `
 </div>
 `;
 
-exports[`Segmented render segmented with CSSMotion 1`] = `
-<div
-  class="ant-segmented"
->
-  <label
-    class="ant-segmented-item ant-segmented-item-selected"
-  >
-    <input
-      checked=""
-      class="ant-segmented-item-input"
-      type="radio"
-    />
-    <div
-      class="ant-segmented-item-label"
-    >
-      Map
-    </div>
-  </label>
-  <label
-    class="ant-segmented-item"
-  >
-    <input
-      class="ant-segmented-item-input"
-      type="radio"
-    />
-    <div
-      class="ant-segmented-item-label"
-    >
-      Transit
-    </div>
-  </label>
-  <label
-    class="ant-segmented-item"
-  >
-    <input
-      class="ant-segmented-item-input"
-      type="radio"
-    />
-    <div
-      class="ant-segmented-item-label"
-    >
-      Satellite
-    </div>
-  </label>
-</div>
-`;
-
 exports[`Segmented render segmented with mixed options 1`] = `
 <div
   class="ant-segmented"
@@ -546,6 +499,53 @@ exports[`Segmented render segmented with string options 1`] = `
       class="ant-segmented-item-label"
     >
       Monthly
+    </div>
+  </label>
+</div>
+`;
+
+exports[`Segmented render segmented with thumb 1`] = `
+<div
+  class="ant-segmented"
+>
+  <label
+    class="ant-segmented-item ant-segmented-item-selected"
+  >
+    <input
+      checked=""
+      class="ant-segmented-item-input"
+      type="radio"
+    />
+    <div
+      class="ant-segmented-item-label"
+    >
+      Map
+    </div>
+  </label>
+  <label
+    class="ant-segmented-item"
+  >
+    <input
+      class="ant-segmented-item-input"
+      type="radio"
+    />
+    <div
+      class="ant-segmented-item-label"
+    >
+      Transit
+    </div>
+  </label>
+  <label
+    class="ant-segmented-item"
+  >
+    <input
+      class="ant-segmented-item-input"
+      type="radio"
+    />
+    <div
+      class="ant-segmented-item-label"
+    >
+      Satellite
     </div>
   </label>
 </div>
