@@ -15,6 +15,22 @@ timeline: true
 
 ---
 
+## 4.19.3
+
+`2022-03-21`
+
+- 🐞 修复 TextArea clearIcon 的颜色问题。[#34610](https://github.com/ant-design/ant-design/pull/34610) [@MadCcc](https://github.com/MadCcc)
+- 🌐 更新 lt_LT 的 locale。[#34567](https://github.com/ant-design/ant-design/pull/34567) [@Anizcus](https://github.com/Anizcus)
+- 🐞 fix: apply scale transform to disabled star。[#34547](https://github.com/ant-design/ant-design/pull/34547) [@Unuuuuu](https://github.com/Unuuuuu)
+- 🐞 修复 Tooltip 使用预设颜色时 arrow 颜色错误的问题。[#34548](https://github.com/ant-design/ant-design/pull/34548) [@MadCcc](https://github.com/MadCcc)
+- 🐞 修复 Badge 数字 RTL 模式下异常位置显示。[#34545](https://github.com/ant-design/ant-design/pull/34545)
+- 💄 修复使用 `prefixCls` 时的数字 Row 和 Col 类样式问题。[#34494](https://github.com/ant-design/ant-design/pull/34494) [@mic-web](https://github.com/mic-web)
+- 🐞 修复 Typography `editable` 切换时在 Firefox 下高度跳动 和 Typography.Title `editable` 确定图标错位的问题。[#34518](https://github.com/ant-design/ant-design/pull/34518)
+- 💄 修复 RangePicker `status` 相关样式丢失的问题。[#34509](https://github.com/ant-design/ant-design/pull/34509) [@MadCcc](https://github.com/MadCcc)
+- 🛠 为 CssInJs 做准备，将 preClsName 生成放到外层。[#34482](https://github.com/ant-design/ant-design/pull/34482) [@LongHaoo](https://github.com/LongHaoo)
+- 🛎 为动态改变 Form.Item 的 `hasFeedback` 时 Input 焦点丢失添加警告。[#34475](https://github.com/ant-design/ant-design/pull/34475) [@MadCcc](https://github.com/MadCcc)
+- 🐞 修复 Input 有 `prefix` 或者 `suffix` 时 input 缺少某些 className 的问题。[#34474](https://github.com/ant-design/ant-design/pull/34474) [@MadCcc](https://github.com/MadCcc)
+
 ## 4.19.2
 
 `2022-03-13`

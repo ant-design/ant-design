@@ -15,6 +15,22 @@ timeline: true
 
 ---
 
+## 4.19.3
+
+`2022-03-21`
+
+- 🐞 Fix TextArea clearIcon color. [#34610](https://github.com/ant-design/ant-design/pull/34610) [@MadCcc](https://github.com/MadCcc)
+- 🌐 Updated lt_LT locale for `typeTemplate`. [#34567](https://github.com/ant-design/ant-design/pull/34567) [@Anizcus](https://github.com/Anizcus)
+- 🐞 fix: apply scale transform to disabled star. [#34547](https://github.com/ant-design/ant-design/pull/34547) [@Unuuuuu](https://github.com/Unuuuuu)
+- 🐞 Fix Tooltip arrow color with preset. [#34548](https://github.com/ant-design/ant-design/pull/34548) [@MadCcc](https://github.com/MadCcc)
+- 🐞 Fixed number abnormal position display in Badge RTL mode. [#34545](https://github.com/ant-design/ant-design/pull/34545)
+- 💄 Fix numeric Row and Col class styles when using prefixCls. [#34494](https://github.com/ant-design/ant-design/pull/34494) [@mic-web](https://github.com/mic-web)
+- 🐞 Fix Editable Textarea height jump in Firefox and Editable Typography.Title confirm icon position. [#34518](https://github.com/ant-design/ant-design/pull/34518)
+- 💄 Fix missing `status` style in RangePicker. [#34509](https://github.com/ant-design/ant-design/pull/34509) [@MadCcc](https://github.com/MadCcc)
+- 🛠 Prepare for CssInJs and place preClsName generation in the outer layer. [#34482](https://github.com/ant-design/ant-design/pull/34482) [@LongHaoo](https://github.com/LongHaoo)
+- 🛎 Add warning for Input getting blurred when dynamically add `hasFeedback`. [#34475](https://github.com/ant-design/ant-design/pull/34475) [@MadCcc](https://github.com/MadCcc)
+- 🐞 Fix missing classname in input when Input has `prefix` or `suffix`. [#34474](https://github.com/ant-design/ant-design/pull/34474) [@MadCcc](https://github.com/MadCcc)
+
 ## 4.19.2
 
 `2022-03-13`
