@@ -2,6 +2,7 @@ import * as React from 'react';
 import SlickCarousel, { Settings } from '@ant-design/react-slick';
 import classNames from 'classnames';
 import { ConfigContext } from '../config-provider';
+import useStyle from './style';
 
 export type CarouselEffect = 'scrollx' | 'fade';
 export type DotPosition = 'top' | 'bottom' | 'left' | 'right';
@@ -37,6 +38,8 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>(
     const goTo = (slide: number, dontAnimate = false) => {
       slickRef.current.slickGoTo(slide, dontAnimate);
     };
+
+    const [wrapSSR, hashId] = useStyle(getPrefixCls('carousel'));
 
     React.useImperativeHandle(
       ref,
@@ -78,12 +81,16 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>(
       typeof dots === 'boolean' ? false : dots?.className,
     );
 
-    const className = classNames(prefixCls, {
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-vertical`]: newProps.vertical,
-    });
+    const className = classNames(
+      prefixCls,
+      {
+        [`${prefixCls}-rtl`]: direction === 'rtl',
+        [`${prefixCls}-vertical`]: newProps.vertical,
+      },
+      hashId,
+    );
 
-    return (
+    return wrapSSR(
       <div className={className}>
         <SlickCarousel
           ref={slickRef}
@@ -93,7 +100,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>(
           arrows={arrows}
           draggable={draggable}
         />
-      </div>
+      </div>,
     );
   },
 );
