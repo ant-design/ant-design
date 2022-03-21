@@ -18,19 +18,20 @@ export interface ImageToken extends DerivativeToken {
   marginXXS: number;
   imageBg: string;
   imageColor: string;
-  imagePreviewOperationColor: string;
   imagePreviewOperationDisabledColor: string;
   imageMaskFontSize: number;
   iconPrefixClsFontSize: number;
   imagePreviewOperationSize: number;
   imageFontSizeBase: number;
-  animationDurationSlow: string;
   switchLeft: number;
   switchRight: number;
   switchWidth: number;
   switchHeight: number;
   switchMarginTop: number;
   width1px: number;
+  modalMaskBg: string;
+  zIndexImage: number;
+  zIndexModalMask: number;
 }
 
 export type PositionType = 'static' | 'relative' | 'fixed' | 'absolute' | 'sticky' | undefined;
@@ -41,8 +42,7 @@ export const genBoxStyle = (position?: PositionType): CSSObject => ({
 });
 
 export const genImageMaskStyle = (token: ImageToken): CSSObject => {
-  const { iconPrefixCls, white, black, animationDurationSlow, paddingXXS, marginXXS, prefixCls } =
-    token;
+  const { iconPrefixCls, white, black, duration, paddingXXS, marginXXS, prefixCls } = token;
   return {
     position: 'absolute',
     inset: 0,
@@ -50,10 +50,10 @@ export const genImageMaskStyle = (token: ImageToken): CSSObject => {
     alignItems: 'center',
     justifyContent: 'center',
     color: white,
-    background: new TinyColor(black).setAlpha(0.5).toRgbString(),
+    background: new TinyColor(black).setAlpha(0.5).toRgbString(), // FIXME: hard code in v4
     cursor: 'pointer',
     opacity: 0,
-    transition: `opacity ${animationDurationSlow}`,
+    transition: `opacity ${duration}`,
 
     [`.${prefixCls}-mask-info`]: {
       padding: `0 ${paddingXXS}`,
@@ -69,7 +69,7 @@ export const genImageMaskStyle = (token: ImageToken): CSSObject => {
 
 export const genPreviewOperationsStyle = (token: ImageToken): CSSObject => {
   const {
-    imagePreviewOperationColor,
+    black,
     modalMaskBg,
     paddingSM,
     imagePreviewOperationDisabledColor,
@@ -86,7 +86,7 @@ export const genPreviewOperationsStyle = (token: ImageToken): CSSObject => {
     flexDirection: 'row-reverse',
     alignItems: 'center',
     width: '100%',
-    color: imagePreviewOperationColor,
+    color: black,
     listStyle: 'none',
     background: new TinyColor(modalMaskBg).setAlpha(0.1).toRgbString(),
     pointerEvents: 'auto',
@@ -113,7 +113,7 @@ export const genPreviewOperationsStyle = (token: ImageToken): CSSObject => {
 };
 export const genPreviewSwitchStyle = (token: ImageToken): CSSObject => {
   const {
-    imagePreviewOperationColor,
+    black,
     modalMaskBg,
     iconPrefixCls,
     imagePreviewOperationDisabledColor,
@@ -135,8 +135,8 @@ export const genPreviewSwitchStyle = (token: ImageToken): CSSObject => {
     width: switchWidth,
     height: switchHeight,
     marginTop: switchMarginTop,
-    color: imagePreviewOperationColor,
-    background: new TinyColor(modalMaskBg).setAlpha(0.1).toRgbString(),
+    color: black,
+    background: new TinyColor(modalMaskBg).setAlpha(0.1).toRgbString(), // FIXME: hard code in v4
     borderRadius: '50%',
     cursor: 'pointer',
     pointerEvents: 'auto',
@@ -155,7 +155,7 @@ export const genPreviewSwitchStyle = (token: ImageToken): CSSObject => {
 };
 
 export const genImagePreviewStyle = (token: ImageToken): CSSObject => {
-  const { easeOut, previewPrefixCls, switchRight, switchLeft, width1px } = token;
+  const { motionEaseOut, previewPrefixCls, switchRight, switchLeft, width1px, duration } = token;
   return {
     height: '100%',
     textAlign: 'center',
@@ -170,13 +170,13 @@ export const genImagePreviewStyle = (token: ImageToken): CSSObject => {
       verticalAlign: 'middle',
       transform: 'scale3d(1, 1, 1)',
       cursor: 'grab',
-      transition: `transform 0.3s ${easeOut} 0s`,
+      transition: `transform ${duration} ${motionEaseOut} 0s`,
       userSelect: 'none',
       pointerEvents: 'auto',
 
       '&-wrapper': {
         ...genBoxStyle(),
-        transition: `transform 0.3s ${easeOut} 0s`,
+        transition: `transform ${duration} ${motionEaseOut} 0s`,
 
         '&::before': {
           display: 'inline-block',
@@ -224,7 +224,7 @@ const genImageStyle: GenerateStyle<ImageToken> = (token: ImageToken) => {
     previewPrefixCls,
     imageBg,
     zIndexImage,
-    animationDurationSlow,
+    duration,
   } = token;
   return {
     // ============================== image ==============================
@@ -261,7 +261,7 @@ const genImageStyle: GenerateStyle<ImageToken> = (token: ImageToken) => {
       {
         transform: 'none',
         opacity: 0,
-        animationDuration: animationDurationSlow,
+        animationDuration: duration,
         userSelect: 'none', // https://github.com/ant-design/ant-design/issues/11777
       },
     [`.${previewPrefixCls}-root`]: {
@@ -296,26 +296,30 @@ export default function useStyle(
 ): UseComponentStyleResult {
   const [theme, token, hashId] = useToken();
 
+  const { black } = token;
   const inputToken: ImageToken = {
     ...token,
     prefixCls,
     iconPrefixCls,
     previewPrefixCls: `${prefixCls}-preview`,
 
-    animationDurationSlow: '0.3s', // FIXME: hard code in v4
-    imageSizeBase: 48,
-    imageFontSizeBase: 24,
-    imageBg: '#f5f5f5',
-    imageColor: '#fff',
-    imageMaskFontSize: 16,
-    imagePreviewOperationSize: 18,
-    iconPrefixClsFontSize: 18,
-    switchWidth: 44,
-    switchHeight: 44,
-    switchRight: 10,
-    switchLeft: 10,
-    switchMarginTop: -22,
-    width1px: 1,
+    imageSizeBase: 48, // FIXME: hard code in v4
+    imageFontSizeBase: 24, // FIXME: hard code in v4
+    imageBg: '#f5f5f5', // FIXME: hard code in v4
+    imageColor: '#fff', // FIXME: hard code in v4
+    imageMaskFontSize: 16, // FIXME: hard code in v4
+    imagePreviewOperationSize: 18, // FIXME: hard code in v4
+    iconPrefixClsFontSize: 18, // FIXME: hard code in v4
+    switchWidth: 44, // FIXME: hard code in v4
+    switchHeight: 44, // FIXME: hard code in v4
+    switchRight: 10, // FIXME: hard code in v4
+    switchLeft: 10, // FIXME: hard code in v4
+    switchMarginTop: -22, // FIXME: hard code in v4
+    width1px: 1, // FIXME: hard code in v4
+    imagePreviewOperationDisabledColor: new TinyColor(black).setAlpha(0.25).toRgbString(), // FIXME: hard code in v4
+    modalMaskBg: new TinyColor(black).setAlpha(0.45).toRgbString(), // FIXME: hard code in v4
+    zIndexImage: 1080, // FIXME: hard code in v4
+    zIndexModalMask: 1000, // FIXME: hard code in v4
   };
 
   return [

@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useContext } from 'react';
 import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import RcImage, { ImageProps } from 'rc-image';
+import classNames from 'classnames';
 import defaultLocale from '../locale/en_US';
 import PreviewGroup, { icons } from './PreviewGroup';
 import { ConfigContext } from '../config-provider';
@@ -16,6 +17,7 @@ export interface CompositionImage<P> extends React.FC<P> {
 const Image: CompositionImage<ImageProps> = ({
   prefixCls: customizePrefixCls,
   preview,
+  rootClassName,
   ...otherProps
 }) => {
   const { getPrefixCls, iconPrefixCls } = useContext(ConfigContext);
@@ -27,6 +29,7 @@ const Image: CompositionImage<ImageProps> = ({
   // Style
   const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls);
 
+  const mergedRootClassName = classNames(rootClassName, hashId);
   const mergedPreview = React.useMemo(() => {
     if (preview === false) {
       return preview;
@@ -51,7 +54,7 @@ const Image: CompositionImage<ImageProps> = ({
     <RcImage
       prefixCls={`${prefixCls}`}
       preview={mergedPreview}
-      rootClassName={hashId}
+      rootClassName={mergedRootClassName}
       {...otherProps}
     />,
   );
