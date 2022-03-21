@@ -20,7 +20,7 @@ const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
     [carouselPrefixCls]: {
       ...resetComponent(token),
 
-      'slick-slider': {
+      '.slick-slider': {
         position: 'relative',
         display: 'block',
         boxSizing: 'border-box',
@@ -78,7 +78,7 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
 
   const carouselToken: CarouselToken = {
     ...token,
-    carouselPrefixCls: `${prefixCls}-carousel`,
+    carouselPrefixCls: `.${prefixCls}`,
   };
 
   return [

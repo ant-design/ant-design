@@ -39,8 +39,6 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>(
       slickRef.current.slickGoTo(slide, dontAnimate);
     };
 
-    const [wrapSSR, hashId] = useStyle(getPrefixCls('carousel'));
-
     React.useImperativeHandle(
       ref,
       () => ({
@@ -80,6 +78,8 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>(
       `${dotsClass}-${dotPosition}`,
       typeof dots === 'boolean' ? false : dots?.className,
     );
+
+    const [wrapSSR, hashId] = useStyle(prefixCls);
 
     const className = classNames(
       prefixCls,
