@@ -2,6 +2,8 @@
 
 exports[`renders ./components/spin/demo/basic.md correctly 1`] = `
 <div
+  aria-busy="true"
+  aria-live="polite"
   class="ant-spin ant-spin-spinning"
 >
   <span
@@ -25,6 +27,8 @@ exports[`renders ./components/spin/demo/basic.md correctly 1`] = `
 
 exports[`renders ./components/spin/demo/custom-indicator.md correctly 1`] = `
 <div
+  aria-busy="true"
+  aria-live="polite"
   class="ant-spin ant-spin-spinning"
 >
   <span
@@ -106,6 +110,8 @@ exports[`renders ./components/spin/demo/inside.md correctly 1`] = `
   class="example"
 >
   <div
+    aria-busy="true"
+    aria-live="polite"
     class="ant-spin ant-spin-spinning"
   >
     <span
@@ -188,6 +194,8 @@ exports[`renders ./components/spin/demo/size.md correctly 1`] = `
     style="margin-right:16px"
   >
     <div
+      aria-busy="true"
+      aria-live="polite"
       class="ant-spin ant-spin-sm ant-spin-spinning"
     >
       <span
@@ -213,6 +221,8 @@ exports[`renders ./components/spin/demo/size.md correctly 1`] = `
     style="margin-right:16px"
   >
     <div
+      aria-busy="true"
+      aria-live="polite"
       class="ant-spin ant-spin-spinning"
     >
       <span
@@ -237,6 +247,8 @@ exports[`renders ./components/spin/demo/size.md correctly 1`] = `
     class="ant-space-item"
   >
     <div
+      aria-busy="true"
+      aria-live="polite"
       class="ant-spin ant-spin-lg ant-spin-spinning"
     >
       <span
@@ -266,6 +278,8 @@ exports[`renders ./components/spin/demo/tip.md correctly 1`] = `
 >
   <div>
     <div
+      aria-busy="true"
+      aria-live="polite"
       class="ant-spin ant-spin-spinning ant-spin-show-text"
     >
       <span
