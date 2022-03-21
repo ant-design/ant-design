@@ -36,7 +36,8 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     errorActiveColor: mergedToken.colorErrorActive,
     warningHoverColor: mergedToken.colorWarningHover,
 
-    // FIXME: Move to new token =====================
+    // 🔥🔥🔥🔥🔥🔥🔥🔥🔥 All TMP Token leaves here 🔥🔥🔥🔥🔥🔥🔥🔥🔥
+    // FIXME: Handle this when derivative is ready
     primaryColors,
     warningColors,
     errorColors,
