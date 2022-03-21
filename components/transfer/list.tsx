@@ -365,88 +365,85 @@ export default class TransferList<
 
     let menu: React.ReactElement | null = null;
     if (showRemove) {
-      menu = (
-        <Menu>
-          {/* Remove Current Page */}
-          {pagination && (
-            <Menu.Item
-              key="removeCurrent"
-              onClick={() => {
+      const items = [
+        /* Remove Current Page */
+        pagination
+          ? {
+              key: 'removeCurrent',
+              onClick: () => {
                 const pageKeys = getEnabledItemKeys(
                   (this.defaultListBodyRef.current?.getItems() || []).map(entity => entity.item),
                 );
                 onItemRemove?.(pageKeys);
-              }}
-            >
-              {removeCurrent}
-            </Menu.Item>
-          )}
+              },
+              label: removeCurrent,
+            }
+          : null,
 
-          {/* Remove All */}
-          <Menu.Item
-            key="removeAll"
-            onClick={() => {
-              onItemRemove?.(getEnabledItemKeys(filteredItems));
-            }}
-          >
-            {removeAll}
-          </Menu.Item>
-        </Menu>
-      );
+        /* Remove All */
+        {
+          key: 'removeAll',
+          onClick: () => {
+            onItemRemove?.(getEnabledItemKeys(filteredItems));
+          },
+          label: removeAll,
+        },
+      ].filter(item => item);
+
+      menu = <Menu items={items} />;
     } else {
-      menu = (
-        <Menu>
-          <Menu.Item
-            key="selectAll"
-            onClick={() => {
-              const keys = getEnabledItemKeys(filteredItems);
-              onItemSelectAll(keys, keys.length !== checkedKeys.length);
-            }}
-          >
-            {selectAll}
-          </Menu.Item>
-          {pagination && (
-            <Menu.Item
-              onClick={() => {
+      const items = [
+        {
+          key: 'selectAll',
+          onClick: () => {
+            const keys = getEnabledItemKeys(filteredItems);
+            onItemSelectAll(keys, keys.length !== checkedKeys.length);
+          },
+          label: selectAll,
+        },
+        pagination
+          ? {
+              key: 'selectCurrent',
+              onClick: () => {
                 const pageItems = this.defaultListBodyRef.current?.getItems() || [];
                 onItemSelectAll(getEnabledItemKeys(pageItems.map(entity => entity.item)), true);
-              }}
-            >
-              {selectCurrent}
-            </Menu.Item>
-          )}
-          <Menu.Item
-            key="selectInvert"
-            onClick={() => {
-              let availableKeys: string[];
-              if (pagination) {
-                availableKeys = getEnabledItemKeys(
-                  (this.defaultListBodyRef.current?.getItems() || []).map(entity => entity.item),
-                );
+              },
+              label: selectCurrent,
+            }
+          : null,
+
+        {
+          key: 'selectInvert',
+          onClick: () => {
+            let availableKeys: string[];
+            if (pagination) {
+              availableKeys = getEnabledItemKeys(
+                (this.defaultListBodyRef.current?.getItems() || []).map(entity => entity.item),
+              );
+            } else {
+              availableKeys = getEnabledItemKeys(filteredItems);
+            }
+
+            const checkedKeySet = new Set(checkedKeys);
+            const newCheckedKeys: string[] = [];
+            const newUnCheckedKeys: string[] = [];
+
+            availableKeys.forEach(key => {
+              if (checkedKeySet.has(key)) {
+                newUnCheckedKeys.push(key);
               } else {
-                availableKeys = getEnabledItemKeys(filteredItems);
+                newCheckedKeys.push(key);
               }
+            });
 
-              const checkedKeySet = new Set(checkedKeys);
-              const newCheckedKeys: string[] = [];
-              const newUnCheckedKeys: string[] = [];
+            onItemSelectAll(newCheckedKeys, true);
+            onItemSelectAll(newUnCheckedKeys, false);
+          },
+          label: selectInvert,
+        },
+      ];
 
-              availableKeys.forEach(key => {
-                if (checkedKeySet.has(key)) {
-                  newUnCheckedKeys.push(key);
-                } else {
-                  newCheckedKeys.push(key);
-                }
-              });
-
-              onItemSelectAll(newCheckedKeys, true);
-              onItemSelectAll(newUnCheckedKeys, false);
-            }}
-          >
-            {selectInvert}
-          </Menu.Item>
-        </Menu>
-      );
+      menu = <Menu items={items} />;
     }
 
     const dropdown = (

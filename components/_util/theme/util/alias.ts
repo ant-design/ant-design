@@ -67,7 +67,9 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     infoColor: '#1890ff',
 
     itemActiveBackground: 'gray',
-    highlightColor: 'red',
+
+    highlightColor: errorColors[5], // FIXME: Should not align with error color
+    // FIXME: fix2 badge-color
 
     linkColor: 'blue',
     linkHoverColor: 'blue',
