@@ -20,7 +20,7 @@ export function useCursor(getInputElement: () => HTMLTextAreaElement | undefined
       setEndText(null);
       return;
     }
-    const value = inputElement.value;
+    const {value} = inputElement;
     if (endText && value.endsWith(endText)) {
       const newCursorPosition = value.length - endText.length;
       inputElement.setSelectionRange(newCursorPosition, newCursorPosition);
