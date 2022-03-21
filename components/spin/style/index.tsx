@@ -36,13 +36,13 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken, hashId: string
     opacity: 0,
     transition: `transform 0.3s ${token.easeInOutCirc}`,
 
-    [`&-spinning`]: {
+    '&-spinning': {
       position: 'static',
       display: 'inline-block',
       opacity: 1,
     },
 
-    [`&-nested-loading`]: {
+    '&-nested-loading': {
       position: 'relative',
       [`> div > ${token.spinCls}`]: {
         position: 'absolute',
@@ -97,51 +97,51 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken, hashId: string
           },
         },
       },
-    },
 
-    [`&-container`]: {
-      position: 'relative',
-      transition: 'opacity 0.3s',
+      [`${token.spinCls}-container`]: {
+        position: 'relative',
+        transition: 'opacity 0.3s',
 
-      '&::after': {
-        position: 'absolute',
-        top: 0,
-        right: 0,
-        bottom: 0,
-        left: 0,
-        zIndex: 10,
-        display: 'none',
-        width: '100%',
-        height: '100%',
-        background: token.componentBackground,
-        opacity: 0,
-        transition: 'all 0.3s',
-        content: '',
-        pointerEvents: 'none',
+        '&::after': {
+          position: 'absolute',
+          top: 0,
+          right: 0,
+          bottom: 0,
+          left: 0,
+          zIndex: 10,
+          width: '100%',
+          height: '100%',
+          background: token.componentBackground,
+          opacity: 0,
+          transition: 'all 0.3s',
+          content: '',
+          pointerEvents: 'none',
+        },
       },
-    },
 
-    [`&-blur`]: {
-      clear: 'both',
-      opacity: 0.5,
-      userSelect: 'none',
-      pointerEvents: 'none',
+      [`${token.spinCls}-blur`]: {
+        clear: 'both',
+        opacity: 0.5,
+        userSelect: 'none',
+        pointerEvents: 'none',
 
-      '&::after': {
-        opacity: 0.4,
-        pointerEvents: 'auto',
+        [`&::after`]: {
+          opacity: 0.4,
+          pointerEvents: 'auto',
+        },
       },
     },
 
     // tip
     // ------------------------------
     [`&-tip`]: {
+      // useless
       color: token.spinDotDefault,
     },
 
     // dots
     // ------------------------------
-    [`&-dot`]: {
+    [`${token.spinCls}-dot`]: {
       position: 'relative',
       display: 'inline-block',
       fontSize: token.spinDotSize,
@@ -194,7 +194,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken, hashId: string
     // ------------------------------
 
     // small
-    [`&-sm &-dot`]: {
+    [`&-sm ${token.spinCls}-dot`]: {
       fontSize: token.spinDotSizeSM,
 
       i: {
@@ -204,7 +204,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken, hashId: string
     },
 
     // large
-    [`&-lg &-dot`]: {
+    [`&-lg ${token.spinCls}-dot`]: {
       fontSize: token.spinDotSizeLG,
 
       i: {
@@ -213,7 +213,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken, hashId: string
       },
     },
 
-    [`&&-show-text &-text`]: {
+    [`&${token.spinCls}-show-text ${token.spinCls}-text`]: {
       display: 'block',
     },
 

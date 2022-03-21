@@ -11,7 +11,7 @@ const SpinSizes = tuple('small', 'default', 'large');
 export type SpinSize = typeof SpinSizes[number];
 export type SpinIndicator = React.ReactElement<HTMLElement>;
 
-export interface SpinFCProps {
+export interface SpinProps {
   prefixCls?: string;
   className?: string;
   spinning?: boolean;
@@ -23,12 +23,12 @@ export interface SpinFCProps {
   indicator?: SpinIndicator;
 }
 
-export interface SpinProps extends SpinFCProps {
+export interface SpinClassProps extends SpinProps {
   hashId: string;
   spinPrefixCls: string;
 }
 
-export type SpinFCType = React.FC<SpinFCProps> & {
+export type SpinType = React.FC<SpinProps> & {
   setDefaultIndicator: (indicator: React.ReactNode) => void;
 };
 
@@ -40,8 +40,8 @@ export interface SpinState {
 // Render indicator
 let defaultIndicator: React.ReactNode = null;
 
-function renderIndicator(prefixCls: string, props: SpinProps): React.ReactNode {
-  const { indicator, hashId } = props;
+function renderIndicator(prefixCls: string, props: SpinClassProps): React.ReactNode {
+  const { indicator } = props;
   const dotClassName = `${prefixCls}-dot`;
 
   // should not be render default indicator when indicator value is null
@@ -62,7 +62,7 @@ function renderIndicator(prefixCls: string, props: SpinProps): React.ReactNode {
   }
 
   return (
-    <span className={classNames(dotClassName, `${prefixCls}-dot-spin`, hashId)}>
+    <span className={classNames(dotClassName, `${prefixCls}-dot-spin`)}>
       <i className={`${prefixCls}-dot-item`} />
       <i className={`${prefixCls}-dot-item`} />
       <i className={`${prefixCls}-dot-item`} />
@@ -75,7 +75,7 @@ function shouldDelay(spinning?: boolean, delay?: number): boolean {
   return !!spinning && !!delay && !isNaN(Number(delay));
 }
 
-export class Spin extends React.Component<SpinProps, SpinState> {
+export class SpinClass extends React.Component<SpinClassProps, SpinState> {
   static defaultProps = {
     spinning: true,
     size: 'default' as SpinSize,
@@ -84,7 +84,7 @@ export class Spin extends React.Component<SpinProps, SpinState> {
 
   originalUpdateSpinning: () => void;
 
-  constructor(props: SpinProps) {
+  constructor(props: SpinClassProps) {
     super(props);
 
     const { spinning, delay } = props;
@@ -109,7 +109,7 @@ export class Spin extends React.Component<SpinProps, SpinState> {
     this.cancelExistingSpin();
   }
 
-  debouncifyUpdateSpinning = (props?: SpinProps) => {
+  debouncifyUpdateSpinning = (props?: SpinClassProps) => {
     const { delay } = props || this.props;
     if (delay) {
       this.cancelExistingSpin();
@@ -161,7 +161,6 @@ export class Spin extends React.Component<SpinProps, SpinState> {
       className,
       hashId,
     );
-    size === 'large' && console.log(spinClassName);
 
     // fix https://fb.me/react-unknown-prop
     const divProps = omit(restProps, ['spinning', 'delay', 'indicator']);
@@ -173,13 +172,9 @@ export class Spin extends React.Component<SpinProps, SpinState> {
       </div>
     );
     if (this.isNestedPattern()) {
-      const containerClassName = classNames(
-        `${prefixCls}-container`,
-        {
-          [`${prefixCls}-blur`]: spinning,
-        },
-        hashId,
-      );
+      const containerClassName = classNames(`${prefixCls}-container`, {
+        [`${prefixCls}-blur`]: spinning,
+      });
       return (
         <div
           {...divProps}
@@ -200,7 +195,7 @@ export class Spin extends React.Component<SpinProps, SpinState> {
   }
 }
 
-const SpinFC: SpinFCType = (props: SpinFCProps) => {
+const Spin: SpinType = (props: SpinProps) => {
   const { prefixCls: customizePrefixCls } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
 
@@ -208,16 +203,16 @@ const SpinFC: SpinFCType = (props: SpinFCProps) => {
 
   const [wrapSSR, hashId] = useStyle(spinPrefixCls);
 
-  const SpinProps: SpinProps = {
+  const spinClassProps: SpinClassProps = {
     ...props,
     spinPrefixCls,
     hashId,
   };
-  return wrapSSR(<Spin {...SpinProps} />);
+  return wrapSSR(<SpinClass {...spinClassProps} />);
 };
 
-SpinFC.setDefaultIndicator = (indicator: React.ReactNode) => {
+Spin.setDefaultIndicator = (indicator: React.ReactNode) => {
   defaultIndicator = indicator;
 };
 
-export default SpinFC;
+export default Spin;
