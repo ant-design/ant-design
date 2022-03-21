@@ -12,6 +12,7 @@ import {
   getStatusClassNames,
   InputStatus,
 } from '../_util/statusUtils';
+import useStyle from './style';
 
 export const { Option } = RcMentions;
 
@@ -62,6 +63,7 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
     children,
     notFoundContent,
     status: customStatus,
+    dropdownClassName,
     ...restProps
   },
   ref,
@@ -69,7 +71,7 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
   const [focused, setFocused] = React.useState(false);
   const innerRef = React.useRef<HTMLElement>();
   const mergedRef = composeRef(ref, innerRef);
-  const { getPrefixCls, renderEmpty, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls, renderEmpty, direction, iconPrefixCls } = React.useContext(ConfigContext);
   const { status: contextStatus, hasFeedback } = React.useContext(FormItemStatusContext);
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
@@ -117,6 +119,9 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
 
   const prefixCls = getPrefixCls('mentions', customizePrefixCls);
 
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls);
+
   const mergedClassName = classNames(
     {
       [`${prefixCls}-disabled`]: disabled,
@@ -125,6 +130,7 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
     },
     getStatusClassNames(prefixCls, mergedStatus),
     !hasFeedback && className,
+    hashId,
   );
 
   const mentions = (
@@ -138,6 +144,7 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
       filterOption={getFilterOption()}
       onFocus={onFocus}
       onBlur={onBlur}
+      dropdownClassName={classNames(dropdownClassName, hashId)}
       ref={mergedRef as any}
     >
       {getOptions()}
@@ -151,6 +158,7 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
           `${prefixCls}-affix-wrapper`,
           getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus, hasFeedback),
           className,
+          hashId,
         )}
       >
         {mentions}
@@ -159,7 +167,7 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
     );
   }
 
-  return mentions;
+  return wrapSSR(mentions);
 };
 
 const Mentions = React.forwardRef<unknown, MentionProps>(InternalMentions) as CompoundedComponent;
