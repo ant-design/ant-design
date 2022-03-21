@@ -213,7 +213,7 @@ describe('Typography copy', () => {
         expect(e).not.toBeUndefined();
       }
       const wrapper = mount(
-        <Base component="p" copyable={{ onCopy: onCopy }}>
+        <Base component="p" copyable={{ onCopy }}>
           test copy
         </Base>,
       );
