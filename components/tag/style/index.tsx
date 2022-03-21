@@ -121,7 +121,7 @@ const genBaseStyle = (
       cursor: 'pointer',
 
       '&:not(&-checked):hover': {
-        color: token.primaryColor,
+        color: token.colorPrimary,
       },
 
       '&:active, &-checked': {

@@ -175,7 +175,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (
         },
         [`.${badgePrefixCls}-status-processing`]: {
           position: 'relative',
-          backgroundColor: token.primaryColor,
+          backgroundColor: token.colorPrimary,
 
           '&::after': {
             position: 'absolute',
@@ -183,7 +183,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (
             insetInlineStart: 0,
             width: '100%',
             height: '100%',
-            border: `1px solid ${token.primaryColor}`,
+            border: `1px solid ${token.colorPrimary}`,
             borderRadius: '50%',
             animation: `${antStatusProcessing.getName(hashId)} 1.2s infinite ease-in-out`, // FIXME: hard code, copied from old less file
             content: '""',
@@ -270,9 +270,9 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (
       height: 22, // FIXME: hard code, copied from old less file
       padding: `0 ${token.paddingXS}px`,
       color: token.badgeTextColor,
-      lineHeight: '22px', // FIXME: hard code, copied from old less file
+      lineHeight: '22px', // colorPrimarycode, copied from old less file
       whiteSpace: 'nowrap',
-      backgroundColor: token.primaryColor,
+      backgroundColor: token.colorPrimary,
       borderRadius: token.borderRadius,
       [`.${ribbonPrefixCls}-text`]: { color: '#fff' },
       [`.${ribbonPrefixCls}-corner`]: {

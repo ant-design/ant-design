@@ -275,7 +275,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
 
           '&-open, &-focused': {
             '.ant-select-selector': {
-              color: token.primaryColor,
+              color: token.colorPrimary,
             },
           },
         },
@@ -584,7 +584,7 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
     textColorSecondary,
     duration,
     iconColorHover,
-    primaryColor,
+    colorPrimary,
     successColor,
   } = token;
 
@@ -669,7 +669,7 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
       '&-status-validating': {
         [`.${prefixCls}-feedback-icon`]: {
           display: 'inline-block',
-          color: primaryColor,
+          color: colorPrimary,
         },
       },
       '&-status-success': {

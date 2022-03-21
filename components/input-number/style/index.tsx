@@ -39,7 +39,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
     textColorSecondary,
     durationFast,
     inputNumberHandlerActiveBgColor,
-    primaryColor,
+    colorPrimary,
     marginXXS,
     controlHeight,
     inputPaddingHorizontal,
@@ -162,7 +162,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           },
 
           '&:hover &-up-inner, &:hover &-down-inner': {
-            color: primaryColor,
+            color: colorPrimary,
           },
         },
 

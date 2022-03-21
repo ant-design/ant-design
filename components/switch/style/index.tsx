@@ -235,7 +235,7 @@ export default function useStyle(
     switchMinWidth: 44,
     switchHeight,
     switchDuration: '0.2s',
-    switchColor: token.primaryColor,
+    switchColor: token.colorPrimary,
     switchDisabledOpacity: 0.4,
     switchInnerMarginMin: Math.ceil(switchHeight * 0.3),
     switchInnerMarginMax: Math.ceil(switchHeight * 1.1),

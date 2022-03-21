@@ -136,7 +136,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token, hashId) =>
               insetInlineStart: '50%',
               width: token.fontSizeLG / 2,
               height: token.fontSizeLG / 2,
-              backgroundColor: token.primaryColor,
+              backgroundColor: token.colorPrimary,
               border: 0,
               transform: 'translate(-50%, -50%) scale(1)',
               opacity: 1,
@@ -161,7 +161,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token, hashId) =>
       ${checkboxCls}-input:focus +
     `]: {
         [`${checkboxCls}-inner`]: {
-          borderColor: token.primaryColor,
+          borderColor: token.colorPrimary,
         },
       },
     },
@@ -171,8 +171,8 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token, hashId) =>
       // Wrapper > Checkbox
       [`${checkboxCls}-checked`]: {
         [`${checkboxCls}-inner`]: {
-          backgroundColor: token.primaryColor,
-          borderColor: token.primaryColor,
+          backgroundColor: token.colorPrimary,
+          borderColor: token.colorPrimary,
 
           '&:after': {
             opacity: 1,
@@ -188,7 +188,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token, hashId) =>
           insetInlineStart: 0,
           width: '100%',
           height: '100%',
-          border: `${token.borderWidth}px ${token.borderStyle} ${token.primaryColor}`,
+          border: `${token.borderWidth}px ${token.borderStyle} ${token.colorPrimary}`,
           borderRadius: token.borderRadius,
           visibility: 'hidden',
           animation: `${antCheckboxEffect.getName(hashId)} ${token.duration} ease-in-out`,

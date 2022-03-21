@@ -170,7 +170,7 @@ const genPrimaryButtonStyle = (prefixCls: string, token: DerivativeToken): CSSOb
   ...genSolidButtonStyle(token),
 
   color: '#FFF',
-  backgroundColor: token.primaryColor,
+  backgroundColor: token.colorPrimary,
 
   boxShadow: '0 2px 0 rgba(0, 0, 0, 0.045)',
 
@@ -185,8 +185,8 @@ const genPrimaryButtonStyle = (prefixCls: string, token: DerivativeToken): CSSOb
 
   ...genGhostButtonStyle(
     prefixCls,
-    token.primaryColor,
-    token.primaryColor,
+    token.colorPrimary,
+    token.colorPrimary,
     token.textColorDisabled,
     token.borderColor,
   ),

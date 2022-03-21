@@ -127,7 +127,7 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token, hashId) => {
               backgroundColor: token.itemActiveBackground,
 
               [`${selectItemCls}-option-state`]: {
-                color: token.primaryColor,
+                color: token.colorPrimary,
               },
             },
             '&-disabled': {
