@@ -208,23 +208,25 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (
         },
       },
       [`.${badgePrefixCls}-zoom-appear, .${badgePrefixCls}-zoom-enter`]: {
-        animation: `${antZoomBadgeIn.getName(hashId)} ${token.duration} ${token.easeOutBack}`,
+        animation: `${antZoomBadgeIn.getName(hashId)} ${token.duration} ${token.motionEaseOutBack}`,
         animationFillMode: 'both',
       },
       [`.${badgePrefixCls}-zoom-leave`]: {
-        animation: `${antZoomBadgeOut.getName(hashId)} ${token.duration} ${token.easeOutBack}`,
+        animation: `${antZoomBadgeOut.getName(hashId)} ${token.duration} ${
+          token.motionEaseOutBack
+        }`,
         animationFillMode: 'both',
       },
       [`&.${badgePrefixCls}-not-a-wrapper`]: {
         [`.${badgePrefixCls}-zoom-appear, .${badgePrefixCls}-zoom-enter`]: {
           animation: `${antNoWrapperZoomBadgeIn.getName(hashId)} ${token.duration} ${
-            token.easeOutBack
+            token.motionEaseOutBack
           }`,
         },
 
         [`.${badgePrefixCls}-zoom-leave`]: {
           animation: `${antNoWrapperZoomBadgeOut.getName(hashId)} ${token.duration} ${
-            token.easeOutBack
+            token.motionEaseOutBack
           }`,
         },
         [`&:not(.${badgePrefixCls}-status)`]: {
@@ -247,7 +249,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (
           position: 'relative',
           display: 'inline-block',
           height: token.badgeHeight,
-          transition: `all ${token.duration} ${token.easeOutBack}`,
+          transition: `all ${token.duration} ${token.motionEaseOutBack}`,
           WebkitTransformStyle: 'preserve-3d',
           WebkitBackfaceVisibility: 'hidden',
           [`> p.${numberPrefixCls}-only-unit`]: {

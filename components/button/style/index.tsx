@@ -25,7 +25,7 @@ const genSharedButtonStyle = (
   backgroundColor: 'transparent',
   border: `${token.borderWidth}px ${token.borderStyle} transparent`,
   cursor: 'pointer',
-  transition: `all ${token.duration} ${token.easeInOut}`,
+  transition: `all ${token.duration} ${token.motionEaseInOut}`,
   userSelect: 'none',
   touchAction: 'manipulation',
   lineHeight: token.lineHeight,
@@ -327,7 +327,7 @@ const genSizeButtonStyle = (
         },
 
         [`.${prefixCls}-loading-icon`]: {
-          transition: `width ${token.duration} ${token.easeInOut}, opacity ${token.duration} ${token.easeInOut}`,
+          transition: `width ${token.duration} ${token.motionEaseInOut}, opacity ${token.duration} ${token.motionEaseInOut}`,
         },
 
         [`&:not(${iconOnlyCls}) .${prefixCls}-loading-icon > .${iconPrefixCls}`]: {

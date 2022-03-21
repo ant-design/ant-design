@@ -88,12 +88,6 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     borderColor: new TinyColor({ h: 0, s: 0, v: 85 }).toHexString(),
     borderColorSplit: new TinyColor({ h: 0, s: 0, v: 94 }).toHexString(),
 
-    easeInOut: `cubic-bezier(0.645, 0.045, 0.355, 1)`,
-    easeInOutCirc: `cubic-bezier(0.78, 0.14, 0.15, 0.86)`,
-    easeOutBack: `cubic-bezier(0.12, 0.4, 0.29, 1.46)`,
-    easeInQuint: `cubic-bezier(0.755, 0.05, 0.855, 0.06)`,
-    easeOutQuint: `cubic-bezier(0.23, 1, 0.32, 1)`,
-
     outlineWidth: 2,
     outlineBlurSize: 0,
 

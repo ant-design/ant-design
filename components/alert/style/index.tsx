@@ -66,7 +66,7 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
     fontSize,
     fontSizeLG,
     borderRadius,
-    easeInOutCirc,
+    motionEaseInOutCirc,
     alertMessageColor,
     alertWithDescriptionIconSize,
     alertWithDescriptionPaddingVertical,
@@ -109,9 +109,9 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
       '&&-motion-leave': {
         overflow: 'hidden',
         opacity: 1,
-        transition: `max-height ${duration} ${easeInOutCirc}, opacity ${duration} ${easeInOutCirc},
-        padding-top ${duration} ${easeInOutCirc}, padding-bottom ${duration} ${easeInOutCirc},
-        margin-bottom ${duration} ${easeInOutCirc}`,
+        transition: `max-height ${duration} ${motionEaseInOutCirc}, opacity ${duration} ${motionEaseInOutCirc},
+        padding-top ${duration} ${motionEaseInOutCirc}, padding-bottom ${duration} ${motionEaseInOutCirc},
+        margin-bottom ${duration} ${motionEaseInOutCirc}`,
       },
 
       '&&-motion-leave-active': {

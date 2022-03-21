@@ -146,12 +146,6 @@ export interface AliasToken extends DerivativeToken {
   borderColor: string;
   borderColorSplit: string;
 
-  easeInOut: string;
-  easeInOutCirc: string;
-  easeOutBack: string;
-  easeInQuint: string;
-  easeOutQuint: string;
-
   outlineWidth: number;
   outlineBlurSize: number;
 

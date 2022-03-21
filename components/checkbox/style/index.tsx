@@ -177,7 +177,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token, hashId) =>
           '&:after': {
             opacity: 1,
             transform: 'rotate(45deg) scale(1) translate(-50%,-50%)',
-            transition: `all ${token.duration} ${token.easeOutBack} 0.1s`,
+            transition: `all ${token.duration} ${token.motionEaseOutBack} 0.1s`,
           },
         },
 
