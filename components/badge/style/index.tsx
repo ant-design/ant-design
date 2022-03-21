@@ -6,7 +6,7 @@ import {
   resetComponent,
   UseComponentStyleResult,
   GenerateStyle,
-  PresetColorKeys,
+  PresetColors,
   PresetColorType,
 } from '../../_util/theme';
 import type { DerivativeToken } from '../../_util/theme';
@@ -68,19 +68,16 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (
   const ribbonWrapperPrefixCls = `${antPrefix}-ribbon-wrapper`;
 
   // FIXME preset color 后面可能要统一重构
-  const statusPreset = PresetColorKeys.reduce(
-    (prev: CSSObject, colorKey: keyof PresetColorType) => {
-      const darkColor = token[`${colorKey}-6`];
-      return {
-        ...prev,
-        [`.${badgePrefixCls}-status-${colorKey}`]: {
-          background: darkColor,
-        },
-      };
-    },
-    {} as CSSObject,
-  );
-  const statusRibbonPreset = PresetColorKeys.reduce(
+  const statusPreset = PresetColors.reduce((prev: CSSObject, colorKey: keyof PresetColorType) => {
+    const darkColor = token[`${colorKey}-6`];
+    return {
+      ...prev,
+      [`.${badgePrefixCls}-status-${colorKey}`]: {
+        background: darkColor,
+      },
+    };
+  }, {} as CSSObject);
+  const statusRibbonPreset = PresetColors.reduce(
     (prev: CSSObject, colorKey: keyof PresetColorType) => {
       const darkColor = token[`${colorKey}-6`];
       return {

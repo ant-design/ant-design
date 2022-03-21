@@ -1,6 +1,4 @@
 import React from 'react';
-import { generate } from '@ant-design/colors';
-import { TinyColor } from '@ctrl/tinycolor';
 import {
   CSSInterpolation,
   CSSObject,
@@ -8,9 +6,10 @@ import {
   useCacheToken,
   useStyleRegister,
 } from '@ant-design/cssinjs';
-import defaultDesignToken from './default';
+import defaultSeedToken, { derivative as defaultDerivative } from './themes/default';
 import version from '../../version';
 import { resetComponent, resetIcon, clearFix } from './util';
+import formatToken from './util/alias';
 import {
   initSlideMotion,
   slideUpIn,
@@ -22,8 +21,17 @@ import {
   slideRightIn,
   slideRightOut,
 } from './util/slide';
+import { PresetColors } from './interface';
+import type {
+  SeedToken,
+  DerivativeToken,
+  AliasToken,
+  OverrideToken,
+  PresetColorType,
+} from './interface';
 
 export {
+  PresetColors,
   resetComponent,
   resetIcon,
   clearFix,
@@ -36,311 +44,51 @@ export {
   slideLeftOut,
   slideRightIn,
   slideRightOut,
+  useStyleRegister,
 };
 
-export interface PresetColorType {
-  blue: string;
-  purple: string;
-  cyan: string;
-  green: string;
-  magenta: string;
-  pink: string;
-  red: string;
-  orange: string;
-  yellow: string;
-  volcano: string;
-  geekblue: string;
-  lime: string;
-  gold: string;
-}
-
-export const PresetColorKeys: ReadonlyArray<keyof PresetColorType> = [
-  'blue',
-  'purple',
-  'cyan',
-  'green',
-  'magenta',
-  'pink',
-  'red',
-  'orange',
-  'yellow',
-  'volcano',
-  'geekblue',
-  'lime',
-  'gold',
-];
-
-export interface DesignToken extends PresetColorType {
-  primaryColor: string;
-  successColor: string;
-  warningColor: string;
-  errorColor: string;
-  infoColor: string;
-
-  lineHeight: number;
-  borderWidth: number;
-  borderStyle: string;
-  borderRadius: number;
-  borderColor: string;
-  borderColorSplit: string;
-
-  easeInOut: string;
-  easeInOutCirc: string;
-  easeOutBack: string;
-  easeInQuint: string;
-  easeOutQuint: string;
-
-  outlineWidth: number;
-  outlineBlurSize: number;
-
-  fontSize: number;
-  fontFamily: string;
-  textColor: string;
-  textColorSecondary: string;
-  textColorDisabled: string;
-  textColorInverse: string;
-  placeholderColor: string;
-
-  disabledColor: string;
-
-  iconColorHover: string;
-
-  headingColor: string;
-
-  itemHoverBackground: string;
-
-  controlHeight: number;
-
-  padding: number;
-  margin: number;
-
-  background: string;
-  backgroundLight: string;
-
-  componentBackground: string;
-  componentBackgroundDisabled: string;
-
-  duration: number;
-
-  zIndexDropdown: number;
-
-  boxShadow?: string;
-}
-
-type ColorPaletteKeyIndexes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
-type ColorPalettes = {
-  [key in `${keyof PresetColorType}-${ColorPaletteKeyIndexes[number]}`]: string;
+export type {
+  SeedToken,
+  AliasToken,
+  PresetColorType,
+  // FIXME: Remove this type
+  AliasToken as DerivativeToken,
 };
-
-/** This is temporary token definition since final token definition is not ready yet. */
-export interface DerivativeToken extends ColorPalettes, Omit<DesignToken, 'duration'> {
-  primaryHoverColor: string;
-  primaryActiveColor: string;
-  primaryOutlineColor: string;
-  errorHoverColor: string;
-  errorActiveColor: string;
-  errorOutlineColor: string;
-  warningHoverColor: string;
-  warningOutlineColor: string;
-  itemActiveBackground: string;
-
-  highlightColor: string;
-
-  linkColor: string;
-  linkHoverColor: string;
-  linkActiveColor: string;
-  linkDecoration: CSSObject['textDecoration'];
-  linkHoverDecoration: CSSObject['textDecoration'];
-  linkFocusDecoration: CSSObject['textDecoration'];
-
-  fontSizeSM: number;
-  fontSizeLG: number;
-  /** @private Only Used for control inside component like Multiple Select inner selection item */
-  controlHeightXS: number;
-  controlHeightSM: number;
-  controlHeightLG: number;
-  controlPaddingHorizontal: number;
-  controlPaddingHorizontalSM: number;
-  paddingSM: number;
-  paddingXS: number;
-  paddingXXS: number;
-  paddingLG: number;
-  marginXS: number;
-  marginLG: number;
-  marginXXS: number;
-
-  duration: string;
-  durationMid: string;
-  durationFast: string;
-
-  heading1Size: number;
-  heading2Size: number;
-  heading3Size: number;
-  heading4Size: number;
-  heading5Size: number;
-
-  primaryColors: string[];
-  errorColors: string[];
-  warningColors: string[];
-
-  // TMP
-  tmpPrimaryColorWeak: string;
-  tmpPrimaryHoverColorWeak: string;
-  // Checked background for Checkable Tag
-  tmpPrimaryColor6: string;
-  // Active background for Checkable Tag
-  tmpPrimaryColor7: string;
-
-  tmpSuccessColorDeprecatedBg: string;
-  tmpWarningColorDeprecatedBg: string;
-  tmpErrorColorDeprecatedBg: string;
-  tmpInfoColorDeprecatedBg: string;
-
-  tmpSuccessColorDeprecatedBorder: string;
-  tmpWarningColorDeprecatedBorder: string;
-  tmpErrorColorDeprecatedBorder: string;
-  tmpInfoColorDeprecatedBorder: string;
-}
-
-export { useStyleRegister };
-
-// =============================== Derivative ===============================
-function derivative(designToken: DesignToken): DerivativeToken {
-  const { primaryColor, errorColor, warningColor, infoColor, successColor } = designToken;
-
-  const primaryColors = generate(primaryColor);
-  const errorColors = generate(errorColor);
-  const warningColors = generate(warningColor);
-  const infoColors = generate(infoColor);
-  const successColors = generate(successColor);
-
-  const paddingSM = (designToken.padding / 4) * 3;
-  const paddingXS = designToken.padding * 0.5;
-
-  const colorPalettes = PresetColorKeys.map((colorKey: keyof PresetColorType) => {
-    const colors = generate(designToken[colorKey]);
-
-    const ret = new Array(10).fill(1).reduce((prev, _, i) => {
-      prev[`${colorKey}-${i + 1}`] = colors[i];
-      return prev;
-    }, {}) as ColorPalettes;
-    return ret;
-  }).reduce((prev, cur) => {
-    prev = {
-      ...prev,
-      ...cur,
-    };
-    return prev;
-  }, {} as ColorPalettes);
-
-  return {
-    // FIXME: Need design token
-    boxShadow: `
-    0 3px 6px -4px rgba(0, 0, 0, 0.12),
-    0 6px 16px 0 rgba(0, 0, 0, 0.08),
-    0 9px 28px 8px rgba(0, 0, 0, 0.05)`,
-
-    ...designToken,
-
-    primaryHoverColor: primaryColors[4],
-    primaryActiveColor: primaryColors[6],
-    primaryOutlineColor: new TinyColor(primaryColor).setAlpha(0.2).toRgbString(),
-
-    errorHoverColor: errorColors[4],
-    errorActiveColor: errorColors[6],
-    errorOutlineColor: new TinyColor(errorColor).setAlpha(0.2).toRgbString(),
-
-    warningHoverColor: warningColors[4],
-    warningOutlineColor: new TinyColor(warningColor).setAlpha(0.2).toRgbString(),
-
-    highlightColor: errorColors[5], // FIXME: Should not align with error color
-    // FIXME: fix2 badge-color
-
-    itemActiveBackground: primaryColors[0],
-
-    linkColor: primaryColor,
-    linkHoverColor: primaryColors[4],
-    linkActiveColor: primaryColors[6],
-    linkDecoration: 'none',
-    linkHoverDecoration: 'none',
-    linkFocusDecoration: 'none',
-
-    fontSizeSM: designToken.fontSize - 2,
-    fontSizeLG: designToken.fontSize + 2,
-    controlHeightXS: designToken.controlHeight / 2,
-    controlHeightSM: designToken.controlHeight * 0.75,
-    controlHeightLG: designToken.controlHeight * 1.25,
-    controlPaddingHorizontal: paddingSM,
-    controlPaddingHorizontalSM: paddingXS,
-    paddingSM,
-    paddingXS,
-    paddingXXS: designToken.padding * 0.25,
-    paddingLG: designToken.padding * 1.5,
-    marginXS: designToken.margin * 0.5,
-    marginLG: designToken.margin * 1.5,
-    marginXXS: designToken.margin * 0.25,
-
-    duration: `${designToken.duration}s`,
-    durationMid: `${(designToken.duration / 3) * 2}s`,
-    durationFast: `${designToken.duration / 3}s`,
-
-    ...colorPalettes,
-
-    heading1Size: Math.ceil(designToken.fontSize * 2.71),
-    heading2Size: Math.ceil(designToken.fontSize * 2.14),
-    heading3Size: Math.ceil(designToken.fontSize * 1.71),
-    heading4Size: Math.ceil(designToken.fontSize * 1.42),
-    heading5Size: Math.ceil(designToken.fontSize * 1.14),
-
-    primaryColors,
-    errorColors,
-    warningColors,
-
-    // TMP
-    tmpPrimaryColorWeak: primaryColors[2],
-    tmpPrimaryHoverColorWeak: primaryColors[0],
-    tmpPrimaryColor6: primaryColors[5],
-    tmpPrimaryColor7: primaryColors[6],
-
-    tmpSuccessColorDeprecatedBg: successColors[0],
-    tmpWarningColorDeprecatedBg: warningColors[0],
-    tmpErrorColorDeprecatedBg: errorColors[0],
-    tmpInfoColorDeprecatedBg: infoColors[0],
-
-    tmpSuccessColorDeprecatedBorder: successColors[2],
-    tmpWarningColorDeprecatedBorder: warningColors[2],
-    tmpErrorColorDeprecatedBorder: errorColors[2],
-    tmpInfoColorDeprecatedBorder: infoColors[2],
-  };
-}
 
 // ================================ Context =================================
-export const ThemeContext = React.createContext(
-  new Theme<DesignToken, DerivativeToken>(derivative),
-);
+const defaultTheme = new Theme(defaultDerivative);
 
 export const DesignTokenContext = React.createContext<{
-  token: Partial<DesignToken>;
+  token: Partial<SeedToken>;
+  theme?: Theme<SeedToken, DerivativeToken>;
+  override?: OverrideToken;
   hashed?: string | boolean;
 }>({
-  token: defaultDesignToken,
+  token: defaultSeedToken,
+  theme: defaultTheme,
 });
 
 // ================================== Hook ==================================
-export function useToken(): [Theme<DesignToken, DerivativeToken>, DerivativeToken, string] {
-  const { token: rootDesignToken, hashed } = React.useContext(DesignTokenContext);
-  const theme = React.useContext(ThemeContext);
+export function useToken(): [Theme<SeedToken, DerivativeToken>, AliasToken, string] {
+  const {
+    token: rootDesignToken,
+    theme = defaultTheme,
+    override,
+    hashed,
+  } = React.useContext(DesignTokenContext);
 
   const salt = `${version}-${hashed || ''}`;
 
-  const [token, hashId] = useCacheToken<DerivativeToken, DesignToken>(
+  const [token, hashId] = useCacheToken<AliasToken, SeedToken>(
     theme,
-    [defaultDesignToken, rootDesignToken],
+    [defaultSeedToken, rootDesignToken],
     {
       salt,
+      override,
+      formatToken,
     },
   );
+
   return [theme, token, hashed ? hashId : ''];
 }
 
