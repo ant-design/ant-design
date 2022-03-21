@@ -49,7 +49,7 @@
 
 [![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Ey3wTo-5__QAAAAAAAAAAABkARQnAQ)](https://ant.design/index-cn)
 
-[English](./README.md) | [Português](./README-pt_BR.md) | 简体中文 | [Українською](./README-uk_UA.md) | [Spanish](./README-sp_MX.md)
+[English](./README.md) | [Português](./README-pt_BR.md) | 简体中文 | [Українською](./README-uk_UA.md) | [Spanish](./README-sp_MX.md) | [日本語](./README-ja_JP.md)
 
 ## ✨ 特性
 
