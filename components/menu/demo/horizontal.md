@@ -13,51 +13,77 @@ title:
 
 Horizontal top navigation menu.
 
-```jsx
-import { Menu } from 'antd';
+```tsx
+import { Menu, MenuProps } from 'antd';
 import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
 
-const { SubMenu } = Menu;
+const items: MenuProps['items'] = [
+  {
+    label: 'Navigation One',
+    key: 'mail',
+    icon: <MailOutlined />,
+  },
+  {
+    label: 'Navigation Two',
+    key: 'app',
+    icon: <AppstoreOutlined />,
+    disabled: true,
+  },
+  {
+    label: 'Navigation Three - Submenu',
+    key: 'SubMenu',
+    icon: <SettingOutlined />,
+    children: [
+      {
+        type: 'group',
+        label: 'Item 1',
+        children: [
+          {
+            label: 'Option 1',
+            key: 'setting:1',
+          },
+          {
+            label: 'Option 2',
+            key: 'setting:2',
+          },
+        ],
+      },
+      {
+        type: 'group',
+        label: 'Item 2',
+        children: [
+          {
+            label: 'Option 3',
+            key: 'setting:3',
+          },
+          {
+            label: 'Option 4',
+            key: 'setting:4',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    label: (
+      <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
+        Navigation Four - Link
+      </a>
+    ),
+    key: 'alipay',
+  },
+];
 
-class App extends React.Component {
-  state = {
-    current: 'mail',
-  };
+const App = () => {
+  const [current, setCurrent] = React.useState('mail');
 
-  handleClick = e => {
+  const onClick: MenuProps['onClick'] = e => {
     console.log('click ', e);
-    this.setState({ current: e.key });
+    setCurrent(e.key);
   };
 
-  render() {
-    const { current } = this.state;
-    return (
-      <Menu onClick={this.handleClick} selectedKeys={[current]} mode="horizontal">
-        <Menu.Item key="mail" icon={<MailOutlined />}>
-          Navigation One
-        </Menu.Item>
-        <Menu.Item key="app" disabled icon={<AppstoreOutlined />}>
-          Navigation Two
-        </Menu.Item>
-        <SubMenu key="SubMenu" icon={<SettingOutlined />} title="Navigation Three - Submenu">
-          <Menu.ItemGroup title="Item 1">
-            <Menu.Item key="setting:1">Option 1</Menu.Item>
-            <Menu.Item key="setting:2">Option 2</Menu.Item>
-          </Menu.ItemGroup>
-          <Menu.ItemGroup title="Item 2">
-            <Menu.Item key="setting:3">Option 3</Menu.Item>
-            <Menu.Item key="setting:4">Option 4</Menu.Item>
-          </Menu.ItemGroup>
-        </SubMenu>
-        <Menu.Item key="alipay">
-          <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
-            Navigation Four - Link
-          </a>
-        </Menu.Item>
-      </Menu>
-    );
-  }
-}
+  return <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} />;
+};
 
 ReactDOM.render(<App />, mountNode);
 ```

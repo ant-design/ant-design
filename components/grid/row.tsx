@@ -11,7 +11,7 @@ import ResponsiveObserve, {
 import useFlexGapSupport from '../_util/hooks/useFlexGapSupport';
 
 const RowAligns = tuple('top', 'middle', 'bottom', 'stretch');
-const RowJustify = tuple('start', 'end', 'center', 'space-around', 'space-between');
+const RowJustify = tuple('start', 'end', 'center', 'space-around', 'space-between', 'space-evenly');
 
 export type Gutter = number | Partial<Record<Breakpoint, number>>;
 export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
