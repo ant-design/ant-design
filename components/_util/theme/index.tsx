@@ -35,9 +35,14 @@ export {
   slideLeftOut,
   slideRightIn,
   slideRightOut,
+  useStyleRegister,
 };
 
-export { useStyleRegister };
+export type {
+  AliasToken,
+  // FIXME: Remove this type
+  AliasToken as DerivativeToken,
+};
 
 // ================================ Context =================================
 const defaultTheme = new Theme(defaultDerivative);
@@ -61,18 +66,18 @@ type RawMergedToken = DerivativeToken & OverrideToken;
  *
  * Merge seed & derivative & override token and generate alias token for developer.
  */
-function useMergeToken(derivativeToken: RawMergedToken): AliasToken {
-  const mergedToken = React.useMemo(() => {
-    const { derivative, ...restToken } = derivativeToken;
+function formatToken(derivativeToken: RawMergedToken): AliasToken {
+  const { derivative, ...restToken } = derivativeToken;
 
-    return {
-      ...restToken,
-      ...derivative,
-    };
-  }, [derivativeToken]);
+  const mergedToken = {
+    ...restToken,
+    ...derivative,
+  };
 
   // Generate alias token
-  const aliasToken = React.useMemo(() => {}, [mergedToken]);
+  const aliasToken: AliasToken = {
+    ...mergedToken,
+  } as any;
 
   return aliasToken;
 }
@@ -88,19 +93,17 @@ export function useToken(): [Theme<SeedToken, DerivativeToken>, AliasToken, stri
 
   const salt = `${version}-${hashed || ''}`;
 
-  const [token, hashId] = useCacheToken<RawMergedToken, SeedToken>(
+  const [token, hashId] = useCacheToken<AliasToken, SeedToken>(
     theme,
     [defaultSeedToken, rootDesignToken],
     {
       salt,
       override,
+      formatToken,
     },
   );
 
-  // Merge token
-  const mergedToken = useMergeToken(token);
-
-  return [theme, mergedToken, hashed ? hashId : ''];
+  return [theme, token, hashed ? hashId : ''];
 }
 
 export type UseComponentStyleResult = [(node: React.ReactNode) => React.ReactElement, string];

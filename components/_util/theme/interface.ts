@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 export interface PresetColorType {
   blue: string;
   purple: string;
@@ -121,4 +123,119 @@ export interface DerivativeToken extends SeedToken {
 // ======================================================================
 // ==                           Alias Token                            ==
 // ======================================================================
-export interface AliasToken {}
+export interface AliasToken {
+  // =============== Legacy: should be remove ===============
+  primaryColor: string;
+  successColor: string;
+  warningColor: string;
+  errorColor: string;
+  infoColor: string;
+
+  lineHeight: number;
+  borderWidth: number;
+  borderStyle: string;
+  borderRadius: number;
+  borderColor: string;
+  borderColorSplit: string;
+
+  easeInOut: string;
+  easeInOutCirc: string;
+  easeOutBack: string;
+  easeInQuint: string;
+  easeOutQuint: string;
+
+  outlineWidth: number;
+  outlineBlurSize: number;
+
+  fontSize: number;
+  fontFamily: string;
+  textColor: string;
+  textColorSecondary: string;
+  textColorDisabled: string;
+  textColorInverse: string;
+  placeholderColor: string;
+
+  disabledColor: string;
+
+  iconColorHover: string;
+
+  headingColor: string;
+
+  itemHoverBackground: string;
+
+  controlHeight: number;
+
+  padding: number;
+  margin: number;
+
+  background: string;
+  backgroundLight: string;
+
+  componentBackground: string;
+  componentBackgroundDisabled: string;
+
+  duration: number;
+
+  zIndexDropdown: number;
+
+  boxShadow?: string;
+
+  primaryHoverColor: string;
+  primaryActiveColor: string;
+  primaryOutlineColor: string;
+  errorHoverColor: string;
+  errorActiveColor: string;
+  errorOutlineColor: string;
+  warningHoverColor: string;
+  warningOutlineColor: string;
+  itemActiveBackground: string;
+
+  highlightColor: string;
+
+  linkColor: string;
+  linkHoverColor: string;
+  linkActiveColor: string;
+  linkDecoration: React.CSSProperties['textDecoration'];
+  linkHoverDecoration: React.CSSProperties['textDecoration'];
+  linkFocusDecoration: React.CSSProperties['textDecoration'];
+
+  controlHeightXS: number;
+  controlHeightSM: number;
+  controlHeightLG: number;
+
+  paddingSM: number;
+  paddingXS: number;
+  paddingXXS: number;
+  paddingLG: number;
+  marginXS: number;
+  marginLG: number;
+  marginXXS: number;
+
+  heading1Size: number;
+  heading2Size: number;
+  heading3Size: number;
+  heading4Size: number;
+  heading5Size: number;
+
+  primaryColors: string[];
+  errorColors: string[];
+  warningColors: string[];
+
+  // TMP
+  tmpPrimaryColorWeak: string;
+  tmpPrimaryHoverColorWeak: string;
+  // Checked background for Checkable Tag
+  tmpPrimaryColor6: string;
+  // Active background for Checkable Tag
+  tmpPrimaryColor7: string;
+
+  tmpSuccessColorDeprecatedBg: string;
+  tmpWarningColorDeprecatedBg: string;
+  tmpErrorColorDeprecatedBg: string;
+  tmpInfoColorDeprecatedBg: string;
+
+  tmpSuccessColorDeprecatedBorder: string;
+  tmpWarningColorDeprecatedBorder: string;
+  tmpErrorColorDeprecatedBorder: string;
+  tmpInfoColorDeprecatedBorder: string;
+}
