@@ -8,16 +8,16 @@ title:
 
 ## zh-CN
 
-通过设置`ShowCheckedStrategy`选择回填方式。
+通过设置 `ShowCheckedStrategy` 选择回填方式。
 
 ## en-US
 
-The way show selected item in box when `ShowCheckedStrategy` set
+The way show selected item in box using `ShowCheckedStrategy`.
 
 ```jsx
 import { Cascader } from 'antd';
 
-const { SHOW_CHILD, SHOW_PARENT } = Cascader;
+const { SHOW_CHILD } = Cascader;
 
 const options = [
   {
@@ -80,7 +80,6 @@ const App = () => {
         onChange={onChange}
         multiple
         maxTagCount="responsive"
-        showCheckedStrategy={SHOW_PARENT}
         defaultValue={['bamboo']}
       />
     </>
