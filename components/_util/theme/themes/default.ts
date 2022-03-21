@@ -23,6 +23,7 @@ const defaultPresetColors: PresetColorType = {
 export function derivative(token: SeedToken): DerivativeToken {
   const {
     colorPrimary,
+    colorWarning,
     colorError,
     motionUnit,
     motionBaseStep,
@@ -35,6 +36,7 @@ export function derivative(token: SeedToken): DerivativeToken {
   } = token;
 
   const primaryColors = generate(colorPrimary);
+  const warningColors = generate(colorWarning);
   const errorColors = generate(colorError);
 
   const colorPalettes = Object.keys(defaultPresetColors)
@@ -96,8 +98,9 @@ export function derivative(token: SeedToken): DerivativeToken {
     colorErrorActive: errorColors[6],
     colorErrorHover: errorColors[4],
     colorPrimaryActive: primaryColors[6],
-
     colorPrimaryHover: primaryColors[4],
+    colorWarningActive: warningColors[6],
+    colorWarningHover: warningColors[4],
 
     // text color
     colorText2: new TinyColor('#000').setAlpha(0.85).toRgbString(),

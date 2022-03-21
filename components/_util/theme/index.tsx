@@ -9,6 +9,7 @@ import {
 import defaultSeedToken, { derivative as defaultDerivative } from './themes/default';
 import version from '../../version';
 import { resetComponent, resetIcon, clearFix } from './util';
+import formatToken from './util/alias';
 import {
   initSlideMotion,
   slideUpIn,
@@ -66,31 +67,6 @@ export const DesignTokenContext = React.createContext<{
   token: defaultSeedToken,
   theme: defaultTheme,
 });
-
-// =============================== MergeToken ===============================
-/** Raw merge of `@ant-design/cssinjs` token. Which need additional process */
-type RawMergedToken = DerivativeToken & OverrideToken;
-
-/**
- * Seed (designer) > Derivative (designer) > Alias (developer).
- *
- * Merge seed & derivative & override token and generate alias token for developer.
- */
-function formatToken(derivativeToken: RawMergedToken): AliasToken {
-  const { derivative, ...restToken } = derivativeToken;
-
-  const mergedToken = {
-    ...restToken,
-    ...derivative,
-  };
-
-  // Generate alias token
-  const aliasToken: AliasToken = {
-    ...mergedToken,
-  } as any;
-
-  return aliasToken;
-}
 
 // ================================== Hook ==================================
 export function useToken(): [Theme<SeedToken, DerivativeToken>, AliasToken, string] {
