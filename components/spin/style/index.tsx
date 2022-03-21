@@ -141,7 +141,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken, hashId: string
 
     // dots
     // ------------------------------
-    [`${token.spinCls}-dot`]: {
+    [`&-dot`]: {
       position: 'relative',
       display: 'inline-block',
       fontSize: token.spinDotSize,
@@ -194,7 +194,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken, hashId: string
     // ------------------------------
 
     // small
-    [`${token.spinCls}-sm ${token.spinCls}-dot`]: {
+    [`&-sm &-dot`]: {
       fontSize: token.spinDotSizeSM,
 
       i: {
@@ -204,7 +204,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken, hashId: string
     },
 
     // large
-    [`${token.spinCls}-lg ${token.spinCls}-dot`]: {
+    [`&-lg &-dot`]: {
       fontSize: token.spinDotSizeLG,
 
       i: {
@@ -213,7 +213,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken, hashId: string
       },
     },
 
-    [`${token.spinCls}-show-text ${token.spinCls}-text`]: {
+    [`&&-show-text &-text`]: {
       display: 'block',
     },
 

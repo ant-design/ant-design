@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, mount } from 'enzyme';
-import Spin from '..';
+import Spin, { Spin as SpinClass } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 
@@ -26,9 +26,9 @@ describe('Spin', () => {
 
   it('should be controlled by spinning', () => {
     const wrapper = mount(<Spin spinning={false} />);
-    expect(wrapper.instance().state.spinning).toBe(false);
+    expect(wrapper.find(SpinClass).instance().state.spinning).toBe(false);
     wrapper.setProps({ spinning: true });
-    expect(wrapper.instance().state.spinning).toBe(true);
+    expect(wrapper.find(SpinClass).instance().state.spinning).toBe(true);
   });
 
   it('if indicator set null should not be render default indicator', () => {
