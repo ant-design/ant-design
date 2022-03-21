@@ -22,12 +22,14 @@ More layouts with navigation: [Layout](/components/layout).
 ## API
 
 ```jsx
-<Menu>
-  <Menu.Item>Menu</Menu.Item>
-  <SubMenu title="SubMenu">
-    <Menu.Item>SubMenuItem</Menu.Item>
-  </SubMenu>
-</Menu>
+const items = [
+  { label: 'Menu' },
+  {
+    label: 'SubMenu',
+    children: [{ label: 'SubMenuItem' }],
+  },
+];
+<Menu items={items} />;
 ```
 
 ### Menu
@@ -40,6 +42,7 @@ More layouts with navigation: [Layout](/components/layout).
 | forceSubMenuRender | Render submenu into DOM before it becomes visible | boolean | false |  |
 | inlineCollapsed | Specifies the collapsed status when menu is inline mode | boolean | - |  |
 | inlineIndent | Indent (in pixels) of inline menu items on each level | number | 24 |  |
+| items | Menu item content | [ItemType\[\]](#ItemType) | - | 4.20.0 |
 | mode | Type of menu | `vertical` \| `horizontal` \| `inline` | `vertical` |  |
 | multiple | Allows selection of multiple items | boolean | false |  |
 | openKeys | Array with the keys of currently opened sub-menus | string\[] | - |  |
@@ -58,14 +61,19 @@ More layouts with navigation: [Layout](/components/layout).
 
 > More options in [rc-menu](https://github.com/react-component/menu#api)
 
-### Menu.Item
+### ItemType
+
+> type ItemType = [MenuItemType](#MenuItemType) | [SubMenuType](#SubMenuType) | [MenuItemGroupType](#MenuItemGroupType) | [MenuDividerType](#MenuDividerType);
+
+#### MenuItemType
 
 | Param    | Description                          | Type      | Default value | Version |
 | -------- | ------------------------------------ | --------- | ------------- | ------- |
-| danger   | Display the danger style             | boolean   | false         | 4.3.0   |
+| danger   | Display the danger style             | boolean   | false         |         |
 | disabled | Whether menu item is disabled        | boolean   | false         |         |
-| icon     | The icon of the menu item            | ReactNode | -             | 4.2.0   |
+| icon     | The icon of the menu item            | ReactNode | -             |         |
 | key      | Unique ID of the menu item           | string    | -             |         |
+| label    | Menu label                           | ReactNode | -             |         |
 | title    | Set display title for collapsed item | string    | -             |         |
 
 > Note: `icon` is a newly added prop in `4.2.0`. For previous versions, please use the following method to define the icon.
@@ -87,34 +95,51 @@ More layouts with navigation: [Layout](/components/layout).
 > </Menu.SubMenu>
 > ```
 
-### Menu.SubMenu
+#### SubMenuType
 
 | Param | Description | Type | Default value | Version |
 | --- | --- | --- | --- | --- | --- |
-| children | Sub-menus or sub-menu items | Array&lt;MenuItem \| SubMenu> | - |  |
+| children | Sub-menus or sub-menu items | [ItemType\[\]](#ItemType) | - |  |
 | disabled | Whether sub-menu is disabled | boolean | false |  |
-| icon | Icon of sub menu | ReactNode | - | 4.2.0 |
+| icon | Icon of sub menu | ReactNode | - |  |
 | key | Unique ID of the sub-menu | string | - |  |
+| label | Menu label | ReactNode | - |  |
 | popupClassName | Sub-menu class name, not working when `mode="inline"` | string | - |  |
 | popupOffset | Sub-menu offset, not working when `mode="inline"` | \[number, number] | - |  |
 | title | Title of sub menu | ReactNode | - |  |
-| theme | Color theme of the SubMenu (inherits from Menu by default) |  | `light` \| `dark` | - | 4.19.0 |
+| theme | Color theme of the SubMenu (inherits from Menu by default) |  | `light` \| `dark` | - |  |
 | onTitleClick | Callback executed when the sub-menu title is clicked | function({ key, domEvent }) | - |  |
 
-### Menu.ItemGroup
+#### MenuItemGroupType
+
+Define `type` as `group` to make as group:
+
+```ts
+const groupItem = {
+  type: 'group', // Must have
+  label: 'My Group',
+  chidlren: [],
+};
+```
 
 | Param    | Description            | Type        | Default value | Version |
 | -------- | ---------------------- | ----------- | ------------- | ------- |
 | children | Sub-menu items         | MenuItem\[] | -             |         |
-| title    | The title of the group | ReactNode   | -             |         |
+| label    | The title of the group | ReactNode   | -             |         |
 
-### Menu.Divider
+#### MenuDividerType
 
-Divider line in between menu items, only used in vertical popup Menu or Dropdown Menu.
+Divider line in between menu items, only used in vertical popup Menu or Dropdown Menu. Need define the `type` as `divider`：
+
+```ts
+const dividerItem = {
+  type: 'divider', // Must have
+};
+```
 
 | Param  | Description            | Type    | Default value | Version |
 | ------ | ---------------------- | ------- | ------------- | ------- |
-| dashed | Whether line is dashed | boolean | false         | 4.17.0  |
+| dashed | Whether line is dashed | boolean | false         |         |
 
 ## FAQ
 
