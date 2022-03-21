@@ -158,7 +158,7 @@ export const genTagStyle = (
   // FIXME: hard code
   const tagLineHeight = '18px';
   const tagDefaultBg = token.backgroundLight;
-  const tagDefaultColor = token.textColor;
+  const tagDefaultColor = token.colorText;
 
   const tagToken = {
     ...token,

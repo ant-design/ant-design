@@ -18,6 +18,8 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     ...derivative,
   };
 
+  const { fontSizes, lineHeights } = mergedToken;
+
   // FIXME: tmp
   const primaryColors = generate(mergedToken.colorPrimary);
   const infoColors = generate(mergedToken.colorInfo);
@@ -35,6 +37,26 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     errorHoverColor: mergedToken.colorErrorHover,
     errorActiveColor: mergedToken.colorErrorActive,
     warningHoverColor: mergedToken.colorWarningHover,
+
+    // Font
+    fontSizeSM: fontSizes[0],
+    fontSize: fontSizes[1],
+    fontSizeLG: fontSizes[2],
+    fontSizeXL: fontSizes[3],
+    fontSizeHeading1: fontSizes[6],
+    fontSizeHeading2: fontSizes[5],
+    fontSizeHeading3: fontSizes[4],
+    fontSizeHeading4: fontSizes[3],
+    fontSizeHeading5: fontSizes[2],
+
+    lineHeight: lineHeights[1],
+    lineHeightLG: lineHeights[2],
+
+    lineHeightHeading1: lineHeights[6],
+    lineHeightHeading2: lineHeights[5],
+    lineHeightHeading3: lineHeights[4],
+    lineHeightHeading4: lineHeights[3],
+    lineHeightHeading5: lineHeights[2],
 
     // 🔥🔥🔥🔥🔥🔥🔥🔥🔥 All TMP Token leaves here 🔥🔥🔥🔥🔥🔥🔥🔥🔥
     // FIXME: Handle this when derivative is ready
@@ -73,9 +95,6 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     linkHoverDecoration: 'none',
     linkFocusDecoration: 'none',
 
-    // https://github.com/ant-design/ant-design/issues/20210
-    lineHeight: 1.5715,
-
     borderWidth: 1,
     borderStyle: 'solid',
     borderRadius: 2,
@@ -85,11 +104,9 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     outlineWidth: 2,
     outlineBlurSize: 0,
 
-    fontSize: 14,
     fontFamily: `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
   'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
   'Noto Color Emoji'`,
-    textColor: new TinyColor('#000').setAlpha(0.85).toRgbString(),
     textColorSecondary: new TinyColor('#000').setAlpha(0.45).toRgbString(),
     textColorDisabled: new TinyColor('#000').setAlpha(0.25).toRgbString(),
     textColorInverse: '#fff',
@@ -134,12 +151,6 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     duration: '0.3s',
     durationMid: '0.2s',
     durationFast: '0.1s',
-
-    heading1Size: Math.ceil(mergedToken.fontSize * 2.71),
-    heading2Size: Math.ceil(mergedToken.fontSize * 2.14),
-    heading3Size: Math.ceil(mergedToken.fontSize * 1.71),
-    heading4Size: Math.ceil(mergedToken.fontSize * 1.42),
-    heading5Size: Math.ceil(mergedToken.fontSize * 1.14),
 
     zIndexDropdown: 1050,
   };

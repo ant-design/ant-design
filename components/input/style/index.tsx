@@ -127,7 +127,7 @@ export const genBasicInputStyle = (token: InputToken): CSSObject => ({
   width: '100%',
   minWidth: 0,
   padding: `${token.inputPaddingVertical}px ${token.inputPaddingHorizontal}px`,
-  color: token.textColor,
+  color: token.colorText,
   fontSize: token.fontSize,
   lineHeight: token.lineHeight,
   backgroundColor: token.componentBackground,
@@ -252,7 +252,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
       '&-addon': {
         position: 'relative',
         padding: `0 ${token.inputPaddingHorizontal}px`,
-        color: token.textColor,
+        color: token.colorText,
         fontWeight: 'normal',
         fontSize: token.fontSize,
         textAlign: 'center',
@@ -549,7 +549,7 @@ const genAllowClearStyle = (token: InputToken): CSSObject => {
       },
 
       '&:active': {
-        color: token.textColor,
+        color: token.colorText,
       },
 
       '&-hidden': {

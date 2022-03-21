@@ -99,10 +99,8 @@ export interface DerivativeToken extends SeedToken, ColorPalettes {
   colorBgBelow2: string;
 
   // Font
-  fontSizeSM: number;
-  fontSizeLG: number;
-  fontSize: number;
-  fontSizeXL: number;
+  fontSizes: number[];
+  lineHeights: number[];
 
   // Size
   sizeSpace: number;
@@ -122,7 +120,6 @@ export interface DerivativeToken extends SeedToken, ColorPalettes {
   motionDurationMd: string;
   motionDurationFast: string;
   motionDurationSlow: string;
-  fontHeight: number;
 
   // Radius
   radiusSM: number;
@@ -135,8 +132,29 @@ export interface DerivativeToken extends SeedToken, ColorPalettes {
 // ======================================================================
 // FIXME: DerivativeToken should part pick
 export interface AliasToken extends DerivativeToken {
-  // =============== Legacy: should be remove ===============
+  // Font
+  fontSizeSM: number;
+  fontSize: number;
+  fontSizeLG: number;
+  fontSizeXL: number;
+
+  fontSizeHeading1: number;
+  fontSizeHeading2: number;
+  fontSizeHeading3: number;
+  fontSizeHeading4: number;
+  fontSizeHeading5: number;
+
+  // LineHeight
   lineHeight: number;
+  lineHeightLG: number;
+
+  lineHeightHeading1: number;
+  lineHeightHeading2: number;
+  lineHeightHeading3: number;
+  lineHeightHeading4: number;
+  lineHeightHeading5: number;
+
+  // =============== Legacy: should be remove ===============
   borderWidth: number;
   borderStyle: string;
   borderRadius: number;
@@ -146,9 +164,7 @@ export interface AliasToken extends DerivativeToken {
   outlineWidth: number;
   outlineBlurSize: number;
 
-  fontSize: number;
   fontFamily: string;
-  textColor: string;
   textColorSecondary: string;
   textColorDisabled: string;
   textColorInverse: string;
@@ -195,8 +211,6 @@ export interface AliasToken extends DerivativeToken {
   linkHoverDecoration: React.CSSProperties['textDecoration'];
   linkFocusDecoration: React.CSSProperties['textDecoration'];
 
-  fontSizeSM: number;
-  fontSizeLG: number;
   /** @private Only Used for control inside component like Multiple Select inner selection item */
   controlHeightXS: number;
   controlHeightSM: number;
@@ -214,12 +228,6 @@ export interface AliasToken extends DerivativeToken {
   duration: string;
   durationMid: string;
   durationFast: string;
-
-  heading1Size: number;
-  heading2Size: number;
-  heading3Size: number;
-  heading4Size: number;
-  heading5Size: number;
 
   primaryColors: string[];
   errorColors: string[];

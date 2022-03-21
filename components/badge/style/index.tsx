@@ -203,7 +203,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (
         ...statusPreset,
         [`.${badgePrefixCls}-status-text`]: {
           marginInlineStart: token.marginXS,
-          color: token.textColor,
+          color: token.colorText,
           fontSize: token.fontSize,
         },
       },

@@ -122,7 +122,7 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
       },
 
       '&-plain&-with-text': {
-        color: token.textColor,
+        color: token.colorText,
         fontWeight: 'normal',
         fontSize: token.fontSize,
       },

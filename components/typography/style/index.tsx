@@ -16,7 +16,7 @@ const genTypographyStyle: GenerateStyle<TypographyToken> = token => {
   const { prefixCls, titleMarginTop } = token.typography;
   return {
     [`.${prefixCls}`]: {
-      color: token.textColor,
+      color: token.colorText,
       overflowWrap: 'break-word',
       '&&-secondary': {
         color: token.textColorSecondary,

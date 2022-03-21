@@ -29,7 +29,7 @@ const genSharedButtonStyle = (
   userSelect: 'none',
   touchAction: 'manipulation',
   lineHeight: token.lineHeight,
-  color: token.textColor,
+  color: token.colorText,
 
   '> span': {
     display: 'inline-block',
