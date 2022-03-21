@@ -21,7 +21,7 @@ Alert component for feedback.
 | banner | Whether to show as banner | boolean | false |  |
 | closable | Whether Alert can be closed | boolean | - |  |
 | closeText | Close text to show | ReactNode | - |  |
-| closeIcon | Custom close icon | ReactNode | <CloseOutlined /> | 4.17.0 |
+| closeIcon | Custom close icon | ReactNode | `<CloseOutlined />` | 4.17.0 |
 | description | Additional content of Alert | ReactNode | - |  |
 | icon | Custom icon, effective when `showIcon` is true | ReactNode | - |  |
 | message | Content of Alert | ReactNode | - |  |
