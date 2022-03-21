@@ -32,7 +32,7 @@ export default function renderSwitcherIcon(
   }
   const switcherCls = `${prefixCls}-switcher-icon`;
   if (typeof switcherIcon === 'function') {
-    return switcherIcon(Boolean(expanded));
+    switcherIcon = switcherIcon(Boolean(expanded));
   }
 
   if (isValidElement(switcherIcon)) {
