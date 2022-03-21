@@ -6,29 +6,29 @@
 @search-prefix: ~'@{ant-prefix}-input-search';
 
 .@{search-prefix} {
-  .@{ant-prefix}-input {
+  .@{input-prefix-cls} {
     &:hover,
     &:focus {
       border-color: @input-hover-border-color;
 
-      + .@{ant-prefix}-input-group-addon .@{search-prefix}-button:not(.@{ant-prefix}-btn-primary) {
+      + .@{input-prefix-cls}-group-addon .@{search-prefix}-button:not(.@{btn-prefix-cls}-primary) {
         border-left-color: @input-hover-border-color;
       }
     }
   }
 
-  .@{ant-prefix}-input-affix-wrapper {
+  .@{input-prefix-cls}-affix-wrapper {
     border-radius: 0;
   }
 
   // fix slight height diff in Firefox:
   // https://ant.design/components/auto-complete-cn/#components-auto-complete-demo-certain-category
-  .@{ant-prefix}-input-lg {
+  .@{input-prefix-cls}-lg {
     line-height: @line-height-base - 0.0002;
   }
 
-  > .@{ant-prefix}-input-group {
-    > .@{ant-prefix}-input-group-addon:last-child {
+  > .@{input-prefix-cls}-group {
+    > .@{input-prefix-cls}-group-addon:last-child {
       left: -1px;
       padding: 0;
       border: 0;
@@ -39,10 +39,10 @@
         border-radius: 0 @border-radius-base @border-radius-base 0;
       }
 
-      .@{search-prefix}-button:not(.@{ant-prefix}-btn-primary) {
+      .@{search-prefix}-button:not(.@{btn-prefix-cls}-primary) {
         color: @text-color-secondary;
 
-        &.@{ant-prefix}-btn-loading::before {
+        &.@{btn-prefix-cls}-loading::before {
           top: 0;
           right: 0;
           bottom: 0;

@@ -1,10 +1,9 @@
 @import './mixin';
 @import (reference) '../../style/themes/index';
-@input-prefix-cls: ~'@{ant-prefix}-input';
 
 @input-affix-margin: 4px;
 
-.@{ant-prefix}-input {
+.@{input-prefix-cls} {
   &-affix-wrapper {
     .input();
     display: inline-flex;
@@ -12,7 +11,7 @@
     &:not(&-disabled):hover {
       .hover();
       z-index: 1;
-      .@{ant-prefix}-input-search-with-button & {
+      .@{input-prefix-cls}-search-with-button & {
         z-index: 0;
       }
     }
@@ -23,12 +22,12 @@
     }
 
     &-disabled {
-      .@{ant-prefix}-input[disabled] {
+      .@{input-prefix-cls}[disabled] {
         background: transparent;
       }
     }
 
-    > input.@{ant-prefix}-input {
+    > input.@{input-prefix-cls} {
       padding: 0;
       border: none;
       outline: none;

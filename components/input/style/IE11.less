@@ -1,6 +1,8 @@
+@import './mixin';
+
 // Fix Input component height issue in IE11
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-  .@{ant-prefix}-input {
+  .@{input-prefix-cls} {
     height: @input-height-base;
 
     &-lg {
@@ -12,7 +14,7 @@
     }
 
     &-affix-wrapper {
-      > input.@{ant-prefix}-input {
+      > input.@{input-prefix-cls} {
         height: auto;
       }
     }

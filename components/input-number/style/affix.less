@@ -1,10 +1,10 @@
 @import '../../input/style/mixin';
 @import (reference) '../../style/themes/index';
-@input-prefix-cls: ~'@{ant-prefix}-input';
+@import './mixin';
 
 @input-affix-margin: 4px;
 
-.@{ant-prefix}-input-number {
+.@{input-number-prefix-cls} {
   &-affix-wrapper {
     .input();
     // or number handler will cover form status
@@ -25,22 +25,22 @@
     }
 
     &-disabled {
-      .@{ant-prefix}-input-number[disabled] {
+      .@{input-number-prefix-cls}[disabled] {
         background: transparent;
       }
     }
 
-    > div.@{ant-prefix}-input-number {
+    > div.@{input-number-prefix-cls} {
       width: 100%;
       border: none;
       outline: none;
 
-      &.@{ant-prefix}-input-number-focused {
+      &.@{input-number-prefix-cls}-focused {
         box-shadow: none !important;
       }
     }
 
-    input.@{ant-prefix}-input-number-input {
+    input.@{input-number-prefix-cls}-input {
       padding: 0;
     }
 
@@ -50,7 +50,7 @@
       content: '\a0';
     }
 
-    .@{ant-prefix}-input-number-handler-wrap {
+    .@{input-number-prefix-cls}-handler-wrap {
       z-index: 2;
     }
   }
@@ -78,6 +78,6 @@
   }
 }
 
-.@{ant-prefix}-input-number-group-wrapper .@{ant-prefix}-input-number-affix-wrapper {
+.@{input-number-prefix-cls}-group-wrapper .@{input-number-prefix-cls}-affix-wrapper {
   width: 100%;
 }

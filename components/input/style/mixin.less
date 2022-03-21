@@ -1,7 +1,11 @@
 @import '../../style/themes/index';
 @import '../../style/mixins/index';
+@import './mixin';
 
 @input-affix-with-clear-btn-width: 38px;
+@input-prefix-cls: ~'@{ant-prefix}-input';
+@select-prefix-cls: ~'@{ant-prefix}-select';
+@btn-prefix-cls: ~'@{ant-prefix}-btn';
 
 // size mixins for input
 .input-lg() {
@@ -178,7 +182,7 @@
     &:hover {
       z-index: 1;
       border-right-width: 1px;
-      .@{ant-prefix}-input-search-with-button & {
+      .@{input-prefix-cls}-search-with-button & {
         z-index: 0;
       }
     }
@@ -197,11 +201,11 @@
     transition: all 0.3s;
 
     // Reset Select's style in addon
-    .@{ant-prefix}-select {
+    .@{select-prefix-cls} {
       margin: -(@input-padding-vertical-base + 1px) (-@input-padding-horizontal-base);
 
-      &.@{ant-prefix}-select-single:not(.@{ant-prefix}-select-customize-input)
-        .@{ant-prefix}-select-selector {
+      &.@{select-prefix-cls}-single:not(.@{select-prefix-cls}-customize-input)
+        .@{select-prefix-cls}-selector {
         background-color: inherit;
         border: @border-width-base @border-style-base transparent;
         box-shadow: none;
@@ -209,7 +213,7 @@
 
       &-open,
       &-focused {
-        .@{ant-prefix}-select-selector {
+        .@{select-prefix-cls}-selector {
           color: @primary-color;
         }
       }
@@ -234,7 +238,7 @@
     border-bottom-right-radius: 0;
 
     // Reset Select's style in addon
-    .@{ant-prefix}-select .@{ant-prefix}-select-selector {
+    .@{select-prefix-cls} .@{select-prefix-cls}-selector {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
     }
@@ -266,7 +270,7 @@
     border-bottom-left-radius: 0;
 
     // Reset Select's style in addon
-    .@{ant-prefix}-select .@{ant-prefix}-select-selector {
+    .@{select-prefix-cls} .@{select-prefix-cls}-selector {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
     }
@@ -284,11 +288,11 @@
   }
 
   // Fix https://github.com/ant-design/ant-design/issues/5754
-  &-lg .@{ant-prefix}-select-single .@{ant-prefix}-select-selector {
+  &-lg .@{select-prefix-cls}-single .@{select-prefix-cls}-selector {
     height: @input-height-lg;
   }
 
-  &-sm .@{ant-prefix}-select-single .@{ant-prefix}-select-selector {
+  &-sm .@{select-prefix-cls}-single .@{select-prefix-cls}-selector {
     height: @input-height-sm;
   }
 
@@ -296,14 +300,14 @@
     &:not(:last-child) {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
-      .@{ant-prefix}-input-search & {
+      .@{input-prefix-cls}-search & {
         border-top-left-radius: @border-radius-base;
         border-bottom-left-radius: @border-radius-base;
       }
     }
 
     &:not(:first-child),
-    .@{ant-prefix}-input-search &:not(:first-child) {
+    .@{input-prefix-cls}-search &:not(:first-child) {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
     }
@@ -355,10 +359,10 @@
     }
 
     // reset border for Select, DatePicker, AutoComplete, Cascader, Mention, TimePicker, Input
-    & > .@{ant-prefix}-select > .@{ant-prefix}-select-selector,
-    & > .@{ant-prefix}-select-auto-complete .@{ant-prefix}-input,
-    & > .@{ant-prefix}-cascader-picker .@{ant-prefix}-input,
-    & > .@{ant-prefix}-input-group-wrapper .@{ant-prefix}-input {
+    & > .@{select-prefix-cls} > .@{select-prefix-cls}-selector,
+    & > .@{select-prefix-cls}-auto-complete .@{input-prefix-cls},
+    & > .@{ant-prefix}-cascader-picker .@{input-prefix-cls},
+    & > .@{input-prefix-cls}-group-wrapper .@{input-prefix-cls} {
       border-right-width: @border-width-base;
       border-radius: 0;
 
@@ -371,51 +375,51 @@
       }
     }
 
-    & > .@{ant-prefix}-select-focused {
+    & > .@{select-prefix-cls}-focused {
       z-index: 1;
     }
 
     // update z-index for arrow icon
-    & > .@{ant-prefix}-select > .@{ant-prefix}-select-arrow {
+    & > .@{select-prefix-cls} > .@{select-prefix-cls}-arrow {
       z-index: 1; // https://github.com/ant-design/ant-design/issues/20371
     }
 
     & > *:first-child,
-    & > .@{ant-prefix}-select:first-child > .@{ant-prefix}-select-selector,
-    & > .@{ant-prefix}-select-auto-complete:first-child .@{ant-prefix}-input,
-    & > .@{ant-prefix}-cascader-picker:first-child .@{ant-prefix}-input {
+    & > .@{select-prefix-cls}:first-child > .@{select-prefix-cls}-selector,
+    & > .@{select-prefix-cls}-auto-complete:first-child .@{input-prefix-cls},
+    & > .@{ant-prefix}-cascader-picker:first-child .@{input-prefix-cls} {
       border-top-left-radius: @border-radius-base;
       border-bottom-left-radius: @border-radius-base;
     }
 
     & > *:last-child,
-    & > .@{ant-prefix}-select:last-child > .@{ant-prefix}-select-selector,
-    & > .@{ant-prefix}-cascader-picker:last-child .@{ant-prefix}-input,
-    & > .@{ant-prefix}-cascader-picker-focused:last-child .@{ant-prefix}-input {
+    & > .@{select-prefix-cls}:last-child > .@{select-prefix-cls}-selector,
+    & > .@{ant-prefix}-cascader-picker:last-child .@{input-prefix-cls},
+    & > .@{ant-prefix}-cascader-picker-focused:last-child .@{input-prefix-cls} {
       border-right-width: @border-width-base;
       border-top-right-radius: @border-radius-base;
       border-bottom-right-radius: @border-radius-base;
     }
 
     // https://github.com/ant-design/ant-design/issues/12493
-    & > .@{ant-prefix}-select-auto-complete .@{ant-prefix}-input {
+    & > .@{select-prefix-cls}-auto-complete .@{input-prefix-cls} {
       vertical-align: top;
     }
 
-    .@{ant-prefix}-input-group-wrapper + .@{ant-prefix}-input-group-wrapper {
+    .@{input-prefix-cls}-group-wrapper + .@{input-prefix-cls}-group-wrapper {
       margin-left: -1px;
-      .@{ant-prefix}-input-affix-wrapper {
+      .@{input-prefix-cls}-affix-wrapper {
         border-radius: 0;
       }
     }
 
-    .@{ant-prefix}-input-group-wrapper:not(:last-child) {
-      &.@{ant-prefix}-input-search > .@{ant-prefix}-input-group {
-        & > .@{ant-prefix}-input-group-addon > .@{ant-prefix}-input-search-button {
+    .@{input-prefix-cls}-group-wrapper:not(:last-child) {
+      &.@{input-prefix-cls}-search > .@{input-prefix-cls}-group {
+        & > .@{input-prefix-cls}-group-addon > .@{input-prefix-cls}-search-button {
           border-radius: 0;
         }
 
-        & > .@{ant-prefix}-input {
+        & > .@{input-prefix-cls} {
           border-radius: @border-radius-base 0 0 @border-radius-base;
         }
       }
