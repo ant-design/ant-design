@@ -1,20 +1,24 @@
 import * as React from 'react';
 
-export interface PresetColorType {
-  blue: string;
-  purple: string;
-  cyan: string;
-  green: string;
-  magenta: string;
-  pink: string;
-  red: string;
-  orange: string;
-  yellow: string;
-  volcano: string;
-  geekblue: string;
-  lime: string;
-  gold: string;
-}
+export const PresetColors = [
+  'blue',
+  'purple',
+  'cyan',
+  'green',
+  'magenta',
+  'pink',
+  'red',
+  'orange',
+  'yellow',
+  'volcano',
+  'geekblue',
+  'lime',
+  'gold',
+] as const;
+
+type PresetColorKey = typeof PresetColors[number];
+
+export type PresetColorType = Record<PresetColorKey, string>;
 
 type ColorPaletteKeyIndex = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
 
@@ -73,7 +77,8 @@ export interface SeedToken extends PresetColorType {
 // ======================================================================
 // ==                         Derivative Token                         ==
 // ======================================================================
-export interface DerivativeToken extends SeedToken {
+
+export interface DerivativeToken extends SeedToken, ColorPalettes {
   // Color
   colorPrimaryHover: string;
   colorPrimaryActive: string;
@@ -123,7 +128,8 @@ export interface DerivativeToken extends SeedToken {
 // ======================================================================
 // ==                           Alias Token                            ==
 // ======================================================================
-export interface AliasToken {
+// FIXME: DerivativeToken should part pick
+export interface AliasToken extends DerivativeToken {
   // =============== Legacy: should be remove ===============
   primaryColor: string;
   successColor: string;
@@ -174,12 +180,11 @@ export interface AliasToken {
   componentBackground: string;
   componentBackgroundDisabled: string;
 
-  duration: number;
-
   zIndexDropdown: number;
 
   boxShadow?: string;
 
+  // =============== Legacy: should be remove ===============
   primaryHoverColor: string;
   primaryActiveColor: string;
   primaryOutlineColor: string;
@@ -199,10 +204,14 @@ export interface AliasToken {
   linkHoverDecoration: React.CSSProperties['textDecoration'];
   linkFocusDecoration: React.CSSProperties['textDecoration'];
 
+  fontSizeSM: number;
+  fontSizeLG: number;
+  /** @private Only Used for control inside component like Multiple Select inner selection item */
   controlHeightXS: number;
   controlHeightSM: number;
   controlHeightLG: number;
-
+  controlPaddingHorizontal: number;
+  controlPaddingHorizontalSM: number;
   paddingSM: number;
   paddingXS: number;
   paddingXXS: number;
@@ -210,6 +219,10 @@ export interface AliasToken {
   marginXS: number;
   marginLG: number;
   marginXXS: number;
+
+  duration: string;
+  durationMid: string;
+  durationFast: string;
 
   heading1Size: number;
   heading2Size: number;

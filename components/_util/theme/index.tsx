@@ -20,9 +20,17 @@ import {
   slideRightIn,
   slideRightOut,
 } from './util/slide';
-import type { SeedToken, DerivativeToken, AliasToken, OverrideToken } from './interface';
+import { PresetColors } from './interface';
+import type {
+  SeedToken,
+  DerivativeToken,
+  AliasToken,
+  OverrideToken,
+  PresetColorType,
+} from './interface';
 
 export {
+  PresetColors,
   resetComponent,
   resetIcon,
   clearFix,
@@ -39,7 +47,9 @@ export {
 };
 
 export type {
+  SeedToken,
   AliasToken,
+  PresetColorType,
   // FIXME: Remove this type
   AliasToken as DerivativeToken,
 };
@@ -49,7 +59,7 @@ const defaultTheme = new Theme(defaultDerivative);
 
 export const DesignTokenContext = React.createContext<{
   token: Partial<SeedToken>;
-  theme: Theme<SeedToken, DerivativeToken>;
+  theme?: Theme<SeedToken, DerivativeToken>;
   override?: OverrideToken;
   hashed?: string | boolean;
 }>({
