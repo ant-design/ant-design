@@ -171,7 +171,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (
         },
 
         [`.${badgePrefixCls}-status-success`]: {
-          backgroundColor: token.successColor,
+          backgroundColor: token.colorSuccess,
         },
         [`.${badgePrefixCls}-status-processing`]: {
           position: 'relative',

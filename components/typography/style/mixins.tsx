@@ -228,7 +228,7 @@ export const getCopiableStyles: GenerateStyle<TypographyToken, CSSObject> = toke
     &,
     &:hover,
     &:focus`]: {
-      color: token.successColor,
+      color: token.colorSuccess,
     },
   },
 });

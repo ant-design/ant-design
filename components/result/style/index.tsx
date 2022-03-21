@@ -137,7 +137,7 @@ export default function useStyle(
 
   const resultInfoIconColor = token.infoColor;
   const resultErrorIconColor = token.errorColor;
-  const resultSuccessIconColor = token.successColor;
+  const resultSuccessIconColor = token.colorSuccess;
   const resultWarningIconColor = token.warningColor;
 
   const resultToken: ResultToken = {

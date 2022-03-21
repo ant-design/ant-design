@@ -294,9 +294,9 @@ export default function useStyle(
   const alertInfoIconColor = token.infoColor;
   const alertInfoBorderColor = infoColors[2];
 
-  const successColors = generate(token.successColor);
+  const successColors = generate(token.colorSuccess);
   const alertSuccessBgColor = successColors[0];
-  const alertSuccessIconColor = token.successColor;
+  const alertSuccessIconColor = token.colorSuccess;
   const alertSuccessBorderColor = successColors[2];
 
   const warningColors = generate(token.warningColor);

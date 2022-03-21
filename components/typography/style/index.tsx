@@ -23,7 +23,7 @@ const genTypographyStyle: GenerateStyle<TypographyToken> = token => {
       },
 
       '&&-success': {
-        color: token.successColor,
+        color: token.colorSuccess,
       },
 
       '&&-warning': {

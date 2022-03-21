@@ -585,7 +585,7 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
     duration,
     iconColorHover,
     colorPrimary,
-    successColor,
+    colorSuccess,
   } = token;
 
   return {
@@ -674,7 +674,7 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
       },
       '&-status-success': {
         [`.${prefixCls}-feedback-icon`]: {
-          color: successColor,
+          color: colorSuccess,
           // FIXME: animationName
         },
       },
@@ -683,7 +683,7 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
 };
 
 const genGroupStyle: GenerateStyle<InputToken> = (token: InputToken) => {
-  const { prefixCls, errorColor, successColor } = token;
+  const { prefixCls, errorColor, colorSuccess } = token;
 
   return {
     [`.${prefixCls}-group`]: {
@@ -714,8 +714,8 @@ const genGroupStyle: GenerateStyle<InputToken> = (token: InputToken) => {
         },
         '&-status-warning': {
           [`.${prefixCls}-group-addon`]: {
-            color: successColor,
-            borderColor: successColor,
+            color: colorSuccess,
+            borderColor: colorSuccess,
           },
         },
       },
