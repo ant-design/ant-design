@@ -72,6 +72,9 @@ export interface SeedToken extends PresetColorType {
   // Size
   sizeUnit: number;
   sizeBaseStep: number;
+
+  // Control Base
+  controlHeight: number;
 }
 
 // ======================================================================
@@ -158,8 +161,6 @@ export interface AliasToken extends DerivativeToken {
   headingColor: string;
 
   itemHoverBackground: string;
-
-  controlHeight: number;
 
   padding: number;
   margin: number;

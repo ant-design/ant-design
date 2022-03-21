@@ -157,6 +157,9 @@ const seedToken: SeedToken = {
   // Size
   sizeUnit: 4,
   sizeBaseStep: 4,
+
+  // Control Base
+  controlHeight: 32,
 };
 
 export default seedToken;
