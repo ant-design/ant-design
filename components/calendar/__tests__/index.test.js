@@ -403,4 +403,20 @@ describe('Calendar', () => {
     );
     expect(wrapper.find('.bamboo').first().text()).toEqual('Light');
   });
+
+  it('when fullscreen is false, the element returned by dateFullCellRender should be interactive', () => {
+    const onClick = jest.fn();
+    const wrapper = mount(
+      <Calendar
+        fullscreen={false}
+        dateFullCellRender={() => (
+          <div className="bamboo" onClick={onClick}>
+            Light
+          </div>
+        )}
+      />,
+    );
+    wrapper.find('.bamboo').first().simulate('click');
+    expect(onClick).toBeCalled();
+  });
 });
