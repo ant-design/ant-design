@@ -243,6 +243,40 @@ Array [
       col-4
     </div>
   </div>,
+  <div
+    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-left"
+    role="separator"
+  >
+    <span
+      class="ant-divider-inner-text"
+    >
+      sub-element align evenly
+    </span>
+  </div>,
+  <div
+    class="ant-row ant-row-space-evenly"
+  >
+    <div
+      class="ant-col ant-col-4"
+    >
+      col-4
+    </div>
+    <div
+      class="ant-col ant-col-4"
+    >
+      col-4
+    </div>
+    <div
+      class="ant-col ant-col-4"
+    >
+      col-4
+    </div>
+    <div
+      class="ant-col ant-col-4"
+    >
+      col-4
+    </div>
+  </div>,
 ]
 `;
 
