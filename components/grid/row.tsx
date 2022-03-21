@@ -9,7 +9,7 @@ import ResponsiveObserve, {
   responsiveArray,
 } from '../_util/responsiveObserve';
 import useFlexGapSupport from '../_util/hooks/useFlexGapSupport';
-import useStyle from './style';
+import { useRowStyle } from './style';
 
 const RowAligns = tuple('top', 'middle', 'bottom', 'stretch');
 const RowJustify = tuple('start', 'end', 'center', 'space-around', 'space-between');
@@ -87,7 +87,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   };
 
   const prefixCls = getPrefixCls('row', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls, 'row');
+  const [wrapSSR, hashId] = useRowStyle(prefixCls);
   const gutters = getGutter();
   const classes = classNames(
     prefixCls,
