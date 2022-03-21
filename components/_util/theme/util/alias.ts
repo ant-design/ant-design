@@ -57,24 +57,24 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     tmpErrorColorDeprecatedBorder: errorColors[2],
     tmpInfoColorDeprecatedBorder: infoColors[2],
 
-    primaryOutlineColor: 'blue',
-    errorOutlineColor: 'red',
-    warningOutlineColor: 'orange',
+    primaryOutlineColor: new TinyColor(mergedToken.primaryColor).setAlpha(0.2).toRgbString(),
+    errorOutlineColor: new TinyColor(mergedToken.errorColor).setAlpha(0.2).toRgbString(),
+    warningOutlineColor: new TinyColor(mergedToken.warningColor).setAlpha(0.2).toRgbString(),
 
-    primaryColor: '#1890ff',
-    successColor: '#52c41a',
-    warningColor: '#faad14',
-    errorColor: '#ff4d4f',
-    infoColor: '#1890ff',
+    primaryColor: mergedToken.colorPrimary,
+    successColor: mergedToken.colorSuccess,
+    warningColor: mergedToken.colorWarning,
+    errorColor: mergedToken.colorError,
+    infoColor: mergedToken.colorInfo,
 
-    itemActiveBackground: 'gray',
+    itemActiveBackground: primaryColors[0],
 
     highlightColor: errorColors[5], // FIXME: Should not align with error color
     // FIXME: fix2 badge-color
 
-    linkColor: 'blue',
-    linkHoverColor: 'blue',
-    linkActiveColor: 'blue',
+    linkColor: mergedToken.colorPrimary,
+    linkHoverColor: primaryColors[4],
+    linkActiveColor: primaryColors[6],
     linkDecoration: 'none',
     linkHoverDecoration: 'none',
     linkFocusDecoration: 'none',
