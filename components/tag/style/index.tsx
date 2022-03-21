@@ -8,7 +8,7 @@ import {
   useToken,
   resetComponent,
   UseComponentStyleResult,
-  PresetColorKeys,
+  PresetColors,
 } from '../../_util/theme';
 
 interface TagToken extends DerivativeToken {
@@ -40,7 +40,7 @@ const genTagStatusStyle = (
 
 // FIXME: special preset colors
 const genTagColorStyle = (prefixCls: string, token: TagToken): CSSInterpolation =>
-  PresetColorKeys.reduce((prev: CSSObject, colorKey: keyof PresetColorType) => {
+  PresetColors.reduce((prev: CSSObject, colorKey: keyof PresetColorType) => {
     const lightColor = token[`${colorKey}-1`];
     const lightBorderColor = token[`${colorKey}-3`];
     const darkColor = token[`${colorKey}-6`];
