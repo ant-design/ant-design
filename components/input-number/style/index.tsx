@@ -34,7 +34,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
     fontSizeLG,
     controlHeightLG,
     controlHeightSM,
-    errorColor,
+    colorError,
     paddingXS,
     textColorSecondary,
     durationFast,
@@ -123,7 +123,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
       // ===================== Out Of Range =====================
       '&-out-of-range': {
         input: {
-          color: errorColor,
+          color: colorError,
         },
       },
 

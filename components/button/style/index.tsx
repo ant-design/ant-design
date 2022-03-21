@@ -140,8 +140,8 @@ const genDefaultButtonStyle = (prefixCls: string, token: DerivativeToken): CSSOb
   ),
 
   [`&.${prefixCls}-dangerous`]: {
-    color: token.errorColor,
-    borderColor: token.errorColor,
+    color: token.colorError,
+    borderColor: token.colorError,
 
     ...genHoverActiveButtonStyle(
       {
@@ -156,8 +156,8 @@ const genDefaultButtonStyle = (prefixCls: string, token: DerivativeToken): CSSOb
 
     ...genGhostButtonStyle(
       prefixCls,
-      token.errorColor,
-      token.errorColor,
+      token.colorError,
+      token.colorError,
       token.textColorDisabled,
       token.borderColor,
     ),
@@ -192,7 +192,7 @@ const genPrimaryButtonStyle = (prefixCls: string, token: DerivativeToken): CSSOb
   ),
 
   [`&.${prefixCls}-dangerous`]: {
-    backgroundColor: token.errorColor,
+    backgroundColor: token.colorError,
 
     ...genHoverActiveButtonStyle(
       {
@@ -205,8 +205,8 @@ const genPrimaryButtonStyle = (prefixCls: string, token: DerivativeToken): CSSOb
 
     ...genGhostButtonStyle(
       prefixCls,
-      token.errorColor,
-      token.errorColor,
+      token.colorError,
+      token.colorError,
       token.textColorDisabled,
       token.borderColor,
     ),
@@ -237,7 +237,7 @@ const genLinkButtonStyle = (prefixCls: string, token: DerivativeToken): CSSObjec
   ...genPureDisabledButtonStyle(token),
 
   [`&.${prefixCls}-dangerous`]: {
-    color: token.errorColor,
+    color: token.colorError,
 
     ...genHoverActiveButtonStyle(
       {
@@ -272,7 +272,7 @@ const genTextButtonStyle = (prefixCls: string, token: DerivativeToken): CSSObjec
     ...genPureDisabledButtonStyle(token),
 
     [`&.${prefixCls}-dangerous`]: {
-      color: token.errorColor,
+      color: token.colorError,
 
       ...genPureDisabledButtonStyle(token),
     },

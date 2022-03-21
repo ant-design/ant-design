@@ -79,43 +79,43 @@ const genInputSmallStyle = (token: InputToken): CSSObject => ({
 });
 
 export const genStatusStyle = (token: InputToken): CSSObject => {
-  const { prefixCls, errorColor, warningColor, errorOutlineColor, warningOutlineColor } = token;
+  const { prefixCls, colorError, colorWarning, errorOutlineColor, warningOutlineColor } = token;
 
   return {
     '&-status-error:not(&-disabled):not(&-borderless)&': {
       '&, &:hover': {
-        borderColor: errorColor,
+        borderColor: colorError,
       },
 
       '&:focus, &-focused': {
         ...genActiveStyle({
           ...token,
-          inputBorderActiveColor: errorColor,
-          inputBorderHoverColor: errorColor,
+          inputBorderActiveColor: colorError,
+          inputBorderHoverColor: colorError,
           primaryOutlineColor: errorOutlineColor,
         }),
       },
 
       [`.${prefixCls}-feedback-icon, .${prefixCls}-prefix`]: {
-        color: errorColor,
+        color: colorError,
       },
     },
     '&-status-warning:not(&-disabled):not(&-borderless)&': {
       '&, &:hover': {
-        borderColor: warningColor,
+        borderColor: colorWarning,
       },
 
       '&:focus, &-focused': {
         ...genActiveStyle({
           ...token,
-          inputBorderActiveColor: warningColor,
-          inputBorderHoverColor: warningColor,
+          inputBorderActiveColor: colorWarning,
+          inputBorderHoverColor: colorWarning,
           primaryOutlineColor: warningOutlineColor,
         }),
       },
 
       [`.${prefixCls}-feedback-icon, .${prefixCls}-prefix`]: {
-        color: warningColor,
+        color: colorWarning,
       },
     },
   };
@@ -683,7 +683,7 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
 };
 
 const genGroupStyle: GenerateStyle<InputToken> = (token: InputToken) => {
-  const { prefixCls, errorColor, colorSuccess } = token;
+  const { prefixCls, colorError, colorSuccess } = token;
 
   return {
     [`.${prefixCls}-group`]: {
@@ -708,8 +708,8 @@ const genGroupStyle: GenerateStyle<InputToken> = (token: InputToken) => {
         // Status
         '&-status-error': {
           [`.${prefixCls}-group-addon`]: {
-            color: errorColor,
-            borderColor: errorColor,
+            color: colorError,
+            borderColor: colorError,
           },
         },
         '&-status-warning': {

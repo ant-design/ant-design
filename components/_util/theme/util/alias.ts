@@ -58,12 +58,8 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     tmpInfoColorDeprecatedBorder: infoColors[2],
 
     primaryOutlineColor: new TinyColor(mergedToken.colorPrimary).setAlpha(0.2).toRgbString(),
-    errorOutlineColor: new TinyColor(mergedToken.errorColor).setAlpha(0.2).toRgbString(),
-    warningOutlineColor: new TinyColor(mergedToken.warningColor).setAlpha(0.2).toRgbString(),
-
-    warningColor: mergedToken.colorWarning,
-    errorColor: mergedToken.colorError,
-    infoColor: mergedToken.colorInfo,
+    errorOutlineColor: new TinyColor(mergedToken.colorError).setAlpha(0.2).toRgbString(),
+    warningOutlineColor: new TinyColor(mergedToken.colorWarning).setAlpha(0.2).toRgbString(),
 
     itemActiveBackground: primaryColors[0],
 

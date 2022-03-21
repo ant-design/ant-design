@@ -133,10 +133,6 @@ export interface DerivativeToken extends SeedToken, ColorPalettes {
 // FIXME: DerivativeToken should part pick
 export interface AliasToken extends DerivativeToken {
   // =============== Legacy: should be remove ===============
-  warningColor: string;
-  errorColor: string;
-  infoColor: string;
-
   lineHeight: number;
   borderWidth: number;
   borderStyle: string;

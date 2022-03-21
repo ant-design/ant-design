@@ -194,11 +194,11 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (
         },
 
         [`.${badgePrefixCls}-status-error`]: {
-          backgroundColor: token.errorColor,
+          backgroundColor: token.colorError,
         },
 
         [`.${badgePrefixCls}-status-warning`]: {
-          backgroundColor: token.warningColor,
+          backgroundColor: token.colorWarning,
         },
         ...statusPreset,
         [`.${badgePrefixCls}-status-text`]: {

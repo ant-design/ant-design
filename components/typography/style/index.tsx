@@ -27,11 +27,11 @@ const genTypographyStyle: GenerateStyle<TypographyToken> = token => {
       },
 
       '&&-warning': {
-        color: token.warningColor,
+        color: token.colorWarning,
       },
 
       '&&-danger': {
-        color: token.errorColor,
+        color: token.colorError,
         'a&:active, a&:focus, a&:hover': {
           // FIXME: need new token like errorColorHover
           color: token.errorColors[4],

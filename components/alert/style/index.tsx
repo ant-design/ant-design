@@ -289,9 +289,9 @@ export default function useStyle(
   const alertWithDescriptionNoIconPaddingVertical = token.padding - 1;
 
   // FIXME
-  const infoColors = generate(token.infoColor);
+  const infoColors = generate(token.colorInfo);
   const alertInfoBgColor = infoColors[0];
-  const alertInfoIconColor = token.infoColor;
+  const alertInfoIconColor = token.colorInfo;
   const alertInfoBorderColor = infoColors[2];
 
   const successColors = generate(token.colorSuccess);
@@ -299,14 +299,14 @@ export default function useStyle(
   const alertSuccessIconColor = token.colorSuccess;
   const alertSuccessBorderColor = successColors[2];
 
-  const warningColors = generate(token.warningColor);
+  const warningColors = generate(token.colorWarning);
   const alertWarningBgColor = warningColors[0];
-  const alertWarningIconColor = token.warningColor;
+  const alertWarningIconColor = token.colorWarning;
   const alertWarningBorderColor = warningColors[2];
 
-  const errorColors = generate(token.errorColor);
+  const errorColors = generate(token.colorError);
   const alertErrorBgColor = errorColors[0];
-  const alertErrorIconColor = token.errorColor;
+  const alertErrorIconColor = token.colorError;
   const alertErrorBorderColor = errorColors[2];
 
   const alertToken: AlertToken = {

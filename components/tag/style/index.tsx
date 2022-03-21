@@ -20,7 +20,7 @@ interface TagToken extends DerivativeToken {
 
 // ============================== Styles ==============================
 
-type CssVariableType = 'success' | 'info' | 'error' | 'warning';
+type CssVariableType = 'Success' | 'Info' | 'Error' | 'Warning';
 
 const genTagStatusStyle = (
   prefixCls: string,
@@ -31,7 +31,7 @@ const genTagStatusStyle = (
   const capitalizedCssVariableType = capitalize<CssVariableType>(cssVariableType);
   return {
     [`.${prefixCls}-${status}`]: {
-      color: token[`${cssVariableType}Color`],
+      color: token[`color${cssVariableType}`],
       background: token[`tmp${capitalizedCssVariableType}ColorDeprecatedBg`],
       borderColor: token[`tmp${capitalizedCssVariableType}ColorDeprecatedBorder`],
     },
@@ -171,10 +171,10 @@ export const genTagStyle = (
   return [
     genBaseStyle(prefixCls, iconPrefixCls, tagToken),
     genTagColorStyle(prefixCls, tagToken),
-    genTagStatusStyle(prefixCls, tagToken, 'success', 'success'),
-    genTagStatusStyle(prefixCls, tagToken, 'processing', 'info'),
-    genTagStatusStyle(prefixCls, tagToken, 'error', 'error'),
-    genTagStatusStyle(prefixCls, tagToken, 'warning', 'warning'),
+    genTagStatusStyle(prefixCls, tagToken, 'success', 'Success'),
+    genTagStatusStyle(prefixCls, tagToken, 'processing', 'Info'),
+    genTagStatusStyle(prefixCls, tagToken, 'error', 'Error'),
+    genTagStatusStyle(prefixCls, tagToken, 'warning', 'Warning'),
   ];
 };
 
