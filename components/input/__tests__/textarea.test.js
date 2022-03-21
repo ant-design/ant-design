@@ -92,6 +92,8 @@ describe('TextArea', () => {
       };
 
       const wrapper = mount(<Demo />);
+      // textarea should has value, when format with length
+      wrapper.find('textarea').getDOMNode().value = 'light';
       wrapper.find('textarea').simulate('change', { target: { value: 'light' } });
 
       expect(wrapper.find('textarea').props().value).toEqual('l');
