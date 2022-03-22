@@ -23,12 +23,15 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3XZcjGpvK/Menu.svg
 ## API
 
 ```jsx
-<Menu>
-  <Menu.Item>菜单项</Menu.Item>
-  <SubMenu title="子菜单">
-    <Menu.Item>子菜单项</Menu.Item>
-  </SubMenu>
-</Menu>
+const items = [
+  { label: '菜单项' },
+  {
+    label: '子菜单',
+    children: [{ label: '子菜单项' }],
+  },
+];
+
+<Menu items={items} />;
 ```
 
 ### Menu
@@ -41,6 +44,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3XZcjGpvK/Menu.svg
 | forceSubMenuRender | 在子菜单展示之前就渲染进 DOM | boolean | false |  |
 | inlineCollapsed | inline 时菜单是否收起状态 | boolean | - |  |
 | inlineIndent | inline 模式的菜单缩进宽度 | number | 24 |  |
+| items | 菜单内容 | [ItemType\[\]](#ItemType) | - | 4.20.0 |
 | mode | 菜单类型，现在支持垂直、水平、和内嵌模式三种 | `vertical` \| `horizontal` \| `inline` | `vertical` |  |
 | multiple | 是否允许多选 | boolean | false |  |
 | openKeys | 当前展开的 SubMenu 菜单项 key 数组 | string\[] | - |  |
@@ -59,15 +63,20 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3XZcjGpvK/Menu.svg
 
 > 更多属性查看 [rc-menu](https://github.com/react-component/menu#api)
 
-### Menu.Item
+### ItemType
 
-| 参数     | 说明                     | 类型      | 默认值 | 版本  |
-| -------- | ------------------------ | --------- | ------ | ----- |
-| danger   | 展示错误状态样式         | boolean   | false  | 4.3.0 |
-| disabled | 是否禁用                 | boolean   | false  |       |
-| icon     | 菜单图标                 | ReactNode | -      | 4.2.0 |
-| key      | item 的唯一标志          | string    | -      |       |
-| title    | 设置收缩时展示的悬浮标题 | string    | -      |       |
+> type ItemType = [MenuItemType](#MenuItemType) | [SubMenuType](#SubMenuType) | [MenuItemGroupType](#MenuItemGroupType) | [MenuDividerType](#MenuDividerType);
+
+#### MenuItemType
+
+| 参数     | 说明                     | 类型      | 默认值 | 版本 |
+| -------- | ------------------------ | --------- | ------ | ---- |
+| danger   | 展示错误状态样式         | boolean   | false  |      |
+| disabled | 是否禁用                 | boolean   | false  |      |
+| icon     | 菜单图标                 | ReactNode | -      |      |
+| key      | item 的唯一标志          | string    | -      |      |
+| label    | 菜单项标题               | string    | -      |      |
+| title    | 设置收缩时展示的悬浮标题 | string    | -      |      |
 
 > 注意：`icon` 是 `4.2.0` 新增的属性，之前的版本请使用下面的方式定义图标。
 >
@@ -88,34 +97,50 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3XZcjGpvK/Menu.svg
 > </Menu.SubMenu>
 > ```
 
-### Menu.SubMenu
+#### SubMenuType
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- | --- |
-| children | 子菜单的菜单项 | Array&lt;MenuItem \| SubMenu> | - |  |
+| children | 子菜单的菜单项 | [ItemType\[\]](#ItemType) | - |  |
 | disabled | 是否禁用 | boolean | false |  |
-| icon | 菜单图标 | ReactNode | - | 4.2.0 |
+| icon | 菜单图标 | ReactNode | - |  |
 | key | 唯一标志 | string | - |  |
+| label | 菜单项标题 | ReactNode | - |  |
 | popupClassName | 子菜单样式，`mode="inline"` 时无效 | string | - |  |
 | popupOffset | 子菜单偏移量，`mode="inline"` 时无效 | \[number, number] | - |  |
-| title | 子菜单项值 | ReactNode | - |  |
 | onTitleClick | 点击子菜单标题 | function({ key, domEvent }) | - |  |
-| theme | 设置子菜单的主题，默认从 Menu 上继承 |  | `light` \| `dark` | - | 4.19.0 |
+| theme | 设置子菜单的主题，默认从 Menu 上继承 |  | `light` \| `dark` | - |  |
 
-### Menu.ItemGroup
+#### MenuItemGroupType
 
-| 参数     | 说明         | 类型        | 默认值 | 版本 |
-| -------- | ------------ | ----------- | ------ | ---- |
-| children | 分组的菜单项 | MenuItem\[] | -      |      |
-| title    | 分组标题     | ReactNode   | -      |      |
+定义类型为 `group` 时，会作为分组处理:
 
-### Menu.Divider
+```ts
+const groupItem = {
+  type: 'group', // Must have
+  label: 'My Group',
+  chidlren: [],
+};
+```
 
-菜单项分割线，只用在弹出菜单内。
+| 参数     | 说明         | 类型                              | 默认值 | 版本 |
+| -------- | ------------ | --------------------------------- | ------ | ---- |
+| children | 分组的菜单项 | [MenuItemType\[\]](#MenuItemType) | -      |      |
+| label    | 分组标题     | ReactNode                         | -      |      |
 
-| 参数   | 说明     | 类型    | 默认值 | 版本   |
-| ------ | -------- | ------- | ------ | ------ |
-| dashed | 是否虚线 | boolean | false  | 4.17.0 |
+#### MenuDividerType
+
+菜单项分割线，只用在弹出菜单内，需要定义类型为 `divider`：
+
+```ts
+const dividerItem = {
+  type: 'divider', // Must have
+};
+```
+
+| 参数   | 说明     | 类型    | 默认值 | 版本 |
+| ------ | -------- | ------- | ------ | ---- |
+| dashed | 是否虚线 | boolean | false  |      |
 
 ## FAQ
 

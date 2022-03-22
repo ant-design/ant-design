@@ -6,7 +6,7 @@ export const resetComponent = (token: DerivativeToken): CSSObject => ({
   boxSizing: 'border-box',
   margin: 0,
   padding: 0,
-  color: token.textColor,
+  color: token.colorText,
   fontSize: token.fontSize,
   // font-variant: @font-variant-base;
   lineHeight: token.lineHeight,

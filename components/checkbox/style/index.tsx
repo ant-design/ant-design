@@ -95,8 +95,8 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token, hashId) =>
           height: token.fontSizeLG,
           direction: 'ltr',
           backgroundColor: token.componentBackground,
-          border: `${token.borderWidth}px ${token.borderStyle} ${token.borderColor}`,
-          borderRadius: token.borderRadius,
+          border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
+          borderRadius: token.controlRadius,
           borderCollapse: 'separate',
           transition: `all ${token.duration}`,
 
@@ -136,7 +136,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token, hashId) =>
               insetInlineStart: '50%',
               width: token.fontSizeLG / 2,
               height: token.fontSizeLG / 2,
-              backgroundColor: token.primaryColor,
+              backgroundColor: token.colorPrimary,
               border: 0,
               transform: 'translate(-50%, -50%) scale(1)',
               opacity: 1,
@@ -161,7 +161,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token, hashId) =>
       ${checkboxCls}-input:focus +
     `]: {
         [`${checkboxCls}-inner`]: {
-          borderColor: token.primaryColor,
+          borderColor: token.colorPrimary,
         },
       },
     },
@@ -171,13 +171,13 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token, hashId) =>
       // Wrapper > Checkbox
       [`${checkboxCls}-checked`]: {
         [`${checkboxCls}-inner`]: {
-          backgroundColor: token.primaryColor,
-          borderColor: token.primaryColor,
+          backgroundColor: token.colorPrimary,
+          borderColor: token.colorPrimary,
 
           '&:after': {
             opacity: 1,
             transform: 'rotate(45deg) scale(1) translate(-50%,-50%)',
-            transition: `all ${token.duration} ${token.easeOutBack} 0.1s`,
+            transition: `all ${token.duration} ${token.motionEaseOutBack} 0.1s`,
           },
         },
 
@@ -188,8 +188,8 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token, hashId) =>
           insetInlineStart: 0,
           width: '100%',
           height: '100%',
-          border: `${token.borderWidth}px ${token.borderStyle} ${token.primaryColor}`,
-          borderRadius: token.borderRadius,
+          border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorPrimary}`,
+          borderRadius: token.controlRadius,
           visibility: 'hidden',
           animation: `${antCheckboxEffect.getName(hashId)} ${token.duration} ease-in-out`,
           animationFillMode: 'backwards',
@@ -215,10 +215,10 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token, hashId) =>
         // Wrapper > Checkbox > inner
         [`${checkboxCls}-inner`]: {
           background: token.background,
-          borderColor: token.borderColor,
+          borderColor: token.colorBorder,
 
           '&:after': {
-            borderColor: token.borderColor,
+            borderColor: token.colorBorder,
           },
         },
 
@@ -227,7 +227,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token, hashId) =>
         },
 
         '& + span': {
-          color: token.textColorDisabled,
+          color: token.colorTextDisabled,
         },
       },
     },

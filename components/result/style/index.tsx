@@ -65,7 +65,7 @@ const genBaseStyle: GenerateStyle<ResultToken> = (token): CSSObject => {
     },
 
     [`${resultCls} ${resultCls}-subtitle`]: {
-      color: token.textColorSecondary,
+      color: token.colorTextSecondary,
       fontSize: token.resultSubtitleFontSize,
       // FIXME: hard code
       lineHeight: 1.6,
@@ -135,10 +135,10 @@ export default function useStyle(
   const resultIconFontSize = 72;
   const resultExtraMargin = `${token.padding * 1.5}px 0 0 0`;
 
-  const resultInfoIconColor = token.infoColor;
-  const resultErrorIconColor = token.errorColor;
-  const resultSuccessIconColor = token.successColor;
-  const resultWarningIconColor = token.warningColor;
+  const resultInfoIconColor = token.colorInfo;
+  const resultErrorIconColor = token.colorError;
+  const resultSuccessIconColor = token.colorSuccess;
+  const resultWarningIconColor = token.colorWarning;
 
   const resultToken: ResultToken = {
     ...token,

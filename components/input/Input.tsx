@@ -146,7 +146,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   // Style
   const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls);
 
-  // ===================== Status =====================
+  // ===================== Size =====================
   const size = React.useContext(SizeContext);
   const mergedSize = customSize || size;
 

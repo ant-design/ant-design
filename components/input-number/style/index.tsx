@@ -27,26 +27,26 @@ interface InputNumberToken extends InputToken {
 const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumberToken) => {
   const {
     inputNumberCls,
-    borderWidth,
-    borderStyle,
-    borderColor,
-    borderRadius,
+    controlLineWidth: borderWidth,
+    controlLineType: borderStyle,
+    colorBorder: borderColor,
+    controlRadius: borderRadius,
     fontSizeLG,
     controlHeightLG,
     controlHeightSM,
-    errorColor,
+    colorError,
     paddingXS,
-    textColorSecondary,
+    colorTextSecondary: textColorSecondary,
     durationFast,
     inputNumberHandlerActiveBgColor,
-    primaryColor,
+    colorPrimary,
     marginXXS,
     controlHeight,
     inputPaddingHorizontal,
     duration,
     componentBackground,
     durationMid,
-    textColorDisabled,
+    colorTextDisabled: textColorDisabled,
   } = token;
 
   return {
@@ -123,7 +123,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
       // ===================== Out Of Range =====================
       '&-out-of-range': {
         input: {
-          color: errorColor,
+          color: colorError,
         },
       },
 
@@ -162,7 +162,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           },
 
           '&:hover &-up-inner, &:hover &-down-inner': {
-            color: primaryColor,
+            color: colorPrimary,
           },
         },
 

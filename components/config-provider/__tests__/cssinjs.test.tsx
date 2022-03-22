@@ -15,7 +15,7 @@ describe('ConfigProvider.DynamicTheme', () => {
       <ConfigProvider
         theme={{
           token: {
-            primaryColor: '#f00',
+            colorPrimary: '#f00',
           },
         }}
       >

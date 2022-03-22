@@ -20,7 +20,7 @@ const genItemStyle: GenerateStyle<SelectToken, CSSObject> = token => {
     padding: `${
       (token.controlHeight - token.fontSize * token.lineHeight) / 2
     }px ${controlPaddingHorizontal}px`,
-    color: token.textColor,
+    color: token.colorText,
     fontWeight: 'normal',
     fontSize: token.fontSize,
     lineHeight: token.lineHeight,
@@ -50,7 +50,7 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token, hashId) => {
         // https://github.com/ant-design/ant-design/issues/11843
         fontVariant: 'initial',
         backgroundColor: token.componentBackground,
-        borderRadius: token.borderRadius,
+        borderRadius: token.controlRadius,
         outline: 'none',
         boxShadow: token.boxShadow,
 
@@ -81,13 +81,13 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token, hashId) => {
         },
 
         '&-empty': {
-          color: token.textColorDisabled,
+          color: token.colorTextDisabled,
         },
 
         // ========================= Options =========================
         [`${selectItemCls}-empty`]: {
           ...genItemStyle(token),
-          color: token.textColorDisabled,
+          color: token.colorTextDisabled,
         },
 
         [`${selectItemCls}`]: {
@@ -97,7 +97,7 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token, hashId) => {
 
           // =========== Group ============
           '&-group': {
-            color: token.textColorSecondary,
+            color: token.colorTextSecondary,
             fontSize: token.fontSizeSM,
             cursor: 'default',
           },
@@ -122,12 +122,12 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token, hashId) => {
             },
 
             [`&-selected:not(${selectItemCls}-option-disabled)`]: {
-              color: token.textColor,
+              color: token.colorText,
               fontWeight: 600, // FIXME: Need design token?
               backgroundColor: token.itemActiveBackground,
 
               [`${selectItemCls}-option-state`]: {
-                color: token.primaryColor,
+                color: token.colorPrimary,
               },
             },
             '&-disabled': {
@@ -135,7 +135,7 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token, hashId) => {
                 backgroundColor: token.componentBackgroundDisabled,
               },
 
-              color: token.textColorDisabled,
+              color: token.colorTextDisabled,
               cursor: 'not-allowed',
             },
 

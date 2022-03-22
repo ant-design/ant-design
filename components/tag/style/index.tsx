@@ -8,7 +8,7 @@ import {
   useToken,
   resetComponent,
   UseComponentStyleResult,
-  PresetColorKeys,
+  PresetColors,
 } from '../../_util/theme';
 
 interface TagToken extends DerivativeToken {
@@ -20,7 +20,7 @@ interface TagToken extends DerivativeToken {
 
 // ============================== Styles ==============================
 
-type CssVariableType = 'success' | 'info' | 'error' | 'warning';
+type CssVariableType = 'Success' | 'Info' | 'Error' | 'Warning';
 
 const genTagStatusStyle = (
   prefixCls: string,
@@ -31,7 +31,7 @@ const genTagStatusStyle = (
   const capitalizedCssVariableType = capitalize<CssVariableType>(cssVariableType);
   return {
     [`.${prefixCls}-${status}`]: {
-      color: token[`${cssVariableType}Color`],
+      color: token[`color${cssVariableType}`],
       background: token[`tmp${capitalizedCssVariableType}ColorDeprecatedBg`],
       borderColor: token[`tmp${capitalizedCssVariableType}ColorDeprecatedBorder`],
     },
@@ -40,7 +40,7 @@ const genTagStatusStyle = (
 
 // FIXME: special preset colors
 const genTagColorStyle = (prefixCls: string, token: TagToken): CSSInterpolation =>
-  PresetColorKeys.reduce((prev: CSSObject, colorKey: keyof PresetColorType) => {
+  PresetColors.reduce((prev: CSSObject, colorKey: keyof PresetColorType) => {
     const lightColor = token[`${colorKey}-1`];
     const lightBorderColor = token[`${colorKey}-3`];
     const darkColor = token[`${colorKey}-6`];
@@ -53,7 +53,7 @@ const genTagColorStyle = (prefixCls: string, token: TagToken): CSSInterpolation 
         borderColor: lightBorderColor,
       },
       [`.${prefixCls}-${colorKey}-inverse`]: {
-        color: token.textColorInverse,
+        color: token.colorTextLightSolid,
         background: darkColor,
         borderColor: darkColor,
       },
@@ -77,8 +77,8 @@ const genBaseStyle = (
     lineHeight: token.tagLineHeight,
     whiteSpace: 'nowrap',
     background: token.tagDefaultBg,
-    border: `${token.borderWidth}px ${token.borderStyle} ${token.borderColor}`,
-    borderRadius: token.borderRadius,
+    border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
+    borderRadius: token.controlRadius,
     // FIXME: hard code
     opacity: 1,
     transition: `all ${token.duration}`,
@@ -96,7 +96,7 @@ const genBaseStyle = (
     [`.${prefixCls}-close-icon`]: {
       // FIXME: hard code
       marginInlineStart: 3,
-      color: token.textColorSecondary,
+      color: token.colorTextSecondary,
       // FIXME: hard code
       fontSize: 10,
       cursor: 'pointer',
@@ -111,7 +111,7 @@ const genBaseStyle = (
       borderColor: 'transparent',
 
       [`&, a, a:hover, .${iconPrefixCls}-close, .${iconPrefixCls}-close:hover`]: {
-        color: token.textColorInverse,
+        color: token.colorTextLightSolid,
       },
     },
 
@@ -121,11 +121,11 @@ const genBaseStyle = (
       cursor: 'pointer',
 
       '&:not(&-checked):hover': {
-        color: token.primaryColor,
+        color: token.colorPrimary,
       },
 
       '&:active, &-checked': {
-        color: token.textColorInverse,
+        color: token.colorTextLightSolid,
       },
 
       '&-checked': {
@@ -158,7 +158,7 @@ export const genTagStyle = (
   // FIXME: hard code
   const tagLineHeight = '18px';
   const tagDefaultBg = token.backgroundLight;
-  const tagDefaultColor = token.textColor;
+  const tagDefaultColor = token.colorText;
 
   const tagToken = {
     ...token,
@@ -171,10 +171,10 @@ export const genTagStyle = (
   return [
     genBaseStyle(prefixCls, iconPrefixCls, tagToken),
     genTagColorStyle(prefixCls, tagToken),
-    genTagStatusStyle(prefixCls, tagToken, 'success', 'success'),
-    genTagStatusStyle(prefixCls, tagToken, 'processing', 'info'),
-    genTagStatusStyle(prefixCls, tagToken, 'error', 'error'),
-    genTagStatusStyle(prefixCls, tagToken, 'warning', 'warning'),
+    genTagStatusStyle(prefixCls, tagToken, 'success', 'Success'),
+    genTagStatusStyle(prefixCls, tagToken, 'processing', 'Info'),
+    genTagStatusStyle(prefixCls, tagToken, 'error', 'Error'),
+    genTagStatusStyle(prefixCls, tagToken, 'warning', 'Warning'),
   ];
 };
 

@@ -42,7 +42,7 @@ const getDropIndicatorStyle = (prefixCls: string, token: DerivativeToken) => ({
     // it should displayed over the following node
     zIndex: 1,
     height: 2,
-    backgroundColor: token.primaryColor,
+    backgroundColor: token.colorPrimary,
     borderRadius: 1,
     pointerEvents: 'none',
 
@@ -53,7 +53,7 @@ const getDropIndicatorStyle = (prefixCls: string, token: DerivativeToken) => ({
       width: 8,
       height: 8,
       backgroundColor: 'transparent',
-      border: `2px solid ${token.primaryColor}`,
+      border: `2px solid ${token.colorPrimary}`,
       borderRadius: '50%',
       content: '""',
     },
@@ -78,7 +78,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
     [treeCls]: {
       ...resetComponent(token),
       background: token.componentBackground,
-      borderRadius: token.borderRadius,
+      borderRadius: token.controlRadius,
       transition: `background-color ${token.duration}`,
 
       '&&-rtl': {
@@ -122,7 +122,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
               insetInlineEnd: 0,
               bottom: treeNodePadding,
               insetInlineStart: 0,
-              border: `1px solid ${token.primaryColor}`,
+              border: `1px solid ${token.colorPrimary}`,
               opacity: 0,
               animation: `${treeNodeFX.getName(hashId)} ${token.duration}`,
               animationPlayState: 'running',
@@ -149,7 +149,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
         '&-disabled': {
           // >>> Title
           [`${treeCls}-node-content-wrapper`]: {
-            color: token.textColorDisabled,
+            color: token.colorTextDisabled,
             cursor: 'not-allowed',
             '&:hover': {
               background: 'transparent',
@@ -217,7 +217,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
         },
 
         '&-loading-icon': {
-          color: token.primaryColor,
+          color: token.colorPrimary,
         },
 
         '&-leaf-line': {
@@ -234,7 +234,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
             insetInlineEnd: treeTitleHeight / 2,
             bottom: -treeNodePadding,
             marginInlineStart: -1,
-            borderInlineEnd: `1px solid ${token.borderColor}`,
+            borderInlineEnd: `1px solid ${token.colorBorder}`,
             content: '""',
           },
 
@@ -242,7 +242,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
             position: 'absolute',
             width: (treeTitleHeight / 2) * 0.8,
             height: treeTitleHeight / 2,
-            borderBottom: `1px solid ${token.borderColor}`,
+            borderBottom: `1px solid ${token.colorBorder}`,
             content: '""',
           },
         },
@@ -267,7 +267,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
         color: 'inherit',
         lineHeight: `${treeTitleHeight}px`,
         background: 'transparent',
-        borderRadius: token.borderRadius,
+        borderRadius: token.controlRadius,
         cursor: 'pointer',
         transition: `all ${token.duration}, border 0s, line-height 0s, box-shadow 0s`,
 
@@ -309,7 +309,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
 
       [`${treeNodeCls}.drop-container`]: {
         '> [draggable]': {
-          boxShadow: `0 0 0 2px ${token.primaryColor}`,
+          boxShadow: `0 0 0 2px ${token.colorPrimary}`,
         },
       },
 
@@ -326,7 +326,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
               top: 0,
               insetInlineEnd: treeTitleHeight / 2,
               bottom: -treeNodePadding,
-              borderInlineEnd: `1px solid ${token.borderColor}`,
+              borderInlineEnd: `1px solid ${token.colorBorder}`,
               content: '""',
             },
 
@@ -412,7 +412,7 @@ export const genDirectoryStyle = (token: TreeToken): CSSObject => {
           },
 
           [`&.${treeCls}-node-selected`]: {
-            color: token.textColorInverse,
+            color: token.colorTextLightSolid,
             background: 'transparent',
           },
         },
@@ -423,17 +423,17 @@ export const genDirectoryStyle = (token: TreeToken): CSSObject => {
             &:hover::before,
             &::before
           `]: {
-            background: token.primaryColor,
+            background: token.colorPrimary,
           },
 
           // >>> Switcher
           [`${treeCls}-switcher`]: {
-            color: token.textColorInverse,
+            color: token.colorTextLightSolid,
           },
 
           // >>> Title
           [`${treeCls}-node-content-wrapper`]: {
-            color: token.textColorInverse,
+            color: token.colorTextLightSolid,
             background: 'transparent',
           },
         },

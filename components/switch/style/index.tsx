@@ -135,7 +135,7 @@ const genSwitchInnerStyle: GenerateStyle<SwitchToken, CSSObject> = token => {
       display: 'block',
       marginInlineEnd: token.switchInnerMarginMin,
       marginInlineStart: token.switchInnerMarginMax,
-      color: token.textColorInverse,
+      color: token.colorTextLightSolid,
       fontSize: token.fontSizeSM,
       transition: `margin-inline-end ${token.switchDuration}, margin-inline-start ${token.switchDuration}`,
     },
@@ -161,7 +161,7 @@ const genSwitchStyle = (token: SwitchToken): CSSObject => {
       height: token.switchHeight,
       lineHeight: `${token.switchHeight}px`,
       verticalAlign: 'middle',
-      backgroundColor: token.textColorDisabled,
+      backgroundColor: token.colorTextDisabled,
       border: '0',
       // FIXME
       borderRadius: 100,
@@ -172,7 +172,7 @@ const genSwitchStyle = (token: SwitchToken): CSSObject => {
       '&:focus': {
         outline: 0,
         // FIXME
-        boxShadow: `0 0 0 2px ${new TinyColor(token.textColorDisabled)
+        boxShadow: `0 0 0 2px ${new TinyColor(token.colorTextDisabled)
           .setAlpha(0.1)
           .toRgbString()}`,
       },
@@ -235,7 +235,7 @@ export default function useStyle(
     switchMinWidth: 44,
     switchHeight,
     switchDuration: '0.2s',
-    switchColor: token.primaryColor,
+    switchColor: token.colorPrimary,
     switchDisabledOpacity: 0.4,
     switchInnerMarginMin: Math.ceil(switchHeight * 0.3),
     switchInnerMarginMax: Math.ceil(switchHeight * 1.1),

@@ -405,21 +405,20 @@ export default function useSelection<RecordType>(
         let customizeSelections: React.ReactNode;
         if (mergedSelections) {
           const menu = (
-            <Menu getPopupContainer={getPopupContainer}>
-              {mergedSelections.map((selection, index) => {
+            <Menu
+              getPopupContainer={getPopupContainer}
+              items={mergedSelections.map((selection, index) => {
                 const { key, text, onSelect: onSelectionClick } = selection;
-                return (
-                  <Menu.Item
-                    key={key || index}
-                    onClick={() => {
-                      onSelectionClick?.(recordKeys);
-                    }}
-                  >
-                    {text}
-                  </Menu.Item>
-                );
+
+                return {
+                  key: key || index,
+                  onClick: () => {
+                    onSelectionClick?.(recordKeys);
+                  },
+                  label: text,
+                };
               })}
-            </Menu>
+            />
           );
           customizeSelections = (
             <div className={`${prefixCls}-selection-extra`}>

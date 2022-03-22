@@ -47,14 +47,14 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
       [`${sliderCls}-rail`]: {
         position: 'absolute',
         backgroundColor: token.background,
-        borderRadius: token.borderRadius,
+        borderRadius: token.controlRadius,
         transition: `background-color ${token.duration}`,
       },
 
       [`${sliderCls}-track`]: {
         position: 'absolute',
         backgroundColor: token.tmpPrimaryColorWeak, // FIXME: Origin @primary-3
-        borderRadius: token.borderRadius,
+        borderRadius: token.controlRadius,
         transition: `background-color ${token.duration}`,
       },
 
@@ -130,14 +130,14 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
       [`${sliderCls}-mark-text`]: {
         position: 'absolute',
         display: 'inline-block',
-        color: token.textColorSecondary,
+        color: token.colorTextSecondary,
         textAlign: 'center',
         wordBreak: 'keep-all',
         cursor: 'pointer',
         userSelect: 'none',
 
         '&-active': {
-          color: token.textColor,
+          color: token.colorText,
         },
       },
 
@@ -152,7 +152,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         width: dotSize,
         height: dotSize,
         backgroundColor: token.componentBackground,
-        border: `2px solid ${token.borderColorSplit}`, // FIXME: hardcode in v4
+        border: `2px solid ${token.colorSplit}`, // FIXME: hardcode in v4
         borderRadius: '50%',
         cursor: 'pointer',
         transition: `border-color ${token.duration}`,
@@ -170,7 +170,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         },
 
         [`${sliderCls}-track`]: {
-          backgroundColor: `${token.textColorDisabled} !important`,
+          backgroundColor: `${token.colorTextDisabled} !important`,
         },
 
         [`
@@ -178,7 +178,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
           ${sliderCls}-dot
         `]: {
           backgroundColor: token.componentBackground,
-          borderColor: `${token.textColorDisabled} !important`,
+          borderColor: `${token.colorTextDisabled} !important`,
           boxShadow: 'none',
           cursor: 'not-allowed',
         },

@@ -57,6 +57,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Ax4DA0njr/TreeSelect.svg
 | treeExpandedKeys | 设置展开的树节点 | string\[] | - |  |
 | treeIcon | 是否展示 TreeNode title 前的图标，没有默认样式，如设置为 true，需要自行定义图标相关样式 | boolean | false |  |
 | treeLine | 是否展示线条样式，请参考 [Tree - showLine](/components/tree/#components-tree-demo-line) | boolean \| object | false | 4.17.0 |
+| treeLoadedKeys | （受控）已经加载的节点，需要配合 `loadData` 使用 | string[] | [] |  |
 | treeNodeFilterProp | 输入项过滤对应的 treeNode 属性 | string | `value` |  |
 | treeNodeLabelProp | 作为显示的 prop 设置 | string | `title` |  |
 | value | 指定当前选中的条目 | string \| string\[] | - |  |

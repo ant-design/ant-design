@@ -21,8 +21,8 @@ import notification from '../notification';
 import { RequiredMark } from '../form/Form';
 import { registerTheme } from './cssVariables';
 import defaultLocale from '../locale/default';
-import { DesignToken, DesignTokenContext } from '../_util/theme';
-import defaultThemeToken from '../_util/theme/default';
+import { SeedToken, DesignTokenContext } from '../_util/theme';
+import defaultSeedToken from '../_util/theme/themes/default';
 
 export {
   RenderEmptyHandler,
@@ -84,7 +84,7 @@ export interface ConfigProviderProps {
   virtual?: boolean;
   dropdownMatchSelectWidth?: boolean;
   theme?: {
-    token?: Partial<DesignToken>;
+    token?: Partial<SeedToken>;
     hashed?: boolean;
   };
 }
@@ -257,10 +257,11 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
   }
 
   // ================================ Dynamic theme ================================
+  // FIXME: Multiple theme support for pass Theme & override
   const memoTheme = React.useMemo(
     () => ({
       token: {
-        ...defaultThemeToken,
+        ...defaultSeedToken,
         ...theme?.token,
       },
       hashed: theme?.hashed,
