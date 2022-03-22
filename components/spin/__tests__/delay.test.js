@@ -1,5 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
+// eslint-disable-next-line import/no-named-as-default
 import Spin, { Spin as SpinClass } from '..';
 import { sleep } from '../../../tests/utils';
 

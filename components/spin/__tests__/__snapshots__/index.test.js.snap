@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Spin if indicator set null should not be render default indicator 1`] = `
-<SpinFC
+<Spin
   indicator={null}
 >
   <Spin
@@ -13,10 +13,12 @@ exports[`Spin if indicator set null should not be render default indicator 1`] =
     wrapperClassName=""
   >
     <div
+      aria-busy={true}
+      aria-live="polite"
       className="ant-spin ant-spin-spinning"
     />
   </Spin>
-</SpinFC>
+</Spin>
 `;
 
 exports[`Spin rtl render component should be rendered correctly in RTL direction 1`] = `
@@ -57,7 +59,7 @@ exports[`Spin should render custom indicator when it's set 1`] = `
 `;
 
 exports[`Spin should support static method Spin.setDefaultIndicator 1`] = `
-<SpinFC>
+<Spin>
   <Spin
     hashId=""
     size="default"
@@ -66,6 +68,8 @@ exports[`Spin should support static method Spin.setDefaultIndicator 1`] = `
     wrapperClassName=""
   >
     <div
+      aria-busy={true}
+      aria-live="polite"
       className="ant-spin ant-spin-spinning"
     >
       <em
@@ -73,5 +77,5 @@ exports[`Spin should support static method Spin.setDefaultIndicator 1`] = `
       />
     </div>
   </Spin>
-</SpinFC>
+</Spin>
 `;

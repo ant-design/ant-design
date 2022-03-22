@@ -62,7 +62,7 @@ function renderIndicator(prefixCls: string, props: SpinClassProps): React.ReactN
   }
 
   return (
-    <span className={classNames(dotClassName, `${prefixCls}-dot-SpinFC`)}>
+    <span className={classNames(dotClassName, `${prefixCls}-dot-spin`)}>
       <i className={`${prefixCls}-dot-item`} />
       <i className={`${prefixCls}-dot-item`} />
       <i className={`${prefixCls}-dot-item`} />
@@ -205,7 +205,7 @@ const SpinFC: SpinFCType = (props: SpinProps) => {
   const { prefixCls: customizePrefixCls } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
 
-  const spinPrefixCls = getPrefixCls('SpinFC', customizePrefixCls);
+  const spinPrefixCls = getPrefixCls('spin', customizePrefixCls);
 
   const [wrapSSR, hashId] = useStyle(spinPrefixCls);
 
