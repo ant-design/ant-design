@@ -149,6 +149,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     durationFast: '0.1s',
 
     zIndexDropdown: 1050,
+    zIndexAffix: 10,
   };
 
   return aliasToken;

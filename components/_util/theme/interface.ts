@@ -192,6 +192,7 @@ export interface AliasToken extends DerivativeToken {
   componentBackgroundDisabled: string;
 
   zIndexDropdown: number;
+  zIndexAffix: number;
 
   boxShadow?: string;
 
