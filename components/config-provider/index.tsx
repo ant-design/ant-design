@@ -21,7 +21,7 @@ import notification from '../notification';
 import { RequiredMark } from '../form/Form';
 import { registerTheme } from './cssVariables';
 import defaultLocale from '../locale/default';
-import { SeedToken, DesignTokenContext } from '../_util/theme';
+import { SeedToken, DesignTokenContext, useToken } from '../_util/theme';
 import defaultSeedToken from '../_util/theme/themes/default';
 
 export {
@@ -284,6 +284,7 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
   ConfigContext: typeof ConfigContext;
   SizeContext: typeof SizeContext;
   config: typeof setGlobalConfig;
+  useToken: typeof useToken;
 } = props => {
   React.useEffect(() => {
     if (props.direction) {
@@ -316,5 +317,6 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
 ConfigProvider.ConfigContext = ConfigContext;
 ConfigProvider.SizeContext = SizeContext;
 ConfigProvider.config = setGlobalConfig;
+ConfigProvider.useToken = useToken;
 
 export default ConfigProvider;
