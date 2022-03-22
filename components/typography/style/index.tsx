@@ -39,7 +39,7 @@ const genTypographyStyle: GenerateStyle<TypographyToken> = token => {
       },
 
       '&&-disabled': {
-        color: token.disabledColor,
+        color: token.colorTextDisabled,
         cursor: 'not-allowed',
         userSelect: 'none',
       },

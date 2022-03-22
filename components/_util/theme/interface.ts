@@ -170,12 +170,9 @@ export interface AliasToken extends DerivativeToken {
   colorSplit: string;
   colorTextSecondary: string;
   colorTextDisabled: string;
+  colorPlaceholder: string;
 
   // =============== Legacy: should be remove ===============
-  placeholderColor: string;
-
-  disabledColor: string;
-
   iconColorHover: string;
 
   headingColor: string;

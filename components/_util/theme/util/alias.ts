@@ -40,6 +40,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
 
     colorTextSecondary: mergedToken.colorTextBelow,
     colorTextDisabled: mergedToken.colorTextBelow2,
+    colorPlaceholder: mergedToken.colorBgBelow2,
 
     // Font
     fontSizeSM: fontSizes[0],
@@ -108,10 +109,6 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     linkDecoration: 'none',
     linkHoverDecoration: 'none',
     linkFocusDecoration: 'none',
-
-    placeholderColor: new TinyColor({ h: 0, s: 0, v: 75 }).setAlpha(0.5).toRgbString(),
-
-    disabledColor: new TinyColor('#000').setAlpha(0.25).toRgbString(),
 
     headingColor: new TinyColor('#000').setAlpha(0.85).toRgbString(),
 

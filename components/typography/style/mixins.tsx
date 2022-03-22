@@ -74,7 +74,7 @@ export const getLinkStyles: GenerateStyle<TypographyToken, CSSObject> = token =>
     },
 
     [`&[disabled], &.${token.typography.prefixCls}-disabled`]: {
-      color: token.disabledColor,
+      color: token.colorTextDisabled,
       cursor: 'not-allowed',
 
       '&:active, &:hover': {

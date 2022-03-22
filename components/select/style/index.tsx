@@ -165,7 +165,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
       [`${selectCls}-selection-placeholder`]: {
         flex: 1,
         overflow: 'hidden',
-        color: token.placeholderColor,
+        color: token.colorPlaceholder,
         whiteSpace: 'nowrap',
         textOverflow: 'ellipsis',
         pointerEvents: 'none',

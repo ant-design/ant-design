@@ -77,7 +77,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
 
       // Opacity selection if open
       [`&${selectCls}-open ${selectCls}-selection-item`]: {
-        color: token.placeholderColor,
+        color: token.colorPlaceholder,
       },
 
       // ========================== Input ==========================
