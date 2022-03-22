@@ -42,13 +42,13 @@ export const genPlaceholderStyle = (
 
 export const genHoverStyle = (token: InputToken): CSSObject => ({
   borderColor: token.inputBorderHoverColor,
-  borderInlineEndWidth: token.borderWidth,
+  borderInlineEndWidth: token.controlLineWidth,
 });
 
 export const genActiveStyle = (token: InputToken) => ({
   borderColor: token.inputBorderHoverColor,
   boxShadow: `0 0 0 ${token.outlineWidth}px ${token.primaryOutlineColor}`,
-  borderInlineEndWidth: token.borderWidth,
+  borderInlineEndWidth: token.controlLineWidth,
   outline: 0,
 });
 
@@ -132,7 +132,7 @@ export const genBasicInputStyle = (token: InputToken): CSSObject => ({
   lineHeight: token.lineHeight,
   backgroundColor: token.componentBackground,
   backgroundImage: 'none',
-  borderWidth: token.borderWidth,
+  borderWidth: token.controlLineWidth,
   borderStyle: token.borderStyle,
   borderColor: token.borderColor,
   borderRadius: token.borderRadius,
@@ -257,7 +257,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
         fontSize: token.fontSize,
         textAlign: 'center',
         backgroundColor: token.backgroundLight,
-        border: `${token.borderWidth}px ${token.borderStyle} ${token.borderColor}`,
+        border: `${token.controlLineWidth}px ${token.borderStyle} ${token.borderColor}`,
         borderRadius: token.borderRadius,
         transition: `all ${token.duration}`,
 
@@ -268,7 +268,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
           '&.ant-select-single:not(.ant-select-customize-input)': {
             '.ant-select-selector': {
               backgroundColor: 'inherit',
-              border: `${token.borderWidth}px ${token.borderStyle} transparent`,
+              border: `${token.controlLineWidth}px ${token.borderStyle} transparent`,
               boxShadow: 'none',
             },
           },
@@ -379,7 +379,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
 
       [`.${prefixCls}-group-addon, .${prefixCls}-group-wrap, > .${prefixCls}`]: {
         '&:not(:first-child):not(:last-child)': {
-          borderInlineEndWidth: token.borderWidth,
+          borderInlineEndWidth: token.controlLineWidth,
 
           '&:hover': {
             zIndex: 1,
@@ -407,8 +407,8 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
       },
 
       '& > *:not(:last-child)': {
-        marginInlineEnd: -token.borderWidth,
-        borderInlineEndWidth: token.borderWidth,
+        marginInlineEnd: -token.controlLineWidth,
+        borderInlineEndWidth: token.controlLineWidth,
       },
 
       // Undo float for .ant-input-group .ant-input
@@ -421,7 +421,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
       & > .ant-select-auto-complete .${prefixCls},
       & > .ant-cascader-picker .${prefixCls},
       & > .${prefixCls}-group-wrapper .${prefixCls}`]: {
-        borderInlineEndWidth: token.borderWidth,
+        borderInlineEndWidth: token.controlLineWidth,
         borderRadius: 0,
 
         '&:hover': {
@@ -454,7 +454,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
       & > .ant-select:last-child > .ant-select-selector,
       & > .ant-cascader-picker:last-child .${prefixCls},
       & > .ant-cascader-picker-focused:last-child .${prefixCls}`]: {
-        borderInlineEndWidth: token.borderWidth,
+        borderInlineEndWidth: token.controlLineWidth,
         borderStartEndRadius: token.borderRadius,
         borderEndEndRadius: token.borderRadius,
       },
@@ -811,18 +811,18 @@ export const initInputToken = (
   inputAffixMargin: token.marginXXS,
   inputPaddingVertical: Math.max(
     Math.round(((token.controlHeight - token.fontSize * token.lineHeight) / 2) * 10) / 10 -
-      token.borderWidth,
+      token.controlLineWidth,
     3,
   ),
   inputPaddingVerticalLG:
     Math.ceil(((token.controlHeightLG - token.fontSizeLG * token.lineHeight) / 2) * 10) / 10 -
-    token.borderWidth,
+    token.controlLineWidth,
   inputPaddingVerticalSM: Math.max(
     Math.round(((token.controlHeightSM - token.fontSize * token.lineHeight) / 2) * 10) / 10 -
-      token.borderWidth,
+      token.controlLineWidth,
     0,
   ),
-  inputPaddingHorizontal: token.paddingSM - token.borderWidth,
+  inputPaddingHorizontal: token.paddingSM - token.controlLineWidth,
   inputBorderHoverColor: token.primaryHoverColor,
   inputBorderActiveColor: token.primaryHoverColor,
 });

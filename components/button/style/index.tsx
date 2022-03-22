@@ -23,7 +23,7 @@ const genSharedButtonStyle = (
   textAlign: 'center',
   backgroundImage: 'none',
   backgroundColor: 'transparent',
-  border: `${token.borderWidth}px ${token.borderStyle} transparent`,
+  border: `${token.controlLineWidth}px ${token.borderStyle} transparent`,
   cursor: 'pointer',
   transition: `all ${token.duration} ${token.motionEaseInOut}`,
   userSelect: 'none',
@@ -296,9 +296,9 @@ const genSizeButtonStyle = (
 ): CSSInterpolation => {
   const paddingVertical = Math.max(
     0,
-    (token.controlHeight - token.fontSize * token.lineHeight) / 2 - token.borderWidth,
+    (token.controlHeight - token.fontSize * token.lineHeight) / 2 - token.controlLineWidth,
   );
-  const paddingHorizontal = token.padding - token.borderWidth;
+  const paddingHorizontal = token.padding - token.controlLineWidth;
 
   const iconOnlyCls = `.${prefixCls}-icon-only`;
 

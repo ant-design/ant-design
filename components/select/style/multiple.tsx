@@ -4,7 +4,11 @@ import { resetIcon } from '../../_util/theme';
 
 const FIXED_ITEM_MARGIN = 2;
 
-function getSelectItemStyle({ controlHeightSM, controlHeight, borderWidth }: SelectToken) {
+function getSelectItemStyle({
+  controlHeightSM,
+  controlHeight,
+  controlLineWidth: borderWidth,
+}: SelectToken) {
   const selectItemDist = (controlHeight - controlHeightSM) / 2 - borderWidth;
   const selectItemMargin = Math.ceil(selectItemDist / 2);
   return [selectItemDist, selectItemMargin];
@@ -87,9 +91,9 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         height: selectItemHeight,
         marginTop: FIXED_ITEM_MARGIN,
         marginBottom: FIXED_ITEM_MARGIN,
-        lineHeight: `${selectItemHeight - token.borderWidth * 2}px`,
+        lineHeight: `${selectItemHeight - token.controlLineWidth * 2}px`,
         background: token.background,
-        border: `${token.borderWidth}px solid ${token.borderColorSplit}`,
+        border: `${token.controlLineWidth}px solid ${token.borderColorSplit}`,
         borderRadius: token.borderRadius,
         cursor: 'default',
         transition: `font-size ${token.duration}, line-height ${token.duration}, height ${token.duration}`,
@@ -206,7 +210,7 @@ export default function genMultipleStyle(token: SelectToken): CSSInterpolation {
     {
       [`${selectCls}-multiple${selectCls}-sm`]: {
         [`${selectCls}-selection-placeholder`]: {
-          insetInlineStart: token.controlPaddingHorizontalSM - token.borderWidth,
+          insetInlineStart: token.controlPaddingHorizontalSM - token.controlLineWidth,
           insetInlineEnd: 'auto',
         },
 

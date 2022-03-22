@@ -27,7 +27,7 @@ interface InputNumberToken extends InputToken {
 const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumberToken) => {
   const {
     inputNumberCls,
-    borderWidth,
+    controlLineWidth: borderWidth,
     borderStyle,
     borderColor,
     borderRadius,

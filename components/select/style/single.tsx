@@ -4,7 +4,7 @@ import type { SelectToken } from '.';
 function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
   const { selectCls, inputPaddingHorizontalBase } = token;
 
-  const selectHeightWithoutBorder = token.controlHeight - token.borderWidth * 2;
+  const selectHeightWithoutBorder = token.controlHeight - token.controlLineWidth * 2;
 
   const selectionItemPadding = Math.ceil(token.fontSize * 1.25);
 
@@ -129,7 +129,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
 export default function genSingleStyle(token: SelectToken): CSSInterpolation {
   const { selectCls } = token;
 
-  const inputPaddingHorizontalSM = token.controlPaddingHorizontalSM - token.borderWidth;
+  const inputPaddingHorizontalSM = token.controlPaddingHorizontalSM - token.controlLineWidth;
 
   return [
     genSizeStyle(token),

@@ -58,6 +58,9 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     lineHeightHeading4: lineHeights[3],
     lineHeightHeading5: lineHeights[2],
 
+    // Control
+    controlLineWidth: mergedToken.lineWidth,
+
     // 🔥🔥🔥🔥🔥🔥🔥🔥🔥 All TMP Token leaves here 🔥🔥🔥🔥🔥🔥🔥🔥🔥
     // FIXME: Handle this when derivative is ready
     primaryColors,
@@ -95,7 +98,6 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     linkHoverDecoration: 'none',
     linkFocusDecoration: 'none',
 
-    borderWidth: 1,
     borderStyle: 'solid',
     borderRadius: 2,
     borderColor: new TinyColor({ h: 0, s: 0, v: 85 }).toHexString(),

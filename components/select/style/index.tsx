@@ -34,7 +34,7 @@ const genSelectorStyle: GenerateStyle<SelectToken, CSSObject> = token => {
   return {
     position: 'relative',
     backgroundColor: token.componentBackground,
-    border: `${token.borderWidth}px ${token.borderStyle} ${token.borderColor}`,
+    border: `${token.controlLineWidth}px ${token.borderStyle} ${token.borderColor}`,
     borderRadius: token.borderRadius,
     transition: `all ${token.duration} ${token.motionEaseInOut}`,
 
@@ -75,7 +75,7 @@ const genStatusStyle = (
     outlineColor: string;
     outlineWidth: number;
     outlineBlurSize: number;
-    borderWidth: number;
+    controlLineWidth: number;
   },
   overwriteDefaultBorder: boolean = false,
 ): CSSObject => {
@@ -98,13 +98,13 @@ const genStatusStyle = (
           borderColor: borderHoverColor,
           // FIXME: missing variable of `@input-outline-offset`
           boxShadow: `0 0 ${token.outlineBlurSize}px ${token.outlineWidth}px ${outlineColor}`,
-          borderInlineEndWidth: `${token.borderWidth}px !important`,
+          borderInlineEndWidth: `${token.controlLineWidth}px !important`,
           outline: 0,
         },
 
         [`&:hover ${selectCls}-selector`]: {
           borderColor: borderHoverColor,
-          borderInlineEndWidth: `${token.borderWidth}px !important`,
+          borderInlineEndWidth: `${token.controlLineWidth}px !important`,
         },
       },
     },
