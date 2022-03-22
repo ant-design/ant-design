@@ -114,7 +114,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken, hashId: string
           background: token.componentBackground,
           opacity: 0,
           transition: 'all 0.3s',
-          content: '',
+          content: '""',
           pointerEvents: 'none',
         },
       },
