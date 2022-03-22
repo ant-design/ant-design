@@ -18,8 +18,6 @@ const defaultPresetColors: PresetColorType = {
   geekblue: '#2F54EB',
   gold: '#FAAD14',
   lime: '#A0D911',
-  black: '#000',
-  white: '#fff',
 };
 
 export function derivative(token: SeedToken): DerivativeToken {
@@ -152,7 +150,6 @@ const seedToken: SeedToken = {
   motionEaseOutBack: `cubic-bezier(0.12, 0.4, 0.29, 1.46)`,
   motionEaseInQuint: `cubic-bezier(0.645, 0.045, 0.355, 1)`,
   motionEaseOutQuint: `cubic-bezier(0.23, 1, 0.32, 1)`,
-  motionEaseOut: 'cubic-bezier(0.215, 0.61, 0.355, 1)',
 
   // Radius
   radiusBase: 2,

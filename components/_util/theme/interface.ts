@@ -14,8 +14,6 @@ export const PresetColors = [
   'geekblue',
   'lime',
   'gold',
-  'black',
-  'white',
 ] as const;
 
 type PresetColorKey = typeof PresetColors[number];
@@ -67,7 +65,6 @@ export interface SeedToken extends PresetColorType {
   motionEaseOutBack: string;
   motionEaseInQuint: string;
   motionEaseOutQuint: string;
-  motionEaseOut: string;
 
   // Radius
   radiusBase: number;
@@ -122,7 +119,6 @@ export interface DerivativeToken extends SeedToken, ColorPalettes {
   motionDurationMd: string;
   motionDurationFast: string;
   motionDurationSlow: string;
-  motionEaseOut: string;
   fontHeight: number;
 
   // Radius

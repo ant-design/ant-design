@@ -1,3 +1,4 @@
+// deps-lint-skip-all
 import { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 import {
@@ -31,6 +32,9 @@ export interface ImageToken extends DerivativeToken {
   modalMaskBg: string;
   zIndexImage: number;
   zIndexModalMask: number;
+  motionEaseOut: string;
+  white: string;
+  black: string;
 }
 
 export type PositionType = 'static' | 'relative' | 'fixed' | 'absolute' | 'sticky' | undefined;
@@ -87,7 +91,7 @@ export const genPreviewOperationsStyle = (token: ImageToken): CSSObject => {
     width: '100%',
     color: black,
     listStyle: 'none',
-    background: new TinyColor(modalMaskBg).setAlpha(0.1).toRgbString(),
+    background: new TinyColor(modalMaskBg).setAlpha(0.1).toRgbString(), // FIXME: hard code
     pointerEvents: 'auto',
 
     [`.${previewPrefixCls}-operations-operation`]: {
@@ -294,14 +298,14 @@ export default function useStyle(
   iconPrefixCls: string,
 ): UseComponentStyleResult {
   const [theme, token, hashId] = useToken();
-
-  const { black } = token;
   const inputToken: ImageToken = {
     ...token,
     prefixCls,
     iconPrefixCls,
     previewPrefixCls: `${prefixCls}-preview`,
 
+    white: '#fff', // FIXME: hard code
+    black: '#000', // FIXME: hard code
     imageSizeBase: 48, // FIXME: hard code in v4
     imageFontSizeBase: 24, // FIXME: hard code in v4
     imageBg: '#f5f5f5', // FIXME: hard code in v4
@@ -315,10 +319,11 @@ export default function useStyle(
     switchLeft: 10, // FIXME: hard code in v4
     switchMarginTop: -22, // FIXME: hard code in v4
     width1px: 1, // FIXME: hard code in v4
-    imagePreviewOperationDisabledColor: new TinyColor(black).setAlpha(0.25).toRgbString(), // FIXME: hard code in v4
-    modalMaskBg: new TinyColor(black).setAlpha(0.45).toRgbString(), // FIXME: hard code in v4
+    imagePreviewOperationDisabledColor: new TinyColor('#000').setAlpha(0.25).toRgbString(), // FIXME: hard code in v4
+    modalMaskBg: new TinyColor('#000').setAlpha(0.45).toRgbString(), // FIXME: hard code in v4
     zIndexImage: 1080, // FIXME: hard code in v4
     zIndexModalMask: 1000, // FIXME: hard code in v4
+    motionEaseOut: 'cubic-bezier(0.215, 0.61, 0.355, 1)', // FIXME: hard code in v4
   };
 
   return [
