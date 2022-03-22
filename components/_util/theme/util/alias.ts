@@ -106,8 +106,6 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     linkHoverDecoration: 'none',
     linkFocusDecoration: 'none',
 
-    outlineBlurSize: 0,
-
     fontFamily: `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
   'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
   'Noto Color Emoji'`,

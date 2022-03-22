@@ -74,7 +74,6 @@ const genStatusStyle = (
     borderHoverColor: string;
     outlineColor: string;
     controlOutlineWidth: number;
-    outlineBlurSize: number;
     controlLineWidth: number;
   },
   overwriteDefaultBorder: boolean = false,
@@ -97,7 +96,7 @@ const genStatusStyle = (
         [`${selectCls}-focused& ${selectCls}-selector`]: {
           borderColor: borderHoverColor,
           // FIXME: missing variable of `@input-outline-offset`
-          boxShadow: `0 0 ${token.outlineBlurSize}px ${token.controlOutlineWidth}px ${outlineColor}`,
+          boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${outlineColor}`,
           borderInlineEndWidth: `${token.controlLineWidth}px !important`,
           outline: 0,
         },
