@@ -18,6 +18,8 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     ...derivative,
   };
 
+  const { fontSizes, lineHeights } = mergedToken;
+
   // FIXME: tmp
   const primaryColors = generate(mergedToken.colorPrimary);
   const infoColors = generate(mergedToken.colorInfo);
@@ -30,11 +32,47 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     ...mergedToken,
 
     // Colors
-    primaryHoverColor: mergedToken.colorPrimaryHover,
-    primaryActiveColor: mergedToken.colorPrimaryActive,
-    errorHoverColor: mergedToken.colorErrorHover,
-    errorActiveColor: mergedToken.colorErrorActive,
-    warningHoverColor: mergedToken.colorWarningHover,
+    colorTextSecondary: mergedToken.colorTextBelow,
+    colorTextDisabled: mergedToken.colorTextBelow2,
+    colorPlaceholder: mergedToken.colorTextBelow2,
+    colorTextHeading: mergedToken.colorText,
+
+    colorBgContainer: mergedToken.colorBgBelow2,
+    colorBgComponent: mergedToken.colorBg,
+    colorBgComponentDisabled: mergedToken.colorBgBelow2,
+
+    // Font
+    fontSizeSM: fontSizes[0],
+    fontSize: fontSizes[1],
+    fontSizeLG: fontSizes[2],
+    fontSizeXL: fontSizes[3],
+    fontSizeHeading1: fontSizes[6],
+    fontSizeHeading2: fontSizes[5],
+    fontSizeHeading3: fontSizes[4],
+    fontSizeHeading4: fontSizes[3],
+    fontSizeHeading5: fontSizes[2],
+
+    lineHeight: lineHeights[1],
+    lineHeightLG: lineHeights[2],
+
+    lineHeightHeading1: lineHeights[6],
+    lineHeightHeading2: lineHeights[5],
+    lineHeightHeading3: lineHeights[4],
+    lineHeightHeading4: lineHeights[3],
+    lineHeightHeading5: lineHeights[2],
+
+    // Control
+    controlLineWidth: mergedToken.lineWidth,
+    controlOutlineWidth: mergedToken.lineWidth * 2,
+    controlItemBgHover: mergedToken.colorBgBelow2,
+
+    // 👀👀👀👀👀👀👀👀👀 Not align with Derivative 👀👀👀👀👀👀👀👀👀
+    // FIXME: @arvinxx handle this
+    controlLineType: 'solid',
+    controlRadius: mergedToken.radiusBase,
+    colorBorder: new TinyColor({ h: 0, s: 0, v: 85 }).toHexString(),
+    colorSplit: new TinyColor({ h: 0, s: 0, v: 94 }).toHexString(),
+    controlItemBgActive: primaryColors[0],
 
     // 🔥🔥🔥🔥🔥🔥🔥🔥🔥 All TMP Token leaves here 🔥🔥🔥🔥🔥🔥🔥🔥🔥
     // FIXME: Handle this when derivative is ready
@@ -57,18 +95,6 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     tmpErrorColorDeprecatedBorder: errorColors[2],
     tmpInfoColorDeprecatedBorder: infoColors[2],
 
-    primaryOutlineColor: new TinyColor(mergedToken.primaryColor).setAlpha(0.2).toRgbString(),
-    errorOutlineColor: new TinyColor(mergedToken.errorColor).setAlpha(0.2).toRgbString(),
-    warningOutlineColor: new TinyColor(mergedToken.warningColor).setAlpha(0.2).toRgbString(),
-
-    primaryColor: mergedToken.colorPrimary,
-    successColor: mergedToken.colorSuccess,
-    warningColor: mergedToken.colorWarning,
-    errorColor: mergedToken.colorError,
-    infoColor: mergedToken.colorInfo,
-
-    itemActiveBackground: primaryColors[0],
-
     highlightColor: errorColors[5], // FIXME: Should not align with error color
     // FIXME: fix2 badge-color
 
@@ -79,46 +105,8 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     linkHoverDecoration: 'none',
     linkFocusDecoration: 'none',
 
-    // https://github.com/ant-design/ant-design/issues/20210
-    lineHeight: 1.5715,
-
-    borderWidth: 1,
-    borderStyle: 'solid',
-    borderRadius: 2,
-    borderColor: new TinyColor({ h: 0, s: 0, v: 85 }).toHexString(),
-    borderColorSplit: new TinyColor({ h: 0, s: 0, v: 94 }).toHexString(),
-
-    easeInOut: `cubic-bezier(0.645, 0.045, 0.355, 1)`,
-    easeInOutCirc: `cubic-bezier(0.78, 0.14, 0.15, 0.86)`,
-    easeOutBack: `cubic-bezier(0.12, 0.4, 0.29, 1.46)`,
-    easeInQuint: `cubic-bezier(0.755, 0.05, 0.855, 0.06)`,
-    easeOutQuint: `cubic-bezier(0.23, 1, 0.32, 1)`,
-
-    outlineWidth: 2,
-    outlineBlurSize: 0,
-
-    fontSize: 14,
-    fontFamily: `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-  'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-  'Noto Color Emoji'`,
-    textColor: new TinyColor('#000').setAlpha(0.85).toRgbString(),
-    textColorSecondary: new TinyColor('#000').setAlpha(0.45).toRgbString(),
-    textColorDisabled: new TinyColor('#000').setAlpha(0.25).toRgbString(),
-    textColorInverse: '#fff',
-    placeholderColor: new TinyColor({ h: 0, s: 0, v: 75 }).setAlpha(0.5).toRgbString(),
-
-    disabledColor: new TinyColor('#000').setAlpha(0.25).toRgbString(),
-
-    headingColor: new TinyColor('#000').setAlpha(0.85).toRgbString(),
-
     iconColorHover: new TinyColor('#000').setAlpha(0.75).toRgbString(),
 
-    itemHoverBackground: '#f5f5f5',
-
-    controlHeight: 32,
-    controlHeightSM: 24,
-    controlHeightXS: 16,
-    controlHeightLG: 40,
     controlPaddingHorizontal: 16,
     controlPaddingHorizontalSM: 12,
 
@@ -135,26 +123,17 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     // marginSM: 8,
     marginLG: 32,
 
-    // Default grey background color
-    background: new TinyColor({ h: 0, s: 0, v: 96 }).toHexString(),
-
     // background of header and selected item
     backgroundLight: new TinyColor({ h: 0, s: 0, v: 98 }).toHexString(),
 
-    componentBackground: '#fff',
-    componentBackgroundDisabled: new TinyColor({ h: 0, s: 0, v: 96 }).toHexString(),
-
-    duration: '0.3s',
-    durationMid: '0.2s',
-    durationFast: '0.1s',
-
-    heading1Size: Math.ceil(mergedToken.fontSize * 2.71),
-    heading2Size: Math.ceil(mergedToken.fontSize * 2.14),
-    heading3Size: Math.ceil(mergedToken.fontSize * 1.71),
-    heading4Size: Math.ceil(mergedToken.fontSize * 1.42),
-    heading5Size: Math.ceil(mergedToken.fontSize * 1.14),
-
     zIndexDropdown: 1050,
+    zIndexAffix: 10,
+
+    boxShadow: `
+      0 3px 6px -4px rgba(0, 0, 0, 0.12),
+      0 6px 16px 0 rgba(0, 0, 0, 0.08),
+      0 9px 28px 8px rgba(0, 0, 0, 0.05)
+    `,
   };
 
   return aliasToken;
