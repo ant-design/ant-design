@@ -46,7 +46,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
 
       [`${sliderCls}-rail`]: {
         position: 'absolute',
-        backgroundColor: token.background,
+        backgroundColor: token.colorBgContainer,
         borderRadius: token.controlRadius,
         transition: `background-color ${token.motionDurationSlow}`,
       },
@@ -166,7 +166,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         cursor: 'not-allowed',
 
         [`${sliderCls}-rail`]: {
-          backgroundColor: `${token.background} !important`,
+          backgroundColor: `${token.colorBgContainer} !important`,
         },
 
         [`${sliderCls}-track`]: {

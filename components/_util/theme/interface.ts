@@ -180,6 +180,7 @@ export interface AliasToken extends DerivativeToken {
   /** Placeholder text color */
   colorPlaceholder: string;
   colorTextHeading: string;
+  colorBgContainer: string;
   colorBgComponent: string;
   colorBgComponentDisabled: string;
 
@@ -189,7 +190,6 @@ export interface AliasToken extends DerivativeToken {
   padding: number;
   margin: number;
 
-  background: string;
   backgroundLight: string;
 
   zIndexDropdown: number;

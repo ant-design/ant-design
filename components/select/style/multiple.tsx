@@ -92,7 +92,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         marginTop: FIXED_ITEM_MARGIN,
         marginBottom: FIXED_ITEM_MARGIN,
         lineHeight: `${selectItemHeight - token.controlLineWidth * 2}px`,
-        background: token.background,
+        background: token.colorBgContainer,
         border: `${token.controlLineWidth}px solid ${token.colorSplit}`,
         borderRadius: token.controlRadius,
         cursor: 'default',
