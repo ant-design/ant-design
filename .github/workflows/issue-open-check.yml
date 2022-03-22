@@ -8,14 +8,14 @@ jobs:
   issue-open-check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions-cool/check-user-permission@v1
+      - uses: actions-cool/check-user-permission@v2
         id: checkUser
         with:
           require: 'write'
           check-bot: true
 
       - name: check invalid
-        if: (contains(github.event.issue.body, 'ant-design-issue-helper') == false) && (steps.checkUser.outputs.result == 'false')
+        if: (contains(github.event.issue.body, 'ant-design-issue-helper') == false) && (steps.checkUser.outputs.require-result == 'false')
         uses: actions-cool/issues-helper@v3
         with:
           actions: 'create-comment,add-labels,close-issue'
@@ -83,6 +83,6 @@ jobs:
         with:
           DING_TALK_TOKEN: ${{ secrets.DINGDING_BOT_TOKEN }}
           notify_title: '🔥 @${{ github.event.issue.user.login }} 创建了 issue：${{ github.event.issue.title }}'
-          notify_body: '### 🔥 @${{ github.event.issue.user.login }} 创建了 issue：[${{ github.event.issue.title }}](${{ github.event.issue.html_url }}) <hr /> ${{ github.event.issue.body }}'
+          notify_body: '### 🔥 @${{ github.event.issue.user.login }} 创建了 issue：[${{ github.event.issue.title }}](${{ github.event.issue.html_url }}) <hr /> ![](https://gw.alipayobjects.com/zos/antfincdn/5Cl2G7JjF/jieping2022-03-20%252520xiawu11.06.04.png) <hr /> ${{ github.event.issue.body }}'
           notify_footer: '> 💬 欢迎前往 GitHub 进行讨论，社区可能需要你的帮助。'
           at_all: false # whether to ding everybody
