@@ -95,12 +95,15 @@ export function derivative(token: SeedToken): DerivativeToken {
     colorBgBelow: new TinyColor({ h: 0, s: 0, v: 98 }).toHexString(),
     colorBgBelow2: new TinyColor({ h: 0, s: 0, v: 96 }).toHexString(),
 
-    colorErrorActive: errorColors[6],
-    colorErrorHover: errorColors[4],
     colorPrimaryActive: primaryColors[6],
     colorPrimaryHover: primaryColors[4],
+    colorPrimaryOutline: new TinyColor(colorPrimary).setAlpha(0.2).toRgbString(),
+    colorErrorActive: errorColors[6],
+    colorErrorHover: errorColors[4],
+    colorErrorOutline: new TinyColor(colorError).setAlpha(0.2).toRgbString(),
     colorWarningActive: warningColors[6],
     colorWarningHover: warningColors[4],
+    colorWarningOutline: new TinyColor(colorWarning).setAlpha(0.2).toRgbString(),
 
     // text color
     colorText2: new TinyColor('#000').setAlpha(0.85).toRgbString(),

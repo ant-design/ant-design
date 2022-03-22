@@ -47,7 +47,7 @@ export const genHoverStyle = (token: InputToken): CSSObject => ({
 
 export const genActiveStyle = (token: InputToken) => ({
   borderColor: token.inputBorderHoverColor,
-  boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${token.primaryOutlineColor}`,
+  boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${token.colorPrimaryOutline}`,
   borderInlineEndWidth: token.controlLineWidth,
   outline: 0,
 });
@@ -79,7 +79,7 @@ const genInputSmallStyle = (token: InputToken): CSSObject => ({
 });
 
 export const genStatusStyle = (token: InputToken): CSSObject => {
-  const { prefixCls, colorError, colorWarning, errorOutlineColor, warningOutlineColor } = token;
+  const { prefixCls, colorError, colorWarning, colorErrorOutline, colorWarningOutline } = token;
 
   return {
     '&-status-error:not(&-disabled):not(&-borderless)&': {
@@ -92,7 +92,7 @@ export const genStatusStyle = (token: InputToken): CSSObject => {
           ...token,
           inputBorderActiveColor: colorError,
           inputBorderHoverColor: colorError,
-          primaryOutlineColor: errorOutlineColor,
+          colorPrimaryOutline: colorErrorOutline,
         }),
       },
 
@@ -110,7 +110,7 @@ export const genStatusStyle = (token: InputToken): CSSObject => {
           ...token,
           inputBorderActiveColor: colorWarning,
           inputBorderHoverColor: colorWarning,
-          primaryOutlineColor: warningOutlineColor,
+          colorPrimaryOutline: colorWarningOutline,
         }),
       },
 

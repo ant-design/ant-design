@@ -85,10 +85,15 @@ export interface DerivativeToken extends SeedToken, ColorPalettes {
   // Color
   colorPrimaryHover: string;
   colorPrimaryActive: string;
+  colorPrimaryOutline: string;
+
   colorWarningHover: string;
   colorWarningActive: string;
+  colorWarningOutline: string;
+
   colorErrorHover: string;
   colorErrorActive: string;
+  colorErrorOutline: string;
 
   colorText2: string;
   colorTextBelow: string;
@@ -164,6 +169,7 @@ export interface AliasToken extends DerivativeToken {
   controlRadius: number;
   controlOutlineWidth: number;
   controlItemBgHover: string; // Note. It also is a color
+  controlItemBgActive: string; // Note. It also is a color
 
   // Color
   colorBorder: string;
@@ -191,11 +197,6 @@ export interface AliasToken extends DerivativeToken {
   boxShadow: string;
 
   // =============== Legacy: should be remove ===============
-  primaryOutlineColor: string;
-  warningOutlineColor: string;
-  errorOutlineColor: string;
-  itemActiveBackground: string;
-
   highlightColor: string;
 
   linkColor: string;

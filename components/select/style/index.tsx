@@ -332,14 +332,14 @@ const genSelectStyle = (
     genStatusStyle(selectCls, {
       ...selectToken,
       borderHoverColor: token.colorPrimaryHover,
-      outlineColor: token.primaryOutlineColor,
+      outlineColor: token.colorPrimaryOutline,
     }),
     genStatusStyle(
       `${selectCls}-status-error`,
       {
         ...selectToken,
         borderHoverColor: token.colorErrorHover,
-        outlineColor: token.errorOutlineColor,
+        outlineColor: token.colorErrorOutline,
       },
       true,
     ),
@@ -348,7 +348,7 @@ const genSelectStyle = (
       {
         ...selectToken,
         borderHoverColor: token.colorWarningHover,
-        outlineColor: token.warningOutlineColor,
+        outlineColor: token.colorWarningOutline,
       },
       true,
     ),

@@ -71,6 +71,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     controlRadius: mergedToken.radiusBase,
     colorBorder: new TinyColor({ h: 0, s: 0, v: 85 }).toHexString(),
     colorSplit: new TinyColor({ h: 0, s: 0, v: 94 }).toHexString(),
+    controlItemBgActive: primaryColors[0],
 
     // 🔥🔥🔥🔥🔥🔥🔥🔥🔥 All TMP Token leaves here 🔥🔥🔥🔥🔥🔥🔥🔥🔥
     // FIXME: Handle this when derivative is ready
@@ -92,12 +93,6 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     tmpWarningColorDeprecatedBorder: warningColors[2],
     tmpErrorColorDeprecatedBorder: errorColors[2],
     tmpInfoColorDeprecatedBorder: infoColors[2],
-
-    primaryOutlineColor: new TinyColor(mergedToken.colorPrimary).setAlpha(0.2).toRgbString(),
-    errorOutlineColor: new TinyColor(mergedToken.colorError).setAlpha(0.2).toRgbString(),
-    warningOutlineColor: new TinyColor(mergedToken.colorWarning).setAlpha(0.2).toRgbString(),
-
-    itemActiveBackground: primaryColors[0],
 
     highlightColor: errorColors[5], // FIXME: Should not align with error color
     // FIXME: fix2 badge-color
