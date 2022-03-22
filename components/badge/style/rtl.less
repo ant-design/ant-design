@@ -30,6 +30,19 @@
       }
     }
   }
+
+  &-zoom-appear,
+  &-zoom-enter {
+    .@{badge-prefix-cls}-rtl & {
+      animation-name: antZoomBadgeInRtl;
+    }
+  }
+
+  &-zoom-leave {
+    .@{badge-prefix-cls}-rtl & {
+      animation-name: antZoomBadgeOutRtl;
+    }
+  }
 }
 
 .@{ribbon-prefix-cls}-rtl {
@@ -63,5 +76,28 @@
         border-color: currentcolor transparent transparent currentcolor;
       }
     }
+  }
+}
+
+
+@keyframes antZoomBadgeInRtl {
+  0% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1) translate(-50%, -50%);
+  }
+}
+
+@keyframes antZoomBadgeOutRtl {
+  0% {
+    transform: scale(1) translate(-50%, -50%);
+  }
+
+  100% {
+    transform: scale(0) translate(-50%, -50%);
+    opacity: 0;
   }
 }
