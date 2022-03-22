@@ -93,7 +93,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         marginBottom: FIXED_ITEM_MARGIN,
         lineHeight: `${selectItemHeight - token.controlLineWidth * 2}px`,
         background: token.background,
-        border: `${token.controlLineWidth}px solid ${token.borderColorSplit}`,
+        border: `${token.controlLineWidth}px solid ${token.colorSplit}`,
         borderRadius: token.controlRadius,
         cursor: 'default',
         transition: `font-size ${token.duration}, line-height ${token.duration}, height ${token.duration}`,
@@ -104,7 +104,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
 
         [`${selectCls}-disabled&`]: {
           color: token.textColorDisabled,
-          borderColor: token.borderColor,
+          borderColor: token.colorBorder,
           cursor: 'not-allowed',
         },
 

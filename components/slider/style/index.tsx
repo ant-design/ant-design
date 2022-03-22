@@ -152,7 +152,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         width: dotSize,
         height: dotSize,
         backgroundColor: token.componentBackground,
-        border: `2px solid ${token.borderColorSplit}`, // FIXME: hardcode in v4
+        border: `2px solid ${token.colorSplit}`, // FIXME: hardcode in v4
         borderRadius: '50%',
         cursor: 'pointer',
         transition: `border-color ${token.duration}`,

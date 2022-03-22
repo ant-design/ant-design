@@ -55,13 +55,13 @@ export const genActiveStyle = (token: InputToken) => ({
 export const genDisabledStyle = (token: InputToken): CSSObject => ({
   color: token.textColorDisabled,
   backgroundColor: token.componentBackgroundDisabled,
-  borderColor: token.borderColor,
+  borderColor: token.colorBorder,
   boxShadow: 'none',
   cursor: 'not-allowed',
   opacity: 1,
 
   '&:hover': {
-    ...genHoverStyle({ ...token, inputBorderHoverColor: token.borderColor }),
+    ...genHoverStyle({ ...token, inputBorderHoverColor: token.colorBorder }),
   },
 });
 
@@ -134,7 +134,7 @@ export const genBasicInputStyle = (token: InputToken): CSSObject => ({
   backgroundImage: 'none',
   borderWidth: token.controlLineWidth,
   borderStyle: token.controlLineType,
-  borderColor: token.borderColor,
+  borderColor: token.colorBorder,
   borderRadius: token.controlRadius,
   transition: `all ${token.duration}`,
   ...genPlaceholderStyle(),
@@ -257,7 +257,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
         fontSize: token.fontSize,
         textAlign: 'center',
         backgroundColor: token.backgroundLight,
-        border: `${token.controlLineWidth}px ${token.controlLineType} ${token.borderColor}`,
+        border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
         borderRadius: token.controlRadius,
         transition: `all ${token.duration}`,
 

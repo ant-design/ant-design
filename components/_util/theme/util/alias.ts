@@ -65,6 +65,8 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     // FIXME: @arvinxx handle this
     controlLineType: 'solid',
     controlRadius: mergedToken.radiusBase,
+    colorBorder: new TinyColor({ h: 0, s: 0, v: 85 }).toHexString(),
+    colorSplit: new TinyColor({ h: 0, s: 0, v: 94 }).toHexString(),
 
     // 🔥🔥🔥🔥🔥🔥🔥🔥🔥 All TMP Token leaves here 🔥🔥🔥🔥🔥🔥🔥🔥🔥
     // FIXME: Handle this when derivative is ready
@@ -102,9 +104,6 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     linkDecoration: 'none',
     linkHoverDecoration: 'none',
     linkFocusDecoration: 'none',
-
-    borderColor: new TinyColor({ h: 0, s: 0, v: 85 }).toHexString(),
-    borderColorSplit: new TinyColor({ h: 0, s: 0, v: 94 }).toHexString(),
 
     outlineWidth: 2,
     outlineBlurSize: 0,

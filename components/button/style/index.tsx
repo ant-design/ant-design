@@ -91,7 +91,7 @@ const genGhostButtonStyle = (
 const genSolidDisabledButtonStyle = (token: DerivativeToken): CSSObject => ({
   '&:disabled': {
     cursor: 'not-allowed',
-    borderColor: token.borderColor,
+    borderColor: token.colorBorder,
     color: token.textColorDisabled,
     backgroundColor: token.componentBackgroundDisabled,
     boxShadow: 'none',
@@ -116,7 +116,7 @@ const genDefaultButtonStyle = (prefixCls: string, token: DerivativeToken): CSSOb
   ...genSolidButtonStyle(token),
 
   backgroundColor: token.componentBackground,
-  borderColor: token.borderColor,
+  borderColor: token.colorBorder,
 
   boxShadow: '0 2px 0 rgba(0, 0, 0, 0.015)',
 
@@ -136,7 +136,7 @@ const genDefaultButtonStyle = (prefixCls: string, token: DerivativeToken): CSSOb
     token.componentBackground,
     token.componentBackground,
     token.textColorDisabled,
-    token.borderColor,
+    token.colorBorder,
   ),
 
   [`&.${prefixCls}-dangerous`]: {
@@ -159,7 +159,7 @@ const genDefaultButtonStyle = (prefixCls: string, token: DerivativeToken): CSSOb
       token.colorError,
       token.colorError,
       token.textColorDisabled,
-      token.borderColor,
+      token.colorBorder,
     ),
     ...genSolidDisabledButtonStyle(token),
   },
@@ -188,7 +188,7 @@ const genPrimaryButtonStyle = (prefixCls: string, token: DerivativeToken): CSSOb
     token.colorPrimary,
     token.colorPrimary,
     token.textColorDisabled,
-    token.borderColor,
+    token.colorBorder,
   ),
 
   [`&.${prefixCls}-dangerous`]: {
@@ -208,7 +208,7 @@ const genPrimaryButtonStyle = (prefixCls: string, token: DerivativeToken): CSSOb
       token.colorError,
       token.colorError,
       token.textColorDisabled,
-      token.borderColor,
+      token.colorBorder,
     ),
     ...genSolidDisabledButtonStyle(token),
   },

@@ -164,10 +164,11 @@ export interface AliasToken extends DerivativeToken {
   controlLineType: string;
   controlRadius: number;
 
-  // =============== Legacy: should be remove ===============
-  borderColor: string;
-  borderColorSplit: string;
+  // Color
+  colorBorder: string;
+  colorSplit: string;
 
+  // =============== Legacy: should be remove ===============
   outlineWidth: number;
   outlineBlurSize: number;
 

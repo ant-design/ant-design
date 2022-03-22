@@ -95,7 +95,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token, hashId) =>
           height: token.fontSizeLG,
           direction: 'ltr',
           backgroundColor: token.componentBackground,
-          border: `${token.controlLineWidth}px ${token.controlLineType} ${token.borderColor}`,
+          border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
           borderRadius: token.controlRadius,
           borderCollapse: 'separate',
           transition: `all ${token.duration}`,
@@ -215,10 +215,10 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token, hashId) =>
         // Wrapper > Checkbox > inner
         [`${checkboxCls}-inner`]: {
           background: token.background,
-          borderColor: token.borderColor,
+          borderColor: token.colorBorder,
 
           '&:after': {
-            borderColor: token.borderColor,
+            borderColor: token.colorBorder,
           },
         },
 

@@ -29,7 +29,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
     inputNumberCls,
     controlLineWidth: borderWidth,
     controlLineType: borderStyle,
-    borderColor,
+    colorBorder: borderColor,
     controlRadius: borderRadius,
     fontSizeLG,
     controlHeightLG,

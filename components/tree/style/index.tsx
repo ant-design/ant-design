@@ -234,7 +234,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
             insetInlineEnd: treeTitleHeight / 2,
             bottom: -treeNodePadding,
             marginInlineStart: -1,
-            borderInlineEnd: `1px solid ${token.borderColor}`,
+            borderInlineEnd: `1px solid ${token.colorBorder}`,
             content: '""',
           },
 
@@ -242,7 +242,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
             position: 'absolute',
             width: (treeTitleHeight / 2) * 0.8,
             height: treeTitleHeight / 2,
-            borderBottom: `1px solid ${token.borderColor}`,
+            borderBottom: `1px solid ${token.colorBorder}`,
             content: '""',
           },
         },
@@ -326,7 +326,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
               top: 0,
               insetInlineEnd: treeTitleHeight / 2,
               bottom: -treeNodePadding,
-              borderInlineEnd: `1px solid ${token.borderColor}`,
+              borderInlineEnd: `1px solid ${token.colorBorder}`,
               content: '""',
             },
 

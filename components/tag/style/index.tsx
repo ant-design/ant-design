@@ -77,7 +77,7 @@ const genBaseStyle = (
     lineHeight: token.tagLineHeight,
     whiteSpace: 'nowrap',
     background: token.tagDefaultBg,
-    border: `${token.controlLineWidth}px ${token.controlLineType} ${token.borderColor}`,
+    border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
     borderRadius: token.controlRadius,
     // FIXME: hard code
     opacity: 1,
