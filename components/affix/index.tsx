@@ -33,7 +33,7 @@ export interface AffixProps {
   children: React.ReactNode;
 }
 
-export interface InternalAffixProps extends AffixProps {
+interface InternalAffixProps extends AffixProps {
   affixPrefixCls: string;
 }
 
@@ -302,13 +302,13 @@ const AffixFC = React.forwardRef<Affix, AffixProps>((props, ref) => {
 
   const affixPrefixCls = getPrefixCls('affix', customizePrefixCls);
 
-  const AffixProps: InternalAffixProps = {
+  const affixProps: InternalAffixProps = {
     ...props,
 
     affixPrefixCls,
   };
 
-  return <Affix {...AffixProps} ref={ref} />;
+  return <Affix {...affixProps} ref={ref} />;
 });
 
 if (process.env.NODE_ENV !== 'production') {
