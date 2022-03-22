@@ -21,6 +21,8 @@ exports[`Spin if indicator set null should not be render default indicator 1`] =
 
 exports[`Spin rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
+  aria-busy="true"
+  aria-live="polite"
   class="ant-spin ant-spin-spinning ant-spin-rtl"
 >
   <span
@@ -44,6 +46,8 @@ exports[`Spin rtl render component should be rendered correctly in RTL direction
 
 exports[`Spin should render custom indicator when it's set 1`] = `
 <div
+  aria-busy="true"
+  aria-live="polite"
   class="ant-spin ant-spin-spinning"
 >
   <div

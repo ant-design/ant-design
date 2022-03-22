@@ -2,9 +2,6 @@
 @import '../../style/mixins/index';
 @import './mixin';
 
-@row-prefix-cls: ~'@{ant-prefix}-row';
-@col-prefix-cls: ~'@{ant-prefix}-col';
-
 // Grid system
 .@{row-prefix-cls} {
   display: flex;
@@ -44,6 +41,11 @@
 // x轴有间隔地平分
 .@{row-prefix-cls}-space-around {
   justify-content: space-around;
+}
+
+// x轴有间隔地均分
+.@{row-prefix-cls}-space-evenly {
+  justify-content: space-evenly;
 }
 
 // 顶部对齐
