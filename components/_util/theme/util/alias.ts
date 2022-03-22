@@ -40,8 +40,11 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
 
     colorTextSecondary: mergedToken.colorTextBelow,
     colorTextDisabled: mergedToken.colorTextBelow2,
-    colorPlaceholder: mergedToken.colorBgBelow2,
+    colorPlaceholder: mergedToken.colorTextBelow2,
     colorTextHeading: mergedToken.colorText,
+
+    colorBgComponent: mergedToken.colorBg,
+    colorBgComponentDisabled: mergedToken.colorBgBelow2,
 
     // Font
     fontSizeSM: fontSizes[0],
@@ -66,6 +69,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     // Control
     controlLineWidth: mergedToken.lineWidth,
     controlOutlineWidth: mergedToken.lineWidth * 2,
+    controlItemBgHover: mergedToken.colorBgBelow2,
 
     // 👀👀👀👀👀👀👀👀👀 Not align with Derivative 👀👀👀👀👀👀👀👀👀
     // FIXME: @arvinxx handle this
@@ -113,8 +117,6 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
 
     iconColorHover: new TinyColor('#000').setAlpha(0.75).toRgbString(),
 
-    itemHoverBackground: '#f5f5f5',
-
     controlPaddingHorizontal: 16,
     controlPaddingHorizontalSM: 12,
 
@@ -137,15 +139,18 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     // background of header and selected item
     backgroundLight: new TinyColor({ h: 0, s: 0, v: 98 }).toHexString(),
 
-    componentBackground: '#fff',
-    componentBackgroundDisabled: new TinyColor({ h: 0, s: 0, v: 96 }).toHexString(),
-
     duration: '0.3s',
     durationMid: '0.2s',
     durationFast: '0.1s',
 
     zIndexDropdown: 1050,
     zIndexAffix: 10,
+
+    boxShadow: `
+      0 3px 6px -4px rgba(0, 0, 0, 0.12),
+      0 6px 16px 0 rgba(0, 0, 0, 0.08),
+      0 9px 28px 8px rgba(0, 0, 0, 0.05)
+    `,
   };
 
   return aliasToken;

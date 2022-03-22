@@ -106,7 +106,7 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token, hashId) => {
                 transition: `all ${token.duration}`,
 
                 '&:hover': {
-                  background: token.itemHoverBackground,
+                  background: token.controlItemBgHover,
                 },
                 ' &-disabled': {
                   color: token.colorTextDisabled,

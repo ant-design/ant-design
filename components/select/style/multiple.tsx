@@ -61,7 +61,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         },
 
         [`${selectCls}-disabled&`]: {
-          background: token.componentBackgroundDisabled,
+          background: token.colorBgComponentDisabled,
           cursor: 'not-allowed',
         },
 

@@ -54,7 +54,7 @@ export const genActiveStyle = (token: InputToken) => ({
 
 export const genDisabledStyle = (token: InputToken): CSSObject => ({
   color: token.colorTextDisabled,
-  backgroundColor: token.componentBackgroundDisabled,
+  backgroundColor: token.colorBgComponentDisabled,
   borderColor: token.colorBorder,
   boxShadow: 'none',
   cursor: 'not-allowed',
@@ -130,7 +130,7 @@ export const genBasicInputStyle = (token: InputToken): CSSObject => ({
   color: token.colorText,
   fontSize: token.fontSize,
   lineHeight: token.lineHeight,
-  backgroundColor: token.componentBackground,
+  backgroundColor: token.colorBgComponent,
   backgroundImage: 'none',
   borderWidth: token.controlLineWidth,
   borderStyle: token.controlLineType,

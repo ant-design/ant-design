@@ -77,7 +77,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
   return {
     [treeCls]: {
       ...resetComponent(token),
-      background: token.componentBackground,
+      background: token.colorBgComponent,
       borderRadius: token.controlRadius,
       transition: `background-color ${token.duration}`,
 
@@ -158,7 +158,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
         },
 
         [`&-active ${treeCls}-node-content-wrapper`]: {
-          background: token.itemHoverBackground,
+          background: token.controlItemBgHover,
         },
 
         [`&:not(&-disabled).filter-node ${treeCls}-title`]: {
@@ -272,7 +272,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
         transition: `all ${token.duration}, border 0s, line-height 0s, box-shadow 0s`,
 
         '&:hover': {
-          backgroundColor: token.itemHoverBackground,
+          backgroundColor: token.controlItemBgHover,
         },
 
         [`&${treeCls}-node-selected`]: {
@@ -340,7 +340,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
 
         // ============== Cover Background ==============
         [`${treeCls}-switcher`]: {
-          background: token.componentBackground,
+          background: token.colorBgComponent,
 
           '&-line-icon': {
             // https://github.com/ant-design/ant-design/issues/32813
@@ -388,7 +388,7 @@ export const genDirectoryStyle = (token: TreeToken): CSSObject => {
 
         '&:hover': {
           '&:before': {
-            background: token.itemHoverBackground,
+            background: token.controlItemBgHover,
           },
         },
 

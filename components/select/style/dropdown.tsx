@@ -49,7 +49,7 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token, hashId) => {
         // https://github.com/ant-design/ant-design/issues/11456
         // https://github.com/ant-design/ant-design/issues/11843
         fontVariant: 'initial',
-        backgroundColor: token.componentBackground,
+        backgroundColor: token.colorBgComponent,
         borderRadius: token.controlRadius,
         outline: 'none',
         boxShadow: token.boxShadow,
@@ -118,7 +118,7 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token, hashId) => {
             },
 
             [`&-active:not(${selectItemCls}-option-disabled)`]: {
-              backgroundColor: token.itemHoverBackground,
+              backgroundColor: token.controlItemBgHover,
             },
 
             [`&-selected:not(${selectItemCls}-option-disabled)`]: {
@@ -132,7 +132,7 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token, hashId) => {
             },
             '&-disabled': {
               [`&${selectItemCls}-option-selected`]: {
-                backgroundColor: token.componentBackgroundDisabled,
+                backgroundColor: token.colorBgComponentDisabled,
               },
 
               color: token.colorTextDisabled,

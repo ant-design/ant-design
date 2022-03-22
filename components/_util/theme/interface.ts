@@ -164,6 +164,7 @@ export interface AliasToken extends DerivativeToken {
   controlLineType: string;
   controlRadius: number;
   controlOutlineWidth: number;
+  controlItemBgHover: string; // Note. It also is a color
 
   // Color
   colorBorder: string;
@@ -173,11 +174,11 @@ export interface AliasToken extends DerivativeToken {
   /** Placeholder text color */
   colorPlaceholder: string;
   colorTextHeading: string;
+  colorBgComponent: string;
+  colorBgComponentDisabled: string;
 
   // =============== Legacy: should be remove ===============
   iconColorHover: string;
-
-  itemHoverBackground: string;
 
   padding: number;
   margin: number;
@@ -185,13 +186,10 @@ export interface AliasToken extends DerivativeToken {
   background: string;
   backgroundLight: string;
 
-  componentBackground: string;
-  componentBackgroundDisabled: string;
-
   zIndexDropdown: number;
   zIndexAffix: number;
 
-  boxShadow?: string;
+  boxShadow: string;
 
   // =============== Legacy: should be remove ===============
   primaryHoverColor: string;

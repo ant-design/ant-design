@@ -62,7 +62,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         position: 'absolute',
         width: token.handleSize,
         height: token.handleSize,
-        backgroundColor: token.componentBackground,
+        backgroundColor: token.colorBgComponent,
         border: `2px solid ${token.tmpPrimaryColorWeak}`,
         borderRadius: '50%',
         boxShadow: 'none',
@@ -151,7 +151,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         position: 'absolute',
         width: dotSize,
         height: dotSize,
-        backgroundColor: token.componentBackground,
+        backgroundColor: token.colorBgComponent,
         border: `2px solid ${token.colorSplit}`, // FIXME: hardcode in v4
         borderRadius: '50%',
         cursor: 'pointer',
@@ -177,7 +177,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
           ${sliderCls}-handle,
           ${sliderCls}-dot
         `]: {
-          backgroundColor: token.componentBackground,
+          backgroundColor: token.colorBgComponent,
           borderColor: `${token.colorTextDisabled} !important`,
           boxShadow: 'none',
           cursor: 'not-allowed',

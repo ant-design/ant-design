@@ -33,7 +33,7 @@ const genSelectorStyle: GenerateStyle<SelectToken, CSSObject> = token => {
 
   return {
     position: 'relative',
-    backgroundColor: token.componentBackground,
+    backgroundColor: token.colorBgComponent,
     border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
     borderRadius: token.controlRadius,
     transition: `all ${token.duration} ${token.motionEaseInOut}`,
@@ -52,11 +52,11 @@ const genSelectorStyle: GenerateStyle<SelectToken, CSSObject> = token => {
 
     [`${selectCls}-disabled&`]: {
       color: token.colorTextDisabled,
-      background: token.componentBackgroundDisabled,
+      background: token.colorBgComponentDisabled,
       cursor: 'not-allowed',
 
       [`${selectCls}-multiple&`]: {
-        background: token.componentBackgroundDisabled,
+        background: token.colorBgComponentDisabled,
       },
 
       input: {
@@ -222,7 +222,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
         lineHeight: 1,
         textAlign: 'center',
         textTransform: 'none',
-        background: token.componentBackground,
+        background: token.colorBgComponent,
         cursor: 'pointer',
         opacity: 0,
         transition: `color ${token.duration} ease, opacity ${token.duration} ease`,

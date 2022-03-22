@@ -111,7 +111,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (
         textAlign: 'center',
         background: token.badgeColor,
         borderRadius: token.badgeHeight / 2,
-        boxShadow: `0 0 0 1px ${token.componentBackground}`,
+        boxShadow: `0 0 0 1px ${token.colorBgComponent}`,
         a: {
           color: token.badgeTextColor,
         },
@@ -139,7 +139,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (
         height: token.badgeDotSize,
         background: token.badgeColor,
         borderRadius: '100%',
-        boxShadow: `0 0 0 1px ${token.componentBackground}`,
+        boxShadow: `0 0 0 1px ${token.colorBgComponent}`,
       },
       [`.${badgePrefixCls}-dot.${numberPrefixCls}`]: {
         transition: 'background 1.5s', // FIXME: hard code, copied from old less file
@@ -332,7 +332,7 @@ export default function useStyle(
 
   const badgeZIndex = 'auto';
   const badgeHeight = 20; // FIXME: hard code
-  const badgeTextColor = token.componentBackground;
+  const badgeTextColor = token.colorBgComponent;
   const badgeFontWeight = 'normal';
   const badgeFontSize = token.fontSizeSM;
   const badgeColor = token.highlightColor;
