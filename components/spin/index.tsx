@@ -28,7 +28,7 @@ export interface SpinClassProps extends SpinProps {
   spinPrefixCls: string;
 }
 
-export type SpinType = React.FC<SpinProps> & {
+export type SpinFCType = React.FC<SpinProps> & {
   setDefaultIndicator: (indicator: React.ReactNode) => void;
 };
 
@@ -62,7 +62,7 @@ function renderIndicator(prefixCls: string, props: SpinClassProps): React.ReactN
   }
 
   return (
-    <span className={classNames(dotClassName, `${prefixCls}-dot-spin`)}>
+    <span className={classNames(dotClassName, `${prefixCls}-dot-SpinFC`)}>
       <i className={`${prefixCls}-dot-item`} />
       <i className={`${prefixCls}-dot-item`} />
       <i className={`${prefixCls}-dot-item`} />
@@ -75,7 +75,7 @@ function shouldDelay(spinning?: boolean, delay?: number): boolean {
   return !!spinning && !!delay && !isNaN(Number(delay));
 }
 
-export class SpinClass extends React.Component<SpinClassProps, SpinState> {
+export class Spin extends React.Component<SpinClassProps, SpinState> {
   static defaultProps = {
     spinning: true,
     size: 'default' as SpinSize,
@@ -195,11 +195,11 @@ export class SpinClass extends React.Component<SpinClassProps, SpinState> {
   }
 }
 
-const Spin: SpinType = (props: SpinProps) => {
+const SpinFC: SpinFCType = (props: SpinProps) => {
   const { prefixCls: customizePrefixCls } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
 
-  const spinPrefixCls = getPrefixCls('spin', customizePrefixCls);
+  const spinPrefixCls = getPrefixCls('SpinFC', customizePrefixCls);
 
   const [wrapSSR, hashId] = useStyle(spinPrefixCls);
 
@@ -208,11 +208,15 @@ const Spin: SpinType = (props: SpinProps) => {
     spinPrefixCls,
     hashId,
   };
-  return wrapSSR(<SpinClass {...spinClassProps} />);
+  return wrapSSR(<Spin {...spinClassProps} />);
 };
 
-Spin.setDefaultIndicator = (indicator: React.ReactNode) => {
+SpinFC.setDefaultIndicator = (indicator: React.ReactNode) => {
   defaultIndicator = indicator;
 };
 
-export default Spin;
+if (process.env.NODE_ENV !== 'production') {
+  SpinFC.displayName = 'Spin';
+}
+
+export default SpinFC;
