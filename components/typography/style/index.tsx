@@ -16,22 +16,22 @@ const genTypographyStyle: GenerateStyle<TypographyToken> = token => {
   const { prefixCls, titleMarginTop } = token.typography;
   return {
     [`.${prefixCls}`]: {
-      color: token.textColor,
+      color: token.colorText,
       overflowWrap: 'break-word',
       '&&-secondary': {
         color: token.textColorSecondary,
       },
 
       '&&-success': {
-        color: token.successColor,
+        color: token.colorSuccess,
       },
 
       '&&-warning': {
-        color: token.warningColor,
+        color: token.colorWarning,
       },
 
       '&&-danger': {
-        color: token.errorColor,
+        color: token.colorError,
         'a&:active, a&:focus, a&:hover': {
           // FIXME: need new token like errorColorHover
           color: token.errorColors[4],

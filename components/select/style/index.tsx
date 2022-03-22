@@ -36,7 +36,7 @@ const genSelectorStyle: GenerateStyle<SelectToken, CSSObject> = token => {
     backgroundColor: token.componentBackground,
     border: `${token.borderWidth}px ${token.borderStyle} ${token.borderColor}`,
     borderRadius: token.borderRadius,
-    transition: `all ${token.duration} ${token.easeInOut}`,
+    transition: `all ${token.duration} ${token.motionEaseInOut}`,
 
     input: {
       cursor: 'pointer',
@@ -258,7 +258,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
         fontSize: token.fontSize,
         textAlign: 'center',
         visibility: 'visible',
-        animation: `zoomIn ${token.duration} ${token.easeOutBack}`,
+        animation: `zoomIn ${token.duration} ${token.motionEaseOutBack}`,
         pointerEvents: 'none',
 
         '&:not(:first-child)': {

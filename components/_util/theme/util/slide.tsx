@@ -22,11 +22,11 @@ export const initSlideMotion = (
       ${motionCls}-appear
     `]: {
         opacity: 0,
-        animationTimingFunction: token.easeOutQuint,
+        animationTimingFunction: token.motionEaseOutQuint,
       },
 
       [`${motionCls}-leave`]: {
-        animationTimingFunction: token.easeInQuint,
+        animationTimingFunction: token.motionEaseInQuint,
       },
     },
   ];

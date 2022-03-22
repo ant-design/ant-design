@@ -135,10 +135,10 @@ export default function useStyle(
   const resultIconFontSize = 72;
   const resultExtraMargin = `${token.padding * 1.5}px 0 0 0`;
 
-  const resultInfoIconColor = token.infoColor;
-  const resultErrorIconColor = token.errorColor;
-  const resultSuccessIconColor = token.successColor;
-  const resultWarningIconColor = token.warningColor;
+  const resultInfoIconColor = token.colorInfo;
+  const resultErrorIconColor = token.colorError;
+  const resultSuccessIconColor = token.colorSuccess;
+  const resultWarningIconColor = token.colorWarning;
 
   const resultToken: ResultToken = {
     ...token,

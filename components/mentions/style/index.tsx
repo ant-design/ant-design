@@ -26,7 +26,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
     textColorDisabled,
     itemHoverBackground,
     controlPaddingHorizontal,
-    textColor,
+    colorText: textColor,
     duration,
     lineHeight,
     controlHeight,

@@ -3,6 +3,7 @@
 import { generate } from '@ant-design/colors';
 import { TinyColor } from '@ctrl/tinycolor';
 import type { PresetColorType, SeedToken, DerivativeToken, ColorPalettes } from '../interface';
+import { getFontSizes } from './shared';
 
 const defaultPresetColors: PresetColorType = {
   blue: '#1890FF',
@@ -56,6 +57,8 @@ export function derivative(token: SeedToken): DerivativeToken {
       return prev;
     }, {} as ColorPalettes);
 
+  const fontSizes = getFontSizes(fontSizeBase);
+
   return {
     ...token,
     ...colorPalettes,
@@ -67,10 +70,8 @@ export function derivative(token: SeedToken): DerivativeToken {
     motionDurationSlow: `${motionUnit * (motionBaseStep + 1)}s`,
 
     // font
-    fontSize: fontSizeBase,
-    fontSizeSM: fontSizeBase - 2,
-    fontSizeLG: fontSizeBase + 2,
-    fontSizeXL: fontSizeBase + 4,
+    fontSizes: fontSizes.map(fs => fs.size),
+    lineHeights: fontSizes.map(fs => fs.lineHeight),
 
     // size
     sizeSpaceSM: sizeUnit * (sizeBaseStep - 1),
@@ -90,7 +91,7 @@ export function derivative(token: SeedToken): DerivativeToken {
     radiusLG: radiusBase * 2,
     radiusXL: radiusBase * 4,
 
-    // color //
+    // color
 
     colorBgBelow: new TinyColor({ h: 0, s: 0, v: 98 }).toHexString(),
     colorBgBelow2: new TinyColor({ h: 0, s: 0, v: 96 }).toHexString(),
@@ -108,9 +109,6 @@ export function derivative(token: SeedToken): DerivativeToken {
     colorTextBelow: new TinyColor('#000').setAlpha(0.45).toRgbString(),
     colorTextBelow2: new TinyColor('#000').setAlpha(0.25).toRgbString(),
     colorTextBelow3: new TinyColor({ h: 0, s: 0, v: 75 }).setAlpha(0.5).toRgbString(),
-
-    // FIXME: should be currentFontSize + 8
-    fontHeight: fontSizeBase + 8,
   };
 }
 
@@ -157,6 +155,9 @@ const seedToken: SeedToken = {
   // Size
   sizeUnit: 4,
   sizeBaseStep: 4,
+
+  // Control Base
+  controlHeight: 32,
 };
 
 export default seedToken;

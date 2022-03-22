@@ -20,7 +20,7 @@ const genItemStyle: GenerateStyle<SelectToken, CSSObject> = token => {
     padding: `${
       (token.controlHeight - token.fontSize * token.lineHeight) / 2
     }px ${controlPaddingHorizontal}px`,
-    color: token.textColor,
+    color: token.colorText,
     fontWeight: 'normal',
     fontSize: token.fontSize,
     lineHeight: token.lineHeight,
@@ -122,12 +122,12 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token, hashId) => {
             },
 
             [`&-selected:not(${selectItemCls}-option-disabled)`]: {
-              color: token.textColor,
+              color: token.colorText,
               fontWeight: 600, // FIXME: Need design token?
               backgroundColor: token.itemActiveBackground,
 
               [`${selectItemCls}-option-state`]: {
-                color: token.primaryColor,
+                color: token.colorPrimary,
               },
             },
             '&-disabled': {

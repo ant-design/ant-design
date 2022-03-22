@@ -137,7 +137,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         userSelect: 'none',
 
         '&-active': {
-          color: token.textColor,
+          color: token.colorText,
         },
       },
 

@@ -66,7 +66,7 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
     fontSize,
     fontSizeLG,
     borderRadius,
-    easeInOutCirc,
+    motionEaseInOutCirc,
     alertMessageColor,
     alertWithDescriptionIconSize,
     alertWithDescriptionPaddingVertical,
@@ -109,9 +109,9 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
       '&&-motion-leave': {
         overflow: 'hidden',
         opacity: 1,
-        transition: `max-height ${duration} ${easeInOutCirc}, opacity ${duration} ${easeInOutCirc},
-        padding-top ${duration} ${easeInOutCirc}, padding-bottom ${duration} ${easeInOutCirc},
-        margin-bottom ${duration} ${easeInOutCirc}`,
+        transition: `max-height ${duration} ${motionEaseInOutCirc}, opacity ${duration} ${motionEaseInOutCirc},
+        padding-top ${duration} ${motionEaseInOutCirc}, padding-bottom ${duration} ${motionEaseInOutCirc},
+        margin-bottom ${duration} ${motionEaseInOutCirc}`,
       },
 
       '&&-motion-leave-active': {
@@ -289,24 +289,24 @@ export default function useStyle(
   const alertWithDescriptionNoIconPaddingVertical = token.padding - 1;
 
   // FIXME
-  const infoColors = generate(token.infoColor);
+  const infoColors = generate(token.colorInfo);
   const alertInfoBgColor = infoColors[0];
-  const alertInfoIconColor = token.infoColor;
+  const alertInfoIconColor = token.colorInfo;
   const alertInfoBorderColor = infoColors[2];
 
-  const successColors = generate(token.successColor);
+  const successColors = generate(token.colorSuccess);
   const alertSuccessBgColor = successColors[0];
-  const alertSuccessIconColor = token.successColor;
+  const alertSuccessIconColor = token.colorSuccess;
   const alertSuccessBorderColor = successColors[2];
 
-  const warningColors = generate(token.warningColor);
+  const warningColors = generate(token.colorWarning);
   const alertWarningBgColor = warningColors[0];
-  const alertWarningIconColor = token.warningColor;
+  const alertWarningIconColor = token.colorWarning;
   const alertWarningBorderColor = warningColors[2];
 
-  const errorColors = generate(token.errorColor);
+  const errorColors = generate(token.colorError);
   const alertErrorBgColor = errorColors[0];
-  const alertErrorIconColor = token.errorColor;
+  const alertErrorIconColor = token.colorError;
   const alertErrorBorderColor = errorColors[2];
 
   const alertToken: AlertToken = {
