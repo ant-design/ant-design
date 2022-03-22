@@ -38,6 +38,9 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     errorActiveColor: mergedToken.colorErrorActive,
     warningHoverColor: mergedToken.colorWarningHover,
 
+    colorTextSecondary: mergedToken.colorTextBelow,
+    colorTextDisabled: mergedToken.colorTextBelow2,
+
     // Font
     fontSizeSM: fontSizes[0],
     fontSize: fontSizes[1],
@@ -106,12 +109,6 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     linkHoverDecoration: 'none',
     linkFocusDecoration: 'none',
 
-    fontFamily: `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-  'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-  'Noto Color Emoji'`,
-    textColorSecondary: new TinyColor('#000').setAlpha(0.45).toRgbString(),
-    textColorDisabled: new TinyColor('#000').setAlpha(0.25).toRgbString(),
-    textColorInverse: '#fff',
     placeholderColor: new TinyColor({ h: 0, s: 0, v: 75 }).setAlpha(0.5).toRgbString(),
 
     disabledColor: new TinyColor('#000').setAlpha(0.25).toRgbString(),

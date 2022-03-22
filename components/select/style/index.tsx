@@ -51,7 +51,7 @@ const genSelectorStyle: GenerateStyle<SelectToken, CSSObject> = token => {
     },
 
     [`${selectCls}-disabled&`]: {
-      color: token.textColorDisabled,
+      color: token.colorTextDisabled,
       background: token.componentBackgroundDisabled,
       cursor: 'not-allowed',
 
@@ -181,7 +181,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
         width: token.fontSizeSM,
         height: token.fontSizeSM,
         marginTop: -token.fontSizeSM / 2,
-        color: token.textColorDisabled,
+        color: token.colorTextDisabled,
         fontSize: token.fontSizeSM,
         lineHeight: 1,
         textAlign: 'center',
@@ -216,7 +216,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
         width: token.fontSizeSM,
         height: token.fontSizeSM,
         marginTop: -token.fontSizeSM / 2,
-        color: token.textColorDisabled,
+        color: token.colorTextDisabled,
         fontSize: token.fontSizeSM,
         fontStyle: 'normal',
         lineHeight: 1,
@@ -233,7 +233,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
         },
 
         '&:hover': {
-          color: token.textColorSecondary,
+          color: token.colorTextSecondary,
         },
 
         [`${selectCls}:hover &`]: {

@@ -36,7 +36,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
     controlHeightSM,
     colorError,
     paddingXS,
-    textColorSecondary,
+    colorTextSecondary: textColorSecondary,
     durationFast,
     inputNumberHandlerActiveBgColor,
     colorPrimary,
@@ -46,7 +46,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
     duration,
     componentBackground,
     durationMid,
-    textColorDisabled,
+    colorTextDisabled: textColorDisabled,
   } = token;
 
   return {

@@ -103,7 +103,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         paddingInlineEnd: token.paddingXS / 2,
 
         [`${selectCls}-disabled&`]: {
-          color: token.textColorDisabled,
+          color: token.colorTextDisabled,
           borderColor: token.colorBorder,
           cursor: 'not-allowed',
         },
@@ -121,7 +121,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
           ...resetIcon(),
 
           display: 'inline-block',
-          color: token.textColorSecondary,
+          color: token.colorTextSecondary,
           fontWeight: 'bold',
           fontSize: 10,
           lineHeight: 'inherit',

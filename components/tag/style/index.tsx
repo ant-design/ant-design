@@ -53,7 +53,7 @@ const genTagColorStyle = (prefixCls: string, token: TagToken): CSSInterpolation 
         borderColor: lightBorderColor,
       },
       [`.${prefixCls}-${colorKey}-inverse`]: {
-        color: token.textColorInverse,
+        color: token.colorTextLightSolid,
         background: darkColor,
         borderColor: darkColor,
       },
@@ -96,7 +96,7 @@ const genBaseStyle = (
     [`.${prefixCls}-close-icon`]: {
       // FIXME: hard code
       marginInlineStart: 3,
-      color: token.textColorSecondary,
+      color: token.colorTextSecondary,
       // FIXME: hard code
       fontSize: 10,
       cursor: 'pointer',
@@ -111,7 +111,7 @@ const genBaseStyle = (
       borderColor: 'transparent',
 
       [`&, a, a:hover, .${iconPrefixCls}-close, .${iconPrefixCls}-close:hover`]: {
-        color: token.textColorInverse,
+        color: token.colorTextLightSolid,
       },
     },
 
@@ -125,7 +125,7 @@ const genBaseStyle = (
       },
 
       '&:active, &-checked': {
-        color: token.textColorInverse,
+        color: token.colorTextLightSolid,
       },
 
       '&-checked': {

@@ -73,7 +73,7 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token, hashId) => {
                   height: 'auto',
 
                   [cascaderMenuItemCls]: {
-                    color: token.textColorDisabled,
+                    color: token.colorTextDisabled,
                     cursor: 'default',
                     pointerEvents: 'none',
                   },
@@ -109,7 +109,7 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token, hashId) => {
                   background: token.itemHoverBackground,
                 },
                 ' &-disabled': {
-                  color: token.textColorDisabled,
+                  color: token.colorTextDisabled,
                   cursor: 'not-allowed',
 
                   '&:hover': {
@@ -117,7 +117,7 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token, hashId) => {
                   },
 
                   [iconCls]: {
-                    color: token.textColorDisabled,
+                    color: token.colorTextDisabled,
                   },
                 },
 
@@ -134,7 +134,7 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token, hashId) => {
 
                 [iconCls]: {
                   marginInlineStart: token.paddingXXS,
-                  color: token.textColorSecondary,
+                  color: token.colorTextSecondary,
                   fontSize: 10, // FIXME: hardcode in v4
                 },
 

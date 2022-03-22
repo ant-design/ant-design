@@ -227,7 +227,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token, hashId) =>
         },
 
         '& + span': {
-          color: token.textColorDisabled,
+          color: token.colorTextDisabled,
         },
       },
     },

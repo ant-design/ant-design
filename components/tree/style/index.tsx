@@ -149,7 +149,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
         '&-disabled': {
           // >>> Title
           [`${treeCls}-node-content-wrapper`]: {
-            color: token.textColorDisabled,
+            color: token.colorTextDisabled,
             cursor: 'not-allowed',
             '&:hover': {
               background: 'transparent',
@@ -412,7 +412,7 @@ export const genDirectoryStyle = (token: TreeToken): CSSObject => {
           },
 
           [`&.${treeCls}-node-selected`]: {
-            color: token.textColorInverse,
+            color: token.colorTextLightSolid,
             background: 'transparent',
           },
         },
@@ -428,12 +428,12 @@ export const genDirectoryStyle = (token: TreeToken): CSSObject => {
 
           // >>> Switcher
           [`${treeCls}-switcher`]: {
-            color: token.textColorInverse,
+            color: token.colorTextLightSolid,
           },
 
           // >>> Title
           [`${treeCls}-node-content-wrapper`]: {
-            color: token.textColorInverse,
+            color: token.colorTextLightSolid,
             background: 'transparent',
           },
         },

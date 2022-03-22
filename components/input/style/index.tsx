@@ -53,7 +53,7 @@ export const genActiveStyle = (token: InputToken) => ({
 });
 
 export const genDisabledStyle = (token: InputToken): CSSObject => ({
-  color: token.textColorDisabled,
+  color: token.colorTextDisabled,
   backgroundColor: token.componentBackgroundDisabled,
   borderColor: token.colorBorder,
   boxShadow: 'none',
@@ -519,7 +519,7 @@ const genInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
 
         '&::after': {
           textAlign: 'end',
-          color: token.textColorSecondary,
+          color: token.colorTextSecondary,
           whiteSpace: 'nowrap',
           content: 'attr(data-count)',
           pointerEvents: 'none',
@@ -536,7 +536,7 @@ const genAllowClearStyle = (token: InputToken): CSSObject => {
     // ========================= Input =========================
     [`.${prefixCls}-clear-icon`]: {
       margin: 0,
-      color: token.textColorDisabled,
+      color: token.colorTextDisabled,
       fontSize: token.fontSizeSM,
       verticalAlign: -1, // FIXME: magic number
       // https://github.com/ant-design/ant-design/pull/18151
@@ -545,7 +545,7 @@ const genAllowClearStyle = (token: InputToken): CSSObject => {
       transition: `color ${token.duration}`,
 
       '&:hover': {
-        color: token.textColorSecondary,
+        color: token.colorTextSecondary,
       },
 
       '&:active': {
@@ -581,7 +581,7 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
     prefixCls,
     iconPrefixCls,
     inputAffixMargin,
-    textColorSecondary,
+    colorTextSecondary: textColorSecondary,
     duration,
     iconColorHover,
     colorPrimary,
@@ -765,7 +765,7 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
           },
 
           [`${searchPrefixCls}-button:not(.ant-btn-primary)`]: {
-            color: token.textColorSecondary,
+            color: token.colorTextSecondary,
 
             '&.ant-btn-loading::before': {
               insetInlineStart: 0,
