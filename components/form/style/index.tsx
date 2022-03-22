@@ -1,6 +1,563 @@
-import '../../style/index.less';
-import './index.less';
+// deps-lint-skip-all
+import { CSSObject } from '@ant-design/cssinjs';
+import {
+  AliasToken,
+  GenerateStyle,
+  resetComponent,
+  UseComponentStyleResult,
+  useStyleRegister,
+  useToken,
+} from '../../_util/theme';
 
-// style dependencies
-import '../../grid/style';
-import '../../tooltip/style';
+interface FormToken extends AliasToken {
+  formCls: string;
+  formItemCls: string;
+  iconCls: string;
+}
+
+const resetForm = (token: AliasToken): CSSObject => ({
+  legend: {
+    display: 'block',
+    width: '100%',
+    marginBottom: 20, // FIXME: magic
+    padding: 0,
+    color: token.colorTextSecondary,
+    fontSize: token.fontSizeLG,
+    lineHeight: 'inherit',
+    border: 0,
+    borderBottom: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
+  },
+
+  label: {
+    fontSize: token.fontSize,
+  },
+
+  'input[type="search"]': {
+    boxSizing: 'border-box',
+  },
+
+  // Position radios and checkboxes better
+  'input[type="radio"], input[type="checkbox"]': {
+    lineHeight: 'normal',
+  },
+
+  'input[type="file"]': {
+    display: 'block',
+  },
+
+  // Make range inputs behave like textual form controls
+  'input[type="range"]': {
+    display: 'block',
+    width: '100%',
+  },
+
+  // Make multiple select elements height not fixed
+  'select[multiple], select[size]': {
+    height: 'auto',
+  },
+
+  // Focus for file, radio, and checkbox
+  [`input[type='file']:focus,
+  input[type='radio']:focus,
+  input[type='checkbox']:focus`]: {
+    // outline: 'thin dotted',
+    outline: '5px auto -webkit-focus-ring-color',
+    outlineOffset: -2,
+  },
+
+  // Adjust output element
+  output: {
+    display: 'block',
+    paddingTop: '15px',
+    color: token.colorText,
+    fontSize: token.fontSize,
+    lineHeight: token.lineHeight,
+  },
+});
+
+const genFormSize = (token: FormToken, height: number): CSSObject => ({
+  [`${token.formItemCls}-label > label`]: {
+    height,
+  },
+
+  [`${token.formItemCls}-control-input`]: {
+    minHeight: height,
+  },
+});
+
+const getExplainAndExtraDistance = (distance: number): CSSObject =>
+  distance >= 0
+    ? {
+        paddingTop: Math.floor(distance),
+      }
+    : {
+        marginTop: Math.ceil(distance),
+        marginBottom: Math.ceil(distance),
+      };
+
+const genFormStyle: GenerateStyle<FormToken> = token => {
+  const { formCls } = token;
+
+  return {
+    [token.formCls]: {
+      ...resetComponent(token),
+      ...resetForm(token),
+
+      [`${formCls}-text`]: {
+        display: 'inline-block',
+        paddingInlineEnd: token.paddingSM,
+      },
+
+      // ================================================================
+      // =                             Size                             =
+      // ================================================================
+      '&-small': {
+        ...genFormSize(token, token.controlHeightSM),
+      },
+
+      '&-large': {
+        ...genFormSize(token, token.controlHeightLG),
+      },
+    },
+  };
+};
+
+// const genFormControlValidationStyle = (token: FormToken): CSSObject => {
+//   const { formItemCls } = token;
+//
+//   return {
+//     [`${formItemCls}-split`]: {
+//       color: token.colorText,
+//     },
+//
+//     '.ant-calendar-picker-open .ant-calendar-picker-input': {
+//       // ...genActiveStyle(), // FIXME: maybe can be removed
+//     },
+//   };
+// };
+
+const genFormItemStyle: GenerateStyle<FormToken> = token => {
+  const { formItemCls, iconCls, formCls } = token;
+
+  return {
+    [formItemCls]: {
+      ...resetComponent(token),
+
+      marginBottom: 24, // FIXME: magic
+      verticalAlign: 'top',
+      // We delay one frame (0.017s) here to let CSSMotion goes
+      transition: `margin-bottom ${token.motionDurationSlow} 0.017s linear`,
+
+      '&-with-help': {
+        marginBottom: 0,
+        transition: 'none',
+      },
+
+      [`&-hidden,
+        &-hidden.ant-row`]: {
+        // FIXME: magic ant
+        // https://github.com/ant-design/ant-design/issues/26141
+        display: 'none',
+      },
+
+      '&-has-feedback': {
+        '.ant-switch': {
+          // FIXME: magic ant
+          margin: `${token.marginXXS}px 0 ${token.marginXS}px`,
+        },
+      },
+
+      '&-has-warning': {
+        [`${formItemCls}-split`]: {
+          color: token.colorError,
+        },
+      },
+
+      '&-has-error': {
+        [`${formItemCls}-split`]: {
+          color: token.colorWarning,
+        },
+      },
+
+      // ==============================================================
+      // =                            Label                           =
+      // ==============================================================
+      [`${formItemCls}-label`]: {
+        display: 'inline-block',
+        flexGrow: 0,
+        overflow: 'hidden',
+        whiteSpace: 'nowrap',
+        textAlign: 'end',
+        verticalAlign: 'middle',
+
+        '&-left': {
+          textAlign: 'start',
+        },
+
+        '&-wrap': {
+          overflow: 'unset',
+          lineHeight: `${token.lineHeight} - 0.25em`,
+          whiteSpace: 'unset',
+        },
+
+        '> label': {
+          position: 'relative',
+          display: 'inline-flex',
+          alignItems: 'center',
+          maxWidth: '100%',
+          height: token.controlHeight,
+          color: token.colorTextHeading,
+          fontSize: token.fontSize,
+
+          [`> ${iconCls}`]: {
+            fontSize: token.fontSize,
+            verticalAlign: 'top',
+          },
+
+          // Required mark
+          [`&${formItemCls}-required:not(${formItemCls}-required-mark-optional)::before`]: {
+            display: 'inline-block',
+            marginInlineEnd: token.marginXS,
+            color: token.colorError, // FIXME: colorHighlight
+            fontSize: token.fontSize,
+            fontFamily: 'SimSun, sans-serif',
+            lineHeight: 1,
+            content: '"*"',
+
+            [`${formCls}-hide-required-mark &`]: {
+              display: 'none',
+            },
+          },
+
+          // Optional mark
+          [`${formItemCls}-optional`]: {
+            display: 'inline-block',
+            marginInlineStart: token.marginXXS,
+            color: token.colorTextSecondary,
+
+            [`${formCls}-hide-required-mark &`]: {
+              display: 'none',
+            },
+          },
+
+          // Optional mark
+          [`${formItemCls}-tooltip`]: {
+            color: token.colorTextSecondary,
+            cursor: 'help',
+            writingMode: 'horizontal-tb',
+            marginInlineStart: token.marginXS,
+          },
+
+          '&::after': {
+            content: '":"',
+            position: 'relative',
+            top: -0.5, // FIXME: magic
+            marginBlock: 0,
+            marginInlineStart: token.marginXXS,
+            marginInlineEnd: 8, // FIXME: magic
+          },
+
+          [`&${formItemCls}-no-colon::after`]: {
+            content: '" "',
+          },
+        },
+      },
+
+      // ==============================================================
+      // =                            Input                           =
+      // ==============================================================
+      [`${formItemCls}-control`]: {
+        display: 'flex',
+        flexDirection: 'column',
+        flexGrow: 1,
+
+        // FIXME: magic ant
+        [`'&:first-child:not([class^=~"'ant-col-'"]):not([class*=~"' ant-col-'"])'`]: {
+          width: '100%',
+        },
+
+        '&-input': {
+          position: 'relative',
+          display: 'flex',
+          alignItems: 'center',
+          minHeight: token.controlHeight,
+
+          '&-content': {
+            flex: 'auto',
+            maxWidth: '100%',
+          },
+        },
+      },
+
+      // ==============================================================
+      // =                           Explain                          =
+      // ==============================================================
+      [formItemCls]: {
+        '&-explain, &-extra': {
+          clear: 'both',
+          color: token.colorTextSecondary,
+          fontSize: token.fontSize,
+          lineHeight: token.lineHeight,
+          transition: `color ${token.motionDurationMid} @ease-out`, // sync input color transition FIXME
+          ...getExplainAndExtraDistance((24 - Math.ceil(token.fontSize * token.lineHeight)) / 2), // FIXME: 24
+          // .explainAndExtraDistance((@form-item-margin-bottom - @form-font-height) / 2),
+        },
+
+        '&-explain-connected': {
+          height: 0,
+          minHeight: 0,
+          opacity: 0,
+        },
+
+        '&-extra': {
+          minHeight: 24, // FIXME: magic, compact
+        },
+
+        '.ant-input-textarea-show-count': {
+          '&::after': {
+            marginBottom: -22, // FIXME: magic
+          },
+        },
+
+        '&-explain': {
+          '&-error': {
+            color: token.colorError,
+          },
+
+          '&-warning': {
+            color: token.colorWarning,
+          },
+        },
+      },
+
+      [`&-with-help ${formItemCls}-explain`]: {
+        height: 'auto',
+        minHeight: 24, // FIXME: magic, compact
+        opacity: 1,
+      },
+    },
+  };
+};
+
+const genFormMotionStyle: GenerateStyle<FormToken> = token => {
+  const { formCls } = token;
+
+  return {
+    [formCls]: {
+      // Explain holder
+      '.ant-show-help': {
+        transition: `height ${token.motionDurationSlow} linear,
+                     min-height ${token.motionDurationSlow} linear,
+                     margin-bottom ${token.motionDurationSlow} ${token.motionEaseInOut},
+                     opacity ${token.motionDurationSlow} ${token.motionEaseInOut}`,
+
+        '&-leave': {
+          minHeight: 24, // FIXME: magic
+
+          '&-active': {
+            minHeight: 0,
+          },
+        },
+      },
+
+      // Explain
+      '.ant-show-help-item': {
+        overflow: 'hidden',
+        transition: `height ${token.motionDurationSlow} ${token.motionEaseInOut},
+                     opacity ${token.motionDurationSlow} ${token.motionEaseInOut},
+                     transform ${token.motionDurationSlow} ${token.motionEaseInOut} !important`,
+
+        [`&-appear,
+          &-enter`]: {
+          transform: `translateY(-5px)`,
+          opacity: 0,
+
+          '&-active': {
+            transform: 'translateY(0)',
+            opacity: 1,
+          },
+        },
+
+        '&-leave-active': {
+          transform: `translateY(-5px)`,
+        },
+      },
+    },
+  };
+};
+
+const genHorizontalStyle: GenerateStyle<FormToken> = token => {
+  const { formCls, formItemCls } = token;
+
+  return {
+    [`${formCls}-horizontal`]: {
+      [`${formItemCls}-label`]: {
+        flexGrow: 0,
+      },
+
+      [`${formItemCls}-control`]: {
+        flex: '1 1 0',
+        // https://github.com/ant-design/ant-design/issues/32777
+        // https://github.com/ant-design/ant-design/issues/33773
+        minWidth: 0,
+      },
+
+      // https://github.com/ant-design/ant-design/issues/32980
+      [`${formItemCls}-label.ant-col-24 + ${formItemCls}-control`]: {
+        minWidth: 'unset',
+      },
+    },
+  };
+};
+
+const genInlineStyle: GenerateStyle<FormToken> = token => {
+  const { formCls, formItemCls } = token;
+
+  return {
+    [`${formCls}-inline`]: {
+      display: 'flex',
+      flexWrap: 'wrap',
+
+      [formItemCls]: {
+        flex: 'none',
+        flexWrap: 'nowrap',
+        marginInlineEnd: token.margin,
+        marginBottom: 0,
+
+        '&-with-help': {
+          marginBottom: 24, // FIXME: magic
+        },
+
+        [`> ${formItemCls}-label,
+        > ${formItemCls}-control`]: {
+          display: 'inline-block',
+          verticalAlign: 'top',
+        },
+
+        [`> ${formItemCls}-label`]: {
+          flex: 'none',
+        },
+
+        [`${formCls}-text`]: {
+          display: 'inline-block',
+        },
+
+        [`${formItemCls}-has-feedback`]: {
+          display: 'inline-block',
+        },
+      },
+    },
+  };
+};
+
+const makeVerticalLayoutLabel = (token: FormToken): CSSObject => ({
+  margin: 0,
+  padding: `0 0 ${token.paddingSM}px`,
+  whiteSpace: 'initial',
+  textAlign: 'start',
+
+  '> label': {
+    margin: 0,
+
+    '&::after': {
+      display: 'none',
+    },
+  },
+});
+
+const makeVerticalLayout = (token: FormToken): CSSObject => {
+  const { formCls, formItemCls } = token;
+
+  return {
+    [`${formItemCls} ${formItemCls}-label`]: {
+      ...makeVerticalLayoutLabel(token),
+    },
+    [formCls]: {
+      [formItemCls]: {
+        flexWrap: 'wrap',
+
+        [`${formItemCls}-label,
+          ${formItemCls}-control`]: {
+          flex: '0 0 100%',
+          maxWidth: '100%',
+        },
+      },
+    },
+  };
+};
+
+const genVerticalStyle: GenerateStyle<FormToken> = token => {
+  const { formCls, formItemCls } = token;
+
+  return {
+    [`${formCls}-vertical`]: {
+      [formItemCls]: {
+        flexDirection: 'column',
+
+        '&-label > label': {
+          height: 'auto',
+        },
+      },
+    },
+
+    // FIXME: ant
+    [`${formCls}-vertical ${formItemCls}-label,
+      .ant-col-24${formItemCls}-label,
+      .ant-col-xl-24${formItemCls}-label`]: {
+      ...makeVerticalLayoutLabel(token),
+    },
+
+    // FIXME: media
+    // @media (max-width: @screen-xs-max) {
+    //   .make-vertical-layout();
+    //   .@{ant-prefix}-col-xs-24.@{form-item-prefix-cls}-label {
+    //     .make-vertical-layout-label();
+    //   }
+    // }
+    //
+    // @media (max-width: @screen-sm-max) {
+    //   .@{ant-prefix}-col-sm-24.@{form-item-prefix-cls}-label {
+    //     .make-vertical-layout-label();
+    //   }
+    // }
+    //
+    // @media (max-width: @screen-md-max) {
+    //   .@{ant-prefix}-col-md-24.@{form-item-prefix-cls}-label {
+    //     .make-vertical-layout-label();
+    //   }
+    // }
+    //
+    // @media (max-width: @screen-lg-max) {
+    //   .@{ant-prefix}-col-lg-24.@{form-item-prefix-cls}-label {
+    //     .make-vertical-layout-label();
+    //   }
+    // }
+  };
+};
+
+// ============================== Export ==============================
+export default function useStyle(
+  prefixCls: string,
+  iconPrefixCls: string,
+): UseComponentStyleResult {
+  const [theme, token, hashId] = useToken();
+
+  const formToken: FormToken = {
+    ...token,
+    formCls: `.${prefixCls}`,
+    formItemCls: `.${prefixCls}-item`,
+    iconCls: `.${iconPrefixCls}`,
+  };
+
+  return [
+    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
+      genFormStyle(formToken),
+      genFormItemStyle(formToken),
+      genFormMotionStyle(formToken),
+      genHorizontalStyle(formToken),
+      genInlineStyle(formToken),
+      genVerticalStyle(formToken),
+    ]),
+    hashId,
+  ];
+}

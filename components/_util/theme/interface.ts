@@ -214,6 +214,7 @@ export interface AliasToken extends DerivativeToken {
   paddingXXS: number;
   paddingLG: number;
   marginXS: number;
+  marginSM: number;
   marginLG: number;
   marginXXS: number;
 
