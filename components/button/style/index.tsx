@@ -25,7 +25,7 @@ const genSharedButtonStyle = (
   backgroundColor: 'transparent',
   border: `${token.controlLineWidth}px ${token.controlLineType} transparent`,
   cursor: 'pointer',
-  transition: `all ${token.duration} ${token.motionEaseInOut}`,
+  transition: `all ${token.motionDurationSlow} ${token.motionEaseInOut}`,
   userSelect: 'none',
   touchAction: 'manipulation',
   lineHeight: token.lineHeight,
@@ -93,7 +93,7 @@ const genSolidDisabledButtonStyle = (token: DerivativeToken): CSSObject => ({
     cursor: 'not-allowed',
     borderColor: token.colorBorder,
     color: token.colorTextDisabled,
-    backgroundColor: token.componentBackgroundDisabled,
+    backgroundColor: token.colorBgComponentDisabled,
     boxShadow: 'none',
   },
 });
@@ -115,26 +115,26 @@ const genPureDisabledButtonStyle = (token: DerivativeToken): CSSObject => ({
 const genDefaultButtonStyle = (prefixCls: string, token: DerivativeToken): CSSObject => ({
   ...genSolidButtonStyle(token),
 
-  backgroundColor: token.componentBackground,
+  backgroundColor: token.colorBgComponent,
   borderColor: token.colorBorder,
 
   boxShadow: '0 2px 0 rgba(0, 0, 0, 0.015)',
 
   ...genHoverActiveButtonStyle(
     {
-      color: token.primaryHoverColor,
-      borderColor: token.primaryHoverColor,
+      color: token.colorPrimaryHover,
+      borderColor: token.colorPrimaryHover,
     },
     {
-      color: token.primaryActiveColor,
-      borderColor: token.primaryActiveColor,
+      color: token.colorPrimaryActive,
+      borderColor: token.colorPrimaryActive,
     },
   ),
 
   ...genGhostButtonStyle(
     prefixCls,
-    token.componentBackground,
-    token.componentBackground,
+    token.colorBgComponent,
+    token.colorBgComponent,
     token.colorTextDisabled,
     token.colorBorder,
   ),
@@ -145,12 +145,12 @@ const genDefaultButtonStyle = (prefixCls: string, token: DerivativeToken): CSSOb
 
     ...genHoverActiveButtonStyle(
       {
-        color: token.errorHoverColor,
-        borderColor: token.errorHoverColor,
+        color: token.colorErrorHover,
+        borderColor: token.colorErrorHover,
       },
       {
-        color: token.errorActiveColor,
-        borderColor: token.errorActiveColor,
+        color: token.colorErrorActive,
+        borderColor: token.colorErrorActive,
       },
     ),
 
@@ -176,10 +176,10 @@ const genPrimaryButtonStyle = (prefixCls: string, token: DerivativeToken): CSSOb
 
   ...genHoverActiveButtonStyle(
     {
-      backgroundColor: token.primaryHoverColor,
+      backgroundColor: token.colorPrimaryHover,
     },
     {
-      backgroundColor: token.primaryActiveColor,
+      backgroundColor: token.colorPrimaryActive,
     },
   ),
 
@@ -196,10 +196,10 @@ const genPrimaryButtonStyle = (prefixCls: string, token: DerivativeToken): CSSOb
 
     ...genHoverActiveButtonStyle(
       {
-        backgroundColor: token.errorHoverColor,
+        backgroundColor: token.colorErrorHover,
       },
       {
-        backgroundColor: token.errorActiveColor,
+        backgroundColor: token.colorErrorActive,
       },
     ),
 
@@ -227,10 +227,10 @@ const genLinkButtonStyle = (prefixCls: string, token: DerivativeToken): CSSObjec
 
   ...genHoverActiveButtonStyle(
     {
-      color: token.primaryHoverColor,
+      color: token.colorPrimaryHover,
     },
     {
-      color: token.primaryActiveColor,
+      color: token.colorPrimaryActive,
     },
   ),
 
@@ -241,10 +241,10 @@ const genLinkButtonStyle = (prefixCls: string, token: DerivativeToken): CSSObjec
 
     ...genHoverActiveButtonStyle(
       {
-        color: token.errorHoverColor,
+        color: token.colorErrorHover,
       },
       {
-        color: token.errorActiveColor,
+        color: token.colorErrorActive,
       },
     ),
 
@@ -327,7 +327,7 @@ const genSizeButtonStyle = (
         },
 
         [`.${prefixCls}-loading-icon`]: {
-          transition: `width ${token.duration} ${token.motionEaseInOut}, opacity ${token.duration} ${token.motionEaseInOut}`,
+          transition: `width ${token.motionDurationSlow} ${token.motionEaseInOut}, opacity ${token.motionDurationSlow} ${token.motionEaseInOut}`,
         },
 
         [`&:not(${iconOnlyCls}) .${prefixCls}-loading-icon > .${iconPrefixCls}`]: {

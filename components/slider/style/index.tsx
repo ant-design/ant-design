@@ -46,31 +46,31 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
 
       [`${sliderCls}-rail`]: {
         position: 'absolute',
-        backgroundColor: token.background,
+        backgroundColor: token.colorBgContainer,
         borderRadius: token.controlRadius,
-        transition: `background-color ${token.duration}`,
+        transition: `background-color ${token.motionDurationSlow}`,
       },
 
       [`${sliderCls}-track`]: {
         position: 'absolute',
         backgroundColor: token.tmpPrimaryColorWeak, // FIXME: Origin @primary-3
         borderRadius: token.controlRadius,
-        transition: `background-color ${token.duration}`,
+        transition: `background-color ${token.motionDurationSlow}`,
       },
 
       [`${sliderCls}-handle`]: {
         position: 'absolute',
         width: token.handleSize,
         height: token.handleSize,
-        backgroundColor: token.componentBackground,
+        backgroundColor: token.colorBgComponent,
         border: `2px solid ${token.tmpPrimaryColorWeak}`,
         borderRadius: '50%',
         boxShadow: 'none',
         cursor: 'pointer',
         transition: `
-          border-color ${token.duration},
-          box-shadow ${token.duration},
-          transform ${token.duration} cubic-bezier(0.18, 0.89, 0.32, 1.28)
+          border-color ${token.motionDurationSlow},
+          box-shadow ${token.motionDurationSlow},
+          transform ${token.motionDurationSlow} cubic-bezier(0.18, 0.89, 0.32, 1.28)
         `,
         outline: 'none',
 
@@ -79,13 +79,13 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         },
 
         '&:focus': {
-          borderColor: token.primaryHoverColor,
+          borderColor: token.colorPrimaryHover,
           boxShadow: 'none',
         },
 
         '&:focus-visible': {
           // FIXME: This is a inline color calculation
-          boxShadow: `0 0 0 5px ${new TinyColor(token.primaryHoverColor)
+          boxShadow: `0 0 0 5px ${new TinyColor(token.colorPrimaryHover)
             .setAlpha(0.2)
             .toRgbString()}`,
         },
@@ -102,7 +102,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         },
 
         [`${sliderCls}-track`]: {
-          backgroundColor: token.primaryHoverColor, // FIXME: origin primary-4
+          backgroundColor: token.colorPrimaryHover, // FIXME: origin primary-4
         },
 
         [`${sliderCls}-dot`]: {
@@ -118,7 +118,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
           ${sliderCls}-handle,
           ${sliderCls}-dot-active
         `]: {
-          borderColor: token.primaryHoverColor,
+          borderColor: token.colorPrimaryHover,
         },
       },
 
@@ -151,11 +151,11 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         position: 'absolute',
         width: dotSize,
         height: dotSize,
-        backgroundColor: token.componentBackground,
+        backgroundColor: token.colorBgComponent,
         border: `2px solid ${token.colorSplit}`, // FIXME: hardcode in v4
         borderRadius: '50%',
         cursor: 'pointer',
-        transition: `border-color ${token.duration}`,
+        transition: `border-color ${token.motionDurationSlow}`,
 
         '&-active': {
           borderColor: token.tmpPrimaryColorWeak,
@@ -166,7 +166,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         cursor: 'not-allowed',
 
         [`${sliderCls}-rail`]: {
-          backgroundColor: `${token.background} !important`,
+          backgroundColor: `${token.colorBgContainer} !important`,
         },
 
         [`${sliderCls}-track`]: {
@@ -177,7 +177,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
           ${sliderCls}-handle,
           ${sliderCls}-dot
         `]: {
-          backgroundColor: token.componentBackground,
+          backgroundColor: token.colorBgComponent,
           borderColor: `${token.colorTextDisabled} !important`,
           boxShadow: 'none',
           cursor: 'not-allowed',

@@ -33,10 +33,10 @@ const genSelectorStyle: GenerateStyle<SelectToken, CSSObject> = token => {
 
   return {
     position: 'relative',
-    backgroundColor: token.componentBackground,
+    backgroundColor: token.colorBgComponent,
     border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
     borderRadius: token.controlRadius,
-    transition: `all ${token.duration} ${token.motionEaseInOut}`,
+    transition: `all ${token.motionDurationSlow} ${token.motionEaseInOut}`,
 
     input: {
       cursor: 'pointer',
@@ -52,11 +52,11 @@ const genSelectorStyle: GenerateStyle<SelectToken, CSSObject> = token => {
 
     [`${selectCls}-disabled&`]: {
       color: token.colorTextDisabled,
-      background: token.componentBackgroundDisabled,
+      background: token.colorBgComponentDisabled,
       cursor: 'not-allowed',
 
       [`${selectCls}-multiple&`]: {
-        background: token.componentBackgroundDisabled,
+        background: token.colorBgComponentDisabled,
       },
 
       input: {
@@ -165,7 +165,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
       [`${selectCls}-selection-placeholder`]: {
         flex: 1,
         overflow: 'hidden',
-        color: token.placeholderColor,
+        color: token.colorPlaceholder,
         whiteSpace: 'nowrap',
         textOverflow: 'ellipsis',
         pointerEvents: 'none',
@@ -189,7 +189,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
 
         [`.${iconPrefixCls}`]: {
           verticalAlign: 'top',
-          transition: `transform ${token.duration}`,
+          transition: `transform ${token.motionDurationSlow}`,
 
           '> svg': {
             verticalAlign: 'top',
@@ -222,10 +222,10 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
         lineHeight: 1,
         textAlign: 'center',
         textTransform: 'none',
-        background: token.componentBackground,
+        background: token.colorBgComponent,
         cursor: 'pointer',
         opacity: 0,
-        transition: `color ${token.duration} ease, opacity ${token.duration} ease`,
+        transition: `color ${token.motionDurationSlow} ease, opacity ${token.motionDurationSlow} ease`,
         textRendering: 'auto',
 
         '&:before': {
@@ -257,7 +257,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
         fontSize: token.fontSize,
         textAlign: 'center',
         visibility: 'visible',
-        animation: `zoomIn ${token.duration} ${token.motionEaseOutBack}`,
+        animation: `zoomIn ${token.motionDurationSlow} ${token.motionEaseOutBack}`,
         pointerEvents: 'none',
 
         '&:not(:first-child)': {
@@ -331,15 +331,15 @@ const genSelectStyle = (
     // =====================================================
     genStatusStyle(selectCls, {
       ...selectToken,
-      borderHoverColor: token.primaryHoverColor,
-      outlineColor: token.primaryOutlineColor,
+      borderHoverColor: token.colorPrimaryHover,
+      outlineColor: token.colorPrimaryOutline,
     }),
     genStatusStyle(
       `${selectCls}-status-error`,
       {
         ...selectToken,
-        borderHoverColor: token.errorHoverColor,
-        outlineColor: token.errorOutlineColor,
+        borderHoverColor: token.colorErrorHover,
+        outlineColor: token.colorErrorOutline,
       },
       true,
     ),
@@ -347,8 +347,8 @@ const genSelectStyle = (
       `${selectCls}-status-warning`,
       {
         ...selectToken,
-        borderHoverColor: token.warningHoverColor,
-        outlineColor: token.warningOutlineColor,
+        borderHoverColor: token.colorWarningHover,
+        outlineColor: token.colorWarningOutline,
       },
       true,
     ),

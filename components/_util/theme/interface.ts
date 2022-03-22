@@ -44,6 +44,7 @@ export interface SeedToken extends PresetColorType {
   colorInfo: string;
   colorText: string;
   colorTextLightSolid: string;
+  /** Base component background color. Will derivative container background color with this */
   colorBg: string;
 
   // Font
@@ -59,7 +60,7 @@ export interface SeedToken extends PresetColorType {
 
   // Motion
   motionUnit: number;
-  motionBaseStep: number;
+  motionBase: number;
   motionEaseInOutCirc: string;
   motionEaseInOut: string;
   motionEaseOutBack: string;
@@ -85,10 +86,15 @@ export interface DerivativeToken extends SeedToken, ColorPalettes {
   // Color
   colorPrimaryHover: string;
   colorPrimaryActive: string;
+  colorPrimaryOutline: string;
+
   colorWarningHover: string;
   colorWarningActive: string;
+  colorWarningOutline: string;
+
   colorErrorHover: string;
   colorErrorActive: string;
+  colorErrorOutline: string;
 
   colorText2: string;
   colorTextBelow: string;
@@ -116,9 +122,8 @@ export interface DerivativeToken extends SeedToken, ColorPalettes {
   gridSpaceXXL: number;
 
   // Motion
-  motionDurationBase: string;
-  motionDurationMd: string;
   motionDurationFast: string;
+  motionDurationMid: string;
   motionDurationSlow: string;
 
   // Radius
@@ -164,49 +169,35 @@ export interface AliasToken extends DerivativeToken {
   controlLineType: string;
   controlRadius: number;
   controlOutlineWidth: number;
+  controlItemBgHover: string; // Note. It also is a color
+  controlItemBgActive: string; // Note. It also is a color
 
   // Color
   colorBorder: string;
   colorSplit: string;
   colorTextSecondary: string;
   colorTextDisabled: string;
+  /** Placeholder text color */
+  colorPlaceholder: string;
+  colorTextHeading: string;
+  colorBgContainer: string;
+  colorBgComponent: string;
+  colorBgComponentDisabled: string;
 
   // =============== Legacy: should be remove ===============
-  placeholderColor: string;
-
-  disabledColor: string;
-
   iconColorHover: string;
-
-  headingColor: string;
-
-  itemHoverBackground: string;
 
   padding: number;
   margin: number;
 
-  background: string;
   backgroundLight: string;
-
-  componentBackground: string;
-  componentBackgroundDisabled: string;
 
   zIndexDropdown: number;
   zIndexAffix: number;
 
-  boxShadow?: string;
+  boxShadow: string;
 
   // =============== Legacy: should be remove ===============
-  primaryHoverColor: string;
-  primaryActiveColor: string;
-  primaryOutlineColor: string;
-  errorHoverColor: string;
-  errorActiveColor: string;
-  errorOutlineColor: string;
-  warningHoverColor: string;
-  warningOutlineColor: string;
-  itemActiveBackground: string;
-
   highlightColor: string;
 
   linkColor: string;
@@ -225,10 +216,6 @@ export interface AliasToken extends DerivativeToken {
   marginXS: number;
   marginLG: number;
   marginXXS: number;
-
-  duration: string;
-  durationMid: string;
-  durationFast: string;
 
   primaryColors: string[];
   errorColors: string[];

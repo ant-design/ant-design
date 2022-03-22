@@ -57,7 +57,7 @@ export const getTitleStyles: GenerateStyle<TypographyToken, CSSObject> = token =
     ] = getTitleStyle({
       fontSize: token[`fontSizeHeading${headingLevel}`],
       lineHeight: token[`lineHeightHeading${headingLevel}`],
-      color: token.headingColor,
+      color: token.colorTextHeading,
       typographyToken: token.typography,
     });
   });
@@ -74,7 +74,7 @@ export const getLinkStyles: GenerateStyle<TypographyToken, CSSObject> = token =>
     },
 
     [`&[disabled], &.${token.typography.prefixCls}-disabled`]: {
-      color: token.disabledColor,
+      color: token.colorTextDisabled,
       cursor: 'not-allowed',
 
       '&:active, &:hover': {

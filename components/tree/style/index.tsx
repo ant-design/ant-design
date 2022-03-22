@@ -30,7 +30,7 @@ const getSwitchStyle = (prefixCls: string, token: DerivativeToken): CSSObject =>
     verticalAlign: 'baseline',
 
     svg: {
-      transition: `transform ${token.duration}`,
+      transition: `transform ${token.motionDurationSlow}`,
     },
   },
 });
@@ -77,9 +77,9 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
   return {
     [treeCls]: {
       ...resetComponent(token),
-      background: token.componentBackground,
+      background: token.colorBgComponent,
       borderRadius: token.controlRadius,
-      transition: `background-color ${token.duration}`,
+      transition: `background-color ${token.motionDurationSlow}`,
 
       '&&-rtl': {
         // >>> Switcher
@@ -124,7 +124,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
               insetInlineStart: 0,
               border: `1px solid ${token.colorPrimary}`,
               opacity: 0,
-              animation: `${treeNodeFX.getName(hashId)} ${token.duration}`,
+              animation: `${treeNodeFX.getName(hashId)} ${token.motionDurationSlow}`,
               animationPlayState: 'running',
               animationFillMode: 'forwards',
               content: '""',
@@ -158,7 +158,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
         },
 
         [`&-active ${treeCls}-node-content-wrapper`]: {
-          background: token.itemHoverBackground,
+          background: token.controlItemBgHover,
         },
 
         [`&:not(&-disabled).filter-node ${treeCls}-title`]: {
@@ -184,7 +184,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
         lineHeight: `${treeTitleHeight}px`,
         textAlign: 'center',
         opacity: 0.2,
-        transition: `opacity ${token.duration}`,
+        transition: `opacity ${token.motionDurationSlow}`,
 
         [`${treeNodeCls}:hover &`]: {
           opacity: 0.45,
@@ -269,10 +269,10 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
         background: 'transparent',
         borderRadius: token.controlRadius,
         cursor: 'pointer',
-        transition: `all ${token.duration}, border 0s, line-height 0s, box-shadow 0s`,
+        transition: `all ${token.motionDurationSlow}, border 0s, line-height 0s, box-shadow 0s`,
 
         '&:hover': {
-          backgroundColor: token.itemHoverBackground,
+          backgroundColor: token.controlItemBgHover,
         },
 
         [`&${treeCls}-node-selected`]: {
@@ -340,7 +340,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
 
         // ============== Cover Background ==============
         [`${treeCls}-switcher`]: {
-          background: token.componentBackground,
+          background: token.colorBgComponent,
 
           '&-line-icon': {
             // https://github.com/ant-design/ant-design/issues/32813
@@ -381,14 +381,14 @@ export const genDirectoryStyle = (token: TreeToken): CSSObject => {
           insetInlineEnd: 0,
           bottom: treeNodePadding,
           insetInlineStart: 0,
-          transition: `background-color ${token.duration}`,
+          transition: `background-color ${token.motionDurationSlow}`,
           content: '""',
           pointerEvents: 'none',
         },
 
         '&:hover': {
           '&:before': {
-            background: token.itemHoverBackground,
+            background: token.controlItemBgHover,
           },
         },
 
@@ -399,7 +399,7 @@ export const genDirectoryStyle = (token: TreeToken): CSSObject => {
 
         // >>> Switcher
         [`${treeCls}-switcher`]: {
-          transition: `color ${token.duration}`,
+          transition: `color ${token.motionDurationSlow}`,
         },
 
         // >>> Title

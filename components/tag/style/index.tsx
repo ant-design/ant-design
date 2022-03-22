@@ -81,7 +81,7 @@ const genBaseStyle = (
     borderRadius: token.controlRadius,
     // FIXME: hard code
     opacity: 1,
-    transition: `all ${token.duration}`,
+    transition: `all ${token.motionDurationSlow}`,
 
     // RTL
     '&&-rtl': {
@@ -100,10 +100,10 @@ const genBaseStyle = (
       // FIXME: hard code
       fontSize: 10,
       cursor: 'pointer',
-      transition: `all ${token.duration}`,
+      transition: `all ${token.motionDurationSlow}`,
 
       '&:hover': {
-        color: token.headingColor,
+        color: token.colorTextHeading,
       },
     },
 

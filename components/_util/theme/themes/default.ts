@@ -27,7 +27,7 @@ export function derivative(token: SeedToken): DerivativeToken {
     colorWarning,
     colorError,
     motionUnit,
-    motionBaseStep,
+    motionBase,
     fontSizeBase,
     sizeUnit,
     sizeBaseStep,
@@ -65,10 +65,9 @@ export function derivative(token: SeedToken): DerivativeToken {
     ...colorPalettes,
 
     // motion
-    motionDurationBase: `${motionUnit * motionBaseStep}s`,
-    motionDurationMd: `${motionUnit * (motionBaseStep - 1)}s`,
-    motionDurationFast: `${motionUnit * (motionBaseStep - 2)}s`,
-    motionDurationSlow: `${motionUnit * (motionBaseStep + 1)}s`,
+    motionDurationFast: `${motionBase + motionUnit * 1}s`,
+    motionDurationMid: `${motionBase + motionUnit * 2}s`,
+    motionDurationSlow: `${motionBase + motionUnit * 3}s`,
 
     // font
     fontSizes: fontSizes.map(fs => fs.size),
@@ -96,12 +95,15 @@ export function derivative(token: SeedToken): DerivativeToken {
     colorBgBelow: new TinyColor({ h: 0, s: 0, v: 98 }).toHexString(),
     colorBgBelow2: new TinyColor({ h: 0, s: 0, v: 96 }).toHexString(),
 
-    colorErrorActive: errorColors[6],
-    colorErrorHover: errorColors[4],
     colorPrimaryActive: primaryColors[6],
     colorPrimaryHover: primaryColors[4],
+    colorPrimaryOutline: new TinyColor(colorPrimary).setAlpha(0.2).toRgbString(),
+    colorErrorActive: errorColors[6],
+    colorErrorHover: errorColors[4],
+    colorErrorOutline: new TinyColor(colorError).setAlpha(0.2).toRgbString(),
     colorWarningActive: warningColors[6],
     colorWarningHover: warningColors[4],
+    colorWarningOutline: new TinyColor(colorWarning).setAlpha(0.2).toRgbString(),
 
     // text color
     colorText2: new TinyColor('#000').setAlpha(0.85).toRgbString(),
@@ -147,7 +149,7 @@ const seedToken: SeedToken = {
 
   // Motion
   motionUnit: 0.1,
-  motionBaseStep: 3,
+  motionBase: 0,
   motionEaseInOutCirc: `cubic-bezier(0.78, 0.14, 0.15, 0.86)`,
   motionEaseInOut: `cubic-bezier(0.645, 0.045, 0.355, 1)`,
   motionEaseOutBack: `cubic-bezier(0.12, 0.4, 0.29, 1.46)`,

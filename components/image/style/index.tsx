@@ -45,7 +45,8 @@ export const genBoxStyle = (position?: PositionType): CSSObject => ({
 });
 
 export const genImageMaskStyle = (token: ImageToken): CSSObject => {
-  const { iconPrefixCls, white, black, duration, paddingXXS, marginXXS, prefixCls } = token;
+  const { iconPrefixCls, white, black, motionDurationSlow, paddingXXS, marginXXS, prefixCls } =
+    token;
   return {
     position: 'absolute',
     inset: 0,
@@ -56,7 +57,7 @@ export const genImageMaskStyle = (token: ImageToken): CSSObject => {
     background: new TinyColor(black).setAlpha(0.5).toRgbString(), // FIXME: hard code in v4
     cursor: 'pointer',
     opacity: 0,
-    transition: `opacity ${duration}`,
+    transition: `opacity ${motionDurationSlow}`,
 
     [`.${prefixCls}-mask-info`]: {
       padding: `0 ${paddingXXS}`,
@@ -158,7 +159,8 @@ export const genPreviewSwitchStyle = (token: ImageToken): CSSObject => {
 };
 
 export const genImagePreviewStyle = (token: ImageToken): CSSObject => {
-  const { motionEaseOut, previewPrefixCls, switchRight, switchLeft, width1px, duration } = token;
+  const { motionEaseOut, previewPrefixCls, switchRight, switchLeft, width1px, motionDurationSlow } =
+    token;
   return {
     height: '100%',
     textAlign: 'center',
@@ -173,13 +175,13 @@ export const genImagePreviewStyle = (token: ImageToken): CSSObject => {
       verticalAlign: 'middle',
       transform: 'scale3d(1, 1, 1)',
       cursor: 'grab',
-      transition: `transform ${duration} ${motionEaseOut} 0s`,
+      transition: `transform ${motionDurationSlow} ${motionEaseOut} 0s`,
       userSelect: 'none',
       pointerEvents: 'auto',
 
       '&-wrapper': {
         ...genBoxStyle(),
-        transition: `transform ${duration} ${motionEaseOut} 0s`,
+        transition: `transform ${motionDurationSlow} ${motionEaseOut} 0s`,
 
         '&::before': {
           display: 'inline-block',
@@ -227,7 +229,7 @@ const genImageStyle: GenerateStyle<ImageToken> = (token: ImageToken) => {
     previewPrefixCls,
     imageBg,
     zIndexImage,
-    duration,
+    motionDurationSlow,
   } = token;
   return {
     // ============================== image ==============================
@@ -264,7 +266,7 @@ const genImageStyle: GenerateStyle<ImageToken> = (token: ImageToken) => {
       {
         transform: 'none',
         opacity: 0,
-        animationDuration: duration,
+        animationDuration: motionDurationSlow,
         userSelect: 'none', // https://github.com/ant-design/ant-design/issues/11777
       },
     [`.${previewPrefixCls}-root`]: {

@@ -32,14 +32,14 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     ...mergedToken,
 
     // Colors
-    primaryHoverColor: mergedToken.colorPrimaryHover,
-    primaryActiveColor: mergedToken.colorPrimaryActive,
-    errorHoverColor: mergedToken.colorErrorHover,
-    errorActiveColor: mergedToken.colorErrorActive,
-    warningHoverColor: mergedToken.colorWarningHover,
-
     colorTextSecondary: mergedToken.colorTextBelow,
     colorTextDisabled: mergedToken.colorTextBelow2,
+    colorPlaceholder: mergedToken.colorTextBelow2,
+    colorTextHeading: mergedToken.colorText,
+
+    colorBgContainer: mergedToken.colorBgBelow2,
+    colorBgComponent: mergedToken.colorBg,
+    colorBgComponentDisabled: mergedToken.colorBgBelow2,
 
     // Font
     fontSizeSM: fontSizes[0],
@@ -64,6 +64,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     // Control
     controlLineWidth: mergedToken.lineWidth,
     controlOutlineWidth: mergedToken.lineWidth * 2,
+    controlItemBgHover: mergedToken.colorBgBelow2,
 
     // 👀👀👀👀👀👀👀👀👀 Not align with Derivative 👀👀👀👀👀👀👀👀👀
     // FIXME: @arvinxx handle this
@@ -71,6 +72,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     controlRadius: mergedToken.radiusBase,
     colorBorder: new TinyColor({ h: 0, s: 0, v: 85 }).toHexString(),
     colorSplit: new TinyColor({ h: 0, s: 0, v: 94 }).toHexString(),
+    controlItemBgActive: primaryColors[0],
 
     // 🔥🔥🔥🔥🔥🔥🔥🔥🔥 All TMP Token leaves here 🔥🔥🔥🔥🔥🔥🔥🔥🔥
     // FIXME: Handle this when derivative is ready
@@ -93,12 +95,6 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     tmpErrorColorDeprecatedBorder: errorColors[2],
     tmpInfoColorDeprecatedBorder: infoColors[2],
 
-    primaryOutlineColor: new TinyColor(mergedToken.colorPrimary).setAlpha(0.2).toRgbString(),
-    errorOutlineColor: new TinyColor(mergedToken.colorError).setAlpha(0.2).toRgbString(),
-    warningOutlineColor: new TinyColor(mergedToken.colorWarning).setAlpha(0.2).toRgbString(),
-
-    itemActiveBackground: primaryColors[0],
-
     highlightColor: errorColors[5], // FIXME: Should not align with error color
     // FIXME: fix2 badge-color
 
@@ -109,15 +105,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     linkHoverDecoration: 'none',
     linkFocusDecoration: 'none',
 
-    placeholderColor: new TinyColor({ h: 0, s: 0, v: 75 }).setAlpha(0.5).toRgbString(),
-
-    disabledColor: new TinyColor('#000').setAlpha(0.25).toRgbString(),
-
-    headingColor: new TinyColor('#000').setAlpha(0.85).toRgbString(),
-
     iconColorHover: new TinyColor('#000').setAlpha(0.75).toRgbString(),
-
-    itemHoverBackground: '#f5f5f5',
 
     controlPaddingHorizontal: 16,
     controlPaddingHorizontalSM: 12,
@@ -135,21 +123,17 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     // marginSM: 8,
     marginLG: 32,
 
-    // Default grey background color
-    background: new TinyColor({ h: 0, s: 0, v: 96 }).toHexString(),
-
     // background of header and selected item
     backgroundLight: new TinyColor({ h: 0, s: 0, v: 98 }).toHexString(),
 
-    componentBackground: '#fff',
-    componentBackgroundDisabled: new TinyColor({ h: 0, s: 0, v: 96 }).toHexString(),
-
-    duration: '0.3s',
-    durationMid: '0.2s',
-    durationFast: '0.1s',
-
     zIndexDropdown: 1050,
     zIndexAffix: 10,
+
+    boxShadow: `
+      0 3px 6px -4px rgba(0, 0, 0, 0.12),
+      0 6px 16px 0 rgba(0, 0, 0, 0.08),
+      0 9px 28px 8px rgba(0, 0, 0, 0.05)
+    `,
   };
 
   return aliasToken;

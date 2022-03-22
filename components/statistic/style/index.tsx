@@ -25,7 +25,7 @@ const genStatisticStyle: GenerateStyle<StatisticToken> = (token: StatisticToken)
       fontSize: token.statisticTitleFontSize,
     },
     [`${token.statisticCls}-content`]: {
-      color: token.headingColor,
+      color: token.colorTextHeading,
       fontSize: token.statisticContentFontSize,
       fontFamily: token.statisticFontFamily,
       [`${token.statisticCls}-content-value`]: {

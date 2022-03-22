@@ -241,7 +241,7 @@ export default function useStyle(
     switchInnerMarginMax: Math.ceil(switchHeight * 1.1),
     switchPadding: 2,
     switchPinSize: switchHeight - 4,
-    switchBg: token.componentBackground,
+    switchBg: token.colorBgComponent,
     switchShadowColor: new TinyColor('#00230b').setAlpha(0.2).toRgbString(),
     switchMinWidthSM: 28,
     switchHeightSM,

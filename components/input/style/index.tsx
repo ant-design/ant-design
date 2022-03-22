@@ -47,14 +47,14 @@ export const genHoverStyle = (token: InputToken): CSSObject => ({
 
 export const genActiveStyle = (token: InputToken) => ({
   borderColor: token.inputBorderHoverColor,
-  boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${token.primaryOutlineColor}`,
+  boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${token.colorPrimaryOutline}`,
   borderInlineEndWidth: token.controlLineWidth,
   outline: 0,
 });
 
 export const genDisabledStyle = (token: InputToken): CSSObject => ({
   color: token.colorTextDisabled,
-  backgroundColor: token.componentBackgroundDisabled,
+  backgroundColor: token.colorBgComponentDisabled,
   borderColor: token.colorBorder,
   boxShadow: 'none',
   cursor: 'not-allowed',
@@ -79,7 +79,7 @@ const genInputSmallStyle = (token: InputToken): CSSObject => ({
 });
 
 export const genStatusStyle = (token: InputToken): CSSObject => {
-  const { prefixCls, colorError, colorWarning, errorOutlineColor, warningOutlineColor } = token;
+  const { prefixCls, colorError, colorWarning, colorErrorOutline, colorWarningOutline } = token;
 
   return {
     '&-status-error:not(&-disabled):not(&-borderless)&': {
@@ -92,7 +92,7 @@ export const genStatusStyle = (token: InputToken): CSSObject => {
           ...token,
           inputBorderActiveColor: colorError,
           inputBorderHoverColor: colorError,
-          primaryOutlineColor: errorOutlineColor,
+          colorPrimaryOutline: colorErrorOutline,
         }),
       },
 
@@ -110,7 +110,7 @@ export const genStatusStyle = (token: InputToken): CSSObject => {
           ...token,
           inputBorderActiveColor: colorWarning,
           inputBorderHoverColor: colorWarning,
-          primaryOutlineColor: warningOutlineColor,
+          colorPrimaryOutline: colorWarningOutline,
         }),
       },
 
@@ -130,13 +130,13 @@ export const genBasicInputStyle = (token: InputToken): CSSObject => ({
   color: token.colorText,
   fontSize: token.fontSize,
   lineHeight: token.lineHeight,
-  backgroundColor: token.componentBackground,
+  backgroundColor: token.colorBgComponent,
   backgroundImage: 'none',
   borderWidth: token.controlLineWidth,
   borderStyle: token.controlLineType,
   borderColor: token.colorBorder,
   borderRadius: token.controlRadius,
-  transition: `all ${token.duration}`,
+  transition: `all ${token.motionDurationSlow}`,
   ...genPlaceholderStyle(),
 
   '&:hover': {
@@ -166,7 +166,7 @@ export const genBasicInputStyle = (token: InputToken): CSSObject => ({
     minHeight: token.controlHeight,
     lineHeight: token.lineHeight,
     verticalAlign: 'bottom',
-    transition: `all ${token.duration}, height 0s`,
+    transition: `all ${token.motionDurationSlow}, height 0s`,
   },
 
   '&-textarea': {
@@ -259,7 +259,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
         backgroundColor: token.backgroundLight,
         border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
         borderRadius: token.controlRadius,
-        transition: `all ${token.duration}`,
+        transition: `all ${token.motionDurationSlow}`,
 
         // Reset Select's style in addon
         '.ant-select': {
@@ -542,7 +542,7 @@ const genAllowClearStyle = (token: InputToken): CSSObject => {
       // https://github.com/ant-design/ant-design/pull/18151
       // https://codesandbox.io/s/wizardly-sun-u10br
       cursor: 'pointer',
-      transition: `color ${token.duration}`,
+      transition: `color ${token.motionDurationSlow}`,
 
       '&:hover': {
         color: token.colorTextSecondary,
@@ -582,7 +582,7 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
     iconPrefixCls,
     inputAffixMargin,
     colorTextSecondary: textColorSecondary,
-    duration,
+    motionDurationSlow: duration,
     iconColorHover,
     colorPrimary,
     colorSuccess,
@@ -730,11 +730,11 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
     [searchPrefixCls]: {
       [`.${prefixCls}`]: {
         '&:hover, &:focus': {
-          borderColor: token.primaryHoverColor,
+          borderColor: token.colorPrimaryHover,
 
           [`+ .${prefixCls}-group-addon ${searchPrefixCls}-button:not(.@{ant-prefix}-btn-primary)`]:
             {
-              borderInlineStartColor: token.primaryHoverColor,
+              borderInlineStartColor: token.colorPrimaryHover,
             },
         },
       },
@@ -823,8 +823,8 @@ export const initInputToken = (
     0,
   ),
   inputPaddingHorizontal: token.paddingSM - token.controlLineWidth,
-  inputBorderHoverColor: token.primaryHoverColor,
-  inputBorderActiveColor: token.primaryHoverColor,
+  inputBorderHoverColor: token.colorPrimaryHover,
+  inputBorderActiveColor: token.colorPrimaryHover,
 });
 
 const genTextAreaStyle: GenerateStyle<InputToken> = token => {
