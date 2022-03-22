@@ -259,7 +259,7 @@ class Affix extends React.Component<InternalAffixProps, AffixState> {
     const { affixStyle, placeholderStyle } = this.state;
     const { affixPrefixCls, rootClassName, children } = this.props;
     const className = classNames({
-      rootClassName,
+      [rootClassName]: !!affixStyle,
       [affixPrefixCls]: !!affixStyle,
     });
 
