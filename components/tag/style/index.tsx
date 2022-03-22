@@ -103,7 +103,7 @@ const genBaseStyle = (
       transition: `all ${token.duration}`,
 
       '&:hover': {
-        color: token.headingColor,
+        color: token.colorTextHeading,
       },
     },
 

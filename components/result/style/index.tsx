@@ -57,7 +57,7 @@ const genBaseStyle: GenerateStyle<ResultToken> = (token): CSSObject => {
     },
 
     [`${resultCls} ${resultCls}-title`]: {
-      color: token.headingColor,
+      color: token.colorTextHeading,
       fontSize: token.resultTitleFontSize,
       // FIXME: hard code
       lineHeight: 1.8,

@@ -280,7 +280,7 @@ export default function useStyle(
 
   const alertCls = `.${prefixCls}`;
 
-  const alertMessageColor = token.headingColor;
+  const alertMessageColor = token.colorTextHeading;
   const alertCloseColor = token.colorTextSecondary;
   const alertCloseHoverColor = token.iconColorHover;
   // FIXME

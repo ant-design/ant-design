@@ -57,7 +57,7 @@ export const getTitleStyles: GenerateStyle<TypographyToken, CSSObject> = token =
     ] = getTitleStyle({
       fontSize: token[`fontSizeHeading${headingLevel}`],
       lineHeight: token[`lineHeightHeading${headingLevel}`],
-      color: token.headingColor,
+      color: token.colorTextHeading,
       typographyToken: token.typography,
     });
   });
