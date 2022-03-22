@@ -120,9 +120,6 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
 
     itemHoverBackground: '#f5f5f5',
 
-    controlHeightSM: 24,
-    controlHeightXS: 16,
-    controlHeightLG: 40,
     controlPaddingHorizontal: 16,
     controlPaddingHorizontalSM: 12,
 
