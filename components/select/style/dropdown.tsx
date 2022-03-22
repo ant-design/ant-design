@@ -93,7 +93,7 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token, hashId) => {
         [`${selectItemCls}`]: {
           ...genItemStyle(token),
           cursor: 'pointer',
-          transition: `background ${token.duration} ease`,
+          transition: `background ${token.motionDurationSlow} ease`,
 
           // =========== Group ============
           '&-group': {

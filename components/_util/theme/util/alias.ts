@@ -32,9 +32,6 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     ...mergedToken,
 
     // Colors
-    colorErrorHover: mergedToken.colorErrorHover,
-    colorErrorActive: mergedToken.colorErrorActive,
-
     colorTextSecondary: mergedToken.colorTextBelow,
     colorTextDisabled: mergedToken.colorTextBelow2,
     colorPlaceholder: mergedToken.colorTextBelow2,
@@ -135,10 +132,6 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
 
     // background of header and selected item
     backgroundLight: new TinyColor({ h: 0, s: 0, v: 98 }).toHexString(),
-
-    duration: '0.3s',
-    durationMid: '0.2s',
-    durationFast: '0.1s',
 
     zIndexDropdown: 1050,
     zIndexAffix: 10,

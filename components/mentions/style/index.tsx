@@ -27,7 +27,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
     controlItemBgHover: itemHoverBackground,
     controlPaddingHorizontal,
     colorText: textColor,
-    duration,
+    motionDurationSlow: duration,
     lineHeight,
     controlHeight,
     inputPaddingHorizontal,

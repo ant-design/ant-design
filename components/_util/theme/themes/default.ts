@@ -27,7 +27,7 @@ export function derivative(token: SeedToken): DerivativeToken {
     colorWarning,
     colorError,
     motionUnit,
-    motionBaseStep,
+    motionBase,
     fontSizeBase,
     sizeUnit,
     sizeBaseStep,
@@ -65,10 +65,9 @@ export function derivative(token: SeedToken): DerivativeToken {
     ...colorPalettes,
 
     // motion
-    motionDurationBase: `${motionUnit * motionBaseStep}s`,
-    motionDurationMd: `${motionUnit * (motionBaseStep - 1)}s`,
-    motionDurationFast: `${motionUnit * (motionBaseStep - 2)}s`,
-    motionDurationSlow: `${motionUnit * (motionBaseStep + 1)}s`,
+    motionDurationFast: `${motionBase + motionUnit * 1}s`,
+    motionDurationMid: `${motionBase + motionUnit * 2}s`,
+    motionDurationSlow: `${motionBase + motionUnit * 3}s`,
 
     // font
     fontSizes: fontSizes.map(fs => fs.size),
@@ -147,7 +146,7 @@ const seedToken: SeedToken = {
 
   // Motion
   motionUnit: 0.1,
-  motionBaseStep: 3,
+  motionBase: 0,
   motionEaseInOutCirc: `cubic-bezier(0.78, 0.14, 0.15, 0.86)`,
   motionEaseInOut: `cubic-bezier(0.645, 0.045, 0.355, 1)`,
   motionEaseOutBack: `cubic-bezier(0.12, 0.4, 0.29, 1.46)`,

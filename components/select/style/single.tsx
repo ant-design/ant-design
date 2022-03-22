@@ -35,7 +35,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         `]: {
           padding: 0,
           lineHeight: `${selectHeightWithoutBorder}px`,
-          transition: `all ${token.duration}`,
+          transition: `all ${token.motionDurationSlow}`,
 
           // Firefox inline-block position calculation is not same as Chrome & Safari. Patch this:
           '@supports (-moz-appearance: meterbar) &': {

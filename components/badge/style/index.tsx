@@ -152,7 +152,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (
         transformOrigin: '100% 0%',
         [`.${iconPrefixCls}-spin`]: {
           animation: `${antBadgeLoadingCircle.getName(hashId)} ${
-            token.durationFast
+            token.motionDurationFast
           } infinite linear`,
         },
       },
@@ -208,24 +208,26 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (
         },
       },
       [`.${badgePrefixCls}-zoom-appear, .${badgePrefixCls}-zoom-enter`]: {
-        animation: `${antZoomBadgeIn.getName(hashId)} ${token.duration} ${token.motionEaseOutBack}`,
+        animation: `${antZoomBadgeIn.getName(hashId)} ${token.motionDurationSlow} ${
+          token.motionEaseOutBack
+        }`,
         animationFillMode: 'both',
       },
       [`.${badgePrefixCls}-zoom-leave`]: {
-        animation: `${antZoomBadgeOut.getName(hashId)} ${token.duration} ${
+        animation: `${antZoomBadgeOut.getName(hashId)} ${token.motionDurationSlow} ${
           token.motionEaseOutBack
         }`,
         animationFillMode: 'both',
       },
       [`&.${badgePrefixCls}-not-a-wrapper`]: {
         [`.${badgePrefixCls}-zoom-appear, .${badgePrefixCls}-zoom-enter`]: {
-          animation: `${antNoWrapperZoomBadgeIn.getName(hashId)} ${token.duration} ${
+          animation: `${antNoWrapperZoomBadgeIn.getName(hashId)} ${token.motionDurationSlow} ${
             token.motionEaseOutBack
           }`,
         },
 
         [`.${badgePrefixCls}-zoom-leave`]: {
-          animation: `${antNoWrapperZoomBadgeOut.getName(hashId)} ${token.duration} ${
+          animation: `${antNoWrapperZoomBadgeOut.getName(hashId)} ${token.motionDurationSlow} ${
             token.motionEaseOutBack
           }`,
         },
@@ -249,7 +251,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (
           position: 'relative',
           display: 'inline-block',
           height: token.badgeHeight,
-          transition: `all ${token.duration} ${token.motionEaseOutBack}`,
+          transition: `all ${token.motionDurationSlow} ${token.motionEaseOutBack}`,
           WebkitTransformStyle: 'preserve-3d',
           WebkitBackfaceVisibility: 'hidden',
           [`> p.${numberPrefixCls}-only-unit`]: {

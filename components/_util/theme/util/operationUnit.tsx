@@ -7,7 +7,7 @@ export const operationUnit = (token: DerivativeToken): CSSObject => ({
   textDecoration: 'none',
   outline: 'none',
   cursor: 'pointer',
-  transition: `color ${token.duration}`,
+  transition: `color ${token.motionDurationSlow}`,
 
   '&:focus, &:hover': {
     color: token.linkHoverColor,

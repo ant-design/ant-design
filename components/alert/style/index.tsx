@@ -61,7 +61,7 @@ const genAlertTypeStyle = (
 export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSObject => {
   const {
     alertCls,
-    duration,
+    motionDurationSlow: duration,
     marginXS,
     fontSize,
     fontSizeLG,
@@ -222,7 +222,7 @@ export const genActionStyle: GenerateStyle<AlertToken> = (token: AlertToken): CS
   const {
     alertCls,
     iconPrefixCls,
-    duration,
+    motionDurationSlow: duration,
     marginXS,
     fontSizeSM,
     alertCloseColor,

@@ -59,7 +59,7 @@ export interface SeedToken extends PresetColorType {
 
   // Motion
   motionUnit: number;
-  motionBaseStep: number;
+  motionBase: number;
   motionEaseInOutCirc: string;
   motionEaseInOut: string;
   motionEaseOutBack: string;
@@ -116,9 +116,8 @@ export interface DerivativeToken extends SeedToken, ColorPalettes {
   gridSpaceXXL: number;
 
   // Motion
-  motionDurationBase: string;
-  motionDurationMd: string;
   motionDurationFast: string;
+  motionDurationMid: string;
   motionDurationSlow: string;
 
   // Radius
@@ -215,10 +214,6 @@ export interface AliasToken extends DerivativeToken {
   marginXS: number;
   marginLG: number;
   marginXXS: number;
-
-  duration: string;
-  durationMid: string;
-  durationFast: string;
 
   primaryColors: string[];
   errorColors: string[];

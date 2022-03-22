@@ -96,7 +96,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         border: `${token.controlLineWidth}px solid ${token.colorSplit}`,
         borderRadius: token.controlRadius,
         cursor: 'default',
-        transition: `font-size ${token.duration}, line-height ${token.duration}, height ${token.duration}`,
+        transition: `font-size ${token.motionDurationSlow}, line-height ${token.motionDurationSlow}, height ${token.motionDurationSlow}`,
         userSelect: 'none',
         marginInlineEnd: FIXED_ITEM_MARGIN * 2,
         paddingInlineStart: token.paddingXS,
@@ -158,7 +158,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
           height: selectItemHeight,
           fontFamily: token.fontFamily,
           lineHeight: `${selectItemHeight}px`,
-          transition: `all ${token.duration}`,
+          transition: `all ${token.motionDurationSlow}`,
         },
 
         '&-input': {
@@ -184,7 +184,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         insetInlineStart: token.inputPaddingHorizontalBase,
         insetInlineEnd: token.inputPaddingHorizontalBase,
         transform: 'translateY(-50%)',
-        transition: `all ${token.duration}`,
+        transition: `all ${token.motionDurationSlow}`,
       },
     },
   };
