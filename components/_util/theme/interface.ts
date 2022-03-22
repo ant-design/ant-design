@@ -44,6 +44,7 @@ export interface SeedToken extends PresetColorType {
   colorInfo: string;
   colorText: string;
   colorTextLightSolid: string;
+  /** Base component background color. Will derivative container background color with this */
   colorBg: string;
 
   // Font
