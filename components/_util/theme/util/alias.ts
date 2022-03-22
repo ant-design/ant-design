@@ -60,6 +60,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
 
     // Control
     controlLineWidth: mergedToken.lineWidth,
+    controlOutlineWidth: mergedToken.lineWidth * 2,
 
     // 👀👀👀👀👀👀👀👀👀 Not align with Derivative 👀👀👀👀👀👀👀👀👀
     // FIXME: @arvinxx handle this
@@ -105,7 +106,6 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     linkHoverDecoration: 'none',
     linkFocusDecoration: 'none',
 
-    outlineWidth: 2,
     outlineBlurSize: 0,
 
     fontFamily: `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,

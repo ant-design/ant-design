@@ -47,7 +47,7 @@ export const genHoverStyle = (token: InputToken): CSSObject => ({
 
 export const genActiveStyle = (token: InputToken) => ({
   borderColor: token.inputBorderHoverColor,
-  boxShadow: `0 0 0 ${token.outlineWidth}px ${token.primaryOutlineColor}`,
+  boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${token.primaryOutlineColor}`,
   borderInlineEndWidth: token.controlLineWidth,
   outline: 0,
 });
