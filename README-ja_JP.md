@@ -8,7 +8,7 @@
 
 <div align="center">
 
-Un lenguaje de diseño de interfaz de usuario de clase empresarial y una biblioteca de interfaz de usuario React.
+エンタープライズクラスのUI設計言語とReact UIライブラリです。
 
 [![CI status][github-action-image]][github-action-url] [![codecov][codecov-image]][codecov-url] [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url]
 
@@ -47,28 +47,28 @@ Un lenguaje de diseño de interfaz de usuario de clase empresarial y una bibliot
 
 [![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Yl83RJhUE7kAAAAAAAAAAABkARQnAQ)](https://ant.design)
 
-[English](./README.md) | [Português](./README-pt_BR.md) | [简体中文](./README-zh_CN.md) | [Українською](./README-uk_UA.md) | Spanish | [日本語](./README-ja_JP.md)
+[English](./README.md) | [Português](./README-pt_BR.md) | [简体中文](./README-zh_CN.md) | [Українською](./README-uk_UA.md) | [Spanish](./README-sp_MX.md) | 日本語
 
-## ✨ Características
+## ✨ 機能
 
-- 🌈 Interfaz de usuario de clase empresarial diseñada para aplicaciones de web
-- 📦 Un conjunto de componentes React de alta calidad listos para usar.
-- 🛡 Escrito en TypeScript con tipos estáticos predecibles.
-- ⚙️ Paquete completo de recursos de diseño y herramientas de desarrollo.
-- 🌍 Soporte de internacionalización para decenas de idiomas.
-- 🎨 Potente personalización del tema en cada detalle.
+- 🌈 ウェブアプリケーション用に設計されたエンタープライズクラスの UI。
+- 📦 高品質な React コンポーネントのセットが箱から出されます。
+- 🛡 TypeScript で書かれており、予測可能な静的型がある。
+- ⚙️ デザインリソースと開発ツールの全体的なパッケージ。
+- 🌍 数十の言語に対応した国際化サポート。
+- 🎨 強力なテーマのカスタマイズを細部にわたって実現。
 
-## 🖥 Entornos soportados
+## 🖥 環境対応
 
-- Navegadores modernos y Internet Explorer 11 (con [polyfills](https://stackoverflow.com/questions/57020976/polyfills-in-2019-for-ie11))
-- Representación del lado del servidor
+- モダンブラウザ、Internet Explorer 11 (with [polyfills](https://stackoverflow.com/questions/57020976/polyfills-in-2019-for-ie11))
+- サーバーサイド レンダリング
 - [Electron](https://www.electronjs.org/)
 
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png" alt="Electron" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Electron |
 | --- | --- | --- | --- | --- |
-| IE11, Edge | últimas 2 versiones | últimas 2 versiones | últimas 2 versiones | últimas 2 versiones |
+| IE11, Edge | 直近の 2 バージョン | 直近の 2 バージョン | 直近の 2 バージョン | 直近の 2 バージョン |
 
-## 📦 Instalar 
+## 📦 インストール
 
 ```bash
 npm install antd
@@ -78,7 +78,7 @@ npm install antd
 yarn add antd
 ```
 
-## 🔨 Uso
+## 🔨 使い方
 
 ```jsx
 import { Button, DatePicker } from 'antd';
@@ -91,7 +91,7 @@ const App = () => (
 );
 ```
 
-Y importar el estilo manualmente:
+そして、手動でスタイルをインポートする:
 
 ```jsx
 import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
@@ -99,41 +99,41 @@ import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 
 ### TypeScript
 
-`antd` está escrito en TypeScript con definiciones completas, ver Usar en TypeScript [Usar en TypeScript](https://ant.design/docs/react/use-in-typescript) para comenzar.
+`antd` は TypeScript で書かれており、完全な定義がなされています。まずは [TypeScript で使う](https://ant.design/docs/react/use-in-typescript)をチェックしてください。
 
-## 🌍 Internacionalización
+## 🌍 国際化対応
 
-Docenas de idiomas compatibles en `antd`, ver [i18n](https://ant.design/docs/react/i18n).
+数十の言語が `antd` でサポートされています。[i18n](https://ant.design/docs/react/i18n) を参照してください。
 
-## 🔗 Enlaces
+## 🔗 リンク
 
-- [Página de Inicio](https://ant.design/)
-- [Descripción General de los Componentes](https://ant.design/components/overview)
+- [ホームページ](https://ant.design/)
+- [コンポーネントの概要](https://ant.design/components/overview)
 - [Ant Design Pro](http://pro.ant.design/)
-- [Cambio de Registro](CHANGELOG.en-US.md)
-- [componentes-rc](http://react-component.github.io/)
-- [Interfaz de Usuario Móvil](http://mobile.ant.design)
-- [Componentes Ant Design Pro](https://procomponents.ant.design)
-- [Gráficos de Diseño de Ant Design](https://charts.ant.design)
-- [Iconos de Diseño de Ant Design](https://github.com/ant-design/ant-design-icons)
-- [Colores de Diseño de Ant Design](https://github.com/ant-design/ant-design-colors)
-- [Páginas de Destino](https://landing.ant.design)
-- [Movimiento](https://motion.ant.design)
-- [Mercado Scaffold](http://scaffold.ant.design)
-- [Instrucción para Desarrolladores](https://github.com/ant-design/ant-design/wiki/Development)
-- [Nota de la Versión de Control de Versiones](https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B)
+- [変更ログ](CHANGELOG.en-US.md)
+- [rc-components](http://react-component.github.io/)
+- [Mobile UI](http://mobile.ant.design)
+- [Ant Design Pro コンポーネント](https://procomponents.ant.design)
+- [Ant Design チャート](https://charts.ant.design)
+- [Ant Design アイコン](https://github.com/ant-design/ant-design-icons)
+- [Ant Design カラー](https://github.com/ant-design/ant-design-colors)
+- [ランディングページ](https://landing.ant.design)
+- [動作](https://motion.ant.design)
+- [足場マーケット](http://scaffold.ant.design)
+- [開発者向けインストラクション](https://github.com/ant-design/ant-design/wiki/Development)
+- [バージョン管理リリースノート](https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B)
 - [FAQ](https://ant.design/docs/react/faq)
-- [Plantilla de CodeSandbox](https://u.ant.design/codesandbox-repro) para reportes de errores
-- [Tema personalizado](https://ant.design/docs/react/customize-theme)
-- [Cómo Postularse para ser Colaborador](https://github.com/ant-design/ant-design/wiki/Collaborators#how-to-apply-for-being-a-collaborator)
+- バグレポート用の [CodeSandbox テンプレート](https://u.ant.design/codesandbox-repro)
+- [テーマのカスタマイズ](https://ant.design/docs/react/customize-theme)
+- [コラボレーターへの応募方法](https://github.com/ant-design/ant-design/wiki/Collaborators#how-to-apply-for-being-a-collaborator)
 
-## ⌨️ Desarrollo
+## ⌨️ 開発
 
-Utilice Gitpod, un entorno de desarrollo en línea gratuito para GitHub.
+GitHub の無料オンライン開発環境である Gitpod を利用する。
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/ant-design/ant-design)
+[![Gitpod で開く](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/ant-design/ant-design)
 
-O clonar localmente:
+またはローカルにクローンする:
 
 ```bash
 $ git clone git@github.com:ant-design/ant-design.git
@@ -142,19 +142,19 @@ $ npm install
 $ npm start
 ```
 
-Abra su navegador y visite http://127.0.0.1:8001 , vea más en [Desarollo](https://github.com/ant-design/ant-design/wiki/Development).
+ブラウザを起動し、http://127.0.0.1:8001 にアクセスして[開発セクション](https://github.com/ant-design/ant-design/wiki/Development)の続きをもっと見る.
 
-## 🤝 Contribuyendo [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+## 🤝 貢献 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-Lea nuestro [guía de contribución](https://ant.design/docs/react/contributing) y construyamos un mejor antd juntos.
+[貢献ガイド](https://ant.design/docs/react/contributing)を読んで、よりよい antd を一緒の作り上げましょう。
 
-Damos la bienvenida a todas las contribuciones. Por favor lea nuestro[CONTRIBUTING.md](https://github.com/ant-design/ant-design/blob/master/.github/CONTRIBUTING.md) primero. Puede enviar ideas como [solicitudes de extracción](https://github.com/ant-design/ant-design/pulls) o como [problemas de GitHub](https://github.com/ant-design/ant-design/issues). Si desea mejorar el código, consulte las [Instrucciones de Desarrollo](https://github.com/ant-design/ant-design/wiki/Development) y ¡diviértase! :)
+すべての貢献に感謝します。まずは [CONTRIBUTING.md](https://github.com/ant-design/ant-design/blob/master/.github/CONTRIBUTING.md) をお読みください. どんなアイデアも [Pull Request](https://github.com/ant-design/ant-design/pulls) や [GitHub issues](https://github.com/ant-design/ant-design/issues) で応募することができます. コードの改良をしたい方は、[開発手順](https://github.com/ant-design/ant-design/wiki/Development) を確認してください。あとは楽しみましょう! :)
 
-Si usted es un colaborador, siga nuestro [principio de solicitud de extracción](https://github.com/ant-design/ant-design/wiki/PR-principle) para crear una solicitud de extracción con una [plantilla de colaborador](https://github.com/ant-design/ant-design/compare?expand=1&template=collaborator.md).
+コラボレーターの方は、[コラボレーター テンプレート](https://github.com/ant-design/ant-design/compare?expand=1&template=collaborator.md)を使い、Pull Request を作成するための[プルリクエストの原則](https://github.com/ant-design/ant-design/wiki/PR-principle)に従ってください。
 
-[![Let's fund issues in this repository](https://issuehunt.io/static/embed/issuehunt-button-v1.svg)](https://issuehunt.io/repos/34526884)
+[![このレポジトリの課題に資金を提供しよう](https://issuehunt.io/static/embed/issuehunt-button-v1.svg)](https://issuehunt.io/repos/34526884)
 
-## ❤️ Patrocinadores [![](https://opencollective.com/ant-design/tiers/sponsors/badge.svg?label=Sponsors&color=brightgreen)](https://opencollective.com/ant-design#support) [![](https://opencollective.com/ant-design/tiers/backers/badge.svg?label=Backers&color=brightgreen)](https://opencollective.com/ant-design#support)
+## ❤️ スポンサーと後援者 [![](https://opencollective.com/ant-design/tiers/sponsors/badge.svg?label=Sponsors&color=brightgreen)](https://opencollective.com/ant-design#support) [![](https://opencollective.com/ant-design/tiers/backers/badge.svg?label=Backers&color=brightgreen)](https://opencollective.com/ant-design#support)
 
 [![](https://opencollective.com/ant-design/tiers/sponsors.svg?avatarHeight=36)](https://opencollective.com/ant-design#support)
 
