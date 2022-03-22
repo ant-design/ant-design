@@ -6,7 +6,7 @@ import Menu from '../../menu';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 
-const { Sider, Content } = Layout;
+const { Sider, Content, Footer, Header } = Layout;
 
 describe('Layout', () => {
   mountTest(Layout);
@@ -285,15 +285,17 @@ describe('Sider', () => {
     expect(wrapper.find('.ant-layout-sider-zero-width-trigger').find('.my-trigger').length).toBe(1);
   });
 
-  it('should get aside element from ref', () => {
-    const ref = React.createRef();
-    const onSelect = jest.fn();
+  ['Layout', 'Header', 'Footer', 'Sider'].forEach(Tag =>
+    it(`should get ${Tag} element from ref`, () => {
+      const ref = React.createRef();
+      const onSelect = jest.fn();
 
-    mount(
-      <Sider onSelect={onSelect} ref={ref}>
-        Sider
-      </Sider>,
-    );
-    expect(ref.current instanceof HTMLElement).toBe(true);
-  });
+      mount(
+        <Tag onSelect={onSelect} ref={ref}>
+          {Tag}
+        </Tag>,
+      );
+      expect(ref.current instanceof HTMLElement).toBe(true);
+    }),
+  );
 });
