@@ -91,14 +91,27 @@ describe('Transfer.Search', () => {
   });
 
   it('typing value should trigger showSearch.onSearchValueChange', () => {
-    const onSearchValueChange = jest.fn();
+    const onSearchValueChange1 = jest.fn();
+    const onSearchValueChange2 = jest.fn();
     const wrapper = mount(
-      <Transfer dataSource={dataSource} showSearch={{ searchValue: '', onSearchValueChange }} />,
+      <Transfer
+        dataSource={dataSource}
+        showSearch={[
+          { searchValue: '', onSearchValueChange: onSearchValueChange1 },
+          { searchValue: '', onSearchValueChange: onSearchValueChange2 },
+        ]}
+      />,
     );
     wrapper
       .find('.ant-input')
       .at(0)
       .simulate('change', { target: { value: 'a' } });
-    expect(onSearchValueChange).toHaveBeenCalled();
+    expect(onSearchValueChange1).toHaveBeenCalled();
+
+    wrapper
+      .find('.ant-input')
+      .at(1)
+      .simulate('change', { target: { value: 'b' } });
+    expect(onSearchValueChange2).toHaveBeenCalled();
   });
 });
