@@ -163,7 +163,7 @@ export class Spin extends React.Component<SpinClassProps, SpinState> {
     );
 
     // fix https://fb.me/react-unknown-prop
-    const divProps = omit(restProps, ['spinning', 'delay', 'indicator']);
+    const divProps = omit(restProps, ['spinning', 'delay', 'indicator', 'prefixCls']);
 
     const spinElement = (
       <div

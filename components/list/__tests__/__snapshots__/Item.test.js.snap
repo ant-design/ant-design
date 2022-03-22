@@ -82,44 +82,50 @@ exports[`List Item Layout rowKey could be function 1`] = `
     className="ant-list ant-list-split"
   >
     <Spin
-      size="default"
       spinning={false}
-      wrapperClassName=""
     >
-      <div
-        className="ant-spin-nested-loading"
+      <Spin
+        hashId=""
+        size="default"
+        spinPrefixCls="ant-spin"
+        spinning={false}
+        wrapperClassName=""
       >
         <div
-          className="ant-spin-container"
-          key="container"
+          className="ant-spin-nested-loading"
         >
-          <ul
-            className="ant-list-items"
+          <div
+            className="ant-spin-container"
+            key="container"
           >
-            <Item>
-              <li
-                className="ant-list-item"
-              >
-                ant design
-              </li>
-            </Item>
-            <Item>
-              <li
-                className="ant-list-item"
-              >
-                ant design
-              </li>
-            </Item>
-            <Item>
-              <li
-                className="ant-list-item"
-              >
-                ant design
-              </li>
-            </Item>
-          </ul>
+            <ul
+              className="ant-list-items"
+            >
+              <Item>
+                <li
+                  className="ant-list-item"
+                >
+                  ant design
+                </li>
+              </Item>
+              <Item>
+                <li
+                  className="ant-list-item"
+                >
+                  ant design
+                </li>
+              </Item>
+              <Item>
+                <li
+                  className="ant-list-item"
+                >
+                  ant design
+                </li>
+              </Item>
+            </ul>
+          </div>
         </div>
-      </div>
+      </Spin>
     </Spin>
   </div>
 </List>
@@ -150,44 +156,50 @@ exports[`List Item Layout rowKey could be string 1`] = `
     className="ant-list ant-list-split"
   >
     <Spin
-      size="default"
       spinning={false}
-      wrapperClassName=""
     >
-      <div
-        className="ant-spin-nested-loading"
+      <Spin
+        hashId=""
+        size="default"
+        spinPrefixCls="ant-spin"
+        spinning={false}
+        wrapperClassName=""
       >
         <div
-          className="ant-spin-container"
-          key="container"
+          className="ant-spin-nested-loading"
         >
-          <ul
-            className="ant-list-items"
+          <div
+            className="ant-spin-container"
+            key="container"
           >
-            <Item>
-              <li
-                className="ant-list-item"
-              >
-                ant design
-              </li>
-            </Item>
-            <Item>
-              <li
-                className="ant-list-item"
-              >
-                ant design
-              </li>
-            </Item>
-            <Item>
-              <li
-                className="ant-list-item"
-              >
-                ant design
-              </li>
-            </Item>
-          </ul>
+            <ul
+              className="ant-list-items"
+            >
+              <Item>
+                <li
+                  className="ant-list-item"
+                >
+                  ant design
+                </li>
+              </Item>
+              <Item>
+                <li
+                  className="ant-list-item"
+                >
+                  ant design
+                </li>
+              </Item>
+              <Item>
+                <li
+                  className="ant-list-item"
+                >
+                  ant design
+                </li>
+              </Item>
+            </ul>
+          </div>
         </div>
-      </div>
+      </Spin>
     </Spin>
   </div>
 </List>
