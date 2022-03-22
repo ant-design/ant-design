@@ -120,7 +120,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
 
     marginXXS: 2,
     marginXS: 4,
-    // marginSM: 8,
+    marginSM: 8,
     marginLG: 32,
 
     // background of header and selected item
