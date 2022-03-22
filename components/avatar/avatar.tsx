@@ -29,7 +29,7 @@ export interface AvatarProps {
   className?: string;
   children?: React.ReactNode;
   alt?: string;
-  crossOrigin?: '' | 'anonymous' | 'use-credentials';
+  crossOrigin?: '' | 'anonymous' | 'use-credentials'; // FIXME: check
   /* callback when img load error */
   /* return false to prevent Avatar show default fallback behavior, then you can do fallback by your self */
   onError?: () => boolean;
@@ -96,7 +96,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
     alt,
     draggable,
     children,
-    crossOrigin,
+    crossOrigin, // FIXME: check
     ...others
   } = props;
 
@@ -169,7 +169,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
         srcSet={srcSet}
         onError={handleImgLoadError}
         alt={alt}
-        crossOrigin={crossOrigin}
+        crossOrigin={crossOrigin} // FIXME: check
       />
     );
   } else if (hasImageElement) {
