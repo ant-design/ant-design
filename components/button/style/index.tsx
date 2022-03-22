@@ -122,12 +122,12 @@ const genDefaultButtonStyle = (prefixCls: string, token: DerivativeToken): CSSOb
 
   ...genHoverActiveButtonStyle(
     {
-      color: token.primaryHoverColor,
-      borderColor: token.primaryHoverColor,
+      color: token.colorPrimaryHover,
+      borderColor: token.colorPrimaryHover,
     },
     {
-      color: token.primaryActiveColor,
-      borderColor: token.primaryActiveColor,
+      color: token.colorPrimaryActive,
+      borderColor: token.colorPrimaryActive,
     },
   ),
 
@@ -145,12 +145,12 @@ const genDefaultButtonStyle = (prefixCls: string, token: DerivativeToken): CSSOb
 
     ...genHoverActiveButtonStyle(
       {
-        color: token.errorHoverColor,
-        borderColor: token.errorHoverColor,
+        color: token.colorErrorHover,
+        borderColor: token.colorErrorHover,
       },
       {
-        color: token.errorActiveColor,
-        borderColor: token.errorActiveColor,
+        color: token.colorErrorActive,
+        borderColor: token.colorErrorActive,
       },
     ),
 
@@ -176,10 +176,10 @@ const genPrimaryButtonStyle = (prefixCls: string, token: DerivativeToken): CSSOb
 
   ...genHoverActiveButtonStyle(
     {
-      backgroundColor: token.primaryHoverColor,
+      backgroundColor: token.colorPrimaryHover,
     },
     {
-      backgroundColor: token.primaryActiveColor,
+      backgroundColor: token.colorPrimaryActive,
     },
   ),
 
@@ -196,10 +196,10 @@ const genPrimaryButtonStyle = (prefixCls: string, token: DerivativeToken): CSSOb
 
     ...genHoverActiveButtonStyle(
       {
-        backgroundColor: token.errorHoverColor,
+        backgroundColor: token.colorErrorHover,
       },
       {
-        backgroundColor: token.errorActiveColor,
+        backgroundColor: token.colorErrorActive,
       },
     ),
 
@@ -227,10 +227,10 @@ const genLinkButtonStyle = (prefixCls: string, token: DerivativeToken): CSSObjec
 
   ...genHoverActiveButtonStyle(
     {
-      color: token.primaryHoverColor,
+      color: token.colorPrimaryHover,
     },
     {
-      color: token.primaryActiveColor,
+      color: token.colorPrimaryActive,
     },
   ),
 
@@ -241,10 +241,10 @@ const genLinkButtonStyle = (prefixCls: string, token: DerivativeToken): CSSObjec
 
     ...genHoverActiveButtonStyle(
       {
-        color: token.errorHoverColor,
+        color: token.colorErrorHover,
       },
       {
-        color: token.errorActiveColor,
+        color: token.colorErrorActive,
       },
     ),
 

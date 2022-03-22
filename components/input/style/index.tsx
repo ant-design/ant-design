@@ -730,11 +730,11 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
     [searchPrefixCls]: {
       [`.${prefixCls}`]: {
         '&:hover, &:focus': {
-          borderColor: token.primaryHoverColor,
+          borderColor: token.colorPrimaryHover,
 
           [`+ .${prefixCls}-group-addon ${searchPrefixCls}-button:not(.@{ant-prefix}-btn-primary)`]:
             {
-              borderInlineStartColor: token.primaryHoverColor,
+              borderInlineStartColor: token.colorPrimaryHover,
             },
         },
       },
@@ -823,8 +823,8 @@ export const initInputToken = (
     0,
   ),
   inputPaddingHorizontal: token.paddingSM - token.controlLineWidth,
-  inputBorderHoverColor: token.primaryHoverColor,
-  inputBorderActiveColor: token.primaryHoverColor,
+  inputBorderHoverColor: token.colorPrimaryHover,
+  inputBorderActiveColor: token.colorPrimaryHover,
 });
 
 const genTextAreaStyle: GenerateStyle<InputToken> = token => {

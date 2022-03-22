@@ -32,11 +32,8 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     ...mergedToken,
 
     // Colors
-    primaryHoverColor: mergedToken.colorPrimaryHover,
-    primaryActiveColor: mergedToken.colorPrimaryActive,
-    errorHoverColor: mergedToken.colorErrorHover,
-    errorActiveColor: mergedToken.colorErrorActive,
-    warningHoverColor: mergedToken.colorWarningHover,
+    colorErrorHover: mergedToken.colorErrorHover,
+    colorErrorActive: mergedToken.colorErrorActive,
 
     colorTextSecondary: mergedToken.colorTextBelow,
     colorTextDisabled: mergedToken.colorTextBelow2,

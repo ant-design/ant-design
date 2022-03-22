@@ -192,14 +192,9 @@ export interface AliasToken extends DerivativeToken {
   boxShadow: string;
 
   // =============== Legacy: should be remove ===============
-  primaryHoverColor: string;
-  primaryActiveColor: string;
   primaryOutlineColor: string;
-  errorHoverColor: string;
-  errorActiveColor: string;
-  errorOutlineColor: string;
-  warningHoverColor: string;
   warningOutlineColor: string;
+  errorOutlineColor: string;
   itemActiveBackground: string;
 
   highlightColor: string;

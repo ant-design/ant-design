@@ -79,13 +79,13 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         },
 
         '&:focus': {
-          borderColor: token.primaryHoverColor,
+          borderColor: token.colorPrimaryHover,
           boxShadow: 'none',
         },
 
         '&:focus-visible': {
           // FIXME: This is a inline color calculation
-          boxShadow: `0 0 0 5px ${new TinyColor(token.primaryHoverColor)
+          boxShadow: `0 0 0 5px ${new TinyColor(token.colorPrimaryHover)
             .setAlpha(0.2)
             .toRgbString()}`,
         },
@@ -102,7 +102,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         },
 
         [`${sliderCls}-track`]: {
-          backgroundColor: token.primaryHoverColor, // FIXME: origin primary-4
+          backgroundColor: token.colorPrimaryHover, // FIXME: origin primary-4
         },
 
         [`${sliderCls}-dot`]: {
@@ -118,7 +118,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
           ${sliderCls}-handle,
           ${sliderCls}-dot-active
         `]: {
-          borderColor: token.primaryHoverColor,
+          borderColor: token.colorPrimaryHover,
         },
       },
 
