@@ -30,11 +30,11 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken, hashId: string
     ...resetComponent(token),
     position: 'absolute',
     display: 'none',
-    color: token.primaryColor,
+    color: token.primaryColors,
     textAlign: 'center',
     verticalAlign: 'middle',
     opacity: 0,
-    transition: `transform 0.3s ${token.easeInOutCirc}`,
+    transition: `transform 0.3s ${token.motionEaseInOutCirc}`,
 
     '&-spinning': {
       position: 'static',
@@ -66,7 +66,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken, hashId: string
           top: '50%',
           width: '100%',
           paddingTop: (token.spinDotSize - token.fontSize) / 2 + 2,
-          textShadow: `0 1px 2px ${token.componentBackground}`,
+          textShadow: `0 1px 2px ${token.colorBgComponent}`,
         },
 
         [`&${token.spinCls}-show-text ${token.spinCls}-dot`]: {
@@ -111,7 +111,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken, hashId: string
           zIndex: 10,
           width: '100%',
           height: '100%',
-          background: token.componentBackground,
+          background: token.colorBgComponent,
           opacity: 0,
           transition: 'all 0.3s',
           content: '""',
@@ -153,7 +153,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken, hashId: string
         display: 'block',
         width: 9,
         height: 9,
-        backgroundColor: token.primaryColor,
+        backgroundColor: token.primaryColors,
         borderRadius: '100%',
         transform: 'scale(0.75)',
         transformOrigin: '50% 50%',
@@ -230,7 +230,7 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
   const spinToken: SpinToken = {
     ...token,
     spinCls: `.${prefixCls}`,
-    spinDotDefault: token.textColorSecondary,
+    spinDotDefault: token.colorTextSecondary,
     spinDotSize: 20, // FIXME: hard code
     spinDotSizeSM: 14, // FIXME: hard code
     spinDotSizeLG: 32, // FIXME: hard code
