@@ -79,43 +79,43 @@ const genInputSmallStyle = (token: InputToken): CSSObject => ({
 });
 
 export const genStatusStyle = (token: InputToken): CSSObject => {
-  const { prefixCls, errorColor, warningColor, errorOutlineColor, warningOutlineColor } = token;
+  const { prefixCls, colorError, colorWarning, errorOutlineColor, warningOutlineColor } = token;
 
   return {
     '&-status-error:not(&-disabled):not(&-borderless)&': {
       '&, &:hover': {
-        borderColor: errorColor,
+        borderColor: colorError,
       },
 
       '&:focus, &-focused': {
         ...genActiveStyle({
           ...token,
-          inputBorderActiveColor: errorColor,
-          inputBorderHoverColor: errorColor,
+          inputBorderActiveColor: colorError,
+          inputBorderHoverColor: colorError,
           primaryOutlineColor: errorOutlineColor,
         }),
       },
 
       [`.${prefixCls}-feedback-icon, .${prefixCls}-prefix`]: {
-        color: errorColor,
+        color: colorError,
       },
     },
     '&-status-warning:not(&-disabled):not(&-borderless)&': {
       '&, &:hover': {
-        borderColor: warningColor,
+        borderColor: colorWarning,
       },
 
       '&:focus, &-focused': {
         ...genActiveStyle({
           ...token,
-          inputBorderActiveColor: warningColor,
-          inputBorderHoverColor: warningColor,
+          inputBorderActiveColor: colorWarning,
+          inputBorderHoverColor: colorWarning,
           primaryOutlineColor: warningOutlineColor,
         }),
       },
 
       [`.${prefixCls}-feedback-icon, .${prefixCls}-prefix`]: {
-        color: warningColor,
+        color: colorWarning,
       },
     },
   };
@@ -127,7 +127,7 @@ export const genBasicInputStyle = (token: InputToken): CSSObject => ({
   width: '100%',
   minWidth: 0,
   padding: `${token.inputPaddingVertical}px ${token.inputPaddingHorizontal}px`,
-  color: token.textColor,
+  color: token.colorText,
   fontSize: token.fontSize,
   lineHeight: token.lineHeight,
   backgroundColor: token.componentBackground,
@@ -252,7 +252,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
       '&-addon': {
         position: 'relative',
         padding: `0 ${token.inputPaddingHorizontal}px`,
-        color: token.textColor,
+        color: token.colorText,
         fontWeight: 'normal',
         fontSize: token.fontSize,
         textAlign: 'center',
@@ -275,7 +275,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
 
           '&-open, &-focused': {
             '.ant-select-selector': {
-              color: token.primaryColor,
+              color: token.colorPrimary,
             },
           },
         },
@@ -549,7 +549,7 @@ const genAllowClearStyle = (token: InputToken): CSSObject => {
       },
 
       '&:active': {
-        color: token.textColor,
+        color: token.colorText,
       },
 
       '&-hidden': {
@@ -584,8 +584,8 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
     textColorSecondary,
     duration,
     iconColorHover,
-    primaryColor,
-    successColor,
+    colorPrimary,
+    colorSuccess,
   } = token;
 
   return {
@@ -669,12 +669,12 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
       '&-status-validating': {
         [`.${prefixCls}-feedback-icon`]: {
           display: 'inline-block',
-          color: primaryColor,
+          color: colorPrimary,
         },
       },
       '&-status-success': {
         [`.${prefixCls}-feedback-icon`]: {
-          color: successColor,
+          color: colorSuccess,
           // FIXME: animationName
         },
       },
@@ -683,7 +683,7 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
 };
 
 const genGroupStyle: GenerateStyle<InputToken> = (token: InputToken) => {
-  const { prefixCls, errorColor, successColor } = token;
+  const { prefixCls, colorError, colorSuccess } = token;
 
   return {
     [`.${prefixCls}-group`]: {
@@ -708,14 +708,14 @@ const genGroupStyle: GenerateStyle<InputToken> = (token: InputToken) => {
         // Status
         '&-status-error': {
           [`.${prefixCls}-group-addon`]: {
-            color: errorColor,
-            borderColor: errorColor,
+            color: colorError,
+            borderColor: colorError,
           },
         },
         '&-status-warning': {
           [`.${prefixCls}-group-addon`]: {
-            color: successColor,
-            borderColor: successColor,
+            color: colorSuccess,
+            borderColor: colorSuccess,
           },
         },
       },

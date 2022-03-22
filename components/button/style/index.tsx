@@ -25,11 +25,11 @@ const genSharedButtonStyle = (
   backgroundColor: 'transparent',
   border: `${token.borderWidth}px ${token.borderStyle} transparent`,
   cursor: 'pointer',
-  transition: `all ${token.duration} ${token.easeInOut}`,
+  transition: `all ${token.duration} ${token.motionEaseInOut}`,
   userSelect: 'none',
   touchAction: 'manipulation',
   lineHeight: token.lineHeight,
-  color: token.textColor,
+  color: token.colorText,
 
   '> span': {
     display: 'inline-block',
@@ -140,8 +140,8 @@ const genDefaultButtonStyle = (prefixCls: string, token: DerivativeToken): CSSOb
   ),
 
   [`&.${prefixCls}-dangerous`]: {
-    color: token.errorColor,
-    borderColor: token.errorColor,
+    color: token.colorError,
+    borderColor: token.colorError,
 
     ...genHoverActiveButtonStyle(
       {
@@ -156,8 +156,8 @@ const genDefaultButtonStyle = (prefixCls: string, token: DerivativeToken): CSSOb
 
     ...genGhostButtonStyle(
       prefixCls,
-      token.errorColor,
-      token.errorColor,
+      token.colorError,
+      token.colorError,
       token.textColorDisabled,
       token.borderColor,
     ),
@@ -170,7 +170,7 @@ const genPrimaryButtonStyle = (prefixCls: string, token: DerivativeToken): CSSOb
   ...genSolidButtonStyle(token),
 
   color: '#FFF',
-  backgroundColor: token.primaryColor,
+  backgroundColor: token.colorPrimary,
 
   boxShadow: '0 2px 0 rgba(0, 0, 0, 0.045)',
 
@@ -185,14 +185,14 @@ const genPrimaryButtonStyle = (prefixCls: string, token: DerivativeToken): CSSOb
 
   ...genGhostButtonStyle(
     prefixCls,
-    token.primaryColor,
-    token.primaryColor,
+    token.colorPrimary,
+    token.colorPrimary,
     token.textColorDisabled,
     token.borderColor,
   ),
 
   [`&.${prefixCls}-dangerous`]: {
-    backgroundColor: token.errorColor,
+    backgroundColor: token.colorError,
 
     ...genHoverActiveButtonStyle(
       {
@@ -205,8 +205,8 @@ const genPrimaryButtonStyle = (prefixCls: string, token: DerivativeToken): CSSOb
 
     ...genGhostButtonStyle(
       prefixCls,
-      token.errorColor,
-      token.errorColor,
+      token.colorError,
+      token.colorError,
       token.textColorDisabled,
       token.borderColor,
     ),
@@ -237,7 +237,7 @@ const genLinkButtonStyle = (prefixCls: string, token: DerivativeToken): CSSObjec
   ...genPureDisabledButtonStyle(token),
 
   [`&.${prefixCls}-dangerous`]: {
-    color: token.errorColor,
+    color: token.colorError,
 
     ...genHoverActiveButtonStyle(
       {
@@ -272,7 +272,7 @@ const genTextButtonStyle = (prefixCls: string, token: DerivativeToken): CSSObjec
     ...genPureDisabledButtonStyle(token),
 
     [`&.${prefixCls}-dangerous`]: {
-      color: token.errorColor,
+      color: token.colorError,
 
       ...genPureDisabledButtonStyle(token),
     },
@@ -327,7 +327,7 @@ const genSizeButtonStyle = (
         },
 
         [`.${prefixCls}-loading-icon`]: {
-          transition: `width ${token.duration} ${token.easeInOut}, opacity ${token.duration} ${token.easeInOut}`,
+          transition: `width ${token.duration} ${token.motionEaseInOut}, opacity ${token.duration} ${token.motionEaseInOut}`,
         },
 
         [`&:not(${iconOnlyCls}) .${prefixCls}-loading-icon > .${iconPrefixCls}`]: {

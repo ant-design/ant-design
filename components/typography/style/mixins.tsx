@@ -43,20 +43,20 @@ const getTitleStyle = ({
 
 // eslint-disable-next-line import/prefer-default-export
 export const getTitleStyles: GenerateStyle<TypographyToken, CSSObject> = token => {
-  // FIXME: magic numbers for H1/H2/.../H5 line height
-  const lineHeights = [1.23, 1.35, 1.35, 1.4, 1.5];
+  const headings = [1, 2, 3, 4, 5] as const;
+
   const styles = {} as CSSObject;
-  lineHeights.forEach((lineHeight, i) => {
+  headings.forEach(headingLevel => {
     styles[
       `
-      h${i + 1}&,
-      div&-h${i + 1},
-      div&-h${i + 1} > textarea,
-      h${i + 1}
+      h${headingLevel}&,
+      div&-h${headingLevel},
+      div&-h${headingLevel} > textarea,
+      h${headingLevel}
     `
     ] = getTitleStyle({
-      fontSize: (token as any)[`heading${i + 1}Size`],
-      lineHeight,
+      fontSize: token[`fontSizeHeading${headingLevel}`],
+      lineHeight: token[`lineHeightHeading${headingLevel}`],
       color: token.headingColor,
       typographyToken: token.typography,
     });
@@ -228,7 +228,7 @@ export const getCopiableStyles: GenerateStyle<TypographyToken, CSSObject> = toke
     &,
     &:hover,
     &:focus`]: {
-      color: token.successColor,
+      color: token.colorSuccess,
     },
   },
 });
