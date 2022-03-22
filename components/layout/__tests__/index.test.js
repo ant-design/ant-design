@@ -285,17 +285,19 @@ describe('Sider', () => {
     expect(wrapper.find('.ant-layout-sider-zero-width-trigger').find('.my-trigger').length).toBe(1);
   });
 
-  ['Layout', 'Header', 'Footer', 'Sider'].forEach(Tag =>
-    it(`should get ${Tag} element from ref`, () => {
+  ['Layout', 'Header', 'Footer', 'Sider'].forEach(tag => {
+    const ComponentMap = { Layout, Header, Footer, Sider };
+    it(`should get ${tag} element from ref`, () => {
       const ref = React.createRef();
       const onSelect = jest.fn();
+      const Component = ComponentMap[tag];
 
       mount(
-        <Tag onSelect={onSelect} ref={ref}>
-          {Tag}
-        </Tag>,
+        <Component onSelect={onSelect} ref={ref}>
+          {tag}
+        </Component>,
       );
       expect(ref.current instanceof HTMLElement).toBe(true);
-    }),
-  );
+    });
+  });
 });
