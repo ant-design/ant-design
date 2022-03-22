@@ -273,7 +273,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (
       lineHeight: '22px', // colorPrimarycode, copied from old less file
       whiteSpace: 'nowrap',
       backgroundColor: token.colorPrimary,
-      borderRadius: token.borderRadius,
+      borderRadius: token.controlRadius,
       [`.${ribbonPrefixCls}-text`]: { color: '#fff' },
       [`.${ribbonPrefixCls}-corner`]: {
         position: 'absolute',

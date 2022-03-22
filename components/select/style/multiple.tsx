@@ -94,7 +94,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         lineHeight: `${selectItemHeight - token.controlLineWidth * 2}px`,
         background: token.background,
         border: `${token.controlLineWidth}px solid ${token.borderColorSplit}`,
-        borderRadius: token.borderRadius,
+        borderRadius: token.controlRadius,
         cursor: 'default',
         transition: `font-size ${token.duration}, line-height ${token.duration}, height ${token.duration}`,
         userSelect: 'none',

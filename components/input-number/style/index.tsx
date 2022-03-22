@@ -28,9 +28,9 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
   const {
     inputNumberCls,
     controlLineWidth: borderWidth,
-    borderStyle,
+    controlLineType: borderStyle,
     borderColor,
-    borderRadius,
+    controlRadius: borderRadius,
     fontSizeLG,
     controlHeightLG,
     controlHeightSM,

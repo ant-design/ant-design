@@ -23,7 +23,7 @@ const genSharedButtonStyle = (
   textAlign: 'center',
   backgroundImage: 'none',
   backgroundColor: 'transparent',
-  border: `${token.controlLineWidth}px ${token.borderStyle} transparent`,
+  border: `${token.controlLineWidth}px ${token.controlLineType} transparent`,
   cursor: 'pointer',
   transition: `all ${token.duration} ${token.motionEaseInOut}`,
   userSelect: 'none',
@@ -99,7 +99,7 @@ const genSolidDisabledButtonStyle = (token: DerivativeToken): CSSObject => ({
 });
 
 const genSolidButtonStyle = (token: DerivativeToken): CSSObject => ({
-  borderRadius: token.borderRadius,
+  borderRadius: token.controlRadius,
 
   ...genSolidDisabledButtonStyle(token),
 });

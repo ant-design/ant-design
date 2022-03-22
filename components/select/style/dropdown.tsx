@@ -50,7 +50,7 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token, hashId) => {
         // https://github.com/ant-design/ant-design/issues/11843
         fontVariant: 'initial',
         backgroundColor: token.componentBackground,
-        borderRadius: token.borderRadius,
+        borderRadius: token.controlRadius,
         outline: 'none',
         boxShadow: token.boxShadow,
 

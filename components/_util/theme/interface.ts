@@ -159,10 +159,12 @@ export interface AliasToken extends DerivativeToken {
   lineHeightHeading4: number;
   lineHeightHeading5: number;
 
-  // =============== Legacy: should be remove ===============
+  // Control
   controlLineWidth: number;
-  borderStyle: string;
-  borderRadius: number;
+  controlLineType: string;
+  controlRadius: number;
+
+  // =============== Legacy: should be remove ===============
   borderColor: string;
   borderColorSplit: string;
 

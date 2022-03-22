@@ -78,7 +78,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
     [treeCls]: {
       ...resetComponent(token),
       background: token.componentBackground,
-      borderRadius: token.borderRadius,
+      borderRadius: token.controlRadius,
       transition: `background-color ${token.duration}`,
 
       '&&-rtl': {
@@ -267,7 +267,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
         color: 'inherit',
         lineHeight: `${treeTitleHeight}px`,
         background: 'transparent',
-        borderRadius: token.borderRadius,
+        borderRadius: token.controlRadius,
         cursor: 'pointer',
         transition: `all ${token.duration}, border 0s, line-height 0s, box-shadow 0s`,
 

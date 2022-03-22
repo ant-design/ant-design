@@ -90,7 +90,7 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token, hashId) => {
               overflow: 'auto',
               verticalAlign: 'top',
               listStyle: 'none',
-              borderInlineEnd: `${token.controlLineWidth}px ${token.borderStyle} ${token.borderColorSplit}`,
+              borderInlineEnd: `${token.controlLineWidth}px ${token.controlLineType} ${token.borderColorSplit}`,
               '-ms-overflow-style': '-ms-autohiding-scrollbar', // https://github.com/ant-design/ant-design/issues/11857
 
               '&-item': {
