@@ -38,6 +38,9 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     errorActiveColor: mergedToken.colorErrorActive,
     warningHoverColor: mergedToken.colorWarningHover,
 
+    colorTextSecondary: mergedToken.colorTextBelow,
+    colorTextDisabled: mergedToken.colorTextBelow2,
+
     // Font
     fontSizeSM: fontSizes[0],
     fontSize: fontSizes[1],
@@ -57,6 +60,17 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     lineHeightHeading3: lineHeights[4],
     lineHeightHeading4: lineHeights[3],
     lineHeightHeading5: lineHeights[2],
+
+    // Control
+    controlLineWidth: mergedToken.lineWidth,
+    controlOutlineWidth: mergedToken.lineWidth * 2,
+
+    // 👀👀👀👀👀👀👀👀👀 Not align with Derivative 👀👀👀👀👀👀👀👀👀
+    // FIXME: @arvinxx handle this
+    controlLineType: 'solid',
+    controlRadius: mergedToken.radiusBase,
+    colorBorder: new TinyColor({ h: 0, s: 0, v: 85 }).toHexString(),
+    colorSplit: new TinyColor({ h: 0, s: 0, v: 94 }).toHexString(),
 
     // 🔥🔥🔥🔥🔥🔥🔥🔥🔥 All TMP Token leaves here 🔥🔥🔥🔥🔥🔥🔥🔥🔥
     // FIXME: Handle this when derivative is ready
@@ -95,21 +109,6 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     linkHoverDecoration: 'none',
     linkFocusDecoration: 'none',
 
-    borderWidth: 1,
-    borderStyle: 'solid',
-    borderRadius: 2,
-    borderColor: new TinyColor({ h: 0, s: 0, v: 85 }).toHexString(),
-    borderColorSplit: new TinyColor({ h: 0, s: 0, v: 94 }).toHexString(),
-
-    outlineWidth: 2,
-    outlineBlurSize: 0,
-
-    fontFamily: `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-  'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-  'Noto Color Emoji'`,
-    textColorSecondary: new TinyColor('#000').setAlpha(0.45).toRgbString(),
-    textColorDisabled: new TinyColor('#000').setAlpha(0.25).toRgbString(),
-    textColorInverse: '#fff',
     placeholderColor: new TinyColor({ h: 0, s: 0, v: 75 }).setAlpha(0.5).toRgbString(),
 
     disabledColor: new TinyColor('#000').setAlpha(0.25).toRgbString(),
@@ -120,9 +119,6 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
 
     itemHoverBackground: '#f5f5f5',
 
-    controlHeightSM: 24,
-    controlHeightXS: 16,
-    controlHeightLG: 40,
     controlPaddingHorizontal: 16,
     controlPaddingHorizontalSM: 12,
 

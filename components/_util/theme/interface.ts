@@ -125,6 +125,11 @@ export interface DerivativeToken extends SeedToken, ColorPalettes {
   radiusSM: number;
   radiusLG: number;
   radiusXL: number;
+
+  /** @private Only Used for control inside component like Multiple Select inner selection item */
+  controlHeightXS: number;
+  controlHeightSM: number;
+  controlHeightLG: number;
 }
 
 // ======================================================================
@@ -154,20 +159,19 @@ export interface AliasToken extends DerivativeToken {
   lineHeightHeading4: number;
   lineHeightHeading5: number;
 
+  // Control
+  controlLineWidth: number;
+  controlLineType: string;
+  controlRadius: number;
+  controlOutlineWidth: number;
+
+  // Color
+  colorBorder: string;
+  colorSplit: string;
+  colorTextSecondary: string;
+  colorTextDisabled: string;
+
   // =============== Legacy: should be remove ===============
-  borderWidth: number;
-  borderStyle: string;
-  borderRadius: number;
-  borderColor: string;
-  borderColorSplit: string;
-
-  outlineWidth: number;
-  outlineBlurSize: number;
-
-  fontFamily: string;
-  textColorSecondary: string;
-  textColorDisabled: string;
-  textColorInverse: string;
   placeholderColor: string;
 
   disabledColor: string;
@@ -211,10 +215,6 @@ export interface AliasToken extends DerivativeToken {
   linkHoverDecoration: React.CSSProperties['textDecoration'];
   linkFocusDecoration: React.CSSProperties['textDecoration'];
 
-  /** @private Only Used for control inside component like Multiple Select inner selection item */
-  controlHeightXS: number;
-  controlHeightSM: number;
-  controlHeightLG: number;
   controlPaddingHorizontal: number;
   controlPaddingHorizontalSM: number;
   paddingSM: number;

@@ -164,7 +164,7 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
   // FIXME
   const dividerBorderColor = 'rgba(0, 0, 0, 6%)';
 
-  const dividerBorderWidth = token.borderWidth;
+  const dividerBorderWidth = token.controlLineWidth;
 
   const dividerNotDefaultTextPadding = 0;
   const dividerVerticalGutterMargin = token.marginXS;

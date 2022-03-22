@@ -52,7 +52,7 @@ const genAlertTypeStyle = (
   alertCls: string,
 ): CSSObject => ({
   backgroundColor: bgColor,
-  border: `${token.borderWidth}px ${token.borderStyle} ${borderColor}`,
+  border: `${token.controlLineWidth}px ${token.controlLineType} ${borderColor}`,
   [`${alertCls}-icon`]: {
     color: iconColor,
   },
@@ -65,7 +65,7 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
     marginXS,
     fontSize,
     fontSizeLG,
-    borderRadius,
+    controlRadius: borderRadius,
     motionEaseInOutCirc,
     alertMessageColor,
     alertWithDescriptionIconSize,
@@ -281,7 +281,7 @@ export default function useStyle(
   const alertCls = `.${prefixCls}`;
 
   const alertMessageColor = token.headingColor;
-  const alertCloseColor = token.textColorSecondary;
+  const alertCloseColor = token.colorTextSecondary;
   const alertCloseHoverColor = token.iconColorHover;
   // FIXME
   const alertWithDescriptionIconSize = 24;

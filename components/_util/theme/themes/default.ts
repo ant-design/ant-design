@@ -34,6 +34,7 @@ export function derivative(token: SeedToken): DerivativeToken {
     gridUnit,
     gridBaseStep,
     radiusBase,
+    controlHeight,
   } = token;
 
   const primaryColors = generate(colorPrimary);
@@ -92,7 +93,6 @@ export function derivative(token: SeedToken): DerivativeToken {
     radiusXL: radiusBase * 4,
 
     // color
-
     colorBgBelow: new TinyColor({ h: 0, s: 0, v: 98 }).toHexString(),
     colorBgBelow2: new TinyColor({ h: 0, s: 0, v: 96 }).toHexString(),
 
@@ -109,6 +109,11 @@ export function derivative(token: SeedToken): DerivativeToken {
     colorTextBelow: new TinyColor('#000').setAlpha(0.45).toRgbString(),
     colorTextBelow2: new TinyColor('#000').setAlpha(0.25).toRgbString(),
     colorTextBelow3: new TinyColor({ h: 0, s: 0, v: 75 }).setAlpha(0.5).toRgbString(),
+
+    // control
+    controlHeightSM: controlHeight * 0.75,
+    controlHeightXS: controlHeight * 0.5,
+    controlHeightLG: controlHeight * 1.25,
   };
 }
 

@@ -23,7 +23,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
   const {
     mentionsCls,
     backgroundLight,
-    textColorDisabled,
+    colorTextDisabled: textColorDisabled,
     itemHoverBackground,
     controlPaddingHorizontal,
     colorText: textColor,
@@ -34,7 +34,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
     inputPaddingVertical,
     fontSize,
     componentBackground,
-    borderRadius,
+    controlRadius: borderRadius,
     boxShadow,
   } = token;
 

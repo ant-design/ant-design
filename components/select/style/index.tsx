@@ -34,8 +34,8 @@ const genSelectorStyle: GenerateStyle<SelectToken, CSSObject> = token => {
   return {
     position: 'relative',
     backgroundColor: token.componentBackground,
-    border: `${token.borderWidth}px ${token.borderStyle} ${token.borderColor}`,
-    borderRadius: token.borderRadius,
+    border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
+    borderRadius: token.controlRadius,
     transition: `all ${token.duration} ${token.motionEaseInOut}`,
 
     input: {
@@ -51,7 +51,7 @@ const genSelectorStyle: GenerateStyle<SelectToken, CSSObject> = token => {
     },
 
     [`${selectCls}-disabled&`]: {
-      color: token.textColorDisabled,
+      color: token.colorTextDisabled,
       background: token.componentBackgroundDisabled,
       cursor: 'not-allowed',
 
@@ -73,9 +73,8 @@ const genStatusStyle = (
     selectCls: string;
     borderHoverColor: string;
     outlineColor: string;
-    outlineWidth: number;
-    outlineBlurSize: number;
-    borderWidth: number;
+    controlOutlineWidth: number;
+    controlLineWidth: number;
   },
   overwriteDefaultBorder: boolean = false,
 ): CSSObject => {
@@ -97,14 +96,14 @@ const genStatusStyle = (
         [`${selectCls}-focused& ${selectCls}-selector`]: {
           borderColor: borderHoverColor,
           // FIXME: missing variable of `@input-outline-offset`
-          boxShadow: `0 0 ${token.outlineBlurSize}px ${token.outlineWidth}px ${outlineColor}`,
-          borderInlineEndWidth: `${token.borderWidth}px !important`,
+          boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${outlineColor}`,
+          borderInlineEndWidth: `${token.controlLineWidth}px !important`,
           outline: 0,
         },
 
         [`&:hover ${selectCls}-selector`]: {
           borderColor: borderHoverColor,
-          borderInlineEndWidth: `${token.borderWidth}px !important`,
+          borderInlineEndWidth: `${token.controlLineWidth}px !important`,
         },
       },
     },
@@ -182,7 +181,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
         width: token.fontSizeSM,
         height: token.fontSizeSM,
         marginTop: -token.fontSizeSM / 2,
-        color: token.textColorDisabled,
+        color: token.colorTextDisabled,
         fontSize: token.fontSizeSM,
         lineHeight: 1,
         textAlign: 'center',
@@ -217,7 +216,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
         width: token.fontSizeSM,
         height: token.fontSizeSM,
         marginTop: -token.fontSizeSM / 2,
-        color: token.textColorDisabled,
+        color: token.colorTextDisabled,
         fontSize: token.fontSizeSM,
         fontStyle: 'normal',
         lineHeight: 1,
@@ -234,7 +233,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
         },
 
         '&:hover': {
-          color: token.textColorSecondary,
+          color: token.colorTextSecondary,
         },
 
         [`${selectCls}:hover &`]: {

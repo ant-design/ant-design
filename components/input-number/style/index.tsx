@@ -27,16 +27,16 @@ interface InputNumberToken extends InputToken {
 const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumberToken) => {
   const {
     inputNumberCls,
-    borderWidth,
-    borderStyle,
-    borderColor,
-    borderRadius,
+    controlLineWidth: borderWidth,
+    controlLineType: borderStyle,
+    colorBorder: borderColor,
+    controlRadius: borderRadius,
     fontSizeLG,
     controlHeightLG,
     controlHeightSM,
     colorError,
     paddingXS,
-    textColorSecondary,
+    colorTextSecondary: textColorSecondary,
     durationFast,
     inputNumberHandlerActiveBgColor,
     colorPrimary,
@@ -46,7 +46,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
     duration,
     componentBackground,
     durationMid,
-    textColorDisabled,
+    colorTextDisabled: textColorDisabled,
   } = token;
 
   return {

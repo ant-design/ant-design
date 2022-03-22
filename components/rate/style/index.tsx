@@ -43,13 +43,13 @@ const genRateStarStyle: GenerateStyle<RateToken, CSSObject> = token => {
         },
 
         '&:focus-visible': {
-          outline: `1px dashed ${token.borderColorSplit}`,
+          outline: `1px dashed ${token.colorSplit}`,
           transform: token.rateStarHoverScale,
         },
       },
 
       '&-first, &-second': {
-        color: token.borderColorSplit,
+        color: token.colorSplit,
         transition: `all ${token.duration}`,
         userSelect: 'none',
 
