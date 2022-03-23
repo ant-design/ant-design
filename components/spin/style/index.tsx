@@ -34,7 +34,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken, hashId: string
     textAlign: 'center',
     verticalAlign: 'middle',
     opacity: 0,
-    transition: `transform 0.3s ${token.easeInOutCirc}`,
+    transition: `transform ${token.duration} ${token.easeInOutCirc}`,
 
     '&-spinning': {
       position: 'static',
@@ -47,17 +47,17 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken, hashId: string
       [`> div > ${token.spinCls}`]: {
         position: 'absolute',
         top: 0,
-        left: 0,
+        insetInlineStart: 0,
         zIndex: 4,
         display: 'block',
         width: '100%',
         height: '100%',
-        maxHeight: 400,
+        maxHeight: 400, // FIXME: hard code in v4
 
         [`${token.spinCls}-dot`]: {
           position: 'absolute',
           top: '50%',
-          left: '50%',
+          insetInlineStart: '50%',
           margin: -token.spinDotSize / 2,
         },
 
@@ -100,20 +100,20 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken, hashId: string
 
       [`${token.spinCls}-container`]: {
         position: 'relative',
-        transition: 'opacity 0.3s',
+        transition: `opacity ${token.duration}`,
 
         '&::after': {
           position: 'absolute',
           top: 0,
-          right: 0,
+          insetInlineEnd: 0,
           bottom: 0,
-          left: 0,
+          insetInlineStart: 0,
           zIndex: 10,
           width: '100%',
           height: '100%',
           background: token.componentBackground,
           opacity: 0,
-          transition: 'all 0.3s',
+          transition: `all ${token.duration}`,
           content: '""',
           pointerEvents: 'none',
         },
@@ -162,24 +162,24 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken, hashId: string
 
         '&:nth-child(1)': {
           top: 0,
-          left: 0,
+          insetInlineStart: 0,
         },
 
         '&:nth-child(2)': {
           top: 0,
-          right: 0,
+          insetInlineEnd: 0,
           animationDelay: '0.4s',
         },
 
         '&:nth-child(3)': {
-          right: 0,
+          insetInlineEnd: 0,
           bottom: 0,
           animationDelay: '0.8s',
         },
 
         '&:nth-child(4)': {
           bottom: 0,
-          left: 0,
+          insetInlineStart: 0,
           animationDelay: '1.2s',
         },
       },
@@ -231,9 +231,9 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
     ...token,
     spinCls: `.${prefixCls}`,
     spinDotDefault: token.textColorSecondary,
-    spinDotSize: 20, // FIXME: hard code
-    spinDotSizeSM: 14, // FIXME: hard code
-    spinDotSizeLG: 32, // FIXME: hard code
+    spinDotSize: 20, // FIXME: hard code in v4
+    spinDotSizeSM: 14, // FIXME: hard code in v4
+    spinDotSizeLG: 32, // FIXME: hard code in v4
   };
 
   return [
