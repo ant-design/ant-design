@@ -581,9 +581,10 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
     prefixCls,
     iconPrefixCls,
     inputAffixMargin,
-    colorTextSecondary: textColorSecondary,
-    motionDurationSlow: duration,
-    iconColorHover,
+    colorTextSecondary,
+    motionDurationSlow,
+    colorAction,
+    colorActionHover,
     colorPrimary,
     colorSuccess,
   } = token;
@@ -635,7 +636,7 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
         },
 
         '&-show-count-suffix': {
-          color: textColorSecondary,
+          color: colorTextSecondary,
         },
 
         '&-show-count-has-suffix': {
@@ -655,12 +656,12 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
 
       // password
       [`.${iconPrefixCls}.${prefixCls}-password-icon`]: {
-        color: textColorSecondary,
+        color: colorAction,
         cursor: 'pointer',
-        transition: `all ${duration}`,
+        transition: `all ${motionDurationSlow}`,
 
         '&:hover': {
-          color: iconColorHover,
+          color: colorActionHover,
         },
       },
 

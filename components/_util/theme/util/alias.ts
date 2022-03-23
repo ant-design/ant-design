@@ -46,6 +46,9 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     colorLinkHover: primaryColors[4],
     colorLinkActive: primaryColors[6],
 
+    colorAction: mergedToken.colorTextBelow,
+    colorActionHover: mergedToken.colorText,
+
     // Font
     fontSizeSM: fontSizes[0],
     fontSize: fontSizes[1],
@@ -103,8 +106,6 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     linkDecoration: 'none',
     linkHoverDecoration: 'none',
     linkFocusDecoration: 'none',
-
-    iconColorHover: new TinyColor('#000').setAlpha(0.75).toRgbString(),
 
     controlPaddingHorizontal: 16,
     controlPaddingHorizontalSM: 12,

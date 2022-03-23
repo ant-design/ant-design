@@ -191,6 +191,11 @@ export interface AliasToken extends DerivativeToken {
   colorPlaceholder: string;
   colorTextHeading: string;
 
+  /** Weak action. Such as `allowClear` or Alert close button */
+  colorAction: string;
+  /** Weak action hover color. Such as `allowClear` or Alert close button */
+  colorActionHover: string;
+
   colorLink: string;
   colorLinkHover: string;
   colorLinkActive: string;
@@ -201,8 +206,6 @@ export interface AliasToken extends DerivativeToken {
   colorBgComponentDisabled: string;
 
   // =============== Legacy: should be remove ===============
-  iconColorHover: string;
-
   padding: number;
   margin: number;
 

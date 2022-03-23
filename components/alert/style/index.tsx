@@ -281,8 +281,8 @@ export default function useStyle(
   const alertCls = `.${prefixCls}`;
 
   const alertMessageColor = token.colorTextHeading;
-  const alertCloseColor = token.colorTextSecondary;
-  const alertCloseHoverColor = token.iconColorHover;
+  const alertCloseColor = token.colorAction;
+  const alertCloseHoverColor = token.colorActionHover;
   // FIXME
   const alertWithDescriptionIconSize = 24;
   const alertWithDescriptionPaddingVertical = token.padding - 1;
