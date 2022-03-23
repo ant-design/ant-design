@@ -894,14 +894,46 @@ exports[`renders ./components/space/demo/split.md extend context correctly 1`] =
 exports[`renders ./components/space/demo/vertical.md extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
+  style="display:flex"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom:16px"
   >
     <div
-      class="ant-card ant-card-bordered"
-      style="width:300px"
+      class="ant-card ant-card-bordered ant-card-small"
+    >
+      <div
+        class="ant-card-head"
+      >
+        <div
+          class="ant-card-head-wrapper"
+        >
+          <div
+            class="ant-card-head-title"
+          >
+            Card
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-card-body"
+      >
+        <p>
+          Card content
+        </p>
+        <p>
+          Card content
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:16px"
+  >
+    <div
+      class="ant-card ant-card-bordered ant-card-small"
     >
       <div
         class="ant-card-head"
@@ -932,8 +964,7 @@ exports[`renders ./components/space/demo/vertical.md extend context correctly 1`
     class="ant-space-item"
   >
     <div
-      class="ant-card ant-card-bordered"
-      style="width:300px"
+      class="ant-card ant-card-bordered ant-card-small"
     >
       <div
         class="ant-card-head"
