@@ -192,8 +192,9 @@ export interface AliasToken extends DerivativeToken {
 
   backgroundLight: string;
 
-  zIndexDropdown: number;
   zIndexAffix: number;
+  zIndexDropdown: number;
+  zIndexPopover: number;
 
   boxShadow: string;
 
@@ -214,6 +215,7 @@ export interface AliasToken extends DerivativeToken {
   paddingXXS: number;
   paddingLG: number;
   marginXS: number;
+  marginSM: number;
   marginLG: number;
   marginXXS: number;
 

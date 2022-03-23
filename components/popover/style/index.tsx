@@ -8,7 +8,7 @@
 import { TinyColor } from '@ctrl/tinycolor';
 import { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import {
-  PresetColorKeys,
+  PresetColors,
   PresetColorType,
   DerivativeToken,
   useStyleRegister,
@@ -50,15 +50,17 @@ const genBaseStyle: GenerateStyle<PopoverToken> = token => {
     popoverPaddingHorizonta,
     popoverArrowRotateWidth,
 
-    zIndexPopover,
-    borderRadius,
-    borderColorSplit,
     boxShadow,
+    colorSplit,
+    colorTextHeading,
+    colorWarning,
     fontSize,
-    headingColor,
+    marginSM,
+    marginXS,
     lineHeight,
+    radiusBase: borderRadius,
     paddingSM,
-    warningColor,
+    zIndexPopover,
   } = token;
 
   return {
@@ -66,7 +68,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = token => {
       ...resetComponent(token),
       position: 'absolute',
       top: 0,
-      left: 0,
+      insetBlockStart: 0,
       zIndex: zIndexPopover,
       fontWeight: 'normal',
       whiteSpace: 'normal',
@@ -76,6 +78,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = token => {
 
       '&::after': {
         position: 'absolute',
+        // FIXME
         background: new TinyColor('#fff').setAlpha(0.01).toRgbString(),
         content: '""',
       },
@@ -99,10 +102,12 @@ const genBaseStyle: GenerateStyle<PopoverToken> = token => {
         minWidth: popoverMinWidth,
         minHeight: popoverMinHeight,
         margin: 0,
+        // FIXME
         padding: `5px ${popoverPaddingHorizonta}px 4px`,
-        color: headingColor,
+        color: colorTextHeading,
         fontWeight: 500,
-        borderBottom: `1px solid ${borderColorSplit}`,
+        // FIXME
+        borderBottom: `1px solid ${colorSplit}`,
       },
 
       [`${popoverCls}-inner-content`]: {
@@ -113,29 +118,32 @@ const genBaseStyle: GenerateStyle<PopoverToken> = token => {
       // FIXME 没找到使用地方，先保留
       '&-message': {
         position: 'relative',
+        // FIXME
         padding: '4px 0 12px',
         color: popoverColor,
         fontSize,
 
         [`> .${iconPrefixCls}`]: {
           position: 'absolute',
+          // FIXME
           top: 4 + ((lineHeight * fontSize - fontSize) / 2),
-          color: warningColor,
+          color: colorWarning,
           fontSize,
         },
 
         '&-title': {
+          // FIXME
           paddingInlineStart: fontSize + 8,
         },
       },
 
       // FIXME 没找到使用地方，先保留
       '&-buttons': {
-        marginBottom: 4,
+        marginBottom: marginXS,
         textAlign: 'end',
 
         'button': {
-          marginInlineStart: 8,
+          marginInlineStart: marginSM,
         },
       },
 
@@ -151,9 +159,9 @@ const genBaseStyle: GenerateStyle<PopoverToken> = token => {
         '&-content': {
           position: 'absolute',
           top: 0,
-          right: 0,
+          insetBlockEnd: 0,
           bottom: 0,
-          left: 0,
+          insetBlockStart: 0,
           display: 'block',
           width: popoverArrowWidth,
           height: popoverArrowWidth,
@@ -220,22 +228,23 @@ const genPlacementStyle: GenerateStyle<PopoverToken> = token => {
         bottom: popoverDistance - popoverArrowRotateWidth,
 
         '&-content': {
+          // FIXME
           boxShadow: `3px 3px 7px ${new TinyColor('#000').setAlpha(0.07).toRgbString()}`,
           transform: `translateY(-${popoverArrowRotateWidth / 2}px) rotate(45deg)`,
         },
       },
 
       [`&-placement-top ${popoverCls}-arrow`]: {
-        left: '50%',
+        insetBlockStart: '50%',
         transform: 'translateX(-50%)',
       },
 
       [`&-placement-topLeft ${popoverCls}-arrow`]: {
-        left: popoverArrowOffsetHorizontal,
+        insetBlockStart: popoverArrowOffsetHorizontal,
       },
 
       [`&-placement-topRight ${popoverCls}-arrow`]: {
-        right: popoverArrowOffsetHorizontal,
+        insetBlockEnd: popoverArrowOffsetHorizontal,
       },
 
       [`
@@ -243,9 +252,10 @@ const genPlacementStyle: GenerateStyle<PopoverToken> = token => {
         &-placement-rightTop ${popoverCls}-arrow,
         &-placement-rightBottom ${popoverCls}-arrow
       `]: {
-        left: popoverDistance - popoverArrowRotateWidth,
+        insetBlockStart: popoverDistance - popoverArrowRotateWidth,
 
         '&-content': {
+          // FIXME
           boxShadow: `3px 3px 7px ${new TinyColor('#000').setAlpha(0.07).toRgbString()}`,
           transform: `translateX(${popoverArrowRotateWidth / 2}px) rotate(135deg)`,
         },
@@ -272,22 +282,23 @@ const genPlacementStyle: GenerateStyle<PopoverToken> = token => {
         top: popoverDistance - popoverArrowRotateWidth,
 
         '&-content': {
+          // FIXME
           boxShadow: `2px 2px 5px ${new TinyColor('#000').setAlpha(0.06).toRgbString()}`,
           transform: `translateY(${popoverArrowRotateWidth / 2}px) rotate(-135deg)`,
         },
       },
 
       [`&-placement-bottom ${popoverCls}-arrow`]: {
-        left: '50%',
+        insetBlockStart: '50%',
         transform: 'translateX(-50%)',
       },
 
       [`&-placement-bottomLeft ${popoverCls}-arrow`]: {
-        left: popoverArrowOffsetHorizontal,
+        insetBlockStart: popoverArrowOffsetHorizontal,
       },
 
       [`&-placement-bottomRight ${popoverCls}-arrow`]: {
-        right: popoverArrowOffsetHorizontal,
+        riginsetBlockEndt: popoverArrowOffsetHorizontal,
       },
 
       [`
@@ -295,9 +306,10 @@ const genPlacementStyle: GenerateStyle<PopoverToken> = token => {
         &-placement-leftTop ${popoverCls}-arrow,
         &-placement-leftBottom ${popoverCls}-arrow
       `]: {
-        right: popoverDistance - popoverArrowRotateWidth,
+        insetBlockEnd: popoverDistance - popoverArrowRotateWidth,
 
         '&-content': {
+          // FIXME
           boxShadow: `3px 3px 7px ${new TinyColor('#000').setAlpha(0.07).toRgbString()}`,
           transform: `translateX(-${popoverArrowRotateWidth / 2}px) rotate(-45deg)`,
         },
@@ -323,7 +335,7 @@ const genPlacementStyle: GenerateStyle<PopoverToken> = token => {
 const genColorStyle: GenerateStyle<PopoverToken> = token => {
   const { popoverCls } = token;
 
-  return PresetColorKeys.reduce((prev: CSSObject, colorKey: keyof PresetColorType) => {
+  return PresetColors.reduce((prev: CSSObject, colorKey: keyof PresetColorType) => {
     const lightColor = token[`${colorKey}-6`];
     return {
       ...prev,
@@ -353,7 +365,7 @@ export default function useStyle(
 ): UseComponentStyleResult {
   const [theme, token, hashId] = useToken();
 
-  const popoverBg = token.componentBackground;
+  const popoverBg = token.colorBg;
   // FIXME
   const popoverArrowWidth = 8 * Math.sqrt(2);
 
@@ -362,7 +374,7 @@ export default function useStyle(
     popoverCls: `.${prefixCls}`,
     iconPrefixCls,
     popoverBg,
-    popoverColor: token.textColor,
+    popoverColor: token.colorText,
     // FIXME
     popoverMinWidth: 177,
     popoverMinHeight: 32,

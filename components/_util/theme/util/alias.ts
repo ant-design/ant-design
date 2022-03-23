@@ -120,14 +120,15 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
 
     marginXXS: 2,
     marginXS: 4,
-    // marginSM: 8,
+    marginSM: 8,
     marginLG: 32,
 
     // background of header and selected item
     backgroundLight: new TinyColor({ h: 0, s: 0, v: 98 }).toHexString(),
 
-    zIndexDropdown: 1050,
     zIndexAffix: 10,
+    zIndexDropdown: 1050,
+    zIndexPopover: 1030,
 
     boxShadow: `
       0 3px 6px -4px rgba(0, 0, 0, 0.12),
