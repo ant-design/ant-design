@@ -2,7 +2,7 @@
 category: Components
 type: Data Display
 title: Segmented
-cover: https://gw.alipayobjects.com/zos/alicdn/tX6-md4H6/Affix.svg
+cover: https://gw.alipayobjects.com/zos/bmw-prod/a3ff040f-24ba-43e0-92e9-c845df1612ad.svg
 ---
 
 Segmented Controls. This component is available since `antd@4.20.0`.

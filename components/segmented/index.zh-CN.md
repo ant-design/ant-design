@@ -3,7 +3,7 @@ category: Components
 subtitle: 分段控制器
 type: 数据展示
 title: Segmented
-cover: https://gw.alipayobjects.com/zos/alicdn/tX6-md4H6/Affix.svg
+cover: https://gw.alipayobjects.com/zos/bmw-prod/a3ff040f-24ba-43e0-92e9-c845df1612ad.svg
 ---
 
 分段控制器。自 `antd@4.20.0` 版本开始提供该组件。
