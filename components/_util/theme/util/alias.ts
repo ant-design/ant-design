@@ -42,6 +42,8 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     colorBgComponentSecondary: mergedToken.colorBg2,
     colorBgComponentDisabled: mergedToken.colorBgBelow2,
 
+    colorLink: mergedToken.colorPrimary,
+
     // Font
     fontSizeSM: fontSizes[0],
     fontSize: fontSizes[1],
@@ -99,7 +101,6 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     colorHighlight: errorColors[5], // FIXME: Should not align with error color
     // FIXME: fix2 badge-color
 
-    linkColor: mergedToken.colorPrimary,
     linkHoverColor: primaryColors[4],
     linkActiveColor: primaryColors[6],
     linkDecoration: 'none',
@@ -123,9 +124,6 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     marginXS: 4,
     // marginSM: 8,
     marginLG: 32,
-
-    // background of header and selected item
-    colorBgComponentSecondary: new TinyColor({ h: 0, s: 0, v: 98 }).toHexString(),
 
     zIndexDropdown: 1050,
     zIndexAffix: 10,

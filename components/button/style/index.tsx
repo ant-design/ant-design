@@ -223,7 +223,7 @@ const genDashedButtonStyle = (prefixCls: string, token: DerivativeToken): CSSObj
 
 // Type: Link
 const genLinkButtonStyle = (prefixCls: string, token: DerivativeToken): CSSObject => ({
-  color: token.linkColor,
+  color: token.colorLink,
 
   ...genHoverActiveButtonStyle(
     {

@@ -200,7 +200,7 @@ export interface AliasToken extends DerivativeToken {
   boxShadow: string;
 
   // =============== Legacy: should be remove ===============
-  linkColor: string;
+  colorLink: string;
   linkHoverColor: string;
   linkActiveColor: string;
   linkDecoration: React.CSSProperties['textDecoration'];
