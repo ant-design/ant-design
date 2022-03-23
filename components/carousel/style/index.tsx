@@ -11,6 +11,9 @@ import {
 
 interface CarouselToken extends DerivativeToken {
   carouselPrefixCls: string;
+  carouselDotWidth: CSSObject['width'];
+  carouselDotHeight: CSSObject['height'];
+  carouselDotActiveWidth: CSSObject['width'];
 }
 
 const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
@@ -206,8 +209,8 @@ const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
           display: 'inline-block',
           flex: '0 1 auto',
           boxSizing: 'content-box',
-          width: '@carousel-dot-width',
-          height: '@carousel-dot-height',
+          width: token.carouselDotWidth,
+          height: token.carouselDotHeight,
           margin: '0 2px',
           marginRight: '3px',
           marginLeft: '3px',
@@ -220,11 +223,11 @@ const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
           button: {
             display: 'block',
             width: '100%',
-            height: '@carousel-dot-height',
+            height: token.carouselDotHeight,
             padding: '0',
             color: 'transparent',
             fontSize: '0',
-            background: '@component-background',
+            background: token.colorBgComponent,
             border: '0',
             borderRadius: '1px',
             outline: 'none',
@@ -238,10 +241,10 @@ const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
           },
 
           '&.slick-active': {
-            width: '@carousel-dot-active-width',
+            width: token.carouselDotActiveWidth,
 
             '& button': {
-              background: '@component-background',
+              background: token.colorBgComponent,
               opacity: '1',
             },
 
@@ -264,7 +267,7 @@ const genCarouselVerticalStyle: GenerateStyle<CarouselToken, CSSObject> = token 
         top: '50%',
         bottom: 'auto',
         flexDirection: 'column',
-        width: '@carousel-dot-height',
+        width: token.carouselDotHeight,
         height: 'auto',
         margin: '0',
         transform: 'translateY(-50%)',
@@ -280,23 +283,24 @@ const genCarouselVerticalStyle: GenerateStyle<CarouselToken, CSSObject> = token 
         },
 
         li: {
-          width: '@carousel-dot-height',
-          height: '@carousel-dot-width',
+          // reverse width and height in vertical situation
+          width: token.carouselDotHeight,
+          height: token.carouselDotWidth,
           margin: '4px 2px',
           verticalAlign: 'baseline',
 
           button: {
-            width: '@carousel-dot-height',
-            height: '@carousel-dot-width',
+            width: token.carouselDotHeight,
+            height: token.carouselDotWidth,
           },
 
           '&.slick-active': {
-            width: '@carousel-dot-height',
-            height: '@carousel-dot-active-width',
+            width: token.carouselDotHeight,
+            height: token.carouselDotActiveWidth,
 
             button: {
-              width: '@carousel-dot-height',
-              height: '@carousel-dot-active-width',
+              width: token.carouselDotHeight,
+              height: token.carouselDotActiveWidth,
             },
           },
         },
@@ -312,6 +316,11 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
   const carouselToken: CarouselToken = {
     ...token,
     carouselPrefixCls: `.${prefixCls}`,
+
+    // FIXME
+    carouselDotWidth: 16,
+    carouselDotHeight: 3,
+    carouselDotActiveWidth: 24,
   };
 
   return [
