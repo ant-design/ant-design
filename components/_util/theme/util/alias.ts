@@ -89,7 +89,6 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     // errorColors,
 
     tmpPrimaryColorWeak: primaryColors[2],
-    tmpPrimaryHoverColorWeak: primaryColors[0],
     tmpPrimaryColor6: primaryColors[5],
     tmpPrimaryColor7: primaryColors[6],
 

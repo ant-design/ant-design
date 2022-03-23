@@ -94,6 +94,10 @@ export interface DerivativeToken extends SeedToken, ColorPalettes {
   colorPrimaryHover: string;
   colorPrimaryActive: string;
   colorPrimaryOutline: string;
+  // colorPrimarySecondary: string;
+
+  // tmpPrimaryColorWeak: string;
+  // tmpPrimaryHoverColorWeak: string;
 
   colorWarningHover: string;
   colorWarningActive: string;
@@ -141,10 +145,25 @@ export interface DerivativeToken extends SeedToken, ColorPalettes {
   radiusLG: number;
   radiusXL: number;
 
+  // Control
   /** @private Only Used for control inside component like Multiple Select inner selection item */
   controlHeightXS: number;
   controlHeightSM: number;
   controlHeightLG: number;
+
+  // zIndex
+  zIndexBaseBelow: number;
+
+  // @zindex-modal: 1000;
+  // @zindex-modal-mask: 1000;
+  // @zindex-message: 1010;
+  // @zindex-notification: 1010;
+  // @zindex-popover: 1030;
+  // @zindex-dropdown: 1050;
+  // @zindex-picker: 1050;
+  // @zindex-popoconfirm: 1060;
+  // @zindex-tooltip: 1070;
+  // @zindex-image: 1080;
 }
 
 // ======================================================================
@@ -232,7 +251,6 @@ export interface AliasToken extends DerivativeToken {
 
   // TMP
   tmpPrimaryColorWeak: string;
-  tmpPrimaryHoverColorWeak: string;
   // Checked background for Checkable Tag
   tmpPrimaryColor6: string;
   // Active background for Checkable Tag
