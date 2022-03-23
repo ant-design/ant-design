@@ -12621,17 +12621,17 @@ exports[`ConfigProvider components Drawer prefixCls 1`] = `
         class="prefix-Drawer-content"
       >
         <div
-          class="prefix-Drawer-wrapper-body"
+          class="ant-drawer-wrapper-body"
         >
           <div
-            class="prefix-Drawer-header prefix-Drawer-header-close-only"
+            class="ant-drawer-header ant-drawer-header-close-only"
           >
             <div
-              class="prefix-Drawer-header-title"
+              class="ant-drawer-header-title"
             >
               <button
                 aria-label="Close"
-                class="prefix-Drawer-close"
+                class="ant-drawer-close"
                 type="button"
               >
                 <span
@@ -12657,7 +12657,7 @@ exports[`ConfigProvider components Drawer prefixCls 1`] = `
             </div>
           </div>
           <div
-            class="prefix-Drawer-body"
+            class="ant-drawer-body"
           />
         </div>
       </div>
