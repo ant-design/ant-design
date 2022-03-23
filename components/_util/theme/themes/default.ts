@@ -105,6 +105,8 @@ export function derivative(token: SeedToken): DerivativeToken {
     colorWarningHover: warningColors[4],
     colorWarningOutline: new TinyColor(colorWarning).setAlpha(0.2).toRgbString(),
 
+    colorHighlight: errorColors[4],
+
     // text color
     colorText2: new TinyColor('#000').setAlpha(0.85).toRgbString(),
 

@@ -95,7 +95,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     tmpErrorColorDeprecatedBorder: errorColors[2],
     tmpInfoColorDeprecatedBorder: infoColors[2],
 
-    highlightColor: errorColors[5], // FIXME: Should not align with error color
+    colorHighlight: errorColors[5], // FIXME: Should not align with error color
     // FIXME: fix2 badge-color
 
     linkColor: mergedToken.colorPrimary,
