@@ -6,7 +6,7 @@ import TimePicker from '../time-picker/locale/lt_LT';
 import Calendar from '../calendar/locale/lt_LT';
 import { Locale } from '../locale-provider';
 
-const typeTemplate: string = '${label} не является типом ${type}';
+const typeTemplate: string = '${label} neatitinka tipo ${type}';
 
 const localeValues: Locale = {
   locale: 'lt',

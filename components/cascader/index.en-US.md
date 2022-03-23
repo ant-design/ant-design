@@ -24,11 +24,12 @@ Cascade selection box.
 | allowClear | Whether allow clear | boolean | true |  |
 | autoFocus | If get focus when component mounted | boolean | false |  |
 | bordered | Whether has border style | boolean | true |  |
+| clearIcon | The custom clear icon | ReactNode | - |  |
 | changeOnSelect | (Work on single select) Change value on each selection if set to true, see above demo for details | boolean | false |  |
 | className | The additional css class | string | - |  |
 | defaultValue | Initial selected value | string\[] \| number\[] | \[] |  |
 | disabled | Whether disabled select | boolean | false |  |
-| displayRender | The render function of displaying single selected options. You can use tagRender for multiple mode | (label, selectedOptions) => ReactNode | label => label.join(`/`) |  |
+| displayRender | The render function of displaying selected options | (label, selectedOptions) => ReactNode | label => label.join(`/`) | `multiple`: 4.18.0 |
 | dropdownClassName | The additional className of popup overlay | string | - | 4.17.0 |
 | dropdownRender | Customize dropdown content | (menus: ReactNode) => ReactNode | - | 4.4.0 |
 | expandIcon | Customize the current item expand icon | ReactNode | - | 4.4.0 |
@@ -42,9 +43,10 @@ Cascade selection box.
 | open | Set visible of cascader popup | boolean | - | 4.17.0 |
 | options | The data options of cascade | [Option](#Option)\[] | - |  |
 | placeholder | The input placeholder | string | `Please select` |  |
-| placement | Use preset popup align config from builtinPlacements：`bottomLeft` `bottomRight` `topLeft` `topRight` | string | `bottomLeft` | 4.17.0 |
+| placement | Use preset popup align config from builtinPlacements | `bottomLeft` `bottomRight` `topLeft` `topRight` | `bottomLeft` | 4.17.0 |
 | showSearch | Whether show search input in single mode | boolean \| [Object](#showSearch) | false |  |
 | size | The input size | `large` \| `middle` \| `small` | - |  |
+| status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | style | The additional style | CSSProperties | - |  |
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
 | tagRender | Customize tag render when `multiple` | (props) => ReactNode | - | 4.17.0 |
@@ -52,6 +54,7 @@ Cascade selection box.
 | onChange | Callback when finishing cascader select | (value, selectedOptions) => void | - |  |
 | onDropdownVisibleChange | Callback when popup shown or hidden | (value) => void | - | 4.17.0 |
 | multiple | Support multiple or not | boolean | - | 4.17.0 |
+| removeIcon | The custom remove icon | ReactNode | - | |
 | searchValue | Set search value，Need work with `showSearch` | string | - | 4.17.0 |
 | onSearch | The callback function triggered when input changed | (search: string) => void | - | 4.17.0 |
 | dropdownMenuColumnStyle | The style of the drop-down menu column | CSSProperties | - |  |
@@ -75,6 +78,10 @@ interface Option {
   label?: React.ReactNode;
   disabled?: boolean;
   children?: Option[];
+  // Determines if this is a leaf node(effective when `loadData` is specified).
+  // `false` will force trade TreeNode as a parent node.
+  // Show expand icon even if the current node has no children.
+  isLeaf?: boolean;
 }
 ```
 

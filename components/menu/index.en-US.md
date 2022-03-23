@@ -43,7 +43,7 @@ More layouts with navigation: [Layout](/components/layout).
 | mode | Type of menu | `vertical` \| `horizontal` \| `inline` | `vertical` |  |
 | multiple | Allows selection of multiple items | boolean | false |  |
 | openKeys | Array with the keys of currently opened sub-menus | string\[] | - |  |
-| overflowedIndicator | Customized icon when menu is collapsed | ReactNode | - |  |
+| overflowedIndicator | Customized the ellipsis icon when menu is collapsed horizontally | ReactNode | `<EllipsisOutlined />` |  |
 | selectable | Allows selecting menu items | boolean | true |  |
 | selectedKeys | Array with the keys of currently selected menu items | string\[] | - |  |
 | style | Style of the root node | CSSProperties | - |  |
@@ -90,7 +90,7 @@ More layouts with navigation: [Layout](/components/layout).
 ### Menu.SubMenu
 
 | Param | Description | Type | Default value | Version |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- |
 | children | Sub-menus or sub-menu items | Array&lt;MenuItem \| SubMenu> | - |  |
 | disabled | Whether sub-menu is disabled | boolean | false |  |
 | icon | Icon of sub menu | ReactNode | - | 4.2.0 |
@@ -98,6 +98,7 @@ More layouts with navigation: [Layout](/components/layout).
 | popupClassName | Sub-menu class name, not working when `mode="inline"` | string | - |  |
 | popupOffset | Sub-menu offset, not working when `mode="inline"` | \[number, number] | - |  |
 | title | Title of sub menu | ReactNode | - |  |
+| theme | Color theme of the SubMenu (inherits from Menu by default) |  | `light` \| `dark` | - | 4.19.0 |
 | onTitleClick | Callback executed when the sub-menu title is clicked | function({ key, domEvent }) | - |  |
 
 ### Menu.ItemGroup

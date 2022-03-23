@@ -3,6 +3,7 @@
 @import '../../input/style/mixin';
 @import './single';
 @import './multiple';
+@import './status';
 
 @select-prefix-cls: ~'@{ant-prefix}-select';
 @select-height-without-border: @input-height-base - 2 * @border-width-base;
@@ -120,7 +121,8 @@
     position: absolute;
     top: 50%;
     right: @control-padding-horizontal - 1px;
-    width: @font-size-sm;
+    display: flex;
+    align-items: center;
     height: @font-size-sm;
     margin-top: (-@font-size-sm / 2);
     color: @disabled-color;

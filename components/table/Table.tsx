@@ -139,15 +139,25 @@ function InternalTable<RecordType extends object = any>(
     '`index` parameter of `rowKey` function is deprecated. There is no guarantee that it will work as expected.',
   );
 
-  const screens = useBreakpoint();
+  const baseColumns = React.useMemo(
+    () => columns || convertChildrenToColumns(children),
+    [columns, children],
+  );
+  const needResponsive = React.useMemo(
+    () => baseColumns.some((col: ColumnType<RecordType>) => col.responsive),
+    [baseColumns],
+  );
+
+  const screens = useBreakpoint(needResponsive);
+
   const mergedColumns = React.useMemo(() => {
     const matched = new Set(Object.keys(screens).filter((m: Breakpoint) => screens[m]));
 
-    return (columns || convertChildrenToColumns(children)).filter(
+    return baseColumns.filter(
       (c: ColumnType<RecordType>) =>
         !c.responsive || c.responsive.some((r: Breakpoint) => matched.has(r)),
     );
-  }, [children, columns, screens]);
+  }, [baseColumns, screens]);
 
   const tableProps = omit(props, ['className', 'style', 'columns']) as TableProps<RecordType>;
 

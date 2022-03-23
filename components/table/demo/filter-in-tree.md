@@ -10,8 +10,6 @@ title:
 
 可以使用 `filterMode` 来修改筛选菜单的 UI，可选值有 `menu`（默认）和 `tree`。
 
-> `filterSearch` 用于开启筛选项的搜索。
-
 ## en-US
 
 You can use `filterMode` to change default filter interface, options: `menu`(default) and `tree`.

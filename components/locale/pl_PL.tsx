@@ -119,8 +119,8 @@ const localeValues: Locale = {
       },
       array: {
         len: '${label} musi posiadać ${len} elementów',
-        min: '${label} musi posiadać co najmniej ${len} elementów',
-        max: '${label} musi posiadać maksymalnie ${len} elementów',
+        min: '${label} musi posiadać co najmniej ${min} elementów',
+        max: '${label} musi posiadać maksymalnie ${max} elementów',
         range: '${label} musi posiadać między ${min} a ${max} elementów',
       },
       pattern: {

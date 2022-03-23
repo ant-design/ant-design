@@ -70,7 +70,7 @@ exports[`renders ./components/upload/demo/basic.md extend context correctly 1`] 
         type="file"
       />
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span
@@ -242,7 +242,7 @@ exports[`renders ./components/upload/demo/customize-progress-bar.md extend conte
         type="file"
       />
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span
@@ -294,7 +294,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md extend context corr
         type="file"
       />
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span
@@ -607,7 +607,7 @@ exports[`renders ./components/upload/demo/directory.md extend context correctly 
         webkitdirectory="webkitdirectory"
       />
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span
@@ -720,7 +720,7 @@ exports[`renders ./components/upload/demo/drag-sorting.md extend context correct
         type="file"
       />
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span
@@ -1924,7 +1924,7 @@ exports[`renders ./components/upload/demo/fileList.md extend context correctly 1
         type="file"
       />
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span
@@ -2063,7 +2063,7 @@ exports[`renders ./components/upload/demo/max-count.md extend context correctly 
             type="file"
           />
           <button
-            class="ant-btn"
+            class="ant-btn ant-btn-default"
             type="button"
           >
             <span
@@ -2117,7 +2117,7 @@ exports[`renders ./components/upload/demo/max-count.md extend context correctly 
             type="file"
           />
           <button
-            class="ant-btn"
+            class="ant-btn ant-btn-default"
             type="button"
           >
             <span
@@ -2772,7 +2772,7 @@ Array [
           type="file"
         />
         <button
-          class="ant-btn"
+          class="ant-btn ant-btn-default"
           type="button"
         >
           <span
@@ -3007,7 +3007,7 @@ Array [
           type="file"
         />
         <button
-          class="ant-btn"
+          class="ant-btn ant-btn-default"
           type="button"
         >
           <span
@@ -3244,7 +3244,7 @@ exports[`renders ./components/upload/demo/preview-file.md extend context correct
         type="file"
       />
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span
@@ -3296,7 +3296,7 @@ exports[`renders ./components/upload/demo/transform-file.md extend context corre
         type="file"
       />
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span
@@ -3348,7 +3348,7 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md extend co
         type="file"
       />
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span
@@ -3678,7 +3678,7 @@ Array [
           type="file"
         />
         <button
-          class="ant-btn"
+          class="ant-btn ant-btn-default"
           type="button"
         >
           <span
@@ -3741,7 +3741,7 @@ exports[`renders ./components/upload/demo/upload-png-only.md extend context corr
         type="file"
       />
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span
@@ -3819,7 +3819,7 @@ exports[`renders ./components/upload/demo/upload-with-aliyun-oss.md extend conte
                   type="file"
                 />
                 <button
-                  class="ant-btn"
+                  class="ant-btn ant-btn-default"
                   type="button"
                 >
                   <span

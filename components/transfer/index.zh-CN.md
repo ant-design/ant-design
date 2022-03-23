@@ -33,12 +33,13 @@ cover: https://gw.alipayobjects.com/zos/alicdn/QAXskNI4G/Transfer.svg
 | oneWay | 展示为单向样式 | boolean | false | 4.3.0 |
 | operations | 操作文案集合，顺序从上至下 | string\[] | \[`>`, `<`] |  |
 | operationStyle | 操作栏的自定义样式 | CSSProperties | - |  |
-| pagination | 使用分页样式，自定义渲染列表下无效 | boolean \| { pageSize: number } | false | 4.3.0 |
+| pagination | 使用分页样式，自定义渲染列表下无效 | boolean \| { pageSize: number, simple: boolean, showSizeChanger?: boolean, showLessItems?: boolean } | false | 4.3.0 |
 | render | 每行数据渲染函数，该函数的入参为 `dataSource` 中的项，返回值为 ReactElement。或者返回一个普通对象，其中 `label` 字段为 ReactElement，`value` 字段为 title | (record) => ReactNode | - |  |
 | selectAllLabels | 自定义顶部多选框标题的集合 | (ReactNode \| (info: { selectedCount: number, totalCount: number }) => ReactNode)\[] | - |  |
 | selectedKeys | 设置哪些项应该被选中 | string\[] | \[] |  |
 | showSearch | 是否显示搜索框 | boolean | false |  |
 | showSelectAll | 是否展示全选勾选框 | boolean | true |  |
+| status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | targetKeys | 显示在右侧框数据的 key 集合 | string\[] | \[] |  |
 | titles | 标题集合，顺序从左至右 | ReactNode\[] | - |  |
 | onChange | 选项在两栏之间转移时的回调函数 | (targetKeys, direction, moveKeys): void | - |  |

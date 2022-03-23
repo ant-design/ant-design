@@ -287,6 +287,32 @@ describe('Menu', () => {
     );
   });
 
+  describe('allows the overriding of theme at the popup submenu level', () => {
+    const menuModesWithPopupSubMenu = ['horizontal', 'vertical'];
+
+    menuModesWithPopupSubMenu.forEach(menuMode => {
+      it(`when menu is mode ${menuMode}`, () => {
+        const wrapper = mount(
+          <Menu mode={menuMode} openKeys={['1']} theme="dark">
+            <SubMenu key="1" title="submenu1" theme="light">
+              <Menu.Item key="submenu1">Option 1</Menu.Item>
+              <Menu.Item key="submenu2">Option 2</Menu.Item>
+            </SubMenu>
+            <Menu.Item key="2">menu2</Menu.Item>
+          </Menu>,
+        );
+
+        act(() => {
+          jest.runAllTimers();
+          wrapper.update();
+        });
+
+        expect(wrapper.find('ul.ant-menu-root').hasClass('ant-menu-dark')).toBeTruthy();
+        expect(wrapper.find('div.ant-menu-submenu-popup').hasClass('ant-menu-light')).toBeTruthy();
+      });
+    });
+  });
+
   // https://github.com/ant-design/ant-design/pulls/4677
   // https://github.com/ant-design/ant-design/issues/4692
   // TypeError: Cannot read property 'indexOf' of undefined

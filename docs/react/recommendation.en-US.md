@@ -39,6 +39,7 @@ title: Third-Party Libraries
 | Animation | [react-move](https://github.com/react-tools/react-move) [Ant Motion](https://motion.ant.design/components/tween-one) [react-spring](https://www.react-spring.io) |
 | Page Footer | [rc-footer](https://github.com/react-component/footer) |
 | Water Mark | [WaterMark](https://procomponents.ant.design/components/water-mark) |
+| Currency | [react-number-format](https://github.com/s-yadav/react-number-format) [react-currency-input-fiel](https://github.com/cchanxzy/react-currency-input-field) |
 
 ## Products we are using ✨
 

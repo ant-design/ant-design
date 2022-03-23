@@ -47,14 +47,13 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
     [`${prefixCls}-item-head-${color}`]: true,
   });
 
+  const customColor = /blue|red|green|gray/.test(color || '') ? undefined : color;
+
   return (
     <li {...restProps} className={itemClassName}>
       {label && <div className={`${prefixCls}-item-label`}>{label}</div>}
       <div className={`${prefixCls}-item-tail`} />
-      <div
-        className={dotClassName}
-        style={{ borderColor: /blue|red|green|gray/.test(color || '') ? undefined : color }}
-      >
+      <div className={dotClassName} style={{ borderColor: customColor, color: customColor }}>
         {dot}
       </div>
       <div className={`${prefixCls}-item-content`}>{children}</div>

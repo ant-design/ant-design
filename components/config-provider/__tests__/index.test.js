@@ -54,7 +54,7 @@ describe('ConfigProvider', () => {
       </ConfigProvider>,
     );
 
-    expect(wrapper.find('button').props().className).toEqual('bamboo-btn');
+    expect(wrapper.exists('button.bamboo-btn')).toBeTruthy();
   });
 
   it('dynamic prefixCls', () => {
@@ -76,9 +76,9 @@ describe('ConfigProvider', () => {
 
     const wrapper = mount(<DynamicPrefixCls />);
 
-    expect(wrapper.find('button').last().props().className).toEqual('bamboo-btn');
+    expect(wrapper.exists('button.bamboo-btn')).toBeTruthy();
     wrapper.find('.toggle-button').first().simulate('click');
-    expect(wrapper.find('button').last().props().className).toEqual('light-btn');
+    expect(wrapper.exists('button.light-btn')).toBeTruthy();
   });
 
   it('iconPrefixCls', () => {

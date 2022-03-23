@@ -43,7 +43,7 @@ exports[`renders ./components/modal/demo/confirm.md correctly 1`] = `
     style="margin-right:8px;padding-bottom:8px"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -56,7 +56,7 @@ exports[`renders ./components/modal/demo/confirm.md correctly 1`] = `
     style="margin-right:8px;padding-bottom:8px"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -95,7 +95,7 @@ exports[`renders ./components/modal/demo/confirm.md correctly 1`] = `
 
 exports[`renders ./components/modal/demo/confirm-router.md correctly 1`] = `
 <button
-  class="ant-btn"
+  class="ant-btn ant-btn-default"
   type="button"
 >
   <span>
@@ -135,7 +135,7 @@ exports[`renders ./components/modal/demo/hooks.md correctly 1`] = `
     style="margin-right:8px"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -148,7 +148,7 @@ exports[`renders ./components/modal/demo/hooks.md correctly 1`] = `
     style="margin-right:8px"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -161,7 +161,7 @@ exports[`renders ./components/modal/demo/hooks.md correctly 1`] = `
     style="margin-right:8px"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -173,7 +173,7 @@ exports[`renders ./components/modal/demo/hooks.md correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -194,7 +194,7 @@ exports[`renders ./components/modal/demo/info.md correctly 1`] = `
     style="margin-right:8px;padding-bottom:8px"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -207,7 +207,7 @@ exports[`renders ./components/modal/demo/info.md correctly 1`] = `
     style="margin-right:8px;padding-bottom:8px"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -220,7 +220,7 @@ exports[`renders ./components/modal/demo/info.md correctly 1`] = `
     style="margin-right:8px;padding-bottom:8px"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -233,7 +233,7 @@ exports[`renders ./components/modal/demo/info.md correctly 1`] = `
     style="padding-bottom:8px"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -265,7 +265,7 @@ exports[`renders ./components/modal/demo/locale.md correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -278,7 +278,7 @@ exports[`renders ./components/modal/demo/locale.md correctly 1`] = `
 
 exports[`renders ./components/modal/demo/manual.md correctly 1`] = `
 <button
-  class="ant-btn"
+  class="ant-btn ant-btn-default"
   type="button"
 >
   <span>
@@ -289,7 +289,7 @@ exports[`renders ./components/modal/demo/manual.md correctly 1`] = `
 
 exports[`renders ./components/modal/demo/modal-render.md correctly 1`] = `
 <button
-  class="ant-btn"
+  class="ant-btn ant-btn-default"
   type="button"
 >
   <span>

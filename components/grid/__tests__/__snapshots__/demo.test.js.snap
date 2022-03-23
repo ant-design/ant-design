@@ -838,41 +838,41 @@ Array [
     style="width:50%"
   >
     <div
-      class="ant-slider ant-slider-with-marks"
+      class="ant-slider ant-slider-horizontal ant-slider-with-marks"
     >
       <div
         class="ant-slider-rail"
       />
       <div
         class="ant-slider-track"
-        style="left:0%;right:auto;width:20%"
+        style="left:0%;width:20%"
       />
       <div
         class="ant-slider-step"
       >
         <span
           class="ant-slider-dot ant-slider-dot-active"
-          style="left:0%"
+          style="left:0%;transform:translateX(-50%)"
         />
         <span
           class="ant-slider-dot ant-slider-dot-active"
-          style="left:20%"
+          style="left:20%;transform:translateX(-50%)"
         />
         <span
           class="ant-slider-dot"
-          style="left:40%"
+          style="left:40%;transform:translateX(-50%)"
         />
         <span
           class="ant-slider-dot"
-          style="left:60%"
+          style="left:60%;transform:translateX(-50%)"
         />
         <span
           class="ant-slider-dot"
-          style="left:80%"
+          style="left:80%;transform:translateX(-50%)"
         />
         <span
           class="ant-slider-dot"
-          style="left:100%"
+          style="left:100%;transform:translateX(-50%)"
         />
       </div>
       <div
@@ -882,7 +882,7 @@ Array [
         aria-valuenow="1"
         class="ant-slider-handle"
         role="slider"
-        style="left:20%;right:auto;transform:translateX(-50%)"
+        style="left:20%;transform:translateX(-50%)"
         tabindex="0"
       />
       <div
@@ -890,37 +890,37 @@ Array [
       >
         <span
           class="ant-slider-mark-text ant-slider-mark-text-active"
-          style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:0%"
+          style="left:0%;transform:translateX(-50%)"
         >
           8
         </span>
         <span
           class="ant-slider-mark-text ant-slider-mark-text-active"
-          style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:20%"
+          style="left:20%;transform:translateX(-50%)"
         >
           16
         </span>
         <span
           class="ant-slider-mark-text"
-          style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:40%"
+          style="left:40%;transform:translateX(-50%)"
         >
           24
         </span>
         <span
           class="ant-slider-mark-text"
-          style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:60%"
+          style="left:60%;transform:translateX(-50%)"
         >
           32
         </span>
         <span
           class="ant-slider-mark-text"
-          style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:80%"
+          style="left:80%;transform:translateX(-50%)"
         >
           40
         </span>
         <span
           class="ant-slider-mark-text"
-          style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:100%"
+          style="left:100%;transform:translateX(-50%)"
         >
           48
         </span>
@@ -934,41 +934,41 @@ Array [
     style="width:50%"
   >
     <div
-      class="ant-slider ant-slider-with-marks"
+      class="ant-slider ant-slider-horizontal ant-slider-with-marks"
     >
       <div
         class="ant-slider-rail"
       />
       <div
         class="ant-slider-track"
-        style="left:0%;right:auto;width:20%"
+        style="left:0%;width:20%"
       />
       <div
         class="ant-slider-step"
       >
         <span
           class="ant-slider-dot ant-slider-dot-active"
-          style="left:0%"
+          style="left:0%;transform:translateX(-50%)"
         />
         <span
           class="ant-slider-dot ant-slider-dot-active"
-          style="left:20%"
+          style="left:20%;transform:translateX(-50%)"
         />
         <span
           class="ant-slider-dot"
-          style="left:40%"
+          style="left:40%;transform:translateX(-50%)"
         />
         <span
           class="ant-slider-dot"
-          style="left:60%"
+          style="left:60%;transform:translateX(-50%)"
         />
         <span
           class="ant-slider-dot"
-          style="left:80%"
+          style="left:80%;transform:translateX(-50%)"
         />
         <span
           class="ant-slider-dot"
-          style="left:100%"
+          style="left:100%;transform:translateX(-50%)"
         />
       </div>
       <div
@@ -978,7 +978,7 @@ Array [
         aria-valuenow="1"
         class="ant-slider-handle"
         role="slider"
-        style="left:20%;right:auto;transform:translateX(-50%)"
+        style="left:20%;transform:translateX(-50%)"
         tabindex="0"
       />
       <div
@@ -986,37 +986,37 @@ Array [
       >
         <span
           class="ant-slider-mark-text ant-slider-mark-text-active"
-          style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:0%"
+          style="left:0%;transform:translateX(-50%)"
         >
           8
         </span>
         <span
           class="ant-slider-mark-text ant-slider-mark-text-active"
-          style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:20%"
+          style="left:20%;transform:translateX(-50%)"
         >
           16
         </span>
         <span
           class="ant-slider-mark-text"
-          style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:40%"
+          style="left:40%;transform:translateX(-50%)"
         >
           24
         </span>
         <span
           class="ant-slider-mark-text"
-          style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:60%"
+          style="left:60%;transform:translateX(-50%)"
         >
           32
         </span>
         <span
           class="ant-slider-mark-text"
-          style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:80%"
+          style="left:80%;transform:translateX(-50%)"
         >
           40
         </span>
         <span
           class="ant-slider-mark-text"
-          style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:100%"
+          style="left:100%;transform:translateX(-50%)"
         >
           48
         </span>
@@ -1030,41 +1030,41 @@ Array [
     style="width:50%;margin-bottom:48px"
   >
     <div
-      class="ant-slider ant-slider-with-marks"
+      class="ant-slider ant-slider-horizontal ant-slider-with-marks"
     >
       <div
         class="ant-slider-rail"
       />
       <div
         class="ant-slider-track"
-        style="left:0%;right:auto;width:40%"
+        style="left:0%;width:40%"
       />
       <div
         class="ant-slider-step"
       >
         <span
           class="ant-slider-dot ant-slider-dot-active"
-          style="left:0%"
+          style="left:0%;transform:translateX(-50%)"
         />
         <span
           class="ant-slider-dot ant-slider-dot-active"
-          style="left:20%"
+          style="left:20%;transform:translateX(-50%)"
         />
         <span
           class="ant-slider-dot ant-slider-dot-active"
-          style="left:40%"
+          style="left:40%;transform:translateX(-50%)"
         />
         <span
           class="ant-slider-dot"
-          style="left:60%"
+          style="left:60%;transform:translateX(-50%)"
         />
         <span
           class="ant-slider-dot"
-          style="left:80%"
+          style="left:80%;transform:translateX(-50%)"
         />
         <span
           class="ant-slider-dot"
-          style="left:100%"
+          style="left:100%;transform:translateX(-50%)"
         />
       </div>
       <div
@@ -1074,7 +1074,7 @@ Array [
         aria-valuenow="2"
         class="ant-slider-handle"
         role="slider"
-        style="left:40%;right:auto;transform:translateX(-50%)"
+        style="left:40%;transform:translateX(-50%)"
         tabindex="0"
       />
       <div
@@ -1082,37 +1082,37 @@ Array [
       >
         <span
           class="ant-slider-mark-text ant-slider-mark-text-active"
-          style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:0%"
+          style="left:0%;transform:translateX(-50%)"
         >
           2
         </span>
         <span
           class="ant-slider-mark-text ant-slider-mark-text-active"
-          style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:20%"
+          style="left:20%;transform:translateX(-50%)"
         >
           3
         </span>
         <span
           class="ant-slider-mark-text ant-slider-mark-text-active"
-          style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:40%"
+          style="left:40%;transform:translateX(-50%)"
         >
           4
         </span>
         <span
           class="ant-slider-mark-text"
-          style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:60%"
+          style="left:60%;transform:translateX(-50%)"
         >
           6
         </span>
         <span
           class="ant-slider-mark-text"
-          style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:80%"
+          style="left:80%;transform:translateX(-50%)"
         >
           8
         </span>
         <span
           class="ant-slider-mark-text"
-          style="transform:translateX(-50%);-ms-transform:translateX(-50%);left:100%"
+          style="left:100%;transform:translateX(-50%)"
         >
           12
         </span>

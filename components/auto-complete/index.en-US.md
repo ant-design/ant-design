@@ -38,6 +38,7 @@ The differences with Select are:
 | open | Controlled open state of dropdown | boolean | - |  |
 | options | Select options. Will get better perf than jsx definition | { label, value }\[] | - |  |
 | placeholder | The placeholder of input | string | - |  |
+| status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | value | Selected option | string | - |  |
 | onBlur | Called when leaving the component | function() | - |  |
 | onChange | Called when select an option or input value change, or value of input is changed | function(value) | - |  |
@@ -45,13 +46,14 @@ The differences with Select are:
 | onFocus | Called when entering the component | function() | - |  |
 | onSearch | Called when searching items | function(value) | - |  |
 | onSelect | Called when a option is selected. param is option's value and option instance | function(value, option) | - |  |
+| onClear | Called when clear | function | - | 4.6.0 |
 
 ## Methods
 
-| Name | Description | Version |
-| --- | --- | --- |
-| blur() | Remove focus |  |
-| focus() | Get focus |  |
+| Name    | Description  | Version |
+| ------- | ------------ | ------- |
+| blur()  | Remove focus |         |
+| focus() | Get focus    |         |
 
 ## FAQ
 

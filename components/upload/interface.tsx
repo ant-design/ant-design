@@ -104,7 +104,7 @@ export interface UploadProps<T = any> extends Pick<RcUploadProps, 'capture'> {
     file: RcFile,
     FileList: RcFile[],
   ) => BeforeUploadValueType | Promise<BeforeUploadValueType>;
-  onChange?: (info: UploadChangeParam<T>) => void;
+  onChange?: (info: UploadChangeParam<UploadFile<T>>) => void;
   onDrop?: (event: React.DragEvent<HTMLDivElement>) => void;
   listType?: UploadListType;
   className?: string;

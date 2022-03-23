@@ -5,6 +5,7 @@ import DatePicker from '..';
 import { setMockDate, resetMockDate } from '../../../tests/utils';
 import { openPicker, selectCell, closePicker } from './utils';
 import focusTest from '../../../tests/shared/focusTest';
+import enUS from '../locale/en_US';
 
 const { RangePicker } = DatePicker;
 
@@ -95,5 +96,11 @@ describe('RangePicker', () => {
     const wrapper = mount(<RangePicker placeholder={undefined} />);
     expect(wrapper.find('input').first().props().placeholder).toEqual('Start date');
     expect(wrapper.find('input').last().props().placeholder).toEqual('End date');
+  });
+
+  it('RangePicker picker quarter placeholder', () => {
+    const wrapper = mount(<RangePicker picker="quarter" locale={enUS} />);
+    expect(wrapper.find('input').at(0).props().placeholder).toEqual('Start quarter');
+    expect(wrapper.find('input').at(1).props().placeholder).toEqual('End quarter');
   });
 });

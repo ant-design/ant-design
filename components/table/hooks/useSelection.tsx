@@ -33,6 +33,8 @@ export const SELECTION_ALL = 'SELECT_ALL' as const;
 export const SELECTION_INVERT = 'SELECT_INVERT' as const;
 export const SELECTION_NONE = 'SELECT_NONE' as const;
 
+const EMPTY_LIST: React.Key[] = [];
+
 interface UseSelectionConfig<RecordType> {
   prefixCls: string;
   pageData: RecordType[];
@@ -108,7 +110,7 @@ export default function useSelection<RecordType>(
 
   // ========================= Keys =========================
   const [mergedSelectedKeys, setMergedSelectedKeys] = useMergedState(
-    selectedRowKeys || defaultSelectedRowKeys || [],
+    selectedRowKeys || defaultSelectedRowKeys || EMPTY_LIST,
     {
       value: selectedRowKeys,
     },
@@ -215,7 +217,7 @@ export default function useSelection<RecordType>(
   // Reset if rowSelection reset
   React.useEffect(() => {
     if (!rowSelection) {
-      setMergedSelectedKeys([]);
+      setMergedSelectedKeys(EMPTY_LIST);
     }
   }, [!!rowSelection]);
 

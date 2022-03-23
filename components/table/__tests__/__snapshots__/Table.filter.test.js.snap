@@ -1,5 +1,61 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Table.filter clearFilters should support params 1`] = `
+<div
+  className="ant-dropdown-custom-view"
+  id="customFilter"
+>
+  <span
+    id="setNoParams"
+    onClick={[Function]}
+  >
+    setSelectedKeys
+  </span>
+  <span
+    id="resetNoParams"
+    onClick={[Function]}
+  >
+    Reset
+  </span>
+  <span
+    id="setConfirm"
+    onClick={[Function]}
+  >
+    setSelectedKeys
+  </span>
+  <span
+    id="resetConfirm"
+    onClick={[Function]}
+  >
+    Reset
+  </span>
+  <span
+    id="setClose"
+    onClick={[Function]}
+  >
+    setSelectedKeys
+  </span>
+  <span
+    id="resetClose"
+    onClick={[Function]}
+  >
+    Reset
+  </span>
+  <span
+    id="setParams"
+    onClick={[Function]}
+  >
+    setSelectedKeys
+  </span>
+  <span
+    id="resetParams"
+    onClick={[Function]}
+  >
+    Reset
+  </span>
+</div>
+`;
+
 exports[`Table.filter override custom filter correctly 1`] = `
 <div
   className="ant-dropdown-custom-view"
@@ -509,507 +565,3 @@ exports[`Table.filter renders filter correctly 1`] = `
 exports[`Table.filter renders menu correctly 1`] = `<div />`;
 
 exports[`Table.filter renders radio filter correctly 1`] = `<div />`;
-
-exports[`Table.filter should support getPopupContainer 1`] = `
-<div
-  class="ant-table-wrapper"
->
-  <div
-    class="ant-spin-nested-loading"
-  >
-    <div
-      class="ant-spin-container"
-    >
-      <div
-        class="ant-table"
-      >
-        <div
-          class="ant-table-container"
-        >
-          <div
-            class="ant-table-content"
-          >
-            <table
-              style="table-layout: auto;"
-            >
-              <colgroup />
-              <thead
-                class="ant-table-thead"
-              >
-                <tr>
-                  <th
-                    class="ant-table-cell"
-                  >
-                    <div
-                      class="ant-table-filter-column"
-                    >
-                      <span
-                        class="ant-table-column-title"
-                      >
-                        Name
-                      </span>
-                      <span
-                        class="ant-dropdown-trigger ant-table-filter-trigger ant-dropdown-open"
-                        role="button"
-                        tabindex="-1"
-                      >
-                        <span
-                          aria-label="filter"
-                          class="anticon anticon-filter"
-                          role="img"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="filter"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
-                            />
-                          </svg>
-                        </span>
-                      </span>
-                      <div>
-                        <div
-                          class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-                          style="opacity: 0; pointer-events: none;"
-                        >
-                          <div
-                            class="ant-table-filter-dropdown"
-                          >
-                            <ul
-                              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-                              data-menu-list="true"
-                              role="menu"
-                              tabindex="0"
-                            >
-                              <li
-                                class="ant-dropdown-menu-item"
-                                data-menu-id="rc-menu-uuid-test-boy"
-                                role="menuitem"
-                                tabindex="-1"
-                              >
-                                <span
-                                  class="ant-dropdown-menu-title-content"
-                                >
-                                  <label
-                                    class="ant-checkbox-wrapper"
-                                  >
-                                    <span
-                                      class="ant-checkbox"
-                                    >
-                                      <input
-                                        class="ant-checkbox-input"
-                                        type="checkbox"
-                                        value=""
-                                      />
-                                      <span
-                                        class="ant-checkbox-inner"
-                                      />
-                                    </span>
-                                  </label>
-                                  <span>
-                                    Boy
-                                  </span>
-                                </span>
-                              </li>
-                              <li
-                                class="ant-dropdown-menu-item"
-                                data-menu-id="rc-menu-uuid-test-girl"
-                                role="menuitem"
-                                tabindex="-1"
-                              >
-                                <span
-                                  class="ant-dropdown-menu-title-content"
-                                >
-                                  <label
-                                    class="ant-checkbox-wrapper"
-                                  >
-                                    <span
-                                      class="ant-checkbox"
-                                    >
-                                      <input
-                                        class="ant-checkbox-input"
-                                        type="checkbox"
-                                        value=""
-                                      />
-                                      <span
-                                        class="ant-checkbox-inner"
-                                      />
-                                    </span>
-                                  </label>
-                                  <span>
-                                    Girl
-                                  </span>
-                                </span>
-                              </li>
-                              <li
-                                class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical"
-                                role="none"
-                              >
-                                <div
-                                  aria-controls="rc-menu-uuid-test-title-popup"
-                                  aria-expanded="false"
-                                  aria-haspopup="true"
-                                  class="ant-dropdown-menu-submenu-title"
-                                  data-menu-id="rc-menu-uuid-test-title"
-                                  role="menuitem"
-                                  tabindex="-1"
-                                >
-                                  <span
-                                    class="ant-dropdown-menu-title-content"
-                                  >
-                                    Title
-                                  </span>
-                                  <i
-                                    class="ant-dropdown-menu-submenu-arrow"
-                                  />
-                                </div>
-                              </li>
-                            </ul>
-                            <div
-                              aria-hidden="true"
-                              style="display: none;"
-                            />
-                            <div
-                              class="ant-table-filter-dropdown-btns"
-                            >
-                              <button
-                                class="ant-btn ant-btn-link ant-btn-sm"
-                                disabled=""
-                                type="button"
-                              >
-                                <span>
-                                  Reset
-                                </span>
-                              </button>
-                              <button
-                                class="ant-btn ant-btn-primary ant-btn-sm"
-                                type="button"
-                              >
-                                <span>
-                                  OK
-                                </span>
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        style="position: absolute; top: 0px; left: 0px; width: 100%;"
-                      />
-                      <div
-                        style="position: absolute; top: 0px; left: 0px; width: 100%;"
-                      />
-                    </div>
-                  </th>
-                </tr>
-              </thead>
-              <tbody
-                class="ant-table-tbody"
-              >
-                <tr
-                  class="ant-table-row ant-table-row-level-0"
-                  data-row-key="0"
-                >
-                  <td
-                    class="ant-table-cell"
-                  >
-                    Jack
-                  </td>
-                </tr>
-                <tr
-                  class="ant-table-row ant-table-row-level-0"
-                  data-row-key="1"
-                >
-                  <td
-                    class="ant-table-cell"
-                  >
-                    Lucy
-                  </td>
-                </tr>
-                <tr
-                  class="ant-table-row ant-table-row-level-0"
-                  data-row-key="2"
-                >
-                  <td
-                    class="ant-table-cell"
-                  >
-                    Tom
-                  </td>
-                </tr>
-                <tr
-                  class="ant-table-row ant-table-row-level-0"
-                  data-row-key="3"
-                >
-                  <td
-                    class="ant-table-cell"
-                  >
-                    Jerry
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Table.filter should support getPopupContainer from ConfigProvider 1`] = `
-<div
-  class="ant-table-wrapper"
->
-  <div
-    class="ant-spin-nested-loading"
-  >
-    <div
-      class="ant-spin-container"
-    >
-      <div
-        class="ant-table"
-      >
-        <div
-          class="ant-table-container"
-        >
-          <div
-            class="ant-table-content"
-          >
-            <table
-              style="table-layout: auto;"
-            >
-              <colgroup />
-              <thead
-                class="ant-table-thead"
-              >
-                <tr>
-                  <th
-                    class="ant-table-cell"
-                  >
-                    <div
-                      class="ant-table-filter-column"
-                    >
-                      <span
-                        class="ant-table-column-title"
-                      >
-                        Name
-                      </span>
-                      <span
-                        class="ant-dropdown-trigger ant-table-filter-trigger ant-dropdown-open"
-                        role="button"
-                        tabindex="-1"
-                      >
-                        <span
-                          aria-label="filter"
-                          class="anticon anticon-filter"
-                          role="img"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="filter"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
-                            />
-                          </svg>
-                        </span>
-                      </span>
-                      <div>
-                        <div
-                          class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-                          style="opacity: 0; pointer-events: none;"
-                        >
-                          <div
-                            class="ant-table-filter-dropdown"
-                          >
-                            <ul
-                              class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-                              data-menu-list="true"
-                              role="menu"
-                              tabindex="0"
-                            >
-                              <li
-                                class="ant-dropdown-menu-item"
-                                data-menu-id="rc-menu-uuid-test-boy"
-                                role="menuitem"
-                                tabindex="-1"
-                              >
-                                <span
-                                  class="ant-dropdown-menu-title-content"
-                                >
-                                  <label
-                                    class="ant-checkbox-wrapper"
-                                  >
-                                    <span
-                                      class="ant-checkbox"
-                                    >
-                                      <input
-                                        class="ant-checkbox-input"
-                                        type="checkbox"
-                                        value=""
-                                      />
-                                      <span
-                                        class="ant-checkbox-inner"
-                                      />
-                                    </span>
-                                  </label>
-                                  <span>
-                                    Boy
-                                  </span>
-                                </span>
-                              </li>
-                              <li
-                                class="ant-dropdown-menu-item"
-                                data-menu-id="rc-menu-uuid-test-girl"
-                                role="menuitem"
-                                tabindex="-1"
-                              >
-                                <span
-                                  class="ant-dropdown-menu-title-content"
-                                >
-                                  <label
-                                    class="ant-checkbox-wrapper"
-                                  >
-                                    <span
-                                      class="ant-checkbox"
-                                    >
-                                      <input
-                                        class="ant-checkbox-input"
-                                        type="checkbox"
-                                        value=""
-                                      />
-                                      <span
-                                        class="ant-checkbox-inner"
-                                      />
-                                    </span>
-                                  </label>
-                                  <span>
-                                    Girl
-                                  </span>
-                                </span>
-                              </li>
-                              <li
-                                class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical"
-                                role="none"
-                              >
-                                <div
-                                  aria-controls="rc-menu-uuid-test-title-popup"
-                                  aria-expanded="false"
-                                  aria-haspopup="true"
-                                  class="ant-dropdown-menu-submenu-title"
-                                  data-menu-id="rc-menu-uuid-test-title"
-                                  role="menuitem"
-                                  tabindex="-1"
-                                >
-                                  <span
-                                    class="ant-dropdown-menu-title-content"
-                                  >
-                                    Title
-                                  </span>
-                                  <i
-                                    class="ant-dropdown-menu-submenu-arrow"
-                                  />
-                                </div>
-                              </li>
-                            </ul>
-                            <div
-                              aria-hidden="true"
-                              style="display: none;"
-                            />
-                            <div
-                              class="ant-table-filter-dropdown-btns"
-                            >
-                              <button
-                                class="ant-btn ant-btn-link ant-btn-sm"
-                                disabled=""
-                                type="button"
-                              >
-                                <span>
-                                  Reset
-                                </span>
-                              </button>
-                              <button
-                                class="ant-btn ant-btn-primary ant-btn-sm"
-                                type="button"
-                              >
-                                <span>
-                                  OK
-                                </span>
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        style="position: absolute; top: 0px; left: 0px; width: 100%;"
-                      />
-                      <div
-                        style="position: absolute; top: 0px; left: 0px; width: 100%;"
-                      />
-                    </div>
-                  </th>
-                </tr>
-              </thead>
-              <tbody
-                class="ant-table-tbody"
-              >
-                <tr
-                  class="ant-table-row ant-table-row-level-0"
-                  data-row-key="0"
-                >
-                  <td
-                    class="ant-table-cell"
-                  >
-                    Jack
-                  </td>
-                </tr>
-                <tr
-                  class="ant-table-row ant-table-row-level-0"
-                  data-row-key="1"
-                >
-                  <td
-                    class="ant-table-cell"
-                  >
-                    Lucy
-                  </td>
-                </tr>
-                <tr
-                  class="ant-table-row ant-table-row-level-0"
-                  data-row-key="2"
-                >
-                  <td
-                    class="ant-table-cell"
-                  >
-                    Tom
-                  </td>
-                </tr>
-                <tr
-                  class="ant-table-row ant-table-row-level-0"
-                  data-row-key="3"
-                >
-                  <td
-                    class="ant-table-cell"
-                  >
-                    Jerry
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;

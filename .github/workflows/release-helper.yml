@@ -16,25 +16,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: make release
-        uses: actions-cool/release-helper@v1
+        uses: actions-cool/release-helper@v2
         with:
           triger: 'tag'
           changelogs: 'CHANGELOG.en-US.md, CHANGELOG.zh-CN.md'
           branch: 'master'
-          dingding-token: ${{ secrets.DINGDING_BOT_TOKEN }}
-          dingding-msg: 'CHANGELOG.zh-CN.md'
-          msg-poster: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*zx7LTI_ECSAAAAAAAAAAAABkARQnAQ'
-          msg-footer: '💬 前往 [**Ant Design Releases**]({{url}}) 查看更新日志'
-          prettier: true
-          prerelease-filter: '-, a, b, A, B'
-
-      - name: make release - Bigfish
-        uses: actions-cool/release-helper@v1
-        with:
-          triger: 'tag'
-          changelogs: 'CHANGELOG.en-US.md, CHANGELOG.zh-CN.md'
-          branch: 'master'
-          dingding-token: ${{ secrets.DINGDING_BOT_BIGFISH_TOKEN }}
+          dingding-token: ${{ secrets.DINGDING_BOT_TOKEN }} ${{ secrets.DINGDING_BOT_BIGFISH_TOKEN }}
           dingding-msg: 'CHANGELOG.zh-CN.md'
           msg-poster: 'https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*zx7LTI_ECSAAAAAAAAAAAABkARQnAQ'
           msg-footer: '💬 前往 [**Ant Design Releases**]({{url}}) 查看更新日志'

@@ -1162,7 +1162,7 @@ exports[`renders ./components/list/demo/loadmore.md extend context correctly 1`]
 </div>
 `;
 
-exports[`renders ./components/list/demo/resposive.md extend context correctly 1`] = `
+exports[`renders ./components/list/demo/responsive.md extend context correctly 1`] = `
 <div
   class="ant-list ant-list-split ant-list-grid"
 >

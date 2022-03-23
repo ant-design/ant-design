@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: help wanted
         if: github.event.label.name == 'help wanted'
-        uses: actions-cool/issues-helper@v2
+        uses: actions-cool/issues-helper@v3
         with:
           actions: 'create-comment'
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -26,7 +26,7 @@ jobs:
 
       - name: 🤔 Need Reproduce
         if: github.event.label.name == '🤔 Need Reproduce'
-        uses: actions-cool/issues-helper@v2
+        uses: actions-cool/issues-helper@v3
         with:
           actions: 'create-comment'
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -40,7 +40,7 @@ jobs:
 
       - name: Usage
         if: github.event.label.name == 'Usage' || github.event.label.name == 'Question'
-        uses: actions-cool/issues-helper@v2
+        uses: actions-cool/issues-helper@v3
         with:
           actions: 'create-comment,close-issue'
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -52,7 +52,7 @@ jobs:
 
       - name: 3.x
         if: github.event.label.name == '3.x'
-        uses: actions-cool/issues-helper@v2
+        uses: actions-cool/issues-helper@v3
         with:
           actions: 'create-comment,close-issue'
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -64,7 +64,7 @@ jobs:
 
       - name: invalid
         if: github.event.label.name == 'Invalid'
-        uses: actions-cool/issues-helper@v2
+        uses: actions-cool/issues-helper@v3
         with:
           actions: 'create-comment,close-issue'
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -76,7 +76,7 @@ jobs:
 
       - name: rtl
         if: github.event.label.name == 'rtl'
-        uses: actions-cool/issues-helper@v2
+        uses: actions-cool/issues-helper@v3
         with:
           actions: 'add-assignees'
           assignees: 'xrkffgg'

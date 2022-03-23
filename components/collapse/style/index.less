@@ -120,6 +120,11 @@
     border-radius: 0;
   }
 
+  // hide the last border-bottom in borderless mode
+  &-borderless > &-item:last-child {
+    border-bottom: 0;
+  }
+
   &-borderless > &-item > &-content {
     background-color: transparent;
     border-top: 0;

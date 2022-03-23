@@ -3,6 +3,7 @@
 @import './mixin';
 @import './affix';
 @import './allow-clear';
+@import './status';
 
 @input-prefix-cls: ~'@{ant-prefix}-input';
 
@@ -24,7 +25,7 @@
     }
   }
 
-  &-password-icon {
+  &-password-icon.@{iconfont-css-prefix} {
     color: @text-color-secondary;
     cursor: pointer;
     transition: all 0.3s;

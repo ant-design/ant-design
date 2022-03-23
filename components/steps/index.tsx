@@ -1,5 +1,4 @@
 import * as React from 'react';
-import omit from 'rc-util/lib/omit';
 import RcSteps from 'rc-steps';
 import type { ProgressDotRender } from 'rc-steps/lib/Steps';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
@@ -44,8 +43,8 @@ interface StepsType extends React.FC<StepsProps> {
 }
 
 const Steps: StepsType = props => {
-  const { percent, size, className, direction, responsive } = props;
-  const { xs } = useBreakpoint();
+  const { percent, size, className, direction, responsive, ...restProps } = props;
+  const { xs } = useBreakpoint(responsive);
   const { getPrefixCls, direction: rtlDirection } = React.useContext(ConfigContext);
 
   const getDirection = React.useCallback(
@@ -98,7 +97,8 @@ const Steps: StepsType = props => {
   return (
     <RcSteps
       icons={icons}
-      {...omit(props, ['percent', 'responsive'])}
+      {...restProps}
+      size={size}
       direction={getDirection()}
       stepIcon={stepIconRender}
       prefixCls={prefixCls}

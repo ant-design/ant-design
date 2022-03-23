@@ -46,7 +46,7 @@ ReactDOM.render(
     <Dropdown.Button onClick={handleButtonClick} overlay={menu}>
       Dropdown
     </Dropdown.Button>
-    <Dropdown.Button overlay={menu} placement="bottomCenter" icon={<UserOutlined />}>
+    <Dropdown.Button overlay={menu} placement="bottom" icon={<UserOutlined />}>
       Dropdown
     </Dropdown.Button>
     <Dropdown.Button onClick={handleButtonClick} overlay={menu} disabled>

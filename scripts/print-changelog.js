@@ -7,7 +7,7 @@ const fetch = require('isomorphic-fetch');
 const open = require('open');
 const fs = require('fs-extra');
 const path = require('path');
-const simpleGit = require('simple-git/promise');
+const simpleGit = require('simple-git');
 const inquirer = require('inquirer');
 
 const { JSDOM } = jsdom;
@@ -19,7 +19,7 @@ const $ = jQuery(window);
 
 const QUERY_TITLE = '.gh-header-title .js-issue-title';
 const QUERY_DESCRIPTION_LINES = '.comment-body table tbody tr';
-const QUERY_AUTHOR = '.timeline-comment-header-text .author:first';
+const QUERY_AUTHOR = '.pull-discussion-timeline .TimelineItem:first .author:first';
 // https://github.com/orgs/ant-design/teams/ant-design-collaborators/members
 const MAINTAINERS = [
   'zombiej',
@@ -35,6 +35,7 @@ const MAINTAINERS = [
   'Rustin-Liu',
   'fireairforce',
   'kerm1it',
+  'MadCcc',
 ].map(author => author.toLowerCase());
 
 const cwd = process.cwd();

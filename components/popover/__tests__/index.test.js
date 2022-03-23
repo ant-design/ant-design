@@ -54,8 +54,22 @@ describe('Popover', () => {
     popover.find('span').simulate('click');
 
     const popup = ref.current.getPopupDomNode();
-    expect(popup).not.toBe(null);
-    expect(popup.innerHTML).toMatchSnapshot();
+    expect(popup).toBe(null);
+  });
+
+  it('should not render popover when the title & content props is empty', () => {
+    const ref = React.createRef();
+
+    const popover = mount(
+      <Popover trigger="click" ref={ref} content="">
+        <span>show me your code</span>
+      </Popover>,
+    );
+
+    popover.find('span').simulate('click');
+    const popup = ref.current.getPopupDomNode();
+
+    expect(popup).toBe(null);
   });
 
   it('props#overlay do not warn anymore', () => {

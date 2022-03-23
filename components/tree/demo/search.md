@@ -110,8 +110,8 @@ class SearchTree extends React.Component {
     const loop = data =>
       data.map(item => {
         const index = item.title.indexOf(searchValue);
-        const beforeStr = item.title.substr(0, index);
-        const afterStr = item.title.substr(index + searchValue.length);
+        const beforeStr = item.title.substring(0, index);
+        const afterStr = item.title.slice(index + searchValue.length);
         const title =
           index > -1 ? (
             <span>

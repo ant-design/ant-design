@@ -213,7 +213,10 @@ function List<T>({
     }
   }
 
-  const screens = useBreakpoint();
+  const needResponsive = Object.keys(grid || {}).some(key =>
+    ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].includes(key),
+  );
+  const screens = useBreakpoint(needResponsive);
   const currentBreakpoint = React.useMemo(() => {
     for (let i = 0; i < responsiveArray.length; i += 1) {
       const breakpoint: Breakpoint = responsiveArray[i];

@@ -30,14 +30,14 @@
     border-color: @hoverBorderColor;
     box-shadow: @input-outline-offset @outline-blur-size @outline-width @outlineColor;
   }
-  border-right-width: @border-width-base !important;
+  border-right-width: @border-width-base;
   outline: 0;
 }
 
 // == when hover
 .hover(@color: @input-hover-border-color) {
   border-color: @color;
-  border-right-width: @border-width-base !important;
+  border-right-width: @border-width-base;
 }
 
 .disabled() {
@@ -420,5 +420,55 @@
         }
       }
     }
+  }
+}
+
+.status-color(
+  @prefix-cls: @input-prefix-cls;
+  @text-color: @input-color;
+  @border-color: @input-border-color;
+  @background-color: @input-bg;
+  @hoverBorderColor: @primary-color-hover;
+  @outlineColor: @primary-color-outline;
+) {
+  &:not(.@{prefix-cls}-disabled):not(.@{prefix-cls}-borderless).@{prefix-cls} {
+    &,
+    &:hover {
+      background: @background-color;
+      border-color: @border-color;
+    }
+
+    &:focus,
+    &-focused {
+      .active(@text-color, @hoverBorderColor, @outlineColor);
+    }
+  }
+}
+
+.status-color-common(
+  @prefix-cls: @input-prefix-cls;
+  @text-color: @input-color;
+  @border-color: @input-border-color;
+  @background-color: @input-bg;
+  @hoverBorderColor: @primary-color-hover;
+  @outlineColor: @primary-color-outline;
+) {
+  .@{prefix-cls}-feedback-icon {
+    color: @text-color;
+  }
+
+  .@{prefix-cls}-prefix {
+    color: @text-color;
+  }
+}
+
+.group-status-color(
+  @prefix-cls: @input-prefix-cls;
+  @text-color: @input-color;
+  @border-color: @input-border-color;
+) {
+  .@{prefix-cls}-group-addon {
+    color: @text-color;
+    border-color: @border-color;
   }
 }

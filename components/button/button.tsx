@@ -136,7 +136,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
   const {
     loading = false,
     prefixCls: customizePrefixCls,
-    type,
+    type = 'default',
     danger,
     shape = 'default',
     size: customizeSize,
@@ -237,8 +237,8 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
   const classes = classNames(
     prefixCls,
     {
+      [`${prefixCls}-${shape}`]: shape !== 'default' && shape, // Note: Shape also has `default`
       [`${prefixCls}-${type}`]: type,
-      [`${prefixCls}-${shape}`]: shape !== 'default' && shape,
       [`${prefixCls}-${sizeCls}`]: sizeCls,
       [`${prefixCls}-icon-only`]: !children && children !== 0 && !!iconType,
       [`${prefixCls}-background-ghost`]: ghost && !isUnborderedButtonType(type),

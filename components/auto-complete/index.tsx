@@ -20,6 +20,7 @@ import Select, {
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import devWarning from '../_util/devWarning';
 import { isValidElement } from '../_util/reactNode';
+import { InputStatus } from '../_util/statusUtils';
 
 const { Option } = Select;
 
@@ -37,6 +38,7 @@ export interface AutoCompleteProps<
     'inputIcon' | 'loading' | 'mode' | 'optionLabelProp' | 'labelInValue'
   > {
   dataSource?: DataSourceItemType[];
+  status?: InputStatus;
 }
 
 function isSelectOptionOrSelectOptGroup(child: any): Boolean {

@@ -121,7 +121,7 @@ Array [
     class="ant-btn-group"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span
@@ -145,7 +145,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span
@@ -173,7 +173,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span

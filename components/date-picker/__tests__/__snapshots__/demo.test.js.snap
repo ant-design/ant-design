@@ -2349,6 +2349,216 @@ exports[`renders ./components/date-picker/demo/mode.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/date-picker/demo/placement.md correctly 1`] = `
+Array [
+  <div
+    class="ant-radio-group ant-radio-group-outline"
+  >
+    <label
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+    >
+      <span
+        class="ant-radio-button ant-radio-button-checked"
+      >
+        <input
+          checked=""
+          class="ant-radio-button-input"
+          type="radio"
+          value="topLeft"
+        />
+        <span
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        topLeft
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper"
+    >
+      <span
+        class="ant-radio-button"
+      >
+        <input
+          class="ant-radio-button-input"
+          type="radio"
+          value="topRight"
+        />
+        <span
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        topRight
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper"
+    >
+      <span
+        class="ant-radio-button"
+      >
+        <input
+          class="ant-radio-button-input"
+          type="radio"
+          value="bottomLeft"
+        />
+        <span
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        bottomLeft
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper"
+    >
+      <span
+        class="ant-radio-button"
+      >
+        <input
+          class="ant-radio-button-input"
+          type="radio"
+          value="bottomRight"
+        />
+        <span
+          class="ant-radio-button-inner"
+        />
+      </span>
+      <span>
+        bottomRight
+      </span>
+    </label>
+  </div>,
+  <br />,
+  <br />,
+  <div
+    class="ant-picker"
+  >
+    <div
+      class="ant-picker-input"
+    >
+      <input
+        autocomplete="off"
+        placeholder="Select date"
+        readonly=""
+        size="12"
+        title=""
+        value=""
+      />
+      <span
+        class="ant-picker-suffix"
+      >
+        <span
+          aria-label="calendar"
+          class="anticon anticon-calendar"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="calendar"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+  </div>,
+  <br />,
+  <br />,
+  <div
+    class="ant-picker ant-picker-range"
+  >
+    <div
+      class="ant-picker-input ant-picker-input-active"
+    >
+      <input
+        autocomplete="off"
+        placeholder="Start date"
+        readonly=""
+        size="12"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-picker-range-separator"
+    >
+      <span
+        aria-label="to"
+        class="ant-picker-separator"
+      >
+        <span
+          aria-label="swap-right"
+          class="anticon anticon-swap-right"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="swap-right"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-picker-input"
+    >
+      <input
+        autocomplete="off"
+        placeholder="End date"
+        readonly=""
+        size="12"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-picker-active-bar"
+      style="left:0;width:0;position:absolute"
+    />
+    <span
+      class="ant-picker-suffix"
+    >
+      <span
+        aria-label="calendar"
+        class="anticon anticon-calendar"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="calendar"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>,
+]
+`;
+
 exports[`renders ./components/date-picker/demo/presetted-ranges.md correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
@@ -2841,6 +3051,92 @@ exports[`renders ./components/date-picker/demo/range-picker.md correctly 1`] = `
         <input
           autocomplete="off"
           placeholder="End month"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-active-bar"
+        style="left:0;width:0;position:absolute"
+      />
+      <span
+        class="ant-picker-suffix"
+      >
+        <span
+          aria-label="calendar"
+          class="anticon anticon-calendar"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="calendar"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:12px"
+  >
+    <div
+      class="ant-picker ant-picker-range"
+    >
+      <div
+        class="ant-picker-input ant-picker-input-active"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Start quarter"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-range-separator"
+      >
+        <span
+          aria-label="to"
+          class="ant-picker-separator"
+        >
+          <span
+            aria-label="swap-right"
+            class="anticon anticon-swap-right"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="swap-right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="End quarter"
           readonly=""
           size="12"
           value=""
@@ -3427,6 +3723,277 @@ exports[`renders ./components/date-picker/demo/start-end.md correctly 1`] = `
           </span>
         </span>
       </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./components/date-picker/demo/status.md correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical"
+  style="width:100%"
+>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <div
+      class="ant-picker ant-picker-status-error"
+      style="width:100%"
+    >
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Select date"
+          readonly=""
+          size="12"
+          title=""
+          value=""
+        />
+        <span
+          class="ant-picker-suffix"
+        >
+          <span
+            aria-label="calendar"
+            class="anticon anticon-calendar"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="calendar"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <div
+      class="ant-picker ant-picker-status-warning"
+      style="width:100%"
+    >
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Select date"
+          readonly=""
+          size="12"
+          title=""
+          value=""
+        />
+        <span
+          class="ant-picker-suffix"
+        >
+          <span
+            aria-label="calendar"
+            class="anticon anticon-calendar"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="calendar"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <div
+      class="ant-picker ant-picker-range ant-picker-status-error"
+      style="width:100%"
+    >
+      <div
+        class="ant-picker-input ant-picker-input-active"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Start date"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-range-separator"
+      >
+        <span
+          aria-label="to"
+          class="ant-picker-separator"
+        >
+          <span
+            aria-label="swap-right"
+            class="anticon anticon-swap-right"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="swap-right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="End date"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-active-bar"
+        style="left:0;width:0;position:absolute"
+      />
+      <span
+        class="ant-picker-suffix"
+      >
+        <span
+          aria-label="calendar"
+          class="anticon anticon-calendar"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="calendar"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-picker ant-picker-range ant-picker-status-warning"
+      style="width:100%"
+    >
+      <div
+        class="ant-picker-input ant-picker-input-active"
+      >
+        <input
+          autocomplete="off"
+          placeholder="Start date"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-range-separator"
+      >
+        <span
+          aria-label="to"
+          class="ant-picker-separator"
+        >
+          <span
+            aria-label="swap-right"
+            class="anticon anticon-swap-right"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="swap-right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M873.1 596.2l-164-208A32 32 0 00684 376h-64.8c-6.7 0-10.4 7.7-6.3 13l144.3 183H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h695.9c26.8 0 41.7-30.8 25.2-51.8z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+      <div
+        class="ant-picker-input"
+      >
+        <input
+          autocomplete="off"
+          placeholder="End date"
+          readonly=""
+          size="12"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-picker-active-bar"
+        style="left:0;width:0;position:absolute"
+      />
+      <span
+        class="ant-picker-suffix"
+      >
+        <span
+          aria-label="calendar"
+          class="anticon anticon-calendar"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="calendar"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+            />
+          </svg>
+        </span>
+      </span>
     </div>
   </div>
 </div>

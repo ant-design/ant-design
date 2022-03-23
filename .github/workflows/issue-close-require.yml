@@ -9,14 +9,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: need reproduce
-        uses: actions-cool/issues-helper@v2
+        uses: actions-cool/issues-helper@v3
         with:
           actions: 'close-issues'
           labels: '🤔 Need Reproduce'
           inactive-day: 3
 
       - name: needs more info
-        uses: actions-cool/issues-helper@v2
+        uses: actions-cool/issues-helper@v3
         with:
           actions: 'close-issues'
           labels: 'needs-more-info'

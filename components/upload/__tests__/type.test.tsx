@@ -21,6 +21,20 @@ describe('Upload.typescript', () => {
     expect(upload).toBeTruthy();
   });
 
+  it('onChange params', () => {
+    type IFile = {
+      customFile: File;
+    };
+
+    const upload = (
+      <Upload<IFile> onChange={({ file }) => file.response?.customFile}>
+        <span>click to upload</span>
+      </Upload>
+    );
+
+    expect(upload).toBeTruthy();
+  });
+
   it('onChange in UploadProps', () => {
     const uploadProps: UploadProps<File> = {
       onChange: ({ file }) => file,

@@ -20,6 +20,7 @@ interface EditableProps {
   maxLength?: number;
   autoSize?: boolean | AutoSizeType;
   enterIcon?: React.ReactNode;
+  component?: string;
 }
 
 const Editable: React.FC<EditableProps> = ({
@@ -34,6 +35,7 @@ const Editable: React.FC<EditableProps> = ({
   onSave,
   onCancel,
   onEnd,
+  component,
   enterIcon = <EnterOutlined />,
 }) => {
   const ref = React.useRef<any>();
@@ -108,6 +110,8 @@ const Editable: React.FC<EditableProps> = ({
     confirmChange();
   };
 
+  const textClassName = component ? `${prefixCls}-${component}` : '';
+
   const textAreaClassName = classNames(
     prefixCls,
     `${prefixCls}-edit-content`,
@@ -115,6 +119,7 @@ const Editable: React.FC<EditableProps> = ({
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    textClassName,
   );
 
   return (

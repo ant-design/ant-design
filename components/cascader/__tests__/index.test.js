@@ -368,6 +368,23 @@ describe('Cascader', () => {
     expect(wrapper.find('.ant-select-selection-placeholder').text()).toEqual(customPlaceholder);
   });
 
+  it('placement work correctly', () => {
+    const customerOptions = [
+      {
+        value: 'zhejiang',
+        label: 'Zhejiang',
+        children: [
+          {
+            value: 'hangzhou',
+            label: 'Hangzhou',
+          },
+        ],
+      },
+    ];
+    const wrapper = mount(<Cascader options={customerOptions} placement="topRight" />);
+    expect(wrapper.find('Trigger').prop('popupPlacement')).toEqual('topRight');
+  });
+
   it('popup correctly with defaultValue RTL', () => {
     const wrapper = mount(
       <ConfigProvider direction="rtl">
@@ -484,10 +501,12 @@ describe('Cascader', () => {
   describe('legacy props', () => {
     it('popupClassName', () => {
       const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-      const wrapper = mount(<Cascader open popupPlacement="topRight" popupClassName="mock-cls" />);
+      const wrapper = mount(
+        <Cascader open popupPlacement="bottomLeft" popupClassName="mock-cls" />,
+      );
 
       expect(wrapper.exists('.mock-cls')).toBeTruthy();
-      expect(wrapper.find('Trigger').prop('popupPlacement')).toEqual('topRight');
+      expect(wrapper.find('Trigger').prop('popupPlacement')).toEqual('bottomLeft');
 
       expect(errorSpy).toHaveBeenCalledWith(
         'Warning: [antd: Cascader] `popupClassName` is deprecated. Please use `dropdownClassName` instead.',

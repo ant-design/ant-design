@@ -13,6 +13,7 @@ const locale: PickerLocale = {
     rangePlaceholder: ['开始日期', '结束日期'],
     rangeYearPlaceholder: ['开始年份', '结束年份'],
     rangeMonthPlaceholder: ['开始月份', '结束月份'],
+    rangeQuarterPlaceholder: ['开始季度', '结束季度'],
     rangeWeekPlaceholder: ['开始周', '结束周'],
     ...CalendarLocale,
   },

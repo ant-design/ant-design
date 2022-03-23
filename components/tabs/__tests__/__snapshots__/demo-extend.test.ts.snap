@@ -594,7 +594,7 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md extend context cor
     style="margin-bottom:16px"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -945,39 +945,54 @@ exports[`renders ./components/tabs/demo/custom-tab-bar-node.md extend context co
         style="transform:translate(0px, 0px)"
       >
         <div
-          class="ant-tabs-tab ant-tabs-tab-active"
+          class=""
+          style="margin-right:24px"
         >
           <div
-            aria-selected="true"
-            class="ant-tabs-tab-btn"
-            role="tab"
-            tabindex="0"
+            class="ant-tabs-tab ant-tabs-tab-active"
           >
-            tab 1
+            <div
+              aria-selected="true"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="0"
+            >
+              tab 1
+            </div>
           </div>
         </div>
         <div
-          class="ant-tabs-tab"
+          class=""
+          style="margin-right:24px"
         >
           <div
-            aria-selected="false"
-            class="ant-tabs-tab-btn"
-            role="tab"
-            tabindex="0"
+            class="ant-tabs-tab"
           >
-            tab 2
+            <div
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="0"
+            >
+              tab 2
+            </div>
           </div>
         </div>
         <div
-          class="ant-tabs-tab"
+          class=""
+          style="margin-right:24px"
         >
           <div
-            aria-selected="false"
-            class="ant-tabs-tab-btn"
-            role="tab"
-            tabindex="0"
+            class="ant-tabs-tab"
           >
-            tab 3
+            <div
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="0"
+            >
+              tab 3
+            </div>
           </div>
         </div>
         <div
@@ -1586,7 +1601,7 @@ Array [
         class="ant-tabs-extra-content"
       >
         <button
-          class="ant-btn"
+          class="ant-btn ant-btn-default"
           type="button"
         >
           <span>
@@ -1693,7 +1708,7 @@ Array [
         class="ant-tabs-extra-content"
       >
         <button
-          class="ant-btn tabs-extra-demo-button"
+          class="ant-btn ant-btn-default tabs-extra-demo-button"
           type="button"
         >
           <span>
@@ -1807,7 +1822,7 @@ Array [
         class="ant-tabs-extra-content"
       >
         <button
-          class="ant-btn"
+          class="ant-btn ant-btn-default"
           type="button"
         >
           <span>

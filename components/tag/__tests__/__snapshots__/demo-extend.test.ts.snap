@@ -528,7 +528,7 @@ Array [
   </span>,
   <br />,
   <button
-    class="ant-btn ant-btn-sm"
+    class="ant-btn ant-btn-default ant-btn-sm"
     type="button"
   >
     <span>
