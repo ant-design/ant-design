@@ -1,6 +1,5 @@
 // deps-lint-skip-all
-import { CSSObject } from '@ant-design/cssinjs';
-import { globalConfig } from '../../config-provider';
+import type { CSSObject } from '@ant-design/cssinjs';
 import {
   DerivativeToken,
   resetComponent,
@@ -11,6 +10,7 @@ import {
 } from '../../_util/theme';
 
 interface CarouselToken extends DerivativeToken {
+  antPrefixCls: string;
   carouselPrefixCls: string;
   carouselDotWidth: CSSObject['width'];
   carouselDotHeight: CSSObject['height'];
@@ -18,8 +18,7 @@ interface CarouselToken extends DerivativeToken {
 }
 
 const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
-  const { carouselPrefixCls } = token;
-  const rootPrefixCls = globalConfig().getRootPrefixCls();
+  const { carouselPrefixCls, antPrefixCls } = token;
 
   return {
     [`.${carouselPrefixCls}`]: {
@@ -58,14 +57,14 @@ const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
           pointerEvents: 'none',
 
           // https://github.com/ant-design/ant-design/issues/23294
-          [`input.${rootPrefixCls}-radio-input, input.${rootPrefixCls}-checkbox-input`]: {
+          [`input.${antPrefixCls}-radio-input, input.${antPrefixCls}-checkbox-input`]: {
             visibility: 'hidden',
           },
 
           '&.slick-active': {
             pointerEvents: 'auto',
 
-            [`input.${rootPrefixCls}-radio-input, input.${rootPrefixCls}-checkbox-input`]: {
+            [`input.${antPrefixCls}-radio-input, input.${antPrefixCls}-checkbox-input`]: {
               visibility: 'visible',
             },
           },
@@ -337,12 +336,19 @@ const genCarouselRtlStyle: GenerateStyle<CarouselToken> = token => {
 };
 
 // ============================== Export ==============================
-export default function useStyle(prefixCls: string): UseComponentStyleResult {
+export default function useStyle({
+  prefixCls,
+  antPrefixCls,
+}: {
+  prefixCls: string;
+  antPrefixCls: string;
+}): UseComponentStyleResult {
   const [theme, token, hashId] = useToken();
 
   const carouselToken: CarouselToken = {
     ...token,
     carouselPrefixCls: prefixCls,
+    antPrefixCls,
 
     // FIXME
     carouselDotWidth: 16,

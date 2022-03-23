@@ -79,7 +79,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>(
       typeof dots === 'boolean' ? false : dots?.className,
     );
 
-    const [wrapSSR, hashId] = useStyle(prefixCls);
+    const [wrapSSR, hashId] = useStyle({ prefixCls, antPrefixCls: getPrefixCls() });
 
     const className = classNames(
       prefixCls,
