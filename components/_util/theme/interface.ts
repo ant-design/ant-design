@@ -56,6 +56,7 @@ export interface SeedToken extends PresetColorType {
   gridBaseStep: number;
 
   // Line
+  /** Border width of base components */
   lineWidth: number;
 
   // Motion
@@ -76,6 +77,12 @@ export interface SeedToken extends PresetColorType {
 
   // Control Base
   controlHeight: number;
+
+  // zIndex
+  /** Base zIndex of component like BackTop, Affix which can be cover by large popup */
+  zIndexBase: number;
+  /** Base popup component zIndex */
+  zIndexPopup: number;
 }
 
 // ======================================================================
@@ -219,10 +226,6 @@ export interface AliasToken extends DerivativeToken {
   marginXS: number;
   marginLG: number;
   marginXXS: number;
-
-  primaryColors: string[];
-  errorColors: string[];
-  warningColors: string[];
 
   // TMP
   tmpPrimaryColorWeak: string;

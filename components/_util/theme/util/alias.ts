@@ -81,9 +81,9 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
 
     // 🔥🔥🔥🔥🔥🔥🔥🔥🔥 All TMP Token leaves here 🔥🔥🔥🔥🔥🔥🔥🔥🔥
     // FIXME: Handle this when derivative is ready
-    primaryColors,
-    warningColors,
-    errorColors,
+    // primaryColors,
+    // warningColors,
+    // errorColors,
 
     tmpPrimaryColorWeak: primaryColors[2],
     tmpPrimaryHoverColorWeak: primaryColors[0],
@@ -99,9 +99,6 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     tmpWarningColorDeprecatedBorder: warningColors[2],
     tmpErrorColorDeprecatedBorder: errorColors[2],
     tmpInfoColorDeprecatedBorder: infoColors[2],
-
-    colorHighlight: errorColors[5], // FIXME: Should not align with error color
-    // FIXME: fix2 badge-color
 
     linkDecoration: 'none',
     linkHoverDecoration: 'none',

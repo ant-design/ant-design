@@ -168,6 +168,10 @@ const seedToken: SeedToken = {
 
   // Control Base
   controlHeight: 32,
+
+  // zIndex
+  zIndexBase: 10,
+  zIndexPopup: 1000,
 };
 
 export default seedToken;
