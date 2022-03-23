@@ -263,6 +263,11 @@ const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
 const genCarouselVerticalStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
   const { carouselPrefixCls } = token;
 
+  const reverseSizeOfDot = {
+    width: token.carouselDotHeight,
+    height: token.carouselDotWidth,
+  };
+
   return {
     [`.${carouselPrefixCls}-vertical`]: {
       '.slick-dots': {
@@ -286,24 +291,16 @@ const genCarouselVerticalStyle: GenerateStyle<CarouselToken, CSSObject> = token 
 
         li: {
           // reverse width and height in vertical situation
-          width: token.carouselDotHeight,
-          height: token.carouselDotWidth,
+          ...reverseSizeOfDot,
           margin: '4px 2px',
           verticalAlign: 'baseline',
 
-          button: {
-            width: token.carouselDotHeight,
-            height: token.carouselDotWidth,
-          },
+          button: reverseSizeOfDot,
 
           '&.slick-active': {
-            width: token.carouselDotHeight,
-            height: token.carouselDotActiveWidth,
+            ...reverseSizeOfDot,
 
-            button: {
-              width: token.carouselDotHeight,
-              height: token.carouselDotActiveWidth,
-            },
+            button: reverseSizeOfDot,
           },
         },
       },
