@@ -15,7 +15,7 @@ import SiteContext from './SiteContext';
 import enLocale from '../../en-US';
 import cnLocale from '../../zh-CN';
 import * as utils from '../utils';
-import defaultDesignToken from '../../../../components/_util/theme/default';
+import defaultSeedToken from '../../../../components/_util/theme/themes/default';
 
 import DynamicTheme from './DynamicTheme';
 
@@ -82,7 +82,7 @@ export default class Layout extends React.Component {
       setTheme: this.setTheme,
       direction: 'ltr',
       setIframeTheme: this.setIframeTheme,
-      designToken: defaultDesignToken,
+      designToken: defaultSeedToken,
       hashedStyle: true,
     };
   }

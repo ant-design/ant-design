@@ -12,6 +12,7 @@ import {
   getFixedTop,
   getFixedBottom,
 } from './utils';
+import useStyle from './style';
 
 function getDefaultTarget() {
   return typeof window !== 'undefined' ? window : null;
@@ -35,6 +36,7 @@ export interface AffixProps {
 
 export interface InternalAffixProps extends AffixProps {
   affixPrefixCls: string;
+  rootClassName: string;
 }
 
 enum AffixStatus {
@@ -255,8 +257,9 @@ class Affix extends React.Component<InternalAffixProps, AffixState> {
   // =================== Render ===================
   render() {
     const { affixStyle, placeholderStyle } = this.state;
-    const { affixPrefixCls, children } = this.props;
+    const { affixPrefixCls, rootClassName, children } = this.props;
     const className = classNames({
+      [rootClassName]: !!affixStyle,
       [affixPrefixCls]: !!affixStyle,
     });
 
@@ -267,6 +270,7 @@ class Affix extends React.Component<InternalAffixProps, AffixState> {
       'target',
       'onChange',
       'affixPrefixCls',
+      'rootClassName',
     ]);
     // Omit this since `onTestUpdatePosition` only works on test.
     if (process.env.NODE_ENV === 'test') {
@@ -299,16 +303,18 @@ class Affix extends React.Component<InternalAffixProps, AffixState> {
 const AffixFC = React.forwardRef<Affix, AffixProps>((props, ref) => {
   const { prefixCls: customizePrefixCls } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
-
   const affixPrefixCls = getPrefixCls('affix', customizePrefixCls);
+
+  const [wrapSSR, hashId] = useStyle(affixPrefixCls);
 
   const AffixProps: InternalAffixProps = {
     ...props,
 
     affixPrefixCls,
+    rootClassName: hashId,
   };
 
-  return <Affix {...AffixProps} ref={ref} />;
+  return wrapSSR(<Affix {...AffixProps} ref={ref} />);
 });
 
 if (process.env.NODE_ENV !== 'production') {

@@ -3,14 +3,14 @@ import { TinyColor } from '@ctrl/tinycolor';
 import { Drawer, Form, Input, Button, InputNumber, Checkbox, Space } from 'antd';
 import { useIntl } from 'react-intl';
 import { BugOutlined, EyeOutlined } from '@ant-design/icons';
-import { DesignToken } from '../../../../../components/_util/theme';
-import defaultTheme from '../../../../../components/_util/theme/default';
+import { SeedToken } from '../../../../../components/_util/theme';
+import defaultSeedToken from '../../../../../components/_util/theme/themes/default';
 import Preview from './Preview';
 
 export interface ThemeConfigProps {
   componentName: string;
-  defaultToken: DesignToken;
-  onChangeTheme: (theme: DesignToken) => void;
+  defaultToken: SeedToken;
+  onChangeTheme: (theme: SeedToken) => void;
 }
 
 export default ({ onChangeTheme, defaultToken, componentName }: ThemeConfigProps) => {
@@ -19,9 +19,9 @@ export default ({ onChangeTheme, defaultToken, componentName }: ThemeConfigProps
   const [previewVisible, setPreviewVisible] = React.useState(false);
   const [form] = Form.useForm();
 
-  const keys = Object.keys(defaultTheme);
+  const keys = Object.keys(defaultSeedToken);
 
-  const onFinish = (nextToken: DesignToken) => {
+  const onFinish = (nextToken: SeedToken) => {
     onChangeTheme(nextToken);
   };
 
