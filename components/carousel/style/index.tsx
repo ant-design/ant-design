@@ -1,5 +1,6 @@
 // deps-lint-skip-all
 import { CSSObject } from '@ant-design/cssinjs';
+import { globalConfig } from '../../config-provider';
 import {
   DerivativeToken,
   resetComponent,
@@ -18,9 +19,10 @@ interface CarouselToken extends DerivativeToken {
 
 const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
   const { carouselPrefixCls } = token;
+  const rootPrefixCls = globalConfig().getRootPrefixCls();
 
   return {
-    [carouselPrefixCls]: {
+    [`.${carouselPrefixCls}`]: {
       ...resetComponent(token),
 
       '.slick-slider': {
@@ -56,14 +58,14 @@ const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
           pointerEvents: 'none',
 
           // https://github.com/ant-design/ant-design/issues/23294
-          'input.@{ant-prefix}-radio-input, input.@{ant-prefix}-checkbox-input': {
+          [`input.${rootPrefixCls}-radio-input, input.${rootPrefixCls}-checkbox-input`]: {
             visibility: 'hidden',
           },
 
           '&.slick-active': {
             pointerEvents: 'auto',
 
-            'input.@{ant-prefix}-radio-input, input.@{ant-prefix}-checkbox-input': {
+            [`input.${rootPrefixCls}-radio-input, input.${rootPrefixCls}-checkbox-input`]: {
               visibility: 'visible',
             },
           },
@@ -313,7 +315,7 @@ const genCarouselRtlStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
   const { carouselPrefixCls } = token;
 
   return {
-    [`${carouselPrefixCls}-rtl`]: {
+    [`.${carouselPrefixCls}-rtl`]: {
       direction: 'rtl',
     },
   };
@@ -325,7 +327,7 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
 
   const carouselToken: CarouselToken = {
     ...token,
-    carouselPrefixCls: `.${prefixCls}`,
+    carouselPrefixCls: prefixCls,
 
     // FIXME
     carouselDotWidth: 16,
