@@ -264,7 +264,7 @@ const genCarouselVerticalStyle: GenerateStyle<CarouselToken, CSSObject> = token 
   const { carouselPrefixCls } = token;
 
   return {
-    [`${carouselPrefixCls}-vertical`]: {
+    [`.${carouselPrefixCls}-vertical`]: {
       '.slick-dots': {
         top: '50%',
         bottom: 'auto',
@@ -311,14 +311,32 @@ const genCarouselVerticalStyle: GenerateStyle<CarouselToken, CSSObject> = token 
   };
 };
 
-const genCarouselRtlStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
+const genCarouselRtlStyle: GenerateStyle<CarouselToken> = token => {
   const { carouselPrefixCls } = token;
 
-  return {
-    [`.${carouselPrefixCls}-rtl`]: {
-      direction: 'rtl',
+  return [
+    {
+      [`.${carouselPrefixCls}-rtl`]: {
+        direction: 'rtl',
+
+        // Dots
+        '.slick-dots': {
+          [`.${carouselPrefixCls}-rtl&`]: {
+            flexDirection: 'row-reverse',
+          },
+        },
+      },
     },
-  };
+    {
+      [`.${carouselPrefixCls}-vertical`]: {
+        '.slick-dots': {
+          [`.${carouselPrefixCls}-rtl&`]: {
+            flexDirection: 'column',
+          },
+        },
+      },
+    },
+  ];
 };
 
 // ============================== Export ==============================
