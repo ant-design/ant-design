@@ -34,7 +34,7 @@ export interface OverrideToken {
 // ======================================================================
 // ==                            Seed Token                            ==
 // ======================================================================
-
+// 🔥🔥🔥🔥🔥🔥🔥 DO NOT MODIFY THIS. PLEASE CONTACT DESIGNER. 🔥🔥🔥🔥🔥🔥🔥
 export interface SeedToken extends PresetColorType {
   // Color
   colorPrimary: string;
@@ -88,7 +88,7 @@ export interface SeedToken extends PresetColorType {
 // ======================================================================
 // ==                         Derivative Token                         ==
 // ======================================================================
-
+// 🔥🔥🔥🔥🔥🔥🔥 DO NOT MODIFY THIS. PLEASE CONTACT DESIGNER. 🔥🔥🔥🔥🔥🔥🔥
 export interface DerivativeToken extends SeedToken, ColorPalettes {
   // Color
   colorPrimaryHover: string;
@@ -150,7 +150,7 @@ export interface DerivativeToken extends SeedToken, ColorPalettes {
 // ======================================================================
 // ==                           Alias Token                            ==
 // ======================================================================
-// FIXME: DerivativeToken should part pick
+// 🔥🔥🔥🔥🔥🔥🔥 DO NOT MODIFY THIS. PLEASE CONTACT DESIGNER. 🔥🔥🔥🔥🔥🔥🔥
 export interface AliasToken extends DerivativeToken {
   // Font
   fontSizeSM: number;
