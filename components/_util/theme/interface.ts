@@ -183,6 +183,11 @@ export interface AliasToken extends DerivativeToken {
   /** Placeholder text color */
   colorPlaceholder: string;
   colorTextHeading: string;
+
+  colorLink: string;
+  colorLinkHover: string;
+  colorLinkActive: string;
+
   colorBgContainer: string;
   colorBgComponent: string;
   colorBgComponentSecondary: string;
@@ -200,9 +205,7 @@ export interface AliasToken extends DerivativeToken {
   boxShadow: string;
 
   // =============== Legacy: should be remove ===============
-  colorLink: string;
-  linkHoverColor: string;
-  linkActiveColor: string;
+
   linkDecoration: React.CSSProperties['textDecoration'];
   linkHoverDecoration: React.CSSProperties['textDecoration'];
   linkFocusDecoration: React.CSSProperties['textDecoration'];

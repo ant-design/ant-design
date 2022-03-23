@@ -43,6 +43,8 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     colorBgComponentDisabled: mergedToken.colorBgBelow2,
 
     colorLink: mergedToken.colorPrimary,
+    colorLinkHover: primaryColors[4],
+    colorLinkActive: primaryColors[6],
 
     // Font
     fontSizeSM: fontSizes[0],
@@ -101,8 +103,6 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     colorHighlight: errorColors[5], // FIXME: Should not align with error color
     // FIXME: fix2 badge-color
 
-    linkHoverColor: primaryColors[4],
-    linkActiveColor: primaryColors[6],
     linkDecoration: 'none',
     linkHoverDecoration: 'none',
     linkFocusDecoration: 'none',

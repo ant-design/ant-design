@@ -227,10 +227,10 @@ const genLinkButtonStyle = (prefixCls: string, token: DerivativeToken): CSSObjec
 
   ...genHoverActiveButtonStyle(
     {
-      color: token.colorPrimaryHover,
+      color: token.colorLinkHover,
     },
     {
-      color: token.colorPrimaryActive,
+      color: token.colorLinkActive,
     },
   ),
 
