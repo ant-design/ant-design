@@ -49,7 +49,7 @@
 
 [![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Yl83RJhUE7kAAAAAAAAAAABkARQnAQ)](https://ant.design)
 
-[English](./README.md) | [Português](./README-pt_BR.md) | [简体中文](./README-zh_CN.md) | Українською | [Spanish](./README-sp_MX.md)
+[English](./README.md) | [Português](./README-pt_BR.md) | [简体中文](./README-zh_CN.md) | Українською | [Spanish](./README-sp_MX.md) | [日本語](./README-ja_JP.md)
 
 ## ✨ Особливості
 

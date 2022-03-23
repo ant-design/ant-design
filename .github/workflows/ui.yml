@@ -15,7 +15,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: cache package-lock.json
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: package-temp-dir
           key: lock-${{ github.sha }}
@@ -31,7 +31,7 @@ jobs:
           cp package-lock.json package-temp-dir
       - name: cache node_modules
         id: node_modules_cache_id
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: node_modules
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}

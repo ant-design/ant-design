@@ -35,7 +35,7 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 | forceRender | Prerender Drawer component forcely | boolean | false |  |
 | getContainer | Return the mounted node for Drawer | HTMLElement \| () => HTMLElement \| Selectors \| false | body |  |
 | headerStyle | Style of the drawer header part | object | - |  |
-| height | Placement is `top` or `bottom`, height of the Drawer dialog | string \| number | 256 |  |
+| height | Placement is `top` or `bottom`, height of the Drawer dialog | string \| number | 378 |  |
 | keyboard | Whether support press esc to close | boolean | true |  |
 | mask | Whether to show mask or not | boolean | true |  |
 | maskClosable | Clicking on the mask (area outside the Drawer) to close the Drawer or not | boolean | true |  |
