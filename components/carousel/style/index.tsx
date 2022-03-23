@@ -40,8 +40,8 @@ const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
       '.slick-list': {
         position: 'relative',
         display: 'block',
-        margin: '0',
-        padding: '0',
+        margin: 0,
+        padding: 0,
         overflow: 'hidden',
 
         '&:focus': {
@@ -79,8 +79,8 @@ const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
 
       '.slick-track': {
         position: 'relative',
-        top: '0',
-        left: '0',
+        top: 0,
+        insetInlineStart: 0,
         display: 'block',
 
         '&::before, &::after': {
@@ -141,12 +141,12 @@ const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
         width: '20px',
         height: '20px',
         marginTop: '-10px',
-        padding: '0',
+        padding: 0,
         color: 'transparent',
-        fontSize: '0',
-        lineHeight: '0',
+        fontSize: 0,
+        lineHeight: 0,
         background: 'transparent',
-        border: '0',
+        border: 0,
         outline: 'none',
         cursor: 'pointer',
 
@@ -161,12 +161,12 @@ const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
         },
 
         '&.slick-disabled::before': {
-          opacity: '0.25',
+          opacity: 0.25,
         },
       },
 
       '.slick-prev': {
-        left: '-25px',
+        insetInlineStart: '-25px',
 
         '&::before': {
           content: '←',
@@ -174,7 +174,7 @@ const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
       },
 
       '.slick-next': {
-        right: '-25px',
+        insetInlineEnd: '-25px',
 
         '&::before': {
           content: '→',
@@ -184,15 +184,15 @@ const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
       // Dots
       '.slick-dots': {
         position: 'absolute',
-        right: '0',
-        bottom: '0',
-        left: '0',
-        zIndex: '15',
+        insetInlineEnd: 0,
+        bottom: 0,
+        insetInlineStart: 0,
+        zIndex: 15,
         display: 'flex !important',
         justifyContent: 'center',
-        marginRight: '15%',
-        marginLeft: '15%',
-        paddingLeft: '0',
+        marginInlineEnd: '15%',
+        marginInlineStart: '15%',
+        paddingInlineStart: 0,
         listStyle: 'none',
 
         '&-bottom': {
@@ -212,9 +212,9 @@ const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
           width: token.carouselDotWidth,
           height: token.carouselDotHeight,
           margin: '0 2px',
-          marginRight: '3px',
-          marginLeft: '3px',
-          padding: '0',
+          marginInlineEnd: '3px',
+          marginInlineStart: '3px',
+          padding: 0,
           textAlign: 'center',
           textIndent: '-999px',
           verticalAlign: 'top',
@@ -224,19 +224,19 @@ const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
             display: 'block',
             width: '100%',
             height: token.carouselDotHeight,
-            padding: '0',
+            padding: 0,
             color: 'transparent',
-            fontSize: '0',
+            fontSize: 0,
             background: token.colorBgComponent,
-            border: '0',
+            border: 0,
             borderRadius: '1px',
             outline: 'none',
             cursor: 'pointer',
-            opacity: '0.3',
+            opacity: 0.3,
             transition: 'all 0.5s',
 
             '&: hover, &:focus': {
-              opacity: '0.75',
+              opacity: 0.75,
             },
           },
 
@@ -245,11 +245,11 @@ const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
 
             '& button': {
               background: token.colorBgComponent,
-              opacity: '1',
+              opacity: 1,
             },
 
             '&: hover, &:focus': {
-              opacity: '1',
+              opacity: 1,
             },
           },
         },
@@ -269,17 +269,17 @@ const genCarouselVerticalStyle: GenerateStyle<CarouselToken, CSSObject> = token 
         flexDirection: 'column',
         width: token.carouselDotHeight,
         height: 'auto',
-        margin: '0',
+        margin: 0,
         transform: 'translateY(-50%)',
 
         '&-left': {
-          right: 'auto',
-          left: '12px',
+          insetInlineEnd: 'auto',
+          insetInlineStart: '12px',
         },
 
         '&-right': {
-          right: '12px',
-          left: 'auto',
+          insetInlineEnd: '12px',
+          insetInlineStart: 'auto',
         },
 
         li: {
@@ -309,6 +309,16 @@ const genCarouselVerticalStyle: GenerateStyle<CarouselToken, CSSObject> = token 
   };
 };
 
+const genCarouselRtlStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
+  const { carouselPrefixCls } = token;
+
+  return {
+    [`${carouselPrefixCls}-rtl`]: {
+      direction: 'rtl',
+    },
+  };
+};
+
 // ============================== Export ==============================
 export default function useStyle(prefixCls: string): UseComponentStyleResult {
   const [theme, token, hashId] = useToken();
@@ -327,6 +337,7 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
     useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
       genCarouselStyle(carouselToken),
       genCarouselVerticalStyle(carouselToken),
+      genCarouselRtlStyle(carouselToken),
     ]),
     hashId,
   ];
