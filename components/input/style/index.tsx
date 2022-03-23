@@ -256,7 +256,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
         fontWeight: 'normal',
         fontSize: token.fontSize,
         textAlign: 'center',
-        backgroundColor: token.backgroundLight,
+        backgroundColor: token.colorBgComponentSecondary,
         border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
         borderRadius: token.controlRadius,
         transition: `all ${token.motionDurationSlow}`,

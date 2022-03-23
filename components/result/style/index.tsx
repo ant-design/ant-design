@@ -75,7 +75,7 @@ const genBaseStyle: GenerateStyle<ResultToken> = (token): CSSObject => {
     [`${resultCls} ${resultCls}-content`]: {
       marginTop: token.padding * 1.5,
       padding: `${token.padding * 1.5}px ${token.padding * 2.5}px`,
-      backgroundColor: token.backgroundLight,
+      backgroundColor: token.colorBgComponentSecondary,
     },
 
     [`${resultCls} ${resultCls}-extra`]: {

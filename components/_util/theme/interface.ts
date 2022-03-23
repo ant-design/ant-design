@@ -101,6 +101,7 @@ export interface DerivativeToken extends SeedToken, ColorPalettes {
   colorTextBelow2: string;
   colorTextBelow3: string;
 
+  colorBg2: string;
   colorBgBelow: string;
   colorBgBelow2: string;
 
@@ -184,6 +185,7 @@ export interface AliasToken extends DerivativeToken {
   colorTextHeading: string;
   colorBgContainer: string;
   colorBgComponent: string;
+  colorBgComponentSecondary: string;
   colorBgComponentDisabled: string;
 
   // =============== Legacy: should be remove ===============
@@ -191,8 +193,6 @@ export interface AliasToken extends DerivativeToken {
 
   padding: number;
   margin: number;
-
-  backgroundLight: string;
 
   zIndexDropdown: number;
   zIndexAffix: number;

@@ -92,6 +92,7 @@ export function derivative(token: SeedToken): DerivativeToken {
     radiusXL: radiusBase * 4,
 
     // color
+    colorBg2: new TinyColor({ h: 0, s: 0, v: 98 }).toHexString(),
     colorBgBelow: new TinyColor({ h: 0, s: 0, v: 98 }).toHexString(),
     colorBgBelow2: new TinyColor({ h: 0, s: 0, v: 96 }).toHexString(),
 

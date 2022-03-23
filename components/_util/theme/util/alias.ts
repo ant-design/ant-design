@@ -39,6 +39,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
 
     colorBgContainer: mergedToken.colorBgBelow2,
     colorBgComponent: mergedToken.colorBg,
+    colorBgComponentSecondary: mergedToken.colorBg2,
     colorBgComponentDisabled: mergedToken.colorBgBelow2,
 
     // Font
@@ -124,7 +125,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     marginLG: 32,
 
     // background of header and selected item
-    backgroundLight: new TinyColor({ h: 0, s: 0, v: 98 }).toHexString(),
+    colorBgComponentSecondary: new TinyColor({ h: 0, s: 0, v: 98 }).toHexString(),
 
     zIndexDropdown: 1050,
     zIndexAffix: 10,
