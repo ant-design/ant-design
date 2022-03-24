@@ -30,7 +30,7 @@ export const roundedArrow = (
     '&::before': {
       position: 'absolute',
       top: -width,
-      insetBlockStart: -width,
+      insetInlineStart: -width,
       width: width * 3,
       height: width * 3,
       background: `linear-gradient(to left, ${bgColor} 50%, ${bgColor} 50%) no-repeat ${Math.ceil(-width + 1)}px ${Math.ceil(-width + 1)}px`,

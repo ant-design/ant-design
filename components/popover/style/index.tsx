@@ -68,7 +68,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = token => {
       ...resetComponent(token),
       position: 'absolute',
       top: 0,
-      insetBlockStart: 0,
+      insetInlineStart: 0,
       zIndex: zIndexPopover,
       fontWeight: 'normal',
       whiteSpace: 'normal',
@@ -159,9 +159,9 @@ const genBaseStyle: GenerateStyle<PopoverToken> = token => {
         '&-content': {
           position: 'absolute',
           top: 0,
-          insetBlockEnd: 0,
+          insetInlineEnd: 0,
           bottom: 0,
-          insetBlockStart: 0,
+          insetInlineStart: 0,
           display: 'block',
           width: popoverArrowWidth,
           height: popoverArrowWidth,
@@ -235,16 +235,16 @@ const genPlacementStyle: GenerateStyle<PopoverToken> = token => {
       },
 
       [`&-placement-top ${popoverCls}-arrow`]: {
-        insetBlockStart: '50%',
+        insetInlineStart : '50%',
         transform: 'translateX(-50%)',
       },
 
       [`&-placement-topLeft ${popoverCls}-arrow`]: {
-        insetBlockStart: popoverArrowOffsetHorizontal,
+        insetInlineStart: popoverArrowOffsetHorizontal,
       },
 
       [`&-placement-topRight ${popoverCls}-arrow`]: {
-        insetBlockEnd: popoverArrowOffsetHorizontal,
+        insetInlineEnd: popoverArrowOffsetHorizontal,
       },
 
       [`
@@ -252,7 +252,7 @@ const genPlacementStyle: GenerateStyle<PopoverToken> = token => {
         &-placement-rightTop ${popoverCls}-arrow,
         &-placement-rightBottom ${popoverCls}-arrow
       `]: {
-        insetBlockStart: popoverDistance - popoverArrowRotateWidth,
+        insetInlineStart: popoverDistance - popoverArrowRotateWidth,
 
         '&-content': {
           // FIXME
@@ -289,16 +289,16 @@ const genPlacementStyle: GenerateStyle<PopoverToken> = token => {
       },
 
       [`&-placement-bottom ${popoverCls}-arrow`]: {
-        insetBlockStart: '50%',
+        insetInlineStart: '50%',
         transform: 'translateX(-50%)',
       },
 
       [`&-placement-bottomLeft ${popoverCls}-arrow`]: {
-        insetBlockStart: popoverArrowOffsetHorizontal,
+        insetInlineStart: popoverArrowOffsetHorizontal,
       },
 
       [`&-placement-bottomRight ${popoverCls}-arrow`]: {
-        riginsetBlockEndt: popoverArrowOffsetHorizontal,
+        insetInlineEnd: popoverArrowOffsetHorizontal,
       },
 
       [`
@@ -306,7 +306,7 @@ const genPlacementStyle: GenerateStyle<PopoverToken> = token => {
         &-placement-leftTop ${popoverCls}-arrow,
         &-placement-leftBottom ${popoverCls}-arrow
       `]: {
-        insetBlockEnd: popoverDistance - popoverArrowRotateWidth,
+        insetInlineEnd: popoverDistance - popoverArrowRotateWidth,
 
         '&-content': {
           // FIXME
