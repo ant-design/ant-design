@@ -4,6 +4,7 @@ import { presetPrimaryColors } from '@ant-design/colors';
 import classNames from 'classnames';
 import { validProgress, getSuccessPercent } from './utils';
 import { ProgressProps } from './progress';
+import useStyle from 'antd/es/progress/style';
 
 interface CircleProps extends ProgressProps {
   prefixCls: string;
@@ -17,9 +18,9 @@ function getPercentage({ percent, success, successPercent }: CircleProps) {
 }
 
 function getStrokeColor({
-  success = {},
-  strokeColor,
-}: Partial<CircleProps>): (string | Record<string, string>)[] {
+                          success = {},
+                          strokeColor,
+                        }: Partial<CircleProps>): (string | Record<string, string>)[] {
   const { strokeColor: successColor } = success;
   return [successColor || presetPrimaryColors.green, strokeColor || null!];
 }
@@ -46,6 +47,8 @@ const Circle: React.FC<CircleProps> = props => {
   const circleWidth = strokeWidth || 6;
   const gapPos = gapPosition || (type === 'dashboard' && 'bottom') || 'top';
 
+  const [wrapSSR, hashId] = useStyle(prefixCls)
+
   const getGapDegree = () => {
     // Support gapDeg = 0 when type = 'dashboard'
     if (gapDegree || gapDegree === 0) {
@@ -65,8 +68,8 @@ const Circle: React.FC<CircleProps> = props => {
     [`${prefixCls}-circle-gradient`]: isGradient,
   });
 
-  return (
-    <div className={wrapperClassName} style={circleStyle}>
+  return wrapSSR((
+    <div className={classNames(wrapperClassName, hashId)} style={circleStyle}>
       <RCCircle
         percent={getPercentage(props)}
         strokeWidth={circleWidth}
@@ -80,7 +83,7 @@ const Circle: React.FC<CircleProps> = props => {
       />
       {children}
     </div>
-  );
+  ));
 };
 
 export default Circle;

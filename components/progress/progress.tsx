@@ -12,6 +12,7 @@ import Line from './Line';
 import Circle from './Circle';
 import Steps from './Steps';
 import { validProgress, getSuccessPercent } from './utils';
+import useStyle from './style'
 
 const ProgressTypes = tuple('line', 'circle', 'dashboard');
 export type ProgressType = typeof ProgressTypes[number];
@@ -49,9 +50,11 @@ export interface ProgressProps {
   steps?: number;
   /** @deprecated Use `success` instead */
   successPercent?: number;
+  wrapSSR: (node: React.ReactNode) => React.ReactNode,
+  hashId: string
 }
 
-export default class Progress extends React.Component<ProgressProps> {
+export class Progress extends React.Component<ProgressProps> {
   static defaultProps = {
     type: 'line' as ProgressProps['type'],
     percent: 0,
@@ -81,7 +84,7 @@ export default class Progress extends React.Component<ProgressProps> {
   }
 
   renderProcessInfo(prefixCls: string, progressStatus: typeof ProgressStatuses[number]) {
-    const { showInfo, format, type, percent } = this.props;
+    const { showInfo, format, type, percent, wrapSSR, hashId } = this.props;
     const successPercent = getSuccessPercent(this.props);
     if (!showInfo) {
       return null;
@@ -96,11 +99,11 @@ export default class Progress extends React.Component<ProgressProps> {
     } else if (progressStatus === 'success') {
       text = isLineType ? <CheckCircleFilled /> : <CheckOutlined />;
     }
-    return (
-      <span className={`${prefixCls}-text`} title={typeof text === 'string' ? text : undefined}>
+
+    return wrapSSR((<span className={classNames(`${prefixCls}-text`, hashId)} title={typeof text === 'string' ? text : undefined}>
         {text}
-      </span>
-    );
+    </span>))
+
   }
 
   renderProgress = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
@@ -113,6 +116,8 @@ export default class Progress extends React.Component<ProgressProps> {
       steps,
       showInfo,
       strokeColor,
+      wrapSSR,
+      hashId,
       ...restProps
     } = props;
     const prefixCls = getPrefixCls('progress', customizePrefixCls);
@@ -160,9 +165,10 @@ export default class Progress extends React.Component<ProgressProps> {
         [`${prefixCls}-rtl`]: direction === 'rtl',
       },
       className,
+      hashId
     );
 
-    return (
+    return wrapSSR((
       <div
         {...omit(restProps, [
           'status',
@@ -181,10 +187,29 @@ export default class Progress extends React.Component<ProgressProps> {
       >
         {progress}
       </div>
-    );
+    ));
   };
 
   render() {
-    return <ConfigConsumer>{this.renderProgress}</ConfigConsumer>;
+    const { wrapSSR } = this.props
+
+    return wrapSSR(<ConfigConsumer>{this.renderProgress}</ConfigConsumer>);
   }
 }
+
+const WrapProgress = React.forwardRef((props: ProgressProps) => {
+
+  const getPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {
+    if (customizePrefixCls) return customizePrefixCls;
+
+    return suffixCls ? `ant-${suffixCls}` : 'ant';
+  };
+
+  const prefixCls = getPrefixCls('progress', props.prefixCls)
+
+  const [wrapSSR, hashId] = useStyle(prefixCls)
+
+  return <Progress {...props} wrapSSR={wrapSSR} hashId={hashId} />
+})
+
+export default WrapProgress
