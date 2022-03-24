@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  CSSInterpolation,
-  CSSObject,
-  Theme,
-  useCacheToken,
-  useStyleRegister,
-} from '@ant-design/cssinjs';
+import { CSSInterpolation, Theme, useCacheToken, useStyleRegister } from '@ant-design/cssinjs';
 import defaultSeedToken, { derivative as defaultDerivative } from './themes/default';
 import version from '../../version';
 import { resetComponent, resetIcon, clearFix } from './util';
@@ -98,16 +92,3 @@ export type GenerateStyle<ComponentToken extends object, ReturnType = CSSInterpo
   token: ComponentToken,
   hashId?: string,
 ) => ReturnType;
-
-// ================================== Util ==================================
-export function withPrefix(
-  style: CSSObject,
-  prefixCls: string,
-  additionalClsList: string[] = [],
-): CSSObject {
-  const fullClsList = [prefixCls, ...additionalClsList].filter(cls => cls).map(cls => `.${cls}`);
-
-  return {
-    [fullClsList.join('')]: style,
-  };
-}

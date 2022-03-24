@@ -6,7 +6,6 @@ import {
   UseComponentStyleResult,
   useStyleRegister,
   useToken,
-  withPrefix,
   GenerateStyle,
 } from '../../_util/theme';
 
@@ -301,24 +300,21 @@ const genTypeButtonStyle: GenerateStyle<ButtonToken> = token => {
 };
 
 // =============================== Size ===============================
-const genSizeButtonStyle = (
-  prefixCls: string,
-  iconPrefixCls: string,
-  sizePrefixCls: string,
-  token: DerivativeToken,
-): CSSInterpolation => {
+const genSizeButtonStyle = (token: ButtonToken, sizePrefixCls: string = ''): CSSInterpolation => {
+  const { btnCls, iconPrefixCls } = token;
+
   const paddingVertical = Math.max(
     0,
     (token.controlHeight - token.fontSize * token.lineHeight) / 2 - token.controlLineWidth,
   );
   const paddingHorizontal = token.padding - token.controlLineWidth;
 
-  const iconOnlyCls = `.${prefixCls}-icon-only`;
+  const iconOnlyCls = `${btnCls}-icon-only`;
 
   return [
     // Size
-    withPrefix(
-      {
+    {
+      [`${btnCls}${sizePrefixCls}`]: {
         fontSize: token.fontSize,
         height: token.controlHeight,
         padding: `${paddingVertical}px ${paddingHorizontal}px`,
@@ -334,61 +330,51 @@ const genSizeButtonStyle = (
         },
 
         // Loading
-        [`&.${prefixCls}-loading`]: {
+        [`&${btnCls}-loading`]: {
           opacity: 0.65,
           cursor: 'default',
         },
 
-        [`.${prefixCls}-loading-icon`]: {
+        [`${btnCls}-loading-icon`]: {
           transition: `width ${token.motionDurationSlow} ${token.motionEaseInOut}, opacity ${token.motionDurationSlow} ${token.motionEaseInOut}`,
         },
 
-        [`&:not(${iconOnlyCls}) .${prefixCls}-loading-icon > .${iconPrefixCls}`]: {
+        [`&:not(${iconOnlyCls}) ${btnCls}-loading-icon > .${iconPrefixCls}`]: {
           marginInlineEnd: token.marginXS,
         },
       },
-      prefixCls,
-      [sizePrefixCls],
-    ),
+    },
 
     // Shape - patch prefixCls again to override solid border radius style
-    withPrefix(genCircleButtonStyle(token), `${prefixCls}-circle`, [prefixCls, sizePrefixCls]),
-    withPrefix(genRoundButtonStyle(token), `${prefixCls}-round`, [prefixCls, sizePrefixCls]),
+    {
+      [`${btnCls}${btnCls}-circle${sizePrefixCls}`]: genCircleButtonStyle(token),
+    },
+    {
+      [`${btnCls}${btnCls}-round${sizePrefixCls}`]: genRoundButtonStyle(token),
+    },
   ];
 };
 
-const genSizeBaseButtonStyle = (
-  prefixCls: string,
-  iconPrefixCls: string,
-  token: DerivativeToken,
-): CSSInterpolation => genSizeButtonStyle(prefixCls, iconPrefixCls, '', token);
+const genSizeBaseButtonStyle: GenerateStyle<ButtonToken> = token => genSizeButtonStyle(token);
 
-const genSizeSmallButtonStyle = (
-  prefixCls: string,
-  iconPrefixCls: string,
-  token: DerivativeToken,
-): CSSInterpolation => {
-  const largeToken: DerivativeToken = {
+const genSizeSmallButtonStyle: GenerateStyle<ButtonToken> = token => {
+  const largeToken: ButtonToken = {
     ...token,
     controlHeight: token.controlHeightSM,
     padding: token.paddingXS,
   };
 
-  return genSizeButtonStyle(prefixCls, iconPrefixCls, `${prefixCls}-sm`, largeToken);
+  return genSizeButtonStyle(largeToken, `${token.btnCls}-sm`);
 };
 
-const genSizeLargeButtonStyle = (
-  prefixCls: string,
-  iconPrefixCls: string,
-  token: DerivativeToken,
-): CSSInterpolation => {
-  const largeToken: DerivativeToken = {
+const genSizeLargeButtonStyle: GenerateStyle<ButtonToken> = token => {
+  const largeToken: ButtonToken = {
     ...token,
     controlHeight: token.controlHeightLG,
     fontSize: token.fontSizeLG,
   };
 
-  return genSizeButtonStyle(prefixCls, iconPrefixCls, `${prefixCls}-lg`, largeToken);
+  return genSizeButtonStyle(largeToken, `${token.btnCls}-lg`);
 };
 
 // ============================== Export ==============================
@@ -423,9 +409,9 @@ export default function useStyle(
         genSharedButtonStyle(buttonToken),
 
         // Size
-        genSizeSmallButtonStyle(prefixCls, iconPrefixCls, buttonToken),
-        genSizeBaseButtonStyle(prefixCls, iconPrefixCls, buttonToken),
-        genSizeLargeButtonStyle(prefixCls, iconPrefixCls, buttonToken),
+        genSizeSmallButtonStyle(buttonToken),
+        genSizeBaseButtonStyle(buttonToken),
+        genSizeLargeButtonStyle(buttonToken),
 
         // Group (type, ghost, danger, disabled, loading)
         genTypeButtonStyle(buttonToken),
