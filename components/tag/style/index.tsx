@@ -115,7 +115,7 @@ const genBaseStyle = (
       },
     },
 
-    [`.${prefixCls}-checkable`]: {
+    [`&-checkable`]: {
       backgroundColor: 'transparent',
       borderColor: 'transparent',
       cursor: 'pointer',
@@ -137,7 +137,7 @@ const genBaseStyle = (
       },
     },
 
-    [`.${prefixCls}-hidden`]: {
+    [`&-hidden`]: {
       display: 'none',
     },
 
