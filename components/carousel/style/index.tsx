@@ -86,7 +86,7 @@ const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
 
         '&::before, &::after': {
           display: 'table',
-          content: '',
+          content: '""',
         },
 
         '&::after': {
@@ -102,7 +102,7 @@ const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
         display: 'none',
         float: 'left',
         height: '100%',
-        minHeight: '1px',
+        minHeight: 1,
 
         img: {
           display: 'block',
@@ -139,8 +139,9 @@ const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
         position: 'absolute',
         top: '50%',
         display: 'block',
-        width: '20px',
-        height: '20px',
+        // FIXME hardcode in v4
+        width: 20,
+        height: 20,
         marginTop: '-10px',
         padding: 0,
         color: 'transparent',
@@ -167,7 +168,8 @@ const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
       },
 
       '.slick-prev': {
-        insetInlineStart: '-25px',
+        // FIXME hardcode in v4
+        insetInlineStart: -25,
 
         '&::before': {
           content: '←',
@@ -175,7 +177,8 @@ const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
       },
 
       '.slick-next': {
-        insetInlineEnd: '-25px',
+        // FIXME hardcode in v4
+        insetInlineEnd: -25,
 
         '&::before': {
           content: '→',
@@ -197,10 +200,12 @@ const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
         listStyle: 'none',
 
         '&-bottom': {
+          // FIXME hardcode in v4
           bottom: '12px',
         },
 
         '&-top': {
+          // FIXME hardcode in v4
           top: '12px',
           bottom: 'auto',
         },
@@ -213,13 +218,14 @@ const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
           width: token.carouselDotWidth,
           height: token.carouselDotHeight,
           margin: '0 2px',
-          marginInlineEnd: '3px',
-          marginInlineStart: '3px',
+          // FIXME hardcode in v4
+          marginInlineEnd: 3,
+          marginInlineStart: 3,
           padding: 0,
           textAlign: 'center',
           textIndent: '-999px',
           verticalAlign: 'top',
-          transition: 'all 0.5s',
+          transition: `all ${token.motionDurationSlow}`,
 
           button: {
             display: 'block',
@@ -230,11 +236,11 @@ const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
             fontSize: 0,
             background: token.colorBgComponent,
             border: 0,
-            borderRadius: '1px',
+            borderRadius: 1,
             outline: 'none',
             cursor: 'pointer',
             opacity: 0.3,
-            transition: 'all 0.5s',
+            transition: `all ${token.motionDurationSlow}`,
 
             '&: hover, &:focus': {
               opacity: 0.75,
