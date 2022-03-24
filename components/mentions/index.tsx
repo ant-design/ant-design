@@ -5,7 +5,7 @@ import { MentionsProps as RcMentionsProps } from 'rc-mentions/lib/Mentions';
 import { composeRef } from 'rc-util/lib/ref';
 import Spin from '../spin';
 import { ConfigContext } from '../config-provider';
-import { FormItemStatusContext } from '../form/context';
+import { FormItemInputContext } from '../form/context';
 import {
   getFeedbackIcon,
   getMergedStatus,
@@ -70,7 +70,7 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
   const innerRef = React.useRef<HTMLElement>();
   const mergedRef = composeRef(ref, innerRef);
   const { getPrefixCls, renderEmpty, direction } = React.useContext(ConfigContext);
-  const { status: contextStatus, hasFeedback } = React.useContext(FormItemStatusContext);
+  const { status: contextStatus, hasFeedback } = React.useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
   const onFocus: React.FocusEventHandler<HTMLTextAreaElement> = (...args) => {
