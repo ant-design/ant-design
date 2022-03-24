@@ -77,12 +77,6 @@ export interface SeedToken extends PresetColorType {
 
   // Control Base
   controlHeight: number;
-
-  // zIndex
-  /** Base zIndex of component like BackTop, Affix which can be cover by large popup */
-  zIndexBase: number;
-  /** Base popup component zIndex */
-  zIndexPopup: number;
 }
 
 // ======================================================================
@@ -159,18 +153,7 @@ export interface DerivativeToken extends SeedToken, ColorPalettes {
   controlHeightLG: number;
 
   // zIndex
-  zIndexBaseBelow: number;
-
-  // @zindex-modal: 1000;
-  // @zindex-modal-mask: 1000;
-  // @zindex-message: 1010;
-  // @zindex-notification: 1010;
-  // @zindex-popover: 1030;
-  // @zindex-dropdown: 1050;
-  // @zindex-picker: 1050;
-  // @zindex-popoconfirm: 1060;
-  // @zindex-tooltip: 1070;
-  // @zindex-image: 1080;
+  // FIXME: auto generate zIndex
 }
 
 // ======================================================================
@@ -239,8 +222,6 @@ export interface AliasToken extends DerivativeToken {
   zIndexAffix: number;
 
   boxShadow: string;
-
-  // =============== Legacy: should be remove ===============
 
   linkDecoration: React.CSSProperties['textDecoration'];
   linkHoverDecoration: React.CSSProperties['textDecoration'];

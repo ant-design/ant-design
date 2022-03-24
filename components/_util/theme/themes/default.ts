@@ -37,7 +37,6 @@ export function derivative(token: SeedToken): DerivativeToken {
     gridBaseStep,
     radiusBase,
     controlHeight,
-    zIndexBase,
   } = token;
 
   const primaryColors = generate(colorPrimary);
@@ -137,9 +136,6 @@ export function derivative(token: SeedToken): DerivativeToken {
     controlHeightSM: controlHeight * 0.75,
     controlHeightXS: controlHeight * 0.5,
     controlHeightLG: controlHeight * 1.25,
-
-    // zIndex
-    zIndexBaseBelow: Math.floor(zIndexBase / 2),
   };
 }
 
@@ -189,10 +185,6 @@ const seedToken: SeedToken = {
 
   // Control Base
   controlHeight: 32,
-
-  // zIndex
-  zIndexBase: 10,
-  zIndexPopup: 1000,
 };
 
 export default seedToken;
