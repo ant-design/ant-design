@@ -173,6 +173,8 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     [parentContext.getPrefixCls, props.prefixCls],
   );
 
+  const mergedTheme = useTheme(theme, parentContext.theme);
+
   const config = {
     ...parentContext,
     csp,
@@ -183,6 +185,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     virtual,
     dropdownMatchSelectWidth,
     getPrefixCls,
+    theme: mergedTheme,
   };
 
   // Pass the props used by `useContext` directly with child component.
@@ -248,9 +251,6 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
   }
 
   // ================================ Dynamic theme ================================
-  const mergedTheme = useTheme(theme, parentContext.theme);
-  config.theme = mergedTheme;
-
   const memoTheme = React.useMemo(
     () => ({
       ...mergedTheme,
