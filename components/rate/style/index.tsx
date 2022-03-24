@@ -32,7 +32,7 @@ const genRateStarStyle: GenerateStyle<RateToken, CSSObject> = token => {
       },
 
       '> div': {
-        transition: `all ${token.duration}, outline 0s`,
+        transition: `all ${token.motionDurationSlow}, outline 0s`,
 
         '&:hover': {
           transform: token.rateStarHoverScale,
@@ -43,14 +43,14 @@ const genRateStarStyle: GenerateStyle<RateToken, CSSObject> = token => {
         },
 
         '&:focus-visible': {
-          outline: `1px dashed ${token.borderColorSplit}`,
+          outline: `1px dashed ${token.colorSplit}`,
           transform: token.rateStarHoverScale,
         },
       },
 
       '&-first, &-second': {
-        color: token.borderColorSplit,
-        transition: `all ${token.duration}`,
+        color: token.colorSplit,
+        transition: `all ${token.motionDurationSlow}`,
         userSelect: 'none',
 
         [token.iconPrefixCls]: {
