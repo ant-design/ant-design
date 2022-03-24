@@ -34,7 +34,7 @@ export interface AffixProps {
   children: React.ReactNode;
 }
 
-export interface InternalAffixProps extends AffixProps {
+interface InternalAffixProps extends AffixProps {
   affixPrefixCls: string;
   rootClassName: string;
 }
