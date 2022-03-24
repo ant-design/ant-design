@@ -9,6 +9,13 @@ import {
   withPrefix,
 } from '../../_util/theme';
 
+/** Component only token. Which will handle additional calculation of alias token */
+interface ComponentToken {
+  colorBgTextHover: string;
+}
+
+type ButtonToken = DerivativeToken & ComponentToken;
+
 // ============================== Shared ==============================
 const genSharedButtonStyle = (
   prefixCls: string,
@@ -118,7 +125,7 @@ const genDefaultButtonStyle = (prefixCls: string, token: DerivativeToken): CSSOb
   backgroundColor: token.colorBgComponent,
   borderColor: token.colorBorder,
 
-  boxShadow: '0 2px 0 rgba(0, 0, 0, 0.015)',
+  boxShadow: `0 ${token.controlOutlineWidth}px 0 rgba(0, 0, 0, 0.015)`,
 
   ...genHoverActiveButtonStyle(
     {
@@ -172,7 +179,7 @@ const genPrimaryButtonStyle = (prefixCls: string, token: DerivativeToken): CSSOb
   color: '#FFF',
   backgroundColor: token.colorPrimary,
 
-  boxShadow: '0 2px 0 rgba(0, 0, 0, 0.045)',
+  boxShadow: `0 ${token.controlOutlineWidth}px 0 ${token.colorPrimaryOutline}`,
 
   ...genHoverActiveButtonStyle(
     {
@@ -193,6 +200,7 @@ const genPrimaryButtonStyle = (prefixCls: string, token: DerivativeToken): CSSOb
 
   [`&.${prefixCls}-dangerous`]: {
     backgroundColor: token.colorError,
+    boxShadow: `0 ${token.controlOutlineWidth}px 0 ${token.colorErrorOutline}`,
 
     ...genHoverActiveButtonStyle(
       {
@@ -386,18 +394,26 @@ export default function useStyle(
   const [theme, token, hashId] = useToken();
 
   return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      // Shared
-      withPrefix(genSharedButtonStyle(prefixCls, iconPrefixCls, token), prefixCls),
+    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => {
+      const { tmpInfoColorDeprecatedBg } = token;
 
-      // Size
-      genSizeSmallButtonStyle(prefixCls, iconPrefixCls, token),
-      genSizeBaseButtonStyle(prefixCls, iconPrefixCls, token),
-      genSizeLargeButtonStyle(prefixCls, iconPrefixCls, token),
+      const buttonToken: ButtonToken = {
+        ...token,
+      };
 
-      // Group (type, ghost, danger, disabled, loading)
-      genTypeButtonStyle(prefixCls, token),
-    ]),
+      return [
+        // Shared
+        withPrefix(genSharedButtonStyle(prefixCls, iconPrefixCls, buttonToken), prefixCls),
+
+        // Size
+        genSizeSmallButtonStyle(prefixCls, iconPrefixCls, buttonToken),
+        genSizeBaseButtonStyle(prefixCls, iconPrefixCls, buttonToken),
+        genSizeLargeButtonStyle(prefixCls, iconPrefixCls, buttonToken),
+
+        // Group (type, ghost, danger, disabled, loading)
+        genTypeButtonStyle(prefixCls, buttonToken),
+      ];
+    }),
     hashId,
   ];
 }

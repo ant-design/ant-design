@@ -141,7 +141,9 @@ export interface DerivativeToken extends SeedToken, ColorPalettes {
 // ==                           Alias Token                            ==
 // ======================================================================
 // FIXME: DerivativeToken should part pick
-export interface AliasToken extends DerivativeToken {
+type OmitDerivativeKey = 'colorText2' | 'colorTextBelow' | 'colorTextBelow2' | 'colorTextBelow3';
+
+export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   // Font
   fontSizeSM: number;
   fontSize: number;
