@@ -10,6 +10,7 @@ import {
 
 interface AffixToken extends DerivativeToken {
   affixCls: string;
+  zIndexAffix: number;
 }
 
 // ============================== Shared ==============================
@@ -32,6 +33,7 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
     ...token,
 
     affixCls: `.${prefixCls}`,
+    zIndexAffix: token.zIndexBase + 10,
   };
 
   return [

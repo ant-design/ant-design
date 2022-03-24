@@ -77,6 +77,12 @@ export interface SeedToken extends PresetColorType {
 
   // Control Base
   controlHeight: number;
+
+  // zIndex
+  /** Base zIndex of component like BackTop, Affix which can be cover by large popup */
+  zIndexBase: number;
+  /** Base popup component zIndex */
+  zIndexPopup: number;
 }
 
 // ======================================================================
@@ -151,9 +157,6 @@ export interface DerivativeToken extends SeedToken, ColorPalettes {
   controlHeightXS: number;
   controlHeightSM: number;
   controlHeightLG: number;
-
-  // zIndex
-  // FIXME: auto generate zIndex
 }
 
 // ======================================================================
@@ -217,9 +220,6 @@ export interface AliasToken extends DerivativeToken {
   // =============== Legacy: should be remove ===============
   padding: number;
   margin: number;
-
-  zIndexDropdown: number;
-  zIndexAffix: number;
 
   boxShadow: string;
 

@@ -116,9 +116,6 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     // marginSM: 8,
     marginLG: 32,
 
-    zIndexDropdown: 1050,
-    zIndexAffix: 10,
-
     boxShadow: `
       0 3px 6px -4px rgba(0, 0, 0, 0.12),
       0 6px 16px 0 rgba(0, 0, 0, 0.08),
