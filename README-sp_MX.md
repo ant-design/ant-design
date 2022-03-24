@@ -47,7 +47,7 @@ Un lenguaje de diseño de interfaz de usuario de clase empresarial y una bibliot
 
 [![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Yl83RJhUE7kAAAAAAAAAAABkARQnAQ)](https://ant.design)
 
-[English](./README.md) | [Português](./README-pt_BR.md) | [简体中文](./README-zh_CN.md) | [Українською](./README-uk_UA.md) | Spanish 
+[English](./README.md) | [Português](./README-pt_BR.md) | [简体中文](./README-zh_CN.md) | [Українською](./README-uk_UA.md) | Spanish | [日本語](./README-ja_JP.md)
 
 ## ✨ Características
 
@@ -68,7 +68,7 @@ Un lenguaje de diseño de interfaz de usuario de clase empresarial y una bibliot
 | --- | --- | --- | --- | --- |
 | IE11, Edge | últimas 2 versiones | últimas 2 versiones | últimas 2 versiones | últimas 2 versiones |
 
-## 📦 Instalar 
+## 📦 Instalar
 
 ```bash
 npm install antd
