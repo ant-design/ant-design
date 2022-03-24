@@ -21,7 +21,7 @@ import {
   Components,
 } from '.';
 import { PickerComponentClass } from './interface';
-import { FormItemStatusContext } from '../../form/context';
+import { FormItemInputContext } from '../../form/context';
 import {
   getFeedbackIcon,
   getMergedStatus,
@@ -69,13 +69,13 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
       };
 
       renderFeedback = (prefixCls: string) => (
-        <FormItemStatusContext.Consumer>
+        <FormItemInputContext.Consumer>
           {({ hasFeedback, status: contextStatus }) => {
             const { status: customStatus } = this.props;
             const status = getMergedStatus(contextStatus, customStatus);
             return hasFeedback && getFeedbackIcon(prefixCls, status);
           }}
-        </FormItemStatusContext.Consumer>
+        </FormItemInputContext.Consumer>
       );
 
       renderSuffix = (prefixCls: string, mergedPicker?: PickerMode) => (
@@ -127,7 +127,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
               const mergedSize = customizeSize || size;
 
               return (
-                <FormItemStatusContext.Consumer>
+                <FormItemInputContext.Consumer>
                   {({ hasFeedback, status: contextStatus }) => (
                     <RCPicker<DateType>
                       ref={this.pickerRef}
@@ -164,7 +164,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
                       direction={direction}
                     />
                   )}
-                </FormItemStatusContext.Consumer>
+                </FormItemInputContext.Consumer>
               );
             }}
           </SizeContext.Consumer>

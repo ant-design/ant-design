@@ -2,6 +2,8 @@ import * as React from 'react';
 import RcCheckbox from 'rc-checkbox';
 import classNames from 'classnames';
 import { composeRef } from 'rc-util/lib/ref';
+import { useContext } from 'react';
+import { FormItemInputContext } from '../form/context';
 import { RadioProps, RadioChangeEvent } from './interface';
 import { ConfigContext } from '../config-provider';
 import RadioGroupContext from './context';
@@ -12,6 +14,7 @@ const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const innerRef = React.useRef<HTMLElement>();
   const mergedRef = composeRef(ref, innerRef);
+  const { isFormItemInput } = useContext(FormItemInputContext);
 
   React.useEffect(() => {
     devWarning(!('optionType' in props), 'Radio', '`optionType` is only support in Radio.Group.');
@@ -37,6 +40,7 @@ const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (
       [`${prefixCls}-wrapper-checked`]: radioProps.checked,
       [`${prefixCls}-wrapper-disabled`]: radioProps.disabled,
       [`${prefixCls}-wrapper-rtl`]: direction === 'rtl',
+      [`${prefixCls}-wrapper-in-form-item`]: isFormItemInput,
     },
     className,
   );
