@@ -41,10 +41,14 @@
     > th,
     > td {
       padding-bottom: @descriptions-item-padding-bottom;
+      border-bottom: 1px solid @border-color-split;
     }
 
     &:last-child {
-      border-bottom: none;
+      > th,
+      > td {
+        border-bottom: none;
+      }
     }
   }
 
@@ -149,14 +153,6 @@
 
       &::after {
         display: none;
-      }
-    }
-
-    .@{descriptions-prefix-cls}-row {
-      border-bottom: 1px solid @border-color-split;
-
-      &:last-child {
-        border-bottom: none;
       }
     }
 
