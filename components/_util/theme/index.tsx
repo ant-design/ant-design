@@ -15,7 +15,7 @@ import {
   slideRightIn,
   slideRightOut,
 } from './util/slide';
-import { PresetColors } from './interface';
+import { GlobalToken, PresetColors } from './interface';
 import type {
   SeedToken,
   DerivativeToken,
@@ -63,7 +63,7 @@ export const DesignTokenContext = React.createContext<{
 });
 
 // ================================== Hook ==================================
-export function useToken(): [Theme<SeedToken, DerivativeToken>, AliasToken, string] {
+export function useToken(): [Theme<SeedToken, DerivativeToken>, GlobalToken, string] {
   const {
     token: rootDesignToken,
     theme = defaultTheme,
@@ -73,7 +73,7 @@ export function useToken(): [Theme<SeedToken, DerivativeToken>, AliasToken, stri
 
   const salt = `${version}-${hashed || ''}`;
 
-  const [token, hashId] = useCacheToken<AliasToken, SeedToken>(
+  const [token, hashId] = useCacheToken<GlobalToken, SeedToken>(
     theme,
     [defaultSeedToken, rootDesignToken],
     {

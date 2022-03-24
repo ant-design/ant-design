@@ -2,7 +2,7 @@
 import { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 import {
-  DerivativeToken,
+  AliasToken,
   UseComponentStyleResult,
   useStyleRegister,
   useToken,
@@ -10,12 +10,12 @@ import {
 } from '../../_util/theme';
 
 /** Component only token. Which will handle additional calculation of alias token */
-interface ComponentToken {
+export interface ComponentToken {
   colorBgTextHover: string;
   colorBgTextActive: string;
 }
 
-interface ButtonToken extends DerivativeToken, ComponentToken {
+interface ButtonToken extends AliasToken, ComponentToken {
   btnCls: string;
   iconPrefixCls: string;
 }
@@ -66,14 +66,14 @@ const genHoverActiveButtonStyle = (hoverStyle: CSSObject, activeStyle: CSSObject
 });
 
 // ============================== Shape ===============================
-const genCircleButtonStyle = (token: DerivativeToken): CSSObject => ({
+const genCircleButtonStyle: GenerateStyle<ButtonToken, CSSObject> = token => ({
   minWidth: token.controlHeight,
   paddingInlineStart: 0,
   paddingInlineEnd: 0,
   borderRadius: '50%',
 });
 
-const genRoundButtonStyle = (token: DerivativeToken): CSSObject => ({
+const genRoundButtonStyle: GenerateStyle<ButtonToken, CSSObject> = token => ({
   borderRadius: token.controlHeight,
   paddingInlineStart: token.controlHeight / 2,
   paddingInlineEnd: token.controlHeight / 2,
@@ -102,7 +102,7 @@ const genGhostButtonStyle = (
   },
 });
 
-const genSolidDisabledButtonStyle = (token: DerivativeToken): CSSObject => ({
+const genSolidDisabledButtonStyle: GenerateStyle<ButtonToken, CSSObject> = token => ({
   '&:disabled': {
     cursor: 'not-allowed',
     borderColor: token.colorBorder,
@@ -112,13 +112,13 @@ const genSolidDisabledButtonStyle = (token: DerivativeToken): CSSObject => ({
   },
 });
 
-const genSolidButtonStyle = (token: DerivativeToken): CSSObject => ({
+const genSolidButtonStyle: GenerateStyle<ButtonToken, CSSObject> = token => ({
   borderRadius: token.controlRadius,
 
   ...genSolidDisabledButtonStyle(token),
 });
 
-const genPureDisabledButtonStyle = (token: DerivativeToken): CSSObject => ({
+const genPureDisabledButtonStyle: GenerateStyle<ButtonToken, CSSObject> = token => ({
   '&:disabled': {
     cursor: 'not-allowed',
     color: token.colorTextDisabled,
@@ -269,6 +269,8 @@ const genLinkButtonStyle: GenerateStyle<ButtonToken, CSSObject> = token => ({
 
 // Type: Text
 const genTextButtonStyle: GenerateStyle<ButtonToken, CSSObject> = token => ({
+  borderRadius: token.controlRadius,
+
   ...genHoverActiveButtonStyle(
     {
       backgroundColor: token.colorBgTextHover,
@@ -386,7 +388,7 @@ export default function useStyle(
 
   return [
     useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => {
-      const { colorText } = token;
+      const { colorText, button = {} } = token;
       const textColor = new TinyColor(colorText);
 
       const buttonToken: ButtonToken = {
@@ -402,6 +404,9 @@ export default function useStyle(
 
         iconPrefixCls,
         btnCls: `.${prefixCls}`,
+
+        // Override by developer
+        ...button,
       };
 
       return [

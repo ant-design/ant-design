@@ -1,4 +1,5 @@
 import * as React from 'react';
+import type { ComponentToken as ButtonComponentToken } from '../../button/style';
 
 export const PresetColors = [
   'blue',
@@ -27,9 +28,14 @@ export type ColorPalettes = {
 };
 
 export interface OverrideToken {
-  derivative: Partial<DerivativeToken & AliasToken>;
-  [componentName: string]: object; // FIXME: tmp of component token
+  derivative?: Partial<DerivativeToken & AliasToken>;
+
+  // Customize component
+  button?: ButtonComponentToken;
 }
+
+/** Final token which contains the components level override */
+export type GlobalToken = AliasToken & Omit<OverrideToken, 'derivative'>;
 
 // ======================================================================
 // ==                            Seed Token                            ==

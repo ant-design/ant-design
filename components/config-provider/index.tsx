@@ -23,6 +23,7 @@ import { registerTheme } from './cssVariables';
 import defaultLocale from '../locale/default';
 import { SeedToken, DesignTokenContext, useToken } from '../_util/theme';
 import defaultSeedToken from '../_util/theme/themes/default';
+import { OverrideToken } from '../_util/theme/interface';
 
 export {
   RenderEmptyHandler,
@@ -85,6 +86,7 @@ export interface ConfigProviderProps {
   dropdownMatchSelectWidth?: boolean;
   theme?: {
     token?: Partial<SeedToken>;
+    override?: OverrideToken;
     hashed?: boolean;
   };
 }
@@ -264,12 +266,13 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
         ...defaultSeedToken,
         ...theme?.token,
       },
+      override: theme?.override,
       hashed: theme?.hashed,
     }),
-    [theme?.token, theme?.hashed],
+    [theme?.token, theme?.hashed, theme?.override],
   );
 
-  if (theme?.token || theme?.hashed) {
+  if (theme?.token || theme?.hashed || theme?.override) {
     childNode = (
       <DesignTokenContext.Provider value={memoTheme}>{childNode}</DesignTokenContext.Provider>
     );
