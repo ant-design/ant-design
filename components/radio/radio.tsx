@@ -40,7 +40,7 @@ const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (
       [`${prefixCls}-wrapper-checked`]: radioProps.checked,
       [`${prefixCls}-wrapper-disabled`]: radioProps.disabled,
       [`${prefixCls}-wrapper-rtl`]: direction === 'rtl',
-      [`${prefixCls}-in-form-item`]: isFormItemInput,
+      [`${prefixCls}-wrapper-in-form-item`]: isFormItemInput,
     },
     className,
   );

@@ -527,7 +527,7 @@ exports[`renders ./components/form/demo/basic.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <label
-            class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-in-form-item"
+            class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-in-form-item"
           >
             <span
               class="ant-checkbox ant-checkbox-checked"
@@ -2333,7 +2333,7 @@ exports[`renders ./components/form/demo/dynamic-rule.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <label
-            class="ant-checkbox-wrapper ant-checkbox-in-form-item"
+            class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item"
           >
             <span
               class="ant-checkbox"
@@ -2886,7 +2886,7 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
             id="layout"
           >
             <label
-              class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-in-form-item"
+              class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item"
             >
               <span
                 class="ant-radio-button ant-radio-button-checked"
@@ -2906,7 +2906,7 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
               </span>
             </label>
             <label
-              class="ant-radio-button-wrapper ant-radio-button-in-form-item"
+              class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
             >
               <span
                 class="ant-radio-button"
@@ -2925,7 +2925,7 @@ exports[`renders ./components/form/demo/layout.md correctly 1`] = `
               </span>
             </label>
             <label
-              class="ant-radio-button-wrapper ant-radio-button-in-form-item"
+              class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
             >
               <span
                 class="ant-radio-button"
@@ -3534,7 +3534,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <label
-            class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-in-form-item"
+            class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-in-form-item"
           >
             <span
               class="ant-checkbox ant-checkbox-checked"
@@ -4541,7 +4541,7 @@ exports[`renders ./components/form/demo/register.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <label
-            class="ant-checkbox-wrapper ant-checkbox-in-form-item"
+            class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item"
           >
             <span
               class="ant-checkbox"
@@ -4633,7 +4633,7 @@ exports[`renders ./components/form/demo/required-mark.md correctly 1`] = `
             id="requiredMarkValue"
           >
             <label
-              class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-in-form-item"
+              class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item"
             >
               <span
                 class="ant-radio-button ant-radio-button-checked"
@@ -4653,7 +4653,7 @@ exports[`renders ./components/form/demo/required-mark.md correctly 1`] = `
               </span>
             </label>
             <label
-              class="ant-radio-button-wrapper ant-radio-button-in-form-item"
+              class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
             >
               <span
                 class="ant-radio-button"
@@ -4672,7 +4672,7 @@ exports[`renders ./components/form/demo/required-mark.md correctly 1`] = `
               </span>
             </label>
             <label
-              class="ant-radio-button-wrapper ant-radio-button-in-form-item"
+              class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
             >
               <span
                 class="ant-radio-button"
@@ -4870,7 +4870,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
             id="size"
           >
             <label
-              class="ant-radio-button-wrapper ant-radio-button-in-form-item"
+              class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
             >
               <span
                 class="ant-radio-button"
@@ -4889,7 +4889,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
               </span>
             </label>
             <label
-              class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-in-form-item"
+              class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item"
             >
               <span
                 class="ant-radio-button ant-radio-button-checked"
@@ -4909,7 +4909,7 @@ exports[`renders ./components/form/demo/size.md correctly 1`] = `
               </span>
             </label>
             <label
-              class="ant-radio-button-wrapper ant-radio-button-in-form-item"
+              class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
             >
               <span
                 class="ant-radio-button"
@@ -6459,7 +6459,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             id="validate_other_radio-group"
           >
             <label
-              class="ant-radio-wrapper ant-radio-in-form-item"
+              class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
             >
               <span
                 class="ant-radio"
@@ -6478,7 +6478,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               </span>
             </label>
             <label
-              class="ant-radio-wrapper ant-radio-in-form-item"
+              class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
             >
               <span
                 class="ant-radio"
@@ -6497,7 +6497,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               </span>
             </label>
             <label
-              class="ant-radio-wrapper ant-radio-in-form-item"
+              class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
             >
               <span
                 class="ant-radio"
@@ -6548,7 +6548,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             id="validate_other_radio-button"
           >
             <label
-              class="ant-radio-button-wrapper ant-radio-button-in-form-item"
+              class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
             >
               <span
                 class="ant-radio-button"
@@ -6567,7 +6567,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               </span>
             </label>
             <label
-              class="ant-radio-button-wrapper ant-radio-button-in-form-item"
+              class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
             >
               <span
                 class="ant-radio-button"
@@ -6586,7 +6586,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
               </span>
             </label>
             <label
-              class="ant-radio-button-wrapper ant-radio-button-in-form-item"
+              class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
             >
               <span
                 class="ant-radio-button"
@@ -6643,7 +6643,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 class="ant-col ant-col-8"
               >
                 <label
-                  class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-in-form-item"
+                  class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-in-form-item"
                   style="line-height:32px"
                 >
                   <span
@@ -6668,7 +6668,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 class="ant-col ant-col-8"
               >
                 <label
-                  class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-disabled ant-checkbox-in-form-item"
+                  class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-disabled ant-checkbox-wrapper-in-form-item"
                   style="line-height:32px"
                 >
                   <span
@@ -6694,7 +6694,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 class="ant-col ant-col-8"
               >
                 <label
-                  class="ant-checkbox-wrapper ant-checkbox-in-form-item"
+                  class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item"
                   style="line-height:32px"
                 >
                   <span
@@ -6718,7 +6718,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 class="ant-col ant-col-8"
               >
                 <label
-                  class="ant-checkbox-wrapper ant-checkbox-in-form-item"
+                  class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item"
                   style="line-height:32px"
                 >
                   <span
@@ -6742,7 +6742,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 class="ant-col ant-col-8"
               >
                 <label
-                  class="ant-checkbox-wrapper ant-checkbox-in-form-item"
+                  class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item"
                   style="line-height:32px"
                 >
                   <span
@@ -6766,7 +6766,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
                 class="ant-col ant-col-8"
               >
                 <label
-                  class="ant-checkbox-wrapper ant-checkbox-in-form-item"
+                  class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item"
                   style="line-height:32px"
                 >
                   <span
