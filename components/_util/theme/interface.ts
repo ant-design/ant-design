@@ -91,6 +91,9 @@ export interface SeedToken extends PresetColorType {
 // 🔥🔥🔥🔥🔥🔥🔥 DO NOT MODIFY THIS. PLEASE CONTACT DESIGNER. 🔥🔥🔥🔥🔥🔥🔥
 export interface DerivativeToken extends SeedToken, ColorPalettes {
   // Color
+  /** Used for DefaultButton, Switch which has default outline */
+  colorDefaultOutline: string;
+
   colorPrimaryHover: string;
   colorPrimaryActive: string;
   colorPrimaryOutline: string;
@@ -163,7 +166,14 @@ export interface DerivativeToken extends SeedToken, ColorPalettes {
 // ==                           Alias Token                            ==
 // ======================================================================
 // FIXME: DerivativeToken should part pick
-type OmitDerivativeKey = 'colorText2' | 'colorTextBelow' | 'colorTextBelow2' | 'colorTextBelow3';
+type OmitDerivativeKey =
+  | 'colorText2'
+  | 'colorTextBelow'
+  | 'colorTextBelow2'
+  | 'colorTextBelow3'
+  | 'colorBg2'
+  | 'colorBgBelow'
+  | 'colorBgBelow2';
 
 // 🔥🔥🔥🔥🔥🔥🔥 DO NOT MODIFY THIS. PLEASE CONTACT DESIGNER. 🔥🔥🔥🔥🔥🔥🔥
 export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
