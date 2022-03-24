@@ -6,24 +6,17 @@ import useMemo from 'rc-util/lib/hooks/useMemo';
 import { RenderEmptyHandler } from './renderEmpty';
 import LocaleProvider, { ANT_MARK, Locale } from '../locale-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import {
-  ConfigConsumer,
-  ConfigContext,
-  CSPConfig,
-  DirectionType,
-  ConfigConsumerProps,
-  Theme,
-  defaultIconPrefixCls,
-} from './context';
+import { ConfigConsumer, ConfigContext, defaultIconPrefixCls } from './context';
+import type { CSPConfig, DirectionType, ConfigConsumerProps, Theme, ThemeConfig } from './context';
 import SizeContext, { SizeContextProvider, SizeType } from './SizeContext';
 import message from '../message';
 import notification from '../notification';
 import { RequiredMark } from '../form/Form';
 import { registerTheme } from './cssVariables';
 import defaultLocale from '../locale/default';
-import { SeedToken, DesignTokenContext, useToken } from '../_util/theme';
+import { DesignTokenContext, useToken } from '../_util/theme';
+import useTheme from './hooks/useTheme';
 import defaultSeedToken from '../_util/theme/themes/default';
-import { OverrideToken } from '../_util/theme/interface';
 
 export {
   RenderEmptyHandler,
@@ -84,11 +77,7 @@ export interface ConfigProviderProps {
   };
   virtual?: boolean;
   dropdownMatchSelectWidth?: boolean;
-  theme?: {
-    token?: Partial<SeedToken>;
-    override?: OverrideToken;
-    hashed?: boolean;
-  };
+  theme?: ThemeConfig;
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -168,7 +157,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     legacyLocale,
     parentContext,
     iconPrefixCls,
-    theme = {},
+    theme,
   } = props;
 
   const getPrefixCls = React.useCallback(
@@ -259,20 +248,22 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
   }
 
   // ================================ Dynamic theme ================================
-  // FIXME: Multiple theme support for pass Theme & override
+  const mergedTheme = useTheme(theme, parentContext.theme);
+  config.theme = mergedTheme;
+
   const memoTheme = React.useMemo(
     () => ({
+      ...mergedTheme,
+
       token: {
         ...defaultSeedToken,
-        ...theme?.token,
+        ...mergedTheme?.token,
       },
-      override: theme?.override,
-      hashed: theme?.hashed,
     }),
-    [theme?.token, theme?.hashed, theme?.override],
+    [mergedTheme],
   );
 
-  if (theme?.token || theme?.hashed || theme?.override) {
+  if (theme) {
     childNode = (
       <DesignTokenContext.Provider value={memoTheme}>{childNode}</DesignTokenContext.Provider>
     );
