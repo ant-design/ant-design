@@ -31,18 +31,20 @@ export default function renderSwitcherIcon(
     return null;
   }
   const switcherCls = `${prefixCls}-switcher-icon`;
-  if (typeof switcherIcon === 'function') {
-    switcherIcon = switcherIcon(Boolean(expanded));
+
+  let switcher = switcherIcon;
+  if (typeof switcher === 'function') {
+    switcher = switcher(Boolean(expanded));
   }
 
-  if (isValidElement(switcherIcon)) {
-    return cloneElement(switcherIcon, {
-      className: classNames(switcherIcon.props.className || '', switcherCls),
+  if (isValidElement(switcher)) {
+    return cloneElement(switcher, {
+      className: classNames(switcher.props.className || '', switcherCls),
     });
   }
 
-  if (switcherIcon) {
-    return switcherIcon;
+  if (switcher) {
+    return switcher;
   }
 
   if (showLine) {
