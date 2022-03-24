@@ -25,6 +25,7 @@ export type SelectToken = DerivativeToken & {
   selectCls: string;
   iconPrefixCls: string;
   inputPaddingHorizontalBase: number;
+  zIndexDropdown: number;
 };
 
 // ============================= Selector =============================
@@ -288,6 +289,7 @@ const genSelectStyle = (
     selectCls,
     iconPrefixCls,
     inputPaddingHorizontalBase,
+    zIndexDropdown: token.zIndexPopup + 50,
   };
 
   return [

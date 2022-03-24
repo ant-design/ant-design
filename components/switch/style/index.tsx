@@ -163,23 +163,18 @@ const genSwitchStyle = (token: SwitchToken): CSSObject => {
       verticalAlign: 'middle',
       backgroundColor: token.colorTextDisabled,
       border: '0',
-      // FIXME
       borderRadius: 100,
       cursor: 'pointer',
       transition: `all ${token.switchDuration}`,
       userSelect: 'none',
 
-      '&:focus': {
+      '&:focus-visible': {
         outline: 0,
-        // FIXME
-        boxShadow: `0 0 0 2px ${new TinyColor(token.colorTextDisabled)
-          .setAlpha(0.1)
-          .toRgbString()}`,
+        boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${token.colorBgComponentDisabled}`,
       },
 
-      [`&${token.switchCls}-checked:focus`]: {
-        // FIXME
-        boxShadow: `0 0 0 2px ${token.tmpPrimaryHoverColorWeak}`,
+      [`&${token.switchCls}-checked:focus-visible`]: {
+        boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${token.colorPrimaryOutline}`,
       },
 
       '&:focus:hover': {

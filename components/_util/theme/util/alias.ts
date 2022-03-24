@@ -39,7 +39,15 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
 
     colorBgContainer: mergedToken.colorBgBelow2,
     colorBgComponent: mergedToken.colorBg,
+    colorBgComponentSecondary: mergedToken.colorBg2,
     colorBgComponentDisabled: mergedToken.colorBgBelow2,
+
+    colorLink: mergedToken.colorPrimary,
+    colorLinkHover: primaryColors[4],
+    colorLinkActive: primaryColors[6],
+
+    colorAction: mergedToken.colorTextBelow,
+    colorActionHover: mergedToken.colorText,
 
     // Font
     fontSizeSM: fontSizes[0],
@@ -76,36 +84,18 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
 
     // 🔥🔥🔥🔥🔥🔥🔥🔥🔥 All TMP Token leaves here 🔥🔥🔥🔥🔥🔥🔥🔥🔥
     // FIXME: Handle this when derivative is ready
-    primaryColors,
-    warningColors,
-    errorColors,
+    // primaryColors,
+    // warningColors,
+    // errorColors,
 
-    tmpPrimaryColorWeak: primaryColors[2],
-    tmpPrimaryHoverColorWeak: primaryColors[0],
-    tmpPrimaryColor6: primaryColors[5],
-    tmpPrimaryColor7: primaryColors[6],
+    colorSuccessSecondary: successColors[2],
+    colorWarningSecondary: warningColors[2],
+    colorErrorSecondary: errorColors[2],
+    colorInfoSecondary: infoColors[2],
 
-    tmpSuccessColorDeprecatedBg: successColors[0],
-    tmpWarningColorDeprecatedBg: warningColors[0],
-    tmpErrorColorDeprecatedBg: errorColors[0],
-    tmpInfoColorDeprecatedBg: infoColors[0],
-
-    tmpSuccessColorDeprecatedBorder: successColors[2],
-    tmpWarningColorDeprecatedBorder: warningColors[2],
-    tmpErrorColorDeprecatedBorder: errorColors[2],
-    tmpInfoColorDeprecatedBorder: infoColors[2],
-
-    highlightColor: errorColors[5], // FIXME: Should not align with error color
-    // FIXME: fix2 badge-color
-
-    linkColor: mergedToken.colorPrimary,
-    linkHoverColor: primaryColors[4],
-    linkActiveColor: primaryColors[6],
     linkDecoration: 'none',
     linkHoverDecoration: 'none',
     linkFocusDecoration: 'none',
-
-    iconColorHover: new TinyColor('#000').setAlpha(0.75).toRgbString(),
 
     controlPaddingHorizontal: 16,
     controlPaddingHorizontalSM: 12,
@@ -122,12 +112,6 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     marginXS: 4,
     // marginSM: 8,
     marginLG: 32,
-
-    // background of header and selected item
-    backgroundLight: new TinyColor({ h: 0, s: 0, v: 98 }).toHexString(),
-
-    zIndexDropdown: 1050,
-    zIndexAffix: 10,
 
     boxShadow: `
       0 3px 6px -4px rgba(0, 0, 0, 0.12),

@@ -32,8 +32,8 @@ const genTagStatusStyle = (
   return {
     [`.${prefixCls}-${status}`]: {
       color: token[`color${cssVariableType}`],
-      background: token[`tmp${capitalizedCssVariableType}ColorDeprecatedBg`],
-      borderColor: token[`tmp${capitalizedCssVariableType}ColorDeprecatedBorder`],
+      background: token[`colorBg${capitalizedCssVariableType}`],
+      borderColor: token[`color${capitalizedCssVariableType}Secondary`],
     },
   };
 };
@@ -115,7 +115,7 @@ const genBaseStyle = (
       },
     },
 
-    [`.${prefixCls}-checkable`]: {
+    [`&-checkable`]: {
       backgroundColor: 'transparent',
       borderColor: 'transparent',
       cursor: 'pointer',
@@ -129,15 +129,15 @@ const genBaseStyle = (
       },
 
       '&-checked': {
-        backgroundColor: token.tmpPrimaryColor6,
+        backgroundColor: token.colorPrimary,
       },
 
       '&:active': {
-        backgroundColor: token.tmpPrimaryColor7,
+        backgroundColor: token.colorPrimaryActive,
       },
     },
 
-    [`.${prefixCls}-hidden`]: {
+    [`&-hidden`]: {
       display: 'none',
     },
 
@@ -157,7 +157,7 @@ export const genTagStyle = (
   const tagFontSize = token.fontSizeSM;
   // FIXME: hard code
   const tagLineHeight = '18px';
-  const tagDefaultBg = token.backgroundLight;
+  const tagDefaultBg = token.colorBgComponentSecondary;
   const tagDefaultColor = token.colorText;
 
   const tagToken = {
