@@ -120,6 +120,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | colSpan | Span of this column's title | number | - |  |
 | dataIndex | Display field of the data record, support nest path by string array | string \| string\[] | - |  |
 | defaultFilteredValue | Default filtered values | string\[] | - |  |
+| filterResetToDefaultFilteredValue | click the reset button, whether to restore the default filter | boolean | false |  |
 | defaultSortOrder | Default order of sorted values | `ascend` \| `descend` | - |  |
 | editable | Whether column can be edited | boolean | false |  |
 | ellipsis | The ellipsis cell content, not working with sorter and filters for now.<br />tableLayout would be `fixed` when `ellipsis` is `true` or `{ showTitle?: boolean }` | boolean \| {showTitle?: boolean } | false | showTitle: 4.3.0 |

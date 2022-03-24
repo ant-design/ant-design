@@ -2197,4 +2197,59 @@ describe('Table.filter', () => {
       expect(wrapper.find('Dropdown').first().props().visible).toBe(res2);
     });
   });
+
+  it('filterDropDown should support filterResetToDefaultFilteredValue', () => {
+    jest.useFakeTimers();
+    jest.spyOn(console, 'error').mockImplementation(() => undefined);
+
+    const columnFilter = {
+      ...column,
+      filterMode: 'tree',
+      filterSearch: true,
+      defaultFilteredValue: ['girl'],
+    };
+
+    let wrapper = mount(
+      createTable({
+        columns: [columnFilter],
+      }),
+    );
+    wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
+    act(() => {
+      jest.runAllTimers();
+      wrapper.update();
+    });
+    expect(wrapper.find('.ant-tree-checkbox-checked').length).toBe(1);
+    wrapper
+      .find(Checkbox)
+      .find('input')
+      .simulate('change', { target: { checked: true } });
+    expect(wrapper.find('.ant-tree-checkbox-checked').length).toBe(5);
+    wrapper.find('button.ant-btn-link').simulate('click', nativeEvent);
+    expect(wrapper.find('.ant-tree-checkbox-checked').length).toBe(0);
+
+    wrapper = mount(
+      createTable({
+        columns: [
+          {
+            ...columnFilter,
+            filterResetToDefaultFilteredValue: true,
+          },
+        ],
+      }),
+    );
+    wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
+    act(() => {
+      jest.runAllTimers();
+      wrapper.update();
+    });
+    wrapper
+      .find(Checkbox)
+      .find('input')
+      .simulate('change', { target: { checked: true } });
+    expect(wrapper.find('.ant-tree-checkbox-checked').length).toBe(5);
+    wrapper.find('button.ant-btn-link').simulate('click', nativeEvent);
+    expect(wrapper.find('.ant-tree-checkbox-checked').length).toBe(1);
+    expect(wrapper.find('.ant-tree-checkbox-checked+span').text()).toBe('Girl');
+  });
 });

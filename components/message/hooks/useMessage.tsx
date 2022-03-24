@@ -12,7 +12,7 @@ import {
   attachTypeApi,
   ThenableArgument,
   getKeyThenIncreaseKey,
-  NoticeType,
+  typeList,
 } from '..';
 
 export default function createUseMessage(
@@ -78,9 +78,7 @@ export default function createUseMessage(
 
     hookApiRef.current.open = notify;
 
-    (['success', 'info', 'warning', 'error', 'loading'] as NoticeType[]).forEach(type =>
-      attachTypeApi(hookApiRef.current, type),
-    );
+    typeList.forEach(type => attachTypeApi(hookApiRef.current, type));
 
     return [
       hookApiRef.current,
