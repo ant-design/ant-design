@@ -7,7 +7,7 @@ import { Meta, NamePath } from 'rc-field-form/lib/interface';
 import { supportRef } from 'rc-util/lib/ref';
 import useState from 'rc-util/lib/hooks/useState';
 import omit from 'rc-util/lib/omit';
-import useStyle from 'antd/es/form/style';
+import useStyle from './style';
 import Row from '../grid/row';
 import { ConfigContext } from '../config-provider';
 import { tuple } from '../_util/type';
@@ -125,7 +125,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
   const prefixCls = getPrefixCls('form', customizePrefixCls);
 
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls, getPrefixCls());
 
   // ========================= MISC =========================
   // Get `noStyle` required info

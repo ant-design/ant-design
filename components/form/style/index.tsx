@@ -13,6 +13,7 @@ interface FormToken extends AliasToken {
   formCls: string;
   formItemCls: string;
   iconCls: string;
+  rootPrefixCls: string;
 }
 
 const resetForm = (token: AliasToken): CSSObject => ({
@@ -122,22 +123,8 @@ const genFormStyle: GenerateStyle<FormToken> = token => {
   };
 };
 
-// const genFormControlValidationStyle = (token: FormToken): CSSObject => {
-//   const { formItemCls } = token;
-//
-//   return {
-//     [`${formItemCls}-split`]: {
-//       color: token.colorText,
-//     },
-//
-//     '.ant-calendar-picker-open .ant-calendar-picker-input': {
-//       // ...genActiveStyle(), // FIXME: maybe can be removed
-//     },
-//   };
-// };
-
 const genFormItemStyle: GenerateStyle<FormToken> = token => {
-  const { formItemCls, iconCls, formCls } = token;
+  const { formItemCls, iconCls, formCls, rootPrefixCls } = token;
 
   return {
     [formItemCls]: {
@@ -154,17 +141,9 @@ const genFormItemStyle: GenerateStyle<FormToken> = token => {
       },
 
       [`&-hidden,
-        &-hidden.ant-row`]: {
-        // FIXME: magic ant
+        &-hidden.${rootPrefixCls}-row`]: {
         // https://github.com/ant-design/ant-design/issues/26141
         display: 'none',
-      },
-
-      '&-has-feedback': {
-        '.ant-switch': {
-          // FIXME: magic ant
-          margin: `${token.marginXXS}px 0 ${token.marginXS}px`,
-        },
       },
 
       '&-has-warning': {
@@ -254,7 +233,7 @@ const genFormItemStyle: GenerateStyle<FormToken> = token => {
             top: -0.5, // FIXME: magic
             marginBlock: 0,
             marginInlineStart: token.marginXXS,
-            marginInlineEnd: 8, // FIXME: magic
+            marginInlineEnd: token.marginSM,
           },
 
           [`&${formItemCls}-no-colon::after`]: {
@@ -271,10 +250,10 @@ const genFormItemStyle: GenerateStyle<FormToken> = token => {
         flexDirection: 'column',
         flexGrow: 1,
 
-        // FIXME: magic ant
-        [`'&:first-child:not([class^=~"'ant-col-'"]):not([class*=~"' ant-col-'"])'`]: {
-          width: '100%',
-        },
+        [`&:first-child:not([class^=~"'${rootPrefixCls}-col-'"]):not([class*=~"' ${rootPrefixCls}-col-'"])`]:
+          {
+            width: '100%',
+          },
 
         '&-input': {
           position: 'relative',
@@ -340,12 +319,12 @@ const genFormItemStyle: GenerateStyle<FormToken> = token => {
 };
 
 const genFormMotionStyle: GenerateStyle<FormToken> = token => {
-  const { formCls } = token;
+  const { formCls, rootPrefixCls } = token;
 
   return {
     [formCls]: {
       // Explain holder
-      '.ant-show-help': {
+      [`.${rootPrefixCls}-show-help`]: {
         transition: `height ${token.motionDurationSlow} linear,
                      min-height ${token.motionDurationSlow} linear,
                      margin-bottom ${token.motionDurationSlow} ${token.motionEaseInOut},
@@ -361,7 +340,7 @@ const genFormMotionStyle: GenerateStyle<FormToken> = token => {
       },
 
       // Explain
-      '.ant-show-help-item': {
+      [`.${rootPrefixCls}-show-help-item`]: {
         overflow: 'hidden',
         transition: `height ${token.motionDurationSlow} ${token.motionEaseInOut},
                      opacity ${token.motionDurationSlow} ${token.motionEaseInOut},
@@ -387,7 +366,7 @@ const genFormMotionStyle: GenerateStyle<FormToken> = token => {
 };
 
 const genHorizontalStyle: GenerateStyle<FormToken> = token => {
-  const { formCls, formItemCls } = token;
+  const { formCls, formItemCls, rootPrefixCls } = token;
 
   return {
     [`${formCls}-horizontal`]: {
@@ -403,7 +382,7 @@ const genHorizontalStyle: GenerateStyle<FormToken> = token => {
       },
 
       // https://github.com/ant-design/ant-design/issues/32980
-      [`${formItemCls}-label.ant-col-24 + ${formItemCls}-control`]: {
+      [`${formItemCls}-label.${rootPrefixCls}-col-24 + ${formItemCls}-control`]: {
         minWidth: 'unset',
       },
     },
@@ -487,7 +466,7 @@ const makeVerticalLayout = (token: FormToken): CSSObject => {
 };
 
 const genVerticalStyle: GenerateStyle<FormToken> = token => {
-  const { formCls, formItemCls } = token;
+  const { formCls, formItemCls, rootPrefixCls } = token;
 
   return {
     [`${formCls}-vertical`]: {
@@ -500,38 +479,45 @@ const genVerticalStyle: GenerateStyle<FormToken> = token => {
       },
     },
 
-    // FIXME: ant
     [`${formCls}-vertical ${formItemCls}-label,
-      .ant-col-24${formItemCls}-label,
-      .ant-col-xl-24${formItemCls}-label`]: {
+      .${rootPrefixCls}-col-24${formItemCls}-label,
+      .${rootPrefixCls}-col-xl-24${formItemCls}-label`]: {
       ...makeVerticalLayoutLabel(token),
     },
 
-    // FIXME: media
-    // @media (max-width: @screen-xs-max) {
-    //   .make-vertical-layout();
-    //   .@{ant-prefix}-col-xs-24.@{form-item-prefix-cls}-label {
-    //     .make-vertical-layout-label();
-    //   }
-    // }
-    //
-    // @media (max-width: @screen-sm-max) {
-    //   .@{ant-prefix}-col-sm-24.@{form-item-prefix-cls}-label {
-    //     .make-vertical-layout-label();
-    //   }
-    // }
-    //
-    // @media (max-width: @screen-md-max) {
-    //   .@{ant-prefix}-col-md-24.@{form-item-prefix-cls}-label {
-    //     .make-vertical-layout-label();
-    //   }
-    // }
-    //
-    // @media (max-width: @screen-lg-max) {
-    //   .@{ant-prefix}-col-lg-24.@{form-item-prefix-cls}-label {
-    //     .make-vertical-layout-label();
-    //   }
-    // }
+    // FIXME: screen
+    [`@media (max-width: @screen-sm-max})`]: {
+      ...makeVerticalLayout(token),
+      [formCls]: {
+        [`.${rootPrefixCls}-col-xs-24${formItemCls}-label`]: {
+          ...makeVerticalLayoutLabel(token),
+        },
+      },
+    },
+
+    [`@media (max-width: @screen-sm-max)`]: {
+      [formCls]: {
+        [`.${rootPrefixCls}-col-sm-24${formItemCls}-label`]: {
+          ...makeVerticalLayoutLabel(token),
+        },
+      },
+    },
+
+    [`@media (max-width: @screen-md-max)`]: {
+      [formCls]: {
+        [`.${rootPrefixCls}-col-md-24${formItemCls}-label`]: {
+          ...makeVerticalLayoutLabel(token),
+        },
+      },
+    },
+
+    [`@media (max-width: @screen-lg-max)`]: {
+      [formCls]: {
+        [`.${rootPrefixCls}-col-lg-24${formItemCls}-label`]: {
+          ...makeVerticalLayoutLabel(token),
+        },
+      },
+    },
   };
 };
 
@@ -539,6 +525,7 @@ const genVerticalStyle: GenerateStyle<FormToken> = token => {
 export default function useStyle(
   prefixCls: string,
   iconPrefixCls: string,
+  rootPrefixCls: string,
 ): UseComponentStyleResult {
   const [theme, token, hashId] = useToken();
 
@@ -547,6 +534,7 @@ export default function useStyle(
     formCls: `.${prefixCls}`,
     formItemCls: `.${prefixCls}-item`,
     iconCls: `.${iconPrefixCls}`,
+    rootPrefixCls,
   };
 
   return [
