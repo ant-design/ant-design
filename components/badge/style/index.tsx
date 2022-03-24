@@ -337,7 +337,7 @@ export default function useStyle(
   const badgeTextColor = token.colorBgComponent;
   const badgeFontWeight = 'normal';
   const badgeFontSize = token.fontSizeSM;
-  const badgeColor = token.highlightColor;
+  const badgeColor = token.colorHighlight;
   const badgeHeightSm = 14; // FIXME: hard code
   const badgeDotSize = 6; // FIXME: hard code
   const badgeFontSizeSm = token.fontSizeSM;
