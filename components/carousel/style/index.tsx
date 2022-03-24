@@ -342,13 +342,7 @@ const genCarouselRtlStyle: GenerateStyle<CarouselToken> = token => {
 };
 
 // ============================== Export ==============================
-export default function useStyle({
-  prefixCls,
-  antPrefixCls,
-}: {
-  prefixCls: string;
-  antPrefixCls: string;
-}): UseComponentStyleResult {
+export default function useStyle(prefixCls: string, antPrefixCls: string): UseComponentStyleResult {
   const [theme, token, hashId] = useToken();
 
   const carouselToken: CarouselToken = {
