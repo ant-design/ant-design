@@ -53,7 +53,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
 
       [`${sliderCls}-track`]: {
         position: 'absolute',
-        backgroundColor: token.tmpPrimaryColorWeak, // FIXME: Origin @primary-3
+        backgroundColor: token.colorPrimarySecondary,
         borderRadius: token.controlRadius,
         transition: `background-color ${token.motionDurationSlow}`,
       },
@@ -63,7 +63,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         width: token.handleSize,
         height: token.handleSize,
         backgroundColor: token.colorBgComponent,
-        border: `2px solid ${token.tmpPrimaryColorWeak}`,
+        border: `2px solid ${token.colorPrimarySecondary}`,
         borderRadius: '50%',
         boxShadow: 'none',
         cursor: 'pointer',
@@ -158,7 +158,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         transition: `border-color ${token.motionDurationSlow}`,
 
         '&-active': {
-          borderColor: token.tmpPrimaryColorWeak,
+          borderColor: token.colorPrimarySecondary,
         },
       },
 

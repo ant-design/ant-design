@@ -32,8 +32,8 @@ const genTagStatusStyle = (
   return {
     [`.${prefixCls}-${status}`]: {
       color: token[`color${cssVariableType}`],
-      background: token[`tmp${capitalizedCssVariableType}ColorDeprecatedBg`],
-      borderColor: token[`tmp${capitalizedCssVariableType}ColorDeprecatedBorder`],
+      background: token[`colorBg${capitalizedCssVariableType}`],
+      borderColor: token[`color${capitalizedCssVariableType}Secondary`],
     },
   };
 };

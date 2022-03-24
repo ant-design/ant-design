@@ -88,19 +88,13 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     // warningColors,
     // errorColors,
 
-    tmpPrimaryColorWeak: primaryColors[2],
     tmpPrimaryColor6: primaryColors[5],
     tmpPrimaryColor7: primaryColors[6],
 
-    tmpSuccessColorDeprecatedBg: successColors[0],
-    tmpWarningColorDeprecatedBg: warningColors[0],
-    tmpErrorColorDeprecatedBg: errorColors[0],
-    tmpInfoColorDeprecatedBg: infoColors[0],
-
-    tmpSuccessColorDeprecatedBorder: successColors[2],
-    tmpWarningColorDeprecatedBorder: warningColors[2],
-    tmpErrorColorDeprecatedBorder: errorColors[2],
-    tmpInfoColorDeprecatedBorder: infoColors[2],
+    colorSuccessSecondary: successColors[2],
+    colorWarningSecondary: warningColors[2],
+    colorErrorSecondary: errorColors[2],
+    colorInfoSecondary: infoColors[2],
 
     linkDecoration: 'none',
     linkHoverDecoration: 'none',

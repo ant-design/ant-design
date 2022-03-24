@@ -94,18 +94,25 @@ export interface DerivativeToken extends SeedToken, ColorPalettes {
   colorPrimaryHover: string;
   colorPrimaryActive: string;
   colorPrimaryOutline: string;
-  // colorPrimarySecondary: string;
+  colorPrimarySecondary: string; // primary[2]
 
-  // tmpPrimaryColorWeak: string;
-  // tmpPrimaryHoverColorWeak: string;
+  colorSuccessSecondary: string;
+  colorBgSuccess: string; // success[0]
 
   colorWarningHover: string;
   colorWarningActive: string;
   colorWarningOutline: string;
+  colorWarningSecondary: string;
+  colorBgWarning: string;
 
   colorErrorHover: string;
   colorErrorActive: string;
   colorErrorOutline: string;
+  colorErrorSecondary: string;
+  colorBgError: string;
+
+  colorInfoSecondary: string;
+  colorBgInfo: string;
 
   colorText2: string;
   colorTextBelow: string;
@@ -250,19 +257,8 @@ export interface AliasToken extends DerivativeToken {
   marginXXS: number;
 
   // TMP
-  tmpPrimaryColorWeak: string;
   // Checked background for Checkable Tag
   tmpPrimaryColor6: string;
   // Active background for Checkable Tag
   tmpPrimaryColor7: string;
-
-  tmpSuccessColorDeprecatedBg: string;
-  tmpWarningColorDeprecatedBg: string;
-  tmpErrorColorDeprecatedBg: string;
-  tmpInfoColorDeprecatedBg: string;
-
-  tmpSuccessColorDeprecatedBorder: string;
-  tmpWarningColorDeprecatedBorder: string;
-  tmpErrorColorDeprecatedBorder: string;
-  tmpInfoColorDeprecatedBorder: string;
 }

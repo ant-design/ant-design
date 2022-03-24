@@ -24,8 +24,10 @@ const defaultPresetColors: PresetColorType = {
 export function derivative(token: SeedToken): DerivativeToken {
   const {
     colorPrimary,
+    colorSuccess,
     colorWarning,
     colorError,
+    colorInfo,
     motionUnit,
     motionBase,
     fontSizeBase,
@@ -36,12 +38,13 @@ export function derivative(token: SeedToken): DerivativeToken {
     radiusBase,
     controlHeight,
     zIndexBase,
-    zIndexPopup,
   } = token;
 
   const primaryColors = generate(colorPrimary);
+  const successColors = generate(colorSuccess);
   const warningColors = generate(colorWarning);
   const errorColors = generate(colorError);
+  const infoColors = generate(colorInfo);
 
   const colorPalettes = Object.keys(defaultPresetColors)
     .map((colorKey: keyof PresetColorType) => {
@@ -101,12 +104,25 @@ export function derivative(token: SeedToken): DerivativeToken {
     colorPrimaryActive: primaryColors[6],
     colorPrimaryHover: primaryColors[4],
     colorPrimaryOutline: new TinyColor(colorPrimary).setAlpha(0.2).toRgbString(),
+    colorPrimarySecondary: primaryColors[2],
+
+    colorSuccessSecondary: successColors[2],
+    colorBgSuccess: successColors[0],
+
     colorErrorActive: errorColors[6],
     colorErrorHover: errorColors[4],
     colorErrorOutline: new TinyColor(colorError).setAlpha(0.2).toRgbString(),
+    colorErrorSecondary: errorColors[2],
+    colorBgError: errorColors[0],
+
     colorWarningActive: warningColors[6],
     colorWarningHover: warningColors[4],
     colorWarningOutline: new TinyColor(colorWarning).setAlpha(0.2).toRgbString(),
+    colorWarningSecondary: warningColors[2],
+    colorBgWarning: warningColors[0],
+
+    colorInfoSecondary: infoColors[2],
+    colorBgInfo: infoColors[0],
 
     colorHighlight: errorColors[4],
 
