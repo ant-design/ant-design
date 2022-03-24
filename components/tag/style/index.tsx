@@ -129,11 +129,11 @@ const genBaseStyle = (
       },
 
       '&-checked': {
-        backgroundColor: token.tmpPrimaryColor6,
+        backgroundColor: token.colorPrimary,
       },
 
       '&:active': {
-        backgroundColor: token.tmpPrimaryColor7,
+        backgroundColor: token.colorPrimaryActive,
       },
     },
 

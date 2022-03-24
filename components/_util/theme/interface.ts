@@ -236,10 +236,4 @@ export interface AliasToken extends DerivativeToken {
   marginXS: number;
   marginLG: number;
   marginXXS: number;
-
-  // TMP
-  // Checked background for Checkable Tag
-  tmpPrimaryColor6: string;
-  // Active background for Checkable Tag
-  tmpPrimaryColor7: string;
 }
