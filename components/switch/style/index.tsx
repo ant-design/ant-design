@@ -170,7 +170,7 @@ const genSwitchStyle = (token: SwitchToken): CSSObject => {
 
       '&:focus-visible': {
         outline: 0,
-        boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${token.colorBgComponentDisabled}`,
+        boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${token.colorDefaultOutline}`,
       },
 
       [`&${token.switchCls}-checked:focus-visible`]: {

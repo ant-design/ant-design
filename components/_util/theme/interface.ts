@@ -1,4 +1,5 @@
 import * as React from 'react';
+import type { ComponentToken as ButtonComponentToken } from '../../button/style';
 
 export const PresetColors = [
   'blue',
@@ -27,9 +28,14 @@ export type ColorPalettes = {
 };
 
 export interface OverrideToken {
-  derivative: Partial<DerivativeToken & AliasToken>;
-  [componentName: string]: object; // FIXME: tmp of component token
+  derivative?: Partial<DerivativeToken & AliasToken>;
+
+  // Customize component
+  button?: ButtonComponentToken;
 }
+
+/** Final token which contains the components level override */
+export type GlobalToken = AliasToken & Omit<OverrideToken, 'derivative'>;
 
 // ======================================================================
 // ==                            Seed Token                            ==
@@ -91,6 +97,9 @@ export interface SeedToken extends PresetColorType {
 // 🔥🔥🔥🔥🔥🔥🔥 DO NOT MODIFY THIS. PLEASE CONTACT DESIGNER. 🔥🔥🔥🔥🔥🔥🔥
 export interface DerivativeToken extends SeedToken, ColorPalettes {
   // Color
+  /** Used for DefaultButton, Switch which has default outline */
+  colorDefaultOutline: string;
+
   colorPrimaryHover: string;
   colorPrimaryActive: string;
   colorPrimaryOutline: string;
@@ -162,8 +171,18 @@ export interface DerivativeToken extends SeedToken, ColorPalettes {
 // ======================================================================
 // ==                           Alias Token                            ==
 // ======================================================================
+// FIXME: DerivativeToken should part pick
+type OmitDerivativeKey =
+  | 'colorText2'
+  | 'colorTextBelow'
+  | 'colorTextBelow2'
+  | 'colorTextBelow3'
+  | 'colorBg2'
+  | 'colorBgBelow'
+  | 'colorBgBelow2';
+
 // 🔥🔥🔥🔥🔥🔥🔥 DO NOT MODIFY THIS. PLEASE CONTACT DESIGNER. 🔥🔥🔥🔥🔥🔥🔥
-export interface AliasToken extends DerivativeToken {
+export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   // Font
   fontSizeSM: number;
   fontSize: number;

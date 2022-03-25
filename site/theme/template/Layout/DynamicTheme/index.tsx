@@ -5,6 +5,7 @@ import { useIntl } from 'react-intl';
 import { BugOutlined, EyeOutlined } from '@ant-design/icons';
 import { SeedToken } from '../../../../../components/_util/theme';
 import defaultSeedToken from '../../../../../components/_util/theme/themes/default';
+import { PresetColors } from '../../../../../components/_util/theme/interface';
 import Preview from './Preview';
 
 export interface ThemeConfigProps {
@@ -70,6 +71,10 @@ export default ({ onChangeTheme, defaultToken, componentName }: ThemeConfigProps
           autoComplete="off"
         >
           {keys.map((key: keyof typeof defaultToken) => {
+            if (PresetColors.includes(key as any)) {
+              return null;
+            }
+
             const originValue = defaultToken[key];
             const originValueType = typeof originValue;
 
