@@ -179,7 +179,6 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
         top: '50%',
         insetInlineStart: 'auto',
         insetInlineEnd: inputPaddingHorizontalBase,
-        width: token.fontSizeSM,
         height: token.fontSizeSM,
         marginTop: -token.fontSizeSM / 2,
         color: token.colorTextDisabled,
@@ -187,6 +186,8 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
         lineHeight: 1,
         textAlign: 'center',
         pointerEvents: 'none',
+        display: 'flex',
+        alignItems: 'center',
 
         [`.${iconPrefixCls}`]: {
           verticalAlign: 'top',
@@ -203,6 +204,10 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
 
         [`${selectCls}-disabled &`]: {
           cursor: 'not-allowed',
+        },
+
+        '> *:not(:last-child)': {
+          marginInlineEnd: 8, // FIXME: magic
         },
       },
 
@@ -247,23 +252,6 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
     [`${selectCls}-has-feedback`]: {
       [`${selectCls}-clear`]: {
         insetInlineEnd: token.padding * 2,
-      },
-
-      // FIXME: what's this? @MadCcc
-      [`${selectCls}-selection-selected-value`]: {
-        paddingInlineEnd: 42,
-      },
-
-      [`${selectCls}-feedback-icon`]: {
-        fontSize: token.fontSize,
-        textAlign: 'center',
-        visibility: 'visible',
-        animation: `zoomIn ${token.motionDurationSlow} ${token.motionEaseOutBack}`,
-        pointerEvents: 'none',
-
-        '&:not(:first-child)': {
-          marginInlineStart: token.marginXS,
-        },
       },
     },
   };

@@ -96,7 +96,7 @@ export const genStatusStyle = (token: InputToken): CSSObject => {
         }),
       },
 
-      [`.${prefixCls}-feedback-icon, .${prefixCls}-prefix`]: {
+      [`.${prefixCls}-prefix`]: {
         color: colorError,
       },
     },
@@ -114,7 +114,7 @@ export const genStatusStyle = (token: InputToken): CSSObject => {
         }),
       },
 
-      [`.${prefixCls}-feedback-icon, .${prefixCls}-prefix`]: {
+      [`.${prefixCls}-prefix`]: {
         color: colorWarning,
       },
     },
@@ -510,22 +510,6 @@ const genInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
           paddingBottom: 3, // FIXME: magic number
         },
       },
-
-      '&-textarea-show-count': {
-        // https://github.com/ant-design/ant-design/issues/33049
-        [`> .${prefixCls}`]: {
-          height: '100%',
-        },
-
-        '&::after': {
-          textAlign: 'end',
-          color: token.colorTextSecondary,
-          whiteSpace: 'nowrap',
-          content: 'attr(data-count)',
-          pointerEvents: 'none',
-          display: 'block',
-        },
-      },
     },
   };
 };
@@ -633,6 +617,10 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
           display: 'flex',
           flex: 'none',
           alignItems: 'center',
+
+          '> *:not(:last-child)': {
+            marginInlineEnd: 8, // FIXME: magic number
+          },
         },
 
         '&-show-count-suffix': {
@@ -640,7 +628,7 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
         },
 
         '&-show-count-has-suffix': {
-          marginInlineEnd: 2, // FIXME: magic number
+          marginInlineEnd: token.marginXXS,
         },
 
         '&-prefix': {
@@ -667,18 +655,6 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
 
       // status
       ...genStatusStyle(token),
-      '&-status-validating': {
-        [`.${prefixCls}-feedback-icon`]: {
-          display: 'inline-block',
-          color: colorPrimary,
-        },
-      },
-      '&-status-success': {
-        [`.${prefixCls}-feedback-icon`]: {
-          color: colorSuccess,
-          // FIXME: animationName
-        },
-      },
     },
   };
 };
@@ -834,7 +810,7 @@ const genTextAreaStyle: GenerateStyle<InputToken> = token => {
 
   return {
     [textareaPrefixCls]: {
-      [`.${prefixCls}-feedback-icon`]: {
+      [`${textareaPrefixCls}-suffix`]: {
         position: 'absolute',
         top: 0,
         insetInlineEnd: inputPaddingHorizontal,
@@ -852,6 +828,28 @@ const genTextAreaStyle: GenerateStyle<InputToken> = token => {
         [`&${textareaPrefixCls}-has-feedback`]: {
           [`.${prefixCls}`]: {
             paddingInlineEnd: paddingLG,
+          },
+        },
+      },
+
+      '&-show-count': {
+        // https://github.com/ant-design/ant-design/issues/33049
+        [`> .${prefixCls}`]: {
+          height: '100%',
+        },
+
+        '&::after': {
+          textAlign: 'end',
+          color: token.colorTextSecondary,
+          whiteSpace: 'nowrap',
+          content: 'attr(data-count)',
+          pointerEvents: 'none',
+          display: 'block',
+        },
+
+        [`&${textareaPrefixCls}-in-form-item`]: {
+          '&::after': {
+            marginBottom: -Math.floor(token.fontSize * token.lineHeight),
           },
         },
       },
