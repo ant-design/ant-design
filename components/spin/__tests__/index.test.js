@@ -33,13 +33,13 @@ describe('Spin', () => {
 
   it('if indicator set null should not be render default indicator', () => {
     const wrapper = mount(<Spin indicator={null} />);
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('should support static method Spin.setDefaultIndicator', () => {
     Spin.setDefaultIndicator(<em className="custom-spinner" />);
     const wrapper = mount(<Spin />);
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
     Spin.setDefaultIndicator(null);
   });
 

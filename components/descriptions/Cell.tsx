@@ -60,7 +60,7 @@ const Cell: React.FC<CellProps> = ({
       colSpan={span}
     >
       <div className={`${itemPrefixCls}-item-container`}>
-        {label && (
+        {(label || label === 0) && (
           <span
             className={classNames(`${itemPrefixCls}-item-label`, {
               [`${itemPrefixCls}-item-no-colon`]: !colon,
@@ -70,7 +70,7 @@ const Cell: React.FC<CellProps> = ({
             {label}
           </span>
         )}
-        {content && (
+        {(content || content === 0) && (
           <span className={classNames(`${itemPrefixCls}-item-content`)} style={contentStyle}>
             {content}
           </span>
