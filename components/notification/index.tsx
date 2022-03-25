@@ -87,8 +87,9 @@ function getPlacementStyle(
   switch (placement) {
     case 'top':
       style = {
-        left: 0,
-        right: 0,
+        left: 'auto',
+        transform: 'translateX(50%)',
+        right: '50%',
         top,
         bottom: 'auto',
       };
@@ -109,8 +110,9 @@ function getPlacementStyle(
       break;
     case 'bottom':
       style = {
-        left: 0,
-        right: 0,
+        left: 'auto',
+        transform: 'translateX(50%)',
+        right: '50%',
         top: 'auto',
         bottom,
       };
