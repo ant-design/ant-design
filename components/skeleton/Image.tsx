@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import { SkeletonElementProps } from './Element';
-import { ConfigConsumer, ConfigContext } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 
 export interface SkeletonImageProps
   extends Omit<SkeletonElementProps, 'size' | 'shape' | 'active'> {}
@@ -13,25 +13,21 @@ const SkeletonImage = (props: SkeletonImageProps) => {
   const { prefixCls: customizePrefixCls, className, style } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
+  const cls = classNames(prefixCls, `${prefixCls}-element`, className);
 
-  const renderSkeletonImage = () => {
-    const cls = classNames(prefixCls, `${prefixCls}-element`, className);
-
-    return (
-      <div className={cls}>
-        <div className={classNames(`${prefixCls}-image`, className)} style={style}>
-          <svg
-            viewBox="0 0 1098 1024"
-            xmlns="http://www.w3.org/2000/svg"
-            className={`${prefixCls}-image-svg`}
-          >
-            <path d={path} className={`${prefixCls}-image-path`} />
-          </svg>
-        </div>
+  return (
+    <div className={cls}>
+      <div className={classNames(`${prefixCls}-image`, className)} style={style}>
+        <svg
+          viewBox="0 0 1098 1024"
+          xmlns="http://www.w3.org/2000/svg"
+          className={`${prefixCls}-image-svg`}
+        >
+          <path d={path} className={`${prefixCls}-image-path`} />
+        </svg>
       </div>
-    );
-  };
-  return <ConfigConsumer>{renderSkeletonImage}</ConfigConsumer>;
+    </div>
+  );
 };
 
 export default SkeletonImage;
