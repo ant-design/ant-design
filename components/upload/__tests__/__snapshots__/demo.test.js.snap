@@ -3590,7 +3590,7 @@ exports[`renders ./components/upload/demo/upload-with-aliyun-oss.md correctly 1`
             class=""
           >
             <div
-              class="ant-upload ant-upload-select ant-upload-select-text"
+              class="ant-upload ant-upload-select ant-upload-select-text ant-upload-in-form-item"
             >
               <span
                 class="ant-upload"

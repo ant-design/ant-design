@@ -293,13 +293,18 @@ const genSelectStyle = (
   };
 
   return [
-    // ==================== BorderLess ====================
     {
       [selectCls]: {
+        // ==================== BorderLess ====================
         [`&-borderless ${selectCls}-selector`]: {
           backgroundColor: `transparent !important`,
           borderColor: `transparent !important`,
           boxShadow: `none !important`,
+        },
+
+        // ==================== In Form ====================
+        '&&-in-form-item': {
+          width: '100%',
         },
       },
     },
