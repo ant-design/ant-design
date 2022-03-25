@@ -129,7 +129,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (
           animation: `${antProgressActive.getName(
             hashId,
           )} 2.4s cubic-bezier(0.23, 1, 0.32, 1) infinite`,
-          content: '',
+          content: ' ',
         },
       },
 
