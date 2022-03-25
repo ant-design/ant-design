@@ -148,7 +148,6 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         display: 'inline-flex',
         position: 'relative',
         maxWidth: '100%',
-        // FIXME: no sure this style
         marginInlineStart: token.inputPaddingHorizontalBase - selectItemDist,
 
         [`

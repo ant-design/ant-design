@@ -199,7 +199,8 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   fontSizeHeading4: number;
   fontSizeHeading5: number;
 
-  fontWeightHeading: number;
+  /** For heading like h1, h2, h3 or option selected item */
+  fontWeightStrong: number;
 
   // LineHeight
   lineHeight: number;
