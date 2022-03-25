@@ -1,5 +1,7 @@
 import * as React from 'react';
 import type { ComponentToken as ButtonComponentToken } from '../../button/style';
+import type { ComponentToken as DividerComponentToken } from '../../divider/style';
+import type { ComponentToken as TypographyComponentToken } from '../../typography/style';
 
 export const PresetColors = [
   'blue',
@@ -32,6 +34,8 @@ export interface OverrideToken {
 
   // Customize component
   button?: ButtonComponentToken;
+  divider?: DividerComponentToken;
+  typography?: TypographyComponentToken;
 }
 
 /** Final token which contains the components level override */
@@ -87,6 +91,7 @@ export interface SeedToken extends PresetColorType {
   // zIndex
   /** Base zIndex of component like BackTop, Affix which can be cover by large popup */
   zIndexBase: number;
+  zIndexPopover: number;
   /** Base popup component zIndex */
   zIndexPopup: number;
 }
@@ -195,6 +200,9 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   fontSizeHeading4: number;
   fontSizeHeading5: number;
 
+  /** For heading like h1, h2, h3 or option selected item */
+  fontWeightStrong: number;
+
   // LineHeight
   lineHeight: number;
   lineHeightLG: number;
@@ -253,6 +261,7 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   paddingXXS: number;
   paddingLG: number;
   marginXS: number;
+  marginSM: number;
   marginLG: number;
   marginXXS: number;
 }

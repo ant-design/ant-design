@@ -75,7 +75,7 @@ const genInputLargeStyle = (token: InputToken): CSSObject => {
 };
 
 const genInputSmallStyle = (token: InputToken): CSSObject => ({
-  padding: `${token.inputPaddingVerticalSM}px ${token.paddingXS - 1}px`,
+  padding: `${token.inputPaddingVerticalSM}px ${token.controlPaddingHorizontalSM - 1}px`,
 });
 
 export const genStatusStyle = (token: InputToken): CSSObject => {
@@ -785,7 +785,7 @@ export const initInputToken = (
   ...token,
   prefixCls,
   iconPrefixCls,
-  inputAffixMargin: token.marginXXS,
+  inputAffixMargin: token.marginXS,
   inputPaddingVertical: Math.max(
     Math.round(((token.controlHeight - token.fontSize * token.lineHeight) / 2) * 10) / 10 -
       token.controlLineWidth,
@@ -799,7 +799,7 @@ export const initInputToken = (
       token.controlLineWidth,
     0,
   ),
-  inputPaddingHorizontal: token.paddingSM - token.controlLineWidth,
+  inputPaddingHorizontal: token.controlPaddingHorizontal - token.controlLineWidth,
   inputBorderHoverColor: token.colorPrimaryHover,
   inputBorderActiveColor: token.colorPrimaryHover,
 });

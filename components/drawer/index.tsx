@@ -4,6 +4,9 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import { ConfigContext } from '../config-provider';
 import { tuple } from '../_util/type';
+// CSSINJS
+import useStyle from './style';
+
 import useForceUpdate from '../_util/hooks/useForceUpdate';
 
 type DrawerRef = {
@@ -109,8 +112,13 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
     const parentDrawer = React.useContext(DrawerContext);
     const destroyClose = React.useRef<boolean>(false);
 
-    const { getPopupContainer, getPrefixCls, direction } = React.useContext(ConfigContext);
+    const { getPopupContainer, getPrefixCls, direction, iconPrefixCls } =
+      React.useContext(ConfigContext);
     const prefixCls = getPrefixCls('drawer', customizePrefixCls);
+
+    // Style
+    const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls);
+
     const getContainer =
       // 有可能为 false，所以不能直接判断
       customizeGetContainer === undefined && getPopupContainer
@@ -297,10 +305,11 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
         [`${prefixCls}-rtl`]: direction === 'rtl',
       },
       className,
+      hashId,
     );
     const offsetStyle = mask ? getOffsetStyle() : {};
 
-    return (
+    return wrapSSR(
       <DrawerContext.Provider value={operations}>
         <RcDrawer
           handler={false}
@@ -323,7 +332,7 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
         >
           {renderBody()}
         </RcDrawer>
-      </DrawerContext.Provider>
+      </DrawerContext.Provider>,
     );
   },
 );

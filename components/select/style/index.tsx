@@ -96,7 +96,6 @@ const genStatusStyle = (
 
         [`${selectCls}-focused& ${selectCls}-selector`]: {
           borderColor: borderHoverColor,
-          // FIXME: missing variable of `@input-outline-offset`
           boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${outlineColor}`,
           borderInlineEndWidth: `${token.controlLineWidth}px !important`,
           outline: 0,
@@ -241,8 +240,10 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
         '&:hover': {
           color: token.colorTextSecondary,
         },
+      },
 
-        [`${selectCls}:hover &`]: {
+      '&:hover': {
+        [`${selectCls}-clear`]: {
           opacity: 1,
         },
       },
@@ -251,7 +252,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
     // ========================= Feedback ==========================
     [`${selectCls}-has-feedback`]: {
       [`${selectCls}-clear`]: {
-        insetInlineEnd: token.padding * 2,
+        insetInlineEnd: inputPaddingHorizontalBase + token.fontSize + token.paddingXXS,
       },
     },
   };

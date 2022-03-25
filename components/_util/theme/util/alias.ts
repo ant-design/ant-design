@@ -79,8 +79,9 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     controlLineType: 'solid',
     controlRadius: mergedToken.radiusBase,
     colorBorder: new TinyColor({ h: 0, s: 0, v: 85 }).toHexString(),
-    colorSplit: new TinyColor({ h: 0, s: 0, v: 94 }).toHexString(),
+    colorSplit: 'rgba(0, 0, 0, 0.06)',
     controlItemBgActive: primaryColors[0],
+    fontWeightStrong: 600,
 
     // 🔥🔥🔥🔥🔥🔥🔥🔥🔥 All TMP Token leaves here 🔥🔥🔥🔥🔥🔥🔥🔥🔥
     // FIXME: Handle this when derivative is ready
@@ -97,21 +98,21 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     linkHoverDecoration: 'none',
     linkFocusDecoration: 'none',
 
-    controlPaddingHorizontal: 16,
-    controlPaddingHorizontalSM: 12,
+    controlPaddingHorizontal: 12,
+    controlPaddingHorizontalSM: 8,
 
     padding: 16,
     margin: 16,
 
-    paddingXXS: 2,
-    paddingXS: 4,
-    paddingSM: 8,
-    paddingLG: 32,
+    paddingXXS: 4,
+    paddingXS: 8,
+    paddingSM: 12,
+    paddingLG: 24,
 
-    marginXXS: 2,
-    marginXS: 4,
-    // marginSM: 8,
-    marginLG: 32,
+    marginXXS: 4,
+    marginXS: 8,
+    marginSM: 12,
+    marginLG: 24,
 
     boxShadow: `
       0 3px 6px -4px rgba(0, 0, 0, 0.12),
