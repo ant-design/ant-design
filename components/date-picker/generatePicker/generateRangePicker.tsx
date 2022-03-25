@@ -14,7 +14,7 @@ import LocaleReceiver from '../../locale-provider/LocaleReceiver';
 import { getRangePlaceholder, transPlacement2DropdownAlign } from '../util';
 import { RangePickerProps, PickerLocale, getTimeProps, Components } from '.';
 import { PickerComponentClass } from './interface';
-import { FormItemStatusContext } from '../../form/context';
+import { FormItemInputContext } from '../../form/context';
 import { getFeedbackIcon, getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
 
 export default function generateRangePicker<DateType>(
@@ -40,13 +40,13 @@ export default function generateRangePicker<DateType>(
     };
 
     renderFeedback = (prefixCls: string) => (
-      <FormItemStatusContext.Consumer>
+      <FormItemInputContext.Consumer>
         {({ hasFeedback, status: contextStatus }) => {
           const { status: customStatus } = this.props;
           const status = getMergedStatus(contextStatus, customStatus);
           return hasFeedback && getFeedbackIcon(prefixCls, status);
         }}
-      </FormItemStatusContext.Consumer>
+      </FormItemInputContext.Consumer>
     );
 
     renderSuffix = (prefixCls: string, mergedPicker?: PickerMode) => (
@@ -88,7 +88,7 @@ export default function generateRangePicker<DateType>(
             const mergedSize = customizeSize || size;
 
             return (
-              <FormItemStatusContext.Consumer>
+              <FormItemInputContext.Consumer>
                 {({ hasFeedback, status: contextStatus }) => (
                   <RCRangePicker<DateType>
                     separator={
@@ -129,7 +129,7 @@ export default function generateRangePicker<DateType>(
                     direction={direction}
                   />
                 )}
-              </FormItemStatusContext.Consumer>
+              </FormItemInputContext.Consumer>
             );
           }}
         </SizeContext.Consumer>

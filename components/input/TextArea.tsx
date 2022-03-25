@@ -6,7 +6,7 @@ import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
-import { FormItemStatusContext } from '../form/context';
+import { FormItemInputContext } from '../form/context';
 import {
   getFeedbackIcon,
   getStatusClassNames,
@@ -80,7 +80,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
     const { getPrefixCls, direction, iconPrefixCls } = React.useContext(ConfigContext);
     const size = React.useContext(SizeContext);
 
-    const { status: contextStatus, hasFeedback } = React.useContext(FormItemStatusContext);
+    const { status: contextStatus, hasFeedback } = React.useContext(FormItemInputContext);
     const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
     const innerRef = React.useRef<RcTextArea>(null);
