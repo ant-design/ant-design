@@ -20,7 +20,7 @@ const genItemStyle: GenerateStyle<SelectToken, CSSObject> = token => {
     padding: `${
       (token.controlHeight - token.fontSize * token.lineHeight) / 2
     }px ${controlPaddingHorizontal}px`,
-    color: token.textColor,
+    color: token.colorText,
     fontWeight: 'normal',
     fontSize: token.fontSize,
     lineHeight: token.lineHeight,
@@ -49,8 +49,8 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token, hashId) => {
         // https://github.com/ant-design/ant-design/issues/11456
         // https://github.com/ant-design/ant-design/issues/11843
         fontVariant: 'initial',
-        backgroundColor: token.componentBackground,
-        borderRadius: token.borderRadius,
+        backgroundColor: token.colorBgComponent,
+        borderRadius: token.controlRadius,
         outline: 'none',
         boxShadow: token.boxShadow,
 
@@ -81,23 +81,23 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token, hashId) => {
         },
 
         '&-empty': {
-          color: token.textColorDisabled,
+          color: token.colorTextDisabled,
         },
 
         // ========================= Options =========================
         [`${selectItemCls}-empty`]: {
           ...genItemStyle(token),
-          color: token.textColorDisabled,
+          color: token.colorTextDisabled,
         },
 
         [`${selectItemCls}`]: {
           ...genItemStyle(token),
           cursor: 'pointer',
-          transition: `background ${token.duration} ease`,
+          transition: `background ${token.motionDurationSlow} ease`,
 
           // =========== Group ============
           '&-group': {
-            color: token.textColorSecondary,
+            color: token.colorTextSecondary,
             fontSize: token.fontSizeSM,
             cursor: 'default',
           },
@@ -118,24 +118,24 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token, hashId) => {
             },
 
             [`&-active:not(${selectItemCls}-option-disabled)`]: {
-              backgroundColor: token.itemHoverBackground,
+              backgroundColor: token.controlItemBgHover,
             },
 
             [`&-selected:not(${selectItemCls}-option-disabled)`]: {
-              color: token.textColor,
+              color: token.colorText,
               fontWeight: 600, // FIXME: Need design token?
-              backgroundColor: token.itemActiveBackground,
+              backgroundColor: token.controlItemBgActive,
 
               [`${selectItemCls}-option-state`]: {
-                color: token.primaryColor,
+                color: token.colorPrimary,
               },
             },
             '&-disabled': {
               [`&${selectItemCls}-option-selected`]: {
-                backgroundColor: token.componentBackgroundDisabled,
+                backgroundColor: token.colorBgComponentDisabled,
               },
 
-              color: token.textColorDisabled,
+              color: token.colorTextDisabled,
               cursor: 'not-allowed',
             },
 

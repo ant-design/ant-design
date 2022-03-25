@@ -111,7 +111,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (
         textAlign: 'center',
         background: token.badgeColor,
         borderRadius: token.badgeHeight / 2,
-        boxShadow: `0 0 0 1px ${token.componentBackground}`,
+        boxShadow: `0 0 0 1px ${token.colorBgComponent}`,
         a: {
           color: token.badgeTextColor,
         },
@@ -139,7 +139,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (
         height: token.badgeDotSize,
         background: token.badgeColor,
         borderRadius: '100%',
-        boxShadow: `0 0 0 1px ${token.componentBackground}`,
+        boxShadow: `0 0 0 1px ${token.colorBgComponent}`,
       },
       [`.${badgePrefixCls}-dot.${numberPrefixCls}`]: {
         transition: 'background 1.5s', // FIXME: hard code, copied from old less file
@@ -152,7 +152,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (
         transformOrigin: '100% 0%',
         [`.${iconPrefixCls}-spin`]: {
           animation: `${antBadgeLoadingCircle.getName(hashId)} ${
-            token.durationFast
+            token.motionDurationFast
           } infinite linear`,
         },
       },
@@ -171,11 +171,11 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (
         },
 
         [`.${badgePrefixCls}-status-success`]: {
-          backgroundColor: token.successColor,
+          backgroundColor: token.colorSuccess,
         },
         [`.${badgePrefixCls}-status-processing`]: {
           position: 'relative',
-          backgroundColor: token.primaryColor,
+          backgroundColor: token.colorPrimary,
 
           '&::after': {
             position: 'absolute',
@@ -183,7 +183,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (
             insetInlineStart: 0,
             width: '100%',
             height: '100%',
-            border: `1px solid ${token.primaryColor}`,
+            border: `1px solid ${token.colorPrimary}`,
             borderRadius: '50%',
             animation: `${antStatusProcessing.getName(hashId)} 1.2s infinite ease-in-out`, // FIXME: hard code, copied from old less file
             content: '""',
@@ -194,37 +194,41 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (
         },
 
         [`.${badgePrefixCls}-status-error`]: {
-          backgroundColor: token.errorColor,
+          backgroundColor: token.colorError,
         },
 
         [`.${badgePrefixCls}-status-warning`]: {
-          backgroundColor: token.warningColor,
+          backgroundColor: token.colorWarning,
         },
         ...statusPreset,
         [`.${badgePrefixCls}-status-text`]: {
           marginInlineStart: token.marginXS,
-          color: token.textColor,
+          color: token.colorText,
           fontSize: token.fontSize,
         },
       },
       [`.${badgePrefixCls}-zoom-appear, .${badgePrefixCls}-zoom-enter`]: {
-        animation: `${antZoomBadgeIn.getName(hashId)} ${token.duration} ${token.easeOutBack}`,
+        animation: `${antZoomBadgeIn.getName(hashId)} ${token.motionDurationSlow} ${
+          token.motionEaseOutBack
+        }`,
         animationFillMode: 'both',
       },
       [`.${badgePrefixCls}-zoom-leave`]: {
-        animation: `${antZoomBadgeOut.getName(hashId)} ${token.duration} ${token.easeOutBack}`,
+        animation: `${antZoomBadgeOut.getName(hashId)} ${token.motionDurationSlow} ${
+          token.motionEaseOutBack
+        }`,
         animationFillMode: 'both',
       },
       [`&.${badgePrefixCls}-not-a-wrapper`]: {
         [`.${badgePrefixCls}-zoom-appear, .${badgePrefixCls}-zoom-enter`]: {
-          animation: `${antNoWrapperZoomBadgeIn.getName(hashId)} ${token.duration} ${
-            token.easeOutBack
+          animation: `${antNoWrapperZoomBadgeIn.getName(hashId)} ${token.motionDurationSlow} ${
+            token.motionEaseOutBack
           }`,
         },
 
         [`.${badgePrefixCls}-zoom-leave`]: {
-          animation: `${antNoWrapperZoomBadgeOut.getName(hashId)} ${token.duration} ${
-            token.easeOutBack
+          animation: `${antNoWrapperZoomBadgeOut.getName(hashId)} ${token.motionDurationSlow} ${
+            token.motionEaseOutBack
           }`,
         },
         [`&:not(.${badgePrefixCls}-status)`]: {
@@ -247,7 +251,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (
           position: 'relative',
           display: 'inline-block',
           height: token.badgeHeight,
-          transition: `all ${token.duration} ${token.easeOutBack}`,
+          transition: `all ${token.motionDurationSlow} ${token.motionEaseOutBack}`,
           WebkitTransformStyle: 'preserve-3d',
           WebkitBackfaceVisibility: 'hidden',
           [`> p.${numberPrefixCls}-only-unit`]: {
@@ -268,10 +272,10 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (
       height: 22, // FIXME: hard code, copied from old less file
       padding: `0 ${token.paddingXS}px`,
       color: token.badgeTextColor,
-      lineHeight: '22px', // FIXME: hard code, copied from old less file
+      lineHeight: '22px', // colorPrimarycode, copied from old less file
       whiteSpace: 'nowrap',
-      backgroundColor: token.primaryColor,
-      borderRadius: token.borderRadius,
+      backgroundColor: token.colorPrimary,
+      borderRadius: token.controlRadius,
       [`.${ribbonPrefixCls}-text`]: { color: '#fff' },
       [`.${ribbonPrefixCls}-corner`]: {
         position: 'absolute',
@@ -330,10 +334,10 @@ export default function useStyle(
 
   const badgeZIndex = 'auto';
   const badgeHeight = 20; // FIXME: hard code
-  const badgeTextColor = token.componentBackground;
+  const badgeTextColor = token.colorBgComponent;
   const badgeFontWeight = 'normal';
   const badgeFontSize = token.fontSizeSM;
-  const badgeColor = token.highlightColor;
+  const badgeColor = token.colorHighlight;
   const badgeHeightSm = 14; // FIXME: hard code
   const badgeDotSize = 6; // FIXME: hard code
   const badgeFontSizeSm = token.fontSizeSM;

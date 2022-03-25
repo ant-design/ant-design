@@ -73,7 +73,7 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token, hashId) => {
                   height: 'auto',
 
                   [cascaderMenuItemCls]: {
-                    color: token.textColorDisabled,
+                    color: token.colorTextDisabled,
                     cursor: 'default',
                     pointerEvents: 'none',
                   },
@@ -90,7 +90,7 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token, hashId) => {
               overflow: 'auto',
               verticalAlign: 'top',
               listStyle: 'none',
-              borderInlineEnd: `${token.borderWidth}px ${token.borderStyle} ${token.borderColorSplit}`,
+              borderInlineEnd: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorSplit}`,
               '-ms-overflow-style': '-ms-autohiding-scrollbar', // https://github.com/ant-design/ant-design/issues/11857
 
               '&-item': {
@@ -103,13 +103,13 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token, hashId) => {
                 whiteSpace: 'nowrap',
                 textOverflow: 'ellipsis',
                 cursor: 'pointer',
-                transition: `all ${token.duration}`,
+                transition: `all ${token.motionDurationSlow}`,
 
                 '&:hover': {
-                  background: token.itemHoverBackground,
+                  background: token.controlItemBgHover,
                 },
                 ' &-disabled': {
-                  color: token.textColorDisabled,
+                  color: token.colorTextDisabled,
                   cursor: 'not-allowed',
 
                   '&:hover': {
@@ -117,14 +117,14 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token, hashId) => {
                   },
 
                   [iconCls]: {
-                    color: token.textColorDisabled,
+                    color: token.colorTextDisabled,
                   },
                 },
 
                 [`&-active:not(${cascaderMenuItemCls}-disabled)`]: {
                   [`&, &:hover`]: {
                     fontWeight: 600, // FIXME: hardcode
-                    backgroundColor: token.itemActiveBackground,
+                    backgroundColor: token.controlItemBgActive,
                   },
                 },
 
@@ -134,12 +134,12 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token, hashId) => {
 
                 [iconCls]: {
                   marginInlineStart: token.paddingXXS,
-                  color: token.textColorSecondary,
+                  color: token.colorTextSecondary,
                   fontSize: 10, // FIXME: hardcode in v4
                 },
 
                 '&-keyword': {
-                  color: token.highlightColor,
+                  color: token.colorHighlight,
                 },
               },
             },

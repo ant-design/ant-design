@@ -3,10 +3,51 @@ import * as React from 'react';
 import hljs from 'highlight.js';
 import css from 'highlight.js/lib/languages/css';
 import 'highlight.js/styles/github.css';
-import { Drawer, Typography, Alert, Space, Tabs } from 'antd';
+import { Drawer, Typography, Alert, Space, Tabs, ConfigProvider, Table, TableProps } from 'antd';
 import getValidateStatus, { STATUS, PASS } from './validateCheck';
 
 hljs.registerLanguage('css', css);
+
+const columns: TableProps<{ name: string; value: any }>['columns'] = [
+  {
+    dataIndex: 'name',
+    title: 'Name',
+    width: 1,
+  },
+  {
+    dataIndex: 'value',
+    title: 'Value',
+    render: (value: string) => {
+      let content: React.ReactNode = value;
+
+      switch (typeof value) {
+        case 'object': {
+          if (Array.isArray(value)) {
+            content = (
+              <ul style={{ margin: 0 }}>
+                {(value as string[]).map((val, index) => (
+                  <li key={index}>
+                    <Space size="large">
+                      <span style={{ userSelect: 'none' }}>[{index}]</span>
+                      {val}
+                    </Space>
+                  </li>
+                ))}
+              </ul>
+            );
+            break;
+          }
+        }
+
+        // eslint-disable-next-line no-fallthrough
+        default:
+          content = String(value);
+      }
+
+      return <span style={{ wordBreak: 'break-word' }}>{content}</span>;
+    },
+  },
+];
 
 export interface PreviewProps {
   visible: boolean;
@@ -16,6 +57,19 @@ export interface PreviewProps {
 
 export default function Preview({ visible, onClose }: PreviewProps) {
   const [styleList, setStyleList] = React.useState<string[]>([]);
+
+  // Full token
+  const [, token] = ConfigProvider.useToken();
+  const tokenList = React.useMemo(
+    () =>
+      Object.keys(token)
+        .filter(name => !name.startsWith('_'))
+        .map((name: keyof typeof token) => ({
+          name,
+          value: token[name],
+        })),
+    [token],
+  );
 
   React.useEffect(() => {
     const observer = new MutationObserver(() => {
@@ -133,6 +187,16 @@ export default function Preview({ visible, onClose }: PreviewProps) {
               <pre key={index} dangerouslySetInnerHTML={{ __html: style }} />
             ))}
           </Typography>
+        </Tabs.TabPane>
+        <Tabs.TabPane tab="Token" key="token">
+          <Table
+            dataSource={tokenList}
+            columns={columns}
+            rowKey="name"
+            bordered
+            size="small"
+            pagination={false}
+          />
         </Tabs.TabPane>
         <Tabs.TabPane tab="Analysis" key="analysis">
           <Space style={{ width: '100%' }} direction="vertical">

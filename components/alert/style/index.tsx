@@ -2,7 +2,6 @@
 // import './index.less';
 
 // deps-lint-skip-all
-import { generate } from '@ant-design/colors';
 import { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 
 import {
@@ -23,22 +22,6 @@ type AlertToken = DerivativeToken & {
   alertCloseColor: string;
   alertCloseHoverColor: string;
 
-  alertInfoBgColor: string;
-  alertInfoIconColor: string;
-  alertInfoBorderColor: string;
-
-  alertSuccessBgColor: string;
-  alertSuccessIconColor: string;
-  alertSuccessBorderColor: string;
-
-  alertWarningBgColor: string;
-  alertWarningIconColor: string;
-  alertWarningBorderColor: string;
-
-  alertErrorBgColor: string;
-  alertErrorIconColor: string;
-  alertErrorBorderColor: string;
-
   alertWithDescriptionIconSize: number;
   alertWithDescriptionPaddingVertical: number;
   alertWithDescriptionNoIconPaddingVertical: number;
@@ -52,7 +35,7 @@ const genAlertTypeStyle = (
   alertCls: string,
 ): CSSObject => ({
   backgroundColor: bgColor,
-  border: `${token.borderWidth}px ${token.borderStyle} ${borderColor}`,
+  border: `${token.controlLineWidth}px ${token.controlLineType} ${borderColor}`,
   [`${alertCls}-icon`]: {
     color: iconColor,
   },
@@ -61,12 +44,12 @@ const genAlertTypeStyle = (
 export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSObject => {
   const {
     alertCls,
-    duration,
+    motionDurationSlow: duration,
     marginXS,
     fontSize,
     fontSizeLG,
-    borderRadius,
-    easeInOutCirc,
+    controlRadius: borderRadius,
+    motionEaseInOutCirc,
     alertMessageColor,
     alertWithDescriptionIconSize,
     alertWithDescriptionPaddingVertical,
@@ -109,9 +92,9 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
       '&&-motion-leave': {
         overflow: 'hidden',
         opacity: 1,
-        transition: `max-height ${duration} ${easeInOutCirc}, opacity ${duration} ${easeInOutCirc},
-        padding-top ${duration} ${easeInOutCirc}, padding-bottom ${duration} ${easeInOutCirc},
-        margin-bottom ${duration} ${easeInOutCirc}`,
+        transition: `max-height ${duration} ${motionEaseInOutCirc}, opacity ${duration} ${motionEaseInOutCirc},
+        padding-top ${duration} ${motionEaseInOutCirc}, padding-bottom ${duration} ${motionEaseInOutCirc},
+        margin-bottom ${duration} ${motionEaseInOutCirc}`,
       },
 
       '&&-motion-leave-active': {
@@ -161,54 +144,43 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
 export const genTypeStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSObject => {
   const {
     alertCls,
-    alertInfoBgColor,
-    alertInfoIconColor,
-    alertInfoBorderColor,
 
-    alertSuccessBgColor,
-    alertSuccessIconColor,
-    alertSuccessBorderColor,
+    colorSuccess,
+    colorSuccessSecondary,
+    colorBgSuccess,
 
-    alertWarningBgColor,
-    alertWarningIconColor,
-    alertWarningBorderColor,
+    colorWarning,
+    colorWarningSecondary,
+    colorBgWarning,
 
-    alertErrorBgColor,
-    alertErrorIconColor,
-    alertErrorBorderColor,
+    colorError,
+    colorErrorSecondary,
+    colorBgError,
+
+    colorInfo,
+    colorInfoSecondary,
+    colorBgInfo,
   } = token;
 
   return {
     [alertCls]: {
       '&-success': genAlertTypeStyle(
-        alertSuccessBgColor,
-        alertSuccessBorderColor,
-        alertSuccessIconColor,
+        colorBgSuccess,
+        colorSuccessSecondary,
+        colorSuccess,
         token,
         alertCls,
       ),
-      '&-info': genAlertTypeStyle(
-        alertInfoBgColor,
-        alertInfoBorderColor,
-        alertInfoIconColor,
-        token,
-        alertCls,
-      ),
+      '&-info': genAlertTypeStyle(colorBgInfo, colorInfoSecondary, colorInfo, token, alertCls),
       '&-warning': genAlertTypeStyle(
-        alertWarningBgColor,
-        alertWarningBorderColor,
-        alertWarningIconColor,
+        colorBgWarning,
+        colorWarningSecondary,
+        colorWarning,
         token,
         alertCls,
       ),
       '&-error': {
-        ...genAlertTypeStyle(
-          alertErrorBgColor,
-          alertErrorBorderColor,
-          alertErrorIconColor,
-          token,
-          alertCls,
-        ),
+        ...genAlertTypeStyle(colorBgError, colorErrorSecondary, colorError, token, alertCls),
         [`${alertCls}-description > pre`]: {
           margin: 0,
           padding: 0,
@@ -222,7 +194,7 @@ export const genActionStyle: GenerateStyle<AlertToken> = (token: AlertToken): CS
   const {
     alertCls,
     iconPrefixCls,
-    duration,
+    motionDurationSlow: duration,
     marginXS,
     fontSizeSM,
     alertCloseColor,
@@ -280,51 +252,18 @@ export default function useStyle(
 
   const alertCls = `.${prefixCls}`;
 
-  const alertMessageColor = token.headingColor;
-  const alertCloseColor = token.textColorSecondary;
-  const alertCloseHoverColor = token.iconColorHover;
+  const alertMessageColor = token.colorTextHeading;
+  const alertCloseColor = token.colorAction;
+  const alertCloseHoverColor = token.colorActionHover;
   // FIXME
   const alertWithDescriptionIconSize = 24;
   const alertWithDescriptionPaddingVertical = token.padding - 1;
   const alertWithDescriptionNoIconPaddingVertical = token.padding - 1;
 
-  // FIXME
-  const infoColors = generate(token.infoColor);
-  const alertInfoBgColor = infoColors[0];
-  const alertInfoIconColor = token.infoColor;
-  const alertInfoBorderColor = infoColors[2];
-
-  const successColors = generate(token.successColor);
-  const alertSuccessBgColor = successColors[0];
-  const alertSuccessIconColor = token.successColor;
-  const alertSuccessBorderColor = successColors[2];
-
-  const warningColors = generate(token.warningColor);
-  const alertWarningBgColor = warningColors[0];
-  const alertWarningIconColor = token.warningColor;
-  const alertWarningBorderColor = warningColors[2];
-
-  const errorColors = generate(token.errorColor);
-  const alertErrorBgColor = errorColors[0];
-  const alertErrorIconColor = token.errorColor;
-  const alertErrorBorderColor = errorColors[2];
-
   const alertToken: AlertToken = {
     ...token,
     alertCls,
     iconPrefixCls,
-    alertInfoBgColor,
-    alertInfoIconColor,
-    alertInfoBorderColor,
-    alertSuccessBgColor,
-    alertSuccessIconColor,
-    alertSuccessBorderColor,
-    alertWarningBgColor,
-    alertWarningIconColor,
-    alertWarningBorderColor,
-    alertErrorBgColor,
-    alertErrorIconColor,
-    alertErrorBorderColor,
     alertMessageColor,
     alertCloseColor,
     alertCloseHoverColor,

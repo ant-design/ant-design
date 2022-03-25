@@ -1,4 +1,5 @@
 import * as React from 'react';
+import type { ComponentToken as ButtonComponentToken } from '../../button/style';
 
 export const PresetColors = [
   'blue',
@@ -26,37 +27,20 @@ export type ColorPalettes = {
   [key in `${keyof PresetColorType}-${ColorPaletteKeyIndex}`]: string;
 };
 
-export interface PresetScreenSizesType {
-  screenXS: number;
-  screenSM: number;
-  screenMD: number;
-  screenLG: number;
-  screenXL: number;
-  screenXXL: number;
-}
-
-export type PresetScreenMinSizesType = {
-  [key in `${keyof PresetScreenSizesType}Min`]: number;
-};
-
-export type PresetScreenMaxSizesType = {
-  [key in `${keyof Omit<PresetScreenSizesType, 'screenXXL'>}Max`]: number;
-};
-
-export interface PresetScreenSizesCollectType
-  extends PresetScreenSizesType,
-    PresetScreenMinSizesType,
-    PresetScreenMaxSizesType {}
-
 export interface OverrideToken {
-  derivative: Partial<DerivativeToken & AliasToken>;
-  [componentName: string]: object; // FIXME: tmp of component token
+  derivative?: Partial<DerivativeToken & AliasToken>;
+
+  // Customize component
+  button?: ButtonComponentToken;
 }
+
+/** Final token which contains the components level override */
+export type GlobalToken = AliasToken & Omit<OverrideToken, 'derivative'>;
 
 // ======================================================================
 // ==                            Seed Token                            ==
 // ======================================================================
-
+// 🔥🔥🔥🔥🔥🔥🔥 DO NOT MODIFY THIS. PLEASE CONTACT DESIGNER. 🔥🔥🔥🔥🔥🔥🔥
 export interface SeedToken extends PresetColorType {
   // Color
   colorPrimary: string;
@@ -66,6 +50,7 @@ export interface SeedToken extends PresetColorType {
   colorInfo: string;
   colorText: string;
   colorTextLightSolid: string;
+  /** Base component background color. Will derivative container background color with this */
   colorBg: string;
 
   // Font
@@ -77,11 +62,12 @@ export interface SeedToken extends PresetColorType {
   gridBaseStep: number;
 
   // Line
+  /** Border width of base components */
   lineWidth: number;
 
   // Motion
   motionUnit: number;
-  motionBaseStep: number;
+  motionBase: number;
   motionEaseInOutCirc: string;
   motionEaseInOut: string;
   motionEaseOutBack: string;
@@ -94,34 +80,63 @@ export interface SeedToken extends PresetColorType {
   // Size
   sizeUnit: number;
   sizeBaseStep: number;
+
+  // Control Base
+  controlHeight: number;
+
+  // zIndex
+  /** Base zIndex of component like BackTop, Affix which can be cover by large popup */
+  zIndexBase: number;
+  /** Base popup component zIndex */
+  zIndexPopup: number;
 }
 
 // ======================================================================
 // ==                         Derivative Token                         ==
 // ======================================================================
-
-export interface DerivativeToken extends SeedToken, ColorPalettes, PresetScreenSizesCollectType {
+// 🔥🔥🔥🔥🔥🔥🔥 DO NOT MODIFY THIS. PLEASE CONTACT DESIGNER. 🔥🔥🔥🔥🔥🔥🔥
+export interface DerivativeToken extends SeedToken, ColorPalettes {
   // Color
+  /** Used for DefaultButton, Switch which has default outline */
+  colorDefaultOutline: string;
+
   colorPrimaryHover: string;
   colorPrimaryActive: string;
+  colorPrimaryOutline: string;
+  colorPrimarySecondary: string; // primary[2]
+
+  colorSuccessSecondary: string;
+  colorBgSuccess: string; // success[0]
+
   colorWarningHover: string;
   colorWarningActive: string;
+  colorWarningOutline: string;
+  colorWarningSecondary: string;
+  colorBgWarning: string;
+
   colorErrorHover: string;
   colorErrorActive: string;
+  colorErrorOutline: string;
+  colorErrorSecondary: string;
+  colorBgError: string;
+
+  colorInfoSecondary: string;
+  colorBgInfo: string;
 
   colorText2: string;
   colorTextBelow: string;
   colorTextBelow2: string;
   colorTextBelow3: string;
 
+  colorBg2: string;
   colorBgBelow: string;
   colorBgBelow2: string;
 
+  colorHighlight: string;
+
   // Font
-  fontSizeSM: number;
-  fontSizeLG: number;
-  fontSize: number;
-  fontSizeXL: number;
+  fontSizes: number[];
+  lineHeights: number[];
 
   // Size
   sizeSpace: number;
@@ -135,106 +150,102 @@ export interface DerivativeToken extends SeedToken, ColorPalettes, PresetScreenS
   gridSpaceLG: number;
   gridSpaceXL: number;
   gridSpaceXXL: number;
-  gridColumns: number;
 
   // Motion
-  motionDurationBase: string;
-  motionDurationMd: string;
   motionDurationFast: string;
+  motionDurationMid: string;
   motionDurationSlow: string;
-  fontHeight: number;
 
   // Radius
   radiusSM: number;
   radiusLG: number;
   radiusXL: number;
+
+  // Control
+  /** @private Only Used for control inside component like Multiple Select inner selection item */
+  controlHeightXS: number;
+  controlHeightSM: number;
+  controlHeightLG: number;
 }
 
 // ======================================================================
 // ==                           Alias Token                            ==
 // ======================================================================
 // FIXME: DerivativeToken should part pick
-export interface AliasToken extends DerivativeToken {
-  // =============== Legacy: should be remove ===============
-  primaryColor: string;
-  successColor: string;
-  warningColor: string;
-  errorColor: string;
-  infoColor: string;
+type OmitDerivativeKey =
+  | 'colorText2'
+  | 'colorTextBelow'
+  | 'colorTextBelow2'
+  | 'colorTextBelow3'
+  | 'colorBg2'
+  | 'colorBgBelow'
+  | 'colorBgBelow2';
 
-  lineHeight: number;
-  borderWidth: number;
-  borderStyle: string;
-  borderRadius: number;
-  borderColor: string;
-  borderColorSplit: string;
-
-  easeInOut: string;
-  easeInOutCirc: string;
-  easeOutBack: string;
-  easeInQuint: string;
-  easeOutQuint: string;
-
-  outlineWidth: number;
-  outlineBlurSize: number;
-
+// 🔥🔥🔥🔥🔥🔥🔥 DO NOT MODIFY THIS. PLEASE CONTACT DESIGNER. 🔥🔥🔥🔥🔥🔥🔥
+export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
+  // Font
+  fontSizeSM: number;
   fontSize: number;
-  fontFamily: string;
-  textColor: string;
-  textColorSecondary: string;
-  textColorDisabled: string;
-  textColorInverse: string;
-  placeholderColor: string;
+  fontSizeLG: number;
+  fontSizeXL: number;
 
-  disabledColor: string;
+  fontSizeHeading1: number;
+  fontSizeHeading2: number;
+  fontSizeHeading3: number;
+  fontSizeHeading4: number;
+  fontSizeHeading5: number;
 
-  iconColorHover: string;
+  // LineHeight
+  lineHeight: number;
+  lineHeightLG: number;
 
-  headingColor: string;
+  lineHeightHeading1: number;
+  lineHeightHeading2: number;
+  lineHeightHeading3: number;
+  lineHeightHeading4: number;
+  lineHeightHeading5: number;
 
-  itemHoverBackground: string;
+  // Control
+  controlLineWidth: number;
+  controlLineType: string;
+  controlRadius: number;
+  controlOutlineWidth: number;
+  controlItemBgHover: string; // Note. It also is a color
+  controlItemBgActive: string; // Note. It also is a color
 
-  controlHeight: number;
+  // Color
+  colorBorder: string;
+  colorSplit: string;
+  colorTextSecondary: string;
+  colorTextDisabled: string;
+  /** Placeholder text color */
+  colorPlaceholder: string;
+  colorTextHeading: string;
 
+  /** Weak action. Such as `allowClear` or Alert close button */
+  colorAction: string;
+  /** Weak action hover color. Such as `allowClear` or Alert close button */
+  colorActionHover: string;
+
+  colorLink: string;
+  colorLinkHover: string;
+  colorLinkActive: string;
+
+  colorBgContainer: string;
+  colorBgComponent: string;
+  colorBgComponentSecondary: string;
+  colorBgComponentDisabled: string;
+
+  // =============== Legacy: should be remove ===============
   padding: number;
   margin: number;
 
-  background: string;
-  backgroundLight: string;
+  boxShadow: string;
 
-  componentBackground: string;
-  componentBackgroundDisabled: string;
-
-  zIndexDropdown: number;
-
-  boxShadow?: string;
-
-  // =============== Legacy: should be remove ===============
-  primaryHoverColor: string;
-  primaryActiveColor: string;
-  primaryOutlineColor: string;
-  errorHoverColor: string;
-  errorActiveColor: string;
-  errorOutlineColor: string;
-  warningHoverColor: string;
-  warningOutlineColor: string;
-  itemActiveBackground: string;
-
-  highlightColor: string;
-
-  linkColor: string;
-  linkHoverColor: string;
-  linkActiveColor: string;
   linkDecoration: React.CSSProperties['textDecoration'];
   linkHoverDecoration: React.CSSProperties['textDecoration'];
   linkFocusDecoration: React.CSSProperties['textDecoration'];
 
-  fontSizeSM: number;
-  fontSizeLG: number;
-  /** @private Only Used for control inside component like Multiple Select inner selection item */
-  controlHeightXS: number;
-  controlHeightSM: number;
-  controlHeightLG: number;
   controlPaddingHorizontal: number;
   controlPaddingHorizontalSM: number;
   paddingSM: number;
@@ -244,36 +255,4 @@ export interface AliasToken extends DerivativeToken {
   marginXS: number;
   marginLG: number;
   marginXXS: number;
-
-  duration: string;
-  durationMid: string;
-  durationFast: string;
-
-  heading1Size: number;
-  heading2Size: number;
-  heading3Size: number;
-  heading4Size: number;
-  heading5Size: number;
-
-  primaryColors: string[];
-  errorColors: string[];
-  warningColors: string[];
-
-  // TMP
-  tmpPrimaryColorWeak: string;
-  tmpPrimaryHoverColorWeak: string;
-  // Checked background for Checkable Tag
-  tmpPrimaryColor6: string;
-  // Active background for Checkable Tag
-  tmpPrimaryColor7: string;
-
-  tmpSuccessColorDeprecatedBg: string;
-  tmpWarningColorDeprecatedBg: string;
-  tmpErrorColorDeprecatedBg: string;
-  tmpInfoColorDeprecatedBg: string;
-
-  tmpSuccessColorDeprecatedBorder: string;
-  tmpWarningColorDeprecatedBorder: string;
-  tmpErrorColorDeprecatedBorder: string;
-  tmpInfoColorDeprecatedBorder: string;
 }

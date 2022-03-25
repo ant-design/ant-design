@@ -21,11 +21,11 @@ const genStatisticStyle: GenerateStyle<StatisticToken> = (token: StatisticToken)
     ...resetComponent(token),
     [`${token.statisticCls}-title`]: {
       marginBottom: token.marginXXS,
-      color: token.textColorSecondary,
+      color: token.colorTextSecondary,
       fontSize: token.statisticTitleFontSize,
     },
     [`${token.statisticCls}-content`]: {
-      color: token.headingColor,
+      color: token.colorTextHeading,
       fontSize: token.statisticContentFontSize,
       fontFamily: token.statisticFontFamily,
       [`${token.statisticCls}-content-value`]: {

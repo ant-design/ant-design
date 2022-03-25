@@ -6,22 +6,16 @@ import useMemo from 'rc-util/lib/hooks/useMemo';
 import { RenderEmptyHandler } from './renderEmpty';
 import LocaleProvider, { ANT_MARK, Locale } from '../locale-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import {
-  ConfigConsumer,
-  ConfigContext,
-  CSPConfig,
-  DirectionType,
-  ConfigConsumerProps,
-  Theme,
-  defaultIconPrefixCls,
-} from './context';
+import { ConfigConsumer, ConfigContext, defaultIconPrefixCls } from './context';
+import type { CSPConfig, DirectionType, ConfigConsumerProps, Theme, ThemeConfig } from './context';
 import SizeContext, { SizeContextProvider, SizeType } from './SizeContext';
 import message from '../message';
 import notification from '../notification';
 import { RequiredMark } from '../form/Form';
 import { registerTheme } from './cssVariables';
 import defaultLocale from '../locale/default';
-import { SeedToken, DesignTokenContext } from '../_util/theme';
+import { DesignTokenContext, useToken } from '../_util/theme';
+import useTheme from './hooks/useTheme';
 import defaultSeedToken from '../_util/theme/themes/default';
 
 export {
@@ -83,10 +77,7 @@ export interface ConfigProviderProps {
   };
   virtual?: boolean;
   dropdownMatchSelectWidth?: boolean;
-  theme?: {
-    token?: Partial<SeedToken>;
-    hashed?: boolean;
-  };
+  theme?: ThemeConfig;
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -166,7 +157,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     legacyLocale,
     parentContext,
     iconPrefixCls,
-    theme = {},
+    theme,
   } = props;
 
   const getPrefixCls = React.useCallback(
@@ -182,6 +173,8 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     [parentContext.getPrefixCls, props.prefixCls],
   );
 
+  const mergedTheme = useTheme(theme, parentContext.theme);
+
   const config = {
     ...parentContext,
     csp,
@@ -192,6 +185,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     virtual,
     dropdownMatchSelectWidth,
     getPrefixCls,
+    theme: mergedTheme,
   };
 
   // Pass the props used by `useContext` directly with child component.
@@ -257,19 +251,19 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
   }
 
   // ================================ Dynamic theme ================================
-  // FIXME: Multiple theme support for pass Theme & override
   const memoTheme = React.useMemo(
     () => ({
+      ...mergedTheme,
+
       token: {
         ...defaultSeedToken,
-        ...theme?.token,
+        ...mergedTheme?.token,
       },
-      hashed: theme?.hashed,
     }),
-    [theme?.token, theme?.hashed],
+    [mergedTheme],
   );
 
-  if (theme?.token || theme?.hashed) {
+  if (theme) {
     childNode = (
       <DesignTokenContext.Provider value={memoTheme}>{childNode}</DesignTokenContext.Provider>
     );
@@ -284,6 +278,7 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
   ConfigContext: typeof ConfigContext;
   SizeContext: typeof SizeContext;
   config: typeof setGlobalConfig;
+  useToken: typeof useToken;
 } = props => {
   React.useEffect(() => {
     if (props.direction) {
@@ -316,5 +311,6 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
 ConfigProvider.ConfigContext = ConfigContext;
 ConfigProvider.SizeContext = SizeContext;
 ConfigProvider.config = setGlobalConfig;
+ConfigProvider.useToken = useToken;
 
 export default ConfigProvider;

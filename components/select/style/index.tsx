@@ -25,6 +25,7 @@ export type SelectToken = DerivativeToken & {
   selectCls: string;
   iconPrefixCls: string;
   inputPaddingHorizontalBase: number;
+  zIndexDropdown: number;
 };
 
 // ============================= Selector =============================
@@ -33,10 +34,10 @@ const genSelectorStyle: GenerateStyle<SelectToken, CSSObject> = token => {
 
   return {
     position: 'relative',
-    backgroundColor: token.componentBackground,
-    border: `${token.borderWidth}px ${token.borderStyle} ${token.borderColor}`,
-    borderRadius: token.borderRadius,
-    transition: `all ${token.duration} ${token.easeInOut}`,
+    backgroundColor: token.colorBgComponent,
+    border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
+    borderRadius: token.controlRadius,
+    transition: `all ${token.motionDurationSlow} ${token.motionEaseInOut}`,
 
     input: {
       cursor: 'pointer',
@@ -51,12 +52,12 @@ const genSelectorStyle: GenerateStyle<SelectToken, CSSObject> = token => {
     },
 
     [`${selectCls}-disabled&`]: {
-      color: token.textColorDisabled,
-      background: token.componentBackgroundDisabled,
+      color: token.colorTextDisabled,
+      background: token.colorBgComponentDisabled,
       cursor: 'not-allowed',
 
       [`${selectCls}-multiple&`]: {
-        background: token.componentBackgroundDisabled,
+        background: token.colorBgComponentDisabled,
       },
 
       input: {
@@ -73,9 +74,8 @@ const genStatusStyle = (
     selectCls: string;
     borderHoverColor: string;
     outlineColor: string;
-    outlineWidth: number;
-    outlineBlurSize: number;
-    borderWidth: number;
+    controlOutlineWidth: number;
+    controlLineWidth: number;
   },
   overwriteDefaultBorder: boolean = false,
 ): CSSObject => {
@@ -97,14 +97,14 @@ const genStatusStyle = (
         [`${selectCls}-focused& ${selectCls}-selector`]: {
           borderColor: borderHoverColor,
           // FIXME: missing variable of `@input-outline-offset`
-          boxShadow: `0 0 ${token.outlineBlurSize}px ${token.outlineWidth}px ${outlineColor}`,
-          borderInlineEndWidth: `${token.borderWidth}px !important`,
+          boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${outlineColor}`,
+          borderInlineEndWidth: `${token.controlLineWidth}px !important`,
           outline: 0,
         },
 
         [`&:hover ${selectCls}-selector`]: {
           borderColor: borderHoverColor,
-          borderInlineEndWidth: `${token.borderWidth}px !important`,
+          borderInlineEndWidth: `${token.controlLineWidth}px !important`,
         },
       },
     },
@@ -166,7 +166,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
       [`${selectCls}-selection-placeholder`]: {
         flex: 1,
         overflow: 'hidden',
-        color: token.placeholderColor,
+        color: token.colorPlaceholder,
         whiteSpace: 'nowrap',
         textOverflow: 'ellipsis',
         pointerEvents: 'none',
@@ -182,7 +182,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
         width: token.fontSizeSM,
         height: token.fontSizeSM,
         marginTop: -token.fontSizeSM / 2,
-        color: token.textColorDisabled,
+        color: token.colorTextDisabled,
         fontSize: token.fontSizeSM,
         lineHeight: 1,
         textAlign: 'center',
@@ -190,7 +190,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
 
         [`.${iconPrefixCls}`]: {
           verticalAlign: 'top',
-          transition: `transform ${token.duration}`,
+          transition: `transform ${token.motionDurationSlow}`,
 
           '> svg': {
             verticalAlign: 'top',
@@ -217,16 +217,16 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
         width: token.fontSizeSM,
         height: token.fontSizeSM,
         marginTop: -token.fontSizeSM / 2,
-        color: token.textColorDisabled,
+        color: token.colorTextDisabled,
         fontSize: token.fontSizeSM,
         fontStyle: 'normal',
         lineHeight: 1,
         textAlign: 'center',
         textTransform: 'none',
-        background: token.componentBackground,
+        background: token.colorBgComponent,
         cursor: 'pointer',
         opacity: 0,
-        transition: `color ${token.duration} ease, opacity ${token.duration} ease`,
+        transition: `color ${token.motionDurationSlow} ease, opacity ${token.motionDurationSlow} ease`,
         textRendering: 'auto',
 
         '&:before': {
@@ -234,7 +234,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
         },
 
         '&:hover': {
-          color: token.textColorSecondary,
+          color: token.colorTextSecondary,
         },
 
         [`${selectCls}:hover &`]: {
@@ -258,7 +258,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
         fontSize: token.fontSize,
         textAlign: 'center',
         visibility: 'visible',
-        animation: `zoomIn ${token.duration} ${token.easeOutBack}`,
+        animation: `zoomIn ${token.motionDurationSlow} ${token.motionEaseOutBack}`,
         pointerEvents: 'none',
 
         '&:not(:first-child)': {
@@ -289,16 +289,22 @@ const genSelectStyle = (
     selectCls,
     iconPrefixCls,
     inputPaddingHorizontalBase,
+    zIndexDropdown: token.zIndexPopup + 50,
   };
 
   return [
-    // ==================== BorderLess ====================
     {
       [selectCls]: {
+        // ==================== BorderLess ====================
         [`&-borderless ${selectCls}-selector`]: {
           backgroundColor: `transparent !important`,
           borderColor: `transparent !important`,
           boxShadow: `none !important`,
+        },
+
+        // ==================== In Form ====================
+        '&&-in-form-item': {
+          width: '100%',
         },
       },
     },
@@ -332,15 +338,15 @@ const genSelectStyle = (
     // =====================================================
     genStatusStyle(selectCls, {
       ...selectToken,
-      borderHoverColor: token.primaryHoverColor,
-      outlineColor: token.primaryOutlineColor,
+      borderHoverColor: token.colorPrimaryHover,
+      outlineColor: token.colorPrimaryOutline,
     }),
     genStatusStyle(
       `${selectCls}-status-error`,
       {
         ...selectToken,
-        borderHoverColor: token.errorHoverColor,
-        outlineColor: token.errorOutlineColor,
+        borderHoverColor: token.colorErrorHover,
+        outlineColor: token.colorErrorOutline,
       },
       true,
     ),
@@ -348,8 +354,8 @@ const genSelectStyle = (
       `${selectCls}-status-warning`,
       {
         ...selectToken,
-        borderHoverColor: token.warningHoverColor,
-        outlineColor: token.warningOutlineColor,
+        borderHoverColor: token.colorWarningHover,
+        outlineColor: token.colorWarningOutline,
       },
       true,
     ),

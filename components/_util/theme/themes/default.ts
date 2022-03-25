@@ -2,15 +2,8 @@
 
 import { generate } from '@ant-design/colors';
 import { TinyColor } from '@ctrl/tinycolor';
-import type {
-  PresetColorType,
-  SeedToken,
-  DerivativeToken,
-  ColorPalettes,
-  PresetScreenMinSizesType,
-  PresetScreenSizesType,
-  PresetScreenMaxSizesType,
-} from '../interface';
+import type { PresetColorType, SeedToken, DerivativeToken, ColorPalettes } from '../interface';
+import { getFontSizes } from './shared';
 
 const defaultPresetColors: PresetColorType = {
   blue: '#1890FF',
@@ -28,51 +21,29 @@ const defaultPresetColors: PresetColorType = {
   lime: '#A0D911',
 };
 
-// screenXs and screenXsMin is not used in Grid
-// smallest break point is screenMd
-const presetScreenSizes: PresetScreenSizesType = {
-  screenXS: 480,
-  screenSM: 576,
-  screenMD: 768,
-  screenLG: 992,
-  screenXL: 1200,
-  screenXXL: 1600,
-};
-
-// Deal with the default min screen size
-const presetScreenMinSizes: PresetScreenMinSizesType = Object.keys(presetScreenSizes)
-  .map((key: keyof PresetScreenSizesType) => ({
-    [`${key}Min`]: presetScreenSizes[key],
-  }))
-  .reduce((pre, cur) => ({ ...pre, ...cur }), {}) as PresetScreenMinSizesType;
-
-// Deal with the default max screen size
-const presetScreenMaxSizes: PresetScreenMaxSizesType = {
-  screenXSMax: presetScreenSizes.screenSM - 1,
-  screenSMMax: presetScreenSizes.screenMD - 1,
-  screenMDMax: presetScreenSizes.screenLG - 1,
-  screenLGMax: presetScreenSizes.screenXL - 1,
-  screenXLMax: presetScreenSizes.screenXXL - 1,
-};
-
 export function derivative(token: SeedToken): DerivativeToken {
   const {
     colorPrimary,
+    colorSuccess,
     colorWarning,
     colorError,
+    colorInfo,
     motionUnit,
-    motionBaseStep,
+    motionBase,
     fontSizeBase,
     sizeUnit,
     sizeBaseStep,
     gridUnit,
     gridBaseStep,
     radiusBase,
+    controlHeight,
   } = token;
 
   const primaryColors = generate(colorPrimary);
+  const successColors = generate(colorSuccess);
   const warningColors = generate(colorWarning);
   const errorColors = generate(colorError);
+  const infoColors = generate(colorInfo);
 
   const colorPalettes = Object.keys(defaultPresetColors)
     .map((colorKey: keyof PresetColorType) => {
@@ -91,21 +62,24 @@ export function derivative(token: SeedToken): DerivativeToken {
       return prev;
     }, {} as ColorPalettes);
 
+  const fontSizes = getFontSizes(fontSizeBase);
+
+  const colorBg2 = new TinyColor({ h: 0, s: 0, v: 98 }).toHexString();
+  const colorBgBelow = new TinyColor({ h: 0, s: 0, v: 98 }).toHexString();
+  const colorBgBelow2 = new TinyColor({ h: 0, s: 0, v: 96 }).toHexString();
+
   return {
     ...token,
     ...colorPalettes,
 
     // motion
-    motionDurationBase: `${motionUnit * motionBaseStep}s`,
-    motionDurationMd: `${motionUnit * (motionBaseStep - 1)}s`,
-    motionDurationFast: `${motionUnit * (motionBaseStep - 2)}s`,
-    motionDurationSlow: `${motionUnit * (motionBaseStep + 1)}s`,
+    motionDurationFast: `${motionBase + motionUnit * 1}s`,
+    motionDurationMid: `${motionBase + motionUnit * 2}s`,
+    motionDurationSlow: `${motionBase + motionUnit * 3}s`,
 
     // font
-    fontSize: fontSizeBase,
-    fontSizeSM: fontSizeBase - 2,
-    fontSizeLG: fontSizeBase + 2,
-    fontSizeXL: fontSizeBase + 4,
+    fontSizes: fontSizes.map(fs => fs.size),
+    lineHeights: fontSizes.map(fs => fs.lineHeight),
 
     // size
     sizeSpaceSM: sizeUnit * (sizeBaseStep - 1),
@@ -125,17 +99,37 @@ export function derivative(token: SeedToken): DerivativeToken {
     radiusLG: radiusBase * 2,
     radiusXL: radiusBase * 4,
 
-    // color //
+    // color
+    colorBg2,
+    colorBgBelow,
+    colorBgBelow2,
 
-    colorBgBelow: new TinyColor({ h: 0, s: 0, v: 98 }).toHexString(),
-    colorBgBelow2: new TinyColor({ h: 0, s: 0, v: 96 }).toHexString(),
+    colorDefaultOutline: colorBgBelow2,
+
+    colorPrimaryActive: primaryColors[6],
+    colorPrimaryHover: primaryColors[4],
+    colorPrimaryOutline: new TinyColor(colorPrimary).setAlpha(0.2).toRgbString(),
+    colorPrimarySecondary: primaryColors[2],
+
+    colorSuccessSecondary: successColors[2],
+    colorBgSuccess: successColors[0],
 
     colorErrorActive: errorColors[6],
     colorErrorHover: errorColors[4],
-    colorPrimaryActive: primaryColors[6],
-    colorPrimaryHover: primaryColors[4],
+    colorErrorOutline: new TinyColor(colorError).setAlpha(0.2).toRgbString(),
+    colorErrorSecondary: errorColors[2],
+    colorBgError: errorColors[0],
+
     colorWarningActive: warningColors[6],
     colorWarningHover: warningColors[4],
+    colorWarningOutline: new TinyColor(colorWarning).setAlpha(0.2).toRgbString(),
+    colorWarningSecondary: warningColors[2],
+    colorBgWarning: warningColors[0],
+
+    colorInfoSecondary: infoColors[2],
+    colorBgInfo: infoColors[0],
+
+    colorHighlight: errorColors[4],
 
     // text color
     colorText2: new TinyColor('#000').setAlpha(0.85).toRgbString(),
@@ -144,14 +138,10 @@ export function derivative(token: SeedToken): DerivativeToken {
     colorTextBelow2: new TinyColor('#000').setAlpha(0.25).toRgbString(),
     colorTextBelow3: new TinyColor({ h: 0, s: 0, v: 75 }).setAlpha(0.5).toRgbString(),
 
-    // FIXME: should be currentFontSize + 8
-    fontHeight: fontSizeBase + 8,
-
-    gridColumns: 24,
-    // preset screen size
-    ...presetScreenSizes,
-    ...presetScreenMinSizes,
-    ...presetScreenMaxSizes,
+    // control
+    controlHeightSM: controlHeight * 0.75,
+    controlHeightXS: controlHeight * 0.5,
+    controlHeightLG: controlHeight * 1.25,
   };
 }
 
@@ -185,7 +175,7 @@ const seedToken: SeedToken = {
 
   // Motion
   motionUnit: 0.1,
-  motionBaseStep: 3,
+  motionBase: 0,
   motionEaseInOutCirc: `cubic-bezier(0.78, 0.14, 0.15, 0.86)`,
   motionEaseInOut: `cubic-bezier(0.645, 0.045, 0.355, 1)`,
   motionEaseOutBack: `cubic-bezier(0.12, 0.4, 0.29, 1.46)`,
@@ -198,6 +188,13 @@ const seedToken: SeedToken = {
   // Size
   sizeUnit: 4,
   sizeBaseStep: 4,
+
+  // Control Base
+  controlHeight: 32,
+
+  // zIndex
+  zIndexBase: 0,
+  zIndexPopup: 1000,
 };
 
 export default seedToken;

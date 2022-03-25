@@ -2,19 +2,73 @@
 // import './index.less';
 import { CSSObject } from '@ant-design/cssinjs';
 import {
-  DerivativeToken,
   useStyleRegister,
   useToken,
   UseComponentStyleResult,
   GenerateStyle,
+  DerivativeToken,
 } from '../../_util/theme';
 
-interface GridToken extends DerivativeToken {
+export interface PresetScreenSizesType {
+  screenXS: number;
+  screenSM: number;
+  screenMD: number;
+  screenLG: number;
+  screenXL: number;
+  screenXXL: number;
+}
+
+export type PresetScreenMinSizesType = {
+  [key in `${keyof PresetScreenSizesType}Min`]: number;
+};
+
+export type PresetScreenMaxSizesType = {
+  [key in `${keyof Omit<PresetScreenSizesType, 'screenXXL'>}Max`]: number;
+};
+
+export interface PresetScreenSizesCollectType
+  extends PresetScreenSizesType,
+    PresetScreenMinSizesType,
+    PresetScreenMaxSizesType {}
+
+interface GridRowToken extends DerivativeToken {
   gridCls: string;
 }
 
+interface GridColToken extends DerivativeToken, PresetScreenSizesCollectType {
+  gridCls: string;
+  gridColumns: number;
+}
+
+// screenXs and screenXsMin is not used in Grid
+// smallest break point is screenMd
+const presetScreenSizes: PresetScreenSizesType = {
+  screenXS: 480,
+  screenSM: 576,
+  screenMD: 768,
+  screenLG: 992,
+  screenXL: 1200,
+  screenXXL: 1600,
+};
+
+// Deal with the default min screen size
+const presetScreenMinSizes: PresetScreenMinSizesType = Object.keys(presetScreenSizes)
+  .map((key: keyof PresetScreenSizesType) => ({
+    [`${key}Min`]: presetScreenSizes[key],
+  }))
+  .reduce((pre, cur) => ({ ...pre, ...cur }), {}) as PresetScreenMinSizesType;
+
+// Deal with the default max screen size
+const presetScreenMaxSizes: PresetScreenMaxSizesType = {
+  screenXSMax: presetScreenSizes.screenSM - 1,
+  screenSMMax: presetScreenSizes.screenMD - 1,
+  screenMDMax: presetScreenSizes.screenLG - 1,
+  screenLGMax: presetScreenSizes.screenXL - 1,
+  screenXLMax: presetScreenSizes.screenXXL - 1,
+};
+
 // ============================== Row-Shared ==============================
-const genGridRowStyle: GenerateStyle<GridToken> = (token): CSSObject => {
+const genGridRowStyle: GenerateStyle<GridRowToken> = (token): CSSObject => {
   const { gridCls } = token;
 
   return {
@@ -72,7 +126,7 @@ const genGridRowStyle: GenerateStyle<GridToken> = (token): CSSObject => {
 };
 
 // ============================== Col-Shared ==============================
-const genGridColStyle: GenerateStyle<GridToken> = (token): CSSObject => {
+const genGridColStyle: GenerateStyle<GridColToken> = (token): CSSObject => {
   const { gridCls } = token;
 
   return {
@@ -86,7 +140,7 @@ const genGridColStyle: GenerateStyle<GridToken> = (token): CSSObject => {
   };
 };
 
-const genLoopGridColumnsStyle = (token: GridToken, sizeCls: string): CSSObject => {
+const genLoopGridColumnsStyle = (token: GridColToken, sizeCls: string): CSSObject => {
   const { gridCls, gridColumns } = token;
 
   const gridColumnsStyle: CSSObject = {};
@@ -137,10 +191,14 @@ const genLoopGridColumnsStyle = (token: GridToken, sizeCls: string): CSSObject =
   return gridColumnsStyle;
 };
 
-const genGridStyle = (token: GridToken, sizeCls: string): CSSObject =>
+const genGridStyle = (token: GridColToken, sizeCls: string): CSSObject =>
   genLoopGridColumnsStyle(token, sizeCls);
 
-const genGridMediaStyle = (token: GridToken, screenSize: number, sizeCls: string): CSSObject => ({
+const genGridMediaStyle = (
+  token: GridColToken,
+  screenSize: number,
+  sizeCls: string,
+): CSSObject => ({
   [`@media (min-width: ${screenSize}px)`]: {
     ...genGridStyle(token, sizeCls),
   },
@@ -149,7 +207,7 @@ const genGridMediaStyle = (token: GridToken, screenSize: number, sizeCls: string
 // ============================== Export ==============================
 export function useRowStyle(prefixCls: string): UseComponentStyleResult {
   const [theme, token, hashId] = useToken();
-  const gridToken: GridToken = {
+  const gridToken: GridRowToken = {
     ...token,
     gridCls: `.${prefixCls}`,
   };
@@ -164,8 +222,13 @@ export function useRowStyle(prefixCls: string): UseComponentStyleResult {
 
 export function useColStyle(prefixCls: string): UseComponentStyleResult {
   const [theme, token, hashId] = useToken();
-  const gridToken: GridToken = {
+
+  const gridToken: GridColToken = {
     ...token,
+    ...presetScreenSizes,
+    ...presetScreenMinSizes,
+    ...presetScreenMaxSizes,
+    gridColumns: 24,
     gridCls: `.${prefixCls}`,
   };
 

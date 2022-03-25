@@ -135,7 +135,7 @@ const genSwitchInnerStyle: GenerateStyle<SwitchToken, CSSObject> = token => {
       display: 'block',
       marginInlineEnd: token.switchInnerMarginMin,
       marginInlineStart: token.switchInnerMarginMax,
-      color: token.textColorInverse,
+      color: token.colorTextLightSolid,
       fontSize: token.fontSizeSM,
       transition: `margin-inline-end ${token.switchDuration}, margin-inline-start ${token.switchDuration}`,
     },
@@ -161,25 +161,20 @@ const genSwitchStyle = (token: SwitchToken): CSSObject => {
       height: token.switchHeight,
       lineHeight: `${token.switchHeight}px`,
       verticalAlign: 'middle',
-      backgroundColor: token.textColorDisabled,
+      backgroundColor: token.colorTextDisabled,
       border: '0',
-      // FIXME
       borderRadius: 100,
       cursor: 'pointer',
       transition: `all ${token.switchDuration}`,
       userSelect: 'none',
 
-      '&:focus': {
+      '&:focus-visible': {
         outline: 0,
-        // FIXME
-        boxShadow: `0 0 0 2px ${new TinyColor(token.textColorDisabled)
-          .setAlpha(0.1)
-          .toRgbString()}`,
+        boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${token.colorDefaultOutline}`,
       },
 
-      [`&${token.switchCls}-checked:focus`]: {
-        // FIXME
-        boxShadow: `0 0 0 2px ${token.tmpPrimaryHoverColorWeak}`,
+      [`&${token.switchCls}-checked:focus-visible`]: {
+        boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${token.colorPrimaryOutline}`,
       },
 
       '&:focus:hover': {
@@ -235,13 +230,13 @@ export default function useStyle(
     switchMinWidth: 44,
     switchHeight,
     switchDuration: '0.2s',
-    switchColor: token.primaryColor,
+    switchColor: token.colorPrimary,
     switchDisabledOpacity: 0.4,
     switchInnerMarginMin: Math.ceil(switchHeight * 0.3),
     switchInnerMarginMax: Math.ceil(switchHeight * 1.1),
     switchPadding: 2,
     switchPinSize: switchHeight - 4,
-    switchBg: token.componentBackground,
+    switchBg: token.colorBgComponent,
     switchShadowColor: new TinyColor('#00230b').setAlpha(0.2).toRgbString(),
     switchMinWidthSM: 28,
     switchHeightSM,
