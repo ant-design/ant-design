@@ -6,8 +6,6 @@ import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import SearchOutlined from '@ant-design/icons/SearchOutlined';
-import { ValidateStatus } from '../../form/FormItem';
-import { getFeedbackIcon } from '../../_util/statusUtils';
 
 export default function getIcons({
   suffixIcon,
@@ -17,9 +15,9 @@ export default function getIcons({
   loading,
   multiple,
   hasFeedback,
-  status,
   prefixCls,
   showArrow,
+  feedbackIcon,
 }: {
   suffixIcon?: React.ReactNode;
   clearIcon?: React.ReactNode;
@@ -28,7 +26,7 @@ export default function getIcons({
   loading?: boolean;
   multiple?: boolean;
   hasFeedback?: boolean;
-  status?: ValidateStatus;
+  feedbackIcon?: ReactNode;
   prefixCls: string;
   showArrow?: boolean;
 }) {
@@ -42,7 +40,7 @@ export default function getIcons({
   const getSuffixIconNode = (arrowIcon?: ReactNode) => (
     <>
       {showArrow !== false && arrowIcon}
-      {hasFeedback && getFeedbackIcon(prefixCls, status)}
+      {hasFeedback && feedbackIcon}
     </>
   );
 

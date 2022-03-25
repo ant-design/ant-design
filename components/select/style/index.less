@@ -147,6 +147,10 @@
     .@{select-prefix-cls}-disabled & {
       cursor: not-allowed;
     }
+
+    > *:not(:last-child) {
+      margin-inline-end: @padding-xs;
+    }
   }
 
   // ========================== Clear ==========================
