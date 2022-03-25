@@ -178,7 +178,6 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
         top: '50%',
         insetInlineStart: 'auto',
         insetInlineEnd: inputPaddingHorizontalBase,
-        width: token.fontSizeSM,
         height: token.fontSizeSM,
         marginTop: -token.fontSizeSM / 2,
         color: token.colorTextDisabled,

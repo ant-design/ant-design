@@ -123,7 +123,7 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token, hashId) => {
 
                 [`&-active:not(${cascaderMenuItemCls}-disabled)`]: {
                   [`&, &:hover`]: {
-                    fontWeight: 600, // FIXME: hardcode
+                    fontWeight: token.fontWeightStrong,
                     backgroundColor: token.controlItemBgActive,
                   },
                 },
