@@ -11,7 +11,7 @@ import {
   InputStatus,
 } from '../_util/statusUtils';
 import { ConfigContext } from '../config-provider';
-import { FormItemStatusContext, NoFormStatus } from '../form/context';
+import { FormItemInputContext, NoFormStatus } from '../form/context';
 import { hasPrefixSuffix } from './utils';
 import devWarning from '../_util/devWarning';
 
@@ -151,7 +151,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   const mergedSize = customSize || size;
 
   // ===================== Status =====================
-  const { status: contextStatus, hasFeedback } = useContext(FormItemStatusContext);
+  const { status: contextStatus, hasFeedback } = useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
   // ===================== Focus warning =====================
