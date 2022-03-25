@@ -8,34 +8,37 @@ import {
   resetComponent,
 } from '../../_util/theme';
 
-interface ProgressToken extends DerivativeToken{
-  progressCls: string,
-  iconPrefixCls: string,
-  fontSizeBase: number,
-  stepsItemBg: string,
-  defaultColor: string,
-  remainingColor: string,
-  radius: string,
-  infoTextColor: string,
-  circleTextFontSize: string,
-  textFontSize: string,
-  duration: string,
+interface ProgressToken extends DerivativeToken {
+  progressCls: string;
+  iconPrefixCls: string;
+  fontSizeBase: number;
+  stepsItemBg: string;
+  defaultColor: string;
+  remainingColor: string;
+  radius: string;
+  infoTextColor: string;
+  circleTextFontSize: string;
+  textFontSize: string;
+  duration: string;
 }
 
-const genBaseStyle: GenerateStyle<ProgressToken> = (token: ProgressToken, hashId: string): CSSObject => {
-  const { progressCls, iconPrefixCls} = token
+const genBaseStyle: GenerateStyle<ProgressToken> = (
+  token: ProgressToken,
+  hashId: string,
+): CSSObject => {
+  const { progressCls, iconPrefixCls } = token;
 
   const antProgressActive = new Keyframes('antProgressActive', {
     '0%': {
-      transform: "translateX(-100%) scaleX(0)",
+      transform: 'translateX(-100%) scaleX(0)',
       opacity: 0.1, // FIXME: hard code in v4
     },
     '20%': {
-      transform: "translateX(-100%) scaleX(0)",
+      transform: 'translateX(-100%) scaleX(0)',
       opacity: 0.5, // FIXME: hard code in v4
     },
     to: {
-      transform: "translateX(0) scaleX(1)",
+      transform: 'translateX(0) scaleX(1)',
       opacity: 0, // FIXME: hard code in v4
     },
   });
@@ -63,7 +66,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token: ProgressToken, hashId
         [`${progressCls}-outer`]: {
           marginInlineEnd: 'calc(-2em - 8px)',
           paddingInlineEnd: 'calc(2em + 8px)',
-        }
+        },
       },
 
       [`${progressCls}-inner`]: {
@@ -73,20 +76,20 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token: ProgressToken, hashId
         overflow: 'hidden',
         verticalAlign: 'middle',
         backgroundColor: token.remainingColor,
-        borderRadius: token.radius
+        borderRadius: token.radius,
       },
 
       [`${progressCls}-inner:not(${progressCls}-circle-gradient)`]: {
         [`${progressCls}-circle-path`]: {
           stroke: token.defaultColor,
-        }
+        },
       },
 
       [`&${progressCls}-success-bg,${progressCls}-bg`]: {
         position: 'relative',
         backgroundColor: token.defaultColor,
         borderRadius: token.radius,
-        transition: `all ${token.motionDurationSlow} cubic-bezier(0.08, 0.82, 0.17, 1) 0s`
+        transition: `all ${token.motionDurationSlow} cubic-bezier(0.08, 0.82, 0.17, 1) 0s`,
       },
 
       [`${progressCls}-success-bg`]: {
@@ -98,7 +101,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token: ProgressToken, hashId
 
       [`${progressCls}-text`]: {
         display: 'inline-block',
-        width: '2em',  // FIXME: hardcode in v4
+        width: '2em', // FIXME: hardcode in v4
         marginInlineStart: '8px', // FIXME: hard code in v4
         color: token.infoTextColor,
         fontSize: token.textFontSize,
@@ -108,8 +111,8 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token: ProgressToken, hashId
         verticalAlign: 'middle',
         wordBreak: 'normal',
         [`.${iconPrefixCls}`]: {
-          fontSize: token.fontSizeBase
-        }
+          fontSize: token.fontSizeBase,
+        },
       },
 
       [`&${progressCls}-status-active`]: {
@@ -123,49 +126,49 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token: ProgressToken, hashId
           background: '#fff',
           borderRadius: '10px', // FIXME: hard code in v4
           opacity: 0,
-          animation: `${antProgressActive.getName(hashId)} 2.4s cubic-bezier(0.23, 1, 0.32, 1) infinite`,
-          content: ''
+          animation: `${antProgressActive.getName(
+            hashId,
+          )} 2.4s cubic-bezier(0.23, 1, 0.32, 1) infinite`,
+          content: '',
         },
       },
 
       [`&${progressCls}-status-exception`]: {
         [`${progressCls}-bg`]: {
-          backgroundColor: token.colorError
+          backgroundColor: token.colorError,
         },
         [`${progressCls}-text`]: {
-          color: token.colorError
-        }
+          color: token.colorError,
+        },
       },
 
-      [`&${progressCls}-status-exception ${progressCls}-inner:not(${progressCls}-circle-gradient)`]: {
-        [`${progressCls}-circle-path`]: {
-          stroke: token.colorError
-        }
-      },
+      [`&${progressCls}-status-exception ${progressCls}-inner:not(${progressCls}-circle-gradient)`]:
+        {
+          [`${progressCls}-circle-path`]: {
+            stroke: token.colorError,
+          },
+        },
 
       [`&${progressCls}-status-success`]: {
         [`${progressCls}-bg`]: {
-          backgroundColor: token.colorSuccess
+          backgroundColor: token.colorSuccess,
         },
         [`${progressCls}-text`]: {
           color: token.colorSuccess,
-        }
+        },
       },
 
       [`&${progressCls}-status-success ${progressCls}-inner:not(${progressCls}-circle-gradient)`]: {
         [`${progressCls}-circle-path`]: {
-          stroke: token.colorSuccess
-        }
+          stroke: token.colorSuccess,
+        },
       },
-
     },
-
-  }
-
-}
+  };
+};
 
 const genCircleStyle: GenerateStyle<ProgressToken> = (token: ProgressToken): CSSObject => {
-  const { progressCls, iconPrefixCls} = token;
+  const { progressCls, iconPrefixCls } = token;
 
   return {
     [progressCls]: {
@@ -177,12 +180,12 @@ const genCircleStyle: GenerateStyle<ProgressToken> = (token: ProgressToken): CSS
         stroke: token.remainingColor,
       },
       [`${progressCls}-circle-path`]: {
-        animation: `ant-progress-appear ${token.duration}`
+        animation: `ant-progress-appear ${token.duration}`,
       },
       [`&${progressCls}-circle ${progressCls}-inner`]: {
         position: 'relative',
         lineHeight: 1,
-        backgroundColor: 'transparent'
+        backgroundColor: 'transparent',
       },
 
       [`&${progressCls}-circle ${progressCls}-text`]: {
@@ -201,27 +204,27 @@ const genCircleStyle: GenerateStyle<ProgressToken> = (token: ProgressToken): CSS
 
         [`.${iconPrefixCls}`]: {
           // fixme do not work 14em/12em
-          fontSize: '1.17em'
-        }
+          fontSize: '1.17em',
+        },
       },
 
       [`${progressCls}-circle&-status-exception`]: {
         [`${progressCls}-text`]: {
-          color: token.colorError
-        }
+          color: token.colorError,
+        },
       },
 
       [`${progressCls}-circle&-status-success`]: {
         [`${progressCls}-text`]: {
-          color: token.colorSuccess
-        }
-      }
-    }
-  }
-}
+          color: token.colorSuccess,
+        },
+      },
+    },
+  };
+};
 
 const genStepStyle: GenerateStyle<ProgressToken> = (token: ProgressToken): CSSObject => {
-  const { progressCls } = token
+  const { progressCls } = token;
 
   return {
     [progressCls]: {
@@ -240,28 +243,29 @@ const genStepStyle: GenerateStyle<ProgressToken> = (token: ProgressToken): CSSOb
           transition: `all ${token.duration}`,
 
           '&-active': {
-            background: token.defaultColor
-          }
-        }
+            background: token.defaultColor,
+          },
+        },
       },
-    }
-  }
-}
+    },
+  };
+};
 
 const genSmallLine: GenerateStyle<ProgressToken> = (token: ProgressToken): CSSObject => {
-  const { progressCls, iconPrefixCls} = token
+  const { progressCls, iconPrefixCls } = token;
 
   return {
     [progressCls]: {
-      [`${progressCls}-small&-line, ${progressCls}-small&-line ${progressCls}-text .${iconPrefixCls}`]: {
-        fontSize: token.fontSizeSM
-      },
-    }
-  }
-}
+      [`${progressCls}-small&-line, ${progressCls}-small&-line ${progressCls}-text .${iconPrefixCls}`]:
+        {
+          fontSize: token.fontSizeSM,
+        },
+    },
+  };
+};
 
 export default function useStyle(prefixCls: string): UseComponentStyleResult {
-  const [theme, token, hashId] = useToken()
+  const [theme, token, hashId] = useToken();
 
   const progressToken: ProgressToken = {
     ...token,
@@ -276,17 +280,16 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
     infoTextColor: '#000000d9',
     circleTextFontSize: '1em', // FIXME: hard code in v4
     textFontSize: '1em', // FIXME: hard code in v4
-    duration: '0.3s' // FIXME: hard code in v4
-  }
+    duration: '0.3s', // FIXME: hard code in v4
+  };
 
   return [
-    useStyleRegister({theme, token, hashId, path: [prefixCls]}, () => [
+    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
       genBaseStyle(progressToken, hashId),
       genCircleStyle(progressToken, hashId),
       genStepStyle(progressToken, hashId),
-      genSmallLine(progressToken, hashId)
+      genSmallLine(progressToken, hashId),
     ]),
-    hashId
-  ]
+    hashId,
+  ];
 }
-
