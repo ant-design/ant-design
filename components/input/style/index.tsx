@@ -525,6 +525,12 @@ const genInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
           pointerEvents: 'none',
           display: 'block',
         },
+
+        [`&.${prefixCls}-textarea-in-form-item`]: {
+          '&::after': {
+            marginBottom: -22, // FIXME: magic
+          },
+        },
       },
     },
   };

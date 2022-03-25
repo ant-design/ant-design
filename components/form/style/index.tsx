@@ -277,9 +277,8 @@ const genFormItemStyle: GenerateStyle<FormToken> = token => {
           color: token.colorTextSecondary,
           fontSize: token.fontSize,
           lineHeight: token.lineHeight,
-          transition: `color ${token.motionDurationMid} @ease-out`, // sync input color transition FIXME
+          transition: `color ${token.motionDurationMid} @ease-out`, // sync input color transition FIXME: ease out
           ...getExplainAndExtraDistance((24 - Math.ceil(token.fontSize * token.lineHeight)) / 2), // FIXME: 24
-          // .explainAndExtraDistance((@form-item-margin-bottom - @form-font-height) / 2),
         },
 
         '&-explain-connected': {
@@ -290,12 +289,6 @@ const genFormItemStyle: GenerateStyle<FormToken> = token => {
 
         '&-extra': {
           minHeight: 24, // FIXME: magic, compact
-        },
-
-        '.ant-input-textarea-show-count': {
-          '&::after': {
-            marginBottom: -22, // FIXME: magic
-          },
         },
 
         '&-explain': {
@@ -485,8 +478,7 @@ const genVerticalStyle: GenerateStyle<FormToken> = token => {
       ...makeVerticalLayoutLabel(token),
     },
 
-    // FIXME: screen
-    [`@media (max-width: @screen-sm-max})`]: {
+    [`@media (max-width: ${token.screenSMMax}px)`]: {
       ...makeVerticalLayout(token),
       [formCls]: {
         [`.${rootPrefixCls}-col-xs-24${formItemCls}-label`]: {
@@ -495,7 +487,7 @@ const genVerticalStyle: GenerateStyle<FormToken> = token => {
       },
     },
 
-    [`@media (max-width: @screen-sm-max)`]: {
+    [`@media (max-width: ${token.screenSMMax}px)`]: {
       [formCls]: {
         [`.${rootPrefixCls}-col-sm-24${formItemCls}-label`]: {
           ...makeVerticalLayoutLabel(token),
@@ -503,7 +495,7 @@ const genVerticalStyle: GenerateStyle<FormToken> = token => {
       },
     },
 
-    [`@media (max-width: @screen-md-max)`]: {
+    [`@media (max-width: ${token.screenMDMax}px)`]: {
       [formCls]: {
         [`.${rootPrefixCls}-col-md-24${formItemCls}-label`]: {
           ...makeVerticalLayoutLabel(token),
@@ -511,7 +503,7 @@ const genVerticalStyle: GenerateStyle<FormToken> = token => {
       },
     },
 
-    [`@media (max-width: @screen-lg-max)`]: {
+    [`@media (max-width: ${token.screenLGMax}px)`]: {
       [formCls]: {
         [`.${rootPrefixCls}-col-lg-24${formItemCls}-label`]: {
           ...makeVerticalLayoutLabel(token),

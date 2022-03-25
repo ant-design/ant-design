@@ -80,7 +80,11 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
     const { getPrefixCls, direction, iconPrefixCls } = React.useContext(ConfigContext);
     const size = React.useContext(SizeContext);
 
-    const { status: contextStatus, hasFeedback } = React.useContext(FormItemInputContext);
+    const {
+      status: contextStatus,
+      hasFeedback,
+      isFormItemInput,
+    } = React.useContext(FormItemInputContext);
     const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
     const innerRef = React.useRef<RcTextArea>(null);
@@ -164,7 +168,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
     const prefixCls = getPrefixCls('input', customizePrefixCls);
 
     // Style
-    const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls);
+    const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls || '');
 
     React.useImperativeHandle(ref, () => ({
       resizableTextArea: innerRef.current?.resizableTextArea,
@@ -240,6 +244,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
             {
               [`${prefixCls}-textarea-rtl`]: direction === 'rtl',
               [`${prefixCls}-textarea-show-count`]: showCount,
+              [`${prefixCls}-textarea-in-form-item`]: isFormItemInput,
             },
             getStatusClassNames(`${prefixCls}-textarea`, mergedStatus, hasFeedback),
             className,
