@@ -35,6 +35,11 @@
     margin-left: auto;
   }
 
+  // fix: https://github.com/ant-design/ant-design/issues/34700
+  &-top > div {
+    height: 0;
+  }
+
   &-close-icon {
     font-size: @font-size-base;
     cursor: pointer;
