@@ -34,6 +34,8 @@ export type FieldNamesType = FieldNames;
 
 export type FilledFieldNamesType = Required<FieldNamesType>;
 
+const { SHOW_CHILD, SHOW_PARENT } = RcCascader;
+
 function highlightKeyword(str: string, lowerKeyword: string, prefixCls: string | undefined) {
   const cells = str
     .toLowerCase()
@@ -290,12 +292,16 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
       showArrow={hasFeedback || showArrow}
     />
   );
-}) as (<OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType>(
+}) as unknown as (<OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType>(
   props: React.PropsWithChildren<CascaderProps<OptionType>> & { ref?: React.Ref<CascaderRef> },
 ) => React.ReactElement) & {
   displayName: string;
+  SHOW_PARENT: typeof SHOW_PARENT;
+  SHOW_CHILD: typeof SHOW_CHILD;
 };
 
 Cascader.displayName = 'Cascader';
+Cascader.SHOW_PARENT = SHOW_PARENT;
+Cascader.SHOW_CHILD = SHOW_CHILD;
 
 export default Cascader;
