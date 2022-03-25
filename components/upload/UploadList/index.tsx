@@ -87,7 +87,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
       return;
     }
     e?.preventDefault();
-    return onPreview(file); // FIXME: check
+    return onPreview(file);
   };
 
   const onInternalDownload = (file: UploadFile) => {
@@ -220,8 +220,6 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
             onPreview={onInternalPreview}
             onDownload={onInternalDownload}
             onClose={onInternalClose}
-            // FIXME: crossOrigin 추가!!!
-            crossOrigin
           />
         )}
       </CSSMotionList>

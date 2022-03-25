@@ -43,9 +43,6 @@ export interface ListItemProps {
   onClose: (file: UploadFile) => void;
   onDownload: (file: UploadFile) => void;
   progress?: UploadListProgressProps;
-
-  // FIXME: crossOrigin 추가!!!
-  crossOrigin?: '' | 'anonymous' | 'use-credentials'; // FIXME: avatar.tsx 에서 그대로 가져옴.
 }
 
 const ListItem = React.forwardRef(
@@ -72,9 +69,6 @@ const ListItem = React.forwardRef(
       onPreview,
       onDownload,
       onClose,
-
-      // FIXME: crossOrigin 추가!!!
-      crossOrigin,
     }: ListItemProps,
     ref: React.Ref<HTMLDivElement>,
   ) => {
@@ -110,8 +104,7 @@ const ListItem = React.forwardRef(
             src={file.thumbUrl || file.url}
             alt={file.name}
             className={`${prefixCls}-list-item-image`}
-            // FIXME: ing
-            crossOrigin={''}
+            crossOrigin={file.crossOrigin}
           />
         ) : (
           iconNode

@@ -27,6 +27,7 @@ export interface UploadFile<T = any> {
   status?: UploadFileStatus;
   percent?: number;
   thumbUrl?: string;
+  crossOrigin?: '' | 'anonymous' | 'use-credentials';
   originFileObj?: RcFile;
   response?: T;
   error?: any;
