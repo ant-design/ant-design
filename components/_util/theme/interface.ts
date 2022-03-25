@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type { ComponentToken as ButtonComponentToken } from '../../button/style';
 import type { ComponentToken as DividerComponentToken } from '../../divider/style';
+import type { ComponentToken as TypographyComponentToken } from '../../typography/style';
 
 export const PresetColors = [
   'blue',
@@ -34,6 +35,7 @@ export interface OverrideToken {
   // Customize component
   button?: ButtonComponentToken;
   divider?: DividerComponentToken;
+  typography?: TypographyComponentToken;
 }
 
 /** Final token which contains the components level override */
@@ -196,6 +198,8 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   fontSizeHeading3: number;
   fontSizeHeading4: number;
   fontSizeHeading5: number;
+
+  fontWeightHeading: number;
 
   // LineHeight
   lineHeight: number;
