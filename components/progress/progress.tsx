@@ -5,7 +5,7 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { ConfigConsumer, ConfigConsumerProps, ConfigContext } from '../config-provider';
 import { tuple } from '../_util/type';
 import devWarning from '../_util/devWarning';
 import Line from './Line';
@@ -84,7 +84,7 @@ export class Progress extends React.Component<ProgressProps> {
   }
 
   renderProcessInfo(prefixCls: string, progressStatus: typeof ProgressStatuses[number]) {
-    const { showInfo, format, type, percent, wrapSSR, hashId } = this.props;
+    const { showInfo, format, type, percent } = this.props;
     const successPercent = getSuccessPercent(this.props);
     if (!showInfo) {
       return null;
@@ -100,9 +100,9 @@ export class Progress extends React.Component<ProgressProps> {
       text = isLineType ? <CheckCircleFilled /> : <CheckOutlined />;
     }
 
-    return wrapSSR((<span className={`${prefixCls}-text`} title={typeof text === 'string' ? text : undefined}>
+    return (<span className={`${prefixCls}-text`} title={typeof text === 'string' ? text : undefined}>
         {text}
-    </span>))
+    </span>);
 
   }
 
@@ -199,15 +199,13 @@ export class Progress extends React.Component<ProgressProps> {
 
 const WrapProgress = React.forwardRef((props: ProgressProps) => {
 
-  const getPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {
-    if (customizePrefixCls) return customizePrefixCls;
+  const {getPrefixCls} = React.useContext(ConfigContext)
 
-    return suffixCls ? `ant-${suffixCls}` : 'ant';
-  };
+  const prefixCls = getPrefixCls('progress', props.prefixCls);
 
-  const prefixCls = getPrefixCls('progress', props.prefixCls)
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
-  const [wrapSSR, hashId] = useStyle(prefixCls)
+
 
   return <Progress {...props} wrapSSR={wrapSSR} hashId={hashId} />
 })
