@@ -212,16 +212,37 @@
     min-height: @form-item-margin-bottom;
   }
 
-  .@{ant-prefix}-input-textarea-show-count {
-    &::after {
-      margin-bottom: -22px;
-    }
-  }
-
   &-with-help &-explain {
     height: auto;
     min-height: @form-item-margin-bottom;
     opacity: 1;
+  }
+
+  // ==============================================================
+  // =                        Feedback Icon                       =
+  // ==============================================================
+  &-feedback-icon {
+    font-size: @font-size-base;
+    text-align: center;
+    visibility: visible;
+    animation: zoomIn 0.3s @ease-out-back;
+    pointer-events: none;
+
+    &-success {
+      color: @success-color;
+    }
+
+    &-error {
+      color: @error-color;
+    }
+
+    &-warning {
+      color: @warning-color;
+    }
+
+    &-validating {
+      color: @primary-color;
+    }
   }
 }
 

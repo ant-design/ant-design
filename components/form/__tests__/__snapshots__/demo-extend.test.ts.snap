@@ -5188,7 +5188,7 @@ exports[`renders ./components/form/demo/register.md extend context correctly 1`]
           class="ant-form-item-control-input-content"
         >
           <div
-            class="ant-input-textarea ant-input-textarea-show-count"
+            class="ant-input-textarea ant-input-textarea-show-count ant-input-textarea-in-form-item"
             data-count="0 / 100"
           >
             <textarea
@@ -16390,7 +16390,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
               class="ant-input-suffix"
             >
               <span
-                class="ant-input-feedback-icon"
+                class="ant-form-item-feedback-icon ant-form-item-feedback-icon-validating"
               >
                 <span
                   aria-label="loading"
@@ -16464,7 +16464,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
               class="ant-input-suffix"
             >
               <span
-                class="ant-input-feedback-icon"
+                class="ant-form-item-feedback-icon ant-form-item-feedback-icon-success"
               >
                 <span
                   aria-label="check-circle"
@@ -16528,7 +16528,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
               class="ant-input-suffix"
             >
               <span
-                class="ant-input-feedback-icon"
+                class="ant-form-item-feedback-icon ant-form-item-feedback-icon-warning"
               >
                 <span
                   aria-label="exclamation-circle"
@@ -16592,7 +16592,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
               class="ant-input-suffix"
             >
               <span
-                class="ant-input-feedback-icon"
+                class="ant-form-item-feedback-icon ant-form-item-feedback-icon-error"
               >
                 <span
                   aria-label="close-circle"
@@ -16690,7 +16690,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
                   </svg>
                 </span>
                 <span
-                  class="ant-picker-feedback-icon"
+                  class="ant-form-item-feedback-icon ant-form-item-feedback-icon-success"
                 >
                   <span
                     aria-label="check-circle"
@@ -17336,7 +17336,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
                   </svg>
                 </span>
                 <span
-                  class="ant-picker-feedback-icon"
+                  class="ant-form-item-feedback-icon ant-form-item-feedback-icon-warning"
                 >
                   <span
                     aria-label="exclamation-circle"
@@ -18833,7 +18833,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
                 </svg>
               </span>
               <span
-                class="ant-picker-feedback-icon"
+                class="ant-form-item-feedback-icon ant-form-item-feedback-icon-error"
               >
                 <span
                   aria-label="close-circle"
@@ -20136,7 +20136,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
                 </svg>
               </span>
               <span
-                class="ant-select-feedback-icon"
+                class="ant-form-item-feedback-icon ant-form-item-feedback-icon-error"
               >
                 <span
                   aria-label="close-circle"
@@ -20273,7 +20273,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
                 </svg>
               </span>
               <span
-                class="ant-select-feedback-icon"
+                class="ant-form-item-feedback-icon ant-form-item-feedback-icon-error"
               >
                 <span
                   aria-label="close-circle"
@@ -20466,7 +20466,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
                 </svg>
               </span>
               <span
-                class="ant-select-feedback-icon"
+                class="ant-form-item-feedback-icon ant-form-item-feedback-icon-warning"
               >
                 <span
                   aria-label="exclamation-circle"
@@ -21869,7 +21869,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
               class="ant-input-number-suffix"
             >
               <span
-                class="ant-input-number-feedback-icon"
+                class="ant-form-item-feedback-icon ant-form-item-feedback-icon-success"
               >
                 <span
                   aria-label="check-circle"
@@ -21957,7 +21957,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
                 </span>
               </span>
               <span
-                class="ant-input-feedback-icon"
+                class="ant-form-item-feedback-icon ant-form-item-feedback-icon-success"
               >
                 <span
                   aria-label="check-circle"
@@ -22044,7 +22044,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
                 </svg>
               </span>
               <span
-                class="ant-input-feedback-icon"
+                class="ant-form-item-feedback-icon ant-form-item-feedback-icon-warning"
               >
                 <span
                   aria-label="exclamation-circle"
@@ -22156,7 +22156,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
                 </svg>
               </span>
               <span
-                class="ant-input-feedback-icon"
+                class="ant-form-item-feedback-icon ant-form-item-feedback-icon-error"
               >
                 <span
                   aria-label="close-circle"
@@ -22218,26 +22218,30 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
               />
             </div>
             <span
-              class="ant-mentions-feedback-icon"
+              class="ant-mentions-suffix"
             >
               <span
-                aria-label="close-circle"
-                class="anticon anticon-close-circle"
-                role="img"
+                class="ant-form-item-feedback-icon ant-form-item-feedback-icon-error"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="close-circle"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="close-circle"
+                  class="anticon anticon-close-circle"
+                  role="img"
                 >
-                  <path
-                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                  />
-                </svg>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close-circle"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                    />
+                  </svg>
+                </span>
               </span>
             </span>
           </div>
@@ -22268,7 +22272,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
           class="ant-form-item-control-input-content"
         >
           <div
-            class="ant-input-textarea ant-input-textarea-show-count ant-input-textarea-status-error ant-input-textarea-has-feedback"
+            class="ant-input-textarea ant-input-textarea-show-count ant-input-textarea-in-form-item ant-input-textarea-status-error ant-input-textarea-has-feedback"
             data-count="0"
           >
             <span
@@ -22299,26 +22303,30 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
               </span>
             </span>
             <span
-              class="ant-input-feedback-icon"
+              class="ant-input-textarea-suffix"
             >
               <span
-                aria-label="close-circle"
-                class="anticon anticon-close-circle"
-                role="img"
+                class="ant-form-item-feedback-icon ant-form-item-feedback-icon-error"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="close-circle"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="close-circle"
+                  class="anticon anticon-close-circle"
+                  role="img"
                 >
-                  <path
-                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                  />
-                </svg>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close-circle"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                    />
+                  </svg>
+                </span>
               </span>
             </span>
           </div>
