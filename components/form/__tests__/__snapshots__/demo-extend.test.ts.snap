@@ -5188,7 +5188,7 @@ exports[`renders ./components/form/demo/register.md extend context correctly 1`]
           class="ant-form-item-control-input-content"
         >
           <div
-            class="ant-input-textarea ant-input-textarea-show-count"
+            class="ant-input-textarea ant-input-textarea-show-count ant-input-textarea-in-form-item"
             data-count="0 / 100"
           >
             <textarea
@@ -22272,7 +22272,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
           class="ant-form-item-control-input-content"
         >
           <div
-            class="ant-input-textarea ant-input-textarea-show-count ant-input-textarea-status-error ant-input-textarea-has-feedback"
+            class="ant-input-textarea ant-input-textarea-show-count ant-input-textarea-in-form-item ant-input-textarea-status-error ant-input-textarea-has-feedback"
             data-count="0"
           >
             <span
