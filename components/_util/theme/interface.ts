@@ -87,6 +87,7 @@ export interface SeedToken extends PresetColorType {
   // zIndex
   /** Base zIndex of component like BackTop, Affix which can be cover by large popup */
   zIndexBase: number;
+  zIndexPopover: number;
   /** Base popup component zIndex */
   zIndexPopup: number;
 }
