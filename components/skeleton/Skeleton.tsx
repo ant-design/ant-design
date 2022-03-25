@@ -161,7 +161,7 @@ const Skeleton = (props: SkeletonProps) => {
       </div>
     );
   }
-  return children;
+  return React.isValidElement(children) ? children : null;
 };
 
 Skeleton.defaultProps = {
