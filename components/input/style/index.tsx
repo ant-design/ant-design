@@ -569,8 +569,6 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
     motionDurationSlow,
     colorAction,
     colorActionHover,
-    colorPrimary,
-    colorSuccess,
   } = token;
 
   return {
