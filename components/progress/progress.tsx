@@ -100,7 +100,7 @@ export class Progress extends React.Component<ProgressProps> {
       text = isLineType ? <CheckCircleFilled /> : <CheckOutlined />;
     }
 
-    return wrapSSR((<span className={classNames(`${prefixCls}-text`, hashId)} title={typeof text === 'string' ? text : undefined}>
+    return wrapSSR((<span className={`${prefixCls}-text`} title={typeof text === 'string' ? text : undefined}>
         {text}
     </span>))
 

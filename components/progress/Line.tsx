@@ -3,8 +3,6 @@ import { presetPrimaryColors } from '@ant-design/colors';
 import { ProgressGradient, ProgressProps, StringGradients } from './progress';
 import { validProgress, getSuccessPercent } from './utils';
 import { DirectionType } from '../config-provider';
-import useStyle from './style'
-import classNames from 'classnames';
 
 interface LineProps extends ProgressProps {
   prefixCls: string;
@@ -78,8 +76,6 @@ const Line: React.FC<LineProps> = props => {
     success,
   } = props;
 
-  const [wrapSSR, hashId] = useStyle(prefixCls)
-
   const backgroundProps =
     strokeColor && typeof strokeColor !== 'string'
       ? handleGradient(strokeColor, directionConfig)
@@ -111,20 +107,20 @@ const Line: React.FC<LineProps> = props => {
 
   const successSegment =
     successPercent !== undefined ? (
-      <div className={classNames(`${prefixCls}-success-bg`, hashId)} style={successPercentStyle} />
+      <div className={`${prefixCls}-success-bg`} style={successPercentStyle} />
     ) : null;
 
-  return wrapSSR((
+  return (
     <>
-      <div className={classNames(`${prefixCls}-outer`, hashId)}>
-        <div className={classNames(`${prefixCls}-inner`, hashId)} style={trailStyle}>
-          <div className={classNames(`${prefixCls}-bg`, hashId)} style={percentStyle} />
+      <div className={`${prefixCls}-outer`}>
+        <div className={`${prefixCls}-inner`} style={trailStyle}>
+          <div className={`${prefixCls}-bg`} style={percentStyle} />
           {successSegment}
         </div>
       </div>
       {children}
     </>
-  ));
+  );
 };
 
 export default Line;

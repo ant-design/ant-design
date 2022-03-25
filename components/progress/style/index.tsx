@@ -11,7 +11,7 @@ import {
 interface ProgressToken extends DerivativeToken{
   progressCls: string,
   iconPrefixCls: string,
-  fontSizeBase: string,
+  fontSizeBase: number,
   stepsItemBg: string,
   defaultColor: string,
   remainingColor: string,
@@ -19,6 +19,7 @@ interface ProgressToken extends DerivativeToken{
   infoTextColor: string,
   circleTextFontSize: string,
   textFontSize: string,
+  duration: string,
 }
 
 const genBaseStyle: GenerateStyle<ProgressToken> = (token: ProgressToken, hashId: string): CSSObject => {
@@ -92,7 +93,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token: ProgressToken, hashId
         position: 'absolute',
         top: 0,
         left: 0,
-        backgroundColor: token.successColor,
+        backgroundColor: token.colorSuccess,
       },
 
       [`${progressCls}-text`]: {
@@ -119,7 +120,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token: ProgressToken, hashId
           right: 0,
           bottom: 0,
           left: 0,
-          background: token.componentBackground,
+          background: '#fff',
           borderRadius: '10px',
           opacity: 0,
           animation: `${antProgressActive.getName(hashId)} 2.4s cubic-bezier(0.23, 1, 0.32, 1) infinite`,
@@ -129,31 +130,31 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token: ProgressToken, hashId
 
       [`&${progressCls}-status-exception`]: {
         [`${progressCls}-bg`]: {
-          backgroundColor: token.errorColor
+          backgroundColor: token.colorError
         },
         [`${progressCls}-text`]: {
-          color: token.errorColor
+          color: token.colorError
         }
       },
 
       [`&${progressCls}-status-exception ${progressCls}-inner:not(${progressCls}-circle-gradient)`]: {
         [`${progressCls}-circle-path`]: {
-          stroke: token.errorColor
+          stroke: token.colorError
         }
       },
 
       [`&${progressCls}-status-success`]: {
         [`${progressCls}-bg`]: {
-          backgroundColor: token.successColor
+          backgroundColor: token.colorSuccess
         },
         [`${progressCls}-text`]: {
-          color: token.successColor,
+          color: token.colorSuccess,
         }
       },
 
       [`&${progressCls}-status-success ${progressCls}-inner:not(${progressCls}-circle-gradient)`]: {
         [`${progressCls}-circle-path`]: {
-          stroke: token.successColor
+          stroke: token.colorSuccess
         }
       },
 
@@ -191,7 +192,7 @@ const genCircleStyle: GenerateStyle<ProgressToken> = (token: ProgressToken): CSS
         width: '100%',
         margin: 0,
         padding: 0,
-        color: token.textColor,
+        color: token.colorText2,
         fontSize: token.circleTextFontSize,
         lineHeight: 1,
         whiteSpace: 'normal',
@@ -206,13 +207,13 @@ const genCircleStyle: GenerateStyle<ProgressToken> = (token: ProgressToken): CSS
 
       [`${progressCls}-circle&-status-exception`]: {
         [`${progressCls}-text`]: {
-          color: token.errorColor
+          color: token.colorError
         }
       },
 
       [`${progressCls}-circle&-status-success`]: {
         [`${progressCls}-text`]: {
-          color: token.successColor
+          color: token.colorSuccess
         }
       }
     }
@@ -224,7 +225,7 @@ const genStepStyle: GenerateStyle<ProgressToken> = (token: ProgressToken): CSSOb
 
   return {
     [progressCls]: {
-      [`&-steps`]: {
+      [`${progressCls}-steps`]: {
         display: 'inline-block',
         '&-outer': {
           display: 'flex',
@@ -266,7 +267,7 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
     ...token,
     progressCls: `.${prefixCls}`,
     iconPrefixCls: 'anticon',
-    fontSizeBase: '14px',
+    fontSizeBase: 14,
     stepsItemBg: '#f3f3f3',
     defaultColor: '#1890ff',
     remainingColor: 'rgba(0, 0, 0, 0.04)',
@@ -275,6 +276,7 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
     infoTextColor: '#000000d9',
     circleTextFontSize: '1em',
     textFontSize: '1em',
+    duration: '2s'
   }
 
   return [
