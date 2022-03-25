@@ -136,6 +136,15 @@ const getSearchInputWithoutBorderStyle: GenerateStyle<SelectToken, CSSObject> = 
 const genBaseStyle: GenerateStyle<SelectToken> = token => {
   const { selectCls, iconPrefixCls, inputPaddingHorizontalBase } = token;
 
+  console.log(
+    '~~~~>',
+    token,
+    inputPaddingHorizontalBase,
+    token.fontSize,
+    token.paddingXXS,
+    token.lineWidth,
+  );
+
   return {
     [selectCls]: {
       ...resetComponent(token),
@@ -234,8 +243,10 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
         '&:hover': {
           color: token.colorTextSecondary,
         },
+      },
 
-        [`${selectCls}:hover &`]: {
+      '&:hover': {
+        [`${selectCls}-clear`]: {
           opacity: 1,
         },
       },
@@ -244,12 +255,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
     // ========================= Feedback ==========================
     [`${selectCls}-has-feedback`]: {
       [`${selectCls}-clear`]: {
-        insetInlineEnd: token.padding * 2,
-      },
-
-      // FIXME: what's this? @MadCcc
-      [`${selectCls}-selection-selected-value`]: {
-        paddingInlineEnd: 42,
+        insetInlineEnd: inputPaddingHorizontalBase + token.fontSize + token.paddingXXS,
       },
 
       [`${selectCls}-feedback-icon`]: {
