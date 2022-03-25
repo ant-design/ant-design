@@ -2,7 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import Title, { SkeletonTitleProps } from './Title';
 import Paragraph, { SkeletonParagraphProps } from './Paragraph';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { ConfigConsumer, ConfigContext } from '../config-provider';
 import Element from './Element';
 import SkeletonAvatar, { AvatarProps } from './Avatar';
 import SkeletonButton from './Button';
@@ -72,22 +72,23 @@ function getParagraphBasicProps(hasAvatar: boolean, hasTitle: boolean): Skeleton
 }
 
 const Skeleton = (props: SkeletonProps) => {
-  const renderSkeleton = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
-    const {
-      prefixCls: customizePrefixCls,
-      loading,
-      className,
-      style,
-      children,
-      avatar,
-      title,
-      paragraph,
-      active,
-      round,
-    } = props;
+  const {
+    prefixCls: customizePrefixCls,
+    loading,
+    className,
+    style,
+    children,
+    avatar,
+    title,
+    paragraph,
+    active,
+    round,
+  } = props;
 
-    const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
+  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
 
+  const renderSkeleton = () => {
     if (loading || !('loading' in props)) {
       const hasAvatar = !!avatar;
       const hasTitle = !!title;
@@ -161,7 +162,6 @@ const Skeleton = (props: SkeletonProps) => {
         </div>
       );
     }
-
     return children;
   };
   return <ConfigConsumer>{renderSkeleton}</ConfigConsumer>;

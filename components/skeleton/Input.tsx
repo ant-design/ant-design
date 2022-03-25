@@ -2,7 +2,7 @@ import * as React from 'react';
 import omit from 'rc-util/lib/omit';
 import classNames from 'classnames';
 import Element, { SkeletonElementProps } from './Element';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { ConfigConsumer, ConfigContext } from '../config-provider';
 
 export interface SkeletonInputProps extends Omit<SkeletonElementProps, 'size' | 'shape'> {
   size?: 'large' | 'small' | 'default';
@@ -10,9 +10,11 @@ export interface SkeletonInputProps extends Omit<SkeletonElementProps, 'size' | 
 }
 
 const SkeletonInput = (props: SkeletonInputProps) => {
-  const renderSkeletonInput = ({ getPrefixCls }: ConfigConsumerProps) => {
-    const { prefixCls: customizePrefixCls, className, active, block } = props;
-    const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
+  const { prefixCls: customizePrefixCls, className, active, block } = props;
+  const { getPrefixCls } = React.useContext(ConfigContext);
+  const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
+
+  const renderSkeletonInput = () => {
     const otherProps = omit(props, ['prefixCls']);
     const cls = classNames(
       prefixCls,
