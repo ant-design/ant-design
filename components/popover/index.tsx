@@ -31,10 +31,7 @@ const Popover = React.forwardRef<unknown, PopoverProps>(
     const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls);
     const rootPrefixCls = getPrefixCls();
 
-    const overlayCls = classNames(
-      overlayClassName,
-      hashId,
-    );
+    const overlayCls = classNames(overlayClassName, hashId);
 
     return wrapSSR(
       <Tooltip

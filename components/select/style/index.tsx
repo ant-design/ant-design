@@ -96,7 +96,6 @@ const genStatusStyle = (
 
         [`${selectCls}-focused& ${selectCls}-selector`]: {
           borderColor: borderHoverColor,
-          // FIXME: missing variable of `@input-outline-offset`
           boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${outlineColor}`,
           borderInlineEndWidth: `${token.controlLineWidth}px !important`,
           outline: 0,
@@ -179,7 +178,6 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
         top: '50%',
         insetInlineStart: 'auto',
         insetInlineEnd: inputPaddingHorizontalBase,
-        width: token.fontSizeSM,
         height: token.fontSizeSM,
         marginTop: -token.fontSizeSM / 2,
         color: token.colorTextDisabled,
@@ -236,8 +234,10 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
         '&:hover': {
           color: token.colorTextSecondary,
         },
+      },
 
-        [`${selectCls}:hover &`]: {
+      '&:hover': {
+        [`${selectCls}-clear`]: {
           opacity: 1,
         },
       },
@@ -246,12 +246,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
     // ========================= Feedback ==========================
     [`${selectCls}-has-feedback`]: {
       [`${selectCls}-clear`]: {
-        insetInlineEnd: token.padding * 2,
-      },
-
-      // FIXME: what's this? @MadCcc
-      [`${selectCls}-selection-selected-value`]: {
-        paddingInlineEnd: 42,
+        insetInlineEnd: inputPaddingHorizontalBase + token.fontSize + token.paddingXXS,
       },
 
       [`${selectCls}-feedback-icon`]: {

@@ -2,11 +2,7 @@
 import { CSSObject } from '@ant-design/cssinjs';
 import seedToken from '../themes/default';
 
-export const roundedArrow = (
-  width: number,
-  outerRadius: number,
-  bgColor: string,
-): CSSObject => {
+export const roundedArrow = (width: number, outerRadius: number, bgColor: string): CSSObject => {
   const cornerHeight = outerRadius * (1 - 1 / Math.sqrt(2));
   const { radiusBase } = seedToken;
 
@@ -33,9 +29,11 @@ export const roundedArrow = (
       insetInlineStart: -width,
       width: width * 3,
       height: width * 3,
-      background: `linear-gradient(to left, ${bgColor} 50%, ${bgColor} 50%) no-repeat ${Math.ceil(-width + 1)}px ${Math.ceil(-width + 1)}px`,
+      background: `linear-gradient(to left, ${bgColor} 50%, ${bgColor} 50%) no-repeat ${Math.ceil(
+        -width + 1,
+      )}px ${Math.ceil(-width + 1)}px`,
       content: '""',
       clipPath: `path('M ${ax} ${ay} A ${outerRadius} ${outerRadius} 0 0 1 ${bx} ${by} L ${cx} ${cy} A ${radiusBase} ${radiusBase} 0 0 0 ${dx} ${dy} L ${ex} ${ey} A ${outerRadius} ${outerRadius} 0 0 1 ${fx} ${fy} Z')`,
     },
   };
-}
+};

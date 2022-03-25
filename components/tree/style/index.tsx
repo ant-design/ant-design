@@ -26,7 +26,7 @@ const treeNodeFX = new Keyframes('ant-tree-node-fx-do-not-use', {
 const getSwitchStyle = (prefixCls: string, token: DerivativeToken): CSSObject => ({
   [`.${prefixCls}-switcher-icon`]: {
     display: 'inline-block',
-    fontSize: 10, // FIXME: missing token
+    fontSize: 10,
     verticalAlign: 'baseline',
 
     svg: {

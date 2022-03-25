@@ -17,7 +17,8 @@ export const resetComponent = (token: DerivativeToken): CSSObject => ({
 });
 
 export const resetIcon = (): CSSObject => ({
-  display: 'inline-block',
+  display: 'inline-flex',
+  alignItems: 'center',
   color: 'inherit',
   fontStyle: 'normal',
   lineHeight: 0,

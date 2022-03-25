@@ -22,7 +22,7 @@ import {
 // FIXME
 type PopoverToken = DerivativeToken & {
   popoverCls: string;
-  iconPrefixCls: string,
+  iconPrefixCls: string;
   popoverBg: string;
   popoverColor: string;
   popoverMinWidth: number;
@@ -36,7 +36,6 @@ type PopoverToken = DerivativeToken & {
   popoverArrowOffsetVertical: number;
   popoverArrowOffsetHorizontal: number;
 };
-
 
 const genBaseStyle: GenerateStyle<PopoverToken> = token => {
   const {
@@ -126,7 +125,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = token => {
         [`> .${iconPrefixCls}`]: {
           position: 'absolute',
           // FIXME
-          top: 4 + ((lineHeight * fontSize - fontSize) / 2),
+          top: 4 + (lineHeight * fontSize - fontSize) / 2,
           color: colorWarning,
           fontSize,
         },
@@ -142,7 +141,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = token => {
         marginBottom: marginXS,
         textAlign: 'end',
 
-        'button': {
+        button: {
           marginInlineStart: marginSM,
         },
       },
@@ -172,9 +171,8 @@ const genBaseStyle: GenerateStyle<PopoverToken> = token => {
           ...roundedArrow(popoverArrowWidth, 5, popoverBg),
         },
       },
-
     },
-  }
+  };
 };
 
 const genPlacementStyle: GenerateStyle<PopoverToken> = token => {
@@ -235,7 +233,7 @@ const genPlacementStyle: GenerateStyle<PopoverToken> = token => {
       },
 
       [`&-placement-top ${popoverCls}-arrow`]: {
-        insetInlineStart : '50%',
+        insetInlineStart: '50%',
         transform: 'translateX(-50%)',
       },
 
@@ -328,7 +326,7 @@ const genPlacementStyle: GenerateStyle<PopoverToken> = token => {
         bottom: popoverArrowOffsetVertical,
       },
     },
-  }
+  };
 };
 
 // FIXME: special preset colors
@@ -353,11 +351,9 @@ const genColorStyle: GenerateStyle<PopoverToken> = token => {
   }, {} as CSSObject);
 };
 
-export const genPopoverStyle: GenerateStyle<PopoverToken> = (token: PopoverToken): CSSInterpolation => [
-  genBaseStyle(token),
-  genPlacementStyle(token),
-  genColorStyle(token),
-];
+export const genPopoverStyle: GenerateStyle<PopoverToken> = (
+  token: PopoverToken,
+): CSSInterpolation => [genBaseStyle(token), genPlacementStyle(token), genColorStyle(token)];
 
 export default function useStyle(
   prefixCls: string,
