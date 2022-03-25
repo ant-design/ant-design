@@ -92,10 +92,6 @@ const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
         '&::after': {
           clear: 'both',
         },
-
-        '.slick-loading &': {
-          visibility: 'hidden',
-        },
       },
 
       '.slick-slide': {
@@ -108,10 +104,6 @@ const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
           display: 'block',
         },
 
-        '&.slick-loading img': {
-          display: 'none',
-        },
-
         '&.dragging img': {
           pointerEvents: 'none',
         },
@@ -119,10 +111,6 @@ const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
 
       '.slick-initialized .slick-slide': {
         display: 'block',
-      },
-
-      '.slick-loading .slick-slide': {
-        visibility: 'hidden',
       },
 
       '.slick-vertical .slick-slide': {
