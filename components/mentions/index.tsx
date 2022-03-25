@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import RcMentions from 'rc-mentions';
 import { MentionsProps as RcMentionsProps } from 'rc-mentions/lib/Mentions';
 import { composeRef } from 'rc-util/lib/ref';
+// eslint-disable-next-line import/no-named-as-default
 import Spin from '../spin';
 import { ConfigContext } from '../config-provider';
 import { FormItemInputContext } from '../form/context';
