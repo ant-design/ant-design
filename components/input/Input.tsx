@@ -4,12 +4,7 @@ import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import classNames from 'classnames';
 import { composeRef } from 'rc-util/lib/ref';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
-import {
-  getFeedbackIcon,
-  getMergedStatus,
-  getStatusClassNames,
-  InputStatus,
-} from '../_util/statusUtils';
+import { getMergedStatus, getStatusClassNames, InputStatus } from '../_util/statusUtils';
 import { ConfigContext } from '../config-provider';
 import { FormItemInputContext, NoFormStatus } from '../form/context';
 import { hasPrefixSuffix } from './utils';
@@ -145,7 +140,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   const mergedSize = customSize || size;
 
   // ===================== Status =====================
-  const { status: contextStatus, hasFeedback } = useContext(FormItemInputContext);
+  const { status: contextStatus, hasFeedback, feedbackIcon } = useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
   // ===================== Focus warning =====================
@@ -196,7 +191,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   const suffixNode = (hasFeedback || suffix) && (
     <>
       {suffix}
-      {hasFeedback && getFeedbackIcon(prefixCls, mergedStatus)}
+      {hasFeedback && feedbackIcon}
     </>
   );
 

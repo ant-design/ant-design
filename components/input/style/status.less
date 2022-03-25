@@ -18,47 +18,7 @@ each(@input-wrapper-cls, {
   }
 });
 
-.@{input-prefix-cls}-textarea,
-.@{input-prefix-cls}-affix-wrapper {
-  &-status-validating {
-    .@{input-prefix-cls}-feedback-icon {
-      display: inline-block;
-      color: @primary-color;
-    }
-  }
-
-  &-status-success {
-    .@{input-prefix-cls}-feedback-icon {
-      color: @success-color;
-      animation-name: diffZoomIn1 !important;
-    }
-  }
-}
-
 .@{input-prefix-cls}-textarea {
-  &-status-error {
-    .@{input-prefix-cls}-feedback-icon {
-      color: @error-color;
-    }
-  }
-
-  &-status-warning {
-    .@{input-prefix-cls}-feedback-icon {
-      color: @warning-color;
-    }
-  }
-
-  .@{input-prefix-cls}-feedback-icon {
-    position: absolute;
-    top: 0;
-    right: @input-padding-horizontal-base;
-    bottom: 0;
-    z-index: 1;
-    display: inline-flex;
-    align-items: center;
-    margin: auto;
-  }
-
   &-status-error,
   &-status-warning,
   &-status-success,

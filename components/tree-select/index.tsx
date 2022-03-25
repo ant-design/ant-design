@@ -105,16 +105,21 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
   const mergedShowArrow = showArrow !== undefined ? showArrow : props.loading || !isMultiple;
 
   // ===================== Form =====================
-  const { status: contextStatus, hasFeedback, isFormItemInput } = useContext(FormItemInputContext);
+  const {
+    status: contextStatus,
+    hasFeedback,
+    isFormItemInput,
+    feedbackIcon,
+  } = useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
   // ===================== Icons =====================
   const { suffixIcon, removeIcon, clearIcon } = getIcons({
     ...props,
     multiple: isMultiple,
-    status: mergedStatus,
     showArrow: mergedShowArrow,
     hasFeedback,
+    feedbackIcon,
     prefixCls,
   });
 

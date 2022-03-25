@@ -146,7 +146,12 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
   const isRtl = mergedDirection === 'rtl';
 
   // =================== Form =====================
-  const { status: contextStatus, hasFeedback, isFormItemInput } = useContext(FormItemInputContext);
+  const {
+    status: contextStatus,
+    hasFeedback,
+    isFormItemInput,
+    feedbackIcon,
+  } = useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
   // =================== Warning =====================
@@ -227,8 +232,8 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
   const mergedShowArrow = showArrow !== undefined ? showArrow : props.loading || !multiple;
   const { suffixIcon, removeIcon, clearIcon } = getIcons({
     ...props,
-    status: mergedStatus,
     hasFeedback,
+    feedbackIcon,
     showArrow: mergedShowArrow,
     multiple,
     prefixCls,

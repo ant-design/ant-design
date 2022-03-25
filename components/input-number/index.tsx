@@ -8,12 +8,7 @@ import { ConfigContext } from '../config-provider';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext, NoFormStatus } from '../form/context';
 import { cloneElement } from '../_util/reactNode';
-import {
-  getFeedbackIcon,
-  getStatusClassNames,
-  InputStatus,
-  getMergedStatus,
-} from '../_util/statusUtils';
+import { getStatusClassNames, InputStatus, getMergedStatus } from '../_util/statusUtils';
 
 type ValueType = string | number;
 
@@ -71,7 +66,12 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       );
   }
 
-  const { hasFeedback, status: contextStatus, isFormItemInput } = useContext(FormItemInputContext);
+  const {
+    hasFeedback,
+    status: contextStatus,
+    isFormItemInput,
+    feedbackIcon,
+  } = useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
   const mergeSize = customizeSize || size;
@@ -137,9 +137,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
             props.onBlur?.(event);
           },
         })}
-        {hasFeedback && (
-          <span className={`${prefixCls}-suffix`}>{getFeedbackIcon(prefixCls, mergedStatus)}</span>
-        )}
+        {hasFeedback && <span className={`${prefixCls}-suffix`}>{feedbackIcon}</span>}
       </div>
     );
   }
