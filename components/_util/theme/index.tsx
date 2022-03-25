@@ -2,7 +2,7 @@ import React from 'react';
 import { CSSInterpolation, Theme, useCacheToken, useStyleRegister } from '@ant-design/cssinjs';
 import defaultSeedToken, { derivative as defaultDerivative } from './themes/default';
 import version from '../../version';
-import { resetComponent, resetIcon, clearFix } from './util';
+import { resetComponent, resetIcon, clearFix, roundedArrow } from './util';
 import formatToken from './util/alias';
 import {
   initSlideMotion,
@@ -29,6 +29,7 @@ export {
   resetComponent,
   resetIcon,
   clearFix,
+  roundedArrow,
   initSlideMotion,
   slideUpIn,
   slideUpOut,
