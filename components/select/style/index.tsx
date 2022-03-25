@@ -136,15 +136,6 @@ const getSearchInputWithoutBorderStyle: GenerateStyle<SelectToken, CSSObject> = 
 const genBaseStyle: GenerateStyle<SelectToken> = token => {
   const { selectCls, iconPrefixCls, inputPaddingHorizontalBase } = token;
 
-  console.log(
-    '~~~~>',
-    token,
-    inputPaddingHorizontalBase,
-    token.fontSize,
-    token.paddingXXS,
-    token.lineWidth,
-  );
-
   return {
     [selectCls]: {
       ...resetComponent(token),
