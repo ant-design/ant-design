@@ -79,7 +79,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     controlLineType: 'solid',
     controlRadius: mergedToken.radiusBase,
     colorBorder: new TinyColor({ h: 0, s: 0, v: 85 }).toHexString(),
-    colorSplit: new TinyColor({ h: 0, s: 0, v: 94 }).toHexString(),
+    colorSplit: 'rgba(0, 0, 0, 0.06)',
     controlItemBgActive: primaryColors[0],
 
     // 🔥🔥🔥🔥🔥🔥🔥🔥🔥 All TMP Token leaves here 🔥🔥🔥🔥🔥🔥🔥🔥🔥
@@ -110,7 +110,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
 
     marginXXS: 2,
     marginXS: 4,
-    // marginSM: 8,
+    marginSM: 8,
     marginLG: 32,
 
     boxShadow: `
