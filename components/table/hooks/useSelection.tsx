@@ -618,7 +618,11 @@ export default function useSelection<RecordType>(
                     }
                   }
 
-                  setLastSelectedKey(key);
+                  if (checked) {
+                    setLastSelectedKey(null);
+                  } else {
+                    setLastSelectedKey(key);
+                  }
                 }}
               />
             ),
