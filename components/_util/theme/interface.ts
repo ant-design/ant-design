@@ -1,4 +1,5 @@
 import * as React from 'react';
+import type { ComponentToken as ButtonComponentToken } from '../../button/style';
 
 export const PresetColors = [
   'blue',
@@ -27,14 +28,19 @@ export type ColorPalettes = {
 };
 
 export interface OverrideToken {
-  derivative: Partial<DerivativeToken & AliasToken>;
-  [componentName: string]: object; // FIXME: tmp of component token
+  derivative?: Partial<DerivativeToken & AliasToken>;
+
+  // Customize component
+  button?: ButtonComponentToken;
 }
+
+/** Final token which contains the components level override */
+export type GlobalToken = AliasToken & Omit<OverrideToken, 'derivative'>;
 
 // ======================================================================
 // ==                            Seed Token                            ==
 // ======================================================================
-
+// 🔥🔥🔥🔥🔥🔥🔥 DO NOT MODIFY THIS. PLEASE CONTACT DESIGNER. 🔥🔥🔥🔥🔥🔥🔥
 export interface SeedToken extends PresetColorType {
   // Color
   colorPrimary: string;
@@ -56,6 +62,7 @@ export interface SeedToken extends PresetColorType {
   gridBaseStep: number;
 
   // Line
+  /** Border width of base components */
   lineWidth: number;
 
   // Motion
@@ -76,33 +83,56 @@ export interface SeedToken extends PresetColorType {
 
   // Control Base
   controlHeight: number;
+
+  // zIndex
+  /** Base zIndex of component like BackTop, Affix which can be cover by large popup */
+  zIndexBase: number;
+  /** Base popup component zIndex */
+  zIndexPopup: number;
 }
 
 // ======================================================================
 // ==                         Derivative Token                         ==
 // ======================================================================
-
+// 🔥🔥🔥🔥🔥🔥🔥 DO NOT MODIFY THIS. PLEASE CONTACT DESIGNER. 🔥🔥🔥🔥🔥🔥🔥
 export interface DerivativeToken extends SeedToken, ColorPalettes {
   // Color
+  /** Used for DefaultButton, Switch which has default outline */
+  colorDefaultOutline: string;
+
   colorPrimaryHover: string;
   colorPrimaryActive: string;
   colorPrimaryOutline: string;
+  colorPrimarySecondary: string; // primary[2]
+
+  colorSuccessSecondary: string;
+  colorBgSuccess: string; // success[0]
 
   colorWarningHover: string;
   colorWarningActive: string;
   colorWarningOutline: string;
+  colorWarningSecondary: string;
+  colorBgWarning: string;
 
   colorErrorHover: string;
   colorErrorActive: string;
   colorErrorOutline: string;
+  colorErrorSecondary: string;
+  colorBgError: string;
+
+  colorInfoSecondary: string;
+  colorBgInfo: string;
 
   colorText2: string;
   colorTextBelow: string;
   colorTextBelow2: string;
   colorTextBelow3: string;
 
+  colorBg2: string;
   colorBgBelow: string;
   colorBgBelow2: string;
+
+  colorHighlight: string;
 
   // Font
   fontSizes: number[];
@@ -131,6 +161,7 @@ export interface DerivativeToken extends SeedToken, ColorPalettes {
   radiusLG: number;
   radiusXL: number;
 
+  // Control
   /** @private Only Used for control inside component like Multiple Select inner selection item */
   controlHeightXS: number;
   controlHeightSM: number;
@@ -141,7 +172,17 @@ export interface DerivativeToken extends SeedToken, ColorPalettes {
 // ==                           Alias Token                            ==
 // ======================================================================
 // FIXME: DerivativeToken should part pick
-export interface AliasToken extends DerivativeToken {
+type OmitDerivativeKey =
+  | 'colorText2'
+  | 'colorTextBelow'
+  | 'colorTextBelow2'
+  | 'colorTextBelow3'
+  | 'colorBg2'
+  | 'colorBgBelow'
+  | 'colorBgBelow2';
+
+// 🔥🔥🔥🔥🔥🔥🔥 DO NOT MODIFY THIS. PLEASE CONTACT DESIGNER. 🔥🔥🔥🔥🔥🔥🔥
+export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   // Font
   fontSizeSM: number;
   fontSize: number;
@@ -180,30 +221,27 @@ export interface AliasToken extends DerivativeToken {
   /** Placeholder text color */
   colorPlaceholder: string;
   colorTextHeading: string;
+
+  /** Weak action. Such as `allowClear` or Alert close button */
+  colorAction: string;
+  /** Weak action hover color. Such as `allowClear` or Alert close button */
+  colorActionHover: string;
+
+  colorLink: string;
+  colorLinkHover: string;
+  colorLinkActive: string;
+
   colorBgContainer: string;
   colorBgComponent: string;
+  colorBgComponentSecondary: string;
   colorBgComponentDisabled: string;
 
   // =============== Legacy: should be remove ===============
-  iconColorHover: string;
-
   padding: number;
   margin: number;
 
-  backgroundLight: string;
-
-  zIndexAffix: number;
-  zIndexDropdown: number;
-  zIndexPopover: number;
-
   boxShadow: string;
 
-  // =============== Legacy: should be remove ===============
-  highlightColor: string;
-
-  linkColor: string;
-  linkHoverColor: string;
-  linkActiveColor: string;
   linkDecoration: React.CSSProperties['textDecoration'];
   linkHoverDecoration: React.CSSProperties['textDecoration'];
   linkFocusDecoration: React.CSSProperties['textDecoration'];
@@ -218,26 +256,4 @@ export interface AliasToken extends DerivativeToken {
   marginSM: number;
   marginLG: number;
   marginXXS: number;
-
-  primaryColors: string[];
-  errorColors: string[];
-  warningColors: string[];
-
-  // TMP
-  tmpPrimaryColorWeak: string;
-  tmpPrimaryHoverColorWeak: string;
-  // Checked background for Checkable Tag
-  tmpPrimaryColor6: string;
-  // Active background for Checkable Tag
-  tmpPrimaryColor7: string;
-
-  tmpSuccessColorDeprecatedBg: string;
-  tmpWarningColorDeprecatedBg: string;
-  tmpErrorColorDeprecatedBg: string;
-  tmpInfoColorDeprecatedBg: string;
-
-  tmpSuccessColorDeprecatedBorder: string;
-  tmpWarningColorDeprecatedBorder: string;
-  tmpErrorColorDeprecatedBorder: string;
-  tmpInfoColorDeprecatedBorder: string;
 }

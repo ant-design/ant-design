@@ -25,6 +25,7 @@ export type SelectToken = DerivativeToken & {
   selectCls: string;
   iconPrefixCls: string;
   inputPaddingHorizontalBase: number;
+  zIndexDropdown: number;
 };
 
 // ============================= Selector =============================
@@ -288,16 +289,22 @@ const genSelectStyle = (
     selectCls,
     iconPrefixCls,
     inputPaddingHorizontalBase,
+    zIndexDropdown: token.zIndexPopup + 50,
   };
 
   return [
-    // ==================== BorderLess ====================
     {
       [selectCls]: {
+        // ==================== BorderLess ====================
         [`&-borderless ${selectCls}-selector`]: {
           backgroundColor: `transparent !important`,
           borderColor: `transparent !important`,
           boxShadow: `none !important`,
+        },
+
+        // ==================== In Form ====================
+        '&&-in-form-item': {
+          width: '100%',
         },
       },
     },

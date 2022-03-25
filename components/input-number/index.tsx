@@ -6,7 +6,7 @@ import * as React from 'react';
 import { useContext } from 'react';
 import { ConfigContext } from '../config-provider';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
-import { FormItemStatusContext, NoFormStatus } from '../form/context';
+import { FormItemInputContext, NoFormStatus } from '../form/context';
 import { cloneElement } from '../_util/reactNode';
 import {
   getFeedbackIcon,
@@ -76,7 +76,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       );
   }
 
-  const { hasFeedback, status: contextStatus } = useContext(FormItemStatusContext);
+  const { hasFeedback, status: contextStatus, isFormItemInput } = useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
   const mergeSize = customizeSize || size;
@@ -87,6 +87,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-readonly`]: readOnly,
       [`${prefixCls}-borderless`]: !bordered,
+      [`${prefixCls}-in-form-item`]: isFormItemInput,
     },
     getStatusClassNames(prefixCls, mergedStatus),
     hashId,

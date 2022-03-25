@@ -121,7 +121,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
           ...resetIcon(),
 
           display: 'inline-block',
-          color: token.colorTextSecondary,
+          color: token.colorAction,
           fontWeight: 'bold',
           fontSize: 10,
           lineHeight: 'inherit',
@@ -132,7 +132,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
           },
 
           '&:hover': {
-            color: token.iconColorHover,
+            color: token.colorActionHover,
           },
         },
       },

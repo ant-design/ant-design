@@ -208,6 +208,18 @@ describe('Typography copy', () => {
       expect(onDivClick).not.toBeCalled();
     });
 
+    it('the first parameter of onCopy is the click event', () => {
+      function onCopy(e: React.MouseEvent<HTMLDivElement>) {
+        expect(e).not.toBeUndefined();
+      }
+      const wrapper = mount(
+        <Base component="p" copyable={{ onCopy }}>
+          test copy
+        </Base>,
+      );
+      wrapper.find('.ant-typography-copy').first().simulate('click');
+    });
+
     it('copy to clipboard', done => {
       const spy = jest.spyOn(copyObj, 'default');
       const originText = 'origin text.';

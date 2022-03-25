@@ -53,16 +53,17 @@ export const FormItemPrefixContext = React.createContext<FormItemPrefixContextPr
 });
 
 export interface FormItemStatusContextProps {
+  isFormItemInput?: boolean;
   status?: ValidateStatus;
   hasFeedback?: boolean;
 }
 
-export const FormItemStatusContext = React.createContext<FormItemStatusContextProps>({});
+export const FormItemInputContext = React.createContext<FormItemStatusContextProps>({});
 
 export const NoFormStatus: FC<PropsWithChildren<{}>> = ({ children }: PropsWithChildren<{}>) => {
   const emptyContext = useMemo(() => ({}), []);
 
   return (
-    <FormItemStatusContext.Provider value={emptyContext}>{children}</FormItemStatusContext.Provider>
+    <FormItemInputContext.Provider value={emptyContext}>{children}</FormItemInputContext.Provider>
   );
 };

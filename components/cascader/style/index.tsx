@@ -139,7 +139,7 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token, hashId) => {
                 },
 
                 '&-keyword': {
-                  color: token.highlightColor,
+                  color: token.colorHighlight,
                 },
               },
             },
