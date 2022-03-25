@@ -76,6 +76,19 @@ describe('Tag', () => {
     expect(onClick).not.toHaveBeenCalled();
   });
 
+  describe('Border Round', () => {
+    it('can be round the tag`s border by pass rounded props ', () => {
+      const wrapper = mount(<Tag rounded />);
+      expect(wrapper.render()).toMatchSnapshot();
+      wrapper.setProps({ rounded: false });
+      jest.runAllTimers();
+      expect(wrapper.render()).toMatchSnapshot();
+      wrapper.setProps({ rounded: true });
+      jest.runAllTimers();
+      expect(wrapper.render()).toMatchSnapshot();
+    });
+  });
+
   describe('visibility', () => {
     it('can be controlled by visible with visible as initial value', () => {
       const wrapper = mount(<Tag visible />);

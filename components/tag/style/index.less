@@ -81,6 +81,10 @@
     display: none;
   }
 
+  &-rounded {
+    border-radius: 32px;
+  }
+
   // mixin to iterate over colors and create CSS class for each one
   .make-color-classes(@i: length(@preset-colors)) when (@i > 0) {
     .make-color-classes(@i - 1);

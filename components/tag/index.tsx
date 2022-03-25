@@ -21,6 +21,7 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   className?: string;
   color?: LiteralUnion<PresetColorType | PresetStatusColorType, string>;
   closable?: boolean;
+  rounded?: boolean;
   closeIcon?: React.ReactNode;
   visible?: boolean;
   onClose?: (e: React.MouseEvent<HTMLElement>) => void;
@@ -47,6 +48,7 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
     onClose,
     closeIcon,
     closable = false,
+    rounded = false,
     ...props
   },
   ref,
@@ -80,6 +82,7 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
       [`${prefixCls}-${color}`]: presetColor,
       [`${prefixCls}-has-color`]: color && !presetColor,
       [`${prefixCls}-hidden`]: !visible,
+      [`${prefixCls}-rounded`]: rounded,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
