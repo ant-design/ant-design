@@ -100,7 +100,12 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     showArrow !== undefined ? showArrow : props.loading || !(isMultiple || mode === 'combobox');
 
   // ===================== Form Status =====================
-  const { status: contextStatus, hasFeedback, isFormItemInput } = useContext(FormItemInputContext);
+  const {
+    status: contextStatus,
+    hasFeedback,
+    isFormItemInput,
+    feedbackIcon,
+  } = useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
   // ===================== Empty =====================
@@ -117,8 +122,8 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
   const { suffixIcon, itemIcon, removeIcon, clearIcon } = getIcons({
     ...props,
     multiple: isMultiple,
-    status: mergedStatus,
     hasFeedback,
+    feedbackIcon,
     showArrow: mergedShowArrow,
     prefixCls,
   });
