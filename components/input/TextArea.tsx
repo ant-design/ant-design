@@ -7,12 +7,7 @@ import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
-import {
-  getFeedbackIcon,
-  getStatusClassNames,
-  InputStatus,
-  getMergedStatus,
-} from '../_util/statusUtils';
+import { getStatusClassNames, InputStatus, getMergedStatus } from '../_util/statusUtils';
 import ClearableLabeledInput from './ClearableLabeledInput';
 import { fixControlledValue, InputFocusOptions, resolveOnChange, triggerFocus } from './Input';
 import useStyle from './style';
@@ -84,6 +79,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
       status: contextStatus,
       hasFeedback,
       isFormItemInput,
+      feedbackIcon,
     } = React.useContext(FormItemInputContext);
     const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
@@ -254,7 +250,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
           data-count={dataCount}
         >
           {textareaNode}
-          {hasFeedback && getFeedbackIcon(prefixCls, mergedStatus)}
+          {hasFeedback && <span className={`${prefixCls}-textarea-suffix`}>{feedbackIcon}</span>}
         </div>
       );
     }

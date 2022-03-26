@@ -233,7 +233,7 @@ const genFormItemStyle: GenerateStyle<FormToken> = token => {
             top: -0.5, // FIXME: magic
             marginBlock: 0,
             marginInlineStart: token.marginXXS,
-            marginInlineEnd: token.marginSM,
+            marginInlineEnd: token.marginXS,
           },
 
           [`&${formItemCls}-no-colon::after`]: {

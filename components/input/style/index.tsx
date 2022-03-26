@@ -75,7 +75,7 @@ const genInputLargeStyle = (token: InputToken): CSSObject => {
 };
 
 const genInputSmallStyle = (token: InputToken): CSSObject => ({
-  padding: `${token.inputPaddingVerticalSM}px ${token.paddingXS - 1}px`,
+  padding: `${token.inputPaddingVerticalSM}px ${token.controlPaddingHorizontalSM - 1}px`,
 });
 
 export const genStatusStyle = (token: InputToken): CSSObject => {
@@ -96,7 +96,7 @@ export const genStatusStyle = (token: InputToken): CSSObject => {
         }),
       },
 
-      [`.${prefixCls}-feedback-icon, .${prefixCls}-prefix`]: {
+      [`.${prefixCls}-prefix`]: {
         color: colorError,
       },
     },
@@ -114,7 +114,7 @@ export const genStatusStyle = (token: InputToken): CSSObject => {
         }),
       },
 
-      [`.${prefixCls}-feedback-icon, .${prefixCls}-prefix`]: {
+      [`.${prefixCls}-prefix`]: {
         color: colorWarning,
       },
     },
@@ -510,28 +510,6 @@ const genInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
           paddingBottom: 3, // FIXME: magic number
         },
       },
-
-      '&-textarea-show-count': {
-        // https://github.com/ant-design/ant-design/issues/33049
-        [`> .${prefixCls}`]: {
-          height: '100%',
-        },
-
-        '&::after': {
-          textAlign: 'end',
-          color: token.colorTextSecondary,
-          whiteSpace: 'nowrap',
-          content: 'attr(data-count)',
-          pointerEvents: 'none',
-          display: 'block',
-        },
-
-        [`&.${prefixCls}-textarea-in-form-item`]: {
-          '&::after': {
-            marginBottom: -22, // FIXME: magic
-          },
-        },
-      },
     },
   };
 };
@@ -591,8 +569,6 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
     motionDurationSlow,
     colorAction,
     colorActionHover,
-    colorPrimary,
-    colorSuccess,
   } = token;
 
   return {
@@ -639,6 +615,10 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
           display: 'flex',
           flex: 'none',
           alignItems: 'center',
+
+          '> *:not(:last-child)': {
+            marginInlineEnd: 8, // FIXME: magic number
+          },
         },
 
         '&-show-count-suffix': {
@@ -646,7 +626,7 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
         },
 
         '&-show-count-has-suffix': {
-          marginInlineEnd: 2, // FIXME: magic number
+          marginInlineEnd: token.marginXXS,
         },
 
         '&-prefix': {
@@ -673,18 +653,6 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
 
       // status
       ...genStatusStyle(token),
-      '&-status-validating': {
-        [`.${prefixCls}-feedback-icon`]: {
-          display: 'inline-block',
-          color: colorPrimary,
-        },
-      },
-      '&-status-success': {
-        [`.${prefixCls}-feedback-icon`]: {
-          color: colorSuccess,
-          // FIXME: animationName
-        },
-      },
     },
   };
 };
@@ -815,7 +783,7 @@ export const initInputToken = (
   ...token,
   prefixCls,
   iconPrefixCls,
-  inputAffixMargin: token.marginXXS,
+  inputAffixMargin: token.marginXS,
   inputPaddingVertical: Math.max(
     Math.round(((token.controlHeight - token.fontSize * token.lineHeight) / 2) * 10) / 10 -
       token.controlLineWidth,
@@ -829,7 +797,7 @@ export const initInputToken = (
       token.controlLineWidth,
     0,
   ),
-  inputPaddingHorizontal: token.paddingSM - token.controlLineWidth,
+  inputPaddingHorizontal: token.controlPaddingHorizontal - token.controlLineWidth,
   inputBorderHoverColor: token.colorPrimaryHover,
   inputBorderActiveColor: token.colorPrimaryHover,
 });
@@ -840,7 +808,7 @@ const genTextAreaStyle: GenerateStyle<InputToken> = token => {
 
   return {
     [textareaPrefixCls]: {
-      [`.${prefixCls}-feedback-icon`]: {
+      [`${textareaPrefixCls}-suffix`]: {
         position: 'absolute',
         top: 0,
         insetInlineEnd: inputPaddingHorizontal,
@@ -858,6 +826,28 @@ const genTextAreaStyle: GenerateStyle<InputToken> = token => {
         [`&${textareaPrefixCls}-has-feedback`]: {
           [`.${prefixCls}`]: {
             paddingInlineEnd: paddingLG,
+          },
+        },
+      },
+
+      '&-show-count': {
+        // https://github.com/ant-design/ant-design/issues/33049
+        [`> .${prefixCls}`]: {
+          height: '100%',
+        },
+
+        '&::after': {
+          textAlign: 'end',
+          color: token.colorTextSecondary,
+          whiteSpace: 'nowrap',
+          content: 'attr(data-count)',
+          pointerEvents: 'none',
+          display: 'block',
+        },
+
+        [`&${textareaPrefixCls}-in-form-item`]: {
+          '&::after': {
+            marginBottom: -Math.floor(token.fontSize * token.lineHeight),
           },
         },
       },

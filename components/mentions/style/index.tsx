@@ -61,6 +61,17 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
         ...genActiveStyle(token),
       },
 
+      [`&-affix-wrapper ${mentionsCls}-suffix`]: {
+        position: 'absolute',
+        top: 0,
+        insetInlineEnd: inputPaddingHorizontal,
+        bottom: 0,
+        zIndex: 1,
+        display: 'inline-flex',
+        alignItems: 'center',
+        margin: 'auto',
+      },
+
       // ================= Input Area =================
       [`> textarea, ${mentionsCls}-measure`]: {
         minHeight: controlHeight - 2,

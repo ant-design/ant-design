@@ -1,6 +1,6 @@
 // deps-lint-skip-all
 import { useStyleRegister, useToken } from '../../_util/theme';
-import type { UseComponentStyleResult, GenerateStyle } from '../../_util/theme';
+import type { UseComponentStyleResult, GenerateStyle, AliasToken } from '../../_util/theme';
 import { operationUnit } from '../../_util/theme/util/operationUnit';
 import {
   getTitleStyles,
@@ -10,12 +10,22 @@ import {
   getCopiableStyles,
   getEllipsisStyles,
 } from './mixins';
-import type { TypographyToken } from './mixins';
+
+/** Component only token. Which will handle additional calculation of alias token */
+export interface ComponentToken {
+  sizeMarginHeadingVerticalStart: number | string;
+  sizeMarginHeadingVerticalEnd: number | string;
+}
+
+export interface TypographyToken extends AliasToken, ComponentToken {
+  typographyCls: string;
+}
 
 const genTypographyStyle: GenerateStyle<TypographyToken> = token => {
-  const { prefixCls, titleMarginTop } = token.typography;
+  const { typographyCls, sizeMarginHeadingVerticalStart } = token;
+
   return {
-    [`.${prefixCls}`]: {
+    [typographyCls]: {
       color: token.colorText,
       overflowWrap: 'break-word',
       '&&-secondary': {
@@ -59,7 +69,7 @@ const genTypographyStyle: GenerateStyle<TypographyToken> = token => {
       & + h4&,
       & + h5&
       `]: {
-        marginTop: titleMarginTop,
+        marginTop: sizeMarginHeadingVerticalStart,
       },
 
       [`
@@ -79,7 +89,7 @@ const genTypographyStyle: GenerateStyle<TypographyToken> = token => {
         + h4,
         + h5
         `]: {
-          marginTop: titleMarginTop,
+          marginTop: sizeMarginHeadingVerticalStart,
         },
       },
 
@@ -89,9 +99,9 @@ const genTypographyStyle: GenerateStyle<TypographyToken> = token => {
 
       // Operation
       [`
-      .${prefixCls}-expand,
-      .${prefixCls}-edit,
-      .${prefixCls}-copy
+        ${typographyCls}-expand,
+        ${typographyCls}-edit,
+        ${typographyCls}-copy
       `]: {
         ...operationUnit(token),
         marginInlineStart: token.marginXXS,
@@ -114,20 +124,23 @@ const genTypographyStyle: GenerateStyle<TypographyToken> = token => {
 export default function useStyle(prefixCls: string): UseComponentStyleResult {
   const [theme, token, hashId] = useToken();
 
-  const typographyToken: TypographyToken = {
-    ...token,
-    typography: {
-      prefixCls,
-      titleMarginTop: '1.2em',
-      titleMarginBottom: '0.5em',
-      titleFontWeight: 600,
-    },
-  };
-
   return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      genTypographyStyle(typographyToken),
-    ]),
+    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => {
+      const { typography } = token;
+
+      const typographyToken: TypographyToken = {
+        ...token,
+
+        typographyCls: `.${prefixCls}`,
+
+        sizeMarginHeadingVerticalStart: '1.2em',
+        sizeMarginHeadingVerticalEnd: '0.5em',
+
+        ...typography,
+      };
+
+      return [genTypographyStyle(typographyToken)];
+    }),
     hashId,
   ];
 }
