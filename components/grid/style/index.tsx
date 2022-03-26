@@ -1,5 +1,7 @@
 // import '../../style/index.less';
 // import './index.less';
+
+// deps-lint-skip-all
 import { CSSObject } from '@ant-design/cssinjs';
 import {
   useStyleRegister,
