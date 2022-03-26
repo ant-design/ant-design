@@ -41,8 +41,9 @@ describe('Notification.placement', () => {
       });
       style = getStyle($$('.ant-notification-top')[0]);
       expect(style.top).toBe('50px');
-      expect(style.left).toBe('0px');
-      expect(style.right).toBe('0px');
+      expect(style.left).toBe('50%');
+      expect(style.transform).toBe('translateX(-50%)');
+      expect(style.right).toBe('');
       expect(style.bottom).toBe('');
 
       open({
@@ -86,8 +87,9 @@ describe('Notification.placement', () => {
       });
       style = getStyle($$('.ant-notification-bottom')[0]);
       expect(style.top).toBe('');
-      expect(style.left).toBe('0px');
-      expect(style.right).toBe('0px');
+      expect(style.left).toBe('50%');
+      expect(style.transform).toBe('translateX(-50%)');
+      expect(style.right).toBe('');
       expect(style.bottom).toBe('100px');
 
       open({

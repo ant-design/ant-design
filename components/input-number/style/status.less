@@ -18,22 +18,6 @@ each(@input-number-wrapper-cls, {
   }
 });
 
-.@{input-number-prefix-cls}-affix-wrapper {
-  &-status-validating {
-    .@{input-number-prefix-cls}-feedback-icon {
-      display: inline-block;
-      color: @primary-color;
-    }
-  }
-
-  &-status-success {
-    .@{input-number-prefix-cls}-feedback-icon {
-      color: @success-color;
-      animation-name: diffZoomIn1 !important;
-    }
-  }
-}
-
 .@{input-number-prefix-cls}-group-wrapper {
   &-status-error {
     .group-status-color(@input-number-prefix-cls, @error-color, @error-color);
