@@ -136,6 +136,7 @@ export interface DerivativeToken extends SeedToken, ColorPalettes {
   colorBg2: string;
   colorBgBelow: string;
   colorBgBelow2: string;
+  colorBgBelow3: string;
 
   colorHighlight: string;
 
@@ -243,6 +244,7 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   colorBgComponent: string;
   colorBgComponentSecondary: string;
   colorBgComponentDisabled: string;
+  colorBgComponentDisabledActive: string;
 
   // =============== Legacy: should be remove ===============
   padding: number;
