@@ -1,7 +1,6 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { mount, render } from 'enzyme';
-import { wrap } from 'lodash';
 import Table from '..';
 import Checkbox from '../../checkbox';
 import { resetWarned } from '../../_util/devWarning';
