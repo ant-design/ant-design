@@ -14,6 +14,7 @@ import Tooltip from '../../tooltip';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import collapseMotion from '../../_util/motion';
+import { sleep } from '../../../tests/utils';
 
 const { SubMenu } = Menu;
 
@@ -870,5 +871,17 @@ describe('Menu', () => {
 
     expect(wrapper.find('li.ant-menu-item-divider').length).toBe(2);
     expect(wrapper.find('li.ant-menu-item-divider-dashed').length).toBe(1);
+  });
+
+  it('should support ref', async () => {
+    const ref = React.createRef();
+    const wrapper = mount(
+      <Menu ref={ref}>
+        <SubMenu key="sub1" title="Navigation One">
+          <Menu.Item key="1">Option 1</Menu.Item>
+        </SubMenu>
+      </Menu>,
+    );
+    expect(ref.current?.menu?.list).toBe(wrapper.find('ul').first().getDOMNode());
   });
 });
