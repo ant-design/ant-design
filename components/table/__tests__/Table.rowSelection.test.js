@@ -342,11 +342,21 @@ describe('Table.rowSelection', () => {
 
     expect(onChange).toHaveBeenLastCalledWith([0]);
 
-    // Reset last select key when bulk operations
+    // Reset last select key when deselect
 
     wrapper.find('td input').last().simulate('change', changeArgs(true));
 
     expect(onChange).toHaveBeenLastCalledWith([0, 3]);
+
+    wrapper.find('td input').first().simulate('change', changeArgs(false));
+
+    expect(onChange).toHaveBeenLastCalledWith([3]);
+
+    wrapper.find('td input').first().simulate('change', changeArgs(true, true));
+
+    expect(onChange).toHaveBeenLastCalledWith([3, 0]);
+
+    // Reset last select key when bulk operations
 
     wrapper.find('span.ant-dropdown-trigger').simulate('mouseEnter');
 
