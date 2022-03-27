@@ -352,10 +352,12 @@ describe('Table.rowSelection', () => {
 
     // enzyme has bug for state sync.
     // Let fresh multiple times to force sync back.
-    act(() => {
-      jest.runAllTimers();
-      wrapper.update();
-    });
+    for (let i = 0; i < 3; i += 1) {
+      act(() => {
+        jest.runAllTimers();
+        wrapper.update();
+      });
+    }
 
     wrapper.find('li.ant-dropdown-menu-item').first().simulate('click');
 
