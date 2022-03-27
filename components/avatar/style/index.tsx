@@ -24,16 +24,16 @@ type AvatarToken = DerivativeToken & {
   iconPrefixCls: string;
   avatarBg: string;
   avatarColor: string;
-  avatarSizeBase: number,
-  avatarSizeLG: number,
-  avatarSizeSM: number,
-  avatarFontSizeBase: number,
-  avatarFontSizeLG: number,
-  avatarFontSizeSM: number,
-  avatarBorderRadius: number,
-  avatarGroupBorderColor: string,
-  avatarGroupOverlapping: number,
-  avatarGroupSpace: number,
+  avatarSizeBase: number;
+  avatarSizeLG: number;
+  avatarSizeSM: number;
+  avatarFontSizeBase: number;
+  avatarFontSizeLG: number;
+  avatarFontSizeSM: number;
+  avatarBorderRadius: number;
+  avatarGroupBorderColor: string;
+  avatarGroupOverlapping: number;
+  avatarGroupSpace: number;
 }
 
 const avatarSizeStyle = (
