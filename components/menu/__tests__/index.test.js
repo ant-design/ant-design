@@ -14,7 +14,6 @@ import Tooltip from '../../tooltip';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import collapseMotion from '../../_util/motion';
-import { sleep } from '../../../tests/utils';
 
 const { SubMenu } = Menu;
 
