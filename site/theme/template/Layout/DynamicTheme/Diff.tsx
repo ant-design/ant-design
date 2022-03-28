@@ -5,6 +5,10 @@ type DiffProps = {
 };
 
 const Diff: FC<DiffProps> = ({ show }) => {
+  if (typeof window === 'undefined') {
+    return null;
+  }
+
   const src = window.location.href.replace(/(https?:\/\/)[^/]+/, '$1ant.design');
 
   return (
