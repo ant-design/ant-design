@@ -308,6 +308,33 @@ const genFormItemStyle: GenerateStyle<FormToken> = token => {
         minHeight: token.controlHeightSM,
         opacity: 1,
       },
+
+      // ==============================================================
+      // =                        Feedback Icon                       =
+      // ==============================================================
+      [`${formItemCls}-feedback-icon`]: {
+        fontSize: token.fontSize,
+        textAlign: 'center',
+        visibility: 'visible',
+        animation: `zoomIn ${token.motionDurationMid} ${token.motionEaseOutBack}`,
+        pointerEvents: 'none',
+
+        '&-success': {
+          color: token.colorSuccess,
+        },
+
+        '&-error': {
+          color: token.colorError,
+        },
+
+        '&-warning': {
+          color: token.colorWarning,
+        },
+
+        '&-validating': {
+          color: token.colorPrimary,
+        },
+      },
     },
   };
 };
