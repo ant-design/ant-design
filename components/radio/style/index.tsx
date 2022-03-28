@@ -8,7 +8,9 @@ import {
   resetComponent,
   UseComponentStyleResult,
 } from '../../_util/theme';
+import { GlobalToken } from '../../_util/theme/interface';
 
+// ============================== Tokens ==============================
 interface RadioToken extends DerivativeToken {
   radioDuration: string;
   radioFocusShadow: string;
@@ -33,21 +35,74 @@ interface RadioToken extends DerivativeToken {
   radioWrapperMarginRight: number;
 }
 
+function getRadioToken(token: GlobalToken) {
+  // Radio
+  const radioDuration = '0.3s';
+  // primary-color-1
+  const radioFocusShadow = `0 0 0 3px ${token.colorPrimary}`;
+  const radioButtonFocusShadow = radioFocusShadow;
+
+  const radioSize = token.fontSizeLG;
+  const radioTop = '0.2em';
+  const radioBorderWidth = 1;
+  const radioDotSize = radioSize - 8;
+  const radioDotColor = token.colorPrimary;
+  // FIXME: hard code
+  const radioDotDisabledColor = new TinyColor('#000').setAlpha(0.2).toRgbString();
+  const radioSolidCheckedColor = token.colorBgComponent;
+
+  // Radio buttons
+  const radioButtonBg = token.colorBgComponent;
+  const radioButtonCheckedBg = token.colorBgComponent;
+  const radioButtonColor = token.colorText;
+  const radioButtonHoverColor = token.colorPrimaryHover;
+  const radioButtonActiveColor = token.colorPrimaryActive;
+  const radioButtonPaddingHorizontal = token.padding - 1;
+  const radioDisabledButtonCheckedBg = token.colorBgComponentDisabledActive;
+  const radioDisabledButtonCheckedColor = token.colorTextDisabled;
+  const radioWrapperMarginRight = token.margin / 2;
+
+  return {
+    ...token,
+
+    radioDuration,
+    radioFocusShadow,
+    radioButtonFocusShadow,
+    radioSize,
+    radioTop,
+    radioBorderWidth,
+    radioDotSize,
+    radioDotColor,
+    radioDotDisabledColor,
+    radioSolidCheckedColor,
+    radioButtonBg,
+    radioButtonCheckedBg,
+    radioButtonColor,
+    radioButtonHoverColor,
+    radioButtonActiveColor,
+    radioButtonPaddingHorizontal,
+    radioDisabledButtonCheckedBg,
+    radioDisabledButtonCheckedColor,
+    radioWrapperMarginRight,
+  };
+}
+
 // ============================== Styles ==============================
 const antRadioEffect = new Keyframes('antRadioEffect', {
   '0%': { transform: 'scale(1)', opacity: 0.5 },
   '100%': { transform: 'scale(1.6)', opacity: 0 },
 });
 
+// styles from RadioGroup only
 function getGroupRadioStyle(
   prefixCls: string,
   antPrefix: string,
   token: DerivativeToken,
 ): CSSInterpolation {
-  const radioGroupPrefixCls = `${prefixCls}-group`;
+  const groupPrefixCls = `${prefixCls}-group`;
 
   return {
-    [`.${radioGroupPrefixCls}`]: {
+    [`.${groupPrefixCls}`]: {
       ...resetComponent(token),
       display: 'inline-block',
       fontSize: 0,
@@ -58,7 +113,7 @@ function getGroupRadioStyle(
       },
 
       [`.${antPrefix}-badge-count`]: {
-        zIndex: 1,
+        zIndex: '1 !important',
       },
 
       [`> .${antPrefix}-badge:not(:first-child) > .${prefixCls}-button-wrapper`]: {
@@ -68,13 +123,21 @@ function getGroupRadioStyle(
   };
 }
 
-function getRadioWrapperStyle(prefixCls: string, token: RadioToken): CSSInterpolation {
+// Styles from radio-wrapper
+function getRadioBasicStyle(
+  prefixCls: string,
+  hashId: string,
+  token: RadioToken,
+): CSSInterpolation {
+  const radioInnerPrefixCls = `${prefixCls}-inner`;
+
   return {
     [`.${prefixCls}-wrapper`]: {
       ...resetComponent(token),
       position: 'relative',
       display: 'inline-flex',
       alignItems: 'baseline',
+      marginInlineStart: 0,
       marginInlineEnd: token.radioWrapperMarginRight,
       cursor: 'pointer',
 
@@ -91,34 +154,10 @@ function getRadioWrapperStyle(prefixCls: string, token: RadioToken): CSSInterpol
         display: 'inline-block',
         width: 0,
         overflow: 'hidden',
-        content: '\\a0',
-      },
-    },
-  };
-}
-
-function getBaseRadioStyle(prefixCls: string, hashId: string, token: RadioToken): CSSInterpolation {
-  const radioInnerPrefixCls = `${prefixCls}-inner`;
-
-  return {
-    [`.${prefixCls}`]: {
-      ...resetComponent(token),
-      position: 'relative',
-      top: token.radioTop,
-      display: 'inline-block',
-      outline: 'none',
-      cursor: 'pointer',
-
-      [`.${prefixCls}-wrapper:hover &,
-        &:hover .${radioInnerPrefixCls},
-        &-input:focus + .${radioInnerPrefixCls}`]: {
-        borderColor: token.radioDotColor,
+        content: '"\\a0"',
       },
 
-      [`.${prefixCls}-input:focus + .${radioInnerPrefixCls}`]: {
-        boxShadow: token.radioFocusShadow,
-      },
-
+      // hashId 在 wrapper 上，只能铺平
       [`.${prefixCls}-checked::after`]: {
         position: 'absolute',
         top: 0,
@@ -130,7 +169,26 @@ function getBaseRadioStyle(prefixCls: string, hashId: string, token: RadioToken)
         visibility: 'hidden',
         animation: `${antRadioEffect.getName(hashId)} 0.36s ease-in-out`,
         animationFillMode: 'both',
-        content: '',
+        content: '""',
+      },
+
+      [`.${prefixCls}`]: {
+        ...resetComponent(token),
+        position: 'relative',
+        top: token.radioTop,
+        display: 'inline-block',
+        outline: 'none',
+        cursor: 'pointer',
+      },
+
+      [`.${prefixCls}-wrapper:hover &,
+              &:hover .${radioInnerPrefixCls},
+              &-input:focus + .${radioInnerPrefixCls}`]: {
+        borderColor: token.radioDotColor,
+      },
+
+      [`.${prefixCls}-input:focus + .${radioInnerPrefixCls}`]: {
+        boxShadow: token.radioFocusShadow,
       },
 
       [`.${prefixCls}:hover::after, .${prefixCls}-wrapper:hover &::after`]: {
@@ -145,8 +203,8 @@ function getBaseRadioStyle(prefixCls: string, hashId: string, token: RadioToken)
           display: 'block',
           width: token.radioSize,
           height: token.radioSize,
-          marginTop: `-(${token.radioSize} / 2)`,
-          marginLeft: `-(${token.radioSize} / 2)`,
+          marginTop: token.radioSize / -2,
+          marginLeft: token.radioSize / -2,
           backgroundColor: token.radioDotColor,
           borderTop: 0,
           borderLeft: 0,
@@ -154,7 +212,7 @@ function getBaseRadioStyle(prefixCls: string, hashId: string, token: RadioToken)
           transform: 'scale(0)',
           opacity: 0,
           transition: `all ${token.radioDuration} ${token.motionEaseInOutCirc}`,
-          content: ' ',
+          content: '""',
         },
 
         position: 'relative',
@@ -188,7 +246,7 @@ function getBaseRadioStyle(prefixCls: string, hashId: string, token: RadioToken)
           borderColor: token.radioDotColor,
 
           '&::after': {
-            transform: `scale((${token.radioDotSize} / ${token.radioSize}))`,
+            transform: `scale(${token.radioDotSize / token.radioSize})`,
             opacity: 1,
             transition: `all ${token.radioDuration} ${token.motionEaseInOutCirc}`,
           },
@@ -226,19 +284,20 @@ function getBaseRadioStyle(prefixCls: string, hashId: string, token: RadioToken)
   };
 }
 
+// Styles from radio-button
 function getRadioButtonStyle(prefixCls: string, token: RadioToken): CSSInterpolation {
   return {
     [`.${prefixCls}-button-wrapper`]: {
       position: 'relative',
       display: 'inline-block',
-      height: token.lineHeight,
+      height: token.controlHeight,
       margin: 0,
-      padding: `0 ${token.radioButtonPaddingHorizontal}`,
+      padding: `0 ${token.radioButtonPaddingHorizontal}px`,
       color: token.radioButtonColor,
       fontSize: token.fontSize,
-      lineHeight: token.lineHeight - 2,
+      lineHeight: `${token.controlHeight - 2}px`,
       background: token.radioButtonBg,
-      border: `${token.controlLineWidth} ${token.controlLineType} ${token.colorBorder}`,
+      border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
       // strange align fix for chrome but works
       // https://gw.alipayobjects.com/zos/rmsportal/VFTfKXJuogBAXcvfAUWJ.gif
       borderTopWidth: token.controlLineWidth + 0.02,
@@ -262,13 +321,13 @@ function getRadioButtonStyle(prefixCls: string, token: RadioToken): CSSInterpola
       [`.${prefixCls}-group-large &`]: {
         height: token.controlHeightLG,
         fontSize: token.fontSizeLG,
-        lineHeight: token.controlHeightLG - 2,
+        lineHeight: `${token.controlHeightLG - 2}px`,
       },
 
       [`.${prefixCls}-group-small &`]: {
         height: token.controlHeightSM,
         padding: `0 ${token.paddingXS - token.controlLineWidth}px`,
-        lineHeight: token.controlHeightSM - 2,
+        lineHeight: `${token.controlHeightSM - 2}px`,
       },
 
       '&:not(:first-child)': {
@@ -288,12 +347,12 @@ function getRadioButtonStyle(prefixCls: string, token: RadioToken): CSSInterpola
       },
 
       '&:first-child': {
-        borderLeft: `${token.controlLineWidth} ${token.controlLineType} ${token.colorBorder}`,
-        borderRadius: `${token.controlRadius} 0 0 ${token.controlRadius}`,
+        borderLeft: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
+        borderRadius: `${token.controlRadius}px 0 0 ${token.controlRadius}px`,
       },
 
       '&:last-child': {
-        borderRadius: `0 ${token.controlRadius} ${token.controlRadius} 0`,
+        borderRadius: `0 ${token.controlRadius}px ${token.controlRadius}px 0`,
       },
 
       '&:first-child:last-child': {
@@ -401,10 +460,17 @@ function getRadioButtonStyle(prefixCls: string, token: RadioToken): CSSInterpola
         boxShadow: 'none',
       },
     },
+  };
+}
 
-    '&&-rtl': {
-      borderRightWidth: 0,
-      borderLeftWidth: token.controlLineWidth,
+// Styles from radio-button rtl
+function getRadioButtonRTLStyle(prefixCls: string, token: RadioToken): CSSInterpolation {
+  return {
+    [`.${prefixCls}-button-wrapper`]: {
+      '&&-rtl': {
+        borderRightWidth: 0,
+        borderLeftWidth: token.controlLineWidth,
+      },
 
       '&:not(:first-child)': {
         '&::before': {
@@ -417,11 +483,11 @@ function getRadioButtonStyle(prefixCls: string, token: RadioToken): CSSInterpola
 
       '&:first-child': {
         [`.${prefixCls}-button-wrapper.${prefixCls}-button-wrapper-rtl&`]: {
-          borderRight: `${token.controlLineWidth} ${token.controlLineType} ${token.colorBorder}`,
-          borderRadius: `0 ${token.controlRadius} ${token.controlRadius} 0`,
+          borderRight: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
+          borderRadius: `0 ${token.controlRadius}px ${token.controlRadius}px 0`,
         },
 
-        [`.${prefixCls}-button-wrapper,-checked:not([class*=~"' ${prefixCls}-button-wrapper-disabled'"])&`]:
+        [`.${prefixCls}-button-wrapper-checked:not([class*=~" ${prefixCls}-button-wrapper-disabled"])&`]:
           {
             borderRightColor: token.radioButtonHoverColor,
           },
@@ -429,7 +495,7 @@ function getRadioButtonStyle(prefixCls: string, token: RadioToken): CSSInterpola
 
       '&:last-child': {
         [`.${prefixCls}-button-wrapper.${prefixCls}-button-wrapper-rtl&`]: {
-          borderRadius: `${token.controlRadius} 0 0 ${token.controlRadius}`,
+          borderRadius: `${token.controlRadius}px 0 0 ${token.controlRadius}px`,
         },
       },
 
@@ -453,65 +519,15 @@ export function getStyle(
 ): CSSInterpolation {
   return [
     getGroupRadioStyle(prefixCls, antPrefix, token),
-    getRadioWrapperStyle(prefixCls, token),
-    getBaseRadioStyle(prefixCls, hashId, token),
+    getRadioBasicStyle(prefixCls, hashId, token),
     getRadioButtonStyle(prefixCls, token),
+    getRadioButtonRTLStyle(prefixCls, token),
   ];
 }
 
 export default function useStyle(prefixCls: string, antPrefix: string): UseComponentStyleResult {
   const [theme, token, hashId] = useToken();
-
-  // Radio
-  const radioDuration = '0.3s';
-  // primary-color-1
-  const radioFocusShadow = `0 0 0 3px ${token.colorPrimary}`;
-  const radioButtonFocusShadow = radioFocusShadow;
-
-  const radioSize = token.fontSizeLG;
-  const radioTop = '0.2em';
-  const radioBorderWidth = 1;
-  const radioDotSize = radioSize - 8;
-  const radioDotColor = token.colorPrimary;
-  // FIXME: hard code
-  const radioDotDisabledColor = new TinyColor('#000').setAlpha(0.2).toRgbString();
-  const radioSolidCheckedColor = token.colorBgComponent;
-
-  // Radio buttons
-  const radioButtonBg = token.colorBgComponent;
-  const radioButtonCheckedBg = token.colorBgComponent;
-  const radioButtonColor = token.colorText;
-  const radioButtonHoverColor = token.colorPrimaryHover;
-  const radioButtonActiveColor = token.colorPrimaryActive;
-  const radioButtonPaddingHorizontal = token.padding - 1;
-  const radioDisabledButtonCheckedBg = token.colorBgComponentDisabledActive;
-  const radioDisabledButtonCheckedColor = token.colorTextDisabled;
-  const radioWrapperMarginRight = token.margin / 2;
-
-  const radioToken = {
-    ...token,
-
-    radioDuration,
-    radioFocusShadow,
-    radioButtonFocusShadow,
-    radioSize,
-    radioTop,
-    radioBorderWidth,
-    radioDotSize,
-    radioDotColor,
-    radioDotDisabledColor,
-    radioSolidCheckedColor,
-    radioButtonBg,
-    radioButtonCheckedBg,
-    radioButtonColor,
-    radioButtonHoverColor,
-    radioButtonActiveColor,
-    radioButtonPaddingHorizontal,
-    radioDisabledButtonCheckedBg,
-    radioDisabledButtonCheckedColor,
-    radioWrapperMarginRight,
-  };
-
+  const radioToken = getRadioToken(token);
   return [
     useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () =>
       getStyle(prefixCls, hashId, antPrefix, radioToken),
