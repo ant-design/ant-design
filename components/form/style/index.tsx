@@ -277,7 +277,9 @@ const genFormItemStyle: GenerateStyle<FormToken> = token => {
           fontSize: token.fontSize,
           lineHeight: token.lineHeight,
           transition: `color ${token.motionDurationMid} @ease-out`, // sync input color transition FIXME: ease out
-          ...getExplainAndExtraDistance((24 - Math.ceil(token.fontSize * token.lineHeight)) / 2), // FIXME: 24
+          ...getExplainAndExtraDistance(
+            (token.marginLG - Math.ceil(token.fontSize * token.lineHeight)) / 2,
+          ),
         },
 
         '&-explain-connected': {
@@ -287,7 +289,7 @@ const genFormItemStyle: GenerateStyle<FormToken> = token => {
         },
 
         '&-extra': {
-          minHeight: 24, // FIXME: magic, compact
+          minHeight: token.controlHeightSM,
         },
 
         '&-explain': {
@@ -303,7 +305,7 @@ const genFormItemStyle: GenerateStyle<FormToken> = token => {
 
       [`&-with-help ${formItemCls}-explain`]: {
         height: 'auto',
-        minHeight: 24, // FIXME: magic, compact
+        minHeight: token.controlHeightSM,
         opacity: 1,
       },
     },
@@ -323,7 +325,7 @@ const genFormMotionStyle: GenerateStyle<FormToken> = token => {
                      opacity ${token.motionDurationSlow} ${token.motionEaseInOut}`,
 
         '&-leave': {
-          minHeight: 24, // FIXME: magic
+          minHeight: token.controlHeightSM,
 
           '&-active': {
             minHeight: 0,
