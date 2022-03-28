@@ -421,129 +421,159 @@ exports[`Progress render strokeColor 1`] = `
 `;
 
 exports[`Progress render strokeColor 2`] = `
-<Progress
+<ForwardRef
   percent={50}
-  showInfo={true}
-  size="default"
   strokeColor={
     Object {
       "from": "#108ee9",
       "to": "#87d068",
     }
   }
-  strokeLinecap="round"
-  trailColor={null}
   type="line"
 >
-  <div
-    className="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
-  >
-    <Line
-      percent={50}
-      prefixCls="ant-progress"
-      showInfo={true}
-      size="default"
-      strokeColor={
-        Object {
-          "from": "#108ee9",
-          "to": "#87d068",
-        }
+  <Progress
+    hashId=""
+    percent={50}
+    showInfo={true}
+    size="default"
+    strokeColor={
+      Object {
+        "from": "#108ee9",
+        "to": "#87d068",
       }
-      strokeLinecap="round"
-      trailColor={null}
-      type="line"
+    }
+    strokeLinecap="round"
+    trailColor={null}
+    type="line"
+    wrapSSR={[Function]}
+  >
+    <div
+      className="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
     >
-      <div
-        className="ant-progress-outer"
+      <Line
+        hashId=""
+        percent={50}
+        prefixCls="ant-progress"
+        showInfo={true}
+        size="default"
+        strokeColor={
+          Object {
+            "from": "#108ee9",
+            "to": "#87d068",
+          }
+        }
+        strokeLinecap="round"
+        trailColor={null}
+        type="line"
+        wrapSSR={[Function]}
       >
         <div
-          className="ant-progress-inner"
+          className="ant-progress-outer"
         >
           <div
-            className="ant-progress-bg"
-            style={
-              Object {
-                "backgroundImage": "linear-gradient(to right, #108ee9, #87d068)",
-                "borderRadius": "",
-                "height": 8,
-                "width": "50%",
+            className="ant-progress-inner"
+          >
+            <div
+              className="ant-progress-bg"
+              style={
+                Object {
+                  "backgroundImage": "linear-gradient(to right, #108ee9, #87d068)",
+                  "borderRadius": "",
+                  "height": 8,
+                  "width": "50%",
+                }
               }
-            }
-          />
+            />
+          </div>
         </div>
-      </div>
-      <span
-        className="ant-progress-text"
-        title="50%"
-      >
-        50%
-      </span>
-    </Line>
-  </div>
-</Progress>
+        <span
+          className="ant-progress-text"
+          title="50%"
+        >
+          50%
+        </span>
+      </Line>
+    </div>
+  </Progress>
+</ForwardRef>
 `;
 
 exports[`Progress render strokeColor 3`] = `
-<Progress
+<ForwardRef
   percent={50}
-  showInfo={true}
-  size="default"
   strokeColor={
     Object {
       "0%": "#108ee9",
       "100%": "#87d068",
     }
   }
-  strokeLinecap="round"
-  trailColor={null}
   type="line"
 >
-  <div
-    className="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
-  >
-    <Line
-      percent={50}
-      prefixCls="ant-progress"
-      showInfo={true}
-      size="default"
-      strokeColor={
-        Object {
-          "0%": "#108ee9",
-          "100%": "#87d068",
-        }
+  <Progress
+    hashId=""
+    percent={50}
+    showInfo={true}
+    size="default"
+    strokeColor={
+      Object {
+        "0%": "#108ee9",
+        "100%": "#87d068",
       }
-      strokeLinecap="round"
-      trailColor={null}
-      type="line"
+    }
+    strokeLinecap="round"
+    trailColor={null}
+    type="line"
+    wrapSSR={[Function]}
+  >
+    <div
+      className="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
     >
-      <div
-        className="ant-progress-outer"
+      <Line
+        hashId=""
+        percent={50}
+        prefixCls="ant-progress"
+        showInfo={true}
+        size="default"
+        strokeColor={
+          Object {
+            "0%": "#108ee9",
+            "100%": "#87d068",
+          }
+        }
+        strokeLinecap="round"
+        trailColor={null}
+        type="line"
+        wrapSSR={[Function]}
       >
         <div
-          className="ant-progress-inner"
+          className="ant-progress-outer"
         >
           <div
-            className="ant-progress-bg"
-            style={
-              Object {
-                "backgroundImage": "linear-gradient(to right, #108ee9 0%, #87d068 100%)",
-                "borderRadius": "",
-                "height": 8,
-                "width": "50%",
+            className="ant-progress-inner"
+          >
+            <div
+              className="ant-progress-bg"
+              style={
+                Object {
+                  "backgroundImage": "linear-gradient(to right, #108ee9 0%, #87d068 100%)",
+                  "borderRadius": "",
+                  "height": 8,
+                  "width": "50%",
+                }
               }
-            }
-          />
+            />
+          </div>
         </div>
-      </div>
-      <span
-        className="ant-progress-text"
-        title="50%"
-      >
-        50%
-      </span>
-    </Line>
-  </div>
-</Progress>
+        <span
+          className="ant-progress-text"
+          title="50%"
+        >
+          50%
+        </span>
+      </Line>
+    </div>
+  </Progress>
+</ForwardRef>
 `;
 
 exports[`Progress render successColor progress 1`] = `
