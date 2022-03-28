@@ -462,7 +462,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                     autocomplete="off"
                     class="ant-input"
                     role="combobox"
-                    type="search"
+                    type="text"
                     value=""
                   />
                   <span
@@ -601,7 +601,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
                       autocomplete="off"
                       class="ant-input"
                       role="combobox"
-                      type="search"
+                      type="text"
                       value=""
                     />
                     <span
