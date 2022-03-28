@@ -958,7 +958,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                     autocomplete="off"
                     class="ant-input"
                     role="combobox"
-                    type="search"
+                    type="text"
                     value=""
                   />
                   <span
@@ -1171,7 +1171,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md extend context co
                       autocomplete="off"
                       class="ant-input"
                       role="combobox"
-                      type="search"
+                      type="text"
                       value=""
                     />
                     <span
