@@ -61,15 +61,14 @@ const resetForm = (token: AliasToken): CSSObject => ({
   [`input[type='file']:focus,
   input[type='radio']:focus,
   input[type='checkbox']:focus`]: {
-    // outline: 'thin dotted',
-    outline: '5px auto -webkit-focus-ring-color',
-    outlineOffset: -2,
+    outline: 0,
+    boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${token.colorPrimaryOutline}`,
   },
 
   // Adjust output element
   output: {
     display: 'block',
-    paddingTop: '15px',
+    paddingTop: 15,
     color: token.colorText,
     fontSize: token.fontSize,
     lineHeight: token.lineHeight,
@@ -130,7 +129,7 @@ const genFormItemStyle: GenerateStyle<FormToken> = token => {
     [formItemCls]: {
       ...resetComponent(token),
 
-      marginBottom: 24, // FIXME: magic
+      marginBottom: token.marginLG,
       verticalAlign: 'top',
       // We delay one frame (0.017s) here to let CSSMotion goes
       transition: `margin-bottom ${token.motionDurationSlow} 0.017s linear`,
@@ -196,8 +195,8 @@ const genFormItemStyle: GenerateStyle<FormToken> = token => {
           // Required mark
           [`&${formItemCls}-required:not(${formItemCls}-required-mark-optional)::before`]: {
             display: 'inline-block',
-            marginInlineEnd: token.marginXS,
-            color: token.colorError, // FIXME: colorHighlight
+            marginInlineEnd: token.marginXXS,
+            color: token.colorError,
             fontSize: token.fontSize,
             fontFamily: 'SimSun, sans-serif',
             lineHeight: 1,
@@ -232,7 +231,7 @@ const genFormItemStyle: GenerateStyle<FormToken> = token => {
             position: 'relative',
             top: -0.5, // FIXME: magic
             marginBlock: 0,
-            marginInlineStart: token.marginXXS,
+            marginInlineStart: 2, // FIXME: magic number
             marginInlineEnd: token.marginXS,
           },
 
@@ -397,7 +396,7 @@ const genInlineStyle: GenerateStyle<FormToken> = token => {
         marginBottom: 0,
 
         '&-with-help': {
-          marginBottom: 24, // FIXME: magic
+          marginBottom: token.marginLG,
         },
 
         [`> ${formItemCls}-label,
