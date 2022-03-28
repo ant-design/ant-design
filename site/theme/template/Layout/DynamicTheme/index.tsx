@@ -60,7 +60,9 @@ export default ({ onChangeTheme, defaultToken, componentName }: ThemeConfigProps
         title={formatMessage({ id: 'app.theme.switch.dynamic' })}
         extra={
           <Space>
-            <Checkbox onChange={e => setShowDiff(e.target.checked)}>Diff</Checkbox>
+            <Checkbox checked={showDiff} onChange={e => setShowDiff(e.target.checked)}>
+              Diff
+            </Checkbox>
             <Button icon={<EyeOutlined />} onClick={() => setPreviewVisible(true)} />
             <Button onClick={form.submit} type="primary">
               Submit
