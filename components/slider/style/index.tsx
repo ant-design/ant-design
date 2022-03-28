@@ -17,17 +17,21 @@ import {
   resetComponent,
 } from '../../_util/theme';
 
-interface SliderToken extends DerivativeToken {
-  sliderCls: string;
-  handleSize: number;
-  sliderSize: number;
+export interface ComponentToken {
+  controlSize: number;
   railSize: number;
+  handleSize: number;
+  lineHandleWidth: number;
   dotSize: number;
+}
+
+interface SliderToken extends DerivativeToken, ComponentToken {
+  sliderCls: string;
 }
 
 // =============================== Base ===============================
 const genBaseStyle: GenerateStyle<SliderToken> = token => {
-  const { sliderCls, sliderSize, dotSize } = token;
+  const { sliderCls, controlSize, dotSize } = token;
 
   const FIXED_RAIL_HOVER_COLOR = '#e1e1e1';
 
@@ -36,7 +40,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
       ...resetComponent(token),
 
       position: 'relative',
-      height: sliderSize,
+      height: controlSize,
       margin: '10px 6px', // FIXME: hard code in v4
       padding: 0,
       cursor: 'pointer',
@@ -63,7 +67,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         width: token.handleSize,
         height: token.handleSize,
         backgroundColor: token.colorBgComponent,
-        border: `2px solid ${token.colorPrimarySecondary}`,
+        border: `${token.lineHandleWidth}px solid ${token.colorPrimarySecondary}`,
         borderRadius: '50%',
         boxShadow: 'none',
         cursor: 'pointer',
@@ -152,7 +156,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         width: dotSize,
         height: dotSize,
         backgroundColor: token.colorBgComponent,
-        border: `2px solid ${token.colorSplit}`, // FIXME: hardcode in v4
+        border: `${token.lineHandleWidth}px solid ${token.colorSplit}`,
         borderRadius: '50%',
         cursor: 'pointer',
         transition: `border-color ${token.motionDurationSlow}`,
@@ -196,7 +200,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
 
 // ============================ Horizontal ============================
 const genDirectionStyle = (token: SliderToken, horizontal: boolean): CSSObject => {
-  const { sliderCls, railSize, sliderSize, handleSize, dotSize } = token;
+  const { sliderCls, railSize, controlSize, handleSize, dotSize } = token;
 
   const railPadding: keyof React.CSSProperties = horizontal ? 'paddingBlock' : 'paddingInline';
   const stretch: keyof React.CSSProperties = horizontal ? 'width' : 'height';
@@ -217,7 +221,7 @@ const genDirectionStyle = (token: SliderToken, horizontal: boolean): CSSObject =
     },
 
     [`${sliderCls}-handle`]: {
-      [handlePos]: (sliderSize - handleSize) / 2,
+      [handlePos]: (controlSize - handleSize) / 2,
     },
 
     [`${sliderCls}-mark`]: {
@@ -274,23 +278,32 @@ const genVerticalStyle: GenerateStyle<SliderToken> = token => {
 export default function useStyle(prefixCls: string): UseComponentStyleResult {
   const [theme, token, hashId] = useToken();
 
-  const sliderSize = 12; // FIXME: hard code in v4
-
-  const sliderToken: SliderToken = {
-    ...token,
-    sliderCls: `.${prefixCls}`,
-    handleSize: 14, // FIXME: hard code in v4
-    sliderSize,
-    railSize: sliderSize / 3,
-    dotSize: 8,
-  };
-
   return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      genBaseStyle(sliderToken, hashId),
-      genHorizontalStyle(sliderToken),
-      genVerticalStyle(sliderToken),
-    ]),
+    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => {
+      const { controlHeightSM, lineWidth, slider } = token;
+
+      const controlSize = controlHeightSM / 2;
+      const lineHandleWidth = lineWidth + 1;
+
+      const sliderToken: SliderToken = {
+        ...token,
+        sliderCls: `.${prefixCls}`,
+
+        controlSize,
+        railSize: controlSize / 3,
+        handleSize: controlSize + lineHandleWidth,
+        dotSize: (controlSize / 3) * 2,
+        lineHandleWidth,
+
+        ...slider,
+      };
+
+      return [
+        genBaseStyle(sliderToken, hashId),
+        genHorizontalStyle(sliderToken),
+        genVerticalStyle(sliderToken),
+      ];
+    }),
     hashId,
   ];
 }
