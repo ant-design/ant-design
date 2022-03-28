@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type { ComponentToken as ButtonComponentToken } from '../../button/style';
 import type { ComponentToken as DividerComponentToken } from '../../divider/style';
+import type { ComponentToken as CascaderComponentToken } from '../../cascader/style';
 import type { ComponentToken as TypographyComponentToken } from '../../typography/style';
 
 export const PresetColors = [
@@ -34,6 +35,7 @@ export interface OverrideToken {
 
   // Customize component
   button?: ButtonComponentToken;
+  cascader?: CascaderComponentToken;
   divider?: DividerComponentToken;
   typography?: TypographyComponentToken;
 }
@@ -193,6 +195,8 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   fontSize: number;
   fontSizeLG: number;
   fontSizeXL: number;
+  /** Select, Cascader icon fontSize. Normal is fontSizeSM */
+  fontSizeIcon: number;
 
   fontSizeHeading1: number;
   fontSizeHeading2: number;

@@ -521,7 +521,7 @@ const genAllowClearStyle = (token: InputToken): CSSObject => {
     [`.${prefixCls}-clear-icon`]: {
       margin: 0,
       color: token.colorTextDisabled,
-      fontSize: token.fontSizeSM,
+      fontSize: token.fontSizeIcon,
       verticalAlign: -1, // FIXME: magic number
       // https://github.com/ant-design/ant-design/pull/18151
       // https://codesandbox.io/s/wizardly-sun-u10br

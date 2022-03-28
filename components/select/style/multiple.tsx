@@ -78,7 +78,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         &${selectCls}-show-arrow ${selectCls}-selector,
         &${selectCls}-allow-clear ${selectCls}-selector
       `]: {
-        paddingInlineEnd: token.fontSizeSM + token.controlPaddingHorizontal,
+        paddingInlineEnd: token.fontSizeIcon + token.controlPaddingHorizontal,
       },
 
       // ======================== Selections ========================
