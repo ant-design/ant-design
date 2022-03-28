@@ -195,7 +195,7 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   fontSize: number;
   fontSizeLG: number;
   fontSizeXL: number;
-  /** Select, Cascader icon fontSize. Normal is fontSizeSM */
+  /** Operation icon in Select, Cascader, etc. icon fontSize. Normal is same as fontSizeSM */
   fontSizeIcon: number;
 
   fontSizeHeading1: number;
