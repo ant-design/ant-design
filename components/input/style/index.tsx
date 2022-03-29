@@ -1,6 +1,5 @@
 // deps-lint-skip-all
 import { CSSObject } from '@ant-design/cssinjs';
-import { TinyColor } from '@ctrl/tinycolor';
 import {
   clearFix,
   DerivativeToken,
@@ -23,10 +22,7 @@ export interface InputToken extends DerivativeToken {
   inputBorderActiveColor: string;
 }
 
-// FIXME: magic color string
-export const genPlaceholderStyle = (
-  color: string = new TinyColor({ h: 0, s: 0, v: '75%' }).toHexString(),
-): CSSObject => ({
+export const genPlaceholderStyle = (color: string): CSSObject => ({
   // Firefox
   '&::-moz-placeholder': {
     opacity: 1,
@@ -137,7 +133,7 @@ export const genBasicInputStyle = (token: InputToken): CSSObject => ({
   borderColor: token.colorBorder,
   borderRadius: token.controlRadius,
   transition: `all ${token.motionDurationSlow}`,
-  ...genPlaceholderStyle(),
+  ...genPlaceholderStyle(token.colorPlaceholder),
 
   '&:hover': {
     ...genHoverStyle(token),
@@ -236,7 +232,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
     [`.${prefixCls}-group`]: {
       [`&-addon, &-wrap`]: {
         display: 'table-cell',
-        width: 1, // FIXME: magic number
+        width: 1,
         whiteSpace: 'nowrap',
         verticalAlign: 'middle',
 
@@ -465,7 +461,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
       },
 
       [`.${prefixCls}-group-wrapper + .${prefixCls}-group-wrapper`]: {
-        marginInlineStart: -1, // FIXME: magic number
+        marginInlineStart: -token.controlLineWidth,
         [`.${prefixCls}-affix-wrapper`]: {
           borderRadius: 0,
         },
@@ -490,7 +486,11 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
 };
 
 const genInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
-  const { prefixCls } = token;
+  const { prefixCls, controlHeightSM, controlLineWidth } = token;
+
+  const FIXED_CHROME_COLOR_HEIGHT = 16;
+  const colorSmallPadding =
+    (controlHeightSM - controlLineWidth * 2 - FIXED_CHROME_COLOR_HEIGHT) / 2;
 
   return {
     [`.${prefixCls}`]: {
@@ -505,9 +505,9 @@ const genInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
           height: token.controlHeightLG,
         },
         [`&.${prefixCls}-sm`]: {
-          height: token.controlHeightSM,
-          paddingTop: 3, // FIXME: magic number
-          paddingBottom: 3, // FIXME: magic number
+          height: controlHeightSM,
+          paddingTop: colorSmallPadding,
+          paddingBottom: colorSmallPadding,
         },
       },
     },
@@ -522,7 +522,7 @@ const genAllowClearStyle = (token: InputToken): CSSObject => {
       margin: 0,
       color: token.colorTextDisabled,
       fontSize: token.fontSizeIcon,
-      verticalAlign: -1, // FIXME: magic number
+      verticalAlign: -1,
       // https://github.com/ant-design/ant-design/pull/18151
       // https://codesandbox.io/s/wizardly-sun-u10br
       cursor: 'pointer',
@@ -617,7 +617,7 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
           alignItems: 'center',
 
           '> *:not(:last-child)': {
-            marginInlineEnd: 8, // FIXME: magic number
+            marginInlineEnd: token.paddingXS,
           },
         },
 
@@ -626,7 +626,7 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
         },
 
         '&-show-count-has-suffix': {
-          marginInlineEnd: token.marginXXS,
+          marginInlineEnd: token.paddingXXS,
         },
 
         '&-prefix': {
@@ -783,7 +783,7 @@ export const initInputToken = (
   ...token,
   prefixCls,
   iconPrefixCls,
-  inputAffixMargin: token.marginXS,
+  inputAffixMargin: token.paddingXS,
   inputPaddingVertical: Math.max(
     Math.round(((token.controlHeight - token.fontSize * token.lineHeight) / 2) * 10) / 10 -
       token.controlLineWidth,
