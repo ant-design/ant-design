@@ -108,7 +108,40 @@ jobs:
         run: node ./scripts/check-demo.js
     needs: setup
 
-  style:
+  ################################ Dist ################################
+  dist:
+    name: dist
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: restore cache from package-lock.json
+        uses: actions/cache@v3
+        with:
+          path: package-temp-dir
+          key: lock-${{ github.sha }}
+
+      - name: restore cache from node_modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+
+      - name: cache dist
+        uses: actions/cache@v3
+        with:
+          path: dist
+          key: dist-${{ github.sha }}
+
+      - name: dist
+        run: npm run dist
+        env:
+          NODE_OPTIONS: --max_old_space_size=4096
+    needs: setup
+
+  ############################### Style ################################
+  style-compile:
     name: style compile
     runs-on: ubuntu-latest
     steps:
@@ -127,13 +160,43 @@ jobs:
           path: node_modules
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
 
-      - name: compile
-        run: npm run compile
+      - name: restore cache from es
+        uses: actions/cache@v3
+        with:
+          path: es
+          key: es-${{ github.sha }}
 
-      - name: dist
-        run: npm run dist
-        env:
-          NODE_OPTIONS: --max_old_space_size=4096
+      - name: lessc component
+        run: npx lessc --js ./es/button/style/index.less
+
+      - name: lessc mixins
+        run: npx lessc --js ./es/style/mixins/index.less
+    needs: compile
+
+  style-dist:
+    name: style compile
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: restore cache from package-lock.json
+        uses: actions/cache@v3
+        with:
+          path: package-temp-dir
+          key: lock-${{ github.sha }}
+
+      - name: restore cache from node_modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+
+      - name: restore cache from dist
+        uses: actions/cache@v3
+        with:
+          path: dist
+          key: dist-${{ github.sha }}
 
       - name: lessc default
         run: npx lessc --js ./dist/antd.less
@@ -143,13 +206,7 @@ jobs:
 
       - name: lessc variable
         run: npx lessc --js ./dist/antd.variable.less
-
-      - name: lessc component
-        run: npx lessc --js ./es/button/style/index.less
-
-      - name: lessc mixins
-        run: npx lessc --js ./es/style/mixins/index.less
-    needs: setup
+    needs: dist
 
   ################################ Test ################################
   normal-test:
@@ -181,11 +238,12 @@ jobs:
         if: ${{ matrix.react == '16' }}
         run: npm run install-react-16
 
-      - name: dist
+      - name: restore cache from dist
         if: ${{ matrix.module == 'dist' }}
-        run: npm run dist
-        env:
-          NODE_OPTIONS: --max_old_space_size=4096
+        uses: actions/cache@v3
+        with:
+          path: dist
+          key: dist-${{ github.sha }}
 
       - name: check
         if: ${{ matrix.module == 'dist' }}
@@ -219,7 +277,7 @@ jobs:
         run: npm test
         env:
           LIB_DIR: dist
-    needs: setup
+    needs: [setup, dist]
 
   ########################### Compile & Test ###########################
   compile:
