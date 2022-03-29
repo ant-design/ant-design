@@ -8,6 +8,8 @@ import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 
+const { SHOW_CHILD, SHOW_PARENT } = Cascader;
+
 function toggleOpen(wrapper) {
   wrapper.find('.ant-select-selector').simulate('mousedown');
 }
@@ -524,6 +526,135 @@ describe('Cascader', () => {
       );
 
       errorSpy.mockRestore();
+    });
+
+    it('should support showCheckedStrategy child', () => {
+      const multipleOptions = [
+        {
+          value: 'zhejiang',
+          label: 'Zhejiang',
+          children: [
+            {
+              value: 'hangzhou',
+              label: 'Hangzhou',
+              children: [
+                {
+                  value: 'xihu',
+                  label: 'West Lake',
+                },
+                {
+                  value: 'donghu',
+                  label: 'East Lake',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          value: 'jiangsu',
+          label: 'Jiangsu',
+          children: [
+            {
+              value: 'nanjing',
+              label: 'Nanjing',
+              children: [
+                {
+                  value: 'zhonghuamen',
+                  label: 'Zhong Hua Men',
+                },
+              ],
+            },
+          ],
+        },
+      ];
+
+      let selectedValue;
+      const onChange = function onChange(value) {
+        selectedValue = value;
+      };
+
+      const wrapper = mount(
+        <Cascader
+          options={multipleOptions}
+          onChange={onChange}
+          multiple
+          showCheckedStrategy={SHOW_CHILD}
+        />,
+      );
+      toggleOpen(wrapper);
+      expect(wrapper.render()).toMatchSnapshot();
+
+      clickOption(wrapper, 0, 0);
+      clickOption(wrapper, 1, 0);
+      clickOption(wrapper, 2, 0);
+      clickOption(wrapper, 2, 1);
+      expect(selectedValue[0].join(',')).toBe('zhejiang,hangzhou,xihu');
+      expect(selectedValue[1].join(',')).toBe('zhejiang,hangzhou,donghu');
+      expect(selectedValue.join(',')).toBe('zhejiang,hangzhou,xihu,zhejiang,hangzhou,donghu');
+    });
+
+    it('should support showCheckedStrategy parent', () => {
+      const multipleOptions = [
+        {
+          value: 'zhejiang',
+          label: 'Zhejiang',
+          children: [
+            {
+              value: 'hangzhou',
+              label: 'Hangzhou',
+              children: [
+                {
+                  value: 'xihu',
+                  label: 'West Lake',
+                },
+                {
+                  value: 'donghu',
+                  label: 'East Lake',
+                },
+              ],
+            },
+          ],
+        },
+        {
+          value: 'jiangsu',
+          label: 'Jiangsu',
+          children: [
+            {
+              value: 'nanjing',
+              label: 'Nanjing',
+              children: [
+                {
+                  value: 'zhonghuamen',
+                  label: 'Zhong Hua Men',
+                },
+              ],
+            },
+          ],
+        },
+      ];
+
+      let selectedValue;
+      const onChange = function onChange(value) {
+        selectedValue = value;
+      };
+
+      const wrapper = mount(
+        <Cascader
+          options={multipleOptions}
+          onChange={onChange}
+          multiple
+          showCheckedStrategy={SHOW_PARENT}
+        />,
+      );
+      toggleOpen(wrapper);
+      expect(wrapper.render()).toMatchSnapshot();
+      clickOption(wrapper, 0, 0);
+      clickOption(wrapper, 1, 0);
+      clickOption(wrapper, 2, 0);
+      clickOption(wrapper, 2, 1);
+
+      expect(selectedValue.length).toBe(1);
+      expect(selectedValue.join(',')).toBe('zhejiang');
     });
   });
 });
