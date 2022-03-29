@@ -6,15 +6,10 @@ import * as React from 'react';
 import { useContext } from 'react';
 import { ConfigContext } from '../config-provider';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
-import { FormItemStatusContext, NoFormStatus } from '../form/context';
+import { FormItemInputContext, NoFormStatus } from '../form/context';
 import { cloneElement } from '../_util/reactNode';
-import {
-  getFeedbackIcon,
-  getStatusClassNames,
-  InputStatus,
-  getMergedStatus,
-} from '../_util/statusUtils';
 import useStyle from './style';
+import { getStatusClassNames, InputStatus, getMergedStatus } from '../_util/statusUtils';
 
 type ValueType = string | number;
 
@@ -76,7 +71,12 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       );
   }
 
-  const { hasFeedback, status: contextStatus } = useContext(FormItemStatusContext);
+  const {
+    hasFeedback,
+    status: contextStatus,
+    isFormItemInput,
+    feedbackIcon,
+  } = useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
   const mergeSize = customizeSize || size;
@@ -87,6 +87,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-readonly`]: readOnly,
       [`${prefixCls}-borderless`]: !bordered,
+      [`${prefixCls}-in-form-item`]: isFormItemInput,
     },
     getStatusClassNames(prefixCls, mergedStatus),
     hashId,
@@ -143,9 +144,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
             props.onBlur?.(event);
           },
         })}
-        {hasFeedback && (
-          <span className={`${prefixCls}-suffix`}>{getFeedbackIcon(prefixCls, mergedStatus)}</span>
-        )}
+        {hasFeedback && <span className={`${prefixCls}-suffix`}>{feedbackIcon}</span>}
       </div>
     );
   }

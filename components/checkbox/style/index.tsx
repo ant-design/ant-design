@@ -62,6 +62,13 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token, hashId) =>
         '& + &': {
           marginInlineStart: token.marginXS,
         },
+
+        '&&-in-form-item': {
+          'input[type="checkbox"]': {
+            width: 14, // FIXME: magic
+            height: 14, // FIXME: magic
+          },
+        },
       },
 
       // Wrapper > Checkbox
@@ -177,7 +184,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token, hashId) =>
           '&:after': {
             opacity: 1,
             transform: 'rotate(45deg) scale(1) translate(-50%,-50%)',
-            transition: `all ${token.motionDurationSlow} ${token.motionEaseOutBack} 0.1s`,
+            transition: `all ${token.motionDurationSlow} ${token.motionEaseOutBack} ${token.motionDurationFast}`,
           },
         },
 

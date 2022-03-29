@@ -292,7 +292,7 @@ Array [
               class="ant-radio-group ant-radio-group-outline"
             >
               <label
-                class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+                class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item"
               >
                 <span
                   class="ant-radio-button ant-radio-button-checked"
@@ -312,7 +312,7 @@ Array [
                 </span>
               </label>
               <label
-                class="ant-radio-button-wrapper"
+                class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
               >
                 <span
                   class="ant-radio-button"
@@ -331,7 +331,7 @@ Array [
                 </span>
               </label>
               <label
-                class="ant-radio-button-wrapper"
+                class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
               >
                 <span
                   class="ant-radio-button"
@@ -380,7 +380,7 @@ Array [
               class="ant-radio-group ant-radio-group-outline"
             >
               <label
-                class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+                class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item"
               >
                 <span
                   class="ant-radio-button ant-radio-button-checked"
@@ -400,7 +400,7 @@ Array [
                 </span>
               </label>
               <label
-                class="ant-radio-button-wrapper"
+                class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
               >
                 <span
                   class="ant-radio-button"
@@ -419,7 +419,7 @@ Array [
                 </span>
               </label>
               <label
-                class="ant-radio-button-wrapper"
+                class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
               >
                 <span
                   class="ant-radio-button"
@@ -468,7 +468,7 @@ Array [
               class="ant-radio-group ant-radio-group-outline"
             >
               <label
-                class="ant-radio-button-wrapper"
+                class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
               >
                 <span
                   class="ant-radio-button"
@@ -487,7 +487,7 @@ Array [
                 </span>
               </label>
               <label
-                class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+                class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item"
               >
                 <span
                   class="ant-radio-button ant-radio-button-checked"

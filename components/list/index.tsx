@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+// eslint-disable-next-line import/no-named-as-default
 import Spin, { SpinProps } from '../spin';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import { Breakpoint, responsiveArray } from '../_util/responsiveObserve';

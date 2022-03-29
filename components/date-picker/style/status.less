@@ -21,10 +21,6 @@
       .active(@text-color, @hoverBorderColor, @outlineColor);
     }
   }
-
-  .@{picker-prefix-cls}-feedback-icon {
-    color: @text-color;
-  }
 }
 
 .@{picker-prefix-cls} {
@@ -34,19 +30,5 @@
 
   &-status-warning {
     .picker-status-color(@warning-color, @warning-color, @input-bg, @warning-color-hover, @warning-color-outline);
-  }
-
-  &-status-validating {
-    .@{picker-prefix-cls}-feedback-icon {
-      display: inline-block;
-      color: @primary-color;
-    }
-  }
-
-  &-status-success {
-    .@{picker-prefix-cls}-feedback-icon {
-      color: @success-color;
-      animation-name: diffZoomIn1 !important;
-    }
   }
 }

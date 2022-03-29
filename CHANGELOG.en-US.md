@@ -15,6 +15,31 @@ timeline: true
 
 ---
 
+## 4.19.4
+
+`2022-03-27`
+
+- 🐞 Fix when `fullscreen` of the Calendar is `false`, the element returned by `dateFullCellRender` cannot be interactive. [#34614](https://github.com/ant-design/ant-design/pull/34614) [@imoctopus](https://github.com/imoctopus)
+- 🐞 fix BackTop responsive in RTL. [#34626](https://github.com/ant-design/ant-design/pull/34626) [@hmz22](https://github.com/hmz22)
+- 🐞 Fix text position in Steps with `small` size and `dot` mode. [#34651](https://github.com/ant-design/ant-design/pull/34651)
+- 🐞 Fix Descriptions `contentStyle` not working when children is 0. [#34696](https://github.com/ant-design/ant-design/pull/34696) [@zhao-huo-long](https://github.com/zhao-huo-long)
+- 🐞 Fix notification prevent interaction on elements which under it. [#34716](https://github.com/ant-design/ant-design/pull/34716)
+
+## 4.19.3
+
+`2022-03-21`
+
+- 🐞 Fix TextArea `clearIcon` color. [#34610](https://github.com/ant-design/ant-design/pull/34610)
+- 🐞 Fix: apply scale transform to disabled star. [#34547](https://github.com/ant-design/ant-design/pull/34547) [@Unuuuuu](https://github.com/Unuuuuu)
+- 🐞 Fix Tooltip arrow color with preset. [#34548](https://github.com/ant-design/ant-design/pull/34548)
+- 🐞 Fixed number abnormal position display in Badge RTL mode. [#34545](https://github.com/ant-design/ant-design/pull/34545)
+- 💄 Fix numeric Row and Col class styles when using prefixCls. [#34494](https://github.com/ant-design/ant-design/pull/34494) [@mic-web](https://github.com/mic-web)
+- 🐞 Fix Editable Textarea height jump in Firefox and Editable Typography.Title confirm icon position. [#34518](https://github.com/ant-design/ant-design/pull/34518)
+- 💄 Fix missing `status` style in RangePicker. [#34509](https://github.com/ant-design/ant-design/pull/34509)
+- 🛎 Add warning for Input getting blurred when dynamically add `hasFeedback`. [#34475](https://github.com/ant-design/ant-design/pull/34475)
+- 🐞 Fix missing classname in input when Input has `prefix` or `suffix`. [#34474](https://github.com/ant-design/ant-design/pull/34474)
+- 🌐 Updated it_LT locale for `typeTemplate`. [#34567](https://github.com/ant-design/ant-design/pull/34567) [@Anizcus](https://gitit_LTit_LThub.com/Anizcus)
+
 ## 4.19.2
 
 `2022-03-13`

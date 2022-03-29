@@ -78,7 +78,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         &${selectCls}-show-arrow ${selectCls}-selector,
         &${selectCls}-allow-clear ${selectCls}-selector
       `]: {
-        paddingInlineEnd: token.fontSizeSM + token.controlPaddingHorizontal,
+        paddingInlineEnd: token.fontSizeIcon + token.controlPaddingHorizontal,
       },
 
       // ======================== Selections ========================
@@ -121,7 +121,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
           ...resetIcon(),
 
           display: 'inline-block',
-          color: token.colorTextSecondary,
+          color: token.colorAction,
           fontWeight: 'bold',
           fontSize: 10,
           lineHeight: 'inherit',
@@ -132,7 +132,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
           },
 
           '&:hover': {
-            color: token.iconColorHover,
+            color: token.colorActionHover,
           },
         },
       },
@@ -148,7 +148,6 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         display: 'inline-flex',
         position: 'relative',
         maxWidth: '100%',
-        // FIXME: no sure this style
         marginInlineStart: token.inputPaddingHorizontalBase - selectItemDist,
 
         [`

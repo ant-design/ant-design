@@ -26,7 +26,7 @@ const treeNodeFX = new Keyframes('ant-tree-node-fx-do-not-use', {
 const getSwitchStyle = (prefixCls: string, token: DerivativeToken): CSSObject => ({
   [`.${prefixCls}-switcher-icon`]: {
     display: 'inline-block',
-    fontSize: 10, // FIXME: missing token
+    fontSize: 10,
     verticalAlign: 'baseline',
 
     svg: {
@@ -95,7 +95,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
       },
 
       '&-focused:not(:hover):not(&-active-focused)': {
-        background: token.tmpPrimaryHoverColorWeak,
+        background: token.colorPrimaryOutline,
       },
 
       // =================== Virtual List ===================
@@ -276,7 +276,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
         },
 
         [`&${treeCls}-node-selected`]: {
-          backgroundColor: token.tmpPrimaryHoverColorWeak,
+          backgroundColor: token.colorPrimaryOutline,
         },
 
         // Icon

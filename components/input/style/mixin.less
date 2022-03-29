@@ -66,7 +66,7 @@
   background-color: @input-bg;
   background-image: none;
   border: @border-width-base @border-style-base @input-border-color;
-  border-radius: @border-radius-base;
+  border-radius: @control-border-radius;
   transition: all 0.3s;
   .placeholder(); // Reset placeholder
 
@@ -193,7 +193,7 @@
     text-align: center;
     background-color: @input-addon-bg;
     border: @border-width-base @border-style-base @input-border-color;
-    border-radius: @border-radius-base;
+    border-radius: @control-border-radius;
     transition: all 0.3s;
 
     // Reset Select's style in addon
@@ -297,8 +297,8 @@
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
       .@{ant-prefix}-input-search & {
-        border-top-left-radius: @border-radius-base;
-        border-bottom-left-radius: @border-radius-base;
+        border-top-left-radius: @control-border-radius;
+        border-bottom-left-radius: @control-border-radius;
       }
     }
 
@@ -384,8 +384,8 @@
     & > .@{ant-prefix}-select:first-child > .@{ant-prefix}-select-selector,
     & > .@{ant-prefix}-select-auto-complete:first-child .@{ant-prefix}-input,
     & > .@{ant-prefix}-cascader-picker:first-child .@{ant-prefix}-input {
-      border-top-left-radius: @border-radius-base;
-      border-bottom-left-radius: @border-radius-base;
+      border-top-left-radius: @control-border-radius;
+      border-bottom-left-radius: @control-border-radius;
     }
 
     & > *:last-child,
@@ -393,8 +393,8 @@
     & > .@{ant-prefix}-cascader-picker:last-child .@{ant-prefix}-input,
     & > .@{ant-prefix}-cascader-picker-focused:last-child .@{ant-prefix}-input {
       border-right-width: @border-width-base;
-      border-top-right-radius: @border-radius-base;
-      border-bottom-right-radius: @border-radius-base;
+      border-top-right-radius: @control-border-radius;
+      border-bottom-right-radius: @control-border-radius;
     }
 
     // https://github.com/ant-design/ant-design/issues/12493
@@ -416,7 +416,7 @@
         }
 
         & > .@{ant-prefix}-input {
-          border-radius: @border-radius-base 0 0 @border-radius-base;
+          border-radius: @control-border-radius 0 0 @control-border-radius;
         }
       }
     }
@@ -453,10 +453,6 @@
   @hoverBorderColor: @primary-color-hover;
   @outlineColor: @primary-color-outline;
 ) {
-  .@{prefix-cls}-feedback-icon {
-    color: @text-color;
-  }
-
   .@{prefix-cls}-prefix {
     color: @text-color;
   }

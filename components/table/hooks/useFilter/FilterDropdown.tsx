@@ -111,6 +111,7 @@ export interface FilterDropdownProps<RecordType> {
   triggerFilter: (filterState: FilterState<RecordType>) => void;
   locale: TableLocale;
   getPopupContainer?: GetPopupContainer;
+  filterResetToDefaultFilteredValue?: boolean;
 }
 
 function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
@@ -130,7 +131,12 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     getPopupContainer,
   } = props;
 
-  const { filterDropdownVisible, onFilterDropdownVisibleChange } = column;
+  const {
+    filterDropdownVisible,
+    onFilterDropdownVisibleChange,
+    filterResetToDefaultFilteredValue,
+    defaultFilteredValue,
+  } = column;
   const [visible, setVisible] = React.useState(false);
 
   const filtered: boolean = !!(
@@ -231,8 +237,14 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     if (closeDropdown) {
       triggerVisible(false);
     }
+
     setSearchValue('');
-    setFilteredKeysSync([]);
+
+    if (filterResetToDefaultFilteredValue) {
+      setFilteredKeysSync((defaultFilteredValue || []).map(key => String(key)));
+    } else {
+      setFilteredKeysSync([]);
+    }
   };
 
   const doFilter = ({ closeDropdown } = { closeDropdown: true }) => {

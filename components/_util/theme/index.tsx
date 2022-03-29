@@ -1,14 +1,8 @@
 import React from 'react';
-import {
-  CSSInterpolation,
-  CSSObject,
-  Theme,
-  useCacheToken,
-  useStyleRegister,
-} from '@ant-design/cssinjs';
+import { CSSInterpolation, Theme, useCacheToken, useStyleRegister } from '@ant-design/cssinjs';
 import defaultSeedToken, { derivative as defaultDerivative } from './themes/default';
 import version from '../../version';
-import { resetComponent, resetIcon, clearFix } from './util';
+import { resetComponent, resetIcon, clearFix, roundedArrow } from './util';
 import formatToken from './util/alias';
 import {
   initSlideMotion,
@@ -21,7 +15,7 @@ import {
   slideRightIn,
   slideRightOut,
 } from './util/slide';
-import { PresetColors } from './interface';
+import { GlobalToken, PresetColors } from './interface';
 import type {
   SeedToken,
   DerivativeToken,
@@ -35,6 +29,7 @@ export {
   resetComponent,
   resetIcon,
   clearFix,
+  roundedArrow,
   initSlideMotion,
   slideUpIn,
   slideUpOut,
@@ -69,7 +64,7 @@ export const DesignTokenContext = React.createContext<{
 });
 
 // ================================== Hook ==================================
-export function useToken(): [Theme<SeedToken, DerivativeToken>, AliasToken, string] {
+export function useToken(): [Theme<SeedToken, DerivativeToken>, GlobalToken, string] {
   const {
     token: rootDesignToken,
     theme = defaultTheme,
@@ -79,7 +74,7 @@ export function useToken(): [Theme<SeedToken, DerivativeToken>, AliasToken, stri
 
   const salt = `${version}-${hashed || ''}`;
 
-  const [token, hashId] = useCacheToken<AliasToken, SeedToken>(
+  const [token, hashId] = useCacheToken<GlobalToken, SeedToken>(
     theme,
     [defaultSeedToken, rootDesignToken],
     {
@@ -98,16 +93,3 @@ export type GenerateStyle<ComponentToken extends object, ReturnType = CSSInterpo
   token: ComponentToken,
   hashId?: string,
 ) => ReturnType;
-
-// ================================== Util ==================================
-export function withPrefix(
-  style: CSSObject,
-  prefixCls: string,
-  additionalClsList: string[] = [],
-): CSSObject {
-  const fullClsList = [prefixCls, ...additionalClsList].filter(cls => cls).map(cls => `.${cls}`);
-
-  return {
-    [fullClsList.join('')]: style,
-  };
-}

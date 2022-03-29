@@ -3,7 +3,7 @@ import omit from 'rc-util/lib/omit';
 import { Meta } from 'rc-field-form/lib/interface';
 import { FormProvider as RcFormProvider } from 'rc-field-form';
 import { FormProviderProps as RcFormProviderProps } from 'rc-field-form/lib/FormContext';
-import { FC, PropsWithChildren, useMemo } from 'react';
+import { FC, PropsWithChildren, ReactNode, useMemo } from 'react';
 import { ColProps } from '../grid/col';
 import { FormLabelAlign } from './interface';
 import { RequiredMark } from './Form';
@@ -53,16 +53,18 @@ export const FormItemPrefixContext = React.createContext<FormItemPrefixContextPr
 });
 
 export interface FormItemStatusContextProps {
+  isFormItemInput?: boolean;
   status?: ValidateStatus;
   hasFeedback?: boolean;
+  feedbackIcon?: ReactNode;
 }
 
-export const FormItemStatusContext = React.createContext<FormItemStatusContextProps>({});
+export const FormItemInputContext = React.createContext<FormItemStatusContextProps>({});
 
 export const NoFormStatus: FC<PropsWithChildren<{}>> = ({ children }: PropsWithChildren<{}>) => {
   const emptyContext = useMemo(() => ({}), []);
 
   return (
-    <FormItemStatusContext.Provider value={emptyContext}>{children}</FormItemStatusContext.Provider>
+    <FormItemInputContext.Provider value={emptyContext}>{children}</FormItemInputContext.Provider>
   );
 };

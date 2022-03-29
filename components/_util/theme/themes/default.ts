@@ -24,8 +24,10 @@ const defaultPresetColors: PresetColorType = {
 export function derivative(token: SeedToken): DerivativeToken {
   const {
     colorPrimary,
+    colorSuccess,
     colorWarning,
     colorError,
+    colorInfo,
     motionUnit,
     motionBase,
     fontSizeBase,
@@ -38,8 +40,10 @@ export function derivative(token: SeedToken): DerivativeToken {
   } = token;
 
   const primaryColors = generate(colorPrimary);
+  const successColors = generate(colorSuccess);
   const warningColors = generate(colorWarning);
   const errorColors = generate(colorError);
+  const infoColors = generate(colorInfo);
 
   const colorPalettes = Object.keys(defaultPresetColors)
     .map((colorKey: keyof PresetColorType) => {
@@ -59,6 +63,10 @@ export function derivative(token: SeedToken): DerivativeToken {
     }, {} as ColorPalettes);
 
   const fontSizes = getFontSizes(fontSizeBase);
+
+  const colorBg2 = new TinyColor({ h: 0, s: 0, v: 98 }).toHexString();
+  const colorBgBelow = new TinyColor({ h: 0, s: 0, v: 98 }).toHexString();
+  const colorBgBelow2 = new TinyColor({ h: 0, s: 0, v: 96 }).toHexString();
 
   return {
     ...token,
@@ -92,18 +100,37 @@ export function derivative(token: SeedToken): DerivativeToken {
     radiusXL: radiusBase * 4,
 
     // color
-    colorBgBelow: new TinyColor({ h: 0, s: 0, v: 98 }).toHexString(),
-    colorBgBelow2: new TinyColor({ h: 0, s: 0, v: 96 }).toHexString(),
+    colorBg2,
+    colorBg3: '#e1e1e1',
+    colorBgBelow,
+    colorBgBelow2,
+
+    colorDefaultOutline: colorBgBelow2,
 
     colorPrimaryActive: primaryColors[6],
     colorPrimaryHover: primaryColors[4],
     colorPrimaryOutline: new TinyColor(colorPrimary).setAlpha(0.2).toRgbString(),
+    colorPrimarySecondary: primaryColors[2],
+
+    colorSuccessSecondary: successColors[2],
+    colorBgSuccess: successColors[0],
+
     colorErrorActive: errorColors[6],
     colorErrorHover: errorColors[4],
     colorErrorOutline: new TinyColor(colorError).setAlpha(0.2).toRgbString(),
+    colorErrorSecondary: errorColors[2],
+    colorBgError: errorColors[0],
+
     colorWarningActive: warningColors[6],
     colorWarningHover: warningColors[4],
     colorWarningOutline: new TinyColor(colorWarning).setAlpha(0.2).toRgbString(),
+    colorWarningSecondary: warningColors[2],
+    colorBgWarning: warningColors[0],
+
+    colorInfoSecondary: infoColors[2],
+    colorBgInfo: infoColors[0],
+
+    colorHighlight: errorColors[4],
 
     // text color
     colorText2: new TinyColor('#000').setAlpha(0.85).toRgbString(),
@@ -165,6 +192,10 @@ const seedToken: SeedToken = {
 
   // Control Base
   controlHeight: 32,
+
+  // zIndex
+  zIndexBase: 0,
+  zIndexPopup: 1000,
 };
 
 export default seedToken;

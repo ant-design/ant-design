@@ -20,7 +20,7 @@ import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
 import getIcons from '../select/utils/iconUtil';
 import { getTransitionName, getTransitionDirection, SelectCommonPlacement } from '../_util/motion';
-import { FormItemStatusContext } from '../form/context';
+import { FormItemInputContext } from '../form/context';
 import { getMergedStatus, getStatusClassNames, InputStatus } from '../_util/statusUtils';
 import useStyle from './style';
 import useSelectStyle from '../select/style';
@@ -35,6 +35,8 @@ export { BaseOptionType, DefaultOptionType };
 export type FieldNamesType = FieldNames;
 
 export type FilledFieldNamesType = Required<FieldNamesType>;
+
+const { SHOW_CHILD, SHOW_PARENT } = RcCascader;
 
 function highlightKeyword(str: string, lowerKeyword: string, prefixCls: string | undefined) {
   const cells = str
@@ -148,8 +150,13 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
   const mergedDirection = direction || rootDirection;
   const isRtl = mergedDirection === 'rtl';
 
-  // =================== Status =====================
-  const { status: contextStatus, hasFeedback } = useContext(FormItemStatusContext);
+  // =================== Form =====================
+  const {
+    status: contextStatus,
+    hasFeedback,
+    isFormItemInput,
+    feedbackIcon,
+  } = useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
   // =================== Warning =====================
@@ -234,8 +241,8 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
   const mergedShowArrow = showArrow !== undefined ? showArrow : props.loading || !multiple;
   const { suffixIcon, removeIcon, clearIcon } = getIcons({
     ...props,
-    status: mergedStatus,
     hasFeedback,
+    feedbackIcon,
     showArrow: mergedShowArrow,
     multiple,
     prefixCls,
@@ -262,6 +269,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
           [`${prefixCls}-sm`]: mergedSize === 'small',
           [`${prefixCls}-rtl`]: isRtl,
           [`${prefixCls}-borderless`]: !bordered,
+          [`${prefixCls}-in-form-item`]: isFormItemInput,
         },
         getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
         className,
@@ -294,12 +302,16 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
   );
 
   return wrapCascaderSSR(wrapSelectSSR(renderNode));
-}) as (<OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType>(
+}) as unknown as (<OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType>(
   props: React.PropsWithChildren<CascaderProps<OptionType>> & { ref?: React.Ref<CascaderRef> },
 ) => React.ReactElement) & {
   displayName: string;
+  SHOW_PARENT: typeof SHOW_PARENT;
+  SHOW_CHILD: typeof SHOW_CHILD;
 };
 
 Cascader.displayName = 'Cascader';
+Cascader.SHOW_PARENT = SHOW_PARENT;
+Cascader.SHOW_CHILD = SHOW_CHILD;
 
 export default Cascader;

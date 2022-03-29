@@ -123,7 +123,7 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token, hashId) => {
 
             [`&-selected:not(${selectItemCls}-option-disabled)`]: {
               color: token.colorText,
-              fontWeight: 600, // FIXME: Need design token?
+              fontWeight: token.fontWeightStrong,
               backgroundColor: token.controlItemBgActive,
 
               [`${selectItemCls}-option-state`]: {
