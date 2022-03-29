@@ -151,6 +151,76 @@ jobs:
         run: npx lessc --js ./es/style/mixins/index.less
     needs: setup
 
+  ################################ Test ################################
+    normal-test:
+    name: test
+    strategy:
+      matrix:
+        react: ['16', '17']
+        module: ['dom', 'node', 'dist']
+    env:
+      REACT: ${{ matrix.react }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: restore cache from package-lock.json
+        uses: actions/cache@v3
+        with:
+          path: package-temp-dir
+          key: lock-${{ github.sha }}
+
+      - name: restore cache from node_modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+
+      - name: install react 16
+        if: ${{ matrix.react == '16' }}
+        run: npm run install-react-16
+
+      - name: dist
+        if: ${{ matrix.module == 'dist' }}
+        run: npm run dist
+        env:
+          NODE_OPTIONS: --max_old_space_size=4096
+
+      - name: check
+        if: ${{ matrix.module == 'dist' }}
+        run: node ./tests/dekko/dist.test.js
+
+      # 17 only
+      - name: bundlesize
+        if: ${{ matrix.module == 'dist' && matrix.react == '17' }}
+        run: npm run bundlesize
+        env:
+          BUNDLESIZE_GITHUB_TOKEN: ${{ secrets.BUNDLESIZE_GITHUB_TOKEN }}
+
+      # dom test
+      - name: dom test
+        if: ${{ matrix.module == 'dom' }}
+        run: npm test -- -w 1 --coverage
+
+      # > 17 only
+      - name: coverage
+        if: ${{ matrix.module == 'dom' && matrix.react == '17' }}
+        run: bash <(curl -s https://codecov.io/bash)
+
+      # node test
+      - name: node test
+        if: ${{ matrix.module == 'node' }}
+        run: npm run test-node
+
+      # dist test
+      - name: dist test
+        if: ${{ matrix.module == 'dist' }}
+        run: npm test
+        env:
+          LIB_DIR: dist
+    needs: setup
+
   ########################### Compile & Test ###########################
   compile:
     runs-on: ubuntu-latest
@@ -190,7 +260,7 @@ jobs:
     needs: setup
 
   compiled-module-test:
-    name: compiled module test
+    name: module test
     runs-on: ubuntu-latest
     strategy:
       matrix:
