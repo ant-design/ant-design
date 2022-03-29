@@ -85,16 +85,6 @@ const genFormSize = (token: FormToken, height: number): CSSObject => ({
   },
 });
 
-const getExplainAndExtraDistance = (distance: number): CSSObject =>
-  distance >= 0
-    ? {
-        paddingTop: Math.floor(distance),
-      }
-    : {
-        marginTop: Math.ceil(distance),
-        marginBottom: Math.ceil(distance),
-      };
-
 const genFormStyle: GenerateStyle<FormToken> = token => {
   const { formCls } = token;
 
@@ -277,9 +267,6 @@ const genFormItemStyle: GenerateStyle<FormToken> = token => {
           fontSize: token.fontSize,
           lineHeight: token.lineHeight,
           transition: `color ${token.motionDurationMid} ${token.motionEaseOut}`, // sync input color transition
-          ...getExplainAndExtraDistance(
-            (token.marginLG - Math.ceil(token.fontSize * token.lineHeight)) / 2,
-          ),
         },
 
         '&-explain-connected': {
