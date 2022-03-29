@@ -152,7 +152,7 @@ jobs:
     needs: setup
 
   ################################ Test ################################
-    normal-test:
+  normal-test:
     name: test
     strategy:
       matrix:
