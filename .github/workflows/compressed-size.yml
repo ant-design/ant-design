@@ -4,6 +4,11 @@ on:
   pull_request:
     types: [opened, synchronize]
 
+# Cancel prev CI if new commit come
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   compressed-size:
     runs-on: ubuntu-latest
