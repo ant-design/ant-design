@@ -195,7 +195,6 @@ const seedToken: SeedToken = {
 
   // zIndex
   zIndexBase: 0,
-  zIndexPopover: 1030,
   zIndexPopup: 1000,
 };
 

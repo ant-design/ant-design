@@ -59,7 +59,6 @@ const genBaseStyle: GenerateStyle<PopoverToken> = token => {
     lineHeight,
     radiusBase: borderRadius,
     paddingSM,
-    zIndexPopover,
   } = token;
 
   return {
@@ -68,7 +67,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = token => {
       position: 'absolute',
       top: 0,
       insetInlineStart: 0,
-      zIndex: zIndexPopover,
+      zIndex: 1030, // FIXME: hardcode
       fontWeight: 'normal',
       whiteSpace: 'normal',
       textAlign: 'start',

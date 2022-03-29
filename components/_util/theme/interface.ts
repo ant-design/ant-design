@@ -3,6 +3,8 @@ import type { ComponentToken as ButtonComponentToken } from '../../button/style'
 import type { ComponentToken as DividerComponentToken } from '../../divider/style';
 import type { ComponentToken as CascaderComponentToken } from '../../cascader/style';
 import type { ComponentToken as InputNumberComponentToken } from '../../input-number/style';
+import type { ComponentToken as MentionsComponentToken } from '../../mentions/style';
+import type { ComponentToken as SelectComponentToken } from '../../select/style';
 import type { ComponentToken as SliderComponentToken } from '../../slider/style';
 import type { ComponentToken as TypographyComponentToken } from '../../typography/style';
 
@@ -40,6 +42,8 @@ export interface OverrideToken {
   Cascader?: CascaderComponentToken;
   Divider?: DividerComponentToken;
   InputNumber?: InputNumberComponentToken;
+  Mentions?: MentionsComponentToken;
+  Select?: SelectComponentToken;
   Slider?: SliderComponentToken;
   Typography?: TypographyComponentToken;
 }
@@ -97,7 +101,6 @@ export interface SeedToken extends PresetColorType {
   // zIndex
   /** Base zIndex of component like BackTop, Affix which can be cover by large popup */
   zIndexBase: number;
-  zIndexPopover: number;
   /** Base popup component zIndex */
   zIndexPopup: number;
 }

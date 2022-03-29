@@ -20,7 +20,7 @@ import { getStyle as getCheckboxStyle } from '../../checkbox/style';
 export interface ComponentToken {
   controlWidth: number;
   controlItemWidth: number;
-  popupHeight: number;
+  dropdownHeight: number;
 }
 
 interface CascaderToken extends DerivativeToken, ComponentToken {
@@ -90,7 +90,7 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token, hashId) => {
             // >>> Menu
             '&-menu': {
               minWidth: token.controlItemWidth,
-              height: token.popupHeight,
+              height: token.dropdownHeight,
               margin: `-${token.paddingXS}px 0`,
               padding: `${token.paddingXS}px 0`,
               overflow: 'auto',
@@ -179,7 +179,7 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
 
         controlWidth: 184,
         controlItemWidth: 111,
-        popupHeight: 180,
+        dropdownHeight: 180,
 
         // Override
         ...Cascader,
