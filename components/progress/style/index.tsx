@@ -1,4 +1,4 @@
-import { CSSObject, Keyframes } from "@ant-design/cssinjs";
+import { CSSObject, Keyframes } from '@ant-design/cssinjs';
 import {
   DerivativeToken,
   useStyleRegister,
@@ -6,7 +6,7 @@ import {
   UseComponentStyleResult,
   GenerateStyle,
   resetComponent,
-} from "../../_util/theme";
+} from '../../_util/theme';
 
 interface ProgressToken extends DerivativeToken {
   progressCls: string;
@@ -28,17 +28,17 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (
 ): CSSObject => {
   const { progressCls, iconPrefixCls } = token;
 
-  const antProgressActive = new Keyframes("antProgressActive", {
-    "0%": {
-      transform: "translateX(-100%) scaleX(0)",
+  const antProgressActive = new Keyframes('antProgressActive', {
+    '0%': {
+      transform: 'translateX(-100%) scaleX(0)',
       opacity: 0.1, // FIXME: hard code in v4
     },
-    "20%": {
-      transform: "translateX(-100%) scaleX(0)",
+    '20%': {
+      transform: 'translateX(-100%) scaleX(0)',
       opacity: 0.5, // FIXME: hard code in v4
     },
     to: {
-      transform: "translateX(0) scaleX(1)",
+      transform: 'translateX(0) scaleX(1)',
       opacity: 0, // FIXME: hard code in v4
     },
   });
@@ -47,34 +47,34 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (
     [progressCls]: {
       ...resetComponent(token),
 
-      display: "inline-block",
+      display: 'inline-block',
 
-      "&-line": {
-        position: "relative",
-        width: "100%",
+      '&-line': {
+        position: 'relative',
+        width: '100%',
         fontSize: token.fontSizeBase,
-        marginInlineEnd: "8px", // FIXME: hard code in v4
-        marginBottom: "8px", // FIXME: hard code in v4
+        marginInlineEnd: '8px', // FIXME: hard code in v4
+        marginBottom: '8px', // FIXME: hard code in v4
       },
 
       [`${progressCls}-outer`]: {
-        display: "inline-block",
-        width: "100%",
+        display: 'inline-block',
+        width: '100%',
       },
 
       [`&${progressCls}-show-info`]: {
         [`${progressCls}-outer`]: {
-          marginInlineEnd: "calc(-2em - 8px)",
-          paddingInlineEnd: "calc(2em + 8px)",
+          marginInlineEnd: 'calc(-2em - 8px)',
+          paddingInlineEnd: 'calc(2em + 8px)',
         },
       },
 
       [`${progressCls}-inner`]: {
-        position: "relative",
-        display: "inline-block",
-        width: "100%",
-        overflow: "hidden",
-        verticalAlign: "middle",
+        position: 'relative',
+        display: 'inline-block',
+        width: '100%',
+        overflow: 'hidden',
+        verticalAlign: 'middle',
         backgroundColor: token.remainingColor,
         borderRadius: token.radius,
       },
@@ -86,30 +86,30 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (
       },
 
       [`&${progressCls}-success-bg,${progressCls}-bg`]: {
-        position: "relative",
+        position: 'relative',
         backgroundColor: token.defaultColor,
         borderRadius: token.radius,
         transition: `all ${token.motionDurationSlow} cubic-bezier(0.08, 0.82, 0.17, 1) 0s`,
       },
 
       [`${progressCls}-success-bg`]: {
-        position: "absolute",
+        position: 'absolute',
         top: 0,
         left: 0,
         backgroundColor: token.colorSuccess,
       },
 
       [`${progressCls}-text`]: {
-        display: "inline-block",
-        width: "2em", // FIXME: hardcode in v4
-        marginInlineStart: "8px", // FIXME: hard code in v4
+        display: 'inline-block',
+        width: '2em', // FIXME: hardcode in v4
+        marginInlineStart: '8px', // FIXME: hard code in v4
         color: token.infoTextColor,
         fontSize: token.textFontSize,
         lineHeight: 1,
-        whiteSpace: "nowrap",
-        textAlign: "left",
-        verticalAlign: "middle",
-        wordBreak: "normal",
+        whiteSpace: 'nowrap',
+        textAlign: 'left',
+        verticalAlign: 'middle',
+        wordBreak: 'normal',
         [`.${iconPrefixCls}`]: {
           fontSize: token.fontSizeBase,
         },
@@ -118,18 +118,18 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (
       [`&${progressCls}-status-active`]: {
         // FIXME 不生成伪元素
         [`${progressCls}-bg::before`]: {
-          position: "absolute",
+          position: 'absolute',
           top: 0,
           right: 0,
           bottom: 0,
           left: 0,
-          background: "#fff",
-          borderRadius: "10px", // FIXME: hard code in v4
+          background: '#fff',
+          borderRadius: '10px', // FIXME: hard code in v4
           opacity: 0,
           animation: `${antProgressActive.getName(
             hashId,
           )} 2.4s cubic-bezier(0.23, 1, 0.32, 1) infinite`,
-          content: "",
+          content: '',
         },
       },
 
@@ -172,9 +172,9 @@ const genCircleStyle: GenerateStyle<ProgressToken> = (token: ProgressToken): CSS
 
   return {
     [progressCls]: {
-      ["&-circle"]: {
-        marginInlineEnd: "8px", // FIXME: hard code in v4
-        marginBottom: "8px", // FIXME: hard code in v4
+      ['&-circle']: {
+        marginInlineEnd: '8px', // FIXME: hard code in v4
+        marginBottom: '8px', // FIXME: hard code in v4
       },
       [`${progressCls}-circle-trail`]: {
         stroke: token.remainingColor,
@@ -183,28 +183,28 @@ const genCircleStyle: GenerateStyle<ProgressToken> = (token: ProgressToken): CSS
         animation: `ant-progress-appear ${token.duration}`,
       },
       [`&${progressCls}-circle ${progressCls}-inner`]: {
-        position: "relative",
+        position: 'relative',
         lineHeight: 1,
-        backgroundColor: "transparent",
+        backgroundColor: 'transparent',
       },
 
       [`&${progressCls}-circle ${progressCls}-text`]: {
-        position: "absolute",
-        top: "50%",
-        left: "50%",
-        width: "100%",
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        width: '100%',
         margin: 0,
         padding: 0,
         color: token.colorText2,
         fontSize: token.circleTextFontSize,
         lineHeight: 1,
-        whiteSpace: "normal",
-        textAlign: "center",
+        whiteSpace: 'normal',
+        textAlign: 'center',
         transform: `translate(-50%, -50%)`,
 
         [`.${iconPrefixCls}`]: {
           // fixme do not work 14em/12em
-          fontSize: "1.17em",
+          fontSize: '1.17em',
         },
       },
 
@@ -229,20 +229,20 @@ const genStepStyle: GenerateStyle<ProgressToken> = (token: ProgressToken): CSSOb
   return {
     [progressCls]: {
       [`${progressCls}-steps`]: {
-        display: "inline-block",
-        "&-outer": {
-          display: "flex",
-          flexDirection: "row",
-          alignItems: "center",
+        display: 'inline-block',
+        '&-outer': {
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'center',
         },
-        "&-item": {
+        '&-item': {
           flexShrink: 0,
-          minWidth: "2px", // FIXME: hardcode in v4
-          marginInlineEnd: "2px", // FIXME: hardcode in v4
+          minWidth: '2px', // FIXME: hardcode in v4
+          marginInlineEnd: '2px', // FIXME: hardcode in v4
           background: token.stepsItemBg,
           transition: `all ${token.duration}`,
 
-          "&-active": {
+          '&-active': {
             background: token.defaultColor,
           },
         },
@@ -270,17 +270,17 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
   const progressToken: ProgressToken = {
     ...token,
     progressCls: `.${prefixCls}`,
-    iconPrefixCls: "anticon",
+    iconPrefixCls: 'anticon',
     fontSizeBase: 14, // FIXME: hard code in v4
-    stepsItemBg: "#f3f3f3",
-    defaultColor: "#1890ff",
-    remainingColor: "rgba(0, 0, 0, 0.04)",
-    radius: "100px", // FIXME: hard code in v4
+    stepsItemBg: '#f3f3f3',
+    defaultColor: '#1890ff',
+    remainingColor: 'rgba(0, 0, 0, 0.04)',
+    radius: '100px', // FIXME: hard code in v4
     // FIXME used be fade(#000, 85%)
-    infoTextColor: "#000000d9",
-    circleTextFontSize: "1em", // FIXME: hard code in v4
-    textFontSize: "1em", // FIXME: hard code in v4
-    duration: "0.3s", // FIXME: hard code in v4
+    infoTextColor: '#000000d9',
+    circleTextFontSize: '1em', // FIXME: hard code in v4
+    textFontSize: '1em', // FIXME: hard code in v4
+    duration: '0.3s', // FIXME: hard code in v4
   };
 
   return [
