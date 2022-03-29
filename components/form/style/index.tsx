@@ -276,7 +276,7 @@ const genFormItemStyle: GenerateStyle<FormToken> = token => {
           color: token.colorTextSecondary,
           fontSize: token.fontSize,
           lineHeight: token.lineHeight,
-          transition: `color ${token.motionDurationMid} @ease-out`, // sync input color transition FIXME: ease out
+          transition: `color ${token.motionDurationMid} ${token.motionEaseOut}`, // sync input color transition
           ...getExplainAndExtraDistance(
             (token.marginLG - Math.ceil(token.fontSize * token.lineHeight)) / 2,
           ),

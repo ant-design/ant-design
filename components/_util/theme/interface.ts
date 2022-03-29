@@ -297,4 +297,6 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   screenXXL: number;
   screenXXLMin: number;
   screenXXLMax: number;
+
+  motionEaseOut: string;
 }
