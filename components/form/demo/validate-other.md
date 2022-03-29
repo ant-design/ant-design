@@ -93,7 +93,6 @@ const Demo = () => {
           <InputNumber min={1} max={10} />
         </Form.Item>
         <span className="ant-form-text" style={{ marginLeft: 8 }}>
-          {' '}
           machines
         </span>
       </Form.Item>
