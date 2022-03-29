@@ -142,7 +142,7 @@ jobs:
 
   ############################### Style ################################
   style-compile:
-    name: style compile
+    name: es style compile
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -160,6 +160,12 @@ jobs:
           path: node_modules
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
 
+      - name: restore cache from lib
+        uses: actions/cache@v3
+        with:
+          path: lib
+          key: lib-${{ github.sha }}
+
       - name: restore cache from es
         uses: actions/cache@v3
         with:
@@ -174,7 +180,7 @@ jobs:
     needs: compile
 
   style-dist:
-    name: style compile
+    name: dist style compile
     runs-on: ubuntu-latest
     steps:
       - name: checkout
