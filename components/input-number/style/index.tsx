@@ -21,6 +21,8 @@ import {
 
 export interface ComponentToken {
   controlWidth: number;
+  handleWidth: number;
+  handleFontSize: number;
 }
 
 interface InputNumberToken extends InputToken, ComponentToken {
@@ -207,7 +209,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
             position: 'absolute',
             insetBlockStart: 0,
             insetInlineEnd: 0,
-            width: 22, // FIXME: magic number
+            width: token.handleWidth,
             height: '100%',
             background: colorBgComponent,
             borderStartStartRadius: 0,
@@ -215,6 +217,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
             borderEndEndRadius: controlRadius,
             borderEndStartRadius: 0,
             opacity: 0,
+            opacity: 1,
             transition: `opacity ${motionDurationMid} linear ${motionDurationFast}`,
 
             // Fix input number inside Menu makes icon too large
@@ -227,8 +230,8 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
                 alignItems: 'center',
                 justifyContent: 'center',
                 minWidth: 'auto',
-                marinInlineEnd: 0,
-                fontSize: 7, // FIXME: magic
+                marginInlineEnd: 0,
+                fontSize: token.handleFontSize,
               },
             },
 
@@ -382,7 +385,7 @@ export default function useStyle(
 
   return [
     useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => {
-      const { InputNumber } = token;
+      const { InputNumber, controlLineWidth, controlHeightSM, fontSize } = token;
 
       const inputNumberToken: InputNumberToken = {
         ...initInputToken(token, prefixCls, iconPrefixCls),
@@ -390,6 +393,8 @@ export default function useStyle(
         inputNumberHandlerActiveBgColor: '#f4f4f4', // FIXME: magic number
 
         controlWidth: 90,
+        handleWidth: controlHeightSM - controlLineWidth * 2,
+        handleFontSize: fontSize / 2,
 
         ...InputNumber,
       };
