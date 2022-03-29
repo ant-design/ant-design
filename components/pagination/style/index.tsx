@@ -348,7 +348,7 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = token 
       },
 
       '&:hover button': {
-        borderColor: token.primaryColors[4],
+        borderColor: token.colorPrimaryHover,
       },
 
       [`${paginationCls}-item-link`]: {
@@ -485,19 +485,19 @@ const genPaginationItemStyle: GenerateStyle<PaginationToken, CSSObject> = token 
         },
 
         '&:hover': {
-          borderColor: token.primaryColors[4],
+          borderColor: token.colorPrimaryHover,
         },
 
         '&:focus-visible': {
-          borderColor: token.primaryColors[4],
+          borderColor: token.colorPrimaryHover,
         },
 
         '&:hover a': {
-          color: token.primaryColors[4],
+          color: token.colorPrimaryHover,
         },
 
         '&:focus-visible a': {
-          color: token.primaryColors[4],
+          color: token.colorPrimaryHover,
         },
       },
     },
