@@ -161,7 +161,8 @@ const genPaginationMiniStyle: GenerateStyle<PaginationToken, CSSObject> = token 
     },
 
     [`&.mini ${paginationCls}-options`]: {
-      marginInlineStart: token.marginXXS,
+      // FIXME
+      marginInlineStart: 2,
 
       [`&-size-changer`]: {
         top: token.paginationMiniOptionsSizeChangerTop,
@@ -209,12 +210,12 @@ const genPaginationSimpleStyle: GenerateStyle<PaginationToken, CSSObject> = toke
     [`&${paginationCls}-simple ${paginationCls}-simple-pager`]: {
       display: 'inline-block',
       height: token.paginationItemSizeSM,
-      marginInlineEnd: token.marginSM,
+      marginInlineEnd: token.marginXS,
 
       input: {
         boxSizing: 'border-box',
         height: '100%',
-        marginInlineEnd: token.marginSM,
+        marginInlineEnd: token.marginXS,
         padding: '0 6px',
         textAlign: 'center',
         backgroundColor: token.pagniationItemInputBg,
@@ -314,7 +315,7 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = token 
     ${paginationCls}-jump-prev,
     ${paginationCls}-jump-next
     `]: {
-      marginInlineEnd: token.marginSM,
+      marginInlineEnd: token.marginXS,
     },
 
     [`
@@ -403,7 +404,7 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = token 
       '&-quick-jumper': {
         display: 'inline-block',
         height: token.controlHeight,
-        marginInlineStart: token.marginSM,
+        marginInlineStart: token.marginXS,
         lineHeight: `${token.controlHeight}px`,
         verticalAlign: 'top',
 
@@ -414,8 +415,8 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = token 
           width: 50,
           height: token.controlHeight,
           margin: 0,
-          marginInlineStart: token.marginSM,
-          marginInlineEnd: token.marginSM,
+          marginInlineStart: token.marginXS,
+          marginInlineEnd: token.marginXS,
         },
       },
     },
@@ -430,7 +431,7 @@ const genPaginationItemStyle: GenerateStyle<PaginationToken, CSSObject> = token 
       display: 'inline-block',
       minWidth: token.paginationItemSzie,
       height: token.paginationItemSzie,
-      marginInlineEnd: token.marginSM,
+      marginInlineEnd: token.marginXS,
       fontFamily: token.paginationFontFamily,
       lineHeight: `${token.paginationItemSzie - 2}px`,
       textAlign: 'center',
@@ -529,7 +530,7 @@ const genPaginationStyle: GenerateStyle<PaginationToken, CSSObject> = token => {
       [`${paginationCls}-total-text`]: {
         display: 'inline-block',
         height: token.paginationItemSzie,
-        marginInlineEnd: token.marginSM,
+        marginInlineEnd: token.marginXS,
         lineHeight: `${token.paginationItemSzie - 2}px`,
         verticalAlign: 'middle',
       },
