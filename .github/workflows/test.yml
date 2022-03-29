@@ -4,6 +4,11 @@ name: ✅ test
 
 on: [push, pull_request]
 
+# Cancel prev CI if new commit come
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   setup:
     runs-on: ubuntu-latest
@@ -216,7 +221,7 @@ jobs:
           key: ${{ matrix.module }}-${{ github.sha }}
 
       - name: install react 16
-        if: ${{ matrix.module == '16' }}
+        if: ${{ matrix.react == '16' }}
         run: npm run install-react-16
 
       - name: test
