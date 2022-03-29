@@ -28,13 +28,14 @@ const Group: React.FC<GroupProps> = props => {
   const { getPrefixCls, direction, iconPrefixCls } = React.useContext(ConfigContext);
   const { prefixCls: customizePrefixCls, className = '', maxCount, maxStyle, size } = props;
 
-  const prefixCls = getPrefixCls('avatar-group', customizePrefixCls);
+  const prefixCls = getPrefixCls('avatar', customizePrefixCls);
+  const groupPrefixCls = `${prefixCls}-group`;
   const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls, getPrefixCls());
 
   const cls = classNames(
-    prefixCls,
+    groupPrefixCls,
     {
-      [`${prefixCls}-rtl`]: direction === 'rtl',
+      [`${groupPrefixCls}-rtl`]: direction === 'rtl',
     },
     className,
     hashId,
@@ -57,7 +58,7 @@ const Group: React.FC<GroupProps> = props => {
         content={childrenHidden}
         trigger={maxPopoverTrigger}
         placement={maxPopoverPlacement}
-        overlayClassName={`${prefixCls}-popover`}
+        overlayClassName={`${groupPrefixCls}-popover`}
       >
         <Avatar style={maxStyle}>{`+${numOfChildren - maxCount}`}</Avatar>
       </Popover>,
