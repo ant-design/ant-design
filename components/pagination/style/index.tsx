@@ -216,6 +216,7 @@ const genPaginationSimpleStyle: GenerateStyle<PaginationToken, CSSObject> = toke
         boxSizing: 'border-box',
         height: '100%',
         marginInlineEnd: token.marginXS,
+        // FIXME: hardcode in v4
         padding: '0 6px',
         textAlign: 'center',
         backgroundColor: token.pagniationItemInputBg,
