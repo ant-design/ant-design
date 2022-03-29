@@ -13,7 +13,7 @@ ReactDOM.render(
   <ConfigProvider
     theme={{
       override: {
-        button: {
+        Button: {
           colorBgTextHover: 'red',
           colorBgTextActive: 'blue',
         },
@@ -26,7 +26,7 @@ ReactDOM.render(
       <ConfigProvider
         theme={{
           override: {
-            button: {
+            Button: {
               colorBgTextHover: 'orange',
               colorBgTextActive: 'blue',
             },

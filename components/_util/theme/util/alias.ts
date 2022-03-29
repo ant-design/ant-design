@@ -27,6 +27,8 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
   const warningColors = generate(mergedToken.colorWarning);
   const errorColors = generate(mergedToken.colorError);
 
+  const fontSizeSM = fontSizes[0];
+
   // Generate alias token
   const aliasToken: AliasToken = {
     ...mergedToken,
@@ -38,6 +40,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     colorTextHeading: mergedToken.colorText,
 
     colorBgContainer: mergedToken.colorBgBelow2,
+    colorBgContainerSecondary: mergedToken.colorBg3,
     colorBgComponent: mergedToken.colorBg,
     colorBgComponentSecondary: mergedToken.colorBg2,
     colorBgComponentDisabled: mergedToken.colorBgBelow2,
@@ -50,7 +53,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     colorActionHover: mergedToken.colorText,
 
     // Font
-    fontSizeSM: fontSizes[0],
+    fontSizeSM,
     fontSize: fontSizes[1],
     fontSizeLG: fontSizes[2],
     fontSizeXL: fontSizes[3],
@@ -59,6 +62,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     fontSizeHeading3: fontSizes[4],
     fontSizeHeading4: fontSizes[3],
     fontSizeHeading5: fontSizes[2],
+    fontSizeIcon: fontSizeSM,
 
     lineHeight: lineHeights[1],
     lineHeightLG: lineHeights[2],

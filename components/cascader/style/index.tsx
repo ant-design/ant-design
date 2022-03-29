@@ -17,7 +17,13 @@ import {
 } from '../../_util/theme';
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
 
-interface CascaderToken extends DerivativeToken {
+export interface ComponentToken {
+  controlWidth: number;
+  controlItemWidth: number;
+  dropdownHeight: number;
+}
+
+interface CascaderToken extends DerivativeToken, ComponentToken {
   prefixCls: string;
   cascaderCls: string;
 }
@@ -27,7 +33,7 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token, hashId) => {
   const { prefixCls, cascaderCls } = token;
   const cascaderMenuItemCls = `${cascaderCls}-menu-item`;
   const iconCls = `
-    ${cascaderMenuItemCls}-expand ${cascaderMenuItemCls}-expand-icon,
+    &${cascaderMenuItemCls}-expand ${cascaderMenuItemCls}-expand-icon,
     ${cascaderMenuItemCls}-loading-icon
   `;
 
@@ -41,7 +47,7 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token, hashId) => {
     // =====================================================
     {
       [cascaderCls]: {
-        width: 184, // FIXME: hardcode in v4
+        width: token.controlWidth,
       },
     },
 
@@ -83,8 +89,8 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token, hashId) => {
 
             // >>> Menu
             '&-menu': {
-              minWidth: 111, // FIXME: hardcode in v4
-              height: 180, // FIXME: hardcode in v4
+              minWidth: token.controlItemWidth,
+              height: token.dropdownHeight,
               margin: `-${token.paddingXS}px 0`,
               padding: `${token.paddingXS}px 0`,
               overflow: 'auto',
@@ -135,7 +141,7 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token, hashId) => {
                 [iconCls]: {
                   marginInlineStart: token.paddingXXS,
                   color: token.colorTextSecondary,
-                  fontSize: 10, // FIXME: hardcode in v4
+                  fontSize: token.fontSizeIcon,
                 },
 
                 '&-keyword': {
@@ -162,16 +168,25 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token, hashId) => {
 export default function useStyle(prefixCls: string): UseComponentStyleResult {
   const [theme, token, hashId] = useToken();
 
-  const cascaderToken: CascaderToken = {
-    ...token,
-    prefixCls,
-    cascaderCls: `.${prefixCls}`,
-  };
-
   return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      genBaseStyle(cascaderToken, hashId),
-    ]),
+    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => {
+      const { Cascader = {} } = token;
+
+      const cascaderToken: CascaderToken = {
+        ...token,
+        prefixCls,
+        cascaderCls: `.${prefixCls}`,
+
+        controlWidth: 184,
+        controlItemWidth: 111,
+        dropdownHeight: 180,
+
+        // Override
+        ...Cascader,
+      };
+
+      return [genBaseStyle(cascaderToken, hashId)];
+    }),
     hashId,
   ];
 }

@@ -126,7 +126,7 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
 
   return [
     useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => {
-      const { typography } = token;
+      const { Typography } = token;
 
       const typographyToken: TypographyToken = {
         ...token,
@@ -136,7 +136,7 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
         sizeMarginHeadingVerticalStart: '1.2em',
         sizeMarginHeadingVerticalEnd: '0.5em',
 
-        ...typography,
+        ...Typography,
       };
 
       return [genTypographyStyle(typographyToken)];
