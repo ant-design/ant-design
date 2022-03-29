@@ -140,6 +140,7 @@ export interface DerivativeToken extends SeedToken, ColorPalettes {
   colorTextBelow3: string;
 
   colorBg2: string;
+  colorBg3: string;
   colorBgBelow: string;
   colorBgBelow2: string;
 
@@ -248,6 +249,7 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   colorLinkActive: string;
 
   colorBgContainer: string;
+  colorBgContainerSecondary: string;
   colorBgComponent: string;
   colorBgComponentSecondary: string;
   colorBgComponentDisabled: string;

@@ -39,9 +39,8 @@ interface SliderToken extends DerivativeToken, ComponentToken {
 
 // =============================== Base ===============================
 const genBaseStyle: GenerateStyle<SliderToken> = token => {
-  const { sliderCls, controlSize, dotSize, marginFull, marginPart } = token;
-
-  const FIXED_RAIL_HOVER_COLOR = '#e1e1e1';
+  const { sliderCls, controlSize, dotSize, marginFull, marginPart, colorBgContainerSecondary } =
+    token;
 
   return {
     [sliderCls]: {
@@ -109,7 +108,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
 
       '&:hover': {
         [`${sliderCls}-rail`]: {
-          backgroundColor: FIXED_RAIL_HOVER_COLOR, // FIXME: Not match color
+          backgroundColor: colorBgContainerSecondary,
         },
 
         [`${sliderCls}-track`]: {
@@ -117,7 +116,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         },
 
         [`${sliderCls}-dot`]: {
-          borderColor: FIXED_RAIL_HOVER_COLOR,
+          borderColor: colorBgContainerSecondary,
         },
 
         // We use below style instead

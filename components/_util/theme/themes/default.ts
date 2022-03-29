@@ -101,6 +101,7 @@ export function derivative(token: SeedToken): DerivativeToken {
 
     // color
     colorBg2,
+    colorBg3: '#e1e1e1',
     colorBgBelow,
     colorBgBelow2,
 
