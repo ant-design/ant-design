@@ -17,6 +17,12 @@ import {
   resetComponent,
 } from '../../_util/theme';
 
+// Direction naming standard:
+// Horizontal base:
+// -0-------------
+// vertical: part   (水平时，垂直方向命名为 part)
+// horizontal: full (水平时，水平方向命名为 full)
+
 export interface ComponentToken {
   controlSize: number;
   railSize: number;
@@ -27,11 +33,13 @@ export interface ComponentToken {
 
 interface SliderToken extends DerivativeToken, ComponentToken {
   sliderCls: string;
+  marginFull: number;
+  marginPart: number;
 }
 
 // =============================== Base ===============================
 const genBaseStyle: GenerateStyle<SliderToken> = token => {
-  const { sliderCls, controlSize, dotSize } = token;
+  const { sliderCls, controlSize, dotSize, marginFull, marginPart } = token;
 
   const FIXED_RAIL_HOVER_COLOR = '#e1e1e1';
 
@@ -41,12 +49,14 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
 
       position: 'relative',
       height: controlSize,
-      margin: '10px 6px', // FIXME: hard code in v4
+      margin: `${marginPart}px ${marginFull}px`,
       padding: 0,
       cursor: 'pointer',
       touchAction: 'none',
 
-      //   .vertical();
+      [`&-vertical`]: {
+        margin: `${marginFull}px ${marginPart}px`,
+      },
 
       [`${sliderCls}-rail`]: {
         position: 'absolute',
@@ -203,21 +213,22 @@ const genDirectionStyle = (token: SliderToken, horizontal: boolean): CSSObject =
   const { sliderCls, railSize, controlSize, handleSize, dotSize } = token;
 
   const railPadding: keyof React.CSSProperties = horizontal ? 'paddingBlock' : 'paddingInline';
-  const stretch: keyof React.CSSProperties = horizontal ? 'width' : 'height';
-  const contain: keyof React.CSSProperties = horizontal ? 'height' : 'width';
+  const full: keyof React.CSSProperties = horizontal ? 'width' : 'height';
+  const part: keyof React.CSSProperties = horizontal ? 'height' : 'width';
   const handlePos: keyof React.CSSProperties = horizontal ? 'insetBlockStart' : 'insetInlineStart';
   const markInset: keyof React.CSSProperties = horizontal ? 'top' : 'insetInlineStart';
 
   return {
     [railPadding]: railSize,
+    [part]: controlSize,
 
     [`${sliderCls}-rail`]: {
-      [stretch]: '100%',
-      [contain]: railSize,
+      [full]: '100%',
+      [part]: railSize,
     },
 
     [`${sliderCls}-track`]: {
-      [contain]: railSize,
+      [part]: railSize,
     },
 
     [`${sliderCls}-handle`]: {
@@ -229,7 +240,7 @@ const genDirectionStyle = (token: SliderToken, horizontal: boolean): CSSObject =
       insetInlineStart: 0,
       top: 0,
       [markInset]: handleSize,
-      [stretch]: '100%',
+      [full]: '100%',
     },
 
     [`${sliderCls}-step`]: {
@@ -237,8 +248,8 @@ const genDirectionStyle = (token: SliderToken, horizontal: boolean): CSSObject =
       insetInlineStart: 0,
       top: 0,
       [markInset]: railSize,
-      [stretch]: '100%',
-      [contain]: railSize,
+      [full]: '100%',
+      [part]: railSize,
     },
 
     [`${sliderCls}-dot`]: {
@@ -280,10 +291,12 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
 
   return [
     useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => {
-      const { controlHeightSM, lineWidth, slider } = token;
+      const { controlHeightSM, controlHeight, lineWidth, slider } = token;
 
+      // Handle line width is always width-er 1px
+      const increaseHandleWidth = 1;
       const controlSize = controlHeightSM / 2;
-      const lineHandleWidth = lineWidth + 1;
+      const lineHandleWidth = lineWidth + increaseHandleWidth;
 
       const sliderToken: SliderToken = {
         ...token,
@@ -294,6 +307,9 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
         handleSize: controlSize + lineHandleWidth,
         dotSize: (controlSize / 3) * 2,
         lineHandleWidth,
+
+        marginPart: (controlHeight - controlSize) / 2,
+        marginFull: controlSize / 2,
 
         ...slider,
       };

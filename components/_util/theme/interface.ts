@@ -2,7 +2,7 @@ import * as React from 'react';
 import type { ComponentToken as ButtonComponentToken } from '../../button/style';
 import type { ComponentToken as DividerComponentToken } from '../../divider/style';
 import type { ComponentToken as CascaderComponentToken } from '../../cascader/style';
-import type { ComponentToken as SliderComponentToken } from '../../slideer/style';
+import type { ComponentToken as SliderComponentToken } from '../../slider/style';
 import type { ComponentToken as TypographyComponentToken } from '../../typography/style';
 
 export const PresetColors = [
