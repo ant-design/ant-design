@@ -37,43 +37,6 @@ jobs:
         if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
         run: npm ci
 
-  compile:
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout
-        uses: actions/checkout@v3
-
-      - name: restore cache from package-lock.json
-        uses: actions/cache@v3
-        with:
-          path: package-temp-dir
-          key: lock-${{ github.sha }}
-
-      - name: restore cache from node_modules
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
-
-      - name: cache lib
-        uses: actions/cache@v3
-        with:
-          path: lib
-          key: lib-${{ github.sha }}
-
-      - name: cache es
-        uses: actions/cache@v3
-        with:
-          path: es
-          key: es-${{ github.sha }}
-
-      - name: compile
-        run: npm run compile
-
-      - name: check
-        run: node ./tests/dekko/lib.test.js
-    needs: setup
-
   lint:
     runs-on: ubuntu-latest
     steps:
@@ -189,68 +152,6 @@ jobs:
         run: npm run test-node
     needs: setup
 
-  react-17-lib:
-    name: react@17.x / lib
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout
-        uses: actions/checkout@v3
-
-      - name: restore cache from package-lock.json
-        uses: actions/cache@v3
-        with:
-          path: package-temp-dir
-          key: lock-${{ github.sha }}
-
-      - name: restore cache from node_modules
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
-
-      - name: restore cache from lib
-        uses: actions/cache@v3
-        with:
-          path: lib
-          key: lib-${{ github.sha }}
-
-      - name: test
-        run: npm test
-        env:
-          LIB_DIR: lib
-    needs: compile
-
-  react-17-es:
-    name: react@17.x / es
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout
-        uses: actions/checkout@v3
-
-      - name: restore cache from package-lock.json
-        uses: actions/cache@v3
-        with:
-          path: package-temp-dir
-          key: lock-${{ github.sha }}
-
-      - name: restore cache from node_modules
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
-
-      - name: restore cache from es
-        uses: actions/cache@v3
-        with:
-          path: es
-          key: es-${{ github.sha }}
-
-      - name: test
-        run: npm test
-        env:
-          LIB_DIR: es
-    needs: compile
-
   react-17-dist:
     name: react@17.x / dist
     runs-on: ubuntu-latest
@@ -345,78 +246,6 @@ jobs:
         run: npm run test-node
     needs: setup
 
-  react-16-lib:
-    name: react@16.x / lib
-    runs-on: ubuntu-latest
-    env:
-      REACT: 16
-    steps:
-      - name: checkout
-        uses: actions/checkout@v3
-
-      - name: restore cache from package-lock.json
-        uses: actions/cache@v3
-        with:
-          path: package-temp-dir
-          key: lock-${{ github.sha }}
-
-      - name: restore cache from node_modules
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
-
-      - name: restore cache from lib
-        uses: actions/cache@v3
-        with:
-          path: lib
-          key: lib-${{ github.sha }}
-
-      - name: install react 16
-        run: npm run install-react-16
-
-      - name: test
-        run: npm test
-        env:
-          LIB_DIR: lib
-    needs: compile
-
-  react-16-es:
-    name: react@16.x / es
-    runs-on: ubuntu-latest
-    env:
-      REACT: 16
-    steps:
-      - name: checkout
-        uses: actions/checkout@v3
-
-      - name: restore cache from package-lock.json
-        uses: actions/cache@v3
-        with:
-          path: package-temp-dir
-          key: lock-${{ github.sha }}
-
-      - name: restore cache from node_modules
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
-
-      - name: restore cache from es
-        uses: actions/cache@v3
-        with:
-          path: es
-          key: es-${{ github.sha }}
-
-      - name: install react 16
-        run: npm run install-react-16
-
-      - name: test
-        run: npm test
-        env:
-          LIB_DIR: es
-    needs: compile
-
   react-16-dist:
     name: react@16.x / dist
     runs-on: ubuntu-latest
@@ -497,3 +326,78 @@ jobs:
       - name: lessc mixins
         run: npx lessc --js ./es/style/mixins/index.less
     needs: setup
+
+  ########################### Compile & Test ###########################
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: restore cache from package-lock.json
+        uses: actions/cache@v3
+        with:
+          path: package-temp-dir
+          key: lock-${{ github.sha }}
+
+      - name: restore cache from node_modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+
+      - name: cache lib
+        uses: actions/cache@v3
+        with:
+          path: lib
+          key: lib-${{ github.sha }}
+
+      - name: cache es
+        uses: actions/cache@v3
+        with:
+          path: es
+          key: es-${{ github.sha }}
+
+      - name: compile
+        run: npm run compile
+
+      - name: check
+        run: node ./tests/dekko/lib.test.js
+    needs: setup
+
+  compiled-module-test:
+    name: compiled module test
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        react: [16, 17]
+        module: [lib, es]
+    env:
+      REACT: ${{ matrix.react }}
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: restore cache from package-lock.json
+        uses: actions/cache@v3
+        with:
+          path: package-temp-dir
+          key: lock-${{ github.sha }}
+
+      - name: restore cache from node_modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+
+      - name: restore cache from ${{ matrix.module }}
+        uses: actions/cache@v3
+        with:
+          path: ${{ matrix.module }}
+          key: ${{ matrix.module }}-${{ github.sha }}
+
+      - name: test
+        run: npm test
+        env:
+          LIB_DIR: ${{ matrix.module }}
+    needs: compile
