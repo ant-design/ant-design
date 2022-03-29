@@ -27,7 +27,6 @@ export interface ComponentToken {
 
 interface InputNumberToken extends InputToken, ComponentToken {
   inputNumberCls: string;
-  inputNumberHandlerActiveBgColor: string;
 }
 
 const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumberToken) => {
@@ -44,9 +43,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
     inputPaddingHorizontalSM,
     colorTextSecondary,
     motionDurationFast,
-    inputNumberHandlerActiveBgColor,
     colorPrimary,
-    marginXXS,
     controlHeight,
     inputPaddingHorizontal,
     motionDurationSlow,
@@ -76,10 +73,6 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           [`${inputNumberCls}-input`]: {
             direction: 'rtl',
           },
-        },
-
-        [`&:hover ${inputNumberCls}-handler-wrap, &-focused ${inputNumberCls}-handler-wrap`]: {
-          opacity: 1,
         },
 
         '&-lg': {
@@ -113,15 +106,6 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           [`${inputNumberCls}-input`]: {
             cursor: 'not-allowed',
           },
-          [`${inputNumberCls}-handler-wrap`]: {
-            display: 'none',
-          },
-        },
-
-        '&-readonly': {
-          [`${inputNumberCls}-handler-wrap`]: {
-            display: 'none',
-          },
         },
 
         // ===================== Out Of Range =====================
@@ -148,41 +132,6 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
         },
 
         [inputNumberCls]: {
-          '&-handler': {
-            position: 'relative',
-            display: 'block',
-            width: '100%',
-            height: '50%',
-            overflow: 'hidden',
-            color: colorTextSecondary,
-            fontWeight: 'bold',
-            lineHeight: 0,
-            textAlign: 'center',
-            borderInlineStart: `${controlLineWidth}px ${controlLineType} ${colorBorder}`,
-            transition: `all ${motionDurationFast} linear`,
-
-            '&:active': {
-              background: inputNumberHandlerActiveBgColor,
-            },
-
-            '&:hover &-up-inner, &:hover &-down-inner': {
-              color: colorPrimary,
-            },
-          },
-
-          '&-handler-up-inner, &-handler-down-inner': {
-            ...resetIcon(),
-
-            position: 'absolute',
-            insetInlineEnd: marginXXS,
-            width: controlHeightSM / 2,
-            height: controlHeightSM / 2,
-            color: colorTextSecondary,
-            lineHeight: controlHeightSM / 2,
-            transition: `all ${motionDurationFast} linear`,
-            userSelect: 'none',
-          },
-
           '&-input': {
             width: '100%',
             height: controlHeight - 2 * controlLineWidth,
@@ -204,81 +153,117 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
                 appearance: 'none',
               },
           },
+        },
+      },
+    },
 
-          '&-handler-wrap': {
-            position: 'absolute',
-            insetBlockStart: 0,
-            insetInlineEnd: 0,
-            width: token.handleWidth,
-            height: '100%',
-            background: colorBgComponent,
-            borderStartStartRadius: 0,
-            borderStartEndRadius: controlRadius,
-            borderEndEndRadius: controlRadius,
-            borderEndStartRadius: 0,
-            opacity: 0,
-            opacity: 1,
-            transition: `opacity ${motionDurationMid} linear ${motionDurationFast}`,
+    // Handler
+    {
+      [inputNumberCls]: {
+        [`&:hover ${inputNumberCls}-handler-wrap, &-focused ${inputNumberCls}-handler-wrap`]: {
+          opacity: 1,
+        },
 
-            // Fix input number inside Menu makes icon too large
-            // We arise the selector priority by nest selector here
-            // https://github.com/ant-design/ant-design/issues/14367
-            [`${inputNumberCls}-handler`]: {
-              [`${inputNumberCls}-handler-up-inner,
-              ${inputNumberCls}-handler-down-inner`]: {
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                minWidth: 'auto',
-                marginInlineEnd: 0,
-                fontSize: token.handleFontSize,
-              },
+        [`${inputNumberCls}-handler-wrap`]: {
+          position: 'absolute',
+          insetBlockStart: 0,
+          insetInlineEnd: 0,
+          width: token.handleWidth,
+          height: '100%',
+          background: colorBgComponent,
+          borderStartStartRadius: 0,
+          borderStartEndRadius: controlRadius,
+          borderEndEndRadius: controlRadius,
+          borderEndStartRadius: 0,
+          opacity: 0,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'stretch',
+          transition: `opacity ${motionDurationMid} linear ${motionDurationFast}`,
+
+          // Fix input number inside Menu makes icon too large
+          // We arise the selector priority by nest selector here
+          // https://github.com/ant-design/ant-design/issues/14367
+          [`${inputNumberCls}-handler`]: {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flex: 'auto',
+            height: '40%',
+
+            [`
+              ${inputNumberCls}-handler-up-inner,
+              ${inputNumberCls}-handler-down-inner
+            `]: {
+              marginInlineEnd: 0,
+              fontSize: token.handleFontSize,
             },
+          },
+        },
 
-            [`&:hover ${inputNumberCls}-handler`]: {
-              height: '40%',
+        [`${inputNumberCls}-handler`]: {
+          height: '50%',
+          overflow: 'hidden',
+          color: colorTextSecondary,
+          fontWeight: 'bold',
+          lineHeight: 0,
+          textAlign: 'center',
+          cursor: 'pointer',
+          borderInlineStart: `${controlLineWidth}px ${controlLineType} ${colorBorder}`,
+          transition: `all ${motionDurationFast} linear`,
+          '&:active': {
+            background: token.colorBgComponentSecondary,
+          },
+
+          // Hover
+          '&:hover': {
+            height: `60%`,
+
+            [`
+              ${inputNumberCls}-handler-up-inner,
+              ${inputNumberCls}-handler-down-inner
+            `]: {
+              color: colorPrimary,
             },
           },
 
-          '&-handler-up': {
-            borderStartEndRadius: controlRadius,
-            cursor: 'pointer',
+          '&-up-inner, &-down-inner': {
+            ...resetIcon(),
 
-            '&-inner': {
-              top: '50%',
-              marginTop: -5, // FIXME: magic
-              textAlign: 'center',
-            },
-
-            '&:hover': {
-              height: '60% !important',
-            },
+            color: colorTextSecondary,
+            transition: `all ${motionDurationFast} linear`,
+            userSelect: 'none',
           },
+        },
 
-          '&-handler-down': {
-            top: 0,
-            borderBlockStart: `${controlLineWidth}px ${controlLineType} ${colorBorder}`,
-            borderEndEndRadius: controlRadius,
-            cursor: 'pointer',
+        [`${inputNumberCls}-handler-up`]: {
+          borderStartEndRadius: controlRadius,
+        },
 
-            '&-inner': {
-              top: '50%',
-              textAlign: 'center',
-              transform: 'translateY(-50%)',
-            },
+        [`${inputNumberCls}-handler-down`]: {
+          borderBlockStart: `${controlLineWidth}px ${controlLineType} ${colorBorder}`,
+          borderEndEndRadius: controlRadius,
+        },
 
-            '&:hover': {
-              height: '60% !important',
-            },
+        // Disabled
+        '&-disabled, &-readonly': {
+          [`${inputNumberCls}-handler-wrap`]: {
+            display: 'none',
           },
-          '&-handler-up-disabled, &-handler-down-disabled': {
-            cursor: 'not-allowed',
-          },
+        },
 
-          [`&-handler-up-disabled:hover &-handler-up-inner,
-      &-handler-down-disabled:hover &-handler-down-inner`]: {
-            color: colorTextDisabled,
-          },
+        [`
+          ${inputNumberCls}-handler-up-disabled,
+          ${inputNumberCls}-handler-down-disabled
+        `]: {
+          cursor: 'not-allowed',
+        },
+
+        [`
+          ${inputNumberCls}-handler-up-disabled:hover &-handler-up-inner,
+          ${inputNumberCls}-handler-down-disabled:hover &-handler-down-inner
+        `]: {
+          color: colorTextDisabled,
         },
       },
     },
@@ -390,7 +375,6 @@ export default function useStyle(
       const inputNumberToken: InputNumberToken = {
         ...initInputToken(token, prefixCls, iconPrefixCls),
         inputNumberCls: `.${prefixCls}`,
-        inputNumberHandlerActiveBgColor: '#f4f4f4', // FIXME: magic number
 
         controlWidth: 90,
         handleWidth: controlHeightSM - controlLineWidth * 2,
