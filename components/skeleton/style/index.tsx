@@ -34,7 +34,6 @@ interface SkeletonToken extends DerivativeToken {
   skeletonTitleHeight: number;
   skeletonBlockRadius: number;
   skeletonParagraphLiHeight: number;
-  skeletonParagraphLiMarginTop: number;
   skeletonParagraphMarginTop: number;
   borderRadius: number;
 }
@@ -88,61 +87,85 @@ const genSkeletonElementAvatar = (token: SkeletonToken): CSSObject => {
 };
 
 const genSkeletonElementInput = (token: SkeletonToken): CSSObject => {
-  const { controlHeight, skeletonCls, controlHeightLG, controlHeightSM, skeletonColor } = token;
+  const { controlHeight, skeletonInputCls, controlHeightLG, controlHeightSM, skeletonColor } =
+    token;
   return {
-    display: 'inline-block',
-    verticalAlign: 'top',
-    background: skeletonColor,
-    ...genSkeletonElementInputSize(controlHeight),
+    [`${skeletonInputCls}`]: {
+      display: 'inline-block',
+      verticalAlign: 'top',
+      background: skeletonColor,
+      ...genSkeletonElementInputSize(controlHeight),
+    },
 
-    [`${skeletonCls}-lg`]: {
+    [`${skeletonInputCls}-lg`]: {
       ...genSkeletonElementInputSize(controlHeightLG),
     },
 
-    [`${skeletonCls}-sm`]: {
+    [`${skeletonInputCls}-sm`]: {
       ...genSkeletonElementInputSize(controlHeightSM),
     },
   };
 };
 
-const genSkeletonElementImageSize = (token: SkeletonToken, size: number): CSSObject => {
-  const { skeletonCls } = token;
+const genSkeletonElementImageSize = (size: number): CSSObject => {
   return {
     width: size,
     ...genSkeletonElementCommonSize(size),
-
-    [`${skeletonCls}${skeletonCls}-circle`]: {
-      borderRadius: '50%',
-    },
   };
 };
 
 const genSkeletonElementImage = (token: SkeletonToken): CSSObject => {
   const { skeletonImageCls, imageSizeBase, skeletonColor } = token;
   return {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    verticalAlign: 'top',
-    background: skeletonColor,
-    ...genSkeletonElementImageSize(token, imageSizeBase * 2),
-
-    [`${skeletonImageCls}-path`]: {
-      fill: '#bfbfbf',
+    [`${skeletonImageCls}`]: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      verticalAlign: 'top',
+      background: skeletonColor,
+      ...genSkeletonElementImageSize(imageSizeBase * 2),
+      [`${skeletonImageCls}-path`]: {
+        fill: '#bfbfbf',
+      },
+      [`${skeletonImageCls}-svg`]: {
+        ...genSkeletonElementImageSize(imageSizeBase),
+        maxWidth: imageSizeBase * 4,
+        maxHeight: imageSizeBase * 4,
+      },
+      [`${skeletonImageCls}-svg${skeletonImageCls}-svg-circle`]: {
+        borderRadius: '50%',
+      },
     },
-    [`${skeletonImageCls}-svg`]: {
-      ...genSkeletonElementImageSize(token, imageSizeBase),
-      maxWidth: imageSizeBase * 4,
-      maxHeight: imageSizeBase * 4,
+    [`${skeletonImageCls}${skeletonImageCls}-circle`]: {
+      borderRadius: '50%',
+    },
+  };
+};
+const genSkeletonElementButtonShape = (
+  token: SkeletonToken,
+  size: number,
+  buttonCls: string,
+): CSSObject => {
+  const { skeletonButtonCls } = token;
+  return {
+    [`${buttonCls}${skeletonButtonCls}-circle`]: {
+      width: size,
+      minWidth: size,
+      borderRadius: '50%',
+    },
+    [`${buttonCls}${skeletonButtonCls}-round`]: {
+      borderRadius: size,
     },
   };
 };
 
-const genSkeletonElementButtonSize = (size: number): CSSObject => ({
-  width: size * 2,
-  minWidth: size * 2,
-  ...genSkeletonElementCommonSize(size),
-});
+const genSkeletonElementButtonSize = (size: number): CSSObject => {
+  return {
+    width: size * 2,
+    minWidth: size * 2,
+    ...genSkeletonElementCommonSize(size),
+  };
+};
 
 const genSkeletonElementButton = (token: SkeletonToken): CSSObject => {
   const {
@@ -159,25 +182,21 @@ const genSkeletonElementButton = (token: SkeletonToken): CSSObject => {
       verticalAlign: 'top',
       background: skeletonColor,
       borderRadius: radiusBase,
-      ...genSkeletonElementButtonSize(controlHeight),
-    },
-
-    [`${skeletonButtonCls}-circle`]: {
       width: controlHeight * 2,
       minWidth: controlHeight * 2,
-      borderRadius: '50%',
+      ...genSkeletonElementButtonSize(controlHeight),
     },
-
-    [`${skeletonButtonCls}-round`]: {
-      borderRadius: controlHeight,
-    },
+    ...genSkeletonElementButtonShape(token, controlHeight, skeletonButtonCls),
 
     [`${skeletonButtonCls}-lg`]: {
       ...genSkeletonElementButtonSize(controlHeightLG),
     },
+    ...genSkeletonElementButtonShape(token, controlHeightLG, `${skeletonButtonCls}-lg`),
+
     [`${skeletonButtonCls}-sm`]: {
       ...genSkeletonElementButtonSize(controlHeightSM),
     },
+    ...genSkeletonElementButtonShape(token, controlHeightSM, `${skeletonButtonCls}-sm`),
   };
 };
 
@@ -202,7 +221,7 @@ const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken, hashId
     skeletonTitleHeight,
     skeletonBlockRadius,
     skeletonParagraphLiHeight,
-    skeletonParagraphLiMarginTop,
+    controlHeightXS,
     skeletonParagraphMarginTop,
   } = token;
 
@@ -222,13 +241,15 @@ const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken, hashId
           verticalAlign: 'top',
           background: skeletonColor,
           ...genSkeletonElementAvatarSize(controlHeight),
-
-          [`${skeletonAvatarCls}-lg`]: {
-            ...genSkeletonElementAvatarSize(controlHeightLG),
-          },
-          [`${skeletonAvatarCls}-sm`]: {
-            ...genSkeletonElementAvatarSize(controlHeightSM),
-          },
+        },
+        [`${skeletonAvatarCls}-circle`]: {
+          borderRadius: '50%',
+        },
+        [`${skeletonAvatarCls}-lg`]: {
+          ...genSkeletonElementAvatarSize(controlHeightLG),
+        },
+        [`${skeletonAvatarCls}-sm`]: {
+          ...genSkeletonElementAvatarSize(controlHeightSM),
         },
       },
       [`${skeletonCls}-content`]: {
@@ -244,7 +265,7 @@ const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken, hashId
           background: skeletonColor,
           borderRadius: skeletonBlockRadius,
           [`+ ${skeletonParagraphCls}`]: {
-            marginBlockStart: skeletonParagraphLiMarginTop,
+            marginBlockStart: controlHeightSM,
           },
         },
 
@@ -258,7 +279,7 @@ const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken, hashId
             background: skeletonColor,
             borderRadius: skeletonBlockRadius,
             '+ li': {
-              marginBlockStart: skeletonParagraphLiMarginTop,
+              marginBlockStart: controlHeightXS,
             },
           },
         },
@@ -268,20 +289,19 @@ const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken, hashId
         },
       },
 
-      [`${skeletonCls}-with-avatar &-content`]: {
-        // Title
-        [`${skeletonTitleCls}`]: {
-          marginBlockStart: marginSM,
-
-          [`+ ${skeletonParagraphCls}`]: {
-            marginBlockStart: skeletonParagraphMarginTop,
-          },
-        },
-      },
-
       [`${skeletonCls}-round ${skeletonCls}-content`]: {
         [`${skeletonTitleCls}, ${skeletonTitleCls} > li`]: {
           borderRadius,
+        },
+      },
+    },
+    [`${skeletonCls}-with-avatar ${skeletonCls}-content`]: {
+      // Title
+      [`${skeletonTitleCls}`]: {
+        marginBlockStart: marginSM,
+
+        [`+ ${skeletonParagraphCls}`]: {
+          marginBlockStart: skeletonParagraphMarginTop,
         },
       },
     },
@@ -292,14 +312,8 @@ const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken, hashId
 
       ...genSkeletonElementButton(token),
       ...genSkeletonElementAvatar(token),
-
-      [`${skeletonInputCls}`]: {
-        ...genSkeletonElementInput(token),
-      },
-
-      [`${skeletonImageCls}`]: {
-        ...genSkeletonElementImage(token),
-      },
+      ...genSkeletonElementInput(token),
+      ...genSkeletonElementImage(token),
     },
     // Skeleton Block Button, Input
     [`${skeletonCls}${skeletonCls}-block`]: {
@@ -358,7 +372,6 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
     imageFontSizeBase: 24, // FIXME: hard code in v4
     skeletonTitleHeight: 16, // FIXME: hard code in v4
     skeletonBlockRadius: 4, // FIXME: hard code in v4
-    skeletonParagraphLiMarginTop: 24, // FIXME: hard code in v4
     skeletonParagraphLiHeight: 16, // FIXME: hard code in v4
     skeletonParagraphMarginTop: 28, // FIXME: hard code in v4
     borderRadius: 100, // FIXME: hard code in v4
