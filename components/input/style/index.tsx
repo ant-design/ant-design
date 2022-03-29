@@ -18,6 +18,7 @@ export interface InputToken extends DerivativeToken {
   inputPaddingVerticalLG: number;
   inputPaddingVerticalSM: number;
   inputPaddingHorizontal: number;
+  inputPaddingHorizontalSM: number;
   inputBorderHoverColor: string;
   inputBorderActiveColor: string;
 }
@@ -798,6 +799,7 @@ export const initInputToken = (
     0,
   ),
   inputPaddingHorizontal: token.controlPaddingHorizontal - token.controlLineWidth,
+  inputPaddingHorizontalSM: token.controlPaddingHorizontalSM - token.controlLineWidth,
   inputBorderHoverColor: token.colorPrimaryHover,
   inputBorderActiveColor: token.colorPrimaryHover,
 });
