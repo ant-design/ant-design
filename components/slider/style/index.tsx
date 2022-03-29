@@ -7,7 +7,6 @@
 // deps-lint-skip-all
 import * as React from 'react';
 import { CSSObject } from '@ant-design/cssinjs';
-import { TinyColor } from '@ctrl/tinycolor';
 import {
   DerivativeToken,
   useStyleRegister,
@@ -35,6 +34,7 @@ interface SliderToken extends DerivativeToken, ComponentToken {
   sliderCls: string;
   marginFull: number;
   marginPart: number;
+  marginPartWithMark: number;
 }
 
 // =============================== Base ===============================
@@ -98,13 +98,10 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         },
 
         '&:focus-visible': {
-          // FIXME: This is a inline color calculation
-          boxShadow: `0 0 0 5px ${new TinyColor(token.colorPrimaryHover)
-            .setAlpha(0.2)
-            .toRgbString()}`,
+          boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${token.colorPrimarySecondary}`,
         },
 
-        // FIXME: Seems useless?
+        // Seems useless?
         //     &.@{ant-prefix}-tooltip-open {
         //       border-color: @slider-handle-color-tooltip-open;
         //     }
@@ -116,14 +113,14 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         },
 
         [`${sliderCls}-track`]: {
-          backgroundColor: token.colorPrimaryHover, // FIXME: origin primary-4
+          backgroundColor: token.colorPrimaryHover,
         },
 
         [`${sliderCls}-dot`]: {
           borderColor: FIXED_RAIL_HOVER_COLOR,
         },
 
-        // FIXME: We use below style instead
+        // We use below style instead
         //     ${sliderCls}-handle:not(.@{ant-prefix}-tooltip-open) {
         //       border-color: @slider-handle-color-hover;
         //     }
@@ -260,14 +257,14 @@ const genDirectionStyle = (token: SliderToken, horizontal: boolean): CSSObject =
 };
 // ============================ Horizontal ============================
 const genHorizontalStyle: GenerateStyle<SliderToken> = token => {
-  const { sliderCls } = token;
+  const { sliderCls, marginPartWithMark } = token;
 
   return {
     [`${sliderCls}-horizontal`]: {
       ...genDirectionStyle(token, true),
 
       [`&${sliderCls}-with-marks`]: {
-        marginBottom: 28, // FIXME: hard code in v4
+        marginBottom: marginPartWithMark,
       },
     },
   };
@@ -291,7 +288,7 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
 
   return [
     useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => {
-      const { controlHeightSM, controlHeight, lineWidth, slider } = token;
+      const { controlHeightSM, controlHeightLG, controlHeight, lineWidth, slider } = token;
 
       // Handle line width is always width-er 1px
       const increaseHandleWidth = 1;
@@ -310,6 +307,7 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
 
         marginPart: (controlHeight - controlSize) / 2,
         marginFull: controlSize / 2,
+        marginPartWithMark: controlHeightLG - controlSize,
 
         ...slider,
       };
