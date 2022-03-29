@@ -213,7 +213,7 @@ const genFormItemStyle: GenerateStyle<FormToken> = token => {
             color: token.colorTextSecondary,
             cursor: 'help',
             writingMode: 'horizontal-tb',
-            marginInlineStart: token.marginXS,
+            marginInlineStart: token.marginXXS,
           },
 
           '&::after': {
