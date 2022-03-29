@@ -137,7 +137,7 @@ const genGridColStyle: GenerateStyle<GridColToken> = (token): CSSObject => {
       position: 'relative',
       maxWidth: '100%',
       // Prevent columns from collapsing when empty
-      minHeight: '1px',
+      minHeight: 1,
     },
   };
 };
@@ -230,7 +230,7 @@ export function useColStyle(prefixCls: string): UseComponentStyleResult {
     ...presetScreenSizes,
     ...presetScreenMinSizes,
     ...presetScreenMaxSizes,
-    gridColumns: 24,
+    gridColumns: 24, // FIXME: hardcode in v4
     gridCls: `.${prefixCls}`,
   };
 
