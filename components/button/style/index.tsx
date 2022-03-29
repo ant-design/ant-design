@@ -341,7 +341,7 @@ const genSizeButtonStyle = (token: ButtonToken, sizePrefixCls: string = ''): CSS
           transition: `width ${token.motionDurationSlow} ${token.motionEaseInOut}, opacity ${token.motionDurationSlow} ${token.motionEaseInOut}`,
         },
 
-        [`&:not(${iconOnlyCls}) ${btnCls}-loading-icon > .${iconPrefixCls}`]: {
+        [`&:not(${iconOnlyCls}) ${btnCls}-loading-icon:not(:only-child) > .${iconPrefixCls}`]: {
           marginInlineEnd: token.marginXS,
         },
       },
@@ -388,7 +388,7 @@ export default function useStyle(
 
   return [
     useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => {
-      const { colorText, button = {} } = token;
+      const { colorText, Button = {} } = token;
       const textColor = new TinyColor(colorText);
 
       const buttonToken: ButtonToken = {
@@ -406,7 +406,7 @@ export default function useStyle(
         btnCls: `.${prefixCls}`,
 
         // Override by developer
-        ...button,
+        ...Button,
       };
 
       return [

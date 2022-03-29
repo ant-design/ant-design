@@ -1,6 +1,11 @@
 import * as React from 'react';
 import type { ComponentToken as ButtonComponentToken } from '../../button/style';
 import type { ComponentToken as DividerComponentToken } from '../../divider/style';
+import type { ComponentToken as CascaderComponentToken } from '../../cascader/style';
+import type { ComponentToken as InputNumberComponentToken } from '../../input-number/style';
+import type { ComponentToken as MentionsComponentToken } from '../../mentions/style';
+import type { ComponentToken as SelectComponentToken } from '../../select/style';
+import type { ComponentToken as SliderComponentToken } from '../../slider/style';
 import type { ComponentToken as TypographyComponentToken } from '../../typography/style';
 
 export const PresetColors = [
@@ -33,9 +38,14 @@ export interface OverrideToken {
   derivative?: Partial<DerivativeToken & AliasToken>;
 
   // Customize component
-  button?: ButtonComponentToken;
-  divider?: DividerComponentToken;
-  typography?: TypographyComponentToken;
+  Button?: ButtonComponentToken;
+  Cascader?: CascaderComponentToken;
+  Divider?: DividerComponentToken;
+  InputNumber?: InputNumberComponentToken;
+  Mentions?: MentionsComponentToken;
+  Select?: SelectComponentToken;
+  Slider?: SliderComponentToken;
+  Typography?: TypographyComponentToken;
 }
 
 /** Final token which contains the components level override */
@@ -91,7 +101,6 @@ export interface SeedToken extends PresetColorType {
   // zIndex
   /** Base zIndex of component like BackTop, Affix which can be cover by large popup */
   zIndexBase: number;
-  zIndexPopover: number;
   /** Base popup component zIndex */
   zIndexPopup: number;
 }
@@ -134,6 +143,7 @@ export interface DerivativeToken extends SeedToken, ColorPalettes {
   colorTextBelow3: string;
 
   colorBg2: string;
+  colorBg3: string;
   colorBgBelow: string;
   colorBgBelow2: string;
 
@@ -193,6 +203,8 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   fontSize: number;
   fontSizeLG: number;
   fontSizeXL: number;
+  /** Operation icon in Select, Cascader, etc. icon fontSize. Normal is same as fontSizeSM */
+  fontSizeIcon: number;
 
   fontSizeHeading1: number;
   fontSizeHeading2: number;
@@ -240,6 +252,7 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   colorLinkActive: string;
 
   colorBgContainer: string;
+  colorBgContainerSecondary: string;
   colorBgComponent: string;
   colorBgComponentSecondary: string;
   colorBgComponentDisabled: string;

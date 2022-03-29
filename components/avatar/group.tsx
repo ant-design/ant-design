@@ -6,6 +6,7 @@ import { ConfigContext } from '../config-provider';
 import Avatar from './avatar';
 import Popover from '../popover';
 import { AvatarSize, SizeContextProvider } from './SizeContext';
+import useStyle from './style';
 
 export interface GroupProps {
   className?: string;
@@ -24,17 +25,20 @@ export interface GroupProps {
 }
 
 const Group: React.FC<GroupProps> = props => {
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, iconPrefixCls } = React.useContext(ConfigContext);
   const { prefixCls: customizePrefixCls, className = '', maxCount, maxStyle, size } = props;
 
-  const prefixCls = getPrefixCls('avatar-group', customizePrefixCls);
+  const prefixCls = getPrefixCls('avatar', customizePrefixCls);
+  const groupPrefixCls = `${prefixCls}-group`;
+  const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls, getPrefixCls());
 
   const cls = classNames(
-    prefixCls,
+    groupPrefixCls,
     {
-      [`${prefixCls}-rtl`]: direction === 'rtl',
+      [`${groupPrefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    hashId,
   );
 
   const { children, maxPopoverPlacement = 'top', maxPopoverTrigger = 'hover' } = props;
@@ -54,26 +58,26 @@ const Group: React.FC<GroupProps> = props => {
         content={childrenHidden}
         trigger={maxPopoverTrigger}
         placement={maxPopoverPlacement}
-        overlayClassName={`${prefixCls}-popover`}
+        overlayClassName={`${groupPrefixCls}-popover`}
       >
         <Avatar style={maxStyle}>{`+${numOfChildren - maxCount}`}</Avatar>
       </Popover>,
     );
-    return (
+    return wrapSSR(
       <SizeContextProvider size={size}>
         <div className={cls} style={props.style}>
           {childrenShow}
         </div>
-      </SizeContextProvider>
+      </SizeContextProvider>,
     );
   }
 
-  return (
+  return wrapSSR(
     <SizeContextProvider size={size}>
       <div className={cls} style={props.style}>
         {childrenWithProps}
       </div>
-    </SizeContextProvider>
+    </SizeContextProvider>,
   );
 };
 

@@ -5,7 +5,7 @@
 import '../../empty/style';
 
 // deps-lint-skip-all
-import { CSSObject, CSSInterpolation } from '@ant-design/cssinjs';
+import { CSSObject } from '@ant-design/cssinjs';
 import {
   DerivativeToken,
   useStyleRegister,
@@ -19,14 +19,17 @@ import genSingleStyle from './single';
 import genMultipleStyle from './multiple';
 import genDropdownStyle from './dropdown';
 
-export type SelectToken = DerivativeToken & {
+export interface ComponentToken {
+  zIndexDropdown: number;
+}
+
+export interface SelectToken extends DerivativeToken, ComponentToken {
   rootPrefixCls: string;
   antCls: string;
   selectCls: string;
   iconPrefixCls: string;
   inputPaddingHorizontalBase: number;
-  zIndexDropdown: number;
-};
+}
 
 // ============================= Selector =============================
 const genSelectorStyle: GenerateStyle<SelectToken, CSSObject> = token => {
@@ -178,10 +181,10 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
         top: '50%',
         insetInlineStart: 'auto',
         insetInlineEnd: inputPaddingHorizontalBase,
-        height: token.fontSizeSM,
-        marginTop: -token.fontSizeSM / 2,
+        height: token.fontSizeIcon,
+        marginTop: -token.fontSizeIcon / 2,
         color: token.colorTextDisabled,
-        fontSize: token.fontSizeSM,
+        fontSize: token.fontSizeIcon,
         lineHeight: 1,
         textAlign: 'center',
         pointerEvents: 'none',
@@ -218,11 +221,11 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
         insetInlineEnd: inputPaddingHorizontalBase,
         zIndex: 1,
         display: 'inline-block',
-        width: token.fontSizeSM,
-        height: token.fontSizeSM,
-        marginTop: -token.fontSizeSM / 2,
+        width: token.fontSizeIcon,
+        height: token.fontSizeIcon,
+        marginTop: -token.fontSizeIcon / 2,
         color: token.colorTextDisabled,
-        fontSize: token.fontSizeSM,
+        fontSize: token.fontSizeIcon,
         fontStyle: 'normal',
         lineHeight: 1,
         textAlign: 'center',
@@ -259,27 +262,8 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
 };
 
 // ============================== Styles ==============================
-const genSelectStyle = (
-  rootPrefixCls: string,
-  prefixCls: string,
-  iconPrefixCls: string,
-  token: DerivativeToken,
-  hashId: string,
-): CSSInterpolation => {
-  const antCls = `.${rootPrefixCls}`;
-  const selectCls = `.${prefixCls}`;
-
-  const inputPaddingHorizontalBase = token.controlPaddingHorizontal - 1;
-
-  const selectToken: SelectToken = {
-    ...token,
-    rootPrefixCls,
-    antCls,
-    selectCls,
-    iconPrefixCls,
-    inputPaddingHorizontalBase,
-    zIndexDropdown: token.zIndexPopup + 50,
-  };
+const genSelectStyle: GenerateStyle<SelectToken> = (token, hashId) => {
+  const { selectCls } = token;
 
   return [
     {
@@ -302,16 +286,16 @@ const genSelectStyle = (
     // ==                       LTR                       ==
     // =====================================================
     // Base
-    genBaseStyle(selectToken),
+    genBaseStyle(token),
 
     // Single
-    genSingleStyle(selectToken),
+    genSingleStyle(token),
 
     // Multiple
-    genMultipleStyle(selectToken),
+    genMultipleStyle(token),
 
     // Dropdown
-    genDropdownStyle(selectToken, hashId),
+    genDropdownStyle(token, hashId),
 
     // =====================================================
     // ==                       RTL                       ==
@@ -326,14 +310,14 @@ const genSelectStyle = (
     // ==                     Status                      ==
     // =====================================================
     genStatusStyle(selectCls, {
-      ...selectToken,
+      ...token,
       borderHoverColor: token.colorPrimaryHover,
       outlineColor: token.colorPrimaryOutline,
     }),
     genStatusStyle(
       `${selectCls}-status-error`,
       {
-        ...selectToken,
+        ...token,
         borderHoverColor: token.colorErrorHover,
         outlineColor: token.colorErrorOutline,
       },
@@ -342,7 +326,7 @@ const genSelectStyle = (
     genStatusStyle(
       `${selectCls}-status-warning`,
       {
-        ...selectToken,
+        ...token,
         borderHoverColor: token.colorWarningHover,
         outlineColor: token.colorWarningOutline,
       },
@@ -360,9 +344,29 @@ export default function useStyle(
   const [theme, token, hashId] = useToken();
 
   return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      genSelectStyle(rootPrefixCls, prefixCls, iconPrefixCls, token, hashId),
-    ]),
+    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => {
+      const { zIndexPopup, Select } = token;
+
+      const antCls = `.${rootPrefixCls}`;
+      const selectCls = `.${prefixCls}`;
+
+      const inputPaddingHorizontalBase = token.controlPaddingHorizontal - 1;
+
+      const selectToken: SelectToken = {
+        ...token,
+
+        rootPrefixCls,
+        antCls,
+        selectCls,
+        iconPrefixCls,
+        inputPaddingHorizontalBase,
+        zIndexDropdown: zIndexPopup + 50,
+
+        ...Select,
+      };
+
+      return [genSelectStyle(selectToken, hashId)];
+    }),
     hashId,
   ];
 }
