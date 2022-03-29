@@ -8,6 +8,7 @@ import SkeletonAvatar, { AvatarProps } from './Avatar';
 import SkeletonButton from './Button';
 import SkeletonInput from './Input';
 import SkeletonImage from './Image';
+import useStyle from './style';
 
 /* This only for skeleton internal. */
 interface SkeletonAvatarProps extends Omit<AvatarProps, 'active'> {}
@@ -87,6 +88,7 @@ const Skeleton = (props: SkeletonProps) => {
 
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   if (loading || !('loading' in props)) {
     const hasAvatar = !!avatar;
@@ -152,13 +154,14 @@ const Skeleton = (props: SkeletonProps) => {
         [`${prefixCls}-round`]: round,
       },
       className,
+      hashId,
     );
 
-    return (
+    return wrapSSR(
       <div className={cls} style={style}>
         {avatarNode}
         {contentNode}
-      </div>
+      </div>,
     );
   }
   return children as React.ReactElement;
