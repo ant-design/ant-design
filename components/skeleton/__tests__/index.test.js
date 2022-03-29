@@ -34,6 +34,11 @@ describe('Skeleton', () => {
     expect(wrapperSmall.render()).toMatchSnapshot();
   });
 
+  it('should display children', () => {
+    const wrapper = mount(<Skeleton loading={false}>{[1, 2, 3]}</Skeleton>);
+    expect(wrapper.text()).toBe('123');
+  });
+
   describe('avatar', () => {
     it('size', () => {
       const wrapperSmall = genSkeleton({ avatar: { size: 'small' } });
