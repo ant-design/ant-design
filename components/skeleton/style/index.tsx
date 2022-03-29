@@ -107,12 +107,10 @@ const genSkeletonElementInput = (token: SkeletonToken): CSSObject => {
   };
 };
 
-const genSkeletonElementImageSize = (size: number): CSSObject => {
-  return {
-    width: size,
-    ...genSkeletonElementCommonSize(size),
-  };
-};
+const genSkeletonElementImageSize = (size: number): CSSObject => ({
+  width: size,
+  ...genSkeletonElementCommonSize(size),
+});
 
 const genSkeletonElementImage = (token: SkeletonToken): CSSObject => {
   const { skeletonImageCls, imageSizeBase, skeletonColor } = token;
@@ -159,13 +157,11 @@ const genSkeletonElementButtonShape = (
   };
 };
 
-const genSkeletonElementButtonSize = (size: number): CSSObject => {
-  return {
-    width: size * 2,
-    minWidth: size * 2,
-    ...genSkeletonElementCommonSize(size),
-  };
-};
+const genSkeletonElementButtonSize = (size: number): CSSObject => ({
+  width: size * 2,
+  minWidth: size * 2,
+  ...genSkeletonElementCommonSize(size),
+});
 
 const genSkeletonElementButton = (token: SkeletonToken): CSSObject => {
   const {
