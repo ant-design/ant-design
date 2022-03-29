@@ -189,7 +189,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        react: [16, 17]
+        react: ['16', '17']
         module: [lib, es]
     env:
       REACT: ${{ matrix.react }}
@@ -216,7 +216,7 @@ jobs:
           key: ${{ matrix.module }}-${{ github.sha }}
 
       - name: install react 16
-        if: matrix.module == 16
+        if: matrix.module == '16'
         run: npm run install-react-16
 
       - name: test
