@@ -103,10 +103,10 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token, hashId) => {
                 whiteSpace: 'nowrap',
                 textOverflow: 'ellipsis',
                 cursor: 'pointer',
-                transition: `all ${token.duration}`,
+                transition: `all ${token.motionDurationSlow}`,
 
                 '&:hover': {
-                  background: token.itemHoverBackground,
+                  background: token.controlItemBgHover,
                 },
                 ' &-disabled': {
                   color: token.colorTextDisabled,
@@ -123,8 +123,8 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token, hashId) => {
 
                 [`&-active:not(${cascaderMenuItemCls}-disabled)`]: {
                   [`&, &:hover`]: {
-                    fontWeight: 600, // FIXME: hardcode
-                    backgroundColor: token.itemActiveBackground,
+                    fontWeight: token.fontWeightStrong,
+                    backgroundColor: token.controlItemBgActive,
                   },
                 },
 
@@ -139,7 +139,7 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token, hashId) => {
                 },
 
                 '&-keyword': {
-                  color: token.highlightColor,
+                  color: token.colorHighlight,
                 },
               },
             },

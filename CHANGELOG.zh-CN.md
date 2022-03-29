@@ -15,6 +15,31 @@ timeline: true
 
 ---
 
+## 4.19.4
+
+`2022-03-27`
+
+- 🐞 修复当 Calendar 的 `fullscreen` 为 `false` 时，`dateFullCellRender` 返回的元素不可交互的问题。[#34614](https://github.com/ant-design/ant-design/pull/34614) [@imoctopus](https://github.com/imoctopus)
+- 🐞 修复 BackTop 的部分 `rtl` 样式问题。[#34626](https://github.com/ant-design/ant-design/pull/34626) [@hmz22](https://github.com/hmz22)
+- 🐞 修复小尺寸 Steps `dot` 模式下文字位置偏移的问题。[#34651](https://github.com/ant-design/ant-design/pull/34651)
+- 🐞 修复 Descriptions 内容为 0 时 `contentStyle` 不生效的问题。[#34696](https://github.com/ant-design/ant-design/pull/34696) [@zhao-huo-long](https://github.com/zhao-huo-long)
+- 🐞 修复 notification 会遮挡后面元素交互的问题。[#34716](https://github.com/ant-design/ant-design/pull/34716)
+
+## 4.19.3
+
+`2022-03-21`
+
+- 🐞 修复 TextArea `clearIcon` 的颜色问题。[#34610](https://github.com/ant-design/ant-design/pull/34610)
+- 🐞 修复 Rate 下 disabled 时依然有 hover 效果的问题。[#34547](https://github.com/ant-design/ant-design/pull/34547) [@Unuuuuu](https://github.com/Unuuuuu)
+- 🐞 修复 Tooltip 使用预设颜色时 arrow 颜色错误的问题。[#34548](https://github.com/ant-design/ant-design/pull/34548)
+- 🐞 修复 Badge 数字 RTL 模式下异常位置显示。[#34545](https://github.com/ant-design/ant-design/pull/34545)
+- 💄 修复使用 `prefixCls` 时的数字 Row 和 Col 类样式问题。[#34494](https://github.com/ant-design/ant-design/pull/34494) [@mic-web](https://github.com/mic-web)
+- 🐞 修复 Typography `editable` 切换时在 Firefox 下高度跳动 和 Typography.Title `editable` 确定图标错位的问题。[#34518](https://github.com/ant-design/ant-design/pull/34518)
+- 💄 修复 RangePicker `status` 相关样式丢失的问题。[#34509](https://github.com/ant-design/ant-design/pull/34509)
+- 🛎 为动态改变 Form.Item 的 `hasFeedback` 时 Input 焦点丢失添加警告。[#34475](https://github.com/ant-design/ant-design/pull/34475)
+- 🐞 修复 Input 有 `prefix` 或者 `suffix` 时 input 缺少某些 className 的问题。[#34474](https://github.com/ant-design/ant-design/pull/34474)
+- 🌐 更新 it_LT 的 locale。[#34567](https://github.com/ant-desin/ant-design/pull/34567) [@Anizcus](https://github.com/Anizcus)
+
 ## 4.19.2
 
 `2022-03-13`

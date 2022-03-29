@@ -69,7 +69,7 @@ describe('Progress', () => {
         '100%': '#87d068',
       },
     });
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('render normal progress', () => {

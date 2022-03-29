@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useContext, useMemo } from 'react';
+import { ReactNode, useContext, useMemo } from 'react';
 import classNames from 'classnames';
 import { Field, FormInstance, FieldContext, ListContext } from 'rc-field-form';
 import { FieldProps } from 'rc-field-form/lib/Field';
@@ -7,6 +7,10 @@ import { Meta, NamePath } from 'rc-field-form/lib/interface';
 import { supportRef } from 'rc-util/lib/ref';
 import useState from 'rc-util/lib/hooks/useState';
 import omit from 'rc-util/lib/omit';
+import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
+import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
+import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
+import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import Row from '../grid/row';
 import { ConfigContext } from '../config-provider';
 import { tuple } from '../_util/type';
@@ -15,7 +19,7 @@ import FormItemLabel, { FormItemLabelProps, LabelTooltipType } from './FormItemL
 import FormItemInput, { FormItemInputProps } from './FormItemInput';
 import {
   FormContext,
-  FormItemStatusContext,
+  FormItemInputContext,
   NoStyleItemContext,
   FormItemStatusContextProps,
 } from './context';
@@ -87,6 +91,13 @@ function genEmptyMeta(): Meta {
     name: [],
   };
 }
+
+const iconMap = {
+  success: CheckCircleFilled,
+  warning: ExclamationCircleFilled,
+  error: CloseCircleFilled,
+  validating: LoadingOutlined,
+};
 
 function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElement {
   const {
@@ -219,13 +230,29 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
     mergedValidateStatus = 'success';
   }
 
-  const formItemStatusContext = useMemo<FormItemStatusContextProps>(
-    () => ({
+  const formItemStatusContext = useMemo<FormItemStatusContextProps>(() => {
+    let feedbackIcon: ReactNode;
+    if (hasFeedback) {
+      const IconNode = mergedValidateStatus && iconMap[mergedValidateStatus];
+      feedbackIcon = IconNode ? (
+        <span
+          className={classNames(
+            `${prefixCls}-item-feedback-icon`,
+            `${prefixCls}-item-feedback-icon-${mergedValidateStatus}`,
+          )}
+        >
+          <IconNode />
+        </span>
+      ) : null;
+    }
+
+    return {
       status: mergedValidateStatus,
       hasFeedback,
-    }),
-    [mergedValidateStatus, hasFeedback],
-  );
+      feedbackIcon,
+      isFormItemInput: true,
+    };
+  }, [mergedValidateStatus, hasFeedback]);
 
   // ======================== Render ========================
   function renderLayout(
@@ -300,9 +327,9 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
           help={help}
         >
           <NoStyleItemContext.Provider value={onSubItemMetaChange}>
-            <FormItemStatusContext.Provider value={formItemStatusContext}>
+            <FormItemInputContext.Provider value={formItemStatusContext}>
               {baseChildren}
-            </FormItemStatusContext.Provider>
+            </FormItemInputContext.Provider>
           </NoStyleItemContext.Provider>
         </FormItemInput>
       </Row>

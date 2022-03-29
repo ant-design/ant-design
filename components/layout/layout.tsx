@@ -31,25 +31,25 @@ interface BasicPropsWithTagName extends BasicProps {
 
 function generator({ suffixCls, tagName, displayName }: GeneratorProps) {
   return (BasicComponent: any) => {
-    const Adapter: React.FC<BasicProps> = props => {
+    const Adapter = React.forwardRef<HTMLElement, BasicProps>((props, ref) => {
       const { getPrefixCls } = React.useContext(ConfigContext);
       const { prefixCls: customizePrefixCls } = props;
       const prefixCls = getPrefixCls(suffixCls, customizePrefixCls);
 
-      return <BasicComponent prefixCls={prefixCls} tagName={tagName} {...props} />;
-    };
+      return <BasicComponent ref={ref} prefixCls={prefixCls} tagName={tagName} {...props} />;
+    });
     Adapter.displayName = displayName;
     return Adapter;
   };
 }
 
-const Basic = (props: BasicPropsWithTagName) => {
+const Basic = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props, ref) => {
   const { prefixCls, className, children, tagName, ...others } = props;
   const classString = classNames(prefixCls, className);
-  return React.createElement(tagName, { className: classString, ...others }, children);
-};
+  return React.createElement(tagName, { className: classString, ...others, ref }, children);
+});
 
-const BasicLayout: React.FC<BasicPropsWithTagName> = props => {
+const BasicLayout = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props, ref) => {
   const { direction } = React.useContext(ConfigContext);
 
   const [siders, setSiders] = React.useState<string[]>([]);
@@ -80,12 +80,12 @@ const BasicLayout: React.FC<BasicPropsWithTagName> = props => {
 
   return (
     <LayoutContext.Provider value={contextValue}>
-      <Tag className={classString} {...others}>
+      <Tag ref={ref} className={classString} {...others}>
         {children}
       </Tag>
     </LayoutContext.Provider>
   );
-};
+});
 
 const Layout = generator({
   suffixCls: 'layout',

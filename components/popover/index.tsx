@@ -1,8 +1,12 @@
 import * as React from 'react';
+import classNames from 'classnames';
 import Tooltip, { AbstractTooltipProps, TooltipPlacement } from '../tooltip';
 import { ConfigContext } from '../config-provider';
 import { getRenderPropValue, RenderFunction } from '../_util/getRenderPropValue';
 import { getTransitionName } from '../_util/motion';
+
+// CSSINJS
+import useStyle from './style';
 
 export interface PopoverProps extends AbstractTooltipProps {
   title?: React.ReactNode | RenderFunction;
@@ -10,8 +14,8 @@ export interface PopoverProps extends AbstractTooltipProps {
 }
 
 const Popover = React.forwardRef<unknown, PopoverProps>(
-  ({ prefixCls: customizePrefixCls, title, content, ...otherProps }, ref) => {
-    const { getPrefixCls } = React.useContext(ConfigContext);
+  ({ prefixCls: customizePrefixCls, title, content, overlayClassName, ...otherProps }, ref) => {
+    const { getPrefixCls, iconPrefixCls } = React.useContext(ConfigContext);
 
     const getOverlay = (prefixCls: string) => {
       if (!title && !content) return undefined;
@@ -24,16 +28,20 @@ const Popover = React.forwardRef<unknown, PopoverProps>(
     };
 
     const prefixCls = getPrefixCls('popover', customizePrefixCls);
+    const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls);
     const rootPrefixCls = getPrefixCls();
 
-    return (
+    const overlayCls = classNames(overlayClassName, hashId);
+
+    return wrapSSR(
       <Tooltip
         {...otherProps}
         prefixCls={prefixCls}
+        overlayClassName={overlayCls}
         ref={ref as any}
         overlay={getOverlay(prefixCls)}
         transitionName={getTransitionName(rootPrefixCls, 'zoom-big', otherProps.transitionName)}
-      />
+      />,
     );
   },
 );

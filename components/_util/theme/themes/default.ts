@@ -24,10 +24,12 @@ const defaultPresetColors: PresetColorType = {
 export function derivative(token: SeedToken): DerivativeToken {
   const {
     colorPrimary,
+    colorSuccess,
     colorWarning,
     colorError,
+    colorInfo,
     motionUnit,
-    motionBaseStep,
+    motionBase,
     fontSizeBase,
     sizeUnit,
     sizeBaseStep,
@@ -38,8 +40,10 @@ export function derivative(token: SeedToken): DerivativeToken {
   } = token;
 
   const primaryColors = generate(colorPrimary);
+  const successColors = generate(colorSuccess);
   const warningColors = generate(colorWarning);
   const errorColors = generate(colorError);
+  const infoColors = generate(colorInfo);
 
   const colorPalettes = Object.keys(defaultPresetColors)
     .map((colorKey: keyof PresetColorType) => {
@@ -60,15 +64,18 @@ export function derivative(token: SeedToken): DerivativeToken {
 
   const fontSizes = getFontSizes(fontSizeBase);
 
+  const colorBg2 = new TinyColor({ h: 0, s: 0, v: 98 }).toHexString();
+  const colorBgBelow = new TinyColor({ h: 0, s: 0, v: 98 }).toHexString();
+  const colorBgBelow2 = new TinyColor({ h: 0, s: 0, v: 96 }).toHexString();
+
   return {
     ...token,
     ...colorPalettes,
 
     // motion
-    motionDurationBase: `${motionUnit * motionBaseStep}s`,
-    motionDurationMd: `${motionUnit * (motionBaseStep - 1)}s`,
-    motionDurationFast: `${motionUnit * (motionBaseStep - 2)}s`,
-    motionDurationSlow: `${motionUnit * (motionBaseStep + 1)}s`,
+    motionDurationFast: `${motionBase + motionUnit * 1}s`,
+    motionDurationMid: `${motionBase + motionUnit * 2}s`,
+    motionDurationSlow: `${motionBase + motionUnit * 3}s`,
 
     // font
     fontSizes: fontSizes.map(fs => fs.size),
@@ -93,15 +100,36 @@ export function derivative(token: SeedToken): DerivativeToken {
     radiusXL: radiusBase * 4,
 
     // color
-    colorBgBelow: new TinyColor({ h: 0, s: 0, v: 98 }).toHexString(),
-    colorBgBelow2: new TinyColor({ h: 0, s: 0, v: 96 }).toHexString(),
+    colorBg2,
+    colorBgBelow,
+    colorBgBelow2,
+
+    colorDefaultOutline: colorBgBelow2,
+
+    colorPrimaryActive: primaryColors[6],
+    colorPrimaryHover: primaryColors[4],
+    colorPrimaryOutline: new TinyColor(colorPrimary).setAlpha(0.2).toRgbString(),
+    colorPrimarySecondary: primaryColors[2],
+
+    colorSuccessSecondary: successColors[2],
+    colorBgSuccess: successColors[0],
 
     colorErrorActive: errorColors[6],
     colorErrorHover: errorColors[4],
-    colorPrimaryActive: primaryColors[6],
-    colorPrimaryHover: primaryColors[4],
+    colorErrorOutline: new TinyColor(colorError).setAlpha(0.2).toRgbString(),
+    colorErrorSecondary: errorColors[2],
+    colorBgError: errorColors[0],
+
     colorWarningActive: warningColors[6],
     colorWarningHover: warningColors[4],
+    colorWarningOutline: new TinyColor(colorWarning).setAlpha(0.2).toRgbString(),
+    colorWarningSecondary: warningColors[2],
+    colorBgWarning: warningColors[0],
+
+    colorInfoSecondary: infoColors[2],
+    colorBgInfo: infoColors[0],
+
+    colorHighlight: errorColors[4],
 
     // text color
     colorText2: new TinyColor('#000').setAlpha(0.85).toRgbString(),
@@ -147,7 +175,7 @@ const seedToken: SeedToken = {
 
   // Motion
   motionUnit: 0.1,
-  motionBaseStep: 3,
+  motionBase: 0,
   motionEaseInOutCirc: `cubic-bezier(0.78, 0.14, 0.15, 0.86)`,
   motionEaseInOut: `cubic-bezier(0.645, 0.045, 0.355, 1)`,
   motionEaseOutBack: `cubic-bezier(0.12, 0.4, 0.29, 1.46)`,
@@ -163,6 +191,11 @@ const seedToken: SeedToken = {
 
   // Control Base
   controlHeight: 32,
+
+  // zIndex
+  zIndexBase: 0,
+  zIndexPopover: 1030,
+  zIndexPopup: 1000,
 };
 
 export default seedToken;

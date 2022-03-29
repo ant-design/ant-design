@@ -14,7 +14,7 @@ export const initSlideMotion = (
   const motionCls = `.${rootMotionName}`;
 
   return [
-    initMotion(hashId, rootMotionName, inKeyframes, outKeyframes, token.durationMid),
+    initMotion(hashId, rootMotionName, inKeyframes, outKeyframes, token.motionDurationMid),
 
     {
       [`

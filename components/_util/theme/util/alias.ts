@@ -32,14 +32,22 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     ...mergedToken,
 
     // Colors
-    primaryHoverColor: mergedToken.colorPrimaryHover,
-    primaryActiveColor: mergedToken.colorPrimaryActive,
-    errorHoverColor: mergedToken.colorErrorHover,
-    errorActiveColor: mergedToken.colorErrorActive,
-    warningHoverColor: mergedToken.colorWarningHover,
-
     colorTextSecondary: mergedToken.colorTextBelow,
     colorTextDisabled: mergedToken.colorTextBelow2,
+    colorPlaceholder: mergedToken.colorTextBelow2,
+    colorTextHeading: mergedToken.colorText,
+
+    colorBgContainer: mergedToken.colorBgBelow2,
+    colorBgComponent: mergedToken.colorBg,
+    colorBgComponentSecondary: mergedToken.colorBg2,
+    colorBgComponentDisabled: mergedToken.colorBgBelow2,
+
+    colorLink: mergedToken.colorPrimary,
+    colorLinkHover: primaryColors[4],
+    colorLinkActive: primaryColors[6],
+
+    colorAction: mergedToken.colorTextBelow,
+    colorActionHover: mergedToken.colorText,
 
     // Font
     fontSizeSM: fontSizes[0],
@@ -64,92 +72,53 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     // Control
     controlLineWidth: mergedToken.lineWidth,
     controlOutlineWidth: mergedToken.lineWidth * 2,
+    controlItemBgHover: mergedToken.colorBgBelow2,
 
     // 👀👀👀👀👀👀👀👀👀 Not align with Derivative 👀👀👀👀👀👀👀👀👀
     // FIXME: @arvinxx handle this
     controlLineType: 'solid',
     controlRadius: mergedToken.radiusBase,
     colorBorder: new TinyColor({ h: 0, s: 0, v: 85 }).toHexString(),
-    colorSplit: new TinyColor({ h: 0, s: 0, v: 94 }).toHexString(),
+    colorSplit: 'rgba(0, 0, 0, 0.06)',
+    controlItemBgActive: primaryColors[0],
+    fontWeightStrong: 600,
 
     // 🔥🔥🔥🔥🔥🔥🔥🔥🔥 All TMP Token leaves here 🔥🔥🔥🔥🔥🔥🔥🔥🔥
     // FIXME: Handle this when derivative is ready
-    primaryColors,
-    warningColors,
-    errorColors,
+    // primaryColors,
+    // warningColors,
+    // errorColors,
 
-    tmpPrimaryColorWeak: primaryColors[2],
-    tmpPrimaryHoverColorWeak: primaryColors[0],
-    tmpPrimaryColor6: primaryColors[5],
-    tmpPrimaryColor7: primaryColors[6],
+    colorSuccessSecondary: successColors[2],
+    colorWarningSecondary: warningColors[2],
+    colorErrorSecondary: errorColors[2],
+    colorInfoSecondary: infoColors[2],
 
-    tmpSuccessColorDeprecatedBg: successColors[0],
-    tmpWarningColorDeprecatedBg: warningColors[0],
-    tmpErrorColorDeprecatedBg: errorColors[0],
-    tmpInfoColorDeprecatedBg: infoColors[0],
-
-    tmpSuccessColorDeprecatedBorder: successColors[2],
-    tmpWarningColorDeprecatedBorder: warningColors[2],
-    tmpErrorColorDeprecatedBorder: errorColors[2],
-    tmpInfoColorDeprecatedBorder: infoColors[2],
-
-    primaryOutlineColor: new TinyColor(mergedToken.colorPrimary).setAlpha(0.2).toRgbString(),
-    errorOutlineColor: new TinyColor(mergedToken.colorError).setAlpha(0.2).toRgbString(),
-    warningOutlineColor: new TinyColor(mergedToken.colorWarning).setAlpha(0.2).toRgbString(),
-
-    itemActiveBackground: primaryColors[0],
-
-    highlightColor: errorColors[5], // FIXME: Should not align with error color
-    // FIXME: fix2 badge-color
-
-    linkColor: mergedToken.colorPrimary,
-    linkHoverColor: primaryColors[4],
-    linkActiveColor: primaryColors[6],
     linkDecoration: 'none',
     linkHoverDecoration: 'none',
     linkFocusDecoration: 'none',
 
-    placeholderColor: new TinyColor({ h: 0, s: 0, v: 75 }).setAlpha(0.5).toRgbString(),
-
-    disabledColor: new TinyColor('#000').setAlpha(0.25).toRgbString(),
-
-    headingColor: new TinyColor('#000').setAlpha(0.85).toRgbString(),
-
-    iconColorHover: new TinyColor('#000').setAlpha(0.75).toRgbString(),
-
-    itemHoverBackground: '#f5f5f5',
-
-    controlPaddingHorizontal: 16,
-    controlPaddingHorizontalSM: 12,
+    controlPaddingHorizontal: 12,
+    controlPaddingHorizontalSM: 8,
 
     padding: 16,
     margin: 16,
 
-    paddingXXS: 2,
-    paddingXS: 4,
-    paddingSM: 8,
-    paddingLG: 32,
+    paddingXXS: 4,
+    paddingXS: 8,
+    paddingSM: 12,
+    paddingLG: 24,
 
-    marginXXS: 2,
-    marginXS: 4,
-    // marginSM: 8,
-    marginLG: 32,
+    marginXXS: 4,
+    marginXS: 8,
+    marginSM: 12,
+    marginLG: 24,
 
-    // Default grey background color
-    background: new TinyColor({ h: 0, s: 0, v: 96 }).toHexString(),
-
-    // background of header and selected item
-    backgroundLight: new TinyColor({ h: 0, s: 0, v: 98 }).toHexString(),
-
-    componentBackground: '#fff',
-    componentBackgroundDisabled: new TinyColor({ h: 0, s: 0, v: 96 }).toHexString(),
-
-    duration: '0.3s',
-    durationMid: '0.2s',
-    durationFast: '0.1s',
-
-    zIndexDropdown: 1050,
-    zIndexAffix: 10,
+    boxShadow: `
+      0 3px 6px -4px rgba(0, 0, 0, 0.12),
+      0 6px 16px 0 rgba(0, 0, 0, 0.08),
+      0 9px 28px 8px rgba(0, 0, 0, 0.05)
+    `,
   };
 
   return aliasToken;

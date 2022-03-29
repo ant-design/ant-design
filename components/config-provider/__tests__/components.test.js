@@ -41,6 +41,7 @@ import Rate from '../../rate';
 import Select from '../../select';
 import Skeleton from '../../skeleton';
 import Slider from '../../slider';
+// eslint-disable-next-line import/no-named-as-default
 import Spin from '../../spin';
 import Statistic from '../../statistic';
 import Steps from '../../steps';

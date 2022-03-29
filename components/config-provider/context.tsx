@@ -3,6 +3,8 @@ import defaultRenderEmpty, { RenderEmptyHandler } from './renderEmpty';
 import { Locale } from '../locale-provider';
 import { SizeType } from './SizeContext';
 import { RequiredMark } from '../form/Form';
+import type { SeedToken } from '../_util/theme';
+import type { OverrideToken } from '../_util/theme/interface';
 
 export const defaultIconPrefixCls = 'anticon';
 
@@ -20,6 +22,12 @@ export interface CSPConfig {
 }
 
 export type DirectionType = 'ltr' | 'rtl' | undefined;
+
+export interface ThemeConfig {
+  token?: Partial<SeedToken>;
+  override?: OverrideToken;
+  hashed?: boolean;
+}
 
 export interface ConfigConsumerProps {
   getTargetContainer?: () => HTMLElement;
@@ -47,6 +55,7 @@ export interface ConfigConsumerProps {
     requiredMark?: RequiredMark;
     colon?: boolean;
   };
+  theme?: ThemeConfig;
 }
 
 const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {

@@ -49,7 +49,7 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token, hashId) => {
         // https://github.com/ant-design/ant-design/issues/11456
         // https://github.com/ant-design/ant-design/issues/11843
         fontVariant: 'initial',
-        backgroundColor: token.componentBackground,
+        backgroundColor: token.colorBgComponent,
         borderRadius: token.controlRadius,
         outline: 'none',
         boxShadow: token.boxShadow,
@@ -93,7 +93,7 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token, hashId) => {
         [`${selectItemCls}`]: {
           ...genItemStyle(token),
           cursor: 'pointer',
-          transition: `background ${token.duration} ease`,
+          transition: `background ${token.motionDurationSlow} ease`,
 
           // =========== Group ============
           '&-group': {
@@ -118,13 +118,13 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token, hashId) => {
             },
 
             [`&-active:not(${selectItemCls}-option-disabled)`]: {
-              backgroundColor: token.itemHoverBackground,
+              backgroundColor: token.controlItemBgHover,
             },
 
             [`&-selected:not(${selectItemCls}-option-disabled)`]: {
               color: token.colorText,
-              fontWeight: 600, // FIXME: Need design token?
-              backgroundColor: token.itemActiveBackground,
+              fontWeight: token.fontWeightStrong,
+              backgroundColor: token.controlItemBgActive,
 
               [`${selectItemCls}-option-state`]: {
                 color: token.colorPrimary,
@@ -132,7 +132,7 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token, hashId) => {
             },
             '&-disabled': {
               [`&${selectItemCls}-option-selected`]: {
-                backgroundColor: token.componentBackgroundDisabled,
+                backgroundColor: token.colorBgComponentDisabled,
               },
 
               color: token.colorTextDisabled,

@@ -18,7 +18,7 @@ import getIcons from '../select/utils/iconUtil';
 import renderSwitcherIcon from '../tree/utils/iconUtil';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import { getTransitionName, getTransitionDirection, SelectCommonPlacement } from '../_util/motion';
-import { FormItemStatusContext } from '../form/context';
+import { FormItemInputContext } from '../form/context';
 import { getMergedStatus, getStatusClassNames, InputStatus } from '../_util/statusUtils';
 import useStyle from './style';
 import useSelectStyle from '../select/style';
@@ -116,17 +116,22 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
   const isMultiple = !!(treeCheckable || multiple);
   const mergedShowArrow = showArrow !== undefined ? showArrow : props.loading || !isMultiple;
 
-  // ===================== Status =====================
-  const { status: contextStatus, hasFeedback } = useContext(FormItemStatusContext);
+  // ===================== Form =====================
+  const {
+    status: contextStatus,
+    hasFeedback,
+    isFormItemInput,
+    feedbackIcon,
+  } = useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
   // ===================== Icons =====================
   const { suffixIcon, removeIcon, clearIcon } = getIcons({
     ...props,
     multiple: isMultiple,
-    status: mergedStatus,
     showArrow: mergedShowArrow,
     hasFeedback,
+    feedbackIcon,
     prefixCls,
   });
 
@@ -165,6 +170,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
       [`${prefixCls}-sm`]: mergedSize === 'small',
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-borderless`]: !bordered,
+      [`${prefixCls}-in-form-item`]: isFormItemInput,
     },
     getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
     className,

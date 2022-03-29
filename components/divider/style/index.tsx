@@ -9,14 +9,14 @@ import {
   GenerateStyle,
 } from '../../_util/theme';
 
-interface DividerToken extends DerivativeToken {
+/** Component only token. Which will handle additional calculation of alias token */
+export interface ComponentToken {
+  sizePaddingEdgeHorizontal: number;
+}
+
+interface DividerToken extends DerivativeToken, ComponentToken {
   dividerCls: string;
 
-  dividerBorderColor: string;
-
-  dividerBorderWidth: number;
-
-  dividerNotDefaultTextPadding: number;
   dividerVerticalGutterMargin: number;
   dividerHorizontalWithTextGutterMargin: number;
   dividerHorizontalGutterMargin: number;
@@ -24,12 +24,12 @@ interface DividerToken extends DerivativeToken {
 
 // ============================== Shared ==============================
 const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject => {
-  const { dividerCls } = token;
+  const { dividerCls, sizePaddingEdgeHorizontal, colorSplit, controlLineWidth } = token;
 
   return {
     [dividerCls]: {
       ...resetComponent(token),
-      borderBlockStart: `${token.dividerBorderWidth}px solid ${token.dividerBorderColor}`,
+      borderBlockStart: `${controlLineWidth}px solid ${colorSplit}`,
 
       // vertical
       '&-vertical': {
@@ -40,7 +40,7 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
         margin: `0 ${token.dividerVerticalGutterMargin}px`,
         verticalAlign: 'middle',
         borderTop: 0,
-        borderInlineStart: `${token.dividerBorderWidth}px solid ${token.dividerBorderColor}`,
+        borderInlineStart: `${controlLineWidth}px solid ${colorSplit}`,
       },
 
       '&-horizontal': {
@@ -54,18 +54,18 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
       '&-horizontal&-with-text': {
         display: 'flex',
         margin: `${token.dividerHorizontalWithTextGutterMargin}px 0`,
-        color: token.headingColor,
+        color: token.colorTextHeading,
         fontWeight: 500,
         fontSize: token.fontSizeLG,
         whiteSpace: 'nowrap',
         textAlign: 'center',
-        borderBlockStart: `0 ${token.dividerBorderColor}`,
+        borderBlockStart: `0 ${colorSplit}`,
 
         '&::before, &::after': {
           position: 'relative',
           top: '50%',
           width: '50%',
-          borderBlockStart: `${token.dividerBorderWidth}px solid transparent`,
+          borderBlockStart: `${controlLineWidth}px solid transparent`,
           // Chrome not accept `inherit` in `border-top`
           borderBlockStartColor: 'inherit',
           borderBlockEnd: 0,
@@ -105,10 +105,10 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
 
       '&-dashed': {
         background: 'none',
-        borderColor: token.dividerBorderColor,
+        borderColor: colorSplit,
         borderStyle: 'dashed',
         borderWidth: 0,
-        borderBlockStart: `${token.dividerBorderWidth}px`,
+        borderBlockStart: `${controlLineWidth}px`,
       },
 
       '&-horizontal&-with-text&-dashed': {
@@ -118,7 +118,7 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
       },
 
       '&-vertical&-dashed': {
-        borderWidth: `0 0 0 ${token.dividerBorderWidth}px`,
+        borderWidth: `0 0 0 ${controlLineWidth}px`,
       },
 
       '&-plain&-with-text': {
@@ -136,8 +136,8 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
           width: '100%',
         },
 
-        '.ant-divider-inner-text': {
-          paddingInlineStart: `${token.dividerNotDefaultTextPadding}px`,
+        [`${dividerCls}-inner-text`]: {
+          paddingInlineStart: sizePaddingEdgeHorizontal,
         },
       },
 
@@ -150,8 +150,8 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
           width: 0,
         },
 
-        '.ant-divider-inner-text': {
-          paddingInlineEnd: `${token.dividerNotDefaultTextPadding}px`,
+        [`${dividerCls}-inner-text`]: {
+          paddingInlineEnd: sizePaddingEdgeHorizontal,
         },
       },
     },
@@ -161,35 +161,31 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
 // ============================== Export ==============================
 export default function useStyle(prefixCls: string): UseComponentStyleResult {
   const [theme, token, hashId] = useToken();
-  // FIXME
-  const dividerBorderColor = 'rgba(0, 0, 0, 6%)';
-
-  const dividerBorderWidth = token.controlLineWidth;
-
-  const dividerNotDefaultTextPadding = 0;
-  const dividerVerticalGutterMargin = token.marginXS;
-  const dividerHorizontalWithTextGutterMargin = token.margin;
-  const dividerHorizontalGutterMargin = token.marginLG;
-
-  const dividerToken: DividerToken = {
-    ...token,
-
-    dividerCls: `.${prefixCls}`,
-
-    dividerBorderColor,
-
-    dividerBorderWidth,
-
-    dividerNotDefaultTextPadding,
-    dividerVerticalGutterMargin,
-    dividerHorizontalWithTextGutterMargin,
-    dividerHorizontalGutterMargin,
-  };
 
   return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      genSharedDividerStyle(dividerToken),
-    ]),
+    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => {
+      const { divider } = token;
+
+      const dividerVerticalGutterMargin = token.marginSM;
+      const dividerHorizontalWithTextGutterMargin = token.margin;
+      const dividerHorizontalGutterMargin = token.marginLG;
+
+      const dividerToken: DividerToken = {
+        ...token,
+
+        dividerCls: `.${prefixCls}`,
+
+        sizePaddingEdgeHorizontal: 0,
+
+        dividerVerticalGutterMargin,
+        dividerHorizontalWithTextGutterMargin,
+        dividerHorizontalGutterMargin,
+
+        ...divider,
+      };
+
+      return [genSharedDividerStyle(dividerToken)];
+    }),
     hashId,
   ];
 }

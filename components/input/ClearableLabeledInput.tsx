@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import * as React from 'react';
 import { DirectionType } from '../config-provider';
 import { SizeType } from '../config-provider/SizeContext';
-import { FormItemStatusContext, FormItemStatusContextProps } from '../form/context';
+import { FormItemInputContext, FormItemStatusContextProps } from '../form/context';
 import { cloneElement } from '../_util/reactNode';
 import { getMergedStatus, getStatusClassNames, InputStatus } from '../_util/statusUtils';
 import { tuple } from '../_util/type';
@@ -121,14 +121,14 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
 
   render() {
     return (
-      <FormItemStatusContext.Consumer>
+      <FormItemInputContext.Consumer>
         {statusContext => {
           const { prefixCls, inputType, element } = this.props;
           if (inputType === ClearableInputType[0]) {
             return this.renderTextAreaWithClearIcon(prefixCls, element, statusContext);
           }
         }}
-      </FormItemStatusContext.Consumer>
+      </FormItemInputContext.Consumer>
     );
   }
 }

@@ -9,37 +9,28 @@
 */
 import { gold } from '@ant-design/colors';
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { DerivativeToken, GenerateStyle } from '../../_util/theme';
+import type { GenerateStyle } from '../../_util/theme';
 import { operationUnit } from '../../_util/theme/util/operationUnit';
 import { initInputToken } from '../../input/style';
-
-export interface TypographyToken extends DerivativeToken {
-  typography: {
-    prefixCls: string;
-    titleMarginTop: string;
-    titleMarginBottom: string;
-    titleFontWeight: number;
-  };
-}
+import type { TypographyToken } from '.';
 
 // eslint-disable-next-line import/prefer-default-export
-const getTitleStyle = ({
-  fontSize,
-  lineHeight,
-  color,
-  typographyToken,
-}: {
-  fontSize: number;
-  lineHeight: number;
-  color: string;
-  typographyToken: TypographyToken['typography'];
-}) => ({
-  marginBottom: typographyToken.titleMarginBottom,
-  color,
-  fontWeight: typographyToken.titleFontWeight,
-  fontSize,
-  lineHeight,
-});
+const getTitleStyle = (
+  fontSize: number,
+  lineHeight: number,
+  color: string,
+  token: TypographyToken,
+) => {
+  const { sizeMarginHeadingVerticalEnd, fontWeightStrong } = token;
+
+  return {
+    marginBottom: sizeMarginHeadingVerticalEnd,
+    color,
+    fontWeight: fontWeightStrong,
+    fontSize,
+    lineHeight,
+  };
+};
 
 // eslint-disable-next-line import/prefer-default-export
 export const getTitleStyles: GenerateStyle<TypographyToken, CSSObject> = token => {
@@ -54,39 +45,43 @@ export const getTitleStyles: GenerateStyle<TypographyToken, CSSObject> = token =
       div&-h${headingLevel} > textarea,
       h${headingLevel}
     `
-    ] = getTitleStyle({
-      fontSize: token[`fontSizeHeading${headingLevel}`],
-      lineHeight: token[`lineHeightHeading${headingLevel}`],
-      color: token.headingColor,
-      typographyToken: token.typography,
-    });
+    ] = getTitleStyle(
+      token[`fontSizeHeading${headingLevel}`],
+      token[`lineHeightHeading${headingLevel}`],
+      token.colorTextHeading,
+      token,
+    );
   });
   return styles;
 };
 
-export const getLinkStyles: GenerateStyle<TypographyToken, CSSObject> = token => ({
-  'a&, a': {
-    ...operationUnit(token),
-    textDecoration: token.linkDecoration,
+export const getLinkStyles: GenerateStyle<TypographyToken, CSSObject> = token => {
+  const { typographyCls } = token;
 
-    '&:active, &:hover': {
-      textDecoration: token.linkHoverDecoration,
-    },
-
-    [`&[disabled], &.${token.typography.prefixCls}-disabled`]: {
-      color: token.disabledColor,
-      cursor: 'not-allowed',
+  return {
+    'a&, a': {
+      ...operationUnit(token),
+      textDecoration: token.linkDecoration,
 
       '&:active, &:hover': {
-        color: '@disabled-color',
+        textDecoration: token.linkHoverDecoration,
       },
 
-      '&:active': {
-        pointerEvents: 'none',
+      [`&[disabled], &${typographyCls}-disabled`]: {
+        color: token.colorTextDisabled,
+        cursor: 'not-allowed',
+
+        '&:active, &:hover': {
+          color: token.colorTextDisabled,
+        },
+
+        '&:active': {
+          pointerEvents: 'none',
+        },
       },
     },
-  },
-});
+  };
+};
 
 export const getResetStyles = (): CSSObject => ({
   code: {
@@ -188,6 +183,8 @@ export const getResetStyles = (): CSSObject => ({
 });
 
 export const getEditableStyles: GenerateStyle<TypographyToken, CSSObject> = token => {
+  const { typographyCls } = token;
+
   const inputToken = initInputToken(token, '', '');
   const inputShift = inputToken.inputPaddingVertical + 1;
   return {
@@ -200,7 +197,7 @@ export const getEditableStyles: GenerateStyle<TypographyToken, CSSObject> = toke
         marginBottom: `calc(1em - ${inputShift}px)`,
       },
 
-      [`.${token.typography.prefixCls}-edit-content-confirm`]: {
+      [`${typographyCls}-edit-content-confirm`]: {
         position: 'absolute',
         insetInlineEnd: token.marginXS + 2,
         insetBlockEnd: token.marginXS,

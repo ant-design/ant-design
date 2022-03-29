@@ -22,20 +22,20 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 | --- | --- | --- | --- | --- |
 | autoFocus | Whether Drawer should get focused after open | boolean | true | 4.17.0 |
 | afterVisibleChange | Callback after the animation ends when switching drawers | function(visible) | - |  |
-| bodyStyle | Style of the drawer content part | object | - |  |
+| bodyStyle | Style of the drawer content part | CSSProperties | - |  |
 | className | The class name of the container of the Drawer dialog | string | - |  |
 | closable | Whether a close (x) button is visible on top left of the Drawer dialog or not | boolean | true |  |
 | closeIcon | Custom close icon | ReactNode | &lt;CloseOutlined /> |  |
 | contentWrapperStyle | Style of the drawer wrapper of content part | CSSProperties | - |  |
 | destroyOnClose | Whether to unmount child components on closing drawer or not | boolean | false |  |
-| drawerStyle | Style of the popup layer element | object | - |  |
+| drawerStyle | Style of the popup layer element | CSSProperties | - |  |
 | extra | Extra actions area at corner | ReactNode | - | 4.17.0 |
 | footer | The footer for Drawer | ReactNode | - |  |
 | footerStyle | Style of the drawer footer part | CSSProperties | - |  |
 | forceRender | Prerender Drawer component forcely | boolean | false |  |
 | getContainer | Return the mounted node for Drawer | HTMLElement \| () => HTMLElement \| Selectors \| false | body |  |
-| headerStyle | Style of the drawer header part | object | - |  |
-| height | Placement is `top` or `bottom`, height of the Drawer dialog | string \| number | 256 |  |
+| headerStyle | Style of the drawer header part | CSSProperties | - |  |
+| height | Placement is `top` or `bottom`, height of the Drawer dialog | string \| number | 378 |  |
 | keyboard | Whether support press esc to close | boolean | true |  |
 | mask | Whether to show mask or not | boolean | true |  |
 | maskClosable | Clicking on the mask (area outside the Drawer) to close the Drawer or not | boolean | true |  |

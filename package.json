@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "4.19.2",
+  "version": "4.19.5-alpha.0",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
   "keywords": [
@@ -156,7 +156,8 @@
     "rc-trigger": "^5.2.10",
     "rc-upload": "~4.3.0",
     "rc-util": "^5.19.3",
-    "scroll-into-view-if-needed": "^2.2.25"
+    "scroll-into-view-if-needed": "^2.2.25",
+    "shallowequal": "^1.1.0"
   },
   "devDependencies": {
     "@ant-design/bisheng-plugin": "^3.0.1",
@@ -181,6 +182,7 @@
     "@types/react-copy-to-clipboard": "^5.0.0",
     "@types/react-dom": "^17.0.0",
     "@types/react-window": "^1.8.2",
+    "@types/shallowequal": "^1.1.1",
     "@types/warning": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",

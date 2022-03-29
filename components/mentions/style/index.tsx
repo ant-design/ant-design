@@ -22,19 +22,18 @@ interface MentionsToken extends InputToken {
 const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
   const {
     mentionsCls,
-    backgroundLight,
-    colorTextDisabled: textColorDisabled,
-    itemHoverBackground,
+    colorTextDisabled,
+    controlItemBgHover,
     controlPaddingHorizontal,
-    colorText: textColor,
-    duration,
+    colorText,
+    motionDurationSlow,
     lineHeight,
     controlHeight,
     inputPaddingHorizontal,
     inputPaddingVertical,
     fontSize,
-    componentBackground,
-    controlRadius: borderRadius,
+    colorBgComponent,
+    controlRadius,
     boxShadow,
   } = token;
 
@@ -60,6 +59,17 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
 
       '&-focused': {
         ...genActiveStyle(token),
+      },
+
+      [`&-affix-wrapper ${mentionsCls}-suffix`]: {
+        position: 'absolute',
+        top: 0,
+        insetInlineEnd: inputPaddingHorizontal,
+        bottom: 0,
+        zIndex: 1,
+        display: 'inline-flex',
+        alignItems: 'center',
+        margin: 'auto',
       },
 
       // ================= Input Area =================
@@ -124,8 +134,8 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
         boxSizing: 'border-box',
         fontSize,
         fontVariant: 'initial',
-        backgroundColor: componentBackground,
-        borderRadius,
+        backgroundColor: colorBgComponent,
+        borderRadius: controlRadius,
         outline: 'none',
         boxShadow,
 
@@ -147,21 +157,21 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
             minWidth: 100, // FIXME: magic
             padding: `5px ${controlPaddingHorizontal}px`, // FIXME: magic
             overflow: 'hidden',
-            color: textColor,
+            color: colorText,
             fontWeight: 'normal',
             lineHeight,
             whiteSpace: 'nowrap',
             textOverflow: 'ellipsis',
             cursor: 'pointer',
-            transition: `background ${duration} ease`,
+            transition: `background ${motionDurationSlow} ease`,
 
             '&:hover': {
-              backgroundColor: itemHoverBackground,
+              backgroundColor: controlItemBgHover,
             },
 
             '&:first-child': {
-              borderStartStartRadius: borderRadius,
-              borderStartEndRadius: borderRadius,
+              borderStartStartRadius: controlRadius,
+              borderStartEndRadius: controlRadius,
               borderEndStartRadius: 0,
               borderEndEndRadius: 0,
             },
@@ -169,29 +179,29 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
             '&:last-child': {
               borderStartStartRadius: 0,
               borderStartEndRadius: 0,
-              borderEndStartRadius: borderRadius,
-              borderEndEndRadius: borderRadius,
+              borderEndStartRadius: controlRadius,
+              borderEndEndRadius: controlRadius,
             },
 
             '&-disabled': {
-              color: textColorDisabled,
+              color: colorTextDisabled,
               cursor: 'not-allowed',
 
               '&:hover': {
-                color: textColorDisabled,
-                backgroundColor: itemHoverBackground,
+                color: colorTextDisabled,
+                backgroundColor: controlItemBgHover,
                 cursor: 'not-allowed',
               },
             },
 
             '&-selected': {
-              color: textColor,
+              color: colorText,
               fontWeight: 600, // FIXME: Need design token?
-              backgroundColor: backgroundLight,
+              backgroundColor: controlItemBgHover,
             },
 
             '&-active': {
-              backgroundColor: itemHoverBackground,
+              backgroundColor: controlItemBgHover,
             },
           },
         },

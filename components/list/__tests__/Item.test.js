@@ -151,7 +151,7 @@ describe('List Item Layout', () => {
         renderItem={item => <List.Item>{item.title}</List.Item>}
       />,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('rowKey could be function', () => {
@@ -176,6 +176,6 @@ describe('List Item Layout', () => {
         renderItem={item => <List.Item>{item.title}</List.Item>}
       />,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });
