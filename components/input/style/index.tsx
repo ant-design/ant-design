@@ -13,7 +13,7 @@ import {
 export interface InputToken extends DerivativeToken {
   prefixCls: string;
   iconPrefixCls: string;
-  inputAffixMargin: number;
+  inputAffixPadding: number;
   inputPaddingVertical: number;
   inputPaddingVerticalLG: number;
   inputPaddingVerticalSM: number;
@@ -541,7 +541,7 @@ const genAllowClearStyle = (token: InputToken): CSSObject => {
       },
 
       '&-has-suffix': {
-        margin: `0 ${token.inputAffixMargin}px`,
+        margin: `0 ${token.inputAffixPadding}px`,
       },
     },
 
@@ -564,7 +564,7 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
   const {
     prefixCls,
     iconPrefixCls,
-    inputAffixMargin,
+    inputAffixPadding,
     colorTextSecondary,
     motionDurationSlow,
     colorAction,
@@ -630,11 +630,11 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
         },
 
         '&-prefix': {
-          marginInlineEnd: inputAffixMargin,
+          marginInlineEnd: inputAffixPadding,
         },
 
         '&-suffix': {
-          marginInlineStart: inputAffixMargin,
+          marginInlineStart: inputAffixPadding,
         },
       },
 
@@ -783,7 +783,7 @@ export const initInputToken = (
   ...token,
   prefixCls,
   iconPrefixCls,
-  inputAffixMargin: token.paddingXS,
+  inputAffixPadding: token.paddingXXS,
   inputPaddingVertical: Math.max(
     Math.round(((token.controlHeight - token.fontSize * token.lineHeight) / 2) * 10) / 10 -
       token.controlLineWidth,
@@ -808,6 +808,8 @@ const genTextAreaStyle: GenerateStyle<InputToken> = token => {
 
   return {
     [textareaPrefixCls]: {
+      position: 'relative',
+
       [`${textareaPrefixCls}-suffix`]: {
         position: 'absolute',
         top: 0,
@@ -837,12 +839,15 @@ const genTextAreaStyle: GenerateStyle<InputToken> = token => {
         },
 
         '&::after': {
-          textAlign: 'end',
+          position: 'absolute',
+          bottom: 0,
+          insetInlineEnd: 0,
           color: token.colorTextSecondary,
           whiteSpace: 'nowrap',
           content: 'attr(data-count)',
           pointerEvents: 'none',
           display: 'block',
+          transform: 'translateY(100%)',
         },
 
         [`&${textareaPrefixCls}-in-form-item`]: {
@@ -862,16 +867,18 @@ export default function useStyle(
 ): UseComponentStyleResult {
   const [theme, token, hashId] = useToken();
 
-  const inputToken: InputToken = initInputToken(token, prefixCls, iconPrefixCls);
-
   return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      genInputStyle(inputToken),
-      genTextAreaStyle(inputToken),
-      genAffixStyle(inputToken),
-      genGroupStyle(inputToken),
-      genSearchInputStyle(inputToken),
-    ]),
+    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => {
+      const inputToken: InputToken = initInputToken(token, prefixCls, iconPrefixCls);
+
+      return [
+        genInputStyle(inputToken),
+        genTextAreaStyle(inputToken),
+        genAffixStyle(inputToken),
+        genGroupStyle(inputToken),
+        genSearchInputStyle(inputToken),
+      ];
+    }),
     hashId,
   ];
 }

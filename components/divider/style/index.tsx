@@ -164,7 +164,7 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
 
   return [
     useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => {
-      const { divider } = token;
+      const { Divider } = token;
 
       const dividerVerticalGutterMargin = token.marginSM;
       const dividerHorizontalWithTextGutterMargin = token.margin;
@@ -181,7 +181,7 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
         dividerHorizontalWithTextGutterMargin,
         dividerHorizontalGutterMargin,
 
-        ...divider,
+        ...Divider,
       };
 
       return [genSharedDividerStyle(dividerToken)];

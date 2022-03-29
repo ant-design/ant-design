@@ -19,7 +19,11 @@ import {
   InputToken,
 } from '../../input/style';
 
-interface InputNumberToken extends InputToken {
+export interface ComponentToken {
+  controlWidth: number;
+}
+
+interface InputNumberToken extends InputToken, ComponentToken {
   inputNumberCls: string;
   inputNumberHandlerActiveBgColor: string;
 }
@@ -27,26 +31,27 @@ interface InputNumberToken extends InputToken {
 const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumberToken) => {
   const {
     inputNumberCls,
-    controlLineWidth: borderWidth,
-    controlLineType: borderStyle,
-    colorBorder: borderColor,
-    controlRadius: borderRadius,
+    controlLineWidth,
+    controlLineType,
+    colorBorder,
+    controlRadius,
     fontSizeLG,
     controlHeightLG,
     controlHeightSM,
     colorError,
     paddingXS,
-    colorTextSecondary: textColorSecondary,
-    motionDurationFast: durationFast,
+    colorTextSecondary,
+    motionDurationFast,
     inputNumberHandlerActiveBgColor,
     colorPrimary,
     marginXXS,
     controlHeight,
     inputPaddingHorizontal,
-    motionDurationSlow: duration,
-    colorBgComponent: componentBackground,
-    motionDurationMid: durationMid,
-    colorTextDisabled: textColorDisabled,
+    motionDurationSlow,
+    colorBgComponent,
+    motionDurationMid,
+    colorTextDisabled,
+    controlWidth,
   } = token;
 
   return {
@@ -56,11 +61,11 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
       ...genStatusStyle(token),
 
       display: 'inline-block',
-      width: 90, // FIXME: magic number
+      width: controlWidth,
       margin: 0,
       padding: 0,
-      border: `${borderWidth}px ${borderStyle} ${borderColor}`,
-      borderRadius,
+      border: `${controlLineWidth}px ${controlLineType} ${colorBorder}`,
+      borderRadius: controlRadius,
 
       '&-rtl': {
         direction: 'rtl',
@@ -79,7 +84,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
         fontSize: fontSizeLG,
 
         [`input${inputNumberCls}-input`]: {
-          height: controlHeightLG - 2 * borderWidth,
+          height: controlHeightLG - 2 * controlLineWidth,
         },
       },
 
@@ -87,8 +92,8 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
         padding: 0,
 
         [`input${inputNumberCls}-input`]: {
-          height: controlHeightSM - 2 * borderWidth,
-          padding: `0 ${paddingXS - borderWidth}px`,
+          height: controlHeightSM - 2 * controlLineWidth,
+          padding: `0 ${paddingXS - controlLineWidth}px`,
         },
       },
 
@@ -150,12 +155,12 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           width: '100%',
           height: '50%',
           overflow: 'hidden',
-          color: textColorSecondary,
+          color: colorTextSecondary,
           fontWeight: 'bold',
           lineHeight: 0,
           textAlign: 'center',
-          borderInlineStart: `${borderWidth}px ${borderStyle} ${borderColor}`,
-          transition: `all ${durationFast} linear`,
+          borderInlineStart: `${controlLineWidth}px ${controlLineType} ${colorBorder}`,
+          transition: `all ${motionDurationFast} linear`,
 
           '&:active': {
             background: inputNumberHandlerActiveBgColor,
@@ -173,24 +178,24 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           insetInlineEnd: marginXXS,
           width: controlHeightSM / 2,
           height: controlHeightSM / 2,
-          color: textColorSecondary,
+          color: colorTextSecondary,
           lineHeight: controlHeightSM / 2,
-          transition: `all ${durationFast} linear`,
+          transition: `all ${motionDurationFast} linear`,
           userSelect: 'none',
         },
 
         '&-input': {
           width: '100%',
-          height: controlHeight - 2 * borderWidth,
-          padding: `0 ${inputPaddingHorizontal - borderWidth}px`,
+          height: controlHeight - 2 * controlLineWidth,
+          padding: `0 ${inputPaddingHorizontal - controlLineWidth}px`,
           textAlign: 'start',
           backgroundColor: 'transparent',
           border: 0,
-          borderRadius,
+          borderRadius: controlRadius,
           outline: 0,
-          transition: `all ${duration} linear`,
-          appearance: 'textfield', // FIXME: important
-          ...genPlaceholderStyle(),
+          transition: `all ${motionDurationSlow} linear`,
+          appearance: 'textfield',
+          ...genPlaceholderStyle(token.colorPlaceholder),
 
           '&[type="number"]::-webkit-inner-spin-button, &[type="number"]::-webkit-outer-spin-button':
             {
@@ -207,13 +212,13 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           insetInlineEnd: 0,
           width: 22, // FIXME: magic number
           height: '100%',
-          background: componentBackground,
+          background: colorBgComponent,
           borderStartStartRadius: 0,
-          borderStartEndRadius: borderRadius,
-          borderEndEndRadius: borderRadius,
+          borderStartEndRadius: controlRadius,
+          borderEndEndRadius: controlRadius,
           borderEndStartRadius: 0,
           opacity: 0,
-          transition: `opacity ${durationMid} linear ${durationFast}`,
+          transition: `opacity ${motionDurationMid} linear ${motionDurationFast}`,
 
           // Fix input number inside Menu makes icon too large
           // We arise the selector priority by nest selector here
@@ -240,7 +245,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
         },
 
         '&-handler-up': {
-          borderStartEndRadius: borderRadius,
+          borderStartEndRadius: controlRadius,
           cursor: 'pointer',
 
           '&-inner': {
@@ -256,8 +261,8 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
 
         '&-handler-down': {
           top: 0,
-          borderBlockStart: `${borderWidth}px ${borderStyle} ${borderColor}`,
-          borderEndEndRadius: borderRadius,
+          borderBlockStart: `${controlLineWidth}px ${controlLineType} ${colorBorder}`,
+          borderEndEndRadius: controlRadius,
           cursor: 'pointer',
 
           '&-inner': {
@@ -280,7 +285,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
 
         [`&-handler-up-disabled:hover &-handler-up-inner,
       &-handler-down-disabled:hover &-handler-down-inner`]: {
-          color: textColorDisabled,
+          color: colorTextDisabled,
         },
       },
     },
@@ -288,7 +293,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
 };
 
 const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumberToken) => {
-  const { inputNumberCls, inputPaddingHorizontal, inputAffixMargin } = token;
+  const { inputNumberCls, inputPaddingHorizontal, inputAffixMargin, controlWidth } = token;
 
   return {
     [`${inputNumberCls}-affix-wrapper`]: {
@@ -297,7 +302,7 @@ const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumb
       // or number handler will cover form status
       position: 'relative',
       display: 'inline-flex',
-      width: 90, // FIXME: magic
+      width: controlWidth,
       padding: 0,
       paddingInlineStart: inputPaddingHorizontal,
 
@@ -373,17 +378,22 @@ export default function useStyle(
 ): UseComponentStyleResult {
   const [theme, token, hashId] = useToken();
 
-  const inputNumberToken: InputNumberToken = {
-    ...initInputToken(token, prefixCls, iconPrefixCls),
-    inputNumberCls: `.${prefixCls}`,
-    inputNumberHandlerActiveBgColor: '#f4f4f4', // FIXME: magic number
-  };
-
   return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      genInputNumberStyles(inputNumberToken),
-      genAffixWrapperStyles(inputNumberToken),
-    ]),
+    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => {
+      const { InputNumber } = token;
+
+      const inputNumberToken: InputNumberToken = {
+        ...initInputToken(token, prefixCls, iconPrefixCls),
+        inputNumberCls: `.${prefixCls}`,
+        inputNumberHandlerActiveBgColor: '#f4f4f4', // FIXME: magic number
+
+        controlWidth: 90,
+
+        ...InputNumber,
+      };
+
+      return [genInputNumberStyles(inputNumberToken), genAffixWrapperStyles(inputNumberToken)];
+    }),
     hashId,
   ];
 }

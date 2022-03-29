@@ -288,7 +288,7 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
 
   return [
     useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => {
-      const { controlHeightSM, controlHeightLG, controlHeight, lineWidth, slider } = token;
+      const { controlHeightSM, controlHeightLG, controlHeight, lineWidth, Slider } = token;
 
       // Handle line width is always width-er 1px
       const increaseHandleWidth = 1;
@@ -309,7 +309,7 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
         marginFull: controlSize / 2,
         marginPartWithMark: controlHeightLG - controlSize,
 
-        ...slider,
+        ...Slider,
       };
 
       return [

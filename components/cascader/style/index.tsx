@@ -170,7 +170,7 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
 
   return [
     useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => {
-      const { cascader = {} } = token;
+      const { Cascader = {} } = token;
 
       const cascaderToken: CascaderToken = {
         ...token,
@@ -182,7 +182,7 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
         popupHeight: 180,
 
         // Override
-        ...cascader,
+        ...Cascader,
       };
 
       return [genBaseStyle(cascaderToken, hashId)];

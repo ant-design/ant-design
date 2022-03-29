@@ -2,6 +2,7 @@ import * as React from 'react';
 import type { ComponentToken as ButtonComponentToken } from '../../button/style';
 import type { ComponentToken as DividerComponentToken } from '../../divider/style';
 import type { ComponentToken as CascaderComponentToken } from '../../cascader/style';
+import type { ComponentToken as InputNumberComponentToken } from '../../input-number/style';
 import type { ComponentToken as SliderComponentToken } from '../../slider/style';
 import type { ComponentToken as TypographyComponentToken } from '../../typography/style';
 
@@ -35,11 +36,12 @@ export interface OverrideToken {
   derivative?: Partial<DerivativeToken & AliasToken>;
 
   // Customize component
-  button?: ButtonComponentToken;
-  cascader?: CascaderComponentToken;
-  divider?: DividerComponentToken;
-  slider?: SliderComponentToken;
-  typography?: TypographyComponentToken;
+  Button?: ButtonComponentToken;
+  Cascader?: CascaderComponentToken;
+  Divider?: DividerComponentToken;
+  InputNumber?: InputNumberComponentToken;
+  Slider?: SliderComponentToken;
+  Typography?: TypographyComponentToken;
 }
 
 /** Final token which contains the components level override */
