@@ -216,7 +216,7 @@ jobs:
           key: ${{ matrix.module }}-${{ github.sha }}
 
       - name: install react 16
-        if: ${{ matrix.module }} == '16'
+        if: ${{ matrix.module }} == 'not exist'
         run: npm run install-react-16
 
       - name: test
