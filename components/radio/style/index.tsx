@@ -279,6 +279,8 @@ function getRadioBasicStyle(
         paddingRight: token.paddingSM,
         paddingLeft: token.paddingSM,
       },
+
+      antRadioEffect,
     },
   };
 }
@@ -338,10 +340,10 @@ function getRadioButtonStyle(prefixCls: string, token: RadioToken): CSSInterpola
           boxSizing: 'content-box',
           width: 1,
           height: '100%',
-          padding: `${token.controlLineWidth} 0`,
+          padding: `${token.controlLineWidth}px 0`,
           backgroundColor: token.colorBorder,
           transition: `background-color ${token.radioDuration}`,
-          content: '',
+          content: '""',
         },
       },
 
