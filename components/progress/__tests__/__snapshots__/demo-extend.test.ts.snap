@@ -643,7 +643,7 @@ Array [
       >
         <div
           class="ant-progress-bg"
-          style="width:0%;height:8px;border-radius:"
+          style="width:0%;height:8px"
         />
       </div>
     </div>
@@ -839,7 +839,7 @@ Array [
       >
         <div
           class="ant-progress-bg"
-          style="width:99.9%;height:8px;border-radius:;background-image:linear-gradient(to right, #108ee9 0%, #87d068 100%)"
+          style="width:99.9%;height:8px;background-image:linear-gradient(to right, #108ee9 0%, #87d068 100%)"
         />
       </div>
     </div>
@@ -861,7 +861,7 @@ Array [
       >
         <div
           class="ant-progress-bg"
-          style="width:99.9%;height:8px;border-radius:;background-image:linear-gradient(to right, #108ee9, #87d068)"
+          style="width:99.9%;height:8px;background-image:linear-gradient(to right, #108ee9, #87d068)"
         />
       </div>
     </div>
@@ -1049,7 +1049,7 @@ Array [
       >
         <div
           class="ant-progress-bg"
-          style="width:30%;height:8px;border-radius:"
+          style="width:30%;height:8px"
         />
       </div>
     </div>
@@ -1071,7 +1071,7 @@ Array [
       >
         <div
           class="ant-progress-bg"
-          style="width:50%;height:8px;border-radius:"
+          style="width:50%;height:8px"
         />
       </div>
     </div>
@@ -1093,7 +1093,7 @@ Array [
       >
         <div
           class="ant-progress-bg"
-          style="width:70%;height:8px;border-radius:"
+          style="width:70%;height:8px"
         />
       </div>
     </div>
@@ -1132,7 +1132,7 @@ Array [
       >
         <div
           class="ant-progress-bg"
-          style="width:100%;height:8px;border-radius:"
+          style="width:100%;height:8px"
         />
       </div>
     </div>
@@ -1171,7 +1171,7 @@ Array [
       >
         <div
           class="ant-progress-bg"
-          style="width:50%;height:8px;border-radius:"
+          style="width:50%;height:8px"
         />
       </div>
     </div>
@@ -1194,7 +1194,7 @@ exports[`renders ./components/progress/demo/line-mini.md extend context correctl
       >
         <div
           class="ant-progress-bg"
-          style="width:30%;height:6px;border-radius:"
+          style="width:30%;height:6px"
         />
       </div>
     </div>
@@ -1216,7 +1216,7 @@ exports[`renders ./components/progress/demo/line-mini.md extend context correctl
       >
         <div
           class="ant-progress-bg"
-          style="width:50%;height:6px;border-radius:"
+          style="width:50%;height:6px"
         />
       </div>
     </div>
@@ -1238,7 +1238,7 @@ exports[`renders ./components/progress/demo/line-mini.md extend context correctl
       >
         <div
           class="ant-progress-bg"
-          style="width:70%;height:6px;border-radius:"
+          style="width:70%;height:6px"
         />
       </div>
     </div>
@@ -1277,7 +1277,7 @@ exports[`renders ./components/progress/demo/line-mini.md extend context correctl
       >
         <div
           class="ant-progress-bg"
-          style="width:100%;height:6px;border-radius:"
+          style="width:100%;height:6px"
         />
       </div>
     </div>
@@ -1456,11 +1456,11 @@ Array [
       >
         <div
           class="ant-progress-bg"
-          style="width:60%;height:8px;border-radius:"
+          style="width:60%;height:8px"
         />
         <div
           class="ant-progress-success-bg"
-          style="width:30%;height:8px;border-radius:"
+          style="width:30%;height:8px"
         />
       </div>
     </div>
