@@ -44,7 +44,6 @@ describe('Grid.Gap', () => {
     const ssrTxt = ReactDOMServer.renderToString(<Demo />);
     div.innerHTML = ssrTxt;
 
-    // const wrapper = mount(<Demo />, { hydrateIn: div });
     const { unmount } = render(<Demo />, { container: div, hydrate: true });
 
     expect(warnSpy).not.toHaveBeenCalled();
