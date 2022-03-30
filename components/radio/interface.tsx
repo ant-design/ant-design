@@ -28,6 +28,12 @@ export interface RadioGroupContextProps {
 }
 
 export interface RadioProps extends AbstractCheckboxProps<RadioChangeEvent> {
+  /**
+   * Control the appearance for Radio to display as button or not
+   *
+   * @default 'default'
+   * @internal
+   */
   optionType?: RadioGroupOptionType;
 }
 
