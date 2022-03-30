@@ -231,8 +231,8 @@ jobs:
     name: test
     strategy:
       matrix:
-        react: ['16', '17']
-        # react: ['17', '18']
+        # react: ['16', '17']
+        react: ['17', '18']
         module: ['dom', 'node', 'dist']
     env:
       REACT: ${{ matrix.react }}
