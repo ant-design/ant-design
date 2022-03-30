@@ -172,9 +172,6 @@ jobs:
           path: es
           key: es-${{ github.sha }}
 
-      - name: lessc component
-        run: npx lessc --js ./es/button/style/index.less
-
       - name: lessc mixins
         run: npx lessc --js ./es/style/mixins/index.less
     needs: compile
