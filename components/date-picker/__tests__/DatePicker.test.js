@@ -5,6 +5,7 @@ import customParseFormat from 'dayjs/plugin/customParseFormat';
 import MockDate from 'mockdate';
 import DatePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
+import 'dayjs/locale/mk'; // to test local in 'prop locale should works' test case
 
 dayjs.extend(customParseFormat);
 
@@ -213,9 +214,7 @@ describe('DatePicker', () => {
       },
     });
 
-    const wrapper = mount(
-      <DatePicker.RangePicker defaultValue={moment()} placement="bottomLeft" />,
-    );
+    const wrapper = mount(<DatePicker.RangePicker defaultValue={dayjs()} placement="bottomLeft" />);
     expect(wrapper.find('Trigger').prop('popupAlign')).toEqual(popupAlignDefault(['tl', 'bl']));
     wrapper.setProps({
       placement: 'bottomRight',
