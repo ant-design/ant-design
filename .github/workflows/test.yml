@@ -350,36 +350,40 @@ jobs:
       REACT: ${{ matrix.react }}
     steps:
       - name: checkout
-        if: ${{ github.event.pull_request.number != NaN }}
+        if: ${{ github.event.pull_request.number === NaN }}
         uses: actions/checkout@v3
 
       - name: restore cache from package-lock.json
+        if: ${{ github.event.pull_request.number === NaN }}
         uses: actions/cache@v3
         with:
           path: package-temp-dir
           key: lock-${{ github.sha }}
 
       - name: restore cache from node_modules
+        if: ${{ github.event.pull_request.number === NaN }}
         uses: actions/cache@v3
         with:
           path: node_modules
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
 
       - name: restore cache from ${{ matrix.module }}
+        if: ${{ github.event.pull_request.number === NaN }}
         uses: actions/cache@v3
         with:
           path: ${{ matrix.module }}
           key: ${{ matrix.module }}-${{ github.sha }}
 
       - name: install react 16
-        if: ${{ matrix.react == '16' }}
+        if: ${{ matrix.react == '16' && github.event.pull_request.number === NaN }}
         run: npm run install-react-16
 
       - name: install react 17
-        if: ${{ matrix.react == '17' }}
+        if: ${{ matrix.react == '17' && github.event.pull_request.number === NaN }}
         run: npm run install-react-17
 
       - name: test
+        if: ${{ github.event.pull_request.number === NaN }}
         run: npm test
         env:
           LIB_DIR: ${{ matrix.module }}
