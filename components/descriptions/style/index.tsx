@@ -1,4 +1,5 @@
 // deps-lint-skip-all
+import { CSSObject } from '@ant-design/cssinjs';
 import {
   DerivativeToken,
   GenerateStyle,
@@ -22,6 +23,64 @@ interface DescriptionsToken extends DerivativeToken {
   descriptionsItemLabelColonMarginLeft: number;
 }
 
+const genBorderedStyle = (token: DescriptionsToken): CSSObject => {
+  const {
+    prefixCls,
+    descriptionsSmallPadding,
+    descriptionsDefaultPadding,
+    descriptionsMiddlePadding,
+    descriptionsBg,
+  } = token;
+  return {
+    '&-bordered': {
+      [`${prefixCls}-view`]: {
+        border: `1px solid ${token.colorSplit}`,
+        '> table': {
+          tableLayout: 'auto',
+          borderCollapse: 'collapse',
+        },
+      },
+      [`${prefixCls}-item-label, ${prefixCls}-item-content`]: {
+        padding: descriptionsDefaultPadding,
+        borderRight: `1px solid ${token.colorSplit}`,
+        '&:last-child': {
+          borderRight: 'none',
+        },
+
+        [`${prefixCls}-rtl &`]: {
+          borderRight: 'none',
+          borderLeft: `1px solid ${token.colorSplit}`,
+          '&:last-child': {
+            borderLeft: 'none',
+          },
+        },
+      },
+      [`${prefixCls}-item-label`]: {
+        backgroundColor: descriptionsBg,
+        '&::after': {
+          display: 'none',
+        },
+      },
+      [`${prefixCls}-row`]: {
+        borderBottom: `1px solid ${token.colorSplit}`,
+        '&:last-child': {
+          borderBottom: 'none',
+        },
+      },
+      [`&${prefixCls}-middle`]: {
+        [`${prefixCls}-item-label, ${prefixCls}-item-content`]: {
+          padding: descriptionsMiddlePadding,
+        },
+      },
+      [`&${prefixCls}-small`]: {
+        [`${prefixCls}-item-label, ${prefixCls}-item-content`]: {
+          padding: descriptionsSmallPadding,
+        },
+      },
+    },
+  };
+};
+
 const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: DescriptionsToken) => {
   const {
     prefixCls,
@@ -30,15 +89,15 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
     descriptionItemTrailingColon,
     descriptionsItemLabelColonMarginRight,
     descriptionsItemLabelColonMarginLeft,
-    descriptionsSmallPadding,
-    descriptionsDefaultPadding,
-    descriptionsMiddlePadding,
     descriptionsTitleMarginBottom,
-    descriptionsBg,
   } = token;
   return {
     [prefixCls]: {
       ...resetComponent(token),
+      ...genBorderedStyle(token),
+      '&-rtl': {
+        direction: 'rtl',
+      },
       '&-header': {
         display: 'flex',
         alignItems: 'center',
@@ -87,6 +146,10 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
           position: 'relative',
           top: '-0.5px',
           margin: `0 ${descriptionsItemLabelColonMarginRight}px 0 ${descriptionsItemLabelColonMarginLeft}px`,
+
+          [`${prefixCls}-rtl &`]: {
+            margin: `0 ${descriptionsItemLabelColonMarginLeft}px 0 ${descriptionsItemLabelColonMarginRight}px`,
+          },
         },
 
         [`&${prefixCls}-item-no-colon::after`]: {
@@ -134,44 +197,6 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
         [`${prefixCls}-row`]: {
           '> th, > td': {
             paddingBottom: token.paddingXS,
-          },
-        },
-      },
-      '&-bordered': {
-        [`${prefixCls}-view`]: {
-          border: `1px solid ${token.colorSplit}`,
-          '> table': {
-            tableLayout: 'auto',
-            borderCollapse: 'collapse',
-          },
-        },
-        [`${prefixCls}-item-label, ${prefixCls}-item-content`]: {
-          padding: descriptionsDefaultPadding,
-          borderRight: `1px solid ${token.colorSplit}`,
-          '&:last-child': {
-            borderRight: 'none',
-          },
-        },
-        [`${prefixCls}-item-label`]: {
-          backgroundColor: descriptionsBg,
-          '&::after': {
-            display: 'none',
-          },
-        },
-        [`${prefixCls}-row`]: {
-          borderBottom: `1px solid ${token.colorSplit}`,
-          '&:last-child': {
-            borderBottom: 'none',
-          },
-        },
-        [`&${prefixCls}-middle`]: {
-          [`${prefixCls}-item-label, ${prefixCls}-item-content`]: {
-            padding: descriptionsMiddlePadding,
-          },
-        },
-        [`&${prefixCls}-small`]: {
-          [`${prefixCls}-item-label, ${prefixCls}-item-content`]: {
-            padding: descriptionsSmallPadding,
           },
         },
       },
