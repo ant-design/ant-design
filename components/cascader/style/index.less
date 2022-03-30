@@ -1,172 +1,38 @@
 @import '../../style/themes/index';
 @import '../../style/mixins/index';
 @import '../../input/style/mixin';
+@import '../../checkbox/style/mixin';
 
 @cascader-prefix-cls: ~'@{ant-prefix}-cascader';
 
+.antCheckboxFn(@checkbox-prefix-cls: ~'@{cascader-prefix-cls}-checkbox');
+
 .@{cascader-prefix-cls} {
-  .reset-component();
+  width: 184px;
 
-  &-input.@{ant-prefix}-input {
-    // Keep it static for https://github.com/ant-design/ant-design/issues/16738
-    position: static;
-    width: 100%;
-    // https://github.com/ant-design/ant-design/issues/17582
-    padding-right: 24px;
-    // Add important to fix https://github.com/ant-design/ant-design/issues/5078
-    // because input.less will compile after cascader.less
-    background-color: transparent !important;
-    cursor: pointer;
-  }
-
-  &-picker-show-search &-input.@{ant-prefix}-input {
-    position: relative;
-  }
-
-  &-picker {
-    .reset-component();
-
-    position: relative;
-    display: inline-block;
-    background-color: @cascader-bg;
-    border-radius: @border-radius-base;
-    outline: 0;
-    cursor: pointer;
-    transition: color 0.3s;
-
-    &-with-value &-label {
-      color: transparent;
-    }
-
-    &-disabled {
-      color: @disabled-color;
-      background: @input-disabled-bg;
-      cursor: not-allowed;
-      .@{cascader-prefix-cls}-input {
-        cursor: not-allowed;
-      }
-    }
-
-    &:focus .@{cascader-prefix-cls}-input {
-      .active();
-    }
-
-    &-borderless .@{cascader-prefix-cls}-input {
-      border-color: transparent !important;
-      box-shadow: none !important;
-    }
-
-    &-show-search&-focused {
-      color: @disabled-color;
-    }
-
-    &-label {
-      position: absolute;
-      top: 50%;
-      left: 0;
-      width: 100%;
-      height: 20px;
-      margin-top: -10px;
-      padding: 0 20px 0 @control-padding-horizontal;
-      overflow: hidden;
-      line-height: 20px;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-    }
-
-    &-clear {
-      position: absolute;
-      top: 50%;
-      right: @control-padding-horizontal;
-      z-index: 2;
-      width: 12px;
-      height: 12px;
-      margin-top: -6px;
-      color: @disabled-color;
-      font-size: @font-size-sm;
-      line-height: 12px;
-      background: @component-background;
-      cursor: pointer;
-      opacity: 0;
-      transition: color 0.3s ease, opacity 0.15s ease;
-      &:hover {
-        color: @text-color-secondary;
-      }
-    }
-
-    &:hover &-clear {
-      opacity: 1;
-    }
-
-    // arrow
-    &-arrow {
-      position: absolute;
-      top: 50%;
-      right: @control-padding-horizontal;
-      z-index: 1;
-      width: 12px;
-      height: 12px;
-      margin-top: -6px;
-      color: @disabled-color;
-      font-size: 12px;
-      line-height: 12px;
-    }
-  }
-
-  // https://github.com/ant-design/ant-design/pull/12407#issuecomment-424657810
-  &-picker-label:hover + &-input {
-    &:not(.@{cascader-prefix-cls}-picker-disabled &) {
-      .hover();
-    }
-  }
-
-  &-picker-small &-picker-clear,
-  &-picker-small &-picker-arrow {
-    right: @control-padding-horizontal-sm;
+  &-checkbox {
+    top: 0;
+    margin-right: @padding-xs;
   }
 
   &-menus {
-    position: absolute;
-    z-index: @zindex-dropdown;
-    font-size: @cascader-dropdown-font-size;
-    white-space: nowrap;
-    background: @cascader-menu-bg;
-    border-radius: @border-radius-base;
-    box-shadow: @box-shadow-base;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: flex-start;
 
-    ul,
-    ol {
-      margin: 0;
-      list-style: none;
-    }
-
-    &-empty,
-    &-hidden {
-      display: none;
-    }
-    &.@{ant-prefix}-slide-up-enter.@{ant-prefix}-slide-up-enter-active&-placement-bottomLeft,
-    &.@{ant-prefix}-slide-up-appear.@{ant-prefix}-slide-up-appear-active&-placement-bottomLeft {
-      animation-name: antSlideUpIn;
-    }
-
-    &.@{ant-prefix}-slide-up-enter.@{ant-prefix}-slide-up-enter-active&-placement-topLeft,
-    &.@{ant-prefix}-slide-up-appear.@{ant-prefix}-slide-up-appear-active&-placement-topLeft {
-      animation-name: antSlideDownIn;
-    }
-
-    &.@{ant-prefix}-slide-up-leave.@{ant-prefix}-slide-up-leave-active&-placement-bottomLeft {
-      animation-name: antSlideUpOut;
-    }
-
-    &.@{ant-prefix}-slide-up-leave.@{ant-prefix}-slide-up-leave-active&-placement-topLeft {
-      animation-name: antSlideDownOut;
+    &.@{cascader-prefix-cls}-menu-empty {
+      .@{cascader-prefix-cls}-menu {
+        width: 100%;
+        height: auto;
+      }
     }
   }
+
   &-menu {
-    display: inline-block;
     min-width: 111px;
     height: 180px;
     margin: 0;
+    margin: -@dropdown-edge-child-vertical-padding 0;
     padding: @cascader-dropdown-edge-child-vertical-padding 0;
     overflow: auto;
     vertical-align: top;
@@ -174,67 +40,63 @@
     border-right: @border-width-base @border-style-base @cascader-menu-border-color-split;
     -ms-overflow-style: -ms-autohiding-scrollbar; // https://github.com/ant-design/ant-design/issues/11857
 
-    &:first-child {
-      border-radius: @border-radius-base 0 0 @border-radius-base;
-    }
-    &:last-child {
-      margin-right: -1px;
-      border-right-color: transparent;
-      border-radius: 0 @border-radius-base @border-radius-base 0;
-    }
-    &:only-child {
-      border-radius: @border-radius-base;
-    }
-  }
-  &-menu-item {
-    padding: @cascader-dropdown-vertical-padding @control-padding-horizontal;
-    overflow: hidden;
-    line-height: @cascader-dropdown-line-height;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    cursor: pointer;
-    transition: all 0.3s;
-    &:hover {
-      background: @item-hover-bg;
-    }
-    &-disabled {
-      color: @disabled-color;
-      cursor: not-allowed;
-      &:hover {
-        background: transparent;
-      }
-    }
-    .@{cascader-prefix-cls}-menu-empty & {
-      color: @disabled-color;
-      cursor: default;
-      pointer-events: none;
-    }
-    &-active:not(&-disabled) {
-      &,
-      &:hover {
-        font-weight: @select-item-selected-font-weight;
-        background-color: @cascader-item-selected-bg;
-      }
-    }
-    &-expand {
-      position: relative;
-      padding-right: 24px;
-    }
+    &-item {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      padding: @cascader-dropdown-vertical-padding @control-padding-horizontal;
+      overflow: hidden;
+      line-height: @cascader-dropdown-line-height;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      cursor: pointer;
+      transition: all 0.3s;
 
-    &-expand &-expand-icon,
-    &-loading-icon {
-      position: absolute;
-      right: @control-padding-horizontal;
-      color: @text-color-secondary;
-      font-size: 10px;
+      &:hover {
+        background: @item-hover-bg;
+      }
 
-      .@{cascader-prefix-cls}-menu-item-disabled& {
+      &-disabled {
         color: @disabled-color;
-      }
-    }
+        cursor: not-allowed;
 
-    & &-keyword {
-      color: @highlight-color;
+        &:hover {
+          background: transparent;
+        }
+      }
+
+      .@{cascader-prefix-cls}-menu-empty & {
+        color: @disabled-color;
+        cursor: default;
+        pointer-events: none;
+      }
+
+      &-active:not(&-disabled) {
+        &,
+        &:hover {
+          font-weight: @select-item-selected-font-weight;
+          background-color: @cascader-item-selected-bg;
+        }
+      }
+
+      &-content {
+        flex: auto;
+      }
+
+      &-expand &-expand-icon,
+      &-loading-icon {
+        margin-left: @padding-xss;
+        color: @text-color-secondary;
+        font-size: 10px;
+
+        .@{cascader-prefix-cls}-menu-item-disabled& {
+          color: @disabled-color;
+        }
+      }
+
+      &-keyword {
+        color: @highlight-color;
+      }
     }
   }
 }

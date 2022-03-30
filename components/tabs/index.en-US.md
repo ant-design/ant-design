@@ -35,6 +35,7 @@ Ant Design has 3 types of Tabs for different situations.
 | tabBarGutter | The gap between tabs | number | - |  |
 | tabBarStyle | Tab bar style object | object | - |  |
 | tabPosition | Position of tabs | `top` \| `right` \| `bottom` \| `left` | `top` |  |
+| destroyInactiveTabPane | Whether destroy inactive TabPane when change tab | boolean | false |  |
 | type | Basic style of tabs | `line` \| `card` \| `editable-card` | `line` |  |
 | onChange | Callback executed when active tab is changed | function(activeKey) {} | - |  |
 | onEdit | Callback executed when tab is added or removed. Only works while `type="editable-card"` | (targetKey, action) => void | - |  |

@@ -24,7 +24,12 @@ function isNotGrey(color: string) {
   return true;
 }
 
-export default class Wave extends React.Component<{ insertExtraNode?: boolean }> {
+export interface WaveProps {
+  insertExtraNode?: boolean;
+  disabled?: boolean;
+}
+
+export default class Wave extends React.Component<WaveProps> {
   static contextType = ConfigContext;
 
   private instance?: {
@@ -67,10 +72,12 @@ export default class Wave extends React.Component<{ insertExtraNode?: boolean }>
   }
 
   onClick = (node: HTMLElement, waveColor: string) => {
-    if (!node || isHidden(node) || node.className.indexOf('-leave') >= 0) {
+    const { insertExtraNode, disabled } = this.props;
+
+    if (disabled || !node || isHidden(node) || node.className.indexOf('-leave') >= 0) {
       return;
     }
-    const { insertExtraNode } = this.props;
+
     this.extraNode = document.createElement('div');
     const { extraNode } = this;
     const { getPrefixCls } = this.context;

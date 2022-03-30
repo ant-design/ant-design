@@ -11,7 +11,7 @@ import ResponsiveObserve, {
 import useFlexGapSupport from '../_util/hooks/useFlexGapSupport';
 
 const RowAligns = tuple('top', 'middle', 'bottom', 'stretch');
-const RowJustify = tuple('start', 'end', 'center', 'space-around', 'space-between');
+const RowJustify = tuple('start', 'end', 'center', 'space-around', 'space-between', 'space-evenly');
 
 export type Gutter = number | Partial<Record<Breakpoint, number>>;
 export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -116,11 +116,13 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     rowStyle.marginBottom = verticalGutter;
   }
 
-  const rowContext = React.useMemo(() => ({ gutter: gutters, wrap, supportFlexGap }), [
-    gutters,
-    wrap,
-    supportFlexGap,
-  ]);
+  // "gutters" is a new array in each rendering phase, it'll make 'React.useMemo' effectless.
+  // So we deconstruct "gutters" variable here.
+  const [gutterH, gutterV] = gutters;
+  const rowContext = React.useMemo(
+    () => ({ gutter: [gutterH, gutterV] as [number, number], wrap, supportFlexGap }),
+    [gutterH, gutterV, wrap, supportFlexGap],
+  );
 
   return (
     <RowContext.Provider value={rowContext}>

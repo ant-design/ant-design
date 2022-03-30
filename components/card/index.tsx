@@ -7,7 +7,6 @@ import Tabs, { TabsProps } from '../tabs';
 import Row from '../row';
 import Col from '../col';
 import { ConfigContext } from '../config-provider';
-import { Omit } from '../_util/type';
 import SizeContext from '../config-provider/SizeContext';
 
 function getAction(actions: React.ReactNode[]) {
@@ -50,19 +49,19 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
   cover?: React.ReactNode;
   actions?: React.ReactNode[];
   tabList?: CardTabListType[];
-  tabBarExtraContent?: React.ReactNode | null;
+  tabBarExtraContent?: React.ReactNode;
   onTabChange?: (key: string) => void;
   activeTabKey?: string;
   defaultActiveTabKey?: string;
   tabProps?: TabsProps;
 }
 
-export interface CardInterface extends React.FC<CardProps> {
+export interface CardInterface extends React.ForwardRefExoticComponent<CardProps> {
   Grid: typeof Grid;
   Meta: typeof Meta;
 }
 
-const Card: CardInterface = props => {
+const Card = React.forwardRef((props: CardProps, ref: React.Ref<HTMLDivElement>) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const size = React.useContext(SizeContext);
 
@@ -197,14 +196,14 @@ const Card: CardInterface = props => {
   );
 
   return (
-    <div {...divProps} className={classString}>
+    <div ref={ref} {...divProps} className={classString}>
       {head}
       {coverDom}
       {body}
       {actionDom}
     </div>
   );
-};
+}) as CardInterface;
 
 Card.Grid = Grid;
 Card.Meta = Meta;

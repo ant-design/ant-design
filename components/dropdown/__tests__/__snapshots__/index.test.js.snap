@@ -3,15 +3,15 @@
 exports[`Dropdown overlay is function and has custom transitionName 1`] = `
 Array [
   <button
-    class="ant-dropdown-trigger"
+    class="ant-dropdown-trigger ant-dropdown-open"
     type="button"
   >
     button
   </button>,
   <div>
     <div
-      class="ant-dropdown"
-      style="opacity:0;pointer-events:none"
+      class="ant-dropdown move-up-appear move-up-appear-prepare move-up"
+      style="opacity: 0; pointer-events: none;"
     >
       <div>
         menu
@@ -24,15 +24,15 @@ Array [
 exports[`Dropdown overlay is string 1`] = `
 Array [
   <button
-    class="ant-dropdown-trigger"
+    class="ant-dropdown-trigger ant-dropdown-open"
     type="button"
   >
     button
   </button>,
   <div>
     <div
-      class="ant-dropdown"
-      style="opacity:0;pointer-events:none"
+      class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+      style="opacity: 0; pointer-events: none;"
     >
       <span>
         string

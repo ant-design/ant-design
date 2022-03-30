@@ -1,5 +1,6 @@
 ---
 order: 7
+version: 4.17.0
 title:
   zh-CN: 基于 Promise 的异步关闭
   en-US: Asynchronously close on Promise

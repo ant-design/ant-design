@@ -47,14 +47,17 @@ class App extends React.Component {
   };
 
   onStart = (event, uiData) => {
-    const { clientWidth, clientHeight } = window?.document?.documentElement;
-    const targetRect = this.draggleRef?.current?.getBoundingClientRect();
+    const { clientWidth, clientHeight } = window.document.documentElement;
+    const targetRect = this.draggleRef.current?.getBoundingClientRect();
+    if (!targetRect) {
+      return;
+    }
     this.setState({
       bounds: {
-        left: -targetRect?.left + uiData?.x,
-        right: clientWidth - (targetRect?.right - uiData?.x),
-        top: -targetRect?.top + uiData?.y,
-        bottom: clientHeight - (targetRect?.bottom - uiData?.y),
+        left: -targetRect.left + uiData.x,
+        right: clientWidth - (targetRect.right - uiData.x),
+        top: -targetRect.top + uiData.y,
+        bottom: clientHeight - (targetRect.bottom - uiData.y),
       },
     });
   };

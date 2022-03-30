@@ -142,7 +142,7 @@ title: 文案
 
 ## 语气
 
-语言定义的是内容，而情绪和气氛更多的是通过语气来表达，并且同样的内容面对不同的用户我们可以使用不同的语气来表达；例如，我们对应专业的运维人员和小白用户应有不同的表达方式。
+语言定义的是内容，而情绪和气氛更多地是通过语气来表达，并且同样的内容面对不同的用户我们可以使用不同的语气来表达；例如，我们对应专业的运维人员和小白用户应有不同的表达方式。
 
 ### 拉近彼此的距离
 
@@ -211,7 +211,7 @@ title: 文案
 <img class="preview-img no-padding good" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/QGpLpUFgZnTDzYJCeuun.png" alt="正确示范">
 <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/fQhiFpjLcHJtJJGzElUT.png" alt="错误示范">
 
-为了帮助用户更加高效得扫视文本内容，可以省略不必要的断句点。
+为了帮助用户更加高效地扫视文本内容，可以省略不必要的断句点。
 
 以下元素单独出现时可以省略标点：
 
@@ -279,6 +279,6 @@ title: 文案
   </tr>
 </table>
 
-正确得使用标点符号会让句子看起来更清晰和具有可读性。
+正确地使用标点符号会让句子看起来更清晰和具有可读性。
 
 具体使用请参考 1995 年中国标准出版社出版的[《标点符号用法》](http://www.moe.gov.cn/ewebeditor/uploadfile/2015/01/13/20150113091548267.pdf)，右图为重点列出的在设计中需要注意的部分。

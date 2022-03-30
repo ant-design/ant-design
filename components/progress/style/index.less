@@ -16,11 +16,13 @@
 
   &-steps {
     display: inline-block;
+
     &-outer {
       display: flex;
       flex-direction: row;
       align-items: center;
     }
+
     &-item {
       flex-shrink: 0;
       min-width: 2px;
@@ -180,6 +182,7 @@
       color: @error-color;
     }
   }
+
   &-circle&-status-success {
     .@{progress-prefix-cls}-text {
       color: @success-color;
@@ -192,10 +195,12 @@
     transform: translateX(-100%) scaleX(0);
     opacity: 0.1;
   }
+
   20% {
     transform: translateX(-100%) scaleX(0);
     opacity: 0.5;
   }
+
   100% {
     transform: translateX(0) scaleX(1);
     opacity: 0;

@@ -3,7 +3,6 @@ import Dialog from 'rc-dialog';
 import classNames from 'classnames';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 
-import useModal from './useModal';
 import { getConfirmLocale } from './locale';
 import Button from '../button';
 import { LegacyButtonType, ButtonProps, convertLegacyProps } from '../button/button';
@@ -13,7 +12,6 @@ import { canUseDocElement } from '../_util/styleChecker';
 import { getTransitionName } from '../_util/motion';
 
 let mousePosition: { x: number; y: number } | null;
-export const destroyFns: Array<() => void> = [];
 
 // ref: https://github.com/ant-design/ant-design/issues/15795
 const getClickPosition = (e: MouseEvent) => {
@@ -40,7 +38,7 @@ export interface ModalProps {
   /** 确定按钮 loading */
   confirmLoading?: boolean;
   /** 标题 */
-  title?: React.ReactNode | string;
+  title?: React.ReactNode;
   /** 是否显示右上角的关闭按钮 */
   closable?: boolean;
   /** 点击确定回调 */
@@ -72,7 +70,7 @@ export interface ModalProps {
   maskTransitionName?: string;
   transitionName?: string;
   className?: string;
-  getContainer?: string | HTMLElement | getContainerFunc | false | null;
+  getContainer?: string | HTMLElement | getContainerFunc | false;
   zIndex?: number;
   bodyStyle?: React.CSSProperties;
   maskStyle?: React.CSSProperties;
@@ -111,10 +109,11 @@ export interface ModalFuncProps {
   zIndex?: number;
   okCancel?: boolean;
   style?: React.CSSProperties;
+  wrapClassName?: string;
   maskStyle?: React.CSSProperties;
   type?: 'info' | 'success' | 'error' | 'warn' | 'warning' | 'confirm';
   keyboard?: boolean;
-  getContainer?: string | HTMLElement | getContainerFunc | false | null;
+  getContainer?: string | HTMLElement | getContainerFunc | false;
   autoFocusButton?: null | 'ok' | 'cancel';
   transitionName?: string;
   maskTransitionName?: string;
@@ -131,14 +130,12 @@ export interface ModalLocale {
   justOkText: string;
 }
 
-interface ModalInterface extends React.FC<ModalProps> {
-  useModal: typeof useModal;
-}
-
-const Modal: ModalInterface = props => {
-  const { getPopupContainer: getContextPopupContainer, getPrefixCls, direction } = React.useContext(
-    ConfigContext,
-  );
+const Modal: React.FC<ModalProps> = props => {
+  const {
+    getPopupContainer: getContextPopupContainer,
+    getPrefixCls,
+    direction,
+  } = React.useContext(ConfigContext);
 
   const handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
     const { onCancel } = props;
@@ -203,7 +200,9 @@ const Modal: ModalInterface = props => {
   return (
     <Dialog
       {...restProps}
-      getContainer={getContainer === undefined ? getContextPopupContainer : getContainer}
+      getContainer={
+        getContainer === undefined ? (getContextPopupContainer as getContainerFunc) : getContainer
+      }
       prefixCls={prefixCls}
       wrapClassName={wrapClassNameExtended}
       footer={footer === undefined ? defaultFooter : footer}
@@ -217,8 +216,6 @@ const Modal: ModalInterface = props => {
     />
   );
 };
-
-Modal.useModal = useModal;
 
 Modal.defaultProps = {
   width: 520,

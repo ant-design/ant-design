@@ -173,6 +173,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     });
   };
 
+  // eslint-disable-next-line class-methods-use-this
   handleVersionChange = (url: string) => {
     const currentUrl = window.location.href;
     const currentPathname = window.location.pathname;
@@ -191,7 +192,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
       location: { pathname, query },
     } = this.props;
     const currentProtocol = `${window.location.protocol}//`;
-    const currentHref = window.location.href.substr(currentProtocol.length);
+    const currentHref = window.location.href.slice(currentProtocol.length);
 
     if (utils.isLocalStorageNameSupported()) {
       localStorage.setItem('locale', utils.isZhCN(pathname) ? 'en-US' : 'zh-CN');

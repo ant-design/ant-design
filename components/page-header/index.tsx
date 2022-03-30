@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import useState from 'rc-util/lib/hooks/useState';
 import ArrowLeftOutlined from '@ant-design/icons/ArrowLeftOutlined';
 import ArrowRightOutlined from '@ant-design/icons/ArrowRightOutlined';
 import ResizeObserver from 'rc-resize-observer';
@@ -7,6 +8,7 @@ import { ConfigConsumer, ConfigConsumerProps, DirectionType } from '../config-pr
 import { TagType } from '../tag';
 import Breadcrumb, { BreadcrumbProps } from '../breadcrumb';
 import Avatar, { AvatarProps } from '../avatar';
+import Space from '../space';
 import TransButton from '../_util/transButton';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 
@@ -103,7 +105,11 @@ const renderTitle = (
           {tags && <span className={`${headingPrefixCls}-tags`}>{tags}</span>}
         </div>
       )}
-      {extra && <span className={`${headingPrefixCls}-extra`}>{extra}</span>}
+      {extra && (
+        <span className={`${headingPrefixCls}-extra`}>
+          <Space>{extra}</Space>
+        </span>
+      )}
     </div>
   );
 };
@@ -120,9 +126,9 @@ const renderChildren = (prefixCls: string, children: React.ReactNode) => (
 );
 
 const PageHeader: React.FC<PageHeaderProps> = props => {
-  const [compact, updateCompact] = React.useState(false);
+  const [compact, updateCompact] = useState(false);
   const onResize = ({ width }: { width: number }) => {
-    updateCompact(width < 768);
+    updateCompact(width < 768, true);
   };
   return (
     <ConfigConsumer>
@@ -159,7 +165,7 @@ const PageHeader: React.FC<PageHeaderProps> = props => {
         const isBreadcrumbComponent = breadcrumb && 'props' in breadcrumb;
         //  support breadcrumbRender function
         const breadcrumbRenderDomFromProps =
-          breadcrumbRender?.(props, defaultBreadcrumbDom) || defaultBreadcrumbDom;
+          breadcrumbRender?.(props, defaultBreadcrumbDom) ?? defaultBreadcrumbDom;
 
         const breadcrumbDom = isBreadcrumbComponent ? breadcrumb : breadcrumbRenderDomFromProps;
 

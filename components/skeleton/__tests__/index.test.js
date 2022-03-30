@@ -147,4 +147,9 @@ describe('Skeleton', () => {
       expect(wrapper.render()).toMatchSnapshot();
     });
   });
+
+  it('should support style', () => {
+    const wrapper = genSkeleton({ style: { background: 'blue' } });
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });

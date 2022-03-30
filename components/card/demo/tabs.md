@@ -14,6 +14,7 @@ title:
 More content can be hosted.
 
 ```jsx
+import React, { useState } from 'react';
 import { Card } from 'antd';
 
 const tabList = [
@@ -53,49 +54,47 @@ const contentListNoTitle = {
   project: <p>project content</p>,
 };
 
-class TabsCard extends React.Component {
-  state = {
-    key: 'tab1',
-    noTitleKey: 'app',
+const TabsCard = () => {
+  const [activeTabKey1, setActiveTabKey1] = useState('tab1');
+  const [activeTabKey2, setActiveTabKey2] = useState('app');
+
+  const onTab1Change = key => {
+    setActiveTabKey1(key);
+  };
+  const onTab2Change = key => {
+    setActiveTabKey2(key);
   };
 
-  onTabChange = (key, type) => {
-    console.log(key, type);
-    this.setState({ [type]: key });
-  };
-
-  render() {
-    return (
-      <>
-        <Card
-          style={{ width: '100%' }}
-          title="Card title"
-          extra={<a href="#">More</a>}
-          tabList={tabList}
-          activeTabKey={this.state.key}
-          onTabChange={key => {
-            this.onTabChange(key, 'key');
-          }}
-        >
-          {contentList[this.state.key]}
-        </Card>
-        <br />
-        <br />
-        <Card
-          style={{ width: '100%' }}
-          tabList={tabListNoTitle}
-          activeTabKey={this.state.noTitleKey}
-          tabBarExtraContent={<a href="#">More</a>}
-          onTabChange={key => {
-            this.onTabChange(key, 'noTitleKey');
-          }}
-        >
-          {contentListNoTitle[this.state.noTitleKey]}
-        </Card>
-      </>
-    );
-  }
-}
+  return (
+    <>
+      <Card
+        style={{ width: '100%' }}
+        title="Card title"
+        extra={<a href="#">More</a>}
+        tabList={tabList}
+        activeTabKey={activeTabKey1}
+        onTabChange={key => {
+          onTab1Change(key);
+        }}
+      >
+        {contentList[activeTabKey1]}
+      </Card>
+      <br />
+      <br />
+      <Card
+        style={{ width: '100%' }}
+        tabList={tabListNoTitle}
+        activeTabKey={activeTabKey2}
+        tabBarExtraContent={<a href="#">More</a>}
+        onTabChange={key => {
+          onTab2Change(key);
+        }}
+      >
+        {contentListNoTitle[activeTabKey2]}
+      </Card>
+    </>
+  );
+};
 
 ReactDOM.render(<TabsCard />, mountNode);
 ```

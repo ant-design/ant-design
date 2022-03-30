@@ -191,6 +191,21 @@ describe('notification', () => {
     expect(document.querySelectorAll('.test-customize-icon').length).toBe(1);
   });
 
+  it('closeIcon should be update', async () => {
+    const openNotificationWithCloseIcon = async type => {
+      notification.open({
+        message: 'Notification Title',
+        closeIcon: <span className={`test-customize-icon-${type}`} />,
+      });
+      await Promise.resolve();
+      expect(document.querySelectorAll(`.test-customize-icon-${type}`).length).toBe(1);
+    };
+
+    const promises = ['1', '2'].map(type => openNotificationWithCloseIcon(type));
+
+    await Promise.all(promises);
+  });
+
   it('support config duration', () => {
     notification.config({
       duration: 0,

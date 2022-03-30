@@ -18,9 +18,9 @@ const Link: React.ForwardRefRenderFunction<HTMLElement, LinkProps> = (
     '`ellipsis` only supports boolean value.',
   );
 
-  const baseRef = React.useRef<Base>(null);
+  const baseRef = React.useRef<any>(null);
 
-  React.useImperativeHandle(ref, () => baseRef.current?.contentRef.current!);
+  React.useImperativeHandle(ref, () => baseRef.current);
 
   const mergedProps = {
     ...restProps,

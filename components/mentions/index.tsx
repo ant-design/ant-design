@@ -5,6 +5,8 @@ import { MentionsProps as RcMentionsProps } from 'rc-mentions/lib/Mentions';
 import { composeRef } from 'rc-util/lib/ref';
 import Spin from '../spin';
 import { ConfigContext } from '../config-provider';
+import { FormItemInputContext } from '../form/context';
+import { getMergedStatus, getStatusClassNames, InputStatus } from '../_util/statusUtils';
 
 export const { Option } = RcMentions;
 
@@ -22,6 +24,7 @@ export interface OptionProps {
 
 export interface MentionProps extends RcMentionsProps {
   loading?: boolean;
+  status?: InputStatus;
 }
 
 export interface MentionState {
@@ -53,6 +56,7 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
     filterOption,
     children,
     notFoundContent,
+    status: customStatus,
     ...restProps
   },
   ref,
@@ -61,6 +65,12 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
   const innerRef = React.useRef<HTMLElement>();
   const mergedRef = composeRef(ref, innerRef);
   const { getPrefixCls, renderEmpty, direction } = React.useContext(ConfigContext);
+  const {
+    status: contextStatus,
+    hasFeedback,
+    feedbackIcon,
+  } = React.useContext(FormItemInputContext);
+  const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
   const onFocus: React.FocusEventHandler<HTMLTextAreaElement> = (...args) => {
     if (restProps.onFocus) {
@@ -112,10 +122,11 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
       [`${prefixCls}-focused`]: focused,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
-    className,
+    getStatusClassNames(prefixCls, mergedStatus),
+    !hasFeedback && className,
   );
 
-  return (
+  const mentions = (
     <RcMentions
       prefixCls={prefixCls}
       notFoundContent={getNotFoundContent()}
@@ -131,14 +142,31 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
       {getOptions()}
     </RcMentions>
   );
+
+  if (hasFeedback) {
+    return (
+      <div
+        className={classNames(
+          `${prefixCls}-affix-wrapper`,
+          getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus, hasFeedback),
+          className,
+        )}
+      >
+        {mentions}
+        <span className={`${prefixCls}-suffix`}>{feedbackIcon}</span>
+      </div>
+    );
+  }
+
+  return mentions;
 };
 
 const Mentions = React.forwardRef<unknown, MentionProps>(InternalMentions) as CompoundedComponent;
 Mentions.displayName = 'Mentions';
 Mentions.Option = Option;
 
-Mentions.getMentions = (value: string = '', config?: MentionsConfig): MentionsEntity[] => {
-  const { prefix = '@', split = ' ' } = config || {};
+Mentions.getMentions = (value: string = '', config: MentionsConfig = {}): MentionsEntity[] => {
+  const { prefix = '@', split = ' ' } = config;
   const prefixList: string[] = Array.isArray(prefix) ? prefix : [prefix];
 
   return value

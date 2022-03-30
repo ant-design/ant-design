@@ -50,6 +50,7 @@ The core team is monitoring for pull requests. We will review your pull request 
 
 1. Fork the repository and create your branch from the [correct branch](#Branch-Organization).
 1. Run `npm install` in the repository root.
+   > For Windows 10 development environment, if you run into error `gyp err! find vs msvs_version not set from command line or npm config`, please install [the latest Python v3](https://www.python.org/downloads/) and **Desktop development with C++** through [Visual Studio Installer](https://docs.microsoft.com/en-us/visualstudio/install/install-visual-studio?view=vs-2019#step-3---install-the-visual-studio-installer) before running `npm install`
 1. If you've fixed a bug or added code that should be tested, add tests!
 1. Ensure the test suite passes (npm run test). Tip: `npm test -- --watch TestName` is helpful in development.
 1. Run `npm test -- -u` to update the [jest snapshots](http://facebook.github.io/jest/docs/en/snapshot-testing.html#snapshot-testing-with-jest) and commit these changes as well (if there are any updates).
@@ -69,6 +70,16 @@ After cloning antd, run `npm install` to fetch its dependencies. Then, you can r
 1. `npm test` runs the complete test suite. (Make sure the `NODE_ENV` environment variable is unset, or it may causing some problems.)
 1. `npm run compile` compiles TypeScript code to the `lib` and `es` directory.
 1. `npm run dist` creates UMD build of antd.
+
+### Switch Theme
+
+Use `DEV_THEME` to change start theme:
+
+```bash
+DEV_THEME=dark npm start
+```
+
+Visit [http://127.0.0.1:8001/components/button-cn/?theme=dark](http://127.0.0.1:8001/components/button-cn/?theme=dark).
 
 ## Being a collaborator
 

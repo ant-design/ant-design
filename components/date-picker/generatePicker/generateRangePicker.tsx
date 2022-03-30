@@ -10,12 +10,15 @@ import enUS from '../locale/en_US';
 import { ConfigContext, ConfigConsumerProps } from '../../config-provider';
 import SizeContext from '../../config-provider/SizeContext';
 import LocaleReceiver from '../../locale-provider/LocaleReceiver';
-import { getRangePlaceholder } from '../util';
+import { getRangePlaceholder, transPlacement2DropdownAlign } from '../util';
 import { RangePickerProps, PickerLocale, getTimeProps, Components } from '.';
+import { PickerComponentClass } from './interface';
+import { FormItemInputContext } from '../../form/context';
+import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
 
 export default function generateRangePicker<DateType>(
   generateConfig: GenerateConfig<DateType>,
-): React.ComponentClass<RangePickerProps<DateType>> {
+): PickerComponentClass<RangePickerProps<DateType>> {
   class RangePicker extends React.Component<RangePickerProps<DateType>> {
     static contextType = ConfigContext;
 
@@ -42,9 +45,11 @@ export default function generateRangePicker<DateType>(
         prefixCls: customizePrefixCls,
         getPopupContainer: customGetPopupContainer,
         className,
+        placement,
         size: customizeSize,
         bordered = true,
         placeholder,
+        status: customStatus,
         ...restProps
       } = this.props;
       const { format, showTime, picker } = this.props as any;
@@ -65,38 +70,57 @@ export default function generateRangePicker<DateType>(
             const mergedSize = customizeSize || size;
 
             return (
-              <RCRangePicker<DateType>
-                separator={
-                  <span aria-label="to" className={`${prefixCls}-separator`}>
-                    <SwapRightOutlined />
-                  </span>
-                }
-                ref={this.pickerRef}
-                placeholder={getRangePlaceholder(picker, locale, placeholder)}
-                suffixIcon={picker === 'time' ? <ClockCircleOutlined /> : <CalendarOutlined />}
-                clearIcon={<CloseCircleFilled />}
-                allowClear
-                transitionName={`${rootPrefixCls}-slide-up`}
-                {...restProps}
-                {...additionalOverrideProps}
-                className={classNames(
-                  {
-                    [`${prefixCls}-${mergedSize}`]: mergedSize,
-                    [`${prefixCls}-borderless`]: !bordered,
-                  },
-                  className,
-                )}
-                locale={locale!.lang}
-                prefixCls={prefixCls}
-                getPopupContainer={customGetPopupContainer || getPopupContainer}
-                generateConfig={generateConfig}
-                prevIcon={<span className={`${prefixCls}-prev-icon`} />}
-                nextIcon={<span className={`${prefixCls}-next-icon`} />}
-                superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
-                superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
-                components={Components}
-                direction={direction}
-              />
+              <FormItemInputContext.Consumer>
+                {({ hasFeedback, status: contextStatus, feedbackIcon }) => {
+                  const suffixNode = (
+                    <>
+                      {picker === 'time' ? <ClockCircleOutlined /> : <CalendarOutlined />}
+                      {hasFeedback && feedbackIcon}
+                    </>
+                  );
+
+                  return (
+                    <RCRangePicker<DateType>
+                      separator={
+                        <span aria-label="to" className={`${prefixCls}-separator`}>
+                          <SwapRightOutlined />
+                        </span>
+                      }
+                      ref={this.pickerRef}
+                      dropdownAlign={transPlacement2DropdownAlign(direction, placement)}
+                      placeholder={getRangePlaceholder(picker, locale, placeholder)}
+                      suffixIcon={suffixNode}
+                      clearIcon={<CloseCircleFilled />}
+                      prevIcon={<span className={`${prefixCls}-prev-icon`} />}
+                      nextIcon={<span className={`${prefixCls}-next-icon`} />}
+                      superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
+                      superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
+                      allowClear
+                      transitionName={`${rootPrefixCls}-slide-up`}
+                      {...restProps}
+                      {...additionalOverrideProps}
+                      className={classNames(
+                        {
+                          [`${prefixCls}-${mergedSize}`]: mergedSize,
+                          [`${prefixCls}-borderless`]: !bordered,
+                        },
+                        getStatusClassNames(
+                          prefixCls,
+                          getMergedStatus(contextStatus, customStatus),
+                          hasFeedback,
+                        ),
+                        className,
+                      )}
+                      locale={locale!.lang}
+                      prefixCls={prefixCls}
+                      getPopupContainer={customGetPopupContainer || getPopupContainer}
+                      generateConfig={generateConfig}
+                      components={Components}
+                      direction={direction}
+                    />
+                  );
+                }}
+              </FormItemInputContext.Consumer>
             );
           }}
         </SizeContext.Consumer>

@@ -34,11 +34,23 @@ class OverlayVisible extends React.Component {
 
   render() {
     const menu = (
-      <Menu onClick={this.handleMenuClick}>
-        <Menu.Item key="1">Clicking me will not close the menu.</Menu.Item>
-        <Menu.Item key="2">Clicking me will not close the menu also.</Menu.Item>
-        <Menu.Item key="3">Clicking me will close the menu.</Menu.Item>
-      </Menu>
+      <Menu
+        onClick={this.handleMenuClick}
+        items={[
+          {
+            label: 'Clicking me will not close the menu.',
+            key: '1',
+          },
+          {
+            label: 'Clicking me will not close the menu also.',
+            key: '2',
+          },
+          {
+            label: 'Clicking me will close the menu.',
+            key: '3',
+          },
+        ]}
+      />
     );
     return (
       <Dropdown

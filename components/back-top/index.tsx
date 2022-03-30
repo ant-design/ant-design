@@ -91,17 +91,12 @@ const BackTop: React.FC<BackTopProps> = props => {
       </div>
     );
     return (
-      <CSSMotion visible={visible} motionName={`${rootPrefixCls}-fade`} removeOnLeave>
-        {({ className: motionClassName }) => {
-          const childNode = children || defaultElement;
-          return (
-            <div>
-              {cloneElement(childNode, ({ className }) => ({
-                className: classNames(motionClassName, className),
-              }))}
-            </div>
-          );
-        }}
+      <CSSMotion visible={visible} motionName={`${rootPrefixCls}-fade`}>
+        {({ className: motionClassName }) =>
+          cloneElement(children || defaultElement, ({ className }) => ({
+            className: classNames(motionClassName, className),
+          }))
+        }
       </CSSMotion>
     );
   };

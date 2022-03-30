@@ -151,9 +151,13 @@ function Descriptions({
 
   // Children
   const rows = getRows(children, mergedColumn);
+  const contextValue = React.useMemo(
+    () => ({ labelStyle, contentStyle }),
+    [labelStyle, contentStyle],
+  );
 
   return (
-    <DescriptionsContext.Provider value={{ labelStyle, contentStyle }}>
+    <DescriptionsContext.Provider value={contextValue}>
       <div
         className={classNames(
           prefixCls,

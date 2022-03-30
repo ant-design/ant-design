@@ -466,7 +466,7 @@ exports[`Skeleton rtl render component should be rendered correctly in RTL direc
   >
     <h3
       class="ant-skeleton-title"
-      style="width:38%"
+      style="width: 38%;"
     />
     <ul
       class="ant-skeleton-paragraph"
@@ -474,7 +474,7 @@ exports[`Skeleton rtl render component should be rendered correctly in RTL direc
       <li />
       <li />
       <li
-        style="width:61%"
+        style="width: 61%;"
       />
     </ul>
   </div>
@@ -522,6 +522,31 @@ exports[`Skeleton should square avatar 1`] = `
     <h3
       class="ant-skeleton-title"
     />
+  </div>
+</div>
+`;
+
+exports[`Skeleton should support style 1`] = `
+<div
+  class="ant-skeleton"
+  style="background: blue;"
+>
+  <div
+    class="ant-skeleton-content"
+  >
+    <h3
+      class="ant-skeleton-title"
+      style="width: 38%;"
+    />
+    <ul
+      class="ant-skeleton-paragraph"
+    >
+      <li />
+      <li />
+      <li
+        style="width: 61%;"
+      />
+    </ul>
   </div>
 </div>
 `;

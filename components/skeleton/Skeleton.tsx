@@ -17,6 +17,7 @@ export interface SkeletonProps {
   loading?: boolean;
   prefixCls?: string;
   className?: string;
+  style?: React.CSSProperties;
   children?: React.ReactNode;
   avatar?: SkeletonAvatarProps | boolean;
   title?: SkeletonTitleProps | boolean;
@@ -76,6 +77,7 @@ const Skeleton = (props: SkeletonProps) => {
       prefixCls: customizePrefixCls,
       loading,
       className,
+      style,
       children,
       avatar,
       title,
@@ -153,7 +155,7 @@ const Skeleton = (props: SkeletonProps) => {
       );
 
       return (
-        <div className={cls}>
+        <div className={cls} style={style}>
           {avatarNode}
           {contentNode}
         </div>

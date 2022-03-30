@@ -19,7 +19,7 @@ import difference from 'lodash/difference';
 
 // Customize Table Transfer
 const TableTransfer = ({ leftColumns, rightColumns, ...restProps }) => (
-  <Transfer {...restProps} showSelectAll={false}>
+  <Transfer {...restProps}>
     {({
       direction,
       filteredItems,

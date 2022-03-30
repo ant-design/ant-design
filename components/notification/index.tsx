@@ -10,7 +10,13 @@ import InfoCircleOutlined from '@ant-design/icons/InfoCircleOutlined';
 import createUseNotification from './hooks/useNotification';
 import ConfigProvider, { globalConfig } from '../config-provider';
 
-export type NotificationPlacement = 'topLeft' | 'topRight' | 'bottomLeft' | 'bottomRight';
+export type NotificationPlacement =
+  | 'top'
+  | 'topLeft'
+  | 'topRight'
+  | 'bottom'
+  | 'bottomLeft'
+  | 'bottomRight';
 
 export type IconType = 'success' | 'info' | 'error' | 'warning';
 
@@ -25,6 +31,7 @@ let defaultPlacement: NotificationPlacement = 'topRight';
 let defaultGetContainer: () => HTMLElement;
 let defaultCloseIcon: React.ReactNode;
 let rtl = false;
+let maxCount: number;
 
 export interface ConfigProps {
   top?: number;
@@ -35,6 +42,7 @@ export interface ConfigProps {
   getContainer?: () => HTMLElement;
   closeIcon?: React.ReactNode;
   rtl?: boolean;
+  maxCount?: number;
 }
 
 function setNotificationConfig(options: ConfigProps) {
@@ -65,6 +73,9 @@ function setNotificationConfig(options: ConfigProps) {
   if (options.rtl !== undefined) {
     rtl = options.rtl;
   }
+  if (options.maxCount !== undefined) {
+    maxCount = options.maxCount;
+  }
 }
 
 function getPlacementStyle(
@@ -74,6 +85,14 @@ function getPlacementStyle(
 ) {
   let style;
   switch (placement) {
+    case 'top':
+      style = {
+        left: 0,
+        right: 0,
+        top,
+        bottom: 'auto',
+      };
+      break;
     case 'topLeft':
       style = {
         left: 0,
@@ -86,6 +105,14 @@ function getPlacementStyle(
         right: 0,
         top,
         bottom: 'auto',
+      };
+      break;
+    case 'bottom':
+      style = {
+        left: 0,
+        right: 0,
+        top: 'auto',
+        bottom,
       };
       break;
     case 'bottomLeft':
@@ -119,7 +146,6 @@ function getNotificationInstance(
     top,
     bottom,
     getContainer = defaultGetContainer,
-    closeIcon = defaultCloseIcon,
     prefixCls: customizePrefixCls,
   } = args;
   const { getPrefixCls, getIconPrefixCls } = globalConfig();
@@ -136,12 +162,6 @@ function getNotificationInstance(
     return;
   }
 
-  const closeIconToRender = (
-    <span className={`${prefixCls}-close-x`}>
-      {closeIcon || <CloseOutlined className={`${prefixCls}-close-icon`} />}
-    </span>
-  );
-
   const notificationClass = classNames(`${prefixCls}-${placement}`, {
     [`${prefixCls}-rtl`]: rtl === true,
   });
@@ -153,7 +173,7 @@ function getNotificationInstance(
         className: notificationClass,
         style: getPlacementStyle(placement, top, bottom),
         getContainer,
-        closeIcon: closeIconToRender,
+        maxCount,
       },
       notification => {
         resolve(notification);
@@ -207,6 +227,7 @@ function getRCNoticeProps(args: ArgsProps, prefixCls: string, iconPrefixCls?: st
     key,
     style,
     className,
+    closeIcon = defaultCloseIcon,
   } = args;
 
   const duration = durationArg === undefined ? defaultDuration : durationArg;
@@ -219,6 +240,12 @@ function getRCNoticeProps(args: ArgsProps, prefixCls: string, iconPrefixCls?: st
       className: `${prefixCls}-icon ${prefixCls}-icon-${type}`,
     });
   }
+
+  const closeIconToRender = (
+    <span className={`${prefixCls}-close-x`}>
+      {closeIcon || <CloseOutlined className={`${prefixCls}-close-icon`} />}
+    </span>
+  );
 
   const autoMarginTag =
     !description && iconNode ? (
@@ -241,6 +268,7 @@ function getRCNoticeProps(args: ArgsProps, prefixCls: string, iconPrefixCls?: st
     ),
     duration,
     closable: true,
+    closeIcon: closeIconToRender,
     onClose,
     onClick,
     key,

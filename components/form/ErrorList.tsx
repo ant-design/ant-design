@@ -65,9 +65,7 @@ export default function ErrorList({
       motionName={`${rootPrefixCls}-show-help`}
       motionAppear={false}
       motionEnter={false}
-      motionLeave
       visible={!!fullKeyList.length}
-      removeOnLeave
       onLeaveStart={node => {
         // Force disable css override style in index.less configured
         node.style.height = 'auto';

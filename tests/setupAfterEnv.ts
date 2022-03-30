@@ -1,5 +1,3 @@
-import toMatchRenderedSnapshot from './matchers/rendered-snapshot';
+import { toHaveNoViolations } from 'jest-axe';
 
-expect.extend({
-  toMatchRenderedSnapshot,
-});
+expect.extend(toHaveNoViolations);

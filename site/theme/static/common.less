@@ -148,6 +148,7 @@ a {
 
   .menu-item-link-outside {
     position: relative;
+
     .anticon {
       position: absolute;
       top: 16px;
@@ -157,6 +158,7 @@ a {
       opacity: 0;
       transition: all 0.3s;
     }
+
     &:hover .anticon {
       opacity: 1;
     }
@@ -178,6 +180,7 @@ a {
   margin-left: 5px;
   color: #aaa;
   font-size: 12px;
+
   .ant-row-rtl & {
     margin-right: 5px;
     margin-left: 0;
@@ -204,6 +207,7 @@ a {
 
 .drawer-content {
   padding: 40px 0;
+
   &-wrapper {
     background-color: @component-background;
   }
@@ -227,22 +231,27 @@ a {
   display: flex;
   flex-direction: column;
   cursor: pointer;
+
   &-tooltip {
     .ant-tooltip-inner {
       min-width: 100px;
     }
   }
+
   & > div {
     display: block;
   }
+
   &-active {
     color: @primary-color;
   }
+
   & &-avatar {
     color: #000;
     background-color: #fff;
     box-shadow: @shadow-2;
     transition: color 0.3s;
+
     &:hover {
       color: @primary-color;
     }

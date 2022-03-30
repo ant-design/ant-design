@@ -89,6 +89,20 @@ describe('Progress', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
+  it('render successColor progress type="circle"', () => {
+    const wrapper = mount(
+      <Progress percent={60} type="circle" success={{ percent: 30, strokeColor: '#ffffff' }} />,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('render successColor progress type="dashboard"', () => {
+    const wrapper = mount(
+      <Progress percent={60} type="dashboard" success={{ percent: 30, strokeColor: '#ffffff' }} />,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
   it('render dashboard zero gapDegree', () => {
     const wrapper = mount(<Progress type="dashboard" gapDegree={0} />);
     expect(wrapper.render()).toMatchSnapshot();
@@ -144,7 +158,7 @@ describe('Progress', () => {
 
   it('should support steps', () => {
     const wrapper = mount(<Progress steps={3} />);
-    expect(wrapper).toMatchRenderedSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('steps should be changable', () => {

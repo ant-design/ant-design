@@ -185,6 +185,7 @@ const SearchBar = ({
             initialQuery={searchModalQuery}
             placeholder={searchPlaceholder}
             hitComponent={Hit}
+            appId={algoliaConfig.appId}
             apiKey={algoliaConfig.apiKey}
             indexName={algoliaConfig.indexName}
             transformItems={algoliaConfig.transformData}

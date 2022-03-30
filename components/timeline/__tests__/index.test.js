@@ -6,7 +6,7 @@ import rtlTest from '../../../tests/shared/rtlTest';
 
 const { Item } = TimeLine;
 
-const wrapperFactory = (timeLineProps = {}, labelItems) =>
+const wrapperFactory = (timeLineProps = {}, labelItems = null) =>
   mount(
     <TimeLine type="editable-card" {...timeLineProps}>
       <Item key="1">foo</Item>

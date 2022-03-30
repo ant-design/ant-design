@@ -3,16 +3,20 @@
 @import './mixin';
 @import './affix';
 @import './allow-clear';
+@import './status';
+
+@input-prefix-cls: ~'@{ant-prefix}-input';
 
 // Input styles
-.@{ant-prefix}-input {
+.@{input-prefix-cls} {
   .reset-component();
   .input();
 
   //== Style for input-group: input with label, with button or dropdown...
   &-group {
     .reset-component();
-    .input-group(~'@{ant-prefix}-input');
+    .input-group(~'@{input-prefix-cls}');
+
     &-wrapper {
       display: inline-block;
       width: 100%;
@@ -21,7 +25,7 @@
     }
   }
 
-  &-password-icon {
+  &-password-icon.@{iconfont-css-prefix} {
     color: @text-color-secondary;
     cursor: pointer;
     transition: all 0.3s;
@@ -34,24 +38,46 @@
   &[type='color'] {
     height: @input-height-base;
 
-    &.@{ant-prefix}-input-lg {
+    &.@{input-prefix-cls}-lg {
       height: @input-height-lg;
     }
-    &.@{ant-prefix}-input-sm {
+    &.@{input-prefix-cls}-sm {
       height: @input-height-sm;
       padding-top: 3px;
       padding-bottom: 3px;
     }
   }
 
-  &-textarea {
-    &-show-count::after {
+  &-textarea-show-count {
+    // https://github.com/ant-design/ant-design/issues/33049
+    > .@{input-prefix-cls} {
+      height: 100%;
+    }
+
+    &::after {
       float: right;
       color: @text-color-secondary;
       white-space: nowrap;
       content: attr(data-count);
       pointer-events: none;
     }
+
+    &.@{input-prefix-cls}-textarea-in-form-item {
+      &::after {
+        margin-bottom: -22px;
+      }
+    }
+  }
+
+  &-textarea-suffix {
+    position: absolute;
+    top: 0;
+    right: @input-padding-horizontal-base;
+    bottom: 0;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    margin: auto;
   }
 }
 

@@ -24,6 +24,7 @@ export interface PopconfirmProps extends AbstractTooltipProps {
   cancelText?: React.ReactNode;
   okButtonProps?: ButtonProps;
   cancelButtonProps?: ButtonProps;
+  showCancel?: boolean;
   icon?: React.ReactNode;
   onVisibleChange?: (
     visible: boolean,
@@ -47,12 +48,13 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
     defaultValue: props.defaultVisible,
   });
 
+  // const isDestroyed = useDestroyed();
+
   const settingVisible = (
     value: boolean,
     e?: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLDivElement>,
   ) => {
-    setVisible(value);
-
+    setVisible(value, true);
     props.onVisibleChange?.(value, e);
   };
 
@@ -82,7 +84,16 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
   };
 
   const renderOverlay = (prefixCls: string, popconfirmLocale: PopconfirmLocale) => {
-    const { okButtonProps, cancelButtonProps, title, cancelText, okText, okType, icon } = props;
+    const {
+      okButtonProps,
+      cancelButtonProps,
+      title,
+      cancelText,
+      okText,
+      okType,
+      icon,
+      showCancel = true,
+    } = props;
     return (
       <div className={`${prefixCls}-inner-content`}>
         <div className={`${prefixCls}-message`}>
@@ -90,9 +101,11 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
           <div className={`${prefixCls}-message-title`}>{getRenderPropValue(title)}</div>
         </div>
         <div className={`${prefixCls}-buttons`}>
-          <Button onClick={onCancel} size="small" {...cancelButtonProps}>
-            {cancelText || popconfirmLocale.cancelText}
-          </Button>
+          {showCancel && (
+            <Button onClick={onCancel} size="small" {...cancelButtonProps}>
+              {cancelText || popconfirmLocale.cancelText}
+            </Button>
+          )}
           <ActionButton
             buttonProps={{ size: 'small', ...convertLegacyProps(okType), ...okButtonProps }}
             actionFn={onConfirm}

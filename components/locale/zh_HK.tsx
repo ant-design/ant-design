@@ -45,6 +45,12 @@ const localeValues: Locale = {
     searchPlaceholder: '搜尋資料',
     itemUnit: '項目',
     itemsUnit: '項目',
+    remove: '刪除',
+    selectCurrent: '全選當頁',
+    removeCurrent: '刪除當頁',
+    selectAll: '全選所有',
+    removeAll: '刪除全部',
+    selectInvert: '反選當頁',
   },
   Upload: {
     uploading: '正在上傳...',

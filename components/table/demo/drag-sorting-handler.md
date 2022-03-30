@@ -15,11 +15,11 @@ Alternatively you can implement drag sorting with handler using [react-sortable-
 
 ```jsx
 import { Table } from 'antd';
-import { sortableContainer, sortableElement, sortableHandle } from 'react-sortable-hoc';
+import { SortableContainer, SortableElement, SortableHandle } from 'react-sortable-hoc';
 import { MenuOutlined } from '@ant-design/icons';
-import arrayMove from 'array-move';
+import { arrayMoveImmutable } from 'array-move';
 
-const DragHandle = sortableHandle(() => <MenuOutlined style={{ cursor: 'grab', color: '#999' }} />);
+const DragHandle = SortableHandle(() => <MenuOutlined style={{ cursor: 'grab', color: '#999' }} />);
 
 const columns = [
   {
@@ -68,8 +68,8 @@ const data = [
   },
 ];
 
-const SortableItem = sortableElement(props => <tr {...props} />);
-const SortableContainer = sortableContainer(props => <tbody {...props} />);
+const SortableItem = SortableElement(props => <tr {...props} />);
+const SortableBody = SortableContainer(props => <tbody {...props} />);
 
 class SortableTable extends React.Component {
   state = {
@@ -79,14 +79,16 @@ class SortableTable extends React.Component {
   onSortEnd = ({ oldIndex, newIndex }) => {
     const { dataSource } = this.state;
     if (oldIndex !== newIndex) {
-      const newData = arrayMove([].concat(dataSource), oldIndex, newIndex).filter(el => !!el);
+      const newData = arrayMoveImmutable([].concat(dataSource), oldIndex, newIndex).filter(
+        el => !!el,
+      );
       console.log('Sorted items: ', newData);
       this.setState({ dataSource: newData });
     }
   };
 
   DraggableContainer = props => (
-    <SortableContainer
+    <SortableBody
       useDragHandle
       disableAutoscroll
       helperClass="row-dragging"

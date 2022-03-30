@@ -31,7 +31,7 @@ title: 消息与反馈
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*qQ8NTKMH-2IAAAAAAAAAAABkARQnAQ">
 
-**对话框 Model**
+**对话框 Modal**
 
 在不跳转页面打断用户工作流程的前提下，告知用户重要的成功结果。
 

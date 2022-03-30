@@ -5,10 +5,11 @@ import CheckCircleOutlined from '@ant-design/icons/CheckCircleOutlined';
 import CloseCircleOutlined from '@ant-design/icons/CloseCircleOutlined';
 import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlined';
 import { getConfirmLocale } from './locale';
-import { ModalFuncProps, destroyFns } from './Modal';
+import type { ModalFuncProps } from './Modal';
 import ConfirmDialog from './ConfirmDialog';
 import { globalConfig } from '../config-provider';
 import devWarning from '../_util/devWarning';
+import destroyFns from './destroyFns';
 
 let defaultRootPrefixCls = '';
 
@@ -26,16 +27,12 @@ export type ModalFunc = (props: ModalFuncProps) => {
 export type ModalStaticFunctions = Record<NonNullable<ModalFuncProps['type']>, ModalFunc>;
 
 export default function confirm(config: ModalFuncProps) {
-  const div = document.createElement('div');
-  document.body.appendChild(div);
+  const container = document.createDocumentFragment();
   // eslint-disable-next-line @typescript-eslint/no-use-before-define
   let currentConfig = { ...config, close, visible: true } as any;
 
   function destroy(...args: any[]) {
-    const unmountResult = ReactDOM.unmountComponentAtNode(div);
-    if (unmountResult && div.parentNode) {
-      div.parentNode.removeChild(div);
-    }
+    ReactDOM.unmountComponentAtNode(container);
     const triggerCancel = args.some(param => param && param.triggerCancel);
     if (config.onCancel && triggerCancel) {
       config.onCancel(...args);
@@ -73,7 +70,7 @@ export default function confirm(config: ModalFuncProps) {
           okText={okText || (props.okCancel ? runtimeLocale.okText : runtimeLocale.justOkText)}
           cancelText={cancelText || runtimeLocale.cancelText}
         />,
-        div,
+        container,
       );
     });
   }

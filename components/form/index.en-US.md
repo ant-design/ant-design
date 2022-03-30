@@ -25,6 +25,7 @@ High performance Form component with data scope management. Including data colle
 | form | Form control instance created by `Form.useForm()`. Automatically created when not provided | [FormInstance](#FormInstance) | - |  |
 | initialValues | Set value by Form initialization or reset | object | - |  |
 | labelAlign | The text align of label of all items | `left` \| `right` | `right` |  |
+| labelWrap | whether label can be wrap | boolean | false | 4.18.0 |
 | labelCol | Label layout, like `<Col>` component. Set `span` `offset` value like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}` | [object](/components/grid/#Col) | - |  |
 | layout | Form layout | `horizontal` \| `vertical` \| `inline` | `horizontal` |  |
 | name | Form name. Will be the prefix of Field `id` | string | - |  |
@@ -193,11 +194,11 @@ Note: You should not configure Form.Item `initialValue` under Form.List. It alwa
 
 Some operator functions in render form of Form.List.
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| add | add form item | (defaultValue?: any, insertIndex?: number) => void | insertIndex: 4.6.0 |
-| move | move form item | (from: number, to: number) => void | - |
-| remove | remove form item | (index: number \| number\[]) => void | number\[]: 4.5.0 |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| add | add form item | (defaultValue?: any, insertIndex?: number) => void | insertIndex | 4.6.0 |
+| move | move form item | (from: number, to: number) => void | - |  |
+| remove | remove form item | (index: number \| number\[]) => void | number\[] | 4.5.0 |
 
 ## Form.ErrorList
 
@@ -241,10 +242,10 @@ Provide linkage between forms. If a sub form with `name` prop update, it will au
 | isFieldsTouched | Check if fields have been operated. Check if all fields is touched when `allTouched` is `true` | (nameList?: [NamePath](#NamePath)\[], allTouched?: boolean) => boolean |  |
 | isFieldTouched | Check if a field has been operated | (name: [NamePath](#NamePath)) => boolean |  |
 | isFieldValidating | Check field if is in validating | (name: [NamePath](#NamePath)) => boolean |  |
-| resetFields | Reset fields to `initialValues` | (fields?: [FieldData](#FieldData)\[]) => void |  |
+| resetFields | Reset fields to `initialValues` | (fields?: [NamePath](#NamePath)\[]) => void |  |
 | scrollToField | Scroll to field position | (name: [NamePath](#NamePath), options: \[[ScrollOptions](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options)]) => void |  |
 | setFields | Set fields status | (fields: [FieldData](#FieldData)\[]) => void |  |
-| setFieldsValue | Set fields value | (values) => void |  |
+| setFieldsValue | Set fields value(Will directly pass to form store. If you do not want to modify passed object, please clone first) | (values) => void |  |
 | submit | Submit the form. It's same as click `submit` button | () => void |  |
 | validateFields | Validate fields | (nameList?: [NamePath](#NamePath)\[]) => Promise |  |
 
@@ -318,7 +319,7 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | validateTrigger | Set validate trigger event. Must be the sub set of `validateTrigger` in Form.Item | string \| string\[] |  |
 | validator | Customize validation rule. Accept Promise as return. See [example](#components-form-demo-register) | ([rule](#Rule), value) => Promise |  |
 | warningOnly | Warning only. Not block form submit | boolean | 4.17.0 |
-| whitespace | Failed if only has whitespace | boolean |  |
+| whitespace | Failed if only has whitespace, only work with `type: 'string'` rule | boolean |  |
 
 ## Migrate to v4
 

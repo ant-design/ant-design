@@ -5,7 +5,7 @@ import { FormattedMessage, injectIntl } from 'react-intl';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import classNames from 'classnames';
 import LZString from 'lz-string';
-import { Tooltip, Alert } from 'antd';
+import { Tooltip, Alert, Badge } from 'antd';
 import { SnippetsOutlined, CheckOutlined, ThunderboltOutlined } from '@ant-design/icons';
 import stackblitzSdk from '@stackblitz/sdk';
 import CodePreview from './CodePreview';
@@ -209,6 +209,7 @@ class Demo extends React.Component {
       title: `${localizedTitle} - antd@${dependencies.antd}`,
       html,
       js: sourceCode
+        .replace(/import\s+(?:React,\s+)?{(\s+[^}]*\s+)}\s+from\s+'react'/, `const { $1 } = React;`)
         .replace(/import\s+{(\s+[^}]*\s+)}\s+from\s+'antd';/, 'const { $1 } = antd;')
         .replace(/import\s+{(\s+[^}]*\s+)}\s+from\s+'@ant-design\/icons';/, 'const { $1 } = icons;')
         .replace("import moment from 'moment';", '')
@@ -315,7 +316,8 @@ ${parsedSourceCode.replace('mountNode', "document.getElementById('container')")}
         'index.html': html,
       },
     };
-    return (
+
+    let codeBox = (
       <section className={codeBoxClass} id={meta.id}>
         <section className="code-box-demo">
           <ErrorBoundary>{this.liveDemo}</ErrorBoundary>
@@ -457,6 +459,12 @@ ${parsedSourceCode.replace('mountNode', "document.getElementById('container')")}
         </section>
       </section>
     );
+
+    if (meta.version) {
+      codeBox = <Badge.Ribbon text={meta.version}>{codeBox}</Badge.Ribbon>;
+    }
+
+    return codeBox;
   }
 }
 

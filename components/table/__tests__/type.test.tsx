@@ -28,6 +28,14 @@ describe('Table.typescript', () => {
     const table = <Table rowSelection={{ selections: [Table.SELECTION_ALL] }} />;
     expect(table).toBeTruthy();
   });
+
+  it('generic', () => {
+    interface RecordType {
+      key: string;
+    }
+    const table = <Table<RecordType> dataSource={[{ key: 'Bamboo' }]} />;
+    expect(table).toBeTruthy();
+  });
 });
 
 describe('Table.typescript types', () => {

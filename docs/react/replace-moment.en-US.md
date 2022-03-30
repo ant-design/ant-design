@@ -1,13 +1,13 @@
 ---
-order: 7.1
+order: 7.5
 title: Replace Moment.js
 ---
 
-You might want to replace Moment.js with another date library (now support [dayjs](https://day.js.org) and [date-fns](https://date-fns.org)) to reduce bundle size. We provide two ways to customize:
+You might want to replace Moment.js with another date library (**Ant design currently supports [dayjs](https://day.js.org) and [date-fns](https://date-fns.org)**) to reduce bundle size. We provide two ways to customize:
 
 ## Custom component
 
-The first way is use `generatePicker` (or `generateCalendar`) helps to create Picker components.
+The first way is to use `generatePicker` (or `generateCalendar`) to help create Picker components.
 
 First, we initialize an antd demo with `create-react-app`. You can refer to [Use in TypeScript](/docs/react/use-in-typescript), or you can start directly here [init antd](https://github.com/xiaohuoni/antd4-generate-picker/commit/47fec964e36d48bd15760f8f5abcb9655c259aa6)
 
@@ -39,7 +39,6 @@ import { Dayjs } from 'dayjs';
 import * as React from 'react';
 import DatePicker from './DatePicker';
 import { PickerTimeProps } from 'antd/es/date-picker/generatePicker';
-import { Omit } from 'antd/es/_util/type';
 
 export interface TimePickerProps extends Omit<PickerTimeProps<Dayjs>, 'picker'> {}
 

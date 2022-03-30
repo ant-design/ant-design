@@ -27,7 +27,7 @@ Setting `rowSelection.preserveSelectedRowKeys` to keep the `key` when enable sel
 
 ```jsx
 import { Table } from 'antd';
-import reqwest from 'reqwest';
+import qs from 'qs';
 
 const columns = [
   {
@@ -84,24 +84,21 @@ class App extends React.Component {
 
   fetch = (params = {}) => {
     this.setState({ loading: true });
-    reqwest({
-      url: 'https://randomuser.me/api',
-      method: 'get',
-      type: 'json',
-      data: getRandomuserParams(params),
-    }).then(data => {
-      console.log(data);
-      this.setState({
-        loading: false,
-        data: data.results,
-        pagination: {
-          ...params.pagination,
-          total: 200,
-          // 200 is mock data, you should read it from server
-          // total: data.totalCount,
-        },
+    fetch(`https://randomuser.me/api?${qs.stringify(getRandomuserParams(params))}`)
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        this.setState({
+          loading: false,
+          data: data.results,
+          pagination: {
+            ...params.pagination,
+            total: 200,
+            // 200 is mock data, you should read it from server
+            // total: data.totalCount,
+          },
+        });
       });
-    });
   };
 
   render() {

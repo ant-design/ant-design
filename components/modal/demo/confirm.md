@@ -85,7 +85,7 @@ function showPropsConfirm() {
 }
 
 ReactDOM.render(
-  <Space>
+  <Space wrap>
     <Button onClick={showConfirm}>Confirm</Button>
     <Button onClick={showPromiseConfirm}>With promise</Button>
     <Button onClick={showDeleteConfirm} type="dashed">

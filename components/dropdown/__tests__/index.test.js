@@ -25,7 +25,7 @@ describe('Dropdown', () => {
         <button type="button">button</button>
       </Dropdown>,
     );
-    expect(wrapper).toMatchRenderedSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('overlay is string', () => {
@@ -34,16 +34,16 @@ describe('Dropdown', () => {
         <button type="button">button</button>
       </Dropdown>,
     );
-    expect(wrapper).toMatchRenderedSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('support Menu expandIcon', async () => {
     const props = {
       overlay: (
         <Menu expandIcon={<span id="customExpandIcon" />}>
-          <Menu.Item>foo</Menu.Item>
+          <Menu.Item key="1">foo</Menu.Item>
           <Menu.SubMenu title="SubMenu">
-            <Menu.Item>foo</Menu.Item>
+            <Menu.Item key="1">foo</Menu.Item>
           </Menu.SubMenu>
         </Menu>
       ),
@@ -58,5 +58,45 @@ describe('Dropdown', () => {
     );
     await sleep(500);
     expect(wrapper.find(Dropdown).find('#customExpandIcon').length).toBe(1);
+  });
+
+  it('should warn if use topCenter or bottomCenter', () => {
+    const error = jest.spyOn(console, 'error');
+    mount(
+      <div>
+        <Dropdown overlay="123" placement="bottomCenter">
+          <button type="button">bottomCenter</button>
+        </Dropdown>
+        <Dropdown overlay="123" placement="topCenter">
+          <button type="button">topCenter</button>
+        </Dropdown>
+      </div>,
+    );
+    expect(error).toHaveBeenCalledWith(
+      expect.stringContaining("[antd: Dropdown] You are using 'bottomCenter'"),
+    );
+    expect(error).toHaveBeenCalledWith(
+      expect.stringContaining("[antd: Dropdown] You are using 'topCenter'"),
+    );
+  });
+
+  // zombieJ: when replaced with react test lib, it may be mock fully content
+  it('dropdown should support auto adjust placement', () => {
+    const wrapper = mount(
+      <Dropdown overlay={<div>menu</div>} visible>
+        <button type="button">button</button>
+      </Dropdown>,
+    );
+
+    expect(wrapper.find('Trigger').prop('builtinPlacements')).toEqual(
+      expect.objectContaining({
+        bottomLeft: expect.objectContaining({
+          overflow: {
+            adjustX: 1,
+            adjustY: 1,
+          },
+        }),
+      }),
+    );
   });
 });

@@ -4,20 +4,42 @@ import isEqual from 'lodash/isEqual';
 import FilterFilled from '@ant-design/icons/FilterFilled';
 import Button from '../../../button';
 import Menu from '../../../menu';
+import type { MenuProps } from '../../../menu';
+import Tree from '../../../tree';
+import type { DataNode, EventDataNode } from '../../../tree';
 import Checkbox from '../../../checkbox';
+import type { CheckboxChangeEvent } from '../../../checkbox';
 import Radio from '../../../radio';
 import Dropdown from '../../../dropdown';
 import Empty from '../../../empty';
-import { ColumnType, ColumnFilterItem, Key, TableLocale, GetPopupContainer } from '../../interface';
+import {
+  ColumnType,
+  ColumnFilterItem,
+  Key,
+  TableLocale,
+  GetPopupContainer,
+  FilterSearchType,
+} from '../../interface';
 import FilterDropdownMenuWrapper from './FilterWrapper';
-import { FilterState } from '.';
+import FilterSearch from './FilterSearch';
+import { FilterState, flattenKeys } from '.';
 import useSyncState from '../../../_util/hooks/useSyncState';
 import { ConfigContext } from '../../../config-provider/context';
 
-const { SubMenu, Item: MenuItem } = Menu;
+interface FilterRestProps {
+  confirm?: Boolean;
+  closeDropdown?: Boolean;
+}
 
 function hasSubMenu(filters: ColumnFilterItem[]) {
   return filters.some(({ children }) => children);
+}
+
+function searchValueMatched(searchValue: string, text: React.ReactNode) {
+  if (typeof text === 'string' || typeof text === 'number') {
+    return text?.toString().toLowerCase().includes(searchValue.trim().toLowerCase());
+  }
+  return false;
 }
 
 function renderFilterItems({
@@ -25,64 +47,53 @@ function renderFilterItems({
   prefixCls,
   filteredKeys,
   filterMultiple,
-  locale,
+  searchValue,
+  filterSearch,
 }: {
   filters: ColumnFilterItem[];
   prefixCls: string;
   filteredKeys: Key[];
   filterMultiple: boolean;
-  locale: TableLocale;
-}) {
-  if (filters.length === 0) {
-    // wrapped with <div /> to avoid react warning
-    // https://github.com/ant-design/ant-design/issues/25979
-    return (
-      <MenuItem key="empty">
-        <div
-          style={{
-            margin: '16px 0',
-          }}
-        >
-          <Empty
-            image={Empty.PRESENTED_IMAGE_SIMPLE}
-            description={locale.filterEmptyText}
-            imageStyle={{
-              height: 24,
-            }}
-          />
-        </div>
-      </MenuItem>
-    );
-  }
+  searchValue: string;
+  filterSearch: FilterSearchType;
+}): Required<MenuProps>['items'] {
   return filters.map((filter, index) => {
     const key = String(filter.value);
 
     if (filter.children) {
-      return (
-        <SubMenu
-          key={key || index}
-          title={filter.text}
-          popupClassName={`${prefixCls}-dropdown-submenu`}
-        >
-          {renderFilterItems({
-            filters: filter.children,
-            prefixCls,
-            filteredKeys,
-            filterMultiple,
-            locale,
-          })}
-        </SubMenu>
-      );
+      return {
+        key: key || index,
+        label: filter.text,
+        popupClassName: `${prefixCls}-dropdown-submenu`,
+        children: renderFilterItems({
+          filters: filter.children,
+          prefixCls,
+          filteredKeys,
+          filterMultiple,
+          searchValue,
+          filterSearch,
+        }),
+      };
     }
 
     const Component = filterMultiple ? Checkbox : Radio;
 
-    return (
-      <MenuItem key={filter.value !== undefined ? key : index}>
-        <Component checked={filteredKeys.includes(key)} />
-        <span>{filter.text}</span>
-      </MenuItem>
-    );
+    const item = {
+      key: filter.value !== undefined ? key : index,
+      label: (
+        <>
+          <Component checked={filteredKeys.includes(key)} />
+          <span>{filter.text}</span>
+        </>
+      ),
+    };
+    if (searchValue.trim()) {
+      if (typeof filterSearch === 'function') {
+        return filterSearch(searchValue, filter) ? item : null;
+      }
+      return searchValueMatched(searchValue, filter.text) ? item : null;
+    }
+    return item;
   });
 }
 
@@ -93,11 +104,14 @@ export interface FilterDropdownProps<RecordType> {
   column: ColumnType<RecordType>;
   filterState?: FilterState<RecordType>;
   filterMultiple: boolean;
+  filterMode?: 'menu' | 'tree';
+  filterSearch?: FilterSearchType;
   columnKey: Key;
   children: React.ReactNode;
   triggerFilter: (filterState: FilterState<RecordType>) => void;
   locale: TableLocale;
   getPopupContainer?: GetPopupContainer;
+  filterResetToDefaultFilteredValue?: boolean;
 }
 
 function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
@@ -108,6 +122,8 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     dropdownPrefixCls,
     columnKey,
     filterMultiple,
+    filterMode = 'menu',
+    filterSearch = false,
     filterState,
     triggerFilter,
     locale,
@@ -115,7 +131,12 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     getPopupContainer,
   } = props;
 
-  const { filterDropdownVisible, onFilterDropdownVisibleChange } = column;
+  const {
+    filterDropdownVisible,
+    onFilterDropdownVisibleChange,
+    filterResetToDefaultFilteredValue,
+    defaultFilteredValue,
+  } = column;
   const [visible, setVisible] = React.useState(false);
 
   const isAutoConfirmEnabled = !column.disableAutoConfirm;
@@ -136,11 +157,22 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   const propFilteredKeys = filterState?.filteredKeys;
   const [getFilteredKeysSync, setFilteredKeysSync] = useSyncState(propFilteredKeys || []);
 
-  const onSelectKeys = ({ selectedKeys }: { selectedKeys?: Key[] }) => {
-    setFilteredKeysSync(selectedKeys!);
+  const onSelectKeys = ({ selectedKeys }: { selectedKeys: Key[] }) => {
+    setFilteredKeysSync(selectedKeys);
+  };
+
+  const onCheck = (keys: Key[], { node, checked }: { node: EventDataNode; checked: boolean }) => {
+    if (!filterMultiple) {
+      onSelectKeys({ selectedKeys: checked && node.key ? [node.key] : [] });
+    } else {
+      onSelectKeys({ selectedKeys: keys as Key[] });
+    }
   };
 
   React.useEffect(() => {
+    if (!visible) {
+      return;
+    }
     onSelectKeys({ selectedKeys: propFilteredKeys || [] });
   }, [propFilteredKeys]);
 
@@ -161,6 +193,19 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     },
     [],
   );
+
+  // search in tree mode column filter
+  const [searchValue, setSearchValue] = React.useState('');
+  const onSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    setSearchValue(value);
+  };
+  // clear search value after close filter dropdown
+  React.useEffect(() => {
+    if (!visible) {
+      setSearchValue('');
+    }
+  }, [visible]);
 
   // ======================= Submit ========================
   const internalTriggerFilter = (keys: Key[] | undefined | null) => {
@@ -185,10 +230,23 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     internalTriggerFilter(getFilteredKeysSync());
   };
 
-  const onReset = () => {
-    setFilteredKeysSync([]);
-    triggerVisible(false);
-    internalTriggerFilter([]);
+  const onReset = (
+    { confirm, closeDropdown }: FilterRestProps = { confirm: false, closeDropdown: false },
+  ) => {
+    if (confirm) {
+      internalTriggerFilter([]);
+    }
+    if (closeDropdown) {
+      triggerVisible(false);
+    }
+
+    setSearchValue('');
+
+    if (filterResetToDefaultFilteredValue) {
+      setFilteredKeysSync((defaultFilteredValue || []).map(key => String(key)));
+    } else {
+      setFilteredKeysSync([]);
+    }
   };
 
   const doFilter = ({ closeDropdown } = { closeDropdown: true }) => {
@@ -217,8 +275,29 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     [`${dropdownPrefixCls}-menu-without-submenu`]: !hasSubMenu(column.filters || []),
   });
 
-  let dropdownContent: React.ReactNode;
+  const onCheckAll = (e: CheckboxChangeEvent) => {
+    if (e.target.checked) {
+      const allFilterKeys = flattenKeys(column?.filters).map(key => String(key));
+      setFilteredKeysSync(allFilterKeys);
+    } else {
+      setFilteredKeysSync([]);
+    }
+  };
 
+  const getTreeData = ({ filters }: { filters?: ColumnFilterItem[] }) =>
+    (filters || []).map((filter, index) => {
+      const key = String(filter.value);
+      const item: DataNode = {
+        title: filter.text,
+        key: filter.value !== undefined ? key : index,
+      };
+      if (filter.children) {
+        item.children = getTreeData({ filters: filter.children });
+      }
+      return item;
+    });
+
+  let dropdownContent: React.ReactNode;
   if (typeof column.filterDropdown === 'function') {
     dropdownContent = column.filterDropdown({
       prefixCls: `${dropdownPrefixCls}-custom`,
@@ -233,30 +312,113 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     dropdownContent = column.filterDropdown;
   } else {
     const selectedKeys = (getFilteredKeysSync() || []) as any;
+    const getFilterComponent = () => {
+      if ((column.filters || []).length === 0) {
+        return (
+          <Empty
+            image={Empty.PRESENTED_IMAGE_SIMPLE}
+            description={locale.filterEmptyText}
+            imageStyle={{
+              height: 24,
+            }}
+            style={{
+              margin: 0,
+              padding: '16px 0',
+            }}
+          />
+        );
+      }
+      if (filterMode === 'tree') {
+        return (
+          <>
+            <FilterSearch
+              filterSearch={filterSearch}
+              value={searchValue}
+              onChange={onSearch}
+              tablePrefixCls={tablePrefixCls}
+              locale={locale}
+            />
+            <div className={`${tablePrefixCls}-filter-dropdown-tree`}>
+              {filterMultiple ? (
+                <Checkbox
+                  checked={selectedKeys.length === flattenKeys(column.filters).length}
+                  indeterminate={
+                    selectedKeys.length > 0 &&
+                    selectedKeys.length < flattenKeys(column.filters).length
+                  }
+                  className={`${tablePrefixCls}-filter-dropdown-checkall`}
+                  onChange={onCheckAll}
+                >
+                  {locale.filterCheckall}
+                </Checkbox>
+              ) : null}
+              <Tree
+                checkable
+                selectable={false}
+                blockNode
+                multiple={filterMultiple}
+                checkStrictly={!filterMultiple}
+                className={`${dropdownPrefixCls}-menu`}
+                onCheck={onCheck}
+                checkedKeys={selectedKeys}
+                selectedKeys={selectedKeys}
+                showIcon={false}
+                treeData={getTreeData({ filters: column.filters })}
+                autoExpandParent
+                defaultExpandAll
+                filterTreeNode={
+                  searchValue.trim()
+                    ? node => searchValueMatched(searchValue, node.title)
+                    : undefined
+                }
+              />
+            </div>
+          </>
+        );
+      }
+      return (
+        <>
+          <FilterSearch
+            filterSearch={filterSearch}
+            value={searchValue}
+            onChange={onSearch}
+            tablePrefixCls={tablePrefixCls}
+            locale={locale}
+          />
+          <Menu
+            multiple={filterMultiple}
+            prefixCls={`${dropdownPrefixCls}-menu`}
+            className={dropdownMenuClass}
+            onClick={onMenuClick}
+            onSelect={onSelectKeys}
+            onDeselect={onSelectKeys}
+            selectedKeys={selectedKeys}
+            getPopupContainer={getPopupContainer}
+            openKeys={openKeys}
+            onOpenChange={onOpenChange}
+            items={renderFilterItems({
+              filters: column.filters || [],
+              filterSearch,
+              prefixCls,
+              filteredKeys: getFilteredKeysSync(),
+              filterMultiple,
+              searchValue,
+            })}
+          />
+        </>
+      );
+    };
+
     dropdownContent = (
       <>
-        <Menu
-          multiple={filterMultiple}
-          prefixCls={`${dropdownPrefixCls}-menu`}
-          className={dropdownMenuClass}
-          onClick={onMenuClick}
-          onSelect={onSelectKeys}
-          onDeselect={onSelectKeys}
-          selectedKeys={selectedKeys}
-          getPopupContainer={getPopupContainer}
-          openKeys={openKeys}
-          onOpenChange={onOpenChange}
-        >
-          {renderFilterItems({
-            filters: column.filters || [],
-            prefixCls,
-            filteredKeys: getFilteredKeysSync(),
-            filterMultiple,
-            locale,
-          })}
-        </Menu>
+        {getFilterComponent()}
         <div className={`${prefixCls}-dropdown-btns`}>
-          <Button type="link" size="small" disabled={selectedKeys.length === 0} onClick={onReset}>
+          <Button
+            type="link"
+            size="small"
+            disabled={selectedKeys.length === 0}
+            onClick={() => onReset()}
+          >
             {locale.filterReset}
           </Button>
           <Button type="primary" size="small" onClick={onConfirm}>

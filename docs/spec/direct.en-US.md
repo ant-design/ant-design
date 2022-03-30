@@ -11,7 +11,7 @@ As Alan Cooper states：「Where there is output, let there be input」. This is
 
 ## In-Page Editing
 
-<img class="preview-img" align="right" alt="Example of click to edit" description="Status 1: Common browsing mode, do not distinguish between editable  and  non-editable lines；<br>Status 2: On mouse hover, the background is backlit with yellow. A tool tip invites the user to 'Click to edit'；<br>Status 3: Once the user clicks on the title, the form elements 「Input box」, 「Ok」 and 「Cancel」 appear, and the cursor is positioned in the 「input box」." src="https://gw.alipayobjects.com/zos/rmsportal/EXKwsvUkIUNkHBSsOlRi.png">
+<img class="preview-img" align="right" alt="Example of click to edit" description="Status 1: Common browsing mode, do not distinguish between editable  and  non-editable lines；<br>Status 2: On mouse hover, the background is backlit with yellow. A tool tip invites the user to 'Click to edit'；<br>Status 3: Once the user clicks on the title, the form elements 「Input box」, 「OK」 and 「Cancel」 appear, and the cursor is positioned in the 「input box」." src="https://gw.alipayobjects.com/zos/rmsportal/EXKwsvUkIUNkHBSsOlRi.png">
 
 Single-Field Inline Edit
 

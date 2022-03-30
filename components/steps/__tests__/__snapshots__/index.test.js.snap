@@ -2,6 +2,6 @@
 
 exports[`Steps rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-steps ant-steps-horizontal ant-steps-rtl ant-steps-label-horizontal"
+  class="ant-steps ant-steps-vertical ant-steps-rtl"
 />
 `;

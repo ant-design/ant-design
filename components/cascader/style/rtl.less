@@ -1,95 +1,19 @@
-@import '../../style/themes/index';
-@import '../../style/mixins/index';
-@import '../../input/style/mixin';
-
+// We can not import reference of `./index` directly since it will make dead loop in less
+@import (reference) '../../style/themes/index';
 @cascader-prefix-cls: ~'@{ant-prefix}-cascader';
-@picker-rtl-cls: ~'@{cascader-prefix-cls}-picker-rtl';
-@menu-rtl-cls: ~'@{cascader-prefix-cls}-menu-rtl';
 
-.@{cascader-prefix-cls} {
-  &-input.@{ant-prefix}-input {
-    .@{picker-rtl-cls} & {
-      padding-right: @input-padding-horizontal-base;
-      padding-left: 24px;
-      text-align: right;
-    }
-  }
-
-  &-picker {
-    &-rtl {
-      direction: rtl;
-    }
-
-    &-label {
-      .@{picker-rtl-cls} & {
-        padding: 0 @control-padding-horizontal 0 20px;
-        text-align: right;
-      }
-    }
-
-    &-clear {
-      .@{picker-rtl-cls} & {
-        right: auto;
-        left: @control-padding-horizontal;
-      }
-    }
-
-    &-arrow {
-      .@{picker-rtl-cls} & {
-        right: auto;
-        left: @control-padding-horizontal;
-      }
-    }
-  }
-
-  &-picker-small &-picker-clear,
-  &-picker-small &-picker-arrow {
-    .@{picker-rtl-cls}& {
-      right: auto;
-      left: @control-padding-horizontal-sm;
-    }
-  }
-
-  &-menu {
-    &-rtl & {
-      direction: rtl;
-      border-right: none;
-      border-left: @border-width-base @border-style-base @border-color-split;
-      &:first-child {
-        border-radius: 0 @border-radius-base @border-radius-base 0;
-      }
-      &:last-child {
-        margin-right: 0;
-        margin-left: -1px;
-        border-left-color: transparent;
-        border-radius: @border-radius-base 0 0 @border-radius-base;
-      }
-      &:only-child {
-        border-radius: @border-radius-base;
-      }
-    }
-  }
-
-  &-menu-item {
-    &-expand {
-      .@{menu-rtl-cls} & {
-        padding-right: @control-padding-horizontal;
-        padding-left: 24px;
-      }
-    }
-
-    &-expand &-expand-icon,
+.@{cascader-prefix-cls}-rtl {
+  .@{cascader-prefix-cls}-menu-item {
+    &-expand-icon,
     &-loading-icon {
-      .@{menu-rtl-cls} & {
-        right: auto;
-        left: @control-padding-horizontal;
-      }
+      margin-right: @padding-xss;
+      margin-left: 0;
     }
+  }
 
-    &-loading-icon {
-      .@{menu-rtl-cls} & {
-        transform: scaleY(-1);
-      }
-    }
+  .@{cascader-prefix-cls}-checkbox {
+    top: 0;
+    margin-right: 0;
+    margin-left: @padding-xs;
   }
 }

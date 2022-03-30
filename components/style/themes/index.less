@@ -1,1 +1,7 @@
-@import './default.less';
+// Default using variable as entry to support site variable version
+// This will be replaced in webpack bundle
+// @root-entry-name: variable;
+
+// @import './default.less';
+// @import './variable.less';
+@import './@{root-entry-name}.less';

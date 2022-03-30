@@ -1,19 +1,28 @@
 import * as React from 'react';
-import { useContext } from 'react';
+import { ReactNode, useContext, useMemo } from 'react';
 import classNames from 'classnames';
-import { Field, FormInstance } from 'rc-field-form';
+import { Field, FormInstance, FieldContext, ListContext } from 'rc-field-form';
 import { FieldProps } from 'rc-field-form/lib/Field';
-import FieldContext from 'rc-field-form/lib/FieldContext';
 import { Meta, NamePath } from 'rc-field-form/lib/interface';
 import { supportRef } from 'rc-util/lib/ref';
+import useState from 'rc-util/lib/hooks/useState';
 import omit from 'rc-util/lib/omit';
+import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
+import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
+import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
+import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import Row from '../grid/row';
 import { ConfigContext } from '../config-provider';
 import { tuple } from '../_util/type';
 import devWarning from '../_util/devWarning';
 import FormItemLabel, { FormItemLabelProps, LabelTooltipType } from './FormItemLabel';
 import FormItemInput, { FormItemInputProps } from './FormItemInput';
-import { FormContext, NoStyleItemContext } from './context';
+import {
+  FormContext,
+  FormItemInputContext,
+  NoStyleItemContext,
+  FormItemStatusContextProps,
+} from './context';
 import { toArray, getFieldId } from './util';
 import { cloneElement, isValidElement } from '../_util/reactNode';
 import useFrameState from './hooks/useFrameState';
@@ -62,7 +71,7 @@ export interface FormItemProps<Values = any>
   initialValue?: any;
   messageVariables?: Record<string, string>;
   tooltip?: LabelTooltipType;
-  /** Auto passed by List render props. User should not use this. */
+  /** @deprecated No need anymore */
   fieldKey?: React.Key | React.Key[];
 }
 
@@ -83,10 +92,16 @@ function genEmptyMeta(): Meta {
   };
 }
 
+const iconMap = {
+  success: CheckCircleFilled,
+  warning: ExclamationCircleFilled,
+  error: CloseCircleFilled,
+  validating: LoadingOutlined,
+};
+
 function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElement {
   const {
     name,
-    fieldKey,
     noStyle,
     dependencies,
     prefixCls: customizePrefixCls,
@@ -119,22 +134,40 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
 
   const prefixCls = getPrefixCls('form', customizePrefixCls);
 
+  // ========================= MISC =========================
+  // Get `noStyle` required info
+  const listContext = React.useContext(ListContext);
+  const fieldKeyPathRef = React.useRef<React.Key[]>();
+
   // ======================== Errors ========================
   // >>>>> Collect sub field errors
   const [subFieldErrors, setSubFieldErrors] = useFrameState<Record<string, FieldError>>({});
 
   // >>>>> Current field errors
-  const [meta, setMeta] = React.useState<Meta>(() => genEmptyMeta());
+  const [meta, setMeta] = useState<Meta>(() => genEmptyMeta());
 
   const onMetaChange = (nextMeta: Meta & { destroy?: boolean }) => {
+    // This keyInfo is not correct when field is removed
+    // Since origin keyManager no longer keep the origin key anymore
+    // Which means we need cache origin one and reuse when removed
+    const keyInfo = listContext?.getKey(nextMeta.name);
+
     // Destroy will reset all the meta
-    setMeta(nextMeta.destroy ? genEmptyMeta() : nextMeta);
+    setMeta(nextMeta.destroy ? genEmptyMeta() : nextMeta, true);
 
     // Bump to parent since noStyle
     if (noStyle && notifyParentMetaChange) {
       let namePath = nextMeta.name;
-      if (fieldKey !== undefined) {
-        namePath = Array.isArray(fieldKey) ? fieldKey : [fieldKey!];
+
+      if (!nextMeta.destroy) {
+        if (keyInfo !== undefined) {
+          const [fieldKey, restPath] = keyInfo;
+          namePath = [fieldKey, ...restPath];
+          fieldKeyPathRef.current = namePath;
+        }
+      } else {
+        // Use origin cache data
+        namePath = fieldKeyPathRef.current || namePath;
       }
       notifyParentMetaChange(nextMeta, namePath);
     }
@@ -183,6 +216,44 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
   // ===================== Children Ref =====================
   const getItemRef = useItemRef();
 
+  // ======================== Status ========================
+  let mergedValidateStatus: ValidateStatus = '';
+  if (validateStatus !== undefined) {
+    mergedValidateStatus = validateStatus;
+  } else if (meta?.validating) {
+    mergedValidateStatus = 'validating';
+  } else if (debounceErrors.length) {
+    mergedValidateStatus = 'error';
+  } else if (debounceWarnings.length) {
+    mergedValidateStatus = 'warning';
+  } else if (meta?.touched) {
+    mergedValidateStatus = 'success';
+  }
+
+  const formItemStatusContext = useMemo<FormItemStatusContextProps>(() => {
+    let feedbackIcon: ReactNode;
+    if (hasFeedback) {
+      const IconNode = mergedValidateStatus && iconMap[mergedValidateStatus];
+      feedbackIcon = IconNode ? (
+        <span
+          className={classNames(
+            `${prefixCls}-item-feedback-icon`,
+            `${prefixCls}-item-feedback-icon-${mergedValidateStatus}`,
+          )}
+        >
+          <IconNode />
+        </span>
+      ) : null;
+    }
+
+    return {
+      status: mergedValidateStatus,
+      hasFeedback,
+      feedbackIcon,
+      isFormItemInput: true,
+    };
+  }, [mergedValidateStatus, hasFeedback]);
+
   // ======================== Render ========================
   function renderLayout(
     baseChildren: React.ReactNode,
@@ -192,23 +263,11 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
     if (noStyle && !hidden) {
       return baseChildren;
     }
-    // ======================== Status ========================
-    let mergedValidateStatus: ValidateStatus = '';
-    if (validateStatus !== undefined) {
-      mergedValidateStatus = validateStatus;
-    } else if (meta?.validating) {
-      mergedValidateStatus = 'validating';
-    } else if (debounceErrors.length) {
-      mergedValidateStatus = 'error';
-    } else if (debounceWarnings.length) {
-      mergedValidateStatus = 'warning';
-    } else if (meta?.touched) {
-      mergedValidateStatus = 'success';
-    }
 
     const itemClassName = {
       [`${prefixCls}-item`]: true,
-      [`${prefixCls}-item-with-help`]: help || debounceErrors.length || debounceWarnings.length,
+      [`${prefixCls}-item-with-help`]:
+        (help !== undefined && help !== null) || debounceErrors.length || debounceWarnings.length,
       [`${className}`]: !!className,
 
       // Status
@@ -229,6 +288,8 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
         {...omit(restProps, [
           'colon',
           'extra',
+          'fieldKey',
+          'requiredMark',
           'getValueFromEvent',
           'getValueProps',
           'htmlFor',
@@ -236,6 +297,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
           'initialValue',
           'isListField',
           'labelAlign',
+          'labelWrap',
           'labelCol',
           'normalize',
           'preserve',
@@ -262,11 +324,12 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
           warnings={debounceWarnings}
           prefixCls={prefixCls}
           status={mergedValidateStatus}
-          validateStatus={mergedValidateStatus}
           help={help}
         >
           <NoStyleItemContext.Provider value={onSubItemMetaChange}>
-            {baseChildren}
+            <FormItemInputContext.Provider value={formItemStatusContext}>
+              {baseChildren}
+            </FormItemInputContext.Provider>
           </NoStyleItemContext.Provider>
         </FormItemInput>
       </Row>
@@ -280,6 +343,8 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
   let variables: Record<string, string> = {};
   if (typeof label === 'string') {
     variables.label = label;
+  } else if (name) {
+    variables.label = String(name);
   }
   if (messageVariables) {
     variables = { ...variables, ...messageVariables };

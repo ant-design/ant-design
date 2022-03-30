@@ -18,7 +18,7 @@
   // Fixing https://github.com/ant-design/ant-design/issues/18107
   // Fixing https://github.com/ant-design/ant-design/issues/13214
   // It is a render problem of chrome, which is only happened in the codesandbox demo
-  // 0.001px solution works and I don't why
+  // 0.001px solution works and I don't know why
   line-height: @btn-line-height;
   .btn();
   .btn-default();
@@ -101,7 +101,21 @@
 
   &-icon-only {
     .btn-square(@btn-prefix-cls);
+    vertical-align: -3px;
+
+    > .@{iconfont-css-prefix} {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  // https://github.com/ant-design/ant-design/issues/32365
+  a&-icon-only {
     vertical-align: -1px;
+
+    > .@{iconfont-css-prefix} {
+      display: inline;
+    }
   }
 
   &-round {
@@ -139,16 +153,14 @@
     &.@{iconfont-css-prefix}-plus,
     &.@{iconfont-css-prefix}-minus {
       > svg {
-        shape-rendering: optimizeSpeed;
+        shape-rendering: optimizespeed;
       }
     }
   }
 
   &&-loading {
     position: relative;
-    &:not([disabled]) {
-      pointer-events: none;
-    }
+    cursor: default;
 
     &::before {
       display: block;
@@ -156,7 +168,7 @@
   }
 
   & > &-loading-icon {
-    transition: all 0.3s @ease-in-out;
+    transition: width 0.3s @ease-in-out, opacity 0.3s @ease-in-out;
 
     .@{iconfont-css-prefix} {
       padding-right: @padding-xs;
@@ -190,26 +202,49 @@
     margin-left: @margin-xs;
   }
 
-  &-background-ghost {
+  &&-background-ghost {
     color: @btn-default-ghost-color;
-    background: @btn-default-ghost-bg !important;
     border-color: @btn-default-ghost-border;
+
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      background: @btn-default-ghost-bg;
+    }
+
+    &:hover,
+    &:focus {
+      color: @primary-color-hover;
+      border-color: @primary-color-hover;
+    }
+
+    &:active {
+      color: @primary-color-active;
+      border-color: @primary-color-active;
+    }
+
+    &[disabled] {
+      color: @disabled-color;
+      background: @btn-default-ghost-bg;
+      border-color: @btn-default-border;
+    }
   }
 
   &-background-ghost&-primary {
-    .button-variant-ghost(@btn-primary-bg);
+    .button-variant-ghost(@btn-primary-bg, @btn-primary-bg, @primary-color-hover, @primary-color-active);
   }
 
   &-background-ghost&-danger {
-    .button-variant-ghost(@btn-danger-border);
+    .button-variant-ghost(@btn-danger-border, @btn-danger-border, @error-color-hover, @error-color-active);
   }
 
   &-background-ghost&-dangerous {
-    .button-variant-ghost(@btn-danger-border);
+    .button-variant-ghost(@btn-danger-border, @btn-danger-border, @error-color-hover, @error-color-active);
   }
 
   &-background-ghost&-dangerous&-link {
-    .button-variant-ghost(@btn-danger-border, transparent);
+    .button-variant-ghost(@btn-danger-border, transparent, @error-color-hover, @error-color-active);
   }
 
   &-two-chinese-chars::first-letter {
@@ -221,7 +256,7 @@
     letter-spacing: 0.34em;
   }
 
-  &-block {
+  &&-block {
     width: 100%;
   }
 
@@ -246,6 +281,7 @@ a.@{btn-prefix-cls} {
   &-lg {
     line-height: @btn-height-lg - 2px;
   }
+
   &-sm {
     line-height: @btn-height-sm - 2px;
   }

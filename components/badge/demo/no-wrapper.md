@@ -24,15 +24,9 @@ const Demo = () => {
 
   return (
     <Space>
-      <Switch
-        checked={show}
-        onChange={() => {
-          setShow(!show);
-        }}
-      />
+      <Switch checked={show} onChange={() => setShow(!show)} />
       <Badge count={show ? 25 : 0} />
       <Badge count={show ? <ClockCircleOutlined style={{ color: '#f5222d' }} /> : 0} />
-      <Badge count={show ? 4 : 0} className="site-badge-count-4" />
       <Badge
         className="site-badge-count-109"
         count={show ? 109 : 0}
@@ -44,18 +38,3 @@ const Demo = () => {
 
 ReactDOM.render(<Demo />, mountNode);
 ```
-
-```css
-.site-badge-count-4 .ant-badge-count {
-  color: #999;
-  background-color: #fff;
-  box-shadow: 0 0 0 1px #d9d9d9 inset;
-}
-```
-
-<style>
-[data-theme="dark"] .site-badge-count-4 .ant-badge-count {
-  background-color: #141414;
-  box-shadow: 0 0 0 1px #434343 inset;
-}
-</style>

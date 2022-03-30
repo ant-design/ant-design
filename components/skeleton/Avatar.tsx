@@ -12,7 +12,7 @@ const SkeletonAvatar = (props: AvatarProps) => {
   const renderSkeletonAvatar = ({ getPrefixCls }: ConfigConsumerProps) => {
     const { prefixCls: customizePrefixCls, className, active } = props;
     const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
-    const otherProps = omit(props, ['prefixCls']);
+    const otherProps = omit(props, ['prefixCls', 'className']);
     const cls = classNames(
       prefixCls,
       `${prefixCls}-element`,

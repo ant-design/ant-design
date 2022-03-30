@@ -3,6 +3,7 @@ import { mount } from 'enzyme';
 import Carousel from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { sleep } from '../../../tests/utils';
 
 describe('Carousel', () => {
   mountTest(Carousel);
@@ -65,7 +66,7 @@ describe('Carousel', () => {
     const spy = jest.spyOn(ref.current.innerSlider, 'autoPlay');
     window.resizeTo(1000);
     expect(spy).not.toHaveBeenCalled();
-    await new Promise(resolve => setTimeout(resolve, 500));
+    await sleep(500);
     expect(spy).toHaveBeenCalled();
   });
 

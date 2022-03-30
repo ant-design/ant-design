@@ -1,64 +1,26 @@
-import * as React from 'react';
+import React, { forwardRef, useContext, useEffect, useRef } from 'react';
+import RcInput, { InputProps as RcInputProps, InputRef } from 'rc-input';
+import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
-import Group from './Group';
-import Search from './Search';
-import TextArea from './TextArea';
-import Password from './Password';
-import { Omit, LiteralUnion } from '../_util/type';
-import ClearableLabeledInput, { hasPrefixSuffix } from './ClearableLabeledInput';
-import { ConfigConsumer, ConfigConsumerProps, DirectionType } from '../config-provider';
+import { composeRef } from 'rc-util/lib/ref';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
+import { getMergedStatus, getStatusClassNames, InputStatus } from '../_util/statusUtils';
+import { ConfigContext } from '../config-provider';
+import { FormItemInputContext, NoFormStatus } from '../form/context';
+import { hasPrefixSuffix } from './utils';
 import devWarning from '../_util/devWarning';
 
 export interface InputFocusOptions extends FocusOptions {
   cursor?: 'start' | 'end' | 'all';
 }
 
-export interface InputProps
-  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'prefix' | 'type'> {
-  prefixCls?: string;
-  size?: SizeType;
-  // ref: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#%3Cinput%3E_types
-  type?: LiteralUnion<
-    | 'button'
-    | 'checkbox'
-    | 'color'
-    | 'date'
-    | 'datetime-local'
-    | 'email'
-    | 'file'
-    | 'hidden'
-    | 'image'
-    | 'month'
-    | 'number'
-    | 'password'
-    | 'radio'
-    | 'range'
-    | 'reset'
-    | 'search'
-    | 'submit'
-    | 'tel'
-    | 'text'
-    | 'time'
-    | 'url'
-    | 'week',
-    string
-  >;
-  onPressEnter?: React.KeyboardEventHandler<HTMLInputElement>;
-  addonBefore?: React.ReactNode;
-  addonAfter?: React.ReactNode;
-  prefix?: React.ReactNode;
-  suffix?: React.ReactNode;
-  allowClear?: boolean;
-  bordered?: boolean;
-}
+export type { InputRef };
 
 export function fixControlledValue<T>(value: T) {
   if (typeof value === 'undefined' || value === null) {
     return '';
   }
-  return value;
+  return String(value);
 }
 
 export function resolveOnChange<E extends HTMLInputElement | HTMLTextAreaElement>(
@@ -67,57 +29,52 @@ export function resolveOnChange<E extends HTMLInputElement | HTMLTextAreaElement
     | React.ChangeEvent<E>
     | React.MouseEvent<HTMLElement, MouseEvent>
     | React.CompositionEvent<HTMLElement>,
-  onChange:
-    | undefined
-    | ((event: React.ChangeEvent<E>) => void),
+  onChange: undefined | ((event: React.ChangeEvent<E>) => void),
   targetValue?: string,
 ) {
   if (!onChange) {
     return;
   }
   let event = e;
-  const originalInputValue = target.value;
 
   if (e.type === 'click') {
+    // Clone a new target for event.
+    // Avoid the following usage, the setQuery method gets the original value.
+    //
+    // const [query, setQuery] = React.useState('');
+    // <Input
+    //   allowClear
+    //   value={query}
+    //   onChange={(e)=> {
+    //     setQuery((prevStatus) => e.target.value);
+    //   }}
+    // />
+
+    const currentTarget = target.cloneNode(true) as E;
+
     // click clear icon
-    event = Object.create(e);
-    event.target = target;
-    event.currentTarget = target;
-    // change target ref value cause e.target.value should be '' when clear input
-    target.value = '';
+    event = Object.create(e, {
+      target: { value: currentTarget },
+      currentTarget: { value: currentTarget },
+    });
+
+    currentTarget.value = '';
     onChange(event as React.ChangeEvent<E>);
-    // reset target ref value
-    target.value = originalInputValue;
     return;
   }
 
   // Trigger by composition event, this means we need force change the input value
   if (targetValue !== undefined) {
-    event = Object.create(e);
-    event.target = target;
-    event.currentTarget = target;
+    event = Object.create(e, {
+      target: { value: target },
+      currentTarget: { value: target },
+    });
 
     target.value = targetValue;
     onChange(event as React.ChangeEvent<E>);
     return;
   }
   onChange(event as React.ChangeEvent<E>);
-}
-
-export function getInputClassName(
-  prefixCls: string,
-  bordered: boolean,
-  size?: SizeType,
-  disabled?: boolean,
-  direction?: DirectionType,
-) {
-  return classNames(prefixCls, {
-    [`${prefixCls}-sm`]: size === 'small',
-    [`${prefixCls}-lg`]: size === 'large',
-    [`${prefixCls}-disabled`]: disabled,
-    [`${prefixCls}-rtl`]: direction === 'rtl',
-    [`${prefixCls}-borderless`]: !bordered,
-  });
 }
 
 export function triggerFocus(
@@ -148,228 +105,147 @@ export function triggerFocus(
   }
 }
 
-export interface InputState {
-  value: any;
-  focused: boolean;
-  /** `value` from prev props */
-  prevValue: any;
+export interface InputProps
+  extends Omit<
+    RcInputProps,
+    'wrapperClassName' | 'groupClassName' | 'inputClassName' | 'affixWrapperClassName'
+  > {
+  size?: SizeType;
+  status?: InputStatus;
+  bordered?: boolean;
+  [key: `data-${string}`]: string;
 }
 
-class Input extends React.Component<InputProps, InputState> {
-  static Group: typeof Group;
+const Input = forwardRef<InputRef, InputProps>((props, ref) => {
+  const {
+    prefixCls: customizePrefixCls,
+    bordered = true,
+    status: customStatus,
+    size: customSize,
+    onBlur,
+    onFocus,
+    suffix,
+    allowClear,
+    addonAfter,
+    addonBefore,
+    ...rest
+  } = props;
+  const { getPrefixCls, direction, input } = React.useContext(ConfigContext);
 
-  static Search: typeof Search;
+  const prefixCls = getPrefixCls('input', customizePrefixCls);
+  const inputRef = useRef<InputRef>(null);
 
-  static TextArea: typeof TextArea;
+  // ===================== Size =====================
+  const size = React.useContext(SizeContext);
+  const mergedSize = customSize || size;
 
-  static Password: typeof Password;
+  // ===================== Status =====================
+  const { status: contextStatus, hasFeedback, feedbackIcon } = useContext(FormItemInputContext);
+  const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
-  static defaultProps = {
-    type: 'text',
-  };
-
-  input!: HTMLInputElement;
-
-  clearableInput!: ClearableLabeledInput;
-
-  removePasswordTimeout: any;
-
-  direction: DirectionType = 'ltr';
-
-  constructor(props: InputProps) {
-    super(props);
-    const value = typeof props.value === 'undefined' ? props.defaultValue : props.value;
-    this.state = {
-      value,
-      focused: false,
-      // eslint-disable-next-line react/no-unused-state
-      prevValue: props.value,
-    };
-  }
-
-  static getDerivedStateFromProps(nextProps: InputProps, { prevValue }: InputState) {
-    const newState: Partial<InputState> = { prevValue: nextProps.value };
-    if (nextProps.value !== undefined || prevValue !== nextProps.value) {
-      newState.value = nextProps.value;
-    }
-    return newState;
-  }
-
-  componentDidMount() {
-    this.clearPasswordValueAttribute();
-  }
-
-  // Since polyfill `getSnapshotBeforeUpdate` need work with `componentDidUpdate`.
-  // We keep an empty function here.
-  componentDidUpdate() {}
-
-  getSnapshotBeforeUpdate(prevProps: InputProps) {
-    if (hasPrefixSuffix(prevProps) !== hasPrefixSuffix(this.props)) {
+  // ===================== Focus warning =====================
+  const inputHasPrefixSuffix = hasPrefixSuffix(props) || !!hasFeedback;
+  const prevHasPrefixSuffix = useRef<boolean>(inputHasPrefixSuffix);
+  useEffect(() => {
+    if (inputHasPrefixSuffix && !prevHasPrefixSuffix.current) {
       devWarning(
-        this.input !== document.activeElement,
+        document.activeElement === inputRef.current?.input,
         'Input',
         `When Input is focused, dynamic add or remove prefix / suffix will make it lose focus caused by dom structure change. Read more: https://ant.design/components/input/#FAQ`,
       );
     }
-    return null;
-  }
+    prevHasPrefixSuffix.current = inputHasPrefixSuffix;
+  }, [inputHasPrefixSuffix]);
 
-  componentWillUnmount() {
-    if (this.removePasswordTimeout) {
-      clearTimeout(this.removePasswordTimeout);
-    }
-  }
-
-  focus = (option?: InputFocusOptions) => {
-    triggerFocus(this.input, option);
+  // ===================== Remove Password value =====================
+  const removePasswordTimeoutRef = useRef<number[]>([]);
+  const removePasswordTimeout = () => {
+    removePasswordTimeoutRef.current.push(
+      window.setTimeout(() => {
+        if (
+          inputRef.current?.input &&
+          inputRef.current?.input.getAttribute('type') === 'password' &&
+          inputRef.current?.input.hasAttribute('value')
+        ) {
+          inputRef.current?.input.removeAttribute('value');
+        }
+      }),
+    );
   };
 
-  blur() {
-    this.input.blur();
-  }
+  useEffect(() => {
+    removePasswordTimeout();
+    return () => removePasswordTimeoutRef.current.forEach(item => window.clearTimeout(item));
+  }, []);
 
-  setSelectionRange(start: number, end: number, direction?: 'forward' | 'backward' | 'none') {
-    this.input.setSelectionRange(start, end, direction);
-  }
-
-  select() {
-    this.input.select();
-  }
-
-  saveClearableInput = (input: ClearableLabeledInput) => {
-    this.clearableInput = input;
-  };
-
-  saveInput = (input: HTMLInputElement) => {
-    this.input = input;
-  };
-
-  onFocus: React.FocusEventHandler<HTMLInputElement> = e => {
-    const { onFocus } = this.props;
-    this.setState({ focused: true }, this.clearPasswordValueAttribute);
-    onFocus?.(e);
-  };
-
-  onBlur: React.FocusEventHandler<HTMLInputElement> = e => {
-    const { onBlur } = this.props;
-    this.setState({ focused: false }, this.clearPasswordValueAttribute);
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    removePasswordTimeout();
     onBlur?.(e);
   };
 
-  setValue(value: string, callback?: () => void) {
-    if (this.props.value === undefined) {
-      this.setState({ value }, callback);
-    } else {
-      callback?.();
-    }
+  const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+    removePasswordTimeout();
+    onFocus?.(e);
+  };
+
+  const suffixNode = (hasFeedback || suffix) && (
+    <>
+      {suffix}
+      {hasFeedback && feedbackIcon}
+    </>
+  );
+
+  // Allow clear
+  let mergedAllowClear;
+  if (typeof allowClear === 'object' && allowClear?.clearIcon) {
+    mergedAllowClear = allowClear;
+  } else if (allowClear) {
+    mergedAllowClear = { clearIcon: <CloseCircleFilled /> };
   }
 
-  handleReset = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
-    this.setValue('', () => {
-      this.focus();
-    });
-    resolveOnChange(this.input, e, this.props.onChange);
-  };
-
-  renderInput = (
-    prefixCls: string,
-    size: SizeType | undefined,
-    bordered: boolean,
-    input: ConfigConsumerProps['input'] = {},
-  ) => {
-    const { className, addonBefore, addonAfter, size: customizeSize, disabled } = this.props;
-    // Fix https://fb.me/react-unknown-prop
-    const otherProps = omit(this.props as InputProps & { inputType: any }, [
-      'prefixCls',
-      'onPressEnter',
-      'addonBefore',
-      'addonAfter',
-      'prefix',
-      'suffix',
-      'allowClear',
-      // Input elements must be either controlled or uncontrolled,
-      // specify either the value prop, or the defaultValue prop, but not both.
-      'defaultValue',
-      'size',
-      'inputType',
-      'bordered',
-    ]);
-    return (
-      <input
-        autoComplete={input.autoComplete}
-        {...otherProps}
-        onChange={this.handleChange}
-        onFocus={this.onFocus}
-        onBlur={this.onBlur}
-        onKeyDown={this.handleKeyDown}
-        className={classNames(
-          getInputClassName(prefixCls, bordered, customizeSize || size, disabled, this.direction),
-          {
-            [className!]: className && !addonBefore && !addonAfter,
-          },
-        )}
-        ref={this.saveInput}
-      />
-    );
-  };
-
-  clearPasswordValueAttribute = () => {
-    // https://github.com/ant-design/ant-design/issues/20541
-    this.removePasswordTimeout = setTimeout(() => {
-      if (
-        this.input &&
-        this.input.getAttribute('type') === 'password' &&
-        this.input.hasAttribute('value')
-      ) {
-        this.input.removeAttribute('value');
-      }
-    });
-  };
-
-  handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    this.setValue(e.target.value, this.clearPasswordValueAttribute);
-    resolveOnChange(this.input, e, this.props.onChange);
-  };
-
-  handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    const { onPressEnter, onKeyDown } = this.props;
-    if (onPressEnter && e.keyCode === 13) {
-      onPressEnter(e);
-    }
-    onKeyDown?.(e);
-  };
-
-  renderComponent = ({ getPrefixCls, direction, input }: ConfigConsumerProps) => {
-    const { value, focused } = this.state;
-    const { prefixCls: customizePrefixCls, bordered = true } = this.props;
-    const prefixCls = getPrefixCls('input', customizePrefixCls);
-    this.direction = direction;
-
-    return (
-      <SizeContext.Consumer>
-        {size => (
-          <ClearableLabeledInput
-            size={size}
-            {...this.props}
-            prefixCls={prefixCls}
-            inputType="input"
-            value={fixControlledValue(value)}
-            element={this.renderInput(prefixCls, size, bordered, input)}
-            handleReset={this.handleReset}
-            ref={this.saveClearableInput}
-            direction={direction}
-            focused={focused}
-            triggerFocus={this.focus}
-            bordered={bordered}
-          />
-        )}
-      </SizeContext.Consumer>
-    );
-  };
-
-  render() {
-    return <ConfigConsumer>{this.renderComponent}</ConfigConsumer>;
-  }
-}
+  return (
+    <RcInput
+      ref={composeRef(ref, inputRef)}
+      prefixCls={prefixCls}
+      autoComplete={input?.autoComplete}
+      {...rest}
+      onBlur={handleBlur}
+      onFocus={handleFocus}
+      suffix={suffixNode}
+      allowClear={mergedAllowClear}
+      addonAfter={addonAfter && <NoFormStatus>{addonAfter}</NoFormStatus>}
+      addonBefore={addonBefore && <NoFormStatus>{addonBefore}</NoFormStatus>}
+      inputClassName={classNames(
+        {
+          [`${prefixCls}-sm`]: mergedSize === 'small',
+          [`${prefixCls}-lg`]: mergedSize === 'large',
+          [`${prefixCls}-rtl`]: direction === 'rtl',
+          [`${prefixCls}-borderless`]: !bordered,
+        },
+        !inputHasPrefixSuffix && getStatusClassNames(prefixCls, mergedStatus),
+      )}
+      affixWrapperClassName={classNames(
+        {
+          [`${prefixCls}-affix-wrapper-sm`]: mergedSize === 'small',
+          [`${prefixCls}-affix-wrapper-lg`]: mergedSize === 'large',
+          [`${prefixCls}-affix-wrapper-rtl`]: direction === 'rtl',
+          [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
+        },
+        getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus, hasFeedback),
+      )}
+      wrapperClassName={classNames({
+        [`${prefixCls}-group-rtl`]: direction === 'rtl',
+      })}
+      groupClassName={classNames(
+        {
+          [`${prefixCls}-group-wrapper-sm`]: mergedSize === 'small',
+          [`${prefixCls}-group-wrapper-lg`]: mergedSize === 'large',
+          [`${prefixCls}-group-wrapper-rtl`]: direction === 'rtl',
+        },
+        getStatusClassNames(`${prefixCls}-group-wrapper`, mergedStatus, hasFeedback),
+      )}
+    />
+  );
+});
 
 export default Input;

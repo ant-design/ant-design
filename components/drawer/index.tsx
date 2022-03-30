@@ -2,7 +2,7 @@ import * as React from 'react';
 import RcDrawer from 'rc-drawer';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
-import { ConfigContext, DirectionType } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 import { tuple } from '../_util/type';
 import useForceUpdate from '../_util/hooks/useForceUpdate';
 
@@ -19,6 +19,8 @@ type EventType =
 
 type getContainerFunc = () => HTMLElement;
 
+type ILevelMove = number | [number, number];
+
 const PlacementTypes = tuple('top', 'right', 'bottom', 'left');
 type placementType = typeof PlacementTypes[number];
 
@@ -29,6 +31,7 @@ export interface PushState {
   distance: string | number;
 }
 export interface DrawerProps {
+  autoFocus?: boolean;
   closable?: boolean;
   closeIcon?: React.ReactNode;
   destroyOnClose?: boolean;
@@ -61,19 +64,13 @@ export interface DrawerProps {
   footer?: React.ReactNode;
   footerStyle?: React.CSSProperties;
   level?: string | string[] | null | undefined;
-}
-
-export interface IDrawerState {
-  push?: boolean;
-}
-
-interface InternalDrawerProps extends DrawerProps {
-  direction: DirectionType;
+  levelMove?: ILevelMove | ((e: { target: HTMLElement; open: boolean }) => ILevelMove);
+  children?: React.ReactNode;
 }
 
 const defaultPushState: PushState = { distance: 180 };
 
-const Drawer = React.forwardRef<DrawerRef, InternalDrawerProps>(
+const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
   (
     {
       width,
@@ -89,9 +86,7 @@ const Drawer = React.forwardRef<DrawerRef, InternalDrawerProps>(
       closeIcon = <CloseOutlined />,
       bodyStyle,
       drawerStyle,
-      prefixCls,
       className,
-      direction,
       visible,
       children,
       zIndex,
@@ -102,6 +97,8 @@ const Drawer = React.forwardRef<DrawerRef, InternalDrawerProps>(
       onClose,
       footer,
       footerStyle,
+      prefixCls: customizePrefixCls,
+      getContainer: customizeGetContainer,
       extra,
       ...rest
     },
@@ -111,6 +108,14 @@ const Drawer = React.forwardRef<DrawerRef, InternalDrawerProps>(
     const [internalPush, setPush] = React.useState(false);
     const parentDrawer = React.useContext(DrawerContext);
     const destroyClose = React.useRef<boolean>(false);
+
+    const { getPopupContainer, getPrefixCls, direction } = React.useContext(ConfigContext);
+    const prefixCls = getPrefixCls('drawer', customizePrefixCls);
+    const getContainer =
+      // 有可能为 false，所以不能直接判断
+      customizeGetContainer === undefined && getPopupContainer
+        ? () => getPopupContainer(document.body)
+        : customizeGetContainer;
 
     React.useEffect(() => {
       // fix: delete drawer in child and re-render, no push started.
@@ -314,6 +319,7 @@ const Drawer = React.forwardRef<DrawerRef, InternalDrawerProps>(
           showMask={mask}
           style={getRcDrawerStyle()}
           className={drawerClassName}
+          getContainer={getContainer}
         >
           {renderBody()}
         </RcDrawer>
@@ -324,30 +330,4 @@ const Drawer = React.forwardRef<DrawerRef, InternalDrawerProps>(
 
 Drawer.displayName = 'Drawer';
 
-const DrawerWrapper: React.FC<DrawerProps> = React.forwardRef<DrawerRef, DrawerProps>(
-  (props, ref) => {
-    const { prefixCls: customizePrefixCls, getContainer: customizeGetContainer } = props;
-    const { getPopupContainer, getPrefixCls, direction } = React.useContext(ConfigContext);
-
-    const prefixCls = getPrefixCls('drawer', customizePrefixCls);
-    const getContainer =
-      // 有可能为 false，所以不能直接判断
-      customizeGetContainer === undefined && getPopupContainer
-        ? () => getPopupContainer(document.body)
-        : customizeGetContainer;
-
-    return (
-      <Drawer
-        {...props}
-        ref={ref}
-        prefixCls={prefixCls}
-        getContainer={getContainer}
-        direction={direction}
-      />
-    );
-  },
-);
-
-DrawerWrapper.displayName = 'DrawerWrapper';
-
-export default DrawerWrapper;
+export default Drawer;

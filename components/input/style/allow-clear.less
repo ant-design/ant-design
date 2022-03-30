@@ -1,8 +1,10 @@
-@import './index';
+@import (reference) '../../style/themes/index';
+@input-prefix-cls: ~'@{ant-prefix}-input';
 
 // ========================= Input =========================
+.@{iconfont-css-prefix}.@{ant-prefix}-input-clear-icon,
 .@{ant-prefix}-input-clear-icon {
-  margin: 0 @input-affix-margin;
+  margin: 0;
   color: @disabled-color;
   font-size: @font-size-sm;
   vertical-align: -1px;
@@ -23,8 +25,8 @@
     visibility: hidden;
   }
 
-  &:last-child {
-    margin-right: 0;
+  &-has-suffix {
+    margin: 0 @input-affix-margin;
   }
 }
 

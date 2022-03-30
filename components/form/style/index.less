@@ -39,6 +39,7 @@
   &-small {
     .formSize(@input-height-sm);
   }
+
   &-large {
     .formSize(@input-height-lg);
   }
@@ -90,10 +91,17 @@
       text-align: left;
     }
 
+    &-wrap {
+      overflow: unset;
+      line-height: (@line-height-base - 0.25em);
+      white-space: unset;
+    }
+
     > label {
       position: relative;
       display: inline-flex;
       align-items: center;
+      max-width: 100%;
       height: @form-item-label-height;
       color: @label-color;
       font-size: @form-item-label-font-size;
@@ -204,16 +212,37 @@
     min-height: @form-item-margin-bottom;
   }
 
-  .@{ant-prefix}-input-textarea-show-count {
-    &::after {
-      margin-bottom: -22px;
-    }
-  }
-
   &-with-help &-explain {
     height: auto;
     min-height: @form-item-margin-bottom;
     opacity: 1;
+  }
+
+  // ==============================================================
+  // =                        Feedback Icon                       =
+  // ==============================================================
+  &-feedback-icon {
+    font-size: @font-size-base;
+    text-align: center;
+    visibility: visible;
+    animation: zoomIn 0.3s @ease-out-back;
+    pointer-events: none;
+
+    &-success {
+      color: @success-color;
+    }
+
+    &-error {
+      color: @error-color;
+    }
+
+    &-warning {
+      color: @warning-color;
+    }
+
+    &-validating {
+      color: @primary-color;
+    }
   }
 }
 
@@ -262,6 +291,7 @@
     transform: scale(0);
     opacity: 0;
   }
+
   100% {
     transform: scale(1);
     opacity: 1;
@@ -273,6 +303,7 @@
     transform: scale(0);
     opacity: 0;
   }
+
   100% {
     transform: scale(1);
     opacity: 1;
@@ -284,6 +315,7 @@
     transform: scale(0);
     opacity: 0;
   }
+
   100% {
     transform: scale(1);
     opacity: 1;

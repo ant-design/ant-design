@@ -33,6 +33,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     cancelButtonProps,
     direction,
     prefixCls,
+    wrapClassName,
     rootPrefixCls,
     iconPrefixCls,
     bodyStyle,
@@ -80,11 +81,14 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
   );
 
   return (
-    <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={iconPrefixCls}>
+    <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={iconPrefixCls} direction={direction}>
       <Dialog
         prefixCls={prefixCls}
         className={classString}
-        wrapClassName={classNames({ [`${contentPrefixCls}-centered`]: !!props.centered })}
+        wrapClassName={classNames(
+          { [`${contentPrefixCls}-centered`]: !!props.centered },
+          wrapClassName,
+        )}
         onCancel={() => close({ triggerCancel: true })}
         visible={visible}
         title=""
@@ -95,6 +99,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
         maskClosable={maskClosable}
         maskStyle={maskStyle}
         style={style}
+        bodyStyle={bodyStyle}
         width={width}
         zIndex={zIndex}
         afterClose={afterClose}
@@ -107,7 +112,7 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
         focusTriggerAfterClose={focusTriggerAfterClose}
       >
         <div className={`${contentPrefixCls}-body-wrapper`}>
-          <div className={`${contentPrefixCls}-body`} style={bodyStyle}>
+          <div className={`${contentPrefixCls}-body`}>
             {icon}
             {props.title === undefined ? null : (
               <span className={`${contentPrefixCls}-title`}>{props.title}</span>

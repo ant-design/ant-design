@@ -24,6 +24,7 @@ ReactDOM.render(
     <RangePicker showTime />
     <RangePicker picker="week" />
     <RangePicker picker="month" />
+    <RangePicker picker="quarter" />
     <RangePicker picker="year" />
   </Space>,
   mountNode,

@@ -28,7 +28,7 @@ exports[`Layout rtl render component should be rendered correctly in RTL directi
 exports[`Layout rtl render component should be rendered correctly in RTL direction 3`] = `
 <aside
   class="ant-layout-sider ant-layout-sider-dark"
-  style="flex:0 0 200px;max-width:200px;min-width:200px;width:200px"
+  style="flex: 0 0 200px; max-width: 200px; min-width: 200px; width: 200px;"
 >
   <div
     class="ant-layout-sider-children"

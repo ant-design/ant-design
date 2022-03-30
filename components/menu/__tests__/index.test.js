@@ -90,11 +90,14 @@ describe('Menu', () => {
         <Menu.SubMenu />
         {null}
       </>
+      {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
       <>
         <Menu.Item />
       </>
       {undefined}
+      {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
       <>
+        {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
         <>
           <Menu.Item />
         </>
@@ -282,6 +285,32 @@ describe('Menu', () => {
       () => wrapper.setProps({ openKeys: ['1'] }),
       () => wrapper.setProps({ openKeys: [] }),
     );
+  });
+
+  describe('allows the overriding of theme at the popup submenu level', () => {
+    const menuModesWithPopupSubMenu = ['horizontal', 'vertical'];
+
+    menuModesWithPopupSubMenu.forEach(menuMode => {
+      it(`when menu is mode ${menuMode}`, () => {
+        const wrapper = mount(
+          <Menu mode={menuMode} openKeys={['1']} theme="dark">
+            <SubMenu key="1" title="submenu1" theme="light">
+              <Menu.Item key="submenu1">Option 1</Menu.Item>
+              <Menu.Item key="submenu2">Option 2</Menu.Item>
+            </SubMenu>
+            <Menu.Item key="2">menu2</Menu.Item>
+          </Menu>,
+        );
+
+        act(() => {
+          jest.runAllTimers();
+          wrapper.update();
+        });
+
+        expect(wrapper.find('ul.ant-menu-root').hasClass('ant-menu-dark')).toBeTruthy();
+        expect(wrapper.find('div.ant-menu-submenu-popup').hasClass('ant-menu-light')).toBeTruthy();
+      });
+    });
   });
 
   // https://github.com/ant-design/ant-design/pulls/4677
@@ -820,5 +849,38 @@ describe('Menu', () => {
 
     expect(wrapper.find('.ant-menu-inline-collapsed-noicon').first().text()).toEqual('L');
     expect(wrapper.find('.ant-menu-inline-collapsed-noicon').last().text()).toEqual('B');
+  });
+
+  it('divider should show', () => {
+    const wrapper = mount(
+      <Menu mode="vertical">
+        <SubMenu key="sub1" title="Navigation One">
+          <Menu.Item key="1">Option 1</Menu.Item>
+        </SubMenu>
+        <Menu.Divider dashed />
+        <SubMenu key="sub2" title="Navigation Two">
+          <Menu.Item key="2">Option 2</Menu.Item>
+        </SubMenu>
+        <Menu.Divider />
+        <SubMenu key="sub4" title="Navigation Three">
+          <Menu.Item key="3">Option 3</Menu.Item>
+        </SubMenu>
+      </Menu>,
+    );
+
+    expect(wrapper.find('li.ant-menu-item-divider').length).toBe(2);
+    expect(wrapper.find('li.ant-menu-item-divider-dashed').length).toBe(1);
+  });
+
+  it('should support ref', async () => {
+    const ref = React.createRef();
+    const wrapper = mount(
+      <Menu ref={ref}>
+        <SubMenu key="sub1" title="Navigation One">
+          <Menu.Item key="1">Option 1</Menu.Item>
+        </SubMenu>
+      </Menu>,
+    );
+    expect(ref.current?.menu?.list).toBe(wrapper.find('ul').first().getDOMNode());
   });
 });

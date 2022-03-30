@@ -1,6 +1,8 @@
 @import '../../style/themes/index';
 @import '../../style/mixins/index';
 @import '../../input/style/mixin';
+@import './affix';
+@import './status';
 
 @input-number-prefix-cls: ~'@{ant-prefix}-input-number';
 @form-item-prefix-cls: ~'@{ant-prefix}-form-item';
@@ -8,6 +10,18 @@
 .@{input-number-prefix-cls} {
   .reset-component();
   .input();
+
+  //== Style for input-group: input with label, with button or dropdown...
+  &-group {
+    .reset-component();
+    .input-group(~'@{input-number-prefix-cls}');
+
+    &-wrapper {
+      display: inline-block;
+      text-align: start;
+      vertical-align: top; // https://github.com/ant-design/ant-design/issues/6403
+    }
+  }
 
   display: inline-block;
   width: 90px;
@@ -26,10 +40,13 @@
     font-weight: bold;
     line-height: 0;
     text-align: center;
+    border-left: @border-width-base @border-style-base @input-number-handler-border-color;
     transition: all 0.1s linear;
+
     &:active {
       background: @input-number-handler-active-bg;
     }
+
     &:hover &-up-inner,
     &:hover &-down-inner {
       color: @input-number-handler-hover-bg;
@@ -88,13 +105,15 @@
     border-radius: @border-radius-base;
     outline: 0;
     transition: all 0.3s linear;
-    -moz-appearance: textfield !important;
+    appearance: textfield !important;
     .placeholder();
 
     &[type='number']::-webkit-inner-spin-button,
     &[type='number']::-webkit-outer-spin-button {
       margin: 0;
+      /* stylelint-disable-next-line property-no-vendor-prefix */
       -webkit-appearance: none;
+      appearance: none;
     }
   }
 
@@ -123,7 +142,6 @@
     width: 22px;
     height: 100%;
     background: @input-number-handler-bg;
-    border-left: @border-width-base @border-style-base @input-number-handler-border-color;
     border-radius: 0 @border-radius-base @border-radius-base 0;
     opacity: 0;
     transition: opacity 0.24s linear 0.1s;
@@ -134,6 +152,9 @@
     .@{input-number-prefix-cls}-handler {
       .@{input-number-prefix-cls}-handler-up-inner,
       .@{input-number-prefix-cls}-handler-down-inner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         min-width: auto;
         margin-right: 0;
         font-size: 7px;
@@ -149,18 +170,21 @@
     height: 40%;
   }
 
-  &:hover &-handler-wrap {
+  &:hover &-handler-wrap,
+  &-focused &-handler-wrap {
     opacity: 1;
   }
 
   &-handler-up {
     border-top-right-radius: @border-radius-base;
     cursor: pointer;
+
     &-inner {
       top: 50%;
       margin-top: -5px;
       text-align: center;
     }
+
     &:hover {
       height: 60% !important;
     }
@@ -171,11 +195,13 @@
     border-top: @border-width-base @border-style-base @border-color-base;
     border-bottom-right-radius: @border-radius-base;
     cursor: pointer;
+
     &-inner {
       top: 50%;
       text-align: center;
       transform: translateY(-50%);
     }
+
     &:hover {
       height: 60% !important;
     }

@@ -24,7 +24,6 @@ export interface NavigationProps extends SharedProps {
 
 export default ({
   isZhCN,
-  isRTL,
   isMobile,
   pathname,
   responsive,
@@ -34,7 +33,6 @@ export default ({
   onLangChange,
   onDirectionChange,
 }: NavigationProps) => {
-  const [isGitee, setIsGitee] = React.useState(false);
   const menuMode = isMobile ? 'inline' : 'horizontal';
 
   const module = pathname.split('/').slice(0, -1).join('/');
@@ -58,7 +56,7 @@ export default ({
     <Menu.Item key="switch-direction" onClick={onDirectionChange}>
       {directionText}
     </Menu.Item>,
-    getEcosystemGroup({ isZhCN, isRTL }),
+    getEcosystemGroup(),
   ];
 
   if (isMobile) {
@@ -70,10 +68,6 @@ export default ({
       </Menu.SubMenu>
     );
   }
-
-  React.useEffect(() => {
-    setIsGitee(document.location.host.indexOf('gitee') !== -1);
-  }, []);
 
   return (
     <Menu
@@ -110,7 +104,7 @@ export default ({
           </a>
         </Menu.Item>
       )}
-      {isZhCN && !isGitee && (
+      {isZhCN && typeof window !== 'undefined' && window.location.host.indexOf('gitee') === -1 && (
         <Menu.Item key="mirror">
           <a href="https://ant-design.gitee.io">国内镜像</a>
         </Menu.Item>

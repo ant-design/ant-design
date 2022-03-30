@@ -60,6 +60,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
         vertical,
         labelAlign: contextLabelAlign,
         labelCol: contextLabelCol,
+        labelWrap,
         colon: contextColon,
       }: FormContextProps) => {
         const mergedLabelCol: ColProps = labelCol || contextLabelCol || {};
@@ -71,6 +72,9 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
           labelClsBasic,
           mergedLabelAlign === 'left' && `${labelClsBasic}-left`,
           mergedLabelCol.className,
+          {
+            [`${labelClsBasic}-wrap`]: !!labelWrap,
+          },
         );
 
         let labelChildren = label;
@@ -88,7 +92,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
           const { icon = <QuestionCircleOutlined />, ...restTooltipProps } = tooltipProps;
           const tooltipNode = (
             <Tooltip {...restTooltipProps}>
-              {React.cloneElement(icon, { className: `${prefixCls}-item-tooltip` })}
+              {React.cloneElement(icon, { className: `${prefixCls}-item-tooltip`, title: '' })}
             </Tooltip>
           );
 
@@ -105,7 +109,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
           labelChildren = (
             <>
               {labelChildren}
-              <span className={`${prefixCls}-item-optional`}>
+              <span className={`${prefixCls}-item-optional`} title="">
                 {formLocale?.optional || defaultLocale.Form?.optional}
               </span>
             </>

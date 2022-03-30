@@ -21,8 +21,10 @@ Because the width of label is not fixed, you may need to adjust it by customizin
 
 ```tsx
 import React, { useState } from 'react';
-import { Form, Row, Col, Input, Button } from 'antd';
+import { Form, Row, Col, Input, Button, Select } from 'antd';
 import { DownOutlined, UpOutlined } from '@ant-design/icons';
+
+const { Option } = Select;
 
 const AdvancedSearchForm = () => {
   const [expand, setExpand] = useState(false);
@@ -44,7 +46,16 @@ const AdvancedSearchForm = () => {
               },
             ]}
           >
-            <Input placeholder="placeholder" />
+            {i % 3 !== 1 ? (
+              <Input placeholder="placeholder" />
+            ) : (
+              <Select defaultValue="2">
+                <Option value="1">1</Option>
+                <Option value="2">
+                  longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong
+                </Option>
+              </Select>
+            )}
           </Form.Item>
         </Col>,
       );

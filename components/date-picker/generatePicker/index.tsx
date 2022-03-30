@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { GenerateConfig } from 'rc-picker/lib/generate/index';
 import {
   PickerBaseProps as RCPickerBaseProps,
@@ -18,6 +17,8 @@ import PickerTag from '../PickerTag';
 import { TimePickerLocale } from '../../time-picker';
 import generateSinglePicker from './generateSinglePicker';
 import generateRangePicker from './generateRangePicker';
+import { tuple } from '../../_util/type';
+import { InputStatus } from '../../_util/statusUtils';
 
 export const Components = { button: PickerButton, rangeItem: PickerTag };
 
@@ -28,13 +29,18 @@ function toArray<T>(list: T | T[]): T[] {
   return Array.isArray(list) ? list : [list];
 }
 
-export function getTimeProps<DateType>(
-  props: { format?: string; picker?: PickerMode } & SharedTimeProps<DateType>,
+export function getTimeProps<DateType, DisabledTime>(
+  props: { format?: string; picker?: PickerMode } & Omit<
+    SharedTimeProps<DateType>,
+    'disabledTime'
+  > & {
+      disabledTime?: DisabledTime;
+    },
 ) {
   const { format, picker, showHour, showMinute, showSecond, use12Hours } = props;
 
   const firstFormat = toArray(format)[0];
-  const showTimeObj: SharedTimeProps<DateType> = { ...props };
+  const showTimeObj = { ...props };
 
   if (firstFormat && typeof firstFormat === 'string') {
     if (!firstFormat.includes('s') && showSecond === undefined) {
@@ -65,21 +71,18 @@ export function getTimeProps<DateType>(
     showTime: showTimeObj,
   };
 }
+const DataPickerPlacements = tuple('bottomLeft', 'bottomRight', 'topLeft', 'topRight');
+type DataPickerPlacement = typeof DataPickerPlacements[number];
 
 type InjectDefaultProps<Props> = Omit<
   Props,
-  | 'locale'
-  | 'generateConfig'
-  | 'prevIcon'
-  | 'nextIcon'
-  | 'superPrevIcon'
-  | 'superNextIcon'
-  | 'hideHeader'
-  | 'components'
+  'locale' | 'generateConfig' | 'hideHeader' | 'components'
 > & {
   locale?: PickerLocale;
   size?: SizeType;
+  placement?: DataPickerPlacement;
   bordered?: boolean;
+  status?: InputStatus;
 };
 
 export type PickerLocale = {
@@ -101,6 +104,7 @@ export type AdditionalPickerLocaleLangProps = {
   monthPlaceholder?: string;
   weekPlaceholder?: string;
   rangeYearPlaceholder?: [string, string];
+  rangeQuarterPlaceholder?: [string, string];
   rangeMonthPlaceholder?: [string, string];
   rangeWeekPlaceholder?: [string, string];
   rangePlaceholder?: [string, string];
@@ -128,14 +132,8 @@ export type RangePickerProps<DateType> =
 
 function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   // =========================== Picker ===========================
-  const {
-    DatePicker,
-    WeekPicker,
-    MonthPicker,
-    YearPicker,
-    TimePicker,
-    QuarterPicker,
-  } = generateSinglePicker(generateConfig);
+  const { DatePicker, WeekPicker, MonthPicker, YearPicker, TimePicker, QuarterPicker } =
+    generateSinglePicker(generateConfig);
 
   // ======================== Range Picker ========================
   const RangePicker = generateRangePicker(generateConfig);
@@ -145,7 +143,7 @@ function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
     WeekPicker: typeof WeekPicker;
     MonthPicker: typeof MonthPicker;
     YearPicker: typeof YearPicker;
-    RangePicker: React.ComponentClass<RangePickerProps<DateType>>;
+    RangePicker: typeof RangePicker;
     TimePicker: typeof TimePicker;
     QuarterPicker: typeof QuarterPicker;
   };

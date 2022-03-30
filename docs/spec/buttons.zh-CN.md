@@ -86,16 +86,32 @@ title: 按钮
 经常独立出现，行动号召按钮就像是电脑在对用户大声说“跟我来吧”，有点命令用户点击的意味，通常出现于 landing page 或者 一些引导性场景。最大可以将按钮放宽到与父区域等宽。一个屏幕空间中，建议只有一个行动号召按钮。
 
 ## 位置
+### 按钮区
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*B8D0RJnirLkAAAAAAAAAAABkARQnAQ">
+<img class="preview-img no-padding" align="right" src="https://img.alicdn.com/imgextra/i1/O1CN01Wd9Dbh1z6A5MQwEnh_!!6000000006664-2-tps-930-290.png">
 
-将按钮区放置于用户浏览路径中，便于被用户发现，如 “F 浏览模式” 和 “Z 浏览模式” 。
+按钮区是用于放置按钮的区域，一个按钮区内可以有多个按钮。
+
+
+### 跟随内容的按钮区
+
+<img class="preview-img no-padding" align="right" src="https://img.alicdn.com/imgextra/i4/O1CN01OVOv5G27z8YLYdWED_!!6000000007867-2-tps-928-342.png">
+
+按钮区跟随受控内容。将按钮区放置于用户浏览路径中，便于被用户发现。
+
+
+### 工具栏中的按钮区
+
+<img class="preview-img no-padding" align="right" src="https://img.alicdn.com/imgextra/i2/O1CN01aAZHoi1uZrgx1C3zR_!!6000000006052-2-tps-928-332.png">
+
+工具栏中的按钮区，靠右放置。控制工具栏控制的内容范围。
+
 
 ### 如何确定按钮区的放置位置？
 
 #### 页面/卡片/一组信息都能够呈现一个主题，主题的描述可以抽象为三个区域：
 
-<img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*iVZpRpdN_2AAAAAAAAAAAABkARQnAQ">
+<img class="preview-img no-padding" align="right" src="https://img.alicdn.com/imgextra/i2/O1CN017b7PRO1TEnquClCYx_!!6000000002351-2-tps-928-622.png">
 
 - Header：主题的标题和摘要信息内容区的导航等
 - Body：具体内容
@@ -109,10 +125,9 @@ title: 按钮
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*KGGWQLCBfm0AAAAAAAAAAABkARQnAQ">
 
-- Body 区部分内容被折叠或隐藏，例如单屏无法展示完整内容；
-- Body 区的内容复杂度高，例如有多个分组，分组中又有独立的按钮区，这时候需要将该主题的“完成”操作从 body 区区分出来，避免混淆按钮所能影响的内容范围。
-
-简而言之，Footer 的存在就是为了要和 Body 区区分开来。
+为避免页脚工具栏滥用，我们不推荐使用页脚工具栏，仅建议以下两种场景使用：
+- 1）对象详情页，「推进」对象的进展，例如审批流「通过」「驳回」。
+- 2）异常复杂的表单页，表单的内容复杂到需要切分为多张卡片。
 
 ## 按钮顺序
 
@@ -134,6 +149,18 @@ title: 按钮
 <img class="preview-img no-padding bad" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*_gU7ToHiZz4AAAAAAAAAAABkARQnAQ" alt="错误示范" description="连在一起的按钮组在外观上易与 Toggle Button 切换按钮混淆。">
 
 多个按钮形成一组时，将按钮排列在一起即可。
+
+### 有很多按钮组，如何确定顺序
+
+<img class="preview-img no-padding" align="right" src="https://img.alicdn.com/imgextra/i1/O1CN010Q6SBR1vSMpV0jdjX_!!6000000006171-2-tps-928-466.png">
+
+工具栏中的操作类型很多，我们会倾向于将变化较少的内容位置固化。以表格工具栏举例，排列逻辑如下：
+
+- 业务逻辑：「推进」进程的操作。例如：编辑、新建、发布、保存、取消、撤回等；
+- 视图控制：控制内容展示的形式。例如：全屏、表格密度、放大缩小、布局控制等；
+- 其他：刷新、分享、设置等；
+- 溢出：被折叠的操作，若进行响应式设计，从右往左折叠至溢出操作。
+
 
 ### 按钮分组
 

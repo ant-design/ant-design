@@ -57,7 +57,7 @@ describe('Avatar Render', () => {
 
   it('should handle onError correctly', () => {
     const LOAD_FAILURE_SRC = 'http://error.url';
-    const LOAD_SUCCESS_SRC = 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png';
+    const LOAD_SUCCESS_SRC = 'https://joeschmoe.io/api/v1/random';
 
     const div = global.document.createElement('div');
     global.document.body.appendChild(div);
@@ -95,7 +95,7 @@ describe('Avatar Render', () => {
 
   it('should show image on success after a failure state', () => {
     const LOAD_FAILURE_SRC = 'http://error.url';
-    const LOAD_SUCCESS_SRC = 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png';
+    const LOAD_SUCCESS_SRC = 'https://joeschmoe.io/api/v1/random';
 
     const div = global.document.createElement('div');
     global.document.body.appendChild(div);
@@ -155,7 +155,7 @@ describe('Avatar Render', () => {
 
   it('support size is number', () => {
     const wrapper = mount(<Avatar size={100}>TestString</Avatar>);
-    expect(wrapper).toMatchRenderedSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   Object.entries(sizes).forEach(([key, value]) => {
@@ -189,8 +189,26 @@ describe('Avatar Render', () => {
     );
     wrapper.find('img').simulate('error');
     wrapper.update();
-    expect(wrapper).toMatchRenderedSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
     wrapper.detach();
     global.document.body.removeChild(div);
+  });
+
+  it('should exist crossorigin attribute', () => {
+    const LOAD_SUCCESS_SRC = 'https://joeschmoe.io/api/v1/random';
+    const wrapper = mount(
+      <Avatar src={LOAD_SUCCESS_SRC} crossOrigin="anonymous">
+        crossorigin
+      </Avatar>,
+    );
+    expect(wrapper.html().includes('crossorigin')).toEqual(true);
+    expect(wrapper.find('img').prop('crossOrigin')).toEqual('anonymous');
+  });
+
+  it('should not exist crossorigin attribute', () => {
+    const LOAD_SUCCESS_SRC = 'https://joeschmoe.io/api/v1/random';
+    const wrapper = mount(<Avatar src={LOAD_SUCCESS_SRC}>crossorigin</Avatar>);
+    expect(wrapper.html().includes('crossorigin')).toEqual(false);
+    expect(wrapper.find('img').prop('crossOrigin')).toEqual(undefined);
   });
 });

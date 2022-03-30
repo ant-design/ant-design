@@ -97,6 +97,7 @@ describe('Space', () => {
     const wrapper = mount(
       <Space>
         text1<span>text1</span>
+        {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
         <>text3</>
       </Space>,
     );
@@ -164,6 +165,7 @@ describe('Space', () => {
     const wrapper = mount(
       <Space split="-">
         text1<span>text1</span>
+        {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
         <>text3</>
       </Space>,
     );

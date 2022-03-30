@@ -35,7 +35,7 @@ ReactDOM.render(
     ]}
   >
     <Meta
-      avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+      avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
       title="Card title"
       description="This is the description"
     />

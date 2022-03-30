@@ -1,6 +1,7 @@
 @import '../../style/themes/index';
 @import '../../style/mixins/index';
 @import '../../input/style/mixin';
+@import './status';
 
 @mention-prefix-cls: ~'@{ant-prefix}-mentions';
 
@@ -37,6 +38,7 @@
     overflow: inherit;
     overflow-x: hidden;
     overflow-y: auto;
+    /* stylelint-disable declaration-block-no-redundant-longhand-properties */
     font-weight: inherit;
     font-size: inherit;
     font-family: inherit;
@@ -45,6 +47,7 @@
     font-size-adjust: inherit;
     font-stretch: inherit;
     line-height: inherit;
+    /* stylelint-enable declaration-block-no-redundant-longhand-properties */
     direction: inherit;
     letter-spacing: inherit;
     white-space: inherit;
@@ -159,6 +162,17 @@
         }
       }
     }
+  }
+
+  &-suffix {
+    position: absolute;
+    top: 0;
+    right: @input-padding-horizontal-base;
+    bottom: 0;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    margin: auto;
   }
 }
 

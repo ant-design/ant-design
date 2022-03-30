@@ -75,6 +75,7 @@ const localeValues: Locale = {
     back: 'Enrere',
   },
   Form: {
+    optional: '(opcional)',
     defaultValidateMessages: {
       default: 'Error de validació del camp ${label}',
       required: 'Introdueix ${label}',

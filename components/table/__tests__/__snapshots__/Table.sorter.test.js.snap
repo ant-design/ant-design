@@ -96,6 +96,7 @@ exports[`Table.sorter should support defaultOrder in Column 1`] = `
               >
                 <tr>
                   <th
+                    aria-sort="ascending"
                     class="ant-table-cell ant-table-column-sort ant-table-column-has-sorters"
                   >
                     <div

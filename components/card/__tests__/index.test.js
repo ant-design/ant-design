@@ -82,4 +82,22 @@ describe('Card', () => {
     );
     expect(wrapper.find('Tabs').get(0).props.size).toBe('small');
   });
+
+  it('get ref of card', () => {
+    class WrapperComponent extends React.Component {
+      render() {
+        return (
+          <Card
+            // eslint-disable-next-line react/no-string-refs
+            ref="firstRef"
+            title="Card title"
+          >
+            <p>Card content</p>
+          </Card>
+        );
+      }
+    }
+    const wrapper = mount(<WrapperComponent />);
+    expect(wrapper.ref('firstRef').className.includes('ant-card')).toBe(true);
+  });
 });

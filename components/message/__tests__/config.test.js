@@ -125,4 +125,35 @@ describe('message.config', () => {
       transitionName: 'ant-move-up',
     });
   });
+
+  it('should be able to config getContainer, although messageInstance already exists', () => {
+    function createContainer() {
+      const container = document.createElement('div');
+      document.body.appendChild(container);
+      return [
+        container,
+        () => {
+          document.body.removeChild(container);
+        },
+      ];
+    }
+    const [container1, removeContainer1] = createContainer();
+    const [container2, removeContainer2] = createContainer();
+    expect(container1.querySelector('.ant-message-notice')).toBeFalsy();
+    expect(container2.querySelector('.ant-message-notice')).toBeFalsy();
+    message.config({
+      getContainer: () => container1,
+    });
+    const messageText1 = 'mounted in container1';
+    message.info(messageText1);
+    expect(container1.querySelector('.ant-message-notice').textContent).toEqual(messageText1);
+    message.config({
+      getContainer: () => container2,
+    });
+    const messageText2 = 'mounted in container2';
+    message.info(messageText2);
+    expect(container2.querySelector('.ant-message-notice').textContent).toEqual(messageText2);
+    removeContainer1();
+    removeContainer2();
+  });
 });

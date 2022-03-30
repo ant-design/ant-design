@@ -1,5 +1,5 @@
 ---
-order: 5
+order: 6
 title:
   zh-CN: 自定义位置偏移
   en-US: Offset
@@ -14,14 +14,12 @@ title:
 Set offset of the badge dot, the format is `[left, top]`, which represents the offset of the status dot from the left and top of the default position.
 
 ```jsx
-import { Badge } from 'antd';
+import { Badge, Avatar } from 'antd';
 
 ReactDOM.render(
-  <>
-    <Badge count={5} offset={[10, 10]}>
-      <a href="#" className="head-example" />
-    </Badge>
-  </>,
+  <Badge count={5} offset={[10, 10]}>
+    <Avatar shape="square" size="large" />
+  </Badge>,
   mountNode,
 );
 ```

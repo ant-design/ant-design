@@ -1,4 +1,5 @@
 import * as React from 'react';
+import memoizeOne from 'memoize-one';
 import { ValidateMessages } from 'rc-field-form/lib/interface';
 import devWarning from '../_util/devWarning';
 
@@ -30,7 +31,12 @@ export interface Locale {
   global?: Record<string, any>;
   PageHeader?: { back: string };
   Icon?: Record<string, any>;
-  Text?: Record<string, any>;
+  Text?: {
+    edit?: any;
+    copy?: any;
+    copied?: any;
+    expand?: any;
+  };
   Form?: {
     optional?: string;
     defaultValidateMessages: ValidateMessages;
@@ -77,11 +83,14 @@ export default class LocaleProvider extends React.Component<LocaleProviderProps,
     changeConfirmLocale();
   }
 
+  getMemoizedContextValue = memoizeOne((localeValue: Locale): Locale & { exist?: boolean } => ({
+    ...localeValue,
+    exist: true,
+  }));
+
   render() {
     const { locale, children } = this.props;
-
-    return (
-      <LocaleContext.Provider value={{ ...locale, exist: true }}>{children}</LocaleContext.Provider>
-    );
+    const contextValue = this.getMemoizedContextValue(locale);
+    return <LocaleContext.Provider value={contextValue}>{children}</LocaleContext.Provider>;
   }
 }

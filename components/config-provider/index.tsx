@@ -12,11 +12,14 @@ import {
   CSPConfig,
   DirectionType,
   ConfigConsumerProps,
+  Theme,
 } from './context';
 import SizeContext, { SizeContextProvider, SizeType } from './SizeContext';
 import message from '../message';
 import notification from '../notification';
 import { RequiredMark } from '../form/Form';
+import { registerTheme } from './cssVariables';
+import defaultLocale from '../locale/default';
 
 export {
   RenderEmptyHandler,
@@ -51,7 +54,7 @@ const PASSED_PROPS: Exclude<keyof ConfigConsumerProps, 'rootPrefixCls' | 'getPre
 
 export interface ConfigProviderProps {
   getTargetContainer?: () => HTMLElement;
-  getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
+  getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
   prefixCls?: string;
   iconPrefixCls?: string;
   children?: React.ReactNode;
@@ -61,6 +64,7 @@ export interface ConfigProviderProps {
   form?: {
     validateMessages?: ValidateMessages;
     requiredMark?: RequiredMark;
+    colon?: boolean;
   };
   input?: {
     autoComplete?: string;
@@ -88,18 +92,6 @@ export const defaultIconPrefixCls = 'anticon';
 let globalPrefixCls: string;
 let globalIconPrefixCls: string;
 
-const setGlobalConfig = ({
-  prefixCls,
-  iconPrefixCls,
-}: Pick<ConfigProviderProps, 'prefixCls' | 'iconPrefixCls'>) => {
-  if (prefixCls !== undefined) {
-    globalPrefixCls = prefixCls;
-  }
-  if (iconPrefixCls !== undefined) {
-    globalIconPrefixCls = iconPrefixCls;
-  }
-};
-
 function getGlobalPrefixCls() {
   return globalPrefixCls || defaultPrefixCls;
 }
@@ -107,6 +99,23 @@ function getGlobalPrefixCls() {
 function getGlobalIconPrefixCls() {
   return globalIconPrefixCls || defaultIconPrefixCls;
 }
+
+const setGlobalConfig = ({
+  prefixCls,
+  iconPrefixCls,
+  theme,
+}: Pick<ConfigProviderProps, 'prefixCls' | 'iconPrefixCls'> & { theme?: Theme }) => {
+  if (prefixCls !== undefined) {
+    globalPrefixCls = prefixCls;
+  }
+  if (iconPrefixCls !== undefined) {
+    globalIconPrefixCls = iconPrefixCls;
+  }
+
+  if (theme) {
+    registerTheme(getGlobalPrefixCls(), theme);
+  }
+};
 
 export const globalConfig = () => ({
   getPrefixCls: (suffixCls?: string, customizePrefixCls?: string) => {
@@ -202,15 +211,16 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
 
   const memoIconContextValue = React.useMemo(
     () => ({ prefixCls: iconPrefixCls, csp }),
-    [iconPrefixCls],
+    [iconPrefixCls, csp],
   );
 
   let childNode = children;
   // Additional Form provider
   let validateMessages: ValidateMessages = {};
 
-  if (locale && locale.Form && locale.Form.defaultValidateMessages) {
-    validateMessages = locale.Form.defaultValidateMessages;
+  if (locale) {
+    validateMessages =
+      locale.Form?.defaultValidateMessages || defaultLocale.Form?.defaultValidateMessages || {};
   }
   if (form && form.validateMessages) {
     validateMessages = { ...validateMessages, ...form.validateMessages };
@@ -228,7 +238,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     );
   }
 
-  if (iconPrefixCls) {
+  if (iconPrefixCls || csp) {
     childNode = (
       <IconContext.Provider value={memoIconContextValue}>{childNode}</IconContext.Provider>
     );

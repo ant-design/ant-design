@@ -13,7 +13,7 @@
     top: -0.06em;
     display: inline-block;
     height: 0.9em;
-    margin: 0 8px;
+    margin: 0 @divider-vertical-gutter;
     vertical-align: middle;
     border-top: 0;
     border-left: @border-width-base solid @divider-color;
@@ -57,6 +57,7 @@
       top: 50%;
       width: @divider-orientation-margin;
     }
+
     &::after {
       top: 50%;
       width: 100% - @divider-orientation-margin;
@@ -68,6 +69,7 @@
       top: 50%;
       width: 100% - @divider-orientation-margin;
     }
+
     &::after {
       top: 50%;
       width: @divider-orientation-margin;
@@ -87,7 +89,6 @@
   }
 
   &-horizontal&-with-text&-dashed {
-    border-top: 0;
     &::before,
     &::after {
       border-style: dashed none none;
@@ -102,6 +103,34 @@
     color: @text-color;
     font-weight: normal;
     font-size: @font-size-base;
+  }
+
+  &-horizontal&-with-text-left&-no-default-orientation-margin-left {
+    &::before {
+      width: 0;
+    }
+
+    &::after {
+      width: 100%;
+    }
+
+    .ant-divider-inner-text {
+      padding-left: 0;
+    }
+  }
+
+  &-horizontal&-with-text-right&-no-default-orientation-margin-right {
+    &::before {
+      width: 100%;
+    }
+
+    &::after {
+      width: 0;
+    }
+
+    .ant-divider-inner-text {
+      padding-right: 0;
+    }
   }
 }
 

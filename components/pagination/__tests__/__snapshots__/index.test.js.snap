@@ -38,14 +38,14 @@ exports[`Pagination rtl render component should be rendered correctly in RTL dir
     </button>
   </li>
   <li
-    class="ant-pagination-item ant-pagination-item-0 ant-pagination-disabled ant-pagination-item-disabled"
+    class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-disabled"
     tabindex="0"
-    title="0"
+    title="1"
   >
     <a
       rel="nofollow"
     >
-      0
+      1
     </a>
   </li>
   <li
