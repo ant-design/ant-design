@@ -38,7 +38,6 @@ interface RadioToken extends DerivativeToken {
 function getRadioToken(token: GlobalToken) {
   // Radio
   const radioDuration = '0.3s';
-  // primary-color-1
   const radioFocusShadow = `0 0 0 3px ${token.colorPrimary}`;
   const radioButtonFocusShadow = radioFocusShadow;
 
@@ -368,9 +367,7 @@ function getRadioButtonStyle(prefixCls: string, token: RadioToken): CSSInterpola
         boxShadow: token.radioButtonFocusShadow,
       },
 
-      [`.${prefixCls}-inner,
-      input[type='checkbox'],
-      input[type='radio']`]: {
+      [`.${prefixCls}-inner, input[type='checkbox'], input[type='radio']`]: {
         width: 0,
         height: 0,
         opacity: 0,
@@ -527,11 +524,11 @@ export function getStyle(
 
 export default function useStyle(prefixCls: string, antPrefix: string): UseComponentStyleResult {
   const [theme, token, hashId] = useToken();
-  const radioToken = getRadioToken(token);
   return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () =>
-      getStyle(prefixCls, hashId, antPrefix, radioToken),
-    ),
+    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => {
+      const radioToken = getRadioToken(token);
+      return getStyle(prefixCls, hashId, antPrefix, radioToken);
+    }),
     hashId,
   ];
 }
