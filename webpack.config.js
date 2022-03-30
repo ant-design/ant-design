@@ -60,6 +60,15 @@ function injectWarningCondition(config) {
   });
 }
 
+function externalDayjs(config) {
+  config.externals.dayjs = {
+    root: 'dayjs',
+    commonjs2: 'dayjs',
+    commonjs: 'dayjs',
+    amd: 'dayjs',
+  };
+}
+
 function processWebpackThemeConfig(themeConfig, theme, vars) {
   themeConfig.forEach(config => {
     // rename default entry to ${theme} entry
@@ -118,6 +127,7 @@ webpackConfig.forEach(config => {
 if (process.env.RUN_ENV === 'PRODUCTION') {
   webpackConfig.forEach(config => {
     addLocales(config);
+    externalDayjs(config);
     // Reduce non-minified dist files size
     config.optimization.usedExports = true;
     // use esbuild
