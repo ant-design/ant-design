@@ -17,17 +17,9 @@ interface ListToken extends DerivativeToken {
   antPrefix: string;
   listBorderedCls: string;
   minWidth: number;
-  paddingSm: number;
-  paddingLg: number;
-  marginLg: number;
-  marginSm: number;
-  paddingMd: number;
+  marginSM: number;
   lineHeightBase: number;
-  paddingXs: number;
-  marginMd: number;
   fontSizeLg: number;
-  screenSm: number;
-  screenMd: number;
   height4: number;
   height14: number;
   height7: number;
@@ -44,11 +36,11 @@ const genBorderedStyle = (token: ListToken): CSSObject => {
   const {
     listBorderedCls,
     listCls,
-    paddingLg,
-    marginMd,
+    paddingLG,
+    margin,
     listItemPaddingLg,
     listItemPaddingSm,
-    marginLg,
+    marginLG,
     borderColorBase,
     radiusBase,
   } = token;
@@ -57,11 +49,11 @@ const genBorderedStyle = (token: ListToken): CSSObject => {
       border: `1px solid ${borderColorBase}`,
       borderRadius: radiusBase,
       [`${listCls}-header,${listCls}-footer,${listCls}-item`]: {
-        paddingInline: paddingLg,
+        paddingInline: paddingLG,
       },
 
       [`${listCls}-pagination`]: {
-        margin: `${marginMd}px ${marginLg}px`,
+        margin: `${margin}px ${marginLG}px`,
       },
     },
     [`${listBorderedCls}${listCls}-sm`]: {
@@ -78,13 +70,13 @@ const genBorderedStyle = (token: ListToken): CSSObject => {
   };
 };
 const genResponsiveStyle = (token: ListToken): CSSObject => {
-  const { minWidth, listCls, screenSm, screenMd, marginLg, marginSm, marginMd } = token;
+  const { minWidth, listCls, screenSM, screenMD, marginLG, marginSM, margin } = token;
   return {
-    [`@media screen and (max-width:${screenMd})`]: {
+    [`@media screen and (max-width:${screenMD})`]: {
       [`${listCls}`]: {
         [`${listCls}-item`]: {
           [`${listCls}-item-action`]: {
-            marginInlineStart: marginLg,
+            marginInlineStart: marginLG,
           },
         },
       },
@@ -92,19 +84,19 @@ const genResponsiveStyle = (token: ListToken): CSSObject => {
       [`${listCls}-vertical`]: {
         [`${listCls}-item`]: {
           [`${listCls}-item-extra`]: {
-            marginInlineStart: marginLg,
+            marginInlineStart: marginLG,
           },
         },
       },
     },
 
-    [`@media screen and (max-width: ${screenSm})`]: {
+    [`@media screen and (max-width: ${screenSM})`]: {
       [`${listCls}`]: {
         [`${listCls}-item`]: {
           flexWrap: 'wrap',
 
           [`${listCls}-action`]: {
-            marginInlineStart: marginSm,
+            marginInlineStart: marginSM,
           },
         },
       },
@@ -118,7 +110,7 @@ const genResponsiveStyle = (token: ListToken): CSSObject => {
           },
 
           [`${listCls}-item-extra`]: {
-            margin: `auto auto ${marginMd}px`,
+            margin: `auto auto ${margin}px`,
           },
         },
       },
@@ -135,10 +127,10 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
     minHeight,
     height48,
     fontSizeSm,
-    paddingSm,
-    marginLg,
-    marginSm,
-    paddingMd,
+    paddingSM,
+    marginLG,
+    marginSM,
+    padding,
     disabledColor,
     lineHeightBase,
     fontSizeBase,
@@ -147,9 +139,9 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
     borderColorSplit,
     listItemPaddingSm,
     listItemPaddingLg,
-    paddingXs,
+    paddingXS,
     fontSizeLg,
-    marginMd,
+    margin,
     colorText,
     colorTextSecondary,
     lineHeight,
@@ -174,11 +166,11 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
       },
       [`${listCls}-header, ${listCls}-footer`]: {
         background: 'transparent',
-        paddingTop: paddingSm,
-        paddingBottom: paddingSm,
+        paddingTop: paddingSM,
+        paddingBottom: paddingSM,
       },
       [`${listCls}-pagination`]: {
-        marginBlockStart: marginLg,
+        marginBlockStart: marginLG,
         textAlign: 'end',
 
         // https://github.com/ant-design/ant-design/issues/20037
@@ -188,7 +180,7 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
       },
 
       [`${listCls}-more`]: {
-        marginBlockStart: marginSm,
+        marginBlockStart: marginSM,
         textAlign: 'center',
         button: {
           paddingInline: `${controlHeight}px`,
@@ -219,7 +211,7 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
           maxWidth: '100%',
 
           [`${listCls}-item-meta-avatar`]: {
-            marginInlineEnd: paddingMd,
+            marginInlineEnd: padding,
           },
 
           [`${listCls}-item-meta-content`]: {
@@ -261,7 +253,7 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
           [`& > li`]: {
             position: 'relative',
             display: 'inline-block',
-            padding: `0 ${paddingXs}px`,
+            padding: `0 ${paddingXS}px`,
             color: colorTextSecondary,
             fontSize: fontSizeBase,
             lineHeight: lineHeightBase,
@@ -285,14 +277,14 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
       },
 
       [`${listCls}-empty`]: {
-        padding: `${paddingMd}px 0`,
+        padding: `${padding}px 0`,
         color: colorTextSecondary,
         fontSize: fontSizeSm,
         textAlign: 'center',
       },
 
       [`${listCls}-empty-text`]: {
-        padding: paddingMd,
+        padding: padding,
         color: disabledColor,
         fontSize: fontSizeBase,
         textAlign: 'center',
@@ -301,7 +293,7 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
       [`${listCls}-grid ${antPrefix}-col > ${listCls}-item`]: {
         display: 'block',
         maxWidth: '100%',
-        marginBlockEnd: marginMd,
+        marginBlockEnd: margin,
         paddingBlock: 0,
         borderBlockEnd: 'none',
       },
@@ -319,14 +311,14 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
       },
 
       [`${listCls}-item-extra`]: {
-        marginInlineStart: marginLg,
+        marginInlineStart: marginLG,
       },
 
       [`${listCls}-item-meta`]: {
-        marginBlockEnd: paddingMd,
+        marginBlockEnd: padding,
 
         [`${listCls}--item-meta-title`]: {
-          marginBlockEnd: paddingSm,
+          marginBlockEnd: paddingSM,
           color: colorText,
           fontSize: fontSizeLg,
           lineHeight,
@@ -334,11 +326,11 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
       },
 
       [`${listCls}-item-action`]: {
-        marginBlockStart: paddingMd,
+        marginBlockStart: padding,
         marginInlineStart: 'auto',
 
         '> li': {
-          padding: `0 ${paddingMd}px`,
+          padding: `0 ${padding}px`,
 
           [`&:first-child`]: {
             paddingInlineStart: 0,
@@ -406,18 +398,9 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
     height7: 7, // FIXME: hard code in v4,
     height48: 48, // FIXME: hard code in v4,
 
-    marginLg: 24, // FIXME: hard code in v4,
-    marginMd: 16, // FIXME: hard code in v4,
-    marginSm: 12, // FIXME: hard code in v4,
-
     fontSizeSm: 12, // FIXME: hard code in v4,
     fontSize: 14, // FIXME: hard code in v4,
     fontSizeLg: 16, // FIXME: hard code in v4,
-
-    paddingSm: 12, // FIXME: hard code in v4,
-    paddingLg: 24, // FIXME: hard code in v4,
-    paddingMd: 16, // FIXME: hard code in v4,
-    paddingXs: 8, // FIXME: hard code in v4,
 
     listItemPadding: '12px 0', // FIXME: hard code in v4,
     listItemPaddingSm: '8px 16px', // FIXME: hard code in v4,
@@ -425,9 +408,6 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
 
     lineHeightBase: 1.5715, // FIXME: hard code in v4,
     lineHeight: 1.5,
-
-    screenSm: 576, // FIXME: hard code in v4,
-    screenMd: 768, // FIXME: hard code in v4,
   };
 
   return [
