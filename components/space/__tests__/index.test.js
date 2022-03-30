@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { render, mount } from 'enzyme';
-import { act } from 'react-test-renderer';
+import { act } from 'react-dom/test-utils';
 import Space from '..';
 import ConfigProvider from '../../config-provider';
 import mountTest from '../../../tests/shared/mountTest';

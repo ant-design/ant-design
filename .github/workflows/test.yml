@@ -23,7 +23,7 @@ jobs:
           key: lock-${{ github.sha }}
 
       - name: create package-lock.json
-        run: npm i --package-lock-only --ignore-scripts
+        run: npm i --package-lock-only --ignore-scripts --force
 
       - name: hack for single file
         run: |
@@ -40,7 +40,7 @@ jobs:
 
       - name: install
         if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
-        run: npm ci
+        run: npm ci --force
 
   lint:
     runs-on: ubuntu-latest
@@ -232,6 +232,7 @@ jobs:
     strategy:
       matrix:
         react: ['16', '17']
+        # react: ['17', '18']
         module: ['dom', 'node', 'dist']
     env:
       REACT: ${{ matrix.react }}
@@ -255,6 +256,14 @@ jobs:
       - name: install react 16
         if: ${{ matrix.react == '16' }}
         run: npm run install-react-16
+
+      - name: install react 17
+        if: ${{ matrix.react == '17' }}
+        run: npm run install-react-17
+
+      - name: install react 18
+        if: ${{ matrix.react == '18' }}
+        run: npm run install-react-18
 
       - name: restore cache from dist
         if: ${{ matrix.module == 'dist' }}
@@ -341,36 +350,55 @@ jobs:
     strategy:
       matrix:
         react: ['16', '17']
+        # react: ['17', '18']
         module: [lib, es]
     env:
       REACT: ${{ matrix.react }}
     steps:
       - name: checkout
+        # lib only run in master branch not in pull request
+        if: ${{ github.event_name != 'pull_request' || matrix.module != 'lib' }}
         uses: actions/checkout@v3
 
       - name: restore cache from package-lock.json
+        # lib only run in master branch not in pull request
+        if: ${{ github.event_name != 'pull_request' || matrix.module != 'lib' }}
         uses: actions/cache@v3
         with:
           path: package-temp-dir
           key: lock-${{ github.sha }}
 
       - name: restore cache from node_modules
+        # lib only run in master branch not in pull request
+        if: ${{ github.event_name != 'pull_request' || matrix.module != 'lib' }}
         uses: actions/cache@v3
         with:
           path: node_modules
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
 
       - name: restore cache from ${{ matrix.module }}
+        # lib only run in master branch not in pull request
+        if: ${{ github.event_name != 'pull_request' || matrix.module != 'lib' }}
         uses: actions/cache@v3
         with:
           path: ${{ matrix.module }}
           key: ${{ matrix.module }}-${{ github.sha }}
 
       - name: install react 16
-        if: ${{ matrix.react == '16' }}
+        if: ${{ matrix.react == '16' && (github.event_name != 'pull_request' || matrix.module != 'lib') }}
         run: npm run install-react-16
 
+      - name: install react 17
+        if: ${{ matrix.react == '17' && (github.event_name != 'pull_request' || matrix.module != 'lib') }}
+        run: npm run install-react-17
+
+      - name: install react 18
+        if: ${{ matrix.react == '18' && (github.event_name != 'pull_request' || matrix.module != 'lib') }}
+        run: npm run install-react-18
+
       - name: test
+        # lib only run in master branch not in pull request
+        if: ${{ github.event_name != 'pull_request' || matrix.module != 'lib' }}
         run: npm test
         env:
           LIB_DIR: ${{ matrix.module }}
