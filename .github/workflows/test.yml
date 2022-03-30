@@ -261,6 +261,10 @@ jobs:
         if: ${{ matrix.react == '17' }}
         run: npm run install-react-17
 
+      - name: install react 18
+        if: ${{ matrix.react == '18' }}
+        run: npm run install-react-18
+
       - name: restore cache from dist
         if: ${{ matrix.module == 'dist' }}
         uses: actions/cache@v3
@@ -387,6 +391,10 @@ jobs:
       - name: install react 17
         if: ${{ matrix.react == '17' && (github.event_name != 'pull_request' || matrix.module != 'lib') }}
         run: npm run install-react-17
+
+      - name: install react 18
+        if: ${{ matrix.react == '18' && (github.event_name != 'pull_request' || matrix.module != 'lib') }}
+        run: npm run install-react-18
 
       - name: test
         # lib only run in master branch not in pull request
