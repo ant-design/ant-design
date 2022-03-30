@@ -14,6 +14,7 @@ exports[`renders ./components/segmented/demo/basic.md correctly 1`] = `
     />
     <div
       class="ant-segmented-item-label"
+      title="Daily"
     >
       Daily
     </div>
@@ -27,6 +28,7 @@ exports[`renders ./components/segmented/demo/basic.md correctly 1`] = `
     />
     <div
       class="ant-segmented-item-label"
+      title="Weekly"
     >
       Weekly
     </div>
@@ -40,6 +42,7 @@ exports[`renders ./components/segmented/demo/basic.md correctly 1`] = `
     />
     <div
       class="ant-segmented-item-label"
+      title="Monthly"
     >
       Monthly
     </div>
@@ -53,6 +56,7 @@ exports[`renders ./components/segmented/demo/basic.md correctly 1`] = `
     />
     <div
       class="ant-segmented-item-label"
+      title="Quarterly"
     >
       Quarterly
     </div>
@@ -66,6 +70,7 @@ exports[`renders ./components/segmented/demo/basic.md correctly 1`] = `
     />
     <div
       class="ant-segmented-item-label"
+      title="Yearly"
     >
       Yearly
     </div>
@@ -87,6 +92,7 @@ exports[`renders ./components/segmented/demo/block.md correctly 1`] = `
     />
     <div
       class="ant-segmented-item-label"
+      title="123"
     >
       123
     </div>
@@ -100,6 +106,7 @@ exports[`renders ./components/segmented/demo/block.md correctly 1`] = `
     />
     <div
       class="ant-segmented-item-label"
+      title="456"
     >
       456
     </div>
@@ -113,6 +120,7 @@ exports[`renders ./components/segmented/demo/block.md correctly 1`] = `
     />
     <div
       class="ant-segmented-item-label"
+      title="longtext-longtext-longtext-longtext"
     >
       longtext-longtext-longtext-longtext
     </div>
@@ -134,6 +142,7 @@ exports[`renders ./components/segmented/demo/controlled.md correctly 1`] = `
     />
     <div
       class="ant-segmented-item-label"
+      title="Map"
     >
       Map
     </div>
@@ -147,6 +156,7 @@ exports[`renders ./components/segmented/demo/controlled.md correctly 1`] = `
     />
     <div
       class="ant-segmented-item-label"
+      title="Transit"
     >
       Transit
     </div>
@@ -160,6 +170,7 @@ exports[`renders ./components/segmented/demo/controlled.md correctly 1`] = `
     />
     <div
       class="ant-segmented-item-label"
+      title="Satellite"
     >
       Satellite
     </div>
@@ -357,6 +368,7 @@ Array [
       />
       <div
         class="ant-segmented-item-label"
+        title="Map"
       >
         Map
       </div>
@@ -370,6 +382,7 @@ Array [
       />
       <div
         class="ant-segmented-item-label"
+        title="Transit"
       >
         Transit
       </div>
@@ -383,6 +396,7 @@ Array [
       />
       <div
         class="ant-segmented-item-label"
+        title="Satellite"
       >
         Satellite
       </div>
@@ -402,6 +416,7 @@ Array [
       />
       <div
         class="ant-segmented-item-label"
+        title="Daily"
       >
         Daily
       </div>
@@ -416,6 +431,7 @@ Array [
       />
       <div
         class="ant-segmented-item-label"
+        title="Weekly"
       >
         Weekly
       </div>
@@ -429,6 +445,7 @@ Array [
       />
       <div
         class="ant-segmented-item-label"
+        title="Monthly"
       >
         Monthly
       </div>
@@ -443,6 +460,7 @@ Array [
       />
       <div
         class="ant-segmented-item-label"
+        title="Quarterly"
       >
         Quarterly
       </div>
@@ -456,6 +474,7 @@ Array [
       />
       <div
         class="ant-segmented-item-label"
+        title="Yearly"
       >
         Yearly
       </div>
@@ -479,6 +498,7 @@ Array [
       />
       <div
         class="ant-segmented-item-label"
+        title="Daily"
       >
         Daily
       </div>
@@ -492,6 +512,7 @@ Array [
       />
       <div
         class="ant-segmented-item-label"
+        title="Weekly"
       >
         Weekly
       </div>
@@ -505,6 +526,7 @@ Array [
       />
       <div
         class="ant-segmented-item-label"
+        title="Monthly"
       >
         Monthly
       </div>
@@ -537,6 +559,7 @@ Array [
       />
       <div
         class="ant-segmented-item-label"
+        title="Daily"
       >
         Daily
       </div>
@@ -550,6 +573,7 @@ Array [
       />
       <div
         class="ant-segmented-item-label"
+        title="Weekly"
       >
         Weekly
       </div>
@@ -563,6 +587,7 @@ Array [
       />
       <div
         class="ant-segmented-item-label"
+        title="Monthly"
       >
         Monthly
       </div>
@@ -576,6 +601,7 @@ Array [
       />
       <div
         class="ant-segmented-item-label"
+        title="Quarterly"
       >
         Quarterly
       </div>
@@ -589,6 +615,7 @@ Array [
       />
       <div
         class="ant-segmented-item-label"
+        title="Yearly"
       >
         Yearly
       </div>
@@ -608,6 +635,7 @@ Array [
       />
       <div
         class="ant-segmented-item-label"
+        title="Daily"
       >
         Daily
       </div>
@@ -621,6 +649,7 @@ Array [
       />
       <div
         class="ant-segmented-item-label"
+        title="Weekly"
       >
         Weekly
       </div>
@@ -634,6 +663,7 @@ Array [
       />
       <div
         class="ant-segmented-item-label"
+        title="Monthly"
       >
         Monthly
       </div>
@@ -647,6 +677,7 @@ Array [
       />
       <div
         class="ant-segmented-item-label"
+        title="Quarterly"
       >
         Quarterly
       </div>
@@ -660,6 +691,7 @@ Array [
       />
       <div
         class="ant-segmented-item-label"
+        title="Yearly"
       >
         Yearly
       </div>
@@ -679,6 +711,7 @@ Array [
       />
       <div
         class="ant-segmented-item-label"
+        title="Daily"
       >
         Daily
       </div>
@@ -692,6 +725,7 @@ Array [
       />
       <div
         class="ant-segmented-item-label"
+        title="Weekly"
       >
         Weekly
       </div>
@@ -705,6 +739,7 @@ Array [
       />
       <div
         class="ant-segmented-item-label"
+        title="Monthly"
       >
         Monthly
       </div>
@@ -718,6 +753,7 @@ Array [
       />
       <div
         class="ant-segmented-item-label"
+        title="Quarterly"
       >
         Quarterly
       </div>
@@ -731,6 +767,7 @@ Array [
       />
       <div
         class="ant-segmented-item-label"
+        title="Yearly"
       >
         Yearly
       </div>

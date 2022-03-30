@@ -20,6 +20,7 @@ exports[`Segmented render label with ReactNode 1`] = `
     />
     <div
       class="ant-segmented-item-label"
+      title="Daily"
     >
       Daily
     </div>
@@ -73,6 +74,7 @@ exports[`Segmented render segmented ok 1`] = `
     />
     <div
       class="ant-segmented-item-label"
+      title="Daily"
     >
       Daily
     </div>
@@ -86,6 +88,7 @@ exports[`Segmented render segmented ok 1`] = `
     />
     <div
       class="ant-segmented-item-label"
+      title="Weekly"
     >
       Weekly
     </div>
@@ -99,6 +102,7 @@ exports[`Segmented render segmented ok 1`] = `
     />
     <div
       class="ant-segmented-item-label"
+      title="Monthly"
     >
       Monthly
     </div>
@@ -120,6 +124,7 @@ exports[`Segmented render segmented with \`block\` 1`] = `
     />
     <div
       class="ant-segmented-item-label"
+      title="Daily"
     >
       Daily
     </div>
@@ -133,6 +138,7 @@ exports[`Segmented render segmented with \`block\` 1`] = `
     />
     <div
       class="ant-segmented-item-label"
+      title="Weekly"
     >
       Weekly
     </div>
@@ -146,6 +152,7 @@ exports[`Segmented render segmented with \`block\` 1`] = `
     />
     <div
       class="ant-segmented-item-label"
+      title="Monthly"
     >
       Monthly
     </div>
@@ -167,6 +174,7 @@ exports[`Segmented render segmented with \`size#large\` 1`] = `
     />
     <div
       class="ant-segmented-item-label"
+      title="Daily"
     >
       Daily
     </div>
@@ -180,6 +188,7 @@ exports[`Segmented render segmented with \`size#large\` 1`] = `
     />
     <div
       class="ant-segmented-item-label"
+      title="Weekly"
     >
       Weekly
     </div>
@@ -193,6 +202,7 @@ exports[`Segmented render segmented with \`size#large\` 1`] = `
     />
     <div
       class="ant-segmented-item-label"
+      title="Monthly"
     >
       Monthly
     </div>
@@ -214,6 +224,7 @@ exports[`Segmented render segmented with \`size#small\` 1`] = `
     />
     <div
       class="ant-segmented-item-label"
+      title="Daily"
     >
       Daily
     </div>
@@ -227,6 +238,7 @@ exports[`Segmented render segmented with \`size#small\` 1`] = `
     />
     <div
       class="ant-segmented-item-label"
+      title="Weekly"
     >
       Weekly
     </div>
@@ -240,6 +252,7 @@ exports[`Segmented render segmented with \`size#small\` 1`] = `
     />
     <div
       class="ant-segmented-item-label"
+      title="Monthly"
     >
       Monthly
     </div>
@@ -261,6 +274,7 @@ exports[`Segmented render segmented with mixed options 1`] = `
     />
     <div
       class="ant-segmented-item-label"
+      title="Daily"
     >
       Daily
     </div>
@@ -274,6 +288,7 @@ exports[`Segmented render segmented with mixed options 1`] = `
     />
     <div
       class="ant-segmented-item-label"
+      title="Weekly"
     >
       Weekly
     </div>
@@ -287,6 +302,7 @@ exports[`Segmented render segmented with mixed options 1`] = `
     />
     <div
       class="ant-segmented-item-label"
+      title="Monthly"
     >
       Monthly
     </div>
@@ -308,6 +324,7 @@ exports[`Segmented render segmented with numeric options 1`] = `
     />
     <div
       class="ant-segmented-item-label"
+      title="1"
     >
       1
     </div>
@@ -321,6 +338,7 @@ exports[`Segmented render segmented with numeric options 1`] = `
     />
     <div
       class="ant-segmented-item-label"
+      title="2"
     >
       2
     </div>
@@ -334,6 +352,7 @@ exports[`Segmented render segmented with numeric options 1`] = `
     />
     <div
       class="ant-segmented-item-label"
+      title="3"
     >
       3
     </div>
@@ -347,6 +366,7 @@ exports[`Segmented render segmented with numeric options 1`] = `
     />
     <div
       class="ant-segmented-item-label"
+      title="4"
     >
       4
     </div>
@@ -360,6 +380,7 @@ exports[`Segmented render segmented with numeric options 1`] = `
     />
     <div
       class="ant-segmented-item-label"
+      title="5"
     >
       5
     </div>
@@ -384,10 +405,9 @@ exports[`Segmented render segmented with options null/undefined 1`] = `
     />
   </label>
   <label
-    class="ant-segmented-item ant-segmented-item-selected"
+    class="ant-segmented-item"
   >
     <input
-      checked=""
       class="ant-segmented-item-input"
       type="radio"
     />
@@ -404,6 +424,7 @@ exports[`Segmented render segmented with options null/undefined 1`] = `
     />
     <div
       class="ant-segmented-item-label"
+      title=""
     />
   </label>
 </div>
@@ -423,6 +444,7 @@ exports[`Segmented render segmented with options: disabled 1`] = `
     />
     <div
       class="ant-segmented-item-label"
+      title="Daily"
     >
       Daily
     </div>
@@ -437,6 +459,7 @@ exports[`Segmented render segmented with options: disabled 1`] = `
     />
     <div
       class="ant-segmented-item-label"
+      title="Weekly"
     >
       Weekly
     </div>
@@ -450,6 +473,7 @@ exports[`Segmented render segmented with options: disabled 1`] = `
     />
     <div
       class="ant-segmented-item-label"
+      title="Monthly"
     >
       Monthly
     </div>
@@ -471,6 +495,7 @@ exports[`Segmented render segmented with string options 1`] = `
     />
     <div
       class="ant-segmented-item-label"
+      title="Daily"
     >
       Daily
     </div>
@@ -484,6 +509,7 @@ exports[`Segmented render segmented with string options 1`] = `
     />
     <div
       class="ant-segmented-item-label"
+      title="Weekly"
     >
       Weekly
     </div>
@@ -497,6 +523,7 @@ exports[`Segmented render segmented with string options 1`] = `
     />
     <div
       class="ant-segmented-item-label"
+      title="Monthly"
     >
       Monthly
     </div>
@@ -518,6 +545,7 @@ exports[`Segmented render segmented with thumb 1`] = `
     />
     <div
       class="ant-segmented-item-label"
+      title="Map"
     >
       Map
     </div>
@@ -531,6 +559,7 @@ exports[`Segmented render segmented with thumb 1`] = `
     />
     <div
       class="ant-segmented-item-label"
+      title="Transit"
     >
       Transit
     </div>
@@ -544,6 +573,7 @@ exports[`Segmented render segmented with thumb 1`] = `
     />
     <div
       class="ant-segmented-item-label"
+      title="Satellite"
     >
       Satellite
     </div>
@@ -565,6 +595,7 @@ exports[`Segmented render segmented: disabled 1`] = `
     />
     <div
       class="ant-segmented-item-label"
+      title="Daily"
     >
       Daily
     </div>
@@ -578,6 +609,7 @@ exports[`Segmented render segmented: disabled 1`] = `
     />
     <div
       class="ant-segmented-item-label"
+      title="Weekly"
     >
       Weekly
     </div>
@@ -591,6 +623,7 @@ exports[`Segmented render segmented: disabled 1`] = `
     />
     <div
       class="ant-segmented-item-label"
+      title="Monthly"
     >
       Monthly
     </div>
