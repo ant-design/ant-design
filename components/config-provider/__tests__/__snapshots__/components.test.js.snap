@@ -18734,7 +18734,7 @@ exports[`ConfigProvider components Progress configProvider 1`] = `
     >
       <div
         class="config-progress-bg"
-        style="width:0%;height:8px;border-radius:"
+        style="width:0%;height:8px"
       />
     </div>
   </div>
@@ -18759,7 +18759,7 @@ exports[`ConfigProvider components Progress configProvider componentSize large 1
     >
       <div
         class="config-progress-bg"
-        style="width:0%;height:8px;border-radius:"
+        style="width:0%;height:8px"
       />
     </div>
   </div>
@@ -18784,7 +18784,7 @@ exports[`ConfigProvider components Progress configProvider componentSize middle 
     >
       <div
         class="config-progress-bg"
-        style="width:0%;height:8px;border-radius:"
+        style="width:0%;height:8px"
       />
     </div>
   </div>
@@ -18809,7 +18809,7 @@ exports[`ConfigProvider components Progress configProvider virtual and dropdownM
     >
       <div
         class="ant-progress-bg"
-        style="width:0%;height:8px;border-radius:"
+        style="width:0%;height:8px"
       />
     </div>
   </div>
@@ -18834,7 +18834,7 @@ exports[`ConfigProvider components Progress normal 1`] = `
     >
       <div
         class="ant-progress-bg"
-        style="width:0%;height:8px;border-radius:"
+        style="width:0%;height:8px"
       />
     </div>
   </div>
@@ -18859,7 +18859,7 @@ exports[`ConfigProvider components Progress prefixCls 1`] = `
     >
       <div
         class="prefix-Progress-bg"
-        style="width:0%;height:8px;border-radius:"
+        style="width:0%;height:8px"
       />
     </div>
   </div>
