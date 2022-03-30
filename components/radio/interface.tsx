@@ -27,7 +27,9 @@ export interface RadioGroupContextProps {
   name?: string;
 }
 
-export type RadioProps = AbstractCheckboxProps<RadioChangeEvent>;
+export interface RadioProps extends AbstractCheckboxProps<RadioChangeEvent> {
+  optionType?: RadioGroupOptionType;
+}
 
 export interface RadioChangeEventTarget extends RadioProps {
   checked: boolean;

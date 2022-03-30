@@ -12,12 +12,12 @@ const RadioButton = (props: RadioButtonProps, ref: React.Ref<any>) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
 
   const { prefixCls: customizePrefixCls, ...radioProps } = props;
-  const prefixCls = getPrefixCls('radio-button', customizePrefixCls);
+  const prefixCls = getPrefixCls('radio', customizePrefixCls);
   if (radioGroupContext) {
     radioProps.checked = props.value === radioGroupContext.value;
     radioProps.disabled = props.disabled || radioGroupContext.disabled;
   }
-  return <Radio prefixCls={prefixCls} {...radioProps} type="radio" ref={ref} />;
+  return <Radio prefixCls={prefixCls} {...radioProps} type="radio" optionType="button" ref={ref} />;
 };
 
 export default React.forwardRef(RadioButton);

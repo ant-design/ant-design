@@ -27,11 +27,19 @@ const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (
     context?.onChange?.(e);
   };
 
-  const { prefixCls: customizePrefixCls, className, children, style, ...restProps } = props;
-  const prefixCls = getPrefixCls('radio', customizePrefixCls);
+  const {
+    prefixCls: customizePrefixCls,
+    optionType,
+    className,
+    children,
+    style,
+    ...restProps
+  } = props;
+  const radioPrefixCls = getPrefixCls('radio', customizePrefixCls);
+  const prefixCls = optionType === 'button' ? `${radioPrefixCls}-button` : radioPrefixCls;
 
   // Style
-  const [wrapSSR, hashId] = useStyle(getPrefixCls('radio'), getPrefixCls());
+  const [wrapSSR, hashId] = useStyle(radioPrefixCls, getPrefixCls());
 
   const radioProps: RadioProps = { ...restProps };
   if (context) {

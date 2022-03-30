@@ -53,17 +53,17 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
     let childrenToRender = children;
     // 如果存在 options, 优先使用
     if (options && options.length > 0) {
-      const optionsPrefixCls = optionType === 'button' ? `${prefixCls}-button` : prefixCls;
       childrenToRender = options.map(option => {
         if (typeof option === 'string' || typeof option === 'number') {
           // 此处类型自动推导为 string
           return (
             <Radio
               key={option.toString()}
-              prefixCls={optionsPrefixCls}
+              prefixCls={prefixCls}
               disabled={disabled}
               value={option}
               checked={value === option}
+              optionType={optionType}
             >
               {option}
             </Radio>
@@ -73,10 +73,11 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
         return (
           <Radio
             key={`radio-group-value-options-${option.value}`}
-            prefixCls={optionsPrefixCls}
+            prefixCls={prefixCls}
             disabled={option.disabled || disabled}
             value={option.value}
             checked={value === option.value}
+            optionType={optionType}
             style={option.style}
           >
             {option.label}
