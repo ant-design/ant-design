@@ -284,7 +284,7 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
       },
 
       [`${listCls}-empty-text`]: {
-        padding: padding,
+        padding,
         color: disabledColor,
         fontSize: fontSizeBase,
         textAlign: 'center',
