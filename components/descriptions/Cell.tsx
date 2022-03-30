@@ -17,6 +17,7 @@ export interface CellProps {
   label?: React.ReactNode;
   content?: React.ReactNode;
   colon?: boolean;
+  hashId?: string;
 }
 
 const Cell: React.FC<CellProps> = ({
@@ -31,6 +32,7 @@ const Cell: React.FC<CellProps> = ({
   label,
   content,
   colon,
+  hashId,
 }) => {
   const Component = component as any;
 
@@ -43,6 +45,7 @@ const Cell: React.FC<CellProps> = ({
             [`${itemPrefixCls}-item-content`]: notEmpty(content),
           },
           className,
+          hashId,
         )}
         style={style}
         colSpan={span}
@@ -55,23 +58,30 @@ const Cell: React.FC<CellProps> = ({
 
   return (
     <Component
-      className={classNames(`${itemPrefixCls}-item`, className)}
+      className={classNames(`${itemPrefixCls}-item`, className, hashId)}
       style={style}
       colSpan={span}
     >
-      <div className={`${itemPrefixCls}-item-container`}>
+      <div className={classNames(`${itemPrefixCls}-item-container`, hashId)}>
         {(label || label === 0) && (
           <span
-            className={classNames(`${itemPrefixCls}-item-label`, {
-              [`${itemPrefixCls}-item-no-colon`]: !colon,
-            })}
+            className={classNames(
+              `${itemPrefixCls}-item-label`,
+              {
+                [`${itemPrefixCls}-item-no-colon`]: !colon,
+              },
+              hashId,
+            )}
             style={labelStyle}
           >
             {label}
           </span>
         )}
         {(content || content === 0) && (
-          <span className={classNames(`${itemPrefixCls}-item-content`)} style={contentStyle}>
+          <span
+            className={classNames(`${itemPrefixCls}-item-content`, hashId)}
+            style={contentStyle}
+          >
             {content}
           </span>
         )}

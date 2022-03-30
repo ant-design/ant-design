@@ -12,6 +12,7 @@ import { ConfigContext } from '../config-provider';
 import Row from './Row';
 import DescriptionsItem from './Item';
 import { cloneElement } from '../_util/reactNode';
+import useStyle from './style';
 
 export interface DescriptionsContextProps {
   labelStyle?: React.CSSProperties;
@@ -135,6 +136,8 @@ function Descriptions({
   const [screens, setScreens] = React.useState<ScreenMap>({});
   const mergedColumn = getColumn(column, screens);
 
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
   // Responsive
   React.useEffect(() => {
     const token = ResponsiveObserve.subscribe(newScreens => {
@@ -156,7 +159,7 @@ function Descriptions({
     [labelStyle, contentStyle],
   );
 
-  return (
+  return wrapSSR(
     <DescriptionsContext.Provider value={contextValue}>
       <div
         className={classNames(
@@ -167,17 +170,18 @@ function Descriptions({
             [`${prefixCls}-rtl`]: direction === 'rtl',
           },
           className,
+          hashId,
         )}
         style={style}
       >
         {(title || extra) && (
-          <div className={`${prefixCls}-header`}>
-            {title && <div className={`${prefixCls}-title`}>{title}</div>}
-            {extra && <div className={`${prefixCls}-extra`}>{extra}</div>}
+          <div className={classNames(`${prefixCls}-header`, hashId)}>
+            {title && <div className={classNames(`${prefixCls}-title`, hashId)}>{title}</div>}
+            {extra && <div className={classNames(`${prefixCls}-extra`, hashId)}>{extra}</div>}
           </div>
         )}
 
-        <div className={`${prefixCls}-view`}>
+        <div className={classNames(`${prefixCls}-view`, hashId)}>
           <table>
             <tbody>
               {rows.map((row, index) => (
@@ -189,13 +193,14 @@ function Descriptions({
                   vertical={layout === 'vertical'}
                   bordered={bordered}
                   row={row}
+                  hashId={hashId}
                 />
               ))}
             </tbody>
           </table>
         </div>
       </div>
-    </DescriptionsContext.Provider>
+    </DescriptionsContext.Provider>,
   );
 }
 
