@@ -50,7 +50,7 @@ const DraggableTabNode = ({ index, children, moveNode }) => {
   });
   drop(drag(ref));
   return (
-    <div ref={ref} style={{ marginRight: 24 }} className={isOver ? dropClassName : ''}>
+    <div ref={ref} className={`dragnode ${isOver ? dropClassName : ''}`}>
       {children}
     </div>
   );
@@ -151,5 +151,9 @@ ReactDOM.render(
 .dropping {
   background: #fefefe;
   transition: all 0.3s;
+}
+
+.dragnode {
+  margin-inline-end: 24px;
 }
 ```
