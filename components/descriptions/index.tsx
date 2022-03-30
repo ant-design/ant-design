@@ -175,13 +175,13 @@ function Descriptions({
         style={style}
       >
         {(title || extra) && (
-          <div className={classNames(`${prefixCls}-header`, hashId)}>
-            {title && <div className={classNames(`${prefixCls}-title`, hashId)}>{title}</div>}
-            {extra && <div className={classNames(`${prefixCls}-extra`, hashId)}>{extra}</div>}
+          <div className={`${prefixCls}-header`}>
+            {title && <div className={`${prefixCls}-title`}>{title}</div>}
+            {extra && <div className={`${prefixCls}-extra`}>{extra}</div>}
           </div>
         )}
 
-        <div className={classNames(`${prefixCls}-view`, hashId)}>
+        <div className={`${prefixCls}-view`}>
           <table>
             <tbody>
               {rows.map((row, index) => (
@@ -193,7 +193,6 @@ function Descriptions({
                   vertical={layout === 'vertical'}
                   bordered={bordered}
                   row={row}
-                  hashId={hashId}
                 />
               ))}
             </tbody>

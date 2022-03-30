@@ -1,5 +1,4 @@
 import * as React from 'react';
-import classNames from 'classnames';
 import { DescriptionsItemProps } from './Item';
 import Cell from './Cell';
 import { DescriptionsContext, DescriptionsContextProps } from '.';
@@ -9,7 +8,6 @@ interface CellConfig {
   type: string;
   showLabel?: boolean;
   showContent?: boolean;
-  hashId?: string;
 }
 
 function renderCells(
@@ -22,7 +20,6 @@ function renderCells(
     showContent,
     labelStyle: rootLabelStyle,
     contentStyle: rootContentStyle,
-    hashId,
   }: CellConfig & DescriptionsContextProps,
 ) {
   return items.map(
@@ -57,7 +54,6 @@ function renderCells(
             bordered={bordered}
             label={showLabel ? label : null}
             content={showContent ? children : null}
-            hashId={hashId}
           />
         );
       }
@@ -73,7 +69,6 @@ function renderCells(
           itemPrefixCls={itemPrefixCls}
           bordered={bordered}
           label={label}
-          hashId={hashId}
         />,
         <Cell
           key={`content-${key || index}`}
@@ -84,7 +79,6 @@ function renderCells(
           itemPrefixCls={itemPrefixCls}
           bordered={bordered}
           content={children}
-          hashId={hashId}
         />,
       ];
     },
@@ -98,33 +92,29 @@ export interface RowProps {
   bordered?: boolean;
   colon: boolean;
   index: number;
-  hashId?: string;
 }
 
 const Row: React.FC<RowProps> = props => {
   const descContext = React.useContext(DescriptionsContext);
 
-  const { prefixCls, vertical, row, index, bordered, hashId } = props;
-
+  const { prefixCls, vertical, row, index, bordered } = props;
   if (vertical) {
     return (
       <>
-        <tr key={`label-${index}`} className={classNames(`${prefixCls}-row`, hashId)}>
+        <tr key={`label-${index}`} className={`${prefixCls}-row`}>
           {renderCells(row, props, {
             component: 'th',
             type: 'label',
             showLabel: true,
             ...descContext,
-            hashId,
           })}
         </tr>
-        <tr key={`content-${index}`} className={classNames(`${prefixCls}-row`, hashId)}>
+        <tr key={`content-${index}`} className={`${prefixCls}-row`}>
           {renderCells(row, props, {
             component: 'td',
             type: 'content',
             showContent: true,
             ...descContext,
-            hashId,
           })}
         </tr>
       </>
@@ -132,14 +122,13 @@ const Row: React.FC<RowProps> = props => {
   }
 
   return (
-    <tr key={index} className={classNames(`${prefixCls}-row`, hashId)}>
+    <tr key={index} className={`${prefixCls}-row`}>
       {renderCells(row, props, {
         component: bordered ? ['th', 'td'] : 'td',
         type: 'item',
         showLabel: true,
         showContent: true,
         ...descContext,
-        hashId,
       })}
     </tr>
   );

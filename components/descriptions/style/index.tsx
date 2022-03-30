@@ -95,15 +95,15 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
     [prefixCls]: {
       ...resetComponent(token),
       ...genBorderedStyle(token),
-      '&-rtl': {
+      [`${prefixCls}-rtl`]: {
         direction: 'rtl',
       },
-      '&-header': {
+      [`${prefixCls}-header`]: {
         display: 'flex',
         alignItems: 'center',
         marginBottom: descriptionsTitleMarginBottom,
       },
-      '&-title': {
+      [`${prefixCls}-title`]: {
         flex: 'auto',
         overflow: 'hidden',
         color: token.colorText,
@@ -113,12 +113,12 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
         whiteSpace: 'nowrap',
         textOverflow: 'ellipsis',
       },
-      '&-extra': {
+      [`${prefixCls}-extra`]: {
         marginLeft: 'auto',
         color: descriptionsExtraColor,
         fontSize: token.fontSize,
       },
-      '&-view': {
+      [`${prefixCls}-view`]: {
         width: '100%',
         borderRadius: token.radiusBase,
         table: {
@@ -126,7 +126,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
           tableLayout: 'fixed',
         },
       },
-      '&-row': {
+      [`${prefixCls}-row`]: {
         '> th, > td': {
           paddingBottom: descriptionItemPaddingBottom,
         },
@@ -134,7 +134,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
           borderBottom: 'none',
         },
       },
-      '&-item-label': {
+      [`${prefixCls}-item-label`]: {
         color: token.colorText,
         fontWeight: 'normal',
         fontSize: token.fontSize,
@@ -147,7 +147,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
           top: '-0.5px',
           margin: `0 ${descriptionsItemLabelColonMarginRight}px 0 ${descriptionsItemLabelColonMarginLeft}px`,
 
-          [`${prefixCls}-rtl &`]: {
+          [`${prefixCls}-rtl&`]: {
             margin: `0 ${descriptionsItemLabelColonMarginLeft}px 0 ${descriptionsItemLabelColonMarginRight}px`,
           },
         },
@@ -156,13 +156,13 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
           content: '""',
         },
       },
-      '&-item-no-label': {
+      [`${prefixCls}-item-no-label`]: {
         '&::after': {
           margin: 0,
           content: '""',
         },
       },
-      '&-item-content': {
+      [`${prefixCls}-item-content`]: {
         display: 'table-cell',
         flex: 1,
         color: token.colorText,
@@ -171,7 +171,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
         wordBreak: 'break-word',
         overflowWrap: 'break-word',
       },
-      '&-item': {
+      [`${prefixCls}-item`]: {
         paddingBottom: 0,
         verticalAlign: 'top',
         '&-container': {
@@ -186,14 +186,14 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
           },
         },
       },
-      '&-middle': {
+      [`${prefixCls}-middle`]: {
         [`${prefixCls}-row`]: {
           '> th, > td': {
             paddingBottom: token.paddingSM,
           },
         },
       },
-      '&-small': {
+      [`${prefixCls}-small`]: {
         [`${prefixCls}-row`]: {
           '> th, > td': {
             paddingBottom: token.paddingXS,
