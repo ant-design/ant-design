@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import Pagination from '..';
 import Select from '../../select';
 import ConfigProvider from '../../config-provider';
@@ -9,15 +9,6 @@ import rtlTest from '../../../tests/shared/rtlTest';
 describe('Pagination', () => {
   mountTest(Pagination);
   rtlTest(Pagination);
-
-  it('should be rendered correctly in RTL', () => {
-    const wrapper = mount(
-      <ConfigProvider direction="rtl">
-        <Pagination defaultCurrent={1} total={50} />
-      </ConfigProvider>,
-    );
-    expect(render(wrapper)).toMatchSnapshot();
-  });
 
   it('should pass disabled to prev and next buttons', () => {
     const itemRender = (current, type, originalElement) => {
@@ -68,5 +59,26 @@ describe('Pagination', () => {
       <Pagination defaultCurrent={1} total={500} selectComponentClass={CustomSelect} />,
     );
     expect(wrapper.find('.custom-select').length).toBeTruthy();
+  });
+
+  describe('ConfigProvider', () => {
+    it('should be rendered correctly in RTL', () => {
+      const wrapper = mount(
+        <ConfigProvider direction="rtl">
+          <Pagination defaultCurrent={1} total={50} />
+        </ConfigProvider>,
+      );
+      expect(wrapper.render()).toMatchSnapshot();
+    });
+
+    it('should be rendered correctly when componentSize is large', () => {
+      const wrapper = mount(
+        <ConfigProvider componentSize="large">
+          <Pagination defaultCurrent={1} total={50} showSizeChanger />
+        </ConfigProvider>,
+      );
+      expect(wrapper.render()).toMatchSnapshot();
+      expect(wrapper.find('.ant-select-lg').length).toBe(0);
+    });
   });
 });
