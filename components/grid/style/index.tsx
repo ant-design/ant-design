@@ -11,63 +11,14 @@ import {
   DerivativeToken,
 } from '../../_util/theme';
 
-export interface PresetScreenSizesType {
-  screenXS: number;
-  screenSM: number;
-  screenMD: number;
-  screenLG: number;
-  screenXL: number;
-  screenXXL: number;
-}
-
-export type PresetScreenMinSizesType = {
-  [key in `${keyof PresetScreenSizesType}Min`]: number;
-};
-
-export type PresetScreenMaxSizesType = {
-  [key in `${keyof Omit<PresetScreenSizesType, 'screenXXL'>}Max`]: number;
-};
-
-export interface PresetScreenSizesCollectType
-  extends PresetScreenSizesType,
-    PresetScreenMinSizesType,
-    PresetScreenMaxSizesType {}
-
 interface GridRowToken extends DerivativeToken {
   gridCls: string;
 }
 
-interface GridColToken extends DerivativeToken, PresetScreenSizesCollectType {
+interface GridColToken extends DerivativeToken {
   gridCls: string;
   gridColumns: number;
 }
-
-// screenXs and screenXsMin is not used in Grid
-// smallest break point is screenMd
-const presetScreenSizes: PresetScreenSizesType = {
-  screenXS: 480,
-  screenSM: 576,
-  screenMD: 768,
-  screenLG: 992,
-  screenXL: 1200,
-  screenXXL: 1600,
-};
-
-// Deal with the default min screen size
-const presetScreenMinSizes: PresetScreenMinSizesType = Object.keys(presetScreenSizes)
-  .map((key: keyof PresetScreenSizesType) => ({
-    [`${key}Min`]: presetScreenSizes[key],
-  }))
-  .reduce((pre, cur) => ({ ...pre, ...cur }), {}) as PresetScreenMinSizesType;
-
-// Deal with the default max screen size
-const presetScreenMaxSizes: PresetScreenMaxSizesType = {
-  screenXSMax: presetScreenSizes.screenSM - 1,
-  screenSMMax: presetScreenSizes.screenMD - 1,
-  screenMDMax: presetScreenSizes.screenLG - 1,
-  screenLGMax: presetScreenSizes.screenXL - 1,
-  screenXLMax: presetScreenSizes.screenXXL - 1,
-};
 
 // ============================== Row-Shared ==============================
 const genGridRowStyle: GenerateStyle<GridRowToken> = (token): CSSObject => {
@@ -227,9 +178,6 @@ export function useColStyle(prefixCls: string): UseComponentStyleResult {
 
   const gridToken: GridColToken = {
     ...token,
-    ...presetScreenSizes,
-    ...presetScreenMinSizes,
-    ...presetScreenMaxSizes,
     gridColumns: 24, // FIXME: hardcode in v4
     gridCls: `.${prefixCls}`,
   };
