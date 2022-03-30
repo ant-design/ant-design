@@ -8,13 +8,8 @@
 // // deps-lint-skip: form
 
 // deps-lint-skip-all
-import {
-  DerivativeToken,
-  useStyleRegister,
-  useToken,
-  UseComponentStyleResult,
-  GenerateStyle,
-} from '../../_util/theme';
+import useComponentStyle from 'antd/es/_util/hooks/useComponentStyle';
+import { DerivativeToken, UseComponentStyleResult, GenerateStyle } from '../../_util/theme';
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
 
 export interface ComponentToken {
@@ -166,27 +161,22 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token, hashId) => {
 
 // ============================== Export ==============================
 export default function useStyle(prefixCls: string): UseComponentStyleResult {
-  const [theme, token, hashId] = useToken();
-
-  return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => {
-      const { Cascader = {} } = token;
-
+  return useComponentStyle<'Cascader'>(
+    prefixCls,
+    'Cascader',
+    {
+      controlWidth: 184,
+      controlItemWidth: 111,
+      dropdownHeight: 180,
+    },
+    (token, hashId) => {
       const cascaderToken: CascaderToken = {
         ...token,
         prefixCls,
         cascaderCls: `.${prefixCls}`,
-
-        controlWidth: 184,
-        controlItemWidth: 111,
-        dropdownHeight: 180,
-
-        // Override
-        ...Cascader,
       };
 
       return [genBaseStyle(cascaderToken, hashId)];
-    }),
-    hashId,
-  ];
+    },
+  );
 }
