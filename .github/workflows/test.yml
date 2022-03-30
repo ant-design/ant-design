@@ -351,12 +351,12 @@ jobs:
     steps:
       - name: checkout
         # lib only run in master branch not in pull request
-        if: ${{ github.event_name != 'pull_request' || matrix.module != 'llib' }}
+        if: ${{ github.event_name != 'pull_request' || matrix.module != 'lib' }}
         uses: actions/checkout@v3
 
       - name: restore cache from package-lock.json
         # lib only run in master branch not in pull request
-        if: ${{ github.event_name != 'pull_request' || matrix.module != 'llib' }}
+        if: ${{ github.event_name != 'pull_request' || matrix.module != 'lib' }}
         uses: actions/cache@v3
         with:
           path: package-temp-dir
@@ -364,7 +364,7 @@ jobs:
 
       - name: restore cache from node_modules
         # lib only run in master branch not in pull request
-        if: ${{ github.event_name != 'pull_request' || matrix.module != 'llib' }}
+        if: ${{ github.event_name != 'pull_request' || matrix.module != 'lib' }}
         uses: actions/cache@v3
         with:
           path: node_modules
@@ -372,23 +372,23 @@ jobs:
 
       - name: restore cache from ${{ matrix.module }}
         # lib only run in master branch not in pull request
-        if: ${{ github.event_name != 'pull_request' || matrix.module != 'llib' }}
+        if: ${{ github.event_name != 'pull_request' || matrix.module != 'lib' }}
         uses: actions/cache@v3
         with:
           path: ${{ matrix.module }}
           key: ${{ matrix.module }}-${{ github.sha }}
 
       - name: install react 16
-        if: ${{ matrix.react == '16' && (github.event_name != 'pull_request' || matrix.module != 'llib') }}
+        if: ${{ matrix.react == '16' && (github.event_name != 'pull_request' || matrix.module != 'lib') }}
         run: npm run install-react-16
 
       - name: install react 17
-        if: ${{ matrix.react == '17' && (github.event_name != 'pull_request' || matrix.module != 'llib') }}
+        if: ${{ matrix.react == '17' && (github.event_name != 'pull_request' || matrix.module != 'lib') }}
         run: npm run install-react-17
 
       - name: test
         # lib only run in master branch not in pull request
-        if: ${{ github.event_name != 'pull_request' || matrix.module != 'llib' }}
+        if: ${{ github.event_name != 'pull_request' || matrix.module != 'lib' }}
         run: npm test
         env:
           LIB_DIR: ${{ matrix.module }}
