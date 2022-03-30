@@ -350,7 +350,6 @@ jobs:
       REACT: ${{ matrix.react }}
     steps:
       - name: checkout
-        if: ${{ github.event.pull_request.number === NaN }}
         uses: actions/checkout@v3
 
       - name: restore cache from package-lock.json
