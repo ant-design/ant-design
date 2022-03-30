@@ -23,7 +23,7 @@ jobs:
           key: lock-${{ github.sha }}
 
       - name: create package-lock.json
-        run: npm i --package-lock-only --ignore-scripts
+        run: npm i --package-lock-only --ignore-scripts --force
 
       - name: hack for single file
         run: |
@@ -40,7 +40,7 @@ jobs:
 
       - name: install
         if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
-        run: npm ci
+        run: npm ci --force
 
   lint:
     runs-on: ubuntu-latest
