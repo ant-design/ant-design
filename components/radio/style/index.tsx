@@ -112,8 +112,8 @@ function getGroupRadioStyle(
         direction: 'rtl',
       },
 
-      [`.${antPrefix}-badge-count`]: {
-        zIndex: '1 !important',
+      [`.${antPrefix}-badge .${antPrefix}-badge-count`]: {
+        zIndex: 1,
       },
 
       [`> .${antPrefix}-badge:not(:first-child) > .${prefixCls}-button-wrapper`]: {
