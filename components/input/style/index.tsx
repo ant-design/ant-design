@@ -71,7 +71,7 @@ const genInputLargeStyle = (token: InputToken): CSSObject => {
   };
 };
 
-const genInputSmallStyle = (token: InputToken): CSSObject => ({
+export const genInputSmallStyle = (token: InputToken): CSSObject => ({
   padding: `${token.inputPaddingVerticalSM}px ${token.controlPaddingHorizontalSM - 1}px`,
 });
 
