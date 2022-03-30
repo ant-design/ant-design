@@ -256,9 +256,9 @@ jobs:
         if: ${{ matrix.react == '16' }}
         run: npm run install-react-16
 
-      - name: install react 18
-        if: ${{ matrix.react == '18' }}
-        run: npm run install-react-18
+      - name: install react 17
+        if: ${{ matrix.react == '17' }}
+        run: npm run install-react-17
 
       - name: restore cache from dist
         if: ${{ matrix.module == 'dist' }}
@@ -374,9 +374,9 @@ jobs:
         if: ${{ matrix.react == '16' }}
         run: npm run install-react-16
 
-      - name: install react 18
-        if: ${{ matrix.react == '18' }}
-        run: npm run install-react-18
+      - name: install react 17
+        if: ${{ matrix.react == '17' }}
+        run: npm run install-react-17
 
       - name: test
         run: npm test
