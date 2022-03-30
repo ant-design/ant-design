@@ -7,6 +7,7 @@ import devWarning from '../_util/devWarning';
 import { Breakpoint, responsiveArray } from '../_util/responsiveObserve';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import SizeContext, { AvatarSize } from './SizeContext';
+import useStyle from './style';
 
 export interface AvatarProps {
   /** Shape of avatar, options: `circle`, `square` */
@@ -47,7 +48,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
 
   const avatarNodeMergeRef = composeRef(ref, avatarNodeRef);
 
-  const { getPrefixCls } = React.useContext(ConfigContext);
+  const { getPrefixCls, iconPrefixCls } = React.useContext(ConfigContext);
 
   const setScaleParam = () => {
     if (!avatarChildrenRef.current || !avatarNodeRef.current) {
@@ -131,6 +132,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
   );
 
   const prefixCls = getPrefixCls('avatar', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls, getPrefixCls());
 
   const sizeCls = classNames({
     [`${prefixCls}-lg`]: size === 'large',
@@ -148,6 +150,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
       [`${prefixCls}-icon`]: !!icon,
     },
     className,
+    hashId,
   );
 
   const sizeStyle: React.CSSProperties =
@@ -223,7 +226,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
   delete others.onError;
   delete others.gap;
 
-  return (
+  return wrapSSR(
     <span
       {...others}
       style={{ ...sizeStyle, ...responsiveSizeStyle, ...others.style }}
@@ -231,7 +234,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
       ref={avatarNodeMergeRef as any}
     >
       {childrenToRender}
-    </span>
+    </span>,
   );
 };
 

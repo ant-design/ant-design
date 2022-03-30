@@ -120,7 +120,7 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
   const prefixCls = getPrefixCls('mentions', customizePrefixCls);
 
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls || '');
+  const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls);
 
   const mergedClassName = classNames(
     {

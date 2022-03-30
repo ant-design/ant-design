@@ -108,6 +108,12 @@
 @border-radius-base: 2px;
 @border-radius-sm: @border-radius-base;
 
+// control border
+@control-border-radius: @border-radius-base;
+
+// arrow border
+@arrow-border-radius: @border-radius-sm;
+
 // vertical paddings
 @padding-lg: 24px; // containers
 @padding-md: 16px; // small containers and buttons
@@ -521,6 +527,7 @@
 @tooltip-distance: @tooltip-arrow-width - 1px + 4px;
 // Tooltip arrow color
 @tooltip-arrow-color: @tooltip-bg;
+@tooltip-border-radius: @border-radius-base;
 
 // Popover
 // ---
@@ -668,6 +675,7 @@
 
 // Tag
 // --
+@tag-border-radius: @border-radius-base;
 @tag-default-bg: @background-color-light;
 @tag-default-color: @text-color;
 @tag-font-size: @font-size-sm;

@@ -59,7 +59,6 @@ const genBaseStyle: GenerateStyle<PopoverToken> = token => {
     lineHeight,
     radiusBase: borderRadius,
     paddingSM,
-    zIndexPopover,
   } = token;
 
   return {
@@ -68,7 +67,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = token => {
       position: 'absolute',
       top: 0,
       insetInlineStart: 0,
-      zIndex: zIndexPopover,
+      zIndex: 1030, // FIXME: hardcode
       fontWeight: 'normal',
       whiteSpace: 'normal',
       textAlign: 'start',
@@ -351,23 +350,19 @@ const genColorStyle: GenerateStyle<PopoverToken> = token => {
   }, {} as CSSObject);
 };
 
-export const genPopoverStyle: GenerateStyle<PopoverToken> = (
-  token: PopoverToken,
-): CSSInterpolation => [genBaseStyle(token), genPlacementStyle(token), genColorStyle(token)];
-
-export default function useStyle(
+export const genPopoverStyle = (
   prefixCls: string,
   iconPrefixCls: string,
-): UseComponentStyleResult {
-  const [theme, token, hashId] = useToken();
-
+  token: DerivativeToken,
+): CSSInterpolation => {
   const popoverBg = token.colorBg;
   // FIXME
   const popoverArrowWidth = 8 * Math.sqrt(2);
 
-  const popoverToken = {
+  const popoverCls = `.${prefixCls}`;
+  const popoverToken: PopoverToken = {
     ...token,
-    popoverCls: `.${prefixCls}`,
+    popoverCls,
     iconPrefixCls,
     popoverBg,
     popoverColor: token.colorText,
@@ -385,9 +380,18 @@ export default function useStyle(
     popoverArrowOffsetHorizontal: 16,
   };
 
+  return [genBaseStyle(popoverToken), genPlacementStyle(popoverToken), genColorStyle(popoverToken)];
+};
+
+export default function useStyle(
+  prefixCls: string,
+  iconPrefixCls: string,
+): UseComponentStyleResult {
+  const [theme, token, hashId] = useToken();
+
   return [
     useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      genPopoverStyle(popoverToken),
+      genPopoverStyle(prefixCls, iconPrefixCls, token),
     ]),
     hashId,
   ];

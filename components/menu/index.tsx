@@ -1,8 +1,9 @@
 import * as React from 'react';
-import RcMenu, { ItemGroup, MenuProps as RcMenuProps } from 'rc-menu';
+import RcMenu, { ItemGroup, MenuProps as RcMenuProps, MenuRef } from 'rc-menu';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
+import { forwardRef } from 'react';
 import SubMenu, { SubMenuProps } from './SubMenu';
 import Item, { MenuItemProps } from './MenuItem';
 import { ConfigContext } from '../config-provider';
@@ -40,7 +41,7 @@ type InternalMenuProps = MenuProps &
     collapsedWidth?: string | number;
   };
 
-function InternalMenu(props: InternalMenuProps) {
+const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
   const { getPrefixCls, getPopupContainer, direction } = React.useContext(ConfigContext);
 
   const rootPrefixCls = getPrefixCls();
@@ -129,12 +130,13 @@ function InternalMenu(props: InternalMenuProps) {
         expandIcon={cloneElement(expandIcon, {
           className: `${prefixCls}-submenu-expand-icon`,
         })}
+        ref={ref}
       >
         {mergedChildren}
       </RcMenu>
     </MenuContext.Provider>
   );
-}
+});
 
 // We should keep this as ref-able
 class Menu extends React.Component<MenuProps, {}> {
@@ -146,10 +148,24 @@ class Menu extends React.Component<MenuProps, {}> {
 
   static ItemGroup = ItemGroup;
 
+  menu: MenuRef | null;
+
+  focus = (options?: FocusOptions) => {
+    this.menu?.focus(options);
+  };
+
   render() {
     return (
       <SiderContext.Consumer>
-        {(context: SiderContextProps) => <InternalMenu {...this.props} {...context} />}
+        {(context: SiderContextProps) => (
+          <InternalMenu
+            ref={node => {
+              this.menu = node;
+            }}
+            {...this.props}
+            {...context}
+          />
+        )}
       </SiderContext.Consumer>
     );
   }

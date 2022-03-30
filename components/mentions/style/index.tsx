@@ -11,11 +11,18 @@ import {
   genBasicInputStyle,
   genDisabledStyle,
   genPlaceholderStyle,
+  genStatusStyle,
   initInputToken,
   InputToken,
 } from '../../input/style';
 
-interface MentionsToken extends InputToken {
+export interface ComponentToken {
+  zIndexDropdown: number;
+  dropdownHeight: number;
+  controlItemWidth: number;
+}
+
+interface MentionsToken extends InputToken, ComponentToken {
   mentionsCls: string;
 }
 
@@ -37,6 +44,10 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
     boxShadow,
   } = token;
 
+  const itemPaddingVertical = Math.round(
+    (token.controlHeight - token.fontSize * token.lineHeight) / 2,
+  );
+
   return {
     [`${mentionsCls}`]: {
       ...resetComponent(token),
@@ -50,6 +61,8 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
       lineHeight,
       whiteSpace: 'pre-wrap',
       verticalAlign: 'bottom',
+
+      ...genStatusStyle(token),
 
       '&-disabled': {
         '> textarea': {
@@ -103,7 +116,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
         border: 'none',
         outline: 'none',
         resize: 'none',
-        ...genPlaceholderStyle(),
+        ...genPlaceholderStyle(token.colorPlaceholder),
       },
 
       [`${mentionsCls}-measure`]: {
@@ -130,7 +143,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
         position: 'absolute',
         top: -9999,
         insetInlineStart: -9999,
-        zIndex: 1050, // FIXME: magic
+        zIndex: token.zIndexDropdown,
         boxSizing: 'border-box',
         fontSize,
         fontVariant: 'initial',
@@ -144,7 +157,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
         },
 
         [`${mentionsCls}-dropdown-menu`]: {
-          maxHeight: 250, // FIXME: magic
+          maxHeight: token.dropdownHeight,
           marginBottom: 0,
           paddingInlineStart: 0, // Override default ul/ol
           overflow: 'auto',
@@ -154,8 +167,8 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
           '&-item': {
             position: 'relative',
             display: 'block',
-            minWidth: 100, // FIXME: magic
-            padding: `5px ${controlPaddingHorizontal}px`, // FIXME: magic
+            minWidth: token.controlItemWidth,
+            padding: `${itemPaddingVertical}px ${controlPaddingHorizontal}px`,
             overflow: 'hidden',
             color: colorText,
             fontWeight: 'normal',
@@ -196,7 +209,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
 
             '&-selected': {
               color: colorText,
-              fontWeight: 600, // FIXME: Need design token?
+              fontWeight: token.fontWeightStrong,
               backgroundColor: controlItemBgHover,
             },
 
@@ -217,15 +230,24 @@ export default function useStyle(
 ): UseComponentStyleResult {
   const [theme, token, hashId] = useToken();
 
-  const mentionsToken: MentionsToken = {
-    ...initInputToken(token, prefixCls, iconPrefixCls),
-    mentionsCls: `.${prefixCls}`,
-  };
-
   return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      genMentionsStyle(mentionsToken),
-    ]),
+    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => {
+      const { zIndexPopup, Mentions } = token;
+
+      const mentionsToken: MentionsToken = {
+        ...initInputToken(token, prefixCls, iconPrefixCls),
+
+        mentionsCls: `.${prefixCls}`,
+
+        dropdownHeight: 250,
+        controlItemWidth: 100,
+        zIndexDropdown: zIndexPopup + 50,
+
+        ...Mentions,
+      };
+
+      return [genMentionsStyle(mentionsToken)];
+    }),
     hashId,
   ];
 }
