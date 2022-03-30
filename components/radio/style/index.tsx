@@ -38,7 +38,7 @@ interface RadioToken extends DerivativeToken {
 function getRadioToken(token: GlobalToken) {
   // Radio
   const radioDuration = '0.3s';
-  const radioFocusShadow = `0 0 0 3px ${token.colorPrimary}`;
+  const radioFocusShadow = `0 0 0 3px ${token.colorPrimaryOutline}`;
   const radioButtonFocusShadow = radioFocusShadow;
 
   const radioSize = token.fontSizeLG;
