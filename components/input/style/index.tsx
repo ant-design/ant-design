@@ -851,12 +851,6 @@ const genTextAreaStyle: GenerateStyle<InputToken> = token => {
           display: 'block',
           transform: 'translateY(100%)',
         },
-
-        [`&${textareaPrefixCls}-in-form-item`]: {
-          '&::after': {
-            marginBottom: -Math.floor(token.fontSize * token.lineHeight),
-          },
-        },
       },
     },
   };

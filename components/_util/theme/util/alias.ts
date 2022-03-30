@@ -26,6 +26,12 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
   const successColors = generate(mergedToken.colorSuccess);
   const warningColors = generate(mergedToken.colorWarning);
   const errorColors = generate(mergedToken.colorError);
+  const screenXS = 480;
+  const screenSM = 576;
+  const screenMD = 768;
+  const screenLG = 992;
+  const screenXL = 1200;
+  const screenXXL = 1600;
 
   const fontSizeSM = fontSizes[0];
 
@@ -123,6 +129,27 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
       0 6px 16px 0 rgba(0, 0, 0, 0.08),
       0 9px 28px 8px rgba(0, 0, 0, 0.05)
     `,
+
+    screenXS,
+    screenXSMin: screenXS,
+    screenXSMax: screenXS - 1,
+    screenSM,
+    screenSMMin: screenSM,
+    screenSMMax: screenSM - 1,
+    screenMD,
+    screenMDMin: screenMD,
+    screenMDMax: screenMD - 1,
+    screenLG,
+    screenLGMin: screenLG,
+    screenLGMax: screenLG - 1,
+    screenXL,
+    screenXLMin: screenXL,
+    screenXLMax: screenXL - 1,
+    screenXXL,
+    screenXXLMin: screenXXL,
+    screenXXLMax: screenXXL - 1,
+
+    motionEaseOut: 'cubic-bezier(0.215, 0.61, 0.355, 1)',
   };
 
   return aliasToken;

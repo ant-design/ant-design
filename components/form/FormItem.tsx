@@ -11,6 +11,7 @@ import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
+import useStyle from './style';
 import Row from '../grid/row';
 import { ConfigContext } from '../config-provider';
 import { tuple } from '../_util/type';
@@ -121,7 +122,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
     hidden,
     ...restProps
   } = props;
-  const { getPrefixCls } = useContext(ConfigContext);
+  const { getPrefixCls, iconPrefixCls } = useContext(ConfigContext);
   const { name: formName, requiredMark } = useContext(FormContext);
   const isRenderProps = typeof children === 'function';
   const notifyParentMetaChange = useContext(NoStyleItemContext);
@@ -133,6 +134,9 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
   const hasName = hasValidName(name);
 
   const prefixCls = getPrefixCls('form', customizePrefixCls);
+
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls, getPrefixCls());
 
   // ========================= MISC =========================
   // Get `noStyle` required info
@@ -282,7 +286,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
     // ======================= Children =======================
     return (
       <Row
-        className={classNames(itemClassName)}
+        className={classNames(itemClassName, hashId)}
         style={style}
         key="row"
         {...omit(restProps, [
@@ -337,7 +341,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
   }
 
   if (!hasName && !isRenderProps && !dependencies) {
-    return renderLayout(children) as JSX.Element;
+    return wrapSSR(renderLayout(children) as JSX.Element);
   }
 
   let variables: Record<string, string> = {};
@@ -351,7 +355,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
   }
 
   // >>>>> With Field
-  return (
+  return wrapSSR(
     <Field
       {...props}
       messageVariables={variables}
@@ -459,7 +463,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
 
         return renderLayout(childNode, fieldId, isRequired);
       }}
-    </Field>
+    </Field>,
   );
 }
 
