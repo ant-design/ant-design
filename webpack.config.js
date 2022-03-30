@@ -9,8 +9,6 @@ const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack
 const darkVars = require('./scripts/dark-vars');
 const compactVars = require('./scripts/compact-vars');
 
-const { webpack } = getWebpackConfig;
-
 function injectLessVariables(config, variables) {
   (Array.isArray(config) ? config : [config]).forEach(conf => {
     conf.module.rules.forEach(rule => {
