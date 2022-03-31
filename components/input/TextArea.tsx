@@ -72,7 +72,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
     },
     ref,
   ) => {
-    const { getPrefixCls, direction, iconPrefixCls } = React.useContext(ConfigContext);
+    const { getPrefixCls, direction } = React.useContext(ConfigContext);
     const size = React.useContext(SizeContext);
 
     const {
@@ -164,7 +164,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
     const prefixCls = getPrefixCls('input', customizePrefixCls);
 
     // Style
-    const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls);
+    const [wrapSSR, hashId] = useStyle(prefixCls);
 
     React.useImperativeHandle(ref, () => ({
       resizableTextArea: innerRef.current?.resizableTextArea,

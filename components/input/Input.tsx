@@ -133,13 +133,13 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     addonBefore,
     ...rest
   } = props;
-  const { getPrefixCls, direction, input, iconPrefixCls } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, input } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('input', customizePrefixCls);
   const inputRef = useRef<InputRef>(null);
 
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   // ===================== Size =====================
   const size = React.useContext(SizeContext);
