@@ -64,7 +64,7 @@ const genInputLargeStyle = (token: InputToken): CSSObject => {
   };
 };
 
-const genInputSmallStyle = (token: InputToken): CSSObject => ({
+export const genInputSmallStyle = (token: InputToken): CSSObject => ({
   padding: `${token.inputPaddingVerticalSM}px ${token.controlPaddingHorizontalSM - 1}px`,
 });
 
@@ -843,12 +843,6 @@ const genTextAreaStyle: GenerateStyle<InputToken> = token => {
           pointerEvents: 'none',
           display: 'block',
           transform: 'translateY(100%)',
-        },
-
-        [`&${textareaPrefixCls}-in-form-item`]: {
-          '&::after': {
-            marginBottom: -Math.floor(token.fontSize * token.lineHeight),
-          },
         },
       },
     },

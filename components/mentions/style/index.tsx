@@ -11,6 +11,7 @@ import {
   genBasicInputStyle,
   genDisabledStyle,
   genPlaceholderStyle,
+  genStatusStyle,
   initInputToken,
   InputToken,
 } from '../../input/style';
@@ -60,6 +61,8 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
       lineHeight,
       whiteSpace: 'pre-wrap',
       verticalAlign: 'bottom',
+
+      ...genStatusStyle(token),
 
       '&-disabled': {
         '> textarea': {

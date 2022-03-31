@@ -78,7 +78,6 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
     const {
       status: contextStatus,
       hasFeedback,
-      isFormItemInput,
       feedbackIcon,
     } = React.useContext(FormItemInputContext);
     const mergedStatus = getMergedStatus(contextStatus, customStatus);
@@ -240,7 +239,6 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
             {
               [`${prefixCls}-textarea-rtl`]: direction === 'rtl',
               [`${prefixCls}-textarea-show-count`]: showCount,
-              [`${prefixCls}-textarea-in-form-item`]: isFormItemInput,
             },
             getStatusClassNames(`${prefixCls}-textarea`, mergedStatus, hasFeedback),
             className,

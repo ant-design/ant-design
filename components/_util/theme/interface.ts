@@ -277,4 +277,26 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   marginSM: number;
   marginLG: number;
   marginXXS: number;
+
+  // Media queries breakpoints
+  screenXS: number;
+  screenXSMin: number;
+  screenXSMax: number;
+  screenSM: number;
+  screenSMMin: number;
+  screenSMMax: number;
+  screenMD: number;
+  screenMDMin: number;
+  screenMDMax: number;
+  screenLG: number;
+  screenLGMin: number;
+  screenLGMax: number;
+  screenXL: number;
+  screenXLMin: number;
+  screenXLMax: number;
+  screenXXL: number;
+  screenXXLMin: number;
+  screenXXLMax: number;
+
+  motionEaseOut: string;
 }
