@@ -57,13 +57,13 @@ ReactDOM.render(
 .card-container > .ant-tabs-card > .ant-tabs-nav::before {
   display: none;
 }
-.card-container > .ant-tabs-card .ant-tabs-tab,
-[data-theme='compact'] .card-container > .ant-tabs-card .ant-tabs-tab {
+.card-container > .ant-tabs-card .ant-tabs-nav-list > .ant-tabs-tab,
+[data-theme='compact'] .card-container > .ant-tabs-card .ant-tabs-nav-list > .ant-tabs-tab {
   background: transparent;
   border-color: transparent;
 }
-.card-container > .ant-tabs-card .ant-tabs-tab-active,
-[data-theme='compact'] .card-container > .ant-tabs-card .ant-tabs-tab-active {
+.card-container > .ant-tabs-card .ant-tabs-nav-list > .ant-tabs-tab-active,
+[data-theme='compact'] .card-container > .ant-tabs-card .ant-tabs-nav-list > .ant-tabs-tab-active {
   background: #fff;
   border-color: #fff;
 }
