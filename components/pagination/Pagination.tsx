@@ -9,9 +9,7 @@ import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import DoubleLeftOutlined from '@ant-design/icons/DoubleLeftOutlined';
 import DoubleRightOutlined from '@ant-design/icons/DoubleRightOutlined';
-
-import MiniSelect from './MiniSelect';
-import Select from '../select';
+import { MiniSelect, MiddleSelect } from './Select';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { ConfigContext } from '../config-provider';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
@@ -109,7 +107,7 @@ const Pagination: React.FC<PaginationProps> = ({
         prefixCls={prefixCls}
         selectPrefixCls={selectPrefixCls}
         className={extendedClassName}
-        selectComponentClass={selectComponentClass || (isSmall ? MiniSelect : Select)}
+        selectComponentClass={selectComponentClass || (isSmall ? MiniSelect : MiddleSelect)}
         locale={locale}
       />
     );
