@@ -12,14 +12,19 @@ type StyleInfo = {
   rootPrefixCls: string;
   iconPrefixCls: string;
 };
+type TokenWithComponentCls<T> = T & { componentCls: string };
 
 function genComponentStyleHook(
-  styleFn: (prefixCls: string, token: AliasToken, info: StyleInfo) => CSSInterpolation,
+  styleFn: (
+    prefixCls: string,
+    token: TokenWithComponentCls<AliasToken>,
+    info: StyleInfo,
+  ) => CSSInterpolation,
 ): (prefixCls: string) => UseComponentStyleResult;
 function genComponentStyleHook<ComponentName extends OverrideComponent>(
   styleFn: (
     prefixCls: string,
-    token: AliasToken & OverrideToken[ComponentName],
+    token: TokenWithComponentCls<AliasToken & OverrideToken[ComponentName]>,
     info: StyleInfo,
   ) => CSSInterpolation,
   component: ComponentName,
@@ -30,7 +35,7 @@ function genComponentStyleHook<ComponentName extends OverrideComponent>(
 function genComponentStyleHook<ComponentName extends OverrideComponent>(
   styleFn: (
     prefixCls: string,
-    token: AliasToken & OverrideToken[ComponentName],
+    token: TokenWithComponentCls<AliasToken & OverrideToken[ComponentName]>,
     info: StyleInfo,
   ) => CSSInterpolation,
   component?: ComponentName,
@@ -42,7 +47,11 @@ function genComponentStyleHook<ComponentName extends OverrideComponent>(
     const [theme, token, hashId] = useToken();
     const { getPrefixCls, iconPrefixCls } = useContext(ConfigContext);
 
-    let mergedToken = token;
+    const tokenWithCls: TokenWithComponentCls<AliasToken> = {
+      ...token,
+      componentCls: `.${prefixCls}`,
+    };
+    let mergedToken = tokenWithCls;
     if (component) {
       let componentToken: OverrideTokenWithoutDerivative[ComponentName];
       if (typeof defaultComponentToken === 'function') {
@@ -59,18 +68,22 @@ function genComponentStyleHook<ComponentName extends OverrideComponent>(
         });
       }
       mergedToken = {
-        ...token,
+        ...tokenWithCls,
         ...componentToken,
       };
     }
 
     return [
       useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () =>
-        styleFn(prefixCls, mergedToken as AliasToken & OverrideToken[ComponentName], {
-          hashId,
-          rootPrefixCls: getPrefixCls(),
-          iconPrefixCls,
-        }),
+        styleFn(
+          prefixCls,
+          mergedToken as TokenWithComponentCls<AliasToken & OverrideToken[ComponentName]>,
+          {
+            hashId,
+            rootPrefixCls: getPrefixCls(),
+            iconPrefixCls,
+          },
+        ),
       ),
       hashId,
     ];
