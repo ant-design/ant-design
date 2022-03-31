@@ -149,6 +149,7 @@ ConfigProvider.config({
 下面是一些典型的错误例子：
 
 - ❌ AntD
+- ❌ Ant-D
 - ❌ antD
 - ❌ Antd
 - ❌ ant design
