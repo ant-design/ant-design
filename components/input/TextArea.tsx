@@ -6,13 +6,8 @@ import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
-import { FormItemStatusContext } from '../form/context';
-import {
-  getFeedbackIcon,
-  getStatusClassNames,
-  InputStatus,
-  getMergedStatus,
-} from '../_util/statusUtils';
+import { FormItemInputContext } from '../form/context';
+import { getStatusClassNames, InputStatus, getMergedStatus } from '../_util/statusUtils';
 import ClearableLabeledInput from './ClearableLabeledInput';
 import { fixControlledValue, InputFocusOptions, resolveOnChange, triggerFocus } from './Input';
 
@@ -79,7 +74,12 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
     const { getPrefixCls, direction } = React.useContext(ConfigContext);
     const size = React.useContext(SizeContext);
 
-    const { status: contextStatus, hasFeedback } = React.useContext(FormItemStatusContext);
+    const {
+      status: contextStatus,
+      hasFeedback,
+      isFormItemInput,
+      feedbackIcon,
+    } = React.useContext(FormItemInputContext);
     const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
     const innerRef = React.useRef<RcTextArea>(null);
@@ -234,6 +234,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
             {
               [`${prefixCls}-textarea-rtl`]: direction === 'rtl',
               [`${prefixCls}-textarea-show-count`]: showCount,
+              [`${prefixCls}-textarea-in-form-item`]: isFormItemInput,
             },
             getStatusClassNames(`${prefixCls}-textarea`, mergedStatus, hasFeedback),
             className,
@@ -242,7 +243,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
           data-count={dataCount}
         >
           {textareaNode}
-          {hasFeedback && getFeedbackIcon(prefixCls, mergedStatus)}
+          {hasFeedback && <span className={`${prefixCls}-textarea-suffix`}>{feedbackIcon}</span>}
         </div>
       );
     }

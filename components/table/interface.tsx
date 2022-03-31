@@ -117,6 +117,7 @@ export interface ColumnType<RecordType> extends RcColumnType<RecordType> {
   onFilter?: (value: string | number | boolean, record: RecordType) => boolean;
   filterDropdownVisible?: boolean;
   onFilterDropdownVisibleChange?: (visible: boolean) => void;
+  filterResetToDefaultFilteredValue?: boolean;
 
   // Responsive
   responsive?: Breakpoint[];
