@@ -87,7 +87,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
     [prefixCls]: {
       ...resetComponent(token),
       ...genBorderedStyle(token),
-      [`${prefixCls}-rtl`]: {
+      [`&-rtl`]: {
         direction: 'rtl',
       },
       [`${prefixCls}-header`]: {
