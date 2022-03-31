@@ -26,11 +26,18 @@ function useComponentStyle<ComponentName extends OverrideComponent>(
 
   let mergedToken = token;
   if (component) {
-    const overrideComponentToken = component ? token[component] : {};
+    const componentToken = defaultComponentToken as any;
+    const overrideComponentToken = token[component] as any;
+    if (componentToken && overrideComponentToken) {
+      Object.keys(componentToken).forEach(key => {
+        if (overrideComponentToken[key] !== undefined) {
+          componentToken[key] = overrideComponentToken[key];
+        }
+      });
+    }
     mergedToken = {
       ...token,
-      ...defaultComponentToken,
-      ...overrideComponentToken,
+      ...componentToken,
     };
   }
 
