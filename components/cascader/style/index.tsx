@@ -8,7 +8,7 @@
 // // deps-lint-skip: form
 
 // deps-lint-skip-all
-import useComponentStyle from 'antd/es/_util/hooks/useComponentStyle';
+import useComponentStyle from '../../_util/hooks/useComponentStyle';
 import { DerivativeToken, UseComponentStyleResult, GenerateStyle } from '../../_util/theme';
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
 
@@ -161,7 +161,7 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token, hashId) => {
 
 // ============================== Export ==============================
 export default function useStyle(prefixCls: string): UseComponentStyleResult {
-  return useComponentStyle<'Cascader'>(
+  return useComponentStyle(
     prefixCls,
     'Cascader',
     {

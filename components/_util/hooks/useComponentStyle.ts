@@ -1,14 +1,15 @@
 import { CSSInterpolation, useStyleRegister } from '@ant-design/cssinjs';
-import { GlobalToken, OverrideToken } from '../theme/interface';
+import { AliasToken, OverrideToken } from '../theme/interface';
 import { UseComponentStyleResult, useToken } from '../theme';
 
-type OverrideComponent = keyof Omit<OverrideToken, 'derivative'>;
+type OverrideTokenWithoutDerivative = Omit<OverrideToken, 'derivative'>;
+type OverrideComponent = keyof OverrideTokenWithoutDerivative;
 
-const useComponentStyle = <Component extends OverrideComponent>(
+const useComponentStyle = <ComponentName extends OverrideComponent>(
   prefixCls: string,
-  component: OverrideComponent,
-  defaultComponentToken: OverrideToken[Component],
-  styleFn: (token: GlobalToken & OverrideToken[Component], hashId: string) => CSSInterpolation,
+  component: ComponentName,
+  defaultComponentToken: OverrideTokenWithoutDerivative[ComponentName],
+  styleFn: (token: AliasToken & OverrideToken[ComponentName], hashId: string) => CSSInterpolation,
 ): UseComponentStyleResult => {
   const [theme, token, hashId] = useToken();
 
