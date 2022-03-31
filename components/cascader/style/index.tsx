@@ -8,7 +8,7 @@
 // // deps-lint-skip: form
 
 // deps-lint-skip-all
-import genComponentStyleHook from '../../_util/hooks/useComponentStyle';
+import genComponentStyleHook from '../../_util/hooks/genComponentStyleHook';
 import { DerivativeToken, GenerateStyle } from '../../_util/theme';
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
 

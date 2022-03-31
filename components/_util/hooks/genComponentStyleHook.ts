@@ -23,7 +23,9 @@ function genComponentStyleHook<ComponentName extends OverrideComponent>(
     info: StyleInfo,
   ) => CSSInterpolation,
   component: ComponentName,
-  defaultComponentToken: OverrideTokenWithoutDerivative[ComponentName],
+  defaultComponentToken?:
+    | OverrideTokenWithoutDerivative[ComponentName]
+    | ((token: AliasToken) => OverrideTokenWithoutDerivative[ComponentName]),
 ): (prefixCls: string) => UseComponentStyleResult;
 function genComponentStyleHook<ComponentName extends OverrideComponent>(
   styleFn: (

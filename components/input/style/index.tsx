@@ -1,6 +1,6 @@
 // deps-lint-skip-all
 import { CSSObject } from '@ant-design/cssinjs';
-import genComponentStyleHook from '../../_util/hooks/useComponentStyle';
+import genComponentStyleHook from '../../_util/hooks/genComponentStyleHook';
 import { clearFix, DerivativeToken, GenerateStyle, resetComponent } from '../../_util/theme';
 
 export interface InputToken extends DerivativeToken {
