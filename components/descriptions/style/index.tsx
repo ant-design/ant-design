@@ -101,6 +101,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
       [`${prefixCls}-header`]: {
         display: 'flex',
         alignItems: 'center',
+        // FIXME: hardcode in v4
         marginBottom: descriptionsTitleMarginBottom,
       },
       [`${prefixCls}-title`]: {
@@ -108,6 +109,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
         overflow: 'hidden',
         color: token.colorText,
         fontWeight: 'bold',
+        // FIXME: hardcode in v4
         fontSize: token.fontSizeLG,
         lineHeight: token.lineHeight,
         whiteSpace: 'nowrap',
@@ -116,10 +118,12 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
       [`${prefixCls}-extra`]: {
         marginLeft: 'auto',
         color: descriptionsExtraColor,
+        // FIXME: hardcode in v4
         fontSize: token.fontSize,
       },
       [`${prefixCls}-view`]: {
         width: '100%',
+        // FIXME: hardcode in v4
         borderRadius: token.radiusBase,
         table: {
           width: '100%',
@@ -128,6 +132,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
       },
       [`${prefixCls}-row`]: {
         '> th, > td': {
+          // FIXME: hardcode in v4
           paddingBottom: descriptionItemPaddingBottom,
         },
         '&:last-child': {
@@ -137,6 +142,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
       [`${prefixCls}-item-label`]: {
         color: token.colorText,
         fontWeight: 'normal',
+        // FIXME: hardcode in v4
         fontSize: token.fontSize,
         lineHeight: token.lineHeight,
         textAlign: `start`,
@@ -144,7 +150,8 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
         '&::after': {
           content: descriptionItemTrailingColon ? '":"' : '" "',
           position: 'relative',
-          top: '-0.5px',
+          // FIXME: hardcode in v4
+          top: -0.5,
           margin: `0 ${descriptionsItemLabelColonMarginRight}px 0 ${descriptionsItemLabelColonMarginLeft}px`,
 
           [`${prefixCls}-rtl&`]: {
@@ -166,6 +173,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
         display: 'table-cell',
         flex: 1,
         color: token.colorText,
+        // FIXME: hardcode in v4
         fontSize: token.fontSize,
         lineHeight: token.lineHeight,
         wordBreak: 'break-word',
@@ -189,6 +197,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
       [`${prefixCls}-middle`]: {
         [`${prefixCls}-row`]: {
           '> th, > td': {
+            // FIXME: hardcode in v4
             paddingBottom: token.paddingSM,
           },
         },
@@ -196,6 +205,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
       [`${prefixCls}-small`]: {
         [`${prefixCls}-row`]: {
           '> th, > td': {
+            // FIXME: hardcode in v4
             paddingBottom: token.paddingXS,
           },
         },
