@@ -2,7 +2,6 @@
 import * as React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { createRoot, Root } from 'react-dom/client';
-import raf from 'rc-util/lib/raf';
 
 const MARK = '__antd_react_root__';
 
@@ -21,7 +20,7 @@ export function reactRender(node: React.ReactElement, container: Element | Docum
 export function reactUnmount(container: Element | DocumentFragment) {
   if (createRoot !== undefined) {
     // Delay to unmount to avoid React 18 sync warning
-    raf(() => {
+    Promise.resolve().then(() => {
       (container as any)[MARK]?.unmount();
     });
 
