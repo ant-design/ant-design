@@ -32,7 +32,7 @@ const genBorderedStyle = (token: DescriptionsToken): CSSObject => {
     descriptionsBg,
   } = token;
   return {
-    '&-bordered': {
+    [`&${prefixCls}-bordered`]: {
       [`${prefixCls}-view`]: {
         border: `1px solid ${token.colorSplit}`,
         '> table': {
