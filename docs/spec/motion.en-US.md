@@ -79,7 +79,7 @@ Avoid dramatic and complicated animations. A good animation will get the job don
 
 <video src="https://gw.alipayobjects.com/os/rmsportal/FeUCANmoDRwCSmIcnPNF.mp4" loop="true" class="motion-video-min" />
 
-For example, when a user expands a menu, his main focus is on the menu content, not the direction change of the arrow icon on the right. Therefore, the animation doesn't need to be very complicated and distracting; it changes just enough to indicate the transition.
+For example, when a user expands a menu, their main focus is on the menu content, not the direction change of the arrow icon on the right. Therefore, the animation doesn't need to be very complicated and distracting; it changes just enough to indicate the transition.
 
 <br />
 

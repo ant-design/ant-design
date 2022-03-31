@@ -75,6 +75,6 @@ Users can view and process multiple tree-level content at the same time. Tree is
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/zos/rmsportal/WmQeylAyWUNKmQIyoQGH.png">
 
-Timeline is used to display time-flow information vertically, generally recording events in time by flashback, tracking what the user is doing now and what he has done in the past.
+Timeline is used to display time-flow information vertically, generally recording events in time by flashback, tracking what the user is doing now and what they has done in the past.
 
 Each piece of information is time-based, and the content can cover topics, types, related additional content, and so on. Suitable for including events, tasks, calendar annotations, and other related data presentations.

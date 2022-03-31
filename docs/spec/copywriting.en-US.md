@@ -67,7 +67,7 @@ Let users see the most important content at first glance.
 <img class="preview-img good no-padding" align="right" alt="Correct Example" src="https://gw.alipayobjects.com/zos/antfincdn/70QcFGdW%26H/6e0d94da-3ce9-471d-b57c-9f8f038d409f.png" description="Users can learn about the benefits of the settings.">
 <img class="preview-img bad no-padding" align="right" alt="Wrong Example" src="https://gw.alipayobjects.com/zos/antfincdn/eKXgIakJPk/1cb7213d-61c4-41f2-84f0-256bcf436fe3.png" description="Users can't get the meaning of the settings.">
 
-When we want the user to take an action, we should focus on what the user can get and how the he/she feels. Telling users the purpose or importance of the action can make them more willing to perform it.
+When we want the user to take an action, we should focus on what the user can get and how the they/they feels. Telling users the purpose or importance of the action can make them more willing to perform it.
 
 <br />
 
