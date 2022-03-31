@@ -8,8 +8,8 @@
 // // deps-lint-skip: form
 
 // deps-lint-skip-all
-import useComponentStyle from '../../_util/hooks/useComponentStyle';
-import { DerivativeToken, UseComponentStyleResult, GenerateStyle } from '../../_util/theme';
+import genComponentStyleHook from '../../_util/hooks/useComponentStyle';
+import { DerivativeToken, GenerateStyle } from '../../_util/theme';
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
 
 export interface ComponentToken {
@@ -160,23 +160,20 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token, hashId) => {
 };
 
 // ============================== Export ==============================
-export default function useStyle(prefixCls: string): UseComponentStyleResult {
-  return useComponentStyle(
-    prefixCls,
-    (token, hashId) => {
-      const cascaderToken: CascaderToken = {
-        ...token,
-        prefixCls,
-        cascaderCls: `.${prefixCls}`,
-      };
+export default genComponentStyleHook(
+  (prefixCls, token, { hashId }) => {
+    const cascaderToken: CascaderToken = {
+      ...token,
+      prefixCls,
+      cascaderCls: `.${prefixCls}`,
+    };
 
-      return [genBaseStyle(cascaderToken, hashId)];
-    },
-    'Cascader',
-    {
-      controlWidth: 184,
-      controlItemWidth: 111,
-      dropdownHeight: 180,
-    },
-  );
-}
+    return [genBaseStyle(cascaderToken, hashId)];
+  },
+  'Cascader',
+  {
+    controlWidth: 184,
+    controlItemWidth: 111,
+    dropdownHeight: 180,
+  },
+);

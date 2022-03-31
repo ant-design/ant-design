@@ -1,13 +1,7 @@
 // deps-lint-skip-all
 import { CSSObject } from '@ant-design/cssinjs';
-import useComponentStyle from '../../_util/hooks/useComponentStyle';
-import {
-  clearFix,
-  DerivativeToken,
-  GenerateStyle,
-  resetComponent,
-  UseComponentStyleResult,
-} from '../../_util/theme';
+import genComponentStyleHook from '../../_util/hooks/useComponentStyle';
+import { clearFix, DerivativeToken, GenerateStyle, resetComponent } from '../../_util/theme';
 
 export interface InputToken extends DerivativeToken {
   prefixCls: string;
@@ -862,19 +856,31 @@ const genTextAreaStyle: GenerateStyle<InputToken> = token => {
 };
 
 // ============================== Export ==============================
-export default function useStyle(
-  prefixCls: string,
-  iconPrefixCls: string,
-): UseComponentStyleResult {
-  return useComponentStyle(prefixCls, token => {
-    const inputToken: InputToken = initInputToken(token, prefixCls, iconPrefixCls);
+export default genComponentStyleHook((prefixCls, token, { iconPrefixCls }) => {
+  const inputToken: InputToken = initInputToken(token, prefixCls, iconPrefixCls);
 
-    return [
-      genInputStyle(inputToken),
-      genTextAreaStyle(inputToken),
-      genAffixStyle(inputToken),
-      genGroupStyle(inputToken),
-      genSearchInputStyle(inputToken),
-    ];
-  });
-}
+  return [
+    genInputStyle(inputToken),
+    genTextAreaStyle(inputToken),
+    genAffixStyle(inputToken),
+    genGroupStyle(inputToken),
+    genSearchInputStyle(inputToken),
+  ];
+});
+
+// export default function useStyle(
+//   prefixCls: string,
+//   iconPrefixCls: string,
+// ): UseComponentStyleResult {
+//   return useComponentStyle(prefixCls, token => {
+//     const inputToken: InputToken = initInputToken(token, prefixCls, iconPrefixCls);
+//
+//     return [
+//       genInputStyle(inputToken),
+//       genTextAreaStyle(inputToken),
+//       genAffixStyle(inputToken),
+//       genGroupStyle(inputToken),
+//       genSearchInputStyle(inputToken),
+//     ];
+//   });
+// }
