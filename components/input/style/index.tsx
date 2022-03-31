@@ -861,20 +861,3 @@ export default genComponentStyleHook((prefixCls, token, { iconPrefixCls }) => {
     genSearchInputStyle(inputToken),
   ];
 });
-
-// export default function useStyle(
-//   prefixCls: string,
-//   iconPrefixCls: string,
-// ): UseComponentStyleResult {
-//   return useComponentStyle(prefixCls, token => {
-//     const inputToken: InputToken = initInputToken(token, prefixCls, iconPrefixCls);
-//
-//     return [
-//       genInputStyle(inputToken),
-//       genTextAreaStyle(inputToken),
-//       genAffixStyle(inputToken),
-//       genGroupStyle(inputToken),
-//       genSearchInputStyle(inputToken),
-//     ];
-//   });
-// }
