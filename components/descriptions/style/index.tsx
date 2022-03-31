@@ -42,17 +42,9 @@ const genBorderedStyle = (token: DescriptionsToken): CSSObject => {
       },
       [`${prefixCls}-item-label, ${prefixCls}-item-content`]: {
         padding: descriptionsDefaultPadding,
-        borderRight: `1px solid ${token.colorSplit}`,
+        borderInlineEnd: `1px solid ${token.colorSplit}`,
         '&:last-child': {
-          borderRight: 'none',
-        },
-
-        [`${prefixCls}-rtl &`]: {
-          borderRight: 'none',
-          borderLeft: `1px solid ${token.colorSplit}`,
-          '&:last-child': {
-            borderLeft: 'none',
-          },
+          borderInlineEnd: 'none',
         },
       },
       [`${prefixCls}-item-label`]: {
@@ -152,11 +144,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
           position: 'relative',
           // FIXME: hardcode in v4
           top: -0.5,
-          margin: `0 ${descriptionsItemLabelColonMarginRight}px 0 ${descriptionsItemLabelColonMarginLeft}px`,
-
-          [`${prefixCls}-rtl&`]: {
-            margin: `0 ${descriptionsItemLabelColonMarginLeft}px 0 ${descriptionsItemLabelColonMarginRight}px`,
-          },
+          marginInline: `${descriptionsItemLabelColonMarginLeft}px ${descriptionsItemLabelColonMarginRight}px`,
         },
 
         [`&${prefixCls}-item-no-colon::after`]: {
