@@ -38,7 +38,7 @@ const genBorderedStyle = (token: ListToken): CSSObject => {
     listCls,
     paddingLG,
     margin,
-    listItemPaddingLg,
+    padding,
     listItemPaddingSm,
     marginLG,
     borderColorBase,
@@ -62,9 +62,9 @@ const genBorderedStyle = (token: ListToken): CSSObject => {
       },
     },
 
-    [`${listBorderedCls}${listBorderedCls}-lg`]: {
-      [`${listBorderedCls}-item,${listBorderedCls}-header,${listBorderedCls}-footer`]: {
-        padding: listItemPaddingLg,
+    [`${listBorderedCls}${listCls}-lg`]: {
+      [`${listCls}-item,${listCls}-header,${listCls}-footer`]: {
+        padding: `${padding}px ${paddingLG}px`,
       },
     },
   };
@@ -140,6 +140,7 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
     listItemPaddingSm,
     listItemPaddingLg,
     paddingXS,
+    fontSize,
     fontSizeLg,
     margin,
     colorText,
@@ -166,8 +167,7 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
       },
       [`${listCls}-header, ${listCls}-footer`]: {
         background: 'transparent',
-        paddingTop: paddingSM,
-        paddingBottom: paddingSM,
+        paddingBlock: paddingSM,
       },
       [`${listCls}-pagination`]: {
         marginBlockStart: marginLG,
@@ -223,7 +223,7 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
           [`${listCls}-item-meta-title`]: {
             marginBlockEnd: height4,
             color: colorText,
-            fontSize: fontSizeSm,
+            fontSize,
             lineHeight: lineHeightBase,
 
             '> a': {
@@ -290,17 +290,17 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
         textAlign: 'center',
       },
 
-      [`${listCls}-grid ${antPrefix}-col > ${listCls}-item`]: {
-        display: 'block',
-        maxWidth: '100%',
-        marginBlockEnd: margin,
-        paddingBlock: 0,
-        borderBlockEnd: 'none',
-      },
       // ============================ without flex ============================
       [`${listCls}-item-no-flex`]: {
         display: 'block',
       },
+    },
+    [`${listCls}-grid ${antPrefix}-col > ${listCls}-item`]: {
+      display: 'block',
+      maxWidth: '100%',
+      marginBlockEnd: margin,
+      paddingBlock: 0,
+      borderBlockEnd: 'none',
     },
     [`${listCls}-vertical ${listCls}-item`]: {
       alignItems: 'initial',
@@ -317,7 +317,7 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
       [`${listCls}-item-meta`]: {
         marginBlockEnd: padding,
 
-        [`${listCls}--item-meta-title`]: {
+        [`${listCls}-item-meta-title`]: {
           marginBlockEnd: paddingSM,
           color: colorText,
           fontSize: fontSizeLg,
@@ -342,7 +342,7 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
     [`${listCls}-split ${listCls}-item`]: {
       borderBlockEnd: `1px solid ${borderColorSplit}`,
 
-      [`${listCls}:last-child`]: {
+      [`&:last-child`]: {
         borderBlockEnd: 'none',
       },
     },
