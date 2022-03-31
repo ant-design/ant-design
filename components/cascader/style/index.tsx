@@ -163,12 +163,6 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token, hashId) => {
 export default function useStyle(prefixCls: string): UseComponentStyleResult {
   return useComponentStyle(
     prefixCls,
-    'Cascader',
-    {
-      controlWidth: 184,
-      controlItemWidth: 111,
-      dropdownHeight: 180,
-    },
     (token, hashId) => {
       const cascaderToken: CascaderToken = {
         ...token,
@@ -177,6 +171,12 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
       };
 
       return [genBaseStyle(cascaderToken, hashId)];
+    },
+    'Cascader',
+    {
+      controlWidth: 184,
+      controlItemWidth: 111,
+      dropdownHeight: 180,
     },
   );
 }

@@ -1,13 +1,12 @@
 // deps-lint-skip-all
 import { CSSObject } from '@ant-design/cssinjs';
+import useComponentStyle from '../../_util/hooks/useComponentStyle';
 import {
   clearFix,
   DerivativeToken,
   GenerateStyle,
   resetComponent,
   UseComponentStyleResult,
-  useStyleRegister,
-  useToken,
 } from '../../_util/theme';
 
 export interface InputToken extends DerivativeToken {
@@ -867,20 +866,15 @@ export default function useStyle(
   prefixCls: string,
   iconPrefixCls: string,
 ): UseComponentStyleResult {
-  const [theme, token, hashId] = useToken();
+  return useComponentStyle(prefixCls, token => {
+    const inputToken: InputToken = initInputToken(token, prefixCls, iconPrefixCls);
 
-  return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => {
-      const inputToken: InputToken = initInputToken(token, prefixCls, iconPrefixCls);
-
-      return [
-        genInputStyle(inputToken),
-        genTextAreaStyle(inputToken),
-        genAffixStyle(inputToken),
-        genGroupStyle(inputToken),
-        genSearchInputStyle(inputToken),
-      ];
-    }),
-    hashId,
-  ];
+    return [
+      genInputStyle(inputToken),
+      genTextAreaStyle(inputToken),
+      genAffixStyle(inputToken),
+      genGroupStyle(inputToken),
+      genSearchInputStyle(inputToken),
+    ];
+  });
 }
