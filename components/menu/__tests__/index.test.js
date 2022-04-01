@@ -36,7 +36,6 @@ describe('Menu', () => {
     };
     const mode = defaultProps.mode || 'horizontal';
 
-    console.log('eeeeeeee 11111');
     act(() => {
       enter();
     });
@@ -47,7 +46,6 @@ describe('Menu', () => {
         jest.runAllTimers();
       });
     }
-    console.log('eeeeeeee 222222');
 
     function getSubMenu() {
       if (mode === 'inline') {
@@ -425,7 +423,7 @@ describe('Menu', () => {
     expect(wrapper.find('InlineSubMenuList').prop('open')).toBeTruthy();
   });
 
-  it('inlineCollapsed should works well when specify a not existed default openKeys', () => {
+  it.only('inlineCollapsed should works well when specify a not existed default openKeys', () => {
     const Demo = props => (
       <Menu defaultOpenKeys={['not-existed']} mode="inline" {...props}>
         <Menu.Item key="menu1" icon={<InboxOutlined />}>
@@ -456,6 +454,8 @@ describe('Menu', () => {
     act(() => {
       jest.runAllTimers();
     });
+
+    console.log(document.body.innerHTML);
 
     expect(container.querySelector('.ant-menu-submenu')).toHaveClass('ant-menu-submenu-vertical');
     expect(container.querySelector('.ant-menu-submenu')).toHaveClass('ant-menu-submenu-open');
