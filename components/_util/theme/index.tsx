@@ -15,6 +15,7 @@ import {
   slideRightIn,
   slideRightOut,
 } from './util/slide';
+import statisticToken, { merge as mergeToken } from './util/statistic';
 import { GlobalToken, PresetColors } from './interface';
 import type {
   SeedToken,
@@ -40,6 +41,9 @@ export {
   slideRightIn,
   slideRightOut,
   useStyleRegister,
+  // Statistic
+  statisticToken,
+  mergeToken,
 };
 
 export type {

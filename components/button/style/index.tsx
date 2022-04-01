@@ -7,6 +7,8 @@ import {
   useStyleRegister,
   useToken,
   GenerateStyle,
+  statisticToken,
+  mergeToken,
 } from '../../_util/theme';
 
 /** Component only token. Which will handle additional calculation of alias token */
@@ -360,21 +362,19 @@ const genSizeButtonStyle = (token: ButtonToken, sizePrefixCls: string = ''): CSS
 const genSizeBaseButtonStyle: GenerateStyle<ButtonToken> = token => genSizeButtonStyle(token);
 
 const genSizeSmallButtonStyle: GenerateStyle<ButtonToken> = token => {
-  const largeToken: ButtonToken = {
-    ...token,
+  const largeToken = mergeToken<ButtonToken>(token, {
     controlHeight: token.controlHeightSM,
     padding: token.paddingXS,
-  };
+  });
 
   return genSizeButtonStyle(largeToken, `${token.btnCls}-sm`);
 };
 
 const genSizeLargeButtonStyle: GenerateStyle<ButtonToken> = token => {
-  const largeToken: ButtonToken = {
-    ...token,
+  const largeToken = mergeToken<ButtonToken>(token, {
     controlHeight: token.controlHeightLG,
     fontSize: token.fontSizeLG,
-  };
+  });
 
   return genSizeButtonStyle(largeToken, `${token.btnCls}-lg`);
 };
@@ -391,25 +391,29 @@ export default function useStyle(
       const { colorText, Button = {} } = token;
       const textColor = new TinyColor(colorText);
 
-      const buttonToken: ButtonToken = {
-        ...token,
-        colorBgTextHover: textColor
-          .clone()
-          .setAlpha(textColor.getAlpha() * 0.02)
-          .toRgbString(),
-        colorBgTextActive: textColor
-          .clone()
-          .setAlpha(textColor.getAlpha() * 0.03)
-          .toRgbString(),
+      const { token: proxyToken, flush } = statisticToken(token);
 
-        iconPrefixCls,
-        btnCls: `.${prefixCls}`,
+      const buttonToken = mergeToken<ButtonToken>(
+        proxyToken,
+        {
+          colorBgTextHover: textColor
+            .clone()
+            .setAlpha(textColor.getAlpha() * 0.02)
+            .toRgbString(),
+          colorBgTextActive: textColor
+            .clone()
+            .setAlpha(textColor.getAlpha() * 0.03)
+            .toRgbString(),
 
-        // Override by developer
-        ...Button,
-      };
+          iconPrefixCls,
+          btnCls: `.${prefixCls}`,
+        },
 
-      return [
+        // Override
+        Button,
+      );
+
+      const styles = [
         // Shared
         genSharedButtonStyle(buttonToken),
 
@@ -421,6 +425,10 @@ export default function useStyle(
         // Group (type, ghost, danger, disabled, loading)
         genTypeButtonStyle(buttonToken),
       ];
+
+      flush('Button');
+
+      return styles;
     }),
     hashId,
   ];
