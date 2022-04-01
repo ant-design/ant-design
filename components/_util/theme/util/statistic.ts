@@ -4,13 +4,12 @@ const enableStatistic =
   process.env.NODE_ENV !== 'production' || typeof CSSINJS_STATISTIC !== 'undefined';
 let recording = true;
 
-const proxySymbol = Symbol('statistic');
-
 /**
  * This function will do as `Object.assign` in production. But will use Object.defineProperty:get to
  * pass all value access in development. To support statistic field usage with alias token.
  */
 export function merge<T extends object>(...objs: Partial<T>[]): T {
+  /* istanbul ignore next */
   if (!enableStatistic) {
     return Object.assign({}, ...objs);
   }
@@ -38,6 +37,7 @@ export function merge<T extends object>(...objs: Partial<T>[]): T {
 /** @private Internal Usage. Not use in your production. */
 export const statistic: Record<string, string[]> = {};
 
+/* istanbul ignore next */
 function noop() {}
 
 /** Statistic token usage case. Should use `merge` function if you do not want spread record. */
@@ -51,10 +51,6 @@ export default function statisticToken<T extends object>(token: T) {
 
     proxy = new Proxy(token, {
       get(obj: any, prop: any) {
-        if (prop === proxySymbol) {
-          return true;
-        }
-
         if (recording) {
           tokenKeys!.add(prop);
         }
