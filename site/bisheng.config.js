@@ -75,6 +75,12 @@ module.exports = {
       'react-router-dom': 'ReactRouterDOM',
     };
 
+    config.plugins.push(
+      new webpack.DefinePlugin({
+        'process.env.CSSINJS_STATISTIC': JSON.stringify(true),
+      }),
+    );
+
     if (isDev) {
       config.devtool = 'source-map';
 

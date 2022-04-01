@@ -93,15 +93,17 @@ export default () => {
 
   return (
     <Row gutter={[0, 16]}>
-      <Col span={24}>
-        <Select
-          style={{ width: '100%' }}
-          value={selectedComponent}
-          options={componentNames}
-          onChange={setSelectedComponent}
-          allowClear
-        />
-      </Col>
+      {process.env.NODE_ENV !== 'production' && (
+        <Col span={24}>
+          <Select
+            style={{ width: '100%' }}
+            value={selectedComponent}
+            options={componentNames}
+            onChange={setSelectedComponent}
+            allowClear
+          />
+        </Col>
+      )}
       <Col span={24}>
         <Table
           dataSource={filteredTokenList}

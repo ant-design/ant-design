@@ -1,4 +1,4 @@
-const isDev = process.env.NODE_ENV !== 'production';
+const enableStatistic = process.env.NODE_ENV !== 'production' || process.env.CSSINJS_STATISTIC;
 let recording = true;
 
 const proxySymbol = Symbol('statistic');
@@ -8,7 +8,7 @@ const proxySymbol = Symbol('statistic');
  * pass all value access in development. To support statistic field usage with alias token.
  */
 export function merge<T extends object>(...objs: Partial<T>[]): T {
-  if (!isDev) {
+  if (!enableStatistic) {
     return Object.assign({}, ...objs);
   }
 
@@ -43,7 +43,7 @@ export default function statisticToken<T extends object>(token: T) {
   let proxy = token;
   let flush: (componentName: string) => void = noop;
 
-  if (isDev) {
+  if (enableStatistic) {
     tokenKeys = new Set<string>();
 
     proxy = new Proxy(token, {
