@@ -8,6 +8,8 @@ import { RenderEmptyHandler, ConfigContext } from '../config-provider';
 import Pagination, { PaginationConfig } from '../pagination';
 import { Row } from '../grid';
 import Item from './Item';
+// CSSINJS
+import useStyle from './style';
 
 export { ListItemProps, ListItemMetaProps } from './Item';
 
@@ -145,6 +147,9 @@ function List<T>({
   );
 
   const prefixCls = getPrefixCls('list', customizePrefixCls);
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
   let loadingProp = loading;
   if (typeof loadingProp === 'boolean') {
     loadingProp = {
@@ -180,6 +185,7 @@ function List<T>({
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    hashId,
   );
 
   const paginationProps = {
@@ -265,7 +271,7 @@ function List<T>({
     [JSON.stringify(grid), itemLayout],
   );
 
-  return (
+  return wrapSSR(
     <ListContext.Provider value={contextValue}>
       <div className={classString} {...rest}>
         {(paginationPosition === 'top' || paginationPosition === 'both') && paginationContent}
@@ -278,7 +284,7 @@ function List<T>({
         {loadMore ||
           ((paginationPosition === 'bottom' || paginationPosition === 'both') && paginationContent)}
       </div>
-    </ListContext.Provider>
+    </ListContext.Provider>,
   );
 }
 
