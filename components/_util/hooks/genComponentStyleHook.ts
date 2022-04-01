@@ -29,10 +29,10 @@ function genComponentStyleHook<ComponentName extends OverrideComponent>(
 ) {
   return (prefixCls: string): UseComponentStyleResult => {
     const [theme, token, hashId] = useToken();
+    const { getPrefixCls, iconPrefixCls } = useContext(ConfigContext);
 
     return [
       useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => {
-        const { getPrefixCls, iconPrefixCls } = useContext(ConfigContext);
         const { token: proxyToken, flush } = statisticToken(token);
 
         let componentToken: OverrideTokenWithoutDerivative[ComponentName];
