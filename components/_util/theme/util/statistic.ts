@@ -1,4 +1,7 @@
-const enableStatistic = process.env.NODE_ENV !== 'production' || process.env.CSSINJS_STATISTIC;
+declare const CSSINJS_STATISTIC: any;
+
+const enableStatistic =
+  process.env.NODE_ENV !== 'production' || typeof CSSINJS_STATISTIC !== 'undefined';
 let recording = true;
 
 const proxySymbol = Symbol('statistic');
