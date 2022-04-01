@@ -850,7 +850,7 @@ const genTextAreaStyle: GenerateStyle<InputToken> = token => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook((prefixCls, token, { iconPrefixCls }) => {
+export default genComponentStyleHook('Input', (prefixCls, token, { iconPrefixCls }) => {
   const inputToken: InputToken = initInputToken(token, prefixCls, iconPrefixCls);
 
   return [

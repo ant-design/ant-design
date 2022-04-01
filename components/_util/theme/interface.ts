@@ -41,6 +41,7 @@ export interface OverrideToken {
   Button?: ButtonComponentToken;
   Cascader?: CascaderComponentToken;
   Divider?: DividerComponentToken;
+  Input?: {};
   InputNumber?: InputNumberComponentToken;
   Mentions?: MentionsComponentToken;
   Select?: SelectComponentToken;

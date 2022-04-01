@@ -374,6 +374,7 @@ const genSizeLargeButtonStyle: GenerateStyle<ButtonToken> = token => {
 
 // ============================== Export ==============================
 export default genComponentStyleHook(
+  'Button',
   (prefixCls, token, { iconPrefixCls }) => {
     const buttonToken: ButtonToken = {
       ...token,
@@ -394,7 +395,6 @@ export default genComponentStyleHook(
       genTypeButtonStyle(buttonToken),
     ];
   },
-  'Button',
   token => {
     const { colorText } = token;
     const textColor = new TinyColor(colorText);
@@ -411,56 +411,3 @@ export default genComponentStyleHook(
     };
   },
 );
-// export default function useStyle(
-//   prefixCls: string,
-//   iconPrefixCls: string,
-// ): UseComponentStyleResult {
-//   const [theme, token, hashId] = useToken();
-//
-//   return [
-//     useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => {
-//       const { colorText, Button = {} } = token;
-//       const textColor = new TinyColor(colorText);
-//
-//       const { token: proxyToken, flush } = statisticToken(token);
-//
-//       const buttonToken = mergeToken<ButtonToken>(
-//         proxyToken,
-//         {
-//           colorBgTextHover: textColor
-//             .clone()
-//             .setAlpha(textColor.getAlpha() * 0.02)
-//             .toRgbString(),
-//           colorBgTextActive: textColor
-//             .clone()
-//             .setAlpha(textColor.getAlpha() * 0.03)
-//             .toRgbString(),
-//
-//           iconPrefixCls,
-//           btnCls: `.${prefixCls}`,
-//         },
-//
-//         // Override
-//         Button,
-//       );
-//
-//       const styles = [
-//         // Shared
-//         genSharedButtonStyle(buttonToken),
-//
-//         // Size
-//         genSizeSmallButtonStyle(buttonToken),
-//         genSizeBaseButtonStyle(buttonToken),
-//         genSizeLargeButtonStyle(buttonToken),
-//
-//         // Group (type, ghost, danger, disabled, loading)
-//         genTypeButtonStyle(buttonToken),
-//       ];
-//
-//       flush('Button');
-//
-//       return styles;
-//     }),
-//     hashId,
-//   ];
-// }

@@ -161,6 +161,7 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token, hashId) => {
 
 // ============================== Export ==============================
 export default genComponentStyleHook(
+  'Cascader',
   (prefixCls, token, { hashId }) => {
     const cascaderToken: CascaderToken = {
       ...token,
@@ -170,7 +171,6 @@ export default genComponentStyleHook(
 
     return [genBaseStyle(cascaderToken, hashId)];
   },
-  'Cascader',
   {
     controlWidth: 184,
     controlItemWidth: 111,

@@ -1,90 +1,69 @@
 /* eslint-disable no-redeclare */
 import { CSSInterpolation, useStyleRegister } from '@ant-design/cssinjs';
 import { useContext } from 'react';
-import { AliasToken, OverrideToken } from '../theme/interface';
-import { UseComponentStyleResult, useToken } from '../theme';
+import { GlobalToken, OverrideToken } from '../theme/interface';
+import { mergeToken, statisticToken, UseComponentStyleResult, useToken } from '../theme';
 import { ConfigContext } from '../../config-provider';
 
-type OverrideTokenWithoutDerivative = Omit<OverrideToken, 'derivative'>;
-type OverrideComponent = keyof OverrideTokenWithoutDerivative;
-type StyleInfo = {
+export type OverrideTokenWithoutDerivative = Omit<OverrideToken, 'derivative'>;
+export type OverrideComponent = keyof OverrideTokenWithoutDerivative;
+export type GlobalTokenWithComponent<ComponentName extends OverrideComponent> = GlobalToken &
+  OverrideToken[ComponentName];
+export type StyleInfo = {
   hashId: string;
   rootPrefixCls: string;
   iconPrefixCls: string;
 };
-type TokenWithComponentCls<T> = T & { componentCls: string };
+export type TokenWithComponentCls<T> = T & { componentCls: string };
 
-function genComponentStyleHook(
-  styleFn: (
-    prefixCls: string,
-    token: TokenWithComponentCls<AliasToken>,
-    info: StyleInfo,
-  ) => CSSInterpolation,
-): (prefixCls: string) => UseComponentStyleResult;
 function genComponentStyleHook<ComponentName extends OverrideComponent>(
-  styleFn: (
-    prefixCls: string,
-    token: TokenWithComponentCls<AliasToken & OverrideToken[ComponentName]>,
-    info: StyleInfo,
-  ) => CSSInterpolation,
   component: ComponentName,
-  defaultComponentToken:
-    | OverrideTokenWithoutDerivative[ComponentName]
-    | ((token: AliasToken) => OverrideTokenWithoutDerivative[ComponentName]),
-): (prefixCls: string) => UseComponentStyleResult;
-function genComponentStyleHook<ComponentName extends OverrideComponent>(
   styleFn: (
     prefixCls: string,
-    token: TokenWithComponentCls<AliasToken & OverrideToken[ComponentName]>,
+    token: TokenWithComponentCls<GlobalTokenWithComponent<ComponentName>>,
     info: StyleInfo,
   ) => CSSInterpolation,
-  component?: ComponentName,
   defaultComponentToken?:
     | OverrideTokenWithoutDerivative[ComponentName]
-    | ((token: AliasToken) => OverrideTokenWithoutDerivative[ComponentName]),
+    | ((token: GlobalToken) => OverrideTokenWithoutDerivative[ComponentName]),
 ) {
   return (prefixCls: string): UseComponentStyleResult => {
     const [theme, token, hashId] = useToken();
     const { getPrefixCls, iconPrefixCls } = useContext(ConfigContext);
+    const { token: proxyToken, flush } = statisticToken(token);
 
-    const tokenWithCls: TokenWithComponentCls<AliasToken> = {
-      ...token,
-      componentCls: `.${prefixCls}`,
-    };
-    let mergedToken = tokenWithCls;
-    if (component) {
-      let componentToken: OverrideTokenWithoutDerivative[ComponentName];
-      if (typeof defaultComponentToken === 'function') {
-        componentToken = defaultComponentToken(token);
-      } else {
-        componentToken = defaultComponentToken;
-      }
-      const overrideComponentToken = token[component] as any;
-      if (componentToken && overrideComponentToken) {
-        Object.keys(componentToken).forEach(key => {
-          if (overrideComponentToken[key] !== undefined) {
-            (componentToken as any)[key] = overrideComponentToken[key];
-          }
-        });
-      }
-      mergedToken = {
-        ...tokenWithCls,
-        ...componentToken,
-      };
+    let componentToken: OverrideTokenWithoutDerivative[ComponentName];
+    if (typeof defaultComponentToken === 'function') {
+      componentToken = defaultComponentToken(token);
+    } else {
+      componentToken = defaultComponentToken;
     }
+    const overrideComponentToken = token[component] as any;
+    if (componentToken && overrideComponentToken) {
+      Object.keys(componentToken).forEach(key => {
+        if (overrideComponentToken[key] !== undefined) {
+          (componentToken as any)[key] = overrideComponentToken[key];
+        }
+      });
+    }
+    const mergedToken = mergeToken<
+      TokenWithComponentCls<GlobalTokenWithComponent<OverrideComponent>>
+    >(proxyToken, { componentCls: `.${prefixCls}` }, componentToken || {});
 
     return [
-      useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () =>
-        styleFn(
+      useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => {
+        const style = styleFn(
           prefixCls,
-          mergedToken as TokenWithComponentCls<AliasToken & OverrideToken[ComponentName]>,
+          mergedToken as unknown as TokenWithComponentCls<GlobalTokenWithComponent<ComponentName>>,
           {
             hashId,
             rootPrefixCls: getPrefixCls(),
             iconPrefixCls,
           },
-        ),
-      ),
+        );
+        flush(component);
+        return style;
+      }),
       hashId,
     ];
   };
