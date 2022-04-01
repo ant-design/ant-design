@@ -29,29 +29,30 @@ function genComponentStyleHook<ComponentName extends OverrideComponent>(
 ) {
   return (prefixCls: string): UseComponentStyleResult => {
     const [theme, token, hashId] = useToken();
-    const { getPrefixCls, iconPrefixCls } = useContext(ConfigContext);
-    const { token: proxyToken, flush } = statisticToken(token);
-
-    let componentToken: OverrideTokenWithoutDerivative[ComponentName];
-    if (typeof defaultComponentToken === 'function') {
-      componentToken = defaultComponentToken(token);
-    } else {
-      componentToken = defaultComponentToken;
-    }
-    const overrideComponentToken = token[component] as any;
-    if (componentToken && overrideComponentToken) {
-      Object.keys(componentToken).forEach(key => {
-        if (overrideComponentToken[key] !== undefined) {
-          (componentToken as any)[key] = overrideComponentToken[key];
-        }
-      });
-    }
-    const mergedToken = mergeToken<
-      TokenWithComponentCls<GlobalTokenWithComponent<OverrideComponent>>
-    >(proxyToken, { componentCls: `.${prefixCls}` }, componentToken || {});
 
     return [
       useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => {
+        const { getPrefixCls, iconPrefixCls } = useContext(ConfigContext);
+        const { token: proxyToken, flush } = statisticToken(token);
+
+        let componentToken: OverrideTokenWithoutDerivative[ComponentName];
+        if (typeof defaultComponentToken === 'function') {
+          componentToken = defaultComponentToken(token);
+        } else {
+          componentToken = defaultComponentToken;
+        }
+        const overrideComponentToken = token[component] as any;
+        const mergedComponentToken = { ...componentToken };
+        if (mergedComponentToken && overrideComponentToken) {
+          Object.keys(mergedComponentToken).forEach(key => {
+            if (overrideComponentToken[key] !== undefined) {
+              (mergedComponentToken as any)[key] = overrideComponentToken[key];
+            }
+          });
+        }
+        const mergedToken = mergeToken<
+          TokenWithComponentCls<GlobalTokenWithComponent<OverrideComponent>>
+        >(proxyToken, { componentCls: `.${prefixCls}` }, mergedComponentToken || {});
         const style = styleFn(
           prefixCls,
           mergedToken as unknown as TokenWithComponentCls<GlobalTokenWithComponent<ComponentName>>,
