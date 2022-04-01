@@ -31,6 +31,7 @@ const App = () => {
         onOk={() => setVisible(false)}
         onCancel={() => setVisible(false)}
         width={1000}
+        height={600}
       >
         <p>some contents...</p>
         <p>some contents...</p>
