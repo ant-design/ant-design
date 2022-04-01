@@ -23,7 +23,7 @@ function genComponentStyleHook<ComponentName extends OverrideComponent>(
     token: TokenWithComponentCls<GlobalTokenWithComponent<ComponentName>>,
     info: StyleInfo,
   ) => CSSInterpolation,
-  defaultComponentToken?:
+  getDefaultToken?:
     | OverrideTokenWithoutDerivative[ComponentName]
     | ((token: GlobalToken) => OverrideTokenWithoutDerivative[ComponentName]),
 ) {
@@ -35,14 +35,12 @@ function genComponentStyleHook<ComponentName extends OverrideComponent>(
       useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => {
         const { token: proxyToken, flush } = statisticToken(token);
 
-        let componentToken: OverrideTokenWithoutDerivative[ComponentName];
-        if (typeof defaultComponentToken === 'function') {
-          componentToken = defaultComponentToken(token);
-        } else {
-          componentToken = defaultComponentToken;
-        }
+        const defaultComponentToken =
+          typeof getDefaultToken === 'function' ? getDefaultToken(token) : getDefaultToken;
         const overrideComponentToken = token[component] as any;
-        const mergedComponentToken = { ...componentToken };
+
+        // Only merge token specified in interface
+        const mergedComponentToken = { ...defaultComponentToken };
         if (mergedComponentToken && overrideComponentToken) {
           Object.keys(mergedComponentToken).forEach(key => {
             if (overrideComponentToken[key] !== undefined) {
@@ -53,6 +51,7 @@ function genComponentStyleHook<ComponentName extends OverrideComponent>(
         const mergedToken = mergeToken<
           TokenWithComponentCls<GlobalTokenWithComponent<OverrideComponent>>
         >(proxyToken, { componentCls: `.${prefixCls}` }, mergedComponentToken || {});
+
         const style = styleFn(
           prefixCls,
           mergedToken as unknown as TokenWithComponentCls<GlobalTokenWithComponent<ComponentName>>,
