@@ -424,8 +424,8 @@ describe('Menu', () => {
   });
 
   it.only('inlineCollapsed should works well when specify a not existed default openKeys', () => {
-    const Demo = props => (
-      <Menu defaultOpenKeys={['not-existed']} mode="inline" {...props}>
+    const wrapper = mount(
+      <Menu defaultOpenKeys={['not-existed']} mode="inline">
         <Menu.Item key="menu1" icon={<InboxOutlined />}>
           Option
         </Menu.Item>
@@ -433,34 +433,34 @@ describe('Menu', () => {
           <Menu.Item key="submenu1">Option</Menu.Item>
           <Menu.Item key="submenu2">Option</Menu.Item>
         </SubMenu>
-      </Menu>
+      </Menu>,
     );
-    const { container, rerender } = render(<Demo />);
+    expect(wrapper.find('.ant-menu-sub').length).toBe(0);
+    wrapper.setProps({ inlineCollapsed: true });
 
-    expect(container.querySelectorAll('.ant-menu-sub')).toHaveLength(0);
-
-    rerender(<Demo inlineCollapsed />);
     act(() => {
       jest.runAllTimers();
     });
 
-    const transitionEndEvent = new Event('transitionend');
-    fireEvent(container.querySelector('ul'), transitionEndEvent);
+    wrapper.update();
+    wrapper.simulate('transitionEnd', { propertyName: 'width' });
+
     act(() => {
       jest.runAllTimers();
     });
+    wrapper.update();
 
-    fireEvent.mouseEnter(container.querySelector('.ant-menu-submenu-title'));
+    wrapper.find('.ant-menu-submenu-title').at(0).simulate('mouseEnter');
     act(() => {
       jest.runAllTimers();
     });
-
-    console.log(document.body.innerHTML);
-
-    expect(container.querySelector('.ant-menu-submenu')).toHaveClass('ant-menu-submenu-vertical');
-    expect(container.querySelector('.ant-menu-submenu')).toHaveClass('ant-menu-submenu-open');
-    expect(container.querySelector('ul.ant-menu-sub')).toHaveClass('ant-menu-vertical');
-    expect(container.querySelector('ul.ant-menu-sub')).not.toHaveClass('ant-menu-hidden');
+    wrapper.update();
+    expect(wrapper.find('.ant-menu-submenu').at(0).hasClass('ant-menu-submenu-vertical')).toBe(
+      true,
+    );
+    expect(wrapper.find('.ant-menu-submenu').at(0).hasClass('ant-menu-submenu-open')).toBe(true);
+    expect(wrapper.find('ul.ant-menu-sub').at(0).hasClass('ant-menu-vertical')).toBe(true);
+    expect(wrapper.find('ul.ant-menu-sub').at(0).hasClass('ant-menu-hidden')).toBe(false);
   });
 
   it('inlineCollapsed Menu.Item Tooltip can be removed', () => {
