@@ -39,3 +39,7 @@ updates:
       - dependency-name: "rc-trigger"
       - dependency-name: "rc-upload"
       - dependency-name: "rc-util"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
