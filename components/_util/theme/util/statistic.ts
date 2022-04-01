@@ -8,7 +8,7 @@ let recording = true;
  * This function will do as `Object.assign` in production. But will use Object.defineProperty:get to
  * pass all value access in development. To support statistic field usage with alias token.
  */
-export function merge<T>(...objs: Partial<T>[]): T {
+export function merge<T extends object>(...objs: Partial<T>[]): T {
   /* istanbul ignore next */
   if (!enableStatistic) {
     return Object.assign({}, ...objs);
