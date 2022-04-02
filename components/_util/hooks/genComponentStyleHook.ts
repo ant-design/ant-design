@@ -40,7 +40,7 @@ function genComponentStyleHook<ComponentName extends OverrideComponent>(
         const overrideComponentToken = token[component] as any;
 
         // Only merge token specified in interface
-        const mergedComponentToken = { ...defaultComponentToken };
+        const mergedComponentToken = { ...defaultComponentToken } as any;
         if (overrideComponentToken) {
           Object.keys(mergedComponentToken).forEach(key => {
             mergedComponentToken[key] = overrideComponentToken[key] ?? mergedComponentToken[key];
@@ -50,7 +50,7 @@ function genComponentStyleHook<ComponentName extends OverrideComponent>(
           TokenWithComponentCls<GlobalTokenWithComponent<OverrideComponent>>
         >(proxyToken, { componentCls: `.${prefixCls}` }, mergedComponentToken);
 
-        const styleInterpolation = styleFn(mergedToken as FullToken<ComponentName>, {
+        const styleInterpolation = styleFn(mergedToken as unknown as FullToken<ComponentName>, {
           hashId,
           prefixCls,
           rootPrefixCls: getPrefixCls(),
