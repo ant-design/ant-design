@@ -154,12 +154,11 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
     ...rest
   } = props;
 
-  const { getPrefixCls, autoInsertSpaceInButton, direction, iconPrefixCls } =
-    React.useContext(ConfigContext);
+  const { getPrefixCls, autoInsertSpaceInButton, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('btn', customizePrefixCls);
 
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const size = React.useContext(SizeContext);
   const [innerLoading, setLoading] = React.useState<Loading>(!!loading);
