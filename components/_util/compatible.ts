@@ -1,7 +1,16 @@
 /* eslint-disable import/prefer-default-export */
 import * as React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
-import { createRoot, Root } from 'react-dom/client';
+import type { Root } from 'react-dom/client';
+// import * as reactDomClient from 'react-dom/client';
+
+let createRoot: (container: ContainerType) => Root;
+try {
+  // eslint-disable-next-line global-require, import/no-unresolved
+  createRoot = require('react-dom/client').createRoot;
+} catch (e) {
+  // Do nothing;
+}
 
 const MARK = '__antd_react_root__';
 
