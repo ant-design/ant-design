@@ -19,11 +19,11 @@ export interface GroupProps {
 }
 
 const Group: React.FC<GroupProps> = props => {
-  const { getPrefixCls, direction } = useContext(ConfigContext);
+  const { getPrefixCls, direction, iconPrefixCls } = useContext(ConfigContext);
   const { prefixCls: customizePrefixCls, className = '' } = props;
   const prefixCls = getPrefixCls('input-group', customizePrefixCls);
   const inputPrefixCls = getPrefixCls('input');
-  const [wrapSSR, hashId] = useStyle(inputPrefixCls);
+  const [wrapSSR, hashId] = useStyle(inputPrefixCls, iconPrefixCls);
   const cls = classNames(
     prefixCls,
     {

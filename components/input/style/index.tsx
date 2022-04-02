@@ -1,9 +1,16 @@
 // deps-lint-skip-all
 import { CSSObject } from '@ant-design/cssinjs';
-import genComponentStyleHook, { FullToken } from '../../_util/hooks/genComponentStyleHook';
-import { clearFix, GenerateStyle, resetComponent } from '../../_util/theme';
+import {
+  clearFix,
+  DerivativeToken,
+  GenerateStyle,
+  resetComponent,
+  UseComponentStyleResult,
+  useStyleRegister,
+  useToken,
+} from '../../_util/theme';
 
-export interface InputToken extends FullToken<'Input'> {
+export interface InputToken extends DerivativeToken {
   prefixCls: string;
   iconPrefixCls: string;
   inputAffixPadding: number;
@@ -770,7 +777,7 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
 };
 
 export const initInputToken = (
-  token: FullToken<'Input'>,
+  token: DerivativeToken,
   prefixCls: string,
   iconPrefixCls: string,
 ): InputToken => ({
@@ -850,14 +857,24 @@ const genTextAreaStyle: GenerateStyle<InputToken> = token => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Input', (token, { prefixCls, iconPrefixCls }) => {
-  const inputToken: InputToken = initInputToken(token, prefixCls, iconPrefixCls);
+export default function useStyle(
+  prefixCls: string,
+  iconPrefixCls: string,
+): UseComponentStyleResult {
+  const [theme, token, hashId] = useToken();
 
   return [
-    genInputStyle(inputToken),
-    genTextAreaStyle(inputToken),
-    genAffixStyle(inputToken),
-    genGroupStyle(inputToken),
-    genSearchInputStyle(inputToken),
+    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => {
+      const inputToken: InputToken = initInputToken(token, prefixCls, iconPrefixCls);
+
+      return [
+        genInputStyle(inputToken),
+        genTextAreaStyle(inputToken),
+        genAffixStyle(inputToken),
+        genGroupStyle(inputToken),
+        genSearchInputStyle(inputToken),
+      ];
+    }),
+    hashId,
   ];
-});
+}
