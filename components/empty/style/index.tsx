@@ -9,14 +9,15 @@ import {
 } from '../../_util/theme';
 
 /** Component only token. Which will handle additional calculation of alias token */
-export interface ComponentToken {
-  emptyFontSize: number;
-  white: string;
-}
+export interface ComponentToken {}
 
 interface EmptyToken extends DerivativeToken, ComponentToken {
   emptyCls: string;
   emptyImgCls: string;
+
+  emptyFontSize: number;
+
+  white: string;
 }
 
 const genEmptyImgStyle = (token: EmptyToken): CSSObject => {
@@ -82,6 +83,7 @@ const genSharedEmptyStyle: GenerateStyle<EmptyToken> = (token): CSSObject => {
 
   return {
     [emptyCls]: {
+      // FIX ME
       margin: '0 8px',
       // @empty-font-size
       fontSize: token.emptyFontSize,
@@ -91,7 +93,9 @@ const genSharedEmptyStyle: GenerateStyle<EmptyToken> = (token): CSSObject => {
 
       // 原来 &-image 没有父子结构，现在为了外层承担我们的hashId，改成父子结果
       [`${emptyCls}-image`]: {
+        // FIX ME
         height: '100px',
+        // FIX ME
         marginBottom: '8px',
 
         img: {
@@ -106,24 +110,29 @@ const genSharedEmptyStyle: GenerateStyle<EmptyToken> = (token): CSSObject => {
 
       // 原来 &-footer 没有父子结构，现在为了外层承担我们的hashId，改成父子结果
       [`${emptyCls}-footer`]: {
+        // FIX ME
         marginTop: '16px',
       },
 
       '&-normal': {
+        // FIX ME
         margin: '32px 0',
         // '@disabled-color'
         color: token.colorTextDisabled,
 
         [`${emptyCls}-image`]: {
+          // FIX ME
           height: '40px',
         },
       },
 
       '&-small': {
+        // FIX ME
         margin: '8px 0',
         color: '@disabled-color',
 
         [`${emptyCls}-image`]: {
+          // FIX ME
           height: '35px',
         },
       },
