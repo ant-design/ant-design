@@ -1,11 +1,9 @@
 // deps-lint-skip-all
 import { CSSObject } from '@ant-design/cssinjs';
-import genComponentStyleHook, {
-  TokenWithComponentCls,
-} from '../../_util/hooks/genComponentStyleHook';
-import { clearFix, DerivativeToken, GenerateStyle, resetComponent } from '../../_util/theme';
+import genComponentStyleHook, { FullToken } from '../../_util/hooks/genComponentStyleHook';
+import { clearFix, GenerateStyle, resetComponent } from '../../_util/theme';
 
-export interface InputToken extends TokenWithComponentCls<DerivativeToken> {
+export interface InputToken extends FullToken<'Input'> {
   prefixCls: string;
   iconPrefixCls: string;
   inputAffixPadding: number;
@@ -772,7 +770,7 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
 };
 
 export const initInputToken = (
-  token: TokenWithComponentCls<DerivativeToken>,
+  token: FullToken<'Input'>,
   prefixCls: string,
   iconPrefixCls: string,
 ): InputToken => ({

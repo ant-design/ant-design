@@ -8,10 +8,8 @@
 // // deps-lint-skip: form
 
 // deps-lint-skip-all
-import genComponentStyleHook, {
-  TokenWithComponentCls,
-} from '../../_util/hooks/genComponentStyleHook';
-import { DerivativeToken, GenerateStyle } from '../../_util/theme';
+import genComponentStyleHook, { FullToken } from '../../_util/hooks/genComponentStyleHook';
+import { GenerateStyle } from '../../_util/theme';
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
 
 export interface ComponentToken {
@@ -20,7 +18,7 @@ export interface ComponentToken {
   dropdownHeight: number;
 }
 
-interface CascaderToken extends TokenWithComponentCls<DerivativeToken>, ComponentToken {
+interface CascaderToken extends FullToken<'Cascader'> {
   prefixCls: string;
 }
 

@@ -16,13 +16,13 @@ export type StyleInfo = {
   iconPrefixCls: string;
 };
 export type TokenWithComponentCls<T> = T & { componentCls: string };
+export type FullToken<ComponentName extends OverrideComponent> = TokenWithComponentCls<
+  GlobalTokenWithComponent<ComponentName>
+>;
 
 function genComponentStyleHook<ComponentName extends OverrideComponent>(
   component: ComponentName,
-  styleFn: (
-    token: TokenWithComponentCls<GlobalTokenWithComponent<ComponentName>>,
-    info: StyleInfo,
-  ) => CSSInterpolation,
+  styleFn: (token: FullToken<ComponentName>, info: StyleInfo) => CSSInterpolation,
   getDefaultToken?:
     | OverrideTokenWithoutDerivative[ComponentName]
     | ((token: GlobalToken) => OverrideTokenWithoutDerivative[ComponentName]),
@@ -50,15 +50,12 @@ function genComponentStyleHook<ComponentName extends OverrideComponent>(
           TokenWithComponentCls<GlobalTokenWithComponent<OverrideComponent>>
         >(proxyToken, { componentCls: `.${prefixCls}` }, mergedComponentToken);
 
-        const styleInterpolation = styleFn(
-          mergedToken as TokenWithComponentCls<GlobalTokenWithComponent<ComponentName>>,
-          {
-            hashId,
-            prefixCls,
-            rootPrefixCls: getPrefixCls(),
-            iconPrefixCls,
-          },
-        );
+        const styleInterpolation = styleFn(mergedToken as FullToken<ComponentName>, {
+          hashId,
+          prefixCls,
+          rootPrefixCls: getPrefixCls(),
+          iconPrefixCls,
+        });
         flush(component);
         return styleInterpolation;
       }),

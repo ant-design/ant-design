@@ -1,10 +1,8 @@
 // deps-lint-skip-all
 import { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-import genComponentStyleHook, {
-  TokenWithComponentCls,
-} from '../../_util/hooks/genComponentStyleHook';
-import { AliasToken, GenerateStyle, mergeToken } from '../../_util/theme';
+import genComponentStyleHook, { FullToken } from '../../_util/hooks/genComponentStyleHook';
+import { GenerateStyle, mergeToken } from '../../_util/theme';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -12,7 +10,7 @@ export interface ComponentToken {
   colorBgTextActive: string;
 }
 
-interface ButtonToken extends TokenWithComponentCls<AliasToken>, ComponentToken {
+interface ButtonToken extends FullToken<'Button'> {
   iconPrefixCls: string;
 }
 
