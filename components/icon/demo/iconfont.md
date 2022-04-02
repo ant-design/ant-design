@@ -21,12 +21,11 @@ const IconFont = createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js',
 });
 
-ReactDOM.render(
+export default () => (
   <Space>
     <IconFont type="icon-tuichu" />
     <IconFont type="icon-facebook" />
     <IconFont type="icon-twitter" />
-  </Space>,
-  mountNode,
+  </Space>
 );
 ```

@@ -89,5 +89,5 @@ const data = [
   },
 ];
 
-ReactDOM.render(<Table columns={columns} dataSource={data} />, mountNode);
+export default () => <Table columns={columns} dataSource={data} />;
 ```

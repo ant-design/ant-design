@@ -24,7 +24,7 @@ const menu = (
   </Menu>
 );
 
-ReactDOM.render(
+export default () => (
   <Dropdown overlay={menu} trigger={['contextMenu']}>
     <div
       className="site-dropdown-context-menu"
@@ -36,8 +36,7 @@ ReactDOM.render(
     >
       Right Click on here
     </div>
-  </Dropdown>,
-  mountNode,
+  </Dropdown>
 );
 ```
 

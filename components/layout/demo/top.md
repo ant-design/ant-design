@@ -24,7 +24,7 @@ import { Layout, Menu, Breadcrumb } from 'antd';
 
 const { Header, Content, Footer } = Layout;
 
-ReactDOM.render(
+export default () => (
   <Layout className="layout">
     <Header>
       <div className="logo" />
@@ -44,8 +44,7 @@ ReactDOM.render(
       <div className="site-layout-content">Content</div>
     </Content>
     <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
-  </Layout>,
-  mountNode,
+  </Layout>
 );
 ```
 

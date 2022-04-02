@@ -26,5 +26,5 @@ function itemRender(current, type, originalElement) {
   return originalElement;
 }
 
-ReactDOM.render(<Pagination total={500} itemRender={itemRender} />, mountNode);
+export default () => <Pagination total={500} itemRender={itemRender} />;
 ```

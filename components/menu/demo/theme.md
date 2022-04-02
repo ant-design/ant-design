@@ -83,5 +83,5 @@ class Sider extends React.Component {
   }
 }
 
-ReactDOM.render(<Sider />, mountNode);
+export default () => <Sider />;
 ```

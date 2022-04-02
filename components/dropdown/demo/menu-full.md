@@ -57,12 +57,11 @@ const menu = (
   </Menu>
 );
 
-ReactDOM.render(
+export default () => (
   <Dropdown overlay={menu}>
     <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
       Hover to check menu style <DownOutlined />
     </a>
-  </Dropdown>,
-  mountNode,
+  </Dropdown>
 );
 ```

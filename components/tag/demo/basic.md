@@ -25,7 +25,7 @@ function preventDefault(e) {
   console.log('Clicked! But prevent default.');
 }
 
-ReactDOM.render(
+export default () => (
   <>
     <Tag>Tag 1</Tag>
     <Tag>
@@ -37,7 +37,6 @@ ReactDOM.render(
     <Tag closable onClose={preventDefault}>
       Prevent Default
     </Tag>
-  </>,
-  mountNode,
+  </>
 );
 ```

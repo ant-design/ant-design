@@ -32,7 +32,7 @@ const colors = [
   'lime',
 ];
 
-ReactDOM.render(
+export default () => (
   <>
     <Divider orientation="left">Presets</Divider>
     <div>
@@ -52,8 +52,7 @@ ReactDOM.render(
       <br />
       <Badge color="#108ee9" text="#108ee9" />
     </>
-  </>,
-  mountNode,
+  </>
 );
 ```
 

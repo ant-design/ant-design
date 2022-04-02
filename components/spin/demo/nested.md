@@ -42,5 +42,5 @@ class Card extends React.Component {
   }
 }
 
-ReactDOM.render(<Card />, mountNode);
+export default () => <Card />;
 ```

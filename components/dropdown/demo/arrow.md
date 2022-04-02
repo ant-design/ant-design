@@ -36,7 +36,7 @@ const menu = (
   </Menu>
 );
 
-ReactDOM.render(
+export default () => (
   <>
     <Dropdown overlay={menu} placement="bottomLeft" arrow>
       <Button>bottomLeft</Button>
@@ -57,8 +57,7 @@ ReactDOM.render(
     <Dropdown overlay={menu} placement="topRight" arrow>
       <Button>topRight</Button>
     </Dropdown>
-  </>,
-  mountNode,
+  </>
 );
 ```
 

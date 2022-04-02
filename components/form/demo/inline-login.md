@@ -67,5 +67,5 @@ const HorizontalLoginForm = () => {
   );
 };
 
-ReactDOM.render(<HorizontalLoginForm />, mountNode);
+export default () => <HorizontalLoginForm />;
 ```

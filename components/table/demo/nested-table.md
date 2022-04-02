@@ -103,5 +103,5 @@ function NestedTable() {
   );
 }
 
-ReactDOM.render(<NestedTable />, mountNode);
+export default () => <NestedTable />;
 ```

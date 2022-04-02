@@ -27,5 +27,5 @@ const ValidateInputs: React.FC = () => (
   </Space>
 );
 
-ReactDOM.render(<ValidateInputs />, mountNode);
+export default () => <ValidateInputs />;
 ```

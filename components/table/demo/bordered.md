@@ -55,14 +55,13 @@ const data = [
   },
 ];
 
-ReactDOM.render(
+export default () => (
   <Table
     columns={columns}
     dataSource={data}
     bordered
     title={() => 'Header'}
     footer={() => 'Footer'}
-  />,
-  mountNode,
+  />
 );
 ```

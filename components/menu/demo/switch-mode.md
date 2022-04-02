@@ -81,5 +81,5 @@ const Demo = () => {
   );
 };
 
-ReactDOM.render(<Demo />, mountNode);
+export default () => <Demo />;
 ```

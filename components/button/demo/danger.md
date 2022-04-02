@@ -16,7 +16,7 @@ title:
 ```jsx
 import { Button } from 'antd';
 
-ReactDOM.render(
+export default () => (
   <>
     <Button type="primary" danger>
       Primary
@@ -31,7 +31,6 @@ ReactDOM.render(
     <Button type="link" danger>
       Link
     </Button>
-  </>,
-  mountNode,
+  </>
 );
 ```

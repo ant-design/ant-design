@@ -16,5 +16,5 @@ A simple loading status.
 ```jsx
 import { Spin } from 'antd';
 
-ReactDOM.render(<Spin />, mountNode);
+export default () => <Spin />;
 ```

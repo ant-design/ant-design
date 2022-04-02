@@ -194,7 +194,7 @@ const App = () => (
   </div>
 );
 
-ReactDOM.render(<App />, mountNode);
+export default () => <App />;
 ```
 
 ```css

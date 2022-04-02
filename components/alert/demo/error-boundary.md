@@ -34,10 +34,9 @@ const ThrowError: React.FC = () => {
   );
 };
 
-ReactDOM.render(
+export default () => (
   <ErrorBoundary>
     <ThrowError />
-  </ErrorBoundary>,
-  mountNode,
+  </ErrorBoundary>
 );
 ```

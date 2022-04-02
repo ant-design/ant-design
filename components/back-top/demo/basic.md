@@ -16,14 +16,13 @@ The most basic usage.
 ```jsx
 import { BackTop } from 'antd';
 
-ReactDOM.render(
+export default () => (
   <>
     <BackTop />
     Scroll down to see the bottom-right
     <strong className="site-back-top-basic"> gray </strong>
     button.
-  </>,
-  mountNode,
+  </>
 );
 ```
 

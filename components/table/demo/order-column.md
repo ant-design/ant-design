@@ -56,7 +56,7 @@ const data = [
   },
 ];
 
-ReactDOM.render(
+export default () => (
   <Table
     columns={columns}
     rowSelection={{}}
@@ -64,7 +64,6 @@ ReactDOM.render(
       expandedRowRender: record => <p style={{ margin: 0 }}>{record.description}</p>,
     }}
     dataSource={data}
-  />,
-  mountNode,
+  />
 );
 ```

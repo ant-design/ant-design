@@ -135,7 +135,7 @@ const DragSortingTable: React.FC = () => {
   );
 };
 
-ReactDOM.render(<DragSortingTable />, mountNode);
+export default () => <DragSortingTable />;
 ```
 
 ```css

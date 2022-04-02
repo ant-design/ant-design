@@ -55,13 +55,12 @@ function onChange(value) {
   console.log(value);
 }
 
-ReactDOM.render(
+export default () => (
   <Cascader
     fieldNames={{ label: 'name', value: 'code', children: 'items' }}
     options={options}
     onChange={onChange}
     placeholder="Please select"
-  />,
-  mountNode,
+  />
 );
 ```

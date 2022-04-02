@@ -59,7 +59,7 @@ const data = [
   },
 ];
 
-ReactDOM.render(
+export default () => (
   <Table
     columns={columns}
     expandable={{
@@ -67,7 +67,6 @@ ReactDOM.render(
       rowExpandable: record => record.name !== 'Not Expandable',
     }}
     dataSource={data}
-  />,
-  mountNode,
+  />
 );
 ```

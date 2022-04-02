@@ -18,7 +18,7 @@ Child elements depending on the value of the `start`,`center`, `end`,`space-betw
 ```jsx
 import { Row, Col, Divider } from 'antd';
 
-ReactDOM.render(
+export default () => (
   <>
     <Divider orientation="left">sub-element align left</Divider>
     <Row justify="start">
@@ -59,8 +59,7 @@ ReactDOM.render(
       <Col span={4}>col-4</Col>
       <Col span={4}>col-4</Col>
     </Row>
-  </>,
-  mountNode,
+  </>
 );
 ```
 

@@ -630,5 +630,5 @@ const FormSizeDemo = () => {
     </Row>
   );
 };
-ReactDOM.render(<FormSizeDemo />, mountNode);
+export default () => <FormSizeDemo />;
 ```
