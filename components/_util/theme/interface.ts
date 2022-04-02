@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type { ComponentToken as ButtonComponentToken } from '../../button/style';
 import type { ComponentToken as DividerComponentToken } from '../../divider/style';
+import type { ComponentToken as EmptyComponentToken } from '../../empty/style';
 import type { ComponentToken as CascaderComponentToken } from '../../cascader/style';
 import type { ComponentToken as InputNumberComponentToken } from '../../input-number/style';
 import type { ComponentToken as MentionsComponentToken } from '../../mentions/style';
@@ -41,6 +42,7 @@ export interface OverrideToken {
   Button?: ButtonComponentToken;
   Cascader?: CascaderComponentToken;
   Divider?: DividerComponentToken;
+  Empty?: EmptyComponentToken;
   InputNumber?: InputNumberComponentToken;
   Mentions?: MentionsComponentToken;
   Select?: SelectComponentToken;
