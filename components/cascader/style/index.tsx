@@ -18,9 +18,7 @@ export interface ComponentToken {
   dropdownHeight: number;
 }
 
-interface CascaderToken extends FullToken<'Cascader'> {
-  prefixCls: string;
-}
+type CascaderToken = FullToken<'Cascader'>;
 
 // =============================== Base ===============================
 const genBaseStyle: GenerateStyle<CascaderToken> = (token, hashId) => {
@@ -161,14 +159,7 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token, hashId) => {
 // ============================== Export ==============================
 export default genComponentStyleHook(
   'Cascader',
-  (token, { prefixCls, hashId }) => {
-    const cascaderToken: CascaderToken = {
-      ...token,
-      prefixCls,
-    };
-
-    return [genBaseStyle(cascaderToken, hashId)];
-  },
+  (token, { hashId }) => [genBaseStyle(token, hashId)],
   {
     controlWidth: 184,
     controlItemWidth: 111,
