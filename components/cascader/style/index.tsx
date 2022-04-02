@@ -8,7 +8,9 @@
 // // deps-lint-skip: form
 
 // deps-lint-skip-all
-import genComponentStyleHook from '../../_util/hooks/genComponentStyleHook';
+import genComponentStyleHook, {
+  TokenWithComponentCls,
+} from '../../_util/hooks/genComponentStyleHook';
 import { DerivativeToken, GenerateStyle } from '../../_util/theme';
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
 
@@ -18,15 +20,14 @@ export interface ComponentToken {
   dropdownHeight: number;
 }
 
-interface CascaderToken extends DerivativeToken, ComponentToken {
+interface CascaderToken extends TokenWithComponentCls<DerivativeToken>, ComponentToken {
   prefixCls: string;
-  cascaderCls: string;
 }
 
 // =============================== Base ===============================
 const genBaseStyle: GenerateStyle<CascaderToken> = (token, hashId) => {
-  const { prefixCls, cascaderCls } = token;
-  const cascaderMenuItemCls = `${cascaderCls}-menu-item`;
+  const { prefixCls, componentCls } = token;
+  const cascaderMenuItemCls = `${componentCls}-menu-item`;
   const iconCls = `
     &${cascaderMenuItemCls}-expand ${cascaderMenuItemCls}-expand-icon,
     ${cascaderMenuItemCls}-loading-icon
@@ -41,7 +42,7 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token, hashId) => {
     // ==                     Control                     ==
     // =====================================================
     {
-      [cascaderCls]: {
+      [componentCls]: {
         width: token.controlWidth,
       },
     },
@@ -50,11 +51,11 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token, hashId) => {
     // ==                      Popup                      ==
     // =====================================================
     {
-      [`${cascaderCls}-dropdown`]: [
+      [`${componentCls}-dropdown`]: [
         // ==================== Checkbox ====================
         getCheckboxStyle(`${prefixCls}-checkbox`, token, hashId!),
         {
-          [cascaderCls]: {
+          [componentCls]: {
             // ================== Checkbox ==================
             '&-checkbox': {
               top: 0,
@@ -68,8 +69,8 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token, hashId) => {
               flexWrap: 'nowrap',
               alignItems: 'flex-start',
 
-              [`&${cascaderCls}-menu-empty`]: {
-                [`${cascaderCls}-menu`]: {
+              [`&${componentCls}-menu-empty`]: {
+                [`${componentCls}-menu`]: {
                   width: '100%',
                   height: 'auto',
 
@@ -152,7 +153,7 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token, hashId) => {
     // ==                       RTL                       ==
     // =====================================================
     {
-      [`${cascaderCls}-dropdown-rtl`]: {
+      [`${componentCls}-dropdown-rtl`]: {
         direction: 'rtl',
       },
     },
@@ -162,11 +163,10 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token, hashId) => {
 // ============================== Export ==============================
 export default genComponentStyleHook(
   'Cascader',
-  (prefixCls, token, { hashId }) => {
+  (token, { prefixCls, hashId }) => {
     const cascaderToken: CascaderToken = {
       ...token,
       prefixCls,
-      cascaderCls: `.${prefixCls}`,
     };
 
     return [genBaseStyle(cascaderToken, hashId)];

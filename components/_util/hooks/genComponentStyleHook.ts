@@ -11,6 +11,7 @@ export type GlobalTokenWithComponent<ComponentName extends OverrideComponent> = 
   OverrideToken[ComponentName];
 export type StyleInfo = {
   hashId: string;
+  prefixCls: string;
   rootPrefixCls: string;
   iconPrefixCls: string;
 };
@@ -19,7 +20,6 @@ export type TokenWithComponentCls<T> = T & { componentCls: string };
 function genComponentStyleHook<ComponentName extends OverrideComponent>(
   component: ComponentName,
   styleFn: (
-    prefixCls: string,
     token: TokenWithComponentCls<GlobalTokenWithComponent<ComponentName>>,
     info: StyleInfo,
   ) => CSSInterpolation,
@@ -41,28 +41,26 @@ function genComponentStyleHook<ComponentName extends OverrideComponent>(
 
         // Only merge token specified in interface
         const mergedComponentToken = { ...defaultComponentToken };
-        if (mergedComponentToken && overrideComponentToken) {
+        if (overrideComponentToken) {
           Object.keys(mergedComponentToken).forEach(key => {
-            if (overrideComponentToken[key] !== undefined) {
-              (mergedComponentToken as any)[key] = overrideComponentToken[key];
-            }
+            mergedComponentToken[key] = overrideComponentToken[key] ?? mergedComponentToken[key];
           });
         }
         const mergedToken = mergeToken<
           TokenWithComponentCls<GlobalTokenWithComponent<OverrideComponent>>
-        >(proxyToken, { componentCls: `.${prefixCls}` }, mergedComponentToken || {});
+        >(proxyToken, { componentCls: `.${prefixCls}` }, mergedComponentToken);
 
-        const style = styleFn(
-          prefixCls,
-          mergedToken as unknown as TokenWithComponentCls<GlobalTokenWithComponent<ComponentName>>,
+        const styleInterpolation = styleFn(
+          mergedToken as TokenWithComponentCls<GlobalTokenWithComponent<ComponentName>>,
           {
             hashId,
+            prefixCls,
             rootPrefixCls: getPrefixCls(),
             iconPrefixCls,
           },
         );
         flush(component);
-        return style;
+        return styleInterpolation;
       }),
       hashId,
     ];
