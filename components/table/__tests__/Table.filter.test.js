@@ -2,6 +2,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
+import { render, fireEvent } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import Table from '..';
 import Input from '../../input';
 import Tooltip from '../../tooltip';
@@ -101,8 +103,8 @@ describe('Table.filter', () => {
   it('renders empty menu correctly', () => {
     jest.useFakeTimers();
 
-    jest.spyOn(console, 'error').mockImplementation(() => undefined);
-    const wrapper = mount(
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => undefined);
+    const { container } = render(
       createTable({
         columns: [
           {
@@ -112,17 +114,16 @@ describe('Table.filter', () => {
         ],
       }),
     );
-    wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
+
+    fireEvent.click(container.querySelector('span.ant-dropdown-trigger'), nativeEvent);
+
     act(() => {
       jest.runAllTimers();
-      wrapper.update();
     });
 
-    expect(wrapper.find('Empty').length).toBeTruthy();
-    // eslint-disable-next-line no-console
-    expect(console.error).not.toHaveBeenCalled();
-    // eslint-disable-next-line no-console
-    console.error.mockRestore();
+    expect(container.querySelector('.ant-empty')).toBeTruthy();
+    expect(errorSpy).not.toHaveBeenCalled();
+    errorSpy.mockRestore();
 
     jest.useRealTimers();
   });
@@ -1964,7 +1965,11 @@ describe('Table.filter', () => {
       expect(wrapper.find('.ant-tree-checkbox').at(0).hasClass('ant-tree-checkbox-checked')).toBe(
         true,
       );
-      expect(wrapper.find('.ant-table-filter-dropdown-checkall .ant-checkbox').hasClass('ant-checkbox-indeterminate')).toBe(true);
+      expect(
+        wrapper
+          .find('.ant-table-filter-dropdown-checkall .ant-checkbox')
+          .hasClass('ant-checkbox-indeterminate'),
+      ).toBe(true);
     });
 
     it('select-all checkbox should change when all items are selected', () => {
@@ -1991,7 +1996,11 @@ describe('Table.filter', () => {
       });
       wrapper.find('.ant-tree-node-content-wrapper').at(0).simulate('click');
       wrapper.find('.ant-tree-node-content-wrapper').at(1).simulate('click');
-      expect(wrapper.find('.ant-table-filter-dropdown-checkall .ant-checkbox').hasClass('ant-checkbox-checked')).toBe(true);
+      expect(
+        wrapper
+          .find('.ant-table-filter-dropdown-checkall .ant-checkbox')
+          .hasClass('ant-checkbox-checked'),
+      ).toBe(true);
     });
   });
 
