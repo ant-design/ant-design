@@ -16633,7 +16633,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
     >
       <div
         aria-label="Page Size"
-        class="config-select config-select-lg config-pagination-options-size-changer config-select-single config-select-show-arrow"
+        class="config-select config-pagination-options-size-changer config-select-single config-select-show-arrow"
       >
         <div
           class="config-select-selector"
