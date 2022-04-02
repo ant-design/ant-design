@@ -19,6 +19,8 @@ type ContainerType = (Element | DocumentFragment) & {
 };
 
 export function reactRender(node: React.ReactElement, container: ContainerType) {
+  // React 17 test will not reach here
+  /* istanbul ignore next */
   if (createRoot !== undefined) {
     const root = container[MARK] || createRoot(container);
     root.render(node);
@@ -31,6 +33,8 @@ export function reactRender(node: React.ReactElement, container: ContainerType) 
 }
 
 export function reactUnmount(container: ContainerType) {
+  // React 17 test will not reach here
+  /* istanbul ignore next */
   if (createRoot !== undefined) {
     // Delay to unmount to avoid React 18 sync warning
     Promise.resolve().then(() => {
