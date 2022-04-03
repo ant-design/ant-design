@@ -249,7 +249,10 @@ class Demo extends React.Component {
 
     const riddlePrefillConfig = {
       title: `${localizedTitle} - antd@${dependencies.antd}`,
-      js: `${sourceCode.replace(/export default/, 'const Demo =')}\n\n${
+      js: `${react18 ? `import { createRoot } from 'react-dom/client';\n` : ''}${sourceCode.replace(
+        /export default/,
+        'const Demo =',
+      )}\n\n${
         react18 ? 'createRoot(mountNode).render(<Demo />)' : 'ReactDOM.render(<Demo />, mountNode)'
       };\n`,
       css: prefillStyle,
