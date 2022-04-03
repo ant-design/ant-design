@@ -249,7 +249,7 @@
     "rc-footer": "^0.6.6",
     "rc-tween-one": "^3.0.3",
     "rc-virtual-list": "^3.4.2",
-    "react": "^17.0.0",
+    "react": "^18.0.0",
     "react-color": "^2.17.3",
     "react-copy-to-clipboard": "^5.0.1",
     "react-dnd": "^15.0.0",
