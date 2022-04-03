@@ -20,7 +20,7 @@ import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
 
-ReactDOM.render(
+export default () => (
   <Layout>
     <Header className="header">
       <div className="logo" />
@@ -76,8 +76,7 @@ ReactDOM.render(
         </Content>
       </Layout>
     </Layout>
-  </Layout>,
-  mountNode,
+  </Layout>
 );
 ```
 

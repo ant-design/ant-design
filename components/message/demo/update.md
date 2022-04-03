@@ -25,10 +25,9 @@ const openMessage = () => {
   }, 1000);
 };
 
-ReactDOM.render(
+export default () => (
   <Button type="primary" onClick={openMessage}>
     Open the message box
-  </Button>,
-  mountNode,
+  </Button>
 );
 ```

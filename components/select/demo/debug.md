@@ -23,7 +23,7 @@ function handleChange(value) {
   console.log(`selected ${value}`);
 }
 
-ReactDOM.render(
+export default () => (
   <div
     style={{
       width: 500,
@@ -61,8 +61,7 @@ ReactDOM.render(
     </Select>
     <span className="debug-align">AntDesign</span>
     <Button>222</Button>
-  </div>,
-  mountNode,
+  </div>
 );
 ```
 

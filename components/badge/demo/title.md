@@ -17,7 +17,7 @@ The badge will display `title` when hovered over, instead of `count`.
 ```jsx
 import { Badge, Avatar } from 'antd';
 
-ReactDOM.render(
+export default () => (
   <>
     <Badge count={5} title="Custom hover text">
       <Avatar shape="square" size="large" />
@@ -25,7 +25,6 @@ ReactDOM.render(
     <Badge count={-5} title="Negative">
       <Avatar shape="square" size="large" />
     </Badge>
-  </>,
-  mountNode,
+  </>
 );
 ```

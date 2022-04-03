@@ -18,7 +18,7 @@ import { Select } from 'antd';
 
 const { Option } = Select;
 
-ReactDOM.render(
+export default () => (
   <Select
     showSearch
     style={{ width: 200 }}
@@ -37,7 +37,6 @@ ReactDOM.render(
     <Option value="4">Identified</Option>
     <Option value="5">Resolved</Option>
     <Option value="6">Cancelled</Option>
-  </Select>,
-  mountNode,
+  </Select>
 );
 ```

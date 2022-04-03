@@ -32,5 +32,5 @@ const Demo = () => (
   </Tabs>
 );
 
-ReactDOM.render(<Demo />, mountNode);
+export default () => <Demo />;
 ```

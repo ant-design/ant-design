@@ -89,5 +89,5 @@ const DynamicRule = () => {
   );
 };
 
-ReactDOM.render(<DynamicRule />, mountNode);
+export default () => <DynamicRule />;
 ```

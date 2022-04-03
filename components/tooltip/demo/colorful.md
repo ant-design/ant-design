@@ -33,7 +33,7 @@ const colors = [
 ];
 const customColors = ['#f50', '#2db7f5', '#87d068', '#108ee9'];
 
-ReactDOM.render(
+export default () => (
   <>
     <Divider orientation="left">Presets</Divider>
     <div>
@@ -51,8 +51,7 @@ ReactDOM.render(
         </Tooltip>
       ))}
     </div>
-  </>,
-  mountNode,
+  </>
 );
 ```
 

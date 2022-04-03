@@ -54,5 +54,5 @@ class OverlayVisible extends React.Component {
   }
 }
 
-ReactDOM.render(<OverlayVisible />, mountNode);
+export default () => <OverlayVisible />;
 ```

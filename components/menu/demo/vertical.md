@@ -23,7 +23,7 @@ function handleClick(e) {
   console.log('click', e);
 }
 
-ReactDOM.render(
+export default () => (
   <Menu onClick={handleClick} style={{ width: 256 }} mode="vertical">
     <SubMenu key="sub1" icon={<MailOutlined />} title="Navigation One">
       <Menu.ItemGroup title="Item 1">
@@ -49,7 +49,6 @@ ReactDOM.render(
       <Menu.Item key="11">Option 11</Menu.Item>
       <Menu.Item key="12">Option 12</Menu.Item>
     </SubMenu>
-  </Menu>,
-  mountNode,
+  </Menu>
 );
 ```

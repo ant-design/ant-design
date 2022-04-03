@@ -197,7 +197,7 @@ const EditableTable = () => {
   );
 };
 
-ReactDOM.render(<EditableTable />, mountNode);
+export default () => <EditableTable />;
 ```
 
 ```css

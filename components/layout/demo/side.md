@@ -90,7 +90,7 @@ class SiderDemo extends React.Component {
   }
 }
 
-ReactDOM.render(<SiderDemo />, mountNode);
+export default () => <SiderDemo />;
 ```
 
 ```css

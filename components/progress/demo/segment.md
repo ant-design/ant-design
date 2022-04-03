@@ -16,7 +16,7 @@ A standard progress bar. Doesn't support trail color when `type="circle|dashboar
 ```jsx
 import { Tooltip, Progress } from 'antd';
 
-ReactDOM.render(
+export default () => (
   <>
     <Tooltip title="3 done / 3 in progress / 4 to do">
       <Progress percent={60} success={{ percent: 30 }} />
@@ -29,7 +29,6 @@ ReactDOM.render(
     <Tooltip title="3 done / 3 in progress / 4 to do">
       <Progress percent={60} success={{ percent: 30 }} type="dashboard" />
     </Tooltip>
-  </>,
-  mountNode,
+  </>
 );
 ```

@@ -70,5 +70,5 @@ const FormLayoutDemo = () => {
   );
 };
 
-ReactDOM.render(<FormLayoutDemo />, mountNode);
+export default () => <FormLayoutDemo />;
 ```

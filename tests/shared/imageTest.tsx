@@ -60,8 +60,11 @@ export function imageDemoTest(component: string, options: Options = {}) {
     }
     testMethod(`Test ${file} image`, () => {
       // eslint-disable-next-line global-require,import/no-dynamic-require
-      const demo = require(`../.${file}`).default;
-      imageTest(demo);
+      let Demo = require(`../.${file}`).default;
+      if (typeof Demo === 'function') {
+        Demo = <Demo />;
+      }
+      imageTest(Demo);
     });
   });
 }

@@ -28,7 +28,7 @@ const text = `
   it can be found as a welcome guest in many households across the world.
 `;
 
-ReactDOM.render(
+export default () => (
   <Collapse defaultActiveKey={['1']} onChange={callback}>
     <Panel header="This is panel header with arrow icon" key="1">
       <p>{text}</p>
@@ -36,7 +36,6 @@ ReactDOM.render(
     <Panel showArrow={false} header="This is panel header with no arrow icon" key="2">
       <p>{text}</p>
     </Panel>
-  </Collapse>,
-  mountNode,
+  </Collapse>
 );
 ```

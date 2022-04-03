@@ -92,7 +92,7 @@ const App = () => {
   return <TreeTransfer dataSource={treeData} targetKeys={targetKeys} onChange={onChange} />;
 };
 
-ReactDOM.render(<App />, mountNode);
+export default () => <App />;
 ```
 
 <style>

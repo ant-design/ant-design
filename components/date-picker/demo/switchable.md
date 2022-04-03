@@ -42,5 +42,5 @@ function SwitchablePicker() {
   );
 }
 
-ReactDOM.render(<SwitchablePicker />, mountNode);
+export default () => <SwitchablePicker />;
 ```

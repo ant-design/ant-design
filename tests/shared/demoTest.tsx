@@ -70,22 +70,22 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
         const errSpy = excludeWarning();
 
         MockDate.set(moment('2016-11-22').valueOf());
-        let demo = require(`../.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
-
+        let Demo = require(`../.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
         // Inject Trigger status unless skipped
+        Demo = typeof Demo === 'function' ? <Demo /> : Demo;
         if (doInject) {
-          demo = (
+          Demo = (
             <TriggerMockContext.Provider
               value={{
                 popupVisible: true,
               }}
             >
-              {demo}
+              {Demo}
             </TriggerMockContext.Provider>
           );
         }
 
-        const wrapper = render(demo);
+        const wrapper = render(Demo);
 
         // Convert aria related content
         ariaConvert(wrapper);

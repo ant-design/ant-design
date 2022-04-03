@@ -19,7 +19,7 @@ import { CloseCircleOutlined } from '@ant-design/icons';
 
 const { Paragraph, Text } = Typography;
 
-ReactDOM.render(
+export default () => (
   <Result
     status="error"
     title="Submission Failed"
@@ -51,8 +51,7 @@ ReactDOM.render(
         eligible to apply. <a>Apply Unlock &gt;</a>
       </Paragraph>
     </div>
-  </Result>,
-  mountNode,
+  </Result>
 );
 ```
 

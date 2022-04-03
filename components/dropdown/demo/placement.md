@@ -36,7 +36,7 @@ const menu = (
   </Menu>
 );
 
-ReactDOM.render(
+export default () => (
   <Space direction="vertical">
     <Space wrap>
       <Dropdown overlay={menu} placement="bottomLeft">
@@ -60,7 +60,6 @@ ReactDOM.render(
         <Button>topRight</Button>
       </Dropdown>
     </Space>
-  </Space>,
-  mountNode,
+  </Space>
 );
 ```

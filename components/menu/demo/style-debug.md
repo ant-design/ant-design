@@ -105,5 +105,5 @@ class Demo extends React.Component<{}, DemoState> {
   }
 }
 
-ReactDOM.render(<Demo />, mountNode);
+export default () => <Demo />;
 ```
