@@ -17,7 +17,6 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
           class="ant-checkbox"
         >
           <input
-            aria-checked="false"
             class="ant-checkbox-input"
             type="checkbox"
             value=""
@@ -177,7 +176,6 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
           class="ant-checkbox"
         >
           <input
-            aria-checked="false"
             class="ant-checkbox-input"
             type="checkbox"
             value=""
@@ -290,7 +288,6 @@ exports[`Transfer should render correctly 1`] = `
           class="ant-checkbox ant-checkbox-checked"
         >
           <input
-            aria-checked="true"
             checked=""
             class="ant-checkbox-input"
             type="checkbox"
@@ -345,7 +342,6 @@ exports[`Transfer should render correctly 1`] = `
               class="ant-checkbox ant-checkbox-checked"
             >
               <input
-                aria-checked="true"
                 checked=""
                 class="ant-checkbox-input"
                 type="checkbox"
@@ -370,7 +366,6 @@ exports[`Transfer should render correctly 1`] = `
               class="ant-checkbox ant-checkbox-disabled"
             >
               <input
-                aria-checked="false"
                 class="ant-checkbox-input"
                 disabled=""
                 type="checkbox"
@@ -454,7 +449,6 @@ exports[`Transfer should render correctly 1`] = `
           class="ant-checkbox"
         >
           <input
-            aria-checked="false"
             class="ant-checkbox-input"
             type="checkbox"
             value=""
@@ -508,7 +502,6 @@ exports[`Transfer should render correctly 1`] = `
               class="ant-checkbox"
             >
               <input
-                aria-checked="false"
                 class="ant-checkbox-input"
                 type="checkbox"
                 value=""
@@ -545,7 +538,6 @@ exports[`Transfer should show sorted targetKey 1`] = `
           class="ant-checkbox"
         >
           <input
-            aria-checked="false"
             class="ant-checkbox-input"
             type="checkbox"
             value=""
@@ -600,7 +592,6 @@ exports[`Transfer should show sorted targetKey 1`] = `
               class="ant-checkbox"
             >
               <input
-                aria-checked="false"
                 class="ant-checkbox-input"
                 type="checkbox"
                 value=""
@@ -686,7 +677,6 @@ exports[`Transfer should show sorted targetKey 1`] = `
           class="ant-checkbox"
         >
           <input
-            aria-checked="false"
             class="ant-checkbox-input"
             type="checkbox"
             value=""
@@ -741,7 +731,6 @@ exports[`Transfer should show sorted targetKey 1`] = `
               class="ant-checkbox"
             >
               <input
-                aria-checked="false"
                 class="ant-checkbox-input"
                 type="checkbox"
                 value=""
@@ -768,7 +757,6 @@ exports[`Transfer should show sorted targetKey 1`] = `
               class="ant-checkbox"
             >
               <input
-                aria-checked="false"
                 class="ant-checkbox-input"
                 type="checkbox"
                 value=""
@@ -807,7 +795,6 @@ exports[`Transfer should support render value and label in item 1`] = `
           class="ant-checkbox"
         >
           <input
-            aria-checked="false"
             class="ant-checkbox-input"
             type="checkbox"
             value=""
@@ -862,7 +849,6 @@ exports[`Transfer should support render value and label in item 1`] = `
               class="ant-checkbox"
             >
               <input
-                aria-checked="false"
                 class="ant-checkbox-input"
                 type="checkbox"
                 value=""
@@ -948,7 +934,6 @@ exports[`Transfer should support render value and label in item 1`] = `
           class="ant-checkbox"
         >
           <input
-            aria-checked="false"
             class="ant-checkbox-input"
             type="checkbox"
             value=""
@@ -1061,7 +1046,6 @@ exports[`immutable data dataSource is frozen 1`] = `
           class="ant-checkbox"
         >
           <input
-            aria-checked="false"
             class="ant-checkbox-input"
             type="checkbox"
             value=""
@@ -1115,7 +1099,6 @@ exports[`immutable data dataSource is frozen 1`] = `
               class="ant-checkbox"
             >
               <input
-                aria-checked="false"
                 class="ant-checkbox-input"
                 type="checkbox"
                 value=""
@@ -1199,7 +1182,6 @@ exports[`immutable data dataSource is frozen 1`] = `
           class="ant-checkbox"
         >
           <input
-            aria-checked="false"
             class="ant-checkbox-input"
             type="checkbox"
             value=""

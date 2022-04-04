@@ -53,7 +53,6 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                           class="ant-checkbox"
                         >
                           <input
-                            aria-checked="false"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -132,7 +131,6 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                         class="ant-checkbox"
                       >
                         <input
-                          aria-checked="false"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -173,7 +171,6 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                         class="ant-checkbox"
                       >
                         <input
-                          aria-checked="false"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -214,7 +211,6 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                         class="ant-checkbox"
                       >
                         <input
-                          aria-checked="false"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -255,7 +251,6 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                         class="ant-checkbox"
                       >
                         <input
-                          aria-checked="false"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -407,7 +402,6 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                           class="ant-checkbox"
                         >
                           <input
-                            aria-checked="false"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -467,7 +461,6 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                         class="ant-checkbox"
                       >
                         <input
-                          aria-checked="false"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -498,7 +491,6 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                         class="ant-checkbox"
                       >
                         <input
-                          aria-checked="false"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -529,7 +521,6 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                         class="ant-checkbox"
                       >
                         <input
-                          aria-checked="false"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -560,7 +551,6 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                         class="ant-checkbox"
                       >
                         <input
-                          aria-checked="false"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -712,7 +702,6 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                           class="ant-checkbox"
                         >
                           <input
-                            aria-checked="false"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -773,7 +762,6 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                         class="ant-checkbox"
                       >
                         <input
-                          aria-checked="false"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -805,7 +793,6 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                         class="ant-checkbox"
                       >
                         <input
-                          aria-checked="false"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -837,7 +824,6 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                         class="ant-checkbox"
                       >
                         <input
-                          aria-checked="false"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -869,7 +855,6 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                         class="ant-checkbox"
                       >
                         <input
-                          aria-checked="false"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -1022,7 +1007,6 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                           class="ant-checkbox"
                         >
                           <input
-                            aria-checked="false"
                             class="ant-checkbox-input"
                             type="checkbox"
                             value=""
@@ -1142,7 +1126,6 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                         class="ant-checkbox"
                       >
                         <input
-                          aria-checked="false"
                           class="ant-checkbox-input"
                           type="checkbox"
                           value=""
@@ -1173,7 +1156,6 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                         class="ant-checkbox"
                       >
                         <input
-                          aria-checked="false"
                           class="ant-checkbox-input"
                           type="checkbox"
                           value=""
@@ -1204,7 +1186,6 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                         class="ant-checkbox"
                       >
                         <input
-                          aria-checked="false"
                           class="ant-checkbox-input"
                           type="checkbox"
                           value=""
@@ -1235,7 +1216,6 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                         class="ant-checkbox"
                       >
                         <input
-                          aria-checked="false"
                           class="ant-checkbox-input"
                           type="checkbox"
                           value=""
@@ -1386,7 +1366,6 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                           class="ant-checkbox"
                         >
                           <input
-                            aria-checked="false"
                             class="ant-checkbox-input"
                             type="checkbox"
                             value=""
@@ -1506,7 +1485,6 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                         class="ant-checkbox"
                       >
                         <input
-                          aria-checked="false"
                           class="ant-checkbox-input"
                           type="checkbox"
                           value=""
@@ -1537,7 +1515,6 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                         class="ant-checkbox"
                       >
                         <input
-                          aria-checked="false"
                           class="ant-checkbox-input"
                           type="checkbox"
                           value=""
@@ -1568,7 +1545,6 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                         class="ant-checkbox"
                       >
                         <input
-                          aria-checked="false"
                           class="ant-checkbox-input"
                           type="checkbox"
                           value=""
@@ -1599,7 +1575,6 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                         class="ant-checkbox"
                       >
                         <input
-                          aria-checked="false"
                           class="ant-checkbox-input"
                           type="checkbox"
                           value=""
@@ -1750,7 +1725,6 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                           class="ant-checkbox"
                         >
                           <input
-                            aria-checked="false"
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
@@ -1785,7 +1759,6 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                         class="ant-checkbox"
                       >
                         <input
-                          aria-checked="false"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -1815,7 +1788,6 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                         class="ant-checkbox"
                       >
                         <input
-                          aria-checked="false"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -1845,7 +1817,6 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                         class="ant-checkbox"
                       >
                         <input
-                          aria-checked="false"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
@@ -1875,7 +1846,6 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                         class="ant-checkbox"
                       >
                         <input
-                          aria-checked="false"
                           class="ant-checkbox-input"
                           type="checkbox"
                         />

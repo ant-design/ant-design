@@ -8,7 +8,6 @@ exports[`renders ./components/checkbox/demo/basic.md correctly 1`] = `
     class="ant-checkbox"
   >
     <input
-      aria-checked="false"
       class="ant-checkbox-input"
       type="checkbox"
     />
@@ -57,7 +56,6 @@ Array [
         class="ant-checkbox ant-checkbox-checked"
       >
         <input
-          aria-checked="true"
           checked=""
           class="ant-checkbox-input"
           type="checkbox"
@@ -78,7 +76,6 @@ Array [
         class="ant-checkbox"
       >
         <input
-          aria-checked="false"
           class="ant-checkbox-input"
           type="checkbox"
           value="Pear"
@@ -98,7 +95,6 @@ Array [
         class="ant-checkbox ant-checkbox-checked"
       >
         <input
-          aria-checked="true"
           checked=""
           class="ant-checkbox-input"
           type="checkbox"
@@ -128,7 +124,6 @@ Array [
         class="ant-checkbox ant-checkbox-checked"
       >
         <input
-          aria-checked="true"
           checked=""
           class="ant-checkbox-input"
           type="checkbox"
@@ -181,7 +176,6 @@ exports[`renders ./components/checkbox/demo/debug-line.md correctly 1`] = `
           class="ant-checkbox"
         >
           <input
-            aria-checked="false"
             class="ant-checkbox-input"
             type="checkbox"
             value="light"
@@ -210,7 +204,6 @@ exports[`renders ./components/checkbox/demo/debug-line.md correctly 1`] = `
           class="ant-checkbox"
         >
           <input
-            aria-checked="false"
             class="ant-checkbox-input"
             type="checkbox"
             value="little"
@@ -292,7 +285,6 @@ exports[`renders ./components/checkbox/demo/debug-line.md correctly 1`] = `
         class="ant-checkbox"
       >
         <input
-          aria-checked="false"
           class="ant-checkbox-input"
           type="checkbox"
           value="light"
@@ -312,7 +304,6 @@ exports[`renders ./components/checkbox/demo/debug-line.md correctly 1`] = `
         class="ant-checkbox"
       >
         <input
-          aria-checked="false"
           class="ant-checkbox-input"
           type="checkbox"
           value="little"
@@ -380,7 +371,6 @@ Array [
       class="ant-checkbox ant-checkbox-disabled"
     >
       <input
-        aria-checked="false"
         class="ant-checkbox-input"
         disabled=""
         type="checkbox"
@@ -398,7 +388,6 @@ Array [
       class="ant-checkbox ant-checkbox-checked ant-checkbox-disabled"
     >
       <input
-        aria-checked="false"
         checked=""
         class="ant-checkbox-input"
         disabled=""
@@ -424,7 +413,6 @@ Array [
         class="ant-checkbox ant-checkbox-checked"
       >
         <input
-          aria-checked="true"
           checked=""
           class="ant-checkbox-input"
           type="checkbox"
@@ -445,7 +433,6 @@ Array [
         class="ant-checkbox"
       >
         <input
-          aria-checked="false"
           class="ant-checkbox-input"
           type="checkbox"
           value="Pear"
@@ -465,7 +452,6 @@ Array [
         class="ant-checkbox"
       >
         <input
-          aria-checked="false"
           class="ant-checkbox-input"
           type="checkbox"
           value="Orange"
@@ -491,7 +477,6 @@ Array [
         class="ant-checkbox"
       >
         <input
-          aria-checked="false"
           class="ant-checkbox-input"
           type="checkbox"
           value="Apple"
@@ -511,7 +496,6 @@ Array [
         class="ant-checkbox ant-checkbox-checked"
       >
         <input
-          aria-checked="true"
           checked=""
           class="ant-checkbox-input"
           type="checkbox"
@@ -532,7 +516,6 @@ Array [
         class="ant-checkbox"
       >
         <input
-          aria-checked="false"
           class="ant-checkbox-input"
           type="checkbox"
           value="Orange"
@@ -558,7 +541,6 @@ Array [
         class="ant-checkbox ant-checkbox-checked ant-checkbox-disabled"
       >
         <input
-          aria-checked="true"
           checked=""
           class="ant-checkbox-input"
           disabled=""
@@ -580,7 +562,6 @@ Array [
         class="ant-checkbox ant-checkbox-disabled"
       >
         <input
-          aria-checked="false"
           class="ant-checkbox-input"
           disabled=""
           type="checkbox"
@@ -601,7 +582,6 @@ Array [
         class="ant-checkbox ant-checkbox-disabled"
       >
         <input
-          aria-checked="false"
           class="ant-checkbox-input"
           disabled=""
           type="checkbox"
@@ -637,7 +617,6 @@ exports[`renders ./components/checkbox/demo/layout.md correctly 1`] = `
           class="ant-checkbox"
         >
           <input
-            aria-checked="false"
             class="ant-checkbox-input"
             type="checkbox"
             value="A"
@@ -661,7 +640,6 @@ exports[`renders ./components/checkbox/demo/layout.md correctly 1`] = `
           class="ant-checkbox"
         >
           <input
-            aria-checked="false"
             class="ant-checkbox-input"
             type="checkbox"
             value="B"
@@ -685,7 +663,6 @@ exports[`renders ./components/checkbox/demo/layout.md correctly 1`] = `
           class="ant-checkbox"
         >
           <input
-            aria-checked="false"
             class="ant-checkbox-input"
             type="checkbox"
             value="C"
@@ -709,7 +686,6 @@ exports[`renders ./components/checkbox/demo/layout.md correctly 1`] = `
           class="ant-checkbox"
         >
           <input
-            aria-checked="false"
             class="ant-checkbox-input"
             type="checkbox"
             value="D"
@@ -733,7 +709,6 @@ exports[`renders ./components/checkbox/demo/layout.md correctly 1`] = `
           class="ant-checkbox"
         >
           <input
-            aria-checked="false"
             class="ant-checkbox-input"
             type="checkbox"
             value="E"
