@@ -8,6 +8,7 @@ exports[`Checkbox rtl render component should be rendered correctly in RTL direc
     class="ant-checkbox"
   >
     <input
+      aria-checked="false"
       class="ant-checkbox-input"
       type="checkbox"
       value=""

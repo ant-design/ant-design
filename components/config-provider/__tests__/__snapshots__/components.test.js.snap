@@ -10307,6 +10307,7 @@ exports[`ConfigProvider components Checkbox configProvider 1`] = `
       class="config-checkbox"
     >
       <input
+        aria-checked="false"
         class="config-checkbox-input"
         type="checkbox"
       />
@@ -10332,6 +10333,7 @@ exports[`ConfigProvider components Checkbox configProvider componentSize large 1
       class="config-checkbox"
     >
       <input
+        aria-checked="false"
         class="config-checkbox-input"
         type="checkbox"
       />
@@ -10357,6 +10359,7 @@ exports[`ConfigProvider components Checkbox configProvider componentSize middle 
       class="config-checkbox"
     >
       <input
+        aria-checked="false"
         class="config-checkbox-input"
         type="checkbox"
       />
@@ -10382,6 +10385,7 @@ exports[`ConfigProvider components Checkbox configProvider virtual and dropdownM
       class="ant-checkbox"
     >
       <input
+        aria-checked="false"
         class="ant-checkbox-input"
         type="checkbox"
       />
@@ -10407,6 +10411,7 @@ exports[`ConfigProvider components Checkbox normal 1`] = `
       class="ant-checkbox"
     >
       <input
+        aria-checked="false"
         class="ant-checkbox-input"
         type="checkbox"
       />
@@ -10432,6 +10437,7 @@ exports[`ConfigProvider components Checkbox prefixCls 1`] = `
       class="prefix-Checkbox"
     >
       <input
+        aria-checked="false"
         class="prefix-Checkbox-input"
         type="checkbox"
       />
@@ -22960,6 +22966,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                                       class="config-checkbox"
                                     >
                                       <input
+                                        aria-checked="false"
                                         class="config-checkbox-input"
                                         type="checkbox"
                                       />
@@ -23240,6 +23247,7 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                                       class="config-checkbox"
                                     >
                                       <input
+                                        aria-checked="false"
                                         class="config-checkbox-input"
                                         type="checkbox"
                                       />
@@ -23520,6 +23528,7 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                                       class="config-checkbox"
                                     >
                                       <input
+                                        aria-checked="false"
                                         class="config-checkbox-input"
                                         type="checkbox"
                                       />
@@ -23800,6 +23809,7 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
                                       class="ant-checkbox"
                                     >
                                       <input
+                                        aria-checked="false"
                                         class="ant-checkbox-input"
                                         type="checkbox"
                                       />
@@ -24080,6 +24090,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                                       class="ant-checkbox"
                                     >
                                       <input
+                                        aria-checked="false"
                                         class="ant-checkbox-input"
                                         type="checkbox"
                                       />
@@ -24360,6 +24371,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                                       class="ant-checkbox"
                                     >
                                       <input
+                                        aria-checked="false"
                                         class="ant-checkbox-input"
                                         type="checkbox"
                                       />
@@ -33913,6 +33925,7 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
           class="config-checkbox"
         >
           <input
+            aria-checked="false"
             class="config-checkbox-input"
             type="checkbox"
           />
@@ -34071,6 +34084,7 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
           class="config-checkbox"
         >
           <input
+            aria-checked="false"
             class="config-checkbox-input"
             type="checkbox"
           />
@@ -34182,6 +34196,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
           class="config-checkbox"
         >
           <input
+            aria-checked="false"
             class="config-checkbox-input"
             type="checkbox"
           />
@@ -34340,6 +34355,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
           class="config-checkbox"
         >
           <input
+            aria-checked="false"
             class="config-checkbox-input"
             type="checkbox"
           />
@@ -34451,6 +34467,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
           class="config-checkbox"
         >
           <input
+            aria-checked="false"
             class="config-checkbox-input"
             type="checkbox"
           />
@@ -34609,6 +34626,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
           class="config-checkbox"
         >
           <input
+            aria-checked="false"
             class="config-checkbox-input"
             type="checkbox"
           />
@@ -34720,6 +34738,7 @@ exports[`ConfigProvider components Transfer configProvider virtual and dropdownM
           class="ant-checkbox"
         >
           <input
+            aria-checked="false"
             class="ant-checkbox-input"
             type="checkbox"
           />
@@ -34878,6 +34897,7 @@ exports[`ConfigProvider components Transfer configProvider virtual and dropdownM
           class="ant-checkbox"
         >
           <input
+            aria-checked="false"
             class="ant-checkbox-input"
             type="checkbox"
           />
@@ -34989,6 +35009,7 @@ exports[`ConfigProvider components Transfer normal 1`] = `
           class="ant-checkbox"
         >
           <input
+            aria-checked="false"
             class="ant-checkbox-input"
             type="checkbox"
           />
@@ -35147,6 +35168,7 @@ exports[`ConfigProvider components Transfer normal 1`] = `
           class="ant-checkbox"
         >
           <input
+            aria-checked="false"
             class="ant-checkbox-input"
             type="checkbox"
           />
@@ -35258,6 +35280,7 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
           class="ant-checkbox"
         >
           <input
+            aria-checked="false"
             class="ant-checkbox-input"
             type="checkbox"
           />
@@ -35416,6 +35439,7 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
           class="ant-checkbox"
         >
           <input
+            aria-checked="false"
             class="ant-checkbox-input"
             type="checkbox"
           />
