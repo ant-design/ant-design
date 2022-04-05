@@ -122,7 +122,7 @@
     "copy-to-clipboard": "^3.2.0",
     "lodash": "^4.17.21",
     "memoize-one": "^6.0.0",
-    "moment": "^2.25.3",
+    "moment": "^2.29.2",
     "rc-cascader": "~3.2.1",
     "rc-checkbox": "~2.3.0",
     "rc-collapse": "~3.1.0",
