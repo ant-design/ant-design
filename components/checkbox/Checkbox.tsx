@@ -120,11 +120,11 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
       onMouseLeave={onMouseLeave}
     >
       <RcCheckbox
+        aria-checked={ariaChecked}
         {...checkboxProps}
         prefixCls={prefixCls}
         className={checkboxClass}
         ref={ref}
-        aria-checked={ariaChecked}
       />
       {children !== undefined && <span>{children}</span>}
     </label>
