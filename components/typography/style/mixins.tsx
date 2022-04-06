@@ -56,7 +56,7 @@ export const getTitleStyles: GenerateStyle<TypographyToken, CSSObject> = token =
 };
 
 export const getLinkStyles: GenerateStyle<TypographyToken, CSSObject> = token => {
-  const { typographyCls } = token;
+  const { componentCls } = token;
 
   return {
     'a&, a': {
@@ -67,7 +67,7 @@ export const getLinkStyles: GenerateStyle<TypographyToken, CSSObject> = token =>
         textDecoration: token.linkHoverDecoration,
       },
 
-      [`&[disabled], &${typographyCls}-disabled`]: {
+      [`&[disabled], &${componentCls}-disabled`]: {
         color: token.colorTextDisabled,
         cursor: 'not-allowed',
 
@@ -183,9 +183,9 @@ export const getResetStyles = (): CSSObject => ({
 });
 
 export const getEditableStyles: GenerateStyle<TypographyToken, CSSObject> = token => {
-  const { typographyCls } = token;
+  const { componentCls } = token;
 
-  const inputToken = initInputToken(token, '', '');
+  const inputToken = initInputToken(token);
   const inputShift = inputToken.inputPaddingVertical + 1;
   return {
     '&-edit-content': {
@@ -197,7 +197,7 @@ export const getEditableStyles: GenerateStyle<TypographyToken, CSSObject> = toke
         marginBottom: `calc(1em - ${inputShift}px)`,
       },
 
-      [`${typographyCls}-edit-content-confirm`]: {
+      [`${componentCls}-edit-content-confirm`]: {
         position: 'absolute',
         insetInlineEnd: token.marginXS + 2,
         insetBlockEnd: token.marginXS,

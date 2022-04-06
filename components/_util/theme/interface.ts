@@ -44,8 +44,10 @@ export interface OverrideToken {
   Divider?: DividerComponentToken;
   Empty?: EmptyComponentToken;
   Form?: {};
+  Input?: {};
   InputNumber?: InputNumberComponentToken;
   Mentions?: MentionsComponentToken;
+  Pagination?: {};
   Select?: SelectComponentToken;
   Slider?: SliderComponentToken;
   Typography?: TypographyComponentToken;
