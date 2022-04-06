@@ -15,12 +15,13 @@ export type StyleInfo = {
   rootPrefixCls: string;
   iconPrefixCls: string;
 };
-export type TokenWithComponentCls<T> = T & {
+export type TokenWithCommonCls<T> = T & {
   componentCls: string;
   prefixCls: string;
   iconCls: string;
+  antCls: string;
 };
-export type FullToken<ComponentName extends OverrideComponent> = TokenWithComponentCls<
+export type FullToken<ComponentName extends OverrideComponent> = TokenWithCommonCls<
   GlobalTokenWithComponent<ComponentName>
 >;
 
@@ -34,6 +35,7 @@ function genComponentStyleHook<ComponentName extends OverrideComponent>(
   return (prefixCls: string): UseComponentStyleResult => {
     const [theme, token, hashId] = useToken();
     const { getPrefixCls, iconPrefixCls } = useContext(ConfigContext);
+    const rootPrefixCls = getPrefixCls();
 
     return [
       useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => {
@@ -51,17 +53,22 @@ function genComponentStyleHook<ComponentName extends OverrideComponent>(
           });
         }
         const mergedToken = mergeToken<
-          TokenWithComponentCls<GlobalTokenWithComponent<OverrideComponent>>
+          TokenWithCommonCls<GlobalTokenWithComponent<OverrideComponent>>
         >(
           proxyToken,
-          { componentCls: `.${prefixCls}`, prefixCls, iconCls: `.${iconPrefixCls}` },
+          {
+            componentCls: `.${prefixCls}`,
+            prefixCls,
+            iconCls: `.${iconPrefixCls}`,
+            antCls: `.${rootPrefixCls}`,
+          },
           mergedComponentToken,
         );
 
         const styleInterpolation = styleFn(mergedToken as unknown as FullToken<ComponentName>, {
           hashId,
           prefixCls,
-          rootPrefixCls: getPrefixCls(),
+          rootPrefixCls,
           iconPrefixCls,
         });
         flush(component);
