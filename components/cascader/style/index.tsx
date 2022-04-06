@@ -8,9 +8,9 @@
 // // deps-lint-skip: form
 
 // deps-lint-skip-all
-import genComponentStyleHook, { FullToken } from '../../_util/hooks/genComponentStyleHook';
-import { GenerateStyle } from '../../_util/theme';
+import { genComponentStyleHook } from '../../_util/theme';
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
+import type { GenerateStyle, FullToken } from '../../_util/theme';
 
 export interface ComponentToken {
   controlWidth: number;

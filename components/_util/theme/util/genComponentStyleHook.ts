@@ -1,9 +1,9 @@
 /* eslint-disable no-redeclare */
 import { CSSInterpolation, useStyleRegister } from '@ant-design/cssinjs';
 import { useContext } from 'react';
-import { GlobalToken, OverrideToken } from '../theme/interface';
-import { mergeToken, statisticToken, UseComponentStyleResult, useToken } from '../theme';
-import { ConfigContext } from '../../config-provider';
+import { GlobalToken, OverrideToken } from '../interface';
+import { mergeToken, statisticToken, UseComponentStyleResult, useToken } from '../index';
+import { ConfigContext } from '../../../config-provider';
 
 export type OverrideTokenWithoutDerivative = Omit<OverrideToken, 'derivative'>;
 export type OverrideComponent = keyof OverrideTokenWithoutDerivative;
@@ -15,7 +15,11 @@ export type StyleInfo = {
   rootPrefixCls: string;
   iconPrefixCls: string;
 };
-export type TokenWithComponentCls<T> = T & { componentCls: string; prefixCls: string };
+export type TokenWithComponentCls<T> = T & {
+  componentCls: string;
+  prefixCls: string;
+  iconCls: string;
+};
 export type FullToken<ComponentName extends OverrideComponent> = TokenWithComponentCls<
   GlobalTokenWithComponent<ComponentName>
 >;
@@ -48,7 +52,11 @@ function genComponentStyleHook<ComponentName extends OverrideComponent>(
         }
         const mergedToken = mergeToken<
           TokenWithComponentCls<GlobalTokenWithComponent<OverrideComponent>>
-        >(proxyToken, { componentCls: `.${prefixCls}`, prefixCls }, mergedComponentToken);
+        >(
+          proxyToken,
+          { componentCls: `.${prefixCls}`, prefixCls, iconCls: `.${iconPrefixCls}` },
+          mergedComponentToken,
+        );
 
         const styleInterpolation = styleFn(mergedToken as unknown as FullToken<ComponentName>, {
           hashId,

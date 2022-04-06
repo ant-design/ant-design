@@ -1,8 +1,8 @@
 // deps-lint-skip-all
 import { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-import genComponentStyleHook, { FullToken } from '../../_util/hooks/genComponentStyleHook';
-import { GenerateStyle, mergeToken } from '../../_util/theme';
+import { mergeToken, genComponentStyleHook } from '../../_util/theme';
+import type { GenerateStyle, FullToken } from '../../_util/theme';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -10,13 +10,11 @@ export interface ComponentToken {
   colorBgTextActive: string;
 }
 
-interface ButtonToken extends FullToken<'Button'> {
-  iconPrefixCls: string;
-}
+interface ButtonToken extends FullToken<'Button'> {}
 
 // ============================== Shared ==============================
 const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSSObject => {
-  const { componentCls, iconPrefixCls } = token;
+  const { componentCls, iconCls } = token;
 
   return {
     [componentCls]: {
@@ -41,7 +39,7 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
       },
 
       // Leave a space between icon and text.
-      [`> .${iconPrefixCls} + span, > span + .${iconPrefixCls}`]: {
+      [`> ${iconCls} + span, > span + ${iconCls}`]: {
         marginInlineStart: token.marginXS,
       },
 
@@ -297,7 +295,7 @@ const genTypeButtonStyle: GenerateStyle<ButtonToken> = token => {
 
 // =============================== Size ===============================
 const genSizeButtonStyle = (token: ButtonToken, sizePrefixCls: string = ''): CSSInterpolation => {
-  const { componentCls, iconPrefixCls } = token;
+  const { componentCls, iconCls } = token;
 
   const paddingVertical = Math.max(
     0,
@@ -335,10 +333,9 @@ const genSizeButtonStyle = (token: ButtonToken, sizePrefixCls: string = ''): CSS
           transition: `width ${token.motionDurationSlow} ${token.motionEaseInOut}, opacity ${token.motionDurationSlow} ${token.motionEaseInOut}`,
         },
 
-        [`&:not(${iconOnlyCls}) ${componentCls}-loading-icon:not(:only-child) > .${iconPrefixCls}`]:
-          {
-            marginInlineEnd: token.marginXS,
-          },
+        [`&:not(${iconOnlyCls}) ${componentCls}-loading-icon:not(:only-child) > ${iconCls}`]: {
+          marginInlineEnd: token.marginXS,
+        },
       },
     },
 
@@ -375,25 +372,18 @@ const genSizeLargeButtonStyle: GenerateStyle<ButtonToken> = token => {
 // ============================== Export ==============================
 export default genComponentStyleHook(
   'Button',
-  (token, { iconPrefixCls }) => {
-    const buttonToken: ButtonToken = {
-      ...token,
-      iconPrefixCls,
-    };
+  token => [
+    // Shared
+    genSharedButtonStyle(token),
 
-    return [
-      // Shared
-      genSharedButtonStyle(buttonToken),
+    // Size
+    genSizeSmallButtonStyle(token),
+    genSizeBaseButtonStyle(token),
+    genSizeLargeButtonStyle(token),
 
-      // Size
-      genSizeSmallButtonStyle(buttonToken),
-      genSizeBaseButtonStyle(buttonToken),
-      genSizeLargeButtonStyle(buttonToken),
-
-      // Group (type, ghost, danger, disabled, loading)
-      genTypeButtonStyle(buttonToken),
-    ];
-  },
+    // Group (type, ghost, danger, disabled, loading)
+    genTypeButtonStyle(token),
+  ],
   token => {
     const { colorText } = token;
     const textColor = new TinyColor(colorText);
