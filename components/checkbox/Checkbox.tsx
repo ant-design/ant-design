@@ -110,6 +110,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
   const checkboxClass = classNames({
     [`${prefixCls}-indeterminate`]: indeterminate,
   });
+  const ariaChecked = indeterminate ? 'mixed' : undefined;
   return (
     // eslint-disable-next-line jsx-a11y/label-has-associated-control
     <label
@@ -118,7 +119,13 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <RcCheckbox {...checkboxProps} prefixCls={prefixCls} className={checkboxClass} ref={ref} />
+      <RcCheckbox
+        aria-checked={ariaChecked}
+        {...checkboxProps}
+        prefixCls={prefixCls}
+        className={checkboxClass}
+        ref={ref}
+      />
       {children !== undefined && <span>{children}</span>}
     </label>
   );
