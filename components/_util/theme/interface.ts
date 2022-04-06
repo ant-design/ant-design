@@ -43,8 +43,10 @@ export interface OverrideToken {
   Cascader?: CascaderComponentToken;
   Divider?: DividerComponentToken;
   Empty?: EmptyComponentToken;
+  Input?: {};
   InputNumber?: InputNumberComponentToken;
   Mentions?: MentionsComponentToken;
+  Pagination?: {};
   Select?: SelectComponentToken;
   Slider?: SliderComponentToken;
   Typography?: TypographyComponentToken;
