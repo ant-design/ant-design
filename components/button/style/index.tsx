@@ -1,8 +1,7 @@
 // deps-lint-skip-all
 import { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-import genComponentStyleHook, { FullToken } from '../../_util/theme/util/genComponentStyleHook';
-import { GenerateStyle, mergeToken } from '../../_util/theme';
+import { GenerateStyle, mergeToken, genComponentStyleHook, FullToken } from '../../_util/theme';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {

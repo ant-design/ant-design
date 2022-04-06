@@ -1,5 +1,6 @@
 import React from 'react';
 import { CSSInterpolation, Theme, useCacheToken, useStyleRegister } from '@ant-design/cssinjs';
+import genComponentStyleHook, { FullToken } from './util/genComponentStyleHook';
 import defaultSeedToken, { derivative as defaultDerivative } from './themes/default';
 import version from '../../version';
 import { resetComponent, resetIcon, clearFix, roundedArrow } from './util';
@@ -44,6 +45,9 @@ export {
   // Statistic
   statisticToken,
   mergeToken,
+  // GenComponentStyleHook
+  genComponentStyleHook,
+  FullToken,
 };
 
 export type {
