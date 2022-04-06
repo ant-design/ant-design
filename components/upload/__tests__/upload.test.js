@@ -1,6 +1,8 @@
 /* eslint-disable react/no-string-refs, react/prefer-es6-class */
 import React from 'react';
-import { mount, render } from 'enzyme';
+import { mount } from 'enzyme';
+import { render, fireEvent } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import { act } from 'react-dom/test-utils';
 import produce from 'immer';
 import { cloneDeep } from 'lodash';
@@ -12,6 +14,8 @@ import { resetWarned } from '../../_util/devWarning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { sleep } from '../../../tests/utils';
+
+globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 
 describe('Upload', () => {
   mountTest(Upload);
@@ -296,7 +300,7 @@ describe('Upload', () => {
         url: 'http://www.baidu.com/xxx.png',
       },
     ];
-    render(<Upload fileList={fileList} />);
+    mount(<Upload fileList={fileList} />);
     fileList.forEach(file => {
       expect(file.uid).toBeDefined();
     });
@@ -851,19 +855,22 @@ describe('Upload', () => {
   // IE11 Does not support the File constructor
   it('should not break in IE if beforeUpload returns false', async () => {
     const onChange = jest.fn();
-    const wrapper = mount(<Upload beforeUpload={() => false} fileList={[]} onChange={onChange} />);
+    const { container } = render(
+      <Upload beforeUpload={() => false} fileList={[]} onChange={onChange} />,
+    );
     const fileConstructor = () => {
       throw new TypeError("Object doesn't support this action");
     };
-    global.File = jest.fn().mockImplementationOnce(fileConstructor);
 
-    await act(async () =>
-      wrapper.find('input').simulate('change', {
-        target: {
-          files: [{ file: 'foo.png' }],
-        },
-      }),
-    );
+    jest.spyOn(global, 'File').mockImplementationOnce(fileConstructor);
+    fireEvent.change(container.querySelector('input'), {
+      target: {
+        files: [{ file: 'foo.png' }],
+      },
+    });
+
+    // React 18 is async now
+    await sleep();
 
     expect(onChange.mock.calls[0][0].fileList).toHaveLength(1);
   });

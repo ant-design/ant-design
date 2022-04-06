@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import Avatar from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -144,9 +146,10 @@ describe('Avatar Render', () => {
 
   it('should warning when pass a string as icon props', () => {
     const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    mount(<Avatar size={64} icon="aa" />);
+    render(<Avatar size={64} icon="aa" />);
     expect(warnSpy).not.toHaveBeenCalled();
-    mount(<Avatar size={64} icon="user" />);
+
+    render(<Avatar size={64} icon="user" />);
     expect(warnSpy).toHaveBeenCalledWith(
       `Warning: [antd: Avatar] \`icon\` is using ReactNode instead of string naming in v4. Please check \`user\` at https://ant.design/components/icon`,
     );

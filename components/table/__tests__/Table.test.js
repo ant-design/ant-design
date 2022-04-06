@@ -1,5 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import Table from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -258,7 +260,7 @@ describe('Table', () => {
         dataIndex: 'name',
       },
     ];
-    mount(<Table columns={columns} rowKey={record => record.key} />);
+    render(<Table columns={columns} rowKey={record => record.key} />);
     expect(warnSpy).not.toBeCalled();
   });
 
@@ -275,7 +277,7 @@ describe('Table', () => {
       const ref = React.useRef();
       return <Table ref={ref} columns={columns} />;
     };
-    mount(<Wrapper />);
+    render(<Wrapper />);
     expect(warnSpy).not.toBeCalled();
   });
 });
