@@ -35,7 +35,7 @@ describe('Skeleton', () => {
   });
 
   it('should display without children', () => {
-    const wrapper = mount(<Skeleton loading={false}></Skeleton>);
+    const wrapper = mount(<Skeleton loading={false} />);
     expect(wrapper.render()).toMatchSnapshot();
   });
 
