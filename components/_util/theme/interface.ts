@@ -1,4 +1,4 @@
-import * as React from 'react';
+import type * as React from 'react';
 import type { ComponentToken as ButtonComponentToken } from '../../button/style';
 import type { ComponentToken as DividerComponentToken } from '../../divider/style';
 import type { ComponentToken as EmptyComponentToken } from '../../empty/style';
@@ -43,6 +43,7 @@ export interface OverrideToken {
   Cascader?: CascaderComponentToken;
   Divider?: DividerComponentToken;
   Empty?: EmptyComponentToken;
+  Form?: {};
   Input?: {};
   InputNumber?: InputNumberComponentToken;
   Mentions?: MentionsComponentToken;

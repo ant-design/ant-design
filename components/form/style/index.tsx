@@ -1,18 +1,10 @@
 // deps-lint-skip-all
-import { CSSObject } from '@ant-design/cssinjs';
-import {
-  AliasToken,
-  GenerateStyle,
-  resetComponent,
-  UseComponentStyleResult,
-  useStyleRegister,
-  useToken,
-} from '../../_util/theme';
+import type { CSSObject } from '@ant-design/cssinjs';
+import type { AliasToken, FullToken, GenerateStyle } from '../../_util/theme';
+import { genComponentStyleHook, resetComponent } from '../../_util/theme';
 
-interface FormToken extends AliasToken {
-  formCls: string;
+interface FormToken extends FullToken<'Form'> {
   formItemCls: string;
-  iconCls: string;
   rootPrefixCls: string;
 }
 
@@ -86,14 +78,14 @@ const genFormSize = (token: FormToken, height: number): CSSObject => ({
 });
 
 const genFormStyle: GenerateStyle<FormToken> = token => {
-  const { formCls } = token;
+  const { componentCls } = token;
 
   return {
-    [token.formCls]: {
+    [token.componentCls]: {
       ...resetComponent(token),
       ...resetForm(token),
 
-      [`${formCls}-text`]: {
+      [`${componentCls}-text`]: {
         display: 'inline-block',
         paddingInlineEnd: token.paddingSM,
       },
@@ -113,7 +105,7 @@ const genFormStyle: GenerateStyle<FormToken> = token => {
 };
 
 const genFormItemStyle: GenerateStyle<FormToken> = token => {
-  const { formItemCls, iconCls, formCls, rootPrefixCls } = token;
+  const { formItemCls, iconCls, componentCls, rootPrefixCls } = token;
 
   return {
     [formItemCls]: {
@@ -192,7 +184,7 @@ const genFormItemStyle: GenerateStyle<FormToken> = token => {
             lineHeight: 1,
             content: '"*"',
 
-            [`${formCls}-hide-required-mark &`]: {
+            [`${componentCls}-hide-required-mark &`]: {
               display: 'none',
             },
           },
@@ -203,7 +195,7 @@ const genFormItemStyle: GenerateStyle<FormToken> = token => {
             marginInlineStart: token.marginXXS,
             color: token.colorTextSecondary,
 
-            [`${formCls}-hide-required-mark &`]: {
+            [`${componentCls}-hide-required-mark &`]: {
               display: 'none',
             },
           },
@@ -327,10 +319,10 @@ const genFormItemStyle: GenerateStyle<FormToken> = token => {
 };
 
 const genFormMotionStyle: GenerateStyle<FormToken> = token => {
-  const { formCls, rootPrefixCls } = token;
+  const { componentCls, rootPrefixCls } = token;
 
   return {
-    [formCls]: {
+    [componentCls]: {
       // Explain holder
       [`.${rootPrefixCls}-show-help`]: {
         transition: `height ${token.motionDurationSlow} linear,
@@ -374,10 +366,10 @@ const genFormMotionStyle: GenerateStyle<FormToken> = token => {
 };
 
 const genHorizontalStyle: GenerateStyle<FormToken> = token => {
-  const { formCls, formItemCls, rootPrefixCls } = token;
+  const { componentCls, formItemCls, rootPrefixCls } = token;
 
   return {
-    [`${formCls}-horizontal`]: {
+    [`${componentCls}-horizontal`]: {
       [`${formItemCls}-label`]: {
         flexGrow: 0,
       },
@@ -398,10 +390,10 @@ const genHorizontalStyle: GenerateStyle<FormToken> = token => {
 };
 
 const genInlineStyle: GenerateStyle<FormToken> = token => {
-  const { formCls, formItemCls } = token;
+  const { componentCls, formItemCls } = token;
 
   return {
-    [`${formCls}-inline`]: {
+    [`${componentCls}-inline`]: {
       display: 'flex',
       flexWrap: 'wrap',
 
@@ -425,7 +417,7 @@ const genInlineStyle: GenerateStyle<FormToken> = token => {
           flex: 'none',
         },
 
-        [`${formCls}-text`]: {
+        [`${componentCls}-text`]: {
           display: 'inline-block',
         },
 
@@ -453,13 +445,13 @@ const makeVerticalLayoutLabel = (token: FormToken): CSSObject => ({
 });
 
 const makeVerticalLayout = (token: FormToken): CSSObject => {
-  const { formCls, formItemCls } = token;
+  const { componentCls, formItemCls } = token;
 
   return {
     [`${formItemCls} ${formItemCls}-label`]: {
       ...makeVerticalLayoutLabel(token),
     },
-    [formCls]: {
+    [componentCls]: {
       [formItemCls]: {
         flexWrap: 'wrap',
 
@@ -474,10 +466,10 @@ const makeVerticalLayout = (token: FormToken): CSSObject => {
 };
 
 const genVerticalStyle: GenerateStyle<FormToken> = token => {
-  const { formCls, formItemCls, rootPrefixCls } = token;
+  const { componentCls, formItemCls, rootPrefixCls } = token;
 
   return {
-    [`${formCls}-vertical`]: {
+    [`${componentCls}-vertical`]: {
       [formItemCls]: {
         flexDirection: 'column',
 
@@ -487,7 +479,7 @@ const genVerticalStyle: GenerateStyle<FormToken> = token => {
       },
     },
 
-    [`${formCls}-vertical ${formItemCls}-label,
+    [`${componentCls}-vertical ${formItemCls}-label,
       .${rootPrefixCls}-col-24${formItemCls}-label,
       .${rootPrefixCls}-col-xl-24${formItemCls}-label`]: {
       ...makeVerticalLayoutLabel(token),
@@ -495,7 +487,7 @@ const genVerticalStyle: GenerateStyle<FormToken> = token => {
 
     [`@media (max-width: ${token.screenSMMax}px)`]: {
       ...makeVerticalLayout(token),
-      [formCls]: {
+      [componentCls]: {
         [`.${rootPrefixCls}-col-xs-24${formItemCls}-label`]: {
           ...makeVerticalLayoutLabel(token),
         },
@@ -503,7 +495,7 @@ const genVerticalStyle: GenerateStyle<FormToken> = token => {
     },
 
     [`@media (max-width: ${token.screenSMMax}px)`]: {
-      [formCls]: {
+      [componentCls]: {
         [`.${rootPrefixCls}-col-sm-24${formItemCls}-label`]: {
           ...makeVerticalLayoutLabel(token),
         },
@@ -511,7 +503,7 @@ const genVerticalStyle: GenerateStyle<FormToken> = token => {
     },
 
     [`@media (max-width: ${token.screenMDMax}px)`]: {
-      [formCls]: {
+      [componentCls]: {
         [`.${rootPrefixCls}-col-md-24${formItemCls}-label`]: {
           ...makeVerticalLayoutLabel(token),
         },
@@ -519,7 +511,7 @@ const genVerticalStyle: GenerateStyle<FormToken> = token => {
     },
 
     [`@media (max-width: ${token.screenLGMax}px)`]: {
-      [formCls]: {
+      [componentCls]: {
         [`.${rootPrefixCls}-col-lg-24${formItemCls}-label`]: {
           ...makeVerticalLayoutLabel(token),
         },
@@ -529,30 +521,19 @@ const genVerticalStyle: GenerateStyle<FormToken> = token => {
 };
 
 // ============================== Export ==============================
-export default function useStyle(
-  prefixCls: string,
-  iconPrefixCls: string,
-  rootPrefixCls: string,
-): UseComponentStyleResult {
-  const [theme, token, hashId] = useToken();
-
+export default genComponentStyleHook('Form', (token, { rootPrefixCls }) => {
   const formToken: FormToken = {
     ...token,
-    formCls: `.${prefixCls}`,
-    formItemCls: `.${prefixCls}-item`,
-    iconCls: `.${iconPrefixCls}`,
+    formItemCls: `${token.componentCls}-item`,
     rootPrefixCls,
   };
 
   return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      genFormStyle(formToken),
-      genFormItemStyle(formToken),
-      genFormMotionStyle(formToken),
-      genHorizontalStyle(formToken),
-      genInlineStyle(formToken),
-      genVerticalStyle(formToken),
-    ]),
-    hashId,
+    genFormStyle(formToken),
+    genFormItemStyle(formToken),
+    genFormMotionStyle(formToken),
+    genHorizontalStyle(formToken),
+    genInlineStyle(formToken),
+    genVerticalStyle(formToken),
   ];
-}
+});

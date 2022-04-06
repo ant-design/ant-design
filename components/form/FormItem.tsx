@@ -1,9 +1,11 @@
 import * as React from 'react';
-import { ReactNode, useContext, useMemo } from 'react';
+import type { ReactNode } from 'react';
+import { useContext, useMemo } from 'react';
 import classNames from 'classnames';
-import { Field, FormInstance, FieldContext, ListContext } from 'rc-field-form';
-import { FieldProps } from 'rc-field-form/lib/Field';
-import { Meta, NamePath } from 'rc-field-form/lib/interface';
+import type { FormInstance } from 'rc-field-form';
+import { Field, FieldContext, ListContext } from 'rc-field-form';
+import type { FieldProps } from 'rc-field-form/lib/Field';
+import type { Meta, NamePath } from 'rc-field-form/lib/interface';
 import { supportRef } from 'rc-util/lib/ref';
 import useState from 'rc-util/lib/hooks/useState';
 import omit from 'rc-util/lib/omit';
@@ -16,14 +18,12 @@ import Row from '../grid/row';
 import { ConfigContext } from '../config-provider';
 import { tuple } from '../_util/type';
 import devWarning from '../_util/devWarning';
-import FormItemLabel, { FormItemLabelProps, LabelTooltipType } from './FormItemLabel';
-import FormItemInput, { FormItemInputProps } from './FormItemInput';
-import {
-  FormContext,
-  FormItemInputContext,
-  NoStyleItemContext,
-  FormItemStatusContextProps,
-} from './context';
+import type { FormItemLabelProps, LabelTooltipType } from './FormItemLabel';
+import FormItemLabel from './FormItemLabel';
+import type { FormItemInputProps } from './FormItemInput';
+import FormItemInput from './FormItemInput';
+import type { FormItemStatusContextProps } from './context';
+import { FormContext, FormItemInputContext, NoStyleItemContext } from './context';
 import { toArray, getFieldId } from './util';
 import { cloneElement, isValidElement } from '../_util/reactNode';
 import useFrameState from './hooks/useFrameState';
@@ -122,7 +122,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
     hidden,
     ...restProps
   } = props;
-  const { getPrefixCls, iconPrefixCls } = useContext(ConfigContext);
+  const { getPrefixCls } = useContext(ConfigContext);
   const { name: formName, requiredMark } = useContext(FormContext);
   const isRenderProps = typeof children === 'function';
   const notifyParentMetaChange = useContext(NoStyleItemContext);
@@ -136,7 +136,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
   const prefixCls = getPrefixCls('form', customizePrefixCls);
 
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls, getPrefixCls());
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   // ========================= MISC =========================
   // Get `noStyle` required info
