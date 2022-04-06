@@ -8,6 +8,7 @@ import type { ComponentToken as MentionsComponentToken } from '../../mentions/st
 import type { ComponentToken as SelectComponentToken } from '../../select/style';
 import type { ComponentToken as SliderComponentToken } from '../../slider/style';
 import type { ComponentToken as TypographyComponentToken } from '../../typography/style';
+import type { ComponentToken as BackTopComponentToken } from '../../back-top/style';
 
 export const PresetColors = [
   'blue',
@@ -48,6 +49,7 @@ export interface OverrideToken {
   Select?: SelectComponentToken;
   Slider?: SliderComponentToken;
   Typography?: TypographyComponentToken;
+  BackTop?: BackTopComponentToken;
 }
 
 /** Final token which contains the components level override */
