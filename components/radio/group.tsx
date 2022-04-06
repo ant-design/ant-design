@@ -33,7 +33,6 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
       prefixCls: customizePrefixCls,
       className = '',
       options,
-      optionType,
       buttonStyle = 'outline' as RadioGroupButtonStyle,
       disabled,
       children,
