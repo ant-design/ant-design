@@ -22,7 +22,6 @@ export interface ComponentToken {
 }
 
 export interface SelectToken extends FullToken<'Select'> {
-  antCls: string;
   rootPrefixCls: string;
   inputPaddingHorizontalBase: number;
 }
@@ -337,7 +336,6 @@ export default genComponentStyleHook(
   (token, { rootPrefixCls, hashId }) => {
     const selectToken: SelectToken = {
       ...token,
-      antCls: `.${rootPrefixCls}`,
       rootPrefixCls,
       inputPaddingHorizontalBase: token.controlPaddingHorizontal - 1,
     };
