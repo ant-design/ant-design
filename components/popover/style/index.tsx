@@ -6,23 +6,20 @@
 
 // deps-lint-skip-all
 import { TinyColor } from '@ctrl/tinycolor';
-import { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
+import { CSSObject } from '@ant-design/cssinjs';
 import {
   PresetColors,
   PresetColorType,
-  DerivativeToken,
-  useStyleRegister,
-  useToken,
-  UseComponentStyleResult,
   GenerateStyle,
   resetComponent,
   roundedArrow,
+  FullToken,
+  genComponentStyleHook,
 } from '../../_util/theme';
 
 // FIXME
-type PopoverToken = DerivativeToken & {
-  popoverCls: string;
-  iconPrefixCls: string;
+type PopoverToken = FullToken<'Popover'> & {
+  componentCls: string;
   popoverBg: string;
   popoverColor: string;
   popoverMinWidth: number;
@@ -31,7 +28,7 @@ type PopoverToken = DerivativeToken & {
   popoverArrowColor: string;
   popoverArrowOuterColor: string;
   popoverDistance: number;
-  popoverPaddingHorizonta: number;
+  popoverPaddingHorizontal: number;
   popoverArrowRotateWidth: number;
   popoverArrowOffsetVertical: number;
   popoverArrowOffsetHorizontal: number;
@@ -39,14 +36,14 @@ type PopoverToken = DerivativeToken & {
 
 const genBaseStyle: GenerateStyle<PopoverToken> = token => {
   const {
-    popoverCls,
-    iconPrefixCls,
+    componentCls,
+    iconCls,
     popoverBg,
     popoverColor,
     popoverMinWidth,
     popoverMinHeight,
     popoverArrowWidth,
-    popoverPaddingHorizonta,
+    popoverPaddingHorizontal,
     popoverArrowRotateWidth,
 
     boxShadow,
@@ -62,7 +59,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = token => {
   } = token;
 
   return {
-    [popoverCls]: {
+    [componentCls]: {
       ...resetComponent(token),
       position: 'absolute',
       top: 0,
@@ -89,27 +86,27 @@ const genBaseStyle: GenerateStyle<PopoverToken> = token => {
         display: 'none',
       },
 
-      [`${popoverCls}-inner`]: {
+      [`${componentCls}-inner`]: {
         backgroundColor: popoverBg,
         backgroundClip: 'padding-box',
         borderRadius,
         boxShadow,
       },
 
-      [`${popoverCls}-title`]: {
+      [`${componentCls}-title`]: {
         minWidth: popoverMinWidth,
         minHeight: popoverMinHeight,
         margin: 0,
         // FIXME
-        padding: `5px ${popoverPaddingHorizonta}px 4px`,
+        padding: `5px ${popoverPaddingHorizontal}px 4px`,
         color: colorTextHeading,
         fontWeight: 500,
         // FIXME
         borderBottom: `1px solid ${colorSplit}`,
       },
 
-      [`${popoverCls}-inner-content`]: {
-        padding: `${paddingSM}px ${popoverPaddingHorizonta}px`,
+      [`${componentCls}-inner-content`]: {
+        padding: `${paddingSM}px ${popoverPaddingHorizontal}px`,
         color: popoverColor,
       },
 
@@ -121,7 +118,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = token => {
         color: popoverColor,
         fontSize,
 
-        [`> .${iconPrefixCls}`]: {
+        [`> ${iconCls}`]: {
           position: 'absolute',
           // FIXME
           top: 4 + (lineHeight * fontSize - fontSize) / 2,
@@ -145,7 +142,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = token => {
         },
       },
 
-      [`${popoverCls}-arrow`]: {
+      [`${componentCls}-arrow`]: {
         position: 'absolute',
         display: 'block',
         width: popoverArrowRotateWidth,
@@ -176,7 +173,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = token => {
 
 const genPlacementStyle: GenerateStyle<PopoverToken> = token => {
   const {
-    popoverCls,
+    componentCls,
     popoverDistance,
     popoverArrowRotateWidth,
     popoverArrowOffsetHorizontal,
@@ -184,7 +181,7 @@ const genPlacementStyle: GenerateStyle<PopoverToken> = token => {
   } = token;
 
   return {
-    [popoverCls]: {
+    [componentCls]: {
       [`
         &-placement-top,
         &-placement-topLeft,
@@ -218,9 +215,9 @@ const genPlacementStyle: GenerateStyle<PopoverToken> = token => {
       },
 
       [`
-        &-placement-top ${popoverCls}-arrow,
-        &-placement-topLeft ${popoverCls}-arrow,
-        &-placement-topRight ${popoverCls}-arrow
+        &-placement-top ${componentCls}-arrow,
+        &-placement-topLeft ${componentCls}-arrow,
+        &-placement-topRight ${componentCls}-arrow
       `]: {
         bottom: popoverDistance - popoverArrowRotateWidth,
 
@@ -231,23 +228,23 @@ const genPlacementStyle: GenerateStyle<PopoverToken> = token => {
         },
       },
 
-      [`&-placement-top ${popoverCls}-arrow`]: {
+      [`&-placement-top ${componentCls}-arrow`]: {
         insetInlineStart: '50%',
         transform: 'translateX(-50%)',
       },
 
-      [`&-placement-topLeft ${popoverCls}-arrow`]: {
+      [`&-placement-topLeft ${componentCls}-arrow`]: {
         insetInlineStart: popoverArrowOffsetHorizontal,
       },
 
-      [`&-placement-topRight ${popoverCls}-arrow`]: {
+      [`&-placement-topRight ${componentCls}-arrow`]: {
         insetInlineEnd: popoverArrowOffsetHorizontal,
       },
 
       [`
-        &-placement-right ${popoverCls}-arrow,
-        &-placement-rightTop ${popoverCls}-arrow,
-        &-placement-rightBottom ${popoverCls}-arrow
+        &-placement-right ${componentCls}-arrow,
+        &-placement-rightTop ${componentCls}-arrow,
+        &-placement-rightBottom ${componentCls}-arrow
       `]: {
         insetInlineStart: popoverDistance - popoverArrowRotateWidth,
 
@@ -258,23 +255,23 @@ const genPlacementStyle: GenerateStyle<PopoverToken> = token => {
         },
       },
 
-      [`&-placement-right ${popoverCls}-arrow`]: {
+      [`&-placement-right ${componentCls}-arrow`]: {
         top: '50%',
         transform: 'translateY(-50%)',
       },
 
-      [`&-placement-rightTop ${popoverCls}-arrow`]: {
+      [`&-placement-rightTop ${componentCls}-arrow`]: {
         top: popoverArrowOffsetVertical,
       },
 
-      [`&-placement-rightBottom ${popoverCls}-arrow`]: {
+      [`&-placement-rightBottom ${componentCls}-arrow`]: {
         bottom: popoverArrowOffsetVertical,
       },
 
       [`
-        &-placement-bottom ${popoverCls}-arrow,
-        &-placement-bottomLeft ${popoverCls}-arrow,
-        &-placement-bottomRight ${popoverCls}-arrow
+        &-placement-bottom ${componentCls}-arrow,
+        &-placement-bottomLeft ${componentCls}-arrow,
+        &-placement-bottomRight ${componentCls}-arrow
       `]: {
         top: popoverDistance - popoverArrowRotateWidth,
 
@@ -285,23 +282,23 @@ const genPlacementStyle: GenerateStyle<PopoverToken> = token => {
         },
       },
 
-      [`&-placement-bottom ${popoverCls}-arrow`]: {
+      [`&-placement-bottom ${componentCls}-arrow`]: {
         insetInlineStart: '50%',
         transform: 'translateX(-50%)',
       },
 
-      [`&-placement-bottomLeft ${popoverCls}-arrow`]: {
+      [`&-placement-bottomLeft ${componentCls}-arrow`]: {
         insetInlineStart: popoverArrowOffsetHorizontal,
       },
 
-      [`&-placement-bottomRight ${popoverCls}-arrow`]: {
+      [`&-placement-bottomRight ${componentCls}-arrow`]: {
         insetInlineEnd: popoverArrowOffsetHorizontal,
       },
 
       [`
-        &-placement-left ${popoverCls}-arrow,
-        &-placement-leftTop ${popoverCls}-arrow,
-        &-placement-leftBottom ${popoverCls}-arrow
+        &-placement-left ${componentCls}-arrow,
+        &-placement-leftTop ${componentCls}-arrow,
+        &-placement-leftBottom ${componentCls}-arrow
       `]: {
         insetInlineEnd: popoverDistance - popoverArrowRotateWidth,
 
@@ -312,16 +309,16 @@ const genPlacementStyle: GenerateStyle<PopoverToken> = token => {
         },
       },
 
-      [`&-placement-left ${popoverCls}-arrow`]: {
+      [`&-placement-left ${componentCls}-arrow`]: {
         top: '50%',
         transform: 'translateY(-50%)',
       },
 
-      [`&-placement-leftTop ${popoverCls}-arrow`]: {
+      [`&-placement-leftTop ${componentCls}-arrow`]: {
         top: popoverArrowOffsetVertical,
       },
 
-      [`&-placement-leftBottom ${popoverCls}-arrow`]: {
+      [`&-placement-leftBottom ${componentCls}-arrow`]: {
         bottom: popoverArrowOffsetVertical,
       },
     },
@@ -330,17 +327,17 @@ const genPlacementStyle: GenerateStyle<PopoverToken> = token => {
 
 // FIXME: special preset colors
 const genColorStyle: GenerateStyle<PopoverToken> = token => {
-  const { popoverCls } = token;
+  const { componentCls } = token;
 
   return PresetColors.reduce((prev: CSSObject, colorKey: keyof PresetColorType) => {
     const lightColor = token[`${colorKey}-6`];
     return {
       ...prev,
-      [`${popoverCls}-${colorKey}`]: {
-        [`${popoverCls}-inner`]: {
+      [`${componentCls}-${colorKey}`]: {
+        [`${componentCls}-inner`]: {
           backgroundColor: lightColor,
         },
-        [`${popoverCls}-arrow`]: {
+        [`${componentCls}-arrow`]: {
           '&-content': {
             backgroundColor: lightColor,
           },
@@ -350,20 +347,13 @@ const genColorStyle: GenerateStyle<PopoverToken> = token => {
   }, {} as CSSObject);
 };
 
-export const genPopoverStyle = (
-  prefixCls: string,
-  iconPrefixCls: string,
-  token: DerivativeToken,
-): CSSInterpolation => {
+export default genComponentStyleHook('Popover', token => {
   const popoverBg = token.colorBg;
   // FIXME
   const popoverArrowWidth = 8 * Math.sqrt(2);
 
-  const popoverCls = `.${prefixCls}`;
   const popoverToken: PopoverToken = {
     ...token,
-    popoverCls,
-    iconPrefixCls,
     popoverBg,
     popoverColor: token.colorText,
     // FIXME
@@ -373,7 +363,7 @@ export const genPopoverStyle = (
     popoverArrowColor: popoverBg,
     popoverArrowOuterColor: popoverBg,
     popoverDistance: popoverArrowWidth + 4,
-    popoverPaddingHorizonta: token.padding,
+    popoverPaddingHorizontal: token.padding,
     popoverArrowRotateWidth: Math.sqrt(popoverArrowWidth * popoverArrowWidth * 2),
     // FIXME
     popoverArrowOffsetVertical: 12,
@@ -381,18 +371,4 @@ export const genPopoverStyle = (
   };
 
   return [genBaseStyle(popoverToken), genPlacementStyle(popoverToken), genColorStyle(popoverToken)];
-};
-
-export default function useStyle(
-  prefixCls: string,
-  iconPrefixCls: string,
-): UseComponentStyleResult {
-  const [theme, token, hashId] = useToken();
-
-  return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      genPopoverStyle(prefixCls, iconPrefixCls, token),
-    ]),
-    hashId,
-  ];
-}
+});

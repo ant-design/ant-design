@@ -6,22 +6,10 @@
 // import '../../popover/style';
 
 // deps-lint-skip-all
-import { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
-import {
-  DerivativeToken,
-  useStyleRegister,
-  useToken,
-  UseComponentStyleResult,
-  GenerateStyle,
-  resetComponent,
-} from '../../_util/theme';
+import { CSSObject } from '@ant-design/cssinjs';
+import { GenerateStyle, resetComponent, FullToken, genComponentStyleHook } from '../../_util/theme';
 
-import { genPopoverStyle } from '../../popover/style';
-
-type AvatarToken = DerivativeToken & {
-  antPrefixCls: string;
-  avatarCls: string;
-  iconPrefixCls: string;
+type AvatarToken = FullToken<'Avatar'> & {
   avatarBg: string;
   avatarColor: string;
   avatarSizeBase: number;
@@ -34,11 +22,11 @@ type AvatarToken = DerivativeToken & {
   avatarGroupBorderColor: string;
   avatarGroupOverlapping: number;
   avatarGroupSpace: number;
-}
+};
 
 const avatarSizeStyle = (
   avatarCls: string,
-  iconPrefixCls: string,
+  iconCls: string,
   size: number,
   fontSize: number,
 ): CSSObject => ({
@@ -55,7 +43,7 @@ const avatarSizeStyle = (
 
   [`&${avatarCls}-icon`]: {
     fontSize,
-    [`> .${iconPrefixCls}`]: {
+    [`> ${iconCls}`]: {
       margin: 0,
     },
   },
@@ -63,9 +51,9 @@ const avatarSizeStyle = (
 
 const genBaseStyle: GenerateStyle<AvatarToken> = token => {
   const {
-    antPrefixCls,
-    avatarCls,
-    iconPrefixCls,
+    antCls,
+    componentCls,
+    iconCls,
     avatarBg,
     avatarColor,
     avatarSizeBase,
@@ -78,7 +66,7 @@ const genBaseStyle: GenerateStyle<AvatarToken> = token => {
   } = token;
 
   return {
-    [avatarCls]: {
+    [componentCls]: {
       ...resetComponent(token),
       position: 'relative',
       display: 'inline-block',
@@ -93,18 +81,18 @@ const genBaseStyle: GenerateStyle<AvatarToken> = token => {
         background: 'transparent',
       },
 
-      [`.${antPrefixCls}-image-img`]: {
+      [`${antCls}-image-img`]: {
         display: 'block',
       },
 
-      ...avatarSizeStyle(avatarCls, iconPrefixCls, avatarSizeBase, avatarFontSizeBase),
+      ...avatarSizeStyle(componentCls, iconCls, avatarSizeBase, avatarFontSizeBase),
 
       [`&-lg`]: {
-        ...avatarSizeStyle(avatarCls, iconPrefixCls, avatarSizeLG, avatarFontSizeLG),
+        ...avatarSizeStyle(componentCls, iconCls, avatarSizeLG, avatarFontSizeLG),
       },
 
       [`&-sm`]: {
-        ...avatarSizeStyle(avatarCls, iconPrefixCls, avatarSizeSM, avatarFontSizeSM),
+        ...avatarSizeStyle(componentCls, iconCls, avatarSizeSM, avatarFontSizeSM),
       },
 
       [`&-square`]: {
@@ -122,18 +110,13 @@ const genBaseStyle: GenerateStyle<AvatarToken> = token => {
 };
 
 const genGroupStyle: GenerateStyle<AvatarToken> = token => {
-  const {
-    avatarCls,
-    avatarGroupBorderColor,
-    avatarGroupOverlapping,
-    avatarGroupSpace,
-  } = token;
+  const { componentCls, avatarGroupBorderColor, avatarGroupOverlapping, avatarGroupSpace } = token;
 
   return {
-    [`${avatarCls}-group`]: {
+    [`${componentCls}-group`]: {
       display: 'inline-flex',
 
-      [`${avatarCls}`]: {
+      [`${componentCls}`]: {
         border: `1px solid ${avatarGroupBorderColor}`,
 
         [`&:not(:first-child)`]: {
@@ -142,7 +125,7 @@ const genGroupStyle: GenerateStyle<AvatarToken> = token => {
       },
 
       [`&-popover`]: {
-        [`${avatarCls} + ${avatarCls}`]: {
+        [`${componentCls} + ${componentCls}`]: {
           marginInlineStart: avatarGroupSpace,
         },
       },
@@ -150,19 +133,9 @@ const genGroupStyle: GenerateStyle<AvatarToken> = token => {
   };
 };
 
-export const genAvatarStyle = (
-  prefixCls: string,
-  iconPrefixCls: string,
-  antPrefixCls: string,
-  token: DerivativeToken,
-): CSSInterpolation => {
-  const avatarCls = `.${prefixCls}`;
-
+export default genComponentStyleHook('Avatar', token => {
   const avatarToken: AvatarToken = {
     ...token,
-    antPrefixCls,
-    iconPrefixCls,
-    avatarCls,
     // FIXME
     avatarBg: '#ccc',
     // FIXME
@@ -182,20 +155,4 @@ export const genAvatarStyle = (
   };
 
   return [genBaseStyle(avatarToken), genGroupStyle(avatarToken)];
-};
-
-export default function useStyle(
-  prefixCls: string,
-  iconPrefixCls: string,
-  antPrefixCls: string,
-): UseComponentStyleResult {
-  const [theme, token, hashId] = useToken();
-
-  return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      genPopoverStyle(`${prefixCls}-popover`, iconPrefixCls, token),
-      genAvatarStyle(prefixCls, iconPrefixCls, antPrefixCls, token),
-    ]),
-    hashId,
-  ];
-};
+});
