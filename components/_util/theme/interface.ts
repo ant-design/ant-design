@@ -41,6 +41,7 @@ export interface OverrideToken {
   // Customize component
   Affix?: {};
   Button?: ButtonComponentToken;
+  Carousel?: {};
   Cascader?: CascaderComponentToken;
   Divider?: DividerComponentToken;
   Empty?: EmptyComponentToken;
