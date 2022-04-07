@@ -3,13 +3,7 @@
 
 // deps-lint-skip-all
 import { CSSObject, CSSInterpolation, Keyframes } from '@ant-design/cssinjs';
-import {
-  DerivativeToken,
-  useStyleRegister,
-  useToken,
-  resetComponent,
-  UseComponentStyleResult,
-} from '../../_util/theme';
+import { DerivativeToken, resetComponent, genComponentStyleHook } from '../../_util/theme';
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
 
 // ============================ Keyframes =============================
@@ -471,15 +465,8 @@ export const genTreeStyle = (
 };
 
 // ============================== Export ==============================
-export default function useStyle(prefixCls: string): UseComponentStyleResult {
-  const [theme, token, hashId] = useToken();
-
-  return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      getCheckboxStyle(`${prefixCls}-checkbox`, token, hashId),
-      genTreeStyle(prefixCls, token, hashId),
-      treeNodeFX,
-    ]),
-    hashId,
-  ];
-}
+export default genComponentStyleHook('Tree', (token, { prefixCls, hashId }) => [
+  getCheckboxStyle(`${prefixCls}-checkbox`, token, hashId),
+  genTreeStyle(prefixCls, token, hashId),
+  treeNodeFX,
+]);
