@@ -54,6 +54,7 @@ export interface OverrideToken {
   Pagination?: {};
   Select?: SelectComponentToken;
   Slider?: SliderComponentToken;
+  Tag?: {};
   Tree?: {};
   TreeSelect?: {};
   Typography?: TypographyComponentToken;
