@@ -181,7 +181,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
   const prefixCls = getPrefixCls('select', customizePrefixCls);
   const cascaderPrefixCls = getPrefixCls('cascader', customizePrefixCls);
 
-  const [wrapSelectSSR, hashId] = useSelectStyle(rootPrefixCls);
+  const [wrapSelectSSR, hashId] = useSelectStyle(prefixCls);
   const [wrapCascaderSSR] = useStyle(cascaderPrefixCls);
 
   // =================== Dropdown ====================

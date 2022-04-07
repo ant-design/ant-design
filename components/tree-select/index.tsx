@@ -100,7 +100,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
   const treePrefixCls = getPrefixCls('select-tree', customizePrefixCls);
   const treeSelectPrefixCls = getPrefixCls('tree-select', customizePrefixCls);
 
-  const [wrapSelectSSR, hashId] = useSelectStyle(rootPrefixCls);
+  const [wrapSelectSSR, hashId] = useSelectStyle(prefixCls);
   const [wrapTreeSelectSSR] = useStyle(treeSelectPrefixCls, treePrefixCls);
 
   const mergedDropdownClassName = classNames(
