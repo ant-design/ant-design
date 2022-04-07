@@ -41,6 +41,7 @@ export interface OverrideToken {
   // Customize component
   Affix?: {};
   Alert?: {};
+  Avatar?: {};
   Button?: ButtonComponentToken;
   Carousel?: {};
   Cascader?: CascaderComponentToken;
@@ -52,6 +53,7 @@ export interface OverrideToken {
   InputNumber?: InputNumberComponentToken;
   Mentions?: MentionsComponentToken;
   Pagination?: {};
+  Popover?: {};
   Select?: SelectComponentToken;
   Slider?: SliderComponentToken;
   Tree?: {};

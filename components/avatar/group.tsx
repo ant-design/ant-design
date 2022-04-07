@@ -25,12 +25,12 @@ export interface GroupProps {
 }
 
 const Group: React.FC<GroupProps> = props => {
-  const { getPrefixCls, direction, iconPrefixCls } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const { prefixCls: customizePrefixCls, className = '', maxCount, maxStyle, size } = props;
 
   const prefixCls = getPrefixCls('avatar', customizePrefixCls);
   const groupPrefixCls = `${prefixCls}-group`;
-  const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls, getPrefixCls());
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const cls = classNames(
     groupPrefixCls,
