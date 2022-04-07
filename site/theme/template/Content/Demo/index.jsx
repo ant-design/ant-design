@@ -352,7 +352,9 @@ ReactDOM.render(<Demo />, document.getElementById('container'));
     let codeBox = (
       <section className={codeBoxClass} id={meta.id}>
         <section className="code-box-demo">
-          <ErrorBoundary>{this.liveDemo}</ErrorBoundary>
+          <ErrorBoundary>
+            <React.StrictMode>{this.liveDemo}</React.StrictMode>
+          </ErrorBoundary>
           {style ? <style dangerouslySetInnerHTML={{ __html: style }} /> : null}
         </section>
         <section className="code-box-meta markdown">
