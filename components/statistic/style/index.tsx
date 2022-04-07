@@ -1,44 +1,36 @@
 // deps-lint-skip-all
 import { CSSObject } from '@ant-design/cssinjs';
-import {
-  useStyleRegister,
-  useToken,
-  resetComponent,
-  GenerateStyle,
-  UseComponentStyleResult,
-} from '../../_util/theme';
-import type { DerivativeToken } from '../../_util/theme';
+import { resetComponent, GenerateStyle, FullToken, genComponentStyleHook } from '../../_util/theme';
 
-interface StatisticToken extends DerivativeToken {
-  statisticCls: string;
+interface StatisticToken extends FullToken<'Statistic'> {
   statisticTitleFontSize: number;
   statisticContentFontSize: number;
   statisticFontFamily: string;
 }
 
 const genStatisticStyle: GenerateStyle<StatisticToken> = (token: StatisticToken): CSSObject => ({
-  [`${token.statisticCls}`]: {
+  [`${token.componentCls}`]: {
     ...resetComponent(token),
-    [`${token.statisticCls}-title`]: {
+    [`${token.componentCls}-title`]: {
       marginBottom: token.marginXXS,
       color: token.colorTextSecondary,
       fontSize: token.statisticTitleFontSize,
     },
-    [`${token.statisticCls}-content`]: {
+    [`${token.componentCls}-content`]: {
       color: token.colorTextHeading,
       fontSize: token.statisticContentFontSize,
       fontFamily: token.statisticFontFamily,
-      [`${token.statisticCls}-content-value`]: {
+      [`${token.componentCls}-content-value`]: {
         display: 'inline-block',
         direction: 'ltr',
       },
-      [`${token.statisticCls}-content-prefix, ${token.statisticCls}-content-suffix`]: {
+      [`${token.componentCls}-content-prefix, ${token.componentCls}-content-suffix`]: {
         display: 'inline-block',
       },
-      [`${token.statisticCls}-content-prefix`]: {
+      [`${token.componentCls}-content-prefix`]: {
         marginInlineStart: 4, // FIXME: hard code
       },
-      [`${token.statisticCls}-content-suffix`]: {
+      [`${token.componentCls}-content-suffix`]: {
         marginInlineEnd: 4, // FIXME: hard code
       },
     },
@@ -46,21 +38,12 @@ const genStatisticStyle: GenerateStyle<StatisticToken> = (token: StatisticToken)
 });
 
 // ============================== Export ==============================
-export default function useStyle(prefixCls: string): UseComponentStyleResult {
-  const [theme, token, hashId] = useToken();
-
+export default genComponentStyleHook('Statistic', token => {
   const statisticToken: StatisticToken = {
     ...token,
-    statisticCls: `.${prefixCls}`,
     statisticTitleFontSize: token.fontSize,
     statisticContentFontSize: 24, // FIXME: hard code
     statisticFontFamily: token.fontFamily,
   };
-
-  return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      genStatisticStyle(statisticToken),
-    ]),
-    hashId,
-  ];
-}
+  return [genStatisticStyle(statisticToken)];
+});
