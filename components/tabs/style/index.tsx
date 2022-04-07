@@ -2,18 +2,10 @@
 import { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 
-import {
-  DerivativeToken,
-  resetComponent,
-  UseComponentStyleResult,
-  useStyleRegister,
-  useToken,
-  GenerateStyle,
-} from '../../_util/theme';
+import { resetComponent, GenerateStyle, genComponentStyleHook, FullToken } from '../../_util/theme';
 
-interface TabsToken extends DerivativeToken {
-  tabsCls: string;
-  iconPrefixCls: string;
+interface TabsToken extends FullToken<'Tabs'> {
+  rootPrefixCls: string;
   tabsCardHorizontalPadding: string;
   tabsCardHeight: number;
   tabsCardGutter: number;
@@ -32,16 +24,16 @@ interface TabsToken extends DerivativeToken {
 
 const genCardStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => {
   const {
-    tabsCls,
+    componentCls,
     tabsCardHorizontalPadding,
     tabsCardHeadBackground,
     tabsCardGutter,
     borderColorSplit,
   } = token;
   return {
-    [`${tabsCls}-card`]: {
-      [`> ${tabsCls}-nav, > div > ${tabsCls}-nav`]: {
-        [`${tabsCls}-tab`]: {
+    [`${componentCls}-card`]: {
+      [`> ${componentCls}-nav, > div > ${componentCls}-nav`]: {
+        [`${componentCls}-tab`]: {
           margin: 0,
           padding: tabsCardHorizontalPadding,
           background: tabsCardHeadBackground,
@@ -49,77 +41,77 @@ const genCardStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
           transition: `all ${token.motionDurationSlow} ${token.motionEaseInOut}`,
         },
 
-        [`${tabsCls}-tab-active`]: {
+        [`${componentCls}-tab-active`]: {
           color: token.colorPrimary,
           background: token.colorBgComponent,
         },
 
-        [`${tabsCls}-ink-bar`]: {
+        [`${componentCls}-ink-bar`]: {
           visibility: 'hidden',
         },
       },
 
       // ========================== Top & Bottom ==========================
-      [`&${tabsCls}-top, &${tabsCls}-bottom`]: {
-        [`> ${tabsCls}-nav, > div > ${tabsCls}-nav`]: {
-          [`${tabsCls}-tab + ${tabsCls}-tab`]: {
+      [`&${componentCls}-top, &${componentCls}-bottom`]: {
+        [`> ${componentCls}-nav, > div > ${componentCls}-nav`]: {
+          [`${componentCls}-tab + ${componentCls}-tab`]: {
             marginLeft: `${tabsCardGutter}px`,
           },
         },
       },
 
-      [`&${tabsCls}-top`]: {
-        [`> ${tabsCls}-nav, > div > ${tabsCls}-nav`]: {
-          [`${tabsCls}-tab`]: {
+      [`&${componentCls}-top`]: {
+        [`> ${componentCls}-nav, > div > ${componentCls}-nav`]: {
+          [`${componentCls}-tab`]: {
             borderRadius: `${token.radiusBase}px ${token.radiusBase}px 0 0`,
           },
 
-          [`${tabsCls}-tab-active`]: {
+          [`${componentCls}-tab-active`]: {
             borderBottomColor: token.colorBgComponent,
           },
         },
       },
 
-      [`&${tabsCls}-bottom`]: {
-        [`> ${tabsCls}-nav, > div > ${tabsCls}-nav`]: {
-          [`${tabsCls}-tab`]: {
+      [`&${componentCls}-bottom`]: {
+        [`> ${componentCls}-nav, > div > ${componentCls}-nav`]: {
+          [`${componentCls}-tab`]: {
             borderRadius: `0 0 ${token.radiusBase}px ${token.radiusBase}px`,
           },
 
-          [`${tabsCls}-tab-active`]: {
+          [`${componentCls}-tab-active`]: {
             borderTopColor: token.colorBgComponent,
           },
         },
       },
 
       // ========================== Left & Right ==========================
-      [`&${tabsCls}-left, &${tabsCls}-right`]: {
-        [`> ${tabsCls}-nav, > div > ${tabsCls}-nav`]: {
-          [`${tabsCls}-tab + ${tabsCls}-tab`]: {
+      [`&${componentCls}-left, &${componentCls}-right`]: {
+        [`> ${componentCls}-nav, > div > ${componentCls}-nav`]: {
+          [`${componentCls}-tab + ${componentCls}-tab`]: {
             marginTop: `${tabsCardGutter}px`,
           },
         },
       },
 
-      [`&${tabsCls}-left`]: {
-        [`> ${tabsCls}-nav, > div > ${tabsCls}-nav`]: {
-          [`${tabsCls}-tab`]: {
+      [`&${componentCls}-left`]: {
+        [`> ${componentCls}-nav, > div > ${componentCls}-nav`]: {
+          [`${componentCls}-tab`]: {
             borderRadius: `${token.radiusBase}px 0 0 ${token.radiusBase}px`,
           },
 
-          [`${tabsCls}-tab-active`]: {
+          [`${componentCls}-tab-active`]: {
             borderRightColor: token.colorBgComponent,
           },
         },
       },
 
-      [`&${tabsCls}-right`]: {
-        [`> ${tabsCls}-nav, > div > ${tabsCls}-nav`]: {
-          [`${tabsCls}-tab`]: {
+      [`&${componentCls}-right`]: {
+        [`> ${componentCls}-nav, > div > ${componentCls}-nav`]: {
+          [`${componentCls}-tab`]: {
             borderRadius: `0 ${token.radiusBase}px ${token.radiusBase}px 0`,
           },
 
-          [`${tabsCls}-tab-active`]: {
+          [`${componentCls}-tab-active`]: {
             borderLeftColor: token.colorBgComponent,
           },
         },
@@ -130,14 +122,14 @@ const genCardStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
 
 const genDropdownStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => {
   const {
-    tabsCls,
+    componentCls,
     disabledColor,
     dropdownLineHeight,
     tabsHoverColor,
     dropdownEdgeChildVerticalPadding,
   } = token;
   return {
-    [`${tabsCls}-dropdown`]: {
+    [`${componentCls}-dropdown`]: {
       ...resetComponent(token),
 
       position: 'absolute',
@@ -217,13 +209,13 @@ const genDropdownStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
 };
 
 const genPositionStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => {
-  const { tabsCls, marginMD, boxShadowColor, borderColorSplit } = token;
+  const { componentCls, marginMD, boxShadowColor, borderColorSplit } = token;
   return {
     // ========================== Top & Bottom ==========================
-    [`${tabsCls}-top, ${tabsCls}-bottom`]: {
+    [`${componentCls}-top, ${componentCls}-bottom`]: {
       flexDirection: 'column',
 
-      [`> ${tabsCls}-nav, > div > ${tabsCls}-nav`]: {
+      [`> ${componentCls}-nav, > div > ${componentCls}-nav`]: {
         margin: `0 0 ${marginMD}px 0`,
 
         '&::before': {
@@ -234,7 +226,7 @@ const genPositionStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
           content: "''",
         },
 
-        [`${tabsCls}-ink-bar`]: {
+        [`${componentCls}-ink-bar`]: {
           height: 2, // FIXME: hardcode in v4
 
           '&-animated': {
@@ -243,7 +235,7 @@ const genPositionStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
           },
         },
 
-        [`${tabsCls}-nav-wrap`]: {
+        [`${componentCls}-nav-wrap`]: {
           '&::before, &::after': {
             top: 0,
             bottom: 0,
@@ -260,31 +252,31 @@ const genPositionStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
             boxShadow: `inset -10px 0 8px -8px ${boxShadowColor}`, // FIXME: hardcode in v4
           },
 
-          [`&${tabsCls}-nav-wrap-ping-left::before`]: {
+          [`&${componentCls}-nav-wrap-ping-left::before`]: {
             opacity: 1,
           },
-          [`&${tabsCls}-nav-wrap-ping-right::after`]: {
+          [`&${componentCls}-nav-wrap-ping-right::after`]: {
             opacity: 1,
           },
         },
       },
     },
 
-    [`${tabsCls}-top`]: {
-      [`> ${tabsCls}-nav,
-        > div > ${tabsCls}-nav`]: {
+    [`${componentCls}-top`]: {
+      [`> ${componentCls}-nav,
+        > div > ${componentCls}-nav`]: {
         '&::before': {
           bottom: 0,
         },
 
-        [`${tabsCls}-ink-bar`]: {
+        [`${componentCls}-ink-bar`]: {
           bottom: 0,
         },
       },
     },
 
-    [`${tabsCls}-bottom`]: {
-      [`> ${tabsCls}-nav, > div > ${tabsCls}-nav`]: {
+    [`${componentCls}-bottom`]: {
+      [`> ${componentCls}-nav, > div > ${componentCls}-nav`]: {
         order: 1,
         marginTop: `${marginMD}px`,
         marginBottom: 0,
@@ -293,34 +285,34 @@ const genPositionStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
           top: 0,
         },
 
-        [`${tabsCls}-ink-bar`]: {
+        [`${componentCls}-ink-bar`]: {
           top: 0,
         },
       },
 
-      [`> ${tabsCls}-content-holder, > div > ${tabsCls}-content-holder`]: {
+      [`> ${componentCls}-content-holder, > div > ${componentCls}-content-holder`]: {
         order: 0,
       },
     },
 
     // ========================== Left & Right ==========================
-    [`${tabsCls}-left, ${tabsCls}-right`]: {
-      [`> ${tabsCls}-nav, > div > ${tabsCls}-nav`]: {
+    [`${componentCls}-left, ${componentCls}-right`]: {
+      [`> ${componentCls}-nav, > div > ${componentCls}-nav`]: {
         flexDirection: 'column',
         minWidth: 50, // FIXME: hardcode in v4
 
         // >>>>>>>>>>> Tab
-        [`${tabsCls}-tab`]: {
+        [`${componentCls}-tab`]: {
           padding: `${token.paddingXS}px ${token.paddingLG}px`,
           textAlign: 'center',
         },
 
-        [`${tabsCls}-tab + ${tabsCls}-tab`]: {
+        [`${componentCls}-tab + ${componentCls}-tab`]: {
           margin: `${token.marginMD}px 0 0 0`,
         },
 
         // >>>>>>>>>>> Nav
-        [`${tabsCls}-nav-wrap`]: {
+        [`${componentCls}-nav-wrap`]: {
           flexDirection: 'column',
 
           '&::before, &::after': {
@@ -339,17 +331,17 @@ const genPositionStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
             boxShadow: `inset 0 -10px 8px -8px ${boxShadowColor}`,
           },
 
-          [`&${tabsCls}-nav-wrap-ping-top::before`]: {
+          [`&${componentCls}-nav-wrap-ping-top::before`]: {
             opacity: 1,
           },
 
-          [`&${tabsCls}-nav-wrap-ping-bottom::after`]: {
+          [`&${componentCls}-nav-wrap-ping-bottom::after`]: {
             opacity: 1,
           },
         },
 
         // >>>>>>>>>>> Ink Bar
-        [`${tabsCls}-ink-bar`]: {
+        [`${componentCls}-ink-bar`]: {
           width: 2, // FIXME: hardcode in v4
 
           '&-animated': {
@@ -357,45 +349,45 @@ const genPositionStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
           },
         },
 
-        [`${tabsCls}-nav-list, ${tabsCls}-nav-operations`]: {
+        [`${componentCls}-nav-list, ${componentCls}-nav-operations`]: {
           flex: '1 0 auto', // fix safari scroll problem
           flexDirection: 'column',
         },
       },
     },
 
-    [`${tabsCls}-left`]: {
-      [`> ${tabsCls}-nav, > div > ${tabsCls}-nav`]: {
-        [`${tabsCls}-ink-bar`]: {
+    [`${componentCls}-left`]: {
+      [`> ${componentCls}-nav, > div > ${componentCls}-nav`]: {
+        [`${componentCls}-ink-bar`]: {
           right: 0,
         },
       },
 
-      [`> ${tabsCls}-content-holder, > div > ${tabsCls}-content-holder`]: {
+      [`> ${componentCls}-content-holder, > div > ${componentCls}-content-holder`]: {
         marginLeft: `-${token.controlLineWidth}px`,
         borderLeft: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
 
-        [`> ${tabsCls}-content > ${tabsCls}-tabpane`]: {
+        [`> ${componentCls}-content > ${componentCls}-tabpane`]: {
           paddingLeft: token.paddingLG,
         },
       },
     },
 
-    [`${tabsCls}-right`]: {
-      [`> ${tabsCls}-nav, > div > ${tabsCls}-nav`]: {
+    [`${componentCls}-right`]: {
+      [`> ${componentCls}-nav, > div > ${componentCls}-nav`]: {
         order: 1,
 
-        [`${tabsCls}-ink-bar`]: {
+        [`${componentCls}-ink-bar`]: {
           left: 0,
         },
       },
 
-      [`> ${tabsCls}-content-holder, > div > ${tabsCls}-content-holder`]: {
+      [`> ${componentCls}-content-holder, > div > ${componentCls}-content-holder`]: {
         order: 0,
         marginRight: -token.controlLineWidth,
         borderRight: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
 
-        [`> ${tabsCls}-content > ${tabsCls}-tabpane`]: {
+        [`> ${componentCls}-content > ${componentCls}-tabpane`]: {
           paddingRight: token.paddingLG,
         },
       },
@@ -404,12 +396,12 @@ const genPositionStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
 };
 
 const genSizeStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => {
-  const { tabsCls, paddingMD } = token;
+  const { componentCls, paddingMD } = token;
   return {
-    [tabsCls]: {
+    [componentCls]: {
       '&-small': {
-        [`> ${tabsCls}-nav`]: {
-          [`${tabsCls}-tab`]: {
+        [`> ${componentCls}-nav`]: {
+          [`${componentCls}-tab`]: {
             padding: `${token.paddingXS}px 0`,
             fontSize: token.fontSizeBase,
           },
@@ -417,8 +409,8 @@ const genSizeStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
       },
 
       '&-large': {
-        [`> ${tabsCls}-nav`]: {
-          [`${tabsCls}-tab`]: {
+        [`> ${componentCls}-nav`]: {
+          [`${componentCls}-tab`]: {
             padding: `${paddingMD}px 0`,
             fontSize: token.fontSizeLG,
           },
@@ -426,18 +418,18 @@ const genSizeStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
       },
     },
 
-    [`${tabsCls}-card`]: {
-      [`&${tabsCls}-small`]: {
-        [`> ${tabsCls}-nav`]: {
-          [`${tabsCls}-tab`]: {
+    [`${componentCls}-card`]: {
+      [`&${componentCls}-small`]: {
+        [`> ${componentCls}-nav`]: {
+          [`${componentCls}-tab`]: {
             padding: `6px ${paddingMD}px`, // FIXME: hardcode in v4
           },
         },
       },
 
-      [`&${tabsCls}-large`]: {
-        [`> ${tabsCls}-nav`]: {
-          [`${tabsCls}-tab`]: {
+      [`&${componentCls}-large`]: {
+        [`> ${componentCls}-nav`]: {
+          [`${componentCls}-tab`]: {
             padding: `7px ${paddingMD}px 6px`, // FIXME: hardcode in v4
           },
         },
@@ -448,15 +440,15 @@ const genSizeStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
 
 const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
   const {
-    tabsCls,
+    componentCls,
     tabsActiveColor,
     tabsHoverColor,
     disabledColor,
-    iconPrefixCls,
+    iconCls,
     tabsHorizontalGutter,
   } = token;
 
-  const tabCls = `${tabsCls}-tab`;
+  const tabCls = `${componentCls}-tab`;
 
   return {
     [tabCls]: {
@@ -506,15 +498,15 @@ const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
         color: disabledColor,
         cursor: 'not-allowed',
       },
-      [`&${tabCls}-disabled ${tabCls}-btn, &${tabCls}-disabled ${tabsCls}-remove`]: {
+      [`&${tabCls}-disabled ${tabCls}-btn, &${tabCls}-disabled ${componentCls}-remove`]: {
         '&:focus, &:active': {
           color: disabledColor,
         },
       },
-      [`& ${tabCls}-remove ${iconPrefixCls}`]: {
+      [`& ${tabCls}-remove ${iconCls}`]: {
         margin: 0,
       },
-      [iconPrefixCls]: {
+      [iconCls]: {
         marginRight: token.marginSM,
       },
     },
@@ -526,60 +518,60 @@ const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
 };
 
 const genRtlStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
-  const { tabsCls, tabsHorizontalGutter, iconPrefixCls, tabsCardGutter } = token;
-  const rtlCls = `${tabsCls}-rtl`;
+  const { componentCls, tabsHorizontalGutter, iconCls, tabsCardGutter } = token;
+  const rtlCls = `${componentCls}-rtl`;
   return {
     [rtlCls]: {
       direction: 'rtl',
 
-      [`${tabsCls}-nav`]: {
-        [`${tabsCls}-tab`]: {
+      [`${componentCls}-nav`]: {
+        [`${componentCls}-tab`]: {
           margin: `0 0 0 ${tabsHorizontalGutter}px`,
 
-          [`${tabsCls}-tab:last-of-type`]: {
+          [`${componentCls}-tab:last-of-type`]: {
             marginLeft: 0,
           },
 
-          [iconPrefixCls]: {
+          [iconCls]: {
             marginRight: 0,
             marginLeft: `${token.marginSM}px`,
           },
 
-          [`${tabsCls}-tab-remove`]: {
+          [`${componentCls}-tab-remove`]: {
             marginRight: `${token.marginXS}px`,
             marginLeft: `-${token.marginXXS}px`,
 
-            [iconPrefixCls]: {
+            [iconCls]: {
               margin: 0,
             },
           },
         },
       },
 
-      [`&${tabsCls}-left`]: {
-        [`> ${tabsCls}-nav`]: {
+      [`&${componentCls}-left`]: {
+        [`> ${componentCls}-nav`]: {
           order: 1,
         },
 
-        [`> ${tabsCls}-content-holder`]: {
+        [`> ${componentCls}-content-holder`]: {
           order: 0,
         },
       },
 
-      [`&${tabsCls}-right`]: {
-        [`> ${tabsCls}-nav`]: {
+      [`&${componentCls}-right`]: {
+        [`> ${componentCls}-nav`]: {
           order: 0,
         },
 
-        [`> ${tabsCls}-content-holder`]: {
+        [`> ${componentCls}-content-holder`]: {
           order: 1,
         },
       },
 
       // ====================== Card ======================
-      [`&${tabsCls}-card${tabsCls}-top, &${tabsCls}-card${tabsCls}-bottom`]: {
-        [`> ${tabsCls}-nav, > div > ${tabsCls}-nav`]: {
-          [`${tabsCls}-tab + ${tabsCls}-tab`]: {
+      [`&${componentCls}-card${componentCls}-top, &${componentCls}-card${componentCls}-bottom`]: {
+        [`> ${componentCls}-nav, > div > ${componentCls}-nav`]: {
+          [`${componentCls}-tab + ${componentCls}-tab`]: {
             marginRight: `${tabsCardGutter}px`,
             marginLeft: 0,
           },
@@ -587,12 +579,12 @@ const genRtlStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
       },
     },
 
-    [`${tabsCls}-dropdown-rtl`]: {
+    [`${componentCls}-dropdown-rtl`]: {
       direction: 'rtl',
     },
 
-    [`${tabsCls}-menu-item`]: {
-      [`${tabsCls}-dropdown-rtl`]: {
+    [`${componentCls}-menu-item`]: {
+      [`${componentCls}-dropdown-rtl`]: {
         textAlign: 'right',
       },
     },
@@ -601,7 +593,7 @@ const genRtlStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
 
 const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => {
   const {
-    tabsCls,
+    componentCls,
     tabsCardHorizontalPadding,
     tabsCardHeight,
     tabsCardGutter,
@@ -611,19 +603,19 @@ const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
   } = token;
 
   return {
-    [tabsCls]: {
+    [componentCls]: {
       ...resetComponent(token),
       display: 'flex',
       overflow: 'hidden',
 
       // ========================== Navigation ==========================
-      [`> ${tabsCls}-nav, > div > ${tabsCls}-nav`]: {
+      [`> ${componentCls}-nav, > div > ${componentCls}-nav`]: {
         position: 'relative',
         display: 'flex',
         flex: 'none',
         alignItems: 'center',
 
-        [`${tabsCls}-nav-wrap`]: {
+        [`${componentCls}-nav-wrap`]: {
           position: 'relative',
           display: 'flex',
           flex: 'auto',
@@ -643,25 +635,25 @@ const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
           },
         },
 
-        [`${tabsCls}-nav-list`]: {
+        [`${componentCls}-nav-list`]: {
           position: 'relative',
           display: 'flex',
           transition: `opacity ${token.motionDurationSlow}`,
         },
 
         // >>>>>>>> Operations
-        [`${tabsCls}-nav-operations`]: {
+        [`${componentCls}-nav-operations`]: {
           display: 'flex',
           alignSelf: 'stretch',
         },
 
-        [`${tabsCls}-nav-operations-hidden`]: {
+        [`${componentCls}-nav-operations-hidden`]: {
           position: 'absolute',
           visibility: 'hidden',
           pointerEvents: 'none',
         },
 
-        [`${tabsCls}-nav-more`]: {
+        [`${componentCls}-nav-more`]: {
           position: 'relative',
           padding: tabsCardHorizontalPadding,
           background: 'transparent',
@@ -678,7 +670,7 @@ const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
           },
         },
 
-        [`${tabsCls}-nav-add`]: {
+        [`${componentCls}-nav-add`]: {
           minWidth: `${tabsCardHeight}px`,
           marginLeft: `${tabsCardGutter}px`,
           padding: `0 ${token.paddingXS}px`,
@@ -699,12 +691,12 @@ const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
         },
       },
 
-      [`${tabsCls}-extra-content`]: {
+      [`${componentCls}-extra-content`]: {
         flex: 'none',
       },
 
       // ============================ InkBar ============================
-      [`${tabsCls}-ink-bar`]: {
+      [`${componentCls}-ink-bar`]: {
         position: 'absolute',
         background: token.colorPrimary,
         pointerEvents: 'none',
@@ -714,32 +706,32 @@ const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
       ...genTabStyle(token),
 
       // =========================== TabPanes ===========================
-      [`${tabsCls}-content`]: {
+      [`${componentCls}-content`]: {
         display: 'flex',
         width: '100%',
       },
 
-      [`${tabsCls}-content-holder`]: {
+      [`${componentCls}-content-holder`]: {
         flex: 'auto',
         minWidth: 0,
         minHeight: 0,
       },
 
-      [`${tabsCls}-content-animated`]: {
+      [`${componentCls}-content-animated`]: {
         transition: `margin ${token.motionDurationSlow}`,
       },
 
-      [`${tabsCls}-tabpane`]: {
+      [`${componentCls}-tabpane`]: {
         flex: 'none',
         width: '100%',
         outline: 'none',
       },
     },
 
-    [`${tabsCls}-centered`]: {
-      [`> ${tabsCls}-nav, > div > ${tabsCls}-nav`]: {
-        [`${tabsCls}-nav-wrap`]: {
-          [`&:not([class*='${tabsCls}-nav-wrap-ping'])`]: {
+    [`${componentCls}-centered`]: {
+      [`> ${componentCls}-nav, > div > ${componentCls}-nav`]: {
+        [`${componentCls}-nav-wrap`]: {
+          [`&:not([class*='${componentCls}-nav-wrap-ping'])`]: {
             justifyContent: 'center',
           },
         },
@@ -749,26 +741,21 @@ const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
 };
 
 // ============================== Export ==============================
-export default function useStyle(
-  prefixCls: string,
-  iconPrefixCls: string,
-): UseComponentStyleResult {
-  const [theme, token, hashId] = useToken();
-
+export default genComponentStyleHook('Tabs', (token, { rootPrefixCls }) => {
   const paddingMD = 16; // FIXME: hardcode in v4
   const tabsCardHeight = 40; // FIXME: hardcode in v4
 
   const tabsToken: TabsToken = {
     ...token,
-    tabsCls: `.${prefixCls}`,
-    iconPrefixCls: `.${iconPrefixCls}`,
 
+    rootPrefixCls,
     marginMD: 16, // FIXME: hardcode in v4
     paddingMD, // FIXME: hardcode in v4
     tabsHoverColor: '#40a9ff', // FIXME: hardcode in v4, primary-5
     tabsActiveColor: '#096dd9', // FIXME: hardcode in v4, primary-7
 
-    tabsCardHorizontalPadding: `${
+    tabsCardHorizontalPadding: `
+    ${
       (tabsCardHeight - Math.floor(token.fontSizeBase * token.lineHeight)) / 2 -
       token.controlLineWidth
     }px ${paddingMD}px`,
@@ -785,14 +772,11 @@ export default function useStyle(
   };
 
   return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      genSizeStyle(tabsToken),
-      genRtlStyle(tabsToken),
-      genPositionStyle(tabsToken),
-      genDropdownStyle(tabsToken),
-      genCardStyle(tabsToken),
-      genTabsStyle(tabsToken),
-    ]),
-    hashId,
+    genSizeStyle(tabsToken),
+    genRtlStyle(tabsToken),
+    genPositionStyle(tabsToken),
+    genDropdownStyle(tabsToken),
+    genCardStyle(tabsToken),
+    genTabsStyle(tabsToken),
   ];
-}
+});
