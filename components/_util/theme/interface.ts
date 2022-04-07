@@ -39,6 +39,7 @@ export interface OverrideToken {
   derivative?: Partial<DerivativeToken & AliasToken>;
 
   // Customize component
+  Affix?: {};
   Button?: ButtonComponentToken;
   Cascader?: CascaderComponentToken;
   Divider?: DividerComponentToken;
