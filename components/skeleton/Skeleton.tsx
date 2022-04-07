@@ -161,7 +161,7 @@ const Skeleton = (props: SkeletonProps) => {
       </div>
     );
   }
-  return children ? children as React.ReactElement : null;
+  return typeof children !== 'undefined' ? (children as React.ReactElement) : null;
 };
 
 Skeleton.defaultProps = {
