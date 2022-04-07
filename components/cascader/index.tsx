@@ -144,7 +144,6 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
     direction: rootDirection,
     // virtual,
     // dropdownMatchSelectWidth,
-    iconPrefixCls,
   } = useContext(ConfigContext);
 
   const mergedDirection = direction || rootDirection;
@@ -182,7 +181,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
   const prefixCls = getPrefixCls('select', customizePrefixCls);
   const cascaderPrefixCls = getPrefixCls('cascader', customizePrefixCls);
 
-  const [wrapSelectSSR, hashId] = useSelectStyle(rootPrefixCls, prefixCls, iconPrefixCls);
+  const [wrapSelectSSR, hashId] = useSelectStyle(prefixCls);
   const [wrapCascaderSSR] = useStyle(cascaderPrefixCls);
 
   // =================== Dropdown ====================

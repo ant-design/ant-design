@@ -50,6 +50,7 @@ export interface OverrideToken {
   Pagination?: {};
   Select?: SelectComponentToken;
   Slider?: SliderComponentToken;
+  TreeSelect?: {};
   Typography?: TypographyComponentToken;
 }
 

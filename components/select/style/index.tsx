@@ -7,13 +7,11 @@ import '../../empty/style';
 // deps-lint-skip-all
 import { CSSObject } from '@ant-design/cssinjs';
 import {
-  DerivativeToken,
-  useStyleRegister,
-  useToken,
   resetComponent,
   resetIcon,
-  UseComponentStyleResult,
   GenerateStyle,
+  genComponentStyleHook,
+  FullToken,
 } from '../../_util/theme';
 import genSingleStyle from './single';
 import genMultipleStyle from './multiple';
@@ -23,17 +21,14 @@ export interface ComponentToken {
   zIndexDropdown: number;
 }
 
-export interface SelectToken extends DerivativeToken, ComponentToken {
+export interface SelectToken extends FullToken<'Select'> {
   rootPrefixCls: string;
-  antCls: string;
-  selectCls: string;
-  iconPrefixCls: string;
   inputPaddingHorizontalBase: number;
 }
 
 // ============================= Selector =============================
 const genSelectorStyle: GenerateStyle<SelectToken, CSSObject> = token => {
-  const { selectCls } = token;
+  const { componentCls } = token;
 
   return {
     position: 'relative',
@@ -46,7 +41,7 @@ const genSelectorStyle: GenerateStyle<SelectToken, CSSObject> = token => {
       cursor: 'pointer',
     },
 
-    [`${selectCls}-show-search&`]: {
+    [`${componentCls}-show-search&`]: {
       cursor: 'text',
 
       input: {
@@ -54,12 +49,12 @@ const genSelectorStyle: GenerateStyle<SelectToken, CSSObject> = token => {
       },
     },
 
-    [`${selectCls}-disabled&`]: {
+    [`${componentCls}-disabled&`]: {
       color: token.colorTextDisabled,
       background: token.colorBgComponentDisabled,
       cursor: 'not-allowed',
 
-      [`${selectCls}-multiple&`]: {
+      [`${componentCls}-multiple&`]: {
         background: token.colorBgComponentDisabled,
       },
 
@@ -74,7 +69,7 @@ const genSelectorStyle: GenerateStyle<SelectToken, CSSObject> = token => {
 const genStatusStyle = (
   rootSelectCls: string,
   token: {
-    selectCls: string;
+    componentCls: string;
     borderHoverColor: string;
     outlineColor: string;
     controlOutlineWidth: number;
@@ -82,11 +77,11 @@ const genStatusStyle = (
   },
   overwriteDefaultBorder: boolean = false,
 ): CSSObject => {
-  const { selectCls, borderHoverColor, outlineColor } = token;
+  const { componentCls, borderHoverColor, outlineColor } = token;
 
   const overwriteStyle: CSSObject = overwriteDefaultBorder
     ? {
-        [`${selectCls}-selector`]: {
+        [`${componentCls}-selector`]: {
           borderColor: borderHoverColor,
         },
       }
@@ -94,17 +89,17 @@ const genStatusStyle = (
 
   return {
     [rootSelectCls]: {
-      [`&:not(${selectCls}-disabled):not(${selectCls}-customize-input)`]: {
+      [`&:not(${componentCls}-disabled):not(${componentCls}-customize-input)`]: {
         ...overwriteStyle,
 
-        [`${selectCls}-focused& ${selectCls}-selector`]: {
+        [`${componentCls}-focused& ${componentCls}-selector`]: {
           borderColor: borderHoverColor,
           boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${outlineColor}`,
           borderInlineEndWidth: `${token.controlLineWidth}px !important`,
           outline: 0,
         },
 
-        [`&:hover ${selectCls}-selector`]: {
+        [`&:hover ${componentCls}-selector`]: {
           borderColor: borderHoverColor,
           borderInlineEndWidth: `${token.controlLineWidth}px !important`,
         },
@@ -116,10 +111,10 @@ const genStatusStyle = (
 // ============================== Styles ==============================
 // /* Reset search input style */
 const getSearchInputWithoutBorderStyle: GenerateStyle<SelectToken, CSSObject> = token => {
-  const { selectCls } = token;
+  const { componentCls } = token;
 
   return {
-    [`${selectCls}-selection-search-input`]: {
+    [`${componentCls}-selection-search-input`]: {
       margin: 0,
       padding: 0,
       background: 'transparent',
@@ -137,16 +132,16 @@ const getSearchInputWithoutBorderStyle: GenerateStyle<SelectToken, CSSObject> = 
 
 // =============================== Base ===============================
 const genBaseStyle: GenerateStyle<SelectToken> = token => {
-  const { selectCls, iconPrefixCls, inputPaddingHorizontalBase } = token;
+  const { componentCls, inputPaddingHorizontalBase, iconCls } = token;
 
   return {
-    [selectCls]: {
+    [componentCls]: {
       ...resetComponent(token),
       position: 'relative',
       display: 'inline-block',
       cursor: 'pointer',
 
-      [`&:not(&-customize-input) ${selectCls}-selector`]: {
+      [`&:not(&-customize-input) ${componentCls}-selector`]: {
         ...genSelectorStyle(token),
         ...getSearchInputWithoutBorderStyle(token),
       },
@@ -156,7 +151,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
       // },
 
       // ======================== Selection ========================
-      [`${selectCls}-selection-item`]: {
+      [`${componentCls}-selection-item`]: {
         flex: 1,
         overflow: 'hidden',
         fontWeight: 'normal',
@@ -165,7 +160,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
       },
 
       // ======================= Placeholder =======================
-      [`${selectCls}-selection-placeholder`]: {
+      [`${componentCls}-selection-placeholder`]: {
         flex: 1,
         overflow: 'hidden',
         color: token.colorPlaceholder,
@@ -175,7 +170,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
       },
 
       // ========================== Arrow ==========================
-      [`${selectCls}-arrow`]: {
+      [`${componentCls}-arrow`]: {
         ...resetIcon(),
         position: 'absolute',
         top: '50%',
@@ -191,7 +186,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
         display: 'flex',
         alignItems: 'center',
 
-        [`.${iconPrefixCls}`]: {
+        [iconCls]: {
           verticalAlign: 'top',
           transition: `transform ${token.motionDurationSlow}`,
 
@@ -199,12 +194,12 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
             verticalAlign: 'top',
           },
 
-          [`&:not(${selectCls}-suffix)`]: {
+          [`&:not(${componentCls}-suffix)`]: {
             pointerEvents: 'auto',
           },
         },
 
-        [`${selectCls}-disabled &`]: {
+        [`${componentCls}-disabled &`]: {
           cursor: 'not-allowed',
         },
 
@@ -214,7 +209,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
       },
 
       // ========================== Clear ==========================
-      [`${selectCls}-clear`]: {
+      [`${componentCls}-clear`]: {
         position: 'absolute',
         top: '50%',
         insetInlineStart: 'auto',
@@ -246,15 +241,15 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
       },
 
       '&:hover': {
-        [`${selectCls}-clear`]: {
+        [`${componentCls}-clear`]: {
           opacity: 1,
         },
       },
     },
 
     // ========================= Feedback ==========================
-    [`${selectCls}-has-feedback`]: {
-      [`${selectCls}-clear`]: {
+    [`${componentCls}-has-feedback`]: {
+      [`${componentCls}-clear`]: {
         insetInlineEnd: inputPaddingHorizontalBase + token.fontSize + token.paddingXXS,
       },
     },
@@ -263,13 +258,13 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
 
 // ============================== Styles ==============================
 const genSelectStyle: GenerateStyle<SelectToken> = (token, hashId) => {
-  const { selectCls } = token;
+  const { componentCls } = token;
 
   return [
     {
-      [selectCls]: {
+      [componentCls]: {
         // ==================== BorderLess ====================
-        [`&-borderless ${selectCls}-selector`]: {
+        [`&-borderless ${componentCls}-selector`]: {
           backgroundColor: `transparent !important`,
           borderColor: `transparent !important`,
           boxShadow: `none !important`,
@@ -301,7 +296,7 @@ const genSelectStyle: GenerateStyle<SelectToken> = (token, hashId) => {
     // ==                       RTL                       ==
     // =====================================================
     {
-      [`${selectCls}-rtl`]: {
+      [`${componentCls}-rtl`]: {
         direction: 'rtl',
       },
     },
@@ -309,13 +304,13 @@ const genSelectStyle: GenerateStyle<SelectToken> = (token, hashId) => {
     // =====================================================
     // ==                     Status                      ==
     // =====================================================
-    genStatusStyle(selectCls, {
+    genStatusStyle(componentCls, {
       ...token,
       borderHoverColor: token.colorPrimaryHover,
       outlineColor: token.colorPrimaryOutline,
     }),
     genStatusStyle(
-      `${selectCls}-status-error`,
+      `${componentCls}-status-error`,
       {
         ...token,
         borderHoverColor: token.colorErrorHover,
@@ -324,7 +319,7 @@ const genSelectStyle: GenerateStyle<SelectToken> = (token, hashId) => {
       true,
     ),
     genStatusStyle(
-      `${selectCls}-status-warning`,
+      `${componentCls}-status-warning`,
       {
         ...token,
         borderHoverColor: token.colorWarningHover,
@@ -336,37 +331,18 @@ const genSelectStyle: GenerateStyle<SelectToken> = (token, hashId) => {
 };
 
 // ============================== Export ==============================
-export default function useStyle(
-  rootPrefixCls: string,
-  prefixCls: string,
-  iconPrefixCls: string,
-): UseComponentStyleResult {
-  const [theme, token, hashId] = useToken();
+export default genComponentStyleHook(
+  'Select',
+  (token, { rootPrefixCls, hashId }) => {
+    const selectToken: SelectToken = {
+      ...token,
+      rootPrefixCls,
+      inputPaddingHorizontalBase: token.controlPaddingHorizontal - 1,
+    };
 
-  return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => {
-      const { zIndexPopup, Select } = token;
-
-      const antCls = `.${rootPrefixCls}`;
-      const selectCls = `.${prefixCls}`;
-
-      const inputPaddingHorizontalBase = token.controlPaddingHorizontal - 1;
-
-      const selectToken: SelectToken = {
-        ...token,
-
-        rootPrefixCls,
-        antCls,
-        selectCls,
-        iconPrefixCls,
-        inputPaddingHorizontalBase,
-        zIndexDropdown: zIndexPopup + 50,
-
-        ...Select,
-      };
-
-      return [genSelectStyle(selectToken, hashId)];
-    }),
-    hashId,
-  ];
-}
+    return [genSelectStyle(selectToken, hashId)];
+  },
+  token => ({
+    zIndexDropdown: token.zIndexPopup + 50,
+  }),
+);

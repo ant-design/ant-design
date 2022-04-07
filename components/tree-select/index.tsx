@@ -86,7 +86,6 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
     direction,
     virtual,
     dropdownMatchSelectWidth,
-    iconPrefixCls,
   } = React.useContext(ConfigContext);
   const size = React.useContext(SizeContext);
 
@@ -101,7 +100,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
   const treePrefixCls = getPrefixCls('select-tree', customizePrefixCls);
   const treeSelectPrefixCls = getPrefixCls('tree-select', customizePrefixCls);
 
-  const [wrapSelectSSR, hashId] = useSelectStyle(rootPrefixCls, prefixCls, iconPrefixCls);
+  const [wrapSelectSSR, hashId] = useSelectStyle(prefixCls);
   const [wrapTreeSelectSSR] = useStyle(treeSelectPrefixCls, treePrefixCls);
 
   const mergedDropdownClassName = classNames(

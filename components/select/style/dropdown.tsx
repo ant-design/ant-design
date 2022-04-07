@@ -28,13 +28,13 @@ const genItemStyle: GenerateStyle<SelectToken, CSSObject> = token => {
 };
 
 const genSingleStyle: GenerateStyle<SelectToken> = (token, hashId) => {
-  const { rootPrefixCls, antCls, selectCls } = token;
+  const { rootPrefixCls, antCls, componentCls } = token;
 
-  const selectItemCls = `${selectCls}-item`;
+  const selectItemCls = `${componentCls}-item`;
 
   return [
     {
-      [`${selectCls}-dropdown`]: {
+      [`${componentCls}-dropdown`]: {
         // ========================== Popup ==========================
         ...resetComponent(token),
 

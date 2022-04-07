@@ -73,7 +73,6 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
   const {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
-    iconPrefixCls,
     renderEmpty,
     direction,
     virtual,
@@ -84,7 +83,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
   const prefixCls = getPrefixCls('select', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
 
-  const [wrapSSR, hashId] = useStyle(rootPrefixCls, prefixCls, iconPrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const mode = React.useMemo(() => {
     const { mode: m } = props as InternalSelectProps<OptionType>;

@@ -15,17 +15,17 @@ function getSelectItemStyle({
 }
 
 function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
-  const { selectCls, iconPrefixCls } = token;
+  const { componentCls, iconCls } = token;
 
-  const selectOverflowPrefixCls = `${selectCls}-selection-overflow`;
+  const selectOverflowPrefixCls = `${componentCls}-selection-overflow`;
 
   const selectItemHeight = token.controlHeightSM;
   const [selectItemDist] = getSelectItemStyle(token);
 
-  const suffixCls = suffix ? `${selectCls}-${suffix}` : '';
+  const suffixCls = suffix ? `${componentCls}-${suffix}` : '';
 
   return {
-    [`${selectCls}-multiple${suffixCls}`]: {
+    [`${componentCls}-multiple${suffixCls}`]: {
       fontSize: token.fontSize,
 
       /**
@@ -49,18 +49,18 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
       },
 
       // ========================= Selector =========================
-      [`${selectCls}-selector`]: {
+      [`${componentCls}-selector`]: {
         display: 'flex',
         flexWrap: 'wrap',
         alignItems: 'center',
         // Multiple is little different that horizontal is follow the vertical
         padding: `${selectItemDist - FIXED_ITEM_MARGIN}px ${FIXED_ITEM_MARGIN * 2}px`,
 
-        [`${selectCls}-show-search&`]: {
+        [`${componentCls}-show-search&`]: {
           cursor: 'text',
         },
 
-        [`${selectCls}-disabled&`]: {
+        [`${componentCls}-disabled&`]: {
           background: token.colorBgComponentDisabled,
           cursor: 'not-allowed',
         },
@@ -75,14 +75,14 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
       },
 
       [`
-        &${selectCls}-show-arrow ${selectCls}-selector,
-        &${selectCls}-allow-clear ${selectCls}-selector
+        &${componentCls}-show-arrow ${componentCls}-selector,
+        &${componentCls}-allow-clear ${componentCls}-selector
       `]: {
         paddingInlineEnd: token.fontSizeIcon + token.controlPaddingHorizontal,
       },
 
       // ======================== Selections ========================
-      [`${selectCls}-selection-item`]: {
+      [`${componentCls}-selection-item`]: {
         position: 'relative',
         display: 'flex',
         flex: 'none',
@@ -102,7 +102,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         paddingInlineStart: token.paddingXS,
         paddingInlineEnd: token.paddingXS / 2,
 
-        [`${selectCls}-disabled&`]: {
+        [`${componentCls}-disabled&`]: {
           color: token.colorTextDisabled,
           borderColor: token.colorBorder,
           cursor: 'not-allowed',
@@ -127,7 +127,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
           lineHeight: 'inherit',
           cursor: 'pointer',
 
-          [`> .${iconPrefixCls}`]: {
+          [`> ${iconCls}`]: {
             verticalAlign: '-0.2em',
           },
 
@@ -139,12 +139,12 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
 
       // ========================== Input ==========================
       [`${selectOverflowPrefixCls}-item + ${selectOverflowPrefixCls}-item`]: {
-        [`${selectCls}-selection-search`]: {
+        [`${componentCls}-selection-search`]: {
           marginInlineStart: 0,
         },
       },
 
-      [`${selectCls}-selection-search`]: {
+      [`${componentCls}-selection-search`]: {
         display: 'inline-flex',
         position: 'relative',
         maxWidth: '100%',
@@ -177,7 +177,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
       },
 
       // ======================= Placeholder =======================
-      [`${selectCls}-selection-placeholder `]: {
+      [`${componentCls}-selection-placeholder `]: {
         position: 'absolute',
         top: '50%',
         insetInlineStart: token.inputPaddingHorizontalBase,
@@ -190,7 +190,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
 }
 
 export default function genMultipleStyle(token: SelectToken): CSSInterpolation {
-  const { selectCls } = token;
+  const { componentCls } = token;
 
   const smallToken: SelectToken = {
     ...token,
@@ -207,14 +207,14 @@ export default function genMultipleStyle(token: SelectToken): CSSInterpolation {
 
     // Padding
     {
-      [`${selectCls}-multiple${selectCls}-sm`]: {
-        [`${selectCls}-selection-placeholder`]: {
+      [`${componentCls}-multiple${componentCls}-sm`]: {
+        [`${componentCls}-selection-placeholder`]: {
           insetInlineStart: token.controlPaddingHorizontalSM - token.controlLineWidth,
           insetInlineEnd: 'auto',
         },
 
         // https://github.com/ant-design/ant-design/issues/29559
-        [`${selectCls}-selection-search`]: {
+        [`${componentCls}-selection-search`]: {
           marginInlineStart: smSelectItemMargin,
         },
       },
