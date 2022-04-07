@@ -5,7 +5,6 @@ import { TinyColor } from '@ctrl/tinycolor';
 import { resetComponent, GenerateStyle, genComponentStyleHook, FullToken } from '../../_util/theme';
 
 interface TabsToken extends FullToken<'Tabs'> {
-  rootPrefixCls: string;
   tabsCardHorizontalPadding: string;
   tabsCardHeight: number;
   tabsCardGutter: number;
@@ -852,14 +851,13 @@ const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Tabs', (token, { rootPrefixCls }) => {
+export default genComponentStyleHook('Tabs', token => {
   const paddingMD = 16; // FIXME: hardcode in v4
   const tabsCardHeight = 40; // FIXME: hardcode in v4
 
   const tabsToken: TabsToken = {
     ...token,
 
-    rootPrefixCls,
     marginMD: 16, // FIXME: hardcode in v4
     paddingMD, // FIXME: hardcode in v4
     tabsHoverColor: '#40a9ff', // FIXME: hardcode in v4, primary-5
