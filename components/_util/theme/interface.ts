@@ -56,6 +56,7 @@ export interface OverrideToken {
   Popover?: {};
   Select?: SelectComponentToken;
   Slider?: SliderComponentToken;
+  Tag?: {};
   Tree?: {};
   TreeSelect?: {};
   Typography?: TypographyComponentToken;

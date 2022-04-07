@@ -53,7 +53,7 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
   },
   ref,
 ) => {
-  const { getPrefixCls, direction, iconPrefixCls } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const [visible, setVisible] = React.useState(true);
 
   React.useEffect(() => {
@@ -77,7 +77,7 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
   const presetColor = isPresetColor();
   const prefixCls = getPrefixCls('tag', customizePrefixCls);
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const tagClassName = classNames(
     prefixCls,
