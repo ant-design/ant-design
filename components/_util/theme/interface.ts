@@ -42,6 +42,7 @@ export interface OverrideToken {
   Affix?: {};
   Alert?: {};
   Avatar?: {};
+  Badge?: {};
   Button?: ButtonComponentToken;
   Carousel?: {};
   Cascader?: CascaderComponentToken;
