@@ -59,6 +59,7 @@ export interface OverrideToken {
   Tree?: {};
   TreeSelect?: {};
   Typography?: TypographyComponentToken;
+  Tabs?: {};
 }
 
 /** Final token which contains the components level override */
