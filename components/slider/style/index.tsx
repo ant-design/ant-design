@@ -7,14 +7,7 @@
 // deps-lint-skip-all
 import * as React from 'react';
 import { CSSObject } from '@ant-design/cssinjs';
-import {
-  DerivativeToken,
-  useStyleRegister,
-  useToken,
-  UseComponentStyleResult,
-  GenerateStyle,
-  resetComponent,
-} from '../../_util/theme';
+import { GenerateStyle, resetComponent, FullToken, genComponentStyleHook } from '../../_util/theme';
 
 // Direction naming standard:
 // Horizontal base:
@@ -30,8 +23,7 @@ export interface ComponentToken {
   dotSize: number;
 }
 
-interface SliderToken extends DerivativeToken, ComponentToken {
-  sliderCls: string;
+interface SliderToken extends FullToken<'Slider'> {
   marginFull: number;
   marginPart: number;
   marginPartWithMark: number;
@@ -39,11 +31,11 @@ interface SliderToken extends DerivativeToken, ComponentToken {
 
 // =============================== Base ===============================
 const genBaseStyle: GenerateStyle<SliderToken> = token => {
-  const { sliderCls, controlSize, dotSize, marginFull, marginPart, colorBgContainerSecondary } =
+  const { componentCls, controlSize, dotSize, marginFull, marginPart, colorBgContainerSecondary } =
     token;
 
   return {
-    [sliderCls]: {
+    [componentCls]: {
       ...resetComponent(token),
 
       position: 'relative',
@@ -57,21 +49,21 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         margin: `${marginFull}px ${marginPart}px`,
       },
 
-      [`${sliderCls}-rail`]: {
+      [`${componentCls}-rail`]: {
         position: 'absolute',
         backgroundColor: token.colorBgContainer,
         borderRadius: token.controlRadius,
         transition: `background-color ${token.motionDurationSlow}`,
       },
 
-      [`${sliderCls}-track`]: {
+      [`${componentCls}-track`]: {
         position: 'absolute',
         backgroundColor: token.colorPrimarySecondary,
         borderRadius: token.controlRadius,
         transition: `background-color ${token.motionDurationSlow}`,
       },
 
-      [`${sliderCls}-handle`]: {
+      [`${componentCls}-handle`]: {
         position: 'absolute',
         width: token.handleSize,
         height: token.handleSize,
@@ -87,7 +79,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         `,
         outline: 'none',
 
-        [`${sliderCls}-dragging`]: {
+        [`${componentCls}-dragging`]: {
           zIndex: 1,
         },
 
@@ -107,15 +99,15 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
       },
 
       '&:hover': {
-        [`${sliderCls}-rail`]: {
+        [`${componentCls}-rail`]: {
           backgroundColor: colorBgContainerSecondary,
         },
 
-        [`${sliderCls}-track`]: {
+        [`${componentCls}-track`]: {
           backgroundColor: token.colorPrimaryHover,
         },
 
-        [`${sliderCls}-dot`]: {
+        [`${componentCls}-dot`]: {
           borderColor: colorBgContainerSecondary,
         },
 
@@ -125,19 +117,19 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         //     }
 
         [`
-          ${sliderCls}-handle,
-          ${sliderCls}-dot-active
+          ${componentCls}-handle,
+          ${componentCls}-dot-active
         `]: {
           borderColor: token.colorPrimaryHover,
         },
       },
 
-      [`${sliderCls}-mark`]: {
+      [`${componentCls}-mark`]: {
         position: 'absolute',
         fontSize: token.fontSize,
       },
 
-      [`${sliderCls}-mark-text`]: {
+      [`${componentCls}-mark-text`]: {
         position: 'absolute',
         display: 'inline-block',
         color: token.colorTextSecondary,
@@ -151,13 +143,13 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         },
       },
 
-      [`${sliderCls}-step`]: {
+      [`${componentCls}-step`]: {
         position: 'absolute',
         background: 'transparent',
         pointerEvents: 'none',
       },
 
-      [`${sliderCls}-dot`]: {
+      [`${componentCls}-dot`]: {
         position: 'absolute',
         width: dotSize,
         height: dotSize,
@@ -175,17 +167,17 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
       '&-disabled': {
         cursor: 'not-allowed',
 
-        [`${sliderCls}-rail`]: {
+        [`${componentCls}-rail`]: {
           backgroundColor: `${token.colorBgContainer} !important`,
         },
 
-        [`${sliderCls}-track`]: {
+        [`${componentCls}-track`]: {
           backgroundColor: `${token.colorTextDisabled} !important`,
         },
 
         [`
-          ${sliderCls}-handle,
-          ${sliderCls}-dot
+          ${componentCls}-handle,
+          ${componentCls}-dot
         `]: {
           backgroundColor: token.colorBgComponent,
           borderColor: `${token.colorTextDisabled} !important`,
@@ -194,8 +186,8 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         },
 
         [`
-          ${sliderCls}-mark-text,
-          ${sliderCls}-dot
+          ${componentCls}-mark-text,
+          ${componentCls}-dot
         `]: {
           cursor: `not-allowed !important`,
         },
@@ -206,7 +198,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
 
 // ============================ Horizontal ============================
 const genDirectionStyle = (token: SliderToken, horizontal: boolean): CSSObject => {
-  const { sliderCls, railSize, controlSize, handleSize, dotSize } = token;
+  const { componentCls, railSize, controlSize, handleSize, dotSize } = token;
 
   const railPadding: keyof React.CSSProperties = horizontal ? 'paddingBlock' : 'paddingInline';
   const full: keyof React.CSSProperties = horizontal ? 'width' : 'height';
@@ -218,20 +210,20 @@ const genDirectionStyle = (token: SliderToken, horizontal: boolean): CSSObject =
     [railPadding]: railSize,
     [part]: controlSize,
 
-    [`${sliderCls}-rail`]: {
+    [`${componentCls}-rail`]: {
       [full]: '100%',
       [part]: railSize,
     },
 
-    [`${sliderCls}-track`]: {
+    [`${componentCls}-track`]: {
       [part]: railSize,
     },
 
-    [`${sliderCls}-handle`]: {
+    [`${componentCls}-handle`]: {
       [handlePos]: (controlSize - handleSize) / 2,
     },
 
-    [`${sliderCls}-mark`]: {
+    [`${componentCls}-mark`]: {
       // Reset all
       insetInlineStart: 0,
       top: 0,
@@ -239,7 +231,7 @@ const genDirectionStyle = (token: SliderToken, horizontal: boolean): CSSObject =
       [full]: '100%',
     },
 
-    [`${sliderCls}-step`]: {
+    [`${componentCls}-step`]: {
       // Reset all
       insetInlineStart: 0,
       top: 0,
@@ -248,7 +240,7 @@ const genDirectionStyle = (token: SliderToken, horizontal: boolean): CSSObject =
       [part]: railSize,
     },
 
-    [`${sliderCls}-dot`]: {
+    [`${componentCls}-dot`]: {
       position: 'absolute',
       [handlePos]: (railSize - dotSize) / 2,
     },
@@ -256,13 +248,13 @@ const genDirectionStyle = (token: SliderToken, horizontal: boolean): CSSObject =
 };
 // ============================ Horizontal ============================
 const genHorizontalStyle: GenerateStyle<SliderToken> = token => {
-  const { sliderCls, marginPartWithMark } = token;
+  const { componentCls, marginPartWithMark } = token;
 
   return {
-    [`${sliderCls}-horizontal`]: {
+    [`${componentCls}-horizontal`]: {
       ...genDirectionStyle(token, true),
 
-      [`&${sliderCls}-with-marks`]: {
+      [`&${componentCls}-with-marks`]: {
         marginBottom: marginPartWithMark,
       },
     },
@@ -271,10 +263,10 @@ const genHorizontalStyle: GenerateStyle<SliderToken> = token => {
 
 // ============================= Vertical =============================
 const genVerticalStyle: GenerateStyle<SliderToken> = token => {
-  const { sliderCls } = token;
+  const { componentCls } = token;
 
   return {
-    [`${sliderCls}-vertical`]: {
+    [`${componentCls}-vertical`]: {
       ...genDirectionStyle(token, false),
       height: '100%',
     },
@@ -282,41 +274,32 @@ const genVerticalStyle: GenerateStyle<SliderToken> = token => {
 };
 
 // ============================== Export ==============================
-export default function useStyle(prefixCls: string): UseComponentStyleResult {
-  const [theme, token, hashId] = useToken();
-
-  return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => {
-      const { controlHeightSM, controlHeightLG, controlHeight, lineWidth, Slider } = token;
-
-      // Handle line width is always width-er 1px
-      const increaseHandleWidth = 1;
-      const controlSize = controlHeightSM / 2;
-      const lineHandleWidth = lineWidth + increaseHandleWidth;
-
-      const sliderToken: SliderToken = {
-        ...token,
-        sliderCls: `.${prefixCls}`,
-
-        controlSize,
-        railSize: controlSize / 3,
-        handleSize: controlSize + lineHandleWidth,
-        dotSize: (controlSize / 3) * 2,
-        lineHandleWidth,
-
-        marginPart: (controlHeight - controlSize) / 2,
-        marginFull: controlSize / 2,
-        marginPartWithMark: controlHeightLG - controlSize,
-
-        ...Slider,
-      };
-
-      return [
-        genBaseStyle(sliderToken, hashId),
-        genHorizontalStyle(sliderToken),
-        genVerticalStyle(sliderToken),
-      ];
-    }),
-    hashId,
-  ];
-}
+export default genComponentStyleHook(
+  'Slider',
+  (token, { hashId }) => {
+    const sliderToken: SliderToken = {
+      ...token,
+      marginPart: (token.controlHeight - token.controlSize) / 2,
+      marginFull: token.controlSize / 2,
+      marginPartWithMark: token.controlHeightLG - token.controlSize,
+    };
+    return [
+      genBaseStyle(sliderToken, hashId),
+      genHorizontalStyle(sliderToken),
+      genVerticalStyle(sliderToken),
+    ];
+  },
+  token => {
+    // Handle line width is always width-er 1px
+    const increaseHandleWidth = 1;
+    const controlSize = token.controlHeightSM / 2;
+    const lineHandleWidth = token.lineWidth + increaseHandleWidth;
+    return {
+      controlSize,
+      railSize: controlSize / 3,
+      handleSize: controlSize + lineHandleWidth,
+      dotSize: (controlSize / 3) * 2,
+      lineHandleWidth,
+    };
+  },
+);
