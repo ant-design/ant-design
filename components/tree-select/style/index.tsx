@@ -67,7 +67,7 @@ const genBaseStyle: GenerateStyle<TreeSelectToken> = (token, hashId) => {
 };
 
 // ============================== Export ==============================
-export default function genTreeSelectStyleHook(prefixCls: string, treePrefixCls: string) {
+export default function useTreeSelectStyle(prefixCls: string, treePrefixCls: string) {
   return genComponentStyleHook('TreeSelect', (token, { hashId }) => {
     const treeSelectToken: TreeSelectToken = {
       ...token,
