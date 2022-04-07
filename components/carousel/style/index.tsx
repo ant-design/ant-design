@@ -1,27 +1,18 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
-import {
-  DerivativeToken,
-  resetComponent,
-  UseComponentStyleResult,
-  useStyleRegister,
-  useToken,
-  GenerateStyle,
-} from '../../_util/theme';
+import { resetComponent, GenerateStyle, genComponentStyleHook, FullToken } from '../../_util/theme';
 
-interface CarouselToken extends DerivativeToken {
-  antPrefixCls: string;
-  carouselPrefixCls: string;
+interface CarouselToken extends FullToken<'Carousel'> {
   carouselDotWidth: CSSObject['width'];
   carouselDotHeight: CSSObject['height'];
   carouselDotActiveWidth: CSSObject['width'];
 }
 
 const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
-  const { carouselPrefixCls, antPrefixCls } = token;
+  const { componentCls, antCls } = token;
 
   return {
-    [`.${carouselPrefixCls}`]: {
+    [componentCls]: {
       ...resetComponent(token),
 
       '.slick-slider': {
@@ -57,14 +48,14 @@ const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
           pointerEvents: 'none',
 
           // https://github.com/ant-design/ant-design/issues/23294
-          [`input.${antPrefixCls}-radio-input, input.${antPrefixCls}-checkbox-input`]: {
+          [`input${antCls}-radio-input, input${antCls}-checkbox-input`]: {
             visibility: 'hidden',
           },
 
           '&.slick-active': {
             pointerEvents: 'auto',
 
-            [`input.${antPrefixCls}-radio-input, input.${antPrefixCls}-checkbox-input`]: {
+            [`input${antCls}-radio-input, input${antCls}-checkbox-input`]: {
               visibility: 'visible',
             },
           },
@@ -254,7 +245,7 @@ const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
 };
 
 const genCarouselVerticalStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
-  const { carouselPrefixCls } = token;
+  const { componentCls } = token;
 
   const reverseSizeOfDot = {
     width: token.carouselDotHeight,
@@ -262,7 +253,7 @@ const genCarouselVerticalStyle: GenerateStyle<CarouselToken, CSSObject> = token 
   };
 
   return {
-    [`.${carouselPrefixCls}-vertical`]: {
+    [`${componentCls}-vertical`]: {
       '.slick-dots': {
         top: '50%',
         bottom: 'auto',
@@ -302,25 +293,25 @@ const genCarouselVerticalStyle: GenerateStyle<CarouselToken, CSSObject> = token 
 };
 
 const genCarouselRtlStyle: GenerateStyle<CarouselToken> = token => {
-  const { carouselPrefixCls } = token;
+  const { componentCls } = token;
 
   return [
     {
-      [`.${carouselPrefixCls}-rtl`]: {
+      [`${componentCls}-rtl`]: {
         direction: 'rtl',
 
         // Dots
         '.slick-dots': {
-          [`.${carouselPrefixCls}-rtl&`]: {
+          [`${componentCls}-rtl&`]: {
             flexDirection: 'row-reverse',
           },
         },
       },
     },
     {
-      [`.${carouselPrefixCls}-vertical`]: {
+      [`${componentCls}-vertical`]: {
         '.slick-dots': {
-          [`.${carouselPrefixCls}-rtl&`]: {
+          [`${componentCls}-rtl&`]: {
             flexDirection: 'column',
           },
         },
@@ -330,26 +321,17 @@ const genCarouselRtlStyle: GenerateStyle<CarouselToken> = token => {
 };
 
 // ============================== Export ==============================
-export default function useStyle(prefixCls: string, antPrefixCls: string): UseComponentStyleResult {
-  const [theme, token, hashId] = useToken();
-
+export default genComponentStyleHook('Carousel', token => {
   const carouselToken: CarouselToken = {
     ...token,
-    carouselPrefixCls: prefixCls,
-    antPrefixCls,
-
     // FIXME
     carouselDotWidth: 16,
     carouselDotHeight: 3,
     carouselDotActiveWidth: 24,
   };
-
   return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      genCarouselStyle(carouselToken),
-      genCarouselVerticalStyle(carouselToken),
-      genCarouselRtlStyle(carouselToken),
-    ]),
-    hashId,
+    genCarouselStyle(carouselToken),
+    genCarouselVerticalStyle(carouselToken),
+    genCarouselRtlStyle(carouselToken),
   ];
-}
+});
