@@ -40,6 +40,7 @@ export interface OverrideToken {
 
   // Customize component
   Affix?: {};
+  Alert?: {};
   Avatar?: {};
   Button?: ButtonComponentToken;
   Carousel?: {};
