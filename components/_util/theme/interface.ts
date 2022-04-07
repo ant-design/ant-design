@@ -57,6 +57,7 @@ export interface OverrideToken {
   Result?: {};
   Select?: SelectComponentToken;
   Slider?: SliderComponentToken;
+  Statistic?: {};
   Tag?: {};
   Tree?: {};
   TreeSelect?: {};
