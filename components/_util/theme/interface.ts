@@ -54,6 +54,7 @@ export interface OverrideToken {
   Mentions?: MentionsComponentToken;
   Pagination?: {};
   Popover?: {};
+  Result?: {};
   Select?: SelectComponentToken;
   Slider?: SliderComponentToken;
   Tag?: {};
