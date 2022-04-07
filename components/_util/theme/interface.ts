@@ -43,6 +43,7 @@ export interface OverrideToken {
   Button?: ButtonComponentToken;
   Carousel?: {};
   Cascader?: CascaderComponentToken;
+  Checkbox?: {};
   Divider?: DividerComponentToken;
   Empty?: EmptyComponentToken;
   Form?: {};
@@ -52,6 +53,7 @@ export interface OverrideToken {
   Pagination?: {};
   Select?: SelectComponentToken;
   Slider?: SliderComponentToken;
+  Tree?: {};
   TreeSelect?: {};
   Typography?: TypographyComponentToken;
 }

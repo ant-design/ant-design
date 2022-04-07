@@ -1,15 +1,8 @@
 // deps-lint-skip-all
 import { Keyframes } from '@ant-design/cssinjs';
-import {
-  DerivativeToken,
-  useStyleRegister,
-  useToken,
-  resetComponent,
-  UseComponentStyleResult,
-  GenerateStyle,
-} from '../../_util/theme';
+import { resetComponent, GenerateStyle, genComponentStyleHook, FullToken } from '../../_util/theme';
 
-interface CheckboxToken extends DerivativeToken {
+interface CheckboxToken extends FullToken<'Checkbox'> {
   checkboxCls: string;
 }
 
@@ -242,7 +235,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token, hashId) =>
 };
 
 // ============================== Export ==============================
-export function getStyle(prefixCls: string, token: DerivativeToken, hashId: string) {
+export function getStyle(prefixCls: string, token: FullToken<'Checkbox'>, hashId: string) {
   const checkboxToken: CheckboxToken = {
     ...token,
     checkboxCls: `.${prefixCls}`,
@@ -251,13 +244,6 @@ export function getStyle(prefixCls: string, token: DerivativeToken, hashId: stri
   return [genCheckboxStyle(checkboxToken, hashId), antCheckboxEffect];
 }
 
-export default function useStyle(prefixCls: string): UseComponentStyleResult {
-  const [theme, token, hashId] = useToken();
-
-  return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () =>
-      getStyle(prefixCls, token, hashId),
-    ),
-    hashId,
-  ];
-}
+export default genComponentStyleHook('Checkbox', (token, { prefixCls, hashId }) => [
+  getStyle(prefixCls, token, hashId),
+]);
