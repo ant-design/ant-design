@@ -43,7 +43,7 @@ export interface OverrideToken {
   Button?: ButtonComponentToken;
   Cascader?: CascaderComponentToken;
   Divider?: DividerComponentToken;
-  Empty?: EmptyComponentToken;
+  Empty?: {};
   Form?: {};
   Input?: {};
   InputNumber?: InputNumberComponentToken;

@@ -2,9 +2,6 @@
 import { CSSObject } from '@ant-design/cssinjs';
 import { GenerateStyle, genComponentStyleHook, FullToken } from '../../_util/theme';
 
-/** Component only token. Which will handle additional calculation of alias token */
-export type ComponentToken = {};
-
 interface EmptyToken extends FullToken<'Empty'> {
   emptyImgCls: string;
   emptyFontSize: number;
