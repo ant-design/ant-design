@@ -5,7 +5,11 @@ import classNames from 'classnames';
 import canUseDom from 'rc-util/lib/Dom/canUseDom';
 import { Input, Tooltip, Typography } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
-import { DocSearchProps, useDocSearchKeyboardEvents, DocSearchModalProps } from '@docsearch/react';
+import {
+  DocSearchProps,
+  useDocSearchKeyboardEvents,
+  DocSearchModalProps,
+} from 'docsearch-react-fork';
 import '@docsearch/css';
 import { SharedProps } from './interface';
 import { IAlgoliaConfig, transformHitUrl } from './algolia-config';
@@ -62,7 +66,7 @@ const SearchBar = ({
       return Promise.resolve();
     }
 
-    return import('@docsearch/react/modal').then(({ DocSearchModal }) => {
+    return import('docsearch-react-fork/modal').then(({ DocSearchModal }) => {
       SearchModal = DocSearchModal;
     });
   }, []);
