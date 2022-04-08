@@ -19,7 +19,7 @@ import { Spin, Switch, Alert } from 'antd';
 class Card extends React.Component {
   state = { loading: false };
 
-  toggle = value => {
+  toggle = (value: boolean) => {
     this.setState({ loading: value });
   };
 
