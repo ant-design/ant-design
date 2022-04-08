@@ -1,17 +1,9 @@
 // deps-lint-skip-all
 import { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-import {
-  DerivativeToken,
-  useStyleRegister,
-  useToken,
-  UseComponentStyleResult,
-  GenerateStyle,
-  resetComponent,
-} from '../../_util/theme';
+import { GenerateStyle, resetComponent, FullToken, genComponentStyleHook } from '../../_util/theme';
 
-interface ListToken extends DerivativeToken {
-  listCls: string;
+interface ListToken extends FullToken<'List'> {
   minHeight: number;
   fontSizeSm: number;
   antPrefix: string;
@@ -35,7 +27,7 @@ interface ListToken extends DerivativeToken {
 const genBorderedStyle = (token: ListToken): CSSObject => {
   const {
     listBorderedCls,
-    listCls,
+    componentCls,
     paddingLG,
     margin,
     padding,
@@ -48,42 +40,42 @@ const genBorderedStyle = (token: ListToken): CSSObject => {
     [`${listBorderedCls}`]: {
       border: `1px solid ${borderColorBase}`,
       borderRadius: radiusBase,
-      [`${listCls}-header,${listCls}-footer,${listCls}-item`]: {
+      [`${componentCls}-header,${componentCls}-footer,${componentCls}-item`]: {
         paddingInline: paddingLG,
       },
 
-      [`${listCls}-pagination`]: {
+      [`${componentCls}-pagination`]: {
         margin: `${margin}px ${marginLG}px`,
       },
     },
-    [`${listBorderedCls}${listCls}-sm`]: {
-      [`${listCls}-item,${listCls}-header,${listCls}-footer`]: {
+    [`${listBorderedCls}${componentCls}-sm`]: {
+      [`${componentCls}-item,${componentCls}-header,${componentCls}-footer`]: {
         padding: listItemPaddingSm,
       },
     },
 
-    [`${listBorderedCls}${listCls}-lg`]: {
-      [`${listCls}-item,${listCls}-header,${listCls}-footer`]: {
+    [`${listBorderedCls}${componentCls}-lg`]: {
+      [`${componentCls}-item,${componentCls}-header,${componentCls}-footer`]: {
         padding: `${padding}px ${paddingLG}px`,
       },
     },
   };
 };
 const genResponsiveStyle = (token: ListToken): CSSObject => {
-  const { minWidth, listCls, screenSM, screenMD, marginLG, marginSM, margin } = token;
+  const { minWidth, componentCls, screenSM, screenMD, marginLG, marginSM, margin } = token;
   return {
     [`@media screen and (max-width:${screenMD})`]: {
-      [`${listCls}`]: {
-        [`${listCls}-item`]: {
-          [`${listCls}-item-action`]: {
+      [`${componentCls}`]: {
+        [`${componentCls}-item`]: {
+          [`${componentCls}-item-action`]: {
             marginInlineStart: marginLG,
           },
         },
       },
 
-      [`${listCls}-vertical`]: {
-        [`${listCls}-item`]: {
-          [`${listCls}-item-extra`]: {
+      [`${componentCls}-vertical`]: {
+        [`${componentCls}-item`]: {
+          [`${componentCls}-item-extra`]: {
             marginInlineStart: marginLG,
           },
         },
@@ -91,25 +83,25 @@ const genResponsiveStyle = (token: ListToken): CSSObject => {
     },
 
     [`@media screen and (max-width: ${screenSM})`]: {
-      [`${listCls}`]: {
-        [`${listCls}-item`]: {
+      [`${componentCls}`]: {
+        [`${componentCls}-item`]: {
           flexWrap: 'wrap',
 
-          [`${listCls}-action`]: {
+          [`${componentCls}-action`]: {
             marginInlineStart: marginSM,
           },
         },
       },
 
-      [`${listCls}-vertical`]: {
-        [`${listCls}-item`]: {
+      [`${componentCls}-vertical`]: {
+        [`${componentCls}-item`]: {
           flexWrap: 'wrap-reverse',
 
-          [`${listCls}-item-main`]: {
+          [`${componentCls}-item-main`]: {
             minWidth,
           },
 
-          [`${listCls}-item-extra`]: {
+          [`${componentCls}-item-extra`]: {
             margin: `auto auto ${margin}px`,
           },
         },
@@ -121,7 +113,7 @@ const genResponsiveStyle = (token: ListToken): CSSObject => {
 // =============================== Base ===============================
 const genBaseStyle: GenerateStyle<ListToken> = token => {
   const {
-    listCls,
+    componentCls,
     antPrefix,
     controlHeight,
     minHeight,
@@ -154,7 +146,7 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
   } = token;
 
   return {
-    [`${listCls}`]: {
+    [`${componentCls}`]: {
       ...resetComponent({
         ...token,
         colorText,
@@ -165,11 +157,11 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
       '*': {
         outline: 'none',
       },
-      [`${listCls}-header, ${listCls}-footer`]: {
+      [`${componentCls}-header, ${componentCls}-footer`]: {
         background: 'transparent',
         paddingBlock: paddingSM,
       },
-      [`${listCls}-pagination`]: {
+      [`${componentCls}-pagination`]: {
         marginBlockStart: marginLG,
         textAlign: 'end',
 
@@ -179,48 +171,48 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
         },
       },
 
-      [`${listCls}-more`]: {
+      [`${componentCls}-more`]: {
         marginBlockStart: marginSM,
         textAlign: 'center',
         button: {
           paddingInline: `${controlHeight}px`,
         },
       },
-      [`${listCls}-spin`]: {
+      [`${componentCls}-spin`]: {
         minHeight,
         textAlign: 'center',
       },
 
-      [`${listCls}-items`]: {
+      [`${componentCls}-items`]: {
         margin: 0,
         padding: 0,
         listStyle: 'none',
       },
 
-      [`${listCls}-item`]: {
+      [`${componentCls}-item`]: {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
         padding: listItemPadding,
         color: colorText,
 
-        [`${listCls}-item-meta`]: {
+        [`${componentCls}-item-meta`]: {
           display: 'flex',
           flex: 1,
           alignItems: 'flex-start',
           maxWidth: '100%',
 
-          [`${listCls}-item-meta-avatar`]: {
+          [`${componentCls}-item-meta-avatar`]: {
             marginInlineEnd: padding,
           },
 
-          [`${listCls}-item-meta-content`]: {
+          [`${componentCls}-item-meta-content`]: {
             flex: '1 0',
             width: 0,
             color: colorText,
           },
 
-          [`${listCls}-item-meta-title`]: {
+          [`${componentCls}-item-meta-title`]: {
             marginBlockEnd: height4,
             color: colorText,
             fontSize,
@@ -236,14 +228,14 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
             },
           },
 
-          [`${listCls}-item-meta-description`]: {
+          [`${componentCls}-item-meta-description`]: {
             color: colorTextSecondary,
             fontSize: fontSizeBase,
             lineHeight: lineHeightBase,
           },
         },
 
-        [`${listCls}-item-action`]: {
+        [`${componentCls}-item-action`]: {
           flex: '0 0 auto',
           marginInlineStart: height48,
           padding: 0,
@@ -264,7 +256,7 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
             },
           },
 
-          [`${listCls}-item-action-split`]: {
+          [`${componentCls}-item-action-split`]: {
             position: 'absolute',
             insetBlockStart: '50%',
             insetInlineEnd: 0,
@@ -276,14 +268,14 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
         },
       },
 
-      [`${listCls}-empty`]: {
+      [`${componentCls}-empty`]: {
         padding: `${padding}px 0`,
         color: colorTextSecondary,
         fontSize: fontSizeSm,
         textAlign: 'center',
       },
 
-      [`${listCls}-empty-text`]: {
+      [`${componentCls}-empty-text`]: {
         padding,
         color: disabledColor,
         fontSize: fontSizeBase,
@@ -291,33 +283,33 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
       },
 
       // ============================ without flex ============================
-      [`${listCls}-item-no-flex`]: {
+      [`${componentCls}-item-no-flex`]: {
         display: 'block',
       },
     },
-    [`${listCls}-grid ${antPrefix}-col > ${listCls}-item`]: {
+    [`${componentCls}-grid ${antPrefix}-col > ${componentCls}-item`]: {
       display: 'block',
       maxWidth: '100%',
       marginBlockEnd: margin,
       paddingBlock: 0,
       borderBlockEnd: 'none',
     },
-    [`${listCls}-vertical ${listCls}-item`]: {
+    [`${componentCls}-vertical ${componentCls}-item`]: {
       alignItems: 'initial',
 
-      [`${listCls}-item-main`]: {
+      [`${componentCls}-item-main`]: {
         display: 'block',
         flex: 1,
       },
 
-      [`${listCls}-item-extra`]: {
+      [`${componentCls}-item-extra`]: {
         marginInlineStart: marginLG,
       },
 
-      [`${listCls}-item-meta`]: {
+      [`${componentCls}-item-meta`]: {
         marginBlockEnd: padding,
 
-        [`${listCls}-item-meta-title`]: {
+        [`${componentCls}-item-meta-title`]: {
           marginBlockEnd: paddingSM,
           color: colorText,
           fontSize: fontSizeLg,
@@ -325,7 +317,7 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
         },
       },
 
-      [`${listCls}-item-action`]: {
+      [`${componentCls}-item-action`]: {
         marginBlockStart: padding,
         marginInlineStart: 'auto',
 
@@ -339,7 +331,7 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
       },
     },
 
-    [`${listCls}-split ${listCls}-item`]: {
+    [`${componentCls}-split ${componentCls}-item`]: {
       borderBlockEnd: `1px solid ${borderColorSplit}`,
 
       [`&:last-child`]: {
@@ -347,29 +339,29 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
       },
     },
 
-    [`${listCls}-split ${listCls}-header`]: {
+    [`${componentCls}-split ${componentCls}-header`]: {
       borderBlockEnd: `1px solid ${borderColorSplit}`,
     },
-    [`${listCls}-split${listCls}-empty ${listCls}-footer`]: {
+    [`${componentCls}-split${componentCls}-empty ${componentCls}-footer`]: {
       borderTop: `1px solid ${borderColorSplit}`,
     },
-    [`${listCls}-loading ${listCls}-spin-nested-loading`]: {
+    [`${componentCls}-loading ${componentCls}-spin-nested-loading`]: {
       minHeight: controlHeight,
     },
-    [`${listCls}-split${listCls}-something-after-last-item ${antPrefix}-spin-container > ${listCls}-items > ${listCls}-item:last-child`]:
+    [`${componentCls}-split${componentCls}-something-after-last-item ${antPrefix}-spin-container > ${componentCls}-items > ${componentCls}-item:last-child`]:
       {
         borderBlockEnd: `1px solid ${borderColorSplit}`,
       },
-    [`${listCls}-lg ${listCls}-item`]: {
+    [`${componentCls}-lg ${componentCls}-item`]: {
       padding: listItemPaddingLg,
     },
-    [`${listCls}-sm ${listCls}-item`]: {
+    [`${componentCls}-sm ${componentCls}-item`]: {
       padding: listItemPaddingSm,
     },
     // Horizontal
-    [`${listCls}:not(${listCls}-vertical)`]: {
-      [`${listCls}-item-no-flex`]: {
-        [`${listCls}-item-action`]: {
+    [`${componentCls}:not(${componentCls}-vertical)`]: {
+      [`${componentCls}-item-no-flex`]: {
+        [`${componentCls}-item-action`]: {
           float: 'right',
         },
       },
@@ -378,13 +370,10 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
 };
 
 // ============================== Export ==============================
-export default function useStyle(prefixCls: string): UseComponentStyleResult {
-  const [theme, token, hashId] = useToken();
-
+export default genComponentStyleHook('List', (token, { hashId }) => {
   const listToken: ListToken = {
     ...token,
-    listCls: `.${prefixCls}`,
-    listBorderedCls: `.${prefixCls}-bordered`,
+    listBorderedCls: `${token.componentCls}-bordered`,
     antPrefix: '.ant', // FIXME: hard code in v4
     minHeight: 40, // FIXME: hard code in v4,
     colorTextSecondary: new TinyColor('#000').setAlpha(0.45).toRgbString(), // FIXME: hard code in v4,
@@ -411,11 +400,8 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
   };
 
   return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      genBaseStyle(listToken, hashId),
-      genBorderedStyle(listToken),
-      genResponsiveStyle(listToken),
-    ]),
-    hashId,
+    genBaseStyle(listToken, hashId),
+    genBorderedStyle(listToken),
+    genResponsiveStyle(listToken),
   ];
-}
+});

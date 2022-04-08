@@ -56,6 +56,7 @@ export interface OverrideToken {
   Image?: {};
   Input?: {};
   InputNumber?: InputNumberComponentToken;
+  List?: {};
   Mentions?: MentionsComponentToken;
   Pagination?: {};
   Popover?: {};
