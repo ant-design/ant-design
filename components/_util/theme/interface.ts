@@ -49,6 +49,7 @@ export interface OverrideToken {
   Checkbox?: {};
   Descriptions?: {};
   Divider?: DividerComponentToken;
+  Drawer?: {};
   Empty?: EmptyComponentToken;
   Form?: {};
   Grid?: {};
