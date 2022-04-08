@@ -53,6 +53,7 @@ export interface OverrideToken {
   Empty?: EmptyComponentToken;
   Form?: {};
   Grid?: {};
+  Image?: {};
   Input?: {};
   InputNumber?: InputNumberComponentToken;
   List?: {};
