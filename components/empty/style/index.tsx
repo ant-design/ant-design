@@ -1,6 +1,6 @@
 // deps-lint-skip-all
 import { CSSObject } from '@ant-design/cssinjs';
-import { genComponentStyleHook } from '../../_util/theme';
+import genComponentStyleHook from '../../_util/theme/util/genComponentStyleHook';
 import type { GenerateStyle, FullToken } from '../../_util/theme';
 
 /** Component only token. Which will handle additional calculation of alias token */
@@ -135,7 +135,7 @@ const genSharedEmptyStyle: GenerateStyle<EmptyToken> = (token): CSSObject => {
 };
 
 // ============================== Export ==============================
-const useStyle = genComponentStyleHook('Empty', token => {
+export default genComponentStyleHook('Empty', token => {
   const emptyToken: EmptyToken = {
     ...token,
     emptyImgCls: `${token.componentCls}-img`,
@@ -144,5 +144,3 @@ const useStyle = genComponentStyleHook('Empty', token => {
   };
   return [genSharedEmptyStyle(emptyToken), genEmptyImgStyle(emptyToken)];
 });
-
-export default useStyle;
