@@ -58,6 +58,7 @@ export interface OverrideToken {
   Rate?: {};
   Result?: {};
   Select?: SelectComponentToken;
+  Skeleton?: {};
   Slider?: SliderComponentToken;
   Statistic?: {};
   Switch?: {};
