@@ -41,6 +41,7 @@ interface PanelProps {
   disabled?: boolean;
   extra?: React.ReactNode;
   collapsible?: CollapsibleType;
+  children?: React.ReactNode;
 }
 
 interface CollapseInterface extends React.FC<CollapseProps> {

@@ -25,6 +25,7 @@ export interface SpaceProps extends React.HTMLAttributes<HTMLDivElement> {
   align?: 'start' | 'end' | 'center' | 'baseline';
   split?: React.ReactNode;
   wrap?: boolean;
+  children?: React.ReactNode;
 }
 
 const spaceSize = {

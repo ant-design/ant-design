@@ -37,6 +37,7 @@ export interface ResultProps {
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
+  children?: React.ReactNode;
 }
 
 // ExceptionImageMap keys

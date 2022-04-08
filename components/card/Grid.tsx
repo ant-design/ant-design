@@ -7,6 +7,7 @@ export interface CardGridProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;
   hoverable?: boolean;
   style?: React.CSSProperties;
+  children?: React.ReactNode;
 }
 
 const Grid: React.FC<CardGridProps> = ({ prefixCls, className, hoverable = true, ...props }) => (

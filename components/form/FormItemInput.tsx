@@ -29,6 +29,7 @@ export interface FormItemInputProps {
   extra?: React.ReactNode;
   status?: ValidateStatus;
   help?: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = props => {

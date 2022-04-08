@@ -11,6 +11,7 @@ export interface TimelineItemProps {
   position?: string;
   style?: React.CSSProperties;
   label?: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 // for compatibililty

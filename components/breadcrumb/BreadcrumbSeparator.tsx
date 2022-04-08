@@ -3,6 +3,7 @@ import { ConfigContext } from '../config-provider';
 
 interface BreadcrumbSeparatorInterface extends React.FC {
   __ANT_BREADCRUMB_SEPARATOR: boolean;
+  children?: React.ReactNode;
 }
 
 const BreadcrumbSeparator: BreadcrumbSeparatorInterface = ({ children }) => {

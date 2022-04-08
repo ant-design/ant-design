@@ -29,6 +29,7 @@ interface Item {
 
 interface EditableRowProps {
   index: number;
+  children?: React.ReactNode;
 }
 
 const EditableRow: React.FC<EditableRowProps> = ({ index, ...props }) => {
