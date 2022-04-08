@@ -19168,18 +19168,18 @@ exports[`ConfigProvider components Radio prefixCls 1`] = `
     class="prefix-Radio-group prefix-Radio-group-outline"
   >
     <label
-      class="prefix-Radio-wrapper prefix-Radio-wrapper-checked"
+      class="prefix-Radio-button-wrapper prefix-Radio-button-wrapper-checked"
     >
       <span
-        class="prefix-Radio prefix-Radio-checked"
+        class="prefix-Radio-button prefix-Radio-button-checked"
       >
         <input
           checked=""
-          class="prefix-Radio-input"
+          class="prefix-Radio-button-input"
           type="radio"
         />
         <span
-          class="prefix-Radio-inner"
+          class="prefix-Radio-button-inner"
         />
       </span>
       <span>
