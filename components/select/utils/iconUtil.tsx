@@ -25,7 +25,7 @@ export default function getIcons({
 }: {
   suffixIcon?: React.ReactNode;
   clearIcon?: RenderNode;
-  menuItemSelectedIcon?: React.ReactNode;
+  menuItemSelectedIcon?: RenderNode;
   removeIcon?: RenderNode;
   loading?: boolean;
   multiple?: boolean;

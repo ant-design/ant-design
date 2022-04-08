@@ -140,7 +140,7 @@ function InternalTable<RecordType extends object = any>(
   );
 
   const baseColumns = React.useMemo(
-    () => columns || convertChildrenToColumns(children),
+    () => columns || (convertChildrenToColumns(children) as ColumnsType<RecordType>),
     [columns, children],
   );
   const needResponsive = React.useMemo(
@@ -154,8 +154,7 @@ function InternalTable<RecordType extends object = any>(
     const matched = new Set(Object.keys(screens).filter((m: Breakpoint) => screens[m]));
 
     return baseColumns.filter(
-      (c: ColumnType<RecordType>) =>
-        !c.responsive || c.responsive.some((r: Breakpoint) => matched.has(r)),
+      c => !c.responsive || c.responsive.some((r: Breakpoint) => matched.has(r)),
     );
   }, [baseColumns, screens]);
 
