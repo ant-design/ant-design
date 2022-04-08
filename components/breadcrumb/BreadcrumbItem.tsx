@@ -12,6 +12,7 @@ export interface BreadcrumbItemProps {
   dropdownProps?: DropDownProps;
   onClick?: React.MouseEventHandler<HTMLAnchorElement | HTMLSpanElement>;
   className?: string;
+  children?: React.ReactNode;
 }
 interface BreadcrumbItemInterface extends React.FC<BreadcrumbItemProps> {
   __ANT_BREADCRUMB_ITEM: boolean;

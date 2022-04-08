@@ -98,7 +98,7 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState, Co
     activeLink: null,
   };
 
-  content: ConfigConsumerProps;
+  context: ConfigConsumerProps;
 
   private wrapperRef = React.createRef<HTMLDivElement>();
 

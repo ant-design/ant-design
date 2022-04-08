@@ -7,6 +7,7 @@ const SizeContext = React.createContext<AvatarSize>('default');
 
 export interface SizeContextProps {
   size?: AvatarSize;
+  children?: React.ReactNode;
 }
 
 export const SizeContextProvider: React.FC<SizeContextProps> = ({ children, size }) => (
