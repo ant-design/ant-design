@@ -55,7 +55,7 @@ const Switch = React.forwardRef<unknown, SwitchProps>(
       '`value` is not a valid prop, do you mean `checked`?',
     );
 
-    const { getPrefixCls, iconPrefixCls, direction } = React.useContext(ConfigContext);
+    const { getPrefixCls, direction } = React.useContext(ConfigContext);
     const size = React.useContext(SizeContext);
     const prefixCls = getPrefixCls('switch', customizePrefixCls);
     const loadingIcon = (
@@ -65,7 +65,7 @@ const Switch = React.forwardRef<unknown, SwitchProps>(
     );
 
     // Style
-    const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls);
+    const [wrapSSR, hashId] = useStyle(prefixCls);
 
     const classes = classNames(
       {
