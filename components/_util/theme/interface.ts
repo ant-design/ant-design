@@ -55,6 +55,7 @@ export interface OverrideToken {
   Grid?: {};
   Input?: {};
   InputNumber?: InputNumberComponentToken;
+  List?: {};
   Mentions?: MentionsComponentToken;
   Pagination?: {};
   Popover?: {};
