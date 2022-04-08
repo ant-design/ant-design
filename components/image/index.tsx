@@ -20,14 +20,14 @@ const Image: CompositionImage<ImageProps> = ({
   rootClassName,
   ...otherProps
 }) => {
-  const { getPrefixCls, iconPrefixCls } = useContext(ConfigContext);
+  const { getPrefixCls } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('image', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
 
   const { locale: contextLocale = defaultLocale } = useContext(ConfigContext);
   const imageLocale = contextLocale.Image || defaultLocale.Image;
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const mergedRootClassName = classNames(rootClassName, hashId);
   const mergedPreview = React.useMemo(() => {
