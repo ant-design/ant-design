@@ -1,16 +1,8 @@
 // deps-lint-skip-all
 import { CSSObject, Keyframes } from '@ant-design/cssinjs';
-import {
-  useStyleRegister,
-  useToken,
-  resetComponent,
-  GenerateStyle,
-  UseComponentStyleResult,
-} from '../../_util/theme';
-import type { DerivativeToken } from '../../_util/theme';
+import { resetComponent, GenerateStyle, FullToken, genComponentStyleHook } from '../../_util/theme';
 
-interface SpinToken extends DerivativeToken {
-  spinCls: string;
+interface SpinToken extends FullToken<'Spin'> {
   spinDotDefault: string;
   spinDotSize: number;
   spinDotSizeSM: number;
@@ -26,7 +18,7 @@ const antRotate = new Keyframes('antRotate', {
 });
 
 const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken, hashId: string): CSSObject => ({
-  [`${token.spinCls}`]: {
+  [`${token.componentCls}`]: {
     ...resetComponent(token),
     position: 'absolute',
     display: 'none',
@@ -44,7 +36,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken, hashId: string
 
     '&-nested-loading': {
       position: 'relative',
-      [`> div > ${token.spinCls}`]: {
+      [`> div > ${token.componentCls}`]: {
         position: 'absolute',
         top: 0,
         insetInlineStart: 0,
@@ -54,14 +46,14 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken, hashId: string
         height: '100%',
         maxHeight: 400, // FIXME: hard code in v4
 
-        [`${token.spinCls}-dot`]: {
+        [`${token.componentCls}-dot`]: {
           position: 'absolute',
           top: '50%',
           insetInlineStart: '50%',
           margin: -token.spinDotSize / 2,
         },
 
-        [`${token.spinCls}-text`]: {
+        [`${token.componentCls}-text`]: {
           position: 'absolute',
           top: '50%',
           width: '100%',
@@ -69,36 +61,36 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken, hashId: string
           textShadow: `0 1px 2px ${token.colorBgComponent}`,
         },
 
-        [`&${token.spinCls}-show-text ${token.spinCls}-dot`]: {
+        [`&${token.componentCls}-show-text ${token.componentCls}-dot`]: {
           marginTop: -(token.spinDotSize / 2) - 10,
         },
 
-        [`> div > ${token.spinCls}-sm`]: {
-          [`${token.spinCls}-dot`]: {
+        [`> div > ${token.componentCls}-sm`]: {
+          [`${token.componentCls}-dot`]: {
             margin: -token.spinDotSizeSM / 2,
           },
-          [`${token.spinCls}-text`]: {
+          [`${token.componentCls}-text`]: {
             paddingTop: (token.spinDotSizeSM - token.fontSize) / 2 + 2,
           },
-          [`&${token.spinCls}-show-text ${token.spinCls}-dot`]: {
+          [`&${token.componentCls}-show-text ${token.componentCls}-dot`]: {
             marginTop: -(token.spinDotSizeSM / 2) - 10,
           },
         },
 
-        [`> div > ${token.spinCls}-lg`]: {
-          [`${token.spinCls}-dot`]: {
+        [`> div > ${token.componentCls}-lg`]: {
+          [`${token.componentCls}-dot`]: {
             margin: -(token.spinDotSizeLG / 2),
           },
-          [`${token.spinCls}-text`]: {
+          [`${token.componentCls}-text`]: {
             paddingTop: (token.spinDotSizeLG - token.fontSize) / 2 + 2,
           },
-          [`&${token.spinCls}-show-text ${token.spinCls}-dot`]: {
+          [`&${token.componentCls}-show-text ${token.componentCls}-dot`]: {
             marginTop: -(token.spinDotSizeLG / 2) - 10,
           },
         },
       },
 
-      [`${token.spinCls}-container`]: {
+      [`${token.componentCls}-container`]: {
         position: 'relative',
         transition: `opacity ${token.motionDurationSlow}`,
 
@@ -119,7 +111,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken, hashId: string
         },
       },
 
-      [`${token.spinCls}-blur`]: {
+      [`${token.componentCls}-blur`]: {
         clear: 'both',
         opacity: 0.5,
         userSelect: 'none',
@@ -140,7 +132,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken, hashId: string
 
     // dots
     // ------------------------------
-    [`${token.spinCls}-dot`]: {
+    [`${token.componentCls}-dot`]: {
       position: 'relative',
       display: 'inline-block',
       fontSize: token.spinDotSize,
@@ -193,7 +185,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken, hashId: string
     // ------------------------------
 
     // small
-    [`&-sm ${token.spinCls}-dot`]: {
+    [`&-sm ${token.componentCls}-dot`]: {
       fontSize: token.spinDotSizeSM,
 
       i: {
@@ -203,7 +195,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken, hashId: string
     },
 
     // large
-    [`&-lg ${token.spinCls}-dot`]: {
+    [`&-lg ${token.componentCls}-dot`]: {
       fontSize: token.spinDotSizeLG,
 
       i: {
@@ -212,7 +204,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken, hashId: string
       },
     },
 
-    [`&${token.spinCls}-show-text ${token.spinCls}-text`]: {
+    [`&${token.componentCls}-show-text ${token.componentCls}-text`]: {
       display: 'block',
     },
 
@@ -223,22 +215,13 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken, hashId: string
 });
 
 // ============================== Export ==============================
-export default function useStyle(prefixCls: string): UseComponentStyleResult {
-  const [theme, token, hashId] = useToken();
-
+export default genComponentStyleHook('Spin', (token, { hashId }) => {
   const spinToken: SpinToken = {
     ...token,
-    spinCls: `.${prefixCls}`,
     spinDotDefault: token.colorTextSecondary,
     spinDotSize: 20, // FIXME: hard code in v4
     spinDotSizeSM: 14, // FIXME: hard code in v4
     spinDotSizeLG: 32, // FIXME: hard code in v4
   };
-
-  return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      genSpinStyle(spinToken, hashId),
-    ]),
-    hashId,
-  ];
-}
+  return [genSpinStyle(spinToken, hashId)];
+});
