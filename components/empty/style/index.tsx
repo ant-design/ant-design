@@ -135,7 +135,7 @@ const genSharedEmptyStyle: GenerateStyle<EmptyToken> = (token): CSSObject => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Empty', token => {
+const useStyle = genComponentStyleHook('Empty', token => {
   const emptyToken: EmptyToken = {
     ...token,
     emptyImgCls: `${token.componentCls}-img`,
@@ -144,3 +144,5 @@ export default genComponentStyleHook('Empty', token => {
   };
   return [genSharedEmptyStyle(emptyToken), genEmptyImgStyle(emptyToken)];
 });
+
+export default useStyle;
