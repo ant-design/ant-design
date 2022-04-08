@@ -50,6 +50,7 @@ export interface OverrideToken {
   Divider?: DividerComponentToken;
   Empty?: EmptyComponentToken;
   Form?: {};
+  Grid?: {};
   Input?: {};
   InputNumber?: InputNumberComponentToken;
   Mentions?: MentionsComponentToken;
