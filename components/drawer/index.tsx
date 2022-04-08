@@ -112,12 +112,11 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
     const parentDrawer = React.useContext(DrawerContext);
     const destroyClose = React.useRef<boolean>(false);
 
-    const { getPopupContainer, getPrefixCls, direction, iconPrefixCls } =
-      React.useContext(ConfigContext);
+    const { getPopupContainer, getPrefixCls, direction } = React.useContext(ConfigContext);
     const prefixCls = getPrefixCls('drawer', customizePrefixCls);
 
     // Style
-    const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls);
+    const [wrapSSR, hashId] = useStyle(prefixCls);
 
     const getContainer =
       // 有可能为 false，所以不能直接判断
