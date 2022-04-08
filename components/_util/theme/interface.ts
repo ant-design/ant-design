@@ -47,6 +47,7 @@ export interface OverrideToken {
   Carousel?: {};
   Cascader?: CascaderComponentToken;
   Checkbox?: {};
+  Descriptions?: {};
   Divider?: DividerComponentToken;
   Empty?: EmptyComponentToken;
   Form?: {};
