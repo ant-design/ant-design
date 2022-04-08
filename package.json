@@ -178,7 +178,7 @@
     "@types/react": "^17.0.0",
     "@types/react-color": "^3.0.1",
     "@types/react-copy-to-clipboard": "^5.0.0",
-    "@types/react-dom": "^17.0.0",
+    "@types/react-dom": "^18.0.0",
     "@types/react-window": "^1.8.2",
     "@types/warning": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
