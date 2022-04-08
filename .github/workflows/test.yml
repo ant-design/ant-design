@@ -40,7 +40,7 @@ jobs:
 
       - name: install
         if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
-        run: npm ci --force
+        run: npm ci
 
   lint:
     runs-on: ubuntu-latest

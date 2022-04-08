@@ -111,9 +111,13 @@ function InternalMenu(props: InternalMenuProps) {
         prefixCls={prefixCls}
         direction={direction}
         defaultMotions={defaultMotions}
-        expandIcon={cloneElement(expandIcon, {
-          className: `${prefixCls}-submenu-expand-icon`,
-        })}
+        expandIcon={
+          typeof expandIcon === 'function'
+            ? expandIcon
+            : cloneElement(expandIcon, {
+                className: `${prefixCls}-submenu-expand-icon`,
+              })
+        }
       />
     </MenuContext.Provider>
   );

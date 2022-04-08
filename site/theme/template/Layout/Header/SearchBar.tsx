@@ -2,14 +2,18 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Link } from 'bisheng/router';
 import classNames from 'classnames';
-import { Helmet } from 'react-helmet-async';
 import canUseDom from 'rc-util/lib/Dom/canUseDom';
 import { Input, Tooltip, Typography } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
-import { DocSearchProps, useDocSearchKeyboardEvents, DocSearchModalProps } from '@docsearch/react';
+import {
+  DocSearchProps,
+  useDocSearchKeyboardEvents,
+  DocSearchModalProps,
+} from 'docsearch-react-fork';
 import '@docsearch/css';
 import { SharedProps } from './interface';
 import { IAlgoliaConfig, transformHitUrl } from './algolia-config';
+import WrapHelmet from '../../Components/Helmet';
 
 import './SearchBar.less';
 
@@ -62,7 +66,7 @@ const SearchBar = ({
       return Promise.resolve();
     }
 
-    return import('@docsearch/react/modal').then(({ DocSearchModal }) => {
+    return import('docsearch-react-fork/modal').then(({ DocSearchModal }) => {
       SearchModal = DocSearchModal;
     });
   }, []);
@@ -127,14 +131,14 @@ const SearchBar = ({
         focused: isInputFocus,
       })}
     >
-      <Helmet>
+      <WrapHelmet>
         {/* pre-connect to algolia server */}
         <link
           rel="preconnect"
           href={`https://${algoliaConfig.appId}-dsn.algolia.net`}
           crossOrigin="anonymous"
         />
-      </Helmet>
+      </WrapHelmet>
 
       <Input
         placeholder={searchInputPlaceholder}

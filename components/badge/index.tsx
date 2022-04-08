@@ -34,6 +34,7 @@ export interface BadgeProps {
   size?: 'default' | 'small';
   offset?: [number | string, number | string];
   title?: string;
+  children?: React.ReactNode;
 }
 
 const Badge: CompoundedComponent = ({

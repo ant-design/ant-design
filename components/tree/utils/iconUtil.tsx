@@ -10,10 +10,12 @@ import { isValidElement, cloneElement } from '../../_util/reactNode';
 
 export default function renderSwitcherIcon(
   prefixCls: string,
-  switcherIcon: React.ReactNode,
+  switcherIcon: React.ReactNode | ((props: any) => React.ReactNode),
   showLine: boolean | { showLeafIcon: boolean } | undefined,
-  { isLeaf, expanded, loading }: AntTreeNodeProps,
-) {
+  treeNodeProps: AntTreeNodeProps,
+): React.ReactNode {
+  const { isLeaf, expanded, loading } = treeNodeProps;
+
   if (loading) {
     return <LoadingOutlined className={`${prefixCls}-switcher-loading-icon`} />;
   }
@@ -38,7 +40,7 @@ export default function renderSwitcherIcon(
   }
 
   if (switcherIcon) {
-    return switcherIcon;
+    return typeof switcherIcon === 'function' ? switcherIcon(treeNodeProps) : switcherIcon;
   }
 
   if (showLine) {

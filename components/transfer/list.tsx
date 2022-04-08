@@ -20,8 +20,8 @@ import { isValidElement } from '../_util/reactNode';
 
 const defaultRender = () => null;
 
-function isRenderResultPlainObject(result: RenderResult) {
-  return (
+function isRenderResultPlainObject(result: RenderResult): result is RenderResultObject {
+  return !!(
     result &&
     !isValidElement(result) &&
     Object.prototype.toString.call(result) === '[object Object]'
@@ -274,7 +274,7 @@ export default class TransferList<
 
   renderItem = (item: RecordType): RenderedItem<RecordType> => {
     const { render = defaultRender } = this.props;
-    const renderResult: RenderResult = render(item);
+    const renderResult = render(item);
     const isRenderResultPlain = isRenderResultPlainObject(renderResult);
     return {
       renderedText: isRenderResultPlain

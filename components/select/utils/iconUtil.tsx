@@ -9,6 +9,8 @@ import SearchOutlined from '@ant-design/icons/SearchOutlined';
 import { ValidateStatus } from '../../form/FormItem';
 import { getFeedbackIcon } from '../../_util/statusUtils';
 
+type RenderNode = React.ReactNode | ((props: any) => React.ReactNode);
+
 export default function getIcons({
   suffixIcon,
   clearIcon,
@@ -22,9 +24,9 @@ export default function getIcons({
   showArrow,
 }: {
   suffixIcon?: React.ReactNode;
-  clearIcon?: React.ReactNode;
-  menuItemSelectedIcon?: React.ReactNode;
-  removeIcon?: React.ReactNode;
+  clearIcon?: RenderNode;
+  menuItemSelectedIcon?: RenderNode;
+  removeIcon?: RenderNode;
   loading?: boolean;
   multiple?: boolean;
   hasFeedback?: boolean;

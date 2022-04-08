@@ -27,6 +27,7 @@ function isNotGrey(color: string) {
 export interface WaveProps {
   insertExtraNode?: boolean;
   disabled?: boolean;
+  children?: React.ReactNode;
 }
 
 export default class Wave extends React.Component<WaveProps> {
