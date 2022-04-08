@@ -60,6 +60,7 @@ export interface OverrideToken {
   Select?: SelectComponentToken;
   Skeleton?: {};
   Slider?: SliderComponentToken;
+  Spin?: {};
   Statistic?: {};
   Switch?: {};
   Tag?: {};
