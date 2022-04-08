@@ -500,7 +500,7 @@ function InternalTable<RecordType extends object = any>(
         {topPaginationNode}
         <RcTable<RecordType>
           {...tableProps}
-          columns={mergedColumns}
+          columns={mergedColumns as RcTableProps<RecordType>['columns']}
           direction={direction}
           expandable={mergedExpandable}
           prefixCls={prefixCls}
@@ -517,7 +517,7 @@ function InternalTable<RecordType extends object = any>(
           // Internal
           internalHooks={INTERNAL_HOOKS}
           internalRefs={internalRefs as any}
-          transformColumns={transformColumns}
+          transformColumns={transformColumns as RcTableProps<RecordType>['transformColumns']}
         />
         {bottomPaginationNode}
       </Spin>
