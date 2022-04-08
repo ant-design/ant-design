@@ -9,6 +9,7 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import devWarning from '../_util/devWarning';
 import { ConfigContext } from '../config-provider';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
+import useStyle from './style';
 
 export type TabsType = 'line' | 'card' | 'editable-card';
 export type TabsPosition = 'top' | 'right' | 'bottom' | 'left';
@@ -37,6 +38,7 @@ function Tabs({
   const { prefixCls: customizePrefixCls, moreIcon = <EllipsisOutlined /> } = props;
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('tabs', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   let editable: EditableConfig | undefined;
   if (type === 'editable-card') {
@@ -57,7 +59,7 @@ function Tabs({
     '`onPrevClick` and `onNextClick` has been removed. Please use `onTabScroll` instead.',
   );
 
-  return (
+  return wrapSSR(
     <SizeContext.Consumer>
       {contextSize => {
         const size = propSize !== undefined ? propSize : contextSize;
@@ -74,6 +76,7 @@ function Tabs({
                 [`${prefixCls}-centered`]: centered,
               },
               className,
+              hashId,
             )}
             editable={editable}
             moreIcon={moreIcon}
@@ -81,7 +84,7 @@ function Tabs({
           />
         );
       }}
-    </SizeContext.Consumer>
+    </SizeContext.Consumer>,
   );
 }
 

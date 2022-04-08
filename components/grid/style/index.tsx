@@ -3,30 +3,21 @@
 
 // deps-lint-skip-all
 import { CSSObject } from '@ant-design/cssinjs';
-import {
-  useStyleRegister,
-  useToken,
-  UseComponentStyleResult,
-  GenerateStyle,
-  DerivativeToken,
-} from '../../_util/theme';
+import { GenerateStyle, FullToken, genComponentStyleHook } from '../../_util/theme';
 
-interface GridRowToken extends DerivativeToken {
-  gridCls: string;
-}
+interface GridRowToken extends FullToken<'Grid'> {}
 
-interface GridColToken extends DerivativeToken {
-  gridCls: string;
+interface GridColToken extends FullToken<'Grid'> {
   gridColumns: number;
 }
 
 // ============================== Row-Shared ==============================
 const genGridRowStyle: GenerateStyle<GridRowToken> = (token): CSSObject => {
-  const { gridCls } = token;
+  const { componentCls } = token;
 
   return {
     // Grid system
-    [gridCls]: {
+    [componentCls]: {
       display: 'flex',
       flexFlow: 'row wrap',
 
@@ -80,11 +71,11 @@ const genGridRowStyle: GenerateStyle<GridRowToken> = (token): CSSObject => {
 
 // ============================== Col-Shared ==============================
 const genGridColStyle: GenerateStyle<GridColToken> = (token): CSSObject => {
-  const { gridCls } = token;
+  const { componentCls } = token;
 
   return {
     // Grid system
-    [gridCls]: {
+    [componentCls]: {
       position: 'relative',
       maxWidth: '100%',
       // Prevent columns from collapsing when empty
@@ -94,48 +85,48 @@ const genGridColStyle: GenerateStyle<GridColToken> = (token): CSSObject => {
 };
 
 const genLoopGridColumnsStyle = (token: GridColToken, sizeCls: string): CSSObject => {
-  const { gridCls, gridColumns } = token;
+  const { componentCls, gridColumns } = token;
 
   const gridColumnsStyle: CSSObject = {};
   for (let i = gridColumns; i >= 0; i--) {
     if (i === 0) {
-      gridColumnsStyle[`${gridCls}${sizeCls}-${i}`] = {
+      gridColumnsStyle[`${componentCls}${sizeCls}-${i}`] = {
         display: 'none',
       };
-      gridColumnsStyle[`${gridCls}-push-${i}`] = {
+      gridColumnsStyle[`${componentCls}-push-${i}`] = {
         left: 'auto',
       };
-      gridColumnsStyle[`${gridCls}-pull-${i}`] = {
+      gridColumnsStyle[`${componentCls}-pull-${i}`] = {
         right: 'auto',
       };
-      gridColumnsStyle[`${gridCls}${sizeCls}-push-${i}`] = {
+      gridColumnsStyle[`${componentCls}${sizeCls}-push-${i}`] = {
         left: 'auto',
       };
-      gridColumnsStyle[`${gridCls}${sizeCls}-pull-${i}`] = {
+      gridColumnsStyle[`${componentCls}${sizeCls}-pull-${i}`] = {
         right: 'auto',
       };
-      gridColumnsStyle[`${gridCls}${sizeCls}-offset-${i}`] = {
+      gridColumnsStyle[`${componentCls}${sizeCls}-offset-${i}`] = {
         marginRight: 0,
       };
-      gridColumnsStyle[`${gridCls}${sizeCls}-order-${i}`] = {
+      gridColumnsStyle[`${componentCls}${sizeCls}-order-${i}`] = {
         order: 0,
       };
     } else {
-      gridColumnsStyle[`${gridCls}${sizeCls}-${i}`] = {
+      gridColumnsStyle[`${componentCls}${sizeCls}-${i}`] = {
         display: 'block',
         flex: `0 0 ${(i / gridColumns) * 100}%`,
         maxWidth: `${(i / gridColumns) * 100}%`,
       };
-      gridColumnsStyle[`${gridCls}${sizeCls}-push-${i}`] = {
+      gridColumnsStyle[`${componentCls}${sizeCls}-push-${i}`] = {
         left: `${(i / gridColumns) * 100}%`,
       };
-      gridColumnsStyle[`${gridCls}${sizeCls}-pull-${i}`] = {
+      gridColumnsStyle[`${componentCls}${sizeCls}-pull-${i}`] = {
         right: `${(i / gridColumns) * 100}%`,
       };
-      gridColumnsStyle[`${gridCls}${sizeCls}-offset-${i}`] = {
+      gridColumnsStyle[`${componentCls}${sizeCls}-offset-${i}`] = {
         marginLeft: `${(i / gridColumns) * 100}%`,
       };
-      gridColumnsStyle[`${gridCls}${sizeCls}-order-${i}`] = {
+      gridColumnsStyle[`${componentCls}${sizeCls}-order-${i}`] = {
         order: i,
       };
     }
@@ -158,28 +149,12 @@ const genGridMediaStyle = (
 });
 
 // ============================== Export ==============================
-export function useRowStyle(prefixCls: string): UseComponentStyleResult {
-  const [theme, token, hashId] = useToken();
-  const gridToken: GridRowToken = {
-    ...token,
-    gridCls: `.${prefixCls}`,
-  };
+export const useRowStyle = genComponentStyleHook('Grid', token => [genGridRowStyle(token)]);
 
-  return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      genGridRowStyle(gridToken),
-    ]),
-    hashId,
-  ];
-}
-
-export function useColStyle(prefixCls: string): UseComponentStyleResult {
-  const [theme, token, hashId] = useToken();
-
+export const useColStyle = genComponentStyleHook('Grid', token => {
   const gridToken: GridColToken = {
     ...token,
     gridColumns: 24, // FIXME: hardcode in v4
-    gridCls: `.${prefixCls}`,
   };
 
   const gridMediaSizesMap = {
@@ -191,16 +166,13 @@ export function useColStyle(prefixCls: string): UseComponentStyleResult {
   };
 
   return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      genGridColStyle(gridToken),
-      genGridStyle(gridToken, ''),
-      genGridStyle(gridToken, '-xs'),
-      Object.keys(gridMediaSizesMap)
-        .map((key: keyof typeof gridMediaSizesMap) =>
-          genGridMediaStyle(gridToken, gridMediaSizesMap[key], key),
-        )
-        .reduce((pre, cur) => ({ ...pre, ...cur }), {}),
-    ]),
-    hashId,
+    genGridColStyle(gridToken),
+    genGridStyle(gridToken, ''),
+    genGridStyle(gridToken, '-xs'),
+    Object.keys(gridMediaSizesMap)
+      .map((key: keyof typeof gridMediaSizesMap) =>
+        genGridMediaStyle(gridToken, gridMediaSizesMap[key], key),
+      )
+      .reduce((pre, cur) => ({ ...pre, ...cur }), {}),
   ];
-}
+});

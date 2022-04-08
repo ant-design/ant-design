@@ -1,13 +1,7 @@
 // deps-lint-skip-all
 import { CSSObject, Keyframes } from '@ant-design/cssinjs';
 
-import {
-  DerivativeToken,
-  useStyleRegister,
-  useToken,
-  UseComponentStyleResult,
-  GenerateStyle,
-} from '../../_util/theme';
+import { GenerateStyle, FullToken, genComponentStyleHook } from '../../_util/theme';
 
 const skeletonClsLoading = new Keyframes(`ant-skeleton-loading`, {
   '0%': {
@@ -18,9 +12,7 @@ const skeletonClsLoading = new Keyframes(`ant-skeleton-loading`, {
   },
 });
 
-interface SkeletonToken extends DerivativeToken {
-  skeletonCls: string;
-  prefixCls: string;
+interface SkeletonToken extends FullToken<'Skeleton'> {
   skeletonAvatarCls: string;
   skeletonTitleCls: string;
   skeletonParagraphCls: string;
@@ -199,7 +191,7 @@ const genSkeletonElementButton = (token: SkeletonToken): CSSObject => {
 // =============================== Base ===============================
 const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken, hashId: string) => {
   const {
-    skeletonCls,
+    componentCls,
     skeletonAvatarCls,
     skeletonTitleCls,
     skeletonParagraphCls,
@@ -222,11 +214,11 @@ const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken, hashId
   } = token;
 
   return {
-    [`${skeletonCls}`]: {
+    [`${componentCls}`]: {
       display: 'table',
       width: '100%',
 
-      [`${skeletonCls}-header`]: {
+      [`${componentCls}-header`]: {
         display: 'table-cell',
         paddingInlineEnd: padding,
         verticalAlign: 'top',
@@ -248,7 +240,7 @@ const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken, hashId
           ...genSkeletonElementAvatarSize(controlHeightSM),
         },
       },
-      [`${skeletonCls}-content`]: {
+      [`${componentCls}-content`]: {
         display: 'table-cell',
         width: '100%',
         verticalAlign: 'top',
@@ -285,13 +277,13 @@ const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken, hashId
         },
       },
 
-      [`${skeletonCls}-round ${skeletonCls}-content`]: {
+      [`${componentCls}-round ${componentCls}-content`]: {
         [`${skeletonTitleCls}, ${skeletonTitleCls} > li`]: {
           borderRadius,
         },
       },
     },
-    [`${skeletonCls}-with-avatar ${skeletonCls}-content`]: {
+    [`${componentCls}-with-avatar ${componentCls}-content`]: {
       // Title
       [`${skeletonTitleCls}`]: {
         marginBlockStart: marginSM,
@@ -302,7 +294,7 @@ const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken, hashId
       },
     },
     // Skeleton element
-    [`${skeletonCls}${skeletonCls}-element`]: {
+    [`${componentCls}${componentCls}-element`]: {
       display: 'inline-block',
       width: 'auto',
 
@@ -312,7 +304,7 @@ const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken, hashId
       ...genSkeletonElementImage(token),
     },
     // Skeleton Block Button, Input
-    [`${skeletonCls}${skeletonCls}-block`]: {
+    [`${componentCls}${componentCls}-block`]: {
       width: '100%',
 
       [`${skeletonButtonCls}`]: {
@@ -324,8 +316,8 @@ const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken, hashId
       },
     },
     // With active animation
-    [`${skeletonCls}${skeletonCls}-active`]: {
-      [`${skeletonCls}-content`]: {
+    [`${componentCls}${componentCls}-active`]: {
+      [`${componentCls}-content`]: {
         [`${skeletonTitleCls}, ${skeletonParagraphCls} > li`]: {
           ...genSkeletonColor(token, hashId),
         },
@@ -349,19 +341,17 @@ const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken, hashId
 };
 
 // ============================== Export ==============================
-export default function useStyle(prefixCls: string): UseComponentStyleResult {
-  const [theme, token, hashId] = useToken();
+export default genComponentStyleHook('Skeleton', (token, { hashId }) => {
+  const { componentCls } = token;
 
   const skeletonToken: SkeletonToken = {
     ...token,
-    prefixCls,
-    skeletonCls: `.${prefixCls}`,
-    skeletonAvatarCls: `.${prefixCls}-avatar`,
-    skeletonTitleCls: `.${prefixCls}-title`,
-    skeletonParagraphCls: `.${prefixCls}-paragraph`,
-    skeletonButtonCls: `.${prefixCls}-button`,
-    skeletonInputCls: `.${prefixCls}-input`,
-    skeletonImageCls: `.${prefixCls}-image`,
+    skeletonAvatarCls: `${componentCls}-avatar`,
+    skeletonTitleCls: `${componentCls}-title`,
+    skeletonParagraphCls: `${componentCls}-paragraph`,
+    skeletonButtonCls: `${componentCls}-button`,
+    skeletonInputCls: `${componentCls}-input`,
+    skeletonImageCls: `${componentCls}-image`,
     skeletonColor: 'rgba(190,190,190,0.2)', // FIXME: hard code in v4
     skeletonToColor: 'rgba(129,129,129,.24)', // FIXME: hard code in v4
     imageSizeBase: 48, // FIXME: hard code in v4
@@ -372,11 +362,5 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
     skeletonParagraphMarginTop: 28, // FIXME: hard code in v4
     borderRadius: 100, // FIXME: hard code in v4
   };
-
-  return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      genBaseStyle(skeletonToken, hashId),
-    ]),
-    hashId,
-  ];
-}
+  return [genBaseStyle(skeletonToken, hashId)];
+});

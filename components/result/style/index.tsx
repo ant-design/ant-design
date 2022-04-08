@@ -1,17 +1,8 @@
 // deps-lint-skip-all
 import { CSSObject } from '@ant-design/cssinjs';
-import {
-  DerivativeToken,
-  useStyleRegister,
-  useToken,
-  UseComponentStyleResult,
-  GenerateStyle,
-} from '../../_util/theme';
+import { GenerateStyle, genComponentStyleHook, FullToken } from '../../_util/theme';
 
-interface ResultToken extends DerivativeToken {
-  resultCls: string;
-  dotIconPrefixCls: string;
-
+interface ResultToken extends FullToken<'Result'> {
   resultTitleFontSize: number;
   resultSubtitleFontSize: number;
   resultIconFontSize: number;
@@ -26,11 +17,11 @@ interface ResultToken extends DerivativeToken {
 
 // ============================== Styles ==============================
 const genBaseStyle: GenerateStyle<ResultToken> = (token): CSSObject => {
-  const { resultCls, dotIconPrefixCls } = token;
+  const { componentCls, iconCls } = token;
 
   return {
     // Result
-    [resultCls]: {
+    [componentCls]: {
       padding: `${token.padding * 3}px ${token.padding * 2}px`,
 
       // RTL
@@ -40,23 +31,23 @@ const genBaseStyle: GenerateStyle<ResultToken> = (token): CSSObject => {
     },
 
     // Exception Status image
-    [`${resultCls} ${resultCls}-image`]: {
+    [`${componentCls} ${componentCls}-image`]: {
       // FIXME: hard code
       width: 250,
       height: 295,
       margin: 'auto',
     },
 
-    [`${resultCls} ${resultCls}-icon`]: {
+    [`${componentCls} ${componentCls}-icon`]: {
       marginBottom: token.padding * 1.5,
       textAlign: 'center',
 
-      [`& > ${dotIconPrefixCls}`]: {
+      [`& > ${iconCls}`]: {
         fontSize: token.resultIconFontSize,
       },
     },
 
-    [`${resultCls} ${resultCls}-title`]: {
+    [`${componentCls} ${componentCls}-title`]: {
       color: token.colorTextHeading,
       fontSize: token.resultTitleFontSize,
       // FIXME: hard code
@@ -64,7 +55,7 @@ const genBaseStyle: GenerateStyle<ResultToken> = (token): CSSObject => {
       textAlign: 'center',
     },
 
-    [`${resultCls} ${resultCls}-subtitle`]: {
+    [`${componentCls} ${componentCls}-subtitle`]: {
       color: token.colorTextSecondary,
       fontSize: token.resultSubtitleFontSize,
       // FIXME: hard code
@@ -72,13 +63,13 @@ const genBaseStyle: GenerateStyle<ResultToken> = (token): CSSObject => {
       textAlign: 'center',
     },
 
-    [`${resultCls} ${resultCls}-content`]: {
+    [`${componentCls} ${componentCls}-content`]: {
       marginTop: token.padding * 1.5,
       padding: `${token.padding * 1.5}px ${token.padding * 2.5}px`,
       backgroundColor: token.colorBgComponentSecondary,
     },
 
-    [`${resultCls} ${resultCls}-extra`]: {
+    [`${componentCls} ${componentCls}-extra`]: {
       margin: token.resultExtraMargin,
       textAlign: 'center',
 
@@ -94,19 +85,19 @@ const genBaseStyle: GenerateStyle<ResultToken> = (token): CSSObject => {
 };
 
 const genStatusIconStyle: GenerateStyle<ResultToken> = token => {
-  const { resultCls, dotIconPrefixCls } = token;
+  const { componentCls, iconCls } = token;
 
   return {
-    [`${resultCls}-success ${resultCls}-icon > ${dotIconPrefixCls}`]: {
+    [`${componentCls}-success ${componentCls}-icon > ${iconCls}`]: {
       color: token.resultSuccessIconColor,
     },
-    [`${resultCls}-error ${resultCls}-icon > ${dotIconPrefixCls}`]: {
+    [`${componentCls}-error ${componentCls}-icon > ${iconCls}`]: {
       color: token.resultErrorIconColor,
     },
-    [`${resultCls}-info ${resultCls}-icon > ${dotIconPrefixCls}`]: {
+    [`${componentCls}-info ${componentCls}-icon > ${iconCls}`]: {
       color: token.resultInfoIconColor,
     },
-    [`${resultCls}-warning ${resultCls}-icon > ${dotIconPrefixCls}`]: {
+    [`${componentCls}-warning ${componentCls}-icon > ${iconCls}`]: {
       color: token.resultWarningIconColor,
     },
   };
@@ -120,12 +111,7 @@ const genResultStyle: GenerateStyle<ResultToken> = token => [
 // ============================== Export ==============================
 const getStyle: GenerateStyle<ResultToken> = token => genResultStyle(token);
 
-export default function useStyle(
-  prefixCls: string,
-  iconPrefixCls: string,
-): UseComponentStyleResult {
-  const [theme, token, hashId] = useToken();
-
+export default genComponentStyleHook('Result', token => {
   // compact 20
   // FIXME: maybe we need a new token for fontSize 12px
   const resultTitleFontSize = 24;
@@ -142,8 +128,6 @@ export default function useStyle(
 
   const resultToken: ResultToken = {
     ...token,
-    resultCls: `.${prefixCls}`,
-    dotIconPrefixCls: `.${iconPrefixCls}`,
     resultTitleFontSize,
     resultSubtitleFontSize,
     resultIconFontSize,
@@ -154,8 +138,5 @@ export default function useStyle(
     resultWarningIconColor,
   };
 
-  return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => getStyle(resultToken)),
-    hashId,
-  ];
-}
+  return [getStyle(resultToken)];
+});

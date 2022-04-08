@@ -1,6 +1,7 @@
 import type * as React from 'react';
 import type { ComponentToken as ButtonComponentToken } from '../../button/style';
 import type { ComponentToken as DividerComponentToken } from '../../divider/style';
+import type { ComponentToken as EmptyComponentToken } from '../../empty/style';
 import type { ComponentToken as CascaderComponentToken } from '../../cascader/style';
 import type { ComponentToken as InputNumberComponentToken } from '../../input-number/style';
 import type { ComponentToken as MentionsComponentToken } from '../../mentions/style';
@@ -39,19 +40,37 @@ export interface OverrideToken {
 
   // Customize component
   Affix?: {};
+  Alert?: {};
+  Avatar?: {};
+  Badge?: {};
   Button?: ButtonComponentToken;
+  Carousel?: {};
   Cascader?: CascaderComponentToken;
+  Checkbox?: {};
+  Descriptions?: {};
   Divider?: DividerComponentToken;
-  Empty?: {};
+  Drawer?: {};
+  Empty?: EmptyComponentToken;
   Form?: {};
+  Grid?: {};
   Input?: {};
   InputNumber?: InputNumberComponentToken;
   Mentions?: MentionsComponentToken;
   Pagination?: {};
+  Popover?: {};
+  Rate?: {};
+  Result?: {};
   Select?: SelectComponentToken;
+  Skeleton?: {};
   Slider?: SliderComponentToken;
+  Spin?: {};
+  Statistic?: {};
+  Switch?: {};
+  Tag?: {};
+  Tree?: {};
   TreeSelect?: {};
   Typography?: TypographyComponentToken;
+  Tabs?: {};
 }
 
 /** Final token which contains the components level override */
