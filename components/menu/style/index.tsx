@@ -17,6 +17,7 @@ export interface ComponentToken {
   zIndexDrop: number;
   menuOpacity: number;
   sizeLg: number;
+  width20: number;
   textColorDark: string;
   menuInlineSubmenuBg: string;
   disabledColor: string;
@@ -56,14 +57,14 @@ const genStatusStyle = (token: MenuToken): CSSObject => {
           color: highlightDangerColor,
         },
 
-        ['&:active']: {
+        '&:active': {
           background: itemActiveDangerBg,
         },
 
         [`${componentCls}-selected`]: {
           color: highlightDangerColor,
 
-          ['> a, > a:hover']: {
+          '> a, > a:hover': {
             color: highlightDangerColor,
           },
         },
@@ -180,6 +181,7 @@ const genBaseStyle: GenerateStyle<MenuToken, CSSObject> = token => {
     disabledColorDark,
     itemActiveBg,
     controlHeightLG,
+    width20,
   } = token;
 
   return {
@@ -334,7 +336,7 @@ const genBaseStyle: GenerateStyle<MenuToken, CSSObject> = token => {
         position: 'relative',
         display: 'block',
         margin: 0,
-        paddingInline: '20px', // FIXME: hard code in v4
+        paddingInline: width20,
         paddingBlock: 0,
         whiteSpace: 'nowrap',
         cursor: 'pointer',
@@ -757,8 +759,8 @@ const genBaseStyle: GenerateStyle<MenuToken, CSSObject> = token => {
           marginBlocStart: '-1px', // FIXME: hard code in v4
           marginBlockEnd: 0,
           paddingBlock: 0,
-          paddingInline: '20px',
-          [`&:hover,&-active,&-open,&-selected`]: {
+          paddingInline: width20,
+          [`&:hover,${componentCls}-active,${componentCls}-open,${componentCls}-selected`]: {
             color: primaryColor,
 
             '&::after': {
@@ -776,10 +778,9 @@ const genBaseStyle: GenerateStyle<MenuToken, CSSObject> = token => {
 
         '&::after': {
           position: 'absolute',
-          insetInlineEnd: '20px', // FIXME: hard code in v4
+          insetInline: width20,
           insetBlockEnd: 0,
-          insetInlineStart: '20px', // FIXME: hard code in v4
-          borderBlockEnd: '2px ${controlLineType} transparent',
+          borderBlockEnd: `2px ${controlLineType} transparent`, // FIXME: hard code in v4
           transition: `border-color ${motionDurationSlow} ${motionEaseInOut}`,
           content: '""',
         },
@@ -838,7 +839,7 @@ const genBaseStyle: GenerateStyle<MenuToken, CSSObject> = token => {
         insetBlockStart: 0,
         marginBlockStart: 0,
         paddingBlock: 0,
-        paddingInline: '20px', // FIXME: hard code in v4
+        paddingInline: width20,
         borderColor: darkBg,
         borderBlockEnd: 0,
       },
@@ -983,7 +984,7 @@ const genBaseStyle: GenerateStyle<MenuToken, CSSObject> = token => {
         zIndex: -1,
         width: '100%',
         height: '100%',
-        opacity: 0.0001,
+        opacity: 0.0001, // FIXME: hard code in v4
         content: '" "',
       },
       [`${componentCls}-item,${componentCls}-submenu-title`]: {
@@ -1031,34 +1032,33 @@ const genBaseStyle: GenerateStyle<MenuToken, CSSObject> = token => {
 export default genComponentStyleHook(
   'Menu',
   token => [genBaseStyle(token), genDarkStyle(token), genLightStyle(token), genStatusStyle(token)],
-  () => {
-    return {
-      antPrefix: `.ant`, // FIXME: hard code in v4
-      componentBackground: '#fff', // FIXME: hard code in v4
-      darkBg: '#001529', // FIXME: hard code in v4
-      darkInlineSubmenuBg: '#000c17', // FIXME: hard code in v4
-      colorTextSecondary: new TinyColor('#000').setAlpha(0.45).toRgbString(), // FIXME: hard code in v4
-      highlightDangerColor: new TinyColor('#f5222d').setAlpha(0.2).toRgbString(), // FIXME: hard code in v4 // color(~`colorPalette('@{red-6}', 5) `)
-      itemActiveDangerBg: new TinyColor('#f5222d').setAlpha(0.9).toRgbString(), // FIXME: hard code in v4 // color(~`colorPalette('@{red-6}', 1) `)
-      itemActiveBackground: new TinyColor('#000').setAlpha(0.9).toRgbString(), // FIXME: hard code in v4
-      itemActiveBg: '#e6f7ff', // FIXME: hard code in v4,
-      textColorDark: new TinyColor('#000').setAlpha(0.85).toRgbString(), // FIXME: hard code in v4
-      disabledColor: new TinyColor('#000').setAlpha(0.25).toRgbString(), // FIXME: hard code in v4
-      darkColor: new TinyColor('#fff').setAlpha(0.65).toRgbString(), // FIXME: hard code in v4
-      colorDark: new TinyColor('#fff').setAlpha(0.85).toRgbString(), // FIXME: hard code in v4
-      disabledColorDark: new TinyColor('#fff').setAlpha(0.45).toRgbString(), // FIXME: hard code in v4
-      darkHighlightColor: '#fff', // FIXME: hard code in v4
-      motionDurationMD: '0.15s', // FIXME: hard code in v4,
-      primaryColor: '#1890ff', // FIXME: hard code in v4
-      boxShadowColor: new TinyColor('#1890ff').setAlpha(0.05).toRgbString(), // FIXME: hard code in v4, shade(@primary-color, 5%)
-      borderColorSplit: new TinyColor({ h: 0, s: 0, v: 94 }).toHexString(), // FIXME: hard code in v4
-      menuInlineSubmenuBg: new TinyColor({ h: 0, s: 0, v: 98 }).toHexString(), // FIXME: hard code in v4
-      easeOut: 'cubic-bezier(0.215, 0.61, 0.355, 1)', // FIXME: hard code in v4
+  () => ({
+    antPrefix: `.ant`, // FIXME: hard code in v4
+    componentBackground: '#fff', // FIXME: hard code in v4
+    darkBg: '#001529', // FIXME: hard code in v4
+    darkInlineSubmenuBg: '#000c17', // FIXME: hard code in v4
+    colorTextSecondary: new TinyColor('#000').setAlpha(0.45).toRgbString(), // FIXME: hard code in v4
+    highlightDangerColor: new TinyColor('#f5222d').setAlpha(0.2).toRgbString(), // FIXME: hard code in v4 // color(~`colorPalette('@{red-6}', 5) `)
+    itemActiveDangerBg: new TinyColor('#f5222d').setAlpha(0.9).toRgbString(), // FIXME: hard code in v4 // color(~`colorPalette('@{red-6}', 1) `)
+    itemActiveBackground: new TinyColor('#000').setAlpha(0.9).toRgbString(), // FIXME: hard code in v4
+    itemActiveBg: '#e6f7ff', // FIXME: hard code in v4,
+    textColorDark: new TinyColor('#000').setAlpha(0.85).toRgbString(), // FIXME: hard code in v4
+    disabledColor: new TinyColor('#000').setAlpha(0.25).toRgbString(), // FIXME: hard code in v4
+    darkColor: new TinyColor('#fff').setAlpha(0.65).toRgbString(), // FIXME: hard code in v4
+    colorDark: new TinyColor('#fff').setAlpha(0.85).toRgbString(), // FIXME: hard code in v4
+    disabledColorDark: new TinyColor('#fff').setAlpha(0.45).toRgbString(), // FIXME: hard code in v4
+    darkHighlightColor: '#fff', // FIXME: hard code in v4
+    motionDurationMD: '0.15s', // FIXME: hard code in v4,
+    primaryColor: '#1890ff', // FIXME: hard code in v4
+    boxShadowColor: new TinyColor('#1890ff').setAlpha(0.05).toRgbString(), // FIXME: hard code in v4, shade(@primary-color, 5%)
+    borderColorSplit: new TinyColor({ h: 0, s: 0, v: 94 }).toHexString(), // FIXME: hard code in v4
+    menuInlineSubmenuBg: new TinyColor({ h: 0, s: 0, v: 98 }).toHexString(), // FIXME: hard code in v4
+    easeOut: 'cubic-bezier(0.215, 0.61, 0.355, 1)', // FIXME: hard code in v4
+    width20: 20, // FIXME: hard code in v4
 
-      zIndexDrop: 1050,
-      menuOpacity: 0.0001,
+    zIndexDrop: 1050, // FIXME: hard code in v4
+    menuOpacity: 0.0001, // FIXME: hard code in v4
 
-      sizeLg: 16,
-    };
-  },
+    sizeLg: 16, // FIXME: hard code in v4
+  }),
 );
