@@ -6,6 +6,8 @@ import {
   useToken,
   UseComponentStyleResult,
   GenerateStyle,
+  mergeToken,
+  statisticToken,
 } from '../../_util/theme';
 
 /** Component only token. Which will handle additional calculation of alias token */
@@ -148,13 +150,12 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
 
   return [
     useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => {
-      const { Empty } = token;
+      const { token: proxyToken, flush } = statisticToken(token);
+      const { Empty } = proxyToken;
 
       const emptyFontSize = token.fontSizeBase;
 
-      const emptyToken: EmptyToken = {
-        ...token,
-
+      const emptyToken = mergeToken<EmptyToken>(proxyToken, {
         emptyCls: `.${prefixCls}`,
         emptyImgCls: `.${prefixCls}-img`,
 
@@ -162,9 +163,11 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
         white: '#fff',
 
         ...Empty,
-      };
+      });
 
-      return [genSharedEmptyStyle(emptyToken), genEmptyImgStyle(emptyToken)];
+      const style = [genSharedEmptyStyle(emptyToken), genEmptyImgStyle(emptyToken)];
+      flush('Empty');
+      return style;
     }),
     hashId,
   ];

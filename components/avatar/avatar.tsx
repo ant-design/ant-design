@@ -48,7 +48,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
 
   const avatarNodeMergeRef = composeRef(ref, avatarNodeRef);
 
-  const { getPrefixCls, iconPrefixCls } = React.useContext(ConfigContext);
+  const { getPrefixCls } = React.useContext(ConfigContext);
 
   const setScaleParam = () => {
     if (!avatarChildrenRef.current || !avatarNodeRef.current) {
@@ -132,7 +132,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
   );
 
   const prefixCls = getPrefixCls('avatar', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls, getPrefixCls());
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const sizeCls = classNames({
     [`${prefixCls}-lg`]: size === 'large',

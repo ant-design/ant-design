@@ -14,6 +14,7 @@ import { useContext } from 'react';
 import { ConfigContext } from '../config-provider';
 import devWarning from '../_util/devWarning';
 import { AntTreeNodeProps, TreeProps } from '../tree';
+import { SwitcherIcon } from '../tree/Tree';
 import getIcons from '../select/utils/iconUtil';
 import renderSwitcherIcon from '../tree/utils/iconUtil';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
@@ -52,6 +53,7 @@ export interface TreeSelectProps<
   bordered?: boolean;
   treeLine?: TreeProps['showLine'];
   status?: InputStatus;
+  switcherIcon?: SwitcherIcon;
 }
 
 const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionType = BaseOptionType>(

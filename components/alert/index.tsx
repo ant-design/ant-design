@@ -90,9 +90,9 @@ const Alert: AlertInterface = ({
   const [closed, setClosed] = React.useState(false);
 
   const ref = React.useRef<HTMLElement>();
-  const { getPrefixCls, direction, iconPrefixCls } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('alert', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const handleClose = (e: React.MouseEvent<HTMLButtonElement>) => {
     setClosed(true);

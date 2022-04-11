@@ -41,20 +41,40 @@ export interface OverrideToken {
 
   // Customize component
   Affix?: {};
+  Alert?: {};
+  Avatar?: {};
+  Badge?: {};
   Button?: ButtonComponentToken;
+  Carousel?: {};
   Cascader?: CascaderComponentToken;
+  Checkbox?: {};
+  Descriptions?: {};
   Divider?: DividerComponentToken;
+  Drawer?: {};
   Empty?: EmptyComponentToken;
   Form?: {};
+  Grid?: {};
+  Image?: {};
   Input?: {};
   InputNumber?: InputNumberComponentToken;
+  List?: {};
   Mentions?: MentionsComponentToken;
   Pagination?: {};
+  Popover?: {};
+  Rate?: {};
+  Result?: {};
   Select?: SelectComponentToken;
+  Skeleton?: {};
   Slider?: SliderComponentToken;
+  Spin?: {};
+  Statistic?: {};
+  Switch?: {};
+  Tag?: {};
+  Tree?: {};
   TreeSelect?: {};
   Typography?: TypographyComponentToken;
   Timeline?: TimelineComponentToken;
+  Tabs?: {};
 }
 
 /** Final token which contains the components level override */

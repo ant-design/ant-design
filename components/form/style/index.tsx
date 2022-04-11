@@ -1,7 +1,7 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { AliasToken, FullToken, GenerateStyle } from '../../_util/theme';
-import { genComponentStyleHook, resetComponent } from '../../_util/theme';
+import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
 
 interface FormToken extends FullToken<'Form'> {
   formItemCls: string;
@@ -522,11 +522,10 @@ const genVerticalStyle: GenerateStyle<FormToken> = token => {
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Form', (token, { rootPrefixCls }) => {
-  const formToken: FormToken = {
-    ...token,
+  const formToken = mergeToken<FormToken>(token, {
     formItemCls: `${token.componentCls}-item`,
     rootPrefixCls,
-  };
+  });
 
   return [
     genFormStyle(formToken),
