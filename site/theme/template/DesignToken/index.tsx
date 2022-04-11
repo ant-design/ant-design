@@ -1,8 +1,11 @@
-import React, { FC, useState } from 'react';
-import { AutoComplete, Button, Col, ConfigProvider, Row, Select, Space, Typography } from 'antd';
+import React, { FC, useMemo, useState } from 'react';
+import { ConfigProvider, Select, Space } from 'antd';
 import { statistic } from '../../../../components/_util/theme/util/statistic';
+import ComponentPreview from './ComponentPreview';
+import Components from './components';
 
 const DesignToken: FC = () => {
+  const components = useMemo(() => Object.keys(Components), []);
   const [shownComponents, setShownComponents] = useState<string[] | null>(null);
 
   // Full token
@@ -20,33 +23,33 @@ const DesignToken: FC = () => {
 
   const handleTokenChange = (value: string) => {
     setShownComponents(
-      Object.entries(statistic)
-        .filter(([_, tokens]: [string, string[]]) => tokens?.includes(value))
-        .map(([component]) => component),
+      value
+        ? Object.entries(statistic)
+            .filter(([, tokens]: [string, string[]]) => tokens?.includes(value))
+            .map(([component]) => `${component}Demo`)
+        : null,
     );
   };
 
   return (
-    <Space direction="vertical">
+    <Space direction="vertical" size="middle">
       <Select
         showSearch
         options={tokenList}
         style={{ width: 200 }}
         placeholder="Select Token"
         onChange={handleTokenChange}
+        allowClear
       />
-      {(shownComponents === null || shownComponents.includes('Button')) && (
-        <Space direction="vertical">
-          <Typography.Title level={4}>Button</Typography.Title>
-          <Space>
-            <Button type="primary">Primary Button</Button>
-            <Button>Default Button</Button>
-            <Button type="dashed">Dashed Button</Button>
-            <Button type="text">Text Button</Button>
-            <Button type="link">Link Button</Button>
-          </Space>
-        </Space>
-      )}
+      {components.map(item => {
+        const Demo = (Components as any)[item];
+
+        return (
+          <ComponentPreview key={item} component={item} shownComponents={shownComponents}>
+            <Demo />
+          </ComponentPreview>
+        );
+      })}
     </Space>
   );
 };
