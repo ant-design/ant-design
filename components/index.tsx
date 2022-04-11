@@ -154,6 +154,9 @@ export { default as Row } from './row';
 export type { SelectProps } from './select';
 export { default as Select } from './select';
 
+export type { SegmentedProps } from './segmented';
+export { default as Segmented } from './segmented';
+
 export type { SkeletonProps } from './skeleton';
 export { default as Skeleton } from './skeleton';
 

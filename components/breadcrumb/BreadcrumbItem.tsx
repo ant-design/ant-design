@@ -31,7 +31,7 @@ const BreadcrumbItem: BreadcrumbItemInterface = ({
   const renderBreadcrumbNode = (breadcrumbItem: React.ReactNode) => {
     if (overlay) {
       return (
-        <DropDown overlay={overlay} placement="bottom" {...dropdownProps}>
+        <DropDown overlay={overlay} placement="bottomCenter" {...dropdownProps}>
           <span className={`${prefixCls}-overlay-link`}>
             {breadcrumbItem}
             <DownOutlined />
@@ -61,10 +61,10 @@ const BreadcrumbItem: BreadcrumbItemInterface = ({
   link = renderBreadcrumbNode(link);
   if (children) {
     return (
-      <span>
+      <li>
         {link}
         {separator && <span className={`${prefixCls}-separator`}>{separator}</span>}
-      </span>
+      </li>
     );
   }
   return null;

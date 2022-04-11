@@ -26,6 +26,7 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/D1dXz9PZqa/image.svg
 | src | 图片地址 | string | - | 4.6.0 |
 | width | 图像宽度 | string \| number | - | 4.6.0 |
 | onError | 加载错误回调 | (event: Event) => void | - | 4.12.0 |
+| rootClassName | 为展示图片根 DOM 和预览大图根 DOM 提供自定义 className | string | - | 4.20.0 |
 
 ### previewType
 

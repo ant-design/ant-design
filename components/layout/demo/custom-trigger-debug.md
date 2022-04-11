@@ -10,8 +10,8 @@ debug: true
 
 修改内容前，请尝试此 Demo 查看样式是否抖动。
 
-```jsx
-import { Layout, Menu } from 'antd';
+```tsx
+import { Layout, Menu, MenuProps } from 'antd';
 import {
   TeamOutlined,
   UserOutlined,
@@ -23,7 +23,57 @@ import {
 } from '@ant-design/icons';
 
 const { Header, Sider, Content } = Layout;
-const { SubMenu } = Menu;
+
+const items: MenuProps['items'] = [
+  {
+    key: '1',
+    icon: <PieChartOutlined />,
+    label: 'Option 1',
+  },
+  {
+    key: '2',
+    icon: <DesktopOutlined />,
+    label: 'Option 2',
+  },
+  {
+    key: 'sub1',
+    icon: <UserOutlined />,
+    label: 'User',
+    children: [
+      {
+        key: '3',
+        label: 'Tom',
+      },
+      {
+        key: '4',
+        label: 'Bill',
+      },
+      {
+        key: '5',
+        label: 'Alex',
+      },
+    ],
+  },
+  {
+    key: 'sub2',
+    icon: <TeamOutlined />,
+    label: 'Team',
+    children: [
+      {
+        key: '6',
+        label: 'Team 1',
+      },
+      {
+        key: '7',
+        label: 'Team 2',
+      },
+    ],
+  },
+  {
+    key: '9',
+    icon: <FileOutlined />,
+  },
+];
 
 class SiderDemo extends React.Component {
   state = {
@@ -41,24 +91,13 @@ class SiderDemo extends React.Component {
       <Layout>
         <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
           <div className="logo" />
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={['3']} defaultOpenKeys={['sub1']}>
-            <Menu.Item key="1" icon={<PieChartOutlined />}>
-              Option 1
-            </Menu.Item>
-            <Menu.Item key="2" icon={<DesktopOutlined />}>
-              Option 2
-            </Menu.Item>
-            <SubMenu key="sub1" icon={<UserOutlined />} title="User">
-              <Menu.Item key="3">Tom</Menu.Item>
-              <Menu.Item key="4">Bill</Menu.Item>
-              <Menu.Item key="5">Alex</Menu.Item>
-            </SubMenu>
-            <SubMenu key="sub2" icon={<TeamOutlined />} title="Team">
-              <Menu.Item key="6">Team 1</Menu.Item>
-              <Menu.Item key="8">Team 2</Menu.Item>
-            </SubMenu>
-            <Menu.Item key="9" icon={<FileOutlined />} />
-          </Menu>
+          <Menu
+            theme="dark"
+            mode="inline"
+            defaultSelectedKeys={['3']}
+            defaultOpenKeys={['sub1']}
+            items={items}
+          />
         </Sider>
         <Layout>
           <Header className="site-layout-background" style={{ padding: 0 }}>

@@ -98,13 +98,12 @@ const Breadcrumb: BreadcrumbInterface = ({
       let overlay;
       if (route.children && route.children.length) {
         overlay = (
-          <Menu>
-            {route.children.map(child => (
-              <Menu.Item key={child.path || child.breadcrumbName}>
-                {itemRender(child, params, routes, addChildPath(paths, child.path, params))}
-              </Menu.Item>
-            ))}
-          </Menu>
+          <Menu
+            items={route.children.map(child => ({
+              key: child.path || child.breadcrumbName,
+              label: itemRender(child, params, routes, addChildPath(paths, child.path, params)),
+            }))}
+          />
         );
       }
 
@@ -144,9 +143,9 @@ const Breadcrumb: BreadcrumbInterface = ({
   );
 
   return (
-    <div className={breadcrumbClassName} style={style} {...restProps}>
-      {crumbs}
-    </div>
+    <nav className={breadcrumbClassName} style={style} {...restProps}>
+      <ol>{crumbs}</ol>
+    </nav>
   );
 };
 

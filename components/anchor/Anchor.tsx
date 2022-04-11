@@ -51,7 +51,7 @@ export interface AnchorProps {
   showInkInFixed?: boolean;
   getContainer?: () => AnchorContainer;
   /** Return customize highlight anchor */
-  getCurrentAnchor?: () => string;
+  getCurrentAnchor?: (activeLink: string) => string;
   onClick?: (
     e: React.MouseEvent<HTMLElement>,
     link: { title: React.ReactNode; href: string },
@@ -230,7 +230,7 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState, Co
     }
     // https://github.com/ant-design/ant-design/issues/30584
     this.setState({
-      activeLink: typeof getCurrentAnchor === 'function' ? getCurrentAnchor() : link,
+      activeLink: typeof getCurrentAnchor === 'function' ? getCurrentAnchor(link) : link,
     });
     onChange?.(link);
   };

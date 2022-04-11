@@ -1,8 +1,9 @@
 import * as React from 'react';
-import RcMenu, { ItemGroup, MenuProps as RcMenuProps } from 'rc-menu';
+import RcMenu, { ItemGroup, MenuProps as RcMenuProps, MenuRef } from 'rc-menu';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
+import { forwardRef } from 'react';
 import SubMenu, { SubMenuProps } from './SubMenu';
 import Item, { MenuItemProps } from './MenuItem';
 import { ConfigContext } from '../config-provider';
@@ -12,6 +13,8 @@ import collapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
 import MenuContext, { MenuTheme } from './MenuContext';
 import MenuDivider from './MenuDivider';
+import type { ItemType } from './hooks/useItems';
+import useItems from './hooks/useItems';
 
 export { MenuDividerProps } from './MenuDivider';
 
@@ -19,7 +22,7 @@ export { MenuItemGroupProps } from 'rc-menu';
 
 export type MenuMode = 'vertical' | 'vertical-left' | 'vertical-right' | 'horizontal' | 'inline';
 
-export interface MenuProps extends RcMenuProps {
+export interface MenuProps extends Omit<RcMenuProps, 'items'> {
   theme?: MenuTheme;
   inlineIndent?: number;
 
@@ -29,6 +32,8 @@ export interface MenuProps extends RcMenuProps {
    *   for removing.
    */
   _internalDisableMenuItemTitleTooltip?: boolean;
+
+  items?: ItemType[];
 }
 
 type InternalMenuProps = MenuProps &
@@ -36,7 +41,7 @@ type InternalMenuProps = MenuProps &
     collapsedWidth?: string | number;
   };
 
-function InternalMenu(props: InternalMenuProps) {
+const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
   const { getPrefixCls, getPopupContainer, direction } = React.useContext(ConfigContext);
 
   const rootPrefixCls = getPrefixCls();
@@ -49,10 +54,15 @@ function InternalMenu(props: InternalMenuProps) {
     _internalDisableMenuItemTitleTooltip,
     inlineCollapsed,
     siderCollapsed,
+    items,
+    children,
     ...restProps
   } = props;
 
   const passedProps = omit(restProps, ['collapsedWidth']);
+
+  // ========================= Items ===========================
+  const mergedChildren = useItems(items) || children;
 
   // ======================== Warning ==========================
   devWarning(
@@ -65,6 +75,12 @@ function InternalMenu(props: InternalMenuProps) {
     !(props.siderCollapsed !== undefined && 'inlineCollapsed' in props),
     'Menu',
     '`inlineCollapsed` not control Menu under Sider. Should set `collapsed` on Sider instead.',
+  );
+
+  devWarning(
+    !!items && !children,
+    'Menu',
+    '`children` will be removed in next major version. Please use `items` instead.',
   );
 
   // ======================== Collapsed ========================
@@ -118,10 +134,13 @@ function InternalMenu(props: InternalMenuProps) {
                 className: `${prefixCls}-submenu-expand-icon`,
               })
         }
-      />
+        ref={ref}
+      >
+        {mergedChildren}
+      </RcMenu>
     </MenuContext.Provider>
   );
-}
+});
 
 // We should keep this as ref-able
 class Menu extends React.Component<MenuProps, {}> {
@@ -133,10 +152,24 @@ class Menu extends React.Component<MenuProps, {}> {
 
   static ItemGroup = ItemGroup;
 
+  menu: MenuRef | null;
+
+  focus = (options?: FocusOptions) => {
+    this.menu?.focus(options);
+  };
+
   render() {
     return (
       <SiderContext.Consumer>
-        {(context: SiderContextProps) => <InternalMenu {...this.props} {...context} />}
+        {(context: SiderContextProps) => (
+          <InternalMenu
+            ref={node => {
+              this.menu = node;
+            }}
+            {...this.props}
+            {...context}
+          />
+        )}
       </SiderContext.Consumer>
     );
   }
