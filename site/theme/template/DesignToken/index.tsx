@@ -32,7 +32,7 @@ const DesignToken: FC = () => {
   };
 
   return (
-    <Space direction="vertical" size="middle">
+    <Space direction="vertical" size="middle" style={{ width: '100%' }}>
       <Select
         showSearch
         options={tokenList}
@@ -43,7 +43,6 @@ const DesignToken: FC = () => {
       />
       {components.map(item => {
         const Demo = (Components as any)[item];
-
         return (
           <ComponentPreview key={item} component={item} shownComponents={shownComponents}>
             <Demo />
