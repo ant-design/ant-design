@@ -12,7 +12,6 @@ import { GlobalToken } from '../../_util/theme/interface';
 
 // ============================== Tokens ==============================
 interface RadioToken extends DerivativeToken {
-  radioDuration: string;
   radioFocusShadow: string;
   radioButtonFocusShadow: string;
 
@@ -37,7 +36,6 @@ interface RadioToken extends DerivativeToken {
 
 function getRadioToken(token: GlobalToken) {
   // Radio
-  const radioDuration = '0.3s';
   const radioFocusShadow = `0 0 0 3px ${token.colorPrimaryOutline}`;
   const radioButtonFocusShadow = radioFocusShadow;
 
@@ -64,7 +62,6 @@ function getRadioToken(token: GlobalToken) {
   return {
     ...token,
 
-    radioDuration,
     radioFocusShadow,
     radioButtonFocusShadow,
     radioSize,
@@ -210,7 +207,7 @@ function getRadioBasicStyle(
           borderRadius: token.radioSize,
           transform: 'scale(0)',
           opacity: 0,
-          transition: `all ${token.radioDuration} ${token.motionEaseInOutCirc}`,
+          transition: `all ${token.motionDurationSlow} ${token.motionEaseInOutCirc}`,
           content: '""',
         },
 
@@ -225,7 +222,7 @@ function getRadioBasicStyle(
         borderStyle: 'solid',
         borderWidth: token.radioBorderWidth,
         borderRadius: '50%',
-        transition: `all ${token.radioDuration}`,
+        transition: `all ${token.motionDurationSlow}`,
       },
 
       [`.${prefixCls}-input`]: {
@@ -247,7 +244,7 @@ function getRadioBasicStyle(
           '&::after': {
             transform: `scale(${token.radioDotSize / token.radioSize})`,
             opacity: 1,
-            transition: `all ${token.radioDuration} ${token.motionEaseInOutCirc}`,
+            transition: `all ${token.motionDurationSlow} ${token.motionEaseInOutCirc}`,
           },
         },
       },
@@ -304,7 +301,7 @@ function getRadioButtonStyle(prefixCls: string, token: RadioToken): CSSInterpola
       borderTopWidth: token.controlLineWidth + 0.02,
       borderLeftWidth: 0,
       cursor: 'pointer',
-      transition: `color ${token.radioDuration}, background ${token.radioDuration}, border-color ${token.radioDuration}, box-shadow ${token.radioDuration}`,
+      transition: `color ${token.motionDurationSlow}, background ${token.motionDurationSlow}, border-color ${token.motionDurationSlow}, box-shadow ${token.motionDurationSlow}`,
 
       a: {
         color: token.radioButtonColor,
@@ -342,7 +339,7 @@ function getRadioButtonStyle(prefixCls: string, token: RadioToken): CSSInterpola
           height: '100%',
           padding: `${token.controlLineWidth}px 0`,
           backgroundColor: token.colorBorder,
-          transition: `background-color ${token.radioDuration}`,
+          transition: `background-color ${token.motionDurationSlow}`,
           content: '""',
         },
       },
