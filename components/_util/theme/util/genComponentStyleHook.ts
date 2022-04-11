@@ -25,7 +25,7 @@ export type FullToken<ComponentName extends OverrideComponent> = TokenWithCommon
   GlobalTokenWithComponent<ComponentName>
 >;
 
-export function genComponentStyleHook<ComponentName extends OverrideComponent>(
+export default function genComponentStyleHook<ComponentName extends OverrideComponent>(
   component: ComponentName,
   styleFn: (token: FullToken<ComponentName>, info: StyleInfo) => CSSInterpolation,
   getDefaultToken?:
