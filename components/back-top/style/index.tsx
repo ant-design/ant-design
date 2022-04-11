@@ -70,11 +70,40 @@ const genSharedBackTopStyle: GenerateStyle<BackTopToken> = (token): CSSObject =>
         },
       },
 
-      '&-icon': {
+      // change to .backtop .backtop-icon
+      [`${backTopCls}-icon`]: {
         // FIXME
         fontSize: '24px',
         // FIXME
         lineHeight: '40px',
+      },
+    },
+  };
+};
+
+const genMediaBackTopStyle: GenerateStyle<BackTopToken> = (token): CSSObject => {
+  const { backTopCls } = token;
+
+  return {
+    [`@media (max-width: ${token.screenMD}px)`]: {
+      [backTopCls]: {
+        right: '60px',
+
+        '&-rtl': {
+          right: 'auto',
+          left: '60px',
+        },
+      },
+    },
+
+    [`@media (max-width: ${token.screenXS}px)`]: {
+      [backTopCls]: {
+        right: '20px',
+
+        '&-rtl': {
+          right: 'auto',
+          left: '20px',
+        },
       },
     },
   };
@@ -104,7 +133,7 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
         ...BackTop,
       };
 
-      return [genSharedBackTopStyle(backTopToken)];
+      return [genSharedBackTopStyle(backTopToken), genMediaBackTopStyle(backTopToken)];
     }),
     hashId,
   ];

@@ -107,8 +107,6 @@ const BackTop: React.FC<BackTopProps> = props => {
   const { prefixCls: customizePrefixCls, className = '' } = props;
   const prefixCls = getPrefixCls('back-top', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
-  console.log('ConfigContext', React.useContext(ConfigContext));
-
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const classString = classNames(
