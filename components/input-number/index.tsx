@@ -1,15 +1,18 @@
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import UpOutlined from '@ant-design/icons/UpOutlined';
 import classNames from 'classnames';
-import RcInputNumber, { InputNumberProps as RcInputNumberProps } from 'rc-input-number';
+import type { InputNumberProps as RcInputNumberProps } from 'rc-input-number';
+import RcInputNumber from 'rc-input-number';
 import * as React from 'react';
 import { useContext } from 'react';
 import { ConfigContext } from '../config-provider';
-import SizeContext, { SizeType } from '../config-provider/SizeContext';
+import type { SizeType } from '../config-provider/SizeContext';
+import SizeContext from '../config-provider/SizeContext';
 import { FormItemInputContext, NoFormStatus } from '../form/context';
 import { cloneElement } from '../_util/reactNode';
 import useStyle from './style';
-import { getStatusClassNames, InputStatus, getMergedStatus } from '../_util/statusUtils';
+import type { InputStatus } from '../_util/statusUtils';
+import { getStatusClassNames, getMergedStatus } from '../_util/statusUtils';
 
 type ValueType = string | number;
 
@@ -26,7 +29,7 @@ export interface InputNumberProps<T extends ValueType = ValueType>
 }
 
 const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props, ref) => {
-  const { getPrefixCls, direction, iconPrefixCls } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const size = React.useContext(SizeContext);
   const [focused, setFocus] = React.useState(false);
   const inputRef = React.useRef<HTMLInputElement>(null);
@@ -50,7 +53,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   const prefixCls = getPrefixCls('input-number', customizePrefixCls);
 
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   let upIcon = <UpOutlined className={`${prefixCls}-handler-up-inner`} />;
   let downIcon = <DownOutlined className={`${prefixCls}-handler-down-inner`} />;

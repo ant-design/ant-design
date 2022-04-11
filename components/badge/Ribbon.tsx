@@ -27,7 +27,7 @@ const Ribbon: React.FC<RibbonProps> = function Ribbon({
   text,
   placement = 'end',
 }) {
-  const { getPrefixCls, direction, iconPrefixCls } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('ribbon', customizePrefixCls);
   const colorInPreset = isPresetColor(color);
   const ribbonCls = classNames(
@@ -39,7 +39,7 @@ const Ribbon: React.FC<RibbonProps> = function Ribbon({
     },
     className,
   );
-  const [wrapSSR, hashId] = useStyle(getPrefixCls(), prefixCls, iconPrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
   const colorStyle: React.CSSProperties = {};
   const cornerColorStyle: React.CSSProperties = {};
   if (color && !colorInPreset) {

@@ -102,6 +102,7 @@ export function derivative(token: SeedToken): DerivativeToken {
 
     // color
     colorBg2,
+    colorBg3: '#e1e1e1',
     colorBgBelow,
     colorBgBelow2,
     colorBgBelow3,
@@ -196,7 +197,6 @@ const seedToken: SeedToken = {
 
   // zIndex
   zIndexBase: 0,
-  zIndexPopover: 1030,
   zIndexPopup: 1000,
 };
 

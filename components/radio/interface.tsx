@@ -25,6 +25,13 @@ export interface RadioGroupContextProps {
   value: any;
   disabled?: boolean;
   name?: string;
+  /**
+   * Control the appearance for Radio to display as button or not
+   *
+   * @default 'default'
+   * @internal
+   */
+  optionType?: RadioGroupOptionType;
 }
 
 export interface RadioProps extends AbstractCheckboxProps<RadioChangeEvent> {
@@ -47,3 +54,5 @@ export interface RadioChangeEvent {
   preventDefault: () => void;
   nativeEvent: MouseEvent;
 }
+
+export type RadioOptionTypeContextProps = RadioGroupOptionType;

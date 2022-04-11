@@ -5,10 +5,9 @@
 import { CSSObject, CSSInterpolation, Keyframes } from '@ant-design/cssinjs';
 import {
   DerivativeToken,
-  useStyleRegister,
-  useToken,
   resetComponent,
-  UseComponentStyleResult,
+  genComponentStyleHook,
+  mergeToken,
 } from '../../_util/theme';
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
 
@@ -454,13 +453,12 @@ export const genTreeStyle = (
   const treeNodePadding = token.paddingXS / 2;
   const treeTitleHeight = token.controlHeightSM;
 
-  const treeToken = {
-    ...token,
+  const treeToken = mergeToken<TreeToken>(token, {
     treeCls,
     treeNodeCls,
     treeNodePadding,
     treeTitleHeight,
-  };
+  });
 
   return [
     // Basic
@@ -471,15 +469,8 @@ export const genTreeStyle = (
 };
 
 // ============================== Export ==============================
-export default function useStyle(prefixCls: string): UseComponentStyleResult {
-  const [theme, token, hashId] = useToken();
-
-  return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      getCheckboxStyle(`${prefixCls}-checkbox`, token, hashId),
-      genTreeStyle(prefixCls, token, hashId),
-      treeNodeFX,
-    ]),
-    hashId,
-  ];
-}
+export default genComponentStyleHook('Tree', (token, { prefixCls, hashId }) => [
+  getCheckboxStyle(`${prefixCls}-checkbox`, token, hashId),
+  genTreeStyle(prefixCls, token, hashId),
+  treeNodeFX,
+]);

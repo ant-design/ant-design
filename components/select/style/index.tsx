@@ -5,32 +5,31 @@
 import '../../empty/style';
 
 // deps-lint-skip-all
-import { CSSObject, CSSInterpolation } from '@ant-design/cssinjs';
+import { CSSObject } from '@ant-design/cssinjs';
 import {
-  DerivativeToken,
-  useStyleRegister,
-  useToken,
   resetComponent,
   resetIcon,
-  UseComponentStyleResult,
   GenerateStyle,
+  genComponentStyleHook,
+  FullToken,
+  mergeToken,
 } from '../../_util/theme';
 import genSingleStyle from './single';
 import genMultipleStyle from './multiple';
 import genDropdownStyle from './dropdown';
 
-export type SelectToken = DerivativeToken & {
-  rootPrefixCls: string;
-  antCls: string;
-  selectCls: string;
-  iconPrefixCls: string;
-  inputPaddingHorizontalBase: number;
+export interface ComponentToken {
   zIndexDropdown: number;
-};
+}
+
+export interface SelectToken extends FullToken<'Select'> {
+  rootPrefixCls: string;
+  inputPaddingHorizontalBase: number;
+}
 
 // ============================= Selector =============================
 const genSelectorStyle: GenerateStyle<SelectToken, CSSObject> = token => {
-  const { selectCls } = token;
+  const { componentCls } = token;
 
   return {
     position: 'relative',
@@ -43,7 +42,7 @@ const genSelectorStyle: GenerateStyle<SelectToken, CSSObject> = token => {
       cursor: 'pointer',
     },
 
-    [`${selectCls}-show-search&`]: {
+    [`${componentCls}-show-search&`]: {
       cursor: 'text',
 
       input: {
@@ -51,12 +50,12 @@ const genSelectorStyle: GenerateStyle<SelectToken, CSSObject> = token => {
       },
     },
 
-    [`${selectCls}-disabled&`]: {
+    [`${componentCls}-disabled&`]: {
       color: token.colorTextDisabled,
       background: token.colorBgComponentDisabled,
       cursor: 'not-allowed',
 
-      [`${selectCls}-multiple&`]: {
+      [`${componentCls}-multiple&`]: {
         background: token.colorBgComponentDisabled,
       },
 
@@ -71,7 +70,7 @@ const genSelectorStyle: GenerateStyle<SelectToken, CSSObject> = token => {
 const genStatusStyle = (
   rootSelectCls: string,
   token: {
-    selectCls: string;
+    componentCls: string;
     borderHoverColor: string;
     outlineColor: string;
     controlOutlineWidth: number;
@@ -79,11 +78,11 @@ const genStatusStyle = (
   },
   overwriteDefaultBorder: boolean = false,
 ): CSSObject => {
-  const { selectCls, borderHoverColor, outlineColor } = token;
+  const { componentCls, borderHoverColor, outlineColor } = token;
 
   const overwriteStyle: CSSObject = overwriteDefaultBorder
     ? {
-        [`${selectCls}-selector`]: {
+        [`${componentCls}-selector`]: {
           borderColor: borderHoverColor,
         },
       }
@@ -91,17 +90,17 @@ const genStatusStyle = (
 
   return {
     [rootSelectCls]: {
-      [`&:not(${selectCls}-disabled):not(${selectCls}-customize-input)`]: {
+      [`&:not(${componentCls}-disabled):not(${componentCls}-customize-input)`]: {
         ...overwriteStyle,
 
-        [`${selectCls}-focused& ${selectCls}-selector`]: {
+        [`${componentCls}-focused& ${componentCls}-selector`]: {
           borderColor: borderHoverColor,
           boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${outlineColor}`,
           borderInlineEndWidth: `${token.controlLineWidth}px !important`,
           outline: 0,
         },
 
-        [`&:hover ${selectCls}-selector`]: {
+        [`&:hover ${componentCls}-selector`]: {
           borderColor: borderHoverColor,
           borderInlineEndWidth: `${token.controlLineWidth}px !important`,
         },
@@ -113,10 +112,10 @@ const genStatusStyle = (
 // ============================== Styles ==============================
 // /* Reset search input style */
 const getSearchInputWithoutBorderStyle: GenerateStyle<SelectToken, CSSObject> = token => {
-  const { selectCls } = token;
+  const { componentCls } = token;
 
   return {
-    [`${selectCls}-selection-search-input`]: {
+    [`${componentCls}-selection-search-input`]: {
       margin: 0,
       padding: 0,
       background: 'transparent',
@@ -134,16 +133,16 @@ const getSearchInputWithoutBorderStyle: GenerateStyle<SelectToken, CSSObject> = 
 
 // =============================== Base ===============================
 const genBaseStyle: GenerateStyle<SelectToken> = token => {
-  const { selectCls, iconPrefixCls, inputPaddingHorizontalBase } = token;
+  const { componentCls, inputPaddingHorizontalBase, iconCls } = token;
 
   return {
-    [selectCls]: {
+    [componentCls]: {
       ...resetComponent(token),
       position: 'relative',
       display: 'inline-block',
       cursor: 'pointer',
 
-      [`&:not(&-customize-input) ${selectCls}-selector`]: {
+      [`&:not(&-customize-input) ${componentCls}-selector`]: {
         ...genSelectorStyle(token),
         ...getSearchInputWithoutBorderStyle(token),
       },
@@ -153,7 +152,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
       // },
 
       // ======================== Selection ========================
-      [`${selectCls}-selection-item`]: {
+      [`${componentCls}-selection-item`]: {
         flex: 1,
         overflow: 'hidden',
         fontWeight: 'normal',
@@ -162,7 +161,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
       },
 
       // ======================= Placeholder =======================
-      [`${selectCls}-selection-placeholder`]: {
+      [`${componentCls}-selection-placeholder`]: {
         flex: 1,
         overflow: 'hidden',
         color: token.colorPlaceholder,
@@ -172,23 +171,23 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
       },
 
       // ========================== Arrow ==========================
-      [`${selectCls}-arrow`]: {
+      [`${componentCls}-arrow`]: {
         ...resetIcon(),
         position: 'absolute',
         top: '50%',
         insetInlineStart: 'auto',
         insetInlineEnd: inputPaddingHorizontalBase,
-        height: token.fontSizeSM,
-        marginTop: -token.fontSizeSM / 2,
+        height: token.fontSizeIcon,
+        marginTop: -token.fontSizeIcon / 2,
         color: token.colorTextDisabled,
-        fontSize: token.fontSizeSM,
+        fontSize: token.fontSizeIcon,
         lineHeight: 1,
         textAlign: 'center',
         pointerEvents: 'none',
         display: 'flex',
         alignItems: 'center',
 
-        [`.${iconPrefixCls}`]: {
+        [iconCls]: {
           verticalAlign: 'top',
           transition: `transform ${token.motionDurationSlow}`,
 
@@ -196,12 +195,12 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
             verticalAlign: 'top',
           },
 
-          [`&:not(${selectCls}-suffix)`]: {
+          [`&:not(${componentCls}-suffix)`]: {
             pointerEvents: 'auto',
           },
         },
 
-        [`${selectCls}-disabled &`]: {
+        [`${componentCls}-disabled &`]: {
           cursor: 'not-allowed',
         },
 
@@ -211,18 +210,18 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
       },
 
       // ========================== Clear ==========================
-      [`${selectCls}-clear`]: {
+      [`${componentCls}-clear`]: {
         position: 'absolute',
         top: '50%',
         insetInlineStart: 'auto',
         insetInlineEnd: inputPaddingHorizontalBase,
         zIndex: 1,
         display: 'inline-block',
-        width: token.fontSizeSM,
-        height: token.fontSizeSM,
-        marginTop: -token.fontSizeSM / 2,
+        width: token.fontSizeIcon,
+        height: token.fontSizeIcon,
+        marginTop: -token.fontSizeIcon / 2,
         color: token.colorTextDisabled,
-        fontSize: token.fontSizeSM,
+        fontSize: token.fontSizeIcon,
         fontStyle: 'normal',
         lineHeight: 1,
         textAlign: 'center',
@@ -243,15 +242,15 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
       },
 
       '&:hover': {
-        [`${selectCls}-clear`]: {
+        [`${componentCls}-clear`]: {
           opacity: 1,
         },
       },
     },
 
     // ========================= Feedback ==========================
-    [`${selectCls}-has-feedback`]: {
-      [`${selectCls}-clear`]: {
+    [`${componentCls}-has-feedback`]: {
+      [`${componentCls}-clear`]: {
         insetInlineEnd: inputPaddingHorizontalBase + token.fontSize + token.paddingXXS,
       },
     },
@@ -259,33 +258,14 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
 };
 
 // ============================== Styles ==============================
-const genSelectStyle = (
-  rootPrefixCls: string,
-  prefixCls: string,
-  iconPrefixCls: string,
-  token: DerivativeToken,
-  hashId: string,
-): CSSInterpolation => {
-  const antCls = `.${rootPrefixCls}`;
-  const selectCls = `.${prefixCls}`;
-
-  const inputPaddingHorizontalBase = token.controlPaddingHorizontal - 1;
-
-  const selectToken: SelectToken = {
-    ...token,
-    rootPrefixCls,
-    antCls,
-    selectCls,
-    iconPrefixCls,
-    inputPaddingHorizontalBase,
-    zIndexDropdown: token.zIndexPopup + 50,
-  };
+const genSelectStyle: GenerateStyle<SelectToken> = (token, hashId) => {
+  const { componentCls } = token;
 
   return [
     {
-      [selectCls]: {
+      [componentCls]: {
         // ==================== BorderLess ====================
-        [`&-borderless ${selectCls}-selector`]: {
+        [`&-borderless ${componentCls}-selector`]: {
           backgroundColor: `transparent !important`,
           borderColor: `transparent !important`,
           boxShadow: `none !important`,
@@ -302,22 +282,22 @@ const genSelectStyle = (
     // ==                       LTR                       ==
     // =====================================================
     // Base
-    genBaseStyle(selectToken),
+    genBaseStyle(token),
 
     // Single
-    genSingleStyle(selectToken),
+    genSingleStyle(token),
 
     // Multiple
-    genMultipleStyle(selectToken),
+    genMultipleStyle(token),
 
     // Dropdown
-    genDropdownStyle(selectToken, hashId),
+    genDropdownStyle(token, hashId),
 
     // =====================================================
     // ==                       RTL                       ==
     // =====================================================
     {
-      [`${selectCls}-rtl`]: {
+      [`${componentCls}-rtl`]: {
         direction: 'rtl',
       },
     },
@@ -325,44 +305,44 @@ const genSelectStyle = (
     // =====================================================
     // ==                     Status                      ==
     // =====================================================
-    genStatusStyle(selectCls, {
-      ...selectToken,
-      borderHoverColor: token.colorPrimaryHover,
-      outlineColor: token.colorPrimaryOutline,
-    }),
     genStatusStyle(
-      `${selectCls}-status-error`,
-      {
-        ...selectToken,
+      componentCls,
+      mergeToken<any>(token, {
+        borderHoverColor: token.colorPrimaryHover,
+        outlineColor: token.colorPrimaryOutline,
+      }),
+    ),
+    genStatusStyle(
+      `${componentCls}-status-error`,
+      mergeToken<any>(token, {
         borderHoverColor: token.colorErrorHover,
         outlineColor: token.colorErrorOutline,
-      },
+      }),
       true,
     ),
     genStatusStyle(
-      `${selectCls}-status-warning`,
-      {
-        ...selectToken,
+      `${componentCls}-status-warning`,
+      mergeToken<any>(token, {
         borderHoverColor: token.colorWarningHover,
         outlineColor: token.colorWarningOutline,
-      },
+      }),
       true,
     ),
   ];
 };
 
 // ============================== Export ==============================
-export default function useStyle(
-  rootPrefixCls: string,
-  prefixCls: string,
-  iconPrefixCls: string,
-): UseComponentStyleResult {
-  const [theme, token, hashId] = useToken();
+export default genComponentStyleHook(
+  'Select',
+  (token, { rootPrefixCls, hashId }) => {
+    const selectToken: SelectToken = mergeToken<SelectToken>(token, {
+      rootPrefixCls,
+      inputPaddingHorizontalBase: token.controlPaddingHorizontal - 1,
+    });
 
-  return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      genSelectStyle(rootPrefixCls, prefixCls, iconPrefixCls, token, hashId),
-    ]),
-    hashId,
-  ];
-}
+    return [genSelectStyle(selectToken, hashId)];
+  },
+  token => ({
+    zIndexDropdown: token.zIndexPopup + 50,
+  }),
+);

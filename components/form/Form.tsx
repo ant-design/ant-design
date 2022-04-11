@@ -2,15 +2,18 @@ import * as React from 'react';
 import { useMemo } from 'react';
 import classNames from 'classnames';
 import FieldForm, { List } from 'rc-field-form';
-import { FormProps as RcFormProps } from 'rc-field-form/lib/Form';
-import { ValidateErrorEntity } from 'rc-field-form/lib/interface';
-import { Options } from 'scroll-into-view-if-needed';
-import { ColProps } from '../grid/col';
+import type { FormProps as RcFormProps } from 'rc-field-form/lib/Form';
+import type { ValidateErrorEntity } from 'rc-field-form/lib/interface';
+import type { Options } from 'scroll-into-view-if-needed';
+import type { ColProps } from '../grid/col';
 import { ConfigContext } from '../config-provider';
-import { FormContext, FormContextProps } from './context';
-import { FormLabelAlign } from './interface';
+import type { FormContextProps } from './context';
+import { FormContext } from './context';
+import type { FormLabelAlign } from './interface';
 import useForm, { FormInstance } from './hooks/useForm';
-import SizeContext, { SizeType, SizeContextProvider } from '../config-provider/SizeContext';
+import type { SizeType } from '../config-provider/SizeContext';
+import SizeContext, { SizeContextProvider } from '../config-provider/SizeContext';
+import useStyle from './style';
 
 export type RequiredMark = boolean | 'optional';
 export type FormLayout = 'horizontal' | 'inline' | 'vertical';
@@ -75,6 +78,9 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
 
   const prefixCls = getPrefixCls('form', customizePrefixCls);
 
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
   const formClassName = classNames(
     prefixCls,
     {
@@ -83,6 +89,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-${size}`]: size,
     },
+    hashId,
     className,
   );
 
@@ -120,7 +127,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
     }
   };
 
-  return (
+  return wrapSSR(
     <SizeContextProvider size={size}>
       <FormContext.Provider value={formContextValue}>
         <FieldForm
@@ -132,7 +139,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
           className={formClassName}
         />
       </FormContext.Provider>
-    </SizeContextProvider>
+    </SizeContextProvider>,
   );
 };
 

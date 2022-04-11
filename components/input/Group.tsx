@@ -1,8 +1,9 @@
 import * as React from 'react';
-import { useContext } from 'react';
+import { useContext, useMemo } from 'react';
 import classNames from 'classnames';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
+import { FormItemInputContext } from '../form/context';
 
 export interface GroupProps {
   className?: string;
@@ -18,11 +19,11 @@ export interface GroupProps {
 }
 
 const Group: React.FC<GroupProps> = props => {
-  const { getPrefixCls, direction, iconPrefixCls } = useContext(ConfigContext);
+  const { getPrefixCls, direction } = useContext(ConfigContext);
   const { prefixCls: customizePrefixCls, className = '' } = props;
   const prefixCls = getPrefixCls('input-group', customizePrefixCls);
   const inputPrefixCls = getPrefixCls('input');
-  const [wrapSSR, hashId] = useStyle(inputPrefixCls, iconPrefixCls);
+  const [wrapSSR, hashId] = useStyle(inputPrefixCls);
   const cls = classNames(
     prefixCls,
     {
@@ -35,6 +36,15 @@ const Group: React.FC<GroupProps> = props => {
     className,
   );
 
+  const formItemContext = useContext(FormItemInputContext);
+  const groupFormItemContext = useMemo(
+    () => ({
+      ...formItemContext,
+      isFormItemInput: false,
+    }),
+    [formItemContext],
+  );
+
   return wrapSSR(
     <span
       className={cls}
@@ -44,7 +54,9 @@ const Group: React.FC<GroupProps> = props => {
       onFocus={props.onFocus}
       onBlur={props.onBlur}
     >
-      {props.children}
+      <FormItemInputContext.Provider value={groupFormItemContext}>
+        {props.children}
+      </FormItemInputContext.Provider>
     </span>,
   );
 };

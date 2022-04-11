@@ -40,7 +40,6 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
     const {
       className = '',
       options,
-      optionType,
       buttonStyle = 'outline' as RadioGroupButtonStyle,
       disabled,
       children,
@@ -119,6 +118,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
         value,
         disabled: props.disabled,
         name: props.name,
+        optionType: props.optionType,
       }}
     >
       {renderGroup()}

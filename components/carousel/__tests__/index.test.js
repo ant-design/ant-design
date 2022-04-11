@@ -108,11 +108,6 @@ describe('Carousel', () => {
     });
 
     it('should keep initialSlide', () => {
-      // react unsafe lifecycle don't works in React 15
-      // https://github.com/akiran/react-slick/commit/97988e897750e1d8f7b10a86b655f50d75d38298
-      if (process.env.REACT === '15') {
-        return;
-      }
       const wrapper = mount(<Carousel initialSlide={1} />);
       wrapper.setProps({
         children: [<div key="1" />, <div key="2" />, <div key="3" />],
