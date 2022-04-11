@@ -4,7 +4,8 @@ title: Design Token
 ---
 
 ```__react
-import DesignToken from '../site/theme/template/DesignToken';
+import React from 'react';
+import DesignToken from '../../site/theme/template/DesignToken';
 
 export default DesignToken;
 ```
