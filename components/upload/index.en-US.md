@@ -60,6 +60,7 @@ Extends File with additional props.
 | thumbUrl | Thumb image url | string | - |
 | uid | unique id. Will auto generate when not provided | string | - |
 | url | Download url | string | - |
+| crossOrigin | CORS settings attributes | `'anonymous'` \| `'use-credentials'` \| `''` | - |
 
 ### onChange
 
