@@ -62,7 +62,6 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
               disabled={disabled}
               value={option}
               checked={value === option}
-              optionType={optionType}
             >
               {option}
             </Radio>
@@ -76,7 +75,6 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
             disabled={option.disabled || disabled}
             value={option.value}
             checked={value === option.value}
-            optionType={optionType}
             style={option.style}
           >
             {option.label}
