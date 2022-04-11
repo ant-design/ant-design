@@ -928,4 +928,16 @@ describe('Menu', () => {
     expect(wrapper.find('li.ant-menu-item-divider').length).toBe(2);
     expect(wrapper.find('li.ant-menu-item-divider-dashed').length).toBe(1);
   });
+
+  it('expandIcon', () => {
+    const wrapper = mount(
+      <Menu defaultOpenKeys={['1']} mode="inline" expandIcon={() => <span className="bamboo" />}>
+        <SubMenu key="1" title="submenu1">
+          <Menu.Item key="submenu1">Option 1</Menu.Item>
+        </SubMenu>
+      </Menu>,
+    );
+
+    expect(wrapper.exists('.bamboo')).toBeTruthy();
+  });
 });
