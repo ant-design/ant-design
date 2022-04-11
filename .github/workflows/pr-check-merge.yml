@@ -4,8 +4,14 @@ on:
   pull_request_target:
     types: [opened]
 
+permissions:
+  contents: read
+
 jobs:
   pr-check-merge:
+    permissions:
+      issues: write  # for actions-cool/issues-helper to update issues
+      pull-requests: write  # for actions-cool/issues-helper to update PRs
     runs-on: ubuntu-latest
     if: (github.event.pull_request.head.ref == 'feature' || github.event.pull_request.head.ref == 'master') && github.event.pull_request.head.user.login == 'ant-design'
     steps:

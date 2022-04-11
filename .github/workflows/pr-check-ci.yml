@@ -5,8 +5,16 @@ on:
   schedule:
     - cron: "*/10 * * * *"
 
+permissions:
+  contents: read
+
 jobs:
   pr-check-ci:
+    permissions:
+      checks: read  # for actions-cool/check-pr-ci to get check reference
+      contents: write  # for actions-cool/check-pr-ci to merge PRs
+      issues: write  # for actions-cool/check-pr-ci to update issues
+      pull-requests: write  # for actions-cool/check-pr-ci to update PRs
     runs-on: ubuntu-latest
     steps:
       - uses: actions-cool/check-pr-ci@v1
