@@ -2,17 +2,15 @@
 import { CSSObject } from '@ant-design/cssinjs';
 import {
   clearFix,
-  DerivativeToken,
+  genComponentStyleHook,
   GenerateStyle,
+  mergeToken,
   resetComponent,
-  UseComponentStyleResult,
-  useStyleRegister,
-  useToken,
 } from '../../_util/theme';
+import type { FullToken } from '../../_util/theme';
+import type { GlobalToken } from '../../_util/theme/interface';
 
-export interface InputToken extends DerivativeToken {
-  prefixCls: string;
-  iconPrefixCls: string;
+export type InputToken<T extends GlobalToken = FullToken<'Input'>> = T & {
   inputAffixPadding: number;
   inputPaddingVertical: number;
   inputPaddingVerticalLG: number;
@@ -21,7 +19,7 @@ export interface InputToken extends DerivativeToken {
   inputPaddingHorizontalSM: number;
   inputBorderHoverColor: string;
   inputBorderActiveColor: string;
-}
+};
 
 export const genPlaceholderStyle = (color: string): CSSObject => ({
   // Firefox
@@ -58,7 +56,7 @@ export const genDisabledStyle = (token: InputToken): CSSObject => ({
   opacity: 1,
 
   '&:hover': {
-    ...genHoverStyle({ ...token, inputBorderHoverColor: token.colorBorder }),
+    ...genHoverStyle(mergeToken<InputToken>(token, { inputBorderHoverColor: token.colorBorder })),
   },
 });
 
@@ -85,12 +83,13 @@ export const genStatusStyle = (token: InputToken): CSSObject => {
       },
 
       '&:focus, &-focused': {
-        ...genActiveStyle({
-          ...token,
-          inputBorderActiveColor: colorError,
-          inputBorderHoverColor: colorError,
-          colorPrimaryOutline: colorErrorOutline,
-        }),
+        ...genActiveStyle(
+          mergeToken<InputToken>(token, {
+            inputBorderActiveColor: colorError,
+            inputBorderHoverColor: colorError,
+            colorPrimaryOutline: colorErrorOutline,
+          }),
+        ),
       },
 
       [`.${prefixCls}-prefix`]: {
@@ -103,12 +102,13 @@ export const genStatusStyle = (token: InputToken): CSSObject => {
       },
 
       '&:focus, &-focused': {
-        ...genActiveStyle({
-          ...token,
-          inputBorderActiveColor: colorWarning,
-          inputBorderHoverColor: colorWarning,
-          colorPrimaryOutline: colorWarningOutline,
-        }),
+        ...genActiveStyle(
+          mergeToken<InputToken>(token, {
+            inputBorderActiveColor: colorWarning,
+            inputBorderHoverColor: colorWarning,
+            colorPrimaryOutline: colorWarningOutline,
+          }),
+        ),
       },
 
       [`.${prefixCls}-prefix`]: {
@@ -564,12 +564,12 @@ const genAllowClearStyle = (token: InputToken): CSSObject => {
 const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
   const {
     prefixCls,
-    iconPrefixCls,
     inputAffixPadding,
     colorTextSecondary,
     motionDurationSlow,
     colorAction,
     colorActionHover,
+    iconCls,
   } = token;
 
   return {
@@ -642,7 +642,7 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
       ...genAllowClearStyle(token),
 
       // password
-      [`.${iconPrefixCls}.${prefixCls}-password-icon`]: {
+      [`${iconCls}.${prefixCls}-password-icon`]: {
         color: colorAction,
         cursor: 'pointer',
         transition: `all ${motionDurationSlow}`,
@@ -776,33 +776,29 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
   };
 };
 
-export const initInputToken = (
-  token: DerivativeToken,
-  prefixCls: string,
-  iconPrefixCls: string,
-): InputToken => ({
-  ...token,
-  prefixCls,
-  iconPrefixCls,
-  inputAffixPadding: token.paddingXXS,
-  inputPaddingVertical: Math.max(
-    Math.round(((token.controlHeight - token.fontSize * token.lineHeight) / 2) * 10) / 10 -
+export function initInputToken<T extends GlobalToken = GlobalToken>(token: T): InputToken<T> {
+  // @ts-ignore
+  return mergeToken<InputToken<T>>(token, {
+    inputAffixPadding: token.paddingXXS,
+    inputPaddingVertical: Math.max(
+      Math.round(((token.controlHeight - token.fontSize * token.lineHeight) / 2) * 10) / 10 -
+        token.controlLineWidth,
+      3,
+    ),
+    inputPaddingVerticalLG:
+      Math.ceil(((token.controlHeightLG - token.fontSizeLG * token.lineHeight) / 2) * 10) / 10 -
       token.controlLineWidth,
-    3,
-  ),
-  inputPaddingVerticalLG:
-    Math.ceil(((token.controlHeightLG - token.fontSizeLG * token.lineHeight) / 2) * 10) / 10 -
-    token.controlLineWidth,
-  inputPaddingVerticalSM: Math.max(
-    Math.round(((token.controlHeightSM - token.fontSize * token.lineHeight) / 2) * 10) / 10 -
-      token.controlLineWidth,
-    0,
-  ),
-  inputPaddingHorizontal: token.controlPaddingHorizontal - token.controlLineWidth,
-  inputPaddingHorizontalSM: token.controlPaddingHorizontalSM - token.controlLineWidth,
-  inputBorderHoverColor: token.colorPrimaryHover,
-  inputBorderActiveColor: token.colorPrimaryHover,
-});
+    inputPaddingVerticalSM: Math.max(
+      Math.round(((token.controlHeightSM - token.fontSize * token.lineHeight) / 2) * 10) / 10 -
+        token.controlLineWidth,
+      0,
+    ),
+    inputPaddingHorizontal: token.controlPaddingHorizontal - token.controlLineWidth,
+    inputPaddingHorizontalSM: token.controlPaddingHorizontalSM - token.controlLineWidth,
+    inputBorderHoverColor: token.colorPrimaryHover,
+    inputBorderActiveColor: token.colorPrimaryHover,
+  });
+}
 
 const genTextAreaStyle: GenerateStyle<InputToken> = token => {
   const { prefixCls, inputPaddingHorizontal, paddingLG } = token;
@@ -857,24 +853,14 @@ const genTextAreaStyle: GenerateStyle<InputToken> = token => {
 };
 
 // ============================== Export ==============================
-export default function useStyle(
-  prefixCls: string,
-  iconPrefixCls: string,
-): UseComponentStyleResult {
-  const [theme, token, hashId] = useToken();
+export default genComponentStyleHook('Input', token => {
+  const inputToken = initInputToken<FullToken<'Input'>>(token);
 
   return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => {
-      const inputToken: InputToken = initInputToken(token, prefixCls, iconPrefixCls);
-
-      return [
-        genInputStyle(inputToken),
-        genTextAreaStyle(inputToken),
-        genAffixStyle(inputToken),
-        genGroupStyle(inputToken),
-        genSearchInputStyle(inputToken),
-      ];
-    }),
-    hashId,
+    genInputStyle(inputToken),
+    genTextAreaStyle(inputToken),
+    genAffixStyle(inputToken),
+    genGroupStyle(inputToken),
+    genSearchInputStyle(inputToken),
   ];
-}
+});

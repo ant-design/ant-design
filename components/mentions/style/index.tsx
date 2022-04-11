@@ -1,11 +1,5 @@
 // deps-lint-skip-all
-import {
-  GenerateStyle,
-  resetComponent,
-  UseComponentStyleResult,
-  useStyleRegister,
-  useToken,
-} from '../../_util/theme';
+import { FullToken, genComponentStyleHook, GenerateStyle, resetComponent } from '../../_util/theme';
 import {
   genActiveStyle,
   genBasicInputStyle,
@@ -22,13 +16,11 @@ export interface ComponentToken {
   controlItemWidth: number;
 }
 
-interface MentionsToken extends InputToken, ComponentToken {
-  mentionsCls: string;
-}
+type MentionsToken = InputToken<FullToken<'Mentions'>>;
 
 const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
   const {
-    mentionsCls,
+    componentCls,
     colorTextDisabled,
     controlItemBgHover,
     controlPaddingHorizontal,
@@ -49,7 +41,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
   );
 
   return {
-    [`${mentionsCls}`]: {
+    [`${componentCls}`]: {
       ...resetComponent(token),
       ...genBasicInputStyle(token),
 
@@ -74,7 +66,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
         ...genActiveStyle(token),
       },
 
-      [`&-affix-wrapper ${mentionsCls}-suffix`]: {
+      [`&-affix-wrapper ${componentCls}-suffix`]: {
         position: 'absolute',
         top: 0,
         insetInlineEnd: inputPaddingHorizontal,
@@ -86,7 +78,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
       },
 
       // ================= Input Area =================
-      [`> textarea, ${mentionsCls}-measure`]: {
+      [`> textarea, ${componentCls}-measure`]: {
         minHeight: controlHeight - 2,
         margin: 0,
         padding: `${inputPaddingVertical}px ${inputPaddingHorizontal}px`,
@@ -119,7 +111,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
         ...genPlaceholderStyle(token.colorPlaceholder),
       },
 
-      [`${mentionsCls}-measure`]: {
+      [`${componentCls}-measure`]: {
         position: 'absolute',
         top: 0,
         insetInlineEnd: 0,
@@ -156,7 +148,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
           display: 'none',
         },
 
-        [`${mentionsCls}-dropdown-menu`]: {
+        [`${componentCls}-dropdown-menu`]: {
           maxHeight: token.dropdownHeight,
           marginBottom: 0,
           paddingInlineStart: 0, // Override default ul/ol
@@ -224,30 +216,15 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
 };
 
 // ============================== Export ==============================
-export default function useStyle(
-  prefixCls: string,
-  iconPrefixCls: string,
-): UseComponentStyleResult {
-  const [theme, token, hashId] = useToken();
-
-  return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => {
-      const { zIndexPopup, Mentions } = token;
-
-      const mentionsToken: MentionsToken = {
-        ...initInputToken(token, prefixCls, iconPrefixCls),
-
-        mentionsCls: `.${prefixCls}`,
-
-        dropdownHeight: 250,
-        controlItemWidth: 100,
-        zIndexDropdown: zIndexPopup + 50,
-
-        ...Mentions,
-      };
-
-      return [genMentionsStyle(mentionsToken)];
-    }),
-    hashId,
-  ];
-}
+export default genComponentStyleHook(
+  'Mentions',
+  token => {
+    const mentionsToken = initInputToken<FullToken<'Mentions'>>(token);
+    return [genMentionsStyle(mentionsToken)];
+  },
+  token => ({
+    dropdownHeight: 250,
+    controlItemWidth: 100,
+    zIndexDropdown: token.zIndexPopup + 50,
+  }),
+);

@@ -2,15 +2,17 @@ import * as React from 'react';
 import { useMemo } from 'react';
 import classNames from 'classnames';
 import FieldForm, { List } from 'rc-field-form';
-import { FormProps as RcFormProps } from 'rc-field-form/lib/Form';
-import { ValidateErrorEntity } from 'rc-field-form/lib/interface';
-import { Options } from 'scroll-into-view-if-needed';
-import { ColProps } from '../grid/col';
+import type { FormProps as RcFormProps } from 'rc-field-form/lib/Form';
+import type { ValidateErrorEntity } from 'rc-field-form/lib/interface';
+import type { Options } from 'scroll-into-view-if-needed';
+import type { ColProps } from '../grid/col';
 import { ConfigContext } from '../config-provider';
-import { FormContext, FormContextProps } from './context';
-import { FormLabelAlign } from './interface';
+import type { FormContextProps } from './context';
+import { FormContext } from './context';
+import type { FormLabelAlign } from './interface';
 import useForm, { FormInstance } from './hooks/useForm';
-import SizeContext, { SizeType, SizeContextProvider } from '../config-provider/SizeContext';
+import type { SizeType } from '../config-provider/SizeContext';
+import SizeContext, { SizeContextProvider } from '../config-provider/SizeContext';
 import useStyle from './style';
 
 export type RequiredMark = boolean | 'optional';
@@ -35,12 +37,7 @@ export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form
 
 const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (props, ref) => {
   const contextSize = React.useContext(SizeContext);
-  const {
-    getPrefixCls,
-    direction,
-    form: contextForm,
-    iconPrefixCls,
-  } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, form: contextForm } = React.useContext(ConfigContext);
 
   const {
     prefixCls: customizePrefixCls,
@@ -82,7 +79,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
   const prefixCls = getPrefixCls('form', customizePrefixCls);
 
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls, getPrefixCls());
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const formClassName = classNames(
     prefixCls,

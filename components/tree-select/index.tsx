@@ -14,6 +14,7 @@ import { useContext } from 'react';
 import { ConfigContext } from '../config-provider';
 import devWarning from '../_util/devWarning';
 import { AntTreeNodeProps, TreeProps } from '../tree';
+import { SwitcherIcon } from '../tree/Tree';
 import getIcons from '../select/utils/iconUtil';
 import renderSwitcherIcon from '../tree/utils/iconUtil';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
@@ -52,6 +53,7 @@ export interface TreeSelectProps<
   bordered?: boolean;
   treeLine?: TreeProps['showLine'];
   status?: InputStatus;
+  switcherIcon?: SwitcherIcon;
 }
 
 const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionType = BaseOptionType>(
@@ -86,7 +88,6 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
     direction,
     virtual,
     dropdownMatchSelectWidth,
-    iconPrefixCls,
   } = React.useContext(ConfigContext);
   const size = React.useContext(SizeContext);
 
@@ -101,7 +102,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
   const treePrefixCls = getPrefixCls('select-tree', customizePrefixCls);
   const treeSelectPrefixCls = getPrefixCls('tree-select', customizePrefixCls);
 
-  const [wrapSelectSSR, hashId] = useSelectStyle(rootPrefixCls, prefixCls, iconPrefixCls);
+  const [wrapSelectSSR, hashId] = useSelectStyle(prefixCls);
   const [wrapTreeSelectSSR] = useStyle(treeSelectPrefixCls, treePrefixCls);
 
   const mergedDropdownClassName = classNames(

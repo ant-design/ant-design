@@ -2,15 +2,14 @@
 import { TinyColor } from '@ctrl/tinycolor';
 import { CSSObject } from '@ant-design/cssinjs';
 import {
-  DerivativeToken,
   resetComponent,
-  UseComponentStyleResult,
-  useStyleRegister,
-  useToken,
   GenerateStyle,
+  FullToken,
+  genComponentStyleHook,
+  mergeToken,
 } from '../../_util/theme';
 
-interface SwitchToken extends DerivativeToken {
+interface SwitchToken extends FullToken<'Switch'> {
   switchMinWidth: number;
   switchHeight: number;
   switchDuration: string;
@@ -27,40 +26,38 @@ interface SwitchToken extends DerivativeToken {
   switchInnerMarginMinSM: number;
   switchInnerMarginMaxSM: number;
   switchPinSizeSM: number;
-  switchCls: string;
-  iconPrefixCls: string;
 }
 
 const genSwitchSmallStyle: GenerateStyle<SwitchToken, CSSObject> = token => ({
-  [`&${token.switchCls}-small`]: {
+  [`&${token.componentCls}-small`]: {
     minWidth: token.switchMinWidthSM,
     height: token.switchHeightSM,
     lineHeight: `${token.switchHeightSM}px`,
 
-    [`${token.switchCls}-inner`]: {
+    [`${token.componentCls}-inner`]: {
       marginInlineStart: token.switchInnerMarginMaxSM,
       marginInlineEnd: token.switchInnerMarginMinSM,
       fontSize: token.fontSizeSM,
     },
 
-    [`${token.switchCls}-handle`]: {
+    [`${token.componentCls}-handle`]: {
       width: token.switchPinSizeSM,
       height: token.switchPinSizeSM,
     },
 
-    [`${token.switchCls}-loading-icon`]: {
+    [`${token.componentCls}-loading-icon`]: {
       top: (token.switchPinSizeSM - 9) / 2,
       // FIXME
       fontSize: 9,
     },
 
-    [`&${token.switchCls}-checked`]: {
-      [`${token.switchCls}-inner`]: {
+    [`&${token.componentCls}-checked`]: {
+      [`${token.componentCls}-inner`]: {
         marginInlineStart: token.switchInnerMarginMinSM,
         marginInlineEnd: token.switchInnerMarginMaxSM,
       },
 
-      [`${token.switchCls}-handle`]: {
+      [`${token.componentCls}-handle`]: {
         insetInlineStart: `calc(100% - ${token.switchPinSizeSM + token.switchPadding}px)`,
       },
     },
@@ -68,20 +65,20 @@ const genSwitchSmallStyle: GenerateStyle<SwitchToken, CSSObject> = token => ({
 });
 
 const genSwitchLoadingStyle: GenerateStyle<SwitchToken, CSSObject> = token => ({
-  [`${token.switchCls}-loading-icon${token.iconPrefixCls}`]: {
+  [`${token.componentCls}-loading-icon${token.iconCls}`]: {
     position: 'relative',
     top: (token.switchPinSize - token.fontSize) / 2,
     color: 'rgba(0, 0, 0, 0.65)',
     verticalAlign: 'top',
   },
 
-  [`&${token.switchCls}-checked ${token.switchCls}-loading-icon`]: {
+  [`&${token.componentCls}-checked ${token.componentCls}-loading-icon`]: {
     color: token.switchColor,
   },
 });
 
 const genSwitchHandleStyle: GenerateStyle<SwitchToken, CSSObject> = token => {
-  const switchHandleCls = `${token.switchCls}-handle`;
+  const switchHandleCls = `${token.componentCls}-handle`;
 
   return {
     [switchHandleCls]: {
@@ -107,18 +104,18 @@ const genSwitchHandleStyle: GenerateStyle<SwitchToken, CSSObject> = token => {
       },
     },
 
-    [`&${token.switchCls}-checked ${switchHandleCls}`]: {
+    [`&${token.componentCls}-checked ${switchHandleCls}`]: {
       insetInlineStart: `calc(100% - ${token.switchPinSize + token.switchPadding}px)`,
     },
 
-    [`&:not(${token.switchCls}-disabled):active`]: {
+    [`&:not(${token.componentCls}-disabled):active`]: {
       [`${switchHandleCls}::before`]: {
         // FIXME
         insetInlineEnd: '-30%',
         insetInlineStart: 0,
       },
 
-      [`&${token.switchCls}-checked ${switchHandleCls}::before`]: {
+      [`&${token.componentCls}-checked ${switchHandleCls}::before`]: {
         insetInlineEnd: 0,
         // FIXME
         insetInlineStart: '-30%',
@@ -128,7 +125,7 @@ const genSwitchHandleStyle: GenerateStyle<SwitchToken, CSSObject> = token => {
 };
 
 const genSwitchInnerStyle: GenerateStyle<SwitchToken, CSSObject> = token => {
-  const switchInnerCls = `${token.switchCls}-inner`;
+  const switchInnerCls = `${token.componentCls}-inner`;
 
   return {
     [switchInnerCls]: {
@@ -140,7 +137,7 @@ const genSwitchInnerStyle: GenerateStyle<SwitchToken, CSSObject> = token => {
       transition: `margin-inline-end ${token.switchDuration}, margin-inline-start ${token.switchDuration}`,
     },
 
-    [`&${token.switchCls}-checked ${switchInnerCls}`]: {
+    [`&${token.componentCls}-checked ${switchInnerCls}`]: {
       marginInlineEnd: token.switchInnerMarginMax,
       marginInlineStart: token.switchInnerMarginMin,
     },
@@ -148,10 +145,10 @@ const genSwitchInnerStyle: GenerateStyle<SwitchToken, CSSObject> = token => {
 };
 
 const genSwitchStyle = (token: SwitchToken): CSSObject => {
-  const { switchCls } = token;
+  const { componentCls } = token;
 
   return {
-    [switchCls]: {
+    [componentCls]: {
       ...resetComponent(token),
 
       position: 'relative',
@@ -173,7 +170,7 @@ const genSwitchStyle = (token: SwitchToken): CSSObject => {
         boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${token.colorDefaultOutline}`,
       },
 
-      [`&${token.switchCls}-checked:focus-visible`]: {
+      [`&${token.componentCls}-checked:focus-visible`]: {
         boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${token.colorPrimaryOutline}`,
       },
 
@@ -181,11 +178,11 @@ const genSwitchStyle = (token: SwitchToken): CSSObject => {
         boxShadow: 'none',
       },
 
-      [`&${token.switchCls}-checked`]: {
+      [`&${token.componentCls}-checked`]: {
         backgroundColor: token.switchColor,
       },
 
-      [`&${token.switchCls}-loading, &${token.switchCls}-disabled`]: {
+      [`&${token.componentCls}-loading, &${token.componentCls}-disabled`]: {
         cursor: 'not-allowed',
         opacity: token.switchDisabledOpacity,
 
@@ -208,7 +205,7 @@ const genSwitchStyle = (token: SwitchToken): CSSObject => {
       ...genSwitchSmallStyle(token),
 
       // rtl style
-      [`&${token.switchCls}-rtl`]: {
+      [`&${token.componentCls}-rtl`]: {
         direction: 'rtl',
       },
     },
@@ -216,16 +213,11 @@ const genSwitchStyle = (token: SwitchToken): CSSObject => {
 };
 
 // ============================== Export ==============================
-export default function useStyle(
-  prefixCls: string,
-  iconPrefixCls: string,
-): UseComponentStyleResult {
-  const [theme, token, hashId] = useToken();
+export default genComponentStyleHook('Switch', token => {
   const switchHeight = 22;
   const switchHeightSM = 16;
 
-  const switchToken: SwitchToken = {
-    ...token,
+  const switchToken = mergeToken<SwitchToken>(token, {
     // FIXME: missing token
     switchMinWidth: 44,
     switchHeight,
@@ -243,14 +235,7 @@ export default function useStyle(
     switchInnerMarginMinSM: Math.ceil(switchHeight * 0.3),
     switchInnerMarginMaxSM: Math.ceil(switchHeight * 1.1),
     switchPinSizeSM: switchHeightSM - 4,
-    switchCls: `.${prefixCls}`,
-    iconPrefixCls: `.${iconPrefixCls}`,
-  };
+  });
 
-  return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      genSwitchStyle(switchToken),
-    ]),
-    hashId,
-  ];
-}
+  return [genSwitchStyle(switchToken)];
+});

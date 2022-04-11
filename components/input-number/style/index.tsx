@@ -1,12 +1,7 @@
 // deps-lint-skip-all
-import {
-  GenerateStyle,
-  resetComponent,
-  resetIcon,
-  UseComponentStyleResult,
-  useStyleRegister,
-  useToken,
-} from '../../_util/theme';
+import type { FullToken, GenerateStyle } from '../../_util/theme';
+import { genComponentStyleHook, resetComponent, resetIcon } from '../../_util/theme';
+import type { InputToken } from '../../input/style';
 import {
   genActiveStyle,
   genBasicInputStyle,
@@ -16,7 +11,6 @@ import {
   genPlaceholderStyle,
   genStatusStyle,
   initInputToken,
-  InputToken,
 } from '../../input/style';
 
 export interface ComponentToken {
@@ -25,13 +19,11 @@ export interface ComponentToken {
   handleFontSize: number;
 }
 
-interface InputNumberToken extends InputToken, ComponentToken {
-  inputNumberCls: string;
-}
+type InputNumberToken = InputToken<FullToken<'InputNumber'>>;
 
 const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumberToken) => {
   const {
-    inputNumberCls,
+    componentCls,
     controlLineWidth,
     controlLineType,
     colorBorder,
@@ -55,7 +47,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
 
   return [
     {
-      [inputNumberCls]: {
+      [componentCls]: {
         ...resetComponent(token),
         ...genBasicInputStyle(token),
         ...genStatusStyle(token),
@@ -70,7 +62,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
         '&-rtl': {
           direction: 'rtl',
 
-          [`${inputNumberCls}-input`]: {
+          [`${componentCls}-input`]: {
             direction: 'rtl',
           },
         },
@@ -79,7 +71,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           padding: 0,
           fontSize: fontSizeLG,
 
-          [`input${inputNumberCls}-input`]: {
+          [`input${componentCls}-input`]: {
             height: controlHeightLG - 2 * controlLineWidth,
           },
         },
@@ -87,7 +79,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
         '&-sm': {
           padding: 0,
 
-          [`input${inputNumberCls}-input`]: {
+          [`input${componentCls}-input`]: {
             height: controlHeightSM - 2 * controlLineWidth,
             padding: `0 ${inputPaddingHorizontalSM}px`,
           },
@@ -103,7 +95,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
 
         '&-disabled': {
           ...genDisabledStyle(token),
-          [`${inputNumberCls}-input`]: {
+          [`${componentCls}-input`]: {
             cursor: 'not-allowed',
           },
         },
@@ -125,13 +117,13 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
             textAlign: 'start',
             verticalAlign: 'top', // https://github.com/ant-design/ant-design/issues/6403
 
-            [`${inputNumberCls}-affix-wrapper`]: {
+            [`${componentCls}-affix-wrapper`]: {
               width: '100%',
             },
           },
         },
 
-        [inputNumberCls]: {
+        [componentCls]: {
           '&-input': {
             width: '100%',
             height: controlHeight - 2 * controlLineWidth,
@@ -159,12 +151,12 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
 
     // Handler
     {
-      [inputNumberCls]: {
-        [`&:hover ${inputNumberCls}-handler-wrap, &-focused ${inputNumberCls}-handler-wrap`]: {
+      [componentCls]: {
+        [`&:hover ${componentCls}-handler-wrap, &-focused ${componentCls}-handler-wrap`]: {
           opacity: 1,
         },
 
-        [`${inputNumberCls}-handler-wrap`]: {
+        [`${componentCls}-handler-wrap`]: {
           position: 'absolute',
           insetBlockStart: 0,
           insetInlineEnd: 0,
@@ -184,7 +176,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           // Fix input number inside Menu makes icon too large
           // We arise the selector priority by nest selector here
           // https://github.com/ant-design/ant-design/issues/14367
-          [`${inputNumberCls}-handler`]: {
+          [`${componentCls}-handler`]: {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -192,8 +184,8 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
             height: '40%',
 
             [`
-              ${inputNumberCls}-handler-up-inner,
-              ${inputNumberCls}-handler-down-inner
+              ${componentCls}-handler-up-inner,
+              ${componentCls}-handler-down-inner
             `]: {
               marginInlineEnd: 0,
               fontSize: token.handleFontSize,
@@ -201,7 +193,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           },
         },
 
-        [`${inputNumberCls}-handler`]: {
+        [`${componentCls}-handler`]: {
           height: '50%',
           overflow: 'hidden',
           color: colorTextSecondary,
@@ -220,8 +212,8 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
             height: `60%`,
 
             [`
-              ${inputNumberCls}-handler-up-inner,
-              ${inputNumberCls}-handler-down-inner
+              ${componentCls}-handler-up-inner,
+              ${componentCls}-handler-down-inner
             `]: {
               color: colorPrimary,
             },
@@ -236,32 +228,32 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           },
         },
 
-        [`${inputNumberCls}-handler-up`]: {
+        [`${componentCls}-handler-up`]: {
           borderStartEndRadius: controlRadius,
         },
 
-        [`${inputNumberCls}-handler-down`]: {
+        [`${componentCls}-handler-down`]: {
           borderBlockStart: `${controlLineWidth}px ${controlLineType} ${colorBorder}`,
           borderEndEndRadius: controlRadius,
         },
 
         // Disabled
         '&-disabled, &-readonly': {
-          [`${inputNumberCls}-handler-wrap`]: {
+          [`${componentCls}-handler-wrap`]: {
             display: 'none',
           },
         },
 
         [`
-          ${inputNumberCls}-handler-up-disabled,
-          ${inputNumberCls}-handler-down-disabled
+          ${componentCls}-handler-up-disabled,
+          ${componentCls}-handler-down-disabled
         `]: {
           cursor: 'not-allowed',
         },
 
         [`
-          ${inputNumberCls}-handler-up-disabled:hover &-handler-up-inner,
-          ${inputNumberCls}-handler-down-disabled:hover &-handler-down-inner
+          ${componentCls}-handler-up-disabled:hover &-handler-up-inner,
+          ${componentCls}-handler-down-disabled:hover &-handler-down-inner
         `]: {
           color: colorTextDisabled,
         },
@@ -270,11 +262,11 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
 
     // Border-less
     {
-      [`${inputNumberCls}-borderless`]: {
+      [`${componentCls}-borderless`]: {
         borderColor: 'transparent',
         boxShadow: 'none',
 
-        [`${inputNumberCls}-handler-down`]: {
+        [`${componentCls}-handler-down`]: {
           borderBlockStartWidth: 0,
         },
       },
@@ -283,10 +275,10 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
 };
 
 const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumberToken) => {
-  const { inputNumberCls, inputPaddingHorizontal, inputAffixPadding, controlWidth } = token;
+  const { componentCls, inputPaddingHorizontal, inputAffixPadding, controlWidth } = token;
 
   return {
-    [`${inputNumberCls}-affix-wrapper`]: {
+    [`${componentCls}-affix-wrapper`]: {
       ...genBasicInputStyle(token),
       ...genStatusStyle(token),
       // or number handler will cover form status
@@ -306,22 +298,22 @@ const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumb
       },
 
       '&-disabled': {
-        [`${inputNumberCls}[disabled]`]: {
+        [`${componentCls}[disabled]`]: {
           background: 'transparent',
         },
       },
 
-      [`> div${inputNumberCls}`]: {
+      [`> div${componentCls}`]: {
         width: '100%',
         border: 'none',
         outline: 'none',
 
-        [`&${inputNumberCls}-focused`]: {
+        [`&${componentCls}-focused`]: {
           boxShadow: 'none !important',
         },
       },
 
-      [`input${inputNumberCls}-input`]: {
+      [`input${componentCls}-input`]: {
         padding: 0,
       },
 
@@ -331,11 +323,11 @@ const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumb
         content: '"\\a0"',
       },
 
-      [`${inputNumberCls}-handler-wrap`]: {
+      [`${componentCls}-handler-wrap`]: {
         zIndex: 2,
       },
 
-      [inputNumberCls]: {
+      [componentCls]: {
         '&-prefix, &-suffix': {
           display: 'flex',
           flex: 'none',
@@ -362,29 +354,15 @@ const genAffixWrapperStyles: GenerateStyle<InputNumberToken> = (token: InputNumb
 };
 
 // ============================== Export ==============================
-export default function useStyle(
-  prefixCls: string,
-  iconPrefixCls: string,
-): UseComponentStyleResult {
-  const [theme, token, hashId] = useToken();
-
-  return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => {
-      const { InputNumber, controlLineWidth, controlHeightSM, fontSize } = token;
-
-      const inputNumberToken: InputNumberToken = {
-        ...initInputToken(token, prefixCls, iconPrefixCls),
-        inputNumberCls: `.${prefixCls}`,
-
-        controlWidth: 90,
-        handleWidth: controlHeightSM - controlLineWidth * 2,
-        handleFontSize: fontSize / 2,
-
-        ...InputNumber,
-      };
-
-      return [genInputNumberStyles(inputNumberToken), genAffixWrapperStyles(inputNumberToken)];
-    }),
-    hashId,
-  ];
-}
+export default genComponentStyleHook(
+  'InputNumber',
+  token => {
+    const inputNumberToken = initInputToken<FullToken<'InputNumber'>>(token);
+    return [genInputNumberStyles(inputNumberToken), genAffixWrapperStyles(inputNumberToken)];
+  },
+  token => ({
+    controlWidth: 90,
+    handleWidth: token.controlHeightSM - token.controlLineWidth * 2,
+    handleFontSize: token.fontSize / 2,
+  }),
+);

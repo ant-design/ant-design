@@ -1,10 +1,13 @@
 import React, { forwardRef, useContext, useEffect, useRef } from 'react';
-import RcInput, { InputProps as RcInputProps, InputRef } from 'rc-input';
+import type { InputProps as RcInputProps, InputRef } from 'rc-input';
+import RcInput from 'rc-input';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import classNames from 'classnames';
 import { composeRef } from 'rc-util/lib/ref';
-import SizeContext, { SizeType } from '../config-provider/SizeContext';
-import { getMergedStatus, getStatusClassNames, InputStatus } from '../_util/statusUtils';
+import type { SizeType } from '../config-provider/SizeContext';
+import SizeContext from '../config-provider/SizeContext';
+import type { InputStatus } from '../_util/statusUtils';
+import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { ConfigContext } from '../config-provider';
 import { FormItemInputContext, NoFormStatus } from '../form/context';
 import { hasPrefixSuffix } from './utils';
@@ -133,13 +136,13 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     addonBefore,
     ...rest
   } = props;
-  const { getPrefixCls, direction, input, iconPrefixCls } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction, input } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('input', customizePrefixCls);
   const inputRef = useRef<InputRef>(null);
 
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   // ===================== Size =====================
   const size = React.useContext(SizeContext);

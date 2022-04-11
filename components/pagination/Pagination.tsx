@@ -1,8 +1,6 @@
 import * as React from 'react';
-import RcPagination, {
-  PaginationLocale,
-  PaginationProps as RcPaginationProps,
-} from 'rc-pagination';
+import type { PaginationProps as RcPaginationProps } from 'rc-pagination';
+import RcPagination, { PaginationLocale } from 'rc-pagination';
 import enUS from 'rc-pagination/lib/locale/en_US';
 import classNames from 'classnames';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
@@ -43,16 +41,11 @@ const Pagination: React.FC<PaginationProps> = ({
 }) => {
   const { xs } = useBreakpoint(responsive);
 
-  const { getPrefixCls, iconPrefixCls, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('pagination', customizePrefixCls);
 
   // Style
-  const [wrapSSR, hashId] = useStyle(
-    getPrefixCls(),
-    prefixCls,
-    getPrefixCls('input'),
-    iconPrefixCls,
-  );
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const getIconsProps = () => {
     const ellipsis = <span className={`${prefixCls}-item-ellipsis`}>•••</span>;

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import type * as React from 'react';
 import type { ComponentToken as ButtonComponentToken } from '../../button/style';
 import type { ComponentToken as DividerComponentToken } from '../../divider/style';
 import type { ComponentToken as EmptyComponentToken } from '../../empty/style';
@@ -40,16 +40,41 @@ export interface OverrideToken {
   derivative?: Partial<DerivativeToken & AliasToken>;
 
   // Customize component
+  Affix?: {};
+  Alert?: {};
+  Avatar?: {};
+  Badge?: {};
   Button?: ButtonComponentToken;
+  Carousel?: {};
   Cascader?: CascaderComponentToken;
+  Checkbox?: {};
+  Descriptions?: {};
   Divider?: DividerComponentToken;
+  Drawer?: {};
   Empty?: EmptyComponentToken;
+  Form?: {};
+  Grid?: {};
+  Image?: {};
+  Input?: {};
   InputNumber?: InputNumberComponentToken;
+  List?: {};
   Mentions?: MentionsComponentToken;
+  Pagination?: {};
+  Popover?: {};
+  Rate?: {};
+  Result?: {};
   Select?: SelectComponentToken;
+  Skeleton?: {};
   Slider?: SliderComponentToken;
+  Spin?: {};
+  Statistic?: {};
+  Switch?: {};
+  Tag?: {};
+  Tree?: {};
+  TreeSelect?: {};
   Typography?: TypographyComponentToken;
   BackTop?: BackTopComponentToken;
+  Tabs?: {};
 }
 
 /** Final token which contains the components level override */

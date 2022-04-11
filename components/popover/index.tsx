@@ -15,7 +15,7 @@ export interface PopoverProps extends AbstractTooltipProps {
 
 const Popover = React.forwardRef<unknown, PopoverProps>(
   ({ prefixCls: customizePrefixCls, title, content, overlayClassName, ...otherProps }, ref) => {
-    const { getPrefixCls, iconPrefixCls } = React.useContext(ConfigContext);
+    const { getPrefixCls } = React.useContext(ConfigContext);
 
     const getOverlay = (prefixCls: string) => {
       if (!title && !content) return undefined;
@@ -28,7 +28,7 @@ const Popover = React.forwardRef<unknown, PopoverProps>(
     };
 
     const prefixCls = getPrefixCls('popover', customizePrefixCls);
-    const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls);
+    const [wrapSSR, hashId] = useStyle(prefixCls);
     const rootPrefixCls = getPrefixCls();
 
     const overlayCls = classNames(overlayClassName, hashId);

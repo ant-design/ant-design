@@ -1,24 +1,17 @@
 // deps-lint-skip-all
 import { CSSObject } from '@ant-design/cssinjs';
-import {
-  DerivativeToken,
-  useStyleRegister,
-  useToken,
-  UseComponentStyleResult,
-  GenerateStyle,
-} from '../../_util/theme';
+import { GenerateStyle, genComponentStyleHook, FullToken, mergeToken } from '../../_util/theme';
 
-interface AffixToken extends DerivativeToken {
-  affixCls: string;
+interface AffixToken extends FullToken<'Affix'> {
   zIndexAffix: number;
 }
 
 // ============================== Shared ==============================
 const genSharedAffixStyle: GenerateStyle<AffixToken> = (token): CSSObject => {
-  const { affixCls } = token;
+  const { componentCls } = token;
 
   return {
-    [affixCls]: {
+    [componentCls]: {
       position: 'fixed',
       zIndex: token.zIndexAffix,
     },
@@ -26,20 +19,9 @@ const genSharedAffixStyle: GenerateStyle<AffixToken> = (token): CSSObject => {
 };
 
 // ============================== Export ==============================
-export default function useStyle(prefixCls: string): UseComponentStyleResult {
-  const [theme, token, hashId] = useToken();
-
-  const affixToken: AffixToken = {
-    ...token,
-
-    affixCls: `.${prefixCls}`,
+export default genComponentStyleHook('Affix', token => {
+  const affixToken = mergeToken<AffixToken>(token, {
     zIndexAffix: token.zIndexBase + 10,
-  };
-
-  return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      genSharedAffixStyle(affixToken),
-    ]),
-    hashId,
-  ];
-}
+  });
+  return [genSharedAffixStyle(affixToken)];
+});
