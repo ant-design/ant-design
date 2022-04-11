@@ -55,7 +55,8 @@ function getRadioToken(token: GlobalToken) {
   const radioButtonHoverColor = token.colorPrimaryHover;
   const radioButtonActiveColor = token.colorPrimaryActive;
   const radioButtonPaddingHorizontal = token.padding - 1;
-  const radioDisabledButtonCheckedBg = token.colorBgComponentDisabledActive;
+  // FIXME: hard code
+  const radioDisabledButtonCheckedBg = new TinyColor('#000').tint(90).toRgbString();
   const radioDisabledButtonCheckedColor = token.colorTextDisabled;
   const radioWrapperMarginRight = token.margin / 2;
 

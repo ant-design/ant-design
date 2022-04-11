@@ -67,7 +67,6 @@ export function derivative(token: SeedToken): DerivativeToken {
   const colorBg2 = new TinyColor({ h: 0, s: 0, v: 98 }).toHexString();
   const colorBgBelow = new TinyColor({ h: 0, s: 0, v: 98 }).toHexString();
   const colorBgBelow2 = new TinyColor({ h: 0, s: 0, v: 96 }).toHexString();
-  const colorBgBelow3 = new TinyColor('#000').tint(90).toRgbString();
 
   return {
     ...token,
@@ -105,7 +104,6 @@ export function derivative(token: SeedToken): DerivativeToken {
     colorBg3: '#e1e1e1',
     colorBgBelow,
     colorBgBelow2,
-    colorBgBelow3,
 
     colorDefaultOutline: colorBgBelow2,
 
