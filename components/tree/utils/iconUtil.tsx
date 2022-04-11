@@ -5,12 +5,12 @@ import FileOutlined from '@ant-design/icons/FileOutlined';
 import MinusSquareOutlined from '@ant-design/icons/MinusSquareOutlined';
 import PlusSquareOutlined from '@ant-design/icons/PlusSquareOutlined';
 import CaretDownFilled from '@ant-design/icons/CaretDownFilled';
-import { AntTreeNodeProps } from '../Tree';
+import type { AntTreeNodeProps, SwitcherIcon } from '../Tree';
 import { isValidElement, cloneElement } from '../../_util/reactNode';
 
 export default function renderSwitcherIcon(
   prefixCls: string,
-  switcherIcon: React.ReactNode | ((props: any) => React.ReactNode),
+  switcherIcon: SwitcherIcon,
   showLine: boolean | { showLeafIcon: boolean } | undefined,
   treeNodeProps: AntTreeNodeProps,
 ): React.ReactNode {
@@ -35,7 +35,8 @@ export default function renderSwitcherIcon(
 
   const switcherCls = `${prefixCls}-switcher-icon`;
 
-  const switcher = typeof switcherIcon === 'function' ? switcherIcon({ expanded }) : switcherIcon;
+  const switcher =
+    typeof switcherIcon === 'function' ? switcherIcon({ expanded: !!expanded }) : switcherIcon;
 
   if (isValidElement(switcher)) {
     return cloneElement(switcher, {
