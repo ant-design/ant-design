@@ -24,7 +24,7 @@ const wrapStyles = {
   border: '1px solid #e9e9e9',
 };
 
-ReactDOM.render(
+export default () => (
   <div style={wrapStyles}>
     <Tooltip
       placement="left"
@@ -42,7 +42,6 @@ ReactDOM.render(
     >
       <Button>Ignore / 不处理</Button>
     </Tooltip>
-  </div>,
-  mountNode,
+  </div>
 );
 ```

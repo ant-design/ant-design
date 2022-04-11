@@ -10,8 +10,13 @@ on:
       - 3.x-stable
   create:
 
+permissions:
+  contents: read
+
 jobs:
   mirror:
+    permissions:
+      contents: none
     runs-on: ubuntu-latest
     if: github.repository == 'ant-design/ant-design'
     steps:

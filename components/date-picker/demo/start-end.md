@@ -98,5 +98,5 @@ class DateRange extends React.Component {
   }
 }
 
-ReactDOM.render(<DateRange />, mountNode);
+export default () => <DateRange />;
 ```

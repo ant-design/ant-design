@@ -20,6 +20,7 @@ export interface SpinProps {
   delay?: number;
   wrapperClassName?: string;
   indicator?: SpinIndicator;
+  children?: React.ReactNode;
 }
 
 export interface SpinState {

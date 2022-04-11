@@ -16,7 +16,7 @@ The simplest use.
 ```jsx
 import { Breadcrumb } from 'antd';
 
-ReactDOM.render(
+export default () => (
   <Breadcrumb>
     <Breadcrumb.Item>Home</Breadcrumb.Item>
     <Breadcrumb.Item>
@@ -26,7 +26,6 @@ ReactDOM.render(
       <a href="">Application List</a>
     </Breadcrumb.Item>
     <Breadcrumb.Item>An Application</Breadcrumb.Item>
-  </Breadcrumb>,
-  mountNode,
+  </Breadcrumb>
 );
 ```

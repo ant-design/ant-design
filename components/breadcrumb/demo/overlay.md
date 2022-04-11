@@ -44,7 +44,7 @@ const menu = (
   />
 );
 
-ReactDOM.render(
+export default () => (
   <Breadcrumb>
     <Breadcrumb.Item>Ant Design</Breadcrumb.Item>
     <Breadcrumb.Item>
@@ -54,7 +54,6 @@ ReactDOM.render(
       <a href="">General</a>
     </Breadcrumb.Item>
     <Breadcrumb.Item>Button</Breadcrumb.Item>
-  </Breadcrumb>,
-  mountNode,
+  </Breadcrumb>
 );
 ```

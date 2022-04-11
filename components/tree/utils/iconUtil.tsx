@@ -5,15 +5,17 @@ import FileOutlined from '@ant-design/icons/FileOutlined';
 import MinusSquareOutlined from '@ant-design/icons/MinusSquareOutlined';
 import PlusSquareOutlined from '@ant-design/icons/PlusSquareOutlined';
 import CaretDownFilled from '@ant-design/icons/CaretDownFilled';
-import { AntTreeNodeProps, SwitcherIcon } from '../Tree';
+import { AntTreeNodeProps } from '../Tree';
 import { isValidElement, cloneElement } from '../../_util/reactNode';
 
 export default function renderSwitcherIcon(
   prefixCls: string,
-  switcherIcon: SwitcherIcon | undefined,
+  switcherIcon: React.ReactNode | ((props: any) => React.ReactNode),
   showLine: boolean | { showLeafIcon: boolean } | undefined,
-  { isLeaf, expanded, loading }: AntTreeNodeProps,
-) {
+  treeNodeProps: AntTreeNodeProps,
+): React.ReactNode {
+  const { isLeaf, expanded, loading } = treeNodeProps;
+
   if (loading) {
     return <LoadingOutlined className={`${prefixCls}-switcher-loading-icon`} />;
   }
@@ -30,21 +32,15 @@ export default function renderSwitcherIcon(
     }
     return null;
   }
+
   const switcherCls = `${prefixCls}-switcher-icon`;
 
-  let switcher = switcherIcon;
-  if (typeof switcher === 'function') {
-    switcher = switcher(Boolean(expanded));
-  }
+  const switcher = typeof switcherIcon === 'function' ? switcherIcon({ expanded }) : switcherIcon;
 
   if (isValidElement(switcher)) {
     return cloneElement(switcher, {
       className: classNames(switcher.props.className || '', switcherCls),
     });
-  }
-
-  if (switcher) {
-    return switcher;
   }
 
   if (showLine) {

@@ -47,5 +47,5 @@ function TimelimeLabelDemo() {
   );
 }
 
-ReactDOM.render(<TimelimeLabelDemo />, mountNode);
+export default () => <TimelimeLabelDemo />;
 ```

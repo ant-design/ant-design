@@ -98,8 +98,6 @@ interface DraggableConfig {
   nodeDraggable?: DraggableFn;
 }
 
-export type SwitcherIcon = ((expanded: boolean) => React.ReactNode) | React.ReactNode;
-
 export interface TreeProps<T extends BasicDataNode = DataNode>
   extends Omit<RcTreeProps<T>, 'prefixCls' | 'showLine' | 'direction' | 'draggable'> {
   showLine?: boolean | { showLeafIcon: boolean };

@@ -481,6 +481,8 @@ exports[`Skeleton rtl render component should be rendered correctly in RTL direc
 </div>
 `;
 
+exports[`Skeleton should display without children and falsy loading props 1`] = `null`;
+
 exports[`Skeleton should round title and paragraph 1`] = `
 <div
   class="ant-skeleton ant-skeleton-round"

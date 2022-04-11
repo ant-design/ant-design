@@ -26,5 +26,5 @@ function SpaceSplit() {
   );
 }
 
-ReactDOM.render(<SpaceSplit />, mountNode);
+export default () => <SpaceSplit />;
 ```

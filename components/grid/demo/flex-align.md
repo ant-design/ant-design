@@ -18,7 +18,7 @@ import { Row, Col, Divider } from 'antd';
 
 const DemoBox = props => <p className={`height-${props.value}`}>{props.children}</p>;
 
-ReactDOM.render(
+export default () => (
   <>
     <Divider orientation="left">Align Top</Divider>
     <Row justify="center" align="top">
@@ -67,8 +67,7 @@ ReactDOM.render(
         <DemoBox value={80}>col-4</DemoBox>
       </Col>
     </Row>
-  </>,
-  mountNode,
+  </>
 );
 ```
 

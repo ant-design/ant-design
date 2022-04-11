@@ -110,7 +110,7 @@ const Content = ({ children, extraContent }) => (
   </Row>
 );
 
-ReactDOM.render(
+export default () => (
   <PageHeader
     title="Title"
     className="site-page-header"
@@ -138,8 +138,7 @@ ReactDOM.render(
     >
       {content}
     </Content>
-  </PageHeader>,
-  mountNode,
+  </PageHeader>
 );
 ```
 

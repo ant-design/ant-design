@@ -22,7 +22,7 @@ function handleChange(value) {
   console.log(`selected ${value}`);
 }
 
-ReactDOM.render(
+export default () => (
   <Select
     mode="multiple"
     style={{ width: '100%' }}
@@ -63,8 +63,7 @@ ReactDOM.render(
         Korea (韩国)
       </div>
     </Option>
-  </Select>,
-  mountNode,
+  </Select>
 );
 ```
 

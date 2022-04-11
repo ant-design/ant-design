@@ -22,5 +22,5 @@ const success = () => {
   setTimeout(hide, 2500);
 };
 
-ReactDOM.render(<Button onClick={success}>Display a loading indicator</Button>, mountNode);
+export default () => <Button onClick={success}>Display a loading indicator</Button>;
 ```

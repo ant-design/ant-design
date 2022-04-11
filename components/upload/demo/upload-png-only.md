@@ -38,5 +38,5 @@ const Uploader = () => {
   );
 };
 
-ReactDOM.render(<Uploader />, mountNode);
+export default () => <Uploader />;
 ```

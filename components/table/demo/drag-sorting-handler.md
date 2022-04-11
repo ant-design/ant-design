@@ -124,7 +124,7 @@ class SortableTable extends React.Component {
   }
 }
 
-ReactDOM.render(<SortableTable />, mountNode);
+export default () => <SortableTable />;
 ```
 
 ```css

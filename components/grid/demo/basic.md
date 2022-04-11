@@ -20,7 +20,7 @@ You can create a basic grid system by using a single set of `Row` and `Col` grid
 ```jsx
 import { Row, Col } from 'antd';
 
-ReactDOM.render(
+export default () => (
   <>
     <Row>
       <Col span={24}>col</Col>
@@ -40,7 +40,6 @@ ReactDOM.render(
       <Col span={6}>col-6</Col>
       <Col span={6}>col-6</Col>
     </Row>
-  </>,
-  mountNode,
+  </>
 );
 ```

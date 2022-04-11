@@ -76,11 +76,10 @@ class ControlledRangePicker extends React.Component {
   }
 }
 
-ReactDOM.render(
+export default () => (
   <Space direction="vertical" size={12}>
     <ControlledDatePicker />
     <ControlledRangePicker />
-  </Space>,
-  mountNode,
+  </Space>
 );
 ```

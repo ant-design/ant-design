@@ -17,7 +17,7 @@ Set the color of circles. `green` means completed or success status, `red` means
 import { Timeline } from 'antd';
 import { SmileOutlined } from '@ant-design/icons';
 
-ReactDOM.render(
+export default () => (
   <Timeline>
     <Timeline.Item color="green">Create a services site 2015-09-01</Timeline.Item>
     <Timeline.Item color="green">Create a services site 2015-09-01</Timeline.Item>
@@ -44,7 +44,6 @@ ReactDOM.render(
     <Timeline.Item color="#00CCFF" dot={<SmileOutlined />}>
       <p>Custom color testing</p>
     </Timeline.Item>
-  </Timeline>,
-  mountNode,
+  </Timeline>
 );
 ```

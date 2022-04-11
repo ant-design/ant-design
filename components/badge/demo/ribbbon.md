@@ -16,7 +16,7 @@ Use ribbon badge.
 ```jsx
 import { Badge, Card } from 'antd';
 
-ReactDOM.render(
+export default () => (
   <>
     <Badge.Ribbon text="Hippies">
       <Card title="Pushes open the window" size="small">
@@ -58,8 +58,7 @@ ReactDOM.render(
         and raises the spyglass.
       </Card>
     </Badge.Ribbon>
-  </>,
-  mountNode,
+  </>
 );
 ```
 

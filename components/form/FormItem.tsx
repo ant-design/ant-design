@@ -454,7 +454,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
             'Form.Item',
             '`name` is only used for validate React element. If you are using Form.Item as layout display, please remove `name` instead.',
           );
-          childNode = children;
+          childNode = children as React.ReactNode;
         }
 
         return renderLayout(childNode, fieldId, isRequired);

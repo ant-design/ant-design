@@ -945,8 +945,7 @@ exports[`renders ./components/tabs/demo/custom-tab-bar-node.md extend context co
         style="transform:translate(0px, 0px)"
       >
         <div
-          class=""
-          style="margin-right:24px"
+          class="dragnode "
         >
           <div
             class="ant-tabs-tab ant-tabs-tab-active"
@@ -962,8 +961,7 @@ exports[`renders ./components/tabs/demo/custom-tab-bar-node.md extend context co
           </div>
         </div>
         <div
-          class=""
-          style="margin-right:24px"
+          class="dragnode "
         >
           <div
             class="ant-tabs-tab"
@@ -979,8 +977,7 @@ exports[`renders ./components/tabs/demo/custom-tab-bar-node.md extend context co
           </div>
         </div>
         <div
-          class=""
-          style="margin-right:24px"
+          class="dragnode "
         >
           <div
             class="ant-tabs-tab"

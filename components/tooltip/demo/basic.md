@@ -16,10 +16,9 @@ The simplest usage.
 ```jsx
 import { Tooltip } from 'antd';
 
-ReactDOM.render(
+export default () => (
   <Tooltip title="prompt text">
     <span>Tooltip will show on mouse enter.</span>
-  </Tooltip>,
-  mountNode,
+  </Tooltip>
 );
 ```

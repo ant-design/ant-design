@@ -123,5 +123,5 @@ const Demo: React.FC<{}> = () => {
   );
 };
 
-ReactDOM.render(<Demo />, mountNode);
+export default () => <Demo />;
 ```

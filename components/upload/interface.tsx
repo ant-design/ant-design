@@ -129,6 +129,7 @@ export interface UploadProps<T = any> extends Pick<RcUploadProps, 'capture'> {
   itemRender?: ItemRender<T>;
   /** Config max count of `fileList`. Will replace current one when `maxCount` is 1 */
   maxCount?: number;
+  children?: React.ReactNode;
 }
 
 export interface UploadState<T = any> {
