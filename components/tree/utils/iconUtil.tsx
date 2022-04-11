@@ -43,6 +43,10 @@ export default function renderSwitcherIcon(
     });
   }
 
+  if (switcher) {
+    return switcher;
+  }
+
   if (showLine) {
     return expanded ? (
       <MinusSquareOutlined className={`${prefixCls}-switcher-line-icon`} />
