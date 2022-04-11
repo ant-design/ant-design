@@ -142,6 +142,7 @@
     "rc-progress": "~3.2.1",
     "rc-rate": "~2.9.0",
     "rc-resize-observer": "^1.2.0",
+    "rc-segmented": "^1.0.0",
     "rc-select": "~14.0.2",
     "rc-slider": "~10.0.0-alpha.4",
     "rc-steps": "~4.1.0",
@@ -316,7 +317,7 @@
     },
     {
       "path": "./dist/antd.variable.min.css",
-      "maxSize": "66 kB"
+      "maxSize": "67 kB"
     }
   ],
   "tnpm": {
