@@ -26,9 +26,9 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = token => {
         '&-tail': {
           position: 'absolute',
           insetBlockStart: 10, // FIXME: v4 magic number
-          insetInlineStart: 4, // FIXME: v4 magic number
-          height: `calc(100% - 10px)`,
-          borderInlineStart: `2px solid rgba(0, 0, 0, 0.06)`, // FIXME: v4 magic number
+          insetInlineStart: `${token.radiusLG}px`,
+          height: `calc(100% - 10px)`, // FIXME: v4 magic number
+          borderInlineStart: `${token.radiusBase}px solid rgba(0, 0, 0, 0.06)`, // FIXME: v4 magic number
         },
 
         '&-pending': {
@@ -47,7 +47,7 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = token => {
           width: 10, // FIXME: v4 magic number
           height: 10, // FIXME: v4 magic number
           backgroundColor: token.colorBgComponent,
-          border: '2px solid transparent', // FIXME: v4 magic number
+          border: `${token.radiusBase}px solid transparent`,
           borderRadius: 100, // FIXME: v4 magic number
 
           '&-blue': {
@@ -88,8 +88,10 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = token => {
 
         '&-content': {
           position: 'relative',
-          insetBlockStart: `${-(token.fontSizeBase * token.lineHeight - token.fontSizeBase) + 1}px`,
-          margin: `0 0 0 ${token.marginLG + 2}px`,
+          insetBlockStart: `${
+            -(token.fontSizeBase * token.lineHeight - token.fontSizeBase) + token.radiusSM
+          }px`,
+          margin: `0 0 0 ${token.marginLG + token.radiusBase}px`,
           wordBreak: 'break-word',
         },
 
@@ -113,24 +115,24 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = token => {
           },
 
           '&-head': {
-            marginInlineStart: -4, // FIXME: v4 magic number
+            marginInlineStart: `-${token.marginXXS}px`,
 
             '&-custom': {
-              marginInlineStart: 1, // FIXME: v4 magic number
+              marginInlineStart: `${token.radiusSM}px`,
             },
           },
 
           '&-left': {
             [`${componentCls}-item-content`]: {
-              insetInlineStart: `calc(50% - 4px)`,
-              width: `calc(50% - 14px)`,
+              insetInlineStart: `calc(50% - ${token.marginXXS}px)`,
+              width: `calc(50% - 14px)`, // FIXME: v4 magic number
               textAlign: 'start',
             },
           },
 
           '&-right': {
             [`${componentCls}-item-content`]: {
-              width: `calc(50% - 12px)`,
+              width: `calc(50% - ${token.marginSM}px)`,
               margin: 0,
               textAlign: 'end',
             },
@@ -143,11 +145,11 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = token => {
           [`${componentCls}-item-tail,
             ${componentCls}-item-head,
             ${componentCls}-item-head-custom`]: {
-            insetInlineStart: `calc(100% - 4px - 2px)`, // FIXME: v4 magic number
+            insetInlineStart: `calc(100% - ${token.radiusLG - token.radiusBase}px)`,
           },
 
           [`${componentCls}-item-content`]: {
-            width: `calc(100% - 18px)`,
+            width: `calc(100% - 18px)`, // FIXME: v4 magic number
           },
         },
       },
@@ -156,8 +158,8 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = token => {
         ${componentCls}-item-last
         ${componentCls}-item-tail`]: {
         display: 'block',
-        height: `calc(100% - 14px)`,
-        borderInlineStart: `2px dotted rgba(0, 0, 0, 0.06)`, // FIXME: v4 magic number
+        height: `calc(100% - 14px)`, // FIXME: v4 magic number
+        borderInlineStart: `${token.radiusBase}px dotted rgba(0, 0, 0, 0.06)`, // FIXME: v4 magic number
       },
 
       [`&${componentCls}-reverse
@@ -170,8 +172,8 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = token => {
         [`${componentCls}-item-tail`]: {
           insetBlockStart: 15, // FIXME: v4 magic number
           display: 'block',
-          height: `calc(100% - 15px)`,
-          borderInlineStart: `2px dotted rgba(0, 0, 0, 0.06)`, // FIXME: v4 magic number
+          height: `calc(100% - 15px)`, // FIXME: v4 magic number
+          borderInlineStart: `${token.radiusBase}px dotted rgba(0, 0, 0, 0.06)`, // FIXME: v4 magic number
         },
 
         [`${componentCls}-item-content`]: {
@@ -182,15 +184,17 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = token => {
       [`&${componentCls}-label`]: {
         [`${componentCls}-item-label`]: {
           position: 'absolute',
-          insetBlockStart: `${-(token.fontSizeBase * token.lineHeight - token.fontSizeBase) + 1}px`,
-          width: `calc(50% - 12px)`,
+          insetBlockStart: `${
+            -(token.fontSizeBase * token.lineHeight - token.fontSizeBase) + token.radiusSM
+          }px`,
+          width: `calc(50% - ${token.marginSM}px)`,
           textAlign: 'end',
         },
 
         [`${componentCls}-item-right`]: {
           [`${componentCls}-item-label`]: {
-            insetInlineStart: `calc(50% + 14px)`,
-            width: `calc(50% - 14px)`,
+            insetInlineStart: `calc(50% + 14px)`, // FIXME: v4 magic number
+            width: `calc(50% - 14px)`, // FIXME: v4 magic number
             textAlign: 'start',
           },
         },
