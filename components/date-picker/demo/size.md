@@ -45,5 +45,5 @@ class PickerSizesDemo extends React.Component {
   }
 }
 
-ReactDOM.render(<PickerSizesDemo />, mountNode);
+export default () => <PickerSizesDemo />;
 ```

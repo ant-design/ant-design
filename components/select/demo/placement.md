@@ -49,5 +49,5 @@ const SetPlacementDemo = () => {
   );
 };
 
-ReactDOM.render(<SetPlacementDemo />, mountNode);
+export default () => <SetPlacementDemo />;
 ```

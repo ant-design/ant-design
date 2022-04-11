@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import RcTextArea from 'rc-textarea';
 import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
@@ -35,18 +37,32 @@ describe('TextArea', () => {
 
     const ref = React.createRef();
 
-    const wrapper = mount(
-      <TextArea value="" readOnly autoSize={{ minRows: 2, maxRows: 6 }} wrap="off" ref={ref} />,
+    const genTextArea = (props = {}) => (
+      <TextArea
+        value=""
+        readOnly
+        autoSize={{ minRows: 2, maxRows: 6 }}
+        wrap="off"
+        ref={ref}
+        {...props}
+      />
     );
+
+    const { container, rerender } = render(genTextArea());
+
     const mockFunc = jest.spyOn(ref.current.resizableTextArea, 'resizeTextarea');
-    wrapper.setProps({ value: '1111\n2222\n3333' });
+
+    rerender(genTextArea({ value: '1111\n2222\n3333' }));
+    // wrapper.setProps({ value: '1111\n2222\n3333' });
     await sleep(0);
     expect(mockFunc).toHaveBeenCalledTimes(1);
-    wrapper.setProps({ value: '1111' });
+
+    rerender(genTextArea({ value: '1111' }));
+    // wrapper.setProps({ value: '1111' });
     await sleep(0);
     expect(mockFunc).toHaveBeenCalledTimes(2);
-    wrapper.update();
-    expect(wrapper.find('textarea').props().style.overflow).toBeFalsy();
+
+    expect(container.querySelector('textarea').style.overflow).toBeFalsy();
 
     expect(errorSpy).not.toHaveBeenCalled();
     errorSpy.mockRestore();

@@ -18,7 +18,7 @@ import { Typography, Space } from 'antd';
 
 const { Text, Link } = Typography;
 
-ReactDOM.render(
+export default () => (
   <Space direction="vertical">
     <Text>Ant Design (default)</Text>
     <Text type="secondary">Ant Design (secondary)</Text>
@@ -36,7 +36,6 @@ ReactDOM.render(
     <Link href="https://ant.design" target="_blank">
       Ant Design (Link)
     </Link>
-  </Space>,
-  mountNode,
+  </Space>
 );
 ```

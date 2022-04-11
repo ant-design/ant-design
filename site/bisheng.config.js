@@ -87,6 +87,7 @@ module.exports = {
       };
     } else if (process.env.ESBUILD) {
       // use esbuild
+      config.optimization.minimize = true;
       config.optimization.minimizer = [
         new ESBuildMinifyPlugin({
           target: 'es2015',

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { mount } from 'enzyme';
+import { render, fireEvent } from '@testing-library/react';
+import '@testing-library/jest-dom';
 // eslint-disable-next-line import/no-unresolved
 import Form from '../../form';
 import Input, { InputProps, InputRef } from '..';
@@ -54,11 +56,11 @@ describe('Input', () => {
 
   describe('focus trigger warning', () => {
     it('not trigger', () => {
-      const wrapper = mount(<Input suffix="bamboo" />);
-      (wrapper.find('input').instance() as any).focus();
-      wrapper.setProps({
-        suffix: 'light',
-      });
+      const { container, rerender } = render(<Input suffix="bamboo" />);
+
+      fireEvent.focus(container.querySelector('input')!);
+
+      rerender(<Input suffix="light" />);
       expect(errorSpy).not.toHaveBeenCalled();
     });
     it('trigger warning', () => {

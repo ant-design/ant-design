@@ -47,8 +47,7 @@ for (let i = 0; i < 100; i++) {
   });
 }
 
-ReactDOM.render(
-  <Table columns={columns} dataSource={data} pagination={{ pageSize: 50 }} scroll={{ y: 240 }} />,
-  mountNode,
+export default () => (
+  <Table columns={columns} dataSource={data} pagination={{ pageSize: 50 }} scroll={{ y: 240 }} />
 );
 ```

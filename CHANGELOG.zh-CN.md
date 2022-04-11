@@ -15,6 +15,15 @@ timeline: true
 
 ---
 
+## 4.19.5
+
+`2022-04-02`
+
+- 🐞 修复 Form 在整个被 unmount 后再次 mount，原 Form 的值会被重置的问题。[#34845](https://github.com/ant-design/ant-design/pull/34845)
+- 🐞 修复 Pagination 在 `<ConfigProvider componentSize="large" />` 下的 Select 大小问题。[#34756](https://github.com/ant-design/ant-design/pull/34756)
+- 🐞 修复 Skeleton 不渲染非 react element 类型的 `children` 问题。[#34751](https://github.com/ant-design/ant-design/pull/34751) [@1247748612](https://github.com/1247748612)
+- 💄 修复 Tag `@tag-border-radius` less 变量不生效的问题。[#34741](https://github.com/ant-design/ant-design/pull/34741)
+
 ## 4.19.4
 
 `2022-03-27`
@@ -38,7 +47,8 @@ timeline: true
 - 💄 修复 RangePicker `status` 相关样式丢失的问题。[#34509](https://github.com/ant-design/ant-design/pull/34509)
 - 🛎 为动态改变 Form.Item 的 `hasFeedback` 时 Input 焦点丢失添加警告。[#34475](https://github.com/ant-design/ant-design/pull/34475)
 - 🐞 修复 Input 有 `prefix` 或者 `suffix` 时 input 缺少某些 className 的问题。[#34474](https://github.com/ant-design/ant-design/pull/34474)
-- 🌐 更新 it_LT 的 locale。[#34567](https://github.com/ant-desin/ant-design/pull/34567) [@Anizcus](https://github.com/Anizcus)
+- 🇱🇹 更新 lt_LT 的 locale。[#34567](https://github.com/ant-design/ant-design/pull/34567) [@Anizcus](https://github.com/Anizcus)
+- 🇮🇹 更新 it_iT 的 locale。[#34566](https://github.com/ant-design/ant-design/pull/34566) [@freshgiammi](https://gitit_LTit_LThub.com/freshgiammi)
 
 ## 4.19.2
 

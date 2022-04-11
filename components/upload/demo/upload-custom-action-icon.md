@@ -54,10 +54,9 @@ const props = {
   },
 };
 
-ReactDOM.render(
+export default () => (
   <Upload {...props}>
     <Button icon={<UploadOutlined />}>Upload</Button>
-  </Upload>,
-  mountNode,
+  </Upload>
 );
 ```

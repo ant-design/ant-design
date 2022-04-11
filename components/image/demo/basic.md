@@ -25,5 +25,5 @@ function ImageDemo() {
   );
 }
 
-ReactDOM.render(<ImageDemo />, mountNode);
+export default () => <ImageDemo />;
 ```

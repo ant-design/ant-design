@@ -54,7 +54,7 @@ const data = [
   },
 ];
 
-ReactDOM.render(
+export default () => (
   <List
     className="comment-list"
     header={`${data.length} replies`}
@@ -71,7 +71,6 @@ ReactDOM.render(
         />
       </li>
     )}
-  />,
-  mountNode,
+  />
 );
 ```

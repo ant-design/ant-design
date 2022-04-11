@@ -8,8 +8,14 @@ on:
     types:
       - completed
 
+permissions:
+  contents: read
+
 jobs:
   upload-ui:
+    permissions:
+      actions: read  # for dawidd6/action-download-artifact to query and download artifacts
+      pull-requests: read  # for dawidd6/action-download-artifact to query commit hash
     name: deploy preview
     runs-on: ubuntu-latest
     if: >

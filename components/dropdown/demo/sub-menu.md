@@ -61,12 +61,11 @@ const menu = (
   />
 );
 
-ReactDOM.render(
+export default () => (
   <Dropdown overlay={menu}>
     <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
       Cascading menu <DownOutlined />
     </a>
-  </Dropdown>,
-  mountNode,
+  </Dropdown>
 );
 ```

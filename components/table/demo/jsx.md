@@ -49,7 +49,7 @@ const data = [
   },
 ];
 
-ReactDOM.render(
+export default () => (
   <Table dataSource={data}>
     <ColumnGroup title="Name">
       <Column title="First Name" dataIndex="firstName" key="firstName" />
@@ -81,7 +81,6 @@ ReactDOM.render(
         </Space>
       )}
     />
-  </Table>,
-  mountNode,
+  </Table>
 );
 ```

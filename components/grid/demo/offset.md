@@ -18,7 +18,7 @@ title:
 ```jsx
 import { Row, Col } from 'antd';
 
-ReactDOM.render(
+export default () => (
   <>
     <Row>
       <Col span={8}>col-8</Col>
@@ -39,7 +39,6 @@ ReactDOM.render(
         col-12 col-offset-6
       </Col>
     </Row>
-  </>,
-  mountNode,
+  </>
 );
 ```

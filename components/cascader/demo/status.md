@@ -24,5 +24,5 @@ const Validation: React.FC = () => (
   </Space>
 );
 
-ReactDOM.render(<Validation />, mountNode);
+export default () => <Validation />;
 ```

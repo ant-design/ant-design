@@ -16,7 +16,7 @@ Simplest Usage.
 ```jsx
 import { Statistic, Row, Col, Button } from 'antd';
 
-ReactDOM.render(
+export default () => (
   <Row gutter={16}>
     <Col span={12}>
       <Statistic title="Active Users" value={112893} />
@@ -30,7 +30,6 @@ ReactDOM.render(
     <Col span={12}>
       <Statistic title="Active Users" value={112893} loading />
     </Col>
-  </Row>,
-  mountNode,
+  </Row>
 );
 ```

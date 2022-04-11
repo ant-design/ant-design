@@ -36,5 +36,5 @@ function dig(path = '0', level = 3) {
 
 const treeData = dig();
 
-ReactDOM.render(<Tree treeData={treeData} height={233} defaultExpandAll />, mountNode);
+export default () => <Tree treeData={treeData} height={233} defaultExpandAll />;
 ```

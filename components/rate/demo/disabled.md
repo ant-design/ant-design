@@ -16,5 +16,5 @@ Read only, can't use mouse to interact.
 ```jsx
 import { Rate } from 'antd';
 
-ReactDOM.render(<Rate disabled defaultValue={2} />, mountNode);
+export default () => <Rate disabled defaultValue={2} />;
 ```

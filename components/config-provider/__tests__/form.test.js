@@ -1,5 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import { act } from 'react-dom/test-utils';
 import ConfigProvider from '..';
 import zhCN from '../../locale/zh_CN';
@@ -15,10 +17,10 @@ describe('ConfigProvider.Form', () => {
   });
 
   describe('form validateMessages', () => {
-    const wrapperComponent = ({ validateMessages }) => {
+    const renderComponent = ({ validateMessages }) => {
       const formRef = React.createRef();
 
-      const wrapper = mount(
+      const { container } = render(
         <ConfigProvider locale={zhCN} form={{ validateMessages }}>
           <Form ref={formRef} initialValues={{ age: 18 }}>
             <Form.Item name="test" label="姓名" rules={[{ required: true }]}>
@@ -31,11 +33,11 @@ describe('ConfigProvider.Form', () => {
         </ConfigProvider>,
       );
 
-      return [wrapper, formRef];
+      return [container, formRef];
     };
 
     it('set locale zhCN', async () => {
-      const [wrapper, formRef] = wrapperComponent({});
+      const [container, formRef] = renderComponent({});
 
       await act(async () => {
         try {
@@ -47,15 +49,14 @@ describe('ConfigProvider.Form', () => {
 
       await act(async () => {
         jest.runAllTimers();
-        wrapper.update();
         await Promise.resolve();
       });
 
-      expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('请输入姓名');
+      expect(container.querySelector('.ant-form-item-explain')).toHaveTextContent('请输入姓名');
     });
 
     it('set locale zhCN and set form validateMessages one item, other use default message', async () => {
-      const [wrapper, formRef] = wrapperComponent({ validateMessages: { required: '必须' } });
+      const [container, formRef] = renderComponent({ validateMessages: { required: '必须' } });
 
       await act(async () => {
         try {
@@ -67,12 +68,13 @@ describe('ConfigProvider.Form', () => {
 
       await act(async () => {
         jest.runAllTimers();
-        wrapper.update();
         await Promise.resolve();
       });
 
-      expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('必须');
-      expect(wrapper.find('.ant-form-item-explain').last().text()).toEqual('年龄必须等于17');
+      const explains = Array.from(container.querySelectorAll('.ant-form-item-explain'));
+
+      expect(explains[0]).toHaveTextContent('必须');
+      expect(explains[explains.length - 1]).toHaveTextContent('年龄必须等于17');
     });
   });
 

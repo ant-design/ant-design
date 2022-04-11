@@ -12,8 +12,10 @@ export default function renderSwitcherIcon(
   prefixCls: string,
   switcherIcon: SwitcherIcon | undefined,
   showLine: boolean | { showLeafIcon: boolean } | undefined,
-  { isLeaf, expanded, loading }: AntTreeNodeProps,
-) {
+  treeNodeProps: AntTreeNodeProps,
+): React.ReactNode {
+  const { isLeaf, expanded, loading } = treeNodeProps;
+
   if (loading) {
     return <LoadingOutlined className={`${prefixCls}-switcher-loading-icon`} />;
   }
