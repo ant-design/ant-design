@@ -12,6 +12,7 @@ import {
   GenerateStyle,
   genComponentStyleHook,
   FullToken,
+  mergeToken,
 } from '../../_util/theme';
 import genSingleStyle from './single';
 import genMultipleStyle from './multiple';
@@ -304,27 +305,27 @@ const genSelectStyle: GenerateStyle<SelectToken> = (token, hashId) => {
     // =====================================================
     // ==                     Status                      ==
     // =====================================================
-    genStatusStyle(componentCls, {
-      ...token,
-      borderHoverColor: token.colorPrimaryHover,
-      outlineColor: token.colorPrimaryOutline,
-    }),
+    genStatusStyle(
+      componentCls,
+      mergeToken<any>(token, {
+        borderHoverColor: token.colorPrimaryHover,
+        outlineColor: token.colorPrimaryOutline,
+      }),
+    ),
     genStatusStyle(
       `${componentCls}-status-error`,
-      {
-        ...token,
+      mergeToken<any>(token, {
         borderHoverColor: token.colorErrorHover,
         outlineColor: token.colorErrorOutline,
-      },
+      }),
       true,
     ),
     genStatusStyle(
       `${componentCls}-status-warning`,
-      {
-        ...token,
+      mergeToken<any>(token, {
         borderHoverColor: token.colorWarningHover,
         outlineColor: token.colorWarningOutline,
-      },
+      }),
       true,
     ),
   ];
@@ -334,11 +335,10 @@ const genSelectStyle: GenerateStyle<SelectToken> = (token, hashId) => {
 export default genComponentStyleHook(
   'Select',
   (token, { rootPrefixCls, hashId }) => {
-    const selectToken: SelectToken = {
-      ...token,
+    const selectToken: SelectToken = mergeToken<SelectToken>(token, {
       rootPrefixCls,
       inputPaddingHorizontalBase: token.controlPaddingHorizontal - 1,
-    };
+    });
 
     return [genSelectStyle(selectToken, hashId)];
   },

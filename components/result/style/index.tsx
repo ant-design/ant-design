@@ -1,6 +1,6 @@
 // deps-lint-skip-all
 import { CSSObject } from '@ant-design/cssinjs';
-import { GenerateStyle, genComponentStyleHook, FullToken } from '../../_util/theme';
+import { GenerateStyle, genComponentStyleHook, FullToken, mergeToken } from '../../_util/theme';
 
 interface ResultToken extends FullToken<'Result'> {
   resultTitleFontSize: number;
@@ -126,8 +126,7 @@ export default genComponentStyleHook('Result', token => {
   const resultSuccessIconColor = token.colorSuccess;
   const resultWarningIconColor = token.colorWarning;
 
-  const resultToken: ResultToken = {
-    ...token,
+  const resultToken = mergeToken<ResultToken>(token, {
     resultTitleFontSize,
     resultSubtitleFontSize,
     resultIconFontSize,
@@ -136,7 +135,7 @@ export default genComponentStyleHook('Result', token => {
     resultErrorIconColor,
     resultSuccessIconColor,
     resultWarningIconColor,
-  };
+  });
 
   return [getStyle(resultToken)];
 });

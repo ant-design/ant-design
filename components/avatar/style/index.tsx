@@ -7,7 +7,13 @@
 
 // deps-lint-skip-all
 import { CSSObject } from '@ant-design/cssinjs';
-import { GenerateStyle, resetComponent, FullToken, genComponentStyleHook } from '../../_util/theme';
+import {
+  GenerateStyle,
+  resetComponent,
+  FullToken,
+  genComponentStyleHook,
+  mergeToken,
+} from '../../_util/theme';
 
 type AvatarToken = FullToken<'Avatar'> & {
   avatarBg: string;
@@ -134,8 +140,7 @@ const genGroupStyle: GenerateStyle<AvatarToken> = token => {
 };
 
 export default genComponentStyleHook('Avatar', token => {
-  const avatarToken: AvatarToken = {
-    ...token,
+  const avatarToken = mergeToken<AvatarToken>(token, {
     // FIXME
     avatarBg: '#ccc',
     // FIXME
@@ -152,7 +157,7 @@ export default genComponentStyleHook('Avatar', token => {
     avatarGroupBorderColor: '#fff',
     avatarGroupOverlapping: -8,
     avatarGroupSpace: 3,
-  };
+  });
 
   return [genBaseStyle(avatarToken), genGroupStyle(avatarToken)];
 });

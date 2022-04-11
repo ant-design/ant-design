@@ -1,6 +1,12 @@
 // deps-lint-skip-all
 import { CSSObject } from '@ant-design/cssinjs';
-import { resetComponent, GenerateStyle, genComponentStyleHook, FullToken } from '../../_util/theme';
+import {
+  resetComponent,
+  GenerateStyle,
+  genComponentStyleHook,
+  FullToken,
+  mergeToken,
+} from '../../_util/theme';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -153,12 +159,11 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
 export default genComponentStyleHook(
   'Divider',
   token => {
-    const dividerToken: DividerToken = {
-      ...token,
+    const dividerToken = mergeToken<DividerToken>(token, {
       dividerVerticalGutterMargin: token.marginSM,
       dividerHorizontalWithTextGutterMargin: token.margin,
       dividerHorizontalGutterMargin: token.marginLG,
-    };
+    });
     return [genSharedDividerStyle(dividerToken)];
   },
   {

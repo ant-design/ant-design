@@ -1,6 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import * as React from 'react';
-import { Table, Space, TableProps, ConfigProvider, Select, Row, Col } from 'antd';
+import { Table, Space, TableProps, ConfigProvider, Select, Row, Col, Alert } from 'antd';
 import { statistic } from '../../../../../components/_util/theme/util/statistic';
 
 const columns: TableProps<{ name: string; value: any }>['columns'] = [
@@ -102,6 +102,14 @@ export default () => {
           allowClear
         />
       </Col>
+      {filteredTokenList.length === tokenList.length && (
+        <Col span={24}>
+          <Alert
+            type="error"
+            message="Tokens here maybe a mistake because all tokens are listed. Please check if you are using deconstruction in this component."
+          />
+        </Col>
+      )}
       <Col span={24}>
         <Table
           dataSource={filteredTokenList}

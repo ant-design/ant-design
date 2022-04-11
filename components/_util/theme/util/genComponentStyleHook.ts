@@ -42,7 +42,7 @@ function genComponentStyleHook<ComponentName extends OverrideComponent>(
         const { token: proxyToken, flush } = statisticToken(token);
 
         const defaultComponentToken =
-          typeof getDefaultToken === 'function' ? getDefaultToken(token) : getDefaultToken;
+          typeof getDefaultToken === 'function' ? getDefaultToken(proxyToken) : getDefaultToken;
         const overrideComponentToken = token[component] as any;
 
         // Only merge token specified in interface

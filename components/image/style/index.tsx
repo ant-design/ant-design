@@ -1,7 +1,13 @@
 // deps-lint-skip-all
 import { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-import { FullToken, genComponentStyleHook, GenerateStyle, resetComponent } from '../../_util/theme';
+import {
+  FullToken,
+  genComponentStyleHook,
+  GenerateStyle,
+  mergeToken,
+  resetComponent,
+} from '../../_util/theme';
 
 export interface ImageToken extends FullToken<'Image'> {
   previewPrefixCls: string;
@@ -285,8 +291,7 @@ const genImageStyle: GenerateStyle<ImageToken> = (token: ImageToken) => {
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Image', (token, { hashId }) => {
-  const imageToken: ImageToken = {
-    ...token,
+  const imageToken = mergeToken<ImageToken>(token, {
     previewPrefixCls: `${token.componentCls}-preview`,
 
     white: '#fff', // FIXME: hard code
@@ -309,7 +314,7 @@ export default genComponentStyleHook('Image', (token, { hashId }) => {
     zIndexImage: 1080, // FIXME: hard code in v4
     zIndexModalMask: 1000, // FIXME: hard code in v4
     motionEaseOut: 'cubic-bezier(0.215, 0.61, 0.355, 1)', // FIXME: hard code in v4
-  };
+  });
 
   return [genImageStyle(imageToken, hashId)];
 });

@@ -3,7 +3,12 @@
 
 // deps-lint-skip-all
 import { CSSObject, CSSInterpolation, Keyframes } from '@ant-design/cssinjs';
-import { DerivativeToken, resetComponent, genComponentStyleHook } from '../../_util/theme';
+import {
+  DerivativeToken,
+  resetComponent,
+  genComponentStyleHook,
+  mergeToken,
+} from '../../_util/theme';
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
 
 // ============================ Keyframes =============================
@@ -448,13 +453,12 @@ export const genTreeStyle = (
   const treeNodePadding = token.paddingXS / 2;
   const treeTitleHeight = token.controlHeightSM;
 
-  const treeToken = {
-    ...token,
+  const treeToken = mergeToken<TreeToken>(token, {
     treeCls,
     treeNodeCls,
     treeNodePadding,
     treeTitleHeight,
-  };
+  });
 
   return [
     // Basic

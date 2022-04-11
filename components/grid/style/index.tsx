@@ -3,7 +3,7 @@
 
 // deps-lint-skip-all
 import { CSSObject } from '@ant-design/cssinjs';
-import { GenerateStyle, FullToken, genComponentStyleHook } from '../../_util/theme';
+import { GenerateStyle, FullToken, genComponentStyleHook, mergeToken } from '../../_util/theme';
 
 interface GridRowToken extends FullToken<'Grid'> {}
 
@@ -152,10 +152,9 @@ const genGridMediaStyle = (
 export const useRowStyle = genComponentStyleHook('Grid', token => [genGridRowStyle(token)]);
 
 export const useColStyle = genComponentStyleHook('Grid', token => {
-  const gridToken: GridColToken = {
-    ...token,
+  const gridToken: GridColToken = mergeToken<GridColToken>(token, {
     gridColumns: 24, // FIXME: hardcode in v4
-  };
+  });
 
   const gridMediaSizesMap = {
     '-sm': gridToken.screenSMMin,

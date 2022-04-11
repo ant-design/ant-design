@@ -1,6 +1,6 @@
 import { CSSObject, CSSInterpolation } from '@ant-design/cssinjs';
 import type { SelectToken } from '.';
-import { resetIcon } from '../../_util/theme';
+import { mergeToken, resetIcon } from '../../_util/theme';
 
 const FIXED_ITEM_MARGIN = 2;
 
@@ -192,11 +192,10 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
 export default function genMultipleStyle(token: SelectToken): CSSInterpolation {
   const { componentCls } = token;
 
-  const smallToken: SelectToken = {
-    ...token,
+  const smallToken = mergeToken<SelectToken>(token, {
     controlHeight: token.controlHeightSM,
     controlHeightSM: token.controlHeightXS,
-  };
+  });
   const [, smSelectItemMargin] = getSelectItemStyle(token);
 
   return [
@@ -223,12 +222,11 @@ export default function genMultipleStyle(token: SelectToken): CSSInterpolation {
     // ======================== Large ========================
     // Shared
     genSizeStyle(
-      {
-        ...token,
+      mergeToken<any>(token, {
         fontSize: token.fontSizeLG,
         controlHeight: token.controlHeightLG,
         controlHeightSM: token.controlHeight,
-      },
+      }),
       'lg',
     ),
   ];

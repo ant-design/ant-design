@@ -1,4 +1,5 @@
 import { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
+import { mergeToken } from '../../_util/theme';
 import type { SelectToken } from '.';
 
 function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
@@ -137,10 +138,9 @@ export default function genSingleStyle(token: SelectToken): CSSInterpolation {
     // ======================== Small ========================
     // Shared
     genSizeStyle(
-      {
-        ...token,
+      mergeToken<any>(token, {
         controlHeight: token.controlHeightSM,
-      },
+      }),
       'sm',
     ),
 
@@ -176,11 +176,10 @@ export default function genSingleStyle(token: SelectToken): CSSInterpolation {
     // ======================== Large ========================
     // Shared
     genSizeStyle(
-      {
-        ...token,
+      mergeToken<any>(token, {
         controlHeight: token.controlHeightLG,
         fontSize: token.fontSizeLG,
-      },
+      }),
       'lg',
     ),
   ];

@@ -1,7 +1,7 @@
 // deps-lint-skip-all
 import { CSSObject, Keyframes } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-import { FullToken, genComponentStyleHook, GenerateStyle } from '../../_util/theme';
+import { FullToken, genComponentStyleHook, GenerateStyle, mergeToken } from '../../_util/theme';
 
 export interface DrawerToken extends FullToken<'Drawer'> {
   drawerHeaderCloseSize: number;
@@ -286,8 +286,7 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Drawer', (token, { hashId }) => {
-  const drawerToken: DrawerToken = {
-    ...token,
+  const drawerToken = mergeToken<DrawerToken>(token, {
     black: '#000', // FIXME: hard code
     white: '#fff', // FIXME: hard code
     drawerHeaderCloseSize: 56, // FIXME: hard code
@@ -309,7 +308,7 @@ export default genComponentStyleHook('Drawer', (token, { hashId }) => {
     textColorSecondary: new TinyColor('#000').setAlpha(0.45).toRgbString(), // FIXME: hard code
     borderStyle: 'solid', // FIXME: hard code
     motionEaseOut: 'cubic-bezier(0.215, 0.61, 0.355, 1)', // FIXME: hard code
-  };
+  });
 
   return [genBaseStyle(drawerToken, hashId), genDrawerStyle(drawerToken)];
 });
