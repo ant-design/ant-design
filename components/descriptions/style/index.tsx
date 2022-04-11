@@ -1,6 +1,12 @@
 // deps-lint-skip-all
 import { CSSObject } from '@ant-design/cssinjs';
-import { FullToken, genComponentStyleHook, GenerateStyle, resetComponent } from '../../_util/theme';
+import {
+  FullToken,
+  genComponentStyleHook,
+  GenerateStyle,
+  mergeToken,
+  resetComponent,
+} from '../../_util/theme';
 
 interface DescriptionsToken extends FullToken<'Descriptions'> {
   descriptionsTitleMarginBottom: number;
@@ -206,8 +212,7 @@ export default genComponentStyleHook('Descriptions', token => {
   const descriptionsItemLabelColonMarginRight = 8;
   const descriptionsItemLabelColonMarginLeft = 2;
 
-  const descriptionToken: DescriptionsToken = {
-    ...token,
+  const descriptionToken = mergeToken<DescriptionsToken>(token, {
     descriptionsBg,
     descriptionsTitleMarginBottom,
     descriptionsExtraColor,
@@ -218,7 +223,7 @@ export default genComponentStyleHook('Descriptions', token => {
     descriptionsMiddlePadding,
     descriptionsItemLabelColonMarginRight,
     descriptionsItemLabelColonMarginLeft,
-  };
+  });
 
   return [genDescriptionStyles(descriptionToken)];
 });

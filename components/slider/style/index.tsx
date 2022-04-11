@@ -7,7 +7,13 @@
 // deps-lint-skip-all
 import * as React from 'react';
 import { CSSObject } from '@ant-design/cssinjs';
-import { GenerateStyle, resetComponent, FullToken, genComponentStyleHook } from '../../_util/theme';
+import {
+  GenerateStyle,
+  resetComponent,
+  FullToken,
+  genComponentStyleHook,
+  mergeToken,
+} from '../../_util/theme';
 
 // Direction naming standard:
 // Horizontal base:
@@ -277,12 +283,11 @@ const genVerticalStyle: GenerateStyle<SliderToken> = token => {
 export default genComponentStyleHook(
   'Slider',
   (token, { hashId }) => {
-    const sliderToken: SliderToken = {
-      ...token,
+    const sliderToken = mergeToken<SliderToken>(token, {
       marginPart: (token.controlHeight - token.controlSize) / 2,
       marginFull: token.controlSize / 2,
       marginPartWithMark: token.controlHeightLG - token.controlSize,
-    };
+    });
     return [
       genBaseStyle(sliderToken, hashId),
       genHorizontalStyle(sliderToken),

@@ -1,6 +1,12 @@
 // deps-lint-skip-all
 import { CSSObject, Keyframes } from '@ant-design/cssinjs';
-import { resetComponent, GenerateStyle, FullToken, genComponentStyleHook } from '../../_util/theme';
+import {
+  resetComponent,
+  GenerateStyle,
+  FullToken,
+  genComponentStyleHook,
+  mergeToken,
+} from '../../_util/theme';
 
 interface SpinToken extends FullToken<'Spin'> {
   spinDotDefault: string;
@@ -216,12 +222,11 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken, hashId: string
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Spin', (token, { hashId }) => {
-  const spinToken: SpinToken = {
-    ...token,
+  const spinToken = mergeToken<SpinToken>(token, {
     spinDotDefault: token.colorTextSecondary,
     spinDotSize: 20, // FIXME: hard code in v4
     spinDotSizeSM: 14, // FIXME: hard code in v4
     spinDotSizeLG: 32, // FIXME: hard code in v4
-  };
+  });
   return [genSpinStyle(spinToken, hashId)];
 });

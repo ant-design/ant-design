@@ -1,6 +1,12 @@
 // deps-lint-skip-all
 import { Keyframes } from '@ant-design/cssinjs';
-import { resetComponent, GenerateStyle, genComponentStyleHook, FullToken } from '../../_util/theme';
+import {
+  resetComponent,
+  GenerateStyle,
+  genComponentStyleHook,
+  FullToken,
+  mergeToken,
+} from '../../_util/theme';
 
 interface CheckboxToken extends FullToken<'Checkbox'> {
   checkboxCls: string;
@@ -236,10 +242,9 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token, hashId) =>
 
 // ============================== Export ==============================
 export function getStyle(prefixCls: string, token: FullToken<'Checkbox'>, hashId: string) {
-  const checkboxToken: CheckboxToken = {
-    ...token,
+  const checkboxToken: CheckboxToken = mergeToken<CheckboxToken>(token, {
     checkboxCls: `.${prefixCls}`,
-  };
+  });
 
   return [genCheckboxStyle(checkboxToken, hashId), antCheckboxEffect];
 }

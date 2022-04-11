@@ -1,7 +1,7 @@
 // deps-lint-skip-all
 import { CSSObject, Keyframes } from '@ant-design/cssinjs';
 
-import { GenerateStyle, FullToken, genComponentStyleHook } from '../../_util/theme';
+import { GenerateStyle, FullToken, genComponentStyleHook, mergeToken } from '../../_util/theme';
 
 const skeletonClsLoading = new Keyframes(`ant-skeleton-loading`, {
   '0%': {
@@ -344,8 +344,7 @@ const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken, hashId
 export default genComponentStyleHook('Skeleton', (token, { hashId }) => {
   const { componentCls } = token;
 
-  const skeletonToken: SkeletonToken = {
-    ...token,
+  const skeletonToken = mergeToken<SkeletonToken>(token, {
     skeletonAvatarCls: `${componentCls}-avatar`,
     skeletonTitleCls: `${componentCls}-title`,
     skeletonParagraphCls: `${componentCls}-paragraph`,
@@ -361,6 +360,6 @@ export default genComponentStyleHook('Skeleton', (token, { hashId }) => {
     skeletonParagraphLiHeight: 16, // FIXME: hard code in v4
     skeletonParagraphMarginTop: 28, // FIXME: hard code in v4
     borderRadius: 100, // FIXME: hard code in v4
-  };
+  });
   return [genBaseStyle(skeletonToken, hashId)];
 });

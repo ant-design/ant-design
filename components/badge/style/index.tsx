@@ -7,6 +7,7 @@ import {
   PresetColorType,
   genComponentStyleHook,
   FullToken,
+  mergeToken,
 } from '../../_util/theme';
 
 interface BadgeToken extends FullToken<'Badge'> {
@@ -332,8 +333,7 @@ export default genComponentStyleHook('Badge', (token, { hashId }) => {
   const badgeFontSizeSm = token.fontSizeSM;
   const badgeStatusSize = 6; // FIXME: hard code
 
-  const badgeToken: BadgeToken = {
-    ...token,
+  const badgeToken = mergeToken<BadgeToken>(token, {
     badgeZIndex,
     badgeHeight,
     badgeTextColor,
@@ -344,7 +344,7 @@ export default genComponentStyleHook('Badge', (token, { hashId }) => {
     badgeDotSize,
     badgeFontSizeSm,
     badgeStatusSize,
-  };
+  });
 
   return [genSharedBadgeStyle(badgeToken, hashId), { display: 'none' }];
 });

@@ -1,6 +1,12 @@
 // deps-lint-skip-all
 import { CSSObject } from '@ant-design/cssinjs';
-import { resetComponent, GenerateStyle, FullToken, genComponentStyleHook } from '../../_util/theme';
+import {
+  resetComponent,
+  GenerateStyle,
+  FullToken,
+  genComponentStyleHook,
+  mergeToken,
+} from '../../_util/theme';
 
 interface StatisticToken extends FullToken<'Statistic'> {
   statisticTitleFontSize: number;
@@ -39,11 +45,10 @@ const genStatisticStyle: GenerateStyle<StatisticToken> = (token: StatisticToken)
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Statistic', token => {
-  const statisticToken: StatisticToken = {
-    ...token,
+  const statisticToken = mergeToken<StatisticToken>(token, {
     statisticTitleFontSize: token.fontSize,
     statisticContentFontSize: 24, // FIXME: hard code
     statisticFontFamily: token.fontFamily,
-  };
+  });
   return [genStatisticStyle(statisticToken)];
 });

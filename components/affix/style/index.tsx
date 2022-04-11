@@ -1,6 +1,6 @@
 // deps-lint-skip-all
 import { CSSObject } from '@ant-design/cssinjs';
-import { GenerateStyle, genComponentStyleHook, FullToken } from '../../_util/theme';
+import { GenerateStyle, genComponentStyleHook, FullToken, mergeToken } from '../../_util/theme';
 
 interface AffixToken extends FullToken<'Affix'> {
   zIndexAffix: number;
@@ -20,9 +20,8 @@ const genSharedAffixStyle: GenerateStyle<AffixToken> = (token): CSSObject => {
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Affix', token => {
-  const affixToken: AffixToken = {
-    ...token,
+  const affixToken = mergeToken<AffixToken>(token, {
     zIndexAffix: token.zIndexBase + 10,
-  };
+  });
   return [genSharedAffixStyle(affixToken)];
 });
