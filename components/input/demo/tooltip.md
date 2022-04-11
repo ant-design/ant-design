@@ -97,7 +97,7 @@ class NumericInputDemo extends React.Component {
   }
 }
 
-ReactDOM.render(<NumericInputDemo />, mountNode);
+export default () => <NumericInputDemo />;
 ```
 
 ```css

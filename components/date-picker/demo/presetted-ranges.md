@@ -24,7 +24,7 @@ function onChange(dates, dateStrings) {
   console.log('From: ', dateStrings[0], ', to: ', dateStrings[1]);
 }
 
-ReactDOM.render(
+export default () => (
   <Space direction="vertical" size={12}>
     <RangePicker
       ranges={{
@@ -42,7 +42,6 @@ ReactDOM.render(
       format="YYYY/MM/DD HH:mm:ss"
       onChange={onChange}
     />
-  </Space>,
-  mountNode,
+  </Space>
 );
 ```

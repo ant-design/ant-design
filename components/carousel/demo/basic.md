@@ -28,7 +28,7 @@ const contentStyle = {
   background: '#364d79',
 };
 
-ReactDOM.render(
+export default () => (
   <Carousel afterChange={onChange}>
     <div>
       <h3 style={contentStyle}>1</h3>
@@ -42,7 +42,6 @@ ReactDOM.render(
     <div>
       <h3 style={contentStyle}>4</h3>
     </div>
-  </Carousel>,
-  mountNode,
+  </Carousel>
 );
 ```

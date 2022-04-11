@@ -16,12 +16,11 @@ A simple card only containing a content area.
 ```jsx
 import { Card } from 'antd';
 
-ReactDOM.render(
+export default () => (
   <Card style={{ width: 300 }}>
     <p>Card content</p>
     <p>Card content</p>
     <p>Card content</p>
-  </Card>,
-  mountNode,
+  </Card>
 );
 ```

@@ -16,12 +16,11 @@ Simple mode.
 ```jsx
 import { Pagination } from 'antd';
 
-ReactDOM.render(
+export default () => (
   <>
     <Pagination simple defaultCurrent={2} total={50} />
     <br />
     <Pagination disabled simple defaultCurrent={2} total={50} />
-  </>,
-  mountNode,
+  </>
 );
 ```

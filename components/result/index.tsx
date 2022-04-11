@@ -37,6 +37,7 @@ export interface ResultProps {
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
+  children?: React.ReactNode;
 }
 
 // ExceptionImageMap keys
@@ -76,9 +77,9 @@ const renderExtra = (prefixCls: string, { extra }: ResultProps) =>
   extra && <div className={`${prefixCls}-extra`}>{extra}</div>;
 
 export interface ResultType extends React.FC<ResultProps> {
-  PRESENTED_IMAGE_404: React.ReactNode;
-  PRESENTED_IMAGE_403: React.ReactNode;
-  PRESENTED_IMAGE_500: React.ReactNode;
+  PRESENTED_IMAGE_404: React.FC;
+  PRESENTED_IMAGE_403: React.FC;
+  PRESENTED_IMAGE_500: React.FC;
 }
 
 const Result: ResultType = ({

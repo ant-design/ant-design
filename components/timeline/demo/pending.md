@@ -41,5 +41,5 @@ class PendingTimeLine extends React.Component {
   }
 }
 
-ReactDOM.render(<PendingTimeLine />, mountNode);
+export default () => <PendingTimeLine />;
 ```

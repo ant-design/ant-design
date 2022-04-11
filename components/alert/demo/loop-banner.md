@@ -18,7 +18,7 @@ import { Alert } from 'antd';
 import { TextLoop } from 'react-text-loop-next';
 import Marquee from 'react-fast-marquee';
 
-ReactDOM.render(
+export default () => (
   <>
     <Alert
       banner
@@ -39,7 +39,6 @@ ReactDOM.render(
         </Marquee>
       }
     />
-  </>,
-  mountNode,
+  </>
 );
 ```

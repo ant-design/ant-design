@@ -78,5 +78,5 @@ const InfiniteListExample = () => {
   );
 };
 
-ReactDOM.render(<InfiniteListExample />, mountNode);
+export default () => <InfiniteListExample />;
 ```

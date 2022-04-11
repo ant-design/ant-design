@@ -16,10 +16,9 @@ Set offset of the badge dot, the format is `[left, top]`, which represents the o
 ```jsx
 import { Badge, Avatar } from 'antd';
 
-ReactDOM.render(
+export default () => (
   <Badge count={5} offset={[10, 10]}>
     <Avatar shape="square" size="large" />
-  </Badge>,
-  mountNode,
+  </Badge>
 );
 ```

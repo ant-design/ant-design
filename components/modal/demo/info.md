@@ -49,13 +49,12 @@ function warning() {
   });
 }
 
-ReactDOM.render(
+export default () => (
   <Space wrap>
     <Button onClick={info}>Info</Button>
     <Button onClick={success}>Success</Button>
     <Button onClick={error}>Error</Button>
     <Button onClick={warning}>Warning</Button>
-  </Space>,
-  mountNode,
+  </Space>
 );
 ```

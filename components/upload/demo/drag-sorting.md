@@ -135,7 +135,7 @@ const DragSortingUpload = () => {
   );
 };
 
-ReactDOM.render(<DragSortingUpload />, mountNode);
+export default () => <DragSortingUpload />;
 ```
 
 ```css

@@ -16,7 +16,7 @@ There are three sizes available: large, medium, and small. It can coordinate wit
 ```jsx
 import { Radio } from 'antd';
 
-ReactDOM.render(
+export default () => (
   <>
     <Radio.Group defaultValue="a" size="large">
       <Radio.Button value="a">Hangzhou</Radio.Button>
@@ -36,7 +36,6 @@ ReactDOM.render(
       <Radio.Button value="c">Beijing</Radio.Button>
       <Radio.Button value="d">Chengdu</Radio.Button>
     </Radio.Group>
-  </>,
-  mountNode,
+  </>
 );
 ```

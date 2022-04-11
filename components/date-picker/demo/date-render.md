@@ -18,7 +18,7 @@ import { DatePicker, Space } from 'antd';
 
 const { RangePicker } = DatePicker;
 
-ReactDOM.render(
+export default () => (
   <Space direction="vertical" size={12}>
     <DatePicker
       dateRender={current => {
@@ -48,7 +48,6 @@ ReactDOM.render(
         );
       }}
     />
-  </Space>,
-  mountNode,
+  </Space>
 );
 ```

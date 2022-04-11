@@ -33,7 +33,7 @@ const openNotification = placement => {
   });
 };
 
-ReactDOM.render(
+export default () => (
   <>
     <Space>
       <Button type="primary" onClick={() => openNotification('top')} icon={<BorderTopOutlined />}>
@@ -81,7 +81,6 @@ ReactDOM.render(
         bottomRight
       </Button>
     </Space>
-  </>,
-  mountNode,
+  </>
 );
 ```

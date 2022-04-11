@@ -73,5 +73,5 @@ const Demo: React.FC<{}> = () => {
   return <Tree loadData={onLoadData} treeData={treeData} />;
 };
 
-ReactDOM.render(<Demo />, mountNode);
+export default () => <Demo />;
 ```

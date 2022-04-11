@@ -32,7 +32,7 @@ const data = [
   'Los Angeles battles huge wildfires.',
 ];
 
-ReactDOM.render(
+export default () => (
   <>
     <Divider orientation="left">Default Size</Divider>
     <List
@@ -64,7 +64,6 @@ ReactDOM.render(
       dataSource={data}
       renderItem={item => <List.Item>{item}</List.Item>}
     />
-  </>,
-  mountNode,
+  </>
 );
 ```

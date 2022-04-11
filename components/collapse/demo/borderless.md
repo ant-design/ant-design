@@ -25,7 +25,7 @@ const text = (
   </p>
 );
 
-ReactDOM.render(
+export default () => (
   <Collapse bordered={false} defaultActiveKey={['1']}>
     <Panel header="This is panel header 1" key="1">
       {text}
@@ -36,7 +36,6 @@ ReactDOM.render(
     <Panel header="This is panel header 3" key="3">
       {text}
     </Panel>
-  </Collapse>,
-  mountNode,
+  </Collapse>
 );
 ```
