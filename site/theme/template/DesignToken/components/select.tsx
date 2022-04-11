@@ -2,9 +2,7 @@ import React from 'react';
 import { Select } from 'antd';
 
 const { Option } = Select;
-function handleChange(value) {
-  console.log(`selected ${value}`);
-}
+function handleChange() {}
 export default () => (
   <>
     <Select defaultValue="lucy" style={{ width: 120 }} onChange={handleChange}>

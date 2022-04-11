@@ -2,9 +2,7 @@ import React from 'react';
 import { Tabs } from 'antd';
 
 const { TabPane } = Tabs;
-function callback(key) {
-  console.log(key);
-}
+function callback() {}
 const Demo = () => (
   <Tabs defaultActiveKey="1" onChange={callback}>
     <TabPane tab="Tab 1" key="1">

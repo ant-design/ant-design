@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Transfer } from 'antd';
 
-const mockData = [];
+const mockData: any[] = [];
 for (let i = 0; i < 20; i++) {
   mockData.push({
     key: i.toString(),
@@ -12,30 +12,20 @@ for (let i = 0; i < 20; i++) {
 const initialTargetKeys = mockData.filter(item => +item.key > 10).map(item => item.key);
 const App = () => {
   const [targetKeys, setTargetKeys] = useState(initialTargetKeys);
-  const [selectedKeys, setSelectedKeys] = useState([]);
-  const onChange = (nextTargetKeys, direction, moveKeys) => {
-    console.log('targetKeys:', nextTargetKeys);
-    console.log('direction:', direction);
-    console.log('moveKeys:', moveKeys);
-    setTargetKeys(nextTargetKeys);
-  };
-  const onSelectChange = (sourceSelectedKeys, targetSelectedKeys) => {
-    console.log('sourceSelectedKeys:', sourceSelectedKeys);
-    console.log('targetSelectedKeys:', targetSelectedKeys);
-    setSelectedKeys([...sourceSelectedKeys, ...targetSelectedKeys]);
-  };
-  const onScroll = (direction, e) => {
-    console.log('direction:', direction);
-    console.log('target:', e.target);
-  };
+  const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
+  const onScroll = () => {};
   return (
     <Transfer
       dataSource={mockData}
       titles={['Source', 'Target']}
       targetKeys={targetKeys}
       selectedKeys={selectedKeys}
-      onChange={onChange}
-      onSelectChange={onSelectChange}
+      onChange={nextTargetKeys => {
+        setTargetKeys(nextTargetKeys);
+      }}
+      onSelectChange={(sourceSelectedKeys, targetSelectedKeys) => {
+        setSelectedKeys([...sourceSelectedKeys, ...targetSelectedKeys]);
+      }}
       onScroll={onScroll}
       render={item => item.title}
     />
