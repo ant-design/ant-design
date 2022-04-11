@@ -73,6 +73,23 @@ describe('Tree', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
+  it('switcherIcon in Tree could be render prop function', () => {
+    const wrapper = mount(
+      <Tree
+        switcherIcon={expanded =>
+          expanded ? <span className="open" /> : <span className="close" />
+        }
+        defaultExpandAll
+      >
+        <TreeNode icon="icon">
+          <TreeNode id="node1" title="node1" icon="icon" key="0-0-2" />
+          <TreeNode id="node2" title="node2" key="0-0-3" />
+        </TreeNode>
+      </Tree>,
+    );
+    expect(wrapper.find('.open').length).toBe(1);
+  });
+
   // https://github.com/ant-design/ant-design/issues/23261
   it('showLine is object type should render correctly', () => {
     const wrapper = mount(
