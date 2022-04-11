@@ -7,6 +7,7 @@ import {
   PresetColors,
   FullToken,
   genComponentStyleHook,
+  mergeToken,
 } from '../../_util/theme';
 
 interface TagToken extends FullToken<'Tag'> {
@@ -150,13 +151,12 @@ export default genComponentStyleHook('Tag', token => {
   const tagDefaultBg = token.colorBgComponentSecondary;
   const tagDefaultColor = token.colorText;
 
-  const tagToken = {
-    ...token,
+  const tagToken = mergeToken<TagToken>(token, {
     tagFontSize,
     tagLineHeight,
     tagDefaultBg,
     tagDefaultColor,
-  };
+  });
 
   return [
     genBaseStyle(tagToken),

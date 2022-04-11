@@ -7,7 +7,7 @@ import {
   genInputSmallStyle,
   type InputToken,
 } from '../../input/style';
-import { resetComponent, genComponentStyleHook } from '../../_util/theme';
+import { resetComponent, genComponentStyleHook, mergeToken } from '../../_util/theme';
 import type { GenerateStyle, FullToken } from '../../_util/theme';
 
 interface PaginationToken extends InputToken<FullToken<'Pagination'>> {
@@ -564,22 +564,24 @@ const genPaginationStyle: GenerateStyle<PaginationToken, CSSObject> = token => {
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Pagination', token => {
-  const paginationToken: PaginationToken = {
-    ...token,
-    // FIXME: missing token
-    paginationItemSize: token.controlHeight,
-    paginationFontFamily: token.fontFamily,
-    paginationItemBg: token.colorBgComponent,
-    paginationItemBgActive: token.colorBgComponent,
-    paginationFontWeightActive: 500,
-    paginationItemSizeSM: 24,
-    paginationItemInputBg: token.colorBgComponent,
-    paginationMiniOptionsSizeChangerTop: 0,
-    paginationItemDisabledBgActive: new TinyColor('#000').tint(90).toString(), // tint(@black, 90%)
-    paginationItemDisabledColorActive: token.colorTextDisabled,
-    paginationItemLinkBg: token.colorBgComponent,
-    inputOutlineOffset: '0 0',
-    ...initInputToken(token),
-  };
+  const paginationToken = mergeToken<PaginationToken>(
+    token,
+    {
+      // FIXME: missing token
+      paginationItemSize: token.controlHeight,
+      paginationFontFamily: token.fontFamily,
+      paginationItemBg: token.colorBgComponent,
+      paginationItemBgActive: token.colorBgComponent,
+      paginationFontWeightActive: 500,
+      paginationItemSizeSM: 24,
+      paginationItemInputBg: token.colorBgComponent,
+      paginationMiniOptionsSizeChangerTop: 0,
+      paginationItemDisabledBgActive: new TinyColor('#000').tint(90).toString(), // tint(@black, 90%)
+      paginationItemDisabledColorActive: token.colorTextDisabled,
+      paginationItemLinkBg: token.colorBgComponent,
+      inputOutlineOffset: '0 0',
+    },
+    initInputToken(token),
+  );
   return [genPaginationStyle(paginationToken)];
 });

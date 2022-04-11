@@ -15,6 +15,7 @@ import {
   roundedArrow,
   FullToken,
   genComponentStyleHook,
+  mergeToken,
 } from '../../_util/theme';
 
 // FIXME
@@ -352,8 +353,7 @@ export default genComponentStyleHook('Popover', token => {
   // FIXME
   const popoverArrowWidth = 8 * Math.sqrt(2);
 
-  const popoverToken: PopoverToken = {
-    ...token,
+  const popoverToken = mergeToken<PopoverToken>(token, {
     popoverBg,
     popoverColor: token.colorText,
     // FIXME
@@ -368,7 +368,7 @@ export default genComponentStyleHook('Popover', token => {
     // FIXME
     popoverArrowOffsetVertical: 12,
     popoverArrowOffsetHorizontal: 16,
-  };
+  });
 
   return [genBaseStyle(popoverToken), genPlacementStyle(popoverToken), genColorStyle(popoverToken)];
 });

@@ -1,7 +1,14 @@
 // deps-lint-skip-all
 import { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-import { GenerateStyle, resetComponent, FullToken, genComponentStyleHook } from '../../_util/theme';
+import {
+  GenerateStyle,
+  resetComponent,
+  FullToken,
+  genComponentStyleHook,
+  mergeToken,
+  DerivativeToken,
+} from '../../_util/theme';
 
 interface ListToken extends FullToken<'List'> {
   minHeight: number;
@@ -147,12 +154,13 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
 
   return {
     [`${componentCls}`]: {
-      ...resetComponent({
-        ...token,
-        colorText,
-        fontSize: fontSizeBase,
-        lineHeight: lineHeightBase,
-      }),
+      ...resetComponent(
+        mergeToken<DerivativeToken>(token, {
+          colorText,
+          fontSize: fontSizeBase,
+          lineHeight: lineHeightBase,
+        }),
+      ),
       position: 'relative',
       '*': {
         outline: 'none',
@@ -371,8 +379,7 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
 
 // ============================== Export ==============================
 export default genComponentStyleHook('List', (token, { hashId }) => {
-  const listToken: ListToken = {
-    ...token,
+  const listToken = mergeToken<ListToken>(token, {
     listBorderedCls: `${token.componentCls}-bordered`,
     antPrefix: '.ant', // FIXME: hard code in v4
     minHeight: 40, // FIXME: hard code in v4,
@@ -397,7 +404,7 @@ export default genComponentStyleHook('List', (token, { hashId }) => {
 
     lineHeightBase: 1.5715, // FIXME: hard code in v4,
     lineHeight: 1.5,
-  };
+  });
 
   return [
     genBaseStyle(listToken, hashId),

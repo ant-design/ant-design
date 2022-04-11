@@ -1,6 +1,12 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
-import { resetComponent, GenerateStyle, genComponentStyleHook, FullToken } from '../../_util/theme';
+import {
+  resetComponent,
+  GenerateStyle,
+  genComponentStyleHook,
+  FullToken,
+  mergeToken,
+} from '../../_util/theme';
 
 interface CarouselToken extends FullToken<'Carousel'> {
   carouselDotWidth: CSSObject['width'];
@@ -322,13 +328,12 @@ const genCarouselRtlStyle: GenerateStyle<CarouselToken> = token => {
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Carousel', token => {
-  const carouselToken: CarouselToken = {
-    ...token,
+  const carouselToken = mergeToken<CarouselToken>(token, {
     // FIXME
     carouselDotWidth: 16,
     carouselDotHeight: 3,
     carouselDotActiveWidth: 24,
-  };
+  });
   return [
     genCarouselStyle(carouselToken),
     genCarouselVerticalStyle(carouselToken),
