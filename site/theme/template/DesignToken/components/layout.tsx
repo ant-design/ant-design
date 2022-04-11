@@ -4,20 +4,16 @@ import { Layout } from 'antd';
 const { Header, Footer, Sider, Content } = Layout;
 export default () => (
   <>
-    {' '}
     <Layout>
-      {' '}
-      <Header>Header</Header> <Content>Content</Content> <Footer>Footer</Footer>{' '}
-    </Layout>{' '}
+      <Header>Header</Header> <Content>Content</Content> <Footer>Footer</Footer>
+    </Layout>
     <Layout>
-      {' '}
-      <Header>Header</Header>{' '}
+      <Header>Header</Header>
       <Layout>
-        {' '}
-        <Sider>Sider</Sider> <Content>Content</Content>{' '}
-      </Layout>{' '}
-      <Footer>Footer</Footer>{' '}
-    </Layout>{' '}
+        <Sider>Sider</Sider> <Content>Content</Content>
+      </Layout>
+      <Footer>Footer</Footer>
+    </Layout>
     <Layout>
       {' '}
       <Header>Header</Header>{' '}

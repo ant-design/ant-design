@@ -14,15 +14,12 @@ const App = () => {
   };
   return (
     <>
-      {' '}
       <Button type="primary" onClick={showModal}>
-        {' '}
-        Open Modal{' '}
-      </Button>{' '}
+        Open Modal
+      </Button>
       <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-        {' '}
-        <p>Some contents...</p> <p>Some contents...</p> <p>Some contents...</p>{' '}
-      </Modal>{' '}
+        <p>Some contents...</p> <p>Some contents...</p> <p>Some contents...</p>
+      </Modal>
     </>
   );
 };

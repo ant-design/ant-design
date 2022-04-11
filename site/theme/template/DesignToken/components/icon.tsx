@@ -10,8 +10,7 @@ import {
 
 export default () => (
   <Space>
-    {' '}
-    <HomeOutlined /> <SettingFilled /> <SmileOutlined /> <SyncOutlined spin />{' '}
-    <SmileOutlined rotate={180} /> <LoadingOutlined />{' '}
+    <HomeOutlined /> <SettingFilled /> <SmileOutlined /> <SyncOutlined spin />
+    <SmileOutlined rotate={180} /> <LoadingOutlined />
   </Space>
 );
