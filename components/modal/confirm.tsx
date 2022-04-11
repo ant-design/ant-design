@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { render as reactRender, unmount as reactUnmount } from 'rc-util/lib/React/render';
 import InfoCircleOutlined from '@ant-design/icons/InfoCircleOutlined';
 import CheckCircleOutlined from '@ant-design/icons/CheckCircleOutlined';
 import CloseCircleOutlined from '@ant-design/icons/CloseCircleOutlined';
@@ -8,7 +9,6 @@ import type { ModalFuncProps } from './Modal';
 import ConfirmDialog from './ConfirmDialog';
 import { globalConfig } from '../config-provider';
 import devWarning from '../_util/devWarning';
-import { reactRender, reactUnmount } from '../_util/compatible';
 import destroyFns from './destroyFns';
 
 let defaultRootPrefixCls = '';
