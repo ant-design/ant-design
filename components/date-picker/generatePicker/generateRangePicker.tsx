@@ -102,7 +102,7 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
                           [`${prefixCls}-borderless`]: !bordered,
                         },
                         getStatusClassNames(
-                          prefixCls,
+                          prefixCls as string,
                           getMergedStatus(contextStatus, customStatus),
                           hasFeedback,
                         ),
