@@ -5,10 +5,12 @@ import '@testing-library/jest-dom';
 import Breadcrumb from '../index';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 
 describe('Breadcrumb', () => {
   mountTest(Breadcrumb);
   rtlTest(Breadcrumb);
+  accessibilityTest(Breadcrumb);
 
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 

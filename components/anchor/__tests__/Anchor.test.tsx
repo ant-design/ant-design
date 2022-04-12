@@ -286,19 +286,6 @@ describe('Anchor Render', () => {
     expect(removeListenerSpy).toHaveBeenCalled();
   });
 
-  it('Anchor getCurrentAnchor prop', () => {
-    const hash1 = getHashUrl();
-    const hash2 = getHashUrl();
-    const getCurrentAnchor = () => `#${hash2}`;
-    const wrapper = mount<Anchor>(
-      <Anchor getCurrentAnchor={getCurrentAnchor}>
-        <Link href={`#${hash1}`} title={hash1} />
-        <Link href={`#${hash2}`} title={hash2} />
-      </Anchor>,
-    );
-    expect(wrapper.instance().state.activeLink).toBe(`#${hash2}`);
-  });
-
   it('Anchor targetOffset prop', async () => {
     const hash = getHashUrl();
     let dateNowMock;
@@ -394,23 +381,6 @@ describe('Anchor Render', () => {
     const onChange = jest.fn();
     const wrapper = mount<Anchor>(
       <Anchor onChange={onChange}>
-        <Link href={`#${hash1}`} title={hash1} />
-        <Link href={`#${hash2}`} title={hash2} />
-      </Anchor>,
-    );
-    expect(onChange).toHaveBeenCalledTimes(1);
-    wrapper.instance().handleScrollTo(hash2);
-    expect(onChange).toHaveBeenCalledTimes(2);
-    expect(onChange).toHaveBeenCalledWith(hash2);
-  });
-
-  // https://github.com/ant-design/ant-design/issues/30584
-  it('should trigger onChange when have getCurrentAnchor', async () => {
-    const hash1 = getHashUrl();
-    const hash2 = getHashUrl();
-    const onChange = jest.fn();
-    const wrapper = mount<Anchor>(
-      <Anchor onChange={onChange} getCurrentAnchor={() => hash1}>
         <Link href={`#${hash1}`} title={hash1} />
         <Link href={`#${hash2}`} title={hash2} />
       </Anchor>,
@@ -530,5 +500,55 @@ describe('Anchor Render', () => {
     expect(scrollToSpy).toHaveBeenLastCalledWith(0, 800);
 
     dateNowMock.mockRestore();
+  });
+
+  describe('getCurrentAnchor', () => {
+    it('Anchor getCurrentAnchor prop', () => {
+      const hash1 = getHashUrl();
+      const hash2 = getHashUrl();
+      const getCurrentAnchor = () => `#${hash2}`;
+      const wrapper = mount<Anchor>(
+        <Anchor getCurrentAnchor={getCurrentAnchor}>
+          <Link href={`#${hash1}`} title={hash1} />
+          <Link href={`#${hash2}`} title={hash2} />
+        </Anchor>,
+      );
+      expect(wrapper.instance().state.activeLink).toBe(`#${hash2}`);
+    });
+
+    // https://github.com/ant-design/ant-design/issues/30584
+    it('should trigger onChange when have getCurrentAnchor', async () => {
+      const hash1 = getHashUrl();
+      const hash2 = getHashUrl();
+      const onChange = jest.fn();
+      const wrapper = mount<Anchor>(
+        <Anchor onChange={onChange} getCurrentAnchor={() => hash1}>
+          <Link href={`#${hash1}`} title={hash1} />
+          <Link href={`#${hash2}`} title={hash2} />
+        </Anchor>,
+      );
+      expect(onChange).toHaveBeenCalledTimes(1);
+      wrapper.instance().handleScrollTo(hash2);
+      expect(onChange).toHaveBeenCalledTimes(2);
+      expect(onChange).toHaveBeenCalledWith(hash2);
+    });
+
+    // https://github.com/ant-design/ant-design/issues/34784
+    it('getCurrentAnchor have default link as argument', async () => {
+      const hash1 = getHashUrl();
+      const hash2 = getHashUrl();
+      const getCurrentAnchor = jest.fn();
+      const wrapper = mount<Anchor>(
+        <Anchor getCurrentAnchor={getCurrentAnchor}>
+          <Link href={`#${hash1}`} title={hash1} />
+          <Link href={`#${hash2}`} title={hash2} />
+        </Anchor>,
+      );
+
+      wrapper.find(`a[href="#${hash1}"]`).simulate('click');
+      expect(getCurrentAnchor).toHaveBeenCalledWith(`#${hash1}`);
+      wrapper.find(`a[href="#${hash2}"]`).simulate('click');
+      expect(getCurrentAnchor).toHaveBeenCalledWith(`#${hash2}`);
+    });
   });
 });

@@ -71,7 +71,7 @@ Basic text writing, including headings, body text, lists, and more.
 
     {
       text: string,
-      onCopy: function,
+      onCopy: function(event),
       icon: ReactNode,
       tooltips: false | [ReactNode, ReactNode],
     }

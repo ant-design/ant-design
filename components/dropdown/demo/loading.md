@@ -18,9 +18,14 @@ import { Menu, Dropdown, Space } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 
 const menu = (
-  <Menu>
-    <Menu.Item key="1">Submit and continue</Menu.Item>
-  </Menu>
+  <Menu
+    items={[
+      {
+        label: 'Submit and continue',
+        key: '1',
+      },
+    ]}
+  />
 );
 class App extends React.Component {
   state = {

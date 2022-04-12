@@ -13,7 +13,7 @@ title:
 
 Spin in a container.
 
-```jsx
+```tsx
 import { Spin } from 'antd';
 
 export default () => (

@@ -17,23 +17,31 @@ Breadcrumbs support drop down menu.
 import { Breadcrumb, Menu } from 'antd';
 
 const menu = (
-  <Menu>
-    <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
-        General
-      </a>
-    </Menu.Item>
-    <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
-        Layout
-      </a>
-    </Menu.Item>
-    <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="http://www.tmall.com/">
-        Navigation
-      </a>
-    </Menu.Item>
-  </Menu>
+  <Menu
+    items={[
+      {
+        label: (
+          <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
+            General
+          </a>
+        ),
+      },
+      {
+        label: (
+          <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
+            Layout
+          </a>
+        ),
+      },
+      {
+        label: (
+          <a target="_blank" rel="noopener noreferrer" href="http://www.tmall.com/">
+            Navigation
+          </a>
+        ),
+      },
+    ]}
+  />
 );
 
 export default () => (

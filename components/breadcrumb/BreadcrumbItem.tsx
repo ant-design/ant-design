@@ -12,6 +12,7 @@ export interface BreadcrumbItemProps {
   dropdownProps?: DropDownProps;
   onClick?: React.MouseEventHandler<HTMLAnchorElement | HTMLSpanElement>;
   className?: string;
+  children?: React.ReactNode;
 }
 interface BreadcrumbItemInterface extends React.FC<BreadcrumbItemProps> {
   __ANT_BREADCRUMB_ITEM: boolean;
@@ -30,7 +31,7 @@ const BreadcrumbItem: BreadcrumbItemInterface = ({
   const renderBreadcrumbNode = (breadcrumbItem: React.ReactNode) => {
     if (overlay) {
       return (
-        <DropDown overlay={overlay} placement="bottom" {...dropdownProps}>
+        <DropDown overlay={overlay} placement="bottomCenter" {...dropdownProps}>
           <span className={`${prefixCls}-overlay-link`}>
             {breadcrumbItem}
             <DownOutlined />
@@ -60,10 +61,10 @@ const BreadcrumbItem: BreadcrumbItemInterface = ({
   link = renderBreadcrumbNode(link);
   if (children) {
     return (
-      <span>
+      <li>
         {link}
         {separator && <span className={`${prefixCls}-separator`}>{separator}</span>}
-      </span>
+      </li>
     );
   }
   return null;

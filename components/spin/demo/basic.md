@@ -13,7 +13,7 @@ title:
 
 A simple loading status.
 
-```jsx
+```tsx
 import { Spin } from 'antd';
 
 export default () => <Spin />;

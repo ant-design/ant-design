@@ -132,9 +132,9 @@ export type NoticeType = keyof typeof typeToIcon;
 export const typeList = Object.keys(typeToIcon) as NoticeType[];
 
 export interface ArgsProps {
-  content: React.ReactNode;
+  content: any;
   duration?: number;
-  type: NoticeType;
+  type?: NoticeType;
   prefixCls?: string;
   rootPrefixCls?: string;
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
@@ -152,7 +152,7 @@ function getRCNoticeProps(
   iconPrefixCls?: string,
 ): NoticeContent {
   const duration = args.duration !== undefined ? args.duration : defaultDuration;
-  const IconComponent = typeToIcon[args.type];
+  const IconComponent = typeToIcon[args.type!];
   const messageClass = classNames(`${prefixCls}-custom-content`, {
     [`${prefixCls}-${args.type}`]: args.type,
     [`${prefixCls}-rtl`]: rtl === true,

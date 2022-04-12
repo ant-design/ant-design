@@ -61,6 +61,35 @@ import {
 
 const SplitSpace = props => <Space split={<Divider type="vertical" />} size={4} {...props} />;
 
+const menuItems = [
+  {
+    key: 'mail',
+    icon: <MailOutlined />,
+    label: 'Mail',
+  },
+  {
+    key: 'SubMenu',
+    icon: <SettingOutlined />,
+    label: 'Submenu',
+    children: [
+      {
+        type: 'group',
+        label: 'Item 1',
+        children: [
+          {
+            key: 'setting:1',
+            label: 'Option 1',
+          },
+          {
+            key: 'setting:2',
+            label: 'Option 2',
+          },
+        ],
+      },
+    ],
+  },
+];
+
 const inputProps = {
   style: { width: 128 },
 };
@@ -281,10 +310,17 @@ const FormSizeDemo = () => {
             {/* Dropdown */}
             <Dropdown
               overlay={
-                <Menu>
-                  <Menu.Item>1st menu item</Menu.Item>
-                  <Menu.Item danger>a danger item</Menu.Item>
-                </Menu>
+                <Menu
+                  items={[
+                    {
+                      label: '1st menu item',
+                    },
+                    {
+                      label: 'a danger item',
+                      danger: true,
+                    },
+                  ]}
+                />
               }
             >
               <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
@@ -299,60 +335,25 @@ const FormSizeDemo = () => {
           {/* Menu - horizontal */}
           <Row gutter={16}>
             <Col span={12}>
-              <Menu mode="horizontal" defaultSelectedKeys={['mail']}>
-                <Menu.Item key="mail" icon={<MailOutlined />}>
-                  Mail
-                </Menu.Item>
-                <Menu.SubMenu key="SubMenu" icon={<SettingOutlined />} title="Submenu">
-                  <Menu.ItemGroup title="Item 1">
-                    <Menu.Item key="setting:1">Option 1</Menu.Item>
-                    <Menu.Item key="setting:2">Option 2</Menu.Item>
-                  </Menu.ItemGroup>
-                </Menu.SubMenu>
-              </Menu>
+              <Menu mode="horizontal" defaultSelectedKeys={['mail']} items={menuItems} />
             </Col>
             <Col span={12}>
-              <Menu mode="horizontal" theme="dark" defaultSelectedKeys={['mail']}>
-                <Menu.Item key="mail" icon={<MailOutlined />}>
-                  Mail
-                </Menu.Item>
-                <Menu.SubMenu key="SubMenu" icon={<SettingOutlined />} title="Submenu">
-                  <Menu.ItemGroup title="Item 1">
-                    <Menu.Item key="setting:1">Option 1</Menu.Item>
-                    <Menu.Item key="setting:2">Option 2</Menu.Item>
-                  </Menu.ItemGroup>
-                </Menu.SubMenu>
-              </Menu>
+              <Menu
+                mode="horizontal"
+                theme="dark"
+                defaultSelectedKeys={['mail']}
+                items={menuItems}
+              />
             </Col>
           </Row>
 
           {/* Menu - vertical */}
           <Row gutter={16}>
             <Col span={12}>
-              <Menu mode="inline" defaultSelectedKeys={['mail']}>
-                <Menu.Item key="mail" icon={<MailOutlined />}>
-                  Mail
-                </Menu.Item>
-                <Menu.SubMenu key="SubMenu" icon={<SettingOutlined />} title="Submenu">
-                  <Menu.ItemGroup title="Item 1">
-                    <Menu.Item key="setting:1">Option 1</Menu.Item>
-                    <Menu.Item key="setting:2">Option 2</Menu.Item>
-                  </Menu.ItemGroup>
-                </Menu.SubMenu>
-              </Menu>
+              <Menu mode="inline" defaultSelectedKeys={['mail']} items={menuItems} />
             </Col>
             <Col span={12}>
-              <Menu mode="vertical" theme="dark" defaultSelectedKeys={['mail']}>
-                <Menu.Item key="mail" icon={<MailOutlined />}>
-                  Mail
-                </Menu.Item>
-                <Menu.SubMenu key="SubMenu" icon={<SettingOutlined />} title="Submenu">
-                  <Menu.ItemGroup title="Item 1">
-                    <Menu.Item key="setting:1">Option 1</Menu.Item>
-                    <Menu.Item key="setting:2">Option 2</Menu.Item>
-                  </Menu.ItemGroup>
-                </Menu.SubMenu>
-              </Menu>
+              <Menu mode="vertical" theme="dark" defaultSelectedKeys={['mail']} items={menuItems} />
             </Col>
           </Row>
 

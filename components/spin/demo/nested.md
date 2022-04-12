@@ -13,13 +13,13 @@ title:
 
 Embedding content into `Spin` will set it into loading state.
 
-```jsx
+```tsx
 import { Spin, Switch, Alert } from 'antd';
 
 class Card extends React.Component {
   state = { loading: false };
 
-  toggle = value => {
+  toggle = (value: boolean) => {
     this.setState({ loading: value });
   };
 

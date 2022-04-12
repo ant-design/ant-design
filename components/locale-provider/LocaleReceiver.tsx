@@ -1,6 +1,7 @@
 import * as React from 'react';
 import defaultLocaleData from './default';
 import LocaleContext from './context';
+import type { LocaleContextProps } from './context';
 import { Locale } from '.';
 
 export type LocaleComponentName = Exclude<keyof Locale, 'locale'>;
@@ -8,11 +9,7 @@ export type LocaleComponentName = Exclude<keyof Locale, 'locale'>;
 export interface LocaleReceiverProps<C extends LocaleComponentName = LocaleComponentName> {
   componentName: C;
   defaultLocale?: Locale[C] | (() => Locale[C]);
-  children: (
-    locale: Exclude<Locale[C], undefined>,
-    localeCode?: string,
-    fullLocale?: object,
-  ) => React.ReactNode;
+  children: (locale: Locale[C], localeCode?: string, fullLocale?: object) => React.ReactNode;
 }
 
 export default class LocaleReceiver<
@@ -24,7 +21,9 @@ export default class LocaleReceiver<
 
   static contextType = LocaleContext;
 
-  getLocale(): Exclude<Locale[C], undefined> {
+  context: LocaleContextProps;
+
+  getLocale(): Locale[C] {
     const { componentName, defaultLocale } = this.props;
     const locale = defaultLocale || defaultLocaleData[componentName ?? 'global'];
     const antLocale = this.context;
