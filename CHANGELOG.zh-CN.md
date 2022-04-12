@@ -17,7 +17,7 @@ timeline: true
 
 ## 4.20.0
 
-`2022-04-11`
+`2022-04-12`
 
 - 🔥 新增组件 Segmented。[#34319](https://github.com/ant-design/ant-design/pull/34319)
 - Table
