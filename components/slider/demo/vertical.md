@@ -34,7 +34,7 @@ const marks = {
   },
 };
 
-ReactDOM.render(
+export default () => (
   <>
     <div style={style}>
       <Slider vertical defaultValue={30} />
@@ -45,7 +45,6 @@ ReactDOM.render(
     <div style={style}>
       <Slider vertical range marks={marks} defaultValue={[26, 37]} />
     </div>
-  </>,
-  mountNode,
+  </>
 );
 ```

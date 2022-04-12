@@ -46,5 +46,5 @@ const App = () => {
   return <Table rowSelection={rowSelection} columns={columns} dataSource={data} />;
 };
 
-ReactDOM.render(<App />, mountNode);
+export default () => <App />;
 ```

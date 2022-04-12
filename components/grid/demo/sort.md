@@ -18,7 +18,7 @@ By using `push` and `pull` class you can easily change column order.
 ```jsx
 import { Row, Col } from 'antd';
 
-ReactDOM.render(
+export default () => (
   <Row>
     <Col span={18} push={6}>
       col-18 col-push-6
@@ -26,7 +26,6 @@ ReactDOM.render(
     <Col span={6} pull={18}>
       col-6 col-pull-18
     </Col>
-  </Row>,
-  mountNode,
+  </Row>
 );
 ```

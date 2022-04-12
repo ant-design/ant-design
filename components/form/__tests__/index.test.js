@@ -1,5 +1,7 @@
 import React, { Component, useState } from 'react';
 import { mount } from 'enzyme';
+import { render, fireEvent } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import { act } from 'react-dom/test-utils';
 import scrollIntoView from 'scroll-into-view-if-needed';
 import Form from '..';
@@ -27,15 +29,18 @@ describe('Form', () => {
   scrollIntoView.mockImplementation(() => {});
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
-  async function change(wrapper, index, value, executeMockTimer) {
-    wrapper.find(Input).at(index).simulate('change', { target: { value } });
+  async function change(container, index, value, executeMockTimer) {
+    fireEvent.change(container.querySelectorAll('input')[index], {
+      target: { value },
+    });
     await sleep(200);
 
     if (executeMockTimer) {
-      act(() => {
-        jest.runAllTimers();
-        wrapper.update();
-      });
+      for (let i = 0; i < 10; i += 1) {
+        act(() => {
+          jest.runAllTimers();
+        });
+      }
       await sleep(1);
     }
   }
@@ -60,19 +65,19 @@ describe('Form', () => {
 
       const onChange = jest.fn();
 
-      const wrapper = mount(
+      const { container } = render(
         <Form>
           <Form.Item>
-            <Form.Item name="test" rules={[{ required: true }]}>
+            <Form.Item name="test" initialValue="bamboo" rules={[{ required: true }]}>
               <Input onChange={onChange} />
             </Form.Item>
           </Form.Item>
         </Form>,
       );
 
-      await change(wrapper, 0, '', true);
-      expect(wrapper.find('.ant-form-item-with-help').length).toBeTruthy();
-      expect(wrapper.find('.ant-form-item-has-error').length).toBeTruthy();
+      await change(container, 0, '', true);
+      expect(container.querySelectorAll('.ant-form-item-with-help').length).toBeTruthy();
+      expect(container.querySelectorAll('.ant-form-item-has-error').length).toBeTruthy();
 
       expect(onChange).toHaveBeenCalled();
 
@@ -124,13 +129,13 @@ describe('Form', () => {
         );
       };
 
-      const wrapper = mount(<Demo />);
-      await change(wrapper, 0, '1', true);
-      expect(wrapper.find('.ant-form-item-explain').text()).toEqual('aaa');
-      await change(wrapper, 0, '2', true);
-      expect(wrapper.find('.ant-form-item-explain').text()).toEqual('ccc');
-      await change(wrapper, 0, '1', true);
-      expect(wrapper.find('.ant-form-item-explain').text()).toEqual('aaa');
+      const { container } = render(<Demo />);
+      await change(container, 0, '1', true);
+      expect(container.querySelector('.ant-form-item-explain').textContent).toEqual('aaa');
+      await change(container, 0, '2', true);
+      expect(container.querySelector('.ant-form-item-explain').textContent).toEqual('ccc');
+      await change(container, 0, '1', true);
+      expect(container.querySelector('.ant-form-item-explain').textContent).toEqual('aaa');
 
       jest.useRealTimers();
     });
@@ -353,7 +358,7 @@ describe('Form', () => {
   it('Error change should work', async () => {
     jest.useFakeTimers();
 
-    const wrapper = mount(
+    const { container } = render(
       <Form>
         <Form.Item
           name="name"
@@ -376,13 +381,15 @@ describe('Form', () => {
 
     /* eslint-disable no-await-in-loop */
     for (let i = 0; i < 3; i += 1) {
-      await change(wrapper, 0, '', true);
-      expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual("'name' is required");
+      await change(container, 0, 'bamboo', true);
+      await change(container, 0, '', true);
+      expect(container.querySelector('.ant-form-item-explain').textContent).toEqual(
+        "'name' is required",
+      );
 
-      await change(wrapper, 0, 'p', true);
+      await change(container, 0, 'p', true);
       await sleep(100);
-      wrapper.update();
-      expect(wrapper.find('.ant-form-item-explain').first().text()).toEqual('not a p');
+      expect(container.querySelector('.ant-form-item-explain').textContent).toEqual('not a p');
     }
     /* eslint-enable */
 
@@ -470,17 +477,22 @@ describe('Form', () => {
   it('Form.Item with `help` should display error style when validate failed', async () => {
     jest.useFakeTimers();
 
-    const wrapper = mount(
+    const { container } = render(
       <Form>
-        <Form.Item name="test" help="help" rules={[{ required: true, message: 'message' }]}>
+        <Form.Item
+          name="test"
+          help="help"
+          initialValue="bamboo"
+          rules={[{ required: true, message: 'message' }]}
+        >
           <Input />
         </Form.Item>
       </Form>,
     );
 
-    await change(wrapper, 0, '', true);
-    expect(wrapper.find('.ant-form-item').first().hasClass('ant-form-item-has-error')).toBeTruthy();
-    expect(wrapper.find('.ant-form-item-explain').text()).toEqual('help');
+    await change(container, 0, '', true);
+    expect(container.querySelector('.ant-form-item')).toHaveClass('ant-form-item-has-error');
+    expect(container.querySelector('.ant-form-item-explain').textContent).toEqual('help');
 
     jest.useRealTimers();
   });
@@ -488,23 +500,22 @@ describe('Form', () => {
   it('clear validation message when ', async () => {
     jest.useFakeTimers();
 
-    const wrapper = mount(
+    const { container } = render(
       <Form>
         <Form.Item name="username" rules={[{ required: true, message: 'message' }]}>
           <Input />
         </Form.Item>
       </Form>,
     );
-    await change(wrapper, 0, '1', true);
-    expect(wrapper.find('.ant-form-item-explain').length).toBeFalsy();
+    await change(container, 0, '1', true);
+    expect(container.querySelectorAll('.ant-form-item-explain').length).toBeFalsy();
 
-    await change(wrapper, 0, '', true);
-    expect(wrapper.find('.ant-form-item-explain').length).toBeTruthy();
+    await change(container, 0, '', true);
+    expect(container.querySelectorAll('.ant-form-item-explain').length).toBeTruthy();
 
-    await change(wrapper, 0, '123', true);
+    await change(container, 0, '123', true);
     await sleep(800);
-    wrapper.update();
-    expect(wrapper.find('.ant-form-item-explain').length).toBeFalsy();
+    expect(container.querySelectorAll('.ant-form-item-explain').length).toBeFalsy();
 
     jest.useRealTimers();
   });
@@ -591,8 +602,8 @@ describe('Form', () => {
       );
     };
 
-    const wrapper = mount(<Demo />);
-    wrapper.find('button').simulate('click');
+    const { container } = render(<Demo />);
+    fireEvent.click(container.querySelector('button'));
 
     expect(errorSpy).not.toHaveBeenCalled();
   });
@@ -794,7 +805,7 @@ describe('Form', () => {
   });
 
   it('no warning of initialValue & getValueProps & preserve', () => {
-    mount(
+    render(
       <Form>
         <Form.Item initialValue="bamboo" getValueProps={() => null} preserve={false}>
           <Input />
@@ -973,19 +984,23 @@ describe('Form', () => {
   it('warningOnly validate', async () => {
     jest.useFakeTimers();
 
-    const wrapper = mount(
+    const { container } = render(
       <Form>
         <Form.Item>
-          <Form.Item name="test" rules={[{ required: true, warningOnly: true }]}>
+          <Form.Item
+            name="test"
+            initialValue="bamboo"
+            rules={[{ required: true, warningOnly: true }]}
+          >
             <Input />
           </Form.Item>
         </Form.Item>
       </Form>,
     );
 
-    await change(wrapper, 0, '', true);
-    expect(wrapper.find('.ant-form-item-with-help').length).toBeTruthy();
-    expect(wrapper.find('.ant-form-item-has-warning').length).toBeTruthy();
+    await change(container, 0, '', true);
+    expect(container.querySelectorAll('.ant-form-item-with-help').length).toBeTruthy();
+    expect(container.querySelectorAll('.ant-form-item-has-warning').length).toBeTruthy();
 
     jest.useRealTimers();
   });
@@ -994,12 +1009,13 @@ describe('Form', () => {
     jest.useFakeTimers();
     let rejectFn = null;
 
-    const wrapper = mount(
+    const { container, unmount } = render(
       <Form>
         <Form.Item>
           <Form.Item
             noStyle
             name="test"
+            initialValue="bamboo"
             rules={[
               {
                 validator: () =>
@@ -1015,9 +1031,9 @@ describe('Form', () => {
       </Form>,
     );
 
-    await change(wrapper, 0, '', true);
+    await change(container, 0, '', true);
 
-    wrapper.unmount();
+    unmount();
 
     // Delay validate failed
     rejectFn(new Error('delay failed'));

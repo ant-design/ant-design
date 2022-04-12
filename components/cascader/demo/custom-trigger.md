@@ -63,5 +63,5 @@ class CitySwitcher extends React.Component {
   }
 }
 
-ReactDOM.render(<CitySwitcher />, mountNode);
+export default () => <CitySwitcher />;
 ```

@@ -28,7 +28,7 @@ const style = {
   fontSize: 14,
 };
 
-ReactDOM.render(
+export default () => (
   <div style={{ height: '600vh', padding: 8 }}>
     <div>Scroll to bottom</div>
     <div>Scroll to bottom</div>
@@ -40,7 +40,6 @@ ReactDOM.render(
     <BackTop>
       <div style={style}>UP</div>
     </BackTop>
-  </div>,
-  mountNode,
+  </div>
 );
 ```

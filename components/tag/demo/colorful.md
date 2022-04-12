@@ -16,7 +16,7 @@ We preset a series of colorful tag styles for use in different situations. You c
 ```jsx
 import { Tag, Divider } from 'antd';
 
-ReactDOM.render(
+export default () => (
   <>
     <Divider orientation="left">Presets</Divider>
     <div>
@@ -39,8 +39,7 @@ ReactDOM.render(
       <Tag color="#87d068">#87d068</Tag>
       <Tag color="#108ee9">#108ee9</Tag>
     </div>
-  </>,
-  mountNode,
+  </>
 );
 ```
 

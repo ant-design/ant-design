@@ -93,5 +93,5 @@ const Sider = () => {
   );
 };
 
-ReactDOM.render(<Sider />, mountNode);
+export default () => <Sider />;
 ```

@@ -18,7 +18,7 @@ import { Tabs } from 'antd';
 
 const { TabPane } = Tabs;
 
-ReactDOM.render(
+export default () => (
   <div className="card-container">
     <Tabs type="card">
       <TabPane tab="Tab Title 1" key="1">
@@ -37,8 +37,7 @@ ReactDOM.render(
         <p>Content of Tab Pane 3</p>
       </TabPane>
     </Tabs>
-  </div>,
-  mountNode,
+  </div>
 );
 ```
 

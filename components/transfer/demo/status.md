@@ -25,5 +25,5 @@ const Status = () => (
   </Space>
 );
 
-ReactDOM.render(<Status />, mountNode);
+export default () => <Status />;
 ```

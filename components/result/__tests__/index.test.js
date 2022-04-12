@@ -1,5 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import Result from '..';
 import Button from '../../button';
 import mountTest from '../../../tests/shared/mountTest';
@@ -60,12 +62,15 @@ describe('Result', () => {
 
   it('should warning when pass a string as icon props', () => {
     const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    mount(<Result title="404" icon="ab" />);
+
+    render(<Result title="404" icon="ab" />);
     expect(warnSpy).not.toHaveBeenCalled();
-    mount(<Result title="404" icon="smile" />);
+
+    render(<Result title="404" icon="smile" />);
     expect(warnSpy).toHaveBeenCalledWith(
       `Warning: [antd: Result] \`icon\` is using ReactNode instead of string naming in v4. Please check \`smile\` at https://ant.design/components/icon`,
     );
+
     warnSpy.mockRestore();
   });
 });

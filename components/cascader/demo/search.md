@@ -68,14 +68,13 @@ function filter(inputValue, path) {
   return path.some(option => option.label.toLowerCase().indexOf(inputValue.toLowerCase()) > -1);
 }
 
-ReactDOM.render(
+export default () => (
   <Cascader
     options={options}
     onChange={onChange}
     placeholder="Please select"
     showSearch={{ filter }}
     onSearch={value => console.log(value)}
-  />,
-  mountNode,
+  />
 );
 ```

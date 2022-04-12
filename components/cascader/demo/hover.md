@@ -60,13 +60,12 @@ function displayRender(label) {
   return label[label.length - 1];
 }
 
-ReactDOM.render(
+export default () => (
   <Cascader
     options={options}
     expandTrigger="hover"
     displayRender={displayRender}
     onChange={onChange}
-  />,
-  mountNode,
+  />
 );
 ```

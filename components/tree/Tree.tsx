@@ -10,6 +10,8 @@ import renderSwitcherIcon from './utils/iconUtil';
 import dropIndicatorRender from './utils/dropIndicator';
 import useStyle from './style';
 
+export type SwitcherIcon = React.ReactNode | ((props: { expanded: boolean }) => React.ReactNode);
+
 export interface AntdTreeNodeAttribute {
   eventKey: string;
   prefixCls: string;
@@ -98,8 +100,6 @@ interface DraggableConfig {
   icon?: React.ReactNode | false;
   nodeDraggable?: DraggableFn;
 }
-
-export type SwitcherIcon = ((expanded: boolean) => React.ReactNode) | React.ReactNode;
 
 export interface TreeProps<T extends BasicDataNode = DataNode>
   extends Omit<RcTreeProps<T>, 'prefixCls' | 'showLine' | 'direction' | 'draggable'> {

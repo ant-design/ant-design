@@ -9,6 +9,9 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
   setup:
     runs-on: ubuntu-latest
@@ -23,7 +26,7 @@ jobs:
           key: lock-${{ github.sha }}
 
       - name: create package-lock.json
-        run: npm i --package-lock-only --ignore-scripts --force
+        run: npm i --package-lock-only --ignore-scripts
 
       - name: hack for single file
         run: |
@@ -40,7 +43,7 @@ jobs:
 
       - name: install
         if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
-        run: npm ci --force
+        run: npm ci
 
   lint:
     runs-on: ubuntu-latest
@@ -228,8 +231,7 @@ jobs:
     name: test
     strategy:
       matrix:
-        react: ['16', '17']
-        # react: ['17', '18']
+        react: ['16', '17', '18']
         module: ['dom', 'node', 'dist']
     env:
       REACT: ${{ matrix.react }}
@@ -346,8 +348,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        react: ['16', '17']
-        # react: ['17', '18']
+        react: ['16', '17', '18']
         module: [lib, es]
     env:
       REACT: ${{ matrix.react }}

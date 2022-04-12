@@ -20,7 +20,7 @@ function onChange(checked) {
   console.log(`switch to ${checked}`);
 }
 
-ReactDOM.render(<Switch defaultChecked onChange={onChange} />, mountNode);
+export default () => <Switch defaultChecked onChange={onChange} />;
 ```
 
 <style>

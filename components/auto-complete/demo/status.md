@@ -38,5 +38,5 @@ const ValidateInputs: React.FC = () => {
   );
 };
 
-ReactDOM.render(<ValidateInputs />, mountNode);
+export default () => <ValidateInputs />;
 ```

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { mount, render } from 'enzyme';
+import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import { act } from 'react-dom/test-utils';
 import { SearchOutlined } from '@ant-design/icons';
 import { resetWarned } from 'rc-util/lib/warning';
@@ -39,7 +41,7 @@ describe('Button', () => {
     const mockWarn = jest.fn();
     jest.spyOn(console, 'warn').mockImplementation(mockWarn);
     const size = 'who am I' as any as SizeType;
-    render(<Button.Group size={size} />);
+    mount(<Button.Group size={size} />);
     expect(mockWarn).toHaveBeenCalledTimes(1);
     expect(mockWarn.mock.calls[0][0]).toMatchObject({
       message: 'unreachable case: "who am I"',
@@ -51,12 +53,14 @@ describe('Button', () => {
     // should not insert space when there is icon
     expect(mount(<Button icon={<SearchOutlined />}>按钮</Button>).render()).toMatchSnapshot();
     // should not insert space when there is icon
-    expect(mount(
-      <Button>
-        <SearchOutlined />
-        按钮
-      </Button>,
-    ).render()).toMatchSnapshot();
+    expect(
+      mount(
+        <Button>
+          <SearchOutlined />
+          按钮
+        </Button>,
+      ).render(),
+    ).toMatchSnapshot();
     // should not insert space when there is icon
     expect(mount(<Button icon={<SearchOutlined />}>按钮</Button>).render()).toMatchSnapshot();
     // should not insert space when there is icon while loading
@@ -261,12 +265,15 @@ describe('Button', () => {
   it('should warning when pass a string as icon props', () => {
     resetWarned();
     const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    mount(<Button type="primary" icon="ab" />);
+
+    render(<Button type="primary" icon="ab" />);
     expect(warnSpy).not.toHaveBeenCalled();
-    mount(<Button type="primary" icon="search" />);
+
+    render(<Button type="primary" icon="search" />);
     expect(warnSpy).toHaveBeenCalledWith(
       `Warning: [antd: Button] \`icon\` is using ReactNode instead of string naming in v4. Please check \`search\` at https://ant.design/components/icon`,
     );
+
     warnSpy.mockRestore();
   });
 

@@ -20,10 +20,9 @@ const info = () => {
   message.info('This is a normal message');
 };
 
-ReactDOM.render(
+export default () => (
   <Button type="primary" onClick={info}>
     Display normal message
-  </Button>,
-  mountNode,
+  </Button>
 );
 ```

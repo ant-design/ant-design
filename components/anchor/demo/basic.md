@@ -18,7 +18,7 @@ import { Anchor } from 'antd';
 
 const { Link } = Anchor;
 
-ReactDOM.render(
+export default () => (
   <Anchor>
     <Link href="#components-anchor-demo-basic" title="Basic demo" />
     <Link href="#components-anchor-demo-static" title="Static demo" />
@@ -26,8 +26,7 @@ ReactDOM.render(
       <Link href="#Anchor-Props" title="Anchor Props" />
       <Link href="#Link-Props" title="Link Props" />
     </Link>
-  </Anchor>,
-  mountNode,
+  </Anchor>
 );
 ```
 

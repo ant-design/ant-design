@@ -17,7 +17,7 @@ Test disabled Input with validate state
 ```tsx
 import { Form, Input } from 'antd';
 
-ReactDOM.render(
+export default () => (
   <Form>
     <Form.Item label="Normal0">
       <Input placeholder="unavailable choice" value="Buggy!" />
@@ -55,7 +55,6 @@ ReactDOM.render(
     <Form.Item label="FailDisabled3" validateStatus="error" help="Buggy!">
       <Input placeholder="unavailable choice" disabled prefix="人民币" value="50" />
     </Form.Item>
-  </Form>,
-  mountNode,
+  </Form>
 );
 ```

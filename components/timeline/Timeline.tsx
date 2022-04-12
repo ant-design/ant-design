@@ -18,6 +18,7 @@ export interface TimelineProps {
   style?: React.CSSProperties;
   reverse?: boolean;
   mode?: 'left' | 'alternate' | 'right';
+  children?: React.ReactNode;
 }
 
 interface TimelineType extends React.FC<TimelineProps> {

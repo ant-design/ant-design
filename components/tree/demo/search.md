@@ -145,7 +145,7 @@ class SearchTree extends React.Component {
   }
 }
 
-ReactDOM.render(<SearchTree />, mountNode);
+export default () => <SearchTree />;
 ```
 
 ```css

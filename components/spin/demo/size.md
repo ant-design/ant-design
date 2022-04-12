@@ -16,12 +16,11 @@ A small `Spin` is used for loading text, default sized `Spin` for loading a card
 ```jsx
 import { Spin, Space } from 'antd';
 
-ReactDOM.render(
+export default () => (
   <Space size="middle">
     <Spin size="small" />
     <Spin />
     <Spin size="large" />
-  </Space>,
-  mountNode,
+  </Space>
 );
 ```

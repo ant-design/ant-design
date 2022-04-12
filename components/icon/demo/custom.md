@@ -72,13 +72,12 @@ const HeartIcon = props => <Icon component={HeartSvg} {...props} />;
 
 const PandaIcon = props => <Icon component={PandaSvg} {...props} />;
 
-ReactDOM.render(
+export default () => (
   <Space>
     <HeartIcon style={{ color: 'hotpink' }} />
     <PandaIcon style={{ fontSize: '32px' }} />
     <Icon component={HomeOutlined} />
     <HomeOutlined />
-  </Space>,
-  mountNode,
+  </Space>
 );
 ```

@@ -31,7 +31,7 @@ const data = [
   },
 ];
 
-ReactDOM.render(
+export default () => (
   <List
     itemLayout="horizontal"
     dataSource={data}
@@ -44,7 +44,6 @@ ReactDOM.render(
         />
       </List.Item>
     )}
-  />,
-  mountNode,
+  />
 );
 ```

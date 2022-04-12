@@ -12,6 +12,7 @@ export interface ActionButtonProps {
   buttonProps?: ButtonProps;
   emitEvent?: boolean;
   quitOnNullishReturnValue?: boolean;
+  children?: React.ReactNode;
 }
 
 function isThenable(thing?: PromiseLike<any>): boolean {
