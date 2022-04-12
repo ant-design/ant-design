@@ -16,14 +16,13 @@ Standard header, suitable for use in scenarios that require a brief description.
 ```jsx
 import { PageHeader } from 'antd';
 
-ReactDOM.render(
+export default () => (
   <PageHeader
     className="site-page-header"
     onBack={() => null}
     title="Title"
     subTitle="This is a subtitle"
-  />,
-  mountNode,
+  />
 );
 ```
 

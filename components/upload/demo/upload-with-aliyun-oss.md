@@ -120,5 +120,5 @@ const FormPage = () => (
   </Form>
 );
 
-ReactDOM.render(<FormPage />, mountNode);
+export default () => <FormPage />;
 ```

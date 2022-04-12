@@ -21,7 +21,7 @@ const formItemLayout = {
   },
 };
 
-ReactDOM.render(
+export default () => (
   <Form style={{ margin: '0 auto' }} {...formItemLayout}>
     <Form.Item label="单独 AutoComplete">
       <AutoComplete />
@@ -67,7 +67,6 @@ ReactDOM.render(
         </Button>
       </Input.Group>
     </Form.Item>
-  </Form>,
-  mountNode,
+  </Form>
 );
 ```

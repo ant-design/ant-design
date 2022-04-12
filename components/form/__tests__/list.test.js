@@ -64,9 +64,11 @@ describe('Form.List', () => {
       expect(wrapper.find(Input).length).toBe(3);
 
       await change(wrapper, 2, '');
-      act(() => {
-        jest.runAllTimers();
-      });
+      for (let i = 0; i < 10; i += 1) {
+        act(() => {
+          jest.runAllTimers();
+        });
+      }
       wrapper.update();
       expect(wrapper.find('.ant-form-item-explain div').length).toBe(1);
 

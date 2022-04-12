@@ -61,6 +61,7 @@ export interface DropDownProps {
   mouseEnterDelay?: number;
   mouseLeaveDelay?: number;
   openClassName?: string;
+  children?: React.ReactNode;
 }
 
 interface DropdownInterface extends React.FC<DropDownProps> {

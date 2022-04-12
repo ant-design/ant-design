@@ -16,12 +16,11 @@ By setting `strokeLinecap="square"`, you can change the linecaps from round to s
 ```jsx
 import { Progress } from 'antd';
 
-ReactDOM.render(
+export default () => (
   <>
     <Progress strokeLinecap="square" percent={75} />
     <Progress strokeLinecap="square" type="circle" percent={75} />
     <Progress strokeLinecap="square" type="dashboard" percent={75} />
-  </>,
-  mountNode,
+  </>
 );
 ```

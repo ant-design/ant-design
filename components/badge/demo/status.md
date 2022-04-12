@@ -16,7 +16,7 @@ Standalone badge with status.
 ```jsx
 import { Badge } from 'antd';
 
-ReactDOM.render(
+export default () => (
   <>
     <Badge status="success" />
     <Badge status="error" />
@@ -33,7 +33,6 @@ ReactDOM.render(
     <Badge status="processing" text="Processing" />
     <br />
     <Badge status="warning" text="Warning" />
-  </>,
-  mountNode,
+  </>
 );
 ```

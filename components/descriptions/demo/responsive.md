@@ -46,5 +46,5 @@ const Demo = () => (
   </div>
 );
 
-ReactDOM.render(<Demo />, mountNode);
+export default () => <Demo />;
 ```

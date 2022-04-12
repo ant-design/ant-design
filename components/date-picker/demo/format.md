@@ -32,7 +32,7 @@ const customWeekStartEndFormat = value =>
     .endOf('week')
     .format(weekFormat)}`;
 
-ReactDOM.render(
+export default () => (
   <Space direction="vertical" size={12}>
     <DatePicker defaultValue={moment('2015/01/01', dateFormat)} format={dateFormat} />
     <DatePicker defaultValue={moment('01/01/2015', dateFormatList[0])} format={dateFormatList} />
@@ -43,7 +43,6 @@ ReactDOM.render(
       format={dateFormat}
     />
     <DatePicker defaultValue={moment('2015/01/01', dateFormat)} format={customFormat} />
-  </Space>,
-  mountNode,
+  </Space>
 );
 ```

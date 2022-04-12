@@ -102,12 +102,11 @@ const AdvancedSearchForm = () => {
   );
 };
 
-ReactDOM.render(
+export default () => (
   <div>
     <AdvancedSearchForm />
     <div className="search-result-list">Search Result List</div>
-  </div>,
-  mountNode,
+  </div>
 );
 ```
 

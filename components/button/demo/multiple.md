@@ -40,12 +40,11 @@ const menu = (
   />
 );
 
-ReactDOM.render(
+export default () => (
   <>
     <Button type="primary">primary</Button>
     <Button>secondary</Button>
     <Dropdown.Button overlay={menu}>Actions</Dropdown.Button>
-  </>,
-  mountNode,
+  </>
 );
 ```

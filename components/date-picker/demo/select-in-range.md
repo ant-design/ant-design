@@ -52,5 +52,5 @@ const App = () => {
   );
 };
 
-ReactDOM.render(<App />, mountNode);
+export default () => <App />;
 ```

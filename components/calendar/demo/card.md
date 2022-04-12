@@ -20,11 +20,10 @@ function onPanelChange(value, mode) {
   console.log(value, mode);
 }
 
-ReactDOM.render(
+export default () => (
   <div className="site-calendar-demo-card">
     <Calendar fullscreen={false} onPanelChange={onPanelChange} />
-  </div>,
-  mountNode,
+  </div>
 );
 ```
 

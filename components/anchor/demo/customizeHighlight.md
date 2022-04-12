@@ -20,7 +20,7 @@ const { Link } = Anchor;
 
 const getCurrentAnchor = () => '#components-anchor-demo-static';
 
-ReactDOM.render(
+export default () => (
   <Anchor affix={false} getCurrentAnchor={getCurrentAnchor}>
     <Link href="#components-anchor-demo-basic" title="Basic demo" />
     <Link href="#components-anchor-demo-static" title="Static demo" />
@@ -28,7 +28,6 @@ ReactDOM.render(
       <Link href="#Anchor-Props" title="Anchor Props" />
       <Link href="#Link-Props" title="Link Props" />
     </Link>
-  </Anchor>,
-  mountNode,
+  </Anchor>
 );
 ```

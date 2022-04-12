@@ -1,5 +1,7 @@
 import React from 'react';
-import { render, mount } from 'enzyme';
+import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import Popover from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import ConfigProvider from '../../config-provider';
@@ -76,13 +78,13 @@ describe('Popover', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
     const overlay = jest.fn();
-    mount(
+    render(
       <Popover content="console.log('hello world')" title="code" trigger="click">
         <span>show me your code</span>
       </Popover>,
     );
 
-    expect(errorSpy.mock.calls.length).toBe(0);
+    expect(errorSpy).not.toHaveBeenCalled();
     expect(overlay).not.toHaveBeenCalled();
   });
 
@@ -94,6 +96,6 @@ describe('Popover', () => {
         </Popover>
       </ConfigProvider>,
     );
-    expect(render(wrapper)).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });

@@ -31,15 +31,13 @@
     }
   }
 
-  &-zoom-appear,
-  &-zoom-enter {
-    .@{badge-prefix-cls}-rtl & {
+  &:not(&-not-a-wrapper).@{badge-prefix-cls}-rtl {
+    .@{badge-prefix-cls}-zoom-appear,
+    .@{badge-prefix-cls}-zoom-enter {
       animation-name: antZoomBadgeInRtl;
     }
-  }
 
-  &-zoom-leave {
-    .@{badge-prefix-cls}-rtl & {
+    .@{badge-prefix-cls}-zoom-leave {
       animation-name: antZoomBadgeOutRtl;
     }
   }

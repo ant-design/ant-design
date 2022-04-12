@@ -35,5 +35,5 @@ function SpaceVertical() {
   );
 }
 
-ReactDOM.render(<SpaceVertical />, mountNode);
+export default () => <SpaceVertical />;
 ```

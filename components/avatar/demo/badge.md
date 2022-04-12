@@ -17,7 +17,7 @@ Usually used for reminders and notifications.
 import { Avatar, Badge } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 
-ReactDOM.render(
+export default () => (
   <>
     <span className="avatar-item">
       <Badge count={1}>
@@ -29,8 +29,7 @@ ReactDOM.render(
         <Avatar shape="square" icon={<UserOutlined />} />
       </Badge>
     </span>
-  </>,
-  mountNode,
+  </>
 );
 ```
 
