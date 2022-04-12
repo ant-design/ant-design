@@ -45,8 +45,6 @@ timeline: true
 - ⌨️ Spin add `aria` attribute to improve accessibility. [#34408](https://github.com/ant-design/ant-design/pull/34408) [@heiyu4585](https://github.com/heiyu4585)
 - ⌨️ Make structure of Breadcrumb be accessible. [#34082](https://github.com/ant-design/ant-design/pull/34082) [@VladimirOtroshchenko](https://github.com/VladimirOtroshchenko)
 - 🛎 Menu support `items` for perf prepare, and `children` will be removed in next major version. [#34559](https://github.com/ant-design/ant-design/pull/34559)
-- TypeScript
-  - 🤖 Update TypeScript definition for `@types/react@18` compatible. [#34937](https://github.com/ant-design/ant-design/pull/34937)
 
 ## 4.19.5
 

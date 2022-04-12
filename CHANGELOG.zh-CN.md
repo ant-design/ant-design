@@ -45,8 +45,6 @@ timeline: true
 - ⌨️ Spin 添加 `aria` 属性以提升可访问性。[#34408](https://github.com/ant-design/ant-design/pull/34408) [@heiyu4585](https://github.com/heiyu4585)
 - ⌨️ 为 Breadcrumb 层次结构增加可访问性支持。[#34082](https://github.com/ant-design/ant-design/pull/34082) [@VladimirOtroshchenko](https://github.com/VladimirOtroshchenko)
 - 🛎 Menu 添加 `items` 数据化菜单项支持以为将来性能提升做准备，并且 `children` 将会在下个大版本中废弃。[#34559](https://github.com/ant-design/ant-design/pull/34559)
-- TypeScript
-  - 🤖 更新 TypeScript 定义以兼容 `@types/react@18`。[#34937](https://github.com/ant-design/ant-design/pull/34937)
 
 ## 4.19.5
 
