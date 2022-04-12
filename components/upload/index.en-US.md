@@ -117,4 +117,8 @@ For compatible case, we return File object when `beforeUpload` return `false`. I
 
 ### Why sometime Chrome can not upload?
 
-Chrome update will also break native upload. Please restart chrome to finish the upload work.
+Chrome update will also break native upload. Please restart chrome to finish the upload work. Ref:
+
+- [#32672](https://github.com/ant-design/ant-design/issues/32672)
+- [#32913](https://github.com/ant-design/ant-design/issues/32913)
+- [#33988](https://github.com/ant-design/ant-design/issues/33988)
