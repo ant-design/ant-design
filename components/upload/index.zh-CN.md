@@ -114,3 +114,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/QaeBt_ZMg/Upload.svg
 ### `onChange` 为什么有时候返回 File 有时候返回 { originFileObj: File }？
 
 历史原因，在 `beforeUpload` 返回 `false` 时，会返回 File 对象。在下个大版本我们会统一返回 `{ originFileObj: File }` 对象。当前版本已经兼容所有场景下 `info.file.originFileObj` 获取原 File 写法。你可以提前切换。
+
+### 为何有时 Chrome 无法上传了？
+
+与 antd 无关，原生上传也会失败。请重启 Chrome 游览器，让游览器完成升级工作。
