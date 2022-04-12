@@ -54,6 +54,12 @@ const columns = [
 <Table dataSource={dataSource} columns={columns} />;
 ```
 
+## Promotion
+
+- [Kitchen Sketch Plugin 💎](https://kitchen.alipay.com/)
+- [ProTable - Advanced Tables](https://procomponents.ant.design/components/table)
+- [S2 - Analytical Tables](https://github.com/antvis/s2/)
+
 ## API
 
 ### Table
