@@ -6,6 +6,8 @@ import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import RCPicker from 'rc-picker';
 import { PickerMode } from 'rc-picker/lib/interface';
 import { GenerateConfig } from 'rc-picker/lib/generate/index';
+import { forwardRef, useContext } from 'react';
+import { FormInstance } from 'antd';
 import enUS from '../locale/en_US';
 import { getPlaceholder, transPlacement2DropdownAlign } from '../util';
 import devWarning from '../../_util/devWarning';
@@ -23,6 +25,7 @@ import {
 import { PickerComponentClass } from './interface';
 import { FormItemInputContext } from '../../form/context';
 import { getMergedStatus, getStatusClassNames, InputStatus } from '../../_util/statusUtils';
+import useStyle from '../style';
 
 export default function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   type DatePickerProps = PickerProps<DateType> & {
@@ -33,7 +36,9 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
     picker?: PickerMode,
     displayName?: string,
   ) {
-    class Picker extends React.Component<InnerPickerProps> {
+    type InternalPickerProps = InnerPickerProps & { hashId?: string };
+
+    class Picker extends React.Component<InternalPickerProps> {
       static contextType = ConfigContext;
 
       static displayName: string;
@@ -167,11 +172,22 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
       }
     }
 
+    const PickerWrapper = forwardRef<Picker, InnerPickerProps>((props, ref) => {
+      const { prefixCls: customizePrefixCls, ...rest } = props;
+
+      const { getPrefixCls } = useContext(ConfigContext);
+      const prefixCls = getPrefixCls('picker', customizePrefixCls);
+      const [wrapSSR, hashId] = useStyle(prefixCls);
+
+      // @ts-ignore
+      return wrapSSR(<Picker {...rest} prefixCls={prefixCls} ref={ref} hashId={hashId} />);
+    });
+
     if (displayName) {
-      Picker.displayName = displayName;
+      PickerWrapper.displayName = displayName;
     }
 
-    return Picker as PickerComponentClass<InnerPickerProps>;
+    return PickerWrapper;
   }
 
   const DatePicker = getPicker<DatePickerProps>();

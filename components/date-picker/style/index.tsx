@@ -1,7 +1,8 @@
-import './index.less';
+import { FullToken, genComponentStyleHook, GenerateStyle } from '../../_util/theme';
 
-// style dependencies
-import '../../tag/style';
-import '../../button/style';
+type PickerToken = FullToken<'DatePicker'>;
 
-// deps-lint-skip: form
+const genPickerStyle: GenerateStyle<PickerToken>;
+
+// ============================== Export ==============================
+export default genComponentStyleHook('DatePicker', token => []);
