@@ -16,7 +16,7 @@ Col provides `flex` prop to support fill rest.
 ```jsx
 import { Row, Col, Divider } from 'antd';
 
-ReactDOM.render(
+export default () => (
   <>
     <Divider orientation="left">Percentage columns</Divider>
     <Row>
@@ -40,7 +40,6 @@ ReactDOM.render(
       </Col>
       <Col flex="auto">auto with no-wrap</Col>
     </Row>
-  </>,
-  mountNode,
+  </>
 );
 ```

@@ -49,6 +49,7 @@ export interface ProgressProps {
   steps?: number;
   /** @deprecated Use `success` instead */
   successPercent?: number;
+  children?: React.ReactNode;
 }
 
 export default class Progress extends React.Component<ProgressProps> {

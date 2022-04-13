@@ -27,7 +27,7 @@ function onOk(value) {
   console.log('onOk: ', value);
 }
 
-ReactDOM.render(
+export default () => (
   <Space direction="vertical" size={12}>
     <DatePicker showTime onChange={onChange} onOk={onOk} />
     <RangePicker
@@ -36,7 +36,6 @@ ReactDOM.render(
       onChange={onChange}
       onOk={onOk}
     />
-  </Space>,
-  mountNode,
+  </Space>
 );
 ```

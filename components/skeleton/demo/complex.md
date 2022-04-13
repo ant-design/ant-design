@@ -16,5 +16,5 @@ Complex combination with avatar and multiple paragraphs.
 ```jsx
 import { Skeleton } from 'antd';
 
-ReactDOM.render(<Skeleton avatar paragraph={{ rows: 4 }} />, mountNode);
+export default () => <Skeleton avatar paragraph={{ rows: 4 }} />;
 ```

@@ -44,7 +44,7 @@ const ListItem = () => (
   </List.Item>
 );
 
-ReactDOM.render(
+export default () => (
   <>
     <List
       grid={{ gutter: 16, column: 4 }}
@@ -66,7 +66,6 @@ ReactDOM.render(
         </>
       )}
     />
-  </>,
-  mountNode,
+  </>
 );
 ```

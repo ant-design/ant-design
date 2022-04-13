@@ -17,7 +17,7 @@ There are three sizes of an Input box: `large` (40px), `default` (32px) and `sma
 import { Input } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 
-ReactDOM.render(
+export default () => (
   <>
     <Input size="large" placeholder="large size" prefix={<UserOutlined />} />
     <br />
@@ -26,7 +26,6 @@ ReactDOM.render(
     <br />
     <br />
     <Input size="small" placeholder="small size" prefix={<UserOutlined />} />
-  </>,
-  mountNode,
+  </>
 );
 ```

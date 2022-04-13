@@ -127,9 +127,13 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
         prefixCls={prefixCls}
         direction={direction}
         defaultMotions={defaultMotions}
-        expandIcon={cloneElement(expandIcon, {
-          className: `${prefixCls}-submenu-expand-icon`,
-        })}
+        expandIcon={
+          typeof expandIcon === 'function'
+            ? expandIcon
+            : cloneElement(expandIcon, {
+                className: `${prefixCls}-submenu-expand-icon`,
+              })
+        }
         ref={ref}
       >
         {mergedChildren}

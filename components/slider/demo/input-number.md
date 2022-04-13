@@ -95,11 +95,10 @@ class DecimalStep extends React.Component {
   }
 }
 
-ReactDOM.render(
+export default () => (
   <div>
     <IntegerStep />
     <DecimalStep />
-  </div>,
-  mountNode,
+  </div>
 );
 ```

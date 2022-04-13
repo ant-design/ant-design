@@ -18,11 +18,10 @@ import { TimePicker } from 'antd';
 
 const { RangePicker } = TimePicker;
 
-ReactDOM.render(
+export default () => (
   <>
     <TimePicker bordered={false} />
     <RangePicker bordered={false} />
-  </>,
-  mountNode,
+  </>
 );
 ```

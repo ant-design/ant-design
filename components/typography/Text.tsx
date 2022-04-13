@@ -8,7 +8,10 @@ export interface TextProps extends BlockProps {
   onClick?: (e?: React.MouseEvent<HTMLDivElement>) => void;
 }
 
-const Text: React.FC<TextProps> = ({ ellipsis, ...restProps }) => {
+const Text: React.ForwardRefRenderFunction<HTMLSpanElement, TextProps> = (
+  { ellipsis, ...restProps },
+  ref,
+) => {
   const mergedEllipsis = React.useMemo(() => {
     if (ellipsis && typeof ellipsis === 'object') {
       return omit(ellipsis as any, ['expandable', 'rows']);
@@ -25,7 +28,7 @@ const Text: React.FC<TextProps> = ({ ellipsis, ...restProps }) => {
     '`ellipsis` do not support `expandable` or `rows` props.',
   );
 
-  return <Base {...restProps} ellipsis={mergedEllipsis} component="span" />;
+  return <Base ref={ref} {...restProps} ellipsis={mergedEllipsis} component="span" />;
 };
 
-export default Text;
+export default React.forwardRef(Text);

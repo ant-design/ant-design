@@ -18,7 +18,7 @@ The close icon can be customized using `closeIcon`.
 import { Tag } from 'antd';
 import { CloseCircleOutlined } from '@ant-design/icons';
 
-ReactDOM.render(
+export default () => (
   <>
     <Tag closable closeIcon="关 闭">
       Tag1
@@ -26,7 +26,6 @@ ReactDOM.render(
     <Tag closable closeIcon={<CloseCircleOutlined />}>
       Tag2
     </Tag>
-  </>,
-  mountNode,
+  </>
 );
 ```

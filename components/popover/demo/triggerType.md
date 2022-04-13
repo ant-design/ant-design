@@ -23,7 +23,7 @@ const content = (
   </div>
 );
 
-ReactDOM.render(
+export default () => (
   <div>
     <Popover content={content} title="Title" trigger="hover">
       <Button>Hover me</Button>
@@ -34,7 +34,6 @@ ReactDOM.render(
     <Popover content={content} title="Title" trigger="click">
       <Button>Click me</Button>
     </Popover>
-  </div>,
-  mountNode,
+  </div>
 );
 ```

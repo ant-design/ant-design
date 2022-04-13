@@ -136,9 +136,8 @@ const columns = [
 
 const data = Array.from({ length: 100000 }, (_, key) => ({ key }));
 
-ReactDOM.render(
-  <VirtualTable columns={columns} dataSource={data} scroll={{ y: 300, x: '100vw' }} />,
-  mountNode,
+export default () => (
+  <VirtualTable columns={columns} dataSource={data} scroll={{ y: 300, x: '100vw' }} />
 );
 ```
 

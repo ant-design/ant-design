@@ -1,5 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import { SmileOutlined, LikeOutlined, HighlightOutlined, CheckOutlined } from '@ant-design/icons';
 import KeyCode from 'rc-util/lib/KeyCode';
 import { resetWarned } from 'rc-util/lib/warning';
@@ -398,8 +400,29 @@ describe('Typography', () => {
 
   it('no italic warning', () => {
     resetWarned();
-    mount(<Text italic>Little</Text>);
+    render(<Text italic>Little</Text>);
 
     expect(errorSpy).not.toHaveBeenCalled();
+  });
+
+  it('should get HTMLHeadingElement ref from Title', () => {
+    const ref = React.createRef();
+
+    mount(<Title level={1} ref={ref} />);
+    expect(ref.current instanceof HTMLHeadingElement).toBe(true);
+  });
+
+  it('should get HTMLDivElement ref from Paragraph', () => {
+    const ref = React.createRef();
+
+    mount(<Paragraph ref={ref} />);
+    expect(ref.current instanceof HTMLDivElement).toBe(true);
+  });
+
+  it('should get HTMLSpanElement ref from Text', () => {
+    const ref = React.createRef();
+
+    mount(<Text ref={ref} />);
+    expect(ref.current instanceof HTMLSpanElement).toBe(true);
   });
 });

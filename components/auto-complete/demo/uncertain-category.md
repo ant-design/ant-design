@@ -77,5 +77,5 @@ const Complete: React.FC = () => {
   );
 };
 
-ReactDOM.render(<Complete />, mountNode);
+export default () => <Complete />;
 ```

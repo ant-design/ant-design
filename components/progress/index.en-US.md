@@ -23,7 +23,8 @@ Properties that shared by all types.
 | format | The template function of the content | function(percent, successPercent) | (percent) => percent + `%` |
 | percent | To set the completion percentage | number | 0 |
 | showInfo | Whether to display the progress value and the status icon | boolean | true |
-| status | To set the status of the Progress, options: `success` `exception` `normal` `active`(line only) | string | - |
+| size | To set the size of the progress | `default` \| `small` | `default` |
+| status | To set the status of the progress, options: `success` `exception` `normal` `active`(line only) | string | - |
 | strokeColor | The color of progress bar | string | - |
 | strokeLinecap | To set the style of the progress linecap | `round` \| `square` | `round` |
 | success | Configs of successfully progress bar | { percent: number, strokeColor: string } | - |

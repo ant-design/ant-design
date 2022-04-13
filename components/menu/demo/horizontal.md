@@ -85,5 +85,5 @@ const App = () => {
   return <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} />;
 };
 
-ReactDOM.render(<App />, mountNode);
+export default () => <App />;
 ```

@@ -8,6 +8,7 @@ import type { ComponentToken as MentionsComponentToken } from '../../mentions/st
 import type { ComponentToken as SelectComponentToken } from '../../select/style';
 import type { ComponentToken as SliderComponentToken } from '../../slider/style';
 import type { ComponentToken as TypographyComponentToken } from '../../typography/style';
+import type { ComponentToken as TimelineComponentToken } from '../../timeline/style';
 
 export const PresetColors = [
   'blue',
@@ -72,6 +73,7 @@ export interface OverrideToken {
   Tree?: {};
   TreeSelect?: {};
   Typography?: TypographyComponentToken;
+  Timeline?: TimelineComponentToken;
   Tabs?: {};
 }
 

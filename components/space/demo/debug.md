@@ -17,7 +17,7 @@ Debug usage
 ```jsx
 import { Space, Button, Popconfirm } from 'antd';
 
-ReactDOM.render(
+export default () => (
   <Space>
     <>
       Button
@@ -36,7 +36,6 @@ ReactDOM.render(
     Button
     {null}
     {undefined}
-  </Space>,
-  mountNode,
+  </Space>
 );
 ```

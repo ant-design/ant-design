@@ -16,7 +16,7 @@ Simplest Usage.
 ```jsx
 import { Descriptions } from 'antd';
 
-ReactDOM.render(
+export default () => (
   <Descriptions title="User Info" layout="vertical">
     <Descriptions.Item label="UserName">Zhou Maomao</Descriptions.Item>
     <Descriptions.Item label="Telephone">1810000000</Descriptions.Item>
@@ -25,7 +25,6 @@ ReactDOM.render(
       No. 18, Wantang Road, Xihu District, Hangzhou, Zhejiang, China
     </Descriptions.Item>
     <Descriptions.Item label="Remark">empty</Descriptions.Item>
-  </Descriptions>,
-  mountNode,
+  </Descriptions>
 );
 ```
