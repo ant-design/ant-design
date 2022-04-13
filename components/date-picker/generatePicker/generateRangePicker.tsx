@@ -15,8 +15,11 @@ import { getRangePlaceholder, transPlacement2DropdownAlign } from '../util';
 import { Components, getTimeProps, PickerLocale, RangePickerProps } from '.';
 import { FormItemInputContext } from '../../form/context';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
+import { PickerComponentClass } from './interface';
 
-export default function generateRangePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
+export default function generateRangePicker<DateType>(
+  generateConfig: GenerateConfig<DateType>,
+): PickerComponentClass<RangePickerProps<DateType>> {
   class RangePicker extends React.Component<RangePickerProps<DateType>> {
     static contextType = ConfigContext;
 
@@ -140,5 +143,5 @@ export default function generateRangePicker<DateType>(generateConfig: GenerateCo
     const prefixCls = getPrefixCls('picker', customizePrefixCls);
 
     return <RangePicker {...props} prefixCls={prefixCls} ref={ref} />;
-  });
+  }) as unknown as PickerComponentClass<RangePickerProps<DateType>>;
 }

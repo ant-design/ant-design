@@ -23,6 +23,7 @@ import {
 } from '.';
 import { FormItemInputContext } from '../../form/context';
 import { getMergedStatus, getStatusClassNames, InputStatus } from '../../_util/statusUtils';
+import { DatePickRef, PickerComponentClass } from './interface';
 
 export default function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   type DatePickerProps = PickerProps<DateType> & {
@@ -166,7 +167,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
       }
     }
 
-    const PickerWrapper = forwardRef<Picker, InnerPickerProps>((props, ref) => {
+    const PickerWrapper = forwardRef<DatePickRef<DateType>, InnerPickerProps>((props, ref) => {
       const { prefixCls: customizePrefixCls } = props;
 
       const { getPrefixCls } = useContext(ConfigContext);
@@ -185,7 +186,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
       PickerWrapper.displayName = displayName;
     }
 
-    return PickerWrapper;
+    return PickerWrapper as unknown as PickerComponentClass<InnerPickerProps>;
   }
 
   const DatePicker = getPicker<DatePickerProps>();
