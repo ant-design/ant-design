@@ -17,7 +17,6 @@ interface RadioToken extends DerivativeToken {
 
   radioSize: number;
   radioTop: string;
-  radioBorderWidth: number;
   radioDotSize: number;
   radioDotColor: string;
   radioDotDisabledColor: string;
@@ -40,8 +39,9 @@ function getRadioToken(token: GlobalToken) {
   const radioButtonFocusShadow = radioFocusShadow;
 
   const radioSize = token.fontSizeLG;
+  // FIXME: hard code
   const radioTop = '0.2em';
-  const radioBorderWidth = 1;
+  // FIXME: hard code
   const radioDotSize = radioSize - 8;
   const radioDotColor = token.colorPrimary;
   // FIXME: hard code
@@ -54,11 +54,12 @@ function getRadioToken(token: GlobalToken) {
   const radioButtonColor = token.colorText;
   const radioButtonHoverColor = token.colorPrimaryHover;
   const radioButtonActiveColor = token.colorPrimaryActive;
+  // FIXME: hard code
   const radioButtonPaddingHorizontal = token.padding - 1;
   // FIXME: hard code
   const radioDisabledButtonCheckedBg = new TinyColor('#000').tint(90).toRgbString();
   const radioDisabledButtonCheckedColor = token.colorTextDisabled;
-  const radioWrapperMarginRight = token.margin / 2;
+  const radioWrapperMarginRight = token.marginXS;
 
   return {
     ...token,
@@ -67,7 +68,6 @@ function getRadioToken(token: GlobalToken) {
     radioButtonFocusShadow,
     radioSize,
     radioTop,
-    radioBorderWidth,
     radioDotSize,
     radioDotColor,
     radioDotDisabledColor,
@@ -221,7 +221,7 @@ function getRadioBasicStyle(
         backgroundColor: token.radioButtonBg,
         borderColor: token.colorBorder,
         borderStyle: 'solid',
-        borderWidth: token.radioBorderWidth,
+        borderWidth: token.controlLineWidth,
         borderRadius: '50%',
         transition: `all ${token.motionDurationSlow}`,
       },
