@@ -2,9 +2,9 @@
 // import './index.less';
 
 // style dependencies
-import '../../tabs/style';
-import '../../row/style';
-import '../../col/style';
+// import '../../tabs/style';
+// import '../../row/style';
+// import '../../col/style';
 
 // deps-lint-skip-all
 import { CSSObject, Keyframes } from '@ant-design/cssinjs';
@@ -156,10 +156,7 @@ const genCardActionsStyle: GenerateStyle<CardToken> = (token): CSSObject => {
     ...clearFix(),
 
     '& > li': {
-      float: {
-        _skip_check_: true,
-        value: 'left',
-      },
+      float: 'left',
       margin: cardActionsLiMargin,
       color: token.colorTextSecondary,
       textAlign: 'center',
@@ -209,10 +206,7 @@ const genCardMetaStyle: GenerateStyle<CardToken> = (token): CSSObject => {
     ...clearFix(),
 
     '&-avatar': {
-      float: {
-        _skip_check_: true,
-        value: 'left',
-      },
+      float: 'left',
       paddingInlineEnd: 16, // FIXME: hardcode in v4
     },
 
@@ -313,10 +307,7 @@ const genCardStyle: GenerateStyle<CardToken> = (token, hashId): CSSObject => {
       [`${componentCls}-head`]: genCardHeadStyle(token),
 
       [`${componentCls}-extra`]: {
-        float: {
-          _skip_check_: true,
-          value: 'right',
-        },
+        float: 'right',
         // https://stackoverflow.com/a/22429853/3040605
         marginInlineStart: 'auto',
         padding: '',
@@ -404,27 +395,18 @@ const genCardRTLStyle: GenerateStyle<CardToken> = (token): CSSObject => {
       direction: 'rtl',
 
       [`${componentCls}-grid`]: {
-        float: {
-          _skip_check_: true,
-          value: 'right',
-        },
+        float: 'right',
       },
 
       [`${componentCls}-actions`]: {
         '& > li': {
-          float: {
-            _skip_check_: true,
-            value: 'right',
-          },
+          float: 'right',
         },
       },
 
       [`${componentCls}-meta`]: {
         '&-avatar': {
-          float: {
-            _skip_check_: true,
-            value: 'right',
-          },
+          float: 'right',
         },
       },
     },
