@@ -158,7 +158,7 @@ function getRadioBasicStyle(
       [`.${prefixCls}-checked::after`]: {
         position: 'absolute',
         top: 0,
-        left: 0,
+        insetInlineStart: 0,
         width: '100%',
         height: '100%',
         border: `1px solid ${token.radioDotColor}`,
@@ -196,7 +196,7 @@ function getRadioBasicStyle(
         '&::after': {
           position: 'absolute',
           top: '50%',
-          left: '50%',
+          insetInlineStart: '50%',
           display: 'block',
           width: token.radioSize,
           height: token.radioSize,
@@ -214,7 +214,7 @@ function getRadioBasicStyle(
 
         position: 'relative',
         top: 0,
-        left: 0,
+        insetInlineStart: 0,
         display: 'block',
         width: token.radioSize,
         height: token.radioSize,
@@ -229,9 +229,9 @@ function getRadioBasicStyle(
       [`.${prefixCls}-input`]: {
         position: 'absolute',
         top: 0,
-        right: 0,
+        insertInlineEnd: 0,
         bottom: 0,
-        left: 0,
+        insetInlineStart: 0,
         zIndex: 1,
         cursor: 'pointer',
         opacity: 0,
@@ -311,7 +311,7 @@ function getRadioButtonStyle(prefixCls: string, token: RadioToken): CSSInterpola
       [`> .${prefixCls}-button`]: {
         position: 'absolute',
         top: 0,
-        left: 0,
+        insertInlineStart: 0,
         zIndex: -1,
         width: '100%',
         height: '100%',
@@ -332,8 +332,8 @@ function getRadioButtonStyle(prefixCls: string, token: RadioToken): CSSInterpola
       '&:not(:first-child)': {
         '&::before': {
           position: 'absolute',
-          top: token.controlLineWidth * -1,
-          left: -1,
+          top: -token.controlLineWidth,
+          insetInlineStart: -1,
           display: 'block',
           boxSizing: 'content-box',
           width: 1,
@@ -472,8 +472,8 @@ function getRadioButtonRTLStyle(prefixCls: string, token: RadioToken): CSSInterp
       '&:not(:first-child)': {
         '&::before': {
           [`.${prefixCls}-button-wrapper.${prefixCls}-button-wrapper-rtl&`]: {
-            right: -1,
-            left: 0,
+            insertInlineEnd: -1,
+            insertInlineStart: 0,
           },
         },
       },
