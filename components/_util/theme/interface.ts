@@ -75,6 +75,7 @@ export interface OverrideToken {
   Typography?: TypographyComponentToken;
   Timeline?: TimelineComponentToken;
   Tabs?: {};
+  Card?: {};
 }
 
 /** Final token which contains the components level override */
