@@ -200,38 +200,36 @@ const genCardActionsStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 };
 
 // ============================== Meta ==============================
-const genCardMetaStyle: GenerateStyle<CardToken> = (token): CSSObject => {
-  return {
-    margin: '-4px 0', // FIXME: hardcode in v4
-    ...clearFix(),
+const genCardMetaStyle: GenerateStyle<CardToken> = (token): CSSObject => ({
+  margin: '-4px 0', // FIXME: hardcode in v4
+  ...clearFix(),
 
-    '&-avatar': {
-      float: 'left',
-      paddingInlineEnd: 16, // FIXME: hardcode in v4
+  '&-avatar': {
+    float: 'left',
+    paddingInlineEnd: 16, // FIXME: hardcode in v4
+  },
+
+  '&-detail': {
+    overflow: 'hidden',
+
+    '> div:not(:last-child)': {
+      marginBottom: token.marginXS,
     },
+  },
 
-    '&-detail': {
-      overflow: 'hidden',
+  '&-title': {
+    overflow: 'hidden',
+    color: token.colorTextHeading,
+    fontWeight: 500, // FIXME: hardcode in v4
+    fontSize: token.fontSizeLG,
+    whiteSpace: 'nowrap',
+    textOverflow: 'ellipsis',
+  },
 
-      '> div:not(:last-child)': {
-        marginBottom: token.marginXS,
-      },
-    },
-
-    '&-title': {
-      overflow: 'hidden',
-      color: token.colorTextHeading,
-      fontWeight: 500, // FIXME: hardcode in v4
-      fontSize: token.fontSizeLG,
-      whiteSpace: 'nowrap',
-      textOverflow: 'ellipsis',
-    },
-
-    '&-description': {
-      color: token.colorTextSecondary,
-    },
-  };
-};
+  '&-description': {
+    color: token.colorTextSecondary,
+  },
+});
 
 // ============================== Inner ==============================
 const genCardTypeInnerStyle: GenerateStyle<CardToken> = (token): CSSObject => {
