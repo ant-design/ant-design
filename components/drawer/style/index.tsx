@@ -1,17 +1,9 @@
 // deps-lint-skip-all
 import { CSSObject, Keyframes } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-import {
-  DerivativeToken,
-  GenerateStyle,
-  UseComponentStyleResult,
-  useStyleRegister,
-  useToken,
-} from '../../_util/theme';
+import { FullToken, genComponentStyleHook, GenerateStyle, mergeToken } from '../../_util/theme';
 
-export interface DrawerToken extends DerivativeToken {
-  prefixCls: string;
-  iconPrefixCls: string;
+export interface DrawerToken extends FullToken<'Drawer'> {
   drawerHeaderCloseSize: number;
   shadow1Right: string;
   shadow1Left: string;
@@ -29,7 +21,7 @@ export interface DrawerToken extends DerivativeToken {
   borderStyle: string;
   textColorSecondary: string;
   motionEaseOut: string;
-  drawerPrefixCls: string;
+  componentCls: string;
 }
 
 const antdDrawerFadeIn = new Keyframes('antNoWrapperZoomBadgeIn', {
@@ -43,7 +35,7 @@ const genBaseStyle: GenerateStyle<DrawerToken> = (
   hashId: string,
 ): CSSObject => {
   const {
-    drawerPrefixCls,
+    componentCls,
     motionEaseOut,
     motionDurationSlow,
     fontSizeLG,
@@ -67,7 +59,7 @@ const genBaseStyle: GenerateStyle<DrawerToken> = (
   } = token;
 
   return {
-    [`${drawerPrefixCls}`]: {
+    [`${componentCls}`]: {
       // FIXME: Seems useless?
       // @drawer-header-close-padding: ceil(((drawerHeaderCloseSize - @font-size-lg) / 2));
       position: 'fixed',
@@ -75,12 +67,12 @@ const genBaseStyle: GenerateStyle<DrawerToken> = (
       width: 0,
       height: '100%',
       transition: `width 0s ease ${motionDurationSlow}, height 0s ease ${motionDurationSlow}`,
-      [`${drawerPrefixCls}-content-wrapper`]: {
+      [`${componentCls}-content-wrapper`]: {
         position: 'absolute',
         width: '100%',
         height: '100%',
         transition: `transform ${motionDurationSlow} ${motionEaseOut},box-shadow ${motionDurationSlow} ${motionEaseOut}`,
-        [`${drawerPrefixCls}-content`]: {
+        [`${componentCls}-content`]: {
           width: '100%',
           height: '100%',
           position: 'relative',
@@ -89,12 +81,12 @@ const genBaseStyle: GenerateStyle<DrawerToken> = (
           backgroundColor: white,
           backgroundClip: `padding-box`,
           border: 0,
-          [`${drawerPrefixCls}-wrapper-body`]: {
+          [`${componentCls}-wrapper-body`]: {
             display: 'flex',
             flexFlow: 'column nowrap',
             width: '100%',
             height: '100%',
-            [`${drawerPrefixCls}-header`]: {
+            [`${componentCls}-header`]: {
               position: 'relative',
               display: 'flex',
               alignItems: 'center',
@@ -105,12 +97,12 @@ const genBaseStyle: GenerateStyle<DrawerToken> = (
               borderBottom: `${lineWidth}px ${borderStyle} ${borderColorSplit}`, // FIXME px
               borderRadius: `${radiusBase}px ${radiusBase}px 0 0`, // FIXME px
 
-              [`${drawerPrefixCls}-header-title`]: {
+              [`${componentCls}-header-title`]: {
                 display: 'flex',
                 flex: 1,
                 alignItems: 'center',
                 justifyContent: 'space-between',
-                [`${drawerPrefixCls}-title`]: {
+                [`${componentCls}-title`]: {
                   flex: 1,
                   margin: 0,
                   color: colorText,
@@ -118,7 +110,7 @@ const genBaseStyle: GenerateStyle<DrawerToken> = (
                   fontSize: fontSizeLG,
                   lineHeight: drawerTitleLineHeight,
                 },
-                [`${drawerPrefixCls}-close`]: {
+                [`${componentCls}-close`]: {
                   display: 'inline-block',
                   marginRight: closeRight,
                   color: textColorSecondary,
@@ -136,18 +128,18 @@ const genBaseStyle: GenerateStyle<DrawerToken> = (
                   transition: `color ${motionDurationSlow}`,
                   textRendering: 'auto',
 
-                  [`${drawerPrefixCls}:focus,${drawerPrefixCls}:hover`]: {
+                  [`${componentCls}:focus,${componentCls}:hover`]: {
                     color: hoverColor,
                     textDecoration: 'none',
                   },
                 },
               },
-              [`${drawerPrefixCls}-header-close-only`]: {
+              [`${componentCls}-header-close-only`]: {
                 paddingBottom: 0,
                 border: 'none',
               },
             },
-            [`${drawerPrefixCls}-body`]: {
+            [`${componentCls}-body`]: {
               flexGrow: 1,
               padding: paddingLG,
               overflow: 'auto',
@@ -155,7 +147,7 @@ const genBaseStyle: GenerateStyle<DrawerToken> = (
               lineHeight,
               wordWrap: 'break-word',
             },
-            [`${drawerPrefixCls}-footer`]: {
+            [`${componentCls}-footer`]: {
               flexShrink: 0,
               padding: `${modalFooterPaddingVertical}px ${modalFooterPaddingHorizontal}px`, // FIXME px
               borderTop: `${lineWidth}px ${borderStyle} ${borderColorSplit}`, // FIXME px
@@ -163,7 +155,7 @@ const genBaseStyle: GenerateStyle<DrawerToken> = (
           },
         },
       },
-      [`${drawerPrefixCls}-mask`]: {
+      [`${componentCls}-mask`]: {
         position: 'absolute',
         insetBlockStart: 0,
         insetInlineStart: 0,
@@ -175,7 +167,7 @@ const genBaseStyle: GenerateStyle<DrawerToken> = (
         pointerEvents: 'none',
       },
     },
-    [`${drawerPrefixCls}${drawerPrefixCls}-open ${drawerPrefixCls}-mask`]: {
+    [`${componentCls}${componentCls}-open ${componentCls}-mask`]: {
       height: '100%',
       opacity: 1,
       transition: 'none',
@@ -187,7 +179,7 @@ const genBaseStyle: GenerateStyle<DrawerToken> = (
 
 const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
   const {
-    drawerPrefixCls,
+    componentCls,
     motionDurationSlow,
     shadow1Right,
     shadow1Left,
@@ -199,86 +191,85 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
 
   return {
     // =================== left,right ===================
-    [`${drawerPrefixCls}-left`]: {
+    [`${componentCls}-left`]: {
       insetInlineStart: 0,
       insetBlockStart: 0,
       width: 0,
       height: '100%',
-      [`${drawerPrefixCls}-content-wrapper`]: {
+      [`${componentCls}-content-wrapper`]: {
         height: '100%',
         insetInlineStart: 0,
       },
     },
-    [`${drawerPrefixCls}-left${drawerPrefixCls}-open`]: {
+    [`${componentCls}-left${componentCls}-open`]: {
       width: '100%',
       transition: `transform ${motionDurationSlow} ${motionEaseOut}`,
-      [`${drawerPrefixCls}-content-wrapper`]: {
+      [`${componentCls}-content-wrapper`]: {
         boxShadow: shadow1Right,
       },
     },
-    [`${drawerPrefixCls}-right`]: {
+    [`${componentCls}-right`]: {
       insetInlineEnd: 0,
       insetBlockStart: 0,
       width: 0,
       height: '100%',
-      [`${drawerPrefixCls}-content-wrapper`]: {
+      [`${componentCls}-content-wrapper`]: {
         height: '100%',
         insetInlineEnd: 0,
       },
     },
-    [`${drawerPrefixCls}-right${drawerPrefixCls}-open`]: {
+    [`${componentCls}-right${componentCls}-open`]: {
       width: '100%',
       transition: `transform ${motionDurationSlow} ${motionEaseOut}`,
-      [`${drawerPrefixCls}-content-wrapper`]: {
+      [`${componentCls}-content-wrapper`]: {
         boxShadow: shadow1Left,
       },
     },
     // https://github.com/ant-design/ant-design/issues/18607, Avoid edge alignment bug.
-    [`${drawerPrefixCls}-right${drawerPrefixCls}-open.no-mask`]: {
+    [`${componentCls}-right${componentCls}-open.no-mask`]: {
       insetInlineEnd: lineWidth,
       transform: `translateX(${lineWidth})`,
     },
 
     // =================== top,bottom ===================
-    [`${drawerPrefixCls}-top,${drawerPrefixCls}-bottom`]: {
+    [`${componentCls}-top,${componentCls}-bottom`]: {
       insetInlineStart: 0,
       width: '100%',
       height: 0,
-      [`${drawerPrefixCls}-content-wrapper`]: {
+      [`${componentCls}-content-wrapper`]: {
         width: '100%',
       },
     },
 
-    [`${drawerPrefixCls}-top${drawerPrefixCls}-open,${drawerPrefixCls}-bottom${drawerPrefixCls}-open`]:
-      {
-        height: '100%',
-        transition: `transform ${motionDurationSlow} ${motionEaseOut}`,
-      },
+    [`${componentCls}-top${componentCls}-open,${componentCls}-bottom${componentCls}-open`]: {
+      height: '100%',
+      transition: `transform ${motionDurationSlow} ${motionEaseOut}`,
+    },
 
-    [`${drawerPrefixCls}-top`]: {
+    [`${componentCls}-top`]: {
       insetBlockStart: 0,
     },
 
-    [`${drawerPrefixCls}-top${drawerPrefixCls}-open`]: {
-      [`${drawerPrefixCls}-content-wrapper`]: {
+    [`${componentCls}-top${componentCls}-open`]: {
+      [`${componentCls}-content-wrapper`]: {
         boxShadow: shadow1Down,
       },
     },
 
-    [`${drawerPrefixCls}-bottom`]: {
+    [`${componentCls}-bottom`]: {
       bottom: 0,
-      [`${drawerPrefixCls}-content-wrapper`]: {
+      [`${componentCls}-content-wrapper`]: {
         bottom: 0,
       },
     },
 
-    [`${drawerPrefixCls}-bottom${drawerPrefixCls}-bottom-open`]: {
-      [`${drawerPrefixCls}-content-wrapper`]: {
+    [`${componentCls}-bottom${componentCls}-bottom-open`]: {
+      [`${componentCls}-content-wrapper`]: {
         boxShadow: shadow1Up,
       },
     },
 
-    [`${drawerPrefixCls}-bottom${drawerPrefixCls}-bottom-open.no-mask`]: {
+    [`${componentCls}-bottom${componentCls}-bottom-open.no-mask`]: {
       insetBlockEnd: lineWidth,
       transform: `translateY(${lineWidth})`,
     },
@@ -294,17 +285,8 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
 };
 
 // ============================== Export ==============================
-export default function useStyle(
-  prefixCls: string,
-  iconPrefixCls: string,
-): UseComponentStyleResult {
-  const [theme, token, hashId] = useToken();
-  const drawerToken: DrawerToken = {
-    ...token,
-    prefixCls,
-    iconPrefixCls,
-    drawerPrefixCls: `.${prefixCls}`,
-
+export default genComponentStyleHook('Drawer', (token, { hashId }) => {
+  const drawerToken = mergeToken<DrawerToken>(token, {
     black: '#000', // FIXME: hard code
     white: '#fff', // FIXME: hard code
     drawerHeaderCloseSize: 56, // FIXME: hard code
@@ -326,13 +308,7 @@ export default function useStyle(
     textColorSecondary: new TinyColor('#000').setAlpha(0.45).toRgbString(), // FIXME: hard code
     borderStyle: 'solid', // FIXME: hard code
     motionEaseOut: 'cubic-bezier(0.215, 0.61, 0.355, 1)', // FIXME: hard code
-  };
+  });
 
-  return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      genBaseStyle(drawerToken, hashId),
-      genDrawerStyle(drawerToken),
-    ]),
-    hashId,
-  ];
-}
+  return [genBaseStyle(drawerToken, hashId), genDrawerStyle(drawerToken)];
+});

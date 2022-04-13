@@ -7,63 +7,74 @@
 // deps-lint-skip-all
 import * as React from 'react';
 import { CSSObject } from '@ant-design/cssinjs';
-import { TinyColor } from '@ctrl/tinycolor';
 import {
-  DerivativeToken,
-  useStyleRegister,
-  useToken,
-  UseComponentStyleResult,
   GenerateStyle,
   resetComponent,
+  FullToken,
+  genComponentStyleHook,
+  mergeToken,
 } from '../../_util/theme';
 
-interface SliderToken extends DerivativeToken {
-  sliderCls: string;
-  handleSize: number;
-  sliderSize: number;
+// Direction naming standard:
+// Horizontal base:
+// -0-------------
+// vertical: part   (水平时，垂直方向命名为 part)
+// horizontal: full (水平时，水平方向命名为 full)
+
+export interface ComponentToken {
+  controlSize: number;
   railSize: number;
+  handleSize: number;
+  lineHandleWidth: number;
   dotSize: number;
+}
+
+interface SliderToken extends FullToken<'Slider'> {
+  marginFull: number;
+  marginPart: number;
+  marginPartWithMark: number;
 }
 
 // =============================== Base ===============================
 const genBaseStyle: GenerateStyle<SliderToken> = token => {
-  const { sliderCls, sliderSize, dotSize } = token;
-
-  const FIXED_RAIL_HOVER_COLOR = '#e1e1e1';
+  const { componentCls, controlSize, dotSize, marginFull, marginPart, colorBgContainerSecondary } =
+    token;
 
   return {
-    [sliderCls]: {
+    [componentCls]: {
       ...resetComponent(token),
 
       position: 'relative',
-      height: sliderSize,
-      margin: '10px 6px', // FIXME: hard code in v4
+      height: controlSize,
+      margin: `${marginPart}px ${marginFull}px`,
       padding: 0,
       cursor: 'pointer',
       touchAction: 'none',
 
-      //   .vertical();
+      [`&-vertical`]: {
+        margin: `${marginFull}px ${marginPart}px`,
+      },
 
-      [`${sliderCls}-rail`]: {
+      [`${componentCls}-rail`]: {
         position: 'absolute',
         backgroundColor: token.colorBgContainer,
         borderRadius: token.controlRadius,
         transition: `background-color ${token.motionDurationSlow}`,
       },
 
-      [`${sliderCls}-track`]: {
+      [`${componentCls}-track`]: {
         position: 'absolute',
         backgroundColor: token.colorPrimarySecondary,
         borderRadius: token.controlRadius,
         transition: `background-color ${token.motionDurationSlow}`,
       },
 
-      [`${sliderCls}-handle`]: {
+      [`${componentCls}-handle`]: {
         position: 'absolute',
         width: token.handleSize,
         height: token.handleSize,
         backgroundColor: token.colorBgComponent,
-        border: `2px solid ${token.colorPrimarySecondary}`,
+        border: `${token.lineHandleWidth}px solid ${token.colorPrimarySecondary}`,
         borderRadius: '50%',
         boxShadow: 'none',
         cursor: 'pointer',
@@ -74,7 +85,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         `,
         outline: 'none',
 
-        [`${sliderCls}-dragging`]: {
+        [`${componentCls}-dragging`]: {
           zIndex: 1,
         },
 
@@ -84,50 +95,47 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         },
 
         '&:focus-visible': {
-          // FIXME: This is a inline color calculation
-          boxShadow: `0 0 0 5px ${new TinyColor(token.colorPrimaryHover)
-            .setAlpha(0.2)
-            .toRgbString()}`,
+          boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${token.colorPrimarySecondary}`,
         },
 
-        // FIXME: Seems useless?
+        // Seems useless?
         //     &.@{ant-prefix}-tooltip-open {
         //       border-color: @slider-handle-color-tooltip-open;
         //     }
       },
 
       '&:hover': {
-        [`${sliderCls}-rail`]: {
-          backgroundColor: FIXED_RAIL_HOVER_COLOR, // FIXME: Not match color
+        [`${componentCls}-rail`]: {
+          backgroundColor: colorBgContainerSecondary,
         },
 
-        [`${sliderCls}-track`]: {
-          backgroundColor: token.colorPrimaryHover, // FIXME: origin primary-4
+        [`${componentCls}-track`]: {
+          backgroundColor: token.colorPrimaryHover,
         },
 
-        [`${sliderCls}-dot`]: {
-          borderColor: FIXED_RAIL_HOVER_COLOR,
+        [`${componentCls}-dot`]: {
+          borderColor: colorBgContainerSecondary,
         },
 
-        // FIXME: We use below style instead
+        // We use below style instead
         //     ${sliderCls}-handle:not(.@{ant-prefix}-tooltip-open) {
         //       border-color: @slider-handle-color-hover;
         //     }
 
         [`
-          ${sliderCls}-handle,
-          ${sliderCls}-dot-active
+          ${componentCls}-handle,
+          ${componentCls}-dot-active
         `]: {
           borderColor: token.colorPrimaryHover,
         },
       },
 
-      [`${sliderCls}-mark`]: {
+      [`${componentCls}-mark`]: {
         position: 'absolute',
         fontSize: token.fontSize,
       },
 
-      [`${sliderCls}-mark-text`]: {
+      [`${componentCls}-mark-text`]: {
         position: 'absolute',
         display: 'inline-block',
         color: token.colorTextSecondary,
@@ -141,18 +149,18 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         },
       },
 
-      [`${sliderCls}-step`]: {
+      [`${componentCls}-step`]: {
         position: 'absolute',
         background: 'transparent',
         pointerEvents: 'none',
       },
 
-      [`${sliderCls}-dot`]: {
+      [`${componentCls}-dot`]: {
         position: 'absolute',
         width: dotSize,
         height: dotSize,
         backgroundColor: token.colorBgComponent,
-        border: `2px solid ${token.colorSplit}`, // FIXME: hardcode in v4
+        border: `${token.lineHandleWidth}px solid ${token.colorSplit}`,
         borderRadius: '50%',
         cursor: 'pointer',
         transition: `border-color ${token.motionDurationSlow}`,
@@ -165,17 +173,17 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
       '&-disabled': {
         cursor: 'not-allowed',
 
-        [`${sliderCls}-rail`]: {
+        [`${componentCls}-rail`]: {
           backgroundColor: `${token.colorBgContainer} !important`,
         },
 
-        [`${sliderCls}-track`]: {
+        [`${componentCls}-track`]: {
           backgroundColor: `${token.colorTextDisabled} !important`,
         },
 
         [`
-          ${sliderCls}-handle,
-          ${sliderCls}-dot
+          ${componentCls}-handle,
+          ${componentCls}-dot
         `]: {
           backgroundColor: token.colorBgComponent,
           borderColor: `${token.colorTextDisabled} !important`,
@@ -184,8 +192,8 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         },
 
         [`
-          ${sliderCls}-mark-text,
-          ${sliderCls}-dot
+          ${componentCls}-mark-text,
+          ${componentCls}-dot
         `]: {
           cursor: `not-allowed !important`,
         },
@@ -196,48 +204,49 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
 
 // ============================ Horizontal ============================
 const genDirectionStyle = (token: SliderToken, horizontal: boolean): CSSObject => {
-  const { sliderCls, railSize, sliderSize, handleSize, dotSize } = token;
+  const { componentCls, railSize, controlSize, handleSize, dotSize } = token;
 
   const railPadding: keyof React.CSSProperties = horizontal ? 'paddingBlock' : 'paddingInline';
-  const stretch: keyof React.CSSProperties = horizontal ? 'width' : 'height';
-  const contain: keyof React.CSSProperties = horizontal ? 'height' : 'width';
+  const full: keyof React.CSSProperties = horizontal ? 'width' : 'height';
+  const part: keyof React.CSSProperties = horizontal ? 'height' : 'width';
   const handlePos: keyof React.CSSProperties = horizontal ? 'insetBlockStart' : 'insetInlineStart';
   const markInset: keyof React.CSSProperties = horizontal ? 'top' : 'insetInlineStart';
 
   return {
     [railPadding]: railSize,
+    [part]: controlSize,
 
-    [`${sliderCls}-rail`]: {
-      [stretch]: '100%',
-      [contain]: railSize,
+    [`${componentCls}-rail`]: {
+      [full]: '100%',
+      [part]: railSize,
     },
 
-    [`${sliderCls}-track`]: {
-      [contain]: railSize,
+    [`${componentCls}-track`]: {
+      [part]: railSize,
     },
 
-    [`${sliderCls}-handle`]: {
-      [handlePos]: (sliderSize - handleSize) / 2,
+    [`${componentCls}-handle`]: {
+      [handlePos]: (controlSize - handleSize) / 2,
     },
 
-    [`${sliderCls}-mark`]: {
+    [`${componentCls}-mark`]: {
       // Reset all
       insetInlineStart: 0,
       top: 0,
       [markInset]: handleSize,
-      [stretch]: '100%',
+      [full]: '100%',
     },
 
-    [`${sliderCls}-step`]: {
+    [`${componentCls}-step`]: {
       // Reset all
       insetInlineStart: 0,
       top: 0,
       [markInset]: railSize,
-      [stretch]: '100%',
-      [contain]: railSize,
+      [full]: '100%',
+      [part]: railSize,
     },
 
-    [`${sliderCls}-dot`]: {
+    [`${componentCls}-dot`]: {
       position: 'absolute',
       [handlePos]: (railSize - dotSize) / 2,
     },
@@ -245,14 +254,14 @@ const genDirectionStyle = (token: SliderToken, horizontal: boolean): CSSObject =
 };
 // ============================ Horizontal ============================
 const genHorizontalStyle: GenerateStyle<SliderToken> = token => {
-  const { sliderCls } = token;
+  const { componentCls, marginPartWithMark } = token;
 
   return {
-    [`${sliderCls}-horizontal`]: {
+    [`${componentCls}-horizontal`]: {
       ...genDirectionStyle(token, true),
 
-      [`&${sliderCls}-with-marks`]: {
-        marginBottom: 28, // FIXME: hard code in v4
+      [`&${componentCls}-with-marks`]: {
+        marginBottom: marginPartWithMark,
       },
     },
   };
@@ -260,10 +269,10 @@ const genHorizontalStyle: GenerateStyle<SliderToken> = token => {
 
 // ============================= Vertical =============================
 const genVerticalStyle: GenerateStyle<SliderToken> = token => {
-  const { sliderCls } = token;
+  const { componentCls } = token;
 
   return {
-    [`${sliderCls}-vertical`]: {
+    [`${componentCls}-vertical`]: {
       ...genDirectionStyle(token, false),
       height: '100%',
     },
@@ -271,26 +280,31 @@ const genVerticalStyle: GenerateStyle<SliderToken> = token => {
 };
 
 // ============================== Export ==============================
-export default function useStyle(prefixCls: string): UseComponentStyleResult {
-  const [theme, token, hashId] = useToken();
-
-  const sliderSize = 12; // FIXME: hard code in v4
-
-  const sliderToken: SliderToken = {
-    ...token,
-    sliderCls: `.${prefixCls}`,
-    handleSize: 14, // FIXME: hard code in v4
-    sliderSize,
-    railSize: sliderSize / 3,
-    dotSize: 8,
-  };
-
-  return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
+export default genComponentStyleHook(
+  'Slider',
+  (token, { hashId }) => {
+    const sliderToken = mergeToken<SliderToken>(token, {
+      marginPart: (token.controlHeight - token.controlSize) / 2,
+      marginFull: token.controlSize / 2,
+      marginPartWithMark: token.controlHeightLG - token.controlSize,
+    });
+    return [
       genBaseStyle(sliderToken, hashId),
       genHorizontalStyle(sliderToken),
       genVerticalStyle(sliderToken),
-    ]),
-    hashId,
-  ];
-}
+    ];
+  },
+  token => {
+    // Handle line width is always width-er 1px
+    const increaseHandleWidth = 1;
+    const controlSize = token.controlHeightSM / 2;
+    const lineHandleWidth = token.lineWidth + increaseHandleWidth;
+    return {
+      controlSize,
+      railSize: controlSize / 3,
+      handleSize: controlSize + lineHandleWidth,
+      dotSize: (controlSize / 3) * 2,
+      lineHandleWidth,
+    };
+  },
+);

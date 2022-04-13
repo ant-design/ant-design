@@ -332,7 +332,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
             class="ant-input-group ant-input-group-compact"
           >
             <div
-              class="ant-select ant-tree-select ant-select-in-form-item ant-select-single ant-select-show-arrow"
+              class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
               style="width:30%"
             >
               <div
@@ -388,7 +388,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
               </span>
             </div>
             <div
-              class="ant-select ant-select-in-form-item ant-select-auto-complete ant-select-single ant-select-show-search"
+              class="ant-select ant-select-auto-complete ant-select-single ant-select-show-search"
             >
               <div
                 class="ant-select-selector"
@@ -525,7 +525,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
             class="ant-input-group ant-input-group-compact"
           >
             <div
-              class="ant-select ant-tree-select ant-select-in-form-item ant-select-single ant-select-show-arrow"
+              class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
               style="width:30%"
             >
               <div
@@ -581,7 +581,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
               </span>
             </div>
             <div
-              class="ant-select ant-select-in-form-item ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
+              class="ant-select ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
             >
               <div
                 class="ant-select-selector"
@@ -665,7 +665,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
             class="ant-input-group ant-input-group-compact"
           >
             <div
-              class="ant-select ant-tree-select ant-select-in-form-item ant-select-single ant-select-show-arrow"
+              class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
               style="width:30%"
             >
               <div
@@ -721,7 +721,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
               </span>
             </div>
             <div
-              class="ant-select ant-select-in-form-item ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
+              class="ant-select ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
             >
               <div
                 class="ant-select-selector"
@@ -814,7 +814,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
             class="ant-input-group ant-input-group-compact"
           >
             <div
-              class="ant-select ant-tree-select ant-select-in-form-item ant-select-single ant-select-show-arrow"
+              class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
               style="width:20%"
             >
               <div
@@ -870,7 +870,7 @@ exports[`renders ./components/auto-complete/demo/form-debug.md correctly 1`] = `
               </span>
             </div>
             <div
-              class="ant-select ant-select-in-form-item ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
+              class="ant-select ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
             >
               <div
                 class="ant-select-selector"

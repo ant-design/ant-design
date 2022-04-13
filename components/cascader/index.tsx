@@ -36,6 +36,8 @@ export type FieldNamesType = FieldNames;
 
 export type FilledFieldNamesType = Required<FieldNamesType>;
 
+const { SHOW_CHILD, SHOW_PARENT } = RcCascader;
+
 function highlightKeyword(str: string, lowerKeyword: string, prefixCls: string | undefined) {
   const cells = str
     .toLowerCase()
@@ -142,7 +144,6 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
     direction: rootDirection,
     // virtual,
     // dropdownMatchSelectWidth,
-    iconPrefixCls,
   } = useContext(ConfigContext);
 
   const mergedDirection = direction || rootDirection;
@@ -180,7 +181,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
   const prefixCls = getPrefixCls('select', customizePrefixCls);
   const cascaderPrefixCls = getPrefixCls('cascader', customizePrefixCls);
 
-  const [wrapSelectSSR, hashId] = useSelectStyle(rootPrefixCls, prefixCls, iconPrefixCls);
+  const [wrapSelectSSR, hashId] = useSelectStyle(prefixCls);
   const [wrapCascaderSSR] = useStyle(cascaderPrefixCls);
 
   // =================== Dropdown ====================
@@ -300,12 +301,16 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
   );
 
   return wrapCascaderSSR(wrapSelectSSR(renderNode));
-}) as (<OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType>(
+}) as unknown as (<OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType>(
   props: React.PropsWithChildren<CascaderProps<OptionType>> & { ref?: React.Ref<CascaderRef> },
 ) => React.ReactElement) & {
   displayName: string;
+  SHOW_PARENT: typeof SHOW_PARENT;
+  SHOW_CHILD: typeof SHOW_CHILD;
 };
 
 Cascader.displayName = 'Cascader';
+Cascader.SHOW_PARENT = SHOW_PARENT;
+Cascader.SHOW_CHILD = SHOW_CHILD;
 
 export default Cascader;

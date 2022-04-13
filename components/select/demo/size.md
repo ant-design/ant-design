@@ -72,7 +72,7 @@ const SelectSizesDemo = () => {
   );
 };
 
-ReactDOM.render(<SelectSizesDemo />, mountNode);
+export default () => <SelectSizesDemo />;
 ```
 
 ```css

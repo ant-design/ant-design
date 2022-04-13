@@ -19,5 +19,5 @@ import dayjs from 'dayjs';
 
 const format = 'HH:mm';
 
-ReactDOM.render(<TimePicker defaultValue={dayjs('12:08', format)} format={format} />, mountNode);
+export default () => <TimePicker defaultValue={dayjs('12:08', format)} format={format} />;
 ```

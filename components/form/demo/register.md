@@ -300,5 +300,5 @@ const RegistrationForm = () => {
   );
 };
 
-ReactDOM.render(<RegistrationForm />, mountNode);
+export default () => <RegistrationForm />;
 ```

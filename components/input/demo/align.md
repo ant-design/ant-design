@@ -65,7 +65,7 @@ const options = [
   },
 ];
 
-ReactDOM.render(
+export default () => (
   <>
     <Mentions style={{ width: 100 }} rows={1} />
     <Input.TextArea rows={1} style={{ width: 100 }} />
@@ -99,7 +99,6 @@ ReactDOM.render(
     <Input style={narrowStyle} suffix="Y" />
     <Input style={narrowStyle} />
     <Input style={narrowStyle} defaultValue="1" suffix="Y" />
-  </>,
-  mountNode,
+  </>
 );
 ```

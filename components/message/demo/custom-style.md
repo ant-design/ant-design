@@ -26,5 +26,5 @@ const success = () => {
   });
 };
 
-ReactDOM.render(<Button onClick={success}>Customized style</Button>, mountNode);
+export default () => <Button onClick={success}>Customized style</Button>;
 ```

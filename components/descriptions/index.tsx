@@ -12,6 +12,7 @@ import { ConfigContext } from '../config-provider';
 import Row from './Row';
 import DescriptionsItem from './Item';
 import { cloneElement } from '../_util/reactNode';
+import useStyle from './style';
 
 export interface DescriptionsContextProps {
   labelStyle?: React.CSSProperties;
@@ -135,6 +136,8 @@ function Descriptions({
   const [screens, setScreens] = React.useState<ScreenMap>({});
   const mergedColumn = getColumn(column, screens);
 
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
   // Responsive
   React.useEffect(() => {
     const token = ResponsiveObserve.subscribe(newScreens => {
@@ -156,7 +159,7 @@ function Descriptions({
     [labelStyle, contentStyle],
   );
 
-  return (
+  return wrapSSR(
     <DescriptionsContext.Provider value={contextValue}>
       <div
         className={classNames(
@@ -167,6 +170,7 @@ function Descriptions({
             [`${prefixCls}-rtl`]: direction === 'rtl',
           },
           className,
+          hashId,
         )}
         style={style}
       >
@@ -195,7 +199,7 @@ function Descriptions({
           </table>
         </div>
       </div>
-    </DescriptionsContext.Provider>
+    </DescriptionsContext.Provider>,
   );
 }
 

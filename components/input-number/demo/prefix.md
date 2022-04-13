@@ -17,7 +17,7 @@ Add a prefix inside input.
 import { InputNumber } from 'antd';
 import { InfoCircleOutlined, SmileOutlined, UserOutlined } from '@ant-design/icons';
 
-ReactDOM.render(
+export default () => (
   <>
     <InputNumber prefix="￥" style={{ width: '100%' }} />
     <br />
@@ -26,7 +26,6 @@ ReactDOM.render(
     <br />
     <br />
     <InputNumber prefix="￥" disabled style={{ width: '100%' }} />
-  </>,
-  mountNode,
+  </>
 );
 ```

@@ -43,5 +43,5 @@ const Demo = () => (
   </Form>
 );
 
-ReactDOM.render(<Demo />, mountNode);
+export default () => <Demo />;
 ```

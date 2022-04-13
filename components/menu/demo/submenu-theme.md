@@ -82,5 +82,5 @@ const SubMenuTheme = () => {
   );
 };
 
-ReactDOM.render(<SubMenuTheme />, mountNode);
+export default () => <SubMenuTheme />;
 ```

@@ -75,6 +75,12 @@ module.exports = {
       'react-router-dom': 'ReactRouterDOM',
     };
 
+    config.plugins.push(
+      new webpack.DefinePlugin({
+        CSSINJS_STATISTIC: JSON.stringify(true),
+      }),
+    );
+
     if (isDev) {
       config.devtool = 'source-map';
 
@@ -87,6 +93,7 @@ module.exports = {
       };
     } else if (process.env.ESBUILD) {
       // use esbuild
+      config.optimization.minimize = true;
       config.optimization.minimizer = [
         new ESBuildMinifyPlugin({
           target: 'es2015',

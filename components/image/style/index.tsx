@@ -2,18 +2,15 @@
 import { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 import {
-  DerivativeToken,
+  FullToken,
+  genComponentStyleHook,
   GenerateStyle,
+  mergeToken,
   resetComponent,
-  UseComponentStyleResult,
-  useStyleRegister,
-  useToken,
 } from '../../_util/theme';
 
-export interface ImageToken extends DerivativeToken {
-  prefixCls: string;
+export interface ImageToken extends FullToken<'Image'> {
   previewPrefixCls: string;
-  iconPrefixCls: string;
   imageSizeBase: number;
   marginXXS: number;
   imageBg: string;
@@ -45,8 +42,7 @@ export const genBoxStyle = (position?: PositionType): CSSObject => ({
 });
 
 export const genImageMaskStyle = (token: ImageToken): CSSObject => {
-  const { iconPrefixCls, white, black, motionDurationSlow, paddingXXS, marginXXS, prefixCls } =
-    token;
+  const { iconCls, white, black, motionDurationSlow, paddingXXS, marginXXS, prefixCls } = token;
   return {
     position: 'absolute',
     inset: 0,
@@ -60,11 +56,11 @@ export const genImageMaskStyle = (token: ImageToken): CSSObject => {
     transition: `opacity ${motionDurationSlow}`,
 
     [`.${prefixCls}-mask-info`]: {
-      padding: `0 ${paddingXXS}`,
+      padding: `0 ${paddingXXS}px`,
       overflow: 'hidden',
       whiteSpace: 'nowrap',
       textOverflow: 'ellipsis',
-      [`.${iconPrefixCls}`]: {
+      [iconCls]: {
         marginInlineEnd: marginXXS,
       },
     },
@@ -95,7 +91,7 @@ export const genPreviewOperationsStyle = (token: ImageToken): CSSObject => {
     background: new TinyColor(modalMaskBg).setAlpha(0.1).toRgbString(), // FIXME: hard code
     pointerEvents: 'auto',
 
-    [`.${previewPrefixCls}-operations-operation`]: {
+    [`${previewPrefixCls}-operations-operation`]: {
       marginInlineStart: paddingSM,
       padding: paddingSM,
       cursor: 'pointer',
@@ -110,7 +106,7 @@ export const genPreviewOperationsStyle = (token: ImageToken): CSSObject => {
       },
     },
 
-    [`.${previewPrefixCls}-icon`]: {
+    [`${previewPrefixCls}-icon`]: {
       fontSize: imagePreviewOperationSize,
     },
   };
@@ -119,7 +115,7 @@ export const genPreviewSwitchStyle = (token: ImageToken): CSSObject => {
   const {
     black,
     modalMaskBg,
-    iconPrefixCls,
+    iconCls,
     imagePreviewOperationDisabledColor,
     previewPrefixCls,
     switchWidth,
@@ -145,14 +141,14 @@ export const genPreviewSwitchStyle = (token: ImageToken): CSSObject => {
     cursor: 'pointer',
     pointerEvents: 'auto',
 
-    [`.${previewPrefixCls}-disabled`]: {
+    [`${previewPrefixCls}-disabled`]: {
       color: imagePreviewOperationDisabledColor,
       cursor: 'not-allowed',
-      [`> .${iconPrefixCls}`]: {
+      [`> ${iconCls}`]: {
         cursor: 'not-allowed',
       },
     },
-    [`> .${iconPrefixCls}`]: {
+    [`> ${iconCls}`]: {
       fontSize: iconPrefixClsFontSize,
     },
   };
@@ -164,12 +160,12 @@ export const genImagePreviewStyle = (token: ImageToken): CSSObject => {
   return {
     height: '100%',
     textAlign: 'center',
-    [`.${previewPrefixCls}-body`]: {
+    [`${previewPrefixCls}-body`]: {
       ...genBoxStyle(),
       overflow: 'hidden',
     },
 
-    [`.${previewPrefixCls}-img`]: {
+    [`${previewPrefixCls}-img`]: {
       maxWidth: '100%',
       maxHeight: '100%',
       verticalAlign: 'middle',
@@ -193,8 +189,8 @@ export const genImagePreviewStyle = (token: ImageToken): CSSObject => {
       },
     },
 
-    [`.${previewPrefixCls}-moving`]: {
-      [`.${previewPrefixCls}-preview-img`]: {
+    [`${previewPrefixCls}-moving`]: {
+      [`${previewPrefixCls}-preview-img`]: {
         cursor: 'grabbing',
 
         '&-wrapper': {
@@ -203,19 +199,19 @@ export const genImagePreviewStyle = (token: ImageToken): CSSObject => {
       },
     },
 
-    [`.${previewPrefixCls}-operations`]: {
+    [`${previewPrefixCls}-operations`]: {
       ...genPreviewOperationsStyle(token),
     },
 
-    [`.${previewPrefixCls}-switch-left, .${previewPrefixCls}-switch-right`]: {
+    [`${previewPrefixCls}-switch-left, ${previewPrefixCls}-switch-right`]: {
       ...genPreviewSwitchStyle(token),
     },
 
-    [`.${previewPrefixCls}-switch-left`]: {
+    [`${previewPrefixCls}-switch-left`]: {
       insetInlineStart: switchLeft,
     },
 
-    [`.${previewPrefixCls}-switch-right`]: {
+    [`${previewPrefixCls}-switch-right`]: {
       insetInlineEnd: switchRight,
     },
   };
@@ -262,15 +258,14 @@ const genImageStyle: GenerateStyle<ImageToken> = (token: ImageToken) => {
     },
     // ============================== preview ==============================
     pointerEvents: 'none',
-    [`.${previewPrefixCls}.${prefixCls}-zoom-enter, .${previewPrefixCls}.${prefixCls}zoom-appear`]:
-      {
-        transform: 'none',
-        opacity: 0,
-        animationDuration: motionDurationSlow,
-        userSelect: 'none', // https://github.com/ant-design/ant-design/issues/11777
-      },
-    [`.${previewPrefixCls}-root`]: {
-      [`.${previewPrefixCls}-mask`]: {
+    [`${previewPrefixCls}.${prefixCls}-zoom-enter, ${previewPrefixCls}.${prefixCls}zoom-appear`]: {
+      transform: 'none',
+      opacity: 0,
+      animationDuration: motionDurationSlow,
+      userSelect: 'none', // https://github.com/ant-design/ant-design/issues/11777
+    },
+    [`${previewPrefixCls}-root`]: {
+      [`${previewPrefixCls}-mask`]: {
         ...genBoxStyle('fixed'),
         zIndex: zIndexModalMask,
         height: '100%',
@@ -280,13 +275,13 @@ const genImageStyle: GenerateStyle<ImageToken> = (token: ImageToken) => {
           display: 'none',
         },
       },
-      [`.${previewPrefixCls}-wrap`]: {
+      [`${previewPrefixCls}-wrap`]: {
         ...genBoxStyle('fixed'),
         overflow: 'auto',
         outline: 0,
         WebkitOverflowScrolling: 'touch',
         zIndex: zIndexImage,
-        [`.${previewPrefixCls}`]: {
+        [`${previewPrefixCls}`]: {
           ...genImagePreviewStyle(token),
         },
       },
@@ -295,16 +290,9 @@ const genImageStyle: GenerateStyle<ImageToken> = (token: ImageToken) => {
 };
 
 // ============================== Export ==============================
-export default function useStyle(
-  prefixCls: string,
-  iconPrefixCls: string,
-): UseComponentStyleResult {
-  const [theme, token, hashId] = useToken();
-  const inputToken: ImageToken = {
-    ...token,
-    prefixCls,
-    iconPrefixCls,
-    previewPrefixCls: `${prefixCls}-preview`,
+export default genComponentStyleHook('Image', (token, { hashId }) => {
+  const imageToken = mergeToken<ImageToken>(token, {
+    previewPrefixCls: `${token.componentCls}-preview`,
 
     white: '#fff', // FIXME: hard code
     black: '#000', // FIXME: hard code
@@ -326,12 +314,7 @@ export default function useStyle(
     zIndexImage: 1080, // FIXME: hard code in v4
     zIndexModalMask: 1000, // FIXME: hard code in v4
     motionEaseOut: 'cubic-bezier(0.215, 0.61, 0.355, 1)', // FIXME: hard code in v4
-  };
+  });
 
-  return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      genImageStyle(inputToken, hashId),
-    ]),
-    hashId,
-  ];
-}
+  return [genImageStyle(imageToken, hashId)];
+});

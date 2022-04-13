@@ -1,5 +1,6 @@
 import React from 'react';
 import { CSSInterpolation, Theme, useCacheToken, useStyleRegister } from '@ant-design/cssinjs';
+import genComponentStyleHook from './util/genComponentStyleHook';
 import defaultSeedToken, { derivative as defaultDerivative } from './themes/default';
 import version from '../../version';
 import { resetComponent, resetIcon, clearFix, roundedArrow } from './util';
@@ -15,6 +16,7 @@ import {
   slideRightIn,
   slideRightOut,
 } from './util/slide';
+import statisticToken, { merge as mergeToken } from './util/statistic';
 import { GlobalToken, PresetColors } from './interface';
 import type {
   SeedToken,
@@ -23,6 +25,7 @@ import type {
   OverrideToken,
   PresetColorType,
 } from './interface';
+import type { FullToken } from './util/genComponentStyleHook';
 
 export {
   PresetColors,
@@ -40,6 +43,11 @@ export {
   slideRightIn,
   slideRightOut,
   useStyleRegister,
+  // Statistic
+  statisticToken,
+  mergeToken,
+  // GenComponentStyleHook
+  genComponentStyleHook,
 };
 
 export type {
@@ -48,6 +56,7 @@ export type {
   PresetColorType,
   // FIXME: Remove this type
   AliasToken as DerivativeToken,
+  FullToken,
 };
 
 // ================================ Context =================================

@@ -1,5 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import { render, fireEvent } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import Search from '../search';
 import Transfer from '../index';
 
@@ -66,14 +68,14 @@ describe('Transfer.Search', () => {
 
   it('legacy props#onSearchChange doesnot work anymore', () => {
     const onSearchChange = jest.fn();
-    const wrapper = mount(
+    const { container } = render(
       <Transfer render={item => item.title} onSearchChange={onSearchChange} showSearch />,
     );
-    wrapper
-      .find('.ant-input')
-      .at(0)
-      .simulate('change', { target: { value: 'a' } });
-    expect(errorSpy.mock.calls.length).toBe(0);
+
+    fireEvent.change(container.querySelector('.ant-input'), {
+      target: { value: 'a' },
+    });
+    expect(errorSpy).not.toHaveBeenCalled();
     expect(onSearchChange).not.toHaveBeenCalled();
   });
 

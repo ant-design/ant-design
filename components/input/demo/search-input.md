@@ -30,7 +30,7 @@ const suffix = (
 
 const onSearch = value => console.log(value);
 
-ReactDOM.render(
+export default () => (
   <Space direction="vertical">
     <Search placeholder="input search text" onSearch={onSearch} style={{ width: 200 }} />
     <Search placeholder="input search text" allowClear onSearch={onSearch} style={{ width: 200 }} />
@@ -56,7 +56,6 @@ ReactDOM.render(
       suffix={suffix}
       onSearch={onSearch}
     />
-  </Space>,
-  mountNode,
+  </Space>
 );
 ```

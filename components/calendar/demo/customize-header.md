@@ -21,7 +21,7 @@ function onPanelChange(value, mode) {
   console.log(value, mode);
 }
 
-ReactDOM.render(
+export default () => (
   <div className="site-calendar-customize-header-wrapper">
     <Calendar
       fullscreen={false}
@@ -100,8 +100,7 @@ ReactDOM.render(
       }}
       onPanelChange={onPanelChange}
     />
-  </div>,
-  mountNode,
+  </div>
 );
 ```
 

@@ -25,12 +25,11 @@ const customIcons = {
   5: <SmileOutlined />,
 };
 
-ReactDOM.render(
+export default () => (
   <>
     <Rate defaultValue={2} character={({ index }) => index + 1} />
     <br />
     <Rate defaultValue={3} character={({ index }) => customIcons[index + 1]} />
-  </>,
-  mountNode,
+  </>
 );
 ```

@@ -25,5 +25,5 @@ const Demo = () => (
   </Space>
 );
 
-ReactDOM.render(<Demo />, mountNode);
+export default () => <Demo />;
 ```

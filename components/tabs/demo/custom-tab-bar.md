@@ -27,7 +27,7 @@ const renderTabBar = (props, DefaultTabBar) => (
   </Sticky>
 );
 
-ReactDOM.render(
+export default () => (
   <StickyContainer>
     <Tabs defaultActiveKey="1" renderTabBar={renderTabBar}>
       <TabPane tab="Tab 1" key="1" style={{ height: 200 }}>
@@ -40,8 +40,7 @@ ReactDOM.render(
         Content of Tab Pane 3
       </TabPane>
     </Tabs>
-  </StickyContainer>,
-  mountNode,
+  </StickyContainer>
 );
 ```
 

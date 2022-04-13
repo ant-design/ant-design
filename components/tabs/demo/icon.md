@@ -19,7 +19,7 @@ import { AppleOutlined, AndroidOutlined } from '@ant-design/icons';
 
 const { TabPane } = Tabs;
 
-ReactDOM.render(
+export default () => (
   <Tabs defaultActiveKey="2">
     <TabPane
       tab={
@@ -43,7 +43,6 @@ ReactDOM.render(
     >
       Tab 2
     </TabPane>
-  </Tabs>,
-  mountNode,
+  </Tabs>
 );
 ```

@@ -71,25 +71,25 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
         const errSpy = excludeWarning();
 
         MockDate.set(dayjs('2016-11-22').valueOf());
-        let demo = require(`../.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
-
+        let Demo = require(`../.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
         // Inject Trigger status unless skipped
+        Demo = typeof Demo === 'function' ? <Demo /> : Demo;
         if (doInject) {
-          demo = (
+          Demo = (
             <TriggerMockContext.Provider
               value={{
                 popupVisible: true,
               }}
             >
-              {demo}
+              {Demo}
             </TriggerMockContext.Provider>
           );
         }
 
         // Inject cssinjs cache to avoid create <style /> element
-        demo = <StyleProvider cache={createCache()}>{demo}</StyleProvider>;
+        Demo = <StyleProvider cache={createCache()}>{Demo}</StyleProvider>;
 
-        const wrapper = render(demo);
+        const wrapper = render(Demo);
 
         // Convert aria related content
         ariaConvert(wrapper);

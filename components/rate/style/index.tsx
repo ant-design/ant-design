@@ -1,27 +1,24 @@
 // deps-lint-skip-all
 import { CSSObject } from '@ant-design/cssinjs';
 import {
-  DerivativeToken,
   resetComponent,
-  UseComponentStyleResult,
-  useStyleRegister,
-  useToken,
   GenerateStyle,
+  FullToken,
+  genComponentStyleHook,
+  mergeToken,
 } from '../../_util/theme';
 
-interface RateToken extends DerivativeToken {
+interface RateToken extends FullToken<'Rate'> {
   rateStarColor: string;
   rateStarSize: number;
   rateStarHoverScale: CSSObject['transform'];
-  rateCls: string;
-  iconPrefixCls: string;
 }
 
 const genRateStarStyle: GenerateStyle<RateToken, CSSObject> = token => {
-  const { rateCls } = token;
+  const { componentCls } = token;
 
   return {
-    [`${rateCls}-star`]: {
+    [`${componentCls}-star`]: {
       position: 'relative',
       display: 'inline-block',
       color: 'inherit',
@@ -53,7 +50,7 @@ const genRateStarStyle: GenerateStyle<RateToken, CSSObject> = token => {
         transition: `all ${token.motionDurationSlow}`,
         userSelect: 'none',
 
-        [token.iconPrefixCls]: {
+        [token.iconCls]: {
           verticalAlign: 'middle',
         },
       },
@@ -68,11 +65,11 @@ const genRateStarStyle: GenerateStyle<RateToken, CSSObject> = token => {
         opacity: 0,
       },
 
-      [`&-half ${rateCls}-star-first, &-half ${rateCls}-star-second`]: {
+      [`&-half ${componentCls}-star-first, &-half ${componentCls}-star-second`]: {
         opacity: 1,
       },
 
-      [`&-half ${rateCls}-star-first, &-full ${rateCls}-star-second`]: {
+      [`&-half ${componentCls}-star-first, &-full ${componentCls}-star-second`]: {
         color: 'inherit',
       },
     },
@@ -80,16 +77,16 @@ const genRateStarStyle: GenerateStyle<RateToken, CSSObject> = token => {
 };
 
 const genRateRtlStyle = (token: RateToken): CSSObject => ({
-  [`&-rtl${token.rateCls}`]: {
+  [`&-rtl${token.componentCls}`]: {
     direction: 'rtl',
   },
 });
 
 const genRateStyle: GenerateStyle<RateToken> = token => {
-  const { rateCls } = token;
+  const { componentCls } = token;
 
   return {
-    [rateCls]: {
+    [componentCls]: {
       ...resetComponent(token),
 
       display: 'inline-block',
@@ -102,7 +99,7 @@ const genRateStyle: GenerateStyle<RateToken> = token => {
       outline: 'none',
 
       // disable styles
-      [`&-disabled${rateCls} ${rateCls}-star`]: {
+      [`&-disabled${componentCls} ${componentCls}-star`]: {
         cursor: 'default',
 
         '&:hover': {
@@ -114,7 +111,7 @@ const genRateStyle: GenerateStyle<RateToken> = token => {
       ...genRateStarStyle(token),
 
       // text styles
-      [`+ ${rateCls}-text`]: {
+      [`+ ${componentCls}-text`]: {
         display: 'inline-block',
         marginInlineStart: token.marginXS,
         fontSize: token.fontSize,
@@ -127,24 +124,12 @@ const genRateStyle: GenerateStyle<RateToken> = token => {
 };
 
 // ============================== Export ==============================
-export default function useStyle(
-  prefixCls: string,
-  iconPrefixCls: string,
-): UseComponentStyleResult {
-  const [theme, token, hashId] = useToken();
-
-  const rateToken: RateToken = {
-    ...token,
+export default genComponentStyleHook('Rate', token => {
+  const rateToken = mergeToken<RateToken>(token, {
     // FIXME: missing token
     rateStarColor: '#fadb14', // @yellow-6
     rateStarSize: 20, // fixed-value
     rateStarHoverScale: 'scale(1.1)', // fixed-value
-    rateCls: `.${prefixCls}`,
-    iconPrefixCls: `.${iconPrefixCls}`,
-  };
-
-  return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [genRateStyle(rateToken)]),
-    hashId,
-  ];
-}
+  });
+  return [genRateStyle(rateToken)];
+});

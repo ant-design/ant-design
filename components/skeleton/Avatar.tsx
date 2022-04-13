@@ -3,6 +3,7 @@ import omit from 'rc-util/lib/omit';
 import classNames from 'classnames';
 import { ConfigContext } from '../config-provider';
 import Element, { SkeletonElementProps } from './Element';
+import useStyle from './style';
 
 export interface AvatarProps extends Omit<SkeletonElementProps, 'shape'> {
   shape?: 'circle' | 'square';
@@ -12,6 +13,7 @@ const SkeletonAvatar = (props: AvatarProps) => {
   const { prefixCls: customizePrefixCls, className, active } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const otherProps = omit(props, ['prefixCls', 'className']);
   const cls = classNames(
@@ -21,11 +23,13 @@ const SkeletonAvatar = (props: AvatarProps) => {
       [`${prefixCls}-active`]: active,
     },
     className,
+    hashId,
   );
-  return (
+
+  return wrapSSR(
     <div className={cls}>
       <Element prefixCls={`${prefixCls}-avatar`} {...otherProps} />
-    </div>
+    </div>,
   );
 };
 

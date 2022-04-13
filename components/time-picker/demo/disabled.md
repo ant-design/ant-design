@@ -18,7 +18,5 @@ import { TimePicker } from 'antd';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 
-dayjs.extend(customParseFormat);
-
-ReactDOM.render(<TimePicker defaultValue={dayjs('12:08:23', 'HH:mm:ss')} disabled />, mountNode);
+export default () => <TimePicker defaultValue={dayjs('12:08:23', 'HH:mm:ss')} disabled />;
 ```

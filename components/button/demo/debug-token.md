@@ -9,11 +9,11 @@ debug: true
 ```tsx
 import { Button, ConfigProvider, Space } from 'antd';
 
-ReactDOM.render(
+export default () => (
   <ConfigProvider
     theme={{
       override: {
-        button: {
+        Button: {
           colorBgTextHover: 'red',
           colorBgTextActive: 'blue',
         },
@@ -26,7 +26,7 @@ ReactDOM.render(
       <ConfigProvider
         theme={{
           override: {
-            button: {
+            Button: {
               colorBgTextHover: 'orange',
               colorBgTextActive: 'blue',
             },
@@ -36,7 +36,6 @@ ReactDOM.render(
         <Button type="text">Text 2</Button>
       </ConfigProvider>
     </Space>
-  </ConfigProvider>,
-  mountNode,
+  </ConfigProvider>
 );
 ```

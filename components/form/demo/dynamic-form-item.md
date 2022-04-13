@@ -117,7 +117,7 @@ const DynamicFieldSet = () => {
   );
 };
 
-ReactDOM.render(<DynamicFieldSet />, mountNode);
+export default () => <DynamicFieldSet />;
 ```
 
 ```css

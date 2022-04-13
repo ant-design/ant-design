@@ -24,7 +24,7 @@ import {
   MinusCircleOutlined,
 } from '@ant-design/icons';
 
-ReactDOM.render(
+export default () => (
   <>
     <Divider orientation="left">Without icon</Divider>
     <div>
@@ -55,7 +55,6 @@ ReactDOM.render(
         stop
       </Tag>
     </div>
-  </>,
-  mountNode,
+  </>
 );
 ```

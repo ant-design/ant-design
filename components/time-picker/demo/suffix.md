@@ -26,12 +26,11 @@ function onChange(time, timeString) {
   console.log(time, timeString);
 }
 
-ReactDOM.render(
+export default () => (
   <TimePicker
     suffixIcon={<SmileOutlined />}
     onChange={onChange}
     defaultOpenValue={dayjs('00:00:00', 'HH:mm:ss')}
-  />,
-  mountNode,
+  />
 );
 ```

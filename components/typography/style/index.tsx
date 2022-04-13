@@ -1,6 +1,6 @@
 // deps-lint-skip-all
-import { useStyleRegister, useToken } from '../../_util/theme';
-import type { UseComponentStyleResult, GenerateStyle, AliasToken } from '../../_util/theme';
+import { FullToken, genComponentStyleHook } from '../../_util/theme';
+import type { GenerateStyle } from '../../_util/theme';
 import { operationUnit } from '../../_util/theme/util/operationUnit';
 import {
   getTitleStyles,
@@ -17,15 +17,13 @@ export interface ComponentToken {
   sizeMarginHeadingVerticalEnd: number | string;
 }
 
-export interface TypographyToken extends AliasToken, ComponentToken {
-  typographyCls: string;
-}
+export type TypographyToken = FullToken<'Typography'>;
 
 const genTypographyStyle: GenerateStyle<TypographyToken> = token => {
-  const { typographyCls, sizeMarginHeadingVerticalStart } = token;
+  const { componentCls, sizeMarginHeadingVerticalStart } = token;
 
   return {
-    [typographyCls]: {
+    [componentCls]: {
       color: token.colorText,
       overflowWrap: 'break-word',
       '&&-secondary': {
@@ -99,9 +97,9 @@ const genTypographyStyle: GenerateStyle<TypographyToken> = token => {
 
       // Operation
       [`
-        ${typographyCls}-expand,
-        ${typographyCls}-edit,
-        ${typographyCls}-copy
+        ${componentCls}-expand,
+        ${componentCls}-edit,
+        ${componentCls}-copy
       `]: {
         ...operationUnit(token),
         marginInlineStart: token.marginXXS,
@@ -121,26 +119,7 @@ const genTypographyStyle: GenerateStyle<TypographyToken> = token => {
 };
 
 // ============================== Export ==============================
-export default function useStyle(prefixCls: string): UseComponentStyleResult {
-  const [theme, token, hashId] = useToken();
-
-  return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => {
-      const { typography } = token;
-
-      const typographyToken: TypographyToken = {
-        ...token,
-
-        typographyCls: `.${prefixCls}`,
-
-        sizeMarginHeadingVerticalStart: '1.2em',
-        sizeMarginHeadingVerticalEnd: '0.5em',
-
-        ...typography,
-      };
-
-      return [genTypographyStyle(typographyToken)];
-    }),
-    hashId,
-  ];
-}
+export default genComponentStyleHook('Typography', token => [genTypographyStyle(token)], {
+  sizeMarginHeadingVerticalStart: '1.2em',
+  sizeMarginHeadingVerticalEnd: '0.5em',
+});

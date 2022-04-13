@@ -20,7 +20,7 @@ function onChange(e) {
   console.log(`radio checked:${e.target.value}`);
 }
 
-ReactDOM.render(
+export default () => (
   <>
     <Radio.Group onChange={onChange} defaultValue="a">
       <Radio.Button value="a">Hangzhou</Radio.Button>
@@ -42,7 +42,6 @@ ReactDOM.render(
       <Radio.Button value="c">Beijing</Radio.Button>
       <Radio.Button value="d">Chengdu</Radio.Button>
     </Radio.Group>
-  </>,
-  mountNode,
+  </>
 );
 ```

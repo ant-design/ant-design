@@ -1,7 +1,14 @@
-import * as React from 'react';
+import type * as React from 'react';
 import type { ComponentToken as ButtonComponentToken } from '../../button/style';
 import type { ComponentToken as DividerComponentToken } from '../../divider/style';
+import type { ComponentToken as EmptyComponentToken } from '../../empty/style';
+import type { ComponentToken as CascaderComponentToken } from '../../cascader/style';
+import type { ComponentToken as InputNumberComponentToken } from '../../input-number/style';
+import type { ComponentToken as MentionsComponentToken } from '../../mentions/style';
+import type { ComponentToken as SelectComponentToken } from '../../select/style';
+import type { ComponentToken as SliderComponentToken } from '../../slider/style';
 import type { ComponentToken as TypographyComponentToken } from '../../typography/style';
+import type { ComponentToken as TimelineComponentToken } from '../../timeline/style';
 
 export const PresetColors = [
   'blue',
@@ -33,9 +40,41 @@ export interface OverrideToken {
   derivative?: Partial<DerivativeToken & AliasToken>;
 
   // Customize component
-  button?: ButtonComponentToken;
-  divider?: DividerComponentToken;
-  typography?: TypographyComponentToken;
+  Affix?: {};
+  Alert?: {};
+  Avatar?: {};
+  Badge?: {};
+  Button?: ButtonComponentToken;
+  Carousel?: {};
+  Cascader?: CascaderComponentToken;
+  Checkbox?: {};
+  Descriptions?: {};
+  Divider?: DividerComponentToken;
+  Drawer?: {};
+  Empty?: EmptyComponentToken;
+  Form?: {};
+  Grid?: {};
+  Image?: {};
+  Input?: {};
+  InputNumber?: InputNumberComponentToken;
+  List?: {};
+  Mentions?: MentionsComponentToken;
+  Pagination?: {};
+  Popover?: {};
+  Rate?: {};
+  Result?: {};
+  Select?: SelectComponentToken;
+  Skeleton?: {};
+  Slider?: SliderComponentToken;
+  Spin?: {};
+  Statistic?: {};
+  Switch?: {};
+  Tag?: {};
+  Tree?: {};
+  TreeSelect?: {};
+  Typography?: TypographyComponentToken;
+  Timeline?: TimelineComponentToken;
+  Tabs?: {};
 }
 
 /** Final token which contains the components level override */
@@ -91,7 +130,6 @@ export interface SeedToken extends PresetColorType {
   // zIndex
   /** Base zIndex of component like BackTop, Affix which can be cover by large popup */
   zIndexBase: number;
-  zIndexPopover: number;
   /** Base popup component zIndex */
   zIndexPopup: number;
 }
@@ -134,6 +172,7 @@ export interface DerivativeToken extends SeedToken, ColorPalettes {
   colorTextBelow3: string;
 
   colorBg2: string;
+  colorBg3: string;
   colorBgBelow: string;
   colorBgBelow2: string;
 
@@ -193,6 +232,8 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   fontSize: number;
   fontSizeLG: number;
   fontSizeXL: number;
+  /** Operation icon in Select, Cascader, etc. icon fontSize. Normal is same as fontSizeSM */
+  fontSizeIcon: number;
 
   fontSizeHeading1: number;
   fontSizeHeading2: number;
@@ -240,6 +281,7 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   colorLinkActive: string;
 
   colorBgContainer: string;
+  colorBgContainerSecondary: string;
   colorBgComponent: string;
   colorBgComponentSecondary: string;
   colorBgComponentDisabled: string;
@@ -264,4 +306,26 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   marginSM: number;
   marginLG: number;
   marginXXS: number;
+
+  // Media queries breakpoints
+  screenXS: number;
+  screenXSMin: number;
+  screenXSMax: number;
+  screenSM: number;
+  screenSMMin: number;
+  screenSMMax: number;
+  screenMD: number;
+  screenMDMin: number;
+  screenMDMax: number;
+  screenLG: number;
+  screenLGMin: number;
+  screenLGMax: number;
+  screenXL: number;
+  screenXLMin: number;
+  screenXLMax: number;
+  screenXXL: number;
+  screenXXLMin: number;
+  screenXXLMax: number;
+
+  motionEaseOut: string;
 }

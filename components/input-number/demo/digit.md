@@ -20,7 +20,7 @@ function onChange(value: string) {
   console.log('changed', value);
 }
 
-ReactDOM.render(
+export default () => (
   <InputNumber<string>
     style={{ width: 200 }}
     defaultValue="1"
@@ -29,7 +29,6 @@ ReactDOM.render(
     step="0.00000000000001"
     onChange={onChange}
     stringMode
-  />,
-  mountNode,
+  />
 );
 ```

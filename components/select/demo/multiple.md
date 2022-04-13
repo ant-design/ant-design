@@ -27,7 +27,7 @@ function handleChange(value) {
   console.log(`selected ${value}`);
 }
 
-ReactDOM.render(
+export default () => (
   <>
     <Select
       mode="multiple"
@@ -50,7 +50,6 @@ ReactDOM.render(
     >
       {children}
     </Select>
-  </>,
-  mountNode,
+  </>
 );
 ```
