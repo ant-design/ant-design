@@ -319,7 +319,7 @@ describe('Locale Provider', () => {
     });
   });
 
-  it('set dayjs locale when locale changes', () => {
+  it('set moment locale when locale changes', () => {
     class Test extends React.Component {
       state = {
         locale: zhCN,
