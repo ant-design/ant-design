@@ -150,7 +150,7 @@ dayjs.extend(preParsePostFormat);
 const locales = [
   azAZ,
   arEG,
-  // bgBG,
+  bgBG,
   // bnBD,
   // byBY,
   // caES,
