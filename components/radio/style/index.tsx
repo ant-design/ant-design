@@ -274,8 +274,8 @@ function getRadioBasicStyle(
       },
 
       [`span.${prefixCls} + *`]: {
-        paddingRight: token.paddingSM,
-        paddingLeft: token.paddingSM,
+        paddingInlineStart: token.paddingXS,
+        paddingInlineEnd: token.paddingXS,
       },
 
       antRadioEffect,
