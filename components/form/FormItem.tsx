@@ -46,12 +46,17 @@ type ChildrenType<Values = any> = RenderChildren<Values> | React.ReactNode;
 interface MemoInputProps {
   value: any;
   update: any;
+  childProps: any[];
   children: React.ReactNode;
 }
 
 const MemoInput = React.memo(
   ({ children }: MemoInputProps) => children as JSX.Element,
-  (prev, next) => prev.value === next.value && prev.update === next.update,
+  (prev, next) =>
+    prev.value === next.value &&
+    prev.update === next.update &&
+    prev.childProps.length === next.childProps.length &&
+    prev.childProps.every((value, index) => value === next.childProps[index]),
 );
 
 export interface FormItemProps<Values = any>
@@ -325,6 +330,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
           prefixCls={prefixCls}
           status={mergedValidateStatus}
           help={help}
+          fieldId={fieldId}
         >
           <NoStyleItemContext.Provider value={onSubItemMetaChange}>
             <FormItemInputContext.Provider value={formItemStatusContext}>
@@ -424,9 +430,35 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
             childProps.id = fieldId;
           }
 
+          if (props.help || mergedErrors.length > 0 || mergedWarnings.length > 0 || props.extra) {
+            const describedbyArr = [];
+            if (props.help || mergedErrors.length > 0) {
+              describedbyArr.push(`${fieldId}_help`);
+            }
+            if (props.extra) {
+              describedbyArr.push(`${fieldId}_extra`);
+            }
+            childProps['aria-describedby'] = describedbyArr.join(' ');
+          }
+
+          if (mergedErrors.length > 0) {
+            childProps['aria-invalid'] = 'true';
+          }
+
+          if (isRequired) {
+            childProps['aria-required'] = 'true';
+          }
+
           if (supportRef(children)) {
             childProps.ref = getItemRef(mergedName, children);
           }
+
+          // List of props that need to be watched for changes -> if changes are detected in MemoInput -> rerender
+          const watchingChildProps = [
+            childProps['aria-required'],
+            childProps['aria-invalid'],
+            childProps['aria-describedby'],
+          ];
 
           // We should keep user origin event handler
           const triggers = new Set<string>([
@@ -442,7 +474,11 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
           });
 
           childNode = (
-            <MemoInput value={mergedControl[props.valuePropName || 'value']} update={children}>
+            <MemoInput
+              value={mergedControl[props.valuePropName || 'value']}
+              update={children}
+              childProps={watchingChildProps}
+            >
               {cloneElement(children, childProps)}
             </MemoInput>
           );
