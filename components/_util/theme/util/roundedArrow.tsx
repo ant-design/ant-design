@@ -20,7 +20,7 @@ export const roundedArrow = (width: number, outerRadius: number, bgColor: string
   const ey = fy + outerRadius * (1 / Math.sqrt(2));
 
   return {
-    borderRadius: `0 0 ${radiusBase}px 0`,
+    borderRadius: `0 0 2px 0`,
     pointerEvents: 'none',
 
     '&::before': {

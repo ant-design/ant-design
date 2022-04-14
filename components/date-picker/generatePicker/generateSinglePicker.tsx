@@ -7,7 +7,6 @@ import RCPicker from 'rc-picker';
 import { PickerMode } from 'rc-picker/lib/interface';
 import { GenerateConfig } from 'rc-picker/lib/generate/index';
 import { forwardRef, useContext } from 'react';
-import { FormInstance } from 'antd';
 import enUS from '../locale/en_US';
 import { getPlaceholder, transPlacement2DropdownAlign } from '../util';
 import devWarning from '../../_util/devWarning';
@@ -22,7 +21,6 @@ import {
   getTimeProps,
   Components,
 } from '.';
-import { PickerComponentClass } from './interface';
 import { FormItemInputContext } from '../../form/context';
 import { getMergedStatus, getStatusClassNames, InputStatus } from '../../_util/statusUtils';
 import useStyle from '../style';
@@ -80,6 +78,8 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
           placement,
           placeholder,
           status: customStatus,
+          dropdownClassName,
+          hashId,
           ...restProps
         } = this.props;
         const { format, showTime } = this.props as any;
@@ -146,6 +146,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
                             getMergedStatus(contextStatus, customStatus),
                             hasFeedback,
                           ),
+                          hashId,
                           className,
                         )}
                         prefixCls={prefixCls}
@@ -153,6 +154,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
                         generateConfig={generateConfig}
                         components={Components}
                         direction={direction}
+                        dropdownClassName={classNames(hashId, dropdownClassName)}
                       />
                     );
                   }}

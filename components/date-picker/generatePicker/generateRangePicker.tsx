@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { forwardRef, useContext } from 'react';
 import classNames from 'classnames';
 import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
@@ -7,19 +8,24 @@ import SwapRightOutlined from '@ant-design/icons/SwapRightOutlined';
 import { RangePicker as RCRangePicker } from 'rc-picker';
 import { GenerateConfig } from 'rc-picker/lib/generate/index';
 import enUS from '../locale/en_US';
-import { ConfigContext, ConfigConsumerProps } from '../../config-provider';
+import { ConfigConsumerProps, ConfigContext } from '../../config-provider';
 import SizeContext from '../../config-provider/SizeContext';
 import LocaleReceiver from '../../locale-provider/LocaleReceiver';
 import { getRangePlaceholder, transPlacement2DropdownAlign } from '../util';
-import { RangePickerProps, PickerLocale, getTimeProps, Components } from '.';
-import { PickerComponentClass } from './interface';
+import { Components, getTimeProps, PickerLocale, RangePickerProps } from '.';
 import { FormItemInputContext } from '../../form/context';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
+import { PickerComponentClass } from './interface';
+import useStyle from '../style';
 
 export default function generateRangePicker<DateType>(
   generateConfig: GenerateConfig<DateType>,
 ): PickerComponentClass<RangePickerProps<DateType>> {
-  class RangePicker extends React.Component<RangePickerProps<DateType>> {
+  type InternalRangePickerProps = RangePickerProps<DateType> & {
+    hashId?: string;
+  };
+
+  class RangePicker extends React.Component<InternalRangePickerProps> {
     static contextType = ConfigContext;
 
     context: ConfigConsumerProps;
@@ -42,7 +48,7 @@ export default function generateRangePicker<DateType>(
       const locale = { ...contextLocale, ...this.props.locale };
       const { getPrefixCls, direction, getPopupContainer } = this.context;
       const {
-        prefixCls: customizePrefixCls,
+        prefixCls,
         getPopupContainer: customGetPopupContainer,
         className,
         placement,
@@ -50,10 +56,11 @@ export default function generateRangePicker<DateType>(
         bordered = true,
         placeholder,
         status: customStatus,
+        dropdownClassName,
+        hashId,
         ...restProps
       } = this.props;
       const { format, showTime, picker } = this.props as any;
-      const prefixCls = getPrefixCls('picker', customizePrefixCls);
 
       let additionalOverrideProps: any = {};
 
@@ -105,10 +112,11 @@ export default function generateRangePicker<DateType>(
                           [`${prefixCls}-borderless`]: !bordered,
                         },
                         getStatusClassNames(
-                          prefixCls,
+                          prefixCls as string,
                           getMergedStatus(contextStatus, customStatus),
                           hasFeedback,
                         ),
+                        hashId,
                         className,
                       )}
                       locale={locale!.lang}
@@ -117,6 +125,7 @@ export default function generateRangePicker<DateType>(
                       generateConfig={generateConfig}
                       components={Components}
                       direction={direction}
+                      dropdownClassName={classNames(hashId, dropdownClassName)}
                     />
                   );
                 }}
@@ -136,5 +145,14 @@ export default function generateRangePicker<DateType>(
     }
   }
 
-  return RangePicker;
+  return forwardRef<RangePicker, RangePickerProps<DateType>>((props, ref) => {
+    const { prefixCls: customizePrefixCls } = props;
+
+    const { getPrefixCls } = useContext(ConfigContext);
+    const prefixCls = getPrefixCls('picker', customizePrefixCls);
+
+    const [wrapSSR, hashId] = useStyle(prefixCls);
+
+    return wrapSSR(<RangePicker {...props} prefixCls={prefixCls} ref={ref} hashId={hashId} />);
+  }) as unknown as PickerComponentClass<RangePickerProps<DateType>>;
 }

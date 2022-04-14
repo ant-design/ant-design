@@ -8,6 +8,7 @@ import type { ComponentToken as MentionsComponentToken } from '../../mentions/st
 import type { ComponentToken as SelectComponentToken } from '../../select/style';
 import type { ComponentToken as SliderComponentToken } from '../../slider/style';
 import type { ComponentToken as TypographyComponentToken } from '../../typography/style';
+import type { ComponentToken as DatePickerComponentToken } from '../../date-picker/style';
 
 export const PresetColors = [
   'blue',
@@ -47,7 +48,7 @@ export interface OverrideToken {
   Carousel?: {};
   Cascader?: CascaderComponentToken;
   Checkbox?: {};
-  DatePicker?: {};
+  DatePicker?: DatePickerComponentToken;
   Descriptions?: {};
   Divider?: DividerComponentToken;
   Drawer?: {};
