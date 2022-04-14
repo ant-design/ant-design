@@ -1,7 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { act } from 'react-dom/test-utils';
-import { render, fireEvent } from '@testing-library/react';
 import { UserOutlined } from '@ant-design/icons';
 import notification, { getInstance } from '..';
 import ConfigProvider from '../../config-provider';
