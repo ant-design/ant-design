@@ -8,33 +8,33 @@ title:
 
 ## zh-CN
 
-`useWatch` 允许你监听字段变化，同时仅当改字段变化时重新渲染。
+`useWatch` 允许你监听字段变化，同时仅当改字段变化时重新渲染。API 文档请[查阅此处](#Form.useWatch)。
 
 ## en-US
 
-`useWatch` helps watch the field change and only re-render for the value change.
+`useWatch` helps watch the field change and only re-render for the value change. [API Ref](#Form.useWatch).
 
 ```tsx
 import React from 'react';
-import { Form, Input, Typography } from 'antd';
+import { Form, Input, InputNumber, Typography } from 'antd';
 
 const Demo = () => {
-  const [form] = Form.useForm<{ field1: string; field2: string }>();
-  const nameValue = Form.useWatch(['field1'], form);
+  const [form] = Form.useForm<{ user: { name: string; age: number } }>();
+  const nameValue = Form.useWatch('name', form);
 
   return (
     <>
       <Form form={form} layout="vertical" autoComplete="off">
-        <Form.Item name="field1" label="Field 1 (Watch to trigger rerender)">
+        <Form.Item name="name" label="Name (Watch to trigger rerender)">
           <Input />
         </Form.Item>
-        <Form.Item name="field2" label="Field 2 (Not Watch)">
-          <Input />
+        <Form.Item name="age" label="Age (Not Watch)">
+          <InputNumber />
         </Form.Item>
       </Form>
 
       <Typography>
-        <pre>Field 1 Value: {nameValue}</pre>
+        <pre>Name Value: {nameValue}</pre>
       </Typography>
     </>
   );
