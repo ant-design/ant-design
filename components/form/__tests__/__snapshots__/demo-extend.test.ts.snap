@@ -14850,6 +14850,89 @@ exports[`renders ./components/form/demo/time-related-controls.md extend context 
 </form>
 `;
 
+exports[`renders ./components/form/demo/useWatch.md extend context correctly 1`] = `
+Array [
+  <form
+    autocomplete="off"
+    class="ant-form ant-form-vertical"
+  >
+    <div
+      class="ant-row ant-form-item"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class=""
+          for="field1"
+          title="Field 1 (Watch to trigger rerender)"
+        >
+          Field 1 (Watch to trigger rerender)
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <input
+              class="ant-input"
+              id="field1"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-row ant-form-item"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class=""
+          for="field2"
+          title="Field 2 (Not Watch)"
+        >
+          Field 2 (Not Watch)
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <input
+              class="ant-input"
+              id="field2"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>,
+  <article
+    class="ant-typography"
+  >
+    <pre>
+      Field 1 Value: 
+    </pre>
+  </article>,
+]
+`;
+
 exports[`renders ./components/form/demo/validate-other.md extend context correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
