@@ -15,6 +15,37 @@ timeline: true
 
 ---
 
+## 4.20.0-alpha.0
+
+`2022-04-12`
+
+- 🔥 新增组件 Segmented。[#34319](https://github.com/ant-design/ant-design/pull/34319)
+- Table
+  - 🆕 Table 列筛选条件重置时，支持重置为默认值而非空值。[#34355](https://github.com/ant-design/ant-design/pull/34355) [@heiyu4585](https://github.com/heiyu4585)
+  - 💄 修复 Table `size="small"` 时列头背景色和选择列宽度的样式问题。[#34963](https://github.com/ant-design/ant-design/pull/34963)
+  - 🇩🇪 补全 Table 的德语国际化文案。[#34836](https://github.com/ant-design/ant-design/pull/34836) [@pfedan](https://github.com/pfedan)
+- Tree
+  - 🆕 Tree 组件的 `switcherIcon` 属性支持 render-prop。[#34470](https://github.com/ant-design/ant-design/pull/34470) [@zqran](https://github.com/zqran)
+  - 🆕 Tree 支持 `rootClassName` and `rootStyle`。[#34578](https://github.com/ant-design/ant-design/pull/34578)
+- 🆕 Anchor `getCurrentAnchor` 参数中返回默认高亮项。[#34799](https://github.com/ant-design/ant-design/pull/34799)
+- ⌨️ Dropdown 支持方向键切换选项。[#34738](https://github.com/ant-design/ant-design/pull/34738)
+- 🆕 Cascader 添加 `showCheckedStrategy` 用于配置回填方式。[#34568](https://github.com/ant-design/ant-design/pull/34568) [@heiyu4585](https://github.com/heiyu4585)
+- 🆕 Typography 的 `onCopy` 方法支持获取点击事件对象。[#34655](https://github.com/ant-design/ant-design/pull/34655) [@yzwxk](https://github.com/yzwxk)
+- 🆕 Grid 支持 `justify="space-evenly"`。[#34606](https://github.com/ant-design/ant-design/pull/34606) [@gp5251](https://github.com/gp5251)
+- 🆕 Dialog 及 Image 支持 `rootClassName` 属性。[#34574](https://github.com/ant-design/ant-design/pull/34574) [@heiyu4585](https://github.com/heiyu4585)
+- 🐞 修复 Skeleton 在没有 `children` 并设置 `loading` 为 false 时提示 `Nothing was returned from render` 的问题。[#34872](https://github.com/ant-design/ant-design/pull/34872) [@AlbertAZ1992](https://github.com/AlbertAZ1992)
+- 🐞 修复 BackTop 组件在严格模式下不能正常工作的问题。[#34858](https://github.com/ant-design/ant-design/pull/34858) [@tmkx](https://github.com/tmkx)
+- 🐞 修复 Title、Text、Paragraph 组件不支持 `ref` 的问题。[#34847](https://github.com/ant-design/ant-design/pull/34847) [@MQuy](https://github.com/MQuy)
+- Input
+  - 💄 Input.Group 对子组件屏蔽 Form.Item 的样式。[#34764](https://github.com/ant-design/ant-design/pull/34764)
+  - 💄 调整 Form 下 TextArea 的样式。[#34714](https://github.com/ant-design/ant-design/pull/34714) [@MadCcc](https://github.com/MadCcc)
+- 💄 修复 Form `labelCol={{ sm: 24 }}` 和 `wrapperCol={{ sm: 24 }}` 时样式错乱的问题。[#34907](https://github.com/ant-design/ant-design/pull/34907)
+- 💄 修复 Badge 在 RTL 模式下、独立使用时的动画效果。[#34899](https://github.com/ant-design/ant-design/pull/34899) [@hmz22](https://github.com/hmz22)
+- ⌨️ 修复 Checkbox 缺少 `aria-checked` 属性导致屏幕阅读器识别错误的问题。[#34862](https://github.com/ant-design/ant-design/pull/34862) [@SpaNb4](https://github.com/SpaNb4)
+- ⌨️ Spin 添加 `aria` 属性以提升可访问性。[#34408](https://github.com/ant-design/ant-design/pull/34408) [@heiyu4585](https://github.com/heiyu4585)
+- ⌨️ 为 Breadcrumb 层次结构增加可访问性支持。[#34082](https://github.com/ant-design/ant-design/pull/34082) [@VladimirOtroshchenko](https://github.com/VladimirOtroshchenko)
+- 🛎 Menu 添加 `items` 数据化菜单项支持以为将来性能提升做准备，并且 `children` 将会在下个大版本中废弃。[#34559](https://github.com/ant-design/ant-design/pull/34559)
+
 ## 4.19.5
 
 `2022-04-02`
