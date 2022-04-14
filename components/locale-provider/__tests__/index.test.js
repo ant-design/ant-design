@@ -2,6 +2,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import dayjs from 'dayjs';
+import preParsePostFormat from 'dayjs/plugin/preParsePostFormat';
 import MockDate from 'mockdate';
 import mountTest from '../../../tests/shared/mountTest';
 import {
@@ -144,10 +145,11 @@ import zhTW from '../zh_TW';
 import 'dayjs/locale/zh-tw';
 import urPK from '../ur_PK';
 import 'dayjs/locale/ur';
+dayjs.extend(preParsePostFormat);
 
 const locales = [
   azAZ,
-  // arEG,
+  arEG,
   // bgBG,
   // bnBD,
   // byBY,
