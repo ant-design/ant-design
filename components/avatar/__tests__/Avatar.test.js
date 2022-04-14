@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
-import { render } from '@testing-library/react';
+import { render } from '../../../tests/utils';
 import '@testing-library/jest-dom';
 import Avatar from '..';
 import mountTest from '../../../tests/shared/mountTest';

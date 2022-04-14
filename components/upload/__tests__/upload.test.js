@@ -1,7 +1,6 @@
 /* eslint-disable react/no-string-refs, react/prefer-es6-class */
 import React from 'react';
 import { mount } from 'enzyme';
-import { render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { act } from 'react-dom/test-utils';
 import produce from 'immer';
@@ -13,7 +12,7 @@ import { setup, teardown } from './mock';
 import { resetWarned } from '../../_util/devWarning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { sleep } from '../../../tests/utils';
+import { sleep, render, fireEvent } from '../../../tests/utils';
 
 globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 

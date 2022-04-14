@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { mount } from 'enzyme';
-import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import RcTextArea from 'rc-textarea';
 import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
-import { sleep } from '../../../tests/utils';
+import { sleep, render } from '../../../tests/utils';
 
 const { TextArea } = Input;
 

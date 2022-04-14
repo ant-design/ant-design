@@ -1,12 +1,11 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
-import { render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Form from '..';
 import Input from '../../input';
 import Button from '../../button';
-import { sleep } from '../../../tests/utils';
+import { sleep, render, fireEvent } from '../../../tests/utils';
 
 describe('Form.List', () => {
   async function change(wrapper, index, value) {

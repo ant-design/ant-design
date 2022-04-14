@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { mount } from 'enzyme';
-import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { act } from 'react-dom/test-utils';
 import { SearchOutlined } from '@ant-design/icons';
@@ -9,7 +8,7 @@ import Button from '..';
 import ConfigProvider from '../../config-provider';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { sleep } from '../../../tests/utils';
+import { sleep, render } from '../../../tests/utils';
 import { SizeType } from '../../config-provider/SizeContext';
 
 describe('Button', () => {

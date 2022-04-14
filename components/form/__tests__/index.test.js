@@ -1,6 +1,5 @@
 import React, { Component, useState } from 'react';
 import { mount } from 'enzyme';
-import { render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { act } from 'react-dom/test-utils';
 import scrollIntoView from 'scroll-into-view-if-needed';
@@ -13,7 +12,7 @@ import Select from '../../select';
 
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { sleep } from '../../../tests/utils';
+import { sleep, render, fireEvent } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import zhCN from '../../locale/zh_CN';
 

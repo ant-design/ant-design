@@ -2,7 +2,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent } from '../../../tests/utils';
 import '@testing-library/jest-dom';
 import Table from '..';
 import Input from '../../input';

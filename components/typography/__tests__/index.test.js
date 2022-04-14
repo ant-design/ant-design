@@ -1,6 +1,5 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { SmileOutlined, LikeOutlined, HighlightOutlined, CheckOutlined } from '@ant-design/icons';
 import KeyCode from 'rc-util/lib/KeyCode';
@@ -15,7 +14,7 @@ import Base from '../Base';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import Typography from '../Typography';
-import { sleep } from '../../../tests/utils';
+import { sleep, render } from '../../../tests/utils';
 
 jest.mock('copy-to-clipboard');
 

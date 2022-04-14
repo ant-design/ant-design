@@ -7,9 +7,8 @@ import {
   PieChartOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-import { render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { act } from 'react-dom/test-utils';
+import { act, render, fireEvent } from 'react-dom/test-utils';
 import Menu from '..';
 import Layout from '../../layout';
 import Tooltip from '../../tooltip';
