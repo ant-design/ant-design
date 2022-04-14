@@ -78,6 +78,7 @@ exports[`renders ./components/form/demo/advanced-search.md extend context correc
                 class="ant-form-item-control-input-content"
               >
                 <div
+                  aria-required="true"
                   class="ant-select ant-select-in-form-item ant-select-single ant-select-show-arrow"
                 >
                   <div
@@ -333,6 +334,7 @@ exports[`renders ./components/form/demo/advanced-search.md extend context correc
                 class="ant-form-item-control-input-content"
               >
                 <div
+                  aria-required="true"
                   class="ant-select ant-select-in-form-item ant-select-single ant-select-show-arrow"
                 >
                   <div
@@ -780,7 +782,6 @@ Array [
             class="ant-form-item-control-input-content"
           >
             <input
-              action="click"
               aria-required="true"
               class="ant-input"
               id="basic_username"
@@ -819,6 +820,7 @@ Array [
             >
               <input
                 action="click"
+                aria-required="true"
                 class="ant-input"
                 id="basic_password"
                 type="password"
@@ -910,6 +912,7 @@ Array [
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-required="true"
               class="ant-input"
               id="responsive_username"
               type="text"
@@ -947,6 +950,7 @@ Array [
             >
               <input
                 action="click"
+                aria-required="true"
                 class="ant-input"
                 id="responsive_password"
                 type="password"
@@ -1075,6 +1079,7 @@ exports[`renders ./components/form/demo/control-hooks.md extend context correctl
           class="ant-form-item-control-input-content"
         >
           <div
+            aria-required="true"
             class="ant-select ant-select-in-form-item ant-select-single ant-select-allow-clear ant-select-show-arrow"
           >
             <div
@@ -1343,6 +1348,7 @@ exports[`renders ./components/form/demo/control-ref.md extend context correctly 
           class="ant-form-item-control-input-content"
         >
           <div
+            aria-required="true"
             class="ant-select ant-select-in-form-item ant-select-single ant-select-allow-clear ant-select-show-arrow"
           >
             <div
@@ -2595,6 +2601,7 @@ exports[`renders ./components/form/demo/dynamic-form-items-complex.md extend con
           class="ant-form-item-control-input-content"
         >
           <div
+            aria-required="true"
             class="ant-select ant-select-in-form-item ant-select-single ant-select-show-arrow"
           >
             <div
@@ -4631,6 +4638,7 @@ exports[`renders ./components/form/demo/register.md extend context correctly 1`]
           class="ant-form-item-control-input-content"
         >
           <div
+            aria-required="true"
             class="ant-select ant-cascader ant-select-in-form-item ant-select-single ant-select-allow-clear ant-select-show-arrow"
           >
             <div
@@ -5279,6 +5287,7 @@ exports[`renders ./components/form/demo/register.md extend context correctly 1`]
           class="ant-form-item-control-input-content"
         >
           <div
+            aria-required="true"
             class="ant-select ant-select-in-form-item ant-select-auto-complete ant-select-single ant-select-customize-input ant-select-show-search"
           >
             <div
@@ -5388,6 +5397,7 @@ exports[`renders ./components/form/demo/register.md extend context correctly 1`]
           class="ant-form-item-control-input-content"
         >
           <div
+            aria-required="true"
             class="ant-select ant-select-in-form-item ant-select-single ant-select-show-arrow"
           >
             <div
@@ -14952,6 +14962,7 @@ exports[`renders ./components/form/demo/validate-other.md extend context correct
           class="ant-form-item-control-input-content"
         >
           <div
+            aria-required="true"
             class="ant-select ant-select-in-form-item ant-select-has-feedback ant-select-single ant-select-show-arrow"
           >
             <div
@@ -15121,6 +15132,7 @@ exports[`renders ./components/form/demo/validate-other.md extend context correct
           class="ant-form-item-control-input-content"
         >
           <div
+            aria-required="true"
             class="ant-select ant-select-in-form-item ant-select-multiple ant-select-show-search"
           >
             <div
