@@ -34,9 +34,7 @@ const Demo = () => {
       </Form>
 
       <Typography>
-        <pre>
-          [{Date.now()}] Field 1 Value: {nameValue}
-        </pre>
+        <pre>Field 1 Value: {nameValue}</pre>
       </Typography>
     </>
   );
