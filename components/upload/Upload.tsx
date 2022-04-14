@@ -2,7 +2,6 @@ import * as React from 'react';
 import RcUpload, { UploadProps as RcUploadProps } from 'rc-upload';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import classNames from 'classnames';
-import { useContext } from 'react';
 import Dragger from './Dragger';
 import UploadList from './UploadList';
 import {
