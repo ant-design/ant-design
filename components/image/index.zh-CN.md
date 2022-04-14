@@ -38,7 +38,8 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/D1dXz9PZqa/image.svg
   src?: string; // V4.10.0
   mask?: ReactNode; // V4.9.0
   maskClassName?: string; // V4.11.0
-  current?: number; // V4.12.0 仅支持 PreviewGroup。
+  current?: number; // V4.12.0 仅支持 PreviewGroup
+  countRender?: (current: number, total: number) => string  // 仅支持 PreviewGroup
 }
 ```
 
