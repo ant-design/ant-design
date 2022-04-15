@@ -49,7 +49,7 @@ class Demo extends React.Component {
   }
 }
 
-ReactDOM.render(<Demo />, mountNode);
+export default () => <Demo />;
 ```
 
 <style>

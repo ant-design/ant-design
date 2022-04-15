@@ -16,7 +16,7 @@ It can be placed inside the ordinary card to display the information of the mult
 ```jsx
 import { Card } from 'antd';
 
-ReactDOM.render(
+export default () => (
   <Card title="Card title">
     <Card type="inner" title="Inner Card title" extra={<a href="#">More</a>}>
       Inner Card content
@@ -29,7 +29,6 @@ ReactDOM.render(
     >
       Inner Card content
     </Card>
-  </Card>,
-  mountNode,
+  </Card>
 );
 ```

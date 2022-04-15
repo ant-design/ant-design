@@ -8,6 +8,7 @@ import Row from '../row';
 import Col from '../col';
 import { ConfigContext } from '../config-provider';
 import SizeContext from '../config-provider/SizeContext';
+import useStyle from './style';
 
 function getAction(actions: React.ReactNode[]) {
   const actionList = actions.map((action, index) => (
@@ -103,6 +104,7 @@ const Card = React.forwardRef((props: CardProps, ref: React.Ref<HTMLDivElement>)
   } = props;
 
   const prefixCls = getPrefixCls('card', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const loadingBlockStyle =
     bodyStyle.padding === 0 || bodyStyle.padding === '0px' ? { padding: 24 } : undefined;
@@ -193,15 +195,16 @@ const Card = React.forwardRef((props: CardProps, ref: React.Ref<HTMLDivElement>)
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    hashId,
   );
 
-  return (
+  return wrapSSR(
     <div ref={ref} {...divProps} className={classString}>
       {head}
       {coverDom}
       {body}
       {actionDom}
-    </div>
+    </div>,
   );
 }) as CardInterface;
 

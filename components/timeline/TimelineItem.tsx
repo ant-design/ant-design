@@ -11,9 +11,10 @@ export interface TimelineItemProps {
   position?: string;
   style?: React.CSSProperties;
   label?: React.ReactNode;
+  children?: React.ReactNode;
 }
 
-// for compatibililty
+// for compatibility
 // https://github.com/ant-design/ant-design/pull/26832
 export interface TimeLineItemProps extends TimelineItemProps {
   __deprecated_do_not_use_it__?: any; // eslint-disable-line camelcase

@@ -23,11 +23,10 @@ const content = (
   </div>
 );
 
-ReactDOM.render(
+export default () => (
   <Popover content={content} title="Title">
     <Button type="primary">Hover me</Button>
-  </Popover>,
-  mountNode,
+  </Popover>
 );
 ```
 

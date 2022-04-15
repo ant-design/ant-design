@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
+import { render } from '@testing-library/react';
 import { mount } from 'enzyme';
 import { Col, Row } from '..';
 // eslint-disable-next-line no-unused-vars
@@ -42,12 +43,12 @@ describe('Grid.Gap', () => {
     const ssrTxt = ReactDOMServer.renderToString(<Demo />);
     div.innerHTML = ssrTxt;
 
-    const wrapper = mount(<Demo />, { hydrateIn: div });
+    const { unmount } = render(<Demo />, { container: div, hydrate: true });
 
     expect(warnSpy).not.toHaveBeenCalled();
 
     warnSpy.mockRestore();
 
-    wrapper.unmount();
+    unmount();
   });
 });

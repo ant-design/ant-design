@@ -89,5 +89,5 @@ const TimeRelatedForm = () => {
   );
 };
 
-ReactDOM.render(<TimeRelatedForm />, mountNode);
+export default () => <TimeRelatedForm />;
 ```

@@ -81,6 +81,7 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token, hashId) => {
 
             // >>> Menu
             '&-menu': {
+              flexGrow: 1,
               minWidth: token.controlItemWidth,
               height: token.dropdownHeight,
               margin: `-${token.paddingXS}px 0`,

@@ -44,7 +44,7 @@ const menu = (
   />
 );
 
-ReactDOM.render(
+export default () => (
   <>
     <Dropdown overlay={menu} placement="bottomLeft" arrow={{ pointAtCenter: true }}>
       <Button>bottomLeft</Button>
@@ -65,8 +65,7 @@ ReactDOM.render(
     <Dropdown overlay={menu} placement="topRight" arrow={{ pointAtCenter: true }}>
       <Button>topRight</Button>
     </Dropdown>
-  </>,
-  mountNode,
+  </>
 );
 ```
 

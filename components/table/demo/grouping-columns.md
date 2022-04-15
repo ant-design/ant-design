@@ -115,14 +115,13 @@ for (let i = 0; i < 100; i++) {
   });
 }
 
-ReactDOM.render(
+export default () => (
   <Table
     columns={columns}
     dataSource={data}
     bordered
     size="middle"
     scroll={{ x: 'calc(700px + 50%)', y: 240 }}
-  />,
-  mountNode,
+  />
 );
 ```

@@ -31,13 +31,12 @@ const routes = [
   },
 ];
 
-ReactDOM.render(
+export default () => (
   <PageHeader
     className="site-page-header"
     title="Title"
     breadcrumb={{ routes }}
     subTitle="This is a subtitle"
-  />,
-  mountNode,
+  />
 );
 ```

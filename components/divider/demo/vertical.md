@@ -16,14 +16,13 @@ Use `type="vertical"` make it vertical.
 ```jsx
 import { Divider } from 'antd';
 
-ReactDOM.render(
+export default () => (
   <>
     Text
     <Divider type="vertical" />
     <a href="#">Link</a>
     <Divider type="vertical" />
     <a href="#">Link</a>
-  </>,
-  mountNode,
+  </>
 );
 ```

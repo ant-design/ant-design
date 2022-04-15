@@ -43,14 +43,13 @@ const treeData = [
   },
 ];
 
-ReactDOM.render(
+export default () => (
   <Tree
     showIcon
     defaultExpandAll
     defaultSelectedKeys={['0-0-0']}
     switcherIcon={<DownOutlined />}
     treeData={treeData}
-  />,
-  mountNode,
+  />
 );
 ```

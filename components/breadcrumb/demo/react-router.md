@@ -69,11 +69,10 @@ const Home = props => {
   );
 };
 
-ReactDOM.render(
+export default () => (
   <HashRouter>
     <Home />
-  </HashRouter>,
-  mountNode,
+  </HashRouter>
 );
 ```
 

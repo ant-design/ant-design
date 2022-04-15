@@ -23,11 +23,13 @@ import {
 } from '.';
 import { FormItemInputContext } from '../../form/context';
 import { getMergedStatus, getStatusClassNames, InputStatus } from '../../_util/statusUtils';
+import { DatePickRef, PickerComponentClass } from './interface';
 import useStyle from '../style';
 
 export default function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   type DatePickerProps = PickerProps<DateType> & {
     status?: InputStatus;
+    hashId?: string;
   };
 
   function getPicker<InnerPickerProps extends DatePickerProps>(
@@ -70,7 +72,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
         const locale = { ...contextLocale, ...this.props.locale };
         const { getPrefixCls, direction, getPopupContainer } = this.context;
         const {
-          prefixCls: customizePrefixCls,
+          prefixCls,
           getPopupContainer: customizeGetPopupContainer,
           className,
           size: customizeSize,
@@ -83,7 +85,6 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
           ...restProps
         } = this.props;
         const { format, showTime } = this.props as any;
-        const prefixCls = getPrefixCls('picker', customizePrefixCls);
 
         const additionalProps = {
           showToday: true,
@@ -142,7 +143,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
                             [`${prefixCls}-borderless`]: !bordered,
                           },
                           getStatusClassNames(
-                            prefixCls,
+                            prefixCls as string,
                             getMergedStatus(contextStatus, customStatus),
                             hasFeedback,
                           ),
@@ -174,22 +175,28 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
       }
     }
 
-    const PickerWrapper = forwardRef<Picker, InnerPickerProps>((props, ref) => {
-      const { prefixCls: customizePrefixCls, ...rest } = props;
+    const PickerWrapper = forwardRef<DatePickRef<DateType>, InnerPickerProps>((props, ref) => {
+      const { prefixCls: customizePrefixCls } = props;
 
       const { getPrefixCls } = useContext(ConfigContext);
       const prefixCls = getPrefixCls('picker', customizePrefixCls);
       const [wrapSSR, hashId] = useStyle(prefixCls);
 
-      // @ts-ignore
-      return wrapSSR(<Picker {...rest} prefixCls={prefixCls} ref={ref} hashId={hashId} />);
+      const pickerProps: InnerPickerProps = {
+        ...props,
+        prefixCls,
+        ref,
+        hashId,
+      };
+
+      return wrapSSR(<Picker {...pickerProps} />);
     });
 
     if (displayName) {
       PickerWrapper.displayName = displayName;
     }
 
-    return PickerWrapper;
+    return PickerWrapper as unknown as PickerComponentClass<InnerPickerProps>;
   }
 
   const DatePicker = getPicker<DatePickerProps>();

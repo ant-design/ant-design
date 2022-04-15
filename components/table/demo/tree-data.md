@@ -134,5 +134,5 @@ function TreeData() {
   );
 }
 
-ReactDOM.render(<TreeData />, mountNode);
+export default () => <TreeData />;
 ```

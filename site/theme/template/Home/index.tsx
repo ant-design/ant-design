@@ -29,6 +29,7 @@ function getStyle() {
 interface BlockContentProps {
   title: React.ReactNode;
   extra?: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 const BlockContent: React.FC<BlockContentProps> = ({ title, children, extra }) => (

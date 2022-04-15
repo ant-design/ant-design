@@ -11,7 +11,7 @@ import SearchBar from './SearchBar';
 import More from './More';
 import Navigation from './Navigation';
 import Github from './Github';
-import SiteContext from '../SiteContext';
+import SiteContext, { SiteContextProps } from '../SiteContext';
 import { ping } from '../../utils';
 import { AlgoliaConfig } from './algolia-config';
 
@@ -88,6 +88,8 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     searching: false,
     showTechUIButton: false,
   };
+
+  context: SiteContextProps;
 
   componentDidMount() {
     const { intl, router } = this.props;
