@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { mount } from 'enzyme';
-import '@testing-library/jest-dom';
 import { act } from 'react-dom/test-utils';
 import { SearchOutlined } from '@ant-design/icons';
 import { resetWarned } from 'rc-util/lib/warning';

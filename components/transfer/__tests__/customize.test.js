@@ -1,7 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { render } from '../../../tests/utils';
-import '@testing-library/jest-dom';
 import Transfer from '../index';
 
 describe('Transfer.Customize', () => {

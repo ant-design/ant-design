@@ -1,7 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { spyElementPrototype } from 'rc-util/lib/test/domHook';
-import '@testing-library/jest-dom';
 import Popconfirm from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import { sleep, render, fireEvent } from '../../../tests/utils';

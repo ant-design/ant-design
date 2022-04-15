@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
 import { render } from '../../../tests/utils';
-import '@testing-library/jest-dom';
 import Avatar from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';

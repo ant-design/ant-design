@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import '@testing-library/jest-dom';
 import { mount } from 'enzyme';
 import { render } from '../../../tests/utils';
 import { Col, Row } from '..';

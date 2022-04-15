@@ -1,6 +1,5 @@
 import React, { Component, useState } from 'react';
 import { mount } from 'enzyme';
-import '@testing-library/jest-dom';
 import { act } from 'react-dom/test-utils';
 import scrollIntoView from 'scroll-into-view-if-needed';
 import Form from '..';

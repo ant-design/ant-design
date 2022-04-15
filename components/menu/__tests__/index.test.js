@@ -7,13 +7,13 @@ import {
   PieChartOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-import '@testing-library/jest-dom';
-import { act, render, fireEvent } from 'react-dom/test-utils';
+import { act } from 'react-dom/test-utils';
 import Menu from '..';
 import Layout from '../../layout';
 import Tooltip from '../../tooltip';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { render, fireEvent } from '../../../tests/utils';
 import collapseMotion from '../../_util/motion';
 
 globalThis.IS_REACT_ACT_ENVIRONMENT = true;

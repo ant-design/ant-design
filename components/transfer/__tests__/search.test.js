@@ -1,7 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { render, fireEvent } from '../../../tests/utils';
-import '@testing-library/jest-dom';
 import Search from '../search';
 import Transfer from '../index';
 

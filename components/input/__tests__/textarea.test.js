@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { mount } from 'enzyme';
-import '@testing-library/jest-dom';
 import RcTextArea from 'rc-textarea';
 import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';

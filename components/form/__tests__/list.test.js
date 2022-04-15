@@ -1,7 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
-import '@testing-library/jest-dom';
 import Form from '..';
 import Input from '../../input';
 import Button from '../../button';

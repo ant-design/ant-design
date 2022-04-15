@@ -3806,7 +3806,7 @@ exports[`renders ./components/upload/demo/upload-with-aliyun-oss.md extend conte
             class=""
           >
             <div
-              class="ant-upload ant-upload-select ant-upload-select-text ant-upload-in-form-item"
+              class="ant-upload ant-upload-select ant-upload-select-text"
             >
               <span
                 class="ant-upload"
