@@ -29,4 +29,4 @@ title: 概览
 
 - [Ant Design Pro](https://pro.ant.design/)：具有 20 多个模板和 10 多个业务组件的开箱即用解决方案
 - [React 官方实现](/components/overview/)：Ant Design 的 React UI 库拥有 60 多个基础组件。
-- [Ant 设计库](http://library.ant.design/)：代码中包含 Axure 资源包，使您的原型看起来像一个视觉草稿，包括模板、组件等。
+- [Axure 设计库](http://library.ant.design/)：代码中包含 Axure 资源包，使您的原型看起来像一个视觉草稿，包括模板、组件等。
