@@ -101,8 +101,9 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
       colon: mergedColon,
       requiredMark: mergedRequiredMark,
       itemRef: __INTERNAL__.itemRef,
+      form: wrapForm,
     }),
-    [name, labelAlign, labelCol, wrapperCol, layout, mergedColon, mergedRequiredMark],
+    [name, labelAlign, labelCol, wrapperCol, layout, mergedColon, mergedRequiredMark, wrapForm],
   );
 
   React.useImperativeHandle(ref, () => wrapForm);

@@ -278,9 +278,41 @@ validateFields()
   });
 ```
 
+## Hooks
+
+### Form.useForm
+
+`type Form.useForm = (): FormInstance`
+
+创建 Form 实例，用于管理所有数据状态。
+
+### Form.useFormInstance
+
+`type Form.useFormInstance = (): FormInstance`
+
+获取当前上下文正在使用的 Form 实例，常见于封装子组件消费无需透传 Form 实例：
+
+```tsx
+const Sub = () => {
+  const form = Form.useFormInstance();
+
+  return <Button onClick={() => form.setFieldsValue({})} />;
+};
+
+export default () => {
+  const [form] = Form.useForm();
+
+  return (
+    <Form form={form}>
+      <Sub />
+    </Form>
+  );
+};
+```
+
 ### Form.useWatch
 
-`type useWatch = (namePath: NamePath, formInstance?: FormInstance): Value;`
+`type Form.useWatch = (namePath: NamePath, formInstance: FormInstance): Value`
 
 `4.20.0` 新增，用于直接获取 form 中字段对应的值。通过该 Hooks 可以与诸如 `useSWR` 进行联动从而降低维护成本：
 
