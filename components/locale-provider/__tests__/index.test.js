@@ -75,6 +75,7 @@ import svSE from '../sv_SE';
 import taIN from '../ta_IN';
 import thTH from '../th_TH';
 import trTR from '../tr_TR';
+import tkTK from '../tk_TK';
 import ukUA from '../uk_UA';
 import viVN from '../vi_VN';
 import zhCN from '../zh_CN';
@@ -140,6 +141,7 @@ const locales = [
   taIN,
   thTH,
   trTR,
+  tkTK,
   ukUA,
   viVN,
   idID,
