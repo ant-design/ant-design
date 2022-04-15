@@ -5,11 +5,13 @@ import ErrorList, { ErrorListProps } from './ErrorList';
 import List, { FormListProps } from './FormList';
 import { FormProvider } from './context';
 import devWarning from '../_util/devWarning';
+import useFormInstance from './hooks/useFormInstance';
 
 type InternalFormType = typeof InternalForm;
 
 interface FormInterface extends InternalFormType {
   useForm: typeof useForm;
+  useFormInstance: typeof useFormInstance;
   useWatch: typeof useWatch;
   Item: typeof Item;
   List: typeof List;
@@ -26,6 +28,7 @@ Form.Item = Item;
 Form.List = List;
 Form.ErrorList = ErrorList;
 Form.useForm = useForm;
+Form.useFormInstance = useFormInstance;
 Form.useWatch = useWatch;
 Form.Provider = FormProvider;
 Form.create = () => {
