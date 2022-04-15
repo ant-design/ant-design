@@ -137,7 +137,7 @@
     "rc-menu": "~9.5.1",
     "rc-motion": "^2.4.4",
     "rc-notification": "~4.5.7",
-    "rc-pagination": "~3.1.9",
+    "rc-pagination": "~3.1.15",
     "rc-picker": "~2.6.7",
     "rc-progress": "~3.2.1",
     "rc-rate": "~2.9.0",
