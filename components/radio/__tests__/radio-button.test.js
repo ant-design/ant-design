@@ -1,5 +1,6 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
+import { render as testLibRender } from '@testing-library/react';
 import Radio, { Button } from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
@@ -162,7 +163,7 @@ describe('Radio Group', () => {
 
   it('should forward ref', () => {
     let radioGroupRef;
-    const wrapper = mount(
+    const { container } = testLibRender(
       createRadioGroup({
         ref: ref => {
           radioGroupRef = ref;
@@ -170,18 +171,18 @@ describe('Radio Group', () => {
       }),
     );
 
-    expect(radioGroupRef).toBe(wrapper.children().getDOMNode());
+    expect(radioGroupRef).toBe(container.querySelector('.ant-radio-group'));
   });
 
   it('should support data-* or aria-* props', () => {
-    const wrapper = mount(
+    const { container } = testLibRender(
       createRadioGroup({
         'data-radio-group-id': 'radio-group-id',
         'aria-label': 'radio-group',
       }),
     );
-    expect(wrapper.getDOMNode().getAttribute('data-radio-group-id')).toBe('radio-group-id');
-    expect(wrapper.getDOMNode().getAttribute('aria-label')).toBe('radio-group');
+    expect(container.firstChild.getAttribute('data-radio-group-id')).toBe('radio-group-id');
+    expect(container.firstChild.getAttribute('aria-label')).toBe('radio-group');
   });
 
   it('Radio type should not be override', () => {

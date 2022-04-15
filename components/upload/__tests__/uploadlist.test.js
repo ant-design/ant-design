@@ -1,6 +1,7 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
+import { fireEvent, render } from '@testing-library/react';
 import Upload from '..';
 import UploadList from '../UploadList';
 import Form from '../../form';
@@ -703,23 +704,23 @@ describe('Upload List', () => {
       );
     };
 
-    const wrapper = mount(<TestForm />);
+    const { container, unmount } = render(<TestForm />);
 
-    wrapper.find(Form).simulate('submit');
+    fireEvent.submit(container.querySelector('form'));
     await sleep();
     expect(formRef.getFieldError(['file'])).toEqual(['file required']);
 
-    wrapper.find('input').simulate('change', {
+    fireEvent.change(container.querySelector('input'), {
       target: {
         files: [{ name: 'foo.png' }],
       },
     });
 
-    wrapper.find(Form).simulate('submit');
+    fireEvent.submit(container.querySelector('form'));
     await sleep();
     expect(formRef.getFieldError(['file'])).toEqual([]);
 
-    wrapper.unmount();
+    unmount();
   });
 
   it('return when prop onPreview not exists', () => {
