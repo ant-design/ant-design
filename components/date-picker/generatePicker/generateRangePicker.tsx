@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { forwardRef, useContext } from 'react';
 import classNames from 'classnames';
 import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
@@ -7,14 +8,14 @@ import SwapRightOutlined from '@ant-design/icons/SwapRightOutlined';
 import { RangePicker as RCRangePicker } from 'rc-picker';
 import { GenerateConfig } from 'rc-picker/lib/generate/index';
 import enUS from '../locale/en_US';
-import { ConfigContext, ConfigConsumerProps } from '../../config-provider';
+import { ConfigConsumerProps, ConfigContext } from '../../config-provider';
 import SizeContext from '../../config-provider/SizeContext';
 import LocaleReceiver from '../../locale-provider/LocaleReceiver';
 import { getRangePlaceholder, transPlacement2DropdownAlign } from '../util';
-import { RangePickerProps, PickerLocale, getTimeProps, Components } from '.';
-import { PickerComponentClass } from './interface';
+import { Components, getTimeProps, PickerLocale, RangePickerProps } from '.';
 import { FormItemInputContext } from '../../form/context';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
+import { PickerComponentClass } from './interface';
 
 export default function generateRangePicker<DateType>(
   generateConfig: GenerateConfig<DateType>,
@@ -42,7 +43,7 @@ export default function generateRangePicker<DateType>(
       const locale = { ...contextLocale, ...this.props.locale };
       const { getPrefixCls, direction, getPopupContainer } = this.context;
       const {
-        prefixCls: customizePrefixCls,
+        prefixCls,
         getPopupContainer: customGetPopupContainer,
         className,
         placement,
@@ -53,7 +54,6 @@ export default function generateRangePicker<DateType>(
         ...restProps
       } = this.props;
       const { format, showTime, picker } = this.props as any;
-      const prefixCls = getPrefixCls('picker', customizePrefixCls);
 
       let additionalOverrideProps: any = {};
 
@@ -105,7 +105,7 @@ export default function generateRangePicker<DateType>(
                           [`${prefixCls}-borderless`]: !bordered,
                         },
                         getStatusClassNames(
-                          prefixCls,
+                          prefixCls as string,
                           getMergedStatus(contextStatus, customStatus),
                           hasFeedback,
                         ),
@@ -136,5 +136,12 @@ export default function generateRangePicker<DateType>(
     }
   }
 
-  return RangePicker;
+  return forwardRef<RangePicker, RangePickerProps<DateType>>((props, ref) => {
+    const { prefixCls: customizePrefixCls } = props;
+
+    const { getPrefixCls } = useContext(ConfigContext);
+    const prefixCls = getPrefixCls('picker', customizePrefixCls);
+
+    return <RangePicker {...props} prefixCls={prefixCls} ref={ref} />;
+  }) as unknown as PickerComponentClass<RangePickerProps<DateType>>;
 }
