@@ -84,22 +84,26 @@ describe('Button', () => {
 
   it('renders Chinese characters correctly in HOC', () => {
     const Text = ({ children }: { children: React.ReactNode }) => <span>{children}</span>;
-    const wrapper = mount(
+    const { container, rerender } = render(
       <Button>
         <Text>按钮</Text>
       </Button>,
     );
-    expect(wrapper.find('.ant-btn').hasClass('ant-btn-two-chinese-chars')).toBe(true);
-    wrapper.setProps({
-      children: <Text>大按钮</Text>,
-    });
-    wrapper.update();
-    expect(wrapper.find('.ant-btn').hasClass('ant-btn-two-chinese-chars')).toBe(false);
-    wrapper.setProps({
-      children: <Text>按钮</Text>,
-    });
-    wrapper.update();
-    expect(wrapper.find('.ant-btn').hasClass('ant-btn-two-chinese-chars')).toBe(true);
+    expect(container.querySelector('.ant-btn')).toHaveClass('ant-btn-two-chinese-chars');
+
+    rerender(
+      <Button>
+        <Text>大按钮</Text>
+      </Button>,
+    );
+    expect(container.querySelector('.ant-btn')).not.toHaveClass('ant-btn-two-chinese-chars');
+
+    rerender(
+      <Button>
+        <Text>按钮</Text>
+      </Button>,
+    );
+    expect(container.querySelector('.ant-btn')).toHaveClass('ant-btn-two-chinese-chars');
   });
 
   // https://github.com/ant-design/ant-design/issues/18118
@@ -122,7 +126,7 @@ describe('Button', () => {
 
   it('have static property for type detecting', () => {
     const wrapper = mount(<Button>Button Text</Button>);
-    expect((wrapper.type() as any).__ANT_BUTTON).toBe(true);
+    expect((wrapper.find(Button).type() as any).__ANT_BUTTON).toBe(true);
   });
 
   it('should change loading state instantly by default', () => {
