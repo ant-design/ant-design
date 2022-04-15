@@ -64,12 +64,16 @@ Object.assign(Enzyme.ReactWrapper.prototype, {
 // React.StrictMode wrapper
 jest.mock('enzyme', () => {
   const enzyme = jest.requireActual('enzyme');
-  const { StrictMode } = jest.requireActual('react');
+  const { StrictMode, cloneElement } = jest.requireActual('react');
   const { mount, render } = enzyme;
+
+  function EnzymeWrapper({ children, ...props }) {
+    return <StrictMode>{cloneElement(children, props)}</StrictMode>;
+  }
 
   return {
     ...enzyme,
-    mount: (ui, ...args) => mount(<StrictMode>{ui}</StrictMode>, ...args),
-    render: (ui, ...args) => render(<StrictMode>{ui}</StrictMode>, ...args),
+    mount: (ui, ...args) => mount(<EnzymeWrapper>{ui}</EnzymeWrapper>, ...args),
+    render: (ui, ...args) => render(<EnzymeWrapper>{ui}</EnzymeWrapper>, ...args),
   };
 });
