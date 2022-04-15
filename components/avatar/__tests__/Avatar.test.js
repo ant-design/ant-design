@@ -87,7 +87,7 @@ describe('Avatar Render', () => {
     // https://github.com/jsdom/jsdom/issues/1816
     wrapper.find('img').simulate('error');
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
     expect(div.querySelector('img').getAttribute('src')).toBe(LOAD_SUCCESS_SRC);
 
     wrapper.detach();
@@ -105,7 +105,7 @@ describe('Avatar Render', () => {
     const wrapper = mount(<Avatar src={LOAD_FAILURE_SRC}>Fallback</Avatar>, { attachTo: div });
     wrapper.find('img').simulate('error');
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
     expect(wrapper.find('.ant-avatar-string').length).toBe(1);
     // children should show, when image load error without onError return false
     expect(wrapper.find('.ant-avatar-string').prop('style')).not.toHaveProperty('opacity', 0);
@@ -114,7 +114,7 @@ describe('Avatar Render', () => {
     wrapper.setProps({ src: LOAD_SUCCESS_SRC });
     wrapper.update();
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
     expect(wrapper.find('.ant-avatar-image').length).toBe(1);
 
     // cleanup
@@ -124,7 +124,7 @@ describe('Avatar Render', () => {
 
   it('should calculate scale of avatar children correctly', () => {
     const wrapper = mount(<Avatar>Avatar</Avatar>);
-    expect(wrapper.find('.ant-avatar-string')).toMatchSnapshot();
+    expect(wrapper.find('.ant-avatar-string').render()).toMatchSnapshot();
 
     Object.defineProperty(HTMLElement.prototype, 'offsetWidth', {
       get() {
@@ -135,12 +135,12 @@ describe('Avatar Render', () => {
       },
     });
     wrapper.setProps({ children: 'xx' });
-    expect(wrapper.find('.ant-avatar-string')).toMatchSnapshot();
+    expect(wrapper.find('.ant-avatar-string').render()).toMatchSnapshot();
   });
 
   it('should calculate scale of avatar children correctly with gap', () => {
     const wrapper = mount(<Avatar gap={2}>Avatar</Avatar>);
-    expect(wrapper.find('.ant-avatar-string')).toMatchSnapshot();
+    expect(wrapper.find('.ant-avatar-string').render()).toMatchSnapshot();
   });
 
   it('should warning when pass a string as icon props', () => {
