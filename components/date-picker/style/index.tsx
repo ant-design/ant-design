@@ -161,7 +161,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
         display: 'flex',
         flex: 'none',
         alignSelf: 'center',
-        marginLeft: token.paddingXS / 2,
+        marginInlineStart: token.paddingXS / 2,
         color: token.colorTextDisabled,
         lineHeight: 1,
         pointerEvents: 'none',
@@ -376,6 +376,20 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
 
         '&-hidden': {
           display: 'none',
+        },
+      },
+
+      '&-rtl': {
+        direction: 'rtl',
+
+        [`${componentCls}-separator`]: {
+          transform: 'rotate(180deg)',
+        },
+
+        [`${componentCls}-footer`]: {
+          '&-extra': {
+            direction: 'rtl',
+          },
         },
       },
     },
@@ -624,6 +638,20 @@ const genPanelStyle: GenerateStyle<PickerToken> = token => {
           '&-focused': {
             borderColor: token.colorPrimary,
           },
+
+          '&-rtl': {
+            direction: 'rtl',
+
+            [`${componentCls}-prev-icon,
+              ${componentCls}-super-prev-icon`]: {
+              transform: 'rotate(135deg)',
+            },
+
+            [`${componentCls}-next-icon,
+              ${componentCls}-super-next-icon`]: {
+              transform: 'rotate(-45deg)',
+            },
+          },
         },
 
         // ========================================================
@@ -681,7 +709,7 @@ const genPanelStyle: GenerateStyle<PickerToken> = token => {
               fontWeight: 'inherit',
 
               '&:not(:first-child)': {
-                marginLeft: token.paddingXS,
+                marginInlineStart: token.paddingXS,
               },
 
               '&:hover': {
@@ -984,6 +1012,7 @@ const genPanelStyle: GenerateStyle<PickerToken> = token => {
         '&-time-panel': {
           width: 'auto',
           minWidth: 'auto',
+          direction: 'ltr',
 
           [`${componentCls}-content`]: {
             display: 'flex',
