@@ -1069,6 +1069,48 @@ const genPanelStyle: GenerateStyle<PickerToken> = token => {
   };
 };
 
+const genPickerStatusStyle: GenerateStyle<PickerToken> = token => {
+  const { componentCls } = token;
+
+  return {
+    [componentCls]: {
+      '&&-status-error': {
+        '&, &:not([disabled]):hover': {
+          backgroundColor: token.colorBgComponent,
+          borderColor: token.colorError,
+        },
+
+        '&-focused, &:focus': {
+          ...genActiveStyle(
+            mergeToken<PickerToken>(token, {
+              inputBorderActiveColor: token.colorError,
+              inputBorderHoverColor: token.colorError,
+              colorPrimaryOutline: token.colorErrorOutline,
+            }),
+          ),
+        },
+      },
+
+      '&&-status-warning': {
+        '&, &:not([disabled]):hover': {
+          backgroundColor: token.colorBgComponent,
+          borderColor: token.colorWarning,
+        },
+
+        '&-focused, &:focus': {
+          ...genActiveStyle(
+            mergeToken<PickerToken>(token, {
+              inputBorderActiveColor: token.colorWarning,
+              inputBorderHoverColor: token.colorWarning,
+              colorPrimaryOutline: token.colorWarningOutline,
+            }),
+          ),
+        },
+      },
+    },
+  };
+};
+
 // ============================== Export ==============================
 export default genComponentStyleHook(
   'DatePicker',
@@ -1078,7 +1120,11 @@ export default genComponentStyleHook(
       pickerCellInnerCls: `${token.componentCls}-cell-inner`,
       hashId,
     });
-    return [genPickerStyle(pickerToken), genPanelStyle(pickerToken)];
+    return [
+      genPickerStyle(pickerToken),
+      genPanelStyle(pickerToken),
+      genPickerStatusStyle(pickerToken),
+    ];
   },
   token => ({
     zIndexDropdown: token.zIndexPopup + 50,
