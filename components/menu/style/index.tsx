@@ -17,7 +17,6 @@ export interface ComponentToken {
   zIndexDrop: number;
   menuOpacity: number;
   sizeLg: number;
-  width20: number;
   textColorDark: string;
   menuInlineSubmenuBg: string;
   disabledColor: string;
@@ -31,6 +30,7 @@ export interface ComponentToken {
   boxShadowColor: string;
   highlightDangerColor: string;
   itemActiveDangerBg: string;
+  width20: number;
 }
 
 interface MenuToken extends FullToken<'Menu'> {}
