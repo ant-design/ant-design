@@ -2,8 +2,6 @@ import * as React from 'react';
 import RcUpload, { UploadProps as RcUploadProps } from 'rc-upload';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import classNames from 'classnames';
-import { useContext } from 'react';
-import { FormItemInputContext } from '../form/context';
 import Dragger from './Dragger';
 import UploadList from './UploadList';
 import {
@@ -302,8 +300,6 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
 
   const prefixCls = getPrefixCls('upload', customizePrefixCls);
 
-  const { isFormItemInput } = useContext(FormItemInputContext);
-
   const rcUploadProps = {
     onBatchStart,
     onError,
@@ -377,7 +373,6 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
         [`${prefixCls}-drag-hover`]: dragState === 'dragover',
         [`${prefixCls}-disabled`]: disabled,
         [`${prefixCls}-rtl`]: direction === 'rtl',
-        [`${prefixCls}-in-form-item`]: isFormItemInput,
       },
       className,
     );
@@ -404,7 +399,6 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     [`${prefixCls}-select-${listType}`]: true,
     [`${prefixCls}-disabled`]: disabled,
     [`${prefixCls}-rtl`]: direction === 'rtl',
-    [`${prefixCls}-in-form-item`]: isFormItemInput,
   });
 
   const renderUploadButton = (uploadButtonStyle?: React.CSSProperties) => (

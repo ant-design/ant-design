@@ -1,9 +1,0 @@
-files:
-  - source: /docs/*/*.md
-    ignore:
-      - /docs/*/*.zh-CN.md
-      - /docs/*/*.en-US.md
-    translation: /%original_path%/%file_name%.%language%.md
-    languages_mapping:
-      language:
-        en: en-US

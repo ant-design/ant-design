@@ -2,7 +2,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { render, fireEvent } from '@testing-library/react';
-import '@testing-library/jest-dom';
 import { act } from 'react-dom/test-utils';
 import produce from 'immer';
 import { cloneDeep } from 'lodash';

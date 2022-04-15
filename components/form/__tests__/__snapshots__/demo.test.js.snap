@@ -7273,7 +7273,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
             class=""
           >
             <div
-              class="ant-upload ant-upload-select ant-upload-select-picture ant-upload-in-form-item"
+              class="ant-upload ant-upload-select ant-upload-select-picture"
             >
               <span
                 class="ant-upload"
@@ -7352,7 +7352,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         >
           <span>
             <div
-              class="ant-upload ant-upload-drag ant-upload-in-form-item"
+              class="ant-upload ant-upload-drag"
             >
               <span
                 class="ant-upload ant-upload-btn"
