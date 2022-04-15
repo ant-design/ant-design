@@ -56,7 +56,6 @@ const Steps: StepsType = props => {
   const prefixCls = getPrefixCls('steps', props.prefixCls);
 
   const [wrapSSR, hashId] = useStyle(prefixCls);
-  // console.log('@@@hashId:', hashId);
 
   const iconPrefix = getPrefixCls('', props.iconPrefix);
   const stepsClassName = classNames(

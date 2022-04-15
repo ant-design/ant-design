@@ -6,15 +6,20 @@
 // import '../../progress/style';
 import { TinyColor } from '@ctrl/tinycolor';
 import { CSSObject } from '@ant-design/cssinjs';
-import {
-  resetComponent,
-  // GenerateStyle,
-  FullToken,
-  genComponentStyleHook,
-  mergeToken,
-} from '../../_util/theme';
+import { resetComponent, FullToken, genComponentStyleHook, mergeToken } from '../../_util/theme';
+import genStepsCustomIconStyle from './custom-icon';
+import genStepsSmallStyle from './small';
+import genStepsVerticalStyle from './vertical';
+import genStepsLabelPlacementStyle from './label-placement';
+import genStepsProgressDotStyle from './progress-dot';
+import genStepsProgressStyle from './progress';
+import genStepsNavStyle from './nav';
+import genStepsRTLStyle from './rtl';
 
-interface StepsToken extends FullToken<'Steps'> {
+export const withPx = (size: number) => `${size}px`;
+
+export interface StepsToken extends FullToken<'Steps'> {
+  // Steps variable default.less
   processTailColor: string;
   stepsNavArrowColor: string;
   stepsBackground: string;
@@ -36,7 +41,7 @@ interface StepsToken extends FullToken<'Steps'> {
   stepsVerticalIconWidth: number;
   stepsVerticalTailWidth: number;
   stepsVerticalTailWidthSm: number;
-  //
+  // Steps component less variable
   processIconColor: string;
   processTitleColor: string;
   processDescriptionColor: string;
@@ -53,6 +58,7 @@ interface StepsToken extends FullToken<'Steps'> {
   errorTitleColor: string;
   errorDescriptionColor: string;
   errorTailColor: string;
+  stepsNavActiveColor: string;
 }
 
 enum StepItemStatusEnum {
@@ -203,7 +209,7 @@ const genStepsItemStyle = (token: StepsToken): CSSObject => {
     },
     ...genStepsItemStatusStyle(StepItemStatusEnum.finish, token),
     ...genStepsItemStatusStyle(StepItemStatusEnum.error, token),
-    [`${stepsItemCls}.${componentCls}-next-error > ${componentCls}-item-title::after`]: {
+    [`${stepsItemCls}${componentCls}-next-error > ${componentCls}-item-title::after`]: {
       background: token.colorError,
     },
     [`${stepsItemCls}-disabled`]: {
@@ -212,34 +218,110 @@ const genStepsItemStyle = (token: StepsToken): CSSObject => {
   };
 };
 
-const genStepsStyle = (token: any): CSSObject => {
+// ============================= Clickable ===========================
+const genStepsClickableStyle = (token: StepsToken): CSSObject => {
   const { componentCls } = token;
-  console.log('@@@@@@@@@@:', genStepsItemStyle(token));
 
   return {
-    // .ant-steps
+    [`& ${componentCls}-item`]: {
+      [`&:not(${componentCls}-item-active)`]: {
+        [`& > ${componentCls}-item-container[role='button']`]: {
+          cursor: 'pointer',
+          [`${componentCls}-item`]: {
+            [`&-title, &-subtitle, &-description, &-icon ${componentCls}-icon`]: {
+              transition: 'color 0.3s',
+            },
+          },
+
+          '&:hover': {
+            [`${componentCls}-item`]: {
+              [`&-title, &-subtitle, &-description`]: {
+                color: token.colorPrimary,
+              },
+            },
+          },
+        },
+
+        [`&:not(${componentCls}-item-process)`]: {
+          [`& > ${componentCls}-item-container[role='button']:hover`]: {
+            [`${componentCls}-item`]: {
+              '&-icon': {
+                borderColor: token.colorPrimary,
+
+                [`${componentCls}-icon`]: {
+                  color: token.colorPrimary,
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+    [`&${componentCls}-horizontal:not(${componentCls}-label-vertical)`]: {
+      [`${componentCls}-item`]: {
+        paddingLeft: 16,
+        whiteSpace: 'nowrap',
+
+        '&:first-child': {
+          paddingLeft: 0,
+        },
+        [`&:last-child ${componentCls}-item-title`]: {
+          paddingRight: 0,
+        },
+        '&-tail': {
+          display: 'none',
+        },
+        '&-description': {
+          maxWidth: token.stepsDescriptionMaxWidth,
+          whiteSpace: 'normal',
+        },
+      },
+    },
+  };
+};
+
+const genStepsStyle = (token: StepsToken): CSSObject => {
+  const { componentCls } = token; // .ant-steps
+
+  return {
     [componentCls]: {
       ...resetComponent(token),
       display: 'flex',
       width: '100%',
       fontSize: 0,
       textAlign: 'initial',
-
+      // single Item
       ...genStepsItemStyle(token),
+      // Clickable
+      ...genStepsClickableStyle(token),
+      // custom-icon
+      ...genStepsCustomIconStyle(token),
+      // small
+      ...genStepsSmallStyle(token),
+      // vertical
+      ...genStepsVerticalStyle(token),
+      // label-placement
+      ...genStepsLabelPlacementStyle(token),
+      // progress-dot
+      ...genStepsProgressDotStyle(token),
+      // nav
+      ...genStepsNavStyle(token),
+      // rtl
+      ...genStepsRTLStyle(token),
+      // progress
+      ...genStepsProgressStyle(token),
     },
   };
 };
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Steps', token => {
-  console.log('@@@OriginToken:', token);
-
   const stepsIconSize = 32;
   const processTailColor = token.colorSplit;
   const processIconColor = token.colorPrimary;
 
   const stepsToken = mergeToken<StepsToken>(token, {
-    // default
+    // Steps variable default.less
     processTailColor,
     stepsNavArrowColor: new TinyColor('#000').setAlpha(0.25).toRgbString(), //  fade(@black, 25%),
     stepsBackground: token.colorBgComponent,
@@ -261,7 +343,7 @@ export default genComponentStyleHook('Steps', token => {
     stepsVerticalIconWidth: 16,
     stepsVerticalTailWidth: 16,
     stepsVerticalTailWidthSm: 12,
-    //
+    // Steps component less variable
     processIconColor,
     processTitleColor: new TinyColor('#000').setAlpha(0.85).toRgbString(), // @heading-color: fade(@black, 85%)
     processDescriptionColor: token.colorText,
@@ -278,6 +360,7 @@ export default genComponentStyleHook('Steps', token => {
     errorTitleColor: token.colorError,
     errorDescriptionColor: token.colorError,
     errorTailColor: processTailColor,
+    stepsNavActiveColor: token.colorPrimary,
   });
 
   return [genStepsStyle(stepsToken)];
