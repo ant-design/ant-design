@@ -5,10 +5,10 @@ const { _rs: onEsResize } = require('rc-resize-observer/es/utils/observerUtil');
 // eslint-disable-next-line no-console
 console.log('Current React Version:', React.version);
 
-jest.mock('react', () => ({
-  ...jest.requireActual('react'),
-  useLayoutEffect: jest.requireActual('react').useEffect,
-}));
+// jest.mock('react', () => ({
+//   ...jest.requireActual('react'),
+//   useLayoutEffect: jest.requireActual('react').useEffect,
+// }));
 
 /* eslint-disable global-require */
 if (typeof window !== 'undefined') {
@@ -62,9 +62,14 @@ Object.assign(Enzyme.ReactWrapper.prototype, {
 });
 
 // React.StrictMode wrapper
-const originalEnzymeRender = Enzyme.render;
-const originalEnzymeMount = Enzyme.mount;
-Object.assign(Enzyme, {
-  render: (ui, ...args) => originalEnzymeRender(<React.StrictMode>{ui}</React.StrictMode>, ...args),
-  mount: (ui, ...args) => originalEnzymeMount(<React.StrictMode>{ui}</React.StrictMode>, ...args),
+jest.mock('enzyme', () => {
+  const enzyme = jest.requireActual('enzyme');
+  const { StrictMode } = jest.requireActual('react');
+  const { mount, render } = enzyme;
+
+  return {
+    ...enzyme,
+    mount: (ui, ...args) => mount(<StrictMode>{ui}</StrictMode>, ...args),
+    render: (ui, ...args) => render(<StrictMode>{ui}</StrictMode>, ...args),
+  };
 });
