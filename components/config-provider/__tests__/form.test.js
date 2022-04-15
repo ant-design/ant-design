@@ -1,7 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { render } from '@testing-library/react';
-import '@testing-library/jest-dom';
 import { act } from 'react-dom/test-utils';
 import ConfigProvider from '..';
 import zhCN from '../../locale/zh_CN';
