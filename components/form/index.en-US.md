@@ -291,7 +291,7 @@ Create Form instance to maintain data store.
 
 `type Form.useFormInstance = (): FormInstance`
 
-Get current context form instance to avoid pass as props between components:
+Added in `4.20.0`. Get current context form instance to avoid pass as props between components:
 
 ```tsx
 const Sub = () => {
