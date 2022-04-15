@@ -36,12 +36,12 @@ const localeValues: Locale = {
   },
   Modal: {
     okText: 'Bolýar',
-    cancelText: 'Ýatyr',
+    cancelText: 'Goýbolsun',
     justOkText: 'Bolýar',
   },
   Popconfirm: {
     okText: 'Bolýar',
-    cancelText: 'Ýatyr',
+    cancelText: 'Goýbolsun',
   },
   Transfer: {
     titles: ['', ''],
