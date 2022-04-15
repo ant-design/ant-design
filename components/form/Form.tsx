@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { useMemo } from 'react';
 import classNames from 'classnames';
-import FieldForm, { List } from 'rc-field-form';
-import type { FormProps as RcFormProps } from 'rc-field-form/lib/Form';
-import type { ValidateErrorEntity } from 'rc-field-form/lib/interface';
-import type { Options } from 'scroll-into-view-if-needed';
-import type { ColProps } from '../grid/col';
+import FieldForm, { List, useWatch } from 'rc-field-form';
+import { FormProps as RcFormProps } from 'rc-field-form/lib/Form';
+import { ValidateErrorEntity } from 'rc-field-form/lib/interface';
+import { Options } from 'scroll-into-view-if-needed';
+import { ColProps } from '../grid/col';
 import { ConfigContext } from '../config-provider';
 import type { FormContextProps } from './context';
 import { FormContext } from './context';
@@ -147,6 +147,6 @@ const Form = React.forwardRef<FormInstance, FormProps>(InternalForm) as <Values 
   props: React.PropsWithChildren<FormProps<Values>> & { ref?: React.Ref<FormInstance<Values>> },
 ) => React.ReactElement;
 
-export { useForm, List, FormInstance };
+export { useForm, List, FormInstance, useWatch };
 
 export default Form;
