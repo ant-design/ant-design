@@ -223,12 +223,16 @@ describe('TextArea', () => {
     );
   });
 
-  it('should works same as Input', async () => {
-    const input = mount(<Input value="111" />);
-    const textarea = mount(<TextArea value="111" />);
-    input.setProps({ value: undefined });
-    textarea.setProps({ value: undefined });
-    expect(textarea.find('textarea').at(0).getDOMNode().value).toBe(input.getDOMNode().value);
+  it('should works same as Input', () => {
+    const { container: inputContainer, rerender: inputRerender } = render(<Input value="111" />);
+    const { container: textareaContainer, rerender: textareaRerender } = render(
+      <TextArea value="111" />,
+    );
+    inputRerender(<Input value={undefined} />);
+    textareaRerender(<TextArea value={undefined} />);
+    expect(textareaContainer.querySelector('textarea').value).toBe(
+      inputContainer.querySelector('input').value,
+    );
   });
 
   describe('should support showCount', () => {
