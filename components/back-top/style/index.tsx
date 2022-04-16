@@ -18,6 +18,8 @@ interface BackTopToken extends DerivativeToken, ComponentToken {
   backTopBackground: string;
   backTopColor: string;
   backTopHoverBackground: string;
+
+  durationSlow: number;
 }
 
 // ============================== Shared ==============================
@@ -30,13 +32,13 @@ const genSharedBackTopStyle: GenerateStyle<BackTopToken> = (token): CSSObject =>
 
       position: 'fixed',
       // FIXME
-      right: '100px',
+      right: 100,
       // FIXME
-      bottom: '50px',
+      bottom: 50,
       // FIX ME @zindex-back-top
       zIndex: token.zIndexPopup,
-      width: '40px',
-      height: '40px',
+      width: 40,
+      height: 40,
       cursor: 'pointer',
 
       '&:empty': {
@@ -46,13 +48,13 @@ const genSharedBackTopStyle: GenerateStyle<BackTopToken> = (token): CSSObject =>
       '&-rtl': {
         right: 'auto',
         // FIXME
-        left: '100px',
+        left: 100,
         direction: 'rtl',
       },
 
       [`${backTopCls}-content`]: {
-        width: '40px',
-        height: '40px',
+        width: 40,
+        height: 40,
         overflow: 'hidden',
         // FIXME @back-top-color
         color: token.backTopColor,
@@ -60,20 +62,20 @@ const genSharedBackTopStyle: GenerateStyle<BackTopToken> = (token): CSSObject =>
         // FIXME @back-top-bg
         backgroundColor: token.backTopBackground,
         // FIXME
-        borderRadius: '20px',
-        transition: 'all 0.3s',
+        borderRadius: 20,
+        transition: `all ${token.durationSlow}s`,
 
         '&:hover': {
           // FIX ME @back-top-hover-bg
           backgroundColor: token.backTopHoverBackground,
-          transition: 'all 0.3s',
+          transition: `all ${token.durationSlow}s`,
         },
       },
 
       // change to .backtop .backtop-icon
       [`${backTopCls}-icon`]: {
         // FIXME
-        fontSize: '24px',
+        fontSize: 24,
         // FIXME
         lineHeight: '40px',
       },
@@ -87,23 +89,13 @@ const genMediaBackTopStyle: GenerateStyle<BackTopToken> = (token): CSSObject => 
   return {
     [`@media (max-width: ${token.screenMD}px)`]: {
       [backTopCls]: {
-        right: '60px',
-
-        '&-rtl': {
-          right: 'auto',
-          left: '60px',
-        },
+        marginInlineEnd: 60,
       },
     },
 
     [`@media (max-width: ${token.screenXS}px)`]: {
       [backTopCls]: {
-        right: '20px',
-
-        '&-rtl': {
-          right: 'auto',
-          left: '20px',
-        },
+        marginInlineEnd: 20,
       },
     },
   };
@@ -121,6 +113,8 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
       const backTopColor = '#fff';
       const backTopHoverBackground = '#000000d9';
 
+      const durationSlow = 3;
+
       const backTopToken: BackTopToken = {
         ...token,
 
@@ -129,6 +123,8 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
         backTopBackground,
         backTopColor,
         backTopHoverBackground,
+
+        durationSlow,
 
         ...BackTop,
       };
