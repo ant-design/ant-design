@@ -44,6 +44,7 @@ export interface OverrideToken {
   Affix?: {};
   Alert?: {};
   Avatar?: {};
+  BackTop?: BackTopComponentToken;
   Badge?: {};
   Button?: ButtonComponentToken;
   Carousel?: {};
@@ -74,7 +75,6 @@ export interface OverrideToken {
   Tree?: {};
   TreeSelect?: {};
   Typography?: TypographyComponentToken;
-  BackTop?: BackTopComponentToken;
   Timeline?: TimelineComponentToken;
   Tabs?: {};
   Card?: {};

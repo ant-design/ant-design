@@ -1,40 +1,37 @@
 // deps-lint-skip-all
 import { CSSObject } from '@ant-design/cssinjs';
 import {
-  DerivativeToken,
-  useStyleRegister,
-  useToken,
-  UseComponentStyleResult,
   resetComponent,
+  genComponentStyleHook,
   GenerateStyle,
+  FullToken,
+  mergeToken,
 } from '../../_util/theme';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {}
 
-interface BackTopToken extends DerivativeToken, ComponentToken {
-  backTopCls: string;
-
+type BackTopToken = FullToken<'BackTop'> & {
   backTopBackground: string;
   backTopColor: string;
   backTopHoverBackground: string;
 
   durationSlow: number;
-}
+};
 
 // ============================== Shared ==============================
-const genSharedBackTopStyle: GenerateStyle<BackTopToken> = (token): CSSObject => {
-  const { backTopCls } = token;
+const genSharedBackTopStyle: GenerateStyle<BackTopToken, CSSObject> = (token): CSSObject => {
+  const { componentCls } = token;
 
   return {
-    [backTopCls]: {
+    [componentCls]: {
       ...resetComponent(token),
 
       position: 'fixed',
       // FIXME
-      right: 100,
+      insetInlineEnd: 100,
       // FIXME
-      bottom: 50,
+      insetBlockEnd: 50,
       // FIX ME @zindex-back-top
       zIndex: token.zIndexPopup,
       width: 40,
@@ -45,14 +42,7 @@ const genSharedBackTopStyle: GenerateStyle<BackTopToken> = (token): CSSObject =>
         display: 'none',
       },
 
-      '&-rtl': {
-        right: 'auto',
-        // FIXME
-        left: 100,
-        direction: 'rtl',
-      },
-
-      [`${backTopCls}-content`]: {
+      [`${componentCls}-content`]: {
         width: 40,
         height: 40,
         overflow: 'hidden',
@@ -73,7 +63,7 @@ const genSharedBackTopStyle: GenerateStyle<BackTopToken> = (token): CSSObject =>
       },
 
       // change to .backtop .backtop-icon
-      [`${backTopCls}-icon`]: {
+      [`${componentCls}-icon`]: {
         // FIXME
         fontSize: 24,
         // FIXME
@@ -84,17 +74,17 @@ const genSharedBackTopStyle: GenerateStyle<BackTopToken> = (token): CSSObject =>
 };
 
 const genMediaBackTopStyle: GenerateStyle<BackTopToken> = (token): CSSObject => {
-  const { backTopCls } = token;
+  const { componentCls } = token;
 
   return {
     [`@media (max-width: ${token.screenMD}px)`]: {
-      [backTopCls]: {
+      [componentCls]: {
         marginInlineEnd: 60,
       },
     },
 
     [`@media (max-width: ${token.screenXS}px)`]: {
-      [backTopCls]: {
+      [componentCls]: {
         marginInlineEnd: 20,
       },
     },
@@ -102,35 +92,22 @@ const genMediaBackTopStyle: GenerateStyle<BackTopToken> = (token): CSSObject => 
 };
 
 // ============================== Export ==============================
-export default function useStyle(prefixCls: string): UseComponentStyleResult {
-  const [theme, token, hashId] = useToken();
+export default genComponentStyleHook<'BackTop'>(
+  'BackTop',
 
-  return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => {
-      const { BackTop } = token;
+  token => {
+    const backTopBackground = 'rgb(16, 136, 233)';
+    const backTopColor = '#fff';
+    const backTopHoverBackground = '#000000d9';
 
-      const backTopBackground = 'rgb(16, 136, 233)';
-      const backTopColor = '#fff';
-      const backTopHoverBackground = '#000000d9';
+    const backTopToken = mergeToken<BackTopToken>(token, {
+      backTopBackground,
+      backTopColor,
+      backTopHoverBackground,
 
-      const durationSlow = 3;
-
-      const backTopToken: BackTopToken = {
-        ...token,
-
-        backTopCls: `.${prefixCls}`,
-
-        backTopBackground,
-        backTopColor,
-        backTopHoverBackground,
-
-        durationSlow,
-
-        ...BackTop,
-      };
-
-      return [genSharedBackTopStyle(backTopToken), genMediaBackTopStyle(backTopToken)];
-    }),
-    hashId,
-  ];
-}
+      // FIX ME
+      durationSlow: 3,
+    });
+    return [genSharedBackTopStyle(backTopToken), genMediaBackTopStyle(backTopToken)];
+  },
+);
