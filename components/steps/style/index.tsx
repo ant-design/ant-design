@@ -5,8 +5,9 @@
 // deps-lint-skip: grid
 // import '../../progress/style';
 import { TinyColor } from '@ctrl/tinycolor';
-import { CSSObject } from '@ant-design/cssinjs';
-import { resetComponent, FullToken, genComponentStyleHook, mergeToken } from '../../_util/theme';
+import type { CSSObject } from '@ant-design/cssinjs';
+import { resetComponent, genComponentStyleHook, mergeToken } from '../../_util/theme';
+import type { GenerateStyle, FullToken } from '../../_util/theme';
 import genStepsCustomIconStyle from './custom-icon';
 import genStepsSmallStyle from './small';
 import genStepsVerticalStyle from './vertical';
@@ -15,8 +16,6 @@ import genStepsProgressDotStyle from './progress-dot';
 import genStepsProgressStyle from './progress';
 import genStepsNavStyle from './nav';
 import genStepsRTLStyle from './rtl';
-
-export const withPx = (size: number) => `${size}px`;
 
 export interface StepsToken extends FullToken<'Steps'> {
   // Steps variable default.less
@@ -102,8 +101,8 @@ const genStepsItemStatusStyle = (status: StepItemStatusEnum, token: StepsToken):
   };
 };
 
-const genStepsItemStyle = (token: StepsToken): CSSObject => {
-  const { componentCls } = token;
+const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = token => {
+  const { componentCls, motionDurationSlow } = token;
   const stepsItemCls = `${componentCls}-item`; // .ant-steps-item
 
   return {
@@ -140,7 +139,7 @@ const genStepsItemStyle = (token: StepsToken): CSSObject => {
         .setAlpha(0.25)
         .toRgbString()}`,
       borderRadius: token.stepsIconSize,
-      transition: 'background-color 0.3s, border-color 0.3s',
+      transition: `background-color ${motionDurationSlow}, border-color ${motionDurationSlow}`,
       [`${componentCls}-icon`]: {
         position: 'relative',
         top: token.stepsIconTop,
@@ -161,7 +160,7 @@ const genStepsItemStyle = (token: StepsToken): CSSObject => {
         height: 1,
         background: token.colorSplit,
         borderRadius: 1,
-        transition: 'background 0.3s',
+        transition: `background ${motionDurationSlow}`,
         content: '""',
       },
     },
@@ -219,8 +218,8 @@ const genStepsItemStyle = (token: StepsToken): CSSObject => {
 };
 
 // ============================= Clickable ===========================
-const genStepsClickableStyle = (token: StepsToken): CSSObject => {
-  const { componentCls } = token;
+const genStepsClickableStyle: GenerateStyle<StepsToken, CSSObject> = token => {
+  const { componentCls, motionDurationSlow } = token;
 
   return {
     [`& ${componentCls}-item`]: {
@@ -229,7 +228,7 @@ const genStepsClickableStyle = (token: StepsToken): CSSObject => {
           cursor: 'pointer',
           [`${componentCls}-item`]: {
             [`&-title, &-subtitle, &-description, &-icon ${componentCls}-icon`]: {
-              transition: 'color 0.3s',
+              transition: `color ${motionDurationSlow}`,
             },
           },
 
@@ -280,7 +279,7 @@ const genStepsClickableStyle = (token: StepsToken): CSSObject => {
   };
 };
 
-const genStepsStyle = (token: StepsToken): CSSObject => {
+const genStepsStyle: GenerateStyle<StepsToken, CSSObject> = token => {
   const { componentCls } = token; // .ant-steps
 
   return {
@@ -319,6 +318,7 @@ export default genComponentStyleHook('Steps', token => {
   const stepsIconSize = 32;
   const processTailColor = token.colorSplit;
   const processIconColor = token.colorPrimary;
+  console.log('@@@:', token);
 
   const stepsToken = mergeToken<StepsToken>(token, {
     // Steps variable default.less

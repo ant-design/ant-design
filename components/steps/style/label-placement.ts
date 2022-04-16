@@ -1,7 +1,8 @@
-import { CSSObject } from '@ant-design/cssinjs';
-import { StepsToken } from '.';
+import type { CSSObject } from '@ant-design/cssinjs';
+import type { GenerateStyle } from '../../_util/theme';
+import type { StepsToken } from '.';
 
-export default function genStepsLabelPlacementStyle(token: StepsToken): CSSObject {
+const genStepsLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = token => {
   const { componentCls, stepsIconSize, lineHeight } = token;
 
   return {
@@ -51,4 +52,5 @@ export default function genStepsLabelPlacementStyle(token: StepsToken): CSSObjec
       },
     },
   };
-}
+};
+export default genStepsLabelPlacementStyle;

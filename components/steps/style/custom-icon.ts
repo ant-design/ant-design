@@ -1,7 +1,8 @@
-import { CSSObject } from '@ant-design/cssinjs';
-import { StepsToken } from '.';
+import type { CSSObject } from '@ant-design/cssinjs';
+import type { GenerateStyle } from '../../_util/theme';
+import type { StepsToken } from '.';
 
-export default function genStepsCustomIconStyle(token: StepsToken): CSSObject {
+const genStepsCustomIconStyle: GenerateStyle<StepsToken, CSSObject> = token => {
   const {
     componentCls,
     stepsIconCustomTop,
@@ -42,4 +43,6 @@ export default function genStepsCustomIconStyle(token: StepsToken): CSSObject {
       },
     },
   };
-}
+};
+
+export default genStepsCustomIconStyle;

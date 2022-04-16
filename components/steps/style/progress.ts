@@ -1,8 +1,8 @@
-import { CSSObject } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
+import type { GenerateStyle } from '../../_util/theme';
+import type { StepsToken } from '.';
 
-import { StepsToken } from '.';
-
-export default function genStepsProgressStyle(token: StepsToken): CSSObject {
+const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = token => {
   const { antCls, componentCls } = token;
 
   return {
@@ -33,4 +33,6 @@ export default function genStepsProgressStyle(token: StepsToken): CSSObject {
       },
     },
   };
-}
+};
+
+export default genStepsProgressStyle;

@@ -1,7 +1,8 @@
-import { CSSObject } from '@ant-design/cssinjs';
-import { StepsToken, withPx } from '.';
+import type { CSSObject } from '@ant-design/cssinjs';
+import type { GenerateStyle } from '../../_util/theme';
+import type { StepsToken } from '.';
 
-export default function genStepsVerticalStyle(token: StepsToken): CSSObject {
+const genStepsVerticalStyle: GenerateStyle<StepsToken, CSSObject> = token => {
   const {
     componentCls,
     stepsSmallIconSize,
@@ -32,7 +33,7 @@ export default function genStepsVerticalStyle(token: StepsToken): CSSObject {
           overflow: 'hidden',
         },
         [`${componentCls}-item-title`]: {
-          lineHeight: withPx(stepsIconSize),
+          lineHeight: `${stepsIconSize}px`,
         },
         [`${componentCls}-item-description`]: {
           paddingBottom: 12,
@@ -44,7 +45,7 @@ export default function genStepsVerticalStyle(token: StepsToken): CSSObject {
         left: stepsVerticalTailWidth,
         width: 1,
         height: '100%',
-        padding: `${withPx(stepsIconSize + 6)} 0 6px`,
+        padding: `${stepsIconSize + 6}px 0 6px`,
 
         '&::after': {
           width: 1,
@@ -66,12 +67,13 @@ export default function genStepsVerticalStyle(token: StepsToken): CSSObject {
           position: 'absolute',
           top: 0,
           left: stepsVerticalTailWidthSm,
-          padding: `${withPx(stepsSmallIconSize + 6)} 0 6px`,
+          padding: `${stepsSmallIconSize + 6}px 0 6px`,
         },
         [`${componentCls}-item-title`]: {
-          lineHeight: withPx(stepsSmallIconSize),
+          lineHeight: `${stepsSmallIconSize}px`,
         },
       },
     },
   };
-}
+};
+export default genStepsVerticalStyle;

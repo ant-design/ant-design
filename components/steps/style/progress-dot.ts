@@ -1,8 +1,9 @@
-import { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-import { StepsToken, withPx } from '.';
+import type { CSSObject } from '@ant-design/cssinjs';
+import type { GenerateStyle } from '../../_util/theme';
+import type { StepsToken } from '.';
 
-export default function genStepsProgressDotStyle(token: StepsToken): CSSObject {
+const genStepsProgressDotStyle: GenerateStyle<StepsToken, CSSObject> = token => {
   const {
     componentCls,
     stepsDotTop,
@@ -10,6 +11,7 @@ export default function genStepsProgressDotStyle(token: StepsToken): CSSObject {
     lineHeight,
     stepsCurrentDotSize,
     stepsDotSize,
+    motionDurationSlow,
   } = token;
 
   return {
@@ -22,7 +24,7 @@ export default function genStepsProgressDotStyle(token: StepsToken): CSSObject {
         '&-tail': {
           top: stepsDotTop,
           width: '100%',
-          margin: `0 0 0 ${withPx(stepsDescriptionMaxWidth / 2)}`,
+          margin: `0 0 0 ${stepsDescriptionMaxWidth / 2}px`,
           padding: 0,
 
           '&::after': {
@@ -39,7 +41,7 @@ export default function genStepsProgressDotStyle(token: StepsToken): CSSObject {
           height: stepsDotSize,
           marginLeft: 67,
           paddingRight: 0,
-          lineHeight: withPx(stepsDotSize),
+          lineHeight: `${stepsDotSize}px`,
           background: 'transparent',
           border: 0,
 
@@ -49,7 +51,7 @@ export default function genStepsProgressDotStyle(token: StepsToken): CSSObject {
             width: '100%',
             height: '100%',
             borderRadius: 100,
-            transition: 'all 0.3s',
+            transition: `all ${motionDurationSlow}`,
 
             /* expand hover area */
             '&::after': {
@@ -72,7 +74,7 @@ export default function genStepsProgressDotStyle(token: StepsToken): CSSObject {
           top: -1,
           width: stepsCurrentDotSize,
           height: stepsCurrentDotSize,
-          lineHeight: withPx(stepsCurrentDotSize),
+          lineHeight: `${stepsCurrentDotSize}px`,
           background: 'none',
         },
         [`&-process ${componentCls}-icon`]: {
@@ -120,4 +122,6 @@ export default function genStepsProgressDotStyle(token: StepsToken): CSSObject {
         },
     },
   };
-}
+};
+
+export default genStepsProgressDotStyle;

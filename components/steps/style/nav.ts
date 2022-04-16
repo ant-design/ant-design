@@ -1,9 +1,15 @@
-import { CSSObject } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
+import type { GenerateStyle } from '../../_util/theme';
+import type { StepsToken } from '.';
 
-import { StepsToken } from '.';
-
-export default function genStepsNavStyle(token: StepsToken): CSSObject {
-  const { componentCls, stepsNavContentMaxWidth, stepsNavArrowColor, stepsNavActiveColor } = token;
+const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = token => {
+  const {
+    componentCls,
+    stepsNavContentMaxWidth,
+    stepsNavArrowColor,
+    stepsNavActiveColor,
+    motionDurationSlow,
+  } = token;
 
   return {
     [`&${componentCls}-navigation`]: {
@@ -27,7 +33,7 @@ export default function genStepsNavStyle(token: StepsToken): CSSObject {
           marginLeft: -16,
           paddingBottom: 12,
           textAlign: 'left',
-          transition: 'opacity 0.3s',
+          transition: `opacity ${motionDurationSlow}`,
 
           [`${componentCls}-item-content`]: {
             maxWidth: stepsNavContentMaxWidth,
@@ -88,7 +94,7 @@ export default function genStepsNavStyle(token: StepsToken): CSSObject {
           width: 0,
           height: 2,
           backgroundColor: stepsNavActiveColor,
-          transition: 'width 0.3s, left 0.3s',
+          transition: `width ${motionDurationSlow}, left ${motionDurationSlow}`,
           transitionTimingFunction: 'ease-out',
           content: '""',
         },
@@ -139,4 +145,5 @@ export default function genStepsNavStyle(token: StepsToken): CSSObject {
       },
     },
   };
-}
+};
+export default genStepsNavStyle;

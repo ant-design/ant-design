@@ -1,7 +1,8 @@
-import { CSSObject } from '@ant-design/cssinjs';
-import { StepsToken, withPx } from '.';
+import type { CSSObject } from '@ant-design/cssinjs';
+import type { GenerateStyle } from '../../_util/theme';
+import type { StepsToken } from '.';
 
-export default function genStepsSmallStyle(token: StepsToken): CSSObject {
+const genStepsSmallStyle: GenerateStyle<StepsToken, CSSObject> = token => {
   const {
     componentCls,
     stepsSmallIconSize,
@@ -25,14 +26,14 @@ export default function genStepsSmallStyle(token: StepsToken): CSSObject {
         height: stepsSmallIconSize,
         margin: stepsSmallIconMargin,
         fontSize: fontSizeSM,
-        lineHeight: withPx(stepsSmallIconSize),
+        lineHeight: `${stepsSmallIconSize}px`,
         textAlign: 'center',
         borderRadius: stepsSmallIconSize,
       },
       [`${componentCls}-item-title`]: {
         paddingRight: 12,
         fontSize: fontSizeBase,
-        lineHeight: withPx(stepsSmallIconSize),
+        lineHeight: `${stepsSmallIconSize}px`,
 
         '&::after': {
           top: stepsSmallIconSize / 2,
@@ -54,10 +55,11 @@ export default function genStepsSmallStyle(token: StepsToken): CSSObject {
         borderRadius: 0,
         [`> ${componentCls}-icon`]: {
           fontSize: stepsSmallIconSize,
-          lineHeight: withPx(stepsSmallIconSize),
+          lineHeight: `${stepsSmallIconSize}px`,
           transform: 'none',
         },
       },
     },
   };
-}
+};
+export default genStepsSmallStyle;

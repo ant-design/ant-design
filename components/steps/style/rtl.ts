@@ -1,8 +1,8 @@
-import { CSSObject } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
+import type { GenerateStyle } from '../../_util/theme';
+import type { StepsToken } from '.';
 
-import { StepsToken, withPx } from '.';
-
-export default function genStepsRTLStyle(token: StepsToken): CSSObject {
+const genStepsRTLStyle: GenerateStyle<StepsToken, CSSObject> = token => {
   const {
     componentCls,
     stepsVerticalIconWidth,
@@ -137,7 +137,7 @@ export default function genStepsRTLStyle(token: StepsToken): CSSObject {
       // progress-dot
       [`&${componentCls}-dot`]: {
         [`${componentCls}-item-tail, &${componentCls}-small ${componentCls}-item-tail`]: {
-          margin: `0 ${withPx(stepsDescriptionMaxWidth / 2)} 0 0`,
+          margin: `0 ${stepsDescriptionMaxWidth / 2}px 0 0`,
           '&::after': {
             marginRight: 12,
             marginLeft: 0,
@@ -205,4 +205,5 @@ export default function genStepsRTLStyle(token: StepsToken): CSSObject {
         },
     },
   };
-}
+};
+export default genStepsRTLStyle;
