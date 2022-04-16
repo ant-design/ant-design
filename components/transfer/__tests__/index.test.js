@@ -1,13 +1,11 @@
 /* eslint @typescript-eslint/no-use-before-define: "off" */
 import React, { useState } from 'react';
 import { mount } from 'enzyme';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 import Transfer from '..';
 import TransferList from '../list';
-import TransferOperation from '../operation';
 import TransferSearch from '../search';
 import TransferItem from '../ListItem';
-import Button from '../../button';
 import Checkbox from '../../checkbox';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
