@@ -2252,4 +2252,57 @@ describe('Table.filter', () => {
     expect(wrapper.find('.ant-tree-checkbox-checked').length).toBe(1);
     expect(wrapper.find('.ant-tree-checkbox-checked+span').text()).toBe('Girl');
   });
+
+  it('filteredKeys should all be controlled or not controlled', () => {
+    jest.clearAllMocks();
+    const tableData = [
+      {
+        key: '1',
+        name: 'John Brown',
+        age: 32,
+      },
+    ];
+    const columns = [
+      {
+        title: 'name',
+        dataIndex: 'name',
+        key: 'name',
+        filters: [],
+      },
+      {
+        title: 'age',
+        dataIndex: 'age',
+        key: 'age',
+        filters: [],
+      },
+    ];
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    mount(
+      createTable({
+        columns,
+        data: tableData,
+      }),
+    );
+    expect(errorSpy).not.toBeCalled();
+    errorSpy.mockReset();
+    columns[0].filteredValue = [];
+    mount(
+      createTable({
+        columns,
+        data: tableData,
+      }),
+    );
+    expect(errorSpy).toBeCalledWith(
+      'Warning: [antd: Table] `filteredKeys` should all be controlled or not controlled.',
+    );
+    errorSpy.mockReset();
+    columns[1].filteredValue = [];
+    mount(
+      createTable({
+        columns,
+        data: tableData,
+      }),
+    );
+    expect(errorSpy).not.toBeCalled();
+  });
 });
