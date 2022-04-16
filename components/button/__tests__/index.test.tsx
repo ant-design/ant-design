@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { mount } from 'enzyme';
-import { render } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 import { SearchOutlined } from '@ant-design/icons';
 import { resetWarned } from 'rc-util/lib/warning';
@@ -194,12 +194,12 @@ describe('Button', () => {
 
   it('should not clickable when button is loading', () => {
     const onClick = jest.fn();
-    const wrapper = mount(
+    const { container } = render(
       <Button loading onClick={onClick}>
         button
       </Button>,
     );
-    wrapper.simulate('click');
+    fireEvent.click(container.firstChild!);
     expect(onClick).not.toHaveBeenCalledWith();
   });
 
@@ -313,12 +313,12 @@ describe('Button', () => {
 
   it('should not redirect when button is disabled', () => {
     const onClick = jest.fn();
-    const wrapper = mount(
+    const { container } = render(
       <Button href="https://ant.design" onClick={onClick} disabled>
         click me
       </Button>,
     );
-    wrapper.simulate('click');
+    fireEvent.click(container.firstChild!);
     expect(onClick).not.toHaveBeenCalled();
   });
 

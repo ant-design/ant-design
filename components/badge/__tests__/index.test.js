@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
+import { fireEvent, render } from '@testing-library/react';
 import Badge from '../index';
 import Tooltip from '../../tooltip';
 import mountTest from '../../../tests/shared/mountTest';
@@ -54,14 +55,14 @@ describe('Badge', () => {
   // https://github.com/ant-design/ant-design/issues/10626
   it('should be composable with Tooltip', () => {
     const ref = React.createRef();
-    const wrapper = mount(
+    const { container } = render(
       <Tooltip title="Fix the error" ref={ref}>
         <Badge status="error" />
       </Tooltip>,
     );
 
     act(() => {
-      wrapper.find('Badge').simulate('mouseenter');
+      fireEvent.mouseEnter(container.querySelector('.ant-badge'));
       jest.runAllTimers();
     });
     expect(ref.current.props.visible).toBeTruthy();
