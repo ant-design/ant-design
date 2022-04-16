@@ -6,8 +6,8 @@ const genStepsRTLStyle: GenerateStyle<StepsToken, CSSObject> = token => {
   const {
     componentCls,
     stepsVerticalIconWidth,
-    stepsVerticalTailWidth,
-    stepsVerticalTailWidthSm,
+    // stepsVerticalTailWidth,
+    // stepsVerticalTailWidthSm,
     stepsDescriptionMaxWidth,
   } = token;
 
@@ -21,7 +21,7 @@ const genStepsRTLStyle: GenerateStyle<StepsToken, CSSObject> = token => {
           marginLeft: 8, // FIXME: hardcode in v4
         },
         '&-tail': {
-          insetInlineEnd: 0, // FIXME: hardcode in v4
+          // insetInlineEnd: 0,
           insetInlineStart: 'auto',
         },
         '&-title': {
@@ -29,8 +29,8 @@ const genStepsRTLStyle: GenerateStyle<StepsToken, CSSObject> = token => {
           paddingLeft: 16, // FIXME: hardcode in v4
 
           '&::after': {
-            insetInlineEnd: '100%',
-            insetInlineStart: 'auto',
+            // insetInlineEnd: '100%',
+            // insetInlineStart: 'auto',
           },
         },
       },
@@ -80,8 +80,8 @@ const genStepsRTLStyle: GenerateStyle<StepsToken, CSSObject> = token => {
         },
 
         [`${componentCls}-item::after`]: {
-          insetInlineEnd: '100%',
-          insetInlineStart: 'auto',
+          // insetInlineEnd: '100%',
+          // insetInlineStart: 'auto',
           marginRight: -2, // FIXME: hardcode in v4
           marginLeft: 0, // FIXME: hardcode in v4
           transform: 'rotate(225deg)',
@@ -114,15 +114,15 @@ const genStepsRTLStyle: GenerateStyle<StepsToken, CSSObject> = token => {
             marginLeft: stepsVerticalIconWidth,
           },
           [`${componentCls}-item-container > ${componentCls}-item-tail`]: {
-            insetInlineEnd: stepsVerticalTailWidth,
-            insetInlineStart: 'auto',
+            // insetInlineEnd: stepsVerticalTailWidth,
+            // insetInlineStart: 'auto',
           },
         },
 
         [`&${componentCls}-small`]: {
           [`${componentCls}-item-container > ${componentCls}-item-tail`]: {
-            insetInlineEnd: stepsVerticalTailWidthSm,
-            insetInlineStart: 'auto',
+            // insetInlineEnd: stepsVerticalTailWidthSm,
+            // insetInlineStart: 'auto',
           },
         },
       },
@@ -180,8 +180,8 @@ const genStepsRTLStyle: GenerateStyle<StepsToken, CSSObject> = token => {
         [`${componentCls}-item`]: {
           // https://github.com/ant-design/ant-design/issues/18354
           [`> ${componentCls}-item-container > ${componentCls}-item-tail`]: {
-            insetInlineEnd: -9, // FIXME: hardcode in v4
-            insetInlineStart: 'auto',
+            // insetInlineEnd: -9,
+            // insetInlineStart: 'auto',
           },
           [`&:first-child ${componentCls}-icon-dot`]: {
             insetInlineEnd: 0, // FIXME: hardcode in v4
