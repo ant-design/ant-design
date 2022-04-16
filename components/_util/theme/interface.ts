@@ -9,6 +9,7 @@ import type { ComponentToken as SelectComponentToken } from '../../select/style'
 import type { ComponentToken as SliderComponentToken } from '../../slider/style';
 import type { ComponentToken as TypographyComponentToken } from '../../typography/style';
 import type { ComponentToken as BackTopComponentToken } from '../../back-top/style';
+import type { ComponentToken as TimelineComponentToken } from '../../timeline/style';
 
 export const PresetColors = [
   'blue',
@@ -74,7 +75,9 @@ export interface OverrideToken {
   TreeSelect?: {};
   Typography?: TypographyComponentToken;
   BackTop?: BackTopComponentToken;
+  Timeline?: TimelineComponentToken;
   Tabs?: {};
+  Card?: {};
 }
 
 /** Final token which contains the components level override */

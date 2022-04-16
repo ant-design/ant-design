@@ -31,7 +31,7 @@ const data = [
   },
 ];
 
-ReactDOM.render(
+export default () => (
   <List
     grid={{ gutter: 16, column: 4 }}
     dataSource={data}
@@ -40,7 +40,6 @@ ReactDOM.render(
         <Card title={item.title}>Card content</Card>
       </List.Item>
     )}
-  />,
-  mountNode,
+  />
 );
 ```

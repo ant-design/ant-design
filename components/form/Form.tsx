@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useMemo } from 'react';
 import classNames from 'classnames';
-import FieldForm, { List } from 'rc-field-form';
+import FieldForm, { List, useWatch } from 'rc-field-form';
 import type { FormProps as RcFormProps } from 'rc-field-form/lib/Form';
 import type { ValidateErrorEntity } from 'rc-field-form/lib/interface';
 import type { Options } from 'scroll-into-view-if-needed';
@@ -108,8 +108,9 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
       colon: mergedColon,
       requiredMark: mergedRequiredMark,
       itemRef: __INTERNAL__.itemRef,
+      form: wrapForm,
     }),
-    [name, labelAlign, labelCol, wrapperCol, layout, mergedColon, mergedRequiredMark],
+    [name, labelAlign, labelCol, wrapperCol, layout, mergedColon, mergedRequiredMark, wrapForm],
   );
 
   React.useImperativeHandle(ref, () => wrapForm);
@@ -147,6 +148,6 @@ const Form = React.forwardRef<FormInstance, FormProps>(InternalForm) as <Values 
   props: React.PropsWithChildren<FormProps<Values>> & { ref?: React.Ref<FormInstance<Values>> },
 ) => React.ReactElement;
 
-export { useForm, List, FormInstance };
+export { useForm, List, FormInstance, useWatch };
 
 export default Form;

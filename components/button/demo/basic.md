@@ -16,7 +16,7 @@ There are `primary` button, `default` button, `dashed` button, `text` button and
 ```jsx
 import { Button } from 'antd';
 
-ReactDOM.render(
+export default () => (
   <>
     <Button type="primary">Primary Button</Button>
     <Button>Default Button</Button>
@@ -24,7 +24,6 @@ ReactDOM.render(
     <br />
     <Button type="text">Text Button</Button>
     <Button type="link">Link Button</Button>
-  </>,
-  mountNode,
+  </>
 );
 ```

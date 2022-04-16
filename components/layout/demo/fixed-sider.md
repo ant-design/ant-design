@@ -44,7 +44,7 @@ const items: MenuProps['items'] = [
   label: `nav ${index + 1}`,
 }));
 
-ReactDOM.render(
+export default () => (
   <Layout hasSider>
     <Sider
       style={{
@@ -162,8 +162,7 @@ ReactDOM.render(
       </Content>
       <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
     </Layout>
-  </Layout>,
-  mountNode,
+  </Layout>
 );
 ```
 

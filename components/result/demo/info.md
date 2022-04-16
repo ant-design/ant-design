@@ -16,7 +16,7 @@ Show processing results.
 ```jsx
 import { Result, Button } from 'antd';
 
-ReactDOM.render(
+export default () => (
   <Result
     title="Your operation has been executed"
     extra={
@@ -24,7 +24,6 @@ ReactDOM.render(
         Go Console
       </Button>
     }
-  />,
-  mountNode,
+  />
 );
 ```

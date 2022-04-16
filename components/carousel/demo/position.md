@@ -57,5 +57,5 @@ const PositionCarouselDemo = () => {
   );
 };
 
-ReactDOM.render(<PositionCarouselDemo />, mountNode);
+export default () => <PositionCarouselDemo />;
 ```

@@ -28,6 +28,7 @@ export interface CollapseProps {
   expandIconPosition?: ExpandIconPosition;
   ghost?: boolean;
   collapsible?: CollapsibleType;
+  children?: React.ReactNode;
 }
 
 interface PanelProps {

@@ -16,12 +16,11 @@ The badge can be wrapped with `a` tag to make it linkable.
 ```jsx
 import { Badge, Avatar } from 'antd';
 
-ReactDOM.render(
+export default () => (
   <a href="#">
     <Badge count={5}>
       <Avatar shape="square" size="large" />
     </Badge>
-  </a>,
-  mountNode,
+  </a>
 );
 ```

@@ -21,8 +21,7 @@ function onChange(time, timeString) {
   console.log(time, timeString);
 }
 
-ReactDOM.render(
-  <TimePicker onChange={onChange} defaultOpenValue={moment('00:00:00', 'HH:mm:ss')} />,
-  mountNode,
+export default () => (
+  <TimePicker onChange={onChange} defaultOpenValue={moment('00:00:00', 'HH:mm:ss')} />
 );
 ```

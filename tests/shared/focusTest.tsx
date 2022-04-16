@@ -1,6 +1,5 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import '@testing-library/jest-dom';
 import { mount, ReactWrapper } from 'enzyme';
 import { sleep } from '../utils';
 

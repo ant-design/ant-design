@@ -7,6 +7,8 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import SearchOutlined from '@ant-design/icons/SearchOutlined';
 
+type RenderNode = React.ReactNode | ((props: any) => React.ReactNode);
+
 export default function getIcons({
   suffixIcon,
   clearIcon,
@@ -20,9 +22,9 @@ export default function getIcons({
   feedbackIcon,
 }: {
   suffixIcon?: React.ReactNode;
-  clearIcon?: React.ReactNode;
-  menuItemSelectedIcon?: React.ReactNode;
-  removeIcon?: React.ReactNode;
+  clearIcon?: RenderNode;
+  menuItemSelectedIcon?: RenderNode;
+  removeIcon?: RenderNode;
   loading?: boolean;
   multiple?: boolean;
   hasFeedback?: boolean;

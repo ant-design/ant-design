@@ -27,5 +27,5 @@ const Demo = () => {
   return <TimePicker value={value} onChange={onChange} />;
 };
 
-ReactDOM.render(<Demo />, mountNode);
+export default () => <Demo />;
 ```

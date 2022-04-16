@@ -50,7 +50,7 @@ const DraggableTabNode = ({ index, children, moveNode }) => {
   });
   drop(drag(ref));
   return (
-    <div ref={ref} style={{ marginRight: 24 }} className={isOver ? dropClassName : ''}>
+    <div ref={ref} className={`dragnode ${isOver ? dropClassName : ''}`}>
       {children}
     </div>
   );
@@ -131,7 +131,7 @@ class DraggableTabs extends React.Component {
   }
 }
 
-ReactDOM.render(
+export default () => (
   <DraggableTabs>
     <TabPane tab="tab 1" key="1">
       Content of Tab Pane 1
@@ -142,8 +142,7 @@ ReactDOM.render(
     <TabPane tab="tab 3" key="3">
       Content of Tab Pane 3
     </TabPane>
-  </DraggableTabs>,
-  mountNode,
+  </DraggableTabs>
 );
 ```
 
@@ -151,5 +150,9 @@ ReactDOM.render(
 .dropping {
   background: #fefefe;
   transition: all 0.3s;
+}
+
+.dragnode {
+  margin-inline-end: 24px;
 }
 ```

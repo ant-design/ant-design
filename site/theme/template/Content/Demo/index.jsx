@@ -48,13 +48,14 @@ class Demo extends React.Component {
 
   shouldComponentUpdate(nextProps, nextState) {
     const { codeExpand, copied, copyTooltipVisible } = this.state;
-    const { expand, theme, showRiddleButton } = this.props;
+    const { expand, theme, showRiddleButton, react18 } = this.props;
     return (
       (codeExpand || expand) !== (nextState.codeExpand || nextProps.expand) ||
       copied !== nextState.copied ||
       copyTooltipVisible !== nextState.copyTooltipVisible ||
       nextProps.theme !== theme ||
-      nextProps.showRiddleButton !== showRiddleButton
+      nextProps.showRiddleButton !== showRiddleButton ||
+      nextProps.react18 !== react18
     );
   }
 
@@ -136,6 +137,7 @@ class Demo extends React.Component {
       intl: { locale },
       theme,
       showRiddleButton,
+      react18,
     } = props;
     const { copied, copyTooltipVisible } = state;
     if (!this.liveDemo) {
@@ -204,11 +206,13 @@ class Demo extends React.Component {
     );
 
     dependencies['@ant-design/icons'] = 'latest';
+    dependencies.react = react18 ? '^18.0.0' : '^17.0.0';
+    dependencies['react-dom'] = react18 ? '^18.0.0' : '^17.0.0';
 
     const codepenPrefillConfig = {
       title: `${localizedTitle} - antd@${dependencies.antd}`,
       html,
-      js: sourceCode
+      js: `${react18 ? 'const { createRoot } = ReactDOM;\n' : ''}${sourceCode
         .replace(/import\s+(?:React,\s+)?{(\s+[^}]*\s+)}\s+from\s+'react'/, `const { $1 } = React;`)
         .replace(/import\s+{(\s+[^}]*\s+)}\s+from\s+'antd';/, 'const { $1 } = antd;')
         .replace(/import\s+{(\s+[^}]*\s+)}\s+from\s+'@ant-design\/icons';/, 'const { $1 } = icons;')
@@ -218,14 +222,19 @@ class Demo extends React.Component {
           /import\s+{\s+(.*)\s+}\s+from\s+'react-router-dom';/,
           'const { $1 } = ReactRouterDOM;',
         )
-        .replace(/([A-Za-z]*)\s+as\s+([A-Za-z]*)/, '$1:$2'),
+        .replace(/([A-Za-z]*)\s+as\s+([A-Za-z]*)/, '$1:$2')
+        .replace(/export default/, 'const Demo =')}\n\n${
+        react18 ? 'createRoot(mountNode).render(<Demo />)' : 'ReactDOM.render(<Demo />, mountNode)'
+      };\n`,
       css: prefillStyle,
       editors: '001',
       // eslint-disable-next-line no-undef
       css_external: `https://unpkg.com/antd@${antdReproduceVersion}/dist/antd.css`,
       js_external: [
-        'react@16.x/umd/react.development.js',
-        'react-dom@16.x/umd/react-dom.development.js',
+        react18 ? 'react@18/umd/react.development.js' : 'react@16.x/umd/react.development.js',
+        react18
+          ? 'react-dom@18/umd/react-dom.development.js'
+          : 'react-dom@16.x/umd/react-dom.development.js',
         'moment/min/moment-with-locales.js',
         // eslint-disable-next-line no-undef
         `antd@${antdReproduceVersion}/dist/antd-with-locales.js`,
@@ -240,7 +249,13 @@ class Demo extends React.Component {
 
     const riddlePrefillConfig = {
       title: `${localizedTitle} - antd@${dependencies.antd}`,
-      js: sourceCode,
+      js: `${
+        react18
+          ? `import React from 'react';\nimport { createRoot } from 'react-dom/client';\n`
+          : ''
+      }${sourceCode.replace(/export default/, 'const Demo =')}\n\n${
+        react18 ? 'createRoot(mountNode).render(<Demo />)' : 'ReactDOM.render(<Demo />, mountNode)'
+      };\n`,
       css: prefillStyle,
       json: JSON.stringify(
         {
@@ -263,12 +278,11 @@ class Demo extends React.Component {
       parsedSourceCode = parsedSourceCode.replace(importReactReg, '').trim();
     }
 
-    const indexJsContent = `
+    const demoJsContent = `
 ${importReactContent}
-import ReactDOM from 'react-dom';
 import 'antd/dist/antd.css';
 import './index.css';
-${parsedSourceCode.replace('mountNode', "document.getElementById('container')")}
+${parsedSourceCode}
 `.trim();
     const indexCssContent = (style || '')
       .trim()
@@ -276,13 +290,29 @@ ${parsedSourceCode.replace('mountNode', "document.getElementById('container')")}
       .replace('</style>', '')
       .replace('<style>', '');
 
+    const indexJsContent = react18
+      ? `
+${importReactContent}
+import { createRoot } from 'react-dom/client';
+import Demo from './demo';
+
+createRoot(document.getElementById('container')).render(<Demo />);
+`
+      : `
+${importReactContent}
+import ReactDOM from 'react-dom';
+import Demo from './demo';
+
+ReactDOM.render(<Demo />, document.getElementById('container'));
+`;
+
     const codesandboxPackage = {
       title: `${localizedTitle} - antd@${dependencies.antd}`,
       main: 'index.js',
       dependencies: {
         ...dependencies,
-        react: '^16.14.0',
-        'react-dom': '^16.14.0',
+        react: react18 ? '^18.0.0' : '^16.14.0',
+        'react-dom': react18 ? '^18.0.0' : '^16.14.0',
         'react-scripts': '^4.0.0',
       },
       devDependencies: {
@@ -301,6 +331,7 @@ ${parsedSourceCode.replace('mountNode', "document.getElementById('container')")}
         'package.json': { content: codesandboxPackage },
         'index.css': { content: indexCssContent },
         'index.js': { content: indexJsContent },
+        'demo.js': { content: demoJsContent },
         'index.html': {
           content: html,
         },
@@ -313,6 +344,7 @@ ${parsedSourceCode.replace('mountNode', "document.getElementById('container')")}
       files: {
         'index.css': indexCssContent,
         'index.js': indexJsContent,
+        'demo.js': demoJsContent,
         'index.html': html,
       },
     };
@@ -320,7 +352,9 @@ ${parsedSourceCode.replace('mountNode', "document.getElementById('container')")}
     let codeBox = (
       <section className={codeBoxClass} id={meta.id}>
         <section className="code-box-demo">
-          <ErrorBoundary>{this.liveDemo}</ErrorBoundary>
+          <ErrorBoundary>
+            <React.StrictMode>{this.liveDemo}</React.StrictMode>
+          </ErrorBoundary>
           {style ? <style dangerouslySetInnerHTML={{ __html: style }} /> : null}
         </section>
         <section className="code-box-meta markdown">

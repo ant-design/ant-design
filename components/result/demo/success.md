@@ -16,7 +16,7 @@ Show successful results.
 ```jsx
 import { Result, Button } from 'antd';
 
-ReactDOM.render(
+export default () => (
   <Result
     status="success"
     title="Successfully Purchased Cloud Server ECS!"
@@ -27,7 +27,6 @@ ReactDOM.render(
       </Button>,
       <Button key="buy">Buy Again</Button>,
     ]}
-  />,
-  mountNode,
+  />
 );
 ```

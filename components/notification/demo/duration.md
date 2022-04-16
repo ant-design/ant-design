@@ -26,10 +26,9 @@ const openNotification = () => {
   notification.open(args);
 };
 
-ReactDOM.render(
+export default () => (
   <Button type="primary" onClick={openNotification}>
     Open the notification box
-  </Button>,
-  mountNode,
+  </Button>
 );
 ```

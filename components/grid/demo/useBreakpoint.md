@@ -32,5 +32,5 @@ function UseBreakpointDemo() {
   );
 }
 
-ReactDOM.render(<UseBreakpointDemo />, mountNode);
+export default () => <UseBreakpointDemo />;
 ```

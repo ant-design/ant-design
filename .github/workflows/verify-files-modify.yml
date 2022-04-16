@@ -4,8 +4,13 @@ on:
   pull_request_target:
     types: [opened, synchronize]
 
+permissions:
+  contents: read
+
 jobs:
   verify:
+    permissions:
+      pull-requests: write  # for actions-cool/verify-files-modify to update status of PRs
     runs-on: ubuntu-latest
     steps:
       - name: verify-version

@@ -59,8 +59,7 @@ const onClick: MenuProps['onClick'] = e => {
   console.log('click', e);
 };
 
-ReactDOM.render(
-  <Menu onClick={onClick} style={{ width: 256 }} mode="vertical" items={items} />,
-  mountNode,
+export default () => (
+  <Menu onClick={onClick} style={{ width: 256 }} mode="vertical" items={items} />
 );
 ```

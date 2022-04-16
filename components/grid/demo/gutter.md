@@ -30,7 +30,7 @@ import { Row, Col, Divider } from 'antd';
 
 const style = { background: '#0092ff', padding: '8px 0' };
 
-ReactDOM.render(
+export default () => (
   <>
     <Divider orientation="left">Horizontal</Divider>
     <Row gutter={16}>
@@ -89,8 +89,7 @@ ReactDOM.render(
         <div style={style}>col-6</div>
       </Col>
     </Row>
-  </>,
-  mountNode,
+  </>
 );
 ```
 

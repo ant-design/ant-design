@@ -53,5 +53,5 @@ const Autoset: React.FC = () => {
   );
 };
 
-ReactDOM.render(<Autoset />, mountNode);
+export default () => <Autoset />;
 ```

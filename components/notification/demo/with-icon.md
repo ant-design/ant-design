@@ -24,13 +24,12 @@ const openNotificationWithIcon = type => {
   });
 };
 
-ReactDOM.render(
+export default () => (
   <Space>
     <Button onClick={() => openNotificationWithIcon('success')}>Success</Button>
     <Button onClick={() => openNotificationWithIcon('info')}>Info</Button>
     <Button onClick={() => openNotificationWithIcon('warning')}>Warning</Button>
     <Button onClick={() => openNotificationWithIcon('error')}>Error</Button>
-  </Space>,
-  mountNode,
+  </Space>
 );
 ```

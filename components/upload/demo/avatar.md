@@ -84,7 +84,7 @@ class Avatar extends React.Component {
   }
 }
 
-ReactDOM.render(<Avatar />, mountNode);
+export default () => <Avatar />;
 ```
 
 ```css

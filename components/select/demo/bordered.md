@@ -18,7 +18,7 @@ import { Select } from 'antd';
 
 const { Option } = Select;
 
-ReactDOM.render(
+export default () => (
   <>
     <Select defaultValue="lucy" style={{ width: 120 }} bordered={false}>
       <Option value="jack">Jack</Option>
@@ -28,7 +28,6 @@ ReactDOM.render(
     <Select defaultValue="lucy" style={{ width: 120 }} disabled bordered={false}>
       <Option value="lucy">Lucy</Option>
     </Select>
-  </>,
-  mountNode,
+  </>
 );
 ```

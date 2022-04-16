@@ -71,13 +71,12 @@ const displayRender = (labels, selectedOptions) =>
     return <span key={option.value}>{label} / </span>;
   });
 
-ReactDOM.render(
+export default () => (
   <Cascader
     options={options}
     defaultValue={['zhejiang', 'hangzhou', 'xihu']}
     displayRender={displayRender}
     style={{ width: '100%' }}
-  />,
-  mountNode,
+  />
 );
 ```

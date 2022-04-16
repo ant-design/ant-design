@@ -64,5 +64,5 @@ const LazyOptions = () => {
   return <Cascader options={options} loadData={loadData} onChange={onChange} changeOnSelect />;
 };
 
-ReactDOM.render(<LazyOptions />, mountNode);
+export default () => <LazyOptions />;
 ```

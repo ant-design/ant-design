@@ -13,4 +13,3 @@ MiniSelect.Option = Select.Option;
 MiddleSelect.Option = Select.Option;
 
 export { MiniSelect, MiddleSelect };
-

@@ -38,5 +38,5 @@ class Rater extends React.Component {
   }
 }
 
-ReactDOM.render(<Rater />, mountNode);
+export default () => <Rater />;
 ```

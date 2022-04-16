@@ -46,5 +46,5 @@ const App: React.FC = () => {
   );
 };
 
-ReactDOM.render(<App />, mountNode);
+export default () => <App />;
 ```
