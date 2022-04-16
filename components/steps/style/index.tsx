@@ -150,7 +150,7 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = token => {
     [`${stepsItemCls}-tail`]: {
       position: 'absolute',
       top: 12,
-      left: 0,
+      insetInlineStart: 0,
       width: '100%',
       padding: '0 10px',
 
@@ -175,7 +175,7 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = token => {
       '&::after': {
         position: 'absolute',
         top: token.stepsTitleLineHeight / 2,
-        left: '100%',
+        insetInlineStart: '100%',
         display: 'block',
         width: 9999,
         height: 1,

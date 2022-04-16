@@ -42,7 +42,7 @@ const genStepsVerticalStyle: GenerateStyle<StepsToken, CSSObject> = token => {
       [`> ${componentCls}-item > ${componentCls}-item-container > ${componentCls}-item-tail`]: {
         position: 'absolute',
         top: 0,
-        left: stepsVerticalTailWidth,
+        insetInlineStart: stepsVerticalTailWidth,
         width: 1,
         height: '100%',
         padding: `${stepsIconSize + 6}px 0 6px`,
@@ -66,7 +66,7 @@ const genStepsVerticalStyle: GenerateStyle<StepsToken, CSSObject> = token => {
         [`${componentCls}-item-tail`]: {
           position: 'absolute',
           top: 0,
-          left: stepsVerticalTailWidthSm,
+          insetInlineStart: stepsVerticalTailWidthSm,
           padding: `${stepsSmallIconSize + 6}px 0 6px`,
         },
         [`${componentCls}-item-title`]: {

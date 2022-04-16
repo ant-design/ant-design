@@ -34,7 +34,7 @@ const genStepsProgressDotStyle: GenerateStyle<StepsToken, CSSObject> = token => 
           },
         },
         [`&:first-child ${componentCls}-icon-dot`]: {
-          left: 2,
+          insetInlineStart: 2,
         },
         '&-icon': {
           width: stepsDotSize,
@@ -57,7 +57,7 @@ const genStepsProgressDotStyle: GenerateStyle<StepsToken, CSSObject> = token => 
             '&::after': {
               position: 'absolute',
               top: -12,
-              left: -26,
+              insetInlineStart: -26,
               width: 60,
               height: 32,
               background: new TinyColor('#000').setAlpha(0.001).toRgbString(),
@@ -79,7 +79,7 @@ const genStepsProgressDotStyle: GenerateStyle<StepsToken, CSSObject> = token => 
         },
         [`&-process ${componentCls}-icon`]: {
           [`&:first-child ${componentCls}-icon-dot`]: {
-            left: 0,
+            insetInlineStart: 0,
           },
         },
       },
@@ -94,7 +94,7 @@ const genStepsProgressDotStyle: GenerateStyle<StepsToken, CSSObject> = token => 
       // https://github.com/ant-design/ant-design/issues/18354
       [`${componentCls}-item > ${componentCls}-item-container > ${componentCls}-item-tail`]: {
         top: 6.5,
-        left: -9,
+        insetInlineStart: -9,
         margin: 0,
         padding: '22px 0 4px',
       },
@@ -110,7 +110,7 @@ const genStepsProgressDotStyle: GenerateStyle<StepsToken, CSSObject> = token => 
       },
 
       [`${componentCls}-item:first-child ${componentCls}-icon-dot`]: {
-        left: 0,
+        insetInlineStart: 0,
       },
       [`${componentCls}-item-content`]: {
         width: 'inherit',
@@ -118,7 +118,7 @@ const genStepsProgressDotStyle: GenerateStyle<StepsToken, CSSObject> = token => 
       [`${componentCls}-item-process ${componentCls}-item-container ${componentCls}-item-icon ${componentCls}-icon-dot`]:
         {
           top: -1,
-          left: -1,
+          insetInlineStart: -1,
         },
     },
   };

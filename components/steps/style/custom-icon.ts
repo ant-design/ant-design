@@ -19,7 +19,7 @@ const genStepsCustomIconStyle: GenerateStyle<StepsToken, CSSObject> = token => {
         border: 0,
         [`> ${componentCls}-icon`]: {
           top: stepsIconCustomTop,
-          left: 0.5,
+          insetInlineStart: 0.5,
           width: stepsIconCustomSize,
           height: stepsIconCustomSize,
           fontSize: stepsIconCustomFontSize,

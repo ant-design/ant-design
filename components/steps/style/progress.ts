@@ -26,9 +26,9 @@ const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = token => {
         [`${antCls}-progress`]: {
           position: 'absolute',
           top: -5,
-          right: -5,
+          insetInlineEnd: -5,
           bottom: -5,
-          left: -5,
+          insetInlineStart: -5,
         },
       },
     },

@@ -73,7 +73,7 @@ const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = token => {
         '&::after': {
           position: 'absolute',
           top: '50%',
-          left: '100%',
+          insetInlineStart: '100%',
           display: 'inline-block',
           width: 12,
           height: 12,
@@ -89,7 +89,7 @@ const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = token => {
         '&::before': {
           position: 'absolute',
           bottom: 0,
-          left: '50%',
+          insetInlineStart: '50%',
           display: 'inline-block',
           width: 0,
           height: 2,
@@ -101,7 +101,7 @@ const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = token => {
       },
 
       [`${componentCls}-item${componentCls}-item-active::before`]: {
-        left: 0,
+        insetInlineStart: 0,
         width: '100%',
       },
     },
@@ -115,8 +115,8 @@ const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = token => {
         },
         [`&${componentCls}-item-active::before`]: {
           top: 0,
-          right: 0,
-          left: 'unset',
+          insetInlineEnd: 0,
+          insetInlineStart: 'unset',
           display: 'block',
           width: 3,
           height: 'calc(100% - 24px)',
@@ -125,7 +125,7 @@ const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = token => {
         '&::after': {
           position: 'relative',
           top: -2,
-          left: '50%',
+          insetInlineStart: '50%',
           display: 'block',
           width: 8,
           height: 8,

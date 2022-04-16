@@ -21,16 +21,16 @@ const genStepsRTLStyle: GenerateStyle<StepsToken, CSSObject> = token => {
           marginLeft: 8,
         },
         '&-tail': {
-          right: 0,
-          left: 'auto',
+          insetInlineEnd: 0,
+          insetInlineStart: 'auto',
         },
         '&-title': {
           paddingRight: 0,
           paddingLeft: 16,
 
           '&::after': {
-            right: '100%',
-            left: 'auto',
+            insetInlineEnd: '100%',
+            insetInlineStart: 'auto',
           },
         },
       },
@@ -54,8 +54,8 @@ const genStepsRTLStyle: GenerateStyle<StepsToken, CSSObject> = token => {
       [`${componentCls}-item-custom`]: {
         [`${componentCls}-item-icon`]: {
           [`> ${componentCls}-icon`]: {
-            right: 0.5,
-            left: 'auto',
+            insetInlineEnd: 0.5,
+            insetInlineStart: 'auto',
           },
         },
       },
@@ -80,8 +80,8 @@ const genStepsRTLStyle: GenerateStyle<StepsToken, CSSObject> = token => {
         },
 
         [`${componentCls}-item::after`]: {
-          right: '100%',
-          left: 'auto',
+          insetInlineEnd: '100%',
+          insetInlineStart: 'auto',
           marginRight: -2,
           marginLeft: 0,
           transform: 'rotate(225deg)',
@@ -114,15 +114,15 @@ const genStepsRTLStyle: GenerateStyle<StepsToken, CSSObject> = token => {
             marginLeft: stepsVerticalIconWidth,
           },
           [`${componentCls}-item-container > ${componentCls}-item-tail`]: {
-            right: stepsVerticalTailWidth,
-            left: 'auto',
+            insetInlineEnd: stepsVerticalTailWidth,
+            insetInlineStart: 'auto',
           },
         },
 
         [`&${componentCls}-small`]: {
           [`${componentCls}-item-container > ${componentCls}-item-tail`]: {
-            right: stepsVerticalTailWidthSm,
-            left: 'auto',
+            insetInlineEnd: stepsVerticalTailWidthSm,
+            insetInlineStart: 'auto',
           },
         },
       },
@@ -145,13 +145,13 @@ const genStepsRTLStyle: GenerateStyle<StepsToken, CSSObject> = token => {
         },
 
         [`${componentCls}-item:first-child ${componentCls}-icon-dot`]: {
-          right: 2,
-          left: 'auto',
+          insetInlineEnd: 2,
+          insetInlineStart: 'auto',
         },
 
         [`&${componentCls}-small ${componentCls}-item:first-child ${componentCls}-icon-dot`]: {
-          right: 2,
-          left: 'auto',
+          insetInlineEnd: 2,
+          insetInlineStart: 'auto',
         },
 
         [`${componentCls}-item-icon, &${componentCls}-small ${componentCls}-item-icon`]: {
@@ -167,8 +167,8 @@ const genStepsRTLStyle: GenerateStyle<StepsToken, CSSObject> = token => {
         /* expand hover area */
         [`${componentCls}-item-icon ${componentCls}-icon-dot::after, &${componentCls}-small ${componentCls}-item-icon ${componentCls}-icon-dot::after`]:
           {
-            right: -26,
-            left: 'auto',
+            insetInlineEnd: -26,
+            insetInlineStart: 'auto',
           },
       },
 
@@ -180,18 +180,18 @@ const genStepsRTLStyle: GenerateStyle<StepsToken, CSSObject> = token => {
         [`${componentCls}-item`]: {
           // https://github.com/ant-design/ant-design/issues/18354
           [`> ${componentCls}-item-container > ${componentCls}-item-tail`]: {
-            right: -9,
-            left: 'auto',
+            insetInlineEnd: -9,
+            insetInlineStart: 'auto',
           },
           [`&:first-child ${componentCls}-icon-dot`]: {
-            right: 0,
-            left: 'auto',
+            insetInlineEnd: 0,
+            insetInlineStart: 'auto',
           },
         },
         [`${componentCls}-item-process`]: {
           [`${componentCls}-icon-dot`]: {
-            right: -2,
-            left: 'auto',
+            insetInlineEnd: -2,
+            insetInlineStart: 'auto',
           },
         },
       },
