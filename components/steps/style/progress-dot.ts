@@ -25,41 +25,41 @@ const genStepsProgressDotStyle: GenerateStyle<StepsToken, CSSObject> = token => 
           top: stepsDotTop,
           width: '100%',
           margin: `0 0 0 ${stepsDescriptionMaxWidth / 2}px`,
-          padding: 0,
+          padding: 0, // FIXME: hardcode in v4
 
           '&::after': {
             width: 'calc(100% - 20px)',
-            height: 3,
-            marginLeft: 12,
+            height: 3, // FIXME: hardcode in v4
+            marginLeft: 12, // FIXME: hardcode in v4
           },
         },
         [`&:first-child ${componentCls}-icon-dot`]: {
-          insetInlineStart: 2,
+          insetInlineStart: 2, // FIXME: hardcode in v4
         },
         '&-icon': {
           width: stepsDotSize,
           height: stepsDotSize,
-          marginLeft: 67,
-          paddingRight: 0,
+          marginLeft: 67, // FIXME: hardcode in v4
+          paddingRight: 0, // FIXME: hardcode in v4
           lineHeight: `${stepsDotSize}px`,
           background: 'transparent',
-          border: 0,
+          border: 0, // FIXME: hardcode in v4
 
           [`${componentCls}-icon-dot`]: {
             position: 'relative',
             float: 'left',
             width: '100%',
             height: '100%',
-            borderRadius: 100,
+            borderRadius: 100, // FIXME: hardcode in v4
             transition: `all ${motionDurationSlow}`,
 
             /* expand hover area */
             '&::after': {
               position: 'absolute',
-              top: -12,
-              insetInlineStart: -26,
-              width: 60,
-              height: 32,
+              top: -12, // FIXME: hardcode in v4
+              insetInlineStart: -26, // FIXME: hardcode in v4
+              width: 60, // FIXME: hardcode in v4
+              height: 32, // FIXME: hardcode in v4
               background: new TinyColor('#000').setAlpha(0.001).toRgbString(),
               content: '""',
             },
@@ -71,7 +71,7 @@ const genStepsProgressDotStyle: GenerateStyle<StepsToken, CSSObject> = token => 
         },
         [`&-process ${componentCls}-item-icon`]: {
           position: 'relative',
-          top: -1,
+          top: -1, // FIXME: hardcode in v4
           width: stepsCurrentDotSize,
           height: stepsCurrentDotSize,
           lineHeight: `${stepsCurrentDotSize}px`,
@@ -79,46 +79,46 @@ const genStepsProgressDotStyle: GenerateStyle<StepsToken, CSSObject> = token => 
         },
         [`&-process ${componentCls}-icon`]: {
           [`&:first-child ${componentCls}-icon-dot`]: {
-            insetInlineStart: 0,
+            insetInlineStart: 0, // FIXME: hardcode in v4
           },
         },
       },
     },
     [`&${componentCls}-vertical${componentCls}-dot`]: {
       [`${componentCls}-item-icon`]: {
-        marginTop: 13,
-        marginLeft: 0,
+        marginTop: 13, // FIXME: hardcode in v4
+        marginLeft: 0, // FIXME: hardcode in v4
         background: 'none',
       },
 
       // https://github.com/ant-design/ant-design/issues/18354
       [`${componentCls}-item > ${componentCls}-item-container > ${componentCls}-item-tail`]: {
-        top: 6.5,
-        insetInlineStart: -9,
-        margin: 0,
+        top: 6.5, // FIXME: hardcode in v4
+        insetInlineStart: -9, // FIXME: hardcode in v4
+        margin: 0, // FIXME: hardcode in v4
         padding: '22px 0 4px',
       },
 
       [`&${componentCls}-small`]: {
         [`${componentCls}-item-icon`]: {
-          marginTop: 10,
+          marginTop: 10, // FIXME: hardcode in v4
         },
 
         [`${componentCls}-item > ${componentCls}-item-container > ${componentCls}-item-tail`]: {
-          top: 3.5,
+          top: 3.5, // FIXME: hardcode in v4
         },
       },
 
       [`${componentCls}-item:first-child ${componentCls}-icon-dot`]: {
-        insetInlineStart: 0,
+        insetInlineStart: 0, // FIXME: hardcode in v4
       },
       [`${componentCls}-item-content`]: {
         width: 'inherit',
       },
       [`${componentCls}-item-process ${componentCls}-item-container ${componentCls}-item-icon ${componentCls}-icon-dot`]:
         {
-          top: -1,
-          insetInlineStart: -1,
+          top: -1, // FIXME: hardcode in v4
+          insetInlineStart: -1, // FIXME: hardcode in v4
         },
     },
   };

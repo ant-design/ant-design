@@ -149,17 +149,17 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = token => {
     },
     [`${stepsItemCls}-tail`]: {
       position: 'absolute',
-      top: 12,
-      insetInlineStart: 0,
+      top: 12, // FIXME: hardcode in v4
+      insetInlineStart: 0, // FIXME: hardcode in v4
       width: '100%',
       padding: '0 10px',
 
       '&::after': {
         display: 'inline-block',
         width: '100%',
-        height: 1,
+        height: 1, // FIXME: hardcode in v4
         background: token.colorSplit,
-        borderRadius: 1,
+        borderRadius: 1, // FIXME: hardcode in v4
         transition: `background ${motionDurationSlow}`,
         content: '""',
       },
@@ -167,7 +167,7 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = token => {
     [`${stepsItemCls}-title`]: {
       position: 'relative',
       display: 'inline-block',
-      paddingRight: 16,
+      paddingRight: 16, // FIXME: hardcode in v4
       color: token.colorText,
       fontSize: token.fontSizeLG,
       lineHeight: `${token.stepsTitleLineHeight}px`,
@@ -177,15 +177,15 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = token => {
         top: token.stepsTitleLineHeight / 2,
         insetInlineStart: '100%',
         display: 'block',
-        width: 9999,
-        height: 1,
+        width: 9999, // FIXME: hardcode in v4
+        height: 1, // FIXME: hardcode in v4
         background: token.processTailColor,
         content: '""',
       },
     },
     [`${stepsItemCls}-subtitle`]: {
       display: 'inline',
-      marginLeft: 8,
+      marginLeft: 8, // FIXME: hardcode in v4
       color: token.colorTextSecondary,
       fontWeight: 'normal',
       fontSize: token.fontSizeBase,
@@ -204,7 +204,7 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = token => {
       },
     },
     [`${stepsItemCls}-process > ${stepsItemCls}-container > ${stepsItemCls}-title`]: {
-      fontWeight: 500,
+      fontWeight: 500, // FIXME: hardcode in v4
     },
     ...genStepsItemStatusStyle(StepItemStatusEnum.finish, token),
     ...genStepsItemStatusStyle(StepItemStatusEnum.error, token),
@@ -258,14 +258,14 @@ const genStepsClickableStyle: GenerateStyle<StepsToken, CSSObject> = token => {
     },
     [`&${componentCls}-horizontal:not(${componentCls}-label-vertical)`]: {
       [`${componentCls}-item`]: {
-        paddingLeft: 16,
+        paddingLeft: 16, // FIXME: hardcode in v4
         whiteSpace: 'nowrap',
 
         '&:first-child': {
-          paddingLeft: 0,
+          paddingLeft: 0, // FIXME: hardcode in v4
         },
         [`&:last-child ${componentCls}-item-title`]: {
-          paddingRight: 0,
+          paddingRight: 0, // FIXME: hardcode in v4
         },
         '&-tail': {
           display: 'none',
@@ -287,7 +287,7 @@ const genStepsStyle: GenerateStyle<StepsToken, CSSObject> = token => {
       ...resetComponent(token),
       display: 'flex',
       width: '100%',
-      fontSize: 0,
+      fontSize: 0, // FIXME: hardcode in v4
       textAlign: 'initial',
       // single Item
       ...genStepsItemStyle(token),
@@ -318,7 +318,6 @@ export default genComponentStyleHook('Steps', token => {
   const stepsIconSize = 32;
   const processTailColor = token.colorSplit;
   const processIconColor = token.colorPrimary;
-  console.log('@@@:', token);
 
   const stepsToken = mergeToken<StepsToken>(token, {
     // Steps variable default.less

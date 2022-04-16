@@ -11,25 +11,25 @@ const genStepsLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = token 
         overflow: 'visible',
 
         '&-tail': {
-          marginLeft: 58,
+          marginLeft: 58, // FIXME: hardcode in v4
           padding: '3.5px 24px',
         },
 
         '&-content': {
           display: 'block',
           width: (stepsIconSize / 2 + 42) * 2,
-          marginTop: 8,
+          marginTop: 8, // FIXME: hardcode in v4
           textAlign: 'center',
         },
 
         '&-icon': {
           display: 'inline-block',
-          marginLeft: 42,
+          marginLeft: 42, // FIXME: hardcode in v4
         },
 
         '&-title': {
-          paddingRight: 0,
-          paddingLeft: 0,
+          paddingRight: 0, // FIXME: hardcode in v4
+          paddingLeft: 0, // FIXME: hardcode in v4
 
           '&::after': {
             display: 'none',
@@ -38,15 +38,15 @@ const genStepsLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = token 
 
         '&-subtitle': {
           display: 'block',
-          marginBottom: 4,
-          marginLeft: 0,
+          marginBottom: 4, // FIXME: hardcode in v4
+          marginLeft: 0, // FIXME: hardcode in v4
           lineHeight,
         },
       },
       [`&${componentCls}-small:not(${componentCls}-dot)`]: {
         [`${componentCls}-item`]: {
           '&-icon': {
-            marginLeft: 46,
+            marginLeft: 46, // FIXME: hardcode in v4
           },
         },
       },

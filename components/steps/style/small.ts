@@ -15,9 +15,9 @@ const genStepsSmallStyle: GenerateStyle<StepsToken, CSSObject> = token => {
   return {
     [`&${componentCls}-small`]: {
       [`&${componentCls}-horizontal:not(${componentCls}-label-vertical) ${componentCls}-item`]: {
-        paddingLeft: 12,
+        paddingLeft: 12, // FIXME: hardcode in v4
         '&:first-child': {
-          paddingLeft: 0,
+          paddingLeft: 0, // FIXME: hardcode in v4
         },
       },
 
@@ -31,7 +31,7 @@ const genStepsSmallStyle: GenerateStyle<StepsToken, CSSObject> = token => {
         borderRadius: stepsSmallIconSize,
       },
       [`${componentCls}-item-title`]: {
-        paddingRight: 12,
+        paddingRight: 12, // FIXME: hardcode in v4
         fontSize: fontSizeBase,
         lineHeight: `${stepsSmallIconSize}px`,
 
@@ -44,15 +44,15 @@ const genStepsSmallStyle: GenerateStyle<StepsToken, CSSObject> = token => {
         fontSize: fontSizeBase,
       },
       [`${componentCls}-item-tail`]: {
-        top: 8,
+        top: 8, // FIXME: hardcode in v4
       },
       [`${componentCls}-item-custom ${componentCls}-item-icon`]: {
         width: 'inherit',
         height: 'inherit',
         lineHeight: 'inherit',
         background: 'none',
-        border: 0,
-        borderRadius: 0,
+        border: 0, // FIXME: hardcode in v4
+        borderRadius: 0, // FIXME: hardcode in v4
         [`> ${componentCls}-icon`]: {
           fontSize: stepsSmallIconSize,
           lineHeight: `${stepsSmallIconSize}px`,
