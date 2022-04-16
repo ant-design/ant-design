@@ -9,6 +9,7 @@ const genStepsRTLStyle: GenerateStyle<StepsToken, CSSObject> = token => {
     // stepsVerticalTailWidth,
     // stepsVerticalTailWidthSm,
     stepsDescriptionMaxWidth,
+    motionDurationSlow,
   } = token;
 
   return {
@@ -25,8 +26,8 @@ const genStepsRTLStyle: GenerateStyle<StepsToken, CSSObject> = token => {
           insetInlineStart: 'auto',
         },
         '&-title': {
-          paddingRight: 0, // FIXME: hardcode in v4
-          paddingLeft: 16, // FIXME: hardcode in v4
+          // paddingInlineEnd: 0,
+          // paddingInlineStart: 16,
 
           '&::after': {
             // insetInlineEnd: '100%',
@@ -37,15 +38,15 @@ const genStepsRTLStyle: GenerateStyle<StepsToken, CSSObject> = token => {
 
       [`&${componentCls}-horizontal:not(${componentCls}-label-vertical)`]: {
         [`${componentCls}-item`]: {
-          paddingRight: 16, // FIXME: hardcode in v4
-          paddingLeft: 0, // FIXME: hardcode in v4
+          paddingInlineEnd: 16, // FIXME: hardcode in v4
+          // paddingInlineStart: 0,
 
           '&:first-child': {
-            paddingRight: 0, // FIXME: hardcode in v4
+            paddingInlineEnd: 0, // FIXME: hardcode in v4
           },
 
           [`&:last-child ${componentCls}-item-title`]: {
-            paddingLeft: 0, // FIXME: hardcode in v4
+            paddingInlineStart: 0, // FIXME: hardcode in v4
           },
         },
       },
@@ -72,10 +73,10 @@ const genStepsRTLStyle: GenerateStyle<StepsToken, CSSObject> = token => {
         [`${componentCls}-item-container`]: {
           marginRight: -16, // FIXME: hardcode in v4
           marginLeft: 0, // FIXME: hardcode in v4
-          textAlign: 'right',
+          // textAlign: 'right',
 
           [`${componentCls}-item-title`]: {
-            paddingLeft: 0, // FIXME: hardcode in v4
+            paddingInlineStart: 0, // FIXME: hardcode in v4
           },
         },
 
@@ -84,24 +85,27 @@ const genStepsRTLStyle: GenerateStyle<StepsToken, CSSObject> = token => {
           // insetInlineStart: 'auto',
           marginRight: -2, // FIXME: hardcode in v4
           marginLeft: 0, // FIXME: hardcode in v4
-          transform: 'rotate(225deg)',
+          transform: 'rotate(315deg)',
+        },
+        [`${componentCls}-item::before`]: {
+          transition: `width ${motionDurationSlow}, right ${motionDurationSlow}`,
         },
       },
 
       // small
       [`&${componentCls}-small`]: {
         [`&${componentCls}-horizontal:not(${componentCls}-label-vertical) ${componentCls}-item`]: {
-          paddingRight: 12, // FIXME: hardcode in v4
-          paddingLeft: 0, // FIXME: hardcode in v4
+          paddingInlineEnd: 12, // FIXME: hardcode in v4
+          // paddingInlineStart: 0,
 
           '&:first-child': {
-            paddingRight: 0, // FIXME: hardcode in v4
+            paddingInlineEnd: 0, // FIXME: hardcode in v4
           },
         },
 
         [`${componentCls}-item-title`]: {
-          paddingRight: 0, // FIXME: hardcode in v4
-          paddingLeft: 12, // FIXME: hardcode in v4
+          // paddingInlineEnd: 0,
+          // paddingInlineStart: 12,
         },
       },
 
@@ -130,14 +134,17 @@ const genStepsRTLStyle: GenerateStyle<StepsToken, CSSObject> = token => {
       // label
       [`&${componentCls}-label-vertical`]: {
         [`${componentCls}-item-title`]: {
-          paddingLeft: 0, // FIXME: hardcode in v4
+          paddingInlineStart: 0, // FIXME: hardcode in v4
         },
       },
 
       // progress-dot
       [`&${componentCls}-dot`]: {
         [`${componentCls}-item-tail, &${componentCls}-small ${componentCls}-item-tail`]: {
-          margin: `0 ${stepsDescriptionMaxWidth / 2}px 0 0`,
+          margin: {
+            _skip_check_: true,
+            value: `0 ${stepsDescriptionMaxWidth / 2}px 0 0`,
+          },
           '&::after': {
             marginRight: 12, // FIXME: hardcode in v4
             marginLeft: 0, // FIXME: hardcode in v4
@@ -200,7 +207,7 @@ const genStepsRTLStyle: GenerateStyle<StepsToken, CSSObject> = token => {
       [`&${componentCls}-with-progress${componentCls}-horizontal${componentCls}-label-horizontal`]:
         {
           [`${componentCls}-item:first-child${componentCls}-item-active`]: {
-            paddingRight: 4, // FIXME: hardcode in v4
+            paddingInlineEnd: 4, // FIXME: hardcode in v4
           },
         },
     },

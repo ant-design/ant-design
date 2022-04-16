@@ -15,23 +15,26 @@ const genStepsSmallStyle: GenerateStyle<StepsToken, CSSObject> = token => {
   return {
     [`&${componentCls}-small`]: {
       [`&${componentCls}-horizontal:not(${componentCls}-label-vertical) ${componentCls}-item`]: {
-        paddingLeft: 12, // FIXME: hardcode in v4
+        paddingInlineStart: 12, // FIXME: hardcode in v4
         '&:first-child': {
-          paddingLeft: 0, // FIXME: hardcode in v4
+          paddingInlineStart: 0, // FIXME: hardcode in v4
         },
       },
 
       [`${componentCls}-item-icon`]: {
         width: stepsSmallIconSize,
         height: stepsSmallIconSize,
-        margin: stepsSmallIconMargin,
+        margin: {
+          _skip_check_: true,
+          value: stepsSmallIconMargin,
+        },
         fontSize: fontSizeSM,
         lineHeight: `${stepsSmallIconSize}px`,
         textAlign: 'center',
         borderRadius: stepsSmallIconSize,
       },
       [`${componentCls}-item-title`]: {
-        paddingRight: 12, // FIXME: hardcode in v4
+        paddingInlineEnd: 12, // FIXME: hardcode in v4
         fontSize: fontSizeBase,
         lineHeight: `${stepsSmallIconSize}px`,
 

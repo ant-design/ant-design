@@ -32,7 +32,7 @@ const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = token => {
           height: '100%',
           marginLeft: -16, // FIXME: hardcode in v4
           paddingBottom: 12, // FIXME: hardcode in v4
-          textAlign: 'left',
+          textAlign: 'start',
           transition: `opacity ${motionDurationSlow}`,
 
           [`${componentCls}-item-content`]: {
@@ -41,7 +41,7 @@ const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = token => {
 
           [`${componentCls}-item-title`]: {
             maxWidth: '100%',
-            paddingRight: 0, // FIXME: hardcode in v4
+            paddingInlineEnd: 0, // FIXME: hardcode in v4
             overflow: 'hidden',
             whiteSpace: 'nowrap',
             textOverflow: 'ellipsis',
@@ -81,7 +81,7 @@ const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = token => {
           marginLeft: -2, // FIXME: hardcode in v4
           border: `1px solid ${stepsNavArrowColor}`,
           borderBottom: 'none',
-          borderLeft: 'none',
+          borderInlineStart: 'none',
           transform: 'rotate(45deg)',
           content: '""',
         },

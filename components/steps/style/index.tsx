@@ -77,7 +77,10 @@ const genStepsItemStatusStyle = (status: StepItemStatusEnum, token: StepsToken):
   return {
     [`${prefix}-${status} ${prefix}-icon`]: {
       backgroundColor: stepsBackground,
-      borderColor: token[iconColorKey],
+      borderColor: {
+        _skip_check_: true,
+        value: token[iconColorKey],
+      },
       [`> ${token.componentCls}-icon`]: {
         color: token[iconColorKey],
         [`${token.componentCls}-icon-dot`]: {
@@ -130,7 +133,10 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = token => {
     [`${stepsItemCls}-icon`]: {
       width: token.stepsIconSize,
       height: token.stepsIconSize,
-      margin: token.stepsIconMargin,
+      margin: {
+        _skip_check_: true,
+        value: token.stepsIconMargin,
+      },
       fontSize: token.stepsIconFontSize,
       fontFamily: token.fontFamily,
       lineHeight: `${token.stepsIconSize}px`,
@@ -167,7 +173,7 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = token => {
     [`${stepsItemCls}-title`]: {
       position: 'relative',
       display: 'inline-block',
-      paddingRight: 16, // FIXME: hardcode in v4
+      paddingInlineEnd: 16, // FIXME: hardcode in v4
       color: token.colorText,
       fontSize: token.fontSizeLG,
       lineHeight: `${token.stepsTitleLineHeight}px`,
@@ -245,7 +251,10 @@ const genStepsClickableStyle: GenerateStyle<StepsToken, CSSObject> = token => {
           [`& > ${componentCls}-item-container[role='button']:hover`]: {
             [`${componentCls}-item`]: {
               '&-icon': {
-                borderColor: token.colorPrimary,
+                borderColor: {
+                  _skip_check_: true,
+                  value: token.colorPrimary,
+                },
 
                 [`${componentCls}-icon`]: {
                   color: token.colorPrimary,
@@ -258,14 +267,14 @@ const genStepsClickableStyle: GenerateStyle<StepsToken, CSSObject> = token => {
     },
     [`&${componentCls}-horizontal:not(${componentCls}-label-vertical)`]: {
       [`${componentCls}-item`]: {
-        paddingLeft: 16, // FIXME: hardcode in v4
+        paddingInlineStart: 16, // FIXME: hardcode in v4
         whiteSpace: 'nowrap',
 
         '&:first-child': {
-          paddingLeft: 0, // FIXME: hardcode in v4
+          paddingInlineStart: 0, // FIXME: hardcode in v4
         },
         [`&:last-child ${componentCls}-item-title`]: {
-          paddingRight: 0, // FIXME: hardcode in v4
+          paddingInlineEnd: 0, // FIXME: hardcode in v4
         },
         '&-tail': {
           display: 'none',

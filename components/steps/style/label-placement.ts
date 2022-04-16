@@ -28,8 +28,8 @@ const genStepsLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = token 
         },
 
         '&-title': {
-          paddingRight: 0, // FIXME: hardcode in v4
-          paddingLeft: 0, // FIXME: hardcode in v4
+          paddingInlineEnd: 0, // FIXME: hardcode in v4
+          paddingInlineStart: 0, // FIXME: hardcode in v4
 
           '&::after': {
             display: 'none',

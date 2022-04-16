@@ -17,7 +17,7 @@ const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = token => {
 
       [`&${componentCls}-horizontal ${componentCls}-item:first-child`]: {
         paddingBottom: 4, // FIXME: hardcode in v4
-        paddingLeft: 4, // FIXME: hardcode in v4
+        paddingInlineStart: 4, // FIXME: hardcode in v4
       },
 
       [`${componentCls}-item-icon`]: {

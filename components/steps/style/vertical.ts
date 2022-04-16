@@ -20,7 +20,7 @@ const genStepsVerticalStyle: GenerateStyle<StepsToken, CSSObject> = token => {
       [`> ${componentCls}-item`]: {
         display: 'block',
         flex: '1 0 auto',
-        paddingLeft: 0, // FIXME: hardcode in v4
+        paddingInlineStart: 0, // FIXME: hardcode in v4
         overflow: 'visible',
 
         [`${componentCls}-item-icon`]: {
