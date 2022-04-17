@@ -12,12 +12,12 @@ const genStepsLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = token 
 
         '&-tail': {
           marginLeft: 58, // FIXME: hardcode in v4
-          padding: '3.5px 24px',
+          padding: '3.5px 24px', // FIXME: hardcode in v4
         },
 
         '&-content': {
           display: 'block',
-          width: (stepsIconSize / 2 + 42) * 2,
+          width: (stepsIconSize / 2 + 42) * 2, // FIXME: hardcode in v4
           marginTop: 8, // FIXME: hardcode in v4
           textAlign: 'center',
         },

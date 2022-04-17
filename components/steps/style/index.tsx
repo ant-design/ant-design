@@ -73,7 +73,7 @@ const genStepsItemStatusStyle = (status: StepItemStatusEnum, token: StepsToken):
   const titleColorKey: keyof StepsToken = `${status}TitleColor`;
   const descriptionColorKey: keyof StepsToken = `${status}DescriptionColor`;
   const tailColorKey: keyof StepsToken = `${status}TailColor`;
-  const stepsBackground = '#fff';
+  const stepsBackground = '#fff'; // FIXME: hardcode in v4
   return {
     [`${prefix}-${status} ${prefix}-icon`]: {
       backgroundColor: stepsBackground,
@@ -143,7 +143,7 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = token => {
       textAlign: 'center',
       border: `${token.controlLineWidth}px ${token.controlLineType} ${new TinyColor('#000')
         .setAlpha(0.25)
-        .toRgbString()}`,
+        .toRgbString()}`, // FIXME: hardcode in v4
       borderRadius: token.stepsIconSize,
       transition: `background-color ${motionDurationSlow}, border-color ${motionDurationSlow}`,
       [`${componentCls}-icon`]: {
@@ -157,12 +157,12 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = token => {
       position: 'absolute',
       top: 12, // FIXME: hardcode in v4
       insetInlineStart: 0, // FIXME: hardcode in v4
-      width: '100%',
-      padding: '0 10px',
+      width: '100%', // FIXME: hardcode in v4
+      padding: '0 10px', // FIXME: hardcode in v4
 
       '&::after': {
         display: 'inline-block',
-        width: '100%',
+        width: '100%', // FIXME: hardcode in v4
         height: 1, // FIXME: hardcode in v4
         background: token.colorSplit,
         borderRadius: 1, // FIXME: hardcode in v4
@@ -181,7 +181,7 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = token => {
       '&::after': {
         position: 'absolute',
         top: token.stepsTitleLineHeight / 2,
-        insetInlineStart: '100%',
+        insetInlineStart: '100%', // FIXME: hardcode in v4
         display: 'block',
         width: 9999, // FIXME: hardcode in v4
         height: 1, // FIXME: hardcode in v4

@@ -44,12 +44,12 @@ const genStepsVerticalStyle: GenerateStyle<StepsToken, CSSObject> = token => {
         top: 0, // FIXME: hardcode in v4
         insetInlineStart: stepsVerticalTailWidth,
         width: 1, // FIXME: hardcode in v4
-        height: '100%',
-        padding: `${stepsIconSize + 6}px 0 6px`,
+        height: '100%', // FIXME: hardcode in v4
+        padding: `${stepsIconSize + 6}px 0 6px`, // FIXME: hardcode in v4
 
         '&::after': {
           width: 1, // FIXME: hardcode in v4
-          height: '100%',
+          height: '100%', // FIXME: hardcode in v4
         },
       },
       [`> ${componentCls}-item:not(:last-child) > ${componentCls}-item-container > ${componentCls}-item-tail`]:
@@ -67,7 +67,7 @@ const genStepsVerticalStyle: GenerateStyle<StepsToken, CSSObject> = token => {
           position: 'absolute',
           top: 0, // FIXME: hardcode in v4
           insetInlineStart: stepsVerticalTailWidthSm,
-          padding: `${stepsSmallIconSize + 6}px 0 6px`,
+          padding: `${stepsSmallIconSize + 6}px 0 6px`, // FIXME: hardcode in v4
         },
         [`${componentCls}-item-title`]: {
           lineHeight: `${stepsSmallIconSize}px`,

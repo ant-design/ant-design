@@ -13,7 +13,7 @@ const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = token => {
 
   return {
     [`&${componentCls}-navigation`]: {
-      paddingTop: 12,
+      paddingTop: 12, // FIXME: hardcode in v4
 
       [`&${componentCls}-small`]: {
         [`${componentCls}-item`]: {
@@ -29,7 +29,7 @@ const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = token => {
 
         '&-container': {
           display: 'inline-block',
-          height: '100%',
+          height: '100%', // FIXME: hardcode in v4
           marginLeft: -16, // FIXME: hardcode in v4
           paddingBottom: 12, // FIXME: hardcode in v4
           textAlign: 'start',
@@ -40,7 +40,7 @@ const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = token => {
           },
 
           [`${componentCls}-item-title`]: {
-            maxWidth: '100%',
+            maxWidth: '100%', // FIXME: hardcode in v4
             paddingInlineEnd: 0, // FIXME: hardcode in v4
             overflow: 'hidden',
             whiteSpace: 'nowrap',
@@ -102,7 +102,7 @@ const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = token => {
 
       [`${componentCls}-item${componentCls}-item-active::before`]: {
         insetInlineStart: 0, // FIXME: hardcode in v4
-        width: '100%',
+        width: '100%', // FIXME: hardcode in v4
       },
     },
 
@@ -118,7 +118,7 @@ const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = token => {
           insetInlineEnd: 0, // FIXME: hardcode in v4
           insetInlineStart: 'unset',
           display: 'block',
-          width: 3,
+          width: 3, // FIXME: hardcode in v4
           height: 'calc(100% - 24px)',
         },
 

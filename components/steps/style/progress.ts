@@ -11,7 +11,7 @@ const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = token => {
         paddingTop: 4, // FIXME: hardcode in v4
 
         [`${componentCls}-item-tail`]: {
-          top: '4px !important',
+          top: '4px !important', // FIXME: hardcode in v4
         },
       },
 

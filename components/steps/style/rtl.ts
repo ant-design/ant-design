@@ -85,7 +85,7 @@ const genStepsRTLStyle: GenerateStyle<StepsToken, CSSObject> = token => {
           // insetInlineStart: 'auto',
           marginRight: -2, // FIXME: hardcode in v4
           marginLeft: 0, // FIXME: hardcode in v4
-          transform: 'rotate(315deg)',
+          transform: 'rotate(315deg)', // FIXME: hardcode in v4
         },
         [`${componentCls}-item::before`]: {
           transition: `width ${motionDurationSlow}, right ${motionDurationSlow}`,
@@ -143,7 +143,7 @@ const genStepsRTLStyle: GenerateStyle<StepsToken, CSSObject> = token => {
         [`${componentCls}-item-tail, &${componentCls}-small ${componentCls}-item-tail`]: {
           margin: {
             _skip_check_: true,
-            value: `0 ${stepsDescriptionMaxWidth / 2}px 0 0`,
+            value: `0 ${stepsDescriptionMaxWidth / 2}px 0 0`, // FIXME: hardcode in v4
           },
           '&::after': {
             marginRight: 12, // FIXME: hardcode in v4
