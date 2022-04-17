@@ -24,10 +24,7 @@ const genStepsProgressDotStyle: GenerateStyle<StepsToken, CSSObject> = token => 
         '&-tail': {
           top: stepsDotTop,
           width: '100%', // FIXME: hardcode in v4
-          margin: {
-            _skip_check_: true,
-            value: `0 0 0 ${stepsDescriptionMaxWidth / 2}px`,
-          },
+          margin: `0 0 0 ${stepsDescriptionMaxWidth / 2}px`, // FIXME: hardcode in v4
           padding: 0, // FIXME: hardcode in v4
 
           '&::after': {
@@ -63,7 +60,7 @@ const genStepsProgressDotStyle: GenerateStyle<StepsToken, CSSObject> = token => 
               insetInlineStart: -26, // FIXME: hardcode in v4
               width: 60, // FIXME: hardcode in v4
               height: 32, // FIXME: hardcode in v4
-              background: new TinyColor('#000').setAlpha(0.001).toRgbString(),
+              background: new TinyColor('#000').setAlpha(0.001).toRgbString(), // FIXME: hardcode in v4
               content: '""',
             },
           },
@@ -98,10 +95,7 @@ const genStepsProgressDotStyle: GenerateStyle<StepsToken, CSSObject> = token => 
       [`${componentCls}-item > ${componentCls}-item-container > ${componentCls}-item-tail`]: {
         top: 6.5, // FIXME: hardcode in v4
         insetInlineStart: -9, // FIXME: hardcode in v4
-        margin: {
-          _skip_check_: true,
-          value: 0, // FIXME: hardcode in v4
-        },
+        margin: 0, // FIXME: hardcode in v4
         padding: '22px 0 4px', // FIXME: hardcode in v4
       },
 

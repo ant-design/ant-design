@@ -24,10 +24,7 @@ const genStepsSmallStyle: GenerateStyle<StepsToken, CSSObject> = token => {
       [`${componentCls}-item-icon`]: {
         width: stepsSmallIconSize,
         height: stepsSmallIconSize,
-        margin: {
-          _skip_check_: true,
-          value: stepsSmallIconMargin,
-        },
+        margin: stepsSmallIconMargin,
         fontSize: fontSizeSM,
         lineHeight: `${stepsSmallIconSize}px`,
         textAlign: 'center',
@@ -39,7 +36,7 @@ const genStepsSmallStyle: GenerateStyle<StepsToken, CSSObject> = token => {
         lineHeight: `${stepsSmallIconSize}px`,
 
         '&::after': {
-          top: stepsSmallIconSize / 2,
+          top: stepsSmallIconSize / 2, // FIXME: hardcode in v4
         },
       },
       [`${componentCls}-item-description`]: {

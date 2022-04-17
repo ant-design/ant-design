@@ -77,10 +77,7 @@ const genStepsItemStatusStyle = (status: StepItemStatusEnum, token: StepsToken):
   return {
     [`${prefix}-${status} ${prefix}-icon`]: {
       backgroundColor: stepsBackground,
-      borderColor: {
-        _skip_check_: true,
-        value: token[iconColorKey],
-      },
+      borderColor: token[iconColorKey],
       [`> ${token.componentCls}-icon`]: {
         color: token[iconColorKey],
         [`${token.componentCls}-icon-dot`]: {
@@ -133,10 +130,7 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = token => {
     [`${stepsItemCls}-icon`]: {
       width: token.stepsIconSize,
       height: token.stepsIconSize,
-      margin: {
-        _skip_check_: true,
-        value: token.stepsIconMargin,
-      },
+      margin: token.stepsIconMargin,
       fontSize: token.stepsIconFontSize,
       fontFamily: token.fontFamily,
       lineHeight: `${token.stepsIconSize}px`,
@@ -251,10 +245,7 @@ const genStepsClickableStyle: GenerateStyle<StepsToken, CSSObject> = token => {
           [`& > ${componentCls}-item-container[role='button']:hover`]: {
             [`${componentCls}-item`]: {
               '&-icon': {
-                borderColor: {
-                  _skip_check_: true,
-                  value: token.colorPrimary,
-                },
+                borderColor: token.colorPrimary,
 
                 [`${componentCls}-icon`]: {
                   color: token.colorPrimary,

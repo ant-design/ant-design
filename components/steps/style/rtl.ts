@@ -141,10 +141,7 @@ const genStepsRTLStyle: GenerateStyle<StepsToken, CSSObject> = token => {
       // progress-dot
       [`&${componentCls}-dot`]: {
         [`${componentCls}-item-tail, &${componentCls}-small ${componentCls}-item-tail`]: {
-          margin: {
-            _skip_check_: true,
-            value: `0 ${stepsDescriptionMaxWidth / 2}px 0 0`, // FIXME: hardcode in v4
-          },
+          margin: `0 ${stepsDescriptionMaxWidth / 2}px 0 0`, // FIXME: hardcode in v4
           '&::after': {
             marginRight: 12, // FIXME: hardcode in v4
             marginLeft: 0, // FIXME: hardcode in v4
