@@ -42,5 +42,5 @@ const Demo = () => (
   </Form>
 );
 
-export default () => <Demo />;
+export default Demo;
 ```

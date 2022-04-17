@@ -26,5 +26,5 @@ const App = () => (
   </Image.PreviewGroup>
 );
 
-export default () => <App />;
+export default App;
 ```

@@ -25,5 +25,5 @@ const Demo = () => (
   </Space>
 );
 
-export default () => <Demo />;
+export default Demo;
 ```

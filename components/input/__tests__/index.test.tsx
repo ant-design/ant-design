@@ -88,37 +88,33 @@ describe('Input', () => {
 
 describe('prefix and suffix', () => {
   it('should support className when has suffix', () => {
-    const wrapper = mount(<Input suffix="suffix" className="my-class-name" />);
-    expect(wrapper.getDOMNode().className.includes('my-class-name')).toBe(true);
-    expect(wrapper.find('input').getDOMNode().className.includes('my-class-name')).toBe(false);
+    const { container } = render(<Input suffix="suffix" className="my-class-name" />);
+    expect((container.firstChild as Element).className.includes('my-class-name')).toBe(true);
+    expect(container.querySelector('input')?.className.includes('my-class-name')).toBe(false);
   });
 
   it('should support className when has prefix', () => {
-    const wrapper = mount(<Input prefix="prefix" className="my-class-name" />);
-    expect(wrapper.getDOMNode().className.includes('my-class-name')).toBe(true);
-    expect(wrapper.find('input').getDOMNode().className.includes('my-class-name')).toBe(false);
+    const { container } = render(<Input prefix="prefix" className="my-class-name" />);
+    expect((container.firstChild as Element).className.includes('my-class-name')).toBe(true);
+    expect(container.querySelector('input')?.className.includes('my-class-name')).toBe(false);
   });
 
   it('should support hidden when has prefix or suffix', () => {
-    const wrapper = mount(
+    const { container } = render(
       <>
         <Input prefix="prefix" hidden className="prefix-with-hidden" />
         <Input suffix="suffix" hidden className="suffix-with-hidden" />
       </>,
     );
 
-    expect(wrapper.find('.prefix-with-hidden').at(0).getDOMNode<HTMLInputElement>().hidden).toBe(
-      true,
-    );
-    expect(wrapper.find('.suffix-with-hidden').at(0).getDOMNode<HTMLInputElement>().hidden).toBe(
-      true,
-    );
+    expect(container.querySelector('.prefix-with-hidden')?.getAttribute('hidden')).toBe('');
+    expect(container.querySelector('.suffix-with-hidden')?.getAttribute('hidden')).toBe('');
   });
 });
 
 describe('Input setting hidden', () => {
   it('should support hidden when has prefix or suffix or showCount or allowClear or addonBefore or addonAfter', () => {
-    const wrapper = mount(
+    const { container } = render(
       <>
         <Input
           hidden
@@ -168,10 +164,10 @@ describe('Input setting hidden', () => {
       </>,
     );
 
-    expect(wrapper.find('.input').at(0).getDOMNode<HTMLInputElement>().hidden).toBe(true);
-    expect(wrapper.find('.input-search').at(0).getDOMNode<HTMLInputElement>().hidden).toBe(true);
-    expect(wrapper.find('.input-textarea').at(0).getDOMNode<HTMLInputElement>().hidden).toBe(true);
-    expect(wrapper.find('.input-password').at(0).getDOMNode<HTMLInputElement>().hidden).toBe(true);
+    expect(container.querySelector('.input')?.getAttribute('hidden')).toBe('');
+    expect(container.querySelector('.input-search')?.getAttribute('hidden')).toBe('');
+    expect(container.querySelector('.input-textarea')?.getAttribute('hidden')).toBe('');
+    expect(container.querySelector('.input-password')?.getAttribute('hidden')).toBe('');
   });
 });
 
@@ -330,9 +326,9 @@ describe('Input allowClear', () => {
 
   // https://github.com/ant-design/ant-design/issues/27444
   it('should support className', () => {
-    const wrapper = mount(<Input allowClear className="my-class-name" />);
-    expect(wrapper.getDOMNode().className.includes('my-class-name')).toBe(true);
-    expect(wrapper.find('input').getDOMNode().className.includes('my-class-name')).toBe(false);
+    const { container } = render(<Input allowClear className="my-class-name" />);
+    expect((container.firstChild as Element).className.includes('my-class-name')).toBe(true);
+    expect(container.querySelector('input')?.className.includes('my-class-name')).toBe(false);
   });
 
   // https://github.com/ant-design/ant-design/issues/31200

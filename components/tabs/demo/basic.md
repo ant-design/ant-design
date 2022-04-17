@@ -36,5 +36,5 @@ const Demo = () => (
   </Tabs>
 );
 
-export default () => <Demo />;
+export default Demo;
 ```

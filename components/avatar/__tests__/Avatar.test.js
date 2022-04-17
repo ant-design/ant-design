@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
-import { render } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 import Avatar from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -175,8 +175,8 @@ describe('Avatar Render', () => {
 
   it('support onMouseEnter', () => {
     const onMouseEnter = jest.fn();
-    const wrapper = mount(<Avatar onMouseEnter={onMouseEnter}>TestString</Avatar>);
-    wrapper.simulate('mouseenter');
+    const { container } = render(<Avatar onMouseEnter={onMouseEnter}>TestString</Avatar>);
+    fireEvent.mouseEnter(container.firstChild);
     expect(onMouseEnter).toHaveBeenCalled();
   });
 
