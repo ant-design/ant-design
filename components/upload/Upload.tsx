@@ -337,6 +337,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
             typeof showUploadList === 'boolean' ? ({} as ShowUploadListInterface) : showUploadList;
           return (
             <UploadList
+              prefixCls={prefixCls}
               listType={listType}
               items={mergedFileList}
               previewFile={previewFile}

@@ -27,5 +27,5 @@ const Demo = () => {
   return <TimePicker value={value} onChange={onChange} />;
 };
 
-export default () => <Demo />;
+export default Demo;
 ```
