@@ -2254,7 +2254,8 @@ describe('Table.filter', () => {
   });
 
   it('filteredKeys should all be controlled or not controlled', () => {
-    jest.clearAllMocks();
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    errorSpy.mockReset();
     const tableData = [
       {
         key: '1',
@@ -2276,8 +2277,7 @@ describe('Table.filter', () => {
         filters: [],
       },
     ];
-    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    mount(
+    render(
       createTable({
         columns,
         data: tableData,
@@ -2286,7 +2286,7 @@ describe('Table.filter', () => {
     expect(errorSpy).not.toBeCalled();
     errorSpy.mockReset();
     columns[0].filteredValue = [];
-    mount(
+    render(
       createTable({
         columns,
         data: tableData,
@@ -2297,7 +2297,7 @@ describe('Table.filter', () => {
     );
     errorSpy.mockReset();
     columns[1].filteredValue = [];
-    mount(
+    render(
       createTable({
         columns,
         data: tableData,
