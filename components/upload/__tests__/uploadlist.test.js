@@ -1241,4 +1241,134 @@ describe('Upload List', () => {
     const wrapper = mount(<Upload fileList={null} />);
     wrapper.unmount();
   });
+
+  it('should not exist crossorigin attribute when does not set file.crossorigin in case of listType="picture"', () => {
+    const list = [
+      {
+        uid: '0',
+        name: 'xxx.png',
+        status: 'done',
+        url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+        thumbUrl: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
+      },
+    ];
+
+    const wrapper = mount(
+      <Upload fileList={list} listType="picture">
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    list.forEach((file, i) => {
+      const imgNode = wrapper.find('.ant-upload-list-item-thumbnail img').at(i);
+      expect(imgNode.prop('crossOrigin')).toBe(undefined);
+      expect(imgNode.prop('crossOrigin')).toBe(file.crossOrigin);
+    });
+    wrapper.unmount();
+  });
+
+  it('should exist crossorigin attribute when set file.crossorigin in case of listType="picture"', () => {
+    const list = [
+      {
+        uid: '0',
+        name: 'xxx.png',
+        status: 'done',
+        url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+        thumbUrl: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
+        crossOrigin: '',
+      },
+      {
+        uid: '1',
+        name: 'xxx.png',
+        status: 'done',
+        url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+        thumbUrl: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
+        crossOrigin: 'anonymous',
+      },
+      {
+        uid: '2',
+        name: 'xxx.png',
+        status: 'done',
+        url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+        thumbUrl: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
+        crossOrigin: 'use-credentials',
+      },
+    ];
+
+    const wrapper = mount(
+      <Upload fileList={list} listType="picture">
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    list.forEach((file, i) => {
+      const imgNode = wrapper.find('.ant-upload-list-item-thumbnail img').at(i);
+      expect(imgNode.prop('crossOrigin')).not.toBe(undefined);
+      expect(imgNode.prop('crossOrigin')).toBe(file.crossOrigin);
+    });
+    wrapper.unmount();
+  });
+
+  it('should not exist crossorigin attribute when does not set file.crossorigin in case of listType="picture-card"', () => {
+    const list = [
+      {
+        uid: '0',
+        name: 'xxx.png',
+        status: 'done',
+        url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+        thumbUrl: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
+      },
+    ];
+
+    const wrapper = mount(
+      <Upload fileList={list} listType="picture">
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    list.forEach((file, i) => {
+      const imgNode = wrapper.find('.ant-upload-list-item-thumbnail img').at(i);
+      expect(imgNode.prop('crossOrigin')).toBe(undefined);
+      expect(imgNode.prop('crossOrigin')).toBe(file.crossOrigin);
+    });
+    wrapper.unmount();
+  });
+
+  it('should exist crossorigin attribute when set file.crossorigin in case of listType="picture-card"', () => {
+    const list = [
+      {
+        uid: '0',
+        name: 'xxx.png',
+        status: 'done',
+        url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+        thumbUrl: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
+        crossOrigin: '',
+      },
+      {
+        uid: '1',
+        name: 'xxx.png',
+        status: 'done',
+        url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+        thumbUrl: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
+        crossOrigin: 'anonymous',
+      },
+      {
+        uid: '2',
+        name: 'xxx.png',
+        status: 'done',
+        url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+        thumbUrl: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
+        crossOrigin: 'use-credentials',
+      },
+    ];
+
+    const wrapper = mount(
+      <Upload fileList={list} listType="picture">
+        <button type="button">upload</button>
+      </Upload>,
+    );
+    list.forEach((file, i) => {
+      const imgNode = wrapper.find('.ant-upload-list-item-thumbnail img').at(i);
+      expect(imgNode.prop('crossOrigin')).not.toBe(undefined);
+      expect(imgNode.prop('crossOrigin')).toBe(file.crossOrigin);
+    });
+    wrapper.unmount();
+  });
 });

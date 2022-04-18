@@ -1079,4 +1079,30 @@ describe('Form', () => {
       expect(wrapper.find('.ant-form-item-no-colon')).toBeTruthy();
     });
   });
+
+  it('useFormInstance', () => {
+    let formInstance;
+    let subFormInstance;
+
+    const Sub = () => {
+      const formSub = Form.useFormInstance();
+      subFormInstance = formSub;
+
+      return null;
+    };
+
+    const Demo = () => {
+      const [form] = Form.useForm();
+      formInstance = form;
+
+      return (
+        <Form form={form}>
+          <Sub />
+        </Form>
+      );
+    };
+
+    render(<Demo />);
+    expect(subFormInstance).toBe(formInstance);
+  });
 });

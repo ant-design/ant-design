@@ -61,6 +61,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/QaeBt_ZMg/Upload.svg
 | thumbUrl | 缩略图地址 | string | - |
 | uid | 唯一标识符，不设置时会自动生成 | string | - |
 | url | 下载地址 | string | - |
+| crossOrigin | CORS 属性设置 | `'anonymous'` \| `'use-credentials'` \| `''` | - |
 
 ### onChange
 
