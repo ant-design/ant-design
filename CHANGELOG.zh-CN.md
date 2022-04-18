@@ -19,7 +19,9 @@ timeline: true
 
 `2022-04-18`
 
-- 🔥 Form 添加 `useWatch` 支持获取当前字段值。[#35036](https://github.com/ant-design/ant-design/pull/35036) [#35039](https://github.com/ant-design/ant-design/pull/35039)
+- Form
+  - 🔥 Form 添加 `useWatch` 支持获取当前字段值。[#35036](https://github.com/ant-design/ant-design/pull/35036)
+  - 🆕 Form 支持 `useFormInstance` 以获取当前上下文中的 Form 实例。[#35039](https://github.com/ant-design/ant-design/pull/35039)
 - 🆕 Image PreviewGroup 支持顶部进度渲染。[#35038](https://github.com/ant-design/ant-design/pull/35038) [@zpc7](https://github.com/zpc7)
 - Upload
   - 🆕 Upload `picture-card` 模式支持配置图片的 `crossOrigin` 属性。[#34981](https://github.com/ant-design/ant-design/pull/34981) [@dragmove](https://github.com/dragmove)
