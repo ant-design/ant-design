@@ -1,3 +1,4 @@
+// deps-lint-skip-all
 // import '../../style/index.less';
 // import './index.less';
 
@@ -349,7 +350,7 @@ export default genComponentStyleHook('Steps', token => {
     processIconColor,
     processTitleColor: new TinyColor('#000').setAlpha(0.85).toRgbString(), // @heading-color: fade(@black, 85%) FIXME: hardcode in v4
     processDescriptionColor: token.colorText,
-    processIconTextColor: '#fff',
+    processIconTextColor: '#fff', // FIXME: hardcode in v4
     waitIconColor: new TinyColor('#000').setAlpha(0.25).toRgbString(), // @disabled-color FIXME: hardcode in v4
     waitTitleColor: token.colorTextSecondary,
     waitDescriptionColor: token.colorTextSecondary,
