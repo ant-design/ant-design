@@ -79,9 +79,10 @@ const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = token => {
           height: 12, // FIXME: hardcode in v4
           marginTop: -14, // FIXME: hardcode in v4
           marginInlineStart: -2, // FIXME: hardcode in v4
-          border: `1px solid ${stepsNavArrowColor}`,
+          borderTop: `1px solid ${stepsNavArrowColor}`,
           borderBottom: 'none',
           borderInlineStart: 'none',
+          borderInlineEnd: `1px solid ${stepsNavArrowColor}`,
           transform: 'rotate(45deg)',
           content: '""',
         },
