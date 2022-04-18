@@ -19,7 +19,7 @@ timeline: true
 
 `2022-04-18`
 
-- 🔥 Form support useWatch to get current field value. [#35036](https://github.com/ant-design/ant-design/pull/35036)
+- 🔥 Form support `useWatch` to get current field value. [#35036](https://github.com/ant-design/ant-design/pull/35036) [#35039](https://github.com/ant-design/ant-design/pull/35039)
 - 🆕 Image PreviewGroup Support top progress rendering. [#35038](https://github.com/ant-design/ant-design/pull/35038) [@zpc7](https://github.com/zpc7)
 - Upload
   - 🆕 Upload support `crossOrigin` for images in `picture-card` mode. [#34981](https://github.com/ant-design/ant-design/pull/34981) [@dragmove](https://github.com/dragmove)
@@ -29,7 +29,7 @@ timeline: true
 - 🐞 Fix Select and AutoComplete scroll abnormal behavior when navigate via keyboard.。[#35025](https://github.com/ant-design/ant-design/pull/35025)
 - 🐞 Fix Cascader search result do not fill the entrie panel. [#35019](https://github.com/ant-design/ant-design/pull/35019) [@boomler](https://github.com/boomler)
 - 💄 Fix Spin animation style being abnormally parsed in Parcel. [#35005](https://github.com/ant-design/ant-design/pull/35005)
-- 💄 Arrow radius use fixed value 2px. [#34999](https://github.com/ant-design/ant-design/pull/34999)
+- 💄 Arrow radius use fixed value `2px`. [#34999](https://github.com/ant-design/ant-design/pull/34999)
 
 ## 4.20.0-alpha.0
 

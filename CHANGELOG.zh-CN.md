@@ -19,7 +19,7 @@ timeline: true
 
 `2022-04-18`
 
-- 🔥 Form 添加 useWatch 支持获取当前字段值。[#35036](https://github.com/ant-design/ant-design/pull/35036)
+- 🔥 Form 添加 `useWatch` 支持获取当前字段值。[#35036](https://github.com/ant-design/ant-design/pull/35036) [#35039](https://github.com/ant-design/ant-design/pull/35039)
 - 🆕 Image PreviewGroup 支持顶部进度渲染。[#35038](https://github.com/ant-design/ant-design/pull/35038) [@zpc7](https://github.com/zpc7)
 - Upload
   - 🆕 Upload `picture-card` 模式支持配置图片的 `crossOrigin` 属性。[#34981](https://github.com/ant-design/ant-design/pull/34981) [@dragmove](https://github.com/dragmove)
@@ -29,7 +29,7 @@ timeline: true
 - 🐞 修复 Select 和 AutoComplete 使用键盘向下滚动时行为异常的问题。[#35025](https://github.com/ant-design/ant-design/pull/35025)
 - 🐞 修复 Cascader 的搜索结果未占满整个面板的问题。[#35019](https://github.com/ant-design/ant-design/pull/35019) [@boomler](https://github.com/boomler)
 - 💄 修复 Spin 动画样式在 Parcel 解析异常的问题。[#35005](https://github.com/ant-design/ant-design/pull/35005)
-- 💄 箭头圆角固定为 2px。[#34999](https://github.com/ant-design/ant-design/pull/34999)
+- 💄 箭头圆角固定为 `2px`。[#34999](https://github.com/ant-design/ant-design/pull/34999)
 
 ## 4.20.0-alpha.0
 
