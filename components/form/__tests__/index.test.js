@@ -452,6 +452,9 @@ describe('Form', () => {
           </Form.Item>
         </Form>
       </div>,
+      {
+        strictMode: false,
+      },
     );
 
     expect(shouldNotRender).toHaveBeenCalledTimes(1);
@@ -717,7 +720,9 @@ describe('Form', () => {
       );
     };
 
-    const wrapper = mount(<App />);
+    const wrapper = mount(<App />, {
+      strictMode: false,
+    });
     for (let i = 0; i < 5; i += 1) {
       wrapper.find('button').simulate('click');
     }
@@ -740,7 +745,9 @@ describe('Form', () => {
       </Form>
     );
 
-    const wrapper = mount(<Demo />);
+    const wrapper = mount(<Demo />, {
+      strictMode: false,
+    });
     renderTimes = 0;
 
     wrapper.find('input').simulate('change', {
@@ -770,33 +777,25 @@ describe('Form', () => {
   });
 
   it('Remove Field should also reset error', async () => {
-    class Demo extends React.Component {
-      state = {
-        showA: true,
-      };
+    const Demo = ({ showA }) => (
+      <Form>
+        {showA ? (
+          <Form.Item name="a" help="error">
+            <input />
+          </Form.Item>
+        ) : (
+          <Form.Item name="b">
+            <input />
+          </Form.Item>
+        )}
+      </Form>
+    );
 
-      render() {
-        return (
-          <Form>
-            {this.state.showA ? (
-              <Form.Item name="a" help="error">
-                <input />
-              </Form.Item>
-            ) : (
-              <Form.Item name="b">
-                <input />
-              </Form.Item>
-            )}
-          </Form>
-        );
-      }
-    }
-
-    const wrapper = mount(<Demo />);
+    const wrapper = mount(<Demo showA />);
     await Promise.resolve();
     expect(wrapper.find('.ant-form-item').last().hasClass('ant-form-item-with-help')).toBeTruthy();
 
-    wrapper.setState({ showA: false });
+    wrapper.setProps({ showA: false });
     await Promise.resolve();
     wrapper.update();
     expect(wrapper.find('.ant-form-item').last().hasClass('ant-form-item-with-help')).toBeFalsy();

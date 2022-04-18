@@ -67,13 +67,20 @@ jest.mock('enzyme', () => {
   const { StrictMode, cloneElement } = jest.requireActual('react');
   const { mount, render } = enzyme;
 
-  function EnzymeWrapper({ children, ...props }) {
+  function EnzymeWrapper({ strictMode, children, ...props }) {
+    // Not wrap StrictMode for some test case need count render times
+    if (strictMode === false) {
+      return cloneElement(children, props);
+    }
+
     return <StrictMode>{cloneElement(children, props)}</StrictMode>;
   }
 
   return {
     ...enzyme,
-    mount: (ui, ...args) => mount(<EnzymeWrapper>{ui}</EnzymeWrapper>, ...args),
-    render: (ui, ...args) => render(<EnzymeWrapper>{ui}</EnzymeWrapper>, ...args),
+    mount: (ui, { strictMode, ...config } = {}, ...args) =>
+      mount(<EnzymeWrapper strictMode={strictMode}>{ui}</EnzymeWrapper>, config, ...args),
+    render: (ui, { strictMode, ...config } = {}, ...args) =>
+      render(<EnzymeWrapper strictMode={strictMode}>{ui}</EnzymeWrapper>, config, ...args),
   };
 });
