@@ -82,5 +82,6 @@ jest.mock('enzyme', () => {
       mount(<EnzymeWrapper strictMode={strictMode}>{ui}</EnzymeWrapper>, config, ...args),
     render: (ui, { strictMode, ...config } = {}, ...args) =>
       render(<EnzymeWrapper strictMode={strictMode}>{ui}</EnzymeWrapper>, config, ...args),
+    originMount: mount,
   };
 });

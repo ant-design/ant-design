@@ -1,8 +1,7 @@
 /* eslint-disable react/no-string-refs, react/prefer-es6-class */
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, originMount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
-import { render as testingRender } from '@testing-library/react';
 import produce from 'immer';
 import { cloneDeep } from 'lodash';
 import Upload from '..';
@@ -878,25 +877,24 @@ describe('Upload', () => {
   // FIXME: @zombieJ React 18 StrictMode
   // https://github.com/ant-design/ant-design/issues/33819
   it('should show the animation of the upload children leaving when the upload children becomes null', async () => {
-    const { container, rerender } = testingRender(
+    const wrapper = originMount(
       <Upload listType="picture-card">
         <button type="button">upload</button>
       </Upload>,
     );
-    rerender(<Upload listType="picture-card" />);
-    expect(container.querySelector('.ant-upload-select-picture-card')).not.toHaveStyle({
-      display: 'none',
-    });
-
+    wrapper.setProps({ children: null });
+    expect(wrapper.find('.ant-upload-select-picture-card').getDOMNode().style.display).not.toBe(
+      'none',
+    );
     await act(async () => {
       await sleep(100);
-      fireEvent.animationEnd(container.querySelector('.ant-upload-select-picture-card'));
+      wrapper
+        .find('.ant-upload-select-picture-card')
+        .getDOMNode()
+        .dispatchEvent(new Event('animationend'));
       await sleep(20);
     });
-
-    expect(container.querySelector('.ant-upload-select-picture-card')).toHaveStyle({
-      display: 'none',
-    });
+    expect(wrapper.find('.ant-upload-select-picture-card').getDOMNode().style.display).toBe('none');
   });
 
   it('<Upload /> should pass <UploadList /> prefixCls', async () => {
