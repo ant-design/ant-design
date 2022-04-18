@@ -85,7 +85,7 @@ describe('Statistic', () => {
       wrapper.update();
 
       // setInterval should work
-      const instance = wrapper.instance();
+      const instance = wrapper.find('Countdown').instance();
       expect(instance.countdownId).not.toBe(undefined);
 
       await sleep(10);
@@ -142,8 +142,7 @@ describe('Statistic', () => {
         const wrapper = mount(<Statistic.Countdown value={now} onFinish={onFinish} />);
         wrapper.update();
 
-        const instance = wrapper.instance();
-        expect(instance.countdownId).toBe(undefined);
+        expect(wrapper.find('Countdown').instance().countdownId).toBe(undefined);
         expect(onFinish).not.toHaveBeenCalled();
       });
 

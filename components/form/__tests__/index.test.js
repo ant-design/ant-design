@@ -1,7 +1,7 @@
 import React, { Component, useState } from 'react';
 import { mount } from 'enzyme';
-import { render, fireEvent } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
+import { render as testingRender } from '@testing-library/react';
 import scrollIntoView from 'scroll-into-view-if-needed';
 import Form from '..';
 import * as Util from '../util';
@@ -12,7 +12,7 @@ import Select from '../../select';
 
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { sleep } from '../../../tests/utils';
+import { sleep, render, fireEvent } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import zhCN from '../../locale/zh_CN';
 
@@ -128,7 +128,8 @@ describe('Form', () => {
         );
       };
 
-      const { container } = render(<Demo />);
+      // FIXME: @zombieJ React 18 StrictMode
+      const { container } = testingRender(<Demo />);
       await change(container, 0, '1', true);
       expect(container.querySelector('.ant-form-item-explain').textContent).toEqual('aaa');
       await change(container, 0, '2', true);
@@ -453,6 +454,9 @@ describe('Form', () => {
           </Form.Item>
         </Form>
       </div>,
+      {
+        strictMode: false,
+      },
     );
 
     expect(shouldNotRender).toHaveBeenCalledTimes(1);
@@ -718,7 +722,9 @@ describe('Form', () => {
       );
     };
 
-    const wrapper = mount(<App />);
+    const wrapper = mount(<App />, {
+      strictMode: false,
+    });
     for (let i = 0; i < 5; i += 1) {
       wrapper.find('button').simulate('click');
     }
@@ -741,7 +747,9 @@ describe('Form', () => {
       </Form>
     );
 
-    const wrapper = mount(<Demo />);
+    const wrapper = mount(<Demo />, {
+      strictMode: false,
+    });
     renderTimes = 0;
 
     wrapper.find('input').simulate('change', {
@@ -771,33 +779,25 @@ describe('Form', () => {
   });
 
   it('Remove Field should also reset error', async () => {
-    class Demo extends React.Component {
-      state = {
-        showA: true,
-      };
+    const Demo = ({ showA }) => (
+      <Form>
+        {showA ? (
+          <Form.Item name="a" help="error">
+            <input />
+          </Form.Item>
+        ) : (
+          <Form.Item name="b">
+            <input />
+          </Form.Item>
+        )}
+      </Form>
+    );
 
-      render() {
-        return (
-          <Form>
-            {this.state.showA ? (
-              <Form.Item name="a" help="error">
-                <input />
-              </Form.Item>
-            ) : (
-              <Form.Item name="b">
-                <input />
-              </Form.Item>
-            )}
-          </Form>
-        );
-      }
-    }
-
-    const wrapper = mount(<Demo />);
+    const wrapper = mount(<Demo showA />);
     await Promise.resolve();
     expect(wrapper.find('.ant-form-item').last().hasClass('ant-form-item-with-help')).toBeTruthy();
 
-    wrapper.setState({ showA: false });
+    wrapper.setProps({ showA: false });
     await Promise.resolve();
     wrapper.update();
     expect(wrapper.find('.ant-form-item').last().hasClass('ant-form-item-with-help')).toBeFalsy();
