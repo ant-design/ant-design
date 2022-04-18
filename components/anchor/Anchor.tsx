@@ -334,6 +334,8 @@ class Anchor extends React.Component<InternalAnchorProps, AnchorState, ConfigCon
     );
   }
 }
+// just use in test
+export type InternalAnchorClass = Anchor;
 
 const AnchorFC = React.forwardRef<Anchor, AnchorProps>((props, ref) => {
   const { prefixCls: customizePrefixCls } = props;
