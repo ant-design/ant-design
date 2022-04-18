@@ -112,7 +112,7 @@ const genBaseStyle: GenerateStyle<DrawerToken> = (
                 },
                 [`${componentCls}-close`]: {
                   display: 'inline-block',
-                  marginRight: closeRight,
+                  marginInlineEnd: closeRight,
                   color: textColorSecondary,
                   fontWeight: 700,
                   fontSize: fontSizeLG,
