@@ -454,7 +454,7 @@ const genPickerCellInnerStyle = (token: PickerToken, cellClassName: string): CSS
       position: 'relative',
 
       '&::before': {
-        background: token.colorPrimary, // FIXME: primary-1
+        background: token.controlItemBgActive,
       },
     },
 
@@ -467,9 +467,9 @@ const genPickerCellInnerStyle = (token: PickerToken, cellClassName: string): CSS
     },
 
     [`&-in-view:is(&-range-start):not(&-range-start-single),
-    &-in-viewLis(&-range-end):not(&-range-end-single)`]: {
+      &-in-view:is(&-range-end):not(&-range-end-single)`]: {
       '&::before': {
-        background: token.colorPrimary, // FIXME: primary-1
+        background: token.controlItemBgActive,
       },
     },
 
@@ -483,19 +483,19 @@ const genPickerCellInnerStyle = (token: PickerToken, cellClassName: string): CSS
 
     // >>> Range Hover
     [`&-in-view:is(&-range-hover-start):not(&-in-range):not(&-range-start):not(&-range-end),
-    &-in-view:is(&-range-hover-end):not(&-in-range):not(&-range-start):not(&-range-end),
-    &-in-view:is(&-range-hover-start):is(&-range-start-single),
-    &-in-view:is(&-range-hover-start):is(&-range-start):is(&-range-end):is(&-range-end-near-hover),
-    &-in-view:is(&-range-hover-end):is(&-range-start):is(&-range-end):is(&-range-start-near-hover),
-    &-in-view:is(&-range-hover-end):is(&-range-end-single),
-    &-in-view:is(&-range-hover):not(&-in-range)`]: {
+      &-in-view:is(&-range-hover-end):not(&-in-range):not(&-range-start):not(&-range-end),
+      &-in-view:is(&-range-hover-start):is(&-range-start-single),
+      &-in-view:is(&-range-hover-start):is(&-range-start):is(&-range-end):is(&-range-end-near-hover),
+      &-in-view:is(&-range-hover-end):is(&-range-start):is(&-range-end):is(&-range-start-near-hover),
+      &-in-view:is(&-range-hover-end):is(&-range-end-single),
+      &-in-view:is(&-range-hover):not(&-in-range)`]: {
       '&::after': {
         position: 'absolute',
         top: '50%',
         zIndex: 0,
         height: token.controlHeightSM,
-        borderTop: `${token.controlLineWidth} dashed ${token.pickerDateHoverRangeBorderColor}`,
-        borderBottom: `${token.controlLineWidth} dashed ${token.pickerDateHoverRangeBorderColor}`,
+        borderTop: `${token.controlLineWidth}px dashed ${token.pickerDateHoverRangeBorderColor}`,
+        borderBottom: `${token.controlLineWidth}px dashed ${token.pickerDateHoverRangeBorderColor}`,
         transform: 'translateY(-50%)',
         transition: `all ${token.motionDurationSlow}`,
         content: '""',
@@ -527,14 +527,18 @@ const genPickerCellInnerStyle = (token: PickerToken, cellClassName: string): CSS
 
     // range start border-radius
     [`&-in-view:is(&-range-start):not(&-range-start-single):not(&-range-end) ${cellClassName}`]: {
-      borderInlineStartRadius: token.radiusBase,
-      borderInlineEndRadius: 0,
+      borderStartStartRadius: token.radiusBase,
+      borderEndStartRadius: token.radiusBase,
+      borderStartEndRadius: 0,
+      borderEndEndRadius: 0,
     },
 
     // range end border-radius
     [`&-in-view:is(&-range-end):not(&-range-end-single):not(&-range-start) ${cellClassName}`]: {
-      borderInlineStartRadius: 0,
-      borderInlineEndRadius: token.radiusBase,
+      borderStartStartRadius: 0,
+      borderEndStartRadius: 0,
+      borderStartEndRadius: token.radiusBase,
+      borderEndEndRadius: token.radiusBase,
     },
 
     // DatePanel only
@@ -580,7 +584,7 @@ const genPickerCellInnerStyle = (token: PickerToken, cellClassName: string): CSS
       &-in-view:is(&-range-hover-edge-start):not(&-range-hover-edge-start-near-range)::after,
       &-in-view:is(&-range-hover-start)::after`]: {
       insetInlineStart: 6, // FIXME: v4 magic number
-      borderInlineStart: `${token.controlLineWidth} dashed ${token.pickerDateHoverRangeBorderColor}`,
+      borderInlineStart: `${token.controlLineWidth}px dashed ${token.pickerDateHoverRangeBorderColor}`,
       borderStartStartRadius: token.controlLineWidth,
       borderEndStartRadius: token.controlLineWidth,
     },
@@ -592,7 +596,7 @@ const genPickerCellInnerStyle = (token: PickerToken, cellClassName: string): CSS
       &-in-view:is(&-range-hover-edge-end):not(&-range-hover-edge-end-near-range)::after,
       &-in-view:is(&-range-hover-end)::after`]: {
       insetInlineEnd: 6, // FIXME: v4 magic number
-      borderInlineEnd: `${token.controlLineWidth} dashed ${token.pickerDateHoverRangeBorderColor}`,
+      borderInlineEnd: `${token.controlLineWidth}px dashed ${token.pickerDateHoverRangeBorderColor}`,
       borderStartEndRadius: token.controlLineWidth,
       borderEndEndRadius: token.controlLineWidth,
     },
@@ -892,7 +896,7 @@ const genPanelStyle: GenerateStyle<PickerToken> = token => {
 
           [`${componentCls}-cell-range-hover-start::after`]: {
             insetInlineStart: hoverCellFixedDistance,
-            borderInlineStart: `${token.controlLineWidth} dashed ${token.pickerDateHoverRangeBorderColor}`,
+            borderInlineStart: `${token.controlLineWidth}px dashed ${token.pickerDateHoverRangeBorderColor}`,
             borderStartStartRadius: token.radiusBase,
             borderBottomStartRadius: token.radiusBase,
             borderStartEndRadius: 0,
@@ -900,7 +904,7 @@ const genPanelStyle: GenerateStyle<PickerToken> = token => {
 
             [`${componentCls}-panel-rtl &`]: {
               insetInlineEnd: hoverCellFixedDistance,
-              borderInlineEnd: `${token.controlLineWidth} dashed ${token.pickerDateHoverRangeBorderColor}`,
+              borderInlineEnd: `${token.controlLineWidth}px dashed ${token.pickerDateHoverRangeBorderColor}`,
               borderStartStartRadius: 0,
               borderBottomStartRadius: 0,
               borderStartEndRadius: token.radiusBase,
@@ -909,7 +913,7 @@ const genPanelStyle: GenerateStyle<PickerToken> = token => {
           },
           [`${componentCls}-cell-range-hover-end::after`]: {
             insetInlineEnd: hoverCellFixedDistance,
-            borderInlineEnd: `${token.controlLineWidth} dashed ${token.pickerDateHoverRangeBorderColor}`,
+            borderInlineEnd: `${token.controlLineWidth}px dashed ${token.pickerDateHoverRangeBorderColor}`,
             borderStartStartRadius: 0,
             borderBottomStartRadius: 0,
             borderStartEndRadius: token.radiusBase,
@@ -917,7 +921,7 @@ const genPanelStyle: GenerateStyle<PickerToken> = token => {
 
             [`${componentCls}-panel-rtl &`]: {
               insetInlineStart: hoverCellFixedDistance,
-              borderInlineStart: `${token.controlLineWidth} dashed ${token.pickerDateHoverRangeBorderColor}`,
+              borderInlineStart: `${token.controlLineWidth}px dashed ${token.pickerDateHoverRangeBorderColor}`,
               borderStartStartRadius: token.radiusBase,
               borderBottomStartRadius: token.radiusBase,
               borderStartEndRadius: 0,
