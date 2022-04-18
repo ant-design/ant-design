@@ -7,7 +7,7 @@ import Button from '..';
 import ConfigProvider from '../../config-provider';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { sleep, render } from '../../../tests/utils';
+import { sleep, render, fireEvent } from '../../../tests/utils';
 import { SizeType } from '../../config-provider/SizeContext';
 
 describe('Button', () => {
@@ -197,12 +197,12 @@ describe('Button', () => {
 
   it('should not clickable when button is loading', () => {
     const onClick = jest.fn();
-    const wrapper = mount(
+    const { container } = render(
       <Button loading onClick={onClick}>
         button
       </Button>,
     );
-    wrapper.simulate('click');
+    fireEvent.click(container.firstChild!);
     expect(onClick).not.toHaveBeenCalledWith();
   });
 
@@ -316,12 +316,12 @@ describe('Button', () => {
 
   it('should not redirect when button is disabled', () => {
     const onClick = jest.fn();
-    const wrapper = mount(
+    const { container } = render(
       <Button href="https://ant.design" onClick={onClick} disabled>
         click me
       </Button>,
     );
-    wrapper.simulate('click');
+    fireEvent.click(container.firstChild!);
     expect(onClick).not.toHaveBeenCalled();
   });
 

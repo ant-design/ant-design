@@ -37829,22 +37829,22 @@ exports[`ConfigProvider components Upload prefixCls 1`] = `
     </span>
   </div>
   <div
-    class="ant-upload-list ant-upload-list-text"
+    class="prefix-Upload-list prefix-Upload-list-text"
   >
     <div
-      class="ant-upload-list-text-container"
+      class="prefix-Upload-list-text-container"
     >
       <div
-        class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-text"
+        class="prefix-Upload-list-item prefix-Upload-list-item-done prefix-Upload-list-item-list-type-text"
       >
         <div
-          class="ant-upload-list-item-info"
+          class="prefix-Upload-list-item-info"
         >
           <span
-            class="ant-upload-span"
+            class="prefix-Upload-span"
           >
             <div
-              class="ant-upload-text-icon"
+              class="prefix-Upload-text-icon"
             >
               <span
                 aria-label="paper-clip"
@@ -37867,16 +37867,16 @@ exports[`ConfigProvider components Upload prefixCls 1`] = `
               </span>
             </div>
             <span
-              class="ant-upload-list-item-name"
+              class="prefix-Upload-list-item-name"
               title="xxx.png"
             >
               xxx.png
             </span>
             <span
-              class="ant-upload-list-item-card-actions"
+              class="prefix-Upload-list-item-card-actions"
             >
               <button
-                class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
+                class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only prefix-Upload-list-item-card-actions-btn"
                 title="Remove file"
                 type="button"
               >

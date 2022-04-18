@@ -6,7 +6,7 @@ import { FormProviderProps as RcFormProviderProps } from 'rc-field-form/lib/Form
 import { FC, PropsWithChildren, ReactNode, useMemo } from 'react';
 import { ColProps } from '../grid/col';
 import { FormLabelAlign } from './interface';
-import { RequiredMark } from './Form';
+import { FormInstance, RequiredMark } from './Form';
 import { ValidateStatus } from './FormItem';
 
 /** Form Context. Set top form style and pass to Form Item usage. */
@@ -20,6 +20,7 @@ export interface FormContextProps {
   wrapperCol?: ColProps;
   requiredMark?: RequiredMark;
   itemRef: (name: (string | number)[]) => (node: React.ReactElement) => void;
+  form?: FormInstance;
 }
 
 export const FormContext = React.createContext<FormContextProps>({

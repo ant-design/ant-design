@@ -39,7 +39,7 @@ const App: React.FC = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```
 
 <style>

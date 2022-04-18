@@ -2,6 +2,7 @@ import React from 'react';
 import MockDate from 'mockdate';
 import moment from 'moment';
 import { mount } from 'enzyme';
+import { fireEvent, render } from '@testing-library/react';
 import Statistic from '..';
 import { formatTimeStr } from '../utils';
 import { sleep } from '../../../tests/utils';
@@ -97,10 +98,12 @@ describe('Statistic', () => {
     it('responses hover events', () => {
       const onMouseEnter = jest.fn();
       const onMouseLeave = jest.fn();
-      const wrapper = mount(<Statistic onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />);
-      wrapper.simulate('mouseenter');
+      const { container } = render(
+        <Statistic onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />,
+      );
+      fireEvent.mouseEnter(container.firstChild);
       expect(onMouseEnter).toHaveBeenCalled();
-      wrapper.simulate('mouseleave');
+      fireEvent.mouseLeave(container.firstChild);
       expect(onMouseLeave).toHaveBeenCalled();
     });
 

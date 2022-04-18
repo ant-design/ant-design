@@ -92,7 +92,7 @@ const App = () => {
   return <TreeTransfer dataSource={treeData} targetKeys={targetKeys} onChange={onChange} />;
 };
 
-export default () => <App />;
+export default App;
 ```
 
 <style>
