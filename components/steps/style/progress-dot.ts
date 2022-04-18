@@ -24,13 +24,16 @@ const genStepsProgressDotStyle: GenerateStyle<StepsToken, CSSObject> = token => 
         '&-tail': {
           top: stepsDotTop,
           width: '100%', // FIXME: hardcode in v4
-          margin: `0 0 0 ${stepsDescriptionMaxWidth / 2}px`, // FIXME: hardcode in v4
+          // margin: `0 0 0 ${stepsDescriptionMaxWidth / 2}px`, // FIXME: hardcode in v4
+          marginTop: 0, // FIXME: hardcode in v4
+          marginBottom: 0, // FIXME: hardcode in v4
+          marginInline: `${stepsDescriptionMaxWidth / 2}px 0`, // FIXME: hardcode in v4
           padding: 0, // FIXME: hardcode in v4
 
           '&::after': {
             width: 'calc(100% - 20px)', // FIXME: hardcode in v4
             height: 3, // FIXME: hardcode in v4
-            marginLeft: 12, // FIXME: hardcode in v4
+            marginInlineStart: 12, // FIXME: hardcode in v4
           },
         },
         [`&:first-child ${componentCls}-icon-dot`]: {
@@ -39,7 +42,7 @@ const genStepsProgressDotStyle: GenerateStyle<StepsToken, CSSObject> = token => 
         '&-icon': {
           width: stepsDotSize,
           height: stepsDotSize,
-          marginLeft: 67, // FIXME: hardcode in v4
+          marginInlineStart: 67, // FIXME: hardcode in v4
           paddingInlineEnd: 0, // FIXME: hardcode in v4
           lineHeight: `${stepsDotSize}px`,
           background: 'transparent',
@@ -87,7 +90,7 @@ const genStepsProgressDotStyle: GenerateStyle<StepsToken, CSSObject> = token => 
     [`&${componentCls}-vertical${componentCls}-dot`]: {
       [`${componentCls}-item-icon`]: {
         marginTop: 13, // FIXME: hardcode in v4
-        marginLeft: 0, // FIXME: hardcode in v4
+        marginInlineStart: 0, // FIXME: hardcode in v4
         background: 'none',
       },
 

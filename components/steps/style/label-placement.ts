@@ -11,7 +11,7 @@ const genStepsLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = token 
         overflow: 'visible',
 
         '&-tail': {
-          marginLeft: 58, // FIXME: hardcode in v4
+          marginInlineStart: 58, // FIXME: hardcode in v4
           padding: '3.5px 24px', // FIXME: hardcode in v4
         },
 
@@ -24,7 +24,7 @@ const genStepsLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = token 
 
         '&-icon': {
           display: 'inline-block',
-          marginLeft: 42, // FIXME: hardcode in v4
+          marginInlineStart: 42, // FIXME: hardcode in v4
         },
 
         '&-title': {
@@ -39,14 +39,14 @@ const genStepsLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = token 
         '&-subtitle': {
           display: 'block',
           marginBottom: 4, // FIXME: hardcode in v4
-          marginLeft: 0, // FIXME: hardcode in v4
+          marginInlineStart: 0, // FIXME: hardcode in v4
           lineHeight,
         },
       },
       [`&${componentCls}-small:not(${componentCls}-dot)`]: {
         [`${componentCls}-item`]: {
           '&-icon': {
-            marginLeft: 46, // FIXME: hardcode in v4
+            marginInlineStart: 46, // FIXME: hardcode in v4
           },
         },
       },

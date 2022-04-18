@@ -18,7 +18,7 @@ const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = token => {
       [`&${componentCls}-small`]: {
         [`${componentCls}-item`]: {
           '&-container': {
-            marginLeft: -12, // FIXME: hardcode in v4
+            marginInlineStart: -12, // FIXME: hardcode in v4
           },
         },
       },
@@ -30,7 +30,7 @@ const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = token => {
         '&-container': {
           display: 'inline-block',
           height: '100%', // FIXME: hardcode in v4
-          marginLeft: -16, // FIXME: hardcode in v4
+          marginInlineStart: -16, // FIXME: hardcode in v4
           paddingBottom: 12, // FIXME: hardcode in v4
           textAlign: 'start',
           transition: `opacity ${motionDurationSlow}`,
@@ -78,7 +78,7 @@ const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = token => {
           width: 12, // FIXME: hardcode in v4
           height: 12, // FIXME: hardcode in v4
           marginTop: -14, // FIXME: hardcode in v4
-          marginLeft: -2, // FIXME: hardcode in v4
+          marginInlineStart: -2, // FIXME: hardcode in v4
           border: `1px solid ${stepsNavArrowColor}`,
           borderBottom: 'none',
           borderInlineStart: 'none',
@@ -94,7 +94,7 @@ const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = token => {
           width: 0, // FIXME: hardcode in v4
           height: 2, // FIXME: hardcode in v4
           backgroundColor: stepsNavActiveColor,
-          transition: `width ${motionDurationSlow}, left ${motionDurationSlow}`,
+          transition: `width ${motionDurationSlow}, inset-inline-start ${motionDurationSlow}`,
           transitionTimingFunction: 'ease-out',
           content: '""',
         },
@@ -108,7 +108,7 @@ const genStepsNavStyle: GenerateStyle<StepsToken, CSSObject> = token => {
 
     [`&${componentCls}-navigation${componentCls}-vertical`]: {
       [`> ${componentCls}-item`]: {
-        marginRight: '0 !important',
+        marginInlineEnd: '0 !important',
 
         '&::before': {
           display: 'none',

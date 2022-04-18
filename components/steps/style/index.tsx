@@ -130,7 +130,10 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = token => {
     [`${stepsItemCls}-icon`]: {
       width: token.stepsIconSize,
       height: token.stepsIconSize,
-      margin: token.stepsIconMargin,
+      // margin: token.stepsIconMargin,
+      marginTop: 0, // FIXME: hardcode in v4
+      marginBottom: 0, // FIXME: hardcode in v4
+      marginInline: '0 8px', // FIXME: hardcode in v4
       fontSize: token.stepsIconFontSize,
       fontFamily: token.fontFamily,
       lineHeight: `${token.stepsIconSize}px`,
@@ -185,7 +188,7 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = token => {
     },
     [`${stepsItemCls}-subtitle`]: {
       display: 'inline',
-      marginLeft: 8, // FIXME: hardcode in v4
+      marginInlineStart: 8, // FIXME: hardcode in v4
       color: token.colorTextSecondary,
       fontWeight: 'normal',
       fontSize: token.fontSizeBase,
@@ -315,7 +318,7 @@ const genStepsStyle: GenerateStyle<StepsToken, CSSObject> = token => {
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Steps', token => {
-  const stepsIconSize = 32;
+  const stepsIconSize = 32; // FIXME: hardcode in v4
   const processTailColor = token.colorSplit;
   const processIconColor = token.colorPrimary;
 
@@ -326,28 +329,28 @@ export default genComponentStyleHook('Steps', token => {
     stepsBackground: token.colorBgComponent,
     stepsIconSize,
     stepsIconCustomSize: stepsIconSize,
-    stepsIconCustomTop: 0,
-    stepsIconCustomFontSize: 24,
-    stepsIconTop: -0.5,
+    stepsIconCustomTop: 0, // FIXME: hardcode in v4
+    stepsIconCustomFontSize: 24, // FIXME: hardcode in v4
+    stepsIconTop: -0.5, // FIXME: hardcode in v4
     stepsIconFontSize: token.fontSizeLG,
-    stepsIconMargin: '0 8px 0 0',
-    stepsTitleLineHeight: 32, // @height-base: 32px FIXME: use token.controlHeight?
-    stepsSmallIconSize: 24,
-    stepsSmallIconMargin: '0 8px 0 0',
-    stepsDotSize: 8,
-    stepsDotTop: 2,
-    stepsCurrentDotSize: 10,
-    stepsDescriptionMaxWidth: 140,
+    stepsIconMargin: '0 8px 0 0', // FIXME: hardcode in v4
+    stepsTitleLineHeight: 32, // FIXME: hardcode in v4
+    stepsSmallIconSize: 24, // FIXME: hardcode in v4
+    stepsSmallIconMargin: '0 8px 0 0', // FIXME: hardcode in v4
+    stepsDotSize: 8, // FIXME: hardcode in v4
+    stepsDotTop: 2, // FIXME: hardcode in v4
+    stepsCurrentDotSize: 10, // FIXME: hardcode in v4
+    stepsDescriptionMaxWidth: 140, // FIXME: hardcode in v4
     stepsNavContentMaxWidth: 'auto',
-    stepsVerticalIconWidth: 16,
-    stepsVerticalTailWidth: 16,
-    stepsVerticalTailWidthSm: 12,
+    stepsVerticalIconWidth: 16, // FIXME: hardcode in v4
+    stepsVerticalTailWidth: 16, // FIXME: hardcode in v4
+    stepsVerticalTailWidthSm: 12, // FIXME: hardcode in v4
     // Steps component less variable
     processIconColor,
-    processTitleColor: new TinyColor('#000').setAlpha(0.85).toRgbString(), // @heading-color: fade(@black, 85%)
+    processTitleColor: new TinyColor('#000').setAlpha(0.85).toRgbString(), // @heading-color: fade(@black, 85%) FIXME: hardcode in v4
     processDescriptionColor: token.colorText,
     processIconTextColor: '#fff',
-    waitIconColor: new TinyColor('#000').setAlpha(0.25).toRgbString(), // @disabled-color
+    waitIconColor: new TinyColor('#000').setAlpha(0.25).toRgbString(), // @disabled-color FIXME: hardcode in v4
     waitTitleColor: token.colorTextSecondary,
     waitDescriptionColor: token.colorTextSecondary,
     waitTailColor: processTailColor,

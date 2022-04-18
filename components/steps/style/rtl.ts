@@ -5,11 +5,11 @@ import type { StepsToken } from '.';
 const genStepsRTLStyle: GenerateStyle<StepsToken, CSSObject> = token => {
   const {
     componentCls,
-    stepsVerticalIconWidth,
+    // stepsVerticalIconWidth,
     // stepsVerticalTailWidth,
     // stepsVerticalTailWidthSm,
-    stepsDescriptionMaxWidth,
-    motionDurationSlow,
+    // stepsDescriptionMaxWidth,
+    // motionDurationSlow,
   } = token;
 
   return {
@@ -18,12 +18,15 @@ const genStepsRTLStyle: GenerateStyle<StepsToken, CSSObject> = token => {
 
       [`${componentCls}-item`]: {
         '&-icon': {
-          marginRight: 0, // FIXME: hardcode in v4
-          marginLeft: 8, // FIXME: hardcode in v4
+          // marginInlineEnd: 0, // FIXME: hardcode in v4
+          // marginInlineStart: 8, // FIXME: hardcode in v4
         },
         '&-tail': {
           // insetInlineEnd: 0,
           insetInlineStart: 'auto',
+        },
+        '&-subtitle': {
+          marginInline: '0 8px', // FIXME: hardcode in v4
         },
         '&-title': {
           // paddingInlineEnd: 0,
@@ -65,14 +68,14 @@ const genStepsRTLStyle: GenerateStyle<StepsToken, CSSObject> = token => {
       [`&${componentCls}-navigation`]: {
         [`&${componentCls}-small`]: {
           [`${componentCls}-item-container`]: {
-            marginRight: -12, // FIXME: hardcode in v4
-            marginLeft: 0, // FIXME: hardcode in v4
+            marginInlineEnd: -12, // FIXME: hardcode in v4
+            marginInlineStart: 0, // FIXME: hardcode in v4
           },
         },
 
         [`${componentCls}-item-container`]: {
-          marginRight: -16, // FIXME: hardcode in v4
-          marginLeft: 0, // FIXME: hardcode in v4
+          marginInlineEnd: -16, // FIXME: hardcode in v4
+          marginInlineStart: 0, // FIXME: hardcode in v4
           // textAlign: 'right',
 
           [`${componentCls}-item-title`]: {
@@ -83,12 +86,9 @@ const genStepsRTLStyle: GenerateStyle<StepsToken, CSSObject> = token => {
         [`${componentCls}-item::after`]: {
           // insetInlineEnd: '100%',
           // insetInlineStart: 'auto',
-          marginRight: -2, // FIXME: hardcode in v4
-          marginLeft: 0, // FIXME: hardcode in v4
+          marginInlineEnd: -2, // FIXME: hardcode in v4
+          marginInlineStart: 0, // FIXME: hardcode in v4
           transform: 'rotate(315deg)', // FIXME: hardcode in v4
-        },
-        [`${componentCls}-item::before`]: {
-          transition: `width ${motionDurationSlow}, right ${motionDurationSlow}`,
         },
       },
 
@@ -114,8 +114,8 @@ const genStepsRTLStyle: GenerateStyle<StepsToken, CSSObject> = token => {
         [`> ${componentCls}-item`]: {
           [`${componentCls}-item-icon`]: {
             float: 'right',
-            marginRight: 0, // FIXME: hardcode in v4
-            marginLeft: stepsVerticalIconWidth,
+            // marginInlineEnd: 0,
+            // marginInlineStart: stepsVerticalIconWidth,
           },
           [`${componentCls}-item-container > ${componentCls}-item-tail`]: {
             // insetInlineEnd: stepsVerticalTailWidth,
@@ -141,10 +141,10 @@ const genStepsRTLStyle: GenerateStyle<StepsToken, CSSObject> = token => {
       // progress-dot
       [`&${componentCls}-dot`]: {
         [`${componentCls}-item-tail, &${componentCls}-small ${componentCls}-item-tail`]: {
-          margin: `0 ${stepsDescriptionMaxWidth / 2}px 0 0`, // FIXME: hardcode in v4
+          // margin: `0 ${stepsDescriptionMaxWidth / 2}px 0 0`, // FIXME: hardcode in v4
           '&::after': {
-            marginRight: 12, // FIXME: hardcode in v4
-            marginLeft: 0, // FIXME: hardcode in v4
+            // marginInlineEnd: 12, // FIXME: hardcode in v4
+            // marginInlineStart: 0, // FIXME: hardcode in v4
           },
         },
 
@@ -159,8 +159,8 @@ const genStepsRTLStyle: GenerateStyle<StepsToken, CSSObject> = token => {
         },
 
         [`${componentCls}-item-icon, &${componentCls}-small ${componentCls}-item-icon`]: {
-          marginRight: 67, // FIXME: hardcode in v4
-          marginLeft: 0, // FIXME: hardcode in v4
+          // marginInlineEnd: 67, // FIXME: hardcode in v4
+          // marginInlineStart: 0, // FIXME: hardcode in v4
         },
 
         [`${componentCls}-item-icon ${componentCls}-icon-dot, &${componentCls}-small ${componentCls}-item-icon ${componentCls}-icon-dot`]:
@@ -178,13 +178,13 @@ const genStepsRTLStyle: GenerateStyle<StepsToken, CSSObject> = token => {
 
       [`&${componentCls}-vertical${componentCls}-dot`]: {
         [`${componentCls}-item-icon`]: {
-          marginRight: 0, // FIXME: hardcode in v4
-          marginLeft: 16, // FIXME: hardcode in v4
+          // marginInlineEnd: 0, // FIXME: hardcode in v4
+          // marginInlineStart: 16, // FIXME: hardcode in v4
         },
         [`${componentCls}-item`]: {
           // https://github.com/ant-design/ant-design/issues/18354
           [`> ${componentCls}-item-container > ${componentCls}-item-tail`]: {
-            // insetInlineEnd: -9,
+            insetInlineEnd: -9, // FIXME: hardcode in v4
             // insetInlineStart: 'auto',
           },
           [`&:first-child ${componentCls}-icon-dot`]: {

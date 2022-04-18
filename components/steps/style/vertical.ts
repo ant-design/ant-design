@@ -25,7 +25,7 @@ const genStepsVerticalStyle: GenerateStyle<StepsToken, CSSObject> = token => {
 
         [`${componentCls}-item-icon`]: {
           float: 'left',
-          marginRight: stepsVerticalIconWidth,
+          marginInlineEnd: stepsVerticalIconWidth,
         },
         [`${componentCls}-item-content`]: {
           display: 'block',

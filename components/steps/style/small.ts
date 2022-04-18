@@ -6,7 +6,7 @@ const genStepsSmallStyle: GenerateStyle<StepsToken, CSSObject> = token => {
   const {
     componentCls,
     stepsSmallIconSize,
-    stepsSmallIconMargin,
+    // stepsSmallIconMargin,
     fontSizeSM,
     fontSizeBase,
     colorTextSecondary,
@@ -24,7 +24,10 @@ const genStepsSmallStyle: GenerateStyle<StepsToken, CSSObject> = token => {
       [`${componentCls}-item-icon`]: {
         width: stepsSmallIconSize,
         height: stepsSmallIconSize,
-        margin: stepsSmallIconMargin,
+        // margin: stepsSmallIconMargin,
+        marginTop: 0, // FIXME: hardcode in v4
+        marginBottom: 0, // FIXME: hardcode in v4
+        marginInline: '0 8px', // FIXME: hardcode in v4
         fontSize: fontSizeSM,
         lineHeight: `${stepsSmallIconSize}px`,
         textAlign: 'center',
