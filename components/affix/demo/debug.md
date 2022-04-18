@@ -35,5 +35,5 @@ const Demo: React.FC = () => {
   );
 };
 
-export default () => <Demo />;
+export default Demo;
 ```
