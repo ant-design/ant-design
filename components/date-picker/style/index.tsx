@@ -323,6 +323,36 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
           paddingTop: token.paddingXS / 2,
         },
 
+        // ======================== Ranges ========================
+        [`${componentCls}-ranges`]: {
+          marginBottom: 0,
+          padding: `${token.paddingXS / 2}px ${token.paddingSM}px`,
+          overflow: 'hidden',
+          lineHeight: `${
+            token.pickerTextHeight - 2 * token.controlLineWidth - token.paddingXS / 2
+          }px`,
+          textAlign: 'start',
+          listStyle: 'none',
+          display: 'flex',
+          justifyContent: 'space-between',
+
+          '> li': {
+            display: 'inline-block',
+          },
+
+          // https://github.com/ant-design/ant-design/issues/23687
+          [`${componentCls}-preset > ${antCls}-tag-blue`]: {
+            color: token.colorPrimary,
+            background: token.controlItemBgActive,
+            borderColor: token.colorPrimarySecondary,
+            cursor: 'pointer',
+          },
+
+          [`${componentCls}-ok`]: {
+            marginInlineStart: token.paddingXS,
+          },
+        },
+
         [`${componentCls}-range-wrapper`]: {
           display: 'flex',
         },
@@ -824,16 +854,16 @@ const genPanelStyle: GenerateStyle<PickerToken> = token => {
         },
 
         // ======================== Footer ========================
+        [`&-panel ${componentCls}-footer`]: {
+          borderTop: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorSplit}`,
+        },
+
         '&-footer': {
           width: 'min-content',
           minWidth: '100%',
           lineHeight: `${token.pickerTextHeight - 2 * token.controlLineWidth}px`,
           textAlign: 'center',
-          borderBottom: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
-
-          [`${componentCls}-panel &`]: {
-            borderTop: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
-          },
+          borderBottom: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorSplit}`,
 
           '&-extra': {
             padding: `0 ${token.paddingSM}`,
@@ -1038,7 +1068,7 @@ const genPanelStyle: GenerateStyle<PickerToken> = token => {
 
             '&::after': {
               display: 'block',
-              height: token.pickerTimePanelColumnHeight - token.pickerPanelWithoutTimeCellHeight,
+              height: token.pickerTimePanelColumnHeight - token.pickerTimePanelCellHeight,
               content: '""',
               [`${componentCls}-datetime-panel &`]: {
                 height:
@@ -1049,7 +1079,7 @@ const genPanelStyle: GenerateStyle<PickerToken> = token => {
             },
 
             '&:not(:first-child)': {
-              borderInlineStart: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
+              borderInlineStart: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorSplit}`,
             },
 
             '&-active': {
@@ -1068,11 +1098,14 @@ const genPanelStyle: GenerateStyle<PickerToken> = token => {
                 [`${componentCls}-time-panel-cell-inner`]: {
                   display: 'block',
                   width: '100%',
-                  height: token.pickerPanelCellHeight,
+                  height: token.pickerTimePanelCellHeight,
                   margin: 0,
-                  padding: '0 0 0 ((@picker-time-panel-column-width - 28px) / 2)',
+                  paddingBlock: 0,
+                  paddingInlineEnd: 0,
+                  paddingInlineStart:
+                    (token.pickerTimePanelColumnWidth - token.pickerTimePanelCellHeight) / 2,
                   color: token.colorText,
-                  lineHeight: `${token.pickerPanelCellHeight}px`,
+                  lineHeight: `${token.pickerTimePanelCellHeight}px`,
                   borderRadius: 0,
                   cursor: 'pointer',
                   transition: `background ${token.motionDurationSlow}`,
