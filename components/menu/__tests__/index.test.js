@@ -792,13 +792,23 @@ describe('Menu', () => {
     const onOpen = jest.fn();
     const onClose = jest.fn();
     render(
-      <Menu defaultOpenKeys={['1']} mode="inline" onOpen={onOpen} onClose={onClose}>
-        <SubMenu key="1" title="submenu1">
-          <Menu.Item key="submenu1">Option 1</Menu.Item>
-          <Menu.Item key="submenu2">Option 2</Menu.Item>
-        </SubMenu>
-        <Menu.Item key="2">menu2</Menu.Item>
-      </Menu>,
+      <Menu
+        defaultOpenKeys={['1']}
+        mode="inline"
+        onOpen={onOpen}
+        onClose={onClose}
+        items={[
+          {
+            key: '1',
+            label: 'submenu1',
+            children: [
+              { key: 'submenu1', label: 'Option 1' },
+              { key: 'submenu2', label: 'Option 2' },
+            ],
+          },
+          { key: '2', label: 'menu2' },
+        ]}
+      />,
     );
 
     expect(errorSpy.mock.calls.length).toBe(1);
