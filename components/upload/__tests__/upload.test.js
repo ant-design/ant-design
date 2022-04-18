@@ -202,15 +202,16 @@ describe('Upload', () => {
 
   // https://github.com/ant-design/ant-design/issues/14779
   it('should contain input file control if upload button is hidden', () => {
-    const wrapper = mount(
+    const { container, rerender } = render(
       <Upload action="http://upload.com">
         <button type="button">upload</button>
       </Upload>,
     );
 
-    expect(wrapper.find('input[type="file"]').length).toBe(1);
-    wrapper.setProps({ children: null });
-    expect(wrapper.find('input[type="file"]').length).toBe(1);
+    expect(container.querySelectorAll('input[type="file"]')).toHaveLength(1);
+
+    rerender(<Upload action="http://upload.com" />);
+    expect(container.querySelectorAll('input[type="file"]')).toHaveLength(1);
   });
 
   // https://github.com/ant-design/ant-design/issues/14298
@@ -223,15 +224,15 @@ describe('Upload', () => {
       </Form>
     );
 
-    const wrapper = mount(
+    const { container, rerender } = render(
       <Demo>
         <div>upload</div>
       </Demo>,
     );
 
-    expect(wrapper.find('input#upload').length).toBe(1);
-    wrapper.setProps({ children: null });
-    expect(wrapper.find('input#upload').length).toBe(0);
+    expect(container.querySelector('input#upload')).toBeTruthy();
+    rerender(<Demo />);
+    expect(container.querySelector('input#upload')).toBeFalsy();
   });
 
   // https://github.com/ant-design/ant-design/issues/16478
@@ -875,24 +876,25 @@ describe('Upload', () => {
 
   // https://github.com/ant-design/ant-design/issues/33819
   it('should show the animation of the upload children leaving when the upload children becomes null', async () => {
-    const wrapper = mount(
+    const { container, rerender } = render(
       <Upload listType="picture-card">
         <button type="button">upload</button>
       </Upload>,
     );
-    wrapper.setProps({ children: null });
-    expect(wrapper.find('.ant-upload-select-picture-card').getDOMNode().style.display).not.toBe(
-      'none',
-    );
+    rerender(<Upload listType="picture-card" />);
+    expect(container.querySelector('.ant-upload-select-picture-card')).not.toHaveStyle({
+      display: 'none',
+    });
+
     await act(async () => {
       await sleep(100);
-      wrapper
-        .find('.ant-upload-select-picture-card')
-        .getDOMNode()
-        .dispatchEvent(new Event('animationend'));
+      fireEvent.animationEnd(container.querySelector('.ant-upload-select-picture-card'));
       await sleep(20);
     });
-    expect(wrapper.find('.ant-upload-select-picture-card').getDOMNode().style.display).toBe('none');
+
+    expect(container.querySelector('.ant-upload-select-picture-card')).toHaveStyle({
+      display: 'none',
+    });
   });
 
   it('<Upload /> should pass <UploadList /> prefixCls', async () => {
