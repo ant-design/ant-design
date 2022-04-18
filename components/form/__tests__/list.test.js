@@ -1,5 +1,6 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
+import { render as testingRender } from '@testing-library/react';
 import Form from '..';
 import Input from '../../input';
 import Button from '../../button';
@@ -15,7 +16,7 @@ describe('Form.List', () => {
     it(name, async () => {
       jest.useFakeTimers();
 
-      const { container } = render(
+      const { container } = testingRender(
         <Form>
           <Form.List name="list">
             {(fields, { add, remove }) => (
@@ -84,6 +85,7 @@ describe('Form.List', () => {
     </Form.Item>
   ));
 
+  // FIXME: @zombieJ React 18 StrictMode
   testList('nest noStyle', field => (
     <Form.Item key={field.key}>
       <Form.Item noStyle {...field} rules={[{ required: true }]}>

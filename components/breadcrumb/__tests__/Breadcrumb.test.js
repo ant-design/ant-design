@@ -29,8 +29,7 @@ describe('Breadcrumb', () => {
         <MyCom />
       </Breadcrumb>,
     );
-    expect(errorSpy.mock.calls).toHaveLength(1);
-    expect(errorSpy.mock.calls[0][0]).toMatch(
+    expect(errorSpy).toHaveBeenCalledWith(
       "Warning: [antd: Breadcrumb] Only accepts Breadcrumb.Item and Breadcrumb.Separator as it's children",
     );
   });

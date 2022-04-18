@@ -2,6 +2,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
+import { render as testingRender } from '@testing-library/react';
 import produce from 'immer';
 import { cloneDeep } from 'lodash';
 import Upload from '..';
@@ -874,9 +875,10 @@ describe('Upload', () => {
     expect(onChange.mock.calls[0][0].fileList).toHaveLength(1);
   });
 
+  // FIXME: @zombieJ React 18 StrictMode
   // https://github.com/ant-design/ant-design/issues/33819
   it('should show the animation of the upload children leaving when the upload children becomes null', async () => {
-    const { container, rerender } = render(
+    const { container, rerender } = testingRender(
       <Upload listType="picture-card">
         <button type="button">upload</button>
       </Upload>,
