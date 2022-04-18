@@ -435,7 +435,7 @@ const genPickerCellInnerStyle = (token: PickerToken, cellClassName: string): CSS
       },
 
     // >>> Today
-    [`&-in-view&-today ${cellClassName}`]: {
+    [`&-in-view:is(&-today) ${cellClassName}`]: {
       '&::before': {
         position: 'absolute',
         top: 0,
@@ -443,14 +443,14 @@ const genPickerCellInnerStyle = (token: PickerToken, cellClassName: string): CSS
         bottom: 0,
         left: 0,
         zIndex: 1,
-        border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
+        border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorPrimary}`,
         borderRadius: token.radiusBase,
         content: '""',
       },
     },
 
     // >>> In Range
-    '&-in-view&-in-range': {
+    '&-in-view:is(&-in-range)': {
       position: 'relative',
 
       '&::before': {
@@ -459,36 +459,36 @@ const genPickerCellInnerStyle = (token: PickerToken, cellClassName: string): CSS
     },
 
     // >>> Selected
-    [`&-in-view&-selected ${cellClassName},
-    &-in-view&-range-start ${cellClassName},
-    &-in-view&-range-end ${cellClassName}`]: {
+    [`&-in-view:is(&-selected) ${cellClassName},
+    &-in-view:is(&-range-start) ${cellClassName},
+    &-in-view:is(&-range-end) ${cellClassName}`]: {
       color: '#fff', // FIXME: text-color-invert
       background: token.colorPrimary,
     },
 
-    [`&-in-view&-range-start:not(&-range-start-single),
-    &-in-view&-range-end:not(&-range-end-single)`]: {
+    [`&-in-view:is(&-range-start):not(&-range-start-single),
+    &-in-viewLis(&-range-end):not(&-range-end-single)`]: {
       '&::before': {
         background: token.colorPrimary, // FIXME: primary-1
       },
     },
 
-    '&-in-view&-range-start::before': {
+    '&-in-view:is(&-range-start)::before': {
       insetInlineStart: '50%',
     },
 
-    '&-in-view&-range-end::before': {
+    '&-in-view:is(&-range-end)::before': {
       insetInlineEnd: '50%',
     },
 
     // >>> Range Hover
-    [`&-in-view&-range-hover-start:not(&-in-range):not(&-range-start):not(&-range-end),
-    &-in-view&-range-hover-end:not(&-in-range):not(&-range-start):not(&-range-end),
-    &-in-view&-range-hover-start&-range-start-single,
-    &-in-view&-range-hover-start&-range-start&-range-end&-range-end-near-hover,
-    &-in-view&-range-hover-end&-range-start&-range-end&-range-start-near-hover,
-    &-in-view&-range-hover-end&-range-end-single,
-    &-in-view&-range-hover:not(&-in-range)`]: {
+    [`&-in-view:is(&-range-hover-start):not(&-in-range):not(&-range-start):not(&-range-end),
+    &-in-view:is(&-range-hover-end):not(&-in-range):not(&-range-start):not(&-range-end),
+    &-in-view:is(&-range-hover-start):is(&-range-start-single),
+    &-in-view:is(&-range-hover-start):is(&-range-start):is(&-range-end):is(&-range-end-near-hover),
+    &-in-view:is(&-range-hover-end):is(&-range-start):is(&-range-end):is(&-range-start-near-hover),
+    &-in-view:is(&-range-hover-end):is(&-range-end-single),
+    &-in-view:is(&-range-hover):not(&-in-range)`]: {
       '&::after': {
         position: 'absolute',
         top: '50%',
@@ -511,35 +511,35 @@ const genPickerCellInnerStyle = (token: PickerToken, cellClassName: string): CSS
     },
 
     // Hover with in range
-    [`&-in-view&-in-range&-range-hover::before,
-    &-in-view&-range-start&-range-hover::before,
-    &-in-view&-range-end&-range-hover::before,
-    &-in-view&-range-start:not(&-range-start-single)&-range-hover-start::before,
-    &-in-view&-range-end:not(&-range-end-single)&-range-hover-end::before,
+    [`&-in-view:is(&-in-range):is(&-range-hover)::before,
+    &-in-view:is(&-range-start):is(&-range-hover)::before,
+    &-in-view:is(&-range-end):is(&-range-hover)::before,
+    &-in-view:is(&-range-start):not(&-range-start-single):is(&-range-hover-start)::before,
+    &-in-view:is(&-range-end):not(&-range-end-single):is(&-range-hover-end)::before,
     ${componentCls}-panel
       > :not(${componentCls}-date-panel)
-    &-in-view&-in-range&-range-hover-start::before,
+    &-in-view:is(&-in-range):is(&-range-hover-start)::before,
     ${componentCls}-panel
       > :not(${componentCls}-date-panel)
-    &-in-view&-in-range&-range-hover-end::before`]: {
+    &-in-view:is(&-in-range):is(&-range-hover-end)::before`]: {
       background: token.pickerBasicCellHoverWithRangeColor,
     },
 
     // range start border-radius
-    [`&-in-view&-range-start:not(&-range-start-single):not(&-range-end) ${cellClassName}`]: {
+    [`&-in-view:is(&-range-start):not(&-range-start-single):not(&-range-end) ${cellClassName}`]: {
       borderInlineStartRadius: token.radiusBase,
       borderInlineEndRadius: 0,
     },
 
     // range end border-radius
-    [`&-in-view&-range-end:not(&-range-end-single):not(&-range-start) ${cellClassName}`]: {
+    [`&-in-view:is(&-range-end):not(&-range-end-single):not(&-range-start) ${cellClassName}`]: {
       borderInlineStartRadius: 0,
       borderInlineEndRadius: token.radiusBase,
     },
 
     // DatePanel only
-    [`${componentCls}-date-panel &-in-view&-in-range&-range-hover-start ${cellClassName},
-    ${componentCls}-date-panel &-in-view&-in-range&-range-hover-end ${cellClassName}`]: {
+    [`${componentCls}-date-panel &-in-view:is(&-in-range):is(&-range-hover-start) ${cellClassName},
+    ${componentCls}-date-panel &-in-view:is(&-in-range):is(&-range-hover-end) ${cellClassName}`]: {
       '&::after': {
         position: 'absolute',
         top: 0,
@@ -552,44 +552,45 @@ const genPickerCellInnerStyle = (token: PickerToken, cellClassName: string): CSS
     },
 
     [`${componentCls}-date-panel
-    &-in-view&-in-range&-range-hover-start
+    &-in-view:is(&-in-range):is(&-range-hover-start)
     ${cellClassName}::after`]: {
       insetInlineEnd: -5 - token.controlLineWidth, // FIXME: v4 magic number
       insetInlineStart: 0,
     },
 
-    [`${componentCls}-date-panel &-in-view&-in-range&-range-hover-end ${cellClassName}::after`]: {
-      insetInlineEnd: 0,
-      insetInlineStart: -5 - token.controlLineWidth, // FIXME: v4 magic number
-    },
+    [`${componentCls}-date-panel &-in-view:is(&-in-range):is(&-range-hover-end) ${cellClassName}::after`]:
+      {
+        insetInlineEnd: 0,
+        insetInlineStart: -5 - token.controlLineWidth, // FIXME: v4 magic number
+      },
 
     // Hover with range start & end
-    '&-range-hover&-range-start::after': {
+    '&-range-hover:is(&-range-start)::after': {
       insetInlineEnd: '50%',
     },
 
-    '&-range-hover&-range-end::after': {
+    '&-range-hover:is(&-range-end)::after': {
       insetInlineStart: '50%',
     },
 
     // Edge start
-    [`tr > &-in-view&-range-hover:first-child::after,
-      tr > &-in-view&-range-hover-end:first-child::after,
-      &-in-view&-start&-range-hover-edge-start&-range-hover-edge-start-near-range::after,
-      &-in-view&-range-hover-edge-start:not(&-range-hover-edge-start-near-range)::after,
-      &-in-view&-range-hover-start::after`]: {
+    [`tr > &-in-view:is(&-range-hover):first-child::after,
+      tr > &-in-view:is(&-range-hover-end):first-child::after,
+      &-in-view:is(&-start):is(&-range-hover-edge-start):is(&-range-hover-edge-start-near-range)::after,
+      &-in-view:is(&-range-hover-edge-start):not(&-range-hover-edge-start-near-range)::after,
+      &-in-view:is(&-range-hover-start)::after`]: {
       insetInlineStart: 6, // FIXME: v4 magic number
       borderInlineStart: `${token.controlLineWidth} dashed ${token.pickerDateHoverRangeBorderColor}`,
       borderStartStartRadius: token.controlLineWidth,
-      borderEndStartadius: token.controlLineWidth,
+      borderEndStartRadius: token.controlLineWidth,
     },
 
     // Edge end
-    [`tr > &-in-view&-range-hover:last-child::after,
-      tr > &-in-view&-range-hover-start:last-child::after,
-      &-in-view&-end&-range-hover-edge-end&-range-hover-edge-end-near-range::after,
-      &-in-view&-range-hover-edge-end:not(&-range-hover-edge-end-near-range)::after,
-      &-in-view&-range-hover-end::after`]: {
+    [`tr > &-in-view:is(&-range-hover):last-child::after,
+      tr > &-in-view:is(&-range-hover-start):last-child::after,
+      &-in-view:is(&-end):is(&-range-hover-edge-end):is(&-range-hover-edge-end-near-range)::after,
+      &-in-view:is(&-range-hover-edge-end):not(&-range-hover-edge-end-near-range)::after,
+      &-in-view:is(&-range-hover-end)::after`]: {
       insetInlineEnd: 6, // FIXME: v4 magic number
       borderInlineEnd: `${token.controlLineWidth} dashed ${token.pickerDateHoverRangeBorderColor}`,
       borderStartEndRadius: token.controlLineWidth,
@@ -609,7 +610,7 @@ const genPickerCellInnerStyle = (token: PickerToken, cellClassName: string): CSS
         background: new TinyColor({ r: 0, g: 0, b: 0, a: 0.04 }).toRgbString(),
       },
     },
-    [`&-disabled&-today ${cellClassName}::before`]: {
+    [`&-disabled:is(&-today) ${cellClassName}::before`]: {
       borderColor: token.colorTextDisabled,
     },
   };
@@ -800,9 +801,9 @@ const genPanelStyle: GenerateStyle<PickerToken> = token => {
         },
 
         [`&-decade-panel,
-  &-year-panel,
-  &-quarter-panel,
-  &-month-panel`]: {
+          &-year-panel,
+          &-quarter-panel,
+          &-month-panel`]: {
           [`${componentCls}-content`]: {
             height: token.pickerPanelWithoutTimeCellHeight * 4,
           },
@@ -856,7 +857,7 @@ const genPanelStyle: GenerateStyle<PickerToken> = token => {
             color: token.colorLinkActive,
           },
 
-          '&&-disabled': {
+          '&:is(&-disabled)': {
             color: token.colorTextDisabled,
             cursor: 'not-allowed',
           },
