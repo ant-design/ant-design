@@ -26,7 +26,8 @@ const genStepsRTLStyle: GenerateStyle<StepsToken, CSSObject> = token => {
           insetInlineStart: 'auto',
         },
         '&-subtitle': {
-          marginInline: '0 8px', // FIXME: hardcode in v4
+          // marginInline: '0 8px',
+          float: 'left',
         },
         '&-title': {
           // paddingInlineEnd: 0,
