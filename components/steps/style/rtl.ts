@@ -41,7 +41,7 @@ const genStepsRTLStyle: GenerateStyle<StepsToken, CSSObject> = token => {
 
       [`&${componentCls}-horizontal:not(${componentCls}-label-vertical)`]: {
         [`${componentCls}-item`]: {
-          paddingInlineEnd: 16, // FIXME: hardcode in v4
+          // paddingInlineEnd: 16,
           // paddingInlineStart: 0,
 
           '&:first-child': {
@@ -68,14 +68,14 @@ const genStepsRTLStyle: GenerateStyle<StepsToken, CSSObject> = token => {
       [`&${componentCls}-navigation`]: {
         [`&${componentCls}-small`]: {
           [`${componentCls}-item-container`]: {
-            marginInlineEnd: -12, // FIXME: hardcode in v4
-            marginInlineStart: 0, // FIXME: hardcode in v4
+            // marginInlineEnd: -12,
+            // marginInlineStart: 0,
           },
         },
 
         [`${componentCls}-item-container`]: {
-          marginInlineEnd: -16, // FIXME: hardcode in v4
-          marginInlineStart: 0, // FIXME: hardcode in v4
+          // marginInlineEnd: -16,
+          // marginInlineStart: 0,
           // textAlign: 'right',
 
           [`${componentCls}-item-title`]: {
@@ -86,8 +86,8 @@ const genStepsRTLStyle: GenerateStyle<StepsToken, CSSObject> = token => {
         [`${componentCls}-item::after`]: {
           // insetInlineEnd: '100%',
           // insetInlineStart: 'auto',
-          marginInlineEnd: -2, // FIXME: hardcode in v4
-          marginInlineStart: 0, // FIXME: hardcode in v4
+          // marginInlineEnd: -2,
+          // marginInlineStart: 0,
           transform: 'rotate(315deg)', // FIXME: hardcode in v4
         },
       },
@@ -95,7 +95,7 @@ const genStepsRTLStyle: GenerateStyle<StepsToken, CSSObject> = token => {
       // small
       [`&${componentCls}-small`]: {
         [`&${componentCls}-horizontal:not(${componentCls}-label-vertical) ${componentCls}-item`]: {
-          paddingInlineEnd: 12, // FIXME: hardcode in v4
+          // paddingInlineEnd: 12,
           // paddingInlineStart: 0,
 
           '&:first-child': {
@@ -149,13 +149,13 @@ const genStepsRTLStyle: GenerateStyle<StepsToken, CSSObject> = token => {
         },
 
         [`${componentCls}-item:first-child ${componentCls}-icon-dot`]: {
-          insetInlineEnd: 2, // FIXME: hardcode in v4
-          insetInlineStart: 'auto',
+          // insetInlineEnd: 2,
+          // insetInlineStart: 'auto',
         },
 
         [`&${componentCls}-small ${componentCls}-item:first-child ${componentCls}-icon-dot`]: {
-          insetInlineEnd: 2, // FIXME: hardcode in v4
-          insetInlineStart: 'auto',
+          // insetInlineEnd: 2,
+          // insetInlineStart: 'auto',
         },
 
         [`${componentCls}-item-icon, &${componentCls}-small ${componentCls}-item-icon`]: {
@@ -203,6 +203,10 @@ const genStepsRTLStyle: GenerateStyle<StepsToken, CSSObject> = token => {
       // RTL Steps with progress
       [`&${componentCls}-with-progress${componentCls}-horizontal${componentCls}-label-horizontal`]:
         {
+          [`${componentCls}-item:first-child`]: {
+            paddingInlineEnd: 4, // FIXME: hardcode in v4
+            paddingInlineStart: 0, // FIXME: hardcode in v4
+          },
           [`${componentCls}-item:first-child${componentCls}-item-active`]: {
             paddingInlineEnd: 4, // FIXME: hardcode in v4
           },
