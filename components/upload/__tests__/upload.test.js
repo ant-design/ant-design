@@ -16,8 +16,8 @@ import { sleep, render, fireEvent } from '../../../tests/utils';
 globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 
 describe('Upload', () => {
-  // mountTest(Upload);
-  // rtlTest(Upload);
+  mountTest(Upload);
+  rtlTest(Upload);
 
   beforeEach(() => setup());
   afterEach(() => teardown());
