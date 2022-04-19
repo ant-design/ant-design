@@ -349,7 +349,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
           },
 
           [`${componentCls}-ok`]: {
-            marginInlineStart: token.paddingXS,
+            marginInlineStart: 'auto',
           },
         },
 
