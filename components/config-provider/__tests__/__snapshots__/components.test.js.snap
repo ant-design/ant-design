@@ -15582,12 +15582,12 @@ exports[`ConfigProvider components Modal configProvider 1`] = `
     />
     <div
       class="config-modal-wrap"
-      role="dialog"
       tabindex="-1"
     >
       <div
+        aria-modal="true"
         class="config-modal"
-        role="document"
+        role="dialog"
         style="width:520px"
       >
         <div
@@ -15674,12 +15674,12 @@ exports[`ConfigProvider components Modal configProvider componentSize large 1`] 
     />
     <div
       class="config-modal-wrap"
-      role="dialog"
       tabindex="-1"
     >
       <div
+        aria-modal="true"
         class="config-modal"
-        role="document"
+        role="dialog"
         style="width:520px"
       >
         <div
@@ -15766,12 +15766,12 @@ exports[`ConfigProvider components Modal configProvider componentSize middle 1`]
     />
     <div
       class="config-modal-wrap"
-      role="dialog"
       tabindex="-1"
     >
       <div
+        aria-modal="true"
         class="config-modal"
-        role="document"
+        role="dialog"
         style="width:520px"
       >
         <div
@@ -15858,12 +15858,12 @@ exports[`ConfigProvider components Modal configProvider virtual and dropdownMatc
     />
     <div
       class="ant-modal-wrap"
-      role="dialog"
       tabindex="-1"
     >
       <div
+        aria-modal="true"
         class="ant-modal"
-        role="document"
+        role="dialog"
         style="width:520px"
       >
         <div
@@ -15950,12 +15950,12 @@ exports[`ConfigProvider components Modal normal 1`] = `
     />
     <div
       class="ant-modal-wrap"
-      role="dialog"
       tabindex="-1"
     >
       <div
+        aria-modal="true"
         class="ant-modal"
-        role="document"
+        role="dialog"
         style="width:520px"
       >
         <div
@@ -16042,12 +16042,12 @@ exports[`ConfigProvider components Modal prefixCls 1`] = `
     />
     <div
       class="prefix-Modal-wrap"
-      role="dialog"
       tabindex="-1"
     >
       <div
+        aria-modal="true"
         class="prefix-Modal"
-        role="document"
+        role="dialog"
         style="width:520px"
       >
         <div

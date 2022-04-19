@@ -11,7 +11,7 @@ describe('dropIndicatorRender', () => {
       direction: 'ltr',
     });
     const wrapper = mount(indicator);
-    expect(wrapper.props().style.bottom).toEqual(-3);
+    expect(wrapper.find('div').props().style!.bottom).toEqual(-3);
   });
   it('work with dropPosition inner (-0)', () => {
     const indicator = dropIndicatorRender({
@@ -22,8 +22,8 @@ describe('dropIndicatorRender', () => {
       direction: 'ltr',
     });
     const wrapper = mount(indicator);
-    expect(wrapper.props().style.bottom).toEqual(-3);
-    expect(wrapper.props().style.left).toEqual(24 + offset);
+    expect(wrapper.find('div').props().style!.bottom).toEqual(-3);
+    expect(wrapper.find('div').props().style!.left).toEqual(24 + offset);
   });
   it('work with dropPosition after (-1)', () => {
     const indicator = dropIndicatorRender({
@@ -34,7 +34,7 @@ describe('dropIndicatorRender', () => {
       direction: 'ltr',
     });
     const wrapper = mount(indicator);
-    expect(wrapper.props().style.top).toEqual(-3);
+    expect(wrapper.find('div').props().style!.top).toEqual(-3);
   });
   it('work with drop level', () => {
     const indicator = dropIndicatorRender({
@@ -45,7 +45,7 @@ describe('dropIndicatorRender', () => {
       direction: 'ltr',
     });
     const wrapper = mount(indicator);
-    expect(wrapper.props().style.left).toEqual(-2 * 24 + offset);
+    expect(wrapper.find('div').props().style!.left).toEqual(-2 * 24 + offset);
   });
   it('work with drop level (rtl)', () => {
     const indicator = dropIndicatorRender({
@@ -56,6 +56,6 @@ describe('dropIndicatorRender', () => {
       direction: 'rtl',
     });
     const wrapper = mount(indicator);
-    expect(wrapper.props().style.right).toEqual(-2 * 24 + offset);
+    expect(wrapper.find('div').props().style!.right).toEqual(-2 * 24 + offset);
   });
 });

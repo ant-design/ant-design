@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { mount } from 'enzyme';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent } from '../../../tests/utils';
 // eslint-disable-next-line import/no-unresolved
 import Form from '../../form';
 import Input, { InputProps, InputRef } from '..';

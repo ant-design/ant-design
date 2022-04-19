@@ -1,7 +1,6 @@
 /* eslint-disable react/no-string-refs, react/prefer-es6-class */
 import React from 'react';
-import { mount } from 'enzyme';
-import { render, fireEvent } from '@testing-library/react';
+import { mount, originMount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import produce from 'immer';
 import { cloneDeep } from 'lodash';
@@ -12,7 +11,7 @@ import { setup, teardown } from './mock';
 import { resetWarned } from '../../_util/devWarning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { sleep } from '../../../tests/utils';
+import { sleep, render, fireEvent } from '../../../tests/utils';
 
 globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 
@@ -203,15 +202,16 @@ describe('Upload', () => {
 
   // https://github.com/ant-design/ant-design/issues/14779
   it('should contain input file control if upload button is hidden', () => {
-    const wrapper = mount(
+    const { container, rerender } = render(
       <Upload action="http://upload.com">
         <button type="button">upload</button>
       </Upload>,
     );
 
-    expect(wrapper.find('input[type="file"]').length).toBe(1);
-    wrapper.setProps({ children: null });
-    expect(wrapper.find('input[type="file"]').length).toBe(1);
+    expect(container.querySelectorAll('input[type="file"]')).toHaveLength(1);
+
+    rerender(<Upload action="http://upload.com" />);
+    expect(container.querySelectorAll('input[type="file"]')).toHaveLength(1);
   });
 
   // https://github.com/ant-design/ant-design/issues/14298
@@ -224,15 +224,15 @@ describe('Upload', () => {
       </Form>
     );
 
-    const wrapper = mount(
+    const { container, rerender } = render(
       <Demo>
         <div>upload</div>
       </Demo>,
     );
 
-    expect(wrapper.find('input#upload').length).toBe(1);
-    wrapper.setProps({ children: null });
-    expect(wrapper.find('input#upload').length).toBe(0);
+    expect(container.querySelector('input#upload')).toBeTruthy();
+    rerender(<Demo />);
+    expect(container.querySelector('input#upload')).toBeFalsy();
   });
 
   // https://github.com/ant-design/ant-design/issues/16478
@@ -874,9 +874,10 @@ describe('Upload', () => {
     expect(onChange.mock.calls[0][0].fileList).toHaveLength(1);
   });
 
+  // FIXME: @zombieJ React 18 StrictMode
   // https://github.com/ant-design/ant-design/issues/33819
   it('should show the animation of the upload children leaving when the upload children becomes null', async () => {
-    const wrapper = mount(
+    const wrapper = originMount(
       <Upload listType="picture-card">
         <button type="button">upload</button>
       </Upload>,

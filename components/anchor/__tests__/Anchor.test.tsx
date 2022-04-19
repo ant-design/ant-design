@@ -2,7 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import Anchor from '..';
 import type { InternalAnchorClass } from '../Anchor';
-import { sleep } from '../../../tests/utils';
+import { sleep, render } from '../../../tests/utils';
 
 const { Link } = Anchor;
 
@@ -137,18 +137,19 @@ describe('Anchor Render', () => {
     expect(removeListenerSpy).toHaveBeenCalled();
   });
 
-  it('should unregister link when unmount children', async () => {
+  it('should unregister link when unmount children', () => {
     const hash = getHashUrl();
-    const wrapper = mount(
+    const { container, rerender } = render(
       <Anchor>
         <Link href={`#${hash}`} title={hash} />
       </Anchor>,
     );
-    const anchorInstance = wrapper.find('Anchor').last().instance() as any as InternalAnchorClass;
 
-    expect((anchorInstance as any).links).toEqual([`#${hash}`]);
-    wrapper.setProps({ children: null });
-    expect((anchorInstance as any).links).toEqual([]);
+    expect(container.querySelectorAll('.ant-anchor-link-title')).toHaveLength(1);
+    expect(container.querySelector('.ant-anchor-link-title')).toHaveAttribute('href', `#${hash}`);
+
+    rerender(<Anchor />);
+    expect(container.querySelector('.ant-anchor-link-title')).toBeFalsy();
   });
 
   it('should update links when link href update', async () => {

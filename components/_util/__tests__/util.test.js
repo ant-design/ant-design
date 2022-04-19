@@ -148,7 +148,9 @@ describe('Test utils function', () => {
             button
           </button>
         </Wave>,
-      ).instance();
+      )
+        .find(Wave)
+        .instance();
       expect(wrapper.bindAnimationEvent()).toBe(undefined);
     });
 
@@ -159,7 +161,9 @@ describe('Test utils function', () => {
             button
           </button>
         </Wave>,
-      ).instance();
+      )
+        .find(Wave)
+        .instance();
       expect(wrapper.bindAnimationEvent()).toBe(undefined);
     });
 
@@ -168,7 +172,9 @@ describe('Test utils function', () => {
         <Wave>
           <input />
         </Wave>,
-      ).instance();
+      )
+        .find(Wave)
+        .instance();
       expect(wrapper.bindAnimationEvent()).toBe(undefined);
     });
 
