@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import Slider from '..';
 import ConfigProvider from '../../config-provider';
 import mountTest from '../../../tests/shared/mountTest';
@@ -16,17 +16,17 @@ describe('Slider', () => {
   it('should show tooltip when hovering slider handler', () => {
     const wrapper = mount(<Slider defaultValue={30} />);
     wrapper.find('.ant-slider-handle').at(0).simulate('mouseEnter');
-    expect(render(wrapper.find('Trigger').instance().getComponent())).toMatchSnapshot();
+    expect(wrapper.find('Trigger').render()).toMatchSnapshot();
     wrapper.find('.ant-slider-handle').at(0).simulate('mouseLeave');
-    expect(render(wrapper.find('Trigger').instance().getComponent())).toMatchSnapshot();
+    expect(wrapper.find('Trigger').render()).toMatchSnapshot();
   });
 
   it('should show correct placement tooltip when set tooltipPlacement', () => {
     const wrapper = mount(<Slider vertical defaultValue={30} tooltipPlacement="left" />);
     wrapper.find('.ant-slider-handle').at(0).simulate('mouseEnter');
-    expect(render(wrapper.find('Trigger').instance().getComponent())).toMatchSnapshot();
+    expect(wrapper.find('Trigger').render()).toMatchSnapshot();
     wrapper.find('.ant-slider-handle').at(0).simulate('mouseLeave');
-    expect(render(wrapper.find('Trigger').instance().getComponent())).toMatchSnapshot();
+    expect(wrapper.find('Trigger').render()).toMatchSnapshot();
   });
 
   it('when tooltipVisible is true, tooltip should show always, or should never show', () => {
@@ -84,7 +84,7 @@ describe('Slider', () => {
         <Slider defaultValue={30} tooltipVisible />
       </ConfigProvider>,
     );
-    expect(render(wrapper)).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('should keepAlign by calling forcePopupAlign', async () => {

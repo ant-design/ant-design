@@ -1,10 +1,9 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { render } from '@testing-library/react';
 import Table from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { sleep } from '../../../tests/utils';
+import { sleep, render } from '../../../tests/utils';
 
 const { Column, ColumnGroup } = Table;
 

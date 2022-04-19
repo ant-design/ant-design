@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 // eslint-disable-next-line import/no-named-as-default
-import Spin, { Spin as SpinClass } from '..';
+import Spin from '..';
 import { sleep } from '../../../tests/utils';
 
 describe('delay spinning', () => {
@@ -25,8 +25,8 @@ describe('delay spinning', () => {
 
   it('should cancel debounce function when unmount', async () => {
     const wrapper = mount(<Spin spinning delay={100} />);
-    const spy = jest.spyOn(wrapper.find(SpinClass).instance().updateSpinning, 'cancel');
-    expect(wrapper.find(SpinClass).instance().updateSpinning.cancel).toEqual(expect.any(Function));
+    const spy = jest.spyOn(wrapper.find(Spin).instance().updateSpinning, 'cancel');
+    expect(wrapper.find(Spin).instance().updateSpinning.cancel).toEqual(expect.any(Function));
     expect(spy).not.toHaveBeenCalled();
     wrapper.unmount();
     expect(spy).toHaveBeenCalled();

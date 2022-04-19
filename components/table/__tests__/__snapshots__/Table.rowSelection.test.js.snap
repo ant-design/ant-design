@@ -18,10 +18,10 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
         >
           <div
             class="ant-table-content"
-            style="overflow-x:auto;overflow-y:hidden"
+            style="overflow-x: auto; overflow-y: hidden;"
           >
             <table
-              style="width:903px;min-width:100%;table-layout:fixed"
+              style="width: 903px; min-width: 100%; table-layout: fixed;"
             >
               <colgroup>
                 <col
@@ -37,11 +37,11 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                 <tr>
                   <th
                     class="ant-table-cell ant-table-row-expand-icon-cell ant-table-cell-fix-left"
-                    style="position:sticky;left:0"
+                    style="position: sticky; left: 0px;"
                   />
                   <th
                     class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    style="position: sticky; left: 0px;"
                   >
                     <div
                       class="ant-table-selection"
@@ -55,6 +55,7 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
+                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -76,31 +77,31 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height:0;font-size:0"
+                  style="height: 0px; font-size: 0px;"
                 >
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding: 0px; border: 0px; height: 0px;"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height: 0px; overflow: hidden;"
                     >
                        
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding: 0px; border: 0px; height: 0px;"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height: 0px; overflow: hidden;"
                     >
                        
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding: 0px; border: 0px; height: 0px;"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height: 0px; overflow: hidden;"
                     >
                        
                     </div>
@@ -112,7 +113,7 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                 >
                   <td
                     class="ant-table-cell ant-table-row-expand-icon-cell ant-table-cell-fix-left"
-                    style="position:sticky;left:0"
+                    style="position: sticky; left: 0px;"
                   >
                     <button
                       aria-label="Expand row"
@@ -122,7 +123,7 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                   </td>
                   <td
                     class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    style="position: sticky; left: 0px;"
                   >
                     <label
                       class="ant-checkbox-wrapper"
@@ -133,6 +134,7 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
+                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -152,7 +154,7 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                 >
                   <td
                     class="ant-table-cell ant-table-row-expand-icon-cell ant-table-cell-fix-left"
-                    style="position:sticky;left:0"
+                    style="position: sticky; left: 0px;"
                   >
                     <button
                       aria-label="Expand row"
@@ -162,7 +164,7 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                   </td>
                   <td
                     class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    style="position: sticky; left: 0px;"
                   >
                     <label
                       class="ant-checkbox-wrapper"
@@ -173,6 +175,7 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
+                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -192,7 +195,7 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                 >
                   <td
                     class="ant-table-cell ant-table-row-expand-icon-cell ant-table-cell-fix-left"
-                    style="position:sticky;left:0"
+                    style="position: sticky; left: 0px;"
                   >
                     <button
                       aria-label="Expand row"
@@ -202,7 +205,7 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                   </td>
                   <td
                     class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    style="position: sticky; left: 0px;"
                   >
                     <label
                       class="ant-checkbox-wrapper"
@@ -213,6 +216,7 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
+                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -232,7 +236,7 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                 >
                   <td
                     class="ant-table-cell ant-table-row-expand-icon-cell ant-table-cell-fix-left"
-                    style="position:sticky;left:0"
+                    style="position: sticky; left: 0px;"
                   >
                     <button
                       aria-label="Expand row"
@@ -242,7 +246,7 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                   </td>
                   <td
                     class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    style="position: sticky; left: 0px;"
                   >
                     <label
                       class="ant-checkbox-wrapper"
@@ -253,6 +257,7 @@ exports[`Table.rowSelection fix expand on th left when selection column fixed on
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
+                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -374,10 +379,10 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
         >
           <div
             class="ant-table-content"
-            style="overflow-x:auto;overflow-y:hidden"
+            style="overflow-x: auto; overflow-y: hidden;"
           >
             <table
-              style="width:903px;min-width:100%;table-layout:fixed"
+              style="width: 903px; min-width: 100%; table-layout: fixed;"
             >
               <colgroup>
                 <col
@@ -390,7 +395,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                 <tr>
                   <th
                     class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    style="position: sticky; left: 0px;"
                   >
                     <div
                       class="ant-table-selection"
@@ -404,6 +409,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
+                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -425,22 +431,22 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height:0;font-size:0"
+                  style="height: 0px; font-size: 0px;"
                 >
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding: 0px; border: 0px; height: 0px;"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height: 0px; overflow: hidden;"
                     >
                        
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding: 0px; border: 0px; height: 0px;"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height: 0px; overflow: hidden;"
                     >
                        
                     </div>
@@ -452,7 +458,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                 >
                   <td
                     class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    style="position: sticky; left: 0px;"
                   >
                     <label
                       class="ant-checkbox-wrapper"
@@ -463,6 +469,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
+                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -482,7 +489,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                 >
                   <td
                     class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    style="position: sticky; left: 0px;"
                   >
                     <label
                       class="ant-checkbox-wrapper"
@@ -493,6 +500,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
+                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -512,7 +520,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                 >
                   <td
                     class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    style="position: sticky; left: 0px;"
                   >
                     <label
                       class="ant-checkbox-wrapper"
@@ -523,6 +531,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
+                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -542,7 +551,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                 >
                   <td
                     class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    style="position: sticky; left: 0px;"
                   >
                     <label
                       class="ant-checkbox-wrapper"
@@ -553,6 +562,7 @@ exports[`Table.rowSelection fix selection column on the left 1`] = `
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
+                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -674,10 +684,10 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
         >
           <div
             class="ant-table-content"
-            style="overflow-x:auto;overflow-y:hidden"
+            style="overflow-x: auto; overflow-y: hidden;"
           >
             <table
-              style="width:903px;min-width:100%;table-layout:fixed"
+              style="width: 903px; min-width: 100%; table-layout: fixed;"
             >
               <colgroup>
                 <col
@@ -690,7 +700,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                 <tr>
                   <th
                     class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
-                    style="position:sticky;left:0"
+                    style="position: sticky; left: 0px;"
                   >
                     <div
                       class="ant-table-selection"
@@ -704,6 +714,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
+                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -714,7 +725,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                   </th>
                   <th
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    style="position: sticky; left: 0px;"
                   >
                     Name
                   </th>
@@ -726,22 +737,22 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height:0;font-size:0"
+                  style="height: 0px; font-size: 0px;"
                 >
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding: 0px; border: 0px; height: 0px;"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height: 0px; overflow: hidden;"
                     >
                        
                     </div>
                   </td>
                   <td
-                    style="padding:0;border:0;height:0"
+                    style="padding: 0px; border: 0px; height: 0px;"
                   >
                     <div
-                      style="height:0;overflow:hidden"
+                      style="height: 0px; overflow: hidden;"
                     >
                        
                     </div>
@@ -753,7 +764,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                 >
                   <td
                     class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
-                    style="position:sticky;left:0"
+                    style="position: sticky; left: 0px;"
                   >
                     <label
                       class="ant-checkbox-wrapper"
@@ -764,6 +775,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
+                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -773,7 +785,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    style="position: sticky; left: 0px;"
                   >
                     Jack
                   </td>
@@ -784,7 +796,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                 >
                   <td
                     class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
-                    style="position:sticky;left:0"
+                    style="position: sticky; left: 0px;"
                   >
                     <label
                       class="ant-checkbox-wrapper"
@@ -795,6 +807,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
+                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -804,7 +817,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    style="position: sticky; left: 0px;"
                   >
                     Lucy
                   </td>
@@ -815,7 +828,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                 >
                   <td
                     class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
-                    style="position:sticky;left:0"
+                    style="position: sticky; left: 0px;"
                   >
                     <label
                       class="ant-checkbox-wrapper"
@@ -826,6 +839,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
+                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -835,7 +849,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    style="position: sticky; left: 0px;"
                   >
                     Tom
                   </td>
@@ -846,7 +860,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                 >
                   <td
                     class="ant-table-cell ant-table-selection-column ant-table-cell-fix-left"
-                    style="position:sticky;left:0"
+                    style="position: sticky; left: 0px;"
                   >
                     <label
                       class="ant-checkbox-wrapper"
@@ -857,6 +871,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
+                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -866,7 +881,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                   </td>
                   <td
                     class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
-                    style="position:sticky;left:0"
+                    style="position: sticky; left: 0px;"
                   >
                     Jerry
                   </td>
@@ -1701,7 +1716,7 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
             class="ant-table-content"
           >
             <table
-              style="table-layout:auto"
+              style="table-layout: auto;"
             >
               <colgroup>
                 <col
@@ -1727,6 +1742,7 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
+                            value=""
                           />
                           <span
                             class="ant-checkbox-inner"
@@ -1761,6 +1777,7 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
+                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -1790,6 +1807,7 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
+                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -1819,6 +1837,7 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
+                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"
@@ -1848,6 +1867,7 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
+                          value=""
                         />
                         <span
                           class="ant-checkbox-inner"

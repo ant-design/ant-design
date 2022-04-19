@@ -25,6 +25,7 @@ export interface StepsProps {
   style?: React.CSSProperties;
   percent?: number;
   onChange?: (current: number) => void;
+  children?: React.ReactNode;
 }
 
 export interface StepProps {
