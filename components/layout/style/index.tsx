@@ -1,7 +1,7 @@
 // deps-lint-skip-all
 // import '../../style/index.less';
 // import './index.less';
-// import { TinyColor } from '@ctrl/tinycolor';
+import { TinyColor } from '@ctrl/tinycolor';
 import type { CSSObject } from '@ant-design/cssinjs';
 import { genComponentStyleHook, mergeToken } from '../../_util/theme';
 import type { GenerateStyle, FullToken } from '../../_util/theme';
@@ -30,7 +30,7 @@ export interface LayoutToken extends FullToken<'Steps'> {
 
 const genLayoutStyle: GenerateStyle<LayoutToken, CSSObject> = token => {
   const {
-    antCls,
+    antCls, // .ant
     componentCls, // .ant-layout
     colorText,
     layoutBodyBackground,
@@ -46,6 +46,8 @@ const genLayoutStyle: GenerateStyle<LayoutToken, CSSObject> = token => {
     layoutTriggerBackground,
     layoutZeroTriggerWidth,
     layoutZeroTriggerHeight,
+    motionDurationMid,
+    motionDurationSlow,
     fontSizeBase,
     radiusBase,
   } = token;
@@ -57,7 +59,7 @@ const genLayoutStyle: GenerateStyle<LayoutToken, CSSObject> = token => {
       flexDirection: 'column',
 
       /* fix firefox can't set height smaller than content on flex item */
-      minHeight: 0,
+      minHeight: 0, // FIXME: hardcode in v4
       background: layoutBodyBackground,
 
       '&, *': {
@@ -67,12 +69,12 @@ const genLayoutStyle: GenerateStyle<LayoutToken, CSSObject> = token => {
       [`&${componentCls}-has-sider`]: {
         flexDirection: 'row',
         [`> ${componentCls}, > ${componentCls}-content`]: {
-          width: 0, // https://segmentfault.com/a/1190000019498300
+          width: 0, // https://segmentfault.com/a/1190000019498300 // FIXME: hardcode in v4
         },
       },
 
       [`${componentCls}-header, &${componentCls}-footer`]: {
-        flex: '0 0 auto',
+        flex: '0 0 auto', // FIXME: hardcode in v4
       },
 
       [`${componentCls}-header`]: {
@@ -94,24 +96,24 @@ const genLayoutStyle: GenerateStyle<LayoutToken, CSSObject> = token => {
         flex: 'auto',
 
         // fix firefox can't set height smaller than content on flex item
-        minHeight: 0,
+        minHeight: 0, // FIXME: hardcode in v4
       },
 
       [`${componentCls}-sider`]: {
         position: 'relative',
 
         // fix firefox can't set width smaller than content on flex item
-        minWidth: 0,
+        minWidth: 0, // FIXME: hardcode in v4
         background: layoutSiderBackground,
-        transition: 'all 0.2s',
+        transition: `all ${motionDurationMid}`,
 
         '&-children': {
-          height: '100%',
-          marginTop: -0.1,
+          height: '100%', // FIXME: hardcode in v4
+          marginTop: -0.1, // FIXME: hardcode in v4
           // Hack for fixing margin collaspe bug
           // https://github.com/ant-design/ant-design/issues/7967
           // solution from https://stackoverflow.com/a/33132624/3040605
-          paddingTop: 0.1,
+          paddingTop: 0.1, // FIXME: hardcode in v4
 
           [`${antCls}-menu${antCls}menu-inline-collapsed`]: {
             width: 'auto',
@@ -123,20 +125,20 @@ const genLayoutStyle: GenerateStyle<LayoutToken, CSSObject> = token => {
         },
 
         '&-right': {
-          order: 1,
+          order: 1, // FIXME: hardcode in v4
         },
 
         '&-trigger': {
           position: 'fixed',
-          bottom: 0,
-          zIndex: 1,
+          bottom: 0, // FIXME: hardcode in v4
+          zIndex: 1, // FIXME: hardcode in v4
           height: layoutTriggerHeight,
           color: layoutTriggerColor,
-          lineHeight: layoutTriggerHeight,
+          lineHeight: `${layoutTriggerHeight}px`,
           textAlign: 'center',
           background: layoutTriggerBackground,
           cursor: 'pointer',
-          transition: 'all 0.2s',
+          transition: `all ${motionDurationMid}`,
         },
 
         '&-zero-width': {
@@ -147,37 +149,37 @@ const genLayoutStyle: GenerateStyle<LayoutToken, CSSObject> = token => {
           '&-trigger': {
             position: 'absolute',
             top: layoutHeaderHeight,
-            right: -layoutZeroTriggerWidth,
-            zIndex: 1,
+            insetInlineEnd: -layoutZeroTriggerWidth, // TODO:
+            zIndex: 1, // FIXME: hardcode in v4
             width: layoutZeroTriggerWidth,
             height: layoutZeroTriggerHeight,
             color: layoutTriggerColor,
-            fontSize: layoutZeroTriggerWidth / 2,
-            lineHeight: layoutZeroTriggerHeight,
+            fontSize: layoutZeroTriggerWidth / 2, // FIXME: hardcode in v4
+            lineHeight: `${layoutZeroTriggerHeight}px`,
             textAlign: 'center',
             background: layoutSiderBackground,
-            borderRadius: `0 ${radiusBase} ${radiusBase} 0`,
+            borderRadius: `0 ${radiusBase} ${radiusBase} 0`, // TODO:
             cursor: 'pointer',
-            transition: 'background 0.3s ease',
+            transition: `background ${motionDurationSlow} ease`,
 
             '&::after': {
               position: 'absolute',
-              top: 0,
-              right: 0,
-              bottom: 0,
-              left: 0,
+              top: 0, // FIXME: hardcode in v4
+              insetInlineEnd: 0, // FIXME: hardcode in v4
+              bottom: 0, // FIXME: hardcode in v4
+              insetInlineStart: 0, // FIXME: hardcode in v4
               background: 'transparent',
-              transition: 'all 0.3s',
-              content: '',
+              transition: `all ${motionDurationSlow}`,
+              content: '""',
             },
 
             '&:hover::after': {
-              background: 'rgba(255, 255, 255, 0.1)',
+              background: new TinyColor('#fff').setAlpha(0.1).toRgbString(), // FIXME: hardcode in v4
             },
 
             '&-right': {
-              left: -layoutZeroTriggerWidth,
-              borderRadius: `${radiusBase} 0 0 ${radiusBase}`,
+              insetInlineStart: -layoutZeroTriggerWidth, // TODO:
+              borderRadius: `${radiusBase} 0 0 ${radiusBase}`, // TODO:
             },
           },
         },
@@ -197,7 +199,6 @@ export default genComponentStyleHook('Layout', token => {
   const layoutHeaderBackground = '#001529'; // FIXME: hardcode in v4
   const layoutBodyBackground = '#F0f2f5'; // FIXME: hardcode in v4
   const { colorText } = token;
-  console.log('@@@:', token);
 
   const layoutToken = mergeToken<LayoutToken>(token, {
     // Layout
@@ -218,8 +219,6 @@ export default genComponentStyleHook('Layout', token => {
     layoutSiderBackgroundLight: '#Fff', // FIXME: hardcode in v4
     layoutTriggerBackgroundLight: '#Fff', // FIXME: hardcode in v4
     layoutTriggerColorLight: colorText,
-
-    // Layout component less variable
   });
 
   return [genLayoutStyle(layoutToken)];

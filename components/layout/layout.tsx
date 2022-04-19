@@ -48,7 +48,7 @@ const Basic = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props, ref) 
   const { prefixCls, className, children, tagName, ...others } = props;
   // const [wrapSSR, hashId] = useStyle(prefixCls as string);
   const classString = classNames(prefixCls, className);
-  console.log('@@@:Basic---classString', classString);
+  // console.log('@@@:Basic---classString', classString);
 
   return React.createElement(tagName, { className: classString, ...others, ref }, children);
 });
@@ -69,7 +69,7 @@ const BasicLayout = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props,
     className,
     hashId,
   );
-  console.log('@@@:BasicLayout---classString', classString);
+  // console.log('@@@:BasicLayout---classString', classString);
 
   const contextValue = React.useMemo(
     () => ({
