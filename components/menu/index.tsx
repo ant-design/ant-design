@@ -43,8 +43,7 @@ type InternalMenuProps = MenuProps &
   };
 
 const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
-  const { getPrefixCls, getPopupContainer, direction, iconPrefixCls } =
-    React.useContext(ConfigContext);
+  const { getPrefixCls, getPopupContainer, direction } = React.useContext(ConfigContext);
 
   const rootPrefixCls = getPrefixCls();
 
@@ -102,7 +101,7 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
   };
 
   const prefixCls = getPrefixCls('menu', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(rootPrefixCls, prefixCls, iconPrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
   const menuClassName = classNames(`${prefixCls}-${theme}`, className);
 
   // ======================== Context ==========================

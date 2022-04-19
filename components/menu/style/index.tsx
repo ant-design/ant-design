@@ -1,20 +1,12 @@
 // deps-lint-skip-all
 import { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-import {
-  DerivativeToken,
-  useStyleRegister,
-  useToken,
-  UseComponentStyleResult,
-  GenerateStyle,
-  resetComponent,
-  clearFix,
-} from '../../_util/theme';
+import { genComponentStyleHook, resetComponent, clearFix } from '../../_util/theme';
+import type { GenerateStyle, FullToken } from '../../_util/theme';
 
-interface MenuToken extends DerivativeToken {
-  rootPrefixCls: string;
-  iconPrefixCls: string;
-  menuCls: string;
+/** Component only token. Which will handle additional calculation of alias token */
+export interface ComponentToken {
+  antPrefix: string;
   componentBackground: string;
   colorTextSecondary: string;
   motionDurationMD: string;
@@ -28,7 +20,6 @@ interface MenuToken extends DerivativeToken {
   textColorDark: string;
   menuInlineSubmenuBg: string;
   disabledColor: string;
-  antPrefix: string;
   darkColor: string;
   darkBg: string;
   colorDark: string;
@@ -41,6 +32,8 @@ interface MenuToken extends DerivativeToken {
   itemActiveDangerBg: string;
 }
 
+interface MenuToken extends FullToken<'Menu'> {}
+
 // =============================== Base ===============================
 const accessibilityFocus: GenerateStyle<MenuToken, CSSObject> = token => ({
   boxShadow: `0 0 0 2px ${token.colorPrimarySecondary}`,
@@ -51,15 +44,15 @@ const accessibilityFocusDark: GenerateStyle<MenuToken, CSSObject> = token => ({
 });
 
 const genStatusStyle = (token: MenuToken): CSSObject => {
-  const { menuCls, highlightDangerColor, itemActiveDangerBg, darkHighlightColor, iconPrefixCls } =
+  const { componentCls, highlightDangerColor, itemActiveDangerBg, darkHighlightColor, iconCls } =
     token;
   return {
-    [`${menuCls}`]: {
+    [`${componentCls}`]: {
       // Danger
-      [`${menuCls}-item-danger${menuCls}-item`]: {
+      [`${componentCls}-item-danger${componentCls}-item`]: {
         color: highlightDangerColor,
 
-        [`&:hover,${menuCls}-active`]: {
+        [`&:hover,${componentCls}-active`]: {
           color: highlightDangerColor,
         },
 
@@ -67,7 +60,7 @@ const genStatusStyle = (token: MenuToken): CSSObject => {
           background: itemActiveDangerBg,
         },
 
-        [`${menuCls}-selected`]: {
+        [`${componentCls}-selected`]: {
           color: highlightDangerColor,
 
           ['> a, > a:hover']: {
@@ -75,11 +68,11 @@ const genStatusStyle = (token: MenuToken): CSSObject => {
           },
         },
 
-        [`${iconPrefixCls}:not(${iconPrefixCls}-horizontal) ${menuCls}-item-selected`]: {
+        [`${iconCls}:not(${iconCls}-horizontal) ${componentCls}-item-selected`]: {
           backgroundColor: itemActiveDangerBg,
         },
 
-        [`${iconPrefixCls}-inline &::after`]: {
+        [`${iconCls}-inline &::after`]: {
           borderRightColor: highlightDangerColor,
         },
       },
@@ -99,19 +92,19 @@ const genStatusStyle = (token: MenuToken): CSSObject => {
   };
 };
 const genLightStyle = (token: MenuToken): CSSObject => {
-  const { menuCls, primaryColor } = token;
+  const { componentCls, primaryColor } = token;
   return {
-    [`${menuCls}-light`]: {
+    [`${componentCls}-light`]: {
       // light theme
       [`
-        ${menuCls}-item:hover,
-        ${menuCls}-item-active,
-        ${menuCls}:not(${menuCls}-inline) ${menuCls}-submenu-open,
-        ${menuCls}-submenu-active,
-        ${menuCls}-submenu-title:hover
+        ${componentCls}-item:hover,
+        ${componentCls}-item-active,
+        ${componentCls}:not(${componentCls}-inline) ${componentCls}-submenu-open,
+        ${componentCls}-submenu-active,
+        ${componentCls}-submenu-title:hover
       `]: {
         color: primaryColor,
-        [`${menuCls}`]: {
+        [`${componentCls}`]: {
           color: '#000',
         },
       },
@@ -119,39 +112,41 @@ const genLightStyle = (token: MenuToken): CSSObject => {
   };
 };
 const genDarkStyle = (token: MenuToken): CSSObject => {
-  const { menuCls, darkColor, darkBg, darkHighlightColor } = token;
+  const { componentCls, darkColor, darkBg, darkHighlightColor } = token;
   return {
-    [`&${menuCls}root:focus-visible`]: {
+    [`&${componentCls}root:focus-visible`]: {
       ...accessibilityFocusDark(token),
     },
 
-    [`${menuCls}-dark ${menuCls}-item, ${menuCls}-dark ${menuCls}-submenu-title`]: {
-      '&:focus-visible': {
-        ...accessibilityFocusDark(token),
-      },
-    },
-
-    // dark theme
-    [`&${menuCls}-dark,${menuCls}-dark ${menuCls}-sub,&${menuCls}-dark ${menuCls}-sub`]: {
-      color: darkColor,
-      background: darkBg,
-      [`${menuCls}-submenu-title ${menuCls}-submenu-arrow`]: {
-        opacity: 0.45,
-        transition: 'all 0.3s',
-
-        '&::after, &::before': {
-          background: darkHighlightColor,
+    [`${componentCls}-dark ${componentCls}-item, ${componentCls}-dark ${componentCls}-submenu-title`]:
+      {
+        '&:focus-visible': {
+          ...accessibilityFocusDark(token),
         },
       },
-    },
+
+    // dark theme
+    [`&${componentCls}-dark,${componentCls}-dark ${componentCls}-sub,&${componentCls}-dark ${componentCls}-sub`]:
+      {
+        color: darkColor,
+        background: darkBg,
+        [`${componentCls}-submenu-title ${componentCls}-submenu-arrow`]: {
+          opacity: 0.45,
+          transition: 'all 0.3s',
+
+          '&::after, &::before': {
+            background: darkHighlightColor,
+          },
+        },
+      },
   };
 };
 
-const genBaseStyle: GenerateStyle<MenuToken> = token => {
+const genBaseStyle: GenerateStyle<MenuToken, CSSObject> = token => {
   const {
     radiusBase,
     zIndexDrop,
-    menuCls,
+    componentCls,
     antPrefix,
     borderColorSplit,
     primaryColor,
@@ -160,7 +155,7 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
     motionEaseInOut,
     motionDurationMD,
     easeOut,
-    iconPrefixCls,
+    iconCls,
     boxShadow,
     componentBackground,
     colorText,
@@ -189,7 +184,7 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
 
   return {
     // default theme
-    [menuCls]: {
+    [componentCls]: {
       ...resetComponent(token),
 
       marginBlockEnd: 0,
@@ -206,12 +201,12 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
       ...clearFix(),
 
       // sub-menu
-      [`${menuCls}`]: {
+      [`${componentCls}`]: {
         color: '#000',
         ...clearFix(),
       },
 
-      [`&${menuCls}-root:focus-visible`]: accessibilityFocus(token),
+      [`&${componentCls}-root:focus-visible`]: accessibilityFocus(token),
 
       'ul, ol': {
         margin: 0,
@@ -219,7 +214,7 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
         listStyle: 'none',
       },
 
-      [`${menuCls}-item-group-title`]: {
+      [`${componentCls}-item-group-title`]: {
         paddingInline: `${padding}px`,
         paddingBlock: `${paddingXS}px`,
         color: colorTextSecondary,
@@ -228,23 +223,23 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
         transition: `all ${motionDurationSlow}`,
       },
 
-      [`${menuCls}-submenu-selected`]: {
+      [`${componentCls}-submenu-selected`]: {
         color: primaryColor,
-        [`${menuCls}`]: {
+        [`${componentCls}`]: {
           color: '#000',
           ...clearFix(),
         },
       },
 
-      [`${menuCls}-item:active,${menuCls}-submenu-title:active`]: {
+      [`${componentCls}-item:active,${componentCls}-submenu-title:active`]: {
         background: itemActiveBg,
       },
 
-      [`${menuCls}-title-content`]: {
+      [`${componentCls}-title-content`]: {
         transition: `color ${motionDurationSlow}`,
       },
 
-      [`${menuCls}-item a`]: {
+      [`${componentCls}-item a`]: {
         color: colorText,
 
         '&:hover': {
@@ -263,7 +258,7 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
       },
 
       // https://github.com/ant-design/ant-design/issues/19809
-      [`${menuCls}-item > ${antPrefix}-badge a`]: {
+      [`${componentCls}-item > ${antPrefix}-badge a`]: {
         color: colorText,
 
         '&:hover': {
@@ -271,7 +266,7 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
         },
       },
 
-      [`${menuCls}-item-divider`]: {
+      [`${componentCls}-item-divider`]: {
         overflow: 'hidden',
         lineHeight: 0,
         borderColor: borderColorSplit,
@@ -281,11 +276,11 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
         borderInlineWidth: 0,
       },
 
-      [`${menuCls}-item-divider-dashed`]: {
+      [`${componentCls}-item-divider-dashed`]: {
         borderStyle: 'dashed',
       },
 
-      [`${menuCls}-item-selected`]: {
+      [`${componentCls}-item-selected`]: {
         color: primaryColor,
 
         'a,a:hover': {
@@ -293,15 +288,15 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
         },
       },
 
-      [`&:not(${menuCls}-horizontal) ${menuCls}-item-selected`]: {
+      [`&:not(${componentCls}-horizontal) ${componentCls}-item-selected`]: {
         backgroundColor: itemActiveBg,
       },
 
-      [`${menuCls}-vertical-right`]: {
+      [`${componentCls}-vertical-right`]: {
         borderInlineStart: `${lineWidth}px ${controlLineType} ${borderColorSplit}`,
       },
 
-      [`${menuCls}-vertical${menuCls}-sub,${menuCls}-vertical-left${menuCls}-sub,${menuCls}-vertical-right${menuCls}-sub`]:
+      [`${componentCls}-vertical${componentCls}-sub,${componentCls}-vertical-left${componentCls}-sub,${componentCls}-vertical-right${componentCls}-sub`]:
         {
           minWidth: 160, // FIXME: hard code in v4
           maxHeight: 'calc(100vh - 100px)', // FIXME: hard code in v4
@@ -316,7 +311,7 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
             overflowY: 'auto',
           },
 
-          [`${menuCls}-item`]: {
+          [`${componentCls}-item`]: {
             insetInlineStart: 0,
             marginInlineStart: 0,
             borderInlineEnd: 0,
@@ -325,17 +320,17 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
               borderInlineEnd: 0,
             },
           },
-          [`> ${menuCls}-item, > ${menuCls}-submenu`]: {
+          [`> ${componentCls}-item, > ${componentCls}-submenu`]: {
             transformOrigin: '0 0',
           },
         },
 
-      [`${menuCls}-horizontal${menuCls}-sub`]: {
+      [`${componentCls}-horizontal${componentCls}-sub`]: {
         // in case of submenu width is too big: https://codesandbox.io/s/qvpwm6mk66
         minWidth: '114px', // FIXME: hard code in v4,
       },
 
-      [`${menuCls}-item,${menuCls}-submenu-title`]: {
+      [`${componentCls}-item,${componentCls}-submenu-title`]: {
         position: 'relative',
         display: 'block',
         margin: 0,
@@ -345,7 +340,7 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
         cursor: 'pointer',
         transition: `border-color ${motionDurationSlow}, background ${motionDurationSlow},padding ${motionDurationSlow} ${motionEaseInOut}`,
 
-        [`${menuCls}-item-icon,${iconPrefixCls}`]: {
+        [`${componentCls}-item-icon,${iconCls}`]: {
           minWidth: '14px', // FIXME: hard code in v4
           fontSize,
           transition: `font-size ${motionDurationMD} ${easeOut},margin ${motionDurationSlow} ${motionEaseInOut}, color ${motionDurationSlow}`,
@@ -357,12 +352,12 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
           },
         },
 
-        [`${menuCls}-item-icon.svg`]: {
+        [`${componentCls}-item-icon.svg`]: {
           verticalAlign: '-0.125em', // FIXME: hard code in v4
         },
 
-        [`&${menuCls}-item-only-child`]: {
-          [`> ${iconPrefixCls},> ${menuCls}-item-icon`]: {
+        [`&${componentCls}-item-only-child`]: {
+          [`> ${iconCls},> ${componentCls}-item-icon`]: {
             marginInlineEnd: 0,
           },
         },
@@ -372,35 +367,35 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
         },
       },
 
-      [`& > ${menuCls}-item-divider`]: {
+      [`& > ${componentCls}-item-divider`]: {
         margin: `${lineWidth}px 0`,
         padding: 0,
       },
 
-      [`&${menuCls}-inline-collapsed`]: {
+      [`&${componentCls}-inline-collapsed`]: {
         width: '80px',
 
         [`
-          > ${menuCls}-item,
-          > ${menuCls}-item-group
-          > ${menuCls}-item-group-list
-          > ${menuCls}-item,
-          > ${menuCls}-item-group
-          > ${menuCls}-item-group-list
-          > ${menuCls}-submenu
-          > ${menuCls}-submenu-title,
-          > ${menuCls}-submenu > ${menuCls}-submenu-title
+          > ${componentCls}-item,
+          > ${componentCls}-item-group
+          > ${componentCls}-item-group-list
+          > ${componentCls}-item,
+          > ${componentCls}-item-group
+          > ${componentCls}-item-group-list
+          > ${componentCls}-submenu
+          > ${componentCls}-submenu-title,
+          > ${componentCls}-submenu > ${componentCls}-submenu-title
         `]: {
           insetInlineStart: 0,
           paddingInline: `calc(50% - 8px)`, // FIXME: hard code in v4
           paddingBlock: 0,
           textOverflow: 'clip',
 
-          [`${menuCls}-submenu-arrow`]: {
+          [`${componentCls}-submenu-arrow`]: {
             opacity: 0,
           },
 
-          [`${menuCls}-item-icon,${iconPrefixCls}`]: {
+          [`${componentCls}-item-icon,${iconCls}`]: {
             margin: 0,
             fontSize: sizeLg,
             lineHeight: `${controlHeightLG}px`,
@@ -412,14 +407,14 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
           },
         },
 
-        [`${menuCls}-item-icon,${iconPrefixCls}`]: {
+        [`${componentCls}-item-icon,${iconCls}`]: {
           display: 'inline-block',
         },
 
         [`&-tooltip`]: {
           pointerEvents: 'none',
 
-          [`${menuCls}-item-icon,${iconPrefixCls}`]: {
+          [`${componentCls}-item-icon,${iconCls}`]: {
             display: 'none',
           },
 
@@ -428,7 +423,7 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
           },
         },
 
-        [`${menuCls}-item-group-title`]: {
+        [`${componentCls}-item-group-title`]: {
           borderInline: `${paddingXXS}px`,
           overflow: 'hidden',
           whiteSpace: 'nowrap',
@@ -436,34 +431,34 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
         },
       },
 
-      [`${menuCls}-item-group-list`]: {
+      [`${componentCls}-item-group-list`]: {
         margin: 0,
         padding: 0,
-        [`${menuCls}-item,${menuCls}-submenu-title`]: {
+        [`${componentCls}-item,${componentCls}-submenu-title`]: {
           paddingBlock: 0,
           paddingInlineStart: '28px', // FIXME: hard code in v4
           paddingInlineEnd: '16px', // FIXME: hard code in v4
         },
       },
-      [`${menuCls}-sub${menuCls}-inline`]: {
+      [`${componentCls}-sub${componentCls}-inline`]: {
         padding: 0,
         background: menuInlineSubmenuBg,
         border: 0,
         borderRadius: 0,
         boxShadow: 'none',
-        [`& > ${menuCls}-item,& > ${menuCls}-submenu > ${menuCls}-submenu-title`]: {
+        [`& > ${componentCls}-item,& > ${componentCls}-submenu > ${componentCls}-submenu-title`]: {
           height: controlHeightLG,
           lineHeight: `${controlHeightLG}px`,
           listStylePosition: 'inside',
           listStyleType: 'disc',
         },
 
-        [`${menuCls}-item-group-title`]: {
+        [`${componentCls}-item-group-title`]: {
           paddingInlineStart: `${controlHeight}px`,
         },
       },
       // Disabled state sets text to gray and nukes hover/tab effects
-      [`${menuCls}-item-disabled, ${menuCls}-submenu-disabled`]: {
+      [`${componentCls}-item-disabled, ${componentCls}-submenu-disabled`]: {
         color: `${disabledColor} !important`,
         background: 'none',
         cursor: 'not-allowed',
@@ -476,10 +471,10 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
           color: `${disabledColor} !important`,
           pointerEvents: 'none',
         },
-        [`> ${menuCls}-submenu-title`]: {
+        [`> ${componentCls}-submenu-title`]: {
           color: `${disabledColor} !important`,
           cursor: 'not-allowed',
-          [`> ${menuCls}-submenu-arrow`]: {
+          [`> ${componentCls}-submenu-arrow`]: {
             [`&::before, &::after`]: {
               background: `${disabledColor} !important`,
             },
@@ -487,7 +482,7 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
         },
       },
 
-      [`${menuCls}-submenu-arrow`]: {
+      [`${componentCls}-submenu-arrow`]: {
         '&::before,&::after': {
           position: 'absolute',
           width: '6px', // FIXME: hard code in v4
@@ -507,11 +502,11 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
         },
       },
 
-      [`${menuCls}-submenu-horizontal ${menuCls}-submenu-arrow`]: {
+      [`${componentCls}-submenu-horizontal ${componentCls}-submenu-arrow`]: {
         display: 'none',
       },
 
-      [`${menuCls}-inline-collapsed ${menuCls}-submenu-arrow, ${menuCls}-submenu-inline ${menuCls}-submenu-arrow`]:
+      [`${componentCls}-inline-collapsed ${componentCls}-submenu-arrow, ${componentCls}-submenu-inline ${componentCls}-submenu-arrow`]:
         {
           // ↓
           '&::before': {
@@ -522,7 +517,7 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
             transform: `rotate(45deg) translateX(-2.5px)`, // FIXME: hard code in v4
           },
         },
-      [`${menuCls}-submenu-open${menuCls}-submenu-inline > ${menuCls}-submenu-title > ${menuCls}-submenu-arrow`]:
+      [`${componentCls}-submenu-open${componentCls}-submenu-inline > ${componentCls}-submenu-title > ${componentCls}-submenu-arrow`]:
         {
           // ↑
           transform: `translateY(-2px)`, // FIXME: hard code in v4
@@ -533,7 +528,7 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
             transform: `rotate(45deg) translateX(2.5px)`, // FIXME: hard code in v4
           },
         },
-      [`${menuCls}-submenu-expand-icon,${menuCls}-submenu-arrow`]: {
+      [`${componentCls}-submenu-expand-icon,${componentCls}-submenu-arrow`]: {
         position: 'absolute',
         insetBlockStart: '50%',
         insetInlineEnd: '16px', // FIXME: hard code in v4
@@ -543,14 +538,14 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
         transition: `transform ${motionDurationSlow} ${motionEaseInOut}`,
       },
       [`
-        ${menuCls}-submenu:hover > ${menuCls}-submenu-title > ${menuCls}-submenu-expand-icon,
-        ${menuCls}-submenu:hover > ${menuCls}-submenu-title > ${menuCls}-submenu-arrow
+        ${componentCls}-submenu:hover > ${componentCls}-submenu-title > ${componentCls}-submenu-expand-icon,
+        ${componentCls}-submenu:hover > ${componentCls}-submenu-title > ${componentCls}-submenu-arrow
       `]: {
         color: primaryColor,
       },
       ...genDarkStyle(token),
 
-      [`${menuCls}-vertical ${menuCls}-item`]: {
+      [`${componentCls}-vertical ${componentCls}-item`]: {
         height: controlHeightLG,
         marginBlock: marginXXS,
         paddingBlock: 0,
@@ -559,24 +554,24 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
         lineHeight: `${controlHeightLG}px`,
         textOverflow: 'ellipsis',
       },
-      [`${menuCls}-hidden`]: {
+      [`${componentCls}-hidden`]: {
         display: 'none',
       },
     },
 
-    [`${menuCls}-submenu-hidden`]: {
+    [`${componentCls}-submenu-hidden`]: {
       display: 'none',
     },
     // ========================= root  ============================
-    [`${menuCls}-root${menuCls}-vertical,
-      ${menuCls}-root${menuCls}-vertical-left,
-      ${menuCls}-root${menuCls}-vertical-right,
-      ${menuCls}-root${menuCls}-inline`]: {
+    [`${componentCls}-root${componentCls}-vertical,
+      ${componentCls}-root${componentCls}-vertical-left,
+      ${componentCls}-root${componentCls}-vertical-right,
+      ${componentCls}-root${componentCls}-inline`]: {
       boxShadow: 'none',
     },
-    [`${menuCls}-root&-inline-collapsed`]: {
-      [`${menuCls}-item,${menuCls}-submenu ${menuCls}-submenu-title`]: {
-        [`> ${menuCls}-inline-collapsed-noicon`]: {
+    [`${componentCls}-root&-inline-collapsed`]: {
+      [`${componentCls}-item,${componentCls}-submenu ${componentCls}-submenu-title`]: {
+        [`> ${componentCls}-inline-collapsed-noicon`]: {
           fontSize: sizeLg,
           textAlign: 'center',
         },
@@ -584,29 +579,29 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
     },
 
     // ========================= dark  ============================
-    [`${menuCls}-dark ${menuCls}-inline${menuCls}-sub`]: {
+    [`${componentCls}-dark ${componentCls}-inline${componentCls}-sub`]: {
       background: darkInlineSubmenuBg,
     },
 
     [`
-      ${menuCls}-dark ${menuCls}-item,${menuCls}-dark ${menuCls}-item-group-title,
-      ${menuCls}-dark ${menuCls}-item > a,${menuCls}-dark ${menuCls}-item > span > a
+      ${componentCls}-dark ${componentCls}-item,${componentCls}-dark ${componentCls}-item-group-title,
+      ${componentCls}-dark ${componentCls}-item > a,${componentCls}-dark ${componentCls}-item > span > a
     `]: {
       color: darkColor,
     },
 
     [`
-      ${menuCls}-dark${menuCls}-inline,${menuCls}-dark${menuCls}-vertical,
-      ${menuCls}-dark${menuCls}-vertical-left,${menuCls}-dark${menuCls}-vertical-right
+      ${componentCls}-dark${componentCls}-inline,${componentCls}-dark${componentCls}-vertical,
+      ${componentCls}-dark${componentCls}-vertical-left,${componentCls}-dark${componentCls}-vertical-right
     `]: {
       borderInlineEnd: 0,
     },
 
     [`
-      ${menuCls}-dark${menuCls}-inline ${menuCls}-item,
-      ${menuCls}-dark${menuCls}-vertical ${menuCls}-item,
-      ${menuCls}-dark${menuCls}-vertical-left ${menuCls}-item,
-      ${menuCls}-dark${menuCls}-vertical-right ${menuCls}-item
+      ${componentCls}-dark${componentCls}-inline ${componentCls}-item,
+      ${componentCls}-dark${componentCls}-vertical ${componentCls}-item,
+      ${componentCls}-dark${componentCls}-vertical-left ${componentCls}-item,
+      ${componentCls}-dark${componentCls}-vertical-right ${componentCls}-item
     `]: {
       insetInlineStart: 0,
       marginInlineStart: 0,
@@ -618,31 +613,31 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
     },
 
     [`
-      ${menuCls}-dark${menuCls}-inline ${menuCls}-item,
-      ${menuCls}-dark${menuCls}-inline ${menuCls}-submenu-title
+      ${componentCls}-dark${componentCls}-inline ${componentCls}-item,
+      ${componentCls}-dark${componentCls}-inline ${componentCls}-submenu-title
     `]: {
       width: '100%',
     },
 
     [`
-      ${menuCls}-dark ${menuCls}-item:hover,
-      ${menuCls}-dark ${menuCls}-item-active,
-      ${menuCls}-dark ${menuCls}-submenu-active,
-      ${menuCls}-dark ${menuCls}-submenu-open,
-      ${menuCls}-dark ${menuCls}-submenu-selected,
-      ${menuCls}-dark ${menuCls}-submenu-title:hover
+      ${componentCls}-dark ${componentCls}-item:hover,
+      ${componentCls}-dark ${componentCls}-item-active,
+      ${componentCls}-dark ${componentCls}-submenu-active,
+      ${componentCls}-dark ${componentCls}-submenu-open,
+      ${componentCls}-dark ${componentCls}-submenu-selected,
+      ${componentCls}-dark ${componentCls}-submenu-title:hover
     `]: {
       color: darkHighlightColor,
       backgroundColor: 'transparent',
-      [`${menuCls}`]: {
+      [`${componentCls}`]: {
         color: '#000',
         ...clearFix(),
       },
       '> a, > span > a': {
         color: darkHighlightColor,
       },
-      [`> ${menuCls}-submenu-title`]: {
-        [`> ${menuCls}-submenu-arrow`]: {
+      [`> ${componentCls}-submenu-title`]: {
+        [`> ${componentCls}-submenu-arrow`]: {
           opacity: 1,
 
           '&::after, &::before': {
@@ -652,15 +647,16 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
       },
     },
 
-    [`${menuCls}-dark ${menuCls}-item:hover`]: {
+    [`${componentCls}-dark ${componentCls}-item:hover`]: {
       backgroundColor: 'transparent',
     },
 
-    [`${menuCls}-dark${menuCls}-dark:not(${menuCls}-horizontal) ${menuCls}-item-selected`]: {
-      backgroundColor: primaryColor,
-    },
+    [`${componentCls}-dark${componentCls}-dark:not(${componentCls}-horizontal) ${componentCls}-item-selected`]:
+      {
+        backgroundColor: primaryColor,
+      },
 
-    [`${menuCls}-dark ${menuCls}-item-selected`]: {
+    [`${componentCls}-dark ${componentCls}-item-selected`]: {
       color: darkHighlightColor,
       borderInlineEnd: 0,
 
@@ -672,7 +668,7 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
         color: darkHighlightColor,
       },
 
-      [`${menuCls}-item-icon, ${iconPrefixCls}`]: {
+      [`${componentCls}-item-icon, ${iconCls}`]: {
         color: darkHighlightColor,
 
         '+ span': {
@@ -681,31 +677,32 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
       },
     },
 
-    [`&${menuCls}-dark ${menuCls}-item-selected,${menuCls}-submenu-popup${menuCls}-dark ${menuCls}-item-selected`]:
+    [`&${componentCls}-dark ${componentCls}-item-selected,${componentCls}-submenu-popup${componentCls}-dark ${componentCls}-item-selected`]:
       {
         backgroundColor: primaryColor,
       },
 
     // Disabled state sets text to dark gray and nukes hover/tab effects
-    [`${menuCls}-dark ${menuCls}-item-disabled,${menuCls}-dark ${menuCls}-submenu-disabled`]: {
-      '&, > a, > span > a': {
-        color: `${disabledColorDark} !important`,
-        opacity: 0.8,
-      },
-      [`> ${menuCls}-submenu-title`]: {
-        color: `${disabledColorDark} !important`,
-        [`> ${menuCls}-submenu-arrow`]: {
-          [`&::before, &::after`]: {
-            background: `${disabledColorDark} !important`,
+    [`${componentCls}-dark ${componentCls}-item-disabled,${componentCls}-dark ${componentCls}-submenu-disabled`]:
+      {
+        '&, > a, > span > a': {
+          color: `${disabledColorDark} !important`,
+          opacity: 0.8,
+        },
+        [`> ${componentCls}-submenu-title`]: {
+          color: `${disabledColorDark} !important`,
+          [`> ${componentCls}-submenu-arrow`]: {
+            [`&::before, &::after`]: {
+              background: `${disabledColorDark} !important`,
+            },
           },
         },
       },
-    },
 
     // ========================= inline  ============================
-    [`${menuCls}${menuCls}-inline`]: {
+    [`${componentCls}${componentCls}-inline`]: {
       width: '100%',
-      [`${menuCls}-selected,${menuCls}-item-selected`]: {
+      [`${componentCls}-selected,${componentCls}-item-selected`]: {
         '&::after': {
           transform: 'scaleY(1)',
           opacity: 1,
@@ -713,22 +710,23 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
         },
       },
 
-      [`${menuCls}-item,${menuCls}-submenu-title`]: {
+      [`${componentCls}-item,${componentCls}-submenu-title`]: {
         width: 'calc(100% + 1px)', // FIXME: hard code in v4
       },
 
-      [`${menuCls}-item-group-list ${menuCls}-submenu-title,${menuCls}-submenu-title`]: {
-        paddingInlineEnd: '34px', // FIXME: hard code in v4
-      },
+      [`${componentCls}-item-group-list ${componentCls}-submenu-title,${componentCls}-submenu-title`]:
+        {
+          paddingInlineEnd: '34px', // FIXME: hard code in v4
+        },
     },
     // Motion enhance for first level
-    [`${menuCls}-inline${menuCls}-root`]: {
-      [`${menuCls}-item,${menuCls}-submenu-title`]: {
+    [`${componentCls}-inline${componentCls}-root`]: {
+      [`${componentCls}-item,${componentCls}-submenu-title`]: {
         display: 'flex',
         alignItems: 'center',
         transition: `border-color ${motionDurationSlow}, background ${motionDurationSlow},padding 0.1s ${easeOut}`,
 
-        [`> ${menuCls}-title-content`]: {
+        [`> ${componentCls}-title-content`]: {
           flex: 'auto',
           minWidth: 0,
           overflow: 'hidden',
@@ -740,22 +738,22 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
         },
       },
     },
-    [`${menuCls}-submenu,${menuCls}-submenu-inline`]: {
+    [`${componentCls}-submenu,${componentCls}-submenu-inline`]: {
       transition: `border-color ${motionDurationSlow} ${motionEaseInOut},background ${motionDurationSlow} ${motionEaseInOut},padding ${motionDurationMD} ${motionEaseInOut}`,
     },
-    [`${menuCls}-inline,${menuCls}-vertical,${menuCls}-vertical-left`]: {
+    [`${componentCls}-inline,${componentCls}-vertical,${componentCls}-vertical-left`]: {
       borderInlineEnd: `${lineWidth}px ${controlLineType} ${borderColorSplit}`,
     },
 
     // ========================= horizontal  ============================
-    [`${menuCls}-horizontal`]: {
+    [`${componentCls}-horizontal`]: {
       lineHeight: '46px', // FIXME: hard code in v4
       border: 0,
       borderBlockEnd: `${lineWidth}px ${controlLineType} ${borderColorSplit}`,
       boxShadow: 'none',
 
-      [`&:not(${menuCls}-dark)`]: {
-        [`> ${menuCls}-item, > ${menuCls}-submenu`]: {
+      [`&:not(${componentCls}-dark)`]: {
+        [`> ${componentCls}-item, > ${componentCls}-submenu`]: {
           marginBlocStart: '-1px', // FIXME: hard code in v4
           marginBlockEnd: 0,
           paddingBlock: 0,
@@ -770,7 +768,7 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
         },
       },
 
-      [`> ${menuCls}-item, > ${menuCls}-submenu`]: {
+      [`> ${componentCls}-item, > ${componentCls}-submenu`]: {
         position: 'relative',
         insetBlockStart: '1px',
         display: 'inline-block',
@@ -787,11 +785,11 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
         },
       },
 
-      [`> ${menuCls}-submenu > ${menuCls}-submenu-title`]: {
+      [`> ${componentCls}-submenu > ${componentCls}-submenu-title`]: {
         padding: 0,
       },
 
-      [`> ${menuCls}-item`]: {
+      [`> ${componentCls}-item`]: {
         a: {
           color: colorText,
 
@@ -817,24 +815,25 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
       },
     },
 
-    [`${menuCls}-horizontal ${menuCls}-submenu`]: {
+    [`${componentCls}-horizontal ${componentCls}-submenu`]: {
       transition: `border-color ${motionDurationSlow} ${motionEaseInOut},background ${motionDurationSlow} ${motionEaseInOut}`,
     },
 
-    [`${menuCls}-horizontal ${menuCls}-item,${menuCls}-horizontal ${menuCls}-submenu`]: {
-      marginBlocStart: '-1px',
-    },
+    [`${componentCls}-horizontal ${componentCls}-item,${componentCls}-horizontal ${componentCls}-submenu`]:
+      {
+        marginBlocStart: '-1px',
+      },
 
-    [`${menuCls}-horizontal > ${menuCls}-item:hover,${menuCls}-horizontal > ${menuCls}-item-active,${menuCls}-horizontal > ${menuCls}-submenu ${menuCls}-submenu-title:hover`]:
+    [`${componentCls}-horizontal > ${componentCls}-item:hover,${componentCls}-horizontal > ${componentCls}-item-active,${componentCls}-horizontal > ${componentCls}-submenu ${componentCls}-submenu-title:hover`]:
       {
         backgroundColor: 'transparent',
       },
 
-    [`${menuCls}-dark${menuCls}-horizontal`]: {
+    [`${componentCls}-dark${componentCls}-horizontal`]: {
       borderBlockEnd: 0,
     },
 
-    [`${menuCls}-dark${menuCls}-horizontal > ${menuCls}-item,${menuCls}-dark${menuCls}-horizontal > ${menuCls}-submenu`]:
+    [`${componentCls}-dark${componentCls}-horizontal > ${componentCls}-item,${componentCls}-dark${componentCls}-horizontal > ${componentCls}-submenu`]:
       {
         insetBlockStart: 0,
         marginBlockStart: 0,
@@ -844,28 +843,30 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
         borderBlockEnd: 0,
       },
 
-    [`${menuCls}-dark${menuCls}-horizontal > ${menuCls}-item:hover`]: {
+    [`${componentCls}-dark${componentCls}-horizontal > ${componentCls}-item:hover`]: {
       backgroundColor: primaryColor,
     },
 
-    [`${menuCls}-dark${menuCls}-horizontal > ${menuCls}-item > a::before`]: {
+    [`${componentCls}-dark${componentCls}-horizontal > ${componentCls}-item > a::before`]: {
       insetBlockEnd: 0,
     },
 
-    [`${menuCls}-horizontal ${menuCls}-item,${menuCls}-horizontal ${menuCls}-submenu-title`]: {
-      transition: `border-color ${motionDurationSlow}, background ${motionDurationSlow}`,
-    },
+    [`${componentCls}-horizontal ${componentCls}-item,${componentCls}-horizontal ${componentCls}-submenu-title`]:
+      {
+        transition: `border-color ${motionDurationSlow}, background ${motionDurationSlow}`,
+      },
     // ========================= vertical  ============================
-    [`${menuCls}-vertical ${menuCls}-submenu-selected,${menuCls}-vertical-left ${menuCls}-submenu-selected,${menuCls}-vertical-right ${menuCls}-submenu-selected`]:
+    [`${componentCls}-vertical ${componentCls}-submenu-selected,${componentCls}-vertical-left ${componentCls}-submenu-selected,${componentCls}-vertical-right ${componentCls}-submenu-selected`]:
       {
         color: primaryColor,
       },
 
-    [`${menuCls}-vertical`]: {
-      [`${menuCls}-item-group-list ${menuCls}-submenu-title,${menuCls}-submenu-title`]: {
-        borderInlineEnd: '34px', // FIXME: hard code in v4
-      },
-      [`${menuCls}-item`]: {
+    [`${componentCls}-vertical`]: {
+      [`${componentCls}-item-group-list ${componentCls}-submenu-title,${componentCls}-submenu-title`]:
+        {
+          borderInlineEnd: '34px', // FIXME: hard code in v4
+        },
+      [`${componentCls}-item`]: {
         height: controlHeightLG,
         marginBlock: marginXXS,
         paddingBlock: 0,
@@ -876,56 +877,57 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
       },
     },
 
-    [`${menuCls}-vertical,${menuCls}-vertical-left,${menuCls}-vertical-right,${menuCls}-inline`]: {
-      [`${menuCls}-item`]: {
-        position: 'relative',
+    [`${componentCls}-vertical,${componentCls}-vertical-left,${componentCls}-vertical-right,${componentCls}-inline`]:
+      {
+        [`${componentCls}-item`]: {
+          position: 'relative',
 
-        '&::after': {
-          position: 'absolute',
-          insetBlockStart: 0,
-          insetInlineEnd: 0,
-          insetBlockEnd: 0,
-          borderInlineEnd: `3px ${controlLineType} ${primaryColor}`, // FIXME: hard code in v4
-          transform: 'scaleY(0.0001)', // FIXME: hard code in v4
-          opacity: 0,
-          transition: `transform ${motionDurationMD} ${easeOut},opacity ${motionDurationMD} ${easeOut}`,
-          content: '""',
+          '&::after': {
+            position: 'absolute',
+            insetBlockStart: 0,
+            insetInlineEnd: 0,
+            insetBlockEnd: 0,
+            borderInlineEnd: `3px ${controlLineType} ${primaryColor}`, // FIXME: hard code in v4
+            transform: 'scaleY(0.0001)', // FIXME: hard code in v4
+            opacity: 0,
+            transition: `transform ${motionDurationMD} ${easeOut},opacity ${motionDurationMD} ${easeOut}`,
+            content: '""',
+          },
+        },
+
+        [`${componentCls}-item,${componentCls}-submenu-title`]: {
+          height: controlHeightLG,
+          marginBlock: marginXXS,
+          paddingBlock: 0,
+          paddingInline: `${padding}px`,
+          overflow: 'hidden',
+          lineHeight: `${controlHeightLG}px`,
+          textOverflow: 'ellipsis',
+        },
+
+        // disable margin collapsed
+        [`${componentCls}-submenu`]: {
+          paddingBottom: '0.02px', // FIXME: hard code in v4
+        },
+
+        [`${componentCls}-item:not(:last-child)`]: {
+          marginBlockEnd: marginXS,
+        },
+
+        [`> ${componentCls}-item, > ${componentCls}-submenu > ${componentCls}-submenu-title`]: {
+          height: controlHeightLG,
+          lineHeight: `${controlHeightLG}px`,
         },
       },
-
-      [`${menuCls}-item,${menuCls}-submenu-title`]: {
-        height: controlHeightLG,
-        marginBlock: marginXXS,
-        paddingBlock: 0,
-        paddingInline: `${padding}px`,
-        overflow: 'hidden',
-        lineHeight: `${controlHeightLG}px`,
-        textOverflow: 'ellipsis',
-      },
-
-      // disable margin collapsed
-      [`${menuCls}-submenu`]: {
-        paddingBottom: '0.02px', // FIXME: hard code in v4
-      },
-
-      [`${menuCls}-item:not(:last-child)`]: {
-        marginBlockEnd: marginXS,
-      },
-
-      [`> ${menuCls}-item, > ${menuCls}-submenu > ${menuCls}-submenu-title`]: {
-        height: controlHeightLG,
-        lineHeight: `${controlHeightLG}px`,
-      },
-    },
     // ========================= submenu  ============================
-    [`${menuCls}-submenu`]: {
+    [`${componentCls}-submenu`]: {
       // https://github.com/ant-design/ant-design/issues/13955
       [`&-placement-rightTop::before`]: {
         insetBlockStart: 0,
         insetInlineStart: '-7px', // FIXME: hard code in v4
       },
 
-      [`> ${menuCls}`]: {
+      [`> ${componentCls}`]: {
         backgroundColor: componentBackground,
         borderRadius: radiusBase,
 
@@ -934,7 +936,7 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
         },
       },
 
-      [`${menuCls}-item a`]: {
+      [`${componentCls}-item a`]: {
         color: colorText,
 
         '&:hover': {
@@ -953,16 +955,16 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
       },
     },
 
-    [`${menuCls}-submenu-popup > ${menuCls}`]: {
+    [`${componentCls}-submenu-popup > ${componentCls}`]: {
       backgroundColor: componentBackground,
     },
 
-    [`${menuCls}-submenu ${menuCls}-sub`]: {
+    [`${componentCls}-submenu ${componentCls}-sub`]: {
       cursor: 'initial',
       transition: `background ${motionDurationSlow} ${motionEaseInOut},padding ${motionDurationSlow} ${motionEaseInOut}`,
     },
     // ========================= submenu-popup  ============================
-    [`${menuCls}-submenu-popup`]: {
+    [`${componentCls}-submenu-popup`]: {
       position: 'absolute',
       zIndex: zIndexDrop,
       background: 'transparent',
@@ -984,7 +986,7 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
         opacity: 0.0001,
         content: '" "',
       },
-      [`${menuCls}-item,${menuCls}-submenu-title`]: {
+      [`${componentCls}-item,${componentCls}-submenu-title`]: {
         height: controlHeightLG,
         marginBlock: marginXXS,
         paddingBlock: 0,
@@ -995,14 +997,14 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
       },
     },
 
-    [`${menuCls}-dark${menuCls}-submenu-popup`]: {
+    [`${componentCls}-dark${componentCls}-submenu-popup`]: {
       background: 'transparent',
     },
 
     // ========================= other  ============================
     // Integration with header element so menu items have the same height
     [`${antPrefix}-layout-header`]: {
-      [`${menuCls}`]: {
+      [`${componentCls}`]: {
         lineHeight: 'inherit',
       },
     },
@@ -1015,10 +1017,10 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
     },
 
     // Overflow ellipsis
-    [`${menuCls}-overflow`]: {
+    [`${componentCls}-overflow`]: {
       display: 'flex',
 
-      [`${menuCls}-item`]: {
+      [`${componentCls}-item`]: {
         flex: 'none',
       },
     },
@@ -1026,54 +1028,37 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
 };
 
 // ============================== Export ==============================
-export default function useStyle(
-  rootPrefixCls: string,
-  prefixCls: string,
-  iconPrefixCls: string,
-): UseComponentStyleResult {
-  const [theme, token, hashId] = useToken();
+export default genComponentStyleHook(
+  'Menu',
+  token => [genBaseStyle(token), genDarkStyle(token), genLightStyle(token), genStatusStyle(token)],
+  () => {
+    return {
+      antPrefix: `.ant`, // FIXME: hard code in v4
+      componentBackground: '#fff', // FIXME: hard code in v4
+      darkBg: '#001529', // FIXME: hard code in v4
+      darkInlineSubmenuBg: '#000c17', // FIXME: hard code in v4
+      colorTextSecondary: new TinyColor('#000').setAlpha(0.45).toRgbString(), // FIXME: hard code in v4
+      highlightDangerColor: new TinyColor('#f5222d').setAlpha(0.2).toRgbString(), // FIXME: hard code in v4 // color(~`colorPalette('@{red-6}', 5) `)
+      itemActiveDangerBg: new TinyColor('#f5222d').setAlpha(0.9).toRgbString(), // FIXME: hard code in v4 // color(~`colorPalette('@{red-6}', 1) `)
+      itemActiveBackground: new TinyColor('#000').setAlpha(0.9).toRgbString(), // FIXME: hard code in v4
+      itemActiveBg: '#e6f7ff', // FIXME: hard code in v4,
+      textColorDark: new TinyColor('#000').setAlpha(0.85).toRgbString(), // FIXME: hard code in v4
+      disabledColor: new TinyColor('#000').setAlpha(0.25).toRgbString(), // FIXME: hard code in v4
+      darkColor: new TinyColor('#fff').setAlpha(0.65).toRgbString(), // FIXME: hard code in v4
+      colorDark: new TinyColor('#fff').setAlpha(0.85).toRgbString(), // FIXME: hard code in v4
+      disabledColorDark: new TinyColor('#fff').setAlpha(0.45).toRgbString(), // FIXME: hard code in v4
+      darkHighlightColor: '#fff', // FIXME: hard code in v4
+      motionDurationMD: '0.15s', // FIXME: hard code in v4,
+      primaryColor: '#1890ff', // FIXME: hard code in v4
+      boxShadowColor: new TinyColor('#1890ff').setAlpha(0.05).toRgbString(), // FIXME: hard code in v4, shade(@primary-color, 5%)
+      borderColorSplit: new TinyColor({ h: 0, s: 0, v: 94 }).toHexString(), // FIXME: hard code in v4
+      menuInlineSubmenuBg: new TinyColor({ h: 0, s: 0, v: 98 }).toHexString(), // FIXME: hard code in v4
+      easeOut: 'cubic-bezier(0.215, 0.61, 0.355, 1)', // FIXME: hard code in v4
 
-  const menuToken: MenuToken = {
-    ...token,
-    rootPrefixCls,
-    iconPrefixCls,
-    menuCls: `.${prefixCls}`,
+      zIndexDrop: 1050,
+      menuOpacity: 0.0001,
 
-    antPrefix: `.ant`, // FIXME: hard code in v4
-    componentBackground: '#fff', // FIXME: hard code in v4
-    darkBg: '#001529', // FIXME: hard code in v4
-    darkInlineSubmenuBg: '#000c17', // FIXME: hard code in v4
-    colorTextSecondary: new TinyColor('#000').setAlpha(0.45).toRgbString(), // FIXME: hard code in v4
-    highlightDangerColor: new TinyColor('#f5222d').setAlpha(0.2).toRgbString(), // FIXME: hard code in v4 // color(~`colorPalette('@{red-6}', 5) `)
-    itemActiveDangerBg: new TinyColor('#f5222d').setAlpha(0.9).toRgbString(), // FIXME: hard code in v4 // color(~`colorPalette('@{red-6}', 1) `)
-    itemActiveBackground: new TinyColor('#000').setAlpha(0.9).toRgbString(), // FIXME: hard code in v4
-    itemActiveBg: '#e6f7ff', // FIXME: hard code in v4,
-    textColorDark: new TinyColor('#000').setAlpha(0.85).toRgbString(), // FIXME: hard code in v4
-    disabledColor: new TinyColor('#000').setAlpha(0.25).toRgbString(), // FIXME: hard code in v4
-    darkColor: new TinyColor('#fff').setAlpha(0.65).toRgbString(), // FIXME: hard code in v4
-    colorDark: new TinyColor('#fff').setAlpha(0.85).toRgbString(), // FIXME: hard code in v4
-    disabledColorDark: new TinyColor('#fff').setAlpha(0.45).toRgbString(), // FIXME: hard code in v4
-    darkHighlightColor: '#fff', // FIXME: hard code in v4
-    motionDurationMD: '0.15s', // FIXME: hard code in v4,
-    primaryColor: '#1890ff', // FIXME: hard code in v4
-    boxShadowColor: new TinyColor('#1890ff').setAlpha(0.05).toRgbString(), // FIXME: hard code in v4, shade(@primary-color, 5%)
-    borderColorSplit: new TinyColor({ h: 0, s: 0, v: 94 }).toHexString(), // FIXME: hard code in v4
-    menuInlineSubmenuBg: new TinyColor({ h: 0, s: 0, v: 98 }).toHexString(), // FIXME: hard code in v4
-    easeOut: 'cubic-bezier(0.215, 0.61, 0.355, 1)', // FIXME: hard code in v4
-
-    zIndexDrop: 1050,
-    menuOpacity: 0.0001,
-
-    sizeLg: 16,
-  };
-
-  return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      genBaseStyle(menuToken, hashId),
-      genDarkStyle(menuToken),
-      genLightStyle(menuToken),
-      genStatusStyle(menuToken),
-    ]),
-    hashId,
-  ];
-}
+      sizeLg: 16,
+    };
+  },
+);
