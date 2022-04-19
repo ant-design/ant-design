@@ -3240,7 +3240,7 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md correctly
                 type="button"
               >
                 <span>
-                  download 
+                  Download
                 </span>
               </button>
               <button
@@ -3327,7 +3327,7 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md correctly
                 type="button"
               >
                 <span>
-                  download 
+                  Download
                 </span>
               </button>
               <button
