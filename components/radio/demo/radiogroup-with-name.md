@@ -25,5 +25,5 @@ const App = () => (
   </Radio.Group>
 );
 
-export default () => <App />;
+export default App;
 ```

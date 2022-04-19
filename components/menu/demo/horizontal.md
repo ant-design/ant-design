@@ -85,5 +85,5 @@ const App = () => {
   return <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} />;
 };
 
-export default () => <App />;
+export default App;
 ```

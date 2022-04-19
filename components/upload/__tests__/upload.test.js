@@ -895,4 +895,12 @@ describe('Upload', () => {
     });
     expect(wrapper.find('.ant-upload-select-picture-card').getDOMNode().style.display).toBe('none');
   });
+
+  it('<Upload /> should pass <UploadList /> prefixCls', async () => {
+    const wrapper1 = mount(<Upload />);
+    expect(wrapper1.find('.ant-upload-list').exists()).toBeTruthy();
+
+    const wrapper2 = mount(<Upload prefixCls="custom-upload" />);
+    expect(wrapper2.find('.custom-upload-list').exists()).toBeTruthy();
+  });
 });
