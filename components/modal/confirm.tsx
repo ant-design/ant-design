@@ -17,10 +17,13 @@ function getRootPrefixCls() {
   return defaultRootPrefixCls;
 }
 
+type CurrentConfigType = ModalFuncProps & {
+  close?: VoidFunction;
+};
 type ConfigUpdate = ModalFuncProps | ((prevConfig: ModalFuncProps) => ModalFuncProps);
 
 export type ModalFunc = (props: ModalFuncProps) => {
-  destroy: () => void;
+  destroy: VoidFunction;
   update: (configUpdate: ConfigUpdate) => void;
 };
 
@@ -29,20 +32,17 @@ export type ModalStaticFunctions = Record<NonNullable<ModalFuncProps['type']>, M
 export default function confirm(config: ModalFuncProps) {
   const container = document.createDocumentFragment();
   // eslint-disable-next-line @typescript-eslint/no-use-before-define
-  let currentConfig = { ...config, close, visible: true } as any;
+  let currentConfig: CurrentConfigType = { ...config, close, visible: true };
 
   function destroy(...args: any[]) {
     const triggerCancel = args.some(param => param && param.triggerCancel);
     if (config.onCancel && triggerCancel) {
       config.onCancel(...args);
     }
-    for (let i = 0; i < destroyFns.length; i++) {
-      const fn = destroyFns[i];
-      // eslint-disable-next-line @typescript-eslint/no-use-before-define
-      if (fn === close) {
-        destroyFns.splice(i, 1);
-        break;
-      }
+
+    const fn = destroyFns.get(container);
+    if (fn) {
+      destroyFns.delete(container);
     }
 
     reactUnmount(container);
@@ -105,7 +105,7 @@ export default function confirm(config: ModalFuncProps) {
 
   render(currentConfig);
 
-  destroyFns.push(close);
+  destroyFns.set(container, close);
 
   return {
     destroy: close,

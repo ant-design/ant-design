@@ -49,12 +49,13 @@ Modal.confirm = function confirmFn(props: ModalFuncProps) {
 };
 
 Modal.destroyAll = function destroyAllFn() {
-  while (destroyFns.length) {
-    const close = destroyFns.pop();
+  const fns = destroyFns.values();
+  for (const close of fns) {
     if (close) {
       close();
     }
   }
+  destroyFns.clear();
 };
 
 Modal.config = modalGlobalConfig;
