@@ -7,13 +7,13 @@ import {
   PieChartOutlined,
   UserOutlined,
 } from '@ant-design/icons';
-import { render, fireEvent } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 import Menu from '..';
 import Layout from '../../layout';
 import Tooltip from '../../tooltip';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { render, fireEvent } from '../../../tests/utils';
 import collapseMotion from '../../_util/motion';
 
 globalThis.IS_REACT_ACT_ENVIRONMENT = true;
@@ -792,13 +792,23 @@ describe('Menu', () => {
     const onOpen = jest.fn();
     const onClose = jest.fn();
     render(
-      <Menu defaultOpenKeys={['1']} mode="inline" onOpen={onOpen} onClose={onClose}>
-        <SubMenu key="1" title="submenu1">
-          <Menu.Item key="submenu1">Option 1</Menu.Item>
-          <Menu.Item key="submenu2">Option 2</Menu.Item>
-        </SubMenu>
-        <Menu.Item key="2">menu2</Menu.Item>
-      </Menu>,
+      <Menu
+        defaultOpenKeys={['1']}
+        mode="inline"
+        onOpen={onOpen}
+        onClose={onClose}
+        items={[
+          {
+            key: '1',
+            label: 'submenu1',
+            children: [
+              { key: 'submenu1', label: 'Option 1' },
+              { key: 'submenu2', label: 'Option 2' },
+            ],
+          },
+          { key: '2', label: 'menu2' },
+        ]}
+      />,
     );
 
     expect(errorSpy.mock.calls.length).toBe(1);

@@ -3,7 +3,7 @@ type: 反馈
 category: Components
 subtitle: 抽屉
 title: Drawer
-cover: https://gw.alipayobjects.com/zos/alicdn/7z8NJQhFb/Drawer.svg
+cover: https://img.alicdn.com/imgextra/i4/O1CN019djdZP1OHwXSRGCOW_!!6000000001681-55-tps-161-117.svg
 ---
 
 屏幕边缘滑出的浮层面板。

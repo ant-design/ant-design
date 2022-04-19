@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
-import { fireEvent, render } from '@testing-library/react';
+import { render, fireEvent } from '../../../tests/utils';
 import Avatar from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -123,8 +123,8 @@ describe('Avatar Render', () => {
   });
 
   it('should calculate scale of avatar children correctly', () => {
-    const wrapper = mount(<Avatar>Avatar</Avatar>);
-    expect(wrapper.find('.ant-avatar-string').render()).toMatchSnapshot();
+    const { container, rerender } = render(<Avatar>Avatar</Avatar>);
+    expect(container.querySelector('.ant-avatar-string')).toMatchSnapshot();
 
     Object.defineProperty(HTMLElement.prototype, 'offsetWidth', {
       get() {
@@ -134,8 +134,9 @@ describe('Avatar Render', () => {
         return 40;
       },
     });
-    wrapper.setProps({ children: 'xx' });
-    expect(wrapper.find('.ant-avatar-string').render()).toMatchSnapshot();
+
+    rerender(<Avatar>xx</Avatar>);
+    expect(container.querySelector('.ant-avatar-string')).toMatchSnapshot();
   });
 
   it('should calculate scale of avatar children correctly with gap', () => {

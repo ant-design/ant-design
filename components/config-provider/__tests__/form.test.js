@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { render } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
+import { render } from '../../../tests/utils';
 import ConfigProvider from '..';
 import zhCN from '../../locale/zh_CN';
 import Form from '../../form';
