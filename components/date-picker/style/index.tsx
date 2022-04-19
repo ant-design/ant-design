@@ -274,11 +274,11 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
         position: 'absolute',
         zIndex: token.zIndexDropdown,
 
-        '&-hidden': {
+        '&&-hidden': {
           display: 'none',
         },
 
-        '&-placement-bottomLeft': {
+        '&&-placement-bottomLeft': {
           [`${componentCls}-range-arrow`]: {
             top: `${token.arrowWidth / 2 - token.arrowWidth / 3 + 0.7}px`,
             display: 'block',
@@ -286,7 +286,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
           },
         },
 
-        '&-placement-topLeft': {
+        '&&-placement-topLeft': {
           [`${componentCls}-range-arrow`]: {
             bottom: `${token.arrowWidth / 2 - token.arrowWidth / 3 + 0.7}px`,
             display: 'block',
@@ -1142,7 +1142,7 @@ const genPickerStatusStyle: GenerateStyle<PickerToken> = token => {
 
   return {
     [componentCls]: {
-      '&&-status-error': {
+      '&-status-error&': {
         '&, &:not([disabled]):hover': {
           backgroundColor: token.colorBgComponent,
           borderColor: token.colorError,
@@ -1159,7 +1159,7 @@ const genPickerStatusStyle: GenerateStyle<PickerToken> = token => {
         },
       },
 
-      '&&-status-warning': {
+      '&-status-warning&': {
         '&, &:not([disabled]):hover': {
           backgroundColor: token.colorBgComponent,
           borderColor: token.colorWarning,
