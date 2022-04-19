@@ -44,6 +44,7 @@ export default ({ onChangeTheme, defaultToken, componentName }: ThemeConfigProps
           boxShadow: '0 0 4px rgba(0, 0, 0, 0.3)',
           padding: '8px 16px 8px 12px',
           cursor: 'pointer',
+          zIndex: 1,
         }}
         onClick={() => setVisible(true)}
       >
