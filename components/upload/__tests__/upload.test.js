@@ -1,6 +1,6 @@
 /* eslint-disable react/no-string-refs, react/prefer-es6-class */
 import React from 'react';
-import { mount, originMount } from 'enzyme';
+import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import produce from 'immer';
 import { cloneDeep } from 'lodash';
@@ -450,38 +450,41 @@ describe('Upload', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/18902
-  it('should not abort uploading until return value of onRemove is resolved as true', done => {
-    let wrapper;
-
-    const props = {
-      onRemove: async () => {
-        await act(async () => {
-          await sleep(100);
-          wrapper.update();
-          expect(props.fileList).toHaveLength(1);
-          expect(props.fileList[0].status).toBe('uploading');
-        });
-
-        return true;
-      },
-      fileList: [
-        {
-          uid: '-1',
-          name: 'foo.png',
-          status: 'uploading',
-          url: 'http://www.baidu.com/xxx.png',
-        },
-      ],
-      onChange: () => {
-        expect(props.fileList).toHaveLength(1);
-        expect(props.fileList[0].status).toBe('removed');
-        done();
-      },
+  it('should not abort uploading until return value of onRemove is resolved as true', async () => {
+    const file = {
+      uid: '-1',
+      name: 'foo.png',
+      status: 'uploading',
+      url: 'http://www.baidu.com/xxx.png',
     };
 
-    wrapper = mount(<Upload {...props} />);
+    let removePromise;
 
-    wrapper.find('div.ant-upload-list-item .anticon-delete').simulate('click');
+    const onRemove = () =>
+      new Promise(resolve => {
+        expect(file.status).toBe('uploading');
+        removePromise = resolve;
+      });
+    const onChange = jest.fn();
+
+    const { container } = render(
+      <Upload fileList={[file]} onChange={onChange} onRemove={onRemove} />,
+    );
+    fireEvent.click(container.querySelector('div.ant-upload-list-item .anticon-delete'));
+
+    // uploadStart is a batch work which we need wait for react act
+    await act(async () => {
+      await Promise.resolve();
+    });
+
+    // Delay return true for remove
+    await sleep(100);
+    await act(async () => {
+      await removePromise(true);
+    });
+
+    expect(onChange).toHaveBeenCalled();
+    expect(file.status).toBe('removed');
   });
 
   it('should not stop download when return use onDownload', done => {
@@ -874,27 +877,33 @@ describe('Upload', () => {
     expect(onChange.mock.calls[0][0].fileList).toHaveLength(1);
   });
 
-  // FIXME: @zombieJ React 18 StrictMode
   // https://github.com/ant-design/ant-design/issues/33819
   it('should show the animation of the upload children leaving when the upload children becomes null', async () => {
-    const wrapper = originMount(
+    jest.useFakeTimers();
+
+    const { container, rerender } = render(
       <Upload listType="picture-card">
         <button type="button">upload</button>
       </Upload>,
     );
-    wrapper.setProps({ children: null });
-    expect(wrapper.find('.ant-upload-select-picture-card').getDOMNode().style.display).not.toBe(
-      'none',
-    );
-    await act(async () => {
-      await sleep(100);
-      wrapper
-        .find('.ant-upload-select-picture-card')
-        .getDOMNode()
-        .dispatchEvent(new Event('animationend'));
-      await sleep(20);
+
+    rerender(<Upload listType="picture-card" />);
+    expect(container.querySelector('.ant-upload-select-picture-card')).not.toHaveStyle({
+      display: 'none',
     });
-    expect(wrapper.find('.ant-upload-select-picture-card').getDOMNode().style.display).toBe('none');
+
+    // Motion leave status change: start > active
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    fireEvent.animationEnd(container.querySelector('.ant-upload-select-picture-card'));
+
+    expect(container.querySelector('.ant-upload-select-picture-card')).toHaveStyle({
+      display: 'none',
+    });
+
+    jest.useRealTimers();
   });
 
   it('<Upload /> should pass <UploadList /> prefixCls', async () => {

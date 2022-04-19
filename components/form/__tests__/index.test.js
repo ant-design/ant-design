@@ -1,7 +1,6 @@
 import React, { Component, useState } from 'react';
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
-import { render as testingRender } from '@testing-library/react';
 import scrollIntoView from 'scroll-into-view-if-needed';
 import Form from '..';
 import * as Util from '../util';
@@ -128,8 +127,7 @@ describe('Form', () => {
         );
       };
 
-      // FIXME: @zombieJ React 18 StrictMode
-      const { container } = testingRender(<Demo />);
+      const { container } = render(<Demo />);
       await change(container, 0, '1', true);
       expect(container.querySelector('.ant-form-item-explain').textContent).toEqual('aaa');
       await change(container, 0, '2', true);
