@@ -78,7 +78,7 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
 
         render(Demo);
 
-        expect(errSpy).not.toHaveBeenCalledWith(expect.stringContaining('[Ant Design Css-in-js]'));
+        expect(errSpy).not.toHaveBeenCalledWith(expect.stringContaining('[Ant Design CSS-in-JS]'));
         MockDate.reset();
 
         errSpy.mockRestore();
