@@ -95,7 +95,6 @@ describe('Form', () => {
                 onChange={async () => {
                   await sleep(0);
                   try {
-                    console.log('validate!!!');
                     await form.validateFields();
                   } catch (e) {
                     // do nothing
