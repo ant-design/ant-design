@@ -54,7 +54,7 @@ exports[`Slider should render in RTL direction 1`] = `
   <div>
     <div
       class="ant-tooltip ant-slider-tooltip ant-tooltip-rtl ant-zoom-down-appear ant-zoom-down-appear-prepare ant-zoom-down"
-      style="opacity: 0; pointer-events: none;"
+      style="opacity: 0;"
     >
       <div
         class="ant-tooltip-content"
@@ -93,7 +93,7 @@ Array [
   <div>
     <div
       class="ant-tooltip ant-slider-tooltip ant-zoom-down-appear ant-zoom-down-appear-prepare ant-zoom-down"
-      style="opacity: 0; pointer-events: none;"
+      style="opacity: 0;"
     >
       <div
         class="ant-tooltip-content"
@@ -171,7 +171,7 @@ Array [
   <div>
     <div
       class="ant-tooltip ant-slider-tooltip ant-zoom-down-appear ant-zoom-down-appear-prepare ant-zoom-down"
-      style="opacity: 0; pointer-events: none;"
+      style="opacity: 0;"
     >
       <div
         class="ant-tooltip-content"

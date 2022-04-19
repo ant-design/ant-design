@@ -34,7 +34,7 @@ exports[`renders ./components/cascader/demo/basic.md extend context correctly 1`
   <div>
     <div
       class="ant-select-dropdown ant-cascader-dropdown"
-      style="opacity:0;pointer-events:none;min-width:auto"
+      style="opacity:0;min-width:auto"
     >
       <div>
         <div
@@ -182,7 +182,7 @@ exports[`renders ./components/cascader/demo/change-on-select.md extend context c
   <div>
     <div
       class="ant-select-dropdown ant-cascader-dropdown"
-      style="opacity:0;pointer-events:none;min-width:auto"
+      style="opacity:0;min-width:auto"
     >
       <div>
         <div
@@ -332,7 +332,7 @@ exports[`renders ./components/cascader/demo/custom-dropdown.md extend context co
   <div>
     <div
       class="ant-select-dropdown ant-cascader-dropdown"
-      style="opacity:0;pointer-events:none;min-width:auto"
+      style="opacity:0;min-width:auto"
     >
       <div>
         <div>
@@ -507,7 +507,7 @@ exports[`renders ./components/cascader/demo/custom-render.md extend context corr
   <div>
     <div
       class="ant-select-dropdown ant-cascader-dropdown"
-      style="opacity:0;pointer-events:none;min-width:auto"
+      style="opacity:0;min-width:auto"
     >
       <div>
         <div
@@ -660,7 +660,7 @@ exports[`renders ./components/cascader/demo/custom-trigger.md extend context cor
   <div>
     <div
       class="ant-select-dropdown ant-cascader-dropdown"
-      style="opacity:0;pointer-events:none;min-width:auto"
+      style="opacity:0;min-width:auto"
     >
       <div>
         <div
@@ -785,7 +785,7 @@ exports[`renders ./components/cascader/demo/default-value.md extend context corr
   <div>
     <div
       class="ant-select-dropdown ant-cascader-dropdown"
-      style="opacity:0;pointer-events:none;min-width:auto"
+      style="opacity:0;min-width:auto"
     >
       <div>
         <div
@@ -959,7 +959,7 @@ exports[`renders ./components/cascader/demo/disabled-option.md extend context co
   <div>
     <div
       class="ant-select-dropdown ant-cascader-dropdown"
-      style="opacity:0;pointer-events:none;min-width:auto"
+      style="opacity:0;min-width:auto"
     >
       <div>
         <div
@@ -1109,7 +1109,7 @@ exports[`renders ./components/cascader/demo/fields-name.md extend context correc
   <div>
     <div
       class="ant-select-dropdown ant-cascader-dropdown"
-      style="opacity:0;pointer-events:none;min-width:auto"
+      style="opacity:0;min-width:auto"
     >
       <div>
         <div
@@ -1257,7 +1257,7 @@ exports[`renders ./components/cascader/demo/hover.md extend context correctly 1`
   <div>
     <div
       class="ant-select-dropdown ant-cascader-dropdown"
-      style="opacity:0;pointer-events:none;min-width:auto"
+      style="opacity:0;min-width:auto"
     >
       <div>
         <div
@@ -1405,7 +1405,7 @@ exports[`renders ./components/cascader/demo/lazy.md extend context correctly 1`]
   <div>
     <div
       class="ant-select-dropdown ant-cascader-dropdown"
-      style="opacity:0;pointer-events:none;min-width:auto"
+      style="opacity:0;min-width:auto"
     >
       <div>
         <div
@@ -1570,7 +1570,7 @@ exports[`renders ./components/cascader/demo/multiple.md extend context correctly
   <div>
     <div
       class="ant-select-dropdown ant-cascader-dropdown"
-      style="opacity:0;pointer-events:none;min-width:auto"
+      style="opacity:0;min-width:auto"
     >
       <div>
         <div
@@ -1792,7 +1792,7 @@ Array [
     <div>
       <div
         class="ant-select-dropdown ant-cascader-dropdown"
-        style="opacity:0;pointer-events:none;min-width:auto"
+        style="opacity:0;min-width:auto"
       >
         <div>
           <div
@@ -1940,7 +1940,7 @@ exports[`renders ./components/cascader/demo/search.md extend context correctly 1
   <div>
     <div
       class="ant-select-dropdown ant-cascader-dropdown"
-      style="opacity:0;pointer-events:none;min-width:auto"
+      style="opacity:0;min-width:auto"
     >
       <div>
         <div
@@ -2119,7 +2119,7 @@ Array [
     <div>
       <div
         class="ant-select-dropdown ant-cascader-dropdown"
-        style="opacity:0;pointer-events:none;min-width:auto"
+        style="opacity:0;min-width:auto"
       >
         <div>
           <div
@@ -2310,7 +2310,7 @@ Array [
     <div>
       <div
         class="ant-select-dropdown ant-cascader-dropdown"
-        style="opacity:0;pointer-events:none;min-width:auto"
+        style="opacity:0;min-width:auto"
       >
         <div>
           <div
@@ -2474,7 +2474,7 @@ Array [
     <div>
       <div
         class="ant-select-dropdown ant-cascader-dropdown"
-        style="opacity:0;pointer-events:none;min-width:auto"
+        style="opacity:0;min-width:auto"
       >
         <div>
           <div
@@ -2621,7 +2621,7 @@ Array [
     <div>
       <div
         class="ant-select-dropdown ant-cascader-dropdown"
-        style="opacity:0;pointer-events:none;min-width:auto"
+        style="opacity:0;min-width:auto"
       >
         <div>
           <div
@@ -2768,7 +2768,7 @@ Array [
     <div>
       <div
         class="ant-select-dropdown ant-cascader-dropdown"
-        style="opacity:0;pointer-events:none;min-width:auto"
+        style="opacity:0;min-width:auto"
       >
         <div>
           <div
@@ -2928,7 +2928,7 @@ exports[`renders ./components/cascader/demo/status.md extend context correctly 1
       <div>
         <div
           class="ant-select-dropdown ant-cascader-dropdown ant-select-dropdown-empty"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <div>
             <div
@@ -3080,7 +3080,7 @@ exports[`renders ./components/cascader/demo/status.md extend context correctly 1
       <div>
         <div
           class="ant-select-dropdown ant-cascader-dropdown ant-select-dropdown-empty"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <div>
             <div
@@ -3192,7 +3192,7 @@ Array [
     <div>
       <div
         class="ant-select-dropdown ant-cascader-dropdown"
-        style="opacity:0;pointer-events:none;min-width:auto"
+        style="opacity:0;min-width:auto"
       >
         <div>
           <div
@@ -3341,7 +3341,7 @@ Array [
     <div>
       <div
         class="ant-select-dropdown ant-cascader-dropdown"
-        style="opacity:0;pointer-events:none;min-width:auto"
+        style="opacity:0;min-width:auto"
       >
         <div>
           <div
@@ -3472,7 +3472,7 @@ Array [
     <div>
       <div
         class="ant-select-dropdown ant-cascader-dropdown"
-        style="opacity:0;pointer-events:none;min-width:auto"
+        style="opacity:0;min-width:auto"
       >
         <div>
           <div
@@ -3621,7 +3621,7 @@ Array [
     <div>
       <div
         class="ant-select-dropdown ant-cascader-dropdown"
-        style="opacity:0;pointer-events:none;min-width:auto"
+        style="opacity:0;min-width:auto"
       >
         <div>
           <div
