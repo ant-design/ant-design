@@ -76,11 +76,11 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => ({
     // FIXME: hard code
     opacity: 1,
     transition: `all ${token.motionDurationSlow}`,
+    textAlign: 'start',
 
     // RTL
     '&&-rtl': {
       direction: 'rtl',
-      textAlign: 'right',
     },
 
     '&, a, a:hover': {

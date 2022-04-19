@@ -115,7 +115,10 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
       },
 
       '&-vertical&-dashed': {
-        borderWidth: `0 0 0 ${controlLineWidth}px`,
+        borderInlineStart: controlLineWidth,
+        borderInlineEnd: 0,
+        borderBlockStart: 0,
+        borderBlockEnd: 0,
       },
 
       '&-plain&-with-text': {

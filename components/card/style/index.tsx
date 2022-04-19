@@ -90,11 +90,11 @@ const genCardHeadStyle: GenerateStyle<CardToken> = (token): CSSObject => {
       whiteSpace: 'nowrap',
       textOverflow: 'ellipsis',
 
-      [` 
+      [`
           > ${componentCls}-typography,
           > ${componentCls}-typography-edit-content
         `]: {
-        left: 0,
+        insetInlineStart: 0,
         marginTop: 0,
         marginBottom: 0,
       },
@@ -127,9 +127,9 @@ const genCardGridStyle: GenerateStyle<CardToken> = (token): CSSObject => {
     border: 0,
     borderRadius: 0,
     boxShadow: `
-    1px 0 0 0 ${borderColorSplit}, 
+    1px 0 0 0 ${borderColorSplit},
     0 1px 0 0 ${borderColorSplit},
-    1px 1px 0 0 ${borderColorSplit}, 
+    1px 1px 0 0 ${borderColorSplit},
     1px 0 0 0 ${borderColorSplit} inset,
     0 1px 0 0 ${borderColorSplit} inset;
     transition: all ${token.motionDurationSlow}s

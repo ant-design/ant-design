@@ -157,7 +157,7 @@ const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
         insetInlineStart: -25,
 
         '&::before': {
-          content: '←',
+          content: '"←"',
         },
       },
 
@@ -166,7 +166,7 @@ const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
         insetInlineEnd: -25,
 
         '&::before': {
-          content: '→',
+          content: '"→"',
         },
       },
 
