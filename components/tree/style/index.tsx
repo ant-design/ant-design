@@ -12,7 +12,7 @@ import {
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
 
 // ============================ Keyframes =============================
-const treeNodeFX = new Keyframes('ant-tree-node-fx-do-not-use', {
+export const treeNodeFX = new Keyframes('ant-tree-node-fx-do-not-use', {
   '0%': {
     opacity: 0,
   },

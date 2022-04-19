@@ -9,7 +9,7 @@
 // deps-lint-skip-all
 import { GenerateStyle, genComponentStyleHook, FullToken, mergeToken } from '../../_util/theme';
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
-import { genTreeStyle } from '../../tree/style';
+import { genTreeStyle, treeNodeFX } from '../../tree/style';
 
 interface TreeSelectToken extends FullToken<'TreeSelect'> {
   treePrefixCls: string;
@@ -73,6 +73,6 @@ export default function useTreeSelectStyle(prefixCls: string, treePrefixCls: str
     const treeSelectToken = mergeToken<TreeSelectToken>(token, {
       treePrefixCls,
     });
-    return [genBaseStyle(treeSelectToken, hashId)];
+    return [genBaseStyle(treeSelectToken, hashId), treeNodeFX];
   })(prefixCls);
 }
