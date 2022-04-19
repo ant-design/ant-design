@@ -74,7 +74,7 @@ const genStatusStyle: GenerateStyle<MenuToken, CSSObject> = (token: MenuToken): 
         },
 
         [`${iconCls}-inline &::after`]: {
-          borderRightColor: highlightDangerColor,
+          borderInlineEndColor: highlightDangerColor,
         },
       },
 
@@ -196,7 +196,7 @@ const genBaseStyle: GenerateStyle<MenuToken, CSSObject> = (token): CSSObject => 
       color: colorText,
       fontSize,
       lineHeight: 0, // Fix display inline-block gap
-      textAlign: 'left',
+      textAlign: 'start',
       listStyle: 'none',
       background: componentBackground,
       outline: 'none',
