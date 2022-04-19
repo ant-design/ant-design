@@ -874,27 +874,33 @@ describe('Upload', () => {
     expect(onChange.mock.calls[0][0].fileList).toHaveLength(1);
   });
 
-  // FIXME: @zombieJ React 18 StrictMode
   // https://github.com/ant-design/ant-design/issues/33819
   it('should show the animation of the upload children leaving when the upload children becomes null', async () => {
-    const wrapper = originMount(
+    jest.useFakeTimers();
+
+    const { container, rerender } = render(
       <Upload listType="picture-card">
         <button type="button">upload</button>
       </Upload>,
     );
-    wrapper.setProps({ children: null });
-    expect(wrapper.find('.ant-upload-select-picture-card').getDOMNode().style.display).not.toBe(
-      'none',
-    );
-    await act(async () => {
-      await sleep(100);
-      wrapper
-        .find('.ant-upload-select-picture-card')
-        .getDOMNode()
-        .dispatchEvent(new Event('animationend'));
-      await sleep(20);
+
+    rerender(<Upload listType="picture-card" />);
+    expect(container.querySelector('.ant-upload-select-picture-card')).not.toHaveStyle({
+      display: 'none',
     });
-    expect(wrapper.find('.ant-upload-select-picture-card').getDOMNode().style.display).toBe('none');
+
+    // Motion leave status change: start > active
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    fireEvent.animationEnd(container.querySelector('.ant-upload-select-picture-card'));
+
+    expect(container.querySelector('.ant-upload-select-picture-card')).toHaveStyle({
+      display: 'none',
+    });
+
+    jest.useRealTimers();
   });
 
   it('<Upload /> should pass <UploadList /> prefixCls', async () => {
