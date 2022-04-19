@@ -21,6 +21,7 @@ import {
   InputToken,
 } from '../../input/style';
 
+// FIXME: need full token check
 export interface ComponentToken {
   zIndexDropdown: number;
   pickerTextHeight: number;
