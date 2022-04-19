@@ -3432,7 +3432,7 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md extend co
                 type="button"
               >
                 <span>
-                  download 
+                  Download
                 </span>
               </button>
               <button
@@ -3519,7 +3519,7 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md extend co
                 type="button"
               >
                 <span>
-                  download 
+                  Download
                 </span>
               </button>
               <button
