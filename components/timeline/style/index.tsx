@@ -91,7 +91,10 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = token => {
           insetBlockStart: `${
             -(token.fontSizeBase * token.lineHeight - token.fontSizeBase) + token.radiusSM
           }px`,
-          margin: `0 0 0 ${token.marginLG + token.radiusBase}px`,
+          marginInlineStart: token.marginLG + token.radiusBase,
+          marginInlineEnd: 0,
+          marginBlockStart: 0,
+          marginBlockEnd: 0,
           wordBreak: 'break-word',
         },
 

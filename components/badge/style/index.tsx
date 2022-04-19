@@ -296,7 +296,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (
       ...statusRibbonPreset,
       [`&${ribbonPrefixCls}-placement-end`]: {
         insetInlineEnd: -1 * token.marginXS,
-        borderBottomRightRadius: 0,
+        borderEndEndRadius: 0,
         [`${ribbonPrefixCls}-corner`]: {
           insetInlineEnd: 0,
           borderColor: 'currentcolor transparent transparent currentcolor',
@@ -304,7 +304,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (
       },
       [`&${ribbonPrefixCls}-placement-start`]: {
         insetInlineStart: -1 * token.marginXS,
-        borderBottomLeftRadius: 0,
+        borderEndStartRadius: 0,
         [`${ribbonPrefixCls}-corner`]: {
           insetInlineStart: 0,
           borderColor: 'currentcolor currentcolor transparent transparent',

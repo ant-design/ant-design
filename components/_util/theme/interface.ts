@@ -78,6 +78,7 @@ export interface OverrideToken {
   Timeline?: TimelineComponentToken;
   Tabs?: {};
   Card?: {};
+  Steps?: {};
 }
 
 /** Final token which contains the components level override */

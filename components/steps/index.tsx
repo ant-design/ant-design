@@ -7,6 +7,7 @@ import classNames from 'classnames';
 import { ConfigContext } from '../config-provider';
 import Progress from '../progress';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
+import useStyle from './style';
 
 export interface StepsProps {
   type?: 'default' | 'navigation';
@@ -53,6 +54,9 @@ const Steps: StepsType = props => {
   );
 
   const prefixCls = getPrefixCls('steps', props.prefixCls);
+
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
   const iconPrefix = getPrefixCls('', props.iconPrefix);
   const stepsClassName = classNames(
     {
@@ -60,6 +64,7 @@ const Steps: StepsType = props => {
       [`${prefixCls}-with-progress`]: percent !== undefined,
     },
     className,
+    hashId,
   );
   const icons = {
     finish: <CheckOutlined className={`${prefixCls}-finish-icon`} />,
@@ -94,7 +99,7 @@ const Steps: StepsType = props => {
     }
     return node;
   };
-  return (
+  return wrapSSR(
     <RcSteps
       icons={icons}
       {...restProps}
@@ -104,7 +109,7 @@ const Steps: StepsType = props => {
       prefixCls={prefixCls}
       iconPrefix={iconPrefix}
       className={stepsClassName}
-    />
+    />,
   );
 };
 
