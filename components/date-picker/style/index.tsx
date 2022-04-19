@@ -471,7 +471,7 @@ const genPickerCellInnerStyle = (token: PickerToken, cellClassName: string): CSS
         top: 0,
         insetInlineEnd: 0,
         bottom: 0,
-        left: 0,
+        insetInlineStart: 0,
         zIndex: 1,
         border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorPrimary}`,
         borderRadius: token.radiusBase,
@@ -772,7 +772,10 @@ const genPanelStyle: GenerateStyle<PickerToken> = token => {
             width: pickerArrowSize,
             height: pickerArrowSize,
             border: `0 solid currentcolor`,
-            borderWidth: `1.5px 0 0 1.5px`, // FIXME: v4 magic
+            borderBlockStart: 1.5, // FIXME: v4 magic
+            borderBlockEnd: 0,
+            borderInlineStart: 1.5, // FIXME: v4 magic
+            borderInlineEnd: 0,
             content: '""',
           },
         },
@@ -787,7 +790,10 @@ const genPanelStyle: GenerateStyle<PickerToken> = token => {
             width: pickerArrowSize,
             height: pickerArrowSize,
             border: '0 solid currentcolor',
-            borderWidth: `1.5px 0 0 1.5px`, // FIXME: v4 magic
+            borderBlockStart: 1.5, // FIXME: v4 magic
+            borderBlockEnd: 0,
+            borderInlineStart: 1.5, // FIXME: v4 magic
+            borderInlineEnd: 0,
             content: '""',
           },
         },
