@@ -1,12 +1,14 @@
 // deps-lint-skip-all
 import { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-import { genComponentStyleHook, resetComponent, clearFix } from '../../_util/theme';
+import { genComponentStyleHook, resetComponent, clearFix, mergeToken } from '../../_util/theme';
 import type { GenerateStyle, FullToken } from '../../_util/theme';
 
 /** Component only token. Which will handle additional calculation of alias token */
-export interface ComponentToken {
-  antPrefix: string;
+export interface ComponentToken {}
+
+export interface MenuToken extends FullToken<'Menu'> {
+  black: string;
   componentBackground: string;
   colorTextSecondary: string;
   motionDurationMD: string;
@@ -33,18 +35,16 @@ export interface ComponentToken {
   width20: number;
 }
 
-interface MenuToken extends FullToken<'Menu'> {}
-
 // =============================== Base ===============================
-const accessibilityFocus: GenerateStyle<MenuToken, CSSObject> = token => ({
-  boxShadow: `0 0 0 2px ${token.colorPrimarySecondary}`,
+const accessibilityFocus: GenerateStyle<MenuToken, CSSObject> = (token): CSSObject => ({
+  boxShadow: `0 0 0 2px ${token.colorPrimarySecondary}`, // FIXME: hard code in v4
 });
 
 const accessibilityFocusDark: GenerateStyle<MenuToken, CSSObject> = token => ({
-  boxShadow: `0 0 0 2px ${token.boxShadowColor}`,
+  boxShadow: `0 0 0 2px ${token.boxShadowColor}`, // FIXME: hard code in v4
 });
 
-const genStatusStyle = (token: MenuToken): CSSObject => {
+const genStatusStyle: GenerateStyle<MenuToken, CSSObject> = (token: MenuToken): CSSObject => {
   const { componentCls, highlightDangerColor, itemActiveDangerBg, darkHighlightColor, iconCls } =
     token;
   return {
@@ -79,21 +79,22 @@ const genStatusStyle = (token: MenuToken): CSSObject => {
       },
 
       // ==================== Dark ====================
-      [`&-dark &-item-danger&-item`]: {
+      [`${componentCls}-dark ${componentCls}-item-danger${componentCls}-item`]: {
         [`&, &:hover, & > a`]: {
           color: highlightDangerColor,
         },
       },
 
-      [`&-dark&-dark:not(&-horizontal) &-item-danger&-item-selected`]: {
-        color: darkHighlightColor,
-        backgroundColor: highlightDangerColor,
-      },
+      [`${componentCls}-dark${componentCls}-dark:not(${componentCls}-horizontal) ${componentCls}-item-danger${componentCls}-item-selected`]:
+        {
+          color: darkHighlightColor,
+          backgroundColor: highlightDangerColor,
+        },
     },
   };
 };
 const genLightStyle = (token: MenuToken): CSSObject => {
-  const { componentCls, primaryColor } = token;
+  const { componentCls, primaryColor, black } = token;
   return {
     [`${componentCls}-light`]: {
       // light theme
@@ -106,16 +107,16 @@ const genLightStyle = (token: MenuToken): CSSObject => {
       `]: {
         color: primaryColor,
         [`${componentCls}`]: {
-          color: '#000',
+          color: black,
         },
       },
     },
   };
 };
 const genDarkStyle = (token: MenuToken): CSSObject => {
-  const { componentCls, darkColor, darkBg, darkHighlightColor } = token;
+  const { componentCls, darkColor, darkBg, darkHighlightColor, motionDurationSlow } = token;
   return {
-    [`&${componentCls}root:focus-visible`]: {
+    [`&${componentCls}-root:focus-visible`]: {
       ...accessibilityFocusDark(token),
     },
 
@@ -133,7 +134,7 @@ const genDarkStyle = (token: MenuToken): CSSObject => {
         background: darkBg,
         [`${componentCls}-submenu-title ${componentCls}-submenu-arrow`]: {
           opacity: 0.45,
-          transition: 'all 0.3s',
+          transition: `all ${motionDurationSlow}`,
 
           '&::after, &::before': {
             background: darkHighlightColor,
@@ -143,12 +144,12 @@ const genDarkStyle = (token: MenuToken): CSSObject => {
   };
 };
 
-const genBaseStyle: GenerateStyle<MenuToken, CSSObject> = token => {
+const genBaseStyle: GenerateStyle<MenuToken, CSSObject> = (token): CSSObject => {
   const {
     radiusBase,
     zIndexDrop,
     componentCls,
-    antPrefix,
+    antCls,
     borderColorSplit,
     primaryColor,
     motionDurationSlow,
@@ -182,6 +183,7 @@ const genBaseStyle: GenerateStyle<MenuToken, CSSObject> = token => {
     itemActiveBg,
     controlHeightLG,
     width20,
+    black,
   } = token;
 
   return {
@@ -199,12 +201,12 @@ const genBaseStyle: GenerateStyle<MenuToken, CSSObject> = token => {
       background: componentBackground,
       outline: 'none',
       boxShadow,
-      transition: `background ${motionDurationSlow},width ${motionDurationSlow} cubic-bezier(0.2, 0, 0, 1) 0s`,
+      transition: `background ${motionDurationSlow},width ${motionDurationSlow} cubic-bezier(0.2, 0, 0, 1) 0s`, // FIXME: hard code in v4
       ...clearFix(),
 
       // sub-menu
       [`${componentCls}`]: {
-        color: '#000',
+        color: black,
         ...clearFix(),
       },
 
@@ -228,7 +230,7 @@ const genBaseStyle: GenerateStyle<MenuToken, CSSObject> = token => {
       [`${componentCls}-submenu-selected`]: {
         color: primaryColor,
         [`${componentCls}`]: {
-          color: '#000',
+          color: black,
           ...clearFix(),
         },
       },
@@ -260,7 +262,7 @@ const genBaseStyle: GenerateStyle<MenuToken, CSSObject> = token => {
       },
 
       // https://github.com/ant-design/ant-design/issues/19809
-      [`${componentCls}-item > ${antPrefix}-badge a`]: {
+      [`${componentCls}-item > ${antCls}-badge a`]: {
         color: colorText,
 
         '&:hover': {
@@ -413,7 +415,7 @@ const genBaseStyle: GenerateStyle<MenuToken, CSSObject> = token => {
           display: 'inline-block',
         },
 
-        [`&-tooltip`]: {
+        [`${componentCls}-tooltip`]: {
           pointerEvents: 'none',
 
           [`${componentCls}-item-icon,${iconCls}`]: {
@@ -536,7 +538,7 @@ const genBaseStyle: GenerateStyle<MenuToken, CSSObject> = token => {
         insetInlineEnd: '16px', // FIXME: hard code in v4
         width: '10px', // FIXME: hard code in v4
         color: colorText,
-        transform: 'translateY(-50%)', // FIXME
+        transform: 'translateY(-50%)',
         transition: `transform ${motionDurationSlow} ${motionEaseInOut}`,
       },
       [`
@@ -571,7 +573,7 @@ const genBaseStyle: GenerateStyle<MenuToken, CSSObject> = token => {
       ${componentCls}-root${componentCls}-inline`]: {
       boxShadow: 'none',
     },
-    [`${componentCls}-root&-inline-collapsed`]: {
+    [`${componentCls}-root${componentCls}-inline-collapsed`]: {
       [`${componentCls}-item,${componentCls}-submenu ${componentCls}-submenu-title`]: {
         [`> ${componentCls}-inline-collapsed-noicon`]: {
           fontSize: sizeLg,
@@ -631,10 +633,6 @@ const genBaseStyle: GenerateStyle<MenuToken, CSSObject> = token => {
     `]: {
       color: darkHighlightColor,
       backgroundColor: 'transparent',
-      [`${componentCls}`]: {
-        color: '#000',
-        ...clearFix(),
-      },
       '> a, > span > a': {
         color: darkHighlightColor,
       },
@@ -679,7 +677,7 @@ const genBaseStyle: GenerateStyle<MenuToken, CSSObject> = token => {
       },
     },
 
-    [`&${componentCls}-dark ${componentCls}-item-selected,${componentCls}-submenu-popup${componentCls}-dark ${componentCls}-item-selected`]:
+    [`${componentCls}${componentCls}-dark ${componentCls}-item-selected,${componentCls}-submenu-popup${componentCls}-dark ${componentCls}-item-selected`]:
       {
         backgroundColor: primaryColor,
       },
@@ -756,18 +754,19 @@ const genBaseStyle: GenerateStyle<MenuToken, CSSObject> = token => {
 
       [`&:not(${componentCls}-dark)`]: {
         [`> ${componentCls}-item, > ${componentCls}-submenu`]: {
-          marginBlocStart: '-1px', // FIXME: hard code in v4
+          marginBlockStart: '-1px', // FIXME: hard code in v4
           marginBlockEnd: 0,
           paddingBlock: 0,
           paddingInline: width20,
-          [`&:hover,${componentCls}-active,${componentCls}-open,${componentCls}-selected`]: {
+        },
+        [`&:hover,${componentCls}-item-active,${componentCls}-item-open,${componentCls}-item-selected, ${componentCls}-submenu-active,${componentCls}-submenu-open,${componentCls}-submenu-selected`]:
+          {
             color: primaryColor,
 
             '&::after': {
               borderBlockEnd: `2px ${controlLineType} ${primaryColor}`, // FIXME: hard code in v4
             },
           },
-        },
       },
 
       [`> ${componentCls}-item, > ${componentCls}-submenu`]: {
@@ -803,7 +802,7 @@ const genBaseStyle: GenerateStyle<MenuToken, CSSObject> = token => {
           },
         },
 
-        [`&-selected a`]: {
+        [`${componentCls}-item-selected a`]: {
           color: primaryColor,
         },
       },
@@ -812,7 +811,7 @@ const genBaseStyle: GenerateStyle<MenuToken, CSSObject> = token => {
         display: 'block',
         clear: 'both',
         height: 0,
-        content: `' '`, // FIXME  '\20'
+        content: '"\\20"',
       },
     },
 
@@ -822,7 +821,7 @@ const genBaseStyle: GenerateStyle<MenuToken, CSSObject> = token => {
 
     [`${componentCls}-horizontal ${componentCls}-item,${componentCls}-horizontal ${componentCls}-submenu`]:
       {
-        marginBlocStart: '-1px',
+        marginBlockStart: '-1px', // FIXME: hard code in v4
       },
 
     [`${componentCls}-horizontal > ${componentCls}-item:hover,${componentCls}-horizontal > ${componentCls}-item-active,${componentCls}-horizontal > ${componentCls}-submenu ${componentCls}-submenu-title:hover`]:
@@ -923,7 +922,7 @@ const genBaseStyle: GenerateStyle<MenuToken, CSSObject> = token => {
     // ========================= submenu  ============================
     [`${componentCls}-submenu`]: {
       // https://github.com/ant-design/ant-design/issues/13955
-      [`&-placement-rightTop::before`]: {
+      [`${componentCls}-submenu-placement-rightTop::before`]: {
         insetBlockStart: 0,
         insetInlineStart: '-7px', // FIXME: hard code in v4
       },
@@ -932,7 +931,7 @@ const genBaseStyle: GenerateStyle<MenuToken, CSSObject> = token => {
         backgroundColor: componentBackground,
         borderRadius: radiusBase,
 
-        [`&-submenu-title::after`]: {
+        [`${componentCls}-submenu-title::after`]: {
           transition: `transform ${motionDurationSlow} ${motionEaseInOut}`,
         },
       },
@@ -1004,14 +1003,14 @@ const genBaseStyle: GenerateStyle<MenuToken, CSSObject> = token => {
 
     // ========================= other  ============================
     // Integration with header element so menu items have the same height
-    [`${antPrefix}-layout-header`]: {
+    [`${antCls}-layout-header`]: {
       [`${componentCls}`]: {
         lineHeight: 'inherit',
       },
     },
 
     // https://github.com/ant-design/ant-design/issues/32950
-    [`${antPrefix}-menu-inline-collapsed-tooltip`]: {
+    [`${antCls}-menu-inline-collapsed-tooltip`]: {
       'a,a:hover': {
         color: componentBackground,
       },
@@ -1029,11 +1028,9 @@ const genBaseStyle: GenerateStyle<MenuToken, CSSObject> = token => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook(
-  'Menu',
-  token => [genBaseStyle(token), genDarkStyle(token), genLightStyle(token), genStatusStyle(token)],
-  () => ({
-    antPrefix: `.ant`, // FIXME: hard code in v4
+export default genComponentStyleHook('Menu', token => {
+  const MenuToken = mergeToken<MenuToken>(token, {
+    black: '#000', // FIXME: hard code in v4
     componentBackground: '#fff', // FIXME: hard code in v4
     darkBg: '#001529', // FIXME: hard code in v4
     darkInlineSubmenuBg: '#000c17', // FIXME: hard code in v4
@@ -1055,10 +1052,15 @@ export default genComponentStyleHook(
     menuInlineSubmenuBg: new TinyColor({ h: 0, s: 0, v: 98 }).toHexString(), // FIXME: hard code in v4
     easeOut: 'cubic-bezier(0.215, 0.61, 0.355, 1)', // FIXME: hard code in v4
     width20: 20, // FIXME: hard code in v4
-
     zIndexDrop: 1050, // FIXME: hard code in v4
     menuOpacity: 0.0001, // FIXME: hard code in v4
-
     sizeLg: 16, // FIXME: hard code in v4
-  }),
-);
+  });
+
+  return [
+    genBaseStyle(MenuToken),
+    genDarkStyle(MenuToken),
+    genLightStyle(MenuToken),
+    genStatusStyle(MenuToken),
+  ];
+});
