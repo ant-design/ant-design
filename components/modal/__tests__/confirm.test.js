@@ -505,13 +505,13 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     });
     const { length } = instances;
     instances.forEach((instance, index) => {
-      expect(destroyFns.length).toBe(length - index);
+      expect(destroyFns.size).toBe(length - index);
 
       act(() => {
         instance.destroy();
         jest.runAllTimers();
       });
-      expect(destroyFns.length).toBe(length - index - 1);
+      expect(destroyFns.size).toBe(length - index - 1);
     });
 
     jest.useRealTimers();

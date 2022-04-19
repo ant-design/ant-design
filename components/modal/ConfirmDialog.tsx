@@ -1,15 +1,13 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import Dialog, { ModalFuncProps } from './Modal';
+import Dialog, { type ModalFuncProps } from './Modal';
 import ActionButton from '../_util/ActionButton';
 import devWarning from '../_util/devWarning';
 import ConfigProvider from '../config-provider';
 import { getTransitionName } from '../_util/motion';
 
-interface ConfirmDialogProps extends ModalFuncProps {
-  afterClose?: () => void;
+export interface ConfirmDialogProps extends ModalFuncProps {
   close: (...args: any[]) => void;
-  autoFocusButton?: null | 'ok' | 'cancel';
   rootPrefixCls: string;
   iconPrefixCls?: string;
 }
