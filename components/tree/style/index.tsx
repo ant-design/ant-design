@@ -12,7 +12,7 @@ import {
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
 
 // ============================ Keyframes =============================
-export const treeNodeFX = new Keyframes('ant-tree-node-fx-do-not-use', {
+const treeNodeFX = new Keyframes('ant-tree-node-fx-do-not-use', {
   '0%': {
     opacity: 0,
   },
@@ -465,6 +465,7 @@ export const genTreeStyle = (
     genBaseStyle(prefixCls, treeToken, hashId),
     // Directory
     genDirectoryStyle(treeToken),
+    treeNodeFX,
   ];
 };
 
@@ -472,5 +473,4 @@ export const genTreeStyle = (
 export default genComponentStyleHook('Tree', (token, { prefixCls, hashId }) => [
   getCheckboxStyle(`${prefixCls}-checkbox`, token, hashId),
   genTreeStyle(prefixCls, token, hashId),
-  treeNodeFX,
 ]);
