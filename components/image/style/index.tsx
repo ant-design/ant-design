@@ -108,7 +108,7 @@ export const genPreviewOperationsStyle = (token: ImageToken): CSSObject => {
 
     [`${previewPrefixCls}-progress`]: {
       position: 'absolute',
-      left: '50%',
+      left: { _skip_check_: true, value: '50%' },
       transform: 'translateX(-50%)',
     },
 
