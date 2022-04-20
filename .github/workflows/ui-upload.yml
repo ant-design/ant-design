@@ -1,6 +1,6 @@
 # Upload 📷 UI snapshots to argos server, help visual regression testing.
 
-name: UI Upload
+name: 📷 UI Upload
 
 on:
   workflow_run:
