@@ -84,12 +84,5 @@ class Avatar extends React.Component {
   }
 }
 
-export default () => <Avatar />;
-```
-
-```css
-.avatar-uploader > .ant-upload {
-  width: 128px;
-  height: 128px;
-}
+export default Avatar;
 ```

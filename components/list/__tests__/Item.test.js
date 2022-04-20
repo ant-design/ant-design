@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import List from '..';
 import ConfigProvider from '../../config-provider';
 
@@ -126,7 +126,7 @@ describe('List Item Layout', () => {
         />
       </ConfigProvider>,
     );
-    expect(render(wrapper)).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('rowKey could be string', () => {

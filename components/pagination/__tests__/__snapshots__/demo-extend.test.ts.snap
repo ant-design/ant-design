@@ -219,7 +219,7 @@ exports[`renders ./components/pagination/demo/all.md extend context correctly 1`
       <div>
         <div
           class="ant-select-dropdown"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <div>
             <div
@@ -716,7 +716,7 @@ Array [
         <div>
           <div
             class="ant-select-dropdown"
-            style="opacity:0;pointer-events:none"
+            style="opacity:0"
           >
             <div>
               <div
@@ -1073,7 +1073,7 @@ Array [
         <div>
           <div
             class="ant-select-dropdown"
-            style="opacity:0;pointer-events:none"
+            style="opacity:0"
           >
             <div>
               <div
@@ -1516,7 +1516,7 @@ exports[`renders ./components/pagination/demo/itemRender.md extend context corre
       <div>
         <div
           class="ant-select-dropdown"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <div>
             <div
@@ -1875,7 +1875,7 @@ Array [
         <div>
           <div
             class="ant-select-dropdown"
-            style="opacity:0;pointer-events:none"
+            style="opacity:0"
           >
             <div>
               <div
@@ -2243,7 +2243,7 @@ Array [
         <div>
           <div
             class="ant-select-dropdown"
-            style="opacity:0;pointer-events:none"
+            style="opacity:0"
           >
             <div>
               <div
@@ -2690,7 +2690,7 @@ Array [
         <div>
           <div
             class="ant-select-dropdown"
-            style="opacity:0;pointer-events:none"
+            style="opacity:0"
           >
             <div>
               <div
@@ -3142,7 +3142,7 @@ Array [
         <div>
           <div
             class="ant-select-dropdown"
-            style="opacity:0;pointer-events:none"
+            style="opacity:0"
           >
             <div>
               <div
@@ -3562,7 +3562,7 @@ exports[`renders ./components/pagination/demo/more.md extend context correctly 1
       <div>
         <div
           class="ant-select-dropdown"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <div>
             <div
@@ -4052,7 +4052,7 @@ Array [
         <div>
           <div
             class="ant-select-dropdown"
-            style="opacity:0;pointer-events:none"
+            style="opacity:0"
           >
             <div>
               <div
@@ -4364,7 +4364,7 @@ Array [
         <div>
           <div
             class="ant-select-dropdown"
-            style="opacity:0;pointer-events:none"
+            style="opacity:0"
           >
             <div>
               <div

@@ -9,7 +9,9 @@ import type { ComponentToken as SelectComponentToken } from '../../select/style'
 import type { ComponentToken as SliderComponentToken } from '../../slider/style';
 import type { ComponentToken as TypographyComponentToken } from '../../typography/style';
 import type { ComponentToken as BackTopComponentToken } from '../../back-top/style';
+import type { ComponentToken as DatePickerComponentToken } from '../../date-picker/style';
 import type { ComponentToken as TimelineComponentToken } from '../../timeline/style';
+import type { ComponentToken as MenuComponentToken } from '../../menu/style';
 
 export const PresetColors = [
   'blue',
@@ -50,6 +52,7 @@ export interface OverrideToken {
   Carousel?: {};
   Cascader?: CascaderComponentToken;
   Checkbox?: {};
+  DatePicker?: DatePickerComponentToken;
   Descriptions?: {};
   Divider?: DividerComponentToken;
   Drawer?: {};
@@ -78,6 +81,8 @@ export interface OverrideToken {
   Timeline?: TimelineComponentToken;
   Tabs?: {};
   Card?: {};
+  Steps?: {};
+  Menu?: MenuComponentToken;
 }
 
 /** Final token which contains the components level override */

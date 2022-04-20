@@ -752,7 +752,7 @@ describe('Upload List', () => {
     const wrapper = mount(
       <UploadList listType="picture-card" items={items} locale={{ previewFile: '' }} />,
     );
-    expect(wrapper.props().previewFile(file)).toBeTruthy();
+    expect(wrapper.find(UploadList).props().previewFile(file)).toBeTruthy();
 
     wrapper.unmount();
   });
@@ -771,7 +771,7 @@ describe('Upload List', () => {
     );
 
     // Not throw
-    wrapper.props().onDownload(file);
+    wrapper.find(UploadList).props().onDownload(file);
 
     wrapper.unmount();
   });
@@ -845,6 +845,7 @@ describe('Upload List', () => {
       <UploadList listType="picture-card" items={fileList} locale={{ uploading: 'uploading' }} />,
     );
     await wrapper
+      .find(UploadList)
       .props()
       .previewFile(mockFile)
       .then(dataUrl => {
@@ -863,6 +864,7 @@ describe('Upload List', () => {
       <UploadList listType="picture-card" items={fileList} locale={{ uploading: 'uploading' }} />,
     );
     await wrapper
+      .find(UploadList)
       .props()
       .previewFile(mockFile)
       .then(dataUrl => {

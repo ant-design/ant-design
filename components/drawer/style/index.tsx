@@ -24,7 +24,7 @@ export interface DrawerToken extends FullToken<'Drawer'> {
   componentCls: string;
 }
 
-const antdDrawerFadeIn = new Keyframes('antNoWrapperZoomBadgeIn', {
+const antdDrawerFadeIn = new Keyframes('antDrawerFadeIn', {
   '0%': { opacity: 0 },
   '100%': { opacity: 1 },
 });
@@ -112,7 +112,7 @@ const genBaseStyle: GenerateStyle<DrawerToken> = (
                 },
                 [`${componentCls}-close`]: {
                   display: 'inline-block',
-                  marginRight: closeRight,
+                  marginInlineEnd: closeRight,
                   color: textColorSecondary,
                   fontWeight: 700,
                   fontSize: fontSizeLG,
@@ -310,5 +310,5 @@ export default genComponentStyleHook('Drawer', (token, { hashId }) => {
     motionEaseOut: 'cubic-bezier(0.215, 0.61, 0.355, 1)', // FIXME: hard code
   });
 
-  return [genBaseStyle(drawerToken, hashId), genDrawerStyle(drawerToken)];
+  return [genBaseStyle(drawerToken, hashId), genDrawerStyle(drawerToken), antdDrawerFadeIn];
 });

@@ -106,6 +106,12 @@ export const genPreviewOperationsStyle = (token: ImageToken): CSSObject => {
       },
     },
 
+    [`${previewPrefixCls}-progress`]: {
+      position: 'absolute',
+      left: { _skip_check_: true, value: '50%' },
+      transform: 'translateX(-50%)',
+    },
+
     [`${previewPrefixCls}-icon`]: {
       fontSize: imagePreviewOperationSize,
     },
@@ -245,7 +251,6 @@ const genImageStyle: GenerateStyle<ImageToken> = (token: ImageToken) => {
         backgroundPosition: 'center center',
         backgroundSize: '30%',
       },
-
       [`.${prefixCls}-mask`]: {
         ...genImageMaskStyle(token),
       },

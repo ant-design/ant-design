@@ -196,7 +196,7 @@ const genPlacementStyle: GenerateStyle<PopoverToken> = token => {
         &-placement-rightTop,
         &-placement-rightBottom
       `]: {
-        paddingLeft: popoverDistance,
+        paddingInlineStart: popoverDistance,
       },
 
       [`
@@ -212,7 +212,7 @@ const genPlacementStyle: GenerateStyle<PopoverToken> = token => {
         &-placement-leftTop,
         &-placement-leftBottom
       `]: {
-        paddingRight: popoverDistance,
+        paddingInlineEnd: popoverDistance,
       },
 
       [`
