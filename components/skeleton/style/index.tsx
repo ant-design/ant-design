@@ -361,5 +361,5 @@ export default genComponentStyleHook('Skeleton', (token, { hashId }) => {
     skeletonParagraphMarginTop: 28, // FIXME: hard code in v4
     borderRadius: 100, // FIXME: hard code in v4
   });
-  return [genBaseStyle(skeletonToken, hashId)];
+  return [genBaseStyle(skeletonToken, hashId), skeletonClsLoading];
 });
