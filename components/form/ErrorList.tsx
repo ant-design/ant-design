@@ -28,6 +28,7 @@ function toErrorEntity(
 }
 
 export interface ErrorListProps {
+  fieldId?: string;
   help?: React.ReactNode;
   helpStatus?: ValidateStatus;
   errors?: React.ReactNode[];
@@ -41,6 +42,7 @@ export default function ErrorList({
   errors = EMPTY_LIST,
   warnings = EMPTY_LIST,
   className: rootClassName,
+  fieldId,
 }: ErrorListProps) {
   const { prefixCls } = React.useContext(FormItemPrefixContext);
   const { getPrefixCls } = React.useContext(ConfigContext);
@@ -58,6 +60,12 @@ export default function ErrorList({
       ...warnings.map((warning, index) => toErrorEntity(warning, 'warning', 'warning', index)),
     ];
   }, [help, helpStatus, errors, warnings]);
+
+  const helpProps: { id?: string } = {};
+
+  if (fieldId) {
+    helpProps.id = `${fieldId}_help`;
+  }
 
   return (
     <CSSMotion
@@ -77,8 +85,10 @@ export default function ErrorList({
 
         return (
           <div
+            {...helpProps}
             className={classNames(baseClassName, holderClassName, rootClassName)}
             style={holderStyle}
+            role="alert"
           >
             <CSSMotionList
               keys={fullKeyList}
@@ -98,7 +108,6 @@ export default function ErrorList({
                 return (
                   <div
                     key={key}
-                    role="alert"
                     className={classNames(itemClassName, {
                       [`${baseClassName}-${errorStatus}`]: errorStatus,
                     })}
