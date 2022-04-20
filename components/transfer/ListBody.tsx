@@ -127,7 +127,7 @@ class ListBody<RecordType extends KeyWiseTransferItem> extends React.Component<
           className={`${prefixCls}-pagination`}
           total={filteredRenderItems.length}
           pageSize={mergedPagination.pageSize}
-          current={current}
+          defaultCurrent={current}
           onChange={this.onPageChange}
         />
       );
