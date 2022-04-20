@@ -211,11 +211,8 @@ function useFilter<RecordType>({
 
   const mergedFilterStates = React.useMemo(() => {
     const collectedStates = collectFilterStates(mergedColumns, false);
-
     let filteredKeysIsAllNotControlled = true;
-
     let filteredKeysIsAllControlled = true;
-
     collectedStates.forEach(({ filteredKeys }) => {
       if (filteredKeys !== undefined) {
         filteredKeysIsAllNotControlled = false;
@@ -232,7 +229,7 @@ function useFilter<RecordType>({
     devWarning(
       filteredKeysIsAllControlled,
       'Table',
-      '`filteredKeys` should all be controlled or not controlled.',
+      'Columns should all contain `filteredValue` or not contain `filteredValue`.',
     );
 
     return collectedStates;

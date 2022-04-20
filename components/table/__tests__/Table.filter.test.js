@@ -2293,7 +2293,7 @@ describe('Table.filter', () => {
       }),
     );
     expect(errorSpy).toBeCalledWith(
-      'Warning: [antd: Table] `filteredKeys` should all be controlled or not controlled.',
+      'Warning: [antd: Table] Columns should all contain `filteredValue` or not contain `filteredValue`.',
     );
     errorSpy.mockReset();
     columns[1].filteredValue = [];
