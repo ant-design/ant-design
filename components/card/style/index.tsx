@@ -477,5 +477,7 @@ export default genComponentStyleHook('Card', (token, { rootPrefixCls, hashId }) 
 
     // RTL
     genCardRTLStyle(cardToken),
+
+    antCardLoading,
   ];
 });
