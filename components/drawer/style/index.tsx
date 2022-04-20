@@ -30,10 +30,7 @@ const antdDrawerFadeIn = new Keyframes('antDrawerFadeIn', {
 });
 
 // =============================== Base ===============================
-const genBaseStyle: GenerateStyle<DrawerToken> = (
-  token: DrawerToken,
-  hashId: string,
-): CSSObject => {
+const genBaseStyle: GenerateStyle<DrawerToken> = (token: DrawerToken): CSSObject => {
   const {
     componentCls,
     motionEaseOut,
@@ -171,7 +168,9 @@ const genBaseStyle: GenerateStyle<DrawerToken> = (
       height: '100%',
       opacity: 1,
       transition: 'none',
-      animation: `${antdDrawerFadeIn.getName(hashId)} ${motionDurationSlow} ${motionEaseOut}`,
+      animationName: antdDrawerFadeIn,
+      animationDuration: token.motionDurationSlow,
+      animationTimingFunction: motionEaseOut,
       pointerEvents: 'auto',
     },
   };
@@ -285,7 +284,7 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Drawer', (token, { hashId }) => {
+export default genComponentStyleHook('Drawer', token => {
   const drawerToken = mergeToken<DrawerToken>(token, {
     black: '#000', // FIXME: hard code
     white: '#fff', // FIXME: hard code
@@ -310,5 +309,5 @@ export default genComponentStyleHook('Drawer', (token, { hashId }) => {
     motionEaseOut: 'cubic-bezier(0.215, 0.61, 0.355, 1)', // FIXME: hard code
   });
 
-  return [genBaseStyle(drawerToken, hashId), genDrawerStyle(drawerToken), antdDrawerFadeIn];
+  return [genBaseStyle(drawerToken), genDrawerStyle(drawerToken), antdDrawerFadeIn];
 });

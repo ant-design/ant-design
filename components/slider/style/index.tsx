@@ -282,14 +282,14 @@ const genVerticalStyle: GenerateStyle<SliderToken> = token => {
 // ============================== Export ==============================
 export default genComponentStyleHook(
   'Slider',
-  (token, { hashId }) => {
+  token => {
     const sliderToken = mergeToken<SliderToken>(token, {
       marginPart: (token.controlHeight - token.controlSize) / 2,
       marginFull: token.controlSize / 2,
       marginPartWithMark: token.controlHeightLG - token.controlSize,
     });
     return [
-      genBaseStyle(sliderToken, hashId),
+      genBaseStyle(sliderToken),
       genHorizontalStyle(sliderToken),
       genVerticalStyle(sliderToken),
     ];

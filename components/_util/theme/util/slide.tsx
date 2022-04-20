@@ -3,7 +3,6 @@ import type { DerivativeToken } from '..';
 import { initMotion } from './motion';
 
 export const initSlideMotion = (
-  hashId: string,
   rootPrefixCls: string,
   motionName: string,
   inKeyframes: Keyframes,
@@ -14,7 +13,7 @@ export const initSlideMotion = (
   const motionCls = `.${rootMotionName}`;
 
   return [
-    initMotion(hashId, rootMotionName, inKeyframes, outKeyframes, token.motionDurationMid),
+    initMotion(rootMotionName, inKeyframes, outKeyframes, token.motionDurationMid),
 
     {
       [`

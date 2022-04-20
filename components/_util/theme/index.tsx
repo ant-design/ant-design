@@ -105,5 +105,4 @@ export type UseComponentStyleResult = [(node: React.ReactNode) => React.ReactEle
 
 export type GenerateStyle<ComponentToken extends object, ReturnType = CSSInterpolation> = (
   token: ComponentToken,
-  hashId?: string,
 ) => ReturnType;
