@@ -101,8 +101,7 @@
     "version": "node ./scripts/generate-version",
     "install-react-16": "npm i --no-save --legacy-peer-deps react@16 react-dom@16 enzyme-adapter-react-16",
     "install-react-17": "npm i --no-save --legacy-peer-deps react@17 react-dom@17",
-    "install-react-18": "npm i --no-save --legacy-peer-deps react@18 react-dom@18 @testing-library/react@13",
-    "argos": "argos upload imageSnapshots"
+    "install-react-18": "npm i --no-save --legacy-peer-deps react@18 react-dom@18 @testing-library/react@13"
   },
   "browserslist": [
     "> 0.5%",
