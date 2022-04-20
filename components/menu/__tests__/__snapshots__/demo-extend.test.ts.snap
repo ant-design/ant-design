@@ -95,7 +95,7 @@ Array [
         <span
           class="ant-menu-title-content"
         >
-          Navigation Three - Submenu
+          Navigation Two - Submenu
         </span>
         <i
           class="ant-menu-submenu-arrow"
@@ -155,6 +155,50 @@ Array [
     aria-hidden="true"
     style="display:none"
   >
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div
+        class="ant-tooltip ant-menu-inline-collapsed-tooltip"
+        style="opacity:0"
+      >
+        <div
+          class="ant-tooltip-content"
+        >
+          <div
+            class="ant-tooltip-arrow"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-inner"
+            role="tooltip"
+          />
+        </div>
+      </div>
+    </div>
     <div>
       <div
         class="ant-tooltip ant-menu-inline-collapsed-tooltip"
