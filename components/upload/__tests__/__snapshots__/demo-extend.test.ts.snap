@@ -561,7 +561,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md extend context corr
       <div>
         <div
           class="ant-tooltip"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <div
             class="ant-tooltip-content"
@@ -1164,7 +1164,7 @@ exports[`renders ./components/upload/demo/drag-sorting.md extend context correct
         <div>
           <div
             class="ant-tooltip"
-            style="opacity:0;pointer-events:none"
+            style="opacity:0"
           >
             <div
               class="ant-tooltip-content"
@@ -1558,7 +1558,7 @@ exports[`renders ./components/upload/demo/file-type.md extend context correctly 
       <div>
         <div
           class="ant-tooltip"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <div
             class="ant-tooltip-content"
@@ -1700,7 +1700,7 @@ exports[`renders ./components/upload/demo/file-type.md extend context correctly 
       <div>
         <div
           class="ant-tooltip"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <div
             class="ant-tooltip-content"
@@ -1834,7 +1834,7 @@ exports[`renders ./components/upload/demo/file-type.md extend context correctly 
       <div>
         <div
           class="ant-tooltip"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <div
             class="ant-tooltip-content"
@@ -2682,7 +2682,7 @@ exports[`renders ./components/upload/demo/picture-card.md extend context correct
       <div>
         <div
           class="ant-tooltip"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <div
             class="ant-tooltip-content"
@@ -2964,7 +2964,7 @@ Array [
         <div>
           <div
             class="ant-tooltip"
-            style="opacity:0;pointer-events:none"
+            style="opacity:0"
           >
             <div
               class="ant-tooltip-content"
@@ -3199,7 +3199,7 @@ Array [
         <div>
           <div
             class="ant-tooltip"
-            style="opacity:0;pointer-events:none"
+            style="opacity:0"
           >
             <div
               class="ant-tooltip-content"
@@ -3432,7 +3432,7 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md extend co
                 type="button"
               >
                 <span>
-                  download 
+                  Download
                 </span>
               </button>
               <button
@@ -3519,7 +3519,7 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md extend co
                 type="button"
               >
                 <span>
-                  download 
+                  Download
                 </span>
               </button>
               <button
@@ -3633,7 +3633,7 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md extend co
       <div>
         <div
           class="ant-tooltip"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <div
             class="ant-tooltip-content"

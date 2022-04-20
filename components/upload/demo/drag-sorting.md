@@ -135,7 +135,7 @@ const DragSortingUpload = () => {
   );
 };
 
-export default () => <DragSortingUpload />;
+export default DragSortingUpload;
 ```
 
 ```css

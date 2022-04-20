@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { render, fireEvent } from '@testing-library/react';
+import { render as testLibRender } from '@testing-library/react';
+import { render, fireEvent } from '../../../tests/utils';
 import Search from '../search';
 import Transfer from '../index';
 
@@ -81,13 +82,18 @@ describe('Transfer.Search', () => {
   // https://github.com/ant-design/ant-design/issues/26208
   it('typing space should trigger filterOption', () => {
     const filterOption = jest.fn();
-    const wrapper = mount(
+
+    // We use origin testing lib here since StrictMode will render multiple times
+    const { container } = testLibRender(
       <Transfer filterOption={filterOption} dataSource={dataSource} showSearch />,
     );
-    wrapper
-      .find('.ant-input')
-      .at(0)
-      .simulate('change', { target: { value: ' ' } });
+
+    fireEvent.change(container.querySelector('.ant-input'), {
+      target: {
+        value: ' ',
+      },
+    });
+
     expect(filterOption).toHaveBeenCalledTimes(dataSource.length);
   });
 });

@@ -35,7 +35,7 @@ function getBase64(file) {
   });
 }
 
-class PicturesWall extends React.Component {
+class App extends React.Component {
   state = {
     previewVisible: false,
     previewImage: '',
@@ -139,5 +139,5 @@ class PicturesWall extends React.Component {
   }
 }
 
-export default () => <PicturesWall />;
+export default App;
 ```

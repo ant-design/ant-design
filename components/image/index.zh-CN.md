@@ -34,12 +34,12 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/D1dXz9PZqa/image.svg
 {
   visible?: boolean;
   onVisibleChange?: (visible, prevVisible) => void;
-  getContainer?: string | HTMLElement | (() => HTMLElement); // V4.8.0
-  src?: string; // V4.10.0
-  mask?: ReactNode; // V4.9.0
-  maskClassName?: string; // V4.11.0
-  current?: number; // V4.12.0 仅支持 PreviewGroup
-  countRender?: (current: number, total: number) => string  // 仅支持 PreviewGroup
+  getContainer?: string | HTMLElement | (() => HTMLElement); // v4.8.0
+  src?: string; // v4.10.0
+  mask?: ReactNode; // v4.9.0
+  maskClassName?: string; // v4.11.0
+  current?: number; // v4.12.0 仅支持 PreviewGroup
+  countRender?: (current: number, total: number) => string  // v4.20.0 仅支持 PreviewGroup
 }
 ```
 

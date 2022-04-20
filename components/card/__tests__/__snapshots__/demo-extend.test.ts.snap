@@ -912,7 +912,7 @@ Array [
             <div>
               <div
                 class="ant-tabs-dropdown"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <ul
                   aria-label="expanded dropdown"
@@ -1065,7 +1065,7 @@ Array [
             <div>
               <div
                 class="ant-tabs-dropdown"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <ul
                   aria-label="expanded dropdown"
