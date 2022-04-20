@@ -10,7 +10,7 @@ Array [
   <div>
     <div
       class="ant-popover ant-popover-rtl ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
-      style="opacity: 0; pointer-events: none;"
+      style="opacity: 0;"
     >
       <div
         class="ant-popover-content"

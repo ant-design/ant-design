@@ -19,7 +19,7 @@ import React from 'react';
 import { Form, Input, InputNumber, Typography } from 'antd';
 
 const Demo = () => {
-  const [form] = Form.useForm<{ user: { name: string; age: number } }>();
+  const [form] = Form.useForm<{ name: string; age: number }>();
   const nameValue = Form.useWatch('name', form);
 
   return (

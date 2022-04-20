@@ -15,12 +15,12 @@ exports[`Modal render correctly 1`] = `
         />
         <div
           class="ant-modal-wrap"
-          role="dialog"
           tabindex="-1"
         >
           <div
+            aria-modal="true"
             class="ant-modal ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
-            role="document"
+            role="dialog"
             style="width: 520px;"
           >
             <div
@@ -114,12 +114,12 @@ exports[`Modal render without footer 1`] = `
         />
         <div
           class="ant-modal-wrap"
-          role="dialog"
           tabindex="-1"
         >
           <div
+            aria-modal="true"
             class="ant-modal ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
-            role="document"
+            role="dialog"
             style="width: 520px;"
           >
             <div
@@ -189,12 +189,12 @@ exports[`Modal support closeIcon 1`] = `
   />
   <div
     class="ant-modal-wrap"
-    role="dialog"
     tabindex="-1"
   >
     <div
+      aria-modal="true"
       class="ant-modal ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
-      role="document"
+      role="dialog"
       style="width: 520px;"
     >
       <div

@@ -22,13 +22,4 @@ describe('delay spinning', () => {
 
     expect(wrapper.find('.ant-spin').at(0).hasClass('ant-spin-spinning')).toEqual(true);
   });
-
-  it('should cancel debounce function when unmount', async () => {
-    const wrapper = mount(<Spin spinning delay={100} />);
-    const spy = jest.spyOn(wrapper.find(Spin).instance().updateSpinning, 'cancel');
-    expect(wrapper.find(Spin).instance().updateSpinning.cancel).toEqual(expect.any(Function));
-    expect(spy).not.toHaveBeenCalled();
-    wrapper.unmount();
-    expect(spy).toHaveBeenCalled();
-  });
 });

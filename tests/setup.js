@@ -32,8 +32,8 @@ if (typeof window !== 'undefined') {
   // Fix css-animation or rc-motion deps on these
   // https://github.com/react-component/motion/blob/9c04ef1a210a4f3246c9becba6e33ea945e00669/src/util/motion.ts#L27-L35
   // https://github.com/yiminghe/css-animation/blob/a5986d73fd7dfce75665337f39b91483d63a4c8c/src/Event.js#L44
-  window.AnimationEvent = window.AnimationEvent || (() => {});
-  window.TransitionEvent = window.TransitionEvent || (() => {});
+  window.AnimationEvent = window.AnimationEvent || window.Event;
+  window.TransitionEvent = window.TransitionEvent || window.Event;
 }
 
 const Enzyme = require('enzyme');
@@ -59,4 +59,29 @@ Object.assign(Enzyme.ReactWrapper.prototype, {
 
     target.getBoundingClientRect = originGetBoundingClientRect;
   },
+});
+
+// React.StrictMode wrapper
+jest.mock('enzyme', () => {
+  const enzyme = jest.requireActual('enzyme');
+  const { StrictMode, cloneElement } = jest.requireActual('react');
+  const { mount, render } = enzyme;
+
+  function EnzymeWrapper({ strictMode, children, ...props }) {
+    // Not wrap StrictMode for some test case need count render times
+    if (strictMode === false) {
+      return cloneElement(children, props);
+    }
+
+    return <StrictMode>{cloneElement(children, props)}</StrictMode>;
+  }
+
+  return {
+    ...enzyme,
+    mount: (ui, { strictMode, ...config } = {}, ...args) =>
+      mount(<EnzymeWrapper strictMode={strictMode}>{ui}</EnzymeWrapper>, config, ...args),
+    render: (ui, { strictMode, ...config } = {}, ...args) =>
+      render(<EnzymeWrapper strictMode={strictMode}>{ui}</EnzymeWrapper>, config, ...args),
+    originMount: mount,
+  };
 });

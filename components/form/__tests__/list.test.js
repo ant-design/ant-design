@@ -1,10 +1,9 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
-import { render, fireEvent } from '@testing-library/react';
 import Form from '..';
 import Input from '../../input';
 import Button from '../../button';
-import { sleep } from '../../../tests/utils';
+import { sleep, render, fireEvent } from '../../../tests/utils';
 
 describe('Form.List', () => {
   async function change(wrapper, index, value) {
@@ -85,6 +84,7 @@ describe('Form.List', () => {
     </Form.Item>
   ));
 
+  // FIXME: @zombieJ React 18 StrictMode
   testList('nest noStyle', field => (
     <Form.Item key={field.key}>
       <Form.Item noStyle {...field} rules={[{ required: true }]}>

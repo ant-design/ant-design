@@ -4,6 +4,7 @@ import Card from '../index';
 import Button from '../../button/index';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { render } from '../../../tests/utils';
 
 describe('Card', () => {
   mountTest(Card);
@@ -84,20 +85,14 @@ describe('Card', () => {
   });
 
   it('get ref of card', () => {
-    class WrapperComponent extends React.Component {
-      render() {
-        return (
-          <Card
-            // eslint-disable-next-line react/no-string-refs
-            ref="firstRef"
-            title="Card title"
-          >
-            <p>Card content</p>
-          </Card>
-        );
-      }
-    }
-    const wrapper = mount(<WrapperComponent />);
-    expect(wrapper.ref('firstRef').className.includes('ant-card')).toBe(true);
+    const cardRef = React.createRef();
+
+    render(
+      <Card ref={cardRef} title="Card title">
+        <p>Card content</p>
+      </Card>,
+    );
+
+    expect(cardRef.current).toHaveClass('ant-card');
   });
 });
