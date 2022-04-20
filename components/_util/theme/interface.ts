@@ -1,4 +1,5 @@
 import type * as React from 'react';
+import type { ComponentToken as AnchorComponentToken } from '../../anchor/style';
 import type { ComponentToken as ButtonComponentToken } from '../../button/style';
 import type { ComponentToken as DividerComponentToken } from '../../divider/style';
 import type { ComponentToken as EmptyComponentToken } from '../../empty/style';
@@ -45,6 +46,7 @@ export interface OverrideToken {
   // Customize component
   Affix?: {};
   Alert?: {};
+  Anchor?: AnchorComponentToken;
   Avatar?: {};
   BackTop?: BackTopComponentToken;
   Badge?: {};
