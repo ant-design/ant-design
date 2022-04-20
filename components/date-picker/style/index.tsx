@@ -299,24 +299,24 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
           &${antCls}-slide-up-enter${antCls}-slide-up-enter-active&-placement-topRight,
           &${antCls}-slide-up-appear${antCls}-slide-up-appear-active&-placement-topLeft,
           &${antCls}-slide-up-appear${antCls}-slide-up-appear-active&-placement-topRight`]: {
-          animationName: slideDownIn.getName(token.hashId),
+          animationName: slideDownIn,
         },
 
         [`&${antCls}-slide-up-enter${antCls}-slide-up-enter-active&-placement-bottomLeft,
           &${antCls}-slide-up-enter${antCls}-slide-up-enter-active&-placement-bottomRight,
           &${antCls}-slide-up-appear${antCls}-slide-up-appear-active&-placement-bottomLeft,
           &${antCls}-slide-up-appear${antCls}-slide-up-appear-active&-placement-bottomRight`]: {
-          animationName: slideUpIn.getName(token.hashId),
+          animationName: slideUpIn,
         },
 
         [`&${antCls}-slide-up-leave${antCls}-slide-up-leave-active&-placement-topLeft,
           &${antCls}-slide-up-leave${antCls}-slide-up-leave-active&-placement-topRight`]: {
-          animationName: slideDownOut.getName(token.hashId),
+          animationName: slideDownOut,
         },
 
         [`&${antCls}-slide-up-leave${antCls}-slide-up-leave-active&-placement-bottomLeft,
           &${antCls}-slide-up-leave${antCls}-slide-up-leave-active&-placement-bottomRight`]: {
-          animationName: slideUpOut.getName(token.hashId),
+          animationName: slideUpOut,
         },
 
         // Time picker with additional style

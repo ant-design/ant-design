@@ -295,7 +295,7 @@ const genImageStyle: GenerateStyle<ImageToken> = (token: ImageToken) => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Image', (token, { hashId }) => {
+export default genComponentStyleHook('Image', token => {
   const imageToken = mergeToken<ImageToken>(token, {
     previewPrefixCls: `${token.componentCls}-preview`,
 
@@ -321,5 +321,5 @@ export default genComponentStyleHook('Image', (token, { hashId }) => {
     motionEaseOut: 'cubic-bezier(0.215, 0.61, 0.355, 1)', // FIXME: hard code in v4
   });
 
-  return [genImageStyle(imageToken, hashId)];
+  return [genImageStyle(imageToken)];
 });

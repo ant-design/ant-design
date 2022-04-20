@@ -23,7 +23,7 @@ const antRotate = new Keyframes('antRotate', {
   to: { transform: 'rotate(405deg)' },
 });
 
-const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken, hashId: string): CSSObject => ({
+const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => ({
   [`${token.componentCls}`]: {
     ...resetComponent(token),
     position: 'absolute',
@@ -155,7 +155,11 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken, hashId: string
         transform: 'scale(0.75)',
         transformOrigin: '50% 50%',
         opacity: 0.3,
-        animation: `${antSpinMove.getName(hashId)} 1s infinite linear alternate`,
+        animationName: antSpinMove,
+        animationDuration: '1s',
+        animationIterationCount: 'infinite',
+        animationTimingFunction: 'linear',
+        animationDirection: 'alternate',
 
         '&:nth-child(1)': {
           top: 0,
@@ -183,7 +187,10 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken, hashId: string
 
       '&-spin': {
         transform: 'rotate(45deg)',
-        animation: `${antRotate.getName(hashId)} 1.2s infinite linear`,
+        animationName: antRotate,
+        animationDuration: '1.2s',
+        animationIterationCount: 'infinite',
+        animationTimingFunction: 'linear',
       },
     },
 
@@ -213,20 +220,16 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken, hashId: string
     [`&${token.componentCls}-show-text ${token.componentCls}-text`]: {
       display: 'block',
     },
-
-    // animation
-    antSpinMove,
-    antRotate,
   },
 });
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Spin', (token, { hashId }) => {
+export default genComponentStyleHook('Spin', token => {
   const spinToken = mergeToken<SpinToken>(token, {
     spinDotDefault: token.colorTextSecondary,
     spinDotSize: 20, // FIXME: hard code in v4
     spinDotSizeSM: 14, // FIXME: hard code in v4
     spinDotSizeLG: 32, // FIXME: hard code in v4
   });
-  return [genSpinStyle(spinToken, hashId)];
+  return [genSpinStyle(spinToken), antSpinMove, antRotate];
 });
