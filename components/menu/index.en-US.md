@@ -19,6 +19,8 @@ More layouts with navigation: [Layout](/components/layout).
 - Menu is rendered as a `ul` element, so it only supports [`li` and `script-supporting` elements](https://html.spec.whatwg.org/multipage/grouping-content.html#the-ul-element) as children nodes。Your customized node should be wrapped by `Menu.Item`.
 - Menu needs to collect its node structure, so its children should be `Menu.*` or encapsulated HOCs.
 
+### Usage upgrade after 4.20.0
+
 ```__react
 import Alert from '../alert';
 ReactDOM.render(<Alert message="After version 4.20.0, we provide a simpler usage <Menu items={[...]} /> with better perfermance and potential of writing simpler code style in your applications. Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 5.0." />, mountNode);
