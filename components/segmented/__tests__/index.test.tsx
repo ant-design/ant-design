@@ -1,11 +1,10 @@
 import React from 'react';
 import { mount } from 'enzyme';
-
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-
 import Segmented from '../index';
 import type { SegmentedValue } from '../index';
+import { render } from '../../../tests/utils';
 
 // Make CSSMotion working without transition
 jest.mock('rc-motion/lib/util/motion', () => ({
@@ -221,7 +220,7 @@ describe('Segmented', () => {
   });
 
   it('render segmented with className and other html attributes', () => {
-    const wrapper = mount(
+    const { container } = render(
       <Segmented
         options={['Daily', 'Monthly', 'Weekly']}
         defaultValue="Weekly"
@@ -230,8 +229,8 @@ describe('Segmented', () => {
       />,
     );
 
-    expect(wrapper.hasClass('mock-cls')).toBeTruthy();
-    expect(wrapper.prop('data-test-id')).toBe('hello');
+    expect(container.querySelector('.mock-cls')).toBeTruthy();
+    expect(container.querySelector('[data-test-id]')).toHaveAttribute('data-test-id', 'hello');
   });
 
   it('render segmented with ref', () => {
@@ -266,10 +265,10 @@ describe('Segmented', () => {
 
     const wrapper = mount<typeof Demo>(<Demo />);
     wrapper.find('Segmented').find(`.${prefixCls}-item-input`).at(0).simulate('change');
-    expect(wrapper.state().value).toBe('Map');
+    expect(wrapper.find(Demo).state().value).toBe('Map');
 
     wrapper.find('Segmented').find(`.${prefixCls}-item-input`).at(1).simulate('change');
-    expect(wrapper.state().value).toBe('Transit');
+    expect(wrapper.find(Demo).state().value).toBe('Transit');
   });
 
   it('render segmented with options null/undefined', () => {

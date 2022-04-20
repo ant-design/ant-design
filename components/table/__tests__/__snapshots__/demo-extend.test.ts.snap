@@ -95,7 +95,7 @@ exports[`renders ./components/table/demo/ajax.md extend context correctly 1`] = 
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"
@@ -156,7 +156,7 @@ exports[`renders ./components/table/demo/ajax.md extend context correctly 1`] = 
                       <div>
                         <div
                           class="ant-dropdown"
-                          style="opacity:0;pointer-events:none"
+                          style="opacity:0"
                         >
                           <div
                             class="ant-table-filter-dropdown"
@@ -198,7 +198,7 @@ exports[`renders ./components/table/demo/ajax.md extend context correctly 1`] = 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -248,7 +248,7 @@ exports[`renders ./components/table/demo/ajax.md extend context correctly 1`] = 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -275,7 +275,7 @@ exports[`renders ./components/table/demo/ajax.md extend context correctly 1`] = 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -297,7 +297,7 @@ exports[`renders ./components/table/demo/ajax.md extend context correctly 1`] = 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -1307,7 +1307,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md extend context c
                       <div>
                         <div
                           class="ant-dropdown"
-                          style="opacity:0;pointer-events:none"
+                          style="opacity:0"
                         >
                           <div
                             class="ant-table-filter-dropdown"
@@ -1430,7 +1430,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md extend context c
                       <div>
                         <div
                           class="ant-dropdown"
-                          style="opacity:0;pointer-events:none"
+                          style="opacity:0"
                         >
                           <div
                             class="ant-table-filter-dropdown"
@@ -1581,7 +1581,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md extend context c
                         <div>
                           <div
                             class="ant-tooltip"
-                            style="opacity:0;pointer-events:none"
+                            style="opacity:0"
                           >
                             <div
                               class="ant-tooltip-content"
@@ -1631,7 +1631,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md extend context c
                       <div>
                         <div
                           class="ant-dropdown"
-                          style="opacity:0;pointer-events:none"
+                          style="opacity:0"
                         >
                           <div
                             class="ant-table-filter-dropdown"
@@ -3264,7 +3264,7 @@ Array [
                       <div>
                         <div
                           class="ant-tooltip"
-                          style="opacity:0;pointer-events:none"
+                          style="opacity:0"
                         >
                           <div
                             class="ant-tooltip-content"
@@ -3325,7 +3325,7 @@ Array [
                         <div>
                           <div
                             class="ant-dropdown"
-                            style="opacity:0;pointer-events:none"
+                            style="opacity:0"
                           >
                             <div
                               class="ant-table-filter-dropdown"
@@ -3367,7 +3367,7 @@ Array [
                                 <div>
                                   <div
                                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                    style="opacity:0;pointer-events:none"
+                                    style="opacity:0"
                                   >
                                     <div
                                       class="ant-tooltip-content"
@@ -3417,7 +3417,7 @@ Array [
                                 <div>
                                   <div
                                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                    style="opacity:0;pointer-events:none"
+                                    style="opacity:0"
                                   >
                                     <div
                                       class="ant-tooltip-content"
@@ -3444,7 +3444,7 @@ Array [
                                 <div>
                                   <div
                                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                    style="opacity:0;pointer-events:none"
+                                    style="opacity:0"
                                   >
                                     <div
                                       class="ant-tooltip-content"
@@ -3466,7 +3466,7 @@ Array [
                                 <div>
                                   <div
                                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                    style="opacity:0;pointer-events:none"
+                                    style="opacity:0"
                                   >
                                     <div
                                       class="ant-tooltip-content"
@@ -3573,7 +3573,7 @@ Array [
                       <div>
                         <div
                           class="ant-tooltip"
-                          style="opacity:0;pointer-events:none"
+                          style="opacity:0"
                         >
                           <div
                             class="ant-tooltip-content"
@@ -4715,7 +4715,7 @@ exports[`renders ./components/table/demo/edit-cell.md extend context correctly 1
                       <div>
                         <div
                           class="ant-popover ant-popconfirm"
-                          style="opacity:0;pointer-events:none"
+                          style="opacity:0"
                         >
                           <div
                             class="ant-popover-content"
@@ -4822,7 +4822,7 @@ exports[`renders ./components/table/demo/edit-cell.md extend context correctly 1
                       <div>
                         <div
                           class="ant-popover ant-popconfirm"
-                          style="opacity:0;pointer-events:none"
+                          style="opacity:0"
                         >
                           <div
                             class="ant-popover-content"
@@ -5557,7 +5557,7 @@ exports[`renders ./components/table/demo/edit-row.md extend context correctly 1`
             <div>
               <div
                 class="ant-select-dropdown"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div>
                   <div
@@ -6088,7 +6088,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md extend conte
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"
@@ -6119,7 +6119,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md extend conte
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"
@@ -6150,7 +6150,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md extend conte
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"
@@ -6181,7 +6181,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md extend conte
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"
@@ -6229,7 +6229,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md extend conte
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"
@@ -6260,7 +6260,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md extend conte
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"
@@ -6291,7 +6291,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md extend conte
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"
@@ -6322,7 +6322,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md extend conte
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"
@@ -6370,7 +6370,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md extend conte
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"
@@ -6401,7 +6401,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md extend conte
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"
@@ -6432,7 +6432,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md extend conte
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"
@@ -6463,7 +6463,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md extend conte
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"
@@ -6943,7 +6943,7 @@ exports[`renders ./components/table/demo/filter-in-tree.md extend context correc
                       <div>
                         <div
                           class="ant-dropdown"
-                          style="opacity:0;pointer-events:none"
+                          style="opacity:0"
                         >
                           <div
                             class="ant-table-filter-dropdown"
@@ -7403,7 +7403,7 @@ exports[`renders ./components/table/demo/filter-in-tree.md extend context correc
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"
@@ -7464,7 +7464,7 @@ exports[`renders ./components/table/demo/filter-in-tree.md extend context correc
                       <div>
                         <div
                           class="ant-dropdown"
-                          style="opacity:0;pointer-events:none"
+                          style="opacity:0"
                         >
                           <div
                             class="ant-table-filter-dropdown"
@@ -7544,7 +7544,7 @@ exports[`renders ./components/table/demo/filter-in-tree.md extend context correc
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -7594,7 +7594,7 @@ exports[`renders ./components/table/demo/filter-in-tree.md extend context correc
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -7621,7 +7621,7 @@ exports[`renders ./components/table/demo/filter-in-tree.md extend context correc
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -7643,7 +7643,7 @@ exports[`renders ./components/table/demo/filter-in-tree.md extend context correc
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -7938,7 +7938,7 @@ exports[`renders ./components/table/demo/filter-search.md extend context correct
                       <div>
                         <div
                           class="ant-dropdown"
-                          style="opacity:0;pointer-events:none"
+                          style="opacity:0"
                         >
                           <div
                             class="ant-table-filter-dropdown"
@@ -8222,7 +8222,7 @@ exports[`renders ./components/table/demo/filter-search.md extend context correct
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"
@@ -8283,7 +8283,7 @@ exports[`renders ./components/table/demo/filter-search.md extend context correct
                       <div>
                         <div
                           class="ant-dropdown"
-                          style="opacity:0;pointer-events:none"
+                          style="opacity:0"
                         >
                           <div
                             class="ant-table-filter-dropdown"
@@ -8365,7 +8365,7 @@ exports[`renders ./components/table/demo/filter-search.md extend context correct
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -8417,7 +8417,7 @@ exports[`renders ./components/table/demo/filter-search.md extend context correct
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -8444,7 +8444,7 @@ exports[`renders ./components/table/demo/filter-search.md extend context correct
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -8466,7 +8466,7 @@ exports[`renders ./components/table/demo/filter-search.md extend context correct
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -10227,7 +10227,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md extend context 
             <div>
               <div
                 class="ant-select-dropdown"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div>
                   <div
@@ -11608,7 +11608,7 @@ exports[`renders ./components/table/demo/fixed-header.md extend context correctl
             <div>
               <div
                 class="ant-select-dropdown"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div>
                   <div
@@ -11824,7 +11824,7 @@ exports[`renders ./components/table/demo/grouping-columns.md extend context corr
                       <div>
                         <div
                           class="ant-dropdown"
-                          style="opacity:0;pointer-events:none"
+                          style="opacity:0"
                         >
                           <div
                             class="ant-table-filter-dropdown"
@@ -11866,7 +11866,7 @@ exports[`renders ./components/table/demo/grouping-columns.md extend context corr
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -11916,7 +11916,7 @@ exports[`renders ./components/table/demo/grouping-columns.md extend context corr
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -11943,7 +11943,7 @@ exports[`renders ./components/table/demo/grouping-columns.md extend context corr
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -11965,7 +11965,7 @@ exports[`renders ./components/table/demo/grouping-columns.md extend context corr
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -12094,7 +12094,7 @@ exports[`renders ./components/table/demo/grouping-columns.md extend context corr
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"
@@ -12964,7 +12964,7 @@ exports[`renders ./components/table/demo/grouping-columns.md extend context corr
             <div>
               <div
                 class="ant-select-dropdown"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div>
                   <div
@@ -13186,7 +13186,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                         <div>
                           <div
                             class="ant-tooltip"
-                            style="opacity:0;pointer-events:none"
+                            style="opacity:0"
                           >
                             <div
                               class="ant-tooltip-content"
@@ -13236,7 +13236,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                       <div>
                         <div
                           class="ant-dropdown"
-                          style="opacity:0;pointer-events:none"
+                          style="opacity:0"
                         >
                           <div
                             class="ant-table-filter-dropdown"
@@ -13278,7 +13278,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -13328,7 +13328,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -13370,7 +13370,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                                 <div>
                                   <div
                                     class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-popup ant-dropdown-menu ant-dropdown-menu-light ant-table-filter-dropdown-submenu"
-                                    style="opacity:0;pointer-events:none"
+                                    style="opacity:0"
                                   >
                                     <ul
                                       class="ant-dropdown-menu ant-dropdown-menu-sub ant-dropdown-menu-vertical"
@@ -13407,7 +13407,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                                       <div>
                                         <div
                                           class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                          style="opacity:0;pointer-events:none"
+                                          style="opacity:0"
                                         >
                                           <div
                                             class="ant-tooltip-content"
@@ -13457,7 +13457,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                                       <div>
                                         <div
                                           class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                          style="opacity:0;pointer-events:none"
+                                          style="opacity:0"
                                         >
                                           <div
                                             class="ant-tooltip-content"
@@ -13488,7 +13488,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -13510,7 +13510,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -13532,7 +13532,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -13554,7 +13554,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -13662,7 +13662,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"
@@ -13723,7 +13723,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                       <div>
                         <div
                           class="ant-dropdown"
-                          style="opacity:0;pointer-events:none"
+                          style="opacity:0"
                         >
                           <div
                             class="ant-table-filter-dropdown"
@@ -13765,7 +13765,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -13815,7 +13815,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -13842,7 +13842,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -13864,7 +13864,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -14523,7 +14523,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md extend context corre
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"
@@ -14606,7 +14606,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md extend context corre
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"
@@ -14689,7 +14689,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md extend context corre
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"
@@ -15423,7 +15423,7 @@ exports[`renders ./components/table/demo/narrow.md extend context correctly 1`] 
               <div>
                 <div
                   class="ant-select-dropdown"
-                  style="opacity:0;pointer-events:none"
+                  style="opacity:0"
                 >
                   <div>
                     <div
@@ -17375,7 +17375,7 @@ Array [
                           <div>
                             <div
                               class="ant-tooltip"
-                              style="opacity:0;pointer-events:none"
+                              style="opacity:0"
                             >
                               <div
                                 class="ant-tooltip-content"
@@ -17425,7 +17425,7 @@ Array [
                         <div>
                           <div
                             class="ant-dropdown"
-                            style="opacity:0;pointer-events:none"
+                            style="opacity:0"
                           >
                             <div
                               class="ant-table-filter-dropdown"
@@ -17467,7 +17467,7 @@ Array [
                                 <div>
                                   <div
                                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                    style="opacity:0;pointer-events:none"
+                                    style="opacity:0"
                                   >
                                     <div
                                       class="ant-tooltip-content"
@@ -17517,7 +17517,7 @@ Array [
                                 <div>
                                   <div
                                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                    style="opacity:0;pointer-events:none"
+                                    style="opacity:0"
                                   >
                                     <div
                                       class="ant-tooltip-content"
@@ -17544,7 +17544,7 @@ Array [
                                 <div>
                                   <div
                                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                    style="opacity:0;pointer-events:none"
+                                    style="opacity:0"
                                   >
                                     <div
                                       class="ant-tooltip-content"
@@ -17566,7 +17566,7 @@ Array [
                                 <div>
                                   <div
                                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                    style="opacity:0;pointer-events:none"
+                                    style="opacity:0"
                                   >
                                     <div
                                       class="ant-tooltip-content"
@@ -17673,7 +17673,7 @@ Array [
                       <div>
                         <div
                           class="ant-tooltip"
-                          style="opacity:0;pointer-events:none"
+                          style="opacity:0"
                         >
                           <div
                             class="ant-tooltip-content"
@@ -17762,7 +17762,7 @@ Array [
                           <div>
                             <div
                               class="ant-tooltip"
-                              style="opacity:0;pointer-events:none"
+                              style="opacity:0"
                             >
                               <div
                                 class="ant-tooltip-content"
@@ -17812,7 +17812,7 @@ Array [
                         <div>
                           <div
                             class="ant-dropdown"
-                            style="opacity:0;pointer-events:none"
+                            style="opacity:0"
                           >
                             <div
                               class="ant-table-filter-dropdown"
@@ -17854,7 +17854,7 @@ Array [
                                 <div>
                                   <div
                                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                    style="opacity:0;pointer-events:none"
+                                    style="opacity:0"
                                   >
                                     <div
                                       class="ant-tooltip-content"
@@ -17904,7 +17904,7 @@ Array [
                                 <div>
                                   <div
                                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                    style="opacity:0;pointer-events:none"
+                                    style="opacity:0"
                                   >
                                     <div
                                       class="ant-tooltip-content"
@@ -17931,7 +17931,7 @@ Array [
                                 <div>
                                   <div
                                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                    style="opacity:0;pointer-events:none"
+                                    style="opacity:0"
                                   >
                                     <div
                                       class="ant-tooltip-content"
@@ -17953,7 +17953,7 @@ Array [
                                 <div>
                                   <div
                                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                    style="opacity:0;pointer-events:none"
+                                    style="opacity:0"
                                   >
                                     <div
                                       class="ant-tooltip-content"
@@ -18296,7 +18296,7 @@ exports[`renders ./components/table/demo/resizable-column.md extend context corr
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"
@@ -19751,7 +19751,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md extend context 
                         <div>
                           <div
                             class="ant-dropdown"
-                            style="opacity:0;pointer-events:none"
+                            style="opacity:0"
                           >
                             <ul
                               class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -19773,7 +19773,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md extend context 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -19806,7 +19806,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md extend context 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -19839,7 +19839,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md extend context 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -19872,7 +19872,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md extend context 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -19905,7 +19905,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md extend context 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -19932,7 +19932,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md extend context 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -19954,7 +19954,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md extend context 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -19976,7 +19976,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md extend context 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -19998,7 +19998,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md extend context 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -20020,7 +20020,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md extend context 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -22546,7 +22546,7 @@ exports[`renders ./components/table/demo/sticky.md extend context correctly 1`] 
             <div>
               <div
                 class="ant-select-dropdown"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div>
                   <div

@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { render } from '@testing-library/react';
+import { render } from '../../../tests/utils';
 import Result from '..';
 import Button from '../../button';
 import mountTest from '../../../tests/shared/mountTest';

@@ -13,7 +13,7 @@ Array [
   <div>
     <div
       class="ant-popover ant-popconfirm"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-popover-content"
@@ -98,7 +98,7 @@ Array [
   <div>
     <div
       class="ant-popover ant-popconfirm"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-popover-content"
@@ -183,7 +183,7 @@ exports[`renders ./components/popconfirm/demo/dynamic-trigger.md extend context 
   <div>
     <div
       class="ant-popover ant-popconfirm"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-popover-content"
@@ -284,7 +284,7 @@ Array [
   <div>
     <div
       class="ant-popover ant-popconfirm"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-popover-content"
@@ -373,7 +373,7 @@ Array [
   <div>
     <div
       class="ant-popover ant-popconfirm"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-popover-content"
@@ -466,7 +466,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     <div>
       <div
         class="ant-popover ant-popconfirm"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -549,7 +549,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     <div>
       <div
         class="ant-popover ant-popconfirm"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -632,7 +632,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     <div>
       <div
         class="ant-popover ant-popconfirm"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -719,7 +719,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     <div>
       <div
         class="ant-popover ant-popconfirm"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -802,7 +802,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     <div>
       <div
         class="ant-popover ant-popconfirm"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -885,7 +885,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     <div>
       <div
         class="ant-popover ant-popconfirm"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -972,7 +972,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     <div>
       <div
         class="ant-popover ant-popconfirm"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -1055,7 +1055,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     <div>
       <div
         class="ant-popover ant-popconfirm"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -1138,7 +1138,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     <div>
       <div
         class="ant-popover ant-popconfirm"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -1225,7 +1225,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     <div>
       <div
         class="ant-popover ant-popconfirm"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -1308,7 +1308,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     <div>
       <div
         class="ant-popover ant-popconfirm"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -1391,7 +1391,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     <div>
       <div
         class="ant-popover ant-popconfirm"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -1480,7 +1480,7 @@ Array [
   <div>
     <div
       class="ant-popover ant-popconfirm"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-popover-content"

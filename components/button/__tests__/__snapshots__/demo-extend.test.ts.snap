@@ -397,7 +397,7 @@ Array [
   <div>
     <div
       class="ant-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -480,7 +480,7 @@ Array [
   <div>
     <div
       class="ant-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -556,7 +556,7 @@ Array [
   <div>
     <div
       class="ant-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -631,7 +631,7 @@ Array [
   <div>
     <div
       class="ant-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -732,7 +732,7 @@ Array [
   <div>
     <div
       class="ant-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -815,7 +815,7 @@ Array [
   <div>
     <div
       class="ant-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -891,7 +891,7 @@ Array [
   <div>
     <div
       class="ant-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -966,7 +966,7 @@ Array [
   <div>
     <div
       class="ant-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -1097,7 +1097,7 @@ Array [
       <div>
         <div
           class="ant-tooltip"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <div
             class="ant-tooltip-content"
@@ -1145,7 +1145,7 @@ Array [
       <div>
         <div
           class="ant-tooltip"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <div
             class="ant-tooltip-content"
@@ -1223,7 +1223,7 @@ Array [
       <div>
         <div
           class="ant-tooltip"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <div
             class="ant-tooltip-content"
@@ -1271,7 +1271,7 @@ Array [
       <div>
         <div
           class="ant-tooltip"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <div
             class="ant-tooltip-content"
@@ -1349,7 +1349,7 @@ Array [
       <div>
         <div
           class="ant-tooltip"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <div
             class="ant-tooltip-content"
@@ -1397,7 +1397,7 @@ Array [
       <div>
         <div
           class="ant-tooltip"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <div
             class="ant-tooltip-content"
@@ -1671,7 +1671,7 @@ Array [
     <div>
       <div
         class="ant-dropdown"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <ul
           class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -1693,7 +1693,7 @@ Array [
           <div>
             <div
               class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-              style="opacity:0;pointer-events:none"
+              style="opacity:0"
             >
               <div
                 class="ant-tooltip-content"
@@ -1726,7 +1726,7 @@ Array [
           <div>
             <div
               class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-              style="opacity:0;pointer-events:none"
+              style="opacity:0"
             >
               <div
                 class="ant-tooltip-content"
@@ -1759,7 +1759,7 @@ Array [
           <div>
             <div
               class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-              style="opacity:0;pointer-events:none"
+              style="opacity:0"
             >
               <div
                 class="ant-tooltip-content"
@@ -1786,7 +1786,7 @@ Array [
           <div>
             <div
               class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-              style="opacity:0;pointer-events:none"
+              style="opacity:0"
             >
               <div
                 class="ant-tooltip-content"
@@ -1808,7 +1808,7 @@ Array [
           <div>
             <div
               class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-              style="opacity:0;pointer-events:none"
+              style="opacity:0"
             >
               <div
                 class="ant-tooltip-content"
@@ -1830,7 +1830,7 @@ Array [
           <div>
             <div
               class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-              style="opacity:0;pointer-events:none"
+              style="opacity:0"
             >
               <div
                 class="ant-tooltip-content"

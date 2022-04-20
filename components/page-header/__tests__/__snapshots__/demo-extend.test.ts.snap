@@ -733,7 +733,7 @@ exports[`renders ./components/page-header/demo/content.md extend context correct
           <div>
             <div
               class="ant-dropdown"
-              style="opacity:0;pointer-events:none"
+              style="opacity:0"
             >
               <ul
                 class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -761,7 +761,7 @@ exports[`renders ./components/page-header/demo/content.md extend context correct
                 <div>
                   <div
                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                    style="opacity:0;pointer-events:none"
+                    style="opacity:0"
                   >
                     <div
                       class="ant-tooltip-content"
@@ -800,7 +800,7 @@ exports[`renders ./components/page-header/demo/content.md extend context correct
                 <div>
                   <div
                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                    style="opacity:0;pointer-events:none"
+                    style="opacity:0"
                   >
                     <div
                       class="ant-tooltip-content"
@@ -839,7 +839,7 @@ exports[`renders ./components/page-header/demo/content.md extend context correct
                 <div>
                   <div
                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                    style="opacity:0;pointer-events:none"
+                    style="opacity:0"
                   >
                     <div
                       class="ant-tooltip-content"
@@ -866,7 +866,7 @@ exports[`renders ./components/page-header/demo/content.md extend context correct
                 <div>
                   <div
                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                    style="opacity:0;pointer-events:none"
+                    style="opacity:0"
                   >
                     <div
                       class="ant-tooltip-content"
@@ -888,7 +888,7 @@ exports[`renders ./components/page-header/demo/content.md extend context correct
                 <div>
                   <div
                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                    style="opacity:0;pointer-events:none"
+                    style="opacity:0"
                   >
                     <div
                       class="ant-tooltip-content"
@@ -910,7 +910,7 @@ exports[`renders ./components/page-header/demo/content.md extend context correct
                 <div>
                   <div
                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                    style="opacity:0;pointer-events:none"
+                    style="opacity:0"
                   >
                     <div
                       class="ant-tooltip-content"
@@ -1607,7 +1607,7 @@ exports[`renders ./components/page-header/demo/responsive.md extend context corr
           <div>
             <div
               class="ant-tabs-dropdown"
-              style="opacity:0;pointer-events:none"
+              style="opacity:0"
             >
               <ul
                 aria-label="expanded dropdown"

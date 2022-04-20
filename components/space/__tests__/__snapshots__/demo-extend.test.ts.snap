@@ -242,7 +242,7 @@ exports[`renders ./components/space/demo/base.md extend context correctly 1`] = 
     <div>
       <div
         class="ant-popover ant-popconfirm"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -346,7 +346,7 @@ Array [
     <div>
       <div
         class="ant-tooltip ant-slider-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -472,7 +472,7 @@ exports[`renders ./components/space/demo/debug.md extend context correctly 1`] =
     <div>
       <div
         class="ant-popover ant-popconfirm"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -567,7 +567,7 @@ exports[`renders ./components/space/demo/debug.md extend context correctly 1`] =
     <div>
       <div
         class="ant-popover ant-popconfirm"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
