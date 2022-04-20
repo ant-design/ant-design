@@ -759,7 +759,7 @@ const genBaseStyle: GenerateStyle<MenuToken, CSSObject> = (token): CSSObject => 
           paddingBlock: 0,
           paddingInline: width20,
         },
-        [`&:hover,${componentCls}-item-active,${componentCls}-item-open,${componentCls}-item-selected, ${componentCls}-submenu-active,${componentCls}-submenu-open,${componentCls}-submenu-selected`]:
+        [`${componentCls}-item-active,${componentCls}-item-open,${componentCls}-item-selected, ${componentCls}-submenu-active,${componentCls}-submenu-open,${componentCls}-submenu-selected`]:
           {
             color: primaryColor,
 
