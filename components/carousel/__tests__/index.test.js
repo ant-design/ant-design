@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import Carousel from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { sleep } from '../../../tests/utils';
+import { sleep, render } from '../../../tests/utils';
 
 describe('Carousel', () => {
   mountTest(Carousel);
@@ -99,21 +99,28 @@ describe('Carousel', () => {
 
   describe('should active when children change', () => {
     it('should active', () => {
-      const wrapper = mount(<Carousel />);
-      wrapper.setProps({
-        children: <div />,
-      });
-      wrapper.update();
-      expect(wrapper.find('.slick-active').length).toBeTruthy();
+      const { rerender, container } = render(<Carousel />);
+      expect(container.querySelector('.slick-active')).toBeFalsy();
+
+      // Update children
+      rerender(
+        <Carousel>
+          <div />
+        </Carousel>,
+      );
+      expect(container.querySelector('.slick-active')).toBeTruthy();
     });
 
     it('should keep initialSlide', () => {
-      const wrapper = mount(<Carousel initialSlide={1} />);
-      wrapper.setProps({
-        children: [<div key="1" />, <div key="2" />, <div key="3" />],
-      });
-      wrapper.update();
-      expect(wrapper.find('.slick-dots li').at(1).hasClass('slick-active')).toBeTruthy();
+      const { rerender, container } = render(<Carousel initialSlide={1} />);
+      rerender(
+        <Carousel initialSlide={1}>
+          <div key="1" />
+          <div key="2" />
+          <div key="3" />
+        </Carousel>,
+      );
+      expect(container.querySelectorAll('.slick-dots li')[1]).toHaveClass('slick-active');
     });
   });
 

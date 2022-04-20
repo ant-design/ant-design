@@ -70,9 +70,7 @@ describe('RangePicker', () => {
       openPicker(wrapper, 1);
       selectCell(wrapper, 'Feb');
       closePicker(wrapper, 1);
-
-      const { value } = wrapper.state();
-
+      const { value } = wrapper.find(Test).state();
       expect(value[0].isSame(value[1], 'date')).toBeTruthy();
     });
   });
