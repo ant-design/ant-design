@@ -1,8 +1,8 @@
 ---
 order: 0
 title:
-  zh-CN: 语法糖（废弃）
-  en-US: syntactic sugar (deprecated)
+  zh-CN: 基础用法（废弃的语法糖）
+  en-US: Basic usage (deprecated syntactic sugar)
 version: < 4.20.0
 ---
 
@@ -23,13 +23,19 @@ const App = () => (
     <Menu.Item key="mail" icon={<MailOutlined />}>
       Navigation One
     </Menu.Item>
-    <Menu.SubMenu key="SubMenu" title="Navigation Three - Submenu" icon={<SettingOutlined />}>
-      <Menu.ItemGroup title="Item 1">
-        <Menu.Item key="app" icon={<AppstoreOutlined />}>
-          Navigation Two
+    <Menu.SubMenu key="SubMenu" title="Navigation Two - Submenu" icon={<SettingOutlined />}>
+      <Menu.Item key="two" icon={<AppstoreOutlined />}>
+        Navigation Two
+      </Menu.Item>
+      <Menu.Item key="three" icon={<AppstoreOutlined />}>
+        Navigation Three
+      </Menu.Item>
+      <Menu.ItemGroup title="Item Group">
+        <Menu.Item key="four" icon={<AppstoreOutlined />}>
+          Navigation Four
         </Menu.Item>
-        <Menu.Item key="disabled" disabled>
-          Navigation Three
+        <Menu.Item key="five" icon={<AppstoreOutlined />}>
+          Navigation Five
         </Menu.Item>
       </Menu.ItemGroup>
     </Menu.SubMenu>
