@@ -15,6 +15,7 @@ import MenuContext, { MenuTheme } from './MenuContext';
 import MenuDivider from './MenuDivider';
 import type { ItemType } from './hooks/useItems';
 import useItems from './hooks/useItems';
+import useStyle from './style';
 
 export { MenuDividerProps } from './MenuDivider';
 
@@ -56,6 +57,7 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
     siderCollapsed,
     items,
     children,
+    rootClassName,
     ...restProps
   } = props;
 
@@ -99,6 +101,7 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
   };
 
   const prefixCls = getPrefixCls('menu', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
   const menuClassName = classNames(`${prefixCls}-${theme}`, className);
 
   // ======================== Context ==========================
@@ -115,7 +118,7 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
   );
 
   // ========================= Render ==========================
-  return (
+  return wrapSSR(
     <MenuContext.Provider value={contextValue}>
       <RcMenu
         getPopupContainer={getPopupContainer}
@@ -135,10 +138,11 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
               })
         }
         ref={ref}
+        rootClassName={classNames(rootClassName, hashId)}
       >
         {mergedChildren}
       </RcMenu>
-    </MenuContext.Provider>
+    </MenuContext.Provider>,
   );
 });
 
