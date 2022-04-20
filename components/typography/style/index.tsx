@@ -40,7 +40,10 @@ const genTypographyStyle: GenerateStyle<TypographyToken> = token => {
 
       '&&-danger': {
         color: token.colorError,
-        'a&:active, a&:focus, a&:hover': {
+        'a&:active, a&:focus': {
+          color: token.colorErrorActive,
+        },
+        'a&:hover': {
           color: token.colorErrorHover,
         },
       },

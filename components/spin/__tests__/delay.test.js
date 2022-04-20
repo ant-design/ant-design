@@ -1,8 +1,13 @@
 import React from 'react';
 import { mount } from 'enzyme';
 // eslint-disable-next-line import/no-named-as-default
+import { render } from '@testing-library/react';
+import debounce from 'lodash/debounce';
 import Spin from '..';
 import { sleep } from '../../../tests/utils';
+
+jest.mock('lodash/debounce');
+debounce.mockImplementation(jest.requireActual('lodash/debounce'));
 
 describe('delay spinning', () => {
   it("should render with delay when it's mounted with spinning=true and delay", () => {
@@ -21,5 +26,16 @@ describe('delay spinning', () => {
     wrapper.update();
 
     expect(wrapper.find('.ant-spin').at(0).hasClass('ant-spin-spinning')).toEqual(true);
+  });
+
+  it('should cancel debounce function when unmount', async () => {
+    const debouncedFn = jest.fn();
+    const cancel = jest.fn();
+    debouncedFn.cancel = cancel;
+    debounce.mockReturnValueOnce(debouncedFn);
+    const { unmount } = render(<Spin spinning delay={100} />);
+    expect(cancel).not.toHaveBeenCalled();
+    unmount();
+    expect(cancel).toHaveBeenCalled();
   });
 });

@@ -1,9 +1,10 @@
 import React from 'react';
 import { mount } from 'enzyme';
+// eslint-disable-next-line import/no-named-as-default
+import { render } from '@testing-library/react';
 import Spin from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render } from '../../../tests/utils';
 
 describe('Spin', () => {
   mountTest(Spin);
@@ -27,9 +28,9 @@ describe('Spin', () => {
 
   it('should be controlled by spinning', () => {
     const { container, rerender } = render(<Spin spinning={false} />);
-    expect(container.querySelector('.ant-spin')).not.toHaveClass('ant-spin-spinning');
+    expect(container.querySelector('.ant-spin-spinning')).toBeFalsy();
     rerender(<Spin spinning />);
-    expect(container.querySelector('.ant-spin')).toHaveClass('ant-spin-spinning');
+    expect(container.querySelector('.ant-spin-spinning')).toBeTruthy();
   });
 
   it('if indicator set null should not be render default indicator', () => {
