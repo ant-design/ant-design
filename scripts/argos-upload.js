@@ -25,12 +25,10 @@ async function run() {
   await Promise.all(
     chunks.map((chunk, chunkIndex) =>
       Promise.all(
-        chunk.map((screenshot) => {
-          return fse.move(
+        chunk.map((screenshot) => fse.move(
             screenshot,
             `${screenshotsTmp}/${chunkIndex}/${screenshot.replace(screenshotsBase, '')}`,
-          );
-        }),
+          )),
       ),
     ),
   );
