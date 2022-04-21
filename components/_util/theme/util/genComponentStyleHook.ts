@@ -16,9 +16,13 @@ export type StyleInfo = {
   iconPrefixCls: string;
 };
 export type TokenWithCommonCls<T> = T & {
+  /** Wrap component class with `.` prefix */
   componentCls: string;
+  /** Origin prefix which do not have `.` prefix */
   prefixCls: string;
+  /** Wrap icon class with `.` prefix */
   iconCls: string;
+  /** Wrap ant prefixCls class with `.` prefix */
   antCls: string;
 };
 export type FullToken<ComponentName extends OverrideComponent> = TokenWithCommonCls<
