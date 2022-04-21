@@ -8,6 +8,7 @@ import devWarning from '../_util/devWarning';
 import { tuple } from '../_util/type';
 import { cloneElement } from '../_util/reactNode';
 import getPlacements from '../_util/placements';
+import { NestContext } from '../menu/MenuContext';
 
 const Placements = tuple(
   'topLeft',
@@ -132,7 +133,7 @@ const Dropdown: DropdownInterface = props => {
             expandIcon: overlayNodeExpandIcon,
           });
 
-    return fixedModeOverlay as React.ReactElement;
+    return <NestContext.Provider value>{fixedModeOverlay}</NestContext.Provider>;
   };
 
   const getPlacement = () => {
