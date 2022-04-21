@@ -31,7 +31,7 @@ const BreadcrumbItem: BreadcrumbItemInterface = ({
   const renderBreadcrumbNode = (breadcrumbItem: React.ReactNode) => {
     if (overlay) {
       return (
-        <Dropdown overlay={overlay} placement="bottomCenter" {...dropdownProps}>
+        <Dropdown overlay={overlay} placement="bottom" {...dropdownProps}>
           <span className={`${prefixCls}-overlay-link`}>
             {breadcrumbItem}
             <DownOutlined />
