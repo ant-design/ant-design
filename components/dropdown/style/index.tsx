@@ -23,6 +23,8 @@ export interface ComponentToken {
 interface DropdownToken extends FullToken<'Dropdown'> {
   dropdownArrowDistance: number;
   dropdownArrowOffset: number;
+  dropdownPaddingVertical: number;
+  dropdownEdgeChildVerticalPadding: number;
 }
 
 // =============================== Base ===============================
@@ -38,7 +40,10 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
     colorBgComponent,
     motionDurationMid,
     motionDurationSlow,
-    paddingXXS,
+    dropdownPaddingVertical,
+    fontSizeBase,
+    dropdownEdgeChildVerticalPadding,
+    radiusBase,
   } = token;
 
   return {
@@ -193,7 +198,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
       [`${componentCls}-menu`]: {
         position: 'relative',
         margin: 0,
-        padding: `${paddingXXS}px 0`,
+        padding: `${dropdownEdgeChildVerticalPadding}px 0`,
         //     text-align: left;
         listStyleType: 'none',
         backgroundColor: colorBgComponent,
@@ -203,7 +208,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
         boxShadow: token.boxShadow,
 
         '&-item-group-title': {
-          padding: `${token.paddingXXS}px ${token.controlPaddingHorizontal}px`,
+          padding: `${dropdownPaddingVertical}px ${token.controlPaddingHorizontal}px`,
           color: token.colorTextSecondary,
           transition: `all ${motionDurationSlow}`,
         },
@@ -233,89 +238,93 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
         },
 
         '&-item-icon': {
-          minWidth: '12px',
-          marginRight: '8px',
+          minWidth: fontSizeBase,
+          marginRight: token.marginXS,
           fontSize: token.fontSizeSM,
         },
 
-        //     &-title-content {
-        //       flex: auto;
-        //       > a {
-        //         color: inherit;
-        //         transition: all @animation-duration-slow;
-        //         &:hover {
-        //           color: inherit;
-        //         }
-        //         &::after {
-        //           position: absolute;
-        //           top: 0;
-        //           right: 0;
-        //           bottom: 0;
-        //           left: 0;
-        //           content: '';
-        //         }
-        //       }
-        //     }
-        //     // =========================== Item ===========================
-        //     &-item,
-        //     &-submenu-title {
-        //       clear: both;
-        //       margin: 0;
-        //       padding: @dropdown-vertical-padding @control-padding-horizontal;
-        //       color: @text-color;
-        //       font-weight: normal;
-        //       font-size: @dropdown-font-size;
-        //       line-height: @dropdown-line-height;
-        //       cursor: pointer;
-        //       transition: all @animation-duration-slow;
-        //       &:first-child {
-        //         & when (@dropdown-edge-child-vertical-padding = 0) {
-        //           border-radius: @border-radius-base @border-radius-base 0 0;
-        //         }
-        //       }
-        //       &:last-child {
-        //         & when (@dropdown-edge-child-vertical-padding = 0) {
-        //           border-radius: 0 0 @border-radius-base @border-radius-base;
-        //         }
-        //       }
-        //       &-selected {
-        //         color: @dropdown-selected-color;
-        //         background-color: @dropdown-selected-bg;
-        //       }
-        //       &:hover,
-        //       &&-active {
-        //         background-color: @item-hover-bg;
-        //       }
-        //       &-disabled {
-        //         color: @disabled-color;
-        //         cursor: not-allowed;
-        //         &:hover {
-        //           color: @disabled-color;
-        //           background-color: @dropdown-menu-submenu-disabled-bg;
-        //           cursor: not-allowed;
-        //         }
-        //         a {
-        //           pointer-events: none;
-        //         }
-        //       }
-        //       &-divider {
-        //         height: 1px;
-        //         margin: 4px 0;
-        //         overflow: hidden;
-        //         line-height: 0;
-        //         background-color: @border-color-split;
-        //       }
-        //       .@{dropdown-prefix-cls}-menu-submenu-expand-icon {
-        //         position: absolute;
-        //         right: @padding-xs;
-        //         .@{dropdown-prefix-cls}-menu-submenu-arrow-icon {
-        //           margin-right: 0 !important;
-        //           color: @text-color-secondary;
-        //           font-size: 10px;
-        //           font-style: normal;
-        //         }
-        //       }
-        //     }
+        '&-title-content': {
+          flex: 'auto',
+
+          '> a': {
+            color: 'inherit',
+            transition: `all ${motionDurationSlow}`,
+
+            '&:hover': {
+              color: 'inherit',
+            },
+
+            '&::after': {
+              position: 'absolute',
+              inset: 0,
+              content: '""',
+            },
+          },
+        },
+
+        // =========================== Item ===========================
+        '&-item, &-submenu-title': {
+          clear: 'both',
+          margin: 0,
+          padding: `${dropdownPaddingVertical}px ${token.controlPaddingHorizontal}px`,
+          color: token.colorText,
+          fontWeight: 'normal',
+          fontSize: fontSizeBase,
+          lineHeight: token.lineHeight,
+          cursor: 'pointer',
+          transition: `all ${motionDurationSlow}`,
+
+          '&:first-child': !dropdownEdgeChildVerticalPadding
+            ? {
+                borderRadius: `${radiusBase} ${radiusBase} 0 0`,
+              }
+            : [],
+
+          '&:last-child': !dropdownEdgeChildVerticalPadding
+            ? {
+                borderRadius: `0 0 ${radiusBase} ${radiusBase}`,
+              }
+            : [],
+
+          '&-selected': {
+            color: token.colorPrimary,
+            backgroundColor: token.colorPrimaryActive,
+          },
+
+          //       &:hover,
+          //       &&-active {
+          //         background-color: @item-hover-bg;
+          //       }
+          //       &-disabled {
+          //         color: @disabled-color;
+          //         cursor: not-allowed;
+          //         &:hover {
+          //           color: @disabled-color;
+          //           background-color: @dropdown-menu-submenu-disabled-bg;
+          //           cursor: not-allowed;
+          //         }
+          //         a {
+          //           pointer-events: none;
+          //         }
+          //       }
+          //       &-divider {
+          //         height: 1px;
+          //         margin: 4px 0;
+          //         overflow: hidden;
+          //         line-height: 0;
+          //         background-color: @border-color-split;
+          //       }
+          //       .@{dropdown-prefix-cls}-menu-submenu-expand-icon {
+          //         position: absolute;
+          //         right: @padding-xs;
+          //         .@{dropdown-prefix-cls}-menu-submenu-arrow-icon {
+          //           margin-right: 0 !important;
+          //           color: @text-color-secondary;
+          //           font-size: 10px;
+          //           font-style: normal;
+          //         }
+          //       }
+        },
         //     &-item-group-list {
         //       margin: 0 8px;
         //       padding: 0;
@@ -356,11 +365,16 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
 export default genComponentStyleHook(
   'Dropdown',
   token => {
-    const { marginXXS, sizePopupArrow } = token;
+    const { marginXXS, sizePopupArrow, controlHeight, fontSizeBase, lineHeight, paddingXXS } =
+      token;
+
+    const dropdownPaddingVertical = (controlHeight - fontSizeBase * lineHeight) / 2;
 
     const dropdownToken = mergeToken<DropdownToken>(token, {
       dropdownArrowDistance: sizePopupArrow + marginXXS,
       dropdownArrowOffset: (sizePopupArrow / Math.sqrt(2)) * 2,
+      dropdownPaddingVertical,
+      dropdownEdgeChildVerticalPadding: paddingXXS,
     });
     return [genBaseStyle(dropdownToken)];
   },
