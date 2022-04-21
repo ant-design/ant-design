@@ -1067,6 +1067,7 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                           >
                             <ul
                               class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+                              data-dropdown-inject="true"
                               data-menu-list="true"
                               role="menu"
                               tabindex="0"
@@ -1423,6 +1424,7 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                           >
                             <ul
                               class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+                              data-dropdown-inject="true"
                               data-menu-list="true"
                               role="menu"
                               tabindex="0"

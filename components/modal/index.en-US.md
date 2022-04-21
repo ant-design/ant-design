@@ -27,7 +27,7 @@ When requiring users to interact with the application, but without jumping to a 
 | focusTriggerAfterClose | Whether need to focus trigger element after dialog is closed | boolean | true | 4.9.0 |
 | footer | Footer content, set as `footer={null}` when you don't need default buttons | ReactNode | (OK and Cancel buttons) |  |
 | forceRender | Force render Modal | boolean | false |  |
-| getContainer | Return the mount node for Modal | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
+| getContainer | The mounted node for Modal but still display at fullscreen | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
 | keyboard | Whether support press esc to close | boolean | true |  |
 | mask | Whether show mask or not | boolean | true |  |
 | maskClosable | Whether to close the modal dialog when the mask (area outside the modal) is clicked | boolean | true |  |
