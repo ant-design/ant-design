@@ -15,7 +15,7 @@ The most basic dropdown menu.
 
 ```jsx
 import { Menu, Dropdown } from 'antd';
-import { DownOutlined } from '@ant-design/icons';
+import { DownOutlined, SmileOutlined } from '@ant-design/icons';
 
 const menu = (
   <Menu
@@ -33,7 +33,7 @@ const menu = (
             2nd menu item (disabled)
           </a>
         ),
-        icon: <DownOutlined />,
+        icon: <SmileOutlined />,
         disabled: true,
       },
       {
