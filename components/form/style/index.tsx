@@ -537,5 +537,6 @@ export default genComponentStyleHook('Form', (token, { rootPrefixCls }) => {
     genHorizontalStyle(formToken),
     genInlineStyle(formToken),
     genVerticalStyle(formToken),
+    antZoomIn,
   ];
 });
