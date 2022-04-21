@@ -133,6 +133,7 @@ export interface SeedToken extends PresetColorType {
   // Size
   sizeUnit: number;
   sizeBaseStep: number;
+  sizePopupArrow: number;
 
   // Control Base
   controlHeight: number;
