@@ -374,26 +374,6 @@ exports[`Upload List should be uploading when upload a file 2`] = `
             </span>
           </span>
         </div>
-        <div
-          class="ant-upload-list-item-progress ant-fade-leave ant-fade-leave-start ant-fade"
-        >
-          <div
-            class="ant-progress ant-progress-line ant-progress-status-success ant-progress-default"
-          >
-            <div
-              class="ant-progress-outer"
-            >
-              <div
-                class="ant-progress-inner"
-              >
-                <div
-                  class="ant-progress-bg"
-                  style="width: 100%; height: 2px;"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
