@@ -15,7 +15,7 @@ import {
   slideLeftOut,
   slideRightIn,
   slideRightOut,
-} from './util/slide';
+} from '../../style/motion/slide';
 import statisticToken, { merge as mergeToken } from './util/statistic';
 import { GlobalToken, PresetColors } from './interface';
 import type {
