@@ -917,6 +917,7 @@ Array [
                 <ul
                   aria-label="expanded dropdown"
                   class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
+                  data-dropdown-inject="true"
                   data-menu-list="true"
                   id="null-more-popup"
                   role="listbox"
@@ -1070,6 +1071,7 @@ Array [
                 <ul
                   aria-label="expanded dropdown"
                   class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
+                  data-dropdown-inject="true"
                   data-menu-list="true"
                   id="null-more-popup"
                   role="listbox"

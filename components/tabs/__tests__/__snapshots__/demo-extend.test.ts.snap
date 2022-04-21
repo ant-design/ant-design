@@ -98,6 +98,7 @@ exports[`renders ./components/tabs/demo/basic.md extend context correctly 1`] = 
           <ul
             aria-label="expanded dropdown"
             class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
+            data-dropdown-inject="true"
             data-menu-list="true"
             id="null-more-popup"
             role="listbox"
@@ -242,6 +243,7 @@ exports[`renders ./components/tabs/demo/card.md extend context correctly 1`] = `
           <ul
             aria-label="expanded dropdown"
             class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
+            data-dropdown-inject="true"
             data-menu-list="true"
             id="null-more-popup"
             role="listbox"
@@ -389,6 +391,7 @@ exports[`renders ./components/tabs/demo/card-top.md extend context correctly 1`]
             <ul
               aria-label="expanded dropdown"
               class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
+              data-dropdown-inject="true"
               data-menu-list="true"
               id="null-more-popup"
               role="listbox"
@@ -542,6 +545,7 @@ exports[`renders ./components/tabs/demo/centered.md extend context correctly 1`]
           <ul
             aria-label="expanded dropdown"
             class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
+            data-dropdown-inject="true"
             data-menu-list="true"
             id="null-more-popup"
             role="listbox"
@@ -739,6 +743,7 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md extend context cor
             <ul
               aria-label="expanded dropdown"
               class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
+              data-dropdown-inject="true"
               data-menu-list="true"
               id="null-more-popup"
               role="listbox"
@@ -880,6 +885,7 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.md extend context correct
               <ul
                 aria-label="expanded dropdown"
                 class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
+                data-dropdown-inject="true"
                 data-menu-list="true"
                 id="null-more-popup"
                 role="listbox"
@@ -1039,6 +1045,7 @@ exports[`renders ./components/tabs/demo/custom-tab-bar-node.md extend context co
           <ul
             aria-label="expanded dropdown"
             class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
+            data-dropdown-inject="true"
             data-menu-list="true"
             id="null-more-popup"
             role="listbox"
@@ -1183,6 +1190,7 @@ exports[`renders ./components/tabs/demo/disabled.md extend context correctly 1`]
           <ul
             aria-label="expanded dropdown"
             class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
+            data-dropdown-inject="true"
             data-menu-list="true"
             id="null-more-popup"
             role="listbox"
@@ -1408,6 +1416,7 @@ exports[`renders ./components/tabs/demo/editable-card.md extend context correctl
           <ul
             aria-label="expanded dropdown"
             class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
+            data-dropdown-inject="true"
             data-menu-list="true"
             id="null-more-popup"
             role="listbox"
@@ -1582,6 +1591,7 @@ Array [
             <ul
               aria-label="expanded dropdown"
               class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
+              data-dropdown-inject="true"
               data-menu-list="true"
               id="null-more-popup"
               role="listbox"
@@ -1803,6 +1813,7 @@ Array [
             <ul
               aria-label="expanded dropdown"
               class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
+              data-dropdown-inject="true"
               data-menu-list="true"
               id="null-more-popup"
               role="listbox"
@@ -1990,6 +2001,7 @@ exports[`renders ./components/tabs/demo/icon.md extend context correctly 1`] = `
           <ul
             aria-label="expanded dropdown"
             class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
+            data-dropdown-inject="true"
             data-menu-list="true"
             id="null-more-popup"
             role="listbox"
@@ -2762,6 +2774,7 @@ exports[`renders ./components/tabs/demo/nest.md extend context correctly 1`] = `
             <ul
               aria-label="expanded dropdown"
               class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
+              data-dropdown-inject="true"
               data-menu-list="true"
               id="null-more-popup"
               role="listbox"
@@ -3089,6 +3102,7 @@ exports[`renders ./components/tabs/demo/nest.md extend context correctly 1`] = `
                     <ul
                       aria-label="expanded dropdown"
                       class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
+                      data-dropdown-inject="true"
                       data-menu-list="true"
                       id="null-more-popup"
                       role="listbox"
@@ -3461,6 +3475,7 @@ Array [
             <ul
               aria-label="expanded dropdown"
               class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
+              data-dropdown-inject="true"
               data-menu-list="true"
               id="null-more-popup"
               role="listbox"
@@ -3671,6 +3686,7 @@ exports[`renders ./components/tabs/demo/size.md extend context correctly 1`] = `
             <ul
               aria-label="expanded dropdown"
               class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
+              data-dropdown-inject="true"
               data-menu-list="true"
               id="null-more-popup"
               role="listbox"
@@ -3812,6 +3828,7 @@ exports[`renders ./components/tabs/demo/size.md extend context correctly 1`] = `
             <ul
               aria-label="expanded dropdown"
               class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
+              data-dropdown-inject="true"
               data-menu-list="true"
               id="null-more-popup"
               role="listbox"
@@ -4356,6 +4373,7 @@ exports[`renders ./components/tabs/demo/slide.md extend context correctly 1`] = 
             <ul
               aria-label="expanded dropdown"
               class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
+              data-dropdown-inject="true"
               data-menu-list="true"
               id="null-more-popup"
               role="listbox"
