@@ -130,7 +130,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
 
   const selectProps = omit(props as typeof props & { itemIcon: any }, ['suffixIcon', 'itemIcon']);
 
-  const rcSelectRtlDropDownClassName = classNames(dropdownClassName, {
+  const rcSelectRtlDropdownClassName = classNames(dropdownClassName, {
     [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
   });
 
@@ -181,7 +181,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       notFoundContent={mergedNotFound}
       className={mergedClassName}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
-      dropdownClassName={rcSelectRtlDropDownClassName}
+      dropdownClassName={rcSelectRtlDropdownClassName}
       showArrow={hasFeedback || showArrow}
     />
   );

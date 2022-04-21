@@ -78,7 +78,7 @@ export { default as Descriptions } from './descriptions';
 export type { DividerProps } from './divider';
 export { default as Divider } from './divider';
 
-export type { DropDownProps } from './dropdown';
+export type { DropdownProps } from './dropdown';
 export { default as Dropdown } from './dropdown';
 
 export type { DrawerProps } from './drawer';
