@@ -9,12 +9,20 @@ export type OverrideTokenWithoutDerivative = Omit<OverrideToken, 'derivative'>;
 export type OverrideComponent = keyof OverrideTokenWithoutDerivative;
 export type GlobalTokenWithComponent<ComponentName extends OverrideComponent> = GlobalToken &
   OverrideToken[ComponentName];
-export type StyleInfo = {
+
+interface StyleConfig {
+  style?: boolean;
+}
+
+const EMPTY_CONFIG: StyleConfig = {};
+
+export interface StyleInfo extends StyleConfig {
   hashId: string;
   prefixCls: string;
   rootPrefixCls: string;
   iconPrefixCls: string;
-};
+}
+
 export type TokenWithCommonCls<T> = T & {
   /** Wrap component class with `.` prefix */
   componentCls: string;
@@ -36,7 +44,7 @@ function genComponentStyleHook<ComponentName extends OverrideComponent>(
     | OverrideTokenWithoutDerivative[ComponentName]
     | ((token: GlobalToken) => OverrideTokenWithoutDerivative[ComponentName]),
 ) {
-  return (prefixCls: string): UseComponentStyleResult => {
+  return (prefixCls: string, info = EMPTY_CONFIG): UseComponentStyleResult => {
     const [theme, token, hashId] = useToken();
     const { getPrefixCls, iconPrefixCls } = useContext(ConfigContext);
     const rootPrefixCls = getPrefixCls();
@@ -74,6 +82,7 @@ function genComponentStyleHook<ComponentName extends OverrideComponent>(
           prefixCls,
           rootPrefixCls,
           iconPrefixCls,
+          ...info,
         });
         flush(component);
         return styleInterpolation;

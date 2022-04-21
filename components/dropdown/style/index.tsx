@@ -37,6 +37,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
     iconCls,
     colorBgComponent,
     motionDurationMid,
+    motionDurationSlow,
     paddingXXS,
   } = token;
 
@@ -46,7 +47,10 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
 
       position: 'absolute',
       top: -9999,
-      left: -9999,
+      left: {
+        _skip_check_: true,
+        value: -9999,
+      },
       zIndex: zIndexDropdown,
       display: 'block',
 
@@ -83,7 +87,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
         &-menu-hidden,
         &-menu-submenu-hidden
       `]: {
-        display: 'none',
+        // display: 'none', // TODO: Remove this
       },
 
       // =============================================================
@@ -130,16 +134,25 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
       },
 
       [`&-placement-top > ${componentCls}-arrow`]: {
-        left: '50%',
+        left: {
+          _skip_check_: true,
+          value: '50%',
+        },
         transform: 'translateX(-50%) rotate(45deg)',
       },
 
       [`&-placement-topLeft > ${componentCls}-arrow`]: {
-        left: dropdownArrowOffset,
+        left: {
+          _skip_check_: true,
+          value: dropdownArrowOffset,
+        },
       },
 
       [`&-placement-topRight > ${componentCls}-arrow`]: {
-        right: dropdownArrowOffset,
+        right: {
+          _skip_check_: true,
+          value: dropdownArrowOffset,
+        },
       },
 
       [`
@@ -153,16 +166,25 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
       },
 
       [`&-placement-bottom > ${componentCls}-arrow`]: {
-        left: '50%',
+        left: {
+          _skip_check_: true,
+          value: '50%',
+        },
         transform: `translateX(-50%) rotate(-135deg) translateY(-0.5px)`,
       },
 
       [`&-placement-bottomLeft > ${componentCls}-arrow`]: {
-        left: dropdownArrowOffset,
+        left: {
+          _skip_check_: true,
+          value: dropdownArrowOffset,
+        },
       },
 
       [`&-placement-bottomRight > ${componentCls}-arrow`]: {
-        right: dropdownArrowOffset,
+        right: {
+          _skip_check_: true,
+          value: dropdownArrowOffset,
+        },
       },
 
       // =============================================================
@@ -180,37 +202,42 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
         outline: 'none',
         boxShadow: token.boxShadow,
 
-        //     &-item-group-title {
-        //       padding: 5px @control-padding-horizontal;
-        //       color: @text-color-secondary;
-        //       transition: all @animation-duration-slow;
-        //     }
-        //     &-submenu-popup {
-        //       position: absolute;
-        //       z-index: @zindex-dropdown;
-        //       background: transparent;
-        //       box-shadow: none;
-        //       transform-origin: 0 0;
-        //       ul,
-        //       li {
-        //         list-style: none;
-        //       }
-        //       ul {
-        //         margin-right: 0.3em;
-        //         margin-left: 0.3em;
-        //       }
-        //     }
-        //     // ======================= Item Content =======================
-        //     &-item {
-        //       position: relative;
-        //       display: flex;
-        //       align-items: center;
-        //     }
-        //     &-item-icon {
-        //       min-width: 12px;
-        //       margin-right: 8px;
-        //       font-size: @font-size-sm;
-        //     }
+        '&-item-group-title': {
+          padding: `${token.paddingXXS}px ${token.controlPaddingHorizontal}px`,
+          color: token.colorTextSecondary,
+          transition: `all ${motionDurationSlow}`,
+        },
+
+        [`&-submenu-popup`]: {
+          position: 'absolute',
+          zIndex: zIndexDropdown,
+          background: 'transparent',
+          boxShadow: 'none',
+          transformOrigin: '0 0',
+
+          'ul,li': {
+            listStyle: 'none',
+          },
+
+          ul: {
+            marginRight: '0.3em',
+            marginLeft: '0.3em',
+          },
+        },
+
+        // ======================= Item Content =======================
+        '&-item': {
+          position: 'relative',
+          display: 'flex',
+          alignItems: 'center',
+        },
+
+        '&-item-icon': {
+          minWidth: '12px',
+          marginRight: '8px',
+          fontSize: token.fontSizeSM,
+        },
+
         //     &-title-content {
         //       flex: auto;
         //       > a {

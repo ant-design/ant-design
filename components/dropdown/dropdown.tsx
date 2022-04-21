@@ -133,8 +133,6 @@ const Dropdown: DropdownInterface = props => {
             expandIcon: overlayNodeExpandIcon,
           });
 
-    console.log('>>>>>>', fixedModeOverlay);
-
     return fixedModeOverlay as React.ReactElement;
   };
 

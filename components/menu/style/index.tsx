@@ -1028,7 +1028,12 @@ const genBaseStyle: GenerateStyle<MenuToken, CSSObject> = (token): CSSObject => 
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Menu', token => {
+export default genComponentStyleHook('Menu', (token, { style }) => {
+  // Dropdown will handle menu style self. We do not need to handle this.
+  if (style === false) {
+    return [];
+  }
+
   const MenuToken = mergeToken<MenuToken>(token, {
     black: '#000', // FIXME: hard code in v4
     componentBackground: '#fff', // FIXME: hard code in v4
