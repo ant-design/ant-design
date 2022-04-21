@@ -5,17 +5,6 @@ import defaultSeedToken, { derivative as defaultDerivative } from './themes/defa
 import version from '../../version';
 import { resetComponent, resetIcon, clearFix, roundedArrow } from './util';
 import formatToken from './util/alias';
-import {
-  initSlideMotion,
-  slideUpIn,
-  slideUpOut,
-  slideDownIn,
-  slideDownOut,
-  slideLeftIn,
-  slideLeftOut,
-  slideRightIn,
-  slideRightOut,
-} from './util/slide';
 import statisticToken, { merge as mergeToken } from './util/statistic';
 import { GlobalToken, PresetColors } from './interface';
 import type {
@@ -33,15 +22,6 @@ export {
   resetIcon,
   clearFix,
   roundedArrow,
-  initSlideMotion,
-  slideUpIn,
-  slideUpOut,
-  slideDownIn,
-  slideDownOut,
-  slideLeftIn,
-  slideLeftOut,
-  slideRightIn,
-  slideRightOut,
   useStyleRegister,
   // Statistic
   statisticToken,

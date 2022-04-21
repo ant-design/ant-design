@@ -1,5 +1,5 @@
 import { CSSInterpolation, Keyframes } from '@ant-design/cssinjs';
-import type { DerivativeToken } from '..';
+import type { DerivativeToken } from '../../_util/theme';
 import { initMotion } from './motion';
 
 export const initSlideMotion = (

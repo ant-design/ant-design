@@ -8,11 +8,8 @@ import {
   mergeToken,
   resetComponent,
   roundedArrow,
-  slideDownIn,
-  slideDownOut,
-  slideUpIn,
-  slideUpOut,
 } from '../../_util/theme';
+import { slideDownIn, slideDownOut, slideUpIn, slideUpOut } from '../../style/motion';
 import {
   genActiveStyle,
   genBasicInputStyle,
