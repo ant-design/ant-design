@@ -20,7 +20,7 @@ import type { PaginationProps } from 'antd';
 
 const showTotal: PaginationProps['showTotal'] = total => `Total ${total} items`;
 
-export default () => (
+const App = () => (
   <>
     <Pagination size="small" total={50} />
     <Pagination size="small" total={50} showSizeChanger showQuickJumper />
@@ -35,6 +35,8 @@ export default () => (
     />
   </>
 );
+
+export default () => <App />;
 ```
 
 <style>

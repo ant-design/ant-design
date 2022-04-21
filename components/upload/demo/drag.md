@@ -58,5 +58,5 @@ const App = () => (
   </Dragger>
 );
 
-export default <App />;
+export default () => <App />;
 ```

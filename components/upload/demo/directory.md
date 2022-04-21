@@ -24,5 +24,5 @@ const App = () => (
   </Upload>
 );
 
-export default <App />;
+export default () => <App />;
 ```

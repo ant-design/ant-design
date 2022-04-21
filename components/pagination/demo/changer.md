@@ -22,7 +22,7 @@ const onShowSizeChange: PaginationProps['onShowSizeChange'] = (current, pageSize
   console.log(current, pageSize);
 };
 
-export default () => (
+const App = () => (
   <>
     <Pagination
       showSizeChanger
@@ -40,4 +40,6 @@ export default () => (
     />
   </>
 );
+
+export default () => <App />;
 ```

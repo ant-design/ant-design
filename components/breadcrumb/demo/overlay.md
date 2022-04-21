@@ -45,7 +45,7 @@ const menu = (
   />
 );
 
-export default () => (
+const App = () => (
   <Breadcrumb>
     <Breadcrumb.Item>Ant Design</Breadcrumb.Item>
     <Breadcrumb.Item>
@@ -57,4 +57,6 @@ export default () => (
     <Breadcrumb.Item>Button</Breadcrumb.Item>
   </Breadcrumb>
 );
+
+export default () => <App />;
 ```

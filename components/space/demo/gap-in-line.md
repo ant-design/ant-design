@@ -24,7 +24,7 @@ const style: React.CSSProperties = {
   background: 'red',
 };
 
-const Demo = () => {
+const App = () => {
   const [singleCol, setSingleCol] = useState(false);
 
   return (
@@ -47,5 +47,5 @@ const Demo = () => {
   );
 };
 
-export default Demo;
+export default App;
 ```

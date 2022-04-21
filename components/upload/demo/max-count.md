@@ -38,5 +38,5 @@ const App = () => (
   </Space>
 );
 
-export default <App />;
+export default () => <App />;
 ```

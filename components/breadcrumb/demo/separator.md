@@ -17,7 +17,7 @@ The separator can be customized by setting the separator property: `separator=">
 import React from 'react';
 import { Breadcrumb } from 'antd';
 
-export default () => (
+const App = () => (
   <Breadcrumb separator=">">
     <Breadcrumb.Item>Home</Breadcrumb.Item>
     <Breadcrumb.Item href="">Application Center</Breadcrumb.Item>
@@ -25,4 +25,6 @@ export default () => (
     <Breadcrumb.Item>An Application</Breadcrumb.Item>
   </Breadcrumb>
 );
+
+export default () => <App />;
 ```

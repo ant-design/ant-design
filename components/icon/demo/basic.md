@@ -24,7 +24,7 @@ import {
   LoadingOutlined,
 } from '@ant-design/icons';
 
-export default () => (
+const App = () => (
   <Space>
     <HomeOutlined />
     <SettingFilled />
@@ -34,4 +34,6 @@ export default () => (
     <LoadingOutlined />
   </Space>
 );
+
+export default () => <App />;
 ```

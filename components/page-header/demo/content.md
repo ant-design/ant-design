@@ -111,7 +111,7 @@ const Content: React.FC<{ extraContent: React.ReactNode }> = ({ children, extraC
   </Row>
 );
 
-export default () => (
+const App = () => (
   <PageHeader
     title="Title"
     className="site-page-header"
@@ -141,6 +141,8 @@ export default () => (
     </Content>
   </PageHeader>
 );
+
+export default () => <App />;
 ```
 
 ```css

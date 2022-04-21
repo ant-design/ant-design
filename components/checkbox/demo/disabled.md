@@ -17,11 +17,13 @@ Disabled checkbox.
 import React from 'react';
 import { Checkbox } from 'antd';
 
-export default () => (
+const App = () => (
   <>
     <Checkbox defaultChecked={false} disabled />
     <br />
     <Checkbox defaultChecked disabled />
   </>
 );
+
+export default () => <App />;
 ```

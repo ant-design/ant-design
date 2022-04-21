@@ -18,7 +18,7 @@ import React from 'react';
 import { Breadcrumb } from 'antd';
 import { HomeOutlined, UserOutlined } from '@ant-design/icons';
 
-export default () => (
+const App = () => (
   <Breadcrumb>
     <Breadcrumb.Item href="">
       <HomeOutlined />
@@ -30,4 +30,6 @@ export default () => (
     <Breadcrumb.Item>Application</Breadcrumb.Item>
   </Breadcrumb>
 );
+
+export default () => <App />;
 ```

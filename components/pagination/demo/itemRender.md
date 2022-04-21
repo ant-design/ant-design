@@ -28,5 +28,7 @@ const itemRender: PaginationProps['itemRender'] = (_, type, originalElement) => 
   return originalElement;
 };
 
-export default () => <Pagination total={500} itemRender={itemRender} />;
+const App = () => <Pagination total={500} itemRender={itemRender} />;
+
+export default () => <App />;
 ```

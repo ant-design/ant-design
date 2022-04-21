@@ -25,7 +25,7 @@ const IconFont = createFromIconfontCN({
   ],
 });
 
-export default () => (
+const App = () => (
   <Space>
     <IconFont type="icon-javascript" />
     <IconFont type="icon-java" />
@@ -33,4 +33,6 @@ export default () => (
     <IconFont type="icon-python" />
   </Space>
 );
+
+export default () => <App />;
 ```

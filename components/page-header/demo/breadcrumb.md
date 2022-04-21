@@ -32,7 +32,7 @@ const routes = [
   },
 ];
 
-export default () => (
+const App = () => (
   <PageHeader
     className="site-page-header"
     title="Title"
@@ -40,4 +40,6 @@ export default () => (
     subTitle="This is a subtitle"
   />
 );
+
+export default () => <App />;
 ```

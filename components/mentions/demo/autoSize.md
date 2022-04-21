@@ -27,5 +27,5 @@ const App = () => (
   </Mentions>
 );
 
-export default <App />;
+export default () => <App />;
 ```

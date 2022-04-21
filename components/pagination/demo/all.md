@@ -17,7 +17,7 @@ Show all configured prop.
 import React from 'react';
 import { Pagination } from 'antd';
 
-export default () => (
+const App = () => (
   <Pagination
     total={85}
     showSizeChanger
@@ -25,4 +25,6 @@ export default () => (
     showTotal={total => `Total ${total} items`}
   />
 );
+
+export default () => <App />;
 ```

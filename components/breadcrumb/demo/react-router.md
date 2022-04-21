@@ -74,11 +74,13 @@ const Home = () => {
   );
 };
 
-export default () => (
+const App = () => (
   <HashRouter>
     <Home />
   </HashRouter>
 );
+
+export default () => <App />;
 ```
 
 ```css

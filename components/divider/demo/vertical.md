@@ -17,7 +17,7 @@ Use `type="vertical"` make it vertical.
 import React from 'react';
 import { Divider } from 'antd';
 
-export default () => (
+const App = () => (
   <>
     Text
     <Divider type="vertical" />
@@ -26,4 +26,6 @@ export default () => (
     <a href="#">Link</a>
   </>
 );
+
+export default () => <App />;
 ```

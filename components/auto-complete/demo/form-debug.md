@@ -22,7 +22,7 @@ const formItemLayout = {
   },
 };
 
-export default () => (
+const App = () => (
   <Form style={{ margin: '0 auto' }} {...formItemLayout}>
     <Form.Item label="单独 AutoComplete">
       <AutoComplete />
@@ -70,4 +70,6 @@ export default () => (
     </Form.Item>
   </Form>
 );
+
+export default () => <App />;
 ```

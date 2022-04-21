@@ -49,7 +49,7 @@ const formItemLayout = {
   },
 };
 
-export default () => (
+const App = () => (
   <Form {...formItemLayout}>
     <Form.Item
       label="Fail"
@@ -169,4 +169,6 @@ export default () => (
     </Form.Item>
   </Form>
 );
+
+export default () => <App />;
 ```

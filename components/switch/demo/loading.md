@@ -17,11 +17,13 @@ Mark a pending state of switch.
 import React from 'react';
 import { Switch } from 'antd';
 
-export default () => (
+const App = () => (
   <>
     <Switch loading defaultChecked />
     <br />
     <Switch size="small" loading />
   </>
 );
+
+export default () => <App />;
 ```
