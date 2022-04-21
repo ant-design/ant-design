@@ -83,6 +83,11 @@ const genLayoutStyle: GenerateStyle<LayoutToken, CSSObject> = token => {
         color: layoutHeaderColor,
         lineHeight: `${layoutHeaderHeight}px`,
         background: layoutHeaderBackground,
+        // Other components/menu/style/index.less line:686
+        // Integration with header element so menu items have the same height
+        [`${antCls}-menu`]: {
+          lineHeight: 'inherit',
+        },
       },
 
       [`${componentCls}-footer`]: {
@@ -149,7 +154,7 @@ const genLayoutStyle: GenerateStyle<LayoutToken, CSSObject> = token => {
           '&-trigger': {
             position: 'absolute',
             top: layoutHeaderHeight,
-            insetInlineEnd: -layoutZeroTriggerWidth, // TODO:
+            insetInlineEnd: -layoutZeroTriggerWidth,
             zIndex: 1, // FIXME: hardcode in v4
             width: layoutZeroTriggerWidth,
             height: layoutZeroTriggerHeight,
@@ -158,7 +163,12 @@ const genLayoutStyle: GenerateStyle<LayoutToken, CSSObject> = token => {
             lineHeight: `${layoutZeroTriggerHeight}px`,
             textAlign: 'center',
             background: layoutSiderBackground,
-            borderRadius: `0 ${radiusBase} ${radiusBase} 0`, // TODO:
+            // borderRadius: `0 ${radiusBase} ${radiusBase} 0`,
+            borderStartStartRadius: 0, // FIXME: hardcode in v4
+            borderStartEndRadius: radiusBase,
+            borderEndEndRadius: radiusBase,
+            borderEndStartRadius: 0, // FIXME: hardcode in v4
+
             cursor: 'pointer',
             transition: `background ${motionDurationSlow} ease`,
 
@@ -178,8 +188,12 @@ const genLayoutStyle: GenerateStyle<LayoutToken, CSSObject> = token => {
             },
 
             '&-right': {
-              insetInlineStart: -layoutZeroTriggerWidth, // TODO:
-              borderRadius: `${radiusBase} 0 0 ${radiusBase}`, // TODO:
+              insetInlineStart: -layoutZeroTriggerWidth,
+              // borderRadius: `${radiusBase} 0 0 ${radiusBase}`,
+              borderStartStartRadius: radiusBase,
+              borderStartEndRadius: 0, // FIXME: hardcode in v4
+              borderEndEndRadius: 0, // FIXME: hardcode in v4
+              borderEndStartRadius: radiusBase,
             },
           },
         },
