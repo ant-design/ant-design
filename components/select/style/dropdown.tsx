@@ -1,13 +1,12 @@
 import { CSSObject } from '@ant-design/cssinjs';
+import { resetComponent, GenerateStyle } from '../../_util/theme';
 import {
-  resetComponent,
   initSlideMotion,
   slideUpIn,
   slideUpOut,
   slideDownIn,
   slideDownOut,
-  GenerateStyle,
-} from '../../_util/theme';
+} from '../../style/motion';
 import type { SelectToken } from '.';
 
 const genItemStyle: GenerateStyle<SelectToken, CSSObject> = token => {
