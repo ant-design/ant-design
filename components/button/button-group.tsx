@@ -34,7 +34,7 @@ const ButtonGroup: React.FC<ButtonGroupProps> = props => {
     case undefined:
       break;
     default:
-      devWarning(false, 'Button.Group', 'Invalid prop `size`.');
+      devWarning(!size, 'Button.Group', 'Invalid prop `size`.');
   }
 
   const classes = classNames(

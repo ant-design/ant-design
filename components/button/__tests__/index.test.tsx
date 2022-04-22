@@ -36,10 +36,13 @@ describe('Button', () => {
   });
 
   it('warns if size is wrong', () => {
+    resetWarned();
     const mockWarn = jest.spyOn(console, 'error').mockImplementation(() => {});
     const size = 'who am I' as any as SizeType;
     render(<Button.Group size={size} />);
     expect(mockWarn).toHaveBeenCalledWith('Warning: [antd: Button.Group] Invalid prop `size`.');
+
+    mockWarn.mockRestore();
   });
 
   it('renders Chinese characters correctly', () => {
