@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import { SizeType } from '../config-provider/SizeContext';
 import { ConfigContext } from '../config-provider';
 import devWarning from '../_util/devWarning';
+import { useToken } from '../_util/theme';
 
 export interface ButtonGroupProps {
   size?: SizeType;
@@ -19,6 +20,9 @@ const ButtonGroup: React.FC<ButtonGroupProps> = props => {
 
   const { prefixCls: customizePrefixCls, size, className, ...others } = props;
   const prefixCls = getPrefixCls('btn-group', customizePrefixCls);
+
+  // Here we only need hashId
+  const [, , hashId] = useToken();
 
   // large => lg
   // small => sm
@@ -44,6 +48,7 @@ const ButtonGroup: React.FC<ButtonGroupProps> = props => {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    hashId,
   );
 
   return (
