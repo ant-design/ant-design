@@ -17,7 +17,7 @@ Custom each Segmented Item by ReactNode.
 import { Avatar, Segmented } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 
-ReactDOM.render(
+export default () => (
   <>
     <Segmented
       options={[
@@ -91,7 +91,6 @@ ReactDOM.render(
         },
       ]}
     />
-  </>,
-  mountNode,
+  </>
 );
 ```
