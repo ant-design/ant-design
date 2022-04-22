@@ -83,6 +83,7 @@ export interface OverrideToken {
   Card?: {};
   Steps?: {};
   Menu?: MenuComponentToken;
+  Layout?: {};
 }
 
 /** Final token which contains the components level override */

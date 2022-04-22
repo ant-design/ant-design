@@ -1,6 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import { ConfigContext } from '../config-provider';
+import useStyle from './style';
 
 export interface GeneratorProps {
   suffixCls: string;
@@ -46,6 +47,7 @@ function generator({ suffixCls, tagName, displayName }: GeneratorProps) {
 const Basic = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props, ref) => {
   const { prefixCls, className, children, tagName, ...others } = props;
   const classString = classNames(prefixCls, className);
+
   return React.createElement(tagName, { className: classString, ...others, ref }, children);
 });
 
@@ -55,6 +57,7 @@ const BasicLayout = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props,
   const [siders, setSiders] = React.useState<string[]>([]);
 
   const { prefixCls, className, children, hasSider, tagName: Tag, ...others } = props;
+  const [wrapSSR, hashId] = useStyle(prefixCls as string);
   const classString = classNames(
     prefixCls,
     {
@@ -62,6 +65,7 @@ const BasicLayout = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    hashId,
   );
 
   const contextValue = React.useMemo(
@@ -78,12 +82,12 @@ const BasicLayout = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props,
     [],
   );
 
-  return (
+  return wrapSSR(
     <LayoutContext.Provider value={contextValue}>
       <Tag ref={ref} className={classString} {...others}>
         {children}
       </Tag>
-    </LayoutContext.Provider>
+    </LayoutContext.Provider>,
   );
 });
 

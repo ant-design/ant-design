@@ -172,7 +172,7 @@ export default () => (
   margin: 16px;
   background: rgba(255, 255, 255, 0.2);
 }
-.site-layout .site-layout-background {
+#components-layout-demo-fixed-sider .site-layout .site-layout-background {
   background: #fff;
 }
 ```

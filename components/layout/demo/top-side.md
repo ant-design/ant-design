@@ -88,7 +88,7 @@ export default () => (
   margin: 16px 0 16px 24px;
 }
 
-.site-layout-background {
+#components-layout-demo-top-side .site-layout-background {
   background: #fff;
 }
 ```
