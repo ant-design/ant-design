@@ -34,7 +34,6 @@ const ButtonGroup: React.FC<ButtonGroupProps> = props => {
     case undefined:
       break;
     default:
-      // eslint-disable-next-line no-console
       devWarning(false, 'Button.Group', 'Invalid prop `size`.');
   }
 
