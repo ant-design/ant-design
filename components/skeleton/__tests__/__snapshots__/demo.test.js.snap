@@ -114,7 +114,7 @@ Array [
         class="ant-skeleton ant-skeleton-element"
       >
         <span
-          class="ant-skeleton-button"
+          class="ant-skeleton-button ant-skeleton-button-square"
         />
       </div>
     </div>
@@ -148,7 +148,7 @@ Array [
     class="ant-skeleton ant-skeleton-element"
   >
     <span
-      class="ant-skeleton-button"
+      class="ant-skeleton-button ant-skeleton-button-square"
     />
   </div>,
   <br />,
@@ -401,14 +401,14 @@ Array [
                     checked=""
                     class="ant-radio-button-input"
                     type="radio"
-                    value="default"
+                    value="square"
                   />
                   <span
                     class="ant-radio-button-inner"
                   />
                 </span>
                 <span>
-                  Default
+                  Square
                 </span>
               </label>
               <label
