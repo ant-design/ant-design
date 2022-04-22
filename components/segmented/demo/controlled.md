@@ -13,12 +13,12 @@ title:
 
 Controlled Segmented.
 
-```jsx
+```tsx
 import React, { useState } from 'react';
 import { Segmented } from 'antd';
 
 const Demo: React.FC = () => {
-  const [value, setValue] = useState('Map');
+  const [value, setValue] = useState<string | number>('Map');
 
   return (
     <Segmented
@@ -29,5 +29,5 @@ const Demo: React.FC = () => {
   );
 };
 
-ReactDOM.render(<Demo />, mountNode);
+export default Demo;
 ```

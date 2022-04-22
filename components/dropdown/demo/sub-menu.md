@@ -14,7 +14,7 @@ title:
 The menu has multiple levels.
 
 ```jsx
-import { Menu, Dropdown } from 'antd';
+import { Menu, Dropdown, Space } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 
 const { SubMenu } = Menu;
@@ -71,8 +71,11 @@ const menu = (
 
 export default () => (
   <Dropdown overlay={menu}>
-    <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-      Cascading menu <DownOutlined />
+    <a onClick={e => e.preventDefault()}>
+      <Space>
+        Cascading menu
+        <DownOutlined />
+      </Space>
     </a>
   </Dropdown>
 );
