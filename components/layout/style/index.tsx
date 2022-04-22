@@ -7,7 +7,7 @@ import { genComponentStyleHook, mergeToken } from '../../_util/theme';
 import type { GenerateStyle, FullToken } from '../../_util/theme';
 import genLayoutLightStyle from './light';
 
-export interface LayoutToken extends FullToken<'Steps'> {
+export interface LayoutToken extends FullToken<'Layout'> {
   // Layout
   layoutBodyBackground: string;
   layoutHeaderBackground: string;
@@ -211,7 +211,7 @@ const genLayoutStyle: GenerateStyle<LayoutToken, CSSObject> = token => {
 // ============================== Export ==============================
 export default genComponentStyleHook('Layout', token => {
   const layoutHeaderBackground = '#001529'; // FIXME: hardcode in v4
-  const layoutBodyBackground = '#F0f2f5'; // FIXME: hardcode in v4
+  const layoutBodyBackground = '#f0f2f5'; // FIXME: hardcode in v4
   const { colorText } = token;
 
   const layoutToken = mergeToken<LayoutToken>(token, {
@@ -226,12 +226,12 @@ export default genComponentStyleHook('Layout', token => {
     layoutSiderBackground: layoutHeaderBackground,
     layoutTriggerHeight: 48, // FIXME: hardcode in v4
     layoutTriggerBackground: '#002140', // FIXME: hardcode in v4
-    layoutTriggerColor: '#Fff', // FIXME: hardcode in v4
+    layoutTriggerColor: '#fff', // FIXME: hardcode in v4
     layoutZeroTriggerWidth: 36, // FIXME: hardcode in v4
     layoutZeroTriggerHeight: 42, // FIXME: hardcode in v4
     // Layout Light Theme
-    layoutSiderBackgroundLight: '#Fff', // FIXME: hardcode in v4
-    layoutTriggerBackgroundLight: '#Fff', // FIXME: hardcode in v4
+    layoutSiderBackgroundLight: '#fff', // FIXME: hardcode in v4
+    layoutTriggerBackgroundLight: '#fff', // FIXME: hardcode in v4
     layoutTriggerColorLight: colorText,
   });
 
