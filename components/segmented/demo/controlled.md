@@ -13,7 +13,7 @@ title:
 
 Controlled Segmented.
 
-```jsx
+```tsx
 import React, { useState } from 'react';
 import { Segmented } from 'antd';
 
@@ -29,5 +29,5 @@ const Demo: React.FC = () => {
   );
 };
 
-ReactDOM.render(<Demo />, mountNode);
+export default Demo;
 ```
