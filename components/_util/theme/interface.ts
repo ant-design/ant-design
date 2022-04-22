@@ -298,6 +298,8 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   colorBgComponentDisabled: string;
 
   // =============== Legacy: should be remove ===============
+  colorLoadingOpacity: number;
+
   padding: number;
   margin: number;
 

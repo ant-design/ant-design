@@ -1,12 +1,4 @@
-// import '../../style/index.less';
-// import './index.less';
-
-// // style dependencies
-// import '../../button/style';
-
 // deps-lint-skip-all
-import * as React from 'react';
-import { CSSObject } from '@ant-design/cssinjs';
 import {
   GenerateStyle,
   resetComponent,
@@ -22,12 +14,14 @@ import {
   slideDownIn,
   slideDownOut,
 } from '../../style/motion';
+import genButtonStyle from './button';
+import genDarkStyle from './dark';
 
 export interface ComponentToken {
   zIndexDropdown: number;
 }
 
-interface DropdownToken extends FullToken<'Dropdown'> {
+export interface DropdownToken extends FullToken<'Dropdown'> {
   rootPrefixCls: string;
   dropdownArrowDistance: number;
   dropdownArrowOffset: number;
@@ -238,8 +232,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
             },
 
             ul: {
-              marginRight: '0.3em',
-              marginLeft: '0.3em',
+              marginInline: '0.3em',
             },
           },
 
@@ -252,7 +245,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
 
           '&-item-icon': {
             minWidth: fontSizeBase,
-            marginRight: token.marginXS,
+            marginInlineEnd: token.marginXS,
             fontSize: token.fontSizeSM,
           },
 
@@ -351,7 +344,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
           },
 
           '&-submenu-title': {
-            paddingRight: controlPaddingHorizontal + token.fontSizeSM,
+            paddingInlineEnd: controlPaddingHorizontal + token.fontSizeSM,
           },
 
           '&-submenu-vertical': {
@@ -418,19 +411,8 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
       slideDownIn,
       slideDownOut,
     ],
-
-    // Inject element, we should not support this hack in v5
-    // .@{dropdown-prefix-cls}-trigger,
-    // .@{dropdown-prefix-cls}-link,
-    // .@{dropdown-prefix-cls}-button {
-    //   > .@{iconfont-css-prefix}.@{iconfont-css-prefix}-down {
-    //     font-size: 10px;
-    //     vertical-align: baseline;
-    //   }
-    // }
   ];
 };
-// .css-dev-only-do-not-override-btc0m7.ant-slide-up-enter.ant-slide-up-enter-active
 
 // ============================== Export ==============================
 export default genComponentStyleHook(
@@ -448,7 +430,11 @@ export default genComponentStyleHook(
       dropdownPaddingVertical,
       dropdownEdgeChildVerticalPadding: paddingXXS,
     });
-    return [genBaseStyle(dropdownToken)];
+    return [
+      genBaseStyle(dropdownToken),
+      genButtonStyle(dropdownToken),
+      genDarkStyle(dropdownToken),
+    ];
   },
   token => ({
     zIndexDropdown: token.zIndexPopup + 50,
