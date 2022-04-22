@@ -2,7 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { SizeType } from '../config-provider/SizeContext';
 import { ConfigContext } from '../config-provider';
-import UnreachableException from '../_util/unreachableException';
+import devWarning from '../_util/devWarning';
 
 export interface ButtonGroupProps {
   size?: SizeType;
@@ -35,7 +35,7 @@ const ButtonGroup: React.FC<ButtonGroupProps> = props => {
       break;
     default:
       // eslint-disable-next-line no-console
-      console.warn(new UnreachableException(size).error);
+      devWarning(false, 'Button.Group', 'Invalid prop `size`.');
   }
 
   const classes = classNames(
