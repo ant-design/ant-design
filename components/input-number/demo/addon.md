@@ -34,7 +34,7 @@ const selectAfter = (
   </Select>
 );
 
-ReactDOM.render(
+export default () => (
   <Space direction="vertical">
     <InputNumber addonBefore="+" addonAfter="$" defaultValue={100} />
     <InputNumber addonBefore={selectBefore} addonAfter={selectAfter} defaultValue={100} />
@@ -43,7 +43,6 @@ ReactDOM.render(
       addonBefore={<Cascader placeholder="cascader" style={{ width: 150 }} />}
       defaultValue={100}
     />
-  </Space>,
-  mountNode,
+  </Space>
 );
 ```

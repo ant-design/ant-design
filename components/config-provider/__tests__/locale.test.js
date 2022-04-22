@@ -70,22 +70,12 @@ describe('ConfigProvider.Locale', () => {
 
   // https://github.com/ant-design/ant-design/issues/31592
   it('should not reset the component state when switching locale', () => {
-    class App extends React.Component {
-      state = {
-        locale: zhCN,
-      };
-
-      render() {
-        return (
-          <ConfigProvider locale={this.state.locale}>
-            <DatePicker />
-            <Pagination total={50} />
-          </ConfigProvider>
-        );
-      }
-    }
-
-    const wrapper = mount(<App />);
+    const wrapper = mount(
+      <ConfigProvider locale={zhCN}>
+        <DatePicker />
+        <Pagination total={50} />
+      </ConfigProvider>,
+    );
 
     const datepickerInitProps = wrapper.find('.ant-picker-input input').props();
     expect(datepickerInitProps.value).toBe('');
@@ -100,7 +90,7 @@ describe('ConfigProvider.Locale', () => {
 
     expect(wrapper.find('.ant-picker-input input').props().value).not.toBe('');
 
-    wrapper.setState({ locale: {} });
+    wrapper.setProps({ locale: {} });
     wrapper.find('.ant-pagination-item-3').simulate('click');
 
     const datepickerProps = wrapper.find('.ant-picker-input input').props();

@@ -61,6 +61,23 @@
       content: attr(data-count);
       pointer-events: none;
     }
+
+    &.@{input-prefix-cls}-textarea-in-form-item {
+      &::after {
+        margin-bottom: -22px;
+      }
+    }
+  }
+
+  &-textarea-suffix {
+    position: absolute;
+    top: 0;
+    right: @input-padding-horizontal-base;
+    bottom: 0;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    margin: auto;
   }
 }
 

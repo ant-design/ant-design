@@ -26,6 +26,7 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/D1dXz9PZqa/image.svg
 | src | 图片地址 | string | - | 4.6.0 |
 | width | 图像宽度 | string \| number | - | 4.6.0 |
 | onError | 加载错误回调 | (event: Event) => void | - | 4.12.0 |
+| rootClassName | 为展示图片根 DOM 和预览大图根 DOM 提供自定义 className | string | - | 4.20.0 |
 
 ### previewType
 
@@ -33,11 +34,12 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/D1dXz9PZqa/image.svg
 {
   visible?: boolean;
   onVisibleChange?: (visible, prevVisible) => void;
-  getContainer?: string | HTMLElement | (() => HTMLElement); // V4.8.0
-  src?: string; // V4.10.0
-  mask?: ReactNode; // V4.9.0
-  maskClassName?: string; // V4.11.0
-  current?: number; // V4.12.0 仅支持 PreviewGroup。
+  getContainer?: string | HTMLElement | (() => HTMLElement); // v4.8.0
+  src?: string; // v4.10.0
+  mask?: ReactNode; // v4.9.0
+  maskClassName?: string; // v4.11.0
+  current?: number; // v4.12.0 仅支持 PreviewGroup
+  countRender?: (current: number, total: number) => string  // v4.20.0 仅支持 PreviewGroup
 }
 ```
 

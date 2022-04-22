@@ -37,7 +37,7 @@ function tagRender(props) {
   );
 }
 
-ReactDOM.render(
+export default () => (
   <Select
     mode="multiple"
     showArrow
@@ -45,7 +45,6 @@ ReactDOM.render(
     defaultValue={['gold', 'cyan']}
     style={{ width: '100%' }}
     options={options}
-  />,
-  mountNode,
+  />
 );
 ```

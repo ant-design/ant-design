@@ -2,7 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import Title, { SkeletonTitleProps } from './Title';
 import Paragraph, { SkeletonParagraphProps } from './Paragraph';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 import Element from './Element';
 import SkeletonAvatar, { AvatarProps } from './Avatar';
 import SkeletonButton from './Button';
@@ -72,99 +72,96 @@ function getParagraphBasicProps(hasAvatar: boolean, hasTitle: boolean): Skeleton
 }
 
 const Skeleton = (props: SkeletonProps) => {
-  const renderSkeleton = ({ getPrefixCls, direction }: ConfigConsumerProps) => {
-    const {
-      prefixCls: customizePrefixCls,
-      loading,
-      className,
-      style,
-      children,
-      avatar,
-      title,
-      paragraph,
-      active,
-      round,
-    } = props;
+  const {
+    prefixCls: customizePrefixCls,
+    loading,
+    className,
+    style,
+    children,
+    avatar,
+    title,
+    paragraph,
+    active,
+    round,
+  } = props;
 
-    const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
+  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
 
-    if (loading || !('loading' in props)) {
-      const hasAvatar = !!avatar;
-      const hasTitle = !!title;
-      const hasParagraph = !!paragraph;
+  if (loading || !('loading' in props)) {
+    const hasAvatar = !!avatar;
+    const hasTitle = !!title;
+    const hasParagraph = !!paragraph;
 
-      // Avatar
-      let avatarNode;
-      if (hasAvatar) {
-        const avatarProps: SkeletonAvatarProps = {
-          prefixCls: `${prefixCls}-avatar`,
-          ...getAvatarBasicProps(hasTitle, hasParagraph),
-          ...getComponentProps(avatar),
-        };
-        // We direct use SkeletonElement as avatar in skeleton internal.
-        avatarNode = (
-          <div className={`${prefixCls}-header`}>
-            <Element {...avatarProps} />
-          </div>
-        );
-      }
-
-      let contentNode;
-      if (hasTitle || hasParagraph) {
-        // Title
-        let $title;
-        if (hasTitle) {
-          const titleProps: SkeletonTitleProps = {
-            prefixCls: `${prefixCls}-title`,
-            ...getTitleBasicProps(hasAvatar, hasParagraph),
-            ...getComponentProps(title),
-          };
-
-          $title = <Title {...titleProps} />;
-        }
-
-        // Paragraph
-        let paragraphNode;
-        if (hasParagraph) {
-          const paragraphProps: SkeletonParagraphProps = {
-            prefixCls: `${prefixCls}-paragraph`,
-            ...getParagraphBasicProps(hasAvatar, hasTitle),
-            ...getComponentProps(paragraph),
-          };
-
-          paragraphNode = <Paragraph {...paragraphProps} />;
-        }
-
-        contentNode = (
-          <div className={`${prefixCls}-content`}>
-            {$title}
-            {paragraphNode}
-          </div>
-        );
-      }
-
-      const cls = classNames(
-        prefixCls,
-        {
-          [`${prefixCls}-with-avatar`]: hasAvatar,
-          [`${prefixCls}-active`]: active,
-          [`${prefixCls}-rtl`]: direction === 'rtl',
-          [`${prefixCls}-round`]: round,
-        },
-        className,
-      );
-
-      return (
-        <div className={cls} style={style}>
-          {avatarNode}
-          {contentNode}
+    // Avatar
+    let avatarNode;
+    if (hasAvatar) {
+      const avatarProps: SkeletonAvatarProps = {
+        prefixCls: `${prefixCls}-avatar`,
+        ...getAvatarBasicProps(hasTitle, hasParagraph),
+        ...getComponentProps(avatar),
+      };
+      // We direct use SkeletonElement as avatar in skeleton internal.
+      avatarNode = (
+        <div className={`${prefixCls}-header`}>
+          <Element {...avatarProps} />
         </div>
       );
     }
 
-    return children;
-  };
-  return <ConfigConsumer>{renderSkeleton}</ConfigConsumer>;
+    let contentNode;
+    if (hasTitle || hasParagraph) {
+      // Title
+      let $title;
+      if (hasTitle) {
+        const titleProps: SkeletonTitleProps = {
+          prefixCls: `${prefixCls}-title`,
+          ...getTitleBasicProps(hasAvatar, hasParagraph),
+          ...getComponentProps(title),
+        };
+
+        $title = <Title {...titleProps} />;
+      }
+
+      // Paragraph
+      let paragraphNode;
+      if (hasParagraph) {
+        const paragraphProps: SkeletonParagraphProps = {
+          prefixCls: `${prefixCls}-paragraph`,
+          ...getParagraphBasicProps(hasAvatar, hasTitle),
+          ...getComponentProps(paragraph),
+        };
+
+        paragraphNode = <Paragraph {...paragraphProps} />;
+      }
+
+      contentNode = (
+        <div className={`${prefixCls}-content`}>
+          {$title}
+          {paragraphNode}
+        </div>
+      );
+    }
+
+    const cls = classNames(
+      prefixCls,
+      {
+        [`${prefixCls}-with-avatar`]: hasAvatar,
+        [`${prefixCls}-active`]: active,
+        [`${prefixCls}-rtl`]: direction === 'rtl',
+        [`${prefixCls}-round`]: round,
+      },
+      className,
+    );
+
+    return (
+      <div className={cls} style={style}>
+        {avatarNode}
+        {contentNode}
+      </div>
+    );
+  }
+  return typeof children !== 'undefined' ? (children as React.ReactElement) : null;
 };
 
 Skeleton.defaultProps = {

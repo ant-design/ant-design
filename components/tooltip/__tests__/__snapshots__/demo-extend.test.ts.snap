@@ -13,7 +13,7 @@ Array [
   <div>
     <div
       class="ant-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -45,7 +45,7 @@ Array [
   <div>
     <div
       class="ant-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -84,7 +84,7 @@ exports[`renders ./components/tooltip/demo/auto-adjust-overflow.md extend contex
   <div>
     <div
       class="ant-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -117,7 +117,7 @@ exports[`renders ./components/tooltip/demo/auto-adjust-overflow.md extend contex
   <div>
     <div
       class="ant-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -149,7 +149,7 @@ Array [
   <div>
     <div
       class="ant-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -197,7 +197,7 @@ Array [
     <div>
       <div
         class="ant-tooltip ant-tooltip-pink"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -229,7 +229,7 @@ Array [
     <div>
       <div
         class="ant-tooltip ant-tooltip-red"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -261,7 +261,7 @@ Array [
     <div>
       <div
         class="ant-tooltip ant-tooltip-yellow"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -293,7 +293,7 @@ Array [
     <div>
       <div
         class="ant-tooltip ant-tooltip-orange"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -325,7 +325,7 @@ Array [
     <div>
       <div
         class="ant-tooltip ant-tooltip-cyan"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -357,7 +357,7 @@ Array [
     <div>
       <div
         class="ant-tooltip ant-tooltip-green"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -389,7 +389,7 @@ Array [
     <div>
       <div
         class="ant-tooltip ant-tooltip-blue"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -421,7 +421,7 @@ Array [
     <div>
       <div
         class="ant-tooltip ant-tooltip-purple"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -453,7 +453,7 @@ Array [
     <div>
       <div
         class="ant-tooltip ant-tooltip-geekblue"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -485,7 +485,7 @@ Array [
     <div>
       <div
         class="ant-tooltip ant-tooltip-magenta"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -517,7 +517,7 @@ Array [
     <div>
       <div
         class="ant-tooltip ant-tooltip-volcano"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -549,7 +549,7 @@ Array [
     <div>
       <div
         class="ant-tooltip ant-tooltip-gold"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -581,7 +581,7 @@ Array [
     <div>
       <div
         class="ant-tooltip ant-tooltip-lime"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -625,7 +625,7 @@ Array [
     <div>
       <div
         class="ant-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -659,7 +659,7 @@ Array [
     <div>
       <div
         class="ant-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -693,7 +693,7 @@ Array [
     <div>
       <div
         class="ant-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -727,7 +727,7 @@ Array [
     <div>
       <div
         class="ant-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -762,7 +762,7 @@ Array [
   <div>
     <div
       class="ant-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -804,7 +804,7 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
     <div>
       <div
         class="ant-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -838,7 +838,7 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
     <div>
       <div
         class="ant-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -872,7 +872,7 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
     <div>
       <div
         class="ant-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -910,7 +910,7 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
     <div>
       <div
         class="ant-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -944,7 +944,7 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
     <div>
       <div
         class="ant-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -978,7 +978,7 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
     <div>
       <div
         class="ant-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -1016,7 +1016,7 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
     <div>
       <div
         class="ant-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -1050,7 +1050,7 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
     <div>
       <div
         class="ant-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -1084,7 +1084,7 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
     <div>
       <div
         class="ant-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -1122,7 +1122,7 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
     <div>
       <div
         class="ant-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -1156,7 +1156,7 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
     <div>
       <div
         class="ant-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -1190,7 +1190,7 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
     <div>
       <div
         class="ant-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"

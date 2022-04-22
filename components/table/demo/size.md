@@ -51,14 +51,13 @@ const data = [
   },
 ];
 
-ReactDOM.render(
+export default () => (
   <div>
     <h4>Middle size table</h4>
     <Table columns={columns} dataSource={data} size="middle" />
     <h4>Small size table</h4>
     <Table columns={columns} dataSource={data} size="small" />
-  </div>,
-  mountNode,
+  </div>
 );
 ```
 

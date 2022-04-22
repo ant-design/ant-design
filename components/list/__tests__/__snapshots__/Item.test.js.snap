@@ -58,139 +58,71 @@ exports[`List Item Layout horizontal itemLayout List should accept extra node 1`
 `;
 
 exports[`List Item Layout rowKey could be function 1`] = `
-<List
-  dataSource={
-    Array [
-      Object {
-        "id": 1,
-        "title": "ant design",
-      },
-      Object {
-        "id": 2,
-        "title": "ant design",
-      },
-      Object {
-        "id": 3,
-        "title": "ant design",
-      },
-    ]
-  }
-  renderItem={[Function]}
-  rowKey={[Function]}
+<div
+  class="ant-list ant-list-split"
 >
   <div
-    className="ant-list ant-list-split"
+    class="ant-spin-nested-loading"
   >
-    <Spin
-      size="default"
-      spinning={false}
-      wrapperClassName=""
+    <div
+      class="ant-spin-container"
     >
-      <div
-        className="ant-spin-nested-loading"
+      <ul
+        class="ant-list-items"
       >
-        <div
-          className="ant-spin-container"
-          key="container"
+        <li
+          class="ant-list-item"
         >
-          <ul
-            className="ant-list-items"
-          >
-            <Item>
-              <li
-                className="ant-list-item"
-              >
-                ant design
-              </li>
-            </Item>
-            <Item>
-              <li
-                className="ant-list-item"
-              >
-                ant design
-              </li>
-            </Item>
-            <Item>
-              <li
-                className="ant-list-item"
-              >
-                ant design
-              </li>
-            </Item>
-          </ul>
-        </div>
-      </div>
-    </Spin>
+          ant design
+        </li>
+        <li
+          class="ant-list-item"
+        >
+          ant design
+        </li>
+        <li
+          class="ant-list-item"
+        >
+          ant design
+        </li>
+      </ul>
+    </div>
   </div>
-</List>
+</div>
 `;
 
 exports[`List Item Layout rowKey could be string 1`] = `
-<List
-  dataSource={
-    Array [
-      Object {
-        "id": 1,
-        "title": "ant design",
-      },
-      Object {
-        "id": 2,
-        "title": "ant design",
-      },
-      Object {
-        "id": 3,
-        "title": "ant design",
-      },
-    ]
-  }
-  renderItem={[Function]}
-  rowKey="id"
+<div
+  class="ant-list ant-list-split"
 >
   <div
-    className="ant-list ant-list-split"
+    class="ant-spin-nested-loading"
   >
-    <Spin
-      size="default"
-      spinning={false}
-      wrapperClassName=""
+    <div
+      class="ant-spin-container"
     >
-      <div
-        className="ant-spin-nested-loading"
+      <ul
+        class="ant-list-items"
       >
-        <div
-          className="ant-spin-container"
-          key="container"
+        <li
+          class="ant-list-item"
         >
-          <ul
-            className="ant-list-items"
-          >
-            <Item>
-              <li
-                className="ant-list-item"
-              >
-                ant design
-              </li>
-            </Item>
-            <Item>
-              <li
-                className="ant-list-item"
-              >
-                ant design
-              </li>
-            </Item>
-            <Item>
-              <li
-                className="ant-list-item"
-              >
-                ant design
-              </li>
-            </Item>
-          </ul>
-        </div>
-      </div>
-    </Spin>
+          ant design
+        </li>
+        <li
+          class="ant-list-item"
+        >
+          ant design
+        </li>
+        <li
+          class="ant-list-item"
+        >
+          ant design
+        </li>
+      </ul>
+    </div>
   </div>
-</List>
+</div>
 `;
 
 exports[`List Item Layout should render in RTL direction 1`] = `

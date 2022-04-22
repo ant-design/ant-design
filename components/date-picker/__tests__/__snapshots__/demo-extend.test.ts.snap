@@ -50,7 +50,7 @@ exports[`renders ./components/date-picker/demo/basic.md extend context correctly
     <div>
       <div
         class="ant-picker-dropdown"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-panel-container"
@@ -648,7 +648,7 @@ exports[`renders ./components/date-picker/demo/basic.md extend context correctly
     <div>
       <div
         class="ant-picker-dropdown"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-panel-container"
@@ -1282,7 +1282,7 @@ exports[`renders ./components/date-picker/demo/basic.md extend context correctly
     <div>
       <div
         class="ant-picker-dropdown"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-panel-container"
@@ -1516,7 +1516,7 @@ exports[`renders ./components/date-picker/demo/basic.md extend context correctly
     <div>
       <div
         class="ant-picker-dropdown"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-panel-container"
@@ -1663,7 +1663,7 @@ exports[`renders ./components/date-picker/demo/basic.md extend context correctly
     <div>
       <div
         class="ant-picker-dropdown"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-panel-container"
@@ -1904,7 +1904,7 @@ exports[`renders ./components/date-picker/demo/bordered.md extend context correc
     <div>
       <div
         class="ant-picker-dropdown"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-panel-container"
@@ -2502,7 +2502,7 @@ exports[`renders ./components/date-picker/demo/bordered.md extend context correc
     <div>
       <div
         class="ant-picker-dropdown"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-panel-container"
@@ -3136,7 +3136,7 @@ exports[`renders ./components/date-picker/demo/bordered.md extend context correc
     <div>
       <div
         class="ant-picker-dropdown"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-panel-container"
@@ -3370,7 +3370,7 @@ exports[`renders ./components/date-picker/demo/bordered.md extend context correc
     <div>
       <div
         class="ant-picker-dropdown"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-panel-container"
@@ -3646,7 +3646,7 @@ exports[`renders ./components/date-picker/demo/bordered.md extend context correc
     <div>
       <div
         class="ant-picker-dropdown ant-picker-dropdown-range"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -4829,7 +4829,7 @@ exports[`renders ./components/date-picker/demo/bordered.md extend context correc
     <div>
       <div
         class="ant-picker-dropdown ant-picker-dropdown-range"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-range-wrapper ant-picker-week-range-wrapper"
@@ -6102,7 +6102,7 @@ exports[`renders ./components/date-picker/demo/bordered.md extend context correc
     <div>
       <div
         class="ant-picker-dropdown ant-picker-dropdown-range"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-range-wrapper ant-picker-month-range-wrapper"
@@ -6572,7 +6572,7 @@ exports[`renders ./components/date-picker/demo/bordered.md extend context correc
     <div>
       <div
         class="ant-picker-dropdown ant-picker-dropdown-range"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-range-wrapper ant-picker-year-range-wrapper"
@@ -7008,7 +7008,7 @@ exports[`renders ./components/date-picker/demo/date-render.md extend context cor
     <div>
       <div
         class="ant-picker-dropdown"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-panel-container"
@@ -7649,7 +7649,7 @@ exports[`renders ./components/date-picker/demo/date-render.md extend context cor
     <div>
       <div
         class="ant-picker-dropdown ant-picker-dropdown-range"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -8802,7 +8802,7 @@ exports[`renders ./components/date-picker/demo/disabled.md extend context correc
     <div>
       <div
         class="ant-picker-dropdown"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-panel-container"
@@ -9401,7 +9401,7 @@ exports[`renders ./components/date-picker/demo/disabled.md extend context correc
     <div>
       <div
         class="ant-picker-dropdown"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-panel-container"
@@ -9679,7 +9679,7 @@ exports[`renders ./components/date-picker/demo/disabled.md extend context correc
     <div>
       <div
         class="ant-picker-dropdown ant-picker-dropdown-range"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -10885,7 +10885,7 @@ exports[`renders ./components/date-picker/demo/disabled.md extend context correc
     <div>
       <div
         class="ant-picker-dropdown ant-picker-dropdown-range"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -12033,7 +12033,7 @@ exports[`renders ./components/date-picker/demo/disabled-date.md extend context c
     <div>
       <div
         class="ant-picker-dropdown"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-panel-container"
@@ -13984,7 +13984,7 @@ exports[`renders ./components/date-picker/demo/disabled-date.md extend context c
     <div>
       <div
         class="ant-picker-dropdown"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-panel-container"
@@ -14260,7 +14260,7 @@ exports[`renders ./components/date-picker/demo/disabled-date.md extend context c
     <div>
       <div
         class="ant-picker-dropdown ant-picker-dropdown-range"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -15442,7 +15442,7 @@ exports[`renders ./components/date-picker/demo/disabled-date.md extend context c
     <div>
       <div
         class="ant-picker-dropdown ant-picker-dropdown-range"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -16937,7 +16937,7 @@ exports[`renders ./components/date-picker/demo/extra-footer.md extend context co
     <div>
       <div
         class="ant-picker-dropdown"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-panel-container"
@@ -17540,7 +17540,7 @@ exports[`renders ./components/date-picker/demo/extra-footer.md extend context co
     <div>
       <div
         class="ant-picker-dropdown"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-panel-container"
@@ -19538,7 +19538,7 @@ exports[`renders ./components/date-picker/demo/extra-footer.md extend context co
     <div>
       <div
         class="ant-picker-dropdown ant-picker-dropdown-range"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -20730,7 +20730,7 @@ exports[`renders ./components/date-picker/demo/extra-footer.md extend context co
     <div>
       <div
         class="ant-picker-dropdown ant-picker-dropdown-range"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -22690,7 +22690,7 @@ exports[`renders ./components/date-picker/demo/extra-footer.md extend context co
     <div>
       <div
         class="ant-picker-dropdown"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-panel-container"
@@ -22964,7 +22964,7 @@ exports[`renders ./components/date-picker/demo/format.md extend context correctl
     <div>
       <div
         class="ant-picker-dropdown"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-panel-container"
@@ -23586,7 +23586,7 @@ exports[`renders ./components/date-picker/demo/format.md extend context correctl
     <div>
       <div
         class="ant-picker-dropdown"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-panel-container"
@@ -24208,7 +24208,7 @@ exports[`renders ./components/date-picker/demo/format.md extend context correctl
     <div>
       <div
         class="ant-picker-dropdown"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-panel-container"
@@ -24466,7 +24466,7 @@ exports[`renders ./components/date-picker/demo/format.md extend context correctl
     <div>
       <div
         class="ant-picker-dropdown"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-panel-container"
@@ -25165,7 +25165,7 @@ exports[`renders ./components/date-picker/demo/format.md extend context correctl
     <div>
       <div
         class="ant-picker-dropdown ant-picker-dropdown-range"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -26329,7 +26329,7 @@ exports[`renders ./components/date-picker/demo/format.md extend context correctl
     <div>
       <div
         class="ant-picker-dropdown"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-panel-container"
@@ -26934,7 +26934,7 @@ exports[`renders ./components/date-picker/demo/mode.md extend context correctly 
     <div>
       <div
         class="ant-picker-dropdown"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-panel-container"
@@ -28393,7 +28393,7 @@ exports[`renders ./components/date-picker/demo/mode.md extend context correctly 
     <div>
       <div
         class="ant-picker-dropdown ant-picker-dropdown-range"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -28725,7 +28725,7 @@ Array [
   <div>
     <div
       class="ant-picker-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-picker-panel-container"
@@ -29362,7 +29362,7 @@ Array [
   <div>
     <div
       class="ant-picker-dropdown ant-picker-dropdown-range"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -30551,7 +30551,7 @@ exports[`renders ./components/date-picker/demo/presetted-ranges.md extend contex
     <div>
       <div
         class="ant-picker-dropdown ant-picker-dropdown-range"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -31759,7 +31759,7 @@ exports[`renders ./components/date-picker/demo/presetted-ranges.md extend contex
     <div>
       <div
         class="ant-picker-dropdown ant-picker-dropdown-range"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -33782,7 +33782,7 @@ exports[`renders ./components/date-picker/demo/range-picker.md extend context co
     <div>
       <div
         class="ant-picker-dropdown ant-picker-dropdown-range"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -34965,7 +34965,7 @@ exports[`renders ./components/date-picker/demo/range-picker.md extend context co
     <div>
       <div
         class="ant-picker-dropdown ant-picker-dropdown-range"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -36963,7 +36963,7 @@ exports[`renders ./components/date-picker/demo/range-picker.md extend context co
     <div>
       <div
         class="ant-picker-dropdown ant-picker-dropdown-range"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-range-wrapper ant-picker-week-range-wrapper"
@@ -38236,7 +38236,7 @@ exports[`renders ./components/date-picker/demo/range-picker.md extend context co
     <div>
       <div
         class="ant-picker-dropdown ant-picker-dropdown-range"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-range-wrapper ant-picker-month-range-wrapper"
@@ -38707,7 +38707,7 @@ exports[`renders ./components/date-picker/demo/range-picker.md extend context co
     <div>
       <div
         class="ant-picker-dropdown ant-picker-dropdown-range"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-range-wrapper ant-picker-quarter-range-wrapper"
@@ -39005,7 +39005,7 @@ exports[`renders ./components/date-picker/demo/range-picker.md extend context co
     <div>
       <div
         class="ant-picker-dropdown ant-picker-dropdown-range"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-range-wrapper ant-picker-year-range-wrapper"
@@ -39477,7 +39477,7 @@ Array [
   <div>
     <div
       class="ant-picker-dropdown ant-picker-dropdown-range"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -40691,7 +40691,7 @@ exports[`renders ./components/date-picker/demo/size.md extend context correctly 
     <div>
       <div
         class="ant-picker-dropdown"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-panel-container"
@@ -41289,7 +41289,7 @@ exports[`renders ./components/date-picker/demo/size.md extend context correctly 
     <div>
       <div
         class="ant-picker-dropdown"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-panel-container"
@@ -41565,7 +41565,7 @@ exports[`renders ./components/date-picker/demo/size.md extend context correctly 
     <div>
       <div
         class="ant-picker-dropdown ant-picker-dropdown-range"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -42705,7 +42705,7 @@ exports[`renders ./components/date-picker/demo/size.md extend context correctly 
     <div>
       <div
         class="ant-picker-dropdown"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-panel-container"
@@ -43346,7 +43346,7 @@ exports[`renders ./components/date-picker/demo/start-end.md extend context corre
     <div>
       <div
         class="ant-picker-dropdown"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-panel-container"
@@ -45296,7 +45296,7 @@ exports[`renders ./components/date-picker/demo/start-end.md extend context corre
     <div>
       <div
         class="ant-picker-dropdown"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-panel-container"
@@ -47256,7 +47256,7 @@ exports[`renders ./components/date-picker/demo/status.md extend context correctl
     <div>
       <div
         class="ant-picker-dropdown"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-panel-container"
@@ -47855,7 +47855,7 @@ exports[`renders ./components/date-picker/demo/status.md extend context correctl
     <div>
       <div
         class="ant-picker-dropdown"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-panel-container"
@@ -48496,7 +48496,7 @@ exports[`renders ./components/date-picker/demo/status.md extend context correctl
     <div>
       <div
         class="ant-picker-dropdown ant-picker-dropdown-range"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -49679,7 +49679,7 @@ exports[`renders ./components/date-picker/demo/status.md extend context correctl
     <div>
       <div
         class="ant-picker-dropdown ant-picker-dropdown-range"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -50827,7 +50827,7 @@ exports[`renders ./components/date-picker/demo/suffix.md extend context correctl
     <div>
       <div
         class="ant-picker-dropdown"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-panel-container"
@@ -51425,7 +51425,7 @@ exports[`renders ./components/date-picker/demo/suffix.md extend context correctl
     <div>
       <div
         class="ant-picker-dropdown"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-panel-container"
@@ -51701,7 +51701,7 @@ exports[`renders ./components/date-picker/demo/suffix.md extend context correctl
     <div>
       <div
         class="ant-picker-dropdown ant-picker-dropdown-range"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -52842,7 +52842,7 @@ exports[`renders ./components/date-picker/demo/suffix.md extend context correctl
     <div>
       <div
         class="ant-picker-dropdown"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-panel-container"
@@ -53458,7 +53458,7 @@ exports[`renders ./components/date-picker/demo/suffix.md extend context correctl
     <div>
       <div
         class="ant-picker-dropdown"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-panel-container"
@@ -54038,7 +54038,7 @@ exports[`renders ./components/date-picker/demo/suffix.md extend context correctl
     <div>
       <div
         class="ant-picker-dropdown"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-panel-container"
@@ -54296,7 +54296,7 @@ exports[`renders ./components/date-picker/demo/suffix.md extend context correctl
     <div>
       <div
         class="ant-picker-dropdown ant-picker-dropdown-range"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -55418,7 +55418,7 @@ exports[`renders ./components/date-picker/demo/suffix.md extend context correctl
     <div>
       <div
         class="ant-picker-dropdown"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-panel-container"
@@ -56052,7 +56052,7 @@ exports[`renders ./components/date-picker/demo/switchable.md extend context corr
       <div>
         <div
           class="ant-select-dropdown"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <div>
             <div
@@ -56275,7 +56275,7 @@ exports[`renders ./components/date-picker/demo/switchable.md extend context corr
     <div>
       <div
         class="ant-picker-dropdown"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-panel-container"
@@ -57691,7 +57691,7 @@ exports[`renders ./components/date-picker/demo/time.md extend context correctly 
     <div>
       <div
         class="ant-picker-dropdown"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-panel-container"
@@ -59683,7 +59683,7 @@ exports[`renders ./components/date-picker/demo/time.md extend context correctly 
     <div>
       <div
         class="ant-picker-dropdown ant-picker-dropdown-range"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-picker-range-wrapper ant-picker-date-range-wrapper"

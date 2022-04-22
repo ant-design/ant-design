@@ -20,7 +20,7 @@ function showTotal(total) {
   return `Total ${total} items`;
 }
 
-ReactDOM.render(
+export default () => (
   <>
     <Pagination size="small" total={50} />
     <Pagination size="small" total={50} showSizeChanger showQuickJumper />
@@ -33,8 +33,7 @@ ReactDOM.render(
       showSizeChanger
       showQuickJumper
     />
-  </>,
-  mountNode,
+  </>
 );
 ```
 

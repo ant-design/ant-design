@@ -75,7 +75,7 @@ class AsyncMention extends React.Component {
   }
 }
 
-ReactDOM.render(<AsyncMention />, mountNode);
+export default () => <AsyncMention />;
 ```
 
 <style>

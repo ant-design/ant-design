@@ -1,5 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import { render } from '../../../tests/utils';
 import Transfer from '../index';
 
 describe('Transfer.Customize', () => {
@@ -15,9 +16,9 @@ describe('Transfer.Customize', () => {
 
   it('props#body does not work anymore', () => {
     const body = jest.fn();
-    mount(<Transfer body={body} />);
+    render(<Transfer body={body} />);
 
-    expect(errorSpy.mock.calls.length).toBe(0);
+    expect(errorSpy).not.toHaveBeenCalled();
     expect(body).not.toHaveBeenCalled();
   });
 

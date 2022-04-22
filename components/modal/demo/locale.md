@@ -65,11 +65,10 @@ function confirm() {
   });
 }
 
-ReactDOM.render(
+export default () => (
   <Space>
     <LocalizedModal />
     <Button onClick={confirm}>Confirm</Button>
-  </Space>,
-  mountNode,
+  </Space>
 );
 ```

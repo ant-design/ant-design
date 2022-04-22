@@ -24,7 +24,7 @@ function onChange(value) {
   console.log('changed', value);
 }
 
-ReactDOM.render(
+export default () => (
   <Space>
     <InputNumber
       defaultValue={1000}
@@ -40,7 +40,6 @@ ReactDOM.render(
       parser={value => value.replace('%', '')}
       onChange={onChange}
     />
-  </Space>,
-  mountNode,
+  </Space>
 );
 ```

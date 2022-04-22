@@ -9,6 +9,7 @@ export interface ButtonGroupProps {
   style?: React.CSSProperties;
   className?: string;
   prefixCls?: string;
+  children?: React.ReactNode;
 }
 
 const ButtonGroup: React.FC<ButtonGroupProps> = props => (

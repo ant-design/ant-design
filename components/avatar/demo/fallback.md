@@ -17,7 +17,7 @@ debug: true
 ```tsx
 import { Avatar } from 'antd';
 
-ReactDOM.render(
+export default () => (
   <>
     <Avatar shape="circle" src="http://abc.com/not-exist.jpg">
       A
@@ -25,7 +25,6 @@ ReactDOM.render(
     <Avatar shape="circle" src="http://abc.com/not-exist.jpg">
       ABC
     </Avatar>
-  </>,
-  mountNode,
+  </>
 );
 ```

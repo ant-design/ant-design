@@ -16,5 +16,5 @@ No border.
 ```jsx
 import { Input } from 'antd';
 
-ReactDOM.render(<Input placeholder="Borderless" bordered={false} />, mountNode);
+export default () => <Input placeholder="Borderless" bordered={false} />;
 ```

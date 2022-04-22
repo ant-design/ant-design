@@ -68,5 +68,5 @@ const VirtualizedExample = () => {
   );
 };
 
-ReactDOM.render(<VirtualizedExample />, mountNode);
+export default () => <VirtualizedExample />;
 ```

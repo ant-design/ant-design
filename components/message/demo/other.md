@@ -28,12 +28,11 @@ const warning = () => {
   message.warning('This is a warning message');
 };
 
-ReactDOM.render(
+export default () => (
   <Space>
     <Button onClick={success}>Success</Button>
     <Button onClick={error}>Error</Button>
     <Button onClick={warning}>Warning</Button>
-  </Space>,
-  mountNode,
+  </Space>
 );
 ```

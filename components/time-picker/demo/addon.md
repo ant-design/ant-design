@@ -40,5 +40,5 @@ class TimePickerAddonDemo extends React.Component {
   }
 }
 
-ReactDOM.render(<TimePickerAddonDemo />, mountNode);
+export default () => <TimePickerAddonDemo />;
 ```

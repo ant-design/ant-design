@@ -47,7 +47,7 @@ describe('TimePicker', () => {
   it('clearIcon should render correctly', () => {
     const clearIcon = <div className="test-clear-icon">test</div>;
     const wrapper = mount(<TimePicker clearIcon={clearIcon} />);
-    expect(wrapper.find('Picker').prop('clearIcon')).toEqual(
+    expect(wrapper.find('Picker').last().prop('clearIcon')).toEqual(
       <div className="test-clear-icon">test</div>,
     );
   });
@@ -70,7 +70,7 @@ describe('TimePicker', () => {
         popupClassName={popupClassName}
       />,
     );
-    expect(wrapper.find('Picker').prop('dropdownClassName')).toEqual(popupClassName);
+    expect(wrapper.find('Picker').last().prop('dropdownClassName')).toEqual(popupClassName);
   });
 
   it('should pass popupClassName prop to RangePicker as dropdownClassName prop', () => {

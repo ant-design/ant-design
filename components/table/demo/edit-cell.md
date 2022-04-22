@@ -250,7 +250,7 @@ class EditableTable extends React.Component<EditableTableProps, EditableTableSta
   }
 }
 
-ReactDOM.render(<EditableTable />, mountNode);
+export default () => <EditableTable />;
 ```
 
 ```css

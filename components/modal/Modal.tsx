@@ -81,6 +81,7 @@ export interface ModalProps {
   closeIcon?: React.ReactNode;
   modalRender?: (node: React.ReactNode) => React.ReactNode;
   focusTriggerAfterClose?: boolean;
+  children?: React.ReactNode;
 }
 
 type getContainerFunc = () => HTMLElement;

@@ -20,7 +20,7 @@ function onChange(checkedValues) {
   console.log('checked = ', checkedValues);
 }
 
-ReactDOM.render(
+export default () => (
   <Checkbox.Group style={{ width: '100%' }} onChange={onChange}>
     <Row>
       <Col span={8}>
@@ -39,7 +39,6 @@ ReactDOM.render(
         <Checkbox value="E">E</Checkbox>
       </Col>
     </Row>
-  </Checkbox.Group>,
-  mountNode,
+  </Checkbox.Group>
 );
 ```

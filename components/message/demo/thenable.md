@@ -23,5 +23,5 @@ const success = () => {
     .then(() => message.info('Loading finished is finished', 2.5));
 };
 
-ReactDOM.render(<Button onClick={success}>Display sequential messages</Button>, mountNode);
+export default () => <Button onClick={success}>Display sequential messages</Button>;
 ```
