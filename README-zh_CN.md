@@ -166,7 +166,7 @@ $ npm start
 
 通过 GitHub Discussions 提问时，建议使用 `Q&A` 标签。
 
-通过 Stack Overflow 或者 Segment Fault 提问时，建议加上 `antd` 标签。
+通过 StackOverflow 或者 SegmentFault 提问时，建议加上 `antd` 标签。
 
 1. [GitHub Discussions](https://github.com/ant-design/ant-design/discussions)
 2. [Stack Overflow](http://stackoverflow.com/questions/tagged/antd)（英文）
