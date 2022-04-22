@@ -2198,7 +2198,7 @@ describe('Table.filter', () => {
     });
   });
 
-  it('filterDropDown should support filterResetToDefaultFilteredValue', () => {
+  it('filterDropdown should support filterResetToDefaultFilteredValue', () => {
     jest.useFakeTimers();
     jest.spyOn(console, 'error').mockImplementation(() => undefined);
 

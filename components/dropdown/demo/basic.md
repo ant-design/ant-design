@@ -14,7 +14,7 @@ title:
 The most basic dropdown menu.
 
 ```jsx
-import { Menu, Dropdown } from 'antd';
+import { Menu, Dropdown, Space } from 'antd';
 import { DownOutlined, SmileOutlined } from '@ant-design/icons';
 
 const menu = (
@@ -54,8 +54,11 @@ const menu = (
 
 export default () => (
   <Dropdown overlay={menu}>
-    <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-      Hover me <DownOutlined />
+    <a onClick={e => e.preventDefault()}>
+      <Space>
+        Hover me
+        <DownOutlined />
+      </Space>
     </a>
   </Dropdown>
 );
