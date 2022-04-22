@@ -99,7 +99,7 @@ describe('Segmented', () => {
         .map(el => (el.getDOMNode() as HTMLInputElement).checked),
     ).toEqual([true, false, false]);
     expect(
-      wrapper.find(`.${prefixCls}-item`).at(0).hasClass(`${prefixCls}-item-selected`),
+      wrapper.find(`label.${prefixCls}-item`).at(0).hasClass(`${prefixCls}-item-selected`),
     ).toBeTruthy();
 
     wrapper.find(`.${prefixCls}-item-input`).at(2).simulate('change');
@@ -164,7 +164,7 @@ describe('Segmented', () => {
     );
     expect(wrapper.render()).toMatchSnapshot();
     expect(
-      wrapper.find(`.${prefixCls}-item`).at(1).hasClass(`${prefixCls}-item-disabled`),
+      wrapper.find(`label.${prefixCls}-item`).at(1).hasClass(`${prefixCls}-item-disabled`),
     ).toBeTruthy();
     expect(wrapper.find(`.${prefixCls}-item-input`).at(1).prop('disabled')).toBeTruthy();
 
@@ -304,7 +304,7 @@ describe('Segmented', () => {
         .map(el => (el.getDOMNode() as HTMLInputElement).checked),
     ).toEqual([true, false, false]);
     expect(
-      wrapper.find(`.${prefixCls}-item`).at(0).hasClass(`${prefixCls}-item-selected`),
+      wrapper.find(`label.${prefixCls}-item`).at(0).hasClass(`${prefixCls}-item-selected`),
     ).toBeTruthy();
 
     wrapper.find(`.${prefixCls}-item-input`).at(2).simulate('change');
