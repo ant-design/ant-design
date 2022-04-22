@@ -15,12 +15,20 @@ import {
   mergeToken,
   roundedArrow,
 } from '../../_util/theme';
+import {
+  initSlideMotion,
+  slideUpIn,
+  slideUpOut,
+  slideDownIn,
+  slideDownOut,
+} from '../../style/motion';
 
 export interface ComponentToken {
   zIndexDropdown: number;
 }
 
 interface DropdownToken extends FullToken<'Dropdown'> {
+  rootPrefixCls: string;
   dropdownArrowDistance: number;
   dropdownArrowOffset: number;
   dropdownPaddingVertical: number;
@@ -30,6 +38,7 @@ interface DropdownToken extends FullToken<'Dropdown'> {
 // =============================== Base ===============================
 const genBaseStyle: GenerateStyle<DropdownToken> = token => {
   const {
+    rootPrefixCls,
     componentCls,
     zIndexDropdown,
     dropdownArrowDistance,
@@ -49,333 +58,391 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
     controlPaddingHorizontal,
   } = token;
 
-  return {
-    [componentCls]: {
-      ...resetComponent(token),
+  return [
+    {
+      [componentCls]: {
+        ...resetComponent(token),
 
-      position: 'absolute',
-      top: -9999,
-      left: {
-        _skip_check_: true,
-        value: -9999,
-      },
-      zIndex: zIndexDropdown,
-      display: 'block',
-
-      // A placeholder out of dropdown visible range to avoid close when user moving
-      '&::before': {
         position: 'absolute',
-        insetBlock: `${-dropdownArrowDistance + sizePopupArrow}`,
-        // insetInlineStart: -7, // FIXME: Seems not work for hidden element
-        zIndex: -9999,
-        opacity: 0.0001,
-        content: '""',
-      },
+        top: -9999,
+        left: {
+          _skip_check_: true,
+          value: -9999,
+        },
+        zIndex: zIndexDropdown,
+        display: 'block',
 
-      [`${componentCls}-wrap`]: {
-        position: 'relative',
-
-        [`${antCls}-btn > ${iconCls}-down`]: {
-          fontSize: fontSizeIcon,
+        // A placeholder out of dropdown visible range to avoid close when user moving
+        '&::before': {
+          position: 'absolute',
+          insetBlock: `${-dropdownArrowDistance + sizePopupArrow}`,
+          // insetInlineStart: -7, // FIXME: Seems not work for hidden element
+          zIndex: -9999,
+          opacity: 0.0001,
+          content: '""',
         },
 
-        [`${iconCls}-down::before`]: {
-          transition: `transform ${motionDurationMid}`,
-        },
-      },
+        [`${componentCls}-wrap`]: {
+          position: 'relative',
 
-      [`${componentCls}-wrap-open`]: {
-        [`${iconCls}-down::before`]: {
-          transform: `rotate(180deg)`,
-        },
-      },
+          [`${antCls}-btn > ${iconCls}-down`]: {
+            fontSize: fontSizeIcon,
+          },
 
-      [`
+          [`${iconCls}-down::before`]: {
+            transition: `transform ${motionDurationMid}`,
+          },
+        },
+
+        [`${componentCls}-wrap-open`]: {
+          [`${iconCls}-down::before`]: {
+            transform: `rotate(180deg)`,
+          },
+        },
+
+        [`
         &-hidden,
         &-menu-hidden,
         &-menu-submenu-hidden
       `]: {
-        display: 'none',
-      },
+          display: 'none',
+        },
 
-      // =============================================================
-      // ==                          Arrow                          ==
-      // =============================================================
-      // Offset the popover to account for the dropdown arrow
-      [`
+        // =============================================================
+        // ==                          Arrow                          ==
+        // =============================================================
+        // Offset the popover to account for the dropdown arrow
+        [`
         &-show-arrow&-placement-topLeft,
         &-show-arrow&-placement-top,
         &-show-arrow&-placement-topRight
       `]: {
-        paddingBottom: dropdownArrowDistance,
-      },
+          paddingBottom: dropdownArrowDistance,
+        },
 
-      [`
+        [`
         &-show-arrow&-placement-bottomLeft,
         &-show-arrow&-placement-bottom,
         &-show-arrow&-placement-bottomRight
       `]: {
-        paddingTop: dropdownArrowDistance,
-      },
+          paddingTop: dropdownArrowDistance,
+        },
 
-      // Note: .popover-arrow is outer, .popover-arrow:after is inner
-      [`${componentCls}-arrow`]: {
-        position: 'absolute',
-        zIndex: 1, // lift it up so the menu wouldn't cask shadow on it
-        display: 'block',
-        width: sizePopupArrow,
-        height: sizePopupArrow,
-        // Use linear-gradient to prevent arrow from covering text
-        background: `linear-gradient(135deg, transparent 40%, ${colorBgComponent} 40%)`,
+        // Note: .popover-arrow is outer, .popover-arrow:after is inner
+        [`${componentCls}-arrow`]: {
+          position: 'absolute',
+          zIndex: 1, // lift it up so the menu wouldn't cask shadow on it
+          display: 'block',
+          width: sizePopupArrow,
+          height: sizePopupArrow,
+          // Use linear-gradient to prevent arrow from covering text
+          background: `linear-gradient(135deg, transparent 40%, ${colorBgComponent} 40%)`,
 
-        ...roundedArrow(sizePopupArrow, 5, colorBgComponent),
-      },
+          ...roundedArrow(sizePopupArrow, 5, colorBgComponent),
+        },
 
-      [`
+        [`
         &-placement-top > ${componentCls}-arrow,
         &-placement-topLeft > ${componentCls}-arrow,
         &-placement-topRight > ${componentCls}-arrow
       `]: {
-        bottom: sizePopupArrow * Math.sqrt(1 / 2) + 2,
-        boxShadow: `3px 3px 7px -3px rgba(0, 0, 0, 0.1)`, // FIXME: hardcode
-        transform: 'rotate(45deg)',
-      },
-
-      [`&-placement-top > ${componentCls}-arrow`]: {
-        left: {
-          _skip_check_: true,
-          value: '50%',
+          bottom: sizePopupArrow * Math.sqrt(1 / 2) + 2,
+          boxShadow: `3px 3px 7px -3px rgba(0, 0, 0, 0.1)`, // FIXME: hardcode
+          transform: 'rotate(45deg)',
         },
-        transform: 'translateX(-50%) rotate(45deg)',
-      },
 
-      [`&-placement-topLeft > ${componentCls}-arrow`]: {
-        left: {
-          _skip_check_: true,
-          value: dropdownArrowOffset,
+        [`&-placement-top > ${componentCls}-arrow`]: {
+          left: {
+            _skip_check_: true,
+            value: '50%',
+          },
+          transform: 'translateX(-50%) rotate(45deg)',
         },
-      },
 
-      [`&-placement-topRight > ${componentCls}-arrow`]: {
-        right: {
-          _skip_check_: true,
-          value: dropdownArrowOffset,
+        [`&-placement-topLeft > ${componentCls}-arrow`]: {
+          left: {
+            _skip_check_: true,
+            value: dropdownArrowOffset,
+          },
         },
-      },
 
-      [`
+        [`&-placement-topRight > ${componentCls}-arrow`]: {
+          right: {
+            _skip_check_: true,
+            value: dropdownArrowOffset,
+          },
+        },
+
+        [`
           &-placement-bottom > ${componentCls}-arrow,
           &-placement-bottomLeft > ${componentCls}-arrow,
           &-placement-bottomRight > ${componentCls}-arrow
         `]: {
-        top: (sizePopupArrow + 2) * Math.sqrt(1 / 2),
-        boxShadow: `2px 2px 5px -2px rgba(0, 0, 0, 0.1)`, // FIXME: hardcode
-        transform: `rotate(-135deg) translateY(-0.5px)`, // FIXME: hardcode
-      },
-
-      [`&-placement-bottom > ${componentCls}-arrow`]: {
-        left: {
-          _skip_check_: true,
-          value: '50%',
-        },
-        transform: `translateX(-50%) rotate(-135deg) translateY(-0.5px)`,
-      },
-
-      [`&-placement-bottomLeft > ${componentCls}-arrow`]: {
-        left: {
-          _skip_check_: true,
-          value: dropdownArrowOffset,
-        },
-      },
-
-      [`&-placement-bottomRight > ${componentCls}-arrow`]: {
-        right: {
-          _skip_check_: true,
-          value: dropdownArrowOffset,
-        },
-      },
-
-      // =============================================================
-      // ==                          Menu                           ==
-      // =============================================================
-      [`${componentCls}-menu`]: {
-        position: 'relative',
-        margin: 0,
-        padding: `${dropdownEdgeChildVerticalPadding}px 0`,
-        //     text-align: left;
-        listStyleType: 'none',
-        backgroundColor: colorBgComponent,
-        backgroundClip: 'padding-box',
-        borderRadius: token.controlRadius,
-        outline: 'none',
-        boxShadow: token.boxShadow,
-
-        '&-item-group-title': {
-          padding: `${dropdownPaddingVertical}px ${controlPaddingHorizontal}px`,
-          color: token.colorTextSecondary,
-          transition: `all ${motionDurationSlow}`,
+          top: (sizePopupArrow + 2) * Math.sqrt(1 / 2),
+          boxShadow: `2px 2px 5px -2px rgba(0, 0, 0, 0.1)`, // FIXME: hardcode
+          transform: `rotate(-135deg) translateY(-0.5px)`, // FIXME: hardcode
         },
 
-        [`&-submenu-popup`]: {
-          position: 'absolute',
-          zIndex: zIndexDropdown,
-          background: 'transparent',
-          boxShadow: 'none',
-          transformOrigin: '0 0',
+        [`&-placement-bottom > ${componentCls}-arrow`]: {
+          left: {
+            _skip_check_: true,
+            value: '50%',
+          },
+          transform: `translateX(-50%) rotate(-135deg) translateY(-0.5px)`,
+        },
 
-          'ul,li': {
+        [`&-placement-bottomLeft > ${componentCls}-arrow`]: {
+          left: {
+            _skip_check_: true,
+            value: dropdownArrowOffset,
+          },
+        },
+
+        [`&-placement-bottomRight > ${componentCls}-arrow`]: {
+          right: {
+            _skip_check_: true,
+            value: dropdownArrowOffset,
+          },
+        },
+
+        // =============================================================
+        // ==                          Menu                           ==
+        // =============================================================
+        [`${componentCls}-menu`]: {
+          position: 'relative',
+          margin: 0,
+          padding: `${dropdownEdgeChildVerticalPadding}px 0`,
+          //     text-align: left;
+          listStyleType: 'none',
+          backgroundColor: colorBgComponent,
+          backgroundClip: 'padding-box',
+          borderRadius: token.controlRadius,
+          outline: 'none',
+          boxShadow: token.boxShadow,
+
+          '&-item-group-title': {
+            padding: `${dropdownPaddingVertical}px ${controlPaddingHorizontal}px`,
+            color: token.colorTextSecondary,
+            transition: `all ${motionDurationSlow}`,
+          },
+
+          [`&-submenu-popup`]: {
+            position: 'absolute',
+            zIndex: zIndexDropdown,
+            background: 'transparent',
+            boxShadow: 'none',
+            transformOrigin: '0 0',
+
+            'ul,li': {
+              listStyle: 'none',
+            },
+
+            ul: {
+              marginRight: '0.3em',
+              marginLeft: '0.3em',
+            },
+          },
+
+          // ======================= Item Content =======================
+          '&-item': {
+            position: 'relative',
+            display: 'flex',
+            alignItems: 'center',
+          },
+
+          '&-item-icon': {
+            minWidth: fontSizeBase,
+            marginRight: token.marginXS,
+            fontSize: token.fontSizeSM,
+          },
+
+          '&-title-content': {
+            flex: 'auto',
+
+            '> a': {
+              color: 'inherit',
+              transition: `all ${motionDurationSlow}`,
+
+              '&:hover': {
+                color: 'inherit',
+              },
+
+              '&::after': {
+                position: 'absolute',
+                inset: 0,
+                content: '""',
+              },
+            },
+          },
+
+          // =========================== Item ===========================
+          '&-item, &-submenu-title': {
+            clear: 'both',
+            margin: 0,
+            padding: `${dropdownPaddingVertical}px ${controlPaddingHorizontal}px`,
+            color: token.colorText,
+            fontWeight: 'normal',
+            fontSize: fontSizeBase,
+            lineHeight: token.lineHeight,
+            cursor: 'pointer',
+            transition: `all ${motionDurationSlow}`,
+
+            '&:first-child': !dropdownEdgeChildVerticalPadding
+              ? {
+                  borderRadius: `${radiusBase}px ${radiusBase}px 0 0`,
+                }
+              : [],
+
+            '&:last-child': !dropdownEdgeChildVerticalPadding
+              ? {
+                  borderRadius: `0 0 ${radiusBase}px ${radiusBase}px`,
+                }
+              : [],
+
+            '&-selected': {
+              color: token.colorPrimary,
+              backgroundColor: token.controlItemBgActive,
+            },
+
+            [`&:hover, &-active`]: {
+              backgroundColor: token.controlItemBgHover,
+            },
+
+            '&-disabled': {
+              color: colorTextDisabled,
+              cursor: 'not-allowed',
+
+              '&:hover': {
+                color: colorTextDisabled,
+                backgroundColor: colorBgComponent,
+                cursor: 'not-allowed',
+              },
+
+              a: {
+                pointerEvents: 'none',
+              },
+            },
+
+            '&-divider': {
+              height: 1, // By design
+              margin: `${token.marginXXS}px 0`,
+              overflow: 'hidden',
+              lineHeight: 0,
+              backgroundColor: token.colorSplit,
+            },
+
+            [`${componentCls}-menu-submenu-expand-icon`]: {
+              position: 'absolute',
+              insetInlineEnd: token.paddingXS,
+
+              [`${componentCls}-menu-submenu-arrow-icon`]: {
+                marginInlineEnd: '0 !important',
+                color: token.colorTextSecondary,
+                fontSize: fontSizeIcon,
+                fontStyle: 'normal',
+              },
+            },
+          },
+
+          '&-item-group-list': {
+            margin: `0 ${token.marginXS}px`,
+            padding: 0,
             listStyle: 'none',
           },
 
-          ul: {
-            marginRight: '0.3em',
-            marginLeft: '0.3em',
-          },
-        },
-
-        // ======================= Item Content =======================
-        '&-item': {
-          position: 'relative',
-          display: 'flex',
-          alignItems: 'center',
-        },
-
-        '&-item-icon': {
-          minWidth: fontSizeBase,
-          marginRight: token.marginXS,
-          fontSize: token.fontSizeSM,
-        },
-
-        '&-title-content': {
-          flex: 'auto',
-
-          '> a': {
-            color: 'inherit',
-            transition: `all ${motionDurationSlow}`,
-
-            '&:hover': {
-              color: 'inherit',
-            },
-
-            '&::after': {
-              position: 'absolute',
-              inset: 0,
-              content: '""',
-            },
-          },
-        },
-
-        // =========================== Item ===========================
-        '&-item, &-submenu-title': {
-          clear: 'both',
-          margin: 0,
-          padding: `${dropdownPaddingVertical}px ${controlPaddingHorizontal}px`,
-          color: token.colorText,
-          fontWeight: 'normal',
-          fontSize: fontSizeBase,
-          lineHeight: token.lineHeight,
-          cursor: 'pointer',
-          transition: `all ${motionDurationSlow}`,
-
-          '&:first-child': !dropdownEdgeChildVerticalPadding
-            ? {
-                borderRadius: `${radiusBase}px ${radiusBase}px 0 0`,
-              }
-            : [],
-
-          '&:last-child': !dropdownEdgeChildVerticalPadding
-            ? {
-                borderRadius: `0 0 ${radiusBase}px ${radiusBase}px`,
-              }
-            : [],
-
-          '&-selected': {
-            color: token.colorPrimary,
-            backgroundColor: token.controlItemBgActive,
+          '&-submenu-title': {
+            paddingRight: controlPaddingHorizontal + token.fontSizeSM,
           },
 
-          [`&:hover, &-active`]: {
-            backgroundColor: token.controlItemBgHover,
+          '&-submenu-vertical': {
+            position: 'relative',
           },
 
-          '&-disabled': {
-            color: colorTextDisabled,
-            cursor: 'not-allowed',
-
-            '&:hover': {
+          [`&-submenu&-submenu-disabled ${componentCls}-menu-submenu-title`]: {
+            [`&, ${componentCls}-menu-submenu-arrow-icon`]: {
               color: colorTextDisabled,
               backgroundColor: colorBgComponent,
               cursor: 'not-allowed',
             },
-
-            a: {
-              pointerEvents: 'none',
-            },
           },
 
-          '&-divider': {
-            height: 1, // By design
-            margin: `${token.marginXXS}px 0`,
-            overflow: 'hidden',
-            lineHeight: 0,
-            backgroundColor: token.colorSplit,
-          },
-
-          [`${componentCls}-menu-submenu-expand-icon`]: {
-            position: 'absolute',
-            insetInlineEnd: token.paddingXS,
-
-            [`${componentCls}-menu-submenu-arrow-icon`]: {
-              marginInlineEnd: '0 !important',
-              color: token.colorTextSecondary,
-              fontSize: fontSizeIcon,
-              fontStyle: 'normal',
-            },
+          // https://github.com/ant-design/ant-design/issues/19264
+          [`&-submenu-selected ${componentCls}-menu-submenu-title`]: {
+            color: token.colorPrimary,
           },
         },
 
-        '&-item-group-list': {
-          margin: `0 ${token.marginXS}px`,
-          padding: 0,
-          listStyle: 'none',
+        // =============================================================
+        // ==                         Motion                          ==
+        // =============================================================
+        // When position is not enough for dropdown, the placement will revert.
+        // We will handle this with revert motion name.
+        [`&${antCls}-slide-down-enter${antCls}-slide-down-enter-active&-placement-bottomLeft,
+          &${antCls}-slide-down-appear${antCls}-slide-down-appear-active&-placement-bottomLeft
+          &${antCls}-slide-down-enter${antCls}-slide-down-enter-active&-placement-bottom,
+          &${antCls}-slide-down-appear${antCls}-slide-down-appear-active&-placement-bottom,
+          &${antCls}-slide-down-enter${antCls}-slide-down-enter-active&-placement-bottomRight,
+          &${antCls}-slide-down-appear${antCls}-slide-down-appear-active&-placement-bottomRight`]: {
+          animationName: slideUpIn,
         },
 
-        '&-submenu-title': {
-          paddingRight: controlPaddingHorizontal + token.fontSizeSM,
+        [`&${antCls}-slide-up-enter${antCls}-slide-up-enter-active&-placement-topLeft,
+          &${antCls}-slide-up-appear${antCls}-slide-up-appear-active&-placement-topLeft,
+          &${antCls}-slide-up-enter${antCls}-slide-up-enter-active&-placement-top,
+          &${antCls}-slide-up-appear${antCls}-slide-up-appear-active&-placement-top,
+          &${antCls}-slide-up-enter${antCls}-slide-up-enter-active&-placement-topRight,
+          &${antCls}-slide-up-appear${antCls}-slide-up-appear-active&-placement-topRight`]: {
+          animationName: slideDownIn,
         },
 
-        '&-submenu-vertical': {
-          position: 'relative',
+        [`&${antCls}-slide-down-leave${antCls}-slide-down-leave-active&-placement-bottomLeft,
+          &${antCls}-slide-down-leave${antCls}-slide-down-leave-active&-placement-bottom,
+          &${antCls}-slide-down-leave${antCls}-slide-down-leave-active&-placement-bottomRight`]: {
+          animationName: slideUpOut,
         },
 
-        [`&-submenu&-submenu-disabled ${componentCls}-menu-submenu-title`]: {
-          [`&, ${componentCls}-menu-submenu-arrow-icon`]: {
-            color: colorTextDisabled,
-            backgroundColor: colorBgComponent,
-            cursor: 'not-allowed',
-          },
-        },
-
-        // https://github.com/ant-design/ant-design/issues/19264
-        [`&-submenu-selected ${componentCls}-menu-submenu-title`]: {
-          color: token.colorPrimary,
+        [`&${antCls}-slide-up-leave${antCls}-slide-up-leave-active&-placement-topLeft,
+          &${antCls}-slide-up-leave${antCls}-slide-up-leave-active&-placement-top,
+          &${antCls}-slide-up-leave${antCls}-slide-up-leave-active&-placement-topRight`]: {
+          animationName: slideDownOut,
         },
       },
     },
-  };
+
+    // Follow code may reuse in other components
+    [
+      initSlideMotion(rootPrefixCls, 'slide-up', slideUpIn, slideUpOut, token),
+      initSlideMotion(rootPrefixCls, 'slide-down', slideDownIn, slideDownOut, token),
+      slideUpIn,
+      slideUpOut,
+      slideDownIn,
+      slideDownOut,
+    ],
+
+    // Inject element, we should not support this hack in v5
+    // .@{dropdown-prefix-cls}-trigger,
+    // .@{dropdown-prefix-cls}-link,
+    // .@{dropdown-prefix-cls}-button {
+    //   > .@{iconfont-css-prefix}.@{iconfont-css-prefix}-down {
+    //     font-size: 10px;
+    //     vertical-align: baseline;
+    //   }
+    // }
+  ];
 };
 // .css-dev-only-do-not-override-btc0m7.ant-slide-up-enter.ant-slide-up-enter-active
 
 // ============================== Export ==============================
 export default genComponentStyleHook(
   'Dropdown',
-  token => {
+  (token, { rootPrefixCls }) => {
     const { marginXXS, sizePopupArrow, controlHeight, fontSizeBase, lineHeight, paddingXXS } =
       token;
 
     const dropdownPaddingVertical = (controlHeight - fontSizeBase * lineHeight) / 2;
 
     const dropdownToken = mergeToken<DropdownToken>(token, {
+      rootPrefixCls,
       dropdownArrowDistance: sizePopupArrow + marginXXS,
       dropdownArrowOffset: (sizePopupArrow / Math.sqrt(2)) * 2,
       dropdownPaddingVertical,
