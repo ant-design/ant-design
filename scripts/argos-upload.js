@@ -45,7 +45,7 @@ async function run() {
       '--token',
       process.env.ARGOS_TOKEN,
       '--batchCount',
-      chunks.length,
+      BATCH_SIZE,
       '--branch',
       process.env.GITHUB_REF_NAME,
       '--commit',
