@@ -44,6 +44,9 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
     fontSizeBase,
     dropdownEdgeChildVerticalPadding,
     radiusBase,
+    colorTextDisabled,
+    fontSizeIcon,
+    controlPaddingHorizontal,
   } = token;
 
   return {
@@ -73,7 +76,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
         position: 'relative',
 
         [`${antCls}-btn > ${iconCls}-down`]: {
-          fontSize: 10,
+          fontSize: fontSizeIcon,
         },
 
         [`${iconCls}-down::before`]: {
@@ -92,7 +95,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
         &-menu-hidden,
         &-menu-submenu-hidden
       `]: {
-        // display: 'none', // TODO: Remove this
+        display: 'none',
       },
 
       // =============================================================
@@ -208,7 +211,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
         boxShadow: token.boxShadow,
 
         '&-item-group-title': {
-          padding: `${dropdownPaddingVertical}px ${token.controlPaddingHorizontal}px`,
+          padding: `${dropdownPaddingVertical}px ${controlPaddingHorizontal}px`,
           color: token.colorTextSecondary,
           transition: `all ${motionDurationSlow}`,
         },
@@ -266,7 +269,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
         '&-item, &-submenu-title': {
           clear: 'both',
           margin: 0,
-          padding: `${dropdownPaddingVertical}px ${token.controlPaddingHorizontal}px`,
+          padding: `${dropdownPaddingVertical}px ${controlPaddingHorizontal}px`,
           color: token.colorText,
           fontWeight: 'normal',
           fontSize: fontSizeBase,
@@ -276,90 +279,92 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
 
           '&:first-child': !dropdownEdgeChildVerticalPadding
             ? {
-                borderRadius: `${radiusBase} ${radiusBase} 0 0`,
+                borderRadius: `${radiusBase}px ${radiusBase}px 0 0`,
               }
             : [],
 
           '&:last-child': !dropdownEdgeChildVerticalPadding
             ? {
-                borderRadius: `0 0 ${radiusBase} ${radiusBase}`,
+                borderRadius: `0 0 ${radiusBase}px ${radiusBase}px`,
               }
             : [],
 
           '&-selected': {
             color: token.colorPrimary,
-            backgroundColor: token.colorPrimaryActive,
+            backgroundColor: token.controlItemBgActive,
           },
 
-          //       &:hover,
-          //       &&-active {
-          //         background-color: @item-hover-bg;
-          //       }
-          //       &-disabled {
-          //         color: @disabled-color;
-          //         cursor: not-allowed;
-          //         &:hover {
-          //           color: @disabled-color;
-          //           background-color: @dropdown-menu-submenu-disabled-bg;
-          //           cursor: not-allowed;
-          //         }
-          //         a {
-          //           pointer-events: none;
-          //         }
-          //       }
-          //       &-divider {
-          //         height: 1px;
-          //         margin: 4px 0;
-          //         overflow: hidden;
-          //         line-height: 0;
-          //         background-color: @border-color-split;
-          //       }
-          //       .@{dropdown-prefix-cls}-menu-submenu-expand-icon {
-          //         position: absolute;
-          //         right: @padding-xs;
-          //         .@{dropdown-prefix-cls}-menu-submenu-arrow-icon {
-          //           margin-right: 0 !important;
-          //           color: @text-color-secondary;
-          //           font-size: 10px;
-          //           font-style: normal;
-          //         }
-          //       }
+          [`&:hover, &-active`]: {
+            backgroundColor: token.controlItemBgHover,
+          },
+
+          '&-disabled': {
+            color: colorTextDisabled,
+            cursor: 'not-allowed',
+
+            '&:hover': {
+              color: colorTextDisabled,
+              backgroundColor: colorBgComponent,
+              cursor: 'not-allowed',
+            },
+
+            a: {
+              pointerEvents: 'none',
+            },
+          },
+
+          '&-divider': {
+            height: 1, // By design
+            margin: `${token.marginXXS}px 0`,
+            overflow: 'hidden',
+            lineHeight: 0,
+            backgroundColor: token.colorSplit,
+          },
+
+          [`${componentCls}-menu-submenu-expand-icon`]: {
+            position: 'absolute',
+            insetInlineEnd: token.paddingXS,
+
+            [`${componentCls}-menu-submenu-arrow-icon`]: {
+              marginInlineEnd: '0 !important',
+              color: token.colorTextSecondary,
+              fontSize: fontSizeIcon,
+              fontStyle: 'normal',
+            },
+          },
         },
-        //     &-item-group-list {
-        //       margin: 0 8px;
-        //       padding: 0;
-        //       list-style: none;
-        //     }
-        //     &-submenu-title {
-        //       padding-right: @control-padding-horizontal + @font-size-sm;
-        //     }
-        //     &-submenu-vertical {
-        //       position: relative;
-        //     }
-        //     &-submenu-vertical > & {
-        //       position: absolute;
-        //       top: 0;
-        //       left: 100%;
-        //       min-width: 100%;
-        //       margin-left: 4px;
-        //       transform-origin: 0 0;
-        //     }
-        //     &-submenu&-submenu-disabled .@{dropdown-prefix-cls}-menu-submenu-title {
-        //       &,
-        //       .@{dropdown-prefix-cls}-menu-submenu-arrow-icon {
-        //         color: @disabled-color;
-        //         background-color: @dropdown-menu-submenu-disabled-bg;
-        //         cursor: not-allowed;
-        //       }
-        //     }
-        //     // https://github.com/ant-design/ant-design/issues/19264
-        //     &-submenu-selected &-submenu-title {
-        //       color: @primary-color;
-        //     }
+
+        '&-item-group-list': {
+          margin: `0 ${token.marginXS}px`,
+          padding: 0,
+          listStyle: 'none',
+        },
+
+        '&-submenu-title': {
+          paddingRight: controlPaddingHorizontal + token.fontSizeSM,
+        },
+
+        '&-submenu-vertical': {
+          position: 'relative',
+        },
+
+        [`&-submenu&-submenu-disabled ${componentCls}-menu-submenu-title`]: {
+          [`&, ${componentCls}-menu-submenu-arrow-icon`]: {
+            color: colorTextDisabled,
+            backgroundColor: colorBgComponent,
+            cursor: 'not-allowed',
+          },
+        },
+
+        // https://github.com/ant-design/ant-design/issues/19264
+        [`&-submenu-selected ${componentCls}-menu-submenu-title`]: {
+          color: token.colorPrimary,
+        },
       },
     },
   };
 };
+// .css-dev-only-do-not-override-btc0m7.ant-slide-up-enter.ant-slide-up-enter-active
 
 // ============================== Export ==============================
 export default genComponentStyleHook(

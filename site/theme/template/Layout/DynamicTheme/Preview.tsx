@@ -15,45 +15,54 @@ export interface PreviewProps {
   onClose: () => void;
 }
 
+function formatStyle(style: string) {
+  let formatted = style;
+
+  // Break lines
+  formatted = formatted.replace(/{/g, ' {\n').replace(/}/g, '}\n').replace(/;/g, ';\n');
+
+  // Line convert
+  {
+    const lines = formatted.split(/[\n\r]+/);
+    let leftParenthesis = false;
+
+    formatted = lines
+      .map(line => {
+        if (line.includes('}')) {
+          leftParenthesis = false;
+        }
+
+        if (leftParenthesis) {
+          line = `  ${line.replace(/:/g, ': ')}`;
+        }
+
+        if (line.includes('{')) {
+          leftParenthesis = true;
+        }
+
+        // More lines for }
+        line = line.replace('}', '}\n');
+
+        return line;
+      })
+      .join('\n');
+  }
+
+  return formatted;
+}
+
 export default function Preview({ visible, onClose }: PreviewProps) {
-  const [styleList, setStyleList] = React.useState<string[]>([]);
+  const [styleList, setStyleList] = React.useState<{ text: string; path: string }[]>([]);
 
   React.useEffect(() => {
     const observer = new MutationObserver(() => {
       const latestStyles = Array.from(document.querySelectorAll('style[data-css-hash]'))
-        .map(style => style?.innerHTML || '')
-        // Break lines
-        .map(style => style.replace(/{/g, ' {\n'))
-        .map(style => style.replace(/}/g, '}\n'))
-        .map(style => style.replace(/;/g, ';\n'))
-        // Line convert
-        .map(style => {
-          const lines = style.split(/[\n\r]+/);
-          let leftParenthesis = false;
-
-          return lines
-            .map(line => {
-              if (line.includes('}')) {
-                leftParenthesis = false;
-              }
-
-              if (leftParenthesis) {
-                line = `  ${line.replace(/:/g, ': ')}`;
-              }
-
-              if (line.includes('{')) {
-                leftParenthesis = true;
-              }
-
-              // More lines for }
-              line = line.replace('}', '}\n');
-
-              return line;
-            })
-            .join('\n');
-        })
-        // Format
-        .filter(txt => txt);
+        .filter(style => style)
+        .map(style => ({
+          text: formatStyle(style.innerHTML),
+          path: style.getAttribute('data-dev-cache-path')!,
+        }))
+        .filter(style => style.text);
 
       setStyleList(latestStyles);
     });
@@ -67,11 +76,14 @@ export default function Preview({ visible, onClose }: PreviewProps) {
   const formatStyles = React.useMemo(
     () =>
       styleList.map(style => {
-        const lines = style
+        const lines = style.text
           .split(/[\n\r]+/)
           .map(line => (line.includes('{') ? line.replace(/,/g, ',\n') : line))
           .join('\n');
-        return hljs.highlight(lines, { language: 'css' }).value;
+        return {
+          ...style,
+          text: hljs.highlight(lines, { language: 'css' }).value,
+        };
       }),
     [styleList],
   );
@@ -80,8 +92,8 @@ export default function Preview({ visible, onClose }: PreviewProps) {
     type Item = { status: STATUS; line: string; source?: string };
     const list: Item[] = [];
 
-    styleList.forEach(style => {
-      const lines = style.split(/[\n\r]+/);
+    styleList.forEach(({ text }) => {
+      const lines = text.split(/[\n\r]+/);
 
       lines.forEach((line, index) => {
         const status = getValidateStatus(line);
@@ -130,8 +142,11 @@ export default function Preview({ visible, onClose }: PreviewProps) {
       <Tabs>
         <Tabs.TabPane tab="Style" key="style">
           <Typography>
-            {formatStyles.map((style, index) => (
-              <pre key={index} dangerouslySetInnerHTML={{ __html: style }} />
+            {formatStyles.map(({ text, path }, index) => (
+              <pre
+                key={index}
+                dangerouslySetInnerHTML={{ __html: `🐚 Cache: ${path}\n\n${text}` }}
+              />
             ))}
           </Typography>
         </Tabs.TabPane>
