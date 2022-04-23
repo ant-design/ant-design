@@ -88,7 +88,7 @@ describe('Segmented', () => {
     const wrapper = mount(
       <Segmented
         options={['Daily', 'Weekly', 'Monthly']}
-        onChange={e => handleValueChange(e.target.value)}
+        onChange={value => handleValueChange(value)}
       />,
     );
     expect(wrapper.render()).toMatchSnapshot();
@@ -115,7 +115,7 @@ describe('Segmented', () => {
   it('render segmented with numeric options', () => {
     const handleValueChange = jest.fn();
     const wrapper = mount(
-      <Segmented options={[1, 2, 3, 4, 5]} onChange={e => handleValueChange(e.target.value)} />,
+      <Segmented options={[1, 2, 3, 4, 5]} onChange={value => handleValueChange(value)} />,
     );
     expect(wrapper.render()).toMatchSnapshot();
     expect(
@@ -139,7 +139,7 @@ describe('Segmented', () => {
     const wrapper = mount(
       <Segmented
         options={['Daily', { label: 'Weekly', value: 'Weekly' }, 'Monthly']}
-        onChange={e => handleValueChange(e.target.value)}
+        onChange={value => handleValueChange(value)}
       />,
     );
     expect(wrapper.render()).toMatchSnapshot();
@@ -159,7 +159,7 @@ describe('Segmented', () => {
     const wrapper = mount(
       <Segmented
         options={['Daily', { label: 'Weekly', value: 'Weekly', disabled: true }, 'Monthly']}
-        onChange={e => handleValueChange(e.target.value)}
+        onChange={value => handleValueChange(value)}
       />,
     );
     expect(wrapper.render()).toMatchSnapshot();
@@ -194,7 +194,7 @@ describe('Segmented', () => {
       <Segmented
         disabled
         options={['Daily', 'Weekly', 'Monthly']}
-        onChange={e => handleValueChange(e.target.value)}
+        onChange={value => handleValueChange(value)}
       />,
     );
     expect(wrapper.render()).toMatchSnapshot();
@@ -253,9 +253,9 @@ describe('Segmented', () => {
           <Segmented
             options={['Map', 'Transit', 'Satellite']}
             value={this.state.value}
-            onChange={e =>
+            onChange={value =>
               this.setState({
-                value: e.target.value,
+                value,
               })
             }
           />
@@ -277,7 +277,7 @@ describe('Segmented', () => {
       <Segmented
         options={[null, undefined, ''] as any}
         disabled
-        onChange={e => handleValueChange(e.target.value)}
+        onChange={value => handleValueChange(value)}
       />,
     );
     expect(wrapper.render()).toMatchSnapshot();
@@ -293,7 +293,7 @@ describe('Segmented', () => {
     const wrapper = mount(
       <Segmented
         options={['Map', 'Transit', 'Satellite']}
-        onChange={e => handleValueChange(e.target.value)}
+        onChange={value => handleValueChange(value)}
       />,
     );
     expect(wrapper.render()).toMatchSnapshot();
