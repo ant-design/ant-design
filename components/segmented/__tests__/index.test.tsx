@@ -269,16 +269,6 @@ describe('Segmented', () => {
 
     wrapper.find('Segmented').find(`.${prefixCls}-item-input`).at(1).simulate('change');
     expect(wrapper.find(Demo).state().value).toBe('Transit');
-
-    // change state directly
-    wrapper.find(Demo).setState({ value: 'Satellite' });
-
-    expect(wrapper.find('.rc-segmented-item-selected').contains('Satellite')).toBeTruthy();
-
-    // change it strangely
-    wrapper.find(Demo).setState({ value: 'Satellite1' });
-    // invalid changes
-    expect(wrapper.find('.rc-segmented-item-selected').contains('Satellite')).toBeTruthy();
   });
 
   it('render segmented with options null/undefined', () => {
