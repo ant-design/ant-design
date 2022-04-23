@@ -242,7 +242,7 @@ describe('Segmented', () => {
     expect((wrapper.find(Segmented).getElement() as any).ref).toBe(ref);
   });
 
-  it('render segmented with controlled mode', async () => {
+  it('render segmented with controlled mode', () => {
     class Demo extends React.Component<{}, { value: SegmentedValue }> {
       state = {
         value: 'Map',
