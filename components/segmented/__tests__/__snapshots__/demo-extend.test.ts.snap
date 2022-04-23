@@ -178,6 +178,106 @@ exports[`renders ./components/segmented/demo/controlled.md extend context correc
 </div>
 `;
 
+exports[`renders ./components/segmented/demo/controlled-two.md extend context correctly 1`] = `
+Array [
+  <div
+    class="ant-segmented"
+  >
+    <label
+      class="ant-segmented-item ant-segmented-item-selected"
+    >
+      <input
+        checked=""
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <div
+        class="ant-segmented-item-label"
+        title="AND"
+      >
+        AND
+      </div>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <div
+        class="ant-segmented-item-label"
+        title="OR"
+      >
+        OR
+      </div>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <div
+        class="ant-segmented-item-label"
+        title="NOT"
+      >
+        NOT
+      </div>
+    </label>
+  </div>,
+  "  ",
+  <div
+    class="ant-segmented"
+  >
+    <label
+      class="ant-segmented-item ant-segmented-item-selected"
+    >
+      <input
+        checked=""
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <div
+        class="ant-segmented-item-label"
+        title="AND"
+      >
+        AND
+      </div>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <div
+        class="ant-segmented-item-label"
+        title="OR"
+      >
+        OR
+      </div>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        type="radio"
+      />
+      <div
+        class="ant-segmented-item-label"
+        title="NOT"
+      >
+        NOT
+      </div>
+    </label>
+  </div>,
+]
+`;
+
 exports[`renders ./components/segmented/demo/custom.md extend context correctly 1`] = `
 Array [
   <div

@@ -41,7 +41,7 @@ export type DropdownArrowOptions = {
   pointAtCenter?: boolean;
 };
 
-export interface DropDownProps {
+export interface DropdownProps {
   arrow?: boolean | DropdownArrowOptions;
   trigger?: ('click' | 'hover' | 'contextMenu')[];
   overlay: React.ReactElement | OverlayFunc;
@@ -64,7 +64,7 @@ export interface DropDownProps {
   children?: React.ReactNode;
 }
 
-interface DropdownInterface extends React.FC<DropDownProps> {
+interface DropdownInterface extends React.FC<DropdownProps> {
   Button: typeof DropdownButton;
 }
 

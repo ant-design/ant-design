@@ -52,6 +52,7 @@ exports[`renders ./components/transfer/demo/advanced.md extend context correctly
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+            data-dropdown-inject="true"
             data-menu-list="true"
             role="menu"
             tabindex="0"
@@ -425,6 +426,7 @@ exports[`renders ./components/transfer/demo/advanced.md extend context correctly
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+            data-dropdown-inject="true"
             data-menu-list="true"
             role="menu"
             tabindex="0"
@@ -744,6 +746,7 @@ exports[`renders ./components/transfer/demo/basic.md extend context correctly 1`
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+            data-dropdown-inject="true"
             data-menu-list="true"
             role="menu"
             tabindex="0"
@@ -1262,6 +1265,7 @@ exports[`renders ./components/transfer/demo/basic.md extend context correctly 1`
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+            data-dropdown-inject="true"
             data-menu-list="true"
             role="menu"
             tabindex="0"
@@ -1684,6 +1688,7 @@ exports[`renders ./components/transfer/demo/custom-item.md extend context correc
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+            data-dropdown-inject="true"
             data-menu-list="true"
             role="menu"
             tabindex="0"
@@ -1972,6 +1977,7 @@ exports[`renders ./components/transfer/demo/custom-item.md extend context correc
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+            data-dropdown-inject="true"
             data-menu-list="true"
             role="menu"
             tabindex="0"
@@ -2212,6 +2218,7 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.md extend c
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+            data-dropdown-inject="true"
             data-menu-list="true"
             role="menu"
             tabindex="0"
@@ -2628,6 +2635,7 @@ exports[`renders ./components/transfer/demo/custom-select-all-labels.md extend c
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+            data-dropdown-inject="true"
             data-menu-list="true"
             role="menu"
             tabindex="0"
@@ -2883,6 +2891,7 @@ Array [
           >
             <ul
               class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+              data-dropdown-inject="true"
               data-menu-list="true"
               role="menu"
               tabindex="0"
@@ -3210,6 +3219,7 @@ Array [
           >
             <ul
               class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+              data-dropdown-inject="true"
               data-menu-list="true"
               role="menu"
               tabindex="0"
@@ -3524,6 +3534,7 @@ Array [
           >
             <ul
               class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+              data-dropdown-inject="true"
               data-menu-list="true"
               role="menu"
               tabindex="0"
@@ -4084,6 +4095,7 @@ Array [
           >
             <ul
               class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+              data-dropdown-inject="true"
               data-menu-list="true"
               role="menu"
               tabindex="0"
@@ -4463,6 +4475,7 @@ exports[`renders ./components/transfer/demo/search.md extend context correctly 1
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+            data-dropdown-inject="true"
             data-menu-list="true"
             role="menu"
             tabindex="0"
@@ -4816,6 +4829,7 @@ exports[`renders ./components/transfer/demo/search.md extend context correctly 1
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+            data-dropdown-inject="true"
             data-menu-list="true"
             role="menu"
             tabindex="0"
@@ -5129,6 +5143,7 @@ exports[`renders ./components/transfer/demo/status.md extend context correctly 1
             >
               <ul
                 class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+                data-dropdown-inject="true"
                 data-menu-list="true"
                 role="menu"
                 tabindex="0"
@@ -5416,6 +5431,7 @@ exports[`renders ./components/transfer/demo/status.md extend context correctly 1
             >
               <ul
                 class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+                data-dropdown-inject="true"
                 data-menu-list="true"
                 role="menu"
                 tabindex="0"
@@ -5657,6 +5673,7 @@ exports[`renders ./components/transfer/demo/status.md extend context correctly 1
             >
               <ul
                 class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+                data-dropdown-inject="true"
                 data-menu-list="true"
                 role="menu"
                 tabindex="0"
@@ -6010,6 +6027,7 @@ exports[`renders ./components/transfer/demo/status.md extend context correctly 1
             >
               <ul
                 class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+                data-dropdown-inject="true"
                 data-menu-list="true"
                 role="menu"
                 tabindex="0"
@@ -6319,6 +6337,7 @@ Array [
           >
             <ul
               class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+              data-dropdown-inject="true"
               data-menu-list="true"
               role="menu"
               tabindex="0"
@@ -7165,6 +7184,7 @@ Array [
           >
             <ul
               class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+              data-dropdown-inject="true"
               data-menu-list="true"
               role="menu"
               tabindex="0"

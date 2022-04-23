@@ -24,9 +24,12 @@
     color: @error-color;
 
     a&:active,
-    a&:focus,
+    a&:focus {
+      color: @error-color-active;
+    }
+
     a&:hover {
-      color: ~`colorPalette('@{error-color}', 5) `;
+      color: @error-color-hover;
     }
   }
 

@@ -17,7 +17,7 @@ Set `icon` for Segmented Item.
 import { Segmented } from 'antd';
 import { AppstoreOutlined, BarsOutlined } from '@ant-design/icons';
 
-ReactDOM.render(
+export default () => (
   <Segmented
     options={[
       {
@@ -31,7 +31,6 @@ ReactDOM.render(
         icon: <AppstoreOutlined />,
       },
     ]}
-  />,
-  mountNode,
+  />
 );
 ```
