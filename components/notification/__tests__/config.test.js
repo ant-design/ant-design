@@ -1,3 +1,4 @@
+import { act } from 'react-dom/test-utils';
 import notification, { getInstance } from '..';
 import { sleep } from '../../../tests/utils';
 
@@ -17,26 +18,37 @@ describe('notification.config', () => {
     });
 
     for (let i = 0; i < 10; i += 1) {
-      notification.open({
-        message: 'Notification message',
-        key: i,
+      act(() => {
+        notification.open({
+          message: 'Notification message',
+          key: i,
+        });
       });
     }
 
-    notification.open({
-      message: 'Notification last',
-      key: '11',
+    act(() => {
+      notification.open({
+        message: 'Notification last',
+        key: '11',
+      });
     });
 
-    await Promise.resolve();
+    await act(async () => {
+      await Promise.resolve();
+    });
 
     expect(document.querySelectorAll('.ant-notification-notice').length).toBe(5);
     expect(document.querySelectorAll('.ant-notification-notice')[4].textContent).toBe(
       'Notification last',
     );
 
-    jest.runAllTimers();
-    await sleep(500);
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    await act(async () => {
+      await sleep(500);
+    });
     expect((await getInstance('ant-notification-topRight')).component.state.notices).toHaveLength(
       0,
     );

@@ -17,7 +17,7 @@ Three sizes and two shapes are available.
 import { Avatar } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 
-ReactDOM.render(
+export default () => (
   <>
     <div>
       <Avatar size={64} icon={<UserOutlined />} />
@@ -31,8 +31,7 @@ ReactDOM.render(
       <Avatar shape="square" icon={<UserOutlined />} />
       <Avatar shape="square" size="small" icon={<UserOutlined />} />
     </div>
-  </>,
-  mountNode,
+  </>
 );
 ```
 

@@ -88,7 +88,7 @@ export interface FilterDropdownProps {
   visible: boolean;
 }
 
-export interface ColumnType<RecordType> extends RcColumnType<RecordType> {
+export interface ColumnType<RecordType> extends Omit<RcColumnType<RecordType>, 'title'> {
   title?: ColumnTitle<RecordType>;
   // Sorter
   sorter?:
@@ -113,10 +113,11 @@ export interface ColumnType<RecordType> extends RcColumnType<RecordType> {
   defaultFilteredValue?: FilterValue | null;
   filterIcon?: React.ReactNode | ((filtered: boolean) => React.ReactNode);
   filterMode?: 'menu' | 'tree';
-  filterSearch?: boolean;
+  filterSearch?: FilterSearchType;
   onFilter?: (value: string | number | boolean, record: RecordType) => boolean;
   filterDropdownVisible?: boolean;
   onFilterDropdownVisibleChange?: (visible: boolean) => void;
+  filterResetToDefaultFilteredValue?: boolean;
 
   // Responsive
   responsive?: Breakpoint[];

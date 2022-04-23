@@ -1,12 +1,11 @@
 /* eslint @typescript-eslint/no-use-before-define: "off" */
-import React from 'react';
+import React, { useState } from 'react';
 import { mount } from 'enzyme';
+import { fireEvent, render } from '@testing-library/react';
 import Transfer from '..';
 import TransferList from '../list';
-import TransferOperation from '../operation';
 import TransferSearch from '../search';
 import TransferItem from '../ListItem';
-import Button from '../../button';
 import Checkbox from '../../checkbox';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -103,14 +102,14 @@ describe('Transfer', () => {
 
   it('should move selected keys to corresponding list', () => {
     const handleChange = jest.fn();
-    const wrapper = mount(<Transfer {...listCommonProps} onChange={handleChange} />);
-    wrapper.find(TransferOperation).find(Button).at(0).simulate('click'); // move selected keys to right list
+    const { container } = render(<Transfer {...listCommonProps} onChange={handleChange} />);
+    fireEvent.click(container.querySelector('.ant-transfer-operation').querySelector('button')); // move selected keys to right list
     expect(handleChange).toHaveBeenCalledWith(['a', 'b'], 'right', ['a']);
   });
 
   it('should move selected keys to left list', () => {
     const handleChange = jest.fn();
-    const wrapper = mount(
+    const { container } = render(
       <Transfer
         {...listCommonProps}
         selectedKeys={['a']}
@@ -118,14 +117,16 @@ describe('Transfer', () => {
         onChange={handleChange}
       />,
     );
-    wrapper.find(TransferOperation).find(Button).at(1).simulate('click'); // move selected keys to left list
+    fireEvent.click(
+      container.querySelector('.ant-transfer-operation').querySelectorAll('button')[1],
+    ); // move selected keys to left list
     expect(handleChange).toHaveBeenCalledWith([], 'left', ['a']);
   });
 
   it('should move selected keys expect disabled to corresponding list', () => {
     const handleChange = jest.fn();
-    const wrapper = mount(<Transfer {...listDisabledProps} onChange={handleChange} />);
-    wrapper.find(TransferOperation).find(Button).at(0).simulate('click'); // move selected keys to right list
+    const { container } = render(<Transfer {...listDisabledProps} onChange={handleChange} />);
+    fireEvent.click(container.querySelector('.ant-transfer-operation').querySelector('button')); // move selected keys to right list
     expect(handleChange).toHaveBeenCalledWith(['b'], 'right', ['b']);
   });
 
@@ -327,33 +328,35 @@ describe('Transfer', () => {
     const filterOption = (inputValue, option) => option.description.indexOf(inputValue) > -1;
     const renderFunc = item => item.title;
     const handleChange = jest.fn();
-    const handleSelectChange = (sourceSelectedKeys, targetSelectedKeys) => {
-      wrapper.setProps({
-        selectedKeys: [...sourceSelectedKeys, ...targetSelectedKeys],
-      });
+    const TransferDemo = () => {
+      const [selectedKeys, setSelectedKeys] = useState(searchTransferProps.selectedKeys);
+
+      const handleSelectChange = (sourceSelectedKeys, targetSelectedKeys) => {
+        setSelectedKeys([...sourceSelectedKeys, ...targetSelectedKeys]);
+      };
+
+      return (
+        <Transfer
+          {...searchTransferProps}
+          showSearch
+          filterOption={filterOption}
+          render={renderFunc}
+          onSelectChange={handleSelectChange}
+          onChange={handleChange}
+          selectedKeys={selectedKeys}
+        />
+      );
     };
-    const wrapper = mount(
-      <Transfer
-        {...searchTransferProps}
-        showSearch
-        filterOption={filterOption}
-        render={renderFunc}
-        onSelectChange={handleSelectChange}
-        onChange={handleChange}
-      />,
+    const { container } = render(<TransferDemo />);
+    fireEvent.change(container.querySelector('.ant-transfer-list-search').querySelector('input'), {
+      target: { value: 'content2' },
+    });
+    fireEvent.click(
+      container
+        .querySelector('.ant-transfer-list')
+        .querySelector('.ant-transfer-list-header input[type="checkbox"]'),
     );
-    wrapper
-      .find(TransferSearch)
-      .at(0)
-      .find('input')
-      .simulate('change', { target: { value: 'content2' } });
-    wrapper
-      .find(TransferList)
-      .at(0)
-      .find('.ant-transfer-list-header input[type="checkbox"]')
-      .filterWhere(n => !n.prop('checked'))
-      .simulate('change');
-    wrapper.find(TransferOperation).find(Button).at(0).simulate('click');
+    fireEvent.click(container.querySelector('.ant-transfer-operation').querySelector('button'));
     expect(handleChange).toHaveBeenCalledWith(['1', '3', '4'], 'right', ['1']);
   });
 

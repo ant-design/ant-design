@@ -59,7 +59,7 @@ const columns = [
       },
     ],
     onFilter: (value, record) => record.address.startsWith(value),
-    filterSearch:(input, record) => record.value.indexOf(input) > -1,
+    filterSearch: (input, record) => record.value.indexOf(input) > -1,
     width: '40%',
   },
 ];
@@ -95,5 +95,5 @@ function onChange(pagination, filters, sorter, extra) {
   console.log('params', pagination, filters, sorter, extra);
 }
 
-ReactDOM.render(<Table columns={columns} dataSource={data} onChange={onChange} />, mountNode);
+export default () => <Table columns={columns} dataSource={data} onChange={onChange} />;
 ```

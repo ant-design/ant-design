@@ -27,6 +27,7 @@ export interface PageHeaderProps {
   onBack?: (e?: React.MouseEvent<HTMLDivElement>) => void;
   className?: string;
   ghost?: boolean;
+  children?: React.ReactNode;
 }
 
 const renderBack = (

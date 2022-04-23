@@ -29,5 +29,5 @@ const Status: React.FC = () => (
   </Space>
 );
 
-ReactDOM.render(<Status />, mountNode);
+export default () => <Status />;
 ```

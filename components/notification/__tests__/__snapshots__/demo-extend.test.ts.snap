@@ -188,7 +188,7 @@ Array [
 `;
 
 exports[`renders ./components/notification/demo/placement.md extend context correctly 1`] = `
-<div>
+Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
   >
@@ -255,11 +255,11 @@ exports[`renders ./components/notification/demo/placement.md extend context corr
         </span>
       </button>
     </div>
-  </div>
+  </div>,
   <div
     class="ant-divider ant-divider-horizontal"
     role="separator"
-  />
+  />,
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
   >
@@ -326,11 +326,11 @@ exports[`renders ./components/notification/demo/placement.md extend context corr
         </span>
       </button>
     </div>
-  </div>
+  </div>,
   <div
     class="ant-divider ant-divider-horizontal"
     role="separator"
-  />
+  />,
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
   >
@@ -397,8 +397,8 @@ exports[`renders ./components/notification/demo/placement.md extend context corr
         </span>
       </button>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`renders ./components/notification/demo/update.md extend context correctly 1`] = `

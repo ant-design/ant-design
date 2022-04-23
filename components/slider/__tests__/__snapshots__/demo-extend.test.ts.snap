@@ -28,7 +28,7 @@ Array [
     <div>
       <div
         class="ant-tooltip ant-slider-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -76,7 +76,7 @@ Array [
     <div>
       <div
         class="ant-tooltip ant-slider-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -110,7 +110,7 @@ Array [
     <div>
       <div
         class="ant-tooltip ant-slider-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -176,7 +176,7 @@ exports[`renders ./components/slider/demo/dragableTrack.md extend context correc
   <div>
     <div
       class="ant-tooltip ant-slider-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -210,7 +210,7 @@ exports[`renders ./components/slider/demo/dragableTrack.md extend context correc
   <div>
     <div
       class="ant-tooltip ant-slider-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -262,7 +262,7 @@ Array [
     <div>
       <div
         class="ant-tooltip ant-slider-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -310,7 +310,7 @@ Array [
     <div>
       <div
         class="ant-tooltip ant-slider-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -344,7 +344,7 @@ Array [
     <div>
       <div
         class="ant-tooltip ant-slider-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -418,7 +418,7 @@ exports[`renders ./components/slider/demo/icon-slider.md extend context correctl
     <div>
       <div
         class="ant-tooltip ant-slider-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -496,7 +496,7 @@ exports[`renders ./components/slider/demo/input-number.md extend context correct
         <div>
           <div
             class="ant-tooltip ant-slider-tooltip"
-            style="opacity:0;pointer-events:none"
+            style="opacity:0"
           >
             <div
               class="ant-tooltip-content"
@@ -633,7 +633,7 @@ exports[`renders ./components/slider/demo/input-number.md extend context correct
         <div>
           <div
             class="ant-tooltip ant-slider-tooltip"
-            style="opacity:0;pointer-events:none"
+            style="opacity:0"
           >
             <div
               class="ant-tooltip-content"
@@ -789,7 +789,7 @@ Array [
     <div>
       <div
         class="ant-tooltip ant-slider-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -884,7 +884,7 @@ Array [
     <div>
       <div
         class="ant-tooltip ant-slider-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -918,7 +918,7 @@ Array [
     <div>
       <div
         class="ant-tooltip ant-slider-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -1012,7 +1012,7 @@ Array [
     <div>
       <div
         class="ant-tooltip ant-slider-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -1110,7 +1110,7 @@ Array [
     <div>
       <div
         class="ant-tooltip ant-slider-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -1208,7 +1208,7 @@ Array [
     <div>
       <div
         class="ant-tooltip ant-slider-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -1291,7 +1291,7 @@ Array [
     <div>
       <div
         class="ant-tooltip ant-slider-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -1339,7 +1339,7 @@ Array [
     <div>
       <div
         class="ant-tooltip ant-slider-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -1373,7 +1373,7 @@ Array [
     <div>
       <div
         class="ant-tooltip ant-slider-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -1439,7 +1439,7 @@ exports[`renders ./components/slider/demo/show-tooltip.md extend context correct
   <div>
     <div
       class="ant-tooltip ant-slider-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -1491,7 +1491,7 @@ Array [
     <div>
       <div
         class="ant-tooltip ant-slider-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -1539,7 +1539,7 @@ Array [
     <div>
       <div
         class="ant-tooltip ant-slider-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -1593,7 +1593,7 @@ Array [
       <div>
         <div
           class="ant-tooltip ant-slider-tooltip"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <div
             class="ant-tooltip-content"
@@ -1645,7 +1645,7 @@ Array [
       <div>
         <div
           class="ant-tooltip ant-slider-tooltip"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <div
             class="ant-tooltip-content"
@@ -1679,7 +1679,7 @@ Array [
       <div>
         <div
           class="ant-tooltip ant-slider-tooltip"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <div
             class="ant-tooltip-content"
@@ -1748,7 +1748,7 @@ Array [
       <div>
         <div
           class="ant-tooltip ant-slider-tooltip"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <div
             class="ant-tooltip-content"
@@ -1782,7 +1782,7 @@ Array [
       <div>
         <div
           class="ant-tooltip ant-slider-tooltip"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <div
             class="ant-tooltip-content"

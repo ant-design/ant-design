@@ -5,13 +5,13 @@ import Button, { ButtonProps } from '../button';
 import { ButtonHTMLType } from '../button/button';
 import { ButtonGroupProps } from '../button/button-group';
 import { ConfigContext } from '../config-provider';
-import Dropdown, { DropDownProps } from './dropdown';
+import Dropdown, { DropdownProps } from './dropdown';
 
 const ButtonGroup = Button.Group;
 
 export type DropdownButtonType = 'default' | 'primary' | 'ghost' | 'dashed' | 'link' | 'text';
 
-export interface DropdownButtonProps extends ButtonGroupProps, DropDownProps {
+export interface DropdownButtonProps extends ButtonGroupProps, DropdownProps {
   type?: DropdownButtonType;
   htmlType?: ButtonHTMLType;
   disabled?: boolean;
@@ -76,7 +76,7 @@ const DropdownButton: DropdownButtonInterface = props => {
     overlayClassName,
     overlayStyle,
     destroyPopupOnHide,
-  } as DropDownProps;
+  } as DropdownProps;
 
   if ('visible' in props) {
     dropdownProps.visible = visible;

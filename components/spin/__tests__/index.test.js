@@ -1,5 +1,7 @@
 import React from 'react';
-import { render, mount } from 'enzyme';
+import { mount } from 'enzyme';
+// eslint-disable-next-line import/no-named-as-default
+import { render } from '@testing-library/react';
 import Spin from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -20,26 +22,26 @@ describe('Spin', () => {
 
   it("should render custom indicator when it's set", () => {
     const customIndicator = <div className="custom-indicator" />;
-    const wrapper = render(<Spin indicator={customIndicator} />);
-    expect(wrapper).toMatchSnapshot();
+    const wrapper = mount(<Spin indicator={customIndicator} />);
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('should be controlled by spinning', () => {
-    const wrapper = mount(<Spin spinning={false} />);
-    expect(wrapper.instance().state.spinning).toBe(false);
-    wrapper.setProps({ spinning: true });
-    expect(wrapper.instance().state.spinning).toBe(true);
+    const { container, rerender } = render(<Spin spinning={false} />);
+    expect(container.querySelector('.ant-spin-spinning')).toBeFalsy();
+    rerender(<Spin spinning />);
+    expect(container.querySelector('.ant-spin-spinning')).toBeTruthy();
   });
 
   it('if indicator set null should not be render default indicator', () => {
     const wrapper = mount(<Spin indicator={null} />);
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('should support static method Spin.setDefaultIndicator', () => {
     Spin.setDefaultIndicator(<em className="custom-spinner" />);
     const wrapper = mount(<Spin />);
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
     Spin.setDefaultIndicator(null);
   });
 

@@ -11,7 +11,7 @@
 
 @base-primary: @blue-6;
 
-html {
+@{html-selector} {
 
   // ========= Primary Color =========
   --@{ant-prefix}-primary-color: @base-primary;
@@ -163,6 +163,12 @@ html {
 @line-height-base: 1.5715;
 @border-radius-base: 2px;
 @border-radius-sm: @border-radius-base;
+
+// control border
+@control-border-radius: @border-radius-base;
+
+// arrow border
+@arrow-border-radius: @border-radius-sm;
 
 // vertical paddings
 @padding-lg: 24px; // containers
@@ -577,6 +583,7 @@ html {
 @tooltip-distance: @tooltip-arrow-width - 1px + 4px;
 // Tooltip arrow color
 @tooltip-arrow-color: @tooltip-bg;
+@tooltip-border-radius: @border-radius-base;
 
 // Popover
 // ---
@@ -724,6 +731,7 @@ html {
 
 // Tag
 // --
+@tag-border-radius: @border-radius-base;
 @tag-default-bg: @background-color-light;
 @tag-default-color: @text-color;
 @tag-font-size: @font-size-sm;
@@ -1118,3 +1126,11 @@ html {
 @image-preview-operation-size: 18px;
 @image-preview-operation-color: @text-color-dark;
 @image-preview-operation-disabled-color: fade(@image-preview-operation-color, 25%);
+
+// Segmented
+// ---
+@segmented-bg: fade(@black, 4%);
+@segmented-hover-bg: fade(@black, 6%);
+@segmented-selected-bg: @white;
+@segmented-label-color: fade(@black, 65%);
+@segmented-label-hover-color: #262626;

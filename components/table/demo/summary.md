@@ -82,7 +82,7 @@ for (let i = 0; i < 20; i += 1) {
   });
 }
 
-ReactDOM.render(
+export default () => (
   <>
     <Table
       columns={columns}
@@ -137,8 +137,7 @@ ReactDOM.render(
         </Table.Summary>
       )}
     />
-  </>,
-  mountNode,
+  </>
 );
 ```
 

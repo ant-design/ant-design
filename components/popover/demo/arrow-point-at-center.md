@@ -23,7 +23,7 @@ const content = (
   </>
 );
 
-ReactDOM.render(
+export default () => (
   <>
     <Popover placement="topLeft" title="Title" content={content}>
       <Button>Align edge / 边缘对齐</Button>
@@ -31,7 +31,6 @@ ReactDOM.render(
     <Popover placement="topLeft" title="Title" content={content} arrowPointAtCenter>
       <Button>Arrow points to center / 箭头指向中心</Button>
     </Popover>
-  </>,
-  mountNode,
+  </>
 );
 ```

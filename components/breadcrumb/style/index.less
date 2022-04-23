@@ -13,6 +13,12 @@
     font-size: @breadcrumb-icon-font-size;
   }
 
+  ol {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+  }
+
   a {
     color: @breadcrumb-link-color;
     transition: color 0.3s;
@@ -22,7 +28,7 @@
     }
   }
 
-  & > span:last-child {
+  li:last-child {
     color: @breadcrumb-last-item-color;
 
     a {
@@ -30,7 +36,7 @@
     }
   }
 
-  & > span:last-child &-separator {
+  li:last-child &-separator {
     display: none;
   }
 

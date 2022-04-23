@@ -38,7 +38,7 @@ describe('Transfer.List', () => {
 
   it('when component has been unmounted, componentWillUnmount should be called', () => {
     const wrapper = mount(<List {...listCommonProps} />);
-    const willUnmount = jest.spyOn(wrapper.instance(), 'componentWillUnmount');
+    const willUnmount = jest.spyOn(wrapper.find(List).instance(), 'componentWillUnmount');
     wrapper.unmount();
     expect(willUnmount).toHaveBeenCalled();
   });
@@ -46,7 +46,7 @@ describe('Transfer.List', () => {
   it('when value is not exists, handleFilter should return', () => {
     const handleFilter = jest.fn();
     const wrapper = mount(<List {...listCommonProps} handleFilter={handleFilter} />);
-    expect(wrapper.instance().handleFilter({ target: 'test' })).toBe(undefined);
+    expect(wrapper.find(List).instance().handleFilter({ target: 'test' })).toBe(undefined);
     expect(handleFilter).toHaveBeenCalled();
   });
 });

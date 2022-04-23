@@ -30,6 +30,7 @@ Array [
       class="ant-checkbox ant-checkbox-indeterminate"
     >
       <input
+        aria-checked="mixed"
         class="ant-checkbox-input"
         type="checkbox"
       />

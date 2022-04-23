@@ -16,7 +16,7 @@ By specifying `arrowPointAtCenter` prop, the arrow will point to the center of t
 ```jsx
 import { Tooltip, Button } from 'antd';
 
-ReactDOM.render(
+export default () => (
   <>
     <Tooltip placement="topLeft" title="Prompt Text">
       <Button>Align edge / 边缘对齐</Button>
@@ -24,7 +24,6 @@ ReactDOM.render(
     <Tooltip placement="topLeft" title="Prompt Text" arrowPointAtCenter>
       <Button>Arrow points to center / 箭头指向中心</Button>
     </Tooltip>
-  </>,
-  mountNode,
+  </>
 );
 ```

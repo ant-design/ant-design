@@ -57,7 +57,7 @@ function onChange(value) {
   console.log(value);
 }
 
-ReactDOM.render(
+export default () => (
   <>
     <Cascader
       suffixIcon={<SmileOutlined />}
@@ -79,7 +79,6 @@ ReactDOM.render(
     <br />
     <br />
     <Cascader expandIcon="ab" options={options} onChange={onChange} placeholder="Please select" />
-  </>,
-  mountNode,
+  </>
 );
 ```
