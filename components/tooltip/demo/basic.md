@@ -17,7 +17,7 @@ The simplest usage.
 import { Tooltip } from 'antd';
 
 export default () => (
-  <Tooltip title="prompt text">
+  <Tooltip title="prompt text" visible>
     <span>Tooltip will show on mouse enter.</span>
   </Tooltip>
 );
