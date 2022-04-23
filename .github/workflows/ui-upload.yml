@@ -23,6 +23,26 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3
 
+      - name: Download commit artifact
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: ${{ github.event.workflow_run.workflow_id }}
+          name: commit
+
+      - name: Save commit id
+        id: commit
+        run: echo "::set-output name=id::$(<commit.txt)"
+
+      - name: Download branch artifact
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: ${{ github.event.workflow_run.workflow_id }}
+          name: branch
+
+      - name: Save branch id
+        id: branch
+        run: echo "::set-output name=id::$(<branch.txt)"
+
       - name: Download snapshots artifact
         uses: dawidd6/action-download-artifact@v2
         with:
@@ -39,3 +59,5 @@ jobs:
         run: npm run argos
         env:
           ARGOS_TOKEN: ${{ secrets.ARGOS_TOKEN }}
+          ARGOS_GITHUB_BRANCH: ${{ steps.branch.outputs.id }}
+          ARGOS_GITHUB_COMMIT: ${{ steps.commit.outputs.id }}
