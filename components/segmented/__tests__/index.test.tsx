@@ -88,7 +88,7 @@ describe('Segmented', () => {
     const wrapper = mount(
       <Segmented
         options={['Daily', 'Weekly', 'Monthly']}
-        onChange={value => handleValueChange(value)}
+        onChange={handleValueChange}
       />,
     );
     expect(wrapper.render()).toMatchSnapshot();
