@@ -3,7 +3,6 @@ import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { render, fireEvent } from '../../../tests/utils';
 import Transfer from '..';
-import { mount } from 'enzyme';
 
 const listProps = {
   dataSource: [
