@@ -44,7 +44,6 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
     appendAction,
     appendActionVisible,
     itemRender,
-    className,
   },
   ref,
 ) => {
@@ -163,13 +162,10 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
   // ============================= Render =============================
   const prefixCls = getPrefixCls('upload', customizePrefixCls);
 
-  const listClassNames = classNames(
-    {
-      [`${prefixCls}-list`]: true,
-      [`${prefixCls}-list-${listType}`]: true,
-    },
-    className,
-  );
+  const listClassNames = classNames({
+    [`${prefixCls}-list`]: true,
+    [`${prefixCls}-list-${listType}`]: true,
+  });
 
   // >>> Motion config
   const motionKeyList = [
