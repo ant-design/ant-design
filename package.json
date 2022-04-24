@@ -101,7 +101,7 @@
     "argos": "node ./scripts/argos-upload.js",
     "version": "node ./scripts/generate-version",
     "install-react-16": "npm i --no-save --legacy-peer-deps react@16 react-dom@16 @testing-library/react@12 enzyme-adapter-react-16",
-    "install-react-17": "npm i --no-save --legacy-peer-deps react@17 react-dom@17 @testing-library/react@12",
+    "install-react-17": "npm i --no-save --legacy-peer-deps react@17 react-dom@17 @testing-library/react@12 @wojtekmaj/enzyme-adapter-react-17",
     "install-react-18": "npm i --no-save --legacy-peer-deps react@18 react-dom@18"
   },
   "browserslist": [
@@ -183,7 +183,6 @@
     "@types/warning": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
-    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.0",
     "antd-img-crop": "^4.0.0",
     "array-move": "^4.0.0",
     "babel-plugin-add-react-displayname": "^0.0.5",
