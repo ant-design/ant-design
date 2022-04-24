@@ -19,30 +19,12 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3
 
-      - name: cache package-lock.json
-        uses: actions/cache@v3
+      - uses: actions/setup-node@v3
         with:
-          path: package-temp-dir
-          key: lock-${{ github.sha }}
-
-      - name: create package-lock.json
-        run: npm i --package-lock-only --ignore-scripts
-
-      - name: hack for single file
-        run: |
-          if [ ! -d "package-temp-dir" ]; then
-            mkdir package-temp-dir
-          fi
-          cp package-lock.json package-temp-dir
-      - name: cache node_modules
-        id: node_modules_cache_id
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+          node-version: '16'
+          cache: 'npm'
 
       - name: install
-        if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
         run: npm ci
 
   lint:
@@ -50,18 +32,6 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
-
-      - name: restore cache from package-lock.json
-        uses: actions/cache@v3
-        with:
-          path: package-temp-dir
-          key: lock-${{ github.sha }}
-
-      - name: restore cache from node_modules
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
 
       - name: lint
         run: npm run lint
@@ -73,18 +43,6 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3
 
-      - name: restore cache from package-lock.json
-        uses: actions/cache@v3
-        with:
-          path: package-temp-dir
-          key: lock-${{ github.sha }}
-
-      - name: restore cache from node_modules
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
-
       - name: tsx-demo
         run: npm run check-ts-demo
     needs: setup
@@ -94,18 +52,6 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
-
-      - name: restore cache from package-lock.json
-        uses: actions/cache@v3
-        with:
-          path: package-temp-dir
-          key: lock-${{ github.sha }}
-
-      - name: restore cache from node_modules
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
 
       - name: check demo
         run: node ./scripts/check-demo.js
@@ -118,18 +64,6 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
-
-      - name: restore cache from package-lock.json
-        uses: actions/cache@v3
-        with:
-          path: package-temp-dir
-          key: lock-${{ github.sha }}
-
-      - name: restore cache from node_modules
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
 
       - name: cache dist
         uses: actions/cache@v3
@@ -150,18 +84,6 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
-
-      - name: restore cache from package-lock.json
-        uses: actions/cache@v3
-        with:
-          path: package-temp-dir
-          key: lock-${{ github.sha }}
-
-      - name: restore cache from node_modules
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
 
       - name: restore cache from lib
         uses: actions/cache@v3
@@ -188,18 +110,6 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
-
-      - name: restore cache from package-lock.json
-        uses: actions/cache@v3
-        with:
-          path: package-temp-dir
-          key: lock-${{ github.sha }}
-
-      - name: restore cache from node_modules
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
 
       - name: restore cache from lib
         uses: actions/cache@v3
@@ -242,18 +152,6 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
-
-      - name: restore cache from package-lock.json
-        uses: actions/cache@v3
-        with:
-          path: package-temp-dir
-          key: lock-${{ github.sha }}
-
-      - name: restore cache from node_modules
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
 
       - name: install react 16
         if: ${{ matrix.react == '16' }}
@@ -315,18 +213,6 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3
 
-      - name: restore cache from package-lock.json
-        uses: actions/cache@v3
-        with:
-          path: package-temp-dir
-          key: lock-${{ github.sha }}
-
-      - name: restore cache from node_modules
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
-
       - name: cache lib
         uses: actions/cache@v3
         with:
@@ -360,22 +246,6 @@ jobs:
         # lib only run in master branch not in pull request
         if: ${{ github.event_name != 'pull_request' || matrix.module != 'lib' }}
         uses: actions/checkout@v3
-
-      - name: restore cache from package-lock.json
-        # lib only run in master branch not in pull request
-        if: ${{ github.event_name != 'pull_request' || matrix.module != 'lib' }}
-        uses: actions/cache@v3
-        with:
-          path: package-temp-dir
-          key: lock-${{ github.sha }}
-
-      - name: restore cache from node_modules
-        # lib only run in master branch not in pull request
-        if: ${{ github.event_name != 'pull_request' || matrix.module != 'lib' }}
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
 
       - name: restore cache from ${{ matrix.module }}
         # lib only run in master branch not in pull request

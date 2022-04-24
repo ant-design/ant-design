@@ -23,30 +23,12 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3
 
-      - name: cache package-lock.json
-        uses: actions/cache@v3
+      - uses: actions/setup-node@v3
         with:
-          path: package-temp-dir
-          key: lock-${{ github.sha }}
-
-      - name: create package-lock.json
-        run: npm i --package-lock-only --ignore-scripts
-
-      - name: hack for single file
-        run: |
-          if [ ! -d "package-temp-dir" ]; then
-            mkdir package-temp-dir
-          fi
-          cp package-lock.json package-temp-dir
-      - name: cache node_modules
-        id: node_modules_cache_id
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
+          node-version: '16'
+          cache: 'npm'
 
       - name: install
-        if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
         run: npm ci
 
   build-site:
@@ -56,18 +38,6 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
-
-      - name: restore cache from package-lock.json
-        uses: actions/cache@v3
-        with:
-          path: package-temp-dir
-          key: lock-${{ github.sha }}
-
-      - name: restore cache from node_modules
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
 
       - name: npm run site
         id: site
