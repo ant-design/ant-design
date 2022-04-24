@@ -10,7 +10,7 @@ export type OverrideComponent = keyof OverrideTokenWithoutDerivative;
 export type GlobalTokenWithComponent<ComponentName extends OverrideComponent> = GlobalToken &
   OverrideToken[ComponentName];
 
-interface StyleConfig {
+export interface StyleConfig {
   style?: boolean;
 }
 
