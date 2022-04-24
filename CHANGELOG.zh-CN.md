@@ -25,7 +25,6 @@ timeline: true
   - 🐞 修复 BackTop 组件在严格模式下不能正常工作的问题。[#34858](https://github.com/ant-design/ant-design/pull/34858) [@tmkx](https://github.com/tmkx)
 - 🔥 新增组件 Segmented。[#34319](https://github.com/ant-design/ant-design/pull/34319)
   - 🛠 v4.20.0 正式版 `Segemented` 的 props `onChange` 回调函数的参数从 `ChangeEvent` (v4.20.0-alpha.0、v4.20.0-alpha.1) 调整为 `value`，以简化 API。[#35187](https://github.com/ant-design/ant-design/pull/35187) [@vagusX](https://github.com/vagusX)
-  - 💄 `Segmented` 支持 rtl 样式。[#35188](https://github.com/ant-design/ant-design/pull/35188) [@vagusX](https://github.com/vagusX)
 - Form
   - 🔥 Form 添加 `useWatch` 支持获取当前字段值。[#35036](https://github.com/ant-design/ant-design/pull/35036)
   - 🆕 Form 支持 `useFormInstance` 以获取当前上下文中的 Form 实例。[#35039](https://github.com/ant-design/ant-design/pull/35039)
@@ -80,8 +79,7 @@ timeline: true
   - 🐞 箭头圆角使用固定值 2px 变量。[#35086](https://github.com/ant-design/ant-design/pull/35086) [@MadCcc](https://github.com/MadCcc)
 - TypeScript
   - 🤖 修正 Upload 组件中 `UploadChangeParam<T>` 内部 `fileList` 不使用泛型问题。[#35158](https://github.com/ant-design/ant-design/pull/35158) [@rendaoer](https://github.com/rendaoer)
-  - 🤖 更新 Steps TypeScript 定义以兼容 `@types/react@18`。[#35076](https://github.com/ant-design/ant-design/pull/35076) [@littledian](https://github.com/littledian)
-  - 🤖 更新 TypeScript 定义以兼容 `@types/react@18`。[#35075](https://github.com/ant-design/ant-design/pull/35075) [@AliRezaBeigy](https://github.com/AliRezaBeigy)
+  - 🤖 更新 TypeScript 定义以兼容 `@types/react@18`。[#35075](https://github.com/ant-design/ant-design/pull/35075) [@AliRezaBeigy](https://github.com/AliRezaBeigy) [#35076](https://github.com/ant-design/ant-design/pull/35076) [@littledian](https://github.com/littledian)
 
 ## 4.19.5
 
