@@ -30,6 +30,7 @@ interface CopyConfig {
   onCopy?: (event?: React.MouseEvent<HTMLDivElement>) => void;
   icon?: React.ReactNode;
   tooltips?: boolean | React.ReactNode;
+  format?: 'text/plain' | 'text/html';
 }
 
 interface EditConfig {
@@ -189,6 +190,11 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
   const [copied, setCopied] = React.useState(false);
   const copyIdRef = React.useRef<NodeJS.Timeout>();
 
+  const copyOptions: Pick<CopyConfig, 'format'> = {};
+  if (copyConfig.format) {
+    copyOptions.format = copyConfig.format;
+  }
+
   const cleanCopyId = () => {
     clearTimeout(copyIdRef.current!);
   };
@@ -197,7 +203,7 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
     e?.preventDefault();
     e?.stopPropagation();
 
-    copy(copyConfig.text || String(children) || '');
+    copy(copyConfig.text || String(children) || '', copyOptions);
 
     setCopied(true);
 
