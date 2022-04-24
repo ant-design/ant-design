@@ -23,7 +23,7 @@ timeline: true
   - 🐞 Fix Form with React 18 StrictMode missing error message update. [#35096](https://github.com/ant-design/ant-design/pull/35096)
   - 🐞 Fix Notification and Message throw `createRoot` warning in React 18. [#35030](https://github.com/ant-design/ant-design/pull/35030)
   - 🐞 Fix BackTop not working in StrictMode. [#34858](https://github.com/ant-design/ant-design/pull/34858) [@tmkx](https://github.com/tmkx)
-- 🔥 Add new component Segmented. [#34319](https://github.com/ant-design/ant-design/pull/34319)
+- 🔥 New component Segmented. [#34319](https://github.com/ant-design/ant-design/pull/34319)
   - 🛠 Since v4.20.0 `Segemented` props `onChange` callback function parameter adjusted from `ChangeEvent` (v4.20.0-alpha.0, v4.20.0-alpha.1) to `value` to simplify API. [#35187](https://github.com/ant-design/ant-design/pull/35187) [@vagusX](https://github.com/vagusX)
 - Form
   - 🔥 Form support `useWatch` to get current field value. [#35036](https://github.com/ant-design/ant-design/pull/35036)

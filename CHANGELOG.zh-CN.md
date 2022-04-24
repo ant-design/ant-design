@@ -23,7 +23,7 @@ timeline: true
   - 🐞 修复 Form 在 React 18 的 StrictMode 下，错误信息无法更新的问题。[#35096](https://github.com/ant-design/ant-design/pull/35096)
   - 🐞 修复 Notification 和 Message 在 React 18 下抛出使用 `createRoot` 的警告信息。[#35030](https://github.com/ant-design/ant-design/pull/35030)
   - 🐞 修复 BackTop 组件在严格模式下不能正常工作的问题。[#34858](https://github.com/ant-design/ant-design/pull/34858) [@tmkx](https://github.com/tmkx)
-- 🔥 新增组件 Segmented。[#34319](https://github.com/ant-design/ant-design/pull/34319)
+- 🔥 新增 Segmented 分段控制器组件。[#34319](https://github.com/ant-design/ant-design/pull/34319)
   - 🛠 4.20.0 正式版后，Segemented 的 `onChange` 回调函数的参数从 `ChangeEvent` 调整为 `value`。如果你使用了 `4.20.0-alpha.0` `4.20.0-alpha.1`，请注意这个变化。[#35187](https://github.com/ant-design/ant-design/pull/35187) [@vagusX](https://github.com/vagusX)
 - Form
   - 🔥 Form 添加 `useWatch` 支持获取当前字段值。[#35036](https://github.com/ant-design/ant-design/pull/35036)
