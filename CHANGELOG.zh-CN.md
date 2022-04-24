@@ -17,7 +17,7 @@ timeline: true
 
 ## 4.20.0
 
-`2022-04-20`
+`2022-04-24`
 
 - 🔥 支持 React 18 以及严格模式。
   - 🐞 修复 Form 在 React 18 的 StrictMode 下，错误信息无法更新的问题。[#35096](https://github.com/ant-design/ant-design/pull/35096)

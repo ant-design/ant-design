@@ -17,7 +17,7 @@ timeline: true
 
 ## 4.20.0
 
-`2022-04-20`
+`2022-04-24`
 
 - 🔥 React 18 Support
   - 🐞 Fix Form with React 18 StrictMode missing error message update. [#35096](https://github.com/ant-design/ant-design/pull/35096)
