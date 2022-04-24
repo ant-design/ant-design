@@ -49,6 +49,8 @@ return <Menu items={items} />;
 </Menu>;
 ```
 
+`<4.20.0` 版本的 JSX 演示写法可以参考 [https://github.com/ant-design/ant-design/tree/4.19.5/components/menu/demo](https://github.com/ant-design/ant-design/tree/4.19.5/components/menu/demo)。
+
 ## API
 
 ### Menu

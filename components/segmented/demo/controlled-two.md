@@ -22,17 +22,9 @@ const Demo = () => {
   const [foo, setFoo] = useState('AND');
   return (
     <>
-      <Segmented
-        value={foo}
-        options={['AND', 'OR', 'NOT']}
-        onChange={e => setFoo(e.target.value)}
-      />
+      <Segmented value={foo} options={['AND', 'OR', 'NOT']} onChange={setFoo} />
       &nbsp;&nbsp;
-      <Segmented
-        value={foo}
-        options={['AND', 'OR', 'NOT']}
-        onChange={e => setFoo(e.target.value)}
-      />
+      <Segmented value={foo} options={['AND', 'OR', 'NOT']} onChange={value => setFoo(value)} />
     </>
   );
 };
