@@ -52,6 +52,8 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
     controlPaddingHorizontal,
   } = token;
 
+  const menuCls = `${componentCls}-menu`;
+
   return [
     {
       [componentCls]: {
@@ -200,13 +202,70 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
         },
 
         // =============================================================
-        // ==                          Menu                           ==
+        // ==                         Motion                          ==
         // =============================================================
-        [`${componentCls}-menu`]: {
-          position: 'relative',
-          margin: 0,
+        // When position is not enough for dropdown, the placement will revert.
+        // We will handle this with revert motion name.
+        [`&${antCls}-slide-down-enter${antCls}-slide-down-enter-active&-placement-bottomLeft,
+          &${antCls}-slide-down-appear${antCls}-slide-down-appear-active&-placement-bottomLeft
+          &${antCls}-slide-down-enter${antCls}-slide-down-enter-active&-placement-bottom,
+          &${antCls}-slide-down-appear${antCls}-slide-down-appear-active&-placement-bottom,
+          &${antCls}-slide-down-enter${antCls}-slide-down-enter-active&-placement-bottomRight,
+          &${antCls}-slide-down-appear${antCls}-slide-down-appear-active&-placement-bottomRight`]: {
+          animationName: slideUpIn,
+        },
+
+        [`&${antCls}-slide-up-enter${antCls}-slide-up-enter-active&-placement-topLeft,
+          &${antCls}-slide-up-appear${antCls}-slide-up-appear-active&-placement-topLeft,
+          &${antCls}-slide-up-enter${antCls}-slide-up-enter-active&-placement-top,
+          &${antCls}-slide-up-appear${antCls}-slide-up-appear-active&-placement-top,
+          &${antCls}-slide-up-enter${antCls}-slide-up-enter-active&-placement-topRight,
+          &${antCls}-slide-up-appear${antCls}-slide-up-appear-active&-placement-topRight`]: {
+          animationName: slideDownIn,
+        },
+
+        [`&${antCls}-slide-down-leave${antCls}-slide-down-leave-active&-placement-bottomLeft,
+          &${antCls}-slide-down-leave${antCls}-slide-down-leave-active&-placement-bottom,
+          &${antCls}-slide-down-leave${antCls}-slide-down-leave-active&-placement-bottomRight`]: {
+          animationName: slideUpOut,
+        },
+
+        [`&${antCls}-slide-up-leave${antCls}-slide-up-leave-active&-placement-topLeft,
+          &${antCls}-slide-up-leave${antCls}-slide-up-leave-active&-placement-top,
+          &${antCls}-slide-up-leave${antCls}-slide-up-leave-active&-placement-topRight`]: {
+          animationName: slideDownOut,
+        },
+      },
+    },
+
+    {
+      // =============================================================
+      // ==                          Menu                           ==
+      // =============================================================
+      [`${componentCls} ${menuCls}`]: {
+        position: 'relative',
+        margin: 0,
+      },
+
+      [`${menuCls}-submenu-popup`]: {
+        position: 'absolute',
+        zIndex: zIndexDropdown,
+        background: 'transparent',
+        boxShadow: 'none',
+        transformOrigin: '0 0',
+
+        'ul,li': {
+          listStyle: 'none',
+        },
+
+        ul: {
+          marginInline: '0.3em',
+        },
+      },
+
+      [`${componentCls}, ${componentCls}-menu-submenu`]: {
+        [menuCls]: {
           padding: `${dropdownEdgeChildVerticalPadding}px 0`,
-          //     text-align: left;
           listStyleType: 'none',
           backgroundColor: colorBgComponent,
           backgroundClip: 'padding-box',
@@ -214,42 +273,26 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
           outline: 'none',
           boxShadow: token.boxShadow,
 
-          '&-item-group-title': {
+          [`${menuCls}-item-group-title`]: {
             padding: `${dropdownPaddingVertical}px ${controlPaddingHorizontal}px`,
             color: token.colorTextSecondary,
             transition: `all ${motionDurationSlow}`,
           },
 
-          [`&-submenu-popup`]: {
-            position: 'absolute',
-            zIndex: zIndexDropdown,
-            background: 'transparent',
-            boxShadow: 'none',
-            transformOrigin: '0 0',
-
-            'ul,li': {
-              listStyle: 'none',
-            },
-
-            ul: {
-              marginInline: '0.3em',
-            },
-          },
-
           // ======================= Item Content =======================
-          '&-item': {
+          [`${menuCls}-item`]: {
             position: 'relative',
             display: 'flex',
             alignItems: 'center',
           },
 
-          '&-item-icon': {
+          [`${menuCls}-item-icon`]: {
             minWidth: fontSizeBase,
             marginInlineEnd: token.marginXS,
             fontSize: token.fontSizeSM,
           },
 
-          '&-title-content': {
+          [`${menuCls}-title-content`]: {
             flex: 'auto',
 
             '> a': {
@@ -269,7 +312,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
           },
 
           // =========================== Item ===========================
-          '&-item, &-submenu-title': {
+          [`${menuCls}-item, ${menuCls}-submenu-title`]: {
             clear: 'both',
             margin: 0,
             padding: `${dropdownPaddingVertical}px ${controlPaddingHorizontal}px`,
@@ -337,21 +380,21 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
             },
           },
 
-          '&-item-group-list': {
+          [`${menuCls}-item-group-list`]: {
             margin: `0 ${token.marginXS}px`,
             padding: 0,
             listStyle: 'none',
           },
 
-          '&-submenu-title': {
+          [`${menuCls}-submenu-title`]: {
             paddingInlineEnd: controlPaddingHorizontal + token.fontSizeSM,
           },
 
-          '&-submenu-vertical': {
+          [`${menuCls}-submenu-vertical`]: {
             position: 'relative',
           },
 
-          [`&-submenu&-submenu-disabled ${componentCls}-menu-submenu-title`]: {
+          [`${menuCls}-submenu${menuCls}-submenu-disabled ${componentCls}-menu-submenu-title`]: {
             [`&, ${componentCls}-menu-submenu-arrow-icon`]: {
               color: colorTextDisabled,
               backgroundColor: colorBgComponent,
@@ -360,44 +403,9 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
           },
 
           // https://github.com/ant-design/ant-design/issues/19264
-          [`&-submenu-selected ${componentCls}-menu-submenu-title`]: {
+          [`${menuCls}-submenu-selected ${componentCls}-menu-submenu-title`]: {
             color: token.colorPrimary,
           },
-        },
-
-        // =============================================================
-        // ==                         Motion                          ==
-        // =============================================================
-        // When position is not enough for dropdown, the placement will revert.
-        // We will handle this with revert motion name.
-        [`&${antCls}-slide-down-enter${antCls}-slide-down-enter-active&-placement-bottomLeft,
-          &${antCls}-slide-down-appear${antCls}-slide-down-appear-active&-placement-bottomLeft
-          &${antCls}-slide-down-enter${antCls}-slide-down-enter-active&-placement-bottom,
-          &${antCls}-slide-down-appear${antCls}-slide-down-appear-active&-placement-bottom,
-          &${antCls}-slide-down-enter${antCls}-slide-down-enter-active&-placement-bottomRight,
-          &${antCls}-slide-down-appear${antCls}-slide-down-appear-active&-placement-bottomRight`]: {
-          animationName: slideUpIn,
-        },
-
-        [`&${antCls}-slide-up-enter${antCls}-slide-up-enter-active&-placement-topLeft,
-          &${antCls}-slide-up-appear${antCls}-slide-up-appear-active&-placement-topLeft,
-          &${antCls}-slide-up-enter${antCls}-slide-up-enter-active&-placement-top,
-          &${antCls}-slide-up-appear${antCls}-slide-up-appear-active&-placement-top,
-          &${antCls}-slide-up-enter${antCls}-slide-up-enter-active&-placement-topRight,
-          &${antCls}-slide-up-appear${antCls}-slide-up-appear-active&-placement-topRight`]: {
-          animationName: slideDownIn,
-        },
-
-        [`&${antCls}-slide-down-leave${antCls}-slide-down-leave-active&-placement-bottomLeft,
-          &${antCls}-slide-down-leave${antCls}-slide-down-leave-active&-placement-bottom,
-          &${antCls}-slide-down-leave${antCls}-slide-down-leave-active&-placement-bottomRight`]: {
-          animationName: slideUpOut,
-        },
-
-        [`&${antCls}-slide-up-leave${antCls}-slide-up-leave-active&-placement-topLeft,
-          &${antCls}-slide-up-leave${antCls}-slide-up-leave-active&-placement-top,
-          &${antCls}-slide-up-leave${antCls}-slide-up-leave-active&-placement-topRight`]: {
-          animationName: slideDownOut,
         },
       },
     },
