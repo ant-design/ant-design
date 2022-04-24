@@ -3,9 +3,9 @@ import { CSSInterpolation, Theme, useCacheToken, useStyleRegister } from '@ant-d
 import genComponentStyleHook from './util/genComponentStyleHook';
 import defaultSeedToken, { derivative as defaultDerivative } from './themes/default';
 import version from '../../version';
-import { resetComponent, resetIcon, clearFix, roundedArrow } from './util';
+import { resetComponent, resetIcon, clearFix, roundedArrow, operationUnit } from './util';
 import formatToken from './util/alias';
-import statisticToken, { merge as mergeToken } from './util/statistic';
+import statisticToken, { merge as mergeToken, statistic } from './util/statistic';
 import { GlobalToken, PresetColors } from './interface';
 import type {
   SeedToken,
@@ -17,16 +17,20 @@ import type {
 import type { FullToken } from './util/genComponentStyleHook';
 
 export {
-  PresetColors,
+  // css utils
   resetComponent,
   resetIcon,
   clearFix,
   roundedArrow,
-  useStyleRegister,
+  operationUnit,
+  // colors
+  PresetColors,
   // Statistic
+  statistic,
   statisticToken,
   mergeToken,
-  // GenComponentStyleHook
+  // hooks
+  useStyleRegister,
   genComponentStyleHook,
 };
 
