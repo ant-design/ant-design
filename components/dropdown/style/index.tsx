@@ -15,7 +15,7 @@ import {
   slideDownOut,
 } from '../../style/motion';
 import genButtonStyle from './button';
-import genDarkStyle from './dark';
+import genStatusStyle from './status';
 
 export interface ComponentToken {
   zIndexDropdown: number;
@@ -433,7 +433,7 @@ export default genComponentStyleHook(
     return [
       genBaseStyle(dropdownToken),
       genButtonStyle(dropdownToken),
-      genDarkStyle(dropdownToken),
+      genStatusStyle(dropdownToken),
     ];
   },
   token => ({
