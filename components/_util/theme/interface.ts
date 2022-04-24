@@ -12,6 +12,7 @@ import type { ComponentToken as BackTopComponentToken } from '../../back-top/sty
 import type { ComponentToken as DatePickerComponentToken } from '../../date-picker/style';
 import type { ComponentToken as TimelineComponentToken } from '../../timeline/style';
 import type { ComponentToken as MenuComponentToken } from '../../menu/style';
+import type { ComponentToken as CarouselComponentToken } from '../../carousel/style';
 
 export const PresetColors = [
   'blue',
@@ -49,7 +50,7 @@ export interface OverrideToken {
   BackTop?: BackTopComponentToken;
   Badge?: {};
   Button?: ButtonComponentToken;
-  Carousel?: {};
+  Carousel?: CarouselComponentToken;
   Cascader?: CascaderComponentToken;
   Checkbox?: {};
   DatePicker?: DatePickerComponentToken;
