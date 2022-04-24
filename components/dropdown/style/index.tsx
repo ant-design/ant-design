@@ -27,6 +27,7 @@ export interface DropdownToken extends FullToken<'Dropdown'> {
   dropdownArrowOffset: number;
   dropdownPaddingVertical: number;
   dropdownEdgeChildVerticalPadding: number;
+  menuCls: string;
 }
 
 // =============================== Base ===============================
@@ -34,6 +35,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
   const {
     rootPrefixCls,
     componentCls,
+    menuCls,
     zIndexDropdown,
     dropdownArrowDistance,
     dropdownArrowOffset,
@@ -51,8 +53,6 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
     fontSizeIcon,
     controlPaddingHorizontal,
   } = token;
-
-  const menuCls = `${componentCls}-menu`;
 
   return [
     {
@@ -426,12 +426,20 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
 export default genComponentStyleHook(
   'Dropdown',
   (token, { rootPrefixCls }) => {
-    const { marginXXS, sizePopupArrow, controlHeight, fontSizeBase, lineHeight, paddingXXS } =
-      token;
+    const {
+      marginXXS,
+      sizePopupArrow,
+      controlHeight,
+      fontSizeBase,
+      lineHeight,
+      paddingXXS,
+      componentCls,
+    } = token;
 
     const dropdownPaddingVertical = (controlHeight - fontSizeBase * lineHeight) / 2;
 
     const dropdownToken = mergeToken<DropdownToken>(token, {
+      menuCls: `${componentCls}-menu`,
       rootPrefixCls,
       dropdownArrowDistance: sizePopupArrow + marginXXS,
       dropdownArrowOffset: (sizePopupArrow / Math.sqrt(2)) * 2,
