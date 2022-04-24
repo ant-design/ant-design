@@ -48,6 +48,8 @@ return <Menu items={items} />;
 </Menu>;
 ```
 
+The legacy demo code for version `<4.20.0` could be found at [https://github.com/ant-design/ant-design/tree/4.19.5/components/menu/demo](https://github.com/ant-design/ant-design/tree/4.19.5/components/menu/demo).
+
 ## API
 
 ### Menu
