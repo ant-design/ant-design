@@ -6,6 +6,8 @@ on:
   push:
     branches:
       - master
+      - next
+      - feature
 
 # Cancel prev CI if new commit come
 concurrency:
@@ -13,7 +15,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  test:
+  imagesnapshot:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
