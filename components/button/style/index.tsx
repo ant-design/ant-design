@@ -3,6 +3,7 @@ import { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 import { mergeToken, genComponentStyleHook } from '../../_util/theme';
 import type { GenerateStyle, FullToken } from '../../_util/theme';
+import genGroupStyle from './group';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -10,7 +11,7 @@ export interface ComponentToken {
   colorBgTextActive: string;
 }
 
-interface ButtonToken extends FullToken<'Button'> {}
+export interface ButtonToken extends FullToken<'Button'> {}
 
 // ============================== Shared ==============================
 const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSSObject => {
@@ -383,6 +384,9 @@ export default genComponentStyleHook(
 
     // Group (type, ghost, danger, disabled, loading)
     genTypeButtonStyle(token),
+
+    // Button Group
+    genGroupStyle(token),
   ],
   token => {
     const { colorText } = token;
