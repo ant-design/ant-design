@@ -28,24 +28,17 @@ const genMotionStyle: GenerateStyle<FullToken<'Upload'>> = token => {
   return [
     {
       [`${componentCls}-wrapper`]: {
-        [`
-        ${inlineCls}-appear,
-        ${inlineCls}-enter,
-        ${inlineCls}-leave
-      `]: {
+        [`${inlineCls}-appear, ${inlineCls}-enter, ${inlineCls}-leave`]: {
           animationDuration: token.motionDurationSlow,
           animationFillMode: token.motionEaseInOutCirc,
         },
 
-        [`
-        ${inlineCls}-appear,
-        ${inlineCls}-enter
-      `]: {
-          animationName: `${uploadAnimateInlineIn}`,
+        [`${inlineCls}-appear, ${inlineCls}-enter`]: {
+          animationName: uploadAnimateInlineIn,
         },
 
         [`${inlineCls}-leave`]: {
-          animationName: `${uploadAnimateInlineOut}`,
+          animationName: uploadAnimateInlineOut,
         },
       },
     },
