@@ -85,4 +85,17 @@ describe('Form.typescript', () => {
 
     expect(Demo).toBeTruthy();
   });
+  it('useWatch', () => {
+    const Demo = () => {
+      const [form] = Form.useForm<{ name: string; age: number }>();
+      const nameValue = Form.useWatch(['name'], form);
+      return (
+        <Form form={form}>
+          <Form.Item name="name" />
+          {nameValue}
+        </Form>
+      );
+    };
+    expect(Demo).toBeTruthy();
+  });
 });

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useMemo } from 'react';
 import classNames from 'classnames';
-import FieldForm, { List, useWatch } from 'rc-field-form';
+import FieldForm, { List } from 'rc-field-form';
 import { FormProps as RcFormProps } from 'rc-field-form/lib/Form';
 import { ValidateErrorEntity } from 'rc-field-form/lib/interface';
 import { Options } from 'scroll-into-view-if-needed';
@@ -11,6 +11,7 @@ import { FormContext, FormContextProps } from './context';
 import { FormLabelAlign } from './interface';
 import useForm, { FormInstance } from './hooks/useForm';
 import SizeContext, { SizeType, SizeContextProvider } from '../config-provider/SizeContext';
+import useWatch from './hooks/useWatch';
 
 export type RequiredMark = boolean | 'optional';
 export type FormLayout = 'horizontal' | 'inline' | 'vertical';
