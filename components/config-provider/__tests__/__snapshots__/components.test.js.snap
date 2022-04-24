@@ -12875,7 +12875,7 @@ exports[`ConfigProvider components Dropdown normal 1`] = `
 
 exports[`ConfigProvider components Dropdown prefixCls 1`] = `
 <div
-  class="ant-btn-group prefix-Dropdown"
+  class="ant-btn-group prefix-Dropdown-button"
 >
   <button
     class="ant-btn ant-btn-default"
