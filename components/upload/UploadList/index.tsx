@@ -6,13 +6,13 @@ import PaperClipOutlined from '@ant-design/icons/PaperClipOutlined';
 import PictureTwoTone from '@ant-design/icons/PictureTwoTone';
 import FileTwoTone from '@ant-design/icons/FileTwoTone';
 import { cloneElement, isValidElement } from '../../_util/reactNode';
-import { UploadListProps, UploadFile, UploadListType, InternalUploadFile } from '../interface';
 import { previewImage, isImageUrl } from '../utils';
 import collapseMotion from '../../_util/motion';
 import { ConfigContext } from '../../config-provider';
 import Button, { ButtonProps } from '../../button';
 import useForceUpdate from '../../_util/hooks/useForceUpdate';
 import ListItem from './ListItem';
+import type { UploadListProps, UploadFile, UploadListType, InternalUploadFile } from '../interface';
 
 const listItemMotion: Partial<CSSMotionListProps> = {
   ...collapseMotion,
@@ -44,6 +44,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
     appendAction,
     appendActionVisible,
     itemRender,
+    className,
   },
   ref,
 ) => {
@@ -133,7 +134,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
           customIcon.props.onClick(e);
         }
       },
-      className: `${prefixCls}-list-item-card-actions-btn`,
+      className: `${prefixCls}-list-item-action`,
     };
     if (isValidElement(customIcon)) {
       const btnIcon = cloneElement(customIcon, {
@@ -157,16 +158,18 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
     handleDownload: onInternalDownload,
   }));
 
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls } = React.useContext(ConfigContext);
 
   // ============================= Render =============================
   const prefixCls = getPrefixCls('upload', customizePrefixCls);
 
-  const listClassNames = classNames({
-    [`${prefixCls}-list`]: true,
-    [`${prefixCls}-list-${listType}`]: true,
-    [`${prefixCls}-list-rtl`]: direction === 'rtl',
-  });
+  const listClassNames = classNames(
+    {
+      [`${prefixCls}-list`]: true,
+      [`${prefixCls}-list-${listType}`]: true,
+    },
+    className,
+  );
 
   // >>> Motion config
   const motionKeyList = [
