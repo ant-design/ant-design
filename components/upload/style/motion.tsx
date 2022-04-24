@@ -21,7 +21,7 @@ const uploadAnimateInlineOut = new Keyframes('uploadAnimateInlineOut', {
   },
 });
 // =========================== Motion ===========================
-const genMotionStyle: GenerateStyle<FullToken<'Upload'>> = (token, hashId) => {
+const genMotionStyle: GenerateStyle<FullToken<'Upload'>> = token => {
   const { componentCls } = token;
   const inlineCls = `${componentCls}-animate-inline`;
 
@@ -41,11 +41,11 @@ const genMotionStyle: GenerateStyle<FullToken<'Upload'>> = (token, hashId) => {
         ${inlineCls}-appear,
         ${inlineCls}-enter
       `]: {
-          animationName: `${uploadAnimateInlineIn.getName(hashId)}`,
+          animationName: `${uploadAnimateInlineIn}`,
         },
 
         [`${inlineCls}-leave`]: {
-          animationName: `${uploadAnimateInlineOut.getName(hashId)}`,
+          animationName: `${uploadAnimateInlineOut}`,
         },
       },
     },

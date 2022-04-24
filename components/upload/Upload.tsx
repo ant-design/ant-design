@@ -341,7 +341,6 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
           return (
             <UploadList
               prefixCls={prefixCls}
-              className={hashId}
               listType={listType}
               items={mergedFileList}
               previewFile={previewFile}

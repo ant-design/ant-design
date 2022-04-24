@@ -42,13 +42,13 @@ const genBaseStyle: GenerateStyle<FullToken<'Upload'>> = token => {
 // ============================== Export ==============================
 export default genComponentStyleHook(
   'Upload',
-  (token, { hashId }) => [
+  token => [
     genBaseStyle(token),
     genDraggerStyle(token),
     genPictureStyle(token),
     genPictureCardStyle(token),
     genListStyle(token),
-    genMotionStyle(token, hashId),
+    genMotionStyle(token),
     genRtlStyle(token),
   ],
   token => ({
