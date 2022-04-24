@@ -35,15 +35,14 @@ function getGroup(props) {
   );
 }
 
-ReactDOM.render(
+export default () => (
   <>
     {getGroup({ size: 'small' })}
     <br />
     {getGroup()}
     <br />
     {getGroup({ size: 'large' })}
-  </>,
-  mountNode,
+  </>
 );
 ```
 

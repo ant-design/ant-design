@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount, render } from 'enzyme';
+import { mount } from 'enzyme';
 import PageHeader from '..';
 import Breadcrumb from '../../breadcrumb';
 import ConfigProvider from '../../config-provider';
@@ -109,15 +109,13 @@ describe('PageHeader', () => {
   });
 
   it('pageHeader should support className', () => {
-    const wrapper = render(
-      <PageHeader title="Page Title" className="not-works" backIcon={false} />,
-    );
-    expect(wrapper).toMatchSnapshot();
+    const wrapper = mount(<PageHeader title="Page Title" className="not-works" backIcon={false} />);
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('pageHeader should not render blank dom', () => {
-    const wrapper = render(<PageHeader title={false} />);
-    expect(wrapper).toMatchSnapshot();
+    const wrapper = mount(<PageHeader title={false} />);
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('breadcrumbs and back icon can coexist', () => {
@@ -149,7 +147,7 @@ describe('PageHeader', () => {
       </ConfigProvider>,
     );
 
-    expect(render(wrapper)).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('change container width', async () => {

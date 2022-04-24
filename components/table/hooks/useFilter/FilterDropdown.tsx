@@ -4,6 +4,7 @@ import isEqual from 'lodash/isEqual';
 import FilterFilled from '@ant-design/icons/FilterFilled';
 import Button from '../../../button';
 import Menu from '../../../menu';
+import type { MenuProps } from '../../../menu';
 import Tree from '../../../tree';
 import type { DataNode, EventDataNode } from '../../../tree';
 import Checkbox from '../../../checkbox';
@@ -55,42 +56,42 @@ function renderFilterItems({
   filterMultiple: boolean;
   searchValue: string;
   filterSearch: FilterSearchType;
-}) {
+}): Required<MenuProps>['items'] {
   return filters.map((filter, index) => {
     const key = String(filter.value);
 
     if (filter.children) {
-      return (
-        <Menu.SubMenu
-          key={key || index}
-          title={filter.text}
-          popupClassName={`${prefixCls}-dropdown-submenu`}
-        >
-          {renderFilterItems({
-            filters: filter.children,
-            prefixCls,
-            filteredKeys,
-            filterMultiple,
-            searchValue,
-            filterSearch,
-          })}
-        </Menu.SubMenu>
-      );
+      return {
+        key: key || index,
+        label: filter.text,
+        popupClassName: `${prefixCls}-dropdown-submenu`,
+        children: renderFilterItems({
+          filters: filter.children,
+          prefixCls,
+          filteredKeys,
+          filterMultiple,
+          searchValue,
+          filterSearch,
+        }),
+      };
     }
 
     const Component = filterMultiple ? Checkbox : Radio;
 
-    const item = (
-      <Menu.Item key={filter.value !== undefined ? key : index}>
-        <Component checked={filteredKeys.includes(key)} />
-        <span>{filter.text}</span>
-      </Menu.Item>
-    );
+    const item = {
+      key: filter.value !== undefined ? key : index,
+      label: (
+        <>
+          <Component checked={filteredKeys.includes(key)} />
+          <span>{filter.text}</span>
+        </>
+      ),
+    };
     if (searchValue.trim()) {
       if (typeof filterSearch === 'function') {
-        return filterSearch(searchValue, filter) ? item : undefined;
+        return filterSearch(searchValue, filter) ? item : null;
       }
-      return searchValueMatched(searchValue, filter.text) ? item : undefined;
+      return searchValueMatched(searchValue, filter.text) ? item : null;
     }
     return item;
   });
@@ -110,6 +111,7 @@ export interface FilterDropdownProps<RecordType> {
   triggerFilter: (filterState: FilterState<RecordType>) => void;
   locale: TableLocale;
   getPopupContainer?: GetPopupContainer;
+  filterResetToDefaultFilteredValue?: boolean;
 }
 
 function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
@@ -129,7 +131,12 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     getPopupContainer,
   } = props;
 
-  const { filterDropdownVisible, onFilterDropdownVisibleChange } = column;
+  const {
+    filterDropdownVisible,
+    onFilterDropdownVisibleChange,
+    filterResetToDefaultFilteredValue,
+    defaultFilteredValue,
+  } = column;
   const [visible, setVisible] = React.useState(false);
 
   const filtered: boolean = !!(
@@ -230,8 +237,14 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     if (closeDropdown) {
       triggerVisible(false);
     }
+
     setSearchValue('');
-    setFilteredKeysSync([]);
+
+    if (filterResetToDefaultFilteredValue) {
+      setFilteredKeysSync((defaultFilteredValue || []).map(key => String(key)));
+    } else {
+      setFilteredKeysSync([]);
+    }
   };
 
   const doFilter = ({ closeDropdown } = { closeDropdown: true }) => {
@@ -381,8 +394,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
             getPopupContainer={getPopupContainer}
             openKeys={openKeys}
             onOpenChange={onOpenChange}
-          >
-            {renderFilterItems({
+            items={renderFilterItems({
               filters: column.filters || [],
               filterSearch,
               prefixCls,
@@ -390,7 +402,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
               filterMultiple,
               searchValue,
             })}
-          </Menu>
+          />
         </>
       );
     };

@@ -14,34 +14,69 @@ title:
 The menu has multiple levels.
 
 ```jsx
-import { Menu, Dropdown } from 'antd';
+import { Menu, Dropdown, Space } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 
 const { SubMenu } = Menu;
 
 const menu = (
-  <Menu>
-    <Menu.ItemGroup title="Group title">
-      <Menu.Item>1st menu item</Menu.Item>
-      <Menu.Item>2nd menu item</Menu.Item>
-    </Menu.ItemGroup>
-    <SubMenu title="sub menu">
-      <Menu.Item>3rd menu item</Menu.Item>
-      <Menu.Item>4th menu item</Menu.Item>
-    </SubMenu>
-    <SubMenu title="disabled sub menu" disabled>
-      <Menu.Item>5d menu item</Menu.Item>
-      <Menu.Item>6th menu item</Menu.Item>
-    </SubMenu>
-  </Menu>
+  <Menu
+    items={[
+      {
+        type: 'group',
+        label: 'Group title',
+        children: [
+          {
+            key: '1',
+            label: '1st menu item',
+          },
+          {
+            key: '2',
+            label: '2nd menu item',
+          },
+        ],
+      },
+      {
+        key: 'sub',
+        label: 'sub menu',
+        children: [
+          {
+            key: '3',
+            label: '3rd menu item',
+          },
+          {
+            key: '4',
+            label: '4th menu item',
+          },
+        ],
+      },
+      {
+        label: 'disabled sub menu',
+        key: 'disabled',
+        disabled: true,
+        children: [
+          {
+            key: '5',
+            label: '5d menu item',
+          },
+          {
+            key: '6',
+            label: '6th menu item',
+          },
+        ],
+      },
+    ]}
+  />
 );
 
-ReactDOM.render(
+export default () => (
   <Dropdown overlay={menu}>
-    <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-      Cascading menu <DownOutlined />
+    <a onClick={e => e.preventDefault()}>
+      <Space>
+        Cascading menu
+        <DownOutlined />
+      </Space>
     </a>
-  </Dropdown>,
-  mountNode,
+  </Dropdown>
 );
 ```

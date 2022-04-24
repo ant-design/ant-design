@@ -6,8 +6,14 @@ on:
   issue_comment:
     types: [created, edited]
 
+permissions:
+  contents: read
+
 jobs:
   issue-remove-inactive:
+    permissions:
+      issues: write  # for actions-cool/issues-helper to update issues
+      pull-requests: write  # for actions-cool/issues-helper to update PRs
     runs-on: ubuntu-latest
     steps:
       - name: remove inactive

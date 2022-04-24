@@ -10,8 +10,13 @@ name: Release Helper
 on:
   create
 
+permissions:
+  contents: read
+
 jobs:
   release-helper:
+    permissions:
+      contents: write  # for actions-cool/release-helper to create releases
     if: github.event.ref_type == 'tag'
     runs-on: ubuntu-latest
     steps:

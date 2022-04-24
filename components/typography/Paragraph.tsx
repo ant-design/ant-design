@@ -5,6 +5,8 @@ export interface ParagraphProps extends BlockProps {
   onClick?: (e?: React.MouseEvent<HTMLDivElement>) => void;
 }
 
-const Paragraph: React.FC<ParagraphProps> = props => <Base {...props} component="div" />;
+const Paragraph: React.ForwardRefRenderFunction<HTMLDivElement, ParagraphProps> = (props, ref) => (
+  <Base ref={ref} {...props} component="div" />
+);
 
-export default Paragraph;
+export default React.forwardRef(Paragraph);

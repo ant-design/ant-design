@@ -28,7 +28,7 @@ const marks = {
   },
 };
 
-ReactDOM.render(
+export default () => (
   <>
     <h4>included=true</h4>
     <Slider marks={marks} defaultValue={37} />
@@ -42,8 +42,7 @@ ReactDOM.render(
 
     <h4>step=null</h4>
     <Slider marks={marks} step={null} defaultValue={37} />
-  </>,
-  mountNode,
+  </>
 );
 ```
 

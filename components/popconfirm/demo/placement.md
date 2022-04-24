@@ -22,7 +22,7 @@ function confirm() {
   message.info('Clicked on Yes.');
 }
 
-ReactDOM.render(
+export default () => (
   <div className="demo">
     <div style={{ marginLeft: 70, whiteSpace: 'nowrap' }}>
       <Popconfirm placement="topLeft" title={text} onConfirm={confirm} okText="Yes" cancelText="No">
@@ -104,8 +104,7 @@ ReactDOM.render(
         <Button>BR</Button>
       </Popconfirm>
     </div>
-  </div>,
-  mountNode,
+  </div>
 );
 ```
 

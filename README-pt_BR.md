@@ -12,7 +12,7 @@ Uma solução empresarial de design e biblioteca UI para React.
 
 [![CI status][github-action-image]][github-action-url] [![codecov][codecov-image]][codecov-url] [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url]
 
-[![david deps][david-image]][david-url] [![david devDeps][david-dev-image]][david-dev-url] [![Total alerts][lgtm-image]][lgtm-url] [![][bundlesize-js-image]][unpkg-js-url] [![][bundlesize-css-image]][unpkg-css-url]
+[![Renovate status][renovate-image]][renovate-dashboard-url] [![Total alerts][lgtm-image]][lgtm-url] [![][bundlesize-js-image]][unpkg-js-url] [![][bundlesize-css-image]][unpkg-css-url]
 
 [![Follow Twitter][twitter-image]][twitter-url] [![FOSSA Status][fossa-image]][fossa-url] [![Discussions][discussions-image]][discussions-url] [![][issues-helper-image]][issues-helper-url] [![Issues need help][help-wanted-image]][help-wanted-url]
 
@@ -22,10 +22,6 @@ Uma solução empresarial de design e biblioteca UI para React.
 [github-action-url]: https://github.com/ant-design/ant-design/actions?query=workflow%3A%22%E2%9C%85+test%22
 [codecov-image]: https://img.shields.io/codecov/c/github/ant-design/ant-design/master.svg?style=flat-square
 [codecov-url]: https://codecov.io/gh/ant-design/ant-design/branch/master
-[david-image]: https://img.shields.io/david/ant-design/ant-design?style=flat-square
-[david-dev-url]: https://david-dm.org/ant-design/ant-design?type=dev
-[david-dev-image]: https://img.shields.io/david/dev/ant-design/ant-design?style=flat-square
-[david-url]: https://david-dm.org/ant-design/ant-design
 [download-image]: https://img.shields.io/npm/dm/antd.svg?style=flat-square
 [download-url]: https://npmjs.org/package/antd
 [lgtm-image]: https://flat.badgen.net/lgtm/alerts/g/ant-design/ant-design
@@ -44,6 +40,8 @@ Uma solução empresarial de design e biblioteca UI para React.
 [unpkg-css-url]: https://unpkg.com/browse/antd/dist/antd.min.css
 [issues-helper-image]: https://img.shields.io/badge/using-issues--helper-orange?style=flat-square
 [issues-helper-url]: https://github.com/actions-cool/issues-helper
+[renovate-image]: https://img.shields.io/badge/renovate-enabled-brightgreen.svg?style=flat-square
+[renovate-dashboard-url]: https://github.com/ant-design/ant-design/issues/32498
 
 </div>
 

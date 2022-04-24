@@ -35,5 +35,5 @@ function SpaceCustomizeSize() {
   );
 }
 
-ReactDOM.render(<SpaceCustomizeSize />, mountNode);
+export default () => <SpaceCustomizeSize />;
 ```

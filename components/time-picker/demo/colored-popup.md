@@ -22,13 +22,12 @@ const onChange = (time, timeString) => {
   console.log(time, timeString);
 };
 
-ReactDOM.render(
+export default () => (
   <TimePicker
     onChange={onChange}
     defaultOpenValue={moment('00:00:00', 'HH:mm:ss')}
     popupClassName="myCustomClassName"
-  />,
-  mountNode,
+  />
 );
 ```
 

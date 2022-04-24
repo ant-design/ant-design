@@ -84,12 +84,5 @@ class Avatar extends React.Component {
   }
 }
 
-ReactDOM.render(<Avatar />, mountNode);
-```
-
-```css
-.avatar-uploader > .ofs-upload {
-  width: 128px;
-  height: 128px;
-}
+export default Avatar;
 ```

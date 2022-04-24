@@ -26,7 +26,7 @@ const content = (
 
 const buttonWidth = 70;
 
-ReactDOM.render(
+export default () => (
   <div className="demo">
     <div style={{ marginLeft: buttonWidth, whiteSpace: 'nowrap' }}>
       <Popover placement="topLeft" title={text} content={content} trigger="click">
@@ -72,8 +72,7 @@ ReactDOM.render(
         <Button>BR</Button>
       </Popover>
     </div>
-  </div>,
-  mountNode,
+  </div>
 );
 ```
 

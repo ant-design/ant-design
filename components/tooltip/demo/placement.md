@@ -20,7 +20,7 @@ const text = <span>prompt text</span>;
 
 const buttonWidth = 70;
 
-ReactDOM.render(
+export default () => (
   <div className="demo">
     <div style={{ marginLeft: buttonWidth, whiteSpace: 'nowrap' }}>
       <Tooltip placement="topLeft" title={text}>
@@ -66,8 +66,7 @@ ReactDOM.render(
         <Button>BR</Button>
       </Tooltip>
     </div>
-  </div>,
-  mountNode,
+  </div>
 );
 ```
 

@@ -3,7 +3,7 @@ type: 反馈
 category: Components
 subtitle: 抽屉
 title: Drawer
-cover: https://gw.alipayobjects.com/zos/alicdn/7z8NJQhFb/Drawer.svg
+cover: https://img.alicdn.com/imgextra/i4/O1CN019djdZP1OHwXSRGCOW_!!6000000001681-55-tps-161-117.svg
 ---
 
 屏幕边缘滑出的浮层面板。
@@ -32,7 +32,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/7z8NJQhFb/Drawer.svg
 | footer | 抽屉的页脚 | ReactNode | - |  |
 | footerStyle | 抽屉页脚部件的样式 | CSSProperties | - |  |
 | forceRender | 预渲染 Drawer 内元素 | boolean | false |  |
-| getContainer | 指定 Drawer 挂载的 HTML 节点, false 为挂载在当前 dom | HTMLElement \| () => HTMLElement \| Selectors \| false | body |  |
+| getContainer | 指定 Drawer 挂载的节点，**并在容器内展现**，`false` 为挂载在当前位置 | HTMLElement \| () => HTMLElement \| Selectors \| false | body |  |
 | headerStyle | 用于设置 Drawer 头部的样式 | CSSProperties | - |  |
 | height | 高度, 在 `placement` 为 `top` 或 `bottom` 时使用 | string \| number | 378 |  |
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true |  |

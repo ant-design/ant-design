@@ -6,6 +6,8 @@ on:
   push:
     branches:
       - master
+      - next
+      - feature
 
 # Cancel prev CI if new commit come
 concurrency:
@@ -13,7 +15,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  test:
+  imagesnapshot:
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -24,6 +26,10 @@ jobs:
         with:
           path: package-temp-dir
           key: lock-${{ github.sha }}
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
 
       - name: create package-lock.json
         run: npm i --package-lock-only --ignore-scripts

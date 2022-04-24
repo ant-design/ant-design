@@ -59,7 +59,7 @@ const Content = ({ children, extra }) => (
   </div>
 );
 
-ReactDOM.render(
+export default () => (
   <PageHeader
     className="site-page-header-responsive"
     onBack={() => window.history.back()}
@@ -80,8 +80,7 @@ ReactDOM.render(
     }
   >
     <Content extra={extraContent}>{renderContent()}</Content>
-  </PageHeader>,
-  mountNode,
+  </PageHeader>
 );
 ```
 

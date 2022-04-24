@@ -47,5 +47,5 @@ const MentionsStatuses = () => {
   );
 };
 
-ReactDOM.render(<MentionsStatuses />, mountNode);
+export default () => <MentionsStatuses />;
 ```

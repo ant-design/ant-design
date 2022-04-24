@@ -16,7 +16,7 @@ A basic card containing a title, content and an extra corner content. Supports t
 ```jsx
 import { Card } from 'antd';
 
-ReactDOM.render(
+export default () => (
   <>
     <Card title="Default size card" extra={<a href="#">More</a>} style={{ width: 300 }}>
       <p>Card content</p>
@@ -28,8 +28,7 @@ ReactDOM.render(
       <p>Card content</p>
       <p>Card content</p>
     </Card>
-  </>,
-  mountNode,
+  </>
 );
 ```
 

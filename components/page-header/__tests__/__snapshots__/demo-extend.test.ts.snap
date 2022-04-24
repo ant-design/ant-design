@@ -491,56 +491,58 @@ exports[`renders ./components/page-header/demo/breadcrumb.md extend context corr
 <div
   class="ant-page-header site-page-header has-breadcrumb ant-page-header-ghost"
 >
-  <div
+  <nav
     class="ant-breadcrumb"
   >
-    <span>
-      <span
-        class="ant-breadcrumb-link"
-      >
-        <a
-          href="#/index"
+    <ol>
+      <li>
+        <span
+          class="ant-breadcrumb-link"
         >
-          First-level Menu
-        </a>
-      </span>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
-      </span>
-    </span>
-    <span>
-      <span
-        class="ant-breadcrumb-link"
-      >
-        <a
-          href="#/index/first"
-        >
-          Second-level Menu
-        </a>
-      </span>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
-      </span>
-    </span>
-    <span>
-      <span
-        class="ant-breadcrumb-link"
-      >
-        <span>
-          Third-level Menu
+          <a
+            href="#/index"
+          >
+            First-level Menu
+          </a>
         </span>
-      </span>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
-      </span>
-    </span>
-  </div>
+        <span
+          class="ant-breadcrumb-separator"
+        >
+          /
+        </span>
+      </li>
+      <li>
+        <span
+          class="ant-breadcrumb-link"
+        >
+          <a
+            href="#/index/first"
+          >
+            Second-level Menu
+          </a>
+        </span>
+        <span
+          class="ant-breadcrumb-separator"
+        >
+          /
+        </span>
+      </li>
+      <li>
+        <span
+          class="ant-breadcrumb-link"
+        >
+          <span>
+            Third-level Menu
+          </span>
+        </span>
+        <span
+          class="ant-breadcrumb-separator"
+        >
+          /
+        </span>
+      </li>
+    </ol>
+  </nav>
   <div
     class="ant-page-header-heading"
   >
@@ -568,56 +570,58 @@ exports[`renders ./components/page-header/demo/content.md extend context correct
 <div
   class="ant-page-header site-page-header has-breadcrumb ant-page-header-ghost"
 >
-  <div
+  <nav
     class="ant-breadcrumb"
   >
-    <span>
-      <span
-        class="ant-breadcrumb-link"
-      >
-        <a
-          href="#/index"
+    <ol>
+      <li>
+        <span
+          class="ant-breadcrumb-link"
         >
-          First-level Menu
-        </a>
-      </span>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
-      </span>
-    </span>
-    <span>
-      <span
-        class="ant-breadcrumb-link"
-      >
-        <a
-          href="#/index/first"
-        >
-          Second-level Menu
-        </a>
-      </span>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
-      </span>
-    </span>
-    <span>
-      <span
-        class="ant-breadcrumb-link"
-      >
-        <span>
-          Third-level Menu
+          <a
+            href="#/index"
+          >
+            First-level Menu
+          </a>
         </span>
-      </span>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
-      </span>
-    </span>
-  </div>
+        <span
+          class="ant-breadcrumb-separator"
+        >
+          /
+        </span>
+      </li>
+      <li>
+        <span
+          class="ant-breadcrumb-link"
+        >
+          <a
+            href="#/index/first"
+          >
+            Second-level Menu
+          </a>
+        </span>
+        <span
+          class="ant-breadcrumb-separator"
+        >
+          /
+        </span>
+      </li>
+      <li>
+        <span
+          class="ant-breadcrumb-link"
+        >
+          <span>
+            Third-level Menu
+          </span>
+        </span>
+        <span
+          class="ant-breadcrumb-separator"
+        >
+          /
+        </span>
+      </li>
+    </ol>
+  </nav>
   <div
     class="ant-page-header-heading"
   >
@@ -729,10 +733,11 @@ exports[`renders ./components/page-header/demo/content.md extend context correct
           <div>
             <div
               class="ant-dropdown"
-              style="opacity:0;pointer-events:none"
+              style="opacity:0"
             >
               <ul
                 class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+                data-dropdown-inject="true"
                 data-menu-list="true"
                 role="menu"
                 tabindex="0"
@@ -757,7 +762,7 @@ exports[`renders ./components/page-header/demo/content.md extend context correct
                 <div>
                   <div
                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                    style="opacity:0;pointer-events:none"
+                    style="opacity:0"
                   >
                     <div
                       class="ant-tooltip-content"
@@ -796,7 +801,7 @@ exports[`renders ./components/page-header/demo/content.md extend context correct
                 <div>
                   <div
                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                    style="opacity:0;pointer-events:none"
+                    style="opacity:0"
                   >
                     <div
                       class="ant-tooltip-content"
@@ -835,7 +840,7 @@ exports[`renders ./components/page-header/demo/content.md extend context correct
                 <div>
                   <div
                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                    style="opacity:0;pointer-events:none"
+                    style="opacity:0"
                   >
                     <div
                       class="ant-tooltip-content"
@@ -862,7 +867,7 @@ exports[`renders ./components/page-header/demo/content.md extend context correct
                 <div>
                   <div
                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                    style="opacity:0;pointer-events:none"
+                    style="opacity:0"
                   >
                     <div
                       class="ant-tooltip-content"
@@ -884,7 +889,7 @@ exports[`renders ./components/page-header/demo/content.md extend context correct
                 <div>
                   <div
                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                    style="opacity:0;pointer-events:none"
+                    style="opacity:0"
                   >
                     <div
                       class="ant-tooltip-content"
@@ -906,7 +911,7 @@ exports[`renders ./components/page-header/demo/content.md extend context correct
                 <div>
                   <div
                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                    style="opacity:0;pointer-events:none"
+                    style="opacity:0"
                   >
                     <div
                       class="ant-tooltip-content"
@@ -1603,11 +1608,12 @@ exports[`renders ./components/page-header/demo/responsive.md extend context corr
           <div>
             <div
               class="ant-tabs-dropdown"
-              style="opacity:0;pointer-events:none"
+              style="opacity:0"
             >
               <ul
                 aria-label="expanded dropdown"
                 class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
+                data-dropdown-inject="true"
                 data-menu-list="true"
                 id="null-more-popup"
                 role="listbox"

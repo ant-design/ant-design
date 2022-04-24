@@ -101,8 +101,5 @@ for (let i = 0; i < 100; i++) {
   });
 }
 
-ReactDOM.render(
-  <Table columns={columns} dataSource={data} scroll={{ x: 1500, y: 300 }} />,
-  mountNode,
-);
+export default () => <Table columns={columns} dataSource={data} scroll={{ x: 1500, y: 300 }} />;
 ```

@@ -55,12 +55,7 @@ function onChange(value) {
   console.log(value);
 }
 
-ReactDOM.render(
-  <Cascader
-    defaultValue={['zhejiang', 'hangzhou', 'xihu']}
-    options={options}
-    onChange={onChange}
-  />,
-  mountNode,
+export default () => (
+  <Cascader defaultValue={['zhejiang', 'hangzhou', 'xihu']} options={options} onChange={onChange} />
 );
 ```

@@ -49,8 +49,11 @@ const columns = [
     render: () => (
       <Space size="middle">
         <a>Delete</a>
-        <a className="ant-dropdown-link">
-          More actions <DownOutlined />
+        <a>
+          <Space>
+            More actions
+            <DownOutlined />
+          </Space>
         </a>
       </Space>
     ),
@@ -253,7 +256,7 @@ class Demo extends React.Component {
   }
 }
 
-ReactDOM.render(<Demo />, mountNode);
+export default Demo;
 ```
 
 <style>

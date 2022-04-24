@@ -21,7 +21,7 @@ const gridStyle = {
   textAlign: 'center',
 };
 
-ReactDOM.render(
+export default () => (
   <Card title="Card Title">
     <Card.Grid style={gridStyle}>Content</Card.Grid>
     <Card.Grid hoverable={false} style={gridStyle}>
@@ -32,7 +32,6 @@ ReactDOM.render(
     <Card.Grid style={gridStyle}>Content</Card.Grid>
     <Card.Grid style={gridStyle}>Content</Card.Grid>
     <Card.Grid style={gridStyle}>Content</Card.Grid>
-  </Card>,
-  mountNode,
+  </Card>
 );
 ```

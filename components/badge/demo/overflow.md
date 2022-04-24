@@ -16,7 +16,7 @@ title:
 ```jsx
 import { Badge, Avatar } from 'antd';
 
-ReactDOM.render(
+export default () => (
   <>
     <Badge count={99}>
       <Avatar shape="square" size="large" />
@@ -30,7 +30,6 @@ ReactDOM.render(
     <Badge count={1000} overflowCount={999}>
       <Avatar shape="square" size="large" />
     </Badge>
-  </>,
-  mountNode,
+  </>
 );
 ```

@@ -76,10 +76,7 @@ function monthCellRender(value) {
   ) : null;
 }
 
-ReactDOM.render(
-  <Calendar dateCellRender={dateCellRender} monthCellRender={monthCellRender} />,
-  mountNode,
-);
+export default () => <Calendar dateCellRender={dateCellRender} monthCellRender={monthCellRender} />;
 ```
 
 ```css

@@ -23,7 +23,7 @@ import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/i
 
 const { Header, Content, Footer, Sider } = Layout;
 
-ReactDOM.render(
+export default () => (
   <Layout>
     <Sider
       breakpoint="lg"
@@ -36,20 +36,18 @@ ReactDOM.render(
       }}
     >
       <div className="logo" />
-      <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']}>
-        <Menu.Item key="1" icon={<UserOutlined />}>
-          nav 1
-        </Menu.Item>
-        <Menu.Item key="2" icon={<VideoCameraOutlined />}>
-          nav 2
-        </Menu.Item>
-        <Menu.Item key="3" icon={<UploadOutlined />}>
-          nav 3
-        </Menu.Item>
-        <Menu.Item key="4" icon={<UserOutlined />}>
-          nav 4
-        </Menu.Item>
-      </Menu>
+      <Menu
+        theme="dark"
+        mode="inline"
+        defaultSelectedKeys={['4']}
+        items={[UserOutlined, VideoCameraOutlined, UploadOutlined, UserOutlined].map(
+          (icon, index) => ({
+            key: String(index + 1),
+            icon: React.createElement(icon),
+            label: `nav ${index + 1}`,
+          }),
+        )}
+      />
     </Sider>
     <Layout>
       <Header className="site-layout-sub-header-background" style={{ padding: 0 }} />
@@ -60,8 +58,7 @@ ReactDOM.render(
       </Content>
       <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
     </Layout>
-  </Layout>,
-  mountNode,
+  </Layout>
 );
 ```
 

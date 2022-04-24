@@ -32,11 +32,10 @@ const { spawn } = require('child_process');
 
     let script = lines.slice(tsxStartLine + 1, tsxEndLine).join('\n');
 
-    // insert React & ReactDOM
+    // insert React
     if (!script.includes('import React') && !script.includes('import * as React')) {
       script = `import React from 'react';\n${script}`;
     }
-    script = `import ReactDOM from 'react-dom';\n${script}`;
 
     // Replace mountNode
     script = script.replace('mountNode', `document.getElementById('#root')`);

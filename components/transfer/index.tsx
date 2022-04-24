@@ -9,7 +9,7 @@ import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../conf
 import { TransferListBodyProps } from './ListBody';
 import { PaginationType } from './interface';
 import devWarning from '../_util/devWarning';
-import { FormItemStatusContext } from '../form/context';
+import { FormItemInputContext } from '../form/context';
 import { getMergedStatus, getStatusClassNames, InputStatus } from '../_util/statusUtils';
 
 export { TransferListProps } from './list';
@@ -351,7 +351,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
   renderTransfer = (transferLocale: TransferLocale) => (
     <ConfigConsumer>
       {({ getPrefixCls, renderEmpty, direction }: ConfigConsumerProps) => (
-        <FormItemStatusContext.Consumer>
+        <FormItemInputContext.Consumer>
           {({ hasFeedback, status: contextStatus }) => {
             const {
               prefixCls: customizePrefixCls,
@@ -461,7 +461,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
               </div>
             );
           }}
-        </FormItemStatusContext.Consumer>
+        </FormItemInputContext.Consumer>
       )}
     </ConfigConsumer>
   );

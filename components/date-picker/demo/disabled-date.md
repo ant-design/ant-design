@@ -55,7 +55,7 @@ function disabledRangeTime(_, type) {
   };
 }
 
-ReactDOM.render(
+export default () => (
   <Space direction="vertical" size={12}>
     <DatePicker
       format="YYYY-MM-DD HH:mm:ss"
@@ -74,7 +74,6 @@ ReactDOM.render(
       }}
       format="YYYY-MM-DD HH:mm:ss"
     />
-  </Space>,
-  mountNode,
+  </Space>
 );
 ```

@@ -32,13 +32,12 @@ const ExampleComment = ({ children }) => (
   </Comment>
 );
 
-ReactDOM.render(
+export default () => (
   <ExampleComment>
     <ExampleComment>
       <ExampleComment />
       <ExampleComment />
     </ExampleComment>
-  </ExampleComment>,
-  mountNode,
+  </ExampleComment>
 );
 ```

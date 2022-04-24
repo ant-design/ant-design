@@ -67,7 +67,7 @@ const NormalLoginForm = () => {
   );
 };
 
-ReactDOM.render(<NormalLoginForm />, mountNode);
+export default () => <NormalLoginForm />;
 ```
 
 ```css

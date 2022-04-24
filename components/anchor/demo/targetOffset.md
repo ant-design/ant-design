@@ -36,5 +36,5 @@ const AnchorExample: React.FC = () => {
   );
 };
 
-ReactDOM.render(<AnchorExample />, mountNode);
+export default () => <AnchorExample />;
 ```

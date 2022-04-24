@@ -16,7 +16,7 @@ Set size of numeral Badge.
 ```jsx
 import { Badge, Avatar } from 'antd';
 
-ReactDOM.render(
+export default () => (
   <>
     <Badge size="default" count={5}>
       <Avatar shape="square" size="large" />
@@ -24,7 +24,6 @@ ReactDOM.render(
     <Badge size="small" count={5}>
       <Avatar shape="square" size="large" />
     </Badge>
-  </>,
-  mountNode,
+  </>
 );
 ```

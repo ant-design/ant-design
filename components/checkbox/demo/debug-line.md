@@ -22,7 +22,7 @@ const sharedStyle: React.CSSProperties = {
   marginBottom: 16,
 };
 
-ReactDOM.render(
+export default () => (
   <div>
     <Space style={sharedStyle} align="center">
       <Checkbox value="light" />
@@ -59,7 +59,6 @@ ReactDOM.render(
       <div>Bamboo</div>
       <Radio value="little">Little</Radio>
     </div>
-  </div>,
-  mountNode,
+  </div>
 );
 ```

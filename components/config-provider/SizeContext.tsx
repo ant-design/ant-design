@@ -6,6 +6,7 @@ const SizeContext = React.createContext<SizeType>(undefined);
 
 export interface SizeContextProps {
   size?: SizeType;
+  children?: React.ReactNode;
 }
 
 export const SizeContextProvider: React.FC<SizeContextProps> = ({ children, size }) => (

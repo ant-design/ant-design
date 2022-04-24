@@ -42,7 +42,7 @@ class IconSlider extends React.Component {
   }
 }
 
-ReactDOM.render(<IconSlider min={0} max={20} />, mountNode);
+export default () => <IconSlider min={0} max={20} />;
 ```
 
 ```css

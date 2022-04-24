@@ -108,7 +108,7 @@ class LoadMoreList extends React.Component {
   }
 }
 
-ReactDOM.render(<LoadMoreList />, mountNode);
+export default () => <LoadMoreList />;
 ```
 
 ```css

@@ -17,26 +17,34 @@ By specifying `arrow` prop with `{ pointAtCenter: true }`, the arrow will point 
 import { Menu, Dropdown, Button } from 'antd';
 
 const menu = (
-  <Menu>
-    <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-        1st menu item
-      </a>
-    </Menu.Item>
-    <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
-        2nd menu item
-      </a>
-    </Menu.Item>
-    <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
-        3rd menu item
-      </a>
-    </Menu.Item>
-  </Menu>
+  <Menu
+    items={[
+      {
+        label: (
+          <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
+            1st menu item
+          </a>
+        ),
+      },
+      {
+        label: (
+          <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
+            2nd menu item
+          </a>
+        ),
+      },
+      {
+        label: (
+          <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
+            3rd menu item
+          </a>
+        ),
+      },
+    ]}
+  />
 );
 
-ReactDOM.render(
+export default () => (
   <>
     <Dropdown overlay={menu} placement="bottomLeft" arrow={{ pointAtCenter: true }}>
       <Button>bottomLeft</Button>
@@ -57,8 +65,7 @@ ReactDOM.render(
     <Dropdown overlay={menu} placement="topRight" arrow={{ pointAtCenter: true }}>
       <Button>topRight</Button>
     </Dropdown>
-  </>,
-  mountNode,
+  </>
 );
 ```
 

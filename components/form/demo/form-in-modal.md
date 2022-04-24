@@ -112,7 +112,7 @@ const CollectionsPage = () => {
   );
 };
 
-ReactDOM.render(<CollectionsPage />, mountNode);
+export default () => <CollectionsPage />;
 ```
 
 ```css

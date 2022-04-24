@@ -25,7 +25,7 @@ function onChange(date, dateString) {
   console.log(date, dateString);
 }
 
-ReactDOM.render(
+export default () => (
   <Space direction="vertical" size={12}>
     <DatePicker suffixIcon={smileIcon} onChange={onChange} />
     <DatePicker suffixIcon={smileIcon} onChange={onChange} picker="month" />
@@ -35,7 +35,6 @@ ReactDOM.render(
     <DatePicker suffixIcon="ab" onChange={onChange} picker="month" />
     <RangePicker suffixIcon="ab" onChange={onChange} />
     <DatePicker suffixIcon="ab" onChange={onChange} picker="week" />
-  </Space>,
-  mountNode,
+  </Space>
 );
 ```

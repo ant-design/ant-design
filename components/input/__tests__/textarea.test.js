@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import RcTextArea from 'rc-textarea';
 import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
-import { sleep } from '../../../tests/utils';
+import { sleep, render } from '../../../tests/utils';
 
 const { TextArea } = Input;
 
@@ -35,18 +35,32 @@ describe('TextArea', () => {
 
     const ref = React.createRef();
 
-    const wrapper = mount(
-      <TextArea value="" readOnly autoSize={{ minRows: 2, maxRows: 6 }} wrap="off" ref={ref} />,
+    const genTextArea = (props = {}) => (
+      <TextArea
+        value=""
+        readOnly
+        autoSize={{ minRows: 2, maxRows: 6 }}
+        wrap="off"
+        ref={ref}
+        {...props}
+      />
     );
+
+    const { container, rerender } = render(genTextArea());
+
     const mockFunc = jest.spyOn(ref.current.resizableTextArea, 'resizeTextarea');
-    wrapper.setProps({ value: '1111\n2222\n3333' });
+
+    rerender(genTextArea({ value: '1111\n2222\n3333' }));
+    // wrapper.setProps({ value: '1111\n2222\n3333' });
     await sleep(0);
     expect(mockFunc).toHaveBeenCalledTimes(1);
-    wrapper.setProps({ value: '1111' });
+
+    rerender(genTextArea({ value: '1111' }));
+    // wrapper.setProps({ value: '1111' });
     await sleep(0);
     expect(mockFunc).toHaveBeenCalledTimes(2);
-    wrapper.update();
-    expect(wrapper.find('textarea').props().style.overflow).toBeFalsy();
+
+    expect(container.querySelector('textarea').style.overflow).toBeFalsy();
 
     expect(errorSpy).not.toHaveBeenCalled();
     errorSpy.mockRestore();
@@ -208,12 +222,16 @@ describe('TextArea', () => {
     );
   });
 
-  it('should works same as Input', async () => {
-    const input = mount(<Input value="111" />);
-    const textarea = mount(<TextArea value="111" />);
-    input.setProps({ value: undefined });
-    textarea.setProps({ value: undefined });
-    expect(textarea.find('textarea').at(0).getDOMNode().value).toBe(input.getDOMNode().value);
+  it('should works same as Input', () => {
+    const { container: inputContainer, rerender: inputRerender } = render(<Input value="111" />);
+    const { container: textareaContainer, rerender: textareaRerender } = render(
+      <TextArea value="111" />,
+    );
+    inputRerender(<Input value={undefined} />);
+    textareaRerender(<TextArea value={undefined} />);
+    expect(textareaContainer.querySelector('textarea').value).toBe(
+      inputContainer.querySelector('input').value,
+    );
   });
 
   describe('should support showCount', () => {

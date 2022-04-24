@@ -16,7 +16,7 @@ Use the operating area and customize the sub-nodes, suitable for use in the need
 ```jsx
 import { PageHeader, Tag, Button, Statistic, Descriptions, Row } from 'antd';
 
-ReactDOM.render(
+export default () => (
   <>
     <PageHeader
       className="site-page-header"
@@ -70,8 +70,7 @@ ReactDOM.render(
         <Statistic title="Balance" prefix="$" value={3345.08} />
       </Row>
     </PageHeader>
-  </>,
-  mountNode,
+  </>
 );
 ```
 

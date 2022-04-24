@@ -17,7 +17,7 @@ Simplest Usage. Badge will be hidden when `count` is `0`, but we can use `showZe
 import { Badge, Avatar } from 'antd';
 import { ClockCircleOutlined } from '@ant-design/icons';
 
-ReactDOM.render(
+export default () => (
   <>
     <Badge count={5}>
       <Avatar shape="square" size="large" />
@@ -28,8 +28,7 @@ ReactDOM.render(
     <Badge count={<ClockCircleOutlined style={{ color: '#f5222d' }} />}>
       <Avatar shape="square" size="large" />
     </Badge>
-  </>,
-  mountNode,
+  </>
 );
 ```
 

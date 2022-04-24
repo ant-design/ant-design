@@ -32,10 +32,10 @@ declare module '*.json' {
   export default value;
 }
 
-declare module '@docsearch/react/style/modal';
+declare module 'docsearch-react-fork/style/modal';
 
-declare module '@docsearch/react/modal' {
-  import { DocSearchModal as value } from '@docsearch/react';
+declare module 'docsearch-react-fork/modal' {
+  import { DocSearchModal as value } from 'docsearch-react-fork';
   export const DocSearchModal = value;
 }
 

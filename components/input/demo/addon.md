@@ -34,7 +34,7 @@ const selectAfter = (
   </Select>
 );
 
-ReactDOM.render(
+export default () => (
   <Space direction="vertical">
     <Input addonBefore="http://" addonAfter=".com" defaultValue="mysite" />
     <Input addonBefore={selectBefore} addonAfter={selectAfter} defaultValue="mysite" />
@@ -44,8 +44,7 @@ ReactDOM.render(
       addonBefore={<Cascader placeholder="cascader" style={{ width: 150 }} />}
       defaultValue="mysite"
     />
-  </Space>,
-  mountNode,
+  </Space>
 );
 ```
 

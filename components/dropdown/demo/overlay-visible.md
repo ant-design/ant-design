@@ -14,7 +14,7 @@ title:
 The default is to close the menu when you click on menu items, this feature can be turned off.
 
 ```jsx
-import { Menu, Dropdown } from 'antd';
+import { Menu, Dropdown, Space } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 
 class OverlayVisible extends React.Component {
@@ -34,11 +34,23 @@ class OverlayVisible extends React.Component {
 
   render() {
     const menu = (
-      <Menu onClick={this.handleMenuClick}>
-        <Menu.Item key="1">Clicking me will not close the menu.</Menu.Item>
-        <Menu.Item key="2">Clicking me will not close the menu also.</Menu.Item>
-        <Menu.Item key="3">Clicking me will close the menu.</Menu.Item>
-      </Menu>
+      <Menu
+        onClick={this.handleMenuClick}
+        items={[
+          {
+            label: 'Clicking me will not close the menu.',
+            key: '1',
+          },
+          {
+            label: 'Clicking me will not close the menu also.',
+            key: '2',
+          },
+          {
+            label: 'Clicking me will close the menu.',
+            key: '3',
+          },
+        ]}
+      />
     );
     return (
       <Dropdown
@@ -46,13 +58,16 @@ class OverlayVisible extends React.Component {
         onVisibleChange={this.handleVisibleChange}
         visible={this.state.visible}
       >
-        <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-          Hover me <DownOutlined />
+        <a onClick={e => e.preventDefault()}>
+          <Space>
+            Hover me
+            <DownOutlined />
+          </Space>
         </a>
       </Dropdown>
     );
   }
 }
 
-ReactDOM.render(<OverlayVisible />, mountNode);
+export default () => <OverlayVisible />;
 ```

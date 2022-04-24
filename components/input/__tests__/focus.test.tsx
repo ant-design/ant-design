@@ -3,6 +3,7 @@ import { mount } from 'enzyme';
 import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 import { InputRef } from '../Input';
 import Input from '..';
+import { render, fireEvent } from '../../../tests/utils';
 
 const { TextArea } = Input;
 
@@ -58,12 +59,11 @@ describe('Input.Focus', () => {
   });
 
   it('disabled should reset focus', () => {
-    const wrapper = mount(<Input allowClear />);
-    wrapper.find('input').simulate('focus');
-    expect(wrapper.exists('.ant-input-affix-wrapper-focused')).toBeTruthy();
+    const { rerender, container } = render(<Input allowClear />);
+    fireEvent.focus(container.querySelector('input')!);
+    expect(container.querySelector('.ant-input-affix-wrapper-focused')).toBeTruthy();
 
-    wrapper.setProps({ disabled: true });
-    wrapper.update();
-    expect(wrapper.exists('.ant-input-affix-wrapper-focused')).toBeFalsy();
+    rerender(<Input allowClear disabled />);
+    expect(container.querySelector('.ant-input-affix-wrapper-focused')).toBeFalsy();
   });
 });

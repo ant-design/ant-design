@@ -16,5 +16,5 @@ Simplest Skeleton usage.
 ```jsx
 import { Skeleton } from 'antd';
 
-ReactDOM.render(<Skeleton />, mountNode);
+export default () => <Skeleton />;
 ```

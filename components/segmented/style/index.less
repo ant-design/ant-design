@@ -1,0 +1,118 @@
+@import '../../style/themes/index';
+@import '../../style/mixins/index';
+@import './mixins.less';
+
+@segmented-prefix-cls: ~'@{ant-prefix}-segmented';
+
+.@{segmented-prefix-cls} {
+  .reset-component();
+
+  position: relative;
+  display: inline-flex;
+  align-items: stretch;
+  justify-items: flex-start;
+  color: @segmented-label-color;
+  background-color: @segmented-bg;
+  border-radius: 2px;
+  box-shadow: 0 0 0 2px @segmented-bg;
+  transition: all 0.3s @ease-in-out;
+
+  // hover/focus styles
+  &:not(&-disabled) {
+    &:hover,
+    &:focus {
+      background-color: @segmented-hover-bg;
+      box-shadow: 0 0 0 2px @segmented-hover-bg;
+    }
+  }
+
+  // block styles
+  &&-block {
+    display: flex;
+  }
+
+  &&-block &-item {
+    flex: 1;
+    min-width: 0;
+  }
+
+  // item styles
+  &-item {
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+    transition: color 0.3s @ease-in-out;
+
+    &-selected {
+      .segmented-item-selected();
+      color: @segmented-label-hover-color;
+    }
+
+    &:hover,
+    &:focus {
+      color: @segmented-label-hover-color;
+    }
+
+    &-label {
+      min-height: @input-height-base;
+      padding: @input-padding-vertical-base @input-padding-horizontal-base;
+      line-height: @input-height-base - @input-padding-vertical-base * 2;
+      .segmented-text-ellipsis();
+    }
+
+    // syntactic sugar to add `icon` for Segmented Item
+    &-icon {
+      margin-right: 6px;
+    }
+
+    &-input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  // size styles
+  &&-lg &-item-label {
+    min-height: @input-height-lg;
+    padding: @input-padding-vertical-lg @input-padding-horizontal-lg;
+    font-size: @font-size-lg;
+    line-height: @input-height-lg - @input-padding-vertical-lg * 2;
+  }
+
+  &&-sm &-item-label {
+    min-height: @input-height-sm;
+    padding: @input-padding-vertical-sm @input-padding-horizontal-sm;
+    line-height: @input-height-sm - @input-padding-vertical-sm * 2;
+  }
+
+  // disabled styles
+  &-disabled &-item,
+  &-item-disabled {
+    .segmented-disabled-item();
+  }
+
+  // thumb styles
+  &-thumb {
+    .segmented-item-selected();
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    padding: 4px 0;
+  }
+
+  // transition effect when `enter-active`
+  &-thumb-motion-enter-active {
+    transition: transform 0.3s @ease-in-out, width 0.3s @ease-in-out;
+    will-change: transform, width;
+  }
+}
+
+@import './rtl';
