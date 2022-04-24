@@ -40,10 +40,12 @@ const genDraggerStyle: GenerateStyle<FullToken<'Upload'>> = token => {
         },
 
         [`p${componentCls}-drag-icon`]: {
+          // FIXME: upload token
           marginBottom: 20,
 
           [iconCls]: {
             color: token.colorPrimary,
+            // FIXME: upload token
             fontSize: 48,
           },
         },

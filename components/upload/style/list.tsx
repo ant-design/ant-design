@@ -42,6 +42,7 @@ const genListStyle: GenerateStyle<FullToken<'Upload'>> = token => {
             },
 
             [`${actionCls}${antCls}-btn-sm`]: {
+              // FIXME: upload token
               height: 20,
               lineHeight: 1,
               // FIXME: should not override small button
@@ -74,6 +75,7 @@ const genListStyle: GenerateStyle<FullToken<'Upload'>> = token => {
 
           [`${itemCls}-progress`]: {
             position: 'absolute',
+            // FIXME: upload token
             bottom: -12,
             width: '100%',
             paddingInlineStart: token.fontSizeBase + token.paddingXS,

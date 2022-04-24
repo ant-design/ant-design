@@ -9,8 +9,6 @@ import { genPictureStyle, genPictureCardStyle } from './picture';
 import type { GenerateStyle, FullToken } from '../../_util/theme';
 
 export interface ComponentToken {
-  uploadPictureCardSize: number;
-  uploadPictureCardBorderStyle: CSSObject['borderStyle'];
   uploadActionsColor: CSSObject['color'];
 }
 
@@ -52,8 +50,6 @@ export default genComponentStyleHook(
     genRtlStyle(token),
   ],
   token => ({
-    uploadPictureCardSize: 104,
-    uploadPictureCardBorderStyle: token.controlLineType,
     uploadActionsColor: token.colorTextSecondary,
   }),
 );

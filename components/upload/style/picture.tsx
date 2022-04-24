@@ -6,6 +6,8 @@ const genPictureStyle: GenerateStyle<FullToken<'Upload'>> = token => {
   const { componentCls, iconCls } = token;
   const listCls = `${componentCls}-list`;
   const itemCls = `${listCls}-item`;
+  // FIXME: upload token
+  const uploadPictureThumbnailSize = 48;
 
   return {
     [`${componentCls}-wrapper`]: {
@@ -13,9 +15,9 @@ const genPictureStyle: GenerateStyle<FullToken<'Upload'>> = token => {
       [`${listCls}${listCls}-picture, ${listCls}${listCls}-picture-card`]: {
         [itemCls]: {
           position: 'relative',
-          height: 66,
+          height: uploadPictureThumbnailSize + token.controlLineWidth * 2 + token.paddingXS * 2,
           padding: token.paddingXS,
-          border: `${token.controlLineWidth}px ${token.uploadPictureCardBorderStyle} ${token.colorBorder}`,
+          border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
           borderRadius: token.radiusBase,
 
           '&:hover': {
@@ -23,10 +25,11 @@ const genPictureStyle: GenerateStyle<FullToken<'Upload'>> = token => {
           },
 
           [`${itemCls}-thumbnail`]: {
-            width: 48,
-            height: 48,
-            lineHeight: '60px',
+            width: uploadPictureThumbnailSize,
+            height: uploadPictureThumbnailSize,
+            lineHeight: `${uploadPictureThumbnailSize + token.paddingSM}px`,
             textAlign: 'center',
+            // FIXME: upload token
             opacity: 0.8,
             flex: 'none',
             overflow: 'hidden',
@@ -34,7 +37,7 @@ const genPictureStyle: GenerateStyle<FullToken<'Upload'>> = token => {
             whiteSpace: 'nowrap',
 
             [iconCls]: {
-              fontSize: 26,
+              fontSize: uploadPictureThumbnailSize / 2 + 2,
             },
 
             img: {
@@ -46,10 +49,12 @@ const genPictureStyle: GenerateStyle<FullToken<'Upload'>> = token => {
           },
 
           [`${itemCls}-progress`]: {
+            // FIXME: upload token
             bottom: 14,
-            width: 'calc(100% - 24px)',
+            width: `calc(100% - ${token.paddingSM * 2}px)`,
             marginTop: 0,
-            paddingInlineStart: 56,
+            // FIXME: upload token
+            paddingInlineStart: uploadPictureThumbnailSize + token.paddingXS,
           },
         },
 
@@ -71,6 +76,7 @@ const genPictureStyle: GenerateStyle<FullToken<'Upload'>> = token => {
           borderStyle: 'dashed',
 
           [`${itemCls}-name`]: {
+            // FIXME: upload token
             marginBottom: 12,
           },
         },
@@ -84,6 +90,10 @@ const genPictureCardStyle: GenerateStyle<FullToken<'Upload'>> = token => {
   const listCls = `${componentCls}-list`;
   const itemCls = `${listCls}-item`;
 
+  // FIXME: upload token
+  const uploadPictureCardThumbnailSize = 88;
+  const uploadPictureCardSize = uploadPictureCardThumbnailSize + token.paddingXS * 2;
+
   return {
     [`${componentCls}-wrapper${componentCls}-picture-card-wrapper`]: {
       ...clearFix(),
@@ -91,8 +101,8 @@ const genPictureCardStyle: GenerateStyle<FullToken<'Upload'>> = token => {
       width: '100%',
 
       [`${componentCls}${componentCls}-select`]: {
-        width: token.uploadPictureCardSize,
-        height: token.uploadPictureCardSize,
+        width: uploadPictureCardSize,
+        height: uploadPictureCardSize,
         marginInlineEnd: token.marginXS,
         marginBottom: token.marginXS,
         textAlign: 'center',
@@ -120,8 +130,8 @@ const genPictureCardStyle: GenerateStyle<FullToken<'Upload'>> = token => {
       [`${listCls}${listCls}-picture-card`]: {
         [`${listCls}-item-container`]: {
           display: 'inline-block',
-          width: token.uploadPictureCardSize,
-          height: token.uploadPictureCardSize,
+          width: uploadPictureCardSize,
+          height: uploadPictureCardSize,
           marginBlock: `0 ${token.marginXS}px`,
           marginInline: `0 ${token.marginXS}px`,
           verticalAlign: 'top',
@@ -140,6 +150,7 @@ const genPictureCardStyle: GenerateStyle<FullToken<'Upload'>> = token => {
             zIndex: 1,
             width: `calc(100% - ${token.paddingXS * 2}px)`,
             height: `calc(100% - ${token.paddingXS * 2}px)`,
+            // FIXME: upload token
             backgroundColor: new TinyColor('#000').setAlpha(0.5).toRgbString(),
             opacity: 0,
             transition: `all ${token.motionDurationSlow}`,
@@ -165,8 +176,10 @@ const genPictureCardStyle: GenerateStyle<FullToken<'Upload'>> = token => {
 
           [`${iconCls}-eye, ${iconCls}-download, ${iconCls}-delete`]: {
             zIndex: 10,
+            // FIXME: upload token
             width: 16,
             margin: `0 ${token.marginXXS}px`,
+            // FIXME: upload token
             fontSize: 16,
             cursor: 'pointer',
             transition: `all ${token.motionDurationSlow}`,
@@ -199,6 +212,7 @@ const genPictureCardStyle: GenerateStyle<FullToken<'Upload'>> = token => {
 
         [`${itemCls}-file + ${itemCls}-name`]: {
           position: 'absolute',
+          // FIXME: upload token
           bottom: 18,
           display: 'block',
           width: `calc(100% - ${token.paddingXS * 2}px)`,
@@ -215,6 +229,7 @@ const genPictureCardStyle: GenerateStyle<FullToken<'Upload'>> = token => {
         },
 
         [`${itemCls}-progress`]: {
+          // FIXME: upload token
           bottom: 32,
           width: `calc(100% - ${token.paddingXS * 2}px)`,
           paddingInlineStart: 0,
