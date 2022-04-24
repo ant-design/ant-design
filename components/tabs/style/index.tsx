@@ -713,7 +713,6 @@ const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
     [componentCls]: {
       ...resetComponent(token),
       display: 'flex',
-      overflow: 'hidden',
 
       // ========================== Navigation ==========================
       [`> ${componentCls}-nav, > div > ${componentCls}-nav`]: {

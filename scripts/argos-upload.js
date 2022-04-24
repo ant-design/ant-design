@@ -47,11 +47,11 @@ async function run() {
       '--batchCount',
       chunks.length,
       '--branch',
-      process.env.GITHUB_REF_NAME,
+      process.env.ARGOS_GITHUB_BRANCH,
       '--commit',
-      process.env.GITHUB_SHA,
+      process.env.ARGOS_GITHUB_COMMIT,
       '--external-build-id',
-      process.env.GITHUB_SHA,
+      process.env.ARGOS_GITHUB_COMMIT,
     ]);
     // eslint-disable-next-line no-console -- pipe stdout
     console.log(argosResults.stdout);
