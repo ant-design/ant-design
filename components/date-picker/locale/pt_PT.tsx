@@ -11,7 +11,7 @@ const locale: PickerLocale = {
     today: 'Hoje',
     now: 'Agora',
     backToToday: 'Hoje',
-    ok: 'Ok',
+    ok: 'OK',
     clear: 'Limpar',
     month: 'Mês',
     year: 'Ano',

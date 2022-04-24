@@ -56,7 +56,7 @@ describe('AutoComplete', () => {
 
   it('legacy dataSource should accept react element option', () => {
     const wrapper = mount(<AutoComplete open dataSource={[<span key="key">ReactNode</span>]} />);
-    expect(wrapper).toMatchRenderedSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('legacy AutoComplete.Option should be compatiable', () => {

@@ -152,7 +152,7 @@ exports[`Card title should be vertically aligned 1`] = `
         class="ant-card-extra"
       >
         <button
-          class="ant-btn"
+          class="ant-btn ant-btn-default"
           type="button"
         >
           <span>

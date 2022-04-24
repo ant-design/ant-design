@@ -49,7 +49,7 @@ const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (
       onMouseEnter={props.onMouseEnter}
       onMouseLeave={props.onMouseLeave}
     >
-      <RcCheckbox {...radioProps} prefixCls={prefixCls} ref={mergedRef} />
+      <RcCheckbox {...radioProps} type="radio" prefixCls={prefixCls} ref={mergedRef} />
       {children !== undefined ? <span>{children}</span> : null}
     </label>
   );
@@ -58,9 +58,5 @@ const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (
 const Radio = React.forwardRef<unknown, RadioProps>(InternalRadio);
 
 Radio.displayName = 'Radio';
-
-Radio.defaultProps = {
-  type: 'radio',
-};
 
 export default Radio;

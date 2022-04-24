@@ -72,6 +72,12 @@ describe('Transfer.Dropdown', () => {
     jest.useRealTimers();
   });
 
+  it('should hide checkbox and dropdown icon when showSelectAll={false}', () => {
+    const wrapper = mount(<Transfer {...listProps} showSelectAll={false} />);
+    expect(wrapper.find('.ant-transfer-list-header-dropdown').length).toBe(0);
+    expect(wrapper.find('.ant-transfer-list-header .ant-transfer-list-checkbox').length).toBe(0);
+  });
+
   describe('select invert', () => {
     [
       { name: 'with pagination', props: listProps, index: 2, keys: ['c', 'd'] },

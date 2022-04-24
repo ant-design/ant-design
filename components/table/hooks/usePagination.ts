@@ -75,9 +75,9 @@ export default function usePagination(
     mergedPagination.current = maxPage || 1;
   }
 
-  const refreshPagination = (current: number = 1, pageSize?: number) => {
+  const refreshPagination = (current?: number, pageSize?: number) => {
     setInnerPagination({
-      current,
+      current: current ?? 1,
       pageSize: pageSize || mergedPagination.pageSize,
     });
   };

@@ -66,6 +66,18 @@ Please find below some of the design resources and tools about Ant Design that w
   - https://cdn.modao.cc/logo_mockingbot.svg
   - Rich component resources
   - https://modao.cc/square/ant-design
+- JiShi Design
+  - https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*dxzdQYWlmjMAAAAAAAAAAAAAARQnAQ
+  - Use fully components and templates on JiShi Design
+  - https://js.design/antd
+- Ant for Plasmic
+  - https://user-images.githubusercontent.com/7129/149994038-76214796-cd6a-4e80-b0a4-117e8edac050.png
+  - Drag/drop live Ant components and manipulate props in this React visual builder
+  - https://www.plasmic.app/ant-design
+- MasterGo
+  - https://mastergo-local-default.oss-cn-beijing.aliyuncs.com/ant-design-mastergo.svg
+  - Use fully components and templates on MasterGo
+  - https://mastergo.com/community/?utm_source=antdesign&utm_medium=link&utm_campaign=resource&cata_name=AntDesign
 
 ## Articles
 

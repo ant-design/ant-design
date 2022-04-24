@@ -80,6 +80,7 @@ class Countdown extends React.Component<CountdownProps, {}> {
   };
 
   // Countdown do not need display the timestamp
+  // eslint-disable-next-line class-methods-use-this
   valueRender = (node: React.ReactElement<HTMLDivElement>) =>
     cloneElement(node, {
       title: undefined,

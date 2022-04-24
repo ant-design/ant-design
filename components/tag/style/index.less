@@ -15,7 +15,7 @@
   white-space: nowrap;
   background: @tag-default-bg;
   border: @border-width-base @border-style-base @border-color-base;
-  border-radius: @border-radius-base;
+  border-radius: @tag-border-radius;
   opacity: 1;
   transition: all 0.3s;
 
@@ -58,16 +58,20 @@
     background-color: transparent;
     border-color: transparent;
     cursor: pointer;
+
     &:not(&-checked):hover {
       color: @primary-color;
     }
+
     &:active,
     &-checked {
       color: @text-color-inverse;
     }
+
     &-checked {
       background-color: @primary-6;
     }
+
     &:active {
       background-color: @primary-7;
     }
@@ -97,23 +101,23 @@
     }
   }
 
-  .make-status-color-classes(@color, @status) {
-    @lightColor: '@{color}-1';
-    @lightBorderColor: '@{color}-3';
-    @darkColor: '@{color}-6';
+  .make-status-color-classes(@status, @cssVariableType) {
+    @bgColor: '@{cssVariableType}-color-deprecated-bg';
+    @borderColor: '@{cssVariableType}-color-deprecated-border';
+    @textColor: '@{cssVariableType}-color';
     &-@{status} {
-      color: @@darkColor;
-      background: @@lightColor;
-      border-color: @@lightBorderColor;
+      color: @@textColor;
+      background: @@bgColor;
+      border-color: @@borderColor;
     }
   }
 
   .make-color-classes();
 
-  .make-status-color-classes('green', success);
-  .make-status-color-classes('blue', processing);
-  .make-status-color-classes('red', error);
-  .make-status-color-classes('orange', warning);
+  .make-status-color-classes(success, success);
+  .make-status-color-classes(processing, info);
+  .make-status-color-classes(error, error);
+  .make-status-color-classes(warning, warning);
 
   // To ensure that a space will be placed between character and `Icon`.
   > .@{iconfont-css-prefix} + span,

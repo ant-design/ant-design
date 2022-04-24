@@ -1,4 +1,6 @@
 const React = require('react');
+const { _rs: onLibResize } = require('rc-resize-observer/lib/utils/observerUtil');
+const { _rs: onEsResize } = require('rc-resize-observer/es/utils/observerUtil');
 
 // eslint-disable-next-line no-console
 console.log('Current React Version:', React.version);
@@ -44,11 +46,17 @@ const Adapter =
 Enzyme.configure({ adapter: new Adapter() });
 
 Object.assign(Enzyme.ReactWrapper.prototype, {
-  findObserver() {
-    return this.find('ResizeObserver');
+  findObserver(index = 0) {
+    return this.find('ResizeObserver').at(index);
   },
-  triggerResize() {
-    const ob = this.findObserver();
-    ob.instance().onResize([{ target: ob.getDOMNode() }]);
+  triggerResize(index = 0) {
+    const target = this.findObserver(index).getDOMNode();
+    const originGetBoundingClientRect = target.getBoundingClientRect;
+
+    target.getBoundingClientRect = () => ({ width: 510, height: 903 });
+    onLibResize([{ target }]);
+    onEsResize([{ target }]);
+
+    target.getBoundingClientRect = originGetBoundingClientRect;
   },
 });

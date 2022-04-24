@@ -69,7 +69,7 @@ exports[`renders ./components/popconfirm/demo/placement.md correctly 1`] = `
     style="margin-left:70px;white-space:nowrap"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -77,7 +77,7 @@ exports[`renders ./components/popconfirm/demo/placement.md correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -85,7 +85,7 @@ exports[`renders ./components/popconfirm/demo/placement.md correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -97,7 +97,7 @@ exports[`renders ./components/popconfirm/demo/placement.md correctly 1`] = `
     style="width:70px;float:left"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -105,7 +105,7 @@ exports[`renders ./components/popconfirm/demo/placement.md correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -113,7 +113,7 @@ exports[`renders ./components/popconfirm/demo/placement.md correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -125,7 +125,7 @@ exports[`renders ./components/popconfirm/demo/placement.md correctly 1`] = `
     style="width:70px;margin-left:304px"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -133,7 +133,7 @@ exports[`renders ./components/popconfirm/demo/placement.md correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -141,7 +141,7 @@ exports[`renders ./components/popconfirm/demo/placement.md correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -153,7 +153,7 @@ exports[`renders ./components/popconfirm/demo/placement.md correctly 1`] = `
     style="margin-left:70px;clear:both;white-space:nowrap"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -161,7 +161,7 @@ exports[`renders ./components/popconfirm/demo/placement.md correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -169,7 +169,7 @@ exports[`renders ./components/popconfirm/demo/placement.md correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -178,4 +178,15 @@ exports[`renders ./components/popconfirm/demo/placement.md correctly 1`] = `
     </button>
   </div>
 </div>
+`;
+
+exports[`renders ./components/popconfirm/demo/promise.md correctly 1`] = `
+<button
+  class="ant-btn ant-btn-primary"
+  type="button"
+>
+  <span>
+    Open Popconfirm with Promise
+  </span>
+</button>
 `;

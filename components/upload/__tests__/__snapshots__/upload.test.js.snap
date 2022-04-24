@@ -6,7 +6,7 @@ exports[`Upload rtl render component should be rendered correctly in RTL directi
 >
   <div
     class="ant-upload ant-upload-select ant-upload-select-text ant-upload-rtl"
-    style="display:none"
+    style="display: none;"
   >
     <span
       class="ant-upload"
@@ -15,7 +15,7 @@ exports[`Upload rtl render component should be rendered correctly in RTL directi
     >
       <input
         accept=""
-        style="display:none"
+        style="display: none;"
         type="file"
       />
     </span>

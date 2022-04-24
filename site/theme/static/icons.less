@@ -3,6 +3,7 @@ ul.anticons-list {
   overflow: hidden;
   direction: ltr;
   list-style: none;
+
   li {
     position: relative;
     float: left;
@@ -18,10 +19,12 @@ ul.anticons-list {
     border-radius: 4px;
     cursor: pointer;
     transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+
     .rtl & {
       margin: 3px 0;
       padding: 10px 0 0;
     }
+
     .anticon {
       margin: 12px 0 8px;
       font-size: 36px;
@@ -35,6 +38,7 @@ ul.anticons-list {
       white-space: nowrap;
       text-align: center;
       transform: scale(0.83);
+
       .ant-badge {
         transition: color 0.3s ease-in-out;
       }
@@ -43,9 +47,11 @@ ul.anticons-list {
     &:hover {
       color: #fff;
       background-color: @primary-color;
+
       .anticon {
         transform: scale(1.4);
       }
+
       .ant-badge {
         color: #fff;
       }
@@ -81,7 +87,7 @@ ul.anticons-list {
 }
 
 .copied-code {
-  padding: 2px 4px 2px;
+  padding: 2px 4px;
   font-size: 12px;
   background: #f5f5f5;
   border-radius: 2px;

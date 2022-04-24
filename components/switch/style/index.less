@@ -30,7 +30,7 @@
   }
 
   &-checked:focus {
-    box-shadow: 0 0 0 2px fade(@switch-color, 20%);
+    box-shadow: 0 0 0 2px @primary-1;
   }
 
   &:focus:hover {
@@ -45,6 +45,7 @@
   &-disabled {
     cursor: not-allowed;
     opacity: @switch-disabled-opacity;
+
     * {
       box-shadow: none;
       cursor: not-allowed;
@@ -106,7 +107,7 @@
   }
 
   // ======================== Loading =========================
-  &-loading-icon {
+  &-loading-icon.@{iconfont-css-prefix} {
     position: relative;
     top: ((@switch-pin-size - @font-size-base) / 2);
     color: rgba(0, 0, 0, 0.65);

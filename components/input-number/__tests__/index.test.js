@@ -1,5 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import { ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons';
 import InputNumber from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
@@ -27,5 +28,42 @@ describe('InputNumber', () => {
     wrapper.find('.ant-input-number-handler-down').simulate('mousedown');
     expect(onStep).toBeCalledTimes(2);
     expect(onStep).toHaveBeenLastCalledWith(1, { offset: 1, type: 'down' });
+  });
+
+  it('renders correctly when controls is boolean', () => {
+    expect(mount(<InputNumber controls={false} />).render()).toMatchSnapshot();
+  });
+
+  it('renders correctly when controls is {}', () => {
+    expect(mount(<InputNumber controls={{}} />).render()).toMatchSnapshot();
+  });
+
+  it('renders correctly when controls has custom upIcon and downIcon', () => {
+    const wrapper = mount(
+      <InputNumber
+        controls={{
+          upIcon: <ArrowUpOutlined />,
+          downIcon: <ArrowDownOutlined />,
+        }}
+      />,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('should support className', () => {
+    const wrapper = mount(
+      <InputNumber
+        controls={{
+          upIcon: <ArrowUpOutlined className="my-class-name" />,
+          downIcon: <ArrowDownOutlined className="my-class-name" />,
+        }}
+      />,
+    );
+    expect(wrapper.find('.anticon-arrow-up').getDOMNode().className.includes('my-class-name')).toBe(
+      true,
+    );
+    expect(
+      wrapper.find('.anticon-arrow-down').getDOMNode().className.includes('my-class-name'),
+    ).toBe(true);
   });
 });

@@ -5,6 +5,8 @@ import { genCSSMotion } from 'rc-motion/lib/CSSMotion';
 import { mount } from 'enzyme';
 import Modal from '..';
 import Button from '../../button';
+import Input from '../../input';
+import ConfigProvider from '../../config-provider';
 
 jest.mock('rc-util/lib/Portal');
 jest.mock('rc-motion');
@@ -66,6 +68,34 @@ describe('Modal.hook', () => {
     expect(wrapper.find('Modal')).toHaveLength(0);
 
     jest.useRealTimers();
+  });
+
+  it('context support config direction', () => {
+    jest.useFakeTimers();
+    const Demo = () => {
+      const [modal, contextHolder] = Modal.useModal();
+      return (
+        <>
+          <Button
+            onClick={() => {
+              modal.confirm({
+                content: <Input />,
+              });
+            }}
+          />
+          {contextHolder}
+        </>
+      );
+    };
+
+    const wrapper = mount(
+      <ConfigProvider direction="rtl">
+        <Demo />
+      </ConfigProvider>,
+    );
+
+    wrapper.find('button').simulate('click');
+    expect(wrapper.find('.ant-input-rtl').length).toBeTruthy();
   });
 
   it('hooks modal should trigger onCancel', () => {

@@ -14,11 +14,12 @@ title:
 Skeleton Button, Avatar, Input and Image.
 
 ```jsx
-import { Skeleton, Space, Divider, Switch, Form, Radio } from 'antd';
+import { Skeleton, Space, Divider, Switch, Form, Radio, Button, Input } from 'antd';
 
 class Demo extends React.Component {
   state = {
     active: false,
+    block: false,
     size: 'default',
     buttonShape: 'default',
     avatarShape: 'circle',
@@ -26,6 +27,10 @@ class Demo extends React.Component {
 
   handleActiveChange = checked => {
     this.setState({ active: checked });
+  };
+
+  handleBlockChange = checked => {
+    this.setState({ block: checked });
   };
 
   handleSizeChange = e => {
@@ -37,15 +42,20 @@ class Demo extends React.Component {
   };
 
   render() {
-    const { active, size, buttonShape, avatarShape } = this.state;
+    const { active, size, buttonShape, avatarShape, block } = this.state;
     return (
       <>
         <Space>
-          <Skeleton.Button active={active} size={size} shape={buttonShape} />
-          <Skeleton.Button active={active} size={size} shape={buttonShape} />
+          <Skeleton.Button active={active} size={size} shape={buttonShape} block={block} />
           <Skeleton.Avatar active={active} size={size} shape={avatarShape} />
-          <Skeleton.Input style={{ width: 200 }} active={active} size={size} />
+          <Skeleton.Input active={active} size={size} />
         </Space>
+        <br />
+        <br />
+        <Skeleton.Button active={active} size={size} shape={buttonShape} block={block} />
+        <br />
+        <br />
+        <Skeleton.Input active={active} size={size} block={block} />
         <br />
         <br />
         <Skeleton.Image />
@@ -53,6 +63,9 @@ class Demo extends React.Component {
         <Form layout="inline" style={{ margin: '16px 0' }}>
           <Form.Item label="Active">
             <Switch checked={active} onChange={this.handleActiveChange} />
+          </Form.Item>
+          <Form.Item label="Button and Input Block">
+            <Switch checked={block} onChange={this.handleBlockChange} />
           </Form.Item>
           <Form.Item label="Size">
             <Radio.Group value={size} onChange={this.handleSizeChange}>

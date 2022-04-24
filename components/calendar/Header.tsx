@@ -20,16 +20,8 @@ interface SharedProps<DateType> {
 }
 
 function YearSelect<DateType>(props: SharedProps<DateType>) {
-  const {
-    fullscreen,
-    validRange,
-    generateConfig,
-    locale,
-    prefixCls,
-    value,
-    onChange,
-    divRef,
-  } = props;
+  const { fullscreen, validRange, generateConfig, locale, prefixCls, value, onChange, divRef } =
+    props;
 
   const year = generateConfig.getYear(value || generateConfig.getNow());
 
@@ -82,16 +74,8 @@ function YearSelect<DateType>(props: SharedProps<DateType>) {
 }
 
 function MonthSelect<DateType>(props: SharedProps<DateType>) {
-  const {
-    prefixCls,
-    fullscreen,
-    validRange,
-    value,
-    generateConfig,
-    locale,
-    onChange,
-    divRef,
-  } = props;
+  const { prefixCls, fullscreen, validRange, value, generateConfig, locale, onChange, divRef } =
+    props;
   const month = generateConfig.getMonth(value || generateConfig.getNow());
 
   let start = 0;

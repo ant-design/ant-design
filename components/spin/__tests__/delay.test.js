@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Spin from '..';
+import { sleep } from '../../../tests/utils';
 
 describe('delay spinning', () => {
   it("should render with delay when it's mounted with spinning=true and delay", () => {
@@ -15,7 +16,7 @@ describe('delay spinning', () => {
 
     // use await not jest.runAllTimers()
     // because of https://github.com/facebook/jest/issues/3465
-    await new Promise(resolve => setTimeout(resolve, 500));
+    await sleep(500);
     wrapper.update();
 
     expect(wrapper.find('.ant-spin').at(0).hasClass('ant-spin-spinning')).toEqual(true);

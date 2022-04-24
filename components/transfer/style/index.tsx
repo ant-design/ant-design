@@ -9,3 +9,5 @@ import '../../input/style';
 import '../../menu/style';
 import '../../dropdown/style';
 import '../../pagination/style';
+
+// deps-lint-skip: form

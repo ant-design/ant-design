@@ -5,6 +5,9 @@ import LocaleProvider from '../../locale-provider';
 import zhCN from '../../locale/zh_CN';
 import enUS from '../../locale/en_US';
 import TimePicker from '../../time-picker';
+import DatePicker from '../../date-picker';
+import { openPicker, selectCell, closePicker } from '../../date-picker/__tests__/utils';
+import Pagination from '../../pagination';
 import Modal from '../../modal';
 
 describe('ConfigProvider.Locale', () => {
@@ -34,6 +37,7 @@ describe('ConfigProvider.Locale', () => {
         });
       }
 
+      // eslint-disable-next-line class-methods-use-this
       openConfirm = () => {
         jest.useFakeTimers();
         Modal.confirm({
@@ -62,6 +66,51 @@ describe('ConfigProvider.Locale', () => {
     const wrapper = mount(<App />);
     wrapper.find('button').simulate('click');
     expect($$('.ant-btn-primary')[0].textContent).toBe('OK');
+  });
+
+  // https://github.com/ant-design/ant-design/issues/31592
+  it('should not reset the component state when switching locale', () => {
+    class App extends React.Component {
+      state = {
+        locale: zhCN,
+      };
+
+      render() {
+        return (
+          <ConfigProvider locale={this.state.locale}>
+            <DatePicker />
+            <Pagination total={50} />
+          </ConfigProvider>
+        );
+      }
+    }
+
+    const wrapper = mount(<App />);
+
+    const datepickerInitProps = wrapper.find('.ant-picker-input input').props();
+    expect(datepickerInitProps.value).toBe('');
+    expect(datepickerInitProps.placeholder).toBe('请选择日期');
+    expect(wrapper.find('.ant-pagination-item-1').props().className).toContain(
+      'ant-pagination-item-active',
+    );
+
+    openPicker(wrapper);
+    selectCell(wrapper, 10);
+    closePicker(wrapper);
+
+    expect(wrapper.find('.ant-picker-input input').props().value).not.toBe('');
+
+    wrapper.setState({ locale: {} });
+    wrapper.find('.ant-pagination-item-3').simulate('click');
+
+    const datepickerProps = wrapper.find('.ant-picker-input input').props();
+    expect(datepickerProps.placeholder).not.toBe('请选择日期');
+    expect(datepickerProps.value).not.toBe('');
+    expect(datepickerProps.value).toContain('-10');
+
+    expect(wrapper.find('.ant-pagination-item-3').props().className).toContain(
+      'ant-pagination-item-active',
+    );
   });
 
   describe('support legacy LocaleProvider', () => {

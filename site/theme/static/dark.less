@@ -41,16 +41,19 @@
 
   .code-box {
     border: 1px solid @border-color-split;
+
     .markdown {
       pre {
         margin: 0.5em 0;
         padding: 6px 12px;
       }
+
       pre code {
         margin: 0;
         background: #262626;
       }
     }
+
     &-debug {
       border-color: @purple-3;
     }
@@ -63,6 +66,7 @@
       cursor: pointer;
       opacity: 0.45;
       transition: all 0.3s;
+
       &:hover {
         opacity: 0.65;
       }
@@ -84,9 +88,11 @@
   ul.anticons-list {
     li {
       color: #acacac;
+
       &.TwoTone:hover {
         background-color: #15395b;
       }
+
       &:hover {
         .anticon {
           color: #fff;
@@ -206,13 +212,16 @@
         transparent 95.83333333%
       );
     }
+
     .code-box-demo .ant-row > div:not(.gutter-row) {
       padding: 16px 0;
       background: #028ac8;
+
       &:nth-child(2n + 1) {
         background: fade(#0088c6, 70%);
       }
     }
+
     .ant-row .demo-col,
     .code-box-demo .ant-row .demo-col {
       margin-top: 0;
@@ -223,14 +232,17 @@
       text-align: center;
       border: none;
     }
+
     .ant-row .demo-col-1 {
       background: fade(#0088c6, 70%);
     }
+
     .ant-row .demo-col-3,
     .code-box-demo .ant-row .demo-col-3 {
       color: @site-text-color-secondary;
       background: unset;
     }
+
     .ant-row .demo-col-5,
     .code-box-demo .ant-row .demo-col-5 {
       color: @site-text-color-secondary;
@@ -268,10 +280,12 @@
     .ds-dropdown-menu {
       [class^='ds-dataset-'] {
         background: @popover-background;
+
         .algolia-docsearch-suggestion {
           background: @popover-background;
         }
       }
+
       .ds-suggestion.ds-cursor {
         .algolia-docsearch-suggestion:not(.suggestion-layout-simple) {
           .algolia-docsearch-suggestion--content {
@@ -280,13 +294,16 @@
         }
       }
     }
+
     .algolia-docsearch-suggestion--category-header {
       color: rgba(255, 255, 255, 0.65);
       border-bottom: 1px solid @border-color-split;
     }
+
     .algolia-docsearch-suggestion--subcategory-column::before {
       background: @border-color-split;
     }
+
     .algolia-docsearch-suggestion--content {
       &::before {
         background: @border-color-split;
@@ -364,6 +381,7 @@
     &-img {
       background-color: rgba(255, 255, 255, 0.1);
     }
+
     &-search input {
       color: rgba(255, 255, 255, 0.65);
     }

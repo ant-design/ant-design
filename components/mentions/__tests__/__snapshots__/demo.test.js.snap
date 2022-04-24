@@ -137,7 +137,7 @@ exports[`renders ./components/mentions/demo/form.md correctly 1`] = `
           </button>
              
           <button
-            class="ant-btn"
+            class="ant-btn ant-btn-default"
             type="button"
           >
             <span>
@@ -205,4 +205,40 @@ Array [
     />
   </div>,
 ]
+`;
+
+exports[`renders ./components/mentions/demo/status.md correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical"
+>
+  <div
+    class="ant-space-item"
+    style="margin-bottom:8px"
+  >
+    <div
+      class="ant-mentions ant-mentions-status-error"
+    >
+      <textarea
+        class="rc-textarea"
+        rows="1"
+      >
+        @afc163
+      </textarea>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-mentions ant-mentions-status-warning"
+    >
+      <textarea
+        class="rc-textarea"
+        rows="1"
+      >
+        @afc163
+      </textarea>
+    </div>
+  </div>
+</div>
 `;

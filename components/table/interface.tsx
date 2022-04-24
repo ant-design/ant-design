@@ -4,6 +4,7 @@ import {
   ColumnType as RcColumnType,
   RenderedCell as RcRenderedCell,
   ExpandableConfig,
+  FixedType,
 } from 'rc-table/lib/interface';
 import { TooltipProps } from '../tooltip';
 import { CheckboxProps } from '../checkbox';
@@ -28,6 +29,8 @@ export interface TableLocale {
   filterConfirm?: React.ReactNode;
   filterReset?: React.ReactNode;
   filterEmptyText?: React.ReactNode;
+  filterCheckall?: React.ReactNode;
+  filterSearchPlaceholder?: string;
   emptyText?: React.ReactNode | (() => React.ReactNode);
   selectAll?: React.ReactNode;
   selectNone?: React.ReactNode;
@@ -70,6 +73,7 @@ export type ColumnTitle<RecordType> =
 
 export type FilterValue = (Key | boolean)[];
 export type FilterKey = Key[] | null;
+export type FilterSearchType = boolean | ((input: string, record: {}) => boolean);
 export interface FilterConfirmProps {
   closeDropdown: boolean;
 }
@@ -108,6 +112,8 @@ export interface ColumnType<RecordType> extends RcColumnType<RecordType> {
   filteredValue?: FilterValue | null;
   defaultFilteredValue?: FilterValue | null;
   filterIcon?: React.ReactNode | ((filtered: boolean) => React.ReactNode);
+  filterMode?: 'menu' | 'tree';
+  filterSearch?: FilterSearchType;
   onFilter?: (value: string | number | boolean, record: RecordType) => boolean;
   filterDropdownVisible?: boolean;
   onFilterDropdownVisibleChange?: (visible: boolean) => void;
@@ -155,7 +161,7 @@ export interface TableRowSelection<T> {
   onSelectNone?: () => void;
   selections?: INTERNAL_SELECTION_ITEM[] | boolean;
   hideSelectAll?: boolean;
-  fixed?: boolean;
+  fixed?: FixedType;
   columnWidth?: string | number;
   columnTitle?: string | React.ReactNode;
   checkStrictly?: boolean;

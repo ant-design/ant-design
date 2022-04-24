@@ -1,18 +1,25 @@
 name: 📦 Compressed Size
 
-on: [pull_request]
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+# Cancel prev CI if new commit come
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  build:
-
+  compressed-size:
     runs-on: ubuntu-latest
     env:
       CI_JOB_NUMBER: 1
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - uses: preactjs/compressed-size-action@v2
       with:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
         pattern: "./dist/**/*.min.{js,css}"
-        build-script: "dist:esbuild"
+        build-script: "dist:esbuild-no-dup-check"
+        clean-script: "clean-lockfiles"

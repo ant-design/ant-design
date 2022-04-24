@@ -15,7 +15,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/5FrZKStG_/List.svg
 
 ## API
 
-另外我们封装了 [ProList](https://prolist.ofs.design/)，在 `antd` List 之上扩展了更多便捷易用的功能，比如多选，展开等功能，使用体验贴近 Table，欢迎尝试使用。
+另外我们封装了 [ProList](https://procomponents.ant.design/components/list)，在 `antd` List 之上扩展了更多便捷易用的功能，比如多选，展开等功能，使用体验贴近 Table，欢迎尝试使用。
 
 ### List
 
@@ -32,7 +32,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/5FrZKStG_/List.svg
 | locale | 默认文案设置，目前包括空数据文案 | object | {emptyText: `暂无数据`} |  |
 | pagination | 对应的 `pagination` 配置, 设置 false 不显示 | boolean \| object | false |  |
 | renderItem | 当使用 dataSource 时，可以用 `renderItem` 自定义渲染列表项 | (item) => ReactNode | - |  |
-| rowKey | 当 `renderItem` 自定义渲染列表项有效时，自定义每一行的 `key` 的获取方式 | ((item: T) => string) | `list-item-${index}` |  |
+| rowKey | 当 `renderItem` 自定义渲染列表项有效时，自定义每一行的 `key` 的获取方式 | `keyof` T \| (item: T) => `React.Key` | `"key"` |  |
 | size | list 的尺寸 | `default` \| `large` \| `small` | `default` |  |
 | split | 是否展示分割线 | boolean | true |  |
 

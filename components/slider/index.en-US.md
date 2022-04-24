@@ -34,16 +34,18 @@ To input a value in a range.
 | vertical | If true, the slider will be vertical | boolean | false |  |
 | onAfterChange | Fire when onmouseup is fired | (value) => void | - |  |
 | onChange | Callback function that is fired when the user changes the slider's value | (value) => void | - |  |
+| trackStyle | The style of slider track | CSSProperties | - |  |
+| handleStyle | The style of slider handle | CSSProperties | - |  |
 
 ### range
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| draggableTrack | Whether range track can be drag | boolean | false | 4.10.0 |
+| Property       | Description                     | Type    | Default | Version |
+| -------------- | ------------------------------- | ------- | ------- | ------- |
+| draggableTrack | Whether range track can be drag | boolean | false   | 4.10.0  |
 
 ## Methods
 
-| Name | Description | Version |
-| --- | --- | --- |
-| blur() | Remove focus |  |
-| focus() | Get focus |  |
+| Name    | Description  | Version |
+| ------- | ------------ | ------- |
+| blur()  | Remove focus |         |
+| focus() | Get focus    |         |

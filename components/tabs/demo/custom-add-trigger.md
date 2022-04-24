@@ -22,10 +22,10 @@ class Demo extends React.Component {
   constructor(props) {
     super(props);
     this.newTabIndex = 0;
-    const panes = [
-      { title: 'Tab 1', content: 'Content of Tab Pane 1', key: '1' },
-      { title: 'Tab 2', content: 'Content of Tab Pane 2', key: '2' },
-    ];
+    const panes = new Array(2).fill(null).map((_, index) => {
+      const id = String(index + 1);
+      return { title: `Tab ${id}`, content: `Content of Tab Pane ${id}`, key: id };
+    });
     this.state = {
       activeKey: panes[0].key,
       panes,

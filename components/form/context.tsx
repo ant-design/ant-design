@@ -1,7 +1,9 @@
 import * as React from 'react';
 import omit from 'rc-util/lib/omit';
+import { Meta } from 'rc-field-form/lib/interface';
 import { FormProvider as RcFormProvider } from 'rc-field-form';
 import { FormProviderProps as RcFormProviderProps } from 'rc-field-form/lib/FormContext';
+import { FC, PropsWithChildren, useMemo } from 'react';
 import { ColProps } from '../grid/col';
 import { FormLabelAlign } from './interface';
 import { RequiredMark } from './Form';
@@ -13,6 +15,7 @@ export interface FormContextProps {
   name?: string;
   colon?: boolean;
   labelAlign?: FormLabelAlign;
+  labelWrap?: boolean;
   labelCol?: ColProps;
   wrapperCol?: ColProps;
   requiredMark?: RequiredMark;
@@ -25,14 +28,9 @@ export const FormContext = React.createContext<FormContextProps>({
   itemRef: (() => {}) as any,
 });
 
-/** Form Item Context. Used for Form noStyle Item error collection */
-export interface FormItemContextProps {
-  updateItemErrors: (name: string, errors: string[], originName?: string) => void;
-}
-
-export const FormItemContext = React.createContext<FormItemContextProps>({
-  updateItemErrors: () => {},
-});
+/** `noStyle` Form Item Context. Used for error collection */
+export type ReportMetaChange = (meta: Meta, uniqueKeys: React.Key[]) => void;
+export const NoStyleItemContext = React.createContext<ReportMetaChange | null>(null);
 
 /** Form Provider */
 export interface FormProviderProps extends Omit<RcFormProviderProps, 'validateMessages'> {
@@ -53,3 +51,18 @@ export interface FormItemPrefixContextProps {
 export const FormItemPrefixContext = React.createContext<FormItemPrefixContextProps>({
   prefixCls: '',
 });
+
+export interface FormItemStatusContextProps {
+  status?: ValidateStatus;
+  hasFeedback?: boolean;
+}
+
+export const FormItemStatusContext = React.createContext<FormItemStatusContextProps>({});
+
+export const NoFormStatus: FC<PropsWithChildren<{}>> = ({ children }: PropsWithChildren<{}>) => {
+  const emptyContext = useMemo(() => ({}), []);
+
+  return (
+    <FormItemStatusContext.Provider value={emptyContext}>{children}</FormItemStatusContext.Provider>
+  );
+};

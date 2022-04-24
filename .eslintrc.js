@@ -70,6 +70,7 @@ module.exports = {
         'no-script-url': 0,
         'prefer-rest-params': 0,
         'compat/compat': 0,
+        'class-methods-use-this': 0,
         'react/no-access-state-in-setstate': 0,
         'react/destructuring-assignment': 0,
         'react/no-multi-comp': 0,
@@ -77,6 +78,8 @@ module.exports = {
         'jsx-a11y/href-no-hash': 0,
         'jsx-a11y/control-has-associated-label': 0,
         'import/no-extraneous-dependencies': 0,
+        'react/jsx-no-constructed-context-values': 0,
+        'react/no-unstable-nested-components': 0,
       },
     },
   ],
@@ -94,11 +97,13 @@ module.exports = {
     'react/sort-comp': 0,
     'react/display-name': 0,
     'react/static-property-placement': 0,
+    'react/jsx-no-bind': 0, // Should not check test file
     'react/no-find-dom-node': 0,
     'react/no-unused-prop-types': 0,
     'react/default-props-match-prop-types': 0,
     'react-hooks/rules-of-hooks': 2, // Checks rules of Hooks
-
+    'react/function-component-definition': 0,
+    'react/no-unused-class-component-methods': 0,
     'import/extensions': 0,
     'import/no-cycle': 0,
     'import/no-extraneous-dependencies': [

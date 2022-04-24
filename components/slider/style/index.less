@@ -49,9 +49,12 @@
     transition: border-color 0.3s, box-shadow 0.6s,
       transform 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
 
-    &-dragging&-dragging&-dragging {
-      border-color: @slider-handle-color-focus;
-      box-shadow: 0 0 0 5px @slider-handle-color-focus-shadow;
+    // &-dragging&-dragging&-dragging {
+    //   border-color: @slider-handle-color-focus;
+    //   box-shadow: 0 0 0 5px @slider-handle-color-focus-shadow;
+    // }
+    &-dragging {
+      z-index: 1;
     }
 
     &:focus {
@@ -104,6 +107,7 @@
     width: 100%;
     height: 4px;
     background: transparent;
+    pointer-events: none;
   }
 
   &-dot {
@@ -111,18 +115,11 @@
     top: -2px;
     width: 8px;
     height: 8px;
-    margin-left: -4px;
     background-color: @component-background;
     border: 2px solid @slider-dot-border-color;
     border-radius: 50%;
     cursor: pointer;
 
-    &:first-child {
-      margin-left: -4px;
-    }
-    &:last-child {
-      margin-left: -4px;
-    }
     &-active {
       border-color: @slider-dot-border-color-active;
     }
@@ -130,6 +127,10 @@
 
   &-disabled {
     cursor: not-allowed;
+
+    .@{slider-prefix-cls}-rail {
+      background-color: @slider-rail-background-color !important;
+    }
 
     .@{slider-prefix-cls}-track {
       background-color: @slider-disabled-color !important;
@@ -190,8 +191,7 @@
 
     .@{slider-prefix-cls}-dot {
       top: auto;
-      left: 2px;
-      margin-bottom: -4px;
+      margin-left: -2px;
     }
   }
 

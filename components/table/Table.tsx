@@ -29,6 +29,7 @@ import {
 } from './interface';
 import useSelection, {
   SELECTION_ALL,
+  SELECTION_COLUMN,
   SELECTION_INVERT,
   SELECTION_NONE,
 } from './hooks/useSelection';
@@ -99,7 +100,10 @@ export interface TableProps<RecordType>
   showSorterTooltip?: boolean | TooltipProps;
 }
 
-function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
+function InternalTable<RecordType extends object = any>(
+  props: TableProps<RecordType>,
+  ref: React.MutableRefObject<HTMLDivElement>,
+) {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -135,15 +139,25 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     '`index` parameter of `rowKey` function is deprecated. There is no guarantee that it will work as expected.',
   );
 
-  const screens = useBreakpoint();
+  const baseColumns = React.useMemo(
+    () => columns || convertChildrenToColumns(children),
+    [columns, children],
+  );
+  const needResponsive = React.useMemo(
+    () => baseColumns.some((col: ColumnType<RecordType>) => col.responsive),
+    [baseColumns],
+  );
+
+  const screens = useBreakpoint(needResponsive);
+
   const mergedColumns = React.useMemo(() => {
     const matched = new Set(Object.keys(screens).filter((m: Breakpoint) => screens[m]));
 
-    return (columns || convertChildrenToColumns(children)).filter(
+    return baseColumns.filter(
       (c: ColumnType<RecordType>) =>
         !c.responsive || c.responsive.some((r: Breakpoint) => matched.has(r)),
     );
-  }, [children, columns, screens]);
+  }, [baseColumns, screens]);
 
   const tableProps = omit(props, ['className', 'style', 'columns']) as TableProps<RecordType>;
 
@@ -218,7 +232,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
 
       // Trigger pagination events
       if (pagination && pagination.onChange) {
-        pagination.onChange(1, changeInfo.pagination!.pageSize);
+        pagination.onChange(1, changeInfo.pagination!.pageSize!);
       }
     }
 
@@ -372,7 +386,6 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     expandType,
     childrenColumnName,
     locale: tableLocale,
-    expandIconColumnIndex: mergedExpandable.expandIconColumnIndex,
     getPopupContainer,
   });
 
@@ -434,8 +447,11 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
 
     const renderPagination = (position: string) => (
       <Pagination
-        className={`${prefixCls}-pagination ${prefixCls}-pagination-${position}`}
         {...mergedPagination}
+        className={classNames(
+          `${prefixCls}-pagination ${prefixCls}-pagination-${position}`,
+          mergedPagination.className,
+        )}
         size={paginationSize}
       />
     );
@@ -480,7 +496,7 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
     className,
   );
   return (
-    <div className={wrapperClassNames} style={style}>
+    <div ref={ref} className={wrapperClassNames} style={style}>
       <Spin spinning={false} {...spinProps}>
         {topPaginationNode}
         <RcTable<RecordType>
@@ -510,10 +526,32 @@ function Table<RecordType extends object = any>(props: TableProps<RecordType>) {
   );
 }
 
+const ForwardTable = React.forwardRef(InternalTable) as <RecordType extends object = any>(
+  props: React.PropsWithChildren<TableProps<RecordType>> & { ref?: React.Ref<HTMLDivElement> },
+) => React.ReactElement;
+
+type InternalTableType = typeof ForwardTable;
+
+interface TableInterface extends InternalTableType {
+  defaultProps?: Partial<TableProps<any>>;
+  SELECTION_COLUMN: typeof SELECTION_COLUMN;
+  EXPAND_COLUMN: typeof RcTable.EXPAND_COLUMN;
+  SELECTION_ALL: 'SELECT_ALL';
+  SELECTION_INVERT: 'SELECT_INVERT';
+  SELECTION_NONE: 'SELECT_NONE';
+  Column: typeof Column;
+  ColumnGroup: typeof ColumnGroup;
+  Summary: typeof Summary;
+}
+
+const Table = ForwardTable as TableInterface;
+
 Table.defaultProps = {
   rowKey: 'key',
 };
 
+Table.SELECTION_COLUMN = SELECTION_COLUMN;
+Table.EXPAND_COLUMN = RcTable.EXPAND_COLUMN;
 Table.SELECTION_ALL = SELECTION_ALL;
 Table.SELECTION_INVERT = SELECTION_INVERT;
 Table.SELECTION_NONE = SELECTION_NONE;

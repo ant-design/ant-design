@@ -25,7 +25,7 @@ describe('Input.Password', () => {
 
   it('should support size', () => {
     const wrapper = mount(<Password size="large" />);
-    expect(wrapper.find('input').hasClass('ant-input-lg')).toBe(true);
+    expect(wrapper.find('.ant-input-affix-wrapper-lg')).toBeTruthy();
     expect(wrapper.render()).toMatchSnapshot();
   });
 

@@ -75,7 +75,7 @@ No, `message` is just a function, not a React Component, thus it is not a typo t
 
 ### `antd` doesn't work well in mobile.
 
-Please check [And Design Mobile](http://mobile.ant.design) as a possible solution, as `antd` has not been optimized to work well on mobile. You can also try the [react-component](https://github.com/react-component/) repositories which start with 'm-' 'rn-', which are also designed for mobile.
+Please check [Ant Design Mobile](http://mobile.ant.design) as a possible solution, as `antd` has not been optimized to work well on mobile. You can also try the [react-component](https://github.com/react-component/) repositories which start with 'm-' 'rn-', which are also designed for mobile.
 
 ### Does `antd` supply standalone files like 'React'?
 
@@ -125,6 +125,10 @@ ConfigProvider.config({
   prefixCls: 'ant',
 });
 ```
+
+### Why shouldn't I use component internal props or state with ref?
+
+You should only access the API by official doc with ref. Directly access internal `props` or `state` is not recommended which will make your code strong coupling with current version. Any refactor will break your code like refactor with [Hooks](https://reactjs.org/docs/hooks-intro.html) version, delete or rename internal `props` or `state`, adjust internal node constructor, etc.
 
 ### How to spell Ant Design correctly?
 

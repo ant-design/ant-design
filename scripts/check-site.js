@@ -1,6 +1,6 @@
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-restricted-syntax */
-const fetch = require('node-fetch');
+const fetch = require('isomorphic-fetch');
 const { join } = require('path');
 const cheerio = require('cheerio');
 const glob = require('glob');

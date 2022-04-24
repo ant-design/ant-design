@@ -3,6 +3,7 @@ import { mount } from 'enzyme';
 import Carousel from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { sleep } from '../../../tests/utils';
 
 describe('Carousel', () => {
   mountTest(Carousel);
@@ -65,7 +66,7 @@ describe('Carousel', () => {
     const spy = jest.spyOn(ref.current.innerSlider, 'autoPlay');
     window.resizeTo(1000);
     expect(spy).not.toHaveBeenCalled();
-    await new Promise(resolve => setTimeout(resolve, 500));
+    await sleep(500);
     expect(spy).toHaveBeenCalled();
   });
 
@@ -107,11 +108,6 @@ describe('Carousel', () => {
     });
 
     it('should keep initialSlide', () => {
-      // react unsafe lifecycle don't works in React 15
-      // https://github.com/akiran/react-slick/commit/97988e897750e1d8f7b10a86b655f50d75d38298
-      if (process.env.REACT === '15') {
-        return;
-      }
       const wrapper = mount(<Carousel initialSlide={1} />);
       wrapper.setProps({
         children: [<div key="1" />, <div key="2" />, <div key="3" />],

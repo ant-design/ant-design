@@ -2,6 +2,7 @@
 
 @drawer-prefix-cls: ~'@{ant-prefix}-drawer';
 @picker-prefix-cls: ~'@{ant-prefix}-picker';
+@drawer-animation-ease: @ease-out-quint;
 
 .@{drawer-prefix-cls} {
   @drawer-header-close-padding: ceil(((@drawer-header-close-size - @font-size-lg) / 2));
@@ -10,17 +11,14 @@
   z-index: @zindex-modal;
   width: 0%;
   height: 100%;
-  transition: transform @animation-duration-slow @ease-base-out,
-    height 0s ease @animation-duration-slow, width 0s ease @animation-duration-slow;
-  > * {
-    transition: transform @animation-duration-slow @ease-base-out,
-      box-shadow @animation-duration-slow @ease-base-out;
-  }
+  transition: width 0s ease @animation-duration-slow, height 0s ease @animation-duration-slow;
 
   &-content-wrapper {
     position: absolute;
     width: 100%;
     height: 100%;
+    transition: transform @animation-duration-slow @drawer-animation-ease,
+      box-shadow @animation-duration-slow @drawer-animation-ease;
   }
 
   .@{drawer-prefix-cls}-content {
@@ -38,7 +36,7 @@
     }
     &.@{drawer-prefix-cls}-open {
       width: 100%;
-      transition: transform @animation-duration-slow @ease-base-out;
+      transition: transform @animation-duration-slow @drawer-animation-ease;
     }
   }
 
@@ -89,7 +87,7 @@
     }
     &.@{drawer-prefix-cls}-open {
       height: 100%;
-      transition: transform @animation-duration-slow @ease-base-out;
+      transition: transform @animation-duration-slow @drawer-animation-ease;
     }
   }
 
@@ -115,6 +113,7 @@
       .@{drawer-prefix-cls}-content-wrapper {
         box-shadow: @shadow-1-up;
       }
+
       &.no-mask {
         bottom: 1px;
         transform: translateY(1px);
@@ -126,16 +125,17 @@
     height: 100%;
     opacity: 1;
     transition: none;
-    animation: antdDrawerFadeIn @animation-duration-slow @ease-base-out;
+    animation: antdDrawerFadeIn @animation-duration-slow @drawer-animation-ease;
     pointer-events: auto;
   }
 
   &-title {
+    flex: 1;
     margin: 0;
     color: @heading-color;
     font-weight: 500;
-    font-size: @font-size-lg;
-    line-height: 22px;
+    font-size: @drawer-title-font-size;
+    line-height: @drawer-title-line-height;
   }
 
   &-content {
@@ -148,12 +148,8 @@
   }
 
   &-close {
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: @zindex-popup-close;
-    display: block;
-    padding: @drawer-header-close-padding;
+    display: inline-block;
+    margin-right: 12px;
     color: @modal-close-color;
     font-weight: 700;
     font-size: @font-size-lg;
@@ -174,32 +170,35 @@
       color: @icon-color-hover;
       text-decoration: none;
     }
-
-    .@{drawer-prefix-cls}-header-no-title & {
-      margin-right: var(--scroll-bar);
-      /* stylelint-disable-next-line function-calc-no-invalid */
-      padding-right: ~'calc(@{drawer-header-close-padding} - var(--scroll-bar))';
-    }
   }
 
   &-header {
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     padding: @drawer-header-padding;
     color: @text-color;
     background: @drawer-bg;
     border-bottom: @border-width-base @border-style-base @border-color-split;
     border-radius: @border-radius-base @border-radius-base 0 0;
-  }
 
-  &-header-no-title {
-    color: @text-color;
-    background: @drawer-bg;
+    &-title {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &-close-only {
+      padding-bottom: 0;
+      border: none;
+    }
   }
 
   &-wrapper-body {
     display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
+    flex-flow: column nowrap;
     width: 100%;
     height: 100%;
   }
@@ -227,15 +226,8 @@
     height: 0;
     background-color: @modal-mask-bg;
     opacity: 0;
-    filter: ~'alpha(opacity=45)';
     transition: opacity @animation-duration-slow linear, height 0s ease @animation-duration-slow;
     pointer-events: none;
-  }
-
-  &-open {
-    &-content {
-      box-shadow: @shadow-2;
-    }
   }
 
   // =================== Hook Components ===================
@@ -250,6 +242,7 @@
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }

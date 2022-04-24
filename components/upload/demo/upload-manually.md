@@ -16,7 +16,6 @@ Upload files manually after `beforeUpload` returns `false`.
 ```jsx
 import { Upload, Button, message } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
-import reqwest from 'reqwest';
 
 class Demo extends React.Component {
   state = {
@@ -30,31 +29,29 @@ class Demo extends React.Component {
     fileList.forEach(file => {
       formData.append('files[]', file);
     });
-
     this.setState({
       uploading: true,
     });
-
     // You can use any AJAX library you like
-    reqwest({
-      url: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
-      method: 'post',
-      processData: false,
-      data: formData,
-      success: () => {
+    fetch('https://www.mocky.io/v2/5cc8019d300000980a055e76', {
+      method: 'POST',
+      body: formData,
+    })
+      .then(res => res.json())
+      .then(() => {
         this.setState({
           fileList: [],
-          uploading: false,
         });
         message.success('upload successfully.');
-      },
-      error: () => {
+      })
+      .catch(() => {
+        message.error('upload failed.');
+      })
+      .finally(() => {
         this.setState({
           uploading: false,
         });
-        message.error('upload failed.');
-      },
-    });
+      });
   };
 
   render() {

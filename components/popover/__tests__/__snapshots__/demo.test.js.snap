@@ -1,24 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./components/popover/demo/arrow-point-at-center.md correctly 1`] = `
-<div>
+Array [
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span>
       Align edge / 边缘对齐
     </span>
-  </button>
+  </button>,
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span>
       Arrow points to center / 箭头指向中心
     </span>
-  </button>
-</div>
+  </button>,
+]
 `;
 
 exports[`renders ./components/popover/demo/basic.md correctly 1`] = `
@@ -45,7 +45,7 @@ exports[`renders ./components/popover/demo/control.md correctly 1`] = `
 
 exports[`renders ./components/popover/demo/hover-with-click.md correctly 1`] = `
 <button
-  class="ant-btn"
+  class="ant-btn ant-btn-default"
   type="button"
 >
   <span>
@@ -62,7 +62,7 @@ exports[`renders ./components/popover/demo/placement.md correctly 1`] = `
     style="margin-left:70px;white-space:nowrap"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -70,7 +70,7 @@ exports[`renders ./components/popover/demo/placement.md correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -78,7 +78,7 @@ exports[`renders ./components/popover/demo/placement.md correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -90,7 +90,7 @@ exports[`renders ./components/popover/demo/placement.md correctly 1`] = `
     style="width:70px;float:left"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -98,7 +98,7 @@ exports[`renders ./components/popover/demo/placement.md correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -106,7 +106,7 @@ exports[`renders ./components/popover/demo/placement.md correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -118,7 +118,7 @@ exports[`renders ./components/popover/demo/placement.md correctly 1`] = `
     style="width:70px;margin-left:304px"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -126,7 +126,7 @@ exports[`renders ./components/popover/demo/placement.md correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -134,7 +134,7 @@ exports[`renders ./components/popover/demo/placement.md correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -146,7 +146,7 @@ exports[`renders ./components/popover/demo/placement.md correctly 1`] = `
     style="margin-left:70px;clear:both;white-space:nowrap"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -154,7 +154,7 @@ exports[`renders ./components/popover/demo/placement.md correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -162,7 +162,7 @@ exports[`renders ./components/popover/demo/placement.md correctly 1`] = `
       </span>
     </button>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -176,7 +176,7 @@ exports[`renders ./components/popover/demo/placement.md correctly 1`] = `
 exports[`renders ./components/popover/demo/triggerType.md correctly 1`] = `
 <div>
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span>
@@ -184,7 +184,7 @@ exports[`renders ./components/popover/demo/triggerType.md correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span>
@@ -192,7 +192,7 @@ exports[`renders ./components/popover/demo/triggerType.md correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span>

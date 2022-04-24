@@ -1,5 +1,5 @@
 ---
-order: 9
+order: 7
 title:
   zh-CN: 大小
   en-US: Size
@@ -14,15 +14,15 @@ title:
 Set size of numeral Badge.
 
 ```jsx
-import { Badge } from 'antd';
+import { Badge, Avatar } from 'antd';
 
 ReactDOM.render(
   <>
     <Badge size="default" count={5}>
-      <a href="#" className="head-example" />
+      <Avatar shape="square" size="large" />
     </Badge>
     <Badge size="small" count={5}>
-      <a href="#" className="head-example" />
+      <Avatar shape="square" size="large" />
     </Badge>
   </>,
   mountNode,

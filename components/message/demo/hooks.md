@@ -19,9 +19,9 @@ import { message, Button } from 'antd';
 const Context = React.createContext({ name: 'Default' });
 
 function Demo() {
-  const [messsageApi, contextHolder] = message.useMessage();
+  const [messageApi, contextHolder] = message.useMessage();
   const info = () => {
-    messsageApi.open({
+    messageApi.open({
       type: 'info',
       content: <Context.Consumer>{({ name }) => `Hello, ${name}!`}</Context.Consumer>,
       duration: 1,

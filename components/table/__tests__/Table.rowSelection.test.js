@@ -441,6 +441,76 @@ describe('Table.rowSelection', () => {
     expect(handleSelectEven).toHaveBeenCalledWith([0, 1, 2, 3]);
   });
 
+  describe('preset selection options', () => {
+    const presetData = [
+      { key: 0, name: 'Jack' },
+      { key: 1, name: 'Lucy', disabled: true },
+      { key: 2, name: 'Tom' },
+    ];
+
+    const getCheckboxProps = record => record;
+
+    it('SELECTION_ALL', () => {
+      const onChange = jest.fn();
+      const wrapper = mount(
+        createTable({
+          dataSource: presetData,
+          rowSelection: {
+            onChange,
+            defaultSelectedRowKeys: [2],
+            getCheckboxProps,
+            selections: [Table.SELECTION_ALL],
+          },
+        }),
+      );
+
+      wrapper.find('Trigger').setState({ popupVisible: true });
+      wrapper.find('li.ant-dropdown-menu-item').first().simulate('click');
+
+      expect(onChange).toHaveBeenCalledWith([0, 2], expect.anything());
+    });
+
+    it('SELECTION_INVERT', () => {
+      const onChange = jest.fn();
+      const wrapper = mount(
+        createTable({
+          dataSource: presetData,
+          rowSelection: {
+            onChange,
+            defaultSelectedRowKeys: [2],
+            getCheckboxProps,
+            selections: [Table.SELECTION_INVERT],
+          },
+        }),
+      );
+
+      wrapper.find('Trigger').setState({ popupVisible: true });
+      wrapper.find('li.ant-dropdown-menu-item').first().simulate('click');
+
+      expect(onChange).toHaveBeenCalledWith([0], expect.anything());
+    });
+
+    it('SELECTION_NONE', () => {
+      const onChange = jest.fn();
+      const wrapper = mount(
+        createTable({
+          dataSource: presetData,
+          rowSelection: {
+            onChange,
+            defaultSelectedRowKeys: [1, 2],
+            getCheckboxProps,
+            selections: [Table.SELECTION_NONE],
+          },
+        }),
+      );
+
+      wrapper.find('Trigger').setState({ popupVisible: true });
+      wrapper.find('li.ant-dropdown-menu-item').first().simulate('click');
+
+      expect(onChange).toHaveBeenCalledWith([1], expect.anything());
+    });
+  });
+
   it('could hide selectAll checkbox and custom selection', () => {
     const rowSelection = {
       hideSelectAll: true,
@@ -1381,6 +1451,39 @@ describe('Table.rowSelection', () => {
         .first()
         .simulate('change', { target: { checked: true } });
       expect(onChange).toHaveBeenCalledWith(['Jack'], [{ name: 'Jack' }]);
+    });
+
+    it('selectedRows ant selectedKeys should keep sync in initial state', () => {
+      const dataSource = [{ name: 'Jack' }, { name: 'Tom' }, { name: 'Lucy' }, { name: 'John' }];
+      const onChange = jest.fn();
+      const rowSelection = {
+        preserveSelectedRowKeys: true,
+        onChange,
+        selectedRowKeys: ['Jack'],
+      };
+      const wrapper = mount(
+        <Table
+          dataSource={dataSource.slice(0, 2)}
+          rowSelection={rowSelection}
+          rowKey="name"
+          columns={[
+            {
+              title: 'Name',
+              dataIndex: 'name',
+              key: 'name',
+            },
+          ]}
+        />,
+      );
+
+      wrapper.setProps({
+        dataSource: dataSource.slice(2, 4),
+      });
+      wrapper
+        .find('tbody input')
+        .first()
+        .simulate('change', { target: { checked: true } });
+      expect(onChange).toHaveBeenCalledWith(['Jack', 'Lucy'], [{ name: 'Jack' }, { name: 'Lucy' }]);
     });
   });
 });

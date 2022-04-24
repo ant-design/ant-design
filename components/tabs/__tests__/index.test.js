@@ -87,9 +87,21 @@ describe('Tabs', () => {
   });
 
   it('tabBarGutter should work', () => {
-    const wrapper = mount(<Tabs tabBarGutter={0}><TabPane /><TabPane /><TabPane /></Tabs>);
-    expect(wrapper).toMatchRenderedSnapshot();
-    const wrapper2 = mount(<Tabs tabBarGutter={0} tabPosition="left"><TabPane /><TabPane /><TabPane /></Tabs>);
-    expect(wrapper2).toMatchRenderedSnapshot();
+    const wrapper = mount(
+      <Tabs tabBarGutter={0}>
+        <TabPane />
+        <TabPane />
+        <TabPane />
+      </Tabs>,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+    const wrapper2 = mount(
+      <Tabs tabBarGutter={0} tabPosition="left">
+        <TabPane />
+        <TabPane />
+        <TabPane />
+      </Tabs>,
+    );
+    expect(wrapper2.render()).toMatchSnapshot();
   });
 });

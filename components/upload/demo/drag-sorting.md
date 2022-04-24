@@ -62,7 +62,7 @@ const DragableUploadListItem = ({ originNode, moveRow, file, fileList }) => {
   );
 };
 
-const DragSortingUpload: React.FC = () => {
+const DragSortingUpload = () => {
   const [fileList, setFileList] = useState([
     {
       uid: '-1',

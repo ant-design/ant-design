@@ -182,6 +182,7 @@ exports[`renders ./components/pagination/demo/all.md correctly 1`] = `
     class="ant-pagination-options"
   >
     <div
+      aria-label="Page Size"
       class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
     >
       <div
@@ -194,7 +195,9 @@ exports[`renders ./components/pagination/demo/all.md correctly 1`] = `
             aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
+            aria-label="Page Size"
             aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -245,9 +248,11 @@ exports[`renders ./components/pagination/demo/all.md correctly 1`] = `
     >
       Go to
       <input
+        aria-label="Page"
         type="text"
         value=""
       />
+      Page
     </div>
   </li>
 </ul>
@@ -558,6 +563,7 @@ Array [
       class="ant-pagination-options"
     >
       <div
+        aria-label="Page Size"
         class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
       >
         <div
@@ -570,7 +576,9 @@ Array [
               aria-activedescendant="undefined_list_0"
               aria-autocomplete="list"
               aria-controls="undefined_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Page Size"
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -795,6 +803,7 @@ Array [
       class="ant-pagination-options"
     >
       <div
+        aria-label="Page Size"
         class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-disabled"
       >
         <div
@@ -809,6 +818,7 @@ Array [
               aria-controls="undefined_list"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Page Size"
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -1121,6 +1131,7 @@ exports[`renders ./components/pagination/demo/itemRender.md correctly 1`] = `
     class="ant-pagination-options"
   >
     <div
+      aria-label="Page Size"
       class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
     >
       <div
@@ -1133,7 +1144,9 @@ exports[`renders ./components/pagination/demo/itemRender.md correctly 1`] = `
             aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
+            aria-label="Page Size"
             aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -1361,6 +1374,7 @@ Array [
       class="ant-pagination-options"
     >
       <div
+        aria-label="Page Size"
         class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
       >
         <div
@@ -1373,7 +1387,9 @@ Array [
               aria-activedescendant="undefined_list_0"
               aria-autocomplete="list"
               aria-controls="undefined_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Page Size"
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -1424,9 +1440,11 @@ Array [
       >
         Go to
         <input
+          aria-label="Page"
           type="text"
           value=""
         />
+        Page
       </div>
     </li>
   </ul>,
@@ -1607,6 +1625,7 @@ Array [
       class="ant-pagination-options"
     >
       <div
+        aria-label="Page Size"
         class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-disabled"
       >
         <div
@@ -1621,6 +1640,7 @@ Array [
               aria-controls="undefined_list"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Page Size"
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -1672,10 +1692,12 @@ Array [
       >
         Go to
         <input
+          aria-label="Page"
           disabled=""
           type="text"
           value=""
         />
+        Page
       </div>
     </li>
   </ul>,
@@ -1935,6 +1957,7 @@ Array [
       class="ant-pagination-options"
     >
       <div
+        aria-label="Page Size"
         class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
       >
         <div
@@ -1947,7 +1970,9 @@ Array [
               aria-activedescendant="undefined_list_0"
               aria-autocomplete="list"
               aria-controls="undefined_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Page Size"
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -1998,9 +2023,11 @@ Array [
       >
         Go to
         <input
+          aria-label="Page"
           type="text"
           value=""
         />
+        Page
       </div>
     </li>
   </ul>,
@@ -2265,6 +2292,7 @@ Array [
       class="ant-pagination-options"
     >
       <div
+        aria-label="Page Size"
         class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow ant-select-disabled"
       >
         <div
@@ -2279,6 +2307,7 @@ Array [
               aria-controls="undefined_list"
               aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Page Size"
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -2330,10 +2359,12 @@ Array [
       >
         Go to
         <input
+          aria-label="Page"
           disabled=""
           type="text"
           value=""
         />
+        Page
       </div>
     </li>
   </ul>,
@@ -2566,6 +2597,7 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
     class="ant-pagination-options"
   >
     <div
+      aria-label="Page Size"
       class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
     >
       <div
@@ -2578,7 +2610,9 @@ exports[`renders ./components/pagination/demo/more.md correctly 1`] = `
             aria-activedescendant="undefined_list_0"
             aria-autocomplete="list"
             aria-controls="undefined_list"
+            aria-expanded="false"
             aria-haspopup="listbox"
+            aria-label="Page Size"
             aria-owns="undefined_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
@@ -2937,6 +2971,7 @@ Array [
       class="ant-pagination-options"
     >
       <div
+        aria-label="Page Size"
         class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
       >
         <div
@@ -2949,7 +2984,9 @@ Array [
               aria-activedescendant="undefined_list_0"
               aria-autocomplete="list"
               aria-controls="undefined_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Page Size"
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
@@ -3130,6 +3167,7 @@ Array [
       class="ant-pagination-options"
     >
       <div
+        aria-label="Page Size"
         class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
       >
         <div
@@ -3142,7 +3180,9 @@ Array [
               aria-activedescendant="undefined_list_0"
               aria-autocomplete="list"
               aria-controls="undefined_list"
+              aria-expanded="false"
               aria-haspopup="listbox"
+              aria-label="Page Size"
               aria-owns="undefined_list"
               autocomplete="off"
               class="ant-select-selection-search-input"

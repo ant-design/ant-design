@@ -98,7 +98,7 @@ describe('Transfer', () => {
 
   it('should render correctly', () => {
     const wrapper = mount(<Transfer {...listCommonProps} />);
-    expect(wrapper).toMatchRenderedSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('should move selected keys to corresponding list', () => {
@@ -283,6 +283,19 @@ describe('Transfer', () => {
     expect(headerText(wrapper)).toEqual('1/2 People');
   });
 
+  it('should display the correct notFoundContent', () => {
+    const wrapper = mount(
+      <Transfer dataSource={[]} locale={{ notFoundContent: ['No Source', 'No Target'] }} />,
+    );
+
+    expect(
+      wrapper.find(TransferList).at(0).find('.ant-transfer-list-body-not-found').at(0).text(),
+    ).toEqual('No Source');
+    expect(
+      wrapper.find(TransferList).at(1).find('.ant-transfer-list-body-not-found').at(0).text(),
+    ).toEqual('No Target');
+  });
+
   it('should just check the filtered item when click on check all after search by input', () => {
     const filterOption = (inputValue, option) => option.description.indexOf(inputValue) > -1;
     const renderFunc = item => item.title;
@@ -401,7 +414,7 @@ describe('Transfer', () => {
       lazy: false,
     };
     const wrapper = mount(<Transfer {...sortedTargetKeyProps} render={item => item.title} />);
-    expect(wrapper).toMatchRenderedSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('should add custom styles when their props are provided', () => {
@@ -475,7 +488,7 @@ describe('Transfer', () => {
         render={record => ({ value: `${record.title} value`, label: 'label' })}
       />,
     );
-    expect(component).toMatchRenderedSnapshot();
+    expect(component.render()).toMatchSnapshot();
   });
 
   it('should render correct checkbox label when checkboxLabel is defined', () => {
@@ -555,6 +568,6 @@ describe('immutable data', () => {
       }),
     ];
     const wrapper = mount(<Transfer rowKey={item => item.id} dataSource={mockData} />);
-    expect(wrapper).toMatchRenderedSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });

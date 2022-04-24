@@ -14,7 +14,7 @@ title:
 Using pre & post tabs example.
 
 ```jsx
-import { Input, Select } from 'antd';
+import { Input, Select, Space, Cascader } from 'antd';
 import { SettingOutlined } from '@ant-design/icons';
 
 const { Option } = Select;
@@ -35,20 +35,16 @@ const selectAfter = (
 );
 
 ReactDOM.render(
-  <>
-    <div style={{ marginBottom: 16 }}>
-      <Input addonBefore="http://" addonAfter=".com" defaultValue="mysite" />
-    </div>
-    <div style={{ marginBottom: 16 }}>
-      <Input addonBefore={selectBefore} addonAfter={selectAfter} defaultValue="mysite" />
-    </div>
-    <div style={{ marginBottom: 16 }}>
-      <Input addonAfter={<SettingOutlined />} defaultValue="mysite" />
-    </div>
-    <div style={{ marginBottom: 16 }}>
-      <Input addonBefore="http://" suffix=".com" defaultValue="mysite" />
-    </div>
-  </>,
+  <Space direction="vertical">
+    <Input addonBefore="http://" addonAfter=".com" defaultValue="mysite" />
+    <Input addonBefore={selectBefore} addonAfter={selectAfter} defaultValue="mysite" />
+    <Input addonAfter={<SettingOutlined />} defaultValue="mysite" />
+    <Input addonBefore="http://" suffix=".com" defaultValue="mysite" />
+    <Input
+      addonBefore={<Cascader placeholder="cascader" style={{ width: 150 }} />}
+      defaultValue="mysite"
+    />
+  </Space>,
   mountNode,
 );
 ```

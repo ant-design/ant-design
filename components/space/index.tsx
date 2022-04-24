@@ -88,11 +88,12 @@ const Space: React.FC<SpaceProps> = props => {
       latestIndex = i;
     }
 
-    /* eslint-disable react/no-array-index-key */
+    const keyOfChild = child && child.key;
+
     return (
       <Item
         className={itemClassName}
-        key={`${itemClassName}-${i}`}
+        key={`${itemClassName}-${keyOfChild || i}`}
         direction={direction}
         index={i}
         marginDirection={marginDirection}
@@ -102,7 +103,6 @@ const Space: React.FC<SpaceProps> = props => {
         {child}
       </Item>
     );
-    /* eslint-enable */
   });
 
   const spaceContext = React.useMemo(

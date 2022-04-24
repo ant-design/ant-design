@@ -102,7 +102,7 @@ class PicturesWall extends React.Component {
         icon = <LoadingOutlined />; // or icon = 'uploading...';
       } else {
         fileSufIconList.forEach(item => {
-          if (item.suf.includes(file.name.substr(file.name.lastIndexOf('.')))) {
+          if (item.suf.includes(file.name.slice(file.name.lastIndexOf('.')))) {
             icon = item.type;
           }
         });

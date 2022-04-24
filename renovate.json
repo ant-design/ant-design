@@ -1,0 +1,25 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "automerge": false,
+  "dependencyDashboard": true,
+  "rebaseWhen": "conflicted",
+  "ignoreDeps": [],
+  "labels": ["dependencies"],
+  "postUpdateOptions": ["yarnDedupeHighest"],
+  "prConcurrentLimit": 30,
+  "prHourlyLimit": 0,
+  "schedule": "on sunday before 6:00am",
+  "timezone": "UTC",
+  "packageRules": [
+    {
+      "groupName": "react-component",
+      "matchPackagePatterns": "rc-*",
+      "minor": {
+        "enabled": false
+      },
+      "major": {
+        "enabled": false
+      }
+    }
+  ]
+}

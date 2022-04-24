@@ -66,7 +66,7 @@
       color: @heading-color;
       font-weight: 600;
       font-size: @page-header-heading-title;
-      line-height: 32px;
+      line-height: @height-base;
       .text-overflow-ellipsis();
     }
 
@@ -87,11 +87,7 @@
       white-space: nowrap;
 
       > * {
-        margin-left: @margin-sm;
         white-space: unset;
-      }
-      > *:first-child {
-        margin-left: 0;
       }
     }
   }
@@ -105,6 +101,7 @@
     .@{ant-prefix}-tabs {
       > .@{ant-prefix}-tabs-nav {
         margin: 0;
+
         &::before {
           border: none;
         }

@@ -1,0 +1,52 @@
+@import '../../input/style/mixin';
+
+@picker-prefix-cls: ~'@{ant-prefix}-picker';
+
+.picker-status-color(
+  @text-color: @input-color;
+  @border-color: @input-border-color;
+  @background-color: @input-bg;
+  @hoverBorderColor: @primary-color-hover;
+  @outlineColor: @primary-color-outline;
+) {
+  &.@{picker-prefix-cls} {
+    &,
+    &:not([disabled]):hover {
+      background-color: @background-color;
+      border-color: @border-color;
+    }
+
+    &-focused,
+    &:focus {
+      .active(@text-color, @hoverBorderColor, @outlineColor);
+    }
+  }
+
+  .@{picker-prefix-cls}-feedback-icon {
+    color: @text-color;
+  }
+}
+
+.@{picker-prefix-cls} {
+  &-status-error {
+    .picker-status-color(@error-color, @error-color, @input-bg, @error-color-hover, @error-color-outline);
+  }
+
+  &-status-warning {
+    .picker-status-color(@warning-color, @warning-color, @input-bg, @warning-color-hover, @warning-color-outline);
+  }
+
+  &-status-validating {
+    .@{picker-prefix-cls}-feedback-icon {
+      display: inline-block;
+      color: @primary-color;
+    }
+  }
+
+  &-status-success {
+    .@{picker-prefix-cls}-feedback-icon {
+      color: @success-color;
+      animation-name: diffZoomIn1 !important;
+    }
+  }
+}

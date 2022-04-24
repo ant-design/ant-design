@@ -7,7 +7,7 @@ title:
 
 ## zh-CN
 
-自定义位置，点击触发按钮抽屉从相应的位置滑出，点击遮罩区关闭
+自定义位置，点击触发按钮抽屉从相应的位置滑出，点击遮罩区关闭。
 
 ## en-US
 
@@ -42,7 +42,7 @@ class App extends React.Component {
     return (
       <>
         <Space>
-          <Radio.Group defaultValue={placement} onChange={this.onChange}>
+          <Radio.Group value={placement} onChange={this.onChange}>
             <Radio value="top">top</Radio>
             <Radio value="right">right</Radio>
             <Radio value="bottom">bottom</Radio>

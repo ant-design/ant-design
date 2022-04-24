@@ -86,7 +86,7 @@ exports[`renders ./components/anchor/demo/customizeHighlight.md correctly 1`] = 
   style="max-height:100vh"
 >
   <div
-    class="ant-anchor fixed"
+    class="ant-anchor ant-anchor-fixed"
   >
     <div
       class="ant-anchor-ink"
@@ -160,7 +160,7 @@ exports[`renders ./components/anchor/demo/onChange.md correctly 1`] = `
   style="max-height:100vh"
 >
   <div
-    class="ant-anchor fixed"
+    class="ant-anchor ant-anchor-fixed"
   >
     <div
       class="ant-anchor-ink"
@@ -234,7 +234,7 @@ exports[`renders ./components/anchor/demo/onClick.md correctly 1`] = `
   style="max-height:100vh"
 >
   <div
-    class="ant-anchor fixed"
+    class="ant-anchor ant-anchor-fixed"
   >
     <div
       class="ant-anchor-ink"
@@ -308,7 +308,7 @@ exports[`renders ./components/anchor/demo/static.md correctly 1`] = `
   style="max-height:100vh"
 >
   <div
-    class="ant-anchor fixed"
+    class="ant-anchor ant-anchor-fixed"
   >
     <div
       class="ant-anchor-ink"

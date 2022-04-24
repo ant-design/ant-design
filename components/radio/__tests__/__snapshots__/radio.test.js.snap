@@ -10,6 +10,7 @@ exports[`Radio rtl render component should be rendered correctly in RTL directio
     <input
       class="ant-radio-input"
       type="radio"
+      value=""
     />
     <span
       class="ant-radio-inner"
@@ -34,6 +35,7 @@ exports[`Radio rtl render component should be rendered correctly in RTL directio
     <input
       class="ant-radio-button-input"
       type="radio"
+      value=""
     />
     <span
       class="ant-radio-button-inner"

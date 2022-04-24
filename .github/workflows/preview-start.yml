@@ -6,7 +6,9 @@
 
 name: Preview Start
 
-on: pull_request_target
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
 
 jobs:
   preview-start:
@@ -14,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: update status comment
-        uses: actions-cool/maintain-one-comment@v1.1.0
+        uses: actions-cool/maintain-one-comment@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |

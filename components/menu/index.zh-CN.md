@@ -15,6 +15,11 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3XZcjGpvK/Menu.svg
 
 更多布局和导航的使用可以参考：[通用布局](/components/layout)。
 
+## 开发者注意事项
+
+- Menu 元素为 `ul`，因而仅支持 [`li` 以及 `script-supporting` 子元素](https://html.spec.whatwg.org/multipage/grouping-content.html#the-ul-element)。因而你的子节点元素应该都在 `Menu.Item` 内使用。
+- Menu 需要计算节点结构，因而其子元素仅支持 `Menu.*` 以及对此进行封装的 HOC 组件。
+
 ## API
 
 ```jsx
@@ -39,7 +44,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3XZcjGpvK/Menu.svg
 | mode | 菜单类型，现在支持垂直、水平、和内嵌模式三种 | `vertical` \| `horizontal` \| `inline` | `vertical` |  |
 | multiple | 是否允许多选 | boolean | false |  |
 | openKeys | 当前展开的 SubMenu 菜单项 key 数组 | string\[] | - |  |
-| overflowedIndicator | 自定义 Menu 折叠时的图标 | ReactNode | - |  |
+| overflowedIndicator | 用于自定义 Menu 水平空间不足时的省略收缩的图标 | ReactNode | `<EllipsisOutlined />` |  |
 | selectable | 是否允许选中 | boolean | true |  |
 | selectedKeys | 当前选中的菜单项 key 数组 | string\[] | - |  |
 | style | 根节点样式 | CSSProperties | - |  |
@@ -56,13 +61,13 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3XZcjGpvK/Menu.svg
 
 ### Menu.Item
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| danger | 展示错误状态样式 | boolean | false | 4.3.0 |
-| disabled | 是否禁用 | boolean | false |  |
-| icon | 菜单图标 | ReactNode | - | 4.2.0 |
-| key | item 的唯一标志 | string | - |  |
-| title | 设置收缩时展示的悬浮标题 | string | - |  |
+| 参数     | 说明                     | 类型      | 默认值 | 版本  |
+| -------- | ------------------------ | --------- | ------ | ----- |
+| danger   | 展示错误状态样式         | boolean   | false  | 4.3.0 |
+| disabled | 是否禁用                 | boolean   | false  |       |
+| icon     | 菜单图标                 | ReactNode | -      | 4.2.0 |
+| key      | item 的唯一标志          | string    | -      |       |
+| title    | 设置收缩时展示的悬浮标题 | string    | -      |       |
 
 > 注意：`icon` 是 `4.2.0` 新增的属性，之前的版本请使用下面的方式定义图标。
 >
@@ -86,7 +91,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3XZcjGpvK/Menu.svg
 ### Menu.SubMenu
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- |
 | children | 子菜单的菜单项 | Array&lt;MenuItem \| SubMenu> | - |  |
 | disabled | 是否禁用 | boolean | false |  |
 | icon | 菜单图标 | ReactNode | - | 4.2.0 |
@@ -95,14 +100,25 @@ cover: https://gw.alipayobjects.com/zos/alicdn/3XZcjGpvK/Menu.svg
 | popupOffset | 子菜单偏移量，`mode="inline"` 时无效 | \[number, number] | - |  |
 | title | 子菜单项值 | ReactNode | - |  |
 | onTitleClick | 点击子菜单标题 | function({ key, domEvent }) | - |  |
+| theme | 设置子菜单的主题，默认从 Menu 上继承 |  | `light` \| `dark` | - | 4.19.0 |
 
 ### Menu.ItemGroup
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| children | 分组的菜单项 | MenuItem\[] | - |  |
-| title | 分组标题 | ReactNode | - |  |
+| 参数     | 说明         | 类型        | 默认值 | 版本 |
+| -------- | ------------ | ----------- | ------ | ---- |
+| children | 分组的菜单项 | MenuItem\[] | -      |      |
+| title    | 分组标题     | ReactNode   | -      |      |
 
 ### Menu.Divider
 
 菜单项分割线，只用在弹出菜单内。
+
+| 参数   | 说明     | 类型    | 默认值 | 版本   |
+| ------ | -------- | ------- | ------ | ------ |
+| dashed | 是否虚线 | boolean | false  | 4.17.0 |
+
+## FAQ
+
+### 为何 Menu 的子元素会渲染两次？
+
+Menu 通过[二次渲染](https://github.com/react-component/menu/blob/f4684514096d6b7123339cbe72e7b0f68db0bce2/src/Menu.tsx#L543)收集嵌套结构信息以支持 HOC 的结构。合并成一个推导结构会使得逻辑变得十分复杂，欢迎 PR 以协助改进该设计。

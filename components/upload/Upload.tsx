@@ -174,13 +174,13 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
         let clone;
 
         try {
-          clone = (new File([originFileObj], originFileObj.name, {
+          clone = new File([originFileObj], originFileObj.name, {
             type: originFileObj.type,
-          }) as any) as UploadFile;
+          }) as any as UploadFile;
         } catch (e) {
-          clone = (new Blob([originFileObj], {
+          clone = new Blob([originFileObj], {
             type: originFileObj.type,
-          }) as any) as UploadFile;
+          }) as any as UploadFile;
           clone.name = originFileObj.name;
           clone.lastModifiedDate = new Date();
           clone.lastModified = new Date().getTime();
@@ -305,7 +305,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     onError,
     onProgress,
     onSuccess,
-    ...props,
+    ...(props as RcUploadProps),
     prefixCls,
     beforeUpload: mergedBeforeUpload,
     onChange: undefined,
@@ -322,11 +322,18 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     delete rcUploadProps.id;
   }
 
-  const renderUploadList = (button?: React.ReactNode) =>
+  const renderUploadList = (button?: React.ReactNode, buttonVisible?: boolean) =>
     showUploadList ? (
       <LocaleReceiver componentName="Upload" defaultLocale={defaultLocale.Upload}>
         {(locale: UploadLocale) => {
-          const { showRemoveIcon, showPreviewIcon, showDownloadIcon, removeIcon, downloadIcon } =
+          const {
+            showRemoveIcon,
+            showPreviewIcon,
+            showDownloadIcon,
+            removeIcon,
+            previewIcon,
+            downloadIcon,
+          } =
             typeof showUploadList === 'boolean' ? ({} as ShowUploadListInterface) : showUploadList;
           return (
             <UploadList
@@ -340,12 +347,14 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
               showPreviewIcon={showPreviewIcon}
               showDownloadIcon={showDownloadIcon}
               removeIcon={removeIcon}
+              previewIcon={previewIcon}
               downloadIcon={downloadIcon}
               iconRender={iconRender}
               locale={{ ...locale, ...propLocale }}
               isImageUrl={isImageUrl}
               progress={progress}
               appendAction={button}
+              appendActionVisible={buttonVisible}
               itemRender={itemRender}
             />
           );
@@ -392,8 +401,8 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     [`${prefixCls}-rtl`]: direction === 'rtl',
   });
 
-  const uploadButton = (
-    <div className={uploadButtonCls} style={children ? undefined : { display: 'none' }}>
+  const renderUploadButton = (uploadButtonStyle?: React.CSSProperties) => (
+    <div className={uploadButtonCls} style={uploadButtonStyle}>
       <RcUpload {...rcUploadProps} ref={upload} />
     </div>
   );
@@ -401,28 +410,33 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
   if (listType === 'picture-card') {
     return (
       <span className={classNames(`${prefixCls}-picture-card-wrapper`, className)}>
-        {renderUploadList(uploadButton)}
+        {renderUploadList(renderUploadButton(), !!children)}
       </span>
     );
   }
 
   return (
     <span className={className}>
-      {uploadButton}
+      {renderUploadButton(children ? undefined : { display: 'none' })}
       {renderUploadList()}
     </span>
   );
 };
 
-interface CompoundedComponent
-  extends React.ForwardRefExoticComponent<
-    React.PropsWithChildren<UploadProps> & React.RefAttributes<any>
-  > {
+const ForwardUpload = React.forwardRef<unknown, UploadProps>(InternalUpload) as <T>(
+  props: React.PropsWithChildren<UploadProps<T>> & React.RefAttributes<any>,
+) => React.ReactElement;
+
+type InternalUploadType = typeof ForwardUpload;
+
+interface UploadInterface extends InternalUploadType {
+  defaultProps?: Partial<UploadProps>;
+  displayName?: string;
   Dragger: typeof Dragger;
   LIST_IGNORE: string;
 }
 
-const Upload = React.forwardRef<unknown, UploadProps>(InternalUpload) as CompoundedComponent;
+const Upload = ForwardUpload as UploadInterface;
 
 Upload.Dragger = Dragger;
 

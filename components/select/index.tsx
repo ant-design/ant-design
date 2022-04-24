@@ -3,18 +3,20 @@
 import * as React from 'react';
 import omit from 'rc-util/lib/omit';
 import classNames from 'classnames';
-import RcSelect, { Option, OptGroup, SelectProps as RcSelectProps } from 'rc-select';
+import RcSelect, { Option, OptGroup, SelectProps as RcSelectProps, BaseSelectRef } from 'rc-select';
+import type { BaseOptionType, DefaultOptionType } from 'rc-select/lib/Select';
 import { OptionProps } from 'rc-select/lib/Option';
+import { useContext } from 'react';
 import { ConfigContext } from '../config-provider';
 import getIcons from './utils/iconUtil';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
-import { getTransitionName } from '../_util/motion';
+import { FormItemStatusContext } from '../form/context';
+import { getMergedStatus, getStatusClassNames, InputStatus } from '../_util/statusUtils';
+import { getTransitionName, getTransitionDirection, SelectCommonPlacement } from '../_util/motion';
 
 type RawValue = string | number;
 
-export { OptionProps };
-
-export type OptionType = typeof Option;
+export { OptionProps, BaseSelectRef as RefSelectProps, BaseOptionType, DefaultOptionType };
 
 export interface LabeledValue {
   key?: string;
@@ -24,26 +26,31 @@ export interface LabeledValue {
 
 export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[] | undefined;
 
-export interface InternalSelectProps<VT> extends Omit<RcSelectProps<VT>, 'mode'> {
+export interface InternalSelectProps<
+  ValueType = any,
+  OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
+> extends Omit<RcSelectProps<ValueType, OptionType>, 'mode'> {
   suffixIcon?: React.ReactNode;
   size?: SizeType;
   mode?: 'multiple' | 'tags' | 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
   bordered?: boolean;
 }
 
-export interface SelectProps<VT>
-  extends Omit<InternalSelectProps<VT>, 'inputIcon' | 'mode' | 'getInputElement' | 'backfill'> {
+export interface SelectProps<
+  ValueType = any,
+  OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
+> extends Omit<
+    InternalSelectProps<ValueType, OptionType>,
+    'inputIcon' | 'mode' | 'getInputElement' | 'getRawInputElement' | 'backfill' | 'placement'
+  > {
+  placement?: SelectCommonPlacement;
   mode?: 'multiple' | 'tags';
-}
-
-export interface RefSelectProps {
-  focus: () => void;
-  blur: () => void;
+  status?: InputStatus;
 }
 
 const SECRET_COMBOBOX_MODE_DO_NOT_USE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
 
-const InternalSelect = <VT extends SelectValue = SelectValue>(
+const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType>(
   {
     prefixCls: customizePrefixCls,
     bordered = true,
@@ -51,12 +58,15 @@ const InternalSelect = <VT extends SelectValue = SelectValue>(
     getPopupContainer,
     dropdownClassName,
     listHeight = 256,
+    placement,
     listItemHeight = 24,
     size: customizeSize,
     notFoundContent,
+    status: customStatus,
+    showArrow,
     ...props
-  }: SelectProps<VT>,
-  ref: React.Ref<RefSelectProps>,
+  }: SelectProps<OptionType>,
+  ref: React.Ref<BaseSelectRef>,
 ) => {
   const {
     getPopupContainer: getContextPopupContainer,
@@ -72,7 +82,7 @@ const InternalSelect = <VT extends SelectValue = SelectValue>(
   const rootPrefixCls = getPrefixCls();
 
   const mode = React.useMemo(() => {
-    const { mode: m } = props as InternalSelectProps<VT>;
+    const { mode: m } = props as InternalSelectProps<OptionType>;
 
     if ((m as any) === 'combobox') {
       return undefined;
@@ -86,6 +96,12 @@ const InternalSelect = <VT extends SelectValue = SelectValue>(
   }, [props.mode]);
 
   const isMultiple = mode === 'multiple' || mode === 'tags';
+  const mergedShowArrow =
+    showArrow !== undefined ? showArrow : props.loading || !(isMultiple || mode === 'combobox');
+
+  // ===================== Validation Status =====================
+  const { status: contextStatus, hasFeedback } = useContext(FormItemStatusContext);
+  const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
   // ===================== Empty =====================
   let mergedNotFound: React.ReactNode;
@@ -101,6 +117,9 @@ const InternalSelect = <VT extends SelectValue = SelectValue>(
   const { suffixIcon, itemIcon, removeIcon, clearIcon } = getIcons({
     ...props,
     multiple: isMultiple,
+    status: mergedStatus,
+    hasFeedback,
+    showArrow: mergedShowArrow,
     prefixCls,
   });
 
@@ -118,20 +137,36 @@ const InternalSelect = <VT extends SelectValue = SelectValue>(
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-borderless`]: !bordered,
     },
+    getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
     className,
   );
 
+  // ===================== Placement =====================
+  const getPlacement = () => {
+    if (placement !== undefined) {
+      return placement;
+    }
+    return direction === 'rtl'
+      ? ('bottomRight' as SelectCommonPlacement)
+      : ('bottomLeft' as SelectCommonPlacement);
+  };
+
   return (
-    <RcSelect<VT>
+    <RcSelect<any, any>
       ref={ref as any}
       virtual={virtual}
       dropdownMatchSelectWidth={dropdownMatchSelectWidth}
       {...selectProps}
-      transitionName={getTransitionName(rootPrefixCls, 'slide-up', props.transitionName)}
+      transitionName={getTransitionName(
+        rootPrefixCls,
+        getTransitionDirection(placement),
+        props.transitionName,
+      )}
       listHeight={listHeight}
       listItemHeight={listItemHeight}
-      mode={mode}
+      mode={mode as any}
       prefixCls={prefixCls}
+      placement={getPlacement()}
       direction={direction}
       inputIcon={suffixIcon}
       menuItemSelectedIcon={itemIcon}
@@ -141,23 +176,23 @@ const InternalSelect = <VT extends SelectValue = SelectValue>(
       className={mergedClassName}
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       dropdownClassName={rcSelectRtlDropDownClassName}
+      showArrow={hasFeedback || showArrow}
     />
   );
 };
 
-const SelectRef = React.forwardRef(InternalSelect) as <VT extends SelectValue = SelectValue>(
-  props: SelectProps<VT> & { ref?: React.Ref<RefSelectProps> },
-) => React.ReactElement;
-
-type InternalSelectType = typeof SelectRef;
-
-interface SelectInterface extends InternalSelectType {
+const Select = React.forwardRef(InternalSelect) as unknown as (<
+  ValueType = any,
+  OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
+>(
+  props: React.PropsWithChildren<SelectProps<ValueType, OptionType>> & {
+    ref?: React.Ref<BaseSelectRef>;
+  },
+) => React.ReactElement) & {
   SECRET_COMBOBOX_MODE_DO_NOT_USE: string;
   Option: typeof Option;
   OptGroup: typeof OptGroup;
-}
-
-const Select = SelectRef as SelectInterface;
+};
 
 Select.SECRET_COMBOBOX_MODE_DO_NOT_USE = SECRET_COMBOBOX_MODE_DO_NOT_USE;
 Select.Option = Option;

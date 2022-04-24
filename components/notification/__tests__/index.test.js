@@ -102,11 +102,12 @@ describe('notification', () => {
   });
 
   it('should be able to global config rootPrefixCls', () => {
-    ConfigProvider.config({ prefixCls: 'prefix-test' });
-    notification.open({ message: 'Notification Title', duration: 0 });
-    expect(document.querySelectorAll('.ant-notification-notice').length).toBe(0);
-    expect(document.querySelectorAll('.prefix-test-notification-notice').length).toBe(1);
-    ConfigProvider.config({ prefixCls: 'ant' });
+    ConfigProvider.config({ prefixCls: 'prefix-test', iconPrefixCls: 'bamboo' });
+    notification.success({ message: 'Notification Title', duration: 0 });
+    expect(document.querySelectorAll('.ant-notification-notice')).toHaveLength(0);
+    expect(document.querySelectorAll('.prefix-test-notification-notice')).toHaveLength(1);
+    expect(document.querySelectorAll('.bamboo-check-circle')).toHaveLength(1);
+    ConfigProvider.config({ prefixCls: 'ant', iconPrefixCls: null });
   });
 
   it('should be able to config prefixCls', () => {
@@ -117,8 +118,8 @@ describe('notification', () => {
       message: 'Notification Title',
       duration: 0,
     });
-    expect(document.querySelectorAll('.ant-notification-notice').length).toBe(0);
-    expect(document.querySelectorAll('.prefix-test-notice').length).toBe(1);
+    expect(document.querySelectorAll('.ant-notification-notice')).toHaveLength(0);
+    expect(document.querySelectorAll('.prefix-test-notice')).toHaveLength(1);
     notification.config({
       prefixCls: '',
     });
@@ -188,6 +189,21 @@ describe('notification', () => {
       closeIcon: <span className="test-customize-icon" />,
     });
     expect(document.querySelectorAll('.test-customize-icon').length).toBe(1);
+  });
+
+  it('closeIcon should be update', async () => {
+    const openNotificationWithCloseIcon = async type => {
+      notification.open({
+        message: 'Notification Title',
+        closeIcon: <span className={`test-customize-icon-${type}`} />,
+      });
+      await Promise.resolve();
+      expect(document.querySelectorAll(`.test-customize-icon-${type}`).length).toBe(1);
+    };
+
+    const promises = ['1', '2'].map(type => openNotificationWithCloseIcon(type));
+
+    await Promise.all(promises);
   });
 
   it('support config duration', () => {

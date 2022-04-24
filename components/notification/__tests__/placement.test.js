@@ -34,6 +34,23 @@ describe('Notification.placement', () => {
       const defaultBottom = '24px';
       let style;
 
+      // top
+      open({
+        placement: 'top',
+        top: 50,
+      });
+      style = getStyle($$('.ant-notification-top')[0]);
+      expect(style.top).toBe('50px');
+      expect(style.left).toBe('50%');
+      expect(style.transform).toBe('translateX(-50%)');
+      expect(style.right).toBe('');
+      expect(style.bottom).toBe('');
+
+      open({
+        placement: 'top',
+      });
+      expect($$('.ant-notification-top').length).toBe(1);
+
       // topLeft
       open({
         placement: 'topLeft',
@@ -62,6 +79,23 @@ describe('Notification.placement', () => {
         placement: 'topRight',
       });
       expect($$('.ant-notification-topRight').length).toBe(1);
+
+      // bottom
+      open({
+        placement: 'bottom',
+        bottom: 100,
+      });
+      style = getStyle($$('.ant-notification-bottom')[0]);
+      expect(style.top).toBe('');
+      expect(style.left).toBe('50%');
+      expect(style.transform).toBe('translateX(-50%)');
+      expect(style.right).toBe('');
+      expect(style.bottom).toBe('100px');
+
+      open({
+        placement: 'bottom',
+      });
+      expect($$('.ant-notification-bottom').length).toBe(1);
 
       // bottomRight
       open({

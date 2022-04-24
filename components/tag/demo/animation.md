@@ -88,9 +88,11 @@ class EditableTagGroup extends React.Component {
               opacity: 0,
               type: 'from',
               duration: 100,
-              onComplete: e => {
-                e.target.style = '';
-              },
+            }}
+            onEnd={e => {
+              if (e.type === 'appear' || e.type === 'enter') {
+                e.target.style = 'display: inline-block';
+              }
             }}
             leave={{ opacity: 0, width: 0, scale: 0, duration: 200 }}
             appear={false}

@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-使用自定义元素，我们可以集成 react-dnd 来实现拖拽排序。
+使用自定义元素，我们可以集成 [react-dnd](https://github.com/react-dnd/react-dnd) 来实现拖拽排序。
 
 ## en-US
 
-By using custom components, we can integrate table with react-dnd to implement drag sorting.
+By using `components`, we can integrate table with [react-dnd](https://github.com/react-dnd/react-dnd) to implement drag sorting function.
 
 ```jsx
 import React, { useState, useCallback, useRef } from 'react';
@@ -20,9 +20,9 @@ import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import update from 'immutability-helper';
 
-const type = 'DragableBodyRow';
+const type = 'DraggableBodyRow';
 
-const DragableBodyRow = ({ index, moveRow, className, style, ...restProps }) => {
+const DraggableBodyRow = ({ index, moveRow, className, style, ...restProps }) => {
   const ref = useRef();
   const [{ isOver, dropClassName }, drop] = useDrop({
     accept: type,
@@ -101,7 +101,7 @@ const DragSortingTable: React.FC = () => {
 
   const components = {
     body: {
-      row: DragableBodyRow,
+      row: DraggableBodyRow,
     },
   };
 

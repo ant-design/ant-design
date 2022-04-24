@@ -26,6 +26,7 @@
   &-more {
     margin-top: @margin-sm;
     text-align: center;
+
     button {
       padding-right: 32px;
       padding-left: 32px;
@@ -66,30 +67,36 @@
       &-avatar {
         margin-right: @list-item-meta-avatar-margin-right;
       }
+
       &-content {
         flex: 1 0;
         width: 0;
         color: @text-color;
       }
+
       &-title {
         margin-bottom: 4px;
         color: @text-color;
         font-size: @font-size-base;
         line-height: @line-height-base;
+
         > a {
           color: @text-color;
           transition: all 0.3s;
+
           &:hover {
             color: @primary-color;
           }
         }
       }
+
       &-description {
         color: @text-color-secondary;
         font-size: @list-item-meta-description-font-size;
         line-height: @line-height-base;
       }
     }
+
     &-action {
       flex: 0 0 auto;
       margin-left: 48px;
@@ -146,6 +153,7 @@
 
   &-split &-item {
     border-bottom: 1px solid @border-color-split;
+
     &:last-child {
       border-bottom: none;
     }
@@ -204,6 +212,7 @@
 
       > li {
         padding: 0 @padding-md;
+
         &:first-child {
           padding-left: 0;
         }

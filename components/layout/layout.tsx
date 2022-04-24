@@ -31,25 +31,25 @@ interface BasicPropsWithTagName extends BasicProps {
 
 function generator({ suffixCls, tagName, displayName }: GeneratorProps) {
   return (BasicComponent: any) => {
-    const Adapter: React.FC<BasicProps> = props => {
+    const Adapter = React.forwardRef<HTMLElement, BasicProps>((props, ref) => {
       const { getPrefixCls } = React.useContext(ConfigContext);
       const { prefixCls: customizePrefixCls } = props;
       const prefixCls = getPrefixCls(suffixCls, customizePrefixCls);
 
-      return <BasicComponent prefixCls={prefixCls} tagName={tagName} {...props} />;
-    };
+      return <BasicComponent ref={ref} prefixCls={prefixCls} tagName={tagName} {...props} />;
+    });
     Adapter.displayName = displayName;
     return Adapter;
   };
 }
 
-const Basic = (props: BasicPropsWithTagName) => {
+const Basic = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props, ref) => {
   const { prefixCls, className, children, tagName, ...others } = props;
   const classString = classNames(prefixCls, className);
-  return React.createElement(tagName, { className: classString, ...others }, children);
-};
+  return React.createElement(tagName, { className: classString, ...others, ref }, children);
+});
 
-const BasicLayout: React.FC<BasicPropsWithTagName> = props => {
+const BasicLayout = React.forwardRef<HTMLElement, BasicPropsWithTagName>((props, ref) => {
   const { direction } = React.useContext(ConfigContext);
 
   const [siders, setSiders] = React.useState<string[]>([]);
@@ -64,25 +64,28 @@ const BasicLayout: React.FC<BasicPropsWithTagName> = props => {
     className,
   );
 
-  return (
-    <LayoutContext.Provider
-      value={{
-        siderHook: {
-          addSider: (id: string) => {
-            setSiders(prev => [...prev, id]);
-          },
-          removeSider: (id: string) => {
-            setSiders(prev => prev.filter(currentId => currentId !== id));
-          },
+  const contextValue = React.useMemo(
+    () => ({
+      siderHook: {
+        addSider: (id: string) => {
+          setSiders(prev => [...prev, id]);
         },
-      }}
-    >
-      <Tag className={classString} {...others}>
+        removeSider: (id: string) => {
+          setSiders(prev => prev.filter(currentId => currentId !== id));
+        },
+      },
+    }),
+    [],
+  );
+
+  return (
+    <LayoutContext.Provider value={contextValue}>
+      <Tag ref={ref} className={classString} {...others}>
         {children}
       </Tag>
     </LayoutContext.Provider>
   );
-};
+});
 
 const Layout = generator({
   suffixCls: 'layout',

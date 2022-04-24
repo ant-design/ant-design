@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { SmileOutlined, LikeOutlined } from '@ant-design/icons';
+import * as copyObj from 'copy-to-clipboard';
 
 import Base from '../Base';
 
@@ -192,6 +193,48 @@ describe('Typography copy', () => {
         tooltips: [false, true],
         tooltipLength: 0,
       });
+    });
+
+    it('copy click event stopPropagation', () => {
+      const onDivClick = jest.fn();
+      const wrapper = mount(
+        <div onClick={onDivClick}>
+          <Base component="p" copyable>
+            test copy
+          </Base>
+        </div>,
+      );
+      wrapper.find('.ant-typography-copy').first().simulate('click');
+      expect(onDivClick).not.toBeCalled();
+    });
+
+    it('copy to clipboard', done => {
+      const spy = jest.spyOn(copyObj, 'default');
+      const originText = 'origin text.';
+      const nextText = 'next text.';
+      const Test = () => {
+        const [dynamicText, setDynamicText] = React.useState(originText);
+        React.useEffect(() => {
+          setTimeout(() => {
+            setDynamicText(nextText);
+          }, 500);
+        });
+        return (
+          <Base component="p" copyable>
+            {dynamicText}
+          </Base>
+        );
+      };
+      const wrapper = mount(<Test />);
+      const copyBtn = wrapper.find('.ant-typography-copy').first();
+      copyBtn.simulate('click');
+      expect(spy.mock.calls[0][0]).toEqual(originText);
+      setTimeout(() => {
+        spy.mockReset();
+        copyBtn.simulate('click');
+        expect(spy.mock.calls[0][0]).toEqual(nextText);
+        done();
+      }, 500);
     });
   });
 });

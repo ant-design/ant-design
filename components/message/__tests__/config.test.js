@@ -96,19 +96,20 @@ describe('message.config', () => {
   });
 
   it('should be able to global config rootPrefixCls', () => {
-    ConfigProvider.config({ prefixCls: 'prefix-test' });
+    ConfigProvider.config({ prefixCls: 'prefix-test', iconPrefixCls: 'bamboo' });
     message.info('last');
-    expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
-    expect(document.querySelectorAll('.prefix-test-message-notice').length).toBe(1);
-    ConfigProvider.config({ prefixCls: 'ant' });
+    expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(0);
+    expect(document.querySelectorAll('.prefix-test-message-notice')).toHaveLength(1);
+    expect(document.querySelectorAll('.bamboo-info-circle')).toHaveLength(1);
+    ConfigProvider.config({ prefixCls: 'ant', iconPrefixCls: null });
   });
   it('should be able to config prefixCls', () => {
     message.config({
       prefixCls: 'prefix-test',
     });
     message.info('last');
-    expect(document.querySelectorAll('.ant-message-notice').length).toBe(0);
-    expect(document.querySelectorAll('.prefix-test-notice').length).toBe(1);
+    expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(0);
+    expect(document.querySelectorAll('.prefix-test-notice')).toHaveLength(1);
     message.config({
       prefixCls: '', // can be set to empty, ant default value is set in ConfigProvider
     });
@@ -119,9 +120,40 @@ describe('message.config', () => {
       transitionName: '',
     });
     message.info('last');
-    expect(document.querySelectorAll('.ant-move-up-enter').length).toBe(0);
+    expect(document.querySelectorAll('.ant-move-up-enter')).toHaveLength(0);
     message.config({
       transitionName: 'ant-move-up',
     });
+  });
+
+  it('should be able to config getContainer, although messageInstance already exists', () => {
+    function createContainer() {
+      const container = document.createElement('div');
+      document.body.appendChild(container);
+      return [
+        container,
+        () => {
+          document.body.removeChild(container);
+        },
+      ];
+    }
+    const [container1, removeContainer1] = createContainer();
+    const [container2, removeContainer2] = createContainer();
+    expect(container1.querySelector('.ant-message-notice')).toBeFalsy();
+    expect(container2.querySelector('.ant-message-notice')).toBeFalsy();
+    message.config({
+      getContainer: () => container1,
+    });
+    const messageText1 = 'mounted in container1';
+    message.info(messageText1);
+    expect(container1.querySelector('.ant-message-notice').textContent).toEqual(messageText1);
+    message.config({
+      getContainer: () => container2,
+    });
+    const messageText2 = 'mounted in container2';
+    message.info(messageText2);
+    expect(container2.querySelector('.ant-message-notice').textContent).toEqual(messageText2);
+    removeContainer1();
+    removeContainer2();
   });
 });

@@ -34,6 +34,11 @@ describe('Skeleton', () => {
     expect(wrapperSmall.render()).toMatchSnapshot();
   });
 
+  it('should display children', () => {
+    const wrapper = mount(<Skeleton loading={false}>{[1, 2, 3]}</Skeleton>);
+    expect(wrapper.text()).toBe('123');
+  });
+
   describe('avatar', () => {
     it('size', () => {
       const wrapperSmall = genSkeleton({ avatar: { size: 'small' } });
@@ -78,6 +83,10 @@ describe('Skeleton', () => {
   describe('button element', () => {
     it('active', () => {
       const wrapper = genSkeletonButton({ active: true });
+      expect(wrapper.render()).toMatchSnapshot();
+    });
+    it('block', () => {
+      const wrapper = genSkeletonButton({ block: true });
       expect(wrapper.render()).toMatchSnapshot();
     });
     it('size', () => {
@@ -142,5 +151,10 @@ describe('Skeleton', () => {
       const wrapper = genSkeletonImage();
       expect(wrapper.render()).toMatchSnapshot();
     });
+  });
+
+  it('should support style', () => {
+    const wrapper = genSkeleton({ style: { background: 'blue' } });
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });

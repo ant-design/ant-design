@@ -32,7 +32,7 @@ class TimePickerAddonDemo extends React.Component {
         onOpenChange={this.handleOpenChange}
         renderExtraFooter={() => (
           <Button size="small" type="primary" onClick={this.handleClose}>
-            Ok
+            OK
           </Button>
         )}
       />

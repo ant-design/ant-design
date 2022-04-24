@@ -1,9 +1,14 @@
 import React from 'react';
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import { mount, ReactWrapper } from 'enzyme';
 import { sleep } from '../utils';
 
 // eslint-disable-next-line jest/no-export
-export default function focusTest(Component: React.ComponentType<any>, { refFocus = false } = {}) {
+export default function focusTest(
+  Component: React.ComponentType<any>,
+  { refFocus = false, testLib = false } = {},
+) {
   describe('focus and blur', () => {
     let focused = false;
     let blurred = false;
@@ -21,6 +26,41 @@ export default function focusTest(Component: React.ComponentType<any>, { refFocu
       }
     });
 
+    // ==================== React Test Lib ====================
+    if (testLib) {
+      it('Test: focus() and onFocus', () => {
+        const handleFocus = jest.fn();
+        const ref = React.createRef<any>();
+        const { unmount } = render(<Component onFocus={handleFocus} ref={ref} />);
+        ref.current.focus();
+        expect(handleFocus).toHaveBeenCalled();
+
+        unmount();
+      });
+
+      it('Test: blur() and onBlur', async () => {
+        const handleBlur = jest.fn();
+        const ref = React.createRef<any>();
+        const { unmount } = render(<Component ref={ref} onBlur={handleBlur} />);
+        ref.current.focus();
+        ref.current.blur();
+        expect(handleBlur).toHaveBeenCalled();
+
+        unmount();
+      });
+
+      it('Test: autoFocus', () => {
+        const handleFocus = jest.fn();
+        const { unmount } = render(<Component autoFocus onFocus={handleFocus} />);
+        expect(handleFocus).toHaveBeenCalled();
+
+        unmount();
+      });
+
+      return;
+    }
+
+    // ======================== Enzyme ========================
     let container: HTMLElement;
     beforeEach(() => {
       container = document.createElement('div');

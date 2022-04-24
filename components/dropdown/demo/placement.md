@@ -42,8 +42,8 @@ ReactDOM.render(
       <Dropdown overlay={menu} placement="bottomLeft">
         <Button>bottomLeft</Button>
       </Dropdown>
-      <Dropdown overlay={menu} placement="bottomCenter">
-        <Button>bottomCenter</Button>
+      <Dropdown overlay={menu} placement="bottom">
+        <Button>bottom</Button>
       </Dropdown>
       <Dropdown overlay={menu} placement="bottomRight">
         <Button>bottomRight</Button>
@@ -53,8 +53,8 @@ ReactDOM.render(
       <Dropdown overlay={menu} placement="topLeft">
         <Button>topLeft</Button>
       </Dropdown>
-      <Dropdown overlay={menu} placement="topCenter">
-        <Button>topCenter</Button>
+      <Dropdown overlay={menu} placement="top">
+        <Button>top</Button>
       </Dropdown>
       <Dropdown overlay={menu} placement="topRight">
         <Button>topRight</Button>

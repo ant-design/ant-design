@@ -5,6 +5,7 @@ import focusTest from '../../../tests/shared/focusTest';
 import { resetWarned } from '../../_util/devWarning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { sleep } from '../../../tests/utils';
 
 describe('Switch', () => {
   focusTest(Switch, { refFocus: true });
@@ -14,7 +15,7 @@ describe('Switch', () => {
   it('should has click wave effect', async () => {
     const wrapper = mount(<Switch />);
     wrapper.find('.ant-switch').getDOMNode().click();
-    await new Promise(resolve => setTimeout(resolve, 0));
+    await sleep(0);
     expect(wrapper.find('button').getDOMNode().getAttribute('ant-click-animating')).toBe('true');
   });
 

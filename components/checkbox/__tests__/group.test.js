@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { mount, render } from 'enzyme';
 import Collapse from '../../collapse';
 import Table from '../../table';
 import Checkbox from '../index';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import Input from '../../input';
 
 describe('CheckboxGroup', () => {
   mountTest(Checkbox.Group);
@@ -212,5 +213,50 @@ describe('CheckboxGroup', () => {
         }}
       />,
     );
+  });
+
+  it('should support number option', () => {
+    const onChange = jest.fn();
+
+    const wrapper = mount(<Checkbox.Group options={[1, 'Pear', 'Orange']} onChange={onChange} />);
+
+    wrapper.find('.ant-checkbox-input').at(0).simulate('change');
+    expect(onChange).toHaveBeenCalledWith([1]);
+  });
+
+  it('should store latest checkbox value if changed', () => {
+    const onChange = jest.fn();
+
+    const Demo = () => {
+      const [v, setV] = useState('');
+
+      React.useEffect(() => {
+        setTimeout(setV('1'), 1000);
+      }, []);
+
+      return (
+        <div>
+          <Input className="my-input" value={v} onChange={e => setV(e.target.value)} />
+          <Checkbox.Group defaultValue={['length1']} style={{ width: '100%' }} onChange={onChange}>
+            <Checkbox className="target-checkbox" value={v ? `length${v}` : 'A'}>
+              A
+            </Checkbox>
+          </Checkbox.Group>
+        </div>
+      );
+    };
+
+    const wrapper = mount(<Demo />);
+
+    wrapper.find('.ant-checkbox-input').first().simulate('change');
+    expect(onChange).toHaveBeenCalledWith([]);
+    wrapper.find('.ant-checkbox-input').first().simulate('change');
+    expect(onChange).toHaveBeenCalledWith(['length1']);
+    wrapper
+      .find('.ant-input')
+      .first()
+      .simulate('change', { target: { value: '' } });
+    wrapper.find('.ant-checkbox-input').first().simulate('change');
+    expect(onChange).toHaveBeenCalledWith(['A']);
   });
 });

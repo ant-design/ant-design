@@ -7,11 +7,11 @@ title:
 
 ## zh-CN
 
-嵌套表单字段需要对 `field` 进行拓展，将 `field.name` 和 `field.fieldKey` 应用于控制字段。
+嵌套表单字段需要对 `field` 进行拓展，将 `field.name` 应用于控制字段。
 
 ## en-US
 
-Nest dynamic field need extends `field`. Pass `field.name` and `field.fieldKey` to nest item.
+Nest dynamic field need extends `field`. Pass `field.name` to nest item.
 
 ```jsx
 import { Form, Input, Button, Space } from 'antd';
@@ -27,12 +27,11 @@ const Demo = () => {
       <Form.List name="users">
         {(fields, { add, remove }) => (
           <>
-            {fields.map(({ key, name, fieldKey, ...restField }) => (
+            {fields.map(({ key, name, ...restField }) => (
               <Space key={key} style={{ display: 'flex', marginBottom: 8 }} align="baseline">
                 <Form.Item
                   {...restField}
                   name={[name, 'first']}
-                  fieldKey={[fieldKey, 'first']}
                   rules={[{ required: true, message: 'Missing first name' }]}
                 >
                   <Input placeholder="First Name" />
@@ -40,7 +39,6 @@ const Demo = () => {
                 <Form.Item
                   {...restField}
                   name={[name, 'last']}
-                  fieldKey={[fieldKey, 'last']}
                   rules={[{ required: true, message: 'Missing last name' }]}
                 >
                   <Input placeholder="Last Name" />

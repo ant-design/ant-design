@@ -16,7 +16,7 @@ export interface SpinProps {
   spinning?: boolean;
   style?: React.CSSProperties;
   size?: SpinSize;
-  tip?: string;
+  tip?: React.ReactNode;
   delay?: number;
   wrapperClassName?: string;
   indicator?: SpinIndicator;

@@ -21,6 +21,7 @@ jobs:
         uses: dawidd6/action-download-artifact@v2
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
+          run_id: ${{ github.event.workflow_run.id }}
           name: pr
 
       # Save PR id to output
@@ -33,7 +34,7 @@ jobs:
         uses: dawidd6/action-download-artifact@v2
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
-          workflow_conclusion: success
+          run_id: ${{ github.event.workflow_run.id }}
           name: site
 
       - name: upload surge service
@@ -43,7 +44,7 @@ jobs:
           npx surge --project ./ --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
 
       - name: update status comment
-        uses: actions-cool/maintain-one-comment@v1.1.0
+        uses: actions-cool/maintain-one-comment@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
@@ -54,7 +55,7 @@ jobs:
 
       - name: The job has failed
         if: ${{ failure() }}
-        uses: actions-cool/maintain-one-comment@v1.1.0
+        uses: actions-cool/maintain-one-comment@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
@@ -75,6 +76,7 @@ jobs:
         uses: dawidd6/action-download-artifact@v2
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
+          run_id: ${{ github.event.workflow_run.id }}
           name: pr
 
       # Save PR id to output
@@ -83,7 +85,7 @@ jobs:
         run: echo "::set-output name=id::$(<pr-id.txt)"
 
       - name: The job has failed
-        uses: actions-cool/maintain-one-comment@v1.1.0
+        uses: actions-cool/maintain-one-comment@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |

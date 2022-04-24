@@ -21,7 +21,7 @@ const data = [
   {
     actions: [<span key="comment-list-reply-to-0">Reply to</span>],
     author: 'Han Solo',
-    avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+    avatar: 'https://joeschmoe.io/api/v1/random',
     content: (
       <p>
         We supply a series of design principles, practical patterns and high quality design
@@ -38,7 +38,7 @@ const data = [
   {
     actions: [<span key="comment-list-reply-to-0">Reply to</span>],
     author: 'Han Solo',
-    avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+    avatar: 'https://joeschmoe.io/api/v1/random',
     content: (
       <p>
         We supply a series of design principles, practical patterns and high quality design

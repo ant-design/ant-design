@@ -1,0 +1,37 @@
+.roundedArrow(@width, @outer-radius, @bg-color: var(--antd-arrow-background-color)) {
+  @corner-height: unit(((@outer-radius) * (1 - 1 / sqrt(2))));
+
+  @width-without-unit: unit(@width);
+  @outer-radius-without-unit: unit(@outer-radius);
+  @inner-radius-without-unit: unit(@arrow-border-radius);
+
+  @a-x: @width-without-unit - @corner-height;
+  @a-y: 2 * @width-without-unit + @corner-height;
+  @b-x: @a-x + @outer-radius-without-unit * (1 / sqrt(2));
+  @b-y: 2 * @width-without-unit;
+  @c-x: 2 * @width-without-unit - @inner-radius-without-unit;
+  @c-y: 2 * @width-without-unit;
+  @d-x: 2 * @width-without-unit;
+  @d-y: 2 * @width-without-unit - @inner-radius-without-unit;
+  @e-x: 2 * @width-without-unit;
+  @e-y: @f-y + @outer-radius-without-unit * (1 / sqrt(2));
+  @f-x: 2 * @width-without-unit + @corner-height;
+  @f-y: @width-without-unit - @corner-height;
+
+  border-radius: 0 0 @border-radius-base 0;
+  pointer-events: none;
+
+  &::before {
+    position: absolute;
+    top: -@width;
+    left: -@width;
+    width: @width * 3;
+    height: @width * 3;
+    background: linear-gradient(to left, @bg-color 50%, @bg-color 50%) no-repeat ceil(-@width + 1px)
+      ceil(-@width + 1px); // Hack firefox: https://github.com/ant-design/ant-design/pull/33710#issuecomment-1015287825
+    content: '';
+    clip-path: path(
+      'M @{a-x} @{a-y} A @{outer-radius-without-unit} @{outer-radius-without-unit} 0 0 1 @{b-x} @{b-y} L @{c-x} @{c-y} A @{inner-radius-without-unit} @{inner-radius-without-unit} 0 0 0 @{d-x} @{d-y} L @{e-x} @{e-y} A @{outer-radius-without-unit} @{outer-radius-without-unit} 0 0 1 @{f-x} @{f-y} Z'
+    );
+  }
+}

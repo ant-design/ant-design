@@ -4,12 +4,10 @@ import classNames from 'classnames';
 import { UnorderedListOutlined } from '@ant-design/icons';
 import { Select, Row, Col, Popover, Button } from 'antd';
 import canUseDom from 'rc-util/lib/Dom/canUseDom';
-// import { browserHistory } from 'bisheng/router';
-
 import * as utils from '../../utils';
 import packageJson from '../../../../../package.json';
 import Logo from './Logo';
-import { SearchBar } from './SearchBar';
+import SearchBar from './SearchBar';
 import More from './More';
 import Navigation from './Navigation';
 import Github from './Github';
@@ -47,7 +45,7 @@ const triggerDocSearchImport = () => {
   });
 };
 
-function initDocSearch(isZhCN: boolean) {
+function initDocSearch({ isZhCN, router }: { isZhCN: boolean; router: any }) {
   if (!canUseDom()) {
     return;
   }
@@ -62,14 +60,12 @@ function initDocSearch(isZhCN: boolean) {
       transformData: AlgoliaConfig.transformData,
       debug: AlgoliaConfig.debug,
       // https://docsearch.algolia.com/docs/behavior#handleselected
-      // handleSelected: (input, _$1, suggestion, _$2, context) => {
-      // doesn't refresh
-      //   // Prevents the default behavior on click
-      //   if (context.selectionMethod === 'click') {
-      //     input.setVal('');
-      //     browserHistory.push(suggestion.url);
-      //   }
-      // },
+      handleSelected: (input: any, _$1: unknown, suggestion: any) => {
+        router.push(suggestion.url);
+        setTimeout(() => {
+          input.setVal('');
+        });
+      },
     });
   });
 }
@@ -97,7 +93,10 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     const { intl, router } = this.props;
     router.listen(this.handleHideMenu);
 
-    initDocSearch(intl.locale === 'zh');
+    initDocSearch({
+      isZhCN: intl.locale === 'zh-CN',
+      router,
+    });
 
     window.addEventListener('resize', this.onWindowResize);
     this.onWindowResize();
@@ -174,6 +173,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     });
   };
 
+  // eslint-disable-next-line class-methods-use-this
   handleVersionChange = (url: string) => {
     const currentUrl = window.location.href;
     const currentPathname = window.location.pathname;
@@ -192,7 +192,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
       location: { pathname, query },
     } = this.props;
     const currentProtocol = `${window.location.protocol}//`;
-    const currentHref = window.location.href.substr(currentProtocol.length);
+    const currentHref = window.location.href.slice(currentProtocol.length);
 
     if (utils.isLocalStorageNameSupported()) {
       localStorage.setItem('locale', utils.isZhCN(pathname) ? 'en-US' : 'zh-CN');
@@ -216,6 +216,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
             location,
             themeConfig,
             intl: { locale },
+            router,
           } = this.props;
           const docVersions: Record<string, string> = {
             [antdVersion]: antdVersion,
@@ -348,6 +349,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                   <SearchBar
                     key="search"
                     {...sharedProps}
+                    router={router}
                     algoliaConfig={AlgoliaConfig}
                     responsive={responsive}
                     onTriggerFocus={this.onTriggerSearching}
