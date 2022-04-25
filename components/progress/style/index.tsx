@@ -23,7 +23,7 @@ interface ProgressToken extends DerivativeToken {
   hashId?: string;
 }
 
-const genBaseStyle: GenerateStyle<ProgressToken> = (token:ProgressToken, hashId: string) => {
+const genBaseStyle: GenerateStyle<ProgressToken> = (token:ProgressToken) => {
   const { progressCls, iconPrefixCls } = token;
 
   const antProgressActive = new Keyframes('antProgressActive', {
@@ -124,9 +124,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token:ProgressToken, hashId:
           background: '#fff',
           borderRadius: '10px', // FIXME: hard code in v4
           opacity: 0,
-          animation: `${antProgressActive.getName(
-            hashId
-          )} 2.4s cubic-bezier(0.23, 1, 0.32, 1) infinite`,
+          animation: `${antProgressActive} 2.4s cubic-bezier(0.23, 1, 0.32, 1) infinite`,
           content: "",
         },
       },
@@ -283,7 +281,7 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
 
   return [
     useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      genBaseStyle(progressToken, hashId),
+      genBaseStyle(progressToken),
       genCircleStyle(progressToken),
       genStepStyle(progressToken),
       genSmallLine(progressToken),
