@@ -30,3 +30,4 @@ components/*/*.jsx
 .history
 **/*.yml
 components/style/color/*.less
+components/progress/style/index.tsx

@@ -20,12 +20,10 @@ interface ProgressToken extends DerivativeToken {
   circleTextFontSize: string;
   textFontSize: string;
   duration: string;
+  hashId?: string;
 }
 
-const genBaseStyle: GenerateStyle<ProgressToken> = (
-  token: ProgressToken,
-  hashId: string,
-): CSSObject => {
+const genBaseStyle: GenerateStyle<ProgressToken> = (token:ProgressToken, hashId: string) => {
   const { progressCls, iconPrefixCls } = token;
 
   const antProgressActive = new Keyframes('antProgressActive', {
@@ -195,7 +193,7 @@ const genCircleStyle: GenerateStyle<ProgressToken> = (token: ProgressToken): CSS
         width: '100%',
         margin: 0,
         padding: 0,
-        color: token.colorText2,
+        color: token.colorText,
         fontSize: token.circleTextFontSize,
         lineHeight: 1,
         whiteSpace: 'normal',
@@ -286,9 +284,9 @@ export default function useStyle(prefixCls: string): UseComponentStyleResult {
   return [
     useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
       genBaseStyle(progressToken, hashId),
-      genCircleStyle(progressToken, hashId),
-      genStepStyle(progressToken, hashId),
-      genSmallLine(progressToken, hashId),
+      genCircleStyle(progressToken),
+      genStepStyle(progressToken),
+      genSmallLine(progressToken),
     ]),
     hashId,
   ];
