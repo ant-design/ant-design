@@ -23,6 +23,7 @@ interface SegmentedToken extends FullToken<'Segmented'> {
   segmentedPaddingHorizontal: number;
   segmentedPaddingHorizontalSM: number;
 }
+
 // ============================== Mixins ==============================
 function segmentedDisabledItem(cls: string, token: SegmentedToken): CSSObject {
   return {
@@ -156,9 +157,8 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
       },
 
       // disabled styles
-      [`&-disabled ${componentCls}-item, ${componentCls}-item-disabled`]: {
-        ...segmentedDisabledItem(componentCls, token),
-      },
+      ...segmentedDisabledItem(`&-disabled ${componentCls}-item`, token),
+      ...segmentedDisabledItem(`${componentCls}-item-disabled`, token),
 
       // thumb styles
       [`${componentCls}-thumb`]: {
