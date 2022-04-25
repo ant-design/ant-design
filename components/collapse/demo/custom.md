@@ -51,7 +51,7 @@ export default () => (
   margin-bottom: 24px;
   overflow: hidden;
   background: #f7f7f7;
-  border: 0px;
+  border: 0px !important;
   border-radius: 2px;
 }
 ```
