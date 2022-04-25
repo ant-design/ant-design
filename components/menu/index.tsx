@@ -15,6 +15,7 @@ import MenuContext, { MenuTheme } from './MenuContext';
 import MenuDivider from './MenuDivider';
 import type { ItemType } from './hooks/useItems';
 import useItems from './hooks/useItems';
+import useStyle from './style';
 
 export { MenuDividerProps } from './MenuDivider';
 
@@ -56,10 +57,12 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
     siderCollapsed,
     items,
     children,
+    rootClassName,
     ...restProps
   } = props;
 
   const passedProps = omit(restProps, ['collapsedWidth']);
+  const injectFromDropdown = (props as any)['data-dropdown-inject'];
 
   // ========================= Items ===========================
   const mergedChildren = useItems(items) || children;
@@ -99,6 +102,7 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
   };
 
   const prefixCls = getPrefixCls('menu', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls, !injectFromDropdown);
   const menuClassName = classNames(`${prefixCls}-${theme}`, className);
 
   // ======================== Context ==========================
@@ -115,7 +119,7 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
   );
 
   // ========================= Render ==========================
-  return (
+  return wrapSSR(
     <MenuContext.Provider value={contextValue}>
       <RcMenu
         getPopupContainer={getPopupContainer}
@@ -135,10 +139,11 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
               })
         }
         ref={ref}
+        rootClassName={classNames(rootClassName, hashId)}
       >
         {mergedChildren}
       </RcMenu>
-    </MenuContext.Provider>
+    </MenuContext.Provider>,
   );
 });
 

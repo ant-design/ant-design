@@ -13,21 +13,15 @@ title:
 
 Controlled Segmented.
 
-```jsx
+```tsx
 import React, { useState } from 'react';
 import { Segmented } from 'antd';
 
 const Demo: React.FC = () => {
-  const [value, setValue] = useState('Map');
+  const [value, setValue] = useState<string | number>('Map');
 
-  return (
-    <Segmented
-      options={['Map', 'Transit', 'Satellite']}
-      value={value}
-      onChange={e => setValue(e.target.value)}
-    />
-  );
+  return <Segmented options={['Map', 'Transit', 'Satellite']} value={value} onChange={setValue} />;
 };
 
-ReactDOM.render(<Demo />, mountNode);
+export default Demo;
 ```

@@ -1,6 +1,7 @@
 import type * as React from 'react';
 import type { ComponentToken as ButtonComponentToken } from '../../button/style';
 import type { ComponentToken as DividerComponentToken } from '../../divider/style';
+import type { ComponentToken as DropdownComponentToken } from '../../dropdown/style';
 import type { ComponentToken as EmptyComponentToken } from '../../empty/style';
 import type { ComponentToken as CascaderComponentToken } from '../../cascader/style';
 import type { ComponentToken as InputNumberComponentToken } from '../../input-number/style';
@@ -8,7 +9,11 @@ import type { ComponentToken as MentionsComponentToken } from '../../mentions/st
 import type { ComponentToken as SelectComponentToken } from '../../select/style';
 import type { ComponentToken as SliderComponentToken } from '../../slider/style';
 import type { ComponentToken as TypographyComponentToken } from '../../typography/style';
+import type { ComponentToken as BackTopComponentToken } from '../../back-top/style';
+import type { ComponentToken as DatePickerComponentToken } from '../../date-picker/style';
 import type { ComponentToken as TimelineComponentToken } from '../../timeline/style';
+import type { ComponentToken as MenuComponentToken } from '../../menu/style';
+import type { ComponentToken as CarouselComponentToken } from '../../carousel/style';
 
 export const PresetColors = [
   'blue',
@@ -43,15 +48,18 @@ export interface OverrideToken {
   Affix?: {};
   Alert?: {};
   Avatar?: {};
+  BackTop?: BackTopComponentToken;
   Badge?: {};
   Button?: ButtonComponentToken;
-  Carousel?: {};
+  Carousel?: CarouselComponentToken;
   Cascader?: CascaderComponentToken;
   Checkbox?: {};
   Collapse?: {};
+  DatePicker?: DatePickerComponentToken;
   Descriptions?: {};
   Divider?: DividerComponentToken;
   Drawer?: {};
+  Dropdown?: DropdownComponentToken;
   Empty?: EmptyComponentToken;
   Form?: {};
   Grid?: {};
@@ -77,6 +85,9 @@ export interface OverrideToken {
   Timeline?: TimelineComponentToken;
   Tabs?: {};
   Card?: {};
+  Steps?: {};
+  Menu?: MenuComponentToken;
+  Layout?: {};
 }
 
 /** Final token which contains the components level override */
@@ -125,6 +136,7 @@ export interface SeedToken extends PresetColorType {
   // Size
   sizeUnit: number;
   sizeBaseStep: number;
+  sizePopupArrow: number;
 
   // Control Base
   controlHeight: number;
@@ -289,6 +301,8 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   colorBgComponentDisabled: string;
 
   // =============== Legacy: should be remove ===============
+  colorLoadingOpacity: number;
+
   padding: number;
   margin: number;
 

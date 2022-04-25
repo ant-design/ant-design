@@ -106,7 +106,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
         textOverflow: 'ellipsis',
       },
       [`${componentCls}-extra`]: {
-        marginLeft: 'auto',
+        marginInlineStart: 'auto',
         color: descriptionsExtraColor,
         // FIXME: hardcode in v4
         fontSize: token.fontSize,

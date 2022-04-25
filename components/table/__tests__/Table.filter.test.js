@@ -2,7 +2,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent } from '../../../tests/utils';
 import Table from '..';
 import Input from '../../input';
 import Tooltip from '../../tooltip';
@@ -2198,7 +2198,7 @@ describe('Table.filter', () => {
     });
   });
 
-  it('filterDropDown should support filterResetToDefaultFilteredValue', () => {
+  it('filterDropdown should support filterResetToDefaultFilteredValue', () => {
     jest.useFakeTimers();
     jest.spyOn(console, 'error').mockImplementation(() => undefined);
 
@@ -2251,5 +2251,58 @@ describe('Table.filter', () => {
     wrapper.find('button.ant-btn-link').simulate('click', nativeEvent);
     expect(wrapper.find('.ant-tree-checkbox-checked').length).toBe(1);
     expect(wrapper.find('.ant-tree-checkbox-checked+span').text()).toBe('Girl');
+  });
+
+  it('filteredKeys should all be controlled or not controlled', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    errorSpy.mockReset();
+    const tableData = [
+      {
+        key: '1',
+        name: 'John Brown',
+        age: 32,
+      },
+    ];
+    const columns = [
+      {
+        title: 'name',
+        dataIndex: 'name',
+        key: 'name',
+        filters: [],
+      },
+      {
+        title: 'age',
+        dataIndex: 'age',
+        key: 'age',
+        filters: [],
+      },
+    ];
+    render(
+      createTable({
+        columns,
+        data: tableData,
+      }),
+    );
+    expect(errorSpy).not.toBeCalled();
+    errorSpy.mockReset();
+    columns[0].filteredValue = [];
+    render(
+      createTable({
+        columns,
+        data: tableData,
+      }),
+    );
+    expect(errorSpy).toBeCalledWith(
+      'Warning: [antd: Table] Columns should all contain `filteredValue` or not contain `filteredValue`.',
+    );
+    errorSpy.mockReset();
+    columns[1].filteredValue = [];
+    render(
+      createTable({
+        columns,
+        data: tableData,
+      }),
+    );
+    expect(errorSpy).not.toBeCalled();
   });
 });

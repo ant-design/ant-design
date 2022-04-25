@@ -378,7 +378,7 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('List', (token, { hashId }) => {
+export default genComponentStyleHook('List', token => {
   const listToken = mergeToken<ListToken>(token, {
     listBorderedCls: `${token.componentCls}-bordered`,
     antPrefix: '.ant', // FIXME: hard code in v4
@@ -406,9 +406,5 @@ export default genComponentStyleHook('List', (token, { hashId }) => {
     lineHeight: 1.5,
   });
 
-  return [
-    genBaseStyle(listToken, hashId),
-    genBorderedStyle(listToken),
-    genResponsiveStyle(listToken),
-  ];
+  return [genBaseStyle(listToken), genBorderedStyle(listToken), genResponsiveStyle(listToken)];
 });

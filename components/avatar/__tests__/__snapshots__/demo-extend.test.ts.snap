@@ -383,7 +383,7 @@ Array [
     <div>
       <div
         class="ant-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -468,7 +468,7 @@ Array [
     <div>
       <div
         class="ant-popover ant-avatar-group-popover"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -514,7 +514,7 @@ Array [
               <div>
                 <div
                   class="ant-tooltip"
-                  style="opacity:0;pointer-events:none"
+                  style="opacity:0"
                 >
                   <div
                     class="ant-tooltip-content"
@@ -604,7 +604,7 @@ Array [
     <div>
       <div
         class="ant-popover ant-avatar-group-popover"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -650,7 +650,7 @@ Array [
               <div>
                 <div
                   class="ant-tooltip"
-                  style="opacity:0;pointer-events:none"
+                  style="opacity:0"
                 >
                   <div
                     class="ant-tooltip-content"
@@ -740,7 +740,7 @@ Array [
     <div>
       <div
         class="ant-popover ant-avatar-group-popover"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -786,7 +786,7 @@ Array [
               <div>
                 <div
                   class="ant-tooltip"
-                  style="opacity:0;pointer-events:none"
+                  style="opacity:0"
                 >
                   <div
                     class="ant-tooltip-content"

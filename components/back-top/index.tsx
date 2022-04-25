@@ -11,6 +11,8 @@ import getScroll from '../_util/getScroll';
 import scrollTo from '../_util/scrollTo';
 import { cloneElement } from '../_util/reactNode';
 
+import useStyle from './style';
+
 export interface BackTopProps {
   visibilityHeight?: number;
   onClick?: React.MouseEventHandler<HTMLElement>;
@@ -105,7 +107,10 @@ const BackTop: React.FC<BackTopProps> = props => {
   const { prefixCls: customizePrefixCls, className = '' } = props;
   const prefixCls = getPrefixCls('back-top', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
   const classString = classNames(
+    hashId,
     prefixCls,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
@@ -123,10 +128,10 @@ const BackTop: React.FC<BackTopProps> = props => {
     'visible',
   ]);
 
-  return (
+  return wrapSSR(
     <div {...divProps} className={classString} onClick={scrollToTop} ref={ref}>
       {renderChildren({ prefixCls, rootPrefixCls })}
-    </div>
+    </div>,
   );
 };
 

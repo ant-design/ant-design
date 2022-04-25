@@ -258,7 +258,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
 };
 
 // ============================== Styles ==============================
-const genSelectStyle: GenerateStyle<SelectToken> = (token, hashId) => {
+const genSelectStyle: GenerateStyle<SelectToken> = token => {
   const { componentCls } = token;
 
   return [
@@ -291,7 +291,7 @@ const genSelectStyle: GenerateStyle<SelectToken> = (token, hashId) => {
     genMultipleStyle(token),
 
     // Dropdown
-    genDropdownStyle(token, hashId),
+    genDropdownStyle(token),
 
     // =====================================================
     // ==                       RTL                       ==
@@ -334,13 +334,13 @@ const genSelectStyle: GenerateStyle<SelectToken> = (token, hashId) => {
 // ============================== Export ==============================
 export default genComponentStyleHook(
   'Select',
-  (token, { rootPrefixCls, hashId }) => {
+  (token, { rootPrefixCls }) => {
     const selectToken: SelectToken = mergeToken<SelectToken>(token, {
       rootPrefixCls,
       inputPaddingHorizontalBase: token.controlPaddingHorizontal - 1,
     });
 
-    return [genSelectStyle(selectToken, hashId)];
+    return [genSelectStyle(selectToken)];
   },
   token => ({
     zIndexDropdown: token.zIndexPopup + 50,

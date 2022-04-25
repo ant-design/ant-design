@@ -76,7 +76,7 @@ function shouldDelay(spinning?: boolean, delay?: number): boolean {
   return !!spinning && !!delay && !isNaN(Number(delay));
 }
 
-export class Spin extends React.Component<SpinClassProps, SpinState> {
+class Spin extends React.Component<SpinClassProps, SpinState> {
   static defaultProps = {
     spinning: true,
     size: 'default' as SpinSize,

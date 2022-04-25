@@ -21,7 +21,7 @@ export interface ComponentToken {
 type CascaderToken = FullToken<'Cascader'>;
 
 // =============================== Base ===============================
-const genBaseStyle: GenerateStyle<CascaderToken> = (token, hashId) => {
+const genBaseStyle: GenerateStyle<CascaderToken> = token => {
   const { prefixCls, componentCls } = token;
   const cascaderMenuItemCls = `${componentCls}-menu-item`;
   const iconCls = `
@@ -49,7 +49,7 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token, hashId) => {
     {
       [`${componentCls}-dropdown`]: [
         // ==================== Checkbox ====================
-        getCheckboxStyle(`${prefixCls}-checkbox`, token, hashId!),
+        getCheckboxStyle(`${prefixCls}-checkbox`, token),
         {
           [componentCls]: {
             // ================== Checkbox ==================
@@ -158,12 +158,8 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token, hashId) => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook(
-  'Cascader',
-  (token, { hashId }) => [genBaseStyle(token, hashId)],
-  {
-    controlWidth: 184,
-    controlItemWidth: 111,
-    dropdownHeight: 180,
-  },
-);
+export default genComponentStyleHook('Cascader', token => [genBaseStyle(token)], {
+  controlWidth: 184,
+  controlItemWidth: 111,
+  dropdownHeight: 180,
+});

@@ -396,7 +396,7 @@ exports[`List.pagination should change page size work 2`] = `
       <div>
         <div
           class="ant-select-dropdown ant-slide-up-enter ant-slide-up-enter-prepare ant-slide-up"
-          style="pointer-events: none; min-width: 0; opacity: 0;"
+          style="min-width: 0; opacity: 0;"
         >
           <div>
             <div

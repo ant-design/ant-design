@@ -1,7 +1,6 @@
 // deps-lint-skip-all
-import { FullToken, genComponentStyleHook } from '../../_util/theme';
-import type { GenerateStyle } from '../../_util/theme';
-import { operationUnit } from '../../_util/theme/util/operationUnit';
+import type { FullToken, GenerateStyle } from '../../_util/theme';
+import { genComponentStyleHook, operationUnit } from '../../_util/theme';
 import {
   getTitleStyles,
   getResetStyles,
@@ -40,7 +39,10 @@ const genTypographyStyle: GenerateStyle<TypographyToken> = token => {
 
       '&&-danger': {
         color: token.colorError,
-        'a&:active, a&:focus, a&:hover': {
+        'a&:active, a&:focus': {
+          color: token.colorErrorActive,
+        },
+        'a&:hover': {
           color: token.colorErrorHover,
         },
       },

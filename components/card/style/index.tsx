@@ -90,11 +90,11 @@ const genCardHeadStyle: GenerateStyle<CardToken> = (token): CSSObject => {
       whiteSpace: 'nowrap',
       textOverflow: 'ellipsis',
 
-      [` 
+      [`
           > ${componentCls}-typography,
           > ${componentCls}-typography-edit-content
         `]: {
-        left: 0,
+        insetInlineStart: 0,
         marginTop: 0,
         marginBottom: 0,
       },
@@ -127,9 +127,9 @@ const genCardGridStyle: GenerateStyle<CardToken> = (token): CSSObject => {
     border: 0,
     borderRadius: 0,
     boxShadow: `
-    1px 0 0 0 ${borderColorSplit}, 
+    1px 0 0 0 ${borderColorSplit},
     0 1px 0 0 ${borderColorSplit},
-    1px 1px 0 0 ${borderColorSplit}, 
+    1px 1px 0 0 ${borderColorSplit},
     1px 0 0 0 ${borderColorSplit} inset,
     0 1px 0 0 ${borderColorSplit} inset;
     transition: all ${token.motionDurationSlow}s
@@ -257,7 +257,7 @@ const genCardTypeInnerStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 };
 
 // ============================== Loading ==============================
-const genCardLoadingStyle: GenerateStyle<CardToken> = (token, hashId): CSSObject => {
+const genCardLoadingStyle: GenerateStyle<CardToken> = (token): CSSObject => {
   const { componentCls, gradientMin, gradientMax } = token;
 
   return {
@@ -277,13 +277,16 @@ const genCardLoadingStyle: GenerateStyle<CardToken> = (token, hashId): CSSObject
       background: `linear-gradient(90deg, ${gradientMin}, ${gradientMax}, ${gradientMin})`,
       backgroundSize: '600% 600%',
       borderRadius: token.radiusBase,
-      animation: `${antCardLoading.getName(hashId)} 1.4s ease infinite`, // FIXME: hardcode in v4
+      animationName: antCardLoading,
+      animationDuration: '1.4s', // FIXME: hardcode
+      animationTimingFunction: 'ease',
+      animationIterationCount: 'infinite',
     },
   };
 };
 
 // ============================== Basic ==============================
-const genCardStyle: GenerateStyle<CardToken> = (token, hashId): CSSObject => {
+const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
   const {
     componentCls,
     cardHoverableHoverBorder,
@@ -380,7 +383,7 @@ const genCardStyle: GenerateStyle<CardToken> = (token, hashId): CSSObject => {
 
     [`${componentCls}-type-inner`]: genCardTypeInnerStyle(token),
 
-    [`${componentCls}-loading`]: genCardLoadingStyle(token, hashId),
+    [`${componentCls}-loading`]: genCardLoadingStyle(token),
   };
 };
 
@@ -444,7 +447,7 @@ const genCardSizeStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Card', (token, { rootPrefixCls, hashId }) => {
+export default genComponentStyleHook('Card', (token, { rootPrefixCls }) => {
   const cardToken = mergeToken<CardToken>(token, {
     rootPrefixCls,
 
@@ -470,12 +473,14 @@ export default genComponentStyleHook('Card', (token, { rootPrefixCls, hashId }) 
 
   return [
     // Style
-    genCardStyle(cardToken, hashId),
+    genCardStyle(cardToken),
 
     // Size
     genCardSizeStyle(cardToken),
 
     // RTL
     genCardRTLStyle(cardToken),
+
+    antCardLoading,
   ];
 });
