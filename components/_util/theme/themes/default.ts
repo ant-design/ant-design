@@ -73,9 +73,9 @@ export function derivative(token: SeedToken): DerivativeToken {
     ...colorPalettes,
 
     // motion
-    motionDurationFast: `${motionBase + motionUnit * 1}s`,
-    motionDurationMid: `${motionBase + motionUnit * 2}s`,
-    motionDurationSlow: `${motionBase + motionUnit * 3}s`,
+    motionDurationFast: `${(motionBase + motionUnit * 1).toFixed(1)}s`,
+    motionDurationMid: `${(motionBase + motionUnit * 2).toFixed(1)}s`,
+    motionDurationSlow: `${(motionBase + motionUnit * 3).toFixed(1)}s`,
 
     // font
     fontSizes: fontSizes.map(fs => fs.size),

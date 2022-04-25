@@ -13,6 +13,7 @@ import type { ComponentToken as BackTopComponentToken } from '../../back-top/sty
 import type { ComponentToken as DatePickerComponentToken } from '../../date-picker/style';
 import type { ComponentToken as TimelineComponentToken } from '../../timeline/style';
 import type { ComponentToken as MenuComponentToken } from '../../menu/style';
+import type { ComponentToken as UploadComponentToken } from '../../upload/style';
 import type { ComponentToken as CarouselComponentToken } from '../../carousel/style';
 
 export const PresetColors = [
@@ -88,6 +89,7 @@ export interface OverrideToken {
   Steps?: {};
   Menu?: MenuComponentToken;
   Layout?: {};
+  Upload?: UploadComponentToken;
 }
 
 /** Final token which contains the components level override */

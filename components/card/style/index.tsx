@@ -132,7 +132,7 @@ const genCardGridStyle: GenerateStyle<CardToken> = (token): CSSObject => {
     1px 1px 0 0 ${borderColorSplit},
     1px 0 0 0 ${borderColorSplit} inset,
     0 1px 0 0 ${borderColorSplit} inset;
-    transition: all ${token.motionDurationSlow}s
+    transition: all ${token.motionDurationSlow}
   `, // FIXME: hardcode in v4
 
     '&-hoverable:hover': {
@@ -352,7 +352,7 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 
     [`${componentCls}-hoverable`]: {
       cursor: 'pointer',
-      transition: `box-shadow ${token.motionDurationSlow}s, border-color ${token.motionDurationSlow}s`,
+      transition: `box-shadow ${token.motionDurationSlow}, border-color ${token.motionDurationSlow}`,
 
       '&:hover': {
         borderColor: cardHoverableHoverBorder,

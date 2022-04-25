@@ -7421,10 +7421,10 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <span
-            class=""
+            class="ant-upload-wrapper"
           >
             <div
-              class="ant-upload ant-upload-select ant-upload-select-picture"
+              class="ant-upload ant-upload-select"
             >
               <span
                 class="ant-upload"
@@ -7501,7 +7501,9 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         <div
           class="ant-form-item-control-input-content"
         >
-          <span>
+          <span
+            class="ant-upload-wrapper"
+          >
             <div
               class="ant-upload ant-upload-drag"
             >
