@@ -2,6 +2,7 @@ const path = require('path');
 const replaceLib = require('@ant-design/tools/lib/replaceLib');
 const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
 const { ESBuildMinifyPlugin } = require('esbuild-loader');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { version } = require('../package.json');
 const themeConfig = require('./themeConfig');
 
@@ -160,6 +161,21 @@ module.exports = {
         /bisheng-plugin/,
       ];
     }
+
+    config.plugins.push(
+      new BundleAnalyzerPlugin({
+        analyzerMode: 'server',
+        analyzerHost: '127.0.0.1',
+        analyzerPort: 9090,
+        reportFilename: 'report.html',
+        defaultSizes: 'parsed',
+        openAnalyzer: true,
+        generateStatsFile: false,
+        statsFilename: 'stats.json',
+        statsOptions: null,
+        logLevel: 'info',
+      }),
+    );
 
     // Split chunks
     config.optimization.splitChunks = {
