@@ -170,6 +170,8 @@ export class Progress extends React.Component<ProgressProps> {
       hashId,
     );
 
+    if (!wrapSSR) return null;
+
     return wrapSSR(
       <div
         {...omit(restProps, [
