@@ -6,6 +6,7 @@ import { ButtonHTMLType } from '../button/button';
 import { ButtonGroupProps } from '../button/button-group';
 import { ConfigContext } from '../config-provider';
 import Dropdown, { DropdownProps } from './dropdown';
+import useStyle from './style';
 
 const ButtonGroup = Button.Group;
 
@@ -63,7 +64,10 @@ const DropdownButton: DropdownButtonInterface = props => {
     ...restProps
   } = props;
 
-  const prefixCls = getPrefixCls('dropdown-button', customizePrefixCls);
+  const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
+  const buttonPrefixCls = `${prefixCls}-button`;
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
   const dropdownProps = {
     align,
     overlay,
@@ -106,11 +110,11 @@ const DropdownButton: DropdownButtonInterface = props => {
 
   const [leftButtonToRender, rightButtonToRender] = buttonsRender!([leftButton, rightButton]);
 
-  return (
-    <ButtonGroup {...restProps} className={classNames(prefixCls, className)}>
+  return wrapSSR(
+    <ButtonGroup {...restProps} className={classNames(buttonPrefixCls, className, hashId)}>
       {leftButtonToRender}
       <Dropdown {...dropdownProps}>{rightButtonToRender}</Dropdown>
-    </ButtonGroup>
+    </ButtonGroup>,
   );
 };
 

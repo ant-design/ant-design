@@ -1,6 +1,7 @@
 import type * as React from 'react';
 import type { ComponentToken as ButtonComponentToken } from '../../button/style';
 import type { ComponentToken as DividerComponentToken } from '../../divider/style';
+import type { ComponentToken as DropdownComponentToken } from '../../dropdown/style';
 import type { ComponentToken as EmptyComponentToken } from '../../empty/style';
 import type { ComponentToken as CascaderComponentToken } from '../../cascader/style';
 import type { ComponentToken as InputNumberComponentToken } from '../../input-number/style';
@@ -13,6 +14,7 @@ import type { ComponentToken as DatePickerComponentToken } from '../../date-pick
 import type { ComponentToken as TimelineComponentToken } from '../../timeline/style';
 import type { ComponentToken as MenuComponentToken } from '../../menu/style';
 import type { ComponentToken as UploadComponentToken } from '../../upload/style';
+import type { ComponentToken as CarouselComponentToken } from '../../carousel/style';
 
 export const PresetColors = [
   'blue',
@@ -50,13 +52,15 @@ export interface OverrideToken {
   BackTop?: BackTopComponentToken;
   Badge?: {};
   Button?: ButtonComponentToken;
-  Carousel?: {};
+  Carousel?: CarouselComponentToken;
   Cascader?: CascaderComponentToken;
   Checkbox?: {};
+  Collapse?: {};
   DatePicker?: DatePickerComponentToken;
   Descriptions?: {};
   Divider?: DividerComponentToken;
   Drawer?: {};
+  Dropdown?: DropdownComponentToken;
   Empty?: EmptyComponentToken;
   Form?: {};
   Grid?: {};
@@ -134,6 +138,7 @@ export interface SeedToken extends PresetColorType {
   // Size
   sizeUnit: number;
   sizeBaseStep: number;
+  sizePopupArrow: number;
 
   // Control Base
   controlHeight: number;
@@ -298,6 +303,8 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   colorBgComponentDisabled: string;
 
   // =============== Legacy: should be remove ===============
+  colorLoadingOpacity: number;
+
   padding: number;
   margin: number;
 

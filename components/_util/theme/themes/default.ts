@@ -189,6 +189,7 @@ const seedToken: SeedToken = {
   // Size
   sizeUnit: 4,
   sizeBaseStep: 4,
+  sizePopupArrow: 8 * Math.sqrt(2),
 
   // Control Base
   controlHeight: 32,
