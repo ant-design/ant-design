@@ -309,5 +309,5 @@ export default genComponentStyleHook('Drawer', token => {
     motionEaseOut: 'cubic-bezier(0.215, 0.61, 0.355, 1)', // FIXME: hard code
   });
 
-  return [genBaseStyle(drawerToken), genDrawerStyle(drawerToken), antdDrawerFadeIn];
+  return [genBaseStyle(drawerToken), genDrawerStyle(drawerToken)];
 });

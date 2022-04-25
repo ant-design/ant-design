@@ -480,7 +480,5 @@ export default genComponentStyleHook('Card', (token, { rootPrefixCls }) => {
 
     // RTL
     genCardRTLStyle(cardToken),
-
-    antCardLoading,
   ];
 });

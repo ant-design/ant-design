@@ -341,14 +341,5 @@ export default genComponentStyleHook('Badge', token => {
     badgeStatusSize,
   });
 
-  return [
-    genSharedBadgeStyle(badgeToken),
-    { display: 'none' },
-    antStatusProcessing,
-    antZoomBadgeIn,
-    antZoomBadgeOut,
-    antNoWrapperZoomBadgeIn,
-    antNoWrapperZoomBadgeOut,
-    antBadgeLoadingCircle,
-  ];
+  return [genSharedBadgeStyle(badgeToken), { display: 'none' }];
 });
