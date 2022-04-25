@@ -326,7 +326,7 @@ const genSizeButtonStyle = (token: ButtonToken, sizePrefixCls: string = ''): CSS
 
         // Loading
         [`&${componentCls}-loading`]: {
-          opacity: 0.65,
+          opacity: token.colorLoadingOpacity,
           cursor: 'default',
         },
 

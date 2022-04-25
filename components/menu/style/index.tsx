@@ -1,7 +1,13 @@
 // deps-lint-skip-all
 import { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-import { genComponentStyleHook, resetComponent, clearFix, mergeToken } from '../../_util/theme';
+import {
+  genComponentStyleHook,
+  resetComponent,
+  clearFix,
+  mergeToken,
+  UseComponentStyleResult,
+} from '../../_util/theme';
 import type { GenerateStyle, FullToken } from '../../_util/theme';
 
 /** Component only token. Which will handle additional calculation of alias token */
@@ -1028,39 +1034,48 @@ const genBaseStyle: GenerateStyle<MenuToken, CSSObject> = (token): CSSObject => 
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Menu', token => {
-  const MenuToken = mergeToken<MenuToken>(token, {
-    black: '#000', // FIXME: hard code in v4
-    componentBackground: '#fff', // FIXME: hard code in v4
-    darkBg: '#001529', // FIXME: hard code in v4
-    darkInlineSubmenuBg: '#000c17', // FIXME: hard code in v4
-    colorTextSecondary: new TinyColor('#000').setAlpha(0.45).toRgbString(), // FIXME: hard code in v4
-    highlightDangerColor: new TinyColor('#f5222d').setAlpha(0.2).toRgbString(), // FIXME: hard code in v4 // color(~`colorPalette('@{red-6}', 5) `)
-    itemActiveDangerBg: new TinyColor('#f5222d').setAlpha(0.9).toRgbString(), // FIXME: hard code in v4 // color(~`colorPalette('@{red-6}', 1) `)
-    itemActiveBackground: new TinyColor('#000').setAlpha(0.9).toRgbString(), // FIXME: hard code in v4
-    itemActiveBg: '#e6f7ff', // FIXME: hard code in v4,
-    textColorDark: new TinyColor('#000').setAlpha(0.85).toRgbString(), // FIXME: hard code in v4
-    disabledColor: new TinyColor('#000').setAlpha(0.25).toRgbString(), // FIXME: hard code in v4
-    darkColor: new TinyColor('#fff').setAlpha(0.65).toRgbString(), // FIXME: hard code in v4
-    colorDark: new TinyColor('#fff').setAlpha(0.85).toRgbString(), // FIXME: hard code in v4
-    disabledColorDark: new TinyColor('#fff').setAlpha(0.45).toRgbString(), // FIXME: hard code in v4
-    darkHighlightColor: '#fff', // FIXME: hard code in v4
-    motionDurationMD: '0.15s', // FIXME: hard code in v4,
-    primaryColor: '#1890ff', // FIXME: hard code in v4
-    boxShadowColor: new TinyColor('#1890ff').setAlpha(0.05).toRgbString(), // FIXME: hard code in v4, shade(@primary-color, 5%)
-    borderColorSplit: new TinyColor({ h: 0, s: 0, v: 94 }).toHexString(), // FIXME: hard code in v4
-    menuInlineSubmenuBg: new TinyColor({ h: 0, s: 0, v: 98 }).toHexString(), // FIXME: hard code in v4
-    easeOut: 'cubic-bezier(0.215, 0.61, 0.355, 1)', // FIXME: hard code in v4
-    width20: 20, // FIXME: hard code in v4
-    zIndexDrop: 1050, // FIXME: hard code in v4
-    menuOpacity: 0.0001, // FIXME: hard code in v4
-    sizeLg: 16, // FIXME: hard code in v4
+export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResult => {
+  const useOriginHook = genComponentStyleHook('Menu', token => {
+    // Dropdown will handle menu style self. We do not need to handle this.
+    if (injectStyle === false) {
+      return [];
+    }
+
+    const MenuToken = mergeToken<MenuToken>(token, {
+      black: '#000', // FIXME: hard code in v4
+      componentBackground: '#fff', // FIXME: hard code in v4
+      darkBg: '#001529', // FIXME: hard code in v4
+      darkInlineSubmenuBg: '#000c17', // FIXME: hard code in v4
+      colorTextSecondary: new TinyColor('#000').setAlpha(0.45).toRgbString(), // FIXME: hard code in v4
+      highlightDangerColor: new TinyColor('#f5222d').setAlpha(0.2).toRgbString(), // FIXME: hard code in v4 // color(~`colorPalette('@{red-6}', 5) `)
+      itemActiveDangerBg: new TinyColor('#f5222d').setAlpha(0.9).toRgbString(), // FIXME: hard code in v4 // color(~`colorPalette('@{red-6}', 1) `)
+      itemActiveBackground: new TinyColor('#000').setAlpha(0.9).toRgbString(), // FIXME: hard code in v4
+      itemActiveBg: '#e6f7ff', // FIXME: hard code in v4,
+      textColorDark: new TinyColor('#000').setAlpha(0.85).toRgbString(), // FIXME: hard code in v4
+      disabledColor: new TinyColor('#000').setAlpha(0.25).toRgbString(), // FIXME: hard code in v4
+      darkColor: new TinyColor('#fff').setAlpha(0.65).toRgbString(), // FIXME: hard code in v4
+      colorDark: new TinyColor('#fff').setAlpha(0.85).toRgbString(), // FIXME: hard code in v4
+      disabledColorDark: new TinyColor('#fff').setAlpha(0.45).toRgbString(), // FIXME: hard code in v4
+      darkHighlightColor: '#fff', // FIXME: hard code in v4
+      motionDurationMD: '0.15s', // FIXME: hard code in v4,
+      primaryColor: '#1890ff', // FIXME: hard code in v4
+      boxShadowColor: new TinyColor('#1890ff').setAlpha(0.05).toRgbString(), // FIXME: hard code in v4, shade(@primary-color, 5%)
+      borderColorSplit: new TinyColor({ h: 0, s: 0, v: 94 }).toHexString(), // FIXME: hard code in v4
+      menuInlineSubmenuBg: new TinyColor({ h: 0, s: 0, v: 98 }).toHexString(), // FIXME: hard code in v4
+      easeOut: 'cubic-bezier(0.215, 0.61, 0.355, 1)', // FIXME: hard code in v4
+      width20: 20, // FIXME: hard code in v4
+      zIndexDrop: 1050, // FIXME: hard code in v4
+      menuOpacity: 0.0001, // FIXME: hard code in v4
+      sizeLg: 16, // FIXME: hard code in v4
+    });
+
+    return [
+      genBaseStyle(MenuToken),
+      genDarkStyle(MenuToken),
+      genLightStyle(MenuToken),
+      genStatusStyle(MenuToken),
+    ];
   });
 
-  return [
-    genBaseStyle(MenuToken),
-    genDarkStyle(MenuToken),
-    genLightStyle(MenuToken),
-    genStatusStyle(MenuToken),
-  ];
-});
+  return useOriginHook(prefixCls);
+};
