@@ -102,7 +102,7 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
   };
 
   const prefixCls = getPrefixCls('menu', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls, { style: !injectFromDropdown });
+  const [wrapSSR, hashId] = useStyle(prefixCls, !injectFromDropdown);
   const menuClassName = classNames(`${prefixCls}-${theme}`, className);
 
   // ======================== Context ==========================
