@@ -414,10 +414,6 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
     [
       initSlideMotion(rootPrefixCls, 'slide-up', slideUpIn, slideUpOut, token),
       initSlideMotion(rootPrefixCls, 'slide-down', slideDownIn, slideDownOut, token),
-      slideUpIn,
-      slideUpOut,
-      slideDownIn,
-      slideDownOut,
     ],
   ];
 };

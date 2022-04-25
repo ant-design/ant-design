@@ -275,8 +275,6 @@ function getRadioBasicStyle(prefixCls: string, token: RadioToken): CSSInterpolat
         paddingInlineStart: token.paddingXS,
         paddingInlineEnd: token.paddingXS,
       },
-
-      antRadioEffect,
     },
   };
 }

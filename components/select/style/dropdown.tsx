@@ -154,10 +154,6 @@ const genSingleStyle: GenerateStyle<SelectToken> = token => {
     // Follow code may reuse in other components
     initSlideMotion(rootPrefixCls, 'slide-up', slideUpIn, slideUpOut, token),
     initSlideMotion(rootPrefixCls, 'slide-down', slideDownIn, slideDownOut, token),
-    slideUpIn,
-    slideUpOut,
-    slideDownIn,
-    slideDownOut,
   ];
 };
 
