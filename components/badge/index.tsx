@@ -35,6 +35,7 @@ export interface BadgeProps {
   size?: 'default' | 'small';
   offset?: [number | string, number | string];
   title?: string;
+  children?: React.ReactNode;
 }
 
 const Badge: CompoundedComponent = ({
@@ -55,11 +56,11 @@ const Badge: CompoundedComponent = ({
   showZero = false,
   ...restProps
 }) => {
-  const { getPrefixCls, direction, iconPrefixCls } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('badge', customizePrefixCls);
 
   // Style
-  const [wrapSSR, hashId] = useStyle(getPrefixCls(), prefixCls, iconPrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   // ================================ Misc ================================
   const numberedDisplayCount = (

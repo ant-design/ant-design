@@ -44,7 +44,7 @@ const items2: MenuProps['items'] = [UserOutlined, LaptopOutlined, NotificationOu
   },
 );
 
-ReactDOM.render(
+export default () => (
   <Layout>
     <Header className="header">
       <div className="logo" />
@@ -70,8 +70,7 @@ ReactDOM.render(
       </Layout>
     </Content>
     <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
-  </Layout>,
-  mountNode,
+  </Layout>
 );
 ```
 
@@ -89,7 +88,7 @@ ReactDOM.render(
   margin: 16px 0 16px 24px;
 }
 
-.site-layout-background {
+#components-layout-demo-top-side .site-layout-background {
   background: #fff;
 }
 ```

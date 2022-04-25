@@ -10,6 +10,8 @@ import renderSwitcherIcon from './utils/iconUtil';
 import dropIndicatorRender from './utils/dropIndicator';
 import useStyle from './style';
 
+export type SwitcherIcon = React.ReactNode | ((props: { expanded: boolean }) => React.ReactNode);
+
 export interface AntdTreeNodeAttribute {
   eventKey: string;
   prefixCls: string;
@@ -138,7 +140,7 @@ export interface TreeProps<T extends BasicDataNode = DataNode>
   style?: React.CSSProperties;
   showIcon?: boolean;
   icon?: ((nodeProps: AntdTreeNodeAttribute) => React.ReactNode) | React.ReactNode;
-  switcherIcon?: React.ReactElement<any>;
+  switcherIcon?: SwitcherIcon;
   prefixCls?: string;
   children?: React.ReactNode;
   blockNode?: boolean;

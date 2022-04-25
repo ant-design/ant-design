@@ -101,6 +101,8 @@ class MultiDrawer extends React.Component {
             </Button>
           </div>
         </Drawer>
+
+        <div className="childrenDrawer">{String(childrenDrawer)}</div>
       </div>
     );
   }
@@ -124,7 +126,7 @@ describe('Drawer', () => {
     expect(translateX).toEqual('translateX(180px)');
     expect(wrapper.find('#two_drawer_text').exists()).toBe(true);
     wrapper.find('.Two-level .ant-drawer-close').simulate('click');
-    expect(wrapper.state().childrenDrawer).toBe(false);
+    expect(wrapper.find('.childrenDrawer').text()).toEqual('false');
   });
 
   it('render top MultiDrawer', () => {

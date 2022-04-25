@@ -1,27 +1,12 @@
 import React from 'react';
-import {
-  CSSInterpolation,
-  CSSObject,
-  Theme,
-  useCacheToken,
-  useStyleRegister,
-} from '@ant-design/cssinjs';
+import { CSSInterpolation, Theme, useCacheToken, useStyleRegister } from '@ant-design/cssinjs';
+import genComponentStyleHook from './util/genComponentStyleHook';
 import defaultSeedToken, { derivative as defaultDerivative } from './themes/default';
 import version from '../../version';
-import { resetComponent, resetIcon, clearFix } from './util';
+import { resetComponent, resetIcon, clearFix, roundedArrow, operationUnit } from './util';
 import formatToken from './util/alias';
-import {
-  initSlideMotion,
-  slideUpIn,
-  slideUpOut,
-  slideDownIn,
-  slideDownOut,
-  slideLeftIn,
-  slideLeftOut,
-  slideRightIn,
-  slideRightOut,
-} from './util/slide';
-import { PresetColors } from './interface';
+import statisticToken, { merge as mergeToken, statistic } from './util/statistic';
+import { GlobalToken, PresetColors } from './interface';
 import type {
   SeedToken,
   DerivativeToken,
@@ -29,22 +14,24 @@ import type {
   OverrideToken,
   PresetColorType,
 } from './interface';
+import type { FullToken } from './util/genComponentStyleHook';
 
 export {
-  PresetColors,
+  // css utils
   resetComponent,
   resetIcon,
   clearFix,
-  initSlideMotion,
-  slideUpIn,
-  slideUpOut,
-  slideDownIn,
-  slideDownOut,
-  slideLeftIn,
-  slideLeftOut,
-  slideRightIn,
-  slideRightOut,
+  roundedArrow,
+  operationUnit,
+  // colors
+  PresetColors,
+  // Statistic
+  statistic,
+  statisticToken,
+  mergeToken,
+  // hooks
   useStyleRegister,
+  genComponentStyleHook,
 };
 
 export type {
@@ -53,6 +40,7 @@ export type {
   PresetColorType,
   // FIXME: Remove this type
   AliasToken as DerivativeToken,
+  FullToken,
 };
 
 // ================================ Context =================================
@@ -69,7 +57,12 @@ export const DesignTokenContext = React.createContext<{
 });
 
 // ================================== Hook ==================================
-export function useToken(): [Theme<SeedToken, DerivativeToken>, AliasToken, string] {
+// In dev env, we refresh salt per hour to avoid user use this
+// Note: Do not modify this to real time update which will make debug harder
+const saltPrefix =
+  process.env.NODE_ENV === 'production' ? version : `${version}-${new Date().getHours()}`;
+
+export function useToken(): [Theme<SeedToken, DerivativeToken>, GlobalToken, string] {
   const {
     token: rootDesignToken,
     theme = defaultTheme,
@@ -77,9 +70,9 @@ export function useToken(): [Theme<SeedToken, DerivativeToken>, AliasToken, stri
     hashed,
   } = React.useContext(DesignTokenContext);
 
-  const salt = `${version}-${hashed || ''}`;
+  const salt = `${saltPrefix}-${hashed || ''}`;
 
-  const [token, hashId] = useCacheToken<AliasToken, SeedToken>(
+  const [token, hashId] = useCacheToken<GlobalToken, SeedToken>(
     theme,
     [defaultSeedToken, rootDesignToken],
     {
@@ -96,18 +89,4 @@ export type UseComponentStyleResult = [(node: React.ReactNode) => React.ReactEle
 
 export type GenerateStyle<ComponentToken extends object, ReturnType = CSSInterpolation> = (
   token: ComponentToken,
-  hashId?: string,
 ) => ReturnType;
-
-// ================================== Util ==================================
-export function withPrefix(
-  style: CSSObject,
-  prefixCls: string,
-  additionalClsList: string[] = [],
-): CSSObject {
-  const fullClsList = [prefixCls, ...additionalClsList].filter(cls => cls).map(cls => `.${cls}`);
-
-  return {
-    [fullClsList.join('')]: style,
-  };
-}

@@ -7,24 +7,17 @@
 // import '../../empty/style';
 
 // deps-lint-skip-all
-import {
-  DerivativeToken,
-  useStyleRegister,
-  useToken,
-  UseComponentStyleResult,
-  GenerateStyle,
-} from '../../_util/theme';
+import { GenerateStyle, genComponentStyleHook, FullToken, mergeToken } from '../../_util/theme';
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
 import { genTreeStyle } from '../../tree/style';
 
-interface TreeSelectToken extends DerivativeToken {
-  selectCls: string;
+interface TreeSelectToken extends FullToken<'TreeSelect'> {
   treePrefixCls: string;
 }
 
 // =============================== Base ===============================
-const genBaseStyle: GenerateStyle<TreeSelectToken> = (token, hashId) => {
-  const { selectCls, treePrefixCls } = token;
+const genBaseStyle: GenerateStyle<TreeSelectToken> = token => {
+  const { componentCls, treePrefixCls } = token;
   const treeCls = `.${treePrefixCls}`;
 
   return [
@@ -32,13 +25,13 @@ const genBaseStyle: GenerateStyle<TreeSelectToken> = (token, hashId) => {
     // ==                     Dropdown                     ==
     // ======================================================
     {
-      [`${selectCls}-dropdown`]: [
+      [`${componentCls}-dropdown`]: [
         {
           padding: `${token.paddingXS}px ${token.paddingXS / 2}px`,
         },
 
         // ====================== Tree ======================
-        genTreeStyle(treePrefixCls, token, hashId!),
+        genTreeStyle(treePrefixCls, token),
         {
           [treeCls]: {
             borderRadius: 0,
@@ -55,7 +48,7 @@ const genBaseStyle: GenerateStyle<TreeSelectToken> = (token, hashId) => {
         },
 
         // ==================== Checkbox ====================
-        getCheckboxStyle(`${treePrefixCls}-checkbox`, token, hashId!),
+        getCheckboxStyle(`${treePrefixCls}-checkbox`, token),
 
         // ====================== RTL =======================
         {
@@ -75,22 +68,11 @@ const genBaseStyle: GenerateStyle<TreeSelectToken> = (token, hashId) => {
 };
 
 // ============================== Export ==============================
-export default function useStyle(
-  prefixCls: string,
-  treePrefixCls: string,
-): UseComponentStyleResult {
-  const [theme, token, hashId] = useToken();
-
-  const treeSelectToken: TreeSelectToken = {
-    ...token,
-    selectCls: `.${prefixCls}`,
-    treePrefixCls,
-  };
-
-  return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      genBaseStyle(treeSelectToken, hashId),
-    ]),
-    hashId,
-  ];
+export default function useTreeSelectStyle(prefixCls: string, treePrefixCls: string) {
+  return genComponentStyleHook('TreeSelect', token => {
+    const treeSelectToken = mergeToken<TreeSelectToken>(token, {
+      treePrefixCls,
+    });
+    return [genBaseStyle(treeSelectToken)];
+  })(prefixCls);
 }

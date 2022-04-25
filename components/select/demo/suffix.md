@@ -26,7 +26,7 @@ function handleChange(value) {
   console.log(`selected ${value}`);
 }
 
-ReactDOM.render(
+export default () => (
   <>
     <Select
       suffixIcon={smileIcon}
@@ -44,7 +44,6 @@ ReactDOM.render(
     <Select suffixIcon={mehIcon} defaultValue="lucy" style={{ width: 120 }} disabled>
       <Option value="lucy">Lucy</Option>
     </Select>
-  </>,
-  mountNode,
+  </>
 );
 ```

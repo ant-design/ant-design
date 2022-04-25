@@ -64,6 +64,10 @@ export function derivative(token: SeedToken): DerivativeToken {
 
   const fontSizes = getFontSizes(fontSizeBase);
 
+  const colorBg2 = new TinyColor({ h: 0, s: 0, v: 98 }).toHexString();
+  const colorBgBelow = new TinyColor({ h: 0, s: 0, v: 98 }).toHexString();
+  const colorBgBelow2 = new TinyColor({ h: 0, s: 0, v: 96 }).toHexString();
+
   return {
     ...token,
     ...colorPalettes,
@@ -96,9 +100,12 @@ export function derivative(token: SeedToken): DerivativeToken {
     radiusXL: radiusBase * 4,
 
     // color
-    colorBg2: new TinyColor({ h: 0, s: 0, v: 98 }).toHexString(),
-    colorBgBelow: new TinyColor({ h: 0, s: 0, v: 98 }).toHexString(),
-    colorBgBelow2: new TinyColor({ h: 0, s: 0, v: 96 }).toHexString(),
+    colorBg2,
+    colorBg3: '#e1e1e1',
+    colorBgBelow,
+    colorBgBelow2,
+
+    colorDefaultOutline: colorBgBelow2,
 
     colorPrimaryActive: primaryColors[6],
     colorPrimaryHover: primaryColors[4],
@@ -182,6 +189,7 @@ const seedToken: SeedToken = {
   // Size
   sizeUnit: 4,
   sizeBaseStep: 4,
+  sizePopupArrow: 8 * Math.sqrt(2),
 
   // Control Base
   controlHeight: 32,

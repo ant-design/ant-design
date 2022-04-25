@@ -37,7 +37,7 @@ const IconText = ({ icon, text }) => (
   </Space>
 );
 
-ReactDOM.render(
+export default () => (
   <List
     itemLayout="vertical"
     size="large"
@@ -77,7 +77,6 @@ ReactDOM.render(
         {item.content}
       </List.Item>
     )}
-  />,
-  mountNode,
+  />
 );
 ```

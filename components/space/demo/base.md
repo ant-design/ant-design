@@ -34,5 +34,5 @@ function SpaceDemo() {
   );
 }
 
-ReactDOM.render(<SpaceDemo />, mountNode);
+export default () => <SpaceDemo />;
 ```

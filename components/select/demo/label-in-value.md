@@ -26,7 +26,7 @@ function handleChange(value) {
   console.log(value); // { value: "lucy", key: "lucy", label: "Lucy (101)" }
 }
 
-ReactDOM.render(
+export default () => (
   <Select
     labelInValue
     defaultValue={{ value: 'lucy' }}
@@ -35,7 +35,6 @@ ReactDOM.render(
   >
     <Option value="jack">Jack (100)</Option>
     <Option value="lucy">Lucy (101)</Option>
-  </Select>,
-  mountNode,
+  </Select>
 );
 ```

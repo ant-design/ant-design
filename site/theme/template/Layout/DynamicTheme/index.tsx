@@ -3,9 +3,12 @@ import { TinyColor } from '@ctrl/tinycolor';
 import { Drawer, Form, Input, Button, InputNumber, Checkbox, Space } from 'antd';
 import { useIntl } from 'react-intl';
 import { BugOutlined, EyeOutlined } from '@ant-design/icons';
+import { useState } from 'react';
 import { SeedToken } from '../../../../../components/_util/theme';
 import defaultSeedToken from '../../../../../components/_util/theme/themes/default';
+import { PresetColors } from '../../../../../components/_util/theme/interface';
 import Preview from './Preview';
+import Diff from './Diff';
 
 export interface ThemeConfigProps {
   componentName: string;
@@ -18,6 +21,7 @@ export default ({ onChangeTheme, defaultToken, componentName }: ThemeConfigProps
   const [visible, setVisible] = React.useState(false);
   const [previewVisible, setPreviewVisible] = React.useState(false);
   const [form] = Form.useForm();
+  const [showDiff, setShowDiff] = useState(false);
 
   const keys = Object.keys(defaultSeedToken);
 
@@ -27,6 +31,8 @@ export default ({ onChangeTheme, defaultToken, componentName }: ThemeConfigProps
 
   return (
     <>
+      {/* FIXME: need to be removed before published */}
+      <Diff show={showDiff} />
       <div
         style={{
           position: 'fixed',
@@ -38,6 +44,7 @@ export default ({ onChangeTheme, defaultToken, componentName }: ThemeConfigProps
           boxShadow: '0 0 4px rgba(0, 0, 0, 0.3)',
           padding: '8px 16px 8px 12px',
           cursor: 'pointer',
+          zIndex: 1,
         }}
         onClick={() => setVisible(true)}
       >
@@ -54,6 +61,9 @@ export default ({ onChangeTheme, defaultToken, componentName }: ThemeConfigProps
         title={formatMessage({ id: 'app.theme.switch.dynamic' })}
         extra={
           <Space>
+            <Checkbox checked={showDiff} onChange={e => setShowDiff(e.target.checked)}>
+              Diff
+            </Checkbox>
             <Button icon={<EyeOutlined />} onClick={() => setPreviewVisible(true)} />
             <Button onClick={form.submit} type="primary">
               Submit
@@ -70,6 +80,10 @@ export default ({ onChangeTheme, defaultToken, componentName }: ThemeConfigProps
           autoComplete="off"
         >
           {keys.map((key: keyof typeof defaultToken) => {
+            if (PresetColors.includes(key as any)) {
+              return null;
+            }
+
             const originValue = defaultToken[key];
             const originValueType = typeof originValue;
 

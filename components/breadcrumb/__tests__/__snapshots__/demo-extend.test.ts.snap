@@ -134,10 +134,11 @@ exports[`renders ./components/breadcrumb/demo/overlay.md extend context correctl
       <div>
         <div
           class="ant-dropdown"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+            data-dropdown-inject="true"
             data-menu-list="true"
             role="menu"
             tabindex="0"
@@ -162,7 +163,7 @@ exports[`renders ./components/breadcrumb/demo/overlay.md extend context correctl
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -201,7 +202,7 @@ exports[`renders ./components/breadcrumb/demo/overlay.md extend context correctl
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -240,7 +241,7 @@ exports[`renders ./components/breadcrumb/demo/overlay.md extend context correctl
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -267,7 +268,7 @@ exports[`renders ./components/breadcrumb/demo/overlay.md extend context correctl
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -289,7 +290,7 @@ exports[`renders ./components/breadcrumb/demo/overlay.md extend context correctl
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -311,7 +312,7 @@ exports[`renders ./components/breadcrumb/demo/overlay.md extend context correctl
             <div>
               <div
                 class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"

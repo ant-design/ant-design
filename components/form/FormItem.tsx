@@ -1,24 +1,29 @@
 import * as React from 'react';
+import type { ReactNode } from 'react';
 import { useContext, useMemo } from 'react';
 import classNames from 'classnames';
-import { Field, FormInstance, FieldContext, ListContext } from 'rc-field-form';
-import { FieldProps } from 'rc-field-form/lib/Field';
-import { Meta, NamePath } from 'rc-field-form/lib/interface';
+import type { FormInstance } from 'rc-field-form';
+import { Field, FieldContext, ListContext } from 'rc-field-form';
+import type { FieldProps } from 'rc-field-form/lib/Field';
+import type { Meta, NamePath } from 'rc-field-form/lib/interface';
 import { supportRef } from 'rc-util/lib/ref';
 import useState from 'rc-util/lib/hooks/useState';
 import omit from 'rc-util/lib/omit';
+import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
+import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
+import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
+import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
+import useStyle from './style';
 import Row from '../grid/row';
 import { ConfigContext } from '../config-provider';
 import { tuple } from '../_util/type';
 import devWarning from '../_util/devWarning';
-import FormItemLabel, { FormItemLabelProps, LabelTooltipType } from './FormItemLabel';
-import FormItemInput, { FormItemInputProps } from './FormItemInput';
-import {
-  FormContext,
-  FormItemStatusContext,
-  NoStyleItemContext,
-  FormItemStatusContextProps,
-} from './context';
+import type { FormItemLabelProps, LabelTooltipType } from './FormItemLabel';
+import FormItemLabel from './FormItemLabel';
+import type { FormItemInputProps } from './FormItemInput';
+import FormItemInput from './FormItemInput';
+import type { FormItemStatusContextProps } from './context';
+import { FormContext, FormItemInputContext, NoStyleItemContext } from './context';
 import { toArray, getFieldId } from './util';
 import { cloneElement, isValidElement } from '../_util/reactNode';
 import useFrameState from './hooks/useFrameState';
@@ -88,6 +93,13 @@ function genEmptyMeta(): Meta {
   };
 }
 
+const iconMap = {
+  success: CheckCircleFilled,
+  warning: ExclamationCircleFilled,
+  error: CloseCircleFilled,
+  validating: LoadingOutlined,
+};
+
 function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElement {
   const {
     name,
@@ -122,6 +134,9 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
   const hasName = hasValidName(name);
 
   const prefixCls = getPrefixCls('form', customizePrefixCls);
+
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   // ========================= MISC =========================
   // Get `noStyle` required info
@@ -219,13 +234,29 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
     mergedValidateStatus = 'success';
   }
 
-  const formItemStatusContext = useMemo<FormItemStatusContextProps>(
-    () => ({
+  const formItemStatusContext = useMemo<FormItemStatusContextProps>(() => {
+    let feedbackIcon: ReactNode;
+    if (hasFeedback) {
+      const IconNode = mergedValidateStatus && iconMap[mergedValidateStatus];
+      feedbackIcon = IconNode ? (
+        <span
+          className={classNames(
+            `${prefixCls}-item-feedback-icon`,
+            `${prefixCls}-item-feedback-icon-${mergedValidateStatus}`,
+          )}
+        >
+          <IconNode />
+        </span>
+      ) : null;
+    }
+
+    return {
       status: mergedValidateStatus,
       hasFeedback,
-    }),
-    [mergedValidateStatus, hasFeedback],
-  );
+      feedbackIcon,
+      isFormItemInput: true,
+    };
+  }, [mergedValidateStatus, hasFeedback]);
 
   // ======================== Render ========================
   function renderLayout(
@@ -255,7 +286,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
     // ======================= Children =======================
     return (
       <Row
-        className={classNames(itemClassName)}
+        className={classNames(itemClassName, hashId)}
         style={style}
         key="row"
         {...omit(restProps, [
@@ -300,9 +331,9 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
           help={help}
         >
           <NoStyleItemContext.Provider value={onSubItemMetaChange}>
-            <FormItemStatusContext.Provider value={formItemStatusContext}>
+            <FormItemInputContext.Provider value={formItemStatusContext}>
               {baseChildren}
-            </FormItemStatusContext.Provider>
+            </FormItemInputContext.Provider>
           </NoStyleItemContext.Provider>
         </FormItemInput>
       </Row>
@@ -310,7 +341,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
   }
 
   if (!hasName && !isRenderProps && !dependencies) {
-    return renderLayout(children) as JSX.Element;
+    return wrapSSR(renderLayout(children) as JSX.Element);
   }
 
   let variables: Record<string, string> = {};
@@ -324,7 +355,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
   }
 
   // >>>>> With Field
-  return (
+  return wrapSSR(
     <Field
       {...props}
       messageVariables={variables}
@@ -427,12 +458,12 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
             'Form.Item',
             '`name` is only used for validate React element. If you are using Form.Item as layout display, please remove `name` instead.',
           );
-          childNode = children;
+          childNode = children as React.ReactNode;
         }
 
         return renderLayout(childNode, fieldId, isRequired);
       }}
-    </Field>
+    </Field>,
   );
 }
 

@@ -35,20 +35,13 @@ function getGroup(props) {
   );
 }
 
-ReactDOM.render(
+export default () => (
   <>
     {getGroup({ size: 'small' })}
     <br />
     {getGroup()}
     <br />
     {getGroup({ size: 'large' })}
-  </>,
-  mountNode,
+  </>
 );
-```
-
-```css
-#components-button-demo-legacy-group .ant-btn {
-  margin: 0;
-}
 ```

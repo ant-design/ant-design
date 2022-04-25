@@ -33,11 +33,11 @@ const Rate = React.forwardRef<unknown, RateProps>(({ prefixCls, tooltips, ...pro
     return <Tooltip title={tooltips[index]}>{node}</Tooltip>;
   };
 
-  const { getPrefixCls, iconPrefixCls, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const ratePrefixCls = getPrefixCls('rate', prefixCls);
 
   // Style
-  const [wrapSSR, hashId] = useStyle(ratePrefixCls, iconPrefixCls);
+  const [wrapSSR, hashId] = useStyle(ratePrefixCls);
 
   return wrapSSR(
     <RcRate

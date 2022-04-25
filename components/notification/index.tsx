@@ -87,8 +87,9 @@ function getPlacementStyle(
   switch (placement) {
     case 'top':
       style = {
-        left: 0,
-        right: 0,
+        left: '50%',
+        transform: 'translateX(-50%)',
+        right: 'auto',
         top,
         bottom: 'auto',
       };
@@ -109,8 +110,9 @@ function getPlacementStyle(
       break;
     case 'bottom':
       style = {
-        left: 0,
-        right: 0,
+        left: '50%',
+        transform: 'translateX(-50%)',
+        right: 'auto',
         top: 'auto',
         bottom,
       };
@@ -154,6 +156,7 @@ function getNotificationInstance(
 
   const cacheKey = `${prefixCls}-${placement}`;
   const cacheInstance = notificationInstance[cacheKey];
+
   if (cacheInstance) {
     Promise.resolve(cacheInstance).then(instance => {
       callback({ prefixCls: `${prefixCls}-notice`, iconPrefixCls, instance });

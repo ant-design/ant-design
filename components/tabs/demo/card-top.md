@@ -18,7 +18,7 @@ import { Tabs } from 'antd';
 
 const { TabPane } = Tabs;
 
-ReactDOM.render(
+export default () => (
   <div className="card-container">
     <Tabs type="card">
       <TabPane tab="Tab Title 1" key="1">
@@ -37,8 +37,7 @@ ReactDOM.render(
         <p>Content of Tab Pane 3</p>
       </TabPane>
     </Tabs>
-  </div>,
-  mountNode,
+  </div>
 );
 ```
 
@@ -57,13 +56,13 @@ ReactDOM.render(
 .card-container > .ant-tabs-card > .ant-tabs-nav::before {
   display: none;
 }
-.card-container > .ant-tabs-card .ant-tabs-tab,
-[data-theme='compact'] .card-container > .ant-tabs-card .ant-tabs-tab {
+.card-container > .ant-tabs-card .ant-tabs-nav-list > .ant-tabs-tab,
+[data-theme='compact'] .card-container > .ant-tabs-card .ant-tabs-nav-list > .ant-tabs-tab {
   background: transparent;
   border-color: transparent;
 }
-.card-container > .ant-tabs-card .ant-tabs-tab-active,
-[data-theme='compact'] .card-container > .ant-tabs-card .ant-tabs-tab-active {
+.card-container > .ant-tabs-card .ant-tabs-nav-list > .ant-tabs-tab-active,
+[data-theme='compact'] .card-container > .ant-tabs-card .ant-tabs-nav-list > .ant-tabs-tab-active {
   background: #fff;
   border-color: #fff;
 }

@@ -1,23 +1,24 @@
 import { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
+import { mergeToken } from '../../_util/theme';
 import type { SelectToken } from '.';
 
 function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
-  const { selectCls, inputPaddingHorizontalBase } = token;
+  const { componentCls, inputPaddingHorizontalBase } = token;
 
   const selectHeightWithoutBorder = token.controlHeight - token.controlLineWidth * 2;
 
   const selectionItemPadding = Math.ceil(token.fontSize * 1.25);
 
-  const suffixCls = suffix ? `${selectCls}-${suffix}` : '';
+  const suffixCls = suffix ? `${componentCls}-${suffix}` : '';
 
   return {
-    [`${selectCls}-single${suffixCls}`]: {
+    [`${componentCls}-single${suffixCls}`]: {
       fontSize: token.fontSize,
 
       // ========================= Selector =========================
-      [`${selectCls}-selector`]: {
+      [`${componentCls}-selector`]: {
         display: 'flex',
-        [`${selectCls}-selection-search`]: {
+        [`${componentCls}-selection-search`]: {
           position: 'absolute',
           top: 0,
           insetInlineStart: inputPaddingHorizontalBase,
@@ -30,8 +31,8 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         },
 
         [`
-          ${selectCls}-selection-item,
-          ${selectCls}-selection-placeholder
+          ${componentCls}-selection-item,
+          ${componentCls}-selection-placeholder
         `]: {
           padding: 0,
           lineHeight: `${selectHeightWithoutBorder}px`,
@@ -43,12 +44,12 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
           },
         },
 
-        [`${selectCls}-selection-item`]: {
+        [`${componentCls}-selection-item`]: {
           position: 'relative',
           userSelect: 'none',
         },
 
-        [`${selectCls}-selection-placeholder`]: {
+        [`${componentCls}-selection-placeholder`]: {
           transition: 'none',
           pointerEvents: 'none',
         },
@@ -57,9 +58,9 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         [[
           '&:after',
           /* For '' value baseline align */
-          `${selectCls}-selection-item:after`,
+          `${componentCls}-selection-item:after`,
           /* For undefined value baseline align */
-          `${selectCls}-selection-placeholder:after`,
+          `${componentCls}-selection-placeholder:after`,
         ].join(',')]: {
           display: 'inline-block',
           width: 0,
@@ -69,27 +70,27 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
       },
 
       [`
-        &${selectCls}-show-arrow ${selectCls}-selection-item,
-        &${selectCls}-show-arrow ${selectCls}-selection-placeholder
+        &${componentCls}-show-arrow ${componentCls}-selection-item,
+        &${componentCls}-show-arrow ${componentCls}-selection-placeholder
       `]: {
         paddingInlineEnd: selectionItemPadding,
       },
 
       // Opacity selection if open
-      [`&${selectCls}-open ${selectCls}-selection-item`]: {
+      [`&${componentCls}-open ${componentCls}-selection-item`]: {
         color: token.colorPlaceholder,
       },
 
       // ========================== Input ==========================
       // We only change the style of non-customize input which is only support by `combobox` mode.
       // Not customize
-      [`&:not(${selectCls}-customize-input)`]: {
-        [`${selectCls}-selector`]: {
+      [`&:not(${componentCls}-customize-input)`]: {
+        [`${componentCls}-selector`]: {
           width: '100%',
           height: token.controlHeight,
           padding: `0 ${inputPaddingHorizontalBase}px`,
 
-          [`${selectCls}-selection-search-input`]: {
+          [`${componentCls}-selection-search-input`]: {
             height: selectHeightWithoutBorder,
           },
 
@@ -99,18 +100,18 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         },
       },
 
-      [`&${selectCls}-customize-input`]: {
-        [`${selectCls}-selector`]: {
+      [`&${componentCls}-customize-input`]: {
+        [`${componentCls}-selector`]: {
           '&:after': {
             display: 'none',
           },
 
-          [`${selectCls}-selection-search`]: {
+          [`${componentCls}-selection-search`]: {
             position: 'static',
             width: '100%',
           },
 
-          [`${selectCls}-selection-placeholder`]: {
+          [`${componentCls}-selection-placeholder`]: {
             position: 'absolute',
             insetInlineStart: 0,
             insetInlineEnd: 0,
@@ -127,7 +128,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
 }
 
 export default function genSingleStyle(token: SelectToken): CSSInterpolation {
-  const { selectCls } = token;
+  const { componentCls } = token;
 
   const inputPaddingHorizontalSM = token.controlPaddingHorizontalSM - token.controlLineWidth;
 
@@ -137,35 +138,34 @@ export default function genSingleStyle(token: SelectToken): CSSInterpolation {
     // ======================== Small ========================
     // Shared
     genSizeStyle(
-      {
-        ...token,
+      mergeToken<any>(token, {
         controlHeight: token.controlHeightSM,
-      },
+      }),
       'sm',
     ),
 
     // padding
     {
-      [`${selectCls}-single${selectCls}-sm`]: {
-        [`&:not(${selectCls}-customize-input)`]: {
-          [`${selectCls}-selection-search`]: {
+      [`${componentCls}-single${componentCls}-sm`]: {
+        [`&:not(${componentCls}-customize-input)`]: {
+          [`${componentCls}-selection-search`]: {
             insetInlineStart: inputPaddingHorizontalSM,
             insetInlineEnd: inputPaddingHorizontalSM,
           },
 
-          [`${selectCls}-selector`]: {
+          [`${componentCls}-selector`]: {
             padding: `0 ${inputPaddingHorizontalSM}px`,
           },
 
           // With arrow should provides `padding-right` to show the arrow
-          [`&${selectCls}-show-arrow ${selectCls}-selection-search`]: {
+          [`&${componentCls}-show-arrow ${componentCls}-selection-search`]: {
             insetInlineStart: 'auto',
             insetInlineEnd: inputPaddingHorizontalSM + token.fontSize * 1.5,
           },
 
           [`
-            &${selectCls}-show-arrow ${selectCls}-selection-item,
-            &${selectCls}-show-arrow ${selectCls}-selection-placeholder
+            &${componentCls}-show-arrow ${componentCls}-selection-item,
+            &${componentCls}-show-arrow ${componentCls}-selection-placeholder
           `]: {
             paddingInlineEnd: token.fontSize * 1.5,
           },
@@ -176,11 +176,10 @@ export default function genSingleStyle(token: SelectToken): CSSInterpolation {
     // ======================== Large ========================
     // Shared
     genSizeStyle(
-      {
-        ...token,
+      mergeToken<any>(token, {
         controlHeight: token.controlHeightLG,
         fontSize: token.fontSizeLG,
-      },
+      }),
       'lg',
     ),
   ];

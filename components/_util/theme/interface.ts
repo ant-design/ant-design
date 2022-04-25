@@ -1,4 +1,19 @@
-import * as React from 'react';
+import type * as React from 'react';
+import type { ComponentToken as ButtonComponentToken } from '../../button/style';
+import type { ComponentToken as DividerComponentToken } from '../../divider/style';
+import type { ComponentToken as DropdownComponentToken } from '../../dropdown/style';
+import type { ComponentToken as EmptyComponentToken } from '../../empty/style';
+import type { ComponentToken as CascaderComponentToken } from '../../cascader/style';
+import type { ComponentToken as InputNumberComponentToken } from '../../input-number/style';
+import type { ComponentToken as MentionsComponentToken } from '../../mentions/style';
+import type { ComponentToken as SelectComponentToken } from '../../select/style';
+import type { ComponentToken as SliderComponentToken } from '../../slider/style';
+import type { ComponentToken as TypographyComponentToken } from '../../typography/style';
+import type { ComponentToken as BackTopComponentToken } from '../../back-top/style';
+import type { ComponentToken as DatePickerComponentToken } from '../../date-picker/style';
+import type { ComponentToken as TimelineComponentToken } from '../../timeline/style';
+import type { ComponentToken as MenuComponentToken } from '../../menu/style';
+import type { ComponentToken as CarouselComponentToken } from '../../carousel/style';
 
 export const PresetColors = [
   'blue',
@@ -27,9 +42,55 @@ export type ColorPalettes = {
 };
 
 export interface OverrideToken {
-  derivative: Partial<DerivativeToken & AliasToken>;
-  [componentName: string]: object; // FIXME: tmp of component token
+  derivative?: Partial<DerivativeToken & AliasToken>;
+
+  // Customize component
+  Affix?: {};
+  Alert?: {};
+  Avatar?: {};
+  BackTop?: BackTopComponentToken;
+  Badge?: {};
+  Button?: ButtonComponentToken;
+  Carousel?: CarouselComponentToken;
+  Cascader?: CascaderComponentToken;
+  Checkbox?: {};
+  DatePicker?: DatePickerComponentToken;
+  Descriptions?: {};
+  Divider?: DividerComponentToken;
+  Drawer?: {};
+  Dropdown?: DropdownComponentToken;
+  Empty?: EmptyComponentToken;
+  Form?: {};
+  Grid?: {};
+  Image?: {};
+  Input?: {};
+  InputNumber?: InputNumberComponentToken;
+  List?: {};
+  Mentions?: MentionsComponentToken;
+  Pagination?: {};
+  Popover?: {};
+  Rate?: {};
+  Result?: {};
+  Select?: SelectComponentToken;
+  Skeleton?: {};
+  Slider?: SliderComponentToken;
+  Spin?: {};
+  Statistic?: {};
+  Switch?: {};
+  Tag?: {};
+  Tree?: {};
+  TreeSelect?: {};
+  Typography?: TypographyComponentToken;
+  Timeline?: TimelineComponentToken;
+  Tabs?: {};
+  Card?: {};
+  Steps?: {};
+  Menu?: MenuComponentToken;
+  Layout?: {};
 }
+
+/** Final token which contains the components level override */
+export type GlobalToken = AliasToken & Omit<OverrideToken, 'derivative'>;
 
 // ======================================================================
 // ==                            Seed Token                            ==
@@ -74,6 +135,7 @@ export interface SeedToken extends PresetColorType {
   // Size
   sizeUnit: number;
   sizeBaseStep: number;
+  sizePopupArrow: number;
 
   // Control Base
   controlHeight: number;
@@ -91,6 +153,9 @@ export interface SeedToken extends PresetColorType {
 // 🔥🔥🔥🔥🔥🔥🔥 DO NOT MODIFY THIS. PLEASE CONTACT DESIGNER. 🔥🔥🔥🔥🔥🔥🔥
 export interface DerivativeToken extends SeedToken, ColorPalettes {
   // Color
+  /** Used for DefaultButton, Switch which has default outline */
+  colorDefaultOutline: string;
+
   colorPrimaryHover: string;
   colorPrimaryActive: string;
   colorPrimaryOutline: string;
@@ -120,6 +185,7 @@ export interface DerivativeToken extends SeedToken, ColorPalettes {
   colorTextBelow3: string;
 
   colorBg2: string;
+  colorBg3: string;
   colorBgBelow: string;
   colorBgBelow2: string;
 
@@ -162,19 +228,34 @@ export interface DerivativeToken extends SeedToken, ColorPalettes {
 // ======================================================================
 // ==                           Alias Token                            ==
 // ======================================================================
+// FIXME: DerivativeToken should part pick
+type OmitDerivativeKey =
+  | 'colorText2'
+  | 'colorTextBelow'
+  | 'colorTextBelow2'
+  | 'colorTextBelow3'
+  | 'colorBg2'
+  | 'colorBgBelow'
+  | 'colorBgBelow2';
+
 // 🔥🔥🔥🔥🔥🔥🔥 DO NOT MODIFY THIS. PLEASE CONTACT DESIGNER. 🔥🔥🔥🔥🔥🔥🔥
-export interface AliasToken extends DerivativeToken {
+export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   // Font
   fontSizeSM: number;
   fontSize: number;
   fontSizeLG: number;
   fontSizeXL: number;
+  /** Operation icon in Select, Cascader, etc. icon fontSize. Normal is same as fontSizeSM */
+  fontSizeIcon: number;
 
   fontSizeHeading1: number;
   fontSizeHeading2: number;
   fontSizeHeading3: number;
   fontSizeHeading4: number;
   fontSizeHeading5: number;
+
+  /** For heading like h1, h2, h3 or option selected item */
+  fontWeightStrong: number;
 
   // LineHeight
   lineHeight: number;
@@ -213,11 +294,14 @@ export interface AliasToken extends DerivativeToken {
   colorLinkActive: string;
 
   colorBgContainer: string;
+  colorBgContainerSecondary: string;
   colorBgComponent: string;
   colorBgComponentSecondary: string;
   colorBgComponentDisabled: string;
 
   // =============== Legacy: should be remove ===============
+  colorLoadingOpacity: number;
+
   padding: number;
   margin: number;
 
@@ -234,6 +318,29 @@ export interface AliasToken extends DerivativeToken {
   paddingXXS: number;
   paddingLG: number;
   marginXS: number;
+  marginSM: number;
   marginLG: number;
   marginXXS: number;
+
+  // Media queries breakpoints
+  screenXS: number;
+  screenXSMin: number;
+  screenXSMax: number;
+  screenSM: number;
+  screenSMMin: number;
+  screenSMMax: number;
+  screenMD: number;
+  screenMDMin: number;
+  screenMDMax: number;
+  screenLG: number;
+  screenLGMin: number;
+  screenLGMax: number;
+  screenXL: number;
+  screenXLMin: number;
+  screenXLMax: number;
+  screenXXL: number;
+  screenXXLMin: number;
+  screenXXLMax: number;
+
+  motionEaseOut: string;
 }

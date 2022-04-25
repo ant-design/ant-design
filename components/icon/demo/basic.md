@@ -23,7 +23,7 @@ import {
   LoadingOutlined,
 } from '@ant-design/icons';
 
-ReactDOM.render(
+export default () => (
   <Space>
     <HomeOutlined />
     <SettingFilled />
@@ -31,7 +31,6 @@ ReactDOM.render(
     <SyncOutlined spin />
     <SmileOutlined rotate={180} />
     <LoadingOutlined />
-  </Space>,
-  mountNode,
+  </Space>
 );
 ```

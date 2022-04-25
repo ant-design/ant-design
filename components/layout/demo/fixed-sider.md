@@ -44,7 +44,7 @@ const items: MenuProps['items'] = [
   label: `nav ${index + 1}`,
 }));
 
-ReactDOM.render(
+export default () => (
   <Layout hasSider>
     <Sider
       style={{
@@ -162,8 +162,7 @@ ReactDOM.render(
       </Content>
       <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
     </Layout>
-  </Layout>,
-  mountNode,
+  </Layout>
 );
 ```
 
@@ -173,7 +172,7 @@ ReactDOM.render(
   margin: 16px;
   background: rgba(255, 255, 255, 0.2);
 }
-.site-layout .site-layout-background {
+#components-layout-demo-fixed-sider .site-layout .site-layout-background {
   background: #fff;
 }
 ```

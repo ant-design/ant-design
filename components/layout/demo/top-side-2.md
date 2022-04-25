@@ -44,7 +44,7 @@ const items2: MenuProps['items'] = [UserOutlined, LaptopOutlined, NotificationOu
   },
 );
 
-ReactDOM.render(
+export default () => (
   <Layout>
     <Header className="header">
       <div className="logo" />
@@ -78,8 +78,7 @@ ReactDOM.render(
         </Content>
       </Layout>
     </Layout>
-  </Layout>,
-  mountNode,
+  </Layout>
 );
 ```
 
@@ -97,7 +96,7 @@ ReactDOM.render(
   margin: 16px 0 16px 24px;
 }
 
-.site-layout-background {
+#components-layout-demo-top-side-2 .site-layout-background {
   background: #fff;
 }
 ```

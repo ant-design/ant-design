@@ -73,5 +73,5 @@ const RawForm = () => {
   );
 };
 
-ReactDOM.render(<RawForm />, mountNode);
+export default () => <RawForm />;
 ```

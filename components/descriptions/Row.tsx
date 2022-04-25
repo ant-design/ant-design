@@ -92,6 +92,7 @@ export interface RowProps {
   bordered?: boolean;
   colon: boolean;
   index: number;
+  children?: React.ReactNode;
 }
 
 const Row: React.FC<RowProps> = props => {

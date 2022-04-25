@@ -29,7 +29,7 @@ function onChange(val) {
   }
 }
 
-ReactDOM.render(
+export default () => (
   <Row gutter={16}>
     <Col span={12}>
       <Countdown title="Countdown" value={deadline} onFinish={onFinish} />
@@ -43,7 +43,6 @@ ReactDOM.render(
     <Col span={12}>
       <Countdown title="Countdown" value={Date.now() + 10 * 1000} onChange={onChange} />
     </Col>
-  </Row>,
-  mountNode,
+  </Row>
 );
 ```

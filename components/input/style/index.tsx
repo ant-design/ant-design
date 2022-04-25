@@ -1,32 +1,27 @@
 // deps-lint-skip-all
 import { CSSObject } from '@ant-design/cssinjs';
-import { TinyColor } from '@ctrl/tinycolor';
 import {
   clearFix,
-  DerivativeToken,
+  genComponentStyleHook,
   GenerateStyle,
+  mergeToken,
   resetComponent,
-  UseComponentStyleResult,
-  useStyleRegister,
-  useToken,
 } from '../../_util/theme';
+import type { FullToken } from '../../_util/theme';
+import type { GlobalToken } from '../../_util/theme/interface';
 
-export interface InputToken extends DerivativeToken {
-  prefixCls: string;
-  iconPrefixCls: string;
-  inputAffixMargin: number;
+export type InputToken<T extends GlobalToken = FullToken<'Input'>> = T & {
+  inputAffixPadding: number;
   inputPaddingVertical: number;
   inputPaddingVerticalLG: number;
   inputPaddingVerticalSM: number;
   inputPaddingHorizontal: number;
+  inputPaddingHorizontalSM: number;
   inputBorderHoverColor: string;
   inputBorderActiveColor: string;
-}
+};
 
-// FIXME: magic color string
-export const genPlaceholderStyle = (
-  color: string = new TinyColor({ h: 0, s: 0, v: '75%' }).toHexString(),
-): CSSObject => ({
+export const genPlaceholderStyle = (color: string): CSSObject => ({
   // Firefox
   '&::-moz-placeholder': {
     opacity: 1,
@@ -61,7 +56,7 @@ export const genDisabledStyle = (token: InputToken): CSSObject => ({
   opacity: 1,
 
   '&:hover': {
-    ...genHoverStyle({ ...token, inputBorderHoverColor: token.colorBorder }),
+    ...genHoverStyle(mergeToken<InputToken>(token, { inputBorderHoverColor: token.colorBorder })),
   },
 });
 
@@ -74,8 +69,8 @@ const genInputLargeStyle = (token: InputToken): CSSObject => {
   };
 };
 
-const genInputSmallStyle = (token: InputToken): CSSObject => ({
-  padding: `${token.inputPaddingVerticalSM}px ${token.paddingXS - 1}px`,
+export const genInputSmallStyle = (token: InputToken): CSSObject => ({
+  padding: `${token.inputPaddingVerticalSM}px ${token.controlPaddingHorizontalSM - 1}px`,
 });
 
 export const genStatusStyle = (token: InputToken): CSSObject => {
@@ -88,15 +83,16 @@ export const genStatusStyle = (token: InputToken): CSSObject => {
       },
 
       '&:focus, &-focused': {
-        ...genActiveStyle({
-          ...token,
-          inputBorderActiveColor: colorError,
-          inputBorderHoverColor: colorError,
-          colorPrimaryOutline: colorErrorOutline,
-        }),
+        ...genActiveStyle(
+          mergeToken<InputToken>(token, {
+            inputBorderActiveColor: colorError,
+            inputBorderHoverColor: colorError,
+            colorPrimaryOutline: colorErrorOutline,
+          }),
+        ),
       },
 
-      [`.${prefixCls}-feedback-icon, .${prefixCls}-prefix`]: {
+      [`.${prefixCls}-prefix`]: {
         color: colorError,
       },
     },
@@ -106,15 +102,16 @@ export const genStatusStyle = (token: InputToken): CSSObject => {
       },
 
       '&:focus, &-focused': {
-        ...genActiveStyle({
-          ...token,
-          inputBorderActiveColor: colorWarning,
-          inputBorderHoverColor: colorWarning,
-          colorPrimaryOutline: colorWarningOutline,
-        }),
+        ...genActiveStyle(
+          mergeToken<InputToken>(token, {
+            inputBorderActiveColor: colorWarning,
+            inputBorderHoverColor: colorWarning,
+            colorPrimaryOutline: colorWarningOutline,
+          }),
+        ),
       },
 
-      [`.${prefixCls}-feedback-icon, .${prefixCls}-prefix`]: {
+      [`.${prefixCls}-prefix`]: {
         color: colorWarning,
       },
     },
@@ -137,7 +134,7 @@ export const genBasicInputStyle = (token: InputToken): CSSObject => ({
   borderColor: token.colorBorder,
   borderRadius: token.controlRadius,
   transition: `all ${token.motionDurationSlow}`,
-  ...genPlaceholderStyle(),
+  ...genPlaceholderStyle(token.colorPlaceholder),
 
   '&:hover': {
     ...genHoverStyle(token),
@@ -236,7 +233,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
     [`.${prefixCls}-group`]: {
       [`&-addon, &-wrap`]: {
         display: 'table-cell',
-        width: 1, // FIXME: magic number
+        width: 1,
         whiteSpace: 'nowrap',
         verticalAlign: 'middle',
 
@@ -465,7 +462,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
       },
 
       [`.${prefixCls}-group-wrapper + .${prefixCls}-group-wrapper`]: {
-        marginInlineStart: -1, // FIXME: magic number
+        marginInlineStart: -token.controlLineWidth,
         [`.${prefixCls}-affix-wrapper`]: {
           borderRadius: 0,
         },
@@ -490,7 +487,11 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
 };
 
 const genInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
-  const { prefixCls } = token;
+  const { prefixCls, controlHeightSM, controlLineWidth } = token;
+
+  const FIXED_CHROME_COLOR_HEIGHT = 16;
+  const colorSmallPadding =
+    (controlHeightSM - controlLineWidth * 2 - FIXED_CHROME_COLOR_HEIGHT) / 2;
 
   return {
     [`.${prefixCls}`]: {
@@ -505,25 +506,9 @@ const genInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
           height: token.controlHeightLG,
         },
         [`&.${prefixCls}-sm`]: {
-          height: token.controlHeightSM,
-          paddingTop: 3, // FIXME: magic number
-          paddingBottom: 3, // FIXME: magic number
-        },
-      },
-
-      '&-textarea-show-count': {
-        // https://github.com/ant-design/ant-design/issues/33049
-        [`> .${prefixCls}`]: {
-          height: '100%',
-        },
-
-        '&::after': {
-          textAlign: 'end',
-          color: token.colorTextSecondary,
-          whiteSpace: 'nowrap',
-          content: 'attr(data-count)',
-          pointerEvents: 'none',
-          display: 'block',
+          height: controlHeightSM,
+          paddingTop: colorSmallPadding,
+          paddingBottom: colorSmallPadding,
         },
       },
     },
@@ -537,8 +522,8 @@ const genAllowClearStyle = (token: InputToken): CSSObject => {
     [`.${prefixCls}-clear-icon`]: {
       margin: 0,
       color: token.colorTextDisabled,
-      fontSize: token.fontSizeSM,
-      verticalAlign: -1, // FIXME: magic number
+      fontSize: token.fontSizeIcon,
+      verticalAlign: -1,
       // https://github.com/ant-design/ant-design/pull/18151
       // https://codesandbox.io/s/wizardly-sun-u10br
       cursor: 'pointer',
@@ -557,7 +542,7 @@ const genAllowClearStyle = (token: InputToken): CSSObject => {
       },
 
       '&-has-suffix': {
-        margin: `0 ${token.inputAffixMargin}px`,
+        margin: `0 ${token.inputAffixPadding}px`,
       },
     },
 
@@ -579,14 +564,12 @@ const genAllowClearStyle = (token: InputToken): CSSObject => {
 const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
   const {
     prefixCls,
-    iconPrefixCls,
-    inputAffixMargin,
+    inputAffixPadding,
     colorTextSecondary,
     motionDurationSlow,
     colorAction,
     colorActionHover,
-    colorPrimary,
-    colorSuccess,
+    iconCls,
   } = token;
 
   return {
@@ -633,6 +616,10 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
           display: 'flex',
           flex: 'none',
           alignItems: 'center',
+
+          '> *:not(:last-child)': {
+            marginInlineEnd: token.paddingXS,
+          },
         },
 
         '&-show-count-suffix': {
@@ -640,22 +627,22 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
         },
 
         '&-show-count-has-suffix': {
-          marginInlineEnd: 2, // FIXME: magic number
+          marginInlineEnd: token.paddingXXS,
         },
 
         '&-prefix': {
-          marginInlineEnd: inputAffixMargin,
+          marginInlineEnd: inputAffixPadding,
         },
 
         '&-suffix': {
-          marginInlineStart: inputAffixMargin,
+          marginInlineStart: inputAffixPadding,
         },
       },
 
       ...genAllowClearStyle(token),
 
       // password
-      [`.${iconPrefixCls}.${prefixCls}-password-icon`]: {
+      [`${iconCls}.${prefixCls}-password-icon`]: {
         color: colorAction,
         cursor: 'pointer',
         transition: `all ${motionDurationSlow}`,
@@ -667,18 +654,6 @@ const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
 
       // status
       ...genStatusStyle(token),
-      '&-status-validating': {
-        [`.${prefixCls}-feedback-icon`]: {
-          display: 'inline-block',
-          color: colorPrimary,
-        },
-      },
-      '&-status-success': {
-        [`.${prefixCls}-feedback-icon`]: {
-          color: colorSuccess,
-          // FIXME: animationName
-        },
-      },
     },
   };
 };
@@ -801,32 +776,29 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
   };
 };
 
-export const initInputToken = (
-  token: DerivativeToken,
-  prefixCls: string,
-  iconPrefixCls: string,
-): InputToken => ({
-  ...token,
-  prefixCls,
-  iconPrefixCls,
-  inputAffixMargin: token.marginXXS,
-  inputPaddingVertical: Math.max(
-    Math.round(((token.controlHeight - token.fontSize * token.lineHeight) / 2) * 10) / 10 -
+export function initInputToken<T extends GlobalToken = GlobalToken>(token: T): InputToken<T> {
+  // @ts-ignore
+  return mergeToken<InputToken<T>>(token, {
+    inputAffixPadding: token.paddingXXS,
+    inputPaddingVertical: Math.max(
+      Math.round(((token.controlHeight - token.fontSize * token.lineHeight) / 2) * 10) / 10 -
+        token.controlLineWidth,
+      3,
+    ),
+    inputPaddingVerticalLG:
+      Math.ceil(((token.controlHeightLG - token.fontSizeLG * token.lineHeight) / 2) * 10) / 10 -
       token.controlLineWidth,
-    3,
-  ),
-  inputPaddingVerticalLG:
-    Math.ceil(((token.controlHeightLG - token.fontSizeLG * token.lineHeight) / 2) * 10) / 10 -
-    token.controlLineWidth,
-  inputPaddingVerticalSM: Math.max(
-    Math.round(((token.controlHeightSM - token.fontSize * token.lineHeight) / 2) * 10) / 10 -
-      token.controlLineWidth,
-    0,
-  ),
-  inputPaddingHorizontal: token.paddingSM - token.controlLineWidth,
-  inputBorderHoverColor: token.colorPrimaryHover,
-  inputBorderActiveColor: token.colorPrimaryHover,
-});
+    inputPaddingVerticalSM: Math.max(
+      Math.round(((token.controlHeightSM - token.fontSize * token.lineHeight) / 2) * 10) / 10 -
+        token.controlLineWidth,
+      0,
+    ),
+    inputPaddingHorizontal: token.controlPaddingHorizontal - token.controlLineWidth,
+    inputPaddingHorizontalSM: token.controlPaddingHorizontalSM - token.controlLineWidth,
+    inputBorderHoverColor: token.colorPrimaryHover,
+    inputBorderActiveColor: token.colorPrimaryHover,
+  });
+}
 
 const genTextAreaStyle: GenerateStyle<InputToken> = token => {
   const { prefixCls, inputPaddingHorizontal, paddingLG } = token;
@@ -834,7 +806,9 @@ const genTextAreaStyle: GenerateStyle<InputToken> = token => {
 
   return {
     [textareaPrefixCls]: {
-      [`.${prefixCls}-feedback-icon`]: {
+      position: 'relative',
+
+      [`${textareaPrefixCls}-suffix`]: {
         position: 'absolute',
         top: 0,
         insetInlineEnd: inputPaddingHorizontal,
@@ -855,27 +829,38 @@ const genTextAreaStyle: GenerateStyle<InputToken> = token => {
           },
         },
       },
+
+      '&-show-count': {
+        // https://github.com/ant-design/ant-design/issues/33049
+        [`> .${prefixCls}`]: {
+          height: '100%',
+        },
+
+        '&::after': {
+          position: 'absolute',
+          bottom: 0,
+          insetInlineEnd: 0,
+          color: token.colorTextSecondary,
+          whiteSpace: 'nowrap',
+          content: 'attr(data-count)',
+          pointerEvents: 'none',
+          display: 'block',
+          transform: 'translateY(100%)',
+        },
+      },
     },
   };
 };
 
 // ============================== Export ==============================
-export default function useStyle(
-  prefixCls: string,
-  iconPrefixCls: string,
-): UseComponentStyleResult {
-  const [theme, token, hashId] = useToken();
-
-  const inputToken: InputToken = initInputToken(token, prefixCls, iconPrefixCls);
+export default genComponentStyleHook('Input', token => {
+  const inputToken = initInputToken<FullToken<'Input'>>(token);
 
   return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      genInputStyle(inputToken),
-      genTextAreaStyle(inputToken),
-      genAffixStyle(inputToken),
-      genGroupStyle(inputToken),
-      genSearchInputStyle(inputToken),
-    ]),
-    hashId,
+    genInputStyle(inputToken),
+    genTextAreaStyle(inputToken),
+    genAffixStyle(inputToken),
+    genGroupStyle(inputToken),
+    genSearchInputStyle(inputToken),
   ];
-}
+});

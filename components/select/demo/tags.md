@@ -27,10 +27,9 @@ function handleChange(value) {
   console.log(`selected ${value}`);
 }
 
-ReactDOM.render(
+export default () => (
   <Select mode="tags" style={{ width: '100%' }} placeholder="Tags Mode" onChange={handleChange}>
     {children}
-  </Select>,
-  mountNode,
+  </Select>
 );
 ```

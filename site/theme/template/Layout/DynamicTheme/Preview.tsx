@@ -3,51 +3,11 @@ import * as React from 'react';
 import hljs from 'highlight.js';
 import css from 'highlight.js/lib/languages/css';
 import 'highlight.js/styles/github.css';
-import { Drawer, Typography, Alert, Space, Tabs, ConfigProvider, Table, TableProps } from 'antd';
+import { Drawer, Typography, Alert, Space, Tabs } from 'antd';
 import getValidateStatus, { STATUS, PASS } from './validateCheck';
+import Token from './Token';
 
 hljs.registerLanguage('css', css);
-
-const columns: TableProps<{ name: string; value: any }>['columns'] = [
-  {
-    dataIndex: 'name',
-    title: 'Name',
-    width: 1,
-  },
-  {
-    dataIndex: 'value',
-    title: 'Value',
-    render: (value: string) => {
-      let content: React.ReactNode = value;
-
-      switch (typeof value) {
-        case 'object': {
-          if (Array.isArray(value)) {
-            content = (
-              <ul style={{ margin: 0 }}>
-                {(value as string[]).map((val, index) => (
-                  <li key={index}>
-                    <Space size="large">
-                      <span style={{ userSelect: 'none' }}>[{index}]</span>
-                      {val}
-                    </Space>
-                  </li>
-                ))}
-              </ul>
-            );
-            break;
-          }
-        }
-
-        // eslint-disable-next-line no-fallthrough
-        default:
-          content = String(value);
-      }
-
-      return <span style={{ wordBreak: 'break-word' }}>{content}</span>;
-    },
-  },
-];
 
 export interface PreviewProps {
   visible: boolean;
@@ -55,58 +15,54 @@ export interface PreviewProps {
   onClose: () => void;
 }
 
-export default function Preview({ visible, onClose }: PreviewProps) {
-  const [styleList, setStyleList] = React.useState<string[]>([]);
+function formatStyle(style: string) {
+  let formatted = style;
 
-  // Full token
-  const [, token] = ConfigProvider.useToken();
-  const tokenList = React.useMemo(
-    () =>
-      Object.keys(token)
-        .filter(name => !name.startsWith('_'))
-        .map((name: keyof typeof token) => ({
-          name,
-          value: token[name],
-        })),
-    [token],
-  );
+  // Break lines
+  formatted = formatted.replace(/{/g, ' {\n').replace(/}/g, '}\n').replace(/;/g, ';\n');
+
+  // Line convert
+  {
+    const lines = formatted.split(/[\n\r]+/);
+    let leftParenthesis = false;
+
+    formatted = lines
+      .map(line => {
+        if (line.includes('}')) {
+          leftParenthesis = false;
+        }
+
+        if (leftParenthesis) {
+          line = `  ${line.replace(/:/g, ': ')}`;
+        }
+
+        if (line.includes('{')) {
+          leftParenthesis = true;
+        }
+
+        // More lines for }
+        line = line.replace('}', '}\n');
+
+        return line;
+      })
+      .join('\n');
+  }
+
+  return formatted;
+}
+
+export default function Preview({ visible, onClose }: PreviewProps) {
+  const [styleList, setStyleList] = React.useState<{ text: string; path: string }[]>([]);
 
   React.useEffect(() => {
     const observer = new MutationObserver(() => {
       const latestStyles = Array.from(document.querySelectorAll('style[data-css-hash]'))
-        .map(style => style?.innerHTML || '')
-        // Break lines
-        .map(style => style.replace(/{/g, ' {\n'))
-        .map(style => style.replace(/}/g, '}\n'))
-        .map(style => style.replace(/;/g, ';\n'))
-        // Line convert
-        .map(style => {
-          const lines = style.split(/[\n\r]+/);
-          let leftParenthesis = false;
-
-          return lines
-            .map(line => {
-              if (line.includes('}')) {
-                leftParenthesis = false;
-              }
-
-              if (leftParenthesis) {
-                line = `  ${line.replace(/:/g, ': ')}`;
-              }
-
-              if (line.includes('{')) {
-                leftParenthesis = true;
-              }
-
-              // More lines for }
-              line = line.replace('}', '}\n');
-
-              return line;
-            })
-            .join('\n');
-        })
-        // Format
-        .filter(txt => txt);
+        .filter(style => style)
+        .map(style => ({
+          text: formatStyle(style.innerHTML),
+          path: style.getAttribute('data-dev-cache-path')!,
+        }))
+        .filter(style => style.text);
 
       setStyleList(latestStyles);
     });
@@ -120,11 +76,14 @@ export default function Preview({ visible, onClose }: PreviewProps) {
   const formatStyles = React.useMemo(
     () =>
       styleList.map(style => {
-        const lines = style
+        const lines = style.text
           .split(/[\n\r]+/)
           .map(line => (line.includes('{') ? line.replace(/,/g, ',\n') : line))
           .join('\n');
-        return hljs.highlight(lines, { language: 'css' }).value;
+        return {
+          ...style,
+          text: hljs.highlight(lines, { language: 'css' }).value,
+        };
       }),
     [styleList],
   );
@@ -133,8 +92,8 @@ export default function Preview({ visible, onClose }: PreviewProps) {
     type Item = { status: STATUS; line: string; source?: string };
     const list: Item[] = [];
 
-    styleList.forEach(style => {
-      const lines = style.split(/[\n\r]+/);
+    styleList.forEach(({ text }) => {
+      const lines = text.split(/[\n\r]+/);
 
       lines.forEach((line, index) => {
         const status = getValidateStatus(line);
@@ -183,20 +142,16 @@ export default function Preview({ visible, onClose }: PreviewProps) {
       <Tabs>
         <Tabs.TabPane tab="Style" key="style">
           <Typography>
-            {formatStyles.map((style, index) => (
-              <pre key={index} dangerouslySetInnerHTML={{ __html: style }} />
+            {formatStyles.map(({ text, path }, index) => (
+              <pre
+                key={index}
+                dangerouslySetInnerHTML={{ __html: `🐚 Cache: ${path}\n\n${text}` }}
+              />
             ))}
           </Typography>
         </Tabs.TabPane>
         <Tabs.TabPane tab="Token" key="token">
-          <Table
-            dataSource={tokenList}
-            columns={columns}
-            rowKey="name"
-            bordered
-            size="small"
-            pagination={false}
-          />
+          <Token />
         </Tabs.TabPane>
         <Tabs.TabPane tab="Analysis" key="analysis">
           <Space style={{ width: '100%' }} direction="vertical">

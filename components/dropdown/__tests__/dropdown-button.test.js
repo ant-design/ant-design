@@ -62,7 +62,7 @@ describe('DropdownButton', () => {
       </Menu>
     );
     const wrapper = mount(<Dropdown.Button overlay={menu} />);
-    expect(wrapper.type().__ANT_BUTTON).toBe(true);
+    expect(wrapper.find(Dropdown.Button).type().__ANT_BUTTON).toBe(true);
   });
 
   it('should pass mouseEnterDelay and mouseLeaveDelay to Dropdown', () => {

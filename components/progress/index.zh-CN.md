@@ -24,6 +24,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/xqsDu4ZyR/Progress.svg
 | format | 内容的模板函数 | function(percent, successPercent) | (percent) => percent + `%` |
 | percent | 百分比 | number | 0 |
 | showInfo | 是否显示进度数值或状态图标 | boolean | true |
+| size | 进度条大小 | `default` \| `small` | `default` |
 | status | 状态，可选：`success` `exception` `normal` `active`(仅限 line) | string | - |
 | strokeColor | 进度条的色彩 | string | - |
 | strokeLinecap | 进度条的样式 | `round` \| `square` | `round` |
@@ -41,11 +42,11 @@ cover: https://gw.alipayobjects.com/zos/alicdn/xqsDu4ZyR/Progress.svg
 
 ### `type="circle"`
 
-| 属性 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| strokeColor | 圆形进度条线的色彩，传入 object 时为渐变 | string \| object | - |
-| strokeWidth | 圆形进度条线的宽度，单位是进度条画布宽度的百分比 | number | 6 |
-| width | 圆形进度条画布宽度，单位 px | number | 132 |
+| 属性        | 说明                                             | 类型             | 默认值 |
+| ----------- | ------------------------------------------------ | ---------------- | ------ |
+| strokeColor | 圆形进度条线的色彩，传入 object 时为渐变         | string \| object | -      |
+| strokeWidth | 圆形进度条线的宽度，单位是进度条画布宽度的百分比 | number           | 6      |
+| width       | 圆形进度条画布宽度，单位 px                      | number           | 132    |
 
 ### `type="dashboard"`
 

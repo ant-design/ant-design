@@ -26,6 +26,14 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
   const successColors = generate(mergedToken.colorSuccess);
   const warningColors = generate(mergedToken.colorWarning);
   const errorColors = generate(mergedToken.colorError);
+  const screenXS = 480;
+  const screenSM = 576;
+  const screenMD = 768;
+  const screenLG = 992;
+  const screenXL = 1200;
+  const screenXXL = 1600;
+
+  const fontSizeSM = fontSizes[0];
 
   // Generate alias token
   const aliasToken: AliasToken = {
@@ -38,6 +46,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     colorTextHeading: mergedToken.colorText,
 
     colorBgContainer: mergedToken.colorBgBelow2,
+    colorBgContainerSecondary: mergedToken.colorBg3,
     colorBgComponent: mergedToken.colorBg,
     colorBgComponentSecondary: mergedToken.colorBg2,
     colorBgComponentDisabled: mergedToken.colorBgBelow2,
@@ -50,7 +59,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     colorActionHover: mergedToken.colorText,
 
     // Font
-    fontSizeSM: fontSizes[0],
+    fontSizeSM,
     fontSize: fontSizes[1],
     fontSizeLG: fontSizes[2],
     fontSizeXL: fontSizes[3],
@@ -59,6 +68,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     fontSizeHeading3: fontSizes[4],
     fontSizeHeading4: fontSizes[3],
     fontSizeHeading5: fontSizes[2],
+    fontSizeIcon: fontSizeSM,
 
     lineHeight: lineHeights[1],
     lineHeightLG: lineHeights[2],
@@ -79,14 +89,17 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     controlLineType: 'solid',
     controlRadius: mergedToken.radiusBase,
     colorBorder: new TinyColor({ h: 0, s: 0, v: 85 }).toHexString(),
-    colorSplit: new TinyColor({ h: 0, s: 0, v: 94 }).toHexString(),
+    colorSplit: 'rgba(0, 0, 0, 0.06)',
     controlItemBgActive: primaryColors[0],
+    fontWeightStrong: 600,
 
     // 🔥🔥🔥🔥🔥🔥🔥🔥🔥 All TMP Token leaves here 🔥🔥🔥🔥🔥🔥🔥🔥🔥
     // FIXME: Handle this when derivative is ready
     // primaryColors,
     // warningColors,
     // errorColors,
+
+    colorLoadingOpacity: 0.65,
 
     colorSuccessSecondary: successColors[2],
     colorWarningSecondary: warningColors[2],
@@ -97,27 +110,48 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     linkHoverDecoration: 'none',
     linkFocusDecoration: 'none',
 
-    controlPaddingHorizontal: 16,
-    controlPaddingHorizontalSM: 12,
+    controlPaddingHorizontal: 12,
+    controlPaddingHorizontalSM: 8,
 
     padding: 16,
     margin: 16,
 
-    paddingXXS: 2,
-    paddingXS: 4,
-    paddingSM: 8,
-    paddingLG: 32,
+    paddingXXS: 4,
+    paddingXS: 8,
+    paddingSM: 12,
+    paddingLG: 24,
 
-    marginXXS: 2,
-    marginXS: 4,
-    // marginSM: 8,
-    marginLG: 32,
+    marginXXS: 4,
+    marginXS: 8,
+    marginSM: 12,
+    marginLG: 24,
 
     boxShadow: `
       0 3px 6px -4px rgba(0, 0, 0, 0.12),
       0 6px 16px 0 rgba(0, 0, 0, 0.08),
       0 9px 28px 8px rgba(0, 0, 0, 0.05)
     `,
+
+    screenXS,
+    screenXSMin: screenXS,
+    screenXSMax: screenXS - 1,
+    screenSM,
+    screenSMMin: screenSM,
+    screenSMMax: screenSM - 1,
+    screenMD,
+    screenMDMin: screenMD,
+    screenMDMax: screenMD - 1,
+    screenLG,
+    screenLGMin: screenLG,
+    screenLGMax: screenLG - 1,
+    screenXL,
+    screenXLMin: screenXL,
+    screenXLMax: screenXL - 1,
+    screenXXL,
+    screenXXLMin: screenXXL,
+    screenXXLMax: screenXXL - 1,
+
+    motionEaseOut: 'cubic-bezier(0.215, 0.61, 0.355, 1)',
   };
 
   return aliasToken;

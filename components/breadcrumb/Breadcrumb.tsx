@@ -27,6 +27,7 @@ export interface BreadcrumbProps {
   ) => React.ReactNode;
   style?: React.CSSProperties;
   className?: string;
+  children?: React.ReactNode;
 }
 
 function getBreadcrumbName(route: Route, params: any) {

@@ -96,5 +96,5 @@ const TabsCard = () => {
   );
 };
 
-ReactDOM.render(<TabsCard />, mountNode);
+export default () => <TabsCard />;
 ```

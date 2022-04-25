@@ -19,7 +19,7 @@ import { Layout, Menu, Breadcrumb } from 'antd';
 
 const { Header, Content, Footer } = Layout;
 
-ReactDOM.render(
+export default () => (
   <Layout>
     <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
       <div className="logo" />
@@ -44,8 +44,7 @@ ReactDOM.render(
       </div>
     </Content>
     <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
-  </Layout>,
-  mountNode,
+  </Layout>
 );
 ```
 
@@ -57,7 +56,7 @@ ReactDOM.render(
   margin: 16px 24px 16px 0;
   background: rgba(255, 255, 255, 0.2);
 }
-.site-layout .site-layout-background {
+#components-layout-demo-fixed .site-layout .site-layout-background {
   background: #fff;
 }
 ```

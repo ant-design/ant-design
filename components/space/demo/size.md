@@ -43,5 +43,5 @@ function SpaceSize() {
   );
 }
 
-ReactDOM.render(<SpaceSize />, mountNode);
+export default () => <SpaceSize />;
 ```

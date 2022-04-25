@@ -1,27 +1,26 @@
 // deps-lint-skip-all
-import {
-  GenerateStyle,
-  resetComponent,
-  UseComponentStyleResult,
-  useStyleRegister,
-  useToken,
-} from '../../_util/theme';
+import { FullToken, genComponentStyleHook, GenerateStyle, resetComponent } from '../../_util/theme';
 import {
   genActiveStyle,
   genBasicInputStyle,
   genDisabledStyle,
   genPlaceholderStyle,
+  genStatusStyle,
   initInputToken,
   InputToken,
 } from '../../input/style';
 
-interface MentionsToken extends InputToken {
-  mentionsCls: string;
+export interface ComponentToken {
+  zIndexDropdown: number;
+  dropdownHeight: number;
+  controlItemWidth: number;
 }
+
+type MentionsToken = InputToken<FullToken<'Mentions'>>;
 
 const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
   const {
-    mentionsCls,
+    componentCls,
     colorTextDisabled,
     controlItemBgHover,
     controlPaddingHorizontal,
@@ -37,8 +36,12 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
     boxShadow,
   } = token;
 
+  const itemPaddingVertical = Math.round(
+    (token.controlHeight - token.fontSize * token.lineHeight) / 2,
+  );
+
   return {
-    [`${mentionsCls}`]: {
+    [`${componentCls}`]: {
       ...resetComponent(token),
       ...genBasicInputStyle(token),
 
@@ -51,6 +54,8 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
       whiteSpace: 'pre-wrap',
       verticalAlign: 'bottom',
 
+      ...genStatusStyle(token),
+
       '&-disabled': {
         '> textarea': {
           ...genDisabledStyle(token),
@@ -61,8 +66,19 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
         ...genActiveStyle(token),
       },
 
+      [`&-affix-wrapper ${componentCls}-suffix`]: {
+        position: 'absolute',
+        top: 0,
+        insetInlineEnd: inputPaddingHorizontal,
+        bottom: 0,
+        zIndex: 1,
+        display: 'inline-flex',
+        alignItems: 'center',
+        margin: 'auto',
+      },
+
       // ================= Input Area =================
-      [`> textarea, ${mentionsCls}-measure`]: {
+      [`> textarea, ${componentCls}-measure`]: {
         minHeight: controlHeight - 2,
         margin: 0,
         padding: `${inputPaddingVertical}px ${inputPaddingHorizontal}px`,
@@ -92,10 +108,10 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
         border: 'none',
         outline: 'none',
         resize: 'none',
-        ...genPlaceholderStyle(),
+        ...genPlaceholderStyle(token.colorPlaceholder),
       },
 
-      [`${mentionsCls}-measure`]: {
+      [`${componentCls}-measure`]: {
         position: 'absolute',
         top: 0,
         insetInlineEnd: 0,
@@ -119,7 +135,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
         position: 'absolute',
         top: -9999,
         insetInlineStart: -9999,
-        zIndex: 1050, // FIXME: magic
+        zIndex: token.zIndexDropdown,
         boxSizing: 'border-box',
         fontSize,
         fontVariant: 'initial',
@@ -132,8 +148,8 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
           display: 'none',
         },
 
-        [`${mentionsCls}-dropdown-menu`]: {
-          maxHeight: 250, // FIXME: magic
+        [`${componentCls}-dropdown-menu`]: {
+          maxHeight: token.dropdownHeight,
           marginBottom: 0,
           paddingInlineStart: 0, // Override default ul/ol
           overflow: 'auto',
@@ -143,8 +159,8 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
           '&-item': {
             position: 'relative',
             display: 'block',
-            minWidth: 100, // FIXME: magic
-            padding: `5px ${controlPaddingHorizontal}px`, // FIXME: magic
+            minWidth: token.controlItemWidth,
+            padding: `${itemPaddingVertical}px ${controlPaddingHorizontal}px`,
             overflow: 'hidden',
             color: colorText,
             fontWeight: 'normal',
@@ -185,7 +201,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
 
             '&-selected': {
               color: colorText,
-              fontWeight: 600, // FIXME: Need design token?
+              fontWeight: token.fontWeightStrong,
               backgroundColor: controlItemBgHover,
             },
 
@@ -200,21 +216,15 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
 };
 
 // ============================== Export ==============================
-export default function useStyle(
-  prefixCls: string,
-  iconPrefixCls: string,
-): UseComponentStyleResult {
-  const [theme, token, hashId] = useToken();
-
-  const mentionsToken: MentionsToken = {
-    ...initInputToken(token, prefixCls, iconPrefixCls),
-    mentionsCls: `.${prefixCls}`,
-  };
-
-  return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-      genMentionsStyle(mentionsToken),
-    ]),
-    hashId,
-  ];
-}
+export default genComponentStyleHook(
+  'Mentions',
+  token => {
+    const mentionsToken = initInputToken<FullToken<'Mentions'>>(token);
+    return [genMentionsStyle(mentionsToken)];
+  },
+  token => ({
+    dropdownHeight: 250,
+    controlItemWidth: 100,
+    zIndexDropdown: token.zIndexPopup + 50,
+  }),
+);

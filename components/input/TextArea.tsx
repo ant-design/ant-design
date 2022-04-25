@@ -1,20 +1,19 @@
 import classNames from 'classnames';
-import RcTextArea, { TextAreaProps as RcTextAreaProps } from 'rc-textarea';
-import ResizableTextArea from 'rc-textarea/lib/ResizableTextArea';
+import type { TextAreaProps as RcTextAreaProps } from 'rc-textarea';
+import RcTextArea from 'rc-textarea';
+import type ResizableTextArea from 'rc-textarea/lib/ResizableTextArea';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
-import SizeContext, { SizeType } from '../config-provider/SizeContext';
-import { FormItemStatusContext } from '../form/context';
-import {
-  getFeedbackIcon,
-  getStatusClassNames,
-  InputStatus,
-  getMergedStatus,
-} from '../_util/statusUtils';
+import type { SizeType } from '../config-provider/SizeContext';
+import SizeContext from '../config-provider/SizeContext';
+import { FormItemInputContext } from '../form/context';
+import type { InputStatus } from '../_util/statusUtils';
+import { getStatusClassNames, getMergedStatus } from '../_util/statusUtils';
 import ClearableLabeledInput from './ClearableLabeledInput';
-import { fixControlledValue, InputFocusOptions, resolveOnChange, triggerFocus } from './Input';
+import type { InputFocusOptions } from './Input';
+import { fixControlledValue, resolveOnChange, triggerFocus } from './Input';
 import useStyle from './style';
 
 interface ShowCountProps {
@@ -77,10 +76,14 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
     },
     ref,
   ) => {
-    const { getPrefixCls, direction, iconPrefixCls } = React.useContext(ConfigContext);
+    const { getPrefixCls, direction } = React.useContext(ConfigContext);
     const size = React.useContext(SizeContext);
 
-    const { status: contextStatus, hasFeedback } = React.useContext(FormItemStatusContext);
+    const {
+      status: contextStatus,
+      hasFeedback,
+      feedbackIcon,
+    } = React.useContext(FormItemInputContext);
     const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
     const innerRef = React.useRef<RcTextArea>(null);
@@ -164,7 +167,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
     const prefixCls = getPrefixCls('input', customizePrefixCls);
 
     // Style
-    const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls);
+    const [wrapSSR, hashId] = useStyle(prefixCls);
 
     React.useImperativeHandle(ref, () => ({
       resizableTextArea: innerRef.current?.resizableTextArea,
@@ -249,7 +252,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
           data-count={dataCount}
         >
           {textareaNode}
-          {hasFeedback && getFeedbackIcon(prefixCls, mergedStatus)}
+          {hasFeedback && <span className={`${prefixCls}-textarea-suffix`}>{feedbackIcon}</span>}
         </div>
       );
     }

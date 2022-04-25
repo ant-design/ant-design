@@ -1,13 +1,12 @@
 import { CSSObject } from '@ant-design/cssinjs';
+import { resetComponent, GenerateStyle } from '../../_util/theme';
 import {
-  resetComponent,
   initSlideMotion,
   slideUpIn,
   slideUpOut,
   slideDownIn,
   slideDownOut,
-  GenerateStyle,
-} from '../../_util/theme';
+} from '../../style/motion';
 import type { SelectToken } from '.';
 
 const genItemStyle: GenerateStyle<SelectToken, CSSObject> = token => {
@@ -27,14 +26,14 @@ const genItemStyle: GenerateStyle<SelectToken, CSSObject> = token => {
   };
 };
 
-const genSingleStyle: GenerateStyle<SelectToken> = (token, hashId) => {
-  const { rootPrefixCls, antCls, selectCls } = token;
+const genSingleStyle: GenerateStyle<SelectToken> = token => {
+  const { rootPrefixCls, antCls, componentCls } = token;
 
-  const selectItemCls = `${selectCls}-item`;
+  const selectItemCls = `${componentCls}-item`;
 
   return [
     {
-      [`${selectCls}-dropdown`]: {
+      [`${componentCls}-dropdown`]: {
         // ========================== Popup ==========================
         ...resetComponent(token),
 
@@ -58,22 +57,22 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token, hashId) => {
             &${antCls}-slide-up-enter${antCls}-slide-up-enter-active&-placement-bottomLeft,
             &${antCls}-slide-up-appear${antCls}-slide-up-appear-active&-placement-bottomLeft
           `]: {
-          animationName: slideUpIn.getName(hashId),
+          animationName: slideUpIn,
         },
 
         [`
             &${antCls}-slide-up-enter${antCls}-slide-up-enter-active&-placement-topLeft,
             &${antCls}-slide-up-appear${antCls}-slide-up-appear-active&-placement-topLeft
           `]: {
-          animationName: slideDownIn.getName(hashId),
+          animationName: slideDownIn,
         },
 
         [`&${antCls}-slide-up-leave${antCls}-slide-up-leave-active&-placement-bottomLeft`]: {
-          animationName: slideUpOut.getName(hashId),
+          animationName: slideUpOut,
         },
 
         [`&${antCls}-slide-up-leave${antCls}-slide-up-leave-active&-placement-topLeft`]: {
-          animationName: slideDownOut.getName(hashId),
+          animationName: slideDownOut,
         },
 
         '&-hidden': {
@@ -123,7 +122,7 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token, hashId) => {
 
             [`&-selected:not(${selectItemCls}-option-disabled)`]: {
               color: token.colorText,
-              fontWeight: 600, // FIXME: Need design token?
+              fontWeight: token.fontWeightStrong,
               backgroundColor: token.controlItemBgActive,
 
               [`${selectItemCls}-option-state`]: {
@@ -153,8 +152,8 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token, hashId) => {
     },
 
     // Follow code may reuse in other components
-    initSlideMotion(hashId!, rootPrefixCls, 'slide-up', slideUpIn, slideUpOut, token),
-    initSlideMotion(hashId!, rootPrefixCls, 'slide-down', slideDownIn, slideDownOut, token),
+    initSlideMotion(rootPrefixCls, 'slide-up', slideUpIn, slideUpOut, token),
+    initSlideMotion(rootPrefixCls, 'slide-down', slideDownIn, slideDownOut, token),
     slideUpIn,
     slideUpOut,
     slideDownIn,

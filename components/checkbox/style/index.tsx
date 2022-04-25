@@ -1,15 +1,14 @@
 // deps-lint-skip-all
 import { Keyframes } from '@ant-design/cssinjs';
 import {
-  DerivativeToken,
-  useStyleRegister,
-  useToken,
   resetComponent,
-  UseComponentStyleResult,
   GenerateStyle,
+  genComponentStyleHook,
+  FullToken,
+  mergeToken,
 } from '../../_util/theme';
 
-interface CheckboxToken extends DerivativeToken {
+interface CheckboxToken extends FullToken<'Checkbox'> {
   checkboxCls: string;
 }
 
@@ -27,7 +26,7 @@ const antCheckboxEffect = new Keyframes('antCheckboxEffect', {
 });
 
 // ============================== Styles ==============================
-export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token, hashId) => {
+export const genCheckboxStyle: GenerateStyle<CheckboxToken> = token => {
   const { checkboxCls } = token;
   const wrapperCls = `${checkboxCls}-wrapper`;
 
@@ -61,6 +60,13 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token, hashId) =>
         // Checkbox near checkbox
         '& + &': {
           marginInlineStart: token.marginXS,
+        },
+
+        '&&-in-form-item': {
+          'input[type="checkbox"]': {
+            width: 14, // FIXME: magic
+            height: 14, // FIXME: magic
+          },
         },
       },
 
@@ -177,7 +183,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token, hashId) =>
           '&:after': {
             opacity: 1,
             transform: 'rotate(45deg) scale(1) translate(-50%,-50%)',
-            transition: `all ${token.motionDurationSlow} ${token.motionEaseOutBack} 0.1s`,
+            transition: `all ${token.motionDurationSlow} ${token.motionEaseOutBack} ${token.motionDurationFast}`,
           },
         },
 
@@ -191,7 +197,9 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token, hashId) =>
           border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorPrimary}`,
           borderRadius: token.controlRadius,
           visibility: 'hidden',
-          animation: `${antCheckboxEffect.getName(hashId)} ${token.motionDurationSlow} ease-in-out`,
+          animationName: antCheckboxEffect,
+          animationDuration: token.motionDurationSlow,
+          animationTimingFunction: 'ease-in-out',
           animationFillMode: 'backwards',
           content: '""',
         },
@@ -235,22 +243,14 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token, hashId) =>
 };
 
 // ============================== Export ==============================
-export function getStyle(prefixCls: string, token: DerivativeToken, hashId: string) {
-  const checkboxToken: CheckboxToken = {
-    ...token,
+export function getStyle(prefixCls: string, token: FullToken<'Checkbox'>) {
+  const checkboxToken: CheckboxToken = mergeToken<CheckboxToken>(token, {
     checkboxCls: `.${prefixCls}`,
-  };
+  });
 
-  return [genCheckboxStyle(checkboxToken, hashId), antCheckboxEffect];
+  return [genCheckboxStyle(checkboxToken), antCheckboxEffect];
 }
 
-export default function useStyle(prefixCls: string): UseComponentStyleResult {
-  const [theme, token, hashId] = useToken();
-
-  return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () =>
-      getStyle(prefixCls, token, hashId),
-    ),
-    hashId,
-  ];
-}
+export default genComponentStyleHook('Checkbox', (token, { prefixCls }) => [
+  getStyle(prefixCls, token),
+]);

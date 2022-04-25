@@ -1,20 +1,17 @@
 import * as React from 'react';
-import RcPagination, {
-  PaginationLocale,
-  PaginationProps as RcPaginationProps,
-} from 'rc-pagination';
+import type { PaginationProps as RcPaginationProps } from 'rc-pagination';
+import RcPagination, { PaginationLocale } from 'rc-pagination';
 import enUS from 'rc-pagination/lib/locale/en_US';
 import classNames from 'classnames';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import DoubleLeftOutlined from '@ant-design/icons/DoubleLeftOutlined';
 import DoubleRightOutlined from '@ant-design/icons/DoubleRightOutlined';
-
-import MiniSelect from './MiniSelect';
-import Select from '../select';
+import { MiniSelect, MiddleSelect } from './Select';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { ConfigContext } from '../config-provider';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
+import useStyle from './style';
 
 export interface PaginationProps extends RcPaginationProps {
   showQuickJumper?: boolean | { goButton?: React.ReactNode };
@@ -46,6 +43,9 @@ const Pagination: React.FC<PaginationProps> = ({
 
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('pagination', customizePrefixCls);
+
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const getIconsProps = () => {
     const ellipsis = <span className={`${prefixCls}-item-ellipsis`}>•••</span>;
@@ -100,18 +100,19 @@ const Pagination: React.FC<PaginationProps> = ({
         [`${prefixCls}-rtl`]: direction === 'rtl',
       },
       className,
+      hashId,
     );
 
-    return (
+    return wrapSSR(
       <RcPagination
         {...getIconsProps()}
         {...restProps}
         prefixCls={prefixCls}
         selectPrefixCls={selectPrefixCls}
         className={extendedClassName}
-        selectComponentClass={selectComponentClass || (isSmall ? MiniSelect : Select)}
+        selectComponentClass={selectComponentClass || (isSmall ? MiniSelect : MiddleSelect)}
         locale={locale}
-      />
+      />,
     );
   };
 

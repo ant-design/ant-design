@@ -128,6 +128,38 @@ Array [
 ]
 `;
 
+exports[`renders ./components/button/demo/debug-token.md correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center"
+>
+  <div
+    class="ant-space-item"
+    style="margin-right:8px"
+  >
+    <button
+      class="ant-btn ant-btn-text"
+      type="button"
+    >
+      <span>
+        Text 1
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn ant-btn-text"
+      type="button"
+    >
+      <span>
+        Text 2
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
 exports[`renders ./components/button/demo/disabled.md correctly 1`] = `
 Array [
   <button
@@ -824,7 +856,7 @@ Array [
       class="ant-btn-group ant-btn-group-sm"
     >
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-sm"
         type="button"
       >
         <span>
@@ -832,7 +864,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-sm"
         type="button"
       >
         <span>
@@ -844,7 +876,7 @@ Array [
         style="display:inline-block;cursor:not-allowed"
       >
         <button
-          class="ant-btn ant-btn-primary ant-btn-icon-only"
+          class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
           disabled=""
           style="pointer-events:none"
           type="button"
@@ -871,7 +903,7 @@ Array [
         </button>
       </span>
       <button
-        class="ant-btn ant-btn-primary ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         type="button"
       >
         <span
@@ -980,7 +1012,7 @@ Array [
       class="ant-btn-group ant-btn-group-lg"
     >
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-lg"
         type="button"
       >
         <span>
@@ -988,7 +1020,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-lg"
         type="button"
       >
         <span>
@@ -1000,7 +1032,7 @@ Array [
         style="display:inline-block;cursor:not-allowed"
       >
         <button
-          class="ant-btn ant-btn-primary ant-btn-icon-only"
+          class="ant-btn ant-btn-primary ant-btn-lg ant-btn-icon-only"
           disabled=""
           style="pointer-events:none"
           type="button"
@@ -1027,7 +1059,7 @@ Array [
         </button>
       </span>
       <button
-        class="ant-btn ant-btn-primary ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-lg ant-btn-icon-only"
         type="button"
       >
         <span

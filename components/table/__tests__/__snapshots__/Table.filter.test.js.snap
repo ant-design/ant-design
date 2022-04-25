@@ -363,7 +363,7 @@ exports[`Table.filter renders custom filter icon with right Tooltip title 1`] = 
                         <div>
                           <div
                             class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
-                            style="opacity: 0; pointer-events: none;"
+                            style="opacity: 0;"
                           >
                             <div
                               class="ant-tooltip-content"

@@ -122,7 +122,7 @@ class EditableTagGroup extends React.Component {
   }
 }
 
-ReactDOM.render(<EditableTagGroup />, mountNode);
+export default () => <EditableTagGroup />;
 ```
 
 ```css

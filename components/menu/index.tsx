@@ -1,8 +1,9 @@
 import * as React from 'react';
-import RcMenu, { ItemGroup, MenuProps as RcMenuProps } from 'rc-menu';
+import RcMenu, { ItemGroup, MenuProps as RcMenuProps, MenuRef } from 'rc-menu';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
+import { forwardRef } from 'react';
 import SubMenu, { SubMenuProps } from './SubMenu';
 import Item, { MenuItemProps } from './MenuItem';
 import { ConfigContext } from '../config-provider';
@@ -14,6 +15,7 @@ import MenuContext, { MenuTheme } from './MenuContext';
 import MenuDivider from './MenuDivider';
 import type { ItemType } from './hooks/useItems';
 import useItems from './hooks/useItems';
+import useStyle from './style';
 
 export { MenuDividerProps } from './MenuDivider';
 
@@ -40,7 +42,7 @@ type InternalMenuProps = MenuProps &
     collapsedWidth?: string | number;
   };
 
-function InternalMenu(props: InternalMenuProps) {
+const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
   const { getPrefixCls, getPopupContainer, direction } = React.useContext(ConfigContext);
 
   const rootPrefixCls = getPrefixCls();
@@ -55,10 +57,12 @@ function InternalMenu(props: InternalMenuProps) {
     siderCollapsed,
     items,
     children,
+    rootClassName,
     ...restProps
   } = props;
 
   const passedProps = omit(restProps, ['collapsedWidth']);
+  const injectFromDropdown = (props as any)['data-dropdown-inject'];
 
   // ========================= Items ===========================
   const mergedChildren = useItems(items) || children;
@@ -98,6 +102,7 @@ function InternalMenu(props: InternalMenuProps) {
   };
 
   const prefixCls = getPrefixCls('menu', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls, !injectFromDropdown);
   const menuClassName = classNames(`${prefixCls}-${theme}`, className);
 
   // ======================== Context ==========================
@@ -114,7 +119,7 @@ function InternalMenu(props: InternalMenuProps) {
   );
 
   // ========================= Render ==========================
-  return (
+  return wrapSSR(
     <MenuContext.Provider value={contextValue}>
       <RcMenu
         getPopupContainer={getPopupContainer}
@@ -126,15 +131,21 @@ function InternalMenu(props: InternalMenuProps) {
         prefixCls={prefixCls}
         direction={direction}
         defaultMotions={defaultMotions}
-        expandIcon={cloneElement(expandIcon, {
-          className: `${prefixCls}-submenu-expand-icon`,
-        })}
+        expandIcon={
+          typeof expandIcon === 'function'
+            ? expandIcon
+            : cloneElement(expandIcon, {
+                className: `${prefixCls}-submenu-expand-icon`,
+              })
+        }
+        ref={ref}
+        rootClassName={classNames(rootClassName, hashId)}
       >
         {mergedChildren}
       </RcMenu>
-    </MenuContext.Provider>
+    </MenuContext.Provider>,
   );
-}
+});
 
 // We should keep this as ref-able
 class Menu extends React.Component<MenuProps, {}> {
@@ -146,10 +157,24 @@ class Menu extends React.Component<MenuProps, {}> {
 
   static ItemGroup = ItemGroup;
 
+  menu: MenuRef | null;
+
+  focus = (options?: FocusOptions) => {
+    this.menu?.focus(options);
+  };
+
   render() {
     return (
       <SiderContext.Consumer>
-        {(context: SiderContextProps) => <InternalMenu {...this.props} {...context} />}
+        {(context: SiderContextProps) => (
+          <InternalMenu
+            ref={node => {
+              this.menu = node;
+            }}
+            {...this.props}
+            {...context}
+          />
+        )}
       </SiderContext.Consumer>
     );
   }

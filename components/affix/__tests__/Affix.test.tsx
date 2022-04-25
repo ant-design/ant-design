@@ -5,7 +5,7 @@ import { getObserverEntities } from '../utils';
 import Button from '../../button';
 import rtlTest from '../../../tests/shared/rtlTest';
 import accessibilityTest from '../../../tests/shared/accessibilityTest';
-import { sleep } from '../../../tests/utils';
+import { sleep, render } from '../../../tests/utils';
 
 const events: Partial<Record<keyof HTMLElementEventMap, (ev: Partial<Event>) => void>> = {};
 
@@ -97,57 +97,47 @@ describe('Affix Render', () => {
   };
 
   it('Anchor render perfectly', async () => {
-    document.body.innerHTML = '<div id="mounter" />';
-
-    affixMounterWrapper = mount(<AffixMounter />, { attachTo: document.getElementById('mounter') });
+    const { container } = render(<AffixMounter />);
     await sleep(20);
 
     await movePlaceholder(0);
-    expect(affixMounterWrapper.instance().affix.state.affixStyle).toBeFalsy();
+    expect(container.querySelector('.ant-affix')).toBeFalsy();
 
     await movePlaceholder(-100);
-    expect(affixMounterWrapper.instance().affix.state.affixStyle).toBeTruthy();
+    expect(container.querySelector('.ant-affix')).toBeTruthy();
 
     await movePlaceholder(0);
-    expect(affixMounterWrapper.instance().affix.state.affixStyle).toBeFalsy();
+    expect(container.querySelector('.ant-affix')).toBeFalsy();
   });
 
   it('support offsetBottom', async () => {
-    document.body.innerHTML = '<div id="mounter" />';
-
-    affixMounterWrapper = mount(<AffixMounter offsetBottom={0} />, {
-      attachTo: document.getElementById('mounter'),
-    });
+    const { container } = render(<AffixMounter offsetBottom={0} />);
 
     await sleep(20);
 
     await movePlaceholder(300);
-    expect(affixMounterWrapper.instance().affix.state.affixStyle).toBeTruthy();
+    expect(container.querySelector('.ant-affix')).toBeTruthy();
 
     await movePlaceholder(0);
-    expect(affixMounterWrapper.instance().affix.state.affixStyle).toBeFalsy();
+    expect(container.querySelector('.ant-affix')).toBeFalsy();
 
     await movePlaceholder(300);
-    expect(affixMounterWrapper.instance().affix.state.affixStyle).toBeTruthy();
+    expect(container.querySelector('.ant-affix')).toBeTruthy();
   });
 
   it('updatePosition when offsetTop changed', async () => {
-    document.body.innerHTML = '<div id="mounter" />';
     const onChange = jest.fn();
 
-    affixMounterWrapper = mount(<AffixMounter offsetTop={0} onChange={onChange} />, {
-      attachTo: document.getElementById('mounter'),
-    });
+    const { container, rerender } = render(<AffixMounter offsetTop={0} onChange={onChange} />);
     await sleep(20);
 
     await movePlaceholder(-100);
     expect(onChange).toHaveBeenLastCalledWith(true);
-    expect(affixMounterWrapper.instance().affix.state.affixStyle?.top).toBe(0);
-    affixMounterWrapper.setProps({
-      offsetTop: 10,
-    });
+    expect(container.querySelector('.ant-affix')).toHaveStyle({ top: 0 });
+
+    rerender(<AffixMounter offsetTop={10} onChange={onChange} />);
     await sleep(20);
-    expect(affixMounterWrapper.instance().affix.state.affixStyle?.top).toBe(10);
+    expect(container.querySelector('.ant-affix')).toHaveStyle({ top: `10px` });
   });
 
   describe('updatePosition when target changed', () => {
@@ -201,7 +191,9 @@ describe('Affix Render', () => {
       await sleep(20);
 
       await movePlaceholder(300);
-      expect(affixMounterWrapper.instance().affix.state.affixStyle).toBeTruthy();
+      expect(
+        (affixMounterWrapper.find(AffixMounter).instance() as any).affix.state.affixStyle,
+      ).toBeTruthy();
       await sleep(20);
       affixMounterWrapper.update();
 

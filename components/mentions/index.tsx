@@ -1,18 +1,15 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import RcMentions from 'rc-mentions';
-import { MentionsProps as RcMentionsProps } from 'rc-mentions/lib/Mentions';
+import type { MentionsProps as RcMentionsProps } from 'rc-mentions/lib/Mentions';
 import { composeRef } from 'rc-util/lib/ref';
+// eslint-disable-next-line import/no-named-as-default
 import Spin from '../spin';
 import { ConfigContext } from '../config-provider';
-import { FormItemStatusContext } from '../form/context';
-import {
-  getFeedbackIcon,
-  getMergedStatus,
-  getStatusClassNames,
-  InputStatus,
-} from '../_util/statusUtils';
+import { FormItemInputContext } from '../form/context';
 import useStyle from './style';
+import type { InputStatus } from '../_util/statusUtils';
+import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 
 export const { Option } = RcMentions;
 
@@ -71,8 +68,12 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
   const [focused, setFocused] = React.useState(false);
   const innerRef = React.useRef<HTMLElement>();
   const mergedRef = composeRef(ref, innerRef);
-  const { getPrefixCls, renderEmpty, direction, iconPrefixCls } = React.useContext(ConfigContext);
-  const { status: contextStatus, hasFeedback } = React.useContext(FormItemStatusContext);
+  const { getPrefixCls, renderEmpty, direction } = React.useContext(ConfigContext);
+  const {
+    status: contextStatus,
+    hasFeedback,
+    feedbackIcon,
+  } = React.useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
   const onFocus: React.FocusEventHandler<HTMLTextAreaElement> = (...args) => {
@@ -120,7 +121,7 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
   const prefixCls = getPrefixCls('mentions', customizePrefixCls);
 
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const mergedClassName = classNames(
     {
@@ -162,7 +163,7 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
         )}
       >
         {mentions}
-        {getFeedbackIcon(prefixCls, mergedStatus)}
+        <span className={`${prefixCls}-suffix`}>{feedbackIcon}</span>
       </div>
     );
   }
