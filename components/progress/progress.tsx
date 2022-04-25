@@ -50,8 +50,8 @@ export interface ProgressProps {
   steps?: number;
   /** @deprecated Use `success` instead */
   successPercent?: number;
-  wrapSSR: (node: React.ReactNode) => React.ReactNode;
-  hashId: string;
+  wrapSSR?: (node: React.ReactNode) => React.ReactNode;
+  hashId?: string;
   children?: React.ReactNode;
 }
 

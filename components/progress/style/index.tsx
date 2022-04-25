@@ -125,7 +125,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token:ProgressToken, hashId:
           borderRadius: '10px', // FIXME: hard code in v4
           opacity: 0,
           animation: `${antProgressActive.getName(
-            hashId,
+            hashId
           )} 2.4s cubic-bezier(0.23, 1, 0.32, 1) infinite`,
           content: "",
         },
