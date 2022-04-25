@@ -166,7 +166,7 @@ module.exports = {
       ...config.optimization.splitChunks,
       cacheGroups: {
         vendors: {
-          test: /[/\\]node_modules[/\\]/,
+          test: /[/\\]node_modules[/\\]@ant-design[/\\]icon/,
           name: 'vendor',
           chunks: 'initial',
           maxSize: 1024 * 1024,
