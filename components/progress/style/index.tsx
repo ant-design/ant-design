@@ -1,25 +1,29 @@
 // deps-lint-skip-all
 import { CSSObject, Keyframes } from '@ant-design/cssinjs';
-import { genComponentStyleHook, mergeToken, FullToken, GenerateStyle, resetComponent } from '../../_util/theme';
-
+import {
+  genComponentStyleHook,
+  mergeToken,
+  FullToken,
+  GenerateStyle,
+  resetComponent,
+} from '../../_util/theme';
 
 export interface ComponentToken {
-  remainingColor: string,
-  defaultColor: string,
-  stepsItemBg: string,
-  infoTextColor: string
+  remainingColor: string;
+  defaultColor: string;
+  stepsItemBg: string;
+  infoTextColor: string;
 }
 
 interface ProgressToken extends FullToken<'Progress'> {
   radius: string;
-  infoTextColor: string,
-  circleTextFontSize: string,
-  textFontSize: string,
+  infoTextColor: string;
+  circleTextFontSize: string;
+  textFontSize: string;
 }
 
-
-const genBaseStyle: GenerateStyle<ProgressToken> = (token:ProgressToken) => {
-  const { componentCls:progressCls, iconCls: iconPrefixCls } = token;
+const genBaseStyle: GenerateStyle<ProgressToken> = (token: ProgressToken) => {
+  const { componentCls: progressCls, iconCls: iconPrefixCls } = token;
 
   const antProgressActive = new Keyframes('antProgressActive', {
     '0%': {
@@ -103,7 +107,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token:ProgressToken) => {
         textAlign: 'start',
         verticalAlign: 'middle',
         wordBreak: 'normal',
-        [`${iconPrefixCls}`]: {
+        [iconPrefixCls]: {
           fontSize: token.fontSizeBase,
         },
       },
@@ -159,7 +163,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token:ProgressToken) => {
 };
 
 const genCircleStyle: GenerateStyle<ProgressToken> = (token: ProgressToken): CSSObject => {
-  const { componentCls:progressCls, iconCls: iconPrefixCls } = token;
+  const { componentCls: progressCls, iconCls: iconPrefixCls } = token;
 
   return {
     [progressCls]: {
@@ -194,7 +198,7 @@ const genCircleStyle: GenerateStyle<ProgressToken> = (token: ProgressToken): CSS
         textAlign: 'center',
         transform: `translate(-50%, -50%)`,
 
-        [`${iconPrefixCls}`]: {
+        [iconPrefixCls]: {
           // fixme do not work 14em/12em
           fontSize: '1.17em',
         },
@@ -216,7 +220,7 @@ const genCircleStyle: GenerateStyle<ProgressToken> = (token: ProgressToken): CSS
 };
 
 const genStepStyle: GenerateStyle<ProgressToken> = (token: ProgressToken): CSSObject => {
-  const { componentCls:progressCls } = token;
+  const { componentCls: progressCls } = token;
 
   return {
     [progressCls]: {
@@ -244,7 +248,7 @@ const genStepStyle: GenerateStyle<ProgressToken> = (token: ProgressToken): CSSOb
 };
 
 const genSmallLine: GenerateStyle<ProgressToken> = (token: ProgressToken): CSSObject => {
-  const { componentCls:progressCls, iconCls: iconPrefixCls } = token;
+  const { componentCls: progressCls, iconCls: iconPrefixCls } = token;
 
   return {
     [progressCls]: {
@@ -269,11 +273,11 @@ export default genComponentStyleHook(
       genCircleStyle(progressToken),
       genStepStyle(progressToken),
       genSmallLine(progressToken),
-    ]
+    ];
   },
   token => ({
     defaultColor: token.blue,
-    remainingColor:  'rgba(0, 0, 0, 0.04)',
+    remainingColor: 'rgba(0, 0, 0, 0.04)',
     stepsItemBg: '#f3f3f3',
     infoTextColor: '#000000d9',
   }),
