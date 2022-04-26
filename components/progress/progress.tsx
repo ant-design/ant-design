@@ -55,7 +55,7 @@ export interface ProgressProps {
   children?: React.ReactNode;
 }
 
-export class Progress extends React.Component<ProgressProps> {
+export class ClassProgress extends React.Component<ProgressProps> {
   static defaultProps = {
     type: 'line' as ProgressProps['type'],
     percent: 0,
@@ -199,14 +199,14 @@ export class Progress extends React.Component<ProgressProps> {
   }
 }
 
-const WrapProgress = React.forwardRef((props: ProgressProps) => {
+const Progress = React.forwardRef((props: ProgressProps) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('progress', props.prefixCls);
 
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
-  return <Progress {...props} wrapSSR={wrapSSR} hashId={hashId} />;
+  return <ClassProgress {...props} wrapSSR={wrapSSR} hashId={hashId} />;
 });
 
-export default WrapProgress;
+export default Progress;

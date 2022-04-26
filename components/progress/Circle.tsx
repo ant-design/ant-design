@@ -16,7 +16,10 @@ function getPercentage({ percent, success, successPercent }: CircleProps) {
   return [realSuccessPercent, validProgress(validProgress(percent) - realSuccessPercent)];
 }
 
-function getStrokeColor({ success = {}, strokeColor, }: Partial<CircleProps>): (string | Record<string, string>)[] {
+function getStrokeColor({
+  success = {},
+  strokeColor,
+}: Partial<CircleProps>): (string | Record<string, string>)[] {
   const { strokeColor: successColor } = success;
   return [successColor || presetPrimaryColors.green, strokeColor || null!];
 }

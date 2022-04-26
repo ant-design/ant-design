@@ -92,8 +92,8 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token:ProgressToken) => {
 
       [`${progressCls}-success-bg`]: {
         position: 'absolute',
-        top: 0,
-        left: 0,
+        insetBlockStartlock: 0,
+        insetLineStart: 0,
         backgroundColor: token.colorSuccess,
       },
 
@@ -105,7 +105,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token:ProgressToken) => {
         fontSize: token.textFontSize,
         lineHeight: 1,
         whiteSpace: 'nowrap',
-        textAlign: 'left',
+        textAlign: 'start',
         verticalAlign: 'middle',
         wordBreak: 'normal',
         [`.${iconPrefixCls}`]: {
@@ -117,15 +117,12 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token:ProgressToken) => {
         // FIXME 不生成伪元素
         [`${progressCls}-bg::before`]: {
           position: 'absolute',
-          top: 0,
-          right: 0,
-          bottom: 0,
-          left: 0,
+          inset: 0,
           background: '#fff',
           borderRadius: '10px', // FIXME: hard code in v4
           opacity: 0,
           animation: `${antProgressActive} 2.4s cubic-bezier(0.23, 1, 0.32, 1) infinite`,
-          content: "",
+          content: '\"\"',
         },
       },
 
@@ -168,7 +165,7 @@ const genCircleStyle: GenerateStyle<ProgressToken> = (token: ProgressToken): CSS
 
   return {
     [progressCls]: {
-      ['&-circle']: {
+      '&-circle': {
         marginInlineEnd: '8px', // FIXME: hard code in v4
         marginBottom: '8px', // FIXME: hard code in v4
       },
@@ -186,8 +183,8 @@ const genCircleStyle: GenerateStyle<ProgressToken> = (token: ProgressToken): CSS
 
       [`&${progressCls}-circle ${progressCls}-text`]: {
         position: 'absolute',
-        top: '50%',
-        left: '50%',
+        insetBlockStart: '50%',
+        insetLineStart: '50%',
         width: '100%',
         margin: 0,
         padding: 0,
