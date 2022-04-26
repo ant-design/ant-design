@@ -10,6 +10,7 @@ import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { ConfigContext, DirectionType } from '../config-provider';
 import { canUseDocElement } from '../_util/styleChecker';
 import { getTransitionName } from '../_util/motion';
+import useStyle from './style';
 
 let mousePosition: { x: number; y: number } | null;
 
@@ -172,6 +173,7 @@ const Modal: React.FC<ModalProps> = props => {
     footer,
     visible,
     wrapClassName,
+    rootClassName,
     centered,
     getContainer,
     closeIcon,
@@ -181,6 +183,8 @@ const Modal: React.FC<ModalProps> = props => {
 
   const prefixCls = getPrefixCls('modal', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const defaultFooter = (
     <LocaleReceiver componentName="Modal" defaultLocale={getConfirmLocale()}>
@@ -198,13 +202,14 @@ const Modal: React.FC<ModalProps> = props => {
     [`${prefixCls}-centered`]: !!centered,
     [`${prefixCls}-wrap-rtl`]: direction === 'rtl',
   });
-  return (
+  return wrapSSR(
     <Dialog
       {...restProps}
       getContainer={
         getContainer === undefined ? (getContextPopupContainer as getContainerFunc) : getContainer
       }
       prefixCls={prefixCls}
+      rootClassName={classNames(rootClassName, hashId)}
       wrapClassName={wrapClassNameExtended}
       footer={footer === undefined ? defaultFooter : footer}
       visible={visible}
@@ -214,7 +219,7 @@ const Modal: React.FC<ModalProps> = props => {
       focusTriggerAfterClose={focusTriggerAfterClose}
       transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
       maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
-    />
+    />,
   );
 };
 
