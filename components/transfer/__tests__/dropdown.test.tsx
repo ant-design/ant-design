@@ -1,7 +1,7 @@
 /* eslint no-use-before-define: "off" */
 import React from 'react';
 import { act } from 'react-dom/test-utils';
-import { mount } from 'enzyme';
+import { render, fireEvent } from '../../../tests/utils';
 import Transfer from '..';
 
 const listProps = {
@@ -34,22 +34,29 @@ const listProps = {
 };
 
 describe('Transfer.Dropdown', () => {
-  function clickItem(wrapper, index) {
-    wrapper.find('li.ant-dropdown-menu-item').at(index).simulate('click');
+  function clickItem(container: HTMLElement, index: number) {
+    const items = Array.from(
+      container
+        // Menu
+        .querySelector('.ant-dropdown-menu')!
+        // Items
+        .querySelectorAll('li.ant-dropdown-menu-item'),
+    );
+    fireEvent.click(items[index]);
   }
 
   it('select all', () => {
     jest.useFakeTimers();
 
     const onSelectChange = jest.fn();
-    const wrapper = mount(<Transfer {...listProps} onSelectChange={onSelectChange} />);
-    wrapper.find('.ant-transfer-list-header-dropdown').first().simulate('mouseenter');
+    const { container } = render(<Transfer {...listProps} onSelectChange={onSelectChange} />);
+
+    fireEvent.mouseEnter(container.querySelector('.ant-transfer-list-header-dropdown')!);
     act(() => {
       jest.runAllTimers();
     });
-    wrapper.update();
 
-    clickItem(wrapper.find('.ant-dropdown-menu').first(), 0);
+    clickItem(container, 0);
     expect(onSelectChange).toHaveBeenCalledWith(['b', 'c', 'd', 'e'], []);
 
     jest.useRealTimers();
@@ -59,23 +66,24 @@ describe('Transfer.Dropdown', () => {
     jest.useFakeTimers();
 
     const onSelectChange = jest.fn();
-    const wrapper = mount(<Transfer {...listProps} onSelectChange={onSelectChange} />);
-    wrapper.find('.ant-transfer-list-header-dropdown').first().simulate('mouseenter');
+    const { container } = render(<Transfer {...listProps} onSelectChange={onSelectChange} />);
+    fireEvent.mouseEnter(container.querySelector('.ant-transfer-list-header-dropdown')!);
     act(() => {
       jest.runAllTimers();
     });
-    wrapper.update();
 
-    clickItem(wrapper.find('.ant-dropdown-menu').first(), 1);
+    clickItem(container, 1);
     expect(onSelectChange).toHaveBeenCalledWith(['b', 'c', 'd'], []);
 
     jest.useRealTimers();
   });
 
   it('should hide checkbox and dropdown icon when showSelectAll={false}', () => {
-    const wrapper = mount(<Transfer {...listProps} showSelectAll={false} />);
-    expect(wrapper.find('.ant-transfer-list-header-dropdown').length).toBe(0);
-    expect(wrapper.find('.ant-transfer-list-header .ant-transfer-list-checkbox').length).toBe(0);
+    const { container } = render(<Transfer {...listProps} showSelectAll={false} />);
+    expect(container.querySelector('.ant-transfer-list-header-dropdown')).toBeFalsy();
+    expect(
+      container.querySelector('.ant-transfer-list-header .ant-transfer-list-checkbox'),
+    ).toBeFalsy();
   });
 
   describe('select invert', () => {
@@ -83,7 +91,7 @@ describe('Transfer.Dropdown', () => {
       { name: 'with pagination', props: listProps, index: 2, keys: ['c', 'd'] },
       {
         name: 'without pagination',
-        props: { ...listProps, pagination: null },
+        props: { ...listProps, pagination: null as any },
         index: 1,
         keys: ['c', 'd', 'e'],
       },
@@ -92,14 +100,13 @@ describe('Transfer.Dropdown', () => {
         jest.useFakeTimers();
 
         const onSelectChange = jest.fn();
-        const wrapper = mount(<Transfer {...props} onSelectChange={onSelectChange} />);
-        wrapper.find('.ant-transfer-list-header-dropdown').first().simulate('mouseenter');
+        const { container } = render(<Transfer {...props} onSelectChange={onSelectChange} />);
+        fireEvent.mouseEnter(container.querySelector('.ant-transfer-list-header-dropdown')!);
         act(() => {
           jest.runAllTimers();
         });
-        wrapper.update();
 
-        clickItem(wrapper.find('.ant-dropdown-menu').first(), index);
+        clickItem(container, index);
         expect(onSelectChange).toHaveBeenCalledWith(keys, []);
 
         jest.useRealTimers();
@@ -110,22 +117,23 @@ describe('Transfer.Dropdown', () => {
   describe('oneWay to remove', () => {
     [
       { name: 'with pagination', props: listProps },
-      { name: 'without pagination', props: { ...listProps, pagination: null } },
+      { name: 'without pagination', props: { ...listProps, pagination: null as any } },
     ].forEach(({ name, props }) => {
       it(name, () => {
         jest.useFakeTimers();
 
         const onChange = jest.fn();
-        const wrapper = mount(
+        const { container } = render(
           <Transfer {...props} targetKeys={['b', 'c']} oneWay onChange={onChange} />,
         );
-        wrapper.find('.ant-transfer-list-header-dropdown').last().simulate('mouseenter');
+
+        // Right dropdown
+        fireEvent.mouseEnter(container.querySelectorAll('.ant-transfer-list-header-dropdown')[1]!);
         act(() => {
           jest.runAllTimers();
         });
-        wrapper.update();
 
-        clickItem(wrapper.find('.ant-dropdown-menu').first(), 0);
+        clickItem(container, 0);
         expect(onChange).toHaveBeenCalledWith([], 'left', ['b', 'c']);
 
         jest.useRealTimers();

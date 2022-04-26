@@ -4,10 +4,6 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
   push:
-    branches:
-      - master
-      - next
-      - feature
 
 # Cancel prev CI if new commit come
 concurrency:

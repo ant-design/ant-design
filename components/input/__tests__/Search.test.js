@@ -161,6 +161,26 @@ describe('Input.Search', () => {
     );
   });
 
+  // https://github.com/ant-design/ant-design/issues/34844
+  it('should not trigger onSearch when press enter using chinese inputting method', () => {
+    const onSearch = jest.fn();
+    const wrapper = mount(<Search defaultValue="search text" onSearch={onSearch} />);
+    wrapper.find('input').simulate('compositionStart');
+    wrapper.find('input').simulate('keydown', { key: 'Enter', keyCode: 13 });
+    expect(onSearch).not.toHaveBeenCalled();
+
+    wrapper.find('input').simulate('compositionEnd');
+    wrapper.find('input').simulate('keydown', { key: 'Enter', keyCode: 13 });
+    expect(onSearch).toHaveBeenCalledTimes(1);
+    expect(onSearch).toHaveBeenCalledWith(
+      'search text',
+      expect.objectContaining({
+        type: 'keydown',
+        preventDefault: expect.any(Function),
+      }),
+    );
+  });
+
   // https://github.com/ant-design/ant-design/issues/14785
   it('should support addonAfter', () => {
     const addonAfter = <span>Addon After</span>;
