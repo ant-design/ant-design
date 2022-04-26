@@ -1,11 +1,7 @@
 // deps-lint-skip-all
-import { genComponentStyleHook, mergeToken } from '../../_util/theme';
-import type { FullToken } from '../../_util/theme';
 import { CSSObject, Keyframes } from '@ant-design/cssinjs';
-import {
-  GenerateStyle,
-  resetComponent,
-} from '../../_util/theme';
+import { genComponentStyleHook, mergeToken, FullToken, GenerateStyle, resetComponent, } from '../../_util/theme';
+
 
 export interface ComponentToken {
   remainingColor: string,
@@ -260,34 +256,6 @@ const genSmallLine: GenerateStyle<ProgressToken> = (token: ProgressToken): CSSOb
   };
 };
 
-// export function useStyle(prefixCls: string): UseComponentStyleResult {
-//   const [theme, token, hashId] = useToken();
-//
-//   const progressToken: ProgressToken = {
-//     ...token,
-//     fontSizeBase: 14, // FIXME: hard code in v4
-//     stepsItemBg: '#f3f3f3',
-//     defaultColor: '#1890ff',
-//     remainingColor: 'rgba(0, 0, 0, 0.04)',
-//     radius: '100px', // FIXME: hard code in v4
-//     // FIXME used be fade(#000, 85%)
-//     infoTextColor: '#000000d9',
-//     circleTextFontSize: '1em', // FIXME: hard code in v4
-//     textFontSize: '1em', // FIXME: hard code in v4
-//     duration: '0.3s', // FIXME: hard code in v4
-//   };
-//
-//   return [
-//     useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-//       genBaseStyle(progressToken),
-//       genCircleStyle(progressToken),
-//       genStepStyle(progressToken),
-//       genSmallLine(progressToken),
-//     ]),
-//     hashId,
-//   ];
-// }
-
 export default genComponentStyleHook(
   'Progress',
   token => {
@@ -303,12 +271,10 @@ export default genComponentStyleHook(
       genSmallLine(progressToken),
     ]
   },
-  token => {
-    return {
-      defaultColor: token.blue,
-      remainingColor:  'rgba(0, 0, 0, 0.04)',
-      stepsItemBg: '#f3f3f3',
-      infoTextColor: '#000000d9',
-    }
-  }
+  token => ({
+    defaultColor: token.blue,
+    remainingColor:  'rgba(0, 0, 0, 0.04)',
+    stepsItemBg: '#f3f3f3',
+    infoTextColor: '#000000d9',
+  }),
 );
