@@ -462,7 +462,6 @@ export const genTreeStyle = (prefixCls: string, token: DerivativeToken): CSSInte
     genBaseStyle(prefixCls, treeToken),
     // Directory
     genDirectoryStyle(treeToken),
-    treeNodeFX,
   ];
 };
 

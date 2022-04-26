@@ -248,7 +248,7 @@ export function getStyle(prefixCls: string, token: FullToken<'Checkbox'>) {
     checkboxCls: `.${prefixCls}`,
   });
 
-  return [genCheckboxStyle(checkboxToken), antCheckboxEffect];
+  return [genCheckboxStyle(checkboxToken)];
 }
 
 export default genComponentStyleHook('Checkbox', (token, { prefixCls }) => [

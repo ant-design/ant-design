@@ -231,5 +231,5 @@ export default genComponentStyleHook('Spin', token => {
     spinDotSizeSM: 14, // FIXME: hard code in v4
     spinDotSizeLG: 32, // FIXME: hard code in v4
   });
-  return [genSpinStyle(spinToken), antSpinMove, antRotate];
+  return [genSpinStyle(spinToken)];
 });

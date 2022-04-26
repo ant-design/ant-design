@@ -1196,10 +1196,6 @@ export default genComponentStyleHook(
       genPickerStyle(pickerToken),
       genPanelStyle(pickerToken),
       genPickerStatusStyle(pickerToken),
-      slideDownIn,
-      slideDownOut,
-      slideUpIn,
-      slideUpOut,
     ];
   },
   token => ({

@@ -180,7 +180,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
           },
         },
       },
-      [`${componentCls}-middle`]: {
+      '&-middle': {
         [`${componentCls}-row`]: {
           '> th, > td': {
             // FIXME: hardcode in v4
@@ -188,7 +188,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
           },
         },
       },
-      [`${componentCls}-small`]: {
+      '&-small': {
         [`${componentCls}-row`]: {
           '> th, > td': {
             // FIXME: hardcode in v4
