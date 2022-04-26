@@ -1,6 +1,6 @@
 // deps-lint-skip-all
 import { CSSObject, Keyframes } from '@ant-design/cssinjs';
-import { genComponentStyleHook, mergeToken, FullToken, GenerateStyle, resetComponent, } from '../../_util/theme';
+import { genComponentStyleHook, mergeToken, FullToken, GenerateStyle, resetComponent } from '../../_util/theme';
 
 
 export interface ComponentToken {
