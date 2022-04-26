@@ -160,13 +160,10 @@ describe('Upload List', () => {
         expect(wrapper.render()).toMatchSnapshot();
       }
       if (file.status === 'done') {
-        (async function run() {
-          await sleep(200);
-          wrapper.update();
-          // expect(wrapper.render()).toMatchSnapshot();
-          wrapper.unmount();
-          done();
-        })();
+        wrapper.update();
+        expect(wrapper.render()).toMatchSnapshot();
+        wrapper.unmount();
+        done();
       }
 
       latestFileList = eventFileList;
