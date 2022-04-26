@@ -1,30 +1,29 @@
+// deps-lint-skip-all
+import { genComponentStyleHook, mergeToken } from '../../_util/theme';
+import type { FullToken } from '../../_util/theme';
 import { CSSObject, Keyframes } from '@ant-design/cssinjs';
 import {
-  DerivativeToken,
-  useStyleRegister,
-  useToken,
-  UseComponentStyleResult,
   GenerateStyle,
   resetComponent,
 } from '../../_util/theme';
 
-interface ProgressToken extends DerivativeToken {
-  progressCls: string;
-  iconPrefixCls: string;
-  fontSizeBase: number;
-  stepsItemBg: string;
-  defaultColor: string;
-  remainingColor: string;
-  radius: string;
-  infoTextColor: string;
-  circleTextFontSize: string;
-  textFontSize: string;
-  duration: string;
-  hashId?: string;
+export interface ComponentToken {
+  remainingColor: string,
+  defaultColor: string,
+  stepsItemBg: string,
+  infoTextColor: string
 }
 
+interface ProgressToken extends FullToken<'Progress'> {
+  radius: string;
+  infoTextColor: string,
+  circleTextFontSize: string,
+  textFontSize: string,
+}
+
+
 const genBaseStyle: GenerateStyle<ProgressToken> = (token:ProgressToken) => {
-  const { progressCls, iconPrefixCls } = token;
+  const { componentCls:progressCls, iconCls: iconPrefixCls } = token;
 
   const antProgressActive = new Keyframes('antProgressActive', {
     '0%': {
@@ -79,13 +78,13 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token:ProgressToken) => {
 
       [`${progressCls}-inner:not(${progressCls}-circle-gradient)`]: {
         [`${progressCls}-circle-path`]: {
-          stroke: token.defaultColor,
+          stroke: token.blue,
         },
       },
 
       [`&${progressCls}-success-bg,${progressCls}-bg`]: {
         position: 'relative',
-        backgroundColor: token.defaultColor,
+        backgroundColor: token.blue,
         borderRadius: token.radius,
         transition: `all ${token.motionDurationSlow} cubic-bezier(0.08, 0.82, 0.17, 1) 0s`,
       },
@@ -93,7 +92,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token:ProgressToken) => {
       [`${progressCls}-success-bg`]: {
         position: 'absolute',
         insetBlockStartlock: 0,
-        insetLineStart: 0,
+        insetIlineStart: 0,
         backgroundColor: token.colorSuccess,
       },
 
@@ -108,7 +107,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token:ProgressToken) => {
         textAlign: 'start',
         verticalAlign: 'middle',
         wordBreak: 'normal',
-        [`.${iconPrefixCls}`]: {
+        [`${iconPrefixCls}`]: {
           fontSize: token.fontSizeBase,
         },
       },
@@ -121,8 +120,11 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token:ProgressToken) => {
           background: '#fff',
           borderRadius: '10px', // FIXME: hard code in v4
           opacity: 0,
-          animation: `${antProgressActive} 2.4s cubic-bezier(0.23, 1, 0.32, 1) infinite`,
-          content: "",
+          animationName: antProgressActive,
+          animationDuration: '2.4s', // FIXME: hardcode
+          animationTimingFunction: token.motionEaseOutQuint,
+          animationIterationCount: 'infinite',
+          content: '""',
         },
       },
 
@@ -161,7 +163,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token:ProgressToken) => {
 };
 
 const genCircleStyle: GenerateStyle<ProgressToken> = (token: ProgressToken): CSSObject => {
-  const { progressCls, iconPrefixCls } = token;
+  const { componentCls:progressCls, iconCls: iconPrefixCls } = token;
 
   return {
     [progressCls]: {
@@ -173,7 +175,8 @@ const genCircleStyle: GenerateStyle<ProgressToken> = (token: ProgressToken): CSS
         stroke: token.remainingColor,
       },
       [`${progressCls}-circle-path`]: {
-        animation: `ant-progress-appear ${token.duration}`,
+        animationName: 'ant-progress-appear',
+        animationDuration: token.motionDurationSlow,
       },
       [`&${progressCls}-circle ${progressCls}-inner`]: {
         position: 'relative',
@@ -184,7 +187,7 @@ const genCircleStyle: GenerateStyle<ProgressToken> = (token: ProgressToken): CSS
       [`&${progressCls}-circle ${progressCls}-text`]: {
         position: 'absolute',
         insetBlockStart: '50%',
-        insetLineStart: '50%',
+        insetInlineStart: '50%',
         width: '100%',
         margin: 0,
         padding: 0,
@@ -195,7 +198,7 @@ const genCircleStyle: GenerateStyle<ProgressToken> = (token: ProgressToken): CSS
         textAlign: 'center',
         transform: `translate(-50%, -50%)`,
 
-        [`.${iconPrefixCls}`]: {
+        [`${iconPrefixCls}`]: {
           // fixme do not work 14em/12em
           fontSize: '1.17em',
         },
@@ -217,7 +220,7 @@ const genCircleStyle: GenerateStyle<ProgressToken> = (token: ProgressToken): CSS
 };
 
 const genStepStyle: GenerateStyle<ProgressToken> = (token: ProgressToken): CSSObject => {
-  const { progressCls } = token;
+  const { componentCls:progressCls } = token;
 
   return {
     [progressCls]: {
@@ -233,10 +236,10 @@ const genStepStyle: GenerateStyle<ProgressToken> = (token: ProgressToken): CSSOb
           minWidth: '2px', // FIXME: hardcode in v4
           marginInlineEnd: '2px', // FIXME: hardcode in v4
           background: token.stepsItemBg,
-          transition: `all ${token.duration}`,
+          transition: `all ${token.motionDurationSlow}`,
 
           '&-active': {
-            background: token.defaultColor,
+            background: token.blue,
           },
         },
       },
@@ -245,11 +248,11 @@ const genStepStyle: GenerateStyle<ProgressToken> = (token: ProgressToken): CSSOb
 };
 
 const genSmallLine: GenerateStyle<ProgressToken> = (token: ProgressToken): CSSObject => {
-  const { progressCls, iconPrefixCls } = token;
+  const { componentCls:progressCls, iconCls: iconPrefixCls } = token;
 
   return {
     [progressCls]: {
-      [`${progressCls}-small&-line, ${progressCls}-small&-line ${progressCls}-text .${iconPrefixCls}`]:
+      [`${progressCls}-small&-line, ${progressCls}-small&-line ${progressCls}-text ${iconPrefixCls}`]:
         {
           fontSize: token.fontSizeSM,
         },
@@ -257,32 +260,55 @@ const genSmallLine: GenerateStyle<ProgressToken> = (token: ProgressToken): CSSOb
   };
 };
 
-export default function useStyle(prefixCls: string): UseComponentStyleResult {
-  const [theme, token, hashId] = useToken();
+// export function useStyle(prefixCls: string): UseComponentStyleResult {
+//   const [theme, token, hashId] = useToken();
+//
+//   const progressToken: ProgressToken = {
+//     ...token,
+//     fontSizeBase: 14, // FIXME: hard code in v4
+//     stepsItemBg: '#f3f3f3',
+//     defaultColor: '#1890ff',
+//     remainingColor: 'rgba(0, 0, 0, 0.04)',
+//     radius: '100px', // FIXME: hard code in v4
+//     // FIXME used be fade(#000, 85%)
+//     infoTextColor: '#000000d9',
+//     circleTextFontSize: '1em', // FIXME: hard code in v4
+//     textFontSize: '1em', // FIXME: hard code in v4
+//     duration: '0.3s', // FIXME: hard code in v4
+//   };
+//
+//   return [
+//     useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
+//       genBaseStyle(progressToken),
+//       genCircleStyle(progressToken),
+//       genStepStyle(progressToken),
+//       genSmallLine(progressToken),
+//     ]),
+//     hashId,
+//   ];
+// }
 
-  const progressToken: ProgressToken = {
-    ...token,
-    progressCls: `.${prefixCls}`,
-    iconPrefixCls: 'anticon',
-    fontSizeBase: 14, // FIXME: hard code in v4
-    stepsItemBg: '#f3f3f3',
-    defaultColor: '#1890ff',
-    remainingColor: 'rgba(0, 0, 0, 0.04)',
-    radius: '100px', // FIXME: hard code in v4
-    // FIXME used be fade(#000, 85%)
-    infoTextColor: '#000000d9',
-    circleTextFontSize: '1em', // FIXME: hard code in v4
-    textFontSize: '1em', // FIXME: hard code in v4
-    duration: '0.3s', // FIXME: hard code in v4
-  };
-
-  return [
-    useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
+export default genComponentStyleHook(
+  'Progress',
+  token => {
+    const progressToken = mergeToken<ProgressToken>(token, {
+      radius: '100px',
+      circleTextFontSize: '1em', // FIXME: hard code in v4
+      textFontSize: '1em', // FIXME: hard code in v4
+    });
+    return [
       genBaseStyle(progressToken),
       genCircleStyle(progressToken),
       genStepStyle(progressToken),
       genSmallLine(progressToken),
-    ]),
-    hashId,
-  ];
-}
+    ]
+  },
+  token => {
+    return {
+      defaultColor: token.blue,
+      remainingColor:  'rgba(0, 0, 0, 0.04)',
+      stepsItemBg: '#f3f3f3',
+      infoTextColor: '#000000d9',
+    }
+  }
+);

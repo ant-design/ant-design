@@ -15,6 +15,7 @@ import type { ComponentToken as TimelineComponentToken } from '../../timeline/st
 import type { ComponentToken as MenuComponentToken } from '../../menu/style';
 import type { ComponentToken as UploadComponentToken } from '../../upload/style';
 import type { ComponentToken as CarouselComponentToken } from '../../carousel/style';
+import type { ComponentToken as ProgressComponentToken } from '../../progress/style';
 
 export const PresetColors = [
   'blue',
@@ -90,6 +91,7 @@ export interface OverrideToken {
   Menu?: MenuComponentToken;
   Layout?: {};
   Upload?: UploadComponentToken;
+  Progress?: ProgressComponentToken;
 }
 
 /** Final token which contains the components level override */
