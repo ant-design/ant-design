@@ -1,5 +1,5 @@
 ---
-order: 1
+order: 4
 title:
   zh-CN: 自定义渲染
   en-US: Custom Render
