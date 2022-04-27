@@ -46,10 +46,10 @@ interface ModalToken extends FullToken<'Modal'> {
 function box(position: React.CSSProperties['position']): React.CSSProperties {
   return {
     position,
-    top: '0',
-    right: '0',
-    bottom: '0',
-    left: '0',
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
   };
 }
 
@@ -122,7 +122,7 @@ const genModalStyle: GenerateStyle<ModalToken> = token => {
         '&-close': {
           position: 'absolute',
           top: 0,
-          right: 0,
+          insetInlineEnd: 0,
           zIndex: token.zIndexBase + 10,
           padding: 0,
           color: token.modalCloseColor,
@@ -170,14 +170,14 @@ const genModalStyle: GenerateStyle<ModalToken> = token => {
 
         '&-footer': {
           padding: `${token.modalFooterPaddingVertical}px ${token.modalFooterPaddingHorizontal}px`,
-          textAlign: 'right',
+          textAlign: 'end',
           background: token.modalFooterBg,
           borderTop: `${token.modalFooterBorderWidth}px ${token.modalFooterBorderStyle} ${token.modalFooterBorderColorSplit}`,
           borderRadius: `0 0 ${token.controlRadius}px ${token.controlRadius}px`,
 
           [`${token.antCls}-btn + ${token.antCls}-btn:not(${token.antCls}-dropdown-trigger)`]: {
             marginBottom: 0,
-            marginLeft: token.marginXS,
+            marginInlineStart: token.marginXS,
           },
         },
 
@@ -194,6 +194,10 @@ const genModalStyle: GenerateStyle<ModalToken> = token => {
         overflow: 'auto',
         outline: 0,
         WebkitOverflowScrolling: 'touch',
+
+        '&&-rtl': {
+          direction: 'rtl',
+        },
       },
 
       [`${componentCls}-centered`]: {
