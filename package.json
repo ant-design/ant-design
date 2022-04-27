@@ -232,7 +232,7 @@
     "isomorphic-fetch": "^3.0.0",
     "jest": "^27.0.3",
     "jest-axe": "^6.0.0",
-    "jest-environment-node": "^27.4.4",
+    "jest-environment-node": "^28.0.2",
     "jest-image-snapshot": "^4.5.1",
     "jest-puppeteer": "^6.0.0",
     "jquery": "^3.4.1",
