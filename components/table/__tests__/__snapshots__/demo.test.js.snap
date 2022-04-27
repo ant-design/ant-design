@@ -6123,6 +6123,7 @@ exports[`renders ./components/table/demo/filter-search.md correctly 1`] = `
                   </th>
                   <th
                     class="ant-table-cell ant-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="ant-table-column-sorters"
