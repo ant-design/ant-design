@@ -21,6 +21,7 @@ const menu = (
   <Menu
     items={[
       {
+        key: '1',
         label: (
           <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
             General
@@ -28,6 +29,7 @@ const menu = (
         ),
       },
       {
+        key: '2',
         label: (
           <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
             Layout
@@ -35,6 +37,7 @@ const menu = (
         ),
       },
       {
+        key: '3',
         label: (
           <a target="_blank" rel="noopener noreferrer" href="http://www.tmall.com/">
             Navigation

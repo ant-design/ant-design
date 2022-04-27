@@ -125,7 +125,7 @@ const App: React.FC = () => {
   };
 
   const moveRow = useCallback(
-    (dragIndex, hoverIndex) => {
+    (dragIndex: number, hoverIndex: number) => {
       const dragRow = data[dragIndex];
       setData(
         update(data, {

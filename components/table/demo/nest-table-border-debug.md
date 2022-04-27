@@ -37,7 +37,14 @@ interface ExpandedDataType {
   upgradeNum: string;
 }
 
-const menu = <Menu items={[{ label: 'Action 1' }, { label: 'Action 2' }]} />;
+const menu = (
+  <Menu
+    items={[
+      { key: '1', label: 'Action 1' },
+      { key: '2', label: 'Action 2' },
+    ]}
+  />
+);
 
 const App: React.FC = () => {
   const createExpandedRowRender = (bordered: boolean) => () => {

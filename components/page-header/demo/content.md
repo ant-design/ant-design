@@ -24,6 +24,7 @@ const menu = (
   <Menu
     items={[
       {
+        key: '1',
         label: (
           <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
             1st menu item
@@ -31,6 +32,7 @@ const menu = (
         ),
       },
       {
+        key: '2',
         label: (
           <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
             2nd menu item
@@ -38,6 +40,7 @@ const menu = (
         ),
       },
       {
+        key: '3',
         label: (
           <a target="_blank" rel="noopener noreferrer" href="http://www.tmall.com/">
             3rd menu item
@@ -104,7 +107,10 @@ const content = (
   </>
 );
 
-const Content: React.FC<{ extraContent: React.ReactNode }> = ({ children, extraContent }) => (
+const Content: React.FC<{ children: React.ReactNode; extraContent: React.ReactNode }> = ({
+  children,
+  extraContent,
+}) => (
   <Row>
     <div style={{ flex: 1 }}>{children}</div>
     <div className="image">{extraContent}</div>

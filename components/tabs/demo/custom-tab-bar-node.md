@@ -62,7 +62,7 @@ const DraggableTabNode = ({ index, children, moveNode }: DraggableTabPaneProps) 
   );
 };
 
-const DraggableTabs: React.FC = props => {
+const DraggableTabs: React.FC<{ children: React.ReactNode }> = props => {
   const { children } = props;
   const [order, setOrder] = useState<React.Key[]>([]);
 

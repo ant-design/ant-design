@@ -53,7 +53,10 @@ const extraContent = (
   </div>
 );
 
-const Content: React.FC<{ extra: React.ReactNode }> = ({ children, extra }) => (
+const Content: React.FC<{ children: React.ReactNode; extra: React.ReactNode }> = ({
+  children,
+  extra,
+}) => (
   <div className="content">
     <div className="main">{children}</div>
     <div className="extra">{extra}</div>

@@ -17,7 +17,7 @@ Child elements vertically aligned.
 import React from 'react';
 import { Row, Col, Divider } from 'antd';
 
-const DemoBox: React.FC<{ value: number }> = props => (
+const DemoBox: React.FC<{ children: React.ReactNode; value: number }> = props => (
   <p className={`height-${props.value}`}>{props.children}</p>
 );
 

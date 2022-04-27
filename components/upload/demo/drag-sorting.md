@@ -109,7 +109,7 @@ const App: React.FC = () => {
   ]);
 
   const moveRow = useCallback(
-    (dragIndex, hoverIndex) => {
+    (dragIndex: number, hoverIndex: number) => {
       const dragRow = fileList[dragIndex];
       setFileList(
         update(fileList, {

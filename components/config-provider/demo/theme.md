@@ -316,9 +316,11 @@ const App: React.FC = () => {
                 <Menu
                   items={[
                     {
+                      key: '1',
                       label: '1st menu item',
                     },
                     {
+                      key: '2',
                       label: 'a danger item',
                       danger: true,
                     },

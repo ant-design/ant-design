@@ -23,7 +23,7 @@ interface NumericInputProps {
   onChange: (value: string) => void;
 }
 
-const formatNumber = (value: string) => new Intl.NumberFormat().format(value);
+const formatNumber = (value: number) => new Intl.NumberFormat().format(value);
 
 const NumericInput = (props: NumericInputProps) => {
   const { value, onChange } = props;
@@ -46,7 +46,7 @@ const NumericInput = (props: NumericInputProps) => {
   };
 
   const title = value ? (
-    <span className="numeric-input-title">{value !== '-' ? formatNumber(value) : '-'}</span>
+    <span className="numeric-input-title">{value !== '-' ? formatNumber(Number(value)) : '-'}</span>
   ) : (
     'Input a number'
   );
