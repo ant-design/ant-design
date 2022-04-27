@@ -173,7 +173,6 @@ const Modal: React.FC<ModalProps> = props => {
     footer,
     visible,
     wrapClassName,
-    rootClassName,
     centered,
     getContainer,
     closeIcon,
@@ -209,7 +208,7 @@ const Modal: React.FC<ModalProps> = props => {
         getContainer === undefined ? (getContextPopupContainer as getContainerFunc) : getContainer
       }
       prefixCls={prefixCls}
-      rootClassName={classNames(rootClassName, hashId)}
+      rootClassName={hashId}
       wrapClassName={wrapClassNameExtended}
       footer={footer === undefined ? defaultFooter : footer}
       visible={visible}
