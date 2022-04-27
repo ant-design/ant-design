@@ -22867,6 +22867,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                 <tr>
                   <th
                     class="config-table-cell config-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="config-table-filter-column"
@@ -23147,6 +23148,7 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                 <tr>
                   <th
                     class="config-table-cell config-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="config-table-filter-column"
@@ -23427,6 +23429,7 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                 <tr>
                   <th
                     class="config-table-cell config-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="config-table-filter-column"
@@ -23707,6 +23710,7 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
                 <tr>
                   <th
                     class="ant-table-cell ant-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="ant-table-filter-column"
@@ -23987,6 +23991,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                 <tr>
                   <th
                     class="ant-table-cell ant-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="ant-table-filter-column"
@@ -24267,6 +24272,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                 <tr>
                   <th
                     class="prefix-Table-cell prefix-Table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="prefix-Table-filter-column"
