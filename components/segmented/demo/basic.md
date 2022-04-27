@@ -24,7 +24,7 @@ export default () => <Segmented options={['Daily', 'Weekly', 'Monthly', 'Quarter
   overflow-x: auto;
 }
 
-.code-box-demo .ant-segmented {
+.code-box-demo .ant-segmented-wrapper {
   margin-bottom: 10px;
 }
 ```

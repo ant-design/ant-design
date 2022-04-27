@@ -4,18 +4,35 @@
 
 @segmented-prefix-cls: ~'@{ant-prefix}-segmented';
 
+@segmented-container-padding: 2px;
+
 .@{segmented-prefix-cls} {
   .reset-component();
 
   position: relative;
-  display: inline-flex;
+  display: flex;
   align-items: stretch;
   justify-items: flex-start;
+  width: 100%;
   color: @segmented-label-color;
-  background-color: @segmented-bg;
   border-radius: 2px;
-  box-shadow: 0 0 0 2px @segmented-bg;
   transition: all 0.3s @ease-in-out;
+
+  &-wrapper {
+    display: inline-block;
+    padding: @segmented-container-padding;
+    background-color: @segmented-bg;
+  }
+
+  // block styles
+  &-block {
+    display: flex;
+  }
+
+  &-block &-item {
+    flex: 1;
+    min-width: 0;
+  }
 
   // hover/focus styles
   &:not(&-disabled) {
@@ -24,16 +41,6 @@
       background-color: @segmented-hover-bg;
       box-shadow: 0 0 0 2px @segmented-hover-bg;
     }
-  }
-
-  // block styles
-  &&-block {
-    display: flex;
-  }
-
-  &&-block &-item {
-    flex: 1;
-    min-width: 0;
   }
 
   // item styles
@@ -54,9 +61,10 @@
     }
 
     &-label {
-      min-height: @input-height-base;
+      min-height: @input-height-base - @segmented-container-padding;
       padding: @input-padding-vertical-base @input-padding-horizontal-base;
-      line-height: @input-height-base - @input-padding-vertical-base * 2;
+      line-height: @input-height-base - @input-padding-vertical-base * 2 -
+        @segmented-container-padding;
       .segmented-text-ellipsis();
     }
 
@@ -78,20 +86,19 @@
 
   // size styles
   &&-lg &-item-label {
-    min-height: @input-height-lg;
+    min-height: @input-height-lg - @segmented-container-padding;
     padding: @input-padding-vertical-lg @input-padding-horizontal-lg;
     font-size: @font-size-lg;
-    line-height: @input-height-lg - @input-padding-vertical-lg * 2;
+    line-height: @input-height-lg - @input-padding-vertical-lg * 2 - @segmented-container-padding;
   }
 
   &&-sm &-item-label {
-    min-height: @input-height-sm;
+    min-height: @input-height-sm - @segmented-container-padding;
     padding: @input-padding-vertical-sm @input-padding-horizontal-sm;
-    line-height: @input-height-sm - @input-padding-vertical-sm * 2;
+    line-height: @input-height-sm - @input-padding-vertical-sm * 2 - @segmented-container-padding;
   }
 
   // disabled styles
-  &-disabled &-item,
   &-item-disabled {
     .segmented-disabled-item();
   }
