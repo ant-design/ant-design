@@ -204,9 +204,7 @@ function injectSorter<RecordType>(
                 multiplePriority: getMultiplePriority(column),
               });
 
-              if (keyboardOnClick) {
-                keyboardOnClick(event);
-              }
+              keyboardOnClick?.(event);
             }
           };
 
