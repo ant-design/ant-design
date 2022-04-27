@@ -180,8 +180,7 @@ function injectSorter<RecordType>(
           const cell: React.HTMLAttributes<HTMLElement> =
             (column.onHeaderCell && column.onHeaderCell(col)) || {};
           const originOnClick = cell.onClick;
-          const keyboardOnClick = cell.onKeyPress;
-
+          const originOKeyDown = cell.onKeyDown;
           cell.onClick = (event: React.MouseEvent<HTMLElement>) => {
             triggerSorter({
               column,
@@ -189,22 +188,17 @@ function injectSorter<RecordType>(
               sortOrder: nextSortOrder,
               multiplePriority: getMultiplePriority(column),
             });
-
-            if (originOnClick) {
-              originOnClick(event);
-            }
+            originOnClick?.(event);
           };
-          cell.onKeyPress = (event: React.KeyboardEvent<HTMLElement>) => {
-            const { charCode } = event;
-            if (charCode === KeyCode.ENTER) {
+          cell.onKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
+            if (event.keyCode === KeyCode.ENTER) {
               triggerSorter({
                 column,
                 key: columnKey,
                 sortOrder: nextSortOrder,
                 multiplePriority: getMultiplePriority(column),
               });
-
-              keyboardOnClick?.(event);
+              originOKeyDown?.(event);
             }
           };
 
