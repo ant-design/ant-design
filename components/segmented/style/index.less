@@ -8,28 +8,27 @@
 
 .@{segmented-prefix-cls} {
   .reset-component();
+  display: inline-block;
+  padding: @segmented-container-padding;
+  background-color: @segmented-bg;
 
-  position: relative;
-  display: flex;
-  align-items: stretch;
-  justify-items: flex-start;
-  width: 100%;
-  color: @segmented-label-color;
-  border-radius: 2px;
-  transition: all 0.3s @ease-in-out;
-
-  &-wrapper {
-    display: inline-block;
-    padding: @segmented-container-padding;
-    background-color: @segmented-bg;
+  &-group {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    justify-items: flex-start;
+    width: 100%;
+    color: @segmented-label-color;
+    border-radius: 2px;
+    transition: all 0.3s @ease-in-out;
   }
 
   // block styles
-  &-block {
+  &&-block {
     display: flex;
   }
 
-  &-block &-item {
+  &&-block &-item {
     flex: 1;
     min-width: 0;
   }
@@ -39,7 +38,6 @@
     &:hover,
     &:focus {
       background-color: @segmented-hover-bg;
-      box-shadow: 0 0 0 2px @segmented-hover-bg;
     }
   }
 
