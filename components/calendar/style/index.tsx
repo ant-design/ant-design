@@ -69,9 +69,9 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
       borderRadius: token.radiusBase,
       [`${calendarCls}-header`]: {
         // FIXME hardcode in v4
-        paddingRight: token.paddingXS,
+        paddingInlineEnd: token.paddingXS,
         // FIXME hardcode in v4
-        paddingLeft: token.paddingXS,
+        paddingInlineStart: token.paddingXS,
       },
       [`${componentCls}-panel`]: {
         borderRadius: `0 0 ${token.radiusBase}px ${token.radiusBase}px`,
@@ -177,7 +177,7 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
             width: '100%',
             // FIXME hardcode in v4
             marginTop: token.marginXS,
-            marginLeft: 0,
+            marginInlineStart: 0,
             '> label': {
               width: '50%',
               textAlign: 'center',
