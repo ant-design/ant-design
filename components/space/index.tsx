@@ -89,11 +89,14 @@ const Space: React.FC<SpaceProps> = props => {
     }
 
     const keyOfChild = child && child.key;
+    // Add `-space-item` as suffix in case simple key string trigger duplicated key warning
+    // https://github.com/ant-design/ant-design/issues/35305
+    const defaultKey = `${i}-space-item`;
 
     return (
       <Item
         className={itemClassName}
-        key={`${itemClassName}-${keyOfChild || i}`}
+        key={`${itemClassName}-${keyOfChild || defaultKey}`}
         direction={direction}
         index={i}
         marginDirection={marginDirection}
