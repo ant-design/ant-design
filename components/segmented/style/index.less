@@ -10,7 +10,10 @@
   .reset-component();
   display: inline-block;
   padding: @segmented-container-padding;
+  color: @segmented-label-color;
   background-color: @segmented-bg;
+  border-radius: 2px;
+  transition: all 0.3s @ease-in-out;
 
   &-group {
     position: relative;
@@ -18,9 +21,6 @@
     align-items: stretch;
     justify-items: flex-start;
     width: 100%;
-    color: @segmented-label-color;
-    border-radius: 2px;
-    transition: all 0.3s @ease-in-out;
   }
 
   // block styles
