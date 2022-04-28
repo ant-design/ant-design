@@ -373,7 +373,7 @@ describe('Segmented', () => {
       />,
     );
     expect(wrapper.render()).toMatchSnapshot();
-    expect(wrapper.find(`span.${prefixCls}-item-icon`).at(0).hasClass('anticon-bars')).toBeTruthy();
+    expect(wrapper.find(`span.${prefixCls}-item-icon`).length).toBe(2);
     expect(wrapper.find(`div.${prefixCls}-item-label`).at(1).contains('KanbanYes')).toBeTruthy();
   });
 });
