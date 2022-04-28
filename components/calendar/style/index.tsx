@@ -6,7 +6,7 @@
 // import '../../date-picker/style';
 
 import { CSSObject } from '@ant-design/cssinjs';
-import { FullToken, genComponentStyleHook, resetComponent } from '../../_util/theme';
+import { FullToken, genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
 
 export interface ComponentToken {
   calendarFullBg: string;
@@ -189,21 +189,19 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
   };
 };
 
-export default genComponentStyleHook('Calendar', token => {
-  const calendarBg = token.colorBgComponent;
-  const calendarItemActiveBg = token.controlItemBgActive;
-  const calendarFullBg = calendarBg;
-  const calendarFullPanelBg = calendarFullBg;
+export default genComponentStyleHook(
+  'Calendar',
+  token => {
+    const calendarCls = `${token.componentCls}-calendar`;
+    const calendarToken = mergeToken<CalendarToken>(token, {
+      calendarCls,
+    });
 
-  const calendarCls = `${token.componentCls}-calendar`;
-
-  const calendarToken: CalendarToken = {
-    ...token,
-    calendarCls,
-    calendarFullBg,
-    calendarFullPanelBg,
-    calendarItemActiveBg,
-  };
-
-  return [genCalendarStyles(calendarToken)];
-});
+    return [genCalendarStyles(calendarToken)];
+  },
+  token => ({
+    calendarFullBg: token.colorBgComponent,
+    calendarFullPanelBg: token.colorBgComponent,
+    calendarItemActiveBg: token.controlItemBgActive,
+  }),
+);
