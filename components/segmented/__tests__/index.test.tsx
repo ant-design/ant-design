@@ -7,7 +7,6 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import Segmented from '../index';
 import type { SegmentedValue } from '../index';
 import { render } from '../../../tests/utils';
-import { AppstoreOutlined, BarsOutlined } from '@ant-design/icons';
 
 // Make CSSMotion working without transition
 jest.mock('rc-motion/lib/util/motion', () => ({
