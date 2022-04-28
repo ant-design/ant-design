@@ -44,7 +44,7 @@ function genComponentStyleHook<ComponentName extends OverrideComponent>(
     const rootPrefixCls = getPrefixCls();
 
     return [
-      useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => {
+      useStyleRegister({ theme, token, hashId, path: [component, prefixCls] }, () => {
         const { token: proxyToken, flush } = statisticToken(token);
 
         const defaultComponentToken =
