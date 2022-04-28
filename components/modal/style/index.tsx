@@ -89,9 +89,10 @@ const genModalStyle: GenerateStyle<ModalToken> = token => {
 
   return {
     [`${componentCls}-root`]: {
+      ...modalMask(componentCls, token),
+
       [componentCls]: {
         ...resetComponent(token),
-        ...modalMask(componentCls, token),
         pointerEvents: 'none',
         position: 'relative',
         top: 100,
