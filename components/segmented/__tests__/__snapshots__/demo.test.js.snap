@@ -2,10 +2,10 @@
 
 exports[`renders ./components/segmented/demo/basic.md correctly 1`] = `
 <div
-  class="ant-segmented-wrapper"
+  class="ant-segmented"
 >
   <div
-    class="ant-segmented"
+    class="ant-segmented-group"
   >
     <label
       class="ant-segmented-item ant-segmented-item-selected"
@@ -84,10 +84,10 @@ exports[`renders ./components/segmented/demo/basic.md correctly 1`] = `
 
 exports[`renders ./components/segmented/demo/block.md correctly 1`] = `
 <div
-  class="ant-segmented-wrapper ant-segmented-block"
+  class="ant-segmented ant-segmented-block"
 >
   <div
-    class="ant-segmented"
+    class="ant-segmented-group"
   >
     <label
       class="ant-segmented-item ant-segmented-item-selected"
@@ -138,10 +138,10 @@ exports[`renders ./components/segmented/demo/block.md correctly 1`] = `
 
 exports[`renders ./components/segmented/demo/controlled.md correctly 1`] = `
 <div
-  class="ant-segmented-wrapper"
+  class="ant-segmented"
 >
   <div
-    class="ant-segmented"
+    class="ant-segmented-group"
   >
     <label
       class="ant-segmented-item ant-segmented-item-selected"
@@ -193,10 +193,10 @@ exports[`renders ./components/segmented/demo/controlled.md correctly 1`] = `
 exports[`renders ./components/segmented/demo/controlled-two.md correctly 1`] = `
 Array [
   <div
-    class="ant-segmented-wrapper"
+    class="ant-segmented"
   >
     <div
-      class="ant-segmented"
+      class="ant-segmented-group"
     >
       <label
         class="ant-segmented-item ant-segmented-item-selected"
@@ -245,10 +245,10 @@ Array [
   </div>,
   "  ",
   <div
-    class="ant-segmented-wrapper"
+    class="ant-segmented"
   >
     <div
-      class="ant-segmented"
+      class="ant-segmented-group"
     >
       <label
         class="ant-segmented-item ant-segmented-item-selected"
@@ -301,10 +301,10 @@ Array [
 exports[`renders ./components/segmented/demo/custom.md correctly 1`] = `
 Array [
   <div
-    class="ant-segmented-wrapper"
+    class="ant-segmented"
   >
     <div
-      class="ant-segmented"
+      class="ant-segmented-group"
     >
       <label
         class="ant-segmented-item ant-segmented-item-selected"
@@ -398,10 +398,10 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-segmented-wrapper"
+    class="ant-segmented"
   >
     <div
-      class="ant-segmented"
+      class="ant-segmented-group"
     >
       <label
         class="ant-segmented-item ant-segmented-item-selected"
@@ -484,10 +484,10 @@ Array [
 exports[`renders ./components/segmented/demo/disabled.md correctly 1`] = `
 Array [
   <div
-    class="ant-segmented-wrapper ant-segmented-wrapper-disabled"
+    class="ant-segmented ant-segmented-disabled"
   >
     <div
-      class="ant-segmented ant-segmented-disabled"
+      class="ant-segmented-group"
     >
       <label
         class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-disabled"
@@ -539,10 +539,10 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-segmented-wrapper"
+    class="ant-segmented"
   >
     <div
-      class="ant-segmented"
+      class="ant-segmented-group"
     >
       <label
         class="ant-segmented-item ant-segmented-item-selected"
@@ -625,10 +625,10 @@ Array [
 exports[`renders ./components/segmented/demo/dynamic.md correctly 1`] = `
 Array [
   <div
-    class="ant-segmented-wrapper"
+    class="ant-segmented"
   >
     <div
-      class="ant-segmented"
+      class="ant-segmented-group"
     >
       <label
         class="ant-segmented-item ant-segmented-item-selected"
@@ -768,10 +768,10 @@ exports[`renders ./components/segmented/demo/icon-only.md correctly 1`] = `
 exports[`renders ./components/segmented/demo/size.md correctly 1`] = `
 Array [
   <div
-    class="ant-segmented-wrapper ant-segmented-lg"
+    class="ant-segmented ant-segmented-lg"
   >
     <div
-      class="ant-segmented"
+      class="ant-segmented-group"
     >
       <label
         class="ant-segmented-item ant-segmented-item-selected"
@@ -848,10 +848,10 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-segmented-wrapper"
+    class="ant-segmented"
   >
     <div
-      class="ant-segmented"
+      class="ant-segmented-group"
     >
       <label
         class="ant-segmented-item ant-segmented-item-selected"
@@ -928,10 +928,10 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-segmented-wrapper ant-segmented-sm"
+    class="ant-segmented ant-segmented-sm"
   >
     <div
-      class="ant-segmented"
+      class="ant-segmented-group"
     >
       <label
         class="ant-segmented-item ant-segmented-item-selected"
@@ -1011,10 +1011,10 @@ Array [
 
 exports[`renders ./components/segmented/demo/with-icon.md correctly 1`] = `
 <div
-  class="ant-segmented-wrapper"
+  class="ant-segmented"
 >
   <div
-    class="ant-segmented"
+    class="ant-segmented-group"
   >
     <label
       class="ant-segmented-item ant-segmented-item-selected"

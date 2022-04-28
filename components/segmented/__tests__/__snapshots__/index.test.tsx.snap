@@ -2,20 +2,20 @@
 
 exports[`Segmented render empty segmented 1`] = `
 <div
-  class="ant-segmented-wrapper"
+  class="ant-segmented"
 >
   <div
-    class="ant-segmented"
+    class="ant-segmented-group"
   />
 </div>
 `;
 
 exports[`Segmented render label with ReactNode 1`] = `
 <div
-  class="ant-segmented-wrapper"
+  class="ant-segmented"
 >
   <div
-    class="ant-segmented"
+    class="ant-segmented-group"
   >
     <label
       class="ant-segmented-item ant-segmented-item-selected"
@@ -70,10 +70,10 @@ exports[`Segmented render label with ReactNode 1`] = `
 
 exports[`Segmented render segmented ok 1`] = `
 <div
-  class="ant-segmented-wrapper"
+  class="ant-segmented"
 >
   <div
-    class="ant-segmented"
+    class="ant-segmented-group"
   >
     <label
       class="ant-segmented-item ant-segmented-item-selected"
@@ -124,10 +124,10 @@ exports[`Segmented render segmented ok 1`] = `
 
 exports[`Segmented render segmented with \`block\` 1`] = `
 <div
-  class="ant-segmented-wrapper ant-segmented-block"
+  class="ant-segmented ant-segmented-block"
 >
   <div
-    class="ant-segmented"
+    class="ant-segmented-group"
   >
     <label
       class="ant-segmented-item ant-segmented-item-selected"
@@ -178,10 +178,10 @@ exports[`Segmented render segmented with \`block\` 1`] = `
 
 exports[`Segmented render segmented with \`size#large\` 1`] = `
 <div
-  class="ant-segmented-wrapper ant-segmented-lg"
+  class="ant-segmented ant-segmented-lg"
 >
   <div
-    class="ant-segmented"
+    class="ant-segmented-group"
   >
     <label
       class="ant-segmented-item ant-segmented-item-selected"
@@ -232,10 +232,10 @@ exports[`Segmented render segmented with \`size#large\` 1`] = `
 
 exports[`Segmented render segmented with \`size#small\` 1`] = `
 <div
-  class="ant-segmented-wrapper ant-segmented-sm"
+  class="ant-segmented ant-segmented-sm"
 >
   <div
-    class="ant-segmented"
+    class="ant-segmented-group"
   >
     <label
       class="ant-segmented-item ant-segmented-item-selected"
@@ -286,10 +286,10 @@ exports[`Segmented render segmented with \`size#small\` 1`] = `
 
 exports[`Segmented render segmented with mixed options 1`] = `
 <div
-  class="ant-segmented-wrapper"
+  class="ant-segmented"
 >
   <div
-    class="ant-segmented"
+    class="ant-segmented-group"
   >
     <label
       class="ant-segmented-item ant-segmented-item-selected"
@@ -340,10 +340,10 @@ exports[`Segmented render segmented with mixed options 1`] = `
 
 exports[`Segmented render segmented with numeric options 1`] = `
 <div
-  class="ant-segmented-wrapper"
+  class="ant-segmented"
 >
   <div
-    class="ant-segmented"
+    class="ant-segmented-group"
   >
     <label
       class="ant-segmented-item ant-segmented-item-selected"
@@ -422,10 +422,10 @@ exports[`Segmented render segmented with numeric options 1`] = `
 
 exports[`Segmented render segmented with options null/undefined 1`] = `
 <div
-  class="ant-segmented-wrapper ant-segmented-wrapper-disabled"
+  class="ant-segmented ant-segmented-disabled"
 >
   <div
-    class="ant-segmented ant-segmented-disabled"
+    class="ant-segmented-group"
   >
     <label
       class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-disabled"
@@ -471,10 +471,10 @@ exports[`Segmented render segmented with options null/undefined 1`] = `
 
 exports[`Segmented render segmented with options: disabled 1`] = `
 <div
-  class="ant-segmented-wrapper"
+  class="ant-segmented"
 >
   <div
-    class="ant-segmented"
+    class="ant-segmented-group"
   >
     <label
       class="ant-segmented-item ant-segmented-item-selected"
@@ -526,10 +526,10 @@ exports[`Segmented render segmented with options: disabled 1`] = `
 
 exports[`Segmented render segmented with string options 1`] = `
 <div
-  class="ant-segmented-wrapper"
+  class="ant-segmented"
 >
   <div
-    class="ant-segmented"
+    class="ant-segmented-group"
   >
     <label
       class="ant-segmented-item ant-segmented-item-selected"
@@ -580,10 +580,10 @@ exports[`Segmented render segmented with string options 1`] = `
 
 exports[`Segmented render segmented with thumb 1`] = `
 <div
-  class="ant-segmented-wrapper"
+  class="ant-segmented"
 >
   <div
-    class="ant-segmented"
+    class="ant-segmented-group"
   >
     <label
       class="ant-segmented-item ant-segmented-item-selected"
@@ -634,10 +634,10 @@ exports[`Segmented render segmented with thumb 1`] = `
 
 exports[`Segmented render segmented: disabled 1`] = `
 <div
-  class="ant-segmented-wrapper ant-segmented-wrapper-disabled"
+  class="ant-segmented ant-segmented-disabled"
 >
   <div
-    class="ant-segmented ant-segmented-disabled"
+    class="ant-segmented-group"
   >
     <label
       class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-disabled"
@@ -772,10 +772,10 @@ exports[`Segmented render with icons 1`] = `
 
 exports[`Segmented rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-segmented-wrapper ant-segmented-wrapper-rtl"
+  class="ant-segmented ant-segmented-rtl"
 >
   <div
-    class="ant-segmented"
+    class="ant-segmented-group"
   />
 </div>
 `;
