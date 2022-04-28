@@ -1,17 +1,17 @@
 ---
-order: 7
+order: 8
 title:
-  zh-CN: 设置图标
-  en-US: With Icon
+  zh-CN: 只设置图标
+  en-US: With Icon only
 ---
 
 ## zh-CN
 
-给 Segmented Item 设置 Icon。
+在 Segmented Item 选项中只设置 Icon。
 
 ## en-US
 
-Set `icon` for Segmented Item.
+Set `icon` without `label` for Segmented Item.
 
 ```jsx
 import { Segmented } from 'antd';
@@ -21,12 +21,10 @@ export default () => (
   <Segmented
     options={[
       {
-        label: 'List',
         value: 'List',
         icon: <BarsOutlined />,
       },
       {
-        label: 'Kanban',
         value: 'Kanban',
         icon: <AppstoreOutlined />,
       },

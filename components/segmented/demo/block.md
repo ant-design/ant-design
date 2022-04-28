@@ -1,5 +1,5 @@
 ---
-order: 10
+order: 1
 title:
   zh-CN: Block 分段选择器
   en-US: Block Segmented
