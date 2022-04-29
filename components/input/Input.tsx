@@ -4,6 +4,7 @@ import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import classNames from 'classnames';
 import { composeRef } from 'rc-util/lib/ref';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
+import DisabledContext from '../config-provider/DisabledContext';
 import { getMergedStatus, getStatusClassNames, InputStatus } from '../_util/statusUtils';
 import { ConfigContext } from '../config-provider';
 import { FormItemInputContext, NoFormStatus } from '../form/context';
@@ -111,6 +112,7 @@ export interface InputProps
     'wrapperClassName' | 'groupClassName' | 'inputClassName' | 'affixWrapperClassName'
   > {
   size?: SizeType;
+  disabled?: boolean;
   status?: InputStatus;
   bordered?: boolean;
   [key: `data-${string}`]: string;
@@ -122,6 +124,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     bordered = true,
     status: customStatus,
     size: customSize,
+    disabled: customDisabled,
     onBlur,
     onFocus,
     suffix,
@@ -138,6 +141,10 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   // ===================== Size =====================
   const size = React.useContext(SizeContext);
   const mergedSize = customSize || size;
+
+  // ===================== Disabled =====================
+  const disabled = React.useContext(DisabledContext);
+  const mergedDisabled = customDisabled || disabled;
 
   // ===================== Status =====================
   const { status: contextStatus, hasFeedback, feedbackIcon } = useContext(FormItemInputContext);
@@ -209,6 +216,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       prefixCls={prefixCls}
       autoComplete={input?.autoComplete}
       {...rest}
+      disabled={mergedDisabled || undefined}
       onBlur={handleBlur}
       onFocus={handleFocus}
       suffix={suffixNode}

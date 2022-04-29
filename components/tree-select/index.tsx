@@ -18,6 +18,7 @@ import { SwitcherIcon } from '../tree/Tree';
 import getIcons from '../select/utils/iconUtil';
 import renderSwitcherIcon from '../tree/utils/iconUtil';
 import SizeContext, { SizeType } from '../config-provider/SizeContext';
+import DisabledContext from '../config-provider/DisabledContext';
 import { getTransitionName, getTransitionDirection, SelectCommonPlacement } from '../_util/motion';
 import { FormItemInputContext } from '../form/context';
 import { getMergedStatus, getStatusClassNames, InputStatus } from '../_util/statusUtils';
@@ -47,6 +48,7 @@ export interface TreeSelectProps<
   > {
   suffixIcon?: React.ReactNode;
   size?: SizeType;
+  disabled?: boolean;
   placement?: SelectCommonPlacement;
   bordered?: boolean;
   treeLine?: TreeProps['showLine'];
@@ -58,6 +60,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
   {
     prefixCls: customizePrefixCls,
     size: customizeSize,
+    disabled: customDisabled,
     bordered = true,
     className,
     treeCheckable,
@@ -153,6 +156,10 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
   };
 
   const mergedSize = customizeSize || size;
+  // ===================== Disabled =====================
+  const disabled = React.useContext(DisabledContext);
+  const mergedDisabled = customDisabled || disabled;
+
   const mergedClassName = classNames(
     !customizePrefixCls && treeSelectPrefixCls,
     {
@@ -171,6 +178,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
     <RcTreeSelect
       virtual={virtual}
       dropdownMatchSelectWidth={dropdownMatchSelectWidth}
+      disabled={mergedDisabled}
       {...selectProps}
       ref={ref as any}
       prefixCls={prefixCls}

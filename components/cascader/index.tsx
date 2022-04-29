@@ -18,6 +18,7 @@ import devWarning from '../_util/devWarning';
 import { ConfigContext } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
+import DisabledContext from '../config-provider/DisabledContext';
 import getIcons from '../select/utils/iconUtil';
 import { getTransitionName, getTransitionDirection, SelectCommonPlacement } from '../_util/motion';
 import { FormItemInputContext } from '../form/context';
@@ -98,6 +99,7 @@ type UnionCascaderProps = SingleCascaderProps | MultipleCascaderProps;
 export type CascaderProps<DataNodeType> = UnionCascaderProps & {
   multiple?: boolean;
   size?: SizeType;
+  disabled?: boolean;
   bordered?: boolean;
   placement?: SelectCommonPlacement;
   suffixIcon?: React.ReactNode;
@@ -114,6 +116,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
   const {
     prefixCls: customizePrefixCls,
     size: customizeSize,
+    disabled: customDisabled,
     className,
     multiple,
     bordered = true,
@@ -212,6 +215,10 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
   const size = React.useContext(SizeContext);
   const mergedSize = customizeSize || size;
 
+  // ===================== Disabled =====================
+  const disabled = React.useContext(DisabledContext);
+  const mergedDisabled = customDisabled || disabled;
+
   // ===================== Icon ======================
   let mergedExpandIcon = expandIcon;
   if (!expandIcon) {
@@ -267,6 +274,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
         getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
         className,
       )}
+      disabled={mergedDisabled}
       {...(restProps as any)}
       direction={mergedDirection}
       placement={getPlacement()}

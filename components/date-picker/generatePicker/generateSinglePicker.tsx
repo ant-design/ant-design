@@ -13,6 +13,7 @@ import devWarning from '../../_util/devWarning';
 import { ConfigContext, ConfigConsumerProps } from '../../config-provider';
 import LocaleReceiver from '../../locale-provider/LocaleReceiver';
 import SizeContext from '../../config-provider/SizeContext';
+import DisabledContext from '../../config-provider/DisabledContext';
 import {
   PickerProps,
   PickerLocale,
@@ -72,6 +73,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
           getPopupContainer: customizeGetPopupContainer,
           className,
           size: customizeSize,
+          disabled: customDisabled,
           bordered = true,
           placement,
           placeholder,
@@ -100,61 +102,72 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
         const rootPrefixCls = getPrefixCls();
 
         return (
-          <SizeContext.Consumer>
-            {size => {
-              const mergedSize = customizeSize || size;
-
+          <DisabledContext.Consumer>
+            {disabled => {
+              const mergedDisabled = customDisabled || disabled;
               return (
-                <FormItemInputContext.Consumer>
-                  {({ hasFeedback, status: contextStatus, feedbackIcon }) => {
-                    const suffixNode = (
-                      <>
-                        {mergedPicker === 'time' ? <ClockCircleOutlined /> : <CalendarOutlined />}
-                        {hasFeedback && feedbackIcon}
-                      </>
-                    );
-
+                <SizeContext.Consumer>
+                  {size => {
+                    const mergedSize = customizeSize || size;
                     return (
-                      <RCPicker<DateType>
-                        ref={this.pickerRef}
-                        placeholder={getPlaceholder(mergedPicker, locale, placeholder)}
-                        suffixIcon={suffixNode}
-                        dropdownAlign={transPlacement2DropdownAlign(direction, placement)}
-                        clearIcon={<CloseCircleFilled />}
-                        prevIcon={<span className={`${prefixCls}-prev-icon`} />}
-                        nextIcon={<span className={`${prefixCls}-next-icon`} />}
-                        superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
-                        superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
-                        allowClear
-                        transitionName={`${rootPrefixCls}-slide-up`}
-                        {...additionalProps}
-                        {...restProps}
-                        {...additionalOverrideProps}
-                        locale={locale!.lang}
-                        className={classNames(
-                          {
-                            [`${prefixCls}-${mergedSize}`]: mergedSize,
-                            [`${prefixCls}-borderless`]: !bordered,
-                          },
-                          getStatusClassNames(
-                            prefixCls as string,
-                            getMergedStatus(contextStatus, customStatus),
-                            hasFeedback,
-                          ),
-                          className,
-                        )}
-                        prefixCls={prefixCls}
-                        getPopupContainer={customizeGetPopupContainer || getPopupContainer}
-                        generateConfig={generateConfig}
-                        components={Components}
-                        direction={direction}
-                      />
+                      <FormItemInputContext.Consumer>
+                        {({ hasFeedback, status: contextStatus, feedbackIcon }) => {
+                          const suffixNode = (
+                            <>
+                              {mergedPicker === 'time' ? (
+                                <ClockCircleOutlined />
+                              ) : (
+                                <CalendarOutlined />
+                              )}
+                              {hasFeedback && feedbackIcon}
+                            </>
+                          );
+
+                          return (
+                            <RCPicker<DateType>
+                              ref={this.pickerRef}
+                              placeholder={getPlaceholder(mergedPicker, locale, placeholder)}
+                              suffixIcon={suffixNode}
+                              dropdownAlign={transPlacement2DropdownAlign(direction, placement)}
+                              clearIcon={<CloseCircleFilled />}
+                              prevIcon={<span className={`${prefixCls}-prev-icon`} />}
+                              nextIcon={<span className={`${prefixCls}-next-icon`} />}
+                              superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
+                              superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
+                              allowClear
+                              transitionName={`${rootPrefixCls}-slide-up`}
+                              {...additionalProps}
+                              {...restProps}
+                              {...additionalOverrideProps}
+                              locale={locale!.lang}
+                              className={classNames(
+                                {
+                                  [`${prefixCls}-${mergedSize}`]: mergedSize,
+                                  [`${prefixCls}-borderless`]: !bordered,
+                                },
+                                getStatusClassNames(
+                                  prefixCls as string,
+                                  getMergedStatus(contextStatus, customStatus),
+                                  hasFeedback,
+                                ),
+                                className,
+                              )}
+                              prefixCls={prefixCls}
+                              getPopupContainer={customizeGetPopupContainer || getPopupContainer}
+                              generateConfig={generateConfig}
+                              components={Components}
+                              direction={direction}
+                              disabled={mergedDisabled}
+                            />
+                          );
+                        }}
+                      </FormItemInputContext.Consumer>
                     );
                   }}
-                </FormItemInputContext.Consumer>
+                </SizeContext.Consumer>
               );
             }}
-          </SizeContext.Consumer>
+          </DisabledContext.Consumer>
         );
       };
 

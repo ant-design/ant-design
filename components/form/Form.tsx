@@ -11,6 +11,7 @@ import { FormContext, FormContextProps } from './context';
 import { FormLabelAlign } from './interface';
 import useForm, { FormInstance } from './hooks/useForm';
 import SizeContext, { SizeType, SizeContextProvider } from '../config-provider/SizeContext';
+import DisabledContext, { DisabledContextProvider } from '../config-provider/DisabledContext';
 
 export type RequiredMark = boolean | 'optional';
 export type FormLayout = 'horizontal' | 'inline' | 'vertical';
@@ -26,6 +27,7 @@ export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form
   wrapperCol?: ColProps;
   form?: FormInstance<Values>;
   size?: SizeType;
+  disabled?: boolean;
   scrollToFirstError?: Options | boolean;
   requiredMark?: RequiredMark;
   /** @deprecated Will warning in future branch. Pls use `requiredMark` instead. */
@@ -34,12 +36,14 @@ export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form
 
 const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (props, ref) => {
   const contextSize = React.useContext(SizeContext);
+  const contextDisabled = React.useContext(DisabledContext);
   const { getPrefixCls, direction, form: contextForm } = React.useContext(ConfigContext);
 
   const {
     prefixCls: customizePrefixCls,
     className = '',
     size = contextSize,
+    disabled = contextDisabled,
     form,
     colon,
     labelAlign,
@@ -122,18 +126,20 @@ const InternalForm: React.ForwardRefRenderFunction<FormInstance, FormProps> = (p
   };
 
   return (
-    <SizeContextProvider size={size}>
-      <FormContext.Provider value={formContextValue}>
-        <FieldForm
-          id={name}
-          {...restFormProps}
-          name={name}
-          onFinishFailed={onInternalFinishFailed}
-          form={wrapForm}
-          className={formClassName}
-        />
-      </FormContext.Provider>
-    </SizeContextProvider>
+    <DisabledContextProvider disabled={disabled}>
+      <SizeContextProvider size={size}>
+        <FormContext.Provider value={formContextValue}>
+          <FieldForm
+            id={name}
+            {...restFormProps}
+            name={name}
+            onFinishFailed={onInternalFinishFailed}
+            form={wrapForm}
+            className={formClassName}
+          />
+        </FormContext.Provider>
+      </SizeContextProvider>
+    </DisabledContextProvider>
   );
 };
 
