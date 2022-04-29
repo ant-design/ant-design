@@ -6,22 +6,30 @@
 // import '../../date-picker/style';
 
 import { CSSObject } from '@ant-design/cssinjs';
+import { TinyColor } from '@ctrl/tinycolor';
 import { FullToken, genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
+import { ComponentToken as DatePickerComponentToken, genPanelStyle } from '../../date-picker/style';
+import { initInputToken, InputToken } from '../../input/style';
 
-export interface ComponentToken {
+export interface ComponentToken extends DatePickerComponentToken {
   calendarFullBg: string;
   calendarFullPanelBg: string;
   calendarItemActiveBg: string;
 }
 
-interface CalendarToken extends FullToken<'Calendar'> {
+interface CalendarToken extends InputToken<FullToken<'Calendar'>> {
   calendarCls: string;
+  // date-picker token
+  arrowWidth: number;
+  pickerCellInnerCls: string;
+  hashId?: string;
 }
 
 export const genCalendarStyles = (token: CalendarToken): CSSObject => {
   const { calendarCls, componentCls, calendarFullBg, calendarFullPanelBg, calendarItemActiveBg } =
     token;
   return {
+    '': genPanelStyle(token),
     [calendarCls]: {
       ...resetComponent(token),
       background: calendarFullBg,
@@ -49,7 +57,7 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
         },
       },
     },
-    [`& ${componentCls}-panel`]: {
+    [`${calendarCls} ${componentCls}-panel`]: {
       background: calendarFullPanelBg,
       border: 0,
       borderTop: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorSplit}`,
@@ -89,7 +97,7 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
         pointerEvents: 'none',
       },
     },
-    [`${calendarCls}-full`]: {
+    [`${calendarCls}${calendarCls}-full`]: {
       [`${componentCls}-panel`]: {
         display: 'block',
         width: '100%',
@@ -119,7 +127,7 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
             background: token.controlItemBgHover,
           },
         },
-        [`${calendarCls}-date-tody::before`]: {
+        [`${calendarCls}-date-today::before`]: {
           display: 'none',
         },
         '&-selected, &-selected:hover': {
@@ -191,10 +199,13 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
 
 export default genComponentStyleHook(
   'Calendar',
-  token => {
+  (token, { hashId }) => {
     const calendarCls = `${token.componentCls}-calendar`;
-    const calendarToken = mergeToken<CalendarToken>(token, {
+    const calendarToken = mergeToken<CalendarToken>(initInputToken<FullToken<'Calendar'>>(token), {
       calendarCls,
+      pickerCellInnerCls: `${token.componentCls}-cell-inner`,
+      arrowWidth: 8 * Math.sqrt(2),
+      hashId,
     });
 
     return [genCalendarStyles(calendarToken)];
@@ -203,5 +214,17 @@ export default genComponentStyleHook(
     calendarFullBg: token.colorBgComponent,
     calendarFullPanelBg: token.colorBgComponent,
     calendarItemActiveBg: token.controlItemBgActive,
+
+    // date-picker token
+    zIndexDropdown: token.zIndexPopup + 50,
+    pickerTextHeight: 40,
+    pickerPanelCellWidth: 36,
+    pickerPanelCellHeight: 24,
+    pickerDateHoverRangeBorderColor: new TinyColor(token.colorPrimary).lighten(20).toRgbString(),
+    pickerBasicCellHoverWithRangeColor: new TinyColor(token.colorPrimary).lighten(35).toRgbString(),
+    pickerPanelWithoutTimeCellHeight: 66,
+    pickerTimePanelColumnHeight: 224,
+    pickerTimePanelColumnWidth: 56,
+    pickerTimePanelCellHeight: 28,
   }),
 );
