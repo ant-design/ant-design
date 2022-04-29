@@ -53,7 +53,10 @@ const genPikerPadding = (
   };
 };
 
-const genPickerCellInnerStyle = (token: PickerToken, cellClassName: string): CSSObject => {
+const genPickerCellInnerStyle = (
+  token: Omit<PickerToken, 'zIndexDropdown'>,
+  cellClassName: string,
+): CSSObject => {
   const { componentCls } = token;
 
   return {
