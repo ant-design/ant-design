@@ -1,2 +1,4 @@
-package.json @ant-design/ant-design-core
-.github/workflows/ @ant-design/ant-design-core
+package.json          @ant-design/ant-design-core
+.github/workflows/    @ant-design/ant-design-core
+scripts/              @ant-design/ant-design-core
+LICENSE               @ant-design/ant-design-core
