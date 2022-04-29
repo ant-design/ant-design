@@ -11,7 +11,7 @@ import { FullToken, genComponentStyleHook, mergeToken, resetComponent } from '..
 import { ComponentToken as DatePickerComponentToken, genPanelStyle } from '../../date-picker/style';
 import { initInputToken, InputToken } from '../../input/style';
 
-export interface ComponentToken extends DatePickerComponentToken {
+export interface ComponentToken extends Omit<DatePickerComponentToken, 'zIndexDropdown'> {
   calendarFullBg: string;
   calendarFullPanelBg: string;
   calendarItemActiveBg: string;
@@ -22,7 +22,6 @@ interface CalendarToken extends InputToken<FullToken<'Calendar'>> {
   // date-picker token
   arrowWidth: number;
   pickerCellInnerCls: string;
-  hashId?: string;
 }
 
 export const genCalendarStyles = (token: CalendarToken): CSSObject => {
@@ -199,13 +198,12 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
 
 export default genComponentStyleHook(
   'Calendar',
-  (token, { hashId }) => {
+  token => {
     const calendarCls = `${token.componentCls}-calendar`;
     const calendarToken = mergeToken<CalendarToken>(initInputToken<FullToken<'Calendar'>>(token), {
       calendarCls,
       pickerCellInnerCls: `${token.componentCls}-cell-inner`,
       arrowWidth: 8 * Math.sqrt(2),
-      hashId,
     });
 
     return [genCalendarStyles(calendarToken)];
@@ -216,7 +214,6 @@ export default genComponentStyleHook(
     calendarItemActiveBg: token.controlItemBgActive,
 
     // date-picker token
-    zIndexDropdown: token.zIndexPopup + 50,
     pickerTextHeight: 40,
     pickerPanelCellWidth: 36,
     pickerPanelCellHeight: 24,

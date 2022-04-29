@@ -276,7 +276,7 @@ const genPickerCellInnerStyle = (token: PickerToken, cellClassName: string): CSS
   };
 };
 
-export const genPanelStyle = (token: PickerToken): CSSObject => {
+export const genPanelStyle = (token: Omit<PickerToken, 'zIndexDropdown'>): CSSObject => {
   const { componentCls, pickerCellInnerCls } = token;
 
   const pickerArrowSize = 7; // FIXME: v4 magic number
