@@ -26,16 +26,15 @@ import {
   InputNumber,
   TreeSelect,
   Switch,
+  Checkbox,
 } from 'antd';
 
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
 
-type DisabledType = Parameters<typeof Form>[0]['disabled'];
-
 const FormDisabledDemo = () => {
-  const [componentDisabled, setComponentDisabled] = useState<DisabledType | false>(false);
-  const onFormLayoutChange = ({ disabled }: { disabled: DisabledType }) => {
+  const [componentDisabled, setComponentDisabled] = useState<boolean>(false);
+  const onFormLayoutChange = ({ disabled }: { disabled: boolean }) => {
     setComponentDisabled(disabled);
   };
 
@@ -46,12 +45,15 @@ const FormDisabledDemo = () => {
       layout="horizontal"
       initialValues={{ disabled: componentDisabled }}
       onValuesChange={onFormLayoutChange}
-      disabled={componentDisabled as DisabledType}
+      disabled={componentDisabled}
     >
-      <Form.Item label="Form disabled" name="disabled">
+      <Form.Item label="Form disabled" name="disabled" valuePropName="checked">
+        <Checkbox>disabled</Checkbox>
+      </Form.Item>
+      <Form.Item label="Radio">
         <Radio.Group>
-          <Radio.Button value="disabled"> true </Radio.Button>
-          <Radio.Button value=""> false </Radio.Button>
+          <Radio value="apple"> apple </Radio>
+          <Radio value="Pear"> Pear </Radio>
         </Radio.Group>
       </Form.Item>
       <Form.Item label="Input">
