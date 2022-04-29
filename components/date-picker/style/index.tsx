@@ -1187,7 +1187,7 @@ export default genComponentStyleHook(
   'DatePicker',
   (token, { hashId }) => {
     const pickerToken = mergeToken<PickerToken>(initInputToken<FullToken<'DatePicker'>>(token), {
-      arrowWidth: 8 * Math.sqrt(2),
+      arrowWidth: token.sizePopupArrow,
       pickerCellInnerCls: `${token.componentCls}-cell-inner`,
       hashId,
     });

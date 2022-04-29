@@ -203,7 +203,7 @@ export default genComponentStyleHook(
     const calendarToken = mergeToken<CalendarToken>(initInputToken<FullToken<'Calendar'>>(token), {
       calendarCls,
       pickerCellInnerCls: `${token.componentCls}-cell-inner`,
-      arrowWidth: 8 * Math.sqrt(2),
+      arrowWidth: token.sizePopupArrow,
     });
 
     return [genCalendarStyles(calendarToken)];
