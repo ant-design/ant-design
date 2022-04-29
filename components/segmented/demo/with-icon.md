@@ -1,5 +1,5 @@
 ---
-order: 0
+order: 7
 title:
   zh-CN: 设置图标
   en-US: With Icon
@@ -17,7 +17,7 @@ Set `icon` for Segmented Item.
 import { Segmented } from 'antd';
 import { AppstoreOutlined, BarsOutlined } from '@ant-design/icons';
 
-ReactDOM.render(
+export default () => (
   <Segmented
     options={[
       {
@@ -31,7 +31,6 @@ ReactDOM.render(
         icon: <AppstoreOutlined />,
       },
     ]}
-  />,
-  mountNode,
+  />
 );
 ```

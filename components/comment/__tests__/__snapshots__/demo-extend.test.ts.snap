@@ -41,7 +41,7 @@ exports[`renders ./components/comment/demo/basic.md extend context correctly 1`]
           <div>
             <div
               class="ant-tooltip"
-              style="opacity:0;pointer-events:none"
+              style="opacity:0"
             >
               <div
                 class="ant-tooltip-content"
@@ -104,7 +104,7 @@ exports[`renders ./components/comment/demo/basic.md extend context correctly 1`]
           <div>
             <div
               class="ant-tooltip"
-              style="opacity:0;pointer-events:none"
+              style="opacity:0"
             >
               <div
                 class="ant-tooltip-content"
@@ -156,7 +156,7 @@ exports[`renders ./components/comment/demo/basic.md extend context correctly 1`]
           <div>
             <div
               class="ant-tooltip"
-              style="opacity:0;pointer-events:none"
+              style="opacity:0"
             >
               <div
                 class="ant-tooltip-content"
@@ -317,7 +317,7 @@ exports[`renders ./components/comment/demo/list.md extend context correctly 1`] 
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"
@@ -395,7 +395,7 @@ exports[`renders ./components/comment/demo/list.md extend context correctly 1`] 
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { render, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import Space from '..';
 import ConfigProvider from '../../config-provider';
@@ -34,7 +34,7 @@ describe('Space', () => {
       </ConfigProvider>,
     );
 
-    expect(render(wrapper)).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('should render width rtl', () => {
@@ -55,7 +55,7 @@ describe('Space', () => {
       </ConfigProvider>,
     );
 
-    expect(render(wrapper)).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('should render width customize size', () => {
@@ -102,7 +102,7 @@ describe('Space', () => {
       </Space>,
     );
 
-    expect(render(wrapper)).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('should render with invalidElement', () => {
@@ -170,6 +170,27 @@ describe('Space', () => {
       </Space>,
     );
 
-    expect(render(wrapper)).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  // https://github.com/ant-design/ant-design/issues/35305
+  it('should not throw duplicated key warning', () => {
+    jest.spyOn(console, 'error').mockImplementation(() => undefined);
+    mount(
+      <Space>
+        <div key="1" />
+        <div />
+        <div key="3" />
+        <div />
+      </Space>,
+    );
+    // eslint-disable-next-line no-console
+    expect(console.error).not.toHaveBeenCalledWith(
+      expect.stringContaining('Encountered two children with the same key'),
+      expect.anything(),
+      expect.anything(),
+    );
+    // eslint-disable-next-line no-console
+    console.error.mockRestore();
   });
 });

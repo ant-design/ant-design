@@ -36,6 +36,7 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
                 <tr>
                   <th
                     class="ant-table-cell ant-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="ant-table-column-sorters"
@@ -1134,6 +1135,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md correctly 1`] = 
                   </th>
                   <th
                     class="ant-table-cell ant-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="ant-table-filter-column"
@@ -2714,6 +2716,7 @@ Array [
                     </th>
                     <th
                       class="ant-table-cell ant-table-column-has-sorters"
+                      tabindex="0"
                     >
                       <div
                         class="ant-table-column-sorters"
@@ -2811,6 +2814,7 @@ Array [
                     </th>
                     <th
                       class="ant-table-cell ant-table-column-has-sorters"
+                      tabindex="0"
                     >
                       <div
                         class="ant-table-column-sorters"
@@ -2937,29 +2941,40 @@ Array [
                         <div
                           class="ant-space-item"
                         >
-                          <a
-                            class="ant-dropdown-link"
-                          >
-                            More actions 
-                            <span
-                              aria-label="down"
-                              class="anticon anticon-down"
-                              role="img"
+                          <a>
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-align-center"
                             >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="down"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
+                              <div
+                                class="ant-space-item"
+                                style="margin-right:8px"
                               >
-                                <path
-                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                />
-                              </svg>
-                            </span>
+                                More actions
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                <span
+                                  aria-label="down"
+                                  class="anticon anticon-down"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="down"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </div>
                           </a>
                         </div>
                       </div>
@@ -3029,29 +3044,40 @@ Array [
                         <div
                           class="ant-space-item"
                         >
-                          <a
-                            class="ant-dropdown-link"
-                          >
-                            More actions 
-                            <span
-                              aria-label="down"
-                              class="anticon anticon-down"
-                              role="img"
+                          <a>
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-align-center"
                             >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="down"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
+                              <div
+                                class="ant-space-item"
+                                style="margin-right:8px"
                               >
-                                <path
-                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                />
-                              </svg>
-                            </span>
+                                More actions
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                <span
+                                  aria-label="down"
+                                  class="anticon anticon-down"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="down"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </div>
                           </a>
                         </div>
                       </div>
@@ -3121,29 +3147,40 @@ Array [
                         <div
                           class="ant-space-item"
                         >
-                          <a
-                            class="ant-dropdown-link"
-                          >
-                            More actions 
-                            <span
-                              aria-label="down"
-                              class="anticon anticon-down"
-                              role="img"
+                          <a>
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-align-center"
                             >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="down"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
+                              <div
+                                class="ant-space-item"
+                                style="margin-right:8px"
                               >
-                                <path
-                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                />
-                              </svg>
-                            </span>
+                                More actions
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                <span
+                                  aria-label="down"
+                                  class="anticon anticon-down"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="down"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </div>
                           </a>
                         </div>
                       </div>
@@ -3213,29 +3250,40 @@ Array [
                         <div
                           class="ant-space-item"
                         >
-                          <a
-                            class="ant-dropdown-link"
-                          >
-                            More actions 
-                            <span
-                              aria-label="down"
-                              class="anticon anticon-down"
-                              role="img"
+                          <a>
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-align-center"
                             >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="down"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
+                              <div
+                                class="ant-space-item"
+                                style="margin-right:8px"
                               >
-                                <path
-                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                />
-                              </svg>
-                            </span>
+                                More actions
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                <span
+                                  aria-label="down"
+                                  class="anticon anticon-down"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="down"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </div>
                           </a>
                         </div>
                       </div>
@@ -3305,29 +3353,40 @@ Array [
                         <div
                           class="ant-space-item"
                         >
-                          <a
-                            class="ant-dropdown-link"
-                          >
-                            More actions 
-                            <span
-                              aria-label="down"
-                              class="anticon anticon-down"
-                              role="img"
+                          <a>
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-align-center"
                             >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="down"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
+                              <div
+                                class="ant-space-item"
+                                style="margin-right:8px"
                               >
-                                <path
-                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                />
-                              </svg>
-                            </span>
+                                More actions
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                <span
+                                  aria-label="down"
+                                  class="anticon anticon-down"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="down"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </div>
                           </a>
                         </div>
                       </div>
@@ -3397,29 +3456,40 @@ Array [
                         <div
                           class="ant-space-item"
                         >
-                          <a
-                            class="ant-dropdown-link"
-                          >
-                            More actions 
-                            <span
-                              aria-label="down"
-                              class="anticon anticon-down"
-                              role="img"
+                          <a>
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-align-center"
                             >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="down"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
+                              <div
+                                class="ant-space-item"
+                                style="margin-right:8px"
                               >
-                                <path
-                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                />
-                              </svg>
-                            </span>
+                                More actions
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                <span
+                                  aria-label="down"
+                                  class="anticon anticon-down"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="down"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </div>
                           </a>
                         </div>
                       </div>
@@ -3489,29 +3559,40 @@ Array [
                         <div
                           class="ant-space-item"
                         >
-                          <a
-                            class="ant-dropdown-link"
-                          >
-                            More actions 
-                            <span
-                              aria-label="down"
-                              class="anticon anticon-down"
-                              role="img"
+                          <a>
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-align-center"
                             >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="down"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
+                              <div
+                                class="ant-space-item"
+                                style="margin-right:8px"
                               >
-                                <path
-                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                />
-                              </svg>
-                            </span>
+                                More actions
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                <span
+                                  aria-label="down"
+                                  class="anticon anticon-down"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="down"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </div>
                           </a>
                         </div>
                       </div>
@@ -3581,29 +3662,40 @@ Array [
                         <div
                           class="ant-space-item"
                         >
-                          <a
-                            class="ant-dropdown-link"
-                          >
-                            More actions 
-                            <span
-                              aria-label="down"
-                              class="anticon anticon-down"
-                              role="img"
+                          <a>
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-align-center"
                             >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="down"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
+                              <div
+                                class="ant-space-item"
+                                style="margin-right:8px"
                               >
-                                <path
-                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                />
-                              </svg>
-                            </span>
+                                More actions
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                <span
+                                  aria-label="down"
+                                  class="anticon anticon-down"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="down"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </div>
                           </a>
                         </div>
                       </div>
@@ -3673,29 +3765,40 @@ Array [
                         <div
                           class="ant-space-item"
                         >
-                          <a
-                            class="ant-dropdown-link"
-                          >
-                            More actions 
-                            <span
-                              aria-label="down"
-                              class="anticon anticon-down"
-                              role="img"
+                          <a>
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-align-center"
                             >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="down"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
+                              <div
+                                class="ant-space-item"
+                                style="margin-right:8px"
                               >
-                                <path
-                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                />
-                              </svg>
-                            </span>
+                                More actions
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                <span
+                                  aria-label="down"
+                                  class="anticon anticon-down"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="down"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </div>
                           </a>
                         </div>
                       </div>
@@ -3765,29 +3868,40 @@ Array [
                         <div
                           class="ant-space-item"
                         >
-                          <a
-                            class="ant-dropdown-link"
-                          >
-                            More actions 
-                            <span
-                              aria-label="down"
-                              class="anticon anticon-down"
-                              role="img"
+                          <a>
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-align-center"
                             >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="down"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
+                              <div
+                                class="ant-space-item"
+                                style="margin-right:8px"
                               >
-                                <path
-                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                />
-                              </svg>
-                            </span>
+                                More actions
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                <span
+                                  aria-label="down"
+                                  class="anticon anticon-down"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="down"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </div>
                           </a>
                         </div>
                       </div>
@@ -5663,6 +5777,7 @@ exports[`renders ./components/table/demo/filter-in-tree.md correctly 1`] = `
                   </th>
                   <th
                     class="ant-table-cell ant-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="ant-table-column-sorters"
@@ -6008,6 +6123,7 @@ exports[`renders ./components/table/demo/filter-search.md correctly 1`] = `
                   </th>
                   <th
                     class="ant-table-cell ant-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="ant-table-column-sorters"
@@ -9206,6 +9322,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
                   <th
                     class="ant-table-cell ant-table-column-has-sorters"
                     rowspan="3"
+                    tabindex="0"
                   >
                     <div
                       class="ant-table-column-sorters"
@@ -10171,6 +10288,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                 <tr>
                   <th
                     class="ant-table-cell ant-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="ant-table-filter-column"
@@ -10245,6 +10363,7 @@ exports[`renders ./components/table/demo/head.md correctly 1`] = `
                   <th
                     aria-sort="descending"
                     class="ant-table-cell ant-table-column-sort ant-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="ant-table-column-sorters"
@@ -10894,6 +11013,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
                   </th>
                   <th
                     class="ant-table-cell ant-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="ant-table-column-sorters"
@@ -10953,6 +11073,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
                   </th>
                   <th
                     class="ant-table-cell ant-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="ant-table-column-sorters"
@@ -11012,6 +11133,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md correctly 1`] = `
                   </th>
                   <th
                     class="ant-table-cell ant-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="ant-table-column-sorters"
@@ -13552,6 +13674,7 @@ Array [
                   <tr>
                     <th
                       class="ant-table-cell ant-table-cell-ellipsis ant-table-column-has-sorters"
+                      tabindex="0"
                     >
                       <div
                         class="ant-table-filter-column"
@@ -13644,6 +13767,7 @@ Array [
                     </th>
                     <th
                       class="ant-table-cell ant-table-cell-ellipsis ant-table-column-has-sorters"
+                      tabindex="0"
                     >
                       <div
                         class="ant-table-column-sorters"
@@ -13703,6 +13827,7 @@ Array [
                     </th>
                     <th
                       class="ant-table-cell ant-table-cell-ellipsis ant-table-column-has-sorters"
+                      tabindex="0"
                     >
                       <div
                         class="ant-table-filter-column"
@@ -14031,6 +14156,7 @@ exports[`renders ./components/table/demo/resizable-column.md correctly 1`] = `
                   </th>
                   <th
                     class="ant-table-cell ant-table-column-has-sorters react-resizable"
+                    tabindex="0"
                   >
                     <div
                       class="ant-table-column-sorters"

@@ -27,6 +27,7 @@ export interface UploadFile<T = any> {
   status?: UploadFileStatus;
   percent?: number;
   thumbUrl?: string;
+  crossOrigin?: React.ImgHTMLAttributes<HTMLImageElement>['crossOrigin'];
   originFileObj?: RcFile;
   response?: T;
   error?: any;
@@ -43,7 +44,7 @@ export interface InternalUploadFile<T = any> extends UploadFile<T> {
 export interface UploadChangeParam<T = UploadFile> {
   // https://github.com/ant-design/ant-design/issues/14420
   file: T;
-  fileList: UploadFile[];
+  fileList: T[];
   event?: { percent: number };
 }
 

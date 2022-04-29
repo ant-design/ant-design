@@ -2,9 +2,6 @@ import * as React from 'react';
 import RcUpload, { UploadProps as RcUploadProps } from 'rc-upload';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import classNames from 'classnames';
-import { useContext } from 'react';
-import { FormItemInputContext } from '../form/context';
-import Dragger from './Dragger';
 import UploadList from './UploadList';
 import {
   RcFile,
@@ -22,7 +19,7 @@ import defaultLocale from '../locale/default';
 import { ConfigContext } from '../config-provider';
 import devWarning from '../_util/devWarning';
 
-const LIST_IGNORE = `__LIST_IGNORE_${Date.now()}__`;
+export const LIST_IGNORE = `__LIST_IGNORE_${Date.now()}__`;
 
 export { UploadProps };
 
@@ -302,8 +299,6 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
 
   const prefixCls = getPrefixCls('upload', customizePrefixCls);
 
-  const { isFormItemInput } = useContext(FormItemInputContext);
-
   const rcUploadProps = {
     onBatchStart,
     onError,
@@ -341,6 +336,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
             typeof showUploadList === 'boolean' ? ({} as ShowUploadListInterface) : showUploadList;
           return (
             <UploadList
+              prefixCls={prefixCls}
               listType={listType}
               items={mergedFileList}
               previewFile={previewFile}
@@ -377,7 +373,6 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
         [`${prefixCls}-drag-hover`]: dragState === 'dragover',
         [`${prefixCls}-disabled`]: disabled,
         [`${prefixCls}-rtl`]: direction === 'rtl',
-        [`${prefixCls}-in-form-item`]: isFormItemInput,
       },
       className,
     );
@@ -404,7 +399,6 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     [`${prefixCls}-select-${listType}`]: true,
     [`${prefixCls}-disabled`]: disabled,
     [`${prefixCls}-rtl`]: direction === 'rtl',
-    [`${prefixCls}-in-form-item`]: isFormItemInput,
   });
 
   const renderUploadButton = (uploadButtonStyle?: React.CSSProperties) => (
@@ -429,24 +423,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
   );
 };
 
-const ForwardUpload = React.forwardRef<unknown, UploadProps>(InternalUpload) as <T>(
-  props: React.PropsWithChildren<UploadProps<T>> & React.RefAttributes<any>,
-) => React.ReactElement;
-
-type InternalUploadType = typeof ForwardUpload;
-
-interface UploadInterface extends InternalUploadType {
-  defaultProps?: Partial<UploadProps>;
-  displayName?: string;
-  Dragger: typeof Dragger;
-  LIST_IGNORE: string;
-}
-
-const Upload = ForwardUpload as UploadInterface;
-
-Upload.Dragger = Dragger;
-
-Upload.LIST_IGNORE = LIST_IGNORE;
+const Upload = React.forwardRef<unknown, UploadProps>(InternalUpload);
 
 Upload.displayName = 'Upload';
 

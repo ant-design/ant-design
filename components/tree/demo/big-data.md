@@ -38,5 +38,5 @@ for (let i = 0; i < 100; i += 1) {
 
 const Demo = () => <Tree defaultExpandAll height={400} treeData={treeData} />;
 
-export default () => <Demo />;
+export default Demo;
 ```

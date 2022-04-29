@@ -1,11 +1,9 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { spyElementPrototype } from 'rc-util/lib/test/domHook';
-import { render, fireEvent } from '@testing-library/react';
-import '@testing-library/jest-dom';
 import Popconfirm from '..';
 import mountTest from '../../../tests/shared/mountTest';
-import { sleep } from '../../../tests/utils';
+import { sleep, render, fireEvent } from '../../../tests/utils';
 import rtlTest from '../../../tests/shared/rtlTest';
 import Button from '../../button';
 

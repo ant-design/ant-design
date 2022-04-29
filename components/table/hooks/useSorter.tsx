@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import CaretDownOutlined from '@ant-design/icons/CaretDownOutlined';
 import CaretUpOutlined from '@ant-design/icons/CaretUpOutlined';
+import KeyCode from 'rc-util/lib/KeyCode';
 import {
   TransformColumns,
   ColumnsType,
@@ -104,7 +105,7 @@ function collectSortStates<RecordType>(
 function injectSorter<RecordType>(
   prefixCls: string,
   columns: ColumnsType<RecordType>,
-  sorterSates: SortState<RecordType>[],
+  sorterStates: SortState<RecordType>[],
   triggerSorter: (sorterSates: SortState<RecordType>) => void,
   defaultSortDirections: SortOrder[],
   tableLocale?: TableLocale,
@@ -122,7 +123,7 @@ function injectSorter<RecordType>(
           ? tableShowSorterTooltip
           : newColumn.showSorterTooltip;
       const columnKey = getColumnKey(newColumn, columnPos);
-      const sorterState = sorterSates.find(({ key }) => key === columnKey);
+      const sorterState = sorterStates.find(({ key }) => key === columnKey);
       const sorterOrder = sorterState ? sorterState.sortOrder : null;
       const nextSortOrder = nextSortDirection(sortDirections, sorterOrder);
       const upNode: React.ReactNode = sortDirections.includes(ASCEND) && (
@@ -179,6 +180,7 @@ function injectSorter<RecordType>(
           const cell: React.HTMLAttributes<HTMLElement> =
             (column.onHeaderCell && column.onHeaderCell(col)) || {};
           const originOnClick = cell.onClick;
+          const originOKeyDown = cell.onKeyDown;
           cell.onClick = (event: React.MouseEvent<HTMLElement>) => {
             triggerSorter({
               column,
@@ -186,9 +188,17 @@ function injectSorter<RecordType>(
               sortOrder: nextSortOrder,
               multiplePriority: getMultiplePriority(column),
             });
-
-            if (originOnClick) {
-              originOnClick(event);
+            originOnClick?.(event);
+          };
+          cell.onKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
+            if (event.keyCode === KeyCode.ENTER) {
+              triggerSorter({
+                column,
+                key: columnKey,
+                sortOrder: nextSortOrder,
+                multiplePriority: getMultiplePriority(column),
+              });
+              originOKeyDown?.(event);
             }
           };
 
@@ -202,6 +212,7 @@ function injectSorter<RecordType>(
           }
 
           cell.className = classNames(cell.className, `${prefixCls}-column-has-sorters`);
+          cell.tabIndex = 0;
 
           return cell;
         },
@@ -214,7 +225,7 @@ function injectSorter<RecordType>(
         children: injectSorter(
           prefixCls,
           newColumn.children,
-          sorterSates,
+          sorterStates,
           triggerSorter,
           defaultSortDirections,
           tableLocale,

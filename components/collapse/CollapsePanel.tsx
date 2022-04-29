@@ -19,6 +19,7 @@ export interface CollapsePanelProps {
   id?: string;
   extra?: React.ReactNode;
   collapsible?: CollapsibleType;
+  children?: React.ReactNode;
 }
 
 const CollapsePanel: React.FC<CollapsePanelProps> = props => {

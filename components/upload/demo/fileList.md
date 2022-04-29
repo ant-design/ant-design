@@ -25,7 +25,7 @@ You can gain full control over filelist by configuring `fileList`. You can accom
 import { Upload, Button } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 
-class MyUpload extends React.Component {
+class App extends React.Component {
   state = {
     fileList: [
       {
@@ -70,5 +70,5 @@ class MyUpload extends React.Component {
   }
 }
 
-export default () => <MyUpload />;
+export default App;
 ```

@@ -1,7 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { render } from '@testing-library/react';
-import '@testing-library/jest-dom';
+import { render } from '../../../tests/utils';
 import Popover from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import ConfigProvider from '../../config-provider';

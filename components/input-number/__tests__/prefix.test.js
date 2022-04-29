@@ -1,5 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import { render } from '@testing-library/react';
 import InputNumber from '..';
 import focusTest from '../../../tests/shared/focusTest';
 
@@ -9,9 +10,9 @@ describe('prefix', () => {
     { refFocus: true },
   );
   it('should support className when has prefix', () => {
-    const wrapper = mount(<InputNumber prefix="suffix" className="my-class-name" />);
-    expect(wrapper.getDOMNode().className.includes('my-class-name')).toBe(true);
-    expect(wrapper.find('input').getDOMNode().className.includes('my-class-name')).toBe(false);
+    const { container } = render(<InputNumber prefix="suffix" className="my-class-name" />);
+    expect(container.firstChild.className.includes('my-class-name')).toBe(true);
+    expect(container.querySelector('input')?.className.includes('my-class-name')).toBe(false);
   });
 
   it('should trigger focus when prefix is clicked', () => {

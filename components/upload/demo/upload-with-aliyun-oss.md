@@ -112,7 +112,7 @@ class AliyunOSSUpload extends React.Component {
   }
 }
 
-const FormPage = () => (
+const App = () => (
   <Form labelCol={{ span: 4 }}>
     <Form.Item label="Photos" name="photos">
       <AliyunOSSUpload />
@@ -120,5 +120,5 @@ const FormPage = () => (
   </Form>
 );
 
-export default () => <FormPage />;
+export default App;
 ```

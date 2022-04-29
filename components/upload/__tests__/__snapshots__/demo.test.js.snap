@@ -3240,7 +3240,7 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md correctly
                 type="button"
               >
                 <span>
-                  download 
+                  Download
                 </span>
               </button>
               <button
@@ -3327,7 +3327,7 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md correctly
                 type="button"
               >
                 <span>
-                  download 
+                  Download
                 </span>
               </button>
               <button
@@ -3590,7 +3590,7 @@ exports[`renders ./components/upload/demo/upload-with-aliyun-oss.md correctly 1`
             class=""
           >
             <div
-              class="ant-upload ant-upload-select ant-upload-select-text ant-upload-in-form-item"
+              class="ant-upload ant-upload-select ant-upload-select-text"
             >
               <span
                 class="ant-upload"

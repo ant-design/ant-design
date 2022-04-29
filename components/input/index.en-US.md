@@ -96,9 +96,9 @@ Supports all props of `Input`.
 
 ## FAQ
 
-### Why Input lose focus when change `prefix/suffix`
+### Why Input lose focus when change `prefix/suffix/showCount`
 
-When Input dynamic add or remove `prefix/suffix` will make React recreate the dom structure and new input will be not focused. You can set an empty `<span />` element to keep the dom structure:
+When Input dynamic add or remove `prefix/suffix/showCount` will make React recreate the dom structure and new input will be not focused. You can set an empty `<span />` element to keep the dom structure:
 
 ```jsx
 const suffix = condition ? <Icon type="smile" /> : <span />;

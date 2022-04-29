@@ -46,5 +46,5 @@ const App = () => {
   return <Table rowSelection={rowSelection} columns={columns} dataSource={data} />;
 };
 
-export default () => <App />;
+export default App;
 ```

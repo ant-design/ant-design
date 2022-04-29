@@ -1,15 +1,15 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render } from '../utils';
 
 // eslint-disable-next-line jest/no-export
 export default function mountTest(Component: React.ComponentType) {
   describe(`mount and unmount`, () => {
     // https://github.com/ant-design/ant-design/pull/18441
     it(`component could be updated and unmounted without errors`, () => {
-      const wrapper = mount(<Component />);
+      const { unmount, rerender } = render(<Component />);
       expect(() => {
-        wrapper.setProps({});
-        wrapper.unmount();
+        rerender(<Component />);
+        unmount();
       }).not.toThrow();
     });
   });
