@@ -144,6 +144,7 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
         margin: `0 ${token.marginXS / 2}px`,
         padding: `${token.paddingXS / 2}px ${token.paddingXS}px 0`,
         border: 0,
+        // FIXME hardcode in v4
         borderTop: `2px solid ${token.colorSplit}`,
         borderRadius: 0,
         transition: `background ${token.motionDurationSlow}`,
