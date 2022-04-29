@@ -12,7 +12,8 @@
     "frontend",
     "react",
     "react-component",
-    "ui"
+    "ui",
+    "test"
   ],
   "homepage": "https://ant.design",
   "bugs": {
