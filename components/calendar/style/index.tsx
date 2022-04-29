@@ -20,7 +20,6 @@ export interface ComponentToken extends Omit<DatePickerComponentToken, 'zIndexDr
 interface CalendarToken extends InputToken<FullToken<'Calendar'>> {
   calendarCls: string;
   // date-picker token
-  arrowWidth: number;
   pickerCellInnerCls: string;
 }
 
@@ -204,7 +203,6 @@ export default genComponentStyleHook(
     const calendarToken = mergeToken<CalendarToken>(initInputToken<FullToken<'Calendar'>>(token), {
       calendarCls,
       pickerCellInnerCls: `${token.componentCls}-cell-inner`,
-      arrowWidth: token.sizePopupArrow,
     });
 
     return [genCalendarStyles(calendarToken)];

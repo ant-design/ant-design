@@ -33,7 +33,6 @@ export interface ComponentToken {
 }
 
 type PickerToken = InputToken<FullToken<'DatePicker'>> & {
-  arrowWidth: number;
   pickerCellInnerCls: string;
   hashId?: string;
 };
@@ -1038,7 +1037,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
 
         '&&-placement-bottomLeft': {
           [`${componentCls}-range-arrow`]: {
-            top: `${token.arrowWidth / 2 - token.arrowWidth / 3 + 0.7}px`,
+            top: `${token.sizePopupArrow / 2 - token.sizePopupArrow / 3 + 0.7}px`,
             display: 'block',
             transform: 'rotate(-135deg) translateY(1px)',
           },
@@ -1046,7 +1045,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
 
         '&&-placement-topLeft': {
           [`${componentCls}-range-arrow`]: {
-            bottom: `${token.arrowWidth / 2 - token.arrowWidth / 3 + 0.7}px`,
+            bottom: `${token.sizePopupArrow / 2 - token.sizePopupArrow / 3 + 0.7}px`,
             display: 'block',
             transform: 'rotate(45deg)',
           },
@@ -1119,13 +1118,13 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
           position: 'absolute',
           zIndex: 1,
           display: 'none',
-          width: token.arrowWidth,
-          height: token.arrowWidth,
+          width: token.sizePopupArrow,
+          height: token.sizePopupArrow,
           marginInlineStart: token.inputPaddingHorizontal * 1.5,
           background: `linear-gradient(135deg, transparent 40%, ${token.colorBgComponent} 40%)`, // Use linear-gradient to prevent arrow from covering text
           boxShadow: `2px 2px 6px -2px fade(#000, 10%)`, // use spread radius to hide shadow over popover, FIXME: v4 magic
           transition: `left ${token.motionDurationSlow} ease-out`,
-          ...roundedArrow(token.arrowWidth, 5, token.colorBgComponent),
+          ...roundedArrow(token.sizePopupArrow, 5, token.colorBgComponent),
         },
 
         [`${componentCls}-panel-container`]: {
@@ -1161,7 +1160,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
       },
 
       '&-dropdown-range': {
-        padding: `${(token.arrowWidth * 2) / 3}px 0`,
+        padding: `${(token.sizePopupArrow * 2) / 3}px 0`,
 
         '&-hidden': {
           display: 'none',
@@ -1190,7 +1189,6 @@ export default genComponentStyleHook(
   'DatePicker',
   (token, { hashId }) => {
     const pickerToken = mergeToken<PickerToken>(initInputToken<FullToken<'DatePicker'>>(token), {
-      arrowWidth: token.sizePopupArrow,
       pickerCellInnerCls: `${token.componentCls}-cell-inner`,
       hashId,
     });
