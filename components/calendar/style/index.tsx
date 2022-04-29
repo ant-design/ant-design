@@ -1,10 +1,5 @@
 // deps-lint-skip-all
 
-// style dependencies
-// import '../../select/style';
-// import '../../radio/style';
-// import '../../date-picker/style';
-
 import { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 import { FullToken, genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
