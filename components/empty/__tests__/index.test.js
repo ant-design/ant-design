@@ -1,5 +1,4 @@
 import React from 'react';
-import { mount } from 'enzyme';
 import Empty from '..';
 import ConfigProvider from '../../config-provider';
 import { render } from '../../../tests/utils';
@@ -21,11 +20,11 @@ describe('Empty', () => {
   });
 
   it('should render in RTL direction', () => {
-    const wrapper = mount(
+    const { asFragment } = render(
       <ConfigProvider direction="rtl">
         <Empty />
       </ConfigProvider>,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 });
