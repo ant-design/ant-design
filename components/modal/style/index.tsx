@@ -7,6 +7,7 @@ import {
   GenerateStyle,
   mergeToken,
   resetComponent,
+  clearFix,
 } from '../../_util/theme';
 import type { FullToken } from '../../_util/theme';
 
@@ -215,7 +216,7 @@ const genModalStyle: GenerateStyle<ModalToken> = token => {
           top: 0,
           display: 'inline-block',
           paddingBottom: 0,
-          textAlign: 'left',
+          textAlign: 'start',
           verticalAlign: 'middle',
         },
       },
@@ -230,6 +231,85 @@ const genModalStyle: GenerateStyle<ModalToken> = token => {
             flex: 1,
           },
         },
+      },
+    },
+  };
+};
+
+const genModalConfirmStyle: GenerateStyle<ModalToken> = token => {
+  const { componentCls } = token;
+  const confirmComponentCls = `${componentCls}-confirm`;
+
+  return {
+    [`${componentCls}-root`]: {
+      [confirmComponentCls]: {
+        [`${token.antCls}-modal-header`]: {
+          display: 'none',
+        },
+        [`${token.antCls}-modal-body`]: {
+          // FIXME: hard code
+          padding: '32px 32px 24px',
+        },
+        [`${confirmComponentCls}-body-wrapper`]: {
+          ...clearFix(),
+        },
+        [`${confirmComponentCls}-body`]: {
+          [`${confirmComponentCls}-title`]: {
+            display: 'block',
+            // create BFC to avoid
+            // https://user-images.githubusercontent.com/507615/37702510-ba844e06-2d2d-11e8-9b67-8e19be57f445.png
+            overflow: 'hidden',
+            color: token.colorTextHeading,
+            fontWeight: 500,
+            fontSize: token.modalConfirmTitleFontSize,
+            lineHeight: 1.4,
+          },
+
+          [`${confirmComponentCls}-content`]: {
+            marginTop: token.marginXS,
+            color: token.colorText,
+            fontSize: token.fontSizeBase,
+          },
+
+          [`> ${token.iconCls}`]: {
+            float: 'left',
+            marginInlineEnd: token.margin,
+            // FIXME: hard code
+            fontSize: '22px',
+
+            // `content` after `icon` should set marginLeft
+            [`+ ${confirmComponentCls}-title + ${confirmComponentCls}-content`]: {
+              // FIXME: hard code
+              marginInlineStart: '38px',
+            },
+          },
+        },
+        [`${confirmComponentCls}-btns`]: {
+          float: 'right',
+          marginTop: token.marginLG,
+
+          [`${token.antCls}-btn + ${token.antCls}-btn`]: {
+            marginBottom: 0,
+            marginInlineStart: token.marginXS,
+          },
+        },
+      },
+
+      [`${confirmComponentCls}-error ${confirmComponentCls}-body > ${token.iconCls}`]: {
+        color: token.colorError,
+      },
+
+      [`${confirmComponentCls}-warning ${confirmComponentCls}-body > ${token.iconCls},
+        ${confirmComponentCls}-confirm ${confirmComponentCls}-body > ${token.iconCls}`]: {
+        color: token.colorWarning,
+      },
+
+      [`${confirmComponentCls}-info ${confirmComponentCls}-body > ${token.iconCls}`]: {
+        color: token.colorInfo,
+      },
+
+      [`${confirmComponentCls}-success ${confirmComponentCls}-body > ${token.iconCls}`]: {
+        color: token.colorSuccess,
       },
     },
   };
@@ -268,5 +348,5 @@ export default genComponentStyleHook('Modal', token => {
     // FIXME: hard code
     modalIconHoverColor: new TinyColor('#000').setAlpha(0.75).toRgbString(),
   });
-  return [genModalStyle(modalToken)];
+  return [genModalStyle(modalToken), genModalConfirmStyle(modalToken)];
 });
