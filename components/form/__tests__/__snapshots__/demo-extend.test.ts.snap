@@ -1846,12 +1846,13 @@ exports[`renders ./components/form/demo/disabled.md extend context correctly 1`]
           class="ant-form-item-control-input-content"
         >
           <label
-            class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item"
+            class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-in-form-item"
           >
             <span
-              class="ant-checkbox"
+              class="ant-checkbox ant-checkbox-checked"
             >
               <input
+                checked=""
                 class="ant-checkbox-input"
                 id="disabled"
                 type="checkbox"
@@ -1894,13 +1895,14 @@ exports[`renders ./components/form/demo/disabled.md extend context correctly 1`]
             class="ant-radio-group ant-radio-group-outline"
           >
             <label
-              class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
+              class="ant-radio-wrapper ant-radio-wrapper-disabled ant-radio-wrapper-in-form-item"
             >
               <span
-                class="ant-radio"
+                class="ant-radio ant-radio-disabled"
               >
                 <input
                   class="ant-radio-input"
+                  disabled=""
                   type="radio"
                   value="apple"
                 />
@@ -1913,13 +1915,14 @@ exports[`renders ./components/form/demo/disabled.md extend context correctly 1`]
               </span>
             </label>
             <label
-              class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
+              class="ant-radio-wrapper ant-radio-wrapper-disabled ant-radio-wrapper-in-form-item"
             >
               <span
-                class="ant-radio"
+                class="ant-radio ant-radio-disabled"
               >
                 <input
                   class="ant-radio-input"
+                  disabled=""
                   type="radio"
                   value="pear"
                 />
@@ -1959,7 +1962,8 @@ exports[`renders ./components/form/demo/disabled.md extend context correctly 1`]
           class="ant-form-item-control-input-content"
         >
           <input
-            class="ant-input"
+            class="ant-input ant-input-disabled"
+            disabled=""
             type="text"
             value=""
           />
@@ -1990,7 +1994,7 @@ exports[`renders ./components/form/demo/disabled.md extend context correctly 1`]
           class="ant-form-item-control-input-content"
         >
           <div
-            class="ant-select ant-select-in-form-item ant-select-single ant-select-show-arrow"
+            class="ant-select ant-select-in-form-item ant-select-single ant-select-show-arrow ant-select-disabled"
           >
             <div
               class="ant-select-selector"
@@ -2002,10 +2006,12 @@ exports[`renders ./components/form/demo/disabled.md extend context correctly 1`]
                   aria-activedescendant="undefined_list_0"
                   aria-autocomplete="list"
                   aria-controls="undefined_list"
+                  aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-owns="undefined_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
+                  disabled=""
                   readonly=""
                   role="combobox"
                   style="opacity:0"
@@ -2129,7 +2135,7 @@ exports[`renders ./components/form/demo/disabled.md extend context correctly 1`]
           class="ant-form-item-control-input-content"
         >
           <div
-            class="ant-select ant-tree-select ant-select-in-form-item ant-select-single ant-select-show-arrow"
+            class="ant-select ant-tree-select ant-select-in-form-item ant-select-single ant-select-show-arrow ant-select-disabled"
           >
             <div
               class="ant-select-selector"
@@ -2140,10 +2146,12 @@ exports[`renders ./components/form/demo/disabled.md extend context correctly 1`]
                 <input
                   aria-autocomplete="list"
                   aria-controls="undefined_list"
+                  aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-owns="undefined_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
+                  disabled=""
                   readonly=""
                   role="combobox"
                   style="opacity:0"
@@ -2307,7 +2315,7 @@ exports[`renders ./components/form/demo/disabled.md extend context correctly 1`]
           class="ant-form-item-control-input-content"
         >
           <div
-            class="ant-select ant-cascader ant-select-in-form-item ant-select-single ant-select-allow-clear ant-select-show-arrow"
+            class="ant-select ant-cascader ant-select-in-form-item ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-disabled"
           >
             <div
               class="ant-select-selector"
@@ -2318,10 +2326,12 @@ exports[`renders ./components/form/demo/disabled.md extend context correctly 1`]
                 <input
                   aria-autocomplete="list"
                   aria-controls="undefined_list"
+                  aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-owns="undefined_list"
                   autocomplete="off"
                   class="ant-select-selection-search-input"
+                  disabled=""
                   readonly=""
                   role="combobox"
                   style="opacity:0"
@@ -2442,13 +2452,14 @@ exports[`renders ./components/form/demo/disabled.md extend context correctly 1`]
           class="ant-form-item-control-input-content"
         >
           <div
-            class="ant-picker"
+            class="ant-picker ant-picker-disabled"
           >
             <div
               class="ant-picker-input"
             >
               <input
                 autocomplete="off"
+                disabled=""
                 placeholder="Select date"
                 readonly=""
                 size="12"
@@ -3061,13 +3072,14 @@ exports[`renders ./components/form/demo/disabled.md extend context correctly 1`]
           class="ant-form-item-control-input-content"
         >
           <div
-            class="ant-picker ant-picker-range"
+            class="ant-picker ant-picker-range ant-picker-disabled"
           >
             <div
               class="ant-picker-input ant-picker-input-active"
             >
               <input
                 autocomplete="off"
+                disabled=""
                 placeholder="Start date"
                 readonly=""
                 size="12"
@@ -3107,6 +3119,7 @@ exports[`renders ./components/form/demo/disabled.md extend context correctly 1`]
             >
               <input
                 autocomplete="off"
+                disabled=""
                 placeholder="End date"
                 readonly=""
                 size="12"
@@ -4265,7 +4278,7 @@ exports[`renders ./components/form/demo/disabled.md extend context correctly 1`]
           class="ant-form-item-control-input-content"
         >
           <div
-            class="ant-input-number ant-input-number-in-form-item"
+            class="ant-input-number ant-input-number-in-form-item ant-input-number-disabled"
           >
             <div
               class="ant-input-number-handler-wrap"
@@ -4331,6 +4344,7 @@ exports[`renders ./components/form/demo/disabled.md extend context correctly 1`]
               <input
                 autocomplete="off"
                 class="ant-input-number-input"
+                disabled=""
                 role="spinbutton"
                 step="1"
                 value=""
@@ -4364,7 +4378,8 @@ exports[`renders ./components/form/demo/disabled.md extend context correctly 1`]
           class="ant-form-item-control-input-content"
         >
           <textarea
-            class="ant-input"
+            class="ant-input ant-input-disabled"
+            disabled=""
             rows="4"
           />
         </div>
@@ -4395,7 +4410,8 @@ exports[`renders ./components/form/demo/disabled.md extend context correctly 1`]
         >
           <button
             aria-checked="false"
-            class="ant-switch"
+            class="ant-switch ant-switch-disabled"
+            disabled=""
             role="switch"
             type="button"
           >
@@ -4434,6 +4450,7 @@ exports[`renders ./components/form/demo/disabled.md extend context correctly 1`]
         >
           <button
             class="ant-btn ant-btn-default"
+            disabled=""
             type="button"
           >
             <span>

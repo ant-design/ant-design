@@ -33,7 +33,7 @@ const { RangePicker } = DatePicker;
 const { TextArea } = Input;
 
 const FormDisabledDemo = () => {
-  const [componentDisabled, setComponentDisabled] = useState<boolean>(false);
+  const [componentDisabled, setComponentDisabled] = useState<boolean>(true);
   const onFormLayoutChange = ({ disabled }: { disabled: boolean }) => {
     setComponentDisabled(disabled);
   };
