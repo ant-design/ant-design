@@ -28,7 +28,7 @@ jobs:
           node-version: '16'
 
       - name: create package-lock.json
-        run: npm i --package-lock-only --ignore-scripts
+        run: npm i --package-lock-only --ignore-scripts --legacy-peer-deps
 
       - name: hack for single file
         run: |
