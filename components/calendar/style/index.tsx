@@ -149,6 +149,7 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
         borderRadius: 0,
         transition: `background ${token.motionDurationSlow}`,
         '&-value': {
+          // FIXME hardcode in v4
           lineHeight: '24px',
           transition: `color ${token.motionDurationSlow}`,
         },
