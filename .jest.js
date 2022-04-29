@@ -52,5 +52,7 @@ module.exports = {
       tsConfig: './tsconfig.test.json',
     },
   },
-  testURL: 'http://localhost',
+  testEnvironmentOptions: {
+    url: 'http://localhost',
+  },
 };
