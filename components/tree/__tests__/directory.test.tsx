@@ -162,12 +162,83 @@ describe('Directory Tree', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
-  it('should not expand when defaultExpandParent and defaultExpandAll is false', () => {
+  it('should not expand when defaultExpandParent is false', () => {
+    const treeData = [
+      {
+        key: '0-0',
+        title: '0-0',
+        children: [
+          {
+            key: '0-0-0',
+            title: '0-0-0',
+          },
+          {
+            key: '0-0-1',
+            title: '0-0-1',
+          },
+        ],
+      },
+      {
+        key: '0-1',
+        title: '0-1',
+        children: [
+          {
+            key: '0-1-0',
+            title: '0-1-0',
+          },
+          {
+            key: '0-1-1',
+            title: '0-1-1',
+          },
+        ],
+      },
+    ];
+    const wrapper = render(
+      createTree({
+        defaultExpandParent: false,
+        expandedKeys: ['0-0-0', '0-1-1'],
+        treeData,
+      }),
+    );
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should not expand when defaultExpandAll is false', () => {
+    const treeData = [
+      {
+        key: '0-0',
+        title: '0-0',
+        children: [
+          {
+            key: '0-0-0',
+            title: '0-0-0',
+          },
+          {
+            key: '0-0-1',
+            title: '0-0-1',
+          },
+        ],
+      },
+      {
+        key: '0-1',
+        title: '0-1',
+        children: [
+          {
+            key: '0-1-0',
+            title: '0-1-0',
+          },
+          {
+            key: '0-1-1',
+            title: '0-1-1',
+          },
+        ],
+      },
+    ];
     const wrapper = render(
       createTree({
         defaultExpandAll: false,
-        defaultExpandParent: false,
-        expandedKeys: ['0-0', '0-1'],
+        expandedKeys: ['0-0-0', '0-1-1'],
+        treeData,
       }),
     );
     expect(wrapper).toMatchSnapshot();
