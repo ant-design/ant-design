@@ -1401,46 +1401,90 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
         <div
           class="ant-form-item-control-input-content"
         >
+          <label
+            class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                id="disabled"
+                type="checkbox"
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+            <span>
+              disabled
+            </span>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-col-4 ant-form-item-label"
+    >
+      <label
+        class=""
+        title="Radio"
+      >
+        Radio
+      </label>
+    </div>
+    <div
+      class="ant-col ant-col-14 ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
           <div
             class="ant-radio-group ant-radio-group-outline"
-            id="disabled"
           >
             <label
-              class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
+              class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
             >
               <span
-                class="ant-radio-button"
+                class="ant-radio"
               >
                 <input
-                  class="ant-radio-button-input"
+                  class="ant-radio-input"
                   type="radio"
-                  value="disabled"
+                  value="apple"
                 />
                 <span
-                  class="ant-radio-button-inner"
+                  class="ant-radio-inner"
                 />
               </span>
               <span>
-                 true 
+                 Apple 
               </span>
             </label>
             <label
-              class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item"
+              class="ant-radio-wrapper ant-radio-wrapper-in-form-item"
             >
               <span
-                class="ant-radio-button"
+                class="ant-radio"
               >
                 <input
-                  class="ant-radio-button-input"
+                  class="ant-radio-input"
                   type="radio"
-                  value=""
+                  value="pear"
                 />
                 <span
-                  class="ant-radio-button-inner"
+                  class="ant-radio-inner"
                 />
               </span>
               <span>
-                 false 
+                 Pear 
               </span>
             </label>
           </div>

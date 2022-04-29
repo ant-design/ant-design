@@ -52,8 +52,8 @@ const FormDisabledDemo = () => {
       </Form.Item>
       <Form.Item label="Radio">
         <Radio.Group>
-          <Radio value="apple"> apple </Radio>
-          <Radio value="Pear"> Pear </Radio>
+          <Radio value="apple"> Apple </Radio>
+          <Radio value="pear"> Pear </Radio>
         </Radio.Group>
       </Form.Item>
       <Form.Item label="Input">
