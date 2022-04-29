@@ -232,6 +232,7 @@
     "isomorphic-fetch": "^3.0.0",
     "jest": "^28.0.3",
     "jest-axe": "^6.0.0",
+    "jest-environment-jsdom": "^28.0.2",
     "jest-environment-node": "^28.0.2",
     "jest-image-snapshot": "^4.5.1",
     "jest-puppeteer": "^6.0.0",
