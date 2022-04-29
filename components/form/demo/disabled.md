@@ -31,7 +31,7 @@ import {
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
 
-type DisabledType = Parameters<typeof Form>[0]['diabled'];
+type DisabledType = Parameters<typeof Form>[0]['disabled'];
 
 const FormDisabledDemo = () => {
   const [componentDisabled, setComponentDisabled] = useState<DisabledType | false>(false);
