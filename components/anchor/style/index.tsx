@@ -77,7 +77,7 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
         [`${componentCls}-link`]: {
           // FIX ME @anchor-link-padding
           paddingBlock: token.anchorLinkTop,
-          paddingInline: `0 ${token.anchorLinkLeft}px`,
+          paddingInline: `${token.anchorLinkLeft}px 0`,
           lineHeight: '1.143',
 
           '&-title': {
