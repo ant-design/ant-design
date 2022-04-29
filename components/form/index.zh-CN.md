@@ -282,7 +282,7 @@ validateFields()
 
 ### Form.useForm
 
-`type Form.useForm = (): FormInstance`
+`type Form.useForm = (): [FormInstance]`
 
 创建 Form 实例，用于管理所有数据状态。
 
