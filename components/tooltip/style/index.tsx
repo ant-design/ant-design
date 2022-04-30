@@ -82,7 +82,8 @@ const genTooltipStyle: GenerateStyle<TooltipToken, CSSObject> = token => {
       },
 
       '&-placement-right, &-placement-rightTop, &-placement-rightBottom': {
-        paddingLeft: tooltipDistance,
+        // paddingLeft: tooltipDistance,
+        paddingInlineStart: tooltipDistance,
       },
 
       '&-placement-bottom, &-placement-bottomLeft, &-placement-bottomRight': {
@@ -90,7 +91,8 @@ const genTooltipStyle: GenerateStyle<TooltipToken, CSSObject> = token => {
       },
 
       '&-placement-left, &-placement-leftTop, &-placement-leftBottom': {
-        paddingRight: tooltipDistance,
+        // paddingRight: tooltipDistance,
+        paddingInlineEnd: tooltipDistance,
       },
       // Wrapper for the tooltip content
       [`${componentCls}-inner`]: {
@@ -98,7 +100,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken, CSSObject> = token => {
         minHeight: 32,
         padding: '6px 8px',
         color: tooltipColor,
-        textAlign: 'left',
+        textAlign: 'start',
         textDecoration: 'none',
         wordWrap: 'break-word',
         backgroundColor: tooltipBg,
@@ -120,9 +122,9 @@ const genTooltipStyle: GenerateStyle<TooltipToken, CSSObject> = token => {
           '--antd-arrow-background-color': tooltipBg,
           position: 'absolute',
           top: 0,
-          right: 0,
+          insetInlineEnd: 0,
           bottom: 0,
-          left: 0,
+          insetInlineStart: 0,
           display: 'block',
           width: tooltipArrowWidth,
           height: tooltipArrowWidth,
@@ -145,21 +147,25 @@ const genTooltipStyle: GenerateStyle<TooltipToken, CSSObject> = token => {
         },
 
       [`&-placement-top ${componentCls}-arrow`]: {
-        left: '50%',
+        // left: '50%',
+        insetInlineStart: '50%',
         transform: 'translateX(-50%)',
       },
 
       [`&-placement-topLeft ${componentCls}-arrow`]: {
-        left: tooltipArrowOffsetHorizontal,
+        // left: tooltipArrowOffsetHorizontal,
+        insetInlineStart: tooltipArrowOffsetHorizontal,
       },
 
       [`&-placement-topRight ${componentCls}-arrow`]: {
-        right: tooltipArrowOffsetHorizontal,
+        // right: tooltipArrowOffsetHorizontal,
+        insetInlineEnd: tooltipArrowOffsetHorizontal,
       },
 
       [`&-placement-right ${componentCls}-arrow, &-placement-rightTop ${componentCls}-arrow, &-placement-rightBottom ${componentCls}-arrow`]:
         {
-          left: tooltipDistance - tooltipArrowRotateWidth + 0.1,
+          // left: tooltipDistance - tooltipArrowRotateWidth + 0.1,
+          insetInlineStart: tooltipDistance - tooltipArrowRotateWidth + 0.1,
 
           '&-content': {
             boxShadow: `-${tooltipArrowShadowWidth}px ${tooltipArrowShadowWidth}px 7px ${tooltipShadowColor}`,
@@ -182,7 +188,8 @@ const genTooltipStyle: GenerateStyle<TooltipToken, CSSObject> = token => {
 
       [`&-placement-left ${componentCls}-arrow, &-placement-leftTop ${componentCls}-arrow, &-placement-leftBottom ${componentCls}-arrow`]:
         {
-          right: tooltipDistance - tooltipArrowRotateWidth + 0.08,
+          // right: tooltipDistance - tooltipArrowRotateWidth + 0.08,
+          insetInlineEnd: tooltipDistance - tooltipArrowRotateWidth + 0.08,
 
           '&-content': {
             boxShadow: `${tooltipArrowShadowWidth}px -${tooltipArrowShadowWidth}px 7px ${tooltipShadowColor}`,
@@ -214,16 +221,19 @@ const genTooltipStyle: GenerateStyle<TooltipToken, CSSObject> = token => {
         },
 
       [`&-placement-bottom ${componentCls}-arrow`]: {
-        left: '50%',
+        // left: '50%',
+        insetInlineStart: '50%',
         transform: 'translateX(-50%)',
       },
 
       [`&-placement-bottomLeft ${componentCls}-arrow`]: {
-        left: tooltipArrowOffsetHorizontal,
+        // left: tooltipArrowOffsetHorizontal,
+        insetInlineStart: tooltipArrowOffsetHorizontal,
       },
 
       [`&-placement-bottomRight ${componentCls}-arrow`]: {
-        right: tooltipArrowOffsetHorizontal,
+        // right: tooltipArrowOffsetHorizontal,
+        insetInlineEnd: tooltipArrowOffsetHorizontal,
       },
 
       // generator for preset color
@@ -239,7 +249,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken, CSSObject> = token => {
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Tooltip', token => {
-  console.log('@@@token:', token);
+  // console.log('@@@token:', token);
 
   const { radiusBase, zIndexPopup } = token;
   const tooltipArrowShadowWidth = 3;
