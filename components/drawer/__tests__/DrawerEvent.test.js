@@ -3,17 +3,12 @@ import Drawer from '..';
 import { Button } from '../..';
 import { render, fireEvent } from '../../../tests/utils';
 
-let time = new Date().valueOf();
-
-const DestroyCallback = () => {
-  useEffect(
-    () => () => {
-      time = new Date().valueOf() - time;
-    },
-    [],
-  );
+const DestroyCallback = ({ callback }) => {
+  useEffect(() => callback, []);
   return null;
 };
+
+let time = new Date().valueOf();
 
 const Demo = () => {
   const [visible, setVisible] = useState(true);
@@ -36,7 +31,11 @@ const Demo = () => {
       onClose={onClose}
     >
       {close}
-      <DestroyCallback />
+      <DestroyCallback
+        callback={() => {
+          time = new Date().valueOf() - time;
+        }}
+      />
     </Drawer>
   );
 };
