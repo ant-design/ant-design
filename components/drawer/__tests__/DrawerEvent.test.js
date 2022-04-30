@@ -1,6 +1,45 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Drawer from '..';
+import { Button } from '../..';
 import { render, fireEvent } from '../../../tests/utils';
+
+let time = new Date().valueOf();
+
+const DestroyCallback = () => {
+  useEffect(
+    () => () => {
+      time = new Date().valueOf() - time;
+    },
+    [],
+  );
+  return null;
+};
+
+const Demo = () => {
+  const [visible, setVisible] = useState(true);
+  const onClose = () => {
+    setVisible(false);
+  };
+  const close = (
+    <Button type="primary" onClick={onClose}>
+      close
+    </Button>
+  );
+
+  return (
+    <Drawer
+      visible={visible}
+      destroyOnClose
+      getContainer={false}
+      footer={close}
+      extra={close}
+      onClose={onClose}
+    >
+      {close}
+      <DestroyCallback />
+    </Drawer>
+  );
+};
 
 describe('Drawer', () => {
   const getDrawer = props => (
@@ -63,5 +102,11 @@ describe('Drawer', () => {
     fireEvent.transitionEnd(container.querySelector('.ant-drawer-wrapper-body'));
 
     expect(container.querySelector('.ant-drawer-wrapper-body')).toBeTruthy();
+  });
+  it('Click the button in the drawer to check the closing speed', () => {
+    const wrapper = render(<Demo />);
+    fireEvent.click(wrapper.queryAllByText('close')[0]);
+    fireEvent.click(wrapper.queryAllByText('close')[1]);
+    fireEvent.click(wrapper.queryAllByText('close')[2]);
   });
 });
