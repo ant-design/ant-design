@@ -51,11 +51,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken, CSSObject> = token => {
       position: 'absolute',
       zIndex: zIndexTooltip,
       display: 'block',
-      // ...[{ width: 'max-content' }, { width: 'intrinsic' }],
-      // width: [{ width: 'max-content' }, { width: 'intrinsic' }],
-      width: 'max-content',
-      // fallbacks: [{ display: 'max-content' }],
-      // width: 'intrinsic', TODO:
+      '&': [{ width: 'max-content' }, { width: 'intrinsic' }],
       maxWidth: tooltipMaxWidth,
       visibility: 'visible',
       '&-hidden': {
