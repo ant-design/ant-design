@@ -231,7 +231,7 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     [openClassName || `${prefixCls}-open`]: true,
   });
 
-  // Style TODO:确定各类元素的绑定关系
+  // Style
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const customOverlayClassName = classNames(

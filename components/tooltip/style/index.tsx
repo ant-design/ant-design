@@ -1,13 +1,16 @@
-import '../../style/index.less';
-import './index.less';
-
 // deps-lint-skip-all
 // import '../../style/index.less';
 // import './index.less';
 import { TinyColor } from '@ctrl/tinycolor';
 import type { CSSObject } from '@ant-design/cssinjs';
-import { genComponentStyleHook, mergeToken, resetComponent, roundedArrow } from '../../_util/theme';
-import type { GenerateStyle, FullToken } from '../../_util/theme';
+import {
+  genComponentStyleHook,
+  mergeToken,
+  resetComponent,
+  roundedArrow,
+  PresetColors,
+} from '../../_util/theme';
+import type { GenerateStyle, FullToken, PresetColorType } from '../../_util/theme';
 
 export interface TooltipToken extends FullToken<'Tooltip'> {
   // default variables
@@ -26,6 +29,23 @@ export interface TooltipToken extends FullToken<'Tooltip'> {
   zIndexTooltip: number;
   tooltipShadowColor: string;
 }
+
+const generatorTooltipPresetColor: GenerateStyle<TooltipToken, CSSObject> = token => {
+  const { componentCls } = token;
+
+  return PresetColors.reduce((previousValue: any, currentValue: keyof PresetColorType) => {
+    const lightColor = token[`${currentValue}-6`];
+    previousValue[`&${componentCls}-${currentValue}`] = {
+      [`${componentCls}-inner`]: {
+        backgroundColor: lightColor,
+      },
+      [`${componentCls}-arrow-content::before`]: {
+        background: lightColor,
+      },
+    };
+    return previousValue;
+  }, {});
+};
 
 const genTooltipStyle: GenerateStyle<TooltipToken, CSSObject> = token => {
   const {
@@ -97,6 +117,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken, CSSObject> = token => {
         pointerEvents: 'none',
 
         '&-content': {
+          '--antd-arrow-background-color': tooltipBg,
           position: 'absolute',
           top: 0,
           right: 0,
@@ -109,7 +130,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken, CSSObject> = token => {
           backgroundColor: 'transparent',
           content: '""',
           pointerEvents: 'auto',
-          ...roundedArrow(tooltipArrowWidth, 5, tooltipBg),
+          ...roundedArrow(tooltipArrowWidth, 5, 'var(--antd-arrow-background-color)'),
         },
       },
 
@@ -142,12 +163,11 @@ const genTooltipStyle: GenerateStyle<TooltipToken, CSSObject> = token => {
 
           '&-content': {
             boxShadow: `-${tooltipArrowShadowWidth}px ${tooltipArrowShadowWidth}px 7px ${tooltipShadowColor}`,
-            transform: `translateY(${-tooltipArrowRotateWidth / 2}px) rotate(135deg)`,
+            transform: `translateX(${tooltipArrowRotateWidth / 2}px) rotate(135deg)`,
           },
         },
 
       [`&-placement-right ${componentCls}-arrow`]: {
-        backgroundColor: 'red',
         top: '50%',
         transform: 'translateY(-50%)',
       },
@@ -206,6 +226,9 @@ const genTooltipStyle: GenerateStyle<TooltipToken, CSSObject> = token => {
         right: tooltipArrowOffsetHorizontal,
       },
 
+      // generator for preset color
+      ...generatorTooltipPresetColor(token),
+
       // RTL
       '&-rtl': {
         direction: 'rtl',
@@ -216,12 +239,15 @@ const genTooltipStyle: GenerateStyle<TooltipToken, CSSObject> = token => {
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Tooltip', token => {
-  // console.log('@@@token:', token);
+  console.log('@@@token:', token);
 
   const { radiusBase, zIndexPopup } = token;
-  const tooltipArrowWidth = 8 * Math.sqrt(2);
-  const tooltipBg = new TinyColor('#000').setAlpha(0.75).toRgbString();
   const tooltipArrowShadowWidth = 3;
+  const tooltipArrowWidth = 8 * Math.sqrt(2);
+  const tooltipShadowColor = new TinyColor('#000').setAlpha(0.07).toRgbString();
+  const tooltipBg = new TinyColor('#000').setAlpha(0.75).toRgbString();
+  const tooltipArrowRotateWidth =
+    Math.sqrt(tooltipArrowWidth * tooltipArrowWidth * 2) + tooltipArrowShadowWidth * 2;
 
   const TooltipToken = mergeToken<TooltipToken>(token, {
     // default variables
@@ -233,13 +259,12 @@ export default genComponentStyleHook('Tooltip', token => {
     tooltipArrowColor: tooltipBg,
     tooltipBorderRadius: radiusBase,
     // component variables
+    tooltipShadowColor,
     tooltipArrowShadowWidth,
-    tooltipArrowRotateWidth:
-      Math.sqrt(tooltipArrowWidth * tooltipArrowWidth * 2) + tooltipArrowShadowWidth * 2,
+    tooltipArrowRotateWidth,
     tooltipArrowOffsetVertical: 5,
     tooltipArrowOffsetHorizontal: 13,
     zIndexTooltip: zIndexPopup + 70,
-    tooltipShadowColor: new TinyColor('#000').setAlpha(0.07).toRgbString(), // ${tooltipShadowColor}
   });
 
   return [genTooltipStyle(TooltipToken)];
