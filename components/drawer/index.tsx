@@ -235,6 +235,7 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
             [`${prefixCls}-header-close-only`]: closable && !title && !extra,
           })}
           style={headerStyle}
+          onTransitionEnd={e => e.stopPropagation()}
         >
           <div className={`${prefixCls}-header-title`}>
             {closeIconNode}
@@ -252,7 +253,11 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
 
       const footerClassName = `${prefixCls}-footer`;
       return (
-        <div className={footerClassName} style={footerStyle}>
+        <div
+          className={footerClassName}
+          style={footerStyle}
+          onTransitionEnd={e => e.stopPropagation()}
+        >
           {footer}
         </div>
       );
@@ -283,7 +288,11 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
           onTransitionEnd={onDestroyTransitionEnd}
         >
           {renderHeader()}
-          <div className={`${prefixCls}-body`} style={bodyStyle}>
+          <div
+            className={`${prefixCls}-body`}
+            onTransitionEnd={e => e.stopPropagation()}
+            style={bodyStyle}
+          >
             {children}
           </div>
           {renderFooter()}
