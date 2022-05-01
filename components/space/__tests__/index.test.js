@@ -172,4 +172,25 @@ describe('Space', () => {
 
     expect(wrapper.render()).toMatchSnapshot();
   });
+
+  // https://github.com/ant-design/ant-design/issues/35305
+  it('should not throw duplicated key warning', () => {
+    jest.spyOn(console, 'error').mockImplementation(() => undefined);
+    mount(
+      <Space>
+        <div key="1" />
+        <div />
+        <div key="3" />
+        <div />
+      </Space>,
+    );
+    // eslint-disable-next-line no-console
+    expect(console.error).not.toHaveBeenCalledWith(
+      expect.stringContaining('Encountered two children with the same key'),
+      expect.anything(),
+      expect.anything(),
+    );
+    // eslint-disable-next-line no-console
+    console.error.mockRestore();
+  });
 });

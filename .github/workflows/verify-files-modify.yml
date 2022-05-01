@@ -22,7 +22,7 @@ jobs:
           assignees: 'afc163, zombieJ, xrkffgg, MadCcc'
           comment-mark: 'version'
           comment: |
-            Hi @${{ github.event.pull_request.user.login }}. Thanks for your contribution. The path `.github/` or `scripts/` and `CHANGELOG` `package.json` is only maintained by team members. This current PR will be closed and team members will help on this.
+            Hi @${{ github.event.pull_request.user.login }}. Thanks for your contribution. The path `.github/` or `scripts/` and `CHANGELOG` is only maintained by team members. This current PR will be closed and team members will help on this.
           close: true
           set-failed: false
 

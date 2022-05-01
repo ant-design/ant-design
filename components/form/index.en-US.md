@@ -283,7 +283,7 @@ validateFields()
 
 ### Form.useForm
 
-`type Form.useForm = (): FormInstance`
+`type Form.useForm = (): [FormInstance]`
 
 Create Form instance to maintain data store.
 

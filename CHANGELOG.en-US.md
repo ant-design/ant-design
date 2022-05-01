@@ -15,6 +15,22 @@ timeline: true
 
 ---
 
+## 4.20.2
+
+`2022-04-30`
+
+- Segmented
+  - 🐞 Fix Segmented inconsisit height with other controls. [#35281](https://github.com/ant-design/ant-design/pull/35281)
+  - 🐞 Fix Segmented animation not working correct in StrictMode mode. [#35281](https://github.com/ant-design/ant-design/pull/35281)
+  - 🆕 Segmented `options` now supports `icon` property. [#35256](https://github.com/ant-design/ant-design/pull/35256)
+- Table
+  - ⌨️ Improve Table columns sorter a11y experience. [#35269](https://github.com/ant-design/ant-design/pull/35269)
+  - 🇪🇸 Added Table filter localization for es_ES. [#35309](https://github.com/ant-design/ant-design/pull/35309) [@agarciaguillo](https://github.com/agarciaguillo)
+- 💄 Fix Switch color in dark theme. [#35332](https://github.com/ant-design/ant-design/pull/35332)
+- 💄 Tweak Breadcrumb link hover color. [#35324](https://github.com/ant-design/ant-design/pull/35324)
+- 🐞 Fix Space throws `Encountered two children with the same key` warning in some cases. [#35311](https://github.com/ant-design/ant-design/pull/35311)
+- 🐞 Fix Select tag remove icon position issue. [#35336](https://github.com/ant-design/ant-design/pull/35336) [@walidcherhane](https://github.com/walidcherhane)
+
 ## 4.20.1
 
 `2022-04-26`
