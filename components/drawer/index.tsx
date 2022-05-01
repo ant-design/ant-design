@@ -87,6 +87,7 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
       drawerStyle,
       className,
       visible: propsVisible,
+      forceRender,
       children,
       zIndex,
       destroyOnClose,
@@ -107,7 +108,7 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
     const [internalPush, setPush] = React.useState(false);
     const parentDrawer = React.useContext(DrawerContext);
 
-    const [load, setLoad] = React.useState(false);
+    const [load, setLoad] = React.useState(forceRender);
     const [visible, setVisible] = React.useState(false);
 
     React.useEffect(() => {
@@ -307,6 +308,7 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
             keyboard,
             children,
             onClose,
+            forceRender,
             ...rest,
           }}
           {...offsetStyle}
