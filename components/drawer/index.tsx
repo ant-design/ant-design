@@ -134,7 +134,7 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
     React.useEffect(() => {
       // fix: delete drawer in child and re-render, no push started.
       // <Drawer>{show && <Drawer />}</Drawer>
-      if (visible && parentDrawer) {
+      if (propsVisible && parentDrawer) {
         parentDrawer.push();
       }
 
