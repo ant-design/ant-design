@@ -134,7 +134,7 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
     React.useEffect(() => {
       // fix: delete drawer in child and re-render, no push started.
       // <Drawer>{show && <Drawer />}</Drawer>
-      if (visible && parentDrawer) {
+      if (load && parentDrawer) {
         parentDrawer.push();
       }
 
@@ -148,13 +148,13 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
 
     React.useEffect(() => {
       if (parentDrawer) {
-        if (visible) {
+        if (load) {
           parentDrawer.push();
         } else {
           parentDrawer.pull();
         }
       }
-    }, [visible]);
+    }, [load]);
 
     const operations = React.useMemo(
       () => ({
@@ -174,7 +174,7 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
 
     React.useImperativeHandle(ref, () => operations, [operations]);
 
-    const isDestroyOnClose = destroyOnClose && !visible;
+    const isDestroyOnClose = destroyOnClose && !load;
 
     const getOffsetStyle = () => {
       // https://github.com/ant-design/ant-design/issues/24287
