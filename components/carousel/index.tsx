@@ -30,7 +30,17 @@ export interface CarouselRef {
 }
 
 const Carousel = React.forwardRef<CarouselRef, CarouselProps>(
-  ({ dots = true, arrows = false, draggable = false, dotPosition = 'bottom', ...props }, ref) => {
+  (
+    {
+      dots = true,
+      arrows = false,
+      draggable = false,
+      dotPosition = 'bottom',
+      vertical = dotPosition === 'left' || dotPosition === 'right',
+      ...props
+    },
+    ref,
+  ) => {
     const { getPrefixCls, direction } = React.useContext(ConfigContext);
     const slickRef = React.useRef<any>();
 
@@ -60,6 +70,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>(
     }, [props.children]);
 
     const newProps = {
+      vertical,
       ...props,
     };
 
@@ -69,7 +80,6 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>(
 
     const prefixCls = getPrefixCls('carousel', newProps.prefixCls);
     const dotsClass = 'slick-dots';
-    newProps.vertical = dotPosition === 'left' || dotPosition === 'right';
 
     const enableDots = !!dots;
     const dsClass = classNames(
@@ -80,7 +90,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>(
 
     const className = classNames(prefixCls, {
       [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-vertical`]: newProps.vertical,
+      [`${prefixCls}-vertical`]: dotPosition === 'left' || dotPosition === 'right',
     });
 
     return (
