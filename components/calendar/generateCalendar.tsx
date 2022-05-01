@@ -139,6 +139,8 @@ function generateCalendar<DateType>(generateConfig: GenerateConfig<DateType>) {
     };
 
     const triggerChange = (date: DateType) => {
+      console.log('trigger change!!!', isSameDate(date, mergedValue));
+      console.log('trigger change!!!', String(date), String(mergedValue));
       setMergedValue(date);
 
       if (!isSameDate(date, mergedValue)) {
