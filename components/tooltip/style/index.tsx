@@ -82,8 +82,10 @@ const genTooltipStyle: GenerateStyle<TooltipToken, CSSObject> = token => {
       },
 
       '&-placement-right, &-placement-rightTop, &-placement-rightBottom': {
-        // paddingLeft: tooltipDistance,
-        paddingInlineStart: tooltipDistance,
+        paddingLeft: {
+          _skip_check_: true,
+          value: tooltipDistance,
+        },
       },
 
       '&-placement-bottom, &-placement-bottomLeft, &-placement-bottomRight': {
@@ -91,8 +93,10 @@ const genTooltipStyle: GenerateStyle<TooltipToken, CSSObject> = token => {
       },
 
       '&-placement-left, &-placement-leftTop, &-placement-leftBottom': {
-        // paddingRight: tooltipDistance,
-        paddingInlineEnd: tooltipDistance,
+        paddingRight: {
+          _skip_check_: true,
+          value: tooltipDistance,
+        },
       },
       // Wrapper for the tooltip content
       [`${componentCls}-inner`]: {
@@ -147,26 +151,33 @@ const genTooltipStyle: GenerateStyle<TooltipToken, CSSObject> = token => {
         },
 
       [`&-placement-top ${componentCls}-arrow`]: {
-        // left: '50%',
-        insetInlineStart: '50%',
+        left: {
+          _skip_check_: true,
+          value: '50%',
+        },
         transform: 'translateX(-50%)',
       },
 
       [`&-placement-topLeft ${componentCls}-arrow`]: {
-        // left: tooltipArrowOffsetHorizontal,
-        insetInlineStart: tooltipArrowOffsetHorizontal,
+        left: {
+          _skip_check_: true,
+          value: tooltipArrowOffsetHorizontal,
+        },
       },
 
       [`&-placement-topRight ${componentCls}-arrow`]: {
-        // right: tooltipArrowOffsetHorizontal,
-        insetInlineEnd: tooltipArrowOffsetHorizontal,
+        right: {
+          _skip_check_: true,
+          value: tooltipArrowOffsetHorizontal,
+        },
       },
 
       [`&-placement-right ${componentCls}-arrow, &-placement-rightTop ${componentCls}-arrow, &-placement-rightBottom ${componentCls}-arrow`]:
         {
-          // left: tooltipDistance - tooltipArrowRotateWidth + 0.1,
-          insetInlineStart: tooltipDistance - tooltipArrowRotateWidth + 0.1,
-
+          left: {
+            _skip_check_: true,
+            value: tooltipDistance - tooltipArrowRotateWidth + 0.1,
+          },
           '&-content': {
             boxShadow: `-${tooltipArrowShadowWidth}px ${tooltipArrowShadowWidth}px 7px ${tooltipShadowColor}`,
             transform: `translateX(${tooltipArrowRotateWidth / 2}px) rotate(135deg)`,
@@ -188,8 +199,10 @@ const genTooltipStyle: GenerateStyle<TooltipToken, CSSObject> = token => {
 
       [`&-placement-left ${componentCls}-arrow, &-placement-leftTop ${componentCls}-arrow, &-placement-leftBottom ${componentCls}-arrow`]:
         {
-          // right: tooltipDistance - tooltipArrowRotateWidth + 0.08,
-          insetInlineEnd: tooltipDistance - tooltipArrowRotateWidth + 0.08,
+          right: {
+            _skip_check_: true,
+            value: tooltipDistance - tooltipArrowRotateWidth + 0.08,
+          },
 
           '&-content': {
             boxShadow: `${tooltipArrowShadowWidth}px -${tooltipArrowShadowWidth}px 7px ${tooltipShadowColor}`,
@@ -221,19 +234,25 @@ const genTooltipStyle: GenerateStyle<TooltipToken, CSSObject> = token => {
         },
 
       [`&-placement-bottom ${componentCls}-arrow`]: {
-        // left: '50%',
-        insetInlineStart: '50%',
+        left: {
+          _skip_check_: true,
+          value: '50%',
+        },
         transform: 'translateX(-50%)',
       },
 
       [`&-placement-bottomLeft ${componentCls}-arrow`]: {
-        // left: tooltipArrowOffsetHorizontal,
-        insetInlineStart: tooltipArrowOffsetHorizontal,
+        left: {
+          _skip_check_: true,
+          value: tooltipArrowOffsetHorizontal,
+        },
       },
 
       [`&-placement-bottomRight ${componentCls}-arrow`]: {
-        // right: tooltipArrowOffsetHorizontal,
-        insetInlineEnd: tooltipArrowOffsetHorizontal,
+        right: {
+          _skip_check_: true,
+          value: tooltipArrowOffsetHorizontal,
+        },
       },
 
       // generator for preset color
