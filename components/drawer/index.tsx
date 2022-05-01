@@ -134,7 +134,7 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
     React.useEffect(() => {
       // fix: delete drawer in child and re-render, no push started.
       // <Drawer>{show && <Drawer />}</Drawer>
-      if (load && parentDrawer) {
+      if (visible && parentDrawer) {
         parentDrawer.push();
       }
 
@@ -148,13 +148,13 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
 
     React.useEffect(() => {
       if (parentDrawer) {
-        if (load) {
+        if (visible) {
           parentDrawer.push();
         } else {
           parentDrawer.pull();
         }
       }
-    }, [load]);
+    }, [visible]);
 
     const operations = React.useMemo(
       () => ({
@@ -173,8 +173,6 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
     );
 
     React.useImperativeHandle(ref, () => operations, [operations]);
-
-    const isDestroyOnClose = destroyOnClose && !load;
 
     const getOffsetStyle = () => {
       // https://github.com/ant-design/ant-design/issues/24287
@@ -268,16 +266,8 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
         return null;
       }
 
-      const containerStyle: React.CSSProperties = {};
-
-      if (isDestroyOnClose) {
-        // Increase the opacity transition, delete children after closing.
-        containerStyle.opacity = 0;
-        containerStyle.transition = 'opacity .3s';
-      }
-
       return (
-        <div className={`${prefixCls}-wrapper-body`} style={{ ...containerStyle, ...drawerStyle }}>
+        <div className={`${prefixCls}-wrapper-body`} style={{ ...drawerStyle }}>
           {renderHeader()}
           <div className={`${prefixCls}-body`} style={bodyStyle}>
             {children}
