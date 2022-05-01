@@ -36,6 +36,7 @@ exports[`renders ./components/table/demo/ajax.md extend context correctly 1`] = 
                 <tr>
                   <th
                     class="ant-table-cell ant-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="ant-table-column-sorters"
@@ -1516,6 +1517,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md extend context c
                   </th>
                   <th
                     class="ant-table-cell ant-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="ant-table-filter-column"
@@ -3205,6 +3207,7 @@ Array [
                     </th>
                     <th
                       class="ant-table-cell ant-table-column-has-sorters"
+                      tabindex="0"
                     >
                       <div
                         class="ant-table-column-sorters"
@@ -3514,6 +3517,7 @@ Array [
                     </th>
                     <th
                       class="ant-table-cell ant-table-column-has-sorters"
+                      tabindex="0"
                     >
                       <div
                         class="ant-table-column-sorters"
@@ -7454,6 +7458,7 @@ exports[`renders ./components/table/demo/filter-in-tree.md extend context correc
                   </th>
                   <th
                     class="ant-table-cell ant-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="ant-table-column-sorters"
@@ -8273,6 +8278,7 @@ exports[`renders ./components/table/demo/filter-search.md extend context correct
                   </th>
                   <th
                     class="ant-table-cell ant-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="ant-table-column-sorters"
@@ -12145,6 +12151,7 @@ exports[`renders ./components/table/demo/grouping-columns.md extend context corr
                   <th
                     class="ant-table-cell ant-table-column-has-sorters"
                     rowspan="3"
+                    tabindex="0"
                   >
                     <div
                       class="ant-table-column-sorters"
@@ -13250,6 +13257,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                 <tr>
                   <th
                     class="ant-table-cell ant-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="ant-table-filter-column"
@@ -13713,6 +13721,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                   <th
                     aria-sort="descending"
                     class="ant-table-cell ant-table-column-sort ant-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="ant-table-column-sorters"
@@ -14574,6 +14583,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md extend context corre
                   </th>
                   <th
                     class="ant-table-cell ant-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="ant-table-column-sorters"
@@ -14657,6 +14667,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md extend context corre
                   </th>
                   <th
                     class="ant-table-cell ant-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="ant-table-column-sorters"
@@ -14740,6 +14751,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md extend context corre
                   </th>
                   <th
                     class="ant-table-cell ant-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="ant-table-column-sorters"
@@ -17420,6 +17432,7 @@ Array [
                   <tr>
                     <th
                       class="ant-table-cell ant-table-cell-ellipsis ant-table-column-has-sorters"
+                      tabindex="0"
                     >
                       <div
                         class="ant-table-filter-column"
@@ -17724,6 +17737,7 @@ Array [
                     </th>
                     <th
                       class="ant-table-cell ant-table-cell-ellipsis ant-table-column-has-sorters"
+                      tabindex="0"
                     >
                       <div
                         class="ant-table-column-sorters"
@@ -17807,6 +17821,7 @@ Array [
                     </th>
                     <th
                       class="ant-table-cell ant-table-cell-ellipsis ant-table-column-has-sorters"
+                      tabindex="0"
                     >
                       <div
                         class="ant-table-filter-column"
@@ -18347,6 +18362,7 @@ exports[`renders ./components/table/demo/resizable-column.md extend context corr
                   </th>
                   <th
                     class="ant-table-cell ant-table-column-has-sorters react-resizable"
+                    tabindex="0"
                   >
                     <div
                       class="ant-table-column-sorters"

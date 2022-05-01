@@ -216,6 +216,7 @@
 
   // ============================ Sorter ============================
   &-thead th.@{table-prefix-cls}-column-has-sorters {
+    outline: none;
     cursor: pointer;
     transition: all 0.3s;
 
@@ -225,6 +226,10 @@
       &::before {
         background-color: transparent !important;
       }
+    }
+
+    &:focus-visible {
+      color: @primary-color;
     }
 
     // https://github.com/ant-design/ant-design/issues/30969
