@@ -45,7 +45,7 @@ export default () => (
       </Tooltip>
     </div>
     <div style={{ width: buttonWidth, marginLeft: buttonWidth * 4 + 24 }}>
-      <Tooltip placement="rightTop" title={text} visible>
+      <Tooltip placement="rightTop" title={text}>
         <Button>RT</Button>
       </Tooltip>
       <Tooltip placement="right" title={text}>
