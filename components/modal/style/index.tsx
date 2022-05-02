@@ -48,9 +48,9 @@ function box(position: React.CSSProperties['position']): React.CSSProperties {
   return {
     position,
     top: 0,
-    right: 0,
+    insetInlineEnd: 0,
     bottom: 0,
-    left: 0,
+    insetInlineStart: 0,
   };
 }
 
@@ -196,10 +196,9 @@ const genModalStyle: GenerateStyle<ModalToken> = token => {
         overflow: 'auto',
         outline: 0,
         WebkitOverflowScrolling: 'touch',
-
-        '&&-rtl': {
-          direction: 'rtl',
-        },
+      },
+      [`${componentCls}-wrap-rtl`]: {
+        direction: 'rtl',
       },
 
       [`${componentCls}-centered`]: {
@@ -243,6 +242,9 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = token => {
   return {
     [`${componentCls}-root`]: {
       [confirmComponentCls]: {
+        '&-rtl': {
+          direction: 'rtl',
+        },
         [`${token.antCls}-modal-header`]: {
           display: 'none',
         },
@@ -315,6 +317,30 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = token => {
   };
 };
 
+const genRTLStyle: GenerateStyle<ModalToken> = token => {
+  const { componentCls } = token;
+  return {
+    [`${componentCls}-root`]: {
+      [`${componentCls}-wrap-rtl`]: {
+        direction: 'rtl',
+
+        [`${componentCls}-confirm-body`]: {
+          // FIXME: duplicated style
+          // direction: 'rtl',
+
+          [`>${token.iconCls}`]: {
+            float: 'right',
+          },
+        },
+
+        [`${componentCls}-confirm-btns`]: {
+          float: 'left',
+        },
+      },
+    },
+  };
+};
+
 // ============================== Export ==============================
 export default genComponentStyleHook('Modal', token => {
   const modalToken = mergeToken<ModalToken>(token, {
@@ -348,5 +374,5 @@ export default genComponentStyleHook('Modal', token => {
     // FIXME: hard code
     modalIconHoverColor: new TinyColor('#000').setAlpha(0.75).toRgbString(),
   });
-  return [genModalStyle(modalToken), genModalConfirmStyle(modalToken)];
+  return [genModalStyle(modalToken), genModalConfirmStyle(modalToken), genRTLStyle(modalToken)];
 });
