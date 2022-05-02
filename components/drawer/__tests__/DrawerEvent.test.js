@@ -1,7 +1,6 @@
 import React from 'react';
 import Drawer from '..';
-
-import { render, fireEvent, screen } from '../../../tests/utils';
+import { render, fireEvent } from '../../../tests/utils';
 
 describe('Drawer', () => {
   const getDrawer = props => (
@@ -48,21 +47,26 @@ describe('Drawer', () => {
   });
 
   it('dom should be removed after close when destroyOnClose is true', () => {
-    const { rerender, container } = render(getDrawer({ destroyOnClose: true }));
+    const { container, rerender } = render(getDrawer({ destroyOnClose: true }));
+
     rerender(getDrawer({ destroyOnClose: true, visible: false }));
     const ev = new Event('transitionend', { bubbles: true });
     ev.propertyName = 'transform';
     fireEvent(container.querySelector('.ant-drawer-content-wrapper'), ev);
-    expect(screen.queryByText(/Here is content of Drawer/)).toBeFalsy();
+
+    expect(container.querySelector('.ant-drawer-wrapper-body')).toBeFalsy();
   });
+
   it('dom should be existed after close when destroyOnClose is false', () => {
-    const { rerender, container } = render(getDrawer());
-    expect(screen.queryByText(/Here is content of Drawer/)).toBeTruthy();
+    const { container, rerender } = render(getDrawer());
+    expect(container.querySelector('.ant-drawer-wrapper-body')).toBeTruthy();
+
     rerender(getDrawer({ visible: false }));
     const ev = new Event('transitionend', { bubbles: true });
     ev.propertyName = 'transform';
     fireEvent(container.querySelector('.ant-drawer-content-wrapper'), ev);
-    expect(screen.queryByText(/Here is content of Drawer/)).toBeTruthy();
+
+    expect(container.querySelector('.ant-drawer-wrapper-body')).toBeTruthy();
   });
   it('test afterVisibleChange', async () => {
     const afterVisibleChange = jest.fn();
