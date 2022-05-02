@@ -108,7 +108,7 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
     const [internalPush, setPush] = React.useState(false);
     const parentDrawer = React.useContext(DrawerContext);
 
-    const [load, setLoad] = React.useState(forceRender);
+    const [load, setLoad] = React.useState(false);
     const [visible, setVisible] = React.useState(false);
 
     React.useEffect(() => {
@@ -262,7 +262,7 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
 
     // render drawer body dom
     const renderBody = () => {
-      if (destroyOnClose && !load) {
+      if (destroyOnClose && !forceRender && !load) {
         return null;
       }
 
