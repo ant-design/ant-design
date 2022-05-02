@@ -262,7 +262,7 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
 
     // render drawer body dom
     const renderBody = () => {
-      if (!load) {
+      if (destroyOnClose && !load) {
         return null;
       }
 
