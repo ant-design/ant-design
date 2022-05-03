@@ -92,6 +92,7 @@ export interface OverrideToken {
   Menu?: MenuComponentToken;
   Layout?: {};
   Upload?: UploadComponentToken;
+  Tooltip?: {};
 }
 
 /** Final token which contains the components level override */
