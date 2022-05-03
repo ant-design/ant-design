@@ -191,7 +191,7 @@
     "antd-img-crop": "^4.0.0",
     "array-move": "^4.0.0",
     "babel-plugin-add-react-displayname": "^0.0.5",
-    "bisheng": "^3.2.1",
+    "bisheng": "^3.4.0",
     "bisheng-plugin-description": "^0.1.4",
     "bisheng-plugin-react": "^1.2.0",
     "bisheng-plugin-toc": "^0.4.4",
