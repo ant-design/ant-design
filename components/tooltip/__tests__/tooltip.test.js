@@ -26,7 +26,7 @@ describe('Tooltip', () => {
     const onVisibleChange = jest.fn();
     const ref = React.createRef();
 
-    const wrapper = mount(
+    const { container, rerender } = render(
       <Tooltip
         title=""
         mouseEnterDelay={0}
@@ -39,34 +39,55 @@ describe('Tooltip', () => {
     );
 
     // `title` is empty.
-    const div = wrapper.find('#hello').at(0);
-    div.simulate('mouseenter');
+    const divElement = container.querySelector('#hello');
+    fireEvent.mouseEnter(divElement);
     expect(onVisibleChange).not.toHaveBeenCalled();
     expect(ref.current.props.visible).toBe(false);
 
-    div.simulate('mouseleave');
+    fireEvent.mouseLeave(divElement);
     expect(onVisibleChange).not.toHaveBeenCalled();
     expect(ref.current.props.visible).toBe(false);
 
     // update `title` value.
-    wrapper.setProps({ title: 'Have a nice day!' });
-    wrapper.find('#hello').simulate('mouseenter');
+    rerender(
+      <Tooltip
+        title="Have a nice day!"
+        mouseEnterDelay={0}
+        mouseLeaveDelay={0}
+        onVisibleChange={onVisibleChange}
+        ref={ref}
+      >
+        <div id="hello">Hello world!</div>
+      </Tooltip>,
+    );
+    fireEvent.mouseEnter(divElement);
     expect(onVisibleChange).toHaveBeenLastCalledWith(true);
     expect(ref.current.props.visible).toBe(true);
 
-    wrapper.find('#hello').simulate('mouseleave');
+    fireEvent.mouseLeave(divElement);
     expect(onVisibleChange).toHaveBeenLastCalledWith(false);
     expect(ref.current.props.visible).toBe(false);
 
     // add `visible` props.
-    wrapper.setProps({ visible: false });
-    wrapper.find('#hello').simulate('mouseenter');
+    rerender(
+      <Tooltip
+        title="Have a nice day!"
+        mouseEnterDelay={0}
+        mouseLeaveDelay={0}
+        onVisibleChange={onVisibleChange}
+        ref={ref}
+        visible={false}
+      >
+        <div id="hello">Hello world!</div>
+      </Tooltip>,
+    );
+    fireEvent.mouseEnter(divElement);
     expect(onVisibleChange).toHaveBeenLastCalledWith(true);
     const lastCount = onVisibleChange.mock.calls.length;
     expect(ref.current.props.visible).toBe(false);
 
     // always trigger onVisibleChange
-    wrapper.simulate('mouseleave');
+    fireEvent.mouseLeave(divElement);
     expect(onVisibleChange.mock.calls.length).toBe(lastCount); // no change with lastCount
     expect(ref.current.props.visible).toBe(false);
   });
