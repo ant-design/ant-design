@@ -29,7 +29,7 @@ exports[`Space should render correct with children 1`] = `
 `;
 
 exports[`Space should render width ConfigProvider 1`] = `
-Array [
+HTMLCollection [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
   >
@@ -91,7 +91,7 @@ Array [
 `;
 
 exports[`Space should render width rtl 1`] = `
-Array [
+HTMLCollection [
   <div
     class="ant-space ant-space-horizontal ant-space-rtl ant-space-align-center"
   >
