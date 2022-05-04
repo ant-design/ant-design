@@ -18,7 +18,7 @@ describe('flex gap', () => {
         <span />
       </Space>,
     );
-    expect(wrapper.getDOMNode().style['column-gap']).toBe('8px');
-    expect(wrapper.getDOMNode().style['row-gap']).toBe('8px');
+    expect(wrapper.getDOMNode()[1].style['column-gap']).toBe('8px');
+    expect(wrapper.getDOMNode()[1].style['row-gap']).toBe('8px');
   });
 });
