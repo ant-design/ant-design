@@ -190,7 +190,6 @@ const genModalStyle: GenerateStyle<ModalToken> = token => {
 
       [`${componentCls}-wrap`]: {
         zIndex: token.zIndexPopup,
-        // FIXME 找不到在哪里写的
         position: 'fixed',
         inset: 0,
         overflow: 'auto',
@@ -250,7 +249,7 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = token => {
         },
         [`${token.antCls}-modal-body`]: {
           // FIXME: hard code
-          padding: '32px 32px 24px',
+          padding: `${token.padding * 2}px ${token.padding * 2}px ${token.paddingLG}px`,
         },
         [`${confirmComponentCls}-body-wrapper`]: {
           ...clearFix(),
@@ -277,12 +276,12 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = token => {
             float: 'left',
             marginInlineEnd: token.margin,
             // FIXME: hard code
-            fontSize: '22px',
+            fontSize: 22,
 
             // `content` after `icon` should set marginLeft
             [`+ ${confirmComponentCls}-title + ${confirmComponentCls}-content`]: {
               // FIXME: hard code
-              marginInlineStart: '38px',
+              marginInlineStart: 38,
             },
           },
         },
