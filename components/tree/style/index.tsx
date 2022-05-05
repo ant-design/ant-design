@@ -467,6 +467,8 @@ export const genTreeStyle = (prefixCls: string, token: DerivativeToken): CSSInte
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Tree', (token, { prefixCls }) => [
-  getCheckboxStyle(`${prefixCls}-checkbox`, token),
+  {
+    [token.componentCls]: getCheckboxStyle(`${prefixCls}-checkbox`, token),
+  },
   genTreeStyle(prefixCls, token),
 ]);
