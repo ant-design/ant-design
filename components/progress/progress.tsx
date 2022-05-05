@@ -71,7 +71,7 @@ const Progress: React.FC<ProgressProps> = (props: ProgressProps) => {
   }
 
   function renderProcessInfo(prefixCls: string, progressStatus: typeof ProgressStatuses[number]) {
-    const { showInfo = true, format, type = 'line' as ProgressProps['type'], percent = 0 } = props;
+    const { showInfo = true, format, percent = 0 } = props;
     const successPercent = getSuccessPercent(props);
     if (!showInfo) {
       return null;
