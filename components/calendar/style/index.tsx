@@ -208,7 +208,7 @@ export default genComponentStyleHook(
     calendarFullPanelBg: token.colorBgComponent,
     calendarItemActiveBg: token.controlItemBgActive,
 
-    // date-picker token
+    // FIXME: date-picker token
     pickerTextHeight: 40,
     pickerPanelCellWidth: 36,
     pickerPanelCellHeight: 24,
