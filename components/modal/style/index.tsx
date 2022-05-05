@@ -125,9 +125,11 @@ const genModalStyle: GenerateStyle<ModalToken> = token => {
           position: 'absolute',
           top: 0,
           insetInlineEnd: 0,
+          // FIXME: hard code
           zIndex: token.zIndexBase + 10,
           padding: 0,
           color: token.modalCloseColor,
+          // FIXME: hard code
           fontWeight: 700,
           lineHeight: 1,
           textDecoration: 'none',
@@ -261,8 +263,10 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = token => {
             // https://user-images.githubusercontent.com/507615/37702510-ba844e06-2d2d-11e8-9b67-8e19be57f445.png
             overflow: 'hidden',
             color: token.colorTextHeading,
+            // FIXME: hard code
             fontWeight: 500,
             fontSize: token.modalConfirmTitleFontSize,
+            // FIXME: hard code
             lineHeight: 1.4,
           },
 
@@ -286,6 +290,7 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = token => {
           },
         },
         [`${confirmComponentCls}-btns`]: {
+          // FIXME: 改成 flex 布局
           float: 'right',
           marginTop: token.marginLG,
 
