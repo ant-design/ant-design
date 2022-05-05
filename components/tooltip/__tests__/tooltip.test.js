@@ -343,7 +343,7 @@ describe('Tooltip', () => {
     const button = container.getElementsByTagName('span')[0];
     fireEvent.mouseEnter(button);
     await sleep(500);
-    expect(ref.current.getPopupDomNode().className).toContain('placement-topRight');
+    expect(ref.current.getPopupDomNode().className).toContain('ant-tooltip-placement-topRight');
   });
 
   it('should works for mismatch placement', async () => {
