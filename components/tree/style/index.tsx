@@ -253,6 +253,11 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         top: 'initial',
         marginInlineEnd: treeCheckBoxMarginHorizontal,
         marginBlockStart: treeCheckBoxMarginVertical,
+
+        '+ span': {
+          padding: `0 ${token.paddingXS / 2}px`,
+          color: 'inherit',
+        },
       },
 
       // >>> Title
