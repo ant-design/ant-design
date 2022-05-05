@@ -1,5 +1,4 @@
 import React from 'react';
-import { mount } from 'enzyme';
 import { spyElementPrototype } from 'rc-util/lib/test/domHook';
 import { fireEvent, render } from '@testing-library/react';
 import Tooltip from '..';
@@ -301,17 +300,21 @@ describe('Tooltip', () => {
     }).not.toThrow();
   });
 
-  // TODO:
   it('support other placement', done => {
-    const wrapper = mount(
+    const ref = React.createRef();
+    const { container } = render(
       <Tooltip
         title="xxxxx"
         placement="bottomLeft"
         transitionName=""
         mouseEnterDelay={0}
-        afterVisibleChange={visible => {
+        ref={ref}
+        afterVisibleChange={async visible => {
           if (visible) {
-            expect(wrapper.find('Trigger').props().popupPlacement).toBe('bottomLeft');
+            await sleep(500);
+            expect(ref.current.getPopupDomNode().className).toContain(
+              'ant-tooltip-placement-bottomLeft',
+            );
           }
           done();
         }}
@@ -319,9 +322,9 @@ describe('Tooltip', () => {
         <span>Hello world!</span>
       </Tooltip>,
     );
-    expect(wrapper.find('span')).toHaveLength(1);
-    const button = wrapper.find('span').at(0);
-    button.simulate('mouseenter');
+    expect(container.getElementsByTagName('span')).toHaveLength(1);
+    const button = container.getElementsByTagName('span')[0];
+    fireEvent.mouseEnter(button);
   });
 
   it('other placement when mouse enter', async () => {
