@@ -134,39 +134,6 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         },
       },
 
-      // ===================== TreeNode =====================
-      [`${treeNodeCls}`]: {
-        display: 'flex',
-        alignItems: 'flex-start',
-        padding: `0 0 ${treeNodePadding}px 0`,
-        outline: 'none',
-
-        '&-rtl': {
-          direction: 'rtl',
-        },
-
-        // Disabled
-        '&-disabled': {
-          // >>> Title
-          [`${treeCls}-node-content-wrapper`]: {
-            color: token.colorTextDisabled,
-            cursor: 'not-allowed',
-            '&:hover': {
-              background: 'transparent',
-            },
-          },
-        },
-
-        [`&-active ${treeCls}-node-content-wrapper`]: {
-          background: token.controlItemBgHover,
-        },
-
-        [`&:not(&-disabled).filter-node ${treeCls}-title`]: {
-          color: 'inherit',
-          fontWeight: 500,
-        },
-      },
-
       // >>> Indent
       [`${treeCls}-indent`]: {
         alignSelf: 'stretch',
@@ -256,7 +223,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
       },
 
       // >>> Title
-      [`& ${treeCls}-node-content-wrapper`]: {
+      [`&& ${treeCls}-node-content-wrapper`]: {
         display: 'flex',
         flexWrap: 'nowrap',
         position: 'relative',
@@ -358,6 +325,40 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
               height: `${treeTitleHeight / 2}px !important`,
             },
           },
+        },
+      },
+    },
+    [`${treeCls}${treeCls}`]: {
+      // ===================== TreeNode =====================
+      [`${treeNodeCls}`]: {
+        display: 'flex',
+        alignItems: 'flex-start',
+        padding: `0 0 ${treeNodePadding}px 0`,
+        outline: 'none',
+
+        '&-rtl': {
+          direction: 'rtl',
+        },
+
+        // Disabled
+        '&-disabled': {
+          // >>> Title
+          [`${treeCls}-node-content-wrapper`]: {
+            color: token.colorTextDisabled,
+            cursor: 'not-allowed',
+            '&:hover': {
+              background: 'transparent',
+            },
+          },
+        },
+
+        [`&-active ${treeCls}-node-content-wrapper`]: {
+          background: token.controlItemBgHover,
+        },
+
+        [`&:not(&-disabled).filter-node ${treeCls}-title`]: {
+          color: 'inherit',
+          fontWeight: 500,
         },
       },
     },
@@ -466,7 +467,9 @@ export const genTreeStyle = (prefixCls: string, token: DerivativeToken): CSSInte
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Tree', (token, { prefixCls }) => [
-  getCheckboxStyle(`${prefixCls}-checkbox`, token),
+export default genComponentStyleHook('Tree', (token, { prefixCls, rootPrefixCls }) => [
+  {
+    [`.${prefixCls}`]: getCheckboxStyle(`${rootPrefixCls}-tree-checkbox`, token),
+  },
   genTreeStyle(prefixCls, token),
 ]);
