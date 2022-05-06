@@ -7,6 +7,7 @@ import { ConfigContext } from '../config-provider';
 import SizeContext from '../config-provider/SizeContext';
 import { RadioGroupContextProvider } from './context';
 import getDataOrAriaProps from '../_util/getDataOrAriaProps';
+import useStyle from './style';
 
 const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
@@ -15,6 +16,13 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
   const [value, setValue] = useMergedState(props.defaultValue, {
     value: props.value,
   });
+
+  const { prefixCls: customizePrefixCls } = props;
+  const prefixCls = getPrefixCls('radio', customizePrefixCls);
+  const groupPrefixCls = `${prefixCls}-group`;
+
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls, getPrefixCls());
 
   const onRadioChange = (ev: RadioChangeEvent) => {
     const lastValue = value;
@@ -30,7 +38,6 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
 
   const renderGroup = () => {
     const {
-      prefixCls: customizePrefixCls,
       className = '',
       options,
       buttonStyle = 'outline' as RadioGroupButtonStyle,
@@ -42,8 +49,6 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
       onMouseEnter,
       onMouseLeave,
     } = props;
-    const prefixCls = getPrefixCls('radio', customizePrefixCls);
-    const groupPrefixCls = `${prefixCls}-group`;
     let childrenToRender = children;
     // 如果存在 options, 优先使用
     if (options && options.length > 0) {
@@ -87,8 +92,9 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
         [`${groupPrefixCls}-rtl`]: direction === 'rtl',
       },
       className,
+      hashId,
     );
-    return (
+    return wrapSSR(
       <div
         {...getDataOrAriaProps(props)}
         className={classString}
@@ -99,7 +105,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
         ref={ref}
       >
         {childrenToRender}
-      </div>
+      </div>,
     );
   };
 

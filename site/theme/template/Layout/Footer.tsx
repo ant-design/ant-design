@@ -314,9 +314,6 @@ class Footer extends React.Component<WrappedComponentProps & { location: any }> 
             enUS: 'components-config-provider-demo-theme',
           }),
           LinkComponent: Link,
-          style: {
-            marginTop: 20,
-          },
         },
       ],
     };

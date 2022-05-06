@@ -60,10 +60,10 @@ export default () => (
 .upload-list-inline .ant-upload-list-item {
   float: left;
   width: 200px;
-  margin-right: 8px;
+  margin-inline-end: 8px;
 }
 
-.upload-list-inline [class*='-upload-list-rtl'] .ant-upload-list-item {
+.ant-upload-rtl.upload-list-inline .ant-upload-list-item {
   float: right;
 }
 ```

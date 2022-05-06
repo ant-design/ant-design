@@ -9,16 +9,22 @@ export type OverrideTokenWithoutDerivative = Omit<OverrideToken, 'derivative'>;
 export type OverrideComponent = keyof OverrideTokenWithoutDerivative;
 export type GlobalTokenWithComponent<ComponentName extends OverrideComponent> = GlobalToken &
   OverrideToken[ComponentName];
-export type StyleInfo = {
+
+export interface StyleInfo {
   hashId: string;
   prefixCls: string;
   rootPrefixCls: string;
   iconPrefixCls: string;
-};
+}
+
 export type TokenWithCommonCls<T> = T & {
+  /** Wrap component class with `.` prefix */
   componentCls: string;
+  /** Origin prefix which do not have `.` prefix */
   prefixCls: string;
+  /** Wrap icon class with `.` prefix */
   iconCls: string;
+  /** Wrap ant prefixCls class with `.` prefix */
   antCls: string;
 };
 export type FullToken<ComponentName extends OverrideComponent> = TokenWithCommonCls<
@@ -38,7 +44,7 @@ function genComponentStyleHook<ComponentName extends OverrideComponent>(
     const rootPrefixCls = getPrefixCls();
 
     return [
-      useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => {
+      useStyleRegister({ theme, token, hashId, path: [component, prefixCls] }, () => {
         const { token: proxyToken, flush } = statisticToken(token);
 
         const defaultComponentToken =

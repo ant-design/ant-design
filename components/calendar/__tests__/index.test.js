@@ -1,5 +1,6 @@
 import React from 'react';
 import Dayjs from 'dayjs';
+import 'dayjs/locale/zh-cn';
 import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
 import { mount } from 'enzyme';
 import MockDate from 'mockdate';
@@ -10,7 +11,7 @@ import Group from '../../radio/group';
 import Button from '../../radio/radioButton';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import 'dayjs/locale/zh-cn';
+import { render, fireEvent } from '../../../tests/utils';
 
 describe('Calendar', () => {
   mountTest(Calendar);
@@ -41,14 +42,20 @@ describe('Calendar', () => {
   });
 
   it('Calendar should be selectable', () => {
+    MockDate.set(Moment('2000-01-01').valueOf());
+
     const onSelect = jest.fn();
     const onChange = jest.fn();
-    const wrapper = mount(<Calendar onSelect={onSelect} onChange={onChange} />);
-    wrapper.find('.ant-picker-cell').at(0).simulate('click');
+    const { container } = render(<Calendar onSelect={onSelect} onChange={onChange} />);
+
+    fireEvent.click(container.querySelector('.ant-picker-cell'));
     expect(onSelect).toHaveBeenCalledWith(expect.anything());
+
     const value = onSelect.mock.calls[0][0];
     expect(Dayjs.isDayjs(value)).toBe(true);
     expect(onChange).toHaveBeenCalled();
+
+    MockDate.reset();
   });
 
   it('only Valid range should be selectable', () => {

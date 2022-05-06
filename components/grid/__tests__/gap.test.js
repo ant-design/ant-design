@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import { render } from '@testing-library/react';
-import '@testing-library/jest-dom';
 import { mount } from 'enzyme';
+import { render } from '../../../tests/utils';
 import { Col, Row } from '..';
 // eslint-disable-next-line no-unused-vars
 import * as styleChecker from '../../_util/styleChecker';

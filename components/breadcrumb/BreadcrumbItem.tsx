@@ -1,15 +1,15 @@
 import * as React from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 
-import DropDown, { DropDownProps } from '../dropdown/dropdown';
+import Dropdown, { DropdownProps } from '../dropdown/dropdown';
 import { ConfigContext } from '../config-provider';
 
 export interface BreadcrumbItemProps {
   prefixCls?: string;
   separator?: React.ReactNode;
   href?: string;
-  overlay?: DropDownProps['overlay'];
-  dropdownProps?: DropDownProps;
+  overlay?: DropdownProps['overlay'];
+  dropdownProps?: DropdownProps;
   onClick?: React.MouseEventHandler<HTMLAnchorElement | HTMLSpanElement>;
   className?: string;
   children?: React.ReactNode;
@@ -27,16 +27,16 @@ const BreadcrumbItem: BreadcrumbItemInterface = ({
 }) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('breadcrumb', customizePrefixCls);
-  /** If overlay is have Wrap a DropDown */
+  /** If overlay is have Wrap a Dropdown */
   const renderBreadcrumbNode = (breadcrumbItem: React.ReactNode) => {
     if (overlay) {
       return (
-        <DropDown overlay={overlay} placement="bottomCenter" {...dropdownProps}>
+        <Dropdown overlay={overlay} placement="bottom" {...dropdownProps}>
           <span className={`${prefixCls}-overlay-link`}>
             {breadcrumbItem}
             <DownOutlined />
           </span>
-        </DropDown>
+        </Dropdown>
       );
     }
     return breadcrumbItem;

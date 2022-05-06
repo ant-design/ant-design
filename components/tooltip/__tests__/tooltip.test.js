@@ -1,6 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { spyElementPrototype } from 'rc-util/lib/test/domHook';
+import { fireEvent, render } from '@testing-library/react';
 import Tooltip from '..';
 import Button from '../../button';
 import Switch from '../../switch';
@@ -25,7 +26,7 @@ describe('Tooltip', () => {
     const onVisibleChange = jest.fn();
     const ref = React.createRef();
 
-    const wrapper = mount(
+    const { container, rerender } = render(
       <Tooltip
         title=""
         mouseEnterDelay={0}
@@ -38,34 +39,55 @@ describe('Tooltip', () => {
     );
 
     // `title` is empty.
-    const div = wrapper.find('#hello').at(0);
-    div.simulate('mouseenter');
+    const divElement = container.querySelector('#hello');
+    fireEvent.mouseEnter(divElement);
     expect(onVisibleChange).not.toHaveBeenCalled();
     expect(ref.current.props.visible).toBe(false);
 
-    div.simulate('mouseleave');
+    fireEvent.mouseLeave(divElement);
     expect(onVisibleChange).not.toHaveBeenCalled();
     expect(ref.current.props.visible).toBe(false);
 
     // update `title` value.
-    wrapper.setProps({ title: 'Have a nice day!' });
-    wrapper.find('#hello').simulate('mouseenter');
+    rerender(
+      <Tooltip
+        title="Have a nice day!"
+        mouseEnterDelay={0}
+        mouseLeaveDelay={0}
+        onVisibleChange={onVisibleChange}
+        ref={ref}
+      >
+        <div id="hello">Hello world!</div>
+      </Tooltip>,
+    );
+    fireEvent.mouseEnter(divElement);
     expect(onVisibleChange).toHaveBeenLastCalledWith(true);
     expect(ref.current.props.visible).toBe(true);
 
-    wrapper.find('#hello').simulate('mouseleave');
+    fireEvent.mouseLeave(divElement);
     expect(onVisibleChange).toHaveBeenLastCalledWith(false);
     expect(ref.current.props.visible).toBe(false);
 
     // add `visible` props.
-    wrapper.setProps({ visible: false });
-    wrapper.find('#hello').simulate('mouseenter');
+    rerender(
+      <Tooltip
+        title="Have a nice day!"
+        mouseEnterDelay={0}
+        mouseLeaveDelay={0}
+        onVisibleChange={onVisibleChange}
+        ref={ref}
+        visible={false}
+      >
+        <div id="hello">Hello world!</div>
+      </Tooltip>,
+    );
+    fireEvent.mouseEnter(divElement);
     expect(onVisibleChange).toHaveBeenLastCalledWith(true);
     const lastCount = onVisibleChange.mock.calls.length;
     expect(ref.current.props.visible).toBe(false);
 
     // always trigger onVisibleChange
-    wrapper.simulate('mouseleave');
+    fireEvent.mouseLeave(divElement);
     expect(onVisibleChange.mock.calls.length).toBe(lastCount); // no change with lastCount
     expect(ref.current.props.visible).toBe(false);
   });
@@ -224,7 +246,7 @@ describe('Tooltip', () => {
   it('should works for input group', async () => {
     const onVisibleChange = jest.fn();
     const ref = React.createRef();
-    const wrapper = mount(
+    const { container } = render(
       <Tooltip title="hello" onVisibleChange={onVisibleChange} ref={ref}>
         <Group>
           <Input style={{ width: '50%' }} />
@@ -233,14 +255,14 @@ describe('Tooltip', () => {
       </Tooltip>,
     );
 
-    expect(wrapper.find('Group')).toHaveLength(1);
-    const picker = wrapper.find('Group').at(0);
-    picker.simulate('mouseenter');
+    expect(container.getElementsByClassName('ant-input-group')).toHaveLength(1);
+    const picker = container.getElementsByClassName('ant-input-group')[0];
+    fireEvent.mouseEnter(picker);
     await sleep(100);
     expect(onVisibleChange).toHaveBeenCalledWith(true);
     expect(ref.current.props.visible).toBe(true);
 
-    picker.simulate('mouseleave');
+    fireEvent.mouseLeave(picker);
     await sleep(100);
     expect(onVisibleChange).toHaveBeenCalledWith(false);
     expect(ref.current.props.visible).toBe(false);

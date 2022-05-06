@@ -158,7 +158,7 @@ const genSwitchStyle = (token: SwitchToken): CSSObject => {
       height: token.switchHeight,
       lineHeight: `${token.switchHeight}px`,
       verticalAlign: 'middle',
-      backgroundColor: token.colorTextDisabled,
+      backgroundImage: `linear-gradient(to right, ${token.colorTextDisabled}, ${token.colorTextDisabled}), linear-gradient(to right, ${token.colorBgComponent}, ${token.colorBgComponent})`,
       border: '0',
       borderRadius: 100,
       cursor: 'pointer',
@@ -179,7 +179,7 @@ const genSwitchStyle = (token: SwitchToken): CSSObject => {
       },
 
       [`&${token.componentCls}-checked`]: {
-        backgroundColor: token.switchColor,
+        background: token.switchColor,
       },
 
       [`&${token.componentCls}-loading, &${token.componentCls}-disabled`]: {

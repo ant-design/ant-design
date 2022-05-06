@@ -1304,7 +1304,7 @@ exports[`renders ./components/form/demo/dep-debug.md correctly 1`] = `
   class="ant-form ant-form-horizontal"
   id="debug"
 >
-  0
+  1
   <div
     class="ant-row ant-form-item"
   >
@@ -6098,6 +6098,157 @@ exports[`renders ./components/form/demo/time-related-controls.md correctly 1`] =
 </form>
 `;
 
+exports[`renders ./components/form/demo/useWatch.md correctly 1`] = `
+Array [
+  <form
+    autocomplete="off"
+    class="ant-form ant-form-vertical"
+  >
+    <div
+      class="ant-row ant-form-item"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class=""
+          for="name"
+          title="Name (Watch to trigger rerender)"
+        >
+          Name (Watch to trigger rerender)
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <input
+              class="ant-input"
+              id="name"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-row ant-form-item"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class=""
+          for="age"
+          title="Age (Not Watch)"
+        >
+          Age (Not Watch)
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <div
+              class="ant-input-number ant-input-number-in-form-item"
+            >
+              <div
+                class="ant-input-number-handler-wrap"
+              >
+                <span
+                  aria-disabled="false"
+                  aria-label="Increase Value"
+                  class="ant-input-number-handler ant-input-number-handler-up"
+                  role="button"
+                  unselectable="on"
+                >
+                  <span
+                    aria-label="up"
+                    class="anticon anticon-up ant-input-number-handler-up-inner"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="up"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+                <span
+                  aria-disabled="false"
+                  aria-label="Decrease Value"
+                  class="ant-input-number-handler ant-input-number-handler-down"
+                  role="button"
+                  unselectable="on"
+                >
+                  <span
+                    aria-label="down"
+                    class="anticon anticon-down ant-input-number-handler-down-inner"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="down"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+              </div>
+              <div
+                class="ant-input-number-input-wrap"
+              >
+                <input
+                  autocomplete="off"
+                  class="ant-input-number-input"
+                  id="age"
+                  role="spinbutton"
+                  step="1"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>,
+  <article
+    class="ant-typography"
+  >
+    <pre>
+      Name Value: 
+    </pre>
+  </article>,
+]
+`;
+
 exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
@@ -7270,10 +7421,10 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <span
-            class=""
+            class="ant-upload-wrapper"
           >
             <div
-              class="ant-upload ant-upload-select ant-upload-select-picture ant-upload-in-form-item"
+              class="ant-upload ant-upload-select"
             >
               <span
                 class="ant-upload"
@@ -7350,9 +7501,11 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
         <div
           class="ant-form-item-control-input-content"
         >
-          <span>
+          <span
+            class="ant-upload-wrapper"
+          >
             <div
-              class="ant-upload ant-upload-drag ant-upload-in-form-item"
+              class="ant-upload ant-upload-drag"
             >
               <span
                 class="ant-upload ant-upload-btn"

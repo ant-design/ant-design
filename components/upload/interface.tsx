@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {
+import type {
   RcFile as OriRcFile,
   UploadRequestOption as RcCustomRequestOptions,
   UploadProps as RcUploadProps,
 } from 'rc-upload/lib/interface';
-import { ProgressProps } from '../progress';
+import type { ProgressProps } from '../progress';
 
 export interface RcFile extends OriRcFile {
   readonly lastModifiedDate: Date;
@@ -44,7 +44,7 @@ export interface InternalUploadFile<T = any> extends UploadFile<T> {
 export interface UploadChangeParam<T = UploadFile> {
   // https://github.com/ant-design/ant-design/issues/14420
   file: T;
-  fileList: UploadFile[];
+  fileList: T[];
   event?: { percent: number };
 }
 
@@ -146,6 +146,7 @@ export interface UploadListProps<T = any> {
   items?: Array<UploadFile<T>>;
   progress?: UploadListProgressProps;
   prefixCls?: string;
+  className?: string;
   showRemoveIcon?: boolean;
   showDownloadIcon?: boolean;
   showPreviewIcon?: boolean;

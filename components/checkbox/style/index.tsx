@@ -26,7 +26,7 @@ const antCheckboxEffect = new Keyframes('antCheckboxEffect', {
 });
 
 // ============================== Styles ==============================
-export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token, hashId) => {
+export const genCheckboxStyle: GenerateStyle<CheckboxToken> = token => {
   const { checkboxCls } = token;
   const wrapperCls = `${checkboxCls}-wrapper`;
 
@@ -197,7 +197,9 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token, hashId) =>
           border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorPrimary}`,
           borderRadius: token.controlRadius,
           visibility: 'hidden',
-          animation: `${antCheckboxEffect.getName(hashId)} ${token.motionDurationSlow} ease-in-out`,
+          animationName: antCheckboxEffect,
+          animationDuration: token.motionDurationSlow,
+          animationTimingFunction: 'ease-in-out',
           animationFillMode: 'backwards',
           content: '""',
         },
@@ -241,14 +243,14 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token, hashId) =>
 };
 
 // ============================== Export ==============================
-export function getStyle(prefixCls: string, token: FullToken<'Checkbox'>, hashId: string) {
+export function getStyle(prefixCls: string, token: FullToken<'Checkbox'>) {
   const checkboxToken: CheckboxToken = mergeToken<CheckboxToken>(token, {
     checkboxCls: `.${prefixCls}`,
   });
 
-  return [genCheckboxStyle(checkboxToken, hashId), antCheckboxEffect];
+  return [genCheckboxStyle(checkboxToken)];
 }
 
-export default genComponentStyleHook('Checkbox', (token, { prefixCls, hashId }) => [
-  getStyle(prefixCls, token, hashId),
+export default genComponentStyleHook('Checkbox', (token, { prefixCls }) => [
+  getStyle(prefixCls, token),
 ]);

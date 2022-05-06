@@ -19,18 +19,38 @@ More layouts with navigation: [Layout](/components/layout).
 - Menu is rendered as a `ul` element, so it only supports [`li` and `script-supporting` elements](https://html.spec.whatwg.org/multipage/grouping-content.html#the-ul-element) as children nodes。Your customized node should be wrapped by `Menu.Item`.
 - Menu needs to collect its node structure, so its children should be `Menu.*` or encapsulated HOCs.
 
-## API
+### Usage upgrade after 4.20.0
+
+```__react
+import Alert from '../alert';
+ReactDOM.render(<Alert message="After version 4.20.0, we provide a simpler usage <Menu items={[...]} /> with better perfermance and potential of writing simpler code style in your applications. Meanwhile, we deprecated the old usage in browser console, we will remove it in antd 5.0." />, mountNode);
+```
 
 ```jsx
+// works when >=4.20.0, recommended ✅
 const items = [
-  { label: 'Menu' },
+  { label: 'item 1' },
+  { label: 'item 2' },
   {
-    label: 'SubMenu',
-    children: [{ label: 'SubMenuItem' }],
+    label: 'sub menu',
+    children: [{ label: 'item 3' }],
   },
 ];
-<Menu items={items} />;
+return <Menu items={items} />;
+
+// works when <4.20.0, deprecated when >=4.20.0 🙅🏻‍♀️
+<Menu>
+  <Menu.Item>item 1</Menu.Item>
+  <Menu.Item>item 2</Menu.Item>
+  <Menu.SubMenu title="sub menu">
+    <Menu.Item>item 3</Menu.Item>
+  </Menu.SubMenu>
+</Menu>;
 ```
+
+The legacy demo code for version `<4.20.0` could be found at [https://github.com/ant-design/ant-design/tree/4.19.5/components/menu/demo](https://github.com/ant-design/ant-design/tree/4.19.5/components/menu/demo).
+
+## API
 
 ### Menu
 

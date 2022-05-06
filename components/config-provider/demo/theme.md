@@ -323,8 +323,11 @@ const FormSizeDemo = () => {
                 />
               }
             >
-              <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-                Hover me <DownOutlined />
+              <a onClick={e => e.preventDefault()}>
+                <Space>
+                  Hover me
+                  <DownOutlined />
+                </Space>
               </a>
             </Dropdown>
 

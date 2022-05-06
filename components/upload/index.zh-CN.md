@@ -53,15 +53,15 @@ cover: https://gw.alipayobjects.com/zos/alicdn/QaeBt_ZMg/Upload.svg
 
 继承自 File，附带额外属性用于渲染。
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| name | 文件名 | string | - |
-| percent | 上传进度 | number | - |
-| status | 上传状态，不同状态展示颜色也会有所不同 | `error` \| `success` \| `done` \| `uploading` \| `removed` | - |
-| thumbUrl | 缩略图地址 | string | - |
-| uid | 唯一标识符，不设置时会自动生成 | string | - |
-| url | 下载地址 | string | - |
-| crossOrigin | CORS 属性设置 | `'anonymous'` \| `'use-credentials'` \| `''` | - |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| crossOrigin | CORS 属性设置 | `'anonymous'` \| `'use-credentials'` \| `''` | - | 4.20.0 |
+| name | 文件名 | string | - | - |
+| percent | 上传进度 | number | - | - |
+| status | 上传状态，不同状态展示颜色也会有所不同 | `error` \| `success` \| `done` \| `uploading` \| `removed` | - | - |
+| thumbUrl | 缩略图地址 | string | - | - |
+| uid | 唯一标识符，不设置时会自动生成 | string | - | - |
+| url | 下载地址 | string | - | - |
 
 ### onChange
 

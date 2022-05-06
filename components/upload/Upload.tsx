@@ -2,9 +2,6 @@ import * as React from 'react';
 import RcUpload, { UploadProps as RcUploadProps } from 'rc-upload';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import classNames from 'classnames';
-import { useContext } from 'react';
-import { FormItemInputContext } from '../form/context';
-import Dragger from './Dragger';
 import UploadList from './UploadList';
 import {
   RcFile,
@@ -21,8 +18,9 @@ import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
 import { ConfigContext } from '../config-provider';
 import devWarning from '../_util/devWarning';
+import useStyle from './style';
 
-const LIST_IGNORE = `__LIST_IGNORE_${Date.now()}__`;
+export const LIST_IGNORE = `__LIST_IGNORE_${Date.now()}__`;
 
 export { UploadProps };
 
@@ -302,8 +300,6 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
 
   const prefixCls = getPrefixCls('upload', customizePrefixCls);
 
-  const { isFormItemInput } = useContext(FormItemInputContext);
-
   const rcUploadProps = {
     onBatchStart,
     onError,
@@ -326,6 +322,8 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     delete rcUploadProps.id;
   }
 
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
   const renderUploadList = (button?: React.ReactNode, buttonVisible?: boolean) =>
     showUploadList ? (
       <LocaleReceiver componentName="Upload" defaultLocale={defaultLocale.Upload}>
@@ -341,6 +339,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
             typeof showUploadList === 'boolean' ? ({} as ShowUploadListInterface) : showUploadList;
           return (
             <UploadList
+              prefixCls={prefixCls}
               listType={listType}
               items={mergedFileList}
               previewFile={previewFile}
@@ -368,6 +367,10 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
       button
     );
 
+  const rtlCls = {
+    [`${prefixCls}-rtl`]: direction === 'rtl',
+  };
+
   if (type === 'drag') {
     const dragCls = classNames(
       prefixCls,
@@ -377,12 +380,11 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
         [`${prefixCls}-drag-hover`]: dragState === 'dragover',
         [`${prefixCls}-disabled`]: disabled,
         [`${prefixCls}-rtl`]: direction === 'rtl',
-        [`${prefixCls}-in-form-item`]: isFormItemInput,
       },
-      className,
+      hashId,
     );
-    return (
-      <span>
+    return wrapSSR(
+      <span className={classNames(`${prefixCls}-wrapper`, rtlCls, className, hashId)}>
         <div
           className={dragCls}
           onDrop={onFileDrop}
@@ -395,16 +397,12 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
           </RcUpload>
         </div>
         {renderUploadList()}
-      </span>
+      </span>,
     );
   }
 
-  const uploadButtonCls = classNames(prefixCls, {
-    [`${prefixCls}-select`]: true,
-    [`${prefixCls}-select-${listType}`]: true,
+  const uploadButtonCls = classNames(prefixCls, `${prefixCls}-select`, {
     [`${prefixCls}-disabled`]: disabled,
-    [`${prefixCls}-rtl`]: direction === 'rtl',
-    [`${prefixCls}-in-form-item`]: isFormItemInput,
   });
 
   const renderUploadButton = (uploadButtonStyle?: React.CSSProperties) => (
@@ -414,39 +412,30 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
   );
 
   if (listType === 'picture-card') {
-    return (
-      <span className={classNames(`${prefixCls}-picture-card-wrapper`, className)}>
+    return wrapSSR(
+      <span
+        className={classNames(
+          `${prefixCls}-wrapper`,
+          `${prefixCls}-picture-card-wrapper`,
+          rtlCls,
+          className,
+          hashId,
+        )}
+      >
         {renderUploadList(renderUploadButton(), !!children)}
-      </span>
+      </span>,
     );
   }
 
-  return (
-    <span className={className}>
+  return wrapSSR(
+    <span className={classNames(`${prefixCls}-wrapper`, rtlCls, className, hashId)}>
       {renderUploadButton(children ? undefined : { display: 'none' })}
       {renderUploadList()}
-    </span>
+    </span>,
   );
 };
 
-const ForwardUpload = React.forwardRef<unknown, UploadProps>(InternalUpload) as <T>(
-  props: React.PropsWithChildren<UploadProps<T>> & React.RefAttributes<any>,
-) => React.ReactElement;
-
-type InternalUploadType = typeof ForwardUpload;
-
-interface UploadInterface extends InternalUploadType {
-  defaultProps?: Partial<UploadProps>;
-  displayName?: string;
-  Dragger: typeof Dragger;
-  LIST_IGNORE: string;
-}
-
-const Upload = ForwardUpload as UploadInterface;
-
-Upload.Dragger = Dragger;
-
-Upload.LIST_IGNORE = LIST_IGNORE;
+const Upload = React.forwardRef<unknown, UploadProps>(InternalUpload);
 
 Upload.displayName = 'Upload';
 

@@ -78,7 +78,12 @@ export { default as Descriptions } from './descriptions';
 export type { DividerProps } from './divider';
 export { default as Divider } from './divider';
 
-export type { DropDownProps } from './dropdown';
+export type {
+  DropdownProps,
+  // typo, but we need to support it for backwards compatibility
+  // https://github.com/ant-design/ant-design/pull/35161
+  DropdownProps as DropDownProps,
+} from './dropdown';
 export { default as Dropdown } from './dropdown';
 
 export type { DrawerProps } from './drawer';

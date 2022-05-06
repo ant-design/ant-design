@@ -3,7 +3,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 
-import Group from './button-group';
+import Group, { GroupSizeContext } from './button-group';
 import { ConfigContext } from '../config-provider';
 import Wave from '../_util/wave';
 import { tuple } from '../_util/type';
@@ -21,7 +21,7 @@ function isString(str: any) {
   return typeof str === 'string';
 }
 
-function isUnborderedButtonType(type: ButtonType | undefined) {
+function isUnBorderedButtonType(type: ButtonType | undefined) {
   return type === 'text' || type === 'link';
 }
 
@@ -97,7 +97,11 @@ export function convertLegacyProps(type?: LegacyButtonType): ButtonProps {
 export interface BaseButtonProps {
   type?: ButtonType;
   icon?: React.ReactNode;
-  /** @default default */
+  /**
+   * Shape of Button
+   *
+   * @default default
+   */
   shape?: ButtonShape;
   size?: SizeType;
   loading?: boolean | { delay?: number };
@@ -161,12 +165,13 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const size = React.useContext(SizeContext);
+  const groupSize = React.useContext(GroupSizeContext);
   const [innerLoading, setLoading] = React.useState<Loading>(!!loading);
   const [hasTwoCNChar, setHasTwoCNChar] = React.useState(false);
   const buttonRef = (ref as any) || React.createRef<HTMLElement>();
 
   const isNeedInserted = () =>
-    React.Children.count(children) === 1 && !icon && !isUnborderedButtonType(type);
+    React.Children.count(children) === 1 && !icon && !isUnBorderedButtonType(type);
 
   const fixTwoCNChar = () => {
     // Fix for HOC usage like <FormatMessage />
@@ -228,7 +233,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
   );
 
   devWarning(
-    !(ghost && isUnborderedButtonType(type)),
+    !(ghost && isUnBorderedButtonType(type)),
     'Button',
     "`link` or `text` button can't be a `ghost` button.",
   );
@@ -236,7 +241,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
   const autoInsertSpace = autoInsertSpaceInButton !== false;
 
   const sizeClassNameMap = { large: 'lg', small: 'sm', middle: undefined };
-  const sizeFullname = customizeSize || size;
+  const sizeFullname = groupSize || customizeSize || size;
   const sizeCls = sizeFullname ? sizeClassNameMap[sizeFullname] || '' : '';
 
   const iconType = innerLoading ? 'loading' : icon;
@@ -249,7 +254,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
       [`${prefixCls}-${type}`]: type,
       [`${prefixCls}-${sizeCls}`]: sizeCls,
       [`${prefixCls}-icon-only`]: !children && children !== 0 && !!iconType,
-      [`${prefixCls}-background-ghost`]: ghost && !isUnborderedButtonType(type),
+      [`${prefixCls}-background-ghost`]: ghost && !isUnBorderedButtonType(type),
       [`${prefixCls}-loading`]: innerLoading,
       [`${prefixCls}-two-chinese-chars`]: hasTwoCNChar && autoInsertSpace,
       [`${prefixCls}-block`]: block,
@@ -294,7 +299,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
     </button>
   );
 
-  if (!isUnborderedButtonType(type)) {
+  if (!isUnBorderedButtonType(type)) {
     buttonNode = <Wave disabled={!!innerLoading}>{buttonNode}</Wave>;
   }
 

@@ -1,5 +1,5 @@
 ---
-order: 0
+order: 0.5
 title:
   zh-CN: 顶部导航
   en-US: Top Navigation
@@ -85,5 +85,5 @@ const App = () => {
   return <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} />;
 };
 
-export default () => <App />;
+export default App;
 ```

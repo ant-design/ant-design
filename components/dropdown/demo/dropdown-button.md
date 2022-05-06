@@ -74,7 +74,10 @@ export default () => (
     </Dropdown.Button>
     <Dropdown overlay={menu}>
       <Button>
-        Button <DownOutlined />
+        <Space>
+          Button
+          <DownOutlined />
+        </Space>
       </Button>
     </Dropdown>
   </Space>

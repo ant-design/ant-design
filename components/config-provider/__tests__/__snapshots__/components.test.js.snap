@@ -12875,7 +12875,7 @@ exports[`ConfigProvider components Dropdown normal 1`] = `
 
 exports[`ConfigProvider components Dropdown prefixCls 1`] = `
 <div
-  class="ant-btn-group prefix-Dropdown"
+  class="ant-btn-group prefix-Dropdown-button"
 >
   <button
     class="ant-btn ant-btn-default"
@@ -15582,12 +15582,12 @@ exports[`ConfigProvider components Modal configProvider 1`] = `
     />
     <div
       class="config-modal-wrap"
-      role="dialog"
       tabindex="-1"
     >
       <div
+        aria-modal="true"
         class="config-modal"
-        role="document"
+        role="dialog"
         style="width:520px"
       >
         <div
@@ -15674,12 +15674,12 @@ exports[`ConfigProvider components Modal configProvider componentSize large 1`] 
     />
     <div
       class="config-modal-wrap"
-      role="dialog"
       tabindex="-1"
     >
       <div
+        aria-modal="true"
         class="config-modal"
-        role="document"
+        role="dialog"
         style="width:520px"
       >
         <div
@@ -15766,12 +15766,12 @@ exports[`ConfigProvider components Modal configProvider componentSize middle 1`]
     />
     <div
       class="config-modal-wrap"
-      role="dialog"
       tabindex="-1"
     >
       <div
+        aria-modal="true"
         class="config-modal"
-        role="document"
+        role="dialog"
         style="width:520px"
       >
         <div
@@ -15858,12 +15858,12 @@ exports[`ConfigProvider components Modal configProvider virtual and dropdownMatc
     />
     <div
       class="ant-modal-wrap"
-      role="dialog"
       tabindex="-1"
     >
       <div
+        aria-modal="true"
         class="ant-modal"
-        role="document"
+        role="dialog"
         style="width:520px"
       >
         <div
@@ -15950,12 +15950,12 @@ exports[`ConfigProvider components Modal normal 1`] = `
     />
     <div
       class="ant-modal-wrap"
-      role="dialog"
       tabindex="-1"
     >
       <div
+        aria-modal="true"
         class="ant-modal"
-        role="document"
+        role="dialog"
         style="width:520px"
       >
         <div
@@ -16042,12 +16042,12 @@ exports[`ConfigProvider components Modal prefixCls 1`] = `
     />
     <div
       class="prefix-Modal-wrap"
-      role="dialog"
       tabindex="-1"
     >
       <div
+        aria-modal="true"
         class="prefix-Modal"
-        role="document"
+        role="dialog"
         style="width:520px"
       >
         <div
@@ -18054,7 +18054,7 @@ exports[`ConfigProvider components Popconfirm configProvider 1`] = `
   <div>
     <div
       class="config-popover config-popconfirm"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="config-popover-content"
@@ -18137,7 +18137,7 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize large
   <div>
     <div
       class="config-popover config-popconfirm"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="config-popover-content"
@@ -18220,7 +18220,7 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize middl
   <div>
     <div
       class="config-popover config-popconfirm"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="config-popover-content"
@@ -18303,7 +18303,7 @@ exports[`ConfigProvider components Popconfirm configProvider virtual and dropdow
   <div>
     <div
       class="ant-popover ant-popconfirm"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-popover-content"
@@ -18386,7 +18386,7 @@ exports[`ConfigProvider components Popconfirm normal 1`] = `
   <div>
     <div
       class="ant-popover ant-popconfirm"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-popover-content"
@@ -18469,7 +18469,7 @@ exports[`ConfigProvider components Popconfirm prefixCls 1`] = `
   <div>
     <div
       class="prefix-Popconfirm prefix-Popconfirm"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="prefix-Popconfirm-content"
@@ -18552,7 +18552,7 @@ exports[`ConfigProvider components Popover configProvider 1`] = `
   <div>
     <div
       class="config-popover"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="config-popover-content"
@@ -18584,7 +18584,7 @@ exports[`ConfigProvider components Popover configProvider componentSize large 1`
   <div>
     <div
       class="config-popover"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="config-popover-content"
@@ -18616,7 +18616,7 @@ exports[`ConfigProvider components Popover configProvider componentSize middle 1
   <div>
     <div
       class="config-popover"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="config-popover-content"
@@ -18648,7 +18648,7 @@ exports[`ConfigProvider components Popover configProvider virtual and dropdownMa
   <div>
     <div
       class="ant-popover"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-popover-content"
@@ -18680,7 +18680,7 @@ exports[`ConfigProvider components Popover normal 1`] = `
   <div>
     <div
       class="ant-popover"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-popover-content"
@@ -18712,7 +18712,7 @@ exports[`ConfigProvider components Popover prefixCls 1`] = `
   <div>
     <div
       class="prefix-Popover"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="prefix-Popover-content"
@@ -21018,7 +21018,7 @@ exports[`ConfigProvider components Select configProvider 1`] = `
   <div>
     <div
       class="config-select-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div>
         <div
@@ -21146,7 +21146,7 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
   <div>
     <div
       class="config-select-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div>
         <div
@@ -21274,7 +21274,7 @@ exports[`ConfigProvider components Select configProvider componentSize middle 1`
   <div>
     <div
       class="config-select-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div>
         <div
@@ -21402,7 +21402,7 @@ exports[`ConfigProvider components Select configProvider virtual and dropdownMat
   <div>
     <div
       class="ant-select-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div>
         <div
@@ -21530,7 +21530,7 @@ exports[`ConfigProvider components Select normal 1`] = `
   <div>
     <div
       class="ant-select-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div>
         <div
@@ -21658,7 +21658,7 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
   <div>
     <div
       class="prefix-Select-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div>
         <div
@@ -21947,7 +21947,7 @@ exports[`ConfigProvider components Slider configProvider 1`] = `
   <div>
     <div
       class="config-tooltip config-slider-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="config-tooltip-content"
@@ -21998,7 +21998,7 @@ exports[`ConfigProvider components Slider configProvider componentSize large 1`]
   <div>
     <div
       class="config-tooltip config-slider-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="config-tooltip-content"
@@ -22049,7 +22049,7 @@ exports[`ConfigProvider components Slider configProvider componentSize middle 1`
   <div>
     <div
       class="config-tooltip config-slider-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="config-tooltip-content"
@@ -22100,7 +22100,7 @@ exports[`ConfigProvider components Slider configProvider virtual and dropdownMat
   <div>
     <div
       class="ant-tooltip ant-slider-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -22151,7 +22151,7 @@ exports[`ConfigProvider components Slider normal 1`] = `
   <div>
     <div
       class="ant-tooltip ant-slider-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -22202,7 +22202,7 @@ exports[`ConfigProvider components Slider prefixCls 1`] = `
   <div>
     <div
       class="prefix-Slider-tooltip prefix-Slider-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="prefix-Slider-tooltip-content"
@@ -22867,6 +22867,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                 <tr>
                   <th
                     class="config-table-cell config-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="config-table-filter-column"
@@ -22958,7 +22959,7 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                       <div>
                         <div
                           class="config-dropdown"
-                          style="opacity:0;pointer-events:none"
+                          style="opacity:0"
                         >
                           <div
                             class="config-table-filter-dropdown"
@@ -23147,6 +23148,7 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                 <tr>
                   <th
                     class="config-table-cell config-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="config-table-filter-column"
@@ -23238,7 +23240,7 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                       <div>
                         <div
                           class="config-dropdown"
-                          style="opacity:0;pointer-events:none"
+                          style="opacity:0"
                         >
                           <div
                             class="config-table-filter-dropdown"
@@ -23427,6 +23429,7 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                 <tr>
                   <th
                     class="config-table-cell config-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="config-table-filter-column"
@@ -23518,7 +23521,7 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                       <div>
                         <div
                           class="config-dropdown"
-                          style="opacity:0;pointer-events:none"
+                          style="opacity:0"
                         >
                           <div
                             class="config-table-filter-dropdown"
@@ -23707,6 +23710,7 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
                 <tr>
                   <th
                     class="ant-table-cell ant-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="ant-table-filter-column"
@@ -23798,7 +23802,7 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
                       <div>
                         <div
                           class="ant-dropdown"
-                          style="opacity:0;pointer-events:none"
+                          style="opacity:0"
                         >
                           <div
                             class="ant-table-filter-dropdown"
@@ -23987,6 +23991,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                 <tr>
                   <th
                     class="ant-table-cell ant-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="ant-table-filter-column"
@@ -24078,7 +24083,7 @@ exports[`ConfigProvider components Table normal 1`] = `
                       <div>
                         <div
                           class="ant-dropdown"
-                          style="opacity:0;pointer-events:none"
+                          style="opacity:0"
                         >
                           <div
                             class="ant-table-filter-dropdown"
@@ -24267,6 +24272,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                 <tr>
                   <th
                     class="prefix-Table-cell prefix-Table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="prefix-Table-filter-column"
@@ -24358,7 +24364,7 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                       <div>
                         <div
                           class="ant-dropdown"
-                          style="opacity:0;pointer-events:none"
+                          style="opacity:0"
                         >
                           <div
                             class="prefix-Table-filter-dropdown"
@@ -25165,7 +25171,7 @@ Array [
   <div>
     <div
       class="config-picker-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="config-picker-panel-container"
@@ -26576,7 +26582,7 @@ Array [
   <div>
     <div
       class="config-picker-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="config-picker-panel-container"
@@ -27987,7 +27993,7 @@ Array [
   <div>
     <div
       class="config-picker-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="config-picker-panel-container"
@@ -29398,7 +29404,7 @@ Array [
   <div>
     <div
       class="ant-picker-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-picker-panel-container"
@@ -30809,7 +30815,7 @@ Array [
   <div>
     <div
       class="ant-picker-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-picker-panel-container"
@@ -32220,7 +32226,7 @@ Array [
   <div>
     <div
       class="prefix-TimePicker-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="prefix-TimePicker-panel-container"
@@ -33726,7 +33732,7 @@ Array [
   <div>
     <div
       class="config-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="config-tooltip-content"
@@ -33760,7 +33766,7 @@ Array [
   <div>
     <div
       class="config-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="config-tooltip-content"
@@ -33794,7 +33800,7 @@ Array [
   <div>
     <div
       class="config-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="config-tooltip-content"
@@ -33828,7 +33834,7 @@ Array [
   <div>
     <div
       class="ant-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -33862,7 +33868,7 @@ Array [
   <div>
     <div
       class="ant-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -33896,7 +33902,7 @@ Array [
   <div>
     <div
       class="prefix-Tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="prefix-Tooltip-content"
@@ -36515,7 +36521,7 @@ exports[`ConfigProvider components TreeSelect configProvider 1`] = `
   <div>
     <div
       class="config-select-dropdown config-tree-select-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div>
         <div>
@@ -36651,7 +36657,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
   <div>
     <div
       class="config-select-dropdown config-tree-select-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div>
         <div>
@@ -36787,7 +36793,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize middl
   <div>
     <div
       class="config-select-dropdown config-tree-select-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div>
         <div>
@@ -36923,7 +36929,7 @@ exports[`ConfigProvider components TreeSelect configProvider virtual and dropdow
   <div>
     <div
       class="ant-select-dropdown ant-tree-select-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div>
         <div>
@@ -37059,7 +37065,7 @@ exports[`ConfigProvider components TreeSelect normal 1`] = `
   <div>
     <div
       class="ant-select-dropdown ant-tree-select-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div>
         <div>
@@ -37195,7 +37201,7 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
   <div>
     <div
       class="prefix-TreeSelect-dropdown prefix-TreeSelect-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div>
         <div>
@@ -37300,10 +37306,10 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
 
 exports[`ConfigProvider components Upload configProvider 1`] = `
 <span
-  class=""
+  class="config-upload-wrapper"
 >
   <div
-    class="config-upload config-upload-select config-upload-select-text"
+    class="config-upload config-upload-select"
   >
     <span
       class="config-upload"
@@ -37322,78 +37328,70 @@ exports[`ConfigProvider components Upload configProvider 1`] = `
     class="config-upload-list config-upload-list-text"
   >
     <div
-      class="config-upload-list-text-container"
+      class="config-upload-list-item-container"
     >
       <div
-        class="config-upload-list-item config-upload-list-item-done config-upload-list-item-list-type-text"
+        class="config-upload-list-item config-upload-list-item-done"
       >
         <div
-          class="config-upload-list-item-info"
+          class="config-upload-icon"
         >
           <span
-            class="config-upload-span"
+            aria-label="paper-clip"
+            class="anticon anticon-paper-clip"
+            role="img"
           >
-            <div
-              class="config-upload-text-icon"
+            <svg
+              aria-hidden="true"
+              data-icon="paper-clip"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
             >
-              <span
-                aria-label="paper-clip"
-                class="anticon anticon-paper-clip"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="paper-clip"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M779.3 196.6c-94.2-94.2-247.6-94.2-341.7 0l-261 260.8c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l261-260.8c32.4-32.4 75.5-50.2 121.3-50.2s88.9 17.8 121.2 50.2c32.4 32.4 50.2 75.5 50.2 121.2 0 45.8-17.8 88.8-50.2 121.2l-266 265.9-43.1 43.1c-40.3 40.3-105.8 40.3-146.1 0-19.5-19.5-30.2-45.4-30.2-73s10.7-53.5 30.2-73l263.9-263.8c6.7-6.6 15.5-10.3 24.9-10.3h.1c9.4 0 18.1 3.7 24.7 10.3 6.7 6.7 10.3 15.5 10.3 24.9 0 9.3-3.7 18.1-10.3 24.7L372.4 653c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l215.6-215.6c19.9-19.9 30.8-46.3 30.8-74.4s-11-54.6-30.8-74.4c-41.1-41.1-107.9-41-149 0L463 364 224.8 602.1A172.22 172.22 0 00174 724.8c0 46.3 18.1 89.8 50.8 122.5 33.9 33.8 78.3 50.7 122.7 50.7 44.4 0 88.8-16.9 122.6-50.7l309.2-309C824.8 492.7 850 432 850 367.5c.1-64.6-25.1-125.3-70.7-170.9z"
-                  />
-                </svg>
-              </span>
-            </div>
-            <span
-              class="config-upload-list-item-name"
-              title="xxx.png"
-            >
-              xxx.png
-            </span>
-            <span
-              class="config-upload-list-item-card-actions"
-            >
-              <button
-                class="config-btn config-btn-text config-btn-sm config-btn-icon-only config-upload-list-item-card-actions-btn"
-                title="Remove file"
-                type="button"
-              >
-                <span
-                  aria-label="delete"
-                  class="anticon anticon-delete"
-                  role="img"
-                  tabindex="-1"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="delete"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </span>
+              <path
+                d="M779.3 196.6c-94.2-94.2-247.6-94.2-341.7 0l-261 260.8c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l261-260.8c32.4-32.4 75.5-50.2 121.3-50.2s88.9 17.8 121.2 50.2c32.4 32.4 50.2 75.5 50.2 121.2 0 45.8-17.8 88.8-50.2 121.2l-266 265.9-43.1 43.1c-40.3 40.3-105.8 40.3-146.1 0-19.5-19.5-30.2-45.4-30.2-73s10.7-53.5 30.2-73l263.9-263.8c6.7-6.6 15.5-10.3 24.9-10.3h.1c9.4 0 18.1 3.7 24.7 10.3 6.7 6.7 10.3 15.5 10.3 24.9 0 9.3-3.7 18.1-10.3 24.7L372.4 653c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l215.6-215.6c19.9-19.9 30.8-46.3 30.8-74.4s-11-54.6-30.8-74.4c-41.1-41.1-107.9-41-149 0L463 364 224.8 602.1A172.22 172.22 0 00174 724.8c0 46.3 18.1 89.8 50.8 122.5 33.9 33.8 78.3 50.7 122.7 50.7 44.4 0 88.8-16.9 122.6-50.7l309.2-309C824.8 492.7 850 432 850 367.5c.1-64.6-25.1-125.3-70.7-170.9z"
+              />
+            </svg>
           </span>
         </div>
+        <span
+          class="config-upload-list-item-name"
+          title="xxx.png"
+        >
+          xxx.png
+        </span>
+        <span
+          class="config-upload-list-item-actions"
+        >
+          <button
+            class="config-btn config-btn-text config-btn-sm config-btn-icon-only config-upload-list-item-action"
+            title="Remove file"
+            type="button"
+          >
+            <span
+              aria-label="delete"
+              class="anticon anticon-delete"
+              role="img"
+              tabindex="-1"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="delete"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                />
+              </svg>
+            </span>
+          </button>
+        </span>
       </div>
     </div>
   </div>
@@ -37402,10 +37400,10 @@ exports[`ConfigProvider components Upload configProvider 1`] = `
 
 exports[`ConfigProvider components Upload configProvider componentSize large 1`] = `
 <span
-  class=""
+  class="config-upload-wrapper"
 >
   <div
-    class="config-upload config-upload-select config-upload-select-text"
+    class="config-upload config-upload-select"
   >
     <span
       class="config-upload"
@@ -37424,78 +37422,70 @@ exports[`ConfigProvider components Upload configProvider componentSize large 1`]
     class="config-upload-list config-upload-list-text"
   >
     <div
-      class="config-upload-list-text-container"
+      class="config-upload-list-item-container"
     >
       <div
-        class="config-upload-list-item config-upload-list-item-done config-upload-list-item-list-type-text"
+        class="config-upload-list-item config-upload-list-item-done"
       >
         <div
-          class="config-upload-list-item-info"
+          class="config-upload-icon"
         >
           <span
-            class="config-upload-span"
+            aria-label="paper-clip"
+            class="anticon anticon-paper-clip"
+            role="img"
           >
-            <div
-              class="config-upload-text-icon"
+            <svg
+              aria-hidden="true"
+              data-icon="paper-clip"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
             >
-              <span
-                aria-label="paper-clip"
-                class="anticon anticon-paper-clip"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="paper-clip"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M779.3 196.6c-94.2-94.2-247.6-94.2-341.7 0l-261 260.8c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l261-260.8c32.4-32.4 75.5-50.2 121.3-50.2s88.9 17.8 121.2 50.2c32.4 32.4 50.2 75.5 50.2 121.2 0 45.8-17.8 88.8-50.2 121.2l-266 265.9-43.1 43.1c-40.3 40.3-105.8 40.3-146.1 0-19.5-19.5-30.2-45.4-30.2-73s10.7-53.5 30.2-73l263.9-263.8c6.7-6.6 15.5-10.3 24.9-10.3h.1c9.4 0 18.1 3.7 24.7 10.3 6.7 6.7 10.3 15.5 10.3 24.9 0 9.3-3.7 18.1-10.3 24.7L372.4 653c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l215.6-215.6c19.9-19.9 30.8-46.3 30.8-74.4s-11-54.6-30.8-74.4c-41.1-41.1-107.9-41-149 0L463 364 224.8 602.1A172.22 172.22 0 00174 724.8c0 46.3 18.1 89.8 50.8 122.5 33.9 33.8 78.3 50.7 122.7 50.7 44.4 0 88.8-16.9 122.6-50.7l309.2-309C824.8 492.7 850 432 850 367.5c.1-64.6-25.1-125.3-70.7-170.9z"
-                  />
-                </svg>
-              </span>
-            </div>
-            <span
-              class="config-upload-list-item-name"
-              title="xxx.png"
-            >
-              xxx.png
-            </span>
-            <span
-              class="config-upload-list-item-card-actions"
-            >
-              <button
-                class="config-btn config-btn-text config-btn-sm config-btn-icon-only config-upload-list-item-card-actions-btn"
-                title="Remove file"
-                type="button"
-              >
-                <span
-                  aria-label="delete"
-                  class="anticon anticon-delete"
-                  role="img"
-                  tabindex="-1"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="delete"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </span>
+              <path
+                d="M779.3 196.6c-94.2-94.2-247.6-94.2-341.7 0l-261 260.8c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l261-260.8c32.4-32.4 75.5-50.2 121.3-50.2s88.9 17.8 121.2 50.2c32.4 32.4 50.2 75.5 50.2 121.2 0 45.8-17.8 88.8-50.2 121.2l-266 265.9-43.1 43.1c-40.3 40.3-105.8 40.3-146.1 0-19.5-19.5-30.2-45.4-30.2-73s10.7-53.5 30.2-73l263.9-263.8c6.7-6.6 15.5-10.3 24.9-10.3h.1c9.4 0 18.1 3.7 24.7 10.3 6.7 6.7 10.3 15.5 10.3 24.9 0 9.3-3.7 18.1-10.3 24.7L372.4 653c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l215.6-215.6c19.9-19.9 30.8-46.3 30.8-74.4s-11-54.6-30.8-74.4c-41.1-41.1-107.9-41-149 0L463 364 224.8 602.1A172.22 172.22 0 00174 724.8c0 46.3 18.1 89.8 50.8 122.5 33.9 33.8 78.3 50.7 122.7 50.7 44.4 0 88.8-16.9 122.6-50.7l309.2-309C824.8 492.7 850 432 850 367.5c.1-64.6-25.1-125.3-70.7-170.9z"
+              />
+            </svg>
           </span>
         </div>
+        <span
+          class="config-upload-list-item-name"
+          title="xxx.png"
+        >
+          xxx.png
+        </span>
+        <span
+          class="config-upload-list-item-actions"
+        >
+          <button
+            class="config-btn config-btn-text config-btn-sm config-btn-icon-only config-upload-list-item-action"
+            title="Remove file"
+            type="button"
+          >
+            <span
+              aria-label="delete"
+              class="anticon anticon-delete"
+              role="img"
+              tabindex="-1"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="delete"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                />
+              </svg>
+            </span>
+          </button>
+        </span>
       </div>
     </div>
   </div>
@@ -37504,10 +37494,10 @@ exports[`ConfigProvider components Upload configProvider componentSize large 1`]
 
 exports[`ConfigProvider components Upload configProvider componentSize middle 1`] = `
 <span
-  class=""
+  class="config-upload-wrapper"
 >
   <div
-    class="config-upload config-upload-select config-upload-select-text"
+    class="config-upload config-upload-select"
   >
     <span
       class="config-upload"
@@ -37526,78 +37516,70 @@ exports[`ConfigProvider components Upload configProvider componentSize middle 1`
     class="config-upload-list config-upload-list-text"
   >
     <div
-      class="config-upload-list-text-container"
+      class="config-upload-list-item-container"
     >
       <div
-        class="config-upload-list-item config-upload-list-item-done config-upload-list-item-list-type-text"
+        class="config-upload-list-item config-upload-list-item-done"
       >
         <div
-          class="config-upload-list-item-info"
+          class="config-upload-icon"
         >
           <span
-            class="config-upload-span"
+            aria-label="paper-clip"
+            class="anticon anticon-paper-clip"
+            role="img"
           >
-            <div
-              class="config-upload-text-icon"
+            <svg
+              aria-hidden="true"
+              data-icon="paper-clip"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
             >
-              <span
-                aria-label="paper-clip"
-                class="anticon anticon-paper-clip"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="paper-clip"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M779.3 196.6c-94.2-94.2-247.6-94.2-341.7 0l-261 260.8c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l261-260.8c32.4-32.4 75.5-50.2 121.3-50.2s88.9 17.8 121.2 50.2c32.4 32.4 50.2 75.5 50.2 121.2 0 45.8-17.8 88.8-50.2 121.2l-266 265.9-43.1 43.1c-40.3 40.3-105.8 40.3-146.1 0-19.5-19.5-30.2-45.4-30.2-73s10.7-53.5 30.2-73l263.9-263.8c6.7-6.6 15.5-10.3 24.9-10.3h.1c9.4 0 18.1 3.7 24.7 10.3 6.7 6.7 10.3 15.5 10.3 24.9 0 9.3-3.7 18.1-10.3 24.7L372.4 653c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l215.6-215.6c19.9-19.9 30.8-46.3 30.8-74.4s-11-54.6-30.8-74.4c-41.1-41.1-107.9-41-149 0L463 364 224.8 602.1A172.22 172.22 0 00174 724.8c0 46.3 18.1 89.8 50.8 122.5 33.9 33.8 78.3 50.7 122.7 50.7 44.4 0 88.8-16.9 122.6-50.7l309.2-309C824.8 492.7 850 432 850 367.5c.1-64.6-25.1-125.3-70.7-170.9z"
-                  />
-                </svg>
-              </span>
-            </div>
-            <span
-              class="config-upload-list-item-name"
-              title="xxx.png"
-            >
-              xxx.png
-            </span>
-            <span
-              class="config-upload-list-item-card-actions"
-            >
-              <button
-                class="config-btn config-btn-text config-btn-sm config-btn-icon-only config-upload-list-item-card-actions-btn"
-                title="Remove file"
-                type="button"
-              >
-                <span
-                  aria-label="delete"
-                  class="anticon anticon-delete"
-                  role="img"
-                  tabindex="-1"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="delete"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </span>
+              <path
+                d="M779.3 196.6c-94.2-94.2-247.6-94.2-341.7 0l-261 260.8c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l261-260.8c32.4-32.4 75.5-50.2 121.3-50.2s88.9 17.8 121.2 50.2c32.4 32.4 50.2 75.5 50.2 121.2 0 45.8-17.8 88.8-50.2 121.2l-266 265.9-43.1 43.1c-40.3 40.3-105.8 40.3-146.1 0-19.5-19.5-30.2-45.4-30.2-73s10.7-53.5 30.2-73l263.9-263.8c6.7-6.6 15.5-10.3 24.9-10.3h.1c9.4 0 18.1 3.7 24.7 10.3 6.7 6.7 10.3 15.5 10.3 24.9 0 9.3-3.7 18.1-10.3 24.7L372.4 653c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l215.6-215.6c19.9-19.9 30.8-46.3 30.8-74.4s-11-54.6-30.8-74.4c-41.1-41.1-107.9-41-149 0L463 364 224.8 602.1A172.22 172.22 0 00174 724.8c0 46.3 18.1 89.8 50.8 122.5 33.9 33.8 78.3 50.7 122.7 50.7 44.4 0 88.8-16.9 122.6-50.7l309.2-309C824.8 492.7 850 432 850 367.5c.1-64.6-25.1-125.3-70.7-170.9z"
+              />
+            </svg>
           </span>
         </div>
+        <span
+          class="config-upload-list-item-name"
+          title="xxx.png"
+        >
+          xxx.png
+        </span>
+        <span
+          class="config-upload-list-item-actions"
+        >
+          <button
+            class="config-btn config-btn-text config-btn-sm config-btn-icon-only config-upload-list-item-action"
+            title="Remove file"
+            type="button"
+          >
+            <span
+              aria-label="delete"
+              class="anticon anticon-delete"
+              role="img"
+              tabindex="-1"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="delete"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                />
+              </svg>
+            </span>
+          </button>
+        </span>
       </div>
     </div>
   </div>
@@ -37606,10 +37588,10 @@ exports[`ConfigProvider components Upload configProvider componentSize middle 1`
 
 exports[`ConfigProvider components Upload configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <span
-  class=""
+  class="ant-upload-wrapper"
 >
   <div
-    class="ant-upload ant-upload-select ant-upload-select-text"
+    class="ant-upload ant-upload-select"
   >
     <span
       class="ant-upload"
@@ -37628,78 +37610,70 @@ exports[`ConfigProvider components Upload configProvider virtual and dropdownMat
     class="ant-upload-list ant-upload-list-text"
   >
     <div
-      class="ant-upload-list-text-container"
+      class="ant-upload-list-item-container"
     >
       <div
-        class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-text"
+        class="ant-upload-list-item ant-upload-list-item-done"
       >
         <div
-          class="ant-upload-list-item-info"
+          class="ant-upload-icon"
         >
           <span
-            class="ant-upload-span"
+            aria-label="paper-clip"
+            class="anticon anticon-paper-clip"
+            role="img"
           >
-            <div
-              class="ant-upload-text-icon"
+            <svg
+              aria-hidden="true"
+              data-icon="paper-clip"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
             >
-              <span
-                aria-label="paper-clip"
-                class="anticon anticon-paper-clip"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="paper-clip"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M779.3 196.6c-94.2-94.2-247.6-94.2-341.7 0l-261 260.8c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l261-260.8c32.4-32.4 75.5-50.2 121.3-50.2s88.9 17.8 121.2 50.2c32.4 32.4 50.2 75.5 50.2 121.2 0 45.8-17.8 88.8-50.2 121.2l-266 265.9-43.1 43.1c-40.3 40.3-105.8 40.3-146.1 0-19.5-19.5-30.2-45.4-30.2-73s10.7-53.5 30.2-73l263.9-263.8c6.7-6.6 15.5-10.3 24.9-10.3h.1c9.4 0 18.1 3.7 24.7 10.3 6.7 6.7 10.3 15.5 10.3 24.9 0 9.3-3.7 18.1-10.3 24.7L372.4 653c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l215.6-215.6c19.9-19.9 30.8-46.3 30.8-74.4s-11-54.6-30.8-74.4c-41.1-41.1-107.9-41-149 0L463 364 224.8 602.1A172.22 172.22 0 00174 724.8c0 46.3 18.1 89.8 50.8 122.5 33.9 33.8 78.3 50.7 122.7 50.7 44.4 0 88.8-16.9 122.6-50.7l309.2-309C824.8 492.7 850 432 850 367.5c.1-64.6-25.1-125.3-70.7-170.9z"
-                  />
-                </svg>
-              </span>
-            </div>
-            <span
-              class="ant-upload-list-item-name"
-              title="xxx.png"
-            >
-              xxx.png
-            </span>
-            <span
-              class="ant-upload-list-item-card-actions"
-            >
-              <button
-                class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
-                title="Remove file"
-                type="button"
-              >
-                <span
-                  aria-label="delete"
-                  class="anticon anticon-delete"
-                  role="img"
-                  tabindex="-1"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="delete"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </span>
+              <path
+                d="M779.3 196.6c-94.2-94.2-247.6-94.2-341.7 0l-261 260.8c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l261-260.8c32.4-32.4 75.5-50.2 121.3-50.2s88.9 17.8 121.2 50.2c32.4 32.4 50.2 75.5 50.2 121.2 0 45.8-17.8 88.8-50.2 121.2l-266 265.9-43.1 43.1c-40.3 40.3-105.8 40.3-146.1 0-19.5-19.5-30.2-45.4-30.2-73s10.7-53.5 30.2-73l263.9-263.8c6.7-6.6 15.5-10.3 24.9-10.3h.1c9.4 0 18.1 3.7 24.7 10.3 6.7 6.7 10.3 15.5 10.3 24.9 0 9.3-3.7 18.1-10.3 24.7L372.4 653c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l215.6-215.6c19.9-19.9 30.8-46.3 30.8-74.4s-11-54.6-30.8-74.4c-41.1-41.1-107.9-41-149 0L463 364 224.8 602.1A172.22 172.22 0 00174 724.8c0 46.3 18.1 89.8 50.8 122.5 33.9 33.8 78.3 50.7 122.7 50.7 44.4 0 88.8-16.9 122.6-50.7l309.2-309C824.8 492.7 850 432 850 367.5c.1-64.6-25.1-125.3-70.7-170.9z"
+              />
+            </svg>
           </span>
         </div>
+        <span
+          class="ant-upload-list-item-name"
+          title="xxx.png"
+        >
+          xxx.png
+        </span>
+        <span
+          class="ant-upload-list-item-actions"
+        >
+          <button
+            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            title="Remove file"
+            type="button"
+          >
+            <span
+              aria-label="delete"
+              class="anticon anticon-delete"
+              role="img"
+              tabindex="-1"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="delete"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                />
+              </svg>
+            </span>
+          </button>
+        </span>
       </div>
     </div>
   </div>
@@ -37708,10 +37682,10 @@ exports[`ConfigProvider components Upload configProvider virtual and dropdownMat
 
 exports[`ConfigProvider components Upload normal 1`] = `
 <span
-  class=""
+  class="ant-upload-wrapper"
 >
   <div
-    class="ant-upload ant-upload-select ant-upload-select-text"
+    class="ant-upload ant-upload-select"
   >
     <span
       class="ant-upload"
@@ -37730,78 +37704,70 @@ exports[`ConfigProvider components Upload normal 1`] = `
     class="ant-upload-list ant-upload-list-text"
   >
     <div
-      class="ant-upload-list-text-container"
+      class="ant-upload-list-item-container"
     >
       <div
-        class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-text"
+        class="ant-upload-list-item ant-upload-list-item-done"
       >
         <div
-          class="ant-upload-list-item-info"
+          class="ant-upload-icon"
         >
           <span
-            class="ant-upload-span"
+            aria-label="paper-clip"
+            class="anticon anticon-paper-clip"
+            role="img"
           >
-            <div
-              class="ant-upload-text-icon"
+            <svg
+              aria-hidden="true"
+              data-icon="paper-clip"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
             >
-              <span
-                aria-label="paper-clip"
-                class="anticon anticon-paper-clip"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="paper-clip"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M779.3 196.6c-94.2-94.2-247.6-94.2-341.7 0l-261 260.8c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l261-260.8c32.4-32.4 75.5-50.2 121.3-50.2s88.9 17.8 121.2 50.2c32.4 32.4 50.2 75.5 50.2 121.2 0 45.8-17.8 88.8-50.2 121.2l-266 265.9-43.1 43.1c-40.3 40.3-105.8 40.3-146.1 0-19.5-19.5-30.2-45.4-30.2-73s10.7-53.5 30.2-73l263.9-263.8c6.7-6.6 15.5-10.3 24.9-10.3h.1c9.4 0 18.1 3.7 24.7 10.3 6.7 6.7 10.3 15.5 10.3 24.9 0 9.3-3.7 18.1-10.3 24.7L372.4 653c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l215.6-215.6c19.9-19.9 30.8-46.3 30.8-74.4s-11-54.6-30.8-74.4c-41.1-41.1-107.9-41-149 0L463 364 224.8 602.1A172.22 172.22 0 00174 724.8c0 46.3 18.1 89.8 50.8 122.5 33.9 33.8 78.3 50.7 122.7 50.7 44.4 0 88.8-16.9 122.6-50.7l309.2-309C824.8 492.7 850 432 850 367.5c.1-64.6-25.1-125.3-70.7-170.9z"
-                  />
-                </svg>
-              </span>
-            </div>
-            <span
-              class="ant-upload-list-item-name"
-              title="xxx.png"
-            >
-              xxx.png
-            </span>
-            <span
-              class="ant-upload-list-item-card-actions"
-            >
-              <button
-                class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
-                title="Remove file"
-                type="button"
-              >
-                <span
-                  aria-label="delete"
-                  class="anticon anticon-delete"
-                  role="img"
-                  tabindex="-1"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="delete"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </span>
+              <path
+                d="M779.3 196.6c-94.2-94.2-247.6-94.2-341.7 0l-261 260.8c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l261-260.8c32.4-32.4 75.5-50.2 121.3-50.2s88.9 17.8 121.2 50.2c32.4 32.4 50.2 75.5 50.2 121.2 0 45.8-17.8 88.8-50.2 121.2l-266 265.9-43.1 43.1c-40.3 40.3-105.8 40.3-146.1 0-19.5-19.5-30.2-45.4-30.2-73s10.7-53.5 30.2-73l263.9-263.8c6.7-6.6 15.5-10.3 24.9-10.3h.1c9.4 0 18.1 3.7 24.7 10.3 6.7 6.7 10.3 15.5 10.3 24.9 0 9.3-3.7 18.1-10.3 24.7L372.4 653c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l215.6-215.6c19.9-19.9 30.8-46.3 30.8-74.4s-11-54.6-30.8-74.4c-41.1-41.1-107.9-41-149 0L463 364 224.8 602.1A172.22 172.22 0 00174 724.8c0 46.3 18.1 89.8 50.8 122.5 33.9 33.8 78.3 50.7 122.7 50.7 44.4 0 88.8-16.9 122.6-50.7l309.2-309C824.8 492.7 850 432 850 367.5c.1-64.6-25.1-125.3-70.7-170.9z"
+              />
+            </svg>
           </span>
         </div>
+        <span
+          class="ant-upload-list-item-name"
+          title="xxx.png"
+        >
+          xxx.png
+        </span>
+        <span
+          class="ant-upload-list-item-actions"
+        >
+          <button
+            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            title="Remove file"
+            type="button"
+          >
+            <span
+              aria-label="delete"
+              class="anticon anticon-delete"
+              role="img"
+              tabindex="-1"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="delete"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                />
+              </svg>
+            </span>
+          </button>
+        </span>
       </div>
     </div>
   </div>
@@ -37810,10 +37776,10 @@ exports[`ConfigProvider components Upload normal 1`] = `
 
 exports[`ConfigProvider components Upload prefixCls 1`] = `
 <span
-  class=""
+  class="prefix-Upload-wrapper"
 >
   <div
-    class="prefix-Upload prefix-Upload-select prefix-Upload-select-text"
+    class="prefix-Upload prefix-Upload-select"
   >
     <span
       class="prefix-Upload"
@@ -37829,81 +37795,73 @@ exports[`ConfigProvider components Upload prefixCls 1`] = `
     </span>
   </div>
   <div
-    class="ant-upload-list ant-upload-list-text"
+    class="prefix-Upload-list prefix-Upload-list-text"
   >
     <div
-      class="ant-upload-list-text-container"
+      class="prefix-Upload-list-item-container"
     >
       <div
-        class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-text"
+        class="prefix-Upload-list-item prefix-Upload-list-item-done"
       >
         <div
-          class="ant-upload-list-item-info"
+          class="prefix-Upload-icon"
         >
           <span
-            class="ant-upload-span"
+            aria-label="paper-clip"
+            class="anticon anticon-paper-clip"
+            role="img"
           >
-            <div
-              class="ant-upload-text-icon"
+            <svg
+              aria-hidden="true"
+              data-icon="paper-clip"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
             >
-              <span
-                aria-label="paper-clip"
-                class="anticon anticon-paper-clip"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="paper-clip"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M779.3 196.6c-94.2-94.2-247.6-94.2-341.7 0l-261 260.8c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l261-260.8c32.4-32.4 75.5-50.2 121.3-50.2s88.9 17.8 121.2 50.2c32.4 32.4 50.2 75.5 50.2 121.2 0 45.8-17.8 88.8-50.2 121.2l-266 265.9-43.1 43.1c-40.3 40.3-105.8 40.3-146.1 0-19.5-19.5-30.2-45.4-30.2-73s10.7-53.5 30.2-73l263.9-263.8c6.7-6.6 15.5-10.3 24.9-10.3h.1c9.4 0 18.1 3.7 24.7 10.3 6.7 6.7 10.3 15.5 10.3 24.9 0 9.3-3.7 18.1-10.3 24.7L372.4 653c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l215.6-215.6c19.9-19.9 30.8-46.3 30.8-74.4s-11-54.6-30.8-74.4c-41.1-41.1-107.9-41-149 0L463 364 224.8 602.1A172.22 172.22 0 00174 724.8c0 46.3 18.1 89.8 50.8 122.5 33.9 33.8 78.3 50.7 122.7 50.7 44.4 0 88.8-16.9 122.6-50.7l309.2-309C824.8 492.7 850 432 850 367.5c.1-64.6-25.1-125.3-70.7-170.9z"
-                  />
-                </svg>
-              </span>
-            </div>
-            <span
-              class="ant-upload-list-item-name"
-              title="xxx.png"
-            >
-              xxx.png
-            </span>
-            <span
-              class="ant-upload-list-item-card-actions"
-            >
-              <button
-                class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
-                title="Remove file"
-                type="button"
-              >
-                <span
-                  aria-label="delete"
-                  class="anticon anticon-delete"
-                  role="img"
-                  tabindex="-1"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="delete"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </span>
+              <path
+                d="M779.3 196.6c-94.2-94.2-247.6-94.2-341.7 0l-261 260.8c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l261-260.8c32.4-32.4 75.5-50.2 121.3-50.2s88.9 17.8 121.2 50.2c32.4 32.4 50.2 75.5 50.2 121.2 0 45.8-17.8 88.8-50.2 121.2l-266 265.9-43.1 43.1c-40.3 40.3-105.8 40.3-146.1 0-19.5-19.5-30.2-45.4-30.2-73s10.7-53.5 30.2-73l263.9-263.8c6.7-6.6 15.5-10.3 24.9-10.3h.1c9.4 0 18.1 3.7 24.7 10.3 6.7 6.7 10.3 15.5 10.3 24.9 0 9.3-3.7 18.1-10.3 24.7L372.4 653c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l215.6-215.6c19.9-19.9 30.8-46.3 30.8-74.4s-11-54.6-30.8-74.4c-41.1-41.1-107.9-41-149 0L463 364 224.8 602.1A172.22 172.22 0 00174 724.8c0 46.3 18.1 89.8 50.8 122.5 33.9 33.8 78.3 50.7 122.7 50.7 44.4 0 88.8-16.9 122.6-50.7l309.2-309C824.8 492.7 850 432 850 367.5c.1-64.6-25.1-125.3-70.7-170.9z"
+              />
+            </svg>
           </span>
         </div>
+        <span
+          class="prefix-Upload-list-item-name"
+          title="xxx.png"
+        >
+          xxx.png
+        </span>
+        <span
+          class="prefix-Upload-list-item-actions"
+        >
+          <button
+            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only prefix-Upload-list-item-action"
+            title="Remove file"
+            type="button"
+          >
+            <span
+              aria-label="delete"
+              class="anticon anticon-delete"
+              role="img"
+              tabindex="-1"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="delete"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                />
+              </svg>
+            </span>
+          </button>
+        </span>
       </div>
     </div>
   </div>

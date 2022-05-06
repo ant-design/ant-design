@@ -35,7 +35,7 @@ exports[`renders ./components/tree-select/demo/async.md extend context correctly
   <div>
     <div
       class="ant-select-dropdown ant-tree-select-dropdown"
-      style="opacity:0;pointer-events:none;max-height:400px;overflow:auto"
+      style="opacity:0;max-height:400px;overflow:auto"
     >
       <div>
         <div>
@@ -256,7 +256,7 @@ exports[`renders ./components/tree-select/demo/basic.md extend context correctly
   <div>
     <div
       class="ant-select-dropdown ant-tree-select-dropdown"
-      style="opacity:0;pointer-events:none;max-height:400px;overflow:auto"
+      style="opacity:0;max-height:400px;overflow:auto"
     >
       <div>
         <div>
@@ -654,7 +654,7 @@ exports[`renders ./components/tree-select/demo/checkable.md extend context corre
   <div>
     <div
       class="ant-select-dropdown ant-tree-select-dropdown"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div>
         <div>
@@ -859,7 +859,7 @@ exports[`renders ./components/tree-select/demo/multiple.md extend context correc
   <div>
     <div
       class="ant-select-dropdown ant-tree-select-dropdown"
-      style="opacity:0;pointer-events:none;max-height:400px;overflow:auto"
+      style="opacity:0;max-height:400px;overflow:auto"
     >
       <div>
         <div>
@@ -1259,7 +1259,7 @@ Array [
     <div>
       <div
         class="ant-select-dropdown ant-tree-select-dropdown"
-        style="opacity:0;pointer-events:none;min-width:300px;max-height:400px;overflow:auto"
+        style="opacity:0;min-width:300px;max-height:400px;overflow:auto"
       >
         <div>
           <div>
@@ -1614,7 +1614,7 @@ exports[`renders ./components/tree-select/demo/status.md extend context correctl
       <div>
         <div
           class="ant-select-dropdown ant-tree-select-dropdown ant-select-dropdown-empty"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <div>
             <div
@@ -1752,7 +1752,7 @@ exports[`renders ./components/tree-select/demo/status.md extend context correctl
       <div>
         <div
           class="ant-select-dropdown ant-tree-select-dropdown ant-select-dropdown-empty"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <div>
             <div
@@ -1846,7 +1846,7 @@ exports[`renders ./components/tree-select/demo/suffix.md extend context correctl
   <div>
     <div
       class="ant-select-dropdown ant-tree-select-dropdown"
-      style="opacity:0;pointer-events:none;max-height:400px;overflow:auto"
+      style="opacity:0;max-height:400px;overflow:auto"
     >
       <div>
         <div>
@@ -2192,7 +2192,7 @@ exports[`renders ./components/tree-select/demo/treeData.md extend context correc
   <div>
     <div
       class="ant-select-dropdown ant-tree-select-dropdown"
-      style="opacity:0;pointer-events:none;max-height:400px;overflow:auto"
+      style="opacity:0;max-height:400px;overflow:auto"
     >
       <div>
         <div>
@@ -2471,7 +2471,7 @@ exports[`renders ./components/tree-select/demo/treeLine.md extend context correc
       <div>
         <div
           class="ant-select-dropdown ant-tree-select-dropdown"
-          style="opacity:0;pointer-events:none"
+          style="opacity:0"
         >
           <div>
             <div>

@@ -13,7 +13,6 @@ const initMotionCommonLeave = (duration: string): CSSObject => ({
 });
 
 export const initMotion = (
-  hashId: string,
   motionName: string,
   inKeyframes: Keyframes,
   outKeyframes: Keyframes,
@@ -39,12 +38,12 @@ export const initMotion = (
       ${motionCls}-enter${motionCls}-enter-active,
       ${motionCls}-appear${motionCls}-appear-active
     `]: {
-      animationName: inKeyframes.getName(hashId),
+      animationName: inKeyframes,
       animationPlayState: 'running',
     },
 
     [`${motionCls}-leave${motionCls}-leave-active`]: {
-      animationName: outKeyframes.getName(hashId),
+      animationName: outKeyframes,
       animationPlayState: 'running',
       pointerEvents: 'none',
     },

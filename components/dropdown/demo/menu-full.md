@@ -19,7 +19,7 @@ This demo was created for debugging Menu styles inside Dropdown.
 [#19150](https://github.com/ant-design/ant-design/pull/19150)
 
 ```tsx
-import { Menu, Dropdown, MenuProps } from 'antd';
+import { Menu, Dropdown, MenuProps, Space } from 'antd';
 import { MailOutlined, AppstoreOutlined, SettingOutlined, DownOutlined } from '@ant-design/icons';
 
 type MenuItem = Required<MenuProps>['items'][number];
@@ -71,8 +71,11 @@ const menu = <Menu selectedKeys={['1']} openKeys={['sub1']} items={items} />;
 
 export default () => (
   <Dropdown overlay={menu}>
-    <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-      Hover to check menu style <DownOutlined />
+    <a onClick={e => e.preventDefault()}>
+      <Space>
+        Hover to check menu style
+        <DownOutlined />
+      </Space>
     </a>
   </Dropdown>
 );

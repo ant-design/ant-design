@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { mount } from 'enzyme';
-import { render } from '@testing-library/react';
-import '@testing-library/jest-dom';
 import { act } from 'react-dom/test-utils';
 import { SearchOutlined } from '@ant-design/icons';
 import { resetWarned } from 'rc-util/lib/warning';
@@ -9,7 +7,7 @@ import Button from '..';
 import ConfigProvider from '../../config-provider';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { sleep } from '../../../tests/utils';
+import { sleep, render, fireEvent } from '../../../tests/utils';
 import { SizeType } from '../../config-provider/SizeContext';
 
 describe('Button', () => {
@@ -38,14 +36,13 @@ describe('Button', () => {
   });
 
   it('warns if size is wrong', () => {
-    const mockWarn = jest.fn();
-    jest.spyOn(console, 'warn').mockImplementation(mockWarn);
+    resetWarned();
+    const mockWarn = jest.spyOn(console, 'error').mockImplementation(() => {});
     const size = 'who am I' as any as SizeType;
-    mount(<Button.Group size={size} />);
-    expect(mockWarn).toHaveBeenCalledTimes(1);
-    expect(mockWarn.mock.calls[0][0]).toMatchObject({
-      message: 'unreachable case: "who am I"',
-    });
+    render(<Button.Group size={size} />);
+    expect(mockWarn).toHaveBeenCalledWith('Warning: [antd: Button.Group] Invalid prop `size`.');
+
+    mockWarn.mockRestore();
   });
 
   it('renders Chinese characters correctly', () => {
@@ -86,22 +83,26 @@ describe('Button', () => {
 
   it('renders Chinese characters correctly in HOC', () => {
     const Text = ({ children }: { children: React.ReactNode }) => <span>{children}</span>;
-    const wrapper = mount(
+    const { container, rerender } = render(
       <Button>
         <Text>按钮</Text>
       </Button>,
     );
-    expect(wrapper.find('.ant-btn').hasClass('ant-btn-two-chinese-chars')).toBe(true);
-    wrapper.setProps({
-      children: <Text>大按钮</Text>,
-    });
-    wrapper.update();
-    expect(wrapper.find('.ant-btn').hasClass('ant-btn-two-chinese-chars')).toBe(false);
-    wrapper.setProps({
-      children: <Text>按钮</Text>,
-    });
-    wrapper.update();
-    expect(wrapper.find('.ant-btn').hasClass('ant-btn-two-chinese-chars')).toBe(true);
+    expect(container.querySelector('.ant-btn')).toHaveClass('ant-btn-two-chinese-chars');
+
+    rerender(
+      <Button>
+        <Text>大按钮</Text>
+      </Button>,
+    );
+    expect(container.querySelector('.ant-btn')).not.toHaveClass('ant-btn-two-chinese-chars');
+
+    rerender(
+      <Button>
+        <Text>按钮</Text>
+      </Button>,
+    );
+    expect(container.querySelector('.ant-btn')).toHaveClass('ant-btn-two-chinese-chars');
   });
 
   // https://github.com/ant-design/ant-design/issues/18118
@@ -124,7 +125,7 @@ describe('Button', () => {
 
   it('have static property for type detecting', () => {
     const wrapper = mount(<Button>Button Text</Button>);
-    expect((wrapper.type() as any).__ANT_BUTTON).toBe(true);
+    expect((wrapper.find(Button).type() as any).__ANT_BUTTON).toBe(true);
   });
 
   it('should change loading state instantly by default', () => {
@@ -195,12 +196,12 @@ describe('Button', () => {
 
   it('should not clickable when button is loading', () => {
     const onClick = jest.fn();
-    const wrapper = mount(
+    const { container } = render(
       <Button loading onClick={onClick}>
         button
       </Button>,
     );
-    wrapper.simulate('click');
+    fireEvent.click(container.firstChild!);
     expect(onClick).not.toHaveBeenCalledWith();
   });
 
@@ -314,12 +315,12 @@ describe('Button', () => {
 
   it('should not redirect when button is disabled', () => {
     const onClick = jest.fn();
-    const wrapper = mount(
+    const { container } = render(
       <Button href="https://ant.design" onClick={onClick} disabled>
         click me
       </Button>,
     );
-    wrapper.simulate('click');
+    fireEvent.click(container.firstChild!);
     expect(onClick).not.toHaveBeenCalled();
   });
 

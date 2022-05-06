@@ -156,6 +156,7 @@ function getNotificationInstance(
 
   const cacheKey = `${prefixCls}-${placement}`;
   const cacheInstance = notificationInstance[cacheKey];
+
   if (cacheInstance) {
     Promise.resolve(cacheInstance).then(instance => {
       callback({ prefixCls: `${prefixCls}-notice`, iconPrefixCls, instance });
@@ -205,6 +206,7 @@ export interface ArgsProps {
   duration?: number | null;
   icon?: React.ReactNode;
   placement?: NotificationPlacement;
+  maxCount?: number;
   style?: React.CSSProperties;
   prefixCls?: string;
   className?: string;

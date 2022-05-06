@@ -2,6 +2,7 @@ import React from 'react';
 import MockDate from 'mockdate';
 import dayjs from 'dayjs';
 import { mount } from 'enzyme';
+import { fireEvent, render } from '@testing-library/react';
 import Statistic from '..';
 import { formatTimeStr } from '../utils';
 import { sleep } from '../../../tests/utils';
@@ -84,7 +85,7 @@ describe('Statistic', () => {
       wrapper.update();
 
       // setInterval should work
-      const instance = wrapper.instance();
+      const instance = wrapper.find('Countdown').instance();
       expect(instance.countdownId).not.toBe(undefined);
 
       await sleep(10);
@@ -97,10 +98,12 @@ describe('Statistic', () => {
     it('responses hover events', () => {
       const onMouseEnter = jest.fn();
       const onMouseLeave = jest.fn();
-      const wrapper = mount(<Statistic onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />);
-      wrapper.simulate('mouseenter');
+      const { container } = render(
+        <Statistic onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />,
+      );
+      fireEvent.mouseEnter(container.firstChild);
       expect(onMouseEnter).toHaveBeenCalled();
-      wrapper.simulate('mouseleave');
+      fireEvent.mouseLeave(container.firstChild);
       expect(onMouseLeave).toHaveBeenCalled();
     });
 
@@ -139,8 +142,7 @@ describe('Statistic', () => {
         const wrapper = mount(<Statistic.Countdown value={now} onFinish={onFinish} />);
         wrapper.update();
 
-        const instance = wrapper.instance();
-        expect(instance.countdownId).toBe(undefined);
+        expect(wrapper.find('Countdown').instance().countdownId).toBe(undefined);
         expect(onFinish).not.toHaveBeenCalled();
       });
 

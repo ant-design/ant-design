@@ -52,5 +52,5 @@ const Demo = () => {
   );
 };
 
-export default () => <Demo />;
+export default Demo;
 ```

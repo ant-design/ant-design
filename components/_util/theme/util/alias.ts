@@ -99,6 +99,8 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     // warningColors,
     // errorColors,
 
+    colorLoadingOpacity: 0.65,
+
     colorSuccessSecondary: successColors[2],
     colorWarningSecondary: warningColors[2],
     colorErrorSecondary: errorColors[2],

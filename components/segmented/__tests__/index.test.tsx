@@ -1,11 +1,12 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import { AppstoreOutlined, BarsOutlined } from '@ant-design/icons';
 
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-
 import Segmented from '../index';
 import type { SegmentedValue } from '../index';
+import { render } from '../../../tests/utils';
 
 // Make CSSMotion working without transition
 jest.mock('rc-motion/lib/util/motion', () => ({
@@ -87,10 +88,7 @@ describe('Segmented', () => {
   it('render segmented with string options', () => {
     const handleValueChange = jest.fn();
     const wrapper = mount(
-      <Segmented
-        options={['Daily', 'Weekly', 'Monthly']}
-        onChange={e => handleValueChange(e.target.value)}
-      />,
+      <Segmented options={['Daily', 'Weekly', 'Monthly']} onChange={handleValueChange} />,
     );
     expect(wrapper.render()).toMatchSnapshot();
 
@@ -100,7 +98,7 @@ describe('Segmented', () => {
         .map(el => (el.getDOMNode() as HTMLInputElement).checked),
     ).toEqual([true, false, false]);
     expect(
-      wrapper.find(`.${prefixCls}-item`).at(0).hasClass(`${prefixCls}-item-selected`),
+      wrapper.find(`label.${prefixCls}-item`).at(0).hasClass(`${prefixCls}-item-selected`),
     ).toBeTruthy();
 
     wrapper.find(`.${prefixCls}-item-input`).at(2).simulate('change');
@@ -116,7 +114,7 @@ describe('Segmented', () => {
   it('render segmented with numeric options', () => {
     const handleValueChange = jest.fn();
     const wrapper = mount(
-      <Segmented options={[1, 2, 3, 4, 5]} onChange={e => handleValueChange(e.target.value)} />,
+      <Segmented options={[1, 2, 3, 4, 5]} onChange={value => handleValueChange(value)} />,
     );
     expect(wrapper.render()).toMatchSnapshot();
     expect(
@@ -140,7 +138,7 @@ describe('Segmented', () => {
     const wrapper = mount(
       <Segmented
         options={['Daily', { label: 'Weekly', value: 'Weekly' }, 'Monthly']}
-        onChange={e => handleValueChange(e.target.value)}
+        onChange={value => handleValueChange(value)}
       />,
     );
     expect(wrapper.render()).toMatchSnapshot();
@@ -160,12 +158,12 @@ describe('Segmented', () => {
     const wrapper = mount(
       <Segmented
         options={['Daily', { label: 'Weekly', value: 'Weekly', disabled: true }, 'Monthly']}
-        onChange={e => handleValueChange(e.target.value)}
+        onChange={value => handleValueChange(value)}
       />,
     );
     expect(wrapper.render()).toMatchSnapshot();
     expect(
-      wrapper.find(`.${prefixCls}-item`).at(1).hasClass(`${prefixCls}-item-disabled`),
+      wrapper.find(`label.${prefixCls}-item`).at(1).hasClass(`${prefixCls}-item-disabled`),
     ).toBeTruthy();
     expect(wrapper.find(`.${prefixCls}-item-input`).at(1).prop('disabled')).toBeTruthy();
 
@@ -195,7 +193,7 @@ describe('Segmented', () => {
       <Segmented
         disabled
         options={['Daily', 'Weekly', 'Monthly']}
-        onChange={e => handleValueChange(e.target.value)}
+        onChange={value => handleValueChange(value)}
       />,
     );
     expect(wrapper.render()).toMatchSnapshot();
@@ -221,7 +219,7 @@ describe('Segmented', () => {
   });
 
   it('render segmented with className and other html attributes', () => {
-    const wrapper = mount(
+    const { container } = render(
       <Segmented
         options={['Daily', 'Monthly', 'Weekly']}
         defaultValue="Weekly"
@@ -230,8 +228,8 @@ describe('Segmented', () => {
       />,
     );
 
-    expect(wrapper.hasClass('mock-cls')).toBeTruthy();
-    expect(wrapper.prop('data-test-id')).toBe('hello');
+    expect(container.querySelector('.mock-cls')).toBeTruthy();
+    expect(container.querySelector('[data-test-id]')).toHaveAttribute('data-test-id', 'hello');
   });
 
   it('render segmented with ref', () => {
@@ -243,7 +241,7 @@ describe('Segmented', () => {
     expect((wrapper.find(Segmented).getElement() as any).ref).toBe(ref);
   });
 
-  it('render segmented with controlled mode', () => {
+  it('render segmented with controlled mode', async () => {
     class Demo extends React.Component<{}, { value: SegmentedValue }> {
       state = {
         value: 'Map',
@@ -254,9 +252,9 @@ describe('Segmented', () => {
           <Segmented
             options={['Map', 'Transit', 'Satellite']}
             value={this.state.value}
-            onChange={e =>
+            onChange={value =>
               this.setState({
-                value: e.target.value,
+                value,
               })
             }
           />
@@ -266,10 +264,10 @@ describe('Segmented', () => {
 
     const wrapper = mount<typeof Demo>(<Demo />);
     wrapper.find('Segmented').find(`.${prefixCls}-item-input`).at(0).simulate('change');
-    expect(wrapper.state().value).toBe('Map');
+    expect(wrapper.find(Demo).state().value).toBe('Map');
 
     wrapper.find('Segmented').find(`.${prefixCls}-item-input`).at(1).simulate('change');
-    expect(wrapper.state().value).toBe('Transit');
+    expect(wrapper.find(Demo).state().value).toBe('Transit');
   });
 
   it('render segmented with options null/undefined', () => {
@@ -278,7 +276,7 @@ describe('Segmented', () => {
       <Segmented
         options={[null, undefined, ''] as any}
         disabled
-        onChange={e => handleValueChange(e.target.value)}
+        onChange={value => handleValueChange(value)}
       />,
     );
     expect(wrapper.render()).toMatchSnapshot();
@@ -294,7 +292,7 @@ describe('Segmented', () => {
     const wrapper = mount(
       <Segmented
         options={['Map', 'Transit', 'Satellite']}
-        onChange={e => handleValueChange(e.target.value)}
+        onChange={value => handleValueChange(value)}
       />,
     );
     expect(wrapper.render()).toMatchSnapshot();
@@ -305,7 +303,7 @@ describe('Segmented', () => {
         .map(el => (el.getDOMNode() as HTMLInputElement).checked),
     ).toEqual([true, false, false]);
     expect(
-      wrapper.find(`.${prefixCls}-item`).at(0).hasClass(`${prefixCls}-item-selected`),
+      wrapper.find(`label.${prefixCls}-item`).at(0).hasClass(`${prefixCls}-item-selected`),
     ).toBeTruthy();
 
     wrapper.find(`.${prefixCls}-item-input`).at(2).simulate('change');
@@ -356,5 +354,26 @@ describe('Segmented', () => {
     expect(wrapper.render()).toMatchSnapshot();
 
     expect(wrapper.find(`.${prefixCls}`).at(0).hasClass(`${prefixCls}-lg`)).toBeTruthy();
+  });
+
+  it('render with icons', () => {
+    const wrapper = mount(
+      <Segmented
+        options={[
+          {
+            value: 'List',
+            icon: <BarsOutlined />,
+          },
+          {
+            value: 'Kanban',
+            label: 'KanbanYes',
+            icon: <AppstoreOutlined />,
+          },
+        ]}
+      />,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper.find(`span.${prefixCls}-item-icon`).length).toBe(2);
+    expect(wrapper.find(`div.${prefixCls}-item-label`).at(1).contains('KanbanYes')).toBeTruthy();
   });
 });

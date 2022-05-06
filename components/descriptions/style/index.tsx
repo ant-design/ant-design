@@ -106,7 +106,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
         textOverflow: 'ellipsis',
       },
       [`${componentCls}-extra`]: {
-        marginLeft: 'auto',
+        marginInlineStart: 'auto',
         color: descriptionsExtraColor,
         // FIXME: hardcode in v4
         fontSize: token.fontSize,
@@ -180,7 +180,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
           },
         },
       },
-      [`${componentCls}-middle`]: {
+      '&-middle': {
         [`${componentCls}-row`]: {
           '> th, > td': {
             // FIXME: hardcode in v4
@@ -188,7 +188,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
           },
         },
       },
-      [`${componentCls}-small`]: {
+      '&-small': {
         [`${componentCls}-row`]: {
           '> th, > td': {
             // FIXME: hardcode in v4

@@ -5,6 +5,7 @@ import { IntlProvider } from 'react-intl';
 import { presetPalettes, presetDarkPalettes } from '@ant-design/colors';
 import themeSwitcher from 'theme-switcher';
 import { setTwoToneColor } from '@ant-design/icons';
+import { StyleProvider, createCache } from '@ant-design/cssinjs';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import 'dayjs/locale/zh-cn';
 import { ConfigProvider } from 'antd';
@@ -64,6 +65,12 @@ const themeConfig = {
   themeMap,
 };
 const { switcher } = themeSwitcher(themeConfig);
+
+// Pass to global since bisheng do not have the process for wrapper
+const styleCache = createCache();
+if (typeof global !== 'undefined') {
+  global.styleCache = styleCache;
+}
 
 export default class Layout extends React.Component {
   static contextType = SiteContext;
@@ -246,65 +253,67 @@ export default class Layout extends React.Component {
         ? '基于 Ant Design 设计体系的 React UI 组件库，用于研发企业级中后台产品。'
         : 'An enterprise-class UI design language and React UI library with a set of high-quality React components, one of best React UI library for enterprises';
     return (
-      <SiteContext.Provider value={{ isMobile, direction, theme, setTheme, setIframeTheme }}>
-        <HelmetProvider context={helmetContext}>
-          <Helmet encodeSpecialCharacters={false}>
-            <html
-              lang={appLocale.locale === 'zh-CN' ? 'zh' : 'en'}
-              data-direction={direction}
-              className={classNames({
-                [`rtl`]: direction === 'rtl',
-              })}
-            />
-            <title>{title}</title>
-            <link
-              rel="apple-touch-icon-precomposed"
-              sizes="144x144"
-              href="https://gw.alipayobjects.com/zos/antfincdn/UmVnt3t4T0/antd.png"
-            />
-            <meta name="description" content={description} />
-            <meta property="og:title" content={title} />
-            <meta property="og:type" content="website" />
-            <meta
-              property="og:image"
-              content="https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png"
-            />
-          </Helmet>
-          <IntlProvider
-            locale={appLocale.locale}
-            messages={appLocale.messages}
-            defaultLocale="en-US"
-          >
-            <ConfigProvider
-              locale={appLocale.locale === 'zh-CN' ? zhCN : null}
-              direction={direction}
-              theme={{
-                token: designToken,
-                hashed: hashedStyle,
-              }}
+      <StyleProvider cache={styleCache}>
+        <SiteContext.Provider value={{ isMobile, direction, theme, setTheme, setIframeTheme }}>
+          <HelmetProvider context={helmetContext}>
+            <Helmet encodeSpecialCharacters={false}>
+              <html
+                lang={appLocale.locale === 'zh-CN' ? 'zh' : 'en'}
+                data-direction={direction}
+                className={classNames({
+                  [`rtl`]: direction === 'rtl',
+                })}
+              />
+              <title>{title}</title>
+              <link
+                rel="apple-touch-icon-precomposed"
+                sizes="144x144"
+                href="https://gw.alipayobjects.com/zos/antfincdn/UmVnt3t4T0/antd.png"
+              />
+              <meta name="description" content={description} />
+              <meta property="og:title" content={title} />
+              <meta property="og:type" content="website" />
+              <meta
+                property="og:image"
+                content="https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png"
+              />
+            </Helmet>
+            <IntlProvider
+              locale={appLocale.locale}
+              messages={appLocale.messages}
+              defaultLocale="en-US"
             >
-              <Header {...restProps} changeDirection={this.changeDirection} />
-              {children}
-
-              <DynamicTheme
-                componentName={this.props.params?.children?.replace('-cn', '')}
-                defaultToken={{
-                  ...designToken,
+              <ConfigProvider
+                locale={appLocale.locale === 'zh-CN' ? zhCN : null}
+                direction={direction}
+                theme={{
+                  token: designToken,
                   hashed: hashedStyle,
                 }}
-                onChangeTheme={newToken => {
-                  console.log('Change Theme:', newToken);
-                  const { hashed, ...restToken } = newToken;
-                  this.setState({
-                    designToken: restToken,
-                    hashedStyle: hashed,
-                  });
-                }}
-              />
-            </ConfigProvider>
-          </IntlProvider>
-        </HelmetProvider>
-      </SiteContext.Provider>
+              >
+                <Header {...restProps} changeDirection={this.changeDirection} />
+                {children}
+
+                <DynamicTheme
+                  componentName={this.props.params?.children?.replace('-cn', '')}
+                  defaultToken={{
+                    ...designToken,
+                    hashed: hashedStyle,
+                  }}
+                  onChangeTheme={newToken => {
+                    console.log('Change Theme:', newToken);
+                    const { hashed, ...restToken } = newToken;
+                    this.setState({
+                      designToken: restToken,
+                      hashedStyle: hashed,
+                    });
+                  }}
+                />
+              </ConfigProvider>
+            </IntlProvider>
+          </HelmetProvider>
+        </SiteContext.Provider>
+      </StyleProvider>
     );
   }
 }

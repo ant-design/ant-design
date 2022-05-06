@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { mount } from 'enzyme';
-import { render } from '@testing-library/react';
-import '@testing-library/jest-dom';
 import RcTextArea from 'rc-textarea';
 import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
-import { sleep } from '../../../tests/utils';
+import { sleep, render } from '../../../tests/utils';
 
 const { TextArea } = Input;
 
@@ -224,12 +222,16 @@ describe('TextArea', () => {
     );
   });
 
-  it('should works same as Input', async () => {
-    const input = mount(<Input value="111" />);
-    const textarea = mount(<TextArea value="111" />);
-    input.setProps({ value: undefined });
-    textarea.setProps({ value: undefined });
-    expect(textarea.find('textarea').at(0).getDOMNode().value).toBe(input.getDOMNode().value);
+  it('should works same as Input', () => {
+    const { container: inputContainer, rerender: inputRerender } = render(<Input value="111" />);
+    const { container: textareaContainer, rerender: textareaRerender } = render(
+      <TextArea value="111" />,
+    );
+    inputRerender(<Input value={undefined} />);
+    textareaRerender(<TextArea value={undefined} />);
+    expect(textareaContainer.querySelector('textarea').value).toBe(
+      inputContainer.querySelector('input').value,
+    );
   });
 
   describe('should support showCount', () => {
@@ -400,27 +402,6 @@ describe('TextArea allowClear', () => {
     wrapper.setProps({ value: 'Light' });
     wrapper.find('input').simulate('change', { target: { value: 'Bamboo' } });
     expect(wrapper.find('input').props().value).toEqual('Light');
-  });
-
-  describe('click focus', () => {
-    it('click outside should also get focus', () => {
-      const wrapper = mount(<Input suffix={<span className="test-suffix" />} />);
-      const onFocus = jest.spyOn(wrapper.find('input').instance(), 'focus');
-      wrapper.find('.test-suffix').simulate('mouseUp');
-      expect(onFocus).toHaveBeenCalled();
-    });
-
-    it('not get focus if out of component', () => {
-      const wrapper = mount(<Input suffix={<span className="test-suffix" />} />);
-      const onFocus = jest.spyOn(wrapper.find('input').instance(), 'focus');
-      const ele = document.createElement('span');
-      document.body.appendChild(ele);
-      wrapper.find('.test-suffix').simulate('mouseUp', {
-        target: ele,
-      });
-      expect(onFocus).not.toHaveBeenCalled();
-      document.body.removeChild(ele);
-    });
   });
 
   it('scroll to bottom when autoSize', async () => {
