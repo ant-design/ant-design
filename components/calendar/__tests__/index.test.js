@@ -42,7 +42,7 @@ describe('Calendar', () => {
   });
 
   it('Calendar should be selectable', () => {
-    MockDate.set(Moment('2000-01-01').valueOf());
+    MockDate.set(Dayjs('2000-01-01').valueOf());
 
     const onSelect = jest.fn();
     const onChange = jest.fn();
