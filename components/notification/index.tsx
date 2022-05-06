@@ -345,7 +345,7 @@
 
 import * as React from 'react';
 import { render } from 'rc-util/lib/React/render';
-import useNotification from './useNotification';
+import useNotification, { useInternalNotification } from './useNotification';
 import { ArgsProps, NotificationInstance } from './interface';
 import { globalConfig } from '../config-provider';
 
@@ -373,13 +373,20 @@ type Task =
 
 let taskQueue: Task[] = [];
 
-const GlobalHolder = React.forwardRef<NotificationInstance>((_, ref) => {
-  const [api, holder] = useNotification();
+interface GlobalHolderProps {
+  prefixCls: string;
+  container: HTMLElement;
+}
 
-  React.useImperativeHandle(ref, () => api);
+const GlobalHolder = React.forwardRef<NotificationInstance, GlobalHolderProps>(
+  ({ prefixCls, container }, ref) => {
+    const [api, holder] = useInternalNotification({ prefixCls, container });
 
-  return holder;
-});
+    React.useImperativeHandle(ref, () => api);
+
+    return holder;
+  },
+);
 
 /** Get unique notification mark of `prefixCls` and `container` */
 function getNotificationMark(config: ArgsProps): [string, HTMLElement] {
@@ -393,9 +400,10 @@ function getNotificationMark(config: ArgsProps): [string, HTMLElement] {
 function findNotification(config: ArgsProps) {
   const [prefixCls, container] = getNotificationMark(config);
 
-  return notificationList.find(
-    instance => instance.prefixCls === prefixCls && instance.container === container,
-  );
+  return notificationList.find(notification => {
+    const { prefixCls: comparePrefixCls, container: compareContainer } = notification;
+    return comparePrefixCls === prefixCls && compareContainer === container;
+  });
 }
 
 function flushNotice() {
@@ -421,17 +429,20 @@ function flushNotice() {
           fragment: holderFragment,
         };
 
+        notificationList.push(notification);
+
+        // Delay render to avoid sync issue
         render(
           <GlobalHolder
             ref={instance => {
               notification.instance = instance;
               flushNotice();
             }}
+            prefixCls={prefixCls}
+            container={container}
           />,
           holderFragment,
         );
-
-        notificationList.push(notification);
 
         return;
       }

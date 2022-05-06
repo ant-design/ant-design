@@ -101,15 +101,17 @@ const DEFAULT_DURATION = 4.5;
 // ==============================================================================
 interface HolderProps {
   offsets: Partial<Record<NotificationPlacement, { top?: number; bottom?: number }>>;
+  staticConfig?: InternalNotificationConfig;
 }
 interface HolderRef extends NotificationAPI {
   prefixCls: string;
 }
 
-const Holder = React.forwardRef<HolderRef, HolderProps>(({ offsets }, ref) => {
+const Holder = React.forwardRef<HolderRef, HolderProps>(({ offsets, staticConfig }, ref) => {
+  const { prefixCls: staticPrefixCls, container: staticContainer } = staticConfig || {};
   const { getPrefixCls } = React.useContext(ConfigContext);
 
-  const prefixCls = getPrefixCls('notification');
+  const prefixCls = staticPrefixCls || getPrefixCls('notification');
 
   // =============================== Style ===============================
   const getStyle = (placement: NotificationPlacement) => {
@@ -137,6 +139,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>(({ offsets }, ref) => {
     closable: true,
     closeIcon: mergedCloseIcon,
     duration: DEFAULT_DURATION,
+    getContainer: () => staticContainer || document.body,
   });
 
   // ================================ Ref ================================
@@ -151,7 +154,16 @@ const Holder = React.forwardRef<HolderRef, HolderProps>(({ offsets }, ref) => {
 // ==============================================================================
 // ==                                   Hook                                   ==
 // ==============================================================================
-export default function useNotification(): [NotificationInstance, React.ReactElement] {
+interface InternalNotificationConfig {
+  /** @private Used For global static function only. Do not use this */
+  prefixCls?: string;
+  /** @private Used For global static function only. Do not use this */
+  container?: HTMLElement;
+}
+
+export function useInternalNotification(
+  staticConfig?: InternalNotificationConfig,
+): [NotificationInstance, React.ReactElement] {
   const [placementOffsets, setPlacementOffsets] = React.useState<
     Partial<Record<NotificationPlacement, { top?: number; bottom?: number }>>
   >({});
@@ -250,5 +262,12 @@ export default function useNotification(): [NotificationInstance, React.ReactEle
   }, []);
 
   // ============================== Return ===============================
-  return [wrapAPI, <Holder key="holder" ref={holderRef} offsets={placementOffsets} />];
+  return [
+    wrapAPI,
+    <Holder key="holder" ref={holderRef} offsets={placementOffsets} staticConfig={staticConfig} />,
+  ];
+}
+
+export default function useNotification(): [NotificationInstance, React.ReactElement] {
+  return useInternalNotification();
 }
