@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { mount } from 'enzyme';
-import { render } from '../../../tests/utils';
+import { render, screen } from '../../../tests/utils';
 import { Col, Row } from '..';
 // eslint-disable-next-line no-unused-vars
 import * as styleChecker from '../../_util/styleChecker';
@@ -20,7 +20,7 @@ describe('Grid.Gap', () => {
       </Row>,
     );
 
-    expect(document.querySelector('.ant-row').style.rowGap).toBe('');
+    expect(screen.getByRole('row').style.rowGap).toBe('');
   });
 
   it('should use gap', () => {
