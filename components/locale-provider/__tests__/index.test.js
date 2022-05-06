@@ -24,7 +24,7 @@ import 'dayjs/locale/az';
 import bgBG from '../bg_BG';
 import 'dayjs/locale/bg';
 import bnBD from '../bn_BD';
-// import 'dayjs/locale/bn-bd';
+import 'dayjs/locale/bn-bd';
 import byBY from '../by_BY';
 import 'dayjs/locale/be';
 import caES from '../ca_ES';
