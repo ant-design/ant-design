@@ -256,7 +256,11 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
       },
 
       // >>> Title
-      [`& ${treeCls}-node-content-wrapper`]: {
+      // add `${treeCls}-checkbox + span` to cover checkbox `${checkboxCls} + span`
+      [`
+        ${treeCls}-node-content-wrapper, 
+        ${treeCls}-checkbox + span
+      `]: {
         display: 'flex',
         flexWrap: 'nowrap',
         position: 'relative',
@@ -467,6 +471,8 @@ export const genTreeStyle = (prefixCls: string, token: DerivativeToken): CSSInte
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Tree', (token, { prefixCls }) => [
-  getCheckboxStyle(`${prefixCls}-checkbox`, token),
+  {
+    [token.componentCls]: getCheckboxStyle(`${prefixCls}-checkbox`, token),
+  },
   genTreeStyle(prefixCls, token),
 ]);

@@ -163,7 +163,7 @@ export default genComponentStyleHook(
   'Divider',
   token => {
     const dividerToken = mergeToken<DividerToken>(token, {
-      dividerVerticalGutterMargin: token.marginSM,
+      dividerVerticalGutterMargin: token.marginXS,
       dividerHorizontalWithTextGutterMargin: token.margin,
       dividerHorizontalGutterMargin: token.marginLG,
     });

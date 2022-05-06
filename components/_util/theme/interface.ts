@@ -1,4 +1,5 @@
 import type * as React from 'react';
+import type { ComponentToken as AnchorComponentToken } from '../../anchor/style';
 import type { ComponentToken as ButtonComponentToken } from '../../button/style';
 import type { ComponentToken as DividerComponentToken } from '../../divider/style';
 import type { ComponentToken as DropdownComponentToken } from '../../dropdown/style';
@@ -16,6 +17,7 @@ import type { ComponentToken as MenuComponentToken } from '../../menu/style';
 import type { ComponentToken as UploadComponentToken } from '../../upload/style';
 import type { ComponentToken as CarouselComponentToken } from '../../carousel/style';
 import type { ComponentToken as ProgressComponentToken } from '../../progress/style';
+import type { ComponentToken as SpaceComponentToken } from '../../space/style';
 
 export const PresetColors = [
   'blue',
@@ -49,6 +51,7 @@ export interface OverrideToken {
   // Customize component
   Affix?: {};
   Alert?: {};
+  Anchor?: AnchorComponentToken;
   Avatar?: {};
   BackTop?: BackTopComponentToken;
   Badge?: {};
@@ -91,6 +94,8 @@ export interface OverrideToken {
   Menu?: MenuComponentToken;
   Layout?: {};
   Upload?: UploadComponentToken;
+  Tooltip?: {};
+  Space?: SpaceComponentToken;
   Progress?: ProgressComponentToken;
 }
 

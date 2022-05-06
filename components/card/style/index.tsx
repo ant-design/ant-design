@@ -118,10 +118,6 @@ const genCardHeadStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 const genCardGridStyle: GenerateStyle<CardToken> = (token): CSSObject => {
   const { cardPaddingBase, borderColorSplit, cardShadow } = token;
   return {
-    float: {
-      _skip_check_: true,
-      value: 'left',
-    },
     width: '33.33%', // FIXME: hardcode in v4
     padding: cardPaddingBase,
     border: 0,
@@ -153,10 +149,10 @@ const genCardActionsStyle: GenerateStyle<CardToken> = (token): CSSObject => {
     listStyle: 'none',
     background: token.colorBgComponent,
     borderTop: `${token.controlLineWidth}px ${token.controlLineType} ${borderColorSplit}`,
+    display: 'flex',
     ...clearFix(),
 
     '& > li': {
-      float: 'left',
       margin: cardActionsLiMargin,
       color: token.colorTextSecondary,
       textAlign: 'center',
@@ -202,10 +198,10 @@ const genCardActionsStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 // ============================== Meta ==============================
 const genCardMetaStyle: GenerateStyle<CardToken> = (token): CSSObject => ({
   margin: '-4px 0', // FIXME: hardcode in v4
+  display: 'flex',
   ...clearFix(),
 
   '&-avatar': {
-    float: 'left',
     paddingInlineEnd: 16, // FIXME: hardcode in v4
   },
 
@@ -308,7 +304,6 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
       [`${componentCls}-head`]: genCardHeadStyle(token),
 
       [`${componentCls}-extra`]: {
-        float: 'right',
         // https://stackoverflow.com/a/22429853/3040605
         marginInlineStart: 'auto',
         padding: '',
@@ -360,12 +355,19 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
       },
     },
 
-    [`${componentCls}-contain-grid:not(&-loading) ${componentCls}-body`]: {
-      margin: {
-        _skip_check_: true,
-        value: '-1px 0 0 -1px', // FIXME: hardcode in v4
+    [`${componentCls}-contain-grid`]: {
+      [`${componentCls}-body`]: {
+        display: 'flex',
+        flexWrap: 'wrap',
       },
-      padding: 0,
+
+      [`&:not(${componentCls}-loading) ${componentCls}-body`]: {
+        margin: {
+          _skip_check_: true,
+          value: '-1px 0 0 -1px', // FIXME: hardcode in v4
+        },
+        padding: 0,
+      },
     },
 
     [`${componentCls}-contain-tabs`]: {
@@ -384,32 +386,9 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
     [`${componentCls}-type-inner`]: genCardTypeInnerStyle(token),
 
     [`${componentCls}-loading`]: genCardLoadingStyle(token),
-  };
-};
 
-// ============================== RTL ==============================
-const genCardRTLStyle: GenerateStyle<CardToken> = (token): CSSObject => {
-  const { componentCls } = token;
-  return {
-    // rtl
     [`${componentCls}-rtl`]: {
       direction: 'rtl',
-
-      [`${componentCls}-grid`]: {
-        float: 'right',
-      },
-
-      [`${componentCls}-actions`]: {
-        '& > li': {
-          float: 'right',
-        },
-      },
-
-      [`${componentCls}-meta`]: {
-        '&-avatar': {
-          float: 'right',
-        },
-      },
     },
   };
 };
@@ -477,8 +456,5 @@ export default genComponentStyleHook('Card', (token, { rootPrefixCls }) => {
 
     // Size
     genCardSizeStyle(cardToken),
-
-    // RTL
-    genCardRTLStyle(cardToken),
   ];
 });

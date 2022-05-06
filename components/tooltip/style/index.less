@@ -1,211 +1,211 @@
-@import '../../style/themes/index';
-@import '../../style/mixins/index';
+// @import '../../style/themes/index';
+// @import '../../style/mixins/index';
 
-@tooltip-prefix-cls: ~'@{ant-prefix}-tooltip';
+// @tooltip-prefix-cls: ~'@{ant-prefix}-tooltip';
 
-@tooltip-arrow-shadow-width: 3px;
+// @tooltip-arrow-shadow-width: 3px;
 
-@tooltip-arrow-rotate-width: sqrt(@tooltip-arrow-width * @tooltip-arrow-width * 2) +
-  @tooltip-arrow-shadow-width * 2;
+// @tooltip-arrow-rotate-width: sqrt(@tooltip-arrow-width * @tooltip-arrow-width * 2) +
+//   @tooltip-arrow-shadow-width * 2;
 
-@tooltip-arrow-offset-vertical: 5px; // 8 - 3px
-@tooltip-arrow-offset-horizontal: 13px; // 16 - 3px
+// @tooltip-arrow-offset-vertical: 5px; // 8 - 3px
+// @tooltip-arrow-offset-horizontal: 13px; // 16 - 3px
 
 // Base class
-.@{tooltip-prefix-cls} {
-  .reset-component();
+// .@{tooltip-prefix-cls} {
+// .reset-component();
 
-  position: absolute;
-  z-index: @zindex-tooltip;
-  display: block;
-  width: max-content;
-  width: intrinsic;
-  max-width: @tooltip-max-width;
-  visibility: visible;
+// position: absolute;
+// z-index: @zindex-tooltip;
+// display: block;
+// width: max-content;
+// width: intrinsic;
+// max-width: @tooltip-max-width;
+// visibility: visible;
 
-  &-hidden {
-    display: none;
-  }
+// &-hidden {
+//   display: none;
+// }
 
-  &-placement-top,
-  &-placement-topLeft,
-  &-placement-topRight {
-    padding-bottom: @tooltip-distance;
-  }
+// &-placement-top,
+// &-placement-topLeft,
+// &-placement-topRight {
+//   padding-bottom: @tooltip-distance;
+// }
 
-  &-placement-right,
-  &-placement-rightTop,
-  &-placement-rightBottom {
-    padding-left: @tooltip-distance;
-  }
+// &-placement-right,
+// &-placement-rightTop,
+// &-placement-rightBottom {
+//   padding-left: @tooltip-distance;
+// }
 
-  &-placement-bottom,
-  &-placement-bottomLeft,
-  &-placement-bottomRight {
-    padding-top: @tooltip-distance;
-  }
+// &-placement-bottom,
+// &-placement-bottomLeft,
+// &-placement-bottomRight {
+//   padding-top: @tooltip-distance;
+// }
 
-  &-placement-left,
-  &-placement-leftTop,
-  &-placement-leftBottom {
-    padding-right: @tooltip-distance;
-  }
+// &-placement-left,
+// &-placement-leftTop,
+// &-placement-leftBottom {
+//   padding-right: @tooltip-distance;
+// }
 
-  // Wrapper for the tooltip content
-  &-inner {
-    min-width: 30px;
-    min-height: 32px;
-    padding: 6px 8px;
-    color: @tooltip-color;
-    text-align: left;
-    text-decoration: none;
-    word-wrap: break-word;
-    background-color: @tooltip-bg;
-    border-radius: @tooltip-border-radius;
-    box-shadow: @box-shadow-base;
-  }
+// // Wrapper for the tooltip content
+// &-inner {
+//   min-width: 30px;
+//   min-height: 32px;
+//   padding: 6px 8px;
+//   color: @tooltip-color;
+//   text-align: left;
+//   text-decoration: none;
+//   word-wrap: break-word;
+//   background-color: @tooltip-bg;
+//   border-radius: @tooltip-border-radius;
+//   box-shadow: @box-shadow-base;
+// }
 
-  // Arrows
-  &-arrow {
-    position: absolute;
-    display: block;
-    width: @tooltip-arrow-rotate-width;
-    height: @tooltip-arrow-rotate-width;
-    overflow: hidden;
-    background: transparent;
-    pointer-events: none;
+// // Arrows
+// &-arrow {
+//   position: absolute;
+//   display: block;
+//   width: @tooltip-arrow-rotate-width;
+//   height: @tooltip-arrow-rotate-width;
+//   overflow: hidden;
+//   background: transparent;
+//   pointer-events: none;
 
-    &-content {
-      --antd-arrow-background-color: @tooltip-bg;
+//   &-content {
+//     --antd-arrow-background-color: @tooltip-bg;
 
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      display: block;
-      width: @tooltip-arrow-width;
-      height: @tooltip-arrow-width;
-      margin: auto;
-      background-color: transparent;
-      content: '';
-      pointer-events: auto;
-      .roundedArrow(@tooltip-arrow-width, 5px);
-    }
-  }
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     bottom: 0;
+//     left: 0;
+//     display: block;
+//     width: @tooltip-arrow-width;
+//     height: @tooltip-arrow-width;
+//     margin: auto;
+//     background-color: transparent;
+//     content: '';
+//     pointer-events: auto;
+//     .roundedArrow(@tooltip-arrow-width, 5px);
+//   }
+// }
 
-  &-placement-top &-arrow,
-  &-placement-topLeft &-arrow,
-  &-placement-topRight &-arrow {
-    bottom: @tooltip-distance - @tooltip-arrow-rotate-width + 0.24px;
+// &-placement-top &-arrow,
+// &-placement-topLeft &-arrow,
+// &-placement-topRight &-arrow {
+//   bottom: @tooltip-distance - @tooltip-arrow-rotate-width + 0.24px;
 
-    &-content {
-      box-shadow: @tooltip-arrow-shadow-width @tooltip-arrow-shadow-width 7px fade(@black, 7%);
-      transform: translateY((-@tooltip-arrow-rotate-width / 2)) rotate(45deg);
-    }
-  }
+//   &-content {
+//     box-shadow: @tooltip-arrow-shadow-width @tooltip-arrow-shadow-width 7px fade(@black, 7%);
+//     transform: translateY((-@tooltip-arrow-rotate-width / 2)) rotate(45deg);
+//   }
+// }
 
-  &-placement-top &-arrow {
-    left: 50%;
-    transform: translateX(-50%);
-  }
+// &-placement-top &-arrow {
+//   left: 50%;
+//   transform: translateX(-50%);
+// }
 
-  &-placement-topLeft &-arrow {
-    left: @tooltip-arrow-offset-horizontal;
-  }
+// &-placement-topLeft &-arrow {
+//   left: @tooltip-arrow-offset-horizontal;
+// }
 
-  &-placement-topRight &-arrow {
-    right: @tooltip-arrow-offset-horizontal;
-  }
+// &-placement-topRight &-arrow {
+//   right: @tooltip-arrow-offset-horizontal;
+// }
 
-  &-placement-right &-arrow,
-  &-placement-rightTop &-arrow,
-  &-placement-rightBottom &-arrow {
-    left: @tooltip-distance - @tooltip-arrow-rotate-width + 0.1px;
+// &-placement-right &-arrow,
+// &-placement-rightTop &-arrow,
+// &-placement-rightBottom &-arrow {
+//   left: @tooltip-distance - @tooltip-arrow-rotate-width + 0.1px;
 
-    &-content {
-      box-shadow: -@tooltip-arrow-shadow-width @tooltip-arrow-shadow-width 7px fade(@black, 7%);
-      transform: translateX((@tooltip-arrow-rotate-width / 2)) rotate(135deg);
-    }
-  }
+//   &-content {
+//     box-shadow: -@tooltip-arrow-shadow-width @tooltip-arrow-shadow-width 7px fade(@black, 7%);
+//     transform: translateX((@tooltip-arrow-rotate-width / 2)) rotate(135deg);
+//   }
+// }
 
-  &-placement-right &-arrow {
-    top: 50%;
-    transform: translateY(-50%);
-  }
+// &-placement-right &-arrow {
+//   top: 50%;
+//   transform: translateY(-50%);
+// }
 
-  &-placement-rightTop &-arrow {
-    top: @tooltip-arrow-offset-vertical;
-  }
+// &-placement-rightTop &-arrow {
+//   top: @tooltip-arrow-offset-vertical;
+// }
 
-  &-placement-rightBottom &-arrow {
-    bottom: @tooltip-arrow-offset-vertical;
-  }
+// &-placement-rightBottom &-arrow {
+//   bottom: @tooltip-arrow-offset-vertical;
+// }
 
-  &-placement-left &-arrow,
-  &-placement-leftTop &-arrow,
-  &-placement-leftBottom &-arrow {
-    right: @tooltip-distance - @tooltip-arrow-rotate-width + 0.08px;
+//   &-placement-left &-arrow,
+//   &-placement-leftTop &-arrow,
+//   &-placement-leftBottom &-arrow {
+//     right: @tooltip-distance - @tooltip-arrow-rotate-width + 0.08px;
 
-    &-content {
-      box-shadow: @tooltip-arrow-shadow-width -@tooltip-arrow-shadow-width 7px fade(@black, 7%);
-      transform: translateX((-@tooltip-arrow-rotate-width / 2)) rotate(315deg);
-    }
-  }
+//     &-content {
+//       box-shadow: @tooltip-arrow-shadow-width -@tooltip-arrow-shadow-width 7px fade(@black, 7%);
+//       transform: translateX((-@tooltip-arrow-rotate-width / 2)) rotate(315deg);
+//     }
+//   }
 
-  &-placement-left &-arrow {
-    top: 50%;
-    transform: translateY(-50%);
-  }
+//   &-placement-left &-arrow {
+//     top: 50%;
+//     transform: translateY(-50%);
+//   }
 
-  &-placement-leftTop &-arrow {
-    top: @tooltip-arrow-offset-vertical;
-  }
+//   &-placement-leftTop &-arrow {
+//     top: @tooltip-arrow-offset-vertical;
+//   }
 
-  &-placement-leftBottom &-arrow {
-    bottom: @tooltip-arrow-offset-vertical;
-  }
+//   &-placement-leftBottom &-arrow {
+//     bottom: @tooltip-arrow-offset-vertical;
+//   }
 
-  &-placement-bottom &-arrow,
-  &-placement-bottomLeft &-arrow,
-  &-placement-bottomRight &-arrow {
-    top: @tooltip-distance - @tooltip-arrow-rotate-width + 0.1px;
+//   &-placement-bottom &-arrow,
+//   &-placement-bottomLeft &-arrow,
+//   &-placement-bottomRight &-arrow {
+//     top: @tooltip-distance - @tooltip-arrow-rotate-width + 0.1px;
 
-    &-content {
-      box-shadow: -@tooltip-arrow-shadow-width -@tooltip-arrow-shadow-width 7px fade(@black, 7%);
-      transform: translateY((@tooltip-arrow-rotate-width / 2)) rotate(225deg);
-    }
-  }
+//     &-content {
+//       box-shadow: -@tooltip-arrow-shadow-width -@tooltip-arrow-shadow-width 7px fade(@black, 7%);
+//       transform: translateY((@tooltip-arrow-rotate-width / 2)) rotate(225deg);
+//     }
+//   }
 
-  &-placement-bottom &-arrow {
-    left: 50%;
-    transform: translateX(-50%);
-  }
+//   &-placement-bottom &-arrow {
+//     left: 50%;
+//     transform: translateX(-50%);
+//   }
 
-  &-placement-bottomLeft &-arrow {
-    left: @tooltip-arrow-offset-horizontal;
-  }
+//   &-placement-bottomLeft &-arrow {
+//     left: @tooltip-arrow-offset-horizontal;
+//   }
 
-  &-placement-bottomRight &-arrow {
-    right: @tooltip-arrow-offset-horizontal;
-  }
-}
+//   &-placement-bottomRight &-arrow {
+//     right: @tooltip-arrow-offset-horizontal;
+//   }
+// }
 
-.generator-tooltip-preset-color(@i: length(@preset-colors)) when (@i > 0) {
-  .generator-tooltip-preset-color(@i - 1);
-  @color: extract(@preset-colors, @i);
-  @lightColor: '@{color}-6';
-  .@{tooltip-prefix-cls}-@{color} {
-    .@{tooltip-prefix-cls}-inner {
-      background-color: @@lightColor;
-    }
-    .@{tooltip-prefix-cls}-arrow {
-      &-content::before {
-        background: @@lightColor;
-      }
-    }
-  }
-}
-.generator-tooltip-preset-color();
+// .generator-tooltip-preset-color(@i: length(@preset-colors)) when (@i > 0) {
+//   .generator-tooltip-preset-color(@i - 1);
+//   @color: extract(@preset-colors, @i);
+//   @lightColor: '@{color}-6';
+//   .@{tooltip-prefix-cls}-@{color} {
+//     .@{tooltip-prefix-cls}-inner {
+//       background-color: @@lightColor;
+//     }
+//     .@{tooltip-prefix-cls}-arrow {
+//       &-content::before {
+//         background: @@lightColor;
+//       }
+//     }
+//   }
+// }
+// .generator-tooltip-preset-color();
 
-@import './rtl';
+// @import './rtl';

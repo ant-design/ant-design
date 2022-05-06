@@ -16,15 +16,13 @@ Crowded components split.
 ```jsx
 import { Space, Typography, Divider } from 'antd';
 
-function SpaceSplit() {
-  return (
-    <Space split={<Divider type="vertical" />}>
-      <Typography.Link>Link</Typography.Link>
-      <Typography.Link>Link</Typography.Link>
-      <Typography.Link>Link</Typography.Link>
-    </Space>
-  );
-}
+const App = () => (
+  <Space split={<Divider type="vertical" />}>
+    <Typography.Link>Link</Typography.Link>
+    <Typography.Link>Link</Typography.Link>
+    <Typography.Link>Link</Typography.Link>
+  </Space>
+);
 
-export default () => <SpaceSplit />;
+export default App;
 ```

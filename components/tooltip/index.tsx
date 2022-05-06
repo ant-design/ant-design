@@ -10,6 +10,7 @@ import { ConfigContext } from '../config-provider';
 import { PresetColorType, PresetColorTypes } from '../_util/colors';
 import { LiteralUnion } from '../_util/type';
 import { getTransitionName } from '../_util/motion';
+import useStyle from './style';
 
 export { AdjustOverflow, PlacementsConfig };
 
@@ -230,10 +231,17 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     [openClassName || `${prefixCls}-open`]: true,
   });
 
-  const customOverlayClassName = classNames(overlayClassName, {
-    [`${prefixCls}-rtl`]: direction === 'rtl',
-    [`${prefixCls}-${color}`]: color && PresetColorRegex.test(color),
-  });
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
+  const customOverlayClassName = classNames(
+    overlayClassName,
+    {
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+      [`${prefixCls}-${color}`]: color && PresetColorRegex.test(color),
+    },
+    hashId,
+  );
 
   let formattedOverlayInnerStyle = overlayInnerStyle;
   let arrowContentStyle;
@@ -243,7 +251,7 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     arrowContentStyle = { '--antd-arrow-background-color': color };
   }
 
-  return (
+  return wrapSSR(
     <RcTooltip
       {...otherProps}
       prefixCls={prefixCls}
@@ -263,7 +271,7 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
       }}
     >
       {tempVisible ? cloneElement(child, { className: childCls }) : child}
-    </RcTooltip>
+    </RcTooltip>,
   );
 });
 
