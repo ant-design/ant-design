@@ -1,6 +1,5 @@
-/* eslint-disable import/prefer-default-export */
-
 import React from 'react';
+import { CSSMotionProps } from 'rc-motion';
 import type { NotificationPlacement } from './interface';
 
 export function getPlacementStyle(placement: NotificationPlacement, top: number, bottom: number) {
@@ -60,4 +59,10 @@ export function getPlacementStyle(placement: NotificationPlacement, top: number,
       break;
   }
   return style;
+}
+
+export function getMotion(prefixCls: string, placement: NotificationPlacement): CSSMotionProps {
+  return {
+    motionName: `${prefixCls}-fade`,
+  };
 }

@@ -136,7 +136,7 @@
     "rc-mentions": "~1.7.0",
     "rc-menu": "~9.5.5",
     "rc-motion": "^2.5.1",
-    "rc-notification": "~5.0.0-alpha.2",
+    "rc-notification": "~5.0.0-alpha.4",
     "rc-pagination": "~3.1.9",
     "rc-picker": "~2.6.4",
     "rc-progress": "~3.2.1",

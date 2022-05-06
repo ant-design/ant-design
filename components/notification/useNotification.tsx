@@ -79,9 +79,10 @@ import CheckCircleOutlined from '@ant-design/icons/CheckCircleOutlined';
 import CloseCircleOutlined from '@ant-design/icons/CloseCircleOutlined';
 import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlined';
 import InfoCircleOutlined from '@ant-design/icons/InfoCircleOutlined';
+import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import { ConfigContext } from '../config-provider';
 import type { NotificationInstance, ArgsProps, NotificationPlacement } from './interface';
-import { getPlacementStyle } from './util';
+import { getPlacementStyle, getMotion } from './util';
 
 const typeToIcon = {
   success: CheckCircleOutlined,
@@ -118,10 +119,24 @@ export default function useNotification(): [NotificationInstance, React.ReactEle
     return getPlacementStyle(placement, top, bottom);
   };
 
+  // ============================== Motion ===============================
+  const getNotificationMotion = (placement: NotificationPlacement) =>
+    getMotion(prefixCls, placement);
+
+  // ============================ Close Icon =============================
+  const mergedCloseIcon = (
+    <span className={`${prefixCls}-close-x`}>
+      <CloseOutlined className={`${prefixCls}-close-icon`} />
+    </span>
+  );
+
   // ============================== Origin ===============================
   const [api, holder] = useRcNotification({
     prefixCls,
     style: getStyle,
+    motion: getNotificationMotion,
+    closable: true,
+    closeIcon: mergedCloseIcon,
   });
 
   // ================================ API ================================
