@@ -161,6 +161,8 @@ export default function useNotification(): [NotificationInstance, React.ReactEle
   // ================================ API ================================
   const wrapAPI = React.useMemo<NotificationInstance>(() => {
     // Wrap with notification content
+
+    // >>> Open
     const open = (config: ArgsProps) => {
       if (!holderRef.current) {
         devWarning(
@@ -182,6 +184,7 @@ export default function useNotification(): [NotificationInstance, React.ReactEle
         placement = 'topRight',
         top,
         bottom,
+        btn,
         ...restConfig
       } = config;
 
@@ -210,6 +213,7 @@ export default function useNotification(): [NotificationInstance, React.ReactEle
             {iconNode}
             <div className={`${noticePrefixCls}-message`}>{message}</div>
             <div className={`${noticePrefixCls}-description`}>{description}</div>
+            {btn && <div className={`${noticePrefixCls}-btn`}>{btn}</div>}
           </div>
         ),
         placement,
@@ -217,8 +221,20 @@ export default function useNotification(): [NotificationInstance, React.ReactEle
       });
     };
 
+    // >>> close
+    const close = (key: React.Key) => {
+      holderRef.current?.close(key);
+    };
+
+    // >>> destroy
+    const destroy = () => {
+      holderRef.current?.destroy();
+    };
+
     const clone = {
       open,
+      close,
+      destroy,
     } as NotificationInstance;
 
     const keys = ['success', 'info', 'warning', 'error'] as const;

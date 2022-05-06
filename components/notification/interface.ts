@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 export type NotificationPlacement =
   | 'top'
   | 'topLeft'
@@ -34,4 +36,6 @@ export interface NotificationInstance {
   info(args: ArgsProps): void;
   warning(args: ArgsProps): void;
   open(args: ArgsProps): void;
+  close(key: React.Key): void;
+  destroy(): void;
 }

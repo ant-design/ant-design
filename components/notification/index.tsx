@@ -343,9 +343,132 @@
 
 // export default api as NotificationApi;
 
+import * as React from 'react';
+import { render } from 'rc-util/lib/React/render';
 import useNotification from './useNotification';
+import { ArgsProps, NotificationInstance } from './interface';
 
-export default {
+let holderFragment: DocumentFragment;
+let globalInstance: NotificationInstance;
+
+type Task =
+  | {
+      type: 'open';
+      config: ArgsProps;
+    }
+  | {
+      type: 'close';
+      key: React.Key;
+    }
+  | {
+      type: 'destroy';
+    };
+
+let taskQueue: Task[] = [];
+
+const GlobalHolder = React.forwardRef((_, ref) => {
+  const [api, holder] = useNotification();
+
+  React.useImperativeHandle(ref, () => api);
+
+  return holder;
+});
+
+function flushNotice() {
+  if (!globalInstance) {
+    return;
+  }
+
+  taskQueue.forEach(task => {
+    switch (task.type) {
+      case 'open':
+        globalInstance.open(task.config);
+        break;
+
+      case 'close':
+        globalInstance.close(task.key);
+        break;
+
+      case 'destroy':
+        globalInstance.destroy();
+        break;
+
+      default:
+      // Do nothing
+    }
+  });
+  taskQueue = [];
+}
+
+function setGlobalNotificationRef(instance: NotificationInstance) {
+  globalInstance = instance;
+  flushNotice();
+}
+
+function initGlobalNotification() {
+  if (!holderFragment) {
+    holderFragment = document.createDocumentFragment();
+    render(<GlobalHolder ref={setGlobalNotificationRef} />, holderFragment);
+  }
+}
+
+// ==============================================================================
+// ==                                  Export                                  ==
+// ==============================================================================
+const methods = ['success', 'info', 'warning', 'error'] as const;
+type MethodType = typeof methods[number];
+
+function open(config: ArgsProps) {
+  initGlobalNotification();
+
+  taskQueue.push({
+    type: 'open',
+    config,
+  });
+  flushNotice();
+}
+
+function close(key: React.Key) {
+  initGlobalNotification();
+
+  taskQueue.push({
+    type: 'close',
+    key,
+  });
+  flushNotice();
+}
+
+function destroy() {
+  initGlobalNotification();
+
+  taskQueue.push({
+    type: 'destroy',
+  });
+  flushNotice();
+}
+
+const baseStaticMethods: {
+  open: (config: ArgsProps) => void;
+  close: (key: React.Key) => void;
+  destroy: () => void;
+  config: any;
+  useNotification: typeof useNotification;
+} = {
+  open,
+  close,
+  destroy,
   config() {},
   useNotification,
 };
+
+const staticMethods: Record<MethodType, (config: ArgsProps) => void> = baseStaticMethods as any;
+
+methods.forEach(type => {
+  staticMethods[type] = config =>
+    open({
+      ...config,
+      type,
+    });
+});
+
+export default staticMethods;
