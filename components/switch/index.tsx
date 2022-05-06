@@ -6,6 +6,7 @@ import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import Wave from '../_util/wave';
 import { ConfigContext } from '../config-provider';
 import SizeContext from '../config-provider/SizeContext';
+import DisabledContext from '../config-provider/DisabledContext';
 import devWarning from '../_util/devWarning';
 import useStyle from './style';
 
@@ -42,9 +43,9 @@ const Switch = React.forwardRef<unknown, SwitchProps>(
     {
       prefixCls: customizePrefixCls,
       size: customizeSize,
+      disabled: customDisabled,
       loading,
       className = '',
-      disabled,
       ...props
     },
     ref,
@@ -57,6 +58,11 @@ const Switch = React.forwardRef<unknown, SwitchProps>(
 
     const { getPrefixCls, direction } = React.useContext(ConfigContext);
     const size = React.useContext(SizeContext);
+
+    // ===================== Disabled =====================
+    const disabled = React.useContext(DisabledContext);
+    const mergedDisabled = customDisabled || disabled || loading;
+
     const prefixCls = getPrefixCls('switch', customizePrefixCls);
     const loadingIcon = (
       <div className={`${prefixCls}-handle`}>
@@ -83,7 +89,7 @@ const Switch = React.forwardRef<unknown, SwitchProps>(
           {...props}
           prefixCls={prefixCls}
           className={classes}
-          disabled={disabled || loading}
+          disabled={mergedDisabled}
           ref={ref}
           loadingIcon={loadingIcon}
         />
