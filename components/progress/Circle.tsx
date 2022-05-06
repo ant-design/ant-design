@@ -32,7 +32,7 @@ const Circle: React.FC<CircleProps> = props => {
     trailColor = null as any,
     strokeLinecap = 'round',
     gapPosition,
-    gapDegree = undefined,
+    gapDegree,
     type,
     children,
     success,
