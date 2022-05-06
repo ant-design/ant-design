@@ -92,6 +92,7 @@ const typeToIcon = {
 };
 
 const DEFAULT_OFFSET = 24;
+const DEFAULT_DURATION = 4.5;
 
 export default function useNotification(): [NotificationInstance, React.ReactElement] {
   const { getPrefixCls } = React.useContext(ConfigContext);
@@ -137,6 +138,7 @@ export default function useNotification(): [NotificationInstance, React.ReactEle
     motion: getNotificationMotion,
     closable: true,
     closeIcon: mergedCloseIcon,
+    duration: DEFAULT_DURATION,
   });
 
   // ================================ API ================================

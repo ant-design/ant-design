@@ -33,7 +33,6 @@ const Demo = () => {
       message: `Notification ${placement}`,
       description: <Context.Consumer>{({ name }) => `Hello, ${name}!`}</Context.Consumer>,
       placement,
-      duration: 0,
     });
   };
 

@@ -3,21 +3,18 @@ import React from 'react';
 import { mount } from 'enzyme';
 import notification from '..';
 import ConfigProvider from '../../config-provider';
+import { render, fireEvent } from '../../../tests/utils';
 
 describe('notification.hooks', () => {
-  beforeAll(() => {
+  beforeEach(() => {
     jest.useFakeTimers();
   });
 
-  afterAll(() => {
+  afterEach(() => {
     jest.useRealTimers();
   });
 
-  afterEach(() => {
-    notification.destroy();
-  });
-
-  it('should work', () => {
+  it.only('should work', () => {
     const Context = React.createContext('light');
 
     const Demo = () => {
@@ -45,10 +42,13 @@ describe('notification.hooks', () => {
       );
     };
 
-    const wrapper = mount(<Demo />);
-    wrapper.find('button').simulate('click');
-    expect(document.querySelectorAll('.my-test-notification-notice').length).toBe(1);
-    expect(document.querySelector('.hook-test-result').innerHTML).toEqual('bamboo');
+    const { container } = render(<Demo />);
+
+    fireEvent.click(container.querySelector('button'));
+    console.log(document.body.innerHTML);
+
+    expect(document.querySelectorAll('.my-test-notification-notice')).toHaveLength(1);
+    expect(document.querySelector('.hook-test-result').textContent).toEqual('bamboo');
   });
 
   it('should work with success', () => {
