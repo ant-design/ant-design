@@ -12,7 +12,7 @@
   padding: @segmented-container-padding;
   color: @segmented-label-color;
   background-color: @segmented-bg;
-  border-radius: 2px;
+  border-radius: @border-radius-base;
   transition: all 0.3s @ease-in-out;
 
   &-group {
@@ -67,7 +67,7 @@
 
     // syntactic sugar to add `icon` for Segmented Item
     &-icon + * {
-      margin-left: 6px;
+      margin-left: @margin-sm / 2;
     }
 
     &-input {
