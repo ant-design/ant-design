@@ -3,7 +3,6 @@ import ReactDOMServer from 'react-dom/server';
 import { mount } from 'enzyme';
 import { render } from '../../../tests/utils';
 import { Col, Row } from '..';
-import '@testing-library/jest-dom';
 // eslint-disable-next-line no-unused-vars
 import * as styleChecker from '../../_util/styleChecker';
 
