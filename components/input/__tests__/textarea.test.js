@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { mount } from 'enzyme';
 import RcTextArea from 'rc-textarea';
 import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
-import { sleep, render } from '../../../tests/utils';
+import { sleep, fireEvent, render } from '../../../tests/utils';
 
 const { TextArea } = Input;
 
@@ -406,22 +407,33 @@ describe('TextArea allowClear', () => {
 
   describe('click focus', () => {
     it('click outside should also get focus', () => {
-      const wrapper = mount(<Input suffix={<span className="test-suffix" />} />);
-      const onFocus = jest.spyOn(wrapper.find('input').instance(), 'focus');
-      wrapper.find('.test-suffix').simulate('mouseUp');
+      const { container } = render(<Input suffix={<span className="test-suffix" />} />);
+      const onFocus = jest.spyOn(container.querySelector('input'), 'focus');
+      fireEvent.mouseUp(container.querySelector('.test-suffix'));
       expect(onFocus).toHaveBeenCalled();
     });
 
     it('not get focus if out of component', () => {
-      const wrapper = mount(<Input suffix={<span className="test-suffix" />} />);
-      const onFocus = jest.spyOn(wrapper.find('input').instance(), 'focus');
-      const ele = document.createElement('span');
-      document.body.appendChild(ele);
-      wrapper.find('.test-suffix').simulate('mouseUp', {
-        target: ele,
-      });
+      const holder = document.createElement('span');
+      document.body.appendChild(holder);
+
+      const Popup = () => createPortal(<span className="popup" />, holder);
+
+      const { container } = render(
+        <Input
+          suffix={
+            <span className="test-suffix">
+              <Popup />
+            </span>
+          }
+        />,
+      );
+
+      const onFocus = jest.spyOn(container.querySelector('input'), 'focus');
+      fireEvent.mouseUp(document.querySelector('.popup'));
+
       expect(onFocus).not.toHaveBeenCalled();
-      document.body.removeChild(ele);
+      document.body.removeChild(holder);
     });
   });
 
