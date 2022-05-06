@@ -348,6 +348,14 @@ import { render } from 'rc-util/lib/React/render';
 import useNotification from './useNotification';
 import { ArgsProps, NotificationInstance } from './interface';
 
+const holderMap = new Map<
+  HTMLElement,
+  {
+    fragment: DocumentFragment;
+    instance: NotificationInstance;
+  }
+>();
+
 let holderFragment: DocumentFragment;
 let globalInstance: NotificationInstance;
 
