@@ -122,7 +122,7 @@
     "@ctrl/tinycolor": "^3.4.0",
     "classnames": "^2.2.6",
     "copy-to-clipboard": "^3.2.0",
-    "dayjs": "^1.10.7",
+    "dayjs": "^1.11.1",
     "lodash": "^4.17.21",
     "memoize-one": "^6.0.0",
     "moment": "^2.29.2",
