@@ -347,17 +347,16 @@ import * as React from 'react';
 import { render } from 'rc-util/lib/React/render';
 import useNotification from './useNotification';
 import { ArgsProps, NotificationInstance } from './interface';
+import { globalConfig } from '../config-provider';
 
-const holderMap = new Map<
-  HTMLElement,
-  {
-    fragment: DocumentFragment;
-    instance: NotificationInstance;
-  }
->();
+interface GlobalNotification {
+  prefixCls: string;
+  container: HTMLElement;
+  fragment: DocumentFragment;
+  instance?: NotificationInstance | null;
+}
 
-let holderFragment: DocumentFragment;
-let globalInstance: NotificationInstance;
+const notificationList: GlobalNotification[] = [];
 
 type Task =
   | {
@@ -374,7 +373,7 @@ type Task =
 
 let taskQueue: Task[] = [];
 
-const GlobalHolder = React.forwardRef((_, ref) => {
+const GlobalHolder = React.forwardRef<NotificationInstance>((_, ref) => {
   const [api, holder] = useNotification();
 
   React.useImperativeHandle(ref, () => api);
@@ -382,42 +381,91 @@ const GlobalHolder = React.forwardRef((_, ref) => {
   return holder;
 });
 
+/** Get unique notification mark of `prefixCls` and `container` */
+function getNotificationMark(config: ArgsProps): [string, HTMLElement] {
+  const { prefixCls, getContainer } = config || {};
+  const mergedPrefixCls = globalConfig().getPrefixCls('notification', prefixCls);
+  const mergedContainer = getContainer?.() || document.body;
+
+  return [mergedPrefixCls, mergedContainer];
+}
+
+function findNotification(config: ArgsProps) {
+  const [prefixCls, container] = getNotificationMark(config);
+
+  return notificationList.find(
+    instance => instance.prefixCls === prefixCls && instance.container === container,
+  );
+}
+
 function flushNotice() {
-  if (!globalInstance) {
-    return;
+  // >>> Check for all instances exist. Or we will create and return.
+  for (let i = 0; i < taskQueue.length; i += 1) {
+    const task = taskQueue[i];
+    if (task.type === 'open') {
+      const matchInstance = findNotification(task.config);
+
+      // Return if not ready
+      if (matchInstance && !matchInstance.instance) {
+        return;
+      }
+
+      // Create if not exist
+      if (!matchInstance) {
+        const holderFragment = document.createDocumentFragment();
+
+        const [prefixCls, container] = getNotificationMark(task.config);
+        const notification: GlobalNotification = {
+          prefixCls,
+          container,
+          fragment: holderFragment,
+        };
+
+        render(
+          <GlobalHolder
+            ref={instance => {
+              notification.instance = instance;
+              flushNotice();
+            }}
+          />,
+          holderFragment,
+        );
+
+        notificationList.push(notification);
+
+        return;
+      }
+    }
   }
 
+  // >>> Execute task
   taskQueue.forEach(task => {
     switch (task.type) {
-      case 'open':
-        globalInstance.open(task.config);
+      case 'open': {
+        const globalNotification = findNotification(task.config);
+        globalNotification!.instance!.open(task.config);
         break;
+      }
 
       case 'close':
-        globalInstance.close(task.key);
+        notificationList.forEach(globalNotification => {
+          globalNotification.instance!.close(task.key);
+        });
         break;
 
       case 'destroy':
-        globalInstance.destroy();
+        notificationList.forEach(globalNotification => {
+          globalNotification.instance!.destroy();
+        });
         break;
 
       default:
       // Do nothing
     }
   });
+
+  // Clean up
   taskQueue = [];
-}
-
-function setGlobalNotificationRef(instance: NotificationInstance) {
-  globalInstance = instance;
-  flushNotice();
-}
-
-function initGlobalNotification() {
-  if (!holderFragment) {
-    holderFragment = document.createDocumentFragment();
-    render(<GlobalHolder ref={setGlobalNotificationRef} />, holderFragment);
-  }
 }
 
 // ==============================================================================
@@ -427,8 +475,6 @@ const methods = ['success', 'info', 'warning', 'error'] as const;
 type MethodType = typeof methods[number];
 
 function open(config: ArgsProps) {
-  initGlobalNotification();
-
   taskQueue.push({
     type: 'open',
     config,
@@ -437,8 +483,6 @@ function open(config: ArgsProps) {
 }
 
 function close(key: React.Key) {
-  initGlobalNotification();
-
   taskQueue.push({
     type: 'close',
     key,
@@ -447,8 +491,6 @@ function close(key: React.Key) {
 }
 
 function destroy() {
-  initGlobalNotification();
-
   taskQueue.push({
     type: 'destroy',
   });
