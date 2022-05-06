@@ -23,7 +23,7 @@ const buttonWidth = 70;
 export default () => (
   <div className="demo">
     <div style={{ marginLeft: buttonWidth, whiteSpace: 'nowrap' }}>
-      <Tooltip placement="topLeft" title={text}>
+      <Tooltip placement="topLeft" title={text} visible>
         <Button>TL</Button>
       </Tooltip>
       <Tooltip placement="top" title={text}>
