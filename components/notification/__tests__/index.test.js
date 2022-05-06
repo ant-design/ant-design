@@ -1,9 +1,8 @@
 import React from 'react';
-import { act } from 'react-dom/test-utils';
 import { UserOutlined } from '@ant-design/icons';
 import notification, { getInstance } from '..';
 import ConfigProvider from '../../config-provider';
-import { sleep } from '../../../tests/utils';
+import { sleep, act } from '../../../tests/utils';
 
 globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 
@@ -32,8 +31,6 @@ describe('notification', () => {
         });
       });
     }
-
-    console.log(document.body.innerHTML);
 
     const count = document.querySelectorAll('.additional-holder').length;
     expect(count).toEqual(1);
