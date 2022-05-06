@@ -68,7 +68,7 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
       testMethod(`cssinjs should not warn in ${file}`, () => {
         const errSpy = jest.spyOn(console, 'error');
 
-        MockDate.set(moment('2016-11-22').valueOf());
+        MockDate.set(dayjs('2016-11-22').valueOf());
         let Demo = require(`../.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
         // Inject Trigger status unless skipped
         Demo = typeof Demo === 'function' ? <Demo /> : Demo;
