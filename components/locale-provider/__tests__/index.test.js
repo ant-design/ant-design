@@ -325,7 +325,7 @@ describe('Locale Provider', () => {
     const Test = ({ locale }) => (
       <LocaleProvider locale={locale}>
         <div>
-          <DatePicker defaultValue={moment()} open />
+          <DatePicker defaultValue={dayjs()} open />
         </div>
       </LocaleProvider>
     );
