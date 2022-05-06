@@ -2,7 +2,7 @@ import React from 'react';
 import { UserOutlined } from '@ant-design/icons';
 import notification, { actWrapper } from '..';
 import ConfigProvider from '../../config-provider';
-import { sleep, act } from '../../../tests/utils';
+import { sleep, act, fireEvent } from '../../../tests/utils';
 
 globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 
@@ -20,9 +20,7 @@ describe('notification', () => {
     jest.runAllTimers();
     jest.useRealTimers();
 
-    act(() => {
-      notification.destroy();
-    });
+    notification.destroy();
   });
 
   it('not duplicate create holder', () => {
@@ -34,67 +32,57 @@ describe('notification', () => {
       });
     }
 
-    const count = document.querySelectorAll('.additional-holder').length;
-    expect(count).toEqual(1);
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    expect(document.querySelectorAll('.additional-holder')).toHaveLength(1);
   });
 
-  // it('should be able to hide manually', async () => {
-  //   act(() => {
-  //     notification.open({
-  //       message: 'Notification Title 1',
-  //       duration: 0,
-  //       key: '1',
-  //     });
-  //     jest.runAllTimers();
-  //   });
+  it('should be able to hide manually', async () => {
+    notification.open({
+      message: 'Notification Title 1',
+      duration: 0,
+      key: '1',
+    });
 
-  //   act(() => {
-  //     jest.runAllTimers();
-  //   });
+    act(() => {
+      jest.runAllTimers();
+    });
 
-  //   act(() => {
-  //     notification.open({
-  //       message: 'Notification Title 2',
-  //       duration: 0,
-  //       key: '2',
-  //     });
-  //     jest.runAllTimers();
-  //   });
+    notification.open({
+      message: 'Notification Title 2',
+      duration: 0,
+      key: '2',
+    });
 
-  //   act(() => {
-  //     jest.runAllTimers();
-  //   });
+    act(() => {
+      jest.runAllTimers();
+    });
+    expect(document.querySelectorAll('.ant-notification-notice')).toHaveLength(2);
 
-  //   await act(async () => {
-  //     await Promise.resolve();
-  //   });
-  //   expect(document.querySelectorAll('.ant-notification-notice').length).toBe(2);
+    // Close 1
+    notification.close('1');
+    act(() => {
+      jest.runAllTimers();
+    });
 
-  //   act(() => {
-  //     notification.close('1');
-  //     jest.runAllTimers();
-  //   });
+    // Leave motion end
+    fireEvent.animationEnd(document.querySelector('.ant-notification-notice'));
 
-  //   await act(async () => {
-  //     await Promise.resolve();
-  //   });
-  //   expect((await getInstance('ant-notification-topRight')).component.state.notices).toHaveLength(
-  //     1,
-  //   );
+    expect(document.querySelectorAll('.ant-notification-notice')).toHaveLength(1);
 
-  //   act(() => {
-  //     notification.close('2');
-  //     jest.runAllTimers();
-  //   });
+    // Close 2
+    notification.close('2');
+    act(() => {
+      jest.runAllTimers();
+    });
 
-  //   await act(async () => {
-  //     await Promise.resolve();
-  //   });
+    // Leave motion end
+    fireEvent.animationEnd(document.querySelector('.ant-notification-notice'));
 
-  //   expect((await getInstance('ant-notification-topRight')).component.state.notices).toHaveLength(
-  //     0,
-  //   );
-  // });
+    expect(document.querySelectorAll('.ant-notification-notice')).toHaveLength(0);
+  });
 
   // it('should be able to destroy globally', async () => {
   //   act(() => {
