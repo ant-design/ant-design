@@ -25,7 +25,7 @@ class ComponentDoc extends React.Component {
     expandAll: false,
     visibleAll: process.env.NODE_ENV !== 'production',
     showRiddleButton: false,
-    react18Demo: true,
+    react17Demo: false,
   };
 
   componentDidMount() {
@@ -49,12 +49,12 @@ class ComponentDoc extends React.Component {
   shouldComponentUpdate(nextProps, nextState) {
     const { location, theme } = this.props;
     const { location: nextLocation, theme: nextTheme } = nextProps;
-    const { expandAll, visibleAll, showRiddleButton, react18Demo } = this.state;
+    const { expandAll, visibleAll, showRiddleButton, react17Demo } = this.state;
     const {
       expandAll: nextExpandAll,
       visibleAll: nextVisibleAll,
       showRiddleButton: nextShowRiddleButton,
-      react18Demo: nextReact18Demo,
+      react17Demo: nextReact17Demo,
     } = nextState;
 
     if (
@@ -64,7 +64,7 @@ class ComponentDoc extends React.Component {
       theme === nextTheme &&
       visibleAll === nextVisibleAll &&
       showRiddleButton === nextShowRiddleButton &&
-      react18Demo === nextReact18Demo
+      react17Demo === nextReact17Demo
     ) {
       return false;
     }
@@ -90,9 +90,9 @@ class ComponentDoc extends React.Component {
   };
 
   handleDemoVersionToggle = () => {
-    const { react18Demo } = this.state;
+    const { react17Demo } = this.state;
     this.setState({
-      react18Demo: !react18Demo,
+      react17Demo: !react17Demo,
     });
   };
 
@@ -108,7 +108,7 @@ class ComponentDoc extends React.Component {
     } = this.props;
     const { content, meta } = doc;
     const demoValues = Object.keys(demos).map(key => demos[key]);
-    const { expandAll, visibleAll, showRiddleButton, react18Demo } = this.state;
+    const { expandAll, visibleAll, showRiddleButton, react17Demo } = this.state;
     const isSingleCol = meta.cols === 1;
     const leftChildren = [];
     const rightChildren = [];
@@ -131,7 +131,7 @@ class ComponentDoc extends React.Component {
             location={location}
             theme={theme}
             setIframeTheme={setIframeTheme}
-            react18={react18Demo}
+            react18={react17Demo}
           />
         );
         if (index % 2 === 0 || isSingleCol) {
@@ -224,12 +224,12 @@ class ComponentDoc extends React.Component {
                 title={
                   <FormattedMessage
                     id={`app.component.examples.${
-                      react18Demo ? 'openDemoNotReact18' : 'openDemoWithReact18'
+                      react17Demo ? 'openDemoWithReact18' : 'openDemoNotReact18'
                     }`}
                   />
                 }
               >
-                {react18Demo ? (
+                {react17Demo ? (
                   <ExperimentFilled
                     className={expandTriggerClass}
                     onClick={this.handleDemoVersionToggle}

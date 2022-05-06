@@ -407,16 +407,22 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
       );
     };
 
+    const getResetDisabled = () => {
+      if (filterResetToDefaultFilteredValue) {
+        return isEqual(
+          (defaultFilteredValue || []).map(key => String(key)),
+          selectedKeys,
+        );
+      }
+
+      return selectedKeys.length === 0;
+    };
+
     dropdownContent = (
       <>
         {getFilterComponent()}
         <div className={`${prefixCls}-dropdown-btns`}>
-          <Button
-            type="link"
-            size="small"
-            disabled={selectedKeys.length === 0}
-            onClick={() => onReset()}
-          >
+          <Button type="link" size="small" disabled={getResetDisabled()} onClick={() => onReset()}>
             {locale.filterReset}
           </Button>
           <Button type="primary" size="small" onClick={onConfirm}>
