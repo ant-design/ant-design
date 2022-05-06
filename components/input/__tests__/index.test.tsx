@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { mount } from 'enzyme';
+import { createPortal } from 'react-dom';
 import { render, fireEvent } from '../../../tests/utils';
 // eslint-disable-next-line import/no-unresolved
 import Form from '../../form';
@@ -72,6 +73,40 @@ describe('Input', () => {
         'Warning: [antd: Input] When Input is focused, dynamic add or remove prefix / suffix will make it lose focus caused by dom structure change. Read more: https://ant.design/components/input/#FAQ',
       );
       wrapper.unmount();
+    });
+  });
+
+  describe('click focus', () => {
+    it('click outside should also get focus', () => {
+      const { container } = render(<Input suffix={<span className="test-suffix" />} />);
+      const onFocus = jest.spyOn(container.querySelector('input')!, 'focus');
+      fireEvent.mouseDown(container.querySelector('.test-suffix')!);
+      fireEvent.mouseUp(container.querySelector('.test-suffix')!);
+      expect(onFocus).toHaveBeenCalled();
+    });
+
+    it('not get focus if out of component', () => {
+      const holder = document.createElement('span');
+      document.body.appendChild(holder);
+
+      const Popup = () => createPortal(<span className="popup" />, holder);
+
+      const { container } = render(
+        <Input
+          suffix={
+            <span className="test-suffix">
+              <Popup />
+            </span>
+          }
+        />,
+      );
+
+      const onFocus = jest.spyOn(container.querySelector('input')!, 'focus');
+      fireEvent.mouseDown(document.querySelector('.popup')!);
+      fireEvent.mouseUp(document.querySelector('.popup')!);
+
+      expect(onFocus).not.toHaveBeenCalled();
+      document.body.removeChild(holder);
     });
   });
 
