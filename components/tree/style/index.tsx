@@ -253,15 +253,14 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         top: 'initial',
         marginInlineEnd: treeCheckBoxMarginHorizontal,
         marginBlockStart: treeCheckBoxMarginVertical,
-
-        '+ span': {
-          padding: `0 ${token.paddingXS / 2}px`,
-          color: 'inherit',
-        },
       },
 
       // >>> Title
-      [`& ${treeCls}-node-content-wrapper`]: {
+      // add `${treeCls}-checkbox + span` to cover checkbox `${checkboxCls} + span`
+      [`
+        & ${treeCls}-node-content-wrapper, 
+        ${treeCls}-checkbox + span
+      `]: {
         display: 'flex',
         flexWrap: 'nowrap',
         position: 'relative',
