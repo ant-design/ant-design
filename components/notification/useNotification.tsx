@@ -74,6 +74,7 @@
 
 import * as React from 'react';
 import { useNotification as useRcNotification } from 'rc-notification/lib';
+import type { NotificationAPI } from 'rc-notification/lib';
 import classNames from 'classnames';
 import CheckCircleOutlined from '@ant-design/icons/CheckCircleOutlined';
 import CloseCircleOutlined from '@ant-design/icons/CloseCircleOutlined';
@@ -83,6 +84,7 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import { ConfigContext } from '../config-provider';
 import type { NotificationInstance, ArgsProps, NotificationPlacement } from './interface';
 import { getPlacementStyle, getMotion } from './util';
+import devWarning from '../_util/devWarning';
 
 const typeToIcon = {
   success: CheckCircleOutlined,
@@ -94,29 +96,25 @@ const typeToIcon = {
 const DEFAULT_OFFSET = 24;
 const DEFAULT_DURATION = 4.5;
 
-export default function useNotification(): [NotificationInstance, React.ReactElement] {
+// ==============================================================================
+// ==                                  Holder                                  ==
+// ==============================================================================
+interface HolderProps {
+  offsets: Partial<Record<NotificationPlacement, { top?: number; bottom?: number }>>;
+}
+interface HolderRef extends NotificationAPI {
+  prefixCls: string;
+}
+
+const Holder = React.forwardRef<HolderRef, HolderProps>(({ offsets }, ref) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('notification');
-  const noticePrefixCls = `${prefixCls}-notice`;
 
   // =============================== Style ===============================
-  const placementOffsetsRef = React.useRef<
-    Partial<Record<NotificationPlacement, { top?: number; bottom?: number }>>
-  >({});
-
-  const updatePosition = (placement: NotificationPlacement, top?: number, bottom?: number) => {
-    const placements = placementOffsetsRef.current;
-
-    placements[placement] = placements[placement] || {};
-    const info = placements[placement]!;
-    info.top = info.top ?? top;
-    info.bottom = info.bottom ?? bottom;
-  };
-
   const getStyle = (placement: NotificationPlacement) => {
-    const top = placementOffsetsRef.current[placement]?.top ?? DEFAULT_OFFSET;
-    const bottom = placementOffsetsRef.current[placement]?.bottom ?? DEFAULT_OFFSET;
+    const top = offsets[placement]?.top ?? DEFAULT_OFFSET;
+    const bottom = offsets[placement]?.bottom ?? DEFAULT_OFFSET;
     return getPlacementStyle(placement, top, bottom);
   };
 
@@ -141,12 +139,41 @@ export default function useNotification(): [NotificationInstance, React.ReactEle
     duration: DEFAULT_DURATION,
   });
 
+  // ================================ Ref ================================
+  React.useImperativeHandle(ref, () => ({
+    ...api,
+    prefixCls,
+  }));
+
+  return holder;
+});
+
+// ==============================================================================
+// ==                                   Hook                                   ==
+// ==============================================================================
+export default function useNotification(): [NotificationInstance, React.ReactElement] {
+  const [placementOffsets, setPlacementOffsets] = React.useState<
+    Partial<Record<NotificationPlacement, { top?: number; bottom?: number }>>
+  >({});
+
+  const holderRef = React.useRef<HolderRef>(null);
+
   // ================================ API ================================
   const wrapAPI = React.useMemo<NotificationInstance>(() => {
-    const { open: originOpen } = api;
-
     // Wrap with notification content
     const open = (config: ArgsProps) => {
+      if (!holderRef.current) {
+        devWarning(
+          false,
+          'Notification',
+          'You are calling notice in render which will break in React 18 concurrent mode. Please trigger in effect instead.',
+        );
+        return;
+      }
+
+      const { open: originOpen, prefixCls } = holderRef.current;
+      const noticePrefixCls = `${prefixCls}-notice`;
+
       const {
         message,
         description,
@@ -158,7 +185,10 @@ export default function useNotification(): [NotificationInstance, React.ReactEle
         ...restConfig
       } = config;
 
-      updatePosition(placement, top, bottom);
+      setPlacementOffsets(prev => ({
+        [placement]: { top, bottom },
+        ...prev,
+      }));
 
       let iconNode: React.ReactNode = null;
       if (icon) {
@@ -201,8 +231,8 @@ export default function useNotification(): [NotificationInstance, React.ReactEle
     });
 
     return clone;
-  }, [api]);
+  }, []);
 
   // ============================== Return ===============================
-  return [wrapAPI, holder];
+  return [wrapAPI, <Holder key="holder" ref={holderRef} offsets={placementOffsets} />];
 }
