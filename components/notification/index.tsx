@@ -349,6 +349,15 @@ import useNotification, { useInternalNotification } from './useNotification';
 import { ArgsProps, NotificationInstance } from './interface';
 import { globalConfig } from '../config-provider';
 
+let act = (callback: VoidFunction) => callback();
+
+/** @private Only Work for react test env */
+export function actWrapper(wrapper: VoidFunction) {
+  if (process.env.NODE_ENV === 'test') {
+    act = wrapper;
+  }
+}
+
 interface GlobalNotification {
   prefixCls: string;
   container: HTMLElement;
@@ -432,17 +441,19 @@ function flushNotice() {
         notificationList.push(notification);
 
         // Delay render to avoid sync issue
-        render(
-          <GlobalHolder
-            ref={instance => {
-              notification.instance = instance;
-              flushNotice();
-            }}
-            prefixCls={prefixCls}
-            container={container}
-          />,
-          holderFragment,
-        );
+        act(() => {
+          render(
+            <GlobalHolder
+              ref={instance => {
+                notification.instance = instance;
+                flushNotice();
+              }}
+              prefixCls={prefixCls}
+              container={container}
+            />,
+            holderFragment,
+          );
+        });
 
         return;
       }
@@ -453,20 +464,26 @@ function flushNotice() {
   taskQueue.forEach(task => {
     switch (task.type) {
       case 'open': {
-        const globalNotification = findNotification(task.config);
-        globalNotification!.instance!.open(task.config);
+        act(() => {
+          const globalNotification = findNotification(task.config);
+          globalNotification!.instance!.open(task.config);
+        });
         break;
       }
 
       case 'close':
-        notificationList.forEach(globalNotification => {
-          globalNotification.instance!.close(task.key);
+        act(() => {
+          notificationList.forEach(globalNotification => {
+            globalNotification.instance!.close(task.key);
+          });
         });
         break;
 
       case 'destroy':
-        notificationList.forEach(globalNotification => {
-          globalNotification.instance!.destroy();
+        act(() => {
+          notificationList.forEach(globalNotification => {
+            globalNotification.instance!.destroy();
+          });
         });
         break;
 

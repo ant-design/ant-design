@@ -1,12 +1,16 @@
 import React from 'react';
 import { UserOutlined } from '@ant-design/icons';
-import notification, { getInstance } from '..';
+import notification, { actWrapper } from '..';
 import ConfigProvider from '../../config-provider';
 import { sleep, act } from '../../../tests/utils';
 
 globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 
 describe('notification', () => {
+  beforeAll(() => {
+    actWrapper(act);
+  });
+
   beforeEach(() => {
     jest.useFakeTimers();
     jest.clearAllTimers();
@@ -23,12 +27,10 @@ describe('notification', () => {
 
   it('not duplicate create holder', () => {
     for (let i = 0; i < 5; i += 1) {
-      act(() => {
-        notification.open({
-          message: 'Notification Title',
-          duration: 0,
-          prefixCls: 'additional-holder',
-        });
+      notification.open({
+        message: 'Notification Title',
+        duration: 0,
+        prefixCls: 'additional-holder',
       });
     }
 
