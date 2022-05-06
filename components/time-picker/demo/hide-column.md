@@ -15,9 +15,9 @@ While part of `format` is omitted, the corresponding column in panel will disapp
 
 ```jsx
 import { TimePicker } from 'antd';
-import moment from 'moment';
+import dayjs from 'dayjs';
 
 const format = 'HH:mm';
 
-export default () => <TimePicker defaultValue={moment('12:08', format)} format={format} />;
+export default () => <TimePicker defaultValue={dayjs('12:08', format)} format={format} />;
 ```
