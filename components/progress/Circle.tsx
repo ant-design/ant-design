@@ -29,7 +29,7 @@ const Circle: React.FC<CircleProps> = props => {
     prefixCls,
     width,
     strokeWidth,
-    trailColor = undefined,
+    trailColor = null as any,
     strokeLinecap = 'round',
     gapPosition,
     gapDegree = undefined,

@@ -16,7 +16,7 @@ const Steps: React.FC<StepsProps> = props => {
     percent = 0,
     strokeWidth = 8,
     strokeColor,
-    trailColor = undefined,
+    trailColor = null as any,
     prefixCls,
     children,
   } = props;
