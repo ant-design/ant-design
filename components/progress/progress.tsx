@@ -53,7 +53,8 @@ export interface ProgressProps {
 }
 
 const Progress: React.FC<ProgressProps> = (props: ProgressProps) => {
-  const { percent = 0 } = props;
+  const { percent = 0, size = 'default', showInfo = true, type = 'line' } = props;
+
   function getPercentNumber() {
     const successPercent = getSuccessPercent(props);
     return parseInt(
@@ -71,7 +72,7 @@ const Progress: React.FC<ProgressProps> = (props: ProgressProps) => {
   }
 
   function renderProcessInfo(prefixCls: string, progressStatus: typeof ProgressStatuses[number]) {
-    const { showInfo = true, format, type = 'line' as ProgressProps['type'] } = props;
+    const { format } = props;
     const successPercent = getSuccessPercent(props);
     if (!showInfo) {
       return null;
@@ -95,16 +96,7 @@ const Progress: React.FC<ProgressProps> = (props: ProgressProps) => {
 
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
-  const {
-    prefixCls: customizePrefixCls,
-    className,
-    size = 'default',
-    type = 'line' as ProgressProps['type'],
-    steps,
-    showInfo = true,
-    strokeColor,
-    ...restProps
-  } = props;
+  const { prefixCls: customizePrefixCls, className, steps, strokeColor, ...restProps } = props;
   const prefixCls = getPrefixCls('progress', customizePrefixCls);
   const progressStatus = getProgressStatus();
   const progressInfo = renderProcessInfo(prefixCls, progressStatus);
@@ -166,6 +158,7 @@ const Progress: React.FC<ProgressProps> = (props: ProgressProps) => {
         'percent',
         'success',
         'successPercent',
+        'type',
       ])}
       className={classString}
     >

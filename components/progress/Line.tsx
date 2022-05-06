@@ -70,9 +70,9 @@ const Line: React.FC<LineProps> = props => {
     strokeWidth,
     size,
     strokeColor,
-    strokeLinecap,
+    strokeLinecap = 'round',
     children,
-    trailColor,
+    trailColor = null,
     success,
   } = props;
 
