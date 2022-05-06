@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { createPortal } from 'react-dom';
 import { mount } from 'enzyme';
 import RcTextArea from 'rc-textarea';
 import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
-import { sleep, fireEvent, render } from '../../../tests/utils';
+import { sleep, render } from '../../../tests/utils';
 
 const { TextArea } = Input;
 
@@ -403,40 +402,6 @@ describe('TextArea allowClear', () => {
     wrapper.setProps({ value: 'Light' });
     wrapper.find('input').simulate('change', { target: { value: 'Bamboo' } });
     expect(wrapper.find('input').props().value).toEqual('Light');
-  });
-
-  describe('click focus', () => {
-    it('click outside should also get focus', () => {
-      const { container } = render(<Input suffix={<span className="test-suffix" />} />);
-      const onFocus = jest.spyOn(container.querySelector('input'), 'focus');
-      fireEvent.mouseDown(container.querySelector('.test-suffix'));
-      fireEvent.mouseUp(container.querySelector('.test-suffix'));
-      expect(onFocus).toHaveBeenCalled();
-    });
-
-    it('not get focus if out of component', () => {
-      const holder = document.createElement('span');
-      document.body.appendChild(holder);
-
-      const Popup = () => createPortal(<span className="popup" />, holder);
-
-      const { container } = render(
-        <Input
-          suffix={
-            <span className="test-suffix">
-              <Popup />
-            </span>
-          }
-        />,
-      );
-
-      const onFocus = jest.spyOn(container.querySelector('input'), 'focus');
-      fireEvent.mouseDown(document.querySelector('.popup'));
-      fireEvent.mouseUp(document.querySelector('.popup'));
-
-      expect(onFocus).not.toHaveBeenCalled();
-      document.body.removeChild(holder);
-    });
   });
 
   it('scroll to bottom when autoSize', async () => {
