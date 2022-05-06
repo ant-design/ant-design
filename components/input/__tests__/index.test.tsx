@@ -79,9 +79,9 @@ describe('Input', () => {
   describe('click focus', () => {
     it('click outside should also get focus', () => {
       const { container } = render(<Input suffix={<span className="test-suffix" />} />);
-      const onFocus = jest.spyOn(container.querySelector('input'), 'focus');
-      fireEvent.mouseDown(container.querySelector('.test-suffix'));
-      fireEvent.mouseUp(container.querySelector('.test-suffix'));
+      const onFocus = jest.spyOn(container.querySelector('input')!, 'focus');
+      fireEvent.mouseDown(container.querySelector('.test-suffix')!);
+      fireEvent.mouseUp(container.querySelector('.test-suffix')!);
       expect(onFocus).toHaveBeenCalled();
     });
 
@@ -101,9 +101,9 @@ describe('Input', () => {
         />,
       );
 
-      const onFocus = jest.spyOn(container.querySelector('input'), 'focus');
-      fireEvent.mouseDown(document.querySelector('.popup'));
-      fireEvent.mouseUp(document.querySelector('.popup'));
+      const onFocus = jest.spyOn(container.querySelector('input')!, 'focus');
+      fireEvent.mouseDown(document.querySelector('.popup')!);
+      fireEvent.mouseUp(document.querySelector('.popup')!);
 
       expect(onFocus).not.toHaveBeenCalled();
       document.body.removeChild(holder);
