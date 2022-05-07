@@ -7,7 +7,7 @@ title: 在 create-react-app 中使用
 
 ---
 
-## 安装和初始化
+## 安装和初始化 
 
 在开始之前，你可能需要安装 [yarn](https://github.com/yarnpkg/yarn/)。
 
