@@ -22,7 +22,6 @@ export interface ListItemProps extends HTMLAttributes<HTMLDivElement> {
   style?: CSSProperties;
   extra?: ReactNode;
   actions?: ReactNode[];
-  grid?: ListGridType;
   colStyle?: CSSProperties;
 }
 
