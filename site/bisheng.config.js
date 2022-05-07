@@ -2,7 +2,6 @@ const path = require('path');
 const replaceLib = require('@ant-design/tools/lib/replaceLib');
 const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
 const { ESBuildMinifyPlugin } = require('esbuild-loader');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { version } = require('../package.json');
 const themeConfig = require('./themeConfig');
 
@@ -118,7 +117,7 @@ module.exports = {
     if (process.env.SITE_ENV === 'development') {
       // eslint-disable-next-line no-console
       console.log('Site build with development mode...');
-      // config.mode = 'development';
+      config.mode = 'development';
     }
 
     if (ANT_THEME) {
@@ -162,21 +161,6 @@ module.exports = {
       ];
     }
 
-    config.plugins.push(
-      new BundleAnalyzerPlugin({
-        analyzerMode: 'server',
-        analyzerHost: '127.0.0.1',
-        analyzerPort: 9090,
-        reportFilename: 'report.html',
-        defaultSizes: 'parsed',
-        openAnalyzer: true,
-        generateStatsFile: false,
-        statsFilename: 'stats.json',
-        statsOptions: null,
-        logLevel: 'info',
-      }),
-    );
-
     // Split chunks
     config.optimization.splitChunks = {
       ...config.optimization.splitChunks,
@@ -186,11 +170,6 @@ module.exports = {
           name: 'anticon',
           chunks: 'initial',
           maxSize: 1024 * 1024,
-        },
-        moment: {
-          test: /[/\\]node_modules[/\\]moment/,
-          name: 'moment',
-          chunks: 'initial',
         },
         components: {
           test(module) {
