@@ -2305,4 +2305,53 @@ describe('Table.filter', () => {
     );
     expect(errorSpy).not.toBeCalled();
   });
+
+  it('can reset if filterResetToDefaultFilteredValue and filter is changing', () => {
+    const wrapper = mount(
+      createTable({
+        columns: [
+          {
+            ...column,
+            filters: [
+              { text: 'Jack', value: 'Jack' },
+              { text: 'Lucy', value: 'Lucy' },
+            ],
+            defaultFilteredValue: ['Jack'],
+            filterResetToDefaultFilteredValue: true,
+          },
+        ],
+      }),
+    );
+    expect(wrapper.find('tbody tr').length).toBe(1);
+    expect(wrapper.find('tbody tr').text()).toBe('Jack');
+
+    // open filter
+    wrapper.find('span.ant-dropdown-trigger').first().simulate('click');
+    expect(
+      wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-link').props().disabled,
+    ).toBeTruthy();
+    expect(wrapper.find('li.ant-dropdown-menu-item').at(0).text()).toBe('Jack');
+    expect(wrapper.find('li.ant-dropdown-menu-item').at(1).text()).toBe('Lucy');
+
+    // deselect default
+    wrapper.find('li.ant-dropdown-menu-item').at(0).simulate('click');
+    expect(
+      wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-link').props().disabled,
+    ).toBeFalsy();
+    // select other one
+    wrapper.find('li.ant-dropdown-menu-item').at(1).simulate('click');
+    expect(
+      wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-link').props().disabled,
+    ).toBeFalsy();
+    // deselect other one
+    wrapper.find('li.ant-dropdown-menu-item').at(1).simulate('click');
+    expect(
+      wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-link').props().disabled,
+    ).toBeFalsy();
+    // select default
+    wrapper.find('li.ant-dropdown-menu-item').at(0).simulate('click');
+    expect(
+      wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-link').props().disabled,
+    ).toBeTruthy();
+  });
 });
