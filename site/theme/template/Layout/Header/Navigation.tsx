@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { FormattedMessage } from 'react-intl';
 import { Link } from 'bisheng/router';
 import type { MenuProps } from 'antd';
-import { MenuOutlined, AntDesignOutlined } from '@ant-design/icons';
+import { MenuOutlined } from '@ant-design/icons';
 import { Menu } from 'antd';
 import { getEcosystemGroup } from './More';
 import * as utils from '../../utils';
