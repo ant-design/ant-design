@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import { FormattedMessage } from 'react-intl';
 import { Link } from 'bisheng/router';
 import { UnorderedListOutlined } from '@ant-design/icons';
+import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
 import { getEcosystemGroup } from './More';
 import * as utils from '../../utils';
@@ -43,31 +44,110 @@ export default ({
     activeMenuItem = 'docs/resources';
   }
 
-  let additional: React.ReactNode = null;
-  const additionalItems = [
-    <Menu.Item key="github">
-      <a href="https://github.com/ant-design/ant-design" target="_blank" rel="noopener noreferrer">
-        Github
-      </a>
-    </Menu.Item>,
-    <Menu.Item key="switch-lang" onClick={onLangChange}>
-      <FormattedMessage id="app.header.lang" />
-    </Menu.Item>,
-    <Menu.Item key="switch-direction" onClick={onDirectionChange}>
-      {directionText}
-    </Menu.Item>,
-    getEcosystemGroup(),
+  let additional: MenuProps['items'];
+
+  const additionalItems: MenuProps['items'] = [
+    {
+      label: (
+        <a
+          href="https://github.com/ant-design/ant-design"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Github
+        </a>
+      ),
+      key: 'github',
+    },
+    {
+      label: <FormattedMessage id="app.header.lang" />,
+      onClick: onLangChange,
+      key: 'switch-lang',
+    },
+    {
+      label: directionText,
+      onClick: onDirectionChange,
+      key: 'switch-direction',
+    },
+    ...(getEcosystemGroup() ?? []),
   ];
 
   if (isMobile) {
     additional = additionalItems;
   } else if (responsive === 'crowded') {
-    additional = (
-      <Menu.SubMenu key="additional" title={<UnorderedListOutlined />}>
-        {additionalItems}
-      </Menu.SubMenu>
-    );
+    additional = [
+      {
+        label: <UnorderedListOutlined />,
+        key: 'additional',
+        children: [...additionalItems],
+      },
+    ];
   }
+
+  const items: MenuProps['items'] = [
+    {
+      label: (
+        <Link to={utils.getLocalizedPathname('/docs/spec/introduce', isZhCN, location.query)}>
+          <FormattedMessage id="app.header.menu.spec" />
+        </Link>
+      ),
+      key: 'docs/spec',
+    },
+    {
+      label: (
+        <Link to={utils.getLocalizedPathname('/docs/react/introduce', isZhCN, location.query)}>
+          <FormattedMessage id="app.header.menu.documentation" />
+        </Link>
+      ),
+      key: 'docs/react',
+    },
+    {
+      label: (
+        <Link to={utils.getLocalizedPathname('/components/overview/', isZhCN, location.query)}>
+          <FormattedMessage id="app.header.menu.components" />
+        </Link>
+      ),
+      key: 'components',
+    },
+    {
+      label: (
+        <Link to={utils.getLocalizedPathname('/docs/resources', isZhCN, location.query)}>
+          <FormattedMessage id="app.header.menu.resource" />
+        </Link>
+      ),
+      key: 'docs/resources',
+    },
+    showTechUIButton
+      ? {
+          label: (
+            <a href="https://techui.alipay.com" target="__blank" rel="noopener noreferrer">
+              TechUI
+            </a>
+          ),
+          key: 'tech-ui',
+        }
+      : null,
+    isZhCN &&
+    typeof window !== 'undefined' &&
+    !window.location.href.includes('ant-design.antgroup.com') &&
+    !window.location.href.includes('ant-design.gitee.io')
+      ? {
+          label: '国内镜像',
+          key: 'mirror',
+          children: [
+            {
+              label: <a href="https://ant-design.antgroup.com">官方镜像</a>,
+              key: 'antgroup',
+            },
+            {
+              label: <a href="https://ant-design.gitee.io">Gitee 镜像</a>,
+              key: 'gitee',
+            },
+          ],
+        }
+      : null,
+    ...(additional ?? []),
+  ];
 
   return (
     <Menu
@@ -76,40 +156,7 @@ export default ({
       selectedKeys={[activeMenuItem]}
       id="nav"
       disabledOverflow
-    >
-      <Menu.Item key="docs/spec">
-        <Link to={utils.getLocalizedPathname('/docs/spec/introduce', isZhCN, location.query)}>
-          <FormattedMessage id="app.header.menu.spec" />
-        </Link>
-      </Menu.Item>
-      <Menu.Item key="docs/react">
-        <Link to={utils.getLocalizedPathname('/docs/react/introduce', isZhCN, location.query)}>
-          <FormattedMessage id="app.header.menu.documentation" />
-        </Link>
-      </Menu.Item>
-      <Menu.Item key="components">
-        <Link to={utils.getLocalizedPathname('/components/overview/', isZhCN, location.query)}>
-          <FormattedMessage id="app.header.menu.components" />
-        </Link>
-      </Menu.Item>
-      <Menu.Item key="docs/resources">
-        <Link to={utils.getLocalizedPathname('/docs/resources', isZhCN, location.query)}>
-          <FormattedMessage id="app.header.menu.resource" />
-        </Link>
-      </Menu.Item>
-      {showTechUIButton && (
-        <Menu.Item key="tech-ui">
-          <a href="https://techui.alipay.com" target="__blank" rel="noopener noreferrer">
-            TechUI
-          </a>
-        </Menu.Item>
-      )}
-      {isZhCN && typeof window !== 'undefined' && window.location.host.indexOf('gitee') === -1 && (
-        <Menu.Item key="mirror">
-          <a href="https://ant-design.gitee.io">国内镜像</a>
-        </Menu.Item>
-      )}
-      {additional}
-    </Menu>
+      items={items}
+    />
   );
 };
