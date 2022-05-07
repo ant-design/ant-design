@@ -121,7 +121,7 @@ exports[`renders ./components/form/demo/advanced-search.md extend context correc
                   <div>
                     <div
                       class="ant-select-dropdown"
-                      style="opacity:0;pointer-events:none"
+                      style="opacity:0"
                     >
                       <div>
                         <div
@@ -385,7 +385,7 @@ exports[`renders ./components/form/demo/advanced-search.md extend context correc
                   <div>
                     <div
                       class="ant-select-dropdown"
-                      style="opacity:0;pointer-events:none"
+                      style="opacity:0"
                     >
                       <div>
                         <div
@@ -1157,7 +1157,7 @@ exports[`renders ./components/form/demo/control-hooks.md extend context correctl
             <div>
               <div
                 class="ant-select-dropdown"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div>
                   <div
@@ -1431,7 +1431,7 @@ exports[`renders ./components/form/demo/control-ref.md extend context correctly 
             <div>
               <div
                 class="ant-select-dropdown"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div>
                   <div
@@ -1677,7 +1677,7 @@ exports[`renders ./components/form/demo/customized-form-controls.md extend conte
               <div>
                 <div
                   class="ant-select-dropdown"
-                  style="opacity:0;pointer-events:none"
+                  style="opacity:0"
                 >
                   <div>
                     <div
@@ -2740,7 +2740,7 @@ exports[`renders ./components/form/demo/dynamic-form-items-complex.md extend con
             <div>
               <div
                 class="ant-select-dropdown"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div>
                   <div
@@ -4768,7 +4768,7 @@ exports[`renders ./components/form/demo/register.md extend context correctly 1`]
         <div>
           <div
             class="ant-tooltip"
-            style="opacity:0;pointer-events:none"
+            style="opacity:0"
           >
             <div
               class="ant-tooltip-content"
@@ -4872,7 +4872,7 @@ exports[`renders ./components/form/demo/register.md extend context correctly 1`]
             <div>
               <div
                 class="ant-select-dropdown ant-cascader-dropdown"
-                style="opacity:0;pointer-events:none;min-width:auto"
+                style="opacity:0;min-width:auto"
               >
                 <div>
                   <div
@@ -5089,7 +5089,7 @@ exports[`renders ./components/form/demo/register.md extend context correctly 1`]
                   <div>
                     <div
                       class="ant-select-dropdown"
-                      style="opacity:0;pointer-events:none"
+                      style="opacity:0"
                     >
                       <div>
                         <div
@@ -5352,7 +5352,7 @@ exports[`renders ./components/form/demo/register.md extend context correctly 1`]
                   <div>
                     <div
                       class="ant-select-dropdown"
-                      style="opacity:0;pointer-events:none"
+                      style="opacity:0"
                     >
                       <div>
                         <div
@@ -5523,7 +5523,7 @@ exports[`renders ./components/form/demo/register.md extend context correctly 1`]
             <div>
               <div
                 class="ant-select-dropdown ant-select-dropdown-empty"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div>
                   <div
@@ -5639,7 +5639,7 @@ exports[`renders ./components/form/demo/register.md extend context correctly 1`]
             <div>
               <div
                 class="ant-select-dropdown"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div>
                   <div
@@ -6045,7 +6045,7 @@ exports[`renders ./components/form/demo/required-mark.md extend context correctl
         <div>
           <div
             class="ant-tooltip"
-            style="opacity:0;pointer-events:none"
+            style="opacity:0"
           >
             <div
               class="ant-tooltip-content"
@@ -6127,7 +6127,7 @@ exports[`renders ./components/form/demo/required-mark.md extend context correctl
         <div>
           <div
             class="ant-tooltip"
-            style="opacity:0;pointer-events:none"
+            style="opacity:0"
           >
             <div
               class="ant-tooltip-content"
@@ -6393,7 +6393,7 @@ exports[`renders ./components/form/demo/size.md extend context correctly 1`] = `
             <div>
               <div
                 class="ant-select-dropdown"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div>
                   <div
@@ -6534,7 +6534,7 @@ exports[`renders ./components/form/demo/size.md extend context correctly 1`] = `
             <div>
               <div
                 class="ant-select-dropdown ant-tree-select-dropdown"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div>
                   <div>
@@ -6715,7 +6715,7 @@ exports[`renders ./components/form/demo/size.md extend context correctly 1`] = `
             <div>
               <div
                 class="ant-select-dropdown ant-cascader-dropdown"
-                style="opacity:0;pointer-events:none;min-width:auto"
+                style="opacity:0;min-width:auto"
               >
                 <div>
                   <div
@@ -6864,7 +6864,7 @@ exports[`renders ./components/form/demo/size.md extend context correctly 1`] = `
           <div>
             <div
               class="ant-picker-dropdown"
-              style="opacity:0;pointer-events:none"
+              style="opacity:0"
             >
               <div
                 class="ant-picker-panel-container"
@@ -7677,7 +7677,7 @@ exports[`renders ./components/form/demo/time-related-controls.md extend context 
           <div>
             <div
               class="ant-picker-dropdown"
-              style="opacity:0;pointer-events:none"
+              style="opacity:0"
             >
               <div
                 class="ant-picker-panel-container"
@@ -8301,7 +8301,7 @@ exports[`renders ./components/form/demo/time-related-controls.md extend context 
           <div>
             <div
               class="ant-picker-dropdown"
-              style="opacity:0;pointer-events:none"
+              style="opacity:0"
             >
               <div
                 class="ant-picker-panel-container"
@@ -10278,7 +10278,7 @@ exports[`renders ./components/form/demo/time-related-controls.md extend context 
           <div>
             <div
               class="ant-picker-dropdown"
-              style="opacity:0;pointer-events:none"
+              style="opacity:0"
             >
               <div
                 class="ant-picker-panel-container"
@@ -10580,7 +10580,7 @@ exports[`renders ./components/form/demo/time-related-controls.md extend context 
           <div>
             <div
               class="ant-picker-dropdown ant-picker-dropdown-range"
-              style="opacity:0;pointer-events:none"
+              style="opacity:0"
             >
               <div
                 class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -11789,7 +11789,7 @@ exports[`renders ./components/form/demo/time-related-controls.md extend context 
           <div>
             <div
               class="ant-picker-dropdown ant-picker-dropdown-range"
-              style="opacity:0;pointer-events:none"
+              style="opacity:0"
             >
               <div
                 class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -13774,7 +13774,7 @@ exports[`renders ./components/form/demo/time-related-controls.md extend context 
           <div>
             <div
               class="ant-picker-dropdown"
-              style="opacity:0;pointer-events:none"
+              style="opacity:0"
             >
               <div
                 class="ant-picker-panel-container"
@@ -15426,7 +15426,7 @@ exports[`renders ./components/form/demo/validate-other.md extend context correct
             <div>
               <div
                 class="ant-select-dropdown"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div>
                   <div
@@ -15613,7 +15613,7 @@ exports[`renders ./components/form/demo/validate-other.md extend context correct
             <div>
               <div
                 class="ant-select-dropdown"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div>
                   <div
@@ -15928,7 +15928,7 @@ exports[`renders ./components/form/demo/validate-other.md extend context correct
             <div>
               <div
                 class="ant-tooltip ant-slider-tooltip"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div
                   class="ant-tooltip-content"
@@ -17390,7 +17390,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
           <div>
             <div
               class="ant-picker-dropdown"
-              style="opacity:0;pointer-events:none"
+              style="opacity:0"
             >
               <div
                 class="ant-picker-panel-container"
@@ -18039,7 +18039,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
           <div>
             <div
               class="ant-picker-dropdown"
-              style="opacity:0;pointer-events:none"
+              style="opacity:0"
             >
               <div
                 class="ant-picker-panel-container"
@@ -19538,7 +19538,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
           <div>
             <div
               class="ant-picker-dropdown ant-picker-dropdown-range"
-              style="opacity:0;pointer-events:none"
+              style="opacity:0"
             >
               <div
                 class="ant-picker-range-wrapper ant-picker-date-range-wrapper"
@@ -20695,7 +20695,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
             <div>
               <div
                 class="ant-select-dropdown"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div>
                   <div
@@ -20903,7 +20903,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
             <div>
               <div
                 class="ant-select-dropdown ant-cascader-dropdown"
-                style="opacity:0;pointer-events:none;min-width:auto"
+                style="opacity:0;min-width:auto"
               >
                 <div>
                   <div
@@ -21053,7 +21053,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
             <div>
               <div
                 class="ant-select-dropdown ant-tree-select-dropdown"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div>
                   <div>
@@ -21274,7 +21274,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
                   <div>
                     <div
                       class="ant-picker-dropdown"
-                      style="opacity:0;pointer-events:none"
+                      style="opacity:0"
                     >
                       <div
                         class="ant-picker-panel-container"
@@ -21901,7 +21901,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
                   <div>
                     <div
                       class="ant-picker-dropdown"
-                      style="opacity:0;pointer-events:none"
+                      style="opacity:0"
                     >
                       <div
                         class="ant-picker-panel-container"

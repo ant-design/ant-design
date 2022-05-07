@@ -216,9 +216,11 @@ exports[`renders ./components/comment/demo/editor.md extend context correctly 1`
       >
         <div
           class="ant-row ant-form-item"
+          role="row"
         >
           <div
             class="ant-col ant-form-item-control"
+            role="cell"
           >
             <div
               class="ant-form-item-control-input"
@@ -236,9 +238,11 @@ exports[`renders ./components/comment/demo/editor.md extend context correctly 1`
         </div>
         <div
           class="ant-row ant-form-item"
+          role="row"
         >
           <div
             class="ant-col ant-form-item-control"
+            role="cell"
           >
             <div
               class="ant-form-item-control-input"
