@@ -1,8 +1,8 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import classNames from 'classnames';
+import { Select, Row, Col, Popover, Button, Modal } from 'antd';
 import { MenuOutlined } from '@ant-design/icons';
-import { Select, Row, Col, Popover, Button } from 'antd';
 import canUseDom from 'rc-util/lib/Dom/canUseDom';
 import * as utils from '../../utils';
 import packageJson from '../../../../../package.json';
@@ -71,6 +71,16 @@ function initDocSearch({ isZhCN, router }: { isZhCN: boolean; router: any }) {
   });
 }
 
+const SHOULD_OPEN_ANT_DESIGN_MIRROR_MODAL = 'ANT_DESIGN_DO_NOT_OPEN_MIRROR_MODAL';
+
+function disableAntdMirrorModal() {
+  window.localStorage.setItem(SHOULD_OPEN_ANT_DESIGN_MIRROR_MODAL, 'true');
+}
+
+function shouldOpenAntdMirrorModal() {
+  return !window.localStorage.getItem(SHOULD_OPEN_ANT_DESIGN_MIRROR_MODAL);
+}
+
 interface HeaderState {
   menuVisible: boolean;
   windowWidth: number;
@@ -109,6 +119,26 @@ class Header extends React.Component<HeaderProps, HeaderState> {
         this.setState({
           showTechUIButton: true,
         });
+        if (
+          process.env.NODE_ENV === 'production' &&
+          !window.location.href.includes('ant-design.antgroup.com') &&
+          shouldOpenAntdMirrorModal()
+        ) {
+          Modal.confirm({
+            title: '提示',
+            content: '内网用户推荐访问国内镜像以获得极速体验～',
+            okText: '🚀 立刻前往',
+            onOk: () => {
+              window.open('https://ant-design.antgroup.com', '_self');
+              disableAntdMirrorModal();
+            },
+            cancelText: '不再弹出',
+            onCancel: () => {
+              disableAntdMirrorModal();
+            },
+            closable: true,
+          });
+        }
       }
     });
   }
