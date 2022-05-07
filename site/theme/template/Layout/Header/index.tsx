@@ -124,7 +124,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
           !window.location.href.includes('ant-design.antgroup.com') &&
           shouldOpenAntdMirrorModal()
         ) {
-          Modal.info({
+          Modal.confirm({
             title: '提示',
             content: '内网用户推荐访问国内镜像以获得极速体验～',
             okText: '🚀 立刻前往',
