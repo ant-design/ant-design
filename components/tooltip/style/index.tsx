@@ -65,6 +65,8 @@ const genTooltipStyle: GenerateStyle<TooltipToken, CSSObject> = token => {
     boxShadow,
   } = token;
 
+  const tooltipBgColor = new TinyColor(tooltipBg);
+
   return {
     [componentCls]: {
       ...resetComponent(token),
@@ -112,9 +114,14 @@ const genTooltipStyle: GenerateStyle<TooltipToken, CSSObject> = token => {
         boxShadow,
       },
 
+      [`${componentCls}-content`]: {
+        position: 'relative',
+      },
+
       // Arrows
       [`${componentCls}-arrow`]: {
         position: 'absolute',
+        zIndex: 2,
         display: 'block',
         width: tooltipArrowRotateWidth,
         height: tooltipArrowRotateWidth,
@@ -123,7 +130,9 @@ const genTooltipStyle: GenerateStyle<TooltipToken, CSSObject> = token => {
         pointerEvents: 'none',
 
         '&-content': {
-          '--antd-arrow-background-color': tooltipBg,
+          '--antd-arrow-background-color': `linear-gradient(to right bottom, ${new TinyColor(
+            tooltipBgColor,
+          ).setAlpha(tooltipBgColor.getAlpha() - 0.1)}, ${tooltipBg})`,
           position: 'absolute',
           top: 0, // FIXME: hardcode in v4
           insetInlineEnd: 0, // FIXME: hardcode in v4
@@ -140,22 +149,24 @@ const genTooltipStyle: GenerateStyle<TooltipToken, CSSObject> = token => {
         },
       },
 
-      [`&-placement-top ${componentCls}-arrow, &-placement-topLeft ${componentCls}-arrow, &-placement-topRight ${componentCls}-arrow`]:
-        {
-          bottom: tooltipDistance - tooltipArrowRotateWidth + 0.24, // FIXME: hardcode in v4
+      [`&-placement-top ${componentCls}-arrow,
+        &-placement-topLeft ${componentCls}-arrow,
+        &-placement-topRight ${componentCls}-arrow`]: {
+        bottom: 0, // FIXME: hardcode in v4
+        transform: 'translateY(100%)',
 
-          '&-content': {
-            boxShadow: `${tooltipArrowShadowWidth}px ${tooltipArrowShadowWidth}px 7px ${tooltipShadowColor}`, // FIXME: hardcode in v4
-            transform: `translateY(${-tooltipArrowRotateWidth / 2}px) rotate(45deg)`, // FIXME: hardcode in v4
-          },
+        '&-content': {
+          boxShadow: `${tooltipArrowShadowWidth}px ${tooltipArrowShadowWidth}px 7px ${tooltipShadowColor}`, // FIXME: hardcode in v4
+          transform: `translateY(${-tooltipArrowRotateWidth / 2}px) rotate(45deg)`, // FIXME: hardcode in v4
         },
+      },
 
       [`&-placement-top ${componentCls}-arrow`]: {
         left: {
           _skip_check_: true,
           value: '50%', // FIXME: hardcode in v4
         },
-        transform: 'translateX(-50%)',
+        transform: 'translateX(-50%) translateY(100%)',
       },
 
       [`&-placement-topLeft ${componentCls}-arrow`]: {
@@ -172,21 +183,24 @@ const genTooltipStyle: GenerateStyle<TooltipToken, CSSObject> = token => {
         },
       },
 
-      [`&-placement-right ${componentCls}-arrow, &-placement-rightTop ${componentCls}-arrow, &-placement-rightBottom ${componentCls}-arrow`]:
-        {
-          left: {
-            _skip_check_: true,
-            value: tooltipDistance - tooltipArrowRotateWidth + 0.1, // FIXME: hardcode in v4
-          },
-          '&-content': {
-            boxShadow: `-${tooltipArrowShadowWidth}px ${tooltipArrowShadowWidth}px 7px ${tooltipShadowColor}`, // FIXME: hardcode in v4
-            transform: `translateX(${tooltipArrowRotateWidth / 2}px) rotate(135deg)`, // FIXME: hardcode in v4
-          },
+      [`&-placement-right ${componentCls}-arrow,
+        &-placement-rightTop ${componentCls}-arrow,
+        &-placement-rightBottom ${componentCls}-arrow`]: {
+        left: {
+          _skip_check_: true,
+          value: 0, // FIXME: hardcode in v4
         },
+        transform: 'translateX(-100%)',
+
+        '&-content': {
+          boxShadow: `-${tooltipArrowShadowWidth}px ${tooltipArrowShadowWidth}px 7px ${tooltipShadowColor}`, // FIXME: hardcode in v4
+          transform: `translateX(${tooltipArrowRotateWidth / 2}px) rotate(135deg)`, // FIXME: hardcode in v4
+        },
+      },
 
       [`&-placement-right ${componentCls}-arrow`]: {
         top: '50%', // FIXME: hardcode in v4
-        transform: 'translateY(-50%)', // FIXME: hardcode in v4
+        transform: 'translateX(-100%) translateY(-50%)', // FIXME: hardcode in v4
       },
 
       [`&-placement-rightTop ${componentCls}-arrow`]: {
@@ -201,8 +215,9 @@ const genTooltipStyle: GenerateStyle<TooltipToken, CSSObject> = token => {
         {
           right: {
             _skip_check_: true,
-            value: tooltipDistance - tooltipArrowRotateWidth + 0.08, // FIXME: hardcode in v4
+            value: 0, // FIXME: hardcode in v4
           },
+          transform: 'translateX(100%)',
 
           '&-content': {
             boxShadow: `${tooltipArrowShadowWidth}px -${tooltipArrowShadowWidth}px 7px ${tooltipShadowColor}`, // FIXME: hardcode in v4
@@ -212,7 +227,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken, CSSObject> = token => {
 
       [`&-placement-left ${componentCls}-arrow`]: {
         top: '50%', // FIXME: hardcode in v4
-        transform: 'translateY(-50%)', // FIXME: hardcode in v4
+        transform: 'translateX(100%) translateY(-50%)', // FIXME: hardcode in v4
       },
 
       [`&-placement-leftTop ${componentCls}-arrow`]: {
@@ -225,7 +240,8 @@ const genTooltipStyle: GenerateStyle<TooltipToken, CSSObject> = token => {
 
       [`&-placement-bottom ${componentCls}-arrow, &-placement-bottomLeft ${componentCls}-arrow, &-placement-bottomRight ${componentCls}-arrow`]:
         {
-          top: tooltipDistance - tooltipArrowRotateWidth + 0.1, // FIXME: hardcode in v4
+          top: 0, // FIXME: hardcode in v4
+          transform: 'translateY(-100%)',
 
           '&-content': {
             boxShadow: `-${tooltipArrowShadowWidth}px -${tooltipArrowShadowWidth}px 7px ${tooltipShadowColor}`, // FIXME: hardcode in v4
@@ -238,7 +254,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken, CSSObject> = token => {
           _skip_check_: true,
           value: '50%', // FIXME: hardcode in v4
         },
-        transform: 'translateX(-50%)', // FIXME: hardcode in v4
+        transform: 'translateY(-100%) translateX(-50%)', // FIXME: hardcode in v4
       },
 
       [`&-placement-bottomLeft ${componentCls}-arrow`]: {

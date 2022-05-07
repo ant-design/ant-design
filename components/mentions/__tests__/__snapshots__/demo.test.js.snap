@@ -44,9 +44,11 @@ exports[`renders ./components/mentions/demo/form.md correctly 1`] = `
 >
   <div
     class="ant-row ant-form-item"
+    role="row"
   >
     <div
       class="ant-col ant-col-6 ant-form-item-label"
+      role="cell"
     >
       <label
         class=""
@@ -58,6 +60,7 @@ exports[`renders ./components/mentions/demo/form.md correctly 1`] = `
     </div>
     <div
       class="ant-col ant-col-16 ant-form-item-control"
+      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -80,9 +83,11 @@ exports[`renders ./components/mentions/demo/form.md correctly 1`] = `
   </div>
   <div
     class="ant-row ant-form-item"
+    role="row"
   >
     <div
       class="ant-col ant-col-6 ant-form-item-label"
+      role="cell"
     >
       <label
         class="ant-form-item-required"
@@ -94,6 +99,7 @@ exports[`renders ./components/mentions/demo/form.md correctly 1`] = `
     </div>
     <div
       class="ant-col ant-col-16 ant-form-item-control"
+      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -117,9 +123,11 @@ exports[`renders ./components/mentions/demo/form.md correctly 1`] = `
   </div>
   <div
     class="ant-row ant-form-item"
+    role="row"
   >
     <div
       class="ant-col ant-col-14 ant-col-offset-6 ant-form-item-control"
+      role="cell"
     >
       <div
         class="ant-form-item-control-input"
