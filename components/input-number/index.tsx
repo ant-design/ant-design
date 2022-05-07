@@ -1,14 +1,17 @@
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import UpOutlined from '@ant-design/icons/UpOutlined';
 import classNames from 'classnames';
-import RcInputNumber, { InputNumberProps as RcInputNumberProps } from 'rc-input-number';
+import type { InputNumberProps as RcInputNumberProps } from 'rc-input-number';
+import RcInputNumber from 'rc-input-number';
 import * as React from 'react';
 import { useContext } from 'react';
 import { ConfigContext } from '../config-provider';
-import SizeContext, { SizeType } from '../config-provider/SizeContext';
+import type { SizeType } from '../config-provider/SizeContext';
+import SizeContext from '../config-provider/SizeContext';
 import { FormItemInputContext, NoFormStatus } from '../form/context';
 import { cloneElement } from '../_util/reactNode';
-import { getStatusClassNames, InputStatus, getMergedStatus } from '../_util/statusUtils';
+import type { InputStatus } from '../_util/statusUtils';
+import { getStatusClassNames, getMergedStatus } from '../_util/statusUtils';
 
 type ValueType = string | number;
 

@@ -1,5 +1,5 @@
 /* eslint-disable import/prefer-default-export */
-import { ColumnType, ColumnTitle, ColumnTitleProps, Key } from './interface';
+import type { ColumnType, ColumnTitle, ColumnTitleProps, Key } from './interface';
 
 export function getColumnKey<RecordType>(column: ColumnType<RecordType>, defaultKey: string): Key {
   if ('key' in column && column.key !== undefined && column.key !== null) {

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { SizeType } from '../config-provider/SizeContext';
+import type { SizeType } from '../config-provider/SizeContext';
 import { ConfigContext } from '../config-provider';
 import devWarning from '../_util/devWarning';
 

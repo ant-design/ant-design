@@ -1,13 +1,16 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import QuestionCircleOutlined from '@ant-design/icons/QuestionCircleOutlined';
-import Col, { ColProps } from '../grid/col';
-import { FormLabelAlign } from './interface';
-import { FormContext, FormContextProps } from './context';
-import { RequiredMark } from './Form';
+import type { ColProps } from '../grid/col';
+import Col from '../grid/col';
+import type { FormLabelAlign } from './interface';
+import type { FormContextProps } from './context';
+import { FormContext } from './context';
+import type { RequiredMark } from './Form';
 import { useLocaleReceiver } from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
-import Tooltip, { TooltipProps } from '../tooltip';
+import type { TooltipProps } from '../tooltip';
+import Tooltip from '../tooltip';
 
 export type WrapperTooltipProps = TooltipProps & {
   icon?: React.ReactElement;

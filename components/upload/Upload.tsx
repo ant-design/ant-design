@@ -1,18 +1,19 @@
 import * as React from 'react';
-import RcUpload, { UploadProps as RcUploadProps } from 'rc-upload';
+import type { UploadProps as RcUploadProps } from 'rc-upload';
+import RcUpload from 'rc-upload';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import classNames from 'classnames';
 import UploadList from './UploadList';
-import {
+import type {
   RcFile,
   ShowUploadListInterface,
-  UploadProps,
   UploadFile,
   UploadLocale,
   UploadChangeParam,
   UploadType,
   UploadListType,
 } from './interface';
+import { UploadProps } from './interface';
 import { file2Obj, getFileItem, removeFileItem, updateFileList } from './utils';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';

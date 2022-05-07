@@ -1,8 +1,6 @@
 import * as React from 'react';
-import RcPagination, {
-  PaginationLocale,
-  PaginationProps as RcPaginationProps,
-} from 'rc-pagination';
+import type { PaginationProps as RcPaginationProps } from 'rc-pagination';
+import RcPagination, { PaginationLocale } from 'rc-pagination';
 import enUS from 'rc-pagination/lib/locale/en_US';
 import classNames from 'classnames';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
