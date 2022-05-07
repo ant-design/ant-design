@@ -1,10 +1,12 @@
 describe('Test devWarning', () => {
+  let spy: jest.SpyInstance;
+
   beforeAll(() => {
-    jest.spyOn(console, 'error').mockImplementation(() => {});
+    spy = jest.spyOn(console, 'error');
   });
 
   afterAll(() => {
-    jest.restoreAllMocks();
+    spy.mockRestore();
   });
 
   beforeEach(() => {
@@ -12,7 +14,7 @@ describe('Test devWarning', () => {
   });
 
   afterEach(() => {
-    console.error.mockClear();
+    spy.mockReset();
   });
 
   it('Test noop', async () => {
@@ -20,7 +22,7 @@ describe('Test devWarning', () => {
     const value = noop();
 
     expect(value).toBe(undefined);
-    expect(console.error).not.toHaveBeenCalled();
+    expect(spy).not.toHaveBeenCalled();
     expect(() => {
       noop();
     }).not.toThrow();
@@ -31,14 +33,14 @@ describe('Test devWarning', () => {
       const devWarning = (await import('../devWarning')).default;
       devWarning(false, 'error');
 
-      expect(console.error).toHaveBeenCalled();
+      expect(spy).toHaveBeenCalled();
     });
 
     it('If `true`, do not exec `console.error`', async () => {
       const devWarning = (await import('../devWarning')).default;
       devWarning(true, 'error message');
 
-      expect(console.error).not.toHaveBeenCalled();
+      expect(spy).not.toHaveBeenCalled();
     });
   });
 
@@ -52,10 +54,10 @@ describe('Test devWarning', () => {
       expect(devWarning).toEqual(noop);
 
       devWarning(false, 'error message');
-      expect(console.error).not.toHaveBeenCalled();
+      expect(spy).not.toHaveBeenCalled();
 
       devWarning(true, 'error message');
-      expect(console.error).not.toHaveBeenCalled();
+      expect(spy).not.toHaveBeenCalled();
 
       process.env.NODE_ENV = prevEnv;
     });
