@@ -15,15 +15,39 @@ timeline: true
 
 ---
 
+## 4.20.2
+
+`2022-04-30`
+
+- Segmented
+  - 🐞 修复 Segmented 组件高度和其他控件不一致的问题。[#35281](https://github.com/ant-design/ant-design/pull/35281)
+  - 🐞 修复 React StrictMode 下 Segmented 动画丢失的问题。[#35281](https://github.com/ant-design/ant-design/pull/35281)
+  - 🆕 Segmented `options` 支持设置 `icon` 属性。[#35256](https://github.com/ant-design/ant-design/pull/35256)
+- Table
+  - ⌨️ 优化 Table 排序按钮的键盘可访问性。[#35269](https://github.com/ant-design/ant-design/pull/35269)
+  - 🇪🇸 补充 Table 西班牙语筛选文案。[#35309](https://github.com/ant-design/ant-design/pull/35309) [@agarciaguillo](https://github.com/agarciaguillo)
+- 🐞 修复 Switch 在暗黑主题下关闭时的颜色问题。[#35332](https://github.com/ant-design/ant-design/pull/35332)
+- 💄 微调 Breadcrumb 链接 hover 色为中性色。[#35324](https://github.com/ant-design/ant-design/pull/35324)
+- 🐞 修复 Space 在某些情况下抛出 `Encountered two children with the same key` 警告的问题。[#35311](https://github.com/ant-design/ant-design/pull/35311)
+- 🐞 修复 Select 多选标签移除图标位置偏下的问题。[#35336](https://github.com/ant-design/ant-design/pull/35336) [@walidcherhane](https://github.com/walidcherhane)
+
+## 4.20.1
+
+`2022-04-26`
+
+- 🐞 修复 Breadcrumb 多余的 `padding` 和 `margin` 样式。[#35235](https://github.com/ant-design/ant-design/pull/35235)
+- 🐞 修复 Input.Search 在中文输入法下回车键触发 `onSearch` 的行为不一致的问题。[#35164](https://github.com/ant-design/ant-design/pull/35164) [@qyzzzz](https://github.com/qyzzzz)
+- 🐞 修复 Upload 和 Upload.Dragger 之间循环依赖的问题。[#34379](https://github.com/ant-design/ant-design/pull/34379) [@kanweiwei](https://github.com/kanweiwei)
+
 ## 4.20.0
 
 `2022-04-24`
 
-- 🔥 支持 React 18 以及严格模式。
+- 🔥 支持 React 18 以及严格模式，修复了相关已知问题。
   - 🐞 修复 Form 在 React 18 的 StrictMode 下，错误信息无法更新的问题。[#35096](https://github.com/ant-design/ant-design/pull/35096)
   - 🐞 修复 Notification 和 Message 在 React 18 下抛出使用 `createRoot` 的警告信息。[#35030](https://github.com/ant-design/ant-design/pull/35030)
   - 🐞 修复 BackTop 组件在严格模式下不能正常工作的问题。[#34858](https://github.com/ant-design/ant-design/pull/34858) [@tmkx](https://github.com/tmkx)
-- 🔥 新增组件 Segmented。[#34319](https://github.com/ant-design/ant-design/pull/34319)
+- 🔥 新增 Segmented 分段控制器组件。[#34319](https://github.com/ant-design/ant-design/pull/34319)
   - 🛠 4.20.0 正式版后，Segemented 的 `onChange` 回调函数的参数从 `ChangeEvent` 调整为 `value`。如果你使用了 `4.20.0-alpha.0` `4.20.0-alpha.1`，请注意这个变化。[#35187](https://github.com/ant-design/ant-design/pull/35187) [@vagusX](https://github.com/vagusX)
 - Form
   - 🔥 Form 添加 `useWatch` 支持获取当前字段值。[#35036](https://github.com/ant-design/ant-design/pull/35036)

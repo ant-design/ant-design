@@ -119,6 +119,18 @@ describe('Table.sorter', () => {
     expect(getNameColumn().prop('aria-sort')).toEqual('descending');
   });
 
+  it('sort records with keydown', () => {
+    const wrapper = mount(createTable());
+
+    // ascend
+    wrapper.find('.ant-table-column-sorters').simulate('keydown', { keyCode: 13 });
+    expect(renderedNames(wrapper)).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
+
+    // descend
+    wrapper.find('.ant-table-column-sorters').simulate('keydown', { keyCode: 13 });
+    expect(renderedNames(wrapper)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
+  });
+
   describe('can be controlled by sortOrder', () => {
     it('single', () => {
       const wrapper = mount(

@@ -1,5 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
+import { AppstoreOutlined, BarsOutlined } from '@ant-design/icons';
+
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import Segmented from '../index';
@@ -86,10 +88,7 @@ describe('Segmented', () => {
   it('render segmented with string options', () => {
     const handleValueChange = jest.fn();
     const wrapper = mount(
-      <Segmented
-        options={['Daily', 'Weekly', 'Monthly']}
-        onChange={handleValueChange}
-      />,
+      <Segmented options={['Daily', 'Weekly', 'Monthly']} onChange={handleValueChange} />,
     );
     expect(wrapper.render()).toMatchSnapshot();
 
@@ -355,5 +354,26 @@ describe('Segmented', () => {
     expect(wrapper.render()).toMatchSnapshot();
 
     expect(wrapper.find(`.${prefixCls}`).at(0).hasClass(`${prefixCls}-lg`)).toBeTruthy();
+  });
+
+  it('render with icons', () => {
+    const wrapper = mount(
+      <Segmented
+        options={[
+          {
+            value: 'List',
+            icon: <BarsOutlined />,
+          },
+          {
+            value: 'Kanban',
+            label: 'KanbanYes',
+            icon: <AppstoreOutlined />,
+          },
+        ]}
+      />,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper.find(`span.${prefixCls}-item-icon`).length).toBe(2);
+    expect(wrapper.find(`div.${prefixCls}-item-label`).at(1).contains('KanbanYes')).toBeTruthy();
   });
 });

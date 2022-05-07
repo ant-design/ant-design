@@ -2,7 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
 import { ConfigContext } from '../config-provider';
-import { SizeType } from '../config-provider/SizeContext';
+import type { SizeType } from '../config-provider/SizeContext';
 import Item from './Item';
 import useFlexGapSupport from '../_util/hooks/useFlexGapSupport';
 
@@ -88,12 +88,12 @@ const Space: React.FC<SpaceProps> = props => {
       latestIndex = i;
     }
 
-    const keyOfChild = child && child.key;
+    const key = (child && child.key) || `${itemClassName}-${i}`;
 
     return (
       <Item
         className={itemClassName}
-        key={`${itemClassName}-${keyOfChild || i}`}
+        key={key}
         direction={direction}
         index={i}
         marginDirection={marginDirection}

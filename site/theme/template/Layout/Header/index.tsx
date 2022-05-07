@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import classNames from 'classnames';
-import { UnorderedListOutlined } from '@ant-design/icons';
+import { MenuOutlined } from '@ant-design/icons';
 import { Select, Row, Col, Popover, Button } from 'antd';
 import canUseDom from 'rc-util/lib/Dom/canUseDom';
 import * as utils from '../../utils';
@@ -11,7 +11,8 @@ import SearchBar from './SearchBar';
 import More from './More';
 import Navigation from './Navigation';
 import Github from './Github';
-import SiteContext, { SiteContextProps } from '../SiteContext';
+import type { SiteContextProps } from '../SiteContext';
+import SiteContext from '../SiteContext';
 import { ping } from '../../utils';
 import { AlgoliaConfig } from './algolia-config';
 
@@ -340,7 +341,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                   arrowPointAtCenter
                   onVisibleChange={this.onMenuVisibleChange}
                 >
-                  <UnorderedListOutlined className="nav-phone-icon" onClick={this.handleShowMenu} />
+                  <MenuOutlined className="nav-phone-icon" onClick={this.handleShowMenu} />
                 </Popover>
               )}
               <Row style={{ flexFlow: 'nowrap', height: 64 }}>

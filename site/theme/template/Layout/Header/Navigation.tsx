@@ -2,11 +2,11 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { FormattedMessage } from 'react-intl';
 import { Link } from 'bisheng/router';
-import { UnorderedListOutlined } from '@ant-design/icons';
+import { MenuOutlined } from '@ant-design/icons';
 import { Menu } from 'antd';
 import { getEcosystemGroup } from './More';
 import * as utils from '../../utils';
-import { SharedProps } from './interface';
+import type { SharedProps } from './interface';
 
 import './Navigation.less';
 
@@ -63,7 +63,7 @@ export default ({
     additional = additionalItems;
   } else if (responsive === 'crowded') {
     additional = (
-      <Menu.SubMenu key="additional" title={<UnorderedListOutlined />}>
+      <Menu.SubMenu key="additional" title={<MenuOutlined />}>
         {additionalItems}
       </Menu.SubMenu>
     );

@@ -3,16 +3,20 @@
 import * as React from 'react';
 import omit from 'rc-util/lib/omit';
 import classNames from 'classnames';
-import RcSelect, { Option, OptGroup, SelectProps as RcSelectProps, BaseSelectRef } from 'rc-select';
+import type { SelectProps as RcSelectProps } from 'rc-select';
+import RcSelect, { Option, OptGroup, BaseSelectRef } from 'rc-select';
 import type { BaseOptionType, DefaultOptionType } from 'rc-select/lib/Select';
 import { OptionProps } from 'rc-select/lib/Option';
 import { useContext } from 'react';
 import { ConfigContext } from '../config-provider';
 import getIcons from './utils/iconUtil';
-import SizeContext, { SizeType } from '../config-provider/SizeContext';
+import type { SizeType } from '../config-provider/SizeContext';
+import SizeContext from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
-import { getMergedStatus, getStatusClassNames, InputStatus } from '../_util/statusUtils';
-import { getTransitionName, getTransitionDirection, SelectCommonPlacement } from '../_util/motion';
+import type { InputStatus } from '../_util/statusUtils';
+import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
+import type { SelectCommonPlacement } from '../_util/motion';
+import { getTransitionName, getTransitionDirection } from '../_util/motion';
 
 type RawValue = string | number;
 

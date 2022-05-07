@@ -16,7 +16,8 @@ buggy!
 
 ```tsx
 import * as React from 'react';
-import { Menu, MenuProps, Switch } from 'antd';
+import type { MenuProps } from 'antd';
+import { Menu, Switch } from 'antd';
 import { MailOutlined, AppstoreOutlined } from '@ant-design/icons';
 
 type MenuItem = Required<MenuProps>['items'][number];
