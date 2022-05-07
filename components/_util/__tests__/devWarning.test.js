@@ -15,6 +15,17 @@ describe('Test devWarning', () => {
     console.error.mockClear();
   });
 
+  it('Test noop', async () => {
+    const { noop } = await import('../devWarning');
+    const value = noop();
+
+    expect(value).toBe(undefined);
+    expect(console.error).not.toHaveBeenCalled();
+    expect(() => {
+      noop();
+    }).not.toThrow();
+  });
+
   describe('process.env.NODE_ENV !== "production"', () => {
     it('If `false`, exec `console.error`', async () => {
       const devWarning = (await import('../devWarning')).default;
