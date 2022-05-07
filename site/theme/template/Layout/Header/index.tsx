@@ -126,8 +126,8 @@ class Header extends React.Component<HeaderProps, HeaderState> {
         ) {
           Modal.info({
             title: '提示',
-            content: '内网用户推荐访问国内镜像以获得极速体验～🚀',
-            okText: '前往',
+            content: '内网用户推荐访问国内镜像以获得极速体验～',
+            okText: '🚀 立刻前往',
             onOk: () => {
               window.open('https://ant-design.antgroup.com', '_self');
               disableAntdMirrorModal();
@@ -136,6 +136,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
             onCancel: () => {
               disableAntdMirrorModal();
             },
+            closable: true,
           });
         }
       }
