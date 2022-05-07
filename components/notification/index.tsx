@@ -4,7 +4,6 @@ import useNotification from './useNotification';
 import type { ArgsProps, NotificationInstance, GlobalConfigProps } from './interface';
 import ConfigProvider, { globalConfig } from '../config-provider';
 
-// let notificationList: GlobalNotification[] = [];
 let notification: GlobalNotification | null = null;
 
 let act = (callback: VoidFunction) => callback();
@@ -14,6 +13,8 @@ interface GlobalNotification {
   container: HTMLElement;
   fragment: DocumentFragment;
   instance?: NotificationInstance | null;
+  setPrefixCls?: (prefixCls: string) => void;
+  setContainer?: (container: HTMLElement) => void;
   setMaxCount?: (maxCount: number) => void;
   setRTL?: (rtl: boolean) => void;
 }
@@ -36,8 +37,8 @@ let taskQueue: Task[] = [];
 let defaultGlobalConfig: GlobalConfigProps = {};
 
 interface GlobalHolderProps {
-  prefixCls: string;
-  container: HTMLElement;
+  defaultPrefixCls: string;
+  defaultContainer: HTMLElement;
   defaultRTL?: boolean;
   defaultMaxCount?: number;
 }
@@ -49,7 +50,9 @@ interface GlobalHolderRef {
 }
 
 const GlobalHolder = React.forwardRef<GlobalHolderRef, GlobalHolderProps>(
-  ({ prefixCls, container, defaultRTL, defaultMaxCount }, ref) => {
+  ({ defaultPrefixCls, defaultContainer, defaultRTL, defaultMaxCount }, ref) => {
+    const [prefixCls, setPrefixCls] = React.useState<string>(defaultPrefixCls);
+    const [container, setContainer] = React.useState<HTMLElement>(defaultContainer);
     const [rtl, setRTL] = React.useState<boolean | undefined>(defaultRTL);
     const [maxCount, setMaxCount] = React.useState<number | undefined>(defaultMaxCount);
     const [api, holder] = useNotification({
@@ -65,6 +68,8 @@ const GlobalHolder = React.forwardRef<GlobalHolderRef, GlobalHolderProps>(
 
     React.useImperativeHandle(ref, () => ({
       instance: api,
+      setPrefixCls,
+      setContainer,
       setMaxCount,
       setRTL,
     }));
@@ -77,10 +82,14 @@ const GlobalHolder = React.forwardRef<GlobalHolderRef, GlobalHolderProps>(
   },
 );
 
+function getContainerElement(globalGetContainer?: () => HTMLElement) {
+  return globalGetContainer?.() || document.body;
+}
+
 function getGlobalContext(): [string, HTMLElement] {
   const { prefixCls: globalPrefixCls, getContainer: globalGetContainer } = defaultGlobalConfig;
   const mergedPrefixCls = globalPrefixCls ?? globalConfig().getPrefixCls('notification');
-  const mergedContainer = globalGetContainer?.() || document.body;
+  const mergedContainer = getContainerElement(globalGetContainer);
 
   return [mergedPrefixCls, mergedContainer];
 }
@@ -105,14 +114,15 @@ function flushNotice() {
       render(
         <GlobalHolder
           ref={node => {
-            const { instance, setMaxCount, setRTL } = node || {};
-            newNotification.instance = instance;
-            newNotification.setMaxCount = setMaxCount;
-            newNotification.setRTL = setRTL;
+            const nodeContent = node || ({} as GlobalHolderRef);
+
+            Object.keys(nodeContent).forEach((key: keyof GlobalHolderRef) => {
+              (newNotification as any)[key] = nodeContent[key];
+            });
             flushNotice();
           }}
-          prefixCls={prefixCls}
-          container={container}
+          defaultPrefixCls={prefixCls}
+          defaultContainer={container}
           defaultMaxCount={maxCount}
           defaultRTL={rtl}
         />,
@@ -175,10 +185,16 @@ function setNotificationGlobalConfig(config: GlobalConfigProps) {
   };
 
   // Refresh data
-  const { maxCount, rtl } = defaultGlobalConfig;
+  const { prefixCls, getContainer, maxCount, rtl } = defaultGlobalConfig;
 
   act(() => {
     if (notification) {
+      if (prefixCls !== undefined && notification.setPrefixCls) {
+        notification.setPrefixCls(prefixCls);
+      }
+      if (maxCount !== undefined && notification.setContainer) {
+        notification.setContainer(getContainerElement(getContainer));
+      }
       if (maxCount !== undefined && notification.setMaxCount) {
         notification.setMaxCount(maxCount);
       }
@@ -244,7 +260,7 @@ const noop = () => {};
 
 /** @private Only Work in test env */
 // eslint-disable-next-line import/no-mutable-exports
-export let actWrapper: (wrapper: VoidFunction) => void = noop;
+export let actWrapper: (wrapper: any) => void = noop;
 
 if (process.env.NODE_ENV === 'test') {
   actWrapper = wrapper => {
