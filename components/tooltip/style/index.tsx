@@ -65,6 +65,8 @@ const genTooltipStyle: GenerateStyle<TooltipToken, CSSObject> = token => {
     boxShadow,
   } = token;
 
+  const tooltipBgColor = new TinyColor(tooltipBg);
+
   return {
     [componentCls]: {
       ...resetComponent(token),
@@ -129,8 +131,8 @@ const genTooltipStyle: GenerateStyle<TooltipToken, CSSObject> = token => {
 
         '&-content': {
           '--antd-arrow-background-color': `linear-gradient(to right bottom, ${new TinyColor(
-            tooltipBg,
-          ).setAlpha(0.65)}, ${tooltipBg})`,
+            tooltipBgColor,
+          ).setAlpha(tooltipBgColor.getAlpha() - 0.1)}, ${tooltipBg})`,
           position: 'absolute',
           top: 0, // FIXME: hardcode in v4
           insetInlineEnd: 0, // FIXME: hardcode in v4
