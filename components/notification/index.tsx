@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { render } from 'rc-util/lib/React/render';
+import { render, unmount } from 'rc-util/lib/React/render';
 import useNotification from './useNotification';
 import type { ArgsProps, NotificationInstance, GlobalConfigProps } from './interface';
 import ConfigProvider, { globalConfig } from '../config-provider';
@@ -9,14 +9,9 @@ let notification: GlobalNotification | null = null;
 let act = (callback: VoidFunction) => callback();
 
 interface GlobalNotification {
-  prefixCls: string;
-  container: HTMLElement;
   fragment: DocumentFragment;
   instance?: NotificationInstance | null;
-  setPrefixCls?: (prefixCls: string) => void;
-  setContainer?: (container: HTMLElement) => void;
-  setMaxCount?: (maxCount: number) => void;
-  setRTL?: (rtl: boolean) => void;
+  sync?: VoidFunction;
 }
 
 type Task =
@@ -36,74 +31,79 @@ let taskQueue: Task[] = [];
 
 let defaultGlobalConfig: GlobalConfigProps = {};
 
-interface GlobalHolderProps {
-  defaultPrefixCls: string;
-  defaultContainer: HTMLElement;
-  defaultRTL?: boolean;
-  defaultMaxCount?: number;
+function getGlobalContext() {
+  const {
+    prefixCls: globalPrefixCls,
+    getContainer: globalGetContainer,
+    rtl,
+    maxCount,
+  } = defaultGlobalConfig;
+  const mergedPrefixCls = globalPrefixCls ?? globalConfig().getPrefixCls('notification');
+  const mergedContainer = globalGetContainer?.() || document.body;
+
+  return {
+    prefixCls: mergedPrefixCls,
+    container: mergedContainer,
+    rtl,
+    maxCount,
+  };
 }
 
 interface GlobalHolderRef {
   instance: NotificationInstance;
-  setMaxCount: (maxCount: number) => void;
-  setRTL: (rtl: boolean) => void;
+  sync: () => void;
 }
 
-const GlobalHolder = React.forwardRef<GlobalHolderRef, GlobalHolderProps>(
-  ({ defaultPrefixCls, defaultContainer, defaultRTL, defaultMaxCount }, ref) => {
-    const [prefixCls, setPrefixCls] = React.useState<string>(defaultPrefixCls);
-    const [container, setContainer] = React.useState<HTMLElement>(defaultContainer);
-    const [rtl, setRTL] = React.useState<boolean | undefined>(defaultRTL);
-    const [maxCount, setMaxCount] = React.useState<number | undefined>(defaultMaxCount);
-    const [api, holder] = useNotification({
-      prefixCls,
-      getContainer: () => container,
-      maxCount,
-      rtl,
-    });
+const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
+  const [prefixCls, setPrefixCls] = React.useState<string>();
+  const [container, setContainer] = React.useState<HTMLElement>();
+  const [maxCount, setMaxCount] = React.useState<number | undefined>();
+  const [rtl, setRTL] = React.useState<boolean | undefined>();
 
-    const global = globalConfig();
-    const rootPrefixCls = global.getRootPrefixCls();
-    const rootIconPrefixCls = global.getIconPrefixCls();
+  const [api, holder] = useNotification({
+    prefixCls,
+    getContainer: () => container!,
+    maxCount,
+    rtl,
+  });
 
-    React.useImperativeHandle(ref, () => ({
-      instance: api,
-      setPrefixCls,
-      setContainer,
-      setMaxCount,
-      setRTL,
-    }));
+  const global = globalConfig();
+  const rootPrefixCls = global.getRootPrefixCls();
+  const rootIconPrefixCls = global.getIconPrefixCls();
 
-    return (
-      <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={rootIconPrefixCls}>
-        {holder}
-      </ConfigProvider>
-    );
-  },
-);
+  const sync = () => {
+    const {
+      prefixCls: nextGlobalPrefixCls,
+      container: nextGlobalContainer,
+      maxCount: nextGlobalMaxCount,
+      rtl: nextGlobalRTL,
+    } = getGlobalContext();
 
-function getContainerElement(globalGetContainer?: () => HTMLElement) {
-  return globalGetContainer?.() || document.body;
-}
+    setPrefixCls(nextGlobalPrefixCls);
+    setContainer(nextGlobalContainer);
+    setMaxCount(nextGlobalMaxCount);
+    setRTL(nextGlobalRTL);
+  };
 
-function getGlobalContext(): [string, HTMLElement] {
-  const { prefixCls: globalPrefixCls, getContainer: globalGetContainer } = defaultGlobalConfig;
-  const mergedPrefixCls = globalPrefixCls ?? globalConfig().getPrefixCls('notification');
-  const mergedContainer = getContainerElement(globalGetContainer);
+  React.useEffect(sync, []);
 
-  return [mergedPrefixCls, mergedContainer];
-}
+  React.useImperativeHandle(ref, () => ({
+    instance: api,
+    sync,
+  }));
+
+  return (
+    <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={rootIconPrefixCls}>
+      {holder}
+    </ConfigProvider>
+  );
+});
 
 function flushNotice() {
   if (!notification) {
     const holderFragment = document.createDocumentFragment();
 
-    const [prefixCls, container] = getGlobalContext();
-    const { maxCount, rtl } = defaultGlobalConfig;
-
     const newNotification: GlobalNotification = {
-      prefixCls,
-      container,
       fragment: holderFragment,
     };
 
@@ -114,17 +114,11 @@ function flushNotice() {
       render(
         <GlobalHolder
           ref={node => {
-            const nodeContent = node || ({} as GlobalHolderRef);
-
-            Object.keys(nodeContent).forEach((key: keyof GlobalHolderRef) => {
-              (newNotification as any)[key] = nodeContent[key];
-            });
+            const { instance, sync } = node || {};
+            newNotification.instance = instance;
+            newNotification.sync = sync;
             flushNotice();
           }}
-          defaultPrefixCls={prefixCls}
-          defaultContainer={container}
-          defaultMaxCount={maxCount}
-          defaultRTL={rtl}
         />,
         holderFragment,
       );
@@ -184,24 +178,9 @@ function setNotificationGlobalConfig(config: GlobalConfigProps) {
     ...config,
   };
 
-  // Refresh data
-  const { prefixCls, getContainer, maxCount, rtl } = defaultGlobalConfig;
-
+  // Trigger sync for it
   act(() => {
-    if (notification) {
-      if (prefixCls !== undefined && notification.setPrefixCls) {
-        notification.setPrefixCls(prefixCls);
-      }
-      if (maxCount !== undefined && notification.setContainer) {
-        notification.setContainer(getContainerElement(getContainer));
-      }
-      if (maxCount !== undefined && notification.setMaxCount) {
-        notification.setMaxCount(maxCount);
-      }
-      if (rtl !== undefined && notification.setRTL) {
-        notification.setRTL(rtl);
-      }
-    }
+    notification?.sync?.();
   });
 }
 
@@ -275,6 +254,13 @@ export let actDestroy = noop;
 if (process.env.NODE_ENV === 'test') {
   actDestroy = () => {
     staticMethods.destroy();
+
+    act(() => {
+      if (notification?.fragment) {
+        unmount(notification.fragment);
+      }
+    });
+
     notification = null;
   };
 }
