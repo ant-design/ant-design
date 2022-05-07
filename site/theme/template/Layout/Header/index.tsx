@@ -2,7 +2,7 @@ import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import classNames from 'classnames';
 import { UnorderedListOutlined } from '@ant-design/icons';
-import { Select, Row, Col, Popover, Button } from 'antd';
+import { Select, Row, Col, Popover, Button, Modal } from 'antd';
 import canUseDom from 'rc-util/lib/Dom/canUseDom';
 import * as utils from '../../utils';
 import packageJson from '../../../../../package.json';
@@ -109,6 +109,20 @@ class Header extends React.Component<HeaderProps, HeaderState> {
         this.setState({
           showTechUIButton: true,
         });
+        if (
+          process.env.NODE_ENV === 'production' &&
+          !window.location.href.includes('ant-design.antgroup.com')
+        ) {
+          Modal.info({
+            title: '提示',
+            content: '国内镜像已经上线，推荐访问国内镜像以获得更佳体验～',
+            okText: '前往',
+            onOk: () => {
+              window.open('https://ant-design.antgroup.com', '_self');
+            },
+            closable: true,
+          });
+        }
       }
     });
   }
