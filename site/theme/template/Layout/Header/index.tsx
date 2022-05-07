@@ -1,8 +1,8 @@
 import React from 'react';
 import { FormattedMessage, injectIntl } from 'react-intl';
 import classNames from 'classnames';
-import { UnorderedListOutlined } from '@ant-design/icons';
 import { Select, Row, Col, Popover, Button, Modal } from 'antd';
+import { MenuOutlined } from '@ant-design/icons';
 import canUseDom from 'rc-util/lib/Dom/canUseDom';
 import * as utils from '../../utils';
 import packageJson from '../../../../../package.json';
@@ -355,7 +355,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                   arrowPointAtCenter
                   onVisibleChange={this.onMenuVisibleChange}
                 >
-                  <UnorderedListOutlined className="nav-phone-icon" onClick={this.handleShowMenu} />
+                  <MenuOutlined className="nav-phone-icon" onClick={this.handleShowMenu} />
                 </Popover>
               )}
               <Row style={{ flexFlow: 'nowrap', height: 64 }}>

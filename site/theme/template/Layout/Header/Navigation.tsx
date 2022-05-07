@@ -2,8 +2,8 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { FormattedMessage } from 'react-intl';
 import { Link } from 'bisheng/router';
-import { UnorderedListOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
+import { MenuOutlined, AntDesignOutlined } from '@ant-design/icons';
 import { Menu } from 'antd';
 import { getEcosystemGroup } from './More';
 import * as utils from '../../utils';
@@ -77,7 +77,7 @@ export default ({
   } else if (responsive === 'crowded') {
     additional = [
       {
-        label: <UnorderedListOutlined />,
+        label: <MenuOutlined />,
         key: 'additional',
         children: [...additionalItems],
       },
@@ -137,6 +137,7 @@ export default ({
           children: [
             {
               label: <a href="https://ant-design.antgroup.com">官方镜像</a>,
+              icon: <AntDesignOutlined />,
               key: 'antgroup',
             },
             {
