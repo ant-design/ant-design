@@ -39,3 +39,15 @@ export interface NotificationInstance {
   close(key: React.Key): void;
   destroy(): void;
 }
+
+export interface ConfigProps {
+  top?: number;
+  bottom?: number;
+  duration?: number;
+  prefixCls?: string;
+  placement?: NotificationPlacement;
+  getContainer?: () => HTMLElement;
+  closeIcon?: React.ReactNode;
+  rtl?: boolean;
+  maxCount?: number;
+}

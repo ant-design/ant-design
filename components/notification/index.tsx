@@ -346,26 +346,21 @@
 import * as React from 'react';
 import { render } from 'rc-util/lib/React/render';
 import useNotification, { useInternalNotification } from './useNotification';
-import { ArgsProps, NotificationInstance } from './interface';
-import { globalConfig } from '../config-provider';
+import type { ArgsProps, NotificationInstance, ConfigProps } from './interface';
+import ConfigProvider, { globalConfig } from '../config-provider';
+
+let notificationList: GlobalNotification[] = [];
 
 let act = (callback: VoidFunction) => callback();
-
-/** @private Only Work for react test env */
-export function actWrapper(wrapper: VoidFunction) {
-  if (process.env.NODE_ENV === 'test') {
-    act = wrapper;
-  }
-}
 
 interface GlobalNotification {
   prefixCls: string;
   container: HTMLElement;
   fragment: DocumentFragment;
   instance?: NotificationInstance | null;
+  setMaxCount?: (maxCount: number) => void;
+  setRTL?: (rtl: boolean) => void;
 }
-
-const notificationList: GlobalNotification[] = [];
 
 type Task =
   | {
@@ -382,26 +377,51 @@ type Task =
 
 let taskQueue: Task[] = [];
 
+let defaultGlobalConfig: ConfigProps = {};
+
 interface GlobalHolderProps {
   prefixCls: string;
   container: HTMLElement;
+  defaultRTL?: boolean;
+  defaultMaxCount?: number;
 }
 
-const GlobalHolder = React.forwardRef<NotificationInstance, GlobalHolderProps>(
-  ({ prefixCls, container }, ref) => {
-    const [api, holder] = useInternalNotification({ prefixCls, container });
+interface GlobalHolderRef {
+  instance: NotificationInstance;
+  setMaxCount: (maxCount: number) => void;
+  setRTL: (rtl: boolean) => void;
+}
 
-    React.useImperativeHandle(ref, () => api);
+const GlobalHolder = React.forwardRef<GlobalHolderRef, GlobalHolderProps>(
+  ({ prefixCls, container, defaultRTL, defaultMaxCount }, ref) => {
+    const [rtl, setRTL] = React.useState<boolean | undefined>(defaultRTL);
+    const [maxCount, setMaxCount] = React.useState<number | undefined>(defaultMaxCount);
+    const [api, holder] = useInternalNotification({ prefixCls, container, maxCount, rtl });
 
-    return holder;
+    const global = globalConfig();
+    const rootPrefixCls = global.getRootPrefixCls();
+    const rootIconPrefixCls = global.getIconPrefixCls();
+
+    React.useImperativeHandle(ref, () => ({
+      instance: api,
+      setMaxCount,
+      setRTL,
+    }));
+
+    return (
+      <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={rootIconPrefixCls}>
+        {holder}
+      </ConfigProvider>
+    );
   },
 );
 
 /** Get unique notification mark of `prefixCls` and `container` */
 function getNotificationMark(config: ArgsProps): [string, HTMLElement] {
+  const { prefixCls: globalPrefixCls, getContainer: globalGetContainer } = defaultGlobalConfig;
   const { prefixCls, getContainer } = config || {};
-  const mergedPrefixCls = globalConfig().getPrefixCls('notification', prefixCls);
-  const mergedContainer = getContainer?.() || document.body;
+  const mergedPrefixCls = globalPrefixCls ?? globalConfig().getPrefixCls('notification', prefixCls);
+  const mergedContainer = globalGetContainer?.() || getContainer?.() || document.body;
 
   return [mergedPrefixCls, mergedContainer];
 }
@@ -432,6 +452,8 @@ function flushNotice() {
         const holderFragment = document.createDocumentFragment();
 
         const [prefixCls, container] = getNotificationMark(task.config);
+        const { maxCount, rtl } = defaultGlobalConfig;
+
         const notification: GlobalNotification = {
           prefixCls,
           container,
@@ -444,12 +466,17 @@ function flushNotice() {
         act(() => {
           render(
             <GlobalHolder
-              ref={instance => {
+              ref={node => {
+                const { instance, setMaxCount, setRTL } = node || {};
                 notification.instance = instance;
+                notification.setMaxCount = setMaxCount;
+                notification.setRTL = setRTL;
                 flushNotice();
               }}
               prefixCls={prefixCls}
               container={container}
+              defaultMaxCount={maxCount}
+              defaultRTL={rtl}
             />,
             holderFragment,
           );
@@ -466,7 +493,10 @@ function flushNotice() {
       case 'open': {
         act(() => {
           const globalNotification = findNotification(task.config);
-          globalNotification!.instance!.open(task.config);
+          globalNotification!.instance!.open({
+            ...defaultGlobalConfig,
+            ...task.config,
+          });
         });
         break;
       }
@@ -502,6 +532,26 @@ function flushNotice() {
 const methods = ['success', 'info', 'warning', 'error'] as const;
 type MethodType = typeof methods[number];
 
+function setNotificationGlobalConfig(config: ConfigProps) {
+  defaultGlobalConfig = {
+    ...defaultGlobalConfig,
+    ...config,
+  };
+
+  // Refresh data
+  const { maxCount, rtl } = defaultGlobalConfig;
+  notificationList.forEach(notification => {
+    act(() => {
+      if (maxCount !== undefined && notification.setMaxCount) {
+        notification.setMaxCount(maxCount);
+      }
+      if (rtl !== undefined && notification.setRTL) {
+        notification.setRTL(rtl);
+      }
+    });
+  });
+}
+
 function open(config: ArgsProps) {
   taskQueue.push({
     type: 'open',
@@ -535,11 +585,12 @@ const baseStaticMethods: {
   open,
   close,
   destroy,
-  config() {},
+  config: setNotificationGlobalConfig,
   useNotification,
 };
 
-const staticMethods: Record<MethodType, (config: ArgsProps) => void> = baseStaticMethods as any;
+const staticMethods: typeof baseStaticMethods & Record<MethodType, (config: ArgsProps) => void> =
+  baseStaticMethods as any;
 
 methods.forEach(type => {
   staticMethods[type] = config =>
@@ -548,5 +599,31 @@ methods.forEach(type => {
       type,
     });
 });
+
+// ==============================================================================
+// ==                                   Test                                   ==
+// ==============================================================================
+const noop = () => {};
+
+/** @private Only Work in test env */
+// eslint-disable-next-line import/no-mutable-exports
+export let actWrapper: (wrapper: VoidFunction) => void = noop;
+
+if (process.env.NODE_ENV === 'test') {
+  actWrapper = wrapper => {
+    act = wrapper;
+  };
+}
+
+/** @private Only Work in test env */
+// eslint-disable-next-line import/no-mutable-exports
+export let actDestroy = noop;
+
+if (process.env.NODE_ENV === 'test') {
+  actDestroy = () => {
+    staticMethods.destroy();
+    notificationList = [];
+  };
+}
 
 export default staticMethods;

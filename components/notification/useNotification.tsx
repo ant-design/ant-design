@@ -108,7 +108,12 @@ interface HolderRef extends NotificationAPI {
 }
 
 const Holder = React.forwardRef<HolderRef, HolderProps>(({ offsets, staticConfig }, ref) => {
-  const { prefixCls: staticPrefixCls, container: staticContainer } = staticConfig || {};
+  const {
+    prefixCls: staticPrefixCls,
+    container: staticContainer,
+    maxCount,
+    rtl,
+  } = staticConfig || {};
   const { getPrefixCls } = React.useContext(ConfigContext);
 
   const prefixCls = staticPrefixCls || getPrefixCls('notification');
@@ -119,6 +124,8 @@ const Holder = React.forwardRef<HolderRef, HolderProps>(({ offsets, staticConfig
     const bottom = offsets[placement]?.bottom ?? DEFAULT_OFFSET;
     return getPlacementStyle(placement, top, bottom);
   };
+
+  const getClassName = () => (rtl ? `${prefixCls}-rtl` : '');
 
   // ============================== Motion ===============================
   const getNotificationMotion = (placement: NotificationPlacement) =>
@@ -135,11 +142,13 @@ const Holder = React.forwardRef<HolderRef, HolderProps>(({ offsets, staticConfig
   const [api, holder] = useRcNotification({
     prefixCls,
     style: getStyle,
+    className: getClassName,
     motion: getNotificationMotion,
     closable: true,
     closeIcon: mergedCloseIcon,
     duration: DEFAULT_DURATION,
     getContainer: () => staticContainer || document.body,
+    maxCount,
   });
 
   // ================================ Ref ================================
@@ -159,6 +168,8 @@ interface InternalNotificationConfig {
   prefixCls?: string;
   /** @private Used For global static function only. Do not use this */
   container?: HTMLElement;
+  maxCount?: number;
+  rtl?: boolean;
 }
 
 export function useInternalNotification(
@@ -197,6 +208,7 @@ export function useInternalNotification(
         top,
         bottom,
         btn,
+        className,
         ...restConfig
       } = config;
 
@@ -230,6 +242,7 @@ export function useInternalNotification(
         ),
         placement,
         ...restConfig,
+        className: classNames(type && `${noticePrefixCls}-${type}`, className),
       });
     };
 

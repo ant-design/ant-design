@@ -1,8 +1,33 @@
-import { act } from 'react-dom/test-utils';
-import notification from '..';
+import notification, { actWrapper, actDestroy } from '..';
+import { act, fireEvent } from '../../../tests/utils';
+
+globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 
 describe('Notification.placement', () => {
-  afterEach(() => notification.destroy());
+  beforeAll(() => {
+    actWrapper(act);
+  });
+
+  beforeEach(() => {
+    jest.useFakeTimers();
+    jest.clearAllTimers();
+  });
+
+  afterEach(() => {
+    actDestroy();
+
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    // Clean up all motion
+    document.querySelectorAll('.ant-notification-notice').forEach(ele => {
+      fireEvent.animationEnd(ele);
+    });
+
+    jest.clearAllTimers();
+    jest.useRealTimers();
+  });
 
   function $$(className) {
     return document.body.querySelectorAll(className);
@@ -215,21 +240,24 @@ describe('Notification.placement', () => {
     });
 
     it('can be configured per notification using the `open` method', () => {
-      act(() => {
-        open({
-          getContainer: () => $container,
-        });
+      open({
+        getContainer: () => $container,
       });
 
       expect($container.querySelector('.ant-notification')).not.toBe(null);
       notification.destroy();
-      setTimeout(() => {
-        // Upcoming notifications still use their default mountNode and not $container
-        act(() => {
-          open();
-        });
-        expect($container.querySelector('.ant-notification')).toBe(null);
+
+      // Leave motion
+      act(() => {
+        jest.runAllTimers();
       });
+      document.querySelectorAll('.ant-notification-notice').forEach(ele => {
+        fireEvent.animationEnd(ele);
+      });
+
+      // Upcoming notifications still use their default mountNode and not $container
+      open();
+      expect($container.querySelector('.ant-notification')).toBe(null);
     });
 
     it('can be configured globally using the `config` method', () => {
@@ -238,13 +266,20 @@ describe('Notification.placement', () => {
       });
       expect($container.querySelector('.ant-notification')).not.toBe(null);
       notification.destroy();
-      setTimeout(() => {
-        // Upcoming notifications are mounted in $container
-        act(() => {
-          open();
-        });
-        expect($container.querySelector('.ant-notification')).not.toBe(null);
+
+      // Leave motion
+      act(() => {
+        jest.runAllTimers();
       });
+      document.querySelectorAll('.ant-notification-notice').forEach(ele => {
+        fireEvent.animationEnd(ele);
+      });
+
+      // Upcoming notifications are mounted in $container
+      act(() => {
+        open();
+      });
+      expect($container.querySelector('.ant-notification')).not.toBe(null);
     });
   });
 });

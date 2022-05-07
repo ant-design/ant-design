@@ -2,7 +2,7 @@ import React from 'react';
 import { UserOutlined } from '@ant-design/icons';
 import notification, { actWrapper } from '..';
 import ConfigProvider from '../../config-provider';
-import { sleep, act, fireEvent } from '../../../tests/utils';
+import { act, fireEvent } from '../../../tests/utils';
 
 globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 
@@ -17,10 +17,19 @@ describe('notification', () => {
   });
 
   afterEach(() => {
-    jest.runAllTimers();
-    jest.useRealTimers();
-
     notification.destroy();
+
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    // Clean up all motion
+    document.querySelectorAll('.ant-notification-notice').forEach(ele => {
+      fireEvent.animationEnd(ele);
+    });
+
+    jest.clearAllTimers();
+    jest.useRealTimers();
   });
 
   it('not duplicate create holder', () => {
@@ -84,237 +93,227 @@ describe('notification', () => {
     expect(document.querySelectorAll('.ant-notification-notice')).toHaveLength(0);
   });
 
-  // it('should be able to destroy globally', async () => {
-  //   act(() => {
-  //     notification.open({
-  //       message: 'Notification Title',
-  //       duration: 0,
-  //     });
-  //   });
+  it('should be able to destroy globally', () => {
+    notification.open({
+      message: 'Notification Title',
+      duration: 0,
+    });
 
-  //   act(() => {
-  //     notification.open({
-  //       message: 'Notification Title',
-  //       duration: 0,
-  //     });
-  //   });
+    act(() => {
+      jest.runAllTimers();
+    });
 
-  //   await act(async () => {
-  //     await Promise.resolve();
-  //   });
+    notification.open({
+      message: 'Notification Title',
+      duration: 0,
+    });
 
-  //   expect(document.querySelectorAll('.ant-notification').length).toBe(1);
-  //   expect(document.querySelectorAll('.ant-notification-notice').length).toBe(2);
+    act(() => {
+      jest.runAllTimers();
+    });
 
-  //   act(() => {
-  //     notification.destroy();
-  //   });
+    expect(document.querySelectorAll('.ant-notification')).toHaveLength(1);
+    expect(document.querySelectorAll('.ant-notification-notice')).toHaveLength(2);
 
-  //   await act(async () => {
-  //     await Promise.resolve();
-  //   });
+    notification.destroy();
 
-  //   expect(document.querySelectorAll('.ant-notification').length).toBe(0);
-  //   expect(document.querySelectorAll('.ant-notification-notice').length).toBe(0);
-  // });
+    act(() => {
+      jest.runAllTimers();
+    });
 
-  // it('should be able to destroy after config', () => {
-  //   act(() => {
-  //     notification.config({
-  //       bottom: 100,
-  //     });
-  //   });
+    // Leave motion end
+    document.querySelectorAll('.ant-notification-notice').forEach(ele => {
+      fireEvent.animationEnd(ele);
+    });
 
-  //   act(() => {
-  //     notification.destroy();
-  //   });
-  // });
+    expect(document.querySelectorAll('.ant-notification')).toHaveLength(0);
+    expect(document.querySelectorAll('.ant-notification-notice')).toHaveLength(0);
+  });
 
-  // it('should be able to config rtl', () => {
-  //   act(() => {
-  //     notification.config({
-  //       rtl: true,
-  //     });
-  //   });
+  it('should be able to destroy after config', () => {
+    notification.config({
+      bottom: 100,
+    });
 
-  //   act(() => {
-  //     notification.open({
-  //       message: 'whatever',
-  //     });
-  //   });
+    notification.destroy();
+  });
 
-  //   expect(document.querySelectorAll('.ant-notification-rtl').length).toBe(1);
-  // });
+  it('should be able to config rtl', () => {
+    notification.config({
+      rtl: true,
+    });
 
-  // it('should be able to global config rootPrefixCls', () => {
-  //   ConfigProvider.config({ prefixCls: 'prefix-test', iconPrefixCls: 'bamboo' });
+    notification.open({
+      message: 'whatever',
+    });
 
-  //   act(() => {
-  //     notification.success({ message: 'Notification Title', duration: 0 });
-  //   });
+    expect(document.querySelectorAll('.ant-notification-rtl')).toHaveLength(1);
+  });
 
-  //   expect(document.querySelectorAll('.ant-notification-notice')).toHaveLength(0);
-  //   expect(document.querySelectorAll('.prefix-test-notification-notice')).toHaveLength(1);
-  //   expect(document.querySelectorAll('.bamboo-check-circle')).toHaveLength(1);
-  //   ConfigProvider.config({ prefixCls: 'ant', iconPrefixCls: null });
-  // });
+  it('should be able to global config rootPrefixCls', () => {
+    ConfigProvider.config({ prefixCls: 'prefix-test', iconPrefixCls: 'bamboo' });
 
-  // it('should be able to config prefixCls', () => {
-  //   notification.config({
-  //     prefixCls: 'prefix-test',
-  //   });
+    notification.success({ message: 'Notification Title', duration: 0 });
 
-  //   act(() => {
-  //     notification.open({
-  //       message: 'Notification Title',
-  //       duration: 0,
-  //     });
-  //   });
+    expect(document.querySelectorAll('.ant-notification-notice')).toHaveLength(0);
+    expect(document.querySelectorAll('.prefix-test-notification-notice')).toHaveLength(1);
+    expect(document.querySelectorAll('.bamboo-check-circle')).toHaveLength(1);
 
-  //   expect(document.querySelectorAll('.ant-notification-notice')).toHaveLength(0);
-  //   expect(document.querySelectorAll('.prefix-test-notice')).toHaveLength(1);
+    ConfigProvider.config({ prefixCls: 'ant', iconPrefixCls: null });
+  });
 
-  //   notification.config({
-  //     prefixCls: '',
-  //   });
-  // });
+  it('should be able to config prefixCls', () => {
+    notification.config({
+      prefixCls: 'prefix-test',
+    });
 
-  // it('should be able to open with icon', async () => {
-  //   const iconPrefix = '.ant-notification-notice-icon';
+    notification.open({
+      message: 'Notification Title',
+      duration: 0,
+    });
 
-  //   const openNotificationWithIcon = async type => {
-  //     act(() => {
-  //       notification[type]({
-  //         message: 'Notification Title',
-  //         duration: 0,
-  //         description: 'This is the content of the notification.',
-  //       });
-  //       jest.runAllTimers();
-  //     });
-  //   };
+    expect(document.querySelectorAll('.ant-notification-notice')).toHaveLength(0);
+    expect(document.querySelectorAll('.prefix-test-notice')).toHaveLength(1);
 
-  //   const list = ['success', 'info', 'warning', 'error'];
+    notification.config({
+      prefixCls: null,
+    });
+  });
 
-  //   const promises = list.map(type => openNotificationWithIcon(type));
+  it('should be able to open with icon', () => {
+    const iconPrefix = '.ant-notification-notice-icon';
 
-  //   await act(async () => {
-  //     await Promise.all(promises);
-  //   });
+    const list = ['success', 'info', 'warning', 'error'];
 
-  //   list.forEach(type => {
-  //     expect(document.querySelectorAll(`${iconPrefix}-${type}`).length).toBe(1);
-  //   });
-  // });
+    list.forEach(type => {
+      notification[type]({
+        message: 'Notification Title',
+        duration: 0,
+        description: 'This is the content of the notification.',
+      });
 
-  // it('should be able to add parent class for different notification types', async () => {
-  //   const openNotificationWithIcon = async type => {
-  //     act(() => {
-  //       notification[type]({
-  //         message: 'Notification Title',
-  //         duration: 0,
-  //         description: 'This is the content of the notification.',
-  //       });
-  //       jest.runAllTimers();
-  //     });
-  //   };
+      act(() => {
+        jest.runAllTimers();
+      });
+    });
 
-  //   const list = ['success', 'info', 'warning', 'error'];
-  //   const promises = list.map(type => openNotificationWithIcon(type));
+    list.forEach(type => {
+      expect(document.querySelectorAll(`${iconPrefix}-${type}`)).toHaveLength(1);
+    });
+  });
 
-  //   await act(async () => {
-  //     await Promise.all(promises);
-  //   });
+  it('should be able to add parent class for different notification types', () => {
+    const list = ['success', 'info', 'warning', 'error'];
+    list.forEach(type => {
+      notification[type]({
+        message: 'Notification Title',
+        duration: 0,
+        description: 'This is the content of the notification.',
+      });
 
-  //   list.forEach(type => {
-  //     expect(document.querySelectorAll(`.ant-notification-notice-${type}`).length).toBe(1);
-  //   });
-  // });
+      act(() => {
+        jest.runAllTimers();
+      });
+    });
 
-  // it('trigger onClick', () => {
-  //   act(() => {
-  //     notification.open({
-  //       message: 'Notification Title',
-  //       duration: 0,
-  //     });
-  //   });
+    list.forEach(type => {
+      expect(document.querySelectorAll(`.ant-notification-notice-${type}`)).toHaveLength(1);
+    });
+  });
 
-  //   expect(document.querySelectorAll('.ant-notification').length).toBe(1);
-  // });
+  it('trigger onClick', () => {
+    const onClick = jest.fn();
 
-  // it('support closeIcon', () => {
-  //   act(() => {
-  //     notification.open({
-  //       message: 'Notification Title',
-  //       duration: 0,
-  //       closeIcon: <span className="test-customize-icon" />,
-  //     });
-  //   });
+    notification.open({
+      message: 'Notification Title',
+      duration: 0,
+      onClick,
+    });
 
-  //   expect(document.querySelectorAll('.test-customize-icon').length).toBe(1);
-  // });
+    expect(document.querySelectorAll('.ant-notification')).toHaveLength(1);
 
-  // it('support config closeIcon', () => {
-  //   notification.config({
-  //     closeIcon: <span className="test-customize-icon" />,
-  //   });
+    fireEvent.click(document.querySelector('.ant-notification-notice'));
+    expect(onClick).toHaveBeenCalled();
+  });
 
-  //   act(() => {
-  //     notification.open({
-  //       message: 'Notification Title',
-  //       duration: 0,
-  //       closeIcon: <span className="test-customize-icon" />,
-  //     });
-  //   });
+  it('support closeIcon', () => {
+    notification.open({
+      message: 'Notification Title',
+      duration: 0,
+      closeIcon: <span className="test-customize-icon" />,
+    });
 
-  //   expect(document.querySelectorAll('.test-customize-icon').length).toBe(1);
-  // });
+    expect(document.querySelectorAll('.test-customize-icon')).toHaveLength(1);
+  });
 
-  // it('closeIcon should be update', async () => {
-  //   const openNotificationWithCloseIcon = async type => {
-  //     act(() => {
-  //       notification.open({
-  //         message: 'Notification Title',
-  //         closeIcon: <span className={`test-customize-icon-${type}`} />,
-  //       });
-  //       jest.runAllTimers();
-  //     });
-  //   };
+  it('support config closeIcon', () => {
+    notification.config({
+      closeIcon: <span className="test-customize-icon" />,
+    });
 
-  //   const list = ['1', '2'];
-  //   const promises = list.map(type => openNotificationWithCloseIcon(type));
+    // Global Icon
+    act(() => {
+      notification.open({
+        message: 'Notification Title',
+        duration: 0,
+      });
+    });
+    expect(document.querySelector('.test-customize-icon')).toBeTruthy();
 
-  //   await act(async () => {
-  //     await Promise.all(promises);
-  //   });
+    // Notice Icon
+    act(() => {
+      notification.open({
+        message: 'Notification Title',
+        duration: 0,
+        closeIcon: <span className="replace-icon" />,
+      });
+    });
 
-  //   list.forEach(type => {
-  //     expect(document.querySelectorAll(`.test-customize-icon-${type}`).length).toBe(1);
-  //   });
-  // });
+    expect(document.querySelector('.replace-icon')).toBeTruthy();
 
-  // it('support config duration', () => {
-  //   notification.config({
-  //     duration: 0,
-  //   });
+    notification.config({
+      closeIcon: null,
+    });
+  });
 
-  //   act(() => {
-  //     notification.open({
-  //       message: 'whatever',
-  //     });
-  //   });
+  it('closeIcon should be update', async () => {
+    const list = ['1', '2'];
+    list.forEach(type => {
+      notification.open({
+        message: 'Notification Title',
+        closeIcon: <span className={`test-customize-icon-${type}`} />,
+        duration: 0,
+      });
 
-  //   expect(document.querySelectorAll('.ant-notification').length).toBe(1);
-  // });
+      act(() => {
+        jest.runAllTimers();
+      });
+    });
 
-  // it('support icon', () => {
-  //   act(() => {
-  //     notification.open({
-  //       message: 'Notification Title',
-  //       duration: 0,
-  //       icon: <UserOutlined />,
-  //     });
-  //   });
+    list.forEach(type => {
+      expect(document.querySelector(`.test-customize-icon-${type}`)).toBeTruthy();
+    });
+  });
 
-  //   expect(document.querySelectorAll('.anticon-user').length).toBe(1);
-  // });
+  it('support config duration', () => {
+    notification.config({
+      duration: 0,
+    });
+
+    notification.open({
+      message: 'whatever',
+    });
+
+    expect(document.querySelector('.ant-notification')).toBeTruthy();
+  });
+
+  it('support icon', () => {
+    notification.open({
+      message: 'Notification Title',
+      duration: 0,
+      icon: <UserOutlined />,
+    });
+
+    expect(document.querySelector('.anticon-user')).toBeTruthy();
+  });
 });
