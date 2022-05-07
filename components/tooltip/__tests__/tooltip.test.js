@@ -314,27 +314,47 @@ describe('Tooltip', () => {
     }).not.toThrow();
   });
 
-  it('other placement when mouse enter', async () => {
-    const { container } = render(
-      <Tooltip
-        title="xxxxx"
-        placement="topRight"
-        transitionName=""
-        popupTransitionName=""
-        mouseEnterDelay={0}
-      >
-        <span>Hello world!</span>
-      </Tooltip>,
-    );
+  describe('support other placement when mouse enter', () => {
+    const placementList = [
+      'top',
+      'left',
+      'right',
+      'bottom',
+      'topLeft',
+      'topRight',
+      'bottomLeft',
+      'bottomRight',
+      'leftTop',
+      'leftBottom',
+      'rightTop',
+      'rightBottom',
+    ];
+    const testPlacement = (name, placement) => {
+      it(name, async () => {
+        const { container } = render(
+          <Tooltip
+            title="xxxxx"
+            transitionName=""
+            popupTransitionName=""
+            mouseEnterDelay={0}
+            placement={placement}
+          >
+            <span>Hello world!</span>
+          </Tooltip>,
+        );
 
-    expect(container.getElementsByTagName('span')).toHaveLength(1);
-    const element = container.getElementsByTagName('span')[0];
-    fireEvent.mouseEnter(element);
-    await sleep(500);
+        expect(container.getElementsByTagName('span')).toHaveLength(1);
+        const element = container.getElementsByTagName('span')[0];
+        fireEvent.mouseEnter(element);
+        await sleep(500);
 
-    await waitFor(() => {
-      expect(document.querySelector('.ant-tooltip-placement-topRight')).not.toBeNull();
-    });
+        await waitFor(() => {
+          expect(document.querySelector(`.ant-tooltip-placement-${placement}`)).not.toBeNull();
+        });
+      });
+    };
+
+    placementList.forEach(placement => testPlacement(`Placement ${placement}`, placement));
   });
 
   it('should works for mismatch placement', async () => {
