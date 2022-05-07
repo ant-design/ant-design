@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { render } from 'rc-util/lib/React/render';
-import useNotification, { useInternalNotification } from './useNotification';
-import type { ArgsProps, NotificationInstance, ConfigProps } from './interface';
+import useNotification from './useNotification';
+import type { ArgsProps, NotificationInstance, GlobalConfigProps } from './interface';
 import ConfigProvider, { globalConfig } from '../config-provider';
 
-let notificationList: GlobalNotification[] = [];
+// let notificationList: GlobalNotification[] = [];
+let notification: GlobalNotification | null = null;
 
 let act = (callback: VoidFunction) => callback();
 
@@ -32,7 +33,7 @@ type Task =
 
 let taskQueue: Task[] = [];
 
-let defaultGlobalConfig: ConfigProps = {};
+let defaultGlobalConfig: GlobalConfigProps = {};
 
 interface GlobalHolderProps {
   prefixCls: string;
@@ -51,7 +52,12 @@ const GlobalHolder = React.forwardRef<GlobalHolderRef, GlobalHolderProps>(
   ({ prefixCls, container, defaultRTL, defaultMaxCount }, ref) => {
     const [rtl, setRTL] = React.useState<boolean | undefined>(defaultRTL);
     const [maxCount, setMaxCount] = React.useState<number | undefined>(defaultMaxCount);
-    const [api, holder] = useInternalNotification({ prefixCls, container, maxCount, rtl });
+    const [api, holder] = useNotification({
+      prefixCls,
+      getContainer: () => container,
+      maxCount,
+      rtl,
+    });
 
     const global = globalConfig();
     const rootPrefixCls = global.getRootPrefixCls();
@@ -71,75 +77,55 @@ const GlobalHolder = React.forwardRef<GlobalHolderRef, GlobalHolderProps>(
   },
 );
 
-/** Get unique notification mark of `prefixCls` and `container` */
-function getNotificationMark(config: ArgsProps): [string, HTMLElement] {
+function getGlobalContext(): [string, HTMLElement] {
   const { prefixCls: globalPrefixCls, getContainer: globalGetContainer } = defaultGlobalConfig;
-  const { prefixCls, getContainer } = config || {};
-  const mergedPrefixCls = globalPrefixCls ?? globalConfig().getPrefixCls('notification', prefixCls);
-  const mergedContainer = globalGetContainer?.() || getContainer?.() || document.body;
+  const mergedPrefixCls = globalPrefixCls ?? globalConfig().getPrefixCls('notification');
+  const mergedContainer = globalGetContainer?.() || document.body;
 
   return [mergedPrefixCls, mergedContainer];
 }
 
-function findNotification(config: ArgsProps) {
-  const [prefixCls, container] = getNotificationMark(config);
-
-  return notificationList.find(notification => {
-    const { prefixCls: comparePrefixCls, container: compareContainer } = notification;
-    return comparePrefixCls === prefixCls && compareContainer === container;
-  });
-}
-
 function flushNotice() {
-  // >>> Check for all instances exist. Or we will create and return.
-  for (let i = 0; i < taskQueue.length; i += 1) {
-    const task = taskQueue[i];
-    if (task.type === 'open') {
-      const matchInstance = findNotification(task.config);
+  if (!notification) {
+    const holderFragment = document.createDocumentFragment();
 
-      // Return if not ready
-      if (matchInstance && !matchInstance.instance) {
-        return;
-      }
+    const [prefixCls, container] = getGlobalContext();
+    const { maxCount, rtl } = defaultGlobalConfig;
 
-      // Create if not exist
-      if (!matchInstance) {
-        const holderFragment = document.createDocumentFragment();
+    const newNotification: GlobalNotification = {
+      prefixCls,
+      container,
+      fragment: holderFragment,
+    };
 
-        const [prefixCls, container] = getNotificationMark(task.config);
-        const { maxCount, rtl } = defaultGlobalConfig;
+    notification = newNotification;
 
-        const notification: GlobalNotification = {
-          prefixCls,
-          container,
-          fragment: holderFragment,
-        };
+    // Delay render to avoid sync issue
+    act(() => {
+      render(
+        <GlobalHolder
+          ref={node => {
+            const { instance, setMaxCount, setRTL } = node || {};
+            newNotification.instance = instance;
+            newNotification.setMaxCount = setMaxCount;
+            newNotification.setRTL = setRTL;
+            flushNotice();
+          }}
+          prefixCls={prefixCls}
+          container={container}
+          defaultMaxCount={maxCount}
+          defaultRTL={rtl}
+        />,
+        holderFragment,
+      );
+    });
 
-        notificationList.push(notification);
+    return;
+  }
 
-        // Delay render to avoid sync issue
-        act(() => {
-          render(
-            <GlobalHolder
-              ref={node => {
-                const { instance, setMaxCount, setRTL } = node || {};
-                notification.instance = instance;
-                notification.setMaxCount = setMaxCount;
-                notification.setRTL = setRTL;
-                flushNotice();
-              }}
-              prefixCls={prefixCls}
-              container={container}
-              defaultMaxCount={maxCount}
-              defaultRTL={rtl}
-            />,
-            holderFragment,
-          );
-        });
-
-        return;
-      }
-    }
+  // Notification not ready
+  if (notification && !notification.instance) {
+    return;
   }
 
   // >>> Execute task
@@ -147,8 +133,7 @@ function flushNotice() {
     switch (task.type) {
       case 'open': {
         act(() => {
-          const globalNotification = findNotification(task.config);
-          globalNotification!.instance!.open({
+          notification!.instance!.open({
             ...defaultGlobalConfig,
             ...task.config,
           });
@@ -158,17 +143,13 @@ function flushNotice() {
 
       case 'close':
         act(() => {
-          notificationList.forEach(globalNotification => {
-            globalNotification.instance!.close(task.key);
-          });
+          notification?.instance!.close(task.key);
         });
         break;
 
       case 'destroy':
         act(() => {
-          notificationList.forEach(globalNotification => {
-            globalNotification.instance!.destroy();
-          });
+          notification?.instance!.destroy();
         });
         break;
 
@@ -187,7 +168,7 @@ function flushNotice() {
 const methods = ['success', 'info', 'warning', 'error'] as const;
 type MethodType = typeof methods[number];
 
-function setNotificationGlobalConfig(config: ConfigProps) {
+function setNotificationGlobalConfig(config: GlobalConfigProps) {
   defaultGlobalConfig = {
     ...defaultGlobalConfig,
     ...config,
@@ -195,15 +176,16 @@ function setNotificationGlobalConfig(config: ConfigProps) {
 
   // Refresh data
   const { maxCount, rtl } = defaultGlobalConfig;
-  notificationList.forEach(notification => {
-    act(() => {
+
+  act(() => {
+    if (notification) {
       if (maxCount !== undefined && notification.setMaxCount) {
         notification.setMaxCount(maxCount);
       }
       if (rtl !== undefined && notification.setRTL) {
         notification.setRTL(rtl);
       }
-    });
+    }
   });
 }
 
@@ -277,7 +259,7 @@ export let actDestroy = noop;
 if (process.env.NODE_ENV === 'test') {
   actDestroy = () => {
     staticMethods.destroy();
-    notificationList = [];
+    notification = null;
   };
 }
 

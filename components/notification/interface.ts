@@ -19,15 +19,10 @@ export interface ArgsProps {
   duration?: number | null;
   icon?: React.ReactNode;
   placement?: NotificationPlacement;
-  maxCount?: number;
   style?: React.CSSProperties;
-  prefixCls?: string;
   className?: string;
   readonly type?: IconType;
   onClick?: () => void;
-  top?: number;
-  bottom?: number;
-  getContainer?: () => HTMLElement;
   closeIcon?: React.ReactNode;
 }
 
@@ -41,14 +36,21 @@ export interface NotificationInstance {
   destroy(): void;
 }
 
-export interface ConfigProps {
-  top?: number;
-  bottom?: number;
+export interface GlobalConfigProps {
   duration?: number;
   prefixCls?: string;
-  placement?: NotificationPlacement;
   getContainer?: () => HTMLElement;
+  placement?: NotificationPlacement;
   closeIcon?: React.ReactNode;
   rtl?: boolean;
   maxCount?: number;
+}
+
+export interface NotificationConfig {
+  top?: number;
+  bottom?: number;
+  prefixCls?: string;
+  getContainer?: () => HTMLElement;
+  maxCount?: number;
+  rtl?: boolean;
 }

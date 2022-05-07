@@ -8,7 +8,12 @@ import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlin
 import InfoCircleOutlined from '@ant-design/icons/InfoCircleOutlined';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import { ConfigContext } from '../config-provider';
-import type { NotificationInstance, ArgsProps, NotificationPlacement } from './interface';
+import type {
+  NotificationInstance,
+  ArgsProps,
+  NotificationPlacement,
+  NotificationConfig,
+} from './interface';
 import { getPlacementStyle, getMotion } from './util';
 import devWarning from '../_util/devWarning';
 
@@ -25,31 +30,28 @@ const DEFAULT_DURATION = 4.5;
 // ==============================================================================
 // ==                                  Holder                                  ==
 // ==============================================================================
-interface HolderProps {
-  offsets: Partial<Record<NotificationPlacement, { top?: number; bottom?: number }>>;
-  staticConfig?: InternalNotificationConfig;
-}
+type HolderProps = NotificationConfig;
+
 interface HolderRef extends NotificationAPI {
   prefixCls: string;
 }
 
-const Holder = React.forwardRef<HolderRef, HolderProps>(({ offsets, staticConfig }, ref) => {
+const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   const {
+    top,
+    bottom,
     prefixCls: staticPrefixCls,
-    container: staticContainer,
+    getContainer: staticGetContainer,
     maxCount,
     rtl,
-  } = staticConfig || {};
+  } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
 
   const prefixCls = staticPrefixCls || getPrefixCls('notification');
 
   // =============================== Style ===============================
-  const getStyle = (placement: NotificationPlacement) => {
-    const top = offsets[placement]?.top ?? DEFAULT_OFFSET;
-    const bottom = offsets[placement]?.bottom ?? DEFAULT_OFFSET;
-    return getPlacementStyle(placement, top, bottom);
-  };
+  const getStyle = (placement: NotificationPlacement) =>
+    getPlacementStyle(placement, top ?? DEFAULT_OFFSET, bottom ?? DEFAULT_OFFSET);
 
   const getClassName = () => (rtl ? `${prefixCls}-rtl` : '');
 
@@ -73,7 +75,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>(({ offsets, staticConfig
     closable: true,
     closeIcon: mergedCloseIcon,
     duration: DEFAULT_DURATION,
-    getContainer: () => staticContainer || document.body,
+    getContainer: () => staticGetContainer?.() || document.body,
     maxCount,
   });
 
@@ -89,22 +91,10 @@ const Holder = React.forwardRef<HolderRef, HolderProps>(({ offsets, staticConfig
 // ==============================================================================
 // ==                                   Hook                                   ==
 // ==============================================================================
-interface InternalNotificationConfig {
-  /** @private Used For global static function only. Do not use this */
-  prefixCls?: string;
-  /** @private Used For global static function only. Do not use this */
-  container?: HTMLElement;
-  maxCount?: number;
-  rtl?: boolean;
-}
 
-export function useInternalNotification(
-  staticConfig?: InternalNotificationConfig,
+export default function useNotification(
+  notificationConfig?: NotificationConfig,
 ): [NotificationInstance, React.ReactElement] {
-  const [placementOffsets, setPlacementOffsets] = React.useState<
-    Partial<Record<NotificationPlacement, { top?: number; bottom?: number }>>
-  >({});
-
   const holderRef = React.useRef<HolderRef>(null);
 
   // ================================ API ================================
@@ -131,21 +121,14 @@ export function useInternalNotification(
         icon,
         type,
         placement = 'topRight',
-        top,
-        bottom,
         btn,
         className,
         ...restConfig
       } = config;
 
-      setPlacementOffsets(prev => ({
-        [placement]: { top, bottom },
-        ...prev,
-      }));
-
       let iconNode: React.ReactNode = null;
       if (icon) {
-        iconNode = <span className={`${prefixCls}-icon`}>{icon}</span>;
+        iconNode = <span className={`${noticePrefixCls}-icon`}>{icon}</span>;
       } else if (type) {
         iconNode = React.createElement(typeToIcon[type] || null, {
           className: classNames(`${noticePrefixCls}-icon`, `${noticePrefixCls}-icon-${type}`),
@@ -201,12 +184,5 @@ export function useInternalNotification(
   }, []);
 
   // ============================== Return ===============================
-  return [
-    wrapAPI,
-    <Holder key="holder" ref={holderRef} offsets={placementOffsets} staticConfig={staticConfig} />,
-  ];
-}
-
-export default function useNotification(): [NotificationInstance, React.ReactElement] {
-  return useInternalNotification();
+  return [wrapAPI, <Holder key="holder" {...notificationConfig} ref={holderRef} />];
 }
