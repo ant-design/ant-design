@@ -1,14 +1,12 @@
-import React, {
-  Children,
+import React, { Children, forwardRef, useContext } from 'react';
+import type {
   CSSProperties,
   FC,
-  forwardRef,
   ForwardRefExoticComponent,
   ForwardRefRenderFunction,
   HTMLAttributes,
   ReactElement,
   ReactNode,
-  useContext,
 } from 'react';
 import classNames from 'classnames';
 import { ListGridType, ListContext } from './index';
