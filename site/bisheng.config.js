@@ -118,7 +118,7 @@ module.exports = {
     if (process.env.SITE_ENV === 'development') {
       // eslint-disable-next-line no-console
       console.log('Site build with development mode...');
-      config.mode = 'development';
+      // config.mode = 'development';
     }
 
     if (ANT_THEME) {
