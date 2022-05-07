@@ -108,7 +108,7 @@ export default () => <SiderDemo />;
   background: rgba(255, 255, 255, 0.3);
 }
 
-.site-layout .site-layout-background {
+#components-layout-demo-side .site-layout .site-layout-background {
   background: #fff;
 }
 ```

@@ -6,20 +6,17 @@ import useMemo from 'rc-util/lib/hooks/useMemo';
 import { RenderEmptyHandler } from './renderEmpty';
 import LocaleProvider, { ANT_MARK, Locale } from '../locale-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import {
-  ConfigConsumer,
-  ConfigContext,
-  CSPConfig,
-  DirectionType,
-  ConfigConsumerProps,
-  Theme,
-} from './context';
+import { ConfigConsumer, ConfigContext, defaultIconPrefixCls } from './context';
+import type { CSPConfig, DirectionType, ConfigConsumerProps, Theme, ThemeConfig } from './context';
 import SizeContext, { SizeContextProvider, SizeType } from './SizeContext';
 import message from '../message';
 import notification from '../notification';
 import { RequiredMark } from '../form/Form';
 import { registerTheme } from './cssVariables';
 import defaultLocale from '../locale/default';
+import { DesignTokenContext, useToken } from '../_util/theme';
+import useTheme from './hooks/useTheme';
+import defaultSeedToken from '../_util/theme/themes/default';
 
 export {
   RenderEmptyHandler,
@@ -80,6 +77,7 @@ export interface ConfigProviderProps {
   };
   virtual?: boolean;
   dropdownMatchSelectWidth?: boolean;
+  theme?: ThemeConfig;
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -88,7 +86,7 @@ interface ProviderChildrenProps extends ConfigProviderProps {
 }
 
 export const defaultPrefixCls = 'ant';
-export const defaultIconPrefixCls = 'anticon';
+export { defaultIconPrefixCls };
 let globalPrefixCls: string;
 let globalIconPrefixCls: string;
 
@@ -159,6 +157,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     legacyLocale,
     parentContext,
     iconPrefixCls,
+    theme,
   } = props;
 
   const getPrefixCls = React.useCallback(
@@ -174,6 +173,8 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     [parentContext.getPrefixCls, props.prefixCls],
   );
 
+  const mergedTheme = useTheme(theme, parentContext.theme);
+
   const config = {
     ...parentContext,
     csp,
@@ -184,6 +185,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     virtual,
     dropdownMatchSelectWidth,
     getPrefixCls,
+    theme: mergedTheme,
   };
 
   // Pass the props used by `useContext` directly with child component.
@@ -248,13 +250,35 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     childNode = <SizeContextProvider size={componentSize}>{childNode}</SizeContextProvider>;
   }
 
+  // ================================ Dynamic theme ================================
+  const memoTheme = React.useMemo(
+    () => ({
+      ...mergedTheme,
+
+      token: {
+        ...defaultSeedToken,
+        ...mergedTheme?.token,
+      },
+    }),
+    [mergedTheme],
+  );
+
+  if (theme) {
+    childNode = (
+      <DesignTokenContext.Provider value={memoTheme}>{childNode}</DesignTokenContext.Provider>
+    );
+  }
+
+  // =================================== Render ===================================
   return <ConfigContext.Provider value={memoedConfig}>{childNode}</ConfigContext.Provider>;
 };
 
 const ConfigProvider: React.FC<ConfigProviderProps> & {
+  /** @private internal Usage. do not use in your production */
   ConfigContext: typeof ConfigContext;
   SizeContext: typeof SizeContext;
   config: typeof setGlobalConfig;
+  useToken: typeof useToken;
 } = props => {
   React.useEffect(() => {
     if (props.direction) {
@@ -284,9 +308,9 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
   );
 };
 
-/** @private internal Usage. do not use in your production */
 ConfigProvider.ConfigContext = ConfigContext;
 ConfigProvider.SizeContext = SizeContext;
 ConfigProvider.config = setGlobalConfig;
+ConfigProvider.useToken = useToken;
 
 export default ConfigProvider;

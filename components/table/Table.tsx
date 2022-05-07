@@ -4,6 +4,7 @@ import omit from 'rc-util/lib/omit';
 import RcTable, { Summary } from 'rc-table';
 import { TableProps as RcTableProps, INTERNAL_HOOKS } from 'rc-table/lib/Table';
 import { convertChildrenToColumns } from 'rc-table/lib/hooks/useColumns';
+// eslint-disable-next-line import/no-named-as-default
 import Spin, { SpinProps } from '../spin';
 import Pagination from '../pagination';
 import { TooltipProps } from '../tooltip';

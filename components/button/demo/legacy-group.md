@@ -45,9 +45,3 @@ export default () => (
   </>
 );
 ```
-
-```css
-#components-button-demo-legacy-group .ant-btn {
-  margin: 0;
-}
-```

@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useContext, useMemo } from 'react';
 import classNames from 'classnames';
 import { ConfigContext } from '../config-provider';
+import useStyle from './style';
 import { FormItemInputContext } from '../form/context';
 
 export interface GroupProps {
@@ -21,6 +22,8 @@ const Group: React.FC<GroupProps> = props => {
   const { getPrefixCls, direction } = useContext(ConfigContext);
   const { prefixCls: customizePrefixCls, className = '' } = props;
   const prefixCls = getPrefixCls('input-group', customizePrefixCls);
+  const inputPrefixCls = getPrefixCls('input');
+  const [wrapSSR, hashId] = useStyle(inputPrefixCls);
   const cls = classNames(
     prefixCls,
     {
@@ -29,6 +32,7 @@ const Group: React.FC<GroupProps> = props => {
       [`${prefixCls}-compact`]: props.compact,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
+    hashId,
     className,
   );
 
@@ -41,7 +45,7 @@ const Group: React.FC<GroupProps> = props => {
     [formItemContext],
   );
 
-  return (
+  return wrapSSR(
     <span
       className={cls}
       style={props.style}
@@ -53,7 +57,7 @@ const Group: React.FC<GroupProps> = props => {
       <FormItemInputContext.Provider value={groupFormItemContext}>
         {props.children}
       </FormItemInputContext.Provider>
-    </span>
+    </span>,
   );
 };
 

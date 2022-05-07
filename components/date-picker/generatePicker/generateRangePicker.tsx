@@ -17,11 +17,16 @@ import { Components, getTimeProps, PickerLocale, RangePickerProps } from '.';
 import { FormItemInputContext } from '../../form/context';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
 import { PickerComponentClass } from './interface';
+import useStyle from '../style';
 
 export default function generateRangePicker<DateType>(
   generateConfig: GenerateConfig<DateType>,
 ): PickerComponentClass<RangePickerProps<DateType>> {
-  class RangePicker extends React.Component<RangePickerProps<DateType>> {
+  type InternalRangePickerProps = RangePickerProps<DateType> & {
+    hashId?: string;
+  };
+
+  class RangePicker extends React.Component<InternalRangePickerProps> {
     static contextType = ConfigContext;
 
     context: ConfigConsumerProps;
@@ -53,6 +58,8 @@ export default function generateRangePicker<DateType>(
         bordered = true,
         placeholder,
         status: customStatus,
+        dropdownClassName,
+        hashId,
         ...restProps
       } = this.props;
       const { format, showTime, picker } = this.props as any;
@@ -116,6 +123,7 @@ export default function generateRangePicker<DateType>(
                                 getMergedStatus(contextStatus, customStatus),
                                 hasFeedback,
                               ),
+                              hashId,
                               className,
                             )}
                             locale={locale!.lang}
@@ -124,6 +132,7 @@ export default function generateRangePicker<DateType>(
                             generateConfig={generateConfig}
                             components={Components}
                             direction={direction}
+                            dropdownClassName={classNames(hashId, dropdownClassName)}
                           />
                         );
                       }}
@@ -152,6 +161,8 @@ export default function generateRangePicker<DateType>(
     const { getPrefixCls } = useContext(ConfigContext);
     const prefixCls = getPrefixCls('picker', customizePrefixCls);
 
-    return <RangePicker {...props} prefixCls={prefixCls} ref={ref} />;
+    const [wrapSSR, hashId] = useStyle(prefixCls);
+
+    return wrapSSR(<RangePicker {...props} prefixCls={prefixCls} ref={ref} hashId={hashId} />);
   }) as unknown as PickerComponentClass<RangePickerProps<DateType>>;
 }

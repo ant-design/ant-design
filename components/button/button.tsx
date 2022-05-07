@@ -13,6 +13,9 @@ import DisabledContext from '../config-provider/DisabledContext';
 import LoadingIcon from './LoadingIcon';
 import { cloneElement } from '../_util/reactNode';
 
+// CSSINJS
+import useStyle from './style';
+
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
 const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
 function isString(str: any) {
@@ -158,6 +161,12 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
     ...rest
   } = props;
 
+  const { getPrefixCls, autoInsertSpaceInButton, direction } = React.useContext(ConfigContext);
+  const prefixCls = getPrefixCls('btn', customizePrefixCls);
+
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
   const size = React.useContext(SizeContext);
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
@@ -166,7 +175,6 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
   const groupSize = React.useContext(GroupSizeContext);
   const [innerLoading, setLoading] = React.useState<Loading>(!!loading);
   const [hasTwoCNChar, setHasTwoCNChar] = React.useState(false);
-  const { getPrefixCls, autoInsertSpaceInButton, direction } = React.useContext(ConfigContext);
   const buttonRef = (ref as any) || React.createRef<HTMLElement>();
 
   const isNeedInserted = () =>
@@ -237,7 +245,6 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
     "`link` or `text` button can't be a `ghost` button.",
   );
 
-  const prefixCls = getPrefixCls('btn', customizePrefixCls);
   const autoInsertSpace = autoInsertSpaceInButton !== false;
 
   const sizeClassNameMap = { large: 'lg', small: 'sm', middle: undefined };
@@ -248,6 +255,7 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
 
   const classes = classNames(
     prefixCls,
+    hashId,
     {
       [`${prefixCls}-${shape}`]: shape !== 'default' && shape, // Note: Shape also has `default`
       [`${prefixCls}-${type}`]: type,
@@ -277,15 +285,15 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
 
   const linkButtonRestProps = omit(rest as AnchorButtonProps & { navigate: any }, ['navigate']);
   if (linkButtonRestProps.href !== undefined) {
-    return (
+    return wrapSSR(
       <a {...linkButtonRestProps} className={classes} onClick={handleClick} ref={buttonRef}>
         {iconNode}
         {kids}
-      </a>
+      </a>,
     );
   }
 
-  const buttonNode = (
+  let buttonNode = (
     <button
       {...(rest as NativeButtonProps)}
       type={htmlType}
@@ -299,11 +307,11 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
     </button>
   );
 
-  if (isUnBorderedButtonType(type)) {
-    return buttonNode;
+  if (!isUnBorderedButtonType(type)) {
+    buttonNode = <Wave disabled={!!innerLoading}>{buttonNode}</Wave>;
   }
 
-  return <Wave disabled={!!innerLoading}>{buttonNode}</Wave>;
+  return wrapSSR(buttonNode);
 };
 
 const Button = React.forwardRef<unknown, ButtonProps>(InternalButton) as CompoundedComponent;

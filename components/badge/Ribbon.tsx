@@ -4,6 +4,7 @@ import { LiteralUnion } from '../_util/type';
 import { PresetColorType } from '../_util/colors';
 import { ConfigContext } from '../config-provider';
 import { isPresetColor } from './utils';
+import useStyle from './style';
 
 type RibbonPlacement = 'start' | 'end';
 
@@ -38,20 +39,21 @@ const Ribbon: React.FC<RibbonProps> = function Ribbon({
     },
     className,
   );
+  const [wrapSSR, hashId] = useStyle(prefixCls);
   const colorStyle: React.CSSProperties = {};
   const cornerColorStyle: React.CSSProperties = {};
   if (color && !colorInPreset) {
     colorStyle.background = color;
     cornerColorStyle.color = color;
   }
-  return (
-    <div className={`${prefixCls}-wrapper`}>
+  return wrapSSR(
+    <div className={classNames(`${prefixCls}-wrapper`, hashId)}>
       {children}
-      <div className={ribbonCls} style={{ ...colorStyle, ...style }}>
+      <div className={classNames(ribbonCls, hashId)} style={{ ...colorStyle, ...style }}>
         <span className={`${prefixCls}-text`}>{text}</span>
         <div className={`${prefixCls}-corner`} style={cornerColorStyle} />
       </div>
-    </div>
+    </div>,
   );
 };
 

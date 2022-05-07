@@ -34,9 +34,12 @@ import {
   Typography,
   Dropdown,
 } from 'antd';
-import moment from 'moment';
 import difference from 'lodash/difference';
 import { DownOutlined, ClockCircleOutlined } from '@ant-design/icons';
+import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
+
+dayjs.extend(customParseFormat);
 
 const { Panel } = Collapse;
 const { TreeNode } = Tree;
@@ -582,7 +585,7 @@ class App extends React.Component {
             <Meta title="Europe Street beat" description="www.instagram.com" />
           </Card>
           <Slider defaultValue={30} />
-          <DatePicker defaultValue={moment('2015/01/01', 'YYYY/MM/DD')} format="YYYY/MM/DD" />
+          <DatePicker defaultValue={dayjs('2015/01/01', 'YYYY/MM/DD')} format="YYYY/MM/DD" />
           <Badge count={5}>
             <a href="#" className="head-example" />
           </Badge>

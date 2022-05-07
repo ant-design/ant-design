@@ -3,7 +3,8 @@ import * as React from 'react';
 import glob from 'glob';
 import { render } from 'enzyme';
 import MockDate from 'mockdate';
-import moment from 'moment';
+import dayjs from 'dayjs';
+import { StyleProvider, createCache } from '@ant-design/cssinjs';
 import { TriggerProps } from 'rc-trigger';
 import { excludeWarning } from './excludeWarning';
 
@@ -63,13 +64,34 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
       testMethod = test.skip;
     }
 
+    if (!doInject) {
+      testMethod(`cssinjs should not warn in ${file}`, () => {
+        const errSpy = jest.spyOn(console, 'error');
+
+        MockDate.set(dayjs('2016-11-22').valueOf());
+        let Demo = require(`../.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
+        // Inject Trigger status unless skipped
+        Demo = typeof Demo === 'function' ? <Demo /> : Demo;
+
+        // Inject cssinjs cache to avoid create <style /> element
+        Demo = <StyleProvider cache={createCache()}>{Demo}</StyleProvider>;
+
+        render(Demo);
+
+        expect(errSpy).not.toHaveBeenCalledWith(expect.stringContaining('[Ant Design CSS-in-JS]'));
+        MockDate.reset();
+
+        errSpy.mockRestore();
+      });
+    }
+
     // function doTest(name: string, openTrigger = false) {
     testMethod(
       doInject ? `renders ${file} extend context correctly` : `renders ${file} correctly`,
       () => {
         const errSpy = excludeWarning();
 
-        MockDate.set(moment('2016-11-22').valueOf());
+        MockDate.set(dayjs('2016-11-22').valueOf());
         let Demo = require(`../.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
         // Inject Trigger status unless skipped
         Demo = typeof Demo === 'function' ? <Demo /> : Demo;
@@ -84,6 +106,9 @@ function baseText(doInject: boolean, component: string, options: Options = {}) {
             </TriggerMockContext.Provider>
           );
         }
+
+        // Inject cssinjs cache to avoid create <style /> element
+        Demo = <StyleProvider cache={createCache()}>{Demo}</StyleProvider>;
 
         const wrapper = render(Demo);
 

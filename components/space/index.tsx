@@ -5,6 +5,7 @@ import { ConfigContext } from '../config-provider';
 import { SizeType } from '../config-provider/SizeContext';
 import Item from './Item';
 import useFlexGapSupport from '../_util/hooks/useFlexGapSupport';
+import useStyle from './style';
 
 export const SpaceContext = React.createContext({
   latestIndex: 0,
@@ -67,8 +68,11 @@ const Space: React.FC<SpaceProps> = props => {
 
   const mergedAlign = align === undefined && direction === 'horizontal' ? 'center' : align;
   const prefixCls = getPrefixCls('space', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
   const cn = classNames(
     prefixCls,
+    hashId,
     `${prefixCls}-${direction}`,
     {
       [`${prefixCls}-rtl`]: directionConfig === 'rtl',
@@ -131,7 +135,7 @@ const Space: React.FC<SpaceProps> = props => {
     gapStyle.rowGap = verticalSize;
   }
 
-  return (
+  return wrapSSR(
     <div
       className={cn}
       style={{
@@ -141,7 +145,7 @@ const Space: React.FC<SpaceProps> = props => {
       {...otherProps}
     >
       <SpaceContext.Provider value={spaceContext}>{nodes}</SpaceContext.Provider>
-    </div>
+    </div>,
   );
 };
 

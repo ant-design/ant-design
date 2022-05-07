@@ -10,6 +10,8 @@ import RadioGroupContext, { RadioOptionTypeContext } from './context';
 import DisabledContext from '../config-provider/DisabledContext';
 import devWarning from '../_util/devWarning';
 
+import useStyle from './style';
+
 const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (props, ref) => {
   const groupContext = React.useContext(RadioGroupContext);
   const radioOptionTypeContext = React.useContext(RadioOptionTypeContext);
@@ -42,6 +44,9 @@ const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (
       ? `${radioPrefixCls}-button`
       : radioPrefixCls;
 
+  // Style
+  const [wrapSSR, hashId] = useStyle(radioPrefixCls, getPrefixCls());
+
   const radioProps: RadioProps = { ...restProps };
 
   // ===================== Disabled =====================
@@ -63,9 +68,10 @@ const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (
       [`${prefixCls}-wrapper-in-form-item`]: isFormItemInput,
     },
     className,
+    hashId,
   );
 
-  return (
+  return wrapSSR(
     // eslint-disable-next-line jsx-a11y/label-has-associated-control
     <label
       className={wrapperClassString}
@@ -75,7 +81,7 @@ const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (
     >
       <RcCheckbox {...radioProps} type="radio" prefixCls={prefixCls} ref={mergedRef} />
       {children !== undefined ? <span>{children}</span> : null}
-    </label>
+    </label>,
   );
 };
 

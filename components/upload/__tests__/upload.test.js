@@ -844,7 +844,7 @@ describe('Upload', () => {
     const frozenFileList = fileList.map(file => Object.freeze(file));
 
     const wrapper = mount(<Upload fileList={frozenFileList} />);
-    const rmBtn = wrapper.find('.ant-upload-list-item-card-actions-btn').last();
+    const rmBtn = wrapper.find('.ant-upload-list-item-action').last();
     rmBtn.simulate('click');
 
     // Wait for Upload async remove
@@ -888,7 +888,7 @@ describe('Upload', () => {
     );
 
     rerender(<Upload listType="picture-card" />);
-    expect(container.querySelector('.ant-upload-select-picture-card')).not.toHaveStyle({
+    expect(container.querySelector('.ant-upload-select')).not.toHaveStyle({
       display: 'none',
     });
 
@@ -897,9 +897,9 @@ describe('Upload', () => {
       jest.runAllTimers();
     });
 
-    fireEvent.animationEnd(container.querySelector('.ant-upload-select-picture-card'));
+    fireEvent.animationEnd(container.querySelector('.ant-upload-select'));
 
-    expect(container.querySelector('.ant-upload-select-picture-card')).toHaveStyle({
+    expect(container.querySelector('.ant-upload-select')).toHaveStyle({
       display: 'none',
     });
 

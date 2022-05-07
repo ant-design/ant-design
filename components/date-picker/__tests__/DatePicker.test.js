@@ -1,9 +1,13 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import moment from 'moment';
+import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
 import MockDate from 'mockdate';
 import DatePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
+import 'dayjs/locale/mk'; // to test local in 'prop locale should works' test case
+
+dayjs.extend(customParseFormat);
 
 describe('DatePicker', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -11,7 +15,7 @@ describe('DatePicker', () => {
   focusTest(DatePicker, { refFocus: true });
 
   beforeEach(() => {
-    MockDate.set(moment('2016-11-22').valueOf());
+    MockDate.set(dayjs('2016-11-22').valueOf());
   });
 
   afterEach(() => {
@@ -59,13 +63,13 @@ describe('DatePicker', () => {
         placeholder: 'Избор на час',
       },
     };
-    const birthday = moment('2000-01-01', 'YYYY-MM-DD');
+    const birthday = dayjs('2000-01-01', 'YYYY-MM-DD');
     const wrapper = mount(<DatePicker open locale={locale} value={birthday} />);
     expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('disabled date', () => {
-    const disabledDate = current => current && current < moment().endOf('day');
+    const disabledDate = current => current && current < dayjs().endOf('day');
     const wrapper = mount(<DatePicker disabledDate={disabledDate} open />);
     expect(wrapper.render()).toMatchSnapshot();
   });
@@ -78,7 +82,7 @@ describe('DatePicker', () => {
   it('showTime={{ showHour: true, showMinute: true }}', () => {
     const wrapper = mount(
       <DatePicker
-        defaultValue={moment()}
+        defaultValue={dayjs()}
         showTime={{ showHour: true, showMinute: true }}
         format="YYYY-MM-DD"
         open
@@ -98,7 +102,7 @@ describe('DatePicker', () => {
   it('showTime={{ showHour: true, showSecond: true }}', () => {
     const wrapper = mount(
       <DatePicker
-        defaultValue={moment()}
+        defaultValue={dayjs()}
         showTime={{ showHour: true, showSecond: true }}
         format="YYYY-MM-DD"
         open
@@ -118,7 +122,7 @@ describe('DatePicker', () => {
   it('showTime={{ showMinute: true, showSecond: true }}', () => {
     const wrapper = mount(
       <DatePicker
-        defaultValue={moment()}
+        defaultValue={dayjs()}
         showTime={{ showMinute: true, showSecond: true }}
         format="YYYY-MM-DD"
         open
@@ -136,7 +140,7 @@ describe('DatePicker', () => {
   });
   it('showTime should work correctly when format is custom function', () => {
     const wrapper = mount(
-      <DatePicker defaultValue={moment()} showTime format={val => val.format('YYYY-MM-DD')} open />,
+      <DatePicker defaultValue={dayjs()} showTime format={val => val.format('YYYY-MM-DD')} open />,
     );
     const input = wrapper.find('input').simulate('mousedown');
     expect(input.simulate.bind(input, 'focus')).not.toThrowError();
@@ -144,7 +148,7 @@ describe('DatePicker', () => {
 
   it('12 hours', () => {
     const wrapper = mount(
-      <DatePicker defaultValue={moment()} showTime format="YYYY-MM-DD HH:mm:ss A" open />,
+      <DatePicker defaultValue={dayjs()} showTime format="YYYY-MM-DD HH:mm:ss A" open />,
     );
     expect(wrapper.find('.ant-picker-time-panel-column').length).toBe(4);
     expect(
@@ -167,7 +171,7 @@ describe('DatePicker', () => {
 
   it('24 hours', () => {
     const wrapper = mount(
-      <DatePicker defaultValue={moment()} showTime format="YYYY-MM-DD HH:mm:ss" open />,
+      <DatePicker defaultValue={dayjs()} showTime format="YYYY-MM-DD HH:mm:ss" open />,
     );
     expect(wrapper.find('.ant-picker-time-panel-column').length).toBe(3);
     expect(
@@ -185,8 +189,8 @@ describe('DatePicker', () => {
   });
 
   it('DatePicker.RangePicker with defaultPickerValue and showTime', () => {
-    const startDate = moment('1982-02-12');
-    const endDate = moment('1982-02-22');
+    const startDate = dayjs('1982-02-12');
+    const endDate = dayjs('1982-02-22');
 
     const wrapper = mount(
       <DatePicker.RangePicker defaultPickerValue={[startDate, endDate]} showTime open />,
@@ -210,9 +214,7 @@ describe('DatePicker', () => {
       },
     });
 
-    const wrapper = mount(
-      <DatePicker.RangePicker defaultValue={moment()} placement="bottomLeft" />,
-    );
+    const wrapper = mount(<DatePicker.RangePicker defaultValue={dayjs()} placement="bottomLeft" />);
     expect(wrapper.find('Trigger').prop('popupAlign')).toEqual(popupAlignDefault(['tl', 'bl']));
     wrapper.setProps({
       placement: 'bottomRight',

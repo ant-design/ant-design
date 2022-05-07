@@ -2,6 +2,7 @@ import * as React from 'react';
 import SlickCarousel, { Settings } from '@ant-design/react-slick';
 import classNames from 'classnames';
 import { ConfigContext } from '../config-provider';
+import useStyle from './style';
 
 export type CarouselEffect = 'scrollx' | 'fade';
 export type DotPosition = 'top' | 'bottom' | 'left' | 'right';
@@ -88,12 +89,18 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>(
       typeof dots === 'boolean' ? false : dots?.className,
     );
 
-    const className = classNames(prefixCls, {
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-vertical`]: dotPosition === 'left' || dotPosition === 'right',
-    });
+    const [wrapSSR, hashId] = useStyle(prefixCls);
 
-    return (
+    const className = classNames(
+      prefixCls,
+      {
+        [`${prefixCls}-rtl`]: direction === 'rtl',
+        [`${prefixCls}-vertical`]: newProps.vertical,
+      },
+      hashId,
+    );
+
+    return wrapSSR(
       <div className={className}>
         <SlickCarousel
           ref={slickRef}
@@ -103,7 +110,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>(
           arrows={arrows}
           draggable={draggable}
         />
-      </div>
+      </div>,
     );
   },
 );

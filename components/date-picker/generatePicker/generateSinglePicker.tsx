@@ -25,17 +25,21 @@ import {
 import { FormItemInputContext } from '../../form/context';
 import { getMergedStatus, getStatusClassNames, InputStatus } from '../../_util/statusUtils';
 import { DatePickRef, PickerComponentClass } from './interface';
+import useStyle from '../style';
 
 export default function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   type DatePickerProps = PickerProps<DateType> & {
     status?: InputStatus;
+    hashId?: string;
   };
 
   function getPicker<InnerPickerProps extends DatePickerProps>(
     picker?: PickerMode,
     displayName?: string,
   ) {
-    class Picker extends React.Component<InnerPickerProps> {
+    type InternalPickerProps = InnerPickerProps & { hashId?: string };
+
+    class Picker extends React.Component<InternalPickerProps> {
       static contextType = ConfigContext;
 
       static displayName: string;
@@ -78,6 +82,8 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
           placement,
           placeholder,
           status: customStatus,
+          dropdownClassName,
+          hashId,
           ...restProps
         } = this.props;
         const { format, showTime } = this.props as any;
@@ -150,6 +156,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
                                   getMergedStatus(contextStatus, customStatus),
                                   hasFeedback,
                                 ),
+                                hashId,
                                 className,
                               )}
                               prefixCls={prefixCls}
@@ -158,6 +165,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
                               components={Components}
                               direction={direction}
                               disabled={mergedDisabled}
+                              dropdownClassName={classNames(hashId, dropdownClassName)}
                             />
                           );
                         }}
@@ -185,14 +193,16 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
 
       const { getPrefixCls } = useContext(ConfigContext);
       const prefixCls = getPrefixCls('picker', customizePrefixCls);
+      const [wrapSSR, hashId] = useStyle(prefixCls);
 
       const pickerProps: InnerPickerProps = {
         ...props,
         prefixCls,
         ref,
+        hashId,
       };
 
-      return <Picker {...pickerProps} />;
+      return wrapSSR(<Picker {...pickerProps} />);
     });
 
     if (displayName) {

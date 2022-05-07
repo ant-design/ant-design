@@ -15,6 +15,8 @@ import { FormItemInputContext } from '../form/context';
 import { getMergedStatus, getStatusClassNames, InputStatus } from '../_util/statusUtils';
 import { getTransitionName, getTransitionDirection, SelectCommonPlacement } from '../_util/motion';
 
+import useStyle from './style';
+
 type RawValue = string | number;
 
 export { OptionProps, BaseSelectRef as RefSelectProps, BaseOptionType, DefaultOptionType };
@@ -84,6 +86,8 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
   const prefixCls = getPrefixCls('select', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
 
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
   const mode = React.useMemo(() => {
     const { mode: m } = props as InternalSelectProps<OptionType>;
 
@@ -133,9 +137,13 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
 
   const selectProps = omit(props as typeof props & { itemIcon: any }, ['suffixIcon', 'itemIcon']);
 
-  const rcSelectRtlDropdownClassName = classNames(dropdownClassName, {
-    [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
-  });
+  const rcSelectRtlDropdownClassName = classNames(
+    dropdownClassName,
+    {
+      [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
+    },
+    hashId,
+  );
 
   const mergedSize = customizeSize || size;
 
@@ -153,6 +161,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     },
     getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
     className,
+    hashId,
   );
 
   // ===================== Placement =====================
@@ -165,7 +174,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       : ('bottomLeft' as SelectCommonPlacement);
   };
 
-  return (
+  return wrapSSR(
     <RcSelect<any, any>
       ref={ref as any}
       virtual={virtual}
@@ -192,7 +201,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       dropdownClassName={rcSelectRtlDropdownClassName}
       showArrow={hasFeedback || showArrow}
       disabled={mergedDisabled}
-    />
+    />,
   );
 };
 

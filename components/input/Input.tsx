@@ -1,15 +1,21 @@
 import React, { forwardRef, useContext, useEffect, useRef } from 'react';
-import RcInput, { InputProps as RcInputProps, InputRef } from 'rc-input';
+import type { InputProps as RcInputProps, InputRef } from 'rc-input';
+import RcInput from 'rc-input';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import classNames from 'classnames';
 import { composeRef } from 'rc-util/lib/ref';
-import SizeContext, { SizeType } from '../config-provider/SizeContext';
+import type { SizeType } from '../config-provider/SizeContext';
+import SizeContext from '../config-provider/SizeContext';
+import type { InputStatus } from '../_util/statusUtils';
 import DisabledContext from '../config-provider/DisabledContext';
-import { getMergedStatus, getStatusClassNames, InputStatus } from '../_util/statusUtils';
+import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { ConfigContext } from '../config-provider';
 import { FormItemInputContext, NoFormStatus } from '../form/context';
 import { hasPrefixSuffix } from './utils';
 import devWarning from '../_util/devWarning';
+
+// CSSINJS
+import useStyle from './style';
 
 export interface InputFocusOptions extends FocusOptions {
   cursor?: 'start' | 'end' | 'all';
@@ -138,6 +144,9 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   const prefixCls = getPrefixCls('input', customizePrefixCls);
   const inputRef = useRef<InputRef>(null);
 
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
   // ===================== Size =====================
   const size = React.useContext(SizeContext);
   const mergedSize = customSize || size;
@@ -210,7 +219,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     mergedAllowClear = { clearIcon: <CloseCircleFilled /> };
   }
 
-  return (
+  return wrapSSR(
     <RcInput
       ref={composeRef(ref, inputRef)}
       prefixCls={prefixCls}
@@ -231,6 +240,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
           [`${prefixCls}-borderless`]: !bordered,
         },
         !inputHasPrefixSuffix && getStatusClassNames(prefixCls, mergedStatus),
+        hashId,
       )}
       affixWrapperClassName={classNames(
         {
@@ -240,10 +250,14 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
           [`${prefixCls}-affix-wrapper-borderless`]: !bordered,
         },
         getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus, hasFeedback),
+        hashId,
       )}
-      wrapperClassName={classNames({
-        [`${prefixCls}-group-rtl`]: direction === 'rtl',
-      })}
+      wrapperClassName={classNames(
+        {
+          [`${prefixCls}-group-rtl`]: direction === 'rtl',
+        },
+        hashId,
+      )}
       groupClassName={classNames(
         {
           [`${prefixCls}-group-wrapper-sm`]: mergedSize === 'small',
@@ -251,8 +265,9 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
           [`${prefixCls}-group-wrapper-rtl`]: direction === 'rtl',
         },
         getStatusClassNames(`${prefixCls}-group-wrapper`, mergedStatus, hasFeedback),
+        hashId,
       )}
-    />
+    />,
   );
 });
 

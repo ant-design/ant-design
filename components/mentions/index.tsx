@@ -1,12 +1,15 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import RcMentions from 'rc-mentions';
-import { MentionsProps as RcMentionsProps } from 'rc-mentions/lib/Mentions';
+import type { MentionsProps as RcMentionsProps } from 'rc-mentions/lib/Mentions';
 import { composeRef } from 'rc-util/lib/ref';
+// eslint-disable-next-line import/no-named-as-default
 import Spin from '../spin';
 import { ConfigContext } from '../config-provider';
 import { FormItemInputContext } from '../form/context';
-import { getMergedStatus, getStatusClassNames, InputStatus } from '../_util/statusUtils';
+import useStyle from './style';
+import type { InputStatus } from '../_util/statusUtils';
+import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 
 export const { Option } = RcMentions;
 
@@ -57,6 +60,7 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
     children,
     notFoundContent,
     status: customStatus,
+    dropdownClassName,
     ...restProps
   },
   ref,
@@ -116,6 +120,9 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
 
   const prefixCls = getPrefixCls('mentions', customizePrefixCls);
 
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
   const mergedClassName = classNames(
     {
       [`${prefixCls}-disabled`]: disabled,
@@ -124,6 +131,7 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
     },
     getStatusClassNames(prefixCls, mergedStatus),
     !hasFeedback && className,
+    hashId,
   );
 
   const mentions = (
@@ -137,6 +145,7 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
       filterOption={getFilterOption()}
       onFocus={onFocus}
       onBlur={onBlur}
+      dropdownClassName={classNames(dropdownClassName, hashId)}
       ref={mergedRef as any}
     >
       {getOptions()}
@@ -150,6 +159,7 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
           `${prefixCls}-affix-wrapper`,
           getStatusClassNames(`${prefixCls}-affix-wrapper`, mergedStatus, hasFeedback),
           className,
+          hashId,
         )}
       >
         {mentions}
@@ -158,7 +168,7 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
     );
   }
 
-  return mentions;
+  return wrapSSR(mentions);
 };
 
 const Mentions = React.forwardRef<unknown, MentionProps>(InternalMentions) as CompoundedComponent;

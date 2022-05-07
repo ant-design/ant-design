@@ -42,6 +42,7 @@ export interface ClearableInputProps extends BasicProps {
   addonAfter?: React.ReactNode;
   triggerFocus?: () => void;
   status?: InputStatus;
+  hashId?: string;
 }
 
 class ClearableLabeledInput extends React.Component<ClearableInputProps> {
@@ -81,6 +82,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
       bordered,
       hidden,
       status: customStatus,
+      hashId,
     } = this.props;
 
     const { status: contextStatus, hasFeedback } = statusContext;
@@ -104,6 +106,7 @@ class ClearableLabeledInput extends React.Component<ClearableInputProps> {
         // className will go to addon wrapper
         [`${className}`]: !hasAddon(this.props) && className,
       },
+      hashId,
     );
     return (
       <span className={affixWrapperCls} style={style} hidden={hidden}>

@@ -18,6 +18,7 @@ describe('flex gap', () => {
         <span />
       </Space>,
     );
+
     expect(container.querySelector('div.ant-space').style['column-gap']).toBe('8px');
     expect(container.querySelector('div.ant-space').style['row-gap']).toBe('8px');
   });

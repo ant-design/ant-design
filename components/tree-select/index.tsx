@@ -22,6 +22,8 @@ import DisabledContext from '../config-provider/DisabledContext';
 import { getTransitionName, getTransitionDirection, SelectCommonPlacement } from '../_util/motion';
 import { FormItemInputContext } from '../form/context';
 import { getMergedStatus, getStatusClassNames, InputStatus } from '../_util/statusUtils';
+import useStyle from './style';
+import useSelectStyle from '../select/style';
 
 type RawValue = string | number;
 
@@ -98,13 +100,22 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
     '`multiple` will always be `true` when `treeCheckable` is true',
   );
 
+  const rootPrefixCls = getPrefixCls();
   const prefixCls = getPrefixCls('select', customizePrefixCls);
   const treePrefixCls = getPrefixCls('select-tree', customizePrefixCls);
   const treeSelectPrefixCls = getPrefixCls('tree-select', customizePrefixCls);
 
-  const mergedDropdownClassName = classNames(dropdownClassName, `${treeSelectPrefixCls}-dropdown`, {
-    [`${treeSelectPrefixCls}-dropdown-rtl`]: direction === 'rtl',
-  });
+  const [wrapSelectSSR, hashId] = useSelectStyle(prefixCls);
+  const [wrapTreeSelectSSR] = useStyle(treeSelectPrefixCls, treePrefixCls);
+
+  const mergedDropdownClassName = classNames(
+    dropdownClassName,
+    `${treeSelectPrefixCls}-dropdown`,
+    {
+      [`${treeSelectPrefixCls}-dropdown-rtl`]: direction === 'rtl',
+    },
+    hashId,
+  );
 
   const isMultiple = !!(treeCheckable || multiple);
   const mergedShowArrow = showArrow !== undefined ? showArrow : props.loading || !isMultiple;
@@ -171,10 +182,10 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
     },
     getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
     className,
+    hashId,
   );
-  const rootPrefixCls = getPrefixCls();
 
-  return (
+  const returnNode = (
     <RcTreeSelect
       virtual={virtual}
       dropdownMatchSelectWidth={dropdownMatchSelectWidth}
@@ -211,6 +222,8 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
       showArrow={hasFeedback || showArrow}
     />
   );
+
+  return wrapSelectSSR(wrapTreeSelectSSR(returnNode));
 };
 
 const TreeSelectRef = React.forwardRef(InternalTreeSelect) as <

@@ -1,4 +1,4 @@
-import { Moment } from 'moment';
+import type { Dayjs } from 'dayjs';
 import * as React from 'react';
 import DatePicker from '../date-picker';
 import { PickerTimeProps, RangePickerTimeProps } from '../date-picker/generatePicker';
@@ -12,7 +12,7 @@ export interface TimePickerLocale {
   rangePlaceholder?: [string, string];
 }
 
-export interface TimeRangePickerProps extends Omit<RangePickerTimeProps<Moment>, 'picker'> {
+export interface TimeRangePickerProps extends Omit<RangePickerTimeProps<Dayjs>, 'picker'> {
   popupClassName?: string;
 }
 
@@ -26,7 +26,7 @@ const RangePicker = React.forwardRef<any, TimeRangePickerProps>((props, ref) => 
   />
 ));
 
-export interface TimePickerProps extends Omit<PickerTimeProps<Moment>, 'picker'> {
+export interface TimePickerProps extends Omit<PickerTimeProps<Dayjs>, 'picker'> {
   addon?: () => React.ReactNode;
   popupClassName?: string;
   status?: InputStatus;

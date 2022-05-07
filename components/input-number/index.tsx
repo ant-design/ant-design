@@ -1,15 +1,19 @@
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import UpOutlined from '@ant-design/icons/UpOutlined';
 import classNames from 'classnames';
-import RcInputNumber, { InputNumberProps as RcInputNumberProps } from 'rc-input-number';
+import type { InputNumberProps as RcInputNumberProps } from 'rc-input-number';
+import RcInputNumber from 'rc-input-number';
 import * as React from 'react';
 import { useContext } from 'react';
 import { ConfigContext } from '../config-provider';
-import SizeContext, { SizeType } from '../config-provider/SizeContext';
+import type { SizeType } from '../config-provider/SizeContext';
+import SizeContext from '../config-provider/SizeContext';
 import DisabledContext from '../config-provider/DisabledContext';
 import { FormItemInputContext, NoFormStatus } from '../form/context';
 import { cloneElement } from '../_util/reactNode';
-import { getStatusClassNames, InputStatus, getMergedStatus } from '../_util/statusUtils';
+import useStyle from './style';
+import type { InputStatus } from '../_util/statusUtils';
+import { getStatusClassNames, getMergedStatus } from '../_util/statusUtils';
 
 type ValueType = string | number;
 
@@ -50,6 +54,10 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   } = props;
 
   const prefixCls = getPrefixCls('input-number', customizePrefixCls);
+
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
   let upIcon = <UpOutlined className={`${prefixCls}-handler-up-inner`} />;
   let downIcon = <DownOutlined className={`${prefixCls}-handler-down-inner`} />;
   const controlsTemp = typeof controls === 'boolean' ? controls : undefined;
@@ -92,6 +100,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       [`${prefixCls}-in-form-item`]: isFormItemInput,
     },
     getStatusClassNames(prefixCls, mergedStatus),
+    hashId,
     className,
   );
 
@@ -124,6 +133,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
         // className will go to addon wrapper
         [`${className}`]: !(addonBefore || addonAfter) && className,
       },
+      hashId,
     );
 
     element = (
@@ -158,7 +168,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     ) : null;
     const addonAfterNode = addonAfter ? <div className={addonClassName}>{addonAfter}</div> : null;
 
-    const mergedWrapperClassName = classNames(`${prefixCls}-wrapper`, wrapperClassName, {
+    const mergedWrapperClassName = classNames(`${prefixCls}-wrapper`, wrapperClassName, hashId, {
       [`${wrapperClassName}-rtl`]: direction === 'rtl',
     });
 
@@ -170,6 +180,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
         [`${prefixCls}-group-wrapper-rtl`]: direction === 'rtl',
       },
       getStatusClassNames(`${prefixCls}-group-wrapper`, mergedStatus, hasFeedback),
+      hashId,
       className,
     );
     element = (
@@ -183,7 +194,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     );
   }
 
-  return element;
+  return wrapSSR(element);
 });
 
 export default InputNumber as (<T extends ValueType = ValueType>(

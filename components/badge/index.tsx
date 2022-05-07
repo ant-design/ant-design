@@ -9,6 +9,7 @@ import { ConfigContext } from '../config-provider';
 import { LiteralUnion } from '../_util/type';
 import { cloneElement } from '../_util/reactNode';
 import { isPresetColor } from './utils';
+import useStyle from './style';
 
 export { ScrollNumberProps } from './ScrollNumber';
 
@@ -57,6 +58,9 @@ const Badge: CompoundedComponent = ({
 }) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('badge', customizePrefixCls);
+
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   // ================================ Misc ================================
   const numberedDisplayCount = (
@@ -162,19 +166,19 @@ const Badge: CompoundedComponent = ({
   // <Badge status="success" />
   if (!children && hasStatus) {
     const statusTextColor = mergedStyle.color;
-    return (
-      <span {...restProps} className={badgeClassName} style={mergedStyle}>
+    return wrapSSR(
+      <span {...restProps} className={classNames(badgeClassName, hashId)} style={mergedStyle}>
         <span className={statusCls} style={statusStyle} />
         <span style={{ color: statusTextColor }} className={`${prefixCls}-status-text`}>
           {text}
         </span>
-      </span>
+      </span>,
     );
   }
 
   // <Badge status="success" count={<Icon type="xxx" />}></Badge>
-  return (
-    <span {...restProps} className={badgeClassName}>
+  return wrapSSR(
+    <span {...restProps} className={classNames(badgeClassName, hashId)}>
       {children}
       <CSSMotion
         visible={!isHidden}
@@ -223,7 +227,7 @@ const Badge: CompoundedComponent = ({
         }}
       </CSSMotion>
       {statusTextNode}
-    </span>
+    </span>,
   );
 };
 

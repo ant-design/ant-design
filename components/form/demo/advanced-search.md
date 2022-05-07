@@ -113,7 +113,7 @@ export default () => (
 ```css
 [data-theme='compact'] .ant-advanced-search-form,
 .ant-advanced-search-form {
-  padding: 24px;
+  padding: 24px !important;
   background: #fbfbfb;
   border: 1px solid #d9d9d9;
   border-radius: 2px;

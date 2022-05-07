@@ -9,6 +9,7 @@ import ResponsiveObserve, {
   responsiveArray,
 } from '../_util/responsiveObserve';
 import useFlexGapSupport from '../_util/hooks/useFlexGapSupport';
+import { useRowStyle } from './style';
 
 const RowAligns = tuple('top', 'middle', 'bottom', 'stretch');
 const RowJustify = tuple('start', 'end', 'center', 'space-around', 'space-between', 'space-evenly');
@@ -87,6 +88,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   };
 
   const prefixCls = getPrefixCls('row', customizePrefixCls);
+  const [wrapSSR, hashId] = useRowStyle(prefixCls);
   const gutters = getGutter();
   const classes = classNames(
     prefixCls,
@@ -97,6 +99,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    hashId,
   );
 
   // Add gutter related style
@@ -125,12 +128,12 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     [gutterH, gutterV, wrap, supportFlexGap],
   );
 
-  return (
+  return wrapSSR(
     <RowContext.Provider value={rowContext}>
       <div role="row" {...others} className={classes} style={{ ...rowStyle, ...style }} ref={ref}>
         {children}
       </div>
-    </RowContext.Provider>
+    </RowContext.Provider>,
   );
 });
 

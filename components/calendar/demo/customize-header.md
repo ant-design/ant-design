@@ -15,6 +15,7 @@ Customize Calendar header content.
 
 ```jsx
 import { Calendar, Select, Radio, Col, Row, Typography } from 'antd';
+import 'dayjs/locale/zh-cn';
 
 function onPanelChange(value, mode) {
   console.log(value, mode);
@@ -29,11 +30,11 @@ export default () => (
         const end = 12;
         const monthOptions = [];
 
-        const current = value.clone();
+        let current = value.clone();
         const localeData = value.localeData();
         const months = [];
         for (let i = 0; i < 12; i++) {
-          current.month(i);
+          current = current.month(i);
           months.push(localeData.monthsShort(current));
         }
 

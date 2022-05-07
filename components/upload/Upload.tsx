@@ -18,6 +18,7 @@ import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
 import { ConfigContext } from '../config-provider';
 import devWarning from '../_util/devWarning';
+import useStyle from './style';
 
 export const LIST_IGNORE = `__LIST_IGNORE_${Date.now()}__`;
 
@@ -321,6 +322,8 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     delete rcUploadProps.id;
   }
 
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
   const renderUploadList = (button?: React.ReactNode, buttonVisible?: boolean) =>
     showUploadList ? (
       <LocaleReceiver componentName="Upload" defaultLocale={defaultLocale.Upload}>
@@ -364,6 +367,10 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
       button
     );
 
+  const rtlCls = {
+    [`${prefixCls}-rtl`]: direction === 'rtl',
+  };
+
   if (type === 'drag') {
     const dragCls = classNames(
       prefixCls,
@@ -374,10 +381,10 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
         [`${prefixCls}-disabled`]: disabled,
         [`${prefixCls}-rtl`]: direction === 'rtl',
       },
-      className,
+      hashId,
     );
-    return (
-      <span>
+    return wrapSSR(
+      <span className={classNames(`${prefixCls}-wrapper`, rtlCls, className, hashId)}>
         <div
           className={dragCls}
           onDrop={onFileDrop}
@@ -390,15 +397,12 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
           </RcUpload>
         </div>
         {renderUploadList()}
-      </span>
+      </span>,
     );
   }
 
-  const uploadButtonCls = classNames(prefixCls, {
-    [`${prefixCls}-select`]: true,
-    [`${prefixCls}-select-${listType}`]: true,
+  const uploadButtonCls = classNames(prefixCls, `${prefixCls}-select`, {
     [`${prefixCls}-disabled`]: disabled,
-    [`${prefixCls}-rtl`]: direction === 'rtl',
   });
 
   const renderUploadButton = (uploadButtonStyle?: React.CSSProperties) => (
@@ -408,18 +412,26 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
   );
 
   if (listType === 'picture-card') {
-    return (
-      <span className={classNames(`${prefixCls}-picture-card-wrapper`, className)}>
+    return wrapSSR(
+      <span
+        className={classNames(
+          `${prefixCls}-wrapper`,
+          `${prefixCls}-picture-card-wrapper`,
+          rtlCls,
+          className,
+          hashId,
+        )}
+      >
         {renderUploadList(renderUploadButton(), !!children)}
-      </span>
+      </span>,
     );
   }
 
-  return (
-    <span className={className}>
+  return wrapSSR(
+    <span className={classNames(`${prefixCls}-wrapper`, rtlCls, className, hashId)}>
       {renderUploadButton(children ? undefined : { display: 'none' })}
       {renderUploadList()}
-    </span>
+    </span>,
   );
 };
 

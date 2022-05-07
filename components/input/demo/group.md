@@ -199,7 +199,7 @@ export default App;
 
 ```css
 .site-input-group-wrapper .site-input-split {
-  background-color: #fff;
+  background-color: #fff !important;
 }
 
 .site-input-group-wrapper .site-input-right {

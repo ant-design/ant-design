@@ -69,11 +69,11 @@ export default () => (
   background: rgba(255, 255, 255, 0.2);
 }
 
-.site-layout-sub-header-background {
+#components-layout-demo-responsive .site-layout-sub-header-background {
   background: #fff;
 }
 
-.site-layout-background {
+#components-layout-demo-responsive .site-layout-background {
   background: #fff;
 }
 ```
