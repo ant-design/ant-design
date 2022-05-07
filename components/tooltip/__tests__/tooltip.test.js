@@ -18,11 +18,6 @@ describe('Tooltip', () => {
     spyElementPrototype(HTMLElement, 'offsetParent', {
       get: () => ({}),
     });
-    jest.useFakeTimers();
-  });
-
-  afterAll(() => {
-    jest.useRealTimers();
   });
 
   it('check `onVisibleChange` arguments', () => {
@@ -239,7 +234,6 @@ describe('Tooltip', () => {
   });
 
   it('should works for date picker', async () => {
-    jest.useRealTimers();
     const onVisibleChange = jest.fn();
     const ref = React.createRef();
 
@@ -263,11 +257,9 @@ describe('Tooltip', () => {
     expect(onVisibleChange).toHaveBeenCalledWith(false);
     expect(ref.current.props.visible).toBe(false);
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
-    jest.useFakeTimers();
   });
 
   it('should works for input group', async () => {
-    jest.useRealTimers();
     const onVisibleChange = jest.fn();
     const ref = React.createRef();
     const { container } = render(
@@ -292,7 +284,6 @@ describe('Tooltip', () => {
     expect(onVisibleChange).toHaveBeenCalledWith(false);
     expect(ref.current.props.visible).toBe(false);
     expect(container.querySelector('.ant-tooltip-open')).toBeNull();
-    jest.useFakeTimers();
   });
 
   // https://github.com/ant-design/ant-design/issues/20891
@@ -355,7 +346,7 @@ describe('Tooltip', () => {
         expect(container.getElementsByTagName('span')).toHaveLength(1);
         const element = container.getElementsByTagName('span')[0];
         fireEvent.mouseEnter(element);
-        jest.runAllTimers();
+        await sleep(500);
 
         await waitFor(() => {
           expect(document.querySelector(`.ant-tooltip-placement-${placement}`)).not.toBeNull();
@@ -366,7 +357,7 @@ describe('Tooltip', () => {
     placementList.forEach(placement => testPlacement(`Placement ${placement}`, placement));
   });
 
-  it('should works for mismatch placement', () => {
+  it('should works for mismatch placement', async () => {
     const { container } = render(
       <Tooltip
         title="xxxxx"
@@ -380,7 +371,7 @@ describe('Tooltip', () => {
     );
     const button = container.getElementsByTagName('span')[0];
     fireEvent.mouseEnter(button);
-    jest.runAllTimers();
+    await sleep(600);
     expect(document.querySelector('.ant-tooltip')).not.toBeNull();
   });
 
