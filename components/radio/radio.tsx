@@ -18,9 +18,7 @@ const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (
   const mergedRef = composeRef(ref, innerRef);
   const { isFormItemInput } = useContext(FormItemInputContext);
 
-  React.useEffect(() => {
-    devWarning(!('optionType' in props), 'Radio', '`optionType` is only support in Radio.Group.');
-  }, []);
+  devWarning(!('optionType' in props), 'Radio', '`optionType` is only support in Radio.Group.');
 
   const onChange = (e: RadioChangeEvent) => {
     props.onChange?.(e);

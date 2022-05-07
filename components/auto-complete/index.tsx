@@ -101,20 +101,17 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
       : [];
   }
 
-  // ============================ Warning ============================
-  React.useEffect(() => {
-    devWarning(
-      !('dataSource' in props),
-      'AutoComplete',
-      '`dataSource` is deprecated, please use `options` instead.',
-    );
+  devWarning(
+    !('dataSource' in props),
+    'AutoComplete',
+    '`dataSource` is deprecated, please use `options` instead.',
+  );
 
-    devWarning(
-      !customizeInput || !('size' in props),
-      'AutoComplete',
-      'You need to control style self instead of setting `size` when using customize input.',
-    );
-  }, []);
+  devWarning(
+    !customizeInput || !('size' in props),
+    'AutoComplete',
+    'You need to control style self instead of setting `size` when using customize input.',
+  );
 
   return (
     <ConfigConsumer>
