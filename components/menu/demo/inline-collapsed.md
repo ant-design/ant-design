@@ -18,7 +18,8 @@ Inline menu could be collapsed.
 Here is [a complete demo](/components/layout/#components-layout-demo-side) with sider layout.
 
 ```tsx
-import { Menu, Button, MenuProps } from 'antd';
+import type { MenuProps } from 'antd';
+import { Menu, Button } from 'antd';
 import {
   AppstoreOutlined,
   MenuUnfoldOutlined,

@@ -1,7 +1,9 @@
 import MockDate from 'mockdate';
-import { StrictMode, ReactElement } from 'react';
+import type { ReactElement } from 'react';
+import { StrictMode } from 'react';
 import { act } from 'react-dom/test-utils';
-import { render, RenderOptions } from '@testing-library/react';
+import type { RenderOptions } from '@testing-library/react';
+import { render } from '@testing-library/react';
 
 export function setMockDate(dateString = '2017-09-18T03:30:07.795') {
   MockDate.set(dateString);

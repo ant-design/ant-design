@@ -1,16 +1,18 @@
 import * as React from 'react';
-import CSSMotion, { CSSMotionList, CSSMotionListProps } from 'rc-motion';
+import type { CSSMotionListProps } from 'rc-motion';
+import CSSMotion, { CSSMotionList } from 'rc-motion';
 import classNames from 'classnames';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import PaperClipOutlined from '@ant-design/icons/PaperClipOutlined';
 import PictureTwoTone from '@ant-design/icons/PictureTwoTone';
 import FileTwoTone from '@ant-design/icons/FileTwoTone';
 import { cloneElement, isValidElement } from '../../_util/reactNode';
-import { UploadListProps, UploadFile, UploadListType, InternalUploadFile } from '../interface';
+import type { UploadListProps, UploadFile, UploadListType, InternalUploadFile } from '../interface';
 import { previewImage, isImageUrl } from '../utils';
 import collapseMotion from '../../_util/motion';
 import { ConfigContext } from '../../config-provider';
-import Button, { ButtonProps } from '../../button';
+import type { ButtonProps } from '../../button';
+import Button from '../../button';
 import useForceUpdate from '../../_util/hooks/useForceUpdate';
 import ListItem from './ListItem';
 

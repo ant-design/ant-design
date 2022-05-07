@@ -3,7 +3,7 @@ import Pagination from 'rc-pagination/lib/locale/he_IL';
 import DatePicker from '../date-picker/locale/he_IL';
 import TimePicker from '../time-picker/locale/he_IL';
 import Calendar from '../calendar/locale/he_IL';
-import { Locale } from '../locale-provider';
+import type { Locale } from '../locale-provider';
 
 const typeTemplate = '${label} הוא לא ${type} תקין';
 

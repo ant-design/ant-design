@@ -14,7 +14,8 @@ title:
 Show the dynamic switching mode (between `inline` and `vertical`).
 
 ```tsx
-import { Menu, Switch, Divider, MenuProps } from 'antd';
+import type { MenuProps } from 'antd';
+import { Menu, Switch, Divider } from 'antd';
 import {
   MailOutlined,
   CalendarOutlined,

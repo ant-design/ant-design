@@ -15,7 +15,8 @@ title:
 When dealing with long content, a fixed sider can provide a better user experience.
 
 ```tsx
-import { Layout, Menu, MenuProps } from 'antd';
+import type { MenuProps } from 'antd';
+import { Layout, Menu } from 'antd';
 import {
   AppstoreOutlined,
   BarChartOutlined,

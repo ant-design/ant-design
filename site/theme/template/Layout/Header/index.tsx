@@ -11,7 +11,8 @@ import SearchBar from './SearchBar';
 import More from './More';
 import Navigation from './Navigation';
 import Github from './Github';
-import SiteContext, { SiteContextProps } from '../SiteContext';
+import type { SiteContextProps } from '../SiteContext';
+import SiteContext from '../SiteContext';
 import { ping } from '../../utils';
 import { AlgoliaConfig } from './algolia-config';
 

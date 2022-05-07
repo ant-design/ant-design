@@ -9,7 +9,8 @@ import type {
   ReactNode,
 } from 'react';
 import classNames from 'classnames';
-import { ListGridType, ListContext } from './index';
+import type { ListGridType } from './index';
+import { ListContext } from './index';
 import { Col } from '../grid';
 import { ConfigContext } from '../config-provider';
 import { cloneElement } from '../_util/reactNode';

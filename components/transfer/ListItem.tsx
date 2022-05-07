@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import DeleteOutlined from '@ant-design/icons/DeleteOutlined';
-import { KeyWiseTransferItem, TransferLocale } from '.';
+import type { KeyWiseTransferItem, TransferLocale } from '.';
 import defaultLocale from '../locale/default';
 import Checkbox from '../checkbox';
 import TransButton from '../_util/transButton';

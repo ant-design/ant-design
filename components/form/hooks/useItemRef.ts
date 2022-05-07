@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { composeRef } from 'rc-util/lib/ref';
 import { FormContext } from '../context';
-import { InternalNamePath } from '../interface';
+import type { InternalNamePath } from '../interface';
 
 export default function useItemRef() {
   const { itemRef } = React.useContext(FormContext);

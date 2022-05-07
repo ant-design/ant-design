@@ -1,5 +1,6 @@
-import * as React from 'react';
-import InternalAvatar, { AvatarProps } from './avatar';
+import type * as React from 'react';
+import type { AvatarProps } from './avatar';
+import InternalAvatar from './avatar';
 import Group from './group';
 
 export { AvatarProps } from './avatar';
