@@ -71,6 +71,16 @@ function initDocSearch({ isZhCN, router }: { isZhCN: boolean; router: any }) {
   });
 }
 
+const SHOULD_OPEN_ANT_DESIGN_MIRROR_MODAL = 'ANT_DESIGN_DO_NOT_OPEN_MIRROR_MODAL';
+
+function disableAntdMirrorModal() {
+  window.localStorage.setItem(SHOULD_OPEN_ANT_DESIGN_MIRROR_MODAL, 'true');
+}
+
+function shouldOpenAntdMirrorModal() {
+  return !window.localStorage.getItem(SHOULD_OPEN_ANT_DESIGN_MIRROR_MODAL);
+}
+
 interface HeaderState {
   menuVisible: boolean;
   windowWidth: number;
@@ -111,16 +121,21 @@ class Header extends React.Component<HeaderProps, HeaderState> {
         });
         if (
           process.env.NODE_ENV === 'production' &&
-          !window.location.href.includes('ant-design.antgroup.com')
+          !window.location.href.includes('ant-design.antgroup.com') &&
+          shouldOpenAntdMirrorModal()
         ) {
           Modal.info({
             title: '提示',
-            content: '国内镜像已经上线，推荐访问国内镜像以获得更佳体验～',
+            content: '内网用户推荐访问国内镜像以获得极速体验～🚀',
             okText: '前往',
             onOk: () => {
               window.open('https://ant-design.antgroup.com', '_self');
+              disableAntdMirrorModal();
             },
-            closable: true,
+            cancelText: '不再弹出',
+            onCancel: () => {
+              disableAntdMirrorModal();
+            },
           });
         }
       }

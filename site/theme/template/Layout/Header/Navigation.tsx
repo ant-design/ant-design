@@ -137,11 +137,26 @@ export default ({
           children: [
             {
               label: <a href="https://ant-design.antgroup.com">官方镜像</a>,
-              icon: <AntDesignOutlined />,
+              icon: (
+                <img
+                  alt="logo"
+                  src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+                  width={16}
+                  style={{ verticalAlign: 'text-bottom' }}
+                />
+              ),
               key: 'antgroup',
             },
             {
               label: <a href="https://ant-design.gitee.io">Gitee 镜像</a>,
+              icon: (
+                <img
+                  alt="gitee"
+                  src="https://gw.alipayobjects.com/zos/bmw-prod/9e91e124-9bab-4113-b500-301412f6b370.svg"
+                  width={16}
+                  style={{ verticalAlign: 'text-bottom' }}
+                />
+              ),
               key: 'gitee',
             },
           ],
