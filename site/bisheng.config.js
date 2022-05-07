@@ -183,9 +183,14 @@ module.exports = {
       cacheGroups: {
         vendors: {
           test: /[/\\]node_modules[/\\]@ant-design[/\\]icon/,
-          name: 'vendor',
+          name: 'anticon',
           chunks: 'initial',
           maxSize: 1024 * 1024,
+        },
+        moment: {
+          test: /[/\\]node_modules[/\\]moment/,
+          name: 'moment',
+          chunks: 'initial',
         },
         components: {
           test(module) {
