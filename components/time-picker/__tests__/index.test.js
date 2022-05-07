@@ -6,6 +6,7 @@ import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import { resetWarned } from '../../_util/devWarning';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { act } from 'react-dom/test-utils';
 
 describe('TimePicker', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -62,26 +63,34 @@ describe('TimePicker', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-  it('should pass popupClassName prop to Picker as dropdownClassName prop', () => {
-    const popupClassName = 'myCustomClassName';
+  it('should pass dropdownClassName prop to Picker', () => {
+    const dropdownClassName = 'myCustomClassName';
     const wrapper = mount(
       <TimePicker
         defaultOpenValue={moment('00:00:00', 'HH:mm:ss')}
-        popupClassName={popupClassName}
+        dropdownClassName={dropdownClassName}
       />,
     );
-    expect(wrapper.find('Picker').last().prop('dropdownClassName')).toEqual(popupClassName);
+    expect(wrapper.find('Picker').last().prop('dropdownClassName')).toEqual(dropdownClassName);
   });
 
-  it('should pass popupClassName prop to RangePicker as dropdownClassName prop', () => {
-    const popupClassName = 'myCustomClassName';
+  it('should pass dropdownClassName prop to RangePicker', () => {
+    const dropdownClassName = 'myCustomClassName';
     const wrapper = mount(
       <TimePicker.RangePicker
         defaultOpenValue={moment('00:00:00', 'HH:mm:ss')}
-        popupClassName={popupClassName}
+        dropdownClassName={dropdownClassName}
       />,
     );
-    expect(wrapper.find('RangePicker').at(1).prop('dropdownClassName')).toEqual(popupClassName);
+    expect(wrapper.find('.ant-picker-range').length).toEqual(1);
+
+    wrapper.find('.ant-picker-range').simulate('click');
+    act(() => {
+      jest.runAllTimers();
+      wrapper.update();
+    });
+    expect(wrapper.find('.ant-picker-dropdown').last(0).hasClass('myCustomClassName')).toBeTruthy();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('should support bordered', () => {

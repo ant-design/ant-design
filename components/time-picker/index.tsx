@@ -13,27 +13,21 @@ export interface TimePickerLocale {
 }
 
 export interface TimeRangePickerProps extends Omit<RangePickerTimeProps<Moment>, 'picker'> {
-  popupClassName?: string;
+  dropdownClassName?: string;
 }
 
 const RangePicker = React.forwardRef<any, TimeRangePickerProps>((props, ref) => (
-  <InternalRangePicker
-    {...props}
-    dropdownClassName={props.popupClassName}
-    picker="time"
-    mode={undefined}
-    ref={ref}
-  />
+  <InternalRangePicker {...props} picker="time" mode={undefined} ref={ref} />
 ));
 
 export interface TimePickerProps extends Omit<PickerTimeProps<Moment>, 'picker'> {
   addon?: () => React.ReactNode;
-  popupClassName?: string;
+  dropdownClassName?: string;
   status?: InputStatus;
 }
 
 const TimePicker = React.forwardRef<any, TimePickerProps>(
-  ({ addon, renderExtraFooter, popupClassName, ...restProps }, ref) => {
+  ({ addon, renderExtraFooter, dropdownClassName, ...restProps }, ref) => {
     const internalRenderExtraFooter = React.useMemo(() => {
       if (renderExtraFooter) {
         return renderExtraFooter;
@@ -52,7 +46,7 @@ const TimePicker = React.forwardRef<any, TimePickerProps>(
     return (
       <InternalTimePicker
         {...restProps}
-        dropdownClassName={popupClassName}
+        dropdownClassName={dropdownClassName}
         mode={undefined}
         ref={ref}
         renderExtraFooter={internalRenderExtraFooter}

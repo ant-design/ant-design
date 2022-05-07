@@ -26,7 +26,7 @@ export default () => (
   <TimePicker
     onChange={onChange}
     defaultOpenValue={moment('00:00:00', 'HH:mm:ss')}
-    popupClassName="myCustomClassName"
+    dropdownClassName="myCustomClassName"
   />
 );
 ```
