@@ -9,7 +9,7 @@ import type {
   ReactNode,
 } from 'react';
 import classNames from 'classnames';
-import { ListGridType, ListContext } from './index';
+import { ListContext } from './index';
 import { Col } from '../grid';
 import { ConfigContext } from '../config-provider';
 import { cloneElement } from '../_util/reactNode';
@@ -21,7 +21,6 @@ export interface ListItemProps extends HTMLAttributes<HTMLDivElement> {
   style?: CSSProperties;
   extra?: ReactNode;
   actions?: ReactNode[];
-  grid?: ListGridType;
   colStyle?: CSSProperties;
 }
 
