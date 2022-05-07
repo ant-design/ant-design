@@ -2295,9 +2295,11 @@ Array [
   >
     <div
       class="ant-row ant-form-item"
+      role="row"
     >
       <div
         class="ant-col ant-form-item-label"
+        role="cell"
       >
         <label
           class=""
@@ -2308,6 +2310,7 @@ Array [
       </div>
       <div
         class="ant-col ant-form-item-control"
+        role="cell"
       >
         <div
           class="ant-form-item-control-input"
@@ -2334,9 +2337,11 @@ Array [
     </div>
     <div
       class="ant-row ant-form-item"
+      role="row"
     >
       <div
         class="ant-col ant-form-item-label"
+        role="cell"
       >
         <label
           class=""
@@ -2347,6 +2352,7 @@ Array [
       </div>
       <div
         class="ant-col ant-form-item-control"
+        role="cell"
       >
         <div
           class="ant-form-item-control-input"
@@ -2373,9 +2379,11 @@ Array [
     </div>
     <div
       class="ant-row ant-form-item"
+      role="row"
     >
       <div
         class="ant-col ant-form-item-label"
+        role="cell"
       >
         <label
           class=""
@@ -2386,6 +2394,7 @@ Array [
       </div>
       <div
         class="ant-col ant-form-item-control"
+        role="cell"
       >
         <div
           class="ant-form-item-control-input"
@@ -2412,9 +2421,11 @@ Array [
     </div>
     <div
       class="ant-row ant-form-item"
+      role="row"
     >
       <div
         class="ant-col ant-form-item-label"
+        role="cell"
       >
         <label
           class=""
@@ -2425,6 +2436,7 @@ Array [
       </div>
       <div
         class="ant-col ant-form-item-control"
+        role="cell"
       >
         <div
           class="ant-form-item-control-input"
@@ -2451,9 +2463,11 @@ Array [
     </div>
     <div
       class="ant-row ant-form-item"
+      role="row"
     >
       <div
         class="ant-col ant-form-item-label"
+        role="cell"
       >
         <label
           class=""
@@ -2464,6 +2478,7 @@ Array [
       </div>
       <div
         class="ant-col ant-form-item-control"
+        role="cell"
       >
         <div
           class="ant-form-item-control-input"
@@ -2490,9 +2505,11 @@ Array [
     </div>
     <div
       class="ant-row ant-form-item"
+      role="row"
     >
       <div
         class="ant-col ant-form-item-label"
+        role="cell"
       >
         <label
           class=""
@@ -2503,6 +2520,7 @@ Array [
       </div>
       <div
         class="ant-col ant-form-item-control"
+        role="cell"
       >
         <div
           class="ant-form-item-control-input"
@@ -2529,9 +2547,11 @@ Array [
     </div>
     <div
       class="ant-row ant-form-item"
+      role="row"
     >
       <div
         class="ant-col ant-form-item-label"
+        role="cell"
       >
         <label
           class=""
@@ -2542,6 +2562,7 @@ Array [
       </div>
       <div
         class="ant-col ant-form-item-control"
+        role="cell"
       >
         <div
           class="ant-form-item-control-input"
@@ -2568,9 +2589,11 @@ Array [
     </div>
     <div
       class="ant-row ant-form-item"
+      role="row"
     >
       <div
         class="ant-col ant-form-item-label"
+        role="cell"
       >
         <label
           class=""
@@ -2581,6 +2604,7 @@ Array [
       </div>
       <div
         class="ant-col ant-form-item-control"
+        role="cell"
       >
         <div
           class="ant-form-item-control-input"
@@ -2607,9 +2631,11 @@ Array [
     </div>
     <div
       class="ant-row ant-form-item"
+      role="row"
     >
       <div
         class="ant-col ant-form-item-label"
+        role="cell"
       >
         <label
           class=""
@@ -2620,6 +2646,7 @@ Array [
       </div>
       <div
         class="ant-col ant-form-item-control"
+        role="cell"
       >
         <div
           class="ant-form-item-control-input"
@@ -2646,9 +2673,11 @@ Array [
     </div>
     <div
       class="ant-row ant-form-item"
+      role="row"
     >
       <div
         class="ant-col ant-form-item-label"
+        role="cell"
       >
         <label
           class=""
@@ -2659,6 +2688,7 @@ Array [
       </div>
       <div
         class="ant-col ant-form-item-control"
+        role="cell"
       >
         <div
           class="ant-form-item-control-input"
@@ -2685,9 +2715,11 @@ Array [
     </div>
     <div
       class="ant-row ant-form-item"
+      role="row"
     >
       <div
         class="ant-col ant-form-item-label"
+        role="cell"
       >
         <label
           class=""
@@ -2698,6 +2730,7 @@ Array [
       </div>
       <div
         class="ant-col ant-form-item-control"
+        role="cell"
       >
         <div
           class="ant-form-item-control-input"
@@ -2773,9 +2806,11 @@ Array [
     </div>
     <div
       class="ant-row ant-form-item"
+      role="row"
     >
       <div
         class="ant-col ant-form-item-label"
+        role="cell"
       >
         <label
           class=""
@@ -2786,6 +2821,7 @@ Array [
       </div>
       <div
         class="ant-col ant-form-item-control"
+        role="cell"
       >
         <div
           class="ant-form-item-control-input"
@@ -2860,9 +2896,11 @@ Array [
     </div>
     <div
       class="ant-row ant-form-item"
+      role="row"
     >
       <div
         class="ant-col ant-form-item-label"
+        role="cell"
       >
         <label
           class=""
@@ -2873,6 +2911,7 @@ Array [
       </div>
       <div
         class="ant-col ant-form-item-control"
+        role="cell"
       >
         <div
           class="ant-form-item-control-input"
@@ -2928,9 +2967,11 @@ Array [
     </div>
     <div
       class="ant-row ant-form-item"
+      role="row"
     >
       <div
         class="ant-col ant-form-item-label"
+        role="cell"
       >
         <label
           class=""
@@ -2941,6 +2982,7 @@ Array [
       </div>
       <div
         class="ant-col ant-form-item-control"
+        role="cell"
       >
         <div
           class="ant-form-item-control-input"
@@ -3035,9 +3077,11 @@ Array [
     </div>
     <div
       class="ant-row ant-form-item"
+      role="row"
     >
       <div
         class="ant-col ant-form-item-label"
+        role="cell"
       >
         <label
           class=""
@@ -3048,6 +3092,7 @@ Array [
       </div>
       <div
         class="ant-col ant-form-item-control"
+        role="cell"
       >
         <div
           class="ant-form-item-control-input"
@@ -15701,9 +15746,11 @@ Array [
   >
     <div
       class="ant-row ant-form-item"
+      role="row"
     >
       <div
         class="ant-col ant-form-item-label"
+        role="cell"
       >
         <label
           class=""
@@ -15714,6 +15761,7 @@ Array [
       </div>
       <div
         class="ant-col ant-form-item-control"
+        role="cell"
       >
         <div
           class="ant-form-item-control-input"
@@ -15740,9 +15788,11 @@ Array [
     </div>
     <div
       class="ant-row ant-form-item"
+      role="row"
     >
       <div
         class="ant-col ant-form-item-label"
+        role="cell"
       >
         <label
           class=""
@@ -15753,6 +15803,7 @@ Array [
       </div>
       <div
         class="ant-col ant-form-item-control"
+        role="cell"
       >
         <div
           class="ant-form-item-control-input"
