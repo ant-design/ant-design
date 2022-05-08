@@ -108,20 +108,13 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
     const [internalPush, setPush] = React.useState(false);
     const parentDrawer = React.useContext(DrawerContext);
 
-    const [load, setLoad] = React.useState(false);
     const [visible, setVisible] = React.useState(false);
 
     React.useEffect(() => {
       if (propsVisible) {
-        setLoad(true);
-      } else {
-        setVisible(false);
+        setVisible(true);
       }
     }, [propsVisible]);
-
-    React.useEffect(() => {
-      if (load && propsVisible) setVisible(true);
-    }, [load, propsVisible]);
 
     const { getPopupContainer, getPrefixCls, direction } = React.useContext(ConfigContext);
     const prefixCls = getPrefixCls('drawer', customizePrefixCls);
@@ -148,13 +141,13 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
 
     React.useEffect(() => {
       if (parentDrawer) {
-        if (visible) {
+        if (propsVisible) {
           parentDrawer.push();
         } else {
           parentDrawer.pull();
         }
       }
-    }, [visible]);
+    }, [propsVisible]);
 
     const operations = React.useMemo(
       () => ({
@@ -176,7 +169,7 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
 
     const getOffsetStyle = () => {
       // https://github.com/ant-design/ant-design/issues/24287
-      if (!visible && !mask) {
+      if (!propsVisible && !mask) {
         return {};
       }
       const offsetStyle: any = {};
@@ -262,7 +255,7 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
 
     // render drawer body dom
     const renderBody = () => {
-      if (destroyOnClose && !forceRender && !load) {
+      if (destroyOnClose && !forceRender && !visible) {
         return null;
       }
 
@@ -302,14 +295,14 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
             ...rest,
           }}
           {...offsetStyle}
-          open={visible}
+          open={propsVisible}
           showMask={mask}
           style={getRcDrawerStyle()}
           className={drawerClassName}
           getContainer={getContainer}
           afterVisibleChange={open => {
             if (!open) {
-              setLoad(false);
+              setVisible(false);
             }
             afterVisibleChange?.(open);
           }}
