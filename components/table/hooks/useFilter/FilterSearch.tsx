@@ -1,7 +1,7 @@
 import * as React from 'react';
 import SearchOutlined from '@ant-design/icons/SearchOutlined';
 import Input from '../../../input';
-import { TableLocale, FilterSearchType } from '../../interface';
+import type { TableLocale, FilterSearchType } from '../../interface';
 
 interface FilterSearchProps {
   value: string;

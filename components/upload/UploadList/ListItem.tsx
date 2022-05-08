@@ -8,7 +8,7 @@ import Tooltip from '../../tooltip';
 import Progress from '../../progress';
 import { ConfigContext } from '../../config-provider';
 
-import {
+import type {
   ItemRender,
   UploadFile,
   UploadListProgressProps,

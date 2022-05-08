@@ -1,11 +1,14 @@
 import React, { forwardRef, useContext, useEffect, useRef } from 'react';
-import RcInput, { InputProps as RcInputProps, InputRef } from 'rc-input';
+import type { InputProps as RcInputProps, InputRef } from 'rc-input';
+import RcInput from 'rc-input';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import classNames from 'classnames';
 import { composeRef } from 'rc-util/lib/ref';
-import SizeContext, { SizeType } from '../config-provider/SizeContext';
+import type { SizeType } from '../config-provider/SizeContext';
+import SizeContext from '../config-provider/SizeContext';
 import DisabledContext from '../config-provider/DisabledContext';
-import { getMergedStatus, getStatusClassNames, InputStatus } from '../_util/statusUtils';
+import type { InputStatus } from '../_util/statusUtils';
+import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { ConfigContext } from '../config-provider';
 import { FormItemInputContext, NoFormStatus } from '../form/context';
 import { hasPrefixSuffix } from './utils';

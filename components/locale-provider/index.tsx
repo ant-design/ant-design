@@ -1,16 +1,17 @@
 import * as React from 'react';
 import memoizeOne from 'memoize-one';
-import { ValidateMessages } from 'rc-field-form/lib/interface';
+import type { ValidateMessages } from 'rc-field-form/lib/interface';
 import devWarning from '../_util/devWarning';
 
-import { ModalLocale, changeConfirmLocale } from '../modal/locale';
-import { TransferLocale as TransferLocaleForEmpty } from '../empty';
-import { PaginationLocale } from '../pagination/Pagination';
-import { TableLocale } from '../table/interface';
-import { PopconfirmLocale } from '../popconfirm';
-import { UploadLocale } from '../upload/interface';
-import { TransferLocale } from '../transfer';
-import { PickerLocale as DatePickerLocale } from '../date-picker/generatePicker';
+import type { ModalLocale } from '../modal/locale';
+import { changeConfirmLocale } from '../modal/locale';
+import type { TransferLocale as TransferLocaleForEmpty } from '../empty';
+import type { PaginationLocale } from '../pagination/Pagination';
+import type { TableLocale } from '../table/interface';
+import type { PopconfirmLocale } from '../popconfirm';
+import type { UploadLocale } from '../upload/interface';
+import type { TransferLocale } from '../transfer';
+import type { PickerLocale as DatePickerLocale } from '../date-picker/generatePicker';
 import LocaleContext from './context';
 
 export const ANT_MARK = 'internalMark';

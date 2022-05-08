@@ -11,16 +11,18 @@ import toArray from 'rc-util/lib/Children/toArray';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import type { BaseSelectRef } from 'rc-select';
-import Select, {
+import type {
   BaseOptionType,
   DefaultOptionType,
   InternalSelectProps,
   RefSelectProps,
 } from '../select';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import Select from '../select';
+import type { ConfigConsumerProps } from '../config-provider';
+import { ConfigConsumer } from '../config-provider';
 import devWarning from '../_util/devWarning';
 import { isValidElement } from '../_util/reactNode';
-import { InputStatus } from '../_util/statusUtils';
+import type { InputStatus } from '../_util/statusUtils';
 
 const { Option } = Select;
 

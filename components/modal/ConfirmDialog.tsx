@@ -1,6 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import Dialog, { ModalFuncProps } from './Modal';
+import type { ModalFuncProps } from './Modal';
+import Dialog from './Modal';
 import ActionButton from '../_util/ActionButton';
 import devWarning from '../_util/devWarning';
 import ConfigProvider from '../config-provider';

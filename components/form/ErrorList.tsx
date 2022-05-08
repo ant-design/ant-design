@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import CSSMotion, { CSSMotionList } from 'rc-motion';
 import { FormItemPrefixContext } from './context';
 import { ConfigContext } from '../config-provider';
-import { ValidateStatus } from './FormItem';
+import type { ValidateStatus } from './FormItem';
 import collapseMotion from '../_util/motion';
 
 const EMPTY_LIST: React.ReactNode[] = [];

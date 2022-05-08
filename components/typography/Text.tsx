@@ -1,7 +1,8 @@
 import * as React from 'react';
 import omit from 'rc-util/lib/omit';
 import devWarning from '../_util/devWarning';
-import Base, { BlockProps, EllipsisConfig } from './Base';
+import type { BlockProps, EllipsisConfig } from './Base';
+import Base from './Base';
 
 export interface TextProps extends BlockProps {
   ellipsis?: boolean | Omit<EllipsisConfig, 'expandable' | 'rows' | 'onExpand'>;

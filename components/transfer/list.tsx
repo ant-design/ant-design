@@ -5,7 +5,7 @@ import DownOutlined from '@ant-design/icons/DownOutlined';
 import Checkbox from '../checkbox';
 import Menu from '../menu';
 import Dropdown from '../dropdown';
-import {
+import type {
   TransferDirection,
   RenderResult,
   RenderResultObject,
@@ -14,8 +14,9 @@ import {
   KeyWiseTransferItem,
 } from './index';
 import Search from './search';
-import DefaultListBody, { TransferListBodyProps, OmitProps } from './ListBody';
-import { PaginationType } from './interface';
+import type { TransferListBodyProps } from './ListBody';
+import DefaultListBody, { OmitProps } from './ListBody';
+import type { PaginationType } from './interface';
 import { isValidElement } from '../_util/reactNode';
 
 const defaultRender = () => null;

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import devWarning from '../_util/devWarning';
-import Base, { BlockProps } from './Base';
+import type { BlockProps } from './Base';
+import Base from './Base';
 import { tupleNum } from '../_util/type';
 
 const TITLE_ELE_LIST = tupleNum(1, 2, 3, 4, 5);
