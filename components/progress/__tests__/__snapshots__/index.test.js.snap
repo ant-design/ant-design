@@ -19,7 +19,7 @@ exports[`Progress render dashboard 295 gapDegree 1`] = `
         r="47"
         stroke-linecap="round"
         stroke-width="6"
-        style="stroke-dasharray: 53.31980864842677px 295.3097094374406; stroke-dashoffset: 0; transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
+        style="stroke-dasharray: 53.31980864842677px 295.3097094374406; stroke-dashoffset: 0; transform: rotate(237.5deg); transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
       />
       <circle
         class="ant-progress-circle-path"
@@ -71,7 +71,7 @@ exports[`Progress render dashboard 296 gapDegree 1`] = `
         r="47"
         stroke-linecap="round"
         stroke-width="6"
-        style="stroke-dasharray: 52.499503899989435px 295.3097094374406; stroke-dashoffset: 0; transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
+        style="stroke-dasharray: 52.499503899989435px 295.3097094374406; stroke-dashoffset: 0; transform: rotate(238deg); transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
       />
       <circle
         class="ant-progress-circle-path"
@@ -123,7 +123,7 @@ exports[`Progress render dashboard zero gapDegree 1`] = `
         r="47"
         stroke-linecap="round"
         stroke-width="6"
-        style="stroke-dasharray: 295.3097094374406px 295.3097094374406; stroke-dashoffset: 0; transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
+        style="stroke-dasharray: 295.3097094374406px 295.3097094374406; stroke-dashoffset: 0; transform: rotate(-90deg); transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
       />
       <circle
         class="ant-progress-circle-path"
@@ -367,7 +367,7 @@ exports[`Progress render strokeColor 1`] = `
         r="47"
         stroke-linecap="round"
         stroke-width="6"
-        style="stroke-dasharray: 295.3097094374406px 295.3097094374406; stroke-dashoffset: 0; transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
+        style="stroke-dasharray: 295.3097094374406px 295.3097094374406; stroke-dashoffset: 0; transform: rotate(-90deg); transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
       />
       <circle
         class="ant-progress-circle-path"
@@ -498,7 +498,7 @@ exports[`Progress render successColor progress type="circle" 1`] = `
         r="47"
         stroke-linecap="round"
         stroke-width="6"
-        style="stroke-dasharray: 295.3097094374406px 295.3097094374406; stroke-dashoffset: 0; transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
+        style="stroke-dasharray: 295.3097094374406px 295.3097094374406; stroke-dashoffset: 0; transform: rotate(-90deg); transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
       />
       <circle
         class="ant-progress-circle-path"
@@ -550,7 +550,7 @@ exports[`Progress render successColor progress type="dashboard" 1`] = `
         r="47"
         stroke-linecap="round"
         stroke-width="6"
-        style="stroke-dasharray: 233.78685330464043px 295.3097094374406; stroke-dashoffset: 0; transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
+        style="stroke-dasharray: 233.78685330464043px 295.3097094374406; stroke-dashoffset: 0; transform: rotate(127.5deg); transform-origin: 50% 50%; transition: stroke-dashoffset .3s ease 0s, stroke-dasharray .3s ease 0s, stroke .3s, stroke-width .06s ease .3s, opacity .3s ease 0s; fill-opacity: 0;"
       />
       <circle
         class="ant-progress-circle-path"
