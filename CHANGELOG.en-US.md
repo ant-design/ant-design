@@ -15,6 +15,16 @@ timeline: true
 
 ---
 
+## 4.20.3
+
+`2022-05-08`
+
+- 🐞 Fix List.Item ref no work problem. [#35321](https://github.com/ant-design/ant-design/pull/35321)
+- 💄 Optimize the style of arrow in Tooltip. [#35401](https://github.com/ant-design/ant-design/pull/35401) [@MadCcc](https://github.com/MadCcc)
+- 🐞 Fix: table column filter reset is not working. [#35386](https://github.com/ant-design/ant-design/pull/35386) [@lalalazero](https://github.com/lalalazero)
+- TypeScript
+  - 🤖 Fix List.Item typescript. [#35418](https://github.com/ant-design/ant-design/pull/35418)
+
 ## 4.20.2
 
 `2022-04-30`

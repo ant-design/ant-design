@@ -15,6 +15,16 @@ timeline: true
 
 ---
 
+## 4.20.3
+
+`2022-05-08`
+
+- 🐞 修复 List.Item ref 不生效的问题。[#35321](https://github.com/ant-design/ant-design/pull/35321)
+- 💄 优化 Tooltip 箭头的样式。[#35401](https://github.com/ant-design/ant-design/pull/35401) [@MadCcc](https://github.com/MadCcc)
+- 🐞 修复表格筛选的重置功能不生效问题。[#35386](https://github.com/ant-design/ant-design/pull/35386) [@lalalazero](https://github.com/lalalazero)
+- TypeScript
+  - 🤖 修复 List.Item typescript。[#35418](https://github.com/ant-design/ant-design/pull/35418)
+
 ## 4.20.2
 
 `2022-04-30`
