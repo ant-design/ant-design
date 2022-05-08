@@ -89,12 +89,12 @@ describe('Typography', () => {
 
   describe('Base', () => {
     describe('copyable', () => {
-      function copyTest(name, text, target, icon, tooltips) {
+      function copyTest(name, text, target, icon, tooltips, format) {
         it(name, async () => {
           jest.useFakeTimers();
           const onCopy = jest.fn();
           const wrapper = mount(
-            <Base component="p" copyable={{ text, onCopy, icon, tooltips }}>
+            <Base component="p" copyable={{ text, onCopy, icon, tooltips, format }}>
               test copy
             </Base>,
           );
@@ -132,6 +132,7 @@ describe('Typography', () => {
           }
 
           expect(copy.lastStr).toEqual(target);
+          expect(copy.lastOptions.format).toEqual(format);
           wrapper.update();
           expect(onCopy).toHaveBeenCalled();
 
@@ -173,6 +174,22 @@ describe('Typography', () => {
 
       copyTest('basic copy', undefined, 'test copy');
       copyTest('customize copy', 'bamboo', 'bamboo');
+      copyTest(
+        'costomize copy with plain text',
+        'bamboo',
+        'bamboo',
+        undefined,
+        undefined,
+        'text/plain',
+      );
+      copyTest(
+        'costomize copy with html text',
+        'bamboo',
+        'bamboo',
+        undefined,
+        undefined,
+        'text/html',
+      );
       copyTest('customize copy icon', 'bamboo', 'bamboo', <SmileOutlined />);
       copyTest('customize copy icon by pass array', 'bamboo', 'bamboo', [
         <SmileOutlined key="copy-icon" />,
