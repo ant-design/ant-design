@@ -1,7 +1,7 @@
 ---
 order: 10
 title:
-  zh-CN: 边缘星座
+  zh-CN: 边缘形状
   en-US: Stroke Linecap
 ---
 
