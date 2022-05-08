@@ -23,7 +23,11 @@ timeline: true
 - 🐞 修复 Row 里不必要的 `rowGap: 0` 样式属性。[#35409](https://github.com/ant-design/ant-design/pull/35409)
 - 🐞 修复 List.Item `ref` 不生效的问题。[#35321](https://github.com/ant-design/ant-design/pull/35321)
 - 💄 优化 Tooltip 箭头的样式。[#35401](https://github.com/ant-design/ant-design/pull/35401)
+<<<<<<< HEAD
 - 🐞 修复 Table 筛选的重置功能不生效问题。[#35386](https://github.com/ant-design/ant-design/pull/35386) [@lalalazero](https://github.com/lalalazero)
+=======
+- 🐞 修复表格筛选的重置功能不生效问题。[#35386](https://github.com/ant-design/ant-design/pull/35386) [@lalalazero](https://github.com/lalalazero)
+>>>>>>> f430cb0b17 (fix typo)
 - 🌍 为 🇬🇧 en_GB 和 🇺🇦 uk_UA 添加缺失的本地化文案。[#35430](https://github.com/ant-design/ant-design/pull/35430)
 - TypeScript
   - 🤖 修复 Notification 的 `maxCount` 属性缺失的问题。[#35369](https://github.com/ant-design/ant-design/pull/35369) [@cwveysey](https://github.com/cwveysey)
