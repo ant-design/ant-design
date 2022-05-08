@@ -100,6 +100,7 @@ const Progress: React.FC<ProgressProps> = (props: ProgressProps) => {
 
   const { prefixCls: customizePrefixCls, className, steps, strokeColor, ...restProps } = props;
   const prefixCls = getPrefixCls('progress', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
   const progressStatus = getProgressStatus();
   const progressInfo = renderProcessInfo(prefixCls, progressStatus);
 
@@ -144,9 +145,10 @@ const Progress: React.FC<ProgressProps> = (props: ProgressProps) => {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    hashId,
   );
 
-  return (
+  return wrapSSR(
     <div
       {...omit(restProps, [
         'status',
@@ -165,7 +167,7 @@ const Progress: React.FC<ProgressProps> = (props: ProgressProps) => {
       className={classString}
     >
       {progress}
-    </div>
+    </div>,
   );
 };
 
