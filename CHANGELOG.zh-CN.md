@@ -19,11 +19,13 @@ timeline: true
 
 `2022-05-08`
 
+- 🔥 增加 [Ant Group](https://ant-design.antgroup.com/index-cn) 镜像，享受飞一般的加载速度。
+- 🐞 修复 Row 里不必要的 `rowGap: 0` 样式属性。[#35409](https://github.com/ant-design/ant-design/pull/35409)
 - 🐞 修复 List.Item `ref` 不生效的问题。[#35321](https://github.com/ant-design/ant-design/pull/35321)
 - 💄 优化 Tooltip 箭头的样式。[#35401](https://github.com/ant-design/ant-design/pull/35401) [@MadCcc](https://github.com/MadCcc)
 - 🐞 修复表格筛选的重置功能不生效问题。[#35386](https://github.com/ant-design/ant-design/pull/35386) [@lalalazero](https://github.com/lalalazero)
 - TypeScript
-  - 🤖 修复 List.Item typescript。[#35418](https://github.com/ant-design/ant-design/pull/35418)
+  - 🤖 修复 Notification 的 `maxCount` 属性缺失的问题。[#35369](https://github.com/ant-design/ant-design/pull/35369) [@cwveysey](https://github.com/cwveysey)
 
 ## 4.20.2
 
