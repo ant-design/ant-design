@@ -22,7 +22,7 @@ timeline: true
 - 🐞 Fixed unnecessary `rowGap: 0` style attribute in Row. [#35409](https://github.com/ant-design/ant-design/pull/35409)
 - 🐞 Fix List.Item `ref` no work problem. [#35321](https://github.com/ant-design/ant-design/pull/35321)
 - 💄 Optimize the style of arrow in Tooltip. [#35401](https://github.com/ant-design/ant-design/pull/35401) [@MadCcc](https://github.com/MadCcc)
-- 🐞 Fix table column filter reset is not working. [#35386](https://github.com/ant-design/ant-design/pull/35386) [@lalalazero](https://github.com/lalalazero)
+- 🐞 Fix Table column filter reset is not working. [#35386](https://github.com/ant-design/ant-design/pull/35386) [@lalalazero](https://github.com/lalalazero)
 - Typescript
   - 🤖 Fixed an issue where notification `maxCount` attribute was missing. [#35369](https://github.com/ant-design/ant-design/pull/35369) [@cwveysey](https://github.com/cwveysey)
 
