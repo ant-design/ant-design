@@ -15,7 +15,8 @@ A disabled state of the `TimePicker`.
 
 ```jsx
 import { TimePicker } from 'antd';
-import moment from 'moment';
+import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
 
-export default () => <TimePicker defaultValue={moment('12:08:23', 'HH:mm:ss')} disabled />;
+export default () => <TimePicker defaultValue={dayjs('12:08:23', 'HH:mm:ss')} disabled />;
 ```

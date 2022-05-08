@@ -7,7 +7,7 @@ import themeSwitcher from 'theme-switcher';
 import { setTwoToneColor } from '@ant-design/icons';
 import { StyleProvider, createCache } from '@ant-design/cssinjs';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import 'moment/locale/zh-cn';
+import 'dayjs/locale/zh-cn';
 import { ConfigProvider } from 'antd';
 import { browserHistory } from 'bisheng/router';
 import zhCN from 'antd/lib/locale/zh_CN';

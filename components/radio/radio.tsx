@@ -7,6 +7,7 @@ import { FormItemInputContext } from '../form/context';
 import { RadioProps, RadioChangeEvent } from './interface';
 import { ConfigContext } from '../config-provider';
 import RadioGroupContext, { RadioOptionTypeContext } from './context';
+import DisabledContext from '../config-provider/DisabledContext';
 import devWarning from '../_util/devWarning';
 
 import useStyle from './style';
@@ -29,7 +30,14 @@ const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (
     groupContext?.onChange?.(e);
   };
 
-  const { prefixCls: customizePrefixCls, className, children, style, ...restProps } = props;
+  const {
+    prefixCls: customizePrefixCls,
+    className,
+    children,
+    style,
+    disabled: customDisabled,
+    ...restProps
+  } = props;
   const radioPrefixCls = getPrefixCls('radio', customizePrefixCls);
   const prefixCls =
     (groupContext?.optionType || radioOptionTypeContext) === 'button'
@@ -40,11 +48,16 @@ const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (
   const [wrapSSR, hashId] = useStyle(radioPrefixCls, getPrefixCls());
 
   const radioProps: RadioProps = { ...restProps };
+
+  // ===================== Disabled =====================
+  const disabled = React.useContext(DisabledContext);
+  radioProps.disabled = customDisabled || disabled;
+
   if (groupContext) {
     radioProps.name = groupContext.name;
     radioProps.onChange = onChange;
     radioProps.checked = props.value === groupContext.value;
-    radioProps.disabled = props.disabled || groupContext.disabled;
+    radioProps.disabled = radioProps.disabled || groupContext.disabled;
   }
   const wrapperClassString = classNames(
     `${prefixCls}-wrapper`,
