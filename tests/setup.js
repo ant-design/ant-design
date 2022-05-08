@@ -1,4 +1,6 @@
 const React = require('react');
+const util = require('util');
+
 const { _rs: onLibResize } = require('rc-resize-observer/lib/utils/observerUtil');
 const { _rs: onEsResize } = require('rc-resize-observer/es/utils/observerUtil');
 
@@ -34,6 +36,17 @@ if (typeof window !== 'undefined') {
   // https://github.com/yiminghe/css-animation/blob/a5986d73fd7dfce75665337f39b91483d63a4c8c/src/Event.js#L44
   window.AnimationEvent = window.AnimationEvent || window.Event;
   window.TransitionEvent = window.TransitionEvent || window.Event;
+
+  // ref: https://jestjs.io/docs/manual-mocks#mocking-methods-which-are-not-implemented-in-jsdom
+  // ref: https://github.com/jsdom/jsdom/issues/2524
+  Object.defineProperty(window, 'TextEncoder', {
+    writable: true,
+    value: util.TextEncoder,
+  });
+  Object.defineProperty(window, 'TextDecoder', {
+    writable: true,
+    value: util.TextDecoder,
+  });
 }
 
 const Enzyme = require('enzyme');
