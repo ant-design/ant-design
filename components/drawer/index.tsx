@@ -255,7 +255,7 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
 
     // render drawer body dom
     const renderBody = () => {
-      if (destroyOnClose && !forceRender && !visible) {
+      if (!forceRender && !visible) {
         return null;
       }
 
@@ -301,7 +301,7 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
           className={drawerClassName}
           getContainer={getContainer}
           afterVisibleChange={open => {
-            if (!open) {
+            if (!open && destroyOnClose) {
               setVisible(false);
             }
             afterVisibleChange?.(open);
