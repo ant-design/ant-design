@@ -134,11 +134,32 @@ function needTransformStyle(content) {
   return content.includes('../../style/index.less') || content.includes('./index.less');
 }
 
+function includesWarning(file) {
+  return !/devWarning|locale|typings/.test(file.path);
+}
+
 module.exports = {
   compile: {
     includeLessFile: [/(\/|\\)components(\/|\\)style(\/|\\)default.less$/],
     transformTSFile(file) {
-      if (isComponentStyleEntry(file)) {
+      // https://github.com/ant-design/ant-design/pull/35411
+      // add prefix for `devWarning`, so that
+      // other build tools can remove it in production mode
+      if (includesWarning(file)) {
+        let content = file.contents.toString();
+
+        if (content.includes('devWarning(')) {
+          const cloneFile = file.clone();
+
+          content = content.replace(
+            /\bdevWarning\(/g,
+            'if (process.env.NODE_ENV !== "production") devWarning(',
+          );
+          cloneFile.contents = Buffer.from(content);
+
+          return cloneFile;
+        }
+      } else if (isComponentStyleEntry(file)) {
         let content = file.contents.toString();
 
         if (needTransformStyle(content)) {
