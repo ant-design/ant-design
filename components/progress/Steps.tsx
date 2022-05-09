@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { ProgressProps, ProgressSize } from './progress';
+import type { ProgressProps, ProgressSize } from './progress';
 
 interface StepsProps extends ProgressProps {
   steps: number;
@@ -16,7 +16,7 @@ const Steps: React.FC<StepsProps> = props => {
     percent = 0,
     strokeWidth = 8,
     strokeColor,
-    trailColor,
+    trailColor = null as any,
     prefixCls,
     children,
   } = props;

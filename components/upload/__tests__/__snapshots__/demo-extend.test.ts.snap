@@ -3781,9 +3781,11 @@ exports[`renders ./components/upload/demo/upload-with-aliyun-oss.md extend conte
 >
   <div
     class="ant-row ant-form-item"
+    role="row"
   >
     <div
       class="ant-col ant-col-4 ant-form-item-label"
+      role="cell"
     >
       <label
         class=""
@@ -3795,6 +3797,7 @@ exports[`renders ./components/upload/demo/upload-with-aliyun-oss.md extend conte
     </div>
     <div
       class="ant-col ant-form-item-control"
+      role="cell"
     >
       <div
         class="ant-form-item-control-input"

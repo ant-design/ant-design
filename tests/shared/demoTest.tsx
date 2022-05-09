@@ -4,7 +4,7 @@ import glob from 'glob';
 import { render } from 'enzyme';
 import MockDate from 'mockdate';
 import moment from 'moment';
-import { TriggerProps } from 'rc-trigger';
+import type { TriggerProps } from 'rc-trigger';
 import { excludeWarning } from './excludeWarning';
 
 export const TriggerMockContext = React.createContext<Partial<TriggerProps> | undefined>(undefined);

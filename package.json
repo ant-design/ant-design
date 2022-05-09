@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "4.20.1",
+  "version": "4.20.2",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
   "keywords": [
@@ -128,18 +128,18 @@
     "rc-collapse": "~3.1.0",
     "rc-dialog": "~8.8.1",
     "rc-drawer": "~4.4.2",
-    "rc-dropdown": "~3.6.2",
+    "rc-dropdown": "~3.6.0",
     "rc-field-form": "~1.26.1",
     "rc-image": "~5.6.0",
     "rc-input": "~0.0.1-alpha.5",
     "rc-input-number": "~7.3.0",
-    "rc-mentions": "~1.7.0",
-    "rc-pagination": "~3.1.16",
-    "rc-picker": "~2.6.8",
-    "rc-menu": "~9.5.5",
+    "rc-mentions": "~1.8.0",
+    "rc-menu": "~9.6.0",
     "rc-motion": "^2.5.1",
     "rc-notification": "~4.6.0",
-    "rc-progress": "~3.2.1",
+    "rc-pagination": "~3.1.16",
+    "rc-picker": "~2.6.8",
+    "rc-progress": "~3.3.2",
     "rc-rate": "~2.9.0",
     "rc-resize-observer": "^1.2.0",
     "rc-segmented": "~2.1.0 ",
@@ -187,7 +187,7 @@
     "antd-img-crop": "^4.0.0",
     "array-move": "^4.0.0",
     "babel-plugin-add-react-displayname": "^0.0.5",
-    "bisheng": "^3.2.1",
+    "bisheng": "^3.3.0",
     "bisheng-plugin-description": "^0.1.4",
     "bisheng-plugin-react": "^1.2.0",
     "bisheng-plugin-toc": "^0.4.4",
@@ -301,7 +301,7 @@
   "bundlesize": [
     {
       "path": "./dist/antd.min.js",
-      "maxSize": "280 kB"
+      "maxSize": "281 kB"
     },
     {
       "path": "./dist/antd.min.css",

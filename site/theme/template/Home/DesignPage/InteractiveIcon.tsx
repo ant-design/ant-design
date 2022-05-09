@@ -1,6 +1,7 @@
 import * as React from 'react';
-import Hitu, { HiTuRefObject } from '@ant-design/hitu';
-import { Shape } from '@ant-design/hitu/lib/interface';
+import type { HiTuRefObject } from '@ant-design/hitu';
+import Hitu from '@ant-design/hitu';
+import type { Shape } from '@ant-design/hitu/lib/interface';
 
 const HOVER_LOOP = false;
 

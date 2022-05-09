@@ -4,7 +4,7 @@ import { updateCSS } from 'rc-util/lib/Dom/dynamicCSS';
 import canUseDom from 'rc-util/lib/Dom/canUseDom';
 import { TinyColor } from '@ctrl/tinycolor';
 import { generate } from '@ant-design/colors';
-import { Theme } from './context';
+import type { Theme } from './context';
 import devWarning from '../_util/devWarning';
 
 const dynamicStyleMark = `-ant-${Date.now()}-${Math.random()}`;

@@ -2,7 +2,7 @@ import * as React from 'react';
 import defaultLocaleData from './default';
 import LocaleContext from './context';
 import type { LocaleContextProps } from './context';
-import { Locale } from '.';
+import type { Locale } from '.';
 
 export type LocaleComponentName = Exclude<keyof Locale, 'locale'>;
 

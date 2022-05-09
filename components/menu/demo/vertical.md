@@ -14,7 +14,8 @@ title:
 Submenus open as pop-ups.
 
 ```tsx
-import { Menu, MenuProps } from 'antd';
+import type { MenuProps } from 'antd';
+import { Menu } from 'antd';
 import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
 
 type MenuItem = Required<MenuProps>['items'][number];

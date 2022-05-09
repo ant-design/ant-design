@@ -128,7 +128,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   }
 
   return (
-    <div {...others} style={{ ...mergedStyle, ...style }} className={classes} ref={ref}>
+    <div role="cell" {...others} style={{ ...mergedStyle, ...style }} className={classes} ref={ref}>
       {children}
     </div>
   );

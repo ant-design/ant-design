@@ -8,7 +8,8 @@ import type {
 } from 'rc-segmented';
 
 import { ConfigContext } from '../config-provider';
-import SizeContext, { SizeType } from '../config-provider/SizeContext';
+import type { SizeType } from '../config-provider/SizeContext';
+import SizeContext from '../config-provider/SizeContext';
 
 export type { SegmentedValue } from 'rc-segmented';
 

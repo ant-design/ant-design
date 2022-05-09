@@ -3,7 +3,7 @@ import Pagination from 'rc-pagination/lib/locale/gl_ES';
 import DatePicker from '../date-picker/locale/gl_ES';
 import TimePicker from '../time-picker/locale/gl_ES';
 import Calendar from '../calendar/locale/gl_ES';
-import { Locale } from '../locale-provider';
+import type { Locale } from '../locale-provider';
 
 const typeTemplate = '${label} non é un ${type} válido';
 
