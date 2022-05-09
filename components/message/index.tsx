@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import RCNotification from 'rc-notification';
-import {
+import type {
   NotificationInstance as RCNotificationInstance,
   NoticeContent,
 } from 'rc-notification/lib/Notification';

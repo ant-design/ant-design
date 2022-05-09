@@ -138,7 +138,7 @@ Define `type` as `group` to make as group:
 const groupItem = {
   type: 'group', // Must have
   label: 'My Group',
-  chidlren: [],
+  children: [],
 };
 ```
 

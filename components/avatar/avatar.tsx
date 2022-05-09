@@ -4,10 +4,12 @@ import ResizeObserver from 'rc-resize-observer';
 import { composeRef } from 'rc-util/lib/ref';
 import { ConfigContext } from '../config-provider';
 import devWarning from '../_util/devWarning';
-import { Breakpoint, responsiveArray } from '../_util/responsiveObserve';
+import type { Breakpoint } from '../_util/responsiveObserve';
+import { responsiveArray } from '../_util/responsiveObserve';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
-import SizeContext, { AvatarSize } from './SizeContext';
 import useStyle from './style';
+import type { AvatarSize } from './SizeContext';
+import SizeContext from './SizeContext';
 
 export interface AvatarProps {
   /** Shape of avatar, options: `circle`, `square` */

@@ -1,6 +1,6 @@
 import CalendarLocale from 'rc-picker/lib/locale/lt_LT';
 import TimePickerLocale from '../../time-picker/locale/lt_LT';
-import { PickerLocale } from '../generatePicker';
+import type { PickerLocale } from '../generatePicker';
 
 // Merge into a locale object
 const locale: PickerLocale = {

@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { composeRef } from 'rc-util/lib/ref';
 import { useContext } from 'react';
 import { FormItemInputContext } from '../form/context';
-import { RadioProps, RadioChangeEvent } from './interface';
+import type { RadioProps, RadioChangeEvent } from './interface';
 import { ConfigContext } from '../config-provider';
 import RadioGroupContext, { RadioOptionTypeContext } from './context';
 import DisabledContext from '../config-provider/DisabledContext';

@@ -1,11 +1,15 @@
 import * as React from 'react';
 import classNames from 'classnames';
 // eslint-disable-next-line import/no-named-as-default
-import Spin, { SpinProps } from '../spin';
+import type { SpinProps } from '../spin';
+import Spin from '../spin';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
-import { Breakpoint, responsiveArray } from '../_util/responsiveObserve';
-import { RenderEmptyHandler, ConfigContext } from '../config-provider';
-import Pagination, { PaginationConfig } from '../pagination';
+import type { Breakpoint } from '../_util/responsiveObserve';
+import { responsiveArray } from '../_util/responsiveObserve';
+import type { RenderEmptyHandler } from '../config-provider';
+import { ConfigContext } from '../config-provider';
+import type { PaginationConfig } from '../pagination';
+import Pagination from '../pagination';
 import { Row } from '../grid';
 import Item from './Item';
 // CSSINJS

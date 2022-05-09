@@ -1,12 +1,13 @@
 import * as React from 'react';
 import useRCNotification from 'rc-notification/lib/useNotification';
-import {
+import type {
   NotificationInstance as RCNotificationInstance,
   NoticeContent as RCNoticeContent,
   HolderReadyCallback as RCHolderReadyCallback,
 } from 'rc-notification/lib/Notification';
-import { ConfigConsumer, ConfigConsumerProps } from '../../config-provider';
-import { NotificationInstance, ArgsProps } from '..';
+import type { ConfigConsumerProps } from '../../config-provider';
+import { ConfigConsumer } from '../../config-provider';
+import type { NotificationInstance, ArgsProps } from '..';
 
 export default function createUseNotification(
   getNotificationInstance: (

@@ -14,7 +14,8 @@ title:
 You can config SubMenu theme with `theme` prop to enable different theme color effect. This sample is dark for root and light for SubMenu.
 
 ```tsx
-import { Menu, Switch, MenuProps } from 'antd';
+import type { MenuProps } from 'antd';
+import { Menu, Switch } from 'antd';
 import { MailOutlined } from '@ant-design/icons';
 
 type MenuItem = Required<MenuProps>['items'][number];
