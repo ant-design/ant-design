@@ -95,7 +95,12 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
               );
             }
             default:
-              throw new Error('AutoComplete[dataSource] only supports type `string[] | Object[]`.');
+              devWarning(
+                false,
+                'AutoComplete',
+                '`dataSource` is only supports type `string[] | Object[]`.',
+              );
+              return [];
           }
         })
       : [];
