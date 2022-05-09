@@ -76,10 +76,9 @@ export interface FormItemProps<Values = any>
 }
 
 function hasValidName(name?: NamePath): Boolean {
-  if (name === null) {
-    warning(false, 'Form.Item', '`null` is passed as `name` property');
-  }
-  return !(name === undefined || name === null);
+  const isValid = name != null;
+  warning(isValid, 'Form.Item', '`null` or `undefined` is passed as `name` property');
+  return isValid;
 }
 
 function genEmptyMeta(): Meta {
