@@ -1,5 +1,5 @@
 // deps-lint-skip-all
-import { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
+import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 import { mergeToken, genComponentStyleHook } from '../../_util/theme';
 import type { GenerateStyle, FullToken } from '../../_util/theme';

@@ -5,15 +5,10 @@
 // import '../../tooltip/style';
 
 // deps-lint-skip-all
-import * as React from 'react';
-import { CSSObject } from '@ant-design/cssinjs';
-import {
-  GenerateStyle,
-  resetComponent,
-  FullToken,
-  genComponentStyleHook,
-  mergeToken,
-} from '../../_util/theme';
+import type * as React from 'react';
+import type { CSSObject } from '@ant-design/cssinjs';
+import type { GenerateStyle, FullToken } from '../../_util/theme';
+import { resetComponent, genComponentStyleHook, mergeToken } from '../../_util/theme';
 
 // Direction naming standard:
 // Horizontal base:

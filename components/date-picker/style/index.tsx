@@ -1,21 +1,15 @@
 // deps-lint-skip-all
-import { CSSObject } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-import {
-  FullToken,
-  genComponentStyleHook,
-  GenerateStyle,
-  mergeToken,
-  resetComponent,
-  roundedArrow,
-} from '../../_util/theme';
+import type { FullToken, GenerateStyle } from '../../_util/theme';
+import { genComponentStyleHook, mergeToken, resetComponent, roundedArrow } from '../../_util/theme';
 import { slideDownIn, slideDownOut, slideUpIn, slideUpOut } from '../../style/motion';
+import type { InputToken } from '../../input/style';
 import {
   genActiveStyle,
   genBasicInputStyle,
   genHoverStyle,
   initInputToken,
-  InputToken,
 } from '../../input/style';
 
 // FIXME: need full token check

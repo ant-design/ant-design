@@ -4,7 +4,8 @@ import hljs from 'highlight.js';
 import css from 'highlight.js/lib/languages/css';
 import 'highlight.js/styles/github.css';
 import { Drawer, Typography, Alert, Space, Tabs } from 'antd';
-import getValidateStatus, { STATUS, PASS } from './validateCheck';
+import type { STATUS } from './validateCheck';
+import getValidateStatus, { PASS } from './validateCheck';
 import Token from './Token';
 
 hljs.registerLanguage('css', css);

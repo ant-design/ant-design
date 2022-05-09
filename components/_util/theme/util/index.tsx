@@ -1,5 +1,5 @@
 /* eslint-disable import/prefer-default-export */
-import { CSSObject } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
 import type { DerivativeToken } from '..';
 
 export { operationUnit } from './operationUnit';
