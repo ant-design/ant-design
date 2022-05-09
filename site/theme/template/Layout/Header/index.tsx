@@ -121,7 +121,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
         });
         if (
           process.env.NODE_ENV === 'production' &&
-          !window.location.href.includes('ant-design.antgroup.com') &&
+          !window.location.host.includes('ant-design.antgroup.com') &&
           shouldOpenAntdMirrorModal()
         ) {
           Modal.confirm({
