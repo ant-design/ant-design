@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { render, unmount } from 'rc-util/lib/React/render';
-import useNotification from './useNotification';
+import useNotification, { useInternalNotification } from './useNotification';
 import type { ArgsProps, NotificationInstance, GlobalConfigProps } from './interface';
 import ConfigProvider, { globalConfig } from '../config-provider';
 
@@ -37,6 +37,8 @@ function getGlobalContext() {
     getContainer: globalGetContainer,
     rtl,
     maxCount,
+    top,
+    bottom,
   } = defaultGlobalConfig;
   const mergedPrefixCls = globalPrefixCls ?? globalConfig().getPrefixCls('notification');
   const mergedContainer = globalGetContainer?.() || document.body;
@@ -46,6 +48,8 @@ function getGlobalContext() {
     container: mergedContainer,
     rtl,
     maxCount,
+    top,
+    bottom,
   };
 }
 
@@ -54,50 +58,71 @@ interface GlobalHolderRef {
   sync: () => void;
 }
 
-const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
-  const [prefixCls, setPrefixCls] = React.useState<string>();
-  const [container, setContainer] = React.useState<HTMLElement>();
-  const [maxCount, setMaxCount] = React.useState<number | undefined>();
-  const [rtl, setRTL] = React.useState<boolean | undefined>();
+const GlobalHolder = React.forwardRef<GlobalHolderRef, { onAllRemoved: VoidFunction }>(
+  ({ onAllRemoved }, ref) => {
+    const [prefixCls, setPrefixCls] = React.useState<string>();
+    const [container, setContainer] = React.useState<HTMLElement>();
+    const [maxCount, setMaxCount] = React.useState<number | undefined>();
+    const [rtl, setRTL] = React.useState<boolean | undefined>();
+    const [top, setTop] = React.useState<number | undefined>();
+    const [bottom, setBottom] = React.useState<number | undefined>();
 
-  const [api, holder] = useNotification({
-    prefixCls,
-    getContainer: () => container!,
-    maxCount,
-    rtl,
+    const [api, holder] = useInternalNotification({
+      prefixCls,
+      getContainer: () => container!,
+      maxCount,
+      rtl,
+      top,
+      bottom,
+      onAllRemoved,
+    });
+
+    const global = globalConfig();
+    const rootPrefixCls = global.getRootPrefixCls();
+    const rootIconPrefixCls = global.getIconPrefixCls();
+
+    const sync = () => {
+      const {
+        prefixCls: nextGlobalPrefixCls,
+        container: nextGlobalContainer,
+        maxCount: nextGlobalMaxCount,
+        rtl: nextGlobalRTL,
+        top: nextTop,
+        bottom: nextBottom,
+      } = getGlobalContext();
+
+      setPrefixCls(nextGlobalPrefixCls);
+      setContainer(nextGlobalContainer);
+      setMaxCount(nextGlobalMaxCount);
+      setRTL(nextGlobalRTL);
+      setTop(nextTop);
+      setBottom(nextBottom);
+    };
+
+    React.useEffect(sync, []);
+
+    React.useImperativeHandle(ref, () => ({
+      instance: api,
+      sync,
+    }));
+
+    return (
+      <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={rootIconPrefixCls}>
+        {holder}
+      </ConfigProvider>
+    );
+  },
+);
+
+function destroyInstance() {
+  act(() => {
+    if (notification?.fragment) {
+      unmount(notification.fragment);
+    }
   });
 
-  const global = globalConfig();
-  const rootPrefixCls = global.getRootPrefixCls();
-  const rootIconPrefixCls = global.getIconPrefixCls();
-
-  const sync = () => {
-    const {
-      prefixCls: nextGlobalPrefixCls,
-      container: nextGlobalContainer,
-      maxCount: nextGlobalMaxCount,
-      rtl: nextGlobalRTL,
-    } = getGlobalContext();
-
-    setPrefixCls(nextGlobalPrefixCls);
-    setContainer(nextGlobalContainer);
-    setMaxCount(nextGlobalMaxCount);
-    setRTL(nextGlobalRTL);
-  };
-
-  React.useEffect(sync, []);
-
-  React.useImperativeHandle(ref, () => ({
-    instance: api,
-    sync,
-  }));
-
-  return (
-    <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={rootIconPrefixCls}>
-      {holder}
-    </ConfigProvider>
-  );
-});
+  notification = null;
+}
 
 function flushNotice() {
   if (!notification) {
@@ -119,6 +144,7 @@ function flushNotice() {
             newNotification.sync = sync;
             flushNotice();
           }}
+          onAllRemoved={destroyInstance}
         />,
         holderFragment,
       );
@@ -255,13 +281,7 @@ if (process.env.NODE_ENV === 'test') {
   actDestroy = () => {
     staticMethods.destroy();
 
-    act(() => {
-      if (notification?.fragment) {
-        unmount(notification.fragment);
-      }
-    });
-
-    notification = null;
+    destroyInstance();
   };
 }
 

@@ -37,6 +37,8 @@ export interface NotificationInstance {
 }
 
 export interface GlobalConfigProps {
+  top?: number;
+  bottom?: number;
   duration?: number;
   prefixCls?: string;
   getContainer?: () => HTMLElement;

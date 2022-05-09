@@ -30,7 +30,9 @@ const DEFAULT_DURATION = 4.5;
 // ==============================================================================
 // ==                                  Holder                                  ==
 // ==============================================================================
-type HolderProps = NotificationConfig;
+type HolderProps = NotificationConfig & {
+  onAllRemoved?: VoidFunction;
+};
 
 interface HolderRef extends NotificationAPI {
   prefixCls: string;
@@ -44,6 +46,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     getContainer: staticGetContainer,
     maxCount,
     rtl,
+    onAllRemoved,
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
 
@@ -77,6 +80,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     duration: DEFAULT_DURATION,
     getContainer: () => staticGetContainer?.() || document.body,
     maxCount,
+    onAllRemoved,
   });
 
   // ================================ Ref ================================
@@ -91,9 +95,8 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
 // ==============================================================================
 // ==                                   Hook                                   ==
 // ==============================================================================
-
-export default function useNotification(
-  notificationConfig?: NotificationConfig,
+export function useInternalNotification(
+  notificationConfig?: HolderProps,
 ): [NotificationInstance, React.ReactElement] {
   const holderRef = React.useRef<HolderRef>(null);
 
@@ -185,4 +188,8 @@ export default function useNotification(
 
   // ============================== Return ===============================
   return [wrapAPI, <Holder key="holder" {...notificationConfig} ref={holderRef} />];
+}
+
+export default function useNotification(notificationConfig?: NotificationConfig) {
+  return useInternalNotification(notificationConfig);
 }
