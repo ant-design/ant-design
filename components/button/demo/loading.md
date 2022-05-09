@@ -14,72 +14,66 @@ title:
 A loading indicator can be added to a button by setting the `loading` property on the `Button`.
 
 ```jsx
+import React, { useEffect, useState, useRef } from 'react';
 import { Button, Space } from 'antd';
 import { PoweroffOutlined } from '@ant-design/icons';
 
-class App extends React.Component {
-  state = {
-    loadings: [],
-  };
+export default () => {
+  const [loadings, setLoadings] = useState([]);
+  const [index, setIndex] = useState();
+  const ref = useRef();
 
-  enterLoading = index => {
-    this.setState(({ loadings }) => {
-      const newLoadings = [...loadings];
-      newLoadings[index] = true;
-
-      return {
-        loadings: newLoadings,
-      };
-    });
-    setTimeout(() => {
-      this.setState(({ loadings }) => {
-        const newLoadings = [...loadings];
+  useEffect(() => {
+    if (ref.current) {
+      setTimeout(() => {
+        const newLoadings = [...ref.current];
         newLoadings[index] = false;
+        setLoadings(newLoadings);
+        ref.current = newLoadings;
+      }, 6000);
+    }
+  }, [index, JSON.stringify(loadings)]);
 
-        return {
-          loadings: newLoadings,
-        };
-      });
-    }, 6000);
+  const enterLoading = i => {
+    const newLoadings = [...loadings];
+    newLoadings[i] = true;
+    ref.current = newLoadings;
+    setIndex(i);
+    setLoadings(newLoadings);
   };
 
-  render() {
-    const { loadings } = this.state;
-    return (
-      <>
-        <Space style={{ width: '100%' }}>
-          <Button type="primary" loading>
-            Loading
-          </Button>
-          <Button type="primary" size="small" loading>
-            Loading
-          </Button>
-          <Button type="primary" icon={<PoweroffOutlined />} loading />
-        </Space>
+  return (
+    <>
+      <Space style={{ width: '100%' }}>
+        <Button type="primary" loading>
+          Loading
+        </Button>
+        <Button type="primary" size="small" loading>
+          Loading
+        </Button>
+        <Button type="primary" icon={<PoweroffOutlined />} loading />
+      </Space>
 
-        <Space style={{ width: '100%' }}>
-          <Button type="primary" loading={loadings[0]} onClick={() => this.enterLoading(0)}>
-            Click me!
-          </Button>
-          <Button
-            type="primary"
-            icon={<PoweroffOutlined />}
-            loading={loadings[1]}
-            onClick={() => this.enterLoading(1)}
-          >
-            Click me!
-          </Button>
-          <Button
-            type="primary"
-            icon={<PoweroffOutlined />}
-            loading={loadings[2]}
-            onClick={() => this.enterLoading(2)}
-          />
-        </Space>
-      </>
-    );
-  }
-}
-
-export default App;
+      <Space style={{ width: '100%' }}>
+        <Button type="primary" loading={loadings[0]} onClick={() => enterLoading(0)}>
+          Click me!
+        </Button>
+        <Button
+          type="primary"
+          icon={<PoweroffOutlined />}
+          loading={loadings[1]}
+          onClick={() => enterLoading(1)}
+        >
+          Click me!
+        </Button>
+        <Button
+          type="primary"
+          icon={<PoweroffOutlined />}
+          loading={loadings[2]}
+          onClick={() => enterLoading(2)}
+        />
+      </Space>
+    </>
+  );
+};
 ```
