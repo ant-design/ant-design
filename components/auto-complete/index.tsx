@@ -100,7 +100,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
                 'AutoComplete',
                 '`dataSource` is only supports type `string[] | Object[]`.',
               );
-              return;
+              return undefined;
           }
         })
       : [];
