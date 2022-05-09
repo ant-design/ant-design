@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "4.20.2",
+  "version": "4.20.3",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
   "keywords": [
@@ -187,7 +187,7 @@
     "antd-img-crop": "^4.0.0",
     "array-move": "^4.0.0",
     "babel-plugin-add-react-displayname": "^0.0.5",
-    "bisheng": "^3.2.1",
+    "bisheng": "^3.3.0",
     "bisheng-plugin-description": "^0.1.4",
     "bisheng-plugin-react": "^1.2.0",
     "bisheng-plugin-toc": "^0.4.4",
@@ -223,7 +223,7 @@
     "full-icu": "^1.3.0",
     "glob": "^8.0.1",
     "http-server": "^14.0.0",
-    "husky": "^7.0.1",
+    "husky": "^8.0.1",
     "identity-obj-proxy": "^3.0.0",
     "immer": "^9.0.1",
     "immutability-helper": "^3.0.0",
