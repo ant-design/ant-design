@@ -162,29 +162,31 @@ module.exports = {
     }
 
     // Split chunks
-    config.optimization.splitChunks = {
-      ...config.optimization.splitChunks,
-      cacheGroups: {
-        vendors: {
-          test: /[/\\]node_modules[/\\]@ant-design[/\\]icon/,
-          name: 'anticon',
-          chunks: 'initial',
-          maxSize: 1024 * 1024,
-        },
-        components: {
-          test(module) {
-            return (
-              module.resource &&
-              module.resource.includes('ant-design/components') &&
-              !module.resource.includes('demo') &&
-              !module.resource.endsWith('md')
-            );
+    if (config.mode === 'production') {
+      config.optimization.splitChunks = {
+        ...config.optimization.splitChunks,
+        cacheGroups: {
+          vendors: {
+            test: /[/\\]node_modules[/\\]@ant-design[/\\]icon/,
+            name: 'anticon',
+            chunks: 'initial',
+            maxSize: 1024 * 1024,
           },
-          name: 'components',
-          chunks: 'initial',
+          components: {
+            test(module) {
+              return (
+                module.resource &&
+                module.resource.includes('ant-design/components') &&
+                !module.resource.includes('demo') &&
+                !module.resource.endsWith('md')
+              );
+            },
+            name: 'components',
+            chunks: 'initial',
+          },
         },
-      },
-    };
+      };
+    }
 
     return config;
   },
