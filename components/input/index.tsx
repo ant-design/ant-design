@@ -1,5 +1,6 @@
-import * as React from 'react';
-import InternalInput, { InputProps, InputRef } from './Input';
+import type * as React from 'react';
+import type { InputProps, InputRef } from './Input';
+import InternalInput from './Input';
 import Group from './Group';
 import Search from './Search';
 import TextArea from './TextArea';

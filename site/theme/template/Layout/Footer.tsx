@@ -3,7 +3,8 @@ import { message } from 'antd';
 import RcFooter from 'rc-footer';
 import { Link } from 'bisheng/router';
 import { presetPalettes } from '@ant-design/colors';
-import { FormattedMessage, injectIntl, WrappedComponentProps } from 'react-intl';
+import type { WrappedComponentProps } from 'react-intl';
+import { FormattedMessage, injectIntl } from 'react-intl';
 import {
   AntDesignOutlined,
   MediumOutlined,

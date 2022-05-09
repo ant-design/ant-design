@@ -1,5 +1,6 @@
-import { CSSObject } from '@ant-design/cssinjs';
-import { resetComponent, GenerateStyle } from '../../_util/theme';
+import type { CSSObject } from '@ant-design/cssinjs';
+import type { GenerateStyle } from '../../_util/theme';
+import { resetComponent } from '../../_util/theme';
 import {
   initSlideMotion,
   slideUpIn,

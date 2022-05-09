@@ -5,14 +5,12 @@ import classNames from 'classnames';
 import canUseDom from 'rc-util/lib/Dom/canUseDom';
 import { Input, Tooltip, Typography } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
-import {
-  DocSearchProps,
-  useDocSearchKeyboardEvents,
-  DocSearchModalProps,
-} from 'docsearch-react-fork';
+import type { DocSearchProps, DocSearchModalProps } from 'docsearch-react-fork';
+import { useDocSearchKeyboardEvents } from 'docsearch-react-fork';
 import '@docsearch/css';
-import { SharedProps } from './interface';
-import { IAlgoliaConfig, transformHitUrl } from './algolia-config';
+import type { SharedProps } from './interface';
+import type { IAlgoliaConfig } from './algolia-config';
+import { transformHitUrl } from './algolia-config';
 import WrapHelmet from '../../Components/Helmet';
 
 import './SearchBar.less';

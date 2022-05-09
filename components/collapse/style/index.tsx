@@ -2,14 +2,9 @@
 // import './index.less';
 
 // deps-lint-skip-all
-import { CSSInterpolation } from '@ant-design/cssinjs';
-import {
-  GenerateStyle,
-  resetComponent,
-  genComponentStyleHook,
-  mergeToken,
-  FullToken,
-} from '../../_util/theme';
+import type { CSSInterpolation } from '@ant-design/cssinjs';
+import type { GenerateStyle, FullToken } from '../../_util/theme';
+import { resetComponent, genComponentStyleHook, mergeToken } from '../../_util/theme';
 
 type CollapseToken = FullToken<'Collapse'> & {
   collapseContentBg: string;

@@ -20,11 +20,13 @@ import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
 import DisabledContext from '../config-provider/DisabledContext';
 import getIcons from '../select/utils/iconUtil';
-import { getTransitionName, getTransitionDirection, SelectCommonPlacement } from '../_util/motion';
+import type { SelectCommonPlacement } from '../_util/motion';
+import { getTransitionName, getTransitionDirection } from '../_util/motion';
 import { FormItemInputContext } from '../form/context';
-import { getMergedStatus, getStatusClassNames, InputStatus } from '../_util/statusUtils';
 import useStyle from './style';
 import useSelectStyle from '../select/style';
+import type { InputStatus } from '../_util/statusUtils';
+import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 
 // Align the design since we use `rc-select` in root. This help:
 // - List search content will show all content

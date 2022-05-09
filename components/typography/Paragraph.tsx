@@ -1,5 +1,6 @@
 import * as React from 'react';
-import Base, { BlockProps } from './Base';
+import type { BlockProps } from './Base';
+import Base from './Base';
 
 export interface ParagraphProps extends BlockProps {
   onClick?: (e?: React.MouseEvent<HTMLDivElement>) => void;

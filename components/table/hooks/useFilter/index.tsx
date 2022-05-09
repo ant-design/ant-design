@@ -1,6 +1,6 @@
 import * as React from 'react';
 import devWarning from '../../../_util/devWarning';
-import {
+import type {
   TransformColumns,
   ColumnsType,
   ColumnType,

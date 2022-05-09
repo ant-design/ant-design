@@ -6,14 +6,12 @@
 
 // deps-lint-skip-all
 import { TinyColor } from '@ctrl/tinycolor';
-import { CSSObject } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
+import type { PresetColorType, GenerateStyle, FullToken } from '../../_util/theme';
 import {
   PresetColors,
-  PresetColorType,
-  GenerateStyle,
   resetComponent,
   roundedArrow,
-  FullToken,
   genComponentStyleHook,
   mergeToken,
 } from '../../_util/theme';

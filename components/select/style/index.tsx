@@ -5,15 +5,9 @@
 import '../../empty/style';
 
 // deps-lint-skip-all
-import { CSSObject } from '@ant-design/cssinjs';
-import {
-  resetComponent,
-  resetIcon,
-  GenerateStyle,
-  genComponentStyleHook,
-  FullToken,
-  mergeToken,
-} from '../../_util/theme';
+import type { CSSObject } from '@ant-design/cssinjs';
+import type { GenerateStyle, FullToken } from '../../_util/theme';
+import { resetComponent, resetIcon, genComponentStyleHook, mergeToken } from '../../_util/theme';
 import genSingleStyle from './single';
 import genMultipleStyle from './multiple';
 import genDropdownStyle from './dropdown';

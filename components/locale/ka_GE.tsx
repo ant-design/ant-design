@@ -3,7 +3,7 @@ import Pagination from 'rc-pagination/lib/locale/ka_GE';
 import DatePicker from '../date-picker/locale/ka_GE';
 import TimePicker from '../time-picker/locale/ka_GE';
 import Calendar from '../calendar/locale/ka_GE';
-import { Locale } from '../locale-provider';
+import type { Locale } from '../locale-provider';
 
 const typeTemplate = '${label} არ არის სწორი ${type}';
 

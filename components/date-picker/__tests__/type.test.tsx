@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type { Dayjs } from 'dayjs';
 import DatePicker from '..';
-import { DatePickRef, RangePickerRef } from '../generatePicker/interface';
+import type { DatePickRef, RangePickerRef } from '../generatePicker/interface';
 
 describe('DatePicker.typescript', () => {
   it('DatePicker ref methods', () => {

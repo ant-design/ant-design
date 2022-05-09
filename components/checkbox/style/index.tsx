@@ -1,12 +1,7 @@
 // deps-lint-skip-all
 import { Keyframes } from '@ant-design/cssinjs';
-import {
-  resetComponent,
-  GenerateStyle,
-  genComponentStyleHook,
-  FullToken,
-  mergeToken,
-} from '../../_util/theme';
+import type { GenerateStyle, FullToken } from '../../_util/theme';
+import { resetComponent, genComponentStyleHook, mergeToken } from '../../_util/theme';
 
 interface CheckboxToken extends FullToken<'Checkbox'> {
   checkboxCls: string;

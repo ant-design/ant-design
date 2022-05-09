@@ -1,8 +1,10 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import Tooltip, { AbstractTooltipProps, TooltipPlacement } from '../tooltip';
+import type { AbstractTooltipProps, TooltipPlacement } from '../tooltip';
+import Tooltip from '../tooltip';
 import { ConfigContext } from '../config-provider';
-import { getRenderPropValue, RenderFunction } from '../_util/getRenderPropValue';
+import type { RenderFunction } from '../_util/getRenderPropValue';
+import { getRenderPropValue } from '../_util/getRenderPropValue';
 import { getTransitionName } from '../_util/motion';
 
 // CSSINJS

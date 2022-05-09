@@ -1,5 +1,5 @@
 /* eslint-disable import/prefer-default-export */
-import { CSSObject, Keyframes } from '@ant-design/cssinjs';
+import type { CSSObject, Keyframes } from '@ant-design/cssinjs';
 
 const initMotionCommon = (duration: string): CSSObject => ({
   animationDuration: duration,

@@ -1,24 +1,24 @@
-import { GenerateConfig } from 'rc-picker/lib/generate/index';
-import {
+import type { GenerateConfig } from 'rc-picker/lib/generate/index';
+import type {
   PickerBaseProps as RCPickerBaseProps,
   PickerDateProps as RCPickerDateProps,
   PickerTimeProps as RCPickerTimeProps,
 } from 'rc-picker/lib/Picker';
-import { SharedTimeProps } from 'rc-picker/lib/panels/TimePanel';
-import {
+import type { SharedTimeProps } from 'rc-picker/lib/panels/TimePanel';
+import type {
   RangePickerBaseProps as RCRangePickerBaseProps,
   RangePickerDateProps as RCRangePickerDateProps,
   RangePickerTimeProps as RCRangePickerTimeProps,
 } from 'rc-picker/lib/RangePicker';
-import { PickerMode, Locale as RcPickerLocale } from 'rc-picker/lib/interface';
-import { SizeType } from '../../config-provider/SizeContext';
+import type { PickerMode, Locale as RcPickerLocale } from 'rc-picker/lib/interface';
+import type { SizeType } from '../../config-provider/SizeContext';
 import PickerButton from '../PickerButton';
 import PickerTag from '../PickerTag';
-import { TimePickerLocale } from '../../time-picker';
+import type { TimePickerLocale } from '../../time-picker';
 import generateSinglePicker from './generateSinglePicker';
 import generateRangePicker from './generateRangePicker';
 import { tuple } from '../../_util/type';
-import { InputStatus } from '../../_util/statusUtils';
+import type { InputStatus } from '../../_util/statusUtils';
 
 export const Components = { button: PickerButton, rangeItem: PickerTag };
 

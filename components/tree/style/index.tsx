@@ -2,13 +2,10 @@
 // import './index.less';
 
 // deps-lint-skip-all
-import { CSSObject, CSSInterpolation, Keyframes } from '@ant-design/cssinjs';
-import {
-  DerivativeToken,
-  resetComponent,
-  genComponentStyleHook,
-  mergeToken,
-} from '../../_util/theme';
+import type { CSSObject, CSSInterpolation } from '@ant-design/cssinjs';
+import { Keyframes } from '@ant-design/cssinjs';
+import type { DerivativeToken } from '../../_util/theme';
+import { resetComponent, genComponentStyleHook, mergeToken } from '../../_util/theme';
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
 
 // ============================ Keyframes =============================

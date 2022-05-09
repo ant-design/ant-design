@@ -14,7 +14,8 @@ title:
 Both the top navigation and the sidebar, commonly used in documentation site.
 
 ```tsx
-import { Layout, Menu, Breadcrumb, MenuProps } from 'antd';
+import type { MenuProps } from 'antd';
+import { Layout, Menu, Breadcrumb } from 'antd';
 import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
 
 const { Header, Content, Footer, Sider } = Layout;

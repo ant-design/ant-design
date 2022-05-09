@@ -2,8 +2,9 @@
 // import './index.less';
 
 // deps-lint-skip-all
-import { CSSObject } from '@ant-design/cssinjs';
-import { GenerateStyle, FullToken, genComponentStyleHook, mergeToken } from '../../_util/theme';
+import type { CSSObject } from '@ant-design/cssinjs';
+import type { GenerateStyle, FullToken } from '../../_util/theme';
+import { genComponentStyleHook, mergeToken } from '../../_util/theme';
 
 interface GridRowToken extends FullToken<'Grid'> {}
 

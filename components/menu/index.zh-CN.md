@@ -138,7 +138,7 @@ return <Menu items={items} />;
 const groupItem = {
   type: 'group', // Must have
   label: 'My Group',
-  chidlren: [],
+  children: [],
 };
 ```
 

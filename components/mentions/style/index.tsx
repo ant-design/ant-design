@@ -1,5 +1,7 @@
 // deps-lint-skip-all
-import { FullToken, genComponentStyleHook, GenerateStyle, resetComponent } from '../../_util/theme';
+import type { FullToken, GenerateStyle } from '../../_util/theme';
+import { genComponentStyleHook, resetComponent } from '../../_util/theme';
+import type { InputToken } from '../../input/style';
 import {
   genActiveStyle,
   genBasicInputStyle,
@@ -7,7 +9,6 @@ import {
   genPlaceholderStyle,
   genStatusStyle,
   initInputToken,
-  InputToken,
 } from '../../input/style';
 
 export interface ComponentToken {
