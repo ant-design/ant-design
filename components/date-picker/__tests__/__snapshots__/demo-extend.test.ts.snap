@@ -13927,7 +13927,7 @@ exports[`renders ./components/date-picker/demo/disabled-date.md extend context c
                     type="button"
                   >
                     <span>
-                      Ok
+                      OK
                     </span>
                   </button>
                 </li>
@@ -16873,7 +16873,7 @@ exports[`renders ./components/date-picker/demo/disabled-date.md extend context c
                     type="button"
                   >
                     <span>
-                      Ok
+                      OK
                     </span>
                   </button>
                 </li>
@@ -19439,7 +19439,7 @@ exports[`renders ./components/date-picker/demo/extra-footer.md extend context co
                     type="button"
                   >
                     <span>
-                      Ok
+                      OK
                     </span>
                   </button>
                 </li>
@@ -22634,7 +22634,7 @@ exports[`renders ./components/date-picker/demo/extra-footer.md extend context co
                     type="button"
                   >
                     <span>
-                      Ok
+                      OK
                     </span>
                   </button>
                 </li>
@@ -28295,7 +28295,7 @@ exports[`renders ./components/date-picker/demo/mode.md extend context correctly 
                     type="button"
                   >
                     <span>
-                      Ok
+                      OK
                     </span>
                   </button>
                 </li>
@@ -33676,7 +33676,7 @@ exports[`renders ./components/date-picker/demo/presetted-ranges.md extend contex
                     type="button"
                   >
                     <span>
-                      Ok
+                      OK
                     </span>
                   </button>
                 </li>
@@ -36864,7 +36864,7 @@ exports[`renders ./components/date-picker/demo/range-picker.md extend context co
                     type="button"
                   >
                     <span>
-                      Ok
+                      OK
                     </span>
                   </button>
                 </li>
@@ -45240,7 +45240,7 @@ exports[`renders ./components/date-picker/demo/start-end.md extend context corre
                     type="button"
                   >
                     <span>
-                      Ok
+                      OK
                     </span>
                   </button>
                 </li>
@@ -47190,7 +47190,7 @@ exports[`renders ./components/date-picker/demo/start-end.md extend context corre
                     type="button"
                   >
                     <span>
-                      Ok
+                      OK
                     </span>
                   </button>
                 </li>
@@ -57627,7 +57627,7 @@ exports[`renders ./components/date-picker/demo/switchable.md extend context corr
                     type="button"
                   >
                     <span>
-                      Ok
+                      OK
                     </span>
                   </button>
                 </li>
@@ -59585,7 +59585,7 @@ exports[`renders ./components/date-picker/demo/time.md extend context correctly 
                     type="button"
                   >
                     <span>
-                      Ok
+                      OK
                     </span>
                   </button>
                 </li>
@@ -61037,7 +61037,7 @@ exports[`renders ./components/date-picker/demo/time.md extend context correctly 
                     type="button"
                   >
                     <span>
-                      Ok
+                      OK
                     </span>
                   </button>
                 </li>
