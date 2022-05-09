@@ -108,13 +108,20 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
     const [internalPush, setPush] = React.useState(false);
     const parentDrawer = React.useContext(DrawerContext);
 
+    const [load, setLoad] = React.useState(false);
     const [visible, setVisible] = React.useState(false);
 
     React.useEffect(() => {
       if (propsVisible) {
-        setVisible(true);
+        setLoad(true);
+      } else {
+        setVisible(false);
       }
     }, [propsVisible]);
+
+    React.useEffect(() => {
+      if (load && propsVisible) setVisible(true);
+    }, [load, propsVisible]);
 
     const { getPopupContainer, getPrefixCls, direction } = React.useContext(ConfigContext);
     const prefixCls = getPrefixCls('drawer', customizePrefixCls);
@@ -127,7 +134,7 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
     React.useEffect(() => {
       // fix: delete drawer in child and re-render, no push started.
       // <Drawer>{show && <Drawer />}</Drawer>
-      if (propsVisible && parentDrawer) {
+      if (visible && parentDrawer) {
         parentDrawer.push();
       }
 
@@ -141,13 +148,13 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
 
     React.useEffect(() => {
       if (parentDrawer) {
-        if (propsVisible) {
+        if (visible) {
           parentDrawer.push();
         } else {
           parentDrawer.pull();
         }
       }
-    }, [propsVisible]);
+    }, [visible]);
 
     const operations = React.useMemo(
       () => ({
@@ -169,7 +176,7 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
 
     const getOffsetStyle = () => {
       // https://github.com/ant-design/ant-design/issues/24287
-      if (!propsVisible && !mask) {
+      if (!visible && !mask) {
         return {};
       }
       const offsetStyle: any = {};
@@ -255,7 +262,7 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
 
     // render drawer body dom
     const renderBody = () => {
-      if (!forceRender && !visible) {
+      if (!forceRender && !load) {
         return null;
       }
 
@@ -295,14 +302,14 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
             ...rest,
           }}
           {...offsetStyle}
-          open={propsVisible}
+          open={visible}
           showMask={mask}
           style={getRcDrawerStyle()}
           className={drawerClassName}
           getContainer={getContainer}
           afterVisibleChange={open => {
             if (!open && destroyOnClose) {
-              setVisible(false);
+              setLoad(false);
             }
             afterVisibleChange?.(open);
           }}
