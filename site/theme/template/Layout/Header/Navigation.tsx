@@ -69,7 +69,7 @@ export default ({
       onClick: onDirectionChange,
       key: 'switch-direction',
     },
-    ...getEcosystemGroup()!,
+    ...getEcosystemGroup(),
   ];
 
   if (isMobile) {
