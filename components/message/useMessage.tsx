@@ -10,13 +10,13 @@ import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import { ConfigContext } from '../config-provider';
 import type {
-  NotificationInstance,
-  NotificationPlacement,
-  NotificationConfig,
-} from '../notification/interface';
-import type { MessageInstance, ArgsProps, JointContent, MessageType } from './interface';
-import { getPlacementStyle } from '../notification/util';
-import { getMotion } from './util';
+  MessageInstance,
+  ArgsProps,
+  MessageType,
+  ConfigOptions,
+  NoticeType,
+} from './interface';
+import { getMotion, wrapPromiseFn } from './util';
 import devWarning from '../_util/devWarning';
 
 const TypeIcon = {
@@ -27,13 +27,13 @@ const TypeIcon = {
   loading: <LoadingOutlined />,
 };
 
-const DEFAULT_OFFSET = 24;
-const DEFAULT_DURATION = 4.5;
+const DEFAULT_OFFSET = 8;
+const DEFAULT_DURATION = 3;
 
 // ==============================================================================
 // ==                                  Holder                                  ==
 // ==============================================================================
-type HolderProps = NotificationConfig & {
+type HolderProps = ConfigOptions & {
   onAllRemoved?: VoidFunction;
 };
 
@@ -44,11 +44,11 @@ interface HolderRef extends NotificationAPI {
 const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   const {
     top,
-    bottom,
     prefixCls: staticPrefixCls,
     getContainer: staticGetContainer,
     maxCount,
     rtl,
+    transitionName,
     onAllRemoved,
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
@@ -56,13 +56,16 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   const prefixCls = staticPrefixCls || getPrefixCls('message');
 
   // =============================== Style ===============================
-  const getStyle = (placement: NotificationPlacement) =>
-    getPlacementStyle(placement, top ?? DEFAULT_OFFSET, bottom ?? DEFAULT_OFFSET);
+  const getStyle = () => ({
+    left: '50%',
+    transform: 'translateX(-50%)',
+    top: top ?? DEFAULT_OFFSET,
+  });
 
   const getClassName = () => (rtl ? `${prefixCls}-rtl` : '');
 
   // ============================== Motion ===============================
-  const getNotificationMotion = () => getMotion(prefixCls);
+  const getNotificationMotion = () => getMotion(prefixCls, transitionName);
 
   // ============================ Close Icon =============================
   const mergedCloseIcon = (
@@ -101,11 +104,11 @@ let keyIndex = 0;
 
 export function useInternalMessage(
   notificationConfig?: HolderProps,
-): [NotificationInstance, React.ReactElement] {
+): [MessageInstance, React.ReactElement] {
   const holderRef = React.useRef<HolderRef>(null);
 
   // ================================ API ================================
-  const wrapAPI = React.useMemo<NotificationInstance>(() => {
+  const wrapAPI = React.useMemo<MessageInstance>(() => {
     // Wrap with notification content
 
     // >>> close
@@ -138,7 +141,7 @@ export function useInternalMessage(
         mergedKey = `antd-message-${keyIndex}`;
       }
 
-      const closePromise = new Promise<void>(resolve => {
+      return wrapPromiseFn(resolve => {
         originOpen({
           ...restConfig,
           key: mergedKey,
@@ -155,17 +158,12 @@ export function useInternalMessage(
             resolve();
           },
         });
+
+        // Return close function
+        return () => {
+          close(mergedKey);
+        };
       });
-
-      const result: any = () => {
-        close(mergedKey);
-      };
-
-      result.then = (filled: VoidFunction, rejected: VoidFunction) =>
-        closePromise.then(filled, rejected);
-      result.promise = closePromise;
-
-      return result;
     };
 
     // >>> destroy
@@ -182,7 +180,7 @@ export function useInternalMessage(
       destroy,
     } as MessageInstance;
 
-    const keys = ['info', 'success', 'warning', 'error', 'loading'] as const;
+    const keys: NoticeType[] = ['info', 'success', 'warning', 'error', 'loading'];
     keys.forEach(type => {
       clone[type] = (jointContent, duration, onClose) => {
         let config: ArgsProps;
@@ -194,12 +192,18 @@ export function useInternalMessage(
           };
         }
 
-        return open({
-          duration,
+        const mergedConfig = {
           onClose,
           ...config,
           type,
-        });
+        };
+
+        // Pass duration only when configured in case it break with spread
+        if (duration !== undefined) {
+          mergedConfig.duration = duration;
+        }
+
+        return open(mergedConfig);
       };
     });
 
@@ -210,6 +214,6 @@ export function useInternalMessage(
   return [wrapAPI, <Holder key="holder" {...notificationConfig} ref={holderRef} />];
 }
 
-export default function useMessage(notificationConfig?: NotificationConfig) {
+export default function useMessage(notificationConfig?: ConfigOptions) {
   return useInternalMessage(notificationConfig);
 }

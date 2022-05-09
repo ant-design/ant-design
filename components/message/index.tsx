@@ -276,9 +276,351 @@
 
 // export default api as MessageApi;
 
-import useMessage from './useMessage';
+import * as React from 'react';
+import { render, unmount } from 'rc-util/lib/React/render';
+import useMessage, { useInternalMessage } from './useMessage';
+import type {
+  ArgsProps,
+  MessageInstance,
+  ConfigOptions,
+  NoticeType,
+  TypeOpen,
+  MessageType,
+} from './interface';
+import ConfigProvider, { globalConfig } from '../config-provider';
+import { wrapPromiseFn } from './util';
 
-export default {
-  config() {},
+let message: GlobalMessage | null = null;
+
+let act = (callback: VoidFunction) => callback();
+
+interface GlobalMessage {
+  fragment: DocumentFragment;
+  instance?: MessageInstance | null;
+  sync?: VoidFunction;
+}
+
+interface OpenTask {
+  type: 'open';
+  config: ArgsProps;
+  resolve: VoidFunction;
+  setCloseFn: (closeFn: VoidFunction) => void;
+  skipped?: boolean;
+}
+
+interface TypeTask {
+  type: NoticeType;
+  args: Parameters<TypeOpen>;
+  resolve: VoidFunction;
+  setCloseFn: (closeFn: VoidFunction) => void;
+  skipped?: boolean;
+}
+
+type Task =
+  | OpenTask
+  | TypeTask
+  | {
+      type: 'destroy';
+      key: React.Key;
+      skipped?: boolean;
+    };
+
+let taskQueue: Task[] = [];
+
+let defaultGlobalConfig: ConfigOptions = {};
+
+function getGlobalContext() {
+  const {
+    prefixCls: globalPrefixCls,
+    getContainer: globalGetContainer,
+    rtl,
+    maxCount,
+    top,
+  } = defaultGlobalConfig;
+  const mergedPrefixCls = globalPrefixCls ?? globalConfig().getPrefixCls('message');
+  const mergedContainer = globalGetContainer?.() || document.body;
+
+  return {
+    prefixCls: mergedPrefixCls,
+    container: mergedContainer,
+    rtl,
+    maxCount,
+    top,
+  };
+}
+
+interface GlobalHolderRef {
+  instance: MessageInstance;
+  sync: () => void;
+}
+
+const GlobalHolder = React.forwardRef<GlobalHolderRef, { onAllRemoved: VoidFunction }>(
+  ({ onAllRemoved }, ref) => {
+    const [prefixCls, setPrefixCls] = React.useState<string>();
+    const [container, setContainer] = React.useState<HTMLElement>();
+    const [maxCount, setMaxCount] = React.useState<number | undefined>();
+    const [rtl, setRTL] = React.useState<boolean | undefined>();
+    const [top, setTop] = React.useState<number | undefined>();
+
+    const [api, holder] = useInternalMessage({
+      prefixCls,
+      getContainer: () => container!,
+      maxCount,
+      rtl,
+      top,
+      onAllRemoved,
+    });
+
+    const global = globalConfig();
+    const rootPrefixCls = global.getRootPrefixCls();
+    const rootIconPrefixCls = global.getIconPrefixCls();
+
+    const sync = () => {
+      const {
+        prefixCls: nextGlobalPrefixCls,
+        container: nextGlobalContainer,
+        maxCount: nextGlobalMaxCount,
+        rtl: nextGlobalRTL,
+        top: nextTop,
+      } = getGlobalContext();
+
+      setPrefixCls(nextGlobalPrefixCls);
+      setContainer(nextGlobalContainer);
+      setMaxCount(nextGlobalMaxCount);
+      setRTL(nextGlobalRTL);
+      setTop(nextTop);
+    };
+
+    React.useEffect(sync, []);
+
+    React.useImperativeHandle(ref, () => ({
+      instance: api,
+      sync,
+    }));
+
+    return (
+      <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={rootIconPrefixCls}>
+        {holder}
+      </ConfigProvider>
+    );
+  },
+);
+
+function destroyInstance() {
+  act(() => {
+    if (message?.fragment) {
+      unmount(message.fragment);
+    }
+  });
+
+  message = null;
+}
+
+function flushNotice() {
+  if (!message) {
+    const holderFragment = document.createDocumentFragment();
+
+    const newNotification: GlobalMessage = {
+      fragment: holderFragment,
+    };
+
+    message = newNotification;
+
+    // Delay render to avoid sync issue
+    act(() => {
+      render(
+        <GlobalHolder
+          ref={node => {
+            const { instance, sync } = node || {};
+            newNotification.instance = instance;
+            newNotification.sync = sync;
+            flushNotice();
+          }}
+          onAllRemoved={destroyInstance}
+        />,
+        holderFragment,
+      );
+    });
+
+    return;
+  }
+
+  // Notification not ready
+  if (message && !message.instance) {
+    return;
+  }
+
+  // >>> Execute task
+  taskQueue.forEach(task => {
+    const { type, skipped } = task;
+
+    // Only `skipped` when user call notice but cancel it immediately
+    // and instance not ready
+    if (!skipped) {
+      switch (type) {
+        case 'open': {
+          act(() => {
+            const closeFn = message!.instance!.open({
+              ...defaultGlobalConfig,
+              ...task.config,
+            });
+
+            closeFn?.then(task.resolve);
+            task.setCloseFn(closeFn);
+          });
+          break;
+        }
+
+        case 'destroy':
+          act(() => {
+            message?.instance!.destroy(task.key);
+          });
+          break;
+
+        // Other type open
+        default: {
+          act(() => {
+            const closeFn = message!.instance![type](...task.args);
+
+            closeFn?.then(task.resolve);
+            task.setCloseFn(closeFn);
+          });
+        }
+      }
+    }
+  });
+
+  // Clean up
+  taskQueue = [];
+}
+
+// ==============================================================================
+// ==                                  Export                                  ==
+// ==============================================================================
+const methods: NoticeType[] = ['success', 'info', 'warning', 'error', 'loading'];
+type MethodType = typeof methods[number];
+
+function setNotificationGlobalConfig(config: ConfigOptions) {
+  defaultGlobalConfig = {
+    ...defaultGlobalConfig,
+    ...config,
+  };
+
+  // Trigger sync for it
+  act(() => {
+    message?.sync?.();
+  });
+}
+
+function open(config: ArgsProps): MessageType {
+  const result = wrapPromiseFn(resolve => {
+    let closeFn: VoidFunction;
+
+    const task: OpenTask = {
+      type: 'open',
+      config,
+      resolve,
+      setCloseFn: fn => {
+        closeFn = fn;
+      },
+    };
+    taskQueue.push(task);
+
+    return () => {
+      if (closeFn) {
+        closeFn();
+      } else {
+        task.skipped = true;
+      }
+    };
+  });
+
+  flushNotice();
+
+  return result;
+}
+
+function typeOpen(type: NoticeType, args: Parameters<TypeOpen>): MessageType {
+  const result = wrapPromiseFn(resolve => {
+    let closeFn: VoidFunction;
+
+    const task: TypeTask = {
+      type,
+      args,
+      resolve,
+      setCloseFn: fn => {
+        closeFn = fn;
+      },
+    };
+
+    taskQueue.push(task);
+
+    return () => {
+      if (closeFn) {
+        closeFn();
+      } else {
+        task.skipped = true;
+      }
+    };
+  });
+
+  flushNotice();
+
+  return result;
+}
+
+function destroy(key: React.Key) {
+  taskQueue.push({
+    type: 'destroy',
+    key,
+  });
+  flushNotice();
+}
+
+const baseStaticMethods: {
+  open: (config: ArgsProps) => void;
+  destroy: (key?: React.Key) => void;
+  config: any;
+  useMessage: typeof useMessage;
+} = {
+  open,
+  destroy,
+  config: setNotificationGlobalConfig,
   useMessage,
 };
+
+const staticMethods: typeof baseStaticMethods & Record<MethodType, TypeOpen> =
+  baseStaticMethods as any;
+
+methods.forEach(type => {
+  staticMethods[type] = (...args: Parameters<TypeOpen>) => typeOpen(type, args);
+});
+
+// ==============================================================================
+// ==                                   Test                                   ==
+// ==============================================================================
+const noop = () => {};
+
+/** @private Only Work in test env */
+// eslint-disable-next-line import/no-mutable-exports
+export let actWrapper: (wrapper: any) => void = noop;
+
+if (process.env.NODE_ENV === 'test') {
+  actWrapper = wrapper => {
+    act = wrapper;
+  };
+}
+
+/** @private Only Work in test env */
+// eslint-disable-next-line import/no-mutable-exports
+export let actDestroy = noop;
+
+if (process.env.NODE_ENV === 'test') {
+  actDestroy = () => {
+    staticMethods.destroy();
+
+    destroyInstance();
+  };
+}
+
+export default staticMethods;

@@ -2,6 +2,16 @@ import type * as React from 'react';
 
 export type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading';
 
+export interface ConfigOptions {
+  top?: number;
+  duration?: number;
+  prefixCls?: string;
+  getContainer?: () => HTMLElement;
+  transitionName?: string;
+  maxCount?: number;
+  rtl?: boolean;
+}
+
 export interface ArgsProps {
   content: React.ReactNode;
   duration?: number;
