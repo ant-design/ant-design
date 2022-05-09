@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "4.20.2",
+  "version": "4.20.3",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
   "keywords": [
@@ -228,7 +228,7 @@
     "glob": "^8.0.1",
     "highlight.js": "^11.5.0",
     "http-server": "^14.0.0",
-    "husky": "^7.0.1",
+    "husky": "^8.0.1",
     "identity-obj-proxy": "^3.0.0",
     "immer": "^9.0.1",
     "immutability-helper": "^3.0.0",
@@ -306,7 +306,7 @@
   "bundlesize": [
     {
       "path": "./dist/antd.min.js",
-      "maxSize": "355 kB"
+      "maxSize": "356 kB"
     },
     {
       "path": "./dist/antd.min.css",

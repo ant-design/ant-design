@@ -8,8 +8,9 @@ import { ConfigContext } from '../config-provider';
 import Wave from '../_util/wave';
 import { tuple } from '../_util/type';
 import devWarning from '../_util/devWarning';
-import SizeContext, { SizeType } from '../config-provider/SizeContext';
 import DisabledContext from '../config-provider/DisabledContext';
+import type { SizeType } from '../config-provider/SizeContext';
+import SizeContext from '../config-provider/SizeContext';
 import LoadingIcon from './LoadingIcon';
 import { cloneElement } from '../_util/reactNode';
 

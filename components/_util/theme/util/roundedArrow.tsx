@@ -1,5 +1,5 @@
 /* eslint-disable import/prefer-default-export */
-import { CSSObject } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
 import seedToken from '../themes/default';
 
 export const roundedArrow = (width: number, outerRadius: number, bgColor: string): CSSObject => {

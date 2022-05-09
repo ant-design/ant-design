@@ -4,16 +4,17 @@ import DownOutlined from '@ant-design/icons/DownOutlined';
 import { convertDataToEntities } from 'rc-tree/lib/utils/treeUtil';
 import { conductCheck } from 'rc-tree/lib/utils/conductUtil';
 import { arrAdd, arrDel } from 'rc-tree/lib/util';
-import { DataNode, GetCheckDisabled } from 'rc-tree/lib/interface';
+import type { DataNode, GetCheckDisabled } from 'rc-tree/lib/interface';
 import { INTERNAL_COL_DEFINE } from 'rc-table';
-import { FixedType } from 'rc-table/lib/interface';
+import type { FixedType } from 'rc-table/lib/interface';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import Checkbox, { CheckboxProps } from '../../checkbox';
+import type { CheckboxProps } from '../../checkbox';
+import Checkbox from '../../checkbox';
 import Dropdown from '../../dropdown';
 import Menu from '../../menu';
 import Radio from '../../radio';
 import devWarning from '../../_util/devWarning';
-import {
+import type {
   TableRowSelection,
   Key,
   ColumnsType,

@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { Locale } from '.';
+import type { Locale } from '.';
 
 export type LocaleContextProps = Partial<Locale> & { exist?: boolean };
 

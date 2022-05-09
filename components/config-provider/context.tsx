@@ -1,10 +1,11 @@
 import * as React from 'react';
-import defaultRenderEmpty, { RenderEmptyHandler } from './renderEmpty';
-import { Locale } from '../locale-provider';
-import { SizeType } from './SizeContext';
-import { RequiredMark } from '../form/Form';
 import type { SeedToken } from '../_util/theme';
 import type { OverrideToken } from '../_util/theme/interface';
+import type { RenderEmptyHandler } from './renderEmpty';
+import defaultRenderEmpty from './renderEmpty';
+import type { Locale } from '../locale-provider';
+import type { SizeType } from './SizeContext';
+import type { RequiredMark } from '../form/Form';
 
 export const defaultIconPrefixCls = 'anticon';
 

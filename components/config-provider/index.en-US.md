@@ -78,6 +78,7 @@ Please make sure you set moment locale or that you don't have two different vers
 
 ```js
 import 'moment/locale/zh-cn';
+
 moment.locale('zh-cn');
 ```
 

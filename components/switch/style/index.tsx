@@ -1,13 +1,8 @@
 // deps-lint-skip-all
 import { TinyColor } from '@ctrl/tinycolor';
-import { CSSObject } from '@ant-design/cssinjs';
-import {
-  resetComponent,
-  GenerateStyle,
-  FullToken,
-  genComponentStyleHook,
-  mergeToken,
-} from '../../_util/theme';
+import type { CSSObject } from '@ant-design/cssinjs';
+import type { GenerateStyle, FullToken } from '../../_util/theme';
+import { resetComponent, genComponentStyleHook, mergeToken } from '../../_util/theme';
 
 interface SwitchToken extends FullToken<'Switch'> {
   switchMinWidth: number;

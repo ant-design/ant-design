@@ -1,7 +1,9 @@
 // deps-lint-skip-all
-import { CSSObject, Keyframes } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
+import { Keyframes } from '@ant-design/cssinjs';
 
-import { GenerateStyle, FullToken, genComponentStyleHook, mergeToken } from '../../_util/theme';
+import type { GenerateStyle, FullToken } from '../../_util/theme';
+import { genComponentStyleHook, mergeToken } from '../../_util/theme';
 
 const skeletonClsLoading = new Keyframes(`ant-skeleton-loading`, {
   '0%': {
