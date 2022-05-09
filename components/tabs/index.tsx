@@ -7,7 +7,7 @@ import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
 import PlusOutlined from '@ant-design/icons/PlusOutlined';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 
-import devWarning from '../_util/devWarning';
+import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
@@ -53,7 +53,7 @@ function Tabs({
   }
   const rootPrefixCls = getPrefixCls();
 
-  devWarning(
+  warning(
     !('onPrevClick' in props) && !('onNextClick' in props),
     'Tabs',
     '`onPrevClick` and `onNextClick` has been removed. Please use `onTabScroll` instead.',

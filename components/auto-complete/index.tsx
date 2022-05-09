@@ -20,7 +20,7 @@ import type {
 import Select from '../select';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigConsumer } from '../config-provider';
-import devWarning from '../_util/devWarning';
+import warning from '../_util/warning';
 import { isValidElement } from '../_util/reactNode';
 import type { InputStatus } from '../_util/statusUtils';
 
@@ -95,7 +95,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
               );
             }
             default:
-              devWarning(
+              warning(
                 false,
                 'AutoComplete',
                 '`dataSource` is only supports type `string[] | Object[]`.',
@@ -106,13 +106,13 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
       : [];
   }
 
-  devWarning(
+  warning(
     !('dataSource' in props),
     'AutoComplete',
     '`dataSource` is deprecated, please use `options` instead.',
   );
 
-  devWarning(
+  warning(
     !customizeInput || !('size' in props),
     'AutoComplete',
     'You need to control style self instead of setting `size` when using customize input.',

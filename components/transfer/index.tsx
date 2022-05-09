@@ -10,7 +10,7 @@ import type { ConfigConsumerProps, RenderEmptyHandler } from '../config-provider
 import { ConfigConsumer } from '../config-provider';
 import type { TransferListBodyProps } from './ListBody';
 import type { PaginationType } from './interface';
-import devWarning from '../_util/devWarning';
+import warning from '../_util/warning';
 import { FormItemInputContext } from '../form/context';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
@@ -136,7 +136,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
       };
     }
 
-    devWarning(
+    warning(
       !pagination || !children,
       'Transfer',
       '`pagination` not support customize render list.',

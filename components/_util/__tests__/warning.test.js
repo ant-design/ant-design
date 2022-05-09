@@ -1,4 +1,4 @@
-describe('Test devWarning', () => {
+describe('Test warning', () => {
   let spy: jest.SpyInstance;
 
   beforeAll(() => {
@@ -18,7 +18,7 @@ describe('Test devWarning', () => {
   });
 
   it('Test noop', async () => {
-    const { noop } = await import('../devWarning');
+    const { noop } = await import('../warning');
     const value = noop();
 
     expect(value).toBe(undefined);
@@ -30,15 +30,15 @@ describe('Test devWarning', () => {
 
   describe('process.env.NODE_ENV !== "production"', () => {
     it('If `false`, exec `console.error`', async () => {
-      const devWarning = (await import('../devWarning')).default;
-      devWarning(false, 'error');
+      const warning = (await import('../warning')).default;
+      warning(false, 'error');
 
       expect(spy).toHaveBeenCalled();
     });
 
     it('If `true`, do not exec `console.error`', async () => {
-      const devWarning = (await import('../devWarning')).default;
-      devWarning(true, 'error message');
+      const warning = (await import('../warning')).default;
+      warning(true, 'error message');
 
       expect(spy).not.toHaveBeenCalled();
     });
@@ -49,14 +49,14 @@ describe('Test devWarning', () => {
       const prevEnv = process.env.NODE_ENV;
       process.env.NODE_ENV = 'production';
 
-      const { default: devWarning, noop } = await import('../devWarning');
+      const { default: warning, noop } = await import('../warning');
 
-      expect(devWarning).toEqual(noop);
+      expect(warning).toEqual(noop);
 
-      devWarning(false, 'error message');
+      warning(false, 'error message');
       expect(spy).not.toHaveBeenCalled();
 
-      devWarning(true, 'error message');
+      warning(true, 'error message');
       expect(spy).not.toHaveBeenCalled();
 
       process.env.NODE_ENV = prevEnv;

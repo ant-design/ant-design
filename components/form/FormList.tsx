@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { List } from 'rc-field-form';
 import type { ValidatorRule, StoreValue } from 'rc-field-form/lib/interface';
-import devWarning from '../_util/devWarning';
+import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { FormItemPrefixContext } from './context';
 
@@ -33,7 +33,7 @@ const FormList: React.FC<FormListProps> = ({
   children,
   ...props
 }) => {
-  devWarning(!!props.name, 'Form.List', 'Miss `name` prop.');
+  warning(!!props.name, 'Form.List', 'Miss `name` prop.');
 
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('form', customizePrefixCls);

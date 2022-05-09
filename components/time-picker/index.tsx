@@ -2,7 +2,7 @@ import type { Moment } from 'moment';
 import * as React from 'react';
 import DatePicker from '../date-picker';
 import type { PickerTimeProps, RangePickerTimeProps } from '../date-picker/generatePicker';
-import devWarning from '../_util/devWarning';
+import warning from '../_util/warning';
 import type { InputStatus } from '../_util/statusUtils';
 
 const { TimePicker: InternalTimePicker, RangePicker: InternalRangePicker } = DatePicker;
@@ -39,7 +39,7 @@ const TimePicker = React.forwardRef<any, TimePickerProps>(
         return renderExtraFooter;
       }
       if (addon) {
-        devWarning(
+        warning(
           false,
           'TimePicker',
           '`addon` is deprecated. Please use `renderExtraFooter` instead.',

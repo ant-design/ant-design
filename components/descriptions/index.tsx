@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
 import type { Breakpoint, ScreenMap } from '../_util/responsiveObserve';
 import ResponsiveObserve, { responsiveArray } from '../_util/responsiveObserve';
-import devWarning from '../_util/devWarning';
+import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import Row from './Row';
 import DescriptionsItem from './Item';
@@ -54,7 +54,7 @@ function getFilledItem(
     clone = cloneElement(node, {
       span: rowRestCol,
     });
-    devWarning(
+    warning(
       span === undefined,
       'Descriptions',
       'Sum of column `span` in a line not match `column` of Descriptions.',

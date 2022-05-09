@@ -18,7 +18,7 @@ import { file2Obj, getFileItem, removeFileItem, updateFileList } from './utils';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
 import { ConfigContext } from '../config-provider';
-import devWarning from '../_util/devWarning';
+import warning from '../_util/warning';
 
 export const LIST_IGNORE = `__LIST_IGNORE_${Date.now()}__`;
 
@@ -59,13 +59,13 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
 
   const upload = React.useRef<any>();
 
-  devWarning(
+  warning(
     'fileList' in props || !('value' in props),
     'Upload',
     '`value` is not a valid prop, do you mean `fileList`?',
   );
 
-  devWarning(
+  warning(
     !('transformFile' in props),
     'Upload',
     '`transformFile` is deprecated. Please use `beforeUpload` directly.',

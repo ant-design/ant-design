@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, mount } from 'enzyme';
 import List from '..';
-import { noop } from '../../_util/devWarning';
+import { noop } from '../../_util/warning';
 
 describe('List.pagination', () => {
   const data = [
