@@ -69,7 +69,7 @@ export default ({
       onClick: onDirectionChange,
       key: 'switch-direction',
     },
-    ...(getEcosystemGroup() ?? []),
+    ...getEcosystemGroup(),
   ];
 
   if (isMobile) {
@@ -129,8 +129,8 @@ export default ({
       : null,
     isZhCN &&
     typeof window !== 'undefined' &&
-    !window.location.href.includes('ant-design.antgroup.com') &&
-    !window.location.href.includes('ant-design.gitee.io')
+    !window.location.host.includes('ant-design.antgroup.com') &&
+    !window.location.host.includes('ant-design.gitee.io')
       ? {
           label: '国内镜像',
           key: 'mirror',
