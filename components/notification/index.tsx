@@ -20,11 +20,8 @@ type Task =
       config: ArgsProps;
     }
   | {
-      type: 'close';
-      key: React.Key;
-    }
-  | {
       type: 'destroy';
+      key: React.Key;
     };
 
 let taskQueue: Task[] = [];
@@ -171,15 +168,9 @@ function flushNotice() {
         break;
       }
 
-      case 'close':
-        act(() => {
-          notification?.instance!.close(task.key);
-        });
-        break;
-
       case 'destroy':
         act(() => {
-          notification?.instance!.destroy();
+          notification?.instance!.destroy(task.key);
         });
         break;
 
@@ -218,30 +209,21 @@ function open(config: ArgsProps) {
   flushNotice();
 }
 
-function close(key: React.Key) {
-  taskQueue.push({
-    type: 'close',
-    key,
-  });
-  flushNotice();
-}
-
-function destroy() {
+function destroy(key: React.Key) {
   taskQueue.push({
     type: 'destroy',
+    key,
   });
   flushNotice();
 }
 
 const baseStaticMethods: {
   open: (config: ArgsProps) => void;
-  close: (key: React.Key) => void;
-  destroy: () => void;
+  destroy: (key?: React.Key) => void;
   config: any;
   useNotification: typeof useNotification;
 } = {
   open,
-  close,
   destroy,
   config: setNotificationGlobalConfig,
   useNotification,

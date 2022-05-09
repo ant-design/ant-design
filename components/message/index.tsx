@@ -276,6 +276,9 @@
 
 // export default api as MessageApi;
 
+import useMessage from './useMessage';
+
 export default {
   config() {},
+  useMessage,
 };

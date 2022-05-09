@@ -29,7 +29,7 @@ const openNotification = () => {
       <Button type="link" size="small" onClick={() => notification.destroy()}>
         Destroy All
       </Button>
-      <Button type="primary" size="small" onClick={() => notification.close(key)}>
+      <Button type="primary" size="small" onClick={() => notification.destroy(key)}>
         Confirm
       </Button>
     </Space>

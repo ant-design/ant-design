@@ -32,8 +32,7 @@ export interface NotificationInstance {
   info(args: ArgsProps): void;
   warning(args: ArgsProps): void;
   open(args: ArgsProps): void;
-  close(key: React.Key): void;
-  destroy(): void;
+  destroy(key?: React.Key): void;
 }
 
 export interface GlobalConfigProps {

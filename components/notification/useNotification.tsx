@@ -59,8 +59,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   const getClassName = () => (rtl ? `${prefixCls}-rtl` : '');
 
   // ============================== Motion ===============================
-  const getNotificationMotion = (placement: NotificationPlacement) =>
-    getMotion(prefixCls, placement);
+  const getNotificationMotion = () => getMotion(prefixCls);
 
   // ============================ Close Icon =============================
   const mergedCloseIcon = (
@@ -139,6 +138,7 @@ export function useInternalNotification(
       }
 
       return originOpen({
+        ...restConfig,
         content: (
           <div
             className={classNames({
@@ -153,24 +153,21 @@ export function useInternalNotification(
           </div>
         ),
         placement,
-        ...restConfig,
         className: classNames(type && `${noticePrefixCls}-${type}`, className),
       });
     };
 
-    // >>> close
-    const close = (key: React.Key) => {
-      holderRef.current?.close(key);
-    };
-
     // >>> destroy
-    const destroy = () => {
-      holderRef.current?.destroy();
+    const destroy = (key?: React.Key) => {
+      if (key !== undefined) {
+        holderRef.current?.close(key);
+      } else {
+        holderRef.current?.destroy();
+      }
     };
 
     const clone = {
       open,
-      close,
       destroy,
     } as NotificationInstance;
 

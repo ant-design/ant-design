@@ -61,7 +61,7 @@ export function getPlacementStyle(placement: NotificationPlacement, top: number,
   return style;
 }
 
-export function getMotion(prefixCls: string, placement: NotificationPlacement): CSSMotionProps {
+export function getMotion(prefixCls: string): CSSMotionProps {
   return {
     motionName: `${prefixCls}-fade`,
   };

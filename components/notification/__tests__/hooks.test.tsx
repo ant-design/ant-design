@@ -27,6 +27,7 @@ describe('notification.hooks', () => {
               type="button"
               onClick={() => {
                 api.open({
+                  message: null,
                   description: (
                     <Context.Consumer>
                       {name => <span className="hook-test-result">{name}</span>}
@@ -44,10 +45,10 @@ describe('notification.hooks', () => {
 
     const { container } = render(<Demo />);
 
-    fireEvent.click(container.querySelector('button'));
+    fireEvent.click(container.querySelector('button')!);
 
     expect(document.querySelectorAll('.my-test-notification-notice')).toHaveLength(1);
-    expect(document.querySelector('.hook-test-result').textContent).toEqual('bamboo');
+    expect(document.querySelector('.hook-test-result')!.textContent).toEqual('bamboo');
   });
 
   it('should work with success', () => {
@@ -63,6 +64,7 @@ describe('notification.hooks', () => {
               type="button"
               onClick={() => {
                 api.success({
+                  message: null,
                   description: (
                     <Context.Consumer>
                       {name => <span className="hook-test-result">{name}</span>}
@@ -79,11 +81,11 @@ describe('notification.hooks', () => {
     };
 
     const { container } = render(<Demo />);
-    fireEvent.click(container.querySelector('button'));
+    fireEvent.click(container.querySelector('button')!);
 
     expect(document.querySelectorAll('.my-test-notification-notice')).toHaveLength(1);
     expect(document.querySelectorAll('.anticon-check-circle')).toHaveLength(1);
-    expect(document.querySelector('.hook-test-result').textContent).toEqual('bamboo');
+    expect(document.querySelector('.hook-test-result')!.textContent).toEqual('bamboo');
   });
 
   it('should be same hook', () => {
@@ -96,7 +98,7 @@ describe('notification.hooks', () => {
       React.useEffect(() => {
         count += 1;
         expect(count).toEqual(1);
-        forceUpdate();
+        forceUpdate({});
       }, [api]);
 
       return null;
@@ -112,6 +114,7 @@ describe('notification.hooks', () => {
 
         React.useEffect(() => {
           api.info({
+            message: null,
             description: <div className="bamboo" />,
           });
         }, []);
@@ -133,6 +136,7 @@ describe('notification.hooks', () => {
 
         if (!calledRef.current) {
           api.info({
+            message: null,
             description: <div className="bamboo" />,
           });
           calledRef.current = true;

@@ -77,7 +77,7 @@ describe('notification', () => {
     expect(document.querySelectorAll('.ant-notification-notice')).toHaveLength(2);
 
     // Close 1
-    notification.close('1');
+    notification.destroy('1');
     act(() => {
       jest.runAllTimers();
     });
@@ -88,7 +88,7 @@ describe('notification', () => {
     expect(document.querySelectorAll('.ant-notification-notice')).toHaveLength(1);
 
     // Close 2
-    notification.close('2');
+    notification.destroy('2');
     act(() => {
       jest.runAllTimers();
     });
