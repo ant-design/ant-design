@@ -10,15 +10,10 @@ import {
 } from '../../_util/theme';
 
 export interface ComponentToken {
-  imageSizeBase: number;
-  imageFontSizeBase: number;
   imageBg: string;
-  imageColor: string;
-  imageMaskFontSize: number;
   imagePreviewOperationSize: number;
   imagePreviewOperationColor: string;
   imagePreviewSwitchSize: number;
-  imagePreviewSwitchMargin: number;
   zIndexImage: number;
 }
 
@@ -193,11 +188,11 @@ export const genImagePreviewStyle = (token: ImageToken): CSSObject => {
     },
 
     [`${previewCls}-switch-left`]: {
-      insetInlineStart: token.imagePreviewSwitchMargin,
+      insetInlineStart: token.marginSM,
     },
 
     [`${previewCls}-switch-right`]: {
-      insetInlineEnd: token.imagePreviewSwitchMargin,
+      insetInlineEnd: token.marginSM,
     },
   };
 };
@@ -291,15 +286,10 @@ export default genComponentStyleHook(
     return [genImageStyle(imageToken)];
   },
   {
-    imageSizeBase: 48,
-    imageFontSizeBase: 24,
     imageBg: '#f5f5f5',
-    imageColor: '#fff',
-    imageMaskFontSize: 16,
     imagePreviewOperationSize: 18,
     imagePreviewOperationColor: new TinyColor({ r: 255, g: 255, b: 255, a: 0.85 }).toRgbString(),
     imagePreviewSwitchSize: 44,
-    imagePreviewSwitchMargin: 10,
     zIndexImage: 1080,
   },
 );
