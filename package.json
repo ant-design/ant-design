@@ -287,6 +287,7 @@
     "stylelint-order": "^5.0.0",
     "theme-switcher": "^1.0.2",
     "typescript": "~4.6.2",
+    "webpack": "^4.46.0",
     "webpack-bundle-analyzer": "^4.1.0",
     "xhr-mock": "^2.4.1",
     "yaml-front-matter": "^4.0.0"
