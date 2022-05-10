@@ -2,15 +2,16 @@
 import type React from 'react';
 import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
+import type { TokenWithCommonCls } from 'antd/es/_util/theme/util/genComponentStyleHook';
 import { genComponentStyleHook, mergeToken, resetComponent, clearFix } from '../../_util/theme';
-import type { FullToken, GenerateStyle } from '../../_util/theme';
+import type { FullToken, GenerateStyle, AliasToken } from '../../_util/theme';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
   // Component token here
 }
 
-interface ModalToken extends FullToken<'Modal'> {
+export interface ModalToken extends FullToken<'Modal'> {
   // Custom token here
   modalHeaderPaddingVertical: number;
   modalHeaderPaddingHorizontal: number;
@@ -48,7 +49,7 @@ function box(position: React.CSSProperties['position']): React.CSSProperties {
   };
 }
 
-function modalMask(componentCls: string, token: ModalToken): CSSObject {
+export function modalMask(componentCls: string, token: TokenWithCommonCls<AliasToken>): CSSObject {
   return {
     [`${componentCls}${token.antCls}-zoom-enter, ${componentCls}${token.antCls}-zoom-appear`]: {
       // reset scale avoid mousePosition bug
@@ -61,9 +62,9 @@ function modalMask(componentCls: string, token: ModalToken): CSSObject {
 
     [`${componentCls}-mask`]: {
       ...box('fixed'),
-      zIndex: token.zIndexPopup,
+      zIndex: token.zIndexPopupBase,
       height: '100%',
-      backgroundColor: token.modalMaskBg,
+      backgroundColor: token.colorPopupBg,
 
       [`${componentCls}-hidden`]: {
         display: 'none',
@@ -185,7 +186,7 @@ const genModalStyle: GenerateStyle<ModalToken> = token => {
       },
 
       [`${componentCls}-wrap`]: {
-        zIndex: token.zIndexPopup,
+        zIndex: token.zIndexPopupBase,
         position: 'fixed',
         inset: 0,
         overflow: 'auto',

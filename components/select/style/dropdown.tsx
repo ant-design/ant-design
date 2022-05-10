@@ -40,7 +40,7 @@ const genSingleStyle: GenerateStyle<SelectToken> = token => {
 
         position: 'absolute',
         top: -9999,
-        zIndex: token.zIndexDropdown,
+        zIndex: token.zIndexPopup,
         boxSizing: 'border-box',
         padding: `${token.paddingXXS}px 0`,
         overflow: 'hidden',

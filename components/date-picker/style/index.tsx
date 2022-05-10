@@ -14,7 +14,7 @@ import {
 
 // FIXME: need full token check
 export interface ComponentToken {
-  zIndexDropdown: number;
+  zIndexPopup: number;
   pickerTextHeight: number;
   pickerPanelCellWidth: number;
   pickerPanelCellHeight: number;
@@ -264,7 +264,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
       '&-dropdown': {
         ...resetComponent(token),
         position: 'absolute',
-        zIndex: token.zIndexDropdown,
+        zIndex: token.zIndexPopup,
 
         '&&-hidden': {
           display: 'none',
@@ -1193,7 +1193,7 @@ export default genComponentStyleHook(
     ];
   },
   token => ({
-    zIndexDropdown: token.zIndexPopup + 50,
+    zIndexPopup: token.zIndexPopupBase + 50,
     pickerTextHeight: 40,
     pickerPanelCellWidth: 36,
     pickerPanelCellHeight: 24,

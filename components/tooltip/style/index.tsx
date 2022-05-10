@@ -284,7 +284,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken, CSSObject> = token => {
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Tooltip', token => {
-  const { radiusBase, zIndexPopup } = token;
+  const { radiusBase, zIndexPopupBase } = token;
   const tooltipArrowShadowWidth = 3; // FIXME: hardcode in v4
   const tooltipArrowWidth = 8 * Math.sqrt(2); // FIXME: hardcode in v4
   const tooltipShadowColor = new TinyColor('#000').setAlpha(0.07).toRgbString(); // FIXME: hardcode in v4
@@ -307,7 +307,7 @@ export default genComponentStyleHook('Tooltip', token => {
     tooltipArrowRotateWidth,
     tooltipArrowOffsetVertical: 5, // FIXME: hardcode in v4
     tooltipArrowOffsetHorizontal: 13, // FIXME: hardcode in v4
-    zIndexTooltip: zIndexPopup + 70, // FIXME: hardcode in v4
+    zIndexTooltip: zIndexPopupBase + 70, // FIXME: hardcode in v4
   });
 
   return [genTooltipStyle(TooltipToken)];

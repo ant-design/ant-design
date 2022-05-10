@@ -12,7 +12,7 @@ import {
 } from '../../input/style';
 
 export interface ComponentToken {
-  zIndexDropdown: number;
+  zIndexPopup: number;
   dropdownHeight: number;
   controlItemWidth: number;
 }
@@ -136,7 +136,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
         position: 'absolute',
         top: -9999,
         insetInlineStart: -9999,
-        zIndex: token.zIndexDropdown,
+        zIndex: token.zIndexPopup,
         boxSizing: 'border-box',
         fontSize,
         fontVariant: 'initial',
@@ -226,6 +226,6 @@ export default genComponentStyleHook(
   token => ({
     dropdownHeight: 250,
     controlItemWidth: 100,
-    zIndexDropdown: token.zIndexPopup + 50,
+    zIndexPopup: token.zIndexPopupBase + 50,
   }),
 );
