@@ -18,6 +18,7 @@ export interface ImageToken extends FullToken<'Image'> {
   zIndexModalMask: number;
   imagePreviewOperationDisabledColor: string;
   imagePreviewOperationSize: number;
+  imagePreviewSwitchSize: number;
 }
 
 export type PositionType = 'static' | 'relative' | 'fixed' | 'absolute' | 'sticky' | undefined;
@@ -108,9 +109,9 @@ export const genPreviewSwitchStyle = (token: ImageToken): CSSObject => {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    width: token.controlHeightLG,
-    height: token.controlHeightLG,
-    marginTop: -token.controlHeightLG / 2,
+    width: token.imagePreviewSwitchSize,
+    height: token.imagePreviewSwitchSize,
+    marginTop: -token.imagePreviewSwitchSize / 2,
     color: token.imagePreviewOperationColor,
     background: new TinyColor(modalMaskBg).setAlpha(0.1).toRgbString(),
     borderRadius: '50%',
@@ -258,6 +259,7 @@ export default genComponentStyleHook(
       modalMaskBg: new TinyColor('#000').setAlpha(0.45).toRgbString(), // FIXME: Shared Token
       zIndexModalMask: 1000, // FIXME: Shared Token
       imagePreviewOperationSize: token.fontSizeIcon * 1.5, // FIXME: fontSizeIconLG
+      imagePreviewSwitchSize: token.controlHeightLG,
     });
 
     return [genImageStyle(imageToken), genImagePreviewStyle(imageToken)];
