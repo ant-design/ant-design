@@ -7,7 +7,7 @@ import { FormItemInputContext } from '../form/context';
 import type { RadioProps, RadioChangeEvent } from './interface';
 import { ConfigContext } from '../config-provider';
 import RadioGroupContext, { RadioOptionTypeContext } from './context';
-import devWarning from '../_util/devWarning';
+import warning from '../_util/warning';
 
 const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (props, ref) => {
   const groupContext = React.useContext(RadioGroupContext);
@@ -18,9 +18,7 @@ const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (
   const mergedRef = composeRef(ref, innerRef);
   const { isFormItemInput } = useContext(FormItemInputContext);
 
-  React.useEffect(() => {
-    devWarning(!('optionType' in props), 'Radio', '`optionType` is only support in Radio.Group.');
-  }, []);
+  warning(!('optionType' in props), 'Radio', '`optionType` is only support in Radio.Group.');
 
   const onChange = (e: RadioChangeEvent) => {
     props.onChange?.(e);
