@@ -1,7 +1,7 @@
 import { act } from '../../../tests/utils';
 import message, { actDestroy, actWrapper } from '..';
 import ConfigProvider from '../../config-provider';
-import { triggerMotionEnd } from './util';
+import { awaitPromise, triggerMotionEnd } from './util';
 
 describe('message.config', () => {
   beforeAll(() => {
@@ -12,40 +12,43 @@ describe('message.config', () => {
     jest.useFakeTimers();
   });
 
-  afterEach(() => {
+  afterEach(async () => {
+    // Clean up
     message.destroy();
-    actDestroy();
+    await triggerMotionEnd();
+
+    await actDestroy();
 
     jest.useRealTimers();
+
+    await awaitPromise();
   });
 
-  it('should be able to config top', () => {
+  it('should be able to config top', async () => {
     message.config({
       top: 100,
     });
 
-    act(() => {
-      message.info('whatever');
-    });
+    message.info('whatever');
+    await awaitPromise();
 
     expect(document.querySelector('.ant-message')).toHaveStyle({
       top: '100px',
     });
   });
 
-  it('should be able to config rtl', () => {
+  it('should be able to config rtl', async () => {
     message.config({
       rtl: true,
     });
 
-    act(() => {
-      message.info('whatever');
-    });
+    message.info('whatever');
+    await awaitPromise();
 
     expect(document.querySelector('.ant-message-rtl')).toBeTruthy();
   });
 
-  it('should be able to config getContainer', () => {
+  it('should be able to config getContainer', async () => {
     const div = document.createElement('div');
     div.className = 'custom-container';
     document.body.appendChild(div);
@@ -55,6 +58,8 @@ describe('message.config', () => {
     });
 
     message.info('whatever');
+    await awaitPromise();
+
     expect(div.querySelector('.ant-message')).toBeTruthy();
 
     message.config({
@@ -62,7 +67,7 @@ describe('message.config', () => {
     });
   });
 
-  it('should be able to config maxCount', () => {
+  it('should be able to config maxCount', async () => {
     message.config({
       maxCount: 5,
     });
@@ -71,6 +76,7 @@ describe('message.config', () => {
     }
 
     message.info('last');
+    await awaitPromise();
 
     const noticeWithoutLeaving = Array.from(
       document.querySelectorAll('.ant-message-notice'),
@@ -79,7 +85,7 @@ describe('message.config', () => {
     expect(noticeWithoutLeaving).toHaveLength(5);
     expect(noticeWithoutLeaving[4].textContent).toEqual('last');
 
-    triggerMotionEnd();
+    await triggerMotionEnd();
     expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(0);
 
     message.config({
@@ -87,12 +93,14 @@ describe('message.config', () => {
     });
   });
 
-  it('should be able to config duration', () => {
+  it('should be able to config duration', async () => {
     message.config({
       duration: 0.5,
     });
 
     message.info('last');
+    await awaitPromise();
+
     expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(1);
 
     act(() => {
@@ -105,12 +113,13 @@ describe('message.config', () => {
     });
   });
 
-  it('customize prefix should auto get transition prefixCls', () => {
+  it('customize prefix should auto get transition prefixCls', async () => {
     message.config({
       prefixCls: 'light-message',
     });
 
     message.info('bamboo');
+    await awaitPromise();
 
     expect(document.querySelector('.light-message-move-up')).toBeTruthy();
 
@@ -119,10 +128,11 @@ describe('message.config', () => {
     });
   });
 
-  it('should be able to global config rootPrefixCls', () => {
+  it('should be able to global config rootPrefixCls', async () => {
     ConfigProvider.config({ prefixCls: 'prefix-test', iconPrefixCls: 'bamboo' });
 
     message.info('last');
+    await awaitPromise();
 
     expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(0);
     expect(document.querySelectorAll('.prefix-test-message-notice')).toHaveLength(1);
@@ -130,12 +140,13 @@ describe('message.config', () => {
     ConfigProvider.config({ prefixCls: 'ant', iconPrefixCls: null! });
   });
 
-  it('should be able to config prefixCls', () => {
+  it('should be able to config prefixCls', async () => {
     message.config({
       prefixCls: 'prefix-test',
     });
 
     message.info('last');
+    await awaitPromise();
 
     expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(0);
     expect(document.querySelectorAll('.prefix-test-notice')).toHaveLength(1);
@@ -144,12 +155,13 @@ describe('message.config', () => {
     });
   });
 
-  it('should be able to config transitionName', () => {
+  it('should be able to config transitionName', async () => {
     message.config({
       transitionName: '',
     });
 
     message.info('last');
+    await awaitPromise();
 
     expect(document.querySelector('.ant-message-notice')).toBeTruthy();
     expect(document.querySelectorAll('.ant-move-up-enter')).toHaveLength(0);
@@ -158,7 +170,7 @@ describe('message.config', () => {
     });
   });
 
-  it('should be able to config getContainer, although messageInstance already exists', () => {
+  it('should be able to config getContainer, although messageInstance already exists', async () => {
     function createContainer(): [HTMLElement, VoidFunction] {
       const container = document.createElement('div');
       document.body.appendChild(container);
@@ -180,6 +192,7 @@ describe('message.config', () => {
     const messageText1 = 'mounted in container1';
 
     message.info(messageText1);
+    await awaitPromise();
     expect(container1.querySelector('.ant-message-notice')!.textContent).toEqual(messageText1);
 
     // Config will directly change container

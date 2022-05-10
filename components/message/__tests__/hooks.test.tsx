@@ -150,7 +150,7 @@ describe('message.hooks', () => {
     triggerMotionEnd();
   });
 
-  it('should work with hide', () => {
+  it('should work with hide', async () => {
     let hide: VoidFunction;
     const Demo = () => {
       const [api, holder] = message.useMessage();
@@ -178,7 +178,7 @@ describe('message.hooks', () => {
     act(() => {
       hide!();
     });
-    triggerMotionEnd('.my-test-message-move-up-leave');
+    await triggerMotionEnd('.my-test-message-move-up-leave');
 
     expect(document.querySelectorAll('.my-test-message-notice')).toHaveLength(0);
   });
