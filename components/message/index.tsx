@@ -131,10 +131,12 @@ const GlobalHolder = React.forwardRef<GlobalHolderRef, { onAllRemoved: VoidFunct
 );
 
 async function destroyInstance() {
-  await act(async () => {
-    if (message?.fragment) {
-      await unmount(message.fragment);
-    }
+  await Promise.resolve(async () => {
+    await act(async () => {
+      if (message?.fragment) {
+        await unmount(message.fragment);
+      }
+    });
   });
 
   message = null;
@@ -156,9 +158,13 @@ function flushNotice() {
         <GlobalHolder
           ref={node => {
             const { instance, sync } = node || {};
-            newMessage.instance = instance;
-            newMessage.sync = sync;
-            flushNotice();
+
+            // React 18 test env will throw if call immediately in ref
+            Promise.resolve().then(() => {
+              newMessage.instance = instance;
+              newMessage.sync = sync;
+              flushNotice();
+            });
           }}
           onAllRemoved={destroyInstance}
         />,
@@ -341,13 +347,13 @@ if (process.env.NODE_ENV === 'test') {
 
 /** @private Only Work in test env */
 // eslint-disable-next-line import/no-mutable-exports
-export let actDestroy = noop;
+export let actDestroy: () => Promise<void> | void = noop;
 
 if (process.env.NODE_ENV === 'test') {
-  actDestroy = () => {
+  actDestroy = async () => {
     staticMethods.destroy();
 
-    destroyInstance();
+    await destroyInstance();
   };
 }
 

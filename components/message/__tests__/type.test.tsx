@@ -1,6 +1,6 @@
 import message, { actWrapper, actDestroy } from '..';
 import { act } from '../../../tests/utils';
-import { triggerMotionEnd } from './util';
+import { awaitPromise, triggerMotionEnd } from './util';
 
 describe('message.typescript', () => {
   beforeAll(() => {
@@ -18,35 +18,40 @@ describe('message.typescript', () => {
     jest.useRealTimers();
   });
 
-  it('promise without arguments', () => {
+  it('promise without arguments', async () => {
     message.success('yes!!!', 0);
+    await Promise.resolve();
   });
 
-  it('promise with one arguments', done => {
-    message.success('yes!!!').then(filled => {
-      expect(filled).toBe(true);
-      done();
-    });
+  it('promise with one arguments', async () => {
+    const filled = jest.fn();
 
+    message.success('yes!!!').then(filled);
+
+    await awaitPromise();
     triggerMotionEnd();
+    await awaitPromise();
+
+    expect(filled).toHaveBeenCalledWith(true);
   });
 
-  it('promise two arguments', done => {
-    message.success('yes!!!').then(
-      filled => {
-        expect(filled).toBe(true);
-        done();
-      },
-      rejected => {
-        expect(rejected).toBe(false);
-      },
-    );
+  it('promise two arguments', async () => {
+    const filled = jest.fn();
+    const rejected = jest.fn();
 
+    message.success('yes!!!').then(filled, rejected);
+
+    await awaitPromise();
     triggerMotionEnd();
+    await awaitPromise();
+
+    expect(filled).toHaveBeenCalledWith(true);
+    expect(rejected).not.toHaveBeenCalled();
   });
 
-  it('hide', () => {
+  it('hide', async () => {
     const hide = message.loading('doing...');
+    await Promise.resolve();
     hide();
   });
 });
