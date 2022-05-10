@@ -11,9 +11,9 @@ describe('message.typescript', () => {
     jest.useFakeTimers();
   });
 
-  afterEach(() => {
+  afterEach(async () => {
     message.destroy();
-    actDestroy();
+    await actDestroy();
 
     jest.useRealTimers();
   });

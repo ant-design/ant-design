@@ -112,12 +112,12 @@ const GlobalHolder = React.forwardRef<GlobalHolderRef, { onAllRemoved: VoidFunct
 );
 
 async function destroyInstance() {
-  await Promise.resolve(async () => {
-    await act(async () => {
-      if (notification?.fragment) {
-        await unmount(notification.fragment);
-      }
-    });
+  await Promise.resolve();
+
+  await act(async () => {
+    if (notification?.fragment) {
+      await unmount(notification.fragment);
+    }
   });
 
   notification = null;
