@@ -14,7 +14,7 @@ export interface ArgsProps {
   message: React.ReactNode;
   description?: React.ReactNode;
   btn?: React.ReactNode;
-  key?: string;
+  key?: React.Key;
   onClose?: () => void;
   duration?: number | null;
   icon?: React.ReactNode;

@@ -7,17 +7,19 @@ export async function awaitPromise() {
   }
 }
 
-export async function triggerMotionEnd(selector: string = '.ant-notification-fade-leave') {
+export async function triggerMotionEnd(selector: string = '', runAllTimers: boolean = true) {
   await awaitPromise();
 
-  // Flush css motion state update
-  for (let i = 0; i < 5; i += 1) {
-    act(() => {
-      jest.runAllTimers();
-    });
+  if (runAllTimers) {
+    // Flush css motion state update
+    for (let i = 0; i < 5; i += 1) {
+      act(() => {
+        jest.runAllTimers();
+      });
+    }
   }
 
-  document.querySelectorAll(selector).forEach(ele => {
+  document.querySelectorAll(selector || '.ant-notification-fade-leave').forEach(ele => {
     fireEvent.animationEnd(ele);
   });
 
