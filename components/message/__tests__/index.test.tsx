@@ -2,21 +2,9 @@ import React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
 import message, { actWrapper, actDestroy } from '..';
 import { act, fireEvent, render, sleep } from '../../../tests/utils';
+import { triggerMotionEnd } from './util';
 
 describe('message', () => {
-  function triggerMotionEnd(selector: string = '.ant-message-move-up-leave') {
-    // Flush css motion state update
-    for (let i = 0; i < 5; i += 1) {
-      act(() => {
-        jest.runAllTimers();
-      });
-    }
-
-    document.querySelectorAll(selector).forEach(ele => {
-      fireEvent.animationEnd(ele);
-    });
-  }
-
   beforeAll(() => {
     actWrapper(act);
   });

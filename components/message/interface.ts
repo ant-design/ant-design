@@ -29,7 +29,7 @@ export interface ArgsProps {
 
 export type JointContent = React.ReactNode | ArgsProps;
 
-export interface MessageType extends PromiseLike<any> {
+export interface MessageType extends PromiseLike<boolean> {
   (): void;
 }
 
