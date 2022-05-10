@@ -120,7 +120,9 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
     }, [propsVisible]);
 
     React.useEffect(() => {
-      if (load && propsVisible) setVisible(true);
+      if (load && propsVisible) {
+        setVisible(true);
+      }
     }, [load, propsVisible]);
 
     const { getPopupContainer, getPrefixCls, direction } = React.useContext(ConfigContext);
