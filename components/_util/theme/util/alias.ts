@@ -152,6 +152,8 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     screenXXLMax: screenXXL - 1,
 
     motionEaseOut: 'cubic-bezier(0.215, 0.61, 0.355, 1)',
+
+    colorPopupBg: new TinyColor('#000').setAlpha(0.45).toRgbString(),
   };
 
   return aliasToken;

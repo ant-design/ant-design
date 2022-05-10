@@ -26,7 +26,7 @@ const genSharedBackTopStyle: GenerateStyle<BackTopToken, CSSObject> = (token): C
       // FIXME bottom
       insetBlockEnd: 50,
       // FIX ME @zindex-back-top
-      zIndex: token.zIndexPopup,
+      zIndex: token.zIndexPopupBase,
       width: 40,
       height: 40,
       cursor: 'pointer',

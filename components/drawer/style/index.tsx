@@ -51,7 +51,7 @@ const genBaseStyle: GenerateStyle<DrawerToken> = (token: DrawerToken): CSSObject
     modalFooterPaddingVertical,
     modalFooterPaddingHorizontal,
     borderColorSplit,
-    zIndexPopup,
+    zIndexPopupBase,
     colorText,
     textColorSecondary,
     hoverColor,
@@ -62,7 +62,7 @@ const genBaseStyle: GenerateStyle<DrawerToken> = (token: DrawerToken): CSSObject
       // FIXME: Seems useless?
       // @drawer-header-close-padding: ceil(((drawerHeaderCloseSize - @font-size-lg) / 2));
       position: 'fixed',
-      zIndex: zIndexPopup,
+      zIndex: zIndexPopupBase,
       width: 0,
       height: '100%',
       transition: `width 0s ease ${motionDurationSlow}, height 0s ease ${motionDurationSlow}`,

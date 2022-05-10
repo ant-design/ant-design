@@ -1,24 +1,21 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-import type { ModalToken } from '../../modal/style';
 import { modalMask } from '../../modal/style';
 import type { FullToken, GenerateStyle } from '../../_util/theme';
 import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
 
 export interface ComponentToken {
-  imageBg: string;
-  imagePreviewOperationColor: string;
-  zIndexImage: number;
+  zIndexPopup: number;
 }
 
 export interface ImageToken extends FullToken<'Image'> {
   previewCls: string;
   modalMaskBg: string;
-  zIndexModalMask: number;
   imagePreviewOperationDisabledColor: string;
   imagePreviewOperationSize: number;
   imagePreviewSwitchSize: number;
+  imagePreviewOperationColor: string;
 }
 
 export type PositionType = 'static' | 'relative' | 'fixed' | 'absolute' | 'sticky' | undefined;
@@ -137,7 +134,7 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken> = (token: ImageToke
   return [
     {
       [`${componentCls}-preview-root`]: {
-        ...modalMask(previewCls, token as unknown as ModalToken), // FIXME: shared
+        ...modalMask(previewCls, token),
 
         [previewCls]: {
           height: '100%',
@@ -205,7 +202,7 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken> = (token: ImageToke
     {
       [`${componentCls}-preview-root`]: {
         [`${previewCls}-wrap`]: {
-          zIndex: token.zIndexImage,
+          zIndex: token.zIndexPopup,
         },
       },
     },
@@ -213,7 +210,7 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken> = (token: ImageToke
 };
 
 const genImageStyle: GenerateStyle<ImageToken> = (token: ImageToken) => {
-  const { componentCls, imageBg } = token;
+  const { componentCls } = token;
   return {
     // ============================== image ==============================
     [componentCls]: {
@@ -225,7 +222,7 @@ const genImageStyle: GenerateStyle<ImageToken> = (token: ImageToken) => {
         verticalAlign: 'middle',
       },
       [`${componentCls}-img-placeholder`]: {
-        backgroundColor: imageBg,
+        backgroundColor: token.colorBgContainer,
         backgroundImage:
           "url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTQuNSAyLjVoLTEzQS41LjUgMCAwIDAgMSAzdjEwYS41LjUgMCAwIDAgLjUuNWgxM2EuNS41IDAgMCAwIC41LS41VjNhLjUuNSAwIDAgMC0uNS0uNXpNNS4yODEgNC43NWExIDEgMCAwIDEgMCAyIDEgMSAwIDAgMSAwLTJ6bTguMDMgNi44M2EuMTI3LjEyNyAwIDAgMS0uMDgxLjAzSDIuNzY5YS4xMjUuMTI1IDAgMCAxLS4wOTYtLjIwN2wyLjY2MS0zLjE1NmEuMTI2LjEyNiAwIDAgMSAuMTc3LS4wMTZsLjAxNi4wMTZMNy4wOCAxMC4wOWwyLjQ3LTIuOTNhLjEyNi4xMjYgMCAwIDEgLjE3Ny0uMDE2bC4wMTUuMDE2IDMuNTg4IDQuMjQ0YS4xMjcuMTI3IDAgMCAxLS4wMi4xNzV6IiBmaWxsPSIjOEM4QzhDIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48L3N2Zz4=')",
         backgroundRepeat: 'no-repeat',
@@ -249,24 +246,22 @@ const genImageStyle: GenerateStyle<ImageToken> = (token: ImageToken) => {
 export default genComponentStyleHook(
   'Image',
   token => {
-    const imagePreviewOperationColor = new TinyColor(token.imagePreviewOperationColor);
+    const imagePreviewOperationColor = new TinyColor({ r: 255, g: 255, b: 255, a: 0.85 });
 
     const imageToken = mergeToken<ImageToken>(token, {
       previewCls: `${token.componentCls}-preview`,
+      imagePreviewOperationColor: imagePreviewOperationColor.toRgbString(),
       imagePreviewOperationDisabledColor: new TinyColor(imagePreviewOperationColor)
         .setAlpha(0.25)
         .toRgbString(),
       modalMaskBg: new TinyColor('#000').setAlpha(0.45).toRgbString(), // FIXME: Shared Token
-      zIndexModalMask: 1000, // FIXME: Shared Token
       imagePreviewOperationSize: token.fontSizeIcon * 1.5, // FIXME: fontSizeIconLG
       imagePreviewSwitchSize: token.controlHeightLG,
     });
 
     return [genImageStyle(imageToken), genImagePreviewStyle(imageToken)];
   },
-  {
-    imageBg: '#f5f5f5',
-    imagePreviewOperationColor: new TinyColor({ r: 255, g: 255, b: 255, a: 0.85 }).toRgbString(),
-    zIndexImage: 1080,
-  },
+  token => ({
+    zIndexPopup: token.zIndexPopupBase + 80,
+  }),
 );

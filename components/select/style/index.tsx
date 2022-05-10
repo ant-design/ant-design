@@ -13,7 +13,7 @@ import genMultipleStyle from './multiple';
 import genDropdownStyle from './dropdown';
 
 export interface ComponentToken {
-  zIndexDropdown: number;
+  zIndexPopup: number;
 }
 
 export interface SelectToken extends FullToken<'Select'> {
@@ -337,6 +337,6 @@ export default genComponentStyleHook(
     return [genSelectStyle(selectToken)];
   },
   token => ({
-    zIndexDropdown: token.zIndexPopup + 50,
+    zIndexPopup: token.zIndexPopupBase + 50,
   }),
 );

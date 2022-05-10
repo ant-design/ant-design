@@ -155,7 +155,7 @@ export interface SeedToken extends PresetColorType {
   /** Base zIndex of component like BackTop, Affix which can be cover by large popup */
   zIndexBase: number;
   /** Base popup component zIndex */
-  zIndexPopup: number;
+  zIndexPopupBase: number;
 }
 
 // ======================================================================
@@ -354,4 +354,6 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   screenXXLMax: number;
 
   motionEaseOut: string;
+
+  colorPopupBg: string;
 }
