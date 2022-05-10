@@ -1,5 +1,5 @@
 import message, { actWrapper, actDestroy } from '..';
-import { act, sleep } from '../../../tests/utils';
+import { act } from '../../../tests/utils';
 import { triggerMotionEnd } from './util';
 
 describe('message.typescript', () => {

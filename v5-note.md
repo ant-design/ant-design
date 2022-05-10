@@ -1,5 +1,6 @@
 # V5 breaking change 记录
 
+- getPopupContainer: 所有的 getPopupContainer 都需要保证返回的是唯一的 div。React 18 concurrent 下会反复调用该方法。
 - Dropdown
   - 魔改包裹元素样式移除，请使用 Space 组件
   - DropdownButton 的 prefixCls 改为 `dropdown`

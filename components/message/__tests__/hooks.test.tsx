@@ -1,21 +1,25 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react';
-import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
-import message, { getInstance } from '..';
+import message, { actDestroy, actWrapper } from '..';
 import ConfigProvider from '../../config-provider';
+import { render, fireEvent } from '../../../tests/utils';
+import { triggerMotionEnd } from './util';
 
 describe('message.hooks', () => {
   beforeAll(() => {
-    jest.useFakeTimers();
+    actWrapper(act);
   });
 
-  afterAll(() => {
-    jest.useRealTimers();
+  beforeEach(() => {
+    jest.useFakeTimers();
   });
 
   afterEach(() => {
     message.destroy();
+    actDestroy();
+
+    jest.useRealTimers();
   });
 
   it('should work', () => {
@@ -46,10 +50,11 @@ describe('message.hooks', () => {
       );
     };
 
-    const wrapper = mount(<Demo />);
-    wrapper.find('button').simulate('click');
-    expect(document.querySelectorAll('.my-test-message-notice').length).toBe(1);
-    expect(document.querySelector('.hook-test-result').innerHTML).toEqual('bamboo');
+    const { container } = render(<Demo />);
+    fireEvent.click(container.querySelector('button')!);
+
+    expect(document.querySelectorAll('.my-test-message-notice')).toHaveLength(1);
+    expect(document.querySelector('.hook-test-result')!.textContent).toEqual('bamboo');
   });
 
   it('should work with success', () => {
@@ -80,16 +85,15 @@ describe('message.hooks', () => {
       );
     };
 
-    const wrapper = mount(<Demo />);
-    wrapper.find('button').simulate('click');
-    expect(document.querySelectorAll('.my-test-message-notice').length).toBe(1);
-    expect(document.querySelectorAll('.anticon-check-circle').length).toBe(1);
-    expect(document.querySelector('.hook-test-result').innerHTML).toEqual('bamboo');
+    const { container } = render(<Demo />);
+    fireEvent.click(container.querySelector('button')!);
+
+    expect(document.querySelectorAll('.my-test-message-notice')).toHaveLength(1);
+    expect(document.querySelectorAll('.anticon-check-circle')).toHaveLength(1);
+    expect(document.querySelector('.hook-test-result')!.textContent).toEqual('bamboo');
   });
 
   it('should work with onClose', done => {
-    // if not use real timer, done won't be called
-    jest.useRealTimers();
     const Demo = () => {
       const [api, holder] = message.useMessage();
       return (
@@ -111,14 +115,13 @@ describe('message.hooks', () => {
       );
     };
 
-    const wrapper = mount(<Demo />);
-    wrapper.find('button').simulate('click');
-    jest.useFakeTimers();
+    const { container } = render(<Demo />);
+    fireEvent.click(container.querySelector('button')!);
+
+    triggerMotionEnd();
   });
 
   it('should work with close promise', done => {
-    // if not use real timer, done won't be called
-    jest.useRealTimers();
     const Demo = () => {
       const [api, holder] = message.useMessage();
       return (
@@ -141,13 +144,14 @@ describe('message.hooks', () => {
       );
     };
 
-    const wrapper = mount(<Demo />);
-    wrapper.find('button').simulate('click');
-    jest.useFakeTimers();
+    const { container } = render(<Demo />);
+    fireEvent.click(container.querySelector('button')!);
+
+    triggerMotionEnd();
   });
 
   it('should work with hide', () => {
-    let hide;
+    let hide: VoidFunction;
     const Demo = () => {
       const [api, holder] = message.useMessage();
       return (
@@ -166,19 +170,17 @@ describe('message.hooks', () => {
       );
     };
 
-    const wrapper = mount(<Demo />);
-    wrapper.find('button').simulate('click');
+    const { container } = render(<Demo />);
+    fireEvent.click(container.querySelector('button')!);
+
+    expect(document.querySelectorAll('.my-test-message-notice')).toHaveLength(1);
 
     act(() => {
-      jest.runAllTimers();
+      hide!();
     });
-    expect(document.querySelectorAll('.my-test-message-notice').length).toBe(1);
+    triggerMotionEnd('.my-test-message-move-up-leave');
 
-    act(() => {
-      hide();
-      jest.runAllTimers();
-    });
-    expect(getInstance().component.state.notices).toHaveLength(0);
+    expect(document.querySelectorAll('.my-test-message-notice')).toHaveLength(0);
   });
 
   it('should be same hook', () => {
@@ -191,23 +193,23 @@ describe('message.hooks', () => {
       React.useEffect(() => {
         count += 1;
         expect(count).toEqual(1);
-        forceUpdate();
+        forceUpdate({});
       }, [api]);
 
       return null;
     };
 
-    mount(<Demo />);
+    render(<Demo />);
   });
 
   it("should use ConfigProvider's getPopupContainer as message container", () => {
     const containerId = 'container';
-    const getPopupContainer = () => {
-      const div = document.createElement('div');
-      div.id = containerId;
-      document.body.appendChild(div);
-      return div;
-    };
+    const div = document.createElement('div');
+    div.id = containerId;
+    document.body.appendChild(div);
+
+    const getPopupContainer = () => div;
+
     const Demo = () => {
       const [api, holder] = message.useMessage();
       return (
@@ -226,13 +228,12 @@ describe('message.hooks', () => {
       );
     };
 
-    const wrapper = mount(<Demo />);
+    const { container } = render(<Demo />);
+    fireEvent.click(container.querySelector('button')!);
 
-    wrapper.find('button').simulate('click');
-    expect(document.querySelectorAll('.my-test-message-notice').length).toBe(1);
-    expect(document.querySelectorAll('.anticon-check-circle').length).toBe(1);
-    expect(document.querySelector('.hook-content').innerHTML).toEqual('happy');
-    expect(document.querySelectorAll(`#${containerId}`).length).toBe(1);
-    expect(wrapper.find(`#${containerId}`).children.length).toBe(1);
+    expect(div.querySelectorAll('.my-test-message-notice')).toHaveLength(1);
+    expect(div.querySelectorAll('.anticon-check-circle')).toHaveLength(1);
+    expect(div.querySelector('.hook-content')!.textContent).toEqual('happy');
+    expect(document.querySelectorAll(`#${containerId}`)).toHaveLength(1);
   });
 });

@@ -48,7 +48,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     rtl,
     onAllRemoved,
   } = props;
-  const { getPrefixCls } = React.useContext(ConfigContext);
+  const { getPrefixCls, getPopupContainer } = React.useContext(ConfigContext);
 
   const prefixCls = staticPrefixCls || getPrefixCls('notification');
 
@@ -77,7 +77,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     closable: true,
     closeIcon: mergedCloseIcon,
     duration: DEFAULT_DURATION,
-    getContainer: () => staticGetContainer?.() || document.body,
+    getContainer: () => staticGetContainer?.() || getPopupContainer?.() || document.body,
     maxCount,
     onAllRemoved,
   });
