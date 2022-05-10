@@ -184,15 +184,19 @@ describe('message.hooks', () => {
   });
 
   it('should be same hook', () => {
-    let count = 0;
+    let cacheAPI: any;
 
     const Demo = () => {
       const [, forceUpdate] = React.useState({});
       const [api] = message.useMessage();
 
       React.useEffect(() => {
-        count += 1;
-        expect(count).toEqual(1);
+        if (!cacheAPI) {
+          cacheAPI = api;
+        } else {
+          expect(cacheAPI).toBe(api);
+        }
+
         forceUpdate({});
       }, [api]);
 
