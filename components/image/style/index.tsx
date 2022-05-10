@@ -246,7 +246,7 @@ const genImageStyle: GenerateStyle<ImageToken> = (token: ImageToken) => {
 export default genComponentStyleHook(
   'Image',
   token => {
-    const imagePreviewOperationColor = new TinyColor({ r: 255, g: 255, b: 255, a: 0.85 });
+    const imagePreviewOperationColor = new TinyColor(token.colorTextLightSolid);
 
     const imageToken = mergeToken<ImageToken>(token, {
       previewCls: `${token.componentCls}-preview`,
