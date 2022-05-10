@@ -8,7 +8,7 @@ import { triggerMotionEnd } from './util';
 
 describe('message.hooks', () => {
   beforeAll(() => {
-    actWrapper(act);
+    // actWrapper(myAct);
   });
 
   beforeEach(() => {
@@ -16,8 +16,8 @@ describe('message.hooks', () => {
   });
 
   afterEach(() => {
-    message.destroy();
-    actDestroy();
+    // message.destroy();
+    // actDestroy();
 
     jest.useRealTimers();
   });
