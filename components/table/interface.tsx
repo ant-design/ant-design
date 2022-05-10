@@ -89,6 +89,7 @@ export interface FilterDropdownProps {
 
 export interface ColumnType<RecordType> extends Omit<RcColumnType<RecordType>, 'title'> {
   title?: ColumnTitle<RecordType>;
+  editable?: boolean;
   // Sorter
   sorter?:
     | boolean
