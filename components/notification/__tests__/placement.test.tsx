@@ -1,6 +1,7 @@
 import notification, { actWrapper, actDestroy } from '..';
 import { act, fireEvent } from '../../../tests/utils';
 import type { ArgsProps, GlobalConfigProps } from '../interface';
+import { awaitPromise, triggerMotionEnd } from './util';
 
 describe('Notification.placement', () => {
   function open(args?: Partial<ArgsProps>) {
@@ -27,38 +28,34 @@ describe('Notification.placement', () => {
 
   beforeEach(() => {
     jest.useFakeTimers();
-    jest.clearAllTimers();
   });
 
-  afterEach(() => {
-    actDestroy();
+  afterEach(async () => {
+    // Clean up
+    notification.destroy();
+    await triggerMotionEnd();
 
-    config({
-      top: undefined,
-      bottom: undefined,
+    await actDestroy();
+
+    notification.config({
+      prefixCls: null,
+      getContainer: null,
     });
 
-    act(() => {
-      jest.runAllTimers();
-    });
-
-    // Clean up all motion
-    document.querySelectorAll('.ant-notification-notice').forEach(ele => {
-      fireEvent.animationEnd(ele);
-    });
-
-    jest.clearAllTimers();
     jest.useRealTimers();
+
+    await awaitPromise();
   });
 
   describe('placement', () => {
-    it('can be configured globally using the `config` method', () => {
+    it('can be configured globally using the `config` method', async () => {
       // topLeft
       config({
         placement: 'topLeft',
         top: 50,
         bottom: 50,
       });
+      await awaitPromise();
 
       expect(document.querySelector('.ant-notification-topLeft')).toHaveStyle({
         top: '50px',
@@ -116,10 +113,11 @@ describe('Notification.placement', () => {
       $container.remove();
     });
 
-    it('can be configured globally using the `config` method', () => {
+    it('can be configured globally using the `config` method', async () => {
       config({
         getContainer: () => $container,
       });
+      await awaitPromise();
 
       expect($container.querySelector('.ant-notification')).toBeTruthy();
       notification.destroy();
