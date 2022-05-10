@@ -158,7 +158,7 @@ function flushNotice() {
             const { instance, sync } = node || {};
             newMessage.instance = instance;
             newMessage.sync = sync;
-            // flushNotice();
+            flushNotice();
           }}
           onAllRemoved={destroyInstance}
         />,
