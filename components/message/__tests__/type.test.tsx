@@ -1,6 +1,6 @@
 import message, { actWrapper, actDestroy } from '..';
 import { act } from '../../../tests/utils';
-import { awaitPromise, triggerMotionEnd } from './util';
+import { triggerMotionEnd } from './util';
 
 describe('message.typescript', () => {
   beforeAll(() => {
@@ -28,9 +28,7 @@ describe('message.typescript', () => {
 
     message.success('yes!!!').then(filled);
 
-    await awaitPromise();
-    triggerMotionEnd();
-    await awaitPromise();
+    await triggerMotionEnd();
 
     expect(filled).toHaveBeenCalledWith(true);
   });
@@ -41,9 +39,7 @@ describe('message.typescript', () => {
 
     message.success('yes!!!').then(filled, rejected);
 
-    await awaitPromise();
-    triggerMotionEnd();
-    await awaitPromise();
+    await triggerMotionEnd();
 
     expect(filled).toHaveBeenCalledWith(true);
     expect(rejected).not.toHaveBeenCalled();

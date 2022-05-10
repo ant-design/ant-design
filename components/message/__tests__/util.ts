@@ -1,6 +1,15 @@
 import { act, fireEvent } from '../../../tests/utils';
 
-export function triggerMotionEnd(selector: string = '.ant-message-move-up-leave') {
+export async function awaitPromise() {
+  for (let i = 0; i < 10; i += 1) {
+    // eslint-disable-next-line no-await-in-loop
+    await Promise.resolve();
+  }
+}
+
+export async function triggerMotionEnd(selector: string = '.ant-message-move-up-leave') {
+  await awaitPromise();
+
   // Flush css motion state update
   for (let i = 0; i < 5; i += 1) {
     act(() => {
@@ -11,11 +20,6 @@ export function triggerMotionEnd(selector: string = '.ant-message-move-up-leave'
   document.querySelectorAll(selector).forEach(ele => {
     fireEvent.animationEnd(ele);
   });
-}
 
-export async function awaitPromise() {
-  for (let i = 0; i < 10; i += 1) {
-    // eslint-disable-next-line no-await-in-loop
-    await Promise.resolve();
-  }
+  await awaitPromise();
 }
