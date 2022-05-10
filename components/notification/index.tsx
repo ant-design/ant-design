@@ -6,7 +6,7 @@ import ConfigProvider, { globalConfig } from '../config-provider';
 
 let notification: GlobalNotification | null = null;
 
-let act = (callback: VoidFunction) => callback();
+let act: (callback: VoidFunction) => Promise<void> | void = (callback: VoidFunction) => callback();
 
 interface GlobalNotification {
   fragment: DocumentFragment;
@@ -111,10 +111,10 @@ const GlobalHolder = React.forwardRef<GlobalHolderRef, { onAllRemoved: VoidFunct
   },
 );
 
-function destroyInstance() {
-  act(() => {
+async function destroyInstance() {
+  await act(async () => {
     if (notification?.fragment) {
-      unmount(notification.fragment);
+      await unmount(notification.fragment);
     }
   });
 

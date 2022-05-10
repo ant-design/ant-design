@@ -16,7 +16,7 @@ export { ArgsProps };
 
 let message: GlobalMessage | null = null;
 
-let act = (callback: VoidFunction) => callback();
+let act: (callback: VoidFunction) => Promise<void> | void = (callback: VoidFunction) => callback();
 
 interface GlobalMessage {
   fragment: DocumentFragment;
@@ -130,10 +130,10 @@ const GlobalHolder = React.forwardRef<GlobalHolderRef, { onAllRemoved: VoidFunct
   },
 );
 
-function destroyInstance() {
-  act(() => {
+async function destroyInstance() {
+  await act(async () => {
     if (message?.fragment) {
-      unmount(message.fragment);
+      await unmount(message.fragment);
     }
   });
 
@@ -158,7 +158,7 @@ function flushNotice() {
             const { instance, sync } = node || {};
             newMessage.instance = instance;
             newMessage.sync = sync;
-            flushNotice();
+            // flushNotice();
           }}
           onAllRemoved={destroyInstance}
         />,
