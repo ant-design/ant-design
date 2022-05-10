@@ -1,12 +1,8 @@
 // deps-lint-skip-all
-import { CSSObject, Keyframes } from '@ant-design/cssinjs';
-import {
-  genComponentStyleHook,
-  mergeToken,
-  FullToken,
-  GenerateStyle,
-  resetComponent,
-} from '../../_util/theme';
+import type { CSSObject } from '@ant-design/cssinjs';
+import { Keyframes } from '@ant-design/cssinjs';
+import type { FullToken, GenerateStyle } from '../../_util/theme';
+import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
 
 export interface ComponentToken {
   remainingColor: string;
@@ -91,8 +87,8 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token: ProgressToken) => {
 
       [`${progressCls}-success-bg`]: {
         position: 'absolute',
-        insetBlockStartlock: 0,
-        insetIlineStart: 0,
+        insetBlockStart: 0,
+        insetInlineStart: 0,
         backgroundColor: token.colorSuccess,
       },
 
