@@ -420,11 +420,11 @@ function flushNotice() {
   if (!message) {
     const holderFragment = document.createDocumentFragment();
 
-    const newNotification: GlobalMessage = {
+    const newMessage: GlobalMessage = {
       fragment: holderFragment,
     };
 
-    message = newNotification;
+    message = newMessage;
 
     // Delay render to avoid sync issue
     act(() => {
@@ -432,8 +432,8 @@ function flushNotice() {
         <GlobalHolder
           ref={node => {
             const { instance, sync } = node || {};
-            newNotification.instance = instance;
-            newNotification.sync = sync;
+            newMessage.instance = instance;
+            newMessage.sync = sync;
             flushNotice();
           }}
           onAllRemoved={destroyInstance}
@@ -500,7 +500,7 @@ function flushNotice() {
 const methods: NoticeType[] = ['success', 'info', 'warning', 'error', 'loading'];
 type MethodType = typeof methods[number];
 
-function setNotificationGlobalConfig(config: ConfigOptions) {
+function setMessageGlobalConfig(config: ConfigOptions) {
   defaultGlobalConfig = {
     ...defaultGlobalConfig,
     ...config,
@@ -589,7 +589,7 @@ const baseStaticMethods: {
 } = {
   open,
   destroy,
-  config: setNotificationGlobalConfig,
+  config: setMessageGlobalConfig,
   useMessage,
 };
 

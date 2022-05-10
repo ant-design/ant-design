@@ -205,14 +205,10 @@ export function useInternalMessage(
 
         const mergedConfig = {
           onClose: mergedOnClose,
+          duration: mergedDuration,
           ...config,
           type,
         };
-
-        // Pass duration only when configured in case it break with spread
-        if (mergedDuration !== undefined) {
-          mergedConfig.duration = mergedDuration;
-        }
 
         return open(mergedConfig);
       };
