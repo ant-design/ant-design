@@ -12,6 +12,8 @@ import type {
 import ConfigProvider, { globalConfig } from '../config-provider';
 import { wrapPromiseFn } from './util';
 
+export { ArgsProps };
+
 let message: GlobalMessage | null = null;
 
 let act = (callback: VoidFunction) => callback();

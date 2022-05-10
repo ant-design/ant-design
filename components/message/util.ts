@@ -1,4 +1,4 @@
-import { CSSMotionProps } from 'rc-motion';
+import type { CSSMotionProps } from 'rc-motion';
 
 export function getMotion(prefixCls: string, transitionName?: string): CSSMotionProps {
   return {
