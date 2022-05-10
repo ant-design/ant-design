@@ -20,26 +20,21 @@ import { PoweroffOutlined } from '@ant-design/icons';
 
 export default () => {
   const [loadings, setLoadings] = useState([]);
-  const [index, setIndex] = useState();
-  const ref = useRef();
 
-  useEffect(() => {
-    if (ref.current) {
-      setTimeout(() => {
-        const newLoadings = [...ref.current];
+  const enterLoading = index => {
+    setLoadings(prevLoadings => {
+      const newLoadings = [...prevLoadings];
+      newLoadings[index] = true;
+      return newLoadings;
+    });
+
+    setTimeout(() => {
+      setLoadings(prevLoadings => {
+        const newLoadings = [...prevLoadings];
         newLoadings[index] = false;
-        setLoadings(newLoadings);
-        ref.current = newLoadings;
-      }, 6000);
-    }
-  }, [index, JSON.stringify(loadings)]);
-
-  const enterLoading = i => {
-    const newLoadings = [...loadings];
-    newLoadings[i] = true;
-    ref.current = newLoadings;
-    setIndex(i);
-    setLoadings(newLoadings);
+        return newLoadings;
+      });
+    }, 6000);
   };
 
   return (
