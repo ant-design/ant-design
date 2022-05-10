@@ -18,23 +18,23 @@ interface ProgressToken extends FullToken<'Progress'> {
   textFontSize: string;
 }
 
+const antProgressActive = new Keyframes('antProgressActive', {
+  '0%': {
+    transform: 'translateX(-100%) scaleX(0)',
+    opacity: 0.1,
+  },
+  '20%': {
+    transform: 'translateX(-100%) scaleX(0)',
+    opacity: 0.5,
+  },
+  to: {
+    transform: 'translateX(0) scaleX(1)',
+    opacity: 0,
+  },
+});
+
 const genBaseStyle: GenerateStyle<ProgressToken> = (token: ProgressToken) => {
   const { componentCls: progressCls, iconCls: iconPrefixCls } = token;
-
-  const antProgressActive = new Keyframes('antProgressActive', {
-    '0%': {
-      transform: 'translateX(-100%) scaleX(0)',
-      opacity: 0.1, // FIXME: hard code in v4
-    },
-    '20%': {
-      transform: 'translateX(-100%) scaleX(0)',
-      opacity: 0.5, // FIXME: hard code in v4
-    },
-    to: {
-      transform: 'translateX(0) scaleX(1)',
-      opacity: 0, // FIXME: hard code in v4
-    },
-  });
 
   return {
     [progressCls]: {
@@ -42,12 +42,16 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token: ProgressToken) => {
 
       display: 'inline-block',
 
+      '&-rtl': {
+        direction: 'rtl',
+      },
+
       '&-line': {
         position: 'relative',
         width: '100%',
         fontSize: token.fontSizeBase,
-        marginInlineEnd: '8px', // FIXME: hard code in v4
-        marginBottom: '8px', // FIXME: hard code in v4
+        marginInlineEnd: token.marginXS,
+        marginBottom: token.marginXS,
       },
 
       [`${progressCls}-outer`]: {
@@ -57,8 +61,8 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token: ProgressToken) => {
 
       [`&${progressCls}-show-info`]: {
         [`${progressCls}-outer`]: {
-          marginInlineEnd: 'calc(-2em - 8px)',
-          paddingInlineEnd: 'calc(2em + 8px)',
+          marginInlineEnd: `calc(-2em - ${token.marginXS}px)`,
+          paddingInlineEnd: `calc(2em + ${token.paddingXS}px)`,
         },
       },
 
@@ -78,11 +82,11 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token: ProgressToken) => {
         },
       },
 
-      [`&${progressCls}-success-bg,${progressCls}-bg`]: {
+      [`&${progressCls}-success-bg, ${progressCls}-bg`]: {
         position: 'relative',
         backgroundColor: token.blue,
         borderRadius: token.radius,
-        transition: `all ${token.motionDurationSlow} cubic-bezier(0.08, 0.82, 0.17, 1) 0s`,
+        transition: `all ${token.motionDurationSlow} cubic-bezier(0.08, 0.82, 0.17, 1) 0s`, // FIXME: hard code in v4
       },
 
       [`${progressCls}-success-bg`]: {
@@ -95,7 +99,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token: ProgressToken) => {
       [`${progressCls}-text`]: {
         display: 'inline-block',
         width: '2em', // FIXME: hardcode in v4
-        marginInlineStart: '8px', // FIXME: hard code in v4
+        marginInlineStart: token.marginXS, // FIXME: hard code in v4
         color: token.infoTextColor,
         fontSize: token.textFontSize,
         lineHeight: 1,
@@ -109,15 +113,14 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token: ProgressToken) => {
       },
 
       [`&${progressCls}-status-active`]: {
-        // FIXME 不生成伪元素
         [`${progressCls}-bg::before`]: {
           position: 'absolute',
           inset: 0,
-          background: '#fff',
-          borderRadius: '10px', // FIXME: hard code in v4
+          background: token.colorBgComponent,
+          borderRadius: 10, // FIXME: hard code in v4
           opacity: 0,
           animationName: antProgressActive,
-          animationDuration: '2.4s', // FIXME: hardcode
+          animationDuration: '2.4s', // FIXME: hard code in v4
           animationTimingFunction: token.motionEaseOutQuint,
           animationIterationCount: 'infinite',
           content: '""',
@@ -164,14 +167,14 @@ const genCircleStyle: GenerateStyle<ProgressToken> = (token: ProgressToken): CSS
   return {
     [progressCls]: {
       '&-circle': {
-        marginInlineEnd: '8px', // FIXME: hard code in v4
-        marginBottom: '8px', // FIXME: hard code in v4
+        marginInlineEnd: token.marginXS,
+        marginBottom: token.marginXS,
       },
       [`${progressCls}-circle-trail`]: {
         stroke: token.remainingColor,
       },
       [`${progressCls}-circle-path`]: {
-        animationName: 'ant-progress-appear',
+        animationName: 'ant-progress-appear', // FIXME: keyframe not found
         animationDuration: token.motionDurationSlow,
       },
       [`&${progressCls}-circle ${progressCls}-inner`]: {
@@ -195,8 +198,7 @@ const genCircleStyle: GenerateStyle<ProgressToken> = (token: ProgressToken): CSS
         transform: `translate(-50%, -50%)`,
 
         [iconPrefixCls]: {
-          // fixme do not work 14em/12em
-          fontSize: '1.17em',
+          fontSize: `${14 / 12}em`, // FIXME: hard code in v4
         },
       },
 
@@ -229,8 +231,8 @@ const genStepStyle: GenerateStyle<ProgressToken> = (token: ProgressToken): CSSOb
         },
         '&-item': {
           flexShrink: 0,
-          minWidth: '2px', // FIXME: hardcode in v4
-          marginInlineEnd: '2px', // FIXME: hardcode in v4
+          minWidth: 2, // FIXME: hardcode in v4
+          marginInlineEnd: 2, // FIXME: hardcode in v4
           background: token.stepsItemBg,
           transition: `all ${token.motionDurationSlow}`,
 
