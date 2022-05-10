@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import DropdownButton from './dropdown-button';
 import { ConfigContext } from '../config-provider';
-import devWarning from '../_util/devWarning';
+import warning from '../_util/warning';
 import { tuple } from '../_util/type';
 import { cloneElement } from '../_util/reactNode';
 import getPlacements from '../_util/placements';
@@ -105,7 +105,7 @@ const Dropdown: DropdownInterface = props => {
     const overlayProps = overlayNode.props;
 
     // Warning if use other mode
-    devWarning(
+    warning(
       !overlayProps.mode || overlayProps.mode === 'vertical',
       'Dropdown',
       `mode="${overlayProps.mode}" is not supported for Dropdown's Menu.`,
@@ -143,7 +143,7 @@ const Dropdown: DropdownInterface = props => {
 
     if (placement.includes('Center')) {
       const newPlacement = placement.slice(0, placement.indexOf('Center'));
-      devWarning(
+      warning(
         !placement.includes('Center'),
         'Dropdown',
         `You are using '${placement}' placement in Dropdown, which is deprecated. Try to use '${newPlacement}' instead.`,

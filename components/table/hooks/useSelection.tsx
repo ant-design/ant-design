@@ -13,7 +13,7 @@ import Checkbox from '../../checkbox';
 import Dropdown from '../../dropdown';
 import Menu from '../../menu';
 import Radio from '../../radio';
-import devWarning from '../../_util/devWarning';
+import warning from '../../_util/warning';
 import type {
   TableRowSelection,
   Key,
@@ -171,16 +171,11 @@ export default function useSelection<RecordType>(
       const checkboxProps = (getCheckboxProps ? getCheckboxProps(record) : null) || {};
       map.set(key, checkboxProps);
 
-      if (
-        process.env.NODE_ENV !== 'production' &&
-        ('checked' in checkboxProps || 'defaultChecked' in checkboxProps)
-      ) {
-        devWarning(
-          false,
-          'Table',
-          'Do not set `checked` or `defaultChecked` in `getCheckboxProps`. Please use `selectedRowKeys` instead.',
-        );
-      }
+      warning(
+        !('checked' in checkboxProps || 'defaultChecked' in checkboxProps),
+        'Table',
+        'Do not set `checked` or `defaultChecked` in `getCheckboxProps`. Please use `selectedRowKeys` instead.',
+      );
     });
     return map;
   }, [flattedData, getRowKey, getCheckboxProps]);
@@ -313,7 +308,7 @@ export default function useSelection<RecordType>(
 
             const keys = Array.from(keySet);
             if (onSelectInvert) {
-              devWarning(
+              warning(
                 false,
                 'Table',
                 '`onSelectInvert` will be removed in future. Please use `onChange` instead.',
@@ -349,13 +344,11 @@ export default function useSelection<RecordType>(
     (columns: ColumnsType<RecordType>): ColumnsType<RecordType> => {
       // >>>>>>>>>>> Skip if not exists `rowSelection`
       if (!rowSelection) {
-        if (process.env.NODE_ENV !== 'production') {
-          devWarning(
-            !columns.includes(SELECTION_COLUMN),
-            'Table',
-            '`rowSelection` is not config but `SELECTION_COLUMN` exists in the `columns`.',
-          );
-        }
+        warning(
+          !columns.includes(SELECTION_COLUMN),
+          'Table',
+          '`rowSelection` is not config but `SELECTION_COLUMN` exists in the `columns`.',
+        );
 
         return columns.filter(col => col !== SELECTION_COLUMN);
       }
@@ -504,7 +497,7 @@ export default function useSelection<RecordType>(
           let mergedIndeterminate: boolean;
           if (expandType === 'nest') {
             mergedIndeterminate = indeterminate;
-            devWarning(
+            warning(
               typeof checkboxProps?.indeterminate !== 'boolean',
               'Table',
               'set `indeterminate` using `rowSelection.getCheckboxProps` is not allowed with tree structured dataSource.',
@@ -646,12 +639,13 @@ export default function useSelection<RecordType>(
 
       // Deduplicate selection column
       const selectionColumnIndex = cloneColumns.indexOf(SELECTION_COLUMN);
-      if (
-        process.env.NODE_ENV !== 'production' &&
-        cloneColumns.filter(col => col === SELECTION_COLUMN).length > 1
-      ) {
-        devWarning(false, 'Table', 'Multiple `SELECTION_COLUMN` exist in `columns`.');
-      }
+
+      warning(
+        cloneColumns.filter(col => col === SELECTION_COLUMN).length <= 1,
+        'Table',
+        'Multiple `SELECTION_COLUMN` exist in `columns`.',
+      );
+
       cloneColumns = cloneColumns.filter(
         (column, index) => column !== SELECTION_COLUMN || index === selectionColumnIndex,
       );
