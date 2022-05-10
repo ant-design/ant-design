@@ -10,7 +10,7 @@ export interface ComponentToken {
   // Component token here
 }
 
-interface ModalToken extends FullToken<'Modal'> {
+export interface ModalToken extends FullToken<'Modal'> {
   // Custom token here
   modalHeaderPaddingVertical: number;
   modalHeaderPaddingHorizontal: number;
@@ -48,7 +48,7 @@ function box(position: React.CSSProperties['position']): React.CSSProperties {
   };
 }
 
-function modalMask(componentCls: string, token: ModalToken): CSSObject {
+export function modalMask(componentCls: string, token: ModalToken): CSSObject {
   return {
     [`${componentCls}${token.antCls}-zoom-enter, ${componentCls}${token.antCls}-zoom-appear`]: {
       // reset scale avoid mousePosition bug
