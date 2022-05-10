@@ -35,7 +35,7 @@ export interface MessageType extends PromiseLike<any> {
 
 export type TypeOpen = (
   content: JointContent,
-  duration?: number,
+  duration?: number | VoidFunction, // Also can use onClose directly
   onClose?: VoidFunction,
 ) => MessageType;
 

@@ -528,7 +528,9 @@ function open(config: ArgsProps): MessageType {
 
     return () => {
       if (closeFn) {
-        closeFn();
+        act(() => {
+          closeFn();
+        });
       } else {
         task.skipped = true;
       }
@@ -557,7 +559,9 @@ function typeOpen(type: NoticeType, args: Parameters<TypeOpen>): MessageType {
 
     return () => {
       if (closeFn) {
-        closeFn();
+        act(() => {
+          closeFn();
+        });
       } else {
         task.skipped = true;
       }

@@ -15,6 +15,7 @@ import type {
   MessageType,
   ConfigOptions,
   NoticeType,
+  TypeOpen,
 } from './interface';
 import { getMotion, wrapPromiseFn } from './util';
 import devWarning from '../_util/devWarning';
@@ -133,7 +134,7 @@ export function useInternalMessage(
       const { open: originOpen, prefixCls } = holderRef.current;
       const noticePrefixCls = `${prefixCls}-notice`;
 
-      const { content, icon, type = 'info', key, className, onClose, ...restConfig } = config;
+      const { content, icon, type, key, className, onClose, ...restConfig } = config;
 
       let mergedKey: React.Key = key!;
       if (mergedKey === undefined || mergedKey === null) {
@@ -147,7 +148,7 @@ export function useInternalMessage(
           key: mergedKey,
           content: (
             <div className={classNames(`${prefixCls}-custom-content`, `${prefixCls}-${type}`)}>
-              {icon || TypeIcon[type]}
+              {icon || TypeIcon[type!]}
               <span>{content}</span>
             </div>
           ),
@@ -182,7 +183,7 @@ export function useInternalMessage(
 
     const keys: NoticeType[] = ['info', 'success', 'warning', 'error', 'loading'];
     keys.forEach(type => {
-      clone[type] = (jointContent, duration, onClose) => {
+      const typeOpen: TypeOpen = (jointContent, duration, onClose) => {
         let config: ArgsProps;
         if (jointContent && typeof jointContent === 'object' && 'content' in jointContent) {
           config = jointContent;
@@ -192,19 +193,31 @@ export function useInternalMessage(
           };
         }
 
+        // Params
+        let mergedDuration: number | undefined;
+        let mergedOnClose: VoidFunction | undefined;
+        if (typeof duration === 'function') {
+          mergedOnClose = duration;
+        } else {
+          mergedDuration = duration;
+          mergedOnClose = onClose;
+        }
+
         const mergedConfig = {
-          onClose,
+          onClose: mergedOnClose,
           ...config,
           type,
         };
 
         // Pass duration only when configured in case it break with spread
-        if (duration !== undefined) {
-          mergedConfig.duration = duration;
+        if (mergedDuration !== undefined) {
+          mergedConfig.duration = mergedDuration;
         }
 
         return open(mergedConfig);
       };
+
+      clone[type] = typeOpen;
     });
 
     return clone;
