@@ -1,4 +1,4 @@
-import { sleep, act } from '../../../tests/utils';
+import { act } from '../../../tests/utils';
 import message, { actDestroy, actWrapper } from '..';
 import ConfigProvider from '../../config-provider';
 import { triggerMotionEnd } from './util';

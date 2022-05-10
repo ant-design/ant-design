@@ -16,9 +16,6 @@ export interface ArgsProps {
   content: React.ReactNode;
   duration?: number;
   type?: NoticeType;
-  // prefixCls?: string;
-  // rootPrefixCls?: string;
-  // getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement;
   onClose?: () => void;
   icon?: React.ReactNode;
   key?: string | number;
