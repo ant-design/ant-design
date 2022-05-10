@@ -3,6 +3,7 @@ import { UserOutlined } from '@ant-design/icons';
 import notification, { actWrapper, actDestroy } from '..';
 import ConfigProvider from '../../config-provider';
 import { act, fireEvent } from '../../../tests/utils';
+import { awaitPromise, triggerMotionEnd } from './util';
 
 describe('notification', () => {
   beforeAll(() => {
@@ -11,22 +12,26 @@ describe('notification', () => {
 
   beforeEach(() => {
     jest.useFakeTimers();
-    jest.clearAllTimers();
   });
 
-  afterEach(() => {
-    actDestroy();
+  afterEach(async () => {
+    // Clean up
+    notification.destroy();
+    await triggerMotionEnd();
+
+    await actDestroy();
 
     notification.config({
       prefixCls: null,
       getContainer: null,
     });
 
-    jest.clearAllTimers();
     jest.useRealTimers();
+
+    await awaitPromise();
   });
 
-  it('not duplicate create holder', () => {
+  it('not duplicate create holder', async () => {
     notification.config({
       prefixCls: 'additional-holder',
     });
@@ -38,32 +43,22 @@ describe('notification', () => {
       });
     }
 
+    await awaitPromise();
+
     act(() => {
       jest.runAllTimers();
     });
 
     expect(document.querySelectorAll('.additional-holder')).toHaveLength(1);
-
-    // Clean up
-    notification.destroy();
-    act(() => {
-      jest.runAllTimers();
-    });
-    document.querySelectorAll('.additional-holder-notice').forEach(ele => {
-      fireEvent.animationEnd(ele);
-    });
   });
 
-  it('should be able to hide manually', () => {
+  it('should be able to hide manually', async () => {
     notification.open({
       message: 'Notification Title 1',
       duration: 0,
       key: '1',
     });
-
-    act(() => {
-      jest.runAllTimers();
-    });
+    await awaitPromise();
 
     notification.open({
       message: 'Notification Title 2',
@@ -71,51 +66,33 @@ describe('notification', () => {
       key: '2',
     });
 
-    act(() => {
-      jest.runAllTimers();
-    });
     expect(document.querySelectorAll('.ant-notification-notice')).toHaveLength(2);
 
     // Close 1
     notification.destroy('1');
-    act(() => {
-      jest.runAllTimers();
-    });
 
-    // Leave motion end
-    fireEvent.animationEnd(document.querySelector('.ant-notification-notice')!);
+    await triggerMotionEnd();
 
     expect(document.querySelectorAll('.ant-notification-notice')).toHaveLength(1);
 
     // Close 2
     notification.destroy('2');
-    act(() => {
-      jest.runAllTimers();
-    });
 
-    // Leave motion end
-    fireEvent.animationEnd(document.querySelector('.ant-notification-notice')!);
+    await triggerMotionEnd();
 
     expect(document.querySelectorAll('.ant-notification-notice')).toHaveLength(0);
   });
 
-  it('should be able to destroy globally', () => {
+  it('should be able to destroy globally', async () => {
     notification.open({
-      message: 'Notification Title',
+      message: 'Notification Title 1',
       duration: 0,
     });
-
-    act(() => {
-      jest.runAllTimers();
-    });
+    await awaitPromise();
 
     notification.open({
-      message: 'Notification Title',
+      message: 'Notification Title 2',
       duration: 0,
-    });
-
-    act(() => {
-      jest.runAllTimers();
     });
 
     expect(document.querySelectorAll('.ant-notification')).toHaveLength(1);
@@ -123,14 +100,7 @@ describe('notification', () => {
 
     notification.destroy();
 
-    act(() => {
-      jest.runAllTimers();
-    });
-
-    // Leave motion end
-    document.querySelectorAll('.ant-notification-notice').forEach(ele => {
-      fireEvent.animationEnd(ele);
-    });
+    await triggerMotionEnd();
 
     expect(document.querySelectorAll('.ant-notification')).toHaveLength(0);
     expect(document.querySelectorAll('.ant-notification-notice')).toHaveLength(0);
@@ -144,7 +114,7 @@ describe('notification', () => {
     notification.destroy();
   });
 
-  it('should be able to config rtl', () => {
+  it('should be able to config rtl', async () => {
     notification.config({
       rtl: true,
     });
@@ -152,14 +122,16 @@ describe('notification', () => {
     notification.open({
       message: 'whatever',
     });
+    await awaitPromise();
 
     expect(document.querySelectorAll('.ant-notification-rtl')).toHaveLength(1);
   });
 
-  it('should be able to global config rootPrefixCls', () => {
+  it('should be able to global config rootPrefixCls', async () => {
     ConfigProvider.config({ prefixCls: 'prefix-test', iconPrefixCls: 'bamboo' });
 
     notification.success({ message: 'Notification Title', duration: 0 });
+    await awaitPromise();
 
     expect(document.querySelectorAll('.ant-notification-notice')).toHaveLength(0);
     expect(document.querySelectorAll('.prefix-test-notification-notice')).toHaveLength(1);
@@ -168,7 +140,7 @@ describe('notification', () => {
     ConfigProvider.config({ prefixCls: 'ant', iconPrefixCls: null! });
   });
 
-  it('should be able to config prefixCls', () => {
+  it('should be able to config prefixCls', async () => {
     notification.config({
       prefixCls: 'prefix-test',
     });
@@ -177,6 +149,7 @@ describe('notification', () => {
       message: 'Notification Title',
       duration: 0,
     });
+    await awaitPromise();
 
     expect(document.querySelectorAll('.ant-notification-notice')).toHaveLength(0);
     expect(document.querySelectorAll('.prefix-test-notice')).toHaveLength(1);
@@ -186,7 +159,7 @@ describe('notification', () => {
     });
   });
 
-  it('should be able to open with icon', () => {
+  it('should be able to open with icon', async () => {
     const iconPrefix = '.ant-notification-notice-icon';
 
     const list = ['success', 'info', 'warning', 'error'] as const;
@@ -197,18 +170,16 @@ describe('notification', () => {
         duration: 0,
         description: 'This is the content of the notification.',
       });
-
-      act(() => {
-        jest.runAllTimers();
-      });
     });
+
+    await awaitPromise();
 
     list.forEach(type => {
       expect(document.querySelectorAll(`${iconPrefix}-${type}`)).toHaveLength(1);
     });
   });
 
-  it('should be able to add parent class for different notification types', () => {
+  it('should be able to add parent class for different notification types', async () => {
     const list = ['success', 'info', 'warning', 'error'] as const;
     list.forEach(type => {
       notification[type]({
@@ -216,18 +187,16 @@ describe('notification', () => {
         duration: 0,
         description: 'This is the content of the notification.',
       });
-
-      act(() => {
-        jest.runAllTimers();
-      });
     });
+
+    await awaitPromise();
 
     list.forEach(type => {
       expect(document.querySelectorAll(`.ant-notification-notice-${type}`)).toHaveLength(1);
     });
   });
 
-  it('trigger onClick', () => {
+  it('trigger onClick', async () => {
     const onClick = jest.fn();
 
     notification.open({
@@ -235,6 +204,7 @@ describe('notification', () => {
       duration: 0,
       onClick,
     });
+    await awaitPromise();
 
     expect(document.querySelectorAll('.ant-notification')).toHaveLength(1);
 
@@ -242,37 +212,36 @@ describe('notification', () => {
     expect(onClick).toHaveBeenCalled();
   });
 
-  it('support closeIcon', () => {
+  it('support closeIcon', async () => {
     notification.open({
       message: 'Notification Title',
       duration: 0,
       closeIcon: <span className="test-customize-icon" />,
     });
+    await awaitPromise();
 
     expect(document.querySelectorAll('.test-customize-icon')).toHaveLength(1);
   });
 
-  it('support config closeIcon', () => {
+  it('support config closeIcon', async () => {
     notification.config({
       closeIcon: <span className="test-customize-icon" />,
     });
 
     // Global Icon
-    act(() => {
-      notification.open({
-        message: 'Notification Title',
-        duration: 0,
-      });
+    notification.open({
+      message: 'Notification Title',
+      duration: 0,
     });
+    await awaitPromise();
+
     expect(document.querySelector('.test-customize-icon')).toBeTruthy();
 
     // Notice Icon
-    act(() => {
-      notification.open({
-        message: 'Notification Title',
-        duration: 0,
-        closeIcon: <span className="replace-icon" />,
-      });
+    notification.open({
+      message: 'Notification Title',
+      duration: 0,
+      closeIcon: <span className="replace-icon" />,
     });
 
     expect(document.querySelector('.replace-icon')).toBeTruthy();
@@ -290,18 +259,16 @@ describe('notification', () => {
         closeIcon: <span className={`test-customize-icon-${type}`} />,
         duration: 0,
       });
-
-      act(() => {
-        jest.runAllTimers();
-      });
     });
+
+    await awaitPromise();
 
     list.forEach(type => {
       expect(document.querySelector(`.test-customize-icon-${type}`)).toBeTruthy();
     });
   });
 
-  it('support config duration', () => {
+  it('support config duration', async () => {
     notification.config({
       duration: 0,
     });
@@ -309,16 +276,18 @@ describe('notification', () => {
     notification.open({
       message: 'whatever',
     });
+    await awaitPromise();
 
     expect(document.querySelector('.ant-notification')).toBeTruthy();
   });
 
-  it('support icon', () => {
+  it('support icon', async () => {
     notification.open({
       message: 'Notification Title',
       duration: 0,
       icon: <UserOutlined />,
     });
+    await awaitPromise();
 
     expect(document.querySelector('.anticon-user')).toBeTruthy();
   });
