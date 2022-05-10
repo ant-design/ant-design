@@ -1,13 +1,7 @@
 // deps-lint-skip-all
-import { CSSObject } from '@ant-design/cssinjs';
-import {
-  clearFix,
-  genComponentStyleHook,
-  GenerateStyle,
-  mergeToken,
-  resetComponent,
-} from '../../_util/theme';
-import type { FullToken } from '../../_util/theme';
+import type { CSSObject } from '@ant-design/cssinjs';
+import { clearFix, genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
+import type { FullToken, GenerateStyle } from '../../_util/theme';
 import type { GlobalToken } from '../../_util/theme/interface';
 
 export type InputToken<T extends GlobalToken = FullToken<'Input'>> = T & {

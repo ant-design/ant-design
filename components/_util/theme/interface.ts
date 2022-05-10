@@ -19,6 +19,7 @@ import type { ComponentToken as CarouselComponentToken } from '../../carousel/st
 import type { ComponentToken as ProgressComponentToken } from '../../progress/style';
 import type { ComponentToken as SpaceComponentToken } from '../../space/style';
 import type { ComponentToken as ModalComponentToken } from '../../modal/style';
+import type { ComponentToken as ImageComponentToken } from '../../image/style';
 
 export const PresetColors = [
   'blue',
@@ -69,7 +70,7 @@ export interface OverrideToken {
   Empty?: EmptyComponentToken;
   Form?: {};
   Grid?: {};
-  Image?: {};
+  Image?: ImageComponentToken;
   Input?: {};
   InputNumber?: InputNumberComponentToken;
   List?: {};

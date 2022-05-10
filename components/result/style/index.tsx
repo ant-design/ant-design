@@ -1,6 +1,7 @@
 // deps-lint-skip-all
-import { CSSObject } from '@ant-design/cssinjs';
-import { GenerateStyle, genComponentStyleHook, FullToken, mergeToken } from '../../_util/theme';
+import type { CSSObject } from '@ant-design/cssinjs';
+import type { GenerateStyle, FullToken } from '../../_util/theme';
+import { genComponentStyleHook, mergeToken } from '../../_util/theme';
 
 interface ResultToken extends FullToken<'Result'> {
   resultTitleFontSize: number;

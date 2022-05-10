@@ -1,5 +1,6 @@
 import React from 'react';
-import Upload, { UploadProps } from '..';
+import type { UploadProps } from '..';
+import Upload from '..';
 
 describe('Upload.typescript', () => {
   it('Upload', () => {

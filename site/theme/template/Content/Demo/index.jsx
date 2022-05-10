@@ -222,8 +222,10 @@ class Demo extends React.Component {
           'const { $1 } = ReactRouterDOM;',
         )
         .replace(/([A-Za-z]*)\s+as\s+([A-Za-z]*)/, '$1:$2')
-        .replace(/export default/, 'const Demo =')}\n\n${
-        react18 ? 'createRoot(mountNode).render(<Demo />)' : 'ReactDOM.render(<Demo />, mountNode)'
+        .replace(/export default/, 'const ComponentDemo =')}\n\n${
+        react18
+          ? 'createRoot(mountNode).render(<ComponentDemo />)'
+          : 'ReactDOM.render(<ComponentDemo />, mountNode)'
       };\n`,
       css: prefillStyle,
       editors: '001',
@@ -251,8 +253,10 @@ class Demo extends React.Component {
         react18
           ? `import React from 'react';\nimport { createRoot } from 'react-dom/client';\n`
           : ''
-      }${sourceCode.replace(/export default/, 'const Demo =')}\n\n${
-        react18 ? 'createRoot(mountNode).render(<Demo />)' : 'ReactDOM.render(<Demo />, mountNode)'
+      }${sourceCode.replace(/export default/, 'const ComponentDemo =')}\n\n${
+        react18
+          ? 'createRoot(mountNode).render(<ComponentDemo />)'
+          : 'ReactDOM.render(<ComponentDemo />, mountNode)'
       };\n`,
       css: prefillStyle,
       json: JSON.stringify(

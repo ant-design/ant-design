@@ -4,7 +4,8 @@ import { createPortal } from 'react-dom';
 import { render, fireEvent } from '../../../tests/utils';
 // eslint-disable-next-line import/no-unresolved
 import Form from '../../form';
-import Input, { InputProps, InputRef } from '..';
+import type { InputProps, InputRef } from '..';
+import Input from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 

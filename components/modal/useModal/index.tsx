@@ -1,15 +1,10 @@
 import * as React from 'react';
-import { ModalFuncProps } from '../Modal';
+import type { ModalFuncProps } from '../Modal';
 import usePatchElement from '../../_util/hooks/usePatchElement';
-import HookModal, { HookModalRef } from './HookModal';
-import {
-  withConfirm,
-  ModalStaticFunctions,
-  withInfo,
-  withSuccess,
-  withError,
-  withWarn,
-} from '../confirm';
+import type { HookModalRef } from './HookModal';
+import HookModal from './HookModal';
+import type { ModalStaticFunctions } from '../confirm';
+import { withConfirm, withInfo, withSuccess, withError, withWarn } from '../confirm';
 
 let uuid = 0;
 

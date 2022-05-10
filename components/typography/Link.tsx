@@ -1,6 +1,7 @@
 import * as React from 'react';
 import devWarning from '../_util/devWarning';
-import Base, { BlockProps } from './Base';
+import type { BlockProps } from './Base';
+import Base from './Base';
 
 export interface LinkProps
   extends BlockProps,

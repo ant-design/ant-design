@@ -1,6 +1,8 @@
 import * as React from 'react';
-import Statistic, { StatisticProps } from './Statistic';
-import { formatCountdown, countdownValueType, FormatConfig } from './utils';
+import type { StatisticProps } from './Statistic';
+import Statistic from './Statistic';
+import type { countdownValueType, FormatConfig } from './utils';
+import { formatCountdown } from './utils';
 import { cloneElement } from '../_util/reactNode';
 
 const REFRESH_INTERVAL = 1000 / 30;

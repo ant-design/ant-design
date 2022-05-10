@@ -1,14 +1,8 @@
 // deps-lint-skip-all
-import { CSSObject, Keyframes } from '@ant-design/cssinjs';
-import {
-  resetComponent,
-  GenerateStyle,
-  PresetColors,
-  PresetColorType,
-  genComponentStyleHook,
-  FullToken,
-  mergeToken,
-} from '../../_util/theme';
+import type { CSSObject } from '@ant-design/cssinjs';
+import { Keyframes } from '@ant-design/cssinjs';
+import type { GenerateStyle, PresetColorType, FullToken } from '../../_util/theme';
+import { resetComponent, PresetColors, genComponentStyleHook, mergeToken } from '../../_util/theme';
 
 interface BadgeToken extends FullToken<'Badge'> {
   badgeZIndex: number | string;

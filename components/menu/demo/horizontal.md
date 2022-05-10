@@ -14,7 +14,8 @@ title:
 Horizontal top navigation menu.
 
 ```tsx
-import { Menu, MenuProps } from 'antd';
+import type { MenuProps } from 'antd';
+import { Menu } from 'antd';
 import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
 
 const items: MenuProps['items'] = [

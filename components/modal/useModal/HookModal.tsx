@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ModalFuncProps } from '../Modal';
+import type { ModalFuncProps } from '../Modal';
 import ConfirmDialog from '../ConfirmDialog';
 import defaultLocale from '../../locale/default';
 import LocaleReceiver from '../../locale-provider/LocaleReceiver';
