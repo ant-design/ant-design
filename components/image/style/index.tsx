@@ -4,29 +4,19 @@ import { TinyColor } from '@ctrl/tinycolor';
 import type { FullToken, GenerateStyle } from '../../_util/theme';
 import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
 
-export interface ImageToken extends FullToken<'Image'> {
-  previewPrefixCls: string;
-  imageSizeBase: number;
-  marginXXS: number;
+export interface ComponentToken {
   imageBg: string;
-  imageColor: string;
-  imagePreviewOperationDisabledColor: string;
-  imageMaskFontSize: number;
-  iconPrefixClsFontSize: number;
   imagePreviewOperationSize: number;
-  imageFontSizeBase: number;
-  switchLeft: number;
-  switchRight: number;
-  switchWidth: number;
-  switchHeight: number;
-  switchMarginTop: number;
-  width1px: number;
-  modalMaskBg: string;
+  imagePreviewOperationColor: string;
+  imagePreviewSwitchSize: number;
   zIndexImage: number;
+}
+
+export interface ImageToken extends FullToken<'Image'> {
+  previewCls: string;
+  modalMaskBg: string;
   zIndexModalMask: number;
-  motionEaseOut: string;
-  white: string;
-  black: string;
+  imagePreviewOperationDisabledColor: string;
 }
 
 export type PositionType = 'static' | 'relative' | 'fixed' | 'absolute' | 'sticky' | undefined;
@@ -37,15 +27,15 @@ export const genBoxStyle = (position?: PositionType): CSSObject => ({
 });
 
 export const genImageMaskStyle = (token: ImageToken): CSSObject => {
-  const { iconCls, white, black, motionDurationSlow, paddingXXS, marginXXS, prefixCls } = token;
+  const { iconCls, motionDurationSlow, paddingXXS, marginXXS, prefixCls } = token;
   return {
     position: 'absolute',
     inset: 0,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    color: white,
-    background: new TinyColor(black).setAlpha(0.5).toRgbString(), // FIXME: hard code in v4
+    color: '#fff',
+    background: new TinyColor('#000').setAlpha(0.5).toRgbString(),
     cursor: 'pointer',
     opacity: 0,
     transition: `opacity ${motionDurationSlow}`,
@@ -63,14 +53,8 @@ export const genImageMaskStyle = (token: ImageToken): CSSObject => {
 };
 
 export const genPreviewOperationsStyle = (token: ImageToken): CSSObject => {
-  const {
-    black,
-    modalMaskBg,
-    paddingSM,
-    imagePreviewOperationDisabledColor,
-    imagePreviewOperationSize,
-    previewPrefixCls,
-  } = token;
+  const { modalMaskBg, paddingSM, imagePreviewOperationDisabledColor } = token;
+
   return {
     ...resetComponent(token),
     position: 'absolute',
@@ -81,12 +65,12 @@ export const genPreviewOperationsStyle = (token: ImageToken): CSSObject => {
     flexDirection: 'row-reverse',
     alignItems: 'center',
     width: '100%',
-    color: black,
+    color: token.imagePreviewOperationColor,
     listStyle: 'none',
-    background: new TinyColor(modalMaskBg).setAlpha(0.1).toRgbString(), // FIXME: hard code
+    background: new TinyColor(modalMaskBg).setAlpha(0.1).toRgbString(),
     pointerEvents: 'auto',
 
-    [`${previewPrefixCls}-operations-operation`]: {
+    [`&-operation`]: {
       marginInlineStart: paddingSM,
       padding: paddingSM,
       cursor: 'pointer',
@@ -101,48 +85,38 @@ export const genPreviewOperationsStyle = (token: ImageToken): CSSObject => {
       },
     },
 
-    [`${previewPrefixCls}-progress`]: {
+    [`&-progress`]: {
       position: 'absolute',
       left: { _skip_check_: true, value: '50%' },
       transform: 'translateX(-50%)',
     },
 
-    [`${previewPrefixCls}-icon`]: {
-      fontSize: imagePreviewOperationSize,
+    [`&-icon`]: {
+      fontSize: token.imagePreviewOperationSize,
     },
   };
 };
+
 export const genPreviewSwitchStyle = (token: ImageToken): CSSObject => {
-  const {
-    black,
-    modalMaskBg,
-    iconCls,
-    imagePreviewOperationDisabledColor,
-    previewPrefixCls,
-    switchWidth,
-    switchRight,
-    switchHeight,
-    switchMarginTop,
-    iconPrefixClsFontSize,
-  } = token;
+  const { modalMaskBg, iconCls, imagePreviewOperationDisabledColor, previewCls } = token;
+
   return {
     position: 'absolute',
     insetBlockStart: '50%',
-    insetInlineEnd: switchRight,
     zIndex: 1,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    width: switchWidth,
-    height: switchHeight,
-    marginTop: switchMarginTop,
-    color: black,
-    background: new TinyColor(modalMaskBg).setAlpha(0.1).toRgbString(), // FIXME: hard code in v4
+    width: token.imagePreviewSwitchSize,
+    height: token.imagePreviewSwitchSize,
+    marginTop: -token.imagePreviewSwitchSize / 2,
+    color: token.imagePreviewOperationColor,
+    background: new TinyColor(modalMaskBg).setAlpha(0.1).toRgbString(),
     borderRadius: '50%',
     cursor: 'pointer',
     pointerEvents: 'auto',
 
-    [`${previewPrefixCls}-disabled`]: {
+    [`${previewCls}-disabled`]: {
       color: imagePreviewOperationDisabledColor,
       cursor: 'not-allowed',
       [`> ${iconCls}`]: {
@@ -150,23 +124,23 @@ export const genPreviewSwitchStyle = (token: ImageToken): CSSObject => {
       },
     },
     [`> ${iconCls}`]: {
-      fontSize: iconPrefixClsFontSize,
+      fontSize: token.imagePreviewOperationSize,
     },
   };
 };
 
 export const genImagePreviewStyle = (token: ImageToken): CSSObject => {
-  const { motionEaseOut, previewPrefixCls, switchRight, switchLeft, width1px, motionDurationSlow } =
-    token;
+  const { motionEaseOut, previewCls, motionDurationSlow } = token;
+
   return {
     height: '100%',
     textAlign: 'center',
-    [`${previewPrefixCls}-body`]: {
+    [`${previewCls}-body`]: {
       ...genBoxStyle(),
       overflow: 'hidden',
     },
 
-    [`${previewPrefixCls}-img`]: {
+    [`${previewCls}-img`]: {
       maxWidth: '100%',
       maxHeight: '100%',
       verticalAlign: 'middle',
@@ -182,16 +156,16 @@ export const genImagePreviewStyle = (token: ImageToken): CSSObject => {
 
         '&::before': {
           display: 'inline-block',
-          width: width1px,
+          width: 1,
           height: '50%',
-          marginInlineEnd: -width1px,
+          marginInlineEnd: -1,
           content: '""',
         },
       },
     },
 
-    [`${previewPrefixCls}-moving`]: {
-      [`${previewPrefixCls}-preview-img`]: {
+    [`${previewCls}-moving`]: {
+      [`${previewCls}-preview-img`]: {
         cursor: 'grabbing',
 
         '&-wrapper': {
@@ -200,20 +174,20 @@ export const genImagePreviewStyle = (token: ImageToken): CSSObject => {
       },
     },
 
-    [`${previewPrefixCls}-operations`]: {
+    [`${previewCls}-operations`]: {
       ...genPreviewOperationsStyle(token),
     },
 
-    [`${previewPrefixCls}-switch-left, ${previewPrefixCls}-switch-right`]: {
+    [`${previewCls}-switch-left, ${previewCls}-switch-right`]: {
       ...genPreviewSwitchStyle(token),
     },
 
-    [`${previewPrefixCls}-switch-left`]: {
-      insetInlineStart: switchLeft,
+    [`${previewCls}-switch-left`]: {
+      insetInlineStart: token.marginSM,
     },
 
-    [`${previewPrefixCls}-switch-right`]: {
-      insetInlineEnd: switchRight,
+    [`${previewCls}-switch-right`]: {
+      insetInlineEnd: token.marginSM,
     },
   };
 };
@@ -223,7 +197,7 @@ const genImageStyle: GenerateStyle<ImageToken> = (token: ImageToken) => {
     prefixCls,
     zIndexModalMask,
     modalMaskBg,
-    previewPrefixCls,
+    previewCls,
     imageBg,
     zIndexImage,
     motionDurationSlow,
@@ -258,14 +232,14 @@ const genImageStyle: GenerateStyle<ImageToken> = (token: ImageToken) => {
     },
     // ============================== preview ==============================
     pointerEvents: 'none',
-    [`${previewPrefixCls}.${prefixCls}-zoom-enter, ${previewPrefixCls}.${prefixCls}zoom-appear`]: {
+    [`${previewCls}.${prefixCls}-zoom-enter, ${previewCls}.${prefixCls}zoom-appear`]: {
       transform: 'none',
       opacity: 0,
       animationDuration: motionDurationSlow,
       userSelect: 'none', // https://github.com/ant-design/ant-design/issues/11777
     },
-    [`${previewPrefixCls}-root`]: {
-      [`${previewPrefixCls}-mask`]: {
+    [`${previewCls}-root`]: {
+      [`${previewCls}-mask`]: {
         ...genBoxStyle('fixed'),
         zIndex: zIndexModalMask,
         height: '100%',
@@ -275,13 +249,13 @@ const genImageStyle: GenerateStyle<ImageToken> = (token: ImageToken) => {
           display: 'none',
         },
       },
-      [`${previewPrefixCls}-wrap`]: {
+      [`${previewCls}-wrap`]: {
         ...genBoxStyle('fixed'),
         overflow: 'auto',
         outline: 0,
         WebkitOverflowScrolling: 'touch',
         zIndex: zIndexImage,
-        [`${previewPrefixCls}`]: {
+        [`${previewCls}`]: {
           ...genImagePreviewStyle(token),
         },
       },
@@ -290,31 +264,27 @@ const genImageStyle: GenerateStyle<ImageToken> = (token: ImageToken) => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Image', token => {
-  const imageToken = mergeToken<ImageToken>(token, {
-    previewPrefixCls: `${token.componentCls}-preview`,
+export default genComponentStyleHook(
+  'Image',
+  token => {
+    const imagePreviewOperationColor = new TinyColor(token.imagePreviewOperationColor);
 
-    white: '#fff', // FIXME: hard code
-    black: '#000', // FIXME: hard code
-    imageSizeBase: 48, // FIXME: hard code in v4
-    imageFontSizeBase: 24, // FIXME: hard code in v4
-    imageBg: '#f5f5f5', // FIXME: hard code in v4
-    imageColor: '#fff', // FIXME: hard code in v4
-    imageMaskFontSize: 16, // FIXME: hard code in v4
-    imagePreviewOperationSize: 18, // FIXME: hard code in v4
-    iconPrefixClsFontSize: 18, // FIXME: hard code in v4
-    switchWidth: 44, // FIXME: hard code in v4
-    switchHeight: 44, // FIXME: hard code in v4
-    switchRight: 10, // FIXME: hard code in v4
-    switchLeft: 10, // FIXME: hard code in v4
-    switchMarginTop: -22, // FIXME: hard code in v4
-    width1px: 1, // FIXME: hard code in v4
-    imagePreviewOperationDisabledColor: new TinyColor('#000').setAlpha(0.25).toRgbString(), // FIXME: hard code in v4
-    modalMaskBg: new TinyColor('#000').setAlpha(0.45).toRgbString(), // FIXME: hard code in v4
-    zIndexImage: 1080, // FIXME: hard code in v4
-    zIndexModalMask: 1000, // FIXME: hard code in v4
-    motionEaseOut: 'cubic-bezier(0.215, 0.61, 0.355, 1)', // FIXME: hard code in v4
-  });
+    const imageToken = mergeToken<ImageToken>(token, {
+      previewCls: `${token.componentCls}-preview`,
+      imagePreviewOperationDisabledColor: new TinyColor(imagePreviewOperationColor)
+        .setAlpha(0.25)
+        .toRgbString(),
+      modalMaskBg: new TinyColor('#000').setAlpha(0.45).toRgbString(), // FIXME: Shared Token
+      zIndexModalMask: 1000, // FIXME: Shared Token
+    });
 
-  return [genImageStyle(imageToken)];
-});
+    return [genImageStyle(imageToken)];
+  },
+  {
+    imageBg: '#f5f5f5',
+    imagePreviewOperationSize: 18,
+    imagePreviewOperationColor: new TinyColor({ r: 255, g: 255, b: 255, a: 0.85 }).toRgbString(),
+    imagePreviewSwitchSize: 44,
+    zIndexImage: 1080,
+  },
+);
