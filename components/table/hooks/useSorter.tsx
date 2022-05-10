@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import CaretDownOutlined from '@ant-design/icons/CaretDownOutlined';
 import CaretUpOutlined from '@ant-design/icons/CaretUpOutlined';
 import KeyCode from 'rc-util/lib/KeyCode';
-import {
+import type {
   TransformColumns,
   ColumnsType,
   Key,
@@ -15,7 +15,8 @@ import {
   ColumnGroupType,
   TableLocale,
 } from '../interface';
-import Tooltip, { TooltipProps } from '../../tooltip';
+import type { TooltipProps } from '../../tooltip';
+import Tooltip from '../../tooltip';
 import { getColumnKey, getColumnPos, renderColumnTitle } from '../util';
 
 const ASCEND = 'ascend';

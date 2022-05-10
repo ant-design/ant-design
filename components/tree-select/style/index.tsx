@@ -7,7 +7,8 @@
 // import '../../empty/style';
 
 // deps-lint-skip-all
-import { GenerateStyle, genComponentStyleHook, FullToken, mergeToken } from '../../_util/theme';
+import type { GenerateStyle, FullToken } from '../../_util/theme';
+import { genComponentStyleHook, mergeToken } from '../../_util/theme';
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
 import { genTreeStyle } from '../../tree/style';
 

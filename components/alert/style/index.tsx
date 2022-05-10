@@ -2,15 +2,10 @@
 // import './index.less';
 
 // deps-lint-skip-all
-import { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
+import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 
-import {
-  resetComponent,
-  GenerateStyle,
-  FullToken,
-  genComponentStyleHook,
-  mergeToken,
-} from '../../_util/theme';
+import type { GenerateStyle, FullToken } from '../../_util/theme';
+import { resetComponent, genComponentStyleHook, mergeToken } from '../../_util/theme';
 
 // FIXME: missing token
 type AlertToken = FullToken<'Alert'> & {

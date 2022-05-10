@@ -1,6 +1,6 @@
 // deps-lint-skip-all
 import { TinyColor } from '@ctrl/tinycolor';
-import { CSSObject } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
 import {
   initInputToken,
   genBasicInputStyle,

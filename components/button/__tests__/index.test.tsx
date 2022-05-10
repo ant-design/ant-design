@@ -8,7 +8,7 @@ import ConfigProvider from '../../config-provider';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { sleep, render, fireEvent } from '../../../tests/utils';
-import { SizeType } from '../../config-provider/SizeContext';
+import type { SizeType } from '../../config-provider/SizeContext';
 
 describe('Button', () => {
   mountTest(Button);

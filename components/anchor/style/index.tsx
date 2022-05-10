@@ -1,5 +1,5 @@
 // deps-lint-skip-all
-import { CSSObject } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
 import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
 import type { GenerateStyle, FullToken } from '../../_util/theme';
 

@@ -2,7 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
 import { ConfigContext } from '../config-provider';
-import { SizeType } from '../config-provider/SizeContext';
+import type { SizeType } from '../config-provider/SizeContext';
 import Item from './Item';
 import useFlexGapSupport from '../_util/hooks/useFlexGapSupport';
 import useStyle from './style';

@@ -17,6 +17,8 @@ import type { ComponentToken as MenuComponentToken } from '../../menu/style';
 import type { ComponentToken as UploadComponentToken } from '../../upload/style';
 import type { ComponentToken as CarouselComponentToken } from '../../carousel/style';
 import type { ComponentToken as SpaceComponentToken } from '../../space/style';
+import type { ComponentToken as ModalComponentToken } from '../../modal/style';
+import type { ComponentToken as ImageComponentToken } from '../../image/style';
 
 export const PresetColors = [
   'blue',
@@ -67,7 +69,7 @@ export interface OverrideToken {
   Empty?: EmptyComponentToken;
   Form?: {};
   Grid?: {};
-  Image?: {};
+  Image?: ImageComponentToken;
   Input?: {};
   InputNumber?: InputNumberComponentToken;
   List?: {};
@@ -91,6 +93,7 @@ export interface OverrideToken {
   Card?: {};
   Steps?: {};
   Menu?: MenuComponentToken;
+  Modal?: ModalComponentToken;
   Layout?: {};
   Upload?: UploadComponentToken;
   Tooltip?: {};

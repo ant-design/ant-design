@@ -1,14 +1,8 @@
 // deps-lint-skip-all
-import { CSSObject } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-import {
-  genComponentStyleHook,
-  resetComponent,
-  clearFix,
-  mergeToken,
-  UseComponentStyleResult,
-} from '../../_util/theme';
-import type { GenerateStyle, FullToken } from '../../_util/theme';
+import { genComponentStyleHook, resetComponent, clearFix, mergeToken } from '../../_util/theme';
+import type { GenerateStyle, FullToken, UseComponentStyleResult } from '../../_util/theme';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {}

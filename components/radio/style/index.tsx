@@ -1,14 +1,10 @@
 // deps-lint-skip-all
-import { CSSInterpolation, Keyframes } from '@ant-design/cssinjs';
+import type { CSSInterpolation } from '@ant-design/cssinjs';
+import { Keyframes } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-import {
-  DerivativeToken,
-  useStyleRegister,
-  useToken,
-  resetComponent,
-  UseComponentStyleResult,
-} from '../../_util/theme';
-import { GlobalToken } from '../../_util/theme/interface';
+import type { DerivativeToken, UseComponentStyleResult } from '../../_util/theme';
+import { useStyleRegister, useToken, resetComponent } from '../../_util/theme';
+import type { GlobalToken } from '../../_util/theme/interface';
 
 // ============================== Tokens ==============================
 interface RadioToken extends DerivativeToken {

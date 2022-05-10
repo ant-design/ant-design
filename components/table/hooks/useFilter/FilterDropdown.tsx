@@ -12,7 +12,7 @@ import type { CheckboxChangeEvent } from '../../../checkbox';
 import Radio from '../../../radio';
 import Dropdown from '../../../dropdown';
 import Empty from '../../../empty';
-import {
+import type {
   ColumnType,
   ColumnFilterItem,
   Key,
@@ -22,7 +22,8 @@ import {
 } from '../../interface';
 import FilterDropdownMenuWrapper from './FilterWrapper';
 import FilterSearch from './FilterSearch';
-import { FilterState, flattenKeys } from '.';
+import type { FilterState } from '.';
+import { flattenKeys } from '.';
 import useSyncState from '../../../_util/hooks/useSyncState';
 import { ConfigContext } from '../../../config-provider/context';
 
