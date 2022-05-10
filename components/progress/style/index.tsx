@@ -170,13 +170,11 @@ const genCircleStyle: GenerateStyle<ProgressToken> = (token: ProgressToken): CSS
         marginInlineEnd: token.marginXS,
         marginBottom: token.marginXS,
       },
+
       [`${progressCls}-circle-trail`]: {
         stroke: token.remainingColor,
       },
-      [`${progressCls}-circle-path`]: {
-        animationName: 'ant-progress-appear', // FIXME: keyframe not found
-        animationDuration: token.motionDurationSlow,
-      },
+
       [`&${progressCls}-circle ${progressCls}-inner`]: {
         position: 'relative',
         lineHeight: 1,
