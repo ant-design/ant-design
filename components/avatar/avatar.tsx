@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
 import { composeRef } from 'rc-util/lib/ref';
 import { ConfigContext } from '../config-provider';
-import devWarning from '../_util/devWarning';
+import warning from '../_util/warning';
 import type { Breakpoint } from '../_util/responsiveObserve';
 import { responsiveArray } from '../_util/responsiveObserve';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
@@ -127,7 +127,7 @@ const InternalAvatar: React.ForwardRefRenderFunction<unknown, AvatarProps> = (pr
       : {};
   }, [screens, size]);
 
-  devWarning(
+  warning(
     !(typeof icon === 'string' && icon.length > 2),
     'Avatar',
     `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,

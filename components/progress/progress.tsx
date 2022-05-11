@@ -7,7 +7,7 @@ import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import { ConfigContext } from '../config-provider';
 import { tuple } from '../_util/type';
-import devWarning from '../_util/devWarning';
+import warning from '../_util/warning';
 import Line from './Line';
 import Circle from './Circle';
 import Steps from './Steps';
@@ -104,7 +104,7 @@ const Progress: React.FC<ProgressProps> = (props: ProgressProps) => {
   const progressStatus = getProgressStatus();
   const progressInfo = renderProcessInfo(prefixCls, progressStatus);
 
-  devWarning(
+  warning(
     !('successPercent' in props),
     'Progress',
     '`successPercent` is deprecated. Please use `success.percent` instead.',

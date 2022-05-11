@@ -47,7 +47,7 @@ import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
 import Column from './Column';
 import ColumnGroup from './ColumnGroup';
-import devWarning from '../_util/devWarning';
+import warning from '../_util/warning';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 
 export { ColumnsType, TablePaginationConfig };
@@ -138,7 +138,7 @@ function InternalTable<RecordType extends object = any>(
     showSorterTooltip = true,
   } = props;
 
-  devWarning(
+  warning(
     !(typeof rowKey === 'function' && rowKey.length > 1),
     'Table',
     '`index` parameter of `rowKey` function is deprecated. There is no guarantee that it will work as expected.',
@@ -356,12 +356,12 @@ function InternalTable<RecordType extends object = any>(
     }
 
     const { current = 1, total, pageSize = DEFAULT_PAGE_SIZE } = mergedPagination;
-    devWarning(current > 0, 'Table', '`current` should be positive number.');
+    warning(current > 0, 'Table', '`current` should be positive number.');
 
     // Dynamic table data
     if (mergedData.length < total!) {
       if (mergedData.length > pageSize) {
-        devWarning(
+        warning(
           false,
           'Table',
           '`dataSource` length is less than `pagination.total` but large than `pagination.pageSize`. Please make sure your config correct data with async mode.',

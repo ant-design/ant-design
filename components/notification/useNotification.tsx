@@ -15,7 +15,7 @@ import type {
   NotificationConfig,
 } from './interface';
 import { getPlacementStyle, getMotion } from './util';
-import devWarning from '../_util/devWarning';
+import warning from '../_util/warning';
 
 const typeToIcon = {
   success: CheckCircleOutlined,
@@ -106,7 +106,7 @@ export function useInternalNotification(
     // >>> Open
     const open = (config: ArgsProps) => {
       if (!holderRef.current) {
-        devWarning(
+        warning(
           false,
           'Notification',
           'You are calling notice in render which will break in React 18 concurrent mode. Please trigger in effect instead.',

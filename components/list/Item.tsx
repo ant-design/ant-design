@@ -63,7 +63,7 @@ export const Meta: FC<ListItemMetaProps> = ({
 };
 
 export interface ListItemTypeProps
-  extends ForwardRefExoticComponent<ListItemMetaProps & React.RefAttributes<HTMLElement>> {
+  extends ForwardRefExoticComponent<ListItemProps & React.RefAttributes<HTMLElement>> {
   Meta: typeof Meta;
 }
 

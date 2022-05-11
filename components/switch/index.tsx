@@ -7,7 +7,7 @@ import Wave from '../_util/wave';
 import { ConfigContext } from '../config-provider';
 import SizeContext from '../config-provider/SizeContext';
 import DisabledContext from '../config-provider/DisabledContext';
-import devWarning from '../_util/devWarning';
+import warning from '../_util/warning';
 import useStyle from './style';
 
 export type SwitchSize = 'small' | 'default';
@@ -50,7 +50,7 @@ const Switch = React.forwardRef<unknown, SwitchProps>(
     },
     ref,
   ) => {
-    devWarning(
+    warning(
       'checked' in props || !('value' in props),
       'Switch',
       '`value` is not a valid prop, do you mean `checked`?',

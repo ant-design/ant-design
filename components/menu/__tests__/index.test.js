@@ -15,12 +15,11 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render, fireEvent } from '../../../tests/utils';
 import collapseMotion from '../../_util/motion';
+import { noop } from '../../_util/warning';
 
 globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 
 const { SubMenu } = Menu;
-
-const noop = () => {};
 
 describe('Menu', () => {
   function triggerAllTimer() {

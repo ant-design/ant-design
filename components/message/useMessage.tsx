@@ -18,7 +18,7 @@ import type {
   TypeOpen,
 } from './interface';
 import { getMotion, wrapPromiseFn } from './util';
-import devWarning from '../_util/devWarning';
+import warning from '../_util/warning';
 
 const TypeIcon = {
   info: <InfoCircleFilled />,
@@ -120,7 +120,7 @@ export function useInternalMessage(
     // >>> Open
     const open = (config: ArgsProps): MessageType => {
       if (!holderRef.current) {
-        devWarning(
+        warning(
           false,
           'Message',
           'You are calling notice in render which will break in React 18 concurrent mode. Please trigger in effect instead.',

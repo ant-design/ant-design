@@ -2,7 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import { sleep } from '../../../tests/utils';
-import { resetWarned } from '../../_util/devWarning';
+import { resetWarned } from '../../_util/warning';
 
 describe('Collapse', () => {
   // eslint-disable-next-line global-require
