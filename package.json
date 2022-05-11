@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "4.20.2",
+  "version": "6.1.0",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
   "keywords": [
@@ -102,7 +102,8 @@
     "version": "node ./scripts/generate-version",
     "install-react-16": "npm i --no-save --legacy-peer-deps react@16 react-dom@16 enzyme-adapter-react-16",
     "install-react-17": "npm i --no-save --legacy-peer-deps react@17 react-dom@17",
-    "install-react-18": "npm i --no-save --legacy-peer-deps react@18 react-dom@18 @testing-library/react@13"
+    "install-react-18": "npm i --no-save --legacy-peer-deps react@18 react-dom@18 @testing-library/react@13",
+    "release": "node ./scripts/release.js --steps=test,build,version,tag"
   },
   "browserslist": [
     "> 0.5%",
@@ -118,11 +119,14 @@
     "@ant-design/react-slick": "~0.28.1",
     "@babel/runtime": "^7.12.5",
     "@ctrl/tinycolor": "^3.4.0",
+    "argparse": "^2.0.1",
     "classnames": "^2.2.6",
     "copy-to-clipboard": "^3.2.0",
     "lodash": "^4.17.21",
     "memoize-one": "^6.0.0",
     "moment": "^2.29.2",
+    "nodegit": "^0.27.0",
+    "prompt": "^1.3.0",
     "rc-cascader": "~3.5.0",
     "rc-checkbox": "~2.3.0",
     "rc-collapse": "~3.1.0",
