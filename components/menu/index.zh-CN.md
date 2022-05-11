@@ -30,11 +30,12 @@ ReactDOM.render(<Alert message="在 4.20.0 版本后，我们提供了 <Menu ite
 ```jsx
 // >=4.20.0 可用，推荐的写法 ✅
 const items = [
-  { label: '菜单项一' },
-  { label: '菜单项二' },
+  { label: '菜单项一', key: 'item-1' }, // 菜单项务必填写 key
+  { label: '菜单项二', key: 'item-2' },
   {
     label: '子菜单',
-    children: [{ label: '子菜单项' }],
+    key: 'submenu',
+    children: [{ label: '子菜单项', key: 'submenu-item-1' }],
   },
 ];
 return <Menu items={items} />;
