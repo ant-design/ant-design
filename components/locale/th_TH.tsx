@@ -3,7 +3,7 @@ import Pagination from 'rc-pagination/lib/locale/th_TH';
 import DatePicker from '../date-picker/locale/th_TH';
 import TimePicker from '../time-picker/locale/th_TH';
 import Calendar from '../calendar/locale/th_TH';
-import { Locale } from '../locale-provider';
+import type { Locale } from '../locale-provider';
 
 const typeTemplate = '${label} ไม่ใช่ ${type} ที่ถูกต้อง';
 

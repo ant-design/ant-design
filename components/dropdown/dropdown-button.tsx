@@ -1,12 +1,14 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
-import Button, { ButtonProps } from '../button';
-import { ButtonHTMLType } from '../button/button';
-import { ButtonGroupProps } from '../button/button-group';
+import type { ButtonProps } from '../button';
+import Button from '../button';
+import type { ButtonHTMLType } from '../button/button';
+import type { ButtonGroupProps } from '../button/button-group';
 import { ConfigContext } from '../config-provider';
-import Dropdown, { DropdownProps } from './dropdown';
 import useStyle from './style';
+import type { DropdownProps } from './dropdown';
+import Dropdown from './dropdown';
 
 const ButtonGroup = Button.Group;
 

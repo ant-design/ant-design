@@ -14,7 +14,8 @@ title:
 Click the menu and you will see that all the other menus gets collapsed to keep the entire menu compact.
 
 ```tsx
-import { Menu, MenuProps } from 'antd';
+import type { MenuProps } from 'antd';
+import { Menu } from 'antd';
 import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
 
 type MenuItem = Required<MenuProps>['items'][number];

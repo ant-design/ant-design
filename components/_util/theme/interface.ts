@@ -1,4 +1,5 @@
 import type * as React from 'react';
+import type { ComponentToken as AnchorComponentToken } from '../../anchor/style';
 import type { ComponentToken as ButtonComponentToken } from '../../button/style';
 import type { ComponentToken as DividerComponentToken } from '../../divider/style';
 import type { ComponentToken as DropdownComponentToken } from '../../dropdown/style';
@@ -16,6 +17,10 @@ import type { ComponentToken as TimelineComponentToken } from '../../timeline/st
 import type { ComponentToken as MenuComponentToken } from '../../menu/style';
 import type { ComponentToken as UploadComponentToken } from '../../upload/style';
 import type { ComponentToken as CarouselComponentToken } from '../../carousel/style';
+import type { ComponentToken as ProgressComponentToken } from '../../progress/style';
+import type { ComponentToken as SpaceComponentToken } from '../../space/style';
+import type { ComponentToken as ModalComponentToken } from '../../modal/style';
+import type { ComponentToken as ImageComponentToken } from '../../image/style';
 
 export const PresetColors = [
   'blue',
@@ -49,6 +54,7 @@ export interface OverrideToken {
   // Customize component
   Affix?: {};
   Alert?: {};
+  Anchor?: AnchorComponentToken;
   Avatar?: {};
   BackTop?: BackTopComponentToken;
   Badge?: {};
@@ -65,7 +71,7 @@ export interface OverrideToken {
   Empty?: EmptyComponentToken;
   Form?: {};
   Grid?: {};
-  Image?: {};
+  Image?: ImageComponentToken;
   Input?: {};
   InputNumber?: InputNumberComponentToken;
   List?: {};
@@ -90,8 +96,12 @@ export interface OverrideToken {
   Card?: {};
   Steps?: {};
   Menu?: MenuComponentToken;
+  Modal?: ModalComponentToken;
   Layout?: {};
   Upload?: UploadComponentToken;
+  Tooltip?: {};
+  Space?: SpaceComponentToken;
+  Progress?: ProgressComponentToken;
 }
 
 /** Final token which contains the components level override */
@@ -149,7 +159,7 @@ export interface SeedToken extends PresetColorType {
   /** Base zIndex of component like BackTop, Affix which can be cover by large popup */
   zIndexBase: number;
   /** Base popup component zIndex */
-  zIndexPopup: number;
+  zIndexPopupBase: number;
 }
 
 // ======================================================================
@@ -348,4 +358,6 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   screenXXLMax: number;
 
   motionEaseOut: string;
+
+  colorPopupBg: string;
 }

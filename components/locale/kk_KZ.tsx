@@ -4,7 +4,7 @@ import Pagination from 'rc-pagination/lib/locale/kk_KZ';
 import DatePicker from '../date-picker/locale/kk_KZ';
 import TimePicker from '../time-picker/locale/kk_KZ';
 import Calendar from '../calendar/locale/kk_KZ';
-import { Locale } from '../locale-provider';
+import type { Locale } from '../locale-provider';
 
 const typeTemplate: string = '${label} ${type} типі емес';
 

@@ -1,12 +1,7 @@
 // deps-lint-skip-all
-import { CSSObject } from '@ant-design/cssinjs';
-import {
-  resetComponent,
-  genComponentStyleHook,
-  GenerateStyle,
-  FullToken,
-  mergeToken,
-} from '../../_util/theme';
+import type { CSSObject } from '@ant-design/cssinjs';
+import type { GenerateStyle, FullToken } from '../../_util/theme';
+import { resetComponent, genComponentStyleHook, mergeToken } from '../../_util/theme';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {}
@@ -15,8 +10,6 @@ type BackTopToken = FullToken<'BackTop'> & {
   backTopBackground: string;
   backTopColor: string;
   backTopHoverBackground: string;
-
-  durationSlow: number;
 };
 
 // ============================== Shared ==============================
@@ -28,12 +21,12 @@ const genSharedBackTopStyle: GenerateStyle<BackTopToken, CSSObject> = (token): C
       ...resetComponent(token),
 
       position: 'fixed',
-      // FIXME
+      // FIXME right
       insetInlineEnd: 100,
-      // FIXME
+      // FIXME bottom
       insetBlockEnd: 50,
       // FIX ME @zindex-back-top
-      zIndex: token.zIndexPopup,
+      zIndex: token.zIndexPopupBase,
       width: 40,
       height: 40,
       cursor: 'pointer',
@@ -53,12 +46,12 @@ const genSharedBackTopStyle: GenerateStyle<BackTopToken, CSSObject> = (token): C
         backgroundColor: token.backTopBackground,
         // FIXME
         borderRadius: 20,
-        transition: `all ${token.durationSlow}s`,
+        transition: `all ${token.motionDurationSlow}`,
 
         '&:hover': {
           // FIX ME @back-top-hover-bg
           backgroundColor: token.backTopHoverBackground,
-          transition: `all ${token.durationSlow}s`,
+          transition: `all ${token.motionDurationSlow}`,
         },
       },
 
@@ -104,9 +97,6 @@ export default genComponentStyleHook<'BackTop'>(
       backTopBackground,
       backTopColor,
       backTopHoverBackground,
-
-      // FIX ME
-      durationSlow: 3,
     });
     return [genSharedBackTopStyle(backTopToken), genMediaBackTopStyle(backTopToken)];
   },

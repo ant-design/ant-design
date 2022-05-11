@@ -1,5 +1,6 @@
 import React from 'react';
-import { mount, ReactWrapper } from 'enzyme';
+import type { ReactWrapper } from 'enzyme';
+import { mount } from 'enzyme';
 import { sleep, render } from '../utils';
 
 // eslint-disable-next-line jest/no-export

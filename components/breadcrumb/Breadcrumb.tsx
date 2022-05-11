@@ -5,7 +5,7 @@ import BreadcrumbItem from './BreadcrumbItem';
 import BreadcrumbSeparator from './BreadcrumbSeparator';
 import Menu from '../menu';
 import { ConfigContext } from '../config-provider';
-import devWarning from '../_util/devWarning';
+import warning from '../_util/warning';
 import { cloneElement } from '../_util/reactNode';
 
 export interface Route {
@@ -119,7 +119,7 @@ const Breadcrumb: BreadcrumbInterface = ({
         return element;
       }
 
-      devWarning(
+      warning(
         element.type &&
           (element.type.__ANT_BREADCRUMB_ITEM === true ||
             element.type.__ANT_BREADCRUMB_SEPARATOR === true),

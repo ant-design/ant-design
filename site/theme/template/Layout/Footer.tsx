@@ -3,7 +3,8 @@ import { message } from 'antd';
 import RcFooter from 'rc-footer';
 import { Link } from 'bisheng/router';
 import { presetPalettes } from '@ant-design/colors';
-import { FormattedMessage, injectIntl, WrappedComponentProps } from 'react-intl';
+import type { WrappedComponentProps } from 'react-intl';
+import { FormattedMessage, injectIntl } from 'react-intl';
 import {
   AntDesignOutlined,
   MediumOutlined,
@@ -326,7 +327,7 @@ class Footer extends React.Component<WrappedComponentProps & { location: any }> 
       intl: { messages },
     } = this.props;
     message.loading({
-      content: messages['app.footer.primary-color-changing'],
+      content: messages['app.footer.primary-color-changing'] as string,
       key: 'change-primary-color',
     });
     const changeColor = () => {
@@ -336,7 +337,7 @@ class Footer extends React.Component<WrappedComponentProps & { location: any }> 
         })
         .then(() => {
           message.success({
-            content: messages['app.footer.primary-color-changed'],
+            content: messages['app.footer.primary-color-changed'] as string,
             key: 'change-primary-color',
           });
           this.setState({ color });

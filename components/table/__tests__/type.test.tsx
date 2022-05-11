@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Table from '../Table';
-import { ColumnProps } from '..';
+import type { ColumnProps } from '..';
 
 const { Column, ColumnGroup } = Table;
 

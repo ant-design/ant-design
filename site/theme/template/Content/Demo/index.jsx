@@ -216,15 +216,16 @@ class Demo extends React.Component {
         .replace(/import\s+(?:React,\s+)?{(\s+[^}]*\s+)}\s+from\s+'react'/, `const { $1 } = React;`)
         .replace(/import\s+{(\s+[^}]*\s+)}\s+from\s+'antd';/, 'const { $1 } = antd;')
         .replace(/import\s+{(\s+[^}]*\s+)}\s+from\s+'@ant-design\/icons';/, 'const { $1 } = icons;')
-        .replace("import moment from 'moment';", '')
         .replace(/import\s+{\s+(.*)\s+}\s+from\s+'react-router';/, 'const { $1 } = ReactRouter;')
         .replace(
           /import\s+{\s+(.*)\s+}\s+from\s+'react-router-dom';/,
           'const { $1 } = ReactRouterDOM;',
         )
         .replace(/([A-Za-z]*)\s+as\s+([A-Za-z]*)/, '$1:$2')
-        .replace(/export default/, 'const Demo =')}\n\n${
-        react18 ? 'createRoot(mountNode).render(<Demo />)' : 'ReactDOM.render(<Demo />, mountNode)'
+        .replace(/export default/, 'const ComponentDemo =')}\n\n${
+        react18
+          ? 'createRoot(mountNode).render(<ComponentDemo />)'
+          : 'ReactDOM.render(<ComponentDemo />, mountNode)'
       };\n`,
       css: prefillStyle,
       editors: '001',
@@ -235,7 +236,6 @@ class Demo extends React.Component {
         react18
           ? 'react-dom@18/umd/react-dom.development.js'
           : 'react-dom@16.x/umd/react-dom.development.js',
-        'moment/min/moment-with-locales.js',
         // eslint-disable-next-line no-undef
         `antd@${antdReproduceVersion}/dist/antd-with-locales.js`,
         `@ant-design/icons/dist/index.umd.js`,
@@ -253,8 +253,10 @@ class Demo extends React.Component {
         react18
           ? `import React from 'react';\nimport { createRoot } from 'react-dom/client';\n`
           : ''
-      }${sourceCode.replace(/export default/, 'const Demo =')}\n\n${
-        react18 ? 'createRoot(mountNode).render(<Demo />)' : 'ReactDOM.render(<Demo />, mountNode)'
+      }${sourceCode.replace(/export default/, 'const ComponentDemo =')}\n\n${
+        react18
+          ? 'createRoot(mountNode).render(<ComponentDemo />)'
+          : 'ReactDOM.render(<ComponentDemo />, mountNode)'
       };\n`,
       css: prefillStyle,
       json: JSON.stringify(

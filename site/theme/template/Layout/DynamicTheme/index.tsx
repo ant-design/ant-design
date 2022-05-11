@@ -4,7 +4,7 @@ import { Drawer, Form, Input, Button, InputNumber, Checkbox, Space } from 'antd'
 import { useIntl } from 'react-intl';
 import { BugOutlined, EyeOutlined } from '@ant-design/icons';
 import { useState } from 'react';
-import { SeedToken } from '../../../../../components/_util/theme';
+import type { SeedToken } from '../../../../../components/_util/theme';
 import defaultSeedToken from '../../../../../components/_util/theme/themes/default';
 import { PresetColors } from '../../../../../components/_util/theme/interface';
 import Preview from './Preview';

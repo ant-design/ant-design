@@ -1,8 +1,10 @@
 /* eslint-disable no-redeclare */
-import { CSSInterpolation, useStyleRegister } from '@ant-design/cssinjs';
+import type { CSSInterpolation } from '@ant-design/cssinjs';
+import { useStyleRegister } from '@ant-design/cssinjs';
 import { useContext } from 'react';
-import { GlobalToken, OverrideToken } from '../interface';
-import { mergeToken, statisticToken, UseComponentStyleResult, useToken } from '../index';
+import type { GlobalToken, OverrideToken } from '../interface';
+import type { UseComponentStyleResult } from '../index';
+import { mergeToken, statisticToken, useToken } from '../index';
 import { ConfigContext } from '../../../config-provider';
 
 export type OverrideTokenWithoutDerivative = Omit<OverrideToken, 'derivative'>;

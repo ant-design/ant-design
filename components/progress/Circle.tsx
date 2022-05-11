@@ -3,7 +3,7 @@ import { Circle as RCCircle } from 'rc-progress';
 import { presetPrimaryColors } from '@ant-design/colors';
 import classNames from 'classnames';
 import { validProgress, getSuccessPercent } from './utils';
-import { ProgressProps } from './progress';
+import type { ProgressProps } from './progress';
 
 interface CircleProps extends ProgressProps {
   prefixCls: string;
@@ -29,8 +29,8 @@ const Circle: React.FC<CircleProps> = props => {
     prefixCls,
     width,
     strokeWidth,
-    trailColor,
-    strokeLinecap,
+    trailColor = null as any,
+    strokeLinecap = 'round',
     gapPosition,
     gapDegree,
     type,

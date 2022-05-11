@@ -1,13 +1,14 @@
 import * as React from 'react';
 import Icon, * as AntdIcons from '@ant-design/icons';
 import { Radio, Input, Empty } from 'antd';
-import { RadioChangeEvent } from 'antd/es/radio/interface';
+import type { RadioChangeEvent } from 'antd/es/radio/interface';
 import { injectIntl } from 'react-intl';
 import debounce from 'lodash/debounce';
 import Category from './Category';
 import IconPicSearcher from './IconPicSearcher';
 import { FilledIcon, OutlinedIcon, TwoToneIcon } from './themeIcons';
-import { categories, Categories, CategoriesKeys } from './fields';
+import type { Categories, CategoriesKeys } from './fields';
+import { categories } from './fields';
 
 export enum ThemeType {
   Filled = 'Filled',

@@ -15,7 +15,7 @@ Comment can be used as an editor, so the user can customize the contents of the 
 
 ```jsx
 import { Comment, Avatar, Form, Button, List, Input } from 'antd';
-import moment from 'moment';
+import dayjs from 'dayjs';
 
 const { TextArea } = Input;
 
@@ -41,66 +41,62 @@ const Editor = ({ onChange, onSubmit, submitting, value }) => (
   </>
 );
 
-class App extends React.Component {
-  state = {
+export default () => {
+  const [state, setState] = React.useState({
     comments: [],
     submitting: false,
     value: '',
-  };
+  });
 
-  handleSubmit = () => {
-    if (!this.state.value) {
+  const handleSubmit = () => {
+    if (!state.value) {
       return;
     }
 
-    this.setState({
+    setState({
+      ...state,
       submitting: true,
     });
 
     setTimeout(() => {
-      this.setState({
+      setState({
         submitting: false,
         value: '',
         comments: [
-          ...this.state.comments,
+          ...state.comments,
           {
             author: 'Han Solo',
             avatar: 'https://joeschmoe.io/api/v1/random',
-            content: <p>{this.state.value}</p>,
-            datetime: moment().fromNow(),
+            content: <p>{state.value}</p>,
+            datetime: dayjs().fromNow(),
           },
         ],
       });
     }, 1000);
   };
 
-  handleChange = e => {
-    this.setState({
+  const handleChange = e => {
+    setState({
+      ...state,
       value: e.target.value,
     });
   };
 
-  render() {
-    const { comments, submitting, value } = this.state;
-
-    return (
-      <>
-        {comments.length > 0 && <CommentList comments={comments} />}
-        <Comment
-          avatar={<Avatar src="https://joeschmoe.io/api/v1/random" alt="Han Solo" />}
-          content={
-            <Editor
-              onChange={this.handleChange}
-              onSubmit={this.handleSubmit}
-              submitting={submitting}
-              value={value}
-            />
-          }
-        />
-      </>
-    );
-  }
-}
-
-export default App;
+  return (
+    <>
+      {state.comments.length > 0 && <CommentList comments={state.comments} />}
+      <Comment
+        avatar={<Avatar src="https://joeschmoe.io/api/v1/random" alt="Han Solo" />}
+        content={
+          <Editor
+            onChange={handleChange}
+            onSubmit={handleSubmit}
+            submitting={state.submitting}
+            value={state.value}
+          />
+        }
+      />
+    </>
+  );
+};
 ```

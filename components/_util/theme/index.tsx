@@ -1,18 +1,20 @@
 import React from 'react';
-import { CSSInterpolation, Theme, useCacheToken, useStyleRegister } from '@ant-design/cssinjs';
+import type { CSSInterpolation } from '@ant-design/cssinjs';
+import { Theme, useCacheToken, useStyleRegister } from '@ant-design/cssinjs';
 import genComponentStyleHook from './util/genComponentStyleHook';
 import defaultSeedToken, { derivative as defaultDerivative } from './themes/default';
 import version from '../../version';
 import { resetComponent, resetIcon, clearFix, roundedArrow, operationUnit } from './util';
 import formatToken from './util/alias';
 import statisticToken, { merge as mergeToken, statistic } from './util/statistic';
-import { GlobalToken, PresetColors } from './interface';
+import { PresetColors } from './interface';
 import type {
   SeedToken,
   DerivativeToken,
   AliasToken,
   OverrideToken,
   PresetColorType,
+  GlobalToken,
 } from './interface';
 import type { FullToken } from './util/genComponentStyleHook';
 

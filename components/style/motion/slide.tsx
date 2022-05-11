@@ -1,4 +1,5 @@
-import { CSSInterpolation, Keyframes } from '@ant-design/cssinjs';
+import type { CSSInterpolation } from '@ant-design/cssinjs';
+import { Keyframes } from '@ant-design/cssinjs';
 import type { DerivativeToken } from '../../_util/theme';
 import { initMotion } from './motion';
 

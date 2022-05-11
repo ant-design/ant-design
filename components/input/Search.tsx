@@ -2,7 +2,8 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { composeRef } from 'rc-util/lib/ref';
 import SearchOutlined from '@ant-design/icons/SearchOutlined';
-import Input, { InputProps, InputRef } from './Input';
+import type { InputProps, InputRef } from './Input';
+import Input from './Input';
 import Button from '../button';
 import SizeContext from '../config-provider/SizeContext';
 import { ConfigContext } from '../config-provider';
@@ -34,11 +35,14 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     disabled,
     onSearch: customOnSearch,
     onChange: customOnChange,
+    onCompositionStart,
+    onCompositionEnd,
     ...restProps
   } = props;
 
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const contextSize = React.useContext(SizeContext);
+  const composedRef = React.useRef<boolean>(false);
 
   const size = customizeSize || contextSize;
 
@@ -63,6 +67,13 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     if (customOnSearch) {
       customOnSearch(inputRef.current?.input?.value!, e);
     }
+  };
+
+  const onPressEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (composedRef.current) {
+      return;
+    }
+    onSearch(e);
   };
 
   const prefixCls = getPrefixCls('input-search', customizePrefixCls);
@@ -127,12 +138,24 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     className,
   );
 
+  const handleOnCompositionStart: React.CompositionEventHandler<HTMLInputElement> = e => {
+    composedRef.current = true;
+    onCompositionStart?.(e);
+  };
+
+  const handleOnCompositionEnd: React.CompositionEventHandler<HTMLInputElement> = e => {
+    composedRef.current = false;
+    onCompositionEnd?.(e);
+  };
+
   return (
     <Input
       ref={composeRef<InputRef>(inputRef, ref)}
-      onPressEnter={onSearch}
+      onPressEnter={onPressEnter}
       {...restProps}
       size={size}
+      onCompositionStart={handleOnCompositionStart}
+      onCompositionEnd={handleOnCompositionEnd}
       prefixCls={inputPrefixCls}
       addonAfter={button}
       suffix={suffix}

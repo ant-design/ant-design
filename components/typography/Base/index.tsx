@@ -9,14 +9,15 @@ import EditOutlined from '@ant-design/icons/EditOutlined';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CopyOutlined from '@ant-design/icons/CopyOutlined';
 import ResizeObserver from 'rc-resize-observer';
-import { AutoSizeType } from 'rc-textarea/lib/ResizableTextArea';
+import type { AutoSizeType } from 'rc-textarea/lib/ResizableTextArea';
 import useIsomorphicLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 import { ConfigContext } from '../../config-provider';
 import { useLocaleReceiver } from '../../locale-provider/LocaleReceiver';
 import TransButton from '../../_util/transButton';
 import { isStyleSupport } from '../../_util/styleChecker';
 import Tooltip from '../../tooltip';
-import Typography, { TypographyProps } from '../Typography';
+import type { TypographyProps } from '../Typography';
+import Typography from '../Typography';
 import Editable from '../Editable';
 import useMergedConfig from '../hooks/useMergedConfig';
 import useUpdatedEffect from '../hooks/useUpdatedEffect';
@@ -30,6 +31,7 @@ interface CopyConfig {
   onCopy?: (event?: React.MouseEvent<HTMLDivElement>) => void;
   icon?: React.ReactNode;
   tooltips?: boolean | React.ReactNode;
+  format?: 'text/plain' | 'text/html';
 }
 
 interface EditConfig {
@@ -189,6 +191,11 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
   const [copied, setCopied] = React.useState(false);
   const copyIdRef = React.useRef<NodeJS.Timeout>();
 
+  const copyOptions: Pick<CopyConfig, 'format'> = {};
+  if (copyConfig.format) {
+    copyOptions.format = copyConfig.format;
+  }
+
   const cleanCopyId = () => {
     clearTimeout(copyIdRef.current!);
   };
@@ -197,7 +204,7 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
     e?.preventDefault();
     e?.stopPropagation();
 
-    copy(copyConfig.text || String(children) || '');
+    copy(copyConfig.text || String(children) || '', copyOptions);
 
     setCopied(true);
 

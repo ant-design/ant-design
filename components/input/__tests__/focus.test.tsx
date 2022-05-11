@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
-import { InputRef } from '../Input';
+import type { InputRef } from '../Input';
 import Input from '..';
 import { render, fireEvent } from '../../../tests/utils';
 

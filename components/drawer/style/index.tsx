@@ -1,7 +1,9 @@
 // deps-lint-skip-all
-import { CSSObject, Keyframes } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
+import { Keyframes } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-import { FullToken, genComponentStyleHook, GenerateStyle, mergeToken } from '../../_util/theme';
+import type { FullToken, GenerateStyle } from '../../_util/theme';
+import { genComponentStyleHook, mergeToken } from '../../_util/theme';
 
 export interface DrawerToken extends FullToken<'Drawer'> {
   drawerHeaderCloseSize: number;
@@ -49,7 +51,7 @@ const genBaseStyle: GenerateStyle<DrawerToken> = (token: DrawerToken): CSSObject
     modalFooterPaddingVertical,
     modalFooterPaddingHorizontal,
     borderColorSplit,
-    zIndexPopup,
+    zIndexPopupBase,
     colorText,
     textColorSecondary,
     hoverColor,
@@ -60,7 +62,7 @@ const genBaseStyle: GenerateStyle<DrawerToken> = (token: DrawerToken): CSSObject
       // FIXME: Seems useless?
       // @drawer-header-close-padding: ceil(((drawerHeaderCloseSize - @font-size-lg) / 2));
       position: 'fixed',
-      zIndex: zIndexPopup,
+      zIndex: zIndexPopupBase,
       width: 0,
       height: '100%',
       transition: `width 0s ease ${motionDurationSlow}, height 0s ease ${motionDurationSlow}`,

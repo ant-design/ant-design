@@ -4,27 +4,24 @@ import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import RCPicker from 'rc-picker';
-import { PickerMode } from 'rc-picker/lib/interface';
-import { GenerateConfig } from 'rc-picker/lib/generate/index';
+import type { PickerMode } from 'rc-picker/lib/interface';
+import type { GenerateConfig } from 'rc-picker/lib/generate/index';
 import { forwardRef, useContext } from 'react';
 import enUS from '../locale/en_US';
 import { getPlaceholder, transPlacement2DropdownAlign } from '../util';
-import devWarning from '../../_util/devWarning';
-import { ConfigContext, ConfigConsumerProps } from '../../config-provider';
+import warning from '../../_util/warning';
+import type { ConfigConsumerProps } from '../../config-provider';
+import { ConfigContext } from '../../config-provider';
 import LocaleReceiver from '../../locale-provider/LocaleReceiver';
 import SizeContext from '../../config-provider/SizeContext';
-import {
-  PickerProps,
-  PickerLocale,
-  PickerDateProps,
-  PickerTimeProps,
-  getTimeProps,
-  Components,
-} from '.';
-import { FormItemInputContext } from '../../form/context';
-import { getMergedStatus, getStatusClassNames, InputStatus } from '../../_util/statusUtils';
-import { DatePickRef, PickerComponentClass } from './interface';
+import DisabledContext from '../../config-provider/DisabledContext';
 import useStyle from '../style';
+import type { PickerProps, PickerLocale, PickerDateProps, PickerTimeProps } from '.';
+import { getTimeProps, Components } from '.';
+import { FormItemInputContext } from '../../form/context';
+import type { InputStatus } from '../../_util/statusUtils';
+import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
+import type { DatePickRef, PickerComponentClass } from './interface';
 
 export default function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   type DatePickerProps = PickerProps<DateType> & {
@@ -49,7 +46,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
 
       constructor(props: InnerPickerProps) {
         super(props);
-        devWarning(
+        warning(
           picker !== 'quarter',
           displayName!,
           `DatePicker.${displayName} is legacy usage. Please use DatePicker[picker='${picker}'] directly.`,
@@ -76,6 +73,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
           getPopupContainer: customizeGetPopupContainer,
           className,
           size: customizeSize,
+          disabled: customDisabled,
           bordered = true,
           placement,
           placeholder,
@@ -106,63 +104,74 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
         const rootPrefixCls = getPrefixCls();
 
         return (
-          <SizeContext.Consumer>
-            {size => {
-              const mergedSize = customizeSize || size;
-
+          <DisabledContext.Consumer>
+            {disabled => {
+              const mergedDisabled = customDisabled || disabled;
               return (
-                <FormItemInputContext.Consumer>
-                  {({ hasFeedback, status: contextStatus, feedbackIcon }) => {
-                    const suffixNode = (
-                      <>
-                        {mergedPicker === 'time' ? <ClockCircleOutlined /> : <CalendarOutlined />}
-                        {hasFeedback && feedbackIcon}
-                      </>
-                    );
-
+                <SizeContext.Consumer>
+                  {size => {
+                    const mergedSize = customizeSize || size;
                     return (
-                      <RCPicker<DateType>
-                        ref={this.pickerRef}
-                        placeholder={getPlaceholder(mergedPicker, locale, placeholder)}
-                        suffixIcon={suffixNode}
-                        dropdownAlign={transPlacement2DropdownAlign(direction, placement)}
-                        clearIcon={<CloseCircleFilled />}
-                        prevIcon={<span className={`${prefixCls}-prev-icon`} />}
-                        nextIcon={<span className={`${prefixCls}-next-icon`} />}
-                        superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
-                        superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
-                        allowClear
-                        transitionName={`${rootPrefixCls}-slide-up`}
-                        {...additionalProps}
-                        {...restProps}
-                        {...additionalOverrideProps}
-                        locale={locale!.lang}
-                        className={classNames(
-                          {
-                            [`${prefixCls}-${mergedSize}`]: mergedSize,
-                            [`${prefixCls}-borderless`]: !bordered,
-                          },
-                          getStatusClassNames(
-                            prefixCls as string,
-                            getMergedStatus(contextStatus, customStatus),
-                            hasFeedback,
-                          ),
-                          hashId,
-                          className,
-                        )}
-                        prefixCls={prefixCls}
-                        getPopupContainer={customizeGetPopupContainer || getPopupContainer}
-                        generateConfig={generateConfig}
-                        components={Components}
-                        direction={direction}
-                        dropdownClassName={classNames(hashId, dropdownClassName)}
-                      />
+                      <FormItemInputContext.Consumer>
+                        {({ hasFeedback, status: contextStatus, feedbackIcon }) => {
+                          const suffixNode = (
+                            <>
+                              {mergedPicker === 'time' ? (
+                                <ClockCircleOutlined />
+                              ) : (
+                                <CalendarOutlined />
+                              )}
+                              {hasFeedback && feedbackIcon}
+                            </>
+                          );
+
+                          return (
+                            <RCPicker<DateType>
+                              ref={this.pickerRef}
+                              placeholder={getPlaceholder(mergedPicker, locale, placeholder)}
+                              suffixIcon={suffixNode}
+                              dropdownAlign={transPlacement2DropdownAlign(direction, placement)}
+                              clearIcon={<CloseCircleFilled />}
+                              prevIcon={<span className={`${prefixCls}-prev-icon`} />}
+                              nextIcon={<span className={`${prefixCls}-next-icon`} />}
+                              superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
+                              superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
+                              allowClear
+                              transitionName={`${rootPrefixCls}-slide-up`}
+                              {...additionalProps}
+                              {...restProps}
+                              {...additionalOverrideProps}
+                              locale={locale!.lang}
+                              className={classNames(
+                                {
+                                  [`${prefixCls}-${mergedSize}`]: mergedSize,
+                                  [`${prefixCls}-borderless`]: !bordered,
+                                },
+                                getStatusClassNames(
+                                  prefixCls as string,
+                                  getMergedStatus(contextStatus, customStatus),
+                                  hasFeedback,
+                                ),
+                                hashId,
+                                className,
+                              )}
+                              prefixCls={prefixCls}
+                              getPopupContainer={customizeGetPopupContainer || getPopupContainer}
+                              generateConfig={generateConfig}
+                              components={Components}
+                              direction={direction}
+                              disabled={mergedDisabled}
+                              dropdownClassName={classNames(hashId, dropdownClassName)}
+                            />
+                          );
+                        }}
+                      </FormItemInputContext.Consumer>
                     );
                   }}
-                </FormItemInputContext.Consumer>
+                </SizeContext.Consumer>
               );
             }}
-          </SizeContext.Consumer>
+          </DisabledContext.Consumer>
         );
       };
 

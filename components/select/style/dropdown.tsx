@@ -1,5 +1,6 @@
-import { CSSObject } from '@ant-design/cssinjs';
-import { resetComponent, GenerateStyle } from '../../_util/theme';
+import type { CSSObject } from '@ant-design/cssinjs';
+import type { GenerateStyle } from '../../_util/theme';
+import { resetComponent } from '../../_util/theme';
 import {
   initSlideMotion,
   slideUpIn,
@@ -39,7 +40,7 @@ const genSingleStyle: GenerateStyle<SelectToken> = token => {
 
         position: 'absolute',
         top: -9999,
-        zIndex: token.zIndexDropdown,
+        zIndex: token.zIndexPopup,
         boxSizing: 'border-box',
         padding: `${token.paddingXXS}px 0`,
         overflow: 'hidden',

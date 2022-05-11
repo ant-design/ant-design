@@ -1,14 +1,7 @@
 // deps-lint-skip-all
-import { CSSObject } from '@ant-design/cssinjs';
-import {
-  DerivativeToken,
-  useStyleRegister,
-  useToken,
-  UseComponentStyleResult,
-  GenerateStyle,
-  mergeToken,
-  statisticToken,
-} from '../../_util/theme';
+import type { CSSObject } from '@ant-design/cssinjs';
+import type { DerivativeToken, UseComponentStyleResult, GenerateStyle } from '../../_util/theme';
+import { useStyleRegister, useToken, mergeToken, statisticToken } from '../../_util/theme';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {}

@@ -1,7 +1,9 @@
 const path = require('path');
 const replaceLib = require('@ant-design/tools/lib/replaceLib');
+const { extractStyle } = require('@ant-design/cssinjs');
 const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
 const { ESBuildMinifyPlugin } = require('esbuild-loader');
+const fs = require('fs-extra');
 const { version } = require('../package.json');
 const themeConfig = require('./themeConfig');
 
@@ -26,6 +28,8 @@ function alertBabelConfig(rules) {
     }
   });
 }
+
+const ssrCssFileName = `ssr-${Date.now()}.css`;
 
 module.exports = {
   port: 8001,
@@ -158,7 +162,7 @@ module.exports = {
         /.*\.md/,
         /lodash/,
         /jquery/,
-        /moment/,
+        /dayjs/,
         /core-js/,
         /jsonml/,
         /ramda/,
@@ -167,12 +171,57 @@ module.exports = {
       ];
     }
 
+    // Split chunks
+    if (config.mode === 'production') {
+      config.optimization.splitChunks = {
+        ...config.optimization.splitChunks,
+        cacheGroups: {
+          vendors: {
+            test: /[/\\]node_modules[/\\]@ant-design[/\\]icon/,
+            name: 'anticon',
+            chunks: 'initial',
+            maxSize: 1024 * 1024,
+          },
+          components: {
+            test(module) {
+              return (
+                module.resource &&
+                module.resource.includes('ant-design/components') &&
+                !module.resource.includes('demo') &&
+                !module.resource.endsWith('md')
+              );
+            },
+            name: 'components',
+            chunks: 'initial',
+          },
+        },
+      };
+    }
+
     return config;
   },
 
   devServerConfig: {
     public: process.env.DEV_HOST || 'localhost',
     disableHostCheck: !!process.env.DEV_HOST,
+  },
+
+  postManifest: origin => {
+    const clone = {
+      ...origin,
+      css: [...origin.css, ssrCssFileName],
+    };
+
+    return clone;
+  },
+
+  postBuild: () => {
+    const styleText = extractStyle(global.styleCache);
+    const styleTextWithoutStyleTag = styleText
+      .replace(/<style\s[^>]*>/g, '')
+      .replace(/<\/style>/g, '');
+
+    fs.writeFileSync(`./_site/${ssrCssFileName}`, styleTextWithoutStyleTag, 'utf8');
   },
 
   htmlTemplateExtraData: {

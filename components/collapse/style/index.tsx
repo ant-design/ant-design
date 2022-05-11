@@ -2,14 +2,9 @@
 // import './index.less';
 
 // deps-lint-skip-all
-import { CSSInterpolation } from '@ant-design/cssinjs';
-import {
-  GenerateStyle,
-  resetComponent,
-  genComponentStyleHook,
-  mergeToken,
-  FullToken,
-} from '../../_util/theme';
+import type { CSSInterpolation } from '@ant-design/cssinjs';
+import type { GenerateStyle, FullToken } from '../../_util/theme';
+import { resetComponent, genComponentStyleHook, mergeToken } from '../../_util/theme';
 
 type CollapseToken = FullToken<'Collapse'> & {
   collapseContentBg: string;
@@ -62,8 +57,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = token => {
         [`&:last-child`]: {
           [`
             &,
-            & > ${componentCls}-header`
-          ]: {
+            & > ${componentCls}-header`]: {
             borderRadius: `0 0 ${collapsePanelBorderRadius}px ${collapsePanelBorderRadius}px`,
           },
         },
@@ -86,9 +80,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = token => {
             // FIXME
             verticalAlign: '-1px',
 
-            [`${componentCls}-rtl &`]: {
-
-            },
+            [`${componentCls}-rtl &`]: {},
 
             [`& svg`]: {
               // FIXME
@@ -187,7 +179,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = token => {
       },
     },
   };
-}
+};
 
 const genBorderlessStyle: GenerateStyle<CollapseToken> = token => {
   const {
@@ -228,12 +220,11 @@ const genBorderlessStyle: GenerateStyle<CollapseToken> = token => {
       },
     },
   };
-}
+};
 
-export const genCollapseStyle: GenerateStyle<CollapseToken> = (token: CollapseToken): CSSInterpolation => [
-  genBaseStyle(token),
-  genBorderlessStyle(token),
-];
+export const genCollapseStyle: GenerateStyle<CollapseToken> = (
+  token: CollapseToken,
+): CSSInterpolation => [genBaseStyle(token), genBorderlessStyle(token)];
 
 export default genComponentStyleHook('Collapse', token => {
   const collapseToken = mergeToken<CollapseToken>(token, {

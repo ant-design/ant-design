@@ -1,11 +1,11 @@
 import React from 'react';
 // Reference: https://github.com/ant-design/ant-design/pull/24003#discussion_r427267386
 // eslint-disable-next-line import/no-unresolved
-import { configureToMatchImageSnapshot } from 'jest-image-snapshot';
+import { configureToMatchImageSnapshot } from '@ant-design/jest-image-snapshot';
 import ReactDOMServer from 'react-dom/server';
 import glob from 'glob';
 import MockDate from 'mockdate';
-import moment from 'moment';
+import dayjs from 'dayjs';
 
 const toMatchImageSnapshot = configureToMatchImageSnapshot({
   customSnapshotsDir: `${process.cwd()}/imageSnapshots`,
@@ -27,7 +27,7 @@ export default function imageTest(component: React.ReactElement) {
       }
     };
 
-    MockDate.set(moment('2016-11-22').valueOf());
+    MockDate.set(dayjs('2016-11-22').valueOf());
     page.on('request', onRequestHandle);
     await page.goto(`file://${process.cwd()}/tests/index.html`);
     await page.addStyleTag({ path: `${process.cwd()}/dist/antd.css` });

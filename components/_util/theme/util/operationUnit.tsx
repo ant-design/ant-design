@@ -1,5 +1,5 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import { DerivativeToken } from '..';
+import type { DerivativeToken } from '..';
 
 // eslint-disable-next-line import/prefer-default-export
 export const operationUnit = (token: DerivativeToken): CSSObject => ({

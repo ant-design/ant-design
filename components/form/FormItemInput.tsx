@@ -1,7 +1,8 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import Col, { ColProps } from '../grid/col';
-import { ValidateStatus } from './FormItem';
+import type { ColProps } from '../grid/col';
+import Col from '../grid/col';
+import type { ValidateStatus } from './FormItem';
 import { FormContext, FormItemPrefixContext } from './context';
 import ErrorList from './ErrorList';
 

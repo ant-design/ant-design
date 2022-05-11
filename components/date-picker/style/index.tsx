@@ -1,26 +1,20 @@
 // deps-lint-skip-all
-import { CSSObject } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-import {
-  FullToken,
-  genComponentStyleHook,
-  GenerateStyle,
-  mergeToken,
-  resetComponent,
-  roundedArrow,
-} from '../../_util/theme';
+import type { FullToken, GenerateStyle } from '../../_util/theme';
+import { genComponentStyleHook, mergeToken, resetComponent, roundedArrow } from '../../_util/theme';
 import { slideDownIn, slideDownOut, slideUpIn, slideUpOut } from '../../style/motion';
+import type { InputToken } from '../../input/style';
 import {
   genActiveStyle,
   genBasicInputStyle,
   genHoverStyle,
   initInputToken,
-  InputToken,
 } from '../../input/style';
 
 // FIXME: need full token check
 export interface ComponentToken {
-  zIndexDropdown: number;
+  zIndexPopup: number;
   pickerTextHeight: number;
   pickerPanelCellWidth: number;
   pickerPanelCellHeight: number;
@@ -1029,7 +1023,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
         ...resetComponent(token),
         ...genPanelStyle(token),
         position: 'absolute',
-        zIndex: token.zIndexDropdown,
+        zIndex: token.zIndexPopup,
 
         '&&-hidden': {
           display: 'none',
@@ -1195,7 +1189,7 @@ export default genComponentStyleHook(
     return [genPickerStyle(pickerToken), genPickerStatusStyle(pickerToken)];
   },
   token => ({
-    zIndexDropdown: token.zIndexPopup + 50,
+    zIndexPopup: token.zIndexPopupBase + 50,
     pickerTextHeight: 40,
     pickerPanelCellWidth: 36,
     pickerPanelCellHeight: 24,

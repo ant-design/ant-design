@@ -1,5 +1,6 @@
 import * as React from 'react';
-import Form, { FormInstance } from '..';
+import type { FormInstance } from '..';
+import Form from '..';
 import Input from '../../input';
 
 interface FormValues {

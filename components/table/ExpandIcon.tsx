@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { TableLocale } from './interface';
+import type { TableLocale } from './interface';
 
 interface DefaultExpandIconProps<RecordType> {
   prefixCls: string;

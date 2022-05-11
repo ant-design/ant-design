@@ -2,13 +2,10 @@
 // import './index.less';
 
 // deps-lint-skip-all
-import { CSSObject, CSSInterpolation, Keyframes } from '@ant-design/cssinjs';
-import {
-  DerivativeToken,
-  resetComponent,
-  genComponentStyleHook,
-  mergeToken,
-} from '../../_util/theme';
+import type { CSSObject, CSSInterpolation } from '@ant-design/cssinjs';
+import { Keyframes } from '@ant-design/cssinjs';
+import type { DerivativeToken } from '../../_util/theme';
+import { resetComponent, genComponentStyleHook, mergeToken } from '../../_util/theme';
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
 
 // ============================ Keyframes =============================
@@ -256,7 +253,11 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
       },
 
       // >>> Title
-      [`& ${treeCls}-node-content-wrapper`]: {
+      // add `${treeCls}-checkbox + span` to cover checkbox `${checkboxCls} + span`
+      [`
+        ${treeCls}-node-content-wrapper, 
+        ${treeCls}-checkbox + span
+      `]: {
         display: 'flex',
         flexWrap: 'nowrap',
         position: 'relative',
@@ -467,6 +468,8 @@ export const genTreeStyle = (prefixCls: string, token: DerivativeToken): CSSInte
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Tree', (token, { prefixCls }) => [
-  getCheckboxStyle(`${prefixCls}-checkbox`, token),
+  {
+    [token.componentCls]: getCheckboxStyle(`${prefixCls}-checkbox`, token),
+  },
   genTreeStyle(prefixCls, token),
 ]);

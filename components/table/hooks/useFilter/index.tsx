@@ -1,6 +1,6 @@
 import * as React from 'react';
-import devWarning from '../../../_util/devWarning';
-import {
+import warning from '../../../_util/warning';
+import type {
   TransformColumns,
   ColumnsType,
   ColumnType,
@@ -226,7 +226,7 @@ function useFilter<RecordType>({
       return filterStates;
     }
 
-    devWarning(
+    warning(
       filteredKeysIsAllControlled,
       'Table',
       'Columns should all contain `filteredValue` or not contain `filteredValue`.',

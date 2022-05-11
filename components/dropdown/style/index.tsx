@@ -1,12 +1,6 @@
 // deps-lint-skip-all
-import {
-  GenerateStyle,
-  resetComponent,
-  FullToken,
-  genComponentStyleHook,
-  mergeToken,
-  roundedArrow,
-} from '../../_util/theme';
+import type { GenerateStyle, FullToken } from '../../_util/theme';
+import { resetComponent, genComponentStyleHook, mergeToken, roundedArrow } from '../../_util/theme';
 import {
   initSlideMotion,
   slideUpIn,
@@ -18,7 +12,7 @@ import genButtonStyle from './button';
 import genStatusStyle from './status';
 
 export interface ComponentToken {
-  zIndexDropdown: number;
+  zIndexPopup: number;
 }
 
 export interface DropdownToken extends FullToken<'Dropdown'> {
@@ -36,7 +30,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
     rootPrefixCls,
     componentCls,
     menuCls,
-    zIndexDropdown,
+    zIndexPopup,
     dropdownArrowDistance,
     dropdownArrowOffset,
     sizePopupArrow,
@@ -65,7 +59,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
           _skip_check_: true,
           value: -9999,
         },
-        zIndex: zIndexDropdown,
+        zIndex: zIndexPopup,
         display: 'block',
 
         // A placeholder out of dropdown visible range to avoid close when user moving
@@ -249,7 +243,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
 
       [`${menuCls}-submenu-popup`]: {
         position: 'absolute',
-        zIndex: zIndexDropdown,
+        zIndex: zIndexPopup,
         background: 'transparent',
         boxShadow: 'none',
         transformOrigin: '0 0',
@@ -449,6 +443,6 @@ export default genComponentStyleHook(
     ];
   },
   token => ({
-    zIndexDropdown: token.zIndexPopup + 50,
+    zIndexPopup: token.zIndexPopupBase + 50,
   }),
 );

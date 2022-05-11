@@ -1,14 +1,8 @@
 // deps-lint-skip-all
-import { CSSObject } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-import {
-  GenerateStyle,
-  resetComponent,
-  FullToken,
-  genComponentStyleHook,
-  mergeToken,
-  DerivativeToken,
-} from '../../_util/theme';
+import type { GenerateStyle, FullToken, DerivativeToken } from '../../_util/theme';
+import { resetComponent, genComponentStyleHook, mergeToken } from '../../_util/theme';
 
 interface ListToken extends FullToken<'List'> {
   minHeight: number;
