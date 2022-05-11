@@ -7,6 +7,7 @@ import type { ComponentToken as EmptyComponentToken } from '../../empty/style';
 import type { ComponentToken as CascaderComponentToken } from '../../cascader/style';
 import type { ComponentToken as InputNumberComponentToken } from '../../input-number/style';
 import type { ComponentToken as MentionsComponentToken } from '../../mentions/style';
+import type { ComponentToken as SegmentedComponentToken } from '../../segmented/style';
 import type { ComponentToken as SelectComponentToken } from '../../select/style';
 import type { ComponentToken as SliderComponentToken } from '../../slider/style';
 import type { ComponentToken as TypographyComponentToken } from '../../typography/style';
@@ -79,6 +80,7 @@ export interface OverrideToken {
   Popover?: {};
   Rate?: {};
   Result?: {};
+  Segmented?: SegmentedComponentToken;
   Select?: SelectComponentToken;
   Skeleton?: {};
   Slider?: SliderComponentToken;
@@ -326,6 +328,7 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
 
   controlPaddingHorizontal: number;
   controlPaddingHorizontalSM: number;
+
   paddingSM: number;
   paddingXS: number;
   paddingXXS: number;
