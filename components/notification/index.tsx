@@ -159,6 +159,7 @@ function flushNotice() {
 
   // >>> Execute task
   taskQueue.forEach(task => {
+    // eslint-disable-next-line default-case
     switch (task.type) {
       case 'open': {
         act(() => {
@@ -175,9 +176,6 @@ function flushNotice() {
           notification?.instance!.destroy(task.key);
         });
         break;
-
-      default:
-      // Do nothing
     }
   });
 
