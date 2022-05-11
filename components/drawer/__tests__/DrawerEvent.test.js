@@ -62,9 +62,6 @@ describe('Drawer', () => {
     expect(container.querySelector('.ant-drawer-wrapper-body')).toBeTruthy();
 
     rerender(getDrawer({ visible: false }));
-    const ev = new TransitionEvent('transitionend', { bubbles: true });
-    ev.propertyName = 'transform';
-    fireEvent(document.querySelector('.ant-drawer-content-wrapper'), ev);
 
     expect(container.querySelector('.ant-drawer-wrapper-body')).toBeTruthy();
   });

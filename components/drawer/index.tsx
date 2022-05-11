@@ -107,6 +107,7 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
   ) => {
     const [internalPush, setPush] = React.useState(false);
     const parentDrawer = React.useContext(DrawerContext);
+    const destroyClose = React.useRef<boolean>(false);
 
     const [load, setLoad] = React.useState(false);
     const [visible, setVisible] = React.useState(false);
@@ -264,7 +265,7 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
 
     // render drawer body dom
     const renderBody = () => {
-      if (!forceRender && !load) {
+      if (destroyClose.current && !forceRender && !load) {
         return null;
       }
 
@@ -310,8 +311,14 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
           className={drawerClassName}
           getContainer={getContainer}
           afterVisibleChange={open => {
-            if (!open && destroyOnClose) {
-              setLoad(false);
+            if (!open) {
+              if (destroyClose.current === false) {
+                // set true only once
+                destroyClose.current = true;
+              }
+              if (destroyClose) {
+                setLoad(false);
+              }
             }
             afterVisibleChange?.(open);
           }}
