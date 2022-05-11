@@ -18,6 +18,10 @@ describe('message', () => {
     message.destroy();
     await triggerMotionEnd();
 
+    act(() => {
+      jest.runAllTimers();
+    });
+
     jest.useRealTimers();
 
     await awaitPromise();
@@ -108,24 +112,12 @@ describe('message', () => {
 
   it('trigger onClick method', async () => {
     const onClick = jest.fn();
-    let called = false;
-    class Test extends React.Component {
-      componentDidMount() {
-        if (!called) {
-          message.info({
-            onClick,
-            duration: 0,
-            content: 'message info',
-          });
-          called = true;
-        }
-      }
+    message.info({
+      onClick,
+      duration: 0,
+      content: 'message info',
+    });
 
-      render() {
-        return <div>test message onClick method</div>;
-      }
-    }
-    render(<Test />);
     await awaitPromise();
 
     expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(1);
@@ -153,25 +145,7 @@ describe('message', () => {
 
   // https://github.com/ant-design/ant-design/issues/8201
   it('should hide message correctly', async () => {
-    let hide: VoidFunction;
-    let called = false;
-
-    class Test extends React.Component {
-      componentDidMount() {
-        if (!called) {
-          act(() => {
-            hide = message.loading('Action in progress..', 0);
-          });
-          called = true;
-        }
-      }
-
-      render() {
-        return <div>test</div>;
-      }
-    }
-
-    render(<Test />);
+    const hide = message.loading('Action in progress..', 0);
     await awaitPromise();
 
     expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(1);
@@ -204,24 +178,9 @@ describe('message', () => {
 
   // https://github.com/ant-design/ant-design/issues/8201
   it('should destroy messages correctly', async () => {
-    let called = false;
-    class Test extends React.Component {
-      componentDidMount() {
-        if (!called) {
-          message.loading('Action in progress1..', 0);
-          message.loading('Action in progress2..', 0);
-          setTimeout(() => message.destroy(), 1000);
-
-          called = true;
-        }
-      }
-
-      render() {
-        return <div>test</div>;
-      }
-    }
-
-    render(<Test />);
+    message.loading('Action in progress1..', 0);
+    message.loading('Action in progress2..', 0);
+    setTimeout(() => message.destroy(), 1000);
     await awaitPromise();
 
     expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(2);
@@ -232,26 +191,11 @@ describe('message', () => {
 
   it('should support update message content with a unique key', async () => {
     const key = 'updatable';
-    let called = false;
 
-    class Test extends React.Component {
-      componentDidMount() {
-        if (!called) {
-          message.loading({ content: 'Loading...', key });
-          // Testing that content of the message should be updated.
-          setTimeout(() => message.success({ content: 'Loaded', key }), 1000);
-          setTimeout(() => message.destroy(), 3000);
-
-          called = true;
-        }
-      }
-
-      render() {
-        return <div>test</div>;
-      }
-    }
-
-    render(<Test />);
+    message.loading({ content: 'Loading...', key });
+    // Testing that content of the message should be updated.
+    setTimeout(() => message.success({ content: 'Loaded', key }), 1000);
+    setTimeout(() => message.destroy(), 3000);
     await awaitPromise();
 
     expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(1);
@@ -268,32 +212,15 @@ describe('message', () => {
 
   it('update message content with a unique key and cancel manually', async () => {
     const key = 'updatable';
-    let called = false;
-    class Test extends React.Component {
-      componentDidMount() {
-        if (!called) {
-          let hideLoading: VoidFunction;
-          act(() => {
-            hideLoading = message.loading({ content: 'Loading...', key, duration: 0 });
-          });
-          // Testing that content of the message should be cancel manually.
-          setTimeout(() => {
-            act(() => {
-              hideLoading();
-            });
-          }, 1000);
 
-          called = true;
-        }
-      }
-
-      render() {
-        return <div>test</div>;
-      }
-    }
-
-    render(<Test />);
+    const hideLoading = message.loading({ content: 'Loading...', key, duration: 0 });
     await awaitPromise();
+
+    setTimeout(() => {
+      act(() => {
+        hideLoading();
+      });
+    }, 1000);
 
     expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(1);
 
