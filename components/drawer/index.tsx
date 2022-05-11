@@ -265,6 +265,7 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
 
     // render drawer body dom
     const renderBody = () => {
+      // destroyClose.current =false Load the body only once by default
       if (destroyClose.current && !forceRender && !load) {
         return null;
       }
