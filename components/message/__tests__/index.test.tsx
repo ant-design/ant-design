@@ -1,6 +1,6 @@
 import React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
-import message, { actWrapper, actDestroy } from '..';
+import message, { actWrapper } from '..';
 import { act, fireEvent, render, sleep } from '../../../tests/utils';
 import { awaitPromise, triggerMotionEnd } from './util';
 
@@ -17,8 +17,6 @@ describe('message', () => {
     // Clean up
     message.destroy();
     await triggerMotionEnd();
-
-    await actDestroy();
 
     jest.useRealTimers();
 

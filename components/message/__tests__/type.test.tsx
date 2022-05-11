@@ -1,6 +1,6 @@
-import message, { actWrapper, actDestroy } from '..';
+import message, { actWrapper } from '..';
 import { act } from '../../../tests/utils';
-import { triggerMotionEnd } from './util';
+import { awaitPromise, triggerMotionEnd } from './util';
 
 describe('message.typescript', () => {
   beforeAll(() => {
@@ -12,10 +12,13 @@ describe('message.typescript', () => {
   });
 
   afterEach(async () => {
+    // Clean up
     message.destroy();
-    await actDestroy();
+    await triggerMotionEnd();
 
     jest.useRealTimers();
+
+    await awaitPromise();
   });
 
   it('promise without arguments', async () => {

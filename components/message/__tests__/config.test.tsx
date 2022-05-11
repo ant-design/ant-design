@@ -1,5 +1,5 @@
 import { act } from '../../../tests/utils';
-import message, { actDestroy, actWrapper } from '..';
+import message, { actWrapper } from '..';
 import ConfigProvider from '../../config-provider';
 import { awaitPromise, triggerMotionEnd } from './util';
 
@@ -16,8 +16,6 @@ describe('message.config', () => {
     // Clean up
     message.destroy();
     await triggerMotionEnd();
-
-    await actDestroy();
 
     jest.useRealTimers();
 
@@ -65,6 +63,8 @@ describe('message.config', () => {
     message.config({
       getContainer: null,
     });
+
+    document.body.removeChild(div);
   });
 
   it('should be able to config maxCount', async () => {

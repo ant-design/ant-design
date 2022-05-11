@@ -1,24 +1,17 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React from 'react';
 import { act } from 'react-dom/test-utils';
-import message, { actDestroy, actWrapper } from '..';
+import message from '..';
 import ConfigProvider from '../../config-provider';
 import { render, fireEvent } from '../../../tests/utils';
 import { triggerMotionEnd } from './util';
 
 describe('message.hooks', () => {
-  beforeAll(() => {
-    // actWrapper(myAct);
-  });
-
   beforeEach(() => {
     jest.useFakeTimers();
   });
 
   afterEach(() => {
-    // message.destroy();
-    // actDestroy();
-
     jest.useRealTimers();
   });
 

@@ -98,10 +98,21 @@ const GlobalHolder = React.forwardRef<GlobalHolderRef, { onAllRemoved: VoidFunct
 
     React.useEffect(sync, []);
 
-    React.useImperativeHandle(ref, () => ({
-      instance: api,
-      sync,
-    }));
+    React.useImperativeHandle(ref, () => {
+      const instance: any = { ...api };
+
+      Object.keys(instance).forEach(method => {
+        instance[method] = (...args: any[]) => {
+          sync();
+          return (api as any)[method](...args);
+        };
+      });
+
+      return {
+        instance,
+        sync,
+      };
+    });
 
     return (
       <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={rootIconPrefixCls}>

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { render, unmount } from 'rc-util/lib/React/render';
+import { render } from 'rc-util/lib/React/render';
 import useMessage, { useInternalMessage } from './useMessage';
 import type {
   ArgsProps,
@@ -13,6 +13,8 @@ import ConfigProvider, { globalConfig } from '../config-provider';
 import { wrapPromiseFn } from './util';
 
 export { ArgsProps };
+
+const methods: NoticeType[] = ['success', 'info', 'warning', 'error', 'loading'];
 
 let message: GlobalMessage | null = null;
 
@@ -78,70 +80,65 @@ interface GlobalHolderRef {
   sync: () => void;
 }
 
-const GlobalHolder = React.forwardRef<GlobalHolderRef, { onAllRemoved: VoidFunction }>(
-  ({ onAllRemoved }, ref) => {
-    const [prefixCls, setPrefixCls] = React.useState<string>();
-    const [container, setContainer] = React.useState<HTMLElement>();
-    const [maxCount, setMaxCount] = React.useState<number | undefined>();
-    const [rtl, setRTL] = React.useState<boolean | undefined>();
-    const [top, setTop] = React.useState<number | undefined>();
+const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
+  const [prefixCls, setPrefixCls] = React.useState<string>();
+  const [container, setContainer] = React.useState<HTMLElement>();
+  const [maxCount, setMaxCount] = React.useState<number | undefined>();
+  const [rtl, setRTL] = React.useState<boolean | undefined>();
+  const [top, setTop] = React.useState<number | undefined>();
 
-    const [api, holder] = useInternalMessage({
-      prefixCls,
-      getContainer: () => container!,
-      maxCount,
-      rtl,
-      top,
-      onAllRemoved,
-    });
-
-    const global = globalConfig();
-    const rootPrefixCls = global.getRootPrefixCls();
-    const rootIconPrefixCls = global.getIconPrefixCls();
-
-    const sync = () => {
-      const {
-        prefixCls: nextGlobalPrefixCls,
-        container: nextGlobalContainer,
-        maxCount: nextGlobalMaxCount,
-        rtl: nextGlobalRTL,
-        top: nextTop,
-      } = getGlobalContext();
-
-      setPrefixCls(nextGlobalPrefixCls);
-      setContainer(nextGlobalContainer);
-      setMaxCount(nextGlobalMaxCount);
-      setRTL(nextGlobalRTL);
-      setTop(nextTop);
-    };
-
-    React.useEffect(sync, []);
-
-    React.useImperativeHandle(ref, () => ({
-      instance: api,
-      sync,
-    }));
-
-    return (
-      <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={rootIconPrefixCls}>
-        {holder}
-      </ConfigProvider>
-    );
-  },
-);
-
-async function destroyInstance() {
-  await Promise.resolve();
-
-  await act(async () => {
-    if (message?.fragment) {
-      await unmount(message.fragment);
-    }
+  const [api, holder] = useInternalMessage({
+    prefixCls,
+    getContainer: () => container!,
+    maxCount,
+    rtl,
+    top,
   });
 
-  message = null;
-  taskQueue = [];
-}
+  const global = globalConfig();
+  const rootPrefixCls = global.getRootPrefixCls();
+  const rootIconPrefixCls = global.getIconPrefixCls();
+
+  const sync = () => {
+    const {
+      prefixCls: nextGlobalPrefixCls,
+      container: nextGlobalContainer,
+      maxCount: nextGlobalMaxCount,
+      rtl: nextGlobalRTL,
+      top: nextTop,
+    } = getGlobalContext();
+
+    setPrefixCls(nextGlobalPrefixCls);
+    setContainer(nextGlobalContainer);
+    setMaxCount(nextGlobalMaxCount);
+    setRTL(nextGlobalRTL);
+    setTop(nextTop);
+  };
+
+  React.useEffect(sync, []);
+
+  React.useImperativeHandle(ref, () => {
+    const instance: any = { ...api };
+
+    Object.keys(instance).forEach(method => {
+      instance[method] = (...args: any[]) => {
+        sync();
+        return (api as any)[method](...args);
+      };
+    });
+
+    return {
+      instance,
+      sync,
+    };
+  });
+
+  return (
+    <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={rootIconPrefixCls}>
+      {holder}
+    </ConfigProvider>
+  );
+});
 
 function flushNotice() {
   if (!taskQueue.length) {
@@ -156,7 +153,6 @@ function flushNotice() {
     };
 
     message = newMessage;
-    console.log('mount:', taskQueue);
 
     // Delay render to avoid sync issue
     act(() => {
@@ -165,21 +161,14 @@ function flushNotice() {
           ref={node => {
             const { instance, sync } = node || {};
 
-            
-              // React 18 test env will throw if call immediately in ref
-              Promise.resolve().then(() => {
-                if (!newMessage.instance && instance) {
-                console.log('Ready!!!', taskQueue.length, instance);
+            // React 18 test env will throw if call immediately in ref
+            Promise.resolve().then(() => {
+              if (!newMessage.instance && instance) {
                 newMessage.instance = instance;
                 newMessage.sync = sync;
                 flushNotice();
-                }
-              });
-          }}
-          onAllRemoved={() => {
-            if (message === newMessage) {
-              destroyInstance();
-            }
+              }
+            });
           }}
         />,
         holderFragment,
@@ -194,7 +183,6 @@ function flushNotice() {
     return;
   }
 
-  console.log('aaa:', taskQueue);
   // >>> Execute task
   taskQueue.forEach(task => {
     const { type, skipped } = task;
@@ -242,7 +230,6 @@ function flushNotice() {
 // ==============================================================================
 // ==                                  Export                                  ==
 // ==============================================================================
-const methods: NoticeType[] = ['success', 'info', 'warning', 'error', 'loading'];
 type MethodType = typeof methods[number];
 
 function setMessageGlobalConfig(config: ConfigOptions) {
@@ -319,7 +306,6 @@ function typeOpen(type: NoticeType, args: Parameters<TypeOpen>): MessageType {
 }
 
 function destroy(key: React.Key) {
-  console.trace('who?');
   taskQueue.push({
     type: 'destroy',
     key,
@@ -358,18 +344,6 @@ export let actWrapper: (wrapper: any) => void = noop;
 if (process.env.NODE_ENV === 'test') {
   actWrapper = wrapper => {
     act = wrapper;
-  };
-}
-
-/** @private Only Work in test env */
-// eslint-disable-next-line import/no-mutable-exports
-export let actDestroy: () => Promise<void> | void = noop;
-
-if (process.env.NODE_ENV === 'test') {
-  actDestroy = async () => {
-    staticMethods.destroy();
-
-    await destroyInstance();
   };
 }
 
