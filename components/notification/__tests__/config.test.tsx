@@ -1,4 +1,4 @@
-import notification, { actDestroy, actWrapper } from '..';
+import notification, { actWrapper } from '..';
 import { act } from '../../../tests/utils';
 import { awaitPromise, triggerMotionEnd } from './util';
 
@@ -14,9 +14,7 @@ describe('notification.config', () => {
   afterEach(async () => {
     // Clean up
     notification.destroy();
-    await triggerMotionEnd('', false);
-
-    await actDestroy();
+    await triggerMotionEnd();
 
     notification.config({
       prefixCls: null,
@@ -50,7 +48,7 @@ describe('notification.config', () => {
       });
 
       // eslint-disable-next-line no-await-in-loop
-      await triggerMotionEnd('', false);
+      await triggerMotionEnd(false);
 
       const count = document.querySelectorAll('.ant-notification-notice').length;
       expect(count).toBeLessThanOrEqual(5);
@@ -68,7 +66,7 @@ describe('notification.config', () => {
       // One frame is 16ms
       jest.advanceTimersByTime(100);
     });
-    await triggerMotionEnd('', false);
+    await triggerMotionEnd(false);
 
     expect(document.querySelectorAll('.ant-notification-notice')).toHaveLength(5);
     expect(document.querySelectorAll('.ant-notification-notice')[4].textContent).toBe(
@@ -82,7 +80,7 @@ describe('notification.config', () => {
       jest.runAllTimers();
     });
 
-    await triggerMotionEnd('', false);
+    await triggerMotionEnd(false);
 
     expect(document.querySelectorAll('.ant-notification-notice')).toHaveLength(0);
   });

@@ -35,8 +35,6 @@ describe('Notification.placement', () => {
     notification.destroy();
     await triggerMotionEnd();
 
-    await actDestroy();
-
     notification.config({
       prefixCls: null,
       getContainer: null,

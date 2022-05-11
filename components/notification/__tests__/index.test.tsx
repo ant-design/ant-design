@@ -1,6 +1,6 @@
 import React from 'react';
 import { UserOutlined } from '@ant-design/icons';
-import notification, { actWrapper, actDestroy } from '..';
+import notification, { actWrapper } from '..';
 import ConfigProvider from '../../config-provider';
 import { act, fireEvent } from '../../../tests/utils';
 import { awaitPromise, triggerMotionEnd } from './util';
@@ -18,8 +18,6 @@ describe('notification', () => {
     // Clean up
     notification.destroy();
     await triggerMotionEnd();
-
-    await actDestroy();
 
     notification.config({
       prefixCls: null,

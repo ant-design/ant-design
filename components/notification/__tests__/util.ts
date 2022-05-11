@@ -7,7 +7,7 @@ export async function awaitPromise() {
   }
 }
 
-export async function triggerMotionEnd(selector: string = '', runAllTimers: boolean = true) {
+export async function triggerMotionEnd(runAllTimers: boolean = true) {
   await awaitPromise();
 
   if (runAllTimers) {
@@ -19,8 +19,11 @@ export async function triggerMotionEnd(selector: string = '', runAllTimers: bool
     }
   }
 
-  document.querySelectorAll(selector || '.ant-notification-fade-leave').forEach(ele => {
-    fireEvent.animationEnd(ele);
+  // document.querySelectorAll('.ant-notification-fade-leave').forEach(ele => {
+  //   fireEvent.animationEnd(ele);
+  // });
+  document.querySelectorAll('[role="alert"]').forEach(ele => {
+    fireEvent.animationEnd(ele.parentNode?.parentNode!);
   });
 
   await awaitPromise();
