@@ -2,7 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import type { SizeType } from '../config-provider/SizeContext';
 import { ConfigContext } from '../config-provider';
-import devWarning from '../_util/devWarning';
+import warning from '../_util/warning';
 import { useToken } from '../_util/theme';
 
 export interface ButtonGroupProps {
@@ -38,7 +38,7 @@ const ButtonGroup: React.FC<ButtonGroupProps> = props => {
     case undefined:
       break;
     default:
-      devWarning(!size, 'Button.Group', 'Invalid prop `size`.');
+      warning(!size, 'Button.Group', 'Invalid prop `size`.');
   }
 
   const classes = classNames(

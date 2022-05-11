@@ -1,7 +1,7 @@
 import * as React from 'react';
 import memoizeOne from 'memoize-one';
 import type { ValidateMessages } from 'rc-field-form/lib/interface';
-import devWarning from '../_util/devWarning';
+import warning from '../_util/warning';
 
 import type { ModalLocale } from '../modal/locale';
 import { changeConfirmLocale } from '../modal/locale';
@@ -62,7 +62,7 @@ export default class LocaleProvider extends React.Component<LocaleProviderProps,
     super(props);
     changeConfirmLocale(props.locale && props.locale.Modal);
 
-    devWarning(
+    warning(
       props._ANT_MARK__ === ANT_MARK,
       'LocaleProvider',
       '`LocaleProvider` is deprecated. Please use `locale` with `ConfigProvider` instead: http://u.ant.design/locale',
