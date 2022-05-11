@@ -95,7 +95,7 @@ const genModalStyle: GenerateStyle<ModalToken> = token => {
         '&-title': {
           margin: 0,
           color: token.modalHeadingColor,
-          fontWeight: 500,
+          fontWeight: token.fontWeightStrong,
           fontSize: token.modalHeaderTitleFontSize,
           lineHeight: token.modalHeaderTitleLineHeight,
           wordWrap: 'break-word',
@@ -118,8 +118,7 @@ const genModalStyle: GenerateStyle<ModalToken> = token => {
           zIndex: token.zIndexPopupBase + 10,
           padding: 0,
           color: token.modalCloseColor,
-          // FIXME: hard code
-          fontWeight: 700,
+          fontWeight: token.fontWeightStrong,
           lineHeight: 1,
           textDecoration: 'none',
           background: 'transparent',
@@ -255,8 +254,7 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = token => {
             // https://user-images.githubusercontent.com/507615/37702510-ba844e06-2d2d-11e8-9b67-8e19be57f445.png
             overflow: 'hidden',
             color: token.colorTextHeading,
-            // FIXME: hard code
-            fontWeight: 500,
+            fontWeight: token.fontWeightStrong,
             fontSize: token.modalHeaderTitleFontSize,
             lineHeight: token.modalHeaderTitleLineHeight,
           },
