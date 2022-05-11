@@ -269,7 +269,7 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = token => {
           [`> ${token.iconCls}`]: {
             flex: 'none',
             marginInlineEnd: token.margin,
-            fontSize: token.modalHeaderTitleLineHeight * token.modalHeaderTitleFontSize,
+            fontSize: token.fontSizeIconLG,
 
             // `content` after `icon` should set marginLeft
             [`+ ${confirmComponentCls}-title + ${confirmComponentCls}-content`]: {
