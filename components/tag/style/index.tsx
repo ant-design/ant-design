@@ -141,7 +141,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => ({
 export default genComponentStyleHook('Tag', token => {
   const tagFontSize = token.fontSizeSM;
   // FIXME: hard code
-  const tagLineHeight = '18px';
+  const tagLineHeight = '20px';
   const tagDefaultBg = token.colorBgComponentSecondary;
   const tagDefaultColor = token.colorText;
 
