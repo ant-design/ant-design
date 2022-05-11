@@ -316,3 +316,7 @@ Table can not tell what state used in `columns.render`, so it always need fully 
 ### How to handle fixed column display over the mask layout?
 
 Fixed column use `z-index` to make it over other columns. You will find sometime fixed columns also over your mask layout. You can set `z-index` on your mask layout to resolve.
+
+### How to custom render Table Checkbox（For example, adding Tooltip）?
+
+Since `4.1.0`, You can use [`rowSelection.renderCell`](https://ant.design/components/table/#rowSelection) to custom render Table Checkbox. If you want to add Tooltip, please refer to this [demo](https://codesandbox.io/s/table-row-tooltip-v79j2v).
