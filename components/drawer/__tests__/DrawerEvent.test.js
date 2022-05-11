@@ -66,7 +66,7 @@ describe('Drawer', () => {
     ev.propertyName = 'transform';
     fireEvent(document.querySelector('.ant-drawer-content-wrapper'), ev);
 
-    expect(container.querySelector('.ant-drawer-wrapper-body')).toBeFalsy();
+    expect(container.querySelector('.ant-drawer-wrapper-body')).toBeTruthy();
   });
   it('test afterVisibleChange', async () => {
     const afterVisibleChange = jest.fn();
