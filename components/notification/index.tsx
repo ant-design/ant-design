@@ -121,9 +121,14 @@ async function destroyInstance() {
   });
 
   notification = null;
+  taskQueue = [];
 }
 
 function flushNotice() {
+  if (!taskQueue.length) {
+    return;
+  }
+
   if (!notification) {
     const holderFragment = document.createDocumentFragment();
 
@@ -141,9 +146,11 @@ function flushNotice() {
             const { instance, sync } = node || {};
 
             Promise.resolve().then(() => {
-              newNotification.instance = instance;
-              newNotification.sync = sync;
-              flushNotice();
+              if (!newNotification.instance && instance) {
+                newNotification.instance = instance;
+                newNotification.sync = sync;
+                flushNotice();
+              }
             });
           }}
           onAllRemoved={destroyInstance}

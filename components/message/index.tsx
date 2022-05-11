@@ -140,9 +140,14 @@ async function destroyInstance() {
   });
 
   message = null;
+  taskQueue = [];
 }
 
 function flushNotice() {
+  if (!taskQueue.length) {
+    return;
+  }
+
   if (!message) {
     const holderFragment = document.createDocumentFragment();
 
@@ -151,6 +156,7 @@ function flushNotice() {
     };
 
     message = newMessage;
+    console.log('mount:', taskQueue);
 
     // Delay render to avoid sync issue
     act(() => {
@@ -159,14 +165,22 @@ function flushNotice() {
           ref={node => {
             const { instance, sync } = node || {};
 
-            // React 18 test env will throw if call immediately in ref
-            Promise.resolve().then(() => {
-              newMessage.instance = instance;
-              newMessage.sync = sync;
-              flushNotice();
-            });
+            
+              // React 18 test env will throw if call immediately in ref
+              Promise.resolve().then(() => {
+                if (!newMessage.instance && instance) {
+                console.log('Ready!!!', taskQueue.length, instance);
+                newMessage.instance = instance;
+                newMessage.sync = sync;
+                flushNotice();
+                }
+              });
           }}
-          onAllRemoved={destroyInstance}
+          onAllRemoved={() => {
+            if (message === newMessage) {
+              destroyInstance();
+            }
+          }}
         />,
         holderFragment,
       );
@@ -180,6 +194,7 @@ function flushNotice() {
     return;
   }
 
+  console.log('aaa:', taskQueue);
   // >>> Execute task
   taskQueue.forEach(task => {
     const { type, skipped } = task;
@@ -304,6 +319,7 @@ function typeOpen(type: NoticeType, args: Parameters<TypeOpen>): MessageType {
 }
 
 function destroy(key: React.Key) {
+  console.trace('who?');
   taskQueue.push({
     type: 'destroy',
     key,
