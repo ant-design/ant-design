@@ -32,6 +32,7 @@ export interface ModalToken extends FullToken<'Modal'> {
   modalFooterBorderWidth: number;
   modalConfirmTitleFontSize: number;
   modalIconHoverColor: string;
+  modalConfirmIconSize: number;
 }
 
 function box(position: React.CSSProperties['position']): React.CSSProperties {
@@ -246,6 +247,7 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = token => {
         [`${confirmComponentCls}-body`]: {
           display: 'flex',
           flexWrap: 'wrap',
+          alignItems: 'center',
 
           [`${confirmComponentCls}-title`]: {
             flex: 1,
@@ -269,12 +271,11 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = token => {
           [`> ${token.iconCls}`]: {
             flex: 'none',
             marginInlineEnd: token.margin,
-            fontSize: token.modalHeaderTitleLineHeight * token.modalHeaderTitleFontSize,
+            fontSize: token.modalConfirmIconSize,
 
             // `content` after `icon` should set marginLeft
             [`+ ${confirmComponentCls}-title + ${confirmComponentCls}-content`]: {
-              marginInlineStart:
-                token.modalHeaderTitleLineHeight * token.modalHeaderTitleFontSize + token.margin,
+              marginInlineStart: token.modalConfirmIconSize + token.margin,
             },
           },
         },
@@ -353,6 +354,7 @@ export default genComponentStyleHook('Modal', token => {
     modalFooterBorderWidth: token.controlLineWidth,
     modalConfirmTitleFontSize: token.fontSizeLG,
     modalIconHoverColor: token.colorActionHover,
+    modalConfirmIconSize: token.fontSize * token.lineHeight,
   });
   return [genModalStyle(modalToken), genModalConfirmStyle(modalToken), genRTLStyle(modalToken)];
 });
