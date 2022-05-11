@@ -1,4 +1,4 @@
-import notification, { actWrapper, actDestroy } from '..';
+import notification, { actWrapper } from '..';
 import { act, fireEvent } from '../../../tests/utils';
 import type { ArgsProps, GlobalConfigProps } from '../interface';
 import { awaitPromise, triggerMotionEnd } from './util';
