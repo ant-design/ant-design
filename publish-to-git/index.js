@@ -98,7 +98,7 @@ async function publish({ tag, version, push, packOptions }, pack = packWithNpm) 
     const currentCommitMessage = (
       await git('log', '-n', '1', '--pretty=oneline', '--decorate=full')
     ).trim();
-    const message = `Published by tresata-ui
+    const message = `Published by Ant Design
 ${currentCommitMessage}`;
 
     await gitInTmpRepo('commit', '-m', message);
