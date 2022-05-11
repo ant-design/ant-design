@@ -22,7 +22,6 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
   const { calendarCls, componentCls, calendarFullBg, calendarFullPanelBg, calendarItemActiveBg } =
     token;
   return {
-    '': genPanelStyle(token),
     [calendarCls]: {
       ...resetComponent(token),
       background: calendarFullBg,
@@ -201,7 +200,7 @@ export default genComponentStyleHook(
       pickerCellInnerCls: `${token.componentCls}-cell-inner`,
     });
 
-    return [genCalendarStyles(calendarToken)];
+    return [genCalendarStyles(calendarToken), genPanelStyle(calendarToken)];
   },
   token => ({
     calendarFullBg: token.colorBgComponent,
