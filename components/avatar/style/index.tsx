@@ -38,7 +38,10 @@ const avatarSizeStyle = (
 
   [`${avatarCls}-string`]: {
     position: 'absolute',
-    insetInlineStart: '50%',
+    left: {
+      _skip_check_: true,
+      value: '50%',
+    },
     transformOrigin: '0 center',
   },
 
