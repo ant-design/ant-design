@@ -1,7 +1,7 @@
 import React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
 import message, { actWrapper } from '..';
-import { act, fireEvent, render, sleep } from '../../../tests/utils';
+import { act, fireEvent, sleep } from '../../../tests/utils';
 import { awaitPromise, triggerMotionEnd } from './util';
 
 describe('message', () => {
