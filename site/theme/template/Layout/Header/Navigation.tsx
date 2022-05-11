@@ -129,8 +129,8 @@ export default ({
       : null,
     isZhCN &&
     typeof window !== 'undefined' &&
-    !window.location.host.includes('ant-design.antgroup.com') &&
-    !window.location.host.includes('ant-design.gitee.io')
+    window.location.host !== 'ant-design.antgroup.com' &&
+    window.location.host !== 'ant-design.gitee.io'
       ? {
           label: '国内镜像',
           key: 'mirror',
