@@ -16,6 +16,7 @@ import type { ComponentToken as TimelineComponentToken } from '../../timeline/st
 import type { ComponentToken as MenuComponentToken } from '../../menu/style';
 import type { ComponentToken as UploadComponentToken } from '../../upload/style';
 import type { ComponentToken as CarouselComponentToken } from '../../carousel/style';
+import type { ComponentToken as ProgressComponentToken } from '../../progress/style';
 import type { ComponentToken as SpaceComponentToken } from '../../space/style';
 import type { ComponentToken as ModalComponentToken } from '../../modal/style';
 import type { ComponentToken as ImageComponentToken } from '../../image/style';
@@ -98,6 +99,7 @@ export interface OverrideToken {
   Upload?: UploadComponentToken;
   Tooltip?: {};
   Space?: SpaceComponentToken;
+  Progress?: ProgressComponentToken;
 }
 
 /** Final token which contains the components level override */
