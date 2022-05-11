@@ -120,10 +120,6 @@ const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
 });
 
 function flushNotice() {
-  if (!taskQueue.length) {
-    return;
-  }
-
   if (!notification) {
     const holderFragment = document.createDocumentFragment();
 

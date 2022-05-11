@@ -233,4 +233,31 @@ describe('message.hooks', () => {
     expect(div.querySelector('.hook-content')!.textContent).toEqual('happy');
     expect(document.querySelectorAll(`#${containerId}`)).toHaveLength(1);
   });
+
+  it('warning if user call update in render', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    const Demo = () => {
+      const [api, holder] = message.useMessage();
+      const calledRef = React.useRef(false);
+
+      if (!calledRef.current) {
+        api.info({
+          content: <div className="bamboo" />,
+        });
+        calledRef.current = true;
+      }
+
+      return holder;
+    };
+
+    render(<Demo />);
+
+    expect(document.querySelector('.bamboo')).toBeFalsy();
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Message] You are calling notice in render which will break in React 18 concurrent mode. Please trigger in effect instead.',
+    );
+
+    errorSpy.mockRestore();
+  });
 });

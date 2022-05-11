@@ -141,10 +141,6 @@ const GlobalHolder = React.forwardRef<GlobalHolderRef, {}>((_, ref) => {
 });
 
 function flushNotice() {
-  if (!taskQueue.length) {
-    return;
-  }
-
   if (!message) {
     const holderFragment = document.createDocumentFragment();
 
@@ -314,7 +310,7 @@ function destroy(key: React.Key) {
 }
 
 const baseStaticMethods: {
-  open: (config: ArgsProps) => void;
+  open: (config: ArgsProps) => MessageType;
   destroy: (key?: React.Key) => void;
   config: any;
   useMessage: typeof useMessage;
@@ -344,6 +340,16 @@ export let actWrapper: (wrapper: any) => void = noop;
 if (process.env.NODE_ENV === 'test') {
   actWrapper = wrapper => {
     act = wrapper;
+  };
+}
+
+/** @private Only Work in test env */
+// eslint-disable-next-line import/no-mutable-exports
+export let actDestroy = noop;
+
+if (process.env.NODE_ENV === 'test') {
+  actDestroy = () => {
+    message = null;
   };
 }
 

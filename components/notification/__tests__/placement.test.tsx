@@ -99,6 +99,34 @@ describe('Notification.placement', () => {
         left: '0px',
         bottom: '50px',
       });
+
+      // top
+      config({
+        placement: 'top',
+        top: 50,
+        bottom: 60,
+      });
+      await awaitPromise();
+
+      expect(document.querySelector('.ant-notification-top')).toHaveStyle({
+        top: '50px',
+        left: '50%',
+        bottom: '',
+      });
+
+      // bottom
+      config({
+        placement: 'bottom',
+        top: 50,
+        bottom: 60,
+      });
+      await awaitPromise();
+
+      expect(document.querySelector('.ant-notification-bottom')).toHaveStyle({
+        top: '',
+        left: '50%',
+        bottom: '60px',
+      });
     });
   });
 
