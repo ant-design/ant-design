@@ -1,12 +1,15 @@
 // deps-lint-skip-all
 
-import { CSSObject } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-import { FullToken, genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
-import { ComponentToken as DatePickerComponentToken, genPanelStyle } from '../../date-picker/style';
-import { initInputToken, InputToken } from '../../input/style';
+import type { FullToken } from '../../_util/theme';
+import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
+import type { ComponentToken as DatePickerComponentToken } from '../../date-picker/style';
+import { genPanelStyle } from '../../date-picker/style';
+import type { InputToken } from '../../input/style';
+import { initInputToken } from '../../input/style';
 
-export interface ComponentToken extends Omit<DatePickerComponentToken, 'zIndexDropdown'> {
+export interface ComponentToken extends Omit<DatePickerComponentToken, 'zIndexPopup'> {
   calendarFullBg: string;
   calendarFullPanelBg: string;
   calendarItemActiveBg: string;
