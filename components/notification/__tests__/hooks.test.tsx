@@ -3,18 +3,15 @@ import React from 'react';
 import { mount } from 'enzyme';
 import notification from '..';
 import ConfigProvider from '../../config-provider';
+import { render, fireEvent } from '../../../tests/utils';
 
 describe('notification.hooks', () => {
-  beforeAll(() => {
+  beforeEach(() => {
     jest.useFakeTimers();
   });
 
-  afterAll(() => {
-    jest.useRealTimers();
-  });
-
   afterEach(() => {
-    notification.destroy();
+    jest.useRealTimers();
   });
 
   it('should work', () => {
@@ -30,6 +27,7 @@ describe('notification.hooks', () => {
               type="button"
               onClick={() => {
                 api.open({
+                  message: null,
                   description: (
                     <Context.Consumer>
                       {name => <span className="hook-test-result">{name}</span>}
@@ -45,10 +43,12 @@ describe('notification.hooks', () => {
       );
     };
 
-    const wrapper = mount(<Demo />);
-    wrapper.find('button').simulate('click');
-    expect(document.querySelectorAll('.my-test-notification-notice').length).toBe(1);
-    expect(document.querySelector('.hook-test-result').innerHTML).toEqual('bamboo');
+    const { container } = render(<Demo />);
+
+    fireEvent.click(container.querySelector('button')!);
+
+    expect(document.querySelectorAll('.my-test-notification-notice')).toHaveLength(1);
+    expect(document.querySelector('.hook-test-result')!.textContent).toEqual('bamboo');
   });
 
   it('should work with success', () => {
@@ -64,6 +64,7 @@ describe('notification.hooks', () => {
               type="button"
               onClick={() => {
                 api.success({
+                  message: null,
                   description: (
                     <Context.Consumer>
                       {name => <span className="hook-test-result">{name}</span>}
@@ -79,11 +80,12 @@ describe('notification.hooks', () => {
       );
     };
 
-    const wrapper = mount(<Demo />);
-    wrapper.find('button').simulate('click');
-    expect(document.querySelectorAll('.my-test-notification-notice').length).toBe(1);
-    expect(document.querySelectorAll('.anticon-check-circle').length).toBe(1);
-    expect(document.querySelector('.hook-test-result').innerHTML).toEqual('bamboo');
+    const { container } = render(<Demo />);
+    fireEvent.click(container.querySelector('button')!);
+
+    expect(document.querySelectorAll('.my-test-notification-notice')).toHaveLength(1);
+    expect(document.querySelectorAll('.anticon-check-circle')).toHaveLength(1);
+    expect(document.querySelector('.hook-test-result')!.textContent).toEqual('bamboo');
   });
 
   it('should be same hook', () => {
@@ -96,12 +98,61 @@ describe('notification.hooks', () => {
       React.useEffect(() => {
         count += 1;
         expect(count).toEqual(1);
-        forceUpdate();
+        forceUpdate({});
       }, [api]);
 
       return null;
     };
 
     mount(<Demo />);
+  });
+
+  describe('not break in effect', () => {
+    it('basic', () => {
+      const Demo = () => {
+        const [api, holder] = notification.useNotification();
+
+        React.useEffect(() => {
+          api.info({
+            message: null,
+            description: <div className="bamboo" />,
+          });
+        }, []);
+
+        return holder;
+      };
+
+      render(<Demo />);
+
+      expect(document.querySelector('.bamboo')).toBeTruthy();
+    });
+
+    it('warning if user call update in render', () => {
+      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+      const Demo = () => {
+        const [api, holder] = notification.useNotification();
+        const calledRef = React.useRef(false);
+
+        if (!calledRef.current) {
+          api.info({
+            message: null,
+            description: <div className="bamboo" />,
+          });
+          calledRef.current = true;
+        }
+
+        return holder;
+      };
+
+      render(<Demo />);
+
+      expect(document.querySelector('.bamboo')).toBeFalsy();
+      expect(errorSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Notification] You are calling notice in render which will break in React 18 concurrent mode. Please trigger in effect instead.',
+      );
+
+      errorSpy.mockRestore();
+    });
   });
 });

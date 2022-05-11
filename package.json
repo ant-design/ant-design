@@ -138,7 +138,7 @@
     "rc-mentions": "~1.8.0",
     "rc-menu": "~9.6.0",
     "rc-motion": "^2.5.1",
-    "rc-notification": "~4.6.0",
+    "rc-notification": "~5.0.0-alpha.8",
     "rc-pagination": "~3.1.9",
     "rc-picker": "~2.6.4",
     "rc-progress": "~3.2.1",
@@ -157,7 +157,7 @@
     "rc-tree-select": "~5.3.0",
     "rc-trigger": "^5.2.10",
     "rc-upload": "~4.3.0",
-    "rc-util": "^5.20.0",
+    "rc-util": "^5.21.3",
     "scroll-into-view-if-needed": "^2.2.25",
     "shallowequal": "^1.1.0"
   },
@@ -306,7 +306,7 @@
   "bundlesize": [
     {
       "path": "./dist/antd.min.js",
-      "maxSize": "356 kB"
+      "maxSize": "358 kB"
     },
     {
       "path": "./dist/antd.min.css",
