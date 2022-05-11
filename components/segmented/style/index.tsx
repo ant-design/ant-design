@@ -1,13 +1,8 @@
 // deps-lint-skip-all
-import { CSSObject } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-import {
-  resetComponent,
-  GenerateStyle,
-  FullToken,
-  genComponentStyleHook,
-  mergeToken,
-} from '../../_util/theme';
+import type { GenerateStyle, FullToken } from '../../_util/theme';
+import { resetComponent, genComponentStyleHook, mergeToken } from '../../_util/theme';
 
 export interface ComponentToken {}
 
@@ -22,6 +17,7 @@ interface SegmentedToken extends FullToken<'Segmented'> {
   segmentedPaddingVerticalSM: number;
   segmentedPaddingHorizontal: number;
   segmentedPaddingHorizontalSM: number;
+  segmentedContainerPadding: number;
 }
 
 // ============================== Mixins ==============================
@@ -41,7 +37,7 @@ const segmentedSelectedItemBoxShadow = [
   `0 0 1px 0 ${new TinyColor('#000').setAlpha(0.08).toRgbString()}`,
 ].join(',');
 
-function segmentedItemSelected(token: SegmentedToken): CSSObject {
+function getSegmentedItemSelectedStyle(token: SegmentedToken): CSSObject {
   return {
     backgroundColor: token.segmentedSelectedBg,
     borderRadius: token.controlRadius,
@@ -65,16 +61,20 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
     [componentCls]: {
       ...resetComponent(token),
 
-      position: 'relative',
-      display: 'inline-flex',
-      alignItems: 'stretch',
-      justifyItems: 'flex-start',
+      display: 'inline-block',
+      padding: token.segmentedContainerPadding,
       color: token.segmentedLabelColor,
       backgroundColor: token.segmentedBg,
       borderRadius: token.radiusBase,
-      // FIXME: hard code
-      boxShadow: `0 0 0 2px ${token.segmentedBg}`,
       transition: `all ${token.motionDurationSlow} ${token.motionEaseInOut}`,
+
+      '&-group': {
+        position: 'relative',
+        display: 'flex',
+        alignItems: 'stretch',
+        justifyItems: 'flex-start',
+        width: '100%',
+      },
 
       // RTL styles
       '&&-rtl': {
@@ -85,8 +85,6 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
       [`&:not(${componentCls}-disabled)`]: {
         '&:hover, &:focus': {
           backgroundColor: token.segmentedHoverBg,
-          // FIXME: hard code
-          boxShadow: `0 0 0 2px ${token.segmentedHoverBg}`,
         },
       },
 
@@ -108,7 +106,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
         transition: `color ${token.motionDurationSlow} ${token.motionEaseInOut}`,
 
         '&-selected': {
-          ...segmentedItemSelected(token),
+          ...getSegmentedItemSelectedStyle(token),
           color: token.segmentedLabelHoverColor,
         },
 
@@ -117,16 +115,15 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
         },
 
         '&-label': {
-          minHeight: token.controlHeight,
           // FIXME: hard code
-          padding: `${token.segmentedPaddingVertical}px ${token.segmentedPaddingHorizontal}px`,
-          // FIXME: hard code
-          lineHeight: `${token.controlHeight - token.segmentedPaddingVertical * 2}px`,
+          minHeight: token.controlHeight - token.segmentedContainerPadding * 2,
+          lineHeight: `${token.controlHeight - token.segmentedContainerPadding * 2}px`,
+          padding: `0 ${token.segmentedPaddingHorizontal}px`,
           ...segmentedTextEllipsisCss,
         },
 
         // syntactic sugar to add `icon` for Segmented Item
-        '&-icon': {
+        '&-icon + *': {
           // FIXME: hard code
           marginInlineEnd: token.marginSM / 2,
         },
@@ -144,16 +141,18 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
 
       // size styles
       [`&&-lg ${componentCls}-item-label`]: {
-        minHeight: token.controlHeightLG,
-        padding: `${token.segmentedPaddingVerticalLG}px ${token.segmentedPaddingHorizontal}px`,
+        // FIXME: hard code
+        minHeight: token.controlHeightLG - token.segmentedContainerPadding * 2,
+        lineHeight: `${token.controlHeightLG - token.segmentedContainerPadding * 2}px`,
+        padding: `0 ${token.segmentedPaddingHorizontal}px`,
         fontSize: token.fontSizeLG,
-        lineHeight: `${token.controlHeightLG - token.segmentedPaddingVerticalLG * 2}px`,
       },
 
       [`&&-sm ${componentCls}-item-label`]: {
-        minHeight: token.controlHeightSM,
+        // FIXME: hard code
+        minHeight: token.controlHeightSM - token.segmentedContainerPadding * 2,
+        lineHeight: `${token.controlHeightSM - token.segmentedContainerPadding * 2}px`,
         padding: `0 ${token.segmentedPaddingHorizontalSM}px`,
-        lineHeight: `${token.controlHeightSM - token.segmentedPaddingVerticalSM * 2}px`,
       },
 
       // disabled styles
@@ -162,7 +161,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
 
       // thumb styles
       [`${componentCls}-thumb`]: {
-        ...segmentedItemSelected(token),
+        ...getSegmentedItemSelectedStyle(token),
 
         position: 'absolute',
         insetBlockStart: 0,
@@ -172,8 +171,8 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
         padding: `${token.paddingXXS}px 0`,
       },
 
-      // transition effect when `enter-active`
-      [`${componentCls}-thumb-motion-enter-active`]: {
+      // transition effect when `appear-active`
+      [`${componentCls}-thumb-motion-appear-active`]: {
         transition: `transform ${token.motionDurationSlow} ${token.motionEaseInOut}, width ${token.motionDurationSlow} ${token.motionEaseInOut}`,
         willChange: 'transform, width',
       },
@@ -209,6 +208,8 @@ export default genComponentStyleHook('Segmented', token => {
     ),
     segmentedPaddingHorizontal: token.controlPaddingHorizontal - token.controlLineWidth,
     segmentedPaddingHorizontalSM: token.controlPaddingHorizontalSM - token.controlLineWidth,
+    // FIXME: hard code
+    segmentedContainerPadding: token.paddingXXS / 2,
   });
   return [genSegmentedStyle(segmentedToken)];
 });
