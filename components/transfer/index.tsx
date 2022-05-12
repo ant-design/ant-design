@@ -105,6 +105,25 @@ interface TransferState {
   targetSelectedKeys: string[];
 }
 
+interface TransferFCProps {
+  prefixCls: string;
+  className: string;
+  style?: React.CSSProperties;
+  children: React.ReactNode;
+}
+
+const TransferFC: React.FC<TransferFCProps> = props => {
+  const { prefixCls } = props;
+
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
+  return wrapSSR(
+    <div className={classNames(props.className, hashId)} style={props.style}>
+      {props.children}
+    </div>,
+  );
+};
+
 class Transfer<RecordType extends TransferItem = TransferItem> extends React.Component<
   TransferProps<RecordType>,
   TransferState
@@ -478,24 +497,5 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
     );
   }
 }
-
-interface TransferFCProps {
-  prefixCls: string;
-  className: string;
-  style?: React.CSSProperties;
-  children: React.ReactNode;
-}
-
-const TransferFC: React.FC<TransferFCProps> = props => {
-  const { prefixCls } = props;
-
-  const [wrapSSR, hashId] = useStyle(prefixCls);
-
-  return wrapSSR(
-    <div className={classNames(props.className, hashId)} style={props.style}>
-      {props.children}
-    </div>,
-  );
-};
 
 export default Transfer;

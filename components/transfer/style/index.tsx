@@ -2,13 +2,13 @@
 // import './index.less';
 
 // style dependencies
-import '../../empty/style';
-import '../../checkbox/style';
-import '../../button/style';
-import '../../input/style';
-import '../../menu/style';
-import '../../dropdown/style';
-import '../../pagination/style';
+// import '../../empty/style';
+// import '../../checkbox/style';
+// import '../../button/style';
+// import '../../input/style';
+// import '../../menu/style';
+// import '../../dropdown/style';
+// import '../../pagination/style';
 
 // deps-lint-skip: form
 
@@ -18,14 +18,14 @@ import { TinyColor } from '@ctrl/tinycolor';
 
 import {
   resetComponent,
-  GenerateStyle,
   genComponentStyleHook,
-  FullToken,
   mergeToken,
   operationUnit,
 } from '../../_util/theme';
+import type { FullToken, GenerateStyle } from '../../_util/theme';
 
-import { genHoverStyle, genActiveStyle, initInputToken, InputToken } from '../../input/style';
+import { genHoverStyle, genActiveStyle, initInputToken } from '../../input/style';
+import type { InputToken } from '../../input/style';
 
 // FIXME: need full token check
 type TransferToken = InputToken<FullToken<'Transfer'>> & {
