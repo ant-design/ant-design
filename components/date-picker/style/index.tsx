@@ -49,6 +49,7 @@ const genPikerPadding = (
 const genPickerCellInnerStyle = (
   token: Omit<PickerToken, 'zIndexPopup'>,
   cellClassName: string,
+  selectedCellBgColor: string = token.colorPrimary,
 ): CSSObject => {
   const { componentCls } = token;
 
@@ -115,7 +116,7 @@ const genPickerCellInnerStyle = (
     &-in-view:is(&-range-start) ${cellClassName},
     &-in-view:is(&-range-end) ${cellClassName}`]: {
       color: '#fff', // FIXME: text-color-invert
-      background: token.colorPrimary,
+      background: selectedCellBgColor,
     },
 
     [`&-in-view:is(&-range-start):not(&-range-start-single),
@@ -272,7 +273,10 @@ const genPickerCellInnerStyle = (
   };
 };
 
-export const genPanelStyle = (token: Omit<PickerToken, 'zIndexPopup'>): CSSObject => {
+export const genPanelStyle = (
+  token: Omit<PickerToken, 'zIndexPopup'>,
+  selectedCellBgColor: string = token.colorPrimary,
+): CSSObject => {
   const { componentCls, pickerCellInnerCls } = token;
 
   const pickerArrowSize = 7; // FIXME: v4 magic number
@@ -458,7 +462,7 @@ export const genPanelStyle = (token: Omit<PickerToken, 'zIndexPopup'>): CSSObjec
           color: token.colorText,
         },
 
-        ...genPickerCellInnerStyle(token, pickerCellInnerCls),
+        ...genPickerCellInnerStyle(token, pickerCellInnerCls, selectedCellBgColor),
       },
 
       [`&-decade-panel,
@@ -612,7 +616,7 @@ export const genPanelStyle = (token: Omit<PickerToken, 'zIndexPopup'>): CSSObjec
           },
 
           [`&-selected td,
-      &-selected:hover td`]: {
+            &-selected:hover td`]: {
             background: token.colorPrimary,
 
             [`&${componentCls}-cell-week`]: {
