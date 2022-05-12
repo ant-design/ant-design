@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import { FormItemInputContext } from '../form/context';
 import { GroupContext } from './Group';
 import { ConfigContext } from '../config-provider';
-import devWarning from '../_util/devWarning';
+import warning from '../_util/warning';
 
 export interface AbstractCheckboxProps<T> {
   prefixCls?: string;
@@ -67,7 +67,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
 
   React.useEffect(() => {
     checkboxGroup?.registerValue(restProps.value);
-    devWarning(
+    warning(
       'checked' in restProps || !!checkboxGroup || !('value' in restProps),
       'Checkbox',
       '`value` is not a valid prop, do you mean `checked`?',

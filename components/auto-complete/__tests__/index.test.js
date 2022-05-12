@@ -42,16 +42,15 @@ describe('AutoComplete', () => {
   });
 
   it('AutoComplete throws error when contains invalid dataSource', () => {
-    jest.spyOn(console, 'error').mockImplementation(() => undefined);
-    expect(() => {
-      mount(
-        <AutoComplete dataSource={[() => {}]}>
-          <textarea />
-        </AutoComplete>,
-      );
-    }).toThrow();
-    // eslint-disable-next-line no-console
-    console.error.mockRestore();
+    const spy = jest.spyOn(console, 'error').mockImplementation(() => undefined);
+
+    mount(
+      <AutoComplete dataSource={[() => {}]}>
+        <textarea />
+      </AutoComplete>,
+    );
+
+    expect(spy).toHaveBeenCalled();
   });
 
   it('legacy dataSource should accept react element option', () => {

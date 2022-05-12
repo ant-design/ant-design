@@ -8,7 +8,7 @@ import Upload from '..';
 import Form from '../../form';
 import { getFileItem, removeFileItem, isImageUrl } from '../utils';
 import { setup, teardown } from './mock';
-import { resetWarned } from '../../_util/devWarning';
+import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { sleep, render, fireEvent } from '../../../tests/utils';

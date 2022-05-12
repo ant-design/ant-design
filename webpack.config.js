@@ -60,24 +60,6 @@ function externalMoment(config) {
   };
 }
 
-function injectWarningCondition(config) {
-  config.module.rules.forEach(rule => {
-    // Remove devWarning if needed
-    if (rule.test.test('test.tsx')) {
-      rule.use = [
-        ...rule.use,
-        {
-          loader: 'string-replace-loader',
-          options: {
-            search: 'devWarning(',
-            replace: "if (process.env.NODE_ENV !== 'production') devWarning(",
-          },
-        },
-      ];
-    }
-  });
-}
-
 function processWebpackThemeConfig(themeConfig, theme, vars) {
   themeConfig.forEach(config => {
     ignoreMomentLocale(config);
@@ -130,10 +112,6 @@ const webpackDarkConfig = injectLessVariables(getWebpackConfig(false), legacyEnt
 const webpackCompactConfig = injectLessVariables(getWebpackConfig(false), legacyEntryVars);
 const webpackVariableConfig = injectLessVariables(getWebpackConfig(false), {
   'root-entry-name': 'variable',
-});
-
-webpackConfig.forEach(config => {
-  injectWarningCondition(config);
 });
 
 if (process.env.RUN_ENV === 'PRODUCTION') {
