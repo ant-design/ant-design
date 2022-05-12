@@ -7,7 +7,7 @@ import type { TabsProps } from '../tabs';
 import Tabs from '../tabs';
 import { ConfigContext } from '../config-provider';
 import SizeContext from '../config-provider/SizeContext';
-import { Skeleton } from '..';
+import Skeleton from '../skeleton';
 
 function getAction(actions: React.ReactNode[]) {
   const actionList = actions.map((action, index) => (
