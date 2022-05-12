@@ -9,7 +9,7 @@ import type { GenerateConfig } from 'rc-picker/lib/generate/index';
 import { forwardRef, useContext } from 'react';
 import enUS from '../locale/en_US';
 import { getPlaceholder, transPlacement2DropdownAlign } from '../util';
-import devWarning from '../../_util/devWarning';
+import warning from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
 import LocaleReceiver from '../../locale-provider/LocaleReceiver';
 import SizeContext from '../../config-provider/SizeContext';
@@ -46,13 +46,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
         ...restProps
       } = props;
 
-      devWarning(
-        picker !== 'quarter',
-        displayName!,
-        `DatePicker.${displayName} is legacy usage. Please use DatePicker[picker='${picker}'] directly.`,
-      );
-
-      devWarning(
+      warning(
         picker !== 'quarter',
         displayName!,
         `DatePicker.${displayName} is legacy usage. Please use DatePicker[picker='${picker}'] directly.`,

@@ -14,7 +14,7 @@ import RightOutlined from '@ant-design/icons/RightOutlined';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import { useContext } from 'react';
-import devWarning from '../_util/devWarning';
+import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
@@ -162,19 +162,17 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
   // =================== Warning =====================
-  if (process.env.NODE_ENV !== 'production') {
-    devWarning(
-      popupClassName === undefined,
-      'Cascader',
-      '`popupClassName` is deprecated. Please use `dropdownClassName` instead.',
-    );
+  warning(
+    popupClassName === undefined,
+    'Cascader',
+    '`popupClassName` is deprecated. Please use `dropdownClassName` instead.',
+  );
 
-    devWarning(
-      !multiple || !props.displayRender,
-      'Cascader',
-      '`displayRender` not work on `multiple`. Please use `tagRender` instead.',
-    );
-  }
+  warning(
+    !multiple || !props.displayRender,
+    'Cascader',
+    '`displayRender` not work on `multiple`. Please use `tagRender` instead.',
+  );
 
   // =================== No Found ====================
   const mergedNotFoundContent = notFoundContent || renderEmpty('Cascader');
