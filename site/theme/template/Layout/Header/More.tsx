@@ -7,7 +7,7 @@ import type { SharedProps } from './interface';
 
 const smallStyle = { fontSize: 12, color: '#777', marginLeft: '0.3em' };
 
-export function getEcosystemGroup(): MenuProps['items'] {
+export function getEcosystemGroup(): Exclude<MenuProps['items'], undefined> {
   return [
     {
       label: (

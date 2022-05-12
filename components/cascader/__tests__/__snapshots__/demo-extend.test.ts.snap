@@ -1534,7 +1534,7 @@ exports[`renders ./components/cascader/demo/multiple.md extend context correctly
     >
       <div
         class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
-        style="opacity:1"
+        style="opacity:1;order:0"
       >
         <div
           class="ant-select-selection-search"

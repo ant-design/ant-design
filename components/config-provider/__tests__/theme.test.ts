@@ -1,7 +1,7 @@
 import { kebabCase } from 'lodash';
 import canUseDom from 'rc-util/lib/Dom/canUseDom';
 import ConfigProvider from '..';
-import { resetWarned } from '../../_util/devWarning';
+import { resetWarned } from '../../_util/warning';
 
 let mockCanUseDom = true;
 

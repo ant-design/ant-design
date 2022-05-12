@@ -7,7 +7,7 @@ import Group, { GroupSizeContext } from './button-group';
 import { ConfigContext } from '../config-provider';
 import Wave from '../_util/wave';
 import { tuple } from '../_util/type';
-import devWarning from '../_util/devWarning';
+import warning from '../_util/warning';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
 import DisabledContext from '../config-provider/DisabledContext';
@@ -226,13 +226,13 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
     (onClick as React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>)?.(e);
   };
 
-  devWarning(
+  warning(
     !(typeof icon === 'string' && icon.length > 2),
     'Button',
     `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
   );
 
-  devWarning(
+  warning(
     !(ghost && isUnBorderedButtonType(type)),
     'Button',
     "`link` or `text` button can't be a `ghost` button.",
