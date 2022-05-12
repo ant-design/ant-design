@@ -15,7 +15,6 @@ import type { GenerateStyle, FullToken } from '../../_util/theme';
 import { resetComponent, genComponentStyleHook, mergeToken, clearFix } from '../../_util/theme';
 
 interface CardToken extends FullToken<'Card'> {
-  rootPrefixCls: string;
   cardHoverableHoverBorder: string;
   cardShadow: string;
   cardHeadHeight: number;
@@ -49,7 +48,7 @@ const antCardLoading = new Keyframes('antCardLoading', {
 // ============================== Head ==============================
 const genCardHeadStyle: GenerateStyle<CardToken> = (token): CSSObject => {
   const {
-    rootPrefixCls,
+    antCls,
     componentCls,
     cardHoverableHoverBorder,
     cardHeadHeight,
@@ -64,7 +63,7 @@ const genCardHeadStyle: GenerateStyle<CardToken> = (token): CSSObject => {
     marginBottom: -1, // Fix card grid overflow bug: https://gw.alipayobjects.com/zos/rmsportal/XonYxBikwpgbqIQBeuhk.png
     padding: `0 ${cardPaddingBase}px`,
     color: token.colorTextHeading,
-    fontWeight: 500, // FIXME: hardcode in v4
+    fontWeight: token.fontWeightStrong,
     fontSize: token.fontSizeLG,
     background: cardHoverableHoverBorder,
     borderBottom: `${token.controlLineWidth}px ${token.controlLineType} ${borderColorSplit}`,
@@ -95,7 +94,7 @@ const genCardHeadStyle: GenerateStyle<CardToken> = (token): CSSObject => {
       },
     },
 
-    [`.${rootPrefixCls}-tabs-top`]: {
+    [`${antCls}-tabs-top`]: {
       clear: 'both',
       marginBottom: cardHeadTabsMarginBottom,
       color: token.colorText,
@@ -111,20 +110,20 @@ const genCardHeadStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 
 // ============================== Grid ==============================
 const genCardGridStyle: GenerateStyle<CardToken> = (token): CSSObject => {
-  const { cardPaddingBase, borderColorSplit, cardShadow } = token;
+  const { cardPaddingBase, borderColorSplit, cardShadow, lineWidth } = token;
   return {
-    width: '33.33%', // FIXME: hardcode in v4
+    width: '33.33%',
     padding: cardPaddingBase,
     border: 0,
     borderRadius: 0,
     boxShadow: `
-    1px 0 0 0 ${borderColorSplit},
-    0 1px 0 0 ${borderColorSplit},
-    1px 1px 0 0 ${borderColorSplit},
-    1px 0 0 0 ${borderColorSplit} inset,
-    0 1px 0 0 ${borderColorSplit} inset;
-    transition: all ${token.motionDurationSlow}
-  `, // FIXME: hardcode in v4
+      ${lineWidth}px 0 0 0 ${borderColorSplit},
+      0 ${lineWidth}px 0 0 ${borderColorSplit},
+      ${lineWidth}px ${lineWidth}px 0 0 ${borderColorSplit},
+      ${lineWidth}px 0 0 0 ${borderColorSplit} inset,
+      0 ${lineWidth}px 0 0 ${borderColorSplit} inset;
+    `,
+    transition: `all ${token.motionDurationSlow}`,
 
     '&-hoverable:hover': {
       position: 'relative',
@@ -155,8 +154,8 @@ const genCardActionsStyle: GenerateStyle<CardToken> = (token): CSSObject => {
       '> span': {
         position: 'relative',
         display: 'block',
-        minWidth: 32, // FIXME: hardcode in v4
-        fontSize: token.fontSizeBase,
+        minWidth: token.cardActionsIconSize * 2,
+        fontSize: token.fontSize,
         lineHeight: token.lineHeight,
         cursor: 'pointer',
 
@@ -169,7 +168,7 @@ const genCardActionsStyle: GenerateStyle<CardToken> = (token): CSSObject => {
           display: 'inline-block',
           width: '100%',
           color: token.colorTextSecondary,
-          lineHeight: '22px', // FIXME: hardcode in v4
+          lineHeight: `${token.fontSize * token.lineHeight}px`,
           transition: `color ${token.motionDurationSlow}`,
 
           '&:hover': {
@@ -179,7 +178,7 @@ const genCardActionsStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 
         [`> ${iconCls}`]: {
           fontSize: cardActionsIconSize,
-          lineHeight: '22px', // FIXME: hardcode in v4
+          lineHeight: `${cardActionsIconSize * token.lineHeight}px`,
         },
       },
 
@@ -192,12 +191,12 @@ const genCardActionsStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 
 // ============================== Meta ==============================
 const genCardMetaStyle: GenerateStyle<CardToken> = (token): CSSObject => ({
-  margin: '-4px 0', // FIXME: hardcode in v4
+  margin: `-${token.marginXXS}px 0`,
   display: 'flex',
   ...clearFix(),
 
   '&-avatar': {
-    paddingInlineEnd: 16, // FIXME: hardcode in v4
+    paddingInlineEnd: token.padding,
   },
 
   '&-detail': {
@@ -211,7 +210,7 @@ const genCardMetaStyle: GenerateStyle<CardToken> = (token): CSSObject => ({
   '&-title': {
     overflow: 'hidden',
     color: token.colorTextHeading,
-    fontWeight: 500, // FIXME: hardcode in v4
+    fontWeight: token.fontWeightStrong,
     fontSize: token.fontSizeLG,
     whiteSpace: 'nowrap',
     textOverflow: 'ellipsis',
@@ -238,7 +237,7 @@ const genCardTypeInnerStyle: GenerateStyle<CardToken> = (token): CSSObject => {
     },
 
     [`${componentCls}-body`]: {
-      padding: `16px ${cardPaddingBase}px`, // FIXME: hardcode in v4
+      padding: `${token.padding}px ${cardPaddingBase}px`,
     },
 
     [`${componentCls}-extra`]: {
@@ -263,13 +262,13 @@ const genCardLoadingStyle: GenerateStyle<CardToken> = (token): CSSObject => {
     },
 
     [`${componentCls}-loading-block`]: {
-      height: 14, // FIXME: hardcode in v4
-      margin: '4px 0', // FIXME: hardcode in v4
+      height: token.fontSize,
+      margin: `${token.marginXXS}px 0`,
       background: `linear-gradient(90deg, ${gradientMin}, ${gradientMax}, ${gradientMin})`,
       backgroundSize: '600% 600%',
       borderRadius: token.radiusBase,
       animationName: antCardLoading,
-      animationDuration: '1.4s', // FIXME: hardcode
+      animationDuration: '1.4s',
       animationTimingFunction: 'ease',
       animationIterationCount: 'infinite',
     },
@@ -357,10 +356,8 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
       },
 
       [`&:not(${componentCls}-loading) ${componentCls}-body`]: {
-        margin: {
-          _skip_check_: true,
-          value: '-1px 0 0 -1px', // FIXME: hardcode in v4
-        },
+        marginBlockStart: -token.lineWidth,
+        marginInlineStart: -token.lineWidth,
         padding: 0,
       },
     },
@@ -399,7 +396,7 @@ const genCardSizeStyle: GenerateStyle<CardToken> = (token): CSSObject => {
       [`> ${componentCls}-head`]: {
         minHeight: cardHeadHeightSM,
         padding: `0 ${cardPaddingBaseSM}px`,
-        fontSize: token.fontSizeBase,
+        fontSize: token.fontSize,
 
         [`> ${componentCls}-head-wrapper`]: {
           [`> ${componentCls}-head-title`]: {
@@ -408,7 +405,7 @@ const genCardSizeStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 
           [`> ${componentCls}-extra`]: {
             padding: `${cardHeadPaddingSM}px 0`,
-            fontSize: token.fontSizeBase,
+            fontSize: token.fontSize,
           },
         },
       },
@@ -421,26 +418,26 @@ const genCardSizeStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Card', (token, { rootPrefixCls }) => {
-  const cardToken = mergeToken<CardToken>(token, {
-    rootPrefixCls,
+export default genComponentStyleHook('Card', token => {
+  const cardHeadPadding = token.padding;
 
-    cardHoverableHoverBorder: 'transparent', // FIXME: hardcode in v4
+  const cardToken = mergeToken<CardToken>(token, {
+    cardHoverableHoverBorder: 'transparent',
     cardShadow: `
       0 1px 2px -2px ${new TinyColor('rgba(0, 0, 0, 0.16)').toRgbString()},
       0 3px 6px 0 ${new TinyColor('rgba(0, 0, 0, 0.12)').toRgbString()},
       0 5px 12px 4px ${new TinyColor('rgba(0, 0, 0, 0.09)').toRgbString()}
     `, // FIXME: hardcode in v4
-    cardHeadHeight: 48, // FIXME: hardcode in v4
+    cardHeadHeight: token.fontSizeLG + cardHeadPadding * 2,
     cardHeadHeightSM: 30, // FIXME: hardcode in v4
-    cardHeadPadding: 16, // FIXME: hardcode in v4
-    cardPaddingBase: 24, // FIXME: hardcode in v4
-    cardHeadTabsMarginBottom: -17, // FIXME: hardcode in v4
-    cardInnerHeadPadding: 12, // FIXME: hardcode in v4
-    cardActionsLiMargin: '12px 0', // FIXME: hardcode in v4
-    cardActionsIconSize: 16, // FIXME: hardcode in v4
-    borderColorSplit: new TinyColor({ h: 0, s: 0, v: 94 }).toHexString(), // FIXME: hardcode in v4
-    backgroundColorLight: new TinyColor({ h: 0, s: 0, v: 98 }).toHexString(), // FIXME: hardcode in v4
+    cardHeadPadding,
+    cardPaddingBase: token.paddingLG,
+    cardHeadTabsMarginBottom: -token.padding - token.lineWidth,
+    cardInnerHeadPadding: token.paddingSM,
+    cardActionsLiMargin: `${token.paddingSM}px 0`,
+    cardActionsIconSize: token.fontSize,
+    borderColorSplit: token.colorSplit,
+    backgroundColorLight: token.colorBgComponentSecondary,
     gradientMin: new TinyColor('#cfd8dc').setAlpha(0.2).toRgbString(), // FIXME: hardcode in v4
     gradientMax: new TinyColor('#cfd8dc').setAlpha(0.4).toRgbString(), // FIXME: hardcode in v4
   });
