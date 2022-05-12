@@ -112,7 +112,7 @@ function parseArguments() {
     add_help: true,
     description: 'Tag and publish a new version of EUI',
   });
-  console.log('>>>>>>>>>>>', parser);
+  // console.log('>>>>>>>>>>>', parser);
   parser.add_argument('--type', {
     help: 'Version type; can be "major", "minor" or "patch"',
     choices: Object.values(humanReadableTypes),
@@ -162,9 +162,9 @@ async function ensureMasterBranch() {
   const currentBranch = await repo.getCurrentBranch();
   const currentBranchName = currentBranch.shorthand();
 
-  if (currentBranchName !== 'master') {
+  if (currentBranchName !== 'release-demo') {
     console.error(
-      `Unable to release: currently on branch "${currentBranchName}", expected "master"`,
+      `Unable to release: currently on branch "${currentBranchName}", expected "release-demo"`,
     );
     process.exit(1);
   }
@@ -228,7 +228,7 @@ async function getVersionTypeFromChangelog() {
       humanReadableRecommendation,
     )}`,
   );
-
+  await getOneTimePassword();
   // checking for --type argument value; used by CI to automate releases
   const versionType = args.type;
   if (versionType) {
@@ -250,6 +250,7 @@ async function getVersionTypeFromChangelog() {
   );
 
   // eslint-disable-next-line no-return-await
+
   return await promptUserForVersionType();
 }
 
@@ -269,6 +270,7 @@ async function promptUserForVersionType() {
           },
         },
       },
+
       (err, { version }) => {
         if (err) {
           reject(err);
