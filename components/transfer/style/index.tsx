@@ -66,8 +66,8 @@ const genTransferCustomizeStyle: GenerateStyle<TransferToken> = (
           borderRadius: 0,
 
           [`${tableCls}-selection-column`]: {
-            width: 40,
-            minWidth: 40,
+            width: 40, // FIXME: hardcode in v4,
+            minWidth: 40, // FIXME: hardcode in v4,
           },
 
           [`> ${tableCls}-content`]: {
@@ -87,7 +87,7 @@ const genTransferCustomizeStyle: GenerateStyle<TransferToken> = (
         },
 
         [`${tableCls}-pagination${tableCls}-pagination`]: {
-          margin: '16px 0 4px',
+          margin: '16px 0 4px', // FIXME: hardcode in v4,
         },
       },
 
@@ -148,13 +148,13 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
   return {
     display: 'flex',
     flexDirection: 'column',
-    width: 180,
+    width: 180, // FIXME: hardcode in v4,
     height: transferListHeight,
     border: `${token.controlLineWidth}px ${token.controlLineType} ${borderColorBase}`,
     borderRadius: token.radiusBase,
 
     '&-with-pagination': {
-      width: 250,
+      width: 250, // FIXME: hardcode in v4,
       height: 'auto',
     },
 
@@ -179,7 +179,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
       borderRadius: `${token.radiusBase}px ${token.radiusBase}px 0 0`,
 
       '> *:not(:last-child)': {
-        marginInlineEnd: 4,
+        marginInlineEnd: 4, // FIXME: hardcode in v4,
       },
 
       '> *': {
@@ -195,7 +195,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
       },
 
       '&-dropdown': {
-        fontSize: 10,
+        fontSize: 10, // FIXME: hardcode in v4,
         transform: 'translateY(10%)',
         cursor: 'pointer',
 
@@ -235,7 +235,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
         transition: `all ${token.motionDurationSlow}`,
 
         '> *:not(:last-child)': {
-          marginInlineEnd: 8,
+          marginInlineEnd: 8, // FIXME: hardcode in v4,
         },
 
         '> *': {
@@ -337,24 +337,24 @@ const genTransferStyle: GenerateStyle<TransferToken> = (token: TransferToken): C
         flex: 'none',
         flexDirection: 'column',
         alignSelf: 'center',
-        margin: '0 8px',
+        margin: '0 8px', // FIXME: hardcode in v4,
         verticalAlign: 'middle',
 
         [`${antCls}-btn`]: {
           display: 'block',
 
           '&:first-child': {
-            marginBottom: 4,
+            marginBottom: 4, // FIXME: hardcode in v4,
           },
 
           [iconCls]: {
-            fontSize: 12,
+            fontSize: 12, // FIXME: hardcode in v4,
           },
         },
       },
 
       [`${antCls}-empty-image`]: {
-        maxHeight: transferHeaderHeight / 2 - 22,
+        maxHeight: transferHeaderHeight / 2 - 22, // FIXME: hardcode in v4,
       },
     },
   };
@@ -369,7 +369,7 @@ const genTransferRTLStyle: GenerateStyle<TransferToken> = (token: TransferToken)
       [`${componentCls}-list`]: {
         '&-search': {
           paddingInlineStart: token.paddingXS,
-          paddingInlineEnd: 24,
+          paddingInlineEnd: 24, // FIXME: hardcode in v4,
         },
       },
     },
@@ -386,19 +386,18 @@ export default genComponentStyleHook('Transfer', token => {
     borderColorSplit: new TinyColor({ h: 0, s: 0, v: 94 }).toHexString(), // FIXME: hardcode in v4
     backgroundColorLight: new TinyColor({ h: 0, s: 0, v: 98 }).toHexString(), // FIXME: hardcode in v4
     disabledColor: new TinyColor('#000').setAlpha(0.25).toRgbString(), // FIXME: hardcode in v4
-    heightBase: 32,
+    heightBase: 32, // FIXME: hardcode in v4,
     transferListHeight: 200, // FIXME: hardcode in v4,
-    transferHeaderHeight,
+    transferHeaderHeight, // FIXME: hardcode in v4,
     transferHeaderVerticalPadding: Math.ceil(
-      (transferHeaderHeight - 1 - token.fontSizeBase * lineHeightBase) / 2,
+      (transferHeaderHeight - 1 - token.fontSizeBase * lineHeightBase) / 2, // FIXME: hardcode in v4,
     ),
-    transferItemPaddingVertical: 6,
-    transferItemSelectedHoverBg: new TinyColor(token.controlItemBgActive).darken(2).toHexString(),
+    transferItemPaddingVertical: 6, // FIXME: hardcode in v4,
+    transferItemSelectedHoverBg: new TinyColor(token.controlItemBgActive).darken(2).toHexString(), // FIXME: hardcode in v4,
   });
 
   return [
     genTransferStatusStyle(transferToken),
-    // genTransferListStyle(transferToken),
     genTransferStyle(transferToken),
     genTransferCustomizeStyle(transferToken),
     genTransferRTLStyle(transferToken),
