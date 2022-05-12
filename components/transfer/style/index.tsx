@@ -13,7 +13,7 @@
 // deps-lint-skip: form
 
 // deps-lint-skip-all
-import { CSSObject } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 
 import {
