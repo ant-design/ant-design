@@ -102,7 +102,7 @@ interface DraggableConfig {
 }
 
 export interface TreeProps<T extends BasicDataNode = DataNode>
-  extends Omit<RcTreeProps<T>, 'prefixCls' | 'showLine' | 'direction' | 'draggable'> {
+  extends Omit<RcTreeProps<T>, 'prefixCls' | 'showLine' | 'direction' | 'draggable' | 'icon'| 'switcherIcon'> {
   showLine?: boolean | { showLeafIcon: boolean };
   className?: string;
   /** 是否支持多选 */
