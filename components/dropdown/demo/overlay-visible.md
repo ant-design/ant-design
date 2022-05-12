@@ -51,29 +51,7 @@ export default () => {
   );
 
   return (
-    <Dropdown
-      overlay={
-        <Menu
-          onClick={handleMenuClick}
-          items={[
-            {
-              label: 'Clicking me will not close the menu.',
-              key: '1',
-            },
-            {
-              label: 'Clicking me will not close the menu also.',
-              key: '2',
-            },
-            {
-              label: 'Clicking me will close the menu.',
-              key: '3',
-            },
-          ]}
-        />
-      }
-      onVisibleChange={handleVisibleChange}
-      visible={visible}
-    >
+    <Dropdown overlay={menu} onVisibleChange={handleVisibleChange} visible={visible}>
       <a onClick={e => e.preventDefault()}>
         <Space>
           Hover me
