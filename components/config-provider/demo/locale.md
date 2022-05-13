@@ -55,84 +55,77 @@ const columns = [
   },
 ];
 
-class Page extends React.Component {
-  state = {
-    visible: false,
+function Page() {
+  const [visible, setVisible] = React.useState(false);
+
+  const showModal = () => {
+    setVisible(true);
   };
 
-  showModal = () => {
-    this.setState({ visible: true });
+  const hideModal = () => {
+    setVisible(false);
   };
 
-  hideModal = () => {
-    this.setState({ visible: false });
+  const info = () => {
+    Modal.info({
+      title: 'some info',
+      content: 'some info',
+    });
   };
 
-  render() {
-    const info = () => {
-      Modal.info({
-        title: 'some info',
-        content: 'some info',
-      });
-    };
-    const confirm = () => {
-      Modal.confirm({
-        title: 'some info',
-        content: 'some info',
-      });
-    };
-    return (
-      <div className="locale-components">
-        <div className="example">
-          <Pagination defaultCurrent={1} total={50} showSizeChanger />
-        </div>
-        <div className="example">
-          <Select showSearch style={{ width: 200 }}>
-            <Option value="jack">jack</Option>
-            <Option value="lucy">lucy</Option>
-          </Select>
-          <DatePicker />
-          <TimePicker />
-          <RangePicker style={{ width: 200 }} />
-        </div>
-        <div className="example">
-          <Button type="primary" onClick={this.showModal}>
-            Show Modal
-          </Button>
-          <Button onClick={info}>Show info</Button>
-          <Button onClick={confirm}>Show confirm</Button>
-          <Popconfirm title="Question?">
-            <a href="#">Click to confirm</a>
-          </Popconfirm>
-        </div>
-        <div className="example">
-          <Transfer dataSource={[]} showSearch targetKeys={[]} render={item => item.title} />
-        </div>
-        <div className="site-config-provider-calendar-wrapper">
-          <Calendar fullscreen={false} value={dayjs()} />
-        </div>
-        <div className="example">
-          <Table dataSource={[]} columns={columns} />
-        </div>
-        <Modal title="Locale Modal" visible={this.state.visible} onCancel={this.hideModal}>
-          <p>Locale Modal</p>
-        </Modal>
+  const confirm = () => {
+    Modal.confirm({
+      title: 'some info',
+      content: 'some info',
+    });
+  };
+
+  return (
+    <div className="locale-components">
+      <div className="example">
+        <Pagination defaultCurrent={1} total={50} showSizeChanger />
       </div>
-    );
-  }
+      <div className="example">
+        <Select showSearch style={{ width: 200 }}>
+          <Option value="jack">jack</Option>
+          <Option value="lucy">lucy</Option>
+        </Select>
+        <DatePicker />
+        <TimePicker />
+        <RangePicker style={{ width: 200 }} />
+      </div>
+      <div className="example">
+        <Button type="primary" onClick={showModal}>
+          Show Modal
+        </Button>
+        <Button onClick={info}>Show info</Button>
+        <Button onClick={confirm}>Show confirm</Button>
+        <Popconfirm title="Question?">
+          <a href="#">Click to confirm</a>
+        </Popconfirm>
+      </div>
+      <div className="example">
+        <Transfer dataSource={[]} showSearch targetKeys={[]} render={item => item.title} />
+      </div>
+      <div className="site-config-provider-calendar-wrapper">
+        <Calendar fullscreen={false} value={moment()} />
+      </div>
+      <div className="example">
+        <Table dataSource={[]} columns={columns} />
+      </div>
+      <Modal title="Locale Modal" visible={visible} onCancel={hideModal}>
+        <p>Locale Modal</p>
+      </Modal>
+    </div>
+  );
 }
 
-class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      locale: enUS,
-    };
-  }
+export default () => {
+  const [locale, setLocale] = React.useState(enUS);
 
-  changeLocale = e => {
+  const changeLocale = e => {
     const localeValue = e.target.value;
-    this.setState({ locale: localeValue });
+    setLocale(localeValue);
     if (!localeValue) {
       dayjs.locale('en');
     } else {
@@ -140,32 +133,27 @@ class App extends React.Component {
     }
   };
 
-  render() {
-    const { locale } = this.state;
-    return (
-      <div>
-        <div className="change-locale">
-          <span style={{ marginRight: 16 }}>Change locale of components: </span>
-          <Radio.Group value={locale} onChange={this.changeLocale}>
-            <Radio.Button key="en" value={enUS}>
-              English
-            </Radio.Button>
-            <Radio.Button key="cn" value={zhCN}>
-              中文
-            </Radio.Button>
-          </Radio.Group>
-        </div>
-        <ConfigProvider locale={locale}>
-          <Page
-            key={locale ? locale.locale : 'en' /* Have to refresh for production environment */}
-          />
-        </ConfigProvider>
+  return (
+    <div>
+      <div className="change-locale">
+        <span style={{ marginRight: 16 }}>Change locale of components: </span>
+        <Radio.Group value={locale} onChange={changeLocale}>
+          <Radio.Button key="en" value={enUS}>
+            English
+          </Radio.Button>
+          <Radio.Button key="cn" value={zhCN}>
+            中文
+          </Radio.Button>
+        </Radio.Group>
       </div>
-    );
-  }
-}
-
-export default App;
+      <ConfigProvider locale={locale}>
+        <Page
+          key={locale ? locale.locale : 'en' /* Have to refresh for production environment */}
+        />
+      </ConfigProvider>
+    </div>
+  );
+};
 ```
 
 ```css
