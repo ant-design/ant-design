@@ -210,7 +210,7 @@ describe('Segmented', () => {
       <Segmented options={['Daily', 'Monthly', 'Weekly']} defaultValue="Weekly" ref={ref} />,
     );
 
-    expect(ref.current).toBe(container.querySelector(prefixCls));
+    expect(ref.current).toBe(container.querySelector(`.${prefixCls}`));
   });
 
   it('render segmented with controlled mode', async () => {
