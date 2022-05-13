@@ -363,4 +363,5 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   motionEaseOut: string;
 
   colorPopupBg: string;
+  colorBorderSecondary: string;
 }

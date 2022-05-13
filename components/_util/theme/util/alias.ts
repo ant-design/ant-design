@@ -154,6 +154,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     motionEaseOut: 'cubic-bezier(0.215, 0.61, 0.355, 1)',
 
     colorPopupBg: new TinyColor('#000').setAlpha(0.45).toRgbString(),
+    colorBorderSecondary: new TinyColor({ h: 0, s: 0, v: 94 }).toHexString(),
   };
 
   return aliasToken;
