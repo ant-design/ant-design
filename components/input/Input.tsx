@@ -6,7 +6,6 @@ import classNames from 'classnames';
 import { composeRef } from 'rc-util/lib/ref';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
-import DisabledContext from '../config-provider/DisabledContext';
 import type { InputStatus } from '../_util/statusUtils';
 import DisabledContext from '../config-provider/DisabledContext';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';

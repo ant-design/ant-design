@@ -1,6 +1,5 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
-import { Keyframes } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 
 import type { GenerateStyle, FullToken } from '../../_util/theme';
