@@ -108,7 +108,7 @@ function Page() {
         <Transfer dataSource={[]} showSearch targetKeys={[]} render={item => item.title} />
       </div>
       <div className="site-config-provider-calendar-wrapper">
-        <Calendar fullscreen={false} value={moment()} />
+        <Calendar fullscreen={false} value={dayjs()} />
       </div>
       <div className="example">
         <Table dataSource={[]} columns={columns} />
