@@ -9,7 +9,6 @@ import { ConfigContext } from '../config-provider';
 import RadioGroupContext, { RadioOptionTypeContext } from './context';
 import DisabledContext from '../config-provider/DisabledContext';
 import warning from '../_util/warning';
-
 import useStyle from './style';
 
 const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (props, ref) => {

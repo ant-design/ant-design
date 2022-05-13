@@ -19,128 +19,21 @@ exports[`Card should still have padding when card which set padding to 0 is load
     style="padding: 0px;"
   >
     <div
-      class="ant-card-loading-content"
-      style="padding: 24px;"
+      class="ant-skeleton ant-skeleton-active"
     >
       <div
-        class="ant-row"
-        role="row"
-        style="margin-left: -4px; margin-right: -4px;"
+        class="ant-skeleton-content"
       >
-        <div
-          class="ant-col ant-col-22"
-          role="cell"
-          style="padding-left: 4px; padding-right: 4px;"
+        <ul
+          class="ant-skeleton-paragraph"
         >
-          <div
-            class="ant-card-loading-block"
+          <li />
+          <li />
+          <li />
+          <li
+            style="width: 61%;"
           />
-        </div>
-      </div>
-      <div
-        class="ant-row"
-        role="row"
-        style="margin-left: -4px; margin-right: -4px;"
-      >
-        <div
-          class="ant-col ant-col-8"
-          role="cell"
-          style="padding-left: 4px; padding-right: 4px;"
-        >
-          <div
-            class="ant-card-loading-block"
-          />
-        </div>
-        <div
-          class="ant-col ant-col-15"
-          role="cell"
-          style="padding-left: 4px; padding-right: 4px;"
-        >
-          <div
-            class="ant-card-loading-block"
-          />
-        </div>
-      </div>
-      <div
-        class="ant-row"
-        role="row"
-        style="margin-left: -4px; margin-right: -4px;"
-      >
-        <div
-          class="ant-col ant-col-6"
-          role="cell"
-          style="padding-left: 4px; padding-right: 4px;"
-        >
-          <div
-            class="ant-card-loading-block"
-          />
-        </div>
-        <div
-          class="ant-col ant-col-18"
-          role="cell"
-          style="padding-left: 4px; padding-right: 4px;"
-        >
-          <div
-            class="ant-card-loading-block"
-          />
-        </div>
-      </div>
-      <div
-        class="ant-row"
-        role="row"
-        style="margin-left: -4px; margin-right: -4px;"
-      >
-        <div
-          class="ant-col ant-col-13"
-          role="cell"
-          style="padding-left: 4px; padding-right: 4px;"
-        >
-          <div
-            class="ant-card-loading-block"
-          />
-        </div>
-        <div
-          class="ant-col ant-col-9"
-          role="cell"
-          style="padding-left: 4px; padding-right: 4px;"
-        >
-          <div
-            class="ant-card-loading-block"
-          />
-        </div>
-      </div>
-      <div
-        class="ant-row"
-        role="row"
-        style="margin-left: -4px; margin-right: -4px;"
-      >
-        <div
-          class="ant-col ant-col-4"
-          role="cell"
-          style="padding-left: 4px; padding-right: 4px;"
-        >
-          <div
-            class="ant-card-loading-block"
-          />
-        </div>
-        <div
-          class="ant-col ant-col-3"
-          role="cell"
-          style="padding-left: 4px; padding-right: 4px;"
-        >
-          <div
-            class="ant-card-loading-block"
-          />
-        </div>
-        <div
-          class="ant-col ant-col-16"
-          role="cell"
-          style="padding-left: 4px; padding-right: 4px;"
-        >
-          <div
-            class="ant-card-loading-block"
-          />
-        </div>
+        </ul>
       </div>
     </div>
   </div>
