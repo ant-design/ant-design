@@ -271,32 +271,6 @@
   &-loading &-body {
     user-select: none;
   }
-
-  &-loading-content {
-    p {
-      margin: 0;
-    }
-  }
-
-  &-loading-block {
-    height: 14px;
-    margin: 4px 0;
-    background: linear-gradient(90deg, @gradient-min, @gradient-max, @gradient-min);
-    background-size: 600% 600%;
-    border-radius: @card-radius;
-    animation: card-loading 1.4s ease infinite;
-  }
-}
-
-@keyframes card-loading {
-  0%,
-  100% {
-    background-position: 0 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
 }
 
 @import './size';
