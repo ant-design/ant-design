@@ -3,7 +3,6 @@ order: 24
 title:
   zh-CN: 响应式 maxTagCount
   en-US: Responsive maxTagCount
-only: true
 ---
 
 ## zh-CN
@@ -33,7 +32,7 @@ for (let i = 10; i < 36; i++) {
 }
 
 const Demo = () => {
-  const [value, setValue] = React.useState(['a10']);
+  const [value, setValue] = React.useState(['a10', 'c12', 'h17', 'j19', 'k20']);
 
   const selectProps = {
     mode: 'multiple' as const,
@@ -50,6 +49,7 @@ const Demo = () => {
   return (
     <Space direction="vertical" style={{ width: '100%' }}>
       <Select {...selectProps} />
+      <Select {...selectProps} disabled />
     </Space>
   );
 };
