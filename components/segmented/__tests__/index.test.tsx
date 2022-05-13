@@ -100,7 +100,7 @@ describe('Segmented', () => {
         .classList.contains(`${prefixCls}-item-selected`),
     ).toBeTruthy();
 
-    fireEvent.change(container.querySelectorAll(`.${prefixCls}-item-input`)[2]);
+    fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[2]);
     expect(handleValueChange).toBeCalledWith('Monthly');
 
     expectMatchChecked(container, [false, false, true]);
@@ -114,7 +114,7 @@ describe('Segmented', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
     expectMatchChecked(container, [true, false, false, false, false]);
 
-    fireEvent.change(container.querySelectorAll(`.${prefixCls}-item-input`)[4]);
+    fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[4]);
     expect(handleValueChange).toBeCalledWith(5);
 
     expectMatchChecked(container, [false, false, false, false, true]);
@@ -131,7 +131,7 @@ describe('Segmented', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
     expectMatchChecked(container, [true, false, false]);
 
-    fireEvent.change(container.querySelectorAll(`.${prefixCls}-item-input`)[1]);
+    fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[1]);
     expect(handleValueChange).toBeCalledWith('Weekly');
 
     expectMatchChecked(container, [false, true, false]);
@@ -153,12 +153,12 @@ describe('Segmented', () => {
     ).toBeTruthy();
     expect(container.querySelectorAll(`.${prefixCls}-item-input`)[1]).toHaveAttribute('disabled');
 
-    fireEvent.change(container.querySelectorAll(`.${prefixCls}-item-input`)[1]);
+    fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[1]);
     expect(handleValueChange).not.toBeCalled();
 
     expectMatchChecked(container, [true, false, false]);
 
-    fireEvent.change(container.querySelectorAll(`.${prefixCls}-item-input`)[2]);
+    fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[2]);
     expect(handleValueChange).toBeCalledWith('Monthly');
     expect(handleValueChange).toBeCalledTimes(1);
 
@@ -179,12 +179,12 @@ describe('Segmented', () => {
       container.querySelectorAll(`.${prefixCls}`)[0].classList.contains(`${prefixCls}-disabled`),
     ).toBeTruthy();
 
-    fireEvent.change(container.querySelectorAll(`.${prefixCls}-item-input`)[1]);
+    fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[1]);
     expect(handleValueChange).not.toBeCalled();
 
     expectMatchChecked(container, [true, false, false]);
 
-    fireEvent.change(container.querySelectorAll(`.${prefixCls}-item-input`)[2]);
+    fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[2]);
     expect(handleValueChange).not.toBeCalled();
 
     expectMatchChecked(container, [true, false, false]);
@@ -244,10 +244,10 @@ describe('Segmented', () => {
     }
 
     const { container } = render(<Demo />);
-    fireEvent.change(container.querySelectorAll(`.${prefixCls}-item-input`)[0]);
+    fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[0]);
     expect(container.querySelector('.value')?.textContent).toBe('Map');
 
-    fireEvent.change(container.querySelectorAll(`.${prefixCls}-item-input`)[1]);
+    fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[1]);
     expect(container.querySelector('.value')?.textContent).toBe('Transit');
   });
 
@@ -283,7 +283,7 @@ describe('Segmented', () => {
         .classList.contains(`${prefixCls}-item-selected`),
     ).toBeTruthy();
 
-    fireEvent.change(container.querySelectorAll(`.${prefixCls}-item-input`)[2]);
+    fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[2]);
     expect(handleValueChange).toBeCalledWith('Satellite');
 
     expectMatchChecked(container, [false, false, true]);
@@ -292,7 +292,7 @@ describe('Segmented', () => {
     expect(container.querySelectorAll(`.${prefixCls}-thumb`).length).toBe(1);
 
     // change selection again
-    fireEvent.change(container.querySelectorAll(`.${prefixCls}-item-input`)[1]);
+    fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[1]);
     expect(handleValueChange).toBeCalledWith('Transit');
 
     expectMatchChecked(container, [false, true, false]);
