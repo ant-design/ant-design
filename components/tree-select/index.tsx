@@ -7,16 +7,16 @@ import type { BaseOptionType, DefaultOptionType } from 'rc-tree-select/lib/TreeS
 import type { BaseSelectRef } from 'rc-select';
 import { useContext } from 'react';
 import { ConfigContext } from '../config-provider';
-import devWarning from '../_util/devWarning';
+import warning from '../_util/warning';
 import type { AntTreeNodeProps, TreeProps } from '../tree';
 import type { SwitcherIcon } from '../tree/Tree';
 import getIcons from '../select/utils/iconUtil';
 import renderSwitcherIcon from '../tree/utils/iconUtil';
-import DisabledContext from '../config-provider/DisabledContext';
 import useStyle from './style';
 import useSelectStyle from '../select/style';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
+import DisabledContext from '../config-provider/DisabledContext';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName, getTransitionDirection } from '../_util/motion';
 import { FormItemInputContext } from '../form/context';
@@ -92,7 +92,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
   } = React.useContext(ConfigContext);
   const size = React.useContext(SizeContext);
 
-  devWarning(
+  warning(
     multiple !== false || !treeCheckable,
     'TreeSelect',
     '`multiple` will always be `true` when `treeCheckable` is true',

@@ -51,9 +51,46 @@
     font-size: @font-size-lg;
   }
 
-  &-notice.@{ant-prefix}-move-up-leave.@{ant-prefix}-move-up-leave-active {
+  &-move-up {
+    animation-fill-mode: forwards;
+  }
+
+  &-move-up-appear,
+  &-move-up-enter {
+    animation-name: MessageMoveIn;
+    animation-duration: 0.3s;
+    animation-play-state: paused;
+    animation-timing-function: @ease-out-circ;
+  }
+
+  &-move-up-appear&-move-up-appear-active,
+  &-move-up-enter&-move-up-enter-active {
+    animation-play-state: running;
+  }
+
+  &-move-up-leave {
     animation-name: MessageMoveOut;
     animation-duration: 0.3s;
+    animation-play-state: paused;
+    animation-timing-function: @ease-out-circ;
+  }
+
+  &-move-up-leave&-move-up-leave-active {
+    animation-play-state: running;
+  }
+}
+
+@keyframes MessageMoveIn {
+  0% {
+    padding: 0;
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  100% {
+    padding: 8px;
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 

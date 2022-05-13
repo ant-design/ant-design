@@ -1,5 +1,5 @@
 import * as React from 'react';
-import devWarning from '../_util/devWarning';
+import warning from '../_util/warning';
 import type { BlockProps } from './Base';
 import Base from './Base';
 import { tupleNum } from '../_util/type';
@@ -21,7 +21,7 @@ const Title: React.ForwardRefRenderFunction<HTMLHeadingElement, TitleProps> = (p
   if (TITLE_ELE_LIST.indexOf(level) !== -1) {
     component = `h${level}`;
   } else {
-    devWarning(
+    warning(
       false,
       'Typography.Title',
       'Title only accept `1 | 2 | 3 | 4 | 5` as `level` value. And `5` need 4.6.0+ version.',

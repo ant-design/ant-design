@@ -14,38 +14,39 @@ title:
 A basic calendar component with Year/Month switch.
 
 ```jsx
+import React, { useState } from 'react';
 import { Calendar, Alert } from 'antd';
 import dayjs from 'dayjs';
 
-class App extends React.Component {
-  state = {
+export default () => {
+  const [calendar, setCalendar] = useState({
     value: dayjs('2017-01-25'),
     selectedValue: dayjs('2017-01-25'),
-  };
+  });
 
-  onSelect = value => {
-    this.setState({
+  const onSelect = value => {
+    setCalendar({
       value,
       selectedValue: value,
     });
   };
 
-  onPanelChange = value => {
-    this.setState({ value });
+  const onPanelChange = value => {
+    setCalendar({
+      ...calendar,
+      value,
+    });
   };
 
-  render() {
-    const { value, selectedValue } = this.state;
-    return (
-      <>
-        <Alert
-          message={`You selected date: ${selectedValue && selectedValue.format('YYYY-MM-DD')}`}
-        />
-        <Calendar value={value} onSelect={this.onSelect} onPanelChange={this.onPanelChange} />
-      </>
-    );
-  }
-}
-
-export default App;
+  return (
+    <>
+      <Alert
+        message={`You selected date: ${
+          calendar.selectedValue && calendar.selectedValue.format('YYYY-MM-DD')
+        }`}
+      />
+      <Calendar value={calendar.value} onSelect={onSelect} onPanelChange={onPanelChange} />
+    </>
+  );
+};
 ```

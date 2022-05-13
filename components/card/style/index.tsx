@@ -1,14 +1,5 @@
-// import '../../style/index.less';
-// import './index.less';
-
-// style dependencies
-// import '../../tabs/style';
-// import '../../row/style';
-// import '../../col/style';
-
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
-import { Keyframes } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 
 import type { GenerateStyle, FullToken } from '../../_util/theme';
@@ -28,20 +19,7 @@ interface CardToken extends FullToken<'Card'> {
   cardSkeletonBg: string;
   borderColorSplit: string;
   backgroundColorLight: string;
-  gradientMin: string;
-  gradientMax: string;
 }
-
-// ============================== Motion ==============================
-const antCardLoading = new Keyframes('antCardLoading', {
-  '0%, 100%': {
-    backgroundPosition: '0 50%',
-  },
-
-  '50%': {
-    backgroundPosition: '100% 50%',
-  },
-});
 
 // ============================== Styles ==============================
 
@@ -248,29 +226,13 @@ const genCardTypeInnerStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 
 // ============================== Loading ==============================
 const genCardLoadingStyle: GenerateStyle<CardToken> = (token): CSSObject => {
-  const { componentCls, gradientMin, gradientMax } = token;
+  const { componentCls } = token;
 
   return {
     overflow: 'hidden',
 
     [`${componentCls}-body`]: {
       userSelect: 'none',
-    },
-
-    [`${componentCls}-loading-content p`]: {
-      margin: 0,
-    },
-
-    [`${componentCls}-loading-block`]: {
-      height: token.fontSize,
-      margin: `${token.marginXXS}px 0`,
-      background: `linear-gradient(90deg, ${gradientMin}, ${gradientMax}, ${gradientMin})`,
-      backgroundSize: '600% 600%',
-      borderRadius: token.radiusBase,
-      animationName: antCardLoading,
-      animationDuration: '1.4s',
-      animationTimingFunction: 'ease',
-      animationIterationCount: 'infinite',
     },
   };
 };
@@ -438,8 +400,6 @@ export default genComponentStyleHook('Card', token => {
     cardActionsIconSize: token.fontSize,
     borderColorSplit: token.colorSplit,
     backgroundColorLight: token.colorBgComponentSecondary,
-    gradientMin: new TinyColor('#cfd8dc').setAlpha(0.2).toRgbString(), // FIXME: hardcode in v4
-    gradientMax: new TinyColor('#cfd8dc').setAlpha(0.4).toRgbString(), // FIXME: hardcode in v4
   });
 
   return [

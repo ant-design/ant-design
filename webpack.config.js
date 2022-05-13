@@ -42,24 +42,6 @@ function addLocales(webpackConfig) {
   webpackConfig.output.filename = '[name].js';
 }
 
-function injectWarningCondition(config) {
-  config.module.rules.forEach(rule => {
-    // Remove devWarning if needed
-    if (rule.test.test('test.tsx')) {
-      rule.use = [
-        ...rule.use,
-        {
-          loader: 'string-replace-loader',
-          options: {
-            search: 'devWarning(',
-            replace: "if (process.env.NODE_ENV !== 'production') devWarning(",
-          },
-        },
-      ];
-    }
-  });
-}
-
 function externalDayjs(config) {
   config.externals.dayjs = {
     root: 'dayjs',
@@ -118,10 +100,6 @@ const webpackDarkConfig = injectLessVariables(getWebpackConfig(false), legacyEnt
 const webpackCompactConfig = injectLessVariables(getWebpackConfig(false), legacyEntryVars);
 const webpackVariableConfig = injectLessVariables(getWebpackConfig(false), {
   'root-entry-name': 'variable',
-});
-
-webpackConfig.forEach(config => {
-  injectWarningCondition(config);
 });
 
 if (process.env.RUN_ENV === 'PRODUCTION') {

@@ -1,7 +1,7 @@
 import React from 'react';
 // Reference: https://github.com/ant-design/ant-design/pull/24003#discussion_r427267386
 // eslint-disable-next-line import/no-unresolved
-import { configureToMatchImageSnapshot } from 'jest-image-snapshot';
+import { configureToMatchImageSnapshot } from '@ant-design/jest-image-snapshot';
 import ReactDOMServer from 'react-dom/server';
 import glob from 'glob';
 import MockDate from 'mockdate';

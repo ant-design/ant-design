@@ -1,7 +1,6 @@
 // deps-lint-skip-all
 import type React from 'react';
 import type { CSSObject } from '@ant-design/cssinjs';
-import { TinyColor } from '@ctrl/tinycolor';
 import type { TokenWithCommonCls } from 'antd/es/_util/theme/util/genComponentStyleHook';
 import { genComponentStyleHook, mergeToken, resetComponent, clearFix } from '../../_util/theme';
 import type { FullToken, GenerateStyle, AliasToken } from '../../_util/theme';
@@ -13,14 +12,12 @@ export interface ComponentToken {
 
 export interface ModalToken extends FullToken<'Modal'> {
   // Custom token here
-  modalHeaderPaddingVertical: number;
-  modalHeaderPaddingHorizontal: number;
   modalBodyPadding: number;
   modalHeaderBg: string;
   modalHeaderPadding: string;
   modalHeaderBorderWidth: number;
   modalHeaderBorderStyle: string;
-  modalHeaderTitleLineHeight: string;
+  modalHeaderTitleLineHeight: number;
   modalHeaderTitleFontSize: number;
   modalHeaderBorderColorSplit: string;
   modalHeaderCloseSize: number;
@@ -33,10 +30,9 @@ export interface ModalToken extends FullToken<'Modal'> {
   modalFooterPaddingVertical: number;
   modalFooterPaddingHorizontal: number;
   modalFooterBorderWidth: number;
-  modalMaskBg: string;
-  modalConfirmBodyPadding: string;
   modalConfirmTitleFontSize: number;
   modalIconHoverColor: string;
+  modalConfirmIconSize: number;
 }
 
 function box(position: React.CSSProperties['position']): React.CSSProperties {
@@ -93,15 +89,15 @@ const genModalStyle: GenerateStyle<ModalToken> = token => {
         position: 'relative',
         top: 100,
         width: 'auto',
-        maxWidth: 'calc(100vw - 32px)',
+        maxWidth: `calc(100vw - ${token.margin * 2}px)`,
         margin: '0 auto',
         paddingBottom: token.paddingLG,
 
         '&-title': {
           margin: 0,
           color: token.modalHeadingColor,
-          fontWeight: 500,
-          fontSize: token.fontSizeLG,
+          fontWeight: token.fontWeightStrong,
+          fontSize: token.modalHeaderTitleFontSize,
           lineHeight: token.modalHeaderTitleLineHeight,
           wordWrap: 'break-word',
         },
@@ -120,12 +116,10 @@ const genModalStyle: GenerateStyle<ModalToken> = token => {
           position: 'absolute',
           top: 0,
           insetInlineEnd: 0,
-          // FIXME: hard code
-          zIndex: token.zIndexBase + 10,
+          zIndex: token.zIndexPopupBase + 10,
           padding: 0,
           color: token.modalCloseColor,
-          // FIXME: hard code
-          fontWeight: 700,
+          fontWeight: token.fontWeightStrong,
           lineHeight: 1,
           textDecoration: 'none',
           background: 'transparent',
@@ -245,48 +239,50 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = token => {
           display: 'none',
         },
         [`${token.antCls}-modal-body`]: {
-          // FIXME: hard code
           padding: `${token.padding * 2}px ${token.padding * 2}px ${token.paddingLG}px`,
         },
         [`${confirmComponentCls}-body-wrapper`]: {
           ...clearFix(),
         },
         [`${confirmComponentCls}-body`]: {
+          display: 'flex',
+          flexWrap: 'wrap',
+          alignItems: 'center',
+
           [`${confirmComponentCls}-title`]: {
+            flex: 1,
             display: 'block',
             // create BFC to avoid
             // https://user-images.githubusercontent.com/507615/37702510-ba844e06-2d2d-11e8-9b67-8e19be57f445.png
             overflow: 'hidden',
             color: token.colorTextHeading,
-            // FIXME: hard code
-            fontWeight: 500,
-            fontSize: token.modalConfirmTitleFontSize,
-            // FIXME: hard code
-            lineHeight: 1.4,
+            fontWeight: token.fontWeightStrong,
+            fontSize: token.modalHeaderTitleFontSize,
+            lineHeight: token.modalHeaderTitleLineHeight,
           },
 
           [`${confirmComponentCls}-content`]: {
             marginTop: token.marginXS,
             color: token.colorText,
             fontSize: token.fontSizeBase,
+            flexBasis: '100%',
           },
 
           [`> ${token.iconCls}`]: {
-            float: 'left',
+            flex: 'none',
             marginInlineEnd: token.margin,
-            // FIXME: hard code
-            fontSize: 22,
+            fontSize: token.modalConfirmIconSize,
 
             // `content` after `icon` should set marginLeft
             [`+ ${confirmComponentCls}-title + ${confirmComponentCls}-content`]: {
-              // FIXME: hard code
-              marginInlineStart: 38,
+              marginInlineStart: token.modalConfirmIconSize + token.margin,
             },
           },
         },
         [`${confirmComponentCls}-btns`]: {
-          // FIXME: 改成 flex 布局
-          float: 'right',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'flex-end',
           marginTop: token.marginLG,
 
           [`${token.antCls}-btn + ${token.antCls}-btn`]: {
@@ -324,16 +320,7 @@ const genRTLStyle: GenerateStyle<ModalToken> = token => {
         direction: 'rtl',
 
         [`${componentCls}-confirm-body`]: {
-          // FIXME: duplicated style
-          // direction: 'rtl',
-
-          [`>${token.iconCls}`]: {
-            float: 'right',
-          },
-        },
-
-        [`${componentCls}-confirm-btns`]: {
-          float: 'left',
+          direction: 'rtl',
         },
       },
     },
@@ -342,36 +329,32 @@ const genRTLStyle: GenerateStyle<ModalToken> = token => {
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Modal', token => {
+  const headerPaddingVertical = token.padding;
+  const headerFontSize = token.fontSizeHeading5;
+  const headerLineHeight = token.lineHeightHeading5;
+
   const modalToken = mergeToken<ModalToken>(token, {
-    modalHeaderPaddingVertical: token.paddingXS,
-    modalHeaderPaddingHorizontal: token.paddingLG,
     modalBodyPadding: token.paddingLG,
     modalHeaderBg: token.colorBgComponent,
-    modalHeaderPadding: `${token.padding}px ${token.paddingLG}px`,
+    modalHeaderPadding: `${headerPaddingVertical}px ${token.paddingLG}px`,
     modalHeaderBorderWidth: token.controlLineWidth,
     modalHeaderBorderStyle: token.controlLineType,
-    //
-    modalHeaderTitleLineHeight: '22px',
-    modalHeaderTitleFontSize: token.fontSizeLG,
+    modalHeaderTitleLineHeight: headerLineHeight,
+    modalHeaderTitleFontSize: headerFontSize,
     modalHeaderBorderColorSplit: token.colorSplit,
-    // FIXME: hard code
-    modalHeaderCloseSize: 56,
+    modalHeaderCloseSize: headerLineHeight * headerFontSize + headerPaddingVertical * 2,
     modalContentBg: token.colorBgComponent,
     modalHeadingColor: token.colorTextHeading,
     modalCloseColor: token.colorTextSecondary,
     modalFooterBg: 'transparent',
     modalFooterBorderColorSplit: token.colorSplit,
     modalFooterBorderStyle: token.controlLineType,
-    // FIXME: hard code
-    modalFooterPaddingVertical: token.paddingXS + 2,
-    // FIXME: hard code
+    modalFooterPaddingVertical: token.paddingXS,
     modalFooterPaddingHorizontal: token.padding,
     modalFooterBorderWidth: token.controlLineWidth,
-    modalMaskBg: token.colorTextSecondary,
-    modalConfirmBodyPadding: `${token.padding * 2}px ${token.padding}px ${token.paddingLG}px`,
     modalConfirmTitleFontSize: token.fontSizeLG,
-    // FIXME: hard code
-    modalIconHoverColor: new TinyColor('#000').setAlpha(0.75).toRgbString(),
+    modalIconHoverColor: token.colorActionHover,
+    modalConfirmIconSize: token.fontSize * token.lineHeight,
   });
   return [genModalStyle(modalToken), genModalConfirmStyle(modalToken), genRTLStyle(modalToken)];
 });

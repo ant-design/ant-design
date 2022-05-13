@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, mount } from 'enzyme';
 import List from '..';
+import { noop } from '../../_util/warning';
 
 describe('List.pagination', () => {
   const data = [
@@ -65,7 +66,6 @@ describe('List.pagination', () => {
 
   it('fires change event', () => {
     const handlePaginationChange = jest.fn();
-    const noop = () => {};
     const wrapper = mount(
       createList({
         pagination: {

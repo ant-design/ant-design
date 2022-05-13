@@ -23,80 +23,76 @@ When `RangePicker` does not satisfied your requirements, try to implement simila
 ```jsx
 import { DatePicker, Space } from 'antd';
 
-class DateRange extends React.Component {
-  state = {
+export default () => {
+  const [state, setState] = React.useState({
     startValue: null,
     endValue: null,
     endOpen: false,
-  };
+  });
 
-  disabledStartDate = startValue => {
-    const { endValue } = this.state;
+  const disabledStartDate = startValue => {
+    const { endValue } = state;
     if (!startValue || !endValue) {
       return false;
     }
     return startValue.valueOf() > endValue.valueOf();
   };
 
-  disabledEndDate = endValue => {
-    const { startValue } = this.state;
+  const disabledEndDate = endValue => {
+    const { startValue } = state;
     if (!endValue || !startValue) {
       return false;
     }
     return endValue.valueOf() <= startValue.valueOf();
   };
 
-  onChange = (field, value) => {
-    this.setState({
+  const onChange = (field, value) => {
+    setState({
+      ...state,
       [field]: value,
     });
   };
 
-  onStartChange = value => {
-    this.onChange('startValue', value);
+  const onStartChange = value => {
+    onChange('startValue', value);
   };
 
-  onEndChange = value => {
-    this.onChange('endValue', value);
+  const onEndChange = value => {
+    onChange('endValue', value);
   };
 
-  handleStartOpenChange = open => {
+  const handleStartOpenChange = open => {
     if (!open) {
-      this.setState({ endOpen: true });
+      setState({ ...state, endOpen: true });
     }
   };
 
-  handleEndOpenChange = open => {
-    this.setState({ endOpen: open });
+  const handleEndOpenChange = open => {
+    setState({ ...state, endOpen: true });
   };
 
-  render() {
-    const { startValue, endValue, endOpen } = this.state;
-    return (
-      <Space>
-        <DatePicker
-          disabledDate={this.disabledStartDate}
-          showTime
-          format="YYYY-MM-DD HH:mm:ss"
-          value={startValue}
-          placeholder="Start"
-          onChange={this.onStartChange}
-          onOpenChange={this.handleStartOpenChange}
-        />
-        <DatePicker
-          disabledDate={this.disabledEndDate}
-          showTime
-          format="YYYY-MM-DD HH:mm:ss"
-          value={endValue}
-          placeholder="End"
-          onChange={this.onEndChange}
-          open={endOpen}
-          onOpenChange={this.handleEndOpenChange}
-        />
-      </Space>
-    );
-  }
-}
-
-export default () => <DateRange />;
+  return (
+    <Space>
+      <DatePicker
+        disabledDate={disabledStartDate}
+        showTime
+        format="YYYY-MM-DD HH:mm:ss"
+        value={state.startValue}
+        placeholder="Start"
+        onChange={onStartChange}
+        onOpenChange={handleStartOpenChange}
+      />
+      <DatePicker
+        disabledDate={disabledEndDate}
+        showTime
+        format="YYYY-MM-DD HH:mm:ss"
+        value={state.endValue}
+        placeholder="End"
+        onChange={onEndChange}
+        open={state.endOpen}
+        onOpenChange={handleEndOpenChange}
+      />
+    </Space>
+  );
+};
 ```

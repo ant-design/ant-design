@@ -63,8 +63,10 @@ const ArticleList: React.FC<ArticleListProps> = ({ name, data = [], authors = []
 export default () => {
   const { locale } = useIntl();
   const isZhCN = locale === 'zh-CN';
-  const [{ articles = { cn: [], en: [] }, authors = [] }, loading] =
-    useSiteData<{ articles: Articles; authors: Authors }>();
+  const [{ articles = { cn: [], en: [] }, authors = [] }, loading] = useSiteData<{
+    articles: Articles;
+    authors: Authors;
+  }>();
 
   // ========================== Data ==========================
   const mergedData = React.useMemo(() => {

@@ -8,7 +8,7 @@ import { forwardRef } from 'react';
 import SubMenu, { SubMenuProps } from './SubMenu';
 import Item, { MenuItemProps } from './MenuItem';
 import { ConfigContext } from '../config-provider';
-import devWarning from '../_util/devWarning';
+import warning from '../_util/warning';
 import type { SiderContextProps } from '../layout/Sider';
 import { SiderContext } from '../layout/Sider';
 import collapseMotion from '../_util/motion';
@@ -70,19 +70,19 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
   const mergedChildren = useItems(items) || children;
 
   // ======================== Warning ==========================
-  devWarning(
+  warning(
     !('inlineCollapsed' in props && props.mode !== 'inline'),
     'Menu',
     '`inlineCollapsed` should only be used when `mode` is inline.',
   );
 
-  devWarning(
+  warning(
     !(props.siderCollapsed !== undefined && 'inlineCollapsed' in props),
     'Menu',
     '`inlineCollapsed` not control Menu under Sider. Should set `collapsed` on Sider instead.',
   );
 
-  devWarning(
+  warning(
     !!items && !children,
     'Menu',
     '`children` will be removed in next major version. Please use `items` instead.',
