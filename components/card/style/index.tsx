@@ -6,19 +6,14 @@ import type { GenerateStyle, FullToken } from '../../_util/theme';
 import { resetComponent, genComponentStyleHook, mergeToken, clearFix } from '../../_util/theme';
 
 interface CardToken extends FullToken<'Card'> {
-  cardHoverableHoverBorder: string;
   cardShadow: string;
   cardHeadHeight: number;
-  cardHeadHeightSM: number;
   cardHeadPadding: number;
   cardPaddingBase: number;
   cardHeadTabsMarginBottom: number;
   cardInnerHeadPadding: number;
   cardActionsLiMargin: string;
   cardActionsIconSize: number;
-  cardSkeletonBg: string;
-  borderColorSplit: string;
-  backgroundColorLight: string;
 }
 
 // ============================== Styles ==============================
@@ -28,12 +23,10 @@ const genCardHeadStyle: GenerateStyle<CardToken> = (token): CSSObject => {
   const {
     antCls,
     componentCls,
-    cardHoverableHoverBorder,
     cardHeadHeight,
     cardHeadPadding,
     cardPaddingBase,
     cardHeadTabsMarginBottom,
-    borderColorSplit,
   } = token;
 
   return {
@@ -43,8 +36,8 @@ const genCardHeadStyle: GenerateStyle<CardToken> = (token): CSSObject => {
     color: token.colorTextHeading,
     fontWeight: token.fontWeightStrong,
     fontSize: token.fontSizeLG,
-    background: cardHoverableHoverBorder,
-    borderBottom: `${token.controlLineWidth}px ${token.controlLineType} ${borderColorSplit}`,
+    background: 'transparent',
+    borderBottom: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorderSecondary}`,
     borderRadius: `${token.radiusBase}px ${token.radiusBase}px 0 0`,
 
     ...clearFix(),
@@ -80,7 +73,7 @@ const genCardHeadStyle: GenerateStyle<CardToken> = (token): CSSObject => {
       fontSize: token.fontSizeBase,
 
       '&-bar': {
-        borderBottom: `${token.controlLineWidth}px ${token.controlLineType} ${borderColorSplit}`,
+        borderBottom: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorderSecondary}`,
       },
     },
   };
@@ -88,18 +81,18 @@ const genCardHeadStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 
 // ============================== Grid ==============================
 const genCardGridStyle: GenerateStyle<CardToken> = (token): CSSObject => {
-  const { cardPaddingBase, borderColorSplit, cardShadow, lineWidth } = token;
+  const { cardPaddingBase, colorBorderSecondary, cardShadow, lineWidth } = token;
   return {
     width: '33.33%',
     padding: cardPaddingBase,
     border: 0,
     borderRadius: 0,
     boxShadow: `
-      ${lineWidth}px 0 0 0 ${borderColorSplit},
-      0 ${lineWidth}px 0 0 ${borderColorSplit},
-      ${lineWidth}px ${lineWidth}px 0 0 ${borderColorSplit},
-      ${lineWidth}px 0 0 0 ${borderColorSplit} inset,
-      0 ${lineWidth}px 0 0 ${borderColorSplit} inset;
+      ${lineWidth}px 0 0 0 ${colorBorderSecondary},
+      0 ${lineWidth}px 0 0 ${colorBorderSecondary},
+      ${lineWidth}px ${lineWidth}px 0 0 ${colorBorderSecondary},
+      ${lineWidth}px 0 0 0 ${colorBorderSecondary} inset,
+      0 ${lineWidth}px 0 0 ${colorBorderSecondary} inset;
     `,
     transition: `all ${token.motionDurationSlow}`,
 
@@ -113,14 +106,14 @@ const genCardGridStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 
 // ============================== Actions ==============================
 const genCardActionsStyle: GenerateStyle<CardToken> = (token): CSSObject => {
-  const { componentCls, iconCls, cardActionsLiMargin, cardActionsIconSize, borderColorSplit } =
+  const { componentCls, iconCls, cardActionsLiMargin, cardActionsIconSize, colorBorderSecondary } =
     token;
   return {
     margin: 0,
     padding: 0,
     listStyle: 'none',
     background: token.colorBgComponent,
-    borderTop: `${token.controlLineWidth}px ${token.controlLineType} ${borderColorSplit}`,
+    borderTop: `${token.controlLineWidth}px ${token.controlLineType} ${colorBorderSecondary}`,
     display: 'flex',
     ...clearFix(),
 
@@ -161,7 +154,7 @@ const genCardActionsStyle: GenerateStyle<CardToken> = (token): CSSObject => {
       },
 
       '&:not(:last-child)': {
-        borderInlineEnd: `${token.controlLineWidth}px ${token.controlLineType} ${borderColorSplit}`,
+        borderInlineEnd: `${token.controlLineWidth}px ${token.controlLineType} ${colorBorderSecondary}`,
       },
     },
   };
@@ -201,12 +194,12 @@ const genCardMetaStyle: GenerateStyle<CardToken> = (token): CSSObject => ({
 
 // ============================== Inner ==============================
 const genCardTypeInnerStyle: GenerateStyle<CardToken> = (token): CSSObject => {
-  const { componentCls, cardPaddingBase, backgroundColorLight, cardInnerHeadPadding } = token;
+  const { componentCls, cardPaddingBase, colorBgComponentSecondary, cardInnerHeadPadding } = token;
 
   return {
     [`${componentCls}-head`]: {
       padding: `0 ${cardPaddingBase}px`,
-      background: backgroundColorLight,
+      background: colorBgComponentSecondary,
 
       '&-title': {
         padding: `${cardInnerHeadPadding}px 0`,
@@ -241,12 +234,11 @@ const genCardLoadingStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
   const {
     componentCls,
-    cardHoverableHoverBorder,
     cardShadow,
     cardHeadHeight,
     cardHeadPadding,
     cardPaddingBase,
-    borderColorSplit,
+    colorBorderSecondary,
   } = token;
 
   return {
@@ -292,7 +284,7 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
     },
 
     [`${componentCls}-bordered`]: {
-      border: `${token.controlLineWidth}px ${token.controlLineType} ${borderColorSplit}`,
+      border: `${token.controlLineWidth}px ${token.controlLineType} ${colorBorderSecondary}`,
 
       [`${componentCls}-cover`]: {
         marginTop: -1,
@@ -306,7 +298,7 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
       transition: `box-shadow ${token.motionDurationSlow}, border-color ${token.motionDurationSlow}`,
 
       '&:hover': {
-        borderColor: cardHoverableHoverBorder,
+        borderColor: 'transparent',
         boxShadow: cardShadow,
       },
     },
@@ -349,14 +341,14 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 
 // ============================== Size ==============================
 const genCardSizeStyle: GenerateStyle<CardToken> = (token): CSSObject => {
-  const { componentCls, cardHeadHeightSM, cardPaddingBase, cardHeadPadding } = token;
+  const { componentCls, cardPaddingBase, cardHeadPadding } = token;
   const cardPaddingBaseSM = cardPaddingBase / 2;
   const cardHeadPaddingSM = cardHeadPadding / 2;
 
   return {
     [`${componentCls}-small`]: {
       [`> ${componentCls}-head`]: {
-        minHeight: cardHeadHeightSM,
+        minHeight: cardHeadPaddingSM * 2 + token.fontSize,
         padding: `0 ${cardPaddingBaseSM}px`,
         fontSize: token.fontSize,
 
@@ -384,22 +376,18 @@ export default genComponentStyleHook('Card', token => {
   const cardHeadPadding = token.padding;
 
   const cardToken = mergeToken<CardToken>(token, {
-    cardHoverableHoverBorder: 'transparent',
     cardShadow: `
       0 1px 2px -2px ${new TinyColor('rgba(0, 0, 0, 0.16)').toRgbString()},
       0 3px 6px 0 ${new TinyColor('rgba(0, 0, 0, 0.12)').toRgbString()},
       0 5px 12px 4px ${new TinyColor('rgba(0, 0, 0, 0.09)').toRgbString()}
-    `, // FIXME: hardcode in v4
+    `, // FIXME: shadow
     cardHeadHeight: token.fontSizeLG + cardHeadPadding * 2,
-    cardHeadHeightSM: 30, // FIXME: hardcode in v4
     cardHeadPadding,
     cardPaddingBase: token.paddingLG,
     cardHeadTabsMarginBottom: -token.padding - token.lineWidth,
     cardInnerHeadPadding: token.paddingSM,
     cardActionsLiMargin: `${token.paddingSM}px 0`,
     cardActionsIconSize: token.fontSize,
-    borderColorSplit: token.colorSplit,
-    backgroundColorLight: token.colorBgComponentSecondary,
   });
 
   return [
