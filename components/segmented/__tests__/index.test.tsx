@@ -18,7 +18,7 @@ const prefixCls = 'ant-segmented';
 
 function expectMatchChecked(container: HTMLElement, checkedList: boolean[]) {
   const inputList = Array.from(
-    container.querySelectorAll<HTMLInputElement>(`${prefixCls}-item-input`),
+    container.querySelectorAll<HTMLInputElement>(`.${prefixCls}-item-input`),
   );
   expect(inputList).toHaveLength(checkedList.length);
 
