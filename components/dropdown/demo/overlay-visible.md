@@ -17,57 +17,48 @@ The default is to close the menu when you click on menu items, this feature can 
 import { Menu, Dropdown, Space } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 
-class OverlayVisible extends React.Component {
-  state = {
-    visible: false,
-  };
+export default () => {
+  const [visible, setVisible] = React.useState(false);
 
-  handleMenuClick = e => {
+  const handleMenuClick = e => {
     if (e.key === '3') {
-      this.setState({ visible: false });
+      setVisible(false);
     }
   };
 
-  handleVisibleChange = flag => {
-    this.setState({ visible: flag });
+  const handleVisibleChange = flag => {
+    setVisible(flag);
   };
 
-  render() {
-    const menu = (
-      <Menu
-        onClick={this.handleMenuClick}
-        items={[
-          {
-            label: 'Clicking me will not close the menu.',
-            key: '1',
-          },
-          {
-            label: 'Clicking me will not close the menu also.',
-            key: '2',
-          },
-          {
-            label: 'Clicking me will close the menu.',
-            key: '3',
-          },
-        ]}
-      />
-    );
-    return (
-      <Dropdown
-        overlay={menu}
-        onVisibleChange={this.handleVisibleChange}
-        visible={this.state.visible}
-      >
-        <a onClick={e => e.preventDefault()}>
-          <Space>
-            Hover me
-            <DownOutlined />
-          </Space>
-        </a>
-      </Dropdown>
-    );
-  }
-}
+  const menu = (
+    <Menu
+      onClick={handleMenuClick}
+      items={[
+        {
+          label: 'Clicking me will not close the menu.',
+          key: '1',
+        },
+        {
+          label: 'Clicking me will not close the menu also.',
+          key: '2',
+        },
+        {
+          label: 'Clicking me will close the menu.',
+          key: '3',
+        },
+      ]}
+    />
+  );
 
-export default () => <OverlayVisible />;
+  return (
+    <Dropdown overlay={menu} onVisibleChange={handleVisibleChange} visible={visible}>
+      <a onClick={e => e.preventDefault()}>
+        <Space>
+          Hover me
+          <DownOutlined />
+        </Space>
+      </a>
+    </Dropdown>
+  );
+};
 ```

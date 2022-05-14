@@ -30,90 +30,87 @@ const colCounts = {};
   colCounts[i] = value;
 });
 
-class App extends React.Component {
-  state = {
+export default () => {
+  const [state, setState] = React.useState({
     gutterKey: 1,
     vgutterKey: 1,
     colCountKey: 2,
+  });
+
+  const onGutterChange = gutterKey => {
+    setState({ ...state, gutterKey });
   };
 
-  onGutterChange = gutterKey => {
-    this.setState({ gutterKey });
+  const onVGutterChange = vgutterKey => {
+    setState({ ...state, vgutterKey });
   };
 
-  onVGutterChange = vgutterKey => {
-    this.setState({ vgutterKey });
+  const onColCountChange = colCountKey => {
+    setState({ ...state, colCountKey });
   };
 
-  onColCountChange = colCountKey => {
-    this.setState({ colCountKey });
-  };
-
-  render() {
-    const { gutterKey, vgutterKey, colCountKey } = this.state;
-    const cols = [];
-    const colCount = colCounts[colCountKey];
-    let colCode = '';
-    for (let i = 0; i < colCount; i++) {
-      cols.push(
-        <Col key={i.toString()} span={24 / colCount}>
-          <div>Column</div>
-        </Col>,
-      );
-      colCode += `  <Col span={${24 / colCount}} />\n`;
-    }
-    return (
-      <>
-        <span>Horizontal Gutter (px): </span>
-        <div style={{ width: '50%' }}>
-          <Slider
-            min={0}
-            max={Object.keys(gutters).length - 1}
-            value={gutterKey}
-            onChange={this.onGutterChange}
-            marks={gutters}
-            step={null}
-            tipFormatter={value => gutters[value]}
-          />
-        </div>
-        <span>Vertical Gutter (px): </span>
-        <div style={{ width: '50%' }}>
-          <Slider
-            min={0}
-            max={Object.keys(vgutters).length - 1}
-            value={vgutterKey}
-            onChange={this.onVGutterChange}
-            marks={vgutters}
-            step={null}
-            tipFormatter={value => vgutters[value]}
-          />
-        </div>
-        <span>Column Count:</span>
-        <div style={{ width: '50%', marginBottom: 48 }}>
-          <Slider
-            min={0}
-            max={Object.keys(colCounts).length - 1}
-            value={colCountKey}
-            onChange={this.onColCountChange}
-            marks={colCounts}
-            step={null}
-            tipFormatter={value => colCounts[value]}
-          />
-        </div>
-        <Row gutter={[gutters[gutterKey], vgutters[vgutterKey]]}>
-          {cols}
-          {cols}
-        </Row>
-        Another Row:
-        <Row gutter={[gutters[gutterKey], vgutters[vgutterKey]]}>{cols}</Row>
-        <pre className="demo-code">{`<Row gutter={[${gutters[gutterKey]}, ${vgutters[vgutterKey]}]}>\n${colCode}\n${colCode}</Row>`}</pre>
-        <pre className="demo-code">{`<Row gutter={[${gutters[gutterKey]}, ${vgutters[vgutterKey]}]}>\n${colCode}</Row>`}</pre>
-      </>
+  const { gutterKey, vgutterKey, colCountKey } = state;
+  const cols = [];
+  const colCount = colCounts[colCountKey];
+  let colCode = '';
+  for (let i = 0; i < colCount; i++) {
+    cols.push(
+      <Col key={i.toString()} span={24 / colCount}>
+        <div>Column</div>
+      </Col>,
     );
+    colCode += `  <Col span={${24 / colCount}} />\n`;
   }
-}
 
-export default App;
+  return (
+    <>
+      <span>Horizontal Gutter (px): </span>
+      <div style={{ width: '50%' }}>
+        <Slider
+          min={0}
+          max={Object.keys(gutters).length - 1}
+          value={gutterKey}
+          onChange={onGutterChange}
+          marks={gutters}
+          step={null}
+          tipFormatter={value => gutters[value]}
+        />
+      </div>
+      <span>Vertical Gutter (px): </span>
+      <div style={{ width: '50%' }}>
+        <Slider
+          min={0}
+          max={Object.keys(vgutters).length - 1}
+          value={vgutterKey}
+          onChange={onVGutterChange}
+          marks={vgutters}
+          step={null}
+          tipFormatter={value => vgutters[value]}
+        />
+      </div>
+      <span>Column Count:</span>
+      <div style={{ width: '50%', marginBottom: 48 }}>
+        <Slider
+          min={0}
+          max={Object.keys(colCounts).length - 1}
+          value={colCountKey}
+          onChange={onColCountChange}
+          marks={colCounts}
+          step={null}
+          tipFormatter={value => colCounts[value]}
+        />
+      </div>
+      <Row gutter={[gutters[gutterKey], vgutters[vgutterKey]]}>
+        {cols}
+        {cols}
+      </Row>
+      Another Row:
+      <Row gutter={[gutters[gutterKey], vgutters[vgutterKey]]}>{cols}</Row>
+      <pre className="demo-code">{`<Row gutter={[${gutters[gutterKey]}, ${vgutters[vgutterKey]}]}>\n${colCode}\n${colCode}</Row>`}</pre>
+      <pre className="demo-code">{`<Row gutter={[${gutters[gutterKey]}, ${vgutters[vgutterKey]}]}>\n${colCode}</Row>`}</pre>
+    </>
+  );
+};
 ```
 
 ```css
