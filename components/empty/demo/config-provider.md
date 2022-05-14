@@ -36,67 +36,60 @@ const customizeRenderEmpty = () => (
 
 const style = { width: 200 };
 
-class Demo extends React.Component {
-  state = {
-    customize: false,
-  };
+export default () => {
+  const [customize, setCustomize] = React.useState(false);
 
-  render() {
-    const { customize } = this.state;
-    return (
-      <div>
-        <Switch
-          unCheckedChildren="default"
-          checkedChildren="customize"
-          checked={customize}
-          onChange={val => {
-            this.setState({ customize: val });
-          }}
-        />
+  return (
+    <div>
+      <Switch
+        unCheckedChildren="default"
+        checkedChildren="customize"
+        checked={customize}
+        onChange={value => {
+          setCustomize(value);
+        }}
+      />
 
-        <Divider />
+      <Divider />
 
-        <ConfigProvider renderEmpty={customize && customizeRenderEmpty}>
-          <div className="config-provider">
-            <h4>Select</h4>
-            <Select style={style} />
+      <ConfigProvider renderEmpty={customize && customizeRenderEmpty}>
+        <div className="config-provider">
+          <h4>Select</h4>
+          <Select style={style} />
 
-            <h4>TreeSelect</h4>
-            <TreeSelect style={style} treeData={[]} />
+          <h4>TreeSelect</h4>
+          <TreeSelect style={style} treeData={[]} />
 
-            <h4>Cascader</h4>
-            <Cascader style={style} options={[]} showSearch />
+          <h4>Cascader</h4>
+          <Cascader style={style} options={[]} showSearch />
 
-            <h4>Transfer</h4>
-            <Transfer />
+          <h4>Transfer</h4>
+          <Transfer />
 
-            <h4>Table</h4>
-            <Table
-              style={{ marginTop: 8 }}
-              columns={[
-                {
-                  title: 'Name',
-                  dataIndex: 'name',
-                  key: 'name',
-                },
-                {
-                  title: 'Age',
-                  dataIndex: 'age',
-                  key: 'age',
-                },
-              ]}
-            />
+          <h4>Table</h4>
+          <Table
+            style={{ marginTop: 8 }}
+            columns={[
+              {
+                title: 'Name',
+                dataIndex: 'name',
+                key: 'name',
+              },
+              {
+                title: 'Age',
+                dataIndex: 'age',
+                key: 'age',
+              },
+            ]}
+          />
 
-            <h4>List</h4>
-            <List />
-          </div>
-        </ConfigProvider>
-      </div>
-    );
-  }
-}
-
-export default Demo;
+          <h4>List</h4>
+          <List />
+        </div>
+      </ConfigProvider>
+    </div>
+  );
+};
 ```
 
 <style>
