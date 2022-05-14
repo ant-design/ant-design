@@ -113,6 +113,7 @@ export interface OverrideToken {
   Message?: MessageComponentToken;
   Upload?: UploadComponentToken;
   Tooltip?: {};
+  Table?: {};
   Space?: SpaceComponentToken;
   Progress?: ProgressComponentToken;
   Transfer?: {};
