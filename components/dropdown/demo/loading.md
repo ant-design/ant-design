@@ -37,9 +37,9 @@ export default () => {
 
     setTimeout(() => {
       setLodings(prevLoadings => {
-        const newLoadings = [...prevLoadings];
-        newLoadings[index] = false;
-        return newLoadings;
+        const temLoadings = [...prevLoadings];
+        temLoadings[index] = false;
+        return temLoadings;
       });
     }, 6000);
   };

@@ -24,10 +24,10 @@ const NumericInput = props => {
   const { value, onBlur, onChange } = props;
 
   const handleChange = e => {
-    const { value } = e.target;
+    const inputValue = e.target.value;
     const reg = /^-?\d*(\.\d*)?$/;
-    if ((!isNaN(value) && reg.test(value)) || value === '' || value === '-') {
-      onChange(value);
+    if ((!isNaN(inputValue) && reg.test(inputValue)) || inputValue === '' || inputValue === '-') {
+      onChange(inputValue);
     }
   };
 
