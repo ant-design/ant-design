@@ -86,6 +86,10 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
                 content: '""',
               },
           },
+
+          '> tr:not(:last-child) > th[colspan]': {
+            borderBottom: 0,
+          },
         },
 
         // ============================ Footer ============================
