@@ -12877,7 +12877,7 @@ exports[`renders ./components/form/demo/time-related-controls.md extend context 
                           type="button"
                         >
                           <span>
-                            Ok
+                            OK
                           </span>
                         </button>
                       </li>
@@ -16370,7 +16370,7 @@ exports[`renders ./components/form/demo/time-related-controls.md extend context 
                           type="button"
                         >
                           <span>
-                            Ok
+                            OK
                           </span>
                         </button>
                       </li>
@@ -17808,7 +17808,7 @@ exports[`renders ./components/form/demo/time-related-controls.md extend context 
                           type="button"
                         >
                           <span>
-                            Ok
+                            OK
                           </span>
                         </button>
                       </li>
@@ -22073,7 +22073,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
                           type="button"
                         >
                           <span>
-                            Ok
+                            OK
                           </span>
                         </button>
                       </li>

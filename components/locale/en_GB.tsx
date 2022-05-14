@@ -13,11 +13,16 @@ const localeValues: Locale = {
   DatePicker,
   TimePicker,
   Calendar,
+  global: {
+    placeholder: 'Please select',
+  },
   Table: {
     filterTitle: 'Filter menu',
     filterConfirm: 'OK',
     filterReset: 'Reset',
     filterEmptyText: 'No filters',
+    filterCheckall: 'Select all items',
+    filterSearchPlaceholder: 'Search in filters',
     emptyText: 'No data',
     selectAll: 'Select current page',
     selectInvert: 'Invert current page',
@@ -40,9 +45,16 @@ const localeValues: Locale = {
     cancelText: 'Cancel',
   },
   Transfer: {
+    titles: ['', ''],
     searchPlaceholder: 'Search here',
     itemUnit: 'item',
     itemsUnit: 'items',
+    remove: 'Remove',
+    selectCurrent: 'Select current page',
+    removeCurrent: 'Remove current page',
+    selectAll: 'Select all data',
+    removeAll: 'Remove all data',
+    selectInvert: 'Invert current page',
   },
   Upload: {
     uploading: 'Uploading...',
@@ -52,9 +64,22 @@ const localeValues: Locale = {
     downloadFile: 'Download file',
   },
   Empty: {
-    description: 'No data',
+    description: 'No Data',
+  },
+  Icon: {
+    icon: 'icon',
+  },
+  Text: {
+    edit: 'Edit',
+    copy: 'Copy',
+    copied: 'Copied',
+    expand: 'Expand',
+  },
+  PageHeader: {
+    back: 'Back',
   },
   Form: {
+    optional: '(optional)',
     defaultValidateMessages: {
       default: 'Field validation error for ${label}',
       required: 'Please enter ${label}',
@@ -102,6 +127,9 @@ const localeValues: Locale = {
         mismatch: '${label} does not match the pattern ${pattern}',
       },
     },
+  },
+  Image: {
+    preview: 'Preview',
   },
 };
 

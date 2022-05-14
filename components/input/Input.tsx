@@ -12,7 +12,7 @@ import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { ConfigContext } from '../config-provider';
 import { FormItemInputContext, NoFormStatus } from '../form/context';
 import { hasPrefixSuffix } from './utils';
-import devWarning from '../_util/devWarning';
+import warning from '../_util/warning';
 
 export interface InputFocusOptions extends FocusOptions {
   cursor?: 'start' | 'end' | 'all';
@@ -158,7 +158,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   const prevHasPrefixSuffix = useRef<boolean>(inputHasPrefixSuffix);
   useEffect(() => {
     if (inputHasPrefixSuffix && !prevHasPrefixSuffix.current) {
-      devWarning(
+      warning(
         document.activeElement === inputRef.current?.input,
         'Input',
         `When Input is focused, dynamic add or remove prefix / suffix will make it lose focus caused by dom structure change. Read more: https://ant.design/components/input/#FAQ`,

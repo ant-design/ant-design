@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Table from '..';
-import { resetWarned } from '../../_util/devWarning';
+import { resetWarned } from '../../_util/warning';
 
 describe('Table.order', () => {
   window.requestAnimationFrame = callback => window.setTimeout(callback, 16);

@@ -4,7 +4,7 @@ import moment from 'moment';
 import TimePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
-import { resetWarned } from '../../_util/devWarning';
+import { resetWarned } from '../../_util/warning';
 import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('TimePicker', () => {
