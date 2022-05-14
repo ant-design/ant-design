@@ -9,8 +9,12 @@ interface TableToken extends FullToken<'Table'> {
   tableRadius: CSSObject['border-radius'];
   tablePaddingHorizontal: number;
   tablePaddingVertical: number;
+  tableBorderColor: CSSObject['border-color'];
+  tableHeaderTextColor: CSSObject['color'];
+  tableHeaderBg: CSSObject['background'];
   tableFooterTextColor: CSSObject['color'];
   tableFooterBg: CSSObject['background'];
+  tableHeaderCellSplitColor: CSSObject['border-color'];
 }
 
 const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
@@ -38,10 +42,12 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
         },
 
         // ============================= Cell =============================
-        [`${componentCls}-thead > tr > th,
-  ${componentCls}-tbody > tr > td,
-  tfoot > tr > th,
-  tfoot > tr > td`]: {
+        [`
+          ${componentCls}-thead > tr > th,
+          ${componentCls}-tbody > tr > td,
+          tfoot > tr > th,
+          tfoot > tr > td,
+        `]: {
           position: 'relative',
           padding: `${token.tablePaddingVertical}px ${token.tablePaddingHorizontal}px`,
           overflowWrap: 'break-word',
@@ -50,6 +56,36 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
         // ============================ Title =============================
         [`${componentCls}-title`]: {
           padding: `${token.tablePaddingVertical}px ${token.tablePaddingHorizontal}px`,
+        },
+
+        // ============================ Header ============================
+        [`${componentCls}-thead`]: {
+          '> tr > th': {
+            position: 'relative',
+            color: token.tableHeaderTextColor,
+            fontWeight: 500,
+            textAlign: 'left',
+            background: token.tableHeaderBg,
+            borderBottom: `${token.controlLineWidth}px ${token.controlLineType} ${token.tableBorderColor}`,
+            transition: `background ${token.motionDurationSlow} ease`,
+
+            "&[colspan]:not([colspan='1'])": {
+              textAlign: 'center',
+            },
+
+            [`&:not(:last-child):not(${componentCls}-selection-column):not(${componentCls}-row-expand-icon-cell):not([colspan])::before`]:
+              {
+                position: 'absolute',
+                top: '50%',
+                right: 0,
+                width: 1,
+                height: '1.6em',
+                backgroundColor: token.tableHeaderCellSplitColor,
+                transform: 'translateY(-50%)',
+                transition: `background-color ${token.motionDurationSlow}`,
+                content: '""',
+              },
+          },
         },
 
         // ============================ Footer ============================
@@ -65,15 +101,20 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Table', token => {
+  // FIXME: missing token
   const tableToken = mergeToken<TableToken>(token, {
-    // FIXME: missing token
     tableFontSize: token.fontSizeBase,
     tableBg: token.colorBgComponent,
     tableRadius: token.radiusBase,
     tablePaddingHorizontal: token.padding,
     tablePaddingVertical: token.padding,
+    tableBorderColor: token.colorBorderSecondary,
+    tableHeaderTextColor: token.colorTextHeading,
+    tableHeaderBg: token.colorBgComponentSecondary,
     tableFooterTextColor: token.colorTextHeading,
     tableFooterBg: token.colorBgComponentSecondary,
+    // FIXME: missing token
+    tableHeaderCellSplitColor: 'rgba(0, 0, 0, 0.06)',
   });
 
   return [genTableStyle(tableToken)];
