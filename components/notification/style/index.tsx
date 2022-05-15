@@ -58,31 +58,31 @@ const genNotificationStyle: GenerateStyle<NotificationToken, CSSObject> = token 
         _skip_check_: true,
         value: notificationWidth,
       },
-      opacity: 0,
+      opacity: 0, // FIXME: hardcode in v4
     },
 
     '100%': {
       left: {
         _skip_check_: true,
-        value: 0,
+        value: 0, // FIXME: hardcode in v4
       },
-      opacity: 1,
+      opacity: 1, // FIXME: hardcode in v4
     },
   });
 
   const notificationFadeOut = new Keyframes('antNotificationFadeOut', {
     '0%': {
-      maxHeight: 150,
+      maxHeight: 150, // FIXME: hardcode in v4
       marginBottom: notificationMarginBottom,
-      opacity: 1,
+      opacity: 1, // FIXME: hardcode in v4
     },
 
     '100%': {
-      maxHeight: 0,
-      marginBottom: 0,
-      paddingTop: 0,
-      paddingBottom: 0,
-      opacity: 0,
+      maxHeight: 0, // FIXME: hardcode in v4
+      marginBottom: 0, // FIXME: hardcode in v4
+      paddingTop: 0, // FIXME: hardcode in v4
+      paddingBottom: 0, // FIXME: hardcode in v4
+      opacity: 0, // FIXME: hardcode in v4
     },
   });
 
@@ -107,7 +107,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken, CSSObject> = token 
       [`${componentCls}-notice`]: {
         position: 'relative',
         width: notificationWidth,
-        maxWidth: `calc(100vw - ${notificationMarginEdge * 2}px)`,
+        maxWidth: `calc(100vw - ${notificationMarginEdge * 2}px)`, // FIXME: hardcode in v4
         marginBottom: notificationMarginBottom,
         // marginLeft: 'auto',
         marginInlineStart: 'auto',
@@ -120,18 +120,18 @@ const genNotificationStyle: GenerateStyle<NotificationToken, CSSObject> = token 
         boxShadow,
 
         [`&-message`]: {
-          marginBottom: 8,
+          marginBottom: 8, // FIXME: hardcode in v4
           color: colorTextHeading,
           fontSize: fontSizeLG,
-          lineHeight: '24px',
+          lineHeight: '24px', // FIXME: hardcode in v4
 
           // https://github.com/ant-design/ant-design/issues/5846#issuecomment-296244140
           [`&-single-line-auto-margin`]: {
             display: 'block',
             width: `calc(${notificationWidth}  ${
               notificationPaddingHorizontal * 2
-            }  24px  48px  100%)`,
-            maxWidth: 4,
+            }  24px  48px  100%)`, // FIXME: hardcode in v4
+            maxWidth: 4, // FIXME: hardcode in v4
             backgroundColor: 'transparent',
             pointerEvents: 'none',
 
@@ -147,17 +147,17 @@ const genNotificationStyle: GenerateStyle<NotificationToken, CSSObject> = token 
         },
 
         [`&-closable ${componentCls}-notice-message`]: {
-          paddingInlineEnd: 24,
+          paddingInlineEnd: 24, // FIXME: hardcode in v4
         },
 
         [`&-with-icon ${componentCls}-notice-message`]: {
-          marginBottom: 4,
-          marginInlineStart: 48,
+          marginBottom: 4, // FIXME: hardcode in v4
+          marginInlineStart: 48, // FIXME: hardcode in v4
           fontSize: fontSizeLG,
         },
 
         [`&-with-icon ${componentCls}-notice-description`]: {
-          marginInlineStart: 48,
+          marginInlineStart: 48, // FIXME: hardcode in v4
           fontSize: fontSizeBase,
         },
 
@@ -166,9 +166,9 @@ const genNotificationStyle: GenerateStyle<NotificationToken, CSSObject> = token 
         // https://github.com/ant-design/ant-design/issues/15512
         '&-icon': {
           position: 'absolute',
-          marginInlineStart: 4,
-          fontSize: 24,
-          lineHeight: '24px',
+          marginInlineStart: 4, // FIXME: hardcode in v4
+          fontSize: 24, // FIXME: hardcode in v4
+          lineHeight: '24px', // FIXME: hardcode in v4
 
           // icon-font
           [`&-success${iconCls}`]: {
@@ -187,8 +187,8 @@ const genNotificationStyle: GenerateStyle<NotificationToken, CSSObject> = token 
 
         '&-close': {
           position: 'absolute',
-          top: 16,
-          insetInlineEnd: 22,
+          top: 16, // FIXME: hardcode in v4
+          insetInlineEnd: 22, // FIXME: hardcode in v4
           color: colorTextSecondary,
           outline: 'none',
 
@@ -200,7 +200,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken, CSSObject> = token 
 
         '&-btn': {
           float: 'inline-end',
-          marginTop: 16,
+          marginTop: 16, // FIXME: hardcode in v4
         },
       },
 
@@ -217,7 +217,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken, CSSObject> = token 
           // marginRight: 'auto',
           marginInlineEnd: 'auto',
           // marginLeft: 0,
-          marginInlineStart: 0,
+          marginInlineStart: 0, // FIXME: hardcode in v4
         },
       },
 
@@ -229,11 +229,11 @@ const genNotificationStyle: GenerateStyle<NotificationToken, CSSObject> = token 
 
       //  animation
       [`${componentCls}-fade-enter, ${componentCls}-fade-appear`]: {
-        animationDuration: '0.24s',
+        animationDuration: '0.24s', // FIXME: hardcode in v4
         animationTimingFunction: motionEaseInOut,
         animationFillMode: 'both',
 
-        opacity: 0,
+        opacity: 0, // FIXME: hardcode in v4
         animationPlayState: 'paused',
       },
 
@@ -270,21 +270,21 @@ const genNotificationStyle: GenerateStyle<NotificationToken, CSSObject> = token 
 // ============================== Export ==============================
 export default genComponentStyleHook('Notification', token => {
   const { colorBgComponent, zIndexPopupBase } = token;
-  const notificationPaddingVertical = 16;
-  const notificationPaddingHorizontal = 24;
+  const notificationPaddingVertical = 16; // FIXME: hardcode in v4
+  const notificationPaddingHorizontal = 24; // FIXME: hardcode in v4
 
   const notificationToken = mergeToken<NotificationToken>(token, {
     // default.less variables
-    zIndexNotification: zIndexPopupBase + 50,
+    zIndexNotification: zIndexPopupBase + 50, // FIXME: hardcode in v4
     notificationBg: colorBgComponent,
     notificationPaddingVertical,
     notificationPaddingHorizontal,
     // index.less variables
     popoverBackground: colorBgComponent,
-    notificationWidth: 384,
+    notificationWidth: 384, // FIXME: hardcode in v4
     notificationPadding: `${notificationPaddingVertical}px ${notificationPaddingHorizontal}px`,
-    notificationMarginBottom: 16,
-    notificationMarginEdge: 24,
+    notificationMarginBottom: 16, // FIXME: hardcode in v4
+    notificationMarginEdge: 24, // FIXME: hardcode in v4
   });
 
   return [genNotificationStyle(notificationToken)];

@@ -8,25 +8,25 @@ const genNotificationPlacementStyle: GenerateStyle<NotificationToken, CSSObject>
 
   const notificationTopFadeIn = new Keyframes('antNotificationTopFadeIn', {
     '0%': {
-      marginTop: '-100%',
-      opacity: 0,
+      marginTop: '-100%', // FIXME: hardcode in v4
+      opacity: 0, // FIXME: hardcode in v4
     },
 
     '100%': {
-      marginTop: 0,
-      opacity: 1,
+      marginTop: 0, // FIXME: hardcode in v4
+      opacity: 1, // FIXME: hardcode in v4
     },
   });
 
   const notificationBottomFadeIn = new Keyframes('antNotificationBottomFadeIn', {
     '0%': {
-      marginBottom: '-100%',
-      opacity: 0,
+      marginBottom: '-100%', // FIXME: hardcode in v4
+      opacity: 0, // FIXME: hardcode in v4
     },
 
     '100%': {
-      marginBottom: 0,
-      opacity: 1,
+      marginBottom: 0, // FIXME: hardcode in v4
+      opacity: 1, // FIXME: hardcode in v4
     },
   });
 
@@ -36,15 +36,15 @@ const genNotificationPlacementStyle: GenerateStyle<NotificationToken, CSSObject>
         _skip_check_: true,
         value: notificationWidth,
       },
-      opacity: 0,
+      opacity: 0, // FIXME: hardcode in v4
     },
 
     '100%': {
       right: {
         _skip_check_: true,
-        value: 0,
+        value: 0, // FIXME: hardcode in v4
       },
-      opacity: 1,
+      opacity: 1, // FIXME: hardcode in v4
     },
   });
 
@@ -52,7 +52,7 @@ const genNotificationPlacementStyle: GenerateStyle<NotificationToken, CSSObject>
     [`&${componentCls}-top, &${componentCls}-bottom`]: {
       // marginRight: 0,
       // marginLeft: 0,
-      marginInline: '0 0',
+      marginInline: '0 0', // FIXME: hardcode in v4
     },
 
     [`&${componentCls}-top`]: {
@@ -71,7 +71,7 @@ const genNotificationPlacementStyle: GenerateStyle<NotificationToken, CSSObject>
 
     [`&${componentCls}-topLeft, &${componentCls}-bottomLeft`]: {
       // marginRight: 0,
-      marginInlineEnd: 0,
+      marginInlineEnd: 0, // FIXME: hardcode in v4
       // marginLeft: notificationMarginEdge,
       marginInlineStart: notificationMarginEdge,
 
