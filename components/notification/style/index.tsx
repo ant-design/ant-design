@@ -221,12 +221,6 @@ const genNotificationStyle: GenerateStyle<NotificationToken, CSSObject> = token 
         },
       },
 
-      // '.notification-fade-effect': {
-      //   animationDuration: '0.24s',
-      //   animationTimingFunction: motionEaseInOut,
-      //   animationFillMode: 'both',
-      // },
-
       //  animation
       [`${componentCls}-fade-enter, ${componentCls}-fade-appear`]: {
         animationDuration: '0.24s', // FIXME: hardcode in v4
