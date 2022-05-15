@@ -32,20 +32,27 @@ const genNotificationPlacementStyle: GenerateStyle<NotificationToken, CSSObject>
 
   const notificationLeftFadeIn = new Keyframes('antNotificationLeftFadeIn', {
     '0%': {
-      right: notificationWidth,
+      right: {
+        _skip_check_: true,
+        value: notificationWidth,
+      },
       opacity: 0,
     },
 
     '100%': {
-      right: 0,
+      right: {
+        _skip_check_: true,
+        value: 0,
+      },
       opacity: 1,
     },
   });
 
   return {
     [`&${componentCls}-top, &${componentCls}-bottom`]: {
-      marginRight: 0,
-      marginLeft: 0,
+      // marginRight: 0,
+      // marginLeft: 0,
+      marginInline: '0 0',
     },
 
     [`&${componentCls}-top`]: {
@@ -63,8 +70,10 @@ const genNotificationPlacementStyle: GenerateStyle<NotificationToken, CSSObject>
     },
 
     [`&${componentCls}-topLeft, &${componentCls}-bottomLeft`]: {
-      marginRight: 0,
-      marginLeft: notificationMarginEdge,
+      // marginRight: 0,
+      marginInlineEnd: 0,
+      // marginLeft: notificationMarginEdge,
+      marginInlineStart: notificationMarginEdge,
 
       [`${componentCls}-fade-enter${componentCls}-fade-enter-active, ${componentCls}-fade-appear${componentCls}-fade-appear-active`]:
         {

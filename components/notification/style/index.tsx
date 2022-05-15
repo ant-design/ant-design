@@ -14,7 +14,7 @@ export interface ComponentToken {}
 
 export interface NotificationToken extends FullToken<'Notification'> {
   // default.less variables
-  zIndexNotification: any; // TODO:TS ERROR?
+  zIndexNotification: number;
   notificationBg: string;
   notificationPaddingVertical: number;
   notificationPaddingHorizontal: number;
@@ -51,17 +51,21 @@ const genNotificationStyle: GenerateStyle<NotificationToken, CSSObject> = token 
     fontSizeBase,
     lineHeight,
   } = token;
-  console.log('@@token:', token);
-  console.log('@@@componentCls:', componentCls);
 
   const notificationFadeIn = new Keyframes('antNotificationFadeIn', {
     '0%': {
-      left: notificationWidth,
+      left: {
+        _skip_check_: true,
+        value: notificationWidth,
+      },
       opacity: 0,
     },
 
     '100%': {
-      left: 0,
+      left: {
+        _skip_check_: true,
+        value: 0,
+      },
       opacity: 1,
     },
   });
@@ -88,7 +92,8 @@ const genNotificationStyle: GenerateStyle<NotificationToken, CSSObject> = token 
 
       position: 'fixed',
       zIndex: zIndexNotification,
-      marginRight: notificationMarginEdge,
+      // marginRight: notificationMarginEdge,
+      marginInlineEnd: notificationMarginEdge,
 
       [`${componentCls}-close-icon`]: {
         fontSize: fontSizeBase,
@@ -104,7 +109,8 @@ const genNotificationStyle: GenerateStyle<NotificationToken, CSSObject> = token 
         width: notificationWidth,
         maxWidth: `calc(100vw - ${notificationMarginEdge * 2}px)`,
         marginBottom: notificationMarginBottom,
-        marginLeft: 'auto',
+        // marginLeft: 'auto',
+        marginInlineStart: 'auto',
         padding: notificationPadding,
         overflow: 'hidden',
         lineHeight,
@@ -141,17 +147,17 @@ const genNotificationStyle: GenerateStyle<NotificationToken, CSSObject> = token 
         },
 
         [`&-closable ${componentCls}-notice-message`]: {
-          paddingRight: 24,
+          paddingInlineEnd: 24,
         },
 
         [`&-with-icon ${componentCls}-notice-message`]: {
           marginBottom: 4,
-          marginLeft: 48,
+          marginInlineStart: 48,
           fontSize: fontSizeLG,
         },
 
         [`&-with-icon ${componentCls}-notice-description`]: {
-          marginLeft: 48,
+          marginInlineStart: 48,
           fontSize: fontSizeBase,
         },
 
@@ -160,7 +166,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken, CSSObject> = token 
         // https://github.com/ant-design/ant-design/issues/15512
         '&-icon': {
           position: 'absolute',
-          marginLeft: 4,
+          marginInlineStart: 4,
           fontSize: 24,
           lineHeight: '24px',
 
@@ -182,7 +188,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken, CSSObject> = token 
         '&-close': {
           position: 'absolute',
           top: 16,
-          right: 22,
+          insetInlineEnd: 22,
           color: colorTextSecondary,
           outline: 'none',
 
@@ -193,22 +199,25 @@ const genNotificationStyle: GenerateStyle<NotificationToken, CSSObject> = token 
         },
 
         '&-btn': {
-          float: 'right',
+          float: 'inline-end',
           marginTop: 16,
         },
       },
 
       [`&${componentCls}-top, &${componentCls}-bottom`]: {
         [`${componentCls}-notice`]: {
-          marginRight: 'auto',
-          marginLeft: 'auto',
+          // marginRight: 'auto',
+          // marginLeft: 'auto',
+          marginInline: 'auto auto',
         },
       },
 
       [`&${componentCls}-topLeft, &${componentCls}-bottomLeft`]: {
         [`${componentCls}-notice`]: {
-          marginRight: 'auto',
-          marginLeft: 0,
+          // marginRight: 'auto',
+          marginInlineEnd: 'auto',
+          // marginLeft: 0,
+          marginInlineStart: 0,
         },
       },
 
@@ -218,7 +227,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken, CSSObject> = token 
       //   animationFillMode: 'both',
       // },
 
-      // TODO: animation
+      //  animation
       [`${componentCls}-fade-enter, ${componentCls}-fade-appear`]: {
         animationDuration: '0.24s',
         animationTimingFunction: motionEaseInOut,
@@ -249,6 +258,11 @@ const genNotificationStyle: GenerateStyle<NotificationToken, CSSObject> = token 
 
       // placement
       ...genNotificationPlacementStyle(token),
+
+      // RTL
+      '&-rtl': {
+        direction: 'rtl',
+      },
     },
   };
 };
