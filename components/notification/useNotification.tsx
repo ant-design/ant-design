@@ -143,7 +143,6 @@ export function useInternalNotification(
 
       return originOpen({
         ...restConfig,
-        // ant-notification-notice-content
         content: (
           <div
             className={classNames({
@@ -158,8 +157,7 @@ export function useInternalNotification(
           </div>
         ),
         placement,
-        // 这里的class是加在内部容器的, ant-notification-notice
-        className: classNames(type && `${noticePrefixCls}-${type}`, className, 'QQQQ'),
+        className: classNames(type && `${noticePrefixCls}-${type}`, className),
       });
     };
 
