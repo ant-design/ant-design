@@ -52,13 +52,15 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   const { getPrefixCls, getPopupContainer } = React.useContext(ConfigContext);
 
   const prefixCls = staticPrefixCls || getPrefixCls('notification');
-  const [, hashId] = useStyle(prefixCls);
 
   // =============================== Style ===============================
   const getStyle = (placement: NotificationPlacement) =>
     getPlacementStyle(placement, top ?? DEFAULT_OFFSET, bottom ?? DEFAULT_OFFSET);
 
-  const getClassName = () => classNames(hashId, rtl ? `${prefixCls}-rtl` : '');
+  // Style
+  const [, hashId] = useStyle(prefixCls);
+
+  const getClassName = () => classNames(hashId, { [`${prefixCls}-rtl`]: rtl });
 
   // ============================== Motion ===============================
   const getNotificationMotion = () => getMotion(prefixCls);
@@ -141,6 +143,7 @@ export function useInternalNotification(
 
       return originOpen({
         ...restConfig,
+        // ant-notification-notice-content
         content: (
           <div
             className={classNames({
@@ -155,7 +158,8 @@ export function useInternalNotification(
           </div>
         ),
         placement,
-        className: classNames(type && `${noticePrefixCls}-${type}`, className),
+        // 这里的class是加在内部容器的, ant-notification-notice
+        className: classNames(type && `${noticePrefixCls}-${type}`, className, 'QQQQ'),
       });
     };
 
