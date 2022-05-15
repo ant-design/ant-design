@@ -7,14 +7,14 @@ import { Keyframes } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 import type { FullToken, GenerateStyle } from '../../_util/theme';
 import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
+import genNotificationPlacementStyle from './placement';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {}
 
-
-interface NotificationToken extends FullToken<'Notification'> {
+export interface NotificationToken extends FullToken<'Notification'> {
   // default.less variables
-  zIndexNotification: any; // TODO:
+  zIndexNotification: any; // TODO:TS ERROR?
   notificationBg: string;
   notificationPaddingVertical: number;
   notificationPaddingHorizontal: number;
@@ -152,7 +152,6 @@ const genNotificationStyle: GenerateStyle<NotificationToken, CSSObject> = token 
 
         [`&-with-icon ${componentCls}-notice-description`]: {
           marginLeft: 48,
-          backgroundColor: 'green',
           fontSize: fontSizeBase,
         },
 
@@ -247,6 +246,9 @@ const genNotificationStyle: GenerateStyle<NotificationToken, CSSObject> = token 
         animationName: notificationFadeOut,
         animationPlayState: 'running',
       },
+
+      // placement
+      ...genNotificationPlacementStyle(token),
     },
   };
 };
