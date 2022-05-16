@@ -16,30 +16,22 @@ Click the button to toggle between available and disabled states.
 ```jsx
 import { InputNumber, Button } from 'antd';
 
-class App extends React.Component {
-  state = {
-    disabled: true,
+export default () => {
+  const [disabled, setDisabled] = React.useState(true);
+
+  const toggle = () => {
+    setDisabled(!disabled);
   };
 
-  toggle = () => {
-    this.setState({
-      disabled: !this.state.disabled,
-    });
-  };
-
-  render() {
-    return (
-      <>
-        <InputNumber min={1} max={10} disabled={this.state.disabled} defaultValue={3} />
-        <div style={{ marginTop: 20 }}>
-          <Button onClick={this.toggle} type="primary">
-            Toggle disabled
-          </Button>
-        </div>
-      </>
-    );
-  }
-}
-
-export default App;
+  return (
+    <>
+      <InputNumber min={1} max={10} disabled={disabled} defaultValue={3} />
+      <div style={{ marginTop: 20 }}>
+        <Button onClick={toggle} type="primary">
+          Toggle disabled
+        </Button>
+      </div>
+    </>
+  );
+};
 ```

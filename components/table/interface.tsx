@@ -153,11 +153,13 @@ export interface TableRowSelection<T> {
   onChange?: (selectedRowKeys: Key[], selectedRows: T[]) => void;
   getCheckboxProps?: (record: T) => Partial<Omit<CheckboxProps, 'checked' | 'defaultChecked'>>;
   onSelect?: SelectionSelectFn<T>;
+  /** @deprecated This function is deprecated and should use `onChange` instead */
   onSelectMultiple?: (selected: boolean, selectedRows: T[], changeRows: T[]) => void;
-  /** @deprecated This function is meaningless and should use `onChange` instead */
+  /** @deprecated This function is deprecated and should use `onChange` instead */
   onSelectAll?: (selected: boolean, selectedRows: T[], changeRows: T[]) => void;
-  /** @deprecated This function is meaningless and should use `onChange` instead */
+  /** @deprecated This function is deprecated and should use `onChange` instead */
   onSelectInvert?: (selectedRowKeys: Key[]) => void;
+  /** @deprecated This function is deprecated and should use `onChange` instead */
   onSelectNone?: () => void;
   selections?: INTERNAL_SELECTION_ITEM[] | boolean;
   hideSelectAll?: boolean;

@@ -27,52 +27,48 @@ const menu = (
     ]}
   />
 );
-class App extends React.Component {
-  state = {
-    loadings: [],
-  };
+export default () => {
+  const [loadings, setLodings] = React.useState([]);
 
-  enterLoading = index => {
-    const newLoadings = [...this.state.loadings];
+  const enterLoading = index => {
+    const newLoadings = [...loadings];
     newLoadings[index] = true;
-    this.setState({
-      loadings: newLoadings,
-    });
+    setLodings(newLoadings);
+
     setTimeout(() => {
-      newLoadings[index] = false;
-      this.setState({ loadings: newLoadings });
+      setLodings(prevLoadings => {
+        const temLoadings = [...prevLoadings];
+        temLoadings[index] = false;
+        return temLoadings;
+      });
     }, 6000);
   };
 
-  render() {
-    const { loadings } = this.state;
-    return (
-      <Space direction="vertical">
-        <Dropdown.Button type="primary" loading overlay={menu}>
-          Submit
-        </Dropdown.Button>
-        <Dropdown.Button type="primary" size="small" loading overlay={menu}>
-          Submit
-        </Dropdown.Button>
-        <Dropdown.Button
-          type="primary"
-          loading={loadings[0]}
-          overlay={menu}
-          onClick={() => this.enterLoading(0)}
-        >
-          Submit
-        </Dropdown.Button>
-        <Dropdown.Button
-          icon={<DownOutlined />}
-          loading={loadings[1]}
-          overlay={menu}
-          onClick={() => this.enterLoading(1)}
-        >
-          Submit
-        </Dropdown.Button>
-      </Space>
-    );
-  }
-}
-export default App;
+  return (
+    <Space direction="vertical">
+      <Dropdown.Button type="primary" loading overlay={menu}>
+        Submit
+      </Dropdown.Button>
+      <Dropdown.Button type="primary" size="small" loading overlay={menu}>
+        Submit
+      </Dropdown.Button>
+      <Dropdown.Button
+        type="primary"
+        loading={loadings[0]}
+        overlay={menu}
+        onClick={() => enterLoading(0)}
+      >
+        Submit
+      </Dropdown.Button>
+      <Dropdown.Button
+        icon={<DownOutlined />}
+        loading={loadings[1]}
+        overlay={menu}
+        onClick={() => enterLoading(1)}
+      >
+        Submit
+      </Dropdown.Button>
+    </Space>
+  );
+};
 ```
