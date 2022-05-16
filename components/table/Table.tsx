@@ -49,6 +49,7 @@ import Column from './Column';
 import ColumnGroup from './ColumnGroup';
 import warning from '../_util/warning';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
+import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 
 export { ColumnsType, TablePaginationConfig };
 
@@ -518,7 +519,7 @@ function InternalTable<RecordType extends object = any>(
           data={pageData}
           rowKey={getRowKey}
           rowClassName={internalRowClassName}
-          emptyText={(locale && locale.emptyText) || renderEmpty('Table')}
+          emptyText={(locale && locale.emptyText) || (renderEmpty || defaultRenderEmpty)('Table')}
           // Internal
           internalHooks={INTERNAL_HOOKS}
           internalRefs={internalRefs as any}
