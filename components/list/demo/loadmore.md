@@ -21,21 +21,16 @@ const count = 3;
 const fakeDataUrl = `https://randomuser.me/api/?results=${count}&inc=name,gender,email,nat,picture&noinfo`;
 
 export default () => {
-  const [state, setState] = useState({
-    initLoading: true,
-    loading: false,
-    data: [],
-  });
+  const [initLoading, setInitLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     fetch(fakeDataUrl)
       .then(res => res.json())
       .then(res => {
-        setState({
-          ...state,
-          initLoading: false,
-          data: res.results,
-        });
+        setInitLoading(false);
+        setData(res.results);
       });
   }, []);
 
@@ -44,30 +39,23 @@ export default () => {
     // In real scene, you can using public method of react-virtualized:
     // https://stackoverflow.com/questions/46700726/how-to-use-public-method-updateposition-of-react-virtualized
     window.dispatchEvent(new Event('resize'));
-  }, [JSON.stringify(state.data)]);
+  }, [JSON.stringify(data)]);
 
   const onLoadMore = () => {
-    setState({
-      ...state,
-      loading: true,
-      data: state.data.concat(
-        [...new Array(count)].map(() => ({ loading: true, name: {}, picture: {} })),
-      ),
-    });
+    setLoading(true);
+    const newData = data.concat(
+      [...new Array(count)].map(() => ({ loading: true, name: {}, picture: {} })),
+    );
+    setData(newData);
+
     fetch(fakeDataUrl)
       .then(res => res.json())
       .then(res => {
-        const data = state.data.concat(res.results);
-
-        setState({
-          ...state,
-          data,
-          loading: false,
-        });
+        setLoading(false);
+        setData(data.concat(res.results));
       });
   };
 
-  const { initLoading, loading, data } = state;
   const loadMore =
     !initLoading && !loading ? (
       <div

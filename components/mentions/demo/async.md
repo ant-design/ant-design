@@ -21,20 +21,15 @@ import debounce from 'lodash/debounce';
 const { Option } = Mentions;
 
 export default () => {
-  const [state, setState] = useState({
-    loading: false,
-    users: [],
-  });
+  const [loading, setLoading] = useState(false);
+  const [users, setUsers] = useState([]);
   const searchRef = useRef();
 
   const loadGithubUsers = useMemo(
     () =>
       debounce(key => {
         if (!key) {
-          setState({
-            ...state,
-            users: [],
-          });
+          setUsers([]);
           return;
         }
 
@@ -42,25 +37,24 @@ export default () => {
           .then(res => res.json())
           .then(({ items = [] }) => {
             if (searchRef.current !== key) return;
-            setState({
-              users: items.slice(0, 10),
-              loading: false,
-            });
+            setLoading(false);
+            setUsers(items.slice(0, 10));
           });
       }, 800),
-    [JSON.stringify(state)],
+    [],
   );
 
   const onSearch = search => {
-    setState({ loading: !!search, users: [] });
+    setLoading(!!search);
+    setUsers([]);
     searchRef.current = search;
     console.log('Search:', search);
     loadGithubUsers(search);
   };
 
   return (
-    <Mentions style={{ width: '100%' }} loading={state.loading} onSearch={onSearch}>
-      {state.users.map(({ login, avatar_url: avatar }) => (
+    <Mentions style={{ width: '100%' }} loading={loading} onSearch={onSearch}>
+      {users.map(({ login, avatar_url: avatar }) => (
         <Option key={login} value={login} className="antd-demo-dynamic-option">
           <img src={avatar} alt={login} />
           <span>{login}</span>
