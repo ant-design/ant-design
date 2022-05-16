@@ -104,6 +104,7 @@ export interface OverrideToken {
   Tooltip?: {};
   Space?: SpaceComponentToken;
   Progress?: ProgressComponentToken;
+  Transfer?: {};
 }
 
 /** Final token which contains the components level override */
