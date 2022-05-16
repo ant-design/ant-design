@@ -14,6 +14,7 @@ import warning from '../_util/warning';
 import { FormItemInputContext } from '../form/context';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
+import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 
 export { TransferListProps } from './list';
 export { TransferOperationProps } from './operation';
@@ -181,7 +182,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
 
   getLocale = (transferLocale: TransferLocale, renderEmpty: RenderEmptyHandler) => ({
     ...transferLocale,
-    notFoundContent: renderEmpty('Transfer'),
+    notFoundContent: (renderEmpty || defaultRenderEmpty)('Transfer'),
     ...this.props.locale,
   });
 

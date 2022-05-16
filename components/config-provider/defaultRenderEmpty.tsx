@@ -3,7 +3,7 @@ import Empty from '../empty';
 import type { ConfigConsumerProps } from '.';
 import { ConfigConsumer } from '.';
 
-const renderEmpty = (componentName?: string): React.ReactNode => (
+const defaultRenderEmpty = (componentName?: string): React.ReactNode => (
   <ConfigConsumer>
     {({ getPrefixCls }: ConfigConsumerProps) => {
       const prefix = getPrefixCls('empty');
@@ -26,6 +26,6 @@ const renderEmpty = (componentName?: string): React.ReactNode => (
   </ConfigConsumer>
 );
 
-export type RenderEmptyHandler = typeof renderEmpty;
+export type RenderEmptyHandler = typeof defaultRenderEmpty;
 
-export default renderEmpty;
+export default defaultRenderEmpty;
