@@ -86,7 +86,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
 
     // 👀👀👀👀👀👀👀👀👀 Not align with Derivative 👀👀👀👀👀👀👀👀👀
     // FIXME: @arvinxx handle this
-    controlLineType: 'solid',
+    controlLineType: mergedToken.lineType,
     controlRadius: mergedToken.radiusBase,
     colorBorder: new TinyColor({ h: 0, s: 0, v: 85 }).toHexString(),
     colorSplit: 'rgba(0, 0, 0, 0.06)',
@@ -125,6 +125,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     marginXS: 8,
     marginSM: 12,
     marginLG: 24,
+    marginXL: 48,
 
     boxShadow: `
       0 3px 6px -4px rgba(0, 0, 0, 0.12),

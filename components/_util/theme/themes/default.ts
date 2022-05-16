@@ -173,6 +173,7 @@ const seedToken: SeedToken = {
 
   // Line
   lineWidth: 1,
+  lineType: 'solid',
 
   // Motion
   motionUnit: 0.1,
