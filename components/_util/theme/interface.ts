@@ -138,6 +138,7 @@ export interface SeedToken extends PresetColorType {
   // Line
   /** Border width of base components */
   lineWidth: number;
+  lineType: string;
 
   // Motion
   motionUnit: number;

@@ -28,7 +28,7 @@ const genBorderedStyle = (token: ListToken): CSSObject => {
   } = token;
   return {
     [`${listBorderedCls}`]: {
-      border: `${token.lineWidth}px solid ${token.colorBorder}`,
+      border: `${token.lineWidth}px ${token.lineType} ${token.colorBorder}`,
       borderRadius: radiusBase,
       [`${componentCls}-header,${componentCls}-footer,${componentCls}-item`]: {
         paddingInline: paddingLG,
@@ -297,7 +297,7 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
     },
 
     [`${componentCls}-split ${componentCls}-item`]: {
-      borderBlockEnd: `${token.lineWidth}px solid ${token.colorSplit}`,
+      borderBlockEnd: `${token.lineWidth}px ${token.controlLineType} ${token.colorSplit}`,
 
       [`&:last-child`]: {
         borderBlockEnd: 'none',
@@ -305,17 +305,17 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
     },
 
     [`${componentCls}-split ${componentCls}-header`]: {
-      borderBlockEnd: `${token.lineWidth}px solid ${token.colorSplit}`,
+      borderBlockEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
     },
     [`${componentCls}-split${componentCls}-empty ${componentCls}-footer`]: {
-      borderTop: `${token.lineWidth}px solid ${token.colorSplit}`,
+      borderTop: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
     },
     [`${componentCls}-loading ${componentCls}-spin-nested-loading`]: {
       minHeight: controlHeight,
     },
     [`${componentCls}-split${componentCls}-something-after-last-item ${antCls}-spin-container > ${componentCls}-items > ${componentCls}-item:last-child`]:
       {
-        borderBlockEnd: `${token.lineWidth}px solid ${token.colorSplit}`,
+        borderBlockEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
       },
     [`${componentCls}-lg ${componentCls}-item`]: {
       padding: listItemPaddingLg,
