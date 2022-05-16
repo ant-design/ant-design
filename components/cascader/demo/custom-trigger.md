@@ -39,29 +39,22 @@ const options = [
   },
 ];
 
-class CitySwitcher extends React.Component {
-  state = {
-    text: 'Unselect',
+export default () => {
+  const [text, setText] = React.useState('Unselect');
+
+  const onChange = (value, selectedOptions) => {
+    const labeText = selectedOptions.map(o => o.label).join(', ');
+    setText(labeText);
   };
 
-  onChange = (value, selectedOptions) => {
-    this.setState({
-      text: selectedOptions.map(o => o.label).join(', '),
-    });
-  };
-
-  render() {
-    return (
-      <span>
-        {this.state.text}
-        &nbsp;
-        <Cascader options={options} onChange={this.onChange}>
-          <a href="#">Change city</a>
-        </Cascader>
-      </span>
-    );
-  }
-}
-
-export default () => <CitySwitcher />;
+  return (
+    <span>
+      {text}
+      &nbsp;
+      <Cascader options={options} onChange={onChange}>
+        <a href="#">Change city</a>
+      </Cascader>
+    </span>
+  );
+};
 ```

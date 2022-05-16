@@ -1,9 +1,11 @@
 import * as React from 'react';
-import { ReactNode, useContext, useMemo } from 'react';
+import type { ReactNode } from 'react';
+import { useContext, useMemo } from 'react';
 import classNames from 'classnames';
-import { Field, FormInstance, FieldContext, ListContext } from 'rc-field-form';
-import { FieldProps } from 'rc-field-form/lib/Field';
-import { Meta, NamePath } from 'rc-field-form/lib/interface';
+import type { FormInstance } from 'rc-field-form';
+import { Field, FieldContext, ListContext } from 'rc-field-form';
+import type { FieldProps } from 'rc-field-form/lib/Field';
+import type { Meta, NamePath } from 'rc-field-form/lib/interface';
 import { supportRef } from 'rc-util/lib/ref';
 import useState from 'rc-util/lib/hooks/useState';
 import omit from 'rc-util/lib/omit';
@@ -14,15 +16,13 @@ import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import Row from '../grid/row';
 import { ConfigContext } from '../config-provider';
 import { tuple } from '../_util/type';
-import devWarning from '../_util/devWarning';
-import FormItemLabel, { FormItemLabelProps, LabelTooltipType } from './FormItemLabel';
-import FormItemInput, { FormItemInputProps } from './FormItemInput';
-import {
-  FormContext,
-  FormItemInputContext,
-  NoStyleItemContext,
-  FormItemStatusContextProps,
-} from './context';
+import warning from '../_util/warning';
+import type { FormItemLabelProps, LabelTooltipType } from './FormItemLabel';
+import FormItemLabel from './FormItemLabel';
+import type { FormItemInputProps } from './FormItemInput';
+import FormItemInput from './FormItemInput';
+import type { FormItemStatusContextProps } from './context';
+import { FormContext, FormItemInputContext, NoStyleItemContext } from './context';
 import { toArray, getFieldId } from './util';
 import { cloneElement, isValidElement } from '../_util/reactNode';
 import useFrameState from './hooks/useFrameState';
@@ -77,7 +77,7 @@ export interface FormItemProps<Values = any>
 
 function hasValidName(name?: NamePath): Boolean {
   if (name === null) {
-    devWarning(false, 'Form.Item', '`null` is passed as `name` property');
+    warning(false, 'Form.Item', '`null` is passed as `name` property');
   }
   return !(name === undefined || name === null);
 }
@@ -387,33 +387,33 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
 
         let childNode: React.ReactNode = null;
 
-        devWarning(
+        warning(
           !(shouldUpdate && dependencies),
           'Form.Item',
           "`shouldUpdate` and `dependencies` shouldn't be used together. See https://ant.design/components/form/#dependencies.",
         );
         if (Array.isArray(children) && hasName) {
-          devWarning(false, 'Form.Item', '`children` is array of render props cannot have `name`.');
+          warning(false, 'Form.Item', '`children` is array of render props cannot have `name`.');
           childNode = children;
         } else if (isRenderProps && (!(shouldUpdate || dependencies) || hasName)) {
-          devWarning(
+          warning(
             !!(shouldUpdate || dependencies),
             'Form.Item',
             '`children` of render props only work with `shouldUpdate` or `dependencies`.',
           );
-          devWarning(
+          warning(
             !hasName,
             'Form.Item',
             "Do not use `name` with `children` of render props since it's not a field.",
           );
         } else if (dependencies && !isRenderProps && !hasName) {
-          devWarning(
+          warning(
             false,
             'Form.Item',
             'Must set `name` or use render props when `dependencies` is set.',
           );
         } else if (isValidElement(children)) {
-          devWarning(
+          warning(
             children.props.defaultValue === undefined,
             'Form.Item',
             '`defaultValue` will not work on controlled Field. You should use `initialValues` of Form instead.',
@@ -449,7 +449,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
         } else if (isRenderProps && (shouldUpdate || dependencies) && !hasName) {
           childNode = (children as RenderChildren)(context);
         } else {
-          devWarning(
+          warning(
             !mergedName.length,
             'Form.Item',
             '`name` is only used for validate React element. If you are using Form.Item as layout display, please remove `name` instead.',

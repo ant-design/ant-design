@@ -1,4 +1,4 @@
-import { DataNode, Key } from 'rc-tree/lib/interface';
+import type { DataNode, Key } from 'rc-tree/lib/interface';
 
 enum Record {
   None,

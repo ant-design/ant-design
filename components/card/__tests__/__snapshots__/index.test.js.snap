@@ -24,10 +24,12 @@ exports[`Card should still have padding when card which set padding to 0 is load
     >
       <div
         class="ant-row"
+        role="row"
         style="margin-left: -4px; margin-right: -4px;"
       >
         <div
           class="ant-col ant-col-22"
+          role="cell"
           style="padding-left: 4px; padding-right: 4px;"
         >
           <div
@@ -37,10 +39,12 @@ exports[`Card should still have padding when card which set padding to 0 is load
       </div>
       <div
         class="ant-row"
+        role="row"
         style="margin-left: -4px; margin-right: -4px;"
       >
         <div
           class="ant-col ant-col-8"
+          role="cell"
           style="padding-left: 4px; padding-right: 4px;"
         >
           <div
@@ -49,6 +53,7 @@ exports[`Card should still have padding when card which set padding to 0 is load
         </div>
         <div
           class="ant-col ant-col-15"
+          role="cell"
           style="padding-left: 4px; padding-right: 4px;"
         >
           <div
@@ -58,10 +63,12 @@ exports[`Card should still have padding when card which set padding to 0 is load
       </div>
       <div
         class="ant-row"
+        role="row"
         style="margin-left: -4px; margin-right: -4px;"
       >
         <div
           class="ant-col ant-col-6"
+          role="cell"
           style="padding-left: 4px; padding-right: 4px;"
         >
           <div
@@ -70,6 +77,7 @@ exports[`Card should still have padding when card which set padding to 0 is load
         </div>
         <div
           class="ant-col ant-col-18"
+          role="cell"
           style="padding-left: 4px; padding-right: 4px;"
         >
           <div
@@ -79,10 +87,12 @@ exports[`Card should still have padding when card which set padding to 0 is load
       </div>
       <div
         class="ant-row"
+        role="row"
         style="margin-left: -4px; margin-right: -4px;"
       >
         <div
           class="ant-col ant-col-13"
+          role="cell"
           style="padding-left: 4px; padding-right: 4px;"
         >
           <div
@@ -91,6 +101,7 @@ exports[`Card should still have padding when card which set padding to 0 is load
         </div>
         <div
           class="ant-col ant-col-9"
+          role="cell"
           style="padding-left: 4px; padding-right: 4px;"
         >
           <div
@@ -100,10 +111,12 @@ exports[`Card should still have padding when card which set padding to 0 is load
       </div>
       <div
         class="ant-row"
+        role="row"
         style="margin-left: -4px; margin-right: -4px;"
       >
         <div
           class="ant-col ant-col-4"
+          role="cell"
           style="padding-left: 4px; padding-right: 4px;"
         >
           <div
@@ -112,6 +125,7 @@ exports[`Card should still have padding when card which set padding to 0 is load
         </div>
         <div
           class="ant-col ant-col-3"
+          role="cell"
           style="padding-left: 4px; padding-right: 4px;"
         >
           <div
@@ -120,6 +134,7 @@ exports[`Card should still have padding when card which set padding to 0 is load
         </div>
         <div
           class="ant-col ant-col-16"
+          role="cell"
           style="padding-left: 4px; padding-right: 4px;"
         >
           <div

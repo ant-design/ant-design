@@ -20,7 +20,6 @@ exports[`Drawer className is test_drawer 1`] = `
       >
         <div
           class="ant-drawer-wrapper-body"
-          style="opacity: 0; transition: opacity .3s;"
         >
           <div
             class="ant-drawer-header ant-drawer-header-close-only"
@@ -120,7 +119,6 @@ exports[`Drawer destroyOnClose is true 1`] = `
       >
         <div
           class="ant-drawer-wrapper-body"
-          style="opacity: 0; transition: opacity .3s;"
         >
           <div
             class="ant-drawer-header ant-drawer-header-close-only"

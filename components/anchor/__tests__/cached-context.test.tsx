@@ -1,7 +1,7 @@
 import React, { memo, useState, useRef, useContext } from 'react';
-import { mount } from 'enzyme';
 import Anchor from '../Anchor';
 import AnchorContext from '../context';
+import { getNodeText, render, fireEvent } from '../../../tests/utils';
 
 // we use'memo' here in order to only render inner component while context changed.
 const CacheInner = memo(() => {
@@ -38,14 +38,16 @@ const CacheOuter = () => {
 };
 
 it("Rendering on Anchor without changed AnchorContext won't trigger rendering on child component.", () => {
-  const wrapper = mount(<CacheOuter />);
-  const childCount = wrapper.find('#child_count').text();
-  wrapper.find('#parent_btn').at(0).simulate('click');
-  expect(wrapper.find('#parent_count').text()).toBe('2');
+  const { container } = render(<CacheOuter />);
+  const childCount = getNodeText(container.querySelector('#child_count')!);
+
+  fireEvent.click(container.querySelector('#parent_btn')!);
+
+  expect(getNodeText(container.querySelector('#parent_count')!)).toBe('2');
   // child component won't rerender
-  expect(wrapper.find('#child_count').text()).toBe(childCount);
-  wrapper.find('#parent_btn').at(0).simulate('click');
-  expect(wrapper.find('#parent_count').text()).toBe('3');
+  expect(getNodeText(container.querySelector('#child_count')!)).toBe(childCount);
+  fireEvent.click(container.querySelector('#parent_btn')!);
+  expect(getNodeText(container.querySelector('#parent_count')!)).toBe('3');
   // child component won't rerender
-  expect(wrapper.find('#child_count').text()).toBe(childCount);
+  expect(getNodeText(container.querySelector('#child_count')!)).toBe(childCount);
 });

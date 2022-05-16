@@ -1,4 +1,4 @@
-import * as React from 'react';
+import type * as React from 'react';
 import padStart from 'lodash/padStart';
 
 export type valueType = number | string;

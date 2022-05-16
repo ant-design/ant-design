@@ -4,66 +4,80 @@ exports[`renders ./components/grid/demo/basic.md extend context correctly 1`] = 
 Array [
   <div
     class="ant-row"
+    role="row"
   >
     <div
       class="ant-col ant-col-24"
+      role="cell"
     >
       col
     </div>
   </div>,
   <div
     class="ant-row"
+    role="row"
   >
     <div
       class="ant-col ant-col-12"
+      role="cell"
     >
       col-12
     </div>
     <div
       class="ant-col ant-col-12"
+      role="cell"
     >
       col-12
     </div>
   </div>,
   <div
     class="ant-row"
+    role="row"
   >
     <div
       class="ant-col ant-col-8"
+      role="cell"
     >
       col-8
     </div>
     <div
       class="ant-col ant-col-8"
+      role="cell"
     >
       col-8
     </div>
     <div
       class="ant-col ant-col-8"
+      role="cell"
     >
       col-8
     </div>
   </div>,
   <div
     class="ant-row"
+    role="row"
   >
     <div
       class="ant-col ant-col-6"
+      role="cell"
     >
       col-6
     </div>
     <div
       class="ant-col ant-col-6"
+      role="cell"
     >
       col-6
     </div>
     <div
       class="ant-col ant-col-6"
+      role="cell"
     >
       col-6
     </div>
     <div
       class="ant-col ant-col-6"
+      role="cell"
     >
       col-6
     </div>
@@ -85,24 +99,29 @@ Array [
   </div>,
   <div
     class="ant-row ant-row-start"
+    role="row"
   >
     <div
       class="ant-col ant-col-4"
+      role="cell"
     >
       col-4
     </div>
     <div
       class="ant-col ant-col-4"
+      role="cell"
     >
       col-4
     </div>
     <div
       class="ant-col ant-col-4"
+      role="cell"
     >
       col-4
     </div>
     <div
       class="ant-col ant-col-4"
+      role="cell"
     >
       col-4
     </div>
@@ -119,24 +138,29 @@ Array [
   </div>,
   <div
     class="ant-row ant-row-center"
+    role="row"
   >
     <div
       class="ant-col ant-col-4"
+      role="cell"
     >
       col-4
     </div>
     <div
       class="ant-col ant-col-4"
+      role="cell"
     >
       col-4
     </div>
     <div
       class="ant-col ant-col-4"
+      role="cell"
     >
       col-4
     </div>
     <div
       class="ant-col ant-col-4"
+      role="cell"
     >
       col-4
     </div>
@@ -153,24 +177,29 @@ Array [
   </div>,
   <div
     class="ant-row ant-row-end"
+    role="row"
   >
     <div
       class="ant-col ant-col-4"
+      role="cell"
     >
       col-4
     </div>
     <div
       class="ant-col ant-col-4"
+      role="cell"
     >
       col-4
     </div>
     <div
       class="ant-col ant-col-4"
+      role="cell"
     >
       col-4
     </div>
     <div
       class="ant-col ant-col-4"
+      role="cell"
     >
       col-4
     </div>
@@ -187,24 +216,29 @@ Array [
   </div>,
   <div
     class="ant-row ant-row-space-between"
+    role="row"
   >
     <div
       class="ant-col ant-col-4"
+      role="cell"
     >
       col-4
     </div>
     <div
       class="ant-col ant-col-4"
+      role="cell"
     >
       col-4
     </div>
     <div
       class="ant-col ant-col-4"
+      role="cell"
     >
       col-4
     </div>
     <div
       class="ant-col ant-col-4"
+      role="cell"
     >
       col-4
     </div>
@@ -221,24 +255,29 @@ Array [
   </div>,
   <div
     class="ant-row ant-row-space-around"
+    role="row"
   >
     <div
       class="ant-col ant-col-4"
+      role="cell"
     >
       col-4
     </div>
     <div
       class="ant-col ant-col-4"
+      role="cell"
     >
       col-4
     </div>
     <div
       class="ant-col ant-col-4"
+      role="cell"
     >
       col-4
     </div>
     <div
       class="ant-col ant-col-4"
+      role="cell"
     >
       col-4
     </div>
@@ -255,24 +294,29 @@ Array [
   </div>,
   <div
     class="ant-row ant-row-space-evenly"
+    role="row"
   >
     <div
       class="ant-col ant-col-4"
+      role="cell"
     >
       col-4
     </div>
     <div
       class="ant-col ant-col-4"
+      role="cell"
     >
       col-4
     </div>
     <div
       class="ant-col ant-col-4"
+      role="cell"
     >
       col-4
     </div>
     <div
       class="ant-col ant-col-4"
+      role="cell"
     >
       col-4
     </div>
@@ -294,9 +338,11 @@ Array [
   </div>,
   <div
     class="ant-row ant-row-center ant-row-top"
+    role="row"
   >
     <div
       class="ant-col ant-col-4"
+      role="cell"
     >
       <p
         class="height-100"
@@ -306,6 +352,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-4"
+      role="cell"
     >
       <p
         class="height-50"
@@ -315,6 +362,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-4"
+      role="cell"
     >
       <p
         class="height-120"
@@ -324,6 +372,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-4"
+      role="cell"
     >
       <p
         class="height-80"
@@ -344,9 +393,11 @@ Array [
   </div>,
   <div
     class="ant-row ant-row-space-around ant-row-middle"
+    role="row"
   >
     <div
       class="ant-col ant-col-4"
+      role="cell"
     >
       <p
         class="height-100"
@@ -356,6 +407,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-4"
+      role="cell"
     >
       <p
         class="height-50"
@@ -365,6 +417,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-4"
+      role="cell"
     >
       <p
         class="height-120"
@@ -374,6 +427,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-4"
+      role="cell"
     >
       <p
         class="height-80"
@@ -394,9 +448,11 @@ Array [
   </div>,
   <div
     class="ant-row ant-row-space-between ant-row-bottom"
+    role="row"
   >
     <div
       class="ant-col ant-col-4"
+      role="cell"
     >
       <p
         class="height-100"
@@ -406,6 +462,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-4"
+      role="cell"
     >
       <p
         class="height-50"
@@ -415,6 +472,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-4"
+      role="cell"
     >
       <p
         class="height-120"
@@ -424,6 +482,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-4"
+      role="cell"
     >
       <p
         class="height-80"
@@ -449,24 +508,29 @@ Array [
   </div>,
   <div
     class="ant-row"
+    role="row"
   >
     <div
       class="ant-col ant-col-6 ant-col-order-4"
+      role="cell"
     >
       1 col-order-4
     </div>
     <div
       class="ant-col ant-col-6 ant-col-order-3"
+      role="cell"
     >
       2 col-order-3
     </div>
     <div
       class="ant-col ant-col-6 ant-col-order-2"
+      role="cell"
     >
       3 col-order-2
     </div>
     <div
       class="ant-col ant-col-6 ant-col-order-1"
+      role="cell"
     >
       4 col-order-1
     </div>
@@ -483,24 +547,29 @@ Array [
   </div>,
   <div
     class="ant-row"
+    role="row"
   >
     <div
       class="ant-col ant-col-6 ant-col-xs-order-1 ant-col-sm-order-2 ant-col-md-order-3 ant-col-lg-order-4"
+      role="cell"
     >
       1 col-order-responsive
     </div>
     <div
       class="ant-col ant-col-6 ant-col-xs-order-2 ant-col-sm-order-1 ant-col-md-order-4 ant-col-lg-order-3"
+      role="cell"
     >
       2 col-order-responsive
     </div>
     <div
       class="ant-col ant-col-6 ant-col-xs-order-3 ant-col-sm-order-4 ant-col-md-order-2 ant-col-lg-order-1"
+      role="cell"
     >
       3 col-order-responsive
     </div>
     <div
       class="ant-col ant-col-6 ant-col-xs-order-4 ant-col-sm-order-3 ant-col-md-order-1 ant-col-lg-order-2"
+      role="cell"
     >
       4 col-order-responsive
     </div>
@@ -522,15 +591,18 @@ Array [
   </div>,
   <div
     class="ant-row"
+    role="row"
   >
     <div
       class="ant-col"
+      role="cell"
       style="flex:2 2 auto"
     >
       2 / 5
     </div>
     <div
       class="ant-col"
+      role="cell"
       style="flex:3 3 auto"
     >
       3 / 5
@@ -548,15 +620,18 @@ Array [
   </div>,
   <div
     class="ant-row"
+    role="row"
   >
     <div
       class="ant-col"
+      role="cell"
       style="flex:0 0 100px"
     >
       100px
     </div>
     <div
       class="ant-col"
+      role="cell"
       style="flex:auto"
     >
       Fill Rest
@@ -574,15 +649,18 @@ Array [
   </div>,
   <div
     class="ant-row"
+    role="row"
   >
     <div
       class="ant-col"
+      role="cell"
       style="flex:1 1 200px"
     >
       1 1 200px
     </div>
     <div
       class="ant-col"
+      role="cell"
       style="flex:0 1 300px"
     >
       0 1 300px
@@ -590,9 +668,11 @@ Array [
   </div>,
   <div
     class="ant-row ant-row-no-wrap"
+    role="row"
   >
     <div
       class="ant-col"
+      role="cell"
       style="flex:none;min-width:0"
     >
       <div
@@ -603,6 +683,7 @@ Array [
     </div>
     <div
       class="ant-col"
+      role="cell"
       style="flex:auto;min-width:0"
     >
       auto with no-wrap
@@ -625,10 +706,12 @@ Array [
   </div>,
   <div
     class="ant-row"
+    role="row"
     style="margin-left:-8px;margin-right:-8px"
   >
     <div
       class="ant-col ant-col-6 gutter-row"
+      role="cell"
       style="padding-left:8px;padding-right:8px"
     >
       <div
@@ -639,6 +722,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
+      role="cell"
       style="padding-left:8px;padding-right:8px"
     >
       <div
@@ -649,6 +733,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
+      role="cell"
       style="padding-left:8px;padding-right:8px"
     >
       <div
@@ -659,6 +744,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
+      role="cell"
       style="padding-left:8px;padding-right:8px"
     >
       <div
@@ -680,10 +766,12 @@ Array [
   </div>,
   <div
     class="ant-row"
+    role="row"
     style="margin-left:-16px;margin-right:-16px"
   >
     <div
       class="ant-col ant-col-6 gutter-row"
+      role="cell"
       style="padding-left:16px;padding-right:16px"
     >
       <div
@@ -694,6 +782,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
+      role="cell"
       style="padding-left:16px;padding-right:16px"
     >
       <div
@@ -704,6 +793,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
+      role="cell"
       style="padding-left:16px;padding-right:16px"
     >
       <div
@@ -714,6 +804,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
+      role="cell"
       style="padding-left:16px;padding-right:16px"
     >
       <div
@@ -735,10 +826,12 @@ Array [
   </div>,
   <div
     class="ant-row"
+    role="row"
     style="margin-left:-8px;margin-right:-8px;margin-top:-12px;margin-bottom:-12px"
   >
     <div
       class="ant-col ant-col-6 gutter-row"
+      role="cell"
       style="padding-left:8px;padding-right:8px;padding-top:12px;padding-bottom:12px"
     >
       <div
@@ -749,6 +842,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
+      role="cell"
       style="padding-left:8px;padding-right:8px;padding-top:12px;padding-bottom:12px"
     >
       <div
@@ -759,6 +853,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
+      role="cell"
       style="padding-left:8px;padding-right:8px;padding-top:12px;padding-bottom:12px"
     >
       <div
@@ -769,6 +864,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
+      role="cell"
       style="padding-left:8px;padding-right:8px;padding-top:12px;padding-bottom:12px"
     >
       <div
@@ -779,6 +875,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
+      role="cell"
       style="padding-left:8px;padding-right:8px;padding-top:12px;padding-bottom:12px"
     >
       <div
@@ -789,6 +886,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
+      role="cell"
       style="padding-left:8px;padding-right:8px;padding-top:12px;padding-bottom:12px"
     >
       <div
@@ -799,6 +897,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
+      role="cell"
       style="padding-left:8px;padding-right:8px;padding-top:12px;padding-bottom:12px"
     >
       <div
@@ -809,6 +908,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
+      role="cell"
       style="padding-left:8px;padding-right:8px;padding-top:12px;padding-bottom:12px"
     >
       <div
@@ -825,37 +925,45 @@ exports[`renders ./components/grid/demo/offset.md extend context correctly 1`] =
 Array [
   <div
     class="ant-row"
+    role="row"
   >
     <div
       class="ant-col ant-col-8"
+      role="cell"
     >
       col-8
     </div>
     <div
       class="ant-col ant-col-8 ant-col-offset-8"
+      role="cell"
     >
       col-8
     </div>
   </div>,
   <div
     class="ant-row"
+    role="row"
   >
     <div
       class="ant-col ant-col-6 ant-col-offset-6"
+      role="cell"
     >
       col-6 col-offset-6
     </div>
     <div
       class="ant-col ant-col-6 ant-col-offset-6"
+      role="cell"
     >
       col-6 col-offset-6
     </div>
   </div>,
   <div
     class="ant-row"
+    role="row"
   >
     <div
       class="ant-col ant-col-12 ant-col-offset-6"
+      role="cell"
     >
       col-12 col-offset-6
     </div>
@@ -1227,10 +1335,12 @@ Array [
   </div>,
   <div
     class="ant-row"
+    role="row"
     style="margin-left:-8px;margin-right:-8px;margin-top:-8px;margin-bottom:-8px"
   >
     <div
       class="ant-col ant-col-6"
+      role="cell"
       style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
     >
       <div>
@@ -1239,6 +1349,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
+      role="cell"
       style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
     >
       <div>
@@ -1247,6 +1358,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
+      role="cell"
       style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
     >
       <div>
@@ -1255,6 +1367,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
+      role="cell"
       style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
     >
       <div>
@@ -1263,6 +1376,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
+      role="cell"
       style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
     >
       <div>
@@ -1271,6 +1385,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
+      role="cell"
       style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
     >
       <div>
@@ -1279,6 +1394,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
+      role="cell"
       style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
     >
       <div>
@@ -1287,6 +1403,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
+      role="cell"
       style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
     >
       <div>
@@ -1297,10 +1414,12 @@ Array [
   "Another Row:",
   <div
     class="ant-row"
+    role="row"
     style="margin-left:-8px;margin-right:-8px;margin-top:-8px;margin-bottom:-8px"
   >
     <div
       class="ant-col ant-col-6"
+      role="cell"
       style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
     >
       <div>
@@ -1309,6 +1428,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
+      role="cell"
       style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
     >
       <div>
@@ -1317,6 +1437,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
+      role="cell"
       style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
     >
       <div>
@@ -1325,6 +1446,7 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
+      role="cell"
       style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
     >
       <div>
@@ -1363,19 +1485,23 @@ Array [
 exports[`renders ./components/grid/demo/responsive.md extend context correctly 1`] = `
 <div
   class="ant-row"
+  role="row"
 >
   <div
     class="ant-col ant-col-xs-2 ant-col-sm-4 ant-col-md-6 ant-col-lg-8 ant-col-xl-10"
+    role="cell"
   >
     Col
   </div>
   <div
     class="ant-col ant-col-xs-20 ant-col-sm-16 ant-col-md-12 ant-col-lg-8 ant-col-xl-4"
+    role="cell"
   >
     Col
   </div>
   <div
     class="ant-col ant-col-xs-2 ant-col-sm-4 ant-col-md-6 ant-col-lg-8 ant-col-xl-10"
+    role="cell"
   >
     Col
   </div>
@@ -1385,19 +1511,23 @@ exports[`renders ./components/grid/demo/responsive.md extend context correctly 1
 exports[`renders ./components/grid/demo/responsive-more.md extend context correctly 1`] = `
 <div
   class="ant-row"
+  role="row"
 >
   <div
     class="ant-col ant-col-xs-5 ant-col-xs-offset-1 ant-col-lg-6 ant-col-lg-offset-2"
+    role="cell"
   >
     Col
   </div>
   <div
     class="ant-col ant-col-xs-11 ant-col-xs-offset-1 ant-col-lg-6 ant-col-lg-offset-2"
+    role="cell"
   >
     Col
   </div>
   <div
     class="ant-col ant-col-xs-5 ant-col-xs-offset-1 ant-col-lg-6 ant-col-lg-offset-2"
+    role="cell"
   >
     Col
   </div>
@@ -1407,14 +1537,17 @@ exports[`renders ./components/grid/demo/responsive-more.md extend context correc
 exports[`renders ./components/grid/demo/sort.md extend context correctly 1`] = `
 <div
   class="ant-row"
+  role="row"
 >
   <div
     class="ant-col ant-col-18 ant-col-push-6"
+    role="cell"
   >
     col-18 col-push-6
   </div>
   <div
     class="ant-col ant-col-6 ant-col-pull-18"
+    role="cell"
   >
     col-6 col-pull-18
   </div>

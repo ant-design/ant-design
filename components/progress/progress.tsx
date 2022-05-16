@@ -5,9 +5,10 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
+import type { ConfigConsumerProps } from '../config-provider';
+import { ConfigConsumer } from '../config-provider';
 import { tuple } from '../_util/type';
-import devWarning from '../_util/devWarning';
+import warning from '../_util/warning';
 import Line from './Line';
 import Circle from './Circle';
 import Steps from './Steps';
@@ -120,7 +121,7 @@ export default class Progress extends React.Component<ProgressProps> {
     const progressStatus = this.getProgressStatus();
     const progressInfo = this.renderProcessInfo(prefixCls, progressStatus);
 
-    devWarning(
+    warning(
       !('successPercent' in props),
       'Progress',
       '`successPercent` is deprecated. Please use `success.percent` instead.',

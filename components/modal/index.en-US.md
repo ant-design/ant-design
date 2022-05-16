@@ -142,6 +142,10 @@ return <div>{contextHolder}</div>;
 
 ## FAQ
 
+### Why content not update when Modal closed?
+
+Modal will use memo to avoid content jumping when closed. Also, if you use Form in Modal, you can reset `initialValues` by calling `resetFields` in effect.
+
 ### Why I can not access context, redux, ConfigProvider `locale/prefixCls` in Modal.xxx?
 
 antd will dynamic create React instance by `ReactDOM.render` when call Modal methods. Whose context is different with origin code located context.

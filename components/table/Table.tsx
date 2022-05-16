@@ -2,47 +2,51 @@ import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import RcTable, { Summary } from 'rc-table';
-import { TableProps as RcTableProps, INTERNAL_HOOKS } from 'rc-table/lib/Table';
+import type { TableProps as RcTableProps } from 'rc-table/lib/Table';
+import { INTERNAL_HOOKS } from 'rc-table/lib/Table';
 import { convertChildrenToColumns } from 'rc-table/lib/hooks/useColumns';
-import Spin, { SpinProps } from '../spin';
+import type { SpinProps } from '../spin';
+import Spin from '../spin';
 import Pagination from '../pagination';
-import { TooltipProps } from '../tooltip';
+import type { TooltipProps } from '../tooltip';
 import { ConfigContext } from '../config-provider/context';
 import usePagination, { DEFAULT_PAGE_SIZE, getPaginationParam } from './hooks/usePagination';
 import useLazyKVMap from './hooks/useLazyKVMap';
-import { Breakpoint } from '../_util/responsiveObserve';
-import {
+import type { Breakpoint } from '../_util/responsiveObserve';
+import type {
   TableRowSelection,
   GetRowKey,
   ColumnType,
-  ColumnsType,
   TableCurrentDataSource,
   SorterResult,
   GetPopupContainer,
   ExpandableConfig,
   ExpandType,
-  TablePaginationConfig,
   SortOrder,
   TableLocale,
   TableAction,
   FilterValue,
 } from './interface';
+import { ColumnsType, TablePaginationConfig } from './interface';
 import useSelection, {
   SELECTION_ALL,
   SELECTION_COLUMN,
   SELECTION_INVERT,
   SELECTION_NONE,
 } from './hooks/useSelection';
-import useSorter, { getSortData, SortState } from './hooks/useSorter';
-import useFilter, { getFilterData, FilterState } from './hooks/useFilter';
+import type { SortState } from './hooks/useSorter';
+import useSorter, { getSortData } from './hooks/useSorter';
+import type { FilterState } from './hooks/useFilter';
+import useFilter, { getFilterData } from './hooks/useFilter';
 import useTitleColumns from './hooks/useTitleColumns';
 import renderExpandIcon from './ExpandIcon';
 import scrollTo from '../_util/scrollTo';
 import defaultLocale from '../locale/en_US';
-import SizeContext, { SizeType } from '../config-provider/SizeContext';
+import type { SizeType } from '../config-provider/SizeContext';
+import SizeContext from '../config-provider/SizeContext';
 import Column from './Column';
 import ColumnGroup from './ColumnGroup';
-import devWarning from '../_util/devWarning';
+import warning from '../_util/warning';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 
 export { ColumnsType, TablePaginationConfig };
@@ -133,7 +137,7 @@ function InternalTable<RecordType extends object = any>(
     showSorterTooltip = true,
   } = props;
 
-  devWarning(
+  warning(
     !(typeof rowKey === 'function' && rowKey.length > 1),
     'Table',
     '`index` parameter of `rowKey` function is deprecated. There is no guarantee that it will work as expected.',
@@ -351,12 +355,12 @@ function InternalTable<RecordType extends object = any>(
     }
 
     const { current = 1, total, pageSize = DEFAULT_PAGE_SIZE } = mergedPagination;
-    devWarning(current > 0, 'Table', '`current` should be positive number.');
+    warning(current > 0, 'Table', '`current` should be positive number.');
 
     // Dynamic table data
     if (mergedData.length < total!) {
       if (mergedData.length > pageSize) {
-        devWarning(
+        warning(
           false,
           'Table',
           '`dataSource` length is less than `pagination.total` but large than `pagination.pageSize`. Please make sure your config correct data with async mode.',

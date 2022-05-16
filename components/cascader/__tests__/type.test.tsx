@@ -1,6 +1,7 @@
 import { mount } from 'enzyme';
 import * as React from 'react';
-import Cascader, { BaseOptionType } from '..';
+import type { BaseOptionType } from '..';
+import Cascader from '..';
 
 describe('Cascader.typescript', () => {
   it('options value', () => {

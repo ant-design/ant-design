@@ -17,7 +17,7 @@ Use `Form.Provider` to process data between forms. In this case, submit button i
 import React, { useState, useEffect, useRef } from 'react';
 import { Form, Input, InputNumber, Modal, Button, Avatar, Typography } from 'antd';
 import { SmileOutlined, UserOutlined } from '@ant-design/icons';
-import { FormInstance } from 'antd/lib/form';
+import type { FormInstance } from 'antd/lib/form';
 
 const layout = {
   labelCol: { span: 8 },
