@@ -10,8 +10,8 @@ export interface ComponentToken {
 interface ListToken extends FullToken<'List'> {
   listBorderedCls: string;
   minHeight: number;
-  listItemPaddingLg: string;
-  listItemPaddingSm: string;
+  listItemPaddingLG: string;
+  listItemPaddingSM: string;
   listItemPadding: string;
 }
 
@@ -22,7 +22,7 @@ const genBorderedStyle = (token: ListToken): CSSObject => {
     paddingLG,
     margin,
     padding,
-    listItemPaddingSm,
+    listItemPaddingSM,
     marginLG,
     radiusBase,
   } = token;
@@ -40,7 +40,7 @@ const genBorderedStyle = (token: ListToken): CSSObject => {
     },
     [`${listBorderedCls}${componentCls}-sm`]: {
       [`${componentCls}-item,${componentCls}-header,${componentCls}-footer`]: {
-        padding: listItemPaddingSm,
+        padding: listItemPaddingSM,
       },
     },
 
@@ -112,8 +112,8 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
     padding,
     listItemPadding,
     colorPrimary,
-    listItemPaddingSm,
-    listItemPaddingLg,
+    listItemPaddingSM,
+    listItemPaddingLG,
     paddingXS,
     margin,
     colorText,
@@ -318,10 +318,10 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
         borderBlockEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
       },
     [`${componentCls}-lg ${componentCls}-item`]: {
-      padding: listItemPaddingLg,
+      padding: listItemPaddingLG,
     },
     [`${componentCls}-sm ${componentCls}-item`]: {
-      padding: listItemPaddingSm,
+      padding: listItemPaddingSM,
     },
     // Horizontal
     [`${componentCls}:not(${componentCls}-vertical)`]: {
@@ -342,8 +342,8 @@ export default genComponentStyleHook(
       listBorderedCls: `${token.componentCls}-bordered`,
       minHeight: token.controlHeightLG,
       listItemPadding: `${token.paddingSM}px 0`,
-      listItemPaddingSm: `${token.paddingXS}px ${token.padding}px`,
-      listItemPaddingLg: `${token.padding}px ${token.paddingLG}px`,
+      listItemPaddingSM: `${token.paddingXS}px ${token.padding}px`,
+      listItemPaddingLG: `${token.padding}px ${token.paddingLG}px`,
     });
 
     return [genBaseStyle(listToken), genBorderedStyle(listToken), genResponsiveStyle(listToken)];
