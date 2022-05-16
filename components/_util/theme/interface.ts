@@ -7,6 +7,7 @@ import type { ComponentToken as EmptyComponentToken } from '../../empty/style';
 import type { ComponentToken as CascaderComponentToken } from '../../cascader/style';
 import type { ComponentToken as InputNumberComponentToken } from '../../input-number/style';
 import type { ComponentToken as MentionsComponentToken } from '../../mentions/style';
+import type { ComponentToken as NotificationComponentToken } from '../../notification/style';
 import type { ComponentToken as SegmentedComponentToken } from '../../segmented/style';
 import type { ComponentToken as SelectComponentToken } from '../../select/style';
 import type { ComponentToken as SliderComponentToken } from '../../slider/style';
@@ -78,6 +79,7 @@ export interface OverrideToken {
   InputNumber?: InputNumberComponentToken;
   List?: ListComponentToken;
   Mentions?: MentionsComponentToken;
+  Notification?: NotificationComponentToken;
   Pagination?: {};
   Popover?: {};
   Rate?: {};
