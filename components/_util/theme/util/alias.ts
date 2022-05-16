@@ -125,6 +125,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     marginXS: 8,
     marginSM: 12,
     marginLG: 24,
+    marginXL: 48,
 
     boxShadow: `
       0 3px 6px -4px rgba(0, 0, 0, 0.12),
