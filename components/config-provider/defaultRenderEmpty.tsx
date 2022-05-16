@@ -19,7 +19,10 @@ const defaultRenderEmpty = (componentName?: string): React.ReactNode => (
         case 'Transfer':
         case 'Mentions':
           return <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} className={`${prefix}-small`} />;
+
+        /* istanbul ignore next */
         default:
+          // Should never hit if we take all the component into consider.
           return <Empty />;
       }
     }}
