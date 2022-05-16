@@ -12,16 +12,17 @@ import type { AntTreeNodeProps, TreeProps } from '../tree';
 import type { SwitcherIcon } from '../tree/Tree';
 import getIcons from '../select/utils/iconUtil';
 import renderSwitcherIcon from '../tree/utils/iconUtil';
-import DisabledContext from '../config-provider/DisabledContext';
 import useStyle from './style';
 import useSelectStyle from '../select/style';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
+import DisabledContext from '../config-provider/DisabledContext';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName, getTransitionDirection } from '../_util/motion';
 import { FormItemInputContext } from '../form/context';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
+import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 
 type RawValue = string | number;
 
@@ -142,7 +143,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
   if (notFoundContent !== undefined) {
     mergedNotFound = notFoundContent;
   } else {
-    mergedNotFound = renderEmpty('Select');
+    mergedNotFound = (renderEmpty || defaultRenderEmpty)('Select');
   }
 
   // ==================== Render =====================

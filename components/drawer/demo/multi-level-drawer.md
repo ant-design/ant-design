@@ -16,65 +16,54 @@ Open a new drawer on top of an existing drawer to handle multi branch tasks.
 ```jsx
 import { Drawer, Button } from 'antd';
 
-class App extends React.Component {
-  state = { visible: false, childrenDrawer: false };
+export default () => {
+  const [visible, setVisible] = React.useState(false);
+  const [childrenDrawer, setChildrenDrawer] = React.useState(false);
 
-  showDrawer = () => {
-    this.setState({
-      visible: true,
-    });
+  const showDrawer = () => {
+    setVisible(true);
   };
 
-  onClose = () => {
-    this.setState({
-      visible: false,
-    });
+  const onClose = () => {
+    setVisible(false);
   };
 
-  showChildrenDrawer = () => {
-    this.setState({
-      childrenDrawer: true,
-    });
+  const showChildrenDrawer = () => {
+    setChildrenDrawer(true);
   };
 
-  onChildrenDrawerClose = () => {
-    this.setState({
-      childrenDrawer: false,
-    });
+  const onChildrenDrawerClose = () => {
+    setChildrenDrawer(false);
   };
 
-  render() {
-    return (
-      <>
-        <Button type="primary" onClick={this.showDrawer}>
-          Open drawer
+  return (
+    <>
+      <Button type="primary" onClick={showDrawer}>
+        Open drawer
+      </Button>
+      <Drawer
+        title="Multi-level drawer"
+        width={520}
+        closable={false}
+        onClose={onClose}
+        visible={visible}
+      >
+        <Button type="primary" onClick={showChildrenDrawer}>
+          Two-level drawer
         </Button>
         <Drawer
-          title="Multi-level drawer"
-          width={520}
+          title="Two-level Drawer"
+          width={320}
           closable={false}
-          onClose={this.onClose}
-          visible={this.state.visible}
+          onClose={onChildrenDrawerClose}
+          visible={childrenDrawer}
         >
-          <Button type="primary" onClick={this.showChildrenDrawer}>
-            Two-level drawer
-          </Button>
-          <Drawer
-            title="Two-level Drawer"
-            width={320}
-            closable={false}
-            onClose={this.onChildrenDrawerClose}
-            visible={this.state.childrenDrawer}
-          >
-            This is two-level drawer
-          </Drawer>
+          This is two-level drawer
         </Drawer>
-      </>
-    );
-  }
-}
-
-export default App;
+      </Drawer>
+    </>
+  );
+};
 ```
 
 <style>

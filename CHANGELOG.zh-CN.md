@@ -15,6 +15,21 @@ timeline: true
 
 ---
 
+## 4.20.5
+
+`2022-05-15
+
+- 🤖 在 TypeScript 定义中废弃 Table `rowSelection.onSelectNone` 和 `rowSelection.onSelectMultiple`。[#35545](https://github.com/ant-design/ant-design/pull/35545)
+- 🐞 InputNumber 当精度为负数时忽略小数部分。[#35520](https://github.com/ant-design/ant-design/pull/35520) [@ty888](https://github.com/ty888)`
+
+## 4.20.4
+
+`2022-05-11`
+
+- 🐞 修复 List.Item 类型错误。[#35455](https://github.com/ant-design/ant-design/pull/35455) [@rsmeral](https://github.com/rsmeral)
+- 🐞 修复 Tree 组件 RTL 模式下 Checkbox 的间距。[#35491](https://github.com/ant-design/ant-design/pull/35491) [@miracles1919](https://github.com/miracles1919)
+- 🗑 删除 Cascader `displayRender` 警告。[#35417](https://github.com/ant-design/ant-design/pull/35417) [@lalalazero](https://github.com/lalalazero)
+
 ## 4.20.3
 
 `2022-05-08`

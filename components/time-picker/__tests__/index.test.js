@@ -84,7 +84,7 @@ describe('TimePicker', () => {
         popupClassName={popupClassName}
       />,
     );
-    expect(wrapper.find('RangePicker').at(1).prop('dropdownClassName')).toEqual(popupClassName);
+    expect(wrapper.find('RangePicker').last().prop('dropdownClassName')).toEqual(popupClassName);
   });
 
   it('should support bordered', () => {

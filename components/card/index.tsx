@@ -5,11 +5,10 @@ import Grid from './Grid';
 import Meta from './Meta';
 import type { TabsProps } from '../tabs';
 import Tabs from '../tabs';
-import Row from '../row';
-import Col from '../col';
 import { ConfigContext } from '../config-provider';
 import SizeContext from '../config-provider/SizeContext';
 import useStyle from './style';
+import Skeleton from '../skeleton';
 
 function getAction(actions: React.ReactNode[]) {
   const actionList = actions.map((action, index) => (
@@ -107,34 +106,10 @@ const Card = React.forwardRef((props: CardProps, ref: React.Ref<HTMLDivElement>)
   const prefixCls = getPrefixCls('card', customizePrefixCls);
   const [wrapSSR, hashId] = useStyle(prefixCls);
 
-  const loadingBlockStyle =
-    bodyStyle.padding === 0 || bodyStyle.padding === '0px' ? { padding: 24 } : undefined;
-
-  const block = <div className={`${prefixCls}-loading-block`} />;
-
   const loadingBlock = (
-    <div className={`${prefixCls}-loading-content`} style={loadingBlockStyle}>
-      <Row gutter={8}>
-        <Col span={22}>{block}</Col>
-      </Row>
-      <Row gutter={8}>
-        <Col span={8}>{block}</Col>
-        <Col span={15}>{block}</Col>
-      </Row>
-      <Row gutter={8}>
-        <Col span={6}>{block}</Col>
-        <Col span={18}>{block}</Col>
-      </Row>
-      <Row gutter={8}>
-        <Col span={13}>{block}</Col>
-        <Col span={9}>{block}</Col>
-      </Row>
-      <Row gutter={8}>
-        <Col span={4}>{block}</Col>
-        <Col span={3}>{block}</Col>
-        <Col span={16}>{block}</Col>
-      </Row>
-    </div>
+    <Skeleton loading active paragraph={{ rows: 4 }} title={false}>
+      {children}
+    </Skeleton>
   );
 
   const hasActiveTabKey = activeTabKey !== undefined;

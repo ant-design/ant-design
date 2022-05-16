@@ -216,6 +216,7 @@ const columns = [
 | onSelectAll | 用户手动选择/取消选择所有行的回调 | function(selected, selectedRows, changeRows) | - |  |
 | onSelectInvert | 用户手动选择反选的回调 | function(selectedRowKeys) | - |  |
 | onSelectNone | 用户清空选择的回调 | function() | - |  |
+| onSelectMultiple | 用户使用键盘 shift 选择多行的回调 | function(selected, selectedRows, changeRows) | - |  |
 
 ### scroll
 
@@ -316,3 +317,7 @@ Table 移除了在 v3 中废弃的 `onRowClick`、`onRowDoubleClick`、`onRowMou
 ### 固定列穿透到最上层该怎么办？
 
 固定列通过 `z-index` 属性将其悬浮于非固定列之上，这使得有时候你会发现在 Table 上放置遮罩层时固定列会被透过的情况。为遮罩层设置更高的 `z-index` 覆盖住固定列即可。
+
+### 如何自定义渲染可选列的勾选框（比如增加 Tooltip）？
+
+自 `4.1.0` 起，可以通过 [rowSelection](https://ant.design/components/table-cn/#rowSelection) 的 `renderCell` 属性控制，可以参考此处 [Demo](https://codesandbox.io/s/table-row-tooltip-v79j2v) 实现展示 Tooltip 需求或其他自定义的需求。

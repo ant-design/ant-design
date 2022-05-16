@@ -106,6 +106,7 @@ export interface OverrideToken {
   Tooltip?: {};
   Space?: SpaceComponentToken;
   Progress?: ProgressComponentToken;
+  Transfer?: {};
 }
 
 /** Final token which contains the components level override */
@@ -365,4 +366,5 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   motionEaseOut: string;
 
   colorPopupBg: string;
+  colorBorderSecondary: string;
 }

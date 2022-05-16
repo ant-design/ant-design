@@ -12,6 +12,8 @@ import type { PaginationConfig } from '../pagination';
 import Pagination from '../pagination';
 import { Row } from '../grid';
 import Item from './Item';
+import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+
 // CSSINJS
 import useStyle from './style';
 
@@ -266,7 +268,7 @@ function List<T>({
       <ul className={`${prefixCls}-items`}>{items}</ul>
     );
   } else if (!children && !isLoading) {
-    childrenContent = renderEmptyFunc(prefixCls, renderEmpty);
+    childrenContent = renderEmptyFunc(prefixCls, renderEmpty || defaultRenderEmpty);
   }
 
   const paginationPosition = paginationProps.position || 'bottom';

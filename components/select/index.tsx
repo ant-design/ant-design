@@ -10,14 +10,15 @@ import { OptionProps } from 'rc-select/lib/Option';
 import { useContext } from 'react';
 import { ConfigContext } from '../config-provider';
 import getIcons from './utils/iconUtil';
-import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
+import DisabledContext from '../config-provider/DisabledContext';
 import { FormItemInputContext } from '../form/context';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName, getTransitionDirection } from '../_util/motion';
+import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 
 import useStyle from './style';
 
@@ -126,7 +127,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
   } else if (mode === 'combobox') {
     mergedNotFound = null;
   } else {
-    mergedNotFound = renderEmpty('Select');
+    mergedNotFound = (renderEmpty || defaultRenderEmpty)('Select');
   }
 
   // ===================== Icons =====================
