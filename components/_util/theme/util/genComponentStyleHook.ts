@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import type { GlobalToken, OverrideToken } from '../interface';
 import type { UseComponentStyleResult } from '../index';
 import { mergeToken, statisticToken, useToken } from '../index';
-import { ConfigContext } from '../../../config-provider';
+import { ConfigContext } from '../../../config-provider/context';
 
 export type OverrideTokenWithoutDerivative = Omit<OverrideToken, 'derivative'>;
 export type OverrideComponent = keyof OverrideTokenWithoutDerivative;

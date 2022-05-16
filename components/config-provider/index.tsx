@@ -11,8 +11,6 @@ import { ConfigConsumer, ConfigContext, defaultIconPrefixCls } from './context';
 import type { CSPConfig, DirectionType, ConfigConsumerProps, Theme, ThemeConfig } from './context';
 import type { SizeType } from './SizeContext';
 import SizeContext, { SizeContextProvider } from './SizeContext';
-import message from '../message';
-import notification from '../notification';
 import type { RequiredMark } from '../form/Form';
 import { registerTheme } from './cssVariables';
 import defaultLocale from '../locale/default';
@@ -271,34 +269,21 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
   SizeContext: typeof SizeContext;
   config: typeof setGlobalConfig;
   useToken: typeof useToken;
-} = props => {
-  React.useEffect(() => {
-    if (props.direction) {
-      message.config({
-        rtl: props.direction === 'rtl',
-      });
-      notification.config({
-        rtl: props.direction === 'rtl',
-      });
-    }
-  }, [props.direction]);
-
-  return (
-    <LocaleReceiver>
-      {(_, __, legacyLocale) => (
-        <ConfigConsumer>
-          {context => (
-            <ProviderChildren
-              parentContext={context}
-              legacyLocale={legacyLocale as Locale}
-              {...props}
-            />
-          )}
-        </ConfigConsumer>
-      )}
-    </LocaleReceiver>
-  );
-};
+} = props => (
+  <LocaleReceiver>
+    {(_, __, legacyLocale) => (
+      <ConfigConsumer>
+        {context => (
+          <ProviderChildren
+            parentContext={context}
+            legacyLocale={legacyLocale as Locale}
+            {...props}
+          />
+        )}
+      </ConfigConsumer>
+    )}
+  </LocaleReceiver>
+);
 
 ConfigProvider.ConfigContext = ConfigContext;
 ConfigProvider.SizeContext = SizeContext;
