@@ -397,9 +397,9 @@ export default genComponentStyleHook('Transfer', token => {
   });
 
   return [
-    genTransferStatusStyle(transferToken),
     genTransferStyle(transferToken),
     genTransferCustomizeStyle(transferToken),
+    genTransferStatusStyle(transferToken),
     genTransferRTLStyle(transferToken),
   ];
 });
