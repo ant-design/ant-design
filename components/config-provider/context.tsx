@@ -53,6 +53,7 @@ const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) =>
   return suffixCls ? `ant-${suffixCls}` : 'ant';
 };
 
+// zombieJ: 🚨 Do not pass `defaultRenderEmpty` here since it will case circular dependency.
 export const ConfigContext = React.createContext<ConfigConsumerProps>({
   // We provide a default function for Context without provider
   getPrefixCls: defaultGetPrefixCls,

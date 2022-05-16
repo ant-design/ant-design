@@ -182,7 +182,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
 
   getLocale = (transferLocale: TransferLocale, renderEmpty: RenderEmptyHandler) => ({
     ...transferLocale,
-    notFoundContent: (renderEmpty || defaultRenderEmpty)('Transfer'),
+    notFoundContent: renderEmpty('Transfer'),
     ...this.props.locale,
   });
 
@@ -376,7 +376,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
               status: customStatus,
             } = this.props;
             const prefixCls = getPrefixCls('transfer', customizePrefixCls);
-            const locale = this.getLocale(transferLocale, renderEmpty);
+            const locale = this.getLocale(transferLocale, renderEmpty || defaultRenderEmpty);
             const { sourceSelectedKeys, targetSelectedKeys } = this.state;
             const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
