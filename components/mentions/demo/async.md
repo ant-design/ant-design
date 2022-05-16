@@ -14,68 +14,61 @@ title:
 async
 
 ```jsx
+import React, { useState, useRef, useMemo } from 'react';
 import { Mentions } from 'antd';
 import debounce from 'lodash/debounce';
 
 const { Option } = Mentions;
 
-class AsyncMention extends React.Component {
-  constructor() {
-    super();
-
-    this.loadGithubUsers = debounce(this.loadGithubUsers, 800);
-  }
-
-  state = {
-    search: '',
+export default () => {
+  const [state, setState] = useState({
     loading: false,
     users: [],
-  };
+  });
+  const searchRef = useRef();
 
-  onSearch = search => {
-    this.setState({ search, loading: !!search, users: [] });
+  const loadGithubUsers = useMemo(
+    () =>
+      debounce(key => {
+        if (!key) {
+          setState({
+            ...state,
+            users: [],
+          });
+          return;
+        }
+
+        fetch(`https://api.github.com/search/users?q=${key}`)
+          .then(res => res.json())
+          .then(({ items = [] }) => {
+            if (searchRef.current !== key) return;
+            setState({
+              users: items.slice(0, 10),
+              loading: false,
+            });
+          });
+      }, 800),
+    [JSON.stringify(state)],
+  );
+
+  const onSearch = search => {
+    setState({ loading: !!search, users: [] });
+    searchRef.current = search;
     console.log('Search:', search);
-    this.loadGithubUsers(search);
+    loadGithubUsers(search);
   };
 
-  loadGithubUsers(key) {
-    if (!key) {
-      this.setState({
-        users: [],
-      });
-      return;
-    }
-
-    fetch(`https://api.github.com/search/users?q=${key}`)
-      .then(res => res.json())
-      .then(({ items = [] }) => {
-        const { search } = this.state;
-        if (search !== key) return;
-
-        this.setState({
-          users: items.slice(0, 10),
-          loading: false,
-        });
-      });
-  }
-
-  render() {
-    const { users, loading } = this.state;
-
-    return (
-      <Mentions style={{ width: '100%' }} loading={loading} onSearch={this.onSearch}>
-        {users.map(({ login, avatar_url: avatar }) => (
-          <Option key={login} value={login} className="antd-demo-dynamic-option">
-            <img src={avatar} alt={login} />
-            <span>{login}</span>
-          </Option>
-        ))}
-      </Mentions>
-    );
-  }
-}
-
-export default () => <AsyncMention />;
+  return (
+    <Mentions style={{ width: '100%' }} loading={state.loading} onSearch={onSearch}>
+      {state.users.map(({ login, avatar_url: avatar }) => (
+        <Option key={login} value={login} className="antd-demo-dynamic-option">
+          <img src={avatar} alt={login} />
+          <span>{login}</span>
+        </Option>
+      ))}
+    </Mentions>
+  );
+};
 ```
 
 <style>
