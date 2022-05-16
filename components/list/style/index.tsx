@@ -4,7 +4,7 @@ import type { GenerateStyle, FullToken } from '../../_util/theme';
 import { resetComponent, genComponentStyleHook, mergeToken } from '../../_util/theme';
 
 export interface ComponentToken {
-  listMinWidth: number;
+  contentWidth: number;
 }
 
 interface ListToken extends FullToken<'List'> {
@@ -52,7 +52,7 @@ const genBorderedStyle = (token: ListToken): CSSObject => {
   };
 };
 const genResponsiveStyle = (token: ListToken): CSSObject => {
-  const { listMinWidth, componentCls, screenSM, screenMD, marginLG, marginSM, margin } = token;
+  const { componentCls, screenSM, screenMD, marginLG, marginSM, margin } = token;
   return {
     [`@media screen and (max-width:${screenMD})`]: {
       [`${componentCls}`]: {
@@ -88,7 +88,7 @@ const genResponsiveStyle = (token: ListToken): CSSObject => {
           flexWrap: 'wrap-reverse',
 
           [`${componentCls}-item-main`]: {
-            minWidth: listMinWidth,
+            minWidth: token.contentWidth,
           },
 
           [`${componentCls}-item-extra`]: {
@@ -349,6 +349,6 @@ export default genComponentStyleHook(
     return [genBaseStyle(listToken), genBorderedStyle(listToken), genResponsiveStyle(listToken)];
   },
   {
-    listMinWidth: 220,
+    contentWidth: 220,
   },
 );
