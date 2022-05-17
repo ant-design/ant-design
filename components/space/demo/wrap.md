@@ -13,7 +13,8 @@ title:
 
 Auto wrap line.
 
-```jsx
+```tsx
+import React from 'react';
 import { Space, Button } from 'antd';
 
 const App = () => (

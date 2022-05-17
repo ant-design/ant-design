@@ -13,12 +13,13 @@ title:
 
 A simple playground for column count and gutter.
 
-```jsx
+```tsx
+import React, { useState } from 'react';
 import { Row, Col, Slider } from 'antd';
 
-const gutters = {};
-const vgutters = {};
-const colCounts = {};
+const gutters: Record<string, number> = {};
+const vgutters: Record<string, number> = {};
+const colCounts: Record<string, number> = {};
 
 [8, 16, 24, 32, 40, 48].forEach((value, i) => {
   gutters[i] = value;
@@ -30,26 +31,11 @@ const colCounts = {};
   colCounts[i] = value;
 });
 
-export default () => {
-  const [state, setState] = React.useState({
-    gutterKey: 1,
-    vgutterKey: 1,
-    colCountKey: 2,
-  });
+const App: React.FC = () => {
+  const [gutterKey, setGutterKey] = useState(1);
+  const [vgutterKey, setVgutterKey] = useState(1);
+  const [colCountKey, setColCountKey] = useState(2);
 
-  const onGutterChange = gutterKey => {
-    setState({ ...state, gutterKey });
-  };
-
-  const onVGutterChange = vgutterKey => {
-    setState({ ...state, vgutterKey });
-  };
-
-  const onColCountChange = colCountKey => {
-    setState({ ...state, colCountKey });
-  };
-
-  const { gutterKey, vgutterKey, colCountKey } = state;
   const cols = [];
   const colCount = colCounts[colCountKey];
   let colCode = '';
@@ -70,10 +56,10 @@ export default () => {
           min={0}
           max={Object.keys(gutters).length - 1}
           value={gutterKey}
-          onChange={onGutterChange}
+          onChange={setGutterKey}
           marks={gutters}
           step={null}
-          tipFormatter={value => gutters[value]}
+          tipFormatter={value => value && gutters[value]}
         />
       </div>
       <span>Vertical Gutter (px): </span>
@@ -82,10 +68,10 @@ export default () => {
           min={0}
           max={Object.keys(vgutters).length - 1}
           value={vgutterKey}
-          onChange={onVGutterChange}
+          onChange={setVgutterKey}
           marks={vgutters}
           step={null}
-          tipFormatter={value => vgutters[value]}
+          tipFormatter={value => value && vgutters[value]}
         />
       </div>
       <span>Column Count:</span>
@@ -94,10 +80,10 @@ export default () => {
           min={0}
           max={Object.keys(colCounts).length - 1}
           value={colCountKey}
-          onChange={onColCountChange}
+          onChange={setColCountKey}
           marks={colCounts}
           step={null}
-          tipFormatter={value => colCounts[value]}
+          tipFormatter={value => value && colCounts[value]}
         />
       </div>
       <Row gutter={[gutters[gutterKey], vgutters[vgutterKey]]}>
@@ -111,6 +97,8 @@ export default () => {
     </>
   );
 };
+
+export default App;
 ```
 
 ```css

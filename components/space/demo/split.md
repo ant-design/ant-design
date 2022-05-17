@@ -13,7 +13,8 @@ title:
 
 Crowded components split.
 
-```jsx
+```tsx
+import React from 'react';
 import { Space, Typography, Divider } from 'antd';
 
 const App = () => (
@@ -24,5 +25,5 @@ const App = () => (
   </Space>
 );
 
-export default App;
+export default () => <App />;
 ```

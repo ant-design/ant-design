@@ -13,7 +13,8 @@ title:
 
 Crowded components vertical spacing.
 
-```jsx
+```tsx
+import React from 'react';
 import { Space, Card } from 'antd';
 
 const App = () => (

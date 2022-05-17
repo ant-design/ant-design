@@ -14,7 +14,8 @@ debug: true
 
 Use `style` to change default style.
 
-```jsx
+```tsx
+import React from 'react';
 import { Divider } from 'antd';
 
 export default () => (
