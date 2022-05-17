@@ -33,7 +33,6 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = token => {
     colorTextDisabled,
     lineHeight,
     marginSM,
-    padding,
     paddingSM,
     fontSizeSM,
   } = token;
@@ -80,8 +79,6 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = token => {
             // FIXME
             verticalAlign: '-1px',
 
-            [`${componentCls}-rtl &`]: {},
-
             [`& svg`]: {
               // FIXME
               transition: 'transform 0.24s',
@@ -120,12 +117,9 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = token => {
             paddingInlineEnd: collapseHeaderPaddingExtra,
 
             [`${componentCls}-arrow`]: {
-              position: 'absolute',
-              top: '50%',
-              insetInlineEnd: padding,
-              insetInlineStart: 'auto',
-              margin: 0,
-              transform: 'translateY(-50%)',
+              svg: {
+                transform: 'rotate(180deg)',
+              },
             },
           },
         },
