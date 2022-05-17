@@ -49,7 +49,7 @@ const getDropIndicatorStyle = (prefixCls: string, token: DerivativeToken) => ({
       width: 8,
       height: 8,
       backgroundColor: 'transparent',
-      border: `2px solid ${token.colorPrimary}`,
+      border: `${token.lineWidthBold}px solid ${token.colorPrimary}`,
       borderRadius: '50%',
       content: '""',
     },
