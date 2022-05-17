@@ -13,7 +13,8 @@ title:
 
 If you are using [iconfont.cn](http://iconfont.cn/), you can use the icons in your project gracefully.
 
-```jsx
+```tsx
+import React from 'react';
 import { Space } from 'antd';
 import { createFromIconfontCN } from '@ant-design/icons';
 
