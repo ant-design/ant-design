@@ -167,7 +167,7 @@ const PageHeader: React.FC<PageHeaderProps> = props => {
         const defaultBreadcrumbDom = getDefaultBreadcrumbDom();
 
         const isBreadcrumbComponent = breadcrumb && 'props' in breadcrumb;
-        //  support breadcrumbRender function
+        // support breadcrumbRender function
         const breadcrumbRenderDomFromProps =
           breadcrumbRender?.(props, defaultBreadcrumbDom) ?? defaultBreadcrumbDom;
 
