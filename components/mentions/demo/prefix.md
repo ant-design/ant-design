@@ -23,26 +23,34 @@ const MOCK_DATA = {
   '#': ['1.0', '2.0', '3.0'],
 };
 
-export default () => {
-  const [prefix, setPrefix] = React.useState('@');
-
-  const onSearch = (_, prefixValue) => {
-    setPrefix(prefixValue);
+class App extends React.Component {
+  state = {
+    prefix: '@',
   };
 
-  return (
-    <Mentions
-      style={{ width: '100%' }}
-      placeholder="input @ to mention people, # to mention tag"
-      prefix={['@', '#']}
-      onSearch={onSearch}
-    >
-      {(MOCK_DATA[prefix] || []).map(value => (
-        <Option key={value} value={value}>
-          {value}
-        </Option>
-      ))}
-    </Mentions>
-  );
-};
+  onSearch = (_, prefix) => {
+    this.setState({ prefix });
+  };
+
+  render() {
+    const { prefix } = this.state;
+
+    return (
+      <Mentions
+        style={{ width: '100%' }}
+        placeholder="input @ to mention people, # to mention tag"
+        prefix={['@', '#']}
+        onSearch={this.onSearch}
+      >
+        {(MOCK_DATA[prefix] || []).map(value => (
+          <Option key={value} value={value}>
+            {value}
+          </Option>
+        ))}
+      </Mentions>
+    );
+  }
+}
+
+export default App;
 ```

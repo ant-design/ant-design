@@ -18,7 +18,6 @@ import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName, getTransitionDirection } from '../_util/motion';
-import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 
 type RawValue = string | number;
 
@@ -123,7 +122,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
   } else if (mode === 'combobox') {
     mergedNotFound = null;
   } else {
-    mergedNotFound = (renderEmpty || defaultRenderEmpty)('Select');
+    mergedNotFound = renderEmpty('Select');
   }
 
   // ===================== Icons =====================

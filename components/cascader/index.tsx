@@ -16,7 +16,6 @@ import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import { useContext } from 'react';
 import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
-import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
 import DisabledContext from '../config-provider/DisabledContext';
@@ -176,7 +175,7 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
   );
 
   // =================== No Found ====================
-  const mergedNotFoundContent = notFoundContent || (renderEmpty || defaultRenderEmpty)('Cascader');
+  const mergedNotFoundContent = notFoundContent || renderEmpty('Cascader');
 
   // ==================== Prefix =====================
   const rootPrefixCls = getPrefixCls();

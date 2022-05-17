@@ -76,46 +76,54 @@ const items: MenuProps['items'] = [
   },
 ];
 
-export default () => {
-  const [collapsed, setCollapsed] = React.useState(true);
-
-  const toggle = () => {
-    setCollapsed(!collapsed);
+class SiderDemo extends React.Component {
+  state = {
+    collapsed: true,
   };
 
-  return (
-    <Layout>
-      <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className="logo" />
-        <Menu
-          theme="dark"
-          mode="inline"
-          defaultSelectedKeys={['3']}
-          defaultOpenKeys={['sub1']}
-          items={items}
-        />
-      </Sider>
+  toggle = () => {
+    this.setState({
+      collapsed: !this.state.collapsed,
+    });
+  };
+
+  render() {
+    return (
       <Layout>
-        <Header className="site-layout-background" style={{ padding: 0 }}>
-          {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
-            className: 'trigger',
-            onClick: toggle,
-          })}
-        </Header>
-        <Content
-          className="site-layout-background"
-          style={{
-            margin: '24px 16px',
-            padding: 24,
-            minHeight: 280,
-          }}
-        >
-          Content
-        </Content>
+        <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
+          <div className="logo" />
+          <Menu
+            theme="dark"
+            mode="inline"
+            defaultSelectedKeys={['3']}
+            defaultOpenKeys={['sub1']}
+            items={items}
+          />
+        </Sider>
+        <Layout>
+          <Header className="site-layout-background" style={{ padding: 0 }}>
+            {React.createElement(this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
+              className: 'trigger',
+              onClick: this.toggle,
+            })}
+          </Header>
+          <Content
+            className="site-layout-background"
+            style={{
+              margin: '24px 16px',
+              padding: 24,
+              minHeight: 280,
+            }}
+          >
+            Content
+          </Content>
+        </Layout>
       </Layout>
-    </Layout>
-  );
-};
+    );
+  }
+}
+
+export default () => <SiderDemo />;
 ```
 
 ```css

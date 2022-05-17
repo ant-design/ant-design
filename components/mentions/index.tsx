@@ -8,7 +8,6 @@ import { ConfigContext } from '../config-provider';
 import { FormItemInputContext } from '../form/context';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
-import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 
 export const { Option } = RcMentions;
 
@@ -94,7 +93,7 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
       return notFoundContent;
     }
 
-    return (renderEmpty || defaultRenderEmpty)('Select');
+    return renderEmpty('Select');
   };
 
   const getOptions = () => {
