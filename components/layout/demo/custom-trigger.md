@@ -25,69 +25,61 @@ import {
 
 const { Header, Sider, Content } = Layout;
 
-class SiderDemo extends React.Component {
-  state = {
-    collapsed: false,
+export default () => {
+  const [collapsed, setCollapsed] = React.useState(false);
+
+  const toggle = () => {
+    setCollapsed(!collapsed);
   };
 
-  toggle = () => {
-    this.setState({
-      collapsed: !this.state.collapsed,
-    });
-  };
-
-  render() {
-    return (
-      <Layout>
-        <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
-          <div className="logo" />
-          <Menu
-            theme="dark"
-            mode="inline"
-            defaultSelectedKeys={['1']}
-            items={[
-              {
-                key: '1',
-                icon: <UserOutlined />,
-                label: 'nav 1',
-              },
-              {
-                key: '2',
-                icon: <VideoCameraOutlined />,
-                label: 'nav 2',
-              },
-              {
-                key: '3',
-                icon: <UploadOutlined />,
-                label: 'nav 3',
-              },
-            ]}
-          />
-        </Sider>
-        <Layout className="site-layout">
-          <Header className="site-layout-background" style={{ padding: 0 }}>
-            {React.createElement(this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
-              className: 'trigger',
-              onClick: this.toggle,
-            })}
-          </Header>
-          <Content
-            className="site-layout-background"
-            style={{
-              margin: '24px 16px',
-              padding: 24,
-              minHeight: 280,
-            }}
-          >
-            Content
-          </Content>
-        </Layout>
+  return (
+    <Layout>
+      <Sider trigger={null} collapsible collapsed={collapsed}>
+        <div className="logo" />
+        <Menu
+          theme="dark"
+          mode="inline"
+          defaultSelectedKeys={['1']}
+          items={[
+            {
+              key: '1',
+              icon: <UserOutlined />,
+              label: 'nav 1',
+            },
+            {
+              key: '2',
+              icon: <VideoCameraOutlined />,
+              label: 'nav 2',
+            },
+            {
+              key: '3',
+              icon: <UploadOutlined />,
+              label: 'nav 3',
+            },
+          ]}
+        />
+      </Sider>
+      <Layout className="site-layout">
+        <Header className="site-layout-background" style={{ padding: 0 }}>
+          {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
+            className: 'trigger',
+            onClick: toggle,
+          })}
+        </Header>
+        <Content
+          className="site-layout-background"
+          style={{
+            margin: '24px 16px',
+            padding: 24,
+            minHeight: 280,
+          }}
+        >
+          Content
+        </Content>
       </Layout>
-    );
-  }
-}
-
-export default () => <SiderDemo />;
+    </Layout>
+  );
+};
 ```
 
 ```css
