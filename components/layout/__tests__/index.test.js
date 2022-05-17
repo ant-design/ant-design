@@ -176,10 +176,10 @@ describe('Layout', () => {
 
   it('should be controlled by collapsed', () => {
     const wrapper = mount(<Sider>Sider</Sider>);
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
     wrapper.setProps({ collapsed: true });
     wrapper.update();
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('should not add ant-layout-has-sider when `hasSider` is `false`', () => {

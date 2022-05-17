@@ -1,13 +1,8 @@
 // deps-lint-skip-all
-import { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
+import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import capitalize from '../../_util/capitalize';
-import {
-  PresetColorType,
-  resetComponent,
-  PresetColors,
-  FullToken,
-  genComponentStyleHook,
-} from '../../_util/theme';
+import type { PresetColorType, FullToken } from '../../_util/theme';
+import { resetComponent, PresetColors, genComponentStyleHook, mergeToken } from '../../_util/theme';
 
 interface TagToken extends FullToken<'Tag'> {
   tagFontSize: number;
@@ -75,11 +70,11 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => ({
     // FIXME: hard code
     opacity: 1,
     transition: `all ${token.motionDurationSlow}`,
+    textAlign: 'start',
 
     // RTL
     '&&-rtl': {
       direction: 'rtl',
-      textAlign: 'right',
     },
 
     '&, a, a:hover': {
@@ -146,17 +141,16 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => ({
 export default genComponentStyleHook('Tag', token => {
   const tagFontSize = token.fontSizeSM;
   // FIXME: hard code
-  const tagLineHeight = '18px';
+  const tagLineHeight = '20px';
   const tagDefaultBg = token.colorBgComponentSecondary;
   const tagDefaultColor = token.colorText;
 
-  const tagToken = {
-    ...token,
+  const tagToken = mergeToken<TagToken>(token, {
     tagFontSize,
     tagLineHeight,
     tagDefaultBg,
     tagDefaultColor,
-  };
+  });
 
   return [
     genBaseStyle(tagToken),

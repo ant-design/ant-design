@@ -11,7 +11,8 @@ debug: true
 修改内容前，请尝试此 Demo 查看样式是否抖动。
 
 ```tsx
-import { Layout, Menu, MenuProps } from 'antd';
+import type { MenuProps } from 'antd';
+import { Layout, Menu } from 'antd';
 import {
   TeamOutlined,
   UserOutlined,
@@ -122,7 +123,7 @@ class SiderDemo extends React.Component {
   }
 }
 
-ReactDOM.render(<SiderDemo />, mountNode);
+export default () => <SiderDemo />;
 ```
 
 ```css

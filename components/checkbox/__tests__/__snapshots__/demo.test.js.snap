@@ -30,6 +30,7 @@ Array [
       class="ant-checkbox ant-checkbox-indeterminate"
     >
       <input
+        aria-checked="mixed"
         class="ant-checkbox-input"
         type="checkbox"
       />
@@ -605,9 +606,11 @@ exports[`renders ./components/checkbox/demo/layout.md correctly 1`] = `
 >
   <div
     class="ant-row"
+    role="row"
   >
     <div
       class="ant-col ant-col-8"
+      role="cell"
     >
       <label
         class="ant-checkbox-wrapper"
@@ -631,6 +634,7 @@ exports[`renders ./components/checkbox/demo/layout.md correctly 1`] = `
     </div>
     <div
       class="ant-col ant-col-8"
+      role="cell"
     >
       <label
         class="ant-checkbox-wrapper"
@@ -654,6 +658,7 @@ exports[`renders ./components/checkbox/demo/layout.md correctly 1`] = `
     </div>
     <div
       class="ant-col ant-col-8"
+      role="cell"
     >
       <label
         class="ant-checkbox-wrapper"
@@ -677,6 +682,7 @@ exports[`renders ./components/checkbox/demo/layout.md correctly 1`] = `
     </div>
     <div
       class="ant-col ant-col-8"
+      role="cell"
     >
       <label
         class="ant-checkbox-wrapper"
@@ -700,6 +706,7 @@ exports[`renders ./components/checkbox/demo/layout.md correctly 1`] = `
     </div>
     <div
       class="ant-col ant-col-8"
+      role="cell"
     >
       <label
         class="ant-checkbox-wrapper"

@@ -1,14 +1,15 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
-import { resetComponent, GenerateStyle, genComponentStyleHook, FullToken } from '../../_util/theme';
+import { genComponentStyleHook, resetComponent } from '../../_util/theme';
+import type { GenerateStyle, FullToken } from '../../_util/theme';
 
-interface CarouselToken extends FullToken<'Carousel'> {
+export interface ComponentToken {
   carouselDotWidth: CSSObject['width'];
   carouselDotHeight: CSSObject['height'];
   carouselDotActiveWidth: CSSObject['width'];
 }
 
-const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
+const genCarouselStyle: GenerateStyle<FullToken<'Carousel'>> = token => {
   const { componentCls, antCls } = token;
 
   return {
@@ -121,7 +122,7 @@ const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
         // FIXME hardcode in v4
         width: 20,
         height: 20,
-        marginTop: '-10px',
+        marginTop: -10,
         padding: 0,
         color: 'transparent',
         fontSize: 0,
@@ -151,7 +152,7 @@ const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
         insetInlineStart: -25,
 
         '&::before': {
-          content: '←',
+          content: '"←"',
         },
       },
 
@@ -160,7 +161,7 @@ const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
         insetInlineEnd: -25,
 
         '&::before': {
-          content: '→',
+          content: '"→"',
         },
       },
 
@@ -180,12 +181,12 @@ const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
 
         '&-bottom': {
           // FIXME hardcode in v4
-          bottom: '12px',
+          bottom: 12,
         },
 
         '&-top': {
           // FIXME hardcode in v4
-          top: '12px',
+          top: 12,
           bottom: 'auto',
         },
 
@@ -244,7 +245,7 @@ const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
   };
 };
 
-const genCarouselVerticalStyle: GenerateStyle<CarouselToken, CSSObject> = token => {
+const genCarouselVerticalStyle: GenerateStyle<FullToken<'Carousel'>> = token => {
   const { componentCls } = token;
 
   const reverseSizeOfDot = {
@@ -292,7 +293,7 @@ const genCarouselVerticalStyle: GenerateStyle<CarouselToken, CSSObject> = token 
   };
 };
 
-const genCarouselRtlStyle: GenerateStyle<CarouselToken> = token => {
+const genCarouselRtlStyle: GenerateStyle<FullToken<'Carousel'>> = token => {
   const { componentCls } = token;
 
   return [
@@ -321,17 +322,13 @@ const genCarouselRtlStyle: GenerateStyle<CarouselToken> = token => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Carousel', token => {
-  const carouselToken: CarouselToken = {
-    ...token,
+export default genComponentStyleHook(
+  'Carousel',
+  token => [genCarouselStyle(token), genCarouselVerticalStyle(token), genCarouselRtlStyle(token)],
+  {
     // FIXME
     carouselDotWidth: 16,
     carouselDotHeight: 3,
     carouselDotActiveWidth: 24,
-  };
-  return [
-    genCarouselStyle(carouselToken),
-    genCarouselVerticalStyle(carouselToken),
-    genCarouselRtlStyle(carouselToken),
-  ];
-});
+  },
+);

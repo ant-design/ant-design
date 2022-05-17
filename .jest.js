@@ -20,13 +20,13 @@ module.exports = {
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'md'],
   modulePathIgnorePatterns: ['/_site/'],
   moduleNameMapper: {
-    '^dnd-core$': 'dnd-core/dist/cjs',
-    '^react-dnd$': 'react-dnd/dist/cjs',
-    '^react-dnd-html5-backend$': 'react-dnd-html5-backend/dist/cjs',
-    '^react-dnd-touch-backend$': 'react-dnd-touch-backend/dist/cjs',
-    '^react-dnd-test-backend$': 'react-dnd-test-backend/dist/cjs',
-    '^react-dnd-test-utils$': 'react-dnd-test-utils/dist/cjs',
-    '\\.(css|less)$': 'identity-obj-proxy',
+    '/^dnd-core$/': 'dnd-core/dist/cjs',
+    '/^react-dnd$/': 'react-dnd/dist/cjs',
+    '/^react-dnd-html5-backend$/': 'react-dnd-html5-backend/dist/cjs',
+    '/^react-dnd-touch-backend$/': 'react-dnd-touch-backend/dist/cjs',
+    '/^react-dnd-test-backend$/': 'react-dnd-test-backend/dist/cjs',
+    '/^react-dnd-test-utils$/': 'react-dnd-test-utils/dist/cjs',
+    '/\\.(css|less)$/': 'identity-obj-proxy',
   },
   testPathIgnorePatterns: ['/node_modules/', 'dekko', 'node', 'image.test.js', 'image.test.ts'],
   transform: {
@@ -52,5 +52,7 @@ module.exports = {
       tsConfig: './tsconfig.test.json',
     },
   },
-  testURL: 'http://localhost',
+  testEnvironmentOptions: {
+    url: 'http://localhost',
+  },
 };

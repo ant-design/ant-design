@@ -73,9 +73,9 @@ export function derivative(token: SeedToken): DerivativeToken {
     ...colorPalettes,
 
     // motion
-    motionDurationFast: `${motionBase + motionUnit * 1}s`,
-    motionDurationMid: `${motionBase + motionUnit * 2}s`,
-    motionDurationSlow: `${motionBase + motionUnit * 3}s`,
+    motionDurationFast: `${(motionBase + motionUnit * 1).toFixed(1)}s`,
+    motionDurationMid: `${(motionBase + motionUnit * 2).toFixed(1)}s`,
+    motionDurationSlow: `${(motionBase + motionUnit * 3).toFixed(1)}s`,
 
     // font
     fontSizes: fontSizes.map(fs => fs.size),
@@ -173,6 +173,7 @@ const seedToken: SeedToken = {
 
   // Line
   lineWidth: 1,
+  lineType: 'solid',
 
   // Motion
   motionUnit: 0.1,
@@ -189,13 +190,14 @@ const seedToken: SeedToken = {
   // Size
   sizeUnit: 4,
   sizeBaseStep: 4,
+  sizePopupArrow: 8 * Math.sqrt(2),
 
   // Control Base
   controlHeight: 32,
 
   // zIndex
   zIndexBase: 0,
-  zIndexPopup: 1000,
+  zIndexPopupBase: 1000,
 };
 
 export default seedToken;

@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { ValidateStatus } from '../form/FormItem';
+import type { ValidateStatus } from '../form/FormItem';
 import { tuple } from './type';
 
 const InputStatuses = tuple('warning', 'error', '');

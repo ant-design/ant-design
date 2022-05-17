@@ -3,11 +3,13 @@ import classNames from 'classnames';
 import memoizeOne from 'memoize-one';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import Affix from '../affix';
-import AnchorLink from './AnchorLink';
-import { ConfigContext, ConfigConsumerProps } from '../config-provider';
+import type { ConfigConsumerProps } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 import scrollTo from '../_util/scrollTo';
 import getScroll from '../_util/getScroll';
 import AnchorContext from './context';
+
+import useStyle from './style';
 
 export type AnchorContainer = HTMLElement | Window;
 
@@ -51,7 +53,7 @@ export interface AnchorProps {
   showInkInFixed?: boolean;
   getContainer?: () => AnchorContainer;
   /** Return customize highlight anchor */
-  getCurrentAnchor?: () => string;
+  getCurrentAnchor?: (activeLink: string) => string;
   onClick?: (
     e: React.MouseEvent<HTMLElement>,
     link: { title: React.ReactNode; href: string },
@@ -60,6 +62,11 @@ export interface AnchorProps {
   targetOffset?: number;
   /** Listening event when scrolling change active link */
   onChange?: (currentActiveLink: string) => void;
+}
+
+interface InternalAnchorProps extends AnchorProps {
+  anchorPrefixCls: string;
+  rootClassName: string;
 }
 
 export interface AnchorState {
@@ -84,9 +91,7 @@ export interface AntAnchor {
   ) => void;
 }
 
-export default class Anchor extends React.Component<AnchorProps, AnchorState, ConfigConsumerProps> {
-  static Link: typeof AnchorLink;
-
+class Anchor extends React.Component<InternalAnchorProps, AnchorState, ConfigConsumerProps> {
   static defaultProps = {
     affix: true,
     showInkInFixed: false,
@@ -98,7 +103,7 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState, Co
     activeLink: null,
   };
 
-  content: ConfigConsumerProps;
+  context: ConfigConsumerProps;
 
   private wrapperRef = React.createRef<HTMLDivElement>();
 
@@ -230,7 +235,7 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState, Co
     }
     // https://github.com/ant-design/ant-design/issues/30584
     this.setState({
-      activeLink: typeof getCurrentAnchor === 'function' ? getCurrentAnchor() : link,
+      activeLink: typeof getCurrentAnchor === 'function' ? getCurrentAnchor(link) : link,
     });
     onChange?.(link);
   };
@@ -268,9 +273,9 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState, Co
   );
 
   render() {
-    const { getPrefixCls, direction } = this.context;
+    const { direction } = this.context;
     const {
-      prefixCls: customizePrefixCls,
+      anchorPrefixCls: prefixCls,
       className = '',
       style,
       offsetTop,
@@ -278,10 +283,9 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState, Co
       showInkInFixed,
       children,
       onClick,
+      rootClassName,
     } = this.props;
     const { activeLink } = this.state;
-
-    const prefixCls = getPrefixCls('anchor', customizePrefixCls);
 
     // To support old version react.
     // Have to add prefixCls on the instance.
@@ -293,6 +297,7 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState, Co
     });
 
     const wrapperClass = classNames(
+      rootClassName,
       `${prefixCls}-wrapper`,
       {
         [`${prefixCls}-rtl`]: direction === 'rtl',
@@ -335,3 +340,25 @@ export default class Anchor extends React.Component<AnchorProps, AnchorState, Co
     );
   }
 }
+// just use in test
+export type InternalAnchorClass = Anchor;
+
+const AnchorFC = React.forwardRef<Anchor, AnchorProps>((props, ref) => {
+  const { prefixCls: customizePrefixCls } = props;
+  const { getPrefixCls } = React.useContext(ConfigContext);
+
+  const anchorPrefixCls = getPrefixCls('anchor', customizePrefixCls);
+
+  const [wrapSSR, hashId] = useStyle(anchorPrefixCls);
+
+  const anchorProps: InternalAnchorProps = {
+    ...props,
+
+    anchorPrefixCls,
+    rootClassName: hashId,
+  };
+
+  return wrapSSR(<Anchor {...anchorProps} ref={ref} />);
+});
+
+export default AnchorFC;

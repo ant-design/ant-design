@@ -1,5 +1,5 @@
 ---
-order: 0
+order: 0.5
 title:
   zh-CN: 顶部导航
   en-US: Top Navigation
@@ -14,7 +14,8 @@ title:
 Horizontal top navigation menu.
 
 ```tsx
-import { Menu, MenuProps } from 'antd';
+import type { MenuProps } from 'antd';
+import { Menu } from 'antd';
 import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
 
 const items: MenuProps['items'] = [
@@ -85,5 +86,5 @@ const App = () => {
   return <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} />;
 };
 
-ReactDOM.render(<App />, mountNode);
+export default App;
 ```

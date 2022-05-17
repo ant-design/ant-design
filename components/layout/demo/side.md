@@ -23,7 +23,8 @@ Generally, the mainnav is placed on the left side of the page, and the secondary
 The level of the aside navigation is scalable. The first, second, and third level navigations could be present more fluently and relevantly, and aside navigation can be fixed, allowing the user to quickly switch and spot the current position, improving the user experience. However, this navigation occupies some horizontal space of the contents.
 
 ```tsx
-import { Layout, Menu, Breadcrumb, MenuProps } from 'antd';
+import type { MenuProps } from 'antd';
+import { Layout, Menu, Breadcrumb } from 'antd';
 import {
   DesktopOutlined,
   PieChartOutlined,
@@ -98,7 +99,7 @@ class SiderDemo extends React.Component {
   }
 }
 
-ReactDOM.render(<SiderDemo />, mountNode);
+export default () => <SiderDemo />;
 ```
 
 ```css
@@ -108,7 +109,7 @@ ReactDOM.render(<SiderDemo />, mountNode);
   background: rgba(255, 255, 255, 0.3);
 }
 
-.site-layout .site-layout-background {
+#components-layout-demo-side .site-layout .site-layout-background {
   background: #fff;
 }
 ```

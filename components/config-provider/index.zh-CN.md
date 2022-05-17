@@ -79,6 +79,7 @@ ConfigProvider.config({
 
 ```js
 import 'moment/locale/zh-cn';
+
 moment.locale('zh-cn');
 ```
 

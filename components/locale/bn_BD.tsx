@@ -3,7 +3,7 @@ import Pagination from 'rc-pagination/lib/locale/bn_BD';
 import DatePicker from '../date-picker/locale/bn_BD';
 import TimePicker from '../time-picker/locale/bn_BD';
 import Calendar from '../calendar/locale/bn_BD';
-import { Locale } from '../locale-provider';
+import type { Locale } from '../locale-provider';
 
 const typeTemplate = '${label} টি সঠিক ${type} নয়।';
 

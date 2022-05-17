@@ -1,27 +1,28 @@
 import * as React from 'react';
-import RcTreeSelect, {
-  TreeNode,
-  SHOW_ALL,
-  SHOW_PARENT,
-  SHOW_CHILD,
-  TreeSelectProps as RcTreeSelectProps,
-} from 'rc-tree-select';
+import type { TreeSelectProps as RcTreeSelectProps } from 'rc-tree-select';
+import RcTreeSelect, { TreeNode, SHOW_ALL, SHOW_PARENT, SHOW_CHILD } from 'rc-tree-select';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import type { BaseOptionType, DefaultOptionType } from 'rc-tree-select/lib/TreeSelect';
 import type { BaseSelectRef } from 'rc-select';
 import { useContext } from 'react';
 import { ConfigContext } from '../config-provider';
-import devWarning from '../_util/devWarning';
-import { AntTreeNodeProps, TreeProps } from '../tree';
+import warning from '../_util/warning';
+import type { AntTreeNodeProps, TreeProps } from '../tree';
+import type { SwitcherIcon } from '../tree/Tree';
 import getIcons from '../select/utils/iconUtil';
 import renderSwitcherIcon from '../tree/utils/iconUtil';
-import SizeContext, { SizeType } from '../config-provider/SizeContext';
-import { getTransitionName, getTransitionDirection, SelectCommonPlacement } from '../_util/motion';
-import { FormItemInputContext } from '../form/context';
-import { getMergedStatus, getStatusClassNames, InputStatus } from '../_util/statusUtils';
 import useStyle from './style';
 import useSelectStyle from '../select/style';
+import type { SizeType } from '../config-provider/SizeContext';
+import SizeContext from '../config-provider/SizeContext';
+import DisabledContext from '../config-provider/DisabledContext';
+import type { SelectCommonPlacement } from '../_util/motion';
+import { getTransitionName, getTransitionDirection } from '../_util/motion';
+import { FormItemInputContext } from '../form/context';
+import type { InputStatus } from '../_util/statusUtils';
+import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
+import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 
 type RawValue = string | number;
 
@@ -48,16 +49,19 @@ export interface TreeSelectProps<
   > {
   suffixIcon?: React.ReactNode;
   size?: SizeType;
+  disabled?: boolean;
   placement?: SelectCommonPlacement;
   bordered?: boolean;
   treeLine?: TreeProps['showLine'];
   status?: InputStatus;
+  switcherIcon?: SwitcherIcon;
 }
 
 const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionType = BaseOptionType>(
   {
     prefixCls: customizePrefixCls,
     size: customizeSize,
+    disabled: customDisabled,
     bordered = true,
     className,
     treeCheckable,
@@ -89,7 +93,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
   } = React.useContext(ConfigContext);
   const size = React.useContext(SizeContext);
 
-  devWarning(
+  warning(
     multiple !== false || !treeCheckable,
     'TreeSelect',
     '`multiple` will always be `true` when `treeCheckable` is true',
@@ -139,7 +143,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
   if (notFoundContent !== undefined) {
     mergedNotFound = notFoundContent;
   } else {
-    mergedNotFound = renderEmpty('Select');
+    mergedNotFound = (renderEmpty || defaultRenderEmpty)('Select');
   }
 
   // ==================== Render =====================
@@ -162,6 +166,10 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
   };
 
   const mergedSize = customizeSize || size;
+  // ===================== Disabled =====================
+  const disabled = React.useContext(DisabledContext);
+  const mergedDisabled = customDisabled || disabled;
+
   const mergedClassName = classNames(
     !customizePrefixCls && treeSelectPrefixCls,
     {
@@ -180,6 +188,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
     <RcTreeSelect
       virtual={virtual}
       dropdownMatchSelectWidth={dropdownMatchSelectWidth}
+      disabled={mergedDisabled}
       {...selectProps}
       ref={ref as any}
       prefixCls={prefixCls}

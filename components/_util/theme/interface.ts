@@ -1,13 +1,29 @@
 import type * as React from 'react';
+import type { ComponentToken as AnchorComponentToken } from '../../anchor/style';
 import type { ComponentToken as ButtonComponentToken } from '../../button/style';
 import type { ComponentToken as DividerComponentToken } from '../../divider/style';
+import type { ComponentToken as DropdownComponentToken } from '../../dropdown/style';
 import type { ComponentToken as EmptyComponentToken } from '../../empty/style';
 import type { ComponentToken as CascaderComponentToken } from '../../cascader/style';
 import type { ComponentToken as InputNumberComponentToken } from '../../input-number/style';
 import type { ComponentToken as MentionsComponentToken } from '../../mentions/style';
+import type { ComponentToken as NotificationComponentToken } from '../../notification/style';
+import type { ComponentToken as SegmentedComponentToken } from '../../segmented/style';
 import type { ComponentToken as SelectComponentToken } from '../../select/style';
 import type { ComponentToken as SliderComponentToken } from '../../slider/style';
 import type { ComponentToken as TypographyComponentToken } from '../../typography/style';
+import type { ComponentToken as BackTopComponentToken } from '../../back-top/style';
+import type { ComponentToken as CalendarComponentToken } from '../../calendar/style';
+import type { ComponentToken as DatePickerComponentToken } from '../../date-picker/style';
+import type { ComponentToken as TimelineComponentToken } from '../../timeline/style';
+import type { ComponentToken as MenuComponentToken } from '../../menu/style';
+import type { ComponentToken as UploadComponentToken } from '../../upload/style';
+import type { ComponentToken as CarouselComponentToken } from '../../carousel/style';
+import type { ComponentToken as ProgressComponentToken } from '../../progress/style';
+import type { ComponentToken as SpaceComponentToken } from '../../space/style';
+import type { ComponentToken as ModalComponentToken } from '../../modal/style';
+import type { ComponentToken as ImageComponentToken } from '../../image/style';
+import type { ComponentToken as ListComponentToken } from '../../list/style';
 
 export const PresetColors = [
   'blue',
@@ -41,26 +57,34 @@ export interface OverrideToken {
   // Customize component
   Affix?: {};
   Alert?: {};
+  Anchor?: AnchorComponentToken;
   Avatar?: {};
+  BackTop?: BackTopComponentToken;
   Badge?: {};
   Button?: ButtonComponentToken;
-  Carousel?: {};
+  Carousel?: CarouselComponentToken;
   Cascader?: CascaderComponentToken;
   Checkbox?: {};
+  Collapse?: {};
+  DatePicker?: DatePickerComponentToken;
   Descriptions?: {};
   Divider?: DividerComponentToken;
   Drawer?: {};
+  Dropdown?: DropdownComponentToken;
   Empty?: EmptyComponentToken;
   Form?: {};
   Grid?: {};
+  Image?: ImageComponentToken;
   Input?: {};
   InputNumber?: InputNumberComponentToken;
-  List?: {};
+  List?: ListComponentToken;
   Mentions?: MentionsComponentToken;
+  Notification?: NotificationComponentToken;
   Pagination?: {};
   Popover?: {};
   Rate?: {};
   Result?: {};
+  Segmented?: SegmentedComponentToken;
   Select?: SelectComponentToken;
   Skeleton?: {};
   Slider?: SliderComponentToken;
@@ -71,7 +95,19 @@ export interface OverrideToken {
   Tree?: {};
   TreeSelect?: {};
   Typography?: TypographyComponentToken;
+  Timeline?: TimelineComponentToken;
   Tabs?: {};
+  Calendar?: CalendarComponentToken;
+  Card?: {};
+  Steps?: {};
+  Menu?: MenuComponentToken;
+  Modal?: ModalComponentToken;
+  Layout?: {};
+  Upload?: UploadComponentToken;
+  Tooltip?: {};
+  Space?: SpaceComponentToken;
+  Progress?: ProgressComponentToken;
+  Transfer?: {};
 }
 
 /** Final token which contains the components level override */
@@ -104,6 +140,7 @@ export interface SeedToken extends PresetColorType {
   // Line
   /** Border width of base components */
   lineWidth: number;
+  lineType: string;
 
   // Motion
   motionUnit: number;
@@ -120,6 +157,7 @@ export interface SeedToken extends PresetColorType {
   // Size
   sizeUnit: number;
   sizeBaseStep: number;
+  sizePopupArrow: number;
 
   // Control Base
   controlHeight: number;
@@ -128,7 +166,7 @@ export interface SeedToken extends PresetColorType {
   /** Base zIndex of component like BackTop, Affix which can be cover by large popup */
   zIndexBase: number;
   /** Base popup component zIndex */
-  zIndexPopup: number;
+  zIndexPopupBase: number;
 }
 
 // ======================================================================
@@ -284,6 +322,8 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   colorBgComponentDisabled: string;
 
   // =============== Legacy: should be remove ===============
+  colorLoadingOpacity: number;
+
   padding: number;
   margin: number;
 
@@ -295,14 +335,16 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
 
   controlPaddingHorizontal: number;
   controlPaddingHorizontalSM: number;
+
   paddingSM: number;
   paddingXS: number;
   paddingXXS: number;
   paddingLG: number;
+  marginXXS: number;
   marginXS: number;
   marginSM: number;
   marginLG: number;
-  marginXXS: number;
+  marginXL: number;
 
   // Media queries breakpoints
   screenXS: number;
@@ -325,4 +367,7 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   screenXXLMax: number;
 
   motionEaseOut: string;
+
+  colorPopupBg: string;
+  colorBorderSecondary: string;
 }

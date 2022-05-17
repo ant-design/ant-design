@@ -16,19 +16,21 @@ Click `TimePicker`, and then we could select or input a time in panel.
 
 ```jsx
 import { TimePicker } from 'antd';
-import moment from 'moment';
 import { SmileOutlined } from '@ant-design/icons';
+import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
+
+dayjs.extend(customParseFormat);
 
 function onChange(time, timeString) {
   console.log(time, timeString);
 }
 
-ReactDOM.render(
+export default () => (
   <TimePicker
     suffixIcon={<SmileOutlined />}
     onChange={onChange}
-    defaultOpenValue={moment('00:00:00', 'HH:mm:ss')}
-  />,
-  mountNode,
+    defaultOpenValue={dayjs('00:00:00', 'HH:mm:ss')}
+  />
 );
 ```

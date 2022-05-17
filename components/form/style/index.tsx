@@ -1,7 +1,8 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
+import { antZoomIn } from '../../style/motion/zoom';
 import type { AliasToken, FullToken, GenerateStyle } from '../../_util/theme';
-import { genComponentStyleHook, resetComponent } from '../../_util/theme';
+import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
 
 interface FormToken extends FullToken<'Form'> {
   formItemCls: string;
@@ -295,7 +296,9 @@ const genFormItemStyle: GenerateStyle<FormToken> = token => {
         fontSize: token.fontSize,
         textAlign: 'center',
         visibility: 'visible',
-        animation: `zoomIn ${token.motionDurationMid} ${token.motionEaseOutBack}`,
+        animationName: antZoomIn,
+        animationDuration: token.motionDurationMid,
+        animationTimingFunction: token.motionEaseOutBack,
         pointerEvents: 'none',
 
         '&-success': {
@@ -522,11 +525,10 @@ const genVerticalStyle: GenerateStyle<FormToken> = token => {
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Form', (token, { rootPrefixCls }) => {
-  const formToken: FormToken = {
-    ...token,
+  const formToken = mergeToken<FormToken>(token, {
     formItemCls: `${token.componentCls}-item`,
     rootPrefixCls,
-  };
+  });
 
   return [
     genFormStyle(formToken),
@@ -535,5 +537,6 @@ export default genComponentStyleHook('Form', (token, { rootPrefixCls }) => {
     genHorizontalStyle(formToken),
     genInlineStyle(formToken),
     genVerticalStyle(formToken),
+    antZoomIn,
   ];
 });

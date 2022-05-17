@@ -7,7 +7,8 @@
 // import '../../empty/style';
 
 // deps-lint-skip-all
-import { GenerateStyle, genComponentStyleHook, FullToken } from '../../_util/theme';
+import type { GenerateStyle, FullToken } from '../../_util/theme';
+import { genComponentStyleHook, mergeToken } from '../../_util/theme';
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
 import { genTreeStyle } from '../../tree/style';
 
@@ -16,7 +17,7 @@ interface TreeSelectToken extends FullToken<'TreeSelect'> {
 }
 
 // =============================== Base ===============================
-const genBaseStyle: GenerateStyle<TreeSelectToken> = (token, hashId) => {
+const genBaseStyle: GenerateStyle<TreeSelectToken> = token => {
   const { componentCls, treePrefixCls } = token;
   const treeCls = `.${treePrefixCls}`;
 
@@ -31,7 +32,7 @@ const genBaseStyle: GenerateStyle<TreeSelectToken> = (token, hashId) => {
         },
 
         // ====================== Tree ======================
-        genTreeStyle(treePrefixCls, token, hashId!),
+        genTreeStyle(treePrefixCls, token),
         {
           [treeCls]: {
             borderRadius: 0,
@@ -48,7 +49,7 @@ const genBaseStyle: GenerateStyle<TreeSelectToken> = (token, hashId) => {
         },
 
         // ==================== Checkbox ====================
-        getCheckboxStyle(`${treePrefixCls}-checkbox`, token, hashId!),
+        getCheckboxStyle(`${treePrefixCls}-checkbox`, token),
 
         // ====================== RTL =======================
         {
@@ -69,11 +70,10 @@ const genBaseStyle: GenerateStyle<TreeSelectToken> = (token, hashId) => {
 
 // ============================== Export ==============================
 export default function useTreeSelectStyle(prefixCls: string, treePrefixCls: string) {
-  return genComponentStyleHook('TreeSelect', (token, { hashId }) => {
-    const treeSelectToken: TreeSelectToken = {
-      ...token,
+  return genComponentStyleHook('TreeSelect', token => {
+    const treeSelectToken = mergeToken<TreeSelectToken>(token, {
       treePrefixCls,
-    };
-    return [genBaseStyle(treeSelectToken, hashId)];
+    });
+    return [genBaseStyle(treeSelectToken)];
   })(prefixCls);
 }

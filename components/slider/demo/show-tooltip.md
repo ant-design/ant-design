@@ -16,5 +16,5 @@ When `tooltipVisible` is `true`, ToolTip will show always, or ToolTip will not s
 ```jsx
 import { Slider } from 'antd';
 
-ReactDOM.render(<Slider defaultValue={30} tooltipVisible />, mountNode);
+export default () => <Slider defaultValue={30} tooltipVisible />;
 ```

@@ -4,35 +4,57 @@ import classNames from 'classnames';
 import { composeRef } from 'rc-util/lib/ref';
 import { useContext } from 'react';
 import { FormItemInputContext } from '../form/context';
-import { RadioProps, RadioChangeEvent } from './interface';
+import type { RadioProps, RadioChangeEvent } from './interface';
 import { ConfigContext } from '../config-provider';
-import RadioGroupContext from './context';
-import devWarning from '../_util/devWarning';
+import RadioGroupContext, { RadioOptionTypeContext } from './context';
+import DisabledContext from '../config-provider/DisabledContext';
+import warning from '../_util/warning';
+import useStyle from './style';
 
 const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (props, ref) => {
-  const context = React.useContext(RadioGroupContext);
+  const groupContext = React.useContext(RadioGroupContext);
+  const radioOptionTypeContext = React.useContext(RadioOptionTypeContext);
+
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const innerRef = React.useRef<HTMLElement>();
   const mergedRef = composeRef(ref, innerRef);
   const { isFormItemInput } = useContext(FormItemInputContext);
 
-  React.useEffect(() => {
-    devWarning(!('optionType' in props), 'Radio', '`optionType` is only support in Radio.Group.');
-  }, []);
+  warning(!('optionType' in props), 'Radio', '`optionType` is only support in Radio.Group.');
 
   const onChange = (e: RadioChangeEvent) => {
     props.onChange?.(e);
-    context?.onChange?.(e);
+    groupContext?.onChange?.(e);
   };
 
-  const { prefixCls: customizePrefixCls, className, children, style, ...restProps } = props;
-  const prefixCls = getPrefixCls('radio', customizePrefixCls);
+  const {
+    prefixCls: customizePrefixCls,
+    className,
+    children,
+    style,
+    disabled: customDisabled,
+    ...restProps
+  } = props;
+  const radioPrefixCls = getPrefixCls('radio', customizePrefixCls);
+  const prefixCls =
+    (groupContext?.optionType || radioOptionTypeContext) === 'button'
+      ? `${radioPrefixCls}-button`
+      : radioPrefixCls;
+
+  // Style
+  const [wrapSSR, hashId] = useStyle(radioPrefixCls, getPrefixCls());
+
   const radioProps: RadioProps = { ...restProps };
-  if (context) {
-    radioProps.name = context.name;
+
+  // ===================== Disabled =====================
+  const disabled = React.useContext(DisabledContext);
+  radioProps.disabled = customDisabled || disabled;
+
+  if (groupContext) {
+    radioProps.name = groupContext.name;
     radioProps.onChange = onChange;
-    radioProps.checked = props.value === context.value;
-    radioProps.disabled = props.disabled || context.disabled;
+    radioProps.checked = props.value === groupContext.value;
+    radioProps.disabled = radioProps.disabled || groupContext.disabled;
   }
   const wrapperClassString = classNames(
     `${prefixCls}-wrapper`,
@@ -43,9 +65,10 @@ const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (
       [`${prefixCls}-wrapper-in-form-item`]: isFormItemInput,
     },
     className,
+    hashId,
   );
 
-  return (
+  return wrapSSR(
     // eslint-disable-next-line jsx-a11y/label-has-associated-control
     <label
       className={wrapperClassString}
@@ -55,7 +78,7 @@ const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (
     >
       <RcCheckbox {...radioProps} type="radio" prefixCls={prefixCls} ref={mergedRef} />
       {children !== undefined ? <span>{children}</span> : null}
-    </label>
+    </label>,
   );
 };
 

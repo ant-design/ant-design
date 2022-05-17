@@ -2,11 +2,12 @@ import * as React from 'react';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import Radio from './radio';
-import { RadioGroupProps, RadioChangeEvent, RadioGroupButtonStyle } from './interface';
+import type { RadioGroupProps, RadioChangeEvent, RadioGroupButtonStyle } from './interface';
 import { ConfigContext } from '../config-provider';
 import SizeContext from '../config-provider/SizeContext';
 import { RadioGroupContextProvider } from './context';
 import getDataOrAriaProps from '../_util/getDataOrAriaProps';
+import useStyle from './style';
 
 const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
@@ -15,6 +16,13 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
   const [value, setValue] = useMergedState(props.defaultValue, {
     value: props.value,
   });
+
+  const { prefixCls: customizePrefixCls } = props;
+  const prefixCls = getPrefixCls('radio', customizePrefixCls);
+  const groupPrefixCls = `${prefixCls}-group`;
+
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls, getPrefixCls());
 
   const onRadioChange = (ev: RadioChangeEvent) => {
     const lastValue = value;
@@ -30,10 +38,8 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
 
   const renderGroup = () => {
     const {
-      prefixCls: customizePrefixCls,
       className = '',
       options,
-      optionType,
       buttonStyle = 'outline' as RadioGroupButtonStyle,
       disabled,
       children,
@@ -43,19 +49,16 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
       onMouseEnter,
       onMouseLeave,
     } = props;
-    const prefixCls = getPrefixCls('radio', customizePrefixCls);
-    const groupPrefixCls = `${prefixCls}-group`;
     let childrenToRender = children;
     // 如果存在 options, 优先使用
     if (options && options.length > 0) {
-      const optionsPrefixCls = optionType === 'button' ? `${prefixCls}-button` : prefixCls;
       childrenToRender = options.map(option => {
         if (typeof option === 'string' || typeof option === 'number') {
           // 此处类型自动推导为 string
           return (
             <Radio
               key={option.toString()}
-              prefixCls={optionsPrefixCls}
+              prefixCls={prefixCls}
               disabled={disabled}
               value={option}
               checked={value === option}
@@ -68,7 +71,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
         return (
           <Radio
             key={`radio-group-value-options-${option.value}`}
-            prefixCls={optionsPrefixCls}
+            prefixCls={prefixCls}
             disabled={option.disabled || disabled}
             value={option.value}
             checked={value === option.value}
@@ -89,8 +92,9 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
         [`${groupPrefixCls}-rtl`]: direction === 'rtl',
       },
       className,
+      hashId,
     );
-    return (
+    return wrapSSR(
       <div
         {...getDataOrAriaProps(props)}
         className={classString}
@@ -101,7 +105,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
         ref={ref}
       >
         {childrenToRender}
-      </div>
+      </div>,
     );
   };
 
@@ -112,6 +116,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
         value,
         disabled: props.disabled,
         name: props.name,
+        optionType: props.optionType,
       }}
     >
       {renderGroup()}

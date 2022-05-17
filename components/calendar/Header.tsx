@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { GenerateConfig } from 'rc-picker/lib/generate';
-import { Locale } from 'rc-picker/lib/interface';
+import type { GenerateConfig } from 'rc-picker/lib/generate';
+import type { Locale } from 'rc-picker/lib/interface';
 import { useContext, useMemo } from 'react';
 import { FormItemInputContext } from '../form/context';
 import Select from '../select';
 import { Group, Button } from '../radio';
-import { CalendarMode } from './generateCalendar';
+import type { CalendarMode } from './generateCalendar';
 
 const YearSelectOffset = 10;
 const YearSelectTotal = 20;

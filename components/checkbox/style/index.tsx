@@ -1,6 +1,7 @@
 // deps-lint-skip-all
 import { Keyframes } from '@ant-design/cssinjs';
-import { resetComponent, GenerateStyle, genComponentStyleHook, FullToken } from '../../_util/theme';
+import type { GenerateStyle, FullToken } from '../../_util/theme';
+import { resetComponent, genComponentStyleHook, mergeToken } from '../../_util/theme';
 
 interface CheckboxToken extends FullToken<'Checkbox'> {
   checkboxCls: string;
@@ -20,7 +21,7 @@ const antCheckboxEffect = new Keyframes('antCheckboxEffect', {
 });
 
 // ============================== Styles ==============================
-export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token, hashId) => {
+export const genCheckboxStyle: GenerateStyle<CheckboxToken> = token => {
   const { checkboxCls } = token;
   const wrapperCls = `${checkboxCls}-wrapper`;
 
@@ -191,7 +192,9 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token, hashId) =>
           border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorPrimary}`,
           borderRadius: token.controlRadius,
           visibility: 'hidden',
-          animation: `${antCheckboxEffect.getName(hashId)} ${token.motionDurationSlow} ease-in-out`,
+          animationName: antCheckboxEffect,
+          animationDuration: token.motionDurationSlow,
+          animationTimingFunction: 'ease-in-out',
           animationFillMode: 'backwards',
           content: '""',
         },
@@ -218,7 +221,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token, hashId) =>
           borderColor: token.colorBorder,
 
           '&:after': {
-            borderColor: token.colorBorder,
+            borderColor: token.colorTextDisabled,
           },
         },
 
@@ -235,15 +238,14 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token, hashId) =>
 };
 
 // ============================== Export ==============================
-export function getStyle(prefixCls: string, token: FullToken<'Checkbox'>, hashId: string) {
-  const checkboxToken: CheckboxToken = {
-    ...token,
+export function getStyle(prefixCls: string, token: FullToken<'Checkbox'>) {
+  const checkboxToken: CheckboxToken = mergeToken<CheckboxToken>(token, {
     checkboxCls: `.${prefixCls}`,
-  };
+  });
 
-  return [genCheckboxStyle(checkboxToken, hashId), antCheckboxEffect];
+  return [genCheckboxStyle(checkboxToken)];
 }
 
-export default genComponentStyleHook('Checkbox', (token, { prefixCls, hashId }) => [
-  getStyle(prefixCls, token, hashId),
+export default genComponentStyleHook('Checkbox', (token, { prefixCls }) => [
+  getStyle(prefixCls, token),
 ]);

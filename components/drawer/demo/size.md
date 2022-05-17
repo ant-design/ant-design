@@ -16,7 +16,7 @@ The default width (or height) of Drawer is `378px`, and there is a presetted lar
 ```tsx
 import React, { useState } from 'react';
 import { Drawer, Button, Space } from 'antd';
-import { DrawerProps } from 'antd/es/drawer';
+import type { DrawerProps } from 'antd/es/drawer';
 
 const App: React.FC = () => {
   const [visible, setVisible] = useState(false);
@@ -65,5 +65,5 @@ const App: React.FC = () => {
   );
 };
 
-ReactDOM.render(<App />, mountNode);
+export default App;
 ```

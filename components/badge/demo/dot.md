@@ -17,7 +17,7 @@ This will simply display a red badge, without a specific count. If count equals 
 import { Badge } from 'antd';
 import { NotificationOutlined } from '@ant-design/icons';
 
-ReactDOM.render(
+export default () => (
   <>
     <Badge dot>
       <NotificationOutlined style={{ fontSize: 16 }} />
@@ -25,7 +25,6 @@ ReactDOM.render(
     <Badge dot>
       <a href="#">Link something</a>
     </Badge>
-  </>,
-  mountNode,
+  </>
 );
 ```

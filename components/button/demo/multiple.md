@@ -14,7 +14,8 @@ title:
 If you need several buttons, we recommend that you use 1 primary button + n secondary buttons, and if there are more than three operations, you can group some of them into [Dropdown.Button](/components/dropdown/#components-dropdown-demo-dropdown-button).
 
 ```tsx
-import { Button, Menu, Dropdown, MenuProps } from 'antd';
+import type { MenuProps } from 'antd';
+import { Button, Menu, Dropdown } from 'antd';
 
 const onMenuClick: MenuProps['onClick'] = e => {
   console.log('click', e);
@@ -40,12 +41,11 @@ const menu = (
   />
 );
 
-ReactDOM.render(
+export default () => (
   <>
     <Button type="primary">primary</Button>
     <Button>secondary</Button>
     <Dropdown.Button overlay={menu}>Actions</Dropdown.Button>
-  </>,
-  mountNode,
+  </>
 );
 ```

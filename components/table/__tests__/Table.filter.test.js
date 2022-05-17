@@ -2,6 +2,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
+import { render, fireEvent } from '../../../tests/utils';
 import Table from '..';
 import Input from '../../input';
 import Tooltip from '../../tooltip';
@@ -101,8 +102,8 @@ describe('Table.filter', () => {
   it('renders empty menu correctly', () => {
     jest.useFakeTimers();
 
-    jest.spyOn(console, 'error').mockImplementation(() => undefined);
-    const wrapper = mount(
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => undefined);
+    const { container } = render(
       createTable({
         columns: [
           {
@@ -112,17 +113,16 @@ describe('Table.filter', () => {
         ],
       }),
     );
-    wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
+
+    fireEvent.click(container.querySelector('span.ant-dropdown-trigger'), nativeEvent);
+
     act(() => {
       jest.runAllTimers();
-      wrapper.update();
     });
 
-    expect(wrapper.find('Empty').length).toBeTruthy();
-    // eslint-disable-next-line no-console
-    expect(console.error).not.toHaveBeenCalled();
-    // eslint-disable-next-line no-console
-    console.error.mockRestore();
+    expect(container.querySelector('.ant-empty')).toBeTruthy();
+    expect(errorSpy).not.toHaveBeenCalled();
+    errorSpy.mockRestore();
 
     jest.useRealTimers();
   });
@@ -2198,7 +2198,7 @@ describe('Table.filter', () => {
     });
   });
 
-  it('filterDropDown should support filterResetToDefaultFilteredValue', () => {
+  it('filterDropdown should support filterResetToDefaultFilteredValue', () => {
     jest.useFakeTimers();
     jest.spyOn(console, 'error').mockImplementation(() => undefined);
 
@@ -2251,5 +2251,107 @@ describe('Table.filter', () => {
     wrapper.find('button.ant-btn-link').simulate('click', nativeEvent);
     expect(wrapper.find('.ant-tree-checkbox-checked').length).toBe(1);
     expect(wrapper.find('.ant-tree-checkbox-checked+span').text()).toBe('Girl');
+  });
+
+  it('filteredKeys should all be controlled or not controlled', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    errorSpy.mockReset();
+    const tableData = [
+      {
+        key: '1',
+        name: 'John Brown',
+        age: 32,
+      },
+    ];
+    const columns = [
+      {
+        title: 'name',
+        dataIndex: 'name',
+        key: 'name',
+        filters: [],
+      },
+      {
+        title: 'age',
+        dataIndex: 'age',
+        key: 'age',
+        filters: [],
+      },
+    ];
+    render(
+      createTable({
+        columns,
+        data: tableData,
+      }),
+    );
+    expect(errorSpy).not.toBeCalled();
+    errorSpy.mockReset();
+    columns[0].filteredValue = [];
+    render(
+      createTable({
+        columns,
+        data: tableData,
+      }),
+    );
+    expect(errorSpy).toBeCalledWith(
+      'Warning: [antd: Table] Columns should all contain `filteredValue` or not contain `filteredValue`.',
+    );
+    errorSpy.mockReset();
+    columns[1].filteredValue = [];
+    render(
+      createTable({
+        columns,
+        data: tableData,
+      }),
+    );
+    expect(errorSpy).not.toBeCalled();
+  });
+
+  it('can reset if filterResetToDefaultFilteredValue and filter is changing', () => {
+    const wrapper = mount(
+      createTable({
+        columns: [
+          {
+            ...column,
+            filters: [
+              { text: 'Jack', value: 'Jack' },
+              { text: 'Lucy', value: 'Lucy' },
+            ],
+            defaultFilteredValue: ['Jack'],
+            filterResetToDefaultFilteredValue: true,
+          },
+        ],
+      }),
+    );
+    expect(wrapper.find('tbody tr').length).toBe(1);
+    expect(wrapper.find('tbody tr').text()).toBe('Jack');
+
+    // open filter
+    wrapper.find('span.ant-dropdown-trigger').first().simulate('click');
+    expect(
+      wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-link').props().disabled,
+    ).toBeTruthy();
+    expect(wrapper.find('li.ant-dropdown-menu-item').at(0).text()).toBe('Jack');
+    expect(wrapper.find('li.ant-dropdown-menu-item').at(1).text()).toBe('Lucy');
+
+    // deselect default
+    wrapper.find('li.ant-dropdown-menu-item').at(0).simulate('click');
+    expect(
+      wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-link').props().disabled,
+    ).toBeFalsy();
+    // select other one
+    wrapper.find('li.ant-dropdown-menu-item').at(1).simulate('click');
+    expect(
+      wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-link').props().disabled,
+    ).toBeFalsy();
+    // deselect other one
+    wrapper.find('li.ant-dropdown-menu-item').at(1).simulate('click');
+    expect(
+      wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-link').props().disabled,
+    ).toBeFalsy();
+    // select default
+    wrapper.find('li.ant-dropdown-menu-item').at(0).simulate('click');
+    expect(
+      wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-link').props().disabled,
+    ).toBeTruthy();
   });
 });

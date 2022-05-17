@@ -25,8 +25,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/Jxm5nw61w/Notification.svg
 - `notification.warning(config)`
 - `notification.warn(config)`
 - `notification.open(config)`
-- `notification.close(key: String)`
-- `notification.destroy()`
+- `notification.destroy(key?: String)`
 
 config 参数如下：
 

@@ -2527,7 +2527,7 @@ exports[`renders ./components/rate/demo/text.md extend context correctly 1`] = `
     <div>
       <div
         class="ant-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -2609,7 +2609,7 @@ exports[`renders ./components/rate/demo/text.md extend context correctly 1`] = `
     <div>
       <div
         class="ant-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -2691,7 +2691,7 @@ exports[`renders ./components/rate/demo/text.md extend context correctly 1`] = `
     <div>
       <div
         class="ant-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -2773,7 +2773,7 @@ exports[`renders ./components/rate/demo/text.md extend context correctly 1`] = `
     <div>
       <div
         class="ant-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -2855,7 +2855,7 @@ exports[`renders ./components/rate/demo/text.md extend context correctly 1`] = `
     <div>
       <div
         class="ant-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"

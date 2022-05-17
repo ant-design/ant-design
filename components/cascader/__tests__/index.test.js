@@ -517,17 +517,6 @@ describe('Cascader', () => {
       errorSpy.mockRestore();
     });
 
-    it('displayRender & multiple', () => {
-      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-      mount(<Cascader multiple displayRender={() => null} />);
-
-      expect(errorSpy).toHaveBeenCalledWith(
-        'Warning: [antd: Cascader] `displayRender` not work on `multiple`. Please use `tagRender` instead.',
-      );
-
-      errorSpy.mockRestore();
-    });
-
     it('should support showCheckedStrategy child', () => {
       const multipleOptions = [
         {

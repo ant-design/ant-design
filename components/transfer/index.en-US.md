@@ -21,7 +21,7 @@ One or more elements can be selected from either column, one click on the proper
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| dataSource | Used for setting the source data. The elements that are part of this array will be present the left column. Except the elements whose keys are included in `targetKeys` prop | [RecordType extends TransferItem = TransferItem](https://git.io/vMM64)\[] | \[] |  |
+| dataSource | Used for setting the source data. The elements that are part of this array will be present the left column. Except the elements whose keys are included in `targetKeys` prop | [RecordType extends TransferItem = TransferItem](https://github.com/ant-design/ant-design/blob/1bf0bab2a7bc0a774119f501806e3e0e3a6ba283/components/transfer/index.tsx#L12)\[] | \[] |  |
 | disabled | Whether disabled transfer | boolean | false |  |
 | filterOption | A function to determine whether an item should show in search result list | (inputValue, option): boolean | - |  |
 | footer | A function used for rendering the footer | (props, { direction }) => ReactNode | - | direction: 4.17.0 |

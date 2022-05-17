@@ -49,7 +49,6 @@ Cascade selection box.
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | style | The additional style | CSSProperties | - |  |
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
-| tagRender | Customize tag render when `multiple` | (props) => ReactNode | - | 4.17.0 |
 | value | The selected value | string\[] \| number\[] | - |  |
 | onChange | Callback when finishing cascader select | (value, selectedOptions) => void | - |  |
 | onDropdownVisibleChange | Callback when popup shown or hidden | (value) => void | - | 4.17.0 |

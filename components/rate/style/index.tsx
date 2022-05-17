@@ -1,6 +1,7 @@
 // deps-lint-skip-all
-import { CSSObject } from '@ant-design/cssinjs';
-import { resetComponent, GenerateStyle, FullToken, genComponentStyleHook } from '../../_util/theme';
+import type { CSSObject } from '@ant-design/cssinjs';
+import type { GenerateStyle, FullToken } from '../../_util/theme';
+import { resetComponent, genComponentStyleHook, mergeToken } from '../../_util/theme';
 
 interface RateToken extends FullToken<'Rate'> {
   rateStarColor: string;
@@ -119,12 +120,11 @@ const genRateStyle: GenerateStyle<RateToken> = token => {
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Rate', token => {
-  const rateToken: RateToken = {
-    ...token,
+  const rateToken = mergeToken<RateToken>(token, {
     // FIXME: missing token
     rateStarColor: '#fadb14', // @yellow-6
     rateStarSize: 20, // fixed-value
     rateStarHoverScale: 'scale(1.1)', // fixed-value
-  };
+  });
   return [genRateStyle(rateToken)];
 });

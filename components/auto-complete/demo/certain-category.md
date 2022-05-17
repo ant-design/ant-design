@@ -74,7 +74,7 @@ const Complete: React.FC = () => (
   </AutoComplete>
 );
 
-ReactDOM.render(<Complete />, mountNode);
+export default () => <Complete />;
 ```
 
 ```css

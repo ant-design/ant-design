@@ -1,15 +1,17 @@
 import * as React from 'react';
 import RcCollapse from 'rc-collapse';
-import { CSSMotionProps } from 'rc-motion';
+import type { CSSMotionProps } from 'rc-motion';
 import classNames from 'classnames';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 
 import toArray from 'rc-util/lib/Children/toArray';
 import omit from 'rc-util/lib/omit';
-import CollapsePanel, { CollapsibleType } from './CollapsePanel';
+import type { CollapsibleType } from './CollapsePanel';
+import CollapsePanel from './CollapsePanel';
 import { ConfigContext } from '../config-provider';
 import collapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
+import useStyle from './style';
 
 export type ExpandIconPosition = 'left' | 'right' | undefined;
 
@@ -28,6 +30,7 @@ export interface CollapseProps {
   expandIconPosition?: ExpandIconPosition;
   ghost?: boolean;
   collapsible?: CollapsibleType;
+  children?: React.ReactNode;
 }
 
 interface PanelProps {
@@ -51,6 +54,7 @@ const Collapse: CollapseInterface = props => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const { prefixCls: customizePrefixCls, className = '', bordered = true, ghost } = props;
   const prefixCls = getPrefixCls('collapse', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const getIconPosition = () => {
     const { expandIconPosition } = props;
@@ -89,6 +93,7 @@ const Collapse: CollapseInterface = props => {
       [`${prefixCls}-ghost`]: !!ghost,
     },
     className,
+    hashId,
   );
   const openMotion: CSSMotionProps = {
     ...collapseMotion,
@@ -113,7 +118,7 @@ const Collapse: CollapseInterface = props => {
     });
   };
 
-  return (
+  return wrapSSR(
     <RcCollapse
       openMotion={openMotion}
       {...props}
@@ -122,7 +127,7 @@ const Collapse: CollapseInterface = props => {
       className={collapseClassName}
     >
       {getItems()}
-    </RcCollapse>
+    </RcCollapse>,
   );
 };
 

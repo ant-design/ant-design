@@ -15,7 +15,7 @@ We recommend use `Form.useForm` to create data control. If you are using class c
 
 ```tsx
 import { Form, Input, Button, Select } from 'antd';
-import { FormInstance } from 'antd/es/form';
+import type { FormInstance } from 'antd/es/form';
 
 const { Option } = Select;
 
@@ -107,7 +107,7 @@ class Demo extends React.Component {
   }
 }
 
-ReactDOM.render(<Demo />, mountNode);
+export default Demo;
 ```
 
 ```css

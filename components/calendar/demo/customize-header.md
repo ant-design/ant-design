@@ -15,12 +15,13 @@ Customize Calendar header content.
 
 ```jsx
 import { Calendar, Select, Radio, Col, Row, Typography } from 'antd';
+import 'dayjs/locale/zh-cn';
 
 function onPanelChange(value, mode) {
   console.log(value, mode);
 }
 
-ReactDOM.render(
+export default () => (
   <div className="site-calendar-customize-header-wrapper">
     <Calendar
       fullscreen={false}
@@ -29,11 +30,11 @@ ReactDOM.render(
         const end = 12;
         const monthOptions = [];
 
-        const current = value.clone();
+        let current = value.clone();
         const localeData = value.localeData();
         const months = [];
         for (let i = 0; i < 12; i++) {
-          current.month(i);
+          current = current.month(i);
           months.push(localeData.monthsShort(current));
         }
 
@@ -99,8 +100,7 @@ ReactDOM.render(
       }}
       onPanelChange={onPanelChange}
     />
-  </div>,
-  mountNode,
+  </div>
 );
 ```
 

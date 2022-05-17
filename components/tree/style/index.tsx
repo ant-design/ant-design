@@ -2,8 +2,10 @@
 // import './index.less';
 
 // deps-lint-skip-all
-import { CSSObject, CSSInterpolation, Keyframes } from '@ant-design/cssinjs';
-import { DerivativeToken, resetComponent, genComponentStyleHook } from '../../_util/theme';
+import type { CSSObject, CSSInterpolation } from '@ant-design/cssinjs';
+import { Keyframes } from '@ant-design/cssinjs';
+import type { DerivativeToken } from '../../_util/theme';
+import { resetComponent, genComponentStyleHook, mergeToken } from '../../_util/theme';
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
 
 // ============================ Keyframes =============================
@@ -62,7 +64,7 @@ type TreeToken = DerivativeToken & {
   treeTitleHeight: number;
 };
 
-export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string): CSSObject => {
+export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => {
   const { treeCls, treeNodeCls, treeNodePadding, treeTitleHeight } = token;
 
   const treeCheckBoxMarginVertical = (treeTitleHeight - token.fontSizeLG) / 2;
@@ -118,7 +120,8 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
               insetInlineStart: 0,
               border: `1px solid ${token.colorPrimary}`,
               opacity: 0,
-              animation: `${treeNodeFX.getName(hashId)} ${token.motionDurationSlow}`,
+              animationName: treeNodeFX,
+              animationDuration: token.motionDurationSlow,
               animationPlayState: 'running',
               animationFillMode: 'forwards',
               content: '""',
@@ -250,7 +253,11 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken, hashId: string
       },
 
       // >>> Title
-      [`& ${treeCls}-node-content-wrapper`]: {
+      // add `${treeCls}-checkbox + span` to cover checkbox `${checkboxCls} + span`
+      [`
+        ${treeCls}-node-content-wrapper, 
+        ${treeCls}-checkbox + span
+      `]: {
         display: 'flex',
         flexWrap: 'nowrap',
         position: 'relative',
@@ -437,36 +444,32 @@ export const genDirectoryStyle = (token: TreeToken): CSSObject => {
 };
 
 // ============================== Merged ==============================
-export const genTreeStyle = (
-  prefixCls: string,
-  token: DerivativeToken,
-  hashId: string,
-): CSSInterpolation => {
+export const genTreeStyle = (prefixCls: string, token: DerivativeToken): CSSInterpolation => {
   const treeCls = `.${prefixCls}`;
   const treeNodeCls = `${treeCls}-treenode`;
 
   const treeNodePadding = token.paddingXS / 2;
   const treeTitleHeight = token.controlHeightSM;
 
-  const treeToken = {
-    ...token,
+  const treeToken = mergeToken<TreeToken>(token, {
     treeCls,
     treeNodeCls,
     treeNodePadding,
     treeTitleHeight,
-  };
+  });
 
   return [
     // Basic
-    genBaseStyle(prefixCls, treeToken, hashId),
+    genBaseStyle(prefixCls, treeToken),
     // Directory
     genDirectoryStyle(treeToken),
   ];
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Tree', (token, { prefixCls, hashId }) => [
-  getCheckboxStyle(`${prefixCls}-checkbox`, token, hashId),
-  genTreeStyle(prefixCls, token, hashId),
-  treeNodeFX,
+export default genComponentStyleHook('Tree', (token, { prefixCls }) => [
+  {
+    [token.componentCls]: getCheckboxStyle(`${prefixCls}-checkbox`, token),
+  },
+  genTreeStyle(prefixCls, token),
 ]);

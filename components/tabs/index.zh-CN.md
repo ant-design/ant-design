@@ -41,7 +41,7 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | destroyInactiveTabPane | 被隐藏时是否销毁 DOM 结构 | boolean | false |  |
 | type | 页签的基本样式，可选 `line`、`card` `editable-card` 类型 | string | `line` |  |
 | onChange | 切换面板的回调 | function(activeKey) {} | - |  |
-| onEdit | 新增和删除页签的回调，在 `type="editable-card"` 时有效 | (targetKey, action): void | - |  |
+| onEdit | 新增和删除页签的回调，在 `type="editable-card"` 时有效 | (action === 'add' ? event : targetKey, action): void | - |  |
 | onTabClick | tab 被点击的回调 | function(key: string, event: MouseEvent) | - |  |
 | onTabScroll | tab 滚动时触发 | function({ direction: `left` \| `right` \| `top` \| `bottom` }) | - | 4.3.0 |
 

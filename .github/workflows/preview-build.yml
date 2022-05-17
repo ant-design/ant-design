@@ -11,6 +11,9 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
   # Prepare node modules. Reuse cache if available
   setup:
@@ -27,7 +30,7 @@ jobs:
           key: lock-${{ github.sha }}
 
       - name: create package-lock.json
-        run: npm i --package-lock-only --ignore-scripts
+        run: npm i --package-lock-only --ignore-scripts --legacy-peer-deps
 
       - name: hack for single file
         run: |

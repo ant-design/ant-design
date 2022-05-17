@@ -1,6 +1,6 @@
 /* eslint-disable react/no-string-refs, react/prefer-es6-class */
 import React from 'react';
-import { mount, render } from 'enzyme';
+import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import produce from 'immer';
 import { cloneDeep } from 'lodash';
@@ -8,10 +8,12 @@ import Upload from '..';
 import Form from '../../form';
 import { getFileItem, removeFileItem, isImageUrl } from '../utils';
 import { setup, teardown } from './mock';
-import { resetWarned } from '../../_util/devWarning';
+import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { sleep } from '../../../tests/utils';
+import { sleep, render, fireEvent } from '../../../tests/utils';
+
+globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 
 describe('Upload', () => {
   mountTest(Upload);
@@ -200,15 +202,16 @@ describe('Upload', () => {
 
   // https://github.com/ant-design/ant-design/issues/14779
   it('should contain input file control if upload button is hidden', () => {
-    const wrapper = mount(
+    const { container, rerender } = render(
       <Upload action="http://upload.com">
         <button type="button">upload</button>
       </Upload>,
     );
 
-    expect(wrapper.find('input[type="file"]').length).toBe(1);
-    wrapper.setProps({ children: null });
-    expect(wrapper.find('input[type="file"]').length).toBe(1);
+    expect(container.querySelectorAll('input[type="file"]')).toHaveLength(1);
+
+    rerender(<Upload action="http://upload.com" />);
+    expect(container.querySelectorAll('input[type="file"]')).toHaveLength(1);
   });
 
   // https://github.com/ant-design/ant-design/issues/14298
@@ -221,15 +224,15 @@ describe('Upload', () => {
       </Form>
     );
 
-    const wrapper = mount(
+    const { container, rerender } = render(
       <Demo>
         <div>upload</div>
       </Demo>,
     );
 
-    expect(wrapper.find('input#upload').length).toBe(1);
-    wrapper.setProps({ children: null });
-    expect(wrapper.find('input#upload').length).toBe(0);
+    expect(container.querySelector('input#upload')).toBeTruthy();
+    rerender(<Demo />);
+    expect(container.querySelector('input#upload')).toBeFalsy();
   });
 
   // https://github.com/ant-design/ant-design/issues/16478
@@ -296,7 +299,7 @@ describe('Upload', () => {
         url: 'http://www.baidu.com/xxx.png',
       },
     ];
-    render(<Upload fileList={fileList} />);
+    mount(<Upload fileList={fileList} />);
     fileList.forEach(file => {
       expect(file.uid).toBeDefined();
     });
@@ -447,38 +450,41 @@ describe('Upload', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/18902
-  it('should not abort uploading until return value of onRemove is resolved as true', done => {
-    let wrapper;
-
-    const props = {
-      onRemove: async () => {
-        await act(async () => {
-          await sleep(100);
-          wrapper.update();
-          expect(props.fileList).toHaveLength(1);
-          expect(props.fileList[0].status).toBe('uploading');
-        });
-
-        return true;
-      },
-      fileList: [
-        {
-          uid: '-1',
-          name: 'foo.png',
-          status: 'uploading',
-          url: 'http://www.baidu.com/xxx.png',
-        },
-      ],
-      onChange: () => {
-        expect(props.fileList).toHaveLength(1);
-        expect(props.fileList[0].status).toBe('removed');
-        done();
-      },
+  it('should not abort uploading until return value of onRemove is resolved as true', async () => {
+    const file = {
+      uid: '-1',
+      name: 'foo.png',
+      status: 'uploading',
+      url: 'http://www.baidu.com/xxx.png',
     };
 
-    wrapper = mount(<Upload {...props} />);
+    let removePromise;
 
-    wrapper.find('div.ant-upload-list-item .anticon-delete').simulate('click');
+    const onRemove = () =>
+      new Promise(resolve => {
+        expect(file.status).toBe('uploading');
+        removePromise = resolve;
+      });
+    const onChange = jest.fn();
+
+    const { container } = render(
+      <Upload fileList={[file]} onChange={onChange} onRemove={onRemove} />,
+    );
+    fireEvent.click(container.querySelector('div.ant-upload-list-item .anticon-delete'));
+
+    // uploadStart is a batch work which we need wait for react act
+    await act(async () => {
+      await Promise.resolve();
+    });
+
+    // Delay return true for remove
+    await sleep(100);
+    await act(async () => {
+      await removePromise(true);
+    });
+
+    expect(onChange).toHaveBeenCalled();
+    expect(file.status).toBe('removed');
   });
 
   it('should not stop download when return use onDownload', done => {
@@ -838,7 +844,7 @@ describe('Upload', () => {
     const frozenFileList = fileList.map(file => Object.freeze(file));
 
     const wrapper = mount(<Upload fileList={frozenFileList} />);
-    const rmBtn = wrapper.find('.ant-upload-list-item-card-actions-btn').last();
+    const rmBtn = wrapper.find('.ant-upload-list-item-action').last();
     rmBtn.simulate('click');
 
     // Wait for Upload async remove
@@ -851,42 +857,60 @@ describe('Upload', () => {
   // IE11 Does not support the File constructor
   it('should not break in IE if beforeUpload returns false', async () => {
     const onChange = jest.fn();
-    const wrapper = mount(<Upload beforeUpload={() => false} fileList={[]} onChange={onChange} />);
+    const { container } = render(
+      <Upload beforeUpload={() => false} fileList={[]} onChange={onChange} />,
+    );
     const fileConstructor = () => {
       throw new TypeError("Object doesn't support this action");
     };
-    global.File = jest.fn().mockImplementationOnce(fileConstructor);
 
-    await act(async () =>
-      wrapper.find('input').simulate('change', {
-        target: {
-          files: [{ file: 'foo.png' }],
-        },
-      }),
-    );
+    jest.spyOn(global, 'File').mockImplementationOnce(fileConstructor);
+    fireEvent.change(container.querySelector('input'), {
+      target: {
+        files: [{ file: 'foo.png' }],
+      },
+    });
+
+    // React 18 is async now
+    await sleep();
 
     expect(onChange.mock.calls[0][0].fileList).toHaveLength(1);
   });
 
   // https://github.com/ant-design/ant-design/issues/33819
   it('should show the animation of the upload children leaving when the upload children becomes null', async () => {
-    const wrapper = mount(
+    jest.useFakeTimers();
+
+    const { container, rerender } = render(
       <Upload listType="picture-card">
         <button type="button">upload</button>
       </Upload>,
     );
-    wrapper.setProps({ children: null });
-    expect(wrapper.find('.ant-upload-select-picture-card').getDOMNode().style.display).not.toBe(
-      'none',
-    );
-    await act(async () => {
-      await sleep(100);
-      wrapper
-        .find('.ant-upload-select-picture-card')
-        .getDOMNode()
-        .dispatchEvent(new Event('animationend'));
-      await sleep(20);
+
+    rerender(<Upload listType="picture-card" />);
+    expect(container.querySelector('.ant-upload-select')).not.toHaveStyle({
+      display: 'none',
     });
-    expect(wrapper.find('.ant-upload-select-picture-card').getDOMNode().style.display).toBe('none');
+
+    // Motion leave status change: start > active
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    fireEvent.animationEnd(container.querySelector('.ant-upload-select'));
+
+    expect(container.querySelector('.ant-upload-select')).toHaveStyle({
+      display: 'none',
+    });
+
+    jest.useRealTimers();
+  });
+
+  it('<Upload /> should pass <UploadList /> prefixCls', async () => {
+    const wrapper1 = mount(<Upload />);
+    expect(wrapper1.find('.ant-upload-list').exists()).toBeTruthy();
+
+    const wrapper2 = mount(<Upload prefixCls="custom-upload" />);
+    expect(wrapper2.find('.custom-upload-list').exists()).toBeTruthy();
   });
 });

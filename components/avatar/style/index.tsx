@@ -6,8 +6,9 @@
 // import '../../popover/style';
 
 // deps-lint-skip-all
-import { CSSObject } from '@ant-design/cssinjs';
-import { GenerateStyle, resetComponent, FullToken, genComponentStyleHook } from '../../_util/theme';
+import type { CSSObject } from '@ant-design/cssinjs';
+import type { GenerateStyle, FullToken } from '../../_util/theme';
+import { resetComponent, genComponentStyleHook, mergeToken } from '../../_util/theme';
 
 type AvatarToken = FullToken<'Avatar'> & {
   avatarBg: string;
@@ -37,7 +38,10 @@ const avatarSizeStyle = (
 
   [`${avatarCls}-string`]: {
     position: 'absolute',
-    insetInlineStart: '50%',
+    left: {
+      _skip_check_: true,
+      value: '50%',
+    },
     transformOrigin: '0 center',
   },
 
@@ -134,8 +138,7 @@ const genGroupStyle: GenerateStyle<AvatarToken> = token => {
 };
 
 export default genComponentStyleHook('Avatar', token => {
-  const avatarToken: AvatarToken = {
-    ...token,
+  const avatarToken = mergeToken<AvatarToken>(token, {
     // FIXME
     avatarBg: '#ccc',
     // FIXME
@@ -152,7 +155,7 @@ export default genComponentStyleHook('Avatar', token => {
     avatarGroupBorderColor: '#fff',
     avatarGroupOverlapping: -8,
     avatarGroupSpace: 3,
-  };
+  });
 
   return [genBaseStyle(avatarToken), genGroupStyle(avatarToken)];
 });

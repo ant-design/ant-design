@@ -16,5 +16,5 @@ You can choose another style of `image` by setting image to `Empty.PRESENTED_IMA
 ```jsx
 import { Empty } from 'antd';
 
-ReactDOM.render(<Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />, mountNode);
+export default () => <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />;
 ```

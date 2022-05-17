@@ -2,9 +2,10 @@
 // import './index.less';
 
 // deps-lint-skip-all
-import { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
+import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 
-import { resetComponent, GenerateStyle, FullToken, genComponentStyleHook } from '../../_util/theme';
+import type { GenerateStyle, FullToken } from '../../_util/theme';
+import { resetComponent, genComponentStyleHook, mergeToken } from '../../_util/theme';
 
 // FIXME: missing token
 type AlertToken = FullToken<'Alert'> & {
@@ -242,50 +243,14 @@ export default genComponentStyleHook('Alert', token => {
   const alertWithDescriptionPaddingVertical = token.padding - 1;
   const alertWithDescriptionNoIconPaddingVertical = token.padding - 1;
 
-  const alertToken: AlertToken = {
-    ...token,
+  const alertToken = mergeToken<AlertToken>(token, {
     alertMessageColor,
     alertCloseColor,
     alertCloseHoverColor,
     alertWithDescriptionIconSize,
     alertWithDescriptionPaddingVertical,
     alertWithDescriptionNoIconPaddingVertical,
-  };
+  });
 
   return [genAlertStyle(alertToken)];
 });
-
-// export default function useStyle(
-//   prefixCls: string,
-//   iconPrefixCls: string,
-// ): UseComponentStyleResult {
-//   const [theme, token, hashId] = useToken();
-//
-//   const alertCls = `.${prefixCls}`;
-//
-//   const alertMessageColor = token.colorTextHeading;
-//   const alertCloseColor = token.colorAction;
-//   const alertCloseHoverColor = token.colorActionHover;
-//   // FIXME
-//   const alertWithDescriptionIconSize = 24;
-//   const alertWithDescriptionPaddingVertical = token.padding - 1;
-//   const alertWithDescriptionNoIconPaddingVertical = token.padding - 1;
-//
-//   const alertToken: AlertToken = {
-//     ...token,
-//     componentCls: alertCls,
-//     alertMessageColor,
-//     alertCloseColor,
-//     alertCloseHoverColor,
-//     alertWithDescriptionIconSize,
-//     alertWithDescriptionPaddingVertical,
-//     alertWithDescriptionNoIconPaddingVertical,
-//   };
-//
-//   return [
-//     useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => [
-//       genAlertStyle(alertToken),
-//     ]),
-//     hashId,
-//   ];
-// }

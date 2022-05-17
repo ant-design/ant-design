@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import Input from '..';
-import { InputProps } from '../Input';
+import type { InputProps } from '../Input';
 
 describe('Input types', () => {
   it('should support data-attributes', () => {

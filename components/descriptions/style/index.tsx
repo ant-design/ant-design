@@ -1,6 +1,7 @@
 // deps-lint-skip-all
-import { CSSObject } from '@ant-design/cssinjs';
-import { FullToken, genComponentStyleHook, GenerateStyle, resetComponent } from '../../_util/theme';
+import type { CSSObject } from '@ant-design/cssinjs';
+import type { FullToken, GenerateStyle } from '../../_util/theme';
+import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
 
 interface DescriptionsToken extends FullToken<'Descriptions'> {
   descriptionsTitleMarginBottom: number;
@@ -100,7 +101,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
         textOverflow: 'ellipsis',
       },
       [`${componentCls}-extra`]: {
-        marginLeft: 'auto',
+        marginInlineStart: 'auto',
         color: descriptionsExtraColor,
         // FIXME: hardcode in v4
         fontSize: token.fontSize,
@@ -174,7 +175,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
           },
         },
       },
-      [`${componentCls}-middle`]: {
+      '&-middle': {
         [`${componentCls}-row`]: {
           '> th, > td': {
             // FIXME: hardcode in v4
@@ -182,7 +183,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
           },
         },
       },
-      [`${componentCls}-small`]: {
+      '&-small': {
         [`${componentCls}-row`]: {
           '> th, > td': {
             // FIXME: hardcode in v4
@@ -206,8 +207,7 @@ export default genComponentStyleHook('Descriptions', token => {
   const descriptionsItemLabelColonMarginRight = 8;
   const descriptionsItemLabelColonMarginLeft = 2;
 
-  const descriptionToken: DescriptionsToken = {
-    ...token,
+  const descriptionToken = mergeToken<DescriptionsToken>(token, {
     descriptionsBg,
     descriptionsTitleMarginBottom,
     descriptionsExtraColor,
@@ -218,7 +218,7 @@ export default genComponentStyleHook('Descriptions', token => {
     descriptionsMiddlePadding,
     descriptionsItemLabelColonMarginRight,
     descriptionsItemLabelColonMarginLeft,
-  };
+  });
 
   return [genDescriptionStyles(descriptionToken)];
 });

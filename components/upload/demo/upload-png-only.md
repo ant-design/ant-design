@@ -18,7 +18,7 @@ import React, { useState } from 'react';
 import { Upload, Button, message } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 
-const Uploader = () => {
+const App = () => {
   const props = {
     beforeUpload: file => {
       const isPNG = file.type === 'image/png';
@@ -38,5 +38,5 @@ const Uploader = () => {
   );
 };
 
-ReactDOM.render(<Uploader />, mountNode);
+export default App;
 ```

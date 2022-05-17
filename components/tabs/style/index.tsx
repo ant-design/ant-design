@@ -1,8 +1,9 @@
 // deps-lint-skip-all
-import { CSSObject } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 
-import { resetComponent, GenerateStyle, genComponentStyleHook, FullToken } from '../../_util/theme';
+import type { GenerateStyle, FullToken } from '../../_util/theme';
+import { resetComponent, genComponentStyleHook, mergeToken } from '../../_util/theme';
 
 interface TabsToken extends FullToken<'Tabs'> {
   tabsCardHorizontalPadding: string;
@@ -707,7 +708,6 @@ const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
     [componentCls]: {
       ...resetComponent(token),
       display: 'flex',
-      overflow: 'hidden',
 
       // ========================== Navigation ==========================
       [`> ${componentCls}-nav, > div > ${componentCls}-nav`]: {
@@ -855,9 +855,7 @@ export default genComponentStyleHook('Tabs', token => {
   const paddingMD = 16; // FIXME: hardcode in v4
   const tabsCardHeight = 40; // FIXME: hardcode in v4
 
-  const tabsToken: TabsToken = {
-    ...token,
-
+  const tabsToken = mergeToken<TabsToken>(token, {
     marginMD: 16, // FIXME: hardcode in v4
     paddingMD, // FIXME: hardcode in v4
     tabsHoverColor: '#40a9ff', // FIXME: hardcode in v4, primary-5
@@ -878,7 +876,7 @@ export default genComponentStyleHook('Tabs', token => {
     disabledColor: new TinyColor('#000').setAlpha(0.25).toRgbString(), // FIXME: hardcode in v4
     boxShadowColor: new TinyColor('rgba(0, 0, 0, 0.15)').setAlpha(0.08).toRgbString(), // FIXME: hardcode in v4
     borderColorSplit: new TinyColor({ h: 0, s: 0, v: 94 }).toHexString(), // FIXME: hardcode in v4
-  };
+  });
 
   return [
     genSizeStyle(tabsToken),

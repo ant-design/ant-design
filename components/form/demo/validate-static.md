@@ -48,7 +48,7 @@ const formItemLayout = {
   },
 };
 
-ReactDOM.render(
+export default () => (
   <Form {...formItemLayout}>
     <Form.Item
       label="Fail"
@@ -166,7 +166,6 @@ ReactDOM.render(
     <Form.Item label="Fail" validateStatus="error" hasFeedback help="Should have something">
       <Input.TextArea allowClear showCount />
     </Form.Item>
-  </Form>,
-  mountNode,
+  </Form>
 );
 ```

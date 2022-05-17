@@ -22,13 +22,12 @@ const onChange = e => {
   console.log('Change:', e.target.value);
 };
 
-ReactDOM.render(
+export default () => (
   <>
     <Input showCount maxLength={20} onChange={onChange} />
     <br />
     <br />
     <TextArea showCount maxLength={100} onChange={onChange} />
-  </>,
-  mountNode,
+  </>
 );
 ```

@@ -1,5 +1,6 @@
 import * as React from 'react';
-import RcMenu, { ItemGroup, MenuProps as RcMenuProps, MenuRef } from 'rc-menu';
+import type { MenuProps as RcMenuProps, MenuRef } from 'rc-menu';
+import RcMenu, { ItemGroup } from 'rc-menu';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
@@ -7,14 +8,16 @@ import { forwardRef } from 'react';
 import SubMenu, { SubMenuProps } from './SubMenu';
 import Item, { MenuItemProps } from './MenuItem';
 import { ConfigContext } from '../config-provider';
-import devWarning from '../_util/devWarning';
-import { SiderContext, SiderContextProps } from '../layout/Sider';
+import warning from '../_util/warning';
+import type { SiderContextProps } from '../layout/Sider';
+import { SiderContext } from '../layout/Sider';
 import collapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
 import MenuContext, { MenuTheme } from './MenuContext';
 import MenuDivider from './MenuDivider';
 import type { ItemType } from './hooks/useItems';
 import useItems from './hooks/useItems';
+import useStyle from './style';
 
 export { MenuDividerProps } from './MenuDivider';
 
@@ -56,28 +59,30 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
     siderCollapsed,
     items,
     children,
+    rootClassName,
     ...restProps
   } = props;
 
   const passedProps = omit(restProps, ['collapsedWidth']);
+  const injectFromDropdown = (props as any)['data-dropdown-inject'];
 
   // ========================= Items ===========================
   const mergedChildren = useItems(items) || children;
 
   // ======================== Warning ==========================
-  devWarning(
+  warning(
     !('inlineCollapsed' in props && props.mode !== 'inline'),
     'Menu',
     '`inlineCollapsed` should only be used when `mode` is inline.',
   );
 
-  devWarning(
+  warning(
     !(props.siderCollapsed !== undefined && 'inlineCollapsed' in props),
     'Menu',
     '`inlineCollapsed` not control Menu under Sider. Should set `collapsed` on Sider instead.',
   );
 
-  devWarning(
+  warning(
     !!items && !children,
     'Menu',
     '`children` will be removed in next major version. Please use `items` instead.',
@@ -99,6 +104,7 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
   };
 
   const prefixCls = getPrefixCls('menu', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls, !injectFromDropdown);
   const menuClassName = classNames(`${prefixCls}-${theme}`, className);
 
   // ======================== Context ==========================
@@ -115,7 +121,7 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
   );
 
   // ========================= Render ==========================
-  return (
+  return wrapSSR(
     <MenuContext.Provider value={contextValue}>
       <RcMenu
         getPopupContainer={getPopupContainer}
@@ -127,14 +133,19 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
         prefixCls={prefixCls}
         direction={direction}
         defaultMotions={defaultMotions}
-        expandIcon={cloneElement(expandIcon, {
-          className: `${prefixCls}-submenu-expand-icon`,
-        })}
+        expandIcon={
+          typeof expandIcon === 'function'
+            ? expandIcon
+            : cloneElement(expandIcon, {
+                className: `${prefixCls}-submenu-expand-icon`,
+              })
+        }
         ref={ref}
+        rootClassName={classNames(rootClassName, hashId)}
       >
         {mergedChildren}
       </RcMenu>
-    </MenuContext.Provider>
+    </MenuContext.Provider>,
   );
 });
 

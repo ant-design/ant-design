@@ -179,10 +179,10 @@ exports[`renders ./components/space/demo/base.md correctly 1`] = `
     style="margin-right:8px"
   >
     <span
-      class=""
+      class="ant-upload-wrapper"
     >
       <div
-        class="ant-upload ant-upload-select ant-upload-select-text"
+        class="ant-upload ant-upload-select"
       >
         <span
           class="ant-upload"

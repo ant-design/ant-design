@@ -7,7 +7,7 @@ import ZoomOutOutlined from '@ant-design/icons/ZoomOutOutlined';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
-import { GroupConsumerProps } from 'rc-image/lib/PreviewGroup';
+import type { GroupConsumerProps } from 'rc-image/lib/PreviewGroup';
 import { ConfigContext } from '../config-provider';
 import { getTransitionName } from '../_util/motion';
 
@@ -29,11 +29,11 @@ const InternalPreviewGroup: React.FC<GroupConsumerProps> = ({
   preview,
   ...props
 }) => {
-  const { getPrefixCls, iconPrefixCls } = React.useContext(ConfigContext);
+  const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('image-preview', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
 
-  const [wrapSSR, hashId] = useStyle(prefixCls, iconPrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const mergedPreview = React.useMemo(() => {
     if (preview === false) {

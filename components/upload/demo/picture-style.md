@@ -32,7 +32,7 @@ const fileList = [
   },
 ];
 
-ReactDOM.render(
+export default () => (
   <>
     <Upload
       action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
@@ -51,8 +51,7 @@ ReactDOM.render(
     >
       <Button icon={<UploadOutlined />}>Upload</Button>
     </Upload>
-  </>,
-  mountNode,
+  </>
 );
 ```
 
@@ -61,10 +60,10 @@ ReactDOM.render(
 .upload-list-inline .ant-upload-list-item {
   float: left;
   width: 200px;
-  margin-right: 8px;
+  margin-inline-end: 8px;
 }
 
-.upload-list-inline [class*='-upload-list-rtl'] .ant-upload-list-item {
+.ant-upload-rtl.upload-list-inline .ant-upload-list-item {
   float: right;
 }
 ```

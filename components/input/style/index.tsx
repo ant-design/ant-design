@@ -1,7 +1,7 @@
 // deps-lint-skip-all
-import { CSSObject } from '@ant-design/cssinjs';
-import { clearFix, genComponentStyleHook, GenerateStyle, resetComponent } from '../../_util/theme';
-import type { FullToken } from '../../_util/theme';
+import type { CSSObject } from '@ant-design/cssinjs';
+import { clearFix, genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
+import type { FullToken, GenerateStyle } from '../../_util/theme';
 import type { GlobalToken } from '../../_util/theme/interface';
 
 export type InputToken<T extends GlobalToken = FullToken<'Input'>> = T & {
@@ -50,7 +50,7 @@ export const genDisabledStyle = (token: InputToken): CSSObject => ({
   opacity: 1,
 
   '&:hover': {
-    ...genHoverStyle({ ...token, inputBorderHoverColor: token.colorBorder }),
+    ...genHoverStyle(mergeToken<InputToken>(token, { inputBorderHoverColor: token.colorBorder })),
   },
 });
 
@@ -77,12 +77,13 @@ export const genStatusStyle = (token: InputToken): CSSObject => {
       },
 
       '&:focus, &-focused': {
-        ...genActiveStyle({
-          ...token,
-          inputBorderActiveColor: colorError,
-          inputBorderHoverColor: colorError,
-          colorPrimaryOutline: colorErrorOutline,
-        }),
+        ...genActiveStyle(
+          mergeToken<InputToken>(token, {
+            inputBorderActiveColor: colorError,
+            inputBorderHoverColor: colorError,
+            colorPrimaryOutline: colorErrorOutline,
+          }),
+        ),
       },
 
       [`.${prefixCls}-prefix`]: {
@@ -95,12 +96,13 @@ export const genStatusStyle = (token: InputToken): CSSObject => {
       },
 
       '&:focus, &-focused': {
-        ...genActiveStyle({
-          ...token,
-          inputBorderActiveColor: colorWarning,
-          inputBorderHoverColor: colorWarning,
-          colorPrimaryOutline: colorWarningOutline,
-        }),
+        ...genActiveStyle(
+          mergeToken<InputToken>(token, {
+            inputBorderActiveColor: colorWarning,
+            inputBorderHoverColor: colorWarning,
+            colorPrimaryOutline: colorWarningOutline,
+          }),
+        ),
       },
 
       [`.${prefixCls}-prefix`]: {
@@ -769,8 +771,8 @@ const genSearchInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
 };
 
 export function initInputToken<T extends GlobalToken = GlobalToken>(token: T): InputToken<T> {
-  return {
-    ...token,
+  // @ts-ignore
+  return mergeToken<InputToken<T>>(token, {
     inputAffixPadding: token.paddingXXS,
     inputPaddingVertical: Math.max(
       Math.round(((token.controlHeight - token.fontSize * token.lineHeight) / 2) * 10) / 10 -
@@ -789,7 +791,7 @@ export function initInputToken<T extends GlobalToken = GlobalToken>(token: T): I
     inputPaddingHorizontalSM: token.controlPaddingHorizontalSM - token.controlLineWidth,
     inputBorderHoverColor: token.colorPrimaryHover,
     inputBorderActiveColor: token.colorPrimaryHover,
-  };
+  });
 }
 
 const genTextAreaStyle: GenerateStyle<InputToken> = token => {

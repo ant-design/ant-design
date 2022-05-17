@@ -5,11 +5,14 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 
 import { getConfirmLocale } from './locale';
 import Button from '../button';
-import { LegacyButtonType, ButtonProps, convertLegacyProps } from '../button/button';
+import type { LegacyButtonType, ButtonProps } from '../button/button';
+import { convertLegacyProps } from '../button/button';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import { ConfigContext, DirectionType } from '../config-provider';
+import type { DirectionType } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 import { canUseDocElement } from '../_util/styleChecker';
 import { getTransitionName } from '../_util/motion';
+import useStyle from './style';
 
 let mousePosition: { x: number; y: number } | null;
 
@@ -81,6 +84,7 @@ export interface ModalProps {
   closeIcon?: React.ReactNode;
   modalRender?: (node: React.ReactNode) => React.ReactNode;
   focusTriggerAfterClose?: boolean;
+  children?: React.ReactNode;
 }
 
 type getContainerFunc = () => HTMLElement;
@@ -180,6 +184,8 @@ const Modal: React.FC<ModalProps> = props => {
 
   const prefixCls = getPrefixCls('modal', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const defaultFooter = (
     <LocaleReceiver componentName="Modal" defaultLocale={getConfirmLocale()}>
@@ -197,13 +203,14 @@ const Modal: React.FC<ModalProps> = props => {
     [`${prefixCls}-centered`]: !!centered,
     [`${prefixCls}-wrap-rtl`]: direction === 'rtl',
   });
-  return (
+  return wrapSSR(
     <Dialog
       {...restProps}
       getContainer={
         getContainer === undefined ? (getContextPopupContainer as getContainerFunc) : getContainer
       }
       prefixCls={prefixCls}
+      rootClassName={hashId}
       wrapClassName={wrapClassNameExtended}
       footer={footer === undefined ? defaultFooter : footer}
       visible={visible}
@@ -213,7 +220,7 @@ const Modal: React.FC<ModalProps> = props => {
       focusTriggerAfterClose={focusTriggerAfterClose}
       transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
       maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
-    />
+    />,
   );
 };
 

@@ -1,7 +1,9 @@
 // deps-lint-skip-all
-import { CSSObject, Keyframes } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
+import { Keyframes } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-import { FullToken, genComponentStyleHook, GenerateStyle } from '../../_util/theme';
+import type { FullToken, GenerateStyle } from '../../_util/theme';
+import { genComponentStyleHook, mergeToken } from '../../_util/theme';
 
 export interface DrawerToken extends FullToken<'Drawer'> {
   drawerHeaderCloseSize: number;
@@ -24,16 +26,13 @@ export interface DrawerToken extends FullToken<'Drawer'> {
   componentCls: string;
 }
 
-const antdDrawerFadeIn = new Keyframes('antNoWrapperZoomBadgeIn', {
+const antdDrawerFadeIn = new Keyframes('antDrawerFadeIn', {
   '0%': { opacity: 0 },
   '100%': { opacity: 1 },
 });
 
 // =============================== Base ===============================
-const genBaseStyle: GenerateStyle<DrawerToken> = (
-  token: DrawerToken,
-  hashId: string,
-): CSSObject => {
+const genBaseStyle: GenerateStyle<DrawerToken> = (token: DrawerToken): CSSObject => {
   const {
     componentCls,
     motionEaseOut,
@@ -52,7 +51,7 @@ const genBaseStyle: GenerateStyle<DrawerToken> = (
     modalFooterPaddingVertical,
     modalFooterPaddingHorizontal,
     borderColorSplit,
-    zIndexPopup,
+    zIndexPopupBase,
     colorText,
     textColorSecondary,
     hoverColor,
@@ -63,7 +62,7 @@ const genBaseStyle: GenerateStyle<DrawerToken> = (
       // FIXME: Seems useless?
       // @drawer-header-close-padding: ceil(((drawerHeaderCloseSize - @font-size-lg) / 2));
       position: 'fixed',
-      zIndex: zIndexPopup,
+      zIndex: zIndexPopupBase,
       width: 0,
       height: '100%',
       transition: `width 0s ease ${motionDurationSlow}, height 0s ease ${motionDurationSlow}`,
@@ -112,7 +111,7 @@ const genBaseStyle: GenerateStyle<DrawerToken> = (
                 },
                 [`${componentCls}-close`]: {
                   display: 'inline-block',
-                  marginRight: closeRight,
+                  marginInlineEnd: closeRight,
                   color: textColorSecondary,
                   fontWeight: 700,
                   fontSize: fontSizeLG,
@@ -171,7 +170,9 @@ const genBaseStyle: GenerateStyle<DrawerToken> = (
       height: '100%',
       opacity: 1,
       transition: 'none',
-      animation: `${antdDrawerFadeIn.getName(hashId)} ${motionDurationSlow} ${motionEaseOut}`,
+      animationName: antdDrawerFadeIn,
+      animationDuration: token.motionDurationSlow,
+      animationTimingFunction: motionEaseOut,
       pointerEvents: 'auto',
     },
   };
@@ -285,9 +286,8 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Drawer', (token, { hashId }) => {
-  const drawerToken: DrawerToken = {
-    ...token,
+export default genComponentStyleHook('Drawer', token => {
+  const drawerToken = mergeToken<DrawerToken>(token, {
     black: '#000', // FIXME: hard code
     white: '#fff', // FIXME: hard code
     drawerHeaderCloseSize: 56, // FIXME: hard code
@@ -309,7 +309,7 @@ export default genComponentStyleHook('Drawer', (token, { hashId }) => {
     textColorSecondary: new TinyColor('#000').setAlpha(0.45).toRgbString(), // FIXME: hard code
     borderStyle: 'solid', // FIXME: hard code
     motionEaseOut: 'cubic-bezier(0.215, 0.61, 0.355, 1)', // FIXME: hard code
-  };
+  });
 
-  return [genBaseStyle(drawerToken, hashId), genDrawerStyle(drawerToken)];
+  return [genBaseStyle(drawerToken), genDrawerStyle(drawerToken)];
 });

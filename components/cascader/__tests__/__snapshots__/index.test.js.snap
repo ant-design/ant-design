@@ -3,7 +3,7 @@
 exports[`Cascader can be selected 1`] = `
 <div
   class="ant-select-dropdown ant-cascader-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-  style="opacity: 0; pointer-events: none; min-width: auto;"
+  style="opacity: 0; min-width: auto;"
 >
   <div>
     <div
@@ -135,7 +135,7 @@ exports[`Cascader can be selected 1`] = `
 exports[`Cascader can be selected 2`] = `
 <div
   class="ant-select-dropdown ant-cascader-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-  style="opacity: 0; pointer-events: none; min-width: auto;"
+  style="opacity: 0; min-width: auto;"
 >
   <div>
     <div
@@ -285,7 +285,7 @@ exports[`Cascader can be selected 2`] = `
 exports[`Cascader can be selected 3`] = `
 <div
   class="ant-select-dropdown ant-cascader-dropdown ant-slide-up-leave ant-slide-up-leave-start ant-slide-up"
-  style="pointer-events: none; min-width: auto;"
+  style="min-width: auto; pointer-events: none;"
 >
   <div>
     <div
@@ -435,7 +435,7 @@ exports[`Cascader can be selected 3`] = `
 exports[`Cascader can be selected in RTL direction 1`] = `
 <div
   class="ant-select-dropdown ant-cascader-dropdown ant-cascader-dropdown-rtl ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-  style="opacity: 0; pointer-events: none; min-width: auto;"
+  style="opacity: 0; min-width: auto;"
 >
   <div>
     <div
@@ -567,7 +567,7 @@ exports[`Cascader can be selected in RTL direction 1`] = `
 exports[`Cascader can be selected in RTL direction 2`] = `
 <div
   class="ant-select-dropdown ant-cascader-dropdown ant-cascader-dropdown-rtl ant-slide-up-leave ant-slide-up-leave-start ant-slide-up"
-  style="pointer-events: none; min-width: auto;"
+  style="min-width: auto; pointer-events: none;"
 >
   <div>
     <div
@@ -717,7 +717,7 @@ exports[`Cascader can be selected in RTL direction 2`] = `
 exports[`Cascader can be selected in RTL direction 3`] = `
 <div
   class="ant-select-dropdown ant-cascader-dropdown ant-cascader-dropdown-rtl ant-slide-up-leave ant-slide-up-leave-start ant-slide-up"
-  style="pointer-events: none; min-width: auto;"
+  style="min-width: auto; pointer-events: none;"
 >
   <div>
     <div
@@ -914,7 +914,7 @@ exports[`Cascader legacy props should support showCheckedStrategy child 1`] = `
   <div>
     <div
       class="ant-select-dropdown ant-cascader-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-      style="opacity: 0; pointer-events: none; min-width: auto;"
+      style="opacity: 0; min-width: auto;"
     >
       <div>
         <div
@@ -1068,7 +1068,7 @@ exports[`Cascader legacy props should support showCheckedStrategy parent 1`] = `
   <div>
     <div
       class="ant-select-dropdown ant-cascader-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-      style="opacity: 0; pointer-events: none; min-width: auto;"
+      style="opacity: 0; min-width: auto;"
     >
       <div>
         <div
@@ -1175,7 +1175,7 @@ exports[`Cascader legacy props should support showCheckedStrategy parent 1`] = `
 exports[`Cascader popup correctly with defaultValue 1`] = `
 <div
   class="ant-select-dropdown ant-cascader-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-  style="opacity: 0; pointer-events: none; min-width: auto;"
+  style="opacity: 0; min-width: auto;"
 >
   <div>
     <div
@@ -1359,7 +1359,7 @@ exports[`Cascader popup correctly with defaultValue RTL 1`] = `
   <div>
     <div
       class="ant-select-dropdown ant-cascader-dropdown ant-cascader-dropdown-rtl ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-      style="opacity: 0; pointer-events: none; min-width: auto;"
+      style="opacity: 0; min-width: auto;"
     >
       <div>
         <div
@@ -1622,7 +1622,7 @@ exports[`Cascader rtl render component should be rendered correctly in RTL direc
 exports[`Cascader should highlight keyword and filter when search in Cascader 1`] = `
 <div
   class="ant-select-dropdown ant-cascader-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-  style="opacity: 0; pointer-events: none; min-width: 0;"
+  style="opacity: 0; min-width: 0;"
 >
   <div>
     <div
@@ -1682,7 +1682,7 @@ exports[`Cascader should highlight keyword and filter when search in Cascader 1`
 exports[`Cascader should highlight keyword and filter when search in Cascader with same field name of label and value 1`] = `
 <div
   class="ant-select-dropdown ant-cascader-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-  style="opacity: 0; pointer-events: none; min-width: 0;"
+  style="opacity: 0; min-width: 0;"
 >
   <div>
     <div
@@ -1747,7 +1747,7 @@ exports[`Cascader should highlight keyword and filter when search in Cascader wi
 exports[`Cascader should render not found content 1`] = `
 <div
   class="ant-select-dropdown ant-cascader-dropdown ant-select-dropdown-empty ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-  style="opacity: 0; pointer-events: none; min-width: 0;"
+  style="opacity: 0; min-width: 0;"
 >
   <div>
     <div
@@ -1823,7 +1823,7 @@ exports[`Cascader should render not found content 1`] = `
 exports[`Cascader should show not found content when options.length is 0 1`] = `
 <div
   class="ant-select-dropdown ant-cascader-dropdown ant-select-dropdown-empty ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
-  style="opacity: 0; pointer-events: none; min-width: 0;"
+  style="opacity: 0; min-width: 0;"
 >
   <div>
     <div

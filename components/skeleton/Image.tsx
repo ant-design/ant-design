@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { SkeletonElementProps } from './Element';
+import type { SkeletonElementProps } from './Element';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
 

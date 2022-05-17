@@ -2,8 +2,9 @@
 // import './index.less';
 
 // deps-lint-skip-all
-import { CSSObject } from '@ant-design/cssinjs';
-import { GenerateStyle, FullToken, genComponentStyleHook } from '../../_util/theme';
+import type { CSSObject } from '@ant-design/cssinjs';
+import type { GenerateStyle, FullToken } from '../../_util/theme';
+import { genComponentStyleHook, mergeToken } from '../../_util/theme';
 
 interface GridRowToken extends FullToken<'Grid'> {}
 
@@ -94,19 +95,19 @@ const genLoopGridColumnsStyle = (token: GridColToken, sizeCls: string): CSSObjec
         display: 'none',
       };
       gridColumnsStyle[`${componentCls}-push-${i}`] = {
-        left: 'auto',
+        insetInlineStart: 'auto',
       };
       gridColumnsStyle[`${componentCls}-pull-${i}`] = {
-        right: 'auto',
+        insetInlineEnd: 'auto',
       };
       gridColumnsStyle[`${componentCls}${sizeCls}-push-${i}`] = {
-        left: 'auto',
+        insetInlineStart: 'auto',
       };
       gridColumnsStyle[`${componentCls}${sizeCls}-pull-${i}`] = {
-        right: 'auto',
+        insetInlineEnd: 'auto',
       };
       gridColumnsStyle[`${componentCls}${sizeCls}-offset-${i}`] = {
-        marginRight: 0,
+        marginInlineEnd: 0,
       };
       gridColumnsStyle[`${componentCls}${sizeCls}-order-${i}`] = {
         order: 0,
@@ -118,13 +119,13 @@ const genLoopGridColumnsStyle = (token: GridColToken, sizeCls: string): CSSObjec
         maxWidth: `${(i / gridColumns) * 100}%`,
       };
       gridColumnsStyle[`${componentCls}${sizeCls}-push-${i}`] = {
-        left: `${(i / gridColumns) * 100}%`,
+        insetInlineStart: `${(i / gridColumns) * 100}%`,
       };
       gridColumnsStyle[`${componentCls}${sizeCls}-pull-${i}`] = {
-        right: `${(i / gridColumns) * 100}%`,
+        insetInlineEnd: `${(i / gridColumns) * 100}%`,
       };
       gridColumnsStyle[`${componentCls}${sizeCls}-offset-${i}`] = {
-        marginLeft: `${(i / gridColumns) * 100}%`,
+        marginInlineStart: `${(i / gridColumns) * 100}%`,
       };
       gridColumnsStyle[`${componentCls}${sizeCls}-order-${i}`] = {
         order: i,
@@ -152,10 +153,9 @@ const genGridMediaStyle = (
 export const useRowStyle = genComponentStyleHook('Grid', token => [genGridRowStyle(token)]);
 
 export const useColStyle = genComponentStyleHook('Grid', token => {
-  const gridToken: GridColToken = {
-    ...token,
+  const gridToken: GridColToken = mergeToken<GridColToken>(token, {
     gridColumns: 24, // FIXME: hardcode in v4
-  };
+  });
 
   const gridMediaSizesMap = {
     '-sm': gridToken.screenSMMin,

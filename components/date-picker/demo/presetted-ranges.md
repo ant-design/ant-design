@@ -15,7 +15,7 @@ We can set preset ranges to RangePicker to improve user experience.
 
 ```jsx
 import { DatePicker, Space } from 'antd';
-import moment from 'moment';
+import dayjs from 'dayjs';
 
 const { RangePicker } = DatePicker;
 
@@ -24,25 +24,24 @@ function onChange(dates, dateStrings) {
   console.log('From: ', dateStrings[0], ', to: ', dateStrings[1]);
 }
 
-ReactDOM.render(
+export default () => (
   <Space direction="vertical" size={12}>
     <RangePicker
       ranges={{
-        Today: [moment(), moment()],
-        'This Month': [moment().startOf('month'), moment().endOf('month')],
+        Today: [dayjs(), dayjs()],
+        'This Month': [dayjs().startOf('month'), dayjs().endOf('month')],
       }}
       onChange={onChange}
     />
     <RangePicker
       ranges={{
-        Today: [moment(), moment()],
-        'This Month': [moment().startOf('month'), moment().endOf('month')],
+        Today: [dayjs(), dayjs()],
+        'This Month': [dayjs().startOf('month'), dayjs().endOf('month')],
       }}
       showTime
       format="YYYY/MM/DD HH:mm:ss"
       onChange={onChange}
     />
-  </Space>,
-  mountNode,
+  </Space>
 );
 ```

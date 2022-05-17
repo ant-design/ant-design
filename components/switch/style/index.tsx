@@ -1,7 +1,8 @@
 // deps-lint-skip-all
 import { TinyColor } from '@ctrl/tinycolor';
-import { CSSObject } from '@ant-design/cssinjs';
-import { resetComponent, GenerateStyle, FullToken, genComponentStyleHook } from '../../_util/theme';
+import type { CSSObject } from '@ant-design/cssinjs';
+import type { GenerateStyle, FullToken } from '../../_util/theme';
+import { resetComponent, genComponentStyleHook, mergeToken } from '../../_util/theme';
 
 interface SwitchToken extends FullToken<'Switch'> {
   switchMinWidth: number;
@@ -152,7 +153,7 @@ const genSwitchStyle = (token: SwitchToken): CSSObject => {
       height: token.switchHeight,
       lineHeight: `${token.switchHeight}px`,
       verticalAlign: 'middle',
-      backgroundColor: token.colorTextDisabled,
+      backgroundImage: `linear-gradient(to right, ${token.colorTextDisabled}, ${token.colorTextDisabled}), linear-gradient(to right, ${token.colorBgComponent}, ${token.colorBgComponent})`,
       border: '0',
       borderRadius: 100,
       cursor: 'pointer',
@@ -173,7 +174,7 @@ const genSwitchStyle = (token: SwitchToken): CSSObject => {
       },
 
       [`&${token.componentCls}-checked`]: {
-        backgroundColor: token.switchColor,
+        background: token.switchColor,
       },
 
       [`&${token.componentCls}-loading, &${token.componentCls}-disabled`]: {
@@ -211,8 +212,7 @@ export default genComponentStyleHook('Switch', token => {
   const switchHeight = 22;
   const switchHeightSM = 16;
 
-  const switchToken: SwitchToken = {
-    ...token,
+  const switchToken = mergeToken<SwitchToken>(token, {
     // FIXME: missing token
     switchMinWidth: 44,
     switchHeight,
@@ -230,7 +230,7 @@ export default genComponentStyleHook('Switch', token => {
     switchInnerMarginMinSM: Math.ceil(switchHeight * 0.3),
     switchInnerMarginMaxSM: Math.ceil(switchHeight * 1.1),
     switchPinSizeSM: switchHeightSM - 4,
-  };
+  });
 
   return [genSwitchStyle(switchToken)];
 });

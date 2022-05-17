@@ -49,7 +49,7 @@ const columns = [
     key: 'address',
   },
 ];
-ReactDOM.render(
+export default () => (
   <Descriptions title="User Info" column={2}>
     <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
     <Descriptions.Item label={<div style={{ display: 'flex' }}>Billing Mode</div>}>
@@ -83,7 +83,6 @@ ReactDOM.render(
     <Descriptions.Item label="Config Info">
       <Table size="small" pagination={false} dataSource={dataSource} columns={columns} />
     </Descriptions.Item>
-  </Descriptions>,
-  mountNode,
+  </Descriptions>
 );
 ```
