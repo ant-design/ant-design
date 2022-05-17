@@ -147,6 +147,33 @@ const App = () => {
     setDataSource(newData);
   };
 
+  const defaultColumns: (ColumnTypes[number] & { editable?: boolean; dataIndex: string })[] = [
+    {
+      title: 'name',
+      dataIndex: 'name',
+      width: '30%',
+      editable: true,
+    },
+    {
+      title: 'age',
+      dataIndex: 'age',
+    },
+    {
+      title: 'address',
+      dataIndex: 'address',
+    },
+    {
+      title: 'operation',
+      dataIndex: 'operation',
+      render: (_, record: { key: React.Key }) =>
+        dataSource.length >= 1 ? (
+          <Popconfirm title="Sure to delete?" onConfirm={() => handleDelete(record.key)}>
+            <a>Delete</a>
+          </Popconfirm>
+        ) : null,
+    },
+  ];
+
   const handleAdd = () => {
     const newData: DataType = {
       key: count,
@@ -175,33 +202,6 @@ const App = () => {
       cell: EditableCell,
     },
   };
-
-  const defaultColumns: (ColumnTypes[number] & { editable?: boolean; dataIndex: string })[] = [
-    {
-      title: 'name',
-      dataIndex: 'name',
-      width: '30%',
-      editable: true,
-    },
-    {
-      title: 'age',
-      dataIndex: 'age',
-    },
-    {
-      title: 'address',
-      dataIndex: 'address',
-    },
-    {
-      title: 'operation',
-      dataIndex: 'operation',
-      render: (_, record: { key: React.Key }) =>
-        dataSource.length >= 1 ? (
-          <Popconfirm title="Sure to delete?" onConfirm={() => handleDelete(record.key)}>
-            <a>Delete</a>
-          </Popconfirm>
-        ) : null,
-    },
-  ];
 
   const columns = defaultColumns.map(col => {
     if (!col.editable) {
