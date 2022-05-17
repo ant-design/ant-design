@@ -4,29 +4,36 @@ import type { GenerateStyle, FullToken } from '../../_util/theme';
 import { resetComponent, genComponentStyleHook, mergeToken } from '../../_util/theme';
 
 /** Component only token. Which will handle additional calculation of alias token */
-export interface ComponentToken {}
+export interface ComponentToken {
+  zIndexPopup: number;
+}
 
 type BackTopToken = FullToken<'BackTop'> & {
   backTopBackground: string;
   backTopColor: string;
   backTopHoverBackground: string;
+  backTopFontSize: number;
+  backTopSize: number;
+
+  // Position
+  backTopBlockEnd: number;
+  backTopInlineEnd: number;
+  backTopInlineEndMD: number;
+  backTopInlineEndXS: number;
 };
 
 // ============================== Shared ==============================
 const genSharedBackTopStyle: GenerateStyle<BackTopToken, CSSObject> = (token): CSSObject => {
-  const { componentCls } = token;
+  const { componentCls, backTopFontSize, backTopSize, zIndexPopup } = token;
 
   return {
     [componentCls]: {
       ...resetComponent(token),
 
       position: 'fixed',
-      // FIXME right
-      insetInlineEnd: 100,
-      // FIXME bottom
-      insetBlockEnd: 50,
-      // FIX ME @zindex-back-top
-      zIndex: token.zIndexPopupBase,
+      insetInlineEnd: token.backTopInlineEnd,
+      insetBlockEnd: token.backTopBlockEnd,
+      zIndex: zIndexPopup,
       width: 40,
       height: 40,
       cursor: 'pointer',
@@ -36,20 +43,16 @@ const genSharedBackTopStyle: GenerateStyle<BackTopToken, CSSObject> = (token): C
       },
 
       [`${componentCls}-content`]: {
-        width: 40,
-        height: 40,
+        width: backTopSize,
+        height: backTopSize,
         overflow: 'hidden',
-        // FIXME @back-top-color
         color: token.backTopColor,
         textAlign: 'center',
-        // FIXME @back-top-bg
         backgroundColor: token.backTopBackground,
-        // FIXME
-        borderRadius: 20,
+        borderRadius: backTopSize,
         transition: `all ${token.motionDurationSlow}`,
 
         '&:hover': {
-          // FIX ME @back-top-hover-bg
           backgroundColor: token.backTopHoverBackground,
           transition: `all ${token.motionDurationSlow}`,
         },
@@ -57,10 +60,8 @@ const genSharedBackTopStyle: GenerateStyle<BackTopToken, CSSObject> = (token): C
 
       // change to .backtop .backtop-icon
       [`${componentCls}-icon`]: {
-        // FIXME
-        fontSize: 24,
-        // FIXME
-        lineHeight: '40px',
+        fontSize: backTopFontSize,
+        lineHeight: `${backTopSize}px`,
       },
     },
   };
@@ -72,13 +73,13 @@ const genMediaBackTopStyle: GenerateStyle<BackTopToken> = (token): CSSObject => 
   return {
     [`@media (max-width: ${token.screenMD}px)`]: {
       [componentCls]: {
-        marginInlineEnd: 60,
+        insetInlineEnd: token.backTopInlineEndMD,
       },
     },
 
     [`@media (max-width: ${token.screenXS}px)`]: {
       [componentCls]: {
-        marginInlineEnd: 20,
+        insetInlineEnd: token.backTopInlineEndXS,
       },
     },
   };
@@ -89,15 +90,29 @@ export default genComponentStyleHook<'BackTop'>(
   'BackTop',
 
   token => {
-    const backTopBackground = 'rgb(16, 136, 233)';
-    const backTopColor = '#fff';
-    const backTopHoverBackground = '#000000d9';
+    const {
+      fontSizeHeading3,
+      colorTextSecondary,
+      colorTextLightSolid,
+      colorText,
+      controlHeightLG,
+    } = token;
 
     const backTopToken = mergeToken<BackTopToken>(token, {
-      backTopBackground,
-      backTopColor,
-      backTopHoverBackground,
+      backTopBackground: colorTextSecondary,
+      backTopColor: colorTextLightSolid,
+      backTopHoverBackground: colorText,
+      backTopFontSize: fontSizeHeading3,
+      backTopSize: controlHeightLG,
+
+      backTopBlockEnd: controlHeightLG * 1.25,
+      backTopInlineEnd: controlHeightLG * 2.5,
+      backTopInlineEndMD: controlHeightLG * 1.5,
+      backTopInlineEndXS: controlHeightLG * 0.5,
     });
     return [genSharedBackTopStyle(backTopToken), genMediaBackTopStyle(backTopToken)];
   },
+  token => ({
+    zIndexPopup: token.zIndexBase + 10,
+  }),
 );
