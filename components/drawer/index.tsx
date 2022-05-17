@@ -4,6 +4,7 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import { ConfigContext } from '../config-provider';
 import { tuple } from '../_util/type';
+import useForceUpdate from '../_util/hooks/useForceUpdate';
 
 type DrawerRef = {
   push(): void;
@@ -86,8 +87,7 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
       bodyStyle,
       drawerStyle,
       className,
-      visible: propsVisible,
-      forceRender,
+      visible,
       children,
       zIndex,
       destroyOnClose,
@@ -100,31 +100,14 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
       prefixCls: customizePrefixCls,
       getContainer: customizeGetContainer,
       extra,
-      afterVisibleChange,
       ...rest
     },
     ref,
   ) => {
+    const forceUpdate = useForceUpdate();
     const [internalPush, setPush] = React.useState(false);
     const parentDrawer = React.useContext(DrawerContext);
-    const destroyCloseRef = React.useRef<boolean>(false);
-
-    const [load, setLoad] = React.useState(false);
-    const [visible, setVisible] = React.useState(false);
-
-    React.useEffect(() => {
-      if (propsVisible) {
-        setLoad(true);
-      } else {
-        setVisible(false);
-      }
-    }, [propsVisible]);
-
-    React.useEffect(() => {
-      if (load && propsVisible) {
-        setVisible(true);
-      }
-    }, [load, propsVisible]);
+    const destroyClose = React.useRef<boolean>(false);
 
     const { getPopupContainer, getPrefixCls, direction } = React.useContext(ConfigContext);
     const prefixCls = getPrefixCls('drawer', customizePrefixCls);
@@ -137,7 +120,7 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
     React.useEffect(() => {
       // fix: delete drawer in child and re-render, no push started.
       // <Drawer>{show && <Drawer />}</Drawer>
-      if (propsVisible && parentDrawer) {
+      if (visible && parentDrawer) {
         parentDrawer.push();
       }
 
@@ -176,6 +159,18 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
     );
 
     React.useImperativeHandle(ref, () => operations, [operations]);
+
+    const isDestroyOnClose = destroyOnClose && !visible;
+
+    const onDestroyTransitionEnd = () => {
+      if (!isDestroyOnClose) {
+        return;
+      }
+      if (!visible) {
+        destroyClose.current = true;
+        forceUpdate();
+      }
+    };
 
     const getOffsetStyle = () => {
       // https://github.com/ant-design/ant-design/issues/24287
@@ -265,13 +260,28 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
 
     // render drawer body dom
     const renderBody = () => {
-      // destroyCloseRef.current =false Load the body only once by default
-      if (destroyCloseRef.current && !forceRender && !load) {
+      if (destroyClose.current && !visible) {
         return null;
+      }
+      destroyClose.current = false;
+
+      const containerStyle: React.CSSProperties = {};
+
+      if (isDestroyOnClose) {
+        // Increase the opacity transition, delete children after closing.
+        containerStyle.opacity = 0;
+        containerStyle.transition = 'opacity .3s';
       }
 
       return (
-        <div className={`${prefixCls}-wrapper-body`} style={{ ...drawerStyle }}>
+        <div
+          className={`${prefixCls}-wrapper-body`}
+          style={{
+            ...containerStyle,
+            ...drawerStyle,
+          }}
+          onTransitionEnd={onDestroyTransitionEnd}
+        >
           {renderHeader()}
           <div className={`${prefixCls}-body`} style={bodyStyle}>
             {children}
@@ -302,7 +312,6 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
             keyboard,
             children,
             onClose,
-            forceRender,
             ...rest,
           }}
           {...offsetStyle}
@@ -311,18 +320,6 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
           style={getRcDrawerStyle()}
           className={drawerClassName}
           getContainer={getContainer}
-          afterVisibleChange={open => {
-            if (!open) {
-              if (destroyCloseRef.current === false) {
-                // set true only once
-                destroyCloseRef.current = true;
-              }
-              if (destroyOnClose) {
-                setLoad(false);
-              }
-            }
-            afterVisibleChange?.(open);
-          }}
         >
           {renderBody()}
         </RcDrawer>
