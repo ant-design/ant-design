@@ -17,7 +17,7 @@ interface AnchorToken extends FullToken<'Anchor'> {
 
 // ============================== Shared ==============================
 const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
-  const { componentCls, holderOffsetBlock, anchorBallSize, lineWidthStrong } = token;
+  const { componentCls, holderOffsetBlock, anchorBallSize, lineWidthBold } = token;
 
   return {
     [`${componentCls}-wrapper`]: {
@@ -32,7 +32,7 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
       [componentCls]: {
         ...resetComponent(token),
         position: 'relative',
-        paddingInlineStart: lineWidthStrong,
+        paddingInlineStart: lineWidthBold,
 
         [`${componentCls}-ink`]: {
           position: 'absolute',
@@ -43,7 +43,7 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
           '&::before': {
             position: 'relative',
             display: 'block',
-            width: lineWidthStrong,
+            width: lineWidthBold,
             height: '100%',
             margin: '0 auto',
             backgroundColor: token.colorBorderSecondary,
@@ -61,7 +61,7 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
           width: anchorBallSize,
           height: anchorBallSize,
           backgroundColor: token.colorBgComponent,
-          border: `${lineWidthStrong}px solid ${token.colorPrimary}`,
+          border: `${lineWidthBold}px solid ${token.colorPrimary}`,
           borderRadius: anchorBallSize,
           transform: 'translateX(-50%)',
           transition: `top ${token.motionDurationSlow} ease-in-out`,

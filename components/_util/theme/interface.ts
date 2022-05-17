@@ -231,7 +231,7 @@ export interface DerivativeToken extends SeedToken, ColorPalettes {
   gridSpaceXXL: number;
 
   // Line
-  lineWidthStrong: number;
+  lineWidthBold: number;
 
   // Motion
   motionDurationFast: string;

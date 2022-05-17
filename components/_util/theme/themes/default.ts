@@ -96,7 +96,7 @@ export function derivative(token: SeedToken): DerivativeToken {
     gridSpaceXXL: gridUnit * (gridBaseStep + 5),
 
     // line
-    lineWidthStrong: lineWidth + 1,
+    lineWidthBold: lineWidth + 1,
 
     // radius
     radiusSM: radiusBase / 2,
