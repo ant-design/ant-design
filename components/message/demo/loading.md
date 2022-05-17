@@ -23,7 +23,7 @@ const success = () => {
   setTimeout(hide, 2500);
 };
 
-const App = () => <Button onClick={success}>Display a loading indicator</Button>;
+const App: React.FC = () => <Button onClick={success}>Display a loading indicator</Button>;
 
-export default () => <App />;
+export default App;
 ```

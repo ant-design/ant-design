@@ -18,7 +18,7 @@ Debug usage
 import React from 'react';
 import { Space, Button, Popconfirm } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <Space>
     <>
       Button
@@ -40,5 +40,5 @@ const App = () => (
   </Space>
 );
 
-export default () => <App />;
+export default App;
 ```

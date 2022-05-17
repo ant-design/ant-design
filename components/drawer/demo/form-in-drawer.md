@@ -20,7 +20,7 @@ import { PlusOutlined } from '@ant-design/icons';
 
 const { Option } = Select;
 
-const App = () => {
+const App: React.FC = () => {
   const [visible, setVisible] = useState(false);
 
   const showDrawer = () => {
@@ -151,7 +151,7 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

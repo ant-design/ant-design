@@ -21,7 +21,7 @@ const DemoBox: React.FC<{ value: number }> = props => (
   <p className={`height-${props.value}`}>{props.children}</p>
 );
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Divider orientation="left">Align Top</Divider>
     <Row justify="center" align="top">
@@ -73,7 +73,7 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

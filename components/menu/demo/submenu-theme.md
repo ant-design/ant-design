@@ -37,7 +37,7 @@ function getItem(
   } as MenuItem;
 }
 
-const App = () => {
+const App: React.FC = () => {
   const [theme, setTheme] = useState<MenuTheme>('light');
   const [current, setCurrent] = useState('1');
 
@@ -84,5 +84,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

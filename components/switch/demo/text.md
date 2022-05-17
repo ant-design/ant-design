@@ -18,7 +18,7 @@ import React from 'react';
 import { Switch } from 'antd';
 import { CloseOutlined, CheckOutlined } from '@ant-design/icons';
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Switch checkedChildren="开启" unCheckedChildren="关闭" defaultChecked />
     <br />
@@ -32,5 +32,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

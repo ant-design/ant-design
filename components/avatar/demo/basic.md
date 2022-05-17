@@ -18,7 +18,7 @@ import React from 'react';
 import { Avatar } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <div>
       <Avatar size={64} icon={<UserOutlined />} />
@@ -35,7 +35,7 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 <style>

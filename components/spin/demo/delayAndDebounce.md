@@ -17,7 +17,7 @@ Specifies a delay for loading state. If `spinning` ends during delay, loading st
 import React, { useState } from 'react';
 import { Spin, Alert, Switch } from 'antd';
 
-const App = () => {
+const App: React.FC = () => {
   const [loading, setLoading] = useState(false);
 
   const toggle = (checked: boolean) => {
@@ -44,5 +44,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

@@ -35,7 +35,7 @@ const IconText = ({ icon, text }: { icon: React.FC; text: string }) => (
   </Space>
 );
 
-const App = () => (
+const App: React.FC = () => (
   <List
     itemLayout="vertical"
     size="large"
@@ -78,5 +78,5 @@ const App = () => (
   />
 );
 
-export default () => <App />;
+export default App;
 ```

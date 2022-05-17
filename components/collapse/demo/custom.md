@@ -26,7 +26,7 @@ const text = `
   it can be found as a welcome guest in many households across the world.
 `;
 
-const App = () => (
+const App: React.FC = () => (
   <Collapse
     bordered={false}
     defaultActiveKey={['1']}
@@ -45,7 +45,7 @@ const App = () => (
   </Collapse>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

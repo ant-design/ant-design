@@ -20,7 +20,7 @@ import { Steps, Divider } from 'antd';
 
 const { Step } = Steps;
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Steps progressDot current={1} size="small">
       <Step title="Finished" description="This is a description." />
@@ -38,5 +38,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

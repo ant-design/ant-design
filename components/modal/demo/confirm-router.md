@@ -41,7 +41,7 @@ const showConfirm = () => {
   }
 };
 
-const App = () => <Button onClick={showConfirm}>Confirm</Button>;
+const App: React.FC = () => <Button onClick={showConfirm}>Confirm</Button>;
 
-export default () => <App />;
+export default App;
 ```

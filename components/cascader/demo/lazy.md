@@ -42,7 +42,7 @@ const optionLists: Option[] = [
   },
 ];
 
-const App = () => {
+const App: React.FC = () => {
   const [options, setOptions] = useState<Option[]>(optionLists);
 
   const onChange = (value: string[], selectedOptions: Option[]) => {
@@ -73,5 +73,5 @@ const App = () => {
   return <Cascader options={options} loadData={loadData} onChange={onChange} changeOnSelect />;
 };
 
-export default () => <App />;
+export default App;
 ```

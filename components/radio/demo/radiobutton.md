@@ -22,7 +22,7 @@ const onChange = (e: RadioChangeEvent) => {
   console.log(`radio checked:${e.target.value}`);
 };
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Radio.Group onChange={onChange} defaultValue="a">
       <Radio.Button value="a">Hangzhou</Radio.Button>
@@ -47,5 +47,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

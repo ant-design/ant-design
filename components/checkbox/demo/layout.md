@@ -22,7 +22,7 @@ const onChange = (checkedValues: CheckboxValueType[]) => {
   console.log('checked = ', checkedValues);
 };
 
-const App = () => (
+const App: React.FC = () => (
   <Checkbox.Group style={{ width: '100%' }} onChange={onChange}>
     <Row>
       <Col span={8}>
@@ -44,5 +44,5 @@ const App = () => (
   </Checkbox.Group>
 );
 
-export default () => <App />;
+export default App;
 ```

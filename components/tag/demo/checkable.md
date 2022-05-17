@@ -25,7 +25,7 @@ const { CheckableTag } = Tag;
 
 const tagsData = ['Movies', 'Books', 'Music', 'Sports'];
 
-const App = () => {
+const App: React.FC = () => {
   const [selectedTags, setSelectedTags] = useState<string[]>(['Books']);
 
   const handleChange = (tag: string, checked: boolean) => {
@@ -50,5 +50,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

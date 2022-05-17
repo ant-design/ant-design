@@ -28,7 +28,7 @@ const handleChange = (value: string[]) => {
   console.log(`selected ${value}`);
 };
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Select
       mode="multiple"
@@ -54,5 +54,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

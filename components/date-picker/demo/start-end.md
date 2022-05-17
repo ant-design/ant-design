@@ -25,7 +25,7 @@ import React, { useState } from 'react';
 import { DatePicker, Space } from 'antd';
 import type { Moment } from 'moment';
 
-const App = () => {
+const App: React.FC = () => {
   const [startValue, setStartValue] = useState<Moment | null>(null);
   const [endValue, setEndValue] = useState<Moment | null>(null);
   const [endOpen, setEndOpen] = useState(false);
@@ -79,5 +79,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

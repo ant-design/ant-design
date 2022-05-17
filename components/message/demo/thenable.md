@@ -24,7 +24,7 @@ const success = () => {
     .then(() => message.info('Loading finished is finished', 2.5));
 };
 
-const App = () => <Button onClick={success}>Display sequential messages</Button>;
+const App: React.FC = () => <Button onClick={success}>Display sequential messages</Button>;
 
-export default () => <App />;
+export default App;
 ```

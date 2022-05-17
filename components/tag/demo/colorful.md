@@ -14,9 +14,10 @@ title:
 We preset a series of colorful tag styles for use in different situations. You can also set it to a hex color string for custom color.
 
 ```tsx
+import React from 'react';
 import { Tag, Divider } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Divider orientation="left">Presets</Divider>
     <div>
@@ -42,7 +43,7 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 <style>

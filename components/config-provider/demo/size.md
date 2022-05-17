@@ -31,7 +31,7 @@ import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 
 const { TabPane } = Tabs;
 
-const App = () => {
+const App: React.FC = () => {
   const [componentSize, setComponentSize] = useState<SizeType>('small');
 
   return (
@@ -114,5 +114,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

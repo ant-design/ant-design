@@ -26,7 +26,7 @@ const preventDefault = (e: React.MouseEvent<HTMLElement>) => {
   console.log('Clicked! But prevent default.');
 };
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Tag>Tag 1</Tag>
     <Tag>
@@ -41,5 +41,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

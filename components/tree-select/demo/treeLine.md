@@ -19,7 +19,7 @@ import { TreeSelect, Switch, Space } from 'antd';
 
 const { TreeNode } = TreeSelect;
 
-const App = () => {
+const App: React.FC = () => {
   const [treeLine, setTreeLine] = useState(true);
   const [showLeafIcon, setShowLeafIcon] = useState(false);
 
@@ -53,5 +53,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

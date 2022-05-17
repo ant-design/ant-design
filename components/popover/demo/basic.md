@@ -24,13 +24,13 @@ const content = (
   </div>
 );
 
-const App = () => (
+const App: React.FC = () => (
   <Popover content={content} title="Title">
     <Button type="primary">Hover me</Button>
   </Popover>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 <style>

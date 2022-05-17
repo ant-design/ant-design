@@ -64,7 +64,7 @@ const items: MenuItem[] = [
   ),
 ];
 
-const App = () => {
+const App: React.FC = () => {
   const [mode, setMode] = useState<'vertical' | 'inline'>('inline');
   const [theme, setTheme] = useState<MenuTheme>('light');
 
@@ -95,5 +95,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

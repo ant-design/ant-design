@@ -60,7 +60,7 @@ const Content: React.FC<{ extra: React.ReactNode }> = ({ children, extra }) => (
   </div>
 );
 
-const App = () => (
+const App: React.FC = () => (
   <PageHeader
     className="site-page-header-responsive"
     onBack={() => window.history.back()}
@@ -84,7 +84,7 @@ const App = () => (
   </PageHeader>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 <style>

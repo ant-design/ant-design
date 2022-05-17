@@ -19,7 +19,7 @@ import { message, Button } from 'antd';
 
 const Context = React.createContext({ name: 'Default' });
 
-const App = () => {
+const App: React.FC = () => {
   const [messageApi, contextHolder] = message.useMessage();
 
   const info = () => {
@@ -40,5 +40,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

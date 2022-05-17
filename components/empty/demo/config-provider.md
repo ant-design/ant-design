@@ -37,7 +37,7 @@ const customizeRenderEmpty = () => (
 
 const style = { width: 200 };
 
-const App = () => {
+const App: React.FC = () => {
   const [customize, setCustomize] = useState(false);
 
   return (
@@ -92,7 +92,7 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```
 
 <style>

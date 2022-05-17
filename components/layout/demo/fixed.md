@@ -20,7 +20,7 @@ import { Layout, Menu, Breadcrumb } from 'antd';
 
 const { Header, Content, Footer } = Layout;
 
-const App = () => (
+const App: React.FC = () => (
   <Layout>
     <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
       <div className="logo" />
@@ -48,7 +48,7 @@ const App = () => (
   </Layout>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

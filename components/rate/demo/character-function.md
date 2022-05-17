@@ -26,7 +26,7 @@ const customIcons: Record<number, React.ReactNode> = {
   5: <SmileOutlined />,
 };
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Rate defaultValue={2} character={({ index }: { index: number }) => index + 1} />
     <br />
@@ -34,5 +34,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

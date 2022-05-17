@@ -85,7 +85,7 @@ const showPropsConfirm = () => {
   });
 };
 
-const App = () => (
+const App: React.FC = () => (
   <Space wrap>
     <Button onClick={showConfirm}>Confirm</Button>
     <Button onClick={showPromiseConfirm}>With promise</Button>
@@ -98,5 +98,5 @@ const App = () => (
   </Space>
 );
 
-export default () => <App />;
+export default App;
 ```

@@ -17,7 +17,7 @@ Use ribbon badge.
 import React from 'react';
 import { Badge, Card } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Badge.Ribbon text="Hippies">
       <Card title="Pushes open the window" size="small">
@@ -62,7 +62,7 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

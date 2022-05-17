@@ -504,7 +504,7 @@ const Page: React.FC<{ popupPlacement: Placement }> = ({ popupPlacement }) => {
   );
 };
 
-const App = () => {
+const App: React.FC = () => {
   const [direction, setDirection] = useState<DirectionType>('ltr');
   const [popupPlacement, setPopupPlacement] = useState<Placement>('bottomLeft');
 

@@ -17,7 +17,7 @@ Focus with additional option.
 import React, { useState, useRef } from 'react';
 import { Input, Space, Button, Switch } from 'antd';
 
-const App = () => {
+const App: React.FC = () => {
   const inputRef = useRef<any>(null);
   const [input, setInput] = useState(true);
 
@@ -81,5 +81,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

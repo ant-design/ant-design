@@ -27,7 +27,7 @@ const handleChange = (value: string) => {
   console.log(`selected ${value}`);
 };
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Select
       suffixIcon={smileIcon}
@@ -48,5 +48,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

@@ -20,7 +20,7 @@ import { Input } from 'antd';
 
 const { TextArea } = Input;
 
-const App = () => (
+const App: React.FC = () => (
   <div style={{ backgroundColor: 'rgba(0, 0, 128, .2)' }}>
     <Input placeholder="Unbordered" bordered={false} />
     <Input placeholder="Unbordered" bordered={false} size="large" />
@@ -32,5 +32,5 @@ const App = () => (
   </div>
 );
 
-export default () => <App />;
+export default App;
 ```

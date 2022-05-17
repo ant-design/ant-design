@@ -20,7 +20,7 @@ import { CloseCircleOutlined } from '@ant-design/icons';
 
 const { Paragraph, Text } = Typography;
 
-const App = () => (
+const App: React.FC = () => (
   <Result
     status="error"
     title="Submission Failed"
@@ -55,7 +55,7 @@ const App = () => (
   </Result>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

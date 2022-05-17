@@ -21,7 +21,7 @@ You could set `footer` to `null` if you don't need default footer buttons.
 import React, { useState } from 'react';
 import { Modal, Button } from 'antd';
 
-const App = () => {
+const App: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [visible, setVisible] = useState(false);
 

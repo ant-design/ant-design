@@ -26,7 +26,7 @@ const text = (
   </p>
 );
 
-const App = () => (
+const App: React.FC = () => (
   <Collapse bordered={false} defaultActiveKey={['1']}>
     <Panel header="This is panel header 1" key="1">
       {text}
@@ -40,5 +40,5 @@ const App = () => (
   </Collapse>
 );
 
-export default () => <App />;
+export default App;
 ```

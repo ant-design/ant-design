@@ -23,7 +23,7 @@ const confirm = () => {
   message.info('Clicked on Yes.');
 };
 
-const App = () => (
+const App: React.FC = () => (
   <div className="demo">
     <div style={{ marginLeft: 70, whiteSpace: 'nowrap' }}>
       <Popconfirm placement="topLeft" title={text} onConfirm={confirm} okText="Yes" cancelText="No">
@@ -108,7 +108,7 @@ const App = () => (
   </div>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 <style>

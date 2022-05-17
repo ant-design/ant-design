@@ -17,7 +17,7 @@ Show successful results.
 import React from 'react';
 import { Result, Button } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <Result
     status="success"
     title="Successfully Purchased Cloud Server ECS!"
@@ -31,5 +31,5 @@ const App = () => (
   />
 );
 
-export default () => <App />;
+export default App;
 ```

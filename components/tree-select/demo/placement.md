@@ -21,7 +21,7 @@ import type { RadioChangeEvent } from 'antd';
 
 const { TreeNode } = TreeSelect;
 
-const App = () => {
+const App: React.FC = () => {
   const [placement, SetPlacement] = useState<SelectCommonPlacement>('topLeft');
 
   const placementChange = (e: RadioChangeEvent) => {
@@ -62,5 +62,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

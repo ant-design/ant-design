@@ -96,7 +96,7 @@ const columns: ColumnsType<DataType> = [
   },
 ];
 
-const App = () => {
+const App: React.FC = () => {
   const [data, setData] = useState([
     {
       key: '1',
@@ -157,7 +157,7 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

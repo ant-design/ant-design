@@ -22,7 +22,7 @@ const onChange = (time: Moment, timeString: string) => {
   console.log(time, timeString);
 };
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <TimePicker use12Hours onChange={onChange} />
     <TimePicker use12Hours format="h:mm:ss A" onChange={onChange} style={{ width: 140 }} />
@@ -30,5 +30,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

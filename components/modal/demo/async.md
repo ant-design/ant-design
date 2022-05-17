@@ -17,7 +17,7 @@ Asynchronously close a modal dialog when the OK button is pressed. For example, 
 import React, { useState } from 'react';
 import { Modal, Button } from 'antd';
 
-const App = () => {
+const App: React.FC = () => {
   const [visible, setVisible] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
   const [modalText, setModalText] = useState('Content of the modal');

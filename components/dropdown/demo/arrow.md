@@ -45,7 +45,7 @@ const menu = (
   />
 );
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Dropdown overlay={menu} placement="bottomLeft" arrow>
       <Button>bottomLeft</Button>
@@ -69,7 +69,7 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

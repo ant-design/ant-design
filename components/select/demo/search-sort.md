@@ -19,7 +19,7 @@ import { Select } from 'antd';
 
 const { Option } = Select;
 
-const App = () => (
+const App: React.FC = () => (
   <Select
     showSearch
     style={{ width: 200 }}
@@ -41,5 +41,5 @@ const App = () => (
   </Select>
 );
 
-export default () => <App />;
+export default App;
 ```

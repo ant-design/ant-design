@@ -122,7 +122,7 @@ const Page = () => {
   );
 };
 
-const App = () => {
+const App: React.FC = () => {
   const [locale, setLocal] = useState(enUS);
 
   const changeLocale = (e: RadioChangeEvent) => {

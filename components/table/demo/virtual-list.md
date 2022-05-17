@@ -136,11 +136,11 @@ const columns = [
 
 const data = Array.from({ length: 100000 }, (_, key) => ({ key }));
 
-const App = () => (
+const App: React.FC = () => (
   <VirtualTable columns={columns} dataSource={data} scroll={{ y: 300, x: '100vw' }} />
 );
 
-export default () => <App />;
+export default App;
 ```
 
 <style>

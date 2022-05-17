@@ -20,7 +20,7 @@ import { LoadingOutlined } from '@ant-design/icons';
 
 const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
-const App = () => <Spin indicator={antIcon} />;
+const App: React.FC = () => <Spin indicator={antIcon} />;
 
-export default () => <App />;
+export default App;
 ```

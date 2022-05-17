@@ -124,7 +124,7 @@ interface DataType {
 
 type ColumnTypes = Exclude<EditableTableProps['columns'], undefined>;
 
-const App = () => {
+const App: React.FC = () => {
   const [dataSource, setDataSource] = useState<DataType[]>([
     {
       key: '0',
@@ -235,7 +235,7 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

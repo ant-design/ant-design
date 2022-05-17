@@ -18,7 +18,7 @@ Using `count/dot` with custom `stauts/color`.
 import React from 'react';
 import { Badge, Avatar } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Badge count={5} status="success">
       <Avatar shape="square" size="large" />
@@ -47,5 +47,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

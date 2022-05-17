@@ -40,7 +40,7 @@ const IconText = ({ icon, text }: IconTextProps) => (
   </span>
 );
 
-const App = () => {
+const App: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
   const onChange = (checked: boolean) => {

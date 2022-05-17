@@ -75,7 +75,7 @@ const DragableUploadListItem = ({
   );
 };
 
-const App = () => {
+const App: React.FC = () => {
   const [fileList, setFileList] = useState<UploadFile[]>([
     {
       uid: '-1',
@@ -148,7 +148,7 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

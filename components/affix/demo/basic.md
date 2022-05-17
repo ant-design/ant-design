@@ -17,7 +17,7 @@ The simplest usage.
 import React, { useState } from 'react';
 import { Affix, Button } from 'antd';
 
-const App = () => {
+const App: React.FC = () => {
   const [top, setTop] = useState(10);
   const [bottom, setBottom] = useState(10);
 
@@ -38,5 +38,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

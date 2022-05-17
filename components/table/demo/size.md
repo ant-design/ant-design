@@ -61,7 +61,7 @@ const data: DataType[] = [
   },
 ];
 
-const App = () => (
+const App: React.FC = () => (
   <div>
     <h4>Middle size table</h4>
     <Table columns={columns} dataSource={data} size="middle" />
@@ -70,7 +70,7 @@ const App = () => (
   </div>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 <style>#components-table-demo-size h4 { margin-bottom: 16px; }</style>

@@ -17,7 +17,7 @@ The default PageHeader is a transparent background. In some cases, PageHeader ne
 import React from 'react';
 import { PageHeader, Button, Descriptions } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <div className="site-page-header-ghost-wrapper">
     <PageHeader
       ghost={false}
@@ -47,7 +47,7 @@ const App = () => (
   </div>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

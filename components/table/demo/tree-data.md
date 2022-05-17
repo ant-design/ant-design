@@ -18,7 +18,7 @@ Display tree structure data in Table when there is field key `children` in dataS
 You can control the indent width by setting `indentSize`.
 
 ```tsx
-import React from 'react';
+import React, { useState } from 'react';
 import { Table, Switch, Space } from 'antd';
 import type { TableRowSelection } from 'antd/lib/table/interface';
 import type { ColumnsType } from 'antd/lib/table';
@@ -129,8 +129,8 @@ const rowSelection: TableRowSelection<DataType> = {
   },
 };
 
-const App = () => {
-  const [checkStrictly, setCheckStrictly] = React.useState(false);
+const App: React.FC = () => {
+  const [checkStrictly, setCheckStrictly] = useState(false);
 
   return (
     <>
@@ -146,5 +146,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

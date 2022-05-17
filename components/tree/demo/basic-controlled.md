@@ -62,7 +62,7 @@ const treeData: DataNode[] = [
   },
 ];
 
-const App = () => {
+const App: React.FC = () => {
   const [expandedKeys, setExpandedKeys] = useState<React.Key[]>(['0-0-0', '0-0-1']);
   const [checkedKeys, setCheckedKeys] = useState<React.Key[]>(['0-0-0']);
   const [selectedKeys, setSelectedKeys] = useState<React.Key[]>([]);
@@ -101,5 +101,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

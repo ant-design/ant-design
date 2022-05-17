@@ -24,7 +24,7 @@ const content = (
   </>
 );
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Popover placement="topLeft" title="Title" content={content}>
       <Button>Align edge / 边缘对齐</Button>
@@ -35,5 +35,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

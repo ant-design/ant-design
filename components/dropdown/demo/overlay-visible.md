@@ -19,7 +19,7 @@ import { Menu, Dropdown, Space } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 
-const App = () => {
+const App: React.FC = () => {
   const [visible, setVisible] = useState(false);
 
   const handleMenuClick: MenuProps['onClick'] = e => {
@@ -64,5 +64,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

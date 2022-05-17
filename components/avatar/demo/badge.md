@@ -18,7 +18,7 @@ import React from 'react';
 import { Avatar, Badge } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <span className="avatar-item">
       <Badge count={1}>
@@ -33,7 +33,7 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

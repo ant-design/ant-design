@@ -69,7 +69,7 @@ const data: DataType[] = [
   },
 ];
 
-const App = () => (
+const App: React.FC = () => (
   <Table
     columns={columns}
     expandable={{
@@ -80,5 +80,5 @@ const App = () => (
   />
 );
 
-export default () => <App />;
+export default App;
 ```

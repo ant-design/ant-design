@@ -21,7 +21,7 @@ const onClose = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
   console.log(e, 'I was closed.');
 };
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Alert
       message="Warning Text Warning Text Warning TextW arning Text Warning Text Warning TextWarning Text"
@@ -39,5 +39,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

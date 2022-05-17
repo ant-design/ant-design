@@ -84,7 +84,7 @@ const data: DataType[] = [
   },
 ];
 
-const App = () => <Table columns={columns} dataSource={data} scroll={{ x: 1300 }} />;
+const App: React.FC = () => <Table columns={columns} dataSource={data} scroll={{ x: 1300 }} />;
 
-export default () => <App />;
+export default App;
 ```

@@ -24,7 +24,7 @@ const content = (
   </div>
 );
 
-const App = () => (
+const App: React.FC = () => (
   <div>
     <Popover content={content} title="Title" trigger="hover">
       <Button>Hover me</Button>
@@ -38,5 +38,5 @@ const App = () => (
   </div>
 );
 
-export default () => <App />;
+export default App;
 ```

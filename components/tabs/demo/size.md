@@ -21,7 +21,7 @@ import type { RadioChangeEvent } from 'antd';
 
 const { TabPane } = Tabs;
 
-const App = () => {
+const App: React.FC = () => {
   const [size, setSize] = useState<SizeType>('small');
 
   const onChange = (e: RadioChangeEvent) => {
@@ -61,5 +61,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

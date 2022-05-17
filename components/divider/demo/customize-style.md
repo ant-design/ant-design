@@ -18,7 +18,7 @@ Use `style` to change default style.
 import React from 'react';
 import { Divider } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Divider style={{ borderWidth: 2, borderColor: '#7cb305' }} />
     <Divider style={{ borderColor: '#7cb305' }} dashed />
@@ -30,5 +30,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

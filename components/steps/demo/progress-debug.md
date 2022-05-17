@@ -21,7 +21,7 @@ import type { StepsProps } from 'antd';
 
 const { Step } = Steps;
 
-const App = () => {
+const App: React.FC = () => {
   const [percent, setPercentage] = useState(0);
   const [current, setCurrent] = useState(1);
   const [status, setStatus] = useState<StepsProps['status']>('process');
@@ -65,5 +65,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

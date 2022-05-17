@@ -17,7 +17,7 @@ You can show the total number of data by setting `showTotal`.
 import React from 'react';
 import { Pagination } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Pagination
       total={85}
@@ -35,5 +35,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

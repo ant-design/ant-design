@@ -19,7 +19,7 @@ import { Select } from 'antd';
 
 const { Option } = Select;
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Select defaultValue="lucy" style={{ width: 120 }} bordered={false}>
       <Option value="jack">Jack</Option>
@@ -32,5 +32,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

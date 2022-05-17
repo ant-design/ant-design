@@ -27,7 +27,7 @@ const onSearch = (value: string) => {
   console.log('search:', value);
 };
 
-const App = () => (
+const App: React.FC = () => (
   <Select
     showSearch
     placeholder="Select a person"
@@ -44,5 +44,5 @@ const App = () => (
   </Select>
 );
 
-export default () => <App />;
+export default App;
 ```

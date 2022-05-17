@@ -78,7 +78,7 @@ const ModalForm: React.FC<ModalFormProps> = ({ visible, onCancel }) => {
   );
 };
 
-const App = () => {
+const App: React.FC = () => {
   const [visible, setVisible] = useState(false);
 
   const showUserModal = () => {
@@ -145,7 +145,7 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

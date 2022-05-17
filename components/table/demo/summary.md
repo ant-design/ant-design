@@ -97,7 +97,7 @@ for (let i = 0; i < 20; i += 1) {
   });
 }
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Table
       columns={columns}
@@ -155,7 +155,7 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 <style>

@@ -23,7 +23,7 @@ const handleChange = (value: string[]) => {
   console.log(`selected ${value}`);
 };
 
-const App = () => (
+const App: React.FC = () => (
   <Select
     mode="multiple"
     style={{ width: '100%' }}
@@ -67,7 +67,7 @@ const App = () => (
   </Select>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

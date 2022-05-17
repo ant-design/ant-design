@@ -23,7 +23,7 @@ import { Button, Radio } from 'antd';
 import { DownloadOutlined } from '@ant-design/icons';
 import type { SizeType } from 'antd/es/config-provider/SizeContext';
 
-const App = () => {
+const App: React.FC = () => {
   const [size, setSize] = useState<SizeType>('large');
 
   return (
@@ -60,5 +60,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

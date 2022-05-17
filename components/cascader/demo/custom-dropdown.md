@@ -66,9 +66,9 @@ const dropdownRender = (menus: React.ReactNode) => (
   </div>
 );
 
-const App = () => (
+const App: React.FC = () => (
   <Cascader options={options} dropdownRender={dropdownRender} placeholder="Please select" />
 );
 
-export default () => <App />;
+export default App;
 ```

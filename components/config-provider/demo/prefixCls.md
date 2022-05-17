@@ -23,7 +23,7 @@ import { SmileOutlined } from '@ant-design/icons';
 // but do not replace related lib `lib` with `es`
 // which do not show correct in site.
 // We may need do convert in site also.
-const App = () => {
+const App: React.FC = () => {
   const [prefixCls, setPrefixCls] = useState('light');
 
   return (
@@ -41,5 +41,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

@@ -17,11 +17,11 @@ Set offset of the badge dot, the format is `[left, top]`, which represents the o
 import React from 'react';
 import { Badge, Avatar } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <Badge count={5} offset={[10, 10]}>
     <Avatar shape="square" size="large" />
   </Badge>
 );
 
-export default () => <App />;
+export default App;
 ```

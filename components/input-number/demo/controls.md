@@ -19,9 +19,9 @@ import React from 'react';
 import { InputNumber } from 'antd';
 import { ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons';
 
-const App = () => (
+const App: React.FC = () => (
   <InputNumber controls={{ upIcon: <ArrowUpOutlined />, downIcon: <ArrowDownOutlined /> }} />
 );
 
-export default () => <App />;
+export default App;
 ```

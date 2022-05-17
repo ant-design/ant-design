@@ -17,7 +17,7 @@ By setting `strokeLinecap="square"`, you can change the linecaps from round to s
 import React from 'react';
 import { Progress } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Progress strokeLinecap="square" percent={75} />
     <Progress strokeLinecap="square" type="circle" percent={75} />
@@ -25,5 +25,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

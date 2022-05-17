@@ -27,7 +27,7 @@ const handleChange = (value: { value: string; label: React.ReactNode }) => {
   console.log(value); // { value: "lucy", key: "lucy", label: "Lucy (101)" }
 };
 
-const App = () => (
+const App: React.FC = () => (
   <Select
     labelInValue
     defaultValue={{ value: 'lucy', label: 'Lucy (101)' }}
@@ -39,5 +39,5 @@ const App = () => (
   </Select>
 );
 
-export default () => <App />;
+export default App;
 ```

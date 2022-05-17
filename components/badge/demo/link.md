@@ -17,7 +17,7 @@ The badge can be wrapped with `a` tag to make it linkable.
 import React from 'react';
 import { Badge, Avatar } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <a href="#">
     <Badge count={5}>
       <Avatar shape="square" size="large" />
@@ -25,5 +25,5 @@ const App = () => (
   </a>
 );
 
-export default () => <App />;
+export default App;
 ```

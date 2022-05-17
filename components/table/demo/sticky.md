@@ -102,7 +102,7 @@ for (let i = 0; i < 100; i++) {
   });
 }
 
-const App = () => {
+const App: React.FC = () => {
   const [fixedTop, setFixedTop] = useState(false);
 
   return (
@@ -135,5 +135,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

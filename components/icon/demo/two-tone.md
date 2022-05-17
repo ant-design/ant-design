@@ -18,7 +18,7 @@ import React from 'react';
 import { Space } from 'antd';
 import { SmileTwoTone, HeartTwoTone, CheckCircleTwoTone } from '@ant-design/icons';
 
-const App = () => (
+const App: React.FC = () => (
   <Space>
     <SmileTwoTone />
     <HeartTwoTone twoToneColor="#eb2f96" />
@@ -26,5 +26,5 @@ const App = () => (
   </Space>
 );
 
-export default () => <App />;
+export default App;
 ```

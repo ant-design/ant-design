@@ -31,7 +31,7 @@ const tailLayout = {
   wrapperCol: { offset: 8, span: 16 },
 };
 
-const App = () => {
+const App: React.FC = () => {
   const [form] = Form.useForm();
 
   const onGenderChange = (value: string) => {
@@ -105,7 +105,7 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

@@ -78,7 +78,7 @@ const PandaIcon = (props: Partial<CustomIconComponentProps>) => (
   <Icon component={PandaSvg} {...props} />
 );
 
-const App = () => (
+const App: React.FC = () => (
   <Space>
     <HeartIcon style={{ color: 'hotpink' }} />
     <PandaIcon style={{ fontSize: '32px' }} />
@@ -87,5 +87,5 @@ const App = () => (
   </Space>
 );
 
-export default () => <App />;
+export default App;
 ```

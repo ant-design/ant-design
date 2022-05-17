@@ -60,12 +60,12 @@ const confirm = () => {
   });
 };
 
-const App = () => (
+const App: React.FC = () => (
   <Space>
     <LocalizedModal />
     <Button onClick={confirm}>Confirm</Button>
   </Space>
 );
 
-export default () => <App />;
+export default App;
 ```

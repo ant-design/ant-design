@@ -46,7 +46,7 @@ const items2: MenuProps['items'] = [UserOutlined, LaptopOutlined, NotificationOu
   },
 );
 
-const App = () => (
+const App: React.FC = () => (
   <Layout>
     <Header className="header">
       <div className="logo" />
@@ -75,7 +75,7 @@ const App = () => (
   </Layout>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

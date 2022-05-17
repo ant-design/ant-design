@@ -28,7 +28,7 @@ const onSelect = (option: OptionProps) => {
   console.log('select', option);
 };
 
-const App = () => (
+const App: React.FC = () => (
   <Mentions
     style={{ width: '100%' }}
     onChange={onChange}
@@ -41,5 +41,5 @@ const App = () => (
   </Mentions>
 );
 
-export default () => <App />;
+export default App;
 ```

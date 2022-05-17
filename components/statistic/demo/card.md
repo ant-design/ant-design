@@ -18,7 +18,7 @@ import React from 'react';
 import { Statistic, Card, Row, Col } from 'antd';
 import { ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons';
 
-const App = () => (
+const App: React.FC = () => (
   <div className="site-statistic-demo-card">
     <Row gutter={16}>
       <Col span={12}>
@@ -49,7 +49,7 @@ const App = () => (
   </div>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

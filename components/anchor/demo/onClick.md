@@ -30,7 +30,7 @@ const handleClick = (
   console.log(link);
 };
 
-const App = () => (
+const App: React.FC = () => (
   <Anchor affix={false} onClick={handleClick}>
     <Link href="#components-anchor-demo-basic" title="Basic demo" />
     <Link href="#components-anchor-demo-static" title="Static demo" />
@@ -41,5 +41,5 @@ const App = () => (
   </Anchor>
 );
 
-export default () => <App />;
+export default App;
 ```

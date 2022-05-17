@@ -19,7 +19,7 @@ import { Typography, Slider } from 'antd';
 
 const { Paragraph } = Typography;
 
-const App = () => {
+const App: React.FC = () => {
   const [rows, setRows] = useState(1);
 
   const article =
@@ -45,5 +45,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

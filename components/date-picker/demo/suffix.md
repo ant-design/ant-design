@@ -33,7 +33,7 @@ const onChange = (
   console.log(date, dateString);
 };
 
-const App = () => (
+const App: React.FC = () => (
   <Space direction="vertical" size={12}>
     <DatePicker suffixIcon={smileIcon} onChange={onChange} />
     <DatePicker suffixIcon={smileIcon} onChange={onChange} picker="month" />
@@ -46,5 +46,5 @@ const App = () => (
   </Space>
 );
 
-export default () => <App />;
+export default App;
 ```

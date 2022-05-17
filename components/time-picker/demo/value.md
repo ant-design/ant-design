@@ -18,7 +18,7 @@ import React, { useState } from 'react';
 import { TimePicker } from 'antd';
 import type { Moment } from 'moment';
 
-const App = () => {
+const App: React.FC = () => {
   const [value, setValue] = useState<Moment | null>(null);
 
   const onChange = (time: Moment) => {
@@ -28,5 +28,5 @@ const App = () => {
   return <TimePicker value={value} onChange={onChange} />;
 };
 
-export default () => <App />;
+export default App;
 ```

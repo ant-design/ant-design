@@ -62,7 +62,7 @@ const onChange = (value: string[]) => {
   console.log(value);
 };
 
-const App = () => (
+const App: React.FC = () => (
   <Cascader
     fieldNames={{ label: 'name', value: 'code', children: 'items' }}
     options={options}
@@ -71,5 +71,5 @@ const App = () => (
   />
 );
 
-export default () => <App />;
+export default App;
 ```

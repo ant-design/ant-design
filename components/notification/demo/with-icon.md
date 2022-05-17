@@ -27,7 +27,7 @@ const openNotificationWithIcon = (type: NotificationType) => {
   });
 };
 
-const App = () => (
+const App: React.FC = () => (
   <Space>
     <Button onClick={() => openNotificationWithIcon('success')}>Success</Button>
     <Button onClick={() => openNotificationWithIcon('info')}>Info</Button>
@@ -36,5 +36,5 @@ const App = () => (
   </Space>
 );
 
-export default () => <App />;
+export default App;
 ```

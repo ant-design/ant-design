@@ -35,7 +35,7 @@ const validateMessages = {
 };
 /* eslint-enable no-template-curly-in-string */
 
-const App = () => {
+const App: React.FC = () => {
   const onFinish = (values: any) => {
     console.log(values);
   };
@@ -66,5 +66,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

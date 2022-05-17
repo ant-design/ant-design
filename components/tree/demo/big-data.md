@@ -38,7 +38,7 @@ for (let i = 0; i < 100; i += 1) {
   });
 }
 
-const App = () => <Tree defaultExpandAll height={400} treeData={treeData} />;
+const App: React.FC = () => <Tree defaultExpandAll height={400} treeData={treeData} />;
 
-export default () => <App />;
+export default App;
 ```

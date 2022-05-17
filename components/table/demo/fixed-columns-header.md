@@ -110,7 +110,9 @@ for (let i = 0; i < 100; i++) {
   });
 }
 
-const App = () => <Table columns={columns} dataSource={data} scroll={{ x: 1500, y: 300 }} />;
+const App: React.FC = () => (
+  <Table columns={columns} dataSource={data} scroll={{ x: 1500, y: 300 }} />
+);
 
-export default () => <App />;
+export default App;
 ```

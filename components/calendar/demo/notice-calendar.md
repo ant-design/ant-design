@@ -56,7 +56,7 @@ const getMonthData = (value: Moment) => {
   }
 };
 
-const App = () => {
+const App: React.FC = () => {
   const monthCellRender = (value: Moment) => {
     const num = getMonthData(value);
     return num ? (
@@ -83,7 +83,7 @@ const App = () => {
   return <Calendar dateCellRender={dateCellRender} monthCellRender={monthCellRender} />;
 };
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

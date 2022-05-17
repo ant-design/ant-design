@@ -129,7 +129,7 @@ for (let i = 0; i < 100; i++) {
   });
 }
 
-const App = () => (
+const App: React.FC = () => (
   <Table
     columns={columns}
     dataSource={data}
@@ -139,5 +139,5 @@ const App = () => (
   />
 );
 
-export default () => <App />;
+export default App;
 ```

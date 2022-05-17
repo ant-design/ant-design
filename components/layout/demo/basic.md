@@ -19,7 +19,7 @@ import { Layout } from 'antd';
 
 const { Header, Footer, Sider, Content } = Layout;
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Layout>
       <Header>Header</Header>
@@ -56,7 +56,7 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 <style>

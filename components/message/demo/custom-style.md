@@ -27,7 +27,7 @@ const success = () => {
   });
 };
 
-const App = () => <Button onClick={success}>Customized style</Button>;
+const App: React.FC = () => <Button onClick={success}>Customized style</Button>;
 
-export default () => <App />;
+export default App;
 ```

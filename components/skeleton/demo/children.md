@@ -17,7 +17,7 @@ Skeleton contains sub component.
 import React, { useState } from 'react';
 import { Skeleton, Button } from 'antd';
 
-const App = () => {
+const App: React.FC = () => {
   const [loading, setLoading] = useState(false);
 
   const showSkeleton = () => {
@@ -47,7 +47,7 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```
 
 <style>

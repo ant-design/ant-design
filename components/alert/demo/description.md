@@ -17,7 +17,7 @@ Additional description for alert message.
 import React from 'react';
 import { Alert } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Alert
       message="Success Text"
@@ -42,5 +42,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

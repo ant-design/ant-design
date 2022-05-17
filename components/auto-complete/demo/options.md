@@ -19,7 +19,7 @@ import { AutoComplete } from 'antd';
 
 const { Option } = AutoComplete;
 
-const App = () => {
+const App: React.FC = () => {
   const [result, setResult] = useState<string[]>([]);
 
   const handleSearch = (value: string) => {
@@ -43,5 +43,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

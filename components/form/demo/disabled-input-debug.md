@@ -18,7 +18,7 @@ Test disabled Input with validate state
 import React from 'react';
 import { Form, Input } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <Form>
     <Form.Item label="Normal0">
       <Input placeholder="unavailable choice" value="Buggy!" />
@@ -59,5 +59,5 @@ const App = () => (
   </Form>
 );
 
-export default () => <App />;
+export default App;
 ```

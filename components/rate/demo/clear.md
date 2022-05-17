@@ -17,7 +17,7 @@ Support set allow to clear star when click again.
 import React from 'react';
 import { Rate } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Rate defaultValue={3} />
     <span className="ant-rate-text">allowClear: true</span>
@@ -27,5 +27,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

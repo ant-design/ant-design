@@ -18,7 +18,7 @@ import React, { useState } from 'react';
 import { Drawer, Button, Radio, Space } from 'antd';
 import type { DrawerProps, RadioChangeEvent } from 'antd';
 
-const App = () => {
+const App: React.FC = () => {
   const [visible, setVisible] = useState(false);
   const [placement, setPlacement] = useState<DrawerProps['placement']>('left');
 

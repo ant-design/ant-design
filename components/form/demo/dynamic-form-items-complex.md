@@ -32,7 +32,7 @@ const sights = {
 
 type SightsKeys = keyof typeof sights;
 
-const App = () => {
+const App: React.FC = () => {
   const [form] = Form.useForm();
 
   const onFinish = (values: any) => {
@@ -106,5 +106,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

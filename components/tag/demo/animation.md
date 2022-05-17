@@ -20,7 +20,7 @@ import { TweenOneGroup } from 'rc-tween-one';
 import { PlusOutlined } from '@ant-design/icons';
 import type { InputRef } from 'antd';
 
-const App = () => {
+const App: React.FC = () => {
   const [tags, setTags] = useState<string[]>(['Tag 1', 'Tag 2', 'Tag 3']);
   const [inputVisible, setInputVisible] = useState<boolean>(false);
   const [inputValue, setInputValue] = useState('');
@@ -116,7 +116,7 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

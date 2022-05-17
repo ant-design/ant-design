@@ -18,7 +18,7 @@ import React from 'react';
 import { Avatar, Divider, Tooltip } from 'antd';
 import { UserOutlined, AntDesignOutlined } from '@ant-design/icons';
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Avatar.Group>
       <Avatar src="https://joeschmoe.io/api/v1/random" />
@@ -67,5 +67,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

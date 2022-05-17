@@ -18,7 +18,7 @@ Display Alert as a banner at top of page.
 import React from 'react';
 import { Alert } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Alert message="Warning text" banner />
     <br />
@@ -34,5 +34,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

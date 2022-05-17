@@ -34,7 +34,7 @@ interface DataType {
   nat: string;
 }
 
-const App = () => {
+const App: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState<DataType[]>([]);
 
@@ -94,5 +94,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

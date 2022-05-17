@@ -20,7 +20,7 @@ import React, { useState } from 'react';
 import { Badge, Space, Switch } from 'antd';
 import { ClockCircleOutlined } from '@ant-design/icons';
 
-const App = () => {
+const App: React.FC = () => {
   const [show, setShow] = useState(true);
 
   return (
@@ -37,5 +37,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

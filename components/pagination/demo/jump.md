@@ -22,7 +22,7 @@ const onChange: PaginationProps['onChange'] = pageNumber => {
   console.log('Page: ', pageNumber);
 };
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Pagination showQuickJumper defaultCurrent={2} total={500} onChange={onChange} />
     <br />
@@ -30,5 +30,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

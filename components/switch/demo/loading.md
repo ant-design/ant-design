@@ -17,7 +17,7 @@ Mark a pending state of switch.
 import React from 'react';
 import { Switch } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Switch loading defaultChecked />
     <br />
@@ -25,5 +25,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

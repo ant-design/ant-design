@@ -28,7 +28,7 @@ import { UploadOutlined } from '@ant-design/icons';
 import type { UploadFile } from 'antd/es/upload/interface';
 import type { UploadProps } from 'antd';
 
-const App = () => {
+const App: React.FC = () => {
   const [fileList, setFileList] = useState<UploadFile[]>([
     {
       uid: '-1',
@@ -69,5 +69,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

@@ -16,7 +16,7 @@ Simplest Usage with no description.
 ```tsx
 import { Empty } from 'antd';
 
-const App = () => <Empty description={false} />;
+const App: React.FC = () => <Empty description={false} />;
 
-export default () => <App />;
+export default App;
 ```

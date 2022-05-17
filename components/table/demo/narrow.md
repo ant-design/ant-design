@@ -52,11 +52,11 @@ for (let i = 0; i < 200; i += 1) {
   });
 }
 
-const App = () => (
+const App: React.FC = () => (
   <div style={{ width: 300 }}>
     <Table columns={columns} dataSource={data} size="small" pagination={{ defaultCurrent: 13 }} />
   </div>
 );
 
-export default () => <App />;
+export default App;
 ```

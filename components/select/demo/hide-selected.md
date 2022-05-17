@@ -19,7 +19,7 @@ import { Select } from 'antd';
 
 const OPTIONS = ['Apples', 'Nails', 'Bananas', 'Helicopters'];
 
-const App = () => {
+const App: React.FC = () => {
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
 
   const filteredOptions = OPTIONS.filter(o => !selectedItems.includes(o));
@@ -41,5 +41,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

@@ -17,7 +17,7 @@ Customize image source, image size, description and extra content.
 import React from 'react';
 import { Empty, Button } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <Empty
     image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
     imageStyle={{
@@ -33,5 +33,5 @@ const App = () => (
   </Empty>
 );
 
-export default () => <App />;
+export default App;
 ```

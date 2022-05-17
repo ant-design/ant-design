@@ -22,7 +22,7 @@ import React, { useState } from 'react';
 import { Space, Radio, Button } from 'antd';
 import type { SpaceSize } from 'antd/es/space';
 
-const App = () => {
+const App: React.FC = () => {
   const [size, setSize] = useState<SpaceSize | [SpaceSize, SpaceSize]>('small');
 
   return (

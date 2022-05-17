@@ -19,7 +19,7 @@ import { Input } from 'antd';
 
 const { TextArea } = Input;
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <TextArea rows={4} />
     <br />
@@ -28,5 +28,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

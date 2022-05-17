@@ -22,7 +22,7 @@ const { TabPane } = Tabs;
 
 type TabPosition = 'left' | 'right' | 'top' | 'bottom';
 
-const App = () => {
+const App: React.FC = () => {
   const [mode, setMode] = useState<TabPosition>('top');
 
   const handleModeChange = (e: RadioChangeEvent) => {
@@ -46,5 +46,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

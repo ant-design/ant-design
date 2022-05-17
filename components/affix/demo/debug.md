@@ -18,7 +18,7 @@ DEBUG
 import React, { useState } from 'react';
 import { Affix, Button } from 'antd';
 
-const App = () => {
+const App: React.FC = () => {
   const [top, setTop] = useState(10);
 
   return (
@@ -36,5 +36,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

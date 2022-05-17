@@ -39,7 +39,7 @@ const treeData: DataNode[] = [
   },
 ];
 
-const App = () => {
+const App: React.FC = () => {
   const onSelect: DirectoryTreeProps['onSelect'] = (keys, info) => {
     console.log('Trigger Select', keys, info);
   };
@@ -59,5 +59,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

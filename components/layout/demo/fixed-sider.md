@@ -46,7 +46,7 @@ const items: MenuProps['items'] = [
   label: `nav ${index + 1}`,
 }));
 
-const App = () => (
+const App: React.FC = () => (
   <Layout hasSider>
     <Sider
       style={{
@@ -167,7 +167,7 @@ const App = () => (
   </Layout>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

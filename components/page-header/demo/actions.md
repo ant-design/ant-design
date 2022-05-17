@@ -17,7 +17,7 @@ Use the operating area and customize the sub-nodes, suitable for use in the need
 import React from 'react';
 import { PageHeader, Tag, Button, Statistic, Descriptions, Row } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <PageHeader
       className="site-page-header"
@@ -74,7 +74,7 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 <style>

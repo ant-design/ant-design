@@ -30,7 +30,7 @@ const initialPanes = [
   },
 ];
 
-const App = () => {
+const App: React.FC = () => {
   const [activeKey, setActiveKey] = useState(initialPanes[0].key);
   const [panes, setPanes] = useState(initialPanes);
   const newTabIndex = useRef(0);
@@ -86,5 +86,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

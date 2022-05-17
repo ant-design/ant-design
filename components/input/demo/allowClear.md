@@ -23,7 +23,7 @@ const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) 
   console.log(e);
 };
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Input placeholder="input with clear icon" allowClear onChange={onChange} />
     <br />
@@ -32,5 +32,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

@@ -17,7 +17,7 @@ Display active animation.
 import React from 'react';
 import { Skeleton } from 'antd';
 
-const App = () => <Skeleton active />;
+const App: React.FC = () => <Skeleton active />;
 
-export default () => <App />;
+export default App;
 ```

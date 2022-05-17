@@ -66,7 +66,7 @@ const options = [
   },
 ];
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Mentions style={{ width: 100 }} rows={1} />
     <Input.TextArea rows={1} style={{ width: 100 }} />
@@ -103,5 +103,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

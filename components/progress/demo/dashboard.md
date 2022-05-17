@@ -17,12 +17,12 @@ By setting `type=dashboard`, you can get a dashboard style of progress easily. M
 import React from 'react';
 import { Progress } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Progress type="dashboard" percent={75} />
     <Progress type="dashboard" percent={75} gapDegree={30} />
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

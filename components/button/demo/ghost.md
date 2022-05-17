@@ -17,7 +17,7 @@ title:
 import React from 'react';
 import { Button } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <div className="site-button-ghost-wrapper">
     <Button type="primary" ghost>
       Primary
@@ -32,7 +32,7 @@ const App = () => (
   </div>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

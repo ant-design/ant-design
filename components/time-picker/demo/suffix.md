@@ -25,7 +25,7 @@ const onChange = (time: Moment, timeString: string) => {
   console.log(time, timeString);
 };
 
-const App = () => (
+const App: React.FC = () => (
   <TimePicker
     suffixIcon={<SmileOutlined />}
     onChange={onChange}
@@ -33,5 +33,5 @@ const App = () => (
   />
 );
 
-export default () => <App />;
+export default App;
 ```

@@ -27,7 +27,7 @@ const cancel = (e: React.MouseEvent<HTMLElement>) => {
   message.error('Click on No');
 };
 
-const App = () => (
+const App: React.FC = () => (
   <Popconfirm
     title="Are you sure to delete this task?"
     onConfirm={confirm}
@@ -39,5 +39,5 @@ const App = () => (
   </Popconfirm>
 );
 
-export default () => <App />;
+export default App;
 ```

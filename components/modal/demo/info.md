@@ -50,7 +50,7 @@ const warning = () => {
   });
 };
 
-const App = () => (
+const App: React.FC = () => (
   <Space wrap>
     <Button onClick={info}>Info</Button>
     <Button onClick={success}>Success</Button>
@@ -59,5 +59,5 @@ const App = () => (
   </Space>
 );
 
-export default () => <App />;
+export default App;
 ```

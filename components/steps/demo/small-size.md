@@ -19,7 +19,7 @@ import { Steps } from 'antd';
 
 const { Step } = Steps;
 
-const App = () => (
+const App: React.FC = () => (
   <Steps size="small" current={1}>
     <Step title="Finished" />
     <Step title="In Progress" />
@@ -27,5 +27,5 @@ const App = () => (
   </Steps>
 );
 
-export default () => <App />;
+export default App;
 ```

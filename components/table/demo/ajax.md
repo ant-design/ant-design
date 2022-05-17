@@ -81,7 +81,7 @@ const getRandomuserParams = (params: Params) => ({
   ...params,
 });
 
-const App = () => {
+const App: React.FC = () => {
   const [data, setData] = useState();
   const [loading, setLoading] = useState(false);
   const [pagination, setPagination] = useState<TablePaginationConfig>({

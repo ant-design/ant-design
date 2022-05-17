@@ -25,7 +25,7 @@ const contentStyle: React.CSSProperties = {
   background: '#364d79',
 };
 
-const App = () => {
+const App: React.FC = () => {
   const onChange = (currentSlide: number) => {
     console.log(currentSlide);
   };
@@ -48,5 +48,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

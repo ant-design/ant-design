@@ -17,7 +17,7 @@ By using the `visible` prop, you can control the close state of Tag.
 import React, { useState } from 'react';
 import { Tag, Button } from 'antd';
 
-const App = () => {
+const App: React.FC = () => {
   const [visible, setVisible] = useState(true);
 
   return (
@@ -33,5 +33,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

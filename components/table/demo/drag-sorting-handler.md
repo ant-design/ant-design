@@ -86,7 +86,7 @@ const SortableBody = SortableContainer((props: React.HTMLAttributes<HTMLTableSec
   <tbody {...props} />
 ));
 
-const App = () => {
+const App: React.FC = () => {
   const [dataSource, setDataSource] = useState(data);
 
   const onSortEnd = ({ oldIndex, newIndex }: SortEnd) => {
@@ -131,7 +131,7 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

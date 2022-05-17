@@ -20,7 +20,7 @@ import { MinusOutlined, PlusOutlined, QuestionOutlined } from '@ant-design/icons
 
 const ButtonGroup = Button.Group;
 
-const App = () => {
+const App: React.FC = () => {
   const [count, setCount] = useState(5);
   const [show, setShow] = useState(true);
 
@@ -70,5 +70,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

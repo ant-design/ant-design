@@ -17,7 +17,7 @@ When `tooltipVisible` is `true`, ToolTip will show always, or ToolTip will not s
 import React from 'react';
 import { Slider } from 'antd';
 
-const App = () => <Slider defaultValue={30} tooltipVisible />;
+const App: React.FC = () => <Slider defaultValue={30} tooltipVisible />;
 
-export default () => <App />;
+export default App;
 ```

@@ -64,7 +64,7 @@ const data: DataType[] = [
   },
 ];
 
-const App = () => (
+const App: React.FC = () => (
   <Table
     columns={columns}
     dataSource={data}
@@ -74,5 +74,5 @@ const App = () => (
   />
 );
 
-export default () => <App />;
+export default App;
 ```

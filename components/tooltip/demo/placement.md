@@ -21,7 +21,7 @@ const text = <span>prompt text</span>;
 
 const buttonWidth = 70;
 
-const App = () => (
+const App: React.FC = () => (
   <div className="demo">
     <div style={{ marginLeft: buttonWidth, whiteSpace: 'nowrap' }}>
       <Tooltip placement="topLeft" title={text}>
@@ -70,7 +70,7 @@ const App = () => (
   </div>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 <style>

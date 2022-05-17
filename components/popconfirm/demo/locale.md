@@ -17,11 +17,11 @@ Set `okText` and `cancelText` props to customize the button's labels.
 import React from 'react';
 import { Popconfirm } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <Popconfirm title="Are you sure？" okText="Yes" cancelText="No">
     <a href="#">Delete</a>
   </Popconfirm>
 );
 
-export default () => <App />;
+export default App;
 ```

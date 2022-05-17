@@ -19,7 +19,7 @@ import { Typography, Switch } from 'antd';
 
 const { Paragraph, Text } = Typography;
 
-const App = () => {
+const App: React.FC = () => {
   const [ellipsis, setEllipsis] = useState(true);
 
   return (
@@ -59,5 +59,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

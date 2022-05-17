@@ -62,7 +62,7 @@ const onChange = (value: string[]) => {
   console.log(value);
 };
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Cascader size="large" options={options} onChange={onChange} />
     <br />
@@ -76,5 +76,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

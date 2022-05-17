@@ -17,7 +17,7 @@ You can use `centered`,`style.top` or other styles to set position of modal dial
 import React, { useState } from 'react';
 import { Modal, Button } from 'antd';
 
-const App = () => {
+const App: React.FC = () => {
   const [modal1Visible, setModal1Visible] = useState(false);
   const [modal2Visible, setModal2Visible] = useState(false);
 

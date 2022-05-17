@@ -14,7 +14,7 @@ title:
 Use Aliyun OSS upload example.
 
 ```tsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Form, Upload, message, Button } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import type { UploadProps } from 'antd';
@@ -57,7 +57,7 @@ const AliyunOSSUpload = ({ value, onChange }: AliyunOSSUploadProps) => {
     }
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     init();
   }, []);
 
@@ -115,7 +115,7 @@ const AliyunOSSUpload = ({ value, onChange }: AliyunOSSUploadProps) => {
   );
 };
 
-const App = () => (
+const App: React.FC = () => (
   <Form labelCol={{ span: 4 }}>
     <Form.Item label="Photos" name="photos">
       <AliyunOSSUpload />
@@ -123,5 +123,5 @@ const App = () => (
   </Form>
 );
 
-export default () => <App />;
+export default App;
 ```

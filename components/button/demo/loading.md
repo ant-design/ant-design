@@ -19,7 +19,7 @@ import { Button, Space } from 'antd';
 import { PoweroffOutlined } from '@ant-design/icons';
 
 const App: React.FC = () => {
-  const [loadings, setLoadings] = useState([]);
+  const [loadings, setLoadings] = useState<boolean[]>([]);
 
   const enterLoading = index => {
     setLoadings(prevLoadings => {

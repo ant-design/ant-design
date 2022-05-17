@@ -26,7 +26,7 @@ import {
 
 const { Header, Sider, Content } = Layout;
 
-const App = () => {
+const App: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
 
   return (
@@ -78,7 +78,7 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

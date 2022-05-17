@@ -69,7 +69,7 @@ const items: MenuItem[] = [
   ]),
 ];
 
-const App = () => {
+const App: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
 
   const toggleCollapsed = () => {

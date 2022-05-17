@@ -18,7 +18,7 @@ import React from 'react';
 import { Statistic, Row, Col } from 'antd';
 import { LikeOutlined } from '@ant-design/icons';
 
-const App = () => (
+const App: React.FC = () => (
   <Row gutter={16}>
     <Col span={12}>
       <Statistic title="Feedback" value={1128} prefix={<LikeOutlined />} />
@@ -29,5 +29,5 @@ const App = () => (
   </Row>
 );
 
-export default () => <App />;
+export default App;
 ```

@@ -19,7 +19,7 @@ import React from 'react';
 import { Button, Form, Input } from 'antd';
 import type { InputRef } from 'antd';
 
-const App = () => {
+const App: React.FC = () => {
   const [form] = Form.useForm();
   const ref = React.useRef<InputRef>(null);
 
@@ -58,5 +58,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

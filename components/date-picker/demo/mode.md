@@ -72,12 +72,12 @@ const ControlledRangePicker = () => {
   );
 };
 
-const App = () => (
+const App: React.FC = () => (
   <Space direction="vertical" size={12}>
     <ControlledDatePicker />
     <ControlledRangePicker />
   </Space>
 );
 
-export default () => <App />;
+export default App;
 ```

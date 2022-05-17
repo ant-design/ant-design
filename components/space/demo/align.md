@@ -17,7 +17,7 @@ Config item align.
 import React from 'react';
 import { Space, Button } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <div className="space-align-container">
     <div className="space-align-block">
       <Space align="center">
@@ -50,7 +50,7 @@ const App = () => (
   </div>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

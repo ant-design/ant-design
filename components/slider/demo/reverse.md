@@ -17,7 +17,7 @@ Using `reverse` to render slider reversely.
 import React, { useState } from 'react';
 import { Slider, Switch } from 'antd';
 
-const App = () => {
+const App: React.FC = () => {
   const [reverse, setReverse] = useState(true);
 
   return (
@@ -29,5 +29,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

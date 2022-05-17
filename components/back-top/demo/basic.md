@@ -17,7 +17,7 @@ The most basic usage.
 import React from 'react';
 import { BackTop } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <BackTop />
     Scroll down to see the bottom-right
@@ -26,7 +26,7 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

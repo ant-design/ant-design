@@ -18,7 +18,7 @@ import React from 'react';
 import { Input, Tooltip } from 'antd';
 import { InfoCircleOutlined, UserOutlined } from '@ant-design/icons';
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Input
       placeholder="Enter your username"
@@ -38,5 +38,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

@@ -18,7 +18,7 @@ import React from 'react';
 import { Badge } from 'antd';
 import { NotificationOutlined } from '@ant-design/icons';
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Badge dot>
       <NotificationOutlined style={{ fontSize: 16 }} />
@@ -29,5 +29,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

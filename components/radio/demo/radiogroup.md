@@ -18,7 +18,7 @@ import React, { useState } from 'react';
 import { Radio } from 'antd';
 import type { RadioChangeEvent } from 'antd';
 
-const App = () => {
+const App: React.FC = () => {
   const [value, setValue] = useState(1);
 
   const onChange = (e: RadioChangeEvent) => {

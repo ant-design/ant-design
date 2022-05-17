@@ -17,7 +17,7 @@ Basic Form data control. Includes layout, initial values, validation and submit.
 import React from 'react';
 import { Form, Input, Button, Checkbox } from 'antd';
 
-const App = () => {
+const App: React.FC = () => {
   const onFinish = (values: any) => {
     console.log('Success:', values);
   };
@@ -65,5 +65,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

@@ -19,7 +19,7 @@ import { Anchor } from 'antd';
 
 const { Link } = Anchor;
 
-const App = () => (
+const App: React.FC = () => (
   <Anchor affix={false}>
     <Link href="#components-anchor-demo-basic" title="Basic demo" />
     <Link href="#components-anchor-demo-static" title="Static demo" />
@@ -30,5 +30,5 @@ const App = () => (
   </Anchor>
 );
 
-export default () => <App />;
+export default App;
 ```

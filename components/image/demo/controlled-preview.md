@@ -17,7 +17,7 @@ You can make preview controlled.
 import React, { useState } from 'react';
 import { Image, Button } from 'antd';
 
-const App = () => {
+const App: React.FC = () => {
   const [visible, setVisible] = useState(false);
 
   return (
@@ -41,5 +41,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

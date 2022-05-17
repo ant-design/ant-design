@@ -18,7 +18,7 @@ import React from 'react';
 import { Input } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Input size="large" placeholder="large size" prefix={<UserOutlined />} />
     <br />
@@ -30,5 +30,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

@@ -25,7 +25,7 @@ const positionList = ['left', 'right', 'top', 'bottom'];
 
 const list = Array.from({ length: 20 }).map((_, index) => index);
 
-const App = () => {
+const App: React.FC = () => {
   const [parentPos, setParentPos] = useState(undefined);
   const [childPos, setChildPos] = useState(undefined);
   const [parentType, setParentType] = useState(undefined);
@@ -104,5 +104,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

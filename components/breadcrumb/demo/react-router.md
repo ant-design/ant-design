@@ -74,13 +74,13 @@ const Home = () => {
   );
 };
 
-const App = () => (
+const App: React.FC = () => (
   <HashRouter>
     <Home />
   </HashRouter>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

@@ -28,11 +28,11 @@ const handleChange = (value: string) => {
   console.log(`selected ${value}`);
 };
 
-const App = () => (
+const App: React.FC = () => (
   <Select mode="tags" style={{ width: '100%' }} onChange={handleChange} tokenSeparators={[',']}>
     {children}
   </Select>
 );
 
-export default () => <App />;
+export default App;
 ```

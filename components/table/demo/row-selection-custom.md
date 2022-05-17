@@ -51,7 +51,7 @@ for (let i = 0; i < 46; i++) {
   });
 }
 
-const App = () => {
+const App: React.FC = () => {
   const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
 
   const onSelectChange = (newSelectedRowKeys: React.Key[]) => {

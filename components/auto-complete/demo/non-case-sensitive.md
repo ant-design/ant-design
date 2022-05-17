@@ -23,7 +23,7 @@ const options = [
   { value: 'Wall Street' },
 ];
 
-const App = () => (
+const App: React.FC = () => (
   <AutoComplete
     style={{ width: 200 }}
     options={options}
@@ -34,5 +34,5 @@ const App = () => (
   />
 );
 
-export default () => <App />;
+export default App;
 ```

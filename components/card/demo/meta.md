@@ -20,7 +20,7 @@ import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/ico
 
 const { Meta } = Card;
 
-const App = () => (
+const App: React.FC = () => (
   <Card
     style={{ width: 300 }}
     cover={
@@ -43,5 +43,5 @@ const App = () => (
   </Card>
 );
 
-export default () => <App />;
+export default App;
 ```

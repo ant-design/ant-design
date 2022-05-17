@@ -19,7 +19,7 @@ import { Tabs } from 'antd';
 
 const { TabPane } = Tabs;
 
-const App = () => (
+const App: React.FC = () => (
   <Tabs defaultActiveKey="1">
     <TabPane tab="Tab 1" key="1">
       Tab 1
@@ -33,5 +33,5 @@ const App = () => (
   </Tabs>
 );
 
-export default () => <App />;
+export default App;
 ```

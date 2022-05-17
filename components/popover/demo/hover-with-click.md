@@ -17,7 +17,7 @@ The following example shows how to create a popover which can be hovered and cli
 import React, { useState } from 'react';
 import { Popover, Button } from 'antd';
 
-const App = () => {
+const App: React.FC = () => {
   const [clicked, setClicked] = useState(false);
   const [hovered, setHovered] = useState(false);
 

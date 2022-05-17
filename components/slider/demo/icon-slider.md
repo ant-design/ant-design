@@ -40,9 +40,9 @@ const IconSlider: React.FC<IconSliderProps> = props => {
   );
 };
 
-const App = () => <IconSlider min={0} max={20} />;
+const App: React.FC = () => <IconSlider min={0} max={20} />;
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

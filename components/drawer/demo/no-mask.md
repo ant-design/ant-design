@@ -18,7 +18,7 @@ Remove mask.
 import React, { useState } from 'react';
 import { Drawer, Button } from 'antd';
 
-const App = () => {
+const App: React.FC = () => {
   const [visible, setVisible] = useState(false);
 
   const showDrawer = () => {

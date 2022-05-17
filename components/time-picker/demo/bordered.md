@@ -19,12 +19,12 @@ import { TimePicker } from 'antd';
 
 const { RangePicker } = TimePicker;
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <TimePicker bordered={false} />
     <RangePicker bordered={false} />
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

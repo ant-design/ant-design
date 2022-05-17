@@ -24,7 +24,7 @@ const handleChange = (value: string | string[]) => {
   console.log(`selected ${value}`);
 };
 
-const App = () => (
+const App: React.FC = () => (
   <div
     style={{
       width: 500,
@@ -65,7 +65,7 @@ const App = () => (
   </div>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 <style>

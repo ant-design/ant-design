@@ -21,7 +21,7 @@ const { Link } = Anchor;
 
 const getCurrentAnchor = () => '#components-anchor-demo-static';
 
-const App = () => (
+const App: React.FC = () => (
   <Anchor affix={false} getCurrentAnchor={getCurrentAnchor}>
     <Link href="#components-anchor-demo-basic" title="Basic demo" />
     <Link href="#components-anchor-demo-static" title="Static demo" />
@@ -32,5 +32,5 @@ const App = () => (
   </Anchor>
 );
 
-export default () => <App />;
+export default App;
 ```

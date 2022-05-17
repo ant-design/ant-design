@@ -56,7 +56,7 @@ const treeData = [
   },
 ];
 
-const App = () => {
+const App: React.FC = () => {
   const [value, setValue] = useState(['0-0-0']);
 
   const onChange = (newValue: string[]) => {
@@ -79,5 +79,5 @@ const App = () => {
   return <TreeSelect {...tProps} />;
 };
 
-export default () => <App />;
+export default App;
 ```

@@ -25,7 +25,7 @@ const text = `
   it can be found as a welcome guest in many households across the world.
 `;
 
-const App = () => (
+const App: React.FC = () => (
   <Space direction="vertical">
     <Collapse collapsible="header" defaultActiveKey={['1']}>
       <Panel header="This panel can only be collapsed by clicking text" key="1">
@@ -40,7 +40,7 @@ const App = () => (
   </Space>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 <style>

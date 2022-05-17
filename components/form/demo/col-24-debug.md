@@ -18,7 +18,7 @@ See issue [#32980](https://github.com/ant-design/ant-design/issues/32980).
 import React from 'react';
 import { Form, Input, Button } from 'antd';
 
-const App = () => {
+const App: React.FC = () => {
   const onFinish = (values: any) => {
     console.log('Success:', values);
   };
@@ -95,5 +95,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

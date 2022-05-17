@@ -61,7 +61,7 @@ const data: DataType[] = [
   },
 ];
 
-const App = () => {
+const App: React.FC = () => {
   const [filteredInfo, setFilteredInfo] = useState<Record<string, FilterValue | null>>({});
   const [sortedInfo, setSortedInfo] = useState<SorterResult<DataType>>({});
 

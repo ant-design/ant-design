@@ -19,7 +19,7 @@ import { DatePicker, Space } from 'antd';
 
 const { RangePicker } = DatePicker;
 
-const App = () => (
+const App: React.FC = () => (
   <Space direction="vertical" size={12}>
     <DatePicker renderExtraFooter={() => 'extra footer'} />
     <DatePicker renderExtraFooter={() => 'extra footer'} showTime />
@@ -29,5 +29,5 @@ const App = () => (
   </Space>
 );
 
-export default () => <App />;
+export default App;
 ```

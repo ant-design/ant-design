@@ -27,7 +27,7 @@ const formTailLayout = {
   wrapperCol: { span: 8, offset: 4 },
 };
 
-const App = () => {
+const App: React.FC = () => {
   const [form] = Form.useForm();
   const [checkNick, setCheckNick] = useState(false);
 
@@ -90,5 +90,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

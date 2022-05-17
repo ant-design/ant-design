@@ -38,7 +38,7 @@ const data = [
   },
 ];
 
-const App = () => (
+const App: React.FC = () => (
   <List
     grid={{
       gutter: 16,
@@ -58,5 +58,5 @@ const App = () => (
   />
 );
 
-export default () => <App />;
+export default App;
 ```

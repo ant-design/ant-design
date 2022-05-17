@@ -24,7 +24,7 @@ import {
   LoadingOutlined,
 } from '@ant-design/icons';
 
-const App = () => (
+const App: React.FC = () => (
   <Space>
     <HomeOutlined />
     <SettingFilled />
@@ -35,5 +35,5 @@ const App = () => (
   </Space>
 );
 
-export default () => <App />;
+export default App;
 ```

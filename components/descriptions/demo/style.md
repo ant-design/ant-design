@@ -23,7 +23,7 @@ const contentStyle: React.CSSProperties = { background: 'green' };
 
 type LayoutType = 'horizontal' | 'vertical' | undefined;
 
-const App = () => {
+const App: React.FC = () => {
   const [border, setBorder] = useState(true);
   const [layout, setLayout] = useState('horizontal' as LayoutType);
 
@@ -70,5 +70,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

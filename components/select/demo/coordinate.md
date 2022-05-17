@@ -30,7 +30,7 @@ const cityData = {
 
 type CityName = keyof typeof cityData;
 
-const App = () => {
+const App: React.FC = () => {
   const [cities, setCities] = useState(cityData[provinceData[0] as CityName]);
   const [secondCity, setSecondCity] = useState(cityData[provinceData[0] as CityName][0]);
 

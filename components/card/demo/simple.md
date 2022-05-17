@@ -17,7 +17,7 @@ A simple card only containing a content area.
 import React from 'react';
 import { Card } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <Card style={{ width: 300 }}>
     <p>Card content</p>
     <p>Card content</p>
@@ -25,5 +25,5 @@ const App = () => (
   </Card>
 );
 
-export default () => <App />;
+export default App;
 ```

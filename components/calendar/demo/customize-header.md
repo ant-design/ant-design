@@ -19,7 +19,7 @@ import { Calendar, Select, Radio, Col, Row, Typography } from 'antd';
 import type { CalendarMode } from 'antd/lib/calendar/generateCalendar';
 import type { Moment } from 'moment';
 
-const App = () => {
+const App: React.FC = () => {
   const onPanelChange = (value: Moment, mode: CalendarMode) => {
     console.log(value.format('YYYY-MM-DD'), mode);
   };
@@ -111,7 +111,7 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

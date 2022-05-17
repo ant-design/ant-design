@@ -27,7 +27,7 @@ const content = (
 
 const buttonWidth = 70;
 
-const App = () => (
+const App: React.FC = () => (
   <div className="demo">
     <div style={{ marginLeft: buttonWidth, whiteSpace: 'nowrap' }}>
       <Popover placement="topLeft" title={text} content={content} trigger="click">
@@ -76,7 +76,7 @@ const App = () => (
   </div>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 <style>

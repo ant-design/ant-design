@@ -42,7 +42,7 @@ const menu = (
   />
 );
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Button type="primary">primary</Button>
     <Button>secondary</Button>
@@ -50,5 +50,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

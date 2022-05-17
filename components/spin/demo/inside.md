@@ -17,13 +17,13 @@ Spin in a container.
 import React from 'react';
 import { Spin } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <div className="example">
     <Spin />
   </div>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

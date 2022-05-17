@@ -33,11 +33,12 @@ const ThrowError: React.FC = () => {
     </Button>
   );
 };
-const App = () => (
+
+const App: React.FC = () => (
   <ErrorBoundary>
     <ThrowError />
   </ErrorBoundary>
 );
 
-export default () => <App />;
+export default App;
 ```

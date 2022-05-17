@@ -34,7 +34,7 @@ const colors = [
 ];
 const customColors = ['#f50', '#2db7f5', '#87d068', '#108ee9'];
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Divider orientation="left">Presets</Divider>
     <div>
@@ -55,7 +55,7 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

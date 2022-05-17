@@ -59,7 +59,7 @@ const data: DataType[] = [
   },
 ];
 
-const App = () => (
+const App: React.FC = () => (
   <Table dataSource={data}>
     <ColumnGroup title="Name">
       <Column title="First Name" dataIndex="firstName" key="firstName" />
@@ -94,5 +94,5 @@ const App = () => (
   </Table>
 );
 
-export default () => <App />;
+export default App;
 ```

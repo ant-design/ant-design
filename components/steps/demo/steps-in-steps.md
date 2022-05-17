@@ -21,7 +21,7 @@ import type { StepsProps } from 'antd';
 
 const { Step } = Steps;
 
-const App = () => {
+const App: React.FC = () => {
   const [size, setSize] = useState<StepsProps['size']>('default');
 
   const horizontalSteps = (

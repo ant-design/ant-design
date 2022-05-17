@@ -22,7 +22,7 @@ const { RangePicker } = DatePicker;
 
 const dateFormat = 'YYYY-MM-DD';
 
-const App = () => (
+const App: React.FC = () => (
   <Space direction="vertical" size={12}>
     <DatePicker defaultValue={moment('2015-06-06', dateFormat)} disabled />
     <DatePicker picker="month" defaultValue={moment('2015-06', 'YYYY-MM')} disabled />
@@ -37,5 +37,5 @@ const App = () => (
   </Space>
 );
 
-export default () => <App />;
+export default App;
 ```

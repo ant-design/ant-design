@@ -17,7 +17,7 @@ Make it pop up under some conditions.
 import React, { useState } from 'react';
 import { Popconfirm, Switch, message } from 'antd';
 
-const App = () => {
+const App: React.FC = () => {
   const [visible, setVisible] = useState(false);
   const [condition, setCondition] = useState(true);
 

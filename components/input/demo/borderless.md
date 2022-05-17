@@ -17,7 +17,7 @@ No border.
 import React from 'react';
 import { Input } from 'antd';
 
-const App = () => <Input placeholder="Borderless" bordered={false} />;
+const App: React.FC = () => <Input placeholder="Borderless" bordered={false} />;
 
-export default () => <App />;
+export default App;
 ```

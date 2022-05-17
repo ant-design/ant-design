@@ -35,11 +35,11 @@ const openNotification = () => {
   }, 1000);
 };
 
-const App = () => (
+const App: React.FC = () => (
   <Button type="primary" onClick={openNotification}>
     Open the notification box
   </Button>
 );
 
-export default () => <App />;
+export default App;
 ```

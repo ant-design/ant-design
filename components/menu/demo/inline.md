@@ -57,7 +57,7 @@ const items: MenuProps['items'] = [
   ]),
 ];
 
-const App = () => {
+const App: React.FC = () => {
   const onClick: MenuProps['onClick'] = e => {
     console.log('click ', e);
   };
@@ -74,5 +74,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

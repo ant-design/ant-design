@@ -26,7 +26,7 @@ import type { NotificationPlacement } from 'antd/lib/notification';
 
 const Context = React.createContext({ name: 'Default' });
 
-const App = () => {
+const App: React.FC = () => {
   const [api, contextHolder] = notification.useNotification();
 
   const openNotification = (placement: NotificationPlacement) => {
@@ -65,5 +65,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

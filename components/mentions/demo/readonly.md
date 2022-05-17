@@ -26,7 +26,7 @@ const getOptions = () =>
     </Option>
   ));
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <div style={{ marginBottom: 10 }}>
       <Mentions style={{ width: '100%' }} placeholder="this is disabled Mentions" disabled>
@@ -39,5 +39,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

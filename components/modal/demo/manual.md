@@ -38,7 +38,7 @@ const countDown = () => {
   }, secondsToGo * 1000);
 };
 
-const App = () => <Button onClick={countDown}>Open modal to close in 5s</Button>;
+const App: React.FC = () => <Button onClick={countDown}>Open modal to close in 5s</Button>;
 
-export default () => <App />;
+export default App;
 ```

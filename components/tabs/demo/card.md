@@ -23,7 +23,7 @@ const onChange = (key: string) => {
   console.log(key);
 };
 
-const App = () => (
+const App: React.FC = () => (
   <Tabs onChange={onChange} type="card">
     <TabPane tab="Tab 1" key="1">
       Content of Tab Pane 1
@@ -37,5 +37,5 @@ const App = () => (
   </Tabs>
 );
 
-export default () => <App />;
+export default App;
 ```

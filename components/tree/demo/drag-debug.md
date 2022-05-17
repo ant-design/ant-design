@@ -7,6 +7,7 @@ debug: true
 ---
 
 ```jsx
+import React from 'react';
 import { Tree, Switch } from 'antd';
 import { CarryOutOutlined } from '@ant-design/icons';
 
@@ -181,5 +182,5 @@ class App extends React.Component {
   }
 }
 
-export default () => <App />;
+export default App;
 ```

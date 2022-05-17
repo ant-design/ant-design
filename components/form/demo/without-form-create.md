@@ -42,7 +42,7 @@ const formItemLayout = {
   wrapperCol: { span: 12 },
 };
 
-const App = () => {
+const App: React.FC = () => {
   const [number, setNumber] = useState<{
     value: number;
     validateStatus?: ValidateStatus;
@@ -75,5 +75,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

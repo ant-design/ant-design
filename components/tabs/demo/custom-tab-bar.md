@@ -29,7 +29,7 @@ const renderTabBar: TabsProps['renderTabBar'] = (props, DefaultTabBar) => (
   </Sticky>
 );
 
-const App = () => (
+const App: React.FC = () => (
   <StickyContainer>
     <Tabs defaultActiveKey="1" renderTabBar={renderTabBar}>
       <TabPane tab="Tab 1" key="1" style={{ height: 200 }}>
@@ -45,7 +45,7 @@ const App = () => (
   </StickyContainer>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

@@ -19,7 +19,7 @@ title:
 import React from 'react';
 import { Row, Col } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <Row>
     <Col xs={{ span: 5, offset: 1 }} lg={{ span: 6, offset: 2 }}>
       Col
@@ -33,5 +33,5 @@ const App = () => (
   </Row>
 );
 
-export default () => <App />;
+export default App;
 ```

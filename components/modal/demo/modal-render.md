@@ -19,7 +19,7 @@ import { Modal, Button } from 'antd';
 import Draggable from 'react-draggable';
 import type { DraggableEvent, DraggableData } from 'react-draggable';
 
-const App = () => {
+const App: React.FC = () => {
   const [visible, setVisible] = useState(false);
   const [disabled, setDisabled] = useState(false);
   const [bounds, setBounds] = useState({ left: 0, top: 0, bottom: 0, right: 0 });

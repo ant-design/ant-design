@@ -19,7 +19,7 @@ import { DatePicker, Space } from 'antd';
 
 const { RangePicker } = DatePicker;
 
-const App = () => (
+const App: React.FC = () => (
   <Space direction="vertical" size={12}>
     <RangePicker />
     <RangePicker showTime />
@@ -30,5 +30,5 @@ const App = () => (
   </Space>
 );
 
-export default () => <App />;
+export default App;
 ```

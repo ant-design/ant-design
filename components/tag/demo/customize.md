@@ -19,7 +19,7 @@ import React from 'react';
 import { Tag } from 'antd';
 import { CloseCircleOutlined } from '@ant-design/icons';
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Tag closable closeIcon="关 闭">
       Tag1
@@ -30,5 +30,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

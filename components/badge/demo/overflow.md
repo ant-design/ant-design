@@ -17,7 +17,7 @@ title:
 import React from 'react';
 import { Badge, Avatar } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Badge count={99}>
       <Avatar shape="square" size="large" />
@@ -34,5 +34,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

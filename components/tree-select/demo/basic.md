@@ -19,7 +19,7 @@ import { TreeSelect } from 'antd';
 
 const { TreeNode } = TreeSelect;
 
-const App = () => {
+const App: React.FC = () => {
   const [value, setValue] = useState<string | undefined>(undefined);
 
   const onChange = (newValue: string) => {
@@ -50,5 +50,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

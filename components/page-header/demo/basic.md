@@ -17,7 +17,7 @@ Standard header, suitable for use in scenarios that require a brief description.
 import React from 'react';
 import { PageHeader } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <PageHeader
     className="site-page-header"
     onBack={() => null}
@@ -26,7 +26,7 @@ const App = () => (
   />
 );
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

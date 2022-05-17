@@ -19,7 +19,7 @@ import { Card } from 'antd';
 
 const { Meta } = Card;
 
-const App = () => (
+const App: React.FC = () => (
   <Card
     hoverable
     style={{ width: 240 }}
@@ -29,5 +29,5 @@ const App = () => (
   </Card>
 );
 
-export default () => <App />;
+export default App;
 ```

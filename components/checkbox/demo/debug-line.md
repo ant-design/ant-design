@@ -23,7 +23,7 @@ const sharedStyle: React.CSSProperties = {
   marginBottom: 16,
 };
 
-const App = () => (
+const App: React.FC = () => (
   <div>
     <Space style={sharedStyle} align="center">
       <Checkbox value="light" />
@@ -63,5 +63,5 @@ const App = () => (
   </div>
 );
 
-export default () => <App />;
+export default App;
 ```

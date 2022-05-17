@@ -21,7 +21,7 @@ const onChange = (value: string) => {
   console.log('changed', value);
 };
 
-const App = () => (
+const App: React.FC = () => (
   <InputNumber<string>
     style={{ width: 200 }}
     defaultValue="1"
@@ -33,5 +33,5 @@ const App = () => (
   />
 );
 
-export default () => <App />;
+export default App;
 ```

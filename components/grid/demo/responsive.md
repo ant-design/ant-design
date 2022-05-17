@@ -17,7 +17,7 @@ Referring to the Bootstrap [responsive design](http://getbootstrap.com/css/#grid
 import React from 'react';
 import { Row, Col } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <Row>
     <Col xs={2} sm={4} md={6} lg={8} xl={10}>
       Col
@@ -31,5 +31,5 @@ const App = () => (
   </Row>
 );
 
-export default () => <App />;
+export default App;
 ```

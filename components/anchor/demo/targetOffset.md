@@ -19,7 +19,7 @@ import { Anchor } from 'antd';
 
 const { Link } = Anchor;
 
-const App = () => {
+const App: React.FC = () => {
   const [targetOffset, setTargetOffset] = useState<number | undefined>(undefined);
 
   useEffect(() => {
@@ -38,5 +38,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

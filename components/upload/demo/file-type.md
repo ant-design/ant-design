@@ -36,7 +36,7 @@ const getBase64 = (file: RcFile): Promise<string> =>
     reader.onerror = error => reject(error);
   });
 
-const App = () => {
+const App: React.FC = () => {
   const [previewVisible, setPreviewVisible] = useState(false);
   const [previewImage, setPreviewImage] = useState('');
   const [fileList, setFileList] = useState<UploadFile[]>([
@@ -135,5 +135,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

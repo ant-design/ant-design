@@ -20,7 +20,7 @@ import { Typography, Slider, Switch } from 'antd';
 
 const { Text, Paragraph } = Typography;
 
-const App = () => {
+const App: React.FC = () => {
   const [rows, setRows] = useState(1);
   const [longText, setLongText] = useState(true);
   const [copyable, setCopyable] = useState(false);
@@ -64,5 +64,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

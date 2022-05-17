@@ -18,12 +18,12 @@ Add status to Transfer with `status`, which could be `error` or `warning`.
 import React from 'react';
 import { Transfer, Space } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <Space direction="vertical">
     <Transfer status="error" />
     <Transfer status="warning" showSearch />
   </Space>
 );
 
-export default () => <App />;
+export default App;
 ```

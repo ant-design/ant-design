@@ -17,7 +17,7 @@ When the timeline is incomplete and ongoing, put a ghost node at last. Set `pend
 import React, { useState } from 'react';
 import { Timeline, Button } from 'antd';
 
-const App = () => {
+const App: React.FC = () => {
   const [reverse, setReverse] = useState(false);
 
   const handleClick = () => {
@@ -38,5 +38,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

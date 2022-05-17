@@ -32,7 +32,7 @@ const routes = [
   },
 ];
 
-const App = () => (
+const App: React.FC = () => (
   <PageHeader
     className="site-page-header"
     title="Title"
@@ -41,5 +41,5 @@ const App = () => (
   />
 );
 
-export default () => <App />;
+export default App;
 ```

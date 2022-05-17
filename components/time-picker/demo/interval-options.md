@@ -17,7 +17,7 @@ Show stepped options by `hourStep` `minuteStep` `secondStep`.
 import React from 'react';
 import { TimePicker } from 'antd';
 
-const App = () => <TimePicker minuteStep={15} secondStep={10} />;
+const App: React.FC = () => <TimePicker minuteStep={15} secondStep={10} />;
 
-export default () => <App />;
+export default App;
 ```

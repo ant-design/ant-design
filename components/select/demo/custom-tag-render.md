@@ -39,7 +39,7 @@ const tagRender = (props: CustomTagProps) => {
   );
 };
 
-const App = () => (
+const App: React.FC = () => (
   <Select
     mode="multiple"
     showArrow
@@ -50,5 +50,5 @@ const App = () => (
   />
 );
 
-export default () => <App />;
+export default App;
 ```

@@ -48,7 +48,7 @@ const treeData: DataNode[] = [
   },
 ];
 
-const App = () => {
+const App: React.FC = () => {
   const onSelect: TreeProps['onSelect'] = (selectedKeys, info) => {
     console.log('selected', selectedKeys, info);
   };
@@ -70,5 +70,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

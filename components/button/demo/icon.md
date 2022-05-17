@@ -22,7 +22,7 @@ import React from 'react';
 import { Button, Tooltip } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Tooltip title="search">
       <Button type="primary" shape="circle" icon={<SearchOutlined />} />
@@ -83,5 +83,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

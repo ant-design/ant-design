@@ -51,7 +51,7 @@ const searchResult = (query: string) =>
       };
     });
 
-const App = () => {
+const App: React.FC = () => {
   const [options, setOptions] = useState<SelectProps<object>['options']>([]);
 
   const handleSearch = (value: string) => {
@@ -75,5 +75,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

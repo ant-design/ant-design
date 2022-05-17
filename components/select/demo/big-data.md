@@ -34,7 +34,7 @@ const handleChange = (value: string[]) => {
   console.log(`selected ${value}`);
 };
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Title level={3}>Ant Design 4.0</Title>
     <Title level={4}>{options.length} Items</Title>
@@ -58,5 +58,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

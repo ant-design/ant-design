@@ -22,7 +22,7 @@ const onShowSizeChange: PaginationProps['onShowSizeChange'] = (current, pageSize
   console.log(current, pageSize);
 };
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Pagination
       showSizeChanger
@@ -41,5 +41,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

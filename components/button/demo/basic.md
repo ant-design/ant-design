@@ -17,7 +17,7 @@ There are `primary` button, `default` button, `dashed` button, `text` button and
 import React from 'react';
 import { Button } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Button type="primary">Primary Button</Button>
     <Button>Default Button</Button>
@@ -28,5 +28,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

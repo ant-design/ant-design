@@ -78,7 +78,7 @@ const filter = (inputValue: string, path: DefaultOptionType[]) =>
     option => (option.label as string).toLowerCase().indexOf(inputValue.toLowerCase()) > -1,
   );
 
-const App = () => (
+const App: React.FC = () => (
   <Cascader
     options={options}
     onChange={onChange}
@@ -88,5 +88,5 @@ const App = () => (
   />
 );
 
-export default () => <App />;
+export default App;
 ```

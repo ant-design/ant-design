@@ -31,7 +31,7 @@ const config = {
   ),
 };
 
-const App = () => {
+const App: React.FC = () => {
   const [modal, contextHolder] = Modal.useModal();
 
   return (

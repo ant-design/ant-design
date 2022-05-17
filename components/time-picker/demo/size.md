@@ -18,7 +18,7 @@ import React from 'react';
 import { TimePicker } from 'antd';
 import moment from 'moment';
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <TimePicker defaultValue={moment('12:08:23', 'HH:mm:ss')} size="large" />
     <TimePicker defaultValue={moment('12:08:23', 'HH:mm:ss')} />
@@ -26,5 +26,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

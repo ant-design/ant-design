@@ -18,7 +18,7 @@ import React, { useState } from 'react';
 import { Timeline, Radio } from 'antd';
 import type { RadioChangeEvent } from 'antd';
 
-const App = () => {
+const App: React.FC = () => {
   const [mode, setMode] = useState<'left' | 'alternate' | 'right'>('left');
 
   const onChange = (e: RadioChangeEvent) => {
@@ -48,5 +48,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

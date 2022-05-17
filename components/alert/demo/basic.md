@@ -17,9 +17,9 @@ The simplest usage for short messages.
 import React from 'react';
 import { Alert } from 'antd';
 
-const App = () => <Alert message="Success Text" type="success" />;
+const App: React.FC = () => <Alert message="Success Text" type="success" />;
 
-export default () => <App />;
+export default App;
 ```
 
 <style>

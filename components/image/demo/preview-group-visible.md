@@ -17,7 +17,7 @@ Preview a collection from one image.
 import React, { useState } from 'react';
 import { Image } from 'antd';
 
-const App = () => {
+const App: React.FC = () => {
   const [visible, setVisible] = useState(false);
 
   return (

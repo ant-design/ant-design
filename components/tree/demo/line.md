@@ -84,7 +84,7 @@ const treeData: DataNode[] = [
   },
 ];
 
-const App = () => {
+const App: React.FC = () => {
   const [showLine, setShowLine] = useState<boolean | { showLeafIcon: boolean }>(true);
   const [showIcon, setShowIcon] = useState<boolean>(false);
   const [showLeafIcon, setShowLeafIcon] = useState<boolean>(true);
@@ -124,5 +124,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

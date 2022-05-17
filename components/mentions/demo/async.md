@@ -20,7 +20,7 @@ import debounce from 'lodash/debounce';
 
 const { Option } = Mentions;
 
-const App = () => {
+const App: React.FC = () => {
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(false);
   const [users, setUsers] = useState<{ login: string; avatar_url: string }[]>([]);
@@ -64,7 +64,7 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```
 
 <style>

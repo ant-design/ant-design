@@ -35,7 +35,7 @@ const getGroup = (props?: ButtonGroupProps) => (
   </div>
 );
 
-const App = () => (
+const App: React.FC = () => (
   <>
     {getGroup({ size: 'small' })}
     <br />
@@ -45,7 +45,7 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

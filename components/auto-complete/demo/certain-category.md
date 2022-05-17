@@ -64,7 +64,7 @@ const options = [
   },
 ];
 
-const App = () => (
+const App: React.FC = () => (
   <AutoComplete
     dropdownClassName="certain-category-search-dropdown"
     dropdownMatchSelectWidth={500}
@@ -75,7 +75,7 @@ const App = () => (
   </AutoComplete>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

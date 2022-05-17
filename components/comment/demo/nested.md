@@ -33,7 +33,7 @@ const ExampleComment: React.FC = ({ children }) => (
   </Comment>
 );
 
-const App = () => (
+const App: React.FC = () => (
   <ExampleComment>
     <ExampleComment>
       <ExampleComment />
@@ -42,5 +42,5 @@ const App = () => (
   </ExampleComment>
 );
 
-export default () => <App />;
+export default App;
 ```

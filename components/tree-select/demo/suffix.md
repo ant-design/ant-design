@@ -22,7 +22,7 @@ import { SmileOutlined } from '@ant-design/icons';
 const { TreeNode } = TreeSelect;
 const icon = <SmileOutlined />;
 
-const App = () => {
+const App: React.FC = () => {
   const [value, setValue] = useState<string>();
 
   const onChange = (newValue: string) => {
@@ -55,5 +55,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

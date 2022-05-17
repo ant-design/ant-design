@@ -17,7 +17,7 @@ Standalone badge with status.
 import React from 'react';
 import { Badge } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Badge status="success" />
     <Badge status="error" />
@@ -37,5 +37,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

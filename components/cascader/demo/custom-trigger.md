@@ -46,7 +46,7 @@ const options: Option[] = [
   },
 ];
 
-const App = () => {
+const App: React.FC = () => {
   const [text, setText] = useState('Unselect');
 
   const onChange = (_: string[], selectedOptions: Option[]) => {
@@ -64,5 +64,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

@@ -59,7 +59,7 @@ const options: Option[] = [
   },
 ];
 
-const App = () => {
+const App: React.FC = () => {
   const [placement, SetPlacement] = useState<'bottomLeft' | 'bottomRight' | 'topLeft' | 'topRight'>(
     'topLeft',
   );
@@ -83,5 +83,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

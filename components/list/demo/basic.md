@@ -32,7 +32,7 @@ const data = [
   },
 ];
 
-const App = () => (
+const App: React.FC = () => (
   <List
     itemLayout="horizontal"
     dataSource={data}
@@ -48,5 +48,5 @@ const App = () => (
   />
 );
 
-export default () => <App />;
+export default App;
 ```

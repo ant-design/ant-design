@@ -17,7 +17,7 @@ You can use non-heading style of divider text by setting `plain`.
 import React from 'react';
 import { Divider } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista
@@ -45,5 +45,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

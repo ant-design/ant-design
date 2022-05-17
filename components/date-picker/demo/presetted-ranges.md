@@ -30,7 +30,7 @@ const onChange: RangePickerProps['onChange'] = (dates, dateStrings) => {
   }
 };
 
-const App = () => (
+const App: React.FC = () => (
   <Space direction="vertical" size={12}>
     <RangePicker
       ranges={{
@@ -51,5 +51,5 @@ const App = () => (
   </Space>
 );
 
-export default () => <App />;
+export default App;
 ```

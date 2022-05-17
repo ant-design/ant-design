@@ -29,7 +29,7 @@ const DescriptionItem = ({ title, content }: DescriptionItemProps) => (
   </div>
 );
 
-const App = () => {
+const App: React.FC = () => {
   const [visible, setVisible] = useState(false);
 
   const showDrawer = () => {

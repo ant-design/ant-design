@@ -19,7 +19,7 @@ import { TreeSelect } from 'antd';
 import type { DefaultOptionType } from 'antd/es/select';
 import type { TreeSelectProps } from 'antd';
 
-const App = () => {
+const App: React.FC = () => {
   const [value, setValue] = useState<string>();
   const [treeData, setTreeData] = useState<Omit<DefaultOptionType, 'label'>[]>([
     { id: 1, pId: 0, value: '1', title: 'Expand to load' },
@@ -67,5 +67,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

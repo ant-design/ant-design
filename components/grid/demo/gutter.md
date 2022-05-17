@@ -31,7 +31,7 @@ import { Row, Col, Divider } from 'antd';
 
 const style: React.CSSProperties = { background: '#0092ff', padding: '8px 0' };
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Divider orientation="left">Horizontal</Divider>
     <Row gutter={16}>
@@ -93,7 +93,7 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

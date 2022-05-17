@@ -18,7 +18,7 @@ import React, { useState, useEffect } from 'react';
 import { Form, Input, Button } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 
-const App = () => {
+const App: React.FC = () => {
   const [form] = Form.useForm();
   const [, forceUpdate] = useState({});
 
@@ -67,5 +67,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

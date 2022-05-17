@@ -161,7 +161,7 @@ const MyTransfer = () => {
   );
 };
 
-const App = () => {
+const App: React.FC = () => {
   const [color, setColor] = useState({
     primaryColor: '#1890ff',
     errorColor: '#ff4d4f',
@@ -638,5 +638,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

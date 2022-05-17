@@ -77,7 +77,7 @@ const items: MenuProps['items'] = [
   },
 ];
 
-const App = () => {
+const App: React.FC = () => {
   const [collapsed, setCollapsed] = useState(true);
 
   return (
@@ -114,7 +114,7 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

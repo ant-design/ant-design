@@ -30,7 +30,7 @@ const marks: SliderMarks = {
   },
 };
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <h4>included=true</h4>
     <Slider marks={marks} defaultValue={37} />
@@ -47,7 +47,7 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 <style>

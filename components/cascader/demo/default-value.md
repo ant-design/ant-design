@@ -62,9 +62,9 @@ const onChange = (value: string[]) => {
   console.log(value);
 };
 
-const App = () => (
+const App: React.FC = () => (
   <Cascader defaultValue={['zhejiang', 'hangzhou', 'xihu']} options={options} onChange={onChange} />
 );
 
-export default () => <App />;
+export default App;
 ```

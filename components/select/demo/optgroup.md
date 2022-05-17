@@ -23,7 +23,7 @@ const handleChange = (value: string) => {
   console.log(`selected ${value}`);
 };
 
-const App = () => (
+const App: React.FC = () => (
   <Select defaultValue="lucy" style={{ width: 200 }} onChange={handleChange}>
     <OptGroup label="Manager">
       <Option value="jack">Jack</Option>
@@ -35,5 +35,5 @@ const App = () => (
   </Select>
 );
 
-export default () => <App />;
+export default App;
 ```

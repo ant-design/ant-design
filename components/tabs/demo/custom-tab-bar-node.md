@@ -128,7 +128,7 @@ const DraggableTabs: React.FC = props => {
   );
 };
 
-const App = () => (
+const App: React.FC = () => (
   <DraggableTabs>
     <TabPane tab="tab 1" key="1">
       Content of Tab Pane 1
@@ -142,7 +142,7 @@ const App = () => (
   </DraggableTabs>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

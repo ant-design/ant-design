@@ -18,7 +18,7 @@ import React from 'react';
 import { Timeline } from 'antd';
 import { ClockCircleOutlined } from '@ant-design/icons';
 
-const App = () => (
+const App: React.FC = () => (
   <Timeline>
     <Timeline.Item>Create a services site 2015-09-01</Timeline.Item>
     <Timeline.Item>Solve initial network problems 2015-09-01</Timeline.Item>
@@ -29,7 +29,7 @@ const App = () => (
   </Timeline>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

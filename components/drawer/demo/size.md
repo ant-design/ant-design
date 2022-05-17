@@ -18,7 +18,7 @@ import React, { useState } from 'react';
 import { Drawer, Button, Space } from 'antd';
 import type { DrawerProps } from 'antd/es/drawer';
 
-const App = () => {
+const App: React.FC = () => {
   const [visible, setVisible] = useState(false);
   const [size, setSize] = useState<DrawerProps['size']>();
 

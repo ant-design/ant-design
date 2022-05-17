@@ -28,7 +28,7 @@ const onSelect = (option: OptionProps) => {
   console.log('select', option);
 };
 
-const App = () => {
+const App: React.FC = () => {
   const options = (
     <>
       <Option value="afc163">afc163</Option>
@@ -49,5 +49,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

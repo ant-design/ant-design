@@ -49,7 +49,7 @@ const formItemLayout = {
   },
 };
 
-const App = () => (
+const App: React.FC = () => (
   <Form {...formItemLayout}>
     <Form.Item
       label="Fail"
@@ -170,5 +170,5 @@ const App = () => (
   </Form>
 );
 
-export default () => <App />;
+export default App;
 ```

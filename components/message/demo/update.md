@@ -26,11 +26,11 @@ const openMessage = () => {
   }, 1000);
 };
 
-const App = () => (
+const App: React.FC = () => (
   <Button type="primary" onClick={openMessage}>
     Open the message box
   </Button>
 );
 
-export default () => <App />;
+export default App;
 ```

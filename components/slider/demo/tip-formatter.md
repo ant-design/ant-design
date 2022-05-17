@@ -19,12 +19,12 @@ import { Slider } from 'antd';
 
 const formatter = (value: number) => `${value}%`;
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Slider tipFormatter={formatter} />
     <Slider tipFormatter={null} />
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

@@ -18,7 +18,7 @@ import React from 'react';
 import { Input, Space } from 'antd';
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 
-const App = () => (
+const App: React.FC = () => (
   <Space direction="vertical">
     <Input.Password placeholder="input password" />
     <Input.Password
@@ -28,5 +28,5 @@ const App = () => (
   </Space>
 );
 
-export default () => <App />;
+export default App;
 ```

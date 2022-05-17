@@ -33,7 +33,7 @@ for (let i = 10; i < 36; i++) {
   });
 }
 
-const App = () => {
+const App: React.FC = () => {
   const [value, setValue] = useState(['a10', 'c12', 'h17', 'j19', 'k20']);
 
   const selectProps: SelectProps = {
@@ -56,5 +56,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

@@ -29,7 +29,7 @@ const style: React.CSSProperties = {
   fontSize: 14,
 };
 
-const App = () => (
+const App: React.FC = () => (
   <div style={{ height: '600vh', padding: 8 }}>
     <div>Scroll to bottom</div>
     <div>Scroll to bottom</div>
@@ -44,5 +44,5 @@ const App = () => (
   </div>
 );
 
-export default () => <App />;
+export default App;
 ```

@@ -29,7 +29,7 @@ const warning = () => {
   message.warning('This is a warning message');
 };
 
-const App = () => (
+const App: React.FC = () => (
   <Space>
     <Button onClick={success}>Success</Button>
     <Button onClick={error}>Error</Button>
@@ -37,5 +37,5 @@ const App = () => (
   </Space>
 );
 
-export default () => <App />;
+export default App;
 ```

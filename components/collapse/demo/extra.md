@@ -28,7 +28,7 @@ const text = `
   it can be found as a welcome guest in many households across the world.
 `;
 
-const App = () => {
+const App: React.FC = () => {
   const [expandIconPosition, setExpandIconPosition] = useState<ExpandIconPosition>('left');
 
   const onPositionChange = (newExpandIconPosition: ExpandIconPosition) => {
@@ -75,5 +75,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

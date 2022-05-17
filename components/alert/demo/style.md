@@ -17,7 +17,7 @@ There are 4 types of Alert: `success`, `info`, `warning`, `error`.
 import React from 'react';
 import { Alert } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Alert message="Success Text" type="success" />
     <Alert message="Info Text" type="info" />
@@ -26,7 +26,7 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 <style>

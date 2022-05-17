@@ -102,14 +102,14 @@ const AdvancedSearchForm = () => {
   );
 };
 
-const App = () => (
+const App: React.FC = () => (
   <div>
     <AdvancedSearchForm />
     <div className="search-result-list">Search Result List</div>
   </div>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

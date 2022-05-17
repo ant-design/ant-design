@@ -17,7 +17,7 @@ Show processing results.
 import React from 'react';
 import { Result, Button } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <Result
     title="Your operation has been executed"
     extra={
@@ -28,5 +28,5 @@ const App = () => (
   />
 );
 
-export default () => <App />;
+export default App;
 ```

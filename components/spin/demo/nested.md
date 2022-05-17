@@ -17,7 +17,7 @@ Embedding content into `Spin` will set it into loading state.
 import React, { useState } from 'react';
 import { Spin, Switch, Alert } from 'antd';
 
-const App = () => {
+const App: React.FC = () => {
   const [loading, setLoading] = useState(false);
 
   const toggle = (checked: boolean) => {
@@ -41,5 +41,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

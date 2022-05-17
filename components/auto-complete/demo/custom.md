@@ -19,7 +19,7 @@ import { AutoComplete, Input } from 'antd';
 
 const { TextArea } = Input;
 
-const App = () => {
+const App: React.FC = () => {
   const [options, setOptions] = useState<{ value: string }[]>([]);
 
   const handleSearch = (value: string) => {
@@ -53,5 +53,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

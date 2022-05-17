@@ -45,7 +45,7 @@ const menu = (
   />
 );
 
-const App = () => (
+const App: React.FC = () => (
   <Breadcrumb>
     <Breadcrumb.Item>Ant Design</Breadcrumb.Item>
     <Breadcrumb.Item>
@@ -58,5 +58,5 @@ const App = () => (
   </Breadcrumb>
 );
 
-export default () => <App />;
+export default App;
 ```

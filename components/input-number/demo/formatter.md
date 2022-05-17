@@ -25,7 +25,7 @@ const onChange = (value: number | string) => {
   console.log('changed', value);
 };
 
-const App = () => (
+const App: React.FC = () => (
   <Space>
     <InputNumber
       defaultValue={1000}
@@ -44,5 +44,5 @@ const App = () => (
   </Space>
 );
 
-export default () => <App />;
+export default App;
 ```

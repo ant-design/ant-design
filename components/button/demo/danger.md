@@ -17,7 +17,7 @@ title:
 import React from 'react';
 import { Button } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Button type="primary" danger>
       Primary
@@ -35,5 +35,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

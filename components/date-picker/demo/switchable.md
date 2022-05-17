@@ -34,7 +34,7 @@ const PickerWithType = ({
   return <DatePicker picker={type} onChange={onChange} />;
 };
 
-const App = () => {
+const App: React.FC = () => {
   const [type, setType] = useState<PickerType>('time');
 
   return (
@@ -52,5 +52,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

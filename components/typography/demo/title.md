@@ -19,7 +19,7 @@ import { Typography } from 'antd';
 
 const { Title } = Typography;
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Title>h1. Ant Design</Title>
     <Title level={2}>h2. Ant Design</Title>
@@ -29,5 +29,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

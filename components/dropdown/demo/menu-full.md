@@ -71,7 +71,7 @@ const items: MenuItem[] = [
 
 const menu = <Menu selectedKeys={['1']} openKeys={['sub1']} items={items} />;
 
-const App = () => (
+const App: React.FC = () => (
   <Dropdown overlay={menu}>
     <a onClick={e => e.preventDefault()}>
       <Space>
@@ -82,5 +82,5 @@ const App = () => (
   </Dropdown>
 );
 
-export default () => <App />;
+export default App;
 ```

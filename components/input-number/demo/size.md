@@ -21,7 +21,7 @@ const onChange = (value: number) => {
   console.log('changed', value);
 };
 
-const App = () => (
+const App: React.FC = () => (
   <Space>
     <InputNumber size="large" min={1} max={100000} defaultValue={3} onChange={onChange} />
     <InputNumber min={1} max={100000} defaultValue={3} onChange={onChange} />
@@ -29,5 +29,5 @@ const App = () => (
   </Space>
 );
 
-export default () => <App />;
+export default App;
 ```

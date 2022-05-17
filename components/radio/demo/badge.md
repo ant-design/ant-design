@@ -18,7 +18,7 @@ Test Badge style.
 import React from 'react';
 import { Radio, Badge } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <Radio.Group buttonStyle="solid">
     <Badge count={1}>
       <Radio.Button value={1}>Click Me</Radio.Button>
@@ -29,5 +29,5 @@ const App = () => (
   </Radio.Group>
 );
 
-export default () => <App />;
+export default App;
 ```

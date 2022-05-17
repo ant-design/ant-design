@@ -19,7 +19,7 @@ import { Calendar, Alert } from 'antd';
 import moment from 'moment';
 import type { Moment } from 'moment';
 
-const App = () => {
+const App: React.FC = () => {
   const [value, setValue] = useState(moment('2017-01-25'));
   const [selectedValue, setSelectedValue] = useState(moment('2017-01-25'));
 

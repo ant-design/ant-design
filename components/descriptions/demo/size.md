@@ -18,7 +18,7 @@ import React, { useState } from 'react';
 import { Descriptions, Radio, Button } from 'antd';
 import type { RadioChangeEvent } from 'antd';
 
-const App = () => {
+const App: React.FC = () => {
   const [size, setSize] = useState<'default' | 'middle' | 'small'>('default');
 
   const onChange = (e: RadioChangeEvent) => {
@@ -75,5 +75,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

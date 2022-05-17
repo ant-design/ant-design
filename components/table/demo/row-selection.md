@@ -83,7 +83,7 @@ const rowSelection = {
   }),
 };
 
-const App = () => {
+const App: React.FC = () => {
   const [selectionType, setSelectionType] = useState<'checkbox' | 'radio'>('checkbox');
 
   return (
@@ -112,5 +112,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

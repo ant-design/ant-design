@@ -19,7 +19,7 @@ import { Typography, Space } from 'antd';
 
 const { Text, Link } = Typography;
 
-const App = () => (
+const App: React.FC = () => (
   <Space direction="vertical">
     <Text>Ant Design (default)</Text>
     <Text type="secondary">Ant Design (secondary)</Text>
@@ -40,5 +40,5 @@ const App = () => (
   </Space>
 );
 
-export default () => <App />;
+export default App;
 ```

@@ -19,7 +19,7 @@ import { Steps } from 'antd';
 
 const { Step } = Steps;
 
-const App = () => {
+const App: React.FC = () => {
   const [current, setCurrent] = useState(0);
 
   const onChange = (value: number) => {
@@ -82,7 +82,7 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

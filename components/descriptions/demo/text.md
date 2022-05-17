@@ -51,7 +51,7 @@ const columns = [
   },
 ];
 
-const App = () => (
+const App: React.FC = () => (
   <Descriptions title="User Info" column={2}>
     <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
     <Descriptions.Item label={<div style={{ display: 'flex' }}>Billing Mode</div>}>
@@ -88,5 +88,5 @@ const App = () => (
   </Descriptions>
 );
 
-export default () => <App />;
+export default App;
 ```

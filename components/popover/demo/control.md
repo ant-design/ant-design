@@ -17,7 +17,7 @@ Use `visible` prop to control the display of the card.
 import React, { useState } from 'react';
 import { Popover, Button } from 'antd';
 
-const App = () => {
+const App: React.FC = () => {
   const [visible, setVisible] = useState(false);
 
   const hide = () => {

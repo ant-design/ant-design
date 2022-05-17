@@ -33,7 +33,7 @@ const data = [
   'Los Angeles battles huge wildfires.',
 ];
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Divider orientation="left">Default Size</Divider>
     <List
@@ -68,5 +68,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

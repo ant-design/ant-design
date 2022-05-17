@@ -25,7 +25,7 @@ const text = `
   it can be found as a welcome guest in many households across the world.
 `;
 
-const App = () => {
+const App: React.FC = () => {
   const onChange = (key: string | string[]) => {
     console.log(key);
   };
@@ -49,5 +49,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

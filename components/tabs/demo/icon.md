@@ -20,7 +20,7 @@ import { AppleOutlined, AndroidOutlined } from '@ant-design/icons';
 
 const { TabPane } = Tabs;
 
-const App = () => (
+const App: React.FC = () => (
   <Tabs defaultActiveKey="2">
     <TabPane
       tab={
@@ -47,5 +47,5 @@ const App = () => (
   </Tabs>
 );
 
-export default () => <App />;
+export default App;
 ```

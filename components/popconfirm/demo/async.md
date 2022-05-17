@@ -17,7 +17,7 @@ Asynchronously close a popconfirm when a the OK button is pressed. For example, 
 import React, { useState } from 'react';
 import { Popconfirm, Button } from 'antd';
 
-const App = () => {
+const App: React.FC = () => {
   const [visible, setVisible] = useState(false);
   const [confirmLoading, setConfirmLoading] = useState(false);
 

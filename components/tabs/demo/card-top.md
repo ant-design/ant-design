@@ -19,7 +19,7 @@ import { Tabs } from 'antd';
 
 const { TabPane } = Tabs;
 
-const App = () => (
+const App: React.FC = () => (
   <div className="card-container">
     <Tabs type="card">
       <TabPane tab="Tab Title 1" key="1">
@@ -41,7 +41,7 @@ const App = () => (
   </div>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

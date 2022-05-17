@@ -22,7 +22,7 @@ type SizeType = 'default' | 'small' | 'large';
 type ButtonShapeType = 'circle' | 'square' | 'round';
 type AvatarShapeType = 'circle' | 'square';
 
-const App = () => {
+const App: React.FC = () => {
   const [active, setActive] = useState(false);
   const [block, setBlock] = useState(false);
   const [size, setSize] = useState<SizeType>('default');
@@ -98,5 +98,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

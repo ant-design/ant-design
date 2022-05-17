@@ -19,7 +19,7 @@ import { Upload, Button, message } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import type { RcFile, UploadFile, UploadProps } from 'antd/es/upload/interface';
 
-const App = () => {
+const App: React.FC = () => {
   const [fileList, setFileList] = useState<UploadFile[]>([]);
   const [uploading, setUploading] = useState(false);
 
@@ -80,5 +80,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

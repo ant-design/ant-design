@@ -27,7 +27,7 @@ interface RecordType {
   chosen: boolean;
 }
 
-const App = () => {
+const App: React.FC = () => {
   const [mockData, setMockData] = useState<RecordType[]>([]);
   const [targetKeys, setTargetKeys] = useState<string[]>([]);
 

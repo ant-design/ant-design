@@ -76,7 +76,7 @@ const items: MenuProps['items'] = [
   },
 ];
 
-const App = () => {
+const App: React.FC = () => {
   const [current, setCurrent] = useState('mail');
 
   const onClick: MenuProps['onClick'] = e => {
@@ -87,5 +87,5 @@ const App = () => {
   return <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} />;
 };
 
-export default () => <App />;
+export default App;
 ```

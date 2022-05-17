@@ -17,7 +17,7 @@ Simplest Usage.
 import React from 'react';
 import { Descriptions } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <Descriptions title="User Info">
     <Descriptions.Item label="UserName">Zhou Maomao</Descriptions.Item>
     <Descriptions.Item label="Telephone">1810000000</Descriptions.Item>
@@ -29,5 +29,5 @@ const App = () => (
   </Descriptions>
 );
 
-export default () => <App />;
+export default App;
 ```

@@ -29,7 +29,7 @@ const menu = (
   />
 );
 
-const App = () => {
+const App: React.FC = () => {
   const [loadings, setLoadings] = useState<boolean[]>([]);
 
   const enterLoading = (index: number) => {
@@ -76,5 +76,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

@@ -34,7 +34,7 @@ const optionsWithDisabled = [
   { label: 'Orange', value: 'Orange', disabled: false },
 ];
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Checkbox.Group options={plainOptions} defaultValue={['Apple']} onChange={onChange} />
     <br />
@@ -51,5 +51,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

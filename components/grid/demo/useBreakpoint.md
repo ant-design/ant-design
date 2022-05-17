@@ -17,7 +17,7 @@ import { Grid, Tag } from 'antd';
 
 const { useBreakpoint } = Grid;
 
-const App = () => {
+const App: React.FC = () => {
   const screens = useBreakpoint();
 
   return (
@@ -34,5 +34,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

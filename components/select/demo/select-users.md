@@ -86,7 +86,7 @@ async function fetchUserList(username: string): Promise<UserValue[]> {
     );
 }
 
-const App = () => {
+const App: React.FC = () => {
   const [value, setValue] = useState<UserValue[]>([]);
 
   return (
@@ -103,5 +103,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

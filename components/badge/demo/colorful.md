@@ -33,7 +33,7 @@ const colors = [
   'lime',
 ];
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Divider orientation="left">Presets</Divider>
     <div>
@@ -56,7 +56,7 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

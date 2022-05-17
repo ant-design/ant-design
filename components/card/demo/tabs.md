@@ -54,7 +54,7 @@ const contentListNoTitle: Record<string, React.ReactNode> = {
   project: <p>project content</p>,
 };
 
-const App = () => {
+const App: React.FC = () => {
   const [activeTabKey1, setActiveTabKey1] = useState<string>('tab1');
   const [activeTabKey2, setActiveTabKey2] = useState<string>('app');
 
@@ -96,5 +96,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

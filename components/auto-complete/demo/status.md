@@ -22,7 +22,7 @@ const mockVal = (str: string, repeat = 1) => ({
   value: str.repeat(repeat),
 });
 
-const App = () => {
+const App: React.FC = () => {
   const [options, setOptions] = useState<{ value: string }[]>([]);
 
   const onSearch = (searchText: string) => {
@@ -39,5 +39,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

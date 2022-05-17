@@ -17,7 +17,7 @@ The simplest usage.
 import React from 'react';
 import { Rate } from 'antd';
 
-const App = () => <Rate />;
+const App: React.FC = () => <Rate />;
 
-export default () => <App />;
+export default App;
 ```

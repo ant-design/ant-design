@@ -17,7 +17,7 @@ A smaller circular progress bar.
 import React from 'react';
 import { Progress } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Progress type="circle" percent={30} width={80} />
     <Progress type="circle" percent={70} width={80} status="exception" />
@@ -25,5 +25,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

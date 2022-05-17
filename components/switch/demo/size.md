@@ -17,7 +17,7 @@ title:
 import React from 'react';
 import { Switch } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Switch defaultChecked />
     <br />
@@ -25,5 +25,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

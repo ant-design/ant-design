@@ -17,7 +17,7 @@ Progressive when large image loading.
 import React, { useState } from 'react';
 import { Image, Button, Space } from 'antd';
 
-const App = () => {
+const App: React.FC = () => {
   const [random, setRandom] = useState<number>();
 
   return (
@@ -45,5 +45,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

@@ -52,7 +52,7 @@ const menu = (
   />
 );
 
-const App = () => (
+const App: React.FC = () => (
   <Space wrap>
     <Dropdown.Button onClick={handleButtonClick} overlay={menu}>
       Dropdown
@@ -85,5 +85,5 @@ const App = () => (
   </Space>
 );
 
-export default () => <App />;
+export default App;
 ```

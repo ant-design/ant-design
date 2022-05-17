@@ -21,7 +21,7 @@ import { SmileOutlined } from '@ant-design/icons';
 
 const icon = <SmileOutlined />;
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Alert icon={icon} message="showIcon = false" type="success" />
     <Alert icon={icon} message="Success Tips" type="success" showIcon />
@@ -59,5 +59,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

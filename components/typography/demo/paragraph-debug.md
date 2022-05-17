@@ -20,7 +20,7 @@ import { Typography } from 'antd';
 
 const { Title, Paragraph, Text } = Typography;
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Title>Introduction</Title>
     <Paragraph>
@@ -114,5 +114,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

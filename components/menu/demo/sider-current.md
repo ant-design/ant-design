@@ -60,7 +60,7 @@ const items: MenuItem[] = [
 // submenu keys of first level
 const rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
 
-const App = () => {
+const App: React.FC = () => {
   const [openKeys, setOpenKeys] = useState(['sub1']);
 
   const onOpenChange: MenuProps['onOpenChange'] = keys => {
@@ -83,5 +83,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

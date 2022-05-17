@@ -24,7 +24,7 @@ import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/i
 
 const { Header, Content, Footer, Sider } = Layout;
 
-const App = () => (
+const App: React.FC = () => (
   <Layout>
     <Sider
       breakpoint="lg"
@@ -62,7 +62,7 @@ const App = () => (
   </Layout>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

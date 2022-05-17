@@ -18,7 +18,7 @@ debug: true
 import React from 'react';
 import { Avatar } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Avatar shape="circle" src="http://abc.com/not-exist.jpg">
       A
@@ -29,5 +29,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

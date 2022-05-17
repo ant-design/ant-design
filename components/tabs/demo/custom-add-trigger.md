@@ -24,7 +24,7 @@ const defaultPanes = Array.from({ length: 2 }).map((_, index) => {
   return { title: `Tab ${id}`, content: `Content of Tab Pane ${index + 1}`, key: id };
 });
 
-const App = () => {
+const App: React.FC = () => {
   const [activeKey, setActiveKey] = useState(defaultPanes[0].key);
   const [panes, setPanes] = useState(defaultPanes);
   const newTabIndex = useRef(0);
@@ -83,5 +83,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

@@ -19,7 +19,7 @@ import { Mentions } from 'antd';
 
 const { Option } = Mentions;
 
-const App = () => (
+const App: React.FC = () => (
   <Mentions autoSize style={{ width: '100%' }}>
     <Option value="afc163">afc163</Option>
     <Option value="zombieJ">zombieJ</Option>
@@ -27,5 +27,5 @@ const App = () => (
   </Mentions>
 );
 
-export default () => <App />;
+export default App;
 ```

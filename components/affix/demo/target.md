@@ -17,7 +17,7 @@ Set a `target` for 'Affix', which is listen to scroll event of target element (d
 import React, { useState } from 'react';
 import { Affix, Button } from 'antd';
 
-const App = () => {
+const App: React.FC = () => {
   const [container, setContainer] = useState<HTMLDivElement | null>(null);
 
   return (
@@ -31,7 +31,7 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```
 
 <style>

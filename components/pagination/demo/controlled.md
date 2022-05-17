@@ -18,7 +18,7 @@ import React, { useState } from 'react';
 import { Pagination } from 'antd';
 import type { PaginationProps } from 'antd';
 
-const App = () => {
+const App: React.FC = () => {
   const [current, setCurrent] = useState(3);
 
   const onChange: PaginationProps['onChange'] = page => {

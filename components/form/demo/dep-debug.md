@@ -20,7 +20,7 @@ import { Form, Input } from 'antd';
 
 let acc = 0;
 
-const App = () => {
+const App: React.FC = () => {
   const [form] = Form.useForm();
   return (
     <Form
@@ -47,5 +47,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

@@ -131,7 +131,7 @@ const data: DataType[] = [
   },
 ];
 
-const App = () => <Table columns={columns} dataSource={data} bordered />;
+const App: React.FC = () => <Table columns={columns} dataSource={data} bordered />;
 
-export default () => <App />;
+export default App;
 ```

@@ -17,7 +17,7 @@ Crowded components split.
 import React from 'react';
 import { Space, Typography, Divider } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <Space split={<Divider type="vertical" />}>
     <Typography.Link>Link</Typography.Link>
     <Typography.Link>Link</Typography.Link>
@@ -25,5 +25,5 @@ const App = () => (
   </Space>
 );
 
-export default () => <App />;
+export default App;
 ```

@@ -17,7 +17,7 @@ It can be placed inside the ordinary card to display the information of the mult
 import React from 'react';
 import { Card } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <Card title="Card title">
     <Card type="inner" title="Inner Card title" extra={<a href="#">More</a>}>
       Inner Card content
@@ -33,5 +33,5 @@ const App = () => (
   </Card>
 );
 
-export default () => <App />;
+export default App;
 ```

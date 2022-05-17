@@ -19,7 +19,7 @@ import { Upload } from 'antd';
 import ImgCrop from 'antd-img-crop';
 import type { RcFile, UploadFile, UploadProps } from 'antd/es/upload/interface';
 
-const App = () => {
+const App: React.FC = () => {
   const [fileList, setFileList] = useState<UploadFile[]>([
     {
       uid: '-1',
@@ -63,5 +63,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

@@ -21,11 +21,11 @@ const info = () => {
   message.info('This is a normal message');
 };
 
-const App = () => (
+const App: React.FC = () => (
   <Button type="primary" onClick={info}>
     Display normal message
   </Button>
 );
 
-export default () => <App />;
+export default App;
 ```

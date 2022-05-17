@@ -55,7 +55,7 @@ const data = [
   },
 ];
 
-const App = () => (
+const App: React.FC = () => (
   <List
     className="comment-list"
     header={`${data.length} replies`}
@@ -75,5 +75,5 @@ const App = () => (
   />
 );
 
-export default () => <App />;
+export default App;
 ```

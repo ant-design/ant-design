@@ -35,7 +35,7 @@ const selectAfter = (
   </Select>
 );
 
-const App = () => (
+const App: React.FC = () => (
   <Space direction="vertical">
     <Input addonBefore="http://" addonAfter=".com" defaultValue="mysite" />
     <Input addonBefore={selectBefore} addonAfter={selectAfter} defaultValue="mysite" />
@@ -48,7 +48,7 @@ const App = () => (
   </Space>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

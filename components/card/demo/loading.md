@@ -20,7 +20,7 @@ import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/ico
 
 const { Meta } = Card;
 
-const App = () => {
+const App: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
   const onChange = (checked: boolean) => {

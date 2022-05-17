@@ -17,7 +17,7 @@ Solid radio button style.
 import React from 'react';
 import { Radio } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Radio.Group defaultValue="a" buttonStyle="solid">
       <Radio.Button value="a">Hangzhou</Radio.Button>
@@ -36,5 +36,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

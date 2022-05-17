@@ -61,7 +61,7 @@ const ResizableTitle = (
   );
 };
 
-const App = () => {
+const App: React.FC = () => {
   const [columns, setColumns] = useState<ColumnsType<DataType>>([
     {
       title: 'Date',
@@ -147,7 +147,7 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

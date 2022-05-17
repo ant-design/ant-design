@@ -20,7 +20,7 @@ import moment from 'moment';
 
 const format = 'HH:mm';
 
-const App = () => <TimePicker defaultValue={moment('12:08', format)} format={format} />;
+const App: React.FC = () => <TimePicker defaultValue={moment('12:08', format)} format={format} />;
 
-export default () => <App />;
+export default App;
 ```

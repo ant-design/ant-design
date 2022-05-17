@@ -25,7 +25,7 @@ const onAfterChange = (value: number | [number, number]) => {
   console.log('onAfterChange: ', value);
 };
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Slider defaultValue={30} onChange={onChange} onAfterChange={onAfterChange} />
     <Slider
@@ -38,5 +38,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

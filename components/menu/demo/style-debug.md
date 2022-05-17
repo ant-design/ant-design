@@ -53,8 +53,8 @@ const items: MenuItem[] = [
 ];
 
 const App: React.FC = () => {
-  const [theme, setTheme] = React.useState<'dark' | 'light'>('dark');
-  const [current, setCurrent] = React.useState('1');
+  const [theme, setTheme] = useState<MenuTheme>('dark');
+  const [current, setCurrent] = useState('1');
 
   const changeTheme = (value: boolean) => {
     setTheme(value ? 'dark' : 'light');
@@ -107,5 +107,5 @@ const App: React.FC = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

@@ -19,7 +19,7 @@ import { Alert } from 'antd';
 import { TextLoop } from 'react-text-loop-next';
 import Marquee from 'react-fast-marquee';
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Alert
       banner
@@ -43,5 +43,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

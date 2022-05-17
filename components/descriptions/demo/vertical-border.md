@@ -17,7 +17,7 @@ Descriptions with border and background color.
 import React from 'react';
 import { Descriptions, Badge } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <Descriptions title="User Info" layout="vertical" bordered>
     <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
     <Descriptions.Item label="Billing Mode">Prepaid</Descriptions.Item>
@@ -48,5 +48,5 @@ const App = () => (
   </Descriptions>
 );
 
-export default () => <App />;
+export default App;
 ```

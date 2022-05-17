@@ -36,7 +36,7 @@ const menu = (
   />
 );
 
-const App = () => (
+const App: React.FC = () => (
   <Dropdown overlay={menu} trigger={['contextMenu']}>
     <div
       className="site-dropdown-context-menu"
@@ -51,7 +51,7 @@ const App = () => (
   </Dropdown>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

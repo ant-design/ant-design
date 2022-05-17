@@ -23,7 +23,7 @@ const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) 
   console.log('Change:', e.target.value);
 };
 
-const App = () => (
+const App: React.FC = () => (
   <>
     <Input showCount maxLength={20} onChange={onChange} />
     <br />
@@ -32,5 +32,5 @@ const App = () => (
   </>
 );
 
-export default () => <App />;
+export default App;
 ```

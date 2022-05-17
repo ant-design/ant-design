@@ -46,7 +46,7 @@ const generateData = (_level: number, _preKey?: React.Key, _tns?: DataNode[]) =>
 };
 generateData(z);
 
-const App = () => {
+const App: React.FC = () => {
   const [gData, setGData] = useState(defaultData);
   const [expandedKeys] = useState(['0-0', '0-0-0', '0-0-0-0']);
 
@@ -134,5 +134,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

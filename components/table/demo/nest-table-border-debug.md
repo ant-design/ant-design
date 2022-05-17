@@ -39,7 +39,7 @@ interface ExpandedDataType {
 
 const menu = <Menu items={[{ label: 'Action 1' }, { label: 'Action 2' }]} />;
 
-const App = () => {
+const App: React.FC = () => {
   const createExpandedRowRender = (bordered: boolean) => () => {
     const columns = [
       { title: 'Date', dataIndex: 'date', key: 'date' },
@@ -138,5 +138,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

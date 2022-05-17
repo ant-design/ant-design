@@ -17,7 +17,7 @@ The simplest use.
 import React from 'react';
 import { Breadcrumb } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <Breadcrumb>
     <Breadcrumb.Item>Home</Breadcrumb.Item>
     <Breadcrumb.Item>
@@ -30,5 +30,5 @@ const App = () => (
   </Breadcrumb>
 );
 
-export default () => <App />;
+export default App;
 ```

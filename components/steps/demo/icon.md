@@ -20,7 +20,7 @@ import { UserOutlined, SolutionOutlined, LoadingOutlined, SmileOutlined } from '
 
 const { Step } = Steps;
 
-const App = () => (
+const App: React.FC = () => (
   <Steps>
     <Step status="finish" title="Login" icon={<UserOutlined />} />
     <Step status="finish" title="Verification" icon={<SolutionOutlined />} />
@@ -29,5 +29,5 @@ const App = () => (
   </Steps>
 );
 
-export default () => <App />;
+export default App;
 ```

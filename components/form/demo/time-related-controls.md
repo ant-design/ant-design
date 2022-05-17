@@ -36,7 +36,7 @@ const rangeConfig = {
   rules: [{ type: 'array' as const, required: true, message: 'Please select time!' }],
 };
 
-const App = () => {
+const App: React.FC = () => {
   const onFinish = (fieldsValue: any) => {
     // Should format date value before submit.
     const rangeValue = fieldsValue['range-picker'];
@@ -90,5 +90,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

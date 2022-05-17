@@ -19,7 +19,7 @@ import { Mentions, Form, Button } from 'antd';
 
 const { Option, getMentions } = Mentions;
 
-const App = () => {
+const App: React.FC = () => {
   const [form] = Form.useForm();
 
   const onReset = () => {

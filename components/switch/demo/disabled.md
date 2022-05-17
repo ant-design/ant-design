@@ -17,7 +17,7 @@ Disabled state of `Switch`.
 import React, { useState } from 'react';
 import { Switch, Button } from 'antd';
 
-const App = () => {
+const App: React.FC = () => {
   const [disabled, setDisabled] = useState(true);
 
   const toggle = () => {

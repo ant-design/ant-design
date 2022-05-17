@@ -18,7 +18,7 @@ Add status to TimePicker with `status`, which could be `error` or `warning`.
 import React from 'react';
 import { TimePicker, Space } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <Space direction="vertical">
     <TimePicker status="error" />
     <TimePicker status="warning" />
@@ -27,5 +27,5 @@ const App = () => (
   </Space>
 );
 
-export default () => <App />;
+export default App;
 ```

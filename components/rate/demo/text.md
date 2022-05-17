@@ -19,7 +19,7 @@ import { Rate } from 'antd';
 
 const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
 
-const App = () => {
+const App: React.FC = () => {
   const [value, setValue] = useState(3);
 
   return (
@@ -30,5 +30,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

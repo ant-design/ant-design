@@ -22,7 +22,7 @@ const { RangePicker } = DatePicker;
 
 type RangeValue = [Moment | null, Moment | null] | null;
 
-const App = () => {
+const App: React.FC = () => {
   const [dates, setDates] = useState<RangeValue>(null);
   const [hackValue, setHackValue] = useState<RangeValue>(null);
   const [value, setValue] = useState<RangeValue>(null);

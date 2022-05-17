@@ -21,7 +21,7 @@ import type { SizeType } from 'antd/es/config-provider/SizeContext';
 
 const { RangePicker } = DatePicker;
 
-const App = () => {
+const App: React.FC = () => {
   const [size, setSize] = useState<SizeType>('middle');
 
   const handleSizeChange = (e: RadioChangeEvent) => {
@@ -43,5 +43,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

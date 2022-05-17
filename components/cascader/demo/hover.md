@@ -65,7 +65,7 @@ const onChange = (value: string[]) => {
 // Just show the latest item.
 const displayRender = (labels: string[]) => labels[labels.length - 1];
 
-const App = () => (
+const App: React.FC = () => (
   <Cascader
     options={options}
     expandTrigger="hover"
@@ -74,5 +74,5 @@ const App = () => (
   />
 );
 
-export default () => <App />;
+export default App;
 ```

@@ -22,7 +22,7 @@ const { Option } = Select;
 
 let index = 0;
 
-const App = () => {
+const App: React.FC = () => {
   const [items, setItems] = useState(['jack', 'lucy']);
   const [name, setName] = useState('');
 

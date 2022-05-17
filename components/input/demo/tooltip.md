@@ -64,13 +64,13 @@ const NumericInput = (props: NumericInputProps) => {
   );
 };
 
-const App = () => {
+const App: React.FC = () => {
   const [value, setValue] = useState('');
 
   return <NumericInput style={{ width: 120 }} value={value} onChange={setValue} />;
 };
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

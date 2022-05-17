@@ -121,7 +121,7 @@ const data: DataType[] = [
   },
 ];
 
-const App = () => {
+const App: React.FC = () => {
   const [top, setTop] = useState<TablePaginationPosition>('topLeft');
   const [bottom, setBottom] = useState<TablePaginationPosition>('bottomRight');
 
@@ -150,5 +150,5 @@ const App = () => {
   );
 };
 
-export default () => <App />;
+export default App;
 ```

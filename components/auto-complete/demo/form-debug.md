@@ -22,7 +22,7 @@ const formItemLayout = {
   },
 };
 
-const App = () => (
+const App: React.FC = () => (
   <Form style={{ margin: '0 auto' }} {...formItemLayout}>
     <Form.Item label="单独 AutoComplete">
       <AutoComplete />
@@ -71,5 +71,5 @@ const App = () => (
   </Form>
 );
 
-export default () => <App />;
+export default App;
 ```

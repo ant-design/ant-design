@@ -17,7 +17,7 @@ A borderless card on a gray background.
 import React from 'react';
 import { Card } from 'antd';
 
-const App = () => (
+const App: React.FC = () => (
   <div className="site-card-border-less-wrapper">
     <Card title="Card title" bordered={false} style={{ width: 300 }}>
       <p>Card content</p>
@@ -27,7 +27,7 @@ const App = () => (
   </div>
 );
 
-export default () => <App />;
+export default App;
 ```
 
 ```css

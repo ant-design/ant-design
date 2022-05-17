@@ -30,7 +30,7 @@ const optionsWithDisabled = [
   { label: 'Orange', value: 'Orange', disabled: true },
 ];
 
-const App = () => {
+const App: React.FC = () => {
   const [value1, setValue1] = useState('Apple');
   const [value2, setValue2] = useState('Apple');
   const [value3, setValue3] = useState('Apple');
