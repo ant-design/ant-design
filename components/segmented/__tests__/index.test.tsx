@@ -1,12 +1,12 @@
 import React from 'react';
-import { mount } from 'enzyme';
 import { AppstoreOutlined, BarsOutlined } from '@ant-design/icons';
 
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { render, fireEvent } from '../../../tests/utils';
+
 import Segmented from '../index';
 import type { SegmentedValue } from '../index';
-import { render } from '../../../tests/utils';
 
 // Make CSSMotion working without transition
 jest.mock('rc-motion/lib/util/motion', () => ({
@@ -15,6 +15,19 @@ jest.mock('rc-motion/lib/util/motion', () => ({
 }));
 
 const prefixCls = 'ant-segmented';
+
+function expectMatchChecked(container: HTMLElement, checkedList: boolean[]) {
+  const inputList = Array.from(
+    container.querySelectorAll<HTMLInputElement>(`.${prefixCls}-item-input`),
+  );
+  expect(inputList).toHaveLength(checkedList.length);
+
+  inputList.forEach((input, i) => {
+    const checked = checkedList[i];
+
+    expect(input.checked).toBe(checked);
+  });
+}
 
 describe('Segmented', () => {
   mountTest(Segmented);
@@ -29,26 +42,22 @@ describe('Segmented', () => {
   });
 
   it('render empty segmented', () => {
-    const wrapper = mount(<Segmented options={[]} />);
-    expect(wrapper.render()).toMatchSnapshot();
+    const { asFragment } = render(<Segmented options={[]} />);
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   it('render segmented ok', () => {
-    const wrapper = mount(
+    const { asFragment, container } = render(
       <Segmented options={[{ label: 'Daily', value: 'Daily' }, 'Weekly', 'Monthly']} />,
     );
 
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(asFragment().firstChild).toMatchSnapshot();
 
-    expect(
-      wrapper
-        .find(`.${prefixCls}-item-input`)
-        .map(el => (el.getDOMNode() as HTMLInputElement).checked),
-    ).toEqual([true, false, false]);
+    expectMatchChecked(container, [true, false, false]);
   });
 
   it('render label with ReactNode', () => {
-    const wrapper = mount(
+    const { asFragment, container } = render(
       <Segmented
         options={[
           { label: 'Daily', value: 'Daily' },
@@ -58,164 +67,127 @@ describe('Segmented', () => {
       />,
     );
 
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(asFragment().firstChild).toMatchSnapshot();
 
-    expect(
-      wrapper
-        .find(`.${prefixCls}-item-input`)
-        .map(el => (el.getDOMNode() as HTMLInputElement).checked),
-    ).toEqual([true, false, false]);
+    expectMatchChecked(container, [true, false, false]);
 
-    expect(wrapper.find('#weekly').at(0).text()).toContain('Weekly');
-    expect(wrapper.find('h2').at(0).text()).toContain('Monthly');
+    expect(container.querySelector('#weekly')?.textContent).toContain('Weekly');
+    expect(container.querySelectorAll('h2')[0].textContent).toContain('Monthly');
   });
 
   it('render segmented with defaultValue', () => {
-    const wrapper = mount(
+    const { container } = render(
       <Segmented
         options={['Daily', 'Weekly', 'Monthly', 'Quarterly', 'Yearly']}
         defaultValue="Quarterly"
       />,
     );
 
-    expect(
-      wrapper
-        .find(`.${prefixCls}-item-input`)
-        .map(el => (el.getDOMNode() as HTMLInputElement).checked),
-    ).toEqual([false, false, false, true, false]);
+    expectMatchChecked(container, [false, false, false, true, false]);
   });
 
   it('render segmented with string options', () => {
     const handleValueChange = jest.fn();
-    const wrapper = mount(
+    const { asFragment, container } = render(
       <Segmented options={['Daily', 'Weekly', 'Monthly']} onChange={handleValueChange} />,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(asFragment().firstChild).toMatchSnapshot();
 
+    expectMatchChecked(container, [true, false, false]);
     expect(
-      wrapper
-        .find(`.${prefixCls}-item-input`)
-        .map(el => (el.getDOMNode() as HTMLInputElement).checked),
-    ).toEqual([true, false, false]);
-    expect(
-      wrapper.find(`label.${prefixCls}-item`).at(0).hasClass(`${prefixCls}-item-selected`),
+      container
+        .querySelectorAll(`label.${prefixCls}-item`)[0]
+        .classList.contains(`${prefixCls}-item-selected`),
     ).toBeTruthy();
 
-    wrapper.find(`.${prefixCls}-item-input`).at(2).simulate('change');
+    fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[2]);
     expect(handleValueChange).toBeCalledWith('Monthly');
 
-    expect(
-      wrapper
-        .find(`.${prefixCls}-item-input`)
-        .map(el => (el.getDOMNode() as HTMLInputElement).checked),
-    ).toEqual([false, false, true]);
+    expectMatchChecked(container, [false, false, true]);
   });
 
   it('render segmented with numeric options', () => {
     const handleValueChange = jest.fn();
-    const wrapper = mount(
+    const { asFragment, container } = render(
       <Segmented options={[1, 2, 3, 4, 5]} onChange={value => handleValueChange(value)} />,
     );
-    expect(wrapper.render()).toMatchSnapshot();
-    expect(
-      wrapper
-        .find(`.${prefixCls}-item-input`)
-        .map(el => (el.getDOMNode() as HTMLInputElement).checked),
-    ).toEqual([true, false, false, false, false]);
+    expect(asFragment().firstChild).toMatchSnapshot();
+    expectMatchChecked(container, [true, false, false, false, false]);
 
-    wrapper.find(`.${prefixCls}-item-input`).last().simulate('change');
+    fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[4]);
     expect(handleValueChange).toBeCalledWith(5);
 
-    expect(
-      wrapper
-        .find(`.${prefixCls}-item-input`)
-        .map(el => (el.getDOMNode() as HTMLInputElement).checked),
-    ).toEqual([false, false, false, false, true]);
+    expectMatchChecked(container, [false, false, false, false, true]);
   });
 
   it('render segmented with mixed options', () => {
     const handleValueChange = jest.fn();
-    const wrapper = mount(
+    const { asFragment, container } = render(
       <Segmented
         options={['Daily', { label: 'Weekly', value: 'Weekly' }, 'Monthly']}
         onChange={value => handleValueChange(value)}
       />,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(asFragment().firstChild).toMatchSnapshot();
+    expectMatchChecked(container, [true, false, false]);
 
-    wrapper.find(`.${prefixCls}-item-input`).at(1).simulate('change');
+    fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[1]);
     expect(handleValueChange).toBeCalledWith('Weekly');
 
-    expect(
-      wrapper
-        .find(`.${prefixCls}-item-input`)
-        .map(el => (el.getDOMNode() as HTMLInputElement).checked),
-    ).toEqual([false, true, false]);
+    expectMatchChecked(container, [false, true, false]);
   });
 
   it('render segmented with options: disabled', () => {
     const handleValueChange = jest.fn();
-    const wrapper = mount(
+    const { asFragment, container } = render(
       <Segmented
         options={['Daily', { label: 'Weekly', value: 'Weekly', disabled: true }, 'Monthly']}
         onChange={value => handleValueChange(value)}
       />,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(asFragment().firstChild).toMatchSnapshot();
     expect(
-      wrapper.find(`label.${prefixCls}-item`).at(1).hasClass(`${prefixCls}-item-disabled`),
+      container
+        .querySelectorAll(`label.${prefixCls}-item`)[1]
+        .classList.contains(`${prefixCls}-item-disabled`),
     ).toBeTruthy();
-    expect(wrapper.find(`.${prefixCls}-item-input`).at(1).prop('disabled')).toBeTruthy();
+    expect(container.querySelectorAll(`.${prefixCls}-item-input`)[1]).toHaveAttribute('disabled');
 
-    wrapper.find(`.${prefixCls}-item-input`).at(1).simulate('change');
+    fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[1]);
     expect(handleValueChange).not.toBeCalled();
 
-    expect(
-      wrapper
-        .find(`.${prefixCls}-item-input`)
-        .map(el => (el.getDOMNode() as HTMLInputElement).checked),
-    ).toEqual([true, false, false]);
+    expectMatchChecked(container, [true, false, false]);
 
-    wrapper.find(`.${prefixCls}-item-input`).at(2).simulate('change');
+    fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[2]);
     expect(handleValueChange).toBeCalledWith('Monthly');
     expect(handleValueChange).toBeCalledTimes(1);
 
-    expect(
-      wrapper
-        .find(`.${prefixCls}-item-input`)
-        .map(el => (el.getDOMNode() as HTMLInputElement).checked),
-    ).toEqual([false, false, true]);
+    expectMatchChecked(container, [false, false, true]);
   });
 
   it('render segmented: disabled', () => {
     const handleValueChange = jest.fn();
-    const wrapper = mount(
+    const { asFragment, container } = render(
       <Segmented
         disabled
         options={['Daily', 'Weekly', 'Monthly']}
         onChange={value => handleValueChange(value)}
       />,
     );
-    expect(wrapper.render()).toMatchSnapshot();
-    expect(wrapper.find(`.${prefixCls}`).hasClass(`${prefixCls}-disabled`)).toBeTruthy();
+    expect(asFragment().firstChild).toMatchSnapshot();
+    expect(
+      container.querySelectorAll(`.${prefixCls}`)[0].classList.contains(`${prefixCls}-disabled`),
+    ).toBeTruthy();
 
-    wrapper.find(`.${prefixCls}-item-input`).at(1).simulate('change');
+    fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[1]);
     expect(handleValueChange).not.toBeCalled();
 
-    expect(
-      wrapper
-        .find(`.${prefixCls}-item-input`)
-        .map(el => (el.getDOMNode() as HTMLInputElement).checked),
-    ).toEqual([true, false, false]);
+    expectMatchChecked(container, [true, false, false]);
 
-    wrapper.find(`.${prefixCls}-item-input`).at(2).simulate('change');
+    fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[2]);
     expect(handleValueChange).not.toBeCalled();
 
-    expect(
-      wrapper
-        .find(`.${prefixCls}-item-input`)
-        .map(el => (el.getDOMNode() as HTMLInputElement).checked),
-    ).toEqual([true, false, false]);
+    expectMatchChecked(container, [true, false, false]);
   });
 
   it('render segmented with className and other html attributes', () => {
@@ -234,11 +206,11 @@ describe('Segmented', () => {
 
   it('render segmented with ref', () => {
     const ref = React.createRef<HTMLDivElement>();
-    const wrapper = mount(
+    const { container } = render(
       <Segmented options={['Daily', 'Monthly', 'Weekly']} defaultValue="Weekly" ref={ref} />,
     );
 
-    expect((wrapper.find(Segmented).getElement() as any).ref).toBe(ref);
+    expect(ref.current).toBe(container.querySelector(`.${prefixCls}`));
   });
 
   it('render segmented with controlled mode', async () => {
@@ -249,115 +221,124 @@ describe('Segmented', () => {
 
       render() {
         return (
-          <Segmented
-            options={['Map', 'Transit', 'Satellite']}
-            value={this.state.value}
-            onChange={value =>
-              this.setState({
-                value,
-              })
-            }
-          />
+          <>
+            <Segmented
+              options={['Map', 'Transit', 'Satellite']}
+              value={this.state.value}
+              onChange={value =>
+                this.setState({
+                  value,
+                })
+              }
+            />
+            <div className="value">{this.state.value}</div>
+            <input
+              className="control"
+              onChange={e => {
+                this.setState({ value: e.target.value });
+              }}
+            />
+          </>
         );
       }
     }
 
-    const wrapper = mount<typeof Demo>(<Demo />);
-    wrapper.find('Segmented').find(`.${prefixCls}-item-input`).at(0).simulate('change');
-    expect(wrapper.find(Demo).state().value).toBe('Map');
+    const { container } = render(<Demo />);
+    fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[0]);
+    expect(container.querySelector('.value')?.textContent).toBe('Map');
 
-    wrapper.find('Segmented').find(`.${prefixCls}-item-input`).at(1).simulate('change');
-    expect(wrapper.find(Demo).state().value).toBe('Transit');
+    fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[1]);
+    expect(container.querySelector('.value')?.textContent).toBe('Transit');
   });
 
   it('render segmented with options null/undefined', () => {
     const handleValueChange = jest.fn();
-    const wrapper = mount(
+    const { asFragment, container } = render(
       <Segmented
         options={[null, undefined, ''] as any}
         disabled
         onChange={value => handleValueChange(value)}
       />,
     );
-    expect(wrapper.render()).toMatchSnapshot();
-    expect(wrapper.find(`.${prefixCls}-item-label`).map(n => n.getDOMNode().textContent)).toEqual([
-      '',
-      '',
-      '',
-    ]);
+    expect(asFragment().firstChild).toMatchSnapshot();
+    expect(
+      Array.from(container.querySelectorAll(`.${prefixCls}-item-label`)).map(n => n.textContent),
+    ).toEqual(['', '', '']);
   });
 
   it('render segmented with thumb', () => {
     const handleValueChange = jest.fn();
-    const wrapper = mount(
+    const { asFragment, container } = render(
       <Segmented
         options={['Map', 'Transit', 'Satellite']}
         onChange={value => handleValueChange(value)}
       />,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(asFragment().firstChild).toMatchSnapshot();
 
+    expectMatchChecked(container, [true, false, false]);
     expect(
-      wrapper
-        .find(`.${prefixCls}-item-input`)
-        .map(el => (el.getDOMNode() as HTMLInputElement).checked),
-    ).toEqual([true, false, false]);
-    expect(
-      wrapper.find(`label.${prefixCls}-item`).at(0).hasClass(`${prefixCls}-item-selected`),
+      container
+        .querySelectorAll(`label.${prefixCls}-item`)[0]
+        .classList.contains(`${prefixCls}-item-selected`),
     ).toBeTruthy();
 
-    wrapper.find(`.${prefixCls}-item-input`).at(2).simulate('change');
+    fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[2]);
     expect(handleValueChange).toBeCalledWith('Satellite');
 
-    expect(
-      wrapper
-        .find(`.${prefixCls}-item-input`)
-        .map(el => (el.getDOMNode() as HTMLInputElement).checked),
-    ).toEqual([false, false, true]);
+    expectMatchChecked(container, [false, false, true]);
 
     // thumb appeared
-    expect(wrapper.find(`.${prefixCls}-thumb`).length).toBe(1);
+    expect(container.querySelectorAll(`.${prefixCls}-thumb`).length).toBe(1);
 
     // change selection again
-    wrapper.find(`.${prefixCls}-item-input`).at(1).simulate('change');
+    fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[1]);
     expect(handleValueChange).toBeCalledWith('Transit');
 
-    expect(
-      wrapper
-        .find(`.${prefixCls}-item-input`)
-        .map(el => (el.getDOMNode() as HTMLInputElement).checked),
-    ).toEqual([false, true, false]);
+    expectMatchChecked(container, [false, true, false]);
 
     // thumb appeared
-    expect(wrapper.find(`.${prefixCls}-thumb`).length).toBe(1);
+    expect(container.querySelectorAll(`.${prefixCls}-thumb`).length).toBe(1);
   });
 
   it('render segmented with `block`', () => {
-    const wrapper = mount(<Segmented block options={['Daily', 'Weekly', 'Monthly']} />);
+    const { asFragment, container } = render(
+      <Segmented block options={['Daily', 'Weekly', 'Monthly']} />,
+    );
 
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(asFragment().firstChild).toMatchSnapshot();
 
-    expect(wrapper.find(`.${prefixCls}`).at(0).hasClass(`${prefixCls}-block`)).toBeTruthy();
+    expect(
+      container.querySelectorAll(`.${prefixCls}`)[0].classList.contains(`${prefixCls}-block`),
+    ).toBeTruthy();
   });
 
   it('render segmented with `size#small`', () => {
-    const wrapper = mount(<Segmented size="small" options={['Daily', 'Weekly', 'Monthly']} />);
+    const { asFragment, container } = render(
+      <Segmented size="small" options={['Daily', 'Weekly', 'Monthly']} />,
+    );
 
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(asFragment().firstChild).toMatchSnapshot();
 
-    expect(wrapper.find(`.${prefixCls}`).at(0).hasClass(`${prefixCls}-sm`)).toBeTruthy();
+    expect(
+      container.querySelectorAll(`.${prefixCls}`)[0].classList.contains(`${prefixCls}-sm`),
+    ).toBeTruthy();
   });
 
   it('render segmented with `size#large`', () => {
-    const wrapper = mount(<Segmented size="large" options={['Daily', 'Weekly', 'Monthly']} />);
+    const { asFragment, container } = render(
+      <Segmented size="large" options={['Daily', 'Weekly', 'Monthly']} />,
+    );
 
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(asFragment().firstChild).toMatchSnapshot();
 
-    expect(wrapper.find(`.${prefixCls}`).at(0).hasClass(`${prefixCls}-lg`)).toBeTruthy();
+    expect(
+      container.querySelectorAll(`.${prefixCls}`)[0].classList.contains(`${prefixCls}-lg`),
+    ).toBeTruthy();
   });
 
   it('render with icons', () => {
-    const wrapper = mount(
+    const { asFragment, container } = render(
       <Segmented
         options={[
           {
@@ -372,8 +353,12 @@ describe('Segmented', () => {
         ]}
       />,
     );
-    expect(wrapper.render()).toMatchSnapshot();
-    expect(wrapper.find(`span.${prefixCls}-item-icon`).length).toBe(2);
-    expect(wrapper.find(`div.${prefixCls}-item-label`).at(1).contains('KanbanYes')).toBeTruthy();
+    expect(asFragment().firstChild).toMatchSnapshot();
+    expect(container.querySelectorAll(`span.${prefixCls}-item-icon`).length).toBe(2);
+    expect(
+      container
+        .querySelectorAll(`div.${prefixCls}-item-label`)[1]
+        .textContent?.includes('KanbanYes'),
+    ).toBeTruthy();
   });
 });
