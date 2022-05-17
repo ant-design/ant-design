@@ -13,7 +13,8 @@ title:
 
 Breadcrumbs support drop down menu.
 
-```jsx
+```tsx
+import React from 'react';
 import { Breadcrumb, Menu } from 'antd';
 
 const menu = (

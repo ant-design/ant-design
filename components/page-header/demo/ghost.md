@@ -13,7 +13,8 @@ title:
 
 The default PageHeader is a transparent background. In some cases, PageHeader needs its own background color.
 
-```jsx
+```tsx
+import React from 'react';
 import { PageHeader, Button, Descriptions } from 'antd';
 
 export default () => (

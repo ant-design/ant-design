@@ -14,7 +14,8 @@ title:
 
 Under different screen sizes, there should be different performance
 
-```jsx
+```tsx
+import React from 'react';
 import { PageHeader, Tabs, Button, Statistic, Descriptions } from 'antd';
 
 const { TabPane } = Tabs;
@@ -52,7 +53,7 @@ const extraContent = (
   </div>
 );
 
-const Content = ({ children, extra }) => (
+const Content: React.FC<{ extra: React.ReactNode }> = ({ children, extra }) => (
   <div className="content">
     <div className="main">{children}</div>
     <div className="extra">{extra}</div>

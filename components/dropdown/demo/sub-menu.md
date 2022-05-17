@@ -13,11 +13,10 @@ title:
 
 The menu has multiple levels.
 
-```jsx
+```tsx
+import React from 'react';
 import { Menu, Dropdown, Space } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
-
-const { SubMenu } = Menu;
 
 const menu = (
   <Menu
@@ -69,7 +68,7 @@ const menu = (
   />
 );
 
-export default () => (
+const App = () => (
   <Dropdown overlay={menu}>
     <a onClick={e => e.preventDefault()}>
       <Space>
@@ -79,4 +78,6 @@ export default () => (
     </a>
   </Dropdown>
 );
+
+export default () => <App />;
 ```

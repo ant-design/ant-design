@@ -13,7 +13,8 @@ title:
 
 The separator can be customized by setting the separator property: `Breadcrumb.Separator`.
 
-```jsx
+```tsx
+import React from 'react';
 import { Breadcrumb } from 'antd';
 
 export default () => (

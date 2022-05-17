@@ -14,9 +14,10 @@ title:
 Submenus open as pop-ups.
 
 ```tsx
-import type { MenuProps } from 'antd';
+import React from 'react';
 import { Menu } from 'antd';
 import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
+import type { MenuProps } from 'antd';
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -60,7 +61,7 @@ const onClick: MenuProps['onClick'] = e => {
   console.log('click', e);
 };
 
-export default () => (
-  <Menu onClick={onClick} style={{ width: 256 }} mode="vertical" items={items} />
-);
+const App = () => <Menu onClick={onClick} style={{ width: 256 }} mode="vertical" items={items} />;
+
+export default App;
 ```

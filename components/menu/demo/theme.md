@@ -14,9 +14,10 @@ title:
 There are two built-in themes: `light` and `dark`. The default value is `light`.
 
 ```tsx
-import type { MenuProps } from 'antd';
+import React from 'react';
 import { Menu, Switch } from 'antd';
 import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
+import type { MenuProps } from 'antd';
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -58,7 +59,7 @@ const items: MenuItem[] = [
   ]),
 ];
 
-const Sider = () => {
+const App = () => {
   const [theme, setTheme] = React.useState<'dark' | 'light'>('dark');
   const [current, setCurrent] = React.useState('1');
 
@@ -94,5 +95,5 @@ const Sider = () => {
   );
 };
 
-export default () => <Sider />;
+export default () => <App />;
 ```

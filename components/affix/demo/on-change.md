@@ -14,6 +14,7 @@ title:
 Callback with affixed state.
 
 ```tsx
+import React from 'react';
 import { Affix, Button } from 'antd';
 
 export default () => (

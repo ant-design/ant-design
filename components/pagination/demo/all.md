@@ -13,7 +13,8 @@ title:
 
 Show all configured prop.
 
-```jsx
+```tsx
+import React from 'react';
 import { Pagination } from 'antd';
 
 export default () => (

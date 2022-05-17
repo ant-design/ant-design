@@ -13,12 +13,12 @@ title:
 
 Mini size pagination.
 
-```jsx
+```tsx
+import React from 'react';
 import { Pagination } from 'antd';
+import type { PaginationProps } from 'antd';
 
-function showTotal(total) {
-  return `Total ${total} items`;
-}
+const showTotal: PaginationProps['showTotal'] = total => `Total ${total} items`;
 
 export default () => (
   <>

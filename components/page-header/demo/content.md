@@ -13,7 +13,8 @@ title:
 
 Show all props provided by PageHeader.
 
-```jsx
+```tsx
+import React from 'react';
 import { PageHeader, Menu, Dropdown, Button, Tag, Typography, Row } from 'antd';
 import { MoreOutlined } from '@ant-design/icons';
 
@@ -68,7 +69,7 @@ const routes = [
   },
 ];
 
-const IconLink = ({ src, text }) => (
+const IconLink = ({ src, text }: { src: string; text: string }) => (
   <a className="example-link">
     <img className="example-link-icon" src={src} alt={text} />
     {text}
@@ -103,7 +104,7 @@ const content = (
   </>
 );
 
-const Content = ({ children, extraContent }) => (
+const Content: React.FC<{ extraContent: React.ReactNode }> = ({ children, extraContent }) => (
   <Row>
     <div style={{ flex: 1 }}>{children}</div>
     <div className="image">{extraContent}</div>

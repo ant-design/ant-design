@@ -13,7 +13,8 @@ title:
 
 Standard header, suitable for use in scenarios that require a brief description.
 
-```jsx
+```tsx
+import React from 'react';
 import { PageHeader } from 'antd';
 
 export default () => (

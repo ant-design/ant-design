@@ -13,12 +13,14 @@ title:
 
 Jump to a page directly.
 
-```jsx
+```tsx
+import React from 'react';
 import { Pagination } from 'antd';
+import type { PaginationProps } from 'antd';
 
-function onChange(pageNumber) {
+const onChange: PaginationProps['onChange'] = pageNumber => {
   console.log('Page: ', pageNumber);
-}
+};
 
 export default () => (
   <>

@@ -13,7 +13,8 @@ title:
 
 Support 6 placements.
 
-```jsx
+```tsx
+import React from 'react';
 import { Menu, Dropdown, Button, Space } from 'antd';
 
 const menu = (
@@ -44,7 +45,7 @@ const menu = (
   />
 );
 
-export default () => (
+const App = () => (
   <Space direction="vertical">
     <Space wrap>
       <Dropdown overlay={menu} placement="bottomLeft">
@@ -70,4 +71,6 @@ export default () => (
     </Space>
   </Space>
 );
+
+export default () => <App />;
 ```

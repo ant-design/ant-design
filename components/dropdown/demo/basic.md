@@ -13,8 +13,9 @@ title:
 
 The most basic dropdown menu.
 
-```jsx
-import { Menu, Dropdown, Space } from 'antd';
+```tsx
+import React from 'react';
+import { Menu, Dropdown } from 'antd';
 import { DownOutlined, SmileOutlined } from '@ant-design/icons';
 
 const menu = (
@@ -52,7 +53,7 @@ const menu = (
   />
 );
 
-export default () => (
+const App = () => (
   <Dropdown overlay={menu}>
     <a onClick={e => e.preventDefault()}>
       <Space>
@@ -62,4 +63,6 @@ export default () => (
     </a>
   </Dropdown>
 );
+
+export default () => <App />;
 ```

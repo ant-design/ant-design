@@ -15,6 +15,7 @@ debug: true
 Steps with progress dot style.
 
 ```jsx
+import React from 'react';
 import { Steps, Divider } from 'antd';
 
 const { Step } = Steps;

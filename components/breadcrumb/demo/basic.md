@@ -13,7 +13,8 @@ title:
 
 The simplest use.
 
-```jsx
+```tsx
+import React from 'react';
 import { Breadcrumb } from 'antd';
 
 export default () => (

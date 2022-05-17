@@ -13,7 +13,8 @@ title:
 
 You could display an arrow.
 
-```jsx
+```tsx
+import React from 'react';
 import { Menu, Dropdown, Button } from 'antd';
 
 const menu = (
@@ -44,7 +45,7 @@ const menu = (
   />
 );
 
-export default () => (
+const App = () => (
   <>
     <Dropdown overlay={menu} placement="bottomLeft" arrow>
       <Button>bottomLeft</Button>
@@ -67,6 +68,8 @@ export default () => (
     </Dropdown>
   </>
 );
+
+export default () => <App />;
 ```
 
 ```css
