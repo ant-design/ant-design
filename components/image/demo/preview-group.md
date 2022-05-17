@@ -13,7 +13,8 @@ title:
 
 Click the left and right switch buttons to preview multiple images.
 
-```jsx
+```tsx
+import React from 'react';
 import { Image } from 'antd';
 
 const App = () => (

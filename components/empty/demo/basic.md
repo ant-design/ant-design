@@ -13,8 +13,10 @@ title:
 
 Simplest Usage.
 
-```jsx
+```tsx
 import { Empty } from 'antd';
 
-export default () => <Empty />;
+const App = () => <Empty />;
+
+export default () => <App />;
 ```

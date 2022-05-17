@@ -13,12 +13,13 @@ title:
 
 Preview a collection from one image.
 
-```jsx
+```tsx
 import React, { useState } from 'react';
 import { Image } from 'antd';
 
 const App = () => {
   const [visible, setVisible] = useState(false);
+
   return (
     <>
       <Image

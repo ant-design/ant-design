@@ -14,14 +14,33 @@ debug: true
 
 To see if bordered style applied to other tables.
 
-```jsx
+```tsx
+import React, { useState } from 'react';
 import { Table, Badge, Menu, Dropdown, Switch, Form, Space } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
+import type { ColumnsType } from 'antd/lib/table';
+
+interface DataType {
+  key: React.Key;
+  name: string;
+  platform: string;
+  version: string;
+  upgradeNum: number;
+  creator: string;
+  createdAt: string;
+}
+
+interface ExpandedDataType {
+  key: React.Key;
+  date: string;
+  name: string;
+  upgradeNum: string;
+}
 
 const menu = <Menu items={[{ label: 'Action 1' }, { label: 'Action 2' }]} />;
 
-function NestedTable() {
-  const createExpandedRowRender = bordered => () => {
+const App = () => {
+  const createExpandedRowRender = (bordered: boolean) => () => {
     const columns = [
       { title: 'Date', dataIndex: 'date', key: 'date' },
       { title: 'Name', dataIndex: 'name', key: 'name' },
@@ -54,7 +73,7 @@ function NestedTable() {
       },
     ];
 
-    const data = [];
+    const data: ExpandedDataType[] = [];
     for (let i = 0; i < 3; ++i) {
       data.push({
         key: i,
@@ -63,10 +82,11 @@ function NestedTable() {
         upgradeNum: 'Upgraded: 56',
       });
     }
+
     return <Table columns={columns} dataSource={data} pagination={false} bordered={bordered} />;
   };
 
-  const columns = [
+  const columns: ColumnsType<DataType> = [
     { title: 'Name', dataIndex: 'name', key: 'name' },
     { title: 'Platform', dataIndex: 'platform', key: 'platform' },
     { title: 'Version', dataIndex: 'version', key: 'version' },
@@ -76,7 +96,7 @@ function NestedTable() {
     { title: 'Action', key: 'operation', render: () => <a>Publish</a> },
   ];
 
-  const data = [];
+  const data: DataType[] = [];
   for (let i = 0; i < 3; ++i) {
     data.push({
       key: i,
@@ -89,8 +109,8 @@ function NestedTable() {
     });
   }
 
-  const [rootTableBordered, setRootTableBordered] = React.useState(true);
-  const [childTableBordered, setChildTableBordered] = React.useState(true);
+  const [rootTableBordered, setRootTableBordered] = useState(true);
+  const [childTableBordered, setChildTableBordered] = useState(true);
   return (
     <>
       <Form
@@ -116,7 +136,7 @@ function NestedTable() {
       />
     </>
   );
-}
+};
 
-export default () => <NestedTable />;
+export default () => <App />;
 ```

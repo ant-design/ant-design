@@ -38,7 +38,7 @@ const generateData = (_level, _preKey, _tns) => {
 };
 generateData(z);
 
-class Demo extends React.Component {
+class App extends React.Component {
   state = {
     gData,
     expandedKeys: ['0-0', '0-0-0', '0-0-0-0'],
@@ -181,5 +181,5 @@ class Demo extends React.Component {
   }
 }
 
-export default Demo;
+export default () => <App />;
 ```
