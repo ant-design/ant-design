@@ -14,7 +14,7 @@ title:
 By using `components`, we can integrate table with [react-dnd](https://github.com/react-dnd/react-dnd) to implement drag sorting function.
 
 ```jsx
-import React, { useState, useCallback, useRef } from 'react';
+import { useState, useCallback, useRef } from 'react';
 import { Table } from 'antd';
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';

@@ -14,7 +14,7 @@ title:
 Controlled mode lets parent nodes reflect the status of child nodes more intelligently.
 
 ```tsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Tree } from 'antd';
 
 const treeData = [

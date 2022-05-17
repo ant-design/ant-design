@@ -14,7 +14,7 @@ title:
 Provide additional interactive capacity of editable and copyable.
 
 ```jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Checkbox, Radio, Typography, Divider } from 'antd';
 import { CheckOutlined, HighlightOutlined, SmileOutlined, SmileFilled } from '@ant-design/icons';
 

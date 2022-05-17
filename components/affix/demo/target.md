@@ -14,7 +14,7 @@ title:
 Set a `target` for 'Affix', which is listen to scroll event of target element (default is `window`).
 
 ```tsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Affix, Button } from 'antd';
 
 const Demo: React.FC = () => {

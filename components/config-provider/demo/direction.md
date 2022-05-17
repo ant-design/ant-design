@@ -14,7 +14,7 @@ title:
 Components which support rtl direction are listed here, you can toggle the direction in the demo.
 
 ```jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import {
   Input,

@@ -14,7 +14,7 @@ title:
 Communicated with other components.
 
 ```jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Checkbox, Button } from 'antd';
 
 export default () => {

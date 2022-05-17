@@ -15,7 +15,7 @@ debug: true
 Determing which panel to show with `mode` and `onPanelChange`.
 
 ```jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { DatePicker, Space } from 'antd';
 
 const { RangePicker } = DatePicker;

@@ -14,7 +14,7 @@ title:
 Set component size, only works for antd components.
 
 ```tsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
   Form,
   Input,

@@ -14,7 +14,7 @@ title:
 Customize render list with Tree component.
 
 ```jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Transfer, Tree } from 'antd';
 
 // Customize Table Transfer

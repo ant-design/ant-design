@@ -14,7 +14,7 @@ title:
 An example of infinite & virtualized list via using [rc-virtual-list](https://github.com/react-component/virtual-list).
 
 ```jsx
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { List, message, Avatar } from 'antd';
 import VirtualList from 'rc-virtual-list';
 

@@ -14,7 +14,7 @@ title:
 Shows a loading indicator while the contents of the card is being fetched.
 
 ```jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Skeleton, Switch, Card, Avatar } from 'antd';
 import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
 

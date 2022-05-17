@@ -18,7 +18,7 @@ title:
 Set the size to `large` and `middle` by setting size to large and middle respectively. If `size` is not set, the spacing is `small`.
 
 ```jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Space, Radio, Button } from 'antd';
 
 function App() {

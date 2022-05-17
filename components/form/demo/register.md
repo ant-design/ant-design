@@ -14,7 +14,7 @@ title:
 Fill in this form to create a new account for you.
 
 ```tsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
   Form,
   Input,

@@ -14,7 +14,7 @@ title:
 Perform different check rules according to different situations.
 
 ```tsx
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Form, Input, Button, Checkbox } from 'antd';
 
 const formItemLayout = {

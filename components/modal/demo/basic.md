@@ -14,7 +14,7 @@ title:
 Basic modal.
 
 ```jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Modal, Button } from 'antd';
 
 const App = () => {

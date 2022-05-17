@@ -14,7 +14,7 @@ title:
 Integrate virtual scroll with `react-window` to achieve a high performance table of 100,000 data.
 
 ```tsx
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { VariableSizeGrid as Grid } from 'react-window';
 import ResizeObserver from 'rc-resize-observer';
 import classNames from 'classnames';

@@ -16,7 +16,7 @@ title:
 Table with editable rows.
 
 ```tsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Table, Input, InputNumber, Popconfirm, Form, Typography } from 'antd';
 
 interface Item {

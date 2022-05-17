@@ -14,7 +14,7 @@ title:
 Load more list with `loadMore` property.
 
 ```jsx
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { List, Avatar, Button, Skeleton } from 'antd';
 
 const count = 3;

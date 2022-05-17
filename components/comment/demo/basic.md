@@ -14,7 +14,7 @@ title:
 A basic comment with author, avatar, time and actions.
 
 ```jsx
-import React, { createElement, useState } from 'react';
+import { createElement, useState } from 'react';
 import { Comment, Tooltip, Avatar } from 'antd';
 import moment from 'moment';
 import { DislikeOutlined, LikeOutlined, DislikeFilled, LikeFilled } from '@ant-design/icons';

@@ -14,7 +14,7 @@ title:
 Load `options` dynamically.
 
 ```tsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Segmented, Button } from 'antd';
 
 const defaultOptions = ['Daily', 'Weekly', 'Monthly'];

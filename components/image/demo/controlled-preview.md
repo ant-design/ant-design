@@ -14,7 +14,7 @@ title:
 You can make preview controlled.
 
 ```jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Image, Button } from 'antd';
 
 function ImageDemo() {

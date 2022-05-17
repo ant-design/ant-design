@@ -14,7 +14,7 @@ title:
 Use [antd-img-crop](https://github.com/nanxiaobei/antd-img-crop) to crop image before uploading.
 
 ```jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Upload } from 'antd';
 import ImgCrop from 'antd-img-crop';
 

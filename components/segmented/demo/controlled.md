@@ -14,7 +14,7 @@ title:
 Controlled Segmented.
 
 ```tsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Segmented } from 'antd';
 
 const Demo: React.FC = () => {

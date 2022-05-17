@@ -14,7 +14,7 @@ title:
 Preview a collection from one image.
 
 ```jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Image } from 'antd';
 
 const App = () => {

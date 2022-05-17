@@ -15,7 +15,7 @@ title:
 Test style of Steps inside Steps.
 
 ```jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Steps, Radio, Card } from 'antd';
 
 const { Step } = Steps;

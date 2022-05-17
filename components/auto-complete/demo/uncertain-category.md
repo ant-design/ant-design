@@ -14,7 +14,7 @@ title:
 Demonstration of [Lookup Patterns: Uncertain Category](https://ant.design/docs/spec/reaction#Lookup-Patterns).
 
 ```tsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Input, AutoComplete } from 'antd';
 import type { SelectProps } from 'antd/es/select';
 

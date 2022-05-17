@@ -14,7 +14,7 @@ title:
 Config component default size.
 
 ```jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
   ConfigProvider,
   Radio,

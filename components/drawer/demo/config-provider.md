@@ -15,7 +15,7 @@ debug: true
 config by ConfigProvider.
 
 ```tsx
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { Drawer, ConfigProvider, Button } from 'antd';
 
 const App: React.FC = () => {

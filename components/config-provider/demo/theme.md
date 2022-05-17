@@ -16,7 +16,7 @@ Modify global theme color by css variable which IE not support. Css variable dep
 
 ```jsx
 import { SketchPicker } from 'react-color';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
   DownOutlined,
   MailOutlined,

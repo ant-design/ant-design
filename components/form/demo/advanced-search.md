@@ -20,7 +20,7 @@ Three columns layout is often used for advanced searching of data table.
 Because the width of label is not fixed, you may need to adjust it by customizing its style.
 
 ```tsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Form, Row, Col, Input, Button, Select } from 'antd';
 import { DownOutlined, UpOutlined } from '@ant-design/icons';
 

@@ -14,7 +14,7 @@ title:
 The count will be animated as it changes.
 
 ```jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Badge, Button, Switch, Divider, Avatar } from 'antd';
 import { MinusOutlined, PlusOutlined, QuestionOutlined } from '@ant-design/icons';
 

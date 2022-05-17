@@ -14,7 +14,7 @@ title:
 async
 
 ```jsx
-import React, { useState, useRef, useMemo } from 'react';
+import { useState, useRef, useMemo } from 'react';
 import { Mentions } from 'antd';
 import debounce from 'lodash/debounce';
 

@@ -14,7 +14,7 @@ title:
 Table with editable cells. When work with `shouldCellUpdate`, please take care of [closure](https://github.com/ant-design/ant-design/issues/29243).
 
 ```tsx
-import React, { useContext, useState, useEffect, useRef } from 'react';
+import { useContext, useState, useEffect, useRef } from 'react';
 import type { InputRef } from 'antd';
 import { Table, Input, Button, Popconfirm, Form } from 'antd';
 import type { FormInstance } from 'antd/lib/form';

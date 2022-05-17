@@ -14,7 +14,7 @@ title:
 You can manually specify the position of the popup via `placement`.
 
 ```jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { TreeSelect, Radio } from 'antd';
 
 const { TreeNode } = TreeSelect;

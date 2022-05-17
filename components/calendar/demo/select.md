@@ -14,7 +14,7 @@ title:
 A basic calendar component with Year/Month switch.
 
 ```jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Calendar, Alert } from 'antd';
 import moment from 'moment';
 

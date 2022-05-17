@@ -15,7 +15,7 @@ debug: true
 Remove mask.
 
 ```tsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Drawer, Button } from 'antd';
 
 const App: React.FC = () => {

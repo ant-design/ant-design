@@ -14,7 +14,7 @@ value 和 onChange 需要配合使用。
 `value` and `onChange` should be used together,
 
 ```jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { TimePicker } from 'antd';
 
 const Demo = () => {

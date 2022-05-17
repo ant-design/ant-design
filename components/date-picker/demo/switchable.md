@@ -14,7 +14,7 @@ title:
 Switch in different types of pickers by Select.
 
 ```jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { DatePicker, TimePicker, Select, Space } from 'antd';
 
 const { Option } = Select;
