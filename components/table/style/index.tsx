@@ -3,8 +3,10 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 import type { GenerateStyle, FullToken } from '../../_util/theme';
 import { resetComponent, clearFix, genComponentStyleHook, mergeToken } from '../../_util/theme';
+import genPagniationStyle from './pagination';
+import genSummaryStyle from './summary';
 
-interface TableToken extends FullToken<'Table'> {
+export interface TableToken extends FullToken<'Table'> {
   tableFontSize: number;
   tableBg: CSSObject['background'];
   tableRadius: CSSObject['border-radius'];
@@ -19,6 +21,8 @@ interface TableToken extends FullToken<'Table'> {
   tableRowHoverBg: CSSObject['background'];
   tableSelectedRowBg: CSSObject['background'];
   tableSelectedRowHoverBg: CSSObject['background'];
+  // FIXME: zIndexXxxx 统一提到一个地方
+  zIndexTableFixed: number;
 }
 
 const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
@@ -155,7 +159,9 @@ export default genComponentStyleHook('Table', token => {
     tableRowHoverBg: token.colorBgComponentSecondary,
     tableSelectedRowBg,
     tableSelectedRowHoverBg: new TinyColor(tableSelectedRowBg).darken(2).toString(),
+    // FIXME: missing token
+    zIndexTableFixed: 2,
   });
 
-  return [genTableStyle(tableToken)];
+  return [genTableStyle(tableToken), genPagniationStyle(tableToken), genSummaryStyle(tableToken)];
 });
