@@ -1,5 +1,6 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
+import { TinyColor } from '@ctrl/tinycolor';
 import type { GenerateStyle, FullToken } from '../../_util/theme';
 import { resetComponent, clearFix, genComponentStyleHook, mergeToken } from '../../_util/theme';
 
@@ -15,10 +16,14 @@ interface TableToken extends FullToken<'Table'> {
   tableFooterTextColor: CSSObject['color'];
   tableFooterBg: CSSObject['background'];
   tableHeaderCellSplitColor: CSSObject['border-color'];
+  tableRowHoverBg: CSSObject['background'];
+  tableSelectedRowBg: CSSObject['background'];
+  tableSelectedRowHoverBg: CSSObject['background'];
 }
 
 const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
   const { componentCls } = token;
+  const tableBorder = `${token.controlLineWidth}px ${token.controlLineType} ${token.tableBorderColor}`;
   return {
     [`${componentCls}-wrapper`]: {
       clear: 'both',
@@ -46,7 +51,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
           ${componentCls}-thead > tr > th,
           ${componentCls}-tbody > tr > td,
           tfoot > tr > th,
-          tfoot > tr > td,
+          tfoot > tr > td
         `]: {
           position: 'relative',
           padding: `${token.tablePaddingVertical}px ${token.tablePaddingHorizontal}px`,
@@ -66,7 +71,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
             fontWeight: 500,
             textAlign: 'left',
             background: token.tableHeaderBg,
-            borderBottom: `${token.controlLineWidth}px ${token.controlLineType} ${token.tableBorderColor}`,
+            borderBottom: tableBorder,
             transition: `background ${token.motionDurationSlow} ease`,
 
             "&[colspan]:not([colspan='1'])": {
@@ -92,6 +97,33 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
           },
         },
 
+        // ============================ Body ============================
+        [`${componentCls}-tbody`]: {
+          '> tr': {
+            '> td': {
+              borderBottom: tableBorder,
+              transition: `background ${token.motionDurationSlow}`,
+            },
+
+            [`&${componentCls}-row:hover > td,
+      > td${componentCls}-cell-row-hover`]: {
+              background: token.tableRowHoverBg,
+            },
+
+            [`&${componentCls}-row-selected`]: {
+              '> td': {
+                background: token.tableSelectedRowBg,
+                // FIXME
+                borderColor: 'rgba(0, 0, 0, 0.03)',
+              },
+
+              '&:hover > td': {
+                background: token.tableSelectedRowHoverBg,
+              },
+            },
+          },
+        },
+
         // ============================ Footer ============================
         [`${componentCls}-footer`]: {
           padding: `${token.tablePaddingVertical}px ${token.tablePaddingHorizontal}px`,
@@ -106,6 +138,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
 // ============================== Export ==============================
 export default genComponentStyleHook('Table', token => {
   // FIXME: missing token
+  const tableSelectedRowBg = token.controlItemBgActive;
   const tableToken = mergeToken<TableToken>(token, {
     tableFontSize: token.fontSizeBase,
     tableBg: token.colorBgComponent,
@@ -119,6 +152,9 @@ export default genComponentStyleHook('Table', token => {
     tableFooterBg: token.colorBgComponentSecondary,
     // FIXME: missing token
     tableHeaderCellSplitColor: 'rgba(0, 0, 0, 0.06)',
+    tableRowHoverBg: token.colorBgComponentSecondary,
+    tableSelectedRowBg,
+    tableSelectedRowHoverBg: new TinyColor(tableSelectedRowBg).darken(2).toString(),
   });
 
   return [genTableStyle(tableToken)];
