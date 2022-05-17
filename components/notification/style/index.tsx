@@ -199,7 +199,7 @@ const genNotificationStyle: GenerateStyle<NotificationToken, CSSObject> = token 
         },
 
         '&-btn': {
-          float: 'inline-end',
+          float: 'right',
           marginTop: 16, // FIXME: hardcode in v4
         },
       },
@@ -256,6 +256,10 @@ const genNotificationStyle: GenerateStyle<NotificationToken, CSSObject> = token 
       // RTL
       '&-rtl': {
         direction: 'rtl',
+
+        [`${componentCls}-notice-btn`]: {
+          float: 'left',
+        },
       },
     },
   };
