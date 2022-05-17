@@ -16,48 +16,58 @@ The Drawer can appear from any edge of the screen.
 ```jsx
 import { Drawer, Button, Radio, Space } from 'antd';
 
-export default () => {
-  const [visible, setVisible] = React.useState(false);
-  const [placement, setPlacement] = React.useState('left');
+class App extends React.Component {
+  state = { visible: false, placement: 'left' };
 
-  const showDrawer = () => {
-    setVisible(true);
+  showDrawer = () => {
+    this.setState({
+      visible: true,
+    });
   };
 
-  const onClose = () => {
-    setVisible(false);
+  onClose = () => {
+    this.setState({
+      visible: false,
+    });
   };
 
-  const onChange = e => {
-    setPlacement(e.target.value);
+  onChange = e => {
+    this.setState({
+      placement: e.target.value,
+    });
   };
 
-  return (
-    <>
-      <Space>
-        <Radio.Group value={placement} onChange={onChange}>
-          <Radio value="top">top</Radio>
-          <Radio value="right">right</Radio>
-          <Radio value="bottom">bottom</Radio>
-          <Radio value="left">left</Radio>
-        </Radio.Group>
-        <Button type="primary" onClick={showDrawer}>
-          Open
-        </Button>
-      </Space>
-      <Drawer
-        title="Basic Drawer"
-        placement={placement}
-        closable={false}
-        onClose={onClose}
-        visible={visible}
-        key={placement}
-      >
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-      </Drawer>
-    </>
-  );
-};
+  render() {
+    const { placement, visible } = this.state;
+    return (
+      <>
+        <Space>
+          <Radio.Group value={placement} onChange={this.onChange}>
+            <Radio value="top">top</Radio>
+            <Radio value="right">right</Radio>
+            <Radio value="bottom">bottom</Radio>
+            <Radio value="left">left</Radio>
+          </Radio.Group>
+          <Button type="primary" onClick={this.showDrawer}>
+            Open
+          </Button>
+        </Space>
+        <Drawer
+          title="Basic Drawer"
+          placement={placement}
+          closable={false}
+          onClose={this.onClose}
+          visible={visible}
+          key={placement}
+        >
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+        </Drawer>
+      </>
+    );
+  }
+}
+
+export default App;
 ```
