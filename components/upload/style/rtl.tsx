@@ -1,7 +1,8 @@
-import type { GenerateStyle, FullToken } from '../../_util/theme';
+import type { UploadToken } from '.';
+import type { GenerateStyle } from '../../_util/theme';
 
 // =========================== Motion ===========================
-const genRtlStyle: GenerateStyle<FullToken<'Upload'>> = token => {
+const genRtlStyle: GenerateStyle<UploadToken> = token => {
   const { componentCls } = token;
 
   return {
