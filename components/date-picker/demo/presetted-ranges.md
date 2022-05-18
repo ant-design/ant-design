@@ -20,8 +20,12 @@ import moment from 'moment';
 const { RangePicker } = DatePicker;
 
 function onChange(dates, dateStrings) {
-  console.log('From: ', dates[0], ', to: ', dates[1]);
-  console.log('From: ', dateStrings[0], ', to: ', dateStrings[1]);
+  if (dates) {
+    console.log('From: ', dates[0], ', to: ', dates[1]);
+    console.log('From: ', dateStrings[0], ', to: ', dateStrings[1]);
+  } else {
+    console.log('Clear');
+  }
 }
 
 export default () => (
