@@ -167,6 +167,10 @@ export interface SeedToken extends PresetColorType {
   zIndexBase: number;
   /** Base popup component zIndex */
   zIndexPopupBase: number;
+
+  // Image
+  /** Define default Image opacity. Useful when in dark-like theme */
+  imgOpacity: number;
 }
 
 // ======================================================================
@@ -348,6 +352,7 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   marginSM: number;
   marginLG: number;
   marginXL: number;
+  marginXXL: number;
 
   // Media queries breakpoints
   screenXS: number;
