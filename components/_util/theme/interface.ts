@@ -167,6 +167,10 @@ export interface SeedToken extends PresetColorType {
   zIndexBase: number;
   /** Base popup component zIndex */
   zIndexPopupBase: number;
+
+  // Image
+  /** Define default Image opacity. Useful when in dark-like theme */
+  imgOpacity: number;
 }
 
 // ======================================================================

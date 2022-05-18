@@ -13,62 +13,6 @@ interface EmptyToken extends FullToken<'Empty'> {
   emptyImgHeightMD: number;
 }
 
-const genEmptyImgStyle = (token: EmptyToken): CSSObject => {
-  const { emptyImgCls } = token;
-  const emptyImgDefaultCls = `${emptyImgCls}-default`;
-  const emptyImgSimpleCls = `${emptyImgCls}-simple`;
-
-  return {
-    // FIXME: have not theme
-    // just light, lost dark theme
-    [emptyImgDefaultCls]: {
-      '&-ellipse': {
-        fill: '#f5f5f5',
-        fillOpacity: '0.8',
-      },
-
-      '&-path': {
-        '&-1': {
-          fill: '#aeb8c2',
-        },
-
-        '&-2': {
-          fill: "url('#linearGradient-1')",
-        },
-
-        '&-3': {
-          fill: '#f5f5f7',
-        },
-
-        '&-4': {
-          fill: '#dce0e6',
-        },
-
-        '&-5': {
-          fill: '#dce0e6',
-        },
-      },
-
-      '&-g': {
-        fill: '#ffffff',
-      },
-    },
-    [emptyImgSimpleCls]: {
-      '&-ellipse': {
-        fill: '#f5f5f5',
-      },
-
-      '&-g': {
-        stroke: '#d9d9d9',
-      },
-
-      '&-path': {
-        fill: '#fafafa',
-      },
-    },
-  };
-};
-
 // ============================== Shared ==============================
 const genSharedEmptyStyle: GenerateStyle<EmptyToken> = (token): CSSObject => {
   const { componentCls, margin, marginXS, marginXL, fontSizeBase, lineHeight } = token;
@@ -84,6 +28,7 @@ const genSharedEmptyStyle: GenerateStyle<EmptyToken> = (token): CSSObject => {
       [`${componentCls}-image`]: {
         height: token.emptyImgHeight,
         marginBottom: marginXS,
+        opacity: token.imgOpacity,
 
         img: {
           height: '100%',
@@ -117,8 +62,6 @@ const genSharedEmptyStyle: GenerateStyle<EmptyToken> = (token): CSSObject => {
           height: token.emptyImgHeightSM,
         },
       },
-
-      ...genEmptyImgStyle(token),
     },
   };
 };
@@ -134,5 +77,5 @@ export default genComponentStyleHook('Empty', token => {
     emptyImgHeightSM: controlHeightLG * 0.875,
   });
 
-  return [genSharedEmptyStyle(emptyToken), genEmptyImgStyle(emptyToken)];
+  return [genSharedEmptyStyle(emptyToken)];
 });
