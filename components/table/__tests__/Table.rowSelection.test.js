@@ -218,7 +218,7 @@ describe('Table.rowSelection', () => {
       .simulate('change', { target: { checked: true } });
 
     expect(handleChange).toHaveBeenCalledWith([3], [{ key: 3, name: 'Jerry' }], {
-      method: 'single',
+      type: 'single',
     });
     expect(handleSelect.mock.calls.length).toBe(1);
     expect(handleSelect.mock.calls[0][0]).toEqual({ key: 3, name: 'Jerry' });
@@ -255,7 +255,7 @@ describe('Table.rowSelection', () => {
       });
     expect(handleSelect).toHaveBeenCalled();
     expect(handleChange).toHaveBeenLastCalledWith([0], [{ key: 0, name: 'Jack' }], {
-      method: 'single',
+      type: 'single',
     });
 
     wrapper
@@ -277,7 +277,7 @@ describe('Table.rowSelection', () => {
         { key: 1, name: 'Lucy' },
         { key: 2, name: 'Tom' },
       ],
-      { method: 'multiple' },
+      { type: 'multiple' },
     );
 
     wrapper
@@ -288,7 +288,7 @@ describe('Table.rowSelection', () => {
         nativeEvent: { shiftKey: true },
       });
     expect(handleSelectMulti).toHaveBeenCalledWith(false, [], [data[0], data[1], data[2]]);
-    expect(handleChange).toHaveBeenLastCalledWith([], [], { method: 'multiple' });
+    expect(handleChange).toHaveBeenLastCalledWith([], [], { type: 'multiple' });
 
     expect(order).toEqual([
       'onSelect',
