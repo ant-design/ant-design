@@ -1,6 +1,7 @@
 import * as React from 'react';
 import RcRate from 'rc-rate';
 import StarFilled from '@ant-design/icons/StarFilled';
+import type { StarProps } from 'rc-rate/lib/Star';
 
 import Tooltip from '../tooltip';
 import { ConfigContext } from '../config-provider';
@@ -16,7 +17,7 @@ export interface RateProps {
   tooltips?: Array<string>;
   onChange?: (value: number) => void;
   onHoverChange?: (value: number) => void;
-  character?: React.ReactNode;
+  character?: React.ReactNode | ((props: StarProps) => React.ReactNode);
   className?: string;
   style?: React.CSSProperties;
 }
