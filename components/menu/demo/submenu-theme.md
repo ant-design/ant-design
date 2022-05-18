@@ -17,7 +17,7 @@ You can config SubMenu theme with `theme` prop to enable different theme color e
 import React, { useState } from 'react';
 import { Menu, Switch } from 'antd';
 import { MailOutlined } from '@ant-design/icons';
-import type { MenuProps } from 'antd';
+import type { MenuTheme, MenuProps } from 'antd';
 
 type MenuItem = Required<MenuProps>['items'][number];
 

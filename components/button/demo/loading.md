@@ -21,7 +21,7 @@ import { PoweroffOutlined } from '@ant-design/icons';
 const App: React.FC = () => {
   const [loadings, setLoadings] = useState<boolean[]>([]);
 
-  const enterLoading = index => {
+  const enterLoading = (index: number) => {
     setLoadings(prevLoadings => {
       const newLoadings = [...prevLoadings];
       newLoadings[index] = true;
