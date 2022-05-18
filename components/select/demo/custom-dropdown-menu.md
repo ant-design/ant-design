@@ -13,7 +13,7 @@ title:
 
 Customize the dropdown menu via `dropdownRender`. Dropdown menu will be closed if click `dropdownRender` area, you can prevent it by wrapping `onMouseDown={e => e.preventDefault()}` (see more at [#13448](https://github.com/ant-design/ant-design/issues/13448)).
 
-```jsx
+```tsx
 import React, { useState } from 'react';
 import { Select, Divider, Input, Typography, Space } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
@@ -26,11 +26,11 @@ const App = () => {
   const [items, setItems] = useState(['jack', 'lucy']);
   const [name, setName] = useState('');
 
-  const onNameChange = event => {
+  const onNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
   };
 
-  const addItem = e => {
+  const addItem = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     setItems([...items, name || `New item ${index++}`]);
     setName('');

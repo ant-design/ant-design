@@ -13,7 +13,8 @@ title:
 
 The simplest usage.
 
-```jsx
+```tsx
+import React from 'react';
 import { Rate } from 'antd';
 
 export default () => <Rate />;

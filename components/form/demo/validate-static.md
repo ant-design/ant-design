@@ -22,6 +22,7 @@ We provide properties like `validateStatus` `help` `hasFeedback` to customize yo
 3. `help`: display validate message.
 
 ```tsx
+import React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
 import {
   Form,

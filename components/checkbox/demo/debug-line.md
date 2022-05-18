@@ -15,6 +15,7 @@ debug: true
 Same line
 
 ```tsx
+import React from 'react';
 import { Checkbox, Radio, Space } from 'antd';
 
 const sharedStyle: React.CSSProperties = {

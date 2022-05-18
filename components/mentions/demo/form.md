@@ -14,6 +14,7 @@ title:
 Controlled mode, for example, to work with `Form`.
 
 ```tsx
+import React from 'react';
 import { Mentions, Form, Button } from 'antd';
 
 const { Option, getMentions } = Mentions;

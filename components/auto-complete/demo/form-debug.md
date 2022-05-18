@@ -7,6 +7,7 @@ debug: true
 ---
 
 ```tsx
+import React from 'react';
 import { Input, AutoComplete, Form, TreeSelect, Button } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 

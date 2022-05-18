@@ -13,12 +13,14 @@ title:
 
 Generate a group of checkboxes from an array.
 
-```jsx
+```tsx
+import React from 'react';
 import { Checkbox } from 'antd';
+import type { CheckboxValueType } from 'antd/es/checkbox/Group';
 
-function onChange(checkedValues) {
+const onChange = (checkedValues: CheckboxValueType[]) => {
   console.log('checked = ', checkedValues);
-}
+};
 
 const plainOptions = ['Apple', 'Pear', 'Orange'];
 const options = [

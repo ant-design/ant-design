@@ -13,7 +13,8 @@ title:
 
 Mark a pending state of switch.
 
-```jsx
+```tsx
+import React from 'react';
 import { Switch } from 'antd';
 
 export default () => (
