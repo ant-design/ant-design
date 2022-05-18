@@ -152,7 +152,7 @@ export interface TableRowSelection<T> {
   type?: RowSelectionType;
   selectedRowKeys?: Key[];
   defaultSelectedRowKeys?: Key[];
-  onChange?: (selectedRowKeys: Key[], selectedRows: T[], info: { method: RowSelectMethod }) => void;
+  onChange?: (selectedRowKeys: Key[], selectedRows: T[], info: { type: RowSelectMethod }) => void;
   getCheckboxProps?: (record: T) => Partial<Omit<CheckboxProps, 'checked' | 'defaultChecked'>>;
   onSelect?: SelectionSelectFn<T>;
   /** @deprecated This function is deprecated and should use `onChange` instead */

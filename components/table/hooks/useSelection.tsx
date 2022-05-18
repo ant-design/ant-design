@@ -244,7 +244,7 @@ export default function useSelection<RecordType>(
 
       setMergedSelectedKeys(availableKeys);
 
-      onSelectionChange?.(availableKeys, records, { method });
+      onSelectionChange?.(availableKeys, records, { type: method });
     },
     [setMergedSelectedKeys, getRecordByKey, onSelectionChange, preserveSelectedRowKeys],
   );
