@@ -71,7 +71,7 @@ const genEmptyImgStyle = (token: EmptyToken): CSSObject => {
 
 // ============================== Shared ==============================
 const genSharedEmptyStyle: GenerateStyle<EmptyToken> = (token): CSSObject => {
-  const { componentCls, marginXS, fontSizeBase, lineHeight } = token;
+  const { componentCls, margin, marginXS, fontSizeBase, lineHeight } = token;
 
   return {
     [componentCls]: {
@@ -97,11 +97,11 @@ const genSharedEmptyStyle: GenerateStyle<EmptyToken> = (token): CSSObject => {
 
       // 原来 &-footer 没有父子结构，现在为了外层承担我们的hashId，改成父子结果
       [`${componentCls}-footer`]: {
-        marginTop: marginXS * 2,
+        marginTop: margin,
       },
 
       '&-normal': {
-        marginBlock: marginXS * 4,
+        marginBlock: margin * 2,
         color: token.colorTextDisabled,
 
         [`${componentCls}-image`]: {
