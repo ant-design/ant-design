@@ -8,7 +8,7 @@ import type { Locale } from '../locale-provider';
 const typeTemplate: string = '${label} ${type} görnüşinde däl';
 
 const localeValues: Locale = {
-  locale: 'ru',
+  locale: 'tk',
   Pagination,
   DatePicker,
   TimePicker,
