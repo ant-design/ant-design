@@ -13,7 +13,7 @@ title:
 
 Basic modal.
 
-```jsx
+```tsx
 import React, { useState } from 'react';
 import { Modal, Button } from 'antd';
 

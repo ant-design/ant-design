@@ -17,11 +17,13 @@ Smoothly unmount Alert upon close.
 import React, { useState } from 'react';
 import { Alert } from 'antd';
 
-const App: React.FC = () => {
+const App = () => {
   const [visible, setVisible] = useState(true);
+
   const handleClose = () => {
     setVisible(false);
   };
+
   return (
     <div>
       {visible ? (

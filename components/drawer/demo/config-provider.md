@@ -18,15 +18,18 @@ config by ConfigProvider.
 import React, { useState, useRef } from 'react';
 import { Drawer, ConfigProvider, Button } from 'antd';
 
-const App: React.FC = () => {
+const App = () => {
   const domRef = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+
   const showDrawer = () => {
     setVisible(true);
   };
+
   const onClose = () => {
     setVisible(false);
   };
+
   return (
     <ConfigProvider getPopupContainer={() => domRef.current!}>
       <div ref={domRef} className="site-drawer-render-in-current-wrapper">
