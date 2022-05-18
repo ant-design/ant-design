@@ -16,51 +16,41 @@ Passing `okButtonProps` and `cancelButtonProps` will customize the OK button and
 ```jsx
 import { Modal, Button } from 'antd';
 
-class App extends React.Component {
-  state = { visible: false };
+export default () => {
+  const [visible, setVisible] = React.useState(false);
 
-  showModal = () => {
-    this.setState({
-      visible: true,
-    });
+  const showModal = () => {
+    setVisible(true);
   };
 
-  handleOk = e => {
+  const handleOk = e => {
     console.log(e);
-    this.setState({
-      visible: false,
-    });
+    setVisible(false);
   };
 
-  handleCancel = e => {
+  const handleCancel = e => {
     console.log(e);
-    this.setState({
-      visible: false,
-    });
+    setVisible(false);
   };
 
-  render() {
-    return (
-      <>
-        <Button type="primary" onClick={this.showModal}>
-          Open Modal with customized button props
-        </Button>
-        <Modal
-          title="Basic Modal"
-          visible={this.state.visible}
-          onOk={this.handleOk}
-          onCancel={this.handleCancel}
-          okButtonProps={{ disabled: true }}
-          cancelButtonProps={{ disabled: true }}
-        >
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-        </Modal>
-      </>
-    );
-  }
-}
-
-export default App;
+  return (
+    <>
+      <Button type="primary" onClick={showModal}>
+        Open Modal with customized button props
+      </Button>
+      <Modal
+        title="Basic Modal"
+        visible={visible}
+        onOk={handleOk}
+        onCancel={handleCancel}
+        okButtonProps={{ disabled: true }}
+        cancelButtonProps={{ disabled: true }}
+      >
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+      </Modal>
+    </>
+  );
+};
 ```
