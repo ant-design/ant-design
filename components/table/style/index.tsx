@@ -5,6 +5,17 @@ import type { GenerateStyle, FullToken } from '../../_util/theme';
 import { resetComponent, clearFix, genComponentStyleHook, mergeToken } from '../../_util/theme';
 import genPagniationStyle from './pagination';
 import genSummaryStyle from './summary';
+import genSorterStyle from './sorter';
+import genFilterStyle from './filter';
+import genBorderedStyle from './bordered';
+import genRadiusStyle from './radius';
+import genExpandStyle from './expand';
+import genSelectionStyle from './selection';
+import genFixedStyle from './fixed';
+import genStickyStyle from './sticky';
+import genEllipsisStyle from './ellipsis';
+import genSizeStyle from './size';
+import genRtlStyle from './rtl';
 
 export interface TableToken extends FullToken<'Table'> {
   tableFontSize: number;
@@ -107,10 +118,30 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
             '> td': {
               borderBottom: tableBorder,
               transition: `background ${token.motionDurationSlow}`,
+
+              // ========================= Nest Table ===========================
+              [`
+                > ${componentCls}-wrapper:only-child,
+                > ${componentCls}-expanded-row-fixed > ${componentCls}-wrapper:only-child
+              `]: {
+                [componentCls]: {
+                  margin: `-${token.tablePaddingVertical}px -${token.tablePaddingHorizontal}px -${
+                    token.tablePaddingVertical
+                  }px ${token.tablePaddingHorizontal + Math.ceil(token.fontSizeSM * 1.4)}px`,
+                  [`${componentCls}-tbody > tr:last-child > td`]: {
+                    borderBottom: 0,
+                    '&:first-child, &:last-child': {
+                      borderRadius: 0,
+                    },
+                  },
+                },
+              },
             },
 
-            [`&${componentCls}-row:hover > td,
-      > td${componentCls}-cell-row-hover`]: {
+            [`
+              &${componentCls}-row:hover > td,
+              > td${componentCls}-cell-row-hover
+            `]: {
               background: token.tableRowHoverBg,
             },
 
@@ -163,5 +194,21 @@ export default genComponentStyleHook('Table', token => {
     zIndexTableFixed: 2,
   });
 
-  return [genTableStyle(tableToken), genPagniationStyle(tableToken), genSummaryStyle(tableToken)];
+  return [
+    genTableStyle(tableToken),
+    genPagniationStyle(tableToken),
+    genSummaryStyle(tableToken),
+    genSorterStyle(tableToken),
+    genFilterStyle(tableToken),
+    genBorderedStyle(tableToken),
+    genRadiusStyle(tableToken),
+    genExpandStyle(tableToken),
+    genSummaryStyle(tableToken),
+    genSelectionStyle(tableToken),
+    genFixedStyle(tableToken),
+    genStickyStyle(tableToken),
+    genEllipsisStyle(tableToken),
+    genSizeStyle(tableToken),
+    genRtlStyle(tableToken),
+  ];
 });
