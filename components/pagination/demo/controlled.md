@@ -16,22 +16,14 @@ Controlled page number.
 ```jsx
 import { Pagination } from 'antd';
 
-class App extends React.Component {
-  state = {
-    current: 3,
-  };
+export default () => {
+  const [current, setCurrent] = React.useState(3);
 
-  onChange = page => {
+  const onChange = page => {
     console.log(page);
-    this.setState({
-      current: page,
-    });
+    setCurrent(page);
   };
 
-  render() {
-    return <Pagination current={this.state.current} onChange={this.onChange} total={50} />;
-  }
-}
-
-export default App;
+  return <Pagination current={current} onChange={onChange} total={50} />;
+};
 ```
