@@ -483,7 +483,7 @@ describe('Table.rowSelection', () => {
       wrapper.find('Trigger').setState({ popupVisible: true });
       wrapper.find('li.ant-dropdown-menu-item').first().simulate('click');
 
-      expect(onChange).toHaveBeenCalledWith([0, 2], expect.anything(), { method: 'all' });
+      expect(onChange).toHaveBeenCalledWith([0, 2], expect.anything(), { type: 'all' });
     });
 
     it('SELECTION_INVERT', () => {
@@ -503,7 +503,7 @@ describe('Table.rowSelection', () => {
       wrapper.find('Trigger').setState({ popupVisible: true });
       wrapper.find('li.ant-dropdown-menu-item').first().simulate('click');
 
-      expect(onChange).toHaveBeenCalledWith([0], expect.anything(), { method: 'invert' });
+      expect(onChange).toHaveBeenCalledWith([0], expect.anything(), { type: 'invert' });
     });
 
     it('SELECTION_NONE', () => {
@@ -523,7 +523,7 @@ describe('Table.rowSelection', () => {
       wrapper.find('Trigger').setState({ popupVisible: true });
       wrapper.find('li.ant-dropdown-menu-item').first().simulate('click');
 
-      expect(onChange).toHaveBeenCalledWith([1], expect.anything(), { method: 'none' });
+      expect(onChange).toHaveBeenCalledWith([1], expect.anything(), { type: 'none' });
     });
   });
 
@@ -896,13 +896,13 @@ describe('Table.rowSelection', () => {
     );
     const checkboxes = wrapper.find('input');
     checkboxes.at(2).simulate('change', { target: { checked: true } });
-    expect(onChange).toHaveBeenLastCalledWith([11], [newDatas[0].list[0]], { method: 'single' });
+    expect(onChange).toHaveBeenLastCalledWith([11], [newDatas[0].list[0]], { type: 'single' });
     onChange.mockReset();
 
     checkboxes.at(1).simulate('change', { target: { checked: true } });
     const item0 = newDatas[0];
     expect(onChange).toHaveBeenLastCalledWith([11, 1], [newDatas[0].list[0], item0], {
-      method: 'single',
+      type: 'single',
     });
   });
 
@@ -1396,14 +1396,14 @@ describe('Table.rowSelection', () => {
         .find('tbody input')
         .first()
         .simulate('change', { target: { checked: true } });
-      expect(onChange).toHaveBeenCalledWith(['light'], [{ name: 'light' }], { method: 'single' });
+      expect(onChange).toHaveBeenCalledWith(['light'], [{ name: 'light' }], { type: 'single' });
 
       wrapper.setProps({ dataSource: [{ name: 'bamboo' }] });
       wrapper
         .find('tbody input')
         .first()
         .simulate('change', { target: { checked: true } });
-      expect(onChange).toHaveBeenCalledWith(['bamboo'], [{ name: 'bamboo' }], { method: 'single' });
+      expect(onChange).toHaveBeenCalledWith(['bamboo'], [{ name: 'bamboo' }], { type: 'single' });
     });
 
     it('cache with preserveSelectedRowKeys', () => {
@@ -1420,7 +1420,7 @@ describe('Table.rowSelection', () => {
         .find('tbody input')
         .first()
         .simulate('change', { target: { checked: true } });
-      expect(onChange).toHaveBeenCalledWith(['light'], [{ name: 'light' }], { method: 'single' });
+      expect(onChange).toHaveBeenCalledWith(['light'], [{ name: 'light' }], { type: 'single' });
 
       wrapper.setProps({ dataSource: [{ name: 'bamboo' }] });
       wrapper
@@ -1430,7 +1430,7 @@ describe('Table.rowSelection', () => {
       expect(onChange).toHaveBeenCalledWith(
         ['light', 'bamboo'],
         [{ name: 'light' }, { name: 'bamboo' }],
-        { method: 'single' },
+        { type: 'single' },
       );
     });
 
@@ -1450,7 +1450,7 @@ describe('Table.rowSelection', () => {
         .find('tbody input')
         .first()
         .simulate('change', { target: { checked: true } });
-      expect(onChange).toHaveBeenCalledWith(['Jack'], [{ name: 'Jack' }], { method: 'single' });
+      expect(onChange).toHaveBeenCalledWith(['Jack'], [{ name: 'Jack' }], { type: 'single' });
     });
 
     it('works with selectionType radio receive selectedRowKeys from [] to undefined', () => {
@@ -1469,7 +1469,7 @@ describe('Table.rowSelection', () => {
         .find('tbody input')
         .first()
         .simulate('change', { target: { checked: true } });
-      expect(onChange).toHaveBeenCalledWith(['Jack'], [{ name: 'Jack' }], { method: 'single' });
+      expect(onChange).toHaveBeenCalledWith(['Jack'], [{ name: 'Jack' }], { type: 'single' });
     });
 
     it('selectedRows ant selectedKeys should keep sync in initial state', () => {
@@ -1505,7 +1505,7 @@ describe('Table.rowSelection', () => {
       expect(onChange).toHaveBeenCalledWith(
         ['Jack', 'Lucy'],
         [{ name: 'Jack' }, { name: 'Lucy' }],
-        { method: 'single' },
+        { type: 'single' },
       );
     });
   });
