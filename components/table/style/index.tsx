@@ -20,7 +20,7 @@ import genRtlStyle from './rtl';
 export interface TableToken extends FullToken<'Table'> {
   tableFontSize: number;
   tableBg: CSSObject['background'];
-  tableRadius: CSSObject['border-radius'];
+  tableRadius: number;
   tablePaddingHorizontal: number;
   tablePaddingVertical: number;
   tableBorderColor: CSSObject['border-color'];
