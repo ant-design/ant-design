@@ -339,7 +339,6 @@ Array [
     >
       <div
         class="ant-row"
-        role="row"
       >
         <div
           class="ant-statistic"
@@ -740,7 +739,6 @@ exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
   >
     <div
       class="ant-row"
-      role="row"
     >
       <div
         style="flex:1"
