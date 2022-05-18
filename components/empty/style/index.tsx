@@ -71,7 +71,7 @@ const genEmptyImgStyle = (token: EmptyToken): CSSObject => {
 
 // ============================== Shared ==============================
 const genSharedEmptyStyle: GenerateStyle<EmptyToken> = (token): CSSObject => {
-  const { componentCls, margin, marginXS, fontSizeBase, lineHeight } = token;
+  const { componentCls, margin, marginXS, marginXL, fontSizeBase, lineHeight } = token;
 
   return {
     [componentCls]: {
@@ -101,7 +101,7 @@ const genSharedEmptyStyle: GenerateStyle<EmptyToken> = (token): CSSObject => {
       },
 
       '&-normal': {
-        marginBlock: margin * 2,
+        marginBlock: marginXL,
         color: token.colorTextDisabled,
 
         [`${componentCls}-image`]: {
