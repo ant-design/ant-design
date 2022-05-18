@@ -4,68 +4,65 @@ import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/t
 import type { GenerateStyle, FullToken } from '../../_util/theme';
 
 export interface ComponentToken {}
+
 interface AnchorToken extends FullToken<'Anchor'> {
-  anchorLinkTop: number;
-  anchorLinkLeft: number;
+  holderOffsetBlock: number;
+  anchorPaddingBlock: number;
+  anchorPaddingBlockSecondary: number;
+  anchorPaddingInline: number;
+  anchorLineHeight: number;
+  anchorBallSize: number;
+  anchorTitleBlock: number;
 }
 
 // ============================== Shared ==============================
 const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
-  const { componentCls } = token;
+  const { componentCls, holderOffsetBlock, anchorBallSize, lineWidthBold } = token;
 
   return {
     [`${componentCls}-wrapper`]: {
-      // FIX ME
-      marginBlockStart: -4,
-      // FIX ME
-      paddingBlockStart: 4,
+      marginBlockStart: -holderOffsetBlock,
+      paddingBlockStart: holderOffsetBlock,
 
       // delete overflow: auto
       // overflow: 'auto',
 
-      // @anchor-bg
       backgroundColor: 'transparent',
 
       [componentCls]: {
         ...resetComponent(token),
         position: 'relative',
-        // FIX ME @anchor-border-width
-        paddingInlineStart: 2,
+        paddingInlineStart: lineWidthBold,
 
         [`${componentCls}-ink`]: {
           position: 'absolute',
-          // top: 0
           insetBlockStart: 0,
-          // left: 0
           insetInlineStart: 0,
           height: '100%',
 
           '&::before': {
             position: 'relative',
             display: 'block',
-            // FIX ME
-            width: 2,
+            width: lineWidthBold,
             height: '100%',
             margin: '0 auto',
-            // FIX ME @border-color-split
-            backgroundColor: 'rgba(0, 0, 0, 0.06)',
+            backgroundColor: token.colorBorderSecondary,
             content: '" "',
           },
         },
 
         [`${componentCls}-ink-ball`]: {
           position: 'absolute',
-          // left 50%
-          insetInlineStart: '50%',
+          left: {
+            _skip_check_: true,
+            value: '50%',
+          },
           display: 'none',
-          // FIX ME
-          width: 8,
-          // FIX ME
-          height: 8,
-          // FIX '@component-background'
-          backgroundColor: '#fff',
-          border: `2px solid ${token.colorPrimary}`,
-          borderRadius: 8,
+          width: anchorBallSize,
+          height: anchorBallSize,
+          backgroundColor: token.colorBgComponent,
+          border: `${lineWidthBold}px solid ${token.colorPrimary}`,
+          borderRadius: anchorBallSize,
           transform: 'translateX(-50%)',
           transition: `top ${token.motionDurationSlow} ease-in-out`,
 
@@ -75,21 +72,19 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
         },
 
         [`${componentCls}-link`]: {
-          // FIX ME @anchor-link-padding
-          paddingBlock: token.anchorLinkTop,
-          paddingInline: `${token.anchorLinkLeft}px 0`,
-          lineHeight: '1.143',
+          paddingBlock: token.anchorPaddingBlock,
+          paddingInline: `${token.anchorPaddingInline}px 0`,
+          lineHeight: token.anchorLineHeight,
 
           '&-title': {
             position: 'relative',
             display: 'block',
-            // FIX ME margin-bottom
-            marginBlockEnd: 6,
+            marginBlockEnd: token.anchorTitleBlock,
             overflow: 'hidden',
             color: token.colorText,
             whiteSpace: 'nowrap',
             textOverflow: 'ellipsis',
-            transition: `all ${token.motionDurationSlow}s`,
+            transition: `all ${token.motionDurationSlow}`,
 
             '&:only-child': {
               marginBlockEnd: 0,
@@ -102,7 +97,7 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
 
           // link link
           [`${componentCls}-link`]: {
-            paddingBlock: 5,
+            paddingBlock: token.anchorPaddingBlockSecondary,
           },
         },
       },
@@ -116,9 +111,25 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Anchor', token => {
+  const { controlHeight, controlLineWidth, fontSize, lineHeight, fontSizeLG, padding, paddingXXS } =
+    token;
+  const linkHeight = controlHeight - 2 * controlLineWidth;
+  const anchorLineHeight = fontSizeLG / fontSize; // Anchor is special that use less height
+  const paddingBlock = Math.round(linkHeight - fontSizeLG) / 2;
+
+  // Still a magic number: 22 - 16
+  const titleBlock = Math.round(fontSize * lineHeight - fontSizeLG);
+
+  const paddingBlockSecondary = Math.round(linkHeight - paddingXXS - fontSizeLG) / 2;
+
   const anchorToken = mergeToken<AnchorToken>(token, {
-    anchorLinkTop: 7,
-    anchorLinkLeft: 16,
+    holderOffsetBlock: paddingXXS,
+    anchorPaddingBlock: paddingBlock,
+    anchorPaddingBlockSecondary: paddingBlockSecondary,
+    anchorPaddingInline: padding,
+    anchorLineHeight,
+    anchorTitleBlock: titleBlock,
+    anchorBallSize: fontSizeLG / 2,
   });
   return [genSharedAnchorStyle(anchorToken)];
 });

@@ -4,7 +4,7 @@ import type { GenerateStyle, FullToken } from '../../_util/theme';
 import { genComponentStyleHook, mergeToken } from '../../_util/theme';
 
 interface AffixToken extends FullToken<'Affix'> {
-  zIndexAffix: number;
+  zIndexPopup: number;
 }
 
 // ============================== Shared ==============================
@@ -14,7 +14,7 @@ const genSharedAffixStyle: GenerateStyle<AffixToken> = (token): CSSObject => {
   return {
     [componentCls]: {
       position: 'fixed',
-      zIndex: token.zIndexAffix,
+      zIndex: token.zIndexPopup,
     },
   };
 };
@@ -22,7 +22,7 @@ const genSharedAffixStyle: GenerateStyle<AffixToken> = (token): CSSObject => {
 // ============================== Export ==============================
 export default genComponentStyleHook('Affix', token => {
   const affixToken = mergeToken<AffixToken>(token, {
-    zIndexAffix: token.zIndexBase + 10,
+    zIndexPopup: token.zIndexBase + 10,
   });
   return [genSharedAffixStyle(affixToken)];
 });
