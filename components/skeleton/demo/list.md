@@ -16,7 +16,8 @@ Use skeleton in list component.
 ```tsx
 import React, { useState } from 'react';
 import { Skeleton, Switch, List, Avatar } from 'antd';
-import Icon, { StarOutlined, LikeOutlined, MessageOutlined } from '@ant-design/icons';
+import { StarOutlined, LikeOutlined, MessageOutlined } from '@ant-design/icons';
+import type Icon from '@ant-design/icons';
 
 interface IconTextProps {
   icon: typeof Icon;
