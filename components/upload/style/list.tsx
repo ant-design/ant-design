@@ -3,7 +3,7 @@ import type { GenerateStyle } from '../../_util/theme';
 import type { UploadToken } from '.';
 
 const genListStyle: GenerateStyle<UploadToken> = token => {
-  const { componentCls, antCls, iconCls, fontSizeBase, lineHeight, lineWidth } = token;
+  const { componentCls, antCls, iconCls, fontSizeBase, lineHeight } = token;
   const itemCls = `${componentCls}-list-item`;
   const actionsCls = `${itemCls}-actions`;
   const actionCls = `${itemCls}-action`;
