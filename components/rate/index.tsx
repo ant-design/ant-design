@@ -17,7 +17,7 @@ export interface RateProps {
   tooltips?: Array<string>;
   onChange?: (value: number) => void;
   onHoverChange?: (value: number) => void;
-  character?: React.ReactNode | ((props: StarProps) => React.ReactNode);
+  character?: StarProps['character'];
   className?: string;
   style?: React.CSSProperties;
 }
