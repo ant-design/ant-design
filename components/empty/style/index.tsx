@@ -1,6 +1,6 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
-import { genComponentStyleHook } from '../../_util/theme';
+import { genComponentStyleHook, mergeToken } from '../../_util/theme';
 import type { GenerateStyle, FullToken } from '../../_util/theme';
 
 /** Component only token. Which will handle additional calculation of alias token */
@@ -8,8 +8,9 @@ export interface ComponentToken {}
 
 interface EmptyToken extends FullToken<'Empty'> {
   emptyImgCls: string;
-  emptyFontSize: number;
-  white: string;
+  emptyImgHeight: number;
+  emptyImgHeightSM: number;
+  emptyImgHeightMD: number;
 }
 
 const genEmptyImgStyle = (token: EmptyToken): CSSObject => {
@@ -18,7 +19,7 @@ const genEmptyImgStyle = (token: EmptyToken): CSSObject => {
   const emptyImgSimpleCls = `${emptyImgCls}-simple`;
 
   return {
-    // FIX ME have not theme
+    // FIXME: have not theme
     // just light, lost dark theme
     [emptyImgDefaultCls]: {
       '&-ellipse': {
@@ -49,8 +50,7 @@ const genEmptyImgStyle = (token: EmptyToken): CSSObject => {
       },
 
       '&-g': {
-        // FIX ME @white
-        fill: token.white,
+        fill: '#ffffff',
       },
     },
     [emptyImgSimpleCls]: {
@@ -71,24 +71,19 @@ const genEmptyImgStyle = (token: EmptyToken): CSSObject => {
 
 // ============================== Shared ==============================
 const genSharedEmptyStyle: GenerateStyle<EmptyToken> = (token): CSSObject => {
-  const { componentCls } = token;
+  const { componentCls, marginXS, fontSizeBase, lineHeight } = token;
 
   return {
     [componentCls]: {
-      // FIX ME
-      margin: '0 8px',
-      // @empty-font-size
-      fontSize: token.emptyFontSize,
-      // '@line-height-base'
-      lineHeight: token.lineHeight,
+      marginInline: marginXS,
+      fontSize: fontSizeBase,
+      lineHeight,
       textAlign: 'center',
 
       // 原来 &-image 没有父子结构，现在为了外层承担我们的hashId，改成父子结果
       [`${componentCls}-image`]: {
-        // FIX ME
-        height: '100px',
-        // FIX ME
-        marginBottom: '8px',
+        height: token.emptyImgHeight,
+        marginBottom: marginXS,
 
         img: {
           height: '100%',
@@ -102,30 +97,24 @@ const genSharedEmptyStyle: GenerateStyle<EmptyToken> = (token): CSSObject => {
 
       // 原来 &-footer 没有父子结构，现在为了外层承担我们的hashId，改成父子结果
       [`${componentCls}-footer`]: {
-        // FIX ME
-        marginTop: '16px',
+        marginTop: marginXS * 2,
       },
 
       '&-normal': {
-        // FIX ME
-        margin: '32px 0',
-        // '@disabled-color'
+        marginBlock: marginXS * 4,
         color: token.colorTextDisabled,
 
         [`${componentCls}-image`]: {
-          // FIX ME
-          height: '40px',
+          height: token.emptyImgHeightMD,
         },
       },
 
       '&-small': {
-        // FIX ME
-        margin: '8px 0',
-        color: '@disabled-color',
+        marginBlock: marginXS,
+        color: token.colorTextDisabled,
 
         [`${componentCls}-image`]: {
-          // FIX ME
-          height: '35px',
+          height: token.emptyImgHeightSM,
         },
       },
 
@@ -136,11 +125,14 @@ const genSharedEmptyStyle: GenerateStyle<EmptyToken> = (token): CSSObject => {
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Empty', token => {
-  const emptyToken: EmptyToken = {
-    ...token,
-    emptyImgCls: `${token.componentCls}-img`,
-    emptyFontSize: token.fontSizeBase,
-    white: '#fff',
-  };
+  const { componentCls, controlHeightLG } = token;
+
+  const emptyToken: EmptyToken = mergeToken<EmptyToken>(token, {
+    emptyImgCls: `${componentCls}-img`,
+    emptyImgHeight: controlHeightLG * 2.5,
+    emptyImgHeightMD: controlHeightLG,
+    emptyImgHeightSM: controlHeightLG * 0.875,
+  });
+
   return [genSharedEmptyStyle(emptyToken), genEmptyImgStyle(emptyToken)];
 });
