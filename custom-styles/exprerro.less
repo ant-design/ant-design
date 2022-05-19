@@ -1,0 +1,74 @@
+@import './_variable';
+@import './form';
+
+//Table style start
+.table-section {
+  .ant-table-thead {
+    > tr {
+      > th {
+        padding: 13px 16px;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 18px;
+        background-color: #ffffff;
+        border: none;
+        box-shadow: inset 0px -2px 0px #e5e7eb;
+      }
+    }
+  }
+  .ant-table-tbody {
+    > tr {
+      > td {
+        // line-height: 18px;
+        padding: 13px 16px;
+        font-weight: 400;
+        font-size: 14px;
+        border: none;
+        box-shadow: inset 0px -1px 0px #e5e7eb;
+      }
+      &.ant-table-row {
+        &:hover {
+          td {
+            background-color: #f4f7fa;
+          }
+        }
+      }
+    }
+  }
+}
+.ant-table-thead
+  > tr
+  > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
+  display: none;
+}
+.search-section {
+  margin-bottom: 32px;
+  .ant-input-affix-wrapper {
+    width: 240px;
+  }
+}
+//Table style end
+
+// modal CSS start
+.ant-modal-mask {
+  background-color: rgba(17, 24, 39, 0.5);
+}
+.ant-modal-content {
+  border-radius: 8px;
+}
+.ant-modal-header {
+  background: #f4f7fa;
+  border-radius: 8px 8px 0 0;
+}
+.ant-modal-title {
+  color: #1f2937;
+  font-weight: 600;
+}
+.ant-modal-body {
+  font-size: 16px;
+  line-height: 20px;
+}
+.ant-modal-footer {
+  border-radius: 0 0 8px 8px;
+}
+// modal CSS end
