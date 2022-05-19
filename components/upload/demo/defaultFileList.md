@@ -28,9 +28,9 @@ const props = {
     {
       uid: '1',
       name: 'xxx.png',
-      status: 'done',
-      response: 'Server Error 500', // custom error message to show
+      status: 'uploading',
       url: 'http://www.baidu.com/xxx.png',
+      percent: 33,
     },
     {
       uid: '2',

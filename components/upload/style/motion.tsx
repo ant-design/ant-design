@@ -1,5 +1,6 @@
 import { Keyframes } from '@ant-design/cssinjs';
-import type { GenerateStyle, FullToken } from '../../_util/theme';
+import type { UploadToken } from '.';
+import type { GenerateStyle } from '../../_util/theme';
 
 const uploadAnimateInlineIn = new Keyframes('uploadAnimateInlineIn', {
   from: {
@@ -21,7 +22,7 @@ const uploadAnimateInlineOut = new Keyframes('uploadAnimateInlineOut', {
   },
 });
 // =========================== Motion ===========================
-const genMotionStyle: GenerateStyle<FullToken<'Upload'>> = token => {
+const genMotionStyle: GenerateStyle<UploadToken> = token => {
   const { componentCls } = token;
   const inlineCls = `${componentCls}-animate-inline`;
 

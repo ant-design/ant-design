@@ -1,13 +1,12 @@
 import { TinyColor } from '@ctrl/tinycolor';
 import { clearFix } from '../../_util/theme';
-import type { GenerateStyle, FullToken } from '../../_util/theme';
+import type { GenerateStyle } from '../../_util/theme';
+import type { UploadToken } from '.';
 
-const genPictureStyle: GenerateStyle<FullToken<'Upload'>> = token => {
-  const { componentCls, iconCls } = token;
+const genPictureStyle: GenerateStyle<UploadToken> = token => {
+  const { componentCls, iconCls, uploadThumbnailSize, uploadProgressOffset } = token;
   const listCls = `${componentCls}-list`;
   const itemCls = `${listCls}-item`;
-  // FIXME: upload token
-  const uploadPictureThumbnailSize = 48;
 
   return {
     [`${componentCls}-wrapper`]: {
@@ -15,7 +14,7 @@ const genPictureStyle: GenerateStyle<FullToken<'Upload'>> = token => {
       [`${listCls}${listCls}-picture, ${listCls}${listCls}-picture-card`]: {
         [itemCls]: {
           position: 'relative',
-          height: uploadPictureThumbnailSize + token.controlLineWidth * 2 + token.paddingXS * 2,
+          height: uploadThumbnailSize + token.controlLineWidth * 2 + token.paddingXS * 2,
           padding: token.paddingXS,
           border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
           borderRadius: token.radiusBase,
@@ -25,19 +24,17 @@ const genPictureStyle: GenerateStyle<FullToken<'Upload'>> = token => {
           },
 
           [`${itemCls}-thumbnail`]: {
-            width: uploadPictureThumbnailSize,
-            height: uploadPictureThumbnailSize,
-            lineHeight: `${uploadPictureThumbnailSize + token.paddingSM}px`,
+            width: uploadThumbnailSize,
+            height: uploadThumbnailSize,
+            lineHeight: `${uploadThumbnailSize + token.paddingSM}px`,
             textAlign: 'center',
-            // FIXME: upload token
-            opacity: 0.8,
             flex: 'none',
             overflow: 'hidden',
             textOverflow: 'ellipsis',
             whiteSpace: 'nowrap',
 
             [iconCls]: {
-              fontSize: uploadPictureThumbnailSize / 2 + 2,
+              fontSize: uploadThumbnailSize / 2 + 2,
             },
 
             img: {
@@ -49,12 +46,10 @@ const genPictureStyle: GenerateStyle<FullToken<'Upload'>> = token => {
           },
 
           [`${itemCls}-progress`]: {
-            // FIXME: upload token
-            bottom: 14,
+            bottom: uploadProgressOffset,
             width: `calc(100% - ${token.paddingSM * 2}px)`,
             marginTop: 0,
-            // FIXME: upload token
-            paddingInlineStart: uploadPictureThumbnailSize + token.paddingXS,
+            paddingInlineStart: uploadThumbnailSize + token.paddingXS,
           },
         },
 
@@ -76,8 +71,7 @@ const genPictureStyle: GenerateStyle<FullToken<'Upload'>> = token => {
           borderStyle: 'dashed',
 
           [`${itemCls}-name`]: {
-            // FIXME: upload token
-            marginBottom: 12,
+            marginBottom: uploadProgressOffset,
           },
         },
       },
@@ -85,14 +79,12 @@ const genPictureStyle: GenerateStyle<FullToken<'Upload'>> = token => {
   };
 };
 
-const genPictureCardStyle: GenerateStyle<FullToken<'Upload'>> = token => {
-  const { componentCls, iconCls } = token;
+const genPictureCardStyle: GenerateStyle<UploadToken> = token => {
+  const { componentCls, iconCls, fontSizeLG, colorTextLightSolid } = token;
   const listCls = `${componentCls}-list`;
   const itemCls = `${listCls}-item`;
 
-  // FIXME: upload token
-  const uploadPictureCardThumbnailSize = 88;
-  const uploadPictureCardSize = uploadPictureCardThumbnailSize + token.paddingXS * 2;
+  const uploadPictureCardSize = token.uploadPicCardSize;
 
   return {
     [`${componentCls}-wrapper${componentCls}-picture-card-wrapper`]: {
@@ -150,8 +142,7 @@ const genPictureCardStyle: GenerateStyle<FullToken<'Upload'>> = token => {
             zIndex: 1,
             width: `calc(100% - ${token.paddingXS * 2}px)`,
             height: `calc(100% - ${token.paddingXS * 2}px)`,
-            // FIXME: upload token
-            backgroundColor: new TinyColor('#000').setAlpha(0.5).toRgbString(),
+            backgroundColor: token.colorPopupBg,
             opacity: 0,
             transition: `all ${token.motionDurationSlow}`,
             content: '" "',
@@ -176,11 +167,9 @@ const genPictureCardStyle: GenerateStyle<FullToken<'Upload'>> = token => {
 
           [`${iconCls}-eye, ${iconCls}-download, ${iconCls}-delete`]: {
             zIndex: 10,
-            // FIXME: upload token
-            width: 16,
+            width: fontSizeLG,
             margin: `0 ${token.marginXXS}px`,
-            // FIXME: upload token
-            fontSize: 16,
+            fontSize: fontSizeLG,
             cursor: 'pointer',
             transition: `all ${token.motionDurationSlow}`,
           },
@@ -188,11 +177,9 @@ const genPictureCardStyle: GenerateStyle<FullToken<'Upload'>> = token => {
 
         [`${itemCls}-actions, ${itemCls}-actions:hover`]: {
           [`${iconCls}-eye, ${iconCls}-download, ${iconCls}-delete`]: {
-            // FIXME: @text-color-dark: fade(@white, 85%);
-            color: new TinyColor('#fff').setAlpha(0.85).toRgbString(),
+            color: new TinyColor(colorTextLightSolid).setAlpha(0.65).toRgbString(),
             '&:hover': {
-              // FIXME: @text-color-dark: fade(@white, 85%);
-              color: '#fff',
+              color: colorTextLightSolid,
             },
           },
         },
@@ -212,8 +199,7 @@ const genPictureCardStyle: GenerateStyle<FullToken<'Upload'>> = token => {
 
         [`${itemCls}-file + ${itemCls}-name`]: {
           position: 'absolute',
-          // FIXME: upload token
-          bottom: 18,
+          bottom: token.margin,
           display: 'block',
           width: `calc(100% - ${token.paddingXS * 2}px)`,
         },
@@ -229,8 +215,7 @@ const genPictureCardStyle: GenerateStyle<FullToken<'Upload'>> = token => {
         },
 
         [`${itemCls}-progress`]: {
-          // FIXME: upload token
-          bottom: 32,
+          bottom: token.marginXL,
           width: `calc(100% - ${token.paddingXS * 2}px)`,
           paddingInlineStart: 0,
         },
