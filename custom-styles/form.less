@@ -1,8 +1,8 @@
 // input and label CSS
 .ant-input,
 .ant-input-affix-wrapper {
-  padding: $large-input;
-  font-size: $base-font-size;
+  padding: @large-input;
+  font-size: @font-size-base;
   border: 1px solid #d1d5db;
   border-radius: 4px;
 }
@@ -25,11 +25,11 @@
 // checkbox CSS
 .ant-checkbox-checked {
   .ant-checkbox-inner {
-    background-color: $primary-color;
-    border-color: $primary-color;
+    background-color: @primary-color;
+    border-color: @primary-color;
   }
   &:after {
-    border-color: $primary-color;
+    border-color: @primary-color;
     border-radius: 4px;
   }
 }
@@ -45,7 +45,7 @@
 .ant-checkbox-wrapper:hover .ant-checkbox-inner,
 .ant-checkbox:hover .ant-checkbox-inner,
 .ant-checkbox-input:focus + .ant-checkbox-inner {
-  border-color: $primary-color;
+  border-color: @primary-color;
 }
 
 // Button CSS
@@ -54,7 +54,7 @@
   padding: 7px 12px;
   color: #374151;
   font-weight: 500;
-  font-size: 14px;
+  font-size: @font-size-base;
   line-height: 18px;
   background-color: #ffffff;
   border: 1px solid #d1d5db;
@@ -67,8 +67,8 @@
   }
   &.ant-btn-primary {
     color: #ffffff;
-    background-color: $primary-color;
-    border-color: $primary-color;
+    background-color: @primary-color;
+    border-color: @primary-color;
     &:hover {
       color: #374151;
       background-color: transparent;
