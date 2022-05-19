@@ -59,26 +59,23 @@ describe('Select', () => {
 
   it('should be controlled by open prop', () => {
     const onDropdownVisibleChange = jest.fn();
-    const { container, rerender } = render(
-      <Select open onDropdownVisibleChange={onDropdownVisibleChange}>
-        <Option value="1">1</Option>
-      </Select>,
-    );
-    expect(container.querySelectorAll('.ant-select-dropdown').length).toBe(1);
+    const TestComponent = () => {
+      const [open, setOpen] = React.useState(false);
+      const handleChange = value => {
+        onDropdownVisibleChange(value);
+        setOpen(value);
+      };
+      return (
+        <Select open={open} onDropdownVisibleChange={handleChange}>
+          <Option value="1">1</Option>
+        </Select>
+      );
+    };
+    const { container } = render(<TestComponent />);
+    expect(container.querySelector('.ant-select-dropdown')).toBeFalsy();
     toggleOpen(container);
-    expect(onDropdownVisibleChange).toHaveBeenLastCalledWith(false);
     expect(container.querySelectorAll('.ant-select-dropdown').length).toBe(1);
-
-    rerender(
-      <Select open={false} onDropdownVisibleChange={onDropdownVisibleChange}>
-        <Option value="1">1</Option>
-      </Select>,
-    );
-    expect(container.querySelectorAll('.ant-select-dropdown').length).toBe(1); // FIXME
-
-    toggleOpen(container);
     expect(onDropdownVisibleChange).toHaveBeenLastCalledWith(true);
-    expect(container.querySelectorAll('.ant-select-dropdown').length).toBe(1);
   });
 
   it('should show search icon when showSearch and open', () => {
