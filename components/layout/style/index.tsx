@@ -171,6 +171,7 @@ const genLayoutStyle: GenerateStyle<LayoutToken, CSSObject> = token => {
             },
 
             '&:hover::after': {
+              // FIXME: Hardcode, but seems no need to create a token for this
               background: `rgba(255, 255, 255, 0.2)`,
             },
 
