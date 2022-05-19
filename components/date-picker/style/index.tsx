@@ -412,7 +412,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         'th, td': {
           position: 'relative',
           minWidth: token.pickerPanelCellHeight,
-          fontWeight: token.fontWeight,
+          fontWeight: 'normal',
         },
 
         th: {
@@ -1191,8 +1191,8 @@ export const initPickerPanelToken = (token: TokenWithCommonCls<GlobalToken>): Pi
   return {
     pickerCellInnerCls: `${token.componentCls}-cell-inner`,
     pickerTextHeight: token.controlHeightLG,
-    pickerPanelCellWidth: token.controlHeightLG * 0.9,
-    pickerPanelCellHeight: token.controlHeightLG * 0.6,
+    pickerPanelCellWidth: token.controlHeightSM * 1.5,
+    pickerPanelCellHeight: token.controlHeightSM,
     pickerDateHoverRangeBorderColor: new TinyColor(token.colorPrimary).lighten(20).toHexString(),
     pickerBasicCellHoverWithRangeColor: new TinyColor(token.colorPrimary).lighten(35).toHexString(),
     pickerPanelWithoutTimeCellHeight: token.controlHeightLG * 1.65,

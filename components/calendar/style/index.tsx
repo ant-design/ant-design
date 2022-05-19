@@ -11,17 +11,16 @@ export interface ComponentToken {
   yearSelectWidth: number;
   monthSelectWidth: number;
   miniContentHeight: number;
-  thHeight: number;
-  dateValueHeight: number;
+  weekHeight: number;
   dateContentHeight: number;
 }
 
 interface CalendarToken extends InputToken<FullToken<'Calendar'>>, PickerPanelToken {
   calendarCls: string;
-  // date-picker token
   calendarFullBg: string;
   calendarFullPanelBg: string;
   calendarItemActiveBg: string;
+  dateValueHeight: number;
 }
 
 export const genCalendarStyles = (token: CalendarToken): CSSObject => {
@@ -81,7 +80,7 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
         th: {
           height: 'auto',
           padding: 0,
-          lineHeight: `${token.thHeight}px`,
+          lineHeight: `${token.weekHeight}px`,
         },
       },
       [`${componentCls}-cell::before`]: {
@@ -103,7 +102,7 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
             height: 'auto',
             paddingInlineEnd: token.paddingSM,
             paddingBottom: token.paddingXXS,
-            lineHeight: `${token.thHeight}px`,
+            lineHeight: `${token.weekHeight}px`,
           },
         },
       },
@@ -202,6 +201,7 @@ export default genComponentStyleHook(
         calendarFullBg: token.colorBgComponent,
         calendarFullPanelBg: token.colorBgComponent,
         calendarItemActiveBg: token.controlItemBgActive,
+        dateValueHeight: token.controlHeightSM,
       },
     );
 
@@ -211,8 +211,7 @@ export default genComponentStyleHook(
     yearSelectWidth: 80,
     monthSelectWidth: 70,
     miniContentHeight: 256,
-    thHeight: 18,
-    dateValueHeight: 24,
+    weekHeight: 18,
     dateContentHeight: 86,
   },
 );

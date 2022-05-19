@@ -92,7 +92,6 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     colorSplit: 'rgba(0, 0, 0, 0.06)',
     controlItemBgActive: primaryColors[0],
     fontWeightStrong: 600,
-    fontWeight: 400,
 
     // 🔥🔥🔥🔥🔥🔥🔥🔥🔥 All TMP Token leaves here 🔥🔥🔥🔥🔥🔥🔥🔥🔥
     // FIXME: Handle this when derivative is ready
