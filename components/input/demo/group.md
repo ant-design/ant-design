@@ -17,7 +17,8 @@ Input.Group example.
 
 Note: You don't need `Col` to control the width in the `compact` mode.
 
-```jsx
+```tsx
+import React from 'react';
 import {
   Input,
   Button,
@@ -69,7 +70,7 @@ const options = [
   },
 ];
 
-const App = () => (
+const App: React.FC = () => (
   <div className="site-input-group-wrapper">
     <Input.Group size="large">
       <Row gutter={8}>

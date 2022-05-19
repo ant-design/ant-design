@@ -13,11 +13,11 @@ title:
 
 The following example shows how to create a popover which can be hovered and clicked.
 
-```jsx
-import { useState } from 'react';
+```tsx
+import React, { useState } from 'react';
 import { Popover, Button } from 'antd';
 
-export default () => {
+const App: React.FC = () => {
   const [clicked, setClicked] = useState(false);
   const [hovered, setHovered] = useState(false);
 
@@ -26,14 +26,14 @@ export default () => {
     setHovered(false);
   };
 
-  const handleHoverChange = visible => {
+  const handleHoverChange = (visible: boolean) => {
     setHovered(visible);
     setClicked(false);
   };
 
-  const handleClickChange = visible => {
-    setClicked(visible);
+  const handleClickChange = (visible: boolean) => {
     setHovered(false);
+    setClicked(visible);
   };
 
   const hoverContent = <div>This is hover content.</div>;
@@ -64,4 +64,6 @@ export default () => {
     </Popover>
   );
 };
+
+export default App;
 ```

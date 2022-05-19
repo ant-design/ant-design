@@ -14,8 +14,7 @@ title:
 
 Modify global theme color by css variable which IE not support. Css variable depends on the design, it may adjust so please do not directly use it. You can go to other components page for more detail style. [Check this](/docs/react/customize-theme-variable) to view detail.
 
-```jsx
-import { SketchPicker } from 'react-color';
+```tsx
 import React, { useState } from 'react';
 import {
   DownOutlined,
@@ -58,8 +57,12 @@ import {
   Spin,
   Transfer,
 } from 'antd';
+import { SketchPicker } from 'react-color';
+import type { SpaceProps, TreeSelectProps } from 'antd';
 
-const SplitSpace = props => <Space split={<Divider type="vertical" />} size={4} {...props} />;
+const SplitSpace: React.FC<SpaceProps> = props => (
+  <Space split={<Divider type="vertical" />} size={4} {...props} />
+);
 
 const menuItems = [
   {
@@ -116,7 +119,7 @@ const treeData = [
   },
 ];
 
-const treeSelectProps = {
+const treeSelectProps: TreeSelectProps = {
   ...inputProps,
   treeCheckable: true,
   maxTagCount: 'responsive',
@@ -158,7 +161,7 @@ const MyTransfer = () => {
   );
 };
 
-const FormSizeDemo = () => {
+const App: React.FC = () => {
   const [color, setColor] = useState({
     primaryColor: '#1890ff',
     errorColor: '#ff4d4f',
@@ -167,7 +170,7 @@ const FormSizeDemo = () => {
     infoColor: '#1890ff',
   });
 
-  function onColorChange(nextColor) {
+  const onColorChange = (nextColor: Partial<typeof color>) => {
     const mergedNextColor = {
       ...color,
       ...nextColor,
@@ -176,7 +179,7 @@ const FormSizeDemo = () => {
     ConfigProvider.config({
       theme: mergedNextColor,
     });
-  }
+  };
 
   return (
     <Row gutter={16} wrap={false}>
@@ -313,9 +316,11 @@ const FormSizeDemo = () => {
                 <Menu
                   items={[
                     {
+                      key: '1',
                       label: '1st menu item',
                     },
                     {
+                      key: '2',
                       label: 'a danger item',
                       danger: true,
                     },
@@ -634,5 +639,6 @@ const FormSizeDemo = () => {
     </Row>
   );
 };
-export default () => <FormSizeDemo />;
+
+export default App;
 ```

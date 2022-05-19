@@ -13,11 +13,12 @@ title:
 
 Simplest Usage. Badge will be hidden when `count` is `0`, but we can use `showZero` to show it.
 
-```jsx
+```tsx
+import React from 'react';
 import { Badge, Avatar } from 'antd';
 import { ClockCircleOutlined } from '@ant-design/icons';
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Badge count={5}>
       <Avatar shape="square" size="large" />
@@ -30,6 +31,8 @@ export default () => (
     </Badge>
   </>
 );
+
+export default App;
 ```
 
 <style>

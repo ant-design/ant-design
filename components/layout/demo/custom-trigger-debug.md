@@ -11,7 +11,7 @@ debug: true
 修改内容前，请尝试此 Demo 查看样式是否抖动。
 
 ```tsx
-import type { MenuProps } from 'antd';
+import React, { useState } from 'react';
 import { Layout, Menu } from 'antd';
 import {
   TeamOutlined,
@@ -22,6 +22,7 @@ import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
 } from '@ant-design/icons';
+import type { MenuProps } from 'antd';
 
 const { Header, Sider, Content } = Layout;
 
@@ -76,12 +77,8 @@ const items: MenuProps['items'] = [
   },
 ];
 
-export default () => {
-  const [collapsed, setCollapsed] = React.useState(true);
-
-  const toggle = () => {
-    setCollapsed(!collapsed);
-  };
+const App: React.FC = () => {
+  const [collapsed, setCollapsed] = useState(true);
 
   return (
     <Layout>
@@ -99,7 +96,7 @@ export default () => {
         <Header className="site-layout-background" style={{ padding: 0 }}>
           {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
             className: 'trigger',
-            onClick: toggle,
+            onClick: () => setCollapsed(!collapsed),
           })}
         </Header>
         <Content
@@ -116,6 +113,8 @@ export default () => {
     </Layout>
   );
 };
+
+export default App;
 ```
 
 ```css

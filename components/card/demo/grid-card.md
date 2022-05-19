@@ -13,15 +13,16 @@ title:
 
 Grid style card content.
 
-```jsx
+```tsx
+import React from 'react';
 import { Card } from 'antd';
 
-const gridStyle = {
+const gridStyle: React.CSSProperties = {
   width: '25%',
   textAlign: 'center',
 };
 
-export default () => (
+const App: React.FC = () => (
   <Card title="Card Title">
     <Card.Grid style={gridStyle}>Content</Card.Grid>
     <Card.Grid hoverable={false} style={gridStyle}>
@@ -34,4 +35,6 @@ export default () => (
     <Card.Grid style={gridStyle}>Content</Card.Grid>
   </Card>
 );
+
+export default App;
 ```

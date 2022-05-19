@@ -13,25 +13,28 @@ Select 使用了[虚拟滚动](https://github.com/react-component/virtual-list)�
 
 Select use [virtual scroll](https://github.com/react-component/virtual-list) which get better performance [than 3.0](https://codesandbox.io/s/beautiful-banzai-m72lv).
 
-```jsx
+```tsx
+import React from 'react';
 import { Select, Typography, Divider } from 'antd';
+import type { SelectProps } from 'antd';
 
 const { Title } = Typography;
 
-const options = [];
+const options: SelectProps['options'] = [];
 for (let i = 0; i < 100000; i++) {
   const value = `${i.toString(36)}${i}`;
   options.push({
+    label: value,
     value,
     disabled: i === 10,
   });
 }
 
-function handleChange(value) {
+const handleChange = (value: string[]) => {
   console.log(`selected ${value}`);
-}
+};
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Title level={3}>Ant Design 4.0</Title>
     <Title level={4}>{options.length} Items</Title>
@@ -54,4 +57,6 @@ export default () => (
     />
   </>
 );
+
+export default App;
 ```

@@ -13,12 +13,13 @@ title:
 
 You can use `centered`,`style.top` or other styles to set position of modal dialog.
 
-```jsx
+```tsx
+import React, { useState } from 'react';
 import { Modal, Button } from 'antd';
 
-export default () => {
-  const [modal1Visible, setModal1Visible] = React.useState(false);
-  const [modal2Visible, setModal2Visible] = React.useState(false);
+const App: React.FC = () => {
+  const [modal1Visible, setModal1Visible] = useState(false);
+  const [modal2Visible, setModal2Visible] = useState(false);
 
   return (
     <>
@@ -55,4 +56,6 @@ export default () => {
     </>
   );
 };
+
+export default App;
 ```

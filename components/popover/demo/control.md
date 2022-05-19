@@ -13,18 +13,19 @@ title:
 
 Use `visible` prop to control the display of the card.
 
-```jsx
+```tsx
+import React, { useState } from 'react';
 import { Popover, Button } from 'antd';
 
-export default () => {
-  const [visible, setVisible] = React.useState(false);
+const App: React.FC = () => {
+  const [visible, setVisible] = useState(false);
 
   const hide = () => {
     setVisible(false);
   };
 
-  const handleVisibleChange = visiblePopover => {
-    setVisible(visiblePopover);
+  const handleVisibleChange = (newVisible: boolean) => {
+    setVisible(newVisible);
   };
 
   return (
@@ -39,4 +40,6 @@ export default () => {
     </Popover>
   );
 };
+
+export default App;
 ```

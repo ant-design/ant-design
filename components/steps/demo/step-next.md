@@ -13,7 +13,8 @@ title:
 
 Cooperate with the content and buttons, to represent the progress of a process.
 
-```jsx
+```tsx
+import React, { useState } from 'react';
 import { Steps, Button, message } from 'antd';
 
 const { Step } = Steps;
@@ -33,8 +34,8 @@ const steps = [
   },
 ];
 
-const App = () => {
-  const [current, setCurrent] = React.useState(0);
+const App: React.FC = () => {
+  const [current, setCurrent] = useState(0);
 
   const next = () => {
     setCurrent(current + 1);

@@ -13,22 +13,24 @@ title:
 
 We can set preset ranges to RangePicker to improve user experience.
 
-```jsx
+```tsx
+import React from 'react';
 import { DatePicker, Space } from 'antd';
 import moment from 'moment';
+import type { RangePickerProps } from 'antd/es/date-picker';
 
 const { RangePicker } = DatePicker;
 
-function onChange(dates, dateStrings) {
+const onChange: RangePickerProps['onChange'] = (dates, dateStrings) => {
   if (dates) {
     console.log('From: ', dates[0], ', to: ', dates[1]);
     console.log('From: ', dateStrings[0], ', to: ', dateStrings[1]);
   } else {
     console.log('Clear');
   }
-}
+};
 
-export default () => (
+const App: React.FC = () => (
   <Space direction="vertical" size={12}>
     <RangePicker
       ranges={{
@@ -48,4 +50,6 @@ export default () => (
     />
   </Space>
 );
+
+export default App;
 ```

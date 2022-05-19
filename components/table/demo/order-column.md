@@ -14,10 +14,20 @@ title:
 
 You can control the order of the expand and select columns by using `Table.EXPAND_COLUMN` and `Table.SELECT_COLUMN`.
 
-```jsx
+```tsx
+import React from 'react';
 import { Table } from 'antd';
+import type { ColumnsType } from 'antd/lib/table';
 
-const columns = [
+interface DataType {
+  key: React.Key;
+  name: string;
+  age: number;
+  address: string;
+  description: string;
+}
+
+const columns: ColumnsType<DataType> = [
   { title: 'Name', dataIndex: 'name', key: 'name' },
   Table.EXPAND_COLUMN,
   { title: 'Age', dataIndex: 'age', key: 'age' },
@@ -25,7 +35,7 @@ const columns = [
   { title: 'Address', dataIndex: 'address', key: 'address' },
 ];
 
-const data = [
+const data: DataType[] = [
   {
     key: 1,
     name: 'John Brown',
@@ -56,7 +66,7 @@ const data = [
   },
 ];
 
-export default () => (
+const App: React.FC = () => (
   <Table
     columns={columns}
     rowSelection={{}}
@@ -66,4 +76,6 @@ export default () => (
     dataSource={data}
   />
 );
+
+export default App;
 ```

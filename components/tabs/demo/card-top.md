@@ -13,12 +13,13 @@ title:
 
 Should be used at the top of container, needs to override styles.
 
-```jsx
+```tsx
+import React from 'react';
 import { Tabs } from 'antd';
 
 const { TabPane } = Tabs;
 
-export default () => (
+const App: React.FC = () => (
   <div className="card-container">
     <Tabs type="card">
       <TabPane tab="Tab Title 1" key="1">
@@ -39,6 +40,8 @@ export default () => (
     </Tabs>
   </div>
 );
+
+export default App;
 ```
 
 ```css

@@ -18,7 +18,7 @@ title:
 import React from 'react';
 import { Form, Input, message, Button, Space } from 'antd';
 
-const Demo = () => {
+const App: React.FC = () => {
   const [form] = Form.useForm();
 
   const onFinish = () => {
@@ -64,5 +64,5 @@ const Demo = () => {
   );
 };
 
-export default Demo;
+export default App;
 ```

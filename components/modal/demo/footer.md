@@ -17,11 +17,11 @@ A more complex example which define a customized footer button bar. The dialog w
 
 You could set `footer` to `null` if you don't need default footer buttons.
 
-```jsx
-import { useState } from 'react';
+```tsx
+import React, { useState } from 'react';
 import { Modal, Button } from 'antd';
 
-export default () => {
+const App: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [visible, setVisible] = useState(false);
 
@@ -78,4 +78,6 @@ export default () => {
     </>
   );
 };
+
+export default App;
 ```

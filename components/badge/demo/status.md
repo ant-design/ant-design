@@ -13,10 +13,11 @@ title:
 
 Standalone badge with status.
 
-```jsx
+```tsx
+import React from 'react';
 import { Badge } from 'antd';
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Badge status="success" />
     <Badge status="error" />
@@ -35,4 +36,6 @@ export default () => (
     <Badge status="warning" text="Warning" />
   </>
 );
+
+export default App;
 ```

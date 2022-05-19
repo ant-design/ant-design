@@ -13,12 +13,13 @@ title:
 
 Open a new drawer on top of an existing drawer to handle multi branch tasks.
 
-```jsx
+```tsx
+import React, { useState } from 'react';
 import { Drawer, Button } from 'antd';
 
-export default () => {
-  const [visible, setVisible] = React.useState(false);
-  const [childrenDrawer, setChildrenDrawer] = React.useState(false);
+const App: React.FC = () => {
+  const [visible, setVisible] = useState(false);
+  const [childrenDrawer, setChildrenDrawer] = useState(false);
 
   const showDrawer = () => {
     setVisible(true);
@@ -64,6 +65,8 @@ export default () => {
     </>
   );
 };
+
+export default App;
 ```
 
 <style>

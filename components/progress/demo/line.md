@@ -13,10 +13,11 @@ title:
 
 A standard progress bar.
 
-```jsx
+```tsx
+import React from 'react';
 import { Progress } from 'antd';
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Progress percent={30} />
     <Progress percent={50} status="active" />
@@ -25,4 +26,6 @@ export default () => (
     <Progress percent={50} showInfo={false} />
   </>
 );
+
+export default App;
 ```

@@ -13,10 +13,11 @@ title:
 
 Simplest Usage.
 
-```jsx
+```tsx
+import React from 'react';
 import { Statistic, Row, Col, Button } from 'antd';
 
-export default () => (
+const App: React.FC = () => (
   <Row gutter={16}>
     <Col span={12}>
       <Statistic title="Active Users" value={112893} />
@@ -32,4 +33,6 @@ export default () => (
     </Col>
   </Row>
 );
+
+export default App;
 ```

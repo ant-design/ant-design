@@ -17,13 +17,14 @@ Layout.Sider supports responsive layout.
 
 > Note: You can get a responsive layout by setting `breakpoint`, the Sider will collapse to the width of `collapsedWidth` when window width is below the `breakpoint`. And a special trigger will appear if the `collapsedWidth` is set to 0.
 
-```jsx
+```tsx
+import React from 'react';
 import { Layout, Menu } from 'antd';
 import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
 
 const { Header, Content, Footer, Sider } = Layout;
 
-export default () => (
+const App: React.FC = () => (
   <Layout>
     <Sider
       breakpoint="lg"
@@ -60,6 +61,8 @@ export default () => (
     </Layout>
   </Layout>
 );
+
+export default App;
 ```
 
 ```css

@@ -13,23 +13,22 @@ title:
 
 Add copywriting in rate components.
 
-```jsx
+```tsx
+import React, { useState } from 'react';
 import { Rate } from 'antd';
 
 const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
 
-export default () => {
-  const [value, setValue] = React.useState(3);
-
-  const handleChange = rateValue => {
-    setValue(rateValue);
-  };
+const App: React.FC = () => {
+  const [value, setValue] = useState(3);
 
   return (
     <span>
-      <Rate tooltips={desc} onChange={handleChange} value={value} />
+      <Rate tooltips={desc} onChange={setValue} value={value} />
       {value ? <span className="ant-rate-text">{desc[value - 1]}</span> : ''}
     </span>
   );
 };
+
+export default App;
 ```

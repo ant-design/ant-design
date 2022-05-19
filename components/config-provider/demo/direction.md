@@ -13,9 +13,8 @@ title:
 
 Components which support rtl direction are listed here, you can toggle the direction in the demo.
 
-```jsx
+```tsx
 import React, { useState } from 'react';
-
 import {
   Input,
   Col,
@@ -46,6 +45,8 @@ import {
   MinusOutlined,
   PlusOutlined,
 } from '@ant-design/icons';
+import type { DirectionType } from 'antd/lib/config-provider';
+import type { RadioChangeEvent } from 'antd';
 
 const InputGroup = Input.Group;
 const ButtonGroup = Button.Group;
@@ -104,14 +105,13 @@ const cascaderOptions = [
     ],
   },
 ];
+type Placement = 'bottomLeft' | 'bottomRight' | 'topLeft' | 'topRight';
 
-function Page(props) {
-  const [state, setState] = useState({
-    currentStep: 0,
-    modalVisible: false,
-    badgeCount: 5,
-    showBadge: true,
-  });
+const Page: React.FC<{ popupPlacement: Placement }> = ({ popupPlacement }) => {
+  const [currentStep, setCurrentStep] = useState(0);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [badgeCount, setBadgeCount] = useState(5);
+  const [showBadge, setShowBadge] = useState(true);
 
   const selectBefore = (
     <Select defaultValue="Http://" style={{ width: 90 }}>
@@ -130,75 +130,54 @@ function Page(props) {
   );
 
   // ==== Cascader ====
-  const cascaderFilter = (inputValue, path) =>
+  const cascaderFilter = (inputValue: string, path: { label: string }[]) =>
     path.some(option => option.label.toLowerCase().indexOf(inputValue.toLowerCase()) > -1);
 
-  const onCascaderChange = value => {
+  const onCascaderChange = (value: any) => {
     console.log(value);
   };
   // ==== End Cascader ====
 
   // ==== Modal ====
   const showModal = () => {
-    setState({
-      ...state,
-      modalVisible: true,
-    });
+    setModalVisible(true);
   };
 
-  const handleOk = e => {
+  const handleOk = (e: React.MouseEvent<HTMLElement>) => {
     console.log(e);
-    setState({
-      ...state,
-      modalVisible: false,
-    });
+    setModalVisible(false);
   };
 
-  const handleCancel = e => {
+  const handleCancel = (e: React.MouseEvent<HTMLElement>) => {
     console.log(e);
-    setState({
-      ...state,
-      modalVisible: false,
-    });
+    setModalVisible(false);
   };
 
   // ==== End Modal ====
 
-  const onStepsChange = currentStep => {
-    console.log('onChange:', currentStep);
-    setState({
-      ...state,
-      currentStep,
-    });
+  const onStepsChange = (newCurrentStep: number) => {
+    console.log('onChange:', newCurrentStep);
+    setCurrentStep(newCurrentStep);
   };
 
   // ==== Badge ====
 
   const increaseBadge = () => {
-    const badgeCount = state.badgeCount + 1;
-    setState({
-      ...state,
-      badgeCount,
-    });
+    setBadgeCount(badgeCount + 1);
   };
 
   const declineBadge = () => {
-    let badgeCount = state.badgeCount - 1;
-    if (badgeCount < 0) {
-      badgeCount = 0;
+    let newBadgeCount = badgeCount - 1;
+    if (newBadgeCount < 0) {
+      newBadgeCount = 0;
     }
-    setState({
-      ...state,
-      badgeCount,
-    });
+    setBadgeCount(newBadgeCount);
   };
 
-  const onChangeBadge = showBadge => {
-    setState({
-      ...state,
-      showBadge,
-    });
+  const onChangeBadge = (checked: boolean) => {
+    setShowBadge(checked);
   };
+  // ==== End Badge ====
 
   return (
     <div className="direction-components">
@@ -210,7 +189,7 @@ function Page(props) {
             options={cascaderOptions}
             onChange={onCascaderChange}
             placeholder="یک مورد انتخاب کنید"
-            popupPlacement={props.popupPlacement}
+            popupPlacement={popupPlacement}
           />
           &nbsp;&nbsp;&nbsp;&nbsp; With search:
           <Cascader
@@ -218,8 +197,8 @@ function Page(props) {
             options={cascaderOptions}
             onChange={onCascaderChange}
             placeholder="Select an item"
-            popupPlacement={props.popupPlacement}
-            showSearch={cascaderFilter}
+            popupPlacement={popupPlacement}
+            showSearch={{ filter: cascaderFilter }}
           />
         </Col>
       </Row>
@@ -360,7 +339,7 @@ function Page(props) {
                 placeholder="Select a person"
                 optionFilterProp="children"
                 filterOption={(input, option) =>
-                  option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+                  option?.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
                 }
               >
                 <Option value="jack">Jack</Option>
@@ -379,17 +358,13 @@ function Page(props) {
                   allowClear
                   treeDefaultExpandAll
                 >
-                  <TreeNode value="parent 1" title="parent 1" key="0-1">
-                    <TreeNode value="parent 1-0" title="parent 1-0" key="0-1-1">
-                      <TreeNode value="leaf1" title="my leaf" key="random" />
-                      <TreeNode value="leaf2" title="your leaf" key="random1" />
+                  <TreeNode title="parent 1" key="0-1">
+                    <TreeNode title="parent 1-0" key="0-1-1">
+                      <TreeNode title="my leaf" key="random" />
+                      <TreeNode title="your leaf" key="random1" />
                     </TreeNode>
-                    <TreeNode value="parent 1-1" title="parent 1-1" key="random2">
-                      <TreeNode
-                        value="sss"
-                        title={<b style={{ color: '#08c' }}>sss</b>}
-                        key="random3"
-                      />
+                    <TreeNode title="parent 1-1" key="random2">
+                      <TreeNode title={<b style={{ color: '#08c' }}>sss</b>} key="random3" />
                     </TreeNode>
                   </TreeNode>
                 </TreeSelect>
@@ -406,7 +381,7 @@ function Page(props) {
                 </Button>
                 <Modal
                   title="پنچره ساده"
-                  visible={state.modalVisible}
+                  visible={modalVisible}
                   onOk={handleOk}
                   onCancel={handleCancel}
                 >
@@ -422,13 +397,13 @@ function Page(props) {
             <Col span={24}>
               <Divider orientation="left">Steps example</Divider>
               <div>
-                <Steps progressDot current={state.currentStep}>
+                <Steps progressDot current={currentStep}>
                   <Step title="Finished" description="This is a description." />
                   <Step title="In Progress" description="This is a description." />
                   <Step title="Waiting" description="This is a description." />
                 </Steps>
                 <br />
-                <Steps current={state.currentStep} onChange={onStepsChange}>
+                <Steps current={currentStep} onChange={onStepsChange}>
                   <Step title="Step 1" description="This is a description." />
                   <Step title="Step 2" description="This is a description." />
                   <Step title="Step 3" description="This is a description." />
@@ -452,7 +427,7 @@ function Page(props) {
               <Divider orientation="left">Badge example</Divider>
               <div>
                 <div>
-                  <Badge count={state.badgeCount}>
+                  <Badge count={badgeCount}>
                     <a href="#" className="head-example" />
                   </Badge>
                   <ButtonGroup>
@@ -465,10 +440,10 @@ function Page(props) {
                   </ButtonGroup>
                 </div>
                 <div style={{ marginTop: 10 }}>
-                  <Badge dot={state.showBadge}>
+                  <Badge dot={showBadge}>
                     <a href="#" className="head-example" />
                   </Badge>
-                  <Switch onChange={onChangeBadge} checked={state.showBadge} />
+                  <Switch onChange={onChangeBadge} checked={showBadge} />
                 </div>
               </div>
             </Col>
@@ -527,13 +502,13 @@ function Page(props) {
       </Row>
     </div>
   );
-}
+};
 
-export default () => {
-  const [direction, setDirection] = useState('ltr');
-  const [popupPlacement, setPopupPlacement] = useState('bottomLeft');
+const App: React.FC = () => {
+  const [direction, setDirection] = useState<DirectionType>('ltr');
+  const [popupPlacement, setPopupPlacement] = useState<Placement>('bottomLeft');
 
-  const changeDirection = e => {
+  const changeDirection = (e: RadioChangeEvent) => {
     const directionValue = e.target.value;
     setDirection(directionValue);
     if (directionValue === 'rtl') {
@@ -557,11 +532,13 @@ export default () => {
         </Radio.Group>
       </div>
       <ConfigProvider direction={direction}>
-        <Page className={direction} popupPlacement={popupPlacement} />
+        <Page popupPlacement={popupPlacement} />
       </ConfigProvider>
     </>
   );
 };
+
+export default App;
 ```
 
 ```css

@@ -15,6 +15,7 @@ debug: true
 Same line
 
 ```tsx
+import React from 'react';
 import { Checkbox, Radio, Space } from 'antd';
 
 const sharedStyle: React.CSSProperties = {
@@ -22,7 +23,7 @@ const sharedStyle: React.CSSProperties = {
   marginBottom: 16,
 };
 
-export default () => (
+const App: React.FC = () => (
   <div>
     <Space style={sharedStyle} align="center">
       <Checkbox value="light" />
@@ -61,4 +62,6 @@ export default () => (
     </div>
   </div>
 );
+
+export default App;
 ```

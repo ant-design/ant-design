@@ -13,43 +13,43 @@ title:
 
 async
 
-```jsx
-import React, { useState, useRef, useMemo } from 'react';
+```tsx
+import React, { useState } from 'react';
 import { Mentions } from 'antd';
 import debounce from 'lodash/debounce';
 
 const { Option } = Mentions;
 
-export default () => {
+const App: React.FC = () => {
+  const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(false);
-  const [users, setUsers] = useState([]);
-  const searchRef = useRef();
+  const [users, setUsers] = useState<{ login: string; avatar_url: string }[]>([]);
 
-  const loadGithubUsers = useMemo(
-    () =>
-      debounce(key => {
-        if (!key) {
-          setUsers([]);
-          return;
-        }
+  const loadGithubUsers = (key: string) => {
+    if (!key) {
+      setUsers([]);
+      return;
+    }
 
-        fetch(`https://api.github.com/search/users?q=${key}`)
-          .then(res => res.json())
-          .then(({ items = [] }) => {
-            if (searchRef.current !== key) return;
-            setLoading(false);
-            setUsers(items.slice(0, 10));
-          });
-      }, 800),
-    [],
-  );
+    fetch(`https://api.github.com/search/users?q=${key}`)
+      .then(res => res.json())
+      .then(({ items = [] }) => {
+        if (search !== key) return;
 
-  const onSearch = search => {
-    setLoading(!!search);
+        setLoading(false);
+        setUsers(items.slice(0, 10));
+      });
+  };
+
+  const debounceLoadGithubUsers = debounce(loadGithubUsers, 800);
+
+  const onSearch = (newSearch: string) => {
+    console.log('Search:', newSearch);
+    setSearch(newSearch);
+    setLoading(!!newSearch);
     setUsers([]);
-    searchRef.current = search;
-    console.log('Search:', search);
-    loadGithubUsers(search);
+
+    debounceLoadGithubUsers(newSearch);
   };
 
   return (
@@ -63,6 +63,8 @@ export default () => {
     </Mentions>
   );
 };
+
+export default App;
 ```
 
 <style>

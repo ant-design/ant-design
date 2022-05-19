@@ -13,14 +13,11 @@ title:
 
 You can hide the arrow icon by passing `showArrow={false}` to `CollapsePanel` component.
 
-```jsx
+```tsx
+import React from 'react';
 import { Collapse } from 'antd';
 
 const { Panel } = Collapse;
-
-function callback(key) {
-  console.log(key);
-}
 
 const text = `
   A dog is a type of domesticated animal.
@@ -28,14 +25,22 @@ const text = `
   it can be found as a welcome guest in many households across the world.
 `;
 
-export default () => (
-  <Collapse defaultActiveKey={['1']} onChange={callback}>
-    <Panel header="This is panel header with arrow icon" key="1">
-      <p>{text}</p>
-    </Panel>
-    <Panel showArrow={false} header="This is panel header with no arrow icon" key="2">
-      <p>{text}</p>
-    </Panel>
-  </Collapse>
-);
+const App: React.FC = () => {
+  const onChange = (key: string | string[]) => {
+    console.log(key);
+  };
+
+  return (
+    <Collapse defaultActiveKey={['1']} onChange={onChange}>
+      <Panel header="This is panel header with arrow icon" key="1">
+        <p>{text}</p>
+      </Panel>
+      <Panel showArrow={false} header="This is panel header with no arrow icon" key="2">
+        <p>{text}</p>
+      </Panel>
+    </Collapse>
+  );
+};
+
+export default App;
 ```

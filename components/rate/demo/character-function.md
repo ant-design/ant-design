@@ -13,11 +13,12 @@ title:
 
 Can customize each character using `(RateProps) => ReactNode`.
 
-```jsx
+```tsx
+import React from 'react';
 import { Rate } from 'antd';
 import { FrownOutlined, MehOutlined, SmileOutlined } from '@ant-design/icons';
 
-const customIcons = {
+const customIcons: Record<number, React.ReactNode> = {
   1: <FrownOutlined />,
   2: <FrownOutlined />,
   3: <MehOutlined />,
@@ -25,11 +26,13 @@ const customIcons = {
   5: <SmileOutlined />,
 };
 
-export default () => (
+const App: React.FC = () => (
   <>
-    <Rate defaultValue={2} character={({ index }) => index + 1} />
+    <Rate defaultValue={2} character={({ index }: { index: number }) => index + 1} />
     <br />
-    <Rate defaultValue={3} character={({ index }) => customIcons[index + 1]} />
+    <Rate defaultValue={3} character={({ index }: { index: number }) => customIcons[index + 1]} />
   </>
 );
+
+export default App;
 ```

@@ -13,27 +13,28 @@ title:
 
 A dynamic progress bar is better.
 
-```jsx
+```tsx
+import React, { useState } from 'react';
 import { Progress, Button } from 'antd';
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
 
-export default () => {
-  const [percent, setPercent] = React.useState(0);
+const App: React.FC = () => {
+  const [percent, setPercent] = useState(0);
 
   const increase = () => {
-    let percentValue = percent + 10;
-    if (percentValue > 100) {
-      percentValue = 100;
+    let newPercent = percent + 10;
+    if (newPercent > 100) {
+      newPercent = 100;
     }
-    setPercent(percentValue);
+    setPercent(newPercent);
   };
 
   const decline = () => {
-    let percentValue = percent - 10;
-    if (percentValue < 0) {
-      percentValue = 0;
+    let newPercent = percent - 10;
+    if (newPercent < 0) {
+      newPercent = 0;
     }
-    setPercent(percentValue);
+    setPercent(newPercent);
   };
 
   return (
@@ -46,4 +47,6 @@ export default () => {
     </>
   );
 };
+
+export default App;
 ```

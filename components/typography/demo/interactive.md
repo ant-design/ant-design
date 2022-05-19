@@ -13,20 +13,20 @@ title:
 
 Provide additional interactive capacity of editable and copyable.
 
-```jsx
+```tsx
 import React, { useState } from 'react';
-import { Checkbox, Radio, Typography, Divider } from 'antd';
+import { Radio, Typography, Divider } from 'antd';
 import { CheckOutlined, HighlightOutlined, SmileOutlined, SmileFilled } from '@ant-design/icons';
 
 const { Paragraph } = Typography;
 
-const Demo = () => {
+const App: React.FC = () => {
   const [editableStr, setEditableStr] = useState('This is an editable text.');
   const [customIconStr, setCustomIconStr] = useState('Custom Edit icon and replace tooltip text.');
   const [clickTriggerStr, setClickTriggerStr] = useState(
     'Text or icon as trigger - click to start editing.',
   );
-  const [chooseTrigger, setChooseTrigger] = useState('icon');
+  const [chooseTrigger, setChooseTrigger] = useState<('icon' | 'text')[]>(['icon']);
   const [customEnterIconStr, setCustomEnterIconStr] = useState(
     'Editable text with a custom enter icon in edit field.',
   );
@@ -38,7 +38,7 @@ const Demo = () => {
     'This is an editable text with limited length.',
   );
 
-  const radioToState = input => {
+  const radioToState = (input: string): ('icon' | 'text')[] => {
     switch (input) {
       case 'text':
         return ['text'];
@@ -150,5 +150,5 @@ const Demo = () => {
   );
 };
 
-export default Demo;
+export default App;
 ```

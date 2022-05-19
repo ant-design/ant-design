@@ -13,10 +13,13 @@ title:
 
 There are 4 position options available.
 
-```jsx
+```tsx
+import React, { useState } from 'react';
 import { Carousel, Radio } from 'antd';
+import type { RadioChangeEvent } from 'antd';
+import type { DotPosition } from 'antd/lib/carousel';
 
-const contentStyle = {
+const contentStyle: React.CSSProperties = {
   height: '160px',
   color: '#fff',
   lineHeight: '160px',
@@ -24,10 +27,10 @@ const contentStyle = {
   background: '#364d79',
 };
 
-const PositionCarouselDemo = () => {
-  const [dotPosition, setDotPosition] = React.useState('top');
+const App: React.FC = () => {
+  const [dotPosition, setDotPosition] = useState<DotPosition>('top');
 
-  const handlePositionChange = ({ target: { value } }) => {
+  const handlePositionChange = ({ target: { value } }: RadioChangeEvent) => {
     setDotPosition(value);
   };
 
@@ -57,5 +60,5 @@ const PositionCarouselDemo = () => {
   );
 };
 
-export default () => <PositionCarouselDemo />;
+export default App;
 ```

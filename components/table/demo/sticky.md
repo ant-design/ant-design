@@ -13,10 +13,19 @@ title:
 
 For long table，need to scroll to view the header and scroll bar，then you can now set the fixed header and scroll bar to follow the page.
 
-```jsx
+```tsx
+import React, { useState } from 'react';
 import { Table, Switch } from 'antd';
+import type { ColumnsType } from 'antd/lib/table';
 
-const columns = [
+interface DataType {
+  key: React.Key;
+  name: string;
+  age: number;
+  address: string;
+}
+
+const columns: ColumnsType<DataType> = [
   {
     title: 'Full Name',
     width: 100,
@@ -83,7 +92,7 @@ const columns = [
   },
 ];
 
-const data = [];
+const data: DataType[] = [];
 for (let i = 0; i < 100; i++) {
   data.push({
     key: i,
@@ -93,15 +102,15 @@ for (let i = 0; i < 100; i++) {
   });
 }
 
-const Demo = () => {
-  const [fixedTop, setFixedTop] = React.useState(false);
+const App: React.FC = () => {
+  const [fixedTop, setFixedTop] = useState(false);
 
   return (
     <Table
       columns={columns}
       dataSource={data}
       scroll={{ x: 1500 }}
-      summary={pageData => (
+      summary={() => (
         <Table.Summary fixed={fixedTop ? 'top' : 'bottom'}>
           <Table.Summary.Row>
             <Table.Summary.Cell index={0} colSpan={2}>
@@ -126,5 +135,5 @@ const Demo = () => {
   );
 };
 
-export default Demo;
+export default App;
 ```

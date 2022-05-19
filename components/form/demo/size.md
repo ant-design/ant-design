@@ -30,11 +30,13 @@ import {
 
 type SizeType = Parameters<typeof Form>[0]['size'];
 
-const FormSizeDemo = () => {
+const App: React.FC = () => {
   const [componentSize, setComponentSize] = useState<SizeType | 'default'>('default');
+
   const onFormLayoutChange = ({ size }: { size: SizeType }) => {
     setComponentSize(size);
   };
+
   return (
     <Form
       labelCol={{ span: 4 }}
@@ -98,5 +100,5 @@ const FormSizeDemo = () => {
   );
 };
 
-export default () => <FormSizeDemo />;
+export default App;
 ```

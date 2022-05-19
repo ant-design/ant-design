@@ -13,9 +13,10 @@ title:
 
 Render radios by configuring `options`. Radio type can also be set through the `optionType` parameter.
 
-```jsx
-import { useState } from 'react';
+```tsx
+import React, { useState } from 'react';
 import { Radio } from 'antd';
+import type { RadioChangeEvent } from 'antd';
 
 const plainOptions = ['Apple', 'Pear', 'Orange'];
 const options = [
@@ -29,30 +30,30 @@ const optionsWithDisabled = [
   { label: 'Orange', value: 'Orange', disabled: true },
 ];
 
-export default () => {
+const App: React.FC = () => {
   const [value1, setValue1] = useState('Apple');
   const [value2, setValue2] = useState('Apple');
   const [value3, setValue3] = useState('Apple');
   const [value4, setValue4] = useState('Apple');
 
-  const onChange1 = e => {
-    console.log('radio1 checked', e.target.value);
-    setValue1(e.target.value);
+  const onChange1 = ({ target: { value } }: RadioChangeEvent) => {
+    console.log('radio1 checked', value);
+    setValue1(value);
   };
 
-  const onChange2 = e => {
-    console.log('radio2 checked', e.target.value);
-    setValue2(e.target.value);
+  const onChange2 = ({ target: { value } }: RadioChangeEvent) => {
+    console.log('radio2 checked', value);
+    setValue2(value);
   };
 
-  const onChange3 = e => {
-    console.log('radio3 checked', e.target.value);
-    setValue3(e.target.value);
+  const onChange3 = ({ target: { value } }: RadioChangeEvent) => {
+    console.log('radio3 checked', value);
+    setValue3(value);
   };
 
-  const onChange4 = e => {
-    console.log('radio4 checked', e.target.value);
-    setValue4(e.target.value);
+  const onChange4 = ({ target: { value } }: RadioChangeEvent) => {
+    console.log('radio4 checked', value);
+    setValue4(value);
   };
 
   return (
@@ -75,4 +76,6 @@ export default () => {
     </>
   );
 };
+
+export default App;
 ```

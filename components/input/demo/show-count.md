@@ -13,16 +13,17 @@ title:
 
 Show character counting.
 
-```jsx
+```tsx
+import React from 'react';
 import { Input } from 'antd';
 
 const { TextArea } = Input;
 
-const onChange = e => {
+const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
   console.log('Change:', e.target.value);
 };
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Input showCount maxLength={20} onChange={onChange} />
     <br />
@@ -30,4 +31,6 @@ export default () => (
     <TextArea showCount maxLength={100} onChange={onChange} />
   </>
 );
+
+export default App;
 ```

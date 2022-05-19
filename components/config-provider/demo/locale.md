@@ -13,7 +13,8 @@ title:
 
 Components which need localization support are listed here, you can toggle the language in the demo.
 
-```jsx
+```tsx
+import React, { useState } from 'react';
 import {
   ConfigProvider,
   Pagination,
@@ -31,6 +32,7 @@ import {
 import enUS from 'antd/lib/locale/en_US';
 import zhCN from 'antd/lib/locale/zh_CN';
 import moment from 'moment';
+import type { RadioChangeEvent } from 'antd';
 import 'moment/locale/zh-cn';
 
 moment.locale('en');
@@ -55,8 +57,8 @@ const columns = [
   },
 ];
 
-function Page() {
-  const [visible, setVisible] = React.useState(false);
+const Page = () => {
+  const [visible, setVisible] = useState(false);
 
   const showModal = () => {
     setVisible(true);
@@ -105,7 +107,7 @@ function Page() {
         </Popconfirm>
       </div>
       <div className="example">
-        <Transfer dataSource={[]} showSearch targetKeys={[]} render={item => item.title} />
+        <Transfer dataSource={[]} showSearch targetKeys={[]} />
       </div>
       <div className="site-config-provider-calendar-wrapper">
         <Calendar fullscreen={false} value={moment()} />
@@ -118,14 +120,14 @@ function Page() {
       </Modal>
     </div>
   );
-}
+};
 
-export default () => {
-  const [locale, setLocale] = React.useState(enUS);
+const App: React.FC = () => {
+  const [locale, setLocal] = useState(enUS);
 
-  const changeLocale = e => {
+  const changeLocale = (e: RadioChangeEvent) => {
     const localeValue = e.target.value;
-    setLocale(localeValue);
+    setLocal(localeValue);
     if (!localeValue) {
       moment.locale('en');
     } else {
@@ -154,6 +156,8 @@ export default () => {
     </div>
   );
 };
+
+export default App;
 ```
 
 ```css

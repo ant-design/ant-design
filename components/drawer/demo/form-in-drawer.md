@@ -13,14 +13,15 @@ title:
 
 Use a form in Drawer with a submit button.
 
-```jsx
+```tsx
+import React, { useState } from 'react';
 import { Drawer, Form, Button, Col, Row, Input, Select, DatePicker, Space } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 
 const { Option } = Select;
 
-export default () => {
-  const [visible, setVisible] = React.useState(false);
+const App: React.FC = () => {
+  const [visible, setVisible] = useState(false);
 
   const showDrawer = () => {
     setVisible(true);
@@ -123,7 +124,7 @@ export default () => {
               >
                 <DatePicker.RangePicker
                   style={{ width: '100%' }}
-                  getPopupContainer={trigger => trigger.parentElement}
+                  getPopupContainer={trigger => trigger.parentElement!}
                 />
               </Form.Item>
             </Col>
@@ -149,6 +150,8 @@ export default () => {
     </>
   );
 };
+
+export default App;
 ```
 
 ```css

@@ -13,11 +13,12 @@ title:
 
 Replace the default star to other character like alphabet, digit, iconfont or even Chinese word.
 
-```jsx
+```tsx
+import React from 'react';
 import { Rate } from 'antd';
 import { HeartOutlined } from '@ant-design/icons';
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Rate character={<HeartOutlined />} allowHalf />
     <br />
@@ -26,4 +27,6 @@ export default () => (
     <Rate character="好" allowHalf />
   </>
 );
+
+export default App;
 ```

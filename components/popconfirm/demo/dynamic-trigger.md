@@ -13,17 +13,16 @@ title:
 
 Make it pop up under some conditions.
 
-```jsx
-import { useState } from 'react';
+```tsx
+import React, { useState } from 'react';
 import { Popconfirm, Switch, message } from 'antd';
 
-export default () => {
+const App: React.FC = () => {
   const [visible, setVisible] = useState(false);
-  // Whether meet the condition, if not show popconfirm.
   const [condition, setCondition] = useState(true);
 
-  const changeCondition = value => {
-    setCondition(value);
+  const changeCondition = (checked: boolean) => {
+    setCondition(checked);
   };
 
   const confirm = () => {
@@ -36,9 +35,9 @@ export default () => {
     message.error('Click on cancel.');
   };
 
-  const handleVisibleChange = visibleConfirm => {
-    if (!visibleConfirm) {
-      setVisible(visibleConfirm);
+  const handleVisibleChange = (newVisible: boolean) => {
+    if (!newVisible) {
+      setVisible(newVisible);
       return;
     }
     // Determining condition before show the popconfirm.
@@ -46,7 +45,7 @@ export default () => {
     if (condition) {
       confirm(); // next step
     } else {
-      setVisible(visibleConfirm); // show the popconfirm
+      setVisible(newVisible);
     }
   };
 
@@ -70,4 +69,6 @@ export default () => {
     </div>
   );
 };
+
+export default App;
 ```

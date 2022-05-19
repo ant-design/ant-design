@@ -13,13 +13,15 @@ title:
 
 Vertical Radio.Group, with more radios.
 
-```jsx
+```tsx
+import React, { useState } from 'react';
 import { Radio, Input, Space } from 'antd';
+import type { RadioChangeEvent } from 'antd';
 
-export default () => {
-  const [value, setValue] = React.useState(1);
+const App: React.FC = () => {
+  const [value, setValue] = useState(1);
 
-  const onChange = e => {
+  const onChange = (e: RadioChangeEvent) => {
     console.log('radio checked', e.target.value);
     setValue(e.target.value);
   };
@@ -38,4 +40,6 @@ export default () => {
     </Radio.Group>
   );
 };
+
+export default App;
 ```

@@ -13,14 +13,16 @@ title:
 
 A disabled state of the `DatePicker`. You can also set as array to disable one of input.
 
-```jsx
+```tsx
+import React from 'react';
 import { DatePicker, Space } from 'antd';
 import moment from 'moment';
 
 const { RangePicker } = DatePicker;
 
 const dateFormat = 'YYYY-MM-DD';
-export default () => (
+
+const App: React.FC = () => (
   <Space direction="vertical" size={12}>
     <DatePicker defaultValue={moment('2015-06-06', dateFormat)} disabled />
     <DatePicker picker="month" defaultValue={moment('2015-06', 'YYYY-MM')} disabled />
@@ -34,4 +36,6 @@ export default () => (
     />
   </Space>
 );
+
+export default App;
 ```

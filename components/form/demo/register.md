@@ -88,7 +88,7 @@ const tailFormItemLayout = {
   },
 };
 
-const RegistrationForm = () => {
+const App: React.FC = () => {
   const [form] = Form.useForm();
 
   const onFinish = (values: any) => {
@@ -300,5 +300,5 @@ const RegistrationForm = () => {
   );
 };
 
-export default () => <RegistrationForm />;
+export default App;
 ```

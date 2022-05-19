@@ -13368,11 +13368,9 @@ exports[`ConfigProvider components Form configProvider 1`] = `
 >
   <div
     class="config-row config-form-item config-form-item-with-help config-form-item-has-error"
-    role="row"
   >
     <div
       class="config-col config-form-item-control"
-      role="cell"
     >
       <div
         class="config-form-item-control-input"
@@ -13408,11 +13406,9 @@ exports[`ConfigProvider components Form configProvider componentSize large 1`] =
 >
   <div
     class="config-row config-form-item config-form-item-with-help config-form-item-has-error"
-    role="row"
   >
     <div
       class="config-col config-form-item-control"
-      role="cell"
     >
       <div
         class="config-form-item-control-input"
@@ -13448,11 +13444,9 @@ exports[`ConfigProvider components Form configProvider componentSize middle 1`] 
 >
   <div
     class="config-row config-form-item config-form-item-with-help config-form-item-has-error"
-    role="row"
   >
     <div
       class="config-col config-form-item-control"
-      role="cell"
     >
       <div
         class="config-form-item-control-input"
@@ -13488,11 +13482,9 @@ exports[`ConfigProvider components Form configProvider virtual and dropdownMatch
 >
   <div
     class="ant-row ant-form-item ant-form-item-with-help ant-form-item-has-error"
-    role="row"
   >
     <div
       class="ant-col ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -13528,11 +13520,9 @@ exports[`ConfigProvider components Form normal 1`] = `
 >
   <div
     class="ant-row ant-form-item ant-form-item-with-help ant-form-item-has-error"
-    role="row"
   >
     <div
       class="ant-col ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -13568,11 +13558,9 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
 >
   <div
     class="ant-row prefix-Form-item prefix-Form-item-with-help prefix-Form-item-has-error"
-    role="row"
   >
     <div
       class="ant-col prefix-Form-item-control"
-      role="cell"
     >
       <div
         class="prefix-Form-item-control-input"
@@ -13605,11 +13593,9 @@ exports[`ConfigProvider components Form prefixCls 1`] = `
 exports[`ConfigProvider components Grid configProvider 1`] = `
 <div
   class="config-row"
-  role="row"
 >
   <div
     class="config-col config-col-1"
-    role="cell"
   />
 </div>
 `;
@@ -13617,11 +13603,9 @@ exports[`ConfigProvider components Grid configProvider 1`] = `
 exports[`ConfigProvider components Grid configProvider componentSize large 1`] = `
 <div
   class="config-row"
-  role="row"
 >
   <div
     class="config-col config-col-1"
-    role="cell"
   />
 </div>
 `;
@@ -13629,11 +13613,9 @@ exports[`ConfigProvider components Grid configProvider componentSize large 1`] =
 exports[`ConfigProvider components Grid configProvider componentSize middle 1`] = `
 <div
   class="config-row"
-  role="row"
 >
   <div
     class="config-col config-col-1"
-    role="cell"
   />
 </div>
 `;
@@ -13641,11 +13623,9 @@ exports[`ConfigProvider components Grid configProvider componentSize middle 1`] 
 exports[`ConfigProvider components Grid configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
   class="ant-row"
-  role="row"
 >
   <div
     class="ant-col ant-col-1"
-    role="cell"
   />
 </div>
 `;
@@ -13653,11 +13633,9 @@ exports[`ConfigProvider components Grid configProvider virtual and dropdownMatch
 exports[`ConfigProvider components Grid normal 1`] = `
 <div
   class="ant-row"
-  role="row"
 >
   <div
     class="ant-col ant-col-1"
-    role="cell"
   />
 </div>
 `;
@@ -13665,11 +13643,9 @@ exports[`ConfigProvider components Grid normal 1`] = `
 exports[`ConfigProvider components Grid prefixCls 1`] = `
 <div
   class="prefix-row"
-  role="row"
 >
   <div
     class="prefix-col prefix-col-1"
-    role="cell"
   />
 </div>
 `;

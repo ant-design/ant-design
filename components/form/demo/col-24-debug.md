@@ -15,9 +15,10 @@ See issue [#32980](https://github.com/ant-design/ant-design/issues/32980).
 See issue [#32980](https://github.com/ant-design/ant-design/issues/32980).
 
 ```tsx
+import React from 'react';
 import { Form, Input, Button } from 'antd';
 
-const Demo = () => {
+const App: React.FC = () => {
   const onFinish = (values: any) => {
     console.log('Success:', values);
   };
@@ -94,5 +95,5 @@ const Demo = () => {
   );
 };
 
-export default Demo;
+export default App;
 ```

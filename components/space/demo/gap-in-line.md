@@ -15,6 +15,7 @@ Debug usage
 Debug usage
 
 ```tsx
+import React, { useState } from 'react';
 import { Space, Switch } from 'antd';
 
 const style: React.CSSProperties = {
@@ -23,8 +24,8 @@ const style: React.CSSProperties = {
   background: 'red',
 };
 
-const Demo = () => {
-  const [singleCol, setSingleCol] = React.useState(false);
+const App: React.FC = () => {
+  const [singleCol, setSingleCol] = useState(false);
 
   return (
     <>
@@ -46,5 +47,5 @@ const Demo = () => {
   );
 };
 
-export default Demo;
+export default App;
 ```

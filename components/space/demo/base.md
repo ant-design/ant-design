@@ -13,11 +13,12 @@ title:
 
 Crowded components horizontal spacing.
 
-```jsx
+```tsx
+import React from 'react';
 import { Button, Space, Upload, Popconfirm } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 
-const App = () => (
+const App: React.FC = () => (
   <Space>
     Space
     <Button type="primary">Button</Button>
