@@ -19,8 +19,9 @@ import { AutoComplete } from 'antd';
 
 const { Option } = AutoComplete;
 
-const Complete: React.FC = () => {
+const App: React.FC = () => {
   const [result, setResult] = useState<string[]>([]);
+
   const handleSearch = (value: string) => {
     let res: string[] = [];
     if (!value || value.indexOf('@') >= 0) {
@@ -30,6 +31,7 @@ const Complete: React.FC = () => {
     }
     setResult(res);
   };
+
   return (
     <AutoComplete style={{ width: 200 }} onSearch={handleSearch} placeholder="input here">
       {result.map((email: string) => (
@@ -41,5 +43,5 @@ const Complete: React.FC = () => {
   );
 };
 
-export default () => <Complete />;
+export default App;
 ```

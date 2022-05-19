@@ -13,10 +13,11 @@ title:
 
 Timing of scrolling to the next card/picture.
 
-```jsx
+```tsx
+import React from 'react';
 import { Carousel } from 'antd';
 
-const contentStyle = {
+const contentStyle: React.CSSProperties = {
   height: '160px',
   color: '#fff',
   lineHeight: '160px',
@@ -24,7 +25,7 @@ const contentStyle = {
   background: '#364d79',
 };
 
-export default () => (
+const App: React.FC = () => (
   <Carousel autoplay>
     <div>
       <h3 style={contentStyle}>1</h3>
@@ -40,4 +41,6 @@ export default () => (
     </div>
   </Carousel>
 );
+
+export default App;
 ```

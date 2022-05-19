@@ -13,10 +13,24 @@ title:
 
 Group table head with `columns[n].children`.
 
-```jsx
+```tsx
+import React from 'react';
 import { Table } from 'antd';
+import type { ColumnsType } from 'antd/lib/table';
 
-const columns = [
+interface DataType {
+  key: React.Key;
+  name: string;
+  age: number;
+  street: string;
+  building: string;
+  number: number;
+  companyAddress: string;
+  companyName: string;
+  gender: string;
+}
+
+const columns: ColumnsType<DataType> = [
   {
     title: 'Name',
     dataIndex: 'name',
@@ -33,7 +47,7 @@ const columns = [
         value: 'John',
       },
     ],
-    onFilter: (value, record) => record.name.indexOf(value) === 0,
+    onFilter: (value: string, record) => record.name.indexOf(value) === 0,
   },
   {
     title: 'Other',
@@ -100,7 +114,7 @@ const columns = [
   },
 ];
 
-const data = [];
+const data: DataType[] = [];
 for (let i = 0; i < 100; i++) {
   data.push({
     key: i,
@@ -115,7 +129,7 @@ for (let i = 0; i < 100; i++) {
   });
 }
 
-export default () => (
+const App: React.FC = () => (
   <Table
     columns={columns}
     dataSource={data}
@@ -124,4 +138,6 @@ export default () => (
     scroll={{ x: 'calc(700px + 50%)', y: 240 }}
   />
 );
+
+export default App;
 ```

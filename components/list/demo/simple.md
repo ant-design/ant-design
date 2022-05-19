@@ -21,7 +21,8 @@ If a large or small list is desired, set the size property to either large or sm
 
 Customizing the header and footer of list by setting `header` and `footer` property.
 
-```jsx
+```tsx
+import React from 'react';
 import { List, Typography, Divider } from 'antd';
 
 const data = [
@@ -32,7 +33,7 @@ const data = [
   'Los Angeles battles huge wildfires.',
 ];
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Divider orientation="left">Default Size</Divider>
     <List
@@ -66,4 +67,6 @@ export default () => (
     />
   </>
 );
+
+export default App;
 ```

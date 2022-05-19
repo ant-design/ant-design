@@ -23,7 +23,7 @@ Generally, the mainnav is placed on the left side of the page, and the secondary
 The level of the aside navigation is scalable. The first, second, and third level navigations could be present more fluently and relevantly, and aside navigation can be fixed, allowing the user to quickly switch and spot the current position, improving the user experience. However, this navigation occupies some horizontal space of the contents.
 
 ```tsx
-import type { MenuProps } from 'antd';
+import React, { useState } from 'react';
 import { Layout, Menu, Breadcrumb } from 'antd';
 import {
   DesktopOutlined,
@@ -32,6 +32,7 @@ import {
   TeamOutlined,
   UserOutlined,
 } from '@ant-design/icons';
+import type { MenuProps } from 'antd';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -63,17 +64,12 @@ const items: MenuItem[] = [
   getItem('Files', '9', <FileOutlined />),
 ];
 
-export default () => {
-  const [collapsed, setCollapsed] = React.useState(false);
-
-  const onCollapse = (isCollapsed: boolean) => {
-    console.log(isCollapsed);
-    setCollapsed(isCollapsed);
-  };
+const App: React.FC = () => {
+  const [collapsed, setCollapsed] = useState(false);
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
-      <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
+      <Sider collapsible collapsed={collapsed} onCollapse={value => setCollapsed(value)}>
         <div className="logo" />
         <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items} />
       </Sider>
@@ -93,6 +89,8 @@ export default () => {
     </Layout>
   );
 };
+
+export default App;
 ```
 
 ```css

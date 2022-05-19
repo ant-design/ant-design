@@ -17,7 +17,7 @@ Custom action.
 import React from 'react';
 import { Alert, Button, Space } from 'antd';
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Alert
       message="Success Tips"
@@ -71,6 +71,8 @@ export default () => (
     />
   </>
 );
+
+export default App;
 ```
 
 <style>

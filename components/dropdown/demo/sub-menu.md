@@ -13,54 +13,54 @@ title:
 
 The menu has multiple levels.
 
-```jsx
+```tsx
+import React from 'react';
 import { Menu, Dropdown, Space } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
-
-const { SubMenu } = Menu;
 
 const menu = (
   <Menu
     items={[
       {
+        key: '1',
         type: 'group',
         label: 'Group title',
         children: [
           {
-            key: '1',
+            key: '1-1',
             label: '1st menu item',
           },
           {
-            key: '2',
+            key: '1-2',
             label: '2nd menu item',
           },
         ],
       },
       {
-        key: 'sub',
+        key: '2',
         label: 'sub menu',
         children: [
           {
-            key: '3',
+            key: '2-1',
             label: '3rd menu item',
           },
           {
-            key: '4',
+            key: '2-2',
             label: '4th menu item',
           },
         ],
       },
       {
+        key: '3',
         label: 'disabled sub menu',
-        key: 'disabled',
         disabled: true,
         children: [
           {
-            key: '5',
+            key: '3-1',
             label: '5d menu item',
           },
           {
-            key: '6',
+            key: '3-2',
             label: '6th menu item',
           },
         ],
@@ -69,7 +69,7 @@ const menu = (
   />
 );
 
-export default () => (
+const App: React.FC = () => (
   <Dropdown overlay={menu}>
     <a onClick={e => e.preventDefault()}>
       <Space>
@@ -79,4 +79,6 @@ export default () => (
     </a>
   </Dropdown>
 );
+
+export default App;
 ```

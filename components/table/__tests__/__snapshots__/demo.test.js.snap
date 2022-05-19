@@ -2260,14 +2260,14 @@ Array [
                     checked=""
                     class="ant-radio-button-input"
                     type="radio"
-                    value="default"
+                    value="large"
                   />
                   <span
                     class="ant-radio-button-inner"
                   />
                 </span>
                 <span>
-                  Default
+                  Large
                 </span>
               </label>
               <label

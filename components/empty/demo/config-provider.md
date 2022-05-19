@@ -13,7 +13,8 @@ title:
 
 Use ConfigProvider set global Empty style.
 
-```jsx
+```tsx
+import React, { useState } from 'react';
 import {
   ConfigProvider,
   Switch,
@@ -36,8 +37,8 @@ const customizeRenderEmpty = () => (
 
 const style = { width: 200 };
 
-export default () => {
-  const [customize, setCustomize] = React.useState(false);
+const App: React.FC = () => {
+  const [customize, setCustomize] = useState(false);
 
   return (
     <div>
@@ -45,14 +46,14 @@ export default () => {
         unCheckedChildren="default"
         checkedChildren="customize"
         checked={customize}
-        onChange={value => {
-          setCustomize(value);
+        onChange={val => {
+          setCustomize(val);
         }}
       />
 
       <Divider />
 
-      <ConfigProvider renderEmpty={customize && customizeRenderEmpty}>
+      <ConfigProvider renderEmpty={customize ? customizeRenderEmpty : undefined}>
         <div className="config-provider">
           <h4>Select</h4>
           <Select style={style} />
@@ -90,6 +91,8 @@ export default () => {
     </div>
   );
 };
+
+export default App;
 ```
 
 <style>

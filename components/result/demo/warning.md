@@ -13,10 +13,11 @@ title:
 
 The result of the warning.
 
-```jsx
+```tsx
+import React from 'react';
 import { Result, Button } from 'antd';
 
-export default () => (
+const App: React.FC = () => (
   <Result
     status="warning"
     title="There are some problems with your operation."
@@ -27,4 +28,6 @@ export default () => (
     }
   />
 );
+
+export default App;
 ```

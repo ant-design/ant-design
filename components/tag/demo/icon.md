@@ -17,7 +17,8 @@ title:
 
 If you want specific control over the positioning and placement of the `Icon`, then that should be done by placing the `Icon` component within the `Tag` rather than using the `icon` property.
 
-```jsx
+```tsx
+import React from 'react';
 import { Tag } from 'antd';
 import {
   TwitterOutlined,
@@ -26,7 +27,7 @@ import {
   LinkedinOutlined,
 } from '@ant-design/icons';
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Tag icon={<TwitterOutlined />} color="#55acee">
       Twitter
@@ -42,4 +43,6 @@ export default () => (
     </Tag>
   </>
 );
+
+export default App;
 ```

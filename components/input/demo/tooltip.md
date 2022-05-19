@@ -13,20 +13,25 @@ title:
 
 You can use the Input in conjunction with [Tooltip](/components/tooltip) component to create a Numeric Input, which can provide a good experience for extra-long content display.
 
-```jsx
+```tsx
+import React, { useState } from 'react';
 import { Input, Tooltip } from 'antd';
 
-function formatNumber(value) {
-  return new Intl.NumberFormat().format(value);
+interface NumericInputProps {
+  style: React.CSSProperties;
+  value: string;
+  onChange: (value: string) => void;
 }
 
-const NumericInput = props => {
-  const { value, onBlur, onChange } = props;
+const formatNumber = (value: number) => new Intl.NumberFormat().format(value);
 
-  const handleChange = e => {
-    const inputValue = e.target.value;
+const NumericInput = (props: NumericInputProps) => {
+  const { value, onChange } = props;
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value: inputValue } = e.target;
     const reg = /^-?\d*(\.\d*)?$/;
-    if ((!isNaN(inputValue) && reg.test(inputValue)) || inputValue === '' || inputValue === '-') {
+    if (reg.test(inputValue) || inputValue === '' || inputValue === '-') {
       onChange(inputValue);
     }
   };
@@ -38,16 +43,14 @@ const NumericInput = props => {
       valueTemp = value.slice(0, -1);
     }
     onChange(valueTemp.replace(/0*(\d+)/, '$1'));
-    if (onBlur) {
-      onBlur();
-    }
   };
 
   const title = value ? (
-    <span className="numeric-input-title">{value !== '-' ? formatNumber(value) : '-'}</span>
+    <span className="numeric-input-title">{value !== '-' ? formatNumber(Number(value)) : '-'}</span>
   ) : (
     'Input a number'
   );
+
   return (
     <Tooltip trigger={['focus']} title={title} placement="topLeft" overlayClassName="numeric-input">
       <Input
@@ -61,15 +64,13 @@ const NumericInput = props => {
   );
 };
 
-export default () => {
-  const [value, setValue] = React.useState();
+const App: React.FC = () => {
+  const [value, setValue] = useState('');
 
-  const onChange = val => {
-    setValue(val);
-  };
-
-  return <NumericInput style={{ width: 120 }} value={value} onChange={onChange} />;
+  return <NumericInput style={{ width: 120 }} value={value} onChange={setValue} />;
 };
+
+export default App;
 ```
 
 ```css

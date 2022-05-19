@@ -13,11 +13,12 @@ title:
 
 Communicated with other components.
 
-```jsx
+```tsx
 import React, { useState } from 'react';
 import { Checkbox, Button } from 'antd';
+import type { CheckboxChangeEvent } from 'antd/es/checkbox';
 
-export default () => {
+const App: React.FC = () => {
   const [checked, setChecked] = useState(true);
   const [disabled, setDisabled] = useState(false);
 
@@ -29,7 +30,7 @@ export default () => {
     setDisabled(!disabled);
   };
 
-  const onChange = e => {
+  const onChange = (e: CheckboxChangeEvent) => {
     console.log('checked = ', e.target.checked);
     setChecked(e.target.checked);
   };
@@ -54,4 +55,6 @@ export default () => {
     </>
   );
 };
+
+export default App;
 ```

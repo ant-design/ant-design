@@ -13,11 +13,12 @@ title:
 
 Click the button to toggle between available and disabled states.
 
-```jsx
+```tsx
+import React, { useState } from 'react';
 import { InputNumber, Button } from 'antd';
 
-export default () => {
-  const [disabled, setDisabled] = React.useState(true);
+const App: React.FC = () => {
+  const [disabled, setDisabled] = useState(true);
 
   const toggle = () => {
     setDisabled(!disabled);
@@ -34,4 +35,6 @@ export default () => {
     </>
   );
 };
+
+export default App;
 ```

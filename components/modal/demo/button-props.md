@@ -13,22 +13,23 @@ title:
 
 Passing `okButtonProps` and `cancelButtonProps` will customize the OK button and cancel button props.
 
-```jsx
+```tsx
+import React, { useState } from 'react';
 import { Modal, Button } from 'antd';
 
-export default () => {
-  const [visible, setVisible] = React.useState(false);
+const App: React.FC = () => {
+  const [visible, setVisible] = useState(false);
 
   const showModal = () => {
     setVisible(true);
   };
 
-  const handleOk = e => {
+  const handleOk = (e: React.MouseEvent<HTMLElement>) => {
     console.log(e);
     setVisible(false);
   };
 
-  const handleCancel = e => {
+  const handleCancel = (e: React.MouseEvent<HTMLElement>) => {
     console.log(e);
     setVisible(false);
   };
@@ -53,4 +54,6 @@ export default () => {
     </>
   );
 };
+
+export default App;
 ```

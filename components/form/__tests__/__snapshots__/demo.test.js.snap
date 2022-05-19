@@ -4007,7 +4007,7 @@ exports[`renders ./components/form/demo/ref-item.md correctly 1`] = `
     </div>
   </div>
   <button
-    class="ant-btn ant-btn-button"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span>

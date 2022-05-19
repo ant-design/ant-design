@@ -15,14 +15,15 @@ title:
 Add status to Cascader with `status`, which could be `error` or `warning`.
 
 ```tsx
+import React from 'react';
 import { Cascader, Space } from 'antd';
 
-const Validation: React.FC = () => (
+const App: React.FC = () => (
   <Space direction="vertical">
     <Cascader status="error" placeholder="Error" />
     <Cascader status="warning" multiple placeholder="Warning multiple" />
   </Space>
 );
 
-export default () => <Validation />;
+export default App;
 ```

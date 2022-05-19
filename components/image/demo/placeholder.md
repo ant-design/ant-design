@@ -13,12 +13,13 @@ title:
 
 Progressive when large image loading.
 
-```jsx
-import React from 'react';
+```tsx
+import React, { useState } from 'react';
 import { Image, Button, Space } from 'antd';
 
-function ImageDemo() {
-  const [random, setRandom] = React.useState();
+const App: React.FC = () => {
+  const [random, setRandom] = useState<number>();
+
   return (
     <Space size={12}>
       <Image
@@ -42,7 +43,7 @@ function ImageDemo() {
       </Button>
     </Space>
   );
-}
+};
 
-export default () => <ImageDemo />;
+export default App;
 ```

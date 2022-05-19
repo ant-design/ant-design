@@ -19,10 +19,12 @@ import { Form, InputNumber } from 'antd';
 
 type ValidateStatus = Parameters<typeof Form.Item>[0]['validateStatus'];
 
-function validatePrimeNumber(number: number): {
+const validatePrimeNumber = (
+  number: number,
+): {
   validateStatus: ValidateStatus;
   errorMsg: string | null;
-} {
+} => {
   if (number === 11) {
     return {
       validateStatus: 'success',
@@ -33,14 +35,14 @@ function validatePrimeNumber(number: number): {
     validateStatus: 'error',
     errorMsg: 'The prime between 8 and 12 is 11!',
   };
-}
+};
 
 const formItemLayout = {
   labelCol: { span: 7 },
   wrapperCol: { span: 12 },
 };
 
-const RawForm = () => {
+const App: React.FC = () => {
   const [number, setNumber] = useState<{
     value: number;
     validateStatus?: ValidateStatus;
@@ -73,5 +75,5 @@ const RawForm = () => {
   );
 };
 
-export default () => <RawForm />;
+export default App;
 ```

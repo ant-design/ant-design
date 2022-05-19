@@ -13,10 +13,17 @@ title:
 
 Hover to expand sub menu, click to select option.
 
-```jsx
+```tsx
+import React from 'react';
 import { Cascader } from 'antd';
 
-const options = [
+interface Option {
+  value: string;
+  label: string;
+  children?: Option[];
+}
+
+const options: Option[] = [
   {
     value: 'zhejiang',
     label: 'Zhejiang',
@@ -51,16 +58,14 @@ const options = [
   },
 ];
 
-function onChange(value) {
+const onChange = (value: string[]) => {
   console.log(value);
-}
+};
 
 // Just show the latest item.
-function displayRender(label) {
-  return label[label.length - 1];
-}
+const displayRender = (labels: string[]) => labels[labels.length - 1];
 
-export default () => (
+const App: React.FC = () => (
   <Cascader
     options={options}
     expandTrigger="hover"
@@ -68,4 +73,6 @@ export default () => (
     onChange={onChange}
   />
 );
+
+export default App;
 ```

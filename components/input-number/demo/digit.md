@@ -14,13 +14,14 @@ title:
 Use `stringMode` to support high precision decimals support. `onChange` will return string value instead. You need polyfill of BigInt if browser not support.
 
 ```tsx
+import React from 'react';
 import { InputNumber } from 'antd';
 
-function onChange(value: string) {
+const onChange = (value: string) => {
   console.log('changed', value);
-}
+};
 
-export default () => (
+const App: React.FC = () => (
   <InputNumber<string>
     style={{ width: 200 }}
     defaultValue="1"
@@ -31,4 +32,6 @@ export default () => (
     stringMode
   />
 );
+
+export default App;
 ```

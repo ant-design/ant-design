@@ -13,10 +13,11 @@ title:
 
 Appropriate for a narrow area.
 
-```jsx
+```tsx
+import React from 'react';
 import { Progress } from 'antd';
 
-export default () => (
+const App: React.FC = () => (
   <div style={{ width: 170 }}>
     <Progress percent={30} size="small" />
     <Progress percent={50} size="small" status="active" />
@@ -24,4 +25,6 @@ export default () => (
     <Progress percent={100} size="small" />
   </div>
 );
+
+export default App;
 ```

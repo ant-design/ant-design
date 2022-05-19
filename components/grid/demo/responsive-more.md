@@ -15,10 +15,11 @@ title:
 
 `span` `pull` `push` `offset` `order` property can be embedded into `xs` `sm` `md` `lg` `xl` `xxl` properties to use, where `xs={6}` is equivalent to `xs={{span: 6}}`.
 
-```jsx
+```tsx
+import React from 'react';
 import { Row, Col } from 'antd';
 
-export default () => (
+const App: React.FC = () => (
   <Row>
     <Col xs={{ span: 5, offset: 1 }} lg={{ span: 6, offset: 2 }}>
       Col
@@ -31,4 +32,6 @@ export default () => (
     </Col>
   </Row>
 );
+
+export default App;
 ```

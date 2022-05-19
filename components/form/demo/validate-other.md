@@ -14,6 +14,7 @@ title:
 Demonstration of validation configuration for form controls which are not shown in the demos above.
 
 ```tsx
+import React from 'react';
 import {
   Form,
   Select,
@@ -42,10 +43,10 @@ const normFile = (e: any) => {
   if (Array.isArray(e)) {
     return e;
   }
-  return e && e.fileList;
+  return e?.fileList;
 };
 
-const Demo = () => {
+const App: React.FC = () => {
   const onFinish = (values: any) => {
     console.log('Received values of form: ', values);
   };
@@ -206,5 +207,5 @@ const Demo = () => {
   );
 };
 
-export default Demo;
+export default App;
 ```

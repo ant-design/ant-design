@@ -14,22 +14,23 @@ debug: true
 
 Adjust placement automatically when tooltip is invisible.
 
-```jsx
+```tsx
+import React from 'react';
 import { Tooltip, Button } from 'antd';
 
-const wrapStyles = {
+const wrapStyles: React.CSSProperties = {
   overflow: 'hidden',
   position: 'relative',
   padding: '24px',
   border: '1px solid #e9e9e9',
 };
 
-export default () => (
+const App: React.FC = () => (
   <div style={wrapStyles}>
     <Tooltip
       placement="left"
       title="Prompt Text"
-      getPopupContainer={trigger => trigger.parentElement}
+      getPopupContainer={trigger => trigger.parentElement!}
     >
       <Button>Adjust automatically / 自动调整</Button>
     </Tooltip>
@@ -37,11 +38,13 @@ export default () => (
     <Tooltip
       placement="left"
       title="Prompt Text"
-      getPopupContainer={trigger => trigger.parentElement}
+      getPopupContainer={trigger => trigger.parentElement!}
       autoAdjustOverflow={false}
     >
       <Button>Ignore / 不处理</Button>
     </Tooltip>
   </div>
 );
+
+export default App;
 ```

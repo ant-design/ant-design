@@ -15,12 +15,13 @@ title:
 
 Used in standalone when children is empty.
 
-```jsx
+```tsx
+import React, { useState } from 'react';
 import { Badge, Space, Switch } from 'antd';
 import { ClockCircleOutlined } from '@ant-design/icons';
 
-const Demo = () => {
-  const [show, setShow] = React.useState(true);
+const App: React.FC = () => {
+  const [show, setShow] = useState(true);
 
   return (
     <Space>
@@ -36,5 +37,5 @@ const Demo = () => {
   );
 };
 
-export default Demo;
+export default App;
 ```

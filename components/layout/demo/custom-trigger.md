@@ -13,7 +13,8 @@ title:
 
 If you want to use a customized trigger, you can hide the default one by setting `trigger={null}`.
 
-```jsx
+```tsx
+import React, { useState } from 'react';
 import { Layout, Menu } from 'antd';
 import {
   MenuUnfoldOutlined,
@@ -25,12 +26,8 @@ import {
 
 const { Header, Sider, Content } = Layout;
 
-export default () => {
-  const [collapsed, setCollapsed] = React.useState(false);
-
-  const toggle = () => {
-    setCollapsed(!collapsed);
-  };
+const App: React.FC = () => {
+  const [collapsed, setCollapsed] = useState(false);
 
   return (
     <Layout>
@@ -63,7 +60,7 @@ export default () => {
         <Header className="site-layout-background" style={{ padding: 0 }}>
           {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
             className: 'trigger',
-            onClick: toggle,
+            onClick: () => setCollapsed(!collapsed),
           })}
         </Header>
         <Content
@@ -80,6 +77,8 @@ export default () => {
     </Layout>
   );
 };
+
+export default App;
 ```
 
 ```css

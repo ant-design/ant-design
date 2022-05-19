@@ -13,8 +13,11 @@ title:
 
 Make range track draggable when set `range.draggableTrack`.
 
-```jsx
+```tsx
+import React from 'react';
 import { Slider } from 'antd';
 
-export default () => <Slider range={{ draggableTrack: true }} defaultValue={[20, 50]} />;
+const App: React.FC = () => <Slider range={{ draggableTrack: true }} defaultValue={[20, 50]} />;
+
+export default App;
 ```

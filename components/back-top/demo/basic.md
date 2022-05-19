@@ -13,10 +13,11 @@ title:
 
 The most basic usage.
 
-```jsx
+```tsx
+import React from 'react';
 import { BackTop } from 'antd';
 
-export default () => (
+const App: React.FC = () => (
   <>
     <BackTop />
     Scroll down to see the bottom-right
@@ -24,6 +25,8 @@ export default () => (
     button.
   </>
 );
+
+export default App;
 ```
 
 ```css
