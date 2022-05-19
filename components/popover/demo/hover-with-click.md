@@ -38,7 +38,6 @@ const App: React.FC = () => {
 
   const hoverContent = <div>This is hover content.</div>;
   const clickContent = <div>This is click content.</div>;
-
   return (
     <Popover
       style={{ width: 500 }}

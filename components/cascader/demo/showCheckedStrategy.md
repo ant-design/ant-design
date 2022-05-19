@@ -14,12 +14,17 @@ title:
 
 The way show selected item in box using `ShowCheckedStrategy`.
 
-```jsx
+```tsx
 import { Cascader } from 'antd';
 
 const { SHOW_CHILD } = Cascader;
 
-const options = [
+interface Option {
+  value: string | number;
+  label: string;
+  children?: Option[];
+}
+const options: Option[] = [
   {
     label: 'Light',
     value: 'light',
@@ -53,8 +58,8 @@ const options = [
   },
 ];
 
-const App = () => {
-  const onChange = value => {
+const App: React.FC = () => {
+  const onChange = (value: string[][]) => {
     console.log(value);
   };
   return (
@@ -86,5 +91,5 @@ const App = () => {
   );
 };
 
-ReactDOM.render(<App />, mountNode);
+export default App;
 ```
