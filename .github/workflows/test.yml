@@ -325,7 +325,7 @@ jobs:
           path: coverage
       - name: Merge Code Coverage
         run: |
-          nyc merge coverage/ coverage/coverage-final.json
+          npx nyc merge coverage/ coverage/coverage-final.json
           rm -rf coverage/coverage-shard-*.json
           bash <(curl -s https://codecov.io/bash)
 

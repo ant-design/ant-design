@@ -247,7 +247,6 @@
     "lz-string": "^1.4.4",
     "mini-css-extract-plugin": "^1.6.2",
     "mockdate": "^3.0.0",
-    "nyc": "^15.1.0",
     "open": "^8.0.1",
     "prettier": "^2.3.2",
     "prettier-plugin-jsdoc": "^0.3.0",
