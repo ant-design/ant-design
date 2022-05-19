@@ -295,9 +295,12 @@ jobs:
 
       - name: persist coverage folder
         if: ${{ matrix.module == 'dom' && matrix.react == '17' }}
-        run: mv coverage/coverage-final.json persist-coverage/coverage-shard-${{matrix.shard}}.json
+        run: |
+          mkdir persist-coverage
+          mv coverage/coverage-final.json persist-coverage/coverage-shard-${{matrix.shard}}.json
 
       - uses: actions/upload-artifact@v3
+        if: ${{ matrix.module == 'dom' && matrix.react == '17' }}
         name: upload coverage-shard.json
         with:
           name: coverage-artifacts
