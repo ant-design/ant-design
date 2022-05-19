@@ -1,24 +1,20 @@
 // deps-lint-skip-all
-
 import type { CSSObject } from '@ant-design/cssinjs';
-import { TinyColor } from '@ctrl/tinycolor';
 import type { FullToken } from '../../_util/theme';
 import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
-import type { ComponentToken as DatePickerComponentToken } from '../../date-picker/style';
-import { genPanelStyle } from '../../date-picker/style';
+import type { PickerPanelToken } from '../../date-picker/style';
+import { genPanelStyle, initPickerPanelToken } from '../../date-picker/style';
 import type { InputToken } from '../../input/style';
 import { initInputToken } from '../../input/style';
 
-export interface ComponentToken extends Omit<DatePickerComponentToken, 'zIndexPopup'> {
+export interface ComponentToken {}
+
+interface CalendarToken extends InputToken<FullToken<'Calendar'>>, PickerPanelToken {
+  calendarCls: string;
+  // date-picker token
   calendarFullBg: string;
   calendarFullPanelBg: string;
   calendarItemActiveBg: string;
-}
-
-interface CalendarToken extends InputToken<FullToken<'Calendar'>> {
-  calendarCls: string;
-  // date-picker token
-  pickerCellInnerCls: string;
 }
 
 export const genCalendarStyles = (token: CalendarToken): CSSObject => {
@@ -26,7 +22,7 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
     token;
   return {
     [calendarCls]: {
-      ...genPanelStyle(token, calendarItemActiveBg),
+      ...genPanelStyle(token),
       ...resetComponent(token),
       background: calendarFullBg,
       '&-rtl': {
@@ -44,11 +40,9 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
         [`${calendarCls}-month-select`]: {
           // FIXME hardcode in v4
           minWidth: 70,
-          // FIXME hardcode in v4
           marginInlineStart: token.marginXS,
         },
         [`${calendarCls}-mode-switch`]: {
-          // FIXME hardcode in v4
           marginInlineStart: token.marginXS,
         },
       },
@@ -69,12 +63,9 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
       },
     },
     [`${calendarCls}-mini`]: {
-      // FIXME hardcode in v4
       borderRadius: token.radiusBase,
       [`${calendarCls}-header`]: {
-        // FIXME hardcode in v4
         paddingInlineEnd: token.paddingXS,
-        // FIXME hardcode in v4
         paddingInlineStart: token.paddingXS,
       },
       [`${componentCls}-panel`]: {
@@ -106,8 +97,7 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
           },
           th: {
             height: 'auto',
-            // FIXME hardcode in v4
-            paddingInlineEnd: 12,
+            paddingInlineEnd: token.paddingSM,
             // FIXME hardcode in v4
             paddingBottom: 5,
             lineHeight: '18px',
@@ -126,9 +116,14 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
         [`${calendarCls}-date-today::before`]: {
           display: 'none',
         },
-        '&-selected, &-selected:hover': {
+        // >>> Selected
+        '&-in-view:is(&-selected)': {
           [`${calendarCls}-date, ${calendarCls}-date-today`]: {
             background: calendarItemActiveBg,
+          },
+        },
+        '&-selected, &-selected:hover': {
+          [`${calendarCls}-date, ${calendarCls}-date-today`]: {
             [`${calendarCls}-date-value`]: {
               color: token.colorPrimary,
             },
@@ -143,7 +138,7 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
         padding: `${token.paddingXS / 2}px ${token.paddingXS}px 0`,
         border: 0,
         // FIXME hardcode in v4
-        borderTop: `2px solid ${token.colorSplit}`,
+        borderTop: `2px ${token.lineType} ${token.colorSplit}`,
         borderRadius: 0,
         transition: `background ${token.motionDurationSlow}`,
         '&-value': {
@@ -181,7 +176,6 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
           },
           [`${calendarCls}-mode-switch`]: {
             width: '100%',
-            // FIXME hardcode in v4
             marginTop: token.marginXS,
             marginInlineStart: 0,
             '> label': {
@@ -195,31 +189,19 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
   };
 };
 
-export default genComponentStyleHook(
-  'Calendar',
-  token => {
-    const calendarCls = `${token.componentCls}-calendar`;
-    const calendarToken = mergeToken<CalendarToken>(initInputToken<FullToken<'Calendar'>>(token), {
+export default genComponentStyleHook('Calendar', token => {
+  const calendarCls = `${token.componentCls}-calendar`;
+  const calendarToken = mergeToken<CalendarToken>(
+    initInputToken<FullToken<'Calendar'>>(token),
+    initPickerPanelToken(token),
+    {
       calendarCls,
       pickerCellInnerCls: `${token.componentCls}-cell-inner`,
-    });
+      calendarFullBg: token.colorBgComponent,
+      calendarFullPanelBg: token.colorBgComponent,
+      calendarItemActiveBg: token.controlItemBgActive,
+    },
+  );
 
-    return [genCalendarStyles(calendarToken)];
-  },
-  token => ({
-    calendarFullBg: token.colorBgComponent,
-    calendarFullPanelBg: token.colorBgComponent,
-    calendarItemActiveBg: token.controlItemBgActive,
-
-    // FIXME: date-picker token
-    pickerTextHeight: 40,
-    pickerPanelCellWidth: 36,
-    pickerPanelCellHeight: 24,
-    pickerDateHoverRangeBorderColor: new TinyColor(token.colorPrimary).lighten(20).toRgbString(),
-    pickerBasicCellHoverWithRangeColor: new TinyColor(token.colorPrimary).lighten(35).toRgbString(),
-    pickerPanelWithoutTimeCellHeight: 66,
-    pickerTimePanelColumnHeight: 224,
-    pickerTimePanelColumnWidth: 56,
-    pickerTimePanelCellHeight: 28,
-  }),
-);
+  return [genCalendarStyles(calendarToken)];
+});

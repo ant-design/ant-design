@@ -1,6 +1,8 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
+import type { GlobalToken } from 'antd/es/_util/theme/interface';
+import type { TokenWithCommonCls } from 'antd/es/_util/theme/util/genComponentStyleHook';
 import type { FullToken, GenerateStyle } from '../../_util/theme';
 import { genComponentStyleHook, mergeToken, resetComponent, roundedArrow } from '../../_util/theme';
 import { slideDownIn, slideDownOut, slideUpIn, slideUpOut } from '../../style/motion';
@@ -16,7 +18,7 @@ export interface ComponentToken {
   zIndexPopup: number;
 }
 
-type PickerToken = InputToken<FullToken<'DatePicker'>> & {
+export type PickerPanelToken = {
   pickerCellInnerCls: string;
   pickerTextHeight: number;
   pickerPanelCellWidth: number;
@@ -33,6 +35,10 @@ type PickerToken = InputToken<FullToken<'DatePicker'>> & {
   pickerCellBorderGap: number;
 };
 
+type PickerToken = InputToken<FullToken<'DatePicker'>> & PickerPanelToken;
+
+type SharedPickerToken = Omit<PickerToken, 'zIndexPopup'>;
+
 const genPikerPadding = (
   token: PickerToken,
   inputHeight: number,
@@ -48,12 +54,8 @@ const genPikerPadding = (
   };
 };
 
-const genPickerCellInnerStyle = (
-  token: Omit<PickerToken, 'zIndexPopup'>,
-  cellClassName: string,
-  selectedCellBgColor: string = token.colorPrimary,
-): CSSObject => {
-  const { componentCls } = token;
+const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
+  const { componentCls, pickerCellInnerCls } = token;
 
   return {
     '&::before': {
@@ -69,7 +71,7 @@ const genPickerCellInnerStyle = (
     },
 
     // >>> Default
-    [cellClassName]: {
+    [pickerCellInnerCls]: {
       position: 'relative',
       zIndex: 2,
       display: 'inline-block',
@@ -84,13 +86,13 @@ const genPickerCellInnerStyle = (
     [`&:hover:not(&-in-view),
     &:hover:not(&-selected):not(&-range-start):not(&-range-end):not(&-range-hover-start):not(&-range-hover-end)`]:
       {
-        [cellClassName]: {
+        [pickerCellInnerCls]: {
           background: token.controlItemBgHover,
         },
       },
 
     // >>> Today
-    [`&-in-view:is(&-today) ${cellClassName}`]: {
+    [`&-in-view:is(&-today) ${pickerCellInnerCls}`]: {
       '&::before': {
         position: 'absolute',
         top: 0,
@@ -114,11 +116,11 @@ const genPickerCellInnerStyle = (
     },
 
     // >>> Selected
-    [`&-in-view:is(&-selected) ${cellClassName},
-    &-in-view:is(&-range-start) ${cellClassName},
-    &-in-view:is(&-range-end) ${cellClassName}`]: {
+    [`&-in-view:is(&-selected) ${pickerCellInnerCls},
+    &-in-view:is(&-range-start) ${pickerCellInnerCls},
+    &-in-view:is(&-range-end) ${pickerCellInnerCls}`]: {
       color: token.colorTextLightSolid,
-      background: selectedCellBgColor,
+      background: token.colorPrimary,
     },
 
     [`&-in-view:is(&-range-start):not(&-range-start-single),
@@ -181,20 +183,22 @@ const genPickerCellInnerStyle = (
     },
 
     // range start border-radius
-    [`&-in-view:is(&-range-start):not(&-range-start-single):not(&-range-end) ${cellClassName}`]: {
-      borderStartStartRadius: token.radiusBase,
-      borderEndStartRadius: token.radiusBase,
-      borderStartEndRadius: 0,
-      borderEndEndRadius: 0,
-    },
+    [`&-in-view:is(&-range-start):not(&-range-start-single):not(&-range-end) ${pickerCellInnerCls}`]:
+      {
+        borderStartStartRadius: token.radiusBase,
+        borderEndStartRadius: token.radiusBase,
+        borderStartEndRadius: 0,
+        borderEndEndRadius: 0,
+      },
 
     // range end border-radius
-    [`&-in-view:is(&-range-end):not(&-range-end-single):not(&-range-start) ${cellClassName}`]: {
-      borderStartStartRadius: 0,
-      borderEndStartRadius: 0,
-      borderStartEndRadius: token.radiusBase,
-      borderEndEndRadius: token.radiusBase,
-    },
+    [`&-in-view:is(&-range-end):not(&-range-end-single):not(&-range-start) ${pickerCellInnerCls}`]:
+      {
+        borderStartStartRadius: 0,
+        borderEndStartRadius: 0,
+        borderStartEndRadius: token.radiusBase,
+        borderEndEndRadius: token.radiusBase,
+      },
 
     '&-range-hover:is(&-range-end)::after': {
       insetInlineStart: '50%',
@@ -229,7 +233,7 @@ const genPickerCellInnerStyle = (
       color: token.colorTextDisabled,
       pointerEvents: 'none',
 
-      [cellClassName]: {
+      [pickerCellInnerCls]: {
         background: 'transparent',
       },
 
@@ -237,16 +241,13 @@ const genPickerCellInnerStyle = (
         background: token.colorBgComponentDisabled,
       },
     },
-    [`&-disabled:is(&-today) ${cellClassName}::before`]: {
+    [`&-disabled:is(&-today) ${pickerCellInnerCls}::before`]: {
       borderColor: token.colorTextDisabled,
     },
   };
 };
 
-export const genPanelStyle = (
-  token: Omit<PickerToken, 'zIndexPopup'>,
-  selectedCellBgColor: string = token.colorPrimary,
-): CSSObject => {
+export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
   const { componentCls, pickerCellInnerCls, pickerYearMonthCellWidth } = token;
 
   const pickerArrowSize = 7; // FIXME: v4 magic number
@@ -431,7 +432,7 @@ export const genPanelStyle = (
           color: token.colorText,
         },
 
-        ...genPickerCellInnerStyle(token, pickerCellInnerCls, selectedCellBgColor),
+        ...genPickerCellInnerStyle(token),
       },
 
       // DatePanel only
@@ -1184,30 +1185,35 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
   };
 };
 
+export const initPickerPanelToken = (token: TokenWithCommonCls<GlobalToken>): PickerPanelToken => {
+  const pickerTimePanelCellHeight = 28;
+
+  return {
+    pickerCellInnerCls: `${token.componentCls}-cell-inner`,
+    pickerTextHeight: token.controlHeightLG,
+    pickerPanelCellWidth: token.controlHeightLG * 0.9,
+    pickerPanelCellHeight: token.controlHeightLG * 0.6,
+    pickerDateHoverRangeBorderColor: new TinyColor(token.colorPrimary).lighten(20).toHexString(),
+    pickerBasicCellHoverWithRangeColor: new TinyColor(token.colorPrimary).lighten(35).toHexString(),
+    pickerPanelWithoutTimeCellHeight: token.controlHeightLG * 1.65,
+    pickerYearMonthCellWidth: token.controlHeightLG * 1.5,
+    pickerTimePanelColumnHeight: pickerTimePanelCellHeight * 8,
+    pickerTimePanelColumnWidth: token.controlHeightLG * 1.4,
+    pickerTimePanelCellHeight,
+    pickerQuarterPanelContentHeight: token.controlHeightLG * 1.4,
+    pickerCellPaddingVertical: token.paddingXXS,
+    pickerCellBorderGap: 2, // Magic for gap between cells
+  };
+};
+
 // ============================== Export ==============================
 export default genComponentStyleHook(
   'DatePicker',
   token => {
-    const pickerTimePanelCellHeight = 28;
-
-    const pickerToken = mergeToken<PickerToken>(initInputToken<FullToken<'DatePicker'>>(token), {
-      pickerCellInnerCls: `${token.componentCls}-cell-inner`,
-      pickerTextHeight: token.controlHeightLG,
-      pickerPanelCellWidth: 36,
-      pickerPanelCellHeight: 24,
-      pickerDateHoverRangeBorderColor: new TinyColor(token.colorPrimary).lighten(20).toHexString(),
-      pickerBasicCellHoverWithRangeColor: new TinyColor(token.colorPrimary)
-        .lighten(35)
-        .toHexString(),
-      pickerPanelWithoutTimeCellHeight: 66,
-      pickerYearMonthCellWidth: 60,
-      pickerTimePanelColumnHeight: pickerTimePanelCellHeight * 8,
-      pickerTimePanelColumnWidth: 56,
-      pickerTimePanelCellHeight,
-      pickerQuarterPanelContentHeight: 56,
-      pickerCellPaddingVertical: token.paddingXXS,
-      pickerCellBorderGap: 2, // Magic for gap between cells
-    });
+    const pickerToken = mergeToken<PickerToken>(
+      initInputToken<FullToken<'DatePicker'>>(token),
+      initPickerPanelToken(token),
+    );
     return [genPickerStyle(pickerToken), genPickerStatusStyle(pickerToken)];
   },
   token => ({
