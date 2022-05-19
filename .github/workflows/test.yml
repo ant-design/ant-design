@@ -291,15 +291,15 @@ jobs:
         if: ${{ matrix.module == 'dom' }}
         run: npm test -- -w 1 --shard=${{matrix.shard}}/${{strategy.job-total}} --coverage
 
-      - name: persist coverage.json
+      - name: persist coverage folder
         if: ${{ matrix.module == 'dom' && matrix.react == '17' }}
-        run: mv coverage/coverage-final.json coverage/coverage-shard-${{matrix.shard}}.json
+        run: mv coverage/coverage-final.json persist-coverage/coverage-shard-${{matrix.shard}}.json
 
       - uses: actions/upload-artifact@v3
         name: upload coverage-shard.json
         with:
           name: coverage-artifacts
-          path: coverage/
+          path: persist-coverage/
 
       # node test
       - name: node test
@@ -315,6 +315,7 @@ jobs:
     needs: [setup, dist]
 
   normal-test-coverage:
+    name: test-coverage
     runs-on: ubuntu-latest
     needs: [normal-test]
     steps:
@@ -322,11 +323,10 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: coverage-artifacts
-          path: coverage
+          path: persist-coverage
       - name: Merge Code Coverage
         run: |
-          npx nyc merge coverage/ coverage/coverage-final.json
-          rm -rf coverage/coverage-shard-*.json
+          npx nyc merge persist-coverage/ coverage/coverage-final.json
           bash <(curl -s https://codecov.io/bash)
 
   ########################### Compile & Test ###########################
