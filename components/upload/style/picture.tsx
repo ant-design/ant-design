@@ -34,7 +34,7 @@ const genPictureStyle: GenerateStyle<UploadToken> = token => {
             whiteSpace: 'nowrap',
 
             [iconCls]: {
-              fontSize: uploadThumbnailSize / 2 + 2,
+              fontSize: token.fontSizeHeading2,
             },
 
             img: {
