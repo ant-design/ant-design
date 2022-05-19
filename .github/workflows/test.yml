@@ -332,6 +332,8 @@ jobs:
       - name: Merge Code Coverage
         run: |
           npx nyc merge persist-coverage/ coverage/coverage-final.json
+          npx nyc report --reporter text -t coverage --report-dir coverage
+          rm -rf persist-coverage
           bash <(curl -s https://codecov.io/bash)
 
   ########################### Compile & Test ###########################
