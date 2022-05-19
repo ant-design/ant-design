@@ -7,7 +7,14 @@ import { genPanelStyle, initPickerPanelToken } from '../../date-picker/style';
 import type { InputToken } from '../../input/style';
 import { initInputToken } from '../../input/style';
 
-export interface ComponentToken {}
+export interface ComponentToken {
+  yearSelectWidth: number;
+  monthSelectWidth: number;
+  miniContentHeight: number;
+  thHeight: number;
+  dateValueHeight: number;
+  dateContentHeight: number;
+}
 
 interface CalendarToken extends InputToken<FullToken<'Calendar'>>, PickerPanelToken {
   calendarCls: string;
@@ -34,12 +41,10 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
         padding: `${token.paddingSM}px 0`,
 
         [`${calendarCls}-year-select`]: {
-          // FIXME hardcode in v4
-          minWidth: 80,
+          minWidth: token.yearSelectWidth,
         },
         [`${calendarCls}-month-select`]: {
-          // FIXME hardcode in v4
-          minWidth: 70,
+          minWidth: token.monthSelectWidth,
           marginInlineStart: token.marginXS,
         },
         [`${calendarCls}-mode-switch`]: {
@@ -72,12 +77,11 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
         borderRadius: `0 0 ${token.radiusBase}px ${token.radiusBase}px`,
       },
       [`${componentCls}-content`]: {
-        // FIXME hardcode in v4
-        height: 256,
+        height: token.miniContentHeight,
         th: {
           height: 'auto',
           padding: 0,
-          lineHeight: '18px',
+          lineHeight: `${token.thHeight}px`,
         },
       },
       [`${componentCls}-cell::before`]: {
@@ -98,9 +102,8 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
           th: {
             height: 'auto',
             paddingInlineEnd: token.paddingSM,
-            // FIXME hardcode in v4
-            paddingBottom: 5,
-            lineHeight: '18px',
+            paddingBottom: token.paddingXXS,
+            lineHeight: `${token.thHeight}px`,
           },
         },
       },
@@ -137,20 +140,17 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
         margin: `0 ${token.marginXS / 2}px`,
         padding: `${token.paddingXS / 2}px ${token.paddingXS}px 0`,
         border: 0,
-        // FIXME hardcode in v4
-        borderTop: `2px ${token.lineType} ${token.colorSplit}`,
+        borderTop: `${token.lineWidthBold}px ${token.lineType} ${token.colorSplit}`,
         borderRadius: 0,
         transition: `background ${token.motionDurationSlow}`,
         '&-value': {
-          // FIXME hardcode in v4
-          lineHeight: '24px',
+          lineHeight: `${token.dateValueHeight}px`,
           transition: `color ${token.motionDurationSlow}`,
         },
         '&-content': {
           position: 'static',
           width: 'auto',
-          // FIXME hardcode in v4
-          height: 86,
+          height: token.dateContentHeight,
           overflowY: 'auto',
           color: token.colorText,
           lineHeight: token.lineHeight,
@@ -189,19 +189,30 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
   };
 };
 
-export default genComponentStyleHook('Calendar', token => {
-  const calendarCls = `${token.componentCls}-calendar`;
-  const calendarToken = mergeToken<CalendarToken>(
-    initInputToken<FullToken<'Calendar'>>(token),
-    initPickerPanelToken(token),
-    {
-      calendarCls,
-      pickerCellInnerCls: `${token.componentCls}-cell-inner`,
-      calendarFullBg: token.colorBgComponent,
-      calendarFullPanelBg: token.colorBgComponent,
-      calendarItemActiveBg: token.controlItemBgActive,
-    },
-  );
+export default genComponentStyleHook(
+  'Calendar',
+  token => {
+    const calendarCls = `${token.componentCls}-calendar`;
+    const calendarToken = mergeToken<CalendarToken>(
+      initInputToken<FullToken<'Calendar'>>(token),
+      initPickerPanelToken(token),
+      {
+        calendarCls,
+        pickerCellInnerCls: `${token.componentCls}-cell-inner`,
+        calendarFullBg: token.colorBgComponent,
+        calendarFullPanelBg: token.colorBgComponent,
+        calendarItemActiveBg: token.controlItemBgActive,
+      },
+    );
 
-  return [genCalendarStyles(calendarToken)];
-});
+    return [genCalendarStyles(calendarToken)];
+  },
+  {
+    yearSelectWidth: 80,
+    monthSelectWidth: 70,
+    miniContentHeight: 256,
+    thHeight: 18,
+    dateValueHeight: 24,
+    dateContentHeight: 86,
+  },
+);
