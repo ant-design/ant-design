@@ -16,35 +16,27 @@ Use `visible` prop to control the display of the card.
 ```jsx
 import { Popover, Button } from 'antd';
 
-class App extends React.Component {
-  state = {
-    visible: false,
+export default () => {
+  const [visible, setVisible] = React.useState(false);
+
+  const hide = () => {
+    setVisible(false);
   };
 
-  hide = () => {
-    this.setState({
-      visible: false,
-    });
+  const handleVisibleChange = visiblePopover => {
+    setVisible(visiblePopover);
   };
 
-  handleVisibleChange = visible => {
-    this.setState({ visible });
-  };
-
-  render() {
-    return (
-      <Popover
-        content={<a onClick={this.hide}>Close</a>}
-        title="Title"
-        trigger="click"
-        visible={this.state.visible}
-        onVisibleChange={this.handleVisibleChange}
-      >
-        <Button type="primary">Click me</Button>
-      </Popover>
-    );
-  }
-}
-
-export default App;
+  return (
+    <Popover
+      content={<a onClick={hide}>Close</a>}
+      title="Title"
+      trigger="click"
+      visible={visible}
+      onVisibleChange={handleVisibleChange}
+    >
+      <Button type="primary">Click me</Button>
+    </Popover>
+  );
+};
 ```
