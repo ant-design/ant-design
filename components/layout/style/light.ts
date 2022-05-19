@@ -3,23 +3,22 @@ import type { GenerateStyle } from '../../_util/theme';
 import type { LayoutToken } from '.';
 
 const genLayoutLightStyle: GenerateStyle<LayoutToken, CSSObject> = token => {
-  const {
-    componentCls,
-    layoutSiderBackgroundLight,
-    layoutTriggerBackgroundLight,
-    layoutTriggerColorLight,
-  } = token;
+  const { componentCls, colorBgComponent, colorBgBody, colorText } = token;
 
   return {
-    [`&${componentCls}-sider-light`]: {
-      background: layoutSiderBackgroundLight,
+    [`${componentCls}-sider-light`]: {
+      background: colorBgComponent,
+
       [`${componentCls}-sider-trigger`]: {
-        color: layoutTriggerColorLight,
-        background: layoutTriggerBackgroundLight,
+        color: colorText,
+        background: colorBgComponent,
       },
+
       [`${componentCls}-sider-zero-width-trigger`]: {
-        color: layoutTriggerColorLight,
-        background: layoutTriggerBackgroundLight,
+        color: colorText,
+        background: colorBgComponent,
+        border: `1px solid ${colorBgBody}`, // Safe to modify to any other color
+        borderInlineStart: 0,
       },
     },
   };

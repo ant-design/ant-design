@@ -1,11 +1,13 @@
 import { clearFix } from '../../_util/theme';
-import type { GenerateStyle, FullToken } from '../../_util/theme';
+import type { GenerateStyle } from '../../_util/theme';
+import type { UploadToken } from '.';
 
-const genListStyle: GenerateStyle<FullToken<'Upload'>> = token => {
-  const { componentCls, antCls, iconCls } = token;
+const genListStyle: GenerateStyle<UploadToken> = token => {
+  const { componentCls, antCls, iconCls, fontSizeBase, lineHeight } = token;
   const itemCls = `${componentCls}-list-item`;
   const actionsCls = `${itemCls}-actions`;
   const actionCls = `${itemCls}-action`;
+  const listItemHeightSM = Math.round(fontSizeBase * lineHeight);
 
   return {
     [`${componentCls}-wrapper`]: {
@@ -15,9 +17,9 @@ const genListStyle: GenerateStyle<FullToken<'Upload'>> = token => {
 
         [itemCls]: {
           position: 'relative',
-          height: token.lineHeight * token.fontSizeBase,
+          height: token.lineHeight * fontSizeBase,
           marginTop: token.marginXS,
-          fontSize: token.fontSizeBase,
+          fontSize: fontSizeBase,
           display: 'flex',
           alignItems: 'center',
           transition: `background-color ${token.motionDurationSlow}`,
@@ -29,7 +31,7 @@ const genListStyle: GenerateStyle<FullToken<'Upload'>> = token => {
           [`${itemCls}-name`]: {
             padding: `0 ${token.paddingXS}px`,
             overflow: 'hidden',
-            lineHeight: token.lineHeight,
+            lineHeight,
             whiteSpace: 'nowrap',
             textOverflow: 'ellipsis',
             flex: 'auto',
@@ -42,8 +44,8 @@ const genListStyle: GenerateStyle<FullToken<'Upload'>> = token => {
             },
 
             [`${actionCls}${antCls}-btn-sm`]: {
-              // FIXME: upload token
-              height: 20,
+              height: listItemHeightSM,
+              border: 0,
               lineHeight: 1,
               // FIXME: should not override small button
               '> span': {
@@ -59,7 +61,7 @@ const genListStyle: GenerateStyle<FullToken<'Upload'>> = token => {
             },
 
             [iconCls]: {
-              color: token.uploadActionsColor,
+              color: token.colorTextSecondary,
               transition: `all ${token.motionDurationSlow}`,
             },
 
@@ -70,17 +72,21 @@ const genListStyle: GenerateStyle<FullToken<'Upload'>> = token => {
 
           [`${componentCls}-icon ${iconCls}`]: {
             color: token.colorTextSecondary,
-            fontSize: token.fontSizeBase,
+            fontSize: fontSizeBase,
           },
 
           [`${itemCls}-progress`]: {
             position: 'absolute',
-            // FIXME: upload token
-            bottom: -12,
+            bottom: -token.uploadProgressOffset,
             width: '100%',
-            paddingInlineStart: token.fontSizeBase + token.paddingXS,
-            fontSize: token.fontSizeBase,
+            paddingInlineStart: fontSizeBase + token.paddingXS,
+            fontSize: fontSizeBase,
             lineHeight: 0,
+            pointerEvents: 'none',
+
+            '> div': {
+              margin: 0,
+            },
           },
         },
 

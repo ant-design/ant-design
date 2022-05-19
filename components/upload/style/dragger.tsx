@@ -1,6 +1,7 @@
-import type { GenerateStyle, FullToken } from '../../_util/theme';
+import type { UploadToken } from '.';
+import type { GenerateStyle } from '../../_util/theme';
 
-const genDraggerStyle: GenerateStyle<FullToken<'Upload'>> = token => {
+const genDraggerStyle: GenerateStyle<UploadToken> = token => {
   const { componentCls, iconCls } = token;
 
   return {
@@ -20,10 +21,6 @@ const genDraggerStyle: GenerateStyle<FullToken<'Upload'>> = token => {
           padding: `${token.padding}px 0`,
         },
 
-        [`${componentCls}${componentCls}-disabled`]: {
-          cursor: 'not-allowed',
-        },
-
         [`${componentCls}-btn`]: {
           display: 'table',
           width: '100%',
@@ -36,18 +33,16 @@ const genDraggerStyle: GenerateStyle<FullToken<'Upload'>> = token => {
           verticalAlign: 'middle',
         },
 
-        [`${componentCls}:not(${componentCls}-disabled):hover`]: {
+        [`&:not(${componentCls}-disabled):hover`]: {
           borderColor: token.colorPrimaryHover,
         },
 
         [`p${componentCls}-drag-icon`]: {
-          // FIXME: upload token
-          marginBottom: 20,
+          marginBottom: token.margin,
 
           [iconCls]: {
             color: token.colorPrimary,
-            // FIXME: upload token
-            fontSize: 48,
+            fontSize: token.uploadThumbnailSize,
           },
         },
 
@@ -60,6 +55,18 @@ const genDraggerStyle: GenerateStyle<FullToken<'Upload'>> = token => {
         [`p${componentCls}-hint`]: {
           color: token.colorTextSecondary,
           fontSize: token.fontSizeBase,
+        },
+
+        // ===================== Disabled =====================
+        [`&${componentCls}-disabled`]: {
+          cursor: 'not-allowed',
+
+          [`p${componentCls}-drag-icon ${iconCls},
+            p${componentCls}-text,
+            p${componentCls}-hint
+          `]: {
+            color: token.colorTextDisabled,
+          },
         },
       },
     },

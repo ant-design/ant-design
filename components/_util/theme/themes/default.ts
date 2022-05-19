@@ -37,6 +37,7 @@ export function derivative(token: SeedToken): DerivativeToken {
     gridBaseStep,
     radiusBase,
     controlHeight,
+    lineWidth,
   } = token;
 
   const primaryColors = generate(colorPrimary);
@@ -93,6 +94,9 @@ export function derivative(token: SeedToken): DerivativeToken {
     gridSpaceLG: gridUnit * (gridBaseStep + 1),
     gridSpaceXL: gridUnit * (gridBaseStep + 2),
     gridSpaceXXL: gridUnit * (gridBaseStep + 5),
+
+    // line
+    lineWidthBold: lineWidth + 1,
 
     // radius
     radiusSM: radiusBase / 2,
@@ -198,6 +202,9 @@ const seedToken: SeedToken = {
   // zIndex
   zIndexBase: 0,
   zIndexPopupBase: 1000,
+
+  // Image
+  imgOpacity: 1,
 };
 
 export default seedToken;

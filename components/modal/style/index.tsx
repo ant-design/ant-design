@@ -280,9 +280,7 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = token => {
           },
         },
         [`${confirmComponentCls}-btns`]: {
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'flex-end',
+          textAlign: 'end',
           marginTop: token.marginLG,
 
           [`${token.antCls}-btn + ${token.antCls}-btn`]: {
