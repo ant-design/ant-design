@@ -17,39 +17,33 @@ A dynamic progress bar is better.
 import { Progress, Button } from 'antd';
 import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
 
-class App extends React.Component {
-  state = {
-    percent: 0,
-  };
+export default () => {
+  const [percent, setPercent] = React.useState(0);
 
-  increase = () => {
-    let percent = this.state.percent + 10;
-    if (percent > 100) {
-      percent = 100;
+  const increase = () => {
+    let percentValue = percent + 10;
+    if (percentValue > 100) {
+      percentValue = 100;
     }
-    this.setState({ percent });
+    setPercent(percentValue);
   };
 
-  decline = () => {
-    let percent = this.state.percent - 10;
-    if (percent < 0) {
-      percent = 0;
+  const decline = () => {
+    let percentValue = percent - 10;
+    if (percentValue < 0) {
+      percentValue = 0;
     }
-    this.setState({ percent });
+    setPercent(percentValue);
   };
 
-  render() {
-    return (
-      <>
-        <Progress percent={this.state.percent} />
-        <Button.Group>
-          <Button onClick={this.decline} icon={<MinusOutlined />} />
-          <Button onClick={this.increase} icon={<PlusOutlined />} />
-        </Button.Group>
-      </>
-    );
-  }
-}
-
-export default App;
+  return (
+    <>
+      <Progress percent={percent} />
+      <Button.Group>
+        <Button onClick={decline} icon={<MinusOutlined />} />
+        <Button onClick={increase} icon={<PlusOutlined />} />
+      </Button.Group>
+    </>
+  );
+};
 ```
