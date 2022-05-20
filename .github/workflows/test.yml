@@ -289,7 +289,7 @@ jobs:
       # dom test
       - name: dom test
         if: ${{ matrix.module == 'dom' }}
-        run: npm test -- -w 1 --shard=${{matrix.shard}} --coverage
+        run: npm test -- --maxWorkers=2 --shard=${{matrix.shard}} --coverage
 
       - name: persist coverage folder
         if: ${{ matrix.module == 'dom' && matrix.react == '17' }}
