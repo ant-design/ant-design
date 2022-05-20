@@ -14,16 +14,15 @@ title:
 async
 
 ```tsx
-import React, { useState } from 'react';
+import React, { useState, useCallback, useRef } from 'react';
 import { Mentions } from 'antd';
 import debounce from 'lodash/debounce';
 
 const { Option } = Mentions;
-
 const App: React.FC = () => {
-  const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(false);
   const [users, setUsers] = useState<{ login: string; avatar_url: string }[]>([]);
+  const ref = useRef<string>();
 
   const loadGithubUsers = (key: string) => {
     if (!key) {
@@ -34,22 +33,22 @@ const App: React.FC = () => {
     fetch(`https://api.github.com/search/users?q=${key}`)
       .then(res => res.json())
       .then(({ items = [] }) => {
-        if (search !== key) return;
+        if (ref.current !== key) return;
 
         setLoading(false);
         setUsers(items.slice(0, 10));
       });
   };
 
-  const debounceLoadGithubUsers = debounce(loadGithubUsers, 800);
+  const debounceLoadGithubUsers = useCallback(debounce(loadGithubUsers, 800), []);
 
-  const onSearch = (newSearch: string) => {
-    console.log('Search:', newSearch);
-    setSearch(newSearch);
-    setLoading(!!newSearch);
+  const onSearch = (search: string) => {
+    console.log('Search:', search);
+    ref.current = search;
+    setLoading(!!search);
     setUsers([]);
 
-    debounceLoadGithubUsers(newSearch);
+    debounceLoadGithubUsers(search);
   };
 
   return (
