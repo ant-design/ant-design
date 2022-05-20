@@ -5,7 +5,10 @@ import { genComponentStyleHook, resetComponent, clearFix, mergeToken } from '../
 import type { GenerateStyle, FullToken, UseComponentStyleResult } from '../../_util/theme';
 
 /** Component only token. Which will handle additional calculation of alias token */
-export interface ComponentToken {}
+export interface ComponentToken {
+  dropdownWidth: number;
+  zIndexPopup: number;
+}
 
 export interface MenuToken extends FullToken<'Menu'> {
   colorTextSecondary: string;
@@ -14,7 +17,6 @@ export interface MenuToken extends FullToken<'Menu'> {
   borderColorSplit: string;
   itemActiveBackground: string;
   easeOut: string;
-  zIndexDrop: number;
   menuOpacity: number;
   sizeLg: number;
   textColorDark: string;
@@ -30,7 +32,7 @@ export interface MenuToken extends FullToken<'Menu'> {
   boxShadowColor: string;
   highlightDangerColor: string;
   itemActiveDangerBg: string;
-  width20: number;
+  menuItemPaddingInline: number;
 }
 
 // =============================== Base ===============================
@@ -145,7 +147,6 @@ const genDarkStyle = (token: MenuToken): CSSObject => {
 const genBaseStyle: GenerateStyle<MenuToken> = token => {
   const {
     radiusBase,
-    zIndexDrop,
     componentCls,
     antCls,
     borderColorSplit,
@@ -180,7 +181,9 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
     disabledColorDark,
     itemActiveBg,
     controlHeightLG,
-    width20,
+    dropdownWidth,
+    menuItemPaddingInline,
+    zIndexPopup,
   } = token;
 
   return [
@@ -301,8 +304,8 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
 
         [`${componentCls}-vertical${componentCls}-sub,${componentCls}-vertical-left${componentCls}-sub,${componentCls}-vertical-right${componentCls}-sub`]:
           {
-            minWidth: 160, // FIXME: hard code in v4
-            maxHeight: 'calc(100vh - 100px)', // FIXME: hard code in v4
+            minWidth: dropdownWidth,
+            maxHeight: `calc(100vh - ${controlHeightLG * 2.5}px)`,
             padding: 0,
             overflow: 'hidden',
             borderInlineEnd: 0,
@@ -328,16 +331,11 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
             },
           },
 
-        [`${componentCls}-horizontal${componentCls}-sub`]: {
-          // in case of submenu width is too big: https://codesandbox.io/s/qvpwm6mk66
-          minWidth: '114px', // FIXME: hard code in v4,
-        },
-
         [`${componentCls}-item,${componentCls}-submenu-title`]: {
           position: 'relative',
           display: 'block',
           margin: 0,
-          paddingInline: width20,
+          paddingInline: menuItemPaddingInline,
           paddingBlock: 0,
           whiteSpace: 'nowrap',
           cursor: 'pointer',
@@ -757,7 +755,7 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
             marginBlockStart: '-1px', // FIXME: hard code in v4
             marginBlockEnd: 0,
             paddingBlock: 0,
-            paddingInline: width20,
+            paddingInline: menuItemPaddingInline,
           },
           [`${componentCls}-item-active,${componentCls}-item-open,${componentCls}-item-selected, ${componentCls}-submenu-active,${componentCls}-submenu-open,${componentCls}-submenu-selected`]:
             {
@@ -777,7 +775,7 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
 
           '&::after': {
             position: 'absolute',
-            insetInline: width20,
+            insetInline: menuItemPaddingInline,
             insetBlockEnd: 0,
             borderBlockEnd: `2px ${controlLineType} transparent`, // FIXME: hard code in v4
             transition: `border-color ${motionDurationSlow} ${motionEaseInOut}`,
@@ -838,7 +836,7 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
           insetBlockStart: 0,
           marginBlockStart: 0,
           paddingBlock: 0,
-          paddingInline: width20,
+          paddingInline: menuItemPaddingInline,
           borderColor: darkBg,
           borderBlockEnd: 0,
         },
@@ -966,7 +964,7 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
       // ========================= submenu-popup  ============================
       [`${componentCls}-submenu-popup`]: {
         position: 'absolute',
-        zIndex: zIndexDrop,
+        zIndex: zIndexPopup,
         background: 'transparent',
         borderRadius: radiusBase,
         // boxShadow: 'none',
@@ -983,7 +981,7 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
           zIndex: -1,
           width: '100%',
           height: '100%',
-          opacity: 0.0001, // FIXME: hard code in v4
+          opacity: 0,
           content: '" "',
         },
         [`${componentCls}-item,${componentCls}-submenu-title`]: {
@@ -1030,45 +1028,53 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
 
 // ============================== Export ==============================
 export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResult => {
-  const useOriginHook = genComponentStyleHook('Menu', token => {
-    // Dropdown will handle menu style self. We do not need to handle this.
-    if (injectStyle === false) {
-      return [];
-    }
+  const useOriginHook = genComponentStyleHook(
+    'Menu',
+    token => {
+      // Dropdown will handle menu style self. We do not need to handle this.
+      if (injectStyle === false) {
+        return [];
+      }
 
-    const MenuToken = mergeToken<MenuToken>(token, {
-      darkBg: '#001529', // FIXME: hard code in v4
-      darkInlineSubmenuBg: '#000c17', // FIXME: hard code in v4
-      colorTextSecondary: new TinyColor('#000').setAlpha(0.45).toRgbString(), // FIXME: hard code in v4
-      highlightDangerColor: new TinyColor('#f5222d').setAlpha(0.2).toRgbString(), // FIXME: hard code in v4 // color(~`colorPalette('@{red-6}', 5) `)
-      itemActiveDangerBg: new TinyColor('#f5222d').setAlpha(0.9).toRgbString(), // FIXME: hard code in v4 // color(~`colorPalette('@{red-6}', 1) `)
-      itemActiveBackground: new TinyColor('#000').setAlpha(0.9).toRgbString(), // FIXME: hard code in v4
-      itemActiveBg: '#e6f7ff', // FIXME: hard code in v4,
-      textColorDark: new TinyColor('#000').setAlpha(0.85).toRgbString(), // FIXME: hard code in v4
-      disabledColor: new TinyColor('#000').setAlpha(0.25).toRgbString(), // FIXME: hard code in v4
-      darkColor: new TinyColor('#fff').setAlpha(0.65).toRgbString(), // FIXME: hard code in v4
-      colorDark: new TinyColor('#fff').setAlpha(0.85).toRgbString(), // FIXME: hard code in v4
-      disabledColorDark: new TinyColor('#fff').setAlpha(0.45).toRgbString(), // FIXME: hard code in v4
-      darkHighlightColor: '#fff', // FIXME: hard code in v4
-      motionDurationMD: '0.15s', // FIXME: hard code in v4,
-      primaryColor: '#1890ff', // FIXME: hard code in v4
-      boxShadowColor: new TinyColor('#1890ff').setAlpha(0.05).toRgbString(), // FIXME: hard code in v4, shade(@primary-color, 5%)
-      borderColorSplit: new TinyColor({ h: 0, s: 0, v: 94 }).toHexString(), // FIXME: hard code in v4
-      menuInlineSubmenuBg: new TinyColor({ h: 0, s: 0, v: 98 }).toHexString(), // FIXME: hard code in v4
-      easeOut: 'cubic-bezier(0.215, 0.61, 0.355, 1)', // FIXME: hard code in v4
-      width20: 20, // FIXME: hard code in v4
-      zIndexDrop: 1050, // FIXME: hard code in v4
-      menuOpacity: 0.0001, // FIXME: hard code in v4
-      sizeLg: 16, // FIXME: hard code in v4
-    });
+      const { controlHeightLG } = token;
 
-    return [
-      genBaseStyle(MenuToken),
-      genDarkStyle(MenuToken),
-      genLightStyle(MenuToken),
-      genStatusStyle(MenuToken),
-    ];
-  });
+      const MenuToken = mergeToken<MenuToken>(token, {
+        darkBg: '#001529', // FIXME: hard code in v4
+        darkInlineSubmenuBg: '#000c17', // FIXME: hard code in v4
+        colorTextSecondary: new TinyColor('#000').setAlpha(0.45).toRgbString(), // FIXME: hard code in v4
+        highlightDangerColor: new TinyColor('#f5222d').setAlpha(0.2).toRgbString(), // FIXME: hard code in v4 // color(~`colorPalette('@{red-6}', 5) `)
+        itemActiveDangerBg: new TinyColor('#f5222d').setAlpha(0.9).toRgbString(), // FIXME: hard code in v4 // color(~`colorPalette('@{red-6}', 1) `)
+        itemActiveBackground: new TinyColor('#000').setAlpha(0.9).toRgbString(), // FIXME: hard code in v4
+        itemActiveBg: '#e6f7ff', // FIXME: hard code in v4,
+        textColorDark: new TinyColor('#000').setAlpha(0.85).toRgbString(), // FIXME: hard code in v4
+        disabledColor: new TinyColor('#000').setAlpha(0.25).toRgbString(), // FIXME: hard code in v4
+        darkColor: new TinyColor('#fff').setAlpha(0.65).toRgbString(), // FIXME: hard code in v4
+        colorDark: new TinyColor('#fff').setAlpha(0.85).toRgbString(), // FIXME: hard code in v4
+        disabledColorDark: new TinyColor('#fff').setAlpha(0.45).toRgbString(), // FIXME: hard code in v4
+        darkHighlightColor: '#fff', // FIXME: hard code in v4
+        motionDurationMD: '0.15s', // FIXME: hard code in v4,
+        primaryColor: '#1890ff', // FIXME: hard code in v4
+        boxShadowColor: new TinyColor('#1890ff').setAlpha(0.05).toRgbString(), // FIXME: hard code in v4, shade(@primary-color, 5%)
+        borderColorSplit: new TinyColor({ h: 0, s: 0, v: 94 }).toHexString(), // FIXME: hard code in v4
+        menuInlineSubmenuBg: new TinyColor({ h: 0, s: 0, v: 98 }).toHexString(), // FIXME: hard code in v4
+        easeOut: 'cubic-bezier(0.215, 0.61, 0.355, 1)', // FIXME: hard code in v4
+        menuItemPaddingInline: controlHeightLG / 2,
+        menuOpacity: 0.0001, // FIXME: hard code in v4
+        sizeLg: 16, // FIXME: hard code in v4
+      });
+
+      return [
+        genBaseStyle(MenuToken),
+        genDarkStyle(MenuToken),
+        genLightStyle(MenuToken),
+        genStatusStyle(MenuToken),
+      ];
+    },
+    token => ({
+      dropdownWidth: 160,
+      zIndexPopup: token.zIndexPopupBase + 50,
+    }),
+  );
 
   return useOriginHook(prefixCls);
 };
