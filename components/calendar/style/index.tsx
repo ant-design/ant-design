@@ -8,8 +8,8 @@ import type { InputToken } from '../../input/style';
 import { initInputToken } from '../../input/style';
 
 export interface ComponentToken {
-  yearSelectWidth: number;
-  monthSelectWidth: number;
+  yearControlWidth: number;
+  monthControlWidth: number;
   miniContentHeight: number;
 }
 
@@ -40,10 +40,10 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
         padding: `${token.paddingSM}px 0`,
 
         [`${calendarCls}-year-select`]: {
-          minWidth: token.yearSelectWidth,
+          minWidth: token.yearControlWidth,
         },
         [`${calendarCls}-month-select`]: {
-          minWidth: token.monthSelectWidth,
+          minWidth: token.monthControlWidth,
           marginInlineStart: token.marginXS,
         },
         [`${calendarCls}-mode-switch`]: {
@@ -203,15 +203,16 @@ export default genComponentStyleHook(
         calendarItemActiveBg: token.controlItemBgActive,
         dateValueHeight: token.controlHeightSM,
         weekHeight: token.controlHeightSM * 0.75,
-        dateContentHeight: (token.fontSizeSM * token.lineHeights[0] + token.marginXS) * 3 + 2,
+        dateContentHeight:
+          (token.fontSizeSM * token.lineHeightSM + token.marginXS) * 3 + token.lineWidth * 2,
       },
     );
 
     return [genCalendarStyles(calendarToken)];
   },
   {
-    yearSelectWidth: 80,
-    monthSelectWidth: 70,
+    yearControlWidth: 80,
+    monthControlWidth: 70,
     miniContentHeight: 256,
   },
 );

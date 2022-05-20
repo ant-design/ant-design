@@ -33,6 +33,8 @@ export type PickerPanelToken = {
   pickerCellPaddingVertical: number;
   pickerQuarterPanelContentHeight: number;
   pickerCellBorderGap: number;
+  pickerControlIconSize: number;
+  pickerControlIconBorderWidth: number;
 };
 
 type PickerToken = InputToken<FullToken<'DatePicker'>> & PickerPanelToken;
@@ -248,9 +250,9 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
 };
 
 export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
-  const { componentCls, pickerCellInnerCls, pickerYearMonthCellWidth } = token;
+  const { componentCls, pickerCellInnerCls, pickerYearMonthCellWidth, pickerControlIconSize } =
+    token;
 
-  const pickerArrowSize = 7; // FIXME: v4 magic number
   const pickerPanelWidth = token.pickerPanelCellWidth * 7 + token.paddingSM * 2 + 4;
   const hoverCellFixedDistance =
     (pickerPanelWidth - token.paddingXS * 2) / 3 - pickerYearMonthCellWidth / 2;
@@ -356,20 +358,20 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         &-super-next-icon`]: {
         position: 'relative',
         display: 'inline-block',
-        width: pickerArrowSize,
-        height: pickerArrowSize,
+        width: pickerControlIconSize,
+        height: pickerControlIconSize,
 
         '&::before': {
           position: 'absolute',
           top: 0,
           insetInlineStart: 0,
           display: 'inline-block',
-          width: pickerArrowSize,
-          height: pickerArrowSize,
+          width: pickerControlIconSize,
+          height: pickerControlIconSize,
           border: `0 solid currentcolor`,
-          borderBlockStartWidth: 1.5, // FIXME: v4 magic
+          borderBlockStartWidth: token.pickerControlIconBorderWidth,
           borderBlockEndWidth: 0,
-          borderInlineStartWidth: 1.5, // FIXME: v4 magic
+          borderInlineStartWidth: token.pickerControlIconBorderWidth,
           borderInlineEndWidth: 0,
           content: '""',
         },
@@ -379,15 +381,15 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         &-super-next-icon`]: {
         '&::after': {
           position: 'absolute',
-          top: Math.ceil(pickerArrowSize / 2),
-          insetInlineStart: Math.ceil(pickerArrowSize / 2),
+          top: Math.ceil(pickerControlIconSize / 2),
+          insetInlineStart: Math.ceil(pickerControlIconSize / 2),
           display: 'inline-block',
-          width: pickerArrowSize,
-          height: pickerArrowSize,
+          width: pickerControlIconSize,
+          height: pickerControlIconSize,
           border: '0 solid currentcolor',
-          borderBlockStartWidth: 1.5, // FIXME: v4 magic
+          borderBlockStartWidth: token.pickerControlIconBorderWidth,
           borderBlockEndWidth: 0,
-          borderInlineStartWidth: 1.5, // FIXME: v4 magic
+          borderInlineStartWidth: token.pickerControlIconBorderWidth,
           borderInlineEndWidth: 0,
           content: '""',
         },
@@ -418,7 +420,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         th: {
           height: token.pickerPanelCellHeight + token.pickerCellPaddingVertical * 2,
           color: token.colorText,
-          lineHeight: `${token.pickerPanelCellHeight + token.pickerCellPaddingVertical * 2}px`,
+          verticalAlign: 'middle',
         },
       },
 
@@ -1203,6 +1205,8 @@ export const initPickerPanelToken = (token: TokenWithCommonCls<GlobalToken>): Pi
     pickerQuarterPanelContentHeight: token.controlHeightLG * 1.4,
     pickerCellPaddingVertical: token.paddingXXS,
     pickerCellBorderGap: 2, // Magic for gap between cells
+    pickerControlIconSize: 7,
+    pickerControlIconBorderWidth: 1.5,
   };
 };
 
