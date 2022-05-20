@@ -236,11 +236,9 @@ jobs:
       matrix:
         react: ['16', '17', '18']
         module: ['dom', 'node', 'dist']
-        shard: [1, 2, 3, 4]
+        shard: ['1/4', '2/4', '3/4', '4/4']
     env:
       REACT: ${{ matrix.react }}
-      # set max-shard according to LENGTH(strategy.matrix.shard)
-      MAX_SHARD: 4
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -291,7 +289,7 @@ jobs:
       # dom test
       - name: dom test
         if: ${{ matrix.module == 'dom' }}
-        run: npm test -- -w 1 --shard=${{matrix.shard}}/$MAX_SHARD --coverage
+        run: npm test -- -w 1 --shard=${{matrix.shard}} --coverage
 
       - name: persist coverage folder
         if: ${{ matrix.module == 'dom' && matrix.react == '17' }}
@@ -381,11 +379,9 @@ jobs:
       matrix:
         react: ['16', '17', '18']
         module: [lib, es]
-        shard: [1, 2, 3, 4]
+        shard: ['1/4', '2/4', '3/4', '4/4']
     env:
       REACT: ${{ matrix.react }}
-      # set max-shard according to LENGTH(strategy.matrix.shard)
-      MAX_SHARD: 4
     steps:
       - name: checkout
         # lib only run in master branch not in pull request
@@ -431,7 +427,7 @@ jobs:
       - name: test
         # lib only run in master branch not in pull request
         if: ${{ github.event_name != 'pull_request' || matrix.module != 'lib' }}
-        run: npm test -- --shard=${{matrix.shard}}/$MAX_SHARD
+        run: npm test -- --shard=${{matrix.shard}}
         env:
           LIB_DIR: ${{ matrix.module }}
     needs: compile
