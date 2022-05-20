@@ -138,7 +138,7 @@ jobs:
           key: dist-${{ github.sha }}
 
       - name: dist
-        run: npm run dist
+        run: CI=1 npm run dist
         env:
           NODE_OPTIONS: --max_old_space_size=4096
     needs: setup
@@ -291,7 +291,7 @@ jobs:
         if: ${{ matrix.module == 'dom' }}
         run: npm test -- --maxWorkers=2 --shard=${{matrix.shard}} --coverage
 
-      - name: persist coverage folder
+      - name: persist coverages
         if: ${{ matrix.module == 'dom' && matrix.react == '17' }}
         run: |
           mkdir persist-coverage
@@ -299,7 +299,7 @@ jobs:
 
       - uses: actions/upload-artifact@v3
         if: ${{ matrix.module == 'dom' && matrix.react == '17' }}
-        name: upload coverage-shard.json
+        name: upload coverages
         with:
           name: coverage-artifacts
           path: persist-coverage/

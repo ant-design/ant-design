@@ -129,6 +129,7 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
       });
     }
 
+    // if (!process.env.CI) {
     config.plugins.push(
       new BundleAnalyzerPlugin({
         analyzerMode: 'static',
@@ -136,6 +137,7 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
         reportFilename: '../report.html',
       }),
     );
+    // }
 
     if (!process.env.NO_DUP_CHECK) {
       config.plugins.push(
