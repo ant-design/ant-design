@@ -295,7 +295,7 @@ jobs:
         if: ${{ matrix.module == 'dom' && matrix.react == '17' }}
         run: |
           mkdir persist-coverage
-          mv coverage/coverage-final.json persist-coverage/coverage-shard-${{matrix.shard}}.json
+          mv coverage/coverage-final.json persist-coverage/react-${{matrix.react}}-test-${{matrix.module}}-${{strategy.job-index}}.json
 
       - uses: actions/upload-artifact@v3
         if: ${{ matrix.module == 'dom' && matrix.react == '17' }}
