@@ -11,10 +11,6 @@ export interface ComponentToken {
 }
 
 export interface MenuToken extends FullToken<'Menu'> {
-  colorTextSecondary: string;
-  motionDurationMD: string;
-  primaryColor: string;
-  borderColorSplit: string;
   itemActiveBackground: string;
   easeOut: string;
   menuOpacity: number;
@@ -94,7 +90,7 @@ const genStatusStyle: GenerateStyle<MenuToken, CSSObject> = (token: MenuToken): 
   };
 };
 const genLightStyle = (token: MenuToken): CSSObject => {
-  const { componentCls, primaryColor, colorText } = token;
+  const { componentCls, colorPrimary, colorText } = token;
   return {
     [`${componentCls}-light`]: {
       // light theme
@@ -105,7 +101,7 @@ const genLightStyle = (token: MenuToken): CSSObject => {
         ${componentCls}-submenu-active,
         ${componentCls}-submenu-title:hover
       `]: {
-        color: primaryColor,
+        color: colorPrimary,
         [`${componentCls}`]: {
           color: colorText,
         },
@@ -149,12 +145,12 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
     radiusBase,
     componentCls,
     antCls,
-    borderColorSplit,
-    primaryColor,
+    colorBorderSecondary,
+    colorPrimary,
     motionDurationSlow,
     controlLineType,
     motionEaseInOut,
-    motionDurationMD,
+    motionDurationMid,
     easeOut,
     iconCls,
     boxShadow,
@@ -233,7 +229,7 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
         },
 
         [`${componentCls}-submenu-selected`]: {
-          color: primaryColor,
+          color: colorPrimary,
           [`${componentCls}`]: {
             color: colorText,
             ...clearFix(),
@@ -252,7 +248,7 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
           color: colorText,
 
           '&:hover': {
-            color: primaryColor,
+            color: colorPrimary,
           },
 
           '&::before': {
@@ -268,14 +264,14 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
           color: colorText,
 
           '&:hover': {
-            color: primaryColor,
+            color: colorPrimary,
           },
         },
 
         [`${componentCls}-item-divider`]: {
           overflow: 'hidden',
           lineHeight: 0,
-          borderColor: borderColorSplit,
+          borderColor: colorBorderSecondary,
           borderStyle: controlLineType,
           borderBlockStartWidth: `${lineWidth}px`,
           borderBlockEndWidth: 0,
@@ -287,10 +283,10 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
         },
 
         [`${componentCls}-item-selected`]: {
-          color: primaryColor,
+          color: colorPrimary,
 
           'a,a:hover': {
-            color: primaryColor,
+            color: colorPrimary,
           },
         },
 
@@ -299,7 +295,7 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
         },
 
         [`${componentCls}-vertical-right`]: {
-          borderInlineStart: `${lineWidth}px ${controlLineType} ${borderColorSplit}`,
+          borderInlineStart: `${lineWidth}px ${controlLineType} ${colorBorderSecondary}`,
         },
 
         [`${componentCls}-vertical${componentCls}-sub,${componentCls}-vertical-left${componentCls}-sub,${componentCls}-vertical-right${componentCls}-sub`]:
@@ -344,7 +340,7 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
           [`${componentCls}-item-icon,${iconCls}`]: {
             minWidth: '14px', // FIXME: hard code in v4
             fontSize,
-            transition: `font-size ${motionDurationMD} ${easeOut},margin ${motionDurationSlow} ${motionEaseInOut}, color ${motionDurationSlow}`,
+            transition: `font-size ${motionDurationMid} ${easeOut},margin ${motionDurationSlow} ${motionEaseInOut}, color ${motionDurationSlow}`,
 
             '+ span': {
               marginInlineStart: 10,
@@ -543,7 +539,7 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
         ${componentCls}-submenu:hover > ${componentCls}-submenu-title > ${componentCls}-submenu-expand-icon,
         ${componentCls}-submenu:hover > ${componentCls}-submenu-title > ${componentCls}-submenu-arrow
       `]: {
-          color: primaryColor,
+          color: colorPrimary,
         },
         ...genDarkStyle(token),
 
@@ -651,7 +647,7 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
 
       [`${componentCls}-dark${componentCls}-dark:not(${componentCls}-horizontal) ${componentCls}-item-selected`]:
         {
-          backgroundColor: primaryColor,
+          backgroundColor: colorPrimary,
         },
 
       [`${componentCls}-dark ${componentCls}-item-selected`]: {
@@ -677,7 +673,7 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
 
       [`${componentCls}${componentCls}-dark ${componentCls}-item-selected,${componentCls}-submenu-popup${componentCls}-dark ${componentCls}-item-selected`]:
         {
-          backgroundColor: primaryColor,
+          backgroundColor: colorPrimary,
         },
 
       // Disabled state sets text to dark gray and nukes hover/tab effects
@@ -704,7 +700,10 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
           '&::after': {
             transform: 'scaleY(1)',
             opacity: 1,
-            transition: `transform ${motionDurationMD} ${motionEaseInOut},opacity ${motionDurationMD} ${motionEaseInOut}`,
+            transition: [
+              `transform ${motionDurationMid} ${motionEaseInOut}`,
+              `opacity ${motionDurationMid} ${motionEaseInOut}`,
+            ].join(','),
           },
         },
 
@@ -737,17 +736,21 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
         },
       },
       [`${componentCls}-submenu,${componentCls}-submenu-inline`]: {
-        transition: `border-color ${motionDurationSlow} ${motionEaseInOut},background ${motionDurationSlow} ${motionEaseInOut},padding ${motionDurationMD} ${motionEaseInOut}`,
+        transition: [
+          `border-color ${motionDurationSlow} ${motionEaseInOut}`,
+          `background ${motionDurationSlow} ${motionEaseInOut}`,
+          `padding ${motionDurationMid} ${motionEaseInOut}`,
+        ].join(','),
       },
       [`${componentCls}-inline,${componentCls}-vertical,${componentCls}-vertical-left`]: {
-        borderInlineEnd: `${lineWidth}px ${controlLineType} ${borderColorSplit}`,
+        borderInlineEnd: `${lineWidth}px ${controlLineType} ${colorBorderSecondary}`,
       },
 
       // ========================= horizontal  ============================
       [`${componentCls}-horizontal`]: {
         lineHeight: '46px', // FIXME: hard code in v4
         border: 0,
-        borderBlockEnd: `${lineWidth}px ${controlLineType} ${borderColorSplit}`,
+        borderBlockEnd: `${lineWidth}px ${controlLineType} ${colorBorderSecondary}`,
         boxShadow: 'none',
 
         [`&:not(${componentCls}-dark)`]: {
@@ -759,10 +762,10 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
           },
           [`${componentCls}-item-active,${componentCls}-item-open,${componentCls}-item-selected, ${componentCls}-submenu-active,${componentCls}-submenu-open,${componentCls}-submenu-selected`]:
             {
-              color: primaryColor,
+              color: colorPrimary,
 
               '&::after': {
-                borderBlockEnd: `2px ${controlLineType} ${primaryColor}`, // FIXME: hard code in v4
+                borderBlockEnd: `2px ${controlLineType} ${colorPrimary}`, // FIXME: hard code in v4
               },
             },
         },
@@ -792,7 +795,7 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
             color: colorText,
 
             '&:hover': {
-              color: primaryColor,
+              color: colorPrimary,
             },
 
             '&::before': {
@@ -801,7 +804,7 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
           },
 
           [`${componentCls}-item-selected a`]: {
-            color: primaryColor,
+            color: colorPrimary,
           },
         },
 
@@ -842,7 +845,7 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
         },
 
       [`${componentCls}-dark${componentCls}-horizontal > ${componentCls}-item:hover`]: {
-        backgroundColor: primaryColor,
+        backgroundColor: colorPrimary,
       },
 
       [`${componentCls}-dark${componentCls}-horizontal > ${componentCls}-item > a::before`]: {
@@ -856,7 +859,7 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
       // ========================= vertical  ============================
       [`${componentCls}-vertical ${componentCls}-submenu-selected,${componentCls}-vertical-left ${componentCls}-submenu-selected,${componentCls}-vertical-right ${componentCls}-submenu-selected`]:
         {
-          color: primaryColor,
+          color: colorPrimary,
         },
 
       [`${componentCls}-vertical`]: {
@@ -885,10 +888,13 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
               insetBlockStart: 0,
               insetInlineEnd: 0,
               insetBlockEnd: 0,
-              borderInlineEnd: `3px ${controlLineType} ${primaryColor}`, // FIXME: hard code in v4
+              borderInlineEnd: `3px ${controlLineType} ${colorPrimary}`, // FIXME: hard code in v4
               transform: 'scaleY(0.0001)', // FIXME: hard code in v4
               opacity: 0,
-              transition: `transform ${motionDurationMD} ${easeOut},opacity ${motionDurationMD} ${easeOut}`,
+              transition: [
+                `transform ${motionDurationMid} ${easeOut}`,
+                `opacity ${motionDurationMid} ${easeOut}`,
+              ].join(','),
               content: '""',
             },
           },
@@ -938,7 +944,7 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
           color: colorText,
 
           '&:hover': {
-            color: primaryColor,
+            color: colorPrimary,
           },
 
           '&::before': {
@@ -1041,7 +1047,6 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
       const MenuToken = mergeToken<MenuToken>(token, {
         darkBg: '#001529', // FIXME: hard code in v4
         darkInlineSubmenuBg: '#000c17', // FIXME: hard code in v4
-        colorTextSecondary: new TinyColor('#000').setAlpha(0.45).toRgbString(), // FIXME: hard code in v4
         highlightDangerColor: new TinyColor('#f5222d').setAlpha(0.2).toRgbString(), // FIXME: hard code in v4 // color(~`colorPalette('@{red-6}', 5) `)
         itemActiveDangerBg: new TinyColor('#f5222d').setAlpha(0.9).toRgbString(), // FIXME: hard code in v4 // color(~`colorPalette('@{red-6}', 1) `)
         itemActiveBackground: new TinyColor('#000').setAlpha(0.9).toRgbString(), // FIXME: hard code in v4
@@ -1052,10 +1057,7 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         colorDark: new TinyColor('#fff').setAlpha(0.85).toRgbString(), // FIXME: hard code in v4
         disabledColorDark: new TinyColor('#fff').setAlpha(0.45).toRgbString(), // FIXME: hard code in v4
         darkHighlightColor: '#fff', // FIXME: hard code in v4
-        motionDurationMD: '0.15s', // FIXME: hard code in v4,
-        primaryColor: '#1890ff', // FIXME: hard code in v4
         boxShadowColor: new TinyColor('#1890ff').setAlpha(0.05).toRgbString(), // FIXME: hard code in v4, shade(@primary-color, 5%)
-        borderColorSplit: new TinyColor({ h: 0, s: 0, v: 94 }).toHexString(), // FIXME: hard code in v4
         menuInlineSubmenuBg: new TinyColor({ h: 0, s: 0, v: 98 }).toHexString(), // FIXME: hard code in v4
         easeOut: 'cubic-bezier(0.215, 0.61, 0.355, 1)', // FIXME: hard code in v4
         menuItemPaddingInline: controlHeightLG / 2,
