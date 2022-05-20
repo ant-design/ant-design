@@ -89,13 +89,7 @@ describe('TimeLine', () => {
   });
 
   describe('the item rendering sequence is controlled by reverse', () => {
-    const getTextContents = nodeList => {
-      const textContents = [];
-      for (let node of nodeList) {
-        textContents.push(node.textContent);
-      }
-      return textContents;
-    };
+    const getTextContents = nodeList => Array.from(nodeList).map(node => node.textContent);
 
     it('items is in order when prop reverse is false', () => {
       const { container } = renderFactory({ reverse: false });
