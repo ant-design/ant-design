@@ -1,8 +1,15 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-import { genComponentStyleHook, resetComponent, clearFix, mergeToken } from '../../_util/theme';
+import {
+  genComponentStyleHook,
+  resetComponent,
+  clearFix,
+  mergeToken,
+  resetIcon,
+} from '../../_util/theme';
 import type { GenerateStyle, FullToken, UseComponentStyleResult } from '../../_util/theme';
+import genDarkStyle from './dark';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -11,7 +18,6 @@ export interface ComponentToken {
 }
 
 export interface MenuToken extends FullToken<'Menu'> {
-  itemActiveBackground: string;
   sizeLg: number;
   textColorDark: string;
   menuInlineSubmenuBg: string;
@@ -32,10 +38,6 @@ export interface MenuToken extends FullToken<'Menu'> {
 // =============================== Base ===============================
 const accessibilityFocus: GenerateStyle<MenuToken, CSSObject> = (token): CSSObject => ({
   boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${token.colorPrimarySecondary}`,
-});
-
-const accessibilityFocusDark: GenerateStyle<MenuToken, CSSObject> = token => ({
-  boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${token.boxShadowColor}`,
 });
 
 const genStatusStyle: GenerateStyle<MenuToken, CSSObject> = (token: MenuToken): CSSObject => {
@@ -71,19 +73,6 @@ const genStatusStyle: GenerateStyle<MenuToken, CSSObject> = (token: MenuToken): 
           borderInlineEndColor: highlightDangerColor,
         },
       },
-
-      // ==================== Dark ====================
-      [`${componentCls}-dark ${componentCls}-item-danger${componentCls}-item`]: {
-        [`&, &:hover, & > a`]: {
-          color: highlightDangerColor,
-        },
-      },
-
-      [`${componentCls}-dark${componentCls}-dark:not(${componentCls}-horizontal) ${componentCls}-item-danger${componentCls}-item-selected`]:
-        {
-          color: darkHighlightColor,
-          backgroundColor: highlightDangerColor,
-        },
     },
   };
 };
@@ -107,39 +96,12 @@ const genLightStyle = (token: MenuToken): CSSObject => {
     },
   };
 };
-const genDarkStyle = (token: MenuToken): CSSObject => {
-  const { componentCls, darkColor, darkBg, darkHighlightColor, motionDurationSlow } = token;
-  return {
-    [`&${componentCls}-root:focus-visible`]: {
-      ...accessibilityFocusDark(token),
-    },
-
-    [`${componentCls}-dark ${componentCls}-item, ${componentCls}-dark ${componentCls}-submenu-title`]:
-      {
-        '&:focus-visible': {
-          ...accessibilityFocusDark(token),
-        },
-      },
-
-    // dark theme
-    [`&${componentCls}-dark,${componentCls}-dark ${componentCls}-sub,&${componentCls}-dark ${componentCls}-sub`]:
-      {
-        color: darkColor,
-        background: darkBg,
-        [`${componentCls}-submenu-title ${componentCls}-submenu-arrow`]: {
-          opacity: 0.45,
-          transition: `all ${motionDurationSlow}`,
-
-          '&::after, &::before': {
-            background: darkHighlightColor,
-          },
-        },
-      },
-  };
-};
 
 const genBaseStyle: GenerateStyle<MenuToken> = token => {
   const {
+    controlHeight,
+    controlHeightSM,
+    controlHeightLG,
     radiusBase,
     componentCls,
     antCls,
@@ -162,7 +124,6 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
     paddingXXS,
     menuInlineSubmenuBg,
     disabledColor,
-    controlHeight,
     colorTextSecondary,
     fontSize,
     lineHeight,
@@ -174,7 +135,6 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
     darkHighlightColor,
     disabledColorDark,
     itemActiveBg,
-    controlHeightLG,
     dropdownWidth,
     menuItemPaddingInline,
     zIndexPopup,
@@ -336,7 +296,7 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
           transition: `border-color ${motionDurationSlow}, background ${motionDurationSlow},padding ${motionDurationSlow} ${motionEaseInOut}`,
 
           [`${componentCls}-item-icon,${iconCls}`]: {
-            minWidth: '14px', // FIXME: hard code in v4
+            minWidth: fontSize,
             fontSize,
             transition: [
               `font-size ${motionDurationMid} ${motionEaseOut}`,
@@ -345,14 +305,14 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
             ].join(','),
 
             '+ span': {
-              marginInlineStart: 10,
+              marginInlineStart: controlHeightSM - fontSize,
               opacity: 1,
               transition: `opacity ${motionDurationSlow} ${motionEaseInOut}, margin ${motionDurationSlow},color ${motionDurationSlow}`,
             },
           },
 
-          [`${componentCls}-item-icon.svg`]: {
-            verticalAlign: '-0.125em', // FIXME: hard code in v4
+          [`${componentCls}-item-icon`]: {
+            ...resetIcon(),
           },
 
           [`&${componentCls}-item-only-child`]: {
@@ -538,12 +498,11 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
           transition: `transform ${motionDurationSlow} ${motionEaseInOut}`,
         },
         [`
-        ${componentCls}-submenu:hover > ${componentCls}-submenu-title > ${componentCls}-submenu-expand-icon,
-        ${componentCls}-submenu:hover > ${componentCls}-submenu-title > ${componentCls}-submenu-arrow
-      `]: {
+          ${componentCls}-submenu:hover > ${componentCls}-submenu-title > ${componentCls}-submenu-expand-icon,
+          ${componentCls}-submenu:hover > ${componentCls}-submenu-title > ${componentCls}-submenu-arrow
+        `]: {
           color: colorPrimary,
         },
-        ...genDarkStyle(token),
 
         [`${componentCls}-vertical ${componentCls}-item`]: {
           height: controlHeightLG,
@@ -1055,7 +1014,6 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         darkInlineSubmenuBg: '#000c17', // FIXME: hard code in v4
         highlightDangerColor: new TinyColor('#f5222d').setAlpha(0.2).toRgbString(), // FIXME: hard code in v4 // color(~`colorPalette('@{red-6}', 5) `)
         itemActiveDangerBg: new TinyColor('#f5222d').setAlpha(0.9).toRgbString(), // FIXME: hard code in v4 // color(~`colorPalette('@{red-6}', 1) `)
-        itemActiveBackground: new TinyColor('#000').setAlpha(0.9).toRgbString(), // FIXME: hard code in v4
         itemActiveBg: '#e6f7ff', // FIXME: hard code in v4,
         textColorDark: new TinyColor('#000').setAlpha(0.85).toRgbString(), // FIXME: hard code in v4
         disabledColor: new TinyColor('#000').setAlpha(0.25).toRgbString(), // FIXME: hard code in v4
@@ -1071,9 +1029,9 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
 
       return [
         genBaseStyle(MenuToken),
-        genDarkStyle(MenuToken),
         genLightStyle(MenuToken),
         genStatusStyle(MenuToken),
+        genDarkStyle(MenuToken),
       ];
     },
     token => ({
