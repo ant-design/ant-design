@@ -12,8 +12,6 @@ export interface ComponentToken {
 
 export interface MenuToken extends FullToken<'Menu'> {
   itemActiveBackground: string;
-  easeOut: string;
-  menuOpacity: number;
   sizeLg: number;
   textColorDark: string;
   menuInlineSubmenuBg: string;
@@ -151,7 +149,7 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
     controlLineType,
     motionEaseInOut,
     motionDurationMid,
-    easeOut,
+    motionEaseOut,
     iconCls,
     boxShadow,
     colorBgComponent,
@@ -340,7 +338,11 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
           [`${componentCls}-item-icon,${iconCls}`]: {
             minWidth: '14px', // FIXME: hard code in v4
             fontSize,
-            transition: `font-size ${motionDurationMid} ${easeOut},margin ${motionDurationSlow} ${motionEaseInOut}, color ${motionDurationSlow}`,
+            transition: [
+              `font-size ${motionDurationMid} ${motionEaseOut}`,
+              `margin ${motionDurationSlow} ${motionEaseInOut}`,
+              `color ${motionDurationSlow}`,
+            ].join(','),
 
             '+ span': {
               marginInlineStart: 10,
@@ -721,7 +723,11 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
         [`${componentCls}-item,${componentCls}-submenu-title`]: {
           display: 'flex',
           alignItems: 'center',
-          transition: `border-color ${motionDurationSlow}, background ${motionDurationSlow},padding 0.1s ${easeOut}`,
+          transition: [
+            `border-color ${motionDurationSlow}`,
+            `background ${motionDurationSlow}`,
+            `padding 0.1s ${motionEaseOut}`,
+          ].join(','),
 
           [`> ${componentCls}-title-content`]: {
             flex: 'auto',
@@ -892,8 +898,8 @@ const genBaseStyle: GenerateStyle<MenuToken> = token => {
               transform: 'scaleY(0.0001)', // FIXME: hard code in v4
               opacity: 0,
               transition: [
-                `transform ${motionDurationMid} ${easeOut}`,
-                `opacity ${motionDurationMid} ${easeOut}`,
+                `transform ${motionDurationMid} ${motionEaseOut}`,
+                `opacity ${motionDurationMid} ${motionEaseOut}`,
               ].join(','),
               content: '""',
             },
@@ -1059,9 +1065,7 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         darkHighlightColor: '#fff', // FIXME: hard code in v4
         boxShadowColor: new TinyColor('#1890ff').setAlpha(0.05).toRgbString(), // FIXME: hard code in v4, shade(@primary-color, 5%)
         menuInlineSubmenuBg: new TinyColor({ h: 0, s: 0, v: 98 }).toHexString(), // FIXME: hard code in v4
-        easeOut: 'cubic-bezier(0.215, 0.61, 0.355, 1)', // FIXME: hard code in v4
         menuItemPaddingInline: controlHeightLG / 2,
-        menuOpacity: 0.0001, // FIXME: hard code in v4
         sizeLg: 16, // FIXME: hard code in v4
       });
 
