@@ -13,27 +13,39 @@ export interface TimePickerLocale {
 }
 
 export interface TimeRangePickerProps extends Omit<RangePickerTimeProps<Moment>, 'picker'> {
+  /** @deprecated `popupClassName` is an alias of `dropdownClassName`. Use `dropdownClassName` instead. */
   popupClassName?: string;
 }
 
-const RangePicker = React.forwardRef<any, TimeRangePickerProps>((props, ref) => (
-  <InternalRangePicker
-    {...props}
-    dropdownClassName={props.popupClassName}
-    picker="time"
-    mode={undefined}
-    ref={ref}
-  />
-));
+const RangePicker = React.forwardRef<any, TimeRangePickerProps>((props, ref) => {
+  if (props.popupClassName) {
+    warning(
+      false,
+      'TimePicker',
+      '`popupClassName` is an alias of `dropdownClassName` and and will be removed in next major version. Use `dropdownClassName` instead.',
+    );
+  }
+
+  return (
+    <InternalRangePicker
+      {...props}
+      dropdownClassName={props.dropdownClassName || props.popupClassName}
+      picker="time"
+      mode={undefined}
+      ref={ref}
+    />
+  );
+});
 
 export interface TimePickerProps extends Omit<PickerTimeProps<Moment>, 'picker'> {
   addon?: () => React.ReactNode;
+  /** @deprecated `popupClassName` is an alias of `dropdownClassName`. Use `dropdownClassName` instead. */
   popupClassName?: string;
   status?: InputStatus;
 }
 
 const TimePicker = React.forwardRef<any, TimePickerProps>(
-  ({ addon, renderExtraFooter, popupClassName, ...restProps }, ref) => {
+  ({ addon, renderExtraFooter, popupClassName, dropdownClassName, ...restProps }, ref) => {
     const internalRenderExtraFooter = React.useMemo(() => {
       if (renderExtraFooter) {
         return renderExtraFooter;
@@ -49,10 +61,18 @@ const TimePicker = React.forwardRef<any, TimePickerProps>(
       return undefined;
     }, [addon, renderExtraFooter]);
 
+    if (popupClassName) {
+      warning(
+        false,
+        'TimePicker',
+        '`popupClassName` is an alias of `dropdownClassName` and will be removed in next major version. Use `dropdownClassName` instead.',
+      );
+    }
+
     return (
       <InternalTimePicker
         {...restProps}
-        dropdownClassName={popupClassName}
+        dropdownClassName={dropdownClassName || popupClassName}
         mode={undefined}
         ref={ref}
         renderExtraFooter={internalRenderExtraFooter}

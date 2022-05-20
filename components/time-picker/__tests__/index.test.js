@@ -71,6 +71,7 @@ describe('TimePicker', () => {
       />,
     );
     expect(wrapper.find('Picker').last().prop('dropdownClassName')).toEqual(popupClassName);
+    expect(errorSpy).toHaveBeenCalledWith(expect.stringContaining('`popupClassName`'));
   });
 
   it('should pass popupClassName prop to RangePicker as dropdownClassName prop', () => {
@@ -79,6 +80,29 @@ describe('TimePicker', () => {
       <TimePicker.RangePicker
         defaultOpenValue={moment('00:00:00', 'HH:mm:ss')}
         popupClassName={popupClassName}
+      />,
+    );
+    expect(wrapper.find('RangePicker').last().prop('dropdownClassName')).toEqual(popupClassName);
+    expect(errorSpy).toHaveBeenCalledWith(expect.stringContaining('`popupClassName`'));
+  });
+
+  it('should pass dropdownClassName prop to Picker', () => {
+    const popupClassName = 'myCustomClassName';
+    const wrapper = mount(
+      <TimePicker
+        defaultOpenValue={moment('00:00:00', 'HH:mm:ss')}
+        dropdownClassName={popupClassName}
+      />,
+    );
+    expect(wrapper.find('Picker').last().prop('dropdownClassName')).toEqual(popupClassName);
+  });
+
+  it('should pass dropdownClassName prop to RangePicker', () => {
+    const popupClassName = 'myCustomClassName';
+    const wrapper = mount(
+      <TimePicker.RangePicker
+        defaultOpenValue={moment('00:00:00', 'HH:mm:ss')}
+        dropdownClassName={popupClassName}
       />,
     );
     expect(wrapper.find('RangePicker').last().prop('dropdownClassName')).toEqual(popupClassName);
