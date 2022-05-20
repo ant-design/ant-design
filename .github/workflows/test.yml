@@ -427,7 +427,7 @@ jobs:
       - name: test
         # lib only run in master branch not in pull request
         if: ${{ github.event_name != 'pull_request' || matrix.module != 'lib' }}
-        run: npm test -- --shard=${{matrix.shard}}
+        run: npm test -- --maxWorkers=2 --shard=${{matrix.shard}}
         env:
           LIB_DIR: ${{ matrix.module }}
     needs: compile
