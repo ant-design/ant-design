@@ -44,7 +44,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = token => {
     motionDurationMid,
     motionEaseInOut,
     motionEaseOut,
-    menuItemHeight,
+    lineHeight,
     paddingXS,
     padding,
     colorBorderSecondary,
@@ -99,10 +99,9 @@ const getBaseStyle: GenerateStyle<MenuToken> = token => {
         },
 
         [`${componentCls}-item-group-title`]: {
-          height: menuItemHeight,
           padding: `${paddingXS}px ${padding}px`,
           fontSize,
-          lineHeight: `${menuItemHeight}px`,
+          lineHeight,
           transition: `all ${motionDurationSlow}`,
         },
 
@@ -232,12 +231,14 @@ const getBaseStyle: GenerateStyle<MenuToken> = token => {
           },
         },
 
-        [`${componentCls}-item-group-list`]: {
-          margin: 0,
-          padding: 0,
+        [`${componentCls}-item-group`]: {
+          [`${componentCls}-item-group-list`]: {
+            margin: 0,
+            padding: 0,
 
-          [`${componentCls}-item, ${componentCls}-submenu-title`]: {
-            paddingInline: `${padding}px ${fontSize * 2}px`,
+            [`${componentCls}-item, ${componentCls}-submenu-title`]: {
+              paddingInline: `${fontSize * 2}px ${padding}px`,
+            },
           },
         },
 

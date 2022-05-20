@@ -1,6 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { MenuThemeToken } from '.';
-import type { GenerateStyle } from '../../_util/theme';
+import { clearFix, GenerateStyle } from '../../_util/theme';
 
 const getVerticalInlineStyle: GenerateStyle<MenuThemeToken, CSSObject> = token => {
   const {
@@ -12,7 +12,7 @@ const getVerticalInlineStyle: GenerateStyle<MenuThemeToken, CSSObject> = token =
     menuItemHeight,
     marginXS,
     padding,
-    marginSM,
+    marginXXS,
     menuArrowSize,
     fontSize,
   } = token;
@@ -41,7 +41,7 @@ const getVerticalInlineStyle: GenerateStyle<MenuThemeToken, CSSObject> = token =
     [`${componentCls}-item, ${componentCls}-submenu-title`]: {
       height: menuItemHeight,
       lineHeight: `${menuItemHeight}px`,
-      marginBlock: marginXS,
+      marginBlock: marginXXS,
       paddingInline: padding,
       overflow: 'hidden',
       textOverflow: 'ellipsis',
@@ -53,7 +53,7 @@ const getVerticalInlineStyle: GenerateStyle<MenuThemeToken, CSSObject> = token =
     },
 
     [`${componentCls}-item:not(:last-child)`]: {
-      marginBottom: marginSM,
+      marginBottom: marginXS,
     },
 
     [`> ${componentCls}-item,
@@ -107,6 +107,7 @@ const getVerticalStyle: GenerateStyle<MenuThemeToken> = token => {
       [`${componentCls}-submenu-popup`]: {
         [`${componentCls}-vertical`]: {
           ...getVerticalInlineStyle(token),
+          ...clearFix(),
           boxShadow,
         },
       },
@@ -214,7 +215,7 @@ const getVerticalStyle: GenerateStyle<MenuThemeToken> = token => {
           },
 
           [`& ${componentCls}-item-group-title`]: {
-            paddingLeft: paddingXL,
+            paddingInlineStart: paddingXL,
           },
         },
       },
