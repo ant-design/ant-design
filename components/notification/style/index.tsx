@@ -30,7 +30,6 @@ const genNotificationStyle: GenerateStyle<NotificationToken, CSSObject> = token 
     fontSizeLG,
     notificationMarginBottom,
     radiusBase,
-    notificationPaddingHorizontal,
     colorSuccess,
     colorInfo,
     colorWarning,
