@@ -34,6 +34,7 @@ import moment from 'moment';
 | defaultValue | 默认时间 | [moment](http://momentjs.com/) | - |  |
 | disabled | 禁用全部操作 | boolean | false |  |
 | disabledTime | 不可选择的时间 | [DisabledTime](#DisabledTime) | - | 4.19.0 |
+| dropdownClassName | 弹出层类名 | string | - | 4.21.0 |
 | format | 展示的时间格式 | string | `HH:mm:ss` |  |
 | getPopupContainer | 定义浮层的容器，默认为 body 上新建 div | function(trigger) | - |  |
 | hideDisabledOptions | 隐藏禁止选择的选项 | boolean | false |  |
@@ -43,7 +44,7 @@ import moment from 'moment';
 | open | 面板是否打开 | boolean | false |  |
 | placeholder | 没有值的时候显示的内容 | string \| \[string, string] | `请选择时间` |  |
 | placement | 选择框弹出的位置 | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
-| popupClassName | 弹出层类名 | string | - |  |
+| popupClassName | 弹出层类名（`dropdownClassName` 别名） | string | - |  |
 | popupStyle | 弹出层样式对象 | object | - |  |
 | renderExtraFooter | 选择框底部显示自定义的内容 | () => ReactNode | - |  |
 | secondStep | 秒选项间隔 | number | 1 |  |

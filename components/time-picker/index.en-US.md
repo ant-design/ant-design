@@ -34,6 +34,7 @@ import moment from 'moment';
 | defaultValue | To set default time | [moment](http://momentjs.com/) | - |  |
 | disabled | Determine whether the TimePicker is disabled | boolean | false |  |
 | disabledTime | To specify the time that cannot be selected | [DisabledTime](#DisabledTime) | - | 4.19.0 |
+| dropdownClassName | The className of panel (alias of `dropdownClassName`) | string | - | 4.21.0 |
 | format | To set the time format | string | `HH:mm:ss` |  |
 | getPopupContainer | To set the container of the floating layer, while the default is to create a div element in body | function(trigger) | - |  |
 | hideDisabledOptions | Whether hide the options that can not be selected | boolean | false |  |
@@ -43,7 +44,7 @@ import moment from 'moment';
 | open | Whether to popup panel | boolean | false |  |
 | placeholder | Display when there's no value | string \| \[string, string] | `Select a time` |  |
 | placement | The position where the selection box pops up | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
-| popupClassName | The className of panel | string | - |  |
+| popupClassName | The className of panel (alias of `dropdownClassName`) | string | - |  |
 | popupStyle | The style of panel | CSSProperties | - |  |
 | renderExtraFooter | Called from time picker panel to render some addon to its bottom | () => ReactNode | - |  |
 | secondStep | Interval between seconds in picker | number | 1 |  |
