@@ -181,7 +181,7 @@
     "@types/react-copy-to-clipboard": "^5.0.0",
     "@types/react-dom": "^18.0.0",
     "@types/react-highlight-words": "^0.16.4",
-    "@types/react-resizable": "^1.7.4",
+    "@types/react-resizable": "^3.0.0",
     "@types/react-sticky": "^6.0.4",
     "@types/react-window": "^1.8.2",
     "@types/warning": "^3.0.0",
