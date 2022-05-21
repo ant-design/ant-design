@@ -1,7 +1,7 @@
 // deps-lint-skip-all
 import { TinyColor } from '@ctrl/tinycolor';
 import {
-  genComponentStyleHook,
+  genComponentStyleHook, 
   resetComponent,
   clearFix,
   mergeToken,
