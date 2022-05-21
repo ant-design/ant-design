@@ -14,12 +14,13 @@ debug: true
 
 Nest with `noStyle` field dynamic form.
 
-```jsx
-import { Form, Input, Button, Space } from 'antd';
+```tsx
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
+import { Button, Form, Input, Space } from 'antd';
+import React from 'react';
 
-const Demo = () => {
-  const onFinish = values => {
+const App: React.FC = () => {
+  const onFinish = (values: any) => {
     console.log('Received values of form:', values);
   };
 
@@ -62,5 +63,5 @@ const Demo = () => {
   );
 };
 
-export default Demo;
+export default App;
 ```

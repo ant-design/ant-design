@@ -179,7 +179,6 @@ exports[`renders ./components/list/demo/grid.md extend context correctly 1`] = `
     >
       <div
         class="ant-row"
-        role="row"
         style="margin-left:-8px;margin-right:-8px"
       >
         <div
@@ -187,7 +186,6 @@ exports[`renders ./components/list/demo/grid.md extend context correctly 1`] = `
         >
           <div
             class="ant-col"
-            role="cell"
             style="padding-left:8px;padding-right:8px;flex:1 1 auto"
           >
             <div
@@ -223,7 +221,6 @@ exports[`renders ./components/list/demo/grid.md extend context correctly 1`] = `
         >
           <div
             class="ant-col"
-            role="cell"
             style="padding-left:8px;padding-right:8px;flex:1 1 auto"
           >
             <div
@@ -259,7 +256,6 @@ exports[`renders ./components/list/demo/grid.md extend context correctly 1`] = `
         >
           <div
             class="ant-col"
-            role="cell"
             style="padding-left:8px;padding-right:8px;flex:1 1 auto"
           >
             <div
@@ -295,7 +291,6 @@ exports[`renders ./components/list/demo/grid.md extend context correctly 1`] = `
         >
           <div
             class="ant-col"
-            role="cell"
             style="padding-left:8px;padding-right:8px;flex:1 1 auto"
           >
             <div
@@ -345,7 +340,6 @@ Array [
       >
         <div
           class="ant-row"
-          role="row"
           style="margin-left:-8px;margin-right:-8px"
         >
           <div
@@ -353,7 +347,6 @@ Array [
           >
             <div
               class="ant-col"
-              role="cell"
               style="padding-left:8px;padding-right:8px;flex:1 1 auto"
             >
               <div
@@ -389,7 +382,6 @@ Array [
           >
             <div
               class="ant-col"
-              role="cell"
               style="padding-left:8px;padding-right:8px;flex:1 1 auto"
             >
               <div
@@ -425,7 +417,6 @@ Array [
           >
             <div
               class="ant-col"
-              role="cell"
               style="padding-left:8px;padding-right:8px;flex:1 1 auto"
             >
               <div
@@ -461,7 +452,6 @@ Array [
           >
             <div
               class="ant-col"
-              role="cell"
               style="padding-left:8px;padding-right:8px;flex:1 1 auto"
             >
               <div
@@ -497,7 +487,6 @@ Array [
           >
             <div
               class="ant-col"
-              role="cell"
               style="padding-left:8px;padding-right:8px;flex:1 1 auto"
             >
               <div
@@ -533,7 +522,6 @@ Array [
           >
             <div
               class="ant-col"
-              role="cell"
               style="padding-left:8px;padding-right:8px;flex:1 1 auto"
             >
               <div
@@ -579,7 +567,6 @@ Array [
       >
         <div
           class="ant-row"
-          role="row"
           style="margin-left:-8px;margin-right:-8px"
         >
           <div
@@ -587,7 +574,6 @@ Array [
           >
             <div
               class="ant-col"
-              role="cell"
               style="padding-left:8px;padding-right:8px;flex:1 1 auto"
             >
               <div
@@ -623,7 +609,6 @@ Array [
           >
             <div
               class="ant-col"
-              role="cell"
               style="padding-left:8px;padding-right:8px;flex:1 1 auto"
             >
               <div
@@ -659,7 +644,6 @@ Array [
           >
             <div
               class="ant-col"
-              role="cell"
               style="padding-left:8px;padding-right:8px;flex:1 1 auto"
             >
               <div
@@ -695,7 +679,6 @@ Array [
           >
             <div
               class="ant-col"
-              role="cell"
               style="padding-left:8px;padding-right:8px;flex:1 1 auto"
             >
               <div
@@ -731,7 +714,6 @@ Array [
           >
             <div
               class="ant-col"
-              role="cell"
               style="padding-left:8px;padding-right:8px;flex:1 1 auto"
             >
               <div
@@ -767,7 +749,6 @@ Array [
           >
             <div
               class="ant-col"
-              role="cell"
               style="padding-left:8px;padding-right:8px;flex:1 1 auto"
             >
               <div
@@ -813,7 +794,6 @@ Array [
       >
         <div
           class="ant-row"
-          role="row"
           style="margin-left:-8px;margin-right:-8px"
         >
           <div
@@ -821,7 +801,6 @@ Array [
           >
             <div
               class="ant-col"
-              role="cell"
               style="padding-left:8px;padding-right:8px;flex:1 1 auto"
             >
               <div
@@ -858,7 +837,6 @@ Array [
           >
             <div
               class="ant-col"
-              role="cell"
               style="padding-left:8px;padding-right:8px;flex:1 1 auto"
             >
               <div
@@ -895,7 +873,6 @@ Array [
           >
             <div
               class="ant-col"
-              role="cell"
               style="padding-left:8px;padding-right:8px;flex:1 1 auto"
             >
               <div
@@ -932,7 +909,6 @@ Array [
           >
             <div
               class="ant-col"
-              role="cell"
               style="padding-left:8px;padding-right:8px;flex:1 1 auto"
             >
               <div
@@ -969,7 +945,6 @@ Array [
           >
             <div
               class="ant-col"
-              role="cell"
               style="padding-left:8px;padding-right:8px;flex:1 1 auto"
             >
               <div
@@ -1006,7 +981,6 @@ Array [
           >
             <div
               class="ant-col"
-              role="cell"
               style="padding-left:8px;padding-right:8px;flex:1 1 auto"
             >
               <div
@@ -1201,13 +1175,11 @@ exports[`renders ./components/list/demo/responsive.md extend context correctly 1
     >
       <div
         class="ant-row"
-        role="row"
         style="margin-left:-8px;margin-right:-8px"
       >
         <div>
           <div
             class="ant-col"
-            role="cell"
             style="padding-left:8px;padding-right:8px;flex:1 1 auto"
           >
             <div
@@ -1241,7 +1213,6 @@ exports[`renders ./components/list/demo/responsive.md extend context correctly 1
         <div>
           <div
             class="ant-col"
-            role="cell"
             style="padding-left:8px;padding-right:8px;flex:1 1 auto"
           >
             <div
@@ -1275,7 +1246,6 @@ exports[`renders ./components/list/demo/responsive.md extend context correctly 1
         <div>
           <div
             class="ant-col"
-            role="cell"
             style="padding-left:8px;padding-right:8px;flex:1 1 auto"
           >
             <div
@@ -1309,7 +1279,6 @@ exports[`renders ./components/list/demo/responsive.md extend context correctly 1
         <div>
           <div
             class="ant-col"
-            role="cell"
             style="padding-left:8px;padding-right:8px;flex:1 1 auto"
           >
             <div
@@ -1343,7 +1312,6 @@ exports[`renders ./components/list/demo/responsive.md extend context correctly 1
         <div>
           <div
             class="ant-col"
-            role="cell"
             style="padding-left:8px;padding-right:8px;flex:1 1 auto"
           >
             <div
@@ -1377,7 +1345,6 @@ exports[`renders ./components/list/demo/responsive.md extend context correctly 1
         <div>
           <div
             class="ant-col"
-            role="cell"
             style="padding-left:8px;padding-right:8px;flex:1 1 auto"
           >
             <div

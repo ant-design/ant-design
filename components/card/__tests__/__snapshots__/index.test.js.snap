@@ -22,10 +22,19 @@ exports[`Card should still have padding when card which set padding to 0 is load
       class="ant-skeleton ant-skeleton-active"
     >
       <div
+<<<<<<< HEAD
         class="ant-skeleton-content"
       >
         <ul
           class="ant-skeleton-paragraph"
+=======
+        class="ant-row"
+        style="margin-left: -4px; margin-right: -4px;"
+      >
+        <div
+          class="ant-col ant-col-22"
+          style="padding-left: 4px; padding-right: 4px;"
+>>>>>>> origin/master
         >
           <li />
           <li />
@@ -33,7 +42,103 @@ exports[`Card should still have padding when card which set padding to 0 is load
           <li
             style="width: 61%;"
           />
+<<<<<<< HEAD
         </ul>
+=======
+        </div>
+      </div>
+      <div
+        class="ant-row"
+        style="margin-left: -4px; margin-right: -4px;"
+      >
+        <div
+          class="ant-col ant-col-8"
+          style="padding-left: 4px; padding-right: 4px;"
+        >
+          <div
+            class="ant-card-loading-block"
+          />
+        </div>
+        <div
+          class="ant-col ant-col-15"
+          style="padding-left: 4px; padding-right: 4px;"
+        >
+          <div
+            class="ant-card-loading-block"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-row"
+        style="margin-left: -4px; margin-right: -4px;"
+      >
+        <div
+          class="ant-col ant-col-6"
+          style="padding-left: 4px; padding-right: 4px;"
+        >
+          <div
+            class="ant-card-loading-block"
+          />
+        </div>
+        <div
+          class="ant-col ant-col-18"
+          style="padding-left: 4px; padding-right: 4px;"
+        >
+          <div
+            class="ant-card-loading-block"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-row"
+        style="margin-left: -4px; margin-right: -4px;"
+      >
+        <div
+          class="ant-col ant-col-13"
+          style="padding-left: 4px; padding-right: 4px;"
+        >
+          <div
+            class="ant-card-loading-block"
+          />
+        </div>
+        <div
+          class="ant-col ant-col-9"
+          style="padding-left: 4px; padding-right: 4px;"
+        >
+          <div
+            class="ant-card-loading-block"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-row"
+        style="margin-left: -4px; margin-right: -4px;"
+      >
+        <div
+          class="ant-col ant-col-4"
+          style="padding-left: 4px; padding-right: 4px;"
+        >
+          <div
+            class="ant-card-loading-block"
+          />
+        </div>
+        <div
+          class="ant-col ant-col-3"
+          style="padding-left: 4px; padding-right: 4px;"
+        >
+          <div
+            class="ant-card-loading-block"
+          />
+        </div>
+        <div
+          class="ant-col ant-col-16"
+          style="padding-left: 4px; padding-right: 4px;"
+        >
+          <div
+            class="ant-card-loading-block"
+          />
+        </div>
+>>>>>>> origin/master
       </div>
     </div>
   </div>

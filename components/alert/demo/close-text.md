@@ -15,6 +15,9 @@ Replace the default icon with customized text.
 
 ```tsx
 import { Alert } from 'antd';
+import React from 'react';
 
-export default () => <Alert message="Info Text" type="info" closeText="Close Now" />;
+const App: React.FC = () => <Alert message="Info Text" type="info" closeText="Close Now" />;
+
+export default App;
 ```
