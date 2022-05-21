@@ -16,11 +16,13 @@ Customize Calendar header content.
 ```tsx
 import { Calendar, Col, Radio, Row, Select, Typography } from 'antd';
 import type { CalendarMode } from 'antd/lib/calendar/generateCalendar';
-import dayjs, { Dayjs } from 'dayjs';
+import type { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
-import localeData from 'dayjs/plugin/localeData';
+import dayLocaleData from 'dayjs/plugin/localeData';
 import React from 'react';
-dayjs.extend(localeData);
+
+dayjs.extend(dayLocaleData);
 
 const App: React.FC = () => {
   const onPanelChange = (value: Dayjs, mode: CalendarMode) => {
