@@ -1,5 +1,4 @@
 // deps-lint-skip-all
-import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 import {
   genComponentStyleHook,
@@ -27,14 +26,36 @@ export interface MenuToken extends FullToken<'Menu'> {
 }
 
 export interface MenuThemeToken extends MenuToken {
+  // Group
+  themeColorTextSecondary: string;
+
+  // Item Text
+  // > Default
   themeColorText: string;
   themeColorTextHover: string;
-  themeColorTextSecondary: string;
-  themeColorTextHighlight: string;
+  themeColorTextSelect: string;
+
+  // > Disabled
+  themeColorDisabledText: string;
+
+  // > Danger
+  themeColorDangerText: string;
+  themeColorDangerTextHover: string;
+  themeColorDangerTextSelect: string;
+
+  // Item Bg
   themeColorBg: string;
   themeColorBgSecondary: string;
+
+  // > Default
   themeColorBgActive: string;
   themeColorBgSelect: string;
+
+  // > Danger
+  themeColorDangerBgActive: string;
+  themeColorDangerBgSelect: string;
+
+  // Ink Bar
   themeInkBarWidth: number;
   themeInkBarHeight: number;
   themeInkBorderSize: number;
@@ -60,7 +81,6 @@ const getBaseStyle: GenerateStyle<MenuToken> = token => {
     radiusBase,
     menuArrowSize,
     controlHeightSM,
-    colorTextDisabled,
   } = token;
 
   const arrowOffset = `${menuArrowSize * 0.25}px`;
@@ -227,8 +247,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = token => {
 
         // Disabled state sets text to gray and nukes hover/tab effects
         [`${componentCls}-item-disabled, ${componentCls}-submenu-disabled`]: {
-          color: `${colorTextDisabled} !important`,
-          background: 'none',
+          background: 'none !important',
           cursor: 'not-allowed',
 
           '&::after': {
@@ -241,7 +260,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = token => {
           },
 
           [`> ${componentCls}-submenu-title`]: {
-            color: `${colorTextDisabled} !important`,
+            color: 'inherit !important',
             cursor: 'not-allowed',
           },
         },
@@ -390,6 +409,10 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
 
       const {
         colorPrimary,
+        colorError,
+        colorTextDisabled,
+        colorErrorHover,
+        colorErrorOutline,
         colorText,
         colorTextLightSolid,
         colorTextSecondary,
@@ -415,7 +438,7 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         themeColorText: colorText,
         themeColorTextHover: colorPrimary,
         themeColorTextSecondary: colorTextSecondary,
-        themeColorTextHighlight: colorPrimary,
+        themeColorTextSelect: colorPrimary,
         themeColorBg: colorBgComponent,
         themeColorBgSecondary: colorBgComponentSecondary,
         themeColorBgActive: controlItemBgActive,
@@ -423,13 +446,23 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         themeInkBarWidth: lineWidthBold + lineWidth,
         themeInkBarHeight: lineWidthBold,
         themeInkBorderSize: lineWidth,
+
+        // Disabled
+        themeColorDisabledText: colorTextDisabled,
+
+        // Danger
+        themeColorDangerText: colorError,
+        themeColorDangerTextHover: colorError,
+        themeColorDangerTextSelect: colorError,
+        themeColorDangerBgActive: colorErrorOutline,
+        themeColorDangerBgSelect: colorErrorOutline,
       });
 
       const menuDarkToken = mergeToken<MenuThemeToken>(menuToken, {
         themeColorText: new TinyColor(colorTextLightSolid).setAlpha(0.65).toRgbString(),
         themeColorTextHover: colorTextLightSolid,
         themeColorTextSecondary: colorTextSecondary,
-        themeColorTextHighlight: colorTextLightSolid,
+        themeColorTextSelect: colorTextLightSolid,
         themeColorBg: '#001529',
         themeColorBgSecondary: '#000c17',
         themeColorBgActive: 'transparent',
@@ -437,6 +470,16 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         themeInkBarWidth: 0,
         themeInkBarHeight: 0,
         themeInkBorderSize: 0,
+
+        // Disabled
+        themeColorDisabledText: new TinyColor(colorTextLightSolid).setAlpha(0.25).toRgbString(),
+
+        // Danger
+        themeColorDangerText: colorError,
+        themeColorDangerTextHover: colorErrorHover,
+        themeColorDangerTextSelect: colorTextLightSolid,
+        themeColorDangerBgActive: colorError,
+        themeColorDangerBgSelect: colorError,
       });
 
       return [
