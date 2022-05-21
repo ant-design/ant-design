@@ -1035,7 +1035,10 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
         // Fix incorrect position of picker popup
         // https://github.com/ant-design/ant-design/issues/35590
         top: -9999,
-        left: -9999,
+        left: {
+          _skip_check_: true,
+          value: -9999,
+        },
         zIndex: token.zIndexPopup,
 
         '&&-hidden': {

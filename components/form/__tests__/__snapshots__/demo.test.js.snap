@@ -1380,11 +1380,9 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
 >
   <div
     class="ant-row ant-form-item"
-    role="row"
   >
     <div
       class="ant-col ant-col-4 ant-form-item-label"
-      role="cell"
     >
       <label
         class=""
@@ -1396,7 +1394,6 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
     </div>
     <div
       class="ant-col ant-col-14 ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -1430,11 +1427,9 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
   </div>
   <div
     class="ant-row ant-form-item"
-    role="row"
   >
     <div
       class="ant-col ant-col-4 ant-form-item-label"
-      role="cell"
     >
       <label
         class=""
@@ -1445,7 +1440,6 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
     </div>
     <div
       class="ant-col ant-col-14 ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -1503,11 +1497,9 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
   </div>
   <div
     class="ant-row ant-form-item"
-    role="row"
   >
     <div
       class="ant-col ant-col-4 ant-form-item-label"
-      role="cell"
     >
       <label
         class=""
@@ -1518,7 +1510,6 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
     </div>
     <div
       class="ant-col ant-col-14 ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -1538,11 +1529,9 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
   </div>
   <div
     class="ant-row ant-form-item"
-    role="row"
   >
     <div
       class="ant-col ant-col-4 ant-form-item-label"
-      role="cell"
     >
       <label
         class=""
@@ -1553,7 +1542,6 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
     </div>
     <div
       class="ant-col ant-col-14 ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -1625,11 +1613,9 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
   </div>
   <div
     class="ant-row ant-form-item"
-    role="row"
   >
     <div
       class="ant-col ant-col-4 ant-form-item-label"
-      role="cell"
     >
       <label
         class=""
@@ -1640,7 +1626,6 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
     </div>
     <div
       class="ant-col ant-col-14 ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -1711,11 +1696,9 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
   </div>
   <div
     class="ant-row ant-form-item"
-    role="row"
   >
     <div
       class="ant-col ant-col-4 ant-form-item-label"
-      role="cell"
     >
       <label
         class=""
@@ -1726,7 +1709,6 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
     </div>
     <div
       class="ant-col ant-col-14 ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -1797,11 +1779,9 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
   </div>
   <div
     class="ant-row ant-form-item"
-    role="row"
   >
     <div
       class="ant-col ant-col-4 ant-form-item-label"
-      role="cell"
     >
       <label
         class=""
@@ -1812,7 +1792,6 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
     </div>
     <div
       class="ant-col ant-col-14 ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -1866,11 +1845,9 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
   </div>
   <div
     class="ant-row ant-form-item"
-    role="row"
   >
     <div
       class="ant-col ant-col-4 ant-form-item-label"
-      role="cell"
     >
       <label
         class=""
@@ -1881,7 +1858,6 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
     </div>
     <div
       class="ant-col ant-col-14 ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -1978,11 +1954,9 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
   </div>
   <div
     class="ant-row ant-form-item"
-    role="row"
   >
     <div
       class="ant-col ant-col-4 ant-form-item-label"
-      role="cell"
     >
       <label
         class=""
@@ -1993,7 +1967,6 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
     </div>
     <div
       class="ant-col ant-col-14 ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -2081,11 +2054,9 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
   </div>
   <div
     class="ant-row ant-form-item"
-    role="row"
   >
     <div
       class="ant-col ant-col-4 ant-form-item-label"
-      role="cell"
     >
       <label
         class=""
@@ -2096,7 +2067,6 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
     </div>
     <div
       class="ant-col ant-col-14 ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -2115,11 +2085,9 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
   </div>
   <div
     class="ant-row ant-form-item"
-    role="row"
   >
     <div
       class="ant-col ant-col-4 ant-form-item-label"
-      role="cell"
     >
       <label
         class=""
@@ -2130,7 +2098,6 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
     </div>
     <div
       class="ant-col ant-col-14 ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -2158,11 +2125,9 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
   </div>
   <div
     class="ant-row ant-form-item"
-    role="row"
   >
     <div
       class="ant-col ant-col-4 ant-form-item-label"
-      role="cell"
     >
       <label
         class=""
@@ -2173,7 +2138,6 @@ exports[`renders ./components/form/demo/disabled.md correctly 1`] = `
     </div>
     <div
       class="ant-col ant-col-14 ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
