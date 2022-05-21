@@ -290,6 +290,7 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   // LineHeight
   lineHeight: number;
   lineHeightLG: number;
+  lineHeightSM: number;
 
   lineHeightHeading1: number;
   lineHeightHeading2: number;

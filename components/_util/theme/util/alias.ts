@@ -72,6 +72,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
 
     lineHeight: lineHeights[1],
     lineHeightLG: lineHeights[2],
+    lineHeightSM: lineHeights[0],
 
     lineHeightHeading1: lineHeights[6],
     lineHeightHeading2: lineHeights[5],
