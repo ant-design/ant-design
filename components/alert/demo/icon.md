@@ -15,8 +15,9 @@ A relevant icon will make information clearer and more friendly.
 
 ```tsx
 import { Alert } from 'antd';
+import React from 'react';
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Alert message="Success Tips" type="success" showIcon />
     <Alert message="Informational Notes" type="info" showIcon />
@@ -49,4 +50,6 @@ export default () => (
     />
   </>
 );
+
+export default App;
 ```

@@ -1,7 +1,7 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
+import type { FullToken, GenerateStyle } from '../../_util/theme';
 import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
-import type { GenerateStyle, FullToken } from '../../_util/theme';
 
 export interface ComponentToken {}
 
@@ -10,7 +10,6 @@ interface AnchorToken extends FullToken<'Anchor'> {
   anchorPaddingBlock: number;
   anchorPaddingBlockSecondary: number;
   anchorPaddingInline: number;
-  anchorLineHeight: number;
   anchorBallSize: number;
   anchorTitleBlock: number;
 }
@@ -74,7 +73,6 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
         [`${componentCls}-link`]: {
           paddingBlock: token.anchorPaddingBlock,
           paddingInline: `${token.anchorPaddingInline}px 0`,
-          lineHeight: token.anchorLineHeight,
 
           '&-title': {
             position: 'relative',
@@ -111,24 +109,20 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Anchor', token => {
-  const { controlHeight, controlLineWidth, fontSize, lineHeight, fontSizeLG, padding, paddingXXS } =
-    token;
-  const linkHeight = controlHeight - 2 * controlLineWidth;
-  const anchorLineHeight = fontSizeLG / fontSize; // Anchor is special that use less height
-  const paddingBlock = Math.round(linkHeight - fontSizeLG) / 2;
+  const { fontSize, lineHeight, fontSizeLG, padding, paddingXXS } = token;
 
-  // Still a magic number: 22 - 16
-  const titleBlock = Math.round(fontSize * lineHeight - fontSizeLG);
+  const fontHeight = Math.round(fontSize * lineHeight);
 
-  const paddingBlockSecondary = Math.round(linkHeight - paddingXXS - fontSizeLG) / 2;
+  // Still a magic number: 36 & 26
+  const titleHeight = (fontSize / 14) * 36;
+  const subTitleHeight = (fontSize / 14) * 26;
 
   const anchorToken = mergeToken<AnchorToken>(token, {
     holderOffsetBlock: paddingXXS,
-    anchorPaddingBlock: paddingBlock,
-    anchorPaddingBlockSecondary: paddingBlockSecondary,
+    anchorPaddingBlock: (titleHeight - fontHeight) / 2,
+    anchorPaddingBlockSecondary: (subTitleHeight - fontHeight) / 2,
     anchorPaddingInline: padding,
-    anchorLineHeight,
-    anchorTitleBlock: titleBlock,
+    anchorTitleBlock: (fontSize / 14) * 3,
     anchorBallSize: fontSizeLG / 2,
   });
   return [genSharedAnchorStyle(anchorToken)];

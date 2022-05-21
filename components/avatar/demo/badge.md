@@ -14,10 +14,11 @@ title:
 Usually used for reminders and notifications.
 
 ```tsx
-import { Avatar, Badge } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
+import { Avatar, Badge } from 'antd';
+import React from 'react';
 
-export default () => (
+const App: React.FC = () => (
   <>
     <span className="avatar-item">
       <Badge count={1}>
@@ -31,6 +32,8 @@ export default () => (
     </span>
   </>
 );
+
+export default App;
 ```
 
 ```css

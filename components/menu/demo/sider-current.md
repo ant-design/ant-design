@@ -14,9 +14,10 @@ title:
 Click the menu and you will see that all the other menus gets collapsed to keep the entire menu compact.
 
 ```tsx
+import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
-import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
+import React, { useState } from 'react';
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -59,8 +60,8 @@ const items: MenuItem[] = [
 // submenu keys of first level
 const rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
 
-const Sider = () => {
-  const [openKeys, setOpenKeys] = React.useState(['sub1']);
+const App: React.FC = () => {
+  const [openKeys, setOpenKeys] = useState(['sub1']);
 
   const onOpenChange: MenuProps['onOpenChange'] = keys => {
     const latestOpenKey = keys.find(key => openKeys.indexOf(key) === -1);
@@ -82,5 +83,5 @@ const Sider = () => {
   );
 };
 
-export default () => <Sider />;
+export default App;
 ```

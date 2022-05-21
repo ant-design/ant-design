@@ -14,10 +14,10 @@ title:
 Custom action.
 
 ```tsx
-import React from 'react';
 import { Alert, Button, Space } from 'antd';
+import React from 'react';
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Alert
       message="Success Tips"
@@ -71,6 +71,8 @@ export default () => (
     />
   </>
 );
+
+export default App;
 ```
 
 <style>

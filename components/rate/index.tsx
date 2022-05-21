@@ -1,26 +1,14 @@
-import * as React from 'react';
+import StarFilled from '@ant-design/icons/StarFilled';
 import classNames from 'classnames';
 import RcRate from 'rc-rate';
-import StarFilled from '@ant-design/icons/StarFilled';
-
-import Tooltip from '../tooltip';
+import type { RateProps as RcRateProps } from 'rc-rate/lib/Rate';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
+import Tooltip from '../tooltip';
 import useStyle from './style';
 
-export interface RateProps {
-  prefixCls?: string;
-  count?: number;
-  value?: number;
-  defaultValue?: number;
-  allowHalf?: boolean;
-  allowClear?: boolean;
-  disabled?: boolean;
+export interface RateProps extends RcRateProps {
   tooltips?: Array<string>;
-  onChange?: (value: number) => void;
-  onHoverChange?: (value: number) => void;
-  character?: React.ReactNode;
-  className?: string;
-  style?: React.CSSProperties;
 }
 
 interface RateNodeProps {

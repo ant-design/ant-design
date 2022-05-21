@@ -13,8 +13,9 @@ title:
 
 Create a grid layout by setting the `grid` property of List.
 
-```jsx
-import { List, Card } from 'antd';
+```tsx
+import { Card, List } from 'antd';
+import React from 'react';
 
 const data = [
   {
@@ -31,7 +32,7 @@ const data = [
   },
 ];
 
-export default () => (
+const App: React.FC = () => (
   <List
     grid={{ gutter: 16, column: 4 }}
     dataSource={data}
@@ -42,4 +43,6 @@ export default () => (
     )}
   />
 );
+
+export default App;
 ```

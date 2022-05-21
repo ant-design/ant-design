@@ -15,6 +15,9 @@ A simple loading status.
 
 ```tsx
 import { Spin } from 'antd';
+import React from 'react';
 
-export default () => <Spin />;
+const App: React.FC = () => <Spin />;
+
+export default App;
 ```

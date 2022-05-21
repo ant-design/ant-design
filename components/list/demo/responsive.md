@@ -13,8 +13,9 @@ title:
 
 Responsive grid list. The size property the is as same as [Layout Grid](/components/grid/#Col).
 
-```jsx
-import { List, Card } from 'antd';
+```tsx
+import { Card, List } from 'antd';
+import React from 'react';
 
 const data = [
   {
@@ -37,7 +38,7 @@ const data = [
   },
 ];
 
-export default () => (
+const App: React.FC = () => (
   <List
     grid={{
       gutter: 16,
@@ -56,4 +57,6 @@ export default () => (
     )}
   />
 );
+
+export default App;
 ```

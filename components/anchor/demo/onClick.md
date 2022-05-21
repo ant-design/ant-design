@@ -15,6 +15,7 @@ Clicking on an anchor does not record history.
 
 ```tsx
 import { Anchor } from 'antd';
+import React from 'react';
 
 const { Link } = Anchor;
 
@@ -29,7 +30,7 @@ const handleClick = (
   console.log(link);
 };
 
-export default () => (
+const App: React.FC = () => (
   <Anchor affix={false} onClick={handleClick}>
     <Link href="#components-anchor-demo-basic" title="Basic demo" />
     <Link href="#components-anchor-demo-static" title="Static demo" />
@@ -39,4 +40,6 @@ export default () => (
     </Link>
   </Anchor>
 );
+
+export default App;
 ```
