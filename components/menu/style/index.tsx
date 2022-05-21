@@ -11,6 +11,7 @@ import type { GenerateStyle, FullToken, UseComponentStyleResult } from '../../_u
 import getThemeStyle from './theme';
 import getHorizontalStyle from './horizontal';
 import getVerticalStyle from './vertical';
+import getRTLStyle from './rtl';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -23,6 +24,7 @@ export interface MenuToken extends FullToken<'Menu'> {
   menuHorizontalHeight: number;
   menuItemPaddingInline: number;
   menuArrowSize: number;
+  menuArrowOffset: string;
 }
 
 export interface MenuThemeToken extends MenuToken {
@@ -81,9 +83,8 @@ const getBaseStyle: GenerateStyle<MenuToken> = token => {
     radiusBase,
     menuArrowSize,
     controlHeightSM,
+    menuArrowOffset,
   } = token;
-
-  const arrowOffset = `${menuArrowSize * 0.25}px`;
 
   return [
     // Misc
@@ -342,11 +343,11 @@ const getBaseStyle: GenerateStyle<MenuToken> = token => {
             },
 
             '&::before': {
-              transform: `rotate(45deg) translateY(-${arrowOffset})`,
+              transform: `rotate(45deg) translateY(-${menuArrowOffset})`,
             },
 
             '&::after': {
-              transform: `rotate(-45deg) translateY(${arrowOffset})`,
+              transform: `rotate(-45deg) translateY(${menuArrowOffset})`,
             },
           },
         },
@@ -355,11 +356,11 @@ const getBaseStyle: GenerateStyle<MenuToken> = token => {
         &-inline ${componentCls}-submenu-arrow`]: {
           // ↓
           '&::before': {
-            transform: `rotate(-45deg) translateX(${arrowOffset})`,
+            transform: `rotate(-45deg) translateX(${menuArrowOffset})`,
           },
 
           '&::after': {
-            transform: `rotate(45deg) translateX(-${arrowOffset})`,
+            transform: `rotate(45deg) translateX(-${menuArrowOffset})`,
           },
         },
 
@@ -369,11 +370,11 @@ const getBaseStyle: GenerateStyle<MenuToken> = token => {
             transform: `translateY(-${menuArrowSize * 0.2}px)`,
 
             '&::after': {
-              transform: `rotate(-45deg) translateX(-${arrowOffset})`,
+              transform: `rotate(-45deg) translateX(-${menuArrowOffset})`,
             },
 
             '&::before': {
-              transform: `rotate(45deg) translateX(${arrowOffset})`,
+              transform: `rotate(45deg) translateX(${menuArrowOffset})`,
             },
           },
       },
@@ -389,13 +390,6 @@ const getBaseStyle: GenerateStyle<MenuToken> = token => {
     },
   ];
 };
-
-// =============================== Base ===============================
-const getRTLStyle: GenerateStyle<MenuToken> = ({ componentCls }) => ({
-  [`${componentCls}-rtl`]: {
-    direction: 'rtl',
-  },
-});
 
 // ============================== Export ==============================
 export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResult => {
@@ -425,12 +419,15 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         lineWidthBold,
       } = token;
 
+      const menuArrowSize = (fontSize / 7) * 5;
+
       // Menu Token
       const menuToken = mergeToken<MenuToken>(token, {
         menuItemHeight: controlHeightLG,
         menuItemPaddingInline: controlHeightLG / 2,
-        menuArrowSize: (fontSize / 7) * 5,
+        menuArrowSize,
         menuHorizontalHeight: controlHeightLG * 1.15,
+        menuArrowOffset: `${menuArrowSize * 0.25}px`,
       });
 
       // Theme Token
