@@ -28,10 +28,15 @@ export interface MenuToken extends FullToken<'Menu'> {
 
 export interface MenuThemeToken extends MenuToken {
   themeColorText: string;
+  themeColorTextHover: string;
   themeColorTextSecondary: string;
   themeColorTextHighlight: string;
   themeColorBg: string;
+  themeColorBgSecondary: string;
   themeColorBgActive: string;
+  themeInkBarWidth: number;
+  themeInkBarHeight: number;
+  themeInkBorderSize: number;
 }
 
 // =============================== Base ===============================
@@ -60,12 +65,20 @@ const getBaseStyle: GenerateStyle<MenuToken> = token => {
   const arrowOffset = `${menuArrowSize * 0.25}px`;
 
   return [
-    // Clear Fix
+    // Misc
     {
       '': {
         [`${componentCls}`]: {
           ...clearFix(),
+
+          // Hidden
+          [`&-hidden`]: {
+            display: 'none',
+          },
         },
+      },
+      [`${componentCls}-submenu-hidden`]: {
+        display: 'none',
       },
     },
     {
@@ -97,11 +110,6 @@ const getBaseStyle: GenerateStyle<MenuToken> = token => {
           [`${componentCls}-item`]: {
             flex: 'none',
           },
-        },
-
-        // Hidden
-        [`&-hidden, &-submenu-hidden`]: {
-          display: 'none',
         },
 
         [`${componentCls}-item-group-title`]: {
@@ -341,11 +349,11 @@ const getBaseStyle: GenerateStyle<MenuToken> = token => {
             transform: `translateY(-${menuArrowSize * 0.2}px)`,
 
             '&::after': {
-              transform: `rotate(-45deg) translateX(-${arrowOffset}px)`,
+              transform: `rotate(-45deg) translateX(-${arrowOffset})`,
             },
 
             '&::before': {
-              transform: `rotate(45deg) translateX(${arrowOffset}px)`,
+              transform: `rotate(45deg) translateX(${arrowOffset})`,
             },
           },
       },
@@ -385,9 +393,12 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         colorTextLightSolid,
         colorTextSecondary,
         colorBgComponent,
+        colorBgComponentSecondary,
         controlHeightLG,
         fontSize,
         controlItemBgActive,
+        lineWidth,
+        lineWidthBold,
       } = token;
 
       // Menu Token
@@ -401,18 +412,28 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
       // Theme Token
       const menuLightToken = mergeToken<MenuThemeToken>(menuToken, {
         themeColorText: colorText,
+        themeColorTextHover: colorPrimary,
         themeColorTextSecondary: colorTextSecondary,
         themeColorTextHighlight: colorPrimary,
         themeColorBg: colorBgComponent,
+        themeColorBgSecondary: colorBgComponentSecondary,
         themeColorBgActive: controlItemBgActive,
+        themeInkBarWidth: lineWidthBold + lineWidth,
+        themeInkBarHeight: lineWidthBold,
+        themeInkBorderSize: lineWidth,
       });
 
       const menuDarkToken = mergeToken<MenuThemeToken>(menuToken, {
-        themeColorText: colorTextLightSolid,
+        themeColorText: new TinyColor(colorTextLightSolid).setAlpha(0.65).toRgbString(),
+        themeColorTextHover: colorTextLightSolid,
         themeColorTextSecondary: colorTextSecondary,
         themeColorTextHighlight: colorTextLightSolid,
         themeColorBg: '#001529',
-        themeColorBgActive: 'red',
+        themeColorBgSecondary: '#000c17',
+        themeColorBgActive: colorPrimary,
+        themeInkBarWidth: 0,
+        themeInkBarHeight: 0,
+        themeInkBorderSize: 0,
       });
 
       return [

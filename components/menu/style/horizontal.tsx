@@ -5,13 +5,10 @@ const getHorizontalStyle: GenerateStyle<MenuThemeToken> = token => {
   const {
     componentCls,
     motionDurationSlow,
-    motionEaseInOut,
     menuHorizontalHeight,
     colorBorderSecondary,
     lineWidth,
     lineType,
-    themeColorTextHighlight,
-    lineWidthBold,
     menuItemPaddingInline,
   } = token;
 
@@ -35,31 +32,6 @@ const getHorizontalStyle: GenerateStyle<MenuThemeToken> = token => {
         display: 'inline-block',
         verticalAlign: 'bottom',
         paddingInline: menuItemPaddingInline,
-      },
-
-      [`&:not(${componentCls}-dark)`]: {
-        [`> ${componentCls}-item, > ${componentCls}-submenu`]: {
-          top: lineWidthBold / 2,
-          marginTop: -lineWidthBold / 2,
-          marginBottom: 0,
-
-          '&::after': {
-            position: 'absolute',
-            insetInline: menuItemPaddingInline,
-            bottom: 0,
-            borderBottom: `${lineWidthBold}px solid transparent`,
-            transition: `border-color ${motionDurationSlow} ${motionEaseInOut}`,
-            content: '""',
-          },
-
-          [`&:hover, &-active, &-open, &-selected`]: {
-            color: themeColorTextHighlight,
-
-            '&::after': {
-              borderBottomColor: themeColorTextHighlight,
-            },
-          },
-        },
       },
 
       [`> ${componentCls}-item:hover,

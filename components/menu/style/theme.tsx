@@ -16,7 +16,17 @@ const getThemeStyle = (token: MenuThemeToken, themeSuffix: string): CSSInterpola
     themeColorTextHighlight,
     themeColorTextSecondary,
     themeColorBg,
+    themeColorBgSecondary,
     themeColorBgActive,
+    themeInkBarHeight,
+    themeInkBarWidth,
+    themeInkBorderSize,
+    motionDurationSlow,
+    motionEaseInOut,
+    motionEaseOut,
+    menuItemPaddingInline,
+    motionDurationFast,
+    themeColorTextHover,
   } = token;
 
   return {
@@ -39,15 +49,19 @@ const getThemeStyle = (token: MenuThemeToken, themeSuffix: string): CSSInterpola
         },
       },
 
+      // Hover
+      [`${componentCls}-item:hover, ${componentCls}-submenu-title:hover`]: {
+        color: themeColorTextHover,
+      },
+
+      // Active
       [`${componentCls}-item:active, ${componentCls}-submenu-title:active`]: {
         background: themeColorBgActive,
       },
 
       [`${componentCls}-item a`]: {
-        color: themeColorText,
-
-        '&:hover': {
-          color: themeColorTextHighlight,
+        '&, &:hover': {
+          color: 'inherit',
         },
       },
 
@@ -55,7 +69,7 @@ const getThemeStyle = (token: MenuThemeToken, themeSuffix: string): CSSInterpola
         color: themeColorTextHighlight,
 
         [`a, a:hover`]: {
-          color: themeColorTextHighlight,
+          color: 'inherit',
         },
       },
 
@@ -94,6 +108,76 @@ const getThemeStyle = (token: MenuThemeToken, themeSuffix: string): CSSInterpola
       //        color: @menu-highlight-color;
       //      }
       //    }
+
+      // ====================== Horizontal ======================
+      [`&${componentCls}-horizontal`]: {
+        [`> ${componentCls}-item, > ${componentCls}-submenu`]: {
+          top: themeInkBorderSize,
+          marginTop: -themeInkBorderSize,
+          marginBottom: 0,
+
+          '&::after': {
+            position: 'absolute',
+            insetInline: menuItemPaddingInline,
+            bottom: 0,
+            borderBottom: `${themeInkBarHeight}px solid transparent`,
+            transition: `border-color ${motionDurationSlow} ${motionEaseInOut}`,
+            content: '""',
+          },
+
+          [`&:hover, &-active, &-open, &-selected`]: {
+            color: themeColorTextHighlight,
+
+            '&::after': {
+              borderBottomColor: themeColorTextHighlight,
+            },
+          },
+        },
+      },
+
+      // ======================== Inline ========================
+      [`&${componentCls}-inline`]: {
+        // Sub
+        [`${componentCls}-sub${componentCls}-inline`]: {
+          background: themeColorBgSecondary,
+        },
+
+        // Item
+        [`${componentCls}-item, ${componentCls}-submenu-title`]: themeInkBorderSize
+          ? {
+              width: `calc(100% + ${themeInkBorderSize}px)`,
+            }
+          : {},
+
+        [`${componentCls}-item`]: {
+          position: 'relative',
+
+          '&::after': {
+            position: 'absolute',
+            insetBlock: 0,
+            insetInlineEnd: 0,
+            borderInlineEnd: `${themeInkBarWidth}px solid ${themeColorTextHighlight}`,
+            transform: 'scaleY(0.0001)',
+            opacity: 0,
+            transition: [
+              `transform ${motionDurationFast} ${motionEaseOut}`,
+              `opacity ${motionDurationFast} ${motionEaseOut}`,
+            ].join(','),
+            content: '""',
+          },
+        },
+
+        [`${componentCls}-selected, ${componentCls}-item-selected`]: {
+          '&::after': {
+            transform: 'scaleY(1)',
+            opacity: 1,
+            transition: [
+              `transform ${motionDurationFast} ${motionEaseInOut}`,
+              `opacity ${motionDurationFast} ${motionEaseInOut}`,
+            ].join(','),
+          },
+        },
+      },
     },
   };
 };

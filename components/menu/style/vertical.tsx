@@ -22,20 +22,6 @@ const getVerticalInlineStyle: GenerateStyle<MenuThemeToken, CSSObject> = token =
   return {
     [`${componentCls}-item`]: {
       position: 'relative',
-
-      '&::after': {
-        position: 'absolute',
-        insetBlock: 0,
-        insetInlineEnd: 0,
-        borderInlineEnd: `${lineWidthBold}px solid ${themeColorTextHighlight}`,
-        transform: 'scaleY(0.0001)',
-        opacity: 0,
-        transition: [
-          `transform ${motionDurationFast} ${motionEaseOut}`,
-          `opacity ${motionDurationFast} ${motionEaseOut}`,
-        ].join(','),
-        content: '""',
-      },
     },
 
     [`${componentCls}-item, ${componentCls}-submenu-title`]: {
@@ -78,11 +64,9 @@ const getVerticalStyle: GenerateStyle<MenuThemeToken> = token => {
     colorBorderSecondary,
     menuItemHeight,
     colorTextLightSolid,
-    colorBgComponentSecondary,
     dropdownWidth,
     controlHeightLG,
     motionDurationFast,
-    motionEaseInOut,
     motionEaseOut,
     paddingXL,
     fontSizeLG,
@@ -158,21 +142,6 @@ const getVerticalStyle: GenerateStyle<MenuThemeToken> = token => {
       [`${componentCls}-inline`]: {
         width: '100%',
 
-        [`${componentCls}-selected, ${componentCls}-item-selected`]: {
-          '&::after': {
-            transform: 'scaleY(1)',
-            opacity: 1,
-            transition: [
-              `transform ${motionDurationFast} ${motionEaseInOut}`,
-              `opacity ${motionDurationFast} ${motionEaseInOut}`,
-            ].join(','),
-          },
-        },
-
-        [`${componentCls}-item, ${componentCls}-submenu-title`]: {
-          width: `calc(100% + ${lineWidth}px)`,
-        },
-
         // Motion enhance for first level
         [`&${componentCls}-root`]: {
           [`${componentCls}-item, ${componentCls}-submenu-title`]: {
@@ -200,7 +169,6 @@ const getVerticalStyle: GenerateStyle<MenuThemeToken> = token => {
         // >>>>> Sub
         [`${componentCls}-sub${componentCls}-inline`]: {
           padding: 0,
-          background: colorBgComponentSecondary,
           border: 0,
           borderRadius: 0,
           boxShadow: 'none',
@@ -239,7 +207,7 @@ const getVerticalStyle: GenerateStyle<MenuThemeToken> = token => {
           > ${componentCls}-item-group > ${componentCls}-item-group-list > ${componentCls}-submenu > ${componentCls}-submenu-title,
           > ${componentCls}-submenu > ${componentCls}-submenu-title`]: {
           insetInlineStart: 0,
-          padding: `0 'calc(50% - ${fontSizeLG / 2}px)'`,
+          paddingInline: `calc(50% - ${fontSizeLG / 2}px)`,
           textOverflow: 'clip',
 
           [`${componentCls}-submenu-arrow`]: {
