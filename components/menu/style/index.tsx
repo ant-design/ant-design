@@ -60,6 +60,14 @@ const getBaseStyle: GenerateStyle<MenuToken> = token => {
   const arrowOffset = `${menuArrowSize * 0.25}px`;
 
   return [
+    // Clear Fix
+    {
+      '': {
+        [`${componentCls}`]: {
+          ...clearFix(),
+        },
+      },
+    },
     {
       [componentCls]: {
         ...resetComponent(token),
@@ -75,8 +83,6 @@ const getBaseStyle: GenerateStyle<MenuToken> = token => {
           // Magic cubic here but smooth transition
           `width ${motionDurationSlow} cubic-bezier(0.2, 0, 0, 1) 0s`,
         ].join(','),
-
-        ...clearFix(),
 
         [`ul, ol`]: {
           margin: 0,

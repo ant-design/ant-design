@@ -1,6 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { MenuThemeToken } from '.';
-import { clearFix, GenerateStyle } from '../../_util/theme';
+import type { GenerateStyle } from '../../_util/theme';
 
 const getVerticalInlineStyle: GenerateStyle<MenuThemeToken, CSSObject> = token => {
   const {
@@ -49,7 +49,7 @@ const getVerticalInlineStyle: GenerateStyle<MenuThemeToken, CSSObject> = token =
 
     // disable margin collapsed
     [`${componentCls}-submenu`]: {
-      paddingBottom: 0.00000001,
+      paddingBottom: 0.02,
     },
 
     [`${componentCls}-item:not(:last-child)`]: {
@@ -107,7 +107,6 @@ const getVerticalStyle: GenerateStyle<MenuThemeToken> = token => {
       [`${componentCls}-submenu-popup`]: {
         [`${componentCls}-vertical`]: {
           ...getVerticalInlineStyle(token),
-          ...clearFix(),
           boxShadow,
         },
       },

@@ -34,7 +34,9 @@ const getThemeStyle = (token: MenuThemeToken, themeSuffix: string): CSSInterpola
       },
 
       [`${componentCls}-submenu-selected`]: {
-        color: themeColorTextHighlight,
+        [`${componentCls}-submenu-title`]: {
+          color: themeColorTextHighlight,
+        },
       },
 
       [`${componentCls}-item:active, ${componentCls}-submenu-title:active`]: {
