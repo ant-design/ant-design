@@ -3,9 +3,6 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 import type { GlobalToken } from 'antd/es/_util/theme/interface';
 import type { TokenWithCommonCls } from 'antd/es/_util/theme/util/genComponentStyleHook';
-import type { FullToken, GenerateStyle } from '../../_util/theme';
-import { genComponentStyleHook, mergeToken, resetComponent, roundedArrow } from '../../_util/theme';
-import { slideDownIn, slideDownOut, slideUpIn, slideUpOut } from '../../style/motion';
 import type { InputToken } from '../../input/style';
 import {
   genActiveStyle,
@@ -13,6 +10,9 @@ import {
   genHoverStyle,
   initInputToken,
 } from '../../input/style';
+import { slideDownIn, slideDownOut, slideUpIn, slideUpOut } from '../../style/motion';
+import type { FullToken, GenerateStyle } from '../../_util/theme';
+import { genComponentStyleHook, mergeToken, resetComponent, roundedArrow } from '../../_util/theme';
 
 export interface ComponentToken {
   zIndexPopup: number;
@@ -1032,6 +1032,13 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
         ...resetComponent(token),
         ...genPanelStyle(token),
         position: 'absolute',
+        // Fix incorrect position of picker popup
+        // https://github.com/ant-design/ant-design/issues/35590
+        top: -9999,
+        left: {
+          _skip_check_: true,
+          value: -9999,
+        },
         zIndex: token.zIndexPopup,
 
         '&&-hidden': {

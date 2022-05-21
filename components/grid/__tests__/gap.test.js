@@ -1,10 +1,8 @@
+import { mount } from 'enzyme';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import { mount } from 'enzyme';
-import { render, screen } from '../../../tests/utils';
 import { Col, Row } from '..';
-// eslint-disable-next-line no-unused-vars
-import * as styleChecker from '../../_util/styleChecker';
+import { render, screen } from '../../../tests/utils';
 
 jest.mock('../../_util/styleChecker', () => ({
   canUseDocElement: () => true,
@@ -15,7 +13,7 @@ jest.mock('../../_util/styleChecker', () => ({
 describe('Grid.Gap', () => {
   it('should not have `row-gap: 0px` style', () => {
     render(
-      <Row>
+      <Row role="row">
         <Col />
       </Row>,
     );

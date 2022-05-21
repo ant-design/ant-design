@@ -6,11 +6,9 @@ exports[`Form Form item hidden noStyle should not work when hidden 1`] = `
 >
   <div
     class="ant-row ant-form-item ant-form-item-hidden"
-    role="row"
   >
     <div
       class="ant-col ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -37,11 +35,9 @@ exports[`Form Form item hidden should work 1`] = `
 >
   <div
     class="ant-row ant-form-item ant-form-item-hidden"
-    role="row"
   >
     <div
       class="ant-col ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -71,11 +67,9 @@ exports[`Form Form.Item should support data-*、aria-* and custom attribute 1`] 
     cccc="bbbb"
     class="ant-row ant-form-item"
     data-text="123"
-    role="row"
   >
     <div
       class="ant-col ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -97,11 +91,9 @@ exports[`Form form should support disabled 1`] = `
 >
   <div
     class="ant-row ant-form-item"
-    role="row"
   >
     <div
       class="ant-col ant-col-4 ant-form-item-label"
-      role="cell"
     >
       <label
         class=""
@@ -113,7 +105,6 @@ exports[`Form form should support disabled 1`] = `
     </div>
     <div
       class="ant-col ant-col-14 ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -147,11 +138,9 @@ exports[`Form form should support disabled 1`] = `
   </div>
   <div
     class="ant-row ant-form-item"
-    role="row"
   >
     <div
       class="ant-col ant-col-4 ant-form-item-label"
-      role="cell"
     >
       <label
         class=""
@@ -162,7 +151,6 @@ exports[`Form form should support disabled 1`] = `
     </div>
     <div
       class="ant-col ant-col-14 ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -218,11 +206,9 @@ exports[`Form form should support disabled 1`] = `
   </div>
   <div
     class="ant-row ant-form-item"
-    role="row"
   >
     <div
       class="ant-col ant-col-4 ant-form-item-label"
-      role="cell"
     >
       <label
         class=""
@@ -233,7 +219,6 @@ exports[`Form form should support disabled 1`] = `
     </div>
     <div
       class="ant-col ant-col-14 ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -252,11 +237,9 @@ exports[`Form form should support disabled 1`] = `
   </div>
   <div
     class="ant-row ant-form-item"
-    role="row"
   >
     <div
       class="ant-col ant-col-4 ant-form-item-label"
-      role="cell"
     >
       <label
         class=""
@@ -267,7 +250,6 @@ exports[`Form form should support disabled 1`] = `
     </div>
     <div
       class="ant-col ant-col-14 ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -338,11 +320,9 @@ exports[`Form form should support disabled 1`] = `
   </div>
   <div
     class="ant-row ant-form-item"
-    role="row"
   >
     <div
       class="ant-col ant-col-4 ant-form-item-label"
-      role="cell"
     >
       <label
         class=""
@@ -353,7 +333,6 @@ exports[`Form form should support disabled 1`] = `
     </div>
     <div
       class="ant-col ant-col-14 ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -423,11 +402,9 @@ exports[`Form form should support disabled 1`] = `
   </div>
   <div
     class="ant-row ant-form-item"
-    role="row"
   >
     <div
       class="ant-col ant-col-4 ant-form-item-label"
-      role="cell"
     >
       <label
         class=""
@@ -438,7 +415,6 @@ exports[`Form form should support disabled 1`] = `
     </div>
     <div
       class="ant-col ant-col-14 ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -508,11 +484,9 @@ exports[`Form form should support disabled 1`] = `
   </div>
   <div
     class="ant-row ant-form-item"
-    role="row"
   >
     <div
       class="ant-col ant-col-4 ant-form-item-label"
-      role="cell"
     >
       <label
         class=""
@@ -523,7 +497,6 @@ exports[`Form form should support disabled 1`] = `
     </div>
     <div
       class="ant-col ant-col-14 ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -576,11 +549,9 @@ exports[`Form form should support disabled 1`] = `
   </div>
   <div
     class="ant-row ant-form-item"
-    role="row"
   >
     <div
       class="ant-col ant-col-4 ant-form-item-label"
-      role="cell"
     >
       <label
         class=""
@@ -591,7 +562,6 @@ exports[`Form form should support disabled 1`] = `
     </div>
     <div
       class="ant-col ant-col-14 ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -686,11 +656,9 @@ exports[`Form form should support disabled 1`] = `
   </div>
   <div
     class="ant-row ant-form-item"
-    role="row"
   >
     <div
       class="ant-col ant-col-4 ant-form-item-label"
-      role="cell"
     >
       <label
         class=""
@@ -701,7 +669,6 @@ exports[`Form form should support disabled 1`] = `
     </div>
     <div
       class="ant-col ant-col-14 ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -788,11 +755,9 @@ exports[`Form form should support disabled 1`] = `
   </div>
   <div
     class="ant-row ant-form-item"
-    role="row"
   >
     <div
       class="ant-col ant-col-4 ant-form-item-label"
-      role="cell"
     >
       <label
         class=""
@@ -803,7 +768,6 @@ exports[`Form form should support disabled 1`] = `
     </div>
     <div
       class="ant-col ant-col-14 ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -821,11 +785,9 @@ exports[`Form form should support disabled 1`] = `
   </div>
   <div
     class="ant-row ant-form-item"
-    role="row"
   >
     <div
       class="ant-col ant-col-4 ant-form-item-label"
-      role="cell"
     >
       <label
         class=""
@@ -836,7 +798,6 @@ exports[`Form form should support disabled 1`] = `
     </div>
     <div
       class="ant-col ant-col-14 ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -863,11 +824,9 @@ exports[`Form form should support disabled 1`] = `
   </div>
   <div
     class="ant-row ant-form-item"
-    role="row"
   >
     <div
       class="ant-col ant-col-4 ant-form-item-label"
-      role="cell"
     >
       <label
         class=""
@@ -878,7 +837,6 @@ exports[`Form form should support disabled 1`] = `
     </div>
     <div
       class="ant-col ant-col-14 ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -907,11 +865,9 @@ exports[`Form form should support disabled 2`] = `
 >
   <div
     class="ant-row ant-form-item ant-form-item-has-success"
-    role="row"
   >
     <div
       class="ant-col ant-col-4 ant-form-item-label"
-      role="cell"
     >
       <label
         class=""
@@ -923,7 +879,6 @@ exports[`Form form should support disabled 2`] = `
     </div>
     <div
       class="ant-col ant-col-14 ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -957,11 +912,9 @@ exports[`Form form should support disabled 2`] = `
   </div>
   <div
     class="ant-row ant-form-item"
-    role="row"
   >
     <div
       class="ant-col ant-col-4 ant-form-item-label"
-      role="cell"
     >
       <label
         class=""
@@ -972,7 +925,6 @@ exports[`Form form should support disabled 2`] = `
     </div>
     <div
       class="ant-col ant-col-14 ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -1028,11 +980,9 @@ exports[`Form form should support disabled 2`] = `
   </div>
   <div
     class="ant-row ant-form-item"
-    role="row"
   >
     <div
       class="ant-col ant-col-4 ant-form-item-label"
-      role="cell"
     >
       <label
         class=""
@@ -1043,7 +993,6 @@ exports[`Form form should support disabled 2`] = `
     </div>
     <div
       class="ant-col ant-col-14 ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -1062,11 +1011,9 @@ exports[`Form form should support disabled 2`] = `
   </div>
   <div
     class="ant-row ant-form-item"
-    role="row"
   >
     <div
       class="ant-col ant-col-4 ant-form-item-label"
-      role="cell"
     >
       <label
         class=""
@@ -1077,7 +1024,6 @@ exports[`Form form should support disabled 2`] = `
     </div>
     <div
       class="ant-col ant-col-14 ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -1148,11 +1094,9 @@ exports[`Form form should support disabled 2`] = `
   </div>
   <div
     class="ant-row ant-form-item"
-    role="row"
   >
     <div
       class="ant-col ant-col-4 ant-form-item-label"
-      role="cell"
     >
       <label
         class=""
@@ -1163,7 +1107,6 @@ exports[`Form form should support disabled 2`] = `
     </div>
     <div
       class="ant-col ant-col-14 ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -1233,11 +1176,9 @@ exports[`Form form should support disabled 2`] = `
   </div>
   <div
     class="ant-row ant-form-item"
-    role="row"
   >
     <div
       class="ant-col ant-col-4 ant-form-item-label"
-      role="cell"
     >
       <label
         class=""
@@ -1248,7 +1189,6 @@ exports[`Form form should support disabled 2`] = `
     </div>
     <div
       class="ant-col ant-col-14 ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -1318,11 +1258,9 @@ exports[`Form form should support disabled 2`] = `
   </div>
   <div
     class="ant-row ant-form-item"
-    role="row"
   >
     <div
       class="ant-col ant-col-4 ant-form-item-label"
-      role="cell"
     >
       <label
         class=""
@@ -1333,7 +1271,6 @@ exports[`Form form should support disabled 2`] = `
     </div>
     <div
       class="ant-col ant-col-14 ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -1386,11 +1323,9 @@ exports[`Form form should support disabled 2`] = `
   </div>
   <div
     class="ant-row ant-form-item"
-    role="row"
   >
     <div
       class="ant-col ant-col-4 ant-form-item-label"
-      role="cell"
     >
       <label
         class=""
@@ -1401,7 +1336,6 @@ exports[`Form form should support disabled 2`] = `
     </div>
     <div
       class="ant-col ant-col-14 ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -1496,11 +1430,9 @@ exports[`Form form should support disabled 2`] = `
   </div>
   <div
     class="ant-row ant-form-item"
-    role="row"
   >
     <div
       class="ant-col ant-col-4 ant-form-item-label"
-      role="cell"
     >
       <label
         class=""
@@ -1511,7 +1443,6 @@ exports[`Form form should support disabled 2`] = `
     </div>
     <div
       class="ant-col ant-col-14 ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -1598,11 +1529,9 @@ exports[`Form form should support disabled 2`] = `
   </div>
   <div
     class="ant-row ant-form-item"
-    role="row"
   >
     <div
       class="ant-col ant-col-4 ant-form-item-label"
-      role="cell"
     >
       <label
         class=""
@@ -1613,7 +1542,6 @@ exports[`Form form should support disabled 2`] = `
     </div>
     <div
       class="ant-col ant-col-14 ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -1631,11 +1559,9 @@ exports[`Form form should support disabled 2`] = `
   </div>
   <div
     class="ant-row ant-form-item"
-    role="row"
   >
     <div
       class="ant-col ant-col-4 ant-form-item-label"
-      role="cell"
     >
       <label
         class=""
@@ -1646,7 +1572,6 @@ exports[`Form form should support disabled 2`] = `
     </div>
     <div
       class="ant-col ant-col-14 ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -1673,11 +1598,9 @@ exports[`Form form should support disabled 2`] = `
   </div>
   <div
     class="ant-row ant-form-item"
-    role="row"
   >
     <div
       class="ant-col ant-col-4 ant-form-item-label"
-      role="cell"
     >
       <label
         class=""
@@ -1688,7 +1611,6 @@ exports[`Form form should support disabled 2`] = `
     </div>
     <div
       class="ant-col ant-col-14 ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
@@ -1720,11 +1642,9 @@ exports[`Form rtl render component should be rendered correctly in RTL direction
 exports[`Form rtl render component should be rendered correctly in RTL direction 2`] = `
 <div
   class="ant-row ant-row-rtl ant-form-item"
-  role="row"
 >
   <div
     class="ant-col ant-form-item-control ant-col-rtl"
-    role="cell"
   >
     <div
       class="ant-form-item-control-input"

@@ -13,12 +13,13 @@ title:
 
 Set range picker type by `picker` prop.
 
-```jsx
+```tsx
 import { DatePicker, Space } from 'antd';
+import React from 'react';
 
 const { RangePicker } = DatePicker;
 
-export default () => (
+const App: React.FC = () => (
   <Space direction="vertical" size={12}>
     <RangePicker />
     <RangePicker showTime />
@@ -28,4 +29,6 @@ export default () => (
     <RangePicker picker="year" />
   </Space>
 );
+
+export default App;
 ```

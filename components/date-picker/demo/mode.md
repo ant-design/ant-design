@@ -14,23 +14,28 @@ debug: true
 
 Determing which panel to show with `mode` and `onPanelChange`.
 
-```jsx
-import React, { useState } from 'react';
+```tsx
+import type { DatePickerProps } from 'antd';
 import { DatePicker, Space } from 'antd';
+import type { RangePickerProps } from 'antd/es/date-picker';
+import type { Dayjs } from 'dayjs';
+import React, { useState } from 'react';
 
 const { RangePicker } = DatePicker;
 
-function ControlledDatePicker() {
-  const [mode, setMode] = useState('time');
+type RangeValue = [Dayjs | null, Dayjs | null] | null;
 
-  const handleOpenChange = open => {
+const ControlledDatePicker = () => {
+  const [mode, setMode] = useState<DatePickerProps['mode']>('time');
+
+  const handleOpenChange = (open: boolean) => {
     if (open) {
       setMode('time');
     }
   };
 
-  const handlePanelChange = (value, dateMode) => {
-    setMode(dateMode);
+  const handlePanelChange: DatePickerProps['onPanelChange'] = (_, newMode) => {
+    setMode(newMode);
   };
 
   return (
@@ -41,22 +46,18 @@ function ControlledDatePicker() {
       onPanelChange={handlePanelChange}
     />
   );
-}
+};
 
-function ControlledRangePicker() {
-  const [mode, setMode] = useState(['month', 'month']);
-  const [value, setValue] = useState([]);
+const ControlledRangePicker = () => {
+  const [mode, setMode] = useState<RangePickerProps['mode']>(['month', 'month']);
+  const [value, setValue] = useState<RangeValue>([null, null]);
 
-  const handlePanelChange = (dateValue, dateMode) => {
-    setValue(dateValue);
+  const handlePanelChange: RangePickerProps['onPanelChange'] = (newValue, newModes) => {
+    setValue(newValue);
     setMode([
-      dateMode[0] === 'date' ? 'month' : dateMode[0],
-      dateMode[1] === 'date' ? 'month' : dateMode[1],
+      newModes[0] === 'date' ? 'month' : newModes[0],
+      newModes[1] === 'date' ? 'month' : newModes[1],
     ]);
-  };
-
-  const handleChange = dateValue => {
-    setValue(dateValue);
   };
 
   return (
@@ -65,16 +66,18 @@ function ControlledRangePicker() {
       format="YYYY-MM"
       value={value}
       mode={mode}
-      onChange={handleChange}
+      onChange={setValue}
       onPanelChange={handlePanelChange}
     />
   );
-}
+};
 
-export default () => (
+const App: React.FC = () => (
   <Space direction="vertical" size={12}>
     <ControlledDatePicker />
     <ControlledRangePicker />
   </Space>
 );
+
+export default App;
 ```

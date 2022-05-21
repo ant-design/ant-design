@@ -16,15 +16,16 @@ Add status to Select with `status`, which could be `error` or `warning`.
 
 ```tsx
 import { Select, Space } from 'antd';
+import React from 'react';
 
-const Status: React.FC = () => (
+const App: React.FC = () => (
   <Space direction="vertical" style={{ width: '100%' }}>
     <Select status="error" style={{ width: '100%' }} />
     <Select status="warning" style={{ width: '100%' }} />
   </Space>
 );
 
-export default () => <Status />;
+export default App;
 ```
 
 ```css

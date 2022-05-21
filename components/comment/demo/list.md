@@ -13,10 +13,11 @@ title:
 
 Displaying a series of comments using the `antd` List Component.
 
-```jsx
-import { Comment, Tooltip, List } from 'antd';
+```tsx
+import { Comment, List, Tooltip } from 'antd';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
+import React from 'react';
 
 dayjs.extend(relativeTime);
 const data = [
@@ -56,7 +57,7 @@ const data = [
   },
 ];
 
-export default () => (
+const App: React.FC = () => (
   <List
     className="comment-list"
     header={`${data.length} replies`}
@@ -75,4 +76,6 @@ export default () => (
     )}
   />
 );
+
+export default App;
 ```

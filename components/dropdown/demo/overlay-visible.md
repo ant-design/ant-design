@@ -13,20 +13,22 @@ title:
 
 The default is to close the menu when you click on menu items, this feature can be turned off.
 
-```jsx
-import { Menu, Dropdown, Space } from 'antd';
+```tsx
 import { DownOutlined } from '@ant-design/icons';
+import type { MenuProps } from 'antd';
+import { Dropdown, Menu, Space } from 'antd';
+import React, { useState } from 'react';
 
-export default () => {
-  const [visible, setVisible] = React.useState(false);
+const App: React.FC = () => {
+  const [visible, setVisible] = useState(false);
 
-  const handleMenuClick = e => {
+  const handleMenuClick: MenuProps['onClick'] = e => {
     if (e.key === '3') {
       setVisible(false);
     }
   };
 
-  const handleVisibleChange = flag => {
+  const handleVisibleChange = (flag: boolean) => {
     setVisible(flag);
   };
 
@@ -61,4 +63,6 @@ export default () => {
     </Dropdown>
   );
 };
+
+export default App;
 ```

@@ -13,37 +13,38 @@ title:
 
 Disabled part of dates and time by `disabledDate` and `disabledTime` respectively, and `disabledTime` only works with `showTime`.
 
-```jsx
+```tsx
 import { DatePicker, Space } from 'antd';
+import type { RangePickerProps } from 'antd/es/date-picker';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
+import React from 'react';
 
 dayjs.extend(customParseFormat);
 
 const { RangePicker } = DatePicker;
 
-function range(start, end) {
+const range = (start: number, end: number) => {
   const result = [];
   for (let i = start; i < end; i++) {
     result.push(i);
   }
   return result;
-}
+};
 
-function disabledDate(current) {
+// eslint-disable-next-line arrow-body-style
+const disabledDate: RangePickerProps['disabledDate'] = current => {
   // Can not select days before today and today
   return current && current < dayjs().endOf('day');
-}
+};
 
-function disabledDateTime() {
-  return {
-    disabledHours: () => range(0, 24).splice(4, 20),
-    disabledMinutes: () => range(30, 60),
-    disabledSeconds: () => [55, 56],
-  };
-}
+const disabledDateTime = () => ({
+  disabledHours: () => range(0, 24).splice(4, 20),
+  disabledMinutes: () => range(30, 60),
+  disabledSeconds: () => [55, 56],
+});
 
-function disabledRangeTime(_, type) {
+const disabledRangeTime: RangePickerProps['disabledTime'] = (_, type) => {
   if (type === 'start') {
     return {
       disabledHours: () => range(0, 60).splice(4, 20),
@@ -56,9 +57,9 @@ function disabledRangeTime(_, type) {
     disabledMinutes: () => range(0, 31),
     disabledSeconds: () => [55, 56],
   };
-}
+};
 
-export default () => (
+const App: React.FC = () => (
   <Space direction="vertical" size={12}>
     <DatePicker
       format="YYYY-MM-DD HH:mm:ss"
@@ -79,4 +80,6 @@ export default () => (
     />
   </Space>
 );
+
+export default App;
 ```

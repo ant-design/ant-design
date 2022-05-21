@@ -13,14 +13,17 @@ title:
 
 By setting `strokeLinecap="butt"`, you can change the linecaps from `round` to `butt`, see [stroke-linecap](https://developer.mozilla.org/docs/Web/SVG/Attribute/stroke-linecap) for more information.
 
-```jsx
+```tsx
 import { Progress } from 'antd';
+import React from 'react';
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Progress strokeLinecap="butt" percent={75} />
     <Progress strokeLinecap="butt" type="circle" percent={75} />
     <Progress strokeLinecap="butt" type="dashboard" percent={75} />
   </>
 );
+
+export default App;
 ```
