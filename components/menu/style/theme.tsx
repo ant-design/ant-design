@@ -28,6 +28,8 @@ const getThemeStyle = (token: MenuThemeToken, themeSuffix: string): CSSInterpola
     menuItemPaddingInline,
     motionDurationFast,
     themeColorTextHover,
+    lineType,
+    colorBorderSecondary,
   } = token;
 
   return {
@@ -35,7 +37,7 @@ const getThemeStyle = (token: MenuThemeToken, themeSuffix: string): CSSInterpola
       color: themeColorText,
       background: themeColorBg,
 
-      [`&-root:focus-visible`]: {
+      [`&${componentCls}-root:focus-visible`]: {
         ...accessibilityFocus(token),
       },
 
@@ -133,6 +135,14 @@ const getThemeStyle = (token: MenuThemeToken, themeSuffix: string): CSSInterpola
               borderBottomColor: themeColorTextHighlight,
             },
           },
+        },
+      },
+
+      // ================== Inline & Vertical ===================
+      //
+      [`&${componentCls}-root`]: {
+        [`${componentCls}-inline, ${componentCls}-vertical`]: {
+          borderInlineEnd: `${themeInkBorderSize}px ${lineType} ${colorBorderSecondary}`,
         },
       },
 

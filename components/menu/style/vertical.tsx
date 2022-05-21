@@ -3,19 +3,8 @@ import type { MenuThemeToken } from '.';
 import type { GenerateStyle } from '../../_util/theme';
 
 const getVerticalInlineStyle: GenerateStyle<MenuThemeToken, CSSObject> = token => {
-  const {
-    componentCls,
-    lineWidthBold,
-    themeColorTextHighlight,
-    motionDurationFast,
-    motionEaseOut,
-    menuItemHeight,
-    marginXS,
-    padding,
-    marginXXS,
-    menuArrowSize,
-    fontSize,
-  } = token;
+  const { componentCls, menuItemHeight, marginXS, padding, marginXXS, menuArrowSize, fontSize } =
+    token;
 
   const paddingWithArrow = menuArrowSize + fontSize;
 
@@ -59,9 +48,6 @@ const getVerticalStyle: GenerateStyle<MenuThemeToken> = token => {
   const {
     componentCls,
     iconCls,
-    lineWidth,
-    lineType,
-    colorBorderSecondary,
     menuItemHeight,
     colorTextLightSolid,
     dropdownWidth,
@@ -80,7 +66,6 @@ const getVerticalStyle: GenerateStyle<MenuThemeToken> = token => {
       [componentCls]: {
         [`&-inline, &-vertical`]: {
           [`&${componentCls}-root`]: {
-            borderInlineEnd: `${lineWidth}px ${lineType} ${colorBorderSecondary}`,
             boxShadow: 'none',
           },
 
