@@ -18,12 +18,12 @@ Determing which panel to show with `mode` and `onPanelChange`.
 import type { DatePickerProps } from 'antd';
 import { DatePicker, Space } from 'antd';
 import type { RangePickerProps } from 'antd/es/date-picker';
-import type { Moment } from 'moment';
+import type { Dayjs } from 'dayjs';
 import React, { useState } from 'react';
 
 const { RangePicker } = DatePicker;
 
-type RangeValue = [Moment | null, Moment | null] | null;
+type RangeValue = [Dayjs | null, Dayjs | null] | null;
 
 const ControlledDatePicker = () => {
   const [mode, setMode] = useState<DatePickerProps['mode']>('time');
