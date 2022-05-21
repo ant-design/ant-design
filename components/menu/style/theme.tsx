@@ -18,6 +18,7 @@ const getThemeStyle = (token: MenuThemeToken, themeSuffix: string): CSSInterpola
     themeColorBg,
     themeColorBgSecondary,
     themeColorBgActive,
+    themeColorBgSelect,
     themeInkBarHeight,
     themeInkBarWidth,
     themeInkBorderSize,
@@ -74,7 +75,7 @@ const getThemeStyle = (token: MenuThemeToken, themeSuffix: string): CSSInterpola
       },
 
       [`&:not(${componentCls}-horizontal) ${componentCls}-item-selected`]: {
-        backgroundColor: themeColorBgActive,
+        backgroundColor: themeColorBgSelect,
       },
 
       [`${componentCls}-item, ${componentCls}-submenu-title`]: {

@@ -34,6 +34,7 @@ export interface MenuThemeToken extends MenuToken {
   themeColorBg: string;
   themeColorBgSecondary: string;
   themeColorBgActive: string;
+  themeColorBgSelect: string;
   themeInkBarWidth: number;
   themeInkBarHeight: number;
   themeInkBorderSize: number;
@@ -418,6 +419,7 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         themeColorBg: colorBgComponent,
         themeColorBgSecondary: colorBgComponentSecondary,
         themeColorBgActive: controlItemBgActive,
+        themeColorBgSelect: controlItemBgActive,
         themeInkBarWidth: lineWidthBold + lineWidth,
         themeInkBarHeight: lineWidthBold,
         themeInkBorderSize: lineWidth,
@@ -430,7 +432,8 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         themeColorTextHighlight: colorTextLightSolid,
         themeColorBg: '#001529',
         themeColorBgSecondary: '#000c17',
-        themeColorBgActive: colorPrimary,
+        themeColorBgActive: 'transparent',
+        themeColorBgSelect: colorPrimary,
         themeInkBarWidth: 0,
         themeInkBarHeight: 0,
         themeInkBorderSize: 0,
