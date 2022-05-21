@@ -15,13 +15,13 @@ value 和 onChange 需要配合使用。
 
 ```tsx
 import { TimePicker } from 'antd';
-import type { Moment } from 'moment';
+import type { Dayjs } from 'dayjs';
 import React, { useState } from 'react';
 
 const App: React.FC = () => {
-  const [value, setValue] = useState<Moment | null>(null);
+  const [value, setValue] = useState<Dayjs | null>(null);
 
-  const onChange = (time: Moment) => {
+  const onChange = (time: Dayjs) => {
     setValue(time);
   };
 

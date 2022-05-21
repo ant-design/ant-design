@@ -16,13 +16,14 @@ Passing custom class to `TimePicker` popup
 
 ```tsx
 import { TimePicker } from 'antd';
+import type { Dayjs } from 'dayjs';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import React from 'react';
 
 dayjs.extend(customParseFormat);
 
-const onChange = (time: Moment, timeString: string) => {
+const onChange = (time: Dayjs, timeString: string) => {
   console.log(time, timeString);
 };
 

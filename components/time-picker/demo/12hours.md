@@ -15,10 +15,10 @@ TimePicker of 12 hours format, with default format `h:mm:ss a`.
 
 ```tsx
 import { TimePicker } from 'antd';
-import type { Moment } from 'moment';
+import type { Dayjs } from 'dayjs';
 import React from 'react';
 
-const onChange = (time: Moment, timeString: string) => {
+const onChange = (time: Dayjs, timeString: string) => {
   console.log(time, timeString);
 };
 
