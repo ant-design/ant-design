@@ -64,6 +64,7 @@ export interface OverrideToken {
   BackTop?: BackTopComponentToken;
   Badge?: {};
   Button?: ButtonComponentToken;
+  Breadcrumb?: {};
   Carousel?: CarouselComponentToken;
   Cascader?: CascaderComponentToken;
   Checkbox?: {};
