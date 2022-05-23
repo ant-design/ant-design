@@ -96,27 +96,6 @@ const getVerticalStyle: GenerateStyle<MenuThemeToken> = token => {
           overflowX: 'hidden',
           overflowY: 'auto',
         },
-
-        // [`${componentCls}-item`]: {
-        //      left: 0;
-        //      margin-left: 0;
-        //      border-right: 0;
-        //
-        //      &::after {
-        //        border-right: 0;
-        //      }
-        // },
-
-        //    > ${componentCls}-item,
-        //    > ${componentCls}-submenu {
-        //      transform-origin: 0 0;
-        //    }
-
-        //  &-vertical &-submenu-selected,
-        //  &-vertical-left &-submenu-selected,
-        //  &-vertical-right &-submenu-selected {
-        //    color: @menu-highlight-color;
-        //  }
       },
     },
 

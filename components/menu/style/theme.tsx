@@ -1,5 +1,5 @@
 import type { CSSInterpolation } from '@ant-design/cssinjs';
-import type { MenuToken, MenuThemeToken } from '.';
+import type { MenuThemeToken, MenuToken } from '.';
 
 const accessibilityFocus = (token: MenuToken) => {
   const { controlOutlineWidth, colorPrimaryHover } = token;
@@ -135,24 +135,6 @@ const getThemeStyle = (token: MenuThemeToken, themeSuffix: string): CSSInterpola
       [`&${componentCls}-popup > ${componentCls}`]: {
         backgroundColor: themeColorBg,
       },
-
-      //    > .@{menu-prefix-cls}-item {
-      //      a {
-      //        color: @menu-item-color;
-      //
-      //        &:hover {
-      //          color: @menu-highlight-color;
-      //        }
-      //
-      //        &::before {
-      //          bottom: -2px;
-      //        }
-      //      }
-      //
-      //      &-selected a {
-      //        color: @menu-highlight-color;
-      //      }
-      //    }
 
       // ====================== Horizontal ======================
       [`&${componentCls}-horizontal`]: {

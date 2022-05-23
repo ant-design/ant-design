@@ -1,17 +1,17 @@
 // deps-lint-skip-all
 import { TinyColor } from '@ctrl/tinycolor';
+import type { FullToken, GenerateStyle, UseComponentStyleResult } from '../../_util/theme';
 import {
-  genComponentStyleHook,
-  resetComponent,
   clearFix,
+  genComponentStyleHook,
   mergeToken,
+  resetComponent,
   resetIcon,
 } from '../../_util/theme';
-import type { GenerateStyle, FullToken, UseComponentStyleResult } from '../../_util/theme';
-import getThemeStyle from './theme';
 import getHorizontalStyle from './horizontal';
-import getVerticalStyle from './vertical';
 import getRTLStyle from './rtl';
+import getThemeStyle from './theme';
+import getVerticalStyle from './vertical';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -25,6 +25,7 @@ export interface MenuToken extends FullToken<'Menu'> {
   menuItemPaddingInline: number;
   menuArrowSize: number;
   menuArrowOffset: string;
+  menuPanelMaskInset: number;
 }
 
 export interface MenuThemeToken extends MenuToken {
@@ -84,6 +85,8 @@ const getBaseStyle: GenerateStyle<MenuToken> = token => {
     menuArrowSize,
     controlHeightSM,
     menuArrowOffset,
+    lineType,
+    menuPanelMaskInset,
   } = token;
 
   return [
@@ -177,21 +180,15 @@ const getBaseStyle: GenerateStyle<MenuToken> = token => {
           },
         },
 
-        //  // https://github.com/ant-design/ant-design/issues/19809
-        //  &-item > .@{ant-prefix}-badge a {
-        //    color: @menu-item-color;
-        //
-        //    &:hover {
-        //      color: @menu-highlight-color;
-        //    }
-        //  }
+        // Removed a Badge related style seems it's safe
+        // https://github.com/ant-design/ant-design/issues/19809
 
         // >>>>> Divider
         [`${componentCls}-item-divider`]: {
           overflow: 'hidden',
           lineHeight: 0,
           borderColor: colorBorderSecondary,
-          borderStyle: 'solid',
+          borderStyle: lineType,
           borderTopWidth: lineWidth,
           marginBlock: lineWidth,
           padding: 0,
@@ -290,7 +287,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = token => {
             // https://github.com/ant-design/ant-design/issues/13955
             '&::before': {
               position: 'absolute',
-              inset: `-7px 0 0`,
+              inset: `${menuPanelMaskInset}px 0 0`,
               zIndex: -1,
               width: '100%',
               height: '100%',
@@ -302,7 +299,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = token => {
           // https://github.com/ant-design/ant-design/issues/13955
           '&-placement-rightTop::before': {
             top: 0,
-            insetInlineStart: -7,
+            insetInlineStart: menuPanelMaskInset,
           },
 
           [`> ${componentCls}`]: {
@@ -428,6 +425,7 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         menuArrowSize,
         menuHorizontalHeight: controlHeightLG * 1.15,
         menuArrowOffset: `${menuArrowSize * 0.25}px`,
+        menuPanelMaskInset: -7, // Still a hardcode here since it's offset by rc-align
       });
 
       // Theme Token
