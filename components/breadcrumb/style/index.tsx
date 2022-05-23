@@ -92,7 +92,7 @@ export default genComponentStyleHook('Breadcrumb', token => {
     breadcrumbFontSize: token.fontSizeBase,
     breadcrumbIconFontSize: token.fontSizeBase,
     breadcrumbLinkColor: token.colorTextSecondary,
-    breadcrumbLinkColorHover: token.colorPrimaryHover,
+    breadcrumbLinkColorHover: token.colorText,
     breadcrumbLastItemColor: token.colorText,
     breadcrumbSeparatorMargin: token.paddingXS,
     breadcrumbSeparatorColor: token.colorTextSecondary,
