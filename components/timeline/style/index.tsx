@@ -26,7 +26,7 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = token => {
         position: 'relative',
         margin: 0,
         paddingBottom: token.timeLineItemPaddingBottom,
-        fontSize: token.fontSizeBase,
+        fontSize: token.fontSize,
         listStyle: 'none',
 
         '&-tail': {
