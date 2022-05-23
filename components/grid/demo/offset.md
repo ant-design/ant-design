@@ -15,10 +15,11 @@ title:
 
 `offset` can set the column to the right side. For example, using `offset = {4}` can set the element shifted to the right four columns width.
 
-```jsx
-import { Row, Col } from 'antd';
+```tsx
+import { Col, Row } from 'antd';
+import React from 'react';
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Row>
       <Col span={8}>col-8</Col>
@@ -41,4 +42,6 @@ export default () => (
     </Row>
   </>
 );
+
+export default App;
 ```

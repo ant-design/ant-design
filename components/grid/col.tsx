@@ -1,7 +1,7 @@
-import * as React from 'react';
 import classNames from 'classnames';
-import RowContext from './RowContext';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
+import RowContext from './RowContext';
 
 // https://github.com/ant-design/ant-design/issues/14324
 type ColSpanType = number | string;
@@ -128,7 +128,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   }
 
   return (
-    <div role="cell" {...others} style={{ ...mergedStyle, ...style }} className={classes} ref={ref}>
+    <div {...others} style={{ ...mergedStyle, ...style }} className={classes} ref={ref}>
       {children}
     </div>
   );

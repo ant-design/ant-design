@@ -13,8 +13,9 @@ title:
 
 Customize Trigger Token by `prefix` props. Default to `@`, `Array<string>` also supported.
 
-```jsx
+```tsx
 import { Mentions } from 'antd';
+import React, { useState } from 'react';
 
 const { Option } = Mentions;
 
@@ -23,11 +24,13 @@ const MOCK_DATA = {
   '#': ['1.0', '2.0', '3.0'],
 };
 
-export default () => {
-  const [prefix, setPrefix] = React.useState('@');
+type PrefixType = keyof typeof MOCK_DATA;
 
-  const onSearch = (_, prefixValue) => {
-    setPrefix(prefixValue);
+const App: React.FC = () => {
+  const [prefix, setPrefix] = useState<PrefixType>('@');
+
+  const onSearch = (_: string, newPrefix: PrefixType) => {
+    setPrefix(newPrefix);
   };
 
   return (
@@ -45,4 +48,6 @@ export default () => {
     </Mentions>
   );
 };
+
+export default App;
 ```

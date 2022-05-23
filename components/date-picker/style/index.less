@@ -220,6 +220,10 @@
   &-dropdown {
     .reset-component();
     position: absolute;
+    // Fix incorrect position of picker popup
+    // https://github.com/ant-design/ant-design/issues/35590
+    top: -9999px;
+    left: -9999px;
     z-index: @zindex-picker;
 
     &-hidden {
