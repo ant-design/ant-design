@@ -131,9 +131,8 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
     overlayClassName,
     ...restProps
   } = props;
-  const prefixCls = getPrefixCls('popover', customizePrefixCls);
-  const prefixClsConfirm = getPrefixCls('popconfirm', customizePrefixCls);
-  const overlayClassNames = classNames(prefixClsConfirm, overlayClassName);
+  const prefixCls = getPrefixCls('popconfirm', customizePrefixCls);
+  const overlayClassNames = classNames(prefixCls, overlayClassName);
 
   const [wrapSSR] = usePopconfirmStyle(prefixCls);
 
@@ -146,7 +145,6 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
   return wrapSSR(
     <Popover
       {...restProps}
-      prefixCls={prefixCls}
       placement={placement}
       onVisibleChange={onVisibleChange}
       visible={visible}

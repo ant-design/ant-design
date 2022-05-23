@@ -36,7 +36,6 @@ type PopoverToken = FullToken<'Popover'> & {
 const genBaseStyle: GenerateStyle<PopoverToken> = token => {
   const {
     componentCls,
-    iconCls,
     popoverBg,
     popoverColor,
     popoverMinWidth,
@@ -48,10 +47,6 @@ const genBaseStyle: GenerateStyle<PopoverToken> = token => {
     boxShadow,
     colorSplit,
     colorTextHeading,
-    colorWarning,
-    fontSize,
-    marginXS,
-    lineHeight,
     radiusBase: borderRadius,
     paddingSM,
   } = token;
@@ -106,38 +101,6 @@ const genBaseStyle: GenerateStyle<PopoverToken> = token => {
       [`${componentCls}-inner-content`]: {
         padding: `${paddingSM}px ${popoverPaddingHorizontal}px`,
         color: popoverColor,
-      },
-
-      // Used for Popconfirm
-      [`${componentCls}-message`]: {
-        position: 'relative',
-        // FIXME
-        padding: '4px 0 12px',
-        color: popoverColor,
-        fontSize,
-
-        [`> ${iconCls}`]: {
-          position: 'absolute',
-          // FIXME
-          top: 4 + (lineHeight * fontSize - fontSize) / 2,
-          color: colorWarning,
-          fontSize,
-        },
-
-        '&-title': {
-          // FIXME
-          paddingInlineStart: fontSize + 8,
-        },
-      },
-
-      // Used for Popconfirm
-      [`${componentCls}-buttons`]: {
-        marginBottom: marginXS,
-        textAlign: 'end',
-
-        button: {
-          marginInlineStart: marginXS,
-        },
       },
 
       [`${componentCls}-arrow`]: {
