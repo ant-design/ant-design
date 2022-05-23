@@ -1,22 +1,26 @@
-import * as React from 'react';
 import classNames from 'classnames';
+import * as React from 'react';
+import { ConfigContext } from '../config-provider';
 import type { AbstractTooltipProps, TooltipPlacement } from '../tooltip';
 import Tooltip from '../tooltip';
-import { ConfigContext } from '../config-provider';
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
 import { getTransitionName } from '../_util/motion';
-
 // CSSINJS
 import useStyle from './style';
 
 export interface PopoverProps extends AbstractTooltipProps {
   title?: React.ReactNode | RenderFunction;
   content?: React.ReactNode | RenderFunction;
+  /** @private Used for Popconfirm. Safe to remove. */
+  _overlay?: React.ReactNode;
 }
 
 const Popover = React.forwardRef<unknown, PopoverProps>(
-  ({ prefixCls: customizePrefixCls, title, content, overlayClassName, ...otherProps }, ref) => {
+  (
+    { prefixCls: customizePrefixCls, title, content, overlayClassName, _overlay, ...otherProps },
+    ref,
+  ) => {
     const { getPrefixCls } = React.useContext(ConfigContext);
 
     const getOverlay = (prefixCls: string) => {
@@ -41,7 +45,7 @@ const Popover = React.forwardRef<unknown, PopoverProps>(
         prefixCls={prefixCls}
         overlayClassName={overlayCls}
         ref={ref as any}
-        overlay={getOverlay(prefixCls)}
+        overlay={_overlay || getOverlay(prefixCls)}
         transitionName={getTransitionName(rootPrefixCls, 'zoom-big', otherProps.transitionName)}
       />,
     );
