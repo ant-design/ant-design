@@ -9,12 +9,11 @@ import { convertLegacyProps } from '../button/button';
 import { ConfigContext } from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
+import Popover from '../popover';
 import type { AbstractTooltipProps } from '../tooltip';
-import Tooltip from '../tooltip';
 import ActionButton from '../_util/ActionButton';
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
-import { getTransitionName } from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
 import usePopconfirmStyle from './style';
 
@@ -143,19 +142,17 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
       {(popconfirmLocale: PopconfirmLocale) => renderOverlay(prefixCls, popconfirmLocale)}
     </LocaleReceiver>
   );
-  const rootPrefixCls = getPrefixCls();
 
   return wrapSSR(
-    <Tooltip
+    <Popover
       {...restProps}
       prefixCls={prefixCls}
       placement={placement}
       onVisibleChange={onVisibleChange}
       visible={visible}
-      overlay={overlay}
+      _overlay={overlay}
       overlayClassName={overlayClassNames}
       ref={ref as any}
-      transitionName={getTransitionName(rootPrefixCls, 'zoom-big', props.transitionName)}
       data-popover-inject
     >
       {cloneElement(children, {
@@ -166,7 +163,7 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
           onKeyDown(e);
         },
       })}
-    </Tooltip>,
+    </Popover>,
   );
 });
 

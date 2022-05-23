@@ -121,6 +121,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     paddingXS: 8,
     paddingSM: 12,
     paddingLG: 24,
+    paddingXL: 32,
 
     marginXXS: 4,
     marginXS: 8,

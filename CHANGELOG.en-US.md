@@ -15,6 +15,16 @@ timeline: true
 
 ---
 
+## 4.20.6
+
+`2022-05-22`
+
+- 🐞 Fix DatePicker placeholder flush when open first time. [#35620](https://github.com/ant-design/ant-design/pull/35620) [@yykoypj](https://github.com/yykoypj)
+- 🛠 Remove Grid default `role` attr to fit [aria-required-parent](https://accessibilityinsights.io/info-examples/web/aria-required-parent/) requirement. [#35616](https://github.com/ant-design/ant-design/pull/35616) [@bartpio](https://github.com/bartpio)
+- 🐞 Fix Anchor cut content in some browser. [#35612](https://github.com/ant-design/ant-design/pull/35612) [@josonho](https://github.com/josonho)
+- 🐞 Fix Table header cell border when have `rowSpan` and `scroll.y`. [#35591](https://github.com/ant-design/ant-design/pull/35591)
+- 🐞 Fix Drawer that the button in it closes too fast issue. [#35339](https://github.com/ant-design/ant-design/pull/35339)
+
 ## 4.20.5
 
 `2022-05-15`
