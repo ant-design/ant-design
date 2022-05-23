@@ -349,6 +349,7 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   paddingXS: number;
   paddingXXS: number;
   paddingLG: number;
+  paddingXL: number;
   marginXXS: number;
   marginXS: number;
   marginSM: number;
