@@ -13,9 +13,9 @@ title:
 
 More content can be hosted.
 
-```jsx
-import React, { useState } from 'react';
+```tsx
 import { Card } from 'antd';
+import React, { useState } from 'react';
 
 const tabList = [
   {
@@ -28,7 +28,7 @@ const tabList = [
   },
 ];
 
-const contentList = {
+const contentList: Record<string, React.ReactNode> = {
   tab1: <p>content1</p>,
   tab2: <p>content2</p>,
 };
@@ -48,20 +48,20 @@ const tabListNoTitle = [
   },
 ];
 
-const contentListNoTitle = {
+const contentListNoTitle: Record<string, React.ReactNode> = {
   article: <p>article content</p>,
   app: <p>app content</p>,
   project: <p>project content</p>,
 };
 
-const TabsCard = () => {
-  const [activeTabKey1, setActiveTabKey1] = useState('tab1');
-  const [activeTabKey2, setActiveTabKey2] = useState('app');
+const App: React.FC = () => {
+  const [activeTabKey1, setActiveTabKey1] = useState<string>('tab1');
+  const [activeTabKey2, setActiveTabKey2] = useState<string>('app');
 
-  const onTab1Change = key => {
+  const onTab1Change = (key: string) => {
     setActiveTabKey1(key);
   };
-  const onTab2Change = key => {
+  const onTab2Change = (key: string) => {
     setActiveTabKey2(key);
   };
 
@@ -96,5 +96,5 @@ const TabsCard = () => {
   );
 };
 
-export default () => <TabsCard />;
+export default App;
 ```

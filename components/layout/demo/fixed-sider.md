@@ -15,18 +15,19 @@ title:
 When dealing with long content, a fixed sider can provide a better user experience.
 
 ```tsx
-import type { MenuProps } from 'antd';
-import { Layout, Menu } from 'antd';
 import {
   AppstoreOutlined,
   BarChartOutlined,
   CloudOutlined,
   ShopOutlined,
   TeamOutlined,
-  UserOutlined,
   UploadOutlined,
+  UserOutlined,
   VideoCameraOutlined,
 } from '@ant-design/icons';
+import type { MenuProps } from 'antd';
+import { Layout, Menu } from 'antd';
+import React from 'react';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -45,7 +46,7 @@ const items: MenuProps['items'] = [
   label: `nav ${index + 1}`,
 }));
 
-export default () => (
+const App: React.FC = () => (
   <Layout hasSider>
     <Sider
       style={{
@@ -165,6 +166,8 @@ export default () => (
     </Layout>
   </Layout>
 );
+
+export default App;
 ```
 
 ```css
