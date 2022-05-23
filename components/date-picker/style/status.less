@@ -10,6 +10,10 @@
   @outlineColor: @primary-color-outline;
 ) {
   &.@{picker-prefix-cls} {
+    .@{picker-prefix-cls}-active-bar {
+      background: @hoverBorderColor;
+    }
+
     &,
     &:not([disabled]):hover {
       background-color: @background-color;
