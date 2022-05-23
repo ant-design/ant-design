@@ -1,45 +1,45 @@
 // deps-lint-skip-all
-import { CSSObject } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-import {
-  FullToken,
-  genComponentStyleHook,
-  GenerateStyle,
-  mergeToken,
-  resetComponent,
-  roundedArrow,
-  slideDownIn,
-  slideDownOut,
-  slideUpIn,
-  slideUpOut,
-} from '../../_util/theme';
+import type { GlobalToken } from 'antd/es/_util/theme/interface';
+import type { TokenWithCommonCls } from 'antd/es/_util/theme/util/genComponentStyleHook';
+import type { InputToken } from '../../input/style';
 import {
   genActiveStyle,
   genBasicInputStyle,
   genHoverStyle,
   initInputToken,
-  InputToken,
 } from '../../input/style';
+import { slideDownIn, slideDownOut, slideUpIn, slideUpOut } from '../../style/motion';
+import type { FullToken, GenerateStyle } from '../../_util/theme';
+import { genComponentStyleHook, mergeToken, resetComponent, roundedArrow } from '../../_util/theme';
 
-// FIXME: need full token check
 export interface ComponentToken {
-  zIndexDropdown: number;
+  zIndexPopup: number;
+}
+
+export type PickerPanelToken = {
+  pickerCellInnerCls: string;
   pickerTextHeight: number;
   pickerPanelCellWidth: number;
   pickerPanelCellHeight: number;
   pickerDateHoverRangeBorderColor: string;
   pickerBasicCellHoverWithRangeColor: string;
   pickerPanelWithoutTimeCellHeight: number;
+  pickerYearMonthCellWidth: number;
   pickerTimePanelColumnHeight: number;
   pickerTimePanelColumnWidth: number;
   pickerTimePanelCellHeight: number;
-}
-
-type PickerToken = InputToken<FullToken<'DatePicker'>> & {
-  arrowWidth: number;
-  pickerCellInnerCls: string;
-  hashId?: string;
+  pickerCellPaddingVertical: number;
+  pickerQuarterPanelContentHeight: number;
+  pickerCellBorderGap: number;
+  pickerControlIconSize: number;
+  pickerControlIconBorderWidth: number;
 };
+
+type PickerToken = InputToken<FullToken<'DatePicker'>> & PickerPanelToken;
+
+type SharedPickerToken = Omit<PickerToken, 'zIndexPopup'>;
 
 const genPikerPadding = (
   token: PickerToken,
@@ -53,6 +53,764 @@ const genPikerPadding = (
 
   return {
     padding: `${paddingTop}px ${paddingHorizontal}px ${paddingBottom}px`,
+  };
+};
+
+const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
+  const { componentCls, pickerCellInnerCls } = token;
+
+  return {
+    '&::before': {
+      position: 'absolute',
+      top: '50%',
+      insetInlineStart: 0,
+      insetInlineEnd: 0,
+      zIndex: 1,
+      height: token.pickerPanelCellHeight,
+      transform: 'translateY(-50%)',
+      transition: `all ${token.motionDurationSlow}`,
+      content: '""',
+    },
+
+    // >>> Default
+    [pickerCellInnerCls]: {
+      position: 'relative',
+      zIndex: 2,
+      display: 'inline-block',
+      minWidth: token.pickerPanelCellHeight,
+      height: token.pickerPanelCellHeight,
+      lineHeight: `${token.pickerPanelCellHeight}px`,
+      borderRadius: token.radiusBase,
+      transition: `background ${token.motionDurationSlow}, border ${token.motionDurationSlow}`,
+    },
+
+    // >>> Hover
+    [`&:hover:not(&-in-view),
+    &:hover:not(&-selected):not(&-range-start):not(&-range-end):not(&-range-hover-start):not(&-range-hover-end)`]:
+      {
+        [pickerCellInnerCls]: {
+          background: token.controlItemBgHover,
+        },
+      },
+
+    // >>> Today
+    [`&-in-view:is(&-today) ${pickerCellInnerCls}`]: {
+      '&::before': {
+        position: 'absolute',
+        top: 0,
+        insetInlineEnd: 0,
+        bottom: 0,
+        insetInlineStart: 0,
+        zIndex: 1,
+        border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorPrimary}`,
+        borderRadius: token.radiusBase,
+        content: '""',
+      },
+    },
+
+    // >>> In Range
+    '&-in-view:is(&-in-range)': {
+      position: 'relative',
+
+      '&::before': {
+        background: token.controlItemBgActive,
+      },
+    },
+
+    // >>> Selected
+    [`&-in-view:is(&-selected) ${pickerCellInnerCls},
+    &-in-view:is(&-range-start) ${pickerCellInnerCls},
+    &-in-view:is(&-range-end) ${pickerCellInnerCls}`]: {
+      color: token.colorTextLightSolid,
+      background: token.colorPrimary,
+    },
+
+    [`&-in-view:is(&-range-start):not(&-range-start-single),
+      &-in-view:is(&-range-end):not(&-range-end-single)`]: {
+      '&::before': {
+        background: token.controlItemBgActive,
+      },
+    },
+
+    '&-in-view:is(&-range-start)::before': {
+      insetInlineStart: '50%',
+    },
+
+    '&-in-view:is(&-range-end)::before': {
+      insetInlineEnd: '50%',
+    },
+
+    // >>> Range Hover
+    [`&-in-view:is(&-range-hover-start):not(&-in-range):not(&-range-start):not(&-range-end),
+      &-in-view:is(&-range-hover-end):not(&-in-range):not(&-range-start):not(&-range-end),
+      &-in-view:is(&-range-hover-start):is(&-range-start-single),
+      &-in-view:is(&-range-hover-start):is(&-range-start):is(&-range-end):is(&-range-end-near-hover),
+      &-in-view:is(&-range-hover-end):is(&-range-start):is(&-range-end):is(&-range-start-near-hover),
+      &-in-view:is(&-range-hover-end):is(&-range-end-single),
+      &-in-view:is(&-range-hover):not(&-in-range)`]: {
+      '&::after': {
+        position: 'absolute',
+        top: '50%',
+        zIndex: 0,
+        height: token.controlHeightSM,
+        borderTop: `${token.controlLineWidth}px dashed ${token.pickerDateHoverRangeBorderColor}`,
+        borderBottom: `${token.controlLineWidth}px dashed ${token.pickerDateHoverRangeBorderColor}`,
+        transform: 'translateY(-50%)',
+        transition: `all ${token.motionDurationSlow}`,
+        content: '""',
+      },
+    },
+
+    // Add space for stash
+    [`&-range-hover-start::after,
+      &-range-hover-end::after,
+      &-range-hover::after`]: {
+      insetInlineEnd: 0,
+      insetInlineStart: token.pickerCellBorderGap,
+    },
+
+    // Hover with in range
+    [`&-in-view:is(&-in-range):is(&-range-hover)::before,
+      &-in-view:is(&-range-start):is(&-range-hover)::before,
+      &-in-view:is(&-range-end):is(&-range-hover)::before,
+      &-in-view:is(&-range-start):not(&-range-start-single):is(&-range-hover-start)::before,
+      &-in-view:is(&-range-end):not(&-range-end-single):is(&-range-hover-end)::before,
+      ${componentCls}-panel
+      > :not(${componentCls}-date-panel)
+      &-in-view:is(&-in-range):is(&-range-hover-start)::before,
+      ${componentCls}-panel
+      > :not(${componentCls}-date-panel)
+      &-in-view:is(&-in-range):is(&-range-hover-end)::before`]: {
+      background: token.pickerBasicCellHoverWithRangeColor,
+    },
+
+    // range start border-radius
+    [`&-in-view:is(&-range-start):not(&-range-start-single):not(&-range-end) ${pickerCellInnerCls}`]:
+      {
+        borderStartStartRadius: token.radiusBase,
+        borderEndStartRadius: token.radiusBase,
+        borderStartEndRadius: 0,
+        borderEndEndRadius: 0,
+      },
+
+    // range end border-radius
+    [`&-in-view:is(&-range-end):not(&-range-end-single):not(&-range-start) ${pickerCellInnerCls}`]:
+      {
+        borderStartStartRadius: 0,
+        borderEndStartRadius: 0,
+        borderStartEndRadius: token.radiusBase,
+        borderEndEndRadius: token.radiusBase,
+      },
+
+    '&-range-hover:is(&-range-end)::after': {
+      insetInlineStart: '50%',
+    },
+
+    // Edge start
+    [`tr > &-in-view:is(&-range-hover):first-child::after,
+      tr > &-in-view:is(&-range-hover-end):first-child::after,
+      &-in-view:is(&-start):is(&-range-hover-edge-start):is(&-range-hover-edge-start-near-range)::after,
+      &-in-view:is(&-range-hover-edge-start):not(&-range-hover-edge-start-near-range)::after,
+      &-in-view:is(&-range-hover-start)::after`]: {
+      insetInlineStart: (token.pickerPanelCellWidth - token.pickerPanelCellHeight) / 2,
+      borderInlineStart: `${token.controlLineWidth}px dashed ${token.pickerDateHoverRangeBorderColor}`,
+      borderStartStartRadius: token.controlLineWidth,
+      borderEndStartRadius: token.controlLineWidth,
+    },
+
+    // Edge end
+    [`tr > &-in-view:is(&-range-hover):last-child::after,
+      tr > &-in-view:is(&-range-hover-start):last-child::after,
+      &-in-view:is(&-end):is(&-range-hover-edge-end):is(&-range-hover-edge-end-near-range)::after,
+      &-in-view:is(&-range-hover-edge-end):not(&-range-hover-edge-end-near-range)::after,
+      &-in-view:is(&-range-hover-end)::after`]: {
+      insetInlineEnd: (token.pickerPanelCellWidth - token.pickerPanelCellHeight) / 2,
+      borderInlineEnd: `${token.controlLineWidth}px dashed ${token.pickerDateHoverRangeBorderColor}`,
+      borderStartEndRadius: token.controlLineWidth,
+      borderEndEndRadius: token.controlLineWidth,
+    },
+
+    // >>> Disabled
+    '&-disabled': {
+      color: token.colorTextDisabled,
+      pointerEvents: 'none',
+
+      [pickerCellInnerCls]: {
+        background: 'transparent',
+      },
+
+      '&::before': {
+        background: token.colorBgComponentDisabled,
+      },
+    },
+    [`&-disabled:is(&-today) ${pickerCellInnerCls}::before`]: {
+      borderColor: token.colorTextDisabled,
+    },
+  };
+};
+
+export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
+  const { componentCls, pickerCellInnerCls, pickerYearMonthCellWidth, pickerControlIconSize } =
+    token;
+
+  const pickerPanelWidth = token.pickerPanelCellWidth * 7 + token.paddingSM * 2 + 4;
+  const hoverCellFixedDistance =
+    (pickerPanelWidth - token.paddingXS * 2) / 3 - pickerYearMonthCellWidth / 2;
+
+  return {
+    [componentCls]: {
+      '&-panel': {
+        display: 'inline-flex',
+        flexDirection: 'column',
+        textAlign: 'center',
+        background: token.colorBgComponent,
+        border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
+        borderRadius: token.radiusBase,
+        outline: 'none',
+
+        '&-focused': {
+          borderColor: token.colorPrimary,
+        },
+
+        '&-rtl': {
+          direction: 'rtl',
+
+          [`${componentCls}-prev-icon,
+              ${componentCls}-super-prev-icon`]: {
+            transform: 'rotate(135deg)',
+          },
+
+          [`${componentCls}-next-icon,
+              ${componentCls}-super-next-icon`]: {
+            transform: 'rotate(-45deg)',
+          },
+        },
+      },
+
+      // ========================================================
+      // =                     Shared Panel                     =
+      // ========================================================
+      [`&-decade-panel,
+        &-year-panel,
+        &-quarter-panel,
+        &-month-panel,
+        &-week-panel,
+        &-date-panel,
+        &-time-panel`]: {
+        display: 'flex',
+        flexDirection: 'column',
+        width: pickerPanelWidth,
+      },
+
+      // ======================= Header =======================
+      '&-header': {
+        display: 'flex',
+        padding: `0 ${token.paddingXS}px`,
+        color: token.colorTextHeading,
+        borderBottom: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorSplit}`,
+
+        '> *': {
+          flex: 'none',
+        },
+
+        button: {
+          padding: 0,
+          color: token.colorAction,
+          lineHeight: `${token.pickerTextHeight}px`,
+          background: 'transparent',
+          border: 0,
+          cursor: 'pointer',
+          transition: `color ${token.motionDurationSlow}`,
+        },
+
+        '> button': {
+          minWidth: '1.6em',
+          fontSize: token.fontSize,
+
+          '&:hover': {
+            color: token.colorActionHover,
+          },
+        },
+
+        '&-view': {
+          flex: 'auto',
+          fontWeight: token.fontWeightStrong,
+          lineHeight: `${token.pickerTextHeight}px`,
+
+          button: {
+            color: 'inherit',
+            fontWeight: 'inherit',
+
+            '&:not(:first-child)': {
+              marginInlineStart: token.paddingXS,
+            },
+
+            '&:hover': {
+              color: token.colorPrimary,
+            },
+          },
+        },
+      },
+      // Arrow button
+      [`&-prev-icon,
+        &-next-icon,
+        &-super-prev-icon,
+        &-super-next-icon`]: {
+        position: 'relative',
+        display: 'inline-block',
+        width: pickerControlIconSize,
+        height: pickerControlIconSize,
+
+        '&::before': {
+          position: 'absolute',
+          top: 0,
+          insetInlineStart: 0,
+          display: 'inline-block',
+          width: pickerControlIconSize,
+          height: pickerControlIconSize,
+          border: `0 solid currentcolor`,
+          borderBlockStartWidth: token.pickerControlIconBorderWidth,
+          borderBlockEndWidth: 0,
+          borderInlineStartWidth: token.pickerControlIconBorderWidth,
+          borderInlineEndWidth: 0,
+          content: '""',
+        },
+      },
+
+      [`&-super-prev-icon,
+        &-super-next-icon`]: {
+        '&::after': {
+          position: 'absolute',
+          top: Math.ceil(pickerControlIconSize / 2),
+          insetInlineStart: Math.ceil(pickerControlIconSize / 2),
+          display: 'inline-block',
+          width: pickerControlIconSize,
+          height: pickerControlIconSize,
+          border: '0 solid currentcolor',
+          borderBlockStartWidth: token.pickerControlIconBorderWidth,
+          borderBlockEndWidth: 0,
+          borderInlineStartWidth: token.pickerControlIconBorderWidth,
+          borderInlineEndWidth: 0,
+          content: '""',
+        },
+      },
+
+      [`&-prev-icon,
+        &-super-prev-icon`]: {
+        transform: 'rotate(-45deg)',
+      },
+
+      [`&-next-icon,
+        &-super-next-icon`]: {
+        transform: 'rotate(135deg)',
+      },
+
+      // ======================== Body ========================
+      '&-content': {
+        width: '100%',
+        tableLayout: 'fixed',
+        borderCollapse: 'collapse',
+
+        'th, td': {
+          position: 'relative',
+          minWidth: token.pickerPanelCellHeight,
+          fontWeight: 'normal',
+        },
+
+        th: {
+          height: token.pickerPanelCellHeight + token.pickerCellPaddingVertical * 2,
+          color: token.colorText,
+          verticalAlign: 'middle',
+        },
+      },
+
+      '&-cell': {
+        padding: `${token.pickerCellPaddingVertical}px 0`,
+        color: token.colorTextDisabled,
+        cursor: 'pointer',
+
+        // In view
+        '&-in-view': {
+          color: token.colorText,
+        },
+
+        ...genPickerCellInnerStyle(token),
+      },
+
+      // DatePanel only
+      [`&-date-panel ${componentCls}-cell-in-view${componentCls}-cell-in-range${componentCls}-cell-range-hover-start ${pickerCellInnerCls},
+        &-date-panel ${componentCls}-cell-in-view${componentCls}-cell-in-range${componentCls}-cell-range-hover-end ${pickerCellInnerCls}`]:
+        {
+          '&::after': {
+            position: 'absolute',
+            top: 0,
+            bottom: 0,
+            zIndex: -1,
+            background: token.pickerBasicCellHoverWithRangeColor,
+            transition: `all ${token.motionDurationSlow}`,
+            content: '""',
+          },
+        },
+
+      [`&-date-panel
+        ${componentCls}-cell-in-view${componentCls}-cell-in-range${componentCls}-cell-range-hover-start
+        ${pickerCellInnerCls}::after`]: {
+        insetInlineEnd: (token.pickerPanelCellWidth - token.pickerPanelCellHeight) / 2,
+        insetInlineStart: 0,
+      },
+
+      [`&-date-panel ${componentCls}-cell-in-view${componentCls}-cell-in-range${componentCls}-cell-range-hover-end ${pickerCellInnerCls}::after`]:
+        {
+          insetInlineEnd: 0,
+          insetInlineStart: (token.pickerPanelCellWidth - token.pickerPanelCellHeight) / 2,
+        },
+
+      // Hover with range start & end
+      '&-range-hover:is(&-range-start)::after': {
+        insetInlineEnd: '50%',
+      },
+
+      [`&-decade-panel,
+        &-year-panel,
+        &-quarter-panel,
+        &-month-panel`]: {
+        [`${componentCls}-content`]: {
+          height: token.pickerPanelWithoutTimeCellHeight * 4,
+        },
+
+        [pickerCellInnerCls]: {
+          padding: `0 ${token.paddingXS}px`,
+        },
+      },
+
+      '&-quarter-panel': {
+        [`${componentCls}-content`]: {
+          height: token.pickerQuarterPanelContentHeight,
+        },
+      },
+
+      // ======================== Footer ========================
+      [`&-panel ${componentCls}-footer`]: {
+        borderTop: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorSplit}`,
+      },
+
+      '&-footer': {
+        width: 'min-content',
+        minWidth: '100%',
+        lineHeight: `${token.pickerTextHeight - 2 * token.controlLineWidth}px`,
+        textAlign: 'center',
+        borderBottom: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorSplit}`,
+
+        '&-extra': {
+          padding: `0 ${token.paddingSM}`,
+          lineHeight: `${token.pickerTextHeight - 2 * token.controlLineWidth}px`,
+          textAlign: 'start',
+
+          '&:not(:last-child)': {
+            borderBottom: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
+          },
+        },
+      },
+
+      '&-now': {
+        textAlign: 'start',
+      },
+
+      '&-today-btn': {
+        color: token.colorLink,
+
+        '&:hover': {
+          color: token.colorLinkHover,
+        },
+
+        '&:active': {
+          color: token.colorLinkActive,
+        },
+
+        '&:is(&-disabled)': {
+          color: token.colorTextDisabled,
+          cursor: 'not-allowed',
+        },
+      },
+
+      // ========================================================
+      // =                       Special                        =
+      // ========================================================
+
+      // ===================== Decade Panel =====================
+      '&-decade-panel': {
+        [pickerCellInnerCls]: {
+          padding: `0 ${token.paddingXS / 2}px`,
+        },
+
+        [`${componentCls}-cell::before`]: {
+          display: 'none',
+        },
+      },
+
+      // ============= Year & Quarter & Month Panel =============
+      [`&-year-panel,
+        &-quarter-panel,
+        &-month-panel`]: {
+        [`${componentCls}-body`]: {
+          padding: `0 ${token.paddingXS}px`,
+        },
+
+        [pickerCellInnerCls]: {
+          width: pickerYearMonthCellWidth,
+        },
+
+        [`${componentCls}-cell-range-hover-start::after`]: {
+          insetInlineStart: hoverCellFixedDistance,
+          borderInlineStart: `${token.controlLineWidth}px dashed ${token.pickerDateHoverRangeBorderColor}`,
+          borderStartStartRadius: token.radiusBase,
+          borderBottomStartRadius: token.radiusBase,
+          borderStartEndRadius: 0,
+          borderBottomEndRadius: 0,
+
+          [`${componentCls}-panel-rtl &`]: {
+            insetInlineEnd: hoverCellFixedDistance,
+            borderInlineEnd: `${token.controlLineWidth}px dashed ${token.pickerDateHoverRangeBorderColor}`,
+            borderStartStartRadius: 0,
+            borderBottomStartRadius: 0,
+            borderStartEndRadius: token.radiusBase,
+            borderBottomEndRadius: token.radiusBase,
+          },
+        },
+        [`${componentCls}-cell-range-hover-end::after`]: {
+          insetInlineEnd: hoverCellFixedDistance,
+          borderInlineEnd: `${token.controlLineWidth}px dashed ${token.pickerDateHoverRangeBorderColor}`,
+          borderStartStartRadius: 0,
+          borderBottomStartRadius: 0,
+          borderStartEndRadius: token.radiusBase,
+          borderBottomEndRadius: token.radiusBase,
+
+          [`${componentCls}-panel-rtl &`]: {
+            insetInlineStart: hoverCellFixedDistance,
+            borderInlineStart: `${token.controlLineWidth}px dashed ${token.pickerDateHoverRangeBorderColor}`,
+            borderStartStartRadius: token.radiusBase,
+            borderBottomStartRadius: token.radiusBase,
+            borderStartEndRadius: 0,
+            borderBottomEndRadius: 0,
+          },
+        },
+      },
+
+      // ====================== Week Panel ======================
+      '&-week-panel': {
+        [`${componentCls}-body`]: {
+          padding: `${token.paddingXS}px ${token.paddingSM}px`,
+        },
+
+        // Clear cell style
+        [`${componentCls}-cell`]: {
+          [`&:hover ${pickerCellInnerCls},
+      &-selected ${pickerCellInnerCls},
+      ${pickerCellInnerCls}`]: {
+            background: 'transparent !important',
+          },
+        },
+
+        '&-row': {
+          td: {
+            transition: `background ${token.motionDurationSlow}`,
+          },
+
+          '&:hover td': {
+            background: token.controlItemBgHover,
+          },
+
+          [`&-selected td,
+            &-selected:hover td`]: {
+            background: token.colorPrimary,
+
+            [`&${componentCls}-cell-week`]: {
+              color: new TinyColor(token.colorTextLightSolid).setAlpha(0.5).toHexString(),
+            },
+
+            [`&${componentCls}-cell-today ${pickerCellInnerCls}::before`]: {
+              borderColor: token.colorTextLightSolid,
+            },
+
+            [pickerCellInnerCls]: {
+              color: token.colorTextLightSolid,
+            },
+          },
+        },
+      },
+
+      // ====================== Date Panel ======================
+      '&-date-panel': {
+        [`${componentCls}-body`]: {
+          padding: `${token.paddingXS}px ${token.paddingSM}px`,
+        },
+
+        [`${componentCls}-content`]: {
+          width: token.pickerPanelCellWidth * 7,
+
+          th: {
+            width: token.pickerPanelCellWidth,
+          },
+        },
+      },
+
+      // ==================== Datetime Panel ====================
+      '&-datetime-panel': {
+        display: 'flex',
+
+        [`${componentCls}-time-panel`]: {
+          borderInlineStart: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
+        },
+
+        [`${componentCls}-date-panel,
+          ${componentCls}-time-panel`]: {
+          transition: `opacity ${token.motionDurationSlow}`,
+        },
+
+        // Keyboard
+        '&-active': {
+          [`${componentCls}-date-panel,
+            ${componentCls}-time-panel`]: {
+            opacity: 0.3,
+
+            '&-active': {
+              opacity: 1,
+            },
+          },
+        },
+      },
+
+      // ====================== Time Panel ======================
+      '&-time-panel': {
+        width: 'auto',
+        minWidth: 'auto',
+        direction: 'ltr',
+
+        [`${componentCls}-content`]: {
+          display: 'flex',
+          flex: 'auto',
+          height: token.pickerTimePanelColumnHeight,
+        },
+
+        '&-column': {
+          flex: '1 0 auto',
+          width: token.pickerTimePanelColumnWidth,
+          margin: 0,
+          padding: 0,
+          overflowY: 'hidden',
+          textAlign: 'start',
+          listStyle: 'none',
+          transition: `background ${token.motionDurationSlow}`,
+
+          '&::after': {
+            display: 'block',
+            height: token.pickerTimePanelColumnHeight - token.pickerTimePanelCellHeight,
+            content: '""',
+            [`${componentCls}-datetime-panel &`]: {
+              height:
+                token.pickerTimePanelColumnHeight -
+                token.pickerPanelWithoutTimeCellHeight +
+                2 * token.controlLineWidth,
+            },
+          },
+
+          '&:not(:first-child)': {
+            borderInlineStart: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorSplit}`,
+          },
+
+          '&-active': {
+            background: new TinyColor(token.controlItemBgActive).setAlpha(0.2).toHexString(),
+          },
+
+          '&:hover': {
+            overflowY: 'auto',
+          },
+
+          '> li': {
+            margin: 0,
+            padding: 0,
+
+            [`&${componentCls}-time-panel-cell`]: {
+              [`${componentCls}-time-panel-cell-inner`]: {
+                display: 'block',
+                width: '100%',
+                height: token.pickerTimePanelCellHeight,
+                margin: 0,
+                paddingBlock: 0,
+                paddingInlineEnd: 0,
+                paddingInlineStart:
+                  (token.pickerTimePanelColumnWidth - token.pickerTimePanelCellHeight) / 2,
+                color: token.colorText,
+                lineHeight: `${token.pickerTimePanelCellHeight}px`,
+                borderRadius: 0,
+                cursor: 'pointer',
+                transition: `background ${token.motionDurationSlow}`,
+
+                '&:hover': {
+                  background: token.controlItemBgHover,
+                },
+              },
+
+              '&-selected': {
+                [`${componentCls}-time-panel-cell-inner`]: {
+                  background: token.controlItemBgActive,
+                },
+              },
+
+              '&-disabled': {
+                [`${componentCls}-time-panel-cell-inner`]: {
+                  color: token.colorTextDisabled,
+                  background: 'transparent',
+                  cursor: 'not-allowed',
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+  };
+};
+
+const genPickerStatusStyle: GenerateStyle<PickerToken> = token => {
+  const { componentCls } = token;
+
+  return {
+    [componentCls]: {
+      '&-status-error&': {
+        '&, &:not([disabled]):hover': {
+          backgroundColor: token.colorBgComponent,
+          borderColor: token.colorError,
+        },
+
+        '&-focused, &:focus': {
+          ...genActiveStyle(
+            mergeToken<PickerToken>(token, {
+              inputBorderActiveColor: token.colorError,
+              inputBorderHoverColor: token.colorError,
+              colorPrimaryOutline: token.colorErrorOutline,
+            }),
+          ),
+        },
+      },
+
+      '&-status-warning&': {
+        '&, &:not([disabled]):hover': {
+          backgroundColor: token.colorBgComponent,
+          borderColor: token.colorWarning,
+        },
+
+        '&-focused, &:focus': {
+          ...genActiveStyle(
+            mergeToken<PickerToken>(token, {
+              inputBorderActiveColor: token.colorWarning,
+              inputBorderHoverColor: token.colorWarning,
+              colorPrimaryOutline: token.colorWarningOutline,
+            }),
+          ),
+        },
+      },
+    },
   };
 };
 
@@ -238,7 +996,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
         // Active bar
         [`${componentCls}-active-bar`]: {
           bottom: -token.controlLineWidth,
-          height: 2, // FIXME: v4 magic number
+          height: token.lineWidthBold,
           marginInlineStart: token.inputPaddingHorizontal,
           background: token.colorPrimary,
           opacity: 0,
@@ -272,8 +1030,16 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
       // ======================= Dropdown =======================
       '&-dropdown': {
         ...resetComponent(token),
+        ...genPanelStyle(token),
         position: 'absolute',
-        zIndex: token.zIndexDropdown,
+        // Fix incorrect position of picker popup
+        // https://github.com/ant-design/ant-design/issues/35590
+        top: -9999,
+        left: {
+          _skip_check_: true,
+          value: -9999,
+        },
+        zIndex: token.zIndexPopup,
 
         '&&-hidden': {
           display: 'none',
@@ -281,7 +1047,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
 
         '&&-placement-bottomLeft': {
           [`${componentCls}-range-arrow`]: {
-            top: `${token.arrowWidth / 2 - token.arrowWidth / 3 + 0.7}px`,
+            top: `${token.sizePopupArrow / 2 - token.sizePopupArrow / 3 + 0.7}px`,
             display: 'block',
             transform: 'rotate(-135deg) translateY(1px)',
           },
@@ -289,7 +1055,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
 
         '&&-placement-topLeft': {
           [`${componentCls}-range-arrow`]: {
-            bottom: `${token.arrowWidth / 2 - token.arrowWidth / 3 + 0.7}px`,
+            bottom: `${token.sizePopupArrow / 2 - token.sizePopupArrow / 3 + 0.7}px`,
             display: 'block',
             transform: 'rotate(45deg)',
           },
@@ -299,24 +1065,24 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
           &${antCls}-slide-up-enter${antCls}-slide-up-enter-active&-placement-topRight,
           &${antCls}-slide-up-appear${antCls}-slide-up-appear-active&-placement-topLeft,
           &${antCls}-slide-up-appear${antCls}-slide-up-appear-active&-placement-topRight`]: {
-          animationName: slideDownIn.getName(token.hashId),
+          animationName: slideDownIn,
         },
 
         [`&${antCls}-slide-up-enter${antCls}-slide-up-enter-active&-placement-bottomLeft,
           &${antCls}-slide-up-enter${antCls}-slide-up-enter-active&-placement-bottomRight,
           &${antCls}-slide-up-appear${antCls}-slide-up-appear-active&-placement-bottomLeft,
           &${antCls}-slide-up-appear${antCls}-slide-up-appear-active&-placement-bottomRight`]: {
-          animationName: slideUpIn.getName(token.hashId),
+          animationName: slideUpIn,
         },
 
         [`&${antCls}-slide-up-leave${antCls}-slide-up-leave-active&-placement-topLeft,
           &${antCls}-slide-up-leave${antCls}-slide-up-leave-active&-placement-topRight`]: {
-          animationName: slideDownOut.getName(token.hashId),
+          animationName: slideDownOut,
         },
 
         [`&${antCls}-slide-up-leave${antCls}-slide-up-leave-active&-placement-bottomLeft,
           &${antCls}-slide-up-leave${antCls}-slide-up-leave-active&-placement-bottomRight`]: {
-          animationName: slideUpOut.getName(token.hashId),
+          animationName: slideUpOut,
         },
 
         // Time picker with additional style
@@ -362,13 +1128,13 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
           position: 'absolute',
           zIndex: 1,
           display: 'none',
-          width: token.arrowWidth,
-          height: token.arrowWidth,
+          width: token.sizePopupArrow,
+          height: token.sizePopupArrow,
           marginInlineStart: token.inputPaddingHorizontal * 1.5,
           background: `linear-gradient(135deg, transparent 40%, ${token.colorBgComponent} 40%)`, // Use linear-gradient to prevent arrow from covering text
-          boxShadow: `2px 2px 6px -2px fade(#000, 10%)`, // use spread radius to hide shadow over popover, FIXME: v4 magic
+          boxShadow: `2px 2px 6px -2px fade(#000, 10%)`, // use spread radius to hide shadow over popover, FIXME: shadow
           transition: `left ${token.motionDurationSlow} ease-out`,
-          ...roundedArrow(token.arrowWidth, 5, token.colorBgComponent),
+          ...roundedArrow(token.sizePopupArrow, 5, token.colorBgComponent),
         },
 
         [`${componentCls}-panel-container`]: {
@@ -404,7 +1170,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
       },
 
       '&-dropdown-range': {
-        padding: `${(token.arrowWidth * 2) / 3}px 0`,
+        padding: `${(token.sizePopupArrow * 2) / 3}px 0`,
 
         '&-hidden': {
           display: 'none',
@@ -428,793 +1194,40 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
   };
 };
 
-const genPickerCellInnerStyle = (token: PickerToken, cellClassName: string): CSSObject => {
-  const { componentCls } = token;
+export const initPickerPanelToken = (token: TokenWithCommonCls<GlobalToken>): PickerPanelToken => {
+  const pickerTimePanelCellHeight = 28;
 
   return {
-    '&::before': {
-      position: 'absolute',
-      top: '50%',
-      insetInlineStart: 0,
-      insetInlineEnd: 0,
-      zIndex: 1,
-      height: token.pickerPanelCellHeight,
-      transform: 'translateY(-50%)',
-      transition: `all ${token.motionDurationSlow}`,
-      content: '""',
-    },
-
-    // >>> Default
-    [cellClassName]: {
-      position: 'relative',
-      zIndex: 2,
-      display: 'inline-block',
-      minWidth: token.pickerPanelCellHeight,
-      height: token.pickerPanelCellHeight,
-      lineHeight: `${token.pickerPanelCellHeight}px`,
-      borderRadius: token.radiusBase,
-      transition: `background ${token.motionDurationSlow}, border ${token.motionDurationSlow}`,
-    },
-
-    // >>> Hover
-    [`&:hover:not(&-in-view),
-    &:hover:not(&-selected):not(&-range-start):not(&-range-end):not(&-range-hover-start):not(&-range-hover-end)`]:
-      {
-        [cellClassName]: {
-          background: token.controlItemBgHover,
-        },
-      },
-
-    // >>> Today
-    [`&-in-view:is(&-today) ${cellClassName}`]: {
-      '&::before': {
-        position: 'absolute',
-        top: 0,
-        insetInlineEnd: 0,
-        bottom: 0,
-        insetInlineStart: 0,
-        zIndex: 1,
-        border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorPrimary}`,
-        borderRadius: token.radiusBase,
-        content: '""',
-      },
-    },
-
-    // >>> In Range
-    '&-in-view:is(&-in-range)': {
-      position: 'relative',
-
-      '&::before': {
-        background: token.controlItemBgActive,
-      },
-    },
-
-    // >>> Selected
-    [`&-in-view:is(&-selected) ${cellClassName},
-    &-in-view:is(&-range-start) ${cellClassName},
-    &-in-view:is(&-range-end) ${cellClassName}`]: {
-      color: '#fff', // FIXME: text-color-invert
-      background: token.colorPrimary,
-    },
-
-    [`&-in-view:is(&-range-start):not(&-range-start-single),
-      &-in-view:is(&-range-end):not(&-range-end-single)`]: {
-      '&::before': {
-        background: token.controlItemBgActive,
-      },
-    },
-
-    '&-in-view:is(&-range-start)::before': {
-      insetInlineStart: '50%',
-    },
-
-    '&-in-view:is(&-range-end)::before': {
-      insetInlineEnd: '50%',
-    },
-
-    // >>> Range Hover
-    [`&-in-view:is(&-range-hover-start):not(&-in-range):not(&-range-start):not(&-range-end),
-      &-in-view:is(&-range-hover-end):not(&-in-range):not(&-range-start):not(&-range-end),
-      &-in-view:is(&-range-hover-start):is(&-range-start-single),
-      &-in-view:is(&-range-hover-start):is(&-range-start):is(&-range-end):is(&-range-end-near-hover),
-      &-in-view:is(&-range-hover-end):is(&-range-start):is(&-range-end):is(&-range-start-near-hover),
-      &-in-view:is(&-range-hover-end):is(&-range-end-single),
-      &-in-view:is(&-range-hover):not(&-in-range)`]: {
-      '&::after': {
-        position: 'absolute',
-        top: '50%',
-        zIndex: 0,
-        height: token.controlHeightSM,
-        borderTop: `${token.controlLineWidth}px dashed ${token.pickerDateHoverRangeBorderColor}`,
-        borderBottom: `${token.controlLineWidth}px dashed ${token.pickerDateHoverRangeBorderColor}`,
-        transform: 'translateY(-50%)',
-        transition: `all ${token.motionDurationSlow}`,
-        content: '""',
-      },
-    },
-
-    // Add space for stash
-    [`&-range-hover-start::after,
-    &-range-hover-end::after,
-    &-range-hover::after`]: {
-      insetInlineEnd: 0,
-      insetInlineStart: 2, // FIXME: v4 magic number
-    },
-
-    // Hover with in range
-    [`&-in-view:is(&-in-range):is(&-range-hover)::before,
-    &-in-view:is(&-range-start):is(&-range-hover)::before,
-    &-in-view:is(&-range-end):is(&-range-hover)::before,
-    &-in-view:is(&-range-start):not(&-range-start-single):is(&-range-hover-start)::before,
-    &-in-view:is(&-range-end):not(&-range-end-single):is(&-range-hover-end)::before,
-    ${componentCls}-panel
-      > :not(${componentCls}-date-panel)
-    &-in-view:is(&-in-range):is(&-range-hover-start)::before,
-    ${componentCls}-panel
-      > :not(${componentCls}-date-panel)
-    &-in-view:is(&-in-range):is(&-range-hover-end)::before`]: {
-      background: token.pickerBasicCellHoverWithRangeColor,
-    },
-
-    // range start border-radius
-    [`&-in-view:is(&-range-start):not(&-range-start-single):not(&-range-end) ${cellClassName}`]: {
-      borderStartStartRadius: token.radiusBase,
-      borderEndStartRadius: token.radiusBase,
-      borderStartEndRadius: 0,
-      borderEndEndRadius: 0,
-    },
-
-    // range end border-radius
-    [`&-in-view:is(&-range-end):not(&-range-end-single):not(&-range-start) ${cellClassName}`]: {
-      borderStartStartRadius: 0,
-      borderEndStartRadius: 0,
-      borderStartEndRadius: token.radiusBase,
-      borderEndEndRadius: token.radiusBase,
-    },
-
-    // DatePanel only
-    [`${componentCls}-date-panel &-in-view:is(&-in-range):is(&-range-hover-start) ${cellClassName},
-    ${componentCls}-date-panel &-in-view:is(&-in-range):is(&-range-hover-end) ${cellClassName}`]: {
-      '&::after': {
-        position: 'absolute',
-        top: 0,
-        bottom: 0,
-        zIndex: -1,
-        background: token.pickerBasicCellHoverWithRangeColor,
-        transition: `all ${token.motionDurationSlow}`,
-        content: '""',
-      },
-    },
-
-    [`${componentCls}-date-panel
-    &-in-view:is(&-in-range):is(&-range-hover-start)
-    ${cellClassName}::after`]: {
-      insetInlineEnd: -5 - token.controlLineWidth, // FIXME: v4 magic number
-      insetInlineStart: 0,
-    },
-
-    [`${componentCls}-date-panel &-in-view:is(&-in-range):is(&-range-hover-end) ${cellClassName}::after`]:
-      {
-        insetInlineEnd: 0,
-        insetInlineStart: -5 - token.controlLineWidth, // FIXME: v4 magic number
-      },
-
-    // Hover with range start & end
-    '&-range-hover:is(&-range-start)::after': {
-      insetInlineEnd: '50%',
-    },
-
-    '&-range-hover:is(&-range-end)::after': {
-      insetInlineStart: '50%',
-    },
-
-    // Edge start
-    [`tr > &-in-view:is(&-range-hover):first-child::after,
-      tr > &-in-view:is(&-range-hover-end):first-child::after,
-      &-in-view:is(&-start):is(&-range-hover-edge-start):is(&-range-hover-edge-start-near-range)::after,
-      &-in-view:is(&-range-hover-edge-start):not(&-range-hover-edge-start-near-range)::after,
-      &-in-view:is(&-range-hover-start)::after`]: {
-      insetInlineStart: 6, // FIXME: v4 magic number
-      borderInlineStart: `${token.controlLineWidth}px dashed ${token.pickerDateHoverRangeBorderColor}`,
-      borderStartStartRadius: token.controlLineWidth,
-      borderEndStartRadius: token.controlLineWidth,
-    },
-
-    // Edge end
-    [`tr > &-in-view:is(&-range-hover):last-child::after,
-      tr > &-in-view:is(&-range-hover-start):last-child::after,
-      &-in-view:is(&-end):is(&-range-hover-edge-end):is(&-range-hover-edge-end-near-range)::after,
-      &-in-view:is(&-range-hover-edge-end):not(&-range-hover-edge-end-near-range)::after,
-      &-in-view:is(&-range-hover-end)::after`]: {
-      insetInlineEnd: 6, // FIXME: v4 magic number
-      borderInlineEnd: `${token.controlLineWidth}px dashed ${token.pickerDateHoverRangeBorderColor}`,
-      borderStartEndRadius: token.controlLineWidth,
-      borderEndEndRadius: token.controlLineWidth,
-    },
-
-    // >>> Disabled
-    '&-disabled': {
-      color: token.colorTextDisabled,
-      pointerEvents: 'none',
-
-      [cellClassName]: {
-        background: 'transparent',
-      },
-
-      '&::before': {
-        background: new TinyColor({ r: 0, g: 0, b: 0, a: 0.04 }).toRgbString(),
-      },
-    },
-    [`&-disabled:is(&-today) ${cellClassName}::before`]: {
-      borderColor: token.colorTextDisabled,
-    },
-  };
-};
-
-const genPanelStyle: GenerateStyle<PickerToken> = token => {
-  const { componentCls, pickerCellInnerCls } = token;
-
-  const pickerArrowSize = 7; // FIXME: v4 magic number
-  const pickerYearMonthCellWidth = 60; // FIXME: v4 magic number
-  const pickerPanelWidth = token.pickerPanelCellWidth * 7 + token.paddingSM * 2 + 4;
-  const hoverCellFixedDistance =
-    (pickerPanelWidth - token.paddingXS * 2) / 3 - pickerYearMonthCellWidth / 2;
-
-  return {
-    [`${componentCls}-dropdown`]: {
-      [componentCls]: {
-        '&-panel': {
-          display: 'inline-flex',
-          flexDirection: 'column',
-          textAlign: 'center',
-          background: token.colorBgComponent,
-          border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
-          borderRadius: token.radiusBase,
-          outline: 'none',
-
-          '&-focused': {
-            borderColor: token.colorPrimary,
-          },
-
-          '&-rtl': {
-            direction: 'rtl',
-
-            [`${componentCls}-prev-icon,
-              ${componentCls}-super-prev-icon`]: {
-              transform: 'rotate(135deg)',
-            },
-
-            [`${componentCls}-next-icon,
-              ${componentCls}-super-next-icon`]: {
-              transform: 'rotate(-45deg)',
-            },
-          },
-        },
-
-        // ========================================================
-        // =                     Shared Panel                     =
-        // ========================================================
-        [`&-decade-panel,
-        &-year-panel,
-        &-quarter-panel,
-        &-month-panel,
-        &-week-panel,
-        &-date-panel,
-        &-time-panel`]: {
-          display: 'flex',
-          flexDirection: 'column',
-          width: pickerPanelWidth,
-        },
-
-        // ======================= Header =======================
-        '&-header': {
-          display: 'flex',
-          padding: `0 ${token.paddingXS}px`,
-          color: token.colorTextHeading,
-          borderBottom: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
-
-          '> *': {
-            flex: 'none',
-          },
-
-          button: {
-            padding: 0,
-            color: token.colorTextDisabled,
-            lineHeight: `${token.pickerTextHeight}px`,
-            background: 'transparent',
-            border: 0,
-            cursor: 'pointer',
-            transition: `color ${token.motionDurationSlow}`,
-          },
-
-          '> button': {
-            minWidth: '1.6em',
-            fontSize: token.fontSize,
-
-            '&:hover': {
-              color: token.colorText,
-            },
-          },
-
-          '&-view': {
-            flex: 'auto',
-            fontWeight: 500,
-            lineHeight: `${token.pickerTextHeight}px`,
-
-            button: {
-              color: 'inherit',
-              fontWeight: 'inherit',
-
-              '&:not(:first-child)': {
-                marginInlineStart: token.paddingXS,
-              },
-
-              '&:hover': {
-                color: token.colorPrimary,
-              },
-            },
-          },
-        },
-        // Arrow button
-        [`&-prev-icon,
-        &-next-icon,
-        &-super-prev-icon,
-        &-super-next-icon`]: {
-          position: 'relative',
-          display: 'inline-block',
-          width: pickerArrowSize,
-          height: pickerArrowSize,
-
-          '&::before': {
-            position: 'absolute',
-            top: 0,
-            insetInlineStart: 0,
-            display: 'inline-block',
-            width: pickerArrowSize,
-            height: pickerArrowSize,
-            border: `0 solid currentcolor`,
-            borderBlockStart: 1.5, // FIXME: v4 magic
-            borderBlockEnd: 0,
-            borderInlineStart: 1.5, // FIXME: v4 magic
-            borderInlineEnd: 0,
-            content: '""',
-          },
-        },
-
-        [`&-super-prev-icon,
-        &-super-next-icon`]: {
-          '&::after': {
-            position: 'absolute',
-            top: Math.ceil(pickerArrowSize / 2),
-            insetInlineStart: Math.ceil(pickerArrowSize / 2),
-            display: 'inline-block',
-            width: pickerArrowSize,
-            height: pickerArrowSize,
-            border: '0 solid currentcolor',
-            borderBlockStart: 1.5, // FIXME: v4 magic
-            borderBlockEnd: 0,
-            borderInlineStart: 1.5, // FIXME: v4 magic
-            borderInlineEnd: 0,
-            content: '""',
-          },
-        },
-
-        [`&-prev-icon,
-  &-super-prev-icon`]: {
-          transform: 'rotate(-45deg)',
-        },
-
-        [`&-next-icon,
-  &-super-next-icon`]: {
-          transform: 'rotate(135deg)',
-        },
-
-        // ======================== Body ========================
-        '&-content': {
-          width: '100%',
-          tableLayout: 'fixed',
-          borderCollapse: 'collapse',
-
-          'th, td': {
-            position: 'relative',
-            minWidth: 24, // FIXME: v4 magic number
-            fontWeight: 400,
-          },
-
-          th: {
-            height: 30, // FIXME: v4 magic number
-            color: token.colorText,
-            lineHeight: '30px', // FIXME: v4 magic string
-          },
-        },
-
-        '&-cell': {
-          padding: `3px 0`, // FIXME: v4 magic string
-          color: token.colorTextDisabled,
-          cursor: 'pointer',
-
-          // In view
-          '&-in-view': {
-            color: token.colorText,
-          },
-
-          ...genPickerCellInnerStyle(token, pickerCellInnerCls),
-        },
-
-        [`&-decade-panel,
-          &-year-panel,
-          &-quarter-panel,
-          &-month-panel`]: {
-          [`${componentCls}-content`]: {
-            height: token.pickerPanelWithoutTimeCellHeight * 4,
-          },
-
-          [pickerCellInnerCls]: {
-            padding: `0 ${token.paddingXS}px`,
-          },
-        },
-
-        '&-quarter-panel': {
-          [`${componentCls}-content`]: {
-            height: 56, // FIXME: v4 magic number
-          },
-        },
-
-        // ======================== Footer ========================
-        [`&-panel ${componentCls}-footer`]: {
-          borderTop: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorSplit}`,
-        },
-
-        '&-footer': {
-          width: 'min-content',
-          minWidth: '100%',
-          lineHeight: `${token.pickerTextHeight - 2 * token.controlLineWidth}px`,
-          textAlign: 'center',
-          borderBottom: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorSplit}`,
-
-          '&-extra': {
-            padding: `0 ${token.paddingSM}`,
-            lineHeight: `${token.pickerTextHeight - 2 * token.controlLineWidth}px`,
-            textAlign: 'start',
-
-            '&:not(:last-child)': {
-              borderBottom: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
-            },
-          },
-        },
-
-        '&-now': {
-          textAlign: 'start',
-        },
-
-        '&-today-btn': {
-          color: token.colorLink,
-
-          '&:hover': {
-            color: token.colorLinkHover,
-          },
-
-          '&:active': {
-            color: token.colorLinkActive,
-          },
-
-          '&:is(&-disabled)': {
-            color: token.colorTextDisabled,
-            cursor: 'not-allowed',
-          },
-        },
-
-        // ========================================================
-        // =                       Special                        =
-        // ========================================================
-
-        // ===================== Decade Panel =====================
-        '&-decade-panel': {
-          [pickerCellInnerCls]: {
-            padding: `0 ${token.paddingXS / 2}px`,
-          },
-
-          [`${componentCls}-cell::before`]: {
-            display: 'none',
-          },
-        },
-
-        // ============= Year & Quarter & Month Panel =============
-        [`&-year-panel,
-        &-quarter-panel,
-        &-month-panel`]: {
-          [`${componentCls}-body`]: {
-            padding: `0 ${token.paddingXS}px`,
-          },
-
-          [pickerCellInnerCls]: {
-            width: pickerYearMonthCellWidth,
-          },
-
-          [`${componentCls}-cell-range-hover-start::after`]: {
-            insetInlineStart: hoverCellFixedDistance,
-            borderInlineStart: `${token.controlLineWidth}px dashed ${token.pickerDateHoverRangeBorderColor}`,
-            borderStartStartRadius: token.radiusBase,
-            borderBottomStartRadius: token.radiusBase,
-            borderStartEndRadius: 0,
-            borderBottomEndRadius: 0,
-
-            [`${componentCls}-panel-rtl &`]: {
-              insetInlineEnd: hoverCellFixedDistance,
-              borderInlineEnd: `${token.controlLineWidth}px dashed ${token.pickerDateHoverRangeBorderColor}`,
-              borderStartStartRadius: 0,
-              borderBottomStartRadius: 0,
-              borderStartEndRadius: token.radiusBase,
-              borderBottomEndRadius: token.radiusBase,
-            },
-          },
-          [`${componentCls}-cell-range-hover-end::after`]: {
-            insetInlineEnd: hoverCellFixedDistance,
-            borderInlineEnd: `${token.controlLineWidth}px dashed ${token.pickerDateHoverRangeBorderColor}`,
-            borderStartStartRadius: 0,
-            borderBottomStartRadius: 0,
-            borderStartEndRadius: token.radiusBase,
-            borderBottomEndRadius: token.radiusBase,
-
-            [`${componentCls}-panel-rtl &`]: {
-              insetInlineStart: hoverCellFixedDistance,
-              borderInlineStart: `${token.controlLineWidth}px dashed ${token.pickerDateHoverRangeBorderColor}`,
-              borderStartStartRadius: token.radiusBase,
-              borderBottomStartRadius: token.radiusBase,
-              borderStartEndRadius: 0,
-              borderBottomEndRadius: 0,
-            },
-          },
-        },
-
-        // ====================== Week Panel ======================
-        '&-week-panel': {
-          [`${componentCls}-body`]: {
-            padding: `${token.paddingXS}px ${token.paddingSM}px`,
-          },
-
-          // Clear cell style
-          [`${componentCls}-cell`]: {
-            [`&:hover ${pickerCellInnerCls},
-      &-selected ${pickerCellInnerCls},
-      ${pickerCellInnerCls}`]: {
-              background: 'transparent !important',
-            },
-          },
-
-          '&-row': {
-            td: {
-              transition: `background ${token.motionDurationSlow}`,
-            },
-
-            '&:hover td': {
-              background: token.controlItemBgHover,
-            },
-
-            [`&-selected td,
-      &-selected:hover td`]: {
-              background: token.colorPrimary,
-
-              [`&${componentCls}-cell-week`]: {
-                color: new TinyColor({ r: 255, g: 255, b: 255, a: 0.5 }).toRgbString(), // FIXME: fade(@text-color-inverse, 50%)
-              },
-
-              [`&${componentCls}-cell-today ${pickerCellInnerCls}::before`]: {
-                borderColor: '#fff', // FIXME: text color inverse
-              },
-
-              [pickerCellInnerCls]: {
-                color: '#fff', // FIXME: text color inverse
-              },
-            },
-          },
-        },
-
-        // ====================== Date Panel ======================
-        '&-date-panel': {
-          [`${componentCls}-body`]: {
-            padding: `${token.paddingXS}px ${token.paddingSM}px`,
-          },
-
-          [`${componentCls}-content`]: {
-            width: token.pickerPanelCellWidth * 7,
-
-            th: {
-              width: token.pickerPanelCellWidth,
-            },
-          },
-        },
-
-        // ==================== Datetime Panel ====================
-        '&-datetime-panel': {
-          display: 'flex',
-
-          [`${componentCls}-time-panel`]: {
-            borderInlineStart: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
-          },
-
-          [`${componentCls}-date-panel,
-    ${componentCls}-time-panel`]: {
-            transition: `opacity ${token.motionDurationSlow}`,
-          },
-
-          // Keyboard
-          '&-active': {
-            [`${componentCls}-date-panel,
-      ${componentCls}-time-panel`]: {
-              opacity: 0.3,
-
-              '&-active': {
-                opacity: 1,
-              },
-            },
-          },
-        },
-
-        // ====================== Time Panel ======================
-        '&-time-panel': {
-          width: 'auto',
-          minWidth: 'auto',
-          direction: 'ltr',
-
-          [`${componentCls}-content`]: {
-            display: 'flex',
-            flex: 'auto',
-            height: token.pickerTimePanelColumnHeight,
-          },
-
-          '&-column': {
-            flex: '1 0 auto',
-            width: token.pickerTimePanelColumnWidth,
-            margin: 0,
-            padding: 0,
-            overflowY: 'hidden',
-            textAlign: 'start',
-            listStyle: 'none',
-            transition: `background ${token.motionDurationSlow}`,
-
-            '&::after': {
-              display: 'block',
-              height: token.pickerTimePanelColumnHeight - token.pickerTimePanelCellHeight,
-              content: '""',
-              [`${componentCls}-datetime-panel &`]: {
-                height:
-                  token.pickerTimePanelColumnHeight -
-                  token.pickerPanelWithoutTimeCellHeight +
-                  2 * token.controlLineWidth,
-              },
-            },
-
-            '&:not(:first-child)': {
-              borderInlineStart: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorSplit}`,
-            },
-
-            '&-active': {
-              background: token.controlItemBgActive, // FIXME: fade(@calendar-item-active-bg, 20%)
-            },
-
-            '&:hover': {
-              overflowY: 'auto',
-            },
-
-            '> li': {
-              margin: 0,
-              padding: 0,
-
-              [`&${componentCls}-time-panel-cell`]: {
-                [`${componentCls}-time-panel-cell-inner`]: {
-                  display: 'block',
-                  width: '100%',
-                  height: token.pickerTimePanelCellHeight,
-                  margin: 0,
-                  paddingBlock: 0,
-                  paddingInlineEnd: 0,
-                  paddingInlineStart:
-                    (token.pickerTimePanelColumnWidth - token.pickerTimePanelCellHeight) / 2,
-                  color: token.colorText,
-                  lineHeight: `${token.pickerTimePanelCellHeight}px`,
-                  borderRadius: 0,
-                  cursor: 'pointer',
-                  transition: `background ${token.motionDurationSlow}`,
-
-                  '&:hover': {
-                    background: token.controlItemBgHover,
-                  },
-                },
-
-                '&-selected': {
-                  [`${componentCls}-time-panel-cell-inner`]: {
-                    background: token.controlItemBgActive,
-                  },
-                },
-
-                '&-disabled': {
-                  [`${componentCls}-time-panel-cell-inner`]: {
-                    color: token.colorTextDisabled,
-                    background: 'transparent',
-                    cursor: 'not-allowed',
-                  },
-                },
-              },
-            },
-          },
-        },
-      },
-    },
-  };
-};
-
-const genPickerStatusStyle: GenerateStyle<PickerToken> = token => {
-  const { componentCls } = token;
-
-  return {
-    [componentCls]: {
-      '&-status-error&': {
-        '&, &:not([disabled]):hover': {
-          backgroundColor: token.colorBgComponent,
-          borderColor: token.colorError,
-        },
-
-        '&-focused, &:focus': {
-          ...genActiveStyle(
-            mergeToken<PickerToken>(token, {
-              inputBorderActiveColor: token.colorError,
-              inputBorderHoverColor: token.colorError,
-              colorPrimaryOutline: token.colorErrorOutline,
-            }),
-          ),
-        },
-      },
-
-      '&-status-warning&': {
-        '&, &:not([disabled]):hover': {
-          backgroundColor: token.colorBgComponent,
-          borderColor: token.colorWarning,
-        },
-
-        '&-focused, &:focus': {
-          ...genActiveStyle(
-            mergeToken<PickerToken>(token, {
-              inputBorderActiveColor: token.colorWarning,
-              inputBorderHoverColor: token.colorWarning,
-              colorPrimaryOutline: token.colorWarningOutline,
-            }),
-          ),
-        },
-      },
-    },
+    pickerCellInnerCls: `${token.componentCls}-cell-inner`,
+    pickerTextHeight: token.controlHeightLG,
+    pickerPanelCellWidth: token.controlHeightSM * 1.5,
+    pickerPanelCellHeight: token.controlHeightSM,
+    pickerDateHoverRangeBorderColor: new TinyColor(token.colorPrimary).lighten(20).toHexString(),
+    pickerBasicCellHoverWithRangeColor: new TinyColor(token.colorPrimary).lighten(35).toHexString(),
+    pickerPanelWithoutTimeCellHeight: token.controlHeightLG * 1.65,
+    pickerYearMonthCellWidth: token.controlHeightLG * 1.5,
+    pickerTimePanelColumnHeight: pickerTimePanelCellHeight * 8,
+    pickerTimePanelColumnWidth: token.controlHeightLG * 1.4,
+    pickerTimePanelCellHeight,
+    pickerQuarterPanelContentHeight: token.controlHeightLG * 1.4,
+    pickerCellPaddingVertical: token.paddingXXS,
+    pickerCellBorderGap: 2, // Magic for gap between cells
+    pickerControlIconSize: 7,
+    pickerControlIconBorderWidth: 1.5,
   };
 };
 
 // ============================== Export ==============================
 export default genComponentStyleHook(
   'DatePicker',
-  (token, { hashId }) => {
-    const pickerToken = mergeToken<PickerToken>(initInputToken<FullToken<'DatePicker'>>(token), {
-      arrowWidth: 8 * Math.sqrt(2),
-      pickerCellInnerCls: `${token.componentCls}-cell-inner`,
-      hashId,
-    });
-    return [
-      genPickerStyle(pickerToken),
-      genPanelStyle(pickerToken),
-      genPickerStatusStyle(pickerToken),
-      slideDownIn,
-      slideDownOut,
-      slideUpIn,
-      slideUpOut,
-    ];
+  token => {
+    const pickerToken = mergeToken<PickerToken>(
+      initInputToken<FullToken<'DatePicker'>>(token),
+      initPickerPanelToken(token),
+    );
+    return [genPickerStyle(pickerToken), genPickerStatusStyle(pickerToken)];
   },
   token => ({
-    zIndexDropdown: token.zIndexPopup + 50,
-    pickerTextHeight: 40,
-    pickerPanelCellWidth: 36,
-    pickerPanelCellHeight: 24,
-    pickerDateHoverRangeBorderColor: new TinyColor(token.colorPrimary).lighten(20).toRgbString(),
-    pickerBasicCellHoverWithRangeColor: new TinyColor(token.colorPrimary).lighten(35).toRgbString(),
-    pickerPanelWithoutTimeCellHeight: 66,
-    pickerTimePanelColumnHeight: 224,
-    pickerTimePanelColumnWidth: 56,
-    pickerTimePanelCellHeight: 28,
+    zIndexPopup: token.zIndexPopupBase + 50,
   }),
 );

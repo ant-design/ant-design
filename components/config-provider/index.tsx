@@ -1,17 +1,17 @@
 import * as React from 'react';
 import IconContext from '@ant-design/icons/lib/components/Context';
 import { FormProvider as RcFormProvider } from 'rc-field-form';
-import { ValidateMessages } from 'rc-field-form/lib/interface';
+import type { ValidateMessages } from 'rc-field-form/lib/interface';
 import useMemo from 'rc-util/lib/hooks/useMemo';
-import { RenderEmptyHandler } from './renderEmpty';
-import LocaleProvider, { ANT_MARK, Locale } from '../locale-provider';
+import { RenderEmptyHandler } from './defaultRenderEmpty';
+import type { Locale } from '../locale-provider';
+import LocaleProvider, { ANT_MARK } from '../locale-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { ConfigConsumer, ConfigContext, defaultIconPrefixCls } from './context';
 import type { CSPConfig, DirectionType, ConfigConsumerProps, Theme, ThemeConfig } from './context';
-import SizeContext, { SizeContextProvider, SizeType } from './SizeContext';
-import message from '../message';
-import notification from '../notification';
-import { RequiredMark } from '../form/Form';
+import type { SizeType } from './SizeContext';
+import SizeContext, { SizeContextProvider } from './SizeContext';
+import type { RequiredMark } from '../form/Form';
 import { registerTheme } from './cssVariables';
 import defaultLocale from '../locale/default';
 import { DesignTokenContext, useToken } from '../_util/theme';
@@ -121,20 +121,10 @@ export const globalConfig = () => ({
     return suffixCls ? `${getGlobalPrefixCls()}-${suffixCls}` : getGlobalPrefixCls();
   },
   getIconPrefixCls: getGlobalIconPrefixCls,
-  getRootPrefixCls: (rootPrefixCls?: string, customizePrefixCls?: string) => {
-    // Customize rootPrefixCls is first priority
-    if (rootPrefixCls) {
-      return rootPrefixCls;
-    }
-
+  getRootPrefixCls: () => {
     // If Global prefixCls provided, use this
     if (globalPrefixCls) {
       return globalPrefixCls;
-    }
-
-    // [Legacy] If customize prefixCls provided, we cut it to get the prefixCls
-    if (customizePrefixCls && customizePrefixCls.includes('-')) {
-      return customizePrefixCls.replace(/^(.*)-[^-]*$/, '$1');
     }
 
     // Fallback to default prefixCls
@@ -279,34 +269,21 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
   SizeContext: typeof SizeContext;
   config: typeof setGlobalConfig;
   useToken: typeof useToken;
-} = props => {
-  React.useEffect(() => {
-    if (props.direction) {
-      message.config({
-        rtl: props.direction === 'rtl',
-      });
-      notification.config({
-        rtl: props.direction === 'rtl',
-      });
-    }
-  }, [props.direction]);
-
-  return (
-    <LocaleReceiver>
-      {(_, __, legacyLocale) => (
-        <ConfigConsumer>
-          {context => (
-            <ProviderChildren
-              parentContext={context}
-              legacyLocale={legacyLocale as Locale}
-              {...props}
-            />
-          )}
-        </ConfigConsumer>
-      )}
-    </LocaleReceiver>
-  );
-};
+} = props => (
+  <LocaleReceiver>
+    {(_, __, legacyLocale) => (
+      <ConfigConsumer>
+        {context => (
+          <ProviderChildren
+            parentContext={context}
+            legacyLocale={legacyLocale as Locale}
+            {...props}
+          />
+        )}
+      </ConfigConsumer>
+    )}
+  </LocaleReceiver>
+);
 
 ConfigProvider.ConfigContext = ConfigContext;
 ConfigProvider.SizeContext = SizeContext;

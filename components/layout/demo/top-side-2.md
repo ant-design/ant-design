@@ -14,8 +14,10 @@ title:
 Both the top navigation and the sidebar, commonly used in application site.
 
 ```tsx
-import { Layout, Menu, Breadcrumb, MenuProps } from 'antd';
-import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
+import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
+import type { MenuProps } from 'antd';
+import { Breadcrumb, Layout, Menu } from 'antd';
+import React from 'react';
 
 const { Header, Content, Sider } = Layout;
 
@@ -44,7 +46,7 @@ const items2: MenuProps['items'] = [UserOutlined, LaptopOutlined, NotificationOu
   },
 );
 
-export default () => (
+const App: React.FC = () => (
   <Layout>
     <Header className="header">
       <div className="logo" />
@@ -80,6 +82,8 @@ export default () => (
     </Layout>
   </Layout>
 );
+
+export default App;
 ```
 
 ```css
@@ -96,7 +100,7 @@ export default () => (
   margin: 16px 0 16px 24px;
 }
 
-.site-layout-background {
+#components-layout-demo-top-side-2 .site-layout-background {
   background: #fff;
 }
 ```

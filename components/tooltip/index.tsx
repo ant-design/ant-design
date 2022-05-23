@@ -1,15 +1,17 @@
 import * as React from 'react';
 import RcTooltip from 'rc-tooltip';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import { TooltipProps as RcTooltipProps } from 'rc-tooltip/lib/Tooltip';
+import type { TooltipProps as RcTooltipProps } from 'rc-tooltip/lib/Tooltip';
 import classNames from 'classnames';
-import { placements as Placements } from 'rc-tooltip/lib/placements';
+import type { placements as Placements } from 'rc-tooltip/lib/placements';
 import getPlacements, { AdjustOverflow, PlacementsConfig } from '../_util/placements';
 import { cloneElement, isValidElement } from '../_util/reactNode';
 import { ConfigContext } from '../config-provider';
-import { PresetColorType, PresetColorTypes } from '../_util/colors';
-import { LiteralUnion } from '../_util/type';
+import type { PresetColorType } from '../_util/colors';
+import { PresetColorTypes } from '../_util/colors';
+import type { LiteralUnion } from '../_util/type';
 import { getTransitionName } from '../_util/motion';
+import useStyle from './style';
 
 export { AdjustOverflow, PlacementsConfig };
 
@@ -230,10 +232,17 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     [openClassName || `${prefixCls}-open`]: true,
   });
 
-  const customOverlayClassName = classNames(overlayClassName, {
-    [`${prefixCls}-rtl`]: direction === 'rtl',
-    [`${prefixCls}-${color}`]: color && PresetColorRegex.test(color),
-  });
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
+  const customOverlayClassName = classNames(
+    overlayClassName,
+    {
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+      [`${prefixCls}-${color}`]: color && PresetColorRegex.test(color),
+    },
+    hashId,
+  );
 
   let formattedOverlayInnerStyle = overlayInnerStyle;
   let arrowContentStyle;
@@ -243,7 +252,7 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     arrowContentStyle = { '--antd-arrow-background-color': color };
   }
 
-  return (
+  return wrapSSR(
     <RcTooltip
       {...otherProps}
       prefixCls={prefixCls}
@@ -263,7 +272,7 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
       }}
     >
       {tempVisible ? cloneElement(child, { className: childCls }) : child}
-    </RcTooltip>
+    </RcTooltip>,
   );
 });
 

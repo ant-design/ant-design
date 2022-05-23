@@ -138,7 +138,7 @@ describe('Upload List', () => {
       await sleep(1000);
       wrapper.update();
 
-      const domNode = wrapper.find('.ant-upload-list-text-container').at(0).hostNodes().instance();
+      const domNode = wrapper.find('.ant-upload-list-item-container').at(0).hostNodes().instance();
       const transitionEndEvent = new Event('transitionend');
       domNode.dispatchEvent(transitionEndEvent);
       wrapper.update();
@@ -146,7 +146,7 @@ describe('Upload List', () => {
 
     // console.log(wrapper.html());
 
-    expect(wrapper.find('.ant-upload-list-text-container').hostNodes().length).toBe(1);
+    expect(wrapper.find('.ant-upload-list-item-container').hostNodes().length).toBe(1);
 
     wrapper.unmount();
   });
@@ -160,9 +160,13 @@ describe('Upload List', () => {
         expect(wrapper.render()).toMatchSnapshot();
       }
       if (file.status === 'done') {
-        expect(wrapper.render()).toMatchSnapshot();
-        wrapper.unmount();
-        done();
+        (async function run() {
+          await sleep(200);
+          wrapper.update();
+          // expect(wrapper.render()).toMatchSnapshot();
+          wrapper.unmount();
+          done();
+        })();
       }
 
       latestFileList = eventFileList;

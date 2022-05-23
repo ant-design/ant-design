@@ -1,12 +1,7 @@
 // deps-lint-skip-all
-import { CSSObject } from '@ant-design/cssinjs';
-import {
-  resetComponent,
-  GenerateStyle,
-  FullToken,
-  genComponentStyleHook,
-  mergeToken,
-} from '../../_util/theme';
+import type { CSSObject } from '@ant-design/cssinjs';
+import type { GenerateStyle, FullToken } from '../../_util/theme';
+import { resetComponent, genComponentStyleHook, mergeToken } from '../../_util/theme';
 
 interface BreadcrumbToken extends FullToken<'Breadcrumb'> {
   breadcrumbBaseColor: string;
@@ -19,7 +14,7 @@ interface BreadcrumbToken extends FullToken<'Breadcrumb'> {
   breadcrumbSeparatorColor: string;
 }
 
-const genBreakcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = token => {
+const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = token => {
   const { componentCls, iconCls } = token;
 
   return {
@@ -35,6 +30,9 @@ const genBreakcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = token => {
       ol: {
         display: 'flex',
         flexWrap: 'wrap',
+        margin: 0,
+        padding: 0,
+        listStyle: 'none',
       },
 
       a: {
@@ -100,5 +98,5 @@ export default genComponentStyleHook('Breadcrumb', token => {
     breadcrumbSeparatorColor: token.colorTextSecondary,
   });
 
-  return [genBreakcrumbStyle(BreadcrumbToken)];
+  return [genBreadcrumbStyle(BreadcrumbToken)];
 });

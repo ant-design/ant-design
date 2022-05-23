@@ -4,10 +4,11 @@ import classNames from 'classnames';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import DropdownButton from './dropdown-button';
 import { ConfigContext } from '../config-provider';
-import devWarning from '../_util/devWarning';
+import warning from '../_util/warning';
 import { tuple } from '../_util/type';
 import { cloneElement } from '../_util/reactNode';
 import getPlacements from '../_util/placements';
+import useStyle from './style';
 
 const Placements = tuple(
   'topLeft',
@@ -41,7 +42,7 @@ export type DropdownArrowOptions = {
   pointAtCenter?: boolean;
 };
 
-export interface DropDownProps {
+export interface DropdownProps {
   arrow?: boolean | DropdownArrowOptions;
   trigger?: ('click' | 'hover' | 'contextMenu')[];
   overlay: React.ReactElement | OverlayFunc;
@@ -64,7 +65,7 @@ export interface DropDownProps {
   children?: React.ReactNode;
 }
 
-interface DropdownInterface extends React.FC<DropDownProps> {
+interface DropdownInterface extends React.FC<DropdownProps> {
   Button: typeof DropdownButton;
 }
 
@@ -105,7 +106,7 @@ const Dropdown: DropdownInterface = props => {
     const overlayProps = overlayNode.props;
 
     // Warning if use other mode
-    devWarning(
+    warning(
       !overlayProps.mode || overlayProps.mode === 'vertical',
       'Dropdown',
       `mode="${overlayProps.mode}" is not supported for Dropdown's Menu.`,
@@ -143,7 +144,7 @@ const Dropdown: DropdownInterface = props => {
 
     if (placement.includes('Center')) {
       const newPlacement = placement.slice(0, placement.indexOf('Center'));
-      devWarning(
+      warning(
         !placement.includes('Center'),
         'Dropdown',
         `You are using '${placement}' placement in Dropdown, which is deprecated. Try to use '${newPlacement}' instead.`,
@@ -165,6 +166,8 @@ const Dropdown: DropdownInterface = props => {
   } = props;
 
   const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
   const child = React.Children.only(children) as React.ReactElement<any>;
 
   const dropdownTrigger = cloneElement(child, {
@@ -178,7 +181,7 @@ const Dropdown: DropdownInterface = props => {
     disabled,
   });
 
-  const overlayClassNameCustomized = classNames(overlayClassName, {
+  const overlayClassNameCustomized = classNames(overlayClassName, hashId, {
     [`${prefixCls}-rtl`]: direction === 'rtl',
   });
 
@@ -193,7 +196,7 @@ const Dropdown: DropdownInterface = props => {
     autoAdjustOverflow: true,
   });
 
-  return (
+  return wrapSSR(
     <RcDropdown
       alignPoint={alignPoint}
       {...props}
@@ -208,7 +211,7 @@ const Dropdown: DropdownInterface = props => {
       placement={getPlacement()}
     >
       {dropdownTrigger}
-    </RcDropdown>
+    </RcDropdown>,
   );
 };
 

@@ -16,8 +16,8 @@ title:
 When user visit a page with a list of items, and want to create a new item. The page can popup a form in Modal, then let user fill in the form to create an item.
 
 ```tsx
+import { Button, Form, Input, Modal, Radio } from 'antd';
 import React, { useState } from 'react';
-import { Button, Modal, Form, Input, Radio } from 'antd';
 
 interface Values {
   title: string;
@@ -83,7 +83,7 @@ const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
   );
 };
 
-const CollectionsPage = () => {
+const App: React.FC = () => {
   const [visible, setVisible] = useState(false);
 
   const onCreate = (values: any) => {
@@ -112,7 +112,7 @@ const CollectionsPage = () => {
   );
 };
 
-export default () => <CollectionsPage />;
+export default App;
 ```
 
 ```css

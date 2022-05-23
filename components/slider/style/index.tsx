@@ -5,15 +5,10 @@
 // import '../../tooltip/style';
 
 // deps-lint-skip-all
-import * as React from 'react';
-import { CSSObject } from '@ant-design/cssinjs';
-import {
-  GenerateStyle,
-  resetComponent,
-  FullToken,
-  genComponentStyleHook,
-  mergeToken,
-} from '../../_util/theme';
+import type * as React from 'react';
+import type { CSSObject } from '@ant-design/cssinjs';
+import type { GenerateStyle, FullToken } from '../../_util/theme';
+import { resetComponent, genComponentStyleHook, mergeToken } from '../../_util/theme';
 
 // Direction naming standard:
 // Horizontal base:
@@ -282,14 +277,14 @@ const genVerticalStyle: GenerateStyle<SliderToken> = token => {
 // ============================== Export ==============================
 export default genComponentStyleHook(
   'Slider',
-  (token, { hashId }) => {
+  token => {
     const sliderToken = mergeToken<SliderToken>(token, {
       marginPart: (token.controlHeight - token.controlSize) / 2,
       marginFull: token.controlSize / 2,
       marginPartWithMark: token.controlHeightLG - token.controlSize,
     });
     return [
-      genBaseStyle(sliderToken, hashId),
+      genBaseStyle(sliderToken),
       genHorizontalStyle(sliderToken),
       genVerticalStyle(sliderToken),
     ];

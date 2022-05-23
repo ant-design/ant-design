@@ -128,7 +128,6 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | defaultFilteredValue | Default filtered values | string\[] | - |  |
 | filterResetToDefaultFilteredValue | click the reset button, whether to restore the default filter | boolean | false |  |
 | defaultSortOrder | Default order of sorted values | `ascend` \| `descend` | - |  |
-| editable | Whether column can be edited | boolean | false |  |
 | ellipsis | The ellipsis cell content, not working with sorter and filters for now.<br />tableLayout would be `fixed` when `ellipsis` is `true` or `{ showTitle?: boolean }` | boolean \| {showTitle?: boolean } | false | showTitle: 4.3.0 |
 | filterDropdown | Customized filter overlay | ReactNode \| (props: [FilterDropdownProps](https://github.com/ant-design/ant-design/blob/ecc54dda839619e921c0ace530408871f0281c2a/components/table/interface.tsx#L79)) => ReactNode | - |  |
 | filterDropdownVisible | Whether `filterDropdown` is visible | boolean | - |  |
@@ -215,6 +214,7 @@ Properties for row selection.
 | onSelectAll | Callback executed when select/deselect all rows | function(selected, selectedRows, changeRows) | - |  |
 | onSelectInvert | Callback executed when row selection is inverted | function(selectedRowKeys) | - |  |
 | onSelectNone | Callback executed when row selection is cleared | function() | - |  |
+| onSelectMultiple | Callback executed when row selection is changed by pressing shift | function(selected, selectedRows, changeRows) | - |  |
 
 ### scroll
 
@@ -236,7 +236,7 @@ Properties for row selection.
 
 ```tsx
 import { Table } from 'antd';
-import { ColumnsType } from 'antd/es/table';
+import type { ColumnsType } from 'antd/es/table';
 
 interface User {
   key: number;
@@ -317,3 +317,7 @@ Table can not tell what state used in `columns.render`, so it always need fully 
 ### How to handle fixed column display over the mask layout?
 
 Fixed column use `z-index` to make it over other columns. You will find sometime fixed columns also over your mask layout. You can set `z-index` on your mask layout to resolve.
+
+### How to custom render Table Checkbox（For example, adding Tooltip）?
+
+Since `4.1.0`, You can use [`rowSelection.renderCell`](https://ant.design/components/table/#rowSelection) to custom render Table Checkbox. If you want to add Tooltip, please refer to this [demo](https://codesandbox.io/s/table-row-tooltip-v79j2v).

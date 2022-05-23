@@ -2,7 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { composeRef } from 'rc-util/lib/ref';
 import { ConfigContext } from '../config-provider';
-import devWarning from '../_util/devWarning';
+import warning from '../_util/warning';
 import useStyle from './style';
 
 export interface TypographyProps {
@@ -36,7 +36,7 @@ const Typography: React.ForwardRefRenderFunction<{}, InternalTypographyProps> = 
 
   let mergedRef = ref;
   if (setContentRef) {
-    devWarning(false, 'Typography', '`setContentRef` is deprecated. Please use `ref` instead.');
+    warning(false, 'Typography', '`setContentRef` is deprecated. Please use `ref` instead.');
     mergedRef = composeRef(ref, setContentRef);
   }
 

@@ -16,10 +16,7 @@ The most basic usage.
 ```jsx
 import { Segmented } from 'antd';
 
-ReactDOM.render(
-  <Segmented options={['Daily', 'Weekly', 'Monthly', 'Quarterly', 'Yearly']} />,
-  mountNode,
-);
+export default () => <Segmented options={['Daily', 'Weekly', 'Monthly', 'Quarterly', 'Yearly']} />;
 ```
 
 ```css

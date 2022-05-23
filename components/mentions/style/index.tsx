@@ -1,5 +1,7 @@
 // deps-lint-skip-all
-import { FullToken, genComponentStyleHook, GenerateStyle, resetComponent } from '../../_util/theme';
+import type { FullToken, GenerateStyle } from '../../_util/theme';
+import { genComponentStyleHook, resetComponent } from '../../_util/theme';
+import type { InputToken } from '../../input/style';
 import {
   genActiveStyle,
   genBasicInputStyle,
@@ -7,11 +9,10 @@ import {
   genPlaceholderStyle,
   genStatusStyle,
   initInputToken,
-  InputToken,
 } from '../../input/style';
 
 export interface ComponentToken {
-  zIndexDropdown: number;
+  zIndexPopup: number;
   dropdownHeight: number;
   controlItemWidth: number;
 }
@@ -135,7 +136,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
         position: 'absolute',
         top: -9999,
         insetInlineStart: -9999,
-        zIndex: token.zIndexDropdown,
+        zIndex: token.zIndexPopup,
         boxSizing: 'border-box',
         fontSize,
         fontVariant: 'initial',
@@ -225,6 +226,6 @@ export default genComponentStyleHook(
   token => ({
     dropdownHeight: 250,
     controlItemWidth: 100,
-    zIndexDropdown: token.zIndexPopup + 50,
+    zIndexPopup: token.zIndexPopupBase + 50,
   }),
 );

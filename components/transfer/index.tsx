@@ -1,16 +1,22 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import List, { TransferListProps } from './list';
+import type { TransferListProps } from './list';
+import List from './list';
 import Operation from './operation';
 import Search from './search';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
-import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
-import { TransferListBodyProps } from './ListBody';
-import { PaginationType } from './interface';
-import devWarning from '../_util/devWarning';
+import type { ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
+import { ConfigConsumer } from '../config-provider';
+import type { TransferListBodyProps } from './ListBody';
+import type { PaginationType } from './interface';
+import warning from '../_util/warning';
 import { FormItemInputContext } from '../form/context';
-import { getMergedStatus, getStatusClassNames, InputStatus } from '../_util/statusUtils';
+import type { InputStatus } from '../_util/statusUtils';
+import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
+import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+
+import useStyle from './style';
 
 export { TransferListProps } from './list';
 export { TransferOperationProps } from './operation';
@@ -101,6 +107,25 @@ interface TransferState {
   targetSelectedKeys: string[];
 }
 
+interface TransferFCProps {
+  prefixCls: string;
+  className: string;
+  style?: React.CSSProperties;
+  children: React.ReactNode;
+}
+
+const TransferFC: React.FC<TransferFCProps> = props => {
+  const { prefixCls } = props;
+
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
+  return wrapSSR(
+    <div className={classNames(props.className, hashId)} style={props.style}>
+      {props.children}
+    </div>,
+  );
+};
+
 class Transfer<RecordType extends TransferItem = TransferItem> extends React.Component<
   TransferProps<RecordType>,
   TransferState
@@ -133,7 +158,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
       };
     }
 
-    devWarning(
+    warning(
       !pagination || !children,
       'Transfer',
       '`pagination` not support customize render list.',
@@ -372,7 +397,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
               status: customStatus,
             } = this.props;
             const prefixCls = getPrefixCls('transfer', customizePrefixCls);
-            const locale = this.getLocale(transferLocale, renderEmpty);
+            const locale = this.getLocale(transferLocale, renderEmpty || defaultRenderEmpty);
             const { sourceSelectedKeys, targetSelectedKeys } = this.state;
             const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
@@ -396,7 +421,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
             const titles = this.getTitles(locale);
             const selectAllLabels = this.props.selectAllLabels || [];
             return (
-              <div className={cls} style={style}>
+              <TransferFC prefixCls={prefixCls} className={cls} style={style}>
                 <List<KeyWise<RecordType>>
                   prefixCls={`${prefixCls}-list`}
                   titleText={titles[0]}
@@ -458,7 +483,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
                   pagination={mergedPagination}
                   {...locale}
                 />
-              </div>
+              </TransferFC>
             );
           }}
         </FormItemInputContext.Consumer>

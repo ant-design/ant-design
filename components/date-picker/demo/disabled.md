@@ -13,25 +13,32 @@ title:
 
 A disabled state of the `DatePicker`. You can also set as array to disable one of input.
 
-```jsx
+```tsx
 import { DatePicker, Space } from 'antd';
-import moment from 'moment';
+import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
+import React from 'react';
+
+dayjs.extend(customParseFormat);
 
 const { RangePicker } = DatePicker;
 
 const dateFormat = 'YYYY-MM-DD';
-export default () => (
+
+const App: React.FC = () => (
   <Space direction="vertical" size={12}>
-    <DatePicker defaultValue={moment('2015-06-06', dateFormat)} disabled />
-    <DatePicker picker="month" defaultValue={moment('2015-06', 'YYYY-MM')} disabled />
+    <DatePicker defaultValue={dayjs('2015-06-06', dateFormat)} disabled />
+    <DatePicker picker="month" defaultValue={dayjs('2015-06', 'YYYY-MM')} disabled />
     <RangePicker
-      defaultValue={[moment('2015-06-06', dateFormat), moment('2015-06-06', dateFormat)]}
+      defaultValue={[dayjs('2015-06-06', dateFormat), dayjs('2015-06-06', dateFormat)]}
       disabled
     />
     <RangePicker
-      defaultValue={[moment('2019-09-03', dateFormat), moment('2019-11-22', dateFormat)]}
+      defaultValue={[dayjs('2019-09-03', dateFormat), dayjs('2019-11-22', dateFormat)]}
       disabled={[false, true]}
     />
   </Space>
 );
+
+export default App;
 ```

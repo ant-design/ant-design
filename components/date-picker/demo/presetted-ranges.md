@@ -13,30 +13,36 @@ title:
 
 We can set preset ranges to RangePicker to improve user experience.
 
-```jsx
+```tsx
 import { DatePicker, Space } from 'antd';
-import moment from 'moment';
+import type { RangePickerProps } from 'antd/es/date-picker';
+import dayjs from 'dayjs';
+import React from 'react';
 
 const { RangePicker } = DatePicker;
 
-function onChange(dates, dateStrings) {
-  console.log('From: ', dates[0], ', to: ', dates[1]);
-  console.log('From: ', dateStrings[0], ', to: ', dateStrings[1]);
-}
+const onChange: RangePickerProps['onChange'] = (dates, dateStrings) => {
+  if (dates) {
+    console.log('From: ', dates[0], ', to: ', dates[1]);
+    console.log('From: ', dateStrings[0], ', to: ', dateStrings[1]);
+  } else {
+    console.log('Clear');
+  }
+};
 
-export default () => (
+const App: React.FC = () => (
   <Space direction="vertical" size={12}>
     <RangePicker
       ranges={{
-        Today: [moment(), moment()],
-        'This Month': [moment().startOf('month'), moment().endOf('month')],
+        Today: [dayjs(), dayjs()],
+        'This Month': [dayjs().startOf('month'), dayjs().endOf('month')],
       }}
       onChange={onChange}
     />
     <RangePicker
       ranges={{
-        Today: [moment(), moment()],
-        'This Month': [moment().startOf('month'), moment().endOf('month')],
+        Today: [dayjs(), dayjs()],
+        'This Month': [dayjs().startOf('month'), dayjs().endOf('month')],
       }}
       showTime
       format="YYYY/MM/DD HH:mm:ss"
@@ -44,4 +50,6 @@ export default () => (
     />
   </Space>
 );
+
+export default App;
 ```

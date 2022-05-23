@@ -10,6 +10,7 @@ import { FormItemInputContext } from '../form/context';
 import useStyle from './style';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
+import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 
 export const { Option } = RcMentions;
 
@@ -96,7 +97,7 @@ const InternalMentions: React.ForwardRefRenderFunction<unknown, MentionProps> = 
       return notFoundContent;
     }
 
-    return renderEmpty('Select');
+    return (renderEmpty || defaultRenderEmpty)('Select');
   };
 
   const getOptions = () => {

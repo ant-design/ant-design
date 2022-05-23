@@ -9,11 +9,22 @@ import Input from '../../input';
 import Button from '../../button';
 import Select from '../../select';
 
+import Checkbox from '../../checkbox';
+import Radio from '../../radio';
+import TreeSelect from '../../tree-select';
+import Cascader from '../../cascader';
+import DatePicker from '../../date-picker';
+import InputNumber from '../../input-number';
+import Switch from '../../switch';
+
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { sleep, render, fireEvent } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import zhCN from '../../locale/zh_CN';
+
+const { RangePicker } = DatePicker;
+const { TextArea } = Input;
 
 jest.mock('scroll-into-view-if-needed');
 
@@ -870,6 +881,96 @@ describe('Form', () => {
     );
 
     expect(wrapper.find('form').hasClass('ant-form-hide-required-mark')).toBeTruthy();
+  });
+
+  it('form should support disabled', () => {
+    const App = () => {
+      const [componentDisabled, setComponentDisabled] = React.useState(false);
+      const onFormLayoutChange = ({ disabled }) => {
+        setComponentDisabled(disabled);
+      };
+      return (
+        <Form
+          labelCol={{ span: 4 }}
+          wrapperCol={{ span: 14 }}
+          layout="horizontal"
+          initialValues={{ disabled: componentDisabled }}
+          onValuesChange={onFormLayoutChange}
+          disabled={componentDisabled}
+        >
+          <Form.Item label="Form disabled" name="disabled" valuePropName="checked">
+            <Checkbox>disabled</Checkbox>
+          </Form.Item>
+          <Form.Item label="Radio">
+            <Radio.Group>
+              <Radio value="apple"> Apple </Radio>
+              <Radio value="pear"> Pear </Radio>
+            </Radio.Group>
+          </Form.Item>
+          <Form.Item label="Input">
+            <Input />
+          </Form.Item>
+          <Form.Item label="Select">
+            <Select>
+              <Select.Option value="demo">Demo</Select.Option>
+            </Select>
+          </Form.Item>
+          <Form.Item label="TreeSelect">
+            <TreeSelect
+              treeData={[
+                {
+                  title: 'Light',
+                  value: 'light',
+                  children: [{ title: 'Bamboo', value: 'bamboo' }],
+                },
+              ]}
+            />
+          </Form.Item>
+          <Form.Item label="Cascader">
+            <Cascader
+              options={[
+                {
+                  value: 'zhejiang',
+                  label: 'Zhejiang',
+                  children: [
+                    {
+                      value: 'hangzhou',
+                      label: 'Hangzhou',
+                    },
+                  ],
+                },
+              ]}
+            />
+          </Form.Item>
+          <Form.Item label="DatePicker">
+            <DatePicker />
+          </Form.Item>
+          <Form.Item label="RangePicker">
+            <RangePicker />
+          </Form.Item>
+          <Form.Item label="InputNumber">
+            <InputNumber />
+          </Form.Item>
+          <Form.Item label="TextArea">
+            <TextArea rows={4} />
+          </Form.Item>
+          <Form.Item label="Switch" valuePropName="checked">
+            <Switch />
+          </Form.Item>
+          <Form.Item label="Button">
+            <Button>Button</Button>
+          </Form.Item>
+        </Form>
+      );
+    };
+
+    const wrapper = mount(<App />);
+
+    expect(wrapper.render()).toMatchSnapshot();
+    act(() => {
+      wrapper.find('.ant-checkbox-input').at(0).simulate('change');
+    });
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('_internalItemRender api test', () => {

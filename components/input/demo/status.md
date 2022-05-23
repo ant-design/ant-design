@@ -15,10 +15,11 @@ title:
 Add status to Input with `status`, which could be `error` or `warning`.
 
 ```tsx
-import { Input, Space } from 'antd';
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
+import { Input, Space } from 'antd';
+import React from 'react';
 
-const ValidateInputs: React.FC = () => (
+const App: React.FC = () => (
   <Space direction="vertical" style={{ width: '100%' }}>
     <Input status="error" placeholder="Error" />
     <Input status="warning" placeholder="Warning" />
@@ -27,5 +28,5 @@ const ValidateInputs: React.FC = () => (
   </Space>
 );
 
-export default () => <ValidateInputs />;
+export default App;
 ```

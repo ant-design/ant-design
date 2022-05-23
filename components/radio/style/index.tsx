@@ -1,14 +1,10 @@
 // deps-lint-skip-all
-import { CSSInterpolation, Keyframes } from '@ant-design/cssinjs';
+import type { CSSInterpolation } from '@ant-design/cssinjs';
+import { Keyframes } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-import {
-  DerivativeToken,
-  useStyleRegister,
-  useToken,
-  resetComponent,
-  UseComponentStyleResult,
-} from '../../_util/theme';
-import { GlobalToken } from '../../_util/theme/interface';
+import type { DerivativeToken, UseComponentStyleResult } from '../../_util/theme';
+import { useStyleRegister, useToken, resetComponent } from '../../_util/theme';
+import type { GlobalToken } from '../../_util/theme/interface';
 
 // ============================== Tokens ==============================
 interface RadioToken extends DerivativeToken {
@@ -121,11 +117,7 @@ function getGroupRadioStyle(
 }
 
 // Styles from radio-wrapper
-function getRadioBasicStyle(
-  prefixCls: string,
-  hashId: string,
-  token: RadioToken,
-): CSSInterpolation {
+function getRadioBasicStyle(prefixCls: string, token: RadioToken): CSSInterpolation {
   const radioInnerPrefixCls = `${prefixCls}-inner`;
 
   return {
@@ -164,7 +156,9 @@ function getRadioBasicStyle(
         border: `1px solid ${token.radioDotColor}`,
         borderRadius: '50%',
         visibility: 'hidden',
-        animation: `${antRadioEffect.getName(hashId)} 0.36s ease-in-out`,
+        animationName: antRadioEffect,
+        animationDuration: '0.36s',
+        animationTimingFunction: 'ease-in-out',
         animationFillMode: 'both',
         content: '""',
       },
@@ -277,8 +271,6 @@ function getRadioBasicStyle(
         paddingInlineStart: token.paddingXS,
         paddingInlineEnd: token.paddingXS,
       },
-
-      antRadioEffect,
     },
   };
 }
@@ -465,13 +457,12 @@ function getRadioButtonStyle(prefixCls: string, token: RadioToken): CSSInterpola
 // ============================== Export ==============================
 export function getStyle(
   prefixCls: string,
-  hashId: string,
   antPrefix: string,
   token: RadioToken,
 ): CSSInterpolation {
   return [
     getGroupRadioStyle(prefixCls, antPrefix, token),
-    getRadioBasicStyle(prefixCls, hashId, token),
+    getRadioBasicStyle(prefixCls, token),
     getRadioButtonStyle(prefixCls, token),
   ];
 }
@@ -481,7 +472,7 @@ export default function useStyle(prefixCls: string, antPrefix: string): UseCompo
   return [
     useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => {
       const radioToken = getRadioToken(token);
-      return getStyle(prefixCls, hashId, antPrefix, radioToken);
+      return getStyle(prefixCls, antPrefix, radioToken);
     }),
     hashId,
   ];

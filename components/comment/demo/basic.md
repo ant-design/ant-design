@@ -13,16 +13,19 @@ title:
 
 A basic comment with author, avatar, time and actions.
 
-```jsx
+```tsx
+import { DislikeFilled, DislikeOutlined, LikeFilled, LikeOutlined } from '@ant-design/icons';
+import { Avatar, Comment, Tooltip } from 'antd';
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
 import React, { createElement, useState } from 'react';
-import { Comment, Tooltip, Avatar } from 'antd';
-import moment from 'moment';
-import { DislikeOutlined, LikeOutlined, DislikeFilled, LikeFilled } from '@ant-design/icons';
 
-const Demo = () => {
+dayjs.extend(relativeTime);
+
+const App: React.FC = () => {
   const [likes, setLikes] = useState(0);
   const [dislikes, setDislikes] = useState(0);
-  const [action, setAction] = useState(null);
+  const [action, setAction] = useState<string | null>(null);
 
   const like = () => {
     setLikes(1);
@@ -65,15 +68,15 @@ const Demo = () => {
         </p>
       }
       datetime={
-        <Tooltip title={moment().format('YYYY-MM-DD HH:mm:ss')}>
-          <span>{moment().fromNow()}</span>
+        <Tooltip title={dayjs().format('YYYY-MM-DD HH:mm:ss')}>
+          <span>{dayjs().fromNow()}</span>
         </Tooltip>
       }
     />
   );
 };
 
-export default Demo;
+export default App;
 ```
 
 ```css

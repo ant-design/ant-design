@@ -1,27 +1,16 @@
 // deps-lint-skip-all
-import { CSSObject, Keyframes } from '@ant-design/cssinjs';
-import { TinyColor } from '@ctrl/tinycolor';
-import { FullToken, genComponentStyleHook, GenerateStyle, mergeToken } from '../../_util/theme';
+import type { CSSObject } from '@ant-design/cssinjs';
+import { Keyframes } from '@ant-design/cssinjs';
+import type { FullToken, GenerateStyle } from '../../_util/theme';
+import { genComponentStyleHook, mergeToken } from '../../_util/theme';
 
 export interface DrawerToken extends FullToken<'Drawer'> {
-  drawerHeaderCloseSize: number;
   shadow1Right: string;
   shadow1Left: string;
   shadow1Up: string;
   shadow1Down: string;
-  drawerTitleLineHeight: number;
-  closeRight: number;
-  white: string;
-  black: string;
-  paddingMd: number;
-  modalFooterPaddingVertical: number;
-  modalFooterPaddingHorizontal: number;
-  hoverColor: string;
-  borderColorSplit: string;
-  borderStyle: string;
-  textColorSecondary: string;
-  motionEaseOut: string;
-  componentCls: string;
+  drawerFooterPaddingVertical: number;
+  drawerFooterPaddingHorizontal: number;
 }
 
 const antdDrawerFadeIn = new Keyframes('antDrawerFadeIn', {
@@ -30,40 +19,30 @@ const antdDrawerFadeIn = new Keyframes('antDrawerFadeIn', {
 });
 
 // =============================== Base ===============================
-const genBaseStyle: GenerateStyle<DrawerToken> = (
-  token: DrawerToken,
-  hashId: string,
-): CSSObject => {
+const genBaseStyle: GenerateStyle<DrawerToken> = (token: DrawerToken): CSSObject => {
   const {
     componentCls,
     motionEaseOut,
     motionDurationSlow,
     fontSizeLG,
-    drawerTitleLineHeight,
-    white,
-    closeRight,
     paddingLG,
-    paddingMd,
     lineWidth,
-    borderStyle,
     radiusBase,
     fontSize,
     lineHeight,
-    modalFooterPaddingVertical,
-    modalFooterPaddingHorizontal,
-    borderColorSplit,
-    zIndexPopup,
+    drawerFooterPaddingVertical,
+    drawerFooterPaddingHorizontal,
+    zIndexPopupBase,
     colorText,
-    textColorSecondary,
-    hoverColor,
+    padding,
+    lineType,
+    colorSplit,
   } = token;
 
   return {
     [`${componentCls}`]: {
-      // FIXME: Seems useless?
-      // @drawer-header-close-padding: ceil(((drawerHeaderCloseSize - @font-size-lg) / 2));
       position: 'fixed',
-      zIndex: zIndexPopup,
+      zIndex: zIndexPopupBase,
       width: 0,
       height: '100%',
       transition: `width 0s ease ${motionDurationSlow}, height 0s ease ${motionDurationSlow}`,
@@ -78,7 +57,7 @@ const genBaseStyle: GenerateStyle<DrawerToken> = (
           position: 'relative',
           zIndex: 1,
           overflow: 'auto',
-          backgroundColor: white,
+          backgroundColor: token.colorBgComponent,
           backgroundClip: `padding-box`,
           border: 0,
           [`${componentCls}-wrapper-body`]: {
@@ -91,11 +70,11 @@ const genBaseStyle: GenerateStyle<DrawerToken> = (
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
-              padding: `${paddingMd}px ${paddingLG}px`, // FIXME px
+              padding: `${padding}px ${paddingLG}px`,
               color: colorText,
-              background: white,
-              borderBottom: `${lineWidth}px ${borderStyle} ${borderColorSplit}`, // FIXME px
-              borderRadius: `${radiusBase}px ${radiusBase}px 0 0`, // FIXME px
+              background: token.colorBgComponent,
+              borderBottom: `${lineWidth}px ${lineType} ${colorSplit}`,
+              borderRadius: `${radiusBase}px ${radiusBase}px 0 0`,
 
               [`${componentCls}-header-title`]: {
                 display: 'flex',
@@ -106,15 +85,15 @@ const genBaseStyle: GenerateStyle<DrawerToken> = (
                   flex: 1,
                   margin: 0,
                   color: colorText,
-                  fontWeight: 500,
+                  fontWeight: token.fontWeightStrong,
                   fontSize: fontSizeLG,
-                  lineHeight: drawerTitleLineHeight,
+                  lineHeight: token.lineHeightLG,
                 },
                 [`${componentCls}-close`]: {
                   display: 'inline-block',
-                  marginInlineEnd: closeRight,
-                  color: textColorSecondary,
-                  fontWeight: 700,
+                  marginInlineEnd: token.marginSM,
+                  color: token.colorAction,
+                  fontWeight: token.fontWeightStrong,
                   fontSize: fontSizeLG,
                   fontStyle: 'normal',
                   lineHeight: 1,
@@ -128,8 +107,8 @@ const genBaseStyle: GenerateStyle<DrawerToken> = (
                   transition: `color ${motionDurationSlow}`,
                   textRendering: 'auto',
 
-                  [`${componentCls}:focus,${componentCls}:hover`]: {
-                    color: hoverColor,
+                  [`&:focus, &:hover`]: {
+                    color: token.colorActionHover,
                     textDecoration: 'none',
                   },
                 },
@@ -149,8 +128,8 @@ const genBaseStyle: GenerateStyle<DrawerToken> = (
             },
             [`${componentCls}-footer`]: {
               flexShrink: 0,
-              padding: `${modalFooterPaddingVertical}px ${modalFooterPaddingHorizontal}px`, // FIXME px
-              borderTop: `${lineWidth}px ${borderStyle} ${borderColorSplit}`, // FIXME px
+              padding: `${drawerFooterPaddingVertical}px ${drawerFooterPaddingHorizontal}px`,
+              borderTop: `${lineWidth}px ${lineType} ${colorSplit}`,
             },
           },
         },
@@ -161,7 +140,7 @@ const genBaseStyle: GenerateStyle<DrawerToken> = (
         insetInlineStart: 0,
         width: '100%',
         height: 0,
-        backgroundColor: textColorSecondary,
+        backgroundColor: token.colorPopupBg,
         opacity: 0,
         transition: `opacity ${motionDurationSlow} linear, height 0s ease ${motionDurationSlow}`,
         pointerEvents: 'none',
@@ -171,7 +150,9 @@ const genBaseStyle: GenerateStyle<DrawerToken> = (
       height: '100%',
       opacity: 1,
       transition: 'none',
-      animation: `${antdDrawerFadeIn.getName(hashId)} ${motionDurationSlow} ${motionEaseOut}`,
+      animationName: antdDrawerFadeIn,
+      animationDuration: token.motionDurationSlow,
+      animationTimingFunction: motionEaseOut,
       pointerEvents: 'auto',
     },
   };
@@ -273,42 +254,24 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
       insetBlockEnd: lineWidth,
       transform: `translateY(${lineWidth})`,
     },
-
-    // ==================== Hook Components ===================
-    //  FIXME: Seems useless?
-    // .@{picker-prefix-cls} {
-    //   &-clear {
-    //     background: @popover-background,
-    //   }
-    // }
   };
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Drawer', (token, { hashId }) => {
+export default genComponentStyleHook('Drawer', token => {
   const drawerToken = mergeToken<DrawerToken>(token, {
-    black: '#000', // FIXME: hard code
-    white: '#fff', // FIXME: hard code
-    drawerHeaderCloseSize: 56, // FIXME: hard code
+    // FIXME: shadow
     shadow1Right:
-      '6px 0 16px -8px rgba(0, 0, 0, 0.08), 9px 0 28px 0 rgba(0, 0, 0, 0.05),12px 0 48px 16px rgba(0, 0, 0, 0.03)', // FIXME: hard code in v4
+      '6px 0 16px -8px rgba(0, 0, 0, 0.08), 9px 0 28px 0 rgba(0, 0, 0, 0.05),12px 0 48px 16px rgba(0, 0, 0, 0.03)',
     shadow1Left:
-      '-6px 0 16px -8px rgba(0, 0, 0, 0.08), -9px 0 28px 0 rgba(0, 0, 0, 0.05), -12px 0 48px 16px rgba(0, 0, 0, 0.03)', // FIXME: hard code in v4
+      '-6px 0 16px -8px rgba(0, 0, 0, 0.08), -9px 0 28px 0 rgba(0, 0, 0, 0.05), -12px 0 48px 16px rgba(0, 0, 0, 0.03)',
     shadow1Up:
-      '0 -6px 16px -8px rgba(0, 0, 0, 0.32), 0 -9px 28px 0 rgba(0, 0, 0, 0.2),0 -12px 48px 16px rgba(0, 0, 0, 0.12)', // FIXME: hard code in v4
+      '0 -6px 16px -8px rgba(0, 0, 0, 0.32), 0 -9px 28px 0 rgba(0, 0, 0, 0.2),0 -12px 48px 16px rgba(0, 0, 0, 0.12)',
     shadow1Down:
-      '0 6px 16px -8px rgba(0, 0, 0, 0.32), 0 9px 28px 0 rgba(0, 0, 0, 0.2), 0 12px 48px 16px rgba(0, 0, 0, 0.12)', // FIXME: hard code in v4
-    drawerTitleLineHeight: 1.375, // FIXME: hard code
-    closeRight: 22, // FIXME: hard code
-    paddingMd: 16, // FIXME: hard code
-    modalFooterPaddingVertical: 10, // FIXME: hard code
-    modalFooterPaddingHorizontal: 16, // FIXME: hard code
-    borderColorSplit: new TinyColor({ h: 0, s: 0, v: 94 }).toHexString(), // FIXME: hard code
-    hoverColor: new TinyColor('#000').setAlpha(0.75).toRgbString(), // FIXME: hard code
-    textColorSecondary: new TinyColor('#000').setAlpha(0.45).toRgbString(), // FIXME: hard code
-    borderStyle: 'solid', // FIXME: hard code
-    motionEaseOut: 'cubic-bezier(0.215, 0.61, 0.355, 1)', // FIXME: hard code
+      '0 6px 16px -8px rgba(0, 0, 0, 0.32), 0 9px 28px 0 rgba(0, 0, 0, 0.2), 0 12px 48px 16px rgba(0, 0, 0, 0.12)',
+    drawerFooterPaddingVertical: token.paddingXS,
+    drawerFooterPaddingHorizontal: token.padding,
   });
 
-  return [genBaseStyle(drawerToken, hashId), genDrawerStyle(drawerToken), antdDrawerFadeIn];
+  return [genBaseStyle(drawerToken), genDrawerStyle(drawerToken)];
 });

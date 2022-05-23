@@ -13,8 +13,9 @@ title:
 
 In accordion mode, only one panel can be expanded at a time.
 
-```jsx
+```tsx
 import { Collapse } from 'antd';
+import React from 'react';
 
 const { Panel } = Collapse;
 
@@ -24,7 +25,7 @@ const text = `
   it can be found as a welcome guest in many households across the world.
 `;
 
-export default () => (
+const App: React.FC = () => (
   <Collapse accordion>
     <Panel header="This is panel header 1" key="1">
       <p>{text}</p>
@@ -37,4 +38,6 @@ export default () => (
     </Panel>
   </Collapse>
 );
+
+export default App;
 ```

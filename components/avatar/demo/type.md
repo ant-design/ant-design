@@ -14,10 +14,11 @@ title:
 Image, Icon and letter are supported, and the latter two kinds of avatar can have custom colors and background colors.
 
 ```tsx
-import { Avatar, Image } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
+import { Avatar, Image } from 'antd';
+import React from 'react';
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Avatar icon={<UserOutlined />} />
     <Avatar>U</Avatar>
@@ -28,6 +29,8 @@ export default () => (
     <Avatar style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} />
   </>
 );
+
+export default App;
 ```
 
 <style>

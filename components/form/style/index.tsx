@@ -1,5 +1,6 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
+import { antZoomIn } from '../../style/motion/zoom';
 import type { AliasToken, FullToken, GenerateStyle } from '../../_util/theme';
 import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
 
@@ -295,7 +296,9 @@ const genFormItemStyle: GenerateStyle<FormToken> = token => {
         fontSize: token.fontSize,
         textAlign: 'center',
         visibility: 'visible',
-        animation: `zoomIn ${token.motionDurationMid} ${token.motionEaseOutBack}`,
+        animationName: antZoomIn,
+        animationDuration: token.motionDurationMid,
+        animationTimingFunction: token.motionEaseOutBack,
         pointerEvents: 'none',
 
         '&-success': {
@@ -534,5 +537,6 @@ export default genComponentStyleHook('Form', (token, { rootPrefixCls }) => {
     genHorizontalStyle(formToken),
     genInlineStyle(formToken),
     genVerticalStyle(formToken),
+    antZoomIn,
   ];
 });

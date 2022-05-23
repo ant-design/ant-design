@@ -1,6 +1,6 @@
 import React from 'react';
 import MockDate from 'mockdate';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import { mount } from 'enzyme';
 import { fireEvent, render } from '@testing-library/react';
 import Statistic from '..';
@@ -15,7 +15,7 @@ describe('Statistic', () => {
   rtlTest(Statistic);
 
   beforeAll(() => {
-    MockDate.set(moment('2018-11-28 00:00:00').valueOf());
+    MockDate.set(dayjs('2018-11-28 00:00:00').valueOf());
   });
 
   afterAll(() => {
@@ -51,6 +51,20 @@ describe('Statistic', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
+  it('allow negetive precision', () => {
+    [
+      [-1, -1112893.1212, '-1,112,893'],
+      [-2, -1112893.1212, '-1,112,893'],
+      [-3, -1112893.1212, '-1,112,893'],
+      [-1, -1112893, '-1,112,893'],
+      [-1, 1112893, '1,112,893'],
+    ].forEach(([precision, value, expectValue]) => {
+      const wrapper = mount(<Statistic precision={precision} value={value} />);
+      expect(wrapper.find('.ant-statistic-content-value-int').text()).toEqual(expectValue);
+      expect(wrapper.find('.ant-statistic-content-value-decimal').length).toBe(0);
+    });
+  });
+
   it('loading with skeleton', async () => {
     let loading = false;
     const wrapper = mount(<Statistic title="Active Users" value={112112} loading={loading} />);
@@ -65,7 +79,7 @@ describe('Statistic', () => {
 
   describe('Countdown', () => {
     it('render correctly', () => {
-      const now = moment().add(2, 'd').add(11, 'h').add(28, 'm').add(9, 's').add(3, 'ms');
+      const now = dayjs().add(2, 'd').add(11, 'h').add(28, 'm').add(9, 's').add(3, 'ms');
 
       [
         ['H:m:s', '59:28:9'],
@@ -151,7 +165,7 @@ describe('Statistic', () => {
         const onFinish = jest.fn();
         const wrapper = mount(<Statistic.Countdown value={now} onFinish={onFinish} />);
         wrapper.update();
-        MockDate.set(moment('2019-11-28 00:00:00').valueOf());
+        MockDate.set(dayjs('2019-11-28 00:00:00').valueOf());
         await sleep(100);
         expect(onFinish).toHaveBeenCalled();
       });

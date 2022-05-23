@@ -1,9 +1,9 @@
-import { Moment } from 'moment';
+import type { Dayjs } from 'dayjs';
 import * as React from 'react';
 import DatePicker from '../date-picker';
-import { PickerTimeProps, RangePickerTimeProps } from '../date-picker/generatePicker';
-import devWarning from '../_util/devWarning';
-import { InputStatus } from '../_util/statusUtils';
+import type { PickerTimeProps, RangePickerTimeProps } from '../date-picker/generatePicker';
+import warning from '../_util/warning';
+import type { InputStatus } from '../_util/statusUtils';
 
 const { TimePicker: InternalTimePicker, RangePicker: InternalRangePicker } = DatePicker;
 
@@ -12,7 +12,7 @@ export interface TimePickerLocale {
   rangePlaceholder?: [string, string];
 }
 
-export interface TimeRangePickerProps extends Omit<RangePickerTimeProps<Moment>, 'picker'> {
+export interface TimeRangePickerProps extends Omit<RangePickerTimeProps<Dayjs>, 'picker'> {
   popupClassName?: string;
 }
 
@@ -26,7 +26,7 @@ const RangePicker = React.forwardRef<any, TimeRangePickerProps>((props, ref) => 
   />
 ));
 
-export interface TimePickerProps extends Omit<PickerTimeProps<Moment>, 'picker'> {
+export interface TimePickerProps extends Omit<PickerTimeProps<Dayjs>, 'picker'> {
   addon?: () => React.ReactNode;
   popupClassName?: string;
   status?: InputStatus;
@@ -39,7 +39,7 @@ const TimePicker = React.forwardRef<any, TimePickerProps>(
         return renderExtraFooter;
       }
       if (addon) {
-        devWarning(
+        warning(
           false,
           'TimePicker',
           '`addon` is deprecated. Please use `renderExtraFooter` instead.',

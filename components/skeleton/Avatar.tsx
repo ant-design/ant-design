@@ -2,8 +2,9 @@ import * as React from 'react';
 import omit from 'rc-util/lib/omit';
 import classNames from 'classnames';
 import { ConfigContext } from '../config-provider';
-import Element, { SkeletonElementProps } from './Element';
 import useStyle from './style';
+import type { SkeletonElementProps } from './Element';
+import Element from './Element';
 
 export interface AvatarProps extends Omit<SkeletonElementProps, 'shape'> {
   shape?: 'circle' | 'square';

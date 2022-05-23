@@ -1,32 +1,40 @@
-import * as React from 'react';
+import React, { Children, forwardRef, useContext } from 'react';
+import type {
+  CSSProperties,
+  FC,
+  ForwardRefExoticComponent,
+  ForwardRefRenderFunction,
+  HTMLAttributes,
+  ReactElement,
+  ReactNode,
+} from 'react';
 import classNames from 'classnames';
-import { ListGridType, ListContext } from './index';
+import { ListContext } from './index';
 import { Col } from '../grid';
 import { ConfigContext } from '../config-provider';
 import { cloneElement } from '../_util/reactNode';
 
-export interface ListItemProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ListItemProps extends HTMLAttributes<HTMLDivElement> {
   className?: string;
-  children?: React.ReactNode;
+  children?: ReactNode;
   prefixCls?: string;
-  style?: React.CSSProperties;
-  extra?: React.ReactNode;
-  actions?: React.ReactNode[];
-  grid?: ListGridType;
-  colStyle?: React.CSSProperties;
+  style?: CSSProperties;
+  extra?: ReactNode;
+  actions?: ReactNode[];
+  colStyle?: CSSProperties;
 }
 
 export interface ListItemMetaProps {
-  avatar?: React.ReactNode;
+  avatar?: ReactNode;
   className?: string;
-  children?: React.ReactNode;
-  description?: React.ReactNode;
+  children?: ReactNode;
+  description?: ReactNode;
   prefixCls?: string;
-  style?: React.CSSProperties;
-  title?: React.ReactNode;
+  style?: CSSProperties;
+  title?: ReactNode;
 }
 
-export const Meta: React.FC<ListItemMetaProps> = ({
+export const Meta: FC<ListItemMetaProps> = ({
   prefixCls: customizePrefixCls,
   className,
   avatar,
@@ -34,7 +42,7 @@ export const Meta: React.FC<ListItemMetaProps> = ({
   description,
   ...others
 }) => {
-  const { getPrefixCls } = React.useContext(ConfigContext);
+  const { getPrefixCls } = useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('list', customizePrefixCls);
   const classString = classNames(`${prefixCls}-item-meta`, className);
@@ -54,30 +62,26 @@ export const Meta: React.FC<ListItemMetaProps> = ({
   );
 };
 
-export interface ListItemTypeProps extends React.FC<ListItemProps> {
+export interface ListItemTypeProps
+  extends ForwardRefExoticComponent<ListItemProps & React.RefAttributes<HTMLElement>> {
   Meta: typeof Meta;
 }
 
-const Item: ListItemTypeProps = ({
-  prefixCls: customizePrefixCls,
-  children,
-  actions,
-  extra,
-  className,
-  colStyle,
-  ...others
-}) => {
-  const { grid, itemLayout } = React.useContext(ListContext);
-  const { getPrefixCls } = React.useContext(ConfigContext);
+const InternalItem: ForwardRefRenderFunction<HTMLDivElement, ListItemProps> = (
+  { prefixCls: customizePrefixCls, children, actions, extra, className, colStyle, ...others },
+  ref,
+) => {
+  const { grid, itemLayout } = useContext(ListContext);
+  const { getPrefixCls } = useContext(ConfigContext);
 
   const isItemContainsTextNodeAndNotSingular = () => {
     let result;
-    React.Children.forEach(children, (element: React.ReactElement<any>) => {
+    Children.forEach(children, (element: ReactElement<any>) => {
       if (typeof element === 'string') {
         result = true;
       }
     });
-    return result && React.Children.count(children) > 1;
+    return result && Children.count(children) > 1;
   };
 
   const isFlexMode = () => {
@@ -90,7 +94,7 @@ const Item: ListItemTypeProps = ({
   const prefixCls = getPrefixCls('list', customizePrefixCls);
   const actionsContent = actions && actions.length > 0 && (
     <ul className={`${prefixCls}-item-action`} key="actions">
-      {actions.map((action: React.ReactNode, i: number) => (
+      {actions.map((action: ReactNode, i: number) => (
         // eslint-disable-next-line react/no-array-index-key
         <li key={`${prefixCls}-item-action-${i}`}>
           {action}
@@ -103,6 +107,7 @@ const Item: ListItemTypeProps = ({
   const itemChildren = (
     <Element
       {...(others as any)} // `li` element `onCopy` prop args is not same as `div`
+      {...(!grid ? { ref } : {})}
       className={classNames(
         `${prefixCls}-item`,
         {
@@ -126,13 +131,14 @@ const Item: ListItemTypeProps = ({
   );
 
   return grid ? (
-    <Col flex={1} style={colStyle}>
+    <Col ref={ref} flex={1} style={colStyle}>
       {itemChildren}
     </Col>
   ) : (
     itemChildren
   );
 };
+const Item = forwardRef(InternalItem) as ListItemTypeProps;
 
 Item.Meta = Meta;
 

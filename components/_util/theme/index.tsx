@@ -1,52 +1,38 @@
 import React from 'react';
-import { CSSInterpolation, Theme, useCacheToken, useStyleRegister } from '@ant-design/cssinjs';
+import type { CSSInterpolation } from '@ant-design/cssinjs';
+import { Theme, useCacheToken, useStyleRegister } from '@ant-design/cssinjs';
 import genComponentStyleHook from './util/genComponentStyleHook';
 import defaultSeedToken, { derivative as defaultDerivative } from './themes/default';
 import version from '../../version';
-import { resetComponent, resetIcon, clearFix, roundedArrow } from './util';
+import { resetComponent, resetIcon, clearFix, roundedArrow, operationUnit } from './util';
 import formatToken from './util/alias';
-import {
-  initSlideMotion,
-  slideUpIn,
-  slideUpOut,
-  slideDownIn,
-  slideDownOut,
-  slideLeftIn,
-  slideLeftOut,
-  slideRightIn,
-  slideRightOut,
-} from './util/slide';
-import statisticToken, { merge as mergeToken } from './util/statistic';
-import { GlobalToken, PresetColors } from './interface';
+import statisticToken, { merge as mergeToken, statistic } from './util/statistic';
+import { PresetColors } from './interface';
 import type {
   SeedToken,
   DerivativeToken,
   AliasToken,
   OverrideToken,
   PresetColorType,
+  GlobalToken,
 } from './interface';
 import type { FullToken } from './util/genComponentStyleHook';
 
 export {
-  PresetColors,
+  // css utils
   resetComponent,
   resetIcon,
   clearFix,
   roundedArrow,
-  initSlideMotion,
-  slideUpIn,
-  slideUpOut,
-  slideDownIn,
-  slideDownOut,
-  slideLeftIn,
-  slideLeftOut,
-  slideRightIn,
-  slideRightOut,
-  useStyleRegister,
+  operationUnit,
+  // colors
+  PresetColors,
   // Statistic
+  statistic,
   statisticToken,
   mergeToken,
-  // GenComponentStyleHook
+  // hooks
+  useStyleRegister,
   genComponentStyleHook,
 };
 
@@ -73,6 +59,11 @@ export const DesignTokenContext = React.createContext<{
 });
 
 // ================================== Hook ==================================
+// In dev env, we refresh salt per hour to avoid user use this
+// Note: Do not modify this to real time update which will make debug harder
+const saltPrefix =
+  process.env.NODE_ENV === 'production' ? version : `${version}-${new Date().getHours()}`;
+
 export function useToken(): [Theme<SeedToken, DerivativeToken>, GlobalToken, string] {
   const {
     token: rootDesignToken,
@@ -81,7 +72,7 @@ export function useToken(): [Theme<SeedToken, DerivativeToken>, GlobalToken, str
     hashed,
   } = React.useContext(DesignTokenContext);
 
-  const salt = `${version}-${hashed || ''}`;
+  const salt = `${saltPrefix}-${hashed || ''}`;
 
   const [token, hashId] = useCacheToken<GlobalToken, SeedToken>(
     theme,
@@ -100,5 +91,4 @@ export type UseComponentStyleResult = [(node: React.ReactNode) => React.ReactEle
 
 export type GenerateStyle<ComponentToken extends object, ReturnType = CSSInterpolation> = (
   token: ComponentToken,
-  hashId?: string,
 ) => ReturnType;

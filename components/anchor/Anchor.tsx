@@ -3,10 +3,13 @@ import classNames from 'classnames';
 import memoizeOne from 'memoize-one';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import Affix from '../affix';
-import { ConfigContext, ConfigConsumerProps } from '../config-provider';
+import type { ConfigConsumerProps } from '../config-provider';
+import { ConfigContext } from '../config-provider';
 import scrollTo from '../_util/scrollTo';
 import getScroll from '../_util/getScroll';
 import AnchorContext from './context';
+
+import useStyle from './style';
 
 export type AnchorContainer = HTMLElement | Window;
 
@@ -63,6 +66,7 @@ export interface AnchorProps {
 
 interface InternalAnchorProps extends AnchorProps {
   anchorPrefixCls: string;
+  rootClassName: string;
 }
 
 export interface AnchorState {
@@ -279,6 +283,7 @@ class Anchor extends React.Component<InternalAnchorProps, AnchorState, ConfigCon
       showInkInFixed,
       children,
       onClick,
+      rootClassName,
     } = this.props;
     const { activeLink } = this.state;
 
@@ -292,6 +297,7 @@ class Anchor extends React.Component<InternalAnchorProps, AnchorState, ConfigCon
     });
 
     const wrapperClass = classNames(
+      rootClassName,
       `${prefixCls}-wrapper`,
       {
         [`${prefixCls}-rtl`]: direction === 'rtl',
@@ -343,13 +349,16 @@ const AnchorFC = React.forwardRef<Anchor, AnchorProps>((props, ref) => {
 
   const anchorPrefixCls = getPrefixCls('anchor', customizePrefixCls);
 
+  const [wrapSSR, hashId] = useStyle(anchorPrefixCls);
+
   const anchorProps: InternalAnchorProps = {
     ...props,
 
     anchorPrefixCls,
+    rootClassName: hashId,
   };
 
-  return <Anchor {...anchorProps} ref={ref} />;
+  return wrapSSR(<Anchor {...anchorProps} ref={ref} />);
 });
 
 export default AnchorFC;

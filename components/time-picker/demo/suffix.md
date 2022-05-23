@@ -14,20 +14,27 @@ title:
 
 Click `TimePicker`, and then we could select or input a time in panel.
 
-```jsx
-import { TimePicker } from 'antd';
-import moment from 'moment';
+```tsx
 import { SmileOutlined } from '@ant-design/icons';
+import { TimePicker } from 'antd';
+import type { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
+import React from 'react';
 
-function onChange(time, timeString) {
+dayjs.extend(customParseFormat);
+
+const onChange = (time: Dayjs, timeString: string) => {
   console.log(time, timeString);
-}
+};
 
-export default () => (
+const App: React.FC = () => (
   <TimePicker
     suffixIcon={<SmileOutlined />}
     onChange={onChange}
-    defaultOpenValue={moment('00:00:00', 'HH:mm:ss')}
+    defaultOpenValue={dayjs('00:00:00', 'HH:mm:ss')}
   />
 );
+
+export default App;
 ```

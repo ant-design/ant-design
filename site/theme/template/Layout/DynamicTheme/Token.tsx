@@ -1,7 +1,8 @@
 /* eslint-disable react/no-array-index-key */
 import * as React from 'react';
-import { Table, Space, TableProps, ConfigProvider, Select, Row, Col, Alert } from 'antd';
-import { statistic } from '../../../../../components/_util/theme/util/statistic';
+import type { TableProps } from 'antd';
+import { Table, Space, ConfigProvider, Select, Row, Col, Alert } from 'antd';
+import { statistic } from '../../../../../components/_util/theme';
 
 const columns: TableProps<{ name: string; value: any }>['columns'] = [
   {

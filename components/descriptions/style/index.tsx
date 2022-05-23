@@ -1,12 +1,7 @@
 // deps-lint-skip-all
-import { CSSObject } from '@ant-design/cssinjs';
-import {
-  FullToken,
-  genComponentStyleHook,
-  GenerateStyle,
-  mergeToken,
-  resetComponent,
-} from '../../_util/theme';
+import type { CSSObject } from '@ant-design/cssinjs';
+import type { FullToken, GenerateStyle } from '../../_util/theme';
+import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
 
 interface DescriptionsToken extends FullToken<'Descriptions'> {
   descriptionsTitleMarginBottom: number;
@@ -180,7 +175,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
           },
         },
       },
-      [`${componentCls}-middle`]: {
+      '&-middle': {
         [`${componentCls}-row`]: {
           '> th, > td': {
             // FIXME: hardcode in v4
@@ -188,7 +183,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
           },
         },
       },
-      [`${componentCls}-small`]: {
+      '&-small': {
         [`${componentCls}-row`]: {
           '> th, > td': {
             // FIXME: hardcode in v4

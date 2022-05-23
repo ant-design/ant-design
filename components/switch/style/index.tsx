@@ -1,13 +1,8 @@
 // deps-lint-skip-all
 import { TinyColor } from '@ctrl/tinycolor';
-import { CSSObject } from '@ant-design/cssinjs';
-import {
-  resetComponent,
-  GenerateStyle,
-  FullToken,
-  genComponentStyleHook,
-  mergeToken,
-} from '../../_util/theme';
+import type { CSSObject } from '@ant-design/cssinjs';
+import type { GenerateStyle, FullToken } from '../../_util/theme';
+import { resetComponent, genComponentStyleHook, mergeToken } from '../../_util/theme';
 
 interface SwitchToken extends FullToken<'Switch'> {
   switchMinWidth: number;
@@ -158,7 +153,7 @@ const genSwitchStyle = (token: SwitchToken): CSSObject => {
       height: token.switchHeight,
       lineHeight: `${token.switchHeight}px`,
       verticalAlign: 'middle',
-      backgroundImage: `linear-gradient(to right, ${token.colorTextDisabled}, ${token.colorTextDisabled}), linear-gradient(to right, #fff, #fff)`,
+      backgroundImage: `linear-gradient(to right, ${token.colorTextDisabled}, ${token.colorTextDisabled}), linear-gradient(to right, ${token.colorBgComponent}, ${token.colorBgComponent})`,
       border: '0',
       borderRadius: 100,
       cursor: 'pointer',
