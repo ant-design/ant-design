@@ -4845,10 +4845,10 @@ exports[`renders ./components/table/demo/edit-cell.md extend context correctly 1
                               role="tooltip"
                             >
                               <div
-                                class="ant-popover-inner-content"
+                                class="ant-popconfirm-inner-content"
                               >
                                 <div
-                                  class="ant-popover-message"
+                                  class="ant-popconfirm-message"
                                 >
                                   <span
                                     aria-label="exclamation-circle"
@@ -4870,13 +4870,13 @@ exports[`renders ./components/table/demo/edit-cell.md extend context correctly 1
                                     </svg>
                                   </span>
                                   <div
-                                    class="ant-popover-message-title"
+                                    class="ant-popconfirm-message-title"
                                   >
                                     Sure to delete?
                                   </div>
                                 </div>
                                 <div
-                                  class="ant-popover-buttons"
+                                  class="ant-popconfirm-buttons"
                                 >
                                   <button
                                     class="ant-btn ant-btn-default ant-btn-sm"
@@ -4952,10 +4952,10 @@ exports[`renders ./components/table/demo/edit-cell.md extend context correctly 1
                               role="tooltip"
                             >
                               <div
-                                class="ant-popover-inner-content"
+                                class="ant-popconfirm-inner-content"
                               >
                                 <div
-                                  class="ant-popover-message"
+                                  class="ant-popconfirm-message"
                                 >
                                   <span
                                     aria-label="exclamation-circle"
@@ -4977,13 +4977,13 @@ exports[`renders ./components/table/demo/edit-cell.md extend context correctly 1
                                     </svg>
                                   </span>
                                   <div
-                                    class="ant-popover-message-title"
+                                    class="ant-popconfirm-message-title"
                                   >
                                     Sure to delete?
                                   </div>
                                 </div>
                                 <div
-                                  class="ant-popover-buttons"
+                                  class="ant-popconfirm-buttons"
                                 >
                                   <button
                                     class="ant-btn ant-btn-default ant-btn-sm"
