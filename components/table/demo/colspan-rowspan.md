@@ -18,24 +18,37 @@ Table column title supports `colSpan` that set in `column`.
 
 Table cell supports `colSpan` and `rowSpan` that set in render return object. When each of them is set to `0`, the cell will not be rendered.
 
-```jsx
+```tsx
 import { Table } from 'antd';
+import type { ColumnsType } from 'antd/lib/table';
+import React from 'react';
+
+interface DataType {
+  key: string;
+  name: string;
+  age: number;
+  tel: string;
+  phone: number;
+  address: string;
+}
 
 // In the fifth row, other columns are merged into first column
 // by setting it's colSpan to be 0
-const sharedOnCell = (_, index) => {
+const sharedOnCell = (_: DataType, index: number) => {
   if (index === 4) {
     return { colSpan: 0 };
   }
+
+  return {};
 };
 
-const columns = [
+const columns: ColumnsType<DataType> = [
   {
     title: 'Name',
     dataIndex: 'name',
-    render: (text, row, index) => <a>{text}</a>,
+    render: text => <a>{text}</a>,
     onCell: (_, index) => ({
-      colSpan: index < 4 ? 1 : 5,
+      colSpan: (index as number) < 4 ? 1 : 5,
     }),
   },
   {
@@ -58,6 +71,8 @@ const columns = [
       if (index === 4) {
         return { colSpan: 0 };
       }
+
+      return {};
     },
   },
   {
@@ -73,7 +88,7 @@ const columns = [
   },
 ];
 
-const data = [
+const data: DataType[] = [
   {
     key: '1',
     name: 'John Brown',
@@ -116,5 +131,7 @@ const data = [
   },
 ];
 
-export default () => <Table columns={columns} dataSource={data} bordered />;
+const App: React.FC = () => <Table columns={columns} dataSource={data} bordered />;
+
+export default App;
 ```

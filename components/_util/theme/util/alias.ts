@@ -72,6 +72,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
 
     lineHeight: lineHeights[1],
     lineHeightLG: lineHeights[2],
+    lineHeightSM: lineHeights[0],
 
     lineHeightHeading1: lineHeights[6],
     lineHeightHeading2: lineHeights[5],
@@ -120,12 +121,14 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     paddingXS: 8,
     paddingSM: 12,
     paddingLG: 24,
+    paddingXL: 32,
 
     marginXXS: 4,
     marginXS: 8,
     marginSM: 12,
     marginLG: 24,
-    marginXL: 48,
+    marginXL: 32,
+    marginXXL: 48,
 
     boxShadow: `
       0 3px 6px -4px rgba(0, 0, 0, 0.12),

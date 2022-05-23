@@ -6,6 +6,7 @@ import type { ComponentToken as DropdownComponentToken } from '../../dropdown/st
 import type { ComponentToken as EmptyComponentToken } from '../../empty/style';
 import type { ComponentToken as CascaderComponentToken } from '../../cascader/style';
 import type { ComponentToken as InputNumberComponentToken } from '../../input-number/style';
+import type { ComponentToken as LayoutComponentToken } from '../../layout/style';
 import type { ComponentToken as MentionsComponentToken } from '../../mentions/style';
 import type { ComponentToken as NotificationComponentToken } from '../../notification/style';
 import type { ComponentToken as SegmentedComponentToken } from '../../segmented/style';
@@ -77,6 +78,7 @@ export interface OverrideToken {
   Image?: ImageComponentToken;
   Input?: {};
   InputNumber?: InputNumberComponentToken;
+  Layout?: LayoutComponentToken;
   List?: ListComponentToken;
   Mentions?: MentionsComponentToken;
   Notification?: NotificationComponentToken;
@@ -102,7 +104,6 @@ export interface OverrideToken {
   Steps?: {};
   Menu?: MenuComponentToken;
   Modal?: ModalComponentToken;
-  Layout?: {};
   Upload?: UploadComponentToken;
   Tooltip?: {};
   Table?: {};
@@ -168,6 +169,10 @@ export interface SeedToken extends PresetColorType {
   zIndexBase: number;
   /** Base popup component zIndex */
   zIndexPopupBase: number;
+
+  // Image
+  /** Define default Image opacity. Useful when in dark-like theme */
+  imgOpacity: number;
 }
 
 // ======================================================================
@@ -286,6 +291,7 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   // LineHeight
   lineHeight: number;
   lineHeightLG: number;
+  lineHeightSM: number;
 
   lineHeightHeading1: number;
   lineHeightHeading2: number;
@@ -344,11 +350,13 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   paddingXS: number;
   paddingXXS: number;
   paddingLG: number;
+  paddingXL: number;
   marginXXS: number;
   marginXS: number;
   marginSM: number;
   marginLG: number;
   marginXL: number;
+  marginXXL: number;
 
   // Media queries breakpoints
   screenXS: number;

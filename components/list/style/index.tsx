@@ -202,7 +202,7 @@ const genBaseStyle: GenerateStyle<ListToken> = token => {
 
         [`${componentCls}-item-action`]: {
           flex: '0 0 auto',
-          marginInlineStart: token.marginXL,
+          marginInlineStart: token.marginXXL,
           padding: 0,
           fontSize: 0,
           listStyle: 'none',

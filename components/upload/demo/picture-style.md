@@ -13,26 +13,34 @@ title:
 
 If uploaded file is a picture, the thumbnail can be shown. `IE8/9` do not support local thumbnail show. Please use `thumbUrl` instead.
 
-```jsx
-import { Upload, Button } from 'antd';
+```tsx
 import { UploadOutlined } from '@ant-design/icons';
+import { Button, Upload } from 'antd';
+import type { UploadFile } from 'antd/es/upload/interface';
+import React from 'react';
 
-const fileList = [
+const fileList: UploadFile[] = [
+  {
+    uid: '0',
+    name: 'xxx.png',
+    status: 'uploading',
+    percent: 33,
+  },
   {
     uid: '-1',
-    name: 'xxx.png',
+    name: 'yyy.png',
     status: 'done',
     url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
     thumbUrl: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
   },
   {
     uid: '-2',
-    name: 'yyy.png',
+    name: 'zzz.png',
     status: 'error',
   },
 ];
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Upload
       action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
@@ -53,6 +61,8 @@ export default () => (
     </Upload>
   </>
 );
+
+export default App;
 ```
 
 ```css

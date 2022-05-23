@@ -13,10 +13,17 @@ title:
 
 Separate trigger button and result.
 
-```jsx
+```tsx
 import { Cascader } from 'antd';
+import React, { useState } from 'react';
 
-const options = [
+interface Option {
+  value: string;
+  label: string;
+  children?: Option[];
+}
+
+const options: Option[] = [
   {
     value: 'zhejiang',
     label: 'Zhejiang',
@@ -39,12 +46,11 @@ const options = [
   },
 ];
 
-export default () => {
-  const [text, setText] = React.useState('Unselect');
+const App: React.FC = () => {
+  const [text, setText] = useState('Unselect');
 
-  const onChange = (value, selectedOptions) => {
-    const labeText = selectedOptions.map(o => o.label).join(', ');
-    setText(labeText);
+  const onChange = (_: string[], selectedOptions: Option[]) => {
+    setText(selectedOptions.map(o => o.label).join(', '));
   };
 
   return (
@@ -57,4 +63,6 @@ export default () => {
     </span>
   );
 };
+
+export default App;
 ```

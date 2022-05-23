@@ -13,10 +13,12 @@ title:
 
 We can set the date format by `format`.
 
-```jsx
+```tsx
+import type { DatePickerProps } from 'antd';
 import { DatePicker, Space } from 'antd';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
+import React from 'react';
 
 dayjs.extend(customParseFormat);
 
@@ -28,14 +30,15 @@ const monthFormat = 'YYYY/MM';
 
 const dateFormatList = ['DD/MM/YYYY', 'DD/MM/YY'];
 
-const customFormat = value => `custom format: ${value.format(dateFormat)}`;
+const customFormat: DatePickerProps['format'] = value =>
+  `custom format: ${value.format(dateFormat)}`;
 
-const customWeekStartEndFormat = value =>
+const customWeekStartEndFormat: DatePickerProps['format'] = value =>
   `${dayjs(value).startOf('week').format(weekFormat)} ~ ${dayjs(value)
     .endOf('week')
     .format(weekFormat)}`;
 
-export default () => (
+const App: React.FC = () => (
   <Space direction="vertical" size={12}>
     <DatePicker defaultValue={dayjs('2015/01/01', dateFormat)} format={dateFormat} />
     <DatePicker defaultValue={dayjs('01/01/2015', dateFormatList[0])} format={dateFormatList} />
@@ -48,4 +51,6 @@ export default () => (
     <DatePicker defaultValue={dayjs('2015/01/01', dateFormat)} format={customFormat} />
   </Space>
 );
+
+export default App;
 ```

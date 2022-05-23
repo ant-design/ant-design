@@ -1,6 +1,5 @@
 // deps-lint-skip-all
-import type { CSSObject } from '@ant-design/cssinjs';
-import { genComponentStyleHook, resetComponent } from '../../_util/theme';
+import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
 import genDraggerStyle from './dragger';
 import genListStyle from './list';
 import genMotionStyle from './motion';
@@ -8,11 +7,15 @@ import genRtlStyle from './rtl';
 import { genPictureStyle, genPictureCardStyle } from './picture';
 import type { GenerateStyle, FullToken } from '../../_util/theme';
 
-export interface ComponentToken {
-  uploadActionsColor: CSSObject['color'];
+export interface ComponentToken {}
+
+export interface UploadToken extends FullToken<'Upload'> {
+  uploadThumbnailSize: number;
+  uploadProgressOffset: number;
+  uploadPicCardSize: number;
 }
 
-const genBaseStyle: GenerateStyle<FullToken<'Upload'>> = token => {
+const genBaseStyle: GenerateStyle<UploadToken> = token => {
   const { componentCls } = token;
 
   return {
@@ -38,18 +41,23 @@ const genBaseStyle: GenerateStyle<FullToken<'Upload'>> = token => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook(
-  'Upload',
-  token => [
-    genBaseStyle(token),
-    genDraggerStyle(token),
-    genPictureStyle(token),
-    genPictureCardStyle(token),
-    genListStyle(token),
-    genMotionStyle(token),
-    genRtlStyle(token),
-  ],
-  token => ({
-    uploadActionsColor: token.colorTextSecondary,
-  }),
-);
+export default genComponentStyleHook('Upload', token => {
+  const { fontSizeHeading3, fontSizeBase, lineHeight, lineWidth, controlHeightLG } = token;
+  const listItemHeightSM = Math.round(fontSizeBase * lineHeight);
+
+  const uploadToken = mergeToken<UploadToken>(token, {
+    uploadThumbnailSize: fontSizeHeading3 * 2,
+    uploadProgressOffset: listItemHeightSM / 2 + lineWidth,
+    uploadPicCardSize: controlHeightLG * 2.55,
+  });
+
+  return [
+    genBaseStyle(uploadToken),
+    genDraggerStyle(uploadToken),
+    genPictureStyle(uploadToken),
+    genPictureCardStyle(uploadToken),
+    genListStyle(uploadToken),
+    genMotionStyle(uploadToken),
+    genRtlStyle(uploadToken),
+  ];
+});

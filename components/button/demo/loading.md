@@ -13,15 +13,15 @@ title:
 
 A loading indicator can be added to a button by setting the `loading` property on the `Button`.
 
-```jsx
-import React, { useEffect, useState, useRef } from 'react';
-import { Button, Space } from 'antd';
+```tsx
 import { PoweroffOutlined } from '@ant-design/icons';
+import { Button, Space } from 'antd';
+import React, { useState } from 'react';
 
-export default () => {
-  const [loadings, setLoadings] = useState([]);
+const App: React.FC = () => {
+  const [loadings, setLoadings] = useState<boolean[]>([]);
 
-  const enterLoading = index => {
+  const enterLoading = (index: number) => {
     setLoadings(prevLoadings => {
       const newLoadings = [...prevLoadings];
       newLoadings[index] = true;
@@ -71,4 +71,6 @@ export default () => {
     </>
   );
 };
+
+export default App;
 ```

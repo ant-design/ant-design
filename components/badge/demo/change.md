@@ -13,14 +13,14 @@ title:
 
 The count will be animated as it changes.
 
-```jsx
-import React, { useState } from 'react';
-import { Badge, Button, Switch, Divider, Avatar } from 'antd';
+```tsx
 import { MinusOutlined, PlusOutlined, QuestionOutlined } from '@ant-design/icons';
+import { Avatar, Badge, Button, Divider, Switch } from 'antd';
+import React, { useState } from 'react';
 
 const ButtonGroup = Button.Group;
 
-export default () => {
+const App: React.FC = () => {
   const [count, setCount] = useState(5);
   const [show, setShow] = useState(true);
 
@@ -29,20 +29,20 @@ export default () => {
   };
 
   const decline = () => {
-    let countValue = count - 1;
-    if (countValue < 0) {
-      countValue = 0;
+    let newCount = count - 1;
+    if (newCount < 0) {
+      newCount = 0;
     }
-    setCount(countValue);
+    setCount(newCount);
   };
 
   const random = () => {
-    const countValue = Math.floor(Math.random() * 100);
-    setCount(countValue);
+    const newCount = Math.floor(Math.random() * 100);
+    setCount(newCount);
   };
 
-  const onChange = isShow => {
-    setShow(isShow);
+  const onChange = (checked: boolean) => {
+    setShow(checked);
   };
 
   return (
@@ -69,4 +69,6 @@ export default () => {
     </>
   );
 };
+
+export default App;
 ```

@@ -1,16 +1,22 @@
 // deps-lint-skip-all
-import type { CSSObject } from '@ant-design/cssinjs';
-import { genComponentStyleHook, resetComponent } from '../../_util/theme';
+import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
 import type { GenerateStyle, FullToken } from '../../_util/theme';
 
 export interface ComponentToken {
-  carouselDotWidth: CSSObject['width'];
-  carouselDotHeight: CSSObject['height'];
-  carouselDotActiveWidth: CSSObject['width'];
+  dotWidth: number;
+  dotHeight: number;
+  dotWidthActive: number;
 }
 
-const genCarouselStyle: GenerateStyle<FullToken<'Carousel'>> = token => {
-  const { componentCls, antCls } = token;
+interface CarouselToken extends FullToken<'Carousel'> {
+  carouselArrowSize: number;
+  carouselDotOffset: number;
+  carouselDotInline: number;
+}
+
+const genCarouselStyle: GenerateStyle<CarouselToken> = token => {
+  const { componentCls, antCls, carouselArrowSize, carouselDotOffset, carouselDotInline } = token;
+  const arrowOffset = -carouselArrowSize * 1.25;
 
   return {
     [componentCls]: {
@@ -119,10 +125,9 @@ const genCarouselStyle: GenerateStyle<FullToken<'Carousel'>> = token => {
         position: 'absolute',
         top: '50%',
         display: 'block',
-        // FIXME hardcode in v4
-        width: 20,
-        height: 20,
-        marginTop: -10,
+        width: carouselArrowSize,
+        height: carouselArrowSize,
+        marginTop: -carouselArrowSize / 2,
         padding: 0,
         color: 'transparent',
         fontSize: 0,
@@ -148,8 +153,7 @@ const genCarouselStyle: GenerateStyle<FullToken<'Carousel'>> = token => {
       },
 
       '.slick-prev': {
-        // FIXME hardcode in v4
-        insetInlineStart: -25,
+        insetInlineStart: arrowOffset,
 
         '&::before': {
           content: '"←"',
@@ -157,8 +161,7 @@ const genCarouselStyle: GenerateStyle<FullToken<'Carousel'>> = token => {
       },
 
       '.slick-next': {
-        // FIXME hardcode in v4
-        insetInlineEnd: -25,
+        insetInlineEnd: arrowOffset,
 
         '&::before': {
           content: '"→"',
@@ -174,19 +177,15 @@ const genCarouselStyle: GenerateStyle<FullToken<'Carousel'>> = token => {
         zIndex: 15,
         display: 'flex !important',
         justifyContent: 'center',
-        marginInlineEnd: '15%',
-        marginInlineStart: '15%',
         paddingInlineStart: 0,
         listStyle: 'none',
 
         '&-bottom': {
-          // FIXME hardcode in v4
-          bottom: 12,
+          bottom: carouselDotOffset,
         },
 
         '&-top': {
-          // FIXME hardcode in v4
-          top: 12,
+          top: carouselDotOffset,
           bottom: 'auto',
         },
 
@@ -195,22 +194,19 @@ const genCarouselStyle: GenerateStyle<FullToken<'Carousel'>> = token => {
           display: 'inline-block',
           flex: '0 1 auto',
           boxSizing: 'content-box',
-          width: token.carouselDotWidth,
-          height: token.carouselDotHeight,
-          margin: '0 2px',
-          // FIXME hardcode in v4
-          marginInlineEnd: 3,
-          marginInlineStart: 3,
+          width: token.dotWidth,
+          height: token.dotHeight,
+          marginInline: carouselDotInline,
           padding: 0,
           textAlign: 'center',
-          textIndent: '-999px',
+          textIndent: -999,
           verticalAlign: 'top',
           transition: `all ${token.motionDurationSlow}`,
 
           button: {
             display: 'block',
             width: '100%',
-            height: token.carouselDotHeight,
+            height: token.dotHeight,
             padding: 0,
             color: 'transparent',
             fontSize: 0,
@@ -228,7 +224,7 @@ const genCarouselStyle: GenerateStyle<FullToken<'Carousel'>> = token => {
           },
 
           '&.slick-active': {
-            width: token.carouselDotActiveWidth,
+            width: token.dotWidthActive,
 
             '& button': {
               background: token.colorBgComponent,
@@ -245,12 +241,12 @@ const genCarouselStyle: GenerateStyle<FullToken<'Carousel'>> = token => {
   };
 };
 
-const genCarouselVerticalStyle: GenerateStyle<FullToken<'Carousel'>> = token => {
-  const { componentCls } = token;
+const genCarouselVerticalStyle: GenerateStyle<CarouselToken> = token => {
+  const { componentCls, carouselDotOffset } = token;
 
   const reverseSizeOfDot = {
-    width: token.carouselDotHeight,
-    height: token.carouselDotWidth,
+    width: token.dotHeight,
+    height: token.dotWidth,
   };
 
   return {
@@ -259,18 +255,18 @@ const genCarouselVerticalStyle: GenerateStyle<FullToken<'Carousel'>> = token => 
         top: '50%',
         bottom: 'auto',
         flexDirection: 'column',
-        width: token.carouselDotHeight,
+        width: token.dotHeight,
         height: 'auto',
         margin: 0,
         transform: 'translateY(-50%)',
 
         '&-left': {
           insetInlineEnd: 'auto',
-          insetInlineStart: '12px',
+          insetInlineStart: carouselDotOffset,
         },
 
         '&-right': {
-          insetInlineEnd: '12px',
+          insetInlineEnd: carouselDotOffset,
           insetInlineStart: 'auto',
         },
 
@@ -293,7 +289,7 @@ const genCarouselVerticalStyle: GenerateStyle<FullToken<'Carousel'>> = token => 
   };
 };
 
-const genCarouselRtlStyle: GenerateStyle<FullToken<'Carousel'>> = token => {
+const genCarouselRtlStyle: GenerateStyle<CarouselToken> = token => {
   const { componentCls } = token;
 
   return [
@@ -324,11 +320,23 @@ const genCarouselRtlStyle: GenerateStyle<FullToken<'Carousel'>> = token => {
 // ============================== Export ==============================
 export default genComponentStyleHook(
   'Carousel',
-  token => [genCarouselStyle(token), genCarouselVerticalStyle(token), genCarouselRtlStyle(token)],
+  token => {
+    const { controlHeightLG, controlHeightSM, dotHeight } = token;
+    const carouselToken = mergeToken<CarouselToken>(token, {
+      carouselArrowSize: controlHeightLG / 2,
+      carouselDotOffset: controlHeightSM / 2,
+      carouselDotInline: dotHeight,
+    });
+
+    return [
+      genCarouselStyle(carouselToken),
+      genCarouselVerticalStyle(carouselToken),
+      genCarouselRtlStyle(carouselToken),
+    ];
+  },
   {
-    // FIXME
-    carouselDotWidth: 16,
-    carouselDotHeight: 3,
-    carouselDotActiveWidth: 24,
+    dotWidth: 16,
+    dotHeight: 3,
+    dotWidthActive: 24,
   },
 );

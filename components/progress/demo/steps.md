@@ -13,10 +13,11 @@ title:
 
 A progress bar with steps.
 
-```jsx
+```tsx
 import { Progress } from 'antd';
+import React from 'react';
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Progress percent={50} steps={3} />
     <br />
@@ -25,4 +26,6 @@ export default () => (
     <Progress percent={100} steps={5} size="small" strokeColor="#52c41a" />
   </>
 );
+
+export default App;
 ```
