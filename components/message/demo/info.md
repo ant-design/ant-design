@@ -17,15 +17,23 @@ Normal message for information.
 import { Button, message } from 'antd';
 import React from 'react';
 
-const info = () => {
-  message.info('This is a normal message');
+const App: React.FC = () => {
+  const [messageApi, contextHolder] = message.useMessage();
+  const info = () => {
+    messageApi.open({
+      type: 'info',
+      content: 'This is a normal message',
+    });
+  };
+  return (
+    <>
+      {contextHolder}
+      <Button type="primary" onClick={info}>
+        Display normal message
+      </Button>
+    </>
+  );
 };
-
-const App: React.FC = () => (
-  <Button type="primary" onClick={info}>
-    Display normal message
-  </Button>
-);
 
 export default App;
 ```

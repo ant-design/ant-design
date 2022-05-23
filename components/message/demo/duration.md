@@ -17,11 +17,24 @@ Customize message display duration from default `3s` to `10s`.
 import { Button, message } from 'antd';
 import React from 'react';
 
-const success = () => {
-  message.success('This is a prompt message for success, and it will disappear in 10 seconds', 10);
-};
+const App: React.FC = () => {
+  const [messageApi, contextHolder] = message.useMessage();
 
-const App: React.FC = () => <Button onClick={success}>Customized display duration</Button>;
+  const success = () => {
+    messageApi.open({
+      type: 'success',
+      content: 'This is a prompt message for success, and it will disappear in 10 seconds',
+      duration: 10,
+    });
+  };
+
+  return (
+    <>
+      {contextHolder}
+      <Button onClick={success}>Customized display duration</Button>
+    </>
+  );
+};
 
 export default App;
 ```
