@@ -5,15 +5,15 @@
 // deps-lint-skip: tooltip
 
 // deps-lint-skip-all
-import { TinyColor } from '@ctrl/tinycolor';
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { PresetColorType, GenerateStyle, FullToken } from '../../_util/theme';
+import { TinyColor } from '@ctrl/tinycolor';
+import type { FullToken, GenerateStyle, PresetColorType } from '../../_util/theme';
 import {
+  genComponentStyleHook,
+  mergeToken,
   PresetColors,
   resetComponent,
   roundedArrow,
-  genComponentStyleHook,
-  mergeToken,
 } from '../../_util/theme';
 
 // FIXME
@@ -50,7 +50,6 @@ const genBaseStyle: GenerateStyle<PopoverToken> = token => {
     colorTextHeading,
     colorWarning,
     fontSize,
-    marginSM,
     marginXS,
     lineHeight,
     radiusBase: borderRadius,
@@ -109,8 +108,8 @@ const genBaseStyle: GenerateStyle<PopoverToken> = token => {
         color: popoverColor,
       },
 
-      // FIXME 没找到使用地方，先保留
-      '&-message': {
+      // Used for Popconfirm
+      [`${componentCls}-message`]: {
         position: 'relative',
         // FIXME
         padding: '4px 0 12px',
@@ -131,13 +130,13 @@ const genBaseStyle: GenerateStyle<PopoverToken> = token => {
         },
       },
 
-      // FIXME 没找到使用地方，先保留
-      '&-buttons': {
+      // Used for Popconfirm
+      [`${componentCls}-buttons`]: {
         marginBottom: marginXS,
         textAlign: 'end',
 
         button: {
-          marginInlineStart: marginSM,
+          marginInlineStart: marginXS,
         },
       },
 
