@@ -16,7 +16,7 @@ import type { RenderFunction } from '../_util/getRenderPropValue';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
 import { getTransitionName } from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
-import useStyle from './style';
+import usePopconfirmStyle from './style';
 
 export interface PopconfirmProps extends AbstractTooltipProps {
   title: React.ReactNode | RenderFunction;
@@ -135,7 +135,8 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
   const prefixCls = getPrefixCls('popover', customizePrefixCls);
   const prefixClsConfirm = getPrefixCls('popconfirm', customizePrefixCls);
   const overlayClassNames = classNames(prefixClsConfirm, overlayClassName);
-  const [wrapSSR] = useStyle(prefixCls);
+
+  const [wrapSSR] = usePopconfirmStyle(prefixCls);
 
   const overlay = (
     <LocaleReceiver componentName="Popconfirm" defaultLocale={defaultLocale.Popconfirm}>
