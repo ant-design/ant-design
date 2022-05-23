@@ -1,12 +1,11 @@
-import * as React from 'react';
 import classNames from 'classnames';
+import * as React from 'react';
+import { ConfigContext } from '../config-provider';
 import type { AbstractTooltipProps, TooltipPlacement } from '../tooltip';
 import Tooltip from '../tooltip';
-import { ConfigContext } from '../config-provider';
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
 import { getTransitionName } from '../_util/motion';
-
 // CSSINJS
 import useStyle from './style';
 
@@ -43,6 +42,7 @@ const Popover = React.forwardRef<unknown, PopoverProps>(
         ref={ref as any}
         overlay={getOverlay(prefixCls)}
         transitionName={getTransitionName(rootPrefixCls, 'zoom-big', otherProps.transitionName)}
+        data-popover-inject
       />,
     );
   },
