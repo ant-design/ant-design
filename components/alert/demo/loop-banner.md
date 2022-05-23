@@ -15,10 +15,11 @@ Show a loop banner by using with [react-text-loop-next](https://npmjs.com/packag
 
 ```tsx
 import { Alert } from 'antd';
-import { TextLoop } from 'react-text-loop-next';
+import React from 'react';
 import Marquee from 'react-fast-marquee';
+import { TextLoop } from 'react-text-loop-next';
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Alert
       banner
@@ -41,4 +42,6 @@ export default () => (
     />
   </>
 );
+
+export default App;
 ```

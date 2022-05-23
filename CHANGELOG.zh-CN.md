@@ -15,9 +15,19 @@ timeline: true
 
 ---
 
+## 4.20.6
+
+`2022-05-22`
+
+- 🐞 修复 DatePicker 初次打开时 placeholder 闪烁的问题。[#35620](https://github.com/ant-design/ant-design/pull/35620) [@yykoypj](https://github.com/yykoypj)
+- 🛠 移除 Grid 默认 `role` 标签，以使其更好的适配 [aria-required-parent](https://accessibilityinsights.io/info-examples/web/aria-required-parent/) 要求。[#35616](https://github.com/ant-design/ant-design/pull/35616) [@bartpio](https://github.com/bartpio)
+- 🐞 修复 Anchor 在某些游览器下会被切割内容的问题。[#35612](https://github.com/ant-design/ant-design/pull/35612) [@josonho](https://github.com/josonho)
+- 🐞 修复 Table 存在表头分组和垂直滚动条时表头边框异常的问题。[#35591](https://github.com/ant-design/ant-design/pull/35591)
+- 🐞 修复 Drawer 内按钮关闭速度过快问题。[#35339](https://github.com/ant-design/ant-design/pull/35339)
+
 ## 4.20.5
 
-`2022-05-15
+`2022-05-15`
 
 - 🤖 在 TypeScript 定义中废弃 Table `rowSelection.onSelectNone` 和 `rowSelection.onSelectMultiple`。[#35545](https://github.com/ant-design/ant-design/pull/35545)
 - 🐞 InputNumber 当精度为负数时忽略小数部分。[#35520](https://github.com/ant-design/ant-design/pull/35520) [@ty888](https://github.com/ty888)`

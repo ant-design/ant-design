@@ -13,12 +13,13 @@ title:
 
 Disabled a tab.
 
-```jsx
+```tsx
 import { Tabs } from 'antd';
+import React from 'react';
 
 const { TabPane } = Tabs;
 
-export default () => (
+const App: React.FC = () => (
   <Tabs defaultActiveKey="1">
     <TabPane tab="Tab 1" key="1">
       Tab 1
@@ -31,4 +32,6 @@ export default () => (
     </TabPane>
   </Tabs>
 );
+
+export default App;
 ```

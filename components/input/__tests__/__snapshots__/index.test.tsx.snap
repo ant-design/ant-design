@@ -365,11 +365,9 @@ exports[`Input should support size in form 1`] = `
 >
   <div
     class="ant-row ant-form-item"
-    role="row"
   >
     <div
       class="ant-col ant-form-item-control"
-      role="cell"
     >
       <div
         class="ant-form-item-control-input"
