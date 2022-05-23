@@ -1,16 +1,16 @@
-import * as React from 'react';
-import RcTooltip from 'rc-tooltip';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import type { TooltipProps as RcTooltipProps } from 'rc-tooltip/lib/Tooltip';
 import classNames from 'classnames';
+import RcTooltip from 'rc-tooltip';
 import type { placements as Placements } from 'rc-tooltip/lib/placements';
-import getPlacements, { AdjustOverflow, PlacementsConfig } from '../_util/placements';
-import { cloneElement, isValidElement } from '../_util/reactNode';
+import type { TooltipProps as RcTooltipProps } from 'rc-tooltip/lib/Tooltip';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import type { PresetColorType } from '../_util/colors';
 import { PresetColorTypes } from '../_util/colors';
-import type { LiteralUnion } from '../_util/type';
 import { getTransitionName } from '../_util/motion';
+import getPlacements, { AdjustOverflow, PlacementsConfig } from '../_util/placements';
+import { cloneElement, isValidElement } from '../_util/reactNode';
+import type { LiteralUnion } from '../_util/type';
 import useStyle from './style';
 
 export { AdjustOverflow, PlacementsConfig };
@@ -217,6 +217,8 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
   const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
 
+  const injectFromPopover = (props as any)['data-popover-inject'];
+
   let tempVisible = visible;
   // Hide tooltip when there is no title
   if (!('visible' in props) && isNoTitle()) {
@@ -233,7 +235,7 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
   });
 
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls, !injectFromPopover);
 
   const customOverlayClassName = classNames(
     overlayClassName,

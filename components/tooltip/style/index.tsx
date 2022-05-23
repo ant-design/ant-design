@@ -1,16 +1,21 @@
 // deps-lint-skip-all
 // import '../../style/index.less';
 // import './index.less';
-import { TinyColor } from '@ctrl/tinycolor';
 import type { CSSObject } from '@ant-design/cssinjs';
+import { TinyColor } from '@ctrl/tinycolor';
+import type {
+  FullToken,
+  GenerateStyle,
+  PresetColorType,
+  UseComponentStyleResult,
+} from '../../_util/theme';
 import {
   genComponentStyleHook,
   mergeToken,
+  PresetColors,
   resetComponent,
   roundedArrow,
-  PresetColors,
 } from '../../_util/theme';
-import type { GenerateStyle, FullToken, PresetColorType } from '../../_util/theme';
 
 export interface TooltipToken extends FullToken<'Tooltip'> {
   // default variables
@@ -283,32 +288,41 @@ const genTooltipStyle: GenerateStyle<TooltipToken, CSSObject> = token => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Tooltip', token => {
-  const { radiusBase, zIndexPopupBase } = token;
-  const tooltipArrowShadowWidth = 3; // FIXME: hardcode in v4
-  const tooltipArrowWidth = 8 * Math.sqrt(2); // FIXME: hardcode in v4
-  const tooltipShadowColor = new TinyColor('#000').setAlpha(0.07).toRgbString(); // FIXME: hardcode in v4
-  const tooltipBg = new TinyColor('#000').setAlpha(0.75).toRgbString(); // FIXME: hardcode in v4
-  const tooltipArrowRotateWidth =
-    Math.sqrt(tooltipArrowWidth * tooltipArrowWidth * 2) + tooltipArrowShadowWidth * 2; // FIXME: hardcode in v4
+export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResult => {
+  const useOriginHook = genComponentStyleHook('Tooltip', token => {
+    // Popover use Tooltip as internal component. We do not need to handle this.
+    if (injectStyle === false) {
+      return [];
+    }
 
-  const TooltipToken = mergeToken<TooltipToken>(token, {
-    // default variables
-    tooltipMaxWidth: 250, // FIXME: hardcode in v4
-    tooltipColor: '#fff', // FIXME: hardcode in v4
-    tooltipBg,
-    tooltipArrowWidth,
-    tooltipDistance: tooltipArrowWidth - 1 + 4, // FIXME: hardcode in v4
-    tooltipArrowColor: tooltipBg,
-    tooltipBorderRadius: radiusBase,
-    // component variables
-    tooltipShadowColor,
-    tooltipArrowShadowWidth,
-    tooltipArrowRotateWidth,
-    tooltipArrowOffsetVertical: 5, // FIXME: hardcode in v4
-    tooltipArrowOffsetHorizontal: 13, // FIXME: hardcode in v4
-    zIndexTooltip: zIndexPopupBase + 70, // FIXME: hardcode in v4
+    const { radiusBase, zIndexPopupBase } = token;
+    const tooltipArrowShadowWidth = 3; // FIXME: hardcode in v4
+    const tooltipArrowWidth = 8 * Math.sqrt(2); // FIXME: hardcode in v4
+    const tooltipShadowColor = new TinyColor('#000').setAlpha(0.07).toRgbString(); // FIXME: hardcode in v4
+    const tooltipBg = new TinyColor('#000').setAlpha(0.75).toRgbString(); // FIXME: hardcode in v4
+    const tooltipArrowRotateWidth =
+      Math.sqrt(tooltipArrowWidth * tooltipArrowWidth * 2) + tooltipArrowShadowWidth * 2; // FIXME: hardcode in v4
+
+    const TooltipToken = mergeToken<TooltipToken>(token, {
+      // default variables
+      tooltipMaxWidth: 250, // FIXME: hardcode in v4
+      tooltipColor: '#fff', // FIXME: hardcode in v4
+      tooltipBg,
+      tooltipArrowWidth,
+      tooltipDistance: tooltipArrowWidth - 1 + 4, // FIXME: hardcode in v4
+      tooltipArrowColor: tooltipBg,
+      tooltipBorderRadius: radiusBase,
+      // component variables
+      tooltipShadowColor,
+      tooltipArrowShadowWidth,
+      tooltipArrowRotateWidth,
+      tooltipArrowOffsetVertical: 5, // FIXME: hardcode in v4
+      tooltipArrowOffsetHorizontal: 13, // FIXME: hardcode in v4
+      zIndexTooltip: zIndexPopupBase + 70, // FIXME: hardcode in v4
+    });
+
+    return [genTooltipStyle(TooltipToken)];
   });
 
-  return [genTooltipStyle(TooltipToken)];
-});
+  return useOriginHook(prefixCls);
+};

@@ -18071,10 +18071,10 @@ exports[`ConfigProvider components Popconfirm configProvider 1`] = `
           role="tooltip"
         >
           <div
-            class="config-popover-inner-content"
+            class="config-popconfirm-inner-content"
           >
             <div
-              class="config-popover-message"
+              class="config-popconfirm-message"
             >
               <span
                 aria-label="exclamation-circle"
@@ -18096,11 +18096,11 @@ exports[`ConfigProvider components Popconfirm configProvider 1`] = `
                 </svg>
               </span>
               <div
-                class="config-popover-message-title"
+                class="config-popconfirm-message-title"
               />
             </div>
             <div
-              class="config-popover-buttons"
+              class="config-popconfirm-buttons"
             >
               <button
                 class="config-btn config-btn-default config-btn-sm"
@@ -18154,10 +18154,10 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize large
           role="tooltip"
         >
           <div
-            class="config-popover-inner-content"
+            class="config-popconfirm-inner-content"
           >
             <div
-              class="config-popover-message"
+              class="config-popconfirm-message"
             >
               <span
                 aria-label="exclamation-circle"
@@ -18179,11 +18179,11 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize large
                 </svg>
               </span>
               <div
-                class="config-popover-message-title"
+                class="config-popconfirm-message-title"
               />
             </div>
             <div
-              class="config-popover-buttons"
+              class="config-popconfirm-buttons"
             >
               <button
                 class="config-btn config-btn-default config-btn-sm"
@@ -18237,10 +18237,10 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize middl
           role="tooltip"
         >
           <div
-            class="config-popover-inner-content"
+            class="config-popconfirm-inner-content"
           >
             <div
-              class="config-popover-message"
+              class="config-popconfirm-message"
             >
               <span
                 aria-label="exclamation-circle"
@@ -18262,11 +18262,11 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize middl
                 </svg>
               </span>
               <div
-                class="config-popover-message-title"
+                class="config-popconfirm-message-title"
               />
             </div>
             <div
-              class="config-popover-buttons"
+              class="config-popconfirm-buttons"
             >
               <button
                 class="config-btn config-btn-default config-btn-sm"
@@ -18320,10 +18320,10 @@ exports[`ConfigProvider components Popconfirm configProvider virtual and dropdow
           role="tooltip"
         >
           <div
-            class="ant-popover-inner-content"
+            class="ant-popconfirm-inner-content"
           >
             <div
-              class="ant-popover-message"
+              class="ant-popconfirm-message"
             >
               <span
                 aria-label="exclamation-circle"
@@ -18345,11 +18345,11 @@ exports[`ConfigProvider components Popconfirm configProvider virtual and dropdow
                 </svg>
               </span>
               <div
-                class="ant-popover-message-title"
+                class="ant-popconfirm-message-title"
               />
             </div>
             <div
-              class="ant-popover-buttons"
+              class="ant-popconfirm-buttons"
             >
               <button
                 class="ant-btn ant-btn-default ant-btn-sm"
@@ -18403,10 +18403,10 @@ exports[`ConfigProvider components Popconfirm normal 1`] = `
           role="tooltip"
         >
           <div
-            class="ant-popover-inner-content"
+            class="ant-popconfirm-inner-content"
           >
             <div
-              class="ant-popover-message"
+              class="ant-popconfirm-message"
             >
               <span
                 aria-label="exclamation-circle"
@@ -18428,11 +18428,11 @@ exports[`ConfigProvider components Popconfirm normal 1`] = `
                 </svg>
               </span>
               <div
-                class="ant-popover-message-title"
+                class="ant-popconfirm-message-title"
               />
             </div>
             <div
-              class="ant-popover-buttons"
+              class="ant-popconfirm-buttons"
             >
               <button
                 class="ant-btn ant-btn-default ant-btn-sm"
@@ -18462,27 +18462,27 @@ exports[`ConfigProvider components Popconfirm normal 1`] = `
 exports[`ConfigProvider components Popconfirm prefixCls 1`] = `
 <div>
   <span
-    class="prefix-Popconfirm-open"
+    class="ant-popover-open"
   >
     Bamboo
   </span>
   <div>
     <div
-      class="prefix-Popconfirm prefix-Popconfirm"
+      class="ant-popover prefix-Popconfirm"
       style="opacity:0"
     >
       <div
-        class="prefix-Popconfirm-content"
+        class="ant-popover-content"
       >
         <div
-          class="prefix-Popconfirm-arrow"
+          class="ant-popover-arrow"
         >
           <span
-            class="prefix-Popconfirm-arrow-content"
+            class="ant-popover-arrow-content"
           />
         </div>
         <div
-          class="prefix-Popconfirm-inner"
+          class="ant-popover-inner"
           role="tooltip"
         >
           <div

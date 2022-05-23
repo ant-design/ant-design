@@ -15,6 +15,7 @@ import ActionButton from '../_util/ActionButton';
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
 import { cloneElement } from '../_util/reactNode';
+import usePopconfirmStyle from './style';
 
 export interface PopconfirmProps extends AbstractTooltipProps {
   title: React.ReactNode | RenderFunction;
@@ -130,9 +131,10 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
     overlayClassName,
     ...restProps
   } = props;
-  const prefixCls = getPrefixCls('popover', customizePrefixCls);
-  const prefixClsConfirm = getPrefixCls('popconfirm', customizePrefixCls);
-  const overlayClassNames = classNames(prefixClsConfirm, overlayClassName);
+  const prefixCls = getPrefixCls('popconfirm', customizePrefixCls);
+  const overlayClassNames = classNames(prefixCls, overlayClassName);
+
+  const [wrapSSR] = usePopconfirmStyle(prefixCls);
 
   const overlay = (
     <LocaleReceiver componentName="Popconfirm" defaultLocale={defaultLocale.Popconfirm}>
@@ -140,16 +142,16 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
     </LocaleReceiver>
   );
 
-  return (
+  return wrapSSR(
     <Popover
       {...restProps}
-      prefixCls={prefixCls}
       placement={placement}
       onVisibleChange={onVisibleChange}
       visible={visible}
       _overlay={overlay}
       overlayClassName={overlayClassNames}
       ref={ref as any}
+      data-popover-inject
     >
       {cloneElement(children, {
         onKeyDown: (e: React.KeyboardEvent<any>) => {
@@ -159,7 +161,7 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
           onKeyDown(e);
         },
       })}
-    </Popover>
+    </Popover>,
   );
 });
 
