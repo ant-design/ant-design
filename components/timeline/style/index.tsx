@@ -9,7 +9,7 @@ interface TimelineToken extends FullToken<'Timeline'> {
   timeLineItemPaddingBottom: number;
   timeLineItemHeadSize: number;
   timeLineItemCustomHeadPadding: string;
-  timeLineRightPadding: number;
+  timeLinePaddingInlineEnd: number;
 }
 
 const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = token => {
@@ -152,7 +152,7 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = token => {
           [`${componentCls}-item-tail,
             ${componentCls}-item-head,
             ${componentCls}-item-head-custom`]: {
-            insetInlineStart: `calc(100% - ${token.timeLineRightPadding}px)`,
+            insetInlineStart: `calc(100% - ${token.timeLinePaddingInlineEnd}px)`,
           },
 
           [`${componentCls}-item-content`]: {
@@ -216,7 +216,7 @@ export default genComponentStyleHook('Timeline', token => {
     timeLineItemPaddingBottom: token.padding * 1.25,
     timeLineItemHeadSize: 10,
     timeLineItemCustomHeadPadding: '3px 1px',
-    timeLineRightPadding: 2,
+    timeLinePaddingInlineEnd: 2,
   });
 
   return [genTimelineStyle(timeLineToken)];
