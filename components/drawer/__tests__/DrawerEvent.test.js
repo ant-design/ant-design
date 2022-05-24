@@ -1,7 +1,6 @@
 import React from 'react';
 import Drawer from '..';
 import { render, fireEvent } from '../../../tests/utils';
-import Button from '../../button';
 
 describe('Drawer', () => {
   const getDrawer = props => (
@@ -98,7 +97,7 @@ describe('Drawer', () => {
 
       return (
         <>
-          <Button onClick={() => setVisible(true)}>open</Button>
+          <a onClick={() => setVisible(true)}>open</a>
           <Drawer visible={visible}>
             <div ref={ref} />
           </Drawer>
@@ -106,7 +105,7 @@ describe('Drawer', () => {
       );
     };
     const { container } = render(<RefDemo />);
-    fireEvent.click(container.querySelector('button'));
+    fireEvent.click(container.querySelector('a'));
     expect(fn).toBeCalled();
   });
 });
