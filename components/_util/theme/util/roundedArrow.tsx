@@ -18,10 +18,6 @@ export const roundedArrow = (width: number, outerRadius: number, bgColor: string
   const fy = width - cornerHeight;
   const ex = 2 * width;
   const ey = fy + outerRadius * (1 / Math.sqrt(2));
-  // const gx = fx - 1;
-  // const gy = fy;
-  // const hx = ax;
-  // const hy = ay - 1;
 
   return {
     borderRadius: { _skip_check_: true, value: `0 0 2px` },
