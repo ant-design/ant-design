@@ -2,10 +2,10 @@
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { useStyleRegister } from '@ant-design/cssinjs';
 import { useContext } from 'react';
-import type { GlobalToken, OverrideToken } from '../interface';
+import { ConfigContext } from '../../../config-provider/context';
 import type { UseComponentStyleResult } from '../index';
 import { mergeToken, statisticToken, useToken } from '../index';
-import { ConfigContext } from '../../../config-provider/context';
+import type { GlobalToken, OverrideToken } from '../interface';
 
 export type OverrideTokenWithoutDerivative = Omit<OverrideToken, 'derivative'>;
 export type OverrideComponent = keyof OverrideTokenWithoutDerivative;
@@ -79,7 +79,7 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
           rootPrefixCls,
           iconPrefixCls,
         });
-        flush(component);
+        flush(component, mergedComponentToken);
         return styleInterpolation;
       }),
       hashId,
