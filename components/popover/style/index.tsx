@@ -59,6 +59,10 @@ const genBaseStyle: GenerateStyle<PopoverToken> = token => {
           display: 'none',
         },
 
+        [`${componentCls}-content`]: {
+          position: 'relative',
+        },
+
         [`${componentCls}-inner`]: {
           backgroundColor: popoverBg,
           backgroundClip: 'padding-box',

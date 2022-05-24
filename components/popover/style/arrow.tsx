@@ -40,9 +40,9 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
         `&-placement-topLeft ${componentCls}-arrow`,
         `&-placement-topRight ${componentCls}-arrow`,
       ].join(',')]: {
-        bottom: sizePopupArrow * Math.sqrt(1 / 2) + 2,
+        bottom: 0,
         boxShadow: `3px 3px 7px -3px rgba(0, 0, 0, 0.1)`, // FIXME: hardcode
-        transform: 'rotate(45deg)',
+        transform: 'translateY(50%) rotate(45deg)',
       },
 
       [`&-placement-top ${componentCls}-arrow`]: {
@@ -50,7 +50,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
           _skip_check_: true,
           value: '50%',
         },
-        transform: 'translateX(-50%) rotate(45deg)',
+        transform: 'translateX(-50%) translateY(50%) rotate(45deg)',
       },
 
       [`&-placement-topLeft ${componentCls}-arrow`]: {
@@ -73,9 +73,9 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
         `&-placement-bottomLeft ${componentCls}-arrow`,
         `&-placement-bottomRight ${componentCls}-arrow`,
       ].join(',')]: {
-        top: (sizePopupArrow + 2) * Math.sqrt(1 / 2),
+        top: 0,
         boxShadow: `2px 2px 5px -2px rgba(0, 0, 0, 0.1)`, // FIXME: hardcode
-        transform: `rotate(-135deg) translateY(-0.5px)`, // FIXME: hardcode
+        transform: `translateY(-50%) rotate(-135deg)`,
       },
 
       [`&-placement-bottom ${componentCls}-arrow`]: {
@@ -83,7 +83,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
           _skip_check_: true,
           value: '50%',
         },
-        transform: `translateX(-50%) rotate(-135deg) translateY(-0.5px)`,
+        transform: `translateX(-50%) translateY(-50%) rotate(-135deg)`,
       },
 
       [`&-placement-bottomLeft ${componentCls}-arrow`]: {
@@ -108,10 +108,10 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
       ].join(',')]: {
         right: {
           _skip_check_: true,
-          value: sizePopupArrow * Math.sqrt(1 / 2) + 2,
+          value: 0,
         },
         boxShadow: `3px 3px 7px -3px rgba(0, 0, 0, 0.1)`, // FIXME: hardcode
-        transform: 'rotate(-45deg)',
+        transform: 'translateX(50%) rotate(-45deg)',
       },
 
       [`&-placement-left ${componentCls}-arrow`]: {
@@ -119,21 +119,15 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
           _skip_check_: true,
           value: '50%',
         },
-        transform: 'translateY(-50%) rotate(-45deg)',
+        transform: 'translateY(-50%) translateX(50%) rotate(-45deg)',
       },
 
       [`&-placement-leftTop ${componentCls}-arrow`]: {
-        top: {
-          _skip_check_: true,
-          value: dropdownArrowOffset,
-        },
+        top: dropdownArrowOffset,
       },
 
       [`&-placement-leftBottom ${componentCls}-arrow`]: {
-        bottom: {
-          _skip_check_: true,
-          value: dropdownArrowOffset,
-        },
+        bottom: dropdownArrowOffset,
       },
 
       // >>>>> Right
@@ -144,10 +138,10 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
       ].join(',')]: {
         left: {
           _skip_check_: true,
-          value: sizePopupArrow * Math.sqrt(1 / 2) + 2,
+          value: 0,
         },
         boxShadow: `3px 3px 7px -3px rgba(0, 0, 0, 0.1)`, // FIXME: hardcode
-        transform: 'rotate(135deg)',
+        transform: 'translateX(-50%) rotate(135deg)',
       },
 
       [`&-placement-right ${componentCls}-arrow`]: {
@@ -155,21 +149,15 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
           _skip_check_: true,
           value: '50%',
         },
-        transform: 'translateY(-50%) rotate(135deg)',
+        transform: 'translateY(-50%) translateX(-50%) rotate(135deg)',
       },
 
       [`&-placement-rightTop ${componentCls}-arrow`]: {
-        top: {
-          _skip_check_: true,
-          value: dropdownArrowOffset,
-        },
+        top: dropdownArrowOffset,
       },
 
       [`&-placement-rightBottom ${componentCls}-arrow`]: {
-        bottom: {
-          _skip_check_: true,
-          value: dropdownArrowOffset,
-        },
+        bottom: dropdownArrowOffset,
       },
 
       // =========================== Offset ============================
