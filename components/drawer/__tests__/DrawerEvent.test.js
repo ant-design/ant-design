@@ -1,6 +1,6 @@
 import React from 'react';
 import Drawer from '..';
-import { render, fireEvent, screen } from '../../../tests/utils';
+import { render, fireEvent } from '../../../tests/utils';
 import Button from '../../button';
 
 describe('Drawer', () => {
@@ -105,8 +105,8 @@ describe('Drawer', () => {
         </>
       );
     };
-    render(<RefDemo />);
-    fireEvent.click(screen.getByText('open'));
+    const { container } = render(<RefDemo />);
+    fireEvent.click(container.querySelector('button'));
     expect(fn).toBeCalled();
   });
 });
