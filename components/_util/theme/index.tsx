@@ -1,25 +1,24 @@
-import React from 'react';
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { Theme, useCacheToken, useStyleRegister } from '@ant-design/cssinjs';
-import genComponentStyleHook from './util/genComponentStyleHook';
-import defaultSeedToken, { derivative as defaultDerivative } from './themes/default';
+import React from 'react';
 import version from '../../version';
-import { resetComponent, resetIcon, clearFix, roundedArrow, operationUnit } from './util';
-import formatToken from './util/alias';
-import statisticToken, { merge as mergeToken, statistic } from './util/statistic';
-import { PresetColors } from './interface';
 import type {
-  SeedToken,
-  DerivativeToken,
   AliasToken,
+  DerivativeToken,
+  GlobalToken,
   OverrideToken,
   PresetColorType,
-  GlobalToken,
+  SeedToken,
 } from './interface';
+import { PresetColors } from './interface';
+import defaultSeedToken, { derivative as defaultDerivative } from './themes/default';
+import { clearFix, operationUnit, resetComponent, resetIcon, roundedArrow } from './util';
+import formatToken from './util/alias';
 import type { FullToken } from './util/genComponentStyleHook';
+import genComponentStyleHook from './util/genComponentStyleHook';
+import statisticToken, { merge as mergeToken, statistic } from './util/statistic';
 
 export {
-  // css utils
   resetComponent,
   resetIcon,
   clearFix,
@@ -35,7 +34,6 @@ export {
   useStyleRegister,
   genComponentStyleHook,
 };
-
 export type {
   SeedToken,
   AliasToken,
@@ -89,6 +87,7 @@ export function useToken(): [Theme<SeedToken, DerivativeToken>, GlobalToken, str
 
 export type UseComponentStyleResult = [(node: React.ReactNode) => React.ReactElement, string];
 
-export type GenerateStyle<ComponentToken extends object, ReturnType = CSSInterpolation> = (
-  token: ComponentToken,
-) => ReturnType;
+export type GenerateStyle<
+  ComponentToken extends object = AliasToken,
+  ReturnType = CSSInterpolation,
+> = (token: ComponentToken) => ReturnType;
