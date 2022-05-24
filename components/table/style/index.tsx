@@ -34,6 +34,8 @@ export interface TableToken extends FullToken<'Table'> {
   tableHeaderIconColor: string;
   tableBodySortBg: CSSObject['background'];
   tableFixedHeaderSortActiveBg: CSSObject['background'];
+  tableHeaderFilterActiveBg: CSSObject['background'];
+  tableFilterDropdownBg: CSSObject['background'];
   tableRowHoverBg: CSSObject['background'];
   tableSelectedRowBg: CSSObject['background'];
   tableSelectedRowHoverBg: CSSObject['background'];
@@ -196,6 +198,8 @@ export default genComponentStyleHook('Table', token => {
     tableHeaderIconColor: '#bfbfbf',
     tableBodySortBg: '#fafafa',
     tableFixedHeaderSortActiveBg: 'hsv(0, 0, 96%)',
+    tableHeaderFilterActiveBg: 'rgba(0, 0, 0, 0.04)',
+    tableFilterDropdownBg: token.colorBgComponent,
     tableRowHoverBg: token.colorBgComponentSecondary,
     tableSelectedRowBg,
     tableSelectedRowHoverBg: new TinyColor(tableSelectedRowBg).darken(2).toString(),
