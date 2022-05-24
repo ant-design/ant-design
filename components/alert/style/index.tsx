@@ -1,20 +1,14 @@
-// import '../../style/index.less';
-// import './index.less';
-
 // deps-lint-skip-all
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
+import type { FullToken, GenerateStyle } from '../../_util/theme';
+import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
 
-import type { GenerateStyle, FullToken } from '../../_util/theme';
-import { resetComponent, genComponentStyleHook, mergeToken } from '../../_util/theme';
+export interface ComponentToken {}
 
-// FIXME: missing token
 type AlertToken = FullToken<'Alert'> & {
-  alertMessageColor: string;
-  alertCloseColor: string;
-  alertCloseHoverColor: string;
-  alertWithDescriptionIconSize: number;
-  alertWithDescriptionPaddingVertical: number;
-  alertWithDescriptionNoIconPaddingVertical: number;
+  alertIconSizeLG: number;
+  alertPadding: number;
+  alertPaddingLG: number;
 };
 
 const genAlertTypeStyle = (
@@ -38,12 +32,13 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
     marginXS,
     fontSize,
     fontSizeLG,
+    lineHeight,
     controlRadius: borderRadius,
     motionEaseInOutCirc,
-    alertMessageColor,
-    alertWithDescriptionIconSize,
-    alertWithDescriptionPaddingVertical,
-    alertWithDescriptionNoIconPaddingVertical,
+    alertIconSizeLG,
+    colorText,
+    alertPadding,
+    alertPaddingLG,
   } = token;
 
   return {
@@ -52,7 +47,7 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
       position: 'relative',
       display: 'flex',
       alignItems: 'center',
-      padding: '8px 15px',
+      padding: `${alertPadding}px ${alertPaddingLG}px`,
       wordWrap: 'break-word',
       borderRadius,
 
@@ -72,11 +67,11 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
       [`&-description`]: {
         display: 'none',
         fontSize,
-        lineHeight: `${fontSize + 8}px`,
+        lineHeight,
       },
 
       '&-message': {
-        color: alertMessageColor,
+        color: colorText,
       },
 
       '&&-motion-leave': {
@@ -98,23 +93,19 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
 
     [`${componentCls}-with-description`]: {
       alignItems: 'flex-start',
-      paddingInlineStart: alertWithDescriptionIconSize,
-      paddingInlineEnd: alertWithDescriptionPaddingVertical,
-      paddingBlock: alertWithDescriptionPaddingVertical,
-
-      [`&${componentCls}-no-icon`]: {
-        padding: `${alertWithDescriptionNoIconPaddingVertical}px 15px`,
-      },
+      paddingInline: alertPaddingLG,
+      paddingBlock: alertPaddingLG,
 
       [`${componentCls}-icon`]: {
-        marginInlineEnd: alertWithDescriptionPaddingVertical,
-        fontSize: alertWithDescriptionIconSize,
+        marginInlineStart: alertPadding,
+        marginInlineEnd: alertPaddingLG,
+        fontSize: alertIconSizeLG,
       },
 
       [`${componentCls}-message`]: {
         display: 'block',
         marginBottom: '4px',
-        color: alertMessageColor,
+        color: colorText,
         fontSize: fontSizeLG,
       },
 
@@ -187,8 +178,8 @@ export const genActionStyle: GenerateStyle<AlertToken> = (token: AlertToken): CS
     motionDurationSlow: duration,
     marginXS,
     fontSizeIcon,
-    alertCloseColor,
-    alertCloseHoverColor,
+    colorAction,
+    colorActionHover,
   } = token;
 
   return {
@@ -209,19 +200,19 @@ export const genActionStyle: GenerateStyle<AlertToken> = (token: AlertToken): CS
         cursor: 'pointer',
 
         [`${iconCls}-close`]: {
-          color: alertCloseColor,
+          color: colorAction,
           transition: `color ${duration}`,
           '&:hover': {
-            color: alertCloseHoverColor,
+            color: colorActionHover,
           },
         },
       },
 
       '&-close-text': {
-        color: alertCloseColor,
+        color: colorAction,
         transition: `color ${duration}`,
         '&:hover': {
-          color: alertCloseHoverColor,
+          color: colorActionHover,
         },
       },
     },
@@ -235,21 +226,12 @@ export const genAlertStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSS
 ];
 
 export default genComponentStyleHook('Alert', token => {
-  const alertMessageColor = token.colorTextHeading;
-  const alertCloseColor = token.colorAction;
-  const alertCloseHoverColor = token.colorActionHover;
-  // FIXME
-  const alertWithDescriptionIconSize = 24;
-  const alertWithDescriptionPaddingVertical = token.padding - 1;
-  const alertWithDescriptionNoIconPaddingVertical = token.padding - 1;
+  const { fontSizeHeading3, paddingXS, padding } = token;
 
   const alertToken = mergeToken<AlertToken>(token, {
-    alertMessageColor,
-    alertCloseColor,
-    alertCloseHoverColor,
-    alertWithDescriptionIconSize,
-    alertWithDescriptionPaddingVertical,
-    alertWithDescriptionNoIconPaddingVertical,
+    alertIconSizeLG: fontSizeHeading3,
+    alertPadding: paddingXS,
+    alertPaddingLG: padding,
   });
 
   return [genAlertStyle(alertToken)];
