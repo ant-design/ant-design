@@ -1,4 +1,5 @@
 import type * as React from 'react';
+import type { ComponentToken as AlertComponentToken } from '../../alert/style';
 import type { ComponentToken as AnchorComponentToken } from '../../anchor/style';
 import type { ComponentToken as BackTopComponentToken } from '../../back-top/style';
 import type { ComponentToken as ButtonComponentToken } from '../../button/style';
@@ -15,8 +16,8 @@ import type { ComponentToken as LayoutComponentToken } from '../../layout/style'
 import type { ComponentToken as ListComponentToken } from '../../list/style';
 import type { ComponentToken as MentionsComponentToken } from '../../mentions/style';
 import type { ComponentToken as MenuComponentToken } from '../../menu/style';
-import type { ComponentToken as ModalComponentToken } from '../../modal/style';
 import type { ComponentToken as MessageComponentToken } from '../../message/style';
+import type { ComponentToken as ModalComponentToken } from '../../modal/style';
 import type { ComponentToken as NotificationComponentToken } from '../../notification/style';
 import type { ComponentToken as PopconfirmComponentToken } from '../../popconfirm/style';
 import type { ComponentToken as ProgressComponentToken } from '../../progress/style';
@@ -27,8 +28,6 @@ import type { ComponentToken as SpaceComponentToken } from '../../space/style';
 import type { ComponentToken as TimelineComponentToken } from '../../timeline/style';
 import type { ComponentToken as TypographyComponentToken } from '../../typography/style';
 import type { ComponentToken as UploadComponentToken } from '../../upload/style';
-
-
 
 export const PresetColors = [
   'blue',
@@ -61,7 +60,7 @@ export interface OverrideToken {
 
   // Customize component
   Affix?: {};
-  Alert?: {};
+  Alert?: AlertComponentToken;
   Anchor?: AnchorComponentToken;
   Avatar?: {};
   BackTop?: BackTopComponentToken;
