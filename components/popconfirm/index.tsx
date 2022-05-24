@@ -1,21 +1,21 @@
-import * as React from 'react';
+import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import KeyCode from 'rc-util/lib/KeyCode';
-import type { AbstractTooltipProps } from '../tooltip';
-import Tooltip from '../tooltip';
+import * as React from 'react';
 import Button from '../button';
-import type { LegacyButtonType, ButtonProps } from '../button/button';
+import type { ButtonProps, LegacyButtonType } from '../button/button';
 import { convertLegacyProps } from '../button/button';
+import { ConfigContext } from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
-import { ConfigContext } from '../config-provider';
+import Popover from '../popover';
+import type { AbstractTooltipProps } from '../tooltip';
+import ActionButton from '../_util/ActionButton';
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
 import { cloneElement } from '../_util/reactNode';
-import { getTransitionName } from '../_util/motion';
-import ActionButton from '../_util/ActionButton';
+import usePopconfirmStyle from './style';
 
 export interface PopconfirmProps extends AbstractTooltipProps {
   title: React.ReactNode | RenderFunction;
@@ -131,28 +131,27 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
     overlayClassName,
     ...restProps
   } = props;
-  const prefixCls = getPrefixCls('popover', customizePrefixCls);
-  const prefixClsConfirm = getPrefixCls('popconfirm', customizePrefixCls);
-  const overlayClassNames = classNames(prefixClsConfirm, overlayClassName);
+  const prefixCls = getPrefixCls('popconfirm', customizePrefixCls);
+  const overlayClassNames = classNames(prefixCls, overlayClassName);
+
+  const [wrapSSR] = usePopconfirmStyle(prefixCls);
 
   const overlay = (
     <LocaleReceiver componentName="Popconfirm" defaultLocale={defaultLocale.Popconfirm}>
       {(popconfirmLocale: PopconfirmLocale) => renderOverlay(prefixCls, popconfirmLocale)}
     </LocaleReceiver>
   );
-  const rootPrefixCls = getPrefixCls();
 
-  return (
-    <Tooltip
+  return wrapSSR(
+    <Popover
       {...restProps}
-      prefixCls={prefixCls}
       placement={placement}
       onVisibleChange={onVisibleChange}
       visible={visible}
-      overlay={overlay}
+      _overlay={overlay}
       overlayClassName={overlayClassNames}
       ref={ref as any}
-      transitionName={getTransitionName(rootPrefixCls, 'zoom-big', props.transitionName)}
+      data-popover-inject
     >
       {cloneElement(children, {
         onKeyDown: (e: React.KeyboardEvent<any>) => {
@@ -162,7 +161,7 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
           onKeyDown(e);
         },
       })}
-    </Tooltip>
+    </Popover>,
   );
 });
 

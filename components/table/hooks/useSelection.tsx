@@ -1,13 +1,13 @@
-import * as React from 'react';
-import { useState, useCallback, useMemo } from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
-import { convertDataToEntities } from 'rc-tree/lib/utils/treeUtil';
-import { conductCheck } from 'rc-tree/lib/utils/conductUtil';
-import { arrAdd, arrDel } from 'rc-tree/lib/util';
-import type { DataNode, GetCheckDisabled } from 'rc-tree/lib/interface';
 import { INTERNAL_COL_DEFINE } from 'rc-table';
 import type { FixedType } from 'rc-table/lib/interface';
+import type { DataNode, GetCheckDisabled } from 'rc-tree/lib/interface';
+import { arrAdd, arrDel } from 'rc-tree/lib/util';
+import { conductCheck } from 'rc-tree/lib/utils/conductUtil';
+import { convertDataToEntities } from 'rc-tree/lib/utils/treeUtil';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import * as React from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import type { CheckboxProps } from '../../checkbox';
 import Checkbox from '../../checkbox';
 import Dropdown from '../../dropdown';
@@ -15,16 +15,17 @@ import Menu from '../../menu';
 import Radio from '../../radio';
 import warning from '../../_util/warning';
 import type {
-  TableRowSelection,
-  Key,
   ColumnsType,
   ColumnType,
-  GetRowKey,
-  TableLocale,
-  SelectionItem,
-  TransformColumns,
   ExpandType,
   GetPopupContainer,
+  GetRowKey,
+  Key,
+  RowSelectMethod,
+  SelectionItem,
+  TableLocale,
+  TableRowSelection,
+  TransformColumns,
 } from '../interface';
 
 // TODO: warning if use ajax!!!
@@ -218,7 +219,7 @@ export default function useSelection<RecordType>(
   }, [!!rowSelection]);
 
   const setSelectedKeys = useCallback(
-    (keys: Key[]) => {
+    (keys: Key[], method: RowSelectMethod) => {
       let availableKeys: Key[];
       let records: RecordType[];
 
@@ -243,7 +244,7 @@ export default function useSelection<RecordType>(
 
       setMergedSelectedKeys(availableKeys);
 
-      onSelectionChange?.(availableKeys, records);
+      onSelectionChange?.(availableKeys, records, { type: method });
     },
     [setMergedSelectedKeys, getRecordByKey, onSelectionChange, preserveSelectedRowKeys],
   );
@@ -257,7 +258,7 @@ export default function useSelection<RecordType>(
         onSelect(getRecordByKey(key), selected, rows, event);
       }
 
-      setSelectedKeys(keys);
+      setSelectedKeys(keys, 'single');
     },
     [onSelect, getRecordByKey, setSelectedKeys],
   );
@@ -283,6 +284,7 @@ export default function useSelection<RecordType>(
                   const checkProps = checkboxPropsMap.get(key);
                   return !checkProps?.disabled || derivedSelectedKeySet.has(key);
                 }),
+              'all',
             );
           },
         };
@@ -316,7 +318,7 @@ export default function useSelection<RecordType>(
               onSelectInvert(keys);
             }
 
-            setSelectedKeys(keys);
+            setSelectedKeys(keys, 'invert');
           },
         };
       }
@@ -331,6 +333,7 @@ export default function useSelection<RecordType>(
                 const checkProps = checkboxPropsMap.get(key);
                 return checkProps?.disabled;
               }),
+              'none',
             );
           },
         };
@@ -389,7 +392,7 @@ export default function useSelection<RecordType>(
           changeKeys.map(k => getRecordByKey(k)),
         );
 
-        setSelectedKeys(keys);
+        setSelectedKeys(keys, 'all');
       };
 
       // ===================== Render =====================
@@ -566,7 +569,7 @@ export default function useSelection<RecordType>(
                       changedKeys.map(recordKey => getRecordByKey(recordKey)),
                     );
 
-                    setSelectedKeys(keys);
+                    setSelectedKeys(keys, 'multiple');
                   } else {
                     // Single record selected
                     const originCheckedKeys = derivedSelectedKeys;

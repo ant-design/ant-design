@@ -1,16 +1,16 @@
-import type * as React from 'react';
 import type {
   ColumnType as RcColumnType,
-  RenderedCell as RcRenderedCell,
   FixedType,
+  RenderedCell as RcRenderedCell,
 } from 'rc-table/lib/interface';
-import { GetRowKey, ExpandableConfig } from 'rc-table/lib/interface';
-import type { TooltipProps } from '../tooltip';
+import { ExpandableConfig, GetRowKey } from 'rc-table/lib/interface';
+import type * as React from 'react';
 import type { CheckboxProps } from '../checkbox';
 import type { PaginationProps } from '../pagination';
+import type { TooltipProps } from '../tooltip';
 import type { Breakpoint } from '../_util/responsiveObserve';
-import type { INTERNAL_SELECTION_ITEM } from './hooks/useSelection';
 import { tuple } from '../_util/type';
+import type { INTERNAL_SELECTION_ITEM } from './hooks/useSelection';
 // import { TableAction } from './Table';
 
 export { GetRowKey, ExpandableConfig };
@@ -144,13 +144,15 @@ export type SelectionSelectFn<T> = (
   nativeEvent: Event,
 ) => void;
 
+export type RowSelectMethod = 'all' | 'none' | 'invert' | 'single' | 'multiple';
+
 export interface TableRowSelection<T> {
   /** Keep the selection keys in list even the key not exist in `dataSource` anymore */
   preserveSelectedRowKeys?: boolean;
   type?: RowSelectionType;
   selectedRowKeys?: Key[];
   defaultSelectedRowKeys?: Key[];
-  onChange?: (selectedRowKeys: Key[], selectedRows: T[]) => void;
+  onChange?: (selectedRowKeys: Key[], selectedRows: T[], info: { type: RowSelectMethod }) => void;
   getCheckboxProps?: (record: T) => Partial<Omit<CheckboxProps, 'checked' | 'defaultChecked'>>;
   onSelect?: SelectionSelectFn<T>;
   /** @deprecated This function is deprecated and should use `onChange` instead */
