@@ -116,7 +116,7 @@
     "@ant-design/colors": "^6.0.0",
     "@ant-design/icons": "^4.7.0",
     "@ant-design/react-slick": "~0.28.1",
-    "@babel/runtime": "^7.12.5",
+    "@babel/runtime": "~7.17.9",
     "@ctrl/tinycolor": "^3.4.0",
     "@types/qs": "^6.9.7",
     "classnames": "^2.2.6",
