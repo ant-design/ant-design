@@ -1,22 +1,22 @@
-import * as React from 'react';
 import IconContext from '@ant-design/icons/lib/components/Context';
 import { FormProvider as RcFormProvider } from 'rc-field-form';
 import type { ValidateMessages } from 'rc-field-form/lib/interface';
 import useMemo from 'rc-util/lib/hooks/useMemo';
-import { RenderEmptyHandler } from './defaultRenderEmpty';
+import * as React from 'react';
+import type { RequiredMark } from '../form/Form';
 import type { Locale } from '../locale-provider';
 import LocaleProvider, { ANT_MARK } from '../locale-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import defaultLocale from '../locale/default';
+import { DesignTokenContext, statistic, useToken } from '../_util/theme';
+import defaultSeedToken from '../_util/theme/themes/default';
+import type { ConfigConsumerProps, CSPConfig, DirectionType, Theme, ThemeConfig } from './context';
 import { ConfigConsumer, ConfigContext, defaultIconPrefixCls } from './context';
-import type { CSPConfig, DirectionType, ConfigConsumerProps, Theme, ThemeConfig } from './context';
+import { registerTheme } from './cssVariables';
+import { RenderEmptyHandler } from './defaultRenderEmpty';
+import useTheme from './hooks/useTheme';
 import type { SizeType } from './SizeContext';
 import SizeContext, { SizeContextProvider } from './SizeContext';
-import type { RequiredMark } from '../form/Form';
-import { registerTheme } from './cssVariables';
-import defaultLocale from '../locale/default';
-import { DesignTokenContext, useToken } from '../_util/theme';
-import useTheme from './hooks/useTheme';
-import defaultSeedToken from '../_util/theme/themes/default';
 
 export {
   RenderEmptyHandler,
@@ -26,6 +26,7 @@ export {
   DirectionType,
   ConfigConsumerProps,
 };
+export { defaultIconPrefixCls };
 
 export const configConsumerProps = [
   'getTargetContainer',
@@ -86,7 +87,6 @@ interface ProviderChildrenProps extends ConfigProviderProps {
 }
 
 export const defaultPrefixCls = 'ant';
-export { defaultIconPrefixCls };
 let globalPrefixCls: string;
 let globalIconPrefixCls: string;
 
@@ -269,6 +269,8 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
   SizeContext: typeof SizeContext;
   config: typeof setGlobalConfig;
   useToken: typeof useToken;
+  /** @private internal Usage. do not use in your production */
+  __V5_STATISTIC_DO_NOT_USE_OR_YOU_WILL_BE_FIRED__: typeof statistic;
 } = props => (
   <LocaleReceiver>
     {(_, __, legacyLocale) => (
@@ -289,5 +291,6 @@ ConfigProvider.ConfigContext = ConfigContext;
 ConfigProvider.SizeContext = SizeContext;
 ConfigProvider.config = setGlobalConfig;
 ConfigProvider.useToken = useToken;
+ConfigProvider.__V5_STATISTIC_DO_NOT_USE_OR_YOU_WILL_BE_FIRED__ = statistic;
 
 export default ConfigProvider;
