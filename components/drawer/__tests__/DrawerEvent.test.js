@@ -1,6 +1,7 @@
 import React from 'react';
 import Drawer from '..';
 import { render, fireEvent } from '../../../tests/utils';
+import Form from '../../form';
 
 describe('Drawer', () => {
   const getDrawer = props => (
@@ -76,5 +77,14 @@ describe('Drawer', () => {
     ev.propertyName = 'transform';
     fireEvent(document.querySelector('.ant-drawer-content-wrapper'), ev);
     expect(afterVisibleChange).toBeCalledTimes(1);
+  });
+  it('should support form ref', () => {
+    const formRef = React.createRef();
+    render(
+      <Drawer visible>
+        <Form ref={formRef} />
+      </Drawer>,
+    );
+    expect(typeof formRef.current).toBe('object');
   });
 });
