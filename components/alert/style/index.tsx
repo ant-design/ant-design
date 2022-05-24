@@ -39,6 +39,7 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
     colorText,
     alertPadding,
     alertPaddingLG,
+    marginXXS,
   } = token;
 
   return {
@@ -104,7 +105,7 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
 
       [`${componentCls}-message`]: {
         display: 'block',
-        marginBottom: '4px',
+        marginBottom: marginXXS,
         color: colorText,
         fontSize: fontSizeLG,
       },
