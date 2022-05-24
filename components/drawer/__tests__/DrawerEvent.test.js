@@ -1,16 +1,15 @@
 import React from 'react';
 import Drawer from '..';
 import { render, fireEvent, screen } from '../../../tests/utils';
-import Form from '../../form';
 import Button from '../../button';
 
 const RefDemo = ({ fn }) => {
-  const formRef = React.useRef();
+  const ref = React.useRef();
   const [visible, setVisible] = React.useState(false);
 
   React.useEffect(() => {
     if (visible) {
-      fn(formRef.current);
+      fn(ref.current);
     }
   }, [visible]);
 
@@ -18,7 +17,7 @@ const RefDemo = ({ fn }) => {
     <>
       <Button onClick={() => setVisible(true)}>open</Button>
       <Drawer visible={visible}>
-        <Form ref={formRef} />
+        <div ref={ref} />
       </Drawer>
     </>
   );
@@ -99,9 +98,9 @@ describe('Drawer', () => {
     fireEvent(document.querySelector('.ant-drawer-content-wrapper'), ev);
     expect(afterVisibleChange).toBeCalledTimes(1);
   });
-  it('should support form ref', () => {
-    const fn = formRef => {
-      expect(typeof formRef).toBe('object');
+  it('should support children ref', () => {
+    const fn = ref => {
+      expect(typeof ref).toBe('object');
     };
     render(<RefDemo fn={fn} />);
     fireEvent.click(screen.getByText('open'));
