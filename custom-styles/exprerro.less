@@ -73,3 +73,183 @@
   border-radius: 0 0 8px 8px;
 }
 // modal CSS end
+
+.generate-box {
+  padding: 42px 64px;
+  border: 1px solid #e5e7eb;
+}
+
+.generate-box-content {
+  width: 800px;
+  margin-right: 110px;
+}
+
+.drag-content {
+  .ant-table-tbody {
+    tr {
+      display: flex;
+      width: 480px;
+      margin-bottom: 16px;
+      border: 1px solid #e5e7eb;
+      border-radius: 4px;
+      td {
+        border: none;
+        &:nth-child(2) {
+          width: calc(100% - 46px);
+        }
+      }
+    }
+    .drag-details {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+}
+
+.title-with-border {
+  margin-top: 50px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  padding-left: 52px;
+  box-shadow: inset 0px -2px 0px #e5e7eb;
+}
+
+// collapse CSS in table
+
+.ant-collapse {
+  background: transparent;
+  border: none;
+  .ant-collapse-item {
+    border-color: #d1d5db;
+    &.ant-collapse-item-active {
+      border-color: transparent;
+    }
+  }
+}
+
+.ant-collapse-header {
+  font-weight: 600;
+}
+
+// common tab css
+
+.ant-tabs-tab {
+  padding: 11px 0;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.ant-tabs-bottom > .ant-tabs-nav:before,
+.ant-tabs-bottom > div > .ant-tabs-nav:before,
+.ant-tabs-top > .ant-tabs-nav:before,
+.ant-tabs-top > div > .ant-tabs-nav:before {
+  height: 1px;
+  border: none;
+  box-shadow: inset 0px -1px 0px #e5e7eb;
+}
+
+// global add role tab CSS
+
+.tab-content-list {
+  padding: 13px 0;
+  box-shadow: inset 0px -1px 0px #f5f3ff;
+  p {
+    margin: 8px 0 0 0;
+    color: @base-font-color;
+  }
+  h4 {
+    margin: 0;
+    color: @secondary-color;
+    font-weight: 600;
+  }
+}
+
+.tab-content-left {
+  width: 40%;
+  padding-right: 16px;
+  // &.lg-width {
+  //   width: 592px;
+  // }
+  h5 {
+    margin: 0;
+    padding-left: 14px;
+    font-size: 14px;
+    line-height: 24px;
+  }
+}
+
+.tab-content-right {
+  // width: 480px;
+  width: 60%;
+  .ant-checkbox-group {
+    width: 100%;
+    > label {
+      width: 19%;
+    }
+  }
+  > div {
+    width: 19%;
+  }
+  > label {
+    width: 19%;
+  }
+  .ant-checkbox-wrapper + .ant-checkbox-wrapper {
+    margin: 0;
+  }
+}
+
+.input-text {
+  label {
+    display: block;
+    margin-bottom: 8px;
+    color: @base-font-color;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+  }
+  span {
+    display: block;
+    padding: 8px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+  }
+}
+
+.add-role-tab {
+  .ant-collapse-icon-position-right > .ant-collapse-item > .ant-collapse-header {
+    padding: 12px 0;
+  }
+  .ant-collapse-icon-position-right
+    > .ant-collapse-item
+    > .ant-collapse-header
+    .ant-collapse-arrow {
+    right: auto;
+    left: 7%;
+  }
+  .ant-collapse .ant-collapse-item {
+    border: none;
+  }
+  .ant-collapse-header {
+    box-shadow: inset 0px -1px 0px #f5f3ff;
+    .ant-form-item-control-input {
+      min-height: auto;
+    }
+    label {
+      font-size: 16px;
+    }
+  }
+  .ant-row.ant-form-item {
+    margin: 0;
+  }
+  .ant-collapse-content {
+    border: none;
+  }
+  .ant-collapse-content-box {
+    padding: 0;
+    .tab-content-left {
+      padding-left: 44px;
+    }
+  }
+}
