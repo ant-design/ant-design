@@ -192,7 +192,7 @@ export default genComponentStyleHook('Descriptions', token => {
   const descriptionsMiddlePadding = `${token.paddingSM}px ${token.paddingLG}px`;
   const descriptionItemPaddingBottom = token.padding;
   const descriptionsItemLabelColonMarginRight = token.marginXS;
-  const descriptionsItemLabelColonMarginLeft = 2;
+  const descriptionsItemLabelColonMarginLeft = token.marginXXS / 2;
 
   const descriptionToken = mergeToken<DescriptionsToken>(token, {
     descriptionsBg,
