@@ -1,20 +1,19 @@
 // deps-lint-skip-all
-import type { CSSObject } from '@ant-design/cssinjs';
-import { TinyColor } from '@ctrl/tinycolor';
 import type { FullToken, GenerateStyle, PresetColorType } from '../../_util/theme';
 import { genComponentStyleHook, mergeToken, PresetColors, resetComponent } from '../../_util/theme';
 import getArrowStyle from './arrow';
 
 export interface ComponentToken {
   zIndexPopup: number;
+  width: number;
 }
 
 export type PopoverToken = FullToken<'Popover'> & {
   popoverBg: string;
   popoverColor: string;
-  popoverMinWidth: number;
-  popoverMinHeight: number;
   popoverPaddingHorizontal: number;
+  popoverTitlePaddingBlockTop: number;
+  popoverTitlePaddingBlockBottom: number;
 };
 
 const genBaseStyle: GenerateStyle<PopoverToken> = token => {
@@ -22,9 +21,13 @@ const genBaseStyle: GenerateStyle<PopoverToken> = token => {
     componentCls,
     popoverBg,
     popoverColor,
-    popoverMinWidth,
-    popoverMinHeight,
+    width,
     popoverPaddingHorizontal,
+    popoverTitlePaddingBlockTop,
+    popoverTitlePaddingBlockBottom,
+    lineWidth,
+    lineType,
+    fontWeightStrong,
 
     boxShadow,
     colorSplit,
@@ -48,13 +51,6 @@ const genBaseStyle: GenerateStyle<PopoverToken> = token => {
         cursor: 'auto',
         userSelect: 'text',
 
-        '&::after': {
-          position: 'absolute',
-          // FIXME
-          background: new TinyColor('#fff').setAlpha(0.01).toRgbString(),
-          content: '""',
-        },
-
         '&-rtl': {
           direction: 'rtl',
         },
@@ -71,47 +67,18 @@ const genBaseStyle: GenerateStyle<PopoverToken> = token => {
         },
 
         [`${componentCls}-title`]: {
-          minWidth: popoverMinWidth,
-          minHeight: popoverMinHeight,
+          minWidth: width,
           margin: 0,
-          // FIXME
-          padding: `5px ${popoverPaddingHorizontal}px 4px`,
+          padding: `${popoverTitlePaddingBlockTop}px ${popoverPaddingHorizontal}px ${popoverTitlePaddingBlockBottom}px`,
           color: colorTextHeading,
-          fontWeight: 500,
-          // FIXME
-          borderBottom: `1px solid ${colorSplit}`,
+          fontWeight: fontWeightStrong,
+          borderBottom: `${lineWidth}px ${lineType} ${colorSplit}`,
         },
 
         [`${componentCls}-inner-content`]: {
           padding: `${paddingSM}px ${popoverPaddingHorizontal}px`,
           color: popoverColor,
         },
-
-        // [`${componentCls}-arrow`]: {
-        //   position: 'absolute',
-        //   display: 'block',
-        //   width: sizePopupArrow,
-        //   height: sizePopupArrow,
-        //   overflow: 'hidden',
-        //   background: 'transparent',
-        //   pointerEvents: 'none',
-
-        //   '&-content': {
-        //     position: 'absolute',
-        //     top: 0,
-        //     insetInlineEnd: 0,
-        //     bottom: 0,
-        //     insetInlineStart: 0,
-        //     display: 'block',
-        //     width: sizePopupArrow,
-        //     height: sizePopupArrow,
-        //     margin: 'auto',
-        //     backgroundColor: popoverBg,
-        //     content: '""',
-        //     pointerEvents: 'auto',
-        //     ...roundedArrow(sizePopupArrow, 5, popoverBg),
-        //   },
-        // },
       },
     },
 
@@ -120,40 +87,41 @@ const genBaseStyle: GenerateStyle<PopoverToken> = token => {
   ];
 };
 
-// FIXME: special preset colors
 const genColorStyle: GenerateStyle<PopoverToken> = token => {
   const { componentCls } = token;
 
-  return PresetColors.reduce((prev: CSSObject, colorKey: keyof PresetColorType) => {
-    const lightColor = token[`${colorKey}-6`];
-    return {
-      ...prev,
-      [`${componentCls}-${colorKey}`]: {
-        [`${componentCls}-inner`]: {
-          backgroundColor: lightColor,
-        },
-        [`${componentCls}-arrow`]: {
-          '&-content': {
+  return {
+    [componentCls]: PresetColors.map((colorKey: keyof PresetColorType) => {
+      const lightColor = token[`${colorKey}-6`];
+      return {
+        [`&${componentCls}-${colorKey}`]: {
+          [`${componentCls}-inner`]: {
             backgroundColor: lightColor,
           },
+          [`${componentCls}-arrow`]: {
+            background: 'transparent',
+
+            '&:before': {
+              backgroundColor: lightColor,
+            },
+          },
         },
-      },
-    };
-  }, {} as CSSObject);
+      };
+    }),
+  };
 };
 
 export default genComponentStyleHook(
   'Popover',
   token => {
-    const popoverBg = token.colorBgComponent;
-    // FIXME
+    const { colorBgComponent, controlHeight, fontSize, lineHeight, lineWidth } = token;
+    const titlePaddingBlockDist = controlHeight - Math.round(fontSize * lineHeight);
 
     const popoverToken = mergeToken<PopoverToken>(token, {
-      popoverBg,
+      popoverBg: colorBgComponent,
       popoverColor: token.colorText,
-      // FIXME
-      popoverMinWidth: 177,
-      popoverMinHeight: 32,
+      popoverTitlePaddingBlockTop: titlePaddingBlockDist / 2,
+      popoverTitlePaddingBlockBottom: titlePaddingBlockDist / 2 - lineWidth,
       popoverPaddingHorizontal: token.padding,
     });
 
@@ -161,5 +129,6 @@ export default genComponentStyleHook(
   },
   ({ zIndexPopupBase }) => ({
     zIndexPopup: zIndexPopupBase + 30,
+    width: 177,
   }),
 );

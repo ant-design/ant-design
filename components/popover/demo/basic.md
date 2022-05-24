@@ -25,7 +25,7 @@ const content = (
 );
 
 const App: React.FC = () => (
-  <Popover content={content} title="Title">
+  <Popover content={content} title="Title" color="red" visible>
     <Button type="primary">Hover me</Button>
   </Popover>
 );
