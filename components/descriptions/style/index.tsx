@@ -185,14 +185,14 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
 // ============================== Export ==============================
 export default genComponentStyleHook('Descriptions', token => {
   const descriptionsBg = token.colorBgComponentSecondary;
-  const descriptionsTitleMarginBottom = token.margin * 1.25;
+  const descriptionsTitleMarginBottom = token.fontSizeSM * token.lineHeightSM;
   const descriptionsExtraColor = token.colorText;
   const descriptionsSmallPadding = `${token.paddingXS}px ${token.padding}px`;
   const descriptionsDefaultPadding = `${token.padding}px ${token.paddingLG}px`;
   const descriptionsMiddlePadding = `${token.paddingSM}px ${token.paddingLG}px`;
   const descriptionItemPaddingBottom = token.padding;
   const descriptionsItemLabelColonMarginRight = token.marginXS;
-  const descriptionsItemLabelColonMarginLeft = token.margin * 0.125;
+  const descriptionsItemLabelColonMarginLeft = 2;
 
   const descriptionToken = mergeToken<DescriptionsToken>(token, {
     descriptionsBg,
