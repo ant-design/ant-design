@@ -16,6 +16,7 @@ import type { ComponentToken as ListComponentToken } from '../../list/style';
 import type { ComponentToken as MentionsComponentToken } from '../../mentions/style';
 import type { ComponentToken as MenuComponentToken } from '../../menu/style';
 import type { ComponentToken as ModalComponentToken } from '../../modal/style';
+import type { ComponentToken as MessageComponentToken } from '../../message/style';
 import type { ComponentToken as NotificationComponentToken } from '../../notification/style';
 import type { ComponentToken as PopconfirmComponentToken } from '../../popconfirm/style';
 import type { ComponentToken as ProgressComponentToken } from '../../progress/style';
@@ -26,6 +27,8 @@ import type { ComponentToken as SpaceComponentToken } from '../../space/style';
 import type { ComponentToken as TimelineComponentToken } from '../../timeline/style';
 import type { ComponentToken as TypographyComponentToken } from '../../typography/style';
 import type { ComponentToken as UploadComponentToken } from '../../upload/style';
+
+
 
 export const PresetColors = [
   'blue',
@@ -107,6 +110,7 @@ export interface OverrideToken {
   Steps?: {};
   Menu?: MenuComponentToken;
   Modal?: ModalComponentToken;
+  Message?: MessageComponentToken;
   Upload?: UploadComponentToken;
   Tooltip?: {};
   Space?: SpaceComponentToken;

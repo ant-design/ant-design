@@ -9,6 +9,7 @@ import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import { ConfigContext } from '../config-provider';
+import useStyle from './style';
 import type {
   MessageInstance,
   ArgsProps,
@@ -56,6 +57,8 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
 
   const prefixCls = staticPrefixCls || getPrefixCls('message');
 
+  const [, hashId] = useStyle(prefixCls);
+
   // =============================== Style ===============================
   const getStyle = () => ({
     left: '50%',
@@ -63,7 +66,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     top: top ?? DEFAULT_OFFSET,
   });
 
-  const getClassName = () => (rtl ? `${prefixCls}-rtl` : '');
+  const getClassName = () => classNames(hashId, rtl ? `${prefixCls}-rtl` : '');
 
   // ============================== Motion ===============================
   const getNotificationMotion = () => getMotion(prefixCls, transitionName);
