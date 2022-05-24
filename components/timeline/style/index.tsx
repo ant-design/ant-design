@@ -8,7 +8,7 @@ export interface ComponentToken {}
 interface TimelineToken extends FullToken<'Timeline'> {
   timeLineItemPaddingBottom: number;
   timeLineItemHeadSize: number;
-  timeLineItemCustomHeadPadding: string;
+  timeLineItemCustomHeadPaddingVertical: number;
   timeLinePaddingInlineEnd: number;
 }
 
@@ -84,7 +84,7 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = token => {
           width: 'auto',
           height: 'auto',
           marginBlockStart: 0,
-          padding: token.timeLineItemCustomHeadPadding,
+          paddingBlock: token.timeLineItemCustomHeadPaddingVertical,
           lineHeight: 1,
           textAlign: 'center',
           border: 0,
@@ -215,7 +215,7 @@ export default genComponentStyleHook('Timeline', token => {
   const timeLineToken = mergeToken<TimelineToken>(token, {
     timeLineItemPaddingBottom: token.padding * 1.25,
     timeLineItemHeadSize: 10,
-    timeLineItemCustomHeadPadding: '3px 1px',
+    timeLineItemCustomHeadPaddingVertical: token.paddingXXS,
     timeLinePaddingInlineEnd: 2,
   });
 
