@@ -1,21 +1,21 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-import type { GenerateStyle, FullToken } from '../../_util/theme';
-import { resetComponent, clearFix, genComponentStyleHook, mergeToken } from '../../_util/theme';
-import genPagniationStyle from './pagination';
-import genSummaryStyle from './summary';
-import genSorterStyle from './sorter';
-import genFilterStyle from './filter';
+import type { FullToken, GenerateStyle } from '../../_util/theme';
+import { clearFix, genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
 import genBorderedStyle from './bordered';
-import genRadiusStyle from './radius';
-import genExpandStyle from './expand';
-import genSelectionStyle from './selection';
-import genFixedStyle from './fixed';
-import genStickyStyle from './sticky';
 import genEllipsisStyle from './ellipsis';
-import genSizeStyle from './size';
+import genExpandStyle from './expand';
+import genFilterStyle from './filter';
+import genFixedStyle from './fixed';
+import genPagniationStyle from './pagination';
+import genRadiusStyle from './radius';
 import genRtlStyle from './rtl';
+import genSelectionStyle from './selection';
+import genSizeStyle from './size';
+import genSorterStyle from './sorter';
+import genStickyStyle from './sticky';
+import genSummaryStyle from './summary';
 
 export interface TableToken extends FullToken<'Table'> {
   tableFontSize: number;
@@ -29,6 +29,9 @@ export interface TableToken extends FullToken<'Table'> {
   tableFooterTextColor: CSSObject['color'];
   tableFooterBg: CSSObject['background'];
   tableHeaderCellSplitColor: CSSObject['border-color'];
+  tableHeaderSortBg: CSSObject['background'];
+  tableHeaderSortHoverBg: CSSObject['background'];
+  tableFixedHeaderSortActiveBg: CSSObject['background'];
   tableRowHoverBg: CSSObject['background'];
   tableSelectedRowBg: CSSObject['background'];
   tableSelectedRowHoverBg: CSSObject['background'];
@@ -187,6 +190,9 @@ export default genComponentStyleHook('Table', token => {
     tableFooterBg: token.colorBgComponentSecondary,
     // FIXME: missing token
     tableHeaderCellSplitColor: 'rgba(0, 0, 0, 0.06)',
+    tableHeaderSortBg: token.colorBgComponent,
+    tableHeaderSortHoverBg: 'rgba(0, 0, 0, 0.04)',
+    tableFixedHeaderSortActiveBg: 'hsv(0, 0, 96%)',
     tableRowHoverBg: token.colorBgComponentSecondary,
     tableSelectedRowBg,
     tableSelectedRowHoverBg: new TinyColor(tableSelectedRowBg).darken(2).toString(),
