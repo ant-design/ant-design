@@ -4,7 +4,8 @@ import { resetComponent } from '../../_util/theme';
 import type { TableToken } from './index';
 
 const genFilterStyle: GenerateStyle<TableToken, CSSObject> = token => {
-  const { componentCls } = token;
+  const { componentCls, antCls } = token;
+  const dropdownPrefixCls = `${antCls}-dropdown`;
   return {
     [`${componentCls}-wrapper`]: {
       [`${componentCls}-filter-column`]: {
@@ -41,6 +42,25 @@ const genFilterStyle: GenerateStyle<TableToken, CSSObject> = token => {
         backgroundColor: token.tableFilterDropdownBg,
         borderRadius: token.radiusBase,
         boxShadow: token.boxShadow,
+
+        // Reset menu
+        [`${dropdownPrefixCls}-menu`]: {
+          // https://github.com/ant-design/ant-design/issues/4916
+          // https://github.com/ant-design/ant-design/issues/19542
+          maxHeight: token.tableFilterDropdownMaxHeight,
+          overflowX: 'hidden',
+          border: '0',
+          boxShadow: 'none',
+
+          '&:empty::after': {
+            display: 'block',
+            padding: '8px 0',
+            color: token.colorTextDisabled,
+            fontSize: token.fontSizeSM,
+            textAlign: 'center',
+            content: '"Not Found"',
+          },
+        },
       },
     },
   };
