@@ -1,11 +1,16 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { FullToken, GenerateStyle } from '../../_util/theme';
-import { genComponentStyleHook, resetComponent } from '../../_util/theme';
+import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
 
 export interface ComponentToken {}
 
-interface TimelineToken extends FullToken<'Timeline'> {}
+interface TimelineToken extends FullToken<'Timeline'> {
+  timeLineItemPaddingBottom: number;
+  timeLineItemHeadSize: number;
+  timeLineItemCustomHeadPaddingVertical: number;
+  timeLinePaddingInlineEnd: number;
+}
 
 const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = token => {
   const { componentCls } = token;
@@ -20,16 +25,16 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = token => {
       [`${componentCls}-item`]: {
         position: 'relative',
         margin: 0,
-        paddingBottom: 20, // FIXME: v4 magic number
-        fontSize: token.fontSizeBase,
+        paddingBottom: token.timeLineItemPaddingBottom,
+        fontSize: token.fontSize,
         listStyle: 'none',
 
         '&-tail': {
           position: 'absolute',
-          insetBlockStart: 10, // FIXME: v4 magic number
+          insetBlockStart: token.timeLineItemHeadSize,
           insetInlineStart: `${token.radiusLG}px`,
-          height: `calc(100% - 10px)`, // FIXME: v4 magic number
-          borderInlineStart: `${token.radiusBase}px solid rgba(0, 0, 0, 0.06)`, // FIXME: v4 magic number
+          height: `calc(100% - ${token.timeLineItemHeadSize}px)`,
+          borderInlineStart: `${token.lineWidthBold}px ${token.lineType} ${token.colorSplit}`,
         },
 
         '&-pending': {
@@ -45,11 +50,11 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = token => {
 
         '&-head': {
           position: 'absolute',
-          width: 10, // FIXME: v4 magic number
-          height: 10, // FIXME: v4 magic number
+          width: token.timeLineItemHeadSize,
+          height: token.timeLineItemHeadSize,
           backgroundColor: token.colorBgComponent,
-          border: `${token.radiusBase}px solid transparent`,
-          borderRadius: 100, // FIXME: v4 magic number
+          border: `${token.radiusBase}px ${token.lineType} transparent`,
+          borderRadius: '50%',
 
           '&-blue': {
             color: token.colorPrimary,
@@ -74,12 +79,12 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = token => {
 
         '&-head-custom': {
           position: 'absolute',
-          insetBlockStart: 5.5, // FIXME: v4 magic number
-          insetInlineStart: 5, // FIXME: v4 magic number
+          insetBlockStart: token.timeLineItemHeadSize / 2,
+          insetInlineStart: token.timeLineItemHeadSize / 2,
           width: 'auto',
           height: 'auto',
           marginBlockStart: 0,
-          padding: '3px 1px', // FIXME: v4 magic number
+          paddingBlock: token.timeLineItemCustomHeadPaddingVertical,
           lineHeight: 1,
           textAlign: 'center',
           border: 0,
@@ -89,10 +94,8 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = token => {
 
         '&-content': {
           position: 'relative',
-          insetBlockStart: `${
-            -(token.fontSizeBase * token.lineHeight - token.fontSizeBase) + token.radiusSM
-          }px`,
-          marginInlineStart: token.marginLG + token.radiusBase,
+          insetBlockStart: -(token.fontSize * token.lineHeight - token.fontSize) + token.lineWidth,
+          marginInlineStart: token.margin + token.timeLineItemHeadSize,
           marginInlineEnd: 0,
           marginBlockStart: 0,
           marginBlockEnd: 0,
@@ -105,7 +108,7 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = token => {
           },
 
           [`> ${componentCls}-item-content`]: {
-            minHeight: 48, // FIXME: v4 magic number
+            minHeight: token.controlHeightLG * 1.2,
           },
         },
       },
@@ -129,7 +132,7 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = token => {
           '&-left': {
             [`${componentCls}-item-content`]: {
               insetInlineStart: `calc(50% - ${token.marginXXS}px)`,
-              width: `calc(50% - 14px)`, // FIXME: v4 magic number
+              width: `calc(50% - ${token.marginSM}px)`,
               textAlign: 'start',
             },
           },
@@ -149,11 +152,11 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = token => {
           [`${componentCls}-item-tail,
             ${componentCls}-item-head,
             ${componentCls}-item-head-custom`]: {
-            insetInlineStart: `calc(100% - ${token.radiusLG - token.radiusBase}px)`,
+            insetInlineStart: `calc(100% - ${token.timeLinePaddingInlineEnd}px)`,
           },
 
           [`${componentCls}-item-content`]: {
-            width: `calc(100% - 18px)`, // FIXME: v4 magic number
+            width: `calc(100% - ${token.timeLineItemHeadSize + token.marginXS}px)`,
           },
         },
       },
@@ -162,8 +165,8 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = token => {
         ${componentCls}-item-last
         ${componentCls}-item-tail`]: {
         display: 'block',
-        height: `calc(100% - 14px)`, // FIXME: v4 magic number
-        borderInlineStart: `${token.radiusBase}px dotted rgba(0, 0, 0, 0.06)`, // FIXME: v4 magic number
+        height: `calc(100% - ${token.margin}px)`,
+        borderInlineStart: `${token.radiusBase}px dotted ${token.colorSplit}`,
       },
 
       [`&${componentCls}-reverse
@@ -174,14 +177,14 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = token => {
 
       [`&${componentCls}-reverse ${componentCls}-item-pending`]: {
         [`${componentCls}-item-tail`]: {
-          insetBlockStart: 15, // FIXME: v4 magic number
+          insetBlockStart: token.margin,
           display: 'block',
-          height: `calc(100% - 15px)`, // FIXME: v4 magic number
-          borderInlineStart: `${token.radiusBase}px dotted rgba(0, 0, 0, 0.06)`, // FIXME: v4 magic number
+          height: `calc(100% - ${token.margin}px)`,
+          borderInlineStart: `${token.radiusBase}px dotted ${token.colorSplit}`,
         },
 
         [`${componentCls}-item-content`]: {
-          minHeight: 48, // FIXME: v4 magic number
+          minHeight: token.controlHeightLG * 1.2,
         },
       },
 
@@ -197,8 +200,8 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = token => {
 
         [`${componentCls}-item-right`]: {
           [`${componentCls}-item-label`]: {
-            insetInlineStart: `calc(50% + 14px)`, // FIXME: v4 magic number
-            width: `calc(50% - 14px)`, // FIXME: v4 magic number
+            insetInlineStart: `calc(50% + ${token.marginSM}px)`,
+            width: `calc(50% - ${token.marginSM}px)`,
             textAlign: 'start',
           },
         },
@@ -208,4 +211,13 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = token => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Timeline', token => [genTimelineStyle(token)]);
+export default genComponentStyleHook('Timeline', token => {
+  const timeLineToken = mergeToken<TimelineToken>(token, {
+    timeLineItemPaddingBottom: token.padding * 1.25,
+    timeLineItemHeadSize: 10,
+    timeLineItemCustomHeadPaddingVertical: token.paddingXXS,
+    timeLinePaddingInlineEnd: 2,
+  });
+
+  return [genTimelineStyle(timeLineToken)];
+});
