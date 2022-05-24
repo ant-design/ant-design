@@ -120,19 +120,23 @@ export default () => {
           />
         </Col>
       )}
+      {componentTokenList.length > 0 && (
+        <Col span={24}>
+          <h3 style={{ paddingBottom: 4 }}>Component Token</h3>
+          <Table
+            dataSource={componentTokenList}
+            columns={columns}
+            rowKey="name"
+            bordered
+            size="small"
+            pagination={false}
+          />
+        </Col>
+      )}
       <Col span={24}>
+        <h3 style={{ paddingBottom: 4 }}>Global Token</h3>
         <Table
           dataSource={filteredTokenList}
-          columns={columns}
-          rowKey="name"
-          bordered
-          size="small"
-          pagination={false}
-        />
-      </Col>
-      <Col span={24}>
-        <Table
-          dataSource={componentTokenList}
           columns={columns}
           rowKey="name"
           bordered
