@@ -31,6 +31,8 @@ export interface TableToken extends FullToken<'Table'> {
   tableHeaderCellSplitColor: CSSObject['border-color'];
   tableHeaderSortBg: CSSObject['background'];
   tableHeaderSortHoverBg: CSSObject['background'];
+  tableHeaderIconColor: string;
+  tableBodySortBg: CSSObject['background'];
   tableFixedHeaderSortActiveBg: CSSObject['background'];
   tableRowHoverBg: CSSObject['background'];
   tableSelectedRowBg: CSSObject['background'];
@@ -175,7 +177,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Table', token => {
-  // FIXME: missing token
+  // FIXME: missing tokens
   const tableSelectedRowBg = token.controlItemBgActive;
   const tableToken = mergeToken<TableToken>(token, {
     tableFontSize: token.fontSizeBase,
@@ -188,15 +190,15 @@ export default genComponentStyleHook('Table', token => {
     tableHeaderBg: token.colorBgComponentSecondary,
     tableFooterTextColor: token.colorTextHeading,
     tableFooterBg: token.colorBgComponentSecondary,
-    // FIXME: missing token
     tableHeaderCellSplitColor: 'rgba(0, 0, 0, 0.06)',
     tableHeaderSortBg: token.colorBgComponent,
     tableHeaderSortHoverBg: 'rgba(0, 0, 0, 0.04)',
+    tableHeaderIconColor: '#bfbfbf',
+    tableBodySortBg: '#fafafa',
     tableFixedHeaderSortActiveBg: 'hsv(0, 0, 96%)',
     tableRowHoverBg: token.colorBgComponentSecondary,
     tableSelectedRowBg,
     tableSelectedRowHoverBg: new TinyColor(tableSelectedRowBg).darken(2).toString(),
-    // FIXME: missing token
     zIndexTableFixed: 2,
   });
 
