@@ -306,7 +306,7 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
             ...rest,
           }}
           {...offsetStyle}
-          open={visible}
+          open={visible || propsVisible}
           showMask={mask}
           style={getRcDrawerStyle()}
           className={drawerClassName}

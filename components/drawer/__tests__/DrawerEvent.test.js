@@ -1,7 +1,28 @@
 import React from 'react';
 import Drawer from '..';
-import { render, fireEvent } from '../../../tests/utils';
+import { render, fireEvent, screen } from '../../../tests/utils';
 import Form from '../../form';
+import Button from '../../button';
+
+const RefDemo = ({ fn }) => {
+  const formRef = React.useRef();
+  const [visible, setVisible] = React.useState(false);
+
+  React.useEffect(() => {
+    if (visible) {
+      fn(formRef.current);
+    }
+  }, [visible]);
+
+  return (
+    <>
+      <Button onClick={() => setVisible(true)}>open</Button>
+      <Drawer visible={visible}>
+        <Form ref={formRef} />
+      </Drawer>
+    </>
+  );
+};
 
 describe('Drawer', () => {
   const getDrawer = props => (
@@ -79,12 +100,10 @@ describe('Drawer', () => {
     expect(afterVisibleChange).toBeCalledTimes(1);
   });
   it('should support form ref', () => {
-    const formRef = React.createRef();
-    render(
-      <Drawer visible>
-        <Form ref={formRef} />
-      </Drawer>,
-    );
-    expect(typeof formRef.current).toBe('object');
+    const fn = formRef => {
+      expect(typeof formRef).toBe('object');
+    };
+    render(<RefDemo fn={fn} />);
+    fireEvent.click(screen.getByText('open'));
   });
 });
