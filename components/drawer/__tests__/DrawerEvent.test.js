@@ -3,26 +3,6 @@ import Drawer from '..';
 import { render, fireEvent, screen } from '../../../tests/utils';
 import Button from '../../button';
 
-const RefDemo = ({ fn }) => {
-  const ref = React.useRef();
-  const [visible, setVisible] = React.useState(false);
-
-  React.useEffect(() => {
-    if (visible) {
-      fn(ref.current);
-    }
-  }, [visible]);
-
-  return (
-    <>
-      <Button onClick={() => setVisible(true)}>open</Button>
-      <Drawer visible={visible}>
-        <div ref={ref} />
-      </Drawer>
-    </>
-  );
-};
-
 describe('Drawer', () => {
   const getDrawer = props => (
     <Drawer visible getContainer={false} {...props}>
@@ -102,7 +82,26 @@ describe('Drawer', () => {
     const fn = ref => {
       expect(typeof ref).toBe('object');
     };
-    render(<RefDemo fn={fn} />);
+    const RefDemo = () => {
+      const ref = React.useRef();
+      const [visible, setVisible] = React.useState(false);
+
+      React.useEffect(() => {
+        if (visible) {
+          fn(ref.current);
+        }
+      }, [visible]);
+
+      return (
+        <>
+          <Button onClick={() => setVisible(true)}>open</Button>
+          <Drawer visible={visible}>
+            <div ref={ref} />
+          </Drawer>
+        </>
+      );
+    };
+    render(<RefDemo />);
     fireEvent.click(screen.getByText('open'));
   });
 });
