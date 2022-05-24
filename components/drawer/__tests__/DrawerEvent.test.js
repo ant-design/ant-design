@@ -79,16 +79,20 @@ describe('Drawer', () => {
     expect(afterVisibleChange).toBeCalledTimes(1);
   });
   it('should support children ref', () => {
-    const fn = ref => {
+    const fn = jest.fn();
+
+    const refCallback = ref => {
       expect(typeof ref).toBe('object');
+      fn();
     };
+
     const RefDemo = () => {
       const ref = React.useRef();
       const [visible, setVisible] = React.useState(false);
 
       React.useEffect(() => {
         if (visible) {
-          fn(ref.current);
+          refCallback(ref.current);
         }
       }, [visible]);
 
@@ -103,5 +107,6 @@ describe('Drawer', () => {
     };
     render(<RefDemo />);
     fireEvent.click(screen.getByText('open'));
+    expect(fn).toBeCalled();
   });
 });
