@@ -4,37 +4,44 @@ import { resetComponent } from '../../_util/theme';
 import type { TableToken } from './index';
 
 const genFilterStyle: GenerateStyle<TableToken, CSSObject> = token => {
-  const { componentCls, antCls } = token;
+  const { componentCls, antCls, iconCls } = token;
   const dropdownPrefixCls = `${antCls}-dropdown`;
-  return {
-    [`${componentCls}-wrapper`]: {
-      [`${componentCls}-filter-column`]: {
-        display: 'flex',
-        justifyContent: 'space-between',
-      },
+  const tableFilterDropdownPrefixCls = `${componentCls}-filter-dropdown`;
+  const treePrefixCls = `${antCls}-tree`;
+  const tableBorder = `${token.controlLineWidth}px ${token.controlLineType} ${token.tableBorderColor}`;
 
-      [`${componentCls}-filter-trigger`]: {
-        position: 'relative',
-        display: 'flex',
-        alignItems: 'center',
-        margin: `-4px (-${token.tablePaddingHorizontal}px / 2) -4px 4px`,
-        padding: '0 4px',
-        color: token.tableHeaderIconColor,
-        fontSize: token.fontSizeSM,
-        borderRadius: token.radiusBase,
-        cursor: 'pointer',
-        transition: 'all 0.3s',
-
-        '&:hover': {
-          color: token.colorTextSecondary,
-          background: token.tableHeaderFilterActiveBg,
+  return [
+    {
+      [`${componentCls}-wrapper`]: {
+        [`${componentCls}-filter-column`]: {
+          display: 'flex',
+          justifyContent: 'space-between',
         },
 
-        '&.active': {
-          color: token.colorPrimary,
+        [`${componentCls}-filter-trigger`]: {
+          position: 'relative',
+          display: 'flex',
+          alignItems: 'center',
+          margin: `-4px (-${token.tablePaddingHorizontal}px / 2) -4px 4px`,
+          padding: '0 4px',
+          color: token.tableHeaderIconColor,
+          fontSize: token.fontSizeSM,
+          borderRadius: token.radiusBase,
+          cursor: 'pointer',
+          transition: 'all 0.3s',
+
+          '&:hover': {
+            color: token.colorTextSecondary,
+            background: token.tableHeaderFilterActiveBg,
+          },
+
+          '&.active': {
+            color: token.colorPrimary,
+          },
         },
       },
-
+    },
+    {
       // Dropdown
       [`${componentCls}-filter-dropdown`]: {
         ...resetComponent(token),
@@ -61,9 +68,67 @@ const genFilterStyle: GenerateStyle<TableToken, CSSObject> = token => {
             content: '"Not Found"',
           },
         },
+
+        [`${tableFilterDropdownPrefixCls}-tree`]: {
+          padding: '8px 8px 0',
+
+          [`${treePrefixCls}-treenode ${treePrefixCls}-node-content-wrapper:hover`]: {
+            backgroundColor: token.controlItemBgHover,
+          },
+
+          [`${treePrefixCls}-treenode-checkbox-checked ${treePrefixCls}-node-content-wrapper`]: {
+            '&, &:hover': {
+              backgroundColor: token.colorPrimaryActive,
+            },
+          },
+        },
+
+        [`${tableFilterDropdownPrefixCls}-search`]: {
+          padding: '8px',
+          borderBottom: tableBorder,
+
+          '&-input': {
+            input: {
+              // FIXME
+              minWidth: '140px',
+            },
+            [iconCls]: {
+              color: token.colorTextDisabled,
+            },
+          },
+        },
+
+        [`${tableFilterDropdownPrefixCls}-checkall`]: {
+          width: '100%',
+          marginBottom: '4px',
+          marginLeft: '4px',
+        },
+
+        [`${tableFilterDropdownPrefixCls}-submenu > ul`]: {
+          maxHeight: 'calc(100vh - 130px)',
+          overflowX: 'hidden',
+          overflowY: 'auto',
+        },
+
+        // Checkbox
+        [`${tableFilterDropdownPrefixCls}, ${tableFilterDropdownPrefixCls}-submenu`]: {
+          [`${antCls}-checkbox-wrapper + span`]: {
+            paddingLeft: '8px',
+          },
+        },
+
+        // Operation
+        [`${tableFilterDropdownPrefixCls}-btns`]: {
+          display: 'flex',
+          justifyContent: 'space-between',
+          padding: '7px 8px',
+          overflow: 'hidden',
+          backgroundColor: 'inherit',
+          borderTop: tableBorder,
+        },
       },
     },
-  };
+  ];
 };
 
 export default genFilterStyle;
