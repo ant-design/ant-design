@@ -1,5 +1,4 @@
 import IconContext from '@ant-design/icons/lib/components/Context';
-import { DisabledContextProvider } from 'antd/es/config-provider/DisabledContext';
 import { FormProvider as RcFormProvider } from 'rc-field-form';
 import type { ValidateMessages } from 'rc-field-form/lib/interface';
 import useMemo from 'rc-util/lib/hooks/useMemo';
@@ -21,6 +20,7 @@ import {
 } from './context';
 import { registerTheme } from './cssVariables';
 import { RenderEmptyHandler } from './defaultRenderEmpty';
+import { DisabledContextProvider } from './DisabledContext';
 import type { SizeType } from './SizeContext';
 import SizeContext, { SizeContextProvider } from './SizeContext';
 
