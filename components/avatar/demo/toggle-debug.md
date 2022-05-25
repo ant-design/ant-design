@@ -19,10 +19,12 @@ import React, { useState } from 'react';
 import { Avatar, Button } from 'antd';
 
 type SizeType = 'large' | 'small' | 'default' | number;
+
 const App: React.FC = () => {
   const [hide, setHide] = useState(true);
   const [size, setSize] = useState<SizeType>('large');
   const [scale, setScale] = useState(1);
+
   const toggle = () => {
     setHide(!hide);
   };

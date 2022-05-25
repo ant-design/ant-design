@@ -13,14 +13,17 @@ title:
 
 Mark a pending state of switch.
 
-```jsx
+```tsx
+import React from 'react';
 import { Switch } from 'antd';
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Switch loading defaultChecked />
     <br />
     <Switch size="small" loading />
   </>
 );
+
+export default App;
 ```

@@ -13,8 +13,11 @@ title:
 
 Simplest Skeleton usage.
 
-```jsx
+```tsx
+import React from 'react';
 import { Skeleton } from 'antd';
 
-export default () => <Skeleton />;
+const App: React.FC = () => <Skeleton />;
+
+export default App;
 ```

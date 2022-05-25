@@ -13,8 +13,11 @@ title:
 
 The simplest use.
 
-```jsx
+```tsx
+import React from 'react';
 import { Radio } from 'antd';
 
-export default () => <Radio>Radio</Radio>;
+const App: React.FC = () => <Radio>Radio</Radio>;
+
+export default App;
 ```

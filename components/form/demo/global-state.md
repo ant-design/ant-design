@@ -53,7 +53,7 @@ const CustomizedForm: React.FC<CustomizedFormProps> = ({ onChange, fields }) => 
   </Form>
 );
 
-const Demo = () => {
+const App: React.FC = () => {
   const [fields, setFields] = useState<FieldData[]>([{ name: ['username'], value: 'Ant Design' }]);
 
   return (
@@ -69,7 +69,7 @@ const Demo = () => {
   );
 };
 
-export default Demo;
+export default App;
 ```
 
 <style>

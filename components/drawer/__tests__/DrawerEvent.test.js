@@ -50,7 +50,9 @@ describe('Drawer', () => {
     const { container, rerender } = render(getDrawer({ destroyOnClose: true }));
 
     rerender(getDrawer({ destroyOnClose: true, visible: false }));
-    fireEvent.transitionEnd(container.querySelector('.ant-drawer-wrapper-body'));
+    const ev = new TransitionEvent('transitionend', { bubbles: true });
+    ev.propertyName = 'transform';
+    fireEvent(document.querySelector('.ant-drawer-content-wrapper'), ev);
 
     expect(container.querySelector('.ant-drawer-wrapper-body')).toBeFalsy();
   });
@@ -60,8 +62,50 @@ describe('Drawer', () => {
     expect(container.querySelector('.ant-drawer-wrapper-body')).toBeTruthy();
 
     rerender(getDrawer({ visible: false }));
-    fireEvent.transitionEnd(container.querySelector('.ant-drawer-wrapper-body'));
+    const ev = new TransitionEvent('transitionend', { bubbles: true });
+    ev.propertyName = 'transform';
+    fireEvent(document.querySelector('.ant-drawer-content-wrapper'), ev);
 
     expect(container.querySelector('.ant-drawer-wrapper-body')).toBeTruthy();
+  });
+  it('test afterVisibleChange', async () => {
+    const afterVisibleChange = jest.fn();
+    const { rerender } = render(getDrawer({ afterVisibleChange, visible: true }));
+    rerender(getDrawer({ afterVisibleChange, visible: false }));
+    const ev = new TransitionEvent('transitionend', { bubbles: true });
+    ev.propertyName = 'transform';
+    fireEvent(document.querySelector('.ant-drawer-content-wrapper'), ev);
+    expect(afterVisibleChange).toBeCalledTimes(1);
+  });
+  it('should support children ref', () => {
+    const fn = jest.fn();
+
+    const refCallback = ref => {
+      expect(typeof ref).toBe('object');
+      fn();
+    };
+
+    const RefDemo = () => {
+      const ref = React.useRef();
+      const [visible, setVisible] = React.useState(false);
+
+      React.useEffect(() => {
+        if (visible) {
+          refCallback(ref.current);
+        }
+      }, [visible]);
+
+      return (
+        <>
+          <a onClick={() => setVisible(true)}>open</a>
+          <Drawer visible={visible}>
+            <div ref={ref} />
+          </Drawer>
+        </>
+      );
+    };
+    const { container } = render(<RefDemo />);
+    fireEvent.click(container.querySelector('a'));
+    expect(fn).toBeCalled();
   });
 });

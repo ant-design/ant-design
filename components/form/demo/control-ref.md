@@ -14,6 +14,7 @@ title:
 We recommend use `Form.useForm` to create data control. If you are using class component, you can get it by `ref`.
 
 ```tsx
+import React from 'react';
 import { Form, Input, Button, Select } from 'antd';
 import type { FormInstance } from 'antd/es/form';
 
@@ -27,7 +28,7 @@ const tailLayout = {
   wrapperCol: { offset: 8, span: 16 },
 };
 
-class Demo extends React.Component {
+class App extends React.Component {
   formRef = React.createRef<FormInstance>();
 
   onGenderChange = (value: string) => {
@@ -107,7 +108,7 @@ class Demo extends React.Component {
   }
 }
 
-export default Demo;
+export default App;
 ```
 
 ```css

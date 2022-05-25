@@ -13,17 +13,33 @@ title:
 
 An example of infinite & virtualized list via using [rc-virtual-list](https://github.com/react-component/virtual-list).
 
-```jsx
+```tsx
 import React, { useState, useEffect } from 'react';
 import { List, message, Avatar } from 'antd';
 import VirtualList from 'rc-virtual-list';
+
+interface UserItem {
+  email: string;
+  gender: string;
+  name: {
+    first: string;
+    last: string;
+    title: string;
+  };
+  nat: string;
+  picture: {
+    large: string;
+    medium: string;
+    thumbnail: string;
+  };
+}
 
 const fakeDataUrl =
   'https://randomuser.me/api/?results=20&inc=name,gender,email,nat,picture&noinfo';
 const ContainerHeight = 400;
 
-const VirtualizedExample = () => {
-  const [data, setData] = useState([]);
+const App: React.FC = () => {
+  const [data, setData] = useState<UserItem[]>([]);
 
   const appendData = () => {
     fetch(fakeDataUrl)
@@ -38,8 +54,8 @@ const VirtualizedExample = () => {
     appendData();
   }, []);
 
-  const onScroll = e => {
-    if (e.target.scrollHeight - e.target.scrollTop === ContainerHeight) {
+  const onScroll = (e: React.UIEvent<HTMLElement, UIEvent>) => {
+    if (e.currentTarget.scrollHeight - e.currentTarget.scrollTop === ContainerHeight) {
       appendData();
     }
   };
@@ -53,7 +69,7 @@ const VirtualizedExample = () => {
         itemKey="email"
         onScroll={onScroll}
       >
-        {item => (
+        {(item: UserItem) => (
           <List.Item key={item.email}>
             <List.Item.Meta
               avatar={<Avatar src={item.picture.large} />}
@@ -68,5 +84,5 @@ const VirtualizedExample = () => {
   );
 };
 
-export default () => <VirtualizedExample />;
+export default App;
 ```

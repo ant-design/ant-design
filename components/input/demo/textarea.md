@@ -13,12 +13,13 @@ title:
 
 For multi-line input.
 
-```jsx
+```tsx
+import React from 'react';
 import { Input } from 'antd';
 
 const { TextArea } = Input;
 
-export default () => (
+const App: React.FC = () => (
   <>
     <TextArea rows={4} />
     <br />
@@ -26,4 +27,6 @@ export default () => (
     <TextArea rows={4} placeholder="maxLength is 6" maxLength={6} />
   </>
 );
+
+export default App;
 ```

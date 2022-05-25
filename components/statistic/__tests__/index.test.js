@@ -51,6 +51,20 @@ describe('Statistic', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
+  it('allow negetive precision', () => {
+    [
+      [-1, -1112893.1212, '-1,112,893'],
+      [-2, -1112893.1212, '-1,112,893'],
+      [-3,  -1112893.1212, '-1,112,893'],
+      [-1, -1112893,  '-1,112,893'],
+      [-1, 1112893,  '1,112,893'],
+    ].forEach(([precision, value, expectValue]) => {
+      const wrapper = mount(<Statistic precision={precision} value={value} />);
+      expect(wrapper.find('.ant-statistic-content-value-int').text()).toEqual(expectValue);
+      expect(wrapper.find('.ant-statistic-content-value-decimal').length).toBe(0);
+    })
+  });
+
   it('loading with skeleton', async () => {
     let loading = false;
     const wrapper = mount(<Statistic title="Active Users" value={112112} loading={loading} />);

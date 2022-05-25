@@ -83,7 +83,7 @@ const CollectionCreateForm: React.FC<CollectionCreateFormProps> = ({
   );
 };
 
-const CollectionsPage = () => {
+const App: React.FC = () => {
   const [visible, setVisible] = useState(false);
 
   const onCreate = (values: any) => {
@@ -112,7 +112,7 @@ const CollectionsPage = () => {
   );
 };
 
-export default () => <CollectionsPage />;
+export default App;
 ```
 
 ```css

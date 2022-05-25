@@ -13,7 +13,8 @@ title:
 
 A notification box can appear from the `topRight`, `bottomRight`, `bottomLeft` or `topLeft` of the viewport via `placement`.
 
-```jsx
+```tsx
+import React from 'react';
 import { Button, notification, Divider, Space } from 'antd';
 import {
   RadiusUpleftOutlined,
@@ -23,8 +24,9 @@ import {
   BorderTopOutlined,
   BorderBottomOutlined,
 } from '@ant-design/icons';
+import type { NotificationPlacement } from 'antd/lib/notification';
 
-const openNotification = placement => {
+const openNotification = (placement: NotificationPlacement) => {
   notification.info({
     message: `Notification ${placement}`,
     description:
@@ -33,7 +35,7 @@ const openNotification = placement => {
   });
 };
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Space>
       <Button type="primary" onClick={() => openNotification('top')} icon={<BorderTopOutlined />}>
@@ -83,4 +85,6 @@ export default () => (
     </Space>
   </>
 );
+
+export default App;
 ```

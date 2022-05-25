@@ -13,11 +13,13 @@ title:
 
 An event will be triggered when you click menu items, in which you can make different operations according to item's key.
 
-```jsx
+```tsx
+import React from 'react';
 import { Menu, Dropdown, message, Space } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
+import type { MenuProps } from 'antd';
 
-const onClick = ({ key }) => {
+const onClick: MenuProps['onClick'] = ({ key }) => {
   message.info(`Click on item ${key}`);
 };
 
@@ -41,7 +43,7 @@ const menu = (
   />
 );
 
-export default () => (
+const App: React.FC = () => (
   <Dropdown overlay={menu}>
     <a onClick={e => e.preventDefault()}>
       <Space>
@@ -51,4 +53,6 @@ export default () => (
     </a>
   </Dropdown>
 );
+
+export default App;
 ```

@@ -13,8 +13,11 @@ title:
 
 Support select half star.
 
-```jsx
+```tsx
+import React from 'react';
 import { Rate } from 'antd';
 
-export default () => <Rate allowHalf defaultValue={2.5} />;
+const App: React.FC = () => <Rate allowHalf defaultValue={2.5} />;
+
+export default App;
 ```

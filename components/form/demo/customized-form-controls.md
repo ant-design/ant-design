@@ -83,7 +83,7 @@ const PriceInput: React.FC<PriceInputProps> = ({ value = {}, onChange }) => {
   );
 };
 
-const Demo = () => {
+const App: React.FC = () => {
   const onFinish = (values: any) => {
     console.log('Received values from form: ', values);
   };
@@ -119,5 +119,5 @@ const Demo = () => {
   );
 };
 
-export default Demo;
+export default App;
 ```

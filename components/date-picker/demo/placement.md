@@ -13,15 +13,17 @@ title:
 
 You can manually specify the position of the popup via `placement`.
 
-```jsx
-import { DatePicker, Space, Radio } from 'antd';
+```tsx
+import React, { useState } from 'react';
+import { DatePicker, Radio } from 'antd';
+import type { DatePickerProps, RadioChangeEvent } from 'antd';
 
 const { RangePicker } = DatePicker;
 
-const SetPlacementDemo = () => {
-  const [placement, SetPlacement] = React.useState('topLeft');
+const App: React.FC = () => {
+  const [placement, SetPlacement] = useState<DatePickerProps['placement']>('topLeft');
 
-  const placementChange = e => {
+  const placementChange = (e: RadioChangeEvent) => {
     SetPlacement(e.target.value);
   };
 
@@ -43,5 +45,5 @@ const SetPlacementDemo = () => {
   );
 };
 
-export default () => <SetPlacementDemo />;
+export default App;
 ```

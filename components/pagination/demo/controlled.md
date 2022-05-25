@@ -13,25 +13,21 @@ title:
 
 Controlled page number.
 
-```jsx
+```tsx
+import React, { useState } from 'react';
 import { Pagination } from 'antd';
+import type { PaginationProps } from 'antd';
 
-class App extends React.Component {
-  state = {
-    current: 3,
-  };
+const App: React.FC = () => {
+  const [current, setCurrent] = useState(3);
 
-  onChange = page => {
+  const onChange: PaginationProps['onChange'] = page => {
     console.log(page);
-    this.setState({
-      current: page,
-    });
+    setCurrent(page);
   };
 
-  render() {
-    return <Pagination current={this.state.current} onChange={this.onChange} total={50} />;
-  }
-}
+  return <Pagination current={current} onChange={onChange} total={50} />;
+};
 
 export default App;
 ```

@@ -13,12 +13,13 @@ title:
 
 Bordered-less style component.
 
-```jsx
+```tsx
+import React from 'react';
 import { DatePicker, Space } from 'antd';
 
 const { RangePicker } = DatePicker;
 
-export default () => (
+const App: React.FC = () => (
   <Space direction="vertical" size={12}>
     <DatePicker bordered={false} />
     <DatePicker picker="week" bordered={false} />
@@ -30,4 +31,6 @@ export default () => (
     <RangePicker picker="year" bordered={false} />
   </Space>
 );
+
+export default App;
 ```

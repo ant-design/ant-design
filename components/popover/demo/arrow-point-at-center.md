@@ -13,7 +13,8 @@ title:
 
 The arrow points to the center of the target element, which set `arrowPointAtCenter`.
 
-```jsx
+```tsx
+import React from 'react';
 import { Popover, Button } from 'antd';
 
 const content = (
@@ -23,7 +24,7 @@ const content = (
   </>
 );
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Popover placement="topLeft" title="Title" content={content}>
       <Button>Align edge / 边缘对齐</Button>
@@ -33,4 +34,6 @@ export default () => (
     </Popover>
   </>
 );
+
+export default App;
 ```

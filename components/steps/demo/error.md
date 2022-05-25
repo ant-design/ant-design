@@ -13,16 +13,19 @@ title:
 
 By using `status` of `Steps`, you can specify the state for current step.
 
-```jsx
+```tsx
+import React from 'react';
 import { Steps } from 'antd';
 
 const { Step } = Steps;
 
-export default () => (
+const App: React.FC = () => (
   <Steps current={1} status="error">
     <Step title="Finished" description="This is a description" />
     <Step title="In Process" description="This is a description" />
     <Step title="Waiting" description="This is a description" />
   </Steps>
 );
+
+export default App;
 ```

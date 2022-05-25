@@ -13,13 +13,14 @@ title:
 
 A Card that supports `cover`, `avatar`, `title` and `description`.
 
-```jsx
+```tsx
+import React from 'react';
 import { Card, Avatar } from 'antd';
 import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
 
 const { Meta } = Card;
 
-export default () => (
+const App: React.FC = () => (
   <Card
     style={{ width: 300 }}
     cover={
@@ -41,4 +42,6 @@ export default () => (
     />
   </Card>
 );
+
+export default App;
 ```

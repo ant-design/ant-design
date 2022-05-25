@@ -13,10 +13,11 @@ title:
 
 You can use non-heading style of divider text by setting `plain`.
 
-```jsx
+```tsx
+import React from 'react';
 import { Divider } from 'antd';
 
-export default () => (
+const App: React.FC = () => (
   <>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista
@@ -43,4 +44,6 @@ export default () => (
     </p>
   </>
 );
+
+export default App;
 ```

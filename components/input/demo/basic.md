@@ -13,8 +13,11 @@ title:
 
 Basic usage example.
 
-```jsx
+```tsx
+import React from 'react';
 import { Input } from 'antd';
 
-export default () => <Input placeholder="Basic usage" />;
+const App: React.FC = () => <Input placeholder="Basic usage" />;
+
+export default App;
 ```

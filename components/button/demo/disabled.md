@@ -13,10 +13,11 @@ title:
 
 To mark a button as disabled, add the `disabled` property to the `Button`.
 
-```jsx
+```tsx
+import React from 'react';
 import { Button } from 'antd';
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Button type="primary">Primary</Button>
     <Button type="primary" disabled>
@@ -67,6 +68,8 @@ export default () => (
     </div>
   </>
 );
+
+export default App;
 ```
 
 ```css

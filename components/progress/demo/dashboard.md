@@ -13,13 +13,16 @@ title:
 
 By setting `type=dashboard`, you can get a dashboard style of progress easily. Modify `gapDegree` to set the degree of gap.
 
-```jsx
+```tsx
+import React from 'react';
 import { Progress } from 'antd';
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Progress type="dashboard" percent={75} />
     <Progress type="dashboard" percent={75} gapDegree={30} />
   </>
 );
+
+export default App;
 ```

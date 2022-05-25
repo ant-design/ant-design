@@ -13,10 +13,11 @@ title:
 
 A package of `linear-gradient`. It is recommended to only pass two colors.
 
-```jsx
+```tsx
+import React from 'react';
 import { Progress } from 'antd';
 
-const Demo = () => (
+const App: React.FC = () => (
   <>
     <Progress
       strokeColor={{
@@ -52,5 +53,5 @@ const Demo = () => (
   </>
 );
 
-export default Demo;
+export default App;
 ```

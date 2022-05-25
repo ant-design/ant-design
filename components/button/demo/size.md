@@ -17,20 +17,18 @@ Ant Design supports a default button size as well as a large and small size.
 
 If a large or small button is desired, set the `size` property to either `large` or `small` respectively. Omit the `size` property for a button with the default size.
 
-```jsx
+```tsx
 import React, { useState } from 'react';
 import { Button, Radio } from 'antd';
 import { DownloadOutlined } from '@ant-design/icons';
+import type { SizeType } from 'antd/es/config-provider/SizeContext';
 
-export default () => {
-  const [size, setSize] = useState('large');
-  const handleSizeChange = e => {
-    setSize(e.target.value);
-  };
+const App: React.FC = () => {
+  const [size, setSize] = useState<SizeType>('large');
 
   return (
     <>
-      <Radio.Group value={size} onChange={handleSizeChange}>
+      <Radio.Group value={size} onChange={e => setSize(e.target.value)}>
         <Radio.Button value="large">Large</Radio.Button>
         <Radio.Button value="default">Default</Radio.Button>
         <Radio.Button value="small">Small</Radio.Button>
@@ -61,4 +59,6 @@ export default () => {
     </>
   );
 };
+
+export default App;
 ```

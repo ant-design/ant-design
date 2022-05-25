@@ -13,8 +13,11 @@ title:
 
 Complex combination with avatar and multiple paragraphs.
 
-```jsx
+```tsx
+import React from 'react';
 import { Skeleton } from 'antd';
 
-export default () => <Skeleton avatar paragraph={{ rows: 4 }} />;
+const App: React.FC = () => <Skeleton avatar paragraph={{ rows: 4 }} />;
+
+export default App;
 ```

@@ -13,16 +13,14 @@ title:
 
 More than one panel can be expanded at a time, the first panel is initialized to be active in this case.
 
-```jsx
+```tsx
+import React, { useState } from 'react';
 import { Collapse, Select } from 'antd';
 import { SettingOutlined } from '@ant-design/icons';
+import type { ExpandIconPosition } from 'antd/lib/collapse/Collapse';
 
 const { Panel } = Collapse;
 const { Option } = Select;
-
-function callback(key) {
-  console.log(key);
-}
 
 const text = `
   A dog is a type of domesticated animal.
@@ -30,26 +28,31 @@ const text = `
   it can be found as a welcome guest in many households across the world.
 `;
 
-const genExtra = () => (
-  <SettingOutlined
-    onClick={event => {
-      // If you don't want click extra trigger collapse, you can prevent this:
-      event.stopPropagation();
-    }}
-  />
-);
+const App: React.FC = () => {
+  const [expandIconPosition, setExpandIconPosition] = useState<ExpandIconPosition>('left');
 
-export default () => {
-  const [expandIconPosition, setExpandIconPosition] = React.useState('left');
-
-  const onPositionChange = position => {
-    setExpandIconPosition(position);
+  const onPositionChange = (newExpandIconPosition: ExpandIconPosition) => {
+    setExpandIconPosition(newExpandIconPosition);
   };
+
+  const onChange = (key: string | string[]) => {
+    console.log(key);
+  };
+
+  const genExtra = () => (
+    <SettingOutlined
+      onClick={event => {
+        // If you don't want click extra trigger collapse, you can prevent this:
+        event.stopPropagation();
+      }}
+    />
+  );
+
   return (
     <>
       <Collapse
         defaultActiveKey={['1']}
-        onChange={callback}
+        onChange={onChange}
         expandIconPosition={expandIconPosition}
       >
         <Panel header="This is panel header 1" key="1" extra={genExtra()}>
@@ -71,4 +74,6 @@ export default () => {
     </>
   );
 };
+
+export default App;
 ```

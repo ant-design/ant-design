@@ -13,12 +13,13 @@ title:
 
 Nest dynamic field need extends `field`. Pass `field.name` to nest item.
 
-```jsx
+```tsx
+import React from 'react';
 import { Form, Input, Button, Space } from 'antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 
-const Demo = () => {
-  const onFinish = values => {
+const App: React.FC = () => {
+  const onFinish = (values: any) => {
     console.log('Received values of form:', values);
   };
 
@@ -63,5 +64,5 @@ const Demo = () => {
   );
 };
 
-export default Demo;
+export default App;
 ```

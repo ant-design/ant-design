@@ -13,17 +13,17 @@ title:
 
 Shows a loading indicator while the contents of the card is being fetched.
 
-```jsx
+```tsx
 import React, { useState } from 'react';
 import { Skeleton, Switch, Card, Avatar } from 'antd';
 import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
 
 const { Meta } = Card;
 
-export default () => {
+const App: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
-  const onChange = checked => {
+  const onChange = (checked: boolean) => {
     setLoading(!checked);
   };
 
@@ -58,4 +58,6 @@ export default () => {
     </>
   );
 };
+
+export default App;
 ```

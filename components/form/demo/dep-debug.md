@@ -15,11 +15,12 @@ Buggy!
 Buggy!
 
 ```tsx
+import React from 'react';
 import { Form, Input } from 'antd';
 
 let acc = 0;
 
-const Demo = () => {
+const App: React.FC = () => {
   const [form] = Form.useForm();
   return (
     <Form
@@ -46,5 +47,5 @@ const Demo = () => {
   );
 };
 
-export default Demo;
+export default App;
 ```

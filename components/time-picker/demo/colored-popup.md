@@ -14,21 +14,25 @@ debug: true
 
 Passing custom class to `TimePicker` popup
 
-```jsx
+```tsx
+import React from 'react';
 import { TimePicker } from 'antd';
 import moment from 'moment';
+import type { Moment } from 'moment';
 
-const onChange = (time, timeString) => {
+const onChange = (time: Moment, timeString: string) => {
   console.log(time, timeString);
 };
 
-export default () => (
+const App: React.FC = () => (
   <TimePicker
     onChange={onChange}
     defaultOpenValue={moment('00:00:00', 'HH:mm:ss')}
     popupClassName="myCustomClassName"
   />
 );
+
+export default App;
 ```
 
 ```css

@@ -15,7 +15,7 @@ jest.mock('../../_util/styleChecker', () => ({
 describe('Grid.Gap', () => {
   it('should not have `row-gap: 0px` style', () => {
     render(
-      <Row>
+      <Row role="row">
         <Col />
       </Row>,
     );

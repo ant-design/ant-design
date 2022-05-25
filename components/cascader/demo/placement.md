@@ -13,10 +13,18 @@ title:
 
 You can manually specify the position of the popup via `placement`.
 
-```jsx
+```tsx
+import React, { useState } from 'react';
 import { Cascader, Radio } from 'antd';
+import type { RadioChangeEvent } from 'antd';
 
-const options = [
+interface Option {
+  value: string;
+  label: string;
+  children?: Option[];
+}
+
+const options: Option[] = [
   {
     value: 'zhejiang',
     label: 'Zhejiang',
@@ -51,10 +59,12 @@ const options = [
   },
 ];
 
-const SetPlacementDemo = () => {
-  const [placement, SetPlacement] = React.useState('topLeft');
+const App: React.FC = () => {
+  const [placement, SetPlacement] = useState<'bottomLeft' | 'bottomRight' | 'topLeft' | 'topRight'>(
+    'topLeft',
+  );
 
-  const placementChange = e => {
+  const placementChange = (e: RadioChangeEvent) => {
     SetPlacement(e.target.value);
   };
 
@@ -73,5 +83,5 @@ const SetPlacementDemo = () => {
   );
 };
 
-export default () => <SetPlacementDemo />;
+export default App;
 ```
