@@ -20,7 +20,7 @@ import debounce from 'lodash/debounce';
 import React, { useMemo, useRef, useState } from 'react';
 
 export interface DebounceSelectProps<ValueType = any>
-  extends Omit<SelectProps<ValueType>, 'options' | 'children'> {
+  extends Omit<SelectProps<ValueType | ValueType[]>, 'options' | 'children'> {
   fetchOptions: (search: string) => Promise<ValueType[]>;
   debounceTimeout?: number;
 }
@@ -54,7 +54,7 @@ function DebounceSelect<
   }, [fetchOptions, debounceTimeout]);
 
   return (
-    <Select<ValueType>
+    <Select
       labelInValue
       filterOption={false}
       onSearch={debounceFetcher}
@@ -96,7 +96,7 @@ const App: React.FC = () => {
       placeholder="Select users"
       fetchOptions={fetchUserList}
       onChange={newValue => {
-        setValue(newValue);
+        setValue(newValue as UserValue[]);
       }}
       style={{ width: '100%' }}
     />
