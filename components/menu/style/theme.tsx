@@ -165,7 +165,7 @@ const getThemeStyle = (token: MenuThemeToken, themeSuffix: string): CSSInterpola
       // ================== Inline & Vertical ===================
       //
       [`&${componentCls}-root`]: {
-        [`${componentCls}-inline, ${componentCls}-vertical`]: {
+        [`&${componentCls}-inline, &${componentCls}-vertical`]: {
           borderInlineEnd: `${themeInkBorderSize}px ${lineType} ${colorBorderSecondary}`,
         },
       },
