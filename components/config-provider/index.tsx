@@ -253,7 +253,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     childNode = <SizeContextProvider size={componentSize}>{childNode}</SizeContextProvider>;
   }
 
-  if (componentDisabled) {
+  if (componentDisabled !== undefined) {
     childNode = (
       <DisabledContextProvider disabled={componentDisabled}>{childNode}</DisabledContextProvider>
     );
