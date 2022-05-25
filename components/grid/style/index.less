@@ -8,7 +8,7 @@
   --row-gutter-y: 0px;
   display: flex;
   flex-flow: row wrap;
-  margin: calc(-0.5 * var(--row-gutter-y)) calc(-0.5 * var(--row-gutter-x)) 0;
+  margin: calc(-1 * var(--row-gutter-y)) calc(-0.5 * var(--row-gutter-x)) 0;
 
   &::before,
   &::after {
@@ -71,7 +71,7 @@
   max-width: 100%;
   // Prevent columns from collapsing when empty
   min-height: 1px;
-  margin-top: calc(0.5 * var(--row-gutter-y));
+  margin-top: var(--row-gutter-y);
   padding: 0 calc(0.5 * var(--row-gutter-x));
 }
 
