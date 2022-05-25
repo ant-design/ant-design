@@ -1,5 +1,5 @@
 ---
-order: 5
+order: 4
 title:
   zh-CN: Promise 接口
   en-US: Promise interface

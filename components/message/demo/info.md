@@ -1,5 +1,5 @@
 ---
-order: 0
+order: 6
 title:
   zh-CN: 普通提示
   en-US: Normal prompt
