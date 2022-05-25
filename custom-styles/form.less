@@ -1,0 +1,123 @@
+// input and label CSS
+.ant-input,
+.ant-input-affix-wrapper {
+  padding: @large-input;
+  font-size: @font-size-base;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+}
+
+.ant-form-item-label > label {
+  height: auto;
+  margin-bottom: 8px;
+  color: #6b7280;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.ant-form-item-explain,
+.ant-form-item-extra {
+  font-size: 12px;
+  line-height: 14px;
+}
+
+// checkbox CSS
+.ant-checkbox-checked {
+  .ant-checkbox-inner {
+    background-color: @primary-color;
+    border-color: @primary-color;
+  }
+  &:after {
+    border-color: @primary-color;
+    border-radius: 4px;
+  }
+}
+
+.ant-checkbox-inner {
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  &:after {
+    margin-top: -1px;
+  }
+}
+
+.ant-checkbox-wrapper:hover .ant-checkbox-inner,
+.ant-checkbox:hover .ant-checkbox-inner,
+.ant-checkbox-input:focus + .ant-checkbox-inner {
+  border-color: @primary-color;
+}
+
+// Button CSS
+.ant-btn {
+  height: auto;
+  padding: 7px 12px;
+  color: #374151;
+  font-weight: 500;
+  font-size: @font-size-base;
+  line-height: 18px;
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  box-shadow: 0px 1px 2px rgba(6, 25, 56, 0.05);
+  &:hover {
+    color: #374151;
+    background-color: #d1d5db;
+    border-color: #d1d5db;
+  }
+  &.ant-btn-primary {
+    color: #ffffff;
+    background-color: @primary-color;
+    border-color: @primary-color;
+    &:hover {
+      color: #374151;
+      background-color: transparent;
+    }
+  }
+  &.ant-btn-lg {
+    height: auto;
+    padding: 9px 12px;
+    font-size: 16px;
+    line-height: 20px;
+  }
+  + .ant-btn {
+    margin-left: 12px;
+  }
+}
+
+//dropdown CSS
+.ant-dropdown-menu {
+  padding: 8px 0;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  box-shadow: 0px 6px 10px -1px rgba(6, 25, 56, 0.07);
+}
+
+.ant-dropdown-menu-item {
+  padding: 7px 16px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  &:hover {
+    color: #4f46e5;
+    background: #e0e7ff;
+  }
+}
+
+.input-text {
+  label {
+    display: block;
+    margin-bottom: 8px;
+    color: @base-font-color;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+  }
+  span {
+    display: block;
+    padding: 8px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+  }
+}
