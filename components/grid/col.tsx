@@ -47,7 +47,7 @@ function parseFlex(flex: FlexType): string {
 const sizes = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
 const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
-  const { gutter, wrap, supportFlexGap } = React.useContext(RowContext);
+  const { wrap } = React.useContext(RowContext);
 
   const {
     prefixCls: customizePrefixCls,
@@ -103,19 +103,6 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   );
 
   const mergedStyle: React.CSSProperties = {};
-  // Horizontal gutter use padding
-  if (gutter && gutter[0] > 0) {
-    const horizontalGutter = gutter[0] / 2;
-    mergedStyle.paddingLeft = horizontalGutter;
-    mergedStyle.paddingRight = horizontalGutter;
-  }
-
-  // Vertical gutter use padding when gap not support
-  if (gutter && gutter[1] > 0 && !supportFlexGap) {
-    const verticalGutter = gutter[1] / 2;
-    mergedStyle.paddingTop = verticalGutter;
-    mergedStyle.paddingBottom = verticalGutter;
-  }
 
   if (flex) {
     mergedStyle.flex = parseFlex(flex);

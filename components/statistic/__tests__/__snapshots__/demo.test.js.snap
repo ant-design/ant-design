@@ -3,11 +3,10 @@
 exports[`renders ./components/statistic/demo/basic.md correctly 1`] = `
 <div
   class="ant-row"
-  style="margin-left:-8px;margin-right:-8px"
+  style="--row-gutter-x:16px"
 >
   <div
     class="ant-col ant-col-12"
-    style="padding-left:8px;padding-right:8px"
   >
     <div
       class="ant-statistic"
@@ -34,7 +33,6 @@ exports[`renders ./components/statistic/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="ant-col ant-col-12"
-    style="padding-left:8px;padding-right:8px"
   >
     <div
       class="ant-statistic"
@@ -75,7 +73,6 @@ exports[`renders ./components/statistic/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="ant-col ant-col-12"
-    style="padding-left:8px;padding-right:8px"
   >
     <div
       class="ant-statistic"
@@ -107,11 +104,10 @@ exports[`renders ./components/statistic/demo/card.md correctly 1`] = `
 >
   <div
     class="ant-row"
-    style="margin-left:-8px;margin-right:-8px"
+    style="--row-gutter-x:16px"
   >
     <div
       class="ant-col ant-col-12"
-      style="padding-left:8px;padding-right:8px"
     >
       <div
         class="ant-card ant-card-bordered"
@@ -180,7 +176,6 @@ exports[`renders ./components/statistic/demo/card.md correctly 1`] = `
     </div>
     <div
       class="ant-col ant-col-12"
-      style="padding-left:8px;padding-right:8px"
     >
       <div
         class="ant-card ant-card-bordered"
@@ -254,11 +249,10 @@ exports[`renders ./components/statistic/demo/card.md correctly 1`] = `
 exports[`renders ./components/statistic/demo/countdown.md correctly 1`] = `
 <div
   class="ant-row"
-  style="margin-left:-8px;margin-right:-8px"
+  style="--row-gutter-x:16px"
 >
   <div
     class="ant-col ant-col-12"
-    style="padding-left:8px;padding-right:8px"
   >
     <div
       class="ant-statistic"
@@ -281,7 +275,6 @@ exports[`renders ./components/statistic/demo/countdown.md correctly 1`] = `
   </div>
   <div
     class="ant-col ant-col-12"
-    style="padding-left:8px;padding-right:8px"
   >
     <div
       class="ant-statistic"
@@ -304,7 +297,7 @@ exports[`renders ./components/statistic/demo/countdown.md correctly 1`] = `
   </div>
   <div
     class="ant-col ant-col-24"
-    style="padding-left:8px;padding-right:8px;margin-top:32px"
+    style="margin-top:32px"
   >
     <div
       class="ant-statistic"
@@ -327,7 +320,6 @@ exports[`renders ./components/statistic/demo/countdown.md correctly 1`] = `
   </div>
   <div
     class="ant-col ant-col-12"
-    style="padding-left:8px;padding-right:8px"
   >
     <div
       class="ant-statistic"
@@ -354,11 +346,10 @@ exports[`renders ./components/statistic/demo/countdown.md correctly 1`] = `
 exports[`renders ./components/statistic/demo/unit.md correctly 1`] = `
 <div
   class="ant-row"
-  style="margin-left:-8px;margin-right:-8px"
+  style="--row-gutter-x:16px"
 >
   <div
     class="ant-col ant-col-12"
-    style="padding-left:8px;padding-right:8px"
   >
     <div
       class="ant-statistic"
@@ -408,7 +399,6 @@ exports[`renders ./components/statistic/demo/unit.md correctly 1`] = `
   </div>
   <div
     class="ant-col ant-col-12"
-    style="padding-left:8px;padding-right:8px"
   >
     <div
       class="ant-statistic"

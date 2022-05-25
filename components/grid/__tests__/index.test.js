@@ -1,11 +1,11 @@
+import { mount, render } from 'enzyme';
 import React from 'react';
-import { render, mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import { Col, Row } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import useBreakpoint from '../hooks/useBreakpoint';
 import ResponsiveObserve from '../../_util/responsiveObserve';
+import useBreakpoint from '../hooks/useBreakpoint';
 
 describe('Grid', () => {
   mountTest(Row);
@@ -28,8 +28,7 @@ describe('Grid', () => {
     const wrapper = mount(<Row gutter={{ xs: 8, sm: 16, md: 24 }} />);
     expect(wrapper.find('div').first().props().style).toEqual(
       expect.objectContaining({
-        marginLeft: -4,
-        marginRight: -4,
+        '--row-gutter-x': '8px',
       }),
     );
   });
@@ -45,8 +44,7 @@ describe('Grid', () => {
     );
     expect(wrapper.find('div').first().props().style).toEqual(
       expect.objectContaining({
-        marginLeft: -4,
-        marginRight: -4,
+        '--row-gutter-x': '8px',
       }),
     );
   });
@@ -88,18 +86,15 @@ describe('Grid', () => {
   it('should work correct when gutter is object', () => {
     const wrapper = mount(<Row gutter={{ xs: 20 }} />);
     expect(wrapper.find('div').prop('style')).toEqual({
-      marginLeft: -10,
-      marginRight: -10,
+      '--row-gutter-x': '20px',
     });
   });
 
   it('should work current when gutter is array', () => {
     const wrapper = mount(<Row gutter={[16, 20]} />);
     expect(wrapper.find('div').prop('style')).toEqual({
-      marginLeft: -8,
-      marginRight: -8,
-      marginTop: -10,
-      marginBottom: -10,
+      '--row-gutter-x': '16px',
+      '--row-gutter-y': '20px',
     });
   });
 

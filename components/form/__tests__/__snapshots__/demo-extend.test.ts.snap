@@ -8,11 +8,10 @@ exports[`renders ./components/form/demo/advanced-search.md extend context correc
   >
     <div
       class="ant-row"
-      style="margin-left:-12px;margin-right:-12px"
+      style="--row-gutter-x:24px"
     >
       <div
         class="ant-col ant-col-8"
-        style="padding-left:12px;padding-right:12px"
       >
         <div
           class="ant-row ant-form-item"
@@ -51,7 +50,6 @@ exports[`renders ./components/form/demo/advanced-search.md extend context correc
       </div>
       <div
         class="ant-col ant-col-8"
-        style="padding-left:12px;padding-right:12px"
       >
         <div
           class="ant-row ant-form-item"
@@ -225,7 +223,6 @@ exports[`renders ./components/form/demo/advanced-search.md extend context correc
       </div>
       <div
         class="ant-col ant-col-8"
-        style="padding-left:12px;padding-right:12px"
       >
         <div
           class="ant-row ant-form-item"
@@ -264,7 +261,6 @@ exports[`renders ./components/form/demo/advanced-search.md extend context correc
       </div>
       <div
         class="ant-col ant-col-8"
-        style="padding-left:12px;padding-right:12px"
       >
         <div
           class="ant-row ant-form-item"
@@ -303,7 +299,6 @@ exports[`renders ./components/form/demo/advanced-search.md extend context correc
       </div>
       <div
         class="ant-col ant-col-8"
-        style="padding-left:12px;padding-right:12px"
       >
         <div
           class="ant-row ant-form-item"
@@ -477,7 +472,6 @@ exports[`renders ./components/form/demo/advanced-search.md extend context correc
       </div>
       <div
         class="ant-col ant-col-8"
-        style="padding-left:12px;padding-right:12px"
       >
         <div
           class="ant-row ant-form-item"
@@ -8185,11 +8179,10 @@ exports[`renders ./components/form/demo/register.md extend context correctly 1`]
         >
           <div
             class="ant-row"
-            style="margin-left:-4px;margin-right:-4px"
+            style="--row-gutter-x:8px"
           >
             <div
               class="ant-col ant-col-12"
-              style="padding-left:4px;padding-right:4px"
             >
               <input
                 class="ant-input"
@@ -8200,7 +8193,6 @@ exports[`renders ./components/form/demo/register.md extend context correctly 1`]
             </div>
             <div
               class="ant-col ant-col-12"
-              style="padding-left:4px;padding-right:4px"
             >
               <button
                 class="ant-btn ant-btn-default"

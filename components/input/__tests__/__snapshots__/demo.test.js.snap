@@ -1418,11 +1418,10 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
   >
     <div
       class="ant-row"
-      style="margin-left:-4px;margin-right:-4px"
+      style="--row-gutter-x:8px"
     >
       <div
         class="ant-col ant-col-5"
-        style="padding-left:4px;padding-right:4px"
       >
         <input
           class="ant-input"
@@ -1432,7 +1431,6 @@ exports[`renders ./components/input/demo/group.md correctly 1`] = `
       </div>
       <div
         class="ant-col ant-col-8"
-        style="padding-left:4px;padding-right:4px"
       >
         <input
           class="ant-input"

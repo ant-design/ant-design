@@ -625,11 +625,10 @@ Array [
   </div>,
   <div
     class="ant-row"
-    style="margin-left:-8px;margin-right:-8px"
+    style="--row-gutter-x:16px"
   >
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding-left:8px;padding-right:8px"
     >
       <div
         style="background:#0092ff;padding:8px 0"
@@ -639,7 +638,6 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding-left:8px;padding-right:8px"
     >
       <div
         style="background:#0092ff;padding:8px 0"
@@ -649,7 +647,6 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding-left:8px;padding-right:8px"
     >
       <div
         style="background:#0092ff;padding:8px 0"
@@ -659,7 +656,6 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding-left:8px;padding-right:8px"
     >
       <div
         style="background:#0092ff;padding:8px 0"
@@ -680,11 +676,10 @@ Array [
   </div>,
   <div
     class="ant-row"
-    style="margin-left:-16px;margin-right:-16px"
+    style="--row-gutter-x:32px"
   >
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding-left:16px;padding-right:16px"
     >
       <div
         style="background:#0092ff;padding:8px 0"
@@ -694,7 +689,6 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding-left:16px;padding-right:16px"
     >
       <div
         style="background:#0092ff;padding:8px 0"
@@ -704,7 +698,6 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding-left:16px;padding-right:16px"
     >
       <div
         style="background:#0092ff;padding:8px 0"
@@ -714,7 +707,6 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding-left:16px;padding-right:16px"
     >
       <div
         style="background:#0092ff;padding:8px 0"
@@ -735,11 +727,10 @@ Array [
   </div>,
   <div
     class="ant-row"
-    style="margin-left:-8px;margin-right:-8px;margin-top:-12px;margin-bottom:-12px"
+    style="--row-gutter-x:16px;--row-gutter-y:24px"
   >
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding-left:8px;padding-right:8px;padding-top:12px;padding-bottom:12px"
     >
       <div
         style="background:#0092ff;padding:8px 0"
@@ -749,7 +740,6 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding-left:8px;padding-right:8px;padding-top:12px;padding-bottom:12px"
     >
       <div
         style="background:#0092ff;padding:8px 0"
@@ -759,7 +749,6 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding-left:8px;padding-right:8px;padding-top:12px;padding-bottom:12px"
     >
       <div
         style="background:#0092ff;padding:8px 0"
@@ -769,7 +758,6 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding-left:8px;padding-right:8px;padding-top:12px;padding-bottom:12px"
     >
       <div
         style="background:#0092ff;padding:8px 0"
@@ -779,7 +767,6 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding-left:8px;padding-right:8px;padding-top:12px;padding-bottom:12px"
     >
       <div
         style="background:#0092ff;padding:8px 0"
@@ -789,7 +776,6 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding-left:8px;padding-right:8px;padding-top:12px;padding-bottom:12px"
     >
       <div
         style="background:#0092ff;padding:8px 0"
@@ -799,7 +785,6 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding-left:8px;padding-right:8px;padding-top:12px;padding-bottom:12px"
     >
       <div
         style="background:#0092ff;padding:8px 0"
@@ -809,7 +794,6 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6 gutter-row"
-      style="padding-left:8px;padding-right:8px;padding-top:12px;padding-bottom:12px"
     >
       <div
         style="background:#0092ff;padding:8px 0"
@@ -1155,11 +1139,10 @@ Array [
   </div>,
   <div
     class="ant-row"
-    style="margin-left:-8px;margin-right:-8px;margin-top:-8px;margin-bottom:-8px"
+    style="--row-gutter-x:16px;--row-gutter-y:16px"
   >
     <div
       class="ant-col ant-col-6"
-      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
     >
       <div>
         Column
@@ -1167,7 +1150,6 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
     >
       <div>
         Column
@@ -1175,7 +1157,6 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
     >
       <div>
         Column
@@ -1183,7 +1164,6 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
     >
       <div>
         Column
@@ -1191,7 +1171,6 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
     >
       <div>
         Column
@@ -1199,7 +1178,6 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
     >
       <div>
         Column
@@ -1207,7 +1185,6 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
     >
       <div>
         Column
@@ -1215,7 +1192,6 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
     >
       <div>
         Column
@@ -1225,11 +1201,10 @@ Array [
   "Another Row:",
   <div
     class="ant-row"
-    style="margin-left:-8px;margin-right:-8px;margin-top:-8px;margin-bottom:-8px"
+    style="--row-gutter-x:16px;--row-gutter-y:16px"
   >
     <div
       class="ant-col ant-col-6"
-      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
     >
       <div>
         Column
@@ -1237,7 +1212,6 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
     >
       <div>
         Column
@@ -1245,7 +1219,6 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
     >
       <div>
         Column
@@ -1253,7 +1226,6 @@ Array [
     </div>
     <div
       class="ant-col ant-col-6"
-      style="padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px"
     >
       <div>
         Column

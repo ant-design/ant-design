@@ -1,7 +1,6 @@
 import classNames from 'classnames';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
-import useFlexGapSupport from '../_util/hooks/useFlexGapSupport';
 import type { Breakpoint, ScreenMap } from '../_util/responsiveObserve';
 import ResponsiveObserve, { responsiveArray } from '../_util/responsiveObserve';
 import { tuple } from '../_util/type';
@@ -43,8 +42,6 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     xl: true,
     xxl: true,
   });
-
-  const supportFlexGap = useFlexGapSupport();
 
   const gutterRef = React.useRef<Gutter | [Gutter, Gutter]>(gutter);
 
@@ -97,30 +94,20 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   );
 
   // Add gutter related style
-  const rowStyle: React.CSSProperties = {};
-  const horizontalGutter = gutters[0] != null && gutters[0] > 0 ? gutters[0] / -2 : undefined;
-  const verticalGutter = gutters[1] != null && gutters[1] > 0 ? gutters[1] / -2 : undefined;
+  const rowStyle = {} as React.CSSProperties & {
+    '--row-gutter-x'?: string;
+    '--row-gutter-y'?: string;
+  };
 
-  if (horizontalGutter) {
-    rowStyle.marginLeft = horizontalGutter;
-    rowStyle.marginRight = horizontalGutter;
+  if (gutters[0]) {
+    rowStyle['--row-gutter-x'] = `${gutters[0]}px`;
   }
 
-  if (supportFlexGap) {
-    // Set gap direct if flex gap support
-    [, rowStyle.rowGap] = gutters;
-  } else if (verticalGutter) {
-    rowStyle.marginTop = verticalGutter;
-    rowStyle.marginBottom = verticalGutter;
+  if (gutters[1]) {
+    rowStyle['--row-gutter-y'] = `${gutters[1]}px`;
   }
 
-  // "gutters" is a new array in each rendering phase, it'll make 'React.useMemo' effectless.
-  // So we deconstruct "gutters" variable here.
-  const [gutterH, gutterV] = gutters;
-  const rowContext = React.useMemo(
-    () => ({ gutter: [gutterH, gutterV] as [number, number], wrap, supportFlexGap }),
-    [gutterH, gutterV, wrap, supportFlexGap],
-  );
+  const rowContext = React.useMemo(() => ({ wrap }), [wrap]);
 
   return (
     <RowContext.Provider value={rowContext}>

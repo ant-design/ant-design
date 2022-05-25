@@ -3185,11 +3185,10 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
       </h4>
       <div
         class="ant-row"
-        style="margin-left:-4px;margin-right:-4px"
+        style="--row-gutter-x:8px"
       >
         <div
           class="ant-col"
-          style="padding-left:4px;padding-right:4px"
         >
           <div
             class="ant-radio-group ant-radio-group-outline ant-radio-group-small"
@@ -3237,7 +3236,6 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
         </div>
         <div
           class="ant-col"
-          style="padding-left:4px;padding-right:4px"
         >
           <div
             class="ant-select ant-select-sm my-year-select ant-select-single ant-select-show-arrow"
@@ -3687,7 +3685,6 @@ exports[`renders ./components/calendar/demo/customize-header.md extend context c
         </div>
         <div
           class="ant-col"
-          style="padding-left:4px;padding-right:4px"
         >
           <div
             class="ant-select ant-select-sm ant-select-single ant-select-show-arrow"

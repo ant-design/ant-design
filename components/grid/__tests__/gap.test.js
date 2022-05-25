@@ -21,22 +21,6 @@ describe('Grid.Gap', () => {
     expect(screen.getByRole('row').style.rowGap).toBe('');
   });
 
-  it('should use gap', () => {
-    const wrapper = mount(
-      <Row gutter={[16, 8]}>
-        <Col />
-      </Row>,
-    );
-
-    expect(wrapper.find('.ant-row').props().style).toEqual(
-      expect.objectContaining({
-        marginLeft: -8,
-        rowGap: 8,
-        marginRight: -8,
-      }),
-    );
-  });
-
   it('not break ssr', () => {
     const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 

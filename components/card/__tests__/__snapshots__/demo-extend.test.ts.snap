@@ -233,11 +233,10 @@ exports[`renders ./components/card/demo/in-column.md extend context correctly 1`
 >
   <div
     class="ant-row"
-    style="margin-left:-8px;margin-right:-8px"
+    style="--row-gutter-x:16px"
   >
     <div
       class="ant-col ant-col-8"
-      style="padding-left:8px;padding-right:8px"
     >
       <div
         class="ant-card"
@@ -264,7 +263,6 @@ exports[`renders ./components/card/demo/in-column.md extend context correctly 1`
     </div>
     <div
       class="ant-col ant-col-8"
-      style="padding-left:8px;padding-right:8px"
     >
       <div
         class="ant-card"
@@ -291,7 +289,6 @@ exports[`renders ./components/card/demo/in-column.md extend context correctly 1`
     </div>
     <div
       class="ant-col ant-col-8"
-      style="padding-left:8px;padding-right:8px"
     >
       <div
         class="ant-card"
@@ -433,10 +430,11 @@ Array [
         class="ant-skeleton ant-skeleton-active"
       >
         <div
-          class="ant-skeleton-content"
+          class="ant-row"
+          style="--row-gutter-x:8px"
         >
-          <ul
-            class="ant-skeleton-paragraph"
+          <div
+            class="ant-col ant-col-22"
           >
             <li />
             <li />
@@ -444,7 +442,90 @@ Array [
             <li
               style="width:61%"
             />
-          </ul>
+          </div>
+        </div>
+        <div
+          class="ant-row"
+          style="--row-gutter-x:8px"
+        >
+          <div
+            class="ant-col ant-col-8"
+          >
+            <div
+              class="ant-card-loading-block"
+            />
+          </div>
+          <div
+            class="ant-col ant-col-15"
+          >
+            <div
+              class="ant-card-loading-block"
+            />
+          </div>
+        </div>
+        <div
+          class="ant-row"
+          style="--row-gutter-x:8px"
+        >
+          <div
+            class="ant-col ant-col-6"
+          >
+            <div
+              class="ant-card-loading-block"
+            />
+          </div>
+          <div
+            class="ant-col ant-col-18"
+          >
+            <div
+              class="ant-card-loading-block"
+            />
+          </div>
+        </div>
+        <div
+          class="ant-row"
+          style="--row-gutter-x:8px"
+        >
+          <div
+            class="ant-col ant-col-13"
+          >
+            <div
+              class="ant-card-loading-block"
+            />
+          </div>
+          <div
+            class="ant-col ant-col-9"
+          >
+            <div
+              class="ant-card-loading-block"
+            />
+          </div>
+        </div>
+        <div
+          class="ant-row"
+          style="--row-gutter-x:8px"
+        >
+          <div
+            class="ant-col ant-col-4"
+          >
+            <div
+              class="ant-card-loading-block"
+            />
+          </div>
+          <div
+            class="ant-col ant-col-3"
+          >
+            <div
+              class="ant-card-loading-block"
+            />
+          </div>
+          <div
+            class="ant-col ant-col-16"
+          >
+            <div
+              class="ant-card-loading-block"
+            />
+          </div>
         </div>
       </div>
     </div>
