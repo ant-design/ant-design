@@ -1,30 +1,33 @@
 import type * as React from 'react';
+import type { ComponentToken as AlertComponentToken } from '../../alert/style';
 import type { ComponentToken as AnchorComponentToken } from '../../anchor/style';
+import type { ComponentToken as BackTopComponentToken } from '../../back-top/style';
 import type { ComponentToken as ButtonComponentToken } from '../../button/style';
+import type { ComponentToken as CalendarComponentToken } from '../../calendar/style';
+import type { ComponentToken as CarouselComponentToken } from '../../carousel/style';
+import type { ComponentToken as CascaderComponentToken } from '../../cascader/style';
+import type { ComponentToken as DatePickerComponentToken } from '../../date-picker/style';
 import type { ComponentToken as DividerComponentToken } from '../../divider/style';
 import type { ComponentToken as DropdownComponentToken } from '../../dropdown/style';
 import type { ComponentToken as EmptyComponentToken } from '../../empty/style';
-import type { ComponentToken as CascaderComponentToken } from '../../cascader/style';
+import type { ComponentToken as ImageComponentToken } from '../../image/style';
 import type { ComponentToken as InputNumberComponentToken } from '../../input-number/style';
 import type { ComponentToken as LayoutComponentToken } from '../../layout/style';
+import type { ComponentToken as ListComponentToken } from '../../list/style';
 import type { ComponentToken as MentionsComponentToken } from '../../mentions/style';
+import type { ComponentToken as MenuComponentToken } from '../../menu/style';
+import type { ComponentToken as MessageComponentToken } from '../../message/style';
+import type { ComponentToken as ModalComponentToken } from '../../modal/style';
 import type { ComponentToken as NotificationComponentToken } from '../../notification/style';
+import type { ComponentToken as PopconfirmComponentToken } from '../../popconfirm/style';
+import type { ComponentToken as ProgressComponentToken } from '../../progress/style';
 import type { ComponentToken as SegmentedComponentToken } from '../../segmented/style';
 import type { ComponentToken as SelectComponentToken } from '../../select/style';
 import type { ComponentToken as SliderComponentToken } from '../../slider/style';
-import type { ComponentToken as TypographyComponentToken } from '../../typography/style';
-import type { ComponentToken as BackTopComponentToken } from '../../back-top/style';
-import type { ComponentToken as CalendarComponentToken } from '../../calendar/style';
-import type { ComponentToken as DatePickerComponentToken } from '../../date-picker/style';
-import type { ComponentToken as TimelineComponentToken } from '../../timeline/style';
-import type { ComponentToken as MenuComponentToken } from '../../menu/style';
-import type { ComponentToken as UploadComponentToken } from '../../upload/style';
-import type { ComponentToken as CarouselComponentToken } from '../../carousel/style';
-import type { ComponentToken as ProgressComponentToken } from '../../progress/style';
 import type { ComponentToken as SpaceComponentToken } from '../../space/style';
-import type { ComponentToken as ModalComponentToken } from '../../modal/style';
-import type { ComponentToken as ImageComponentToken } from '../../image/style';
-import type { ComponentToken as ListComponentToken } from '../../list/style';
+import type { ComponentToken as TimelineComponentToken } from '../../timeline/style';
+import type { ComponentToken as TypographyComponentToken } from '../../typography/style';
+import type { ComponentToken as UploadComponentToken } from '../../upload/style';
 
 export const PresetColors = [
   'blue',
@@ -57,12 +60,13 @@ export interface OverrideToken {
 
   // Customize component
   Affix?: {};
-  Alert?: {};
+  Alert?: AlertComponentToken;
   Anchor?: AnchorComponentToken;
   Avatar?: {};
   BackTop?: BackTopComponentToken;
   Badge?: {};
   Button?: ButtonComponentToken;
+  Breadcrumb?: {};
   Carousel?: CarouselComponentToken;
   Cascader?: CascaderComponentToken;
   Checkbox?: {};
@@ -84,6 +88,7 @@ export interface OverrideToken {
   Notification?: NotificationComponentToken;
   Pagination?: {};
   Popover?: {};
+  Popconfirm?: PopconfirmComponentToken;
   Rate?: {};
   Result?: {};
   Segmented?: SegmentedComponentToken;
@@ -104,6 +109,7 @@ export interface OverrideToken {
   Steps?: {};
   Menu?: MenuComponentToken;
   Modal?: ModalComponentToken;
+  Message?: MessageComponentToken;
   Upload?: UploadComponentToken;
   Tooltip?: {};
   Space?: SpaceComponentToken;

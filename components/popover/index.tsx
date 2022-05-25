@@ -47,6 +47,7 @@ const Popover = React.forwardRef<unknown, PopoverProps>(
         ref={ref as any}
         overlay={_overlay || getOverlay(prefixCls)}
         transitionName={getTransitionName(rootPrefixCls, 'zoom-big', otherProps.transitionName)}
+        data-popover-inject
       />,
     );
   },

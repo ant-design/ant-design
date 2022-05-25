@@ -5,15 +5,15 @@
 // deps-lint-skip: tooltip
 
 // deps-lint-skip-all
-import { TinyColor } from '@ctrl/tinycolor';
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { PresetColorType, GenerateStyle, FullToken } from '../../_util/theme';
+import { TinyColor } from '@ctrl/tinycolor';
+import type { FullToken, GenerateStyle, PresetColorType } from '../../_util/theme';
 import {
+  genComponentStyleHook,
+  mergeToken,
   PresetColors,
   resetComponent,
   roundedArrow,
-  genComponentStyleHook,
-  mergeToken,
 } from '../../_util/theme';
 
 // FIXME
@@ -36,7 +36,6 @@ type PopoverToken = FullToken<'Popover'> & {
 const genBaseStyle: GenerateStyle<PopoverToken> = token => {
   const {
     componentCls,
-    iconCls,
     popoverBg,
     popoverColor,
     popoverMinWidth,
@@ -48,11 +47,6 @@ const genBaseStyle: GenerateStyle<PopoverToken> = token => {
     boxShadow,
     colorSplit,
     colorTextHeading,
-    colorWarning,
-    fontSize,
-    marginSM,
-    marginXS,
-    lineHeight,
     radiusBase: borderRadius,
     paddingSM,
   } = token;
@@ -107,38 +101,6 @@ const genBaseStyle: GenerateStyle<PopoverToken> = token => {
       [`${componentCls}-inner-content`]: {
         padding: `${paddingSM}px ${popoverPaddingHorizontal}px`,
         color: popoverColor,
-      },
-
-      // FIXME 没找到使用地方，先保留
-      '&-message': {
-        position: 'relative',
-        // FIXME
-        padding: '4px 0 12px',
-        color: popoverColor,
-        fontSize,
-
-        [`> ${iconCls}`]: {
-          position: 'absolute',
-          // FIXME
-          top: 4 + (lineHeight * fontSize - fontSize) / 2,
-          color: colorWarning,
-          fontSize,
-        },
-
-        '&-title': {
-          // FIXME
-          paddingInlineStart: fontSize + 8,
-        },
-      },
-
-      // FIXME 没找到使用地方，先保留
-      '&-buttons': {
-        marginBottom: marginXS,
-        textAlign: 'end',
-
-        button: {
-          marginInlineStart: marginSM,
-        },
       },
 
       [`${componentCls}-arrow`]: {
