@@ -14,6 +14,7 @@ import type { ConfigConsumerProps, CSPConfig, DirectionType, Theme, ThemeConfig 
 import { ConfigConsumer, ConfigContext, defaultIconPrefixCls } from './context';
 import { registerTheme } from './cssVariables';
 import { RenderEmptyHandler } from './defaultRenderEmpty';
+import { DisabledContextProvider } from './DisabledContext';
 import useTheme from './hooks/useTheme';
 import type { SizeType } from './SizeContext';
 import SizeContext, { SizeContextProvider } from './SizeContext';
@@ -72,6 +73,7 @@ export interface ConfigProviderProps {
     ghost: boolean;
   };
   componentSize?: SizeType;
+  componentDisabled?: boolean;
   direction?: DirectionType;
   space?: {
     size?: SizeType | number;
@@ -148,6 +150,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     parentContext,
     iconPrefixCls,
     theme,
+    componentDisabled,
   } = props;
 
   const getPrefixCls = React.useCallback(
@@ -260,6 +263,12 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
   }
 
   // =================================== Render ===================================
+  if (componentDisabled !== undefined) {
+    childNode = (
+      <DisabledContextProvider disabled={componentDisabled}>{childNode}</DisabledContextProvider>
+    );
+  }
+
   return <ConfigContext.Provider value={memoedConfig}>{childNode}</ConfigContext.Provider>;
 };
 

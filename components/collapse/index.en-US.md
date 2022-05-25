@@ -36,7 +36,7 @@ A content area which can be collapsed and expanded.
 | --- | --- | --- | --- | --- |
 | collapsible | Specify whether the panel be collapsible or the trigger area of collapsible | `header` \| `disabled` | - | 4.9.0 |
 | extra | The extra element in the corner | ReactNode | - |  |
-| forceRender | Forced render of content on panel, instead of lazy rending after clicking on header | boolean | false |  |
+| forceRender | Forced render of content on panel, instead of lazy rendering after clicking on header | boolean | false |  |
 | header | Title of the panel | ReactNode | - |  |
 | key | Unique key identifying the panel from among its siblings | string \| number | - |  |
 | showArrow | If false, panel will not show arrow icon | boolean | true |  |
