@@ -122,6 +122,9 @@ export default App;
 #components-grid-demo-playground pre.demo-code {
   direction: ltr;
 }
+#components-grid-demo-playground .ant-col {
+  padding: 0;
+}
 ```
 
 <style>
