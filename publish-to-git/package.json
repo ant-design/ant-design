@@ -1,0 +1,19 @@
+{
+  "name": "publish-to-git",
+  "version": "1.1.9",
+  "description": "Publish private npm packages to Git repositories with npm publish semantics",
+  "main": "index.js",
+  "bin": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postpublish": "node main.js"
+  },
+  "author": "Damian Kaczmarek <rush@rushbase.net>",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "tar": "^4.4.4",
+    "tmp": "0.0.33",
+    "yargs": "^15.3.1"
+  }
+}
