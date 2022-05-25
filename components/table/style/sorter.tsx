@@ -33,7 +33,7 @@ const genSorterStyle: GenerateStyle<TableToken, CSSObject> = token => {
         },
       },
 
-      [`&-thead th${componentCls}-column-sort`]: {
+      [`${componentCls}-thead th${componentCls}-column-sort`]: {
         background: token.tableHeaderSortBg,
 
         '&::before': {

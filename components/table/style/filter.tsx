@@ -22,7 +22,7 @@ const genFilterStyle: GenerateStyle<TableToken, CSSObject> = token => {
           position: 'relative',
           display: 'flex',
           alignItems: 'center',
-          margin: `-4px (-${token.tablePaddingHorizontal}px / 2) -4px 4px`,
+          margin: `-4px ${-token.tablePaddingHorizontal / 2}px -4px 4px`,
           padding: '0 4px',
           color: token.tableHeaderIconColor,
           fontSize: token.fontSizeSM,
@@ -43,7 +43,7 @@ const genFilterStyle: GenerateStyle<TableToken, CSSObject> = token => {
     },
     {
       // Dropdown
-      [`${componentCls}-filter-dropdown`]: {
+      [tableFilterDropdownPrefixCls]: {
         ...resetComponent(token),
         minWidth: '120px',
         backgroundColor: token.tableFilterDropdownBg,
@@ -110,10 +110,11 @@ const genFilterStyle: GenerateStyle<TableToken, CSSObject> = token => {
           overflowY: 'auto',
         },
 
-        // Checkbox
-        [`${tableFilterDropdownPrefixCls}, ${tableFilterDropdownPrefixCls}-submenu`]: {
+        [`&, ${tableFilterDropdownPrefixCls}-submenu`]: {
+          // Checkbox
           [`${antCls}-checkbox-wrapper + span`]: {
-            paddingLeft: '8px',
+            paddingLeft: 8,
+            color: token.colorText,
           },
         },
 
