@@ -77,4 +77,35 @@ describe('Drawer', () => {
     fireEvent(document.querySelector('.ant-drawer-content-wrapper'), ev);
     expect(afterVisibleChange).toBeCalledTimes(1);
   });
+  it('should support children ref', () => {
+    const fn = jest.fn();
+
+    const refCallback = ref => {
+      expect(typeof ref).toBe('object');
+      fn();
+    };
+
+    const RefDemo = () => {
+      const ref = React.useRef();
+      const [visible, setVisible] = React.useState(false);
+
+      React.useEffect(() => {
+        if (visible) {
+          refCallback(ref.current);
+        }
+      }, [visible]);
+
+      return (
+        <>
+          <a onClick={() => setVisible(true)}>open</a>
+          <Drawer visible={visible}>
+            <div ref={ref} />
+          </Drawer>
+        </>
+      );
+    };
+    const { container } = render(<RefDemo />);
+    fireEvent.click(container.querySelector('a'));
+    expect(fn).toBeCalled();
+  });
 });
