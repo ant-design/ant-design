@@ -3,7 +3,7 @@ name: PR Check CI
 
 on:
   schedule:
-    - cron: "*/10 * * * *"
+    - cron: "*/5 * * * *"
 
 permissions:
   contents: read
