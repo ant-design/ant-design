@@ -1,6 +1,7 @@
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import { render } from 'enzyme';
+import React from 'react';
 import ConfigProvider from '..';
 import Alert from '../../alert';
 import Anchor from '../../anchor';
