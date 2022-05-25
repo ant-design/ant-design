@@ -266,7 +266,7 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
     // render drawer body dom
     const renderBody = () => {
       // destroyCloseRef.current =false Load the body only once by default
-      if (destroyCloseRef.current && !forceRender && !load) {
+      if (destroyCloseRef.current && !forceRender && !propsVisible) {
         return null;
       }
 
@@ -306,7 +306,7 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
             ...rest,
           }}
           {...offsetStyle}
-          open={visible}
+          open={visible || propsVisible}
           showMask={mask}
           style={getRcDrawerStyle()}
           className={drawerClassName}
