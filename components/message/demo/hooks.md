@@ -26,7 +26,7 @@ const App: React.FC = () => {
     messageApi.open({
       type: 'info',
       content: <Context.Consumer>{({ name }) => `Hello, ${name}!`}</Context.Consumer>,
-      duration: null,
+      duration: 1,
     });
   };
 
