@@ -63,7 +63,6 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
 
       [componentCls]: {
         ...resetComponent(token),
-
         fontSize: token.tableFontSize,
         background: token.tableBg,
         borderRadius: token.tableRadius,
@@ -137,9 +136,9 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
 
             // ========================= Nest Table ===========================
             [`
-                > ${componentCls}-wrapper:only-child,
-                > ${componentCls}-expanded-row-fixed > ${componentCls}-wrapper:only-child
-              `]: {
+              > ${componentCls}-wrapper:only-child,
+              > ${componentCls}-expanded-row-fixed > ${componentCls}-wrapper:only-child
+            `]: {
               [componentCls]: {
                 margin: `-${token.tablePaddingVertical}px -${token.tablePaddingHorizontal}px -${
                   token.tablePaddingVertical
@@ -155,9 +154,9 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
           },
 
           [`
-              &${componentCls}-row:hover > td,
-              > td${componentCls}-cell-row-hover
-            `]: {
+            &${componentCls}-row:hover > td,
+            > td${componentCls}-cell-row-hover
+          `]: {
             background: token.tableRowHoverBg,
           },
 

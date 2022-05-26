@@ -17,9 +17,9 @@ const genSelectionStyle: GenerateStyle<TableToken, CSSObject> = token => {
       },
 
       [`
-    table tr th${componentCls}-selection-column,
-    table tr td${componentCls}-selection-column
-  `]: {
+        table tr th${componentCls}-selection-column,
+        table tr td${componentCls}-selection-column
+      `]: {
         paddingRight: token.paddingXS,
         paddingLeft: token.paddingXS,
         textAlign: 'center',
