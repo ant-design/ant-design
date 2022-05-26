@@ -191,19 +191,19 @@ export default genComponentStyleHook('Table', token => {
     tableBg: token.colorBgComponent,
     tableRadius: token.radiusBase,
     /*
-    @table-padding-horizontal: 8px;
-    @table-padding-vertical: 12px;
-    @table-padding-horizontal-md: 8px;
-    @table-padding-vertical-md: 8px;
-    @table-padding-horizontal-sm: 4px;
-    @table-padding-vertical-sm: 4px;
+    @table-padding-vertical: 16px;
+    @table-padding-horizontal: 16px;
+    @table-padding-vertical-md: (@table-padding-vertical * 3 / 4);
+    @table-padding-horizontal-md: (@table-padding-horizontal / 2);
+    @table-padding-vertical-sm: (@table-padding-vertical / 2);
+    @table-padding-horizontal-sm: (@table-padding-horizontal / 2);
     */
-    tablePaddingHorizontal: 8,
-    tablePaddingVertical: 12,
-    tablePaddingHorizontalMiddle: 8,
-    tablePaddingVerticalMiddle: 8,
-    tablePaddingHorizontalSmall: 4,
-    tablePaddingVerticalSmall: 4,
+    tablePaddingVertical: token.padding,
+    tablePaddingHorizontal: token.padding,
+    tablePaddingVerticalMiddle: (token.padding * 3) / 4,
+    tablePaddingHorizontalMiddle: token.padding / 2,
+    tablePaddingVerticalSmall: token.padding / 2,
+    tablePaddingHorizontalSmall: token.padding / 2,
     tableBorderColor: token.colorSplit,
     tableHeaderTextColor: token.colorTextHeading,
     tableHeaderBg: token.colorBgComponentSecondary,
