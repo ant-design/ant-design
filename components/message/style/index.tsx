@@ -2,11 +2,13 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
 import type { FullToken, GenerateStyle } from '../../_util/theme';
-import { genComponentStyleHook, resetComponent, mergeToken } from '../../_util/theme';
+import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
   // Component token here
+  height: number;
+  zIndexPopup: number;
 }
 
 interface MessageToken extends FullToken<'Message'> {
@@ -30,7 +32,7 @@ const genMessageStyle: GenerateStyle<MessageToken, CSSObject> = token => {
     marginXS,
     paddingXS,
     radiusBase,
-    zIndexBase,
+    zIndexPopup,
     // Custom token
     messageNoticeContentPadding,
   } = token;
@@ -51,8 +53,7 @@ const genMessageStyle: GenerateStyle<MessageToken, CSSObject> = token => {
 
   const messageMoveOut = new Keyframes('MessageMoveOut', {
     '0%': {
-      // FIXME: hard code in v4
-      maxHeight: '150px',
+      maxHeight: token.height,
       padding: paddingXS,
       opacity: 1,
     },
@@ -68,16 +69,12 @@ const genMessageStyle: GenerateStyle<MessageToken, CSSObject> = token => {
       ...resetComponent(token),
       position: 'fixed',
       top: marginXS,
-      // FIXME: hard code in v4
       insetInlineStart: 0, // affected by ltr or rtl
-      // FIXME: hard code in v4
       width: '100%',
       pointerEvents: 'none',
-      zIndex: zIndexBase + 10,
+      zIndex: zIndexPopup,
       [iconCls]: {
-        position: 'relative',
-        // FIXME: hard code in v4
-        top: '1px',
+        verticalAlign: 'text-bottom',
         marginInlineEnd: marginXS, // affected by ltr or rtl
         fontSize: fontSizeLG,
       },
@@ -90,7 +87,7 @@ const genMessageStyle: GenerateStyle<MessageToken, CSSObject> = token => {
         padding: messageNoticeContentPadding,
         background: colorBgComponent,
         borderRadius: radiusBase,
-        boxShadow: boxShadow as any,
+        boxShadow,
         pointerEvents: 'all',
       },
       [`${componentCls}-success ${iconCls}`]: {
@@ -145,11 +142,19 @@ const genMessageStyle: GenerateStyle<MessageToken, CSSObject> = token => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Message', token => {
-  // Gen-style functions here
-  const combinedToken = mergeToken<MessageToken>(token, {
-    // FIXME: hard code in v4
-    messageNoticeContentPadding: '10px 16px',
-  });
-  return [genMessageStyle(combinedToken)];
-});
+export default genComponentStyleHook(
+  'Message',
+  token => {
+    // Gen-style functions here
+    const combinedToken = mergeToken<MessageToken>(token, {
+      messageNoticeContentPadding: `${
+        (token.controlHeightLG - token.fontSize * token.lineHeight) / 2
+      }px ${token.padding}px`,
+    });
+    return [genMessageStyle(combinedToken)];
+  },
+  token => ({
+    height: 150,
+    zIndexPopup: token.zIndexPopupBase + 10,
+  }),
+);
