@@ -95,7 +95,7 @@ const genSorterStyle: GenerateStyle<TableToken, CSSObject> = token => {
       },
 
       [`${componentCls}-column-sorters:hover ${componentCls}-column-sorter`]: {
-        color: new TinyColor(token.tableHeaderIconColor).darken(10),
+        color: new TinyColor(token.tableHeaderIconColor).darken(10).toHexString(),
       },
     },
   };

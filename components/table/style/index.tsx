@@ -49,6 +49,7 @@ export interface TableToken extends FullToken<'Table'> {
   zIndexTableFixed: number;
   tabelFontSizeMiddle: number;
   tabelFontSizeSmall: number;
+  tableSelectionColumnWidth: number;
 }
 
 const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
@@ -222,13 +223,12 @@ export default genComponentStyleHook('Table', token => {
     tableFilterDropdownMaxHeight: 264,
     tableRowHoverBg: token.colorBgComponentSecondary,
     tableSelectedRowBg,
-    tableSelectedRowHoverBg: new TinyColor(tableSelectedRowBg).darken(2).toString(),
+    tableSelectedRowHoverBg: new TinyColor(tableSelectedRowBg).darken(2).toHexString(),
     zIndexTableFixed: 2,
     tabelFontSizeMiddle: token.fontSizeBase,
     tabelFontSizeSmall: token.fontSizeBase,
+    tableSelectionColumnWidth: 32,
   });
-
-  console.log(genSizeStyle(tableToken));
 
   return [
     genTableStyle(tableToken),
