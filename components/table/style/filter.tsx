@@ -1,9 +1,9 @@
-import type { CSSObject } from '@ant-design/cssinjs';
+import type { CSSInterpolation } from '@ant-design/cssinjs';
 import type { GenerateStyle } from '../../_util/theme';
 import { resetComponent } from '../../_util/theme';
 import type { TableToken } from './index';
 
-const genFilterStyle: GenerateStyle<TableToken, CSSObject> = token => {
+const genFilterStyle: GenerateStyle<TableToken, CSSInterpolation> = token => {
   const { componentCls, antCls, iconCls } = token;
   const dropdownPrefixCls = `${antCls}-dropdown`;
   const tableFilterDropdownPrefixCls = `${componentCls}-filter-dropdown`;

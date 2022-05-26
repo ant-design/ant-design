@@ -20,7 +20,7 @@ import genSummaryStyle from './summary';
 
 export interface TableToken extends FullToken<'Table'> {
   tableFontSize: number;
-  tableBg: CSSObject['background'];
+  tableBg: string;
   tableRadius: number;
   tablePaddingHorizontal: number;
   tablePaddingVertical: number;
@@ -28,25 +28,26 @@ export interface TableToken extends FullToken<'Table'> {
   tablePaddingVerticalMiddle: number;
   tablePaddingHorizontalSmall: number;
   tablePaddingVerticalSmall: number;
-  tableBorderColor: CSSObject['border-color'];
-  tableHeaderTextColor: CSSObject['color'];
-  tableHeaderBg: CSSObject['background'];
-  tableFooterTextColor: CSSObject['color'];
-  tableFooterBg: CSSObject['background'];
-  tableHeaderCellSplitColor: CSSObject['border-color'];
-  tableHeaderSortBg: CSSObject['background'];
-  tableHeaderSortHoverBg: CSSObject['background'];
+  tableBorderColor: string;
+  tableHeaderTextColor: string;
+  tableHeaderBg: string;
+  tableFooterTextColor: string;
+  tableFooterBg: string;
+  tableHeaderCellSplitColor: string;
+  tableHeaderSortBg: string;
+  tableHeaderSortHoverBg: string;
   tableHeaderIconColor: string;
-  tableBodySortBg: CSSObject['background'];
-  tableFixedHeaderSortActiveBg: CSSObject['background'];
-  tableHeaderFilterActiveBg: CSSObject['background'];
-  tableFilterDropdownBg: CSSObject['background'];
+  tableBodySortBg: string;
+  tableFixedHeaderSortActiveBg: string;
+  tableHeaderFilterActiveBg: string;
+  tableFilterDropdownBg: string;
   tableFilterDropdownMaxHeight: number;
-  tableRowHoverBg: CSSObject['background'];
-  tableSelectedRowBg: CSSObject['background'];
-  tableSelectedRowHoverBg: CSSObject['background'];
+  tableRowHoverBg: string;
+  tableSelectedRowBg: string;
+  tableSelectedRowHoverBg: string;
   // FIXME: zIndexXxxx 统一提到一个地方
   zIndexTableFixed: number;
+  zIndexTableSticky: number;
   tabelFontSizeMiddle: number;
   tabelFontSizeSmall: number;
   tableSelectionColumnWidth: number;
@@ -188,6 +189,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
 export default genComponentStyleHook('Table', token => {
   // FIXME: missing tokens
   const tableSelectedRowBg = token.controlItemBgActive;
+  const zIndexTableFixed: number = 2;
   const tableToken = mergeToken<TableToken>(token, {
     tableFontSize: token.fontSizeBase,
     tableBg: token.colorBgComponent,
@@ -223,7 +225,8 @@ export default genComponentStyleHook('Table', token => {
     tableRowHoverBg: token.colorBgComponentSecondary,
     tableSelectedRowBg,
     tableSelectedRowHoverBg: new TinyColor(tableSelectedRowBg).darken(2).toHexString(),
-    zIndexTableFixed: 2,
+    zIndexTableFixed,
+    zIndexTableSticky: zIndexTableFixed + 1,
     tabelFontSizeMiddle: token.fontSizeBase,
     tabelFontSizeSmall: token.fontSizeBase,
     tableSelectionColumnWidth: 32,

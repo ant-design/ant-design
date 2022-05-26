@@ -13,6 +13,7 @@ const genSelectionStyle: GenerateStyle<TableToken, CSSObject> = token => {
       },
 
       [`${componentCls}-bordered ${componentCls}-selection-col`]: {
+        // FIXME
         width: token.tableSelectionColumnWidth + 18,
       },
 
