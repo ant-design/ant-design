@@ -24,6 +24,10 @@ export interface TableToken extends FullToken<'Table'> {
   tableRadius: number;
   tablePaddingHorizontal: number;
   tablePaddingVertical: number;
+  tablePaddingHorizontalMiddle: number;
+  tablePaddingVerticalMiddle: number;
+  tablePaddingHorizontalSmall: number;
+  tablePaddingVerticalSmall: number;
   tableBorderColor: CSSObject['border-color'];
   tableHeaderTextColor: CSSObject['color'];
   tableHeaderBg: CSSObject['background'];
@@ -186,8 +190,20 @@ export default genComponentStyleHook('Table', token => {
     tableFontSize: token.fontSizeBase,
     tableBg: token.colorBgComponent,
     tableRadius: token.radiusBase,
-    tablePaddingHorizontal: token.padding,
-    tablePaddingVertical: token.padding,
+    /*
+    @table-padding-horizontal: 8px;
+    @table-padding-vertical: 12px;
+    @table-padding-horizontal-md: 8px;
+    @table-padding-vertical-md: 8px;
+    @table-padding-horizontal-sm: 4px;
+    @table-padding-vertical-sm: 4px;
+    */
+    tablePaddingHorizontal: 8,
+    tablePaddingVertical: 12,
+    tablePaddingHorizontalMiddle: 8,
+    tablePaddingVerticalMiddle: 8,
+    tablePaddingHorizontalSmall: 4,
+    tablePaddingVerticalSmall: 4,
     tableBorderColor: token.colorSplit,
     tableHeaderTextColor: token.colorTextHeading,
     tableHeaderBg: token.colorBgComponentSecondary,

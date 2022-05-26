@@ -7,14 +7,21 @@ const genStyle: GenerateStyle<TableToken, CSSObject> = token => {
   const tableBorder = `${token.controlLineWidth}px ${token.controlLineType} ${token.tableBorderColor}`;
 
   const getSizeBorderStyle = (size: 'small' | 'middle') => {
+    const paddingHorizontal = {
+      small: token.tablePaddingHorizontalSmall,
+      middle: token.tablePaddingHorizontalMiddle,
+    }[size];
+    const paddingVertical = {
+      small: token.tablePaddingVerticalSmall,
+      middle: token.tablePaddingVerticalMiddle,
+    }[size];
     return {
       [`&${componentCls}-${size}`]: {
         [`> ${componentCls}-container`]: {
           [`> ${componentCls}-content, > ${componentCls}-body`]: {
             '> table > tbody > tr > td': {
               [`> ${componentCls}-expanded-row-fixed`]: {
-                margin:
-                  '-@table-padding-vertical-sm (-@table-padding-horizontal-sm - @border-width-base)',
+                margin: `-${paddingVertical} (-${paddingHorizontal} - ${token.controlLineWidth})`,
               },
             },
           },
@@ -78,8 +85,7 @@ const genStyle: GenerateStyle<TableToken, CSSObject> = token => {
               // ========================== Expandable ==========================
               '> table > tbody > tr > td': {
                 [`> ${componentCls}-expanded-row-fixed`]: {
-                  margin:
-                    '-@table-padding-vertical (-@table-padding-horizontal - @border-width-base)',
+                  margin: `-${token.tablePaddingVertical} (-${token.tablePaddingHorizontal} - ${token.controlLineWidth})`,
 
                   '&::after': {
                     position: 'absolute',
