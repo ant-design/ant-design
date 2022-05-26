@@ -5,6 +5,24 @@ import type { TableToken } from './index';
 const genStyle: GenerateStyle<TableToken, CSSObject> = token => {
   const { componentCls } = token;
   const tableBorder = `${token.controlLineWidth}px ${token.controlLineType} ${token.tableBorderColor}`;
+
+  const getSizeBorderStyle = (size: 'small' | 'middle') => {
+    return {
+      [`&${componentCls}-${size}`]: {
+        [`> ${componentCls}-container`]: {
+          [`> ${componentCls}-content, > ${componentCls}-body`]: {
+            '> table > tbody > tr > td': {
+              [`> ${componentCls}-expanded-row-fixed`]: {
+                margin:
+                  '-@table-padding-vertical-sm (-@table-padding-horizontal-sm - @border-width-base)',
+              },
+            },
+          },
+        },
+      },
+    };
+  };
+
   return {
     [`${componentCls}-wrapper`]: {
       [`${componentCls}${componentCls}-bordered`]: {
@@ -14,8 +32,8 @@ const genStyle: GenerateStyle<TableToken, CSSObject> = token => {
           borderBottom: '0',
         },
 
+        // ============================ Content ============================
         [`> ${componentCls}-container`]: {
-          // ============================ Content ============================
           borderLeft: tableBorder,
 
           [`
@@ -83,6 +101,45 @@ const genStyle: GenerateStyle<TableToken, CSSObject> = token => {
             '> table': {
               borderTop: tableBorder,
             },
+          },
+        },
+
+        // ============================ Scroll ============================
+        [`&${componentCls}-scroll-horizontal`]: {
+          [`> ${componentCls}-container > ${componentCls}-body`]: {
+            '> table > tbody': {
+              [`
+                > tr${componentCls}-expanded-row,
+                > tr${componentCls}-placeholder
+              `]: {
+                '> td': {
+                  borderRight: '0',
+                },
+              },
+            },
+          },
+        },
+
+        // ============================ Size ============================
+        ...getSizeBorderStyle('middle'),
+        ...getSizeBorderStyle('small'),
+
+        // ============================ Footer ============================
+        [`> ${componentCls}-footer`]: {
+          border: tableBorder,
+          borderTop: '0',
+        },
+
+        // ============================ Nested ============================
+        [`${componentCls}-cell`]: {
+          [`${componentCls}-container:first-child`]: {
+            // :first-child to avoid the case when bordered and title is set
+            borderTop: '0',
+          },
+
+          // https://github.com/ant-design/ant-design/issues/35577
+          '&-scrollbar:not([rowspan])': {
+            boxShadow: `0 ${token.controlLineWidth} 0 ${token.controlLineWidth} ${token.tableHeaderBg}`,
           },
         },
       },
