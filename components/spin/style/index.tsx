@@ -5,7 +5,7 @@ import type { FullToken, GenerateStyle } from '../../_util/theme';
 import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
 
 export interface ComponentToken {
-  nestedHeight: number;
+  contentHeight: number;
 }
 
 interface SpinToken extends FullToken<'Spin'> {
@@ -50,7 +50,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
         display: 'block',
         width: '100%',
         height: '100%',
-        maxHeight: token.nestedHeight,
+        maxHeight: token.contentHeight,
 
         [`${token.componentCls}-dot`]: {
           position: 'absolute',
@@ -236,6 +236,6 @@ export default genComponentStyleHook(
     return [genSpinStyle(spinToken)];
   },
   {
-    nestedHeight: 400,
+    contentHeight: 400,
   },
 );
