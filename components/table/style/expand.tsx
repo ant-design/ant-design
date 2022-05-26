@@ -4,7 +4,8 @@ import { operationUnit } from '../../_util/theme';
 import type { TableToken } from './index';
 
 const genExpandStyle: GenerateStyle<TableToken, CSSObject> = token => {
-  const { componentCls } = token;
+  const { componentCls, antCls } = token;
+  // FIXME: 需要从 checkbox 那里取
   const checkboxSize = token.fontSizeLG;
   const halfInnerSize = Math.ceil((token.fontSizeSM * 1.4 - token.controlLineWidth * 3) / 2);
   const expandIconSize = halfInnerSize * 2 + token.controlLineWidth * 3;
@@ -94,6 +95,31 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = token => {
             halfInnerSize,
           marginRight: token.paddingXS,
         },
+      },
+
+      [`tr${componentCls}-expanded-row`]: {
+        '&, &:hover': {
+          '> td': {
+            background: '@table-expanded-row-bg',
+          },
+        },
+
+        // https://github.com/ant-design/ant-design/issues/25573
+        [`${antCls}-descriptions-view`]: {
+          display: 'flex',
+
+          table: {
+            flex: 'auto',
+            width: 'auto',
+          },
+        },
+      },
+
+      // With fixed
+      [`${componentCls}-expanded-row-fixed`]: {
+        position: 'relative',
+        margin: `-${token.tablePaddingVertical}px -${token.tablePaddingHorizontal}px`,
+        padding: `${token.tablePaddingVertical}px ${token.tablePaddingHorizontal}px`,
       },
     },
   };
