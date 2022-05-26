@@ -13,6 +13,7 @@ interface ProgressToken extends FullToken<'Progress'> {
   progressDefaultColor: string;
   progressStepMinWidth: number;
   progressStepMarginInlineEnd: number;
+  progressActiveMotionDuration: string;
 }
 
 const antProgressActive = new Keyframes('antProgressActive', {
@@ -116,7 +117,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token: ProgressToken) => {
           borderRadius: token.progressLineRadius,
           opacity: 0,
           animationName: antProgressActive,
-          animationDuration: '2.4s', // FIXME: hard code
+          animationDuration: token.progressActiveMotionDuration,
           animationTimingFunction: token.motionEaseOutQuint,
           animationIterationCount: 'infinite',
           content: '""',
@@ -261,6 +262,7 @@ export default genComponentStyleHook('Progress', token => {
     progressRemainingColor: token.colorBgContainer,
     progressStepMarginInlineEnd,
     progressStepMinWidth: progressStepMarginInlineEnd,
+    progressActiveMotionDuration: '2.4s',
   });
   return [
     genBaseStyle(progressToken),
