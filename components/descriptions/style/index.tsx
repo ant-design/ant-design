@@ -7,7 +7,6 @@ interface DescriptionsToken extends FullToken<'Descriptions'> {
   descriptionsTitleMarginBottom: number;
   descriptionsExtraColor: string;
   descriptionItemPaddingBottom: number;
-  descriptionItemTrailingColon: boolean;
   descriptionsDefaultPadding: string;
   descriptionsBg: string;
   descriptionsMiddlePadding: string;
@@ -27,7 +26,7 @@ const genBorderedStyle = (token: DescriptionsToken): CSSObject => {
   return {
     [`&${componentCls}-bordered`]: {
       [`${componentCls}-view`]: {
-        border: `1px solid ${token.colorSplit}`,
+        border: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
         '> table': {
           tableLayout: 'auto',
           borderCollapse: 'collapse',
@@ -35,7 +34,7 @@ const genBorderedStyle = (token: DescriptionsToken): CSSObject => {
       },
       [`${componentCls}-item-label, ${componentCls}-item-content`]: {
         padding: descriptionsDefaultPadding,
-        borderInlineEnd: `1px solid ${token.colorSplit}`,
+        borderInlineEnd: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
         '&:last-child': {
           borderInlineEnd: 'none',
         },
@@ -47,7 +46,7 @@ const genBorderedStyle = (token: DescriptionsToken): CSSObject => {
         },
       },
       [`${componentCls}-row`]: {
-        borderBottom: `1px solid ${token.colorSplit}`,
+        borderBottom: `${token.lineWidth}px ${token.lineType} ${token.colorSplit}`,
         '&:last-child': {
           borderBottom: 'none',
         },
@@ -71,7 +70,6 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
     componentCls,
     descriptionsExtraColor,
     descriptionItemPaddingBottom,
-    descriptionItemTrailingColon,
     descriptionsItemLabelColonMarginRight,
     descriptionsItemLabelColonMarginLeft,
     descriptionsTitleMarginBottom,
@@ -86,29 +84,25 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
       [`${componentCls}-header`]: {
         display: 'flex',
         alignItems: 'center',
-        // FIXME: hardcode in v4
         marginBottom: descriptionsTitleMarginBottom,
       },
       [`${componentCls}-title`]: {
         flex: 'auto',
         overflow: 'hidden',
         color: token.colorText,
-        fontWeight: 'bold',
-        // FIXME: hardcode in v4
+        fontWeight: token.fontWeightStrong,
         fontSize: token.fontSizeLG,
-        lineHeight: token.lineHeight,
+        lineHeight: token.lineHeightLG,
         whiteSpace: 'nowrap',
         textOverflow: 'ellipsis',
       },
       [`${componentCls}-extra`]: {
         marginInlineStart: 'auto',
         color: descriptionsExtraColor,
-        // FIXME: hardcode in v4
         fontSize: token.fontSize,
       },
       [`${componentCls}-view`]: {
         width: '100%',
-        // FIXME: hardcode in v4
         borderRadius: token.radiusBase,
         table: {
           width: '100%',
@@ -117,7 +111,6 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
       },
       [`${componentCls}-row`]: {
         '> th, > td': {
-          // FIXME: hardcode in v4
           paddingBottom: descriptionItemPaddingBottom,
         },
         '&:last-child': {
@@ -127,16 +120,14 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
       [`${componentCls}-item-label`]: {
         color: token.colorText,
         fontWeight: 'normal',
-        // FIXME: hardcode in v4
         fontSize: token.fontSize,
         lineHeight: token.lineHeight,
         textAlign: `start`,
 
         '&::after': {
-          content: descriptionItemTrailingColon ? '":"' : '" "',
+          content: '":"',
           position: 'relative',
-          // FIXME: hardcode in v4
-          top: -0.5,
+          top: -0.5, // magic for position
           marginInline: `${descriptionsItemLabelColonMarginLeft}px ${descriptionsItemLabelColonMarginRight}px`,
         },
 
@@ -154,7 +145,6 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
         display: 'table-cell',
         flex: 1,
         color: token.colorText,
-        // FIXME: hardcode in v4
         fontSize: token.fontSize,
         lineHeight: token.lineHeight,
         wordBreak: 'break-word',
@@ -178,7 +168,6 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
       '&-middle': {
         [`${componentCls}-row`]: {
           '> th, > td': {
-            // FIXME: hardcode in v4
             paddingBottom: token.paddingSM,
           },
         },
@@ -186,7 +175,6 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
       '&-small': {
         [`${componentCls}-row`]: {
           '> th, > td': {
-            // FIXME: hardcode in v4
             paddingBottom: token.paddingXS,
           },
         },
@@ -196,23 +184,21 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
 };
 // ============================== Export ==============================
 export default genComponentStyleHook('Descriptions', token => {
-  const descriptionsBg = '#fafafa';
-  const descriptionsTitleMarginBottom = 20;
+  const descriptionsBg = token.colorBgComponentSecondary;
+  const descriptionsTitleMarginBottom = token.fontSizeSM * token.lineHeightSM;
   const descriptionsExtraColor = token.colorText;
   const descriptionsSmallPadding = `${token.paddingXS}px ${token.padding}px`;
   const descriptionsDefaultPadding = `${token.padding}px ${token.paddingLG}px`;
   const descriptionsMiddlePadding = `${token.paddingSM}px ${token.paddingLG}px`;
   const descriptionItemPaddingBottom = token.padding;
-  const descriptionItemTrailingColon = true;
-  const descriptionsItemLabelColonMarginRight = 8;
-  const descriptionsItemLabelColonMarginLeft = 2;
+  const descriptionsItemLabelColonMarginRight = token.marginXS;
+  const descriptionsItemLabelColonMarginLeft = token.marginXXS / 2;
 
   const descriptionToken = mergeToken<DescriptionsToken>(token, {
     descriptionsBg,
     descriptionsTitleMarginBottom,
     descriptionsExtraColor,
     descriptionItemPaddingBottom,
-    descriptionItemTrailingColon,
     descriptionsSmallPadding,
     descriptionsDefaultPadding,
     descriptionsMiddlePadding,

@@ -1,7 +1,7 @@
 /* eslint-disable react/no-array-index-key */
-import * as React from 'react';
 import type { TableProps } from 'antd';
-import { Table, Space, ConfigProvider, Select, Row, Col, Alert } from 'antd';
+import { Alert, Col, ConfigProvider, Row, Select, Space, Table } from 'antd';
+import * as React from 'react';
 import { statistic } from '../../../../../components/_util/theme';
 
 const columns: TableProps<{ name: string; value: any }>['columns'] = [
@@ -83,7 +83,7 @@ export default () => {
   }, []);
 
   const filteredTokenList = React.useMemo(() => {
-    const tokenKeys = statistic[selectedComponent!] || [];
+    const tokenKeys = statistic[selectedComponent!]?.global || [];
 
     if (!tokenKeys.length) {
       return tokenList;
@@ -91,6 +91,15 @@ export default () => {
 
     return tokenList.filter(({ name }) => tokenKeys.includes(name));
   }, [tokenList, selectedComponent]);
+
+  const componentTokenList = React.useMemo(
+    () =>
+      Object.entries(statistic[selectedComponent!]?.component || {}).map(([key, value]) => ({
+        name: key,
+        value,
+      })),
+    [selectedComponent],
+  );
 
   return (
     <Row gutter={[0, 16]}>
@@ -111,7 +120,21 @@ export default () => {
           />
         </Col>
       )}
+      {componentTokenList.length > 0 && (
+        <Col span={24}>
+          <h3 style={{ paddingBottom: 4 }}>Component Token</h3>
+          <Table
+            dataSource={componentTokenList}
+            columns={columns}
+            rowKey="name"
+            bordered
+            size="small"
+            pagination={false}
+          />
+        </Col>
+      )}
       <Col span={24}>
+        <h3 style={{ paddingBottom: 4 }}>Global Token</h3>
         <Table
           dataSource={filteredTokenList}
           columns={columns}
