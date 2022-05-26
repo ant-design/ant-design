@@ -5,6 +5,7 @@ import InternalCard from './Card';
 
 export { CardGridProps } from './Grid';
 export { CardMetaProps } from './Meta';
+export { CardProps, CardTabListType } from './Card';
 
 type InternalCardType = typeof InternalCard;
 
