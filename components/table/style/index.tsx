@@ -47,6 +47,8 @@ export interface TableToken extends FullToken<'Table'> {
   tableSelectedRowHoverBg: CSSObject['background'];
   // FIXME: zIndexXxxx 统一提到一个地方
   zIndexTableFixed: number;
+  tabelFontSizeMiddle: number;
+  tabelFontSizeSmall: number;
 }
 
 const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
@@ -222,7 +224,11 @@ export default genComponentStyleHook('Table', token => {
     tableSelectedRowBg,
     tableSelectedRowHoverBg: new TinyColor(tableSelectedRowBg).darken(2).toString(),
     zIndexTableFixed: 2,
+    tabelFontSizeMiddle: token.fontSizeBase,
+    tabelFontSizeSmall: token.fontSizeBase,
   });
+
+  console.log(genSizeStyle(tableToken));
 
   return [
     genTableStyle(tableToken),

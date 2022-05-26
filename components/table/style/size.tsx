@@ -24,7 +24,7 @@ const genStyle: GenerateStyle<TableToken, CSSObject> = token => {
       },
 
       [`${componentCls}-filter-trigger`]: {
-        marginRight: `-(${paddingHorizontal / 2}px`,
+        marginRight: `-${paddingHorizontal / 2}px`,
       },
 
       [`${componentCls}-expanded-row-fixed`]: {
@@ -52,13 +52,13 @@ const genStyle: GenerateStyle<TableToken, CSSObject> = token => {
         'middle',
         token.tablePaddingVerticalMiddle,
         token.tablePaddingHorizontalMiddle,
-        token.fontSizeBase,
+        token.tabelFontSizeMiddle,
       ),
       ...getSizeStyle(
         'small',
         token.tablePaddingVerticalSmall,
         token.tablePaddingHorizontalSmall,
-        token.fontSizeSM,
+        token.tabelFontSizeSmall,
       ),
     },
   };
