@@ -51,6 +51,7 @@ export interface TableToken extends FullToken<'Table'> {
   tabelFontSizeMiddle: number;
   tabelFontSizeSmall: number;
   tableSelectionColumnWidth: number;
+  tableExpandIconBg: string;
 }
 
 const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
@@ -230,6 +231,7 @@ export default genComponentStyleHook('Table', token => {
     tabelFontSizeMiddle: token.fontSizeBase,
     tabelFontSizeSmall: token.fontSizeBase,
     tableSelectionColumnWidth: 32,
+    tableExpandIconBg: token.colorBgComponent,
   });
 
   return [

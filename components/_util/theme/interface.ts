@@ -5,6 +5,7 @@ import type { ComponentToken as ButtonComponentToken } from '../../button/style'
 import type { ComponentToken as CalendarComponentToken } from '../../calendar/style';
 import type { ComponentToken as CarouselComponentToken } from '../../carousel/style';
 import type { ComponentToken as CascaderComponentToken } from '../../cascader/style';
+import type { ComponentToken as CheckboxComponentToken } from '../../checkbox/style';
 import type { ComponentToken as DatePickerComponentToken } from '../../date-picker/style';
 import type { ComponentToken as DividerComponentToken } from '../../divider/style';
 import type { ComponentToken as DropdownComponentToken } from '../../dropdown/style';
@@ -15,8 +16,8 @@ import type { ComponentToken as LayoutComponentToken } from '../../layout/style'
 import type { ComponentToken as ListComponentToken } from '../../list/style';
 import type { ComponentToken as MentionsComponentToken } from '../../mentions/style';
 import type { ComponentToken as MenuComponentToken } from '../../menu/style';
-import type { ComponentToken as ModalComponentToken } from '../../modal/style';
 import type { ComponentToken as MessageComponentToken } from '../../message/style';
+import type { ComponentToken as ModalComponentToken } from '../../modal/style';
 import type { ComponentToken as NotificationComponentToken } from '../../notification/style';
 import type { ComponentToken as PopconfirmComponentToken } from '../../popconfirm/style';
 import type { ComponentToken as ProgressComponentToken } from '../../progress/style';
@@ -27,8 +28,6 @@ import type { ComponentToken as SpaceComponentToken } from '../../space/style';
 import type { ComponentToken as TimelineComponentToken } from '../../timeline/style';
 import type { ComponentToken as TypographyComponentToken } from '../../typography/style';
 import type { ComponentToken as UploadComponentToken } from '../../upload/style';
-
-
 
 export const PresetColors = [
   'blue',
@@ -70,7 +69,7 @@ export interface OverrideToken {
   Breadcrumb?: {};
   Carousel?: CarouselComponentToken;
   Cascader?: CascaderComponentToken;
-  Checkbox?: {};
+  Checkbox?: CheckboxComponentToken;
   Collapse?: {};
   DatePicker?: DatePickerComponentToken;
   Descriptions?: {};
