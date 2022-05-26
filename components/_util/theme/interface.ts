@@ -25,6 +25,7 @@ import type { ComponentToken as SegmentedComponentToken } from '../../segmented/
 import type { ComponentToken as SelectComponentToken } from '../../select/style';
 import type { ComponentToken as SliderComponentToken } from '../../slider/style';
 import type { ComponentToken as SpaceComponentToken } from '../../space/style';
+import type { ComponentToken as SpinComponentToken } from '../../spin/style';
 import type { ComponentToken as TimelineComponentToken } from '../../timeline/style';
 import type { ComponentToken as TypographyComponentToken } from '../../typography/style';
 import type { ComponentToken as UploadComponentToken } from '../../upload/style';
@@ -95,7 +96,7 @@ export interface OverrideToken {
   Select?: SelectComponentToken;
   Skeleton?: {};
   Slider?: SliderComponentToken;
-  Spin?: {};
+  Spin?: SpinComponentToken;
   Statistic?: {};
   Switch?: {};
   Tag?: {};
