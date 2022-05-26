@@ -6,8 +6,9 @@ import type { TableToken } from './index';
 const genExpandStyle: GenerateStyle<TableToken, CSSObject> = token => {
   const { componentCls, antCls } = token;
   // FIXME: 需要从 checkbox 那里取
-  const checkboxSize = token.fontSizeLG;
-  const halfInnerSize = Math.ceil((token.fontSizeSM * 1.4 - token.controlLineWidth * 3) / 2);
+  const checkboxSize = token.controlInteractiveSize;
+  const halfInnerSize = checkboxSize / 2 - 1;
+  // must be odd number, unless it cannot align centerly
   const expandIconSize = halfInnerSize * 2 + token.controlLineWidth * 3;
   const tableBorder = `${token.controlLineWidth}px ${token.controlLineType} ${token.tableBorderColor}`;
   return {

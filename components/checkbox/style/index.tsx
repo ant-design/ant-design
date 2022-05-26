@@ -3,12 +3,11 @@ import { Keyframes } from '@ant-design/cssinjs';
 import type { FullToken, GenerateStyle } from '../../_util/theme';
 import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
 
-export interface ComponentToken {
-  checkboxSize: number;
-}
+export interface ComponentToken {}
 
 interface CheckboxToken extends FullToken<'Checkbox'> {
   checkboxCls: string;
+  checkboxSize: number;
 }
 
 // ============================== Motion ==============================
@@ -245,15 +244,12 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = token => {
 export function getStyle(prefixCls: string, token: FullToken<'Checkbox'>) {
   const checkboxToken: CheckboxToken = mergeToken<CheckboxToken>(token, {
     checkboxCls: `.${prefixCls}`,
+    checkboxSize: token.controlInteractiveSize,
   });
 
   return [genCheckboxStyle(checkboxToken)];
 }
 
-export default genComponentStyleHook(
-  'Checkbox',
-  (token, { prefixCls }) => [getStyle(prefixCls, token)],
-  token => ({
-    checkboxSize: token.fontSizeLG,
-  }),
-);
+export default genComponentStyleHook('Checkbox', (token, { prefixCls }) => [
+  getStyle(prefixCls, token),
+]);

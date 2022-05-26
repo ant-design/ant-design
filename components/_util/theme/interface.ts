@@ -312,6 +312,7 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   controlOutlineWidth: number;
   controlItemBgHover: string; // Note. It also is a color
   controlItemBgActive: string; // Note. It also is a color
+  controlInteractiveSize: number;
 
   // Color
   colorBorder: string;
