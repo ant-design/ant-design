@@ -1,8 +1,8 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-import type { GenerateStyle, FullToken } from '../../_util/theme';
-import { resetComponent, genComponentStyleHook, mergeToken } from '../../_util/theme';
+import type { FullToken, GenerateStyle } from '../../_util/theme';
+import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
 
 export interface ComponentToken {}
 
@@ -68,7 +68,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
       borderRadius: token.radiusBase,
       transition: `all ${token.motionDurationSlow} ${token.motionEaseInOut}`,
 
-      '&-group': {
+      [`${componentCls}-group`]: {
         position: 'relative',
         display: 'flex',
         alignItems: 'stretch',
@@ -93,7 +93,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
         display: 'flex',
       },
 
-      '&&-block &-item': {
+      [`&&-block ${componentCls}-item`]: {
         flex: 1,
         minWidth: 0,
       },
