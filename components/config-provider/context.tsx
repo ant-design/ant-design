@@ -1,8 +1,8 @@
 import * as React from 'react';
-import type { RenderEmptyHandler } from './defaultRenderEmpty';
-import type { Locale } from '../locale-provider';
-import type { SizeType } from './SizeContext';
 import type { RequiredMark } from '../form/Form';
+import type { Locale } from '../locale-provider';
+import type { RenderEmptyHandler } from './defaultRenderEmpty';
+import type { SizeType } from './SizeContext';
 
 export interface Theme {
   primaryColor?: string;
@@ -30,6 +30,9 @@ export interface ConfigConsumerProps {
   autoInsertSpaceInButton?: boolean;
   input?: {
     autoComplete?: string;
+  };
+  pagination?: {
+    showSizeChanger?: boolean;
   };
   locale?: Locale;
   pageHeader?: {
