@@ -92,7 +92,7 @@ const Collapse: CollapseInterface = props => {
 
     return (
       // Create additional div here to make arrow align to center of first line
-      <div>
+      <div className={`${prefixCls}-expand-icon`}>
         {cloneElement(icon, () => ({
           className: classNames((icon as any).props.className, `${prefixCls}-arrow`),
         }))}

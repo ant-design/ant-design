@@ -4,7 +4,7 @@
 // deps-lint-skip-all
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import type { GenerateStyle, FullToken } from '../../_util/theme';
-import { resetComponent, genComponentStyleHook, mergeToken } from '../../_util/theme';
+import { resetComponent, genComponentStyleHook, mergeToken, resetIcon } from '../../_util/theme';
 
 type CollapseToken = FullToken<'Collapse'> & {
   collapseContentBg: string;
@@ -31,10 +31,12 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = token => {
     colorText,
     colorTextHeading,
     colorTextDisabled,
+    fontSize,
     lineHeight,
     marginSM,
     paddingSM,
     fontSizeSM,
+    motionDurationSlow,
   } = token;
 
   const borderBase = `${controlLineWidth}px ${controlLineType} ${colorBorder}`;
@@ -72,19 +74,23 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = token => {
           cursor: 'pointer',
           transition: `all 0.3s, visibility 0s`,
 
+          // >>>>> Arrow
+          [`${componentCls}-expand-icon`]: {
+            height: fontSize * lineHeight,
+            display: 'flex',
+            alignItems: 'center',
+            paddingInlineEnd: marginSM,
+          },
+
           [`${componentCls}-arrow`]: {
-            display: 'inline-block',
-            marginInlineEnd: marginSM,
-            fontSize: fontSizeSM,
-            // FIXME
-            verticalAlign: '-1px',
+            ...resetIcon(),
 
             [`& svg`]: {
-              // FIXME
-              transition: 'transform 0.24s',
+              transition: `transform ${motionDurationSlow}`,
             },
           },
 
+          // >>>>> Extra
           [`${componentCls}-extra`]: {
             marginInlineStart: 'auto',
           },
@@ -105,22 +111,6 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = token => {
         [`&${componentCls}-no-arrow`]: {
           [`> ${componentCls}-header`]: {
             paddingInlineStart: paddingSM,
-          },
-        },
-      },
-
-      [`&-icon-position-right`]: {
-        [`& > ${componentCls}-item `]: {
-          [`> ${componentCls}-header`]: {
-            position: 'relative',
-            padding: collapseHeaderPadding,
-            paddingInlineEnd: collapseHeaderPaddingExtra,
-
-            [`${componentCls}-arrow`]: {
-              svg: {
-                transform: 'rotate(180deg)',
-              },
-            },
           },
         },
       },
@@ -155,6 +145,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = token => {
         },
       },
 
+      // ============================== Ghost ==============================
       [`&-ghost`]: {
         backgroundColor: 'transparent',
         border: 0,
@@ -170,6 +161,28 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = token => {
             },
           },
         },
+      },
+
+      // ========================== Icon Position ==========================
+      [`&-icon-position-end`]: {
+        [`${componentCls}-expand-icon`]: {
+          order: 1,
+          paddingInlineEnd: 0,
+          marginInlineStart: 'auto',
+        },
+        // [`& > ${componentCls}-item `]: {
+        //   [`> ${componentCls}-header`]: {
+        //     position: 'relative',
+        //     padding: collapseHeaderPadding,
+        //     paddingInlineEnd: collapseHeaderPaddingExtra,
+
+        //     [`${componentCls}-arrow`]: {
+        //       svg: {
+        //         transform: 'rotate(180deg)',
+        //       },
+        //     },
+        //   },
+        // },
       },
     },
   };
