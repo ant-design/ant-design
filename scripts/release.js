@@ -14,9 +14,8 @@ const cwd = path.resolve(__dirname, '..');
 const stdio = 'inherit';
 const execOptions = { cwd, stdio };
 
-/* TresataCode: start */
 const publishOptions = {
-  tag: 'v1.0.2', // you can also provide version: '1.0.0' instead of tag
+  tag: 'v1.0.3', // you can also provide version: '1.0.0' instead of tag
   push: {
     // set to false to not push
     remote: 'origin', // set to URL or remote name
@@ -26,7 +25,7 @@ const publishOptions = {
     verbose: true,
   },
 };
-/* TresataCode: end */
+
 const TYPE_MAJOR = 0;
 const TYPE_MINOR = 1;
 const TYPE_PATCH = 2;
