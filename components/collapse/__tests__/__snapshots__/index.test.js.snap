@@ -13,7 +13,9 @@ exports[`Collapse could override default openMotion 1`] = `
       role="button"
       tabindex="0"
     >
-      <div>
+      <div
+        class="ant-collapse-expand-icon"
+      >
         <span
           aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
@@ -35,7 +37,11 @@ exports[`Collapse could override default openMotion 1`] = `
           </svg>
         </span>
       </div>
-      This is panel header 1
+      <span
+        class="ant-collapse-header-text"
+      >
+        This is panel header 1
+      </span>
     </div>
     <div
       class="ant-collapse-content ant-collapse-content-active"
@@ -63,7 +69,9 @@ exports[`Collapse should render extra node of panel 1`] = `
       role="button"
       tabindex="0"
     >
-      <div>
+      <div
+        class="ant-collapse-expand-icon"
+      >
         <span
           aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
@@ -84,7 +92,11 @@ exports[`Collapse should render extra node of panel 1`] = `
           </svg>
         </span>
       </div>
-      header
+      <span
+        class="ant-collapse-header-text"
+      >
+        header
+      </span>
       <div
         class="ant-collapse-extra"
       >
@@ -105,7 +117,9 @@ exports[`Collapse should render extra node of panel 1`] = `
       role="button"
       tabindex="0"
     >
-      <div>
+      <div
+        class="ant-collapse-expand-icon"
+      >
         <span
           aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
@@ -126,7 +140,11 @@ exports[`Collapse should render extra node of panel 1`] = `
           </svg>
         </span>
       </div>
-      header
+      <span
+        class="ant-collapse-header-text"
+      >
+        header
+      </span>
       <div
         class="ant-collapse-extra"
       >
@@ -154,8 +172,11 @@ exports[`Collapse should support remove expandIcon 1`] = `
       role="button"
       tabindex="0"
     >
-      <div />
-      header
+      <span
+        class="ant-collapse-header-text"
+      >
+        header
+      </span>
     </div>
   </div>
 </div>
