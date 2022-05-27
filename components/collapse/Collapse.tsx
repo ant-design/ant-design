@@ -90,14 +90,9 @@ const Collapse: CollapseInterface = props => {
       )
     ) as React.ReactNode;
 
-    return (
-      // Create additional div here to make arrow align to center of first line
-      <div>
-        {cloneElement(icon, () => ({
-          className: classNames((icon as any).props.className, `${prefixCls}-arrow`),
-        }))}
-      </div>
-    );
+    return cloneElement(icon, () => ({
+      className: classNames((icon as any).props.className, `${prefixCls}-arrow`),
+    }));
   };
 
   const collapseClassName = classNames(
