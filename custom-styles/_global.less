@@ -1,0 +1,202 @@
+//Font style
+@font-size-base: 14px;
+@font-size-lg: @font-size-base + 2px;
+@font-size-sm: 12px;
+@heading-1-size: ceil(@font-size-base * 2);
+@heading-2-size: ceil(@font-size-base * 1.42);
+@heading-3-size: ceil(@font-size-base * 1.71);
+@heading-4-size: ceil(@font-size-base);
+@heading-5-size: ceil(@font-size-base * 1.14);
+
+// common usefull classes
+
+.m-0 {
+  margin: 0;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.login-section {
+  height: 100%;
+  background-color: #f4f7fa;
+}
+
+.login-top-section {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px 80px 0;
+}
+
+.login-popup {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 480px;
+  height: 100vh;
+  margin: auto;
+}
+
+.login-popup-inner {
+  display: block;
+  width: 480px;
+  width: 100%;
+  padding: 40px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(6, 25, 56, 0.06);
+}
+
+.bottom-link {
+  display: block;
+  width: 100%;
+
+  .ant-space {
+    width: 122px;
+
+    .ant-space-item {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
+}
+
+//sidebar menu css
+
+.ant-layout.page {
+  height: 100%;
+}
+
+.sidebar-logo {
+  display: block;
+  padding: 17px;
+  text-align: center;
+}
+
+.sidebar-submenu {
+  width: 240px;
+  padding: 24px;
+  background: #f4f7fa;
+
+  h2 {
+    margin-bottom: 16px;
+    color: #1f2937;
+    font-weight: 700;
+    font-size: 20px;
+  }
+}
+
+.ant-layout {
+  background: #fff;
+}
+
+.ant-layout-sider {
+  background: #fff;
+}
+
+.ant-layout-header {
+  height: auto;
+  padding: 0 35px;
+  background: #fff;
+}
+
+.ant-page-header {
+  padding: 16px 20px;
+}
+
+.ant-page-header-heading-left {
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+}
+
+.ant-page-header-heading-title {
+  display: block;
+}
+
+.ant-layout-content {
+  padding: 32px;
+}
+
+.ant-page-header-heading-sub-title {
+  color: #6b7280;
+  font-weight: 400;
+  font-size: 13px;
+}
+
+.ant-menu.ant-menu-inline-collapsed > .ant-menu-item,
+.ant-menu.ant-menu-inline-collapsed
+  > .ant-menu-item-group
+  > .ant-menu-item-group-list
+  > .ant-menu-item,
+.ant-menu.ant-menu-inline-collapsed
+  > .ant-menu-item-group
+  > .ant-menu-item-group-list
+  > .ant-menu-submenu
+  > .ant-menu-submenu-title,
+.ant-menu.ant-menu-inline-collapsed > .ant-menu-submenu > .ant-menu-submenu-title {
+  height: auto;
+  padding: 20px;
+  line-height: inherit;
+  white-space: initial;
+  text-align: center;
+}
+
+// internationalize CSS
+
+.generate-box {
+  padding: 42px 64px;
+  border: 1px solid #e5e7eb;
+}
+
+.generate-box-content {
+  width: 800px;
+  margin-right: 110px;
+}
+
+.drag-content {
+  .ant-table-tbody {
+    tr {
+      display: flex;
+      width: 480px;
+      margin-bottom: 16px;
+      border: 1px solid #e5e7eb;
+      border-radius: 4px;
+
+      td {
+        border: none;
+
+        &:nth-child(2) {
+          width: calc(100% - 46px);
+        }
+      }
+    }
+
+    .drag-details {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+}
+
+.title-with-border {
+  margin-top: 50px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  padding-left: 52px;
+  box-shadow: inset 0px -2px 0px #e5e7eb;
+}
