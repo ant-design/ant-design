@@ -45,7 +45,7 @@ const App: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
   const onChange = (checked: boolean) => {
-    setLoading(checked);
+    setLoading(!checked);
   };
   return (
     <>

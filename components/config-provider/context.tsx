@@ -1,10 +1,10 @@
 import * as React from 'react';
 import type { SeedToken } from '../_util/theme';
 import type { OverrideToken } from '../_util/theme/interface';
-import type { RenderEmptyHandler } from './defaultRenderEmpty';
-import type { Locale } from '../locale-provider';
-import type { SizeType } from './SizeContext';
 import type { RequiredMark } from '../form/Form';
+import type { Locale } from '../locale-provider';
+import type { RenderEmptyHandler } from './defaultRenderEmpty';
+import type { SizeType } from './SizeContext';
 
 export const defaultIconPrefixCls = 'anticon';
 
@@ -40,6 +40,9 @@ export interface ConfigConsumerProps {
   autoInsertSpaceInButton?: boolean;
   input?: {
     autoComplete?: string;
+  };
+  pagination?: {
+    showSizeChanger?: boolean;
   };
   locale?: Locale;
   pageHeader?: {
