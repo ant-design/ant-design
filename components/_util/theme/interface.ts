@@ -20,6 +20,7 @@ import type { ComponentToken as MessageComponentToken } from '../../message/styl
 import type { ComponentToken as ModalComponentToken } from '../../modal/style';
 import type { ComponentToken as NotificationComponentToken } from '../../notification/style';
 import type { ComponentToken as PopconfirmComponentToken } from '../../popconfirm/style';
+import type { ComponentToken as PopoverComponentToken } from '../../popover/style';
 import type { ComponentToken as ProgressComponentToken } from '../../progress/style';
 import type { ComponentToken as SegmentedComponentToken } from '../../segmented/style';
 import type { ComponentToken as SelectComponentToken } from '../../select/style';
@@ -88,7 +89,7 @@ export interface OverrideToken {
   Mentions?: MentionsComponentToken;
   Notification?: NotificationComponentToken;
   Pagination?: {};
-  Popover?: {};
+  Popover?: PopoverComponentToken;
   Popconfirm?: PopconfirmComponentToken;
   Rate?: {};
   Result?: {};

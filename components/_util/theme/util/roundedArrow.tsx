@@ -18,10 +18,6 @@ export const roundedArrow = (width: number, outerRadius: number, bgColor: string
   const fy = width - cornerHeight;
   const ex = 2 * width;
   const ey = fy + outerRadius * (1 / Math.sqrt(2));
-  const gx = fx - 1;
-  const gy = fy;
-  const hx = ax;
-  const hy = ay - 1;
 
   return {
     borderRadius: { _skip_check_: true, value: `0 0 2px` },
@@ -38,7 +34,7 @@ export const roundedArrow = (width: number, outerRadius: number, bgColor: string
       backgroundRepeat: 'no-repeat',
       backgroundPosition: `${Math.ceil(-width + 1)}px ${Math.ceil(-width + 1)}px`,
       content: '""',
-      clipPath: `path('M ${ax} ${ay} A ${outerRadius} ${outerRadius} 0 0 1 ${bx} ${by} L ${cx} ${cy} A ${radiusBase} ${radiusBase} 0 0 0 ${dx} ${dy} L ${ex} ${ey} A ${outerRadius} ${outerRadius} 0 0 1 ${fx} ${fy} L ${gx} ${gy} L ${hx} ${hy} Z')`,
+      clipPath: `path('M ${ax} ${ay} A ${outerRadius} ${outerRadius} 0 0 1 ${bx} ${by} L ${cx} ${cy} A ${radiusBase} ${radiusBase} 0 0 0 ${dx} ${dy} L ${ex} ${ey} A ${outerRadius} ${outerRadius} 0 0 1 ${fx} ${fy} Z')`,
     },
   };
 };
