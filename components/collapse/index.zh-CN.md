@@ -27,7 +27,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/IxH16B9RD/Collapse.svg
 | defaultActiveKey | 初始化选中面板的 key | string\[] \| string<br/> number\[] \| number | - |  |
 | destroyInactivePanel | 销毁折叠隐藏的面板 | boolean | false |  |
 | expandIcon | 自定义切换图标 | (panelProps) => ReactNode | - |  |
-| expandIconPosition | 设置图标位置 | `start` \| `end` | - |  |
+| expandIconPosition | 设置图标位置 | `start` \| `end` | - | 4.21.0 |
 | ghost | 使折叠面板透明且无边框 | boolean | false | 4.4.0 |
 | onChange | 切换面板的回调 | function | - |  |
 
