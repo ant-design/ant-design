@@ -70,6 +70,14 @@ const Collapse: CollapseInterface = props => {
     '`expandIconPosition` with `left` or `right` is deprecated. Please use `start` or `end` instead.',
   );
 
+  // Align with logic position
+  const mergedExpandIconPosition = React.useMemo(() => {
+    if (expandIconPosition === 'left') {
+      return 'start';
+    }
+    return expandIconPosition === 'right' ? 'end' : expandIconPosition;
+  }, [expandIconPosition]);
+
   const renderExpandIcon = (panelProps: PanelProps = {}) => {
     const { expandIcon } = props;
     const icon = (
@@ -91,7 +99,7 @@ const Collapse: CollapseInterface = props => {
   };
 
   const collapseClassName = classNames(
-    `${prefixCls}-icon-position-${expandIconPosition}`,
+    `${prefixCls}-icon-position-${mergedExpandIconPosition}`,
     {
       [`${prefixCls}-borderless`]: !bordered,
       [`${prefixCls}-rtl`]: direction === 'rtl',
