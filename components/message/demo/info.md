@@ -1,5 +1,5 @@
 ---
-order: 0
+order: 6
 title:
   zh-CN: 普通提示
   en-US: Normal prompt
@@ -14,8 +14,8 @@ title:
 Normal message for information.
 
 ```tsx
-import { Button, message } from 'antd';
 import React from 'react';
+import { Button, message } from 'antd';
 
 const info = () => {
   message.info('This is a normal message');

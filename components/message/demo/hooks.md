@@ -1,5 +1,5 @@
 ---
-order: -1
+order: 0
 title:
   zh-CN: Hooks 调用（推荐）
   en-US: Hooks usage (recommended)

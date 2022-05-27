@@ -1,18 +1,18 @@
 /* eslint jsx-a11y/no-noninteractive-element-interactions: 0 */
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { FormattedMessage, injectIntl } from 'react-intl';
-import CopyToClipboard from 'react-copy-to-clipboard';
+import { CheckOutlined, SnippetsOutlined, ThunderboltOutlined } from '@ant-design/icons';
+import stackblitzSdk from '@stackblitz/sdk';
+import { Alert, Badge, Tooltip } from 'antd';
 import classNames from 'classnames';
 import LZString from 'lz-string';
-import { Tooltip, Alert, Badge } from 'antd';
-import { SnippetsOutlined, CheckOutlined, ThunderboltOutlined } from '@ant-design/icons';
-import stackblitzSdk from '@stackblitz/sdk';
-import CodePreview from './CodePreview';
-import EditButton from '../EditButton';
+import React from 'react';
+import CopyToClipboard from 'react-copy-to-clipboard';
+import ReactDOM from 'react-dom';
+import { FormattedMessage, injectIntl } from 'react-intl';
 import BrowserFrame from '../../BrowserFrame';
-import CodeSandboxIcon from './CodeSandboxIcon';
+import EditButton from '../EditButton';
 import CodePenIcon from './CodePenIcon';
+import CodePreview from './CodePreview';
+import CodeSandboxIcon from './CodeSandboxIcon';
 import RiddleIcon from './RiddleIcon';
 
 const { ErrorBoundary } = Alert;
@@ -273,7 +273,7 @@ class Demo extends React.Component {
     let parsedSourceCode = sourceCode;
     let importReactContent = "import React from 'react';";
 
-    const importReactReg = /import(\D*)from 'react';/;
+    const importReactReg = /import React(\D*)from 'react';/;
     const matchImportReact = parsedSourceCode.match(importReactReg);
     if (matchImportReact) {
       [importReactContent] = matchImportReact;
@@ -294,14 +294,14 @@ ${parsedSourceCode}
 
     const indexJsContent = react18
       ? `
-${importReactContent}
+import React from 'react';
 import { createRoot } from 'react-dom/client';
 import Demo from './demo';
 
 createRoot(document.getElementById('container')).render(<Demo />);
 `
       : `
-${importReactContent}
+import React from 'react';
 import ReactDOM from 'react-dom';
 import Demo from './demo';
 

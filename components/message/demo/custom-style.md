@@ -1,5 +1,5 @@
 ---
-order: 6
+order: 5
 title:
   zh-CN: 自定义样式
   en-US: Customized style
@@ -17,17 +17,27 @@ The `style` and `className` are available to customize Message.
 import { Button, message } from 'antd';
 import React from 'react';
 
-const success = () => {
-  message.success({
-    content: 'This is a prompt message with custom className and style',
-    className: 'custom-class',
-    style: {
-      marginTop: '20vh',
-    },
-  });
-};
+const App: React.FC = () => {
+  const [messageApi, contextHolder] = message.useMessage();
 
-const App: React.FC = () => <Button onClick={success}>Customized style</Button>;
+  const success = () => {
+    messageApi.open({
+      type: 'success',
+      content: 'This is a prompt message with custom className and style',
+      className: 'custom-class',
+      style: {
+        marginTop: '20vh',
+      },
+    });
+  };
+
+  return (
+    <>
+      {contextHolder}
+      <Button onClick={success}>Customized style</Button>
+    </>
+  );
+};
 
 export default App;
 ```

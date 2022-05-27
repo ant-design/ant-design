@@ -1,8 +1,12 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
-import type { GenerateStyle, FullToken } from '../../_util/theme';
-import { resetComponent, genComponentStyleHook, mergeToken } from '../../_util/theme';
+import type { FullToken, GenerateStyle } from '../../_util/theme';
+import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
+
+export interface ComponentToken {
+  contentHeight: number;
+}
 
 interface SpinToken extends FullToken<'Spin'> {
   spinDotDefault: string;
@@ -46,7 +50,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
         display: 'block',
         width: '100%',
         height: '100%',
-        maxHeight: 400, // FIXME: hard code in v4
+        maxHeight: token.contentHeight,
 
         [`${token.componentCls}-dot`]: {
           position: 'absolute',
@@ -60,7 +64,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
           top: '50%',
           width: '100%',
           paddingTop: (token.spinDotSize - token.fontSize) / 2 + 2,
-          textShadow: `0 1px 2px ${token.colorBgComponent}`,
+          textShadow: `0 1px 2px ${token.colorBgComponent}`, // FIXME: shadow
         },
 
         [`&${token.componentCls}-show-text ${token.componentCls}-dot`]: {
@@ -144,8 +148,8 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
       '&-item': {
         position: 'absolute',
         display: 'block',
-        width: 9, // FIXME: hard code in v4
-        height: 9, // FIXME: hard code in v4
+        width: (token.spinDotSize - token.marginXXS / 2) / 2,
+        height: (token.spinDotSize - token.marginXXS / 2) / 2,
         backgroundColor: token.colorPrimary,
         borderRadius: '100%',
         transform: 'scale(0.75)',
@@ -198,8 +202,8 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
       fontSize: token.spinDotSizeSM,
 
       i: {
-        width: 6, // FIXME: hard code in v4
-        height: 6, // FIXME: hard code in v4
+        width: (token.spinDotSizeSM - token.marginXXS / 2) / 2,
+        height: (token.spinDotSizeSM - token.marginXXS / 2) / 2,
       },
     },
 
@@ -208,8 +212,8 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
       fontSize: token.spinDotSizeLG,
 
       i: {
-        width: 14, // FIXME: hard code in v4
-        height: 14, // FIXME: hard code in v4
+        width: (token.spinDotSizeLG - token.marginXXS) / 2,
+        height: (token.spinDotSizeLG - token.marginXXS) / 2,
       },
     },
 
@@ -220,12 +224,18 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
 });
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Spin', token => {
-  const spinToken = mergeToken<SpinToken>(token, {
-    spinDotDefault: token.colorTextSecondary,
-    spinDotSize: 20, // FIXME: hard code in v4
-    spinDotSizeSM: 14, // FIXME: hard code in v4
-    spinDotSizeLG: 32, // FIXME: hard code in v4
-  });
-  return [genSpinStyle(spinToken)];
-});
+export default genComponentStyleHook(
+  'Spin',
+  token => {
+    const spinToken = mergeToken<SpinToken>(token, {
+      spinDotDefault: token.colorTextSecondary,
+      spinDotSize: token.controlHeightLG / 2,
+      spinDotSizeSM: token.controlHeightLG * 0.35,
+      spinDotSizeLG: token.controlHeight,
+    });
+    return [genSpinStyle(spinToken)];
+  },
+  {
+    contentHeight: 400,
+  },
+);
