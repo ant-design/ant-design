@@ -155,7 +155,7 @@ describe('Collapse', () => {
         );
       });
 
-      it('end position', () => {
+      it('position end', () => {
         const { container } = render(
           <Collapse expandIconPosition="end">
             <Collapse.Panel header="header" key="1" />
