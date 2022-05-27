@@ -161,6 +161,7 @@
   "devDependencies": {
     "@ant-design/bisheng-plugin": "^3.2.0",
     "@ant-design/hitu": "^0.0.0-alpha.13",
+    "@ant-design/jest-image-snapshot": "^4.5.2",
     "@ant-design/tools": "^15.0.2",
     "@docsearch/css": "^3.0.0",
     "@qixian.cs/github-contributors-list": "^1.0.3",
@@ -238,7 +239,6 @@
     "jest-axe": "^6.0.0",
     "jest-environment-jsdom": "^28.0.2",
     "jest-environment-node": "^28.0.2",
-    "@ant-design/jest-image-snapshot": "^4.5.2",
     "jest-puppeteer": "^6.0.0",
     "jquery": "^3.4.1",
     "jsdom": "^19.0.0",
