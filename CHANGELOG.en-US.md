@@ -5,7 +5,7 @@ toc: false
 timeline: true
 ---
 
-`antd` strictly follows [Semantic Versioning 2.0.0](http://semver.org/).
+`antd` strictly follows [Semantic Versioning 1.0.0](http://semver.org/).
 
 #### Release Schedule
 
