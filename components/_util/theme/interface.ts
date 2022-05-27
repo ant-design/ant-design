@@ -1,6 +1,7 @@
 import type * as React from 'react';
 import type { ComponentToken as AlertComponentToken } from '../../alert/style';
 import type { ComponentToken as AnchorComponentToken } from '../../anchor/style';
+import type { ComponentToken as AvatarComponentToken } from '../../avatar/style';
 import type { ComponentToken as BackTopComponentToken } from '../../back-top/style';
 import type { ComponentToken as ButtonComponentToken } from '../../button/style';
 import type { ComponentToken as CalendarComponentToken } from '../../calendar/style';
@@ -64,7 +65,7 @@ export interface OverrideToken {
   Affix?: {};
   Alert?: AlertComponentToken;
   Anchor?: AnchorComponentToken;
-  Avatar?: {};
+  Avatar?: AvatarComponentToken;
   BackTop?: BackTopComponentToken;
   Badge?: {};
   Button?: ButtonComponentToken;
