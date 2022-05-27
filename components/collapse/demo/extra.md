@@ -16,7 +16,6 @@ More than one panel can be expanded at a time, the first panel is initialized to
 ```tsx
 import { SettingOutlined } from '@ant-design/icons';
 import { Collapse, Select } from 'antd';
-import type { ExpandIconPosition } from 'antd/lib/collapse/Collapse';
 import React, { useState } from 'react';
 
 const { Panel } = Collapse;
@@ -28,8 +27,10 @@ const text = `
   it can be found as a welcome guest in many households across the world.
 `;
 
+type ExpandIconPosition = 'start' | 'end';
+
 const App: React.FC = () => {
-  const [expandIconPosition, setExpandIconPosition] = useState<ExpandIconPosition>('left');
+  const [expandIconPosition, setExpandIconPosition] = useState<ExpandIconPosition>('start');
 
   const onPositionChange = (newExpandIconPosition: ExpandIconPosition) => {
     setExpandIconPosition(newExpandIconPosition);
@@ -68,8 +69,8 @@ const App: React.FC = () => {
       <br />
       <span>Expand Icon Position: </span>
       <Select value={expandIconPosition} style={{ margin: '0 8px' }} onChange={onPositionChange}>
-        <Option value="left">left</Option>
-        <Option value="right">right</Option>
+        <Option value="start">start</Option>
+        <Option value="end">end</Option>
       </Select>
     </>
   );
