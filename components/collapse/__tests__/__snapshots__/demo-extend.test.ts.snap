@@ -2,7 +2,7 @@
 
 exports[`renders ./components/collapse/demo/accordion.md extend context correctly 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-left"
+  class="ant-collapse ant-collapse-icon-position-start"
   role="tablist"
 >
   <div
@@ -109,7 +109,7 @@ exports[`renders ./components/collapse/demo/accordion.md extend context correctl
 
 exports[`renders ./components/collapse/demo/basic.md extend context correctly 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-left"
+  class="ant-collapse ant-collapse-icon-position-start"
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"
@@ -231,7 +231,7 @@ exports[`renders ./components/collapse/demo/basic.md extend context correctly 1`
 
 exports[`renders ./components/collapse/demo/borderless.md extend context correctly 1`] = `
 <div
-  class="ant-collapse ant-collapse-borderless ant-collapse-icon-position-left"
+  class="ant-collapse ant-collapse-icon-position-start ant-collapse-borderless"
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"
@@ -358,7 +358,7 @@ exports[`renders ./components/collapse/demo/collapsible.md extend context correc
     style="margin-bottom:8px"
   >
     <div
-      class="ant-collapse ant-collapse-icon-position-left"
+      class="ant-collapse ant-collapse-icon-position-start"
     >
       <div
         class="ant-collapse-item ant-collapse-item-active"
@@ -419,7 +419,7 @@ exports[`renders ./components/collapse/demo/collapsible.md extend context correc
     class="ant-space-item"
   >
     <div
-      class="ant-collapse ant-collapse-icon-position-left"
+      class="ant-collapse ant-collapse-icon-position-start"
     >
       <div
         class="ant-collapse-item ant-collapse-item-disabled"
@@ -461,7 +461,7 @@ exports[`renders ./components/collapse/demo/collapsible.md extend context correc
 
 exports[`renders ./components/collapse/demo/custom.md extend context correctly 1`] = `
 <div
-  class="ant-collapse ant-collapse-borderless ant-collapse-icon-position-left site-collapse-custom-collapse"
+  class="ant-collapse ant-collapse-icon-position-start ant-collapse-borderless site-collapse-custom-collapse"
 >
   <div
     class="ant-collapse-item ant-collapse-item-active site-collapse-custom-panel"
@@ -584,7 +584,7 @@ exports[`renders ./components/collapse/demo/custom.md extend context correctly 1
 exports[`renders ./components/collapse/demo/extra.md extend context correctly 1`] = `
 Array [
   <div
-    class="ant-collapse ant-collapse-icon-position-left"
+    class="ant-collapse ant-collapse-icon-position-start"
   >
     <div
       class="ant-collapse-item ant-collapse-item-active"
@@ -806,9 +806,9 @@ Array [
       </span>
       <span
         class="ant-select-selection-item"
-        title="left"
+        title="start"
       >
-        left
+        start
       </span>
     </div>
     <div>
@@ -823,20 +823,20 @@ Array [
             style="height:0;width:0;overflow:hidden"
           >
             <div
-              aria-label="left"
+              aria-label="start"
               aria-selected="true"
               id="undefined_list_0"
               role="option"
             >
-              left
+              start
             </div>
             <div
-              aria-label="right"
+              aria-label="end"
               aria-selected="false"
               id="undefined_list_1"
               role="option"
             >
-              right
+              end
             </div>
           </div>
           <div
@@ -855,12 +855,12 @@ Array [
                   <div
                     aria-selected="true"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                    title="left"
+                    title="start"
                   >
                     <div
                       class="ant-select-item-option-content"
                     >
-                      left
+                      start
                     </div>
                     <span
                       aria-hidden="true"
@@ -872,12 +872,12 @@ Array [
                   <div
                     aria-selected="false"
                     class="ant-select-item ant-select-item-option"
-                    title="right"
+                    title="end"
                   >
                     <div
                       class="ant-select-item-option-content"
                     >
-                      right
+                      end
                     </div>
                     <span
                       aria-hidden="true"
@@ -925,7 +925,7 @@ Array [
 
 exports[`renders ./components/collapse/demo/ghost.md extend context correctly 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-left ant-collapse-ghost"
+  class="ant-collapse ant-collapse-icon-position-start ant-collapse-ghost"
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"
@@ -1047,7 +1047,7 @@ exports[`renders ./components/collapse/demo/ghost.md extend context correctly 1`
 
 exports[`renders ./components/collapse/demo/mix.md extend context correctly 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-left"
+  class="ant-collapse ant-collapse-icon-position-start"
 >
   <div
     class="ant-collapse-item"
@@ -1153,7 +1153,7 @@ exports[`renders ./components/collapse/demo/mix.md extend context correctly 1`] 
 
 exports[`renders ./components/collapse/demo/noarrow.md extend context correctly 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-left"
+  class="ant-collapse ant-collapse-icon-position-start"
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"

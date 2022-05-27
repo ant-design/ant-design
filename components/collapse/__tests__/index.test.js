@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
-import { sleep } from '../../../tests/utils';
+import { sleep, render } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
 
 describe('Collapse', () => {
@@ -9,6 +9,10 @@ describe('Collapse', () => {
   const Collapse = require('..').default;
 
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+  beforeEach(() => {
+    resetWarned();
+  });
 
   afterEach(() => {
     errorSpy.mockReset();
@@ -82,7 +86,6 @@ describe('Collapse', () => {
   });
 
   it('should trigger warning and keep compatibility when using disabled in Panel', () => {
-    resetWarned();
     const wrapper = mount(
       <Collapse>
         <Collapse.Panel disabled header="This is panel header 1" key="1">
@@ -136,5 +139,31 @@ describe('Collapse', () => {
 
     window.requestAnimationFrame.mockRestore();
     jest.useRealTimers();
+  });
+
+  describe('expandIconPosition', () => {
+    ['left', 'right'].forEach(pos => {
+      it(`warning for legacy '${pos}'`, () => {
+        render(
+          <Collapse expandIconPosition={pos}>
+            <Collapse.Panel header="header" key="1" />
+          </Collapse>,
+        );
+
+        expect(errorSpy).toHaveBeenCalledWith(
+          'Warning: [antd: Collapse] `expandIconPosition` with `left` or `right` is deprecated. Please use `start` or `end` instead.',
+        );
+      });
+
+      it('position end', () => {
+        const { container } = render(
+          <Collapse expandIconPosition="end">
+            <Collapse.Panel header="header" key="1" />
+          </Collapse>,
+        );
+
+        expect(container.querySelector('.ant-collapse-icon-position-end')).toBeTruthy();
+      });
+    });
   });
 });

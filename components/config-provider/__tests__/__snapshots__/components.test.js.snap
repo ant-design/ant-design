@@ -12220,7 +12220,7 @@ exports[`ConfigProvider components Checkbox prefixCls 1`] = `
 
 exports[`ConfigProvider components Collapse configProvider 1`] = `
 <div
-  class="config-collapse config-collapse-icon-position-left"
+  class="config-collapse config-collapse-icon-position-start"
 >
   <div
     class="config-collapse-item"
@@ -12260,7 +12260,7 @@ exports[`ConfigProvider components Collapse configProvider 1`] = `
 
 exports[`ConfigProvider components Collapse configProvider componentDisabled 1`] = `
 <div
-  class="config-collapse config-collapse-icon-position-left"
+  class="config-collapse config-collapse-icon-position-start"
 >
   <div
     class="config-collapse-item"
@@ -12300,7 +12300,7 @@ exports[`ConfigProvider components Collapse configProvider componentDisabled 1`]
 
 exports[`ConfigProvider components Collapse configProvider componentSize large 1`] = `
 <div
-  class="config-collapse config-collapse-icon-position-left"
+  class="config-collapse config-collapse-icon-position-start"
 >
   <div
     class="config-collapse-item"
@@ -12340,7 +12340,7 @@ exports[`ConfigProvider components Collapse configProvider componentSize large 1
 
 exports[`ConfigProvider components Collapse configProvider componentSize middle 1`] = `
 <div
-  class="config-collapse config-collapse-icon-position-left"
+  class="config-collapse config-collapse-icon-position-start"
 >
   <div
     class="config-collapse-item"
@@ -12380,7 +12380,7 @@ exports[`ConfigProvider components Collapse configProvider componentSize middle 
 
 exports[`ConfigProvider components Collapse configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-left"
+  class="ant-collapse ant-collapse-icon-position-start"
 >
   <div
     class="ant-collapse-item"
@@ -12420,7 +12420,7 @@ exports[`ConfigProvider components Collapse configProvider virtual and dropdownM
 
 exports[`ConfigProvider components Collapse normal 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-left"
+  class="ant-collapse ant-collapse-icon-position-start"
 >
   <div
     class="ant-collapse-item"
@@ -12460,7 +12460,7 @@ exports[`ConfigProvider components Collapse normal 1`] = `
 
 exports[`ConfigProvider components Collapse prefixCls 1`] = `
 <div
-  class="prefix-Collapse prefix-Collapse-icon-position-left"
+  class="prefix-Collapse prefix-Collapse-icon-position-start"
 >
   <div
     class="prefix-Collapse-item"
