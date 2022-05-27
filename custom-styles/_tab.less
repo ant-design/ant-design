@@ -1,0 +1,121 @@
+// common tab css start
+
+.ant-tabs-tab {
+  padding: 11px 0;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.ant-tabs-bottom > .ant-tabs-nav:before,
+.ant-tabs-bottom > div > .ant-tabs-nav:before,
+.ant-tabs-top > .ant-tabs-nav:before,
+.ant-tabs-top > div > .ant-tabs-nav:before {
+  height: 1px;
+  border: none;
+  box-shadow: inset 0px -1px 0px #e5e7eb;
+}
+
+// global add role tab CSS
+
+.tab-content-list {
+  padding: 13px 0;
+  box-shadow: inset 0px -1px 0px #f5f3ff;
+
+  p {
+    margin: 8px 0 0 0;
+    color: @base-font-color;
+  }
+
+  h4 {
+    margin: 0;
+    color: @secondary-color;
+    font-weight: 600;
+  }
+}
+
+.tab-content-left {
+  width: 40%;
+  padding-right: 16px;
+
+  // &.lg-width {
+  //   width: 592px;
+  // }
+  h5 {
+    margin: 0;
+    padding-left: 14px;
+    font-size: 14px;
+    line-height: 24px;
+  }
+}
+
+.tab-content-right {
+  // width: 480px;
+  width: 60%;
+
+  .ant-checkbox-group {
+    width: 100%;
+
+    > label {
+      width: 19%;
+    }
+  }
+
+  > div {
+    width: 19%;
+  }
+
+  > label {
+    width: 19%;
+  }
+
+  .ant-checkbox-wrapper + .ant-checkbox-wrapper {
+    margin: 0;
+  }
+}
+
+.add-role-tab {
+  .ant-collapse-icon-position-right > .ant-collapse-item > .ant-collapse-header {
+    padding: 12px 0;
+  }
+
+  .ant-collapse-icon-position-right
+    > .ant-collapse-item
+    > .ant-collapse-header
+    .ant-collapse-arrow {
+    right: auto;
+    left: 7%;
+  }
+
+  .ant-collapse .ant-collapse-item {
+    border: none;
+  }
+
+  .ant-collapse-header {
+    box-shadow: inset 0px -1px 0px #f5f3ff;
+
+    .ant-form-item-control-input {
+      min-height: auto;
+    }
+
+    label {
+      font-size: 16px;
+    }
+  }
+
+  .ant-row.ant-form-item {
+    margin: 0;
+  }
+
+  .ant-collapse-content {
+    border: none;
+  }
+
+  .ant-collapse-content-box {
+    padding: 0;
+
+    .tab-content-left {
+      padding-left: 44px;
+    }
+  }
+}
