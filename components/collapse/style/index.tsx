@@ -90,6 +90,8 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = token => {
             },
           },
 
+          // >>>>> Text
+
           // >>>>> Extra
           [`${componentCls}-extra`]: {
             marginInlineStart: 'auto',

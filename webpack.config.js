@@ -116,13 +116,15 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
       });
     }
 
-    config.plugins.push(
-      new BundleAnalyzerPlugin({
-        analyzerMode: 'static',
-        openAnalyzer: false,
-        reportFilename: '../report.html',
-      }),
-    );
+    if (!process.env.CI) {
+      config.plugins.push(
+        new BundleAnalyzerPlugin({
+          analyzerMode: 'static',
+          openAnalyzer: false,
+          reportFilename: '../report.html',
+        }),
+      );
+    }
 
     if (!process.env.NO_DUP_CHECK) {
       config.plugins.push(
