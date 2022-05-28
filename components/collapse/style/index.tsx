@@ -1,8 +1,4 @@
-// import '../../style/index.less';
-// import './index.less';
-
 // deps-lint-skip-all
-import type { CSSInterpolation } from '@ant-design/cssinjs';
 import type { GenerateStyle, FullToken } from '../../_util/theme';
 import { resetComponent, genComponentStyleHook, mergeToken, resetIcon } from '../../_util/theme';
 
@@ -11,7 +7,6 @@ type CollapseToken = FullToken<'Collapse'> & {
   collapseContentPadding: number;
   collapseHeaderBg: string;
   collapseHeaderPadding: string;
-  collapseHeaderPaddingExtra: number;
   collapsePanelBorderRadius: number;
 };
 
@@ -22,7 +17,6 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = token => {
     collapseContentPadding,
     collapseHeaderBg,
     collapseHeaderPadding,
-    collapseHeaderPaddingExtra,
     collapsePanelBorderRadius,
 
     controlLineWidth,
@@ -35,7 +29,6 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = token => {
     lineHeight,
     marginSM,
     paddingSM,
-    fontSizeSM,
     motionDurationSlow,
   } = token;
 
@@ -72,7 +65,11 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = token => {
           color: colorTextHeading,
           lineHeight,
           cursor: 'pointer',
-          transition: `all 0.3s, visibility 0s`,
+          transition: `all ${motionDurationSlow}, visibility 0s`,
+
+          '&:focus': {
+            outline: 'none',
+          },
 
           // >>>>> Arrow
           [`${componentCls}-expand-icon`]: {
@@ -84,21 +81,12 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = token => {
 
           [`${componentCls}-arrow`]: {
             ...resetIcon(),
-
-            [`& svg`]: {
-              transition: `transform ${motionDurationSlow}`,
-            },
+            transition: `transform ${motionDurationSlow}`,
           },
 
           // >>>>> Text
-
-          // >>>>> Extra
-          [`${componentCls}-extra`]: {
-            marginInlineStart: 'auto',
-          },
-
-          [`&:focus`]: {
-            outline: 'none',
+          [`${componentCls}-header-text`]: {
+            marginInlineEnd: 'auto',
           },
         },
 
@@ -157,34 +145,56 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = token => {
             backgroundColor: 'transparent',
             border: 0,
             [`> ${componentCls}-content-box`]: {
-              // FIXME
-              paddingTop: 12,
-              paddingBottom: 12,
+              paddingBlock: paddingSM,
             },
           },
         },
       },
 
       // ========================== Icon Position ==========================
-      [`&-icon-position-end`]: {
-        [`${componentCls}-expand-icon`]: {
-          order: 1,
-          paddingInlineEnd: 0,
-          marginInlineStart: 'auto',
+      [`&${componentCls}-icon-position-end`]: {
+        [`& > ${componentCls}-item`]: {
+          [`> ${componentCls}-header`]: {
+            [`${componentCls}-expand-icon`]: {
+              order: 1,
+              paddingInlineEnd: 0,
+              paddingInlineStart: marginSM,
+            },
+          },
         },
-        // [`& > ${componentCls}-item `]: {
-        //   [`> ${componentCls}-header`]: {
-        //     position: 'relative',
-        //     padding: collapseHeaderPadding,
-        //     paddingInlineEnd: collapseHeaderPaddingExtra,
+      },
+    },
+  };
+};
 
-        //     [`${componentCls}-arrow`]: {
-        //       svg: {
-        //         transform: 'rotate(180deg)',
-        //       },
-        //     },
-        //   },
-        // },
+const genArrowStyle: GenerateStyle<CollapseToken> = token => {
+  const { componentCls } = token;
+
+  const fixedSelector = `> ${componentCls}-item > ${componentCls}-header`;
+
+  return {
+    // Down
+    [componentCls]: {
+      [fixedSelector]: {
+        [`${componentCls}-expand-icon ${componentCls}-arrow${componentCls}-arrow-expanded`]: {
+          transform: `rotate(90deg)`,
+        },
+      },
+    },
+
+    [`${componentCls}-icon-position-end, ${componentCls}-rtl`]: {
+      [fixedSelector]: {
+        [`${componentCls}-arrow`]: {
+          transform: `rotate(180deg)`,
+        },
+      },
+    },
+
+    [`${componentCls}-rtl${componentCls}-icon-position-end`]: {
+      [fixedSelector]: {
+        [`${componentCls}-arrow`]: {
+          transform: `rotate(0deg)`,
+        },
       },
     },
   };
@@ -194,6 +204,7 @@ const genBorderlessStyle: GenerateStyle<CollapseToken> = token => {
   const {
     componentCls,
     collapseHeaderBg,
+    paddingXXS,
 
     colorBorder,
   } = token;
@@ -224,16 +235,11 @@ const genBorderlessStyle: GenerateStyle<CollapseToken> = token => {
       },
 
       [`> ${componentCls}-item > ${componentCls}-content > ${componentCls}-content-box`]: {
-        // FIXME
-        paddingTop: 4,
+        paddingTop: paddingXXS,
       },
     },
   };
 };
-
-export const genCollapseStyle: GenerateStyle<CollapseToken> = (
-  token: CollapseToken,
-): CSSInterpolation => [genBaseStyle(token), genBorderlessStyle(token)];
 
 export default genComponentStyleHook('Collapse', token => {
   const collapseToken = mergeToken<CollapseToken>(token, {
@@ -241,10 +247,12 @@ export default genComponentStyleHook('Collapse', token => {
     collapseContentPadding: token.padding,
     collapseHeaderBg: token.colorBgComponentSecondary,
     collapseHeaderPadding: `${token.paddingSM}px ${token.padding}px`,
-    // FIXME
-    collapseHeaderPaddingExtra: 40,
     collapsePanelBorderRadius: token.radiusBase,
   });
 
-  return [genCollapseStyle(collapseToken)];
+  return [
+    genBaseStyle(collapseToken),
+    genBorderlessStyle(collapseToken),
+    genArrowStyle(collapseToken),
+  ];
 });
