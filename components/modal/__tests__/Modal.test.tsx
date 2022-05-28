@@ -35,6 +35,11 @@ describe('Modal', () => {
   mountTest(Modal);
   rtlTest(Modal);
 
+  it('support closeIcon', () => {
+    render(<Modal closeIcon={<a>closeIcon</a>} visible />);
+    expect(document.body.querySelectorAll('.ant-modal-root')[0]).toMatchSnapshot();
+  });
+
   it('render correctly', () => {
     const { asFragment } = render(<ModalTester />);
     expect(asFragment().firstChild).toMatchSnapshot();
@@ -58,11 +63,6 @@ describe('Modal', () => {
     const btns = document.body.querySelectorAll('.ant-btn');
     fireEvent.click(btns[btns.length - 1]);
     expect(onOk).toHaveBeenCalled();
-  });
-
-  it('support closeIcon', () => {
-    render(<Modal closeIcon={<a>closeIcon</a>} visible />);
-    expect(document.body.querySelectorAll('.ant-modal-root')[0]).toMatchSnapshot();
   });
 
   it('danger type', () => {
