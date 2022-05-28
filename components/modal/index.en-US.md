@@ -79,7 +79,7 @@ The items listed above are all functions, expecting a settings object as paramet
 | icon | Custom icon | ReactNode | &lt;QuestionCircle /> |  |
 | keyboard | Whether support press esc to close | boolean | true |  |
 | mask | Whether show mask or not. | boolean | true |  |
-| maskClosable | Whether to close the modal dialog when the mask (area outside the modal) is clicked | boolean | false |  |
+| maskClosable | Whether to close the modal dialog when the mask (area outside the modal) is clicked | boolean | true |  |
 | maskStyle | Style for modal's mask element | object | {} |  |
 | okButtonProps | The ok button props | [ButtonProps](/components/button/#API) | - |  |
 | okText | Text of the OK button | string | `OK` |  |
