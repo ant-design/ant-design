@@ -13,20 +13,21 @@ title:
 
 Search the options while expanded.
 
-```jsx
+```tsx
+import React from 'react';
 import { Select } from 'antd';
 
 const { Option } = Select;
 
-function onChange(value) {
+const onChange = (value: string) => {
   console.log(`selected ${value}`);
-}
+};
 
-function onSearch(val) {
-  console.log('search:', val);
-}
+const onSearch = (value: string) => {
+  console.log('search:', value);
+};
 
-export default () => (
+const App: React.FC = () => (
   <Select
     showSearch
     placeholder="Select a person"
@@ -34,7 +35,7 @@ export default () => (
     onChange={onChange}
     onSearch={onSearch}
     filterOption={(input, option) =>
-      option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+      (option!.children as unknown as string).toLowerCase().includes(input.toLowerCase())
     }
   >
     <Option value="jack">Jack</Option>
@@ -42,4 +43,6 @@ export default () => (
     <Option value="tom">Tom</Option>
   </Select>
 );
+
+export default App;
 ```

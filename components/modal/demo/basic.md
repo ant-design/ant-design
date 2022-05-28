@@ -13,11 +13,11 @@ title:
 
 Basic modal.
 
-```jsx
+```tsx
 import React, { useState } from 'react';
 import { Modal, Button } from 'antd';
 
-const App = () => {
+const App: React.FC = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const showModal = () => {

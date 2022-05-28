@@ -6,7 +6,8 @@ title:
 debug: true
 ---
 
-```jsx
+```tsx
+import React from 'react';
 import {
   Typography,
   Button,
@@ -65,7 +66,7 @@ const options = [
   },
 ];
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Mentions style={{ width: 100 }} rows={1} />
     <Input.TextArea rows={1} style={{ width: 100 }} />
@@ -101,4 +102,6 @@ export default () => (
     <Input style={narrowStyle} defaultValue="1" suffix="Y" />
   </>
 );
+
+export default App;
 ```

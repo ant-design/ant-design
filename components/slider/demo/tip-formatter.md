@@ -13,17 +13,18 @@ title:
 
 Use `tipFormatter` to format content of `Tooltip`. If `tipFormatter` is null, hide it.
 
-```jsx
+```tsx
+import React from 'react';
 import { Slider } from 'antd';
 
-function formatter(value) {
-  return `${value}%`;
-}
+const formatter = (value: number) => `${value}%`;
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Slider tipFormatter={formatter} />
     <Slider tipFormatter={null} />
   </>
 );
+
+export default App;
 ```

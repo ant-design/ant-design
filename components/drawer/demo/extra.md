@@ -22,15 +22,19 @@ import type { RadioChangeEvent } from 'antd/es/radio';
 const App: React.FC = () => {
   const [visible, setVisible] = useState(false);
   const [placement, setPlacement] = useState<DrawerProps['placement']>('right');
+
   const showDrawer = () => {
     setVisible(true);
   };
+
   const onChange = (e: RadioChangeEvent) => {
     setPlacement(e.target.value);
   };
+
   const onClose = () => {
     setVisible(false);
   };
+
   return (
     <>
       <Space>

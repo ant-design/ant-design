@@ -14,12 +14,13 @@ Buggy!
 
 Buggy!
 
-```jsx
+```tsx
+import React from 'react';
 import { Input } from 'antd';
 
 const { TextArea } = Input;
 
-export default () => (
+const App: React.FC = () => (
   <div style={{ backgroundColor: 'rgba(0, 0, 128, .2)' }}>
     <Input placeholder="Unbordered" bordered={false} />
     <Input placeholder="Unbordered" bordered={false} size="large" />
@@ -30,4 +31,6 @@ export default () => (
     <Input prefix="￥" suffix="RMB" disabled bordered={false} />
   </div>
 );
+
+export default App;
 ```

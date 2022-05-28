@@ -22,6 +22,7 @@ We provide properties like `validateStatus` `help` `hasFeedback` to customize yo
 3. `help`: display validate message.
 
 ```tsx
+import React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
 import {
   Form,
@@ -48,7 +49,7 @@ const formItemLayout = {
   },
 };
 
-export default () => (
+const App: React.FC = () => (
   <Form {...formItemLayout}>
     <Form.Item
       label="Fail"
@@ -168,4 +169,6 @@ export default () => (
     </Form.Item>
   </Form>
 );
+
+export default App;
 ```

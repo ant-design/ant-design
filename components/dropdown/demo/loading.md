@@ -13,7 +13,8 @@ title:
 
 A loading indicator can be added to a button by setting the `loading` property on the `Dropdown.Button`.
 
-```jsx
+```tsx
+import React, { useState } from 'react';
 import { Menu, Dropdown, Space } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 
@@ -27,19 +28,22 @@ const menu = (
     ]}
   />
 );
-export default () => {
-  const [loadings, setLodings] = React.useState([]);
 
-  const enterLoading = index => {
-    const newLoadings = [...loadings];
-    newLoadings[index] = true;
-    setLodings(newLoadings);
+const App: React.FC = () => {
+  const [loadings, setLoadings] = useState<boolean[]>([]);
+
+  const enterLoading = (index: number) => {
+    setLoadings(state => {
+      const newLoadings = [...state];
+      newLoadings[index] = true;
+      return newLoadings;
+    });
 
     setTimeout(() => {
-      setLodings(prevLoadings => {
-        const temLoadings = [...prevLoadings];
-        temLoadings[index] = false;
-        return temLoadings;
+      setLoadings(state => {
+        const newLoadings = [...state];
+        newLoadings[index] = false;
+        return newLoadings;
       });
     }, 6000);
   };
@@ -71,4 +75,6 @@ export default () => {
     </Space>
   );
 };
+
+export default App;
 ```

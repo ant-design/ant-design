@@ -13,10 +13,11 @@ title:
 
 Use ribbon badge.
 
-```jsx
+```tsx
+import React from 'react';
 import { Badge, Card } from 'antd';
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Badge.Ribbon text="Hippies">
       <Card title="Pushes open the window" size="small">
@@ -60,6 +61,8 @@ export default () => (
     </Badge.Ribbon>
   </>
 );
+
+export default App;
 ```
 
 ```css

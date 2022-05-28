@@ -13,13 +13,15 @@ title:
 
 Breadcrumbs support drop down menu.
 
-```jsx
+```tsx
+import React from 'react';
 import { Breadcrumb, Menu } from 'antd';
 
 const menu = (
   <Menu
     items={[
       {
+        key: '1',
         label: (
           <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
             General
@@ -27,6 +29,7 @@ const menu = (
         ),
       },
       {
+        key: '2',
         label: (
           <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
             Layout
@@ -34,6 +37,7 @@ const menu = (
         ),
       },
       {
+        key: '3',
         label: (
           <a target="_blank" rel="noopener noreferrer" href="http://www.tmall.com/">
             Navigation
@@ -44,7 +48,7 @@ const menu = (
   />
 );
 
-export default () => (
+const App: React.FC = () => (
   <Breadcrumb>
     <Breadcrumb.Item>Ant Design</Breadcrumb.Item>
     <Breadcrumb.Item>
@@ -56,4 +60,6 @@ export default () => (
     <Breadcrumb.Item>Button</Breadcrumb.Item>
   </Breadcrumb>
 );
+
+export default App;
 ```

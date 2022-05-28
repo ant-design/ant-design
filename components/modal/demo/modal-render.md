@@ -13,32 +13,33 @@ title:
 
 Custom modal content render. use `react-draggable` implements draggable.
 
-```jsx
-import { useState, useRef } from 'react';
+```tsx
+import React, { useRef, useState } from 'react';
 import { Modal, Button } from 'antd';
 import Draggable from 'react-draggable';
+import type { DraggableEvent, DraggableData } from 'react-draggable';
 
-export default () => {
+const App: React.FC = () => {
   const [visible, setVisible] = useState(false);
-  const [disabled, setDisabled] = useState(true);
+  const [disabled, setDisabled] = useState(false);
   const [bounds, setBounds] = useState({ left: 0, top: 0, bottom: 0, right: 0 });
-  const draggleRef = useRef();
+  const draggleRef = useRef<HTMLDivElement>(null);
 
   const showModal = () => {
     setVisible(true);
   };
 
-  const handleOk = e => {
+  const handleOk = (e: React.MouseEvent<HTMLElement>) => {
     console.log(e);
     setVisible(false);
   };
 
-  const handleCancel = e => {
+  const handleCancel = (e: React.MouseEvent<HTMLElement>) => {
     console.log(e);
     setVisible(false);
   };
 
-  const onStart = (event, uiData) => {
+  const onStart = (_event: DraggableEvent, uiData: DraggableData) => {
     const { clientWidth, clientHeight } = window.document.documentElement;
     const targetRect = draggleRef.current?.getBoundingClientRect();
     if (!targetRect) {
@@ -101,4 +102,6 @@ export default () => {
     </>
   );
 };
+
+export default App;
 ```

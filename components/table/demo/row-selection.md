@@ -20,8 +20,16 @@ Rows can be selectable by making first column as a selectable column. You can us
 ```tsx
 import React, { useState } from 'react';
 import { Table, Radio, Divider } from 'antd';
+import type { ColumnsType } from 'antd/lib/table';
 
-const columns = [
+interface DataType {
+  key: React.Key;
+  name: string;
+  age: number;
+  address: string;
+}
+
+const columns: ColumnsType<DataType> = [
   {
     title: 'Name',
     dataIndex: 'name',
@@ -36,13 +44,6 @@ const columns = [
     dataIndex: 'address',
   },
 ];
-
-interface DataType {
-  key: React.Key;
-  name: string;
-  age: number;
-  address: string;
-}
 
 const data: DataType[] = [
   {
@@ -82,7 +83,7 @@ const rowSelection = {
   }),
 };
 
-const Demo = () => {
+const App: React.FC = () => {
   const [selectionType, setSelectionType] = useState<'checkbox' | 'radio'>('checkbox');
 
   return (
@@ -111,5 +112,5 @@ const Demo = () => {
   );
 };
 
-export default Demo;
+export default App;
 ```

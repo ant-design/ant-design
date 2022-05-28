@@ -13,12 +13,14 @@ title:
 
 The Drawer can appear from any edge of the screen.
 
-```jsx
+```tsx
+import React, { useState } from 'react';
 import { Drawer, Button, Radio, Space } from 'antd';
+import type { DrawerProps, RadioChangeEvent } from 'antd';
 
-export default () => {
-  const [visible, setVisible] = React.useState(false);
-  const [placement, setPlacement] = React.useState('left');
+const App: React.FC = () => {
+  const [visible, setVisible] = useState(false);
+  const [placement, setPlacement] = useState<DrawerProps['placement']>('left');
 
   const showDrawer = () => {
     setVisible(true);
@@ -28,7 +30,7 @@ export default () => {
     setVisible(false);
   };
 
-  const onChange = e => {
+  const onChange = (e: RadioChangeEvent) => {
     setPlacement(e.target.value);
   };
 
@@ -60,4 +62,6 @@ export default () => {
     </>
   );
 };
+
+export default App;
 ```

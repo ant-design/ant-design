@@ -14,11 +14,12 @@ title:
 Controlled mode, for example, to work with `Form`.
 
 ```tsx
+import React from 'react';
 import { Mentions, Form, Button } from 'antd';
 
 const { Option, getMentions } = Mentions;
 
-const App = () => {
+const App: React.FC = () => {
   const [form] = Form.useForm();
 
   const onReset = () => {

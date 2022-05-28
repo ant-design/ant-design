@@ -14,7 +14,8 @@ List `grid` 在各种情况下的样式表现，如 Fragment 和封装了 List.I
 
 Test List `grid` for some edge cases.
 
-```jsx
+```tsx
+import React from 'react';
 import { List, Card } from 'antd';
 
 const data = [
@@ -44,7 +45,7 @@ const ListItem = () => (
   </List.Item>
 );
 
-export default () => (
+const App: React.FC = () => (
   <>
     <List
       grid={{ gutter: 16, column: 4 }}
@@ -68,4 +69,6 @@ export default () => (
     />
   </>
 );
+
+export default App;
 ```

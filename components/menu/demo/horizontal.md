@@ -14,9 +14,10 @@ title:
 Horizontal top navigation menu.
 
 ```tsx
-import type { MenuProps } from 'antd';
+import React, { useState } from 'react';
 import { Menu } from 'antd';
 import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
+import type { MenuProps } from 'antd';
 
 const items: MenuProps['items'] = [
   {
@@ -75,8 +76,8 @@ const items: MenuProps['items'] = [
   },
 ];
 
-const App = () => {
-  const [current, setCurrent] = React.useState('mail');
+const App: React.FC = () => {
+  const [current, setCurrent] = useState('mail');
 
   const onClick: MenuProps['onClick'] = e => {
     console.log('click ', e);

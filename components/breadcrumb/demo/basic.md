@@ -13,10 +13,11 @@ title:
 
 The simplest use.
 
-```jsx
+```tsx
+import React from 'react';
 import { Breadcrumb } from 'antd';
 
-export default () => (
+const App: React.FC = () => (
   <Breadcrumb>
     <Breadcrumb.Item>Home</Breadcrumb.Item>
     <Breadcrumb.Item>
@@ -28,4 +29,6 @@ export default () => (
     <Breadcrumb.Item>An Application</Breadcrumb.Item>
   </Breadcrumb>
 );
+
+export default App;
 ```

@@ -20,7 +20,7 @@ import { InfoCircleOutlined } from '@ant-design/icons';
 
 type RequiredMark = boolean | 'optional';
 
-const FormLayoutDemo = () => {
+const App: React.FC = () => {
   const [form] = Form.useForm();
   const [requiredMark, setRequiredMarkType] = useState<RequiredMark>('optional');
 
@@ -59,5 +59,5 @@ const FormLayoutDemo = () => {
   );
 };
 
-export default () => <FormLayoutDemo />;
+export default App;
 ```

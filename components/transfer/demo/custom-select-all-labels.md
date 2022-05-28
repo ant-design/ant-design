@@ -14,27 +14,31 @@ title:
 
 Custom the labels for select all checkboxs.
 
-```jsx
+```tsx
 import React, { useState } from 'react';
 import { Transfer } from 'antd';
+import type { SelectAllLabel } from 'antd/es/transfer';
 
-const mockData = [];
-for (let i = 0; i < 10; i++) {
-  mockData.push({
-    key: i.toString(),
-    title: `content${i + 1}`,
-    description: `description of content${i + 1}`,
-  });
+interface RecordType {
+  key: string;
+  title: string;
+  description: string;
 }
 
-const oriTargetKeys = mockData.filter(item => +item.key % 3 > 1).map(item => item.key);
+const mockData: RecordType[] = Array.from({ length: 10 }).map((_, i) => ({
+  key: i.toString(),
+  title: `content${i + 1}`,
+  description: `description of content${i + 1}`,
+}));
 
-const selectAllLabels = [
+const oriTargetKeys = mockData.filter(item => Number(item.key) % 3 > 1).map(item => item.key);
+
+const selectAllLabels: SelectAllLabel[] = [
   'Select All',
   ({ selectedCount, totalCount }) => `${selectedCount}/${totalCount}`,
 ];
 
-const App = () => {
+const App: React.FC = () => {
   const [targetKeys, setTargetKeys] = useState(oriTargetKeys);
   return (
     <Transfer

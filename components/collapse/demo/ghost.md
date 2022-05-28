@@ -13,7 +13,8 @@ title:
 
 Making collapse's background to transparent.
 
-```jsx
+```tsx
+import React from 'react';
 import { Collapse } from 'antd';
 
 const { Panel } = Collapse;
@@ -24,7 +25,7 @@ const text = `
   it can be found as a welcome guest in many households across the world.
 `;
 
-export default () => (
+const App: React.FC = () => (
   <Collapse defaultActiveKey={['1']} ghost>
     <Panel header="This is panel header 1" key="1">
       <p>{text}</p>
@@ -37,4 +38,6 @@ export default () => (
     </Panel>
   </Collapse>
 );
+
+export default App;
 ```

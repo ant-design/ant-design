@@ -13,12 +13,15 @@ title:
 
 Child elements vertically aligned.
 
-```jsx
+```tsx
+import React from 'react';
 import { Row, Col, Divider } from 'antd';
 
-const DemoBox = props => <p className={`height-${props.value}`}>{props.children}</p>;
+const DemoBox: React.FC<{ children: React.ReactNode; value: number }> = props => (
+  <p className={`height-${props.value}`}>{props.children}</p>
+);
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Divider orientation="left">Align Top</Divider>
     <Row justify="center" align="top">
@@ -69,6 +72,8 @@ export default () => (
     </Row>
   </>
 );
+
+export default App;
 ```
 
 ```css

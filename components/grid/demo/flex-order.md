@@ -13,10 +13,11 @@ title:
 
 To change the element sort by `order`.
 
-```jsx
+```tsx
+import React from 'react';
 import { Row, Col, Divider } from 'antd';
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Divider orientation="left">Normal</Divider>
     <Row>
@@ -50,6 +51,8 @@ export default () => (
     </Row>
   </>
 );
+
+export default App;
 ```
 
 ```css

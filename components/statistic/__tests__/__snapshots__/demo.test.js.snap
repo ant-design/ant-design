@@ -3,12 +3,10 @@
 exports[`renders ./components/statistic/demo/basic.md correctly 1`] = `
 <div
   class="ant-row"
-  role="row"
   style="margin-left:-8px;margin-right:-8px"
 >
   <div
     class="ant-col ant-col-12"
-    role="cell"
     style="padding-left:8px;padding-right:8px"
   >
     <div
@@ -36,7 +34,6 @@ exports[`renders ./components/statistic/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="ant-col ant-col-12"
-    role="cell"
     style="padding-left:8px;padding-right:8px"
   >
     <div
@@ -78,7 +75,6 @@ exports[`renders ./components/statistic/demo/basic.md correctly 1`] = `
   </div>
   <div
     class="ant-col ant-col-12"
-    role="cell"
     style="padding-left:8px;padding-right:8px"
   >
     <div
@@ -111,12 +107,10 @@ exports[`renders ./components/statistic/demo/card.md correctly 1`] = `
 >
   <div
     class="ant-row"
-    role="row"
     style="margin-left:-8px;margin-right:-8px"
   >
     <div
       class="ant-col ant-col-12"
-      role="cell"
       style="padding-left:8px;padding-right:8px"
     >
       <div
@@ -186,7 +180,6 @@ exports[`renders ./components/statistic/demo/card.md correctly 1`] = `
     </div>
     <div
       class="ant-col ant-col-12"
-      role="cell"
       style="padding-left:8px;padding-right:8px"
     >
       <div
@@ -261,12 +254,10 @@ exports[`renders ./components/statistic/demo/card.md correctly 1`] = `
 exports[`renders ./components/statistic/demo/countdown.md correctly 1`] = `
 <div
   class="ant-row"
-  role="row"
   style="margin-left:-8px;margin-right:-8px"
 >
   <div
     class="ant-col ant-col-12"
-    role="cell"
     style="padding-left:8px;padding-right:8px"
   >
     <div
@@ -290,7 +281,6 @@ exports[`renders ./components/statistic/demo/countdown.md correctly 1`] = `
   </div>
   <div
     class="ant-col ant-col-12"
-    role="cell"
     style="padding-left:8px;padding-right:8px"
   >
     <div
@@ -314,7 +304,6 @@ exports[`renders ./components/statistic/demo/countdown.md correctly 1`] = `
   </div>
   <div
     class="ant-col ant-col-24"
-    role="cell"
     style="padding-left:8px;padding-right:8px;margin-top:32px"
   >
     <div
@@ -338,7 +327,6 @@ exports[`renders ./components/statistic/demo/countdown.md correctly 1`] = `
   </div>
   <div
     class="ant-col ant-col-12"
-    role="cell"
     style="padding-left:8px;padding-right:8px"
   >
     <div
@@ -366,12 +354,10 @@ exports[`renders ./components/statistic/demo/countdown.md correctly 1`] = `
 exports[`renders ./components/statistic/demo/unit.md correctly 1`] = `
 <div
   class="ant-row"
-  role="row"
   style="margin-left:-8px;margin-right:-8px"
 >
   <div
     class="ant-col ant-col-12"
-    role="cell"
     style="padding-left:8px;padding-right:8px"
   >
     <div
@@ -422,7 +408,6 @@ exports[`renders ./components/statistic/demo/unit.md correctly 1`] = `
   </div>
   <div
     class="ant-col ant-col-12"
-    role="cell"
     style="padding-left:8px;padding-right:8px"
   >
     <div

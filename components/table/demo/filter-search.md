@@ -14,10 +14,19 @@ title:
 
 `filterSearch` is used to enable search of filter items, and you can set a custom filter method through `filterSearch:(input, record) => boolean`.
 
-```jsx
+```tsx
+import React from 'react';
 import { Table } from 'antd';
+import type { ColumnsType, TableProps } from 'antd/lib/table';
 
-const columns = [
+interface DataType {
+  key: React.Key;
+  name: string;
+  age: number;
+  address: string;
+}
+
+const columns: ColumnsType<DataType> = [
   {
     title: 'Name',
     dataIndex: 'name',
@@ -37,7 +46,7 @@ const columns = [
     ],
     filterMode: 'tree',
     filterSearch: true,
-    onFilter: (value, record) => record.address.startsWith(value),
+    onFilter: (value: string, record) => record.address.startsWith(value),
     width: '30%',
   },
   {
@@ -58,13 +67,13 @@ const columns = [
         value: 'New York',
       },
     ],
-    onFilter: (value, record) => record.address.startsWith(value),
-    filterSearch: (input, record) => record.value.indexOf(input) > -1,
+    onFilter: (value: string, record) => record.address.startsWith(value),
+    filterSearch: true,
     width: '40%',
   },
 ];
 
-const data = [
+const data: DataType[] = [
   {
     key: '1',
     name: 'John Brown',
@@ -91,9 +100,11 @@ const data = [
   },
 ];
 
-function onChange(pagination, filters, sorter, extra) {
+const onChange: TableProps<DataType>['onChange'] = (pagination, filters, sorter, extra) => {
   console.log('params', pagination, filters, sorter, extra);
-}
+};
 
-export default () => <Table columns={columns} dataSource={data} onChange={onChange} />;
+const App: React.FC = () => <Table columns={columns} dataSource={data} onChange={onChange} />;
+
+export default App;
 ```

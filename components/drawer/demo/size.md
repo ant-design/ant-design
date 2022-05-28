@@ -21,17 +21,21 @@ import type { DrawerProps } from 'antd/es/drawer';
 const App: React.FC = () => {
   const [visible, setVisible] = useState(false);
   const [size, setSize] = useState<DrawerProps['size']>();
+
   const showDefaultDrawer = () => {
     setSize('default');
     setVisible(true);
   };
+
   const showLargeDrawer = () => {
     setSize('large');
     setVisible(true);
   };
+
   const onClose = () => {
     setVisible(false);
   };
+
   return (
     <>
       <Space>

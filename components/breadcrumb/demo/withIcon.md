@@ -13,11 +13,12 @@ title:
 
 The icon should be placed in front of the text.
 
-```jsx
+```tsx
+import React from 'react';
 import { Breadcrumb } from 'antd';
 import { HomeOutlined, UserOutlined } from '@ant-design/icons';
 
-export default () => (
+const App: React.FC = () => (
   <Breadcrumb>
     <Breadcrumb.Item href="">
       <HomeOutlined />
@@ -29,4 +30,6 @@ export default () => (
     <Breadcrumb.Item>Application</Breadcrumb.Item>
   </Breadcrumb>
 );
+
+export default App;
 ```

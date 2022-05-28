@@ -13,13 +13,28 @@ title:
 
 Comment can be used as an editor, so the user can customize the contents of the component.
 
-```jsx
+```tsx
+import React, { useState } from 'react';
 import { Comment, Avatar, Form, Button, List, Input } from 'antd';
 import moment from 'moment';
 
 const { TextArea } = Input;
 
-const CommentList = ({ comments }) => (
+interface CommentItem {
+  author: string;
+  avatar: string;
+  content: React.ReactNode;
+  datetime: string;
+}
+
+interface EditorProps {
+  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  onSubmit: () => void;
+  submitting: boolean;
+  value: string;
+}
+
+const CommentList = ({ comments }: { comments: CommentItem[] }) => (
   <List
     dataSource={comments}
     header={`${comments.length} ${comments.length > 1 ? 'replies' : 'reply'}`}
@@ -28,7 +43,7 @@ const CommentList = ({ comments }) => (
   />
 );
 
-const Editor = ({ onChange, onSubmit, submitting, value }) => (
+const Editor = ({ onChange, onSubmit, submitting, value }: EditorProps) => (
   <>
     <Form.Item>
       <TextArea rows={4} onChange={onChange} value={value} />
@@ -41,62 +56,52 @@ const Editor = ({ onChange, onSubmit, submitting, value }) => (
   </>
 );
 
-export default () => {
-  const [state, setState] = React.useState({
-    comments: [],
-    submitting: false,
-    value: '',
-  });
+const App: React.FC = () => {
+  const [comments, setComments] = useState<CommentItem[]>([]);
+  const [submitting, setSubmitting] = useState(false);
+  const [value, setValue] = useState('');
 
   const handleSubmit = () => {
-    if (!state.value) {
-      return;
-    }
+    if (!value) return;
 
-    setState({
-      ...state,
-      submitting: true,
-    });
+    setSubmitting(true);
 
     setTimeout(() => {
-      setState({
-        submitting: false,
-        value: '',
-        comments: [
-          ...state.comments,
-          {
-            author: 'Han Solo',
-            avatar: 'https://joeschmoe.io/api/v1/random',
-            content: <p>{state.value}</p>,
-            datetime: moment().fromNow(),
-          },
-        ],
-      });
+      setSubmitting(false);
+      setValue('');
+      setComments([
+        ...comments,
+        {
+          author: 'Han Solo',
+          avatar: 'https://joeschmoe.io/api/v1/random',
+          content: <p>{value}</p>,
+          datetime: moment().fromNow(),
+        },
+      ]);
     }, 1000);
   };
 
-  const handleChange = e => {
-    setState({
-      ...state,
-      value: e.target.value,
-    });
+  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setValue(e.target.value);
   };
 
   return (
     <>
-      {state.comments.length > 0 && <CommentList comments={state.comments} />}
+      {comments.length > 0 && <CommentList comments={comments} />}
       <Comment
         avatar={<Avatar src="https://joeschmoe.io/api/v1/random" alt="Han Solo" />}
         content={
           <Editor
             onChange={handleChange}
             onSubmit={handleSubmit}
-            submitting={state.submitting}
-            value={state.value}
+            submitting={submitting}
+            value={value}
           />
         }
       />
     </>
   );
 };
+
+export default App;
 ```

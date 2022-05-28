@@ -13,14 +13,17 @@ checkbox 不可用。
 
 Disabled checkbox.
 
-```jsx
+```tsx
+import React from 'react';
 import { Checkbox } from 'antd';
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Checkbox defaultChecked={false} disabled />
     <br />
     <Checkbox defaultChecked disabled />
   </>
 );
+
+export default App;
 ```

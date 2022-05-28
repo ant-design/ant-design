@@ -13,7 +13,8 @@ title:
 
 Displaying a series of comments using the `antd` List Component.
 
-```jsx
+```tsx
+import React from 'react';
 import { Comment, Tooltip, List } from 'antd';
 import moment from 'moment';
 
@@ -54,7 +55,7 @@ const data = [
   },
 ];
 
-export default () => (
+const App: React.FC = () => (
   <List
     className="comment-list"
     header={`${data.length} replies`}
@@ -73,4 +74,6 @@ export default () => (
     )}
   />
 );
+
+export default App;
 ```

@@ -14,10 +14,11 @@ Debug usage
 
 Debug usage
 
-```jsx
+```tsx
+import React from 'react';
 import { Space, Button, Popconfirm } from 'antd';
 
-export default () => (
+const App: React.FC = () => (
   <Space>
     <>
       Button
@@ -38,4 +39,6 @@ export default () => (
     {undefined}
   </Space>
 );
+
+export default App;
 ```

@@ -13,21 +13,19 @@ title:
 
 You can set different preview image.
 
-```jsx
+```tsx
 import React from 'react';
 import { Image } from 'antd';
 
-function ImageDemo() {
-  return (
-    <Image
-      width={200}
-      src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png?x-oss-process=image/blur,r_50,s_50/quality,q_1/resize,m_mfit,h_200,w_200"
-      preview={{
-        src: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-      }}
-    />
-  );
-}
+const App: React.FC = () => (
+  <Image
+    width={200}
+    src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png?x-oss-process=image/blur,r_50,s_50/quality,q_1/resize,m_mfit,h_200,w_200"
+    preview={{
+      src: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+    }}
+  />
+);
 
-export default () => <ImageDemo />;
+export default App;
 ```

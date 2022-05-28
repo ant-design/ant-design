@@ -13,7 +13,8 @@ title:
 
 Add or remove form items dynamically. `add` function support config initial value.
 
-```jsx
+```tsx
+import React from 'react';
 import { Form, Input, Button } from 'antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 
@@ -34,8 +35,8 @@ const formItemLayoutWithOutLabel = {
   },
 };
 
-const DynamicFieldSet = () => {
-  const onFinish = values => {
+const App: React.FC = () => {
+  const onFinish = (values: any) => {
     console.log('Received values of form:', values);
   };
 
@@ -117,7 +118,7 @@ const DynamicFieldSet = () => {
   );
 };
 
-export default () => <DynamicFieldSet />;
+export default App;
 ```
 
 ```css

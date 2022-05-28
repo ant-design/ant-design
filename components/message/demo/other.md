@@ -13,7 +13,8 @@ title:
 
 Messages of success, error and warning types.
 
-```jsx
+```tsx
+import React from 'react';
 import { message, Button, Space } from 'antd';
 
 const success = () => {
@@ -28,11 +29,13 @@ const warning = () => {
   message.warning('This is a warning message');
 };
 
-export default () => (
+const App: React.FC = () => (
   <Space>
     <Button onClick={success}>Success</Button>
     <Button onClick={error}>Error</Button>
     <Button onClick={warning}>Warning</Button>
   </Space>
 );
+
+export default App;
 ```

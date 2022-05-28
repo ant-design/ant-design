@@ -233,12 +233,10 @@ exports[`renders ./components/card/demo/in-column.md correctly 1`] = `
 >
   <div
     class="ant-row"
-    role="row"
     style="margin-left:-8px;margin-right:-8px"
   >
     <div
       class="ant-col ant-col-8"
-      role="cell"
       style="padding-left:8px;padding-right:8px"
     >
       <div
@@ -266,7 +264,6 @@ exports[`renders ./components/card/demo/in-column.md correctly 1`] = `
     </div>
     <div
       class="ant-col ant-col-8"
-      role="cell"
       style="padding-left:8px;padding-right:8px"
     >
       <div
@@ -294,7 +291,6 @@ exports[`renders ./components/card/demo/in-column.md correctly 1`] = `
     </div>
     <div
       class="ant-col ant-col-8"
-      role="cell"
       style="padding-left:8px;padding-right:8px"
     >
       <div
@@ -438,12 +434,10 @@ Array [
       >
         <div
           class="ant-row"
-          role="row"
           style="margin-left:-4px;margin-right:-4px"
         >
           <div
             class="ant-col ant-col-22"
-            role="cell"
             style="padding-left:4px;padding-right:4px"
           >
             <div
@@ -453,12 +447,10 @@ Array [
         </div>
         <div
           class="ant-row"
-          role="row"
           style="margin-left:-4px;margin-right:-4px"
         >
           <div
             class="ant-col ant-col-8"
-            role="cell"
             style="padding-left:4px;padding-right:4px"
           >
             <div
@@ -467,7 +459,6 @@ Array [
           </div>
           <div
             class="ant-col ant-col-15"
-            role="cell"
             style="padding-left:4px;padding-right:4px"
           >
             <div
@@ -477,12 +468,10 @@ Array [
         </div>
         <div
           class="ant-row"
-          role="row"
           style="margin-left:-4px;margin-right:-4px"
         >
           <div
             class="ant-col ant-col-6"
-            role="cell"
             style="padding-left:4px;padding-right:4px"
           >
             <div
@@ -491,7 +480,6 @@ Array [
           </div>
           <div
             class="ant-col ant-col-18"
-            role="cell"
             style="padding-left:4px;padding-right:4px"
           >
             <div
@@ -501,12 +489,10 @@ Array [
         </div>
         <div
           class="ant-row"
-          role="row"
           style="margin-left:-4px;margin-right:-4px"
         >
           <div
             class="ant-col ant-col-13"
-            role="cell"
             style="padding-left:4px;padding-right:4px"
           >
             <div
@@ -515,7 +501,6 @@ Array [
           </div>
           <div
             class="ant-col ant-col-9"
-            role="cell"
             style="padding-left:4px;padding-right:4px"
           >
             <div
@@ -525,12 +510,10 @@ Array [
         </div>
         <div
           class="ant-row"
-          role="row"
           style="margin-left:-4px;margin-right:-4px"
         >
           <div
             class="ant-col ant-col-4"
-            role="cell"
             style="padding-left:4px;padding-right:4px"
           >
             <div
@@ -539,7 +522,6 @@ Array [
           </div>
           <div
             class="ant-col ant-col-3"
-            role="cell"
             style="padding-left:4px;padding-right:4px"
           >
             <div
@@ -548,7 +530,6 @@ Array [
           </div>
           <div
             class="ant-col ant-col-16"
-            role="cell"
             style="padding-left:4px;padding-right:4px"
           >
             <div

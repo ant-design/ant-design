@@ -13,8 +13,11 @@ title:
 
 Read only, can't use mouse to interact.
 
-```jsx
+```tsx
+import React from 'react';
 import { Rate } from 'antd';
 
-export default () => <Rate disabled defaultValue={2} />;
+const App: React.FC = () => <Rate disabled defaultValue={2} />;
+
+export default App;
 ```

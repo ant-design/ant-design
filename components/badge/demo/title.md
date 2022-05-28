@@ -14,10 +14,11 @@ debug: true
 
 The badge will display `title` when hovered over, instead of `count`.
 
-```jsx
+```tsx
+import React from 'react';
 import { Badge, Avatar } from 'antd';
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Badge count={5} title="Custom hover text">
       <Avatar shape="square" size="large" />
@@ -27,4 +28,6 @@ export default () => (
     </Badge>
   </>
 );
+
+export default App;
 ```

@@ -13,15 +13,18 @@ title:
 
 Bordered-less style component.
 
-```jsx
+```tsx
+import React from 'react';
 import { TimePicker } from 'antd';
 
 const { RangePicker } = TimePicker;
 
-export default () => (
+const App: React.FC = () => (
   <>
     <TimePicker bordered={false} />
     <RangePicker bordered={false} />
   </>
 );
+
+export default App;
 ```

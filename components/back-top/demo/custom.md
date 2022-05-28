@@ -18,10 +18,11 @@ You can customize the style of the button, just note the size limit: no more tha
 
 > Note: `BackTop` expects a element could accept `onClick` propety as children. If you put a text directly as children the component will not function properly.
 
-```jsx
+```tsx
+import React from 'react';
 import { BackTop } from 'antd';
 
-const style = {
+const style: React.CSSProperties = {
   height: 40,
   width: 40,
   lineHeight: '40px',
@@ -32,7 +33,7 @@ const style = {
   fontSize: 14,
 };
 
-export default () => (
+const App: React.FC = () => (
   <div style={{ height: '600vh', padding: 8 }}>
     <div>Scroll to bottom</div>
     <div>Scroll to bottom</div>
@@ -46,4 +47,6 @@ export default () => (
     </BackTop>
   </div>
 );
+
+export default App;
 ```

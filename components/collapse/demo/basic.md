@@ -13,14 +13,11 @@ title:
 
 By default, any number of panels can be expanded at a time. The first panel is expanded in this example.
 
-```jsx
+```tsx
+import React from 'react';
 import { Collapse } from 'antd';
 
 const { Panel } = Collapse;
-
-function callback(key) {
-  console.log(key);
-}
 
 const text = `
   A dog is a type of domesticated animal.
@@ -28,19 +25,27 @@ const text = `
   it can be found as a welcome guest in many households across the world.
 `;
 
-export default () => (
-  <Collapse defaultActiveKey={['1']} onChange={callback}>
-    <Panel header="This is panel header 1" key="1">
-      <p>{text}</p>
-    </Panel>
-    <Panel header="This is panel header 2" key="2">
-      <p>{text}</p>
-    </Panel>
-    <Panel header="This is panel header 3" key="3">
-      <p>{text}</p>
-    </Panel>
-  </Collapse>
-);
+const App: React.FC = () => {
+  const onChange = (key: string | string[]) => {
+    console.log(key);
+  };
+
+  return (
+    <Collapse defaultActiveKey={['1']} onChange={onChange}>
+      <Panel header="This is panel header 1" key="1">
+        <p>{text}</p>
+      </Panel>
+      <Panel header="This is panel header 2" key="2">
+        <p>{text}</p>
+      </Panel>
+      <Panel header="This is panel header 3" key="3">
+        <p>{text}</p>
+      </Panel>
+    </Collapse>
+  );
+};
+
+export default App;
 ```
 
 <style>

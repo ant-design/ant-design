@@ -124,7 +124,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
 
   return (
     <RowContext.Provider value={rowContext}>
-      <div role="row" {...others} className={classes} style={{ ...rowStyle, ...style }} ref={ref}>
+      <div {...others} className={classes} style={{ ...rowStyle, ...style }} ref={ref}>
         {children}
       </div>
     </RowContext.Provider>

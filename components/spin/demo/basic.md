@@ -14,7 +14,10 @@ title:
 A simple loading status.
 
 ```tsx
+import React from 'react';
 import { Spin } from 'antd';
 
-export default () => <Spin />;
+const App: React.FC = () => <Spin />;
+
+export default App;
 ```

@@ -13,16 +13,17 @@ title:
 
 Input box with the remove icon, click the icon to delete everything.
 
-```jsx
+```tsx
+import React from 'react';
 import { Input } from 'antd';
 
 const { TextArea } = Input;
 
-const onChange = e => {
+const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
   console.log(e);
 };
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Input placeholder="input with clear icon" allowClear onChange={onChange} />
     <br />
@@ -30,4 +31,6 @@ export default () => (
     <TextArea placeholder="textarea with clear icon" allowClear onChange={onChange} />
   </>
 );
+
+export default App;
 ```
