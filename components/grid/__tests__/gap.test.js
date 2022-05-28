@@ -4,12 +4,6 @@ import ReactDOMServer from 'react-dom/server';
 import { Col, Row } from '..';
 import { render, screen } from '../../../tests/utils';
 
-jest.mock('../../_util/styleChecker', () => ({
-  canUseDocElement: () => true,
-  isStyleSupport: () => true,
-  detectFlexGapSupported: () => true,
-}));
-
 describe('Grid.Gap', () => {
   it('should not have `row-gap: 0px` style', () => {
     render(

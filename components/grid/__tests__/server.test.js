@@ -2,8 +2,6 @@ import { mount } from 'enzyme';
 import React from 'react';
 import { Col, Row } from '..';
 
-jest.mock('rc-util/lib/Dom/canUseDom', () => () => false);
-
 describe('Grid.Server', () => {
   it('use compatible gap logic', () => {
     const wrapper = mount(
