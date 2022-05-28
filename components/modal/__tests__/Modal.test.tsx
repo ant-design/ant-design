@@ -70,4 +70,24 @@ describe('Modal', () => {
     const btns = document.body.querySelectorAll('.ant-btn');
     expect(btns[btns.length - 1].classList.contains('ant-btn-dangerous')).toBeTruthy();
   });
+
+  it('mouse position', () => {
+    const Demo = () => {
+      const [visible, setVisible] = React.useState(false);
+      const containerRef = React.useRef<HTMLDivElement>(null);
+      return (
+        <div ref={containerRef}>
+          <div id="trigger" onClick={() => setVisible(true)}>
+            click me
+          </div>
+          <Modal visible={visible} getContainer={() => containerRef.current!} />
+        </div>
+      );
+    };
+    const { container } = render(<Demo />);
+    fireEvent.click(container.querySelectorAll('#trigger')[0]);
+    expect(
+      (container.querySelectorAll('.ant-modal')[0] as HTMLDivElement).style.transformOrigin,
+    ).toBeTruthy();
+  });
 });
