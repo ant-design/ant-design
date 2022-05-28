@@ -81,7 +81,10 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = token => {
 
           [`${componentCls}-arrow`]: {
             ...resetIcon(),
-            transition: `transform ${motionDurationSlow}`,
+
+            svg: {
+              transition: `transform ${motionDurationSlow}`,
+            },
           },
 
           // >>>>> Text
@@ -170,31 +173,18 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = token => {
 const genArrowStyle: GenerateStyle<CollapseToken> = token => {
   const { componentCls } = token;
 
-  const fixedSelector = `> ${componentCls}-item > ${componentCls}-header`;
+  const fixedSelector = `> ${componentCls}-item > ${componentCls}-header ${componentCls}-arrow svg`;
 
   return {
-    // Down
-    [componentCls]: {
-      [fixedSelector]: {
-        [`${componentCls}-expand-icon ${componentCls}-arrow${componentCls}-arrow-expanded`]: {
-          transform: `rotate(90deg)`,
-        },
-      },
-    },
-
     [`${componentCls}-icon-position-end, ${componentCls}-rtl`]: {
       [fixedSelector]: {
-        [`${componentCls}-arrow`]: {
-          transform: `rotate(180deg)`,
-        },
+        transform: `rotate(180deg)`,
       },
     },
 
     [`${componentCls}-rtl${componentCls}-icon-position-end`]: {
       [fixedSelector]: {
-        [`${componentCls}-arrow`]: {
-          transform: `rotate(0deg)`,
-        },
+        transform: `rotate(0deg)`,
       },
     },
   };
