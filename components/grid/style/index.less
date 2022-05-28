@@ -8,7 +8,9 @@
   --row-gutter-y: 0;
   display: flex;
   flex-flow: row wrap;
-  margin: calc(-1 * var(--row-gutter-y)) calc(-0.5 * var(--row-gutter-x)) 0;
+  margin-top: calc(-1 * var(--row-gutter-y));
+  margin-right: calc(-0.5 * var(--row-gutter-x));
+  margin-left: calc(-0.5 * var(--row-gutter-x));
 
   &::before,
   &::after {
@@ -72,7 +74,8 @@
   // Prevent columns from collapsing when empty
   min-height: 1px;
   margin-top: var(--row-gutter-y);
-  padding: 0 calc(0.5 * var(--row-gutter-x));
+  padding-right: calc(0.5 * var(--row-gutter-x));
+  padding-left: calc(0.5 * var(--row-gutter-x));
 }
 
 .make-grid();
