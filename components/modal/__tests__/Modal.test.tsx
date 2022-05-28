@@ -62,7 +62,7 @@ describe('Modal', () => {
 
   it('support closeIcon', () => {
     render(<Modal closeIcon={<a>closeIcon</a>} visible />);
-    expect(document.body.querySelectorAll('.ant-modal-root')).toMatchSnapshot();
+    expect(document.body.querySelectorAll('.ant-modal-root')[0]).toMatchSnapshot();
   });
 
   it('danger type', () => {
