@@ -56,8 +56,9 @@ const genFilterStyle: GenerateStyle<TableToken, CSSInterpolation> = token => {
           // https://github.com/ant-design/ant-design/issues/19542
           maxHeight: token.tableFilterDropdownMaxHeight,
           overflowX: 'hidden',
-          border: '0',
+          border: 0,
           boxShadow: 'none',
+          padding: 0,
 
           '&:empty::after': {
             display: 'block',
@@ -104,20 +105,6 @@ const genFilterStyle: GenerateStyle<TableToken, CSSInterpolation> = token => {
           marginLeft: '4px',
         },
 
-        [`${tableFilterDropdownPrefixCls}-submenu > ul`]: {
-          maxHeight: 'calc(100vh - 130px)',
-          overflowX: 'hidden',
-          overflowY: 'auto',
-        },
-
-        [`&, ${tableFilterDropdownPrefixCls}-submenu`]: {
-          // Checkbox
-          [`${antCls}-checkbox-wrapper + span`]: {
-            paddingLeft: 8,
-            color: token.colorText,
-          },
-        },
-
         // Operation
         [`${tableFilterDropdownPrefixCls}-btns`]: {
           display: 'flex',
@@ -127,6 +114,21 @@ const genFilterStyle: GenerateStyle<TableToken, CSSInterpolation> = token => {
           backgroundColor: 'inherit',
           borderTop: tableBorder,
         },
+      },
+
+      // submenu of table filter dropdown
+      [`${tableFilterDropdownPrefixCls}, ${tableFilterDropdownPrefixCls}-submenu`]: {
+        // Checkbox
+        [`${antCls}-checkbox-wrapper + span`]: {
+          paddingLeft: 8,
+          color: token.colorText,
+        },
+      },
+
+      [`${tableFilterDropdownPrefixCls}-submenu > ul`]: {
+        maxHeight: 'calc(100vh - 130px)',
+        overflowX: 'hidden',
+        overflowY: 'auto',
       },
     },
   ];

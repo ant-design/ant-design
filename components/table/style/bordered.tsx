@@ -139,18 +139,17 @@ const genStyle: GenerateStyle<TableToken, CSSObject> = token => {
           border: tableBorder,
           borderTop: '0',
         },
+      },
 
-        // ============================ Nested ============================
-        [`${componentCls}-cell`]: {
-          [`${componentCls}-container:first-child`]: {
-            // :first-child to avoid the case when bordered and title is set
-            borderTop: '0',
-          },
-
-          // https://github.com/ant-design/ant-design/issues/35577
-          '&-scrollbar:not([rowspan])': {
-            boxShadow: `0 ${token.controlLineWidth} 0 ${token.controlLineWidth} ${token.tableHeaderBg}`,
-          },
+      // ============================ Nested ============================
+      [`${componentCls}-cell`]: {
+        [`${componentCls}-container:first-child`]: {
+          // :first-child to avoid the case when bordered and title is set
+          borderTop: '0',
+        },
+        // https://github.com/ant-design/ant-design/issues/35577
+        '&-scrollbar:not([rowspan])': {
+          boxShadow: `0 ${token.controlLineWidth}px 0 ${token.controlLineWidth}px ${token.tableHeaderBg}`,
         },
       },
     },

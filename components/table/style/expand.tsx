@@ -89,19 +89,18 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = token => {
           border: '0',
           visibility: 'hidden',
         },
+      },
 
-        [`${componentCls}-row-indent + &`]: {
-          marginTop:
-            (token.fontSizeBase * token.lineHeight - token.controlLineWidth * 3) / 2 -
-            halfInnerSize,
-          marginRight: token.paddingXS,
-        },
+      [`${componentCls}-row-indent + ${componentCls}-row-expand-icon`]: {
+        marginTop:
+          (token.fontSizeBase * token.lineHeight - token.controlLineWidth * 3) / 2 - halfInnerSize,
+        marginRight: token.paddingXS,
       },
 
       [`tr${componentCls}-expanded-row`]: {
         '&, &:hover': {
           '> td': {
-            background: '@table-expanded-row-bg',
+            background: token.tableExpandedRowBg,
           },
         },
 

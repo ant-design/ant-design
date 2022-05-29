@@ -94,7 +94,7 @@ const genFixedStyle: GenerateStyle<TableToken, CSSObject> = token => {
         [`&:not(${componentCls}-has-fix-right) ${componentCls}-container`]: {
           position: 'relative',
 
-          '&::before': {
+          '&::after': {
             boxShadow: `inset -10px 0 8px -8px ${shadowColor}`,
           },
         },

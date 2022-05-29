@@ -31,8 +31,7 @@ const genSelectionStyle: GenerateStyle<TableToken, CSSObject> = token => {
       },
 
       [`table tr th${componentCls}-selection-column${componentCls}-cell-fix-left`]: {
-        // FIXME
-        zIndex: 3,
+        zIndex: token.zIndexTableFixed,
       },
 
       [`table tr th${componentCls}-selection-column::after`]: {
@@ -52,11 +51,12 @@ const genSelectionStyle: GenerateStyle<TableToken, CSSObject> = token => {
         cursor: 'pointer',
         transition: 'all 0.3s',
         marginInlineStart: '100%',
-        paddingInlineStart: `${token.tablePaddingHorizontal / 4}`,
+        paddingInlineStart: `${token.tablePaddingHorizontal / 4}px`,
 
         [iconCls]: {
           color: token.tableHeaderIconColor,
           fontSize: '10px',
+          verticalAlign: 'baseline',
 
           '&:hover': {
             color: new TinyColor(token.tableHeaderIconColor).darken(10).toRgbString(),
