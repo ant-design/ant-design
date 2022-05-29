@@ -24,7 +24,6 @@ import type {
   Key,
   TableLocale,
 } from '../../interface';
-import useStyle from '../../style';
 import FilterSearch from './FilterSearch';
 import FilterDropdownMenuWrapper from './FilterWrapper';
 
