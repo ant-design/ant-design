@@ -123,6 +123,19 @@
     }
   }
 
+  &:not(.@{menu-prefix-cls}-dark) {
+    .@{menu-prefix-cls}-item,
+    .@{menu-prefix-cls}-submenu-title {
+      > .@{ant-prefix}-badge {
+        color: @menu-item-color;
+      }
+
+      &:hover .@{ant-prefix}-badge {
+        color: @menu-highlight-color;
+      }
+    }
+  }
+
   // https://github.com/ant-design/ant-design/issues/19809
   &-item > .@{ant-prefix}-badge a {
     color: @menu-item-color;
