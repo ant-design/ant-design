@@ -58,11 +58,10 @@ const genFilterStyle: GenerateStyle<TableToken, CSSInterpolation> = token => {
           overflowX: 'hidden',
           border: 0,
           boxShadow: 'none',
-          padding: 0,
 
           '&:empty::after': {
             display: 'block',
-            padding: '8px 0',
+            padding: `${token.padding}px 0`,
             color: token.colorTextDisabled,
             fontSize: token.fontSizeSM,
             textAlign: 'center',
@@ -71,7 +70,7 @@ const genFilterStyle: GenerateStyle<TableToken, CSSInterpolation> = token => {
         },
 
         [`${tableFilterDropdownPrefixCls}-tree`]: {
-          padding: '8px 8px 0',
+          padding: `${token.padding}px ${token.padding}px 0`,
 
           [`${treePrefixCls}-treenode ${treePrefixCls}-node-content-wrapper:hover`]: {
             backgroundColor: token.controlItemBgHover,
@@ -109,7 +108,7 @@ const genFilterStyle: GenerateStyle<TableToken, CSSInterpolation> = token => {
         [`${tableFilterDropdownPrefixCls}-btns`]: {
           display: 'flex',
           justifyContent: 'space-between',
-          padding: `${token.paddingXS - 1}px ${token.paddingXS}`,
+          padding: `${token.paddingXS - 1}px ${token.paddingXS}px`,
           overflow: 'hidden',
           backgroundColor: 'inherit',
           borderTop: tableBorder,
