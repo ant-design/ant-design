@@ -22,8 +22,9 @@ const genFilterStyle: GenerateStyle<TableToken, CSSInterpolation> = token => {
           position: 'relative',
           display: 'flex',
           alignItems: 'center',
-          margin: `-4px ${-token.tablePaddingHorizontal / 2}px -4px 4px`,
-          padding: '0 4px',
+          marginBlock: -token.paddingXXS,
+          marginInline: `${token.paddingXXS}px ${-token.tablePaddingHorizontal / 2}px`,
+          padding: `0 ${token.paddingXXS}`,
           color: token.tableHeaderIconColor,
           fontSize: token.fontSizeSM,
           borderRadius: token.radiusBase,
@@ -61,7 +62,7 @@ const genFilterStyle: GenerateStyle<TableToken, CSSInterpolation> = token => {
 
           '&:empty::after': {
             display: 'block',
-            padding: `${token.padding}px 0`,
+            padding: `${token.paddingXS}px 0`,
             color: token.colorTextDisabled,
             fontSize: token.fontSizeSM,
             textAlign: 'center',
@@ -70,7 +71,8 @@ const genFilterStyle: GenerateStyle<TableToken, CSSInterpolation> = token => {
         },
 
         [`${tableFilterDropdownPrefixCls}-tree`]: {
-          padding: `${token.padding}px ${token.padding}px 0`,
+          paddingBlock: `${token.paddingXS}px 0`,
+          paddingInline: token.paddingXS,
 
           [`${treePrefixCls}-treenode ${treePrefixCls}-node-content-wrapper:hover`]: {
             backgroundColor: token.controlItemBgHover,
@@ -84,7 +86,7 @@ const genFilterStyle: GenerateStyle<TableToken, CSSInterpolation> = token => {
         },
 
         [`${tableFilterDropdownPrefixCls}-search`]: {
-          padding: 8,
+          padding: token.paddingXS,
           borderBottom: tableBorder,
 
           '&-input': {
@@ -100,8 +102,8 @@ const genFilterStyle: GenerateStyle<TableToken, CSSInterpolation> = token => {
 
         [`${tableFilterDropdownPrefixCls}-checkall`]: {
           width: '100%',
-          marginBottom: 4,
-          marginInlineStart: 4,
+          marginBottom: token.paddingXXS,
+          marginInlineStart: token.paddingXXS,
         },
 
         // Operation
@@ -119,7 +121,7 @@ const genFilterStyle: GenerateStyle<TableToken, CSSInterpolation> = token => {
       [`${tableFilterDropdownPrefixCls}, ${tableFilterDropdownPrefixCls}-submenu`]: {
         // Checkbox
         [`${antCls}-checkbox-wrapper + span`]: {
-          paddingInlineStart: 8,
+          paddingInlineStart: token.paddingXS,
           color: token.colorText,
         },
       },

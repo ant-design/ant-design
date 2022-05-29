@@ -143,9 +143,10 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
               > ${componentCls}-expanded-row-fixed > ${componentCls}-wrapper:only-child
             `]: {
               [componentCls]: {
-                margin: `-${token.tablePaddingVertical}px -${token.tablePaddingHorizontal}px -${
-                  token.tablePaddingVertical
-                }px ${token.tablePaddingHorizontal + Math.ceil(token.fontSizeSM * 1.4)}px`,
+                marginBlock: `-${token.tablePaddingVertical}px`,
+                marginInline: `${
+                  token.tablePaddingHorizontal + Math.ceil(token.fontSizeSM * 1.4)
+                }px -${token.tablePaddingHorizontal}px`,
                 [`${componentCls}-tbody > tr:last-child > td`]: {
                   borderBottom: 0,
                   '&:first-child, &:last-child': {

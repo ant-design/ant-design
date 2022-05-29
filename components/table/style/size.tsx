@@ -34,9 +34,10 @@ const genSizeStyle: GenerateStyle<TableToken, CSSObject> = token => {
       [`${componentCls}-tbody`]: {
         // ========================= Nest Table ===========================
         [`${componentCls}-wrapper:only-child ${componentCls}`]: {
-          margin: `-${paddingVertical}px -${paddingHorizontal}px -${paddingVertical}px ${
+          marginBlock: `-${paddingVertical}px`,
+          marginInline: `${
             paddingHorizontal + Math.ceil(token.fontSizeSM * 1.4)
-          }px`,
+          }px -${paddingHorizontal}px`,
         },
       },
 
