@@ -2,7 +2,7 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import type { GenerateStyle } from '../../_util/theme';
 import type { TableToken } from './index';
 
-const genStyle: GenerateStyle<TableToken, CSSObject> = token => {
+const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = token => {
   const { componentCls } = token;
   const tableBorder = `${token.controlLineWidth}px ${token.controlLineType} ${token.tableBorderColor}`;
 
@@ -156,4 +156,4 @@ const genStyle: GenerateStyle<TableToken, CSSObject> = token => {
   };
 };
 
-export default genStyle;
+export default genBorderedStyle;

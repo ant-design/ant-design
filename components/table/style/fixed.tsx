@@ -13,7 +13,7 @@ const genFixedStyle: GenerateStyle<TableToken, CSSObject> = token => {
         ${componentCls}-cell-fix-left,
         ${componentCls}-cell-fix-right
       `]: {
-        position: 'sticky !important',
+        position: 'sticky !important' as 'sticky',
         zIndex: token.zIndexTableFixed,
         background: token.tableBg,
       },

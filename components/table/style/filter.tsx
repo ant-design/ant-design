@@ -109,7 +109,7 @@ const genFilterStyle: GenerateStyle<TableToken, CSSInterpolation> = token => {
         [`${tableFilterDropdownPrefixCls}-btns`]: {
           display: 'flex',
           justifyContent: 'space-between',
-          padding: '7px 8px',
+          padding: `${token.paddingXS - 1}px ${token.paddingXS}`,
           overflow: 'hidden',
           backgroundColor: 'inherit',
           borderTop: tableBorder,

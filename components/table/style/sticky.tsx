@@ -3,7 +3,7 @@ import { TinyColor } from '@ctrl/tinycolor';
 import type { GenerateStyle } from '../../_util/theme';
 import type { TableToken } from './index';
 
-const genStyle: GenerateStyle<TableToken, CSSObject> = token => {
+const genStickyStyle: GenerateStyle<TableToken, CSSObject> = token => {
   const { componentCls } = token;
   const tableBorder = `${token.controlLineWidth}px ${token.controlLineType} ${token.tableBorderColor}`;
   return {
@@ -49,4 +49,4 @@ const genStyle: GenerateStyle<TableToken, CSSObject> = token => {
   };
 };
 
-export default genStyle;
+export default genStickyStyle;
