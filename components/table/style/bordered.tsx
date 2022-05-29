@@ -30,7 +30,7 @@ const genStyle: GenerateStyle<TableToken, CSSObject> = token => {
         // ============================ Title =============================
         [`> ${componentCls}-title`]: {
           border: tableBorder,
-          borderBottom: '0',
+          borderBottom: 0,
         },
 
         // ============================ Content ============================
@@ -85,9 +85,9 @@ const genStyle: GenerateStyle<TableToken, CSSObject> = token => {
 
                   '&::after': {
                     position: 'absolute',
-                    top: '0',
+                    top: 0,
                     right: token.controlLineWidth,
-                    bottom: '0',
+                    bottom: 0,
                     borderRight: tableBorder,
                     content: '""',
                   },
@@ -115,7 +115,7 @@ const genStyle: GenerateStyle<TableToken, CSSObject> = token => {
                 > tr${componentCls}-placeholder
               `]: {
                 '> td': {
-                  borderRight: '0',
+                  borderRight: 0,
                 },
               },
             },
@@ -137,7 +137,7 @@ const genStyle: GenerateStyle<TableToken, CSSObject> = token => {
         // ============================ Footer ============================
         [`> ${componentCls}-footer`]: {
           border: tableBorder,
-          borderTop: '0',
+          borderTop: 0,
         },
       },
 
@@ -145,7 +145,7 @@ const genStyle: GenerateStyle<TableToken, CSSObject> = token => {
       [`${componentCls}-cell`]: {
         [`${componentCls}-container:first-child`]: {
           // :first-child to avoid the case when bordered and title is set
-          borderTop: '0',
+          borderTop: 0,
         },
         // https://github.com/ant-design/ant-design/issues/35577
         '&-scrollbar:not([rowspan])': {

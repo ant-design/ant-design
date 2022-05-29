@@ -28,7 +28,7 @@ const genFilterStyle: GenerateStyle<TableToken, CSSInterpolation> = token => {
           fontSize: token.fontSizeSM,
           borderRadius: token.radiusBase,
           cursor: 'pointer',
-          transition: 'all 0.3s',
+          transition: `all ${token.motionDurationSlow}`,
 
           '&:hover': {
             color: token.colorTextSecondary,
@@ -45,7 +45,7 @@ const genFilterStyle: GenerateStyle<TableToken, CSSInterpolation> = token => {
       // Dropdown
       [tableFilterDropdownPrefixCls]: {
         ...resetComponent(token),
-        minWidth: '120px',
+        minWidth: 120,
         backgroundColor: token.tableFilterDropdownBg,
         borderRadius: token.radiusBase,
         boxShadow: token.boxShadow,
@@ -85,13 +85,13 @@ const genFilterStyle: GenerateStyle<TableToken, CSSInterpolation> = token => {
         },
 
         [`${tableFilterDropdownPrefixCls}-search`]: {
-          padding: '8px',
+          padding: 8,
           borderBottom: tableBorder,
 
           '&-input': {
             input: {
               // FIXME
-              minWidth: '140px',
+              minWidth: 140,
             },
             [iconCls]: {
               color: token.colorTextDisabled,
@@ -101,8 +101,8 @@ const genFilterStyle: GenerateStyle<TableToken, CSSInterpolation> = token => {
 
         [`${tableFilterDropdownPrefixCls}-checkall`]: {
           width: '100%',
-          marginBottom: '4px',
-          marginLeft: '4px',
+          marginBottom: 4,
+          marginLeft: 4,
         },
 
         // Operation

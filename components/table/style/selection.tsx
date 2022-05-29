@@ -26,7 +26,7 @@ const genSelectionStyle: GenerateStyle<TableToken, CSSObject> = token => {
         textAlign: 'center',
 
         [`${antCls}-radio-wrapper`]: {
-          marginRight: '0',
+          marginRight: 0,
         },
       },
 
@@ -46,16 +46,16 @@ const genSelectionStyle: GenerateStyle<TableToken, CSSObject> = token => {
 
       [`${componentCls}-selection-extra`]: {
         position: 'absolute',
-        top: '0',
-        zIndex: '1',
+        top: 0,
+        zIndex: 1,
         cursor: 'pointer',
-        transition: 'all 0.3s',
+        transition: `all ${token.motionDurationSlow}`,
         marginInlineStart: '100%',
         paddingInlineStart: `${token.tablePaddingHorizontal / 4}px`,
 
         [iconCls]: {
           color: token.tableHeaderIconColor,
-          fontSize: '10px',
+          fontSize: 10,
           verticalAlign: 'baseline',
 
           '&:hover': {

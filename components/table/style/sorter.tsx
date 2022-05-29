@@ -10,7 +10,7 @@ const genSorterStyle: GenerateStyle<TableToken, CSSObject> = token => {
       [`${componentCls}-thead th${componentCls}-column-has-sorters`]: {
         outline: 'none',
         cursor: 'pointer',
-        transition: 'all 0.3s',
+        transition: `all ${token.motionDurationSlow}`,
 
         '&:hover': {
           background: token.tableHeaderSortHoverBg,
@@ -70,10 +70,10 @@ const genSorterStyle: GenerateStyle<TableToken, CSSObject> = token => {
       },
 
       [`${componentCls}-column-sorter`]: {
-        marginLeft: '4px',
+        marginLeft: 4,
         color: token.tableHeaderIconColor,
         fontSize: 0,
-        transition: 'color 0.3s',
+        transition: `color ${token.motionDurationSlow}`,
 
         '&-inner': {
           display: 'inline-flex',
@@ -82,7 +82,7 @@ const genSorterStyle: GenerateStyle<TableToken, CSSObject> = token => {
         },
 
         '&-up, &-down': {
-          fontSize: '11px',
+          fontSize: 11,
 
           '&.active': {
             color: token.colorPrimary,

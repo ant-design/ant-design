@@ -14,7 +14,7 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = token => {
   return {
     [`${componentCls}-wrapper`]: {
       [`${componentCls}-expand-icon-col`]: {
-        width: '48px',
+        width: 48,
       },
 
       [`${componentCls}-row-expand-icon-cell`]: {
@@ -23,7 +23,7 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = token => {
 
       [`${componentCls}-row-indent`]: {
         float: 'left',
-        height: '1px',
+        height: 1,
       },
 
       [`${componentCls}-row-expand-icon`]: {
@@ -34,7 +34,7 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = token => {
         boxSizing: 'border-box',
         width: expandIconSize,
         height: expandIconSize,
-        padding: '0',
+        padding: 0,
         color: 'inherit',
         lineHeight: `${expandIconSize}px`,
         background: token.tableExpandIconBg,
@@ -42,7 +42,7 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = token => {
         borderRadius: token.radiusBase,
         outline: 'none',
         transform: `scale(${checkboxSize / expandIconSize})`,
-        transition: 'all 0.3s',
+        transition: `all ${token.motionDurationSlow}`,
         userSelect: 'none',
 
         [`&:focus, &:hover, &:active`]: {
@@ -52,20 +52,20 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = token => {
         [`&::before, &::after`]: {
           position: 'absolute',
           background: 'currentcolor',
-          transition: 'transform 0.3s ease-out',
+          transition: `transform ${token.motionDurationSlow} ease-out`,
           content: '""',
         },
 
         '&::before': {
           top: halfInnerSize,
-          right: '3px',
-          left: '3px',
+          right: 3,
+          left: 3,
           height: token.controlLineWidth,
         },
 
         '&::after': {
-          top: '3px',
-          bottom: '3px',
+          top: 3,
+          bottom: 3,
           left: halfInnerSize,
           width: token.controlLineWidth,
           transform: 'rotate(90deg)',
@@ -86,7 +86,7 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = token => {
             content: 'none',
           },
           background: 'transparent',
-          border: '0',
+          border: 0,
           visibility: 'hidden',
         },
       },

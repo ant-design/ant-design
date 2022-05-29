@@ -23,12 +23,12 @@ const genFixedStyle: GenerateStyle<TableToken, CSSObject> = token => {
         ${componentCls}-cell-fix-left-last::after
       `]: {
         position: 'absolute',
-        top: '0',
-        right: '0',
-        bottom: '-1px',
-        width: '30px',
+        top: 0,
+        right: 0,
+        bottom: -1,
+        width: 30,
         transform: 'translateX(100%)',
-        transition: 'box-shadow 0.3s',
+        transition: `box-shadow ${token.motionDurationSlow}`,
         content: '""',
         pointerEvents: 'none',
       },
@@ -38,12 +38,12 @@ const genFixedStyle: GenerateStyle<TableToken, CSSObject> = token => {
         ${componentCls}-cell-fix-right-last::after
       `]: {
         position: 'absolute',
-        top: '0',
-        bottom: '-1px',
-        left: '0',
-        width: '30px',
+        top: 0,
+        bottom: -1,
+        left: 0,
+        width: 30,
         transform: 'translateX(-100%)',
-        transition: 'box-shadow 0.3s',
+        transition: `box-shadow ${token.motionDurationSlow}`,
         content: '""',
         pointerEvents: 'none',
       },
@@ -51,21 +51,21 @@ const genFixedStyle: GenerateStyle<TableToken, CSSObject> = token => {
       [`${componentCls}-container`]: {
         '&::before, &::after': {
           position: 'absolute',
-          top: '0',
-          bottom: '0',
-          zIndex: '1',
-          width: '30px',
-          transition: 'box-shadow 0.3s',
+          top: 0,
+          bottom: 0,
+          zIndex: 1,
+          width: 30,
+          transition: `box-shadow ${token.motionDurationSlow}`,
           content: '""',
           pointerEvents: 'none',
         },
 
         '&::before': {
-          left: '0',
+          left: 0,
         },
 
         '&::after': {
-          right: '0',
+          right: 0,
         },
       },
 
