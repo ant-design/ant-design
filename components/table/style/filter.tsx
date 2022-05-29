@@ -24,7 +24,7 @@ const genFilterStyle: GenerateStyle<TableToken, CSSInterpolation> = token => {
           alignItems: 'center',
           marginBlock: -token.paddingXXS,
           marginInline: `${token.paddingXXS}px ${-token.tablePaddingHorizontal / 2}px`,
-          padding: `0 ${token.paddingXXS}`,
+          padding: `0 ${token.paddingXXS}px`,
           color: token.tableHeaderIconColor,
           fontSize: token.fontSizeSM,
           borderRadius: token.radiusBase,
