@@ -44,92 +44,94 @@ const genFilterStyle: GenerateStyle<TableToken, CSSInterpolation> = token => {
     },
     {
       // Dropdown
-      [tableFilterDropdownPrefixCls]: {
-        ...resetComponent(token),
-        minWidth: 120,
-        backgroundColor: token.tableFilterDropdownBg,
-        borderRadius: token.radiusBase,
-        boxShadow: token.boxShadow,
+      [`${antCls}-dropdown`]: {
+        [tableFilterDropdownPrefixCls]: {
+          ...resetComponent(token),
+          minWidth: 120,
+          backgroundColor: token.tableFilterDropdownBg,
+          borderRadius: token.radiusBase,
+          boxShadow: token.boxShadow,
 
-        // Reset menu
-        [`${dropdownPrefixCls}-menu`]: {
-          // https://github.com/ant-design/ant-design/issues/4916
-          // https://github.com/ant-design/ant-design/issues/19542
-          maxHeight: token.tableFilterDropdownMaxHeight,
-          overflowX: 'hidden',
-          border: 0,
-          boxShadow: 'none',
+          // Reset menu
+          [`${dropdownPrefixCls}-menu`]: {
+            // https://github.com/ant-design/ant-design/issues/4916
+            // https://github.com/ant-design/ant-design/issues/19542
+            maxHeight: token.tableFilterDropdownMaxHeight,
+            overflowX: 'hidden',
+            border: 0,
+            boxShadow: 'none',
 
-          '&:empty::after': {
-            display: 'block',
-            padding: `${token.paddingXS}px 0`,
-            color: token.colorTextDisabled,
-            fontSize: token.fontSizeSM,
-            textAlign: 'center',
-            content: '"Not Found"',
-          },
-        },
-
-        [`${tableFilterDropdownPrefixCls}-tree`]: {
-          paddingBlock: `${token.paddingXS}px 0`,
-          paddingInline: token.paddingXS,
-
-          [`${treePrefixCls}-treenode ${treePrefixCls}-node-content-wrapper:hover`]: {
-            backgroundColor: token.controlItemBgHover,
-          },
-
-          [`${treePrefixCls}-treenode-checkbox-checked ${treePrefixCls}-node-content-wrapper`]: {
-            '&, &:hover': {
-              backgroundColor: token.colorPrimaryActive,
-            },
-          },
-        },
-
-        [`${tableFilterDropdownPrefixCls}-search`]: {
-          padding: token.paddingXS,
-          borderBottom: tableBorder,
-
-          '&-input': {
-            input: {
-              // FIXME
-              minWidth: 140,
-            },
-            [iconCls]: {
+            '&:empty::after': {
+              display: 'block',
+              padding: `${token.paddingXS}px 0`,
               color: token.colorTextDisabled,
+              fontSize: token.fontSizeSM,
+              textAlign: 'center',
+              content: '"Not Found"',
             },
+          },
+
+          [`${tableFilterDropdownPrefixCls}-tree`]: {
+            paddingBlock: `${token.paddingXS}px 0`,
+            paddingInline: token.paddingXS,
+
+            [`${treePrefixCls}-treenode ${treePrefixCls}-node-content-wrapper:hover`]: {
+              backgroundColor: token.controlItemBgHover,
+            },
+
+            [`${treePrefixCls}-treenode-checkbox-checked ${treePrefixCls}-node-content-wrapper`]: {
+              '&, &:hover': {
+                backgroundColor: token.colorPrimaryActive,
+              },
+            },
+          },
+
+          [`${tableFilterDropdownPrefixCls}-search`]: {
+            padding: token.paddingXS,
+            borderBottom: tableBorder,
+
+            '&-input': {
+              input: {
+                // FIXME
+                minWidth: 140,
+              },
+              [iconCls]: {
+                color: token.colorTextDisabled,
+              },
+            },
+          },
+
+          [`${tableFilterDropdownPrefixCls}-checkall`]: {
+            width: '100%',
+            marginBottom: token.paddingXXS,
+            marginInlineStart: token.paddingXXS,
+          },
+
+          // Operation
+          [`${tableFilterDropdownPrefixCls}-btns`]: {
+            display: 'flex',
+            justifyContent: 'space-between',
+            padding: `${token.paddingXS - 1}px ${token.paddingXS}px`,
+            overflow: 'hidden',
+            backgroundColor: 'inherit',
+            borderTop: tableBorder,
           },
         },
 
-        [`${tableFilterDropdownPrefixCls}-checkall`]: {
-          width: '100%',
-          marginBottom: token.paddingXXS,
-          marginInlineStart: token.paddingXXS,
+        // submenu of table filter dropdown
+        [`${tableFilterDropdownPrefixCls}, ${tableFilterDropdownPrefixCls}-submenu`]: {
+          // Checkbox
+          [`${antCls}-checkbox-wrapper + span`]: {
+            paddingInlineStart: token.paddingXS,
+            color: token.colorText,
+          },
         },
 
-        // Operation
-        [`${tableFilterDropdownPrefixCls}-btns`]: {
-          display: 'flex',
-          justifyContent: 'space-between',
-          padding: `${token.paddingXS - 1}px ${token.paddingXS}px`,
-          overflow: 'hidden',
-          backgroundColor: 'inherit',
-          borderTop: tableBorder,
+        [`${tableFilterDropdownPrefixCls}-submenu > ul`]: {
+          maxHeight: 'calc(100vh - 130px)',
+          overflowX: 'hidden',
+          overflowY: 'auto',
         },
-      },
-
-      // submenu of table filter dropdown
-      [`${tableFilterDropdownPrefixCls}, ${tableFilterDropdownPrefixCls}-submenu`]: {
-        // Checkbox
-        [`${antCls}-checkbox-wrapper + span`]: {
-          paddingInlineStart: token.paddingXS,
-          color: token.colorText,
-        },
-      },
-
-      [`${tableFilterDropdownPrefixCls}-submenu > ul`]: {
-        maxHeight: 'calc(100vh - 130px)',
-        overflowX: 'hidden',
-        overflowY: 'auto',
       },
     },
   ];

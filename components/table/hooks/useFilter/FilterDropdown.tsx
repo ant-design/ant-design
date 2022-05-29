@@ -435,12 +435,10 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     );
   }
 
-  const [wrapSSR, hashId] = useStyle(prefixCls);
-
-  const menu = wrapSSR(
-    <FilterDropdownMenuWrapper className={classNames(`${prefixCls}-dropdown`, hashId)}>
+  const menu = (
+    <FilterDropdownMenuWrapper className={classNames(`${prefixCls}-dropdown`)}>
       {dropdownContent}
-    </FilterDropdownMenuWrapper>,
+    </FilterDropdownMenuWrapper>
   );
 
   let filterIcon: React.ReactNode;
