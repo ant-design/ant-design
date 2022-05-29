@@ -14,8 +14,8 @@ title:
 Simplest Usage.
 
 ```tsx
+import { Button, Col, Row, Statistic } from 'antd';
 import React from 'react';
-import { Statistic, Row, Col, Button } from 'antd';
 
 const App: React.FC = () => (
   <Row gutter={16}>

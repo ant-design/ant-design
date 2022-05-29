@@ -26,7 +26,7 @@ A content area which can be collapsed and expanded.
 | defaultActiveKey | Key of the initial active panel | string\[] \| string <br/> number\[] \| number | - |  |
 | destroyInactivePanel | Destroy Inactive Panel | boolean | false |  |
 | expandIcon | Allow to customize collapse icon | (panelProps) => ReactNode | - |  |
-| expandIconPosition | Set expand icon position | `left` \| `right` | - |  |
+| expandIconPosition | Set expand icon position | `start` \| `end` | - | 4.21.0 |
 | ghost | Make the collapse borderless and its background transparent | boolean | false | 4.4.0 |
 | onChange | Callback function executed when active panel is changed | function | - |  |
 

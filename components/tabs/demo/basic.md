@@ -14,8 +14,8 @@ title:
 Default activate first tab.
 
 ```tsx
-import React from 'react';
 import { Tabs } from 'antd';
+import React from 'react';
 
 const { TabPane } = Tabs;
 

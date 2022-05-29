@@ -14,8 +14,8 @@ title:
 Allow only select parent options.
 
 ```tsx
-import React from 'react';
 import { Cascader } from 'antd';
+import React from 'react';
 
 interface Option {
   value: string;

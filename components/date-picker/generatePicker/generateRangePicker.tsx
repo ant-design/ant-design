@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { forwardRef, useContext } from 'react';
+import { forwardRef, useContext, useImperativeHandle } from 'react';
 import classNames from 'classnames';
 import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
@@ -8,142 +8,126 @@ import SwapRightOutlined from '@ant-design/icons/SwapRightOutlined';
 import { RangePicker as RCRangePicker } from 'rc-picker';
 import type { GenerateConfig } from 'rc-picker/lib/generate/index';
 import enUS from '../locale/en_US';
-import type { ConfigConsumerProps } from '../../config-provider';
 import { ConfigContext } from '../../config-provider';
 import SizeContext from '../../config-provider/SizeContext';
+import DisabledContext from '../../config-provider/DisabledContext';
 import LocaleReceiver from '../../locale-provider/LocaleReceiver';
 import { getRangePlaceholder, transPlacement2DropdownAlign } from '../util';
 import type { PickerLocale, RangePickerProps } from '.';
 import { Components, getTimeProps } from '.';
 import { FormItemInputContext } from '../../form/context';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
-import type { PickerComponentClass } from './interface';
+import type { PickerComponentClass, CommonPickerMethods } from './interface';
 
 export default function generateRangePicker<DateType>(
   generateConfig: GenerateConfig<DateType>,
 ): PickerComponentClass<RangePickerProps<DateType>> {
-  class RangePicker extends React.Component<RangePickerProps<DateType>> {
-    static contextType = ConfigContext;
+  type InternalRangePickerProps = RangePickerProps<DateType> & {};
 
-    context: ConfigConsumerProps;
+  const RangePicker = forwardRef<
+    InternalRangePickerProps | CommonPickerMethods,
+    RangePickerProps<DateType>
+  >((props, ref) => {
+    const {
+      prefixCls: customizePrefixCls,
+      getPopupContainer: customGetPopupContainer,
+      className,
+      placement,
+      size: customizeSize,
+      disabled: customDisabled,
+      bordered = true,
+      placeholder,
+      status: customStatus,
+      ...restProps
+    } = props;
 
-    pickerRef = React.createRef<RCRangePicker<DateType>>();
-
-    focus = () => {
-      if (this.pickerRef.current) {
-        this.pickerRef.current.focus();
-      }
-    };
-
-    blur = () => {
-      if (this.pickerRef.current) {
-        this.pickerRef.current.blur();
-      }
-    };
-
-    renderPicker = (contextLocale: PickerLocale) => {
-      const locale = { ...contextLocale, ...this.props.locale };
-      const { getPrefixCls, direction, getPopupContainer } = this.context;
-      const {
-        prefixCls,
-        getPopupContainer: customGetPopupContainer,
-        className,
-        placement,
-        size: customizeSize,
-        bordered = true,
-        placeholder,
-        status: customStatus,
-        ...restProps
-      } = this.props;
-      const { format, showTime, picker } = this.props as any;
-
-      let additionalOverrideProps: any = {};
-
-      additionalOverrideProps = {
-        ...additionalOverrideProps,
-        ...(showTime ? getTimeProps({ format, picker, ...showTime }) : {}),
-        ...(picker === 'time' ? getTimeProps({ format, ...this.props, picker }) : {}),
-      };
-      const rootPrefixCls = getPrefixCls();
-
-      return (
-        <SizeContext.Consumer>
-          {size => {
-            const mergedSize = customizeSize || size;
-
-            return (
-              <FormItemInputContext.Consumer>
-                {({ hasFeedback, status: contextStatus, feedbackIcon }) => {
-                  const suffixNode = (
-                    <>
-                      {picker === 'time' ? <ClockCircleOutlined /> : <CalendarOutlined />}
-                      {hasFeedback && feedbackIcon}
-                    </>
-                  );
-
-                  return (
-                    <RCRangePicker<DateType>
-                      separator={
-                        <span aria-label="to" className={`${prefixCls}-separator`}>
-                          <SwapRightOutlined />
-                        </span>
-                      }
-                      ref={this.pickerRef}
-                      dropdownAlign={transPlacement2DropdownAlign(direction, placement)}
-                      placeholder={getRangePlaceholder(picker, locale, placeholder)}
-                      suffixIcon={suffixNode}
-                      clearIcon={<CloseCircleFilled />}
-                      prevIcon={<span className={`${prefixCls}-prev-icon`} />}
-                      nextIcon={<span className={`${prefixCls}-next-icon`} />}
-                      superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
-                      superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
-                      allowClear
-                      transitionName={`${rootPrefixCls}-slide-up`}
-                      {...restProps}
-                      {...additionalOverrideProps}
-                      className={classNames(
-                        {
-                          [`${prefixCls}-${mergedSize}`]: mergedSize,
-                          [`${prefixCls}-borderless`]: !bordered,
-                        },
-                        getStatusClassNames(
-                          prefixCls as string,
-                          getMergedStatus(contextStatus, customStatus),
-                          hasFeedback,
-                        ),
-                        className,
-                      )}
-                      locale={locale!.lang}
-                      prefixCls={prefixCls}
-                      getPopupContainer={customGetPopupContainer || getPopupContainer}
-                      generateConfig={generateConfig}
-                      components={Components}
-                      direction={direction}
-                    />
-                  );
-                }}
-              </FormItemInputContext.Consumer>
-            );
-          }}
-        </SizeContext.Consumer>
-      );
-    };
-
-    render() {
-      return (
-        <LocaleReceiver componentName="DatePicker" defaultLocale={enUS}>
-          {this.renderPicker}
-        </LocaleReceiver>
-      );
-    }
-  }
-
-  return forwardRef<RangePicker, RangePickerProps<DateType>>((props, ref) => {
-    const { prefixCls: customizePrefixCls } = props;
-
-    const { getPrefixCls } = useContext(ConfigContext);
+    const innerRef = React.useRef<RCRangePicker<DateType>>(null);
+    const { getPrefixCls, direction, getPopupContainer } = useContext(ConfigContext);
     const prefixCls = getPrefixCls('picker', customizePrefixCls);
+    const { format, showTime, picker } = props as any;
+    const rootPrefixCls = getPrefixCls();
 
-    return <RangePicker {...props} prefixCls={prefixCls} ref={ref} />;
-  }) as unknown as PickerComponentClass<RangePickerProps<DateType>>;
+    let additionalOverrideProps: any = {};
+    additionalOverrideProps = {
+      ...additionalOverrideProps,
+      ...(showTime ? getTimeProps({ format, picker, ...showTime }) : {}),
+      ...(picker === 'time' ? getTimeProps({ format, ...props, picker }) : {}),
+    };
+
+    // ===================== Size =====================
+    const size = React.useContext(SizeContext);
+    const mergedSize = customizeSize || size;
+
+    // ===================== Disabled =====================
+    const disabled = React.useContext(DisabledContext);
+    const mergedDisabled = customDisabled || disabled;
+
+    // ===================== FormItemInput =====================
+    const formItemContext = useContext(FormItemInputContext);
+    const { hasFeedback, status: contextStatus, feedbackIcon } = formItemContext;
+
+    const suffixNode = (
+      <>
+        {picker === 'time' ? <ClockCircleOutlined /> : <CalendarOutlined />}
+        {hasFeedback && feedbackIcon}
+      </>
+    );
+
+    useImperativeHandle(ref, () => ({
+      focus: () => innerRef.current?.focus(),
+      blur: () => innerRef.current?.blur(),
+    }));
+
+    return (
+      <LocaleReceiver componentName="DatePicker" defaultLocale={enUS}>
+        {(contextLocale: PickerLocale) => {
+          const locale = { ...contextLocale, ...props.locale };
+
+          return (
+            <RCRangePicker<DateType>
+              separator={
+                <span aria-label="to" className={`${prefixCls}-separator`}>
+                  <SwapRightOutlined />
+                </span>
+              }
+              disabled={mergedDisabled}
+              ref={innerRef}
+              dropdownAlign={transPlacement2DropdownAlign(direction, placement)}
+              placeholder={getRangePlaceholder(picker, locale, placeholder)}
+              suffixIcon={suffixNode}
+              clearIcon={<CloseCircleFilled />}
+              prevIcon={<span className={`${prefixCls}-prev-icon`} />}
+              nextIcon={<span className={`${prefixCls}-next-icon`} />}
+              superPrevIcon={<span className={`${prefixCls}-super-prev-icon`} />}
+              superNextIcon={<span className={`${prefixCls}-super-next-icon`} />}
+              allowClear
+              transitionName={`${rootPrefixCls}-slide-up`}
+              {...restProps}
+              {...additionalOverrideProps}
+              className={classNames(
+                {
+                  [`${prefixCls}-${mergedSize}`]: mergedSize,
+                  [`${prefixCls}-borderless`]: !bordered,
+                },
+                getStatusClassNames(
+                  prefixCls as string,
+                  getMergedStatus(contextStatus, customStatus),
+                  hasFeedback,
+                ),
+                className,
+              )}
+              locale={locale!.lang}
+              prefixCls={prefixCls}
+              getPopupContainer={customGetPopupContainer || getPopupContainer}
+              generateConfig={generateConfig}
+              components={Components}
+              direction={direction}
+            />
+          );
+        }}
+      </LocaleReceiver>
+    );
+  });
+
+  return RangePicker as unknown as PickerComponentClass<RangePickerProps<DateType>>;
 }

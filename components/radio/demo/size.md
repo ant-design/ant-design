@@ -14,8 +14,8 @@ title:
 There are three sizes available: large, medium, and small. It can coordinate with input box.
 
 ```tsx
-import React from 'react';
 import { Radio } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <>

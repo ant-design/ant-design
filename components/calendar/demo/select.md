@@ -14,10 +14,10 @@ title:
 A basic calendar component with Year/Month switch.
 
 ```tsx
-import React, { useState } from 'react';
-import { Calendar, Alert } from 'antd';
-import moment from 'moment';
+import { Alert, Calendar } from 'antd';
 import type { Moment } from 'moment';
+import moment from 'moment';
+import React, { useState } from 'react';
 
 const App: React.FC = () => {
   const [value, setValue] = useState(moment('2017-01-25'));

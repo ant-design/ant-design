@@ -15,8 +15,8 @@ title:
 Add status to AutoComplete with `status`, which could be `error` or `warning`.
 
 ```tsx
-import React, { useState } from 'react';
 import { AutoComplete, Space } from 'antd';
+import React, { useState } from 'react';
 
 const mockVal = (str: string, repeat = 1) => ({
   value: str.repeat(repeat),

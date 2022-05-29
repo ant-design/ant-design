@@ -14,10 +14,10 @@ title:
 Tree with connected line between nodes, turn on by `showLine`, customize the preseted icon by `switcherIcon`.
 
 ```tsx
-import React, { useState } from 'react';
-import { Tree, Switch } from 'antd';
 import { CarryOutOutlined, FormOutlined } from '@ant-design/icons';
+import { Switch, Tree } from 'antd';
 import type { DataNode } from 'antd/lib/tree';
+import React, { useState } from 'react';
 
 const treeData: DataNode[] = [
   {

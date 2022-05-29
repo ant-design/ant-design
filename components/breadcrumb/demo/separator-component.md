@@ -14,8 +14,8 @@ title:
 The separator can be customized by setting the separator property: `Breadcrumb.Separator`.
 
 ```tsx
-import React from 'react';
 import { Breadcrumb } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <Breadcrumb separator="">

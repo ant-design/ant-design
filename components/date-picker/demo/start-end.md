@@ -21,9 +21,9 @@ When `RangePicker` does not satisfied your requirements, try to implement simila
 > - Improve user experience with `open` and `onOpenChange`.
 
 ```tsx
-import React, { useState } from 'react';
 import { DatePicker, Space } from 'antd';
 import type { Moment } from 'moment';
+import React, { useState } from 'react';
 
 const App: React.FC = () => {
   const [startValue, setStartValue] = useState<Moment | null>(null);

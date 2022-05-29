@@ -14,9 +14,9 @@ title:
 The icon should be placed in front of the text.
 
 ```tsx
-import React from 'react';
-import { Breadcrumb } from 'antd';
 import { HomeOutlined, UserOutlined } from '@ant-design/icons';
+import { Breadcrumb } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <Breadcrumb>

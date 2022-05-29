@@ -14,8 +14,8 @@ title:
 Basic list.
 
 ```tsx
+import { Avatar, List } from 'antd';
 import React from 'react';
-import { List, Avatar } from 'antd';
 
 const data = [
   {

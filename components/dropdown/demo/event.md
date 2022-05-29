@@ -14,10 +14,10 @@ title:
 An event will be triggered when you click menu items, in which you can make different operations according to item's key.
 
 ```tsx
-import React from 'react';
-import { Menu, Dropdown, message, Space } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
+import { Dropdown, Menu, message, Space } from 'antd';
+import React from 'react';
 
 const onClick: MenuProps['onClick'] = ({ key }) => {
   message.info(`Click on item ${key}`);

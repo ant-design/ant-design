@@ -14,8 +14,8 @@ title:
 You can make preview controlled.
 
 ```tsx
+import { Button, Image } from 'antd';
 import React, { useState } from 'react';
-import { Image, Button } from 'antd';
 
 const App: React.FC = () => {
   const [visible, setVisible] = useState(false);

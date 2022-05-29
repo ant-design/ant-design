@@ -18,10 +18,10 @@ Ant Design supports a default button size as well as a large and small size.
 If a large or small button is desired, set the `size` property to either `large` or `small` respectively. Omit the `size` property for a button with the default size.
 
 ```tsx
-import React, { useState } from 'react';
-import { Button, Radio } from 'antd';
 import { DownloadOutlined } from '@ant-design/icons';
+import { Button, Radio } from 'antd';
 import type { SizeType } from 'antd/es/config-provider/SizeContext';
+import React, { useState } from 'react';
 
 const App: React.FC = () => {
   const [size, setSize] = useState<SizeType>('large');

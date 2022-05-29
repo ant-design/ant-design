@@ -15,8 +15,8 @@ debug: true
 Text inside Avatar should be set a proper font size when toggle it's visibility.
 
 ```tsx
-import React, { useState } from 'react';
 import { Avatar, Button } from 'antd';
+import React, { useState } from 'react';
 
 type SizeType = 'large' | 'small' | 'default' | number;
 

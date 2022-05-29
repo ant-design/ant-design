@@ -18,13 +18,13 @@ Implement a customized column search example via `filterDropdown`.
 Add the `boolean` type parameter `closeDropdown` to the function `clearFilters`. Whether to close the filter menu is `true` by default. Add the `boolean` type parameter `confirm` to clear whether to submit the option during filtering. The default is `true`.
 
 ```tsx
-import React, { useRef, useState } from 'react';
-import { Table, Input, Button, Space } from 'antd';
-import Highlighter from 'react-highlight-words';
 import { SearchOutlined } from '@ant-design/icons';
-import type { FilterConfirmProps } from 'antd/lib/table/interface';
-import type { ColumnsType, ColumnType } from 'antd/lib/table';
 import type { InputRef } from 'antd';
+import { Button, Input, Space, Table } from 'antd';
+import type { ColumnsType, ColumnType } from 'antd/lib/table';
+import type { FilterConfirmProps } from 'antd/lib/table/interface';
+import React, { useRef, useState } from 'react';
+import Highlighter from 'react-highlight-words';
 
 interface DataType {
   key: string;

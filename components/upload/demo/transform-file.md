@@ -14,10 +14,10 @@ title:
 Use `beforeUpload` for transform file before request such as add a watermark.
 
 ```tsx
-import React from 'react';
-import { Upload, Button } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import type { UploadProps } from 'antd';
+import { Button, Upload } from 'antd';
+import React from 'react';
 
 const props: UploadProps = {
   action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',

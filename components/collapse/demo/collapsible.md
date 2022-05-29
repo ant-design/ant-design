@@ -14,8 +14,8 @@ title:
 Specify the trigger area of collapsible by `collapsible`.
 
 ```tsx
-import React from 'react';
 import { Collapse, Space } from 'antd';
+import React from 'react';
 
 const { Panel } = Collapse;
 

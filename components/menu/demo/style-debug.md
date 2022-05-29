@@ -15,10 +15,10 @@ buggy!
 buggy!
 
 ```tsx
-import React, { useState } from 'react';
+import { AppstoreOutlined, MailOutlined } from '@ant-design/icons';
+import type { MenuProps, MenuTheme } from 'antd';
 import { Menu, Switch } from 'antd';
-import { MailOutlined, AppstoreOutlined } from '@ant-design/icons';
-import type { MenuTheme, MenuProps } from 'antd';
+import React, { useState } from 'react';
 
 type MenuItem = Required<MenuProps>['items'][number];
 

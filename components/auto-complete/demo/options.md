@@ -14,8 +14,8 @@ title:
 You could pass `AutoComplete.Option` as children of `AutoComplete`, instead of using `options`。
 
 ```tsx
-import React, { useState } from 'react';
 import { AutoComplete } from 'antd';
+import React, { useState } from 'react';
 
 const { Option } = AutoComplete;
 

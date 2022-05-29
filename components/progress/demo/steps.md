@@ -14,8 +14,8 @@ title:
 A progress bar with steps.
 
 ```tsx
-import React from 'react';
 import { Progress } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <>

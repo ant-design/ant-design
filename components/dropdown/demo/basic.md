@@ -14,9 +14,9 @@ title:
 The most basic dropdown menu.
 
 ```tsx
-import React from 'react';
-import { Menu, Dropdown, Space } from 'antd';
 import { DownOutlined, SmileOutlined } from '@ant-design/icons';
+import { Dropdown, Menu, Space } from 'antd';
+import React from 'react';
 
 const menu = (
   <Menu

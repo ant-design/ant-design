@@ -15,10 +15,10 @@ debug: true
 Passing custom class to `TimePicker` popup
 
 ```tsx
-import React from 'react';
 import { TimePicker } from 'antd';
-import moment from 'moment';
 import type { Moment } from 'moment';
+import moment from 'moment';
+import React from 'react';
 
 const onChange = (time: Moment, timeString: string) => {
   console.log(time, timeString);

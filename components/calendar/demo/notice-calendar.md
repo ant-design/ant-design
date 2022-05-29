@@ -14,10 +14,10 @@ title:
 This component can be rendered by using `dateCellRender` and `monthCellRender` with the data you need.
 
 ```tsx
-import React from 'react';
-import { Calendar, Badge } from 'antd';
 import type { BadgeProps } from 'antd';
+import { Badge, Calendar } from 'antd';
 import type { Moment } from 'moment';
+import React from 'react';
 
 const getListData = (value: Moment) => {
   let listData;

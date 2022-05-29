@@ -14,8 +14,8 @@ title:
 A simple mini version step bar in the vertical direction.
 
 ```tsx
-import React from 'react';
 import { Steps } from 'antd';
+import React from 'react';
 
 const { Step } = Steps;
 

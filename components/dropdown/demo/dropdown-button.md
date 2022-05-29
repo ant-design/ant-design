@@ -14,10 +14,10 @@ title:
 A button is on the left, and a related functional menu is on the right. You can set the icon property to modify the icon of right.
 
 ```tsx
-import React from 'react';
-import { Menu, Dropdown, Button, message, Space, Tooltip } from 'antd';
 import { DownOutlined, UserOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
+import { Button, Dropdown, Menu, message, Space, Tooltip } from 'antd';
+import React from 'react';
 
 const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
   message.info('Click on left button.');

@@ -18,9 +18,9 @@ Search and select options directly.
 > Now, `Cascader[showSearch]` doesn't support search on server, more info [#5547](https://github.com/ant-design/ant-design/issues/5547)
 
 ```tsx
-import React from 'react';
 import { Cascader } from 'antd';
 import type { DefaultOptionType } from 'antd/es/cascader';
+import React from 'react';
 
 interface Option {
   value: string;

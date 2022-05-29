@@ -15,9 +15,9 @@ debug: true
 Custom preview mask.
 
 ```tsx
-import React from 'react';
-import { Image, Space } from 'antd';
 import { ZoomInOutlined } from '@ant-design/icons';
+import { Image, Space } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <Image

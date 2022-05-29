@@ -14,8 +14,8 @@ title:
 Change the suggestions placement.
 
 ```tsx
-import React from 'react';
 import { Mentions } from 'antd';
+import React from 'react';
 
 const { Option } = Mentions;
 

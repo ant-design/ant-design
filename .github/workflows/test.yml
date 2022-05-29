@@ -138,7 +138,7 @@ jobs:
           key: dist-${{ github.sha }}
 
       - name: dist
-        run: npm run dist
+        run: CI=1 npm run dist
         env:
           NODE_OPTIONS: --max_old_space_size=4096
     needs: setup
@@ -236,6 +236,7 @@ jobs:
       matrix:
         react: ['16', '17', '18']
         module: ['dom', 'node', 'dist']
+        shard: ['1/4', '2/4', '3/4', '4/4']
     env:
       REACT: ${{ matrix.react }}
     runs-on: ubuntu-latest
@@ -288,12 +289,11 @@ jobs:
       # dom test
       - name: dom test
         if: ${{ matrix.module == 'dom' }}
-        run: npm test -- -w 1 --coverage
+        run: npm test -- --maxWorkers=2 --shard=${{matrix.shard}} --coverage
 
-      # > 17 only
       - name: coverage
+        uses: codecov/codecov-action@v3
         if: ${{ matrix.module == 'dom' && matrix.react == '17' }}
-        run: bash <(curl -s https://codecov.io/bash)
 
       # node test
       - name: node test
@@ -353,6 +353,7 @@ jobs:
       matrix:
         react: ['16', '17', '18']
         module: [lib, es]
+        shard: ['1/4', '2/4', '3/4', '4/4']
     env:
       REACT: ${{ matrix.react }}
     steps:
@@ -400,7 +401,7 @@ jobs:
       - name: test
         # lib only run in master branch not in pull request
         if: ${{ github.event_name != 'pull_request' || matrix.module != 'lib' }}
-        run: npm test
+        run: npm test -- --maxWorkers=2 --shard=${{matrix.shard}}
         env:
           LIB_DIR: ${{ matrix.module }}
     needs: compile

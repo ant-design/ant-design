@@ -14,8 +14,8 @@ title:
 Custom action.
 
 ```tsx
-import React from 'react';
 import { Alert, Button, Space } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <>

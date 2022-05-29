@@ -14,8 +14,8 @@ title:
 Mark a pending state of switch.
 
 ```tsx
-import React from 'react';
 import { Switch } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <>

@@ -15,8 +15,8 @@ Debug usage
 Debug usage
 
 ```tsx
-import React, { useState } from 'react';
 import { Space, Switch } from 'antd';
+import React, { useState } from 'react';
 
 const style: React.CSSProperties = {
   width: 150,

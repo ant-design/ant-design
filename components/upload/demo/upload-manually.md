@@ -14,10 +14,10 @@ title:
 Upload files manually after `beforeUpload` returns `false`.
 
 ```tsx
-import React, { useState } from 'react';
-import { Upload, Button, message } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
+import { Button, message, Upload } from 'antd';
 import type { RcFile, UploadFile, UploadProps } from 'antd/es/upload/interface';
+import React, { useState } from 'react';
 
 const App: React.FC = () => {
   const [fileList, setFileList] = useState<UploadFile[]>([]);

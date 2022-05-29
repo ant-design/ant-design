@@ -14,8 +14,8 @@ title:
 Try to copy `Lucy,Jack` and paste to the input. Only available in tags and multiple mode.
 
 ```tsx
-import React from 'react';
 import { Select } from 'antd';
+import React from 'react';
 
 const { Option } = Select;
 

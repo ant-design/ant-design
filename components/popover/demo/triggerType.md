@@ -14,8 +14,8 @@ title:
 Mouse to click, focus and move in.
 
 ```tsx
+import { Button, Popover } from 'antd';
 import React from 'react';
-import { Popover, Button } from 'antd';
 
 const content = (
   <div>

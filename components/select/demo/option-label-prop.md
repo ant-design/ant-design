@@ -14,8 +14,8 @@ title:
 Specify the prop name of Option which will be rendered in select box.
 
 ```tsx
-import React from 'react';
 import { Select } from 'antd';
+import React from 'react';
 
 const { Option } = Select;
 

@@ -14,8 +14,8 @@ title:
 A borderless card on a gray background.
 
 ```tsx
-import React from 'react';
 import { Card } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <div className="site-card-border-less-wrapper">

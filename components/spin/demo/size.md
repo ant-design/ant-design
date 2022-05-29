@@ -14,8 +14,8 @@ title:
 A small `Spin` is used for loading text, default sized `Spin` for loading a card-level block, and large `Spin` used for loading a **page**.
 
 ```tsx
+import { Space, Spin } from 'antd';
 import React from 'react';
-import { Spin, Space } from 'antd';
 
 const App: React.FC = () => (
   <Space size="middle">

@@ -14,8 +14,8 @@ title:
 Show stepped options by `hourStep` `minuteStep` `secondStep`.
 
 ```tsx
-import React from 'react';
 import { TimePicker } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => <TimePicker minuteStep={15} secondStep={10} />;
 
