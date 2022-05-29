@@ -435,7 +435,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   }
 
   const menu = (
-    <FilterDropdownMenuWrapper className={classNames(`${prefixCls}-dropdown`)}>
+    <FilterDropdownMenuWrapper className={`${prefixCls}-dropdown`}>
       {dropdownContent}
     </FilterDropdownMenuWrapper>
   );
