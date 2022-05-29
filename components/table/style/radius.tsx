@@ -12,8 +12,8 @@ const genRadiusStyle: GenerateStyle<TableToken, CSSObject> = token => {
         },
 
         '&-title + &-container': {
-          borderTopLeftRadius: 0,
-          borderTopRightRadius: 0,
+          borderStartStartRadius: 0,
+          borderStartEndRadius: 0,
 
           'table > thead > tr:first-child': {
             'th:first-child': {
@@ -27,16 +27,16 @@ const genRadiusStyle: GenerateStyle<TableToken, CSSObject> = token => {
         },
 
         '&-container': {
-          borderTopLeftRadius: token.tableRadius,
-          borderTopRightRadius: token.tableRadius,
+          borderStartStartRadius: token.tableRadius,
+          borderStartEndRadius: token.tableRadius,
 
           'table > thead > tr:first-child': {
             'th:first-child': {
-              borderTopLeftRadius: token.tableRadius,
+              borderStartStartRadius: token.tableRadius,
             },
 
             'th:last-child': {
-              borderTopRightRadius: token.tableRadius,
+              borderStartEndRadius: token.tableRadius,
             },
           },
         },

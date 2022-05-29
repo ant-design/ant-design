@@ -101,7 +101,7 @@ const genFilterStyle: GenerateStyle<TableToken, CSSInterpolation> = token => {
         [`${tableFilterDropdownPrefixCls}-checkall`]: {
           width: '100%',
           marginBottom: 4,
-          marginLeft: 4,
+          marginInlineStart: 4,
         },
 
         // Operation
@@ -119,7 +119,7 @@ const genFilterStyle: GenerateStyle<TableToken, CSSInterpolation> = token => {
       [`${tableFilterDropdownPrefixCls}, ${tableFilterDropdownPrefixCls}-submenu`]: {
         // Checkbox
         [`${antCls}-checkbox-wrapper + span`]: {
-          paddingLeft: 8,
+          paddingInlineStart: 8,
           color: token.colorText,
         },
       },

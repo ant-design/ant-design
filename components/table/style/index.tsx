@@ -73,7 +73,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
       // https://github.com/ant-design/ant-design/issues/17611
       table: {
         width: '100%',
-        textAlign: 'left',
+        textAlign: 'start',
         borderRadius: `${token.tableRadius}px ${token.tableRadius}px 0 0`,
         borderCollapse: 'separate',
         borderSpacing: 0,
@@ -102,7 +102,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
           position: 'relative',
           color: token.tableHeaderTextColor,
           fontWeight: 500,
-          textAlign: 'left',
+          textAlign: 'start',
           background: token.tableHeaderBg,
           borderBottom: tableBorder,
           transition: `background ${token.motionDurationSlow} ease`,
@@ -115,7 +115,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
             {
               position: 'absolute',
               top: '50%',
-              right: 0,
+              insetInlineEnd: 0,
               width: 1,
               height: '1.6em',
               backgroundColor: token.tableHeaderCellSplitColor,

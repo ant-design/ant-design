@@ -24,7 +24,7 @@ const genSizeStyle: GenerateStyle<TableToken, CSSObject> = token => {
       },
 
       [`${componentCls}-filter-trigger`]: {
-        marginRight: `-${paddingHorizontal / 2}px`,
+        marginInlineEnd: `-${paddingHorizontal / 2}px`,
       },
 
       [`${componentCls}-expanded-row-fixed`]: {

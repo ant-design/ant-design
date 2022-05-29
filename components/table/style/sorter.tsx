@@ -60,9 +60,9 @@ const genSorterStyle: GenerateStyle<TableToken, CSSObject> = token => {
         '&::after': {
           position: 'absolute',
           top: 0,
-          right: 0,
+          insetInlineEnd: 0,
           bottom: 0,
-          left: 0,
+          insetInlineStart: 0,
           width: '100%',
           height: '100%',
           content: '""',
@@ -70,7 +70,7 @@ const genSorterStyle: GenerateStyle<TableToken, CSSObject> = token => {
       },
 
       [`${componentCls}-column-sorter`]: {
-        marginLeft: 4,
+        marginInlineStart: 4,
         color: token.tableHeaderIconColor,
         fontSize: 0,
         transition: `color ${token.motionDurationSlow}`,

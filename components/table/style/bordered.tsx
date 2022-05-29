@@ -35,7 +35,7 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = token => {
 
         // ============================ Content ============================
         [`> ${componentCls}-container`]: {
-          borderLeft: tableBorder,
+          borderInlineStart: tableBorder,
 
           [`
             > ${componentCls}-content,
@@ -51,7 +51,7 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = token => {
                 > tfoot > tr > th,
                 > tfoot > tr > td
               `]: {
-                borderRight: tableBorder,
+                borderInlineEnd: tableBorder,
               },
 
               // ============================ Header ============================
@@ -72,7 +72,7 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = token => {
                 > tfoot > tr
               `]: {
                 [`> ${componentCls}-cell-fix-right-first::after`]: {
-                  borderRight: tableBorder,
+                  borderInlineEnd: tableBorder,
                 },
               },
 
@@ -86,9 +86,9 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = token => {
                   '&::after': {
                     position: 'absolute',
                     top: 0,
-                    right: token.controlLineWidth,
+                    insetInlineEnd: token.controlLineWidth,
                     bottom: 0,
-                    borderRight: tableBorder,
+                    borderInlineEnd: tableBorder,
                     content: '""',
                   },
                 },
@@ -115,7 +115,7 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = token => {
                 > tr${componentCls}-placeholder
               `]: {
                 '> td': {
-                  borderRight: 0,
+                  borderInlineEnd: 0,
                 },
               },
             },

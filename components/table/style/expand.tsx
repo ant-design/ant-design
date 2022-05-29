@@ -22,7 +22,7 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = token => {
       },
 
       [`${componentCls}-row-indent`]: {
-        float: 'left',
+        float: 'inline-start',
         height: 1,
       },
 
@@ -30,7 +30,7 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = token => {
         ...operationUnit(token),
         position: 'relative',
         display: 'inline-flex',
-        float: 'left',
+        float: 'inline-start',
         boxSizing: 'border-box',
         width: expandIconSize,
         height: expandIconSize,
@@ -58,15 +58,15 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = token => {
 
         '&::before': {
           top: halfInnerSize,
-          right: 3,
-          left: 3,
+          insetInlineEnd: 3,
+          insetInlineStart: 3,
           height: token.controlLineWidth,
         },
 
         '&::after': {
           top: 3,
           bottom: 3,
-          left: halfInnerSize,
+          insetInlineStart: halfInnerSize,
           width: token.controlLineWidth,
           transform: 'rotate(90deg)',
         },
@@ -94,7 +94,7 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = token => {
       [`${componentCls}-row-indent + ${componentCls}-row-expand-icon`]: {
         marginTop:
           (token.fontSizeBase * token.lineHeight - token.controlLineWidth * 3) / 2 - halfInnerSize,
-        marginRight: token.paddingXS,
+        marginInlineEnd: token.paddingXS,
       },
 
       [`tr${componentCls}-expanded-row`]: {
