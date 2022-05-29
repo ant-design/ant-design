@@ -12220,7 +12220,7 @@ exports[`ConfigProvider components Checkbox prefixCls 1`] = `
 
 exports[`ConfigProvider components Collapse configProvider 1`] = `
 <div
-  class="config-collapse config-collapse-icon-position-left"
+  class="config-collapse config-collapse-icon-position-start"
 >
   <div
     class="config-collapse-item"
@@ -12231,7 +12231,9 @@ exports[`ConfigProvider components Collapse configProvider 1`] = `
       role="button"
       tabindex="0"
     >
-      <div>
+      <div
+        class="config-collapse-expand-icon"
+      >
         <span
           aria-label="right"
           class="anticon anticon-right config-collapse-arrow"
@@ -12252,7 +12254,11 @@ exports[`ConfigProvider components Collapse configProvider 1`] = `
           </svg>
         </span>
       </div>
-      Bamboo
+      <span
+        class="config-collapse-header-text"
+      >
+        Bamboo
+      </span>
     </div>
   </div>
 </div>
@@ -12260,7 +12266,7 @@ exports[`ConfigProvider components Collapse configProvider 1`] = `
 
 exports[`ConfigProvider components Collapse configProvider componentDisabled 1`] = `
 <div
-  class="config-collapse config-collapse-icon-position-left"
+  class="config-collapse config-collapse-icon-position-start"
 >
   <div
     class="config-collapse-item"
@@ -12271,7 +12277,9 @@ exports[`ConfigProvider components Collapse configProvider componentDisabled 1`]
       role="button"
       tabindex="0"
     >
-      <div>
+      <div
+        class="config-collapse-expand-icon"
+      >
         <span
           aria-label="right"
           class="anticon anticon-right config-collapse-arrow"
@@ -12292,7 +12300,11 @@ exports[`ConfigProvider components Collapse configProvider componentDisabled 1`]
           </svg>
         </span>
       </div>
-      Bamboo
+      <span
+        class="config-collapse-header-text"
+      >
+        Bamboo
+      </span>
     </div>
   </div>
 </div>
@@ -12300,7 +12312,7 @@ exports[`ConfigProvider components Collapse configProvider componentDisabled 1`]
 
 exports[`ConfigProvider components Collapse configProvider componentSize large 1`] = `
 <div
-  class="config-collapse config-collapse-icon-position-left"
+  class="config-collapse config-collapse-icon-position-start"
 >
   <div
     class="config-collapse-item"
@@ -12311,7 +12323,9 @@ exports[`ConfigProvider components Collapse configProvider componentSize large 1
       role="button"
       tabindex="0"
     >
-      <div>
+      <div
+        class="config-collapse-expand-icon"
+      >
         <span
           aria-label="right"
           class="anticon anticon-right config-collapse-arrow"
@@ -12332,7 +12346,11 @@ exports[`ConfigProvider components Collapse configProvider componentSize large 1
           </svg>
         </span>
       </div>
-      Bamboo
+      <span
+        class="config-collapse-header-text"
+      >
+        Bamboo
+      </span>
     </div>
   </div>
 </div>
@@ -12340,7 +12358,7 @@ exports[`ConfigProvider components Collapse configProvider componentSize large 1
 
 exports[`ConfigProvider components Collapse configProvider componentSize middle 1`] = `
 <div
-  class="config-collapse config-collapse-icon-position-left"
+  class="config-collapse config-collapse-icon-position-start"
 >
   <div
     class="config-collapse-item"
@@ -12351,7 +12369,9 @@ exports[`ConfigProvider components Collapse configProvider componentSize middle 
       role="button"
       tabindex="0"
     >
-      <div>
+      <div
+        class="config-collapse-expand-icon"
+      >
         <span
           aria-label="right"
           class="anticon anticon-right config-collapse-arrow"
@@ -12372,7 +12392,11 @@ exports[`ConfigProvider components Collapse configProvider componentSize middle 
           </svg>
         </span>
       </div>
-      Bamboo
+      <span
+        class="config-collapse-header-text"
+      >
+        Bamboo
+      </span>
     </div>
   </div>
 </div>
@@ -12380,7 +12404,7 @@ exports[`ConfigProvider components Collapse configProvider componentSize middle 
 
 exports[`ConfigProvider components Collapse configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-left"
+  class="ant-collapse ant-collapse-icon-position-start"
 >
   <div
     class="ant-collapse-item"
@@ -12391,7 +12415,9 @@ exports[`ConfigProvider components Collapse configProvider virtual and dropdownM
       role="button"
       tabindex="0"
     >
-      <div>
+      <div
+        class="ant-collapse-expand-icon"
+      >
         <span
           aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
@@ -12412,7 +12438,11 @@ exports[`ConfigProvider components Collapse configProvider virtual and dropdownM
           </svg>
         </span>
       </div>
-      Bamboo
+      <span
+        class="ant-collapse-header-text"
+      >
+        Bamboo
+      </span>
     </div>
   </div>
 </div>
@@ -12420,7 +12450,7 @@ exports[`ConfigProvider components Collapse configProvider virtual and dropdownM
 
 exports[`ConfigProvider components Collapse normal 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-left"
+  class="ant-collapse ant-collapse-icon-position-start"
 >
   <div
     class="ant-collapse-item"
@@ -12431,7 +12461,9 @@ exports[`ConfigProvider components Collapse normal 1`] = `
       role="button"
       tabindex="0"
     >
-      <div>
+      <div
+        class="ant-collapse-expand-icon"
+      >
         <span
           aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
@@ -12452,7 +12484,11 @@ exports[`ConfigProvider components Collapse normal 1`] = `
           </svg>
         </span>
       </div>
-      Bamboo
+      <span
+        class="ant-collapse-header-text"
+      >
+        Bamboo
+      </span>
     </div>
   </div>
 </div>
@@ -12460,7 +12496,7 @@ exports[`ConfigProvider components Collapse normal 1`] = `
 
 exports[`ConfigProvider components Collapse prefixCls 1`] = `
 <div
-  class="prefix-Collapse prefix-Collapse-icon-position-left"
+  class="prefix-Collapse prefix-Collapse-icon-position-start"
 >
   <div
     class="prefix-Collapse-item"
@@ -12471,7 +12507,9 @@ exports[`ConfigProvider components Collapse prefixCls 1`] = `
       role="button"
       tabindex="0"
     >
-      <div>
+      <div
+        class="prefix-Collapse-expand-icon"
+      >
         <span
           aria-label="right"
           class="anticon anticon-right prefix-Collapse-arrow"
@@ -12492,7 +12530,11 @@ exports[`ConfigProvider components Collapse prefixCls 1`] = `
           </svg>
         </span>
       </div>
-      Bamboo
+      <span
+        class="prefix-Collapse-header-text"
+      >
+        Bamboo
+      </span>
     </div>
   </div>
 </div>

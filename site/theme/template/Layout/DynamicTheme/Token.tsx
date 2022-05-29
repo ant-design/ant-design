@@ -4,6 +4,35 @@ import { Alert, Col, ConfigProvider, Row, Select, Space, Table } from 'antd';
 import * as React from 'react';
 import { statistic } from '../../../../../components/_util/theme';
 
+const wrapValue = (value: any) => {
+  const string = String(value);
+
+  let additionalInfo: React.ReactNode;
+
+  if (string.startsWith('#') || string.startsWith('rgba(')) {
+    additionalInfo = (
+      <span
+        style={{
+          display: 'inline-block',
+          width: '1em',
+          height: '1em',
+          background: string,
+          boxShadow: '0 0 2px rgba(50,50,50,0.5)',
+        }}
+      />
+    );
+  }
+
+  return additionalInfo ? (
+    <div style={{ display: 'flex', alignItems: 'center', columnGap: 8 }}>
+      {additionalInfo}
+      {string}
+    </div>
+  ) : (
+    string
+  );
+};
+
 const columns: TableProps<{ name: string; value: any }>['columns'] = [
   {
     dataIndex: 'name',
@@ -25,7 +54,7 @@ const columns: TableProps<{ name: string; value: any }>['columns'] = [
                   <li key={index}>
                     <Space size="large">
                       <span style={{ userSelect: 'none' }}>[{index}]</span>
-                      {val}
+                      {wrapValue(val)}
                     </Space>
                   </li>
                 ))}
@@ -37,7 +66,7 @@ const columns: TableProps<{ name: string; value: any }>['columns'] = [
 
         // eslint-disable-next-line no-fallthrough
         default:
-          content = String(value);
+          content = wrapValue(value);
       }
 
       return <span style={{ wordBreak: 'break-word' }}>{content}</span>;
