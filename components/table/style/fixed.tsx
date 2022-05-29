@@ -24,7 +24,10 @@ const genFixedStyle: GenerateStyle<TableToken, CSSObject> = token => {
       `]: {
         position: 'absolute',
         top: 0,
-        insetInlineEnd: 0,
+        right: {
+          _skip_check_: true,
+          value: 0,
+        },
         bottom: -1,
         width: 30,
         transform: 'translateX(100%)',
@@ -40,7 +43,10 @@ const genFixedStyle: GenerateStyle<TableToken, CSSObject> = token => {
         position: 'absolute',
         top: 0,
         bottom: -1,
-        insetInlineStart: 0,
+        left: {
+          _skip_check_: true,
+          value: 0,
+        },
         width: 30,
         transform: 'translateX(-100%)',
         transition: `box-shadow ${token.motionDurationSlow}`,
