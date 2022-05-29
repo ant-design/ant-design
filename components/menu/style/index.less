@@ -112,6 +112,17 @@
     }
   }
 
+  //https://github.com/ant-design/ant-design/issues/35795
+  &-item {
+    & > .@{ant-prefix}-badge {
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    &:hover .@{ant-prefix}-badge {
+      color: #fff;
+    }
+  }
+
   // https://github.com/ant-design/ant-design/issues/19809
   &-item > .@{ant-prefix}-badge a {
     color: @menu-item-color;
@@ -571,7 +582,6 @@
       .@{iconfont-css-prefix} {
         margin: 0;
         font-size: @menu-icon-size-lg;
-        line-height: @menu-item-height;
 
         + span {
           display: inline-block;
