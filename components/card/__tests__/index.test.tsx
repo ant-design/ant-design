@@ -1,10 +1,9 @@
 import React from 'react';
-import { mount } from 'enzyme';
 import Card from '../index';
 import Button from '../../button/index';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render } from '../../../tests/utils';
+import { render, fireEvent } from '../../../tests/utils';
 
 describe('Card', () => {
   mountTest(Card);
@@ -19,21 +18,21 @@ describe('Card', () => {
   });
 
   it('should still have padding when card which set padding to 0 is loading', () => {
-    const wrapper = mount(
+    const { container } = render(
       <Card loading bodyStyle={{ padding: 0 }}>
         xxx
       </Card>,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(container.firstChild).toMatchSnapshot();
   });
 
   it('title should be vertically aligned', () => {
-    const wrapper = mount(
+    const { container } = render(
       <Card title="Card title" extra={<Button>Button</Button>} style={{ width: 300 }}>
         <p>Card content</p>
       </Card>,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(container.firstChild).toMatchSnapshot();
   });
 
   it('onTabChange should work', () => {
@@ -48,26 +47,27 @@ describe('Card', () => {
       },
     ];
     const onTabChange = jest.fn();
-    const wrapper = mount(
+    const { container } = render(
       <Card onTabChange={onTabChange} tabList={tabList}>
         xxx
       </Card>,
     );
-    wrapper.find('.ant-tabs-tab').at(1).simulate('click');
+    fireEvent.click(container.querySelectorAll('.ant-tabs-tab')[1]);
     expect(onTabChange).toHaveBeenCalledWith('tab2');
   });
 
   it('should not render when actions is number', () => {
-    const wrapper = mount(
+    const { container } = render(
+      // @ts-ignore ingnore for the wrong action value
       <Card title="Card title" actions={11}>
         <p>Card content</p>
       </Card>,
     );
-    expect(wrapper.find('.ant-card-actions').length).toBe(0);
+    expect(container.querySelectorAll('.ant-card-actions').length).toBe(0);
   });
 
   it('with tab props', () => {
-    const wrapper = mount(
+    const { container } = render(
       <Card
         title="Card title"
         tabList={[
@@ -81,11 +81,11 @@ describe('Card', () => {
         <p>Card content</p>
       </Card>,
     );
-    expect(wrapper.find('Tabs').get(0).props.size).toBe('small');
+    expect(container.querySelectorAll('.ant-tabs-small').length === 0).toBeFalsy();
   });
 
   it('get ref of card', () => {
-    const cardRef = React.createRef();
+    const cardRef = React.createRef<HTMLDivElement>();
 
     render(
       <Card ref={cardRef} title="Card title">
