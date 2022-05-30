@@ -47,6 +47,7 @@ const genFilterStyle: GenerateStyle<TableToken, CSSInterpolation> = token => {
       [`${antCls}-dropdown`]: {
         [tableFilterDropdownPrefixCls]: {
           ...resetComponent(token),
+          // FIXME
           minWidth: 120,
           backgroundColor: token.tableFilterDropdownBg,
           borderRadius: token.radiusBase,

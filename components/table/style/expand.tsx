@@ -14,6 +14,7 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = token => {
   return {
     [`${componentCls}-wrapper`]: {
       [`${componentCls}-expand-icon-col`]: {
+        // FIXME
         width: 48,
       },
 
