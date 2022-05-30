@@ -46,7 +46,8 @@ type InternalMenuProps = MenuProps &
   };
 
 const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
-  const override = React.useContext(OverrideContext) || {};
+  const override = React.useContext(OverrideContext);
+  const overrideObj = override || {};
   const { getPrefixCls, getPopupContainer, direction } = React.useContext(ConfigContext);
 
   const rootPrefixCls = getPrefixCls();
@@ -68,7 +69,6 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
   } = props;
 
   const passedProps = omit(restProps, ['collapsedWidth']);
-  const injectFromDropdown = (props as any)['data-dropdown-inject'];
 
   // ========================= Items ===========================
   const mergedChildren = useItems(items) || children;
@@ -92,13 +92,13 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
     '`children` will be removed in next major version. Please use `items` instead.',
   );
 
-  override.validator?.({ mode });
+  overrideObj.validator?.({ mode });
 
   // ========================== Mode ===========================
-  const mergedMode = override.mode || mode;
+  const mergedMode = overrideObj.mode || mode;
 
   // ======================= Selectable ========================
-  const mergedSelectable = selectable ?? override.selectable;
+  const mergedSelectable = selectable ?? overrideObj.selectable;
 
   // ======================== Collapsed ========================
   // Inline Collapsed
@@ -115,8 +115,8 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
     other: { motionName: `${rootPrefixCls}-zoom-big` },
   };
 
-  const prefixCls = getPrefixCls('menu', customizePrefixCls || override.prefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls, !injectFromDropdown);
+  const prefixCls = getPrefixCls('menu', customizePrefixCls || overrideObj.prefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls, !override);
   const menuClassName = classNames(`${prefixCls}-${theme}`, className);
 
   // ====================== Expand Icon ========================
@@ -124,7 +124,7 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
   if (typeof expandIcon === 'function') {
     mergedExpandIcon = expandIcon;
   } else {
-    mergedExpandIcon = cloneElement(expandIcon || override.expandIcon, {
+    mergedExpandIcon = cloneElement(expandIcon || overrideObj.expandIcon, {
       className: `${prefixCls}-submenu-expand-icon`,
     });
   }
