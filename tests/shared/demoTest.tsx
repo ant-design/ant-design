@@ -1,11 +1,11 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
-import * as React from 'react';
-import glob from 'glob';
-import { render } from 'enzyme';
-import MockDate from 'mockdate';
+import { createCache, StyleProvider } from '@ant-design/cssinjs';
 import dayjs from 'dayjs';
-import { StyleProvider, createCache } from '@ant-design/cssinjs';
+import { render } from 'enzyme';
+import glob from 'glob';
+import MockDate from 'mockdate';
 import type { TriggerProps } from 'rc-trigger';
+import * as React from 'react';
 import { excludeWarning } from './excludeWarning';
 
 export const TriggerMockContext = React.createContext<Partial<TriggerProps> | undefined>(undefined);

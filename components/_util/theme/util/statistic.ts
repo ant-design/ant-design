@@ -1,7 +1,4 @@
-declare const CSSINJS_STATISTIC: any;
-
-const enableStatistic =
-  process.env.NODE_ENV !== 'production' || typeof CSSINJS_STATISTIC !== 'undefined';
+const enableStatistic = process.env.NODE_ENV !== 'production';
 let recording = true;
 
 /**
