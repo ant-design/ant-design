@@ -17,6 +17,7 @@ import MenuContext, { MenuTheme } from './MenuContext';
 import MenuDivider from './MenuDivider';
 import type { ItemType } from './hooks/useItems';
 import useItems from './hooks/useItems';
+import OverrideContext from './OverrideContext';
 
 export { MenuDividerProps } from './MenuDivider';
 
@@ -44,6 +45,7 @@ type InternalMenuProps = MenuProps &
   };
 
 const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
+  const override = React.useContext(OverrideContext) || {};
   const { getPrefixCls, getPopupContainer, direction } = React.useContext(ConfigContext);
 
   const rootPrefixCls = getPrefixCls();
@@ -58,6 +60,8 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
     siderCollapsed,
     items,
     children,
+    mode,
+    selectable,
     ...restProps
   } = props;
 
@@ -68,7 +72,7 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
 
   // ======================== Warning ==========================
   warning(
-    !('inlineCollapsed' in props && props.mode !== 'inline'),
+    !('inlineCollapsed' in props && mode !== 'inline'),
     'Menu',
     '`inlineCollapsed` should only be used when `mode` is inline.',
   );
@@ -85,6 +89,14 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
     '`children` will be removed in next major version. Please use `items` instead.',
   );
 
+  override.validator?.({ mode });
+
+  // ========================== Mode ===========================
+  const mergedMode = override.mode || mode;
+
+  // ======================= Selectable ========================
+  const mergedSelectable = selectable ?? override.selectable;
+
   // ======================== Collapsed ========================
   // Inline Collapsed
   const mergedInlineCollapsed = React.useMemo(() => {
@@ -100,8 +112,18 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
     other: { motionName: `${rootPrefixCls}-zoom-big` },
   };
 
-  const prefixCls = getPrefixCls('menu', customizePrefixCls);
+  const prefixCls = getPrefixCls('menu', customizePrefixCls || override.prefixCls);
   const menuClassName = classNames(`${prefixCls}-${theme}`, className);
+
+  // ====================== Expand Icon ========================
+  let mergedExpandIcon: MenuProps[`expandIcon`];
+  if (typeof expandIcon === 'function') {
+    mergedExpandIcon = expandIcon;
+  } else {
+    mergedExpandIcon = cloneElement(expandIcon || override.expandIcon, {
+      className: `${prefixCls}-submenu-expand-icon`,
+    });
+  }
 
   // ======================== Context ==========================
   const contextValue = React.useMemo(
@@ -118,29 +140,27 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
 
   // ========================= Render ==========================
   return (
-    <MenuContext.Provider value={contextValue}>
-      <RcMenu
-        getPopupContainer={getPopupContainer}
-        overflowedIndicator={<EllipsisOutlined />}
-        overflowedIndicatorPopupClassName={`${prefixCls}-${theme}`}
-        {...passedProps}
-        inlineCollapsed={mergedInlineCollapsed}
-        className={menuClassName}
-        prefixCls={prefixCls}
-        direction={direction}
-        defaultMotions={defaultMotions}
-        expandIcon={
-          typeof expandIcon === 'function'
-            ? expandIcon
-            : cloneElement(expandIcon, {
-                className: `${prefixCls}-submenu-expand-icon`,
-              })
-        }
-        ref={ref}
-      >
-        {mergedChildren}
-      </RcMenu>
-    </MenuContext.Provider>
+    <OverrideContext.Provider value={null}>
+      <MenuContext.Provider value={contextValue}>
+        <RcMenu
+          getPopupContainer={getPopupContainer}
+          overflowedIndicator={<EllipsisOutlined />}
+          overflowedIndicatorPopupClassName={`${prefixCls}-${theme}`}
+          mode={mergedMode}
+          selectable={mergedSelectable}
+          {...passedProps}
+          inlineCollapsed={mergedInlineCollapsed}
+          className={menuClassName}
+          prefixCls={prefixCls}
+          direction={direction}
+          defaultMotions={defaultMotions}
+          expandIcon={mergedExpandIcon}
+          ref={ref}
+        >
+          {mergedChildren}
+        </RcMenu>
+      </MenuContext.Provider>
+    </OverrideContext.Provider>
   );
 });
 
