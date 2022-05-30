@@ -15,6 +15,17 @@ timeline: true
 
 ---
 
+## 4.20.7
+
+`2022-05-30`
+
+- 🐞 Fix form instance lost bug when open Drawer. [#35706](https://github.com/ant-design/ant-design/pull/35706) [@crazyair](https://github.com/crazyair)
+- 🐞 Fix the invalid space between icon and text when using the icon prop in Segmented's options. [#35701](https://github.com/ant-design/ant-design/pull/35701)
+- 💄 Optimize arrow style of Popover. [#35717](https://github.com/ant-design/ant-design/pull/35717)
+
+- TypeScript
+  - 🤖 Fix type hints problem for Card. [#35753](https://github.com/ant-design/ant-design/pull/35753)
+
 ## 4.20.6
 
 `2022-05-22`
