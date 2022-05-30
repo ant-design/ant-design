@@ -20,7 +20,6 @@ Array [
       />
       <ul
         class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-        data-dropdown-inject="true"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -234,7 +233,6 @@ Array [
       />
       <ul
         class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-        data-dropdown-inject="true"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -448,7 +446,6 @@ Array [
       />
       <ul
         class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-        data-dropdown-inject="true"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -663,7 +660,6 @@ Array [
       />
       <ul
         class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-        data-dropdown-inject="true"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -877,7 +873,6 @@ Array [
       />
       <ul
         class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-        data-dropdown-inject="true"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -1091,7 +1086,6 @@ Array [
       />
       <ul
         class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-        data-dropdown-inject="true"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -1310,7 +1304,6 @@ Array [
       />
       <ul
         class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-        data-dropdown-inject="true"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -1524,7 +1517,6 @@ Array [
       />
       <ul
         class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-        data-dropdown-inject="true"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -1738,7 +1730,6 @@ Array [
       />
       <ul
         class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-        data-dropdown-inject="true"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -1953,7 +1944,6 @@ Array [
       />
       <ul
         class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-        data-dropdown-inject="true"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -2167,7 +2157,6 @@ Array [
       />
       <ul
         class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-        data-dropdown-inject="true"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -2381,7 +2370,6 @@ Array [
       />
       <ul
         class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-        data-dropdown-inject="true"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -2626,7 +2614,6 @@ Array [
     >
       <ul
         class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-        data-dropdown-inject="true"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -2914,7 +2901,6 @@ Array [
     >
       <ul
         class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-        data-dropdown-inject="true"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -3146,7 +3132,6 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md extend context co
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-            data-dropdown-inject="true"
             data-menu-list="true"
             role="menu"
             tabindex="0"
@@ -3429,7 +3414,6 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md extend context co
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-            data-dropdown-inject="true"
             data-menu-list="true"
             role="menu"
             tabindex="0"
@@ -3714,7 +3698,6 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md extend context co
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-            data-dropdown-inject="true"
             data-menu-list="true"
             role="menu"
             tabindex="0"
@@ -4025,7 +4008,6 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md extend context co
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-            data-dropdown-inject="true"
             data-menu-list="true"
             role="menu"
             tabindex="0"
@@ -4311,7 +4293,6 @@ exports[`renders ./components/dropdown/demo/dropdown-button.md extend context co
       >
         <ul
           class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-          data-dropdown-inject="true"
           data-menu-list="true"
           role="menu"
           tabindex="0"
@@ -4596,7 +4577,6 @@ Array [
     >
       <ul
         class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-        data-dropdown-inject="true"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -4823,7 +4803,6 @@ Array [
     >
       <ul
         class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-        data-dropdown-inject="true"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -5092,7 +5071,6 @@ exports[`renders ./components/dropdown/demo/loading.md extend context correctly 
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-            data-dropdown-inject="true"
             data-menu-list="true"
             role="menu"
             tabindex="0"
@@ -5231,7 +5209,6 @@ exports[`renders ./components/dropdown/demo/loading.md extend context correctly 
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-            data-dropdown-inject="true"
             data-menu-list="true"
             role="menu"
             tabindex="0"
@@ -5347,7 +5324,6 @@ exports[`renders ./components/dropdown/demo/loading.md extend context correctly 
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-            data-dropdown-inject="true"
             data-menu-list="true"
             role="menu"
             tabindex="0"
@@ -5462,7 +5438,6 @@ exports[`renders ./components/dropdown/demo/loading.md extend context correctly 
         >
           <ul
             class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-            data-dropdown-inject="true"
             data-menu-list="true"
             role="menu"
             tabindex="0"
@@ -5581,7 +5556,6 @@ Array [
     >
       <ul
         class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-        data-dropdown-inject="true"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -6724,7 +6698,6 @@ Array [
     >
       <ul
         class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-        data-dropdown-inject="true"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -6936,7 +6909,6 @@ exports[`renders ./components/dropdown/demo/placement.md extend context correctl
           >
             <ul
               class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-              data-dropdown-inject="true"
               data-menu-list="true"
               role="menu"
               tabindex="0"
@@ -7152,7 +7124,6 @@ exports[`renders ./components/dropdown/demo/placement.md extend context correctl
           >
             <ul
               class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-              data-dropdown-inject="true"
               data-menu-list="true"
               role="menu"
               tabindex="0"
@@ -7368,7 +7339,6 @@ exports[`renders ./components/dropdown/demo/placement.md extend context correctl
           >
             <ul
               class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-              data-dropdown-inject="true"
               data-menu-list="true"
               role="menu"
               tabindex="0"
@@ -7593,7 +7563,6 @@ exports[`renders ./components/dropdown/demo/placement.md extend context correctl
           >
             <ul
               class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-              data-dropdown-inject="true"
               data-menu-list="true"
               role="menu"
               tabindex="0"
@@ -7809,7 +7778,6 @@ exports[`renders ./components/dropdown/demo/placement.md extend context correctl
           >
             <ul
               class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-              data-dropdown-inject="true"
               data-menu-list="true"
               role="menu"
               tabindex="0"
@@ -8025,7 +7993,6 @@ exports[`renders ./components/dropdown/demo/placement.md extend context correctl
           >
             <ul
               class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-              data-dropdown-inject="true"
               data-menu-list="true"
               role="menu"
               tabindex="0"
@@ -8273,7 +8240,6 @@ Array [
     >
       <ul
         class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-        data-dropdown-inject="true"
         data-menu-list="true"
         role="menu"
         tabindex="0"
@@ -8785,7 +8751,6 @@ Array [
     >
       <ul
         class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-        data-dropdown-inject="true"
         data-menu-list="true"
         role="menu"
         tabindex="0"
