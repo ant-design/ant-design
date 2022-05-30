@@ -48,11 +48,6 @@ const fillStatistic = async () => {
   const libContent = await fs.readFile(libPath, 'utf8');
   const newLibContent = `${libContent}\nexports._statistic_build_ = ${JSON.stringify(statistic)}`;
   await fs.writeFile(libPath, newLibContent, 'utf8');
-
-  const esPath = `${process.cwd()}/es/_util/theme/util/statistic.js`;
-  const content = await fs.readFile(esPath, 'utf8');
-  const newContent = `${content}\nexport var _statistic_build_ = ${JSON.stringify(statistic)}`;
-  await fs.writeFile(esPath, newContent, 'utf8');
 };
 
 fillStatistic();
