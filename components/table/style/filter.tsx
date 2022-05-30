@@ -76,6 +76,10 @@ const genFilterStyle: GenerateStyle<TableToken, CSSInterpolation> = token => {
             paddingBlock: `${token.paddingXS}px 0`,
             paddingInline: token.paddingXS,
 
+            [treePrefixCls]: {
+              padding: 0,
+            },
+
             [`${treePrefixCls}-treenode ${treePrefixCls}-node-content-wrapper:hover`]: {
               backgroundColor: token.controlItemBgHover,
             },
