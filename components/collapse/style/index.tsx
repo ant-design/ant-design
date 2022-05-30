@@ -1,17 +1,12 @@
-// import '../../style/index.less';
-// import './index.less';
-
 // deps-lint-skip-all
-import type { CSSInterpolation } from '@ant-design/cssinjs';
 import type { GenerateStyle, FullToken } from '../../_util/theme';
-import { resetComponent, genComponentStyleHook, mergeToken } from '../../_util/theme';
+import { resetComponent, genComponentStyleHook, mergeToken, resetIcon } from '../../_util/theme';
 
 type CollapseToken = FullToken<'Collapse'> & {
   collapseContentBg: string;
   collapseContentPadding: number;
   collapseHeaderBg: string;
   collapseHeaderPadding: string;
-  collapseHeaderPaddingExtra: number;
   collapsePanelBorderRadius: number;
 };
 
@@ -22,7 +17,6 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = token => {
     collapseContentPadding,
     collapseHeaderBg,
     collapseHeaderPadding,
-    collapseHeaderPaddingExtra,
     collapsePanelBorderRadius,
 
     controlLineWidth,
@@ -31,10 +25,11 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = token => {
     colorText,
     colorTextHeading,
     colorTextDisabled,
+    fontSize,
     lineHeight,
     marginSM,
     paddingSM,
-    fontSizeSM,
+    motionDurationSlow,
   } = token;
 
   const borderBase = `${controlLineWidth}px ${controlLineType} ${colorBorder}`;
@@ -70,27 +65,31 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = token => {
           color: colorTextHeading,
           lineHeight,
           cursor: 'pointer',
-          transition: `all 0.3s, visibility 0s`,
+          transition: `all ${motionDurationSlow}, visibility 0s`,
+
+          '&:focus': {
+            outline: 'none',
+          },
+
+          // >>>>> Arrow
+          [`${componentCls}-expand-icon`]: {
+            height: fontSize * lineHeight,
+            display: 'flex',
+            alignItems: 'center',
+            paddingInlineEnd: marginSM,
+          },
 
           [`${componentCls}-arrow`]: {
-            display: 'inline-block',
-            marginInlineEnd: marginSM,
-            fontSize: fontSizeSM,
-            // FIXME
-            verticalAlign: '-1px',
+            ...resetIcon(),
 
-            [`& svg`]: {
-              // FIXME
-              transition: 'transform 0.24s',
+            svg: {
+              transition: `transform ${motionDurationSlow}`,
             },
           },
 
-          [`${componentCls}-extra`]: {
-            marginInlineStart: 'auto',
-          },
-
-          [`&:focus`]: {
-            outline: 'none',
+          // >>>>> Text
+          [`${componentCls}-header-text`]: {
+            marginInlineEnd: 'auto',
           },
         },
 
@@ -105,22 +104,6 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = token => {
         [`&${componentCls}-no-arrow`]: {
           [`> ${componentCls}-header`]: {
             paddingInlineStart: paddingSM,
-          },
-        },
-      },
-
-      [`&-icon-position-right`]: {
-        [`& > ${componentCls}-item `]: {
-          [`> ${componentCls}-header`]: {
-            position: 'relative',
-            padding: collapseHeaderPadding,
-            paddingInlineEnd: collapseHeaderPaddingExtra,
-
-            [`${componentCls}-arrow`]: {
-              svg: {
-                transform: 'rotate(180deg)',
-              },
-            },
           },
         },
       },
@@ -155,6 +138,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = token => {
         },
       },
 
+      // ============================== Ghost ==============================
       [`&-ghost`]: {
         backgroundColor: 'transparent',
         border: 0,
@@ -164,12 +148,43 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = token => {
             backgroundColor: 'transparent',
             border: 0,
             [`> ${componentCls}-content-box`]: {
-              // FIXME
-              paddingTop: 12,
-              paddingBottom: 12,
+              paddingBlock: paddingSM,
             },
           },
         },
+      },
+
+      // ========================== Icon Position ==========================
+      [`&${componentCls}-icon-position-end`]: {
+        [`& > ${componentCls}-item`]: {
+          [`> ${componentCls}-header`]: {
+            [`${componentCls}-expand-icon`]: {
+              order: 1,
+              paddingInlineEnd: 0,
+              paddingInlineStart: marginSM,
+            },
+          },
+        },
+      },
+    },
+  };
+};
+
+const genArrowStyle: GenerateStyle<CollapseToken> = token => {
+  const { componentCls } = token;
+
+  const fixedSelector = `> ${componentCls}-item > ${componentCls}-header ${componentCls}-arrow svg`;
+
+  return {
+    [`${componentCls}-icon-position-end, ${componentCls}-rtl`]: {
+      [fixedSelector]: {
+        transform: `rotate(180deg)`,
+      },
+    },
+
+    [`${componentCls}-rtl${componentCls}-icon-position-end`]: {
+      [fixedSelector]: {
+        transform: `rotate(0deg)`,
       },
     },
   };
@@ -179,6 +194,7 @@ const genBorderlessStyle: GenerateStyle<CollapseToken> = token => {
   const {
     componentCls,
     collapseHeaderBg,
+    paddingXXS,
 
     colorBorder,
   } = token;
@@ -209,16 +225,11 @@ const genBorderlessStyle: GenerateStyle<CollapseToken> = token => {
       },
 
       [`> ${componentCls}-item > ${componentCls}-content > ${componentCls}-content-box`]: {
-        // FIXME
-        paddingTop: 4,
+        paddingTop: paddingXXS,
       },
     },
   };
 };
-
-export const genCollapseStyle: GenerateStyle<CollapseToken> = (
-  token: CollapseToken,
-): CSSInterpolation => [genBaseStyle(token), genBorderlessStyle(token)];
 
 export default genComponentStyleHook('Collapse', token => {
   const collapseToken = mergeToken<CollapseToken>(token, {
@@ -226,10 +237,12 @@ export default genComponentStyleHook('Collapse', token => {
     collapseContentPadding: token.padding,
     collapseHeaderBg: token.colorBgComponentSecondary,
     collapseHeaderPadding: `${token.paddingSM}px ${token.padding}px`,
-    // FIXME
-    collapseHeaderPaddingExtra: 40,
     collapsePanelBorderRadius: token.radiusBase,
   });
 
-  return [genCollapseStyle(collapseToken)];
+  return [
+    genBaseStyle(collapseToken),
+    genBorderlessStyle(collapseToken),
+    genArrowStyle(collapseToken),
+  ];
 });
