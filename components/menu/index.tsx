@@ -17,6 +17,7 @@ import MenuContext, { MenuTheme } from './MenuContext';
 import MenuDivider from './MenuDivider';
 import type { ItemType } from './hooks/useItems';
 import useItems from './hooks/useItems';
+import OverrideContext from './OverrideContext';
 import useStyle from './style';
 
 export { MenuDividerProps } from './MenuDivider';
@@ -45,6 +46,8 @@ type InternalMenuProps = MenuProps &
   };
 
 const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
+  const override = React.useContext(OverrideContext);
+  const overrideObj = override || {};
   const { getPrefixCls, getPopupContainer, direction } = React.useContext(ConfigContext);
 
   const rootPrefixCls = getPrefixCls();
@@ -60,18 +63,19 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
     items,
     children,
     rootClassName,
+    mode,
+    selectable,
     ...restProps
   } = props;
 
   const passedProps = omit(restProps, ['collapsedWidth']);
-  const injectFromDropdown = (props as any)['data-dropdown-inject'];
 
   // ========================= Items ===========================
   const mergedChildren = useItems(items) || children;
 
   // ======================== Warning ==========================
   warning(
-    !('inlineCollapsed' in props && props.mode !== 'inline'),
+    !('inlineCollapsed' in props && mode !== 'inline'),
     'Menu',
     '`inlineCollapsed` should only be used when `mode` is inline.',
   );
@@ -88,6 +92,14 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
     '`children` will be removed in next major version. Please use `items` instead.',
   );
 
+  overrideObj.validator?.({ mode });
+
+  // ========================== Mode ===========================
+  const mergedMode = overrideObj.mode || mode;
+
+  // ======================= Selectable ========================
+  const mergedSelectable = selectable ?? overrideObj.selectable;
+
   // ======================== Collapsed ========================
   // Inline Collapsed
   const mergedInlineCollapsed = React.useMemo(() => {
@@ -103,9 +115,19 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
     other: { motionName: `${rootPrefixCls}-zoom-big` },
   };
 
-  const prefixCls = getPrefixCls('menu', customizePrefixCls);
-  const [wrapSSR, hashId] = useStyle(prefixCls, !injectFromDropdown);
+  const prefixCls = getPrefixCls('menu', customizePrefixCls || overrideObj.prefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls, !override);
   const menuClassName = classNames(`${prefixCls}-${theme}`, className);
+
+  // ====================== Expand Icon ========================
+  let mergedExpandIcon: MenuProps[`expandIcon`];
+  if (typeof expandIcon === 'function') {
+    mergedExpandIcon = expandIcon;
+  } else {
+    mergedExpandIcon = cloneElement(expandIcon || overrideObj.expandIcon, {
+      className: `${prefixCls}-submenu-expand-icon`,
+    });
+  }
 
   // ======================== Context ==========================
   const contextValue = React.useMemo(
@@ -122,30 +144,28 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
 
   // ========================= Render ==========================
   return wrapSSR(
-    <MenuContext.Provider value={contextValue}>
-      <RcMenu
-        getPopupContainer={getPopupContainer}
-        overflowedIndicator={<EllipsisOutlined />}
-        overflowedIndicatorPopupClassName={`${prefixCls}-${theme}`}
-        {...passedProps}
-        inlineCollapsed={mergedInlineCollapsed}
-        className={menuClassName}
-        prefixCls={prefixCls}
-        direction={direction}
-        defaultMotions={defaultMotions}
-        expandIcon={
-          typeof expandIcon === 'function'
-            ? expandIcon
-            : cloneElement(expandIcon, {
-                className: `${prefixCls}-submenu-expand-icon`,
-              })
-        }
-        ref={ref}
-        rootClassName={classNames(rootClassName, hashId)}
-      >
-        {mergedChildren}
-      </RcMenu>
-    </MenuContext.Provider>,
+    <OverrideContext.Provider value={null}>
+      <MenuContext.Provider value={contextValue}>
+        <RcMenu
+          getPopupContainer={getPopupContainer}
+          overflowedIndicator={<EllipsisOutlined />}
+          overflowedIndicatorPopupClassName={`${prefixCls}-${theme}`}
+          mode={mergedMode}
+          selectable={mergedSelectable}
+          {...passedProps}
+          inlineCollapsed={mergedInlineCollapsed}
+          className={menuClassName}
+          prefixCls={prefixCls}
+          direction={direction}
+          defaultMotions={defaultMotions}
+          expandIcon={mergedExpandIcon}
+          ref={ref}
+          rootClassName={classNames(rootClassName, hashId)}
+        >
+          {mergedChildren}
+        </RcMenu>
+      </MenuContext.Provider>
+    </OverrideContext.Provider>,
   );
 });
 
