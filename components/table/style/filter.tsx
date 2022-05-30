@@ -118,22 +118,25 @@ const genFilterStyle: GenerateStyle<TableToken, CSSInterpolation> = token => {
             borderTop: tableBorder,
           },
         },
-
-        // submenu of table filter dropdown
-        [`${tableFilterDropdownPrefixCls}, ${tableFilterDropdownPrefixCls}-submenu`]: {
+      },
+    },
+    // Dropdown Menu & SubMenu
+    {
+      // submenu of table filter dropdown
+      [`${antCls}-dropdown ${tableFilterDropdownPrefixCls}, ${tableFilterDropdownPrefixCls}-submenu`]:
+        {
           // Checkbox
           [`${antCls}-checkbox-wrapper + span`]: {
             paddingInlineStart: token.paddingXS,
             color: token.colorText,
           },
-        },
 
-        [`${tableFilterDropdownPrefixCls}-submenu > ul`]: {
-          maxHeight: 'calc(100vh - 130px)',
-          overflowX: 'hidden',
-          overflowY: 'auto',
+          [`> ul`]: {
+            maxHeight: 'calc(100vh - 130px)',
+            overflowX: 'hidden',
+            overflowY: 'auto',
+          },
         },
-      },
     },
   ];
 };
