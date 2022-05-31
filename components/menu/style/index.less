@@ -113,8 +113,9 @@
   }
 
   //https://github.com/ant-design/ant-design/issues/35795
-  &-item {
-    & > .@{ant-prefix}-badge {
+  &-item,
+  &-submenu-title {
+    > .@{ant-prefix}-badge {
       color: rgba(255, 255, 255, 0.65);
     }
 

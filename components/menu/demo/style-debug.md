@@ -16,7 +16,7 @@ buggy!
 
 ```tsx
 import React, { useState } from 'react';
-import { Menu, Switch } from 'antd';
+import { Menu, Switch, Badge } from 'antd';
 import { MailOutlined, AppstoreOutlined } from '@ant-design/icons';
 import type { MenuTheme, MenuProps } from 'antd';
 
@@ -37,12 +37,19 @@ function getItem(
 }
 
 const items: MenuItem[] = [
-  getItem('Navigation One Long Long Long Long', 'sub1', <MailOutlined />, [
-    getItem('Option 1', '1'),
-    getItem('Option 2', '2'),
-    getItem('Option 3', '3'),
-    getItem('Option 4', '4'),
-  ]),
+  getItem(
+    'Navigation One Long Long Long Long',
+    'sub1',
+    <Badge dot>
+      <MailOutlined />
+    </Badge>,
+    [
+      getItem('Option 1', '1'),
+      getItem('Option 2', '2'),
+      getItem('Option 3', '3'),
+      getItem('Option 4', '4'),
+    ],
+  ),
   getItem('Navigation Two', 'sub2', <AppstoreOutlined />, [
     getItem('Option 5', '5'),
     getItem('Option 6', '6'),
@@ -55,6 +62,11 @@ const items: MenuItem[] = [
 const App: React.FC = () => {
   const [theme, setTheme] = useState<MenuTheme>('dark');
   const [current, setCurrent] = useState('1');
+  const [collapsed, setCollapsed] = useState(false);
+
+  const toggleCollapsed = (value: boolean) => {
+    setCollapsed(value);
+  };
 
   const changeTheme = (value: boolean) => {
     setTheme(value ? 'dark' : 'light');
@@ -73,36 +85,44 @@ const App: React.FC = () => {
         checkedChildren="Dark"
         unCheckedChildren="Light"
       />
-      <br />
-      <br />
-      <Menu
-        theme={theme}
-        onClick={onClick}
-        selectedKeys={[current]}
-        mode="inline"
-        items={items}
-        inlineCollapsed
-        // Test only. Remove in future.
-        _internalRenderMenuItem={node =>
-          React.cloneElement(node, {
-            style: {
-              ...node.props.style,
-              textDecoration: 'underline',
-            },
-          })
-        }
-        // Test only. Remove in future.
-        _internalRenderSubMenuItem={node =>
-          React.cloneElement(node, {
-            style: {
-              ...node.props.style,
-              background: 'rgba(255,255,255,0.3)',
-            },
-          })
-        }
-        // Test only. Remove in future.
-        _internalDisableMenuItemTitleTooltip
+      <Switch
+        checked={collapsed}
+        onChange={toggleCollapsed}
+        checkedChildren="collapsed"
+        unCheckedChildren="expand"
       />
+      <br />
+      <br />
+      <div style={{ width: 256 }}>
+        <Menu
+          theme={theme}
+          onClick={onClick}
+          selectedKeys={[current]}
+          mode="inline"
+          items={items}
+          inlineCollapsed={collapsed}
+          // Test only. Remove in future.
+          _internalRenderMenuItem={node =>
+            React.cloneElement(node, {
+              style: {
+                ...node.props.style,
+                textDecoration: 'underline',
+              },
+            })
+          }
+          // Test only. Remove in future.
+          _internalRenderSubMenuItem={node =>
+            React.cloneElement(node, {
+              style: {
+                ...node.props.style,
+                background: 'rgba(255,255,255,0.3)',
+              },
+            })
+          }
+          // Test only. Remove in future.
+          _internalDisableMenuItemTitleTooltip
+        />
+      </div>
     </>
   );
 };

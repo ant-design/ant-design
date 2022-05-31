@@ -19,7 +19,7 @@ Here is [a complete demo](/components/layout/#components-layout-demo-side) with 
 
 ```tsx
 import React, { useState } from 'react';
-import { Menu, Button, Badge } from 'antd';
+import { Menu, Button } from 'antd';
 import {
   AppstoreOutlined,
   MenuUnfoldOutlined,
@@ -50,13 +50,7 @@ function getItem(
 }
 
 const items: MenuItem[] = [
-  getItem(
-    'Option 1',
-    '1',
-    <Badge dot>
-      <PieChartOutlined />
-    </Badge>,
-  ),
+  getItem('Option 1', '1', <PieChartOutlined />),
   getItem('Option 2', '2', <DesktopOutlined />),
   getItem('Option 3', '3', <ContainerOutlined />),
 
