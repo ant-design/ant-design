@@ -3,6 +3,11 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import type { GenerateStyle, FullToken } from '../../_util/theme';
 import { genComponentStyleHook, mergeToken } from '../../_util/theme';
 
+export interface ComponentToken {
+  imageWidth: number;
+  imageHeight: number;
+}
+
 interface ResultToken extends FullToken<'Result'> {
   resultTitleFontSize: number;
   resultSubtitleFontSize: number;
@@ -18,12 +23,22 @@ interface ResultToken extends FullToken<'Result'> {
 
 // ============================== Styles ==============================
 const genBaseStyle: GenerateStyle<ResultToken> = (token): CSSObject => {
-  const { componentCls, iconCls } = token;
+  const {
+    componentCls,
+    lineHeightHeading3,
+    iconCls,
+    padding,
+    paddingXL,
+    paddingXS,
+    paddingLG,
+    marginXS,
+    lineHeight,
+  } = token;
 
   return {
     // Result
     [componentCls]: {
-      padding: `${token.padding * 3}px ${token.padding * 2}px`,
+      padding: `${paddingLG * 2}px ${paddingXL}px`,
 
       // RTL
       '&-rtl': {
@@ -33,14 +48,13 @@ const genBaseStyle: GenerateStyle<ResultToken> = (token): CSSObject => {
 
     // Exception Status image
     [`${componentCls} ${componentCls}-image`]: {
-      // FIXME: hard code
-      width: 250,
-      height: 295,
+      width: token.imageWidth,
+      height: token.imageHeight,
       margin: 'auto',
     },
 
     [`${componentCls} ${componentCls}-icon`]: {
-      marginBottom: token.padding * 1.5,
+      marginBottom: paddingLG,
       textAlign: 'center',
 
       [`& > ${iconCls}`]: {
@@ -51,22 +65,21 @@ const genBaseStyle: GenerateStyle<ResultToken> = (token): CSSObject => {
     [`${componentCls} ${componentCls}-title`]: {
       color: token.colorTextHeading,
       fontSize: token.resultTitleFontSize,
-      // FIXME: hard code
-      lineHeight: 1.8,
+      lineHeight: lineHeightHeading3,
+      marginBlock: marginXS,
       textAlign: 'center',
     },
 
     [`${componentCls} ${componentCls}-subtitle`]: {
       color: token.colorTextSecondary,
       fontSize: token.resultSubtitleFontSize,
-      // FIXME: hard code
-      lineHeight: 1.6,
+      lineHeight,
       textAlign: 'center',
     },
 
     [`${componentCls} ${componentCls}-content`]: {
-      marginTop: token.padding * 1.5,
-      padding: `${token.padding * 1.5}px ${token.padding * 2.5}px`,
+      marginTop: paddingLG,
+      padding: `${paddingLG}px ${padding * 2.5}px`,
       backgroundColor: token.colorBgComponentSecondary,
     },
 
@@ -75,7 +88,7 @@ const genBaseStyle: GenerateStyle<ResultToken> = (token): CSSObject => {
       textAlign: 'center',
 
       '& > *': {
-        marginInlineEnd: token.paddingXS,
+        marginInlineEnd: paddingXS,
 
         '&:last-child': {
           marginInlineEnd: 0,
@@ -112,31 +125,34 @@ const genResultStyle: GenerateStyle<ResultToken> = token => [
 // ============================== Export ==============================
 const getStyle: GenerateStyle<ResultToken> = token => genResultStyle(token);
 
-export default genComponentStyleHook('Result', token => {
-  // compact 20
-  // FIXME: maybe we need a new token for fontSize 12px
-  const resultTitleFontSize = 24;
-  const resultSubtitleFontSize = token.fontSize;
-  // compact 64
-  // FIXME: maybe we need a new token for fontSize 12px
-  const resultIconFontSize = 72;
-  const resultExtraMargin = `${token.padding * 1.5}px 0 0 0`;
+export default genComponentStyleHook(
+  'Result',
+  token => {
+    const { paddingLG, fontSizeHeading3 } = token;
 
-  const resultInfoIconColor = token.colorInfo;
-  const resultErrorIconColor = token.colorError;
-  const resultSuccessIconColor = token.colorSuccess;
-  const resultWarningIconColor = token.colorWarning;
+    const resultSubtitleFontSize = token.fontSize;
+    const resultExtraMargin = `${paddingLG}px 0 0 0`;
 
-  const resultToken = mergeToken<ResultToken>(token, {
-    resultTitleFontSize,
-    resultSubtitleFontSize,
-    resultIconFontSize,
-    resultExtraMargin,
-    resultInfoIconColor,
-    resultErrorIconColor,
-    resultSuccessIconColor,
-    resultWarningIconColor,
-  });
+    const resultInfoIconColor = token.colorInfo;
+    const resultErrorIconColor = token.colorError;
+    const resultSuccessIconColor = token.colorSuccess;
+    const resultWarningIconColor = token.colorWarning;
 
-  return [getStyle(resultToken)];
-});
+    const resultToken = mergeToken<ResultToken>(token, {
+      resultTitleFontSize: fontSizeHeading3,
+      resultSubtitleFontSize,
+      resultIconFontSize: fontSizeHeading3 * 3,
+      resultExtraMargin,
+      resultInfoIconColor,
+      resultErrorIconColor,
+      resultSuccessIconColor,
+      resultWarningIconColor,
+    });
+
+    return [getStyle(resultToken)];
+  },
+  {
+    imageWidth: 250,
+    imageHeight: 295,
+  },
+);
