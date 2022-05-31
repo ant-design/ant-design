@@ -1255,10 +1255,11 @@ Array [
     >
       <div
         class="ant-progress-inner"
+        style="border-radius:0"
       >
         <div
           class="ant-progress-bg"
-          style="width:75%;height:8px"
+          style="width:75%;height:8px;border-radius:0"
         />
       </div>
     </div>
