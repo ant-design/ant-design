@@ -55,7 +55,7 @@ ReactDOMServer.renderToString(React.createElement(Notification));
 
   const esPath = `${process.cwd()}/es/_util/theme/util/statistic.js`;
   const esContent = await fs.readFile(esPath, 'utf8');
-  const newEsContent = `${esContent}\nexport var _statistic_build_ = ${JSON.stringify(statistic)}`;
+  const newEsContent = `${esContent}\n_statistic_build_ = ${JSON.stringify(statistic)}`;
   await fs.writeFile(esPath, newEsContent, 'utf8');
 
   console.log(chalk.green(`✅  Collecting token statistics done.`));
