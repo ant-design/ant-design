@@ -73,9 +73,9 @@ module.exports = {
       antd: path.join(process.cwd(), 'site', 'antd'),
       site: path.join(process.cwd(), 'site'),
       'react-router': 'react-router/umd/ReactRouter',
-      '@madccc/antd': path.join(process.cwd(), 'components'),
       '@madccc/antd/lib': path.join(process.cwd(), 'components'),
       '@madccc/antd/es': path.join(process.cwd(), 'components'),
+      '@madccc/antd': path.join(process.cwd(), 'components'),
     };
 
     config.externals = {

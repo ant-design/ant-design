@@ -1,6 +1,7 @@
 ---
 order: 8
 title: Design Token
+toc: false
 ---
 
 ```__react
