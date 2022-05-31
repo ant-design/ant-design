@@ -1,4 +1,6 @@
 import React from 'react';
+import { Simulate } from 'react-dom/test-utils';
+
 import Tag from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -44,11 +46,17 @@ describe('Tag', () => {
   it('should trigger onClick', () => {
     const onClick = jest.fn();
     const { container } = render(<Tag onClick={onClick} />);
-    fireEvent.click(container.querySelectorAll('.ant-tag')[0]);
+    const target = container.querySelectorAll('.ant-tag')[0];
+    Simulate.click(target);
     expect(onClick).toHaveBeenCalledWith(
       expect.objectContaining({
         type: 'click',
+        target,
         preventDefault: expect.any(Function),
+        nativeEvent: {
+          type: 'click',
+          target,
+        },
       }),
     );
   });
@@ -56,11 +64,17 @@ describe('Tag', () => {
   it('should trigger onClick on CheckableTag', () => {
     const onClick = jest.fn();
     const { container } = render(<Tag.CheckableTag checked={false} onClick={onClick} />);
-    fireEvent.click(container.querySelectorAll('.ant-tag')[0]);
+    const target = container.querySelectorAll('.ant-tag')[0];
+    Simulate.click(target);
     expect(onClick).toHaveBeenCalledWith(
       expect.objectContaining({
         type: 'click',
+        target,
         preventDefault: expect.any(Function),
+        nativeEvent: {
+          type: 'click',
+          target,
+        },
       }),
     );
   });
