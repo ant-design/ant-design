@@ -8,7 +8,7 @@ import type { ButtonProps, LegacyButtonType } from '../button/button';
 import { convertLegacyProps } from '../button/button';
 import type { DirectionType } from '../config-provider';
 import { ConfigContext } from '../config-provider';
-import { NoFormStatus } from '../form/context';
+import { FormItemInputContext } from '../form/context';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { getTransitionName } from '../_util/motion';
 import { canUseDocElement } from '../_util/styleChecker';
@@ -140,6 +140,14 @@ const Modal: React.FC<ModalProps> = props => {
     getPrefixCls,
     direction,
   } = React.useContext(ConfigContext);
+  const formItemContext = React.useContext(FormItemInputContext);
+  const mergedFormItemContext = React.useMemo(
+    () => ({
+      ...formItemContext,
+      isFormItemInput: false,
+    }),
+    [formItemContext],
+  );
 
   const handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
     const { onCancel } = props;
@@ -219,7 +227,9 @@ const Modal: React.FC<ModalProps> = props => {
       transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
       maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
     >
-      <NoFormStatus>{children}</NoFormStatus>
+      <FormItemInputContext.Provider value={mergedFormItemContext}>
+        {children}
+      </FormItemInputContext.Provider>
     </Dialog>
   );
 };
