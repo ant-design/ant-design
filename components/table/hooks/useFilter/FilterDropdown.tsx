@@ -1,12 +1,13 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import isEqual from 'lodash/isEqual';
+import type { FieldDataNode } from 'rc-tree';
 import FilterFilled from '@ant-design/icons/FilterFilled';
 import Button from '../../../button';
 import Menu from '../../../menu';
 import type { MenuProps } from '../../../menu';
 import Tree from '../../../tree';
-import type { DataNode, EventDataNode } from '../../../tree';
+import type { EventDataNode } from '../../../tree';
 import Checkbox from '../../../checkbox';
 import type { CheckboxChangeEvent } from '../../../checkbox';
 import Radio from '../../../radio';
@@ -26,6 +27,8 @@ import type { FilterState } from '.';
 import { flattenKeys } from '.';
 import useSyncState from '../../../_util/hooks/useSyncState';
 import { ConfigContext } from '../../../config-provider/context';
+
+type FilterTreeDataNode = FieldDataNode<{ title: React.ReactNode; key: React.Key }>;
 
 interface FilterRestProps {
   confirm?: Boolean;
@@ -160,7 +163,10 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     setFilteredKeysSync(selectedKeys);
   };
 
-  const onCheck = (keys: Key[], { node, checked }: { node: EventDataNode; checked: boolean }) => {
+  const onCheck = (
+    keys: Key[],
+    { node, checked }: { node: EventDataNode<FilterTreeDataNode>; checked: boolean },
+  ) => {
     if (!filterMultiple) {
       onSelectKeys({ selectedKeys: checked && node.key ? [node.key] : [] });
     } else {
@@ -286,7 +292,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   const getTreeData = ({ filters }: { filters?: ColumnFilterItem[] }) =>
     (filters || []).map((filter, index) => {
       const key = String(filter.value);
-      const item: DataNode = {
+      const item: FilterTreeDataNode = {
         title: filter.text,
         key: filter.value !== undefined ? key : index,
       };
@@ -351,7 +357,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
                   {locale.filterCheckall}
                 </Checkbox>
               ) : null}
-              <Tree
+              <Tree<FilterTreeDataNode>
                 checkable
                 selectable={false}
                 blockNode
