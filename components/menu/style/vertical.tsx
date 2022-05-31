@@ -179,7 +179,6 @@ const getVerticalStyle: GenerateStyle<MenuThemeToken> = token => {
           [`${componentCls}-item-icon, ${iconCls}`]: {
             margin: 0,
             fontSize: fontSizeLG,
-            lineHeight: `${menuItemHeight}px`,
 
             '+ span': {
               display: 'inline-block',

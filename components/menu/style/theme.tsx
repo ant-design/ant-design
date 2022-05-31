@@ -11,6 +11,7 @@ const accessibilityFocus = (token: MenuToken) => {
 
 const getThemeStyle = (token: MenuThemeToken, themeSuffix: string): CSSInterpolation => {
   const {
+    antCls,
     componentCls,
     themeColorText,
     themeColorTextSelect,
@@ -119,6 +120,17 @@ const getThemeStyle = (token: MenuThemeToken, themeSuffix: string): CSSInterpola
         // Danger
         [`&${componentCls}-item-danger`]: {
           backgroundColor: themeColorDangerBgSelect,
+        },
+      },
+
+      // https://github.com/ant-design/ant-design/issues/35795
+      [`${componentCls}-item, ${componentCls}-submenu-title`]: {
+        [`> ${antCls}-badge`]: {
+          color: themeColorText,
+        },
+
+        [`&:hover ${antCls}-badge`]: {
+          color: themeColorTextHover,
         },
       },
 
