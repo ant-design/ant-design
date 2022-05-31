@@ -1,15 +1,18 @@
 import { Rule, RuleObject, RuleRender } from 'rc-field-form/lib/interface';
-import InternalForm, { useForm, FormInstance, FormProps } from './Form';
+import InternalForm, { useForm, FormInstance, FormProps, useWatch } from './Form';
 import Item, { FormItemProps } from './FormItem';
 import ErrorList, { ErrorListProps } from './ErrorList';
 import List, { FormListProps } from './FormList';
 import { FormProvider } from './context';
-import devWarning from '../_util/devWarning';
+import warning from '../_util/warning';
+import useFormInstance from './hooks/useFormInstance';
 
 type InternalFormType = typeof InternalForm;
 
 interface FormInterface extends InternalFormType {
   useForm: typeof useForm;
+  useFormInstance: typeof useFormInstance;
+  useWatch: typeof useWatch;
   Item: typeof Item;
   List: typeof List;
   ErrorList: typeof ErrorList;
@@ -25,9 +28,11 @@ Form.Item = Item;
 Form.List = List;
 Form.ErrorList = ErrorList;
 Form.useForm = useForm;
+Form.useFormInstance = useFormInstance;
+Form.useWatch = useWatch;
 Form.Provider = FormProvider;
 Form.create = () => {
-  devWarning(
+  warning(
     false,
     'Form',
     'antd v4 removed `Form.create`. Please remove or use `@ant-design/compatible` instead.',

@@ -36,6 +36,7 @@ exports[`renders ./components/table/demo/ajax.md extend context correctly 1`] = 
                 <tr>
                   <th
                     class="ant-table-cell ant-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="ant-table-column-sorters"
@@ -95,7 +96,7 @@ exports[`renders ./components/table/demo/ajax.md extend context correctly 1`] = 
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"
@@ -156,7 +157,7 @@ exports[`renders ./components/table/demo/ajax.md extend context correctly 1`] = 
                       <div>
                         <div
                           class="ant-dropdown"
-                          style="opacity:0;pointer-events:none"
+                          style="opacity:0"
                         >
                           <div
                             class="ant-table-filter-dropdown"
@@ -198,7 +199,7 @@ exports[`renders ./components/table/demo/ajax.md extend context correctly 1`] = 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -248,7 +249,7 @@ exports[`renders ./components/table/demo/ajax.md extend context correctly 1`] = 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -275,7 +276,7 @@ exports[`renders ./components/table/demo/ajax.md extend context correctly 1`] = 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -297,7 +298,7 @@ exports[`renders ./components/table/demo/ajax.md extend context correctly 1`] = 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -367,7 +368,6 @@ exports[`renders ./components/table/demo/ajax.md extend context correctly 1`] = 
                         class="ant-empty-image"
                       >
                         <svg
-                          class="ant-empty-img-simple"
                           height="41"
                           viewBox="0 0 64 41"
                           width="64"
@@ -379,22 +379,22 @@ exports[`renders ./components/table/demo/ajax.md extend context correctly 1`] = 
                             transform="translate(0 1)"
                           >
                             <ellipse
-                              class="ant-empty-img-simple-ellipse"
                               cx="32"
                               cy="33"
+                              fill="#F5F5F5"
                               rx="32"
                               ry="7"
                             />
                             <g
-                              class="ant-empty-img-simple-g"
                               fill-rule="nonzero"
+                              stroke="#D9D9D9"
                             >
                               <path
                                 d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                               />
                               <path
-                                class="ant-empty-img-simple-path"
                                 d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                fill="#FAFAFA"
                               />
                             </g>
                           </g>
@@ -1307,7 +1307,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md extend context c
                       <div>
                         <div
                           class="ant-dropdown"
-                          style="opacity:0;pointer-events:none"
+                          style="opacity:0"
                         >
                           <div
                             class="ant-table-filter-dropdown"
@@ -1430,7 +1430,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md extend context c
                       <div>
                         <div
                           class="ant-dropdown"
-                          style="opacity:0;pointer-events:none"
+                          style="opacity:0"
                         >
                           <div
                             class="ant-table-filter-dropdown"
@@ -1516,6 +1516,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md extend context c
                   </th>
                   <th
                     class="ant-table-cell ant-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="ant-table-filter-column"
@@ -1581,7 +1582,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md extend context c
                         <div>
                           <div
                             class="ant-tooltip"
-                            style="opacity:0;pointer-events:none"
+                            style="opacity:0"
                           >
                             <div
                               class="ant-tooltip-content"
@@ -1631,7 +1632,7 @@ exports[`renders ./components/table/demo/custom-filter-panel.md extend context c
                       <div>
                         <div
                           class="ant-dropdown"
-                          style="opacity:0;pointer-events:none"
+                          style="opacity:0"
                         >
                           <div
                             class="ant-table-filter-dropdown"
@@ -2716,14 +2717,14 @@ Array [
                     checked=""
                     class="ant-radio-button-input"
                     type="radio"
-                    value="default"
+                    value="large"
                   />
                   <span
                     class="ant-radio-button-inner"
                   />
                 </span>
                 <span>
-                  Default
+                  Large
                 </span>
               </label>
               <label
@@ -3205,6 +3206,7 @@ Array [
                     </th>
                     <th
                       class="ant-table-cell ant-table-column-has-sorters"
+                      tabindex="0"
                     >
                       <div
                         class="ant-table-column-sorters"
@@ -3264,7 +3266,7 @@ Array [
                       <div>
                         <div
                           class="ant-tooltip"
-                          style="opacity:0;pointer-events:none"
+                          style="opacity:0"
                         >
                           <div
                             class="ant-tooltip-content"
@@ -3325,7 +3327,7 @@ Array [
                         <div>
                           <div
                             class="ant-dropdown"
-                            style="opacity:0;pointer-events:none"
+                            style="opacity:0"
                           >
                             <div
                               class="ant-table-filter-dropdown"
@@ -3367,7 +3369,7 @@ Array [
                                 <div>
                                   <div
                                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                    style="opacity:0;pointer-events:none"
+                                    style="opacity:0"
                                   >
                                     <div
                                       class="ant-tooltip-content"
@@ -3417,7 +3419,7 @@ Array [
                                 <div>
                                   <div
                                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                    style="opacity:0;pointer-events:none"
+                                    style="opacity:0"
                                   >
                                     <div
                                       class="ant-tooltip-content"
@@ -3444,7 +3446,7 @@ Array [
                                 <div>
                                   <div
                                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                    style="opacity:0;pointer-events:none"
+                                    style="opacity:0"
                                   >
                                     <div
                                       class="ant-tooltip-content"
@@ -3466,7 +3468,7 @@ Array [
                                 <div>
                                   <div
                                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                    style="opacity:0;pointer-events:none"
+                                    style="opacity:0"
                                   >
                                     <div
                                       class="ant-tooltip-content"
@@ -3514,6 +3516,7 @@ Array [
                     </th>
                     <th
                       class="ant-table-cell ant-table-column-has-sorters"
+                      tabindex="0"
                     >
                       <div
                         class="ant-table-column-sorters"
@@ -3573,7 +3576,7 @@ Array [
                       <div>
                         <div
                           class="ant-tooltip"
-                          style="opacity:0;pointer-events:none"
+                          style="opacity:0"
                         >
                           <div
                             class="ant-tooltip-content"
@@ -3664,29 +3667,40 @@ Array [
                         <div
                           class="ant-space-item"
                         >
-                          <a
-                            class="ant-dropdown-link"
-                          >
-                            More actions 
-                            <span
-                              aria-label="down"
-                              class="anticon anticon-down"
-                              role="img"
+                          <a>
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-align-center"
                             >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="down"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
+                              <div
+                                class="ant-space-item"
+                                style="margin-right:8px"
                               >
-                                <path
-                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                />
-                              </svg>
-                            </span>
+                                More actions
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                <span
+                                  aria-label="down"
+                                  class="anticon anticon-down"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="down"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </div>
                           </a>
                         </div>
                       </div>
@@ -3756,29 +3770,40 @@ Array [
                         <div
                           class="ant-space-item"
                         >
-                          <a
-                            class="ant-dropdown-link"
-                          >
-                            More actions 
-                            <span
-                              aria-label="down"
-                              class="anticon anticon-down"
-                              role="img"
+                          <a>
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-align-center"
                             >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="down"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
+                              <div
+                                class="ant-space-item"
+                                style="margin-right:8px"
                               >
-                                <path
-                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                />
-                              </svg>
-                            </span>
+                                More actions
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                <span
+                                  aria-label="down"
+                                  class="anticon anticon-down"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="down"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </div>
                           </a>
                         </div>
                       </div>
@@ -3848,29 +3873,40 @@ Array [
                         <div
                           class="ant-space-item"
                         >
-                          <a
-                            class="ant-dropdown-link"
-                          >
-                            More actions 
-                            <span
-                              aria-label="down"
-                              class="anticon anticon-down"
-                              role="img"
+                          <a>
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-align-center"
                             >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="down"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
+                              <div
+                                class="ant-space-item"
+                                style="margin-right:8px"
                               >
-                                <path
-                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                />
-                              </svg>
-                            </span>
+                                More actions
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                <span
+                                  aria-label="down"
+                                  class="anticon anticon-down"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="down"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </div>
                           </a>
                         </div>
                       </div>
@@ -3940,29 +3976,40 @@ Array [
                         <div
                           class="ant-space-item"
                         >
-                          <a
-                            class="ant-dropdown-link"
-                          >
-                            More actions 
-                            <span
-                              aria-label="down"
-                              class="anticon anticon-down"
-                              role="img"
+                          <a>
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-align-center"
                             >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="down"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
+                              <div
+                                class="ant-space-item"
+                                style="margin-right:8px"
                               >
-                                <path
-                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                />
-                              </svg>
-                            </span>
+                                More actions
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                <span
+                                  aria-label="down"
+                                  class="anticon anticon-down"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="down"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </div>
                           </a>
                         </div>
                       </div>
@@ -4032,29 +4079,40 @@ Array [
                         <div
                           class="ant-space-item"
                         >
-                          <a
-                            class="ant-dropdown-link"
-                          >
-                            More actions 
-                            <span
-                              aria-label="down"
-                              class="anticon anticon-down"
-                              role="img"
+                          <a>
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-align-center"
                             >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="down"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
+                              <div
+                                class="ant-space-item"
+                                style="margin-right:8px"
                               >
-                                <path
-                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                />
-                              </svg>
-                            </span>
+                                More actions
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                <span
+                                  aria-label="down"
+                                  class="anticon anticon-down"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="down"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </div>
                           </a>
                         </div>
                       </div>
@@ -4124,29 +4182,40 @@ Array [
                         <div
                           class="ant-space-item"
                         >
-                          <a
-                            class="ant-dropdown-link"
-                          >
-                            More actions 
-                            <span
-                              aria-label="down"
-                              class="anticon anticon-down"
-                              role="img"
+                          <a>
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-align-center"
                             >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="down"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
+                              <div
+                                class="ant-space-item"
+                                style="margin-right:8px"
                               >
-                                <path
-                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                />
-                              </svg>
-                            </span>
+                                More actions
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                <span
+                                  aria-label="down"
+                                  class="anticon anticon-down"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="down"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </div>
                           </a>
                         </div>
                       </div>
@@ -4216,29 +4285,40 @@ Array [
                         <div
                           class="ant-space-item"
                         >
-                          <a
-                            class="ant-dropdown-link"
-                          >
-                            More actions 
-                            <span
-                              aria-label="down"
-                              class="anticon anticon-down"
-                              role="img"
+                          <a>
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-align-center"
                             >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="down"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
+                              <div
+                                class="ant-space-item"
+                                style="margin-right:8px"
                               >
-                                <path
-                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                />
-                              </svg>
-                            </span>
+                                More actions
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                <span
+                                  aria-label="down"
+                                  class="anticon anticon-down"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="down"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </div>
                           </a>
                         </div>
                       </div>
@@ -4308,29 +4388,40 @@ Array [
                         <div
                           class="ant-space-item"
                         >
-                          <a
-                            class="ant-dropdown-link"
-                          >
-                            More actions 
-                            <span
-                              aria-label="down"
-                              class="anticon anticon-down"
-                              role="img"
+                          <a>
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-align-center"
                             >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="down"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
+                              <div
+                                class="ant-space-item"
+                                style="margin-right:8px"
                               >
-                                <path
-                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                />
-                              </svg>
-                            </span>
+                                More actions
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                <span
+                                  aria-label="down"
+                                  class="anticon anticon-down"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="down"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </div>
                           </a>
                         </div>
                       </div>
@@ -4400,29 +4491,40 @@ Array [
                         <div
                           class="ant-space-item"
                         >
-                          <a
-                            class="ant-dropdown-link"
-                          >
-                            More actions 
-                            <span
-                              aria-label="down"
-                              class="anticon anticon-down"
-                              role="img"
+                          <a>
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-align-center"
                             >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="down"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
+                              <div
+                                class="ant-space-item"
+                                style="margin-right:8px"
                               >
-                                <path
-                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                />
-                              </svg>
-                            </span>
+                                More actions
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                <span
+                                  aria-label="down"
+                                  class="anticon anticon-down"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="down"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </div>
                           </a>
                         </div>
                       </div>
@@ -4492,29 +4594,40 @@ Array [
                         <div
                           class="ant-space-item"
                         >
-                          <a
-                            class="ant-dropdown-link"
-                          >
-                            More actions 
-                            <span
-                              aria-label="down"
-                              class="anticon anticon-down"
-                              role="img"
+                          <a>
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-align-center"
                             >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="down"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
+                              <div
+                                class="ant-space-item"
+                                style="margin-right:8px"
                               >
-                                <path
-                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                />
-                              </svg>
-                            </span>
+                                More actions
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                <span
+                                  aria-label="down"
+                                  class="anticon anticon-down"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="down"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </div>
                           </a>
                         </div>
                       </div>
@@ -4715,7 +4828,7 @@ exports[`renders ./components/table/demo/edit-cell.md extend context correctly 1
                       <div>
                         <div
                           class="ant-popover ant-popconfirm"
-                          style="opacity:0;pointer-events:none"
+                          style="opacity:0"
                         >
                           <div
                             class="ant-popover-content"
@@ -4732,10 +4845,10 @@ exports[`renders ./components/table/demo/edit-cell.md extend context correctly 1
                               role="tooltip"
                             >
                               <div
-                                class="ant-popover-inner-content"
+                                class="ant-popconfirm-inner-content"
                               >
                                 <div
-                                  class="ant-popover-message"
+                                  class="ant-popconfirm-message"
                                 >
                                   <span
                                     aria-label="exclamation-circle"
@@ -4757,13 +4870,13 @@ exports[`renders ./components/table/demo/edit-cell.md extend context correctly 1
                                     </svg>
                                   </span>
                                   <div
-                                    class="ant-popover-message-title"
+                                    class="ant-popconfirm-message-title"
                                   >
                                     Sure to delete?
                                   </div>
                                 </div>
                                 <div
-                                  class="ant-popover-buttons"
+                                  class="ant-popconfirm-buttons"
                                 >
                                   <button
                                     class="ant-btn ant-btn-default ant-btn-sm"
@@ -4822,7 +4935,7 @@ exports[`renders ./components/table/demo/edit-cell.md extend context correctly 1
                       <div>
                         <div
                           class="ant-popover ant-popconfirm"
-                          style="opacity:0;pointer-events:none"
+                          style="opacity:0"
                         >
                           <div
                             class="ant-popover-content"
@@ -4839,10 +4952,10 @@ exports[`renders ./components/table/demo/edit-cell.md extend context correctly 1
                               role="tooltip"
                             >
                               <div
-                                class="ant-popover-inner-content"
+                                class="ant-popconfirm-inner-content"
                               >
                                 <div
-                                  class="ant-popover-message"
+                                  class="ant-popconfirm-message"
                                 >
                                   <span
                                     aria-label="exclamation-circle"
@@ -4864,13 +4977,13 @@ exports[`renders ./components/table/demo/edit-cell.md extend context correctly 1
                                     </svg>
                                   </span>
                                   <div
-                                    class="ant-popover-message-title"
+                                    class="ant-popconfirm-message-title"
                                   >
                                     Sure to delete?
                                   </div>
                                 </div>
                                 <div
-                                  class="ant-popover-buttons"
+                                  class="ant-popconfirm-buttons"
                                 >
                                   <button
                                     class="ant-btn ant-btn-default ant-btn-sm"
@@ -5557,7 +5670,7 @@ exports[`renders ./components/table/demo/edit-row.md extend context correctly 1`
             <div>
               <div
                 class="ant-select-dropdown"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div>
                   <div
@@ -6088,7 +6201,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md extend conte
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"
@@ -6119,7 +6232,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md extend conte
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"
@@ -6150,7 +6263,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md extend conte
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"
@@ -6181,7 +6294,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md extend conte
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"
@@ -6229,7 +6342,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md extend conte
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"
@@ -6260,7 +6373,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md extend conte
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"
@@ -6291,7 +6404,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md extend conte
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"
@@ -6322,7 +6435,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md extend conte
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"
@@ -6370,7 +6483,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md extend conte
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"
@@ -6401,7 +6514,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md extend conte
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"
@@ -6432,7 +6545,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md extend conte
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"
@@ -6463,7 +6576,7 @@ exports[`renders ./components/table/demo/ellipsis-custom-tooltip.md extend conte
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"
@@ -6943,7 +7056,7 @@ exports[`renders ./components/table/demo/filter-in-tree.md extend context correc
                       <div>
                         <div
                           class="ant-dropdown"
-                          style="opacity:0;pointer-events:none"
+                          style="opacity:0"
                         >
                           <div
                             class="ant-table-filter-dropdown"
@@ -7344,6 +7457,7 @@ exports[`renders ./components/table/demo/filter-in-tree.md extend context correc
                   </th>
                   <th
                     class="ant-table-cell ant-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="ant-table-column-sorters"
@@ -7403,7 +7517,7 @@ exports[`renders ./components/table/demo/filter-in-tree.md extend context correc
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"
@@ -7464,7 +7578,7 @@ exports[`renders ./components/table/demo/filter-in-tree.md extend context correc
                       <div>
                         <div
                           class="ant-dropdown"
-                          style="opacity:0;pointer-events:none"
+                          style="opacity:0"
                         >
                           <div
                             class="ant-table-filter-dropdown"
@@ -7544,7 +7658,7 @@ exports[`renders ./components/table/demo/filter-in-tree.md extend context correc
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -7594,7 +7708,7 @@ exports[`renders ./components/table/demo/filter-in-tree.md extend context correc
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -7621,7 +7735,7 @@ exports[`renders ./components/table/demo/filter-in-tree.md extend context correc
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -7643,7 +7757,7 @@ exports[`renders ./components/table/demo/filter-in-tree.md extend context correc
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -7938,7 +8052,7 @@ exports[`renders ./components/table/demo/filter-search.md extend context correct
                       <div>
                         <div
                           class="ant-dropdown"
-                          style="opacity:0;pointer-events:none"
+                          style="opacity:0"
                         >
                           <div
                             class="ant-table-filter-dropdown"
@@ -8163,6 +8277,7 @@ exports[`renders ./components/table/demo/filter-search.md extend context correct
                   </th>
                   <th
                     class="ant-table-cell ant-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="ant-table-column-sorters"
@@ -8222,7 +8337,7 @@ exports[`renders ./components/table/demo/filter-search.md extend context correct
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"
@@ -8283,7 +8398,7 @@ exports[`renders ./components/table/demo/filter-search.md extend context correct
                       <div>
                         <div
                           class="ant-dropdown"
-                          style="opacity:0;pointer-events:none"
+                          style="opacity:0"
                         >
                           <div
                             class="ant-table-filter-dropdown"
@@ -8365,7 +8480,7 @@ exports[`renders ./components/table/demo/filter-search.md extend context correct
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -8417,7 +8532,7 @@ exports[`renders ./components/table/demo/filter-search.md extend context correct
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -8444,7 +8559,7 @@ exports[`renders ./components/table/demo/filter-search.md extend context correct
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -8466,7 +8581,7 @@ exports[`renders ./components/table/demo/filter-search.md extend context correct
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -10227,7 +10342,7 @@ exports[`renders ./components/table/demo/fixed-columns-header.md extend context 
             <div>
               <div
                 class="ant-select-dropdown"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div>
                   <div
@@ -11608,7 +11723,7 @@ exports[`renders ./components/table/demo/fixed-header.md extend context correctl
             <div>
               <div
                 class="ant-select-dropdown"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div>
                   <div
@@ -11824,7 +11939,7 @@ exports[`renders ./components/table/demo/grouping-columns.md extend context corr
                       <div>
                         <div
                           class="ant-dropdown"
-                          style="opacity:0;pointer-events:none"
+                          style="opacity:0"
                         >
                           <div
                             class="ant-table-filter-dropdown"
@@ -11866,7 +11981,7 @@ exports[`renders ./components/table/demo/grouping-columns.md extend context corr
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -11916,7 +12031,7 @@ exports[`renders ./components/table/demo/grouping-columns.md extend context corr
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -11943,7 +12058,7 @@ exports[`renders ./components/table/demo/grouping-columns.md extend context corr
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -11965,7 +12080,7 @@ exports[`renders ./components/table/demo/grouping-columns.md extend context corr
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -12035,6 +12150,7 @@ exports[`renders ./components/table/demo/grouping-columns.md extend context corr
                   <th
                     class="ant-table-cell ant-table-column-has-sorters"
                     rowspan="3"
+                    tabindex="0"
                   >
                     <div
                       class="ant-table-column-sorters"
@@ -12094,7 +12210,7 @@ exports[`renders ./components/table/demo/grouping-columns.md extend context corr
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"
@@ -12964,7 +13080,7 @@ exports[`renders ./components/table/demo/grouping-columns.md extend context corr
             <div>
               <div
                 class="ant-select-dropdown"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div>
                   <div
@@ -13140,6 +13256,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                 <tr>
                   <th
                     class="ant-table-cell ant-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="ant-table-filter-column"
@@ -13186,7 +13303,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                         <div>
                           <div
                             class="ant-tooltip"
-                            style="opacity:0;pointer-events:none"
+                            style="opacity:0"
                           >
                             <div
                               class="ant-tooltip-content"
@@ -13236,7 +13353,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                       <div>
                         <div
                           class="ant-dropdown"
-                          style="opacity:0;pointer-events:none"
+                          style="opacity:0"
                         >
                           <div
                             class="ant-table-filter-dropdown"
@@ -13278,7 +13395,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -13328,7 +13445,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -13363,14 +13480,34 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                                   >
                                     Submenu
                                   </span>
-                                  <i
-                                    class="ant-dropdown-menu-submenu-arrow"
-                                  />
+                                  <span
+                                    class="ant-dropdown-menu-submenu-expand-icon"
+                                  >
+                                    <span
+                                      aria-label="right"
+                                      class="anticon anticon-right ant-dropdown-menu-submenu-arrow-icon"
+                                      role="img"
+                                    >
+                                      <svg
+                                        aria-hidden="true"
+                                        data-icon="right"
+                                        fill="currentColor"
+                                        focusable="false"
+                                        height="1em"
+                                        viewBox="64 64 896 896"
+                                        width="1em"
+                                      >
+                                        <path
+                                          d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                                        />
+                                      </svg>
+                                    </span>
+                                  </span>
                                 </div>
                                 <div>
                                   <div
                                     class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-popup ant-dropdown-menu ant-dropdown-menu-light ant-table-filter-dropdown-submenu"
-                                    style="opacity:0;pointer-events:none"
+                                    style="opacity:0"
                                   >
                                     <ul
                                       class="ant-dropdown-menu ant-dropdown-menu-sub ant-dropdown-menu-vertical"
@@ -13407,7 +13544,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                                       <div>
                                         <div
                                           class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                          style="opacity:0;pointer-events:none"
+                                          style="opacity:0"
                                         >
                                           <div
                                             class="ant-tooltip-content"
@@ -13457,7 +13594,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                                       <div>
                                         <div
                                           class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                          style="opacity:0;pointer-events:none"
+                                          style="opacity:0"
                                         >
                                           <div
                                             class="ant-tooltip-content"
@@ -13488,7 +13625,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -13510,7 +13647,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -13532,7 +13669,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -13554,7 +13691,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -13603,6 +13740,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                   <th
                     aria-sort="descending"
                     class="ant-table-cell ant-table-column-sort ant-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="ant-table-column-sorters"
@@ -13662,7 +13800,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"
@@ -13723,7 +13861,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                       <div>
                         <div
                           class="ant-dropdown"
-                          style="opacity:0;pointer-events:none"
+                          style="opacity:0"
                         >
                           <div
                             class="ant-table-filter-dropdown"
@@ -13765,7 +13903,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -13815,7 +13953,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -13842,7 +13980,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -13864,7 +14002,7 @@ exports[`renders ./components/table/demo/head.md extend context correctly 1`] = 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -14464,6 +14602,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md extend context corre
                   </th>
                   <th
                     class="ant-table-cell ant-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="ant-table-column-sorters"
@@ -14523,7 +14662,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md extend context corre
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"
@@ -14547,6 +14686,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md extend context corre
                   </th>
                   <th
                     class="ant-table-cell ant-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="ant-table-column-sorters"
@@ -14606,7 +14746,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md extend context corre
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"
@@ -14630,6 +14770,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md extend context corre
                   </th>
                   <th
                     class="ant-table-cell ant-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="ant-table-column-sorters"
@@ -14689,7 +14830,7 @@ exports[`renders ./components/table/demo/multiple-sorter.md extend context corre
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"
@@ -15423,7 +15564,7 @@ exports[`renders ./components/table/demo/narrow.md extend context correctly 1`] 
               <div>
                 <div
                   class="ant-select-dropdown"
-                  style="opacity:0;pointer-events:none"
+                  style="opacity:0"
                 >
                   <div>
                     <div
@@ -17310,6 +17451,7 @@ Array [
                   <tr>
                     <th
                       class="ant-table-cell ant-table-cell-ellipsis ant-table-column-has-sorters"
+                      tabindex="0"
                     >
                       <div
                         class="ant-table-filter-column"
@@ -17375,7 +17517,7 @@ Array [
                           <div>
                             <div
                               class="ant-tooltip"
-                              style="opacity:0;pointer-events:none"
+                              style="opacity:0"
                             >
                               <div
                                 class="ant-tooltip-content"
@@ -17425,7 +17567,7 @@ Array [
                         <div>
                           <div
                             class="ant-dropdown"
-                            style="opacity:0;pointer-events:none"
+                            style="opacity:0"
                           >
                             <div
                               class="ant-table-filter-dropdown"
@@ -17467,7 +17609,7 @@ Array [
                                 <div>
                                   <div
                                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                    style="opacity:0;pointer-events:none"
+                                    style="opacity:0"
                                   >
                                     <div
                                       class="ant-tooltip-content"
@@ -17517,7 +17659,7 @@ Array [
                                 <div>
                                   <div
                                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                    style="opacity:0;pointer-events:none"
+                                    style="opacity:0"
                                   >
                                     <div
                                       class="ant-tooltip-content"
@@ -17544,7 +17686,7 @@ Array [
                                 <div>
                                   <div
                                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                    style="opacity:0;pointer-events:none"
+                                    style="opacity:0"
                                   >
                                     <div
                                       class="ant-tooltip-content"
@@ -17566,7 +17708,7 @@ Array [
                                 <div>
                                   <div
                                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                    style="opacity:0;pointer-events:none"
+                                    style="opacity:0"
                                   >
                                     <div
                                       class="ant-tooltip-content"
@@ -17614,6 +17756,7 @@ Array [
                     </th>
                     <th
                       class="ant-table-cell ant-table-cell-ellipsis ant-table-column-has-sorters"
+                      tabindex="0"
                     >
                       <div
                         class="ant-table-column-sorters"
@@ -17673,7 +17816,7 @@ Array [
                       <div>
                         <div
                           class="ant-tooltip"
-                          style="opacity:0;pointer-events:none"
+                          style="opacity:0"
                         >
                           <div
                             class="ant-tooltip-content"
@@ -17697,6 +17840,7 @@ Array [
                     </th>
                     <th
                       class="ant-table-cell ant-table-cell-ellipsis ant-table-column-has-sorters"
+                      tabindex="0"
                     >
                       <div
                         class="ant-table-filter-column"
@@ -17762,7 +17906,7 @@ Array [
                           <div>
                             <div
                               class="ant-tooltip"
-                              style="opacity:0;pointer-events:none"
+                              style="opacity:0"
                             >
                               <div
                                 class="ant-tooltip-content"
@@ -17812,7 +17956,7 @@ Array [
                         <div>
                           <div
                             class="ant-dropdown"
-                            style="opacity:0;pointer-events:none"
+                            style="opacity:0"
                           >
                             <div
                               class="ant-table-filter-dropdown"
@@ -17854,7 +17998,7 @@ Array [
                                 <div>
                                   <div
                                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                    style="opacity:0;pointer-events:none"
+                                    style="opacity:0"
                                   >
                                     <div
                                       class="ant-tooltip-content"
@@ -17904,7 +18048,7 @@ Array [
                                 <div>
                                   <div
                                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                    style="opacity:0;pointer-events:none"
+                                    style="opacity:0"
                                   >
                                     <div
                                       class="ant-tooltip-content"
@@ -17931,7 +18075,7 @@ Array [
                                 <div>
                                   <div
                                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                    style="opacity:0;pointer-events:none"
+                                    style="opacity:0"
                                   >
                                     <div
                                       class="ant-tooltip-content"
@@ -17953,7 +18097,7 @@ Array [
                                 <div>
                                   <div
                                     class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                    style="opacity:0;pointer-events:none"
+                                    style="opacity:0"
                                   >
                                     <div
                                       class="ant-tooltip-content"
@@ -18237,6 +18381,7 @@ exports[`renders ./components/table/demo/resizable-column.md extend context corr
                   </th>
                   <th
                     class="ant-table-cell ant-table-column-has-sorters react-resizable"
+                    tabindex="0"
                   >
                     <div
                       class="ant-table-column-sorters"
@@ -18296,7 +18441,7 @@ exports[`renders ./components/table/demo/resizable-column.md extend context corr
                     <div>
                       <div
                         class="ant-tooltip"
-                        style="opacity:0;pointer-events:none"
+                        style="opacity:0"
                       >
                         <div
                           class="ant-tooltip-content"
@@ -19751,7 +19896,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md extend context 
                         <div>
                           <div
                             class="ant-dropdown"
-                            style="opacity:0;pointer-events:none"
+                            style="opacity:0"
                           >
                             <ul
                               class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
@@ -19773,7 +19918,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md extend context 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -19806,7 +19951,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md extend context 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -19839,7 +19984,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md extend context 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -19872,7 +20017,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md extend context 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -19905,7 +20050,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md extend context 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -19932,7 +20077,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md extend context 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -19954,7 +20099,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md extend context 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -19976,7 +20121,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md extend context 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -19998,7 +20143,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md extend context 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -20020,7 +20165,7 @@ exports[`renders ./components/table/demo/row-selection-custom.md extend context 
                               <div>
                                 <div
                                   class="ant-tooltip ant-dropdown-menu-inline-collapsed-tooltip"
-                                  style="opacity:0;pointer-events:none"
+                                  style="opacity:0"
                                 >
                                   <div
                                     class="ant-tooltip-content"
@@ -22546,7 +22691,7 @@ exports[`renders ./components/table/demo/sticky.md extend context correctly 1`] 
             <div>
               <div
                 class="ant-select-dropdown"
-                style="opacity:0;pointer-events:none"
+                style="opacity:0"
               >
                 <div>
                   <div

@@ -13,14 +13,29 @@ title:
 
 Display a global loading indicator, which is dismissed by itself asynchronously.
 
-```jsx
-import { message, Button } from 'antd';
+```tsx
+import { Button, message } from 'antd';
+import React from 'react';
 
-const success = () => {
-  const hide = message.loading('Action in progress..', 0);
-  // Dismiss manually and asynchronously
-  setTimeout(hide, 2500);
+const App: React.FC = () => {
+  const [messageApi, contextHolder] = message.useMessage();
+
+  const success = () => {
+    messageApi.open({
+      type: 'loading',
+      content: 'Action in progress..',
+      duration: 0,
+    });
+    // Dismiss manually and asynchronously
+    setTimeout(messageApi.destroy, 2500);
+  };
+  return (
+    <>
+      {contextHolder}
+      <Button onClick={success}>Display a loading indicator</Button>
+    </>
+  );
 };
 
-ReactDOM.render(<Button onClick={success}>Display a loading indicator</Button>, mountNode);
+export default App;
 ```

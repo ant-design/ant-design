@@ -1,7 +1,37 @@
 /* eslint-disable react/no-array-index-key */
+import type { TableProps } from 'antd';
+import { Alert, Col, ConfigProvider, Row, Select, Space, Table } from 'antd';
 import * as React from 'react';
-import { Table, Space, TableProps, ConfigProvider, Select, Row, Col, Alert } from 'antd';
-import { statistic } from '../../../../../components/_util/theme/util/statistic';
+import { statistic } from '../../../../../components/_util/theme';
+
+const wrapValue = (value: any) => {
+  const string = String(value);
+
+  let additionalInfo: React.ReactNode;
+
+  if (string.startsWith('#') || string.startsWith('rgba(')) {
+    additionalInfo = (
+      <span
+        style={{
+          display: 'inline-block',
+          width: '1em',
+          height: '1em',
+          background: string,
+          boxShadow: '0 0 2px rgba(50,50,50,0.5)',
+        }}
+      />
+    );
+  }
+
+  return additionalInfo ? (
+    <div style={{ display: 'flex', alignItems: 'center', columnGap: 8 }}>
+      {additionalInfo}
+      {string}
+    </div>
+  ) : (
+    string
+  );
+};
 
 const columns: TableProps<{ name: string; value: any }>['columns'] = [
   {
@@ -24,7 +54,7 @@ const columns: TableProps<{ name: string; value: any }>['columns'] = [
                   <li key={index}>
                     <Space size="large">
                       <span style={{ userSelect: 'none' }}>[{index}]</span>
-                      {val}
+                      {wrapValue(val)}
                     </Space>
                   </li>
                 ))}
@@ -36,7 +66,7 @@ const columns: TableProps<{ name: string; value: any }>['columns'] = [
 
         // eslint-disable-next-line no-fallthrough
         default:
-          content = String(value);
+          content = wrapValue(value);
       }
 
       return <span style={{ wordBreak: 'break-word' }}>{content}</span>;
@@ -82,7 +112,7 @@ export default () => {
   }, []);
 
   const filteredTokenList = React.useMemo(() => {
-    const tokenKeys = statistic[selectedComponent!] || [];
+    const tokenKeys = statistic[selectedComponent!]?.global || [];
 
     if (!tokenKeys.length) {
       return tokenList;
@@ -90,6 +120,15 @@ export default () => {
 
     return tokenList.filter(({ name }) => tokenKeys.includes(name));
   }, [tokenList, selectedComponent]);
+
+  const componentTokenList = React.useMemo(
+    () =>
+      Object.entries(statistic[selectedComponent!]?.component || {}).map(([key, value]) => ({
+        name: key,
+        value,
+      })),
+    [selectedComponent],
+  );
 
   return (
     <Row gutter={[0, 16]}>
@@ -110,7 +149,21 @@ export default () => {
           />
         </Col>
       )}
+      {componentTokenList.length > 0 && (
+        <Col span={24}>
+          <h3 style={{ paddingBottom: 4 }}>Component Token</h3>
+          <Table
+            dataSource={componentTokenList}
+            columns={columns}
+            rowKey="name"
+            bordered
+            size="small"
+            pagination={false}
+          />
+        </Col>
+      )}
       <Col span={24}>
+        <h3 style={{ paddingBottom: 4 }}>Global Token</h3>
         <Table
           dataSource={filteredTokenList}
           columns={columns}

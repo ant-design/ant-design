@@ -13,15 +13,17 @@ title:
 
 Simple mode.
 
-```jsx
+```tsx
 import { Pagination } from 'antd';
+import React from 'react';
 
-ReactDOM.render(
+const App: React.FC = () => (
   <>
     <Pagination simple defaultCurrent={2} total={50} />
     <br />
     <Pagination disabled simple defaultCurrent={2} total={50} />
-  </>,
-  mountNode,
+  </>
 );
+
+export default App;
 ```

@@ -1,4 +1,4 @@
-import { CSSObject, CSSInterpolation } from '@ant-design/cssinjs';
+import type { CSSObject, CSSInterpolation } from '@ant-design/cssinjs';
 import type { SelectToken } from '.';
 import { mergeToken, resetIcon } from '../../_util/theme';
 

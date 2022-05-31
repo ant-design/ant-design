@@ -1,6 +1,7 @@
-import React from 'react';
+import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
 import { render } from 'enzyme';
-import moment from 'moment';
+import React from 'react';
 import ConfigProvider from '..';
 import Alert from '../../alert';
 import Anchor from '../../anchor';
@@ -23,15 +24,15 @@ import Drawer from '../../drawer';
 import Dropdown from '../../dropdown';
 import Empty from '../../empty';
 import Form from '../../form';
-import { Row, Col } from '../../grid';
+import { Col, Row } from '../../grid';
 import Input from '../../input';
 import InputNumber from '../../input-number';
 import Layout from '../../layout';
 import List from '../../list';
 import Menu from '../../menu';
 import Modal from '../../modal';
-import Pagination from '../../pagination';
 import PageHeader from '../../page-header';
+import Pagination from '../../pagination';
 import Popconfirm from '../../popconfirm';
 import Popover from '../../popover';
 import Progress from '../../progress';
@@ -56,6 +57,7 @@ import Tree from '../../tree';
 import TreeSelect from '../../tree-select';
 import Upload from '../../upload';
 
+dayjs.extend(customParseFormat);
 jest.mock('rc-util/lib/Portal');
 
 describe('ConfigProvider', () => {
@@ -97,6 +99,16 @@ describe('ConfigProvider', () => {
           expect(
             render(
               <ConfigProvider componentSize="middle" prefixCls="config">
+                {renderComponent({})}
+              </ConfigProvider>,
+            ),
+          ).toMatchSnapshot();
+        });
+
+        it('configProvider componentDisabled', () => {
+          expect(
+            render(
+              <ConfigProvider componentDisabled prefixCls="config">
                 {renderComponent({})}
               </ConfigProvider>,
             ),
@@ -182,8 +194,8 @@ describe('ConfigProvider', () => {
     // Calendar
     testPair('Calendar', props => (
       <div>
-        <Calendar {...props} value={moment('2000-09-03')} mode="month" />
-        <Calendar {...props} value={moment('2000-09-03')} mode="year" />
+        <Calendar {...props} value={dayjs('2000-09-03')} mode="month" />
+        <Calendar {...props} value={dayjs('2000-09-03')} mode="year" />
       </div>
     ));
 
@@ -541,7 +553,7 @@ describe('ConfigProvider', () => {
 
     // TimePicker
     testPair('TimePicker', props => (
-      <TimePicker {...props} open defaultOpenValue={moment('00:00:00', 'HH:mm:ss')} />
+      <TimePicker {...props} open defaultOpenValue={dayjs('00:00:00', 'HH:mm:ss')} />
     ));
 
     // Timeline

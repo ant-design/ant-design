@@ -140,6 +140,10 @@ ConfigProvider.config({
 });
 ```
 
+### 为什么我不应该通过 ref 访问组件内部的 props 和 state？
+
+你通过 ref 获得引用时只应该使用文档提供的方法。直接读取组件内部的 `props` 和 `state` 不是一个好的设计，这会使你的代码与组件版本强耦合。任何重构都可能会使你的代码无法工作，其中重构包括且不仅限于改造成 [Hooks](https://reactjs.org/docs/hooks-intro.html) 版本、移除 / 更名内部 `props` 与 `state`、调整内部 React 节点结构等等。
+
 ### 如何正确的拼写 Ant Design？
 
 - ✅ **Ant Design**：用空格分隔的首字母大写单词，指代设计语言。
@@ -149,6 +153,7 @@ ConfigProvider.config({
 下面是一些典型的错误例子：
 
 - ❌ AntD
+- ❌ Ant-D
 - ❌ antD
 - ❌ Antd
 - ❌ ant design

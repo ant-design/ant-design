@@ -13,29 +13,21 @@ title:
 
 Using `reverse` to render slider reversely.
 
-```jsx
+```tsx
 import { Slider, Switch } from 'antd';
+import React, { useState } from 'react';
 
-class Demo extends React.Component {
-  state = {
-    reverse: true,
-  };
+const App: React.FC = () => {
+  const [reverse, setReverse] = useState(true);
 
-  handleReverseChange = reverse => {
-    this.setState({ reverse });
-  };
+  return (
+    <>
+      <Slider defaultValue={30} reverse={reverse} />
+      <Slider range defaultValue={[20, 50]} reverse={reverse} />
+      Reversed: <Switch size="small" checked={reverse} onChange={setReverse} />
+    </>
+  );
+};
 
-  render() {
-    const { reverse } = this.state;
-    return (
-      <>
-        <Slider defaultValue={30} reverse={reverse} />
-        <Slider range defaultValue={[20, 50]} reverse={reverse} />
-        Reversed: <Switch size="small" checked={reverse} onChange={this.handleReverseChange} />
-      </>
-    );
-  }
-}
-
-ReactDOM.render(<Demo />, mountNode);
+export default App;
 ```

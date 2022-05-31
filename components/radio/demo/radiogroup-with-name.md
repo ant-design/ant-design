@@ -13,10 +13,11 @@ title:
 
 Passing the `name` property to all `input[type="radio"]` that are in the same Radio.Group. It is usually used to let the browser see your Radio.Group as a real "group" and keep the default behavior. For example, using left/right keyboard arrow to change your selection that in the same Radio.Group.
 
-```jsx
+```tsx
 import { Radio } from 'antd';
+import React from 'react';
 
-const App = () => (
+const App: React.FC = () => (
   <Radio.Group name="radiogroup" defaultValue={1}>
     <Radio value={1}>A</Radio>
     <Radio value={2}>B</Radio>
@@ -25,5 +26,5 @@ const App = () => (
   </Radio.Group>
 );
 
-ReactDOM.render(<App />, mountNode);
+export default App;
 ```

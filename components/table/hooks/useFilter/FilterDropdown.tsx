@@ -1,30 +1,31 @@
-import * as React from 'react';
+import FilterFilled from '@ant-design/icons/FilterFilled';
 import classNames from 'classnames';
 import isEqual from 'lodash/isEqual';
-import FilterFilled from '@ant-design/icons/FilterFilled';
+import * as React from 'react';
+import type { FilterState } from '.';
+import { flattenKeys } from '.';
 import Button from '../../../button';
-import Menu from '../../../menu';
-import type { MenuProps } from '../../../menu';
-import Tree from '../../../tree';
-import type { DataNode, EventDataNode } from '../../../tree';
-import Checkbox from '../../../checkbox';
 import type { CheckboxChangeEvent } from '../../../checkbox';
-import Radio from '../../../radio';
+import Checkbox from '../../../checkbox';
+import { ConfigContext } from '../../../config-provider/context';
 import Dropdown from '../../../dropdown';
 import Empty from '../../../empty';
-import {
-  ColumnType,
+import type { MenuProps } from '../../../menu';
+import Menu from '../../../menu';
+import Radio from '../../../radio';
+import type { DataNode, EventDataNode } from '../../../tree';
+import Tree from '../../../tree';
+import useSyncState from '../../../_util/hooks/useSyncState';
+import type {
   ColumnFilterItem,
+  ColumnType,
+  FilterSearchType,
+  GetPopupContainer,
   Key,
   TableLocale,
-  GetPopupContainer,
-  FilterSearchType,
 } from '../../interface';
-import FilterDropdownMenuWrapper from './FilterWrapper';
 import FilterSearch from './FilterSearch';
-import { FilterState, flattenKeys } from '.';
-import useSyncState from '../../../_util/hooks/useSyncState';
-import { ConfigContext } from '../../../config-provider/context';
+import FilterDropdownMenuWrapper from './FilterWrapper';
 
 interface FilterRestProps {
   confirm?: Boolean;
@@ -384,6 +385,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
             locale={locale}
           />
           <Menu
+            selectable
             multiple={filterMultiple}
             prefixCls={`${dropdownPrefixCls}-menu`}
             className={dropdownMenuClass}
@@ -407,16 +409,22 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
       );
     };
 
+    const getResetDisabled = () => {
+      if (filterResetToDefaultFilteredValue) {
+        return isEqual(
+          (defaultFilteredValue || []).map(key => String(key)),
+          selectedKeys,
+        );
+      }
+
+      return selectedKeys.length === 0;
+    };
+
     dropdownContent = (
       <>
         {getFilterComponent()}
         <div className={`${prefixCls}-dropdown-btns`}>
-          <Button
-            type="link"
-            size="small"
-            disabled={selectedKeys.length === 0}
-            onClick={() => onReset()}
-          >
+          <Button type="link" size="small" disabled={getResetDisabled()} onClick={() => onReset()}>
             {locale.filterReset}
           </Button>
           <Button type="primary" size="small" onClick={onConfirm}>

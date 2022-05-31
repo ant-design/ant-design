@@ -1,10 +1,11 @@
+import { mount } from 'enzyme';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
-import { mount, render } from 'enzyme';
 import Table from '..';
+import { render } from '../../../tests/utils';
 import Checkbox from '../../checkbox';
-import { resetWarned } from '../../_util/devWarning';
 import ConfigProvider from '../../config-provider';
+import { resetWarned } from '../../_util/warning';
 
 describe('Table.rowSelection', () => {
   window.requestAnimationFrame = callback => window.setTimeout(callback, 16);
@@ -216,7 +217,9 @@ describe('Table.rowSelection', () => {
       .last()
       .simulate('change', { target: { checked: true } });
 
-    expect(handleChange).toHaveBeenCalledWith([3], [{ key: 3, name: 'Jerry' }]);
+    expect(handleChange).toHaveBeenCalledWith([3], [{ key: 3, name: 'Jerry' }], {
+      type: 'single',
+    });
     expect(handleSelect.mock.calls.length).toBe(1);
     expect(handleSelect.mock.calls[0][0]).toEqual({ key: 3, name: 'Jerry' });
     expect(handleSelect.mock.calls[0][1]).toEqual(true);
@@ -251,6 +254,9 @@ describe('Table.rowSelection', () => {
         nativeEvent: { shiftKey: true },
       });
     expect(handleSelect).toHaveBeenCalled();
+    expect(handleChange).toHaveBeenLastCalledWith([0], [{ key: 0, name: 'Jack' }], {
+      type: 'single',
+    });
 
     wrapper
       .find('input')
@@ -264,6 +270,15 @@ describe('Table.rowSelection', () => {
       [data[0], data[1], data[2]],
       [data[1], data[2]],
     );
+    expect(handleChange).toHaveBeenLastCalledWith(
+      [0, 1, 2],
+      [
+        { key: 0, name: 'Jack' },
+        { key: 1, name: 'Lucy' },
+        { key: 2, name: 'Tom' },
+      ],
+      { type: 'multiple' },
+    );
 
     wrapper
       .find('input')
@@ -273,6 +288,7 @@ describe('Table.rowSelection', () => {
         nativeEvent: { shiftKey: true },
       });
     expect(handleSelectMulti).toHaveBeenCalledWith(false, [], [data[0], data[1], data[2]]);
+    expect(handleChange).toHaveBeenLastCalledWith([], [], { type: 'multiple' });
 
     expect(order).toEqual([
       'onSelect',
@@ -334,8 +350,8 @@ describe('Table.rowSelection', () => {
       selections: true,
     };
     const wrapper = mount(createTable({ rowSelection }));
-    const dropdownWrapper = render(wrapper.find('Trigger').instance().getComponent());
-    expect(dropdownWrapper).toMatchSnapshot();
+    const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
+    expect(dropdownWrapper.render()).toMatchSnapshot();
   });
 
   it('fires selectInvert event', () => {
@@ -467,7 +483,7 @@ describe('Table.rowSelection', () => {
       wrapper.find('Trigger').setState({ popupVisible: true });
       wrapper.find('li.ant-dropdown-menu-item').first().simulate('click');
 
-      expect(onChange).toHaveBeenCalledWith([0, 2], expect.anything());
+      expect(onChange).toHaveBeenCalledWith([0, 2], expect.anything(), { type: 'all' });
     });
 
     it('SELECTION_INVERT', () => {
@@ -487,7 +503,7 @@ describe('Table.rowSelection', () => {
       wrapper.find('Trigger').setState({ popupVisible: true });
       wrapper.find('li.ant-dropdown-menu-item').first().simulate('click');
 
-      expect(onChange).toHaveBeenCalledWith([0], expect.anything());
+      expect(onChange).toHaveBeenCalledWith([0], expect.anything(), { type: 'invert' });
     });
 
     it('SELECTION_NONE', () => {
@@ -507,7 +523,7 @@ describe('Table.rowSelection', () => {
       wrapper.find('Trigger').setState({ popupVisible: true });
       wrapper.find('li.ant-dropdown-menu-item').first().simulate('click');
 
-      expect(onChange).toHaveBeenCalledWith([1], expect.anything());
+      expect(onChange).toHaveBeenCalledWith([1], expect.anything(), { type: 'none' });
     });
   });
 
@@ -569,32 +585,32 @@ describe('Table.rowSelection', () => {
 
   // https://github.com/ant-design/ant-design/issues/4245
   it('should allow dynamic getCheckboxProps', () => {
-    class App extends React.Component {
-      state = {
-        disableName: 'Jack',
-      };
+    const { container, rerender } = render(
+      <Table
+        columns={columns}
+        dataSource={data}
+        rowSelection={{
+          getCheckboxProps: record => ({ disabled: record.name === 'Jack' }),
+        }}
+      />,
+    );
 
-      render() {
-        const { disableName } = this.state;
-        return (
-          <Table
-            columns={columns}
-            dataSource={data}
-            rowSelection={{
-              getCheckboxProps: record => ({ disabled: record.name === disableName }),
-            }}
-          />
-        );
-      }
-    }
-    const wrapper = mount(<App />);
-    let checkboxs = wrapper.find('input');
-    expect(checkboxs.at(1).props().disabled).toBe(true);
-    expect(checkboxs.at(2).props().disabled).toBe(false);
-    wrapper.setState({ disableName: 'Lucy' });
-    checkboxs = wrapper.find('input');
-    expect(checkboxs.at(1).props().disabled).toBe(false);
-    expect(checkboxs.at(2).props().disabled).toBe(true);
+    let checkboxList = container.querySelectorAll('input');
+    expect(checkboxList[1]).toHaveAttribute('disabled');
+    expect(checkboxList[2]).not.toHaveAttribute('disabled');
+
+    rerender(
+      <Table
+        columns={columns}
+        dataSource={data}
+        rowSelection={{
+          getCheckboxProps: record => ({ disabled: record.name === 'Lucy' }),
+        }}
+      />,
+    );
+    checkboxList = container.querySelectorAll('input');
+    expect(checkboxList[1]).not.toHaveAttribute('disabled');
+    expect(checkboxList[2]).toHaveAttribute('disabled');
   });
 
   // https://github.com/ant-design/ant-design/issues/4779
@@ -643,18 +659,18 @@ describe('Table.rowSelection', () => {
   });
 
   it('fix selection column on the left', () => {
-    const wrapper = render(
+    const wrapper = mount(
       createTable({
         rowSelection: { fixed: true },
         scroll: { x: 903 },
       }),
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('fix expand on th left when selection column fixed on the left', () => {
-    const wrapper = render(
+    const wrapper = mount(
       createTable({
         expandable: {
           expandedRowRender() {
@@ -666,11 +682,11 @@ describe('Table.rowSelection', () => {
       }),
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('fix selection column on the left when any other column is fixed', () => {
-    const wrapper = render(
+    const wrapper = mount(
       createTable({
         rowSelection: {},
         columns: [
@@ -684,11 +700,11 @@ describe('Table.rowSelection', () => {
       }),
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('use column as selection column when key is `selection-column`', () => {
-    const wrapper = render(
+    const wrapper = mount(
       createTable({
         rowSelection: {},
         columns: [
@@ -701,7 +717,7 @@ describe('Table.rowSelection', () => {
       }),
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   // https://github.com/ant-design/ant-design/issues/10629
@@ -880,12 +896,14 @@ describe('Table.rowSelection', () => {
     );
     const checkboxes = wrapper.find('input');
     checkboxes.at(2).simulate('change', { target: { checked: true } });
-    expect(onChange).toHaveBeenLastCalledWith([11], [newDatas[0].list[0]]);
+    expect(onChange).toHaveBeenLastCalledWith([11], [newDatas[0].list[0]], { type: 'single' });
     onChange.mockReset();
 
     checkboxes.at(1).simulate('change', { target: { checked: true } });
     const item0 = newDatas[0];
-    expect(onChange).toHaveBeenLastCalledWith([11, 1], [newDatas[0].list[0], item0]);
+    expect(onChange).toHaveBeenLastCalledWith([11, 1], [newDatas[0].list[0], item0], {
+      type: 'single',
+    });
   });
 
   it('clear selection className when remove `rowSelection`', () => {
@@ -1378,14 +1396,14 @@ describe('Table.rowSelection', () => {
         .find('tbody input')
         .first()
         .simulate('change', { target: { checked: true } });
-      expect(onChange).toHaveBeenCalledWith(['light'], [{ name: 'light' }]);
+      expect(onChange).toHaveBeenCalledWith(['light'], [{ name: 'light' }], { type: 'single' });
 
       wrapper.setProps({ dataSource: [{ name: 'bamboo' }] });
       wrapper
         .find('tbody input')
         .first()
         .simulate('change', { target: { checked: true } });
-      expect(onChange).toHaveBeenCalledWith(['bamboo'], [{ name: 'bamboo' }]);
+      expect(onChange).toHaveBeenCalledWith(['bamboo'], [{ name: 'bamboo' }], { type: 'single' });
     });
 
     it('cache with preserveSelectedRowKeys', () => {
@@ -1402,7 +1420,7 @@ describe('Table.rowSelection', () => {
         .find('tbody input')
         .first()
         .simulate('change', { target: { checked: true } });
-      expect(onChange).toHaveBeenCalledWith(['light'], [{ name: 'light' }]);
+      expect(onChange).toHaveBeenCalledWith(['light'], [{ name: 'light' }], { type: 'single' });
 
       wrapper.setProps({ dataSource: [{ name: 'bamboo' }] });
       wrapper
@@ -1412,6 +1430,7 @@ describe('Table.rowSelection', () => {
       expect(onChange).toHaveBeenCalledWith(
         ['light', 'bamboo'],
         [{ name: 'light' }, { name: 'bamboo' }],
+        { type: 'single' },
       );
     });
 
@@ -1431,7 +1450,7 @@ describe('Table.rowSelection', () => {
         .find('tbody input')
         .first()
         .simulate('change', { target: { checked: true } });
-      expect(onChange).toHaveBeenCalledWith(['Jack'], [{ name: 'Jack' }]);
+      expect(onChange).toHaveBeenCalledWith(['Jack'], [{ name: 'Jack' }], { type: 'single' });
     });
 
     it('works with selectionType radio receive selectedRowKeys from [] to undefined', () => {
@@ -1450,7 +1469,7 @@ describe('Table.rowSelection', () => {
         .find('tbody input')
         .first()
         .simulate('change', { target: { checked: true } });
-      expect(onChange).toHaveBeenCalledWith(['Jack'], [{ name: 'Jack' }]);
+      expect(onChange).toHaveBeenCalledWith(['Jack'], [{ name: 'Jack' }], { type: 'single' });
     });
 
     it('selectedRows ant selectedKeys should keep sync in initial state', () => {
@@ -1483,7 +1502,11 @@ describe('Table.rowSelection', () => {
         .find('tbody input')
         .first()
         .simulate('change', { target: { checked: true } });
-      expect(onChange).toHaveBeenCalledWith(['Jack', 'Lucy'], [{ name: 'Jack' }, { name: 'Lucy' }]);
+      expect(onChange).toHaveBeenCalledWith(
+        ['Jack', 'Lucy'],
+        [{ name: 'Jack' }, { name: 'Lucy' }],
+        { type: 'single' },
+      );
     });
   });
 });

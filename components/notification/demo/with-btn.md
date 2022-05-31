@@ -13,8 +13,9 @@ title:
 
 To customize the style or font of the close button.
 
-```jsx
-import { Button, notification } from 'antd';
+```tsx
+import { Button, notification, Space } from 'antd';
+import React from 'react';
 
 const close = () => {
   console.log(
@@ -22,27 +23,40 @@ const close = () => {
   );
 };
 
-const openNotification = () => {
-  const key = `open${Date.now()}`;
-  const btn = (
-    <Button type="primary" size="small" onClick={() => notification.close(key)}>
-      Confirm
-    </Button>
+const App: React.FC = () => {
+  const [api, contextHolder] = notification.useNotification();
+
+  const openNotification = () => {
+    const key = `open${Date.now()}`;
+    const btn = (
+      <Space>
+        <Button type="link" size="small" onClick={() => notification.destroy()}>
+          Destroy All
+        </Button>
+        <Button type="primary" size="small" onClick={() => notification.destroy(key)}>
+          Confirm
+        </Button>
+      </Space>
+    );
+    api.open({
+      message: 'Notification Title',
+      description:
+        'A function will be be called after the notification is closed (automatically after the "duration" time of manually).',
+      btn,
+      key,
+      onClose: close,
+    });
+  };
+
+  return (
+    <>
+      {contextHolder}
+      <Button type="primary" onClick={openNotification}>
+        Open the notification box
+      </Button>
+    </>
   );
-  notification.open({
-    message: 'Notification Title',
-    description:
-      'A function will be be called after the notification is closed (automatically after the "duration" time of manually).',
-    btn,
-    key,
-    onClose: close,
-  });
 };
 
-ReactDOM.render(
-  <Button type="primary" onClick={openNotification}>
-    Open the notification box
-  </Button>,
-  mountNode,
-);
+export default App;
 ```

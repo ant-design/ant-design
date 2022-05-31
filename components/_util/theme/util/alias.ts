@@ -72,6 +72,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
 
     lineHeight: lineHeights[1],
     lineHeightLG: lineHeights[2],
+    lineHeightSM: lineHeights[0],
 
     lineHeightHeading1: lineHeights[6],
     lineHeightHeading2: lineHeights[5],
@@ -83,10 +84,12 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     controlLineWidth: mergedToken.lineWidth,
     controlOutlineWidth: mergedToken.lineWidth * 2,
     controlItemBgHover: mergedToken.colorBgBelow2,
+    // Checkbox size and expand icon size
+    controlInteractiveSize: mergedToken.controlHeight / 2,
 
     // 👀👀👀👀👀👀👀👀👀 Not align with Derivative 👀👀👀👀👀👀👀👀👀
     // FIXME: @arvinxx handle this
-    controlLineType: 'solid',
+    controlLineType: mergedToken.lineType,
     controlRadius: mergedToken.radiusBase,
     colorBorder: new TinyColor({ h: 0, s: 0, v: 85 }).toHexString(),
     colorSplit: 'rgba(0, 0, 0, 0.06)',
@@ -98,6 +101,8 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     // primaryColors,
     // warningColors,
     // errorColors,
+
+    colorLoadingOpacity: 0.65,
 
     colorSuccessSecondary: successColors[2],
     colorWarningSecondary: warningColors[2],
@@ -118,11 +123,14 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     paddingXS: 8,
     paddingSM: 12,
     paddingLG: 24,
+    paddingXL: 32,
 
     marginXXS: 4,
     marginXS: 8,
     marginSM: 12,
     marginLG: 24,
+    marginXL: 32,
+    marginXXL: 48,
 
     boxShadow: `
       0 3px 6px -4px rgba(0, 0, 0, 0.12),
@@ -150,6 +158,9 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     screenXXLMax: screenXXL - 1,
 
     motionEaseOut: 'cubic-bezier(0.215, 0.61, 0.355, 1)',
+
+    colorPopupBg: new TinyColor('#000').setAlpha(0.45).toRgbString(),
+    colorBorderSecondary: new TinyColor({ h: 0, s: 0, v: 94 }).toHexString(),
   };
 
   return aliasToken;

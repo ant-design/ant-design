@@ -3,7 +3,7 @@ import Pagination from 'rc-pagination/lib/locale/de_DE';
 import DatePicker from '../date-picker/locale/de_DE';
 import TimePicker from '../time-picker/locale/de_DE';
 import Calendar from '../calendar/locale/de_DE';
-import { Locale } from '../locale-provider';
+import type { Locale } from '../locale-provider';
 
 const typeTemplate = '${label} ist nicht gültig. ${type} erwartet';
 
@@ -20,10 +20,12 @@ const localeValues: Locale = {
     filterTitle: 'Filter-Menü',
     filterConfirm: 'OK',
     filterReset: 'Zurücksetzen',
+    filterSearchPlaceholder: 'Suche in Filtern',
     selectAll: 'Selektiere Alle',
     selectInvert: 'Selektion Invertieren',
     selectionAll: 'Wählen Sie alle Daten aus',
     sortTitle: 'Sortieren',
+    emptyText: 'Keine Daten',
     expand: 'Zeile erweitern',
     collapse: 'Zeile reduzieren',
     triggerDesc: 'Klicken zur absteigenden  Sortierung',

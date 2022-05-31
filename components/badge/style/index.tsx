@@ -1,14 +1,8 @@
 // deps-lint-skip-all
-import { CSSObject, Keyframes } from '@ant-design/cssinjs';
-import {
-  resetComponent,
-  GenerateStyle,
-  PresetColors,
-  PresetColorType,
-  genComponentStyleHook,
-  FullToken,
-  mergeToken,
-} from '../../_util/theme';
+import type { CSSObject } from '@ant-design/cssinjs';
+import { Keyframes } from '@ant-design/cssinjs';
+import type { GenerateStyle, PresetColorType, FullToken } from '../../_util/theme';
+import { resetComponent, PresetColors, genComponentStyleHook, mergeToken } from '../../_util/theme';
 
 interface BadgeToken extends FullToken<'Badge'> {
   badgeZIndex: number | string;
@@ -54,10 +48,7 @@ const antBadgeLoadingCircle = new Keyframes('antBadgeLoadingCircle', {
   },
 });
 
-const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (
-  token: BadgeToken,
-  hashId: string,
-): CSSObject => {
+const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSObject => {
   const { componentCls, iconCls, antCls } = token;
   const numberPrefixCls = `${antCls}-scroll-number`;
   const ribbonPrefixCls = `${antCls}-ribbon`;
@@ -147,9 +138,10 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (
         transform: 'translate(50%, -50%)',
         transformOrigin: '100% 0%',
         [`${iconCls}-spin`]: {
-          animation: `${antBadgeLoadingCircle.getName(hashId)} ${
-            token.motionDurationFast
-          } infinite linear`,
+          animationName: antBadgeLoadingCircle,
+          animationDuration: token.motionDurationFast,
+          animationIterationCount: 'infinite',
+          animationTimingFunction: 'linear',
         },
       },
       [`&${componentCls}-status`]: {
@@ -181,7 +173,10 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (
             height: '100%',
             border: `1px solid ${token.colorPrimary}`,
             borderRadius: '50%',
-            animation: `${antStatusProcessing.getName(hashId)} 1.2s infinite ease-in-out`, // FIXME: hard code, copied from old less file
+            animationName: antStatusProcessing,
+            animationDuration: '1.2s',
+            animationIterationCount: 'infinite',
+            animationTimingFunction: 'ease-in-out',
             content: '""',
           },
         },
@@ -204,28 +199,28 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (
         },
       },
       [`${componentCls}-zoom-appear, ${componentCls}-zoom-enter`]: {
-        animation: `${antZoomBadgeIn.getName(hashId)} ${token.motionDurationSlow} ${
-          token.motionEaseOutBack
-        }`,
+        animationName: antZoomBadgeIn,
+        animationDuration: token.motionDurationSlow,
+        animationTimingFunction: token.motionEaseOutBack,
         animationFillMode: 'both',
       },
       [`${componentCls}-zoom-leave`]: {
-        animation: `${antZoomBadgeOut.getName(hashId)} ${token.motionDurationSlow} ${
-          token.motionEaseOutBack
-        }`,
+        animationName: antZoomBadgeOut,
+        animationDuration: token.motionDurationSlow,
+        animationTimingFunction: token.motionEaseOutBack,
         animationFillMode: 'both',
       },
       [`&${componentCls}-not-a-wrapper`]: {
         [`${componentCls}-zoom-appear, ${componentCls}-zoom-enter`]: {
-          animation: `${antNoWrapperZoomBadgeIn.getName(hashId)} ${token.motionDurationSlow} ${
-            token.motionEaseOutBack
-          }`,
+          animationName: antNoWrapperZoomBadgeIn,
+          animationDuration: token.motionDurationSlow,
+          animationTimingFunction: token.motionEaseOutBack,
         },
 
         [`${componentCls}-zoom-leave`]: {
-          animation: `${antNoWrapperZoomBadgeOut.getName(hashId)} ${token.motionDurationSlow} ${
-            token.motionEaseOutBack
-          }`,
+          animationName: antNoWrapperZoomBadgeOut,
+          animationDuration: token.motionDurationSlow,
+          animationTimingFunction: token.motionEaseOutBack,
         },
         [`&:not(${componentCls}-status)`]: {
           verticalAlign: 'middle',
@@ -296,7 +291,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (
       ...statusRibbonPreset,
       [`&${ribbonPrefixCls}-placement-end`]: {
         insetInlineEnd: -1 * token.marginXS,
-        borderBottomRightRadius: 0,
+        borderEndEndRadius: 0,
         [`${ribbonPrefixCls}-corner`]: {
           insetInlineEnd: 0,
           borderColor: 'currentcolor transparent transparent currentcolor',
@@ -304,24 +299,18 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (
       },
       [`&${ribbonPrefixCls}-placement-start`]: {
         insetInlineStart: -1 * token.marginXS,
-        borderBottomLeftRadius: 0,
+        borderEndStartRadius: 0,
         [`${ribbonPrefixCls}-corner`]: {
           insetInlineStart: 0,
           borderColor: 'currentcolor currentcolor transparent transparent',
         },
       },
-      antStatusProcessing,
-      antZoomBadgeIn,
-      antZoomBadgeOut,
-      antNoWrapperZoomBadgeIn,
-      antNoWrapperZoomBadgeOut,
-      antBadgeLoadingCircle,
     },
   };
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Badge', (token, { hashId }) => {
+export default genComponentStyleHook('Badge', token => {
   const badgeZIndex = 'auto';
   const badgeHeight = 20; // FIXME: hard code
   const badgeTextColor = token.colorBgComponent;
@@ -346,5 +335,5 @@ export default genComponentStyleHook('Badge', (token, { hashId }) => {
     badgeStatusSize,
   });
 
-  return [genSharedBadgeStyle(badgeToken, hashId), { display: 'none' }];
+  return [genSharedBadgeStyle(badgeToken), { display: 'none' }];
 });

@@ -2,7 +2,8 @@ import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
 import debounce from 'lodash/debounce';
-import { ConfigConsumer, ConfigConsumerProps, ConfigContext } from '../config-provider';
+import type { ConfigConsumerProps } from '../config-provider';
+import { ConfigConsumer, ConfigContext } from '../config-provider';
 import { tuple } from '../_util/type';
 import { isValidElement, cloneElement } from '../_util/reactNode';
 import useStyle from './style/index';
@@ -21,6 +22,7 @@ export interface SpinProps {
   delay?: number;
   wrapperClassName?: string;
   indicator?: SpinIndicator;
+  children?: React.ReactNode;
 }
 
 export interface SpinClassProps extends SpinProps {
@@ -75,7 +77,7 @@ function shouldDelay(spinning?: boolean, delay?: number): boolean {
   return !!spinning && !!delay && !isNaN(Number(delay));
 }
 
-export class Spin extends React.Component<SpinClassProps, SpinState> {
+class Spin extends React.Component<SpinClassProps, SpinState> {
   static defaultProps = {
     spinning: true,
     size: 'default' as SpinSize,

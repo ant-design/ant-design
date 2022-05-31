@@ -15,17 +15,19 @@ title:
 When dealing with long content, a fixed sider can provide a better user experience.
 
 ```tsx
-import { Layout, Menu, MenuProps } from 'antd';
 import {
   AppstoreOutlined,
   BarChartOutlined,
   CloudOutlined,
   ShopOutlined,
   TeamOutlined,
-  UserOutlined,
   UploadOutlined,
+  UserOutlined,
   VideoCameraOutlined,
 } from '@ant-design/icons';
+import type { MenuProps } from 'antd';
+import { Layout, Menu } from 'antd';
+import React from 'react';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -44,7 +46,7 @@ const items: MenuProps['items'] = [
   label: `nav ${index + 1}`,
 }));
 
-ReactDOM.render(
+const App: React.FC = () => (
   <Layout hasSider>
     <Sider
       style={{
@@ -162,9 +164,10 @@ ReactDOM.render(
       </Content>
       <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
     </Layout>
-  </Layout>,
-  mountNode,
+  </Layout>
 );
+
+export default App;
 ```
 
 ```css
@@ -173,7 +176,7 @@ ReactDOM.render(
   margin: 16px;
   background: rgba(255, 255, 255, 0.2);
 }
-.site-layout .site-layout-background {
+#components-layout-demo-fixed-sider .site-layout .site-layout-background {
   background: #fff;
 }
 ```

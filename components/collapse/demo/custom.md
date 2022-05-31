@@ -13,9 +13,10 @@ title:
 
 Customize the background, border, margin styles and icon for each panel.
 
-```jsx
-import { Collapse } from 'antd';
+```tsx
 import { CaretRightOutlined } from '@ant-design/icons';
+import { Collapse } from 'antd';
+import React from 'react';
 
 const { Panel } = Collapse;
 
@@ -25,7 +26,7 @@ const text = `
   it can be found as a welcome guest in many households across the world.
 `;
 
-ReactDOM.render(
+const App: React.FC = () => (
   <Collapse
     bordered={false}
     defaultActiveKey={['1']}
@@ -41,9 +42,10 @@ ReactDOM.render(
     <Panel header="This is panel header 3" key="3" className="site-collapse-custom-panel">
       <p>{text}</p>
     </Panel>
-  </Collapse>,
-  mountNode,
+  </Collapse>
 );
+
+export default App;
 ```
 
 ```css
@@ -52,7 +54,7 @@ ReactDOM.render(
   margin-bottom: 24px;
   overflow: hidden;
   background: #f7f7f7;
-  border: 0px;
+  border: 0px !important;
   border-radius: 2px;
 }
 ```

@@ -1,7 +1,9 @@
 // deps-lint-skip-all
-import { CSSObject, Keyframes } from '@ant-design/cssinjs';
+import type { CSSObject } from '@ant-design/cssinjs';
+import { Keyframes } from '@ant-design/cssinjs';
 
-import { GenerateStyle, FullToken, genComponentStyleHook, mergeToken } from '../../_util/theme';
+import type { GenerateStyle, FullToken } from '../../_util/theme';
+import { genComponentStyleHook, mergeToken } from '../../_util/theme';
 
 const skeletonClsLoading = new Keyframes(`ant-skeleton-loading`, {
   '0%': {
@@ -40,13 +42,15 @@ const genSkeletonElementAvatarSize = (size: number): CSSObject => ({
   ...genSkeletonElementCommonSize(size),
 });
 
-const genSkeletonColor = (token: SkeletonToken, hashId: string): CSSObject => {
+const genSkeletonColor = (token: SkeletonToken): CSSObject => {
   const { skeletonColor, skeletonToColor } = token;
   return {
     background: `linear-gradient(90deg, ${skeletonColor} 25%, ${skeletonToColor} 37%, ${skeletonColor} 63%)`,
     backgroundSize: '400% 100%',
-    animation: `${skeletonClsLoading.getName(hashId)} 1.4s ease infinite`,
-    skeletonClsLoading,
+    animationName: skeletonClsLoading,
+    animationDuration: '1.4s', // FIXME: magic
+    animationTimingFunction: 'ease',
+    animationIterationCount: 'infinite',
   };
 };
 
@@ -189,7 +193,7 @@ const genSkeletonElementButton = (token: SkeletonToken): CSSObject => {
 };
 
 // =============================== Base ===============================
-const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken, hashId: string) => {
+const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken) => {
   const {
     componentCls,
     skeletonAvatarCls,
@@ -319,29 +323,29 @@ const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken, hashId
     [`${componentCls}${componentCls}-active`]: {
       [`${componentCls}-content`]: {
         [`${skeletonTitleCls}, ${skeletonParagraphCls} > li`]: {
-          ...genSkeletonColor(token, hashId),
+          ...genSkeletonColor(token),
         },
       },
       [`${skeletonAvatarCls}`]: {
-        ...genSkeletonColor(token, hashId),
+        ...genSkeletonColor(token),
       },
 
       [`${skeletonButtonCls}`]: {
-        ...genSkeletonColor(token, hashId),
+        ...genSkeletonColor(token),
       },
 
       [`${skeletonInputCls}`]: {
-        ...genSkeletonColor(token, hashId),
+        ...genSkeletonColor(token),
       },
       [`${skeletonImageCls}`]: {
-        ...genSkeletonColor(token, hashId),
+        ...genSkeletonColor(token),
       },
     },
   };
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Skeleton', (token, { hashId }) => {
+export default genComponentStyleHook('Skeleton', token => {
   const { componentCls } = token;
 
   const skeletonToken = mergeToken<SkeletonToken>(token, {
@@ -361,5 +365,5 @@ export default genComponentStyleHook('Skeleton', (token, { hashId }) => {
     skeletonParagraphMarginTop: 28, // FIXME: hard code in v4
     borderRadius: 100, // FIXME: hard code in v4
   });
-  return [genBaseStyle(skeletonToken, hashId)];
+  return [genBaseStyle(skeletonToken)];
 });

@@ -1,7 +1,8 @@
 import React from 'react';
-import { render, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import List from '..';
 import ConfigProvider from '../../config-provider';
+import { render } from '../../../tests/utils';
 
 describe('List Item Layout', () => {
   const data = [
@@ -126,7 +127,7 @@ describe('List Item Layout', () => {
         />
       </ConfigProvider>,
     );
-    expect(render(wrapper)).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('rowKey could be string', () => {
@@ -177,5 +178,23 @@ describe('List Item Layout', () => {
       />,
     );
     expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('should ref', () => {
+    const ref = React.createRef();
+
+    render(<List.Item ref={ref}>Item</List.Item>);
+    expect(ref.current).toHaveClass('ant-list-item');
+  });
+
+  it('should grid ref', () => {
+    const ref = React.createRef();
+
+    render(
+      <List grid>
+        <List.Item ref={ref}>Item</List.Item>,
+      </List>,
+    );
+    expect(ref.current).toHaveClass('ant-col');
   });
 });

@@ -38,7 +38,7 @@ Ant Design has 3 types of Tabs for different situations.
 | destroyInactiveTabPane | Whether destroy inactive TabPane when change tab | boolean | false |  |
 | type | Basic style of tabs | `line` \| `card` \| `editable-card` | `line` |  |
 | onChange | Callback executed when active tab is changed | function(activeKey) {} | - |  |
-| onEdit | Callback executed when tab is added or removed. Only works while `type="editable-card"` | (targetKey, action) => void | - |  |
+| onEdit | Callback executed when tab is added or removed. Only works while `type="editable-card"` | (action === 'add' ? event : targetKey, action): void | - |  |
 | onTabClick | Callback executed when tab is clicked | function(key: string, event: MouseEvent) | - |  |
 | onTabScroll | Trigger when tab scroll | function({ direction: `left` \| `right` \| `top` \| `bottom` }) | - | 4.3.0 |
 

@@ -13,34 +13,38 @@ title:
 
 Disabled part of dates and time by `disabledDate` and `disabledTime` respectively, and `disabledTime` only works with `showTime`.
 
-```jsx
-import moment from 'moment';
+```tsx
 import { DatePicker, Space } from 'antd';
+import type { RangePickerProps } from 'antd/es/date-picker';
+import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
+import React from 'react';
+
+dayjs.extend(customParseFormat);
 
 const { RangePicker } = DatePicker;
 
-function range(start, end) {
+const range = (start: number, end: number) => {
   const result = [];
   for (let i = start; i < end; i++) {
     result.push(i);
   }
   return result;
-}
+};
 
-function disabledDate(current) {
+// eslint-disable-next-line arrow-body-style
+const disabledDate: RangePickerProps['disabledDate'] = current => {
   // Can not select days before today and today
-  return current && current < moment().endOf('day');
-}
+  return current && current < dayjs().endOf('day');
+};
 
-function disabledDateTime() {
-  return {
-    disabledHours: () => range(0, 24).splice(4, 20),
-    disabledMinutes: () => range(30, 60),
-    disabledSeconds: () => [55, 56],
-  };
-}
+const disabledDateTime = () => ({
+  disabledHours: () => range(0, 24).splice(4, 20),
+  disabledMinutes: () => range(30, 60),
+  disabledSeconds: () => [55, 56],
+});
 
-function disabledRangeTime(_, type) {
+const disabledRangeTime: RangePickerProps['disabledTime'] = (_, type) => {
   if (type === 'start') {
     return {
       disabledHours: () => range(0, 60).splice(4, 20),
@@ -53,15 +57,15 @@ function disabledRangeTime(_, type) {
     disabledMinutes: () => range(0, 31),
     disabledSeconds: () => [55, 56],
   };
-}
+};
 
-ReactDOM.render(
+const App: React.FC = () => (
   <Space direction="vertical" size={12}>
     <DatePicker
       format="YYYY-MM-DD HH:mm:ss"
       disabledDate={disabledDate}
       disabledTime={disabledDateTime}
-      showTime={{ defaultValue: moment('00:00:00', 'HH:mm:ss') }}
+      showTime={{ defaultValue: dayjs('00:00:00', 'HH:mm:ss') }}
     />
     <DatePicker picker="month" disabledDate={disabledDate} />
     <RangePicker disabledDate={disabledDate} />
@@ -70,11 +74,12 @@ ReactDOM.render(
       disabledTime={disabledRangeTime}
       showTime={{
         hideDisabledOptions: true,
-        defaultValue: [moment('00:00:00', 'HH:mm:ss'), moment('11:59:59', 'HH:mm:ss')],
+        defaultValue: [dayjs('00:00:00', 'HH:mm:ss'), dayjs('11:59:59', 'HH:mm:ss')],
       }}
       format="YYYY-MM-DD HH:mm:ss"
     />
-  </Space>,
-  mountNode,
+  </Space>
 );
+
+export default App;
 ```

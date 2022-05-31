@@ -13,14 +13,16 @@ title:
 
 You can select and upload a whole directory.
 
-```jsx
-import { Upload, Button } from 'antd';
+```tsx
 import { UploadOutlined } from '@ant-design/icons';
+import { Button, Upload } from 'antd';
+import React from 'react';
 
-ReactDOM.render(
+const App: React.FC = () => (
   <Upload action="https://www.mocky.io/v2/5cc8019d300000980a055e76" directory>
     <Button icon={<UploadOutlined />}>Upload Directory</Button>
-  </Upload>,
-  mountNode,
+  </Upload>
 );
+
+export default App;
 ```

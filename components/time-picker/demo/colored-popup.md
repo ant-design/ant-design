@@ -14,22 +14,28 @@ debug: true
 
 Passing custom class to `TimePicker` popup
 
-```jsx
+```tsx
 import { TimePicker } from 'antd';
-import moment from 'moment';
+import type { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
+import React from 'react';
 
-const onChange = (time, timeString) => {
+dayjs.extend(customParseFormat);
+
+const onChange = (time: Dayjs, timeString: string) => {
   console.log(time, timeString);
 };
 
-ReactDOM.render(
+const App: React.FC = () => (
   <TimePicker
     onChange={onChange}
-    defaultOpenValue={moment('00:00:00', 'HH:mm:ss')}
+    defaultOpenValue={dayjs('00:00:00', 'HH:mm:ss')}
     popupClassName="myCustomClassName"
-  />,
-  mountNode,
+  />
 );
+
+export default App;
 ```
 
 ```css

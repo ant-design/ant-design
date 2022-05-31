@@ -13,37 +13,36 @@ title:
 
 Specifies a delay for loading state. If `spinning` ends during delay, loading status won't appear.
 
-```jsx
-import { Spin, Alert, Switch } from 'antd';
+```tsx
+import { Alert, Spin, Switch } from 'antd';
+import React, { useState } from 'react';
 
-class Card extends React.Component {
-  state = { loading: false };
+const App: React.FC = () => {
+  const [loading, setLoading] = useState(false);
 
-  toggle = value => {
-    this.setState({ loading: value });
+  const toggle = (checked: boolean) => {
+    setLoading(checked);
   };
+  const container = (
+    <Alert
+      message="Alert message title"
+      description="Further details about the context of this alert."
+      type="info"
+    />
+  );
 
-  render() {
-    const container = (
-      <Alert
-        message="Alert message title"
-        description="Further details about the context of this alert."
-        type="info"
-      />
-    );
-    return (
-      <div>
-        <Spin spinning={this.state.loading} delay={500}>
-          {container}
-        </Spin>
-        <div style={{ marginTop: 16 }}>
-          Loading state：
-          <Switch checked={this.state.loading} onChange={this.toggle} />
-        </div>
+  return (
+    <div>
+      <Spin spinning={loading} delay={500}>
+        {container}
+      </Spin>
+      <div style={{ marginTop: 16 }}>
+        Loading state：
+        <Switch checked={loading} onChange={toggle} />
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
-ReactDOM.render(<Card />, mountNode);
+export default App;
 ```

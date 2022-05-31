@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { act } from 'react-dom/test-utils';
-import { mount } from 'enzyme';
+import { render, fireEvent } from '../../../tests/utils';
 import Avatar from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -36,8 +36,8 @@ describe('Avatar Render', () => {
   });
 
   it('Render long string correctly', () => {
-    const wrapper = mount(<Avatar>TestString</Avatar>);
-    const children = wrapper.find('.ant-avatar-string');
+    const { container: wrapper } = render(<Avatar>TestString</Avatar>);
+    const children = wrapper.querySelectorAll('.ant-avatar-string');
     expect(children.length).toBe(1);
   });
 
@@ -45,13 +45,16 @@ describe('Avatar Render', () => {
     const div = global.document.createElement('div');
     global.document.body.appendChild(div);
 
-    const wrapper = mount(<Avatar src="http://error.url">Fallback</Avatar>, { attachTo: div });
-    wrapper.find('img').simulate('error');
-    const children = wrapper.find('.ant-avatar-string');
+    const { container: wrapper, unmount } = render(
+      <Avatar src="http://error.url">Fallback</Avatar>,
+      { container: div },
+    );
+    fireEvent.error(wrapper.querySelector('img'));
+    const children = wrapper.querySelectorAll('.ant-avatar-string');
     expect(children.length).toBe(1);
-    expect(children.text()).toBe('Fallback');
+    expect(children[0].textContent).toBe('Fallback');
 
-    wrapper.detach();
+    unmount();
     global.document.body.removeChild(div);
   });
 
@@ -80,16 +83,16 @@ describe('Avatar Render', () => {
       }
     }
 
-    const wrapper = mount(<Foo />, { attachTo: div });
+    const { container: wrapper, unmount } = render(<Foo />, { container: div });
     expect(div.querySelector('img').getAttribute('src')).toBe(LOAD_FAILURE_SRC);
     // mock img load Error, since jsdom do not load resource by default
     // https://github.com/jsdom/jsdom/issues/1816
-    wrapper.find('img').simulate('error');
+    fireEvent.error(wrapper.querySelector('img'));
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.firstChild).toMatchSnapshot();
     expect(div.querySelector('img').getAttribute('src')).toBe(LOAD_SUCCESS_SRC);
 
-    wrapper.detach();
+    unmount();
     global.document.body.removeChild(div);
   });
 
@@ -101,29 +104,32 @@ describe('Avatar Render', () => {
     global.document.body.appendChild(div);
 
     // simulate error src url
-    const wrapper = mount(<Avatar src={LOAD_FAILURE_SRC}>Fallback</Avatar>, { attachTo: div });
-    wrapper.find('img').simulate('error');
+    const {
+      container: wrapper,
+      unmount,
+      rerender,
+    } = render(<Avatar src={LOAD_FAILURE_SRC}>Fallback</Avatar>, { container: div });
+    fireEvent.error(wrapper.querySelector('img'));
 
-    expect(wrapper).toMatchSnapshot();
-    expect(wrapper.find('.ant-avatar-string').length).toBe(1);
+    expect(wrapper.firstChild).toMatchSnapshot();
+    expect(wrapper.querySelectorAll('.ant-avatar-string').length).toBe(1);
     // children should show, when image load error without onError return false
-    expect(wrapper.find('.ant-avatar-string').prop('style')).not.toHaveProperty('opacity', 0);
+    expect(wrapper.querySelector('.ant-avatar-string')).not.toHaveStyle({ opacity: 0 });
 
     // simulate successful src url
-    wrapper.setProps({ src: LOAD_SUCCESS_SRC });
-    wrapper.update();
+    rerender(<Avatar src={LOAD_SUCCESS_SRC}>Fallback</Avatar>);
 
-    expect(wrapper).toMatchSnapshot();
-    expect(wrapper.find('.ant-avatar-image').length).toBe(1);
+    expect(wrapper.firstChild).toMatchSnapshot();
+    expect(wrapper.querySelectorAll('.ant-avatar-image').length).toBe(1);
 
     // cleanup
-    wrapper.detach();
+    unmount();
     global.document.body.removeChild(div);
   });
 
   it('should calculate scale of avatar children correctly', () => {
-    const wrapper = mount(<Avatar>Avatar</Avatar>);
-    expect(wrapper.find('.ant-avatar-string')).toMatchSnapshot();
+    const { container, rerender } = render(<Avatar>Avatar</Avatar>);
+    expect(container.querySelector('.ant-avatar-string')).toMatchSnapshot();
 
     Object.defineProperty(HTMLElement.prototype, 'offsetWidth', {
       get() {
@@ -133,20 +139,22 @@ describe('Avatar Render', () => {
         return 40;
       },
     });
-    wrapper.setProps({ children: 'xx' });
-    expect(wrapper.find('.ant-avatar-string')).toMatchSnapshot();
+
+    rerender(<Avatar>xx</Avatar>);
+    expect(container.querySelector('.ant-avatar-string')).toMatchSnapshot();
   });
 
   it('should calculate scale of avatar children correctly with gap', () => {
-    const wrapper = mount(<Avatar gap={2}>Avatar</Avatar>);
-    expect(wrapper.find('.ant-avatar-string')).toMatchSnapshot();
+    const { container: wrapper } = render(<Avatar gap={2}>Avatar</Avatar>);
+    expect(wrapper.querySelector('.ant-avatar-string')).toMatchSnapshot();
   });
 
   it('should warning when pass a string as icon props', () => {
     const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    mount(<Avatar size={64} icon="aa" />);
+    render(<Avatar size={64} icon="aa" />);
     expect(warnSpy).not.toHaveBeenCalled();
-    mount(<Avatar size={64} icon="user" />);
+
+    render(<Avatar size={64} icon="user" />);
     expect(warnSpy).toHaveBeenCalledWith(
       `Warning: [antd: Avatar] \`icon\` is using ReactNode instead of string naming in v4. Please check \`user\` at https://ant.design/components/icon`,
     );
@@ -154,8 +162,8 @@ describe('Avatar Render', () => {
   });
 
   it('support size is number', () => {
-    const wrapper = mount(<Avatar size={100}>TestString</Avatar>);
-    expect(wrapper.render()).toMatchSnapshot();
+    const { container: wrapper } = render(<Avatar size={100}>TestString</Avatar>);
+    expect(wrapper.firstChild).toMatchSnapshot();
   });
 
   Object.entries(sizes).forEach(([key, value]) => {
@@ -173,42 +181,44 @@ describe('Avatar Render', () => {
 
   it('support onMouseEnter', () => {
     const onMouseEnter = jest.fn();
-    const wrapper = mount(<Avatar onMouseEnter={onMouseEnter}>TestString</Avatar>);
-    wrapper.simulate('mouseenter');
+    const { container } = render(<Avatar onMouseEnter={onMouseEnter}>TestString</Avatar>);
+    fireEvent.mouseEnter(container.firstChild);
     expect(onMouseEnter).toHaveBeenCalled();
   });
 
   it('fallback', () => {
     const div = global.document.createElement('div');
     global.document.body.appendChild(div);
-    const wrapper = mount(
+    const element = (
       <Avatar shape="circle" src="http://error.url">
         A
-      </Avatar>,
-      { attachTo: div },
+      </Avatar>
     );
-    wrapper.find('img').simulate('error');
-    wrapper.update();
-    expect(wrapper.render()).toMatchSnapshot();
-    wrapper.detach();
+    const { container: wrapper, unmount, rerender } = render(element, { container: div });
+    fireEvent.error(wrapper.querySelector('img'));
+    rerender(element);
+    expect(wrapper.firstChild).toMatchSnapshot();
+    unmount();
     global.document.body.removeChild(div);
   });
 
   it('should exist crossorigin attribute', () => {
     const LOAD_SUCCESS_SRC = 'https://joeschmoe.io/api/v1/random';
-    const wrapper = mount(
+    const { container: wrapper, getByRole } = render(
       <Avatar src={LOAD_SUCCESS_SRC} crossOrigin="anonymous">
         crossorigin
       </Avatar>,
     );
-    expect(wrapper.html().includes('crossorigin')).toEqual(true);
-    expect(wrapper.find('img').prop('crossOrigin')).toEqual('anonymous');
+    expect(wrapper.querySelector('[crossorigin]')).not.toBeNull();
+    expect(getByRole('img').getAttribute('crossOrigin')).toEqual('anonymous');
   });
 
   it('should not exist crossorigin attribute', () => {
     const LOAD_SUCCESS_SRC = 'https://joeschmoe.io/api/v1/random';
-    const wrapper = mount(<Avatar src={LOAD_SUCCESS_SRC}>crossorigin</Avatar>);
-    expect(wrapper.html().includes('crossorigin')).toEqual(false);
-    expect(wrapper.find('img').prop('crossOrigin')).toEqual(undefined);
+    const { container: wrapper, getByRole } = render(
+      <Avatar src={LOAD_SUCCESS_SRC}>crossorigin</Avatar>,
+    );
+    expect(wrapper.querySelector('[crossorigin]')).toBeNull();
+    expect(getByRole('img').getAttribute('crossOrigin')).toEqual(null);
   });
 });

@@ -13,27 +13,45 @@ title:
 
 Messages of success, error and warning types.
 
-```jsx
-import { message, Button, Space } from 'antd';
+```tsx
+import { Button, message, Space } from 'antd';
+import React from 'react';
 
-const success = () => {
-  message.success('This is a success message');
+const App: React.FC = () => {
+  const [messageApi, contextHolder] = message.useMessage();
+
+  const success = () => {
+    messageApi.open({
+      type: 'success',
+      content: 'This is a success message',
+    });
+  };
+
+  const error = () => {
+    messageApi.open({
+      type: 'error',
+      content: 'This is an error message',
+    });
+  };
+
+  const warning = () => {
+    messageApi.open({
+      type: 'warning',
+      content: 'This is a warning message',
+    });
+  };
+
+  return (
+    <>
+      {contextHolder}
+      <Space>
+        <Button onClick={success}>Success</Button>
+        <Button onClick={error}>Error</Button>
+        <Button onClick={warning}>Warning</Button>
+      </Space>
+    </>
+  );
 };
 
-const error = () => {
-  message.error('This is an error message');
-};
-
-const warning = () => {
-  message.warning('This is a warning message');
-};
-
-ReactDOM.render(
-  <Space>
-    <Button onClick={success}>Success</Button>
-    <Button onClick={error}>Error</Button>
-    <Button onClick={warning}>Warning</Button>
-  </Space>,
-  mountNode,
-);
+export default App;
 ```

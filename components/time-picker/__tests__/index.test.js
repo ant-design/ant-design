@@ -1,11 +1,14 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import moment from 'moment';
+import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
 import TimePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
-import { resetWarned } from '../../_util/devWarning';
+import { resetWarned } from '../../_util/warning';
 import rtlTest from '../../../tests/shared/rtlTest';
+
+dayjs.extend(customParseFormat);
 
 describe('TimePicker', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -39,7 +42,7 @@ describe('TimePicker', () => {
 
   it('not render clean icon when allowClear is false', () => {
     const wrapper = mount(
-      <TimePicker defaultValue={moment('2000-01-01 00:00:00')} allowClear={false} />,
+      <TimePicker defaultValue={dayjs('2000-01-01 00:00:00')} allowClear={false} />,
     );
     expect(wrapper.render()).toMatchSnapshot();
   });
@@ -47,7 +50,7 @@ describe('TimePicker', () => {
   it('clearIcon should render correctly', () => {
     const clearIcon = <div className="test-clear-icon">test</div>;
     const wrapper = mount(<TimePicker clearIcon={clearIcon} />);
-    expect(wrapper.find('Picker').prop('clearIcon')).toEqual(
+    expect(wrapper.find('Picker').last().prop('clearIcon')).toEqual(
       <div className="test-clear-icon">test</div>,
     );
   });
@@ -57,7 +60,7 @@ describe('TimePicker', () => {
       placeholder: 'Избери дата',
     };
     const wrapper = mount(
-      <TimePicker defaultValue={moment('2000-01-01 00:00:00')} open locale={locale} />,
+      <TimePicker defaultValue={dayjs('2000-01-01 00:00:00')} open locale={locale} />,
     );
     expect(wrapper.render()).toMatchSnapshot();
   });
@@ -66,29 +69,29 @@ describe('TimePicker', () => {
     const popupClassName = 'myCustomClassName';
     const wrapper = mount(
       <TimePicker
-        defaultOpenValue={moment('00:00:00', 'HH:mm:ss')}
+        defaultOpenValue={dayjs('00:00:00', 'HH:mm:ss')}
         popupClassName={popupClassName}
       />,
     );
-    expect(wrapper.find('Picker').prop('dropdownClassName')).toEqual(popupClassName);
+    expect(wrapper.find('Picker').last().prop('dropdownClassName')).toEqual(popupClassName);
   });
 
   it('should pass popupClassName prop to RangePicker as dropdownClassName prop', () => {
     const popupClassName = 'myCustomClassName';
     const wrapper = mount(
       <TimePicker.RangePicker
-        defaultOpenValue={moment('00:00:00', 'HH:mm:ss')}
+        defaultOpenValue={dayjs('00:00:00', 'HH:mm:ss')}
         popupClassName={popupClassName}
       />,
     );
-    expect(wrapper.find('RangePicker').at(1).prop('dropdownClassName')).toEqual(popupClassName);
+    expect(wrapper.find('RangePicker').last().prop('dropdownClassName')).toEqual(popupClassName);
   });
 
   it('should support bordered', () => {
     const wrapper = mount(
       <TimePicker
         className="custom-class"
-        defaultValue={moment('2000-01-01 00:00:00')}
+        defaultValue={dayjs('2000-01-01 00:00:00')}
         bordered={false}
       />,
     );

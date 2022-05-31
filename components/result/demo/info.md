@@ -13,10 +13,11 @@ title:
 
 Show processing results.
 
-```jsx
-import { Result, Button } from 'antd';
+```tsx
+import { Button, Result } from 'antd';
+import React from 'react';
 
-ReactDOM.render(
+const App: React.FC = () => (
   <Result
     title="Your operation has been executed"
     extra={
@@ -24,7 +25,8 @@ ReactDOM.render(
         Go Console
       </Button>
     }
-  />,
-  mountNode,
+  />
 );
+
+export default App;
 ```

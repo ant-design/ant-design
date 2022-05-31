@@ -14,17 +14,25 @@ debug: true
 
 Customize selection group.
 
-```jsx
+```tsx
 import { Table } from 'antd';
+import type { ColumnsType } from 'antd/lib/table';
+import type { TableRowSelection } from 'antd/lib/table/interface';
+import React from 'react';
 
-const columns = [
+interface DataType {
+  key: React.Key;
+  name: string;
+}
+
+const columns: ColumnsType<DataType> = [
   {
     title: 'Name',
     dataIndex: 'name',
   },
 ];
 
-const data = [];
+const data: DataType[] = [];
 for (let i = 0; i < 46; i++) {
   data.push({
     key: i,
@@ -32,9 +40,9 @@ for (let i = 0; i < 46; i++) {
   });
 }
 
-const App = () => {
-  const rowSelection = {
-    renderCell: (checked, record, index, node) => ({
+const App: React.FC = () => {
+  const rowSelection: TableRowSelection<DataType> = {
+    renderCell: (checked, _record, index, node) => ({
       props: { rowSpan: index % 2 === 0 ? 2 : 0 },
       children: (
         <>
@@ -46,5 +54,5 @@ const App = () => {
   return <Table rowSelection={rowSelection} columns={columns} dataSource={data} />;
 };
 
-ReactDOM.render(<App />, mountNode);
+export default App;
 ```

@@ -1,4 +1,5 @@
-import React, { FC } from 'react';
+import type { FC } from 'react';
+import React from 'react';
 
 type DiffProps = {
   show: boolean;
@@ -16,7 +17,9 @@ const Diff: FC<DiffProps> = ({ show }) => {
       title="master-diff"
       style={{
         position: 'absolute',
-        width: '100vw',
+        width: document.body.scrollWidth,
+        // width: `calc(100vw - 15px)`,
+        // width: '100vw',
         height: document.body.scrollHeight,
         top: 0,
         left: 0,

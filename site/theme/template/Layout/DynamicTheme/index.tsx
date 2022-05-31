@@ -4,7 +4,7 @@ import { Drawer, Form, Input, Button, InputNumber, Checkbox, Space } from 'antd'
 import { useIntl } from 'react-intl';
 import { BugOutlined, EyeOutlined } from '@ant-design/icons';
 import { useState } from 'react';
-import { SeedToken } from '../../../../../components/_util/theme';
+import type { SeedToken } from '../../../../../components/_util/theme';
 import defaultSeedToken from '../../../../../components/_util/theme/themes/default';
 import { PresetColors } from '../../../../../components/_util/theme/interface';
 import Preview from './Preview';
@@ -44,6 +44,7 @@ export default ({ onChangeTheme, defaultToken, componentName }: ThemeConfigProps
           boxShadow: '0 0 4px rgba(0, 0, 0, 0.3)',
           padding: '8px 16px 8px 12px',
           cursor: 'pointer',
+          zIndex: 1,
         }}
         onClick={() => setVisible(true)}
       >

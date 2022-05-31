@@ -15,10 +15,11 @@ title:
 
 Child elements depending on the value of the `start`, `center`, `end`, `space-between`, `space-around` and `space-evenly`, which are defined in its parent node typesetting mode.
 
-```jsx
-import { Row, Col, Divider } from 'antd';
+```tsx
+import { Col, Divider, Row } from 'antd';
+import React from 'react';
 
-ReactDOM.render(
+const App: React.FC = () => (
   <>
     <Divider orientation="left">sub-element align left</Divider>
     <Row justify="start">
@@ -67,9 +68,10 @@ ReactDOM.render(
       <Col span={4}>col-4</Col>
       <Col span={4}>col-4</Col>
     </Row>
-  </>,
-  mountNode,
+  </>
 );
+
+export default App;
 ```
 
 ```css

@@ -1,13 +1,37 @@
 import type * as React from 'react';
+import type { ComponentToken as AlertComponentToken } from '../../alert/style';
+import type { ComponentToken as AnchorComponentToken } from '../../anchor/style';
+import type { ComponentToken as AvatarComponentToken } from '../../avatar/style';
+import type { ComponentToken as BackTopComponentToken } from '../../back-top/style';
 import type { ComponentToken as ButtonComponentToken } from '../../button/style';
-import type { ComponentToken as DividerComponentToken } from '../../divider/style';
-import type { ComponentToken as EmptyComponentToken } from '../../empty/style';
+import type { ComponentToken as CalendarComponentToken } from '../../calendar/style';
+import type { ComponentToken as CarouselComponentToken } from '../../carousel/style';
 import type { ComponentToken as CascaderComponentToken } from '../../cascader/style';
+import type { ComponentToken as CheckboxComponentToken } from '../../checkbox/style';
+import type { ComponentToken as DatePickerComponentToken } from '../../date-picker/style';
+import type { ComponentToken as DividerComponentToken } from '../../divider/style';
+import type { ComponentToken as DropdownComponentToken } from '../../dropdown/style';
+import type { ComponentToken as EmptyComponentToken } from '../../empty/style';
+import type { ComponentToken as ImageComponentToken } from '../../image/style';
 import type { ComponentToken as InputNumberComponentToken } from '../../input-number/style';
+import type { ComponentToken as LayoutComponentToken } from '../../layout/style';
+import type { ComponentToken as ListComponentToken } from '../../list/style';
 import type { ComponentToken as MentionsComponentToken } from '../../mentions/style';
+import type { ComponentToken as MenuComponentToken } from '../../menu/style';
+import type { ComponentToken as MessageComponentToken } from '../../message/style';
+import type { ComponentToken as ModalComponentToken } from '../../modal/style';
+import type { ComponentToken as NotificationComponentToken } from '../../notification/style';
+import type { ComponentToken as PopconfirmComponentToken } from '../../popconfirm/style';
+import type { ComponentToken as PopoverComponentToken } from '../../popover/style';
+import type { ComponentToken as ProgressComponentToken } from '../../progress/style';
+import type { ComponentToken as SegmentedComponentToken } from '../../segmented/style';
 import type { ComponentToken as SelectComponentToken } from '../../select/style';
 import type { ComponentToken as SliderComponentToken } from '../../slider/style';
+import type { ComponentToken as SpaceComponentToken } from '../../space/style';
+import type { ComponentToken as SpinComponentToken } from '../../spin/style';
+import type { ComponentToken as TimelineComponentToken } from '../../timeline/style';
 import type { ComponentToken as TypographyComponentToken } from '../../typography/style';
+import type { ComponentToken as UploadComponentToken } from '../../upload/style';
 
 export const PresetColors = [
   'blue',
@@ -40,39 +64,62 @@ export interface OverrideToken {
 
   // Customize component
   Affix?: {};
-  Alert?: {};
-  Avatar?: {};
+  Alert?: AlertComponentToken;
+  Anchor?: AnchorComponentToken;
+  Avatar?: AvatarComponentToken;
+  BackTop?: BackTopComponentToken;
   Badge?: {};
   Button?: ButtonComponentToken;
-  Carousel?: {};
+  Breadcrumb?: {};
+  Carousel?: CarouselComponentToken;
   Cascader?: CascaderComponentToken;
-  Checkbox?: {};
+  Checkbox?: CheckboxComponentToken;
+  Collapse?: {};
+  DatePicker?: DatePickerComponentToken;
   Descriptions?: {};
   Divider?: DividerComponentToken;
   Drawer?: {};
+  Dropdown?: DropdownComponentToken;
   Empty?: EmptyComponentToken;
   Form?: {};
   Grid?: {};
-  Image?: {};
+  Image?: ImageComponentToken;
   Input?: {};
   InputNumber?: InputNumberComponentToken;
-  List?: {};
+  Layout?: LayoutComponentToken;
+  List?: ListComponentToken;
   Mentions?: MentionsComponentToken;
+  Notification?: NotificationComponentToken;
   Pagination?: {};
-  Popover?: {};
+  Popover?: PopoverComponentToken;
+  Popconfirm?: PopconfirmComponentToken;
   Rate?: {};
   Result?: {};
+  Segmented?: SegmentedComponentToken;
   Select?: SelectComponentToken;
   Skeleton?: {};
   Slider?: SliderComponentToken;
-  Spin?: {};
+  Spin?: SpinComponentToken;
   Statistic?: {};
   Switch?: {};
   Tag?: {};
   Tree?: {};
   TreeSelect?: {};
   Typography?: TypographyComponentToken;
+  Timeline?: TimelineComponentToken;
   Tabs?: {};
+  Calendar?: CalendarComponentToken;
+  Card?: {};
+  Steps?: {};
+  Menu?: MenuComponentToken;
+  Modal?: ModalComponentToken;
+  Message?: MessageComponentToken;
+  Upload?: UploadComponentToken;
+  Tooltip?: {};
+  Table?: {};
+  Space?: SpaceComponentToken;
+  Progress?: ProgressComponentToken;
+  Transfer?: {};
 }
 
 /** Final token which contains the components level override */
@@ -105,6 +152,7 @@ export interface SeedToken extends PresetColorType {
   // Line
   /** Border width of base components */
   lineWidth: number;
+  lineType: string;
 
   // Motion
   motionUnit: number;
@@ -121,6 +169,7 @@ export interface SeedToken extends PresetColorType {
   // Size
   sizeUnit: number;
   sizeBaseStep: number;
+  sizePopupArrow: number;
 
   // Control Base
   controlHeight: number;
@@ -129,7 +178,11 @@ export interface SeedToken extends PresetColorType {
   /** Base zIndex of component like BackTop, Affix which can be cover by large popup */
   zIndexBase: number;
   /** Base popup component zIndex */
-  zIndexPopup: number;
+  zIndexPopupBase: number;
+
+  // Image
+  /** Define default Image opacity. Useful when in dark-like theme */
+  imgOpacity: number;
 }
 
 // ======================================================================
@@ -193,6 +246,9 @@ export interface DerivativeToken extends SeedToken, ColorPalettes {
   gridSpaceXL: number;
   gridSpaceXXL: number;
 
+  // Line
+  lineWidthBold: number;
+
   // Motion
   motionDurationFast: string;
   motionDurationMid: string;
@@ -245,6 +301,7 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   // LineHeight
   lineHeight: number;
   lineHeightLG: number;
+  lineHeightSM: number;
 
   lineHeightHeading1: number;
   lineHeightHeading2: number;
@@ -259,6 +316,7 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   controlOutlineWidth: number;
   controlItemBgHover: string; // Note. It also is a color
   controlItemBgActive: string; // Note. It also is a color
+  controlInteractiveSize: number;
 
   // Color
   colorBorder: string;
@@ -285,6 +343,8 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   colorBgComponentDisabled: string;
 
   // =============== Legacy: should be remove ===============
+  colorLoadingOpacity: number;
+
   padding: number;
   margin: number;
 
@@ -296,14 +356,18 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
 
   controlPaddingHorizontal: number;
   controlPaddingHorizontalSM: number;
+
   paddingSM: number;
   paddingXS: number;
   paddingXXS: number;
   paddingLG: number;
+  paddingXL: number;
+  marginXXS: number;
   marginXS: number;
   marginSM: number;
   marginLG: number;
-  marginXXS: number;
+  marginXL: number;
+  marginXXL: number;
 
   // Media queries breakpoints
   screenXS: number;
@@ -326,4 +390,7 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   screenXXLMax: number;
 
   motionEaseOut: string;
+
+  colorPopupBg: string;
+  colorBorderSecondary: string;
 }

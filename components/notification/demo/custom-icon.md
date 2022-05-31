@@ -13,23 +13,32 @@ title:
 
 The icon can be customized to any react node.
 
-```jsx
-import { Button, notification } from 'antd';
+```tsx
 import { SmileOutlined } from '@ant-design/icons';
+import { Button, notification } from 'antd';
+import React from 'react';
 
-const openNotification = () => {
-  notification.open({
-    message: 'Notification Title',
-    description:
-      'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
-    icon: <SmileOutlined style={{ color: '#108ee9' }} />,
-  });
+const App: React.FC = () => {
+  const [api, contextHolder] = notification.useNotification();
+
+  const openNotification = () => {
+    api.open({
+      message: 'Notification Title',
+      description:
+        'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
+      icon: <SmileOutlined style={{ color: '#108ee9' }} />,
+    });
+  };
+
+  return (
+    <>
+      {contextHolder}
+      <Button type="primary" onClick={openNotification}>
+        Open the notification box
+      </Button>
+    </>
+  );
 };
 
-ReactDOM.render(
-  <Button type="primary" onClick={openNotification}>
-    Open the notification box
-  </Button>,
-  mountNode,
-);
+export default App;
 ```

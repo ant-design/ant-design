@@ -5,7 +5,7 @@ import { useContext } from 'react';
 import { FormItemInputContext } from '../form/context';
 import { GroupContext } from './Group';
 import { ConfigContext } from '../config-provider';
-import devWarning from '../_util/devWarning';
+import warning from '../_util/warning';
 import useStyle from './style';
 
 export interface AbstractCheckboxProps<T> {
@@ -68,7 +68,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
 
   React.useEffect(() => {
     checkboxGroup?.registerValue(restProps.value);
-    devWarning(
+    warning(
       'checked' in restProps || !!checkboxGroup || !('value' in restProps),
       'Checkbox',
       '`value` is not a valid prop, do you mean `checked`?',
@@ -121,6 +121,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
     },
     hashId,
   );
+  const ariaChecked = indeterminate ? 'mixed' : undefined;
   return wrapSSR(
     // eslint-disable-next-line jsx-a11y/label-has-associated-control
     <label
@@ -129,7 +130,13 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <RcCheckbox {...checkboxProps} prefixCls={prefixCls} className={checkboxClass} ref={ref} />
+      <RcCheckbox
+        aria-checked={ariaChecked}
+        {...checkboxProps}
+        prefixCls={prefixCls}
+        className={checkboxClass}
+        ref={ref}
+      />
       {children !== undefined && <span>{children}</span>}
     </label>,
   );

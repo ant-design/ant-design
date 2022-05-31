@@ -13,8 +13,10 @@ title:
 
 You can choose another style of `image` by setting image to `Empty.PRESENTED_IMAGE_SIMPLE`.
 
-```jsx
+```tsx
 import { Empty } from 'antd';
 
-ReactDOM.render(<Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />, mountNode);
+const App: React.FC = () => <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />;
+
+export default App;
 ```

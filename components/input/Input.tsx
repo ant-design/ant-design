@@ -7,11 +7,12 @@ import { composeRef } from 'rc-util/lib/ref';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
 import type { InputStatus } from '../_util/statusUtils';
+import DisabledContext from '../config-provider/DisabledContext';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { ConfigContext } from '../config-provider';
 import { FormItemInputContext, NoFormStatus } from '../form/context';
 import { hasPrefixSuffix } from './utils';
-import devWarning from '../_util/devWarning';
+import warning from '../_util/warning';
 
 // CSSINJS
 import useStyle from './style';
@@ -117,6 +118,7 @@ export interface InputProps
     'wrapperClassName' | 'groupClassName' | 'inputClassName' | 'affixWrapperClassName'
   > {
   size?: SizeType;
+  disabled?: boolean;
   status?: InputStatus;
   bordered?: boolean;
   [key: `data-${string}`]: string;
@@ -128,6 +130,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     bordered = true,
     status: customStatus,
     size: customSize,
+    disabled: customDisabled,
     onBlur,
     onFocus,
     suffix,
@@ -148,6 +151,10 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   const size = React.useContext(SizeContext);
   const mergedSize = customSize || size;
 
+  // ===================== Disabled =====================
+  const disabled = React.useContext(DisabledContext);
+  const mergedDisabled = customDisabled || disabled;
+
   // ===================== Status =====================
   const { status: contextStatus, hasFeedback, feedbackIcon } = useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
@@ -157,7 +164,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   const prevHasPrefixSuffix = useRef<boolean>(inputHasPrefixSuffix);
   useEffect(() => {
     if (inputHasPrefixSuffix && !prevHasPrefixSuffix.current) {
-      devWarning(
+      warning(
         document.activeElement === inputRef.current?.input,
         'Input',
         `When Input is focused, dynamic add or remove prefix / suffix will make it lose focus caused by dom structure change. Read more: https://ant.design/components/input/#FAQ`,
@@ -218,6 +225,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       prefixCls={prefixCls}
       autoComplete={input?.autoComplete}
       {...rest}
+      disabled={mergedDisabled || undefined}
       onBlur={handleBlur}
       onFocus={handleFocus}
       suffix={suffixNode}

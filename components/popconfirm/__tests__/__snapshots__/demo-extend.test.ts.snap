@@ -13,7 +13,7 @@ Array [
   <div>
     <div
       class="ant-popover ant-popconfirm"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-popover-content"
@@ -30,10 +30,10 @@ Array [
           role="tooltip"
         >
           <div
-            class="ant-popover-inner-content"
+            class="ant-popconfirm-inner-content"
           >
             <div
-              class="ant-popover-message"
+              class="ant-popconfirm-message"
             >
               <span
                 aria-label="exclamation-circle"
@@ -55,13 +55,13 @@ Array [
                 </svg>
               </span>
               <div
-                class="ant-popover-message-title"
+                class="ant-popconfirm-message-title"
               >
                 Title
               </div>
             </div>
             <div
-              class="ant-popover-buttons"
+              class="ant-popconfirm-buttons"
             >
               <button
                 class="ant-btn ant-btn-default ant-btn-sm"
@@ -98,7 +98,7 @@ Array [
   <div>
     <div
       class="ant-popover ant-popconfirm"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-popover-content"
@@ -115,10 +115,10 @@ Array [
           role="tooltip"
         >
           <div
-            class="ant-popover-inner-content"
+            class="ant-popconfirm-inner-content"
           >
             <div
-              class="ant-popover-message"
+              class="ant-popconfirm-message"
             >
               <span
                 aria-label="exclamation-circle"
@@ -140,13 +140,13 @@ Array [
                 </svg>
               </span>
               <div
-                class="ant-popover-message-title"
+                class="ant-popconfirm-message-title"
               >
                 Are you sure to delete this task?
               </div>
             </div>
             <div
-              class="ant-popover-buttons"
+              class="ant-popconfirm-buttons"
             >
               <button
                 class="ant-btn ant-btn-default ant-btn-sm"
@@ -183,7 +183,7 @@ exports[`renders ./components/popconfirm/demo/dynamic-trigger.md extend context 
   <div>
     <div
       class="ant-popover ant-popconfirm"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-popover-content"
@@ -200,10 +200,10 @@ exports[`renders ./components/popconfirm/demo/dynamic-trigger.md extend context 
           role="tooltip"
         >
           <div
-            class="ant-popover-inner-content"
+            class="ant-popconfirm-inner-content"
           >
             <div
-              class="ant-popover-message"
+              class="ant-popconfirm-message"
             >
               <span
                 aria-label="exclamation-circle"
@@ -225,13 +225,13 @@ exports[`renders ./components/popconfirm/demo/dynamic-trigger.md extend context 
                 </svg>
               </span>
               <div
-                class="ant-popover-message-title"
+                class="ant-popconfirm-message-title"
               >
                 Are you sure delete this task?
               </div>
             </div>
             <div
-              class="ant-popover-buttons"
+              class="ant-popconfirm-buttons"
             >
               <button
                 class="ant-btn ant-btn-default ant-btn-sm"
@@ -284,7 +284,7 @@ Array [
   <div>
     <div
       class="ant-popover ant-popconfirm"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-popover-content"
@@ -301,10 +301,10 @@ Array [
           role="tooltip"
         >
           <div
-            class="ant-popover-inner-content"
+            class="ant-popconfirm-inner-content"
           >
             <div
-              class="ant-popover-message"
+              class="ant-popconfirm-message"
             >
               <span
                 aria-label="question-circle"
@@ -330,13 +330,13 @@ Array [
                 </svg>
               </span>
               <div
-                class="ant-popover-message-title"
+                class="ant-popconfirm-message-title"
               >
                 Are you sure？
               </div>
             </div>
             <div
-              class="ant-popover-buttons"
+              class="ant-popconfirm-buttons"
             >
               <button
                 class="ant-btn ant-btn-default ant-btn-sm"
@@ -373,7 +373,7 @@ Array [
   <div>
     <div
       class="ant-popover ant-popconfirm"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-popover-content"
@@ -390,10 +390,10 @@ Array [
           role="tooltip"
         >
           <div
-            class="ant-popover-inner-content"
+            class="ant-popconfirm-inner-content"
           >
             <div
-              class="ant-popover-message"
+              class="ant-popconfirm-message"
             >
               <span
                 aria-label="exclamation-circle"
@@ -415,13 +415,13 @@ Array [
                 </svg>
               </span>
               <div
-                class="ant-popover-message-title"
+                class="ant-popconfirm-message-title"
               >
                 Are you sure？
               </div>
             </div>
             <div
-              class="ant-popover-buttons"
+              class="ant-popconfirm-buttons"
             >
               <button
                 class="ant-btn ant-btn-default ant-btn-sm"
@@ -466,7 +466,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     <div>
       <div
         class="ant-popover ant-popconfirm"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -483,10 +483,10 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
             role="tooltip"
           >
             <div
-              class="ant-popover-inner-content"
+              class="ant-popconfirm-inner-content"
             >
               <div
-                class="ant-popover-message"
+                class="ant-popconfirm-message"
               >
                 <span
                   aria-label="exclamation-circle"
@@ -508,13 +508,13 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
                   </svg>
                 </span>
                 <div
-                  class="ant-popover-message-title"
+                  class="ant-popconfirm-message-title"
                 >
                   Are you sure to delete this task?
                 </div>
               </div>
               <div
-                class="ant-popover-buttons"
+                class="ant-popconfirm-buttons"
               >
                 <button
                   class="ant-btn ant-btn-default ant-btn-sm"
@@ -549,7 +549,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     <div>
       <div
         class="ant-popover ant-popconfirm"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -566,10 +566,10 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
             role="tooltip"
           >
             <div
-              class="ant-popover-inner-content"
+              class="ant-popconfirm-inner-content"
             >
               <div
-                class="ant-popover-message"
+                class="ant-popconfirm-message"
               >
                 <span
                   aria-label="exclamation-circle"
@@ -591,13 +591,13 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
                   </svg>
                 </span>
                 <div
-                  class="ant-popover-message-title"
+                  class="ant-popconfirm-message-title"
                 >
                   Are you sure to delete this task?
                 </div>
               </div>
               <div
-                class="ant-popover-buttons"
+                class="ant-popconfirm-buttons"
               >
                 <button
                   class="ant-btn ant-btn-default ant-btn-sm"
@@ -632,7 +632,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     <div>
       <div
         class="ant-popover ant-popconfirm"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -649,10 +649,10 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
             role="tooltip"
           >
             <div
-              class="ant-popover-inner-content"
+              class="ant-popconfirm-inner-content"
             >
               <div
-                class="ant-popover-message"
+                class="ant-popconfirm-message"
               >
                 <span
                   aria-label="exclamation-circle"
@@ -674,13 +674,13 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
                   </svg>
                 </span>
                 <div
-                  class="ant-popover-message-title"
+                  class="ant-popconfirm-message-title"
                 >
                   Are you sure to delete this task?
                 </div>
               </div>
               <div
-                class="ant-popover-buttons"
+                class="ant-popconfirm-buttons"
               >
                 <button
                   class="ant-btn ant-btn-default ant-btn-sm"
@@ -719,7 +719,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     <div>
       <div
         class="ant-popover ant-popconfirm"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -736,10 +736,10 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
             role="tooltip"
           >
             <div
-              class="ant-popover-inner-content"
+              class="ant-popconfirm-inner-content"
             >
               <div
-                class="ant-popover-message"
+                class="ant-popconfirm-message"
               >
                 <span
                   aria-label="exclamation-circle"
@@ -761,13 +761,13 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
                   </svg>
                 </span>
                 <div
-                  class="ant-popover-message-title"
+                  class="ant-popconfirm-message-title"
                 >
                   Are you sure to delete this task?
                 </div>
               </div>
               <div
-                class="ant-popover-buttons"
+                class="ant-popconfirm-buttons"
               >
                 <button
                   class="ant-btn ant-btn-default ant-btn-sm"
@@ -802,7 +802,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     <div>
       <div
         class="ant-popover ant-popconfirm"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -819,10 +819,10 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
             role="tooltip"
           >
             <div
-              class="ant-popover-inner-content"
+              class="ant-popconfirm-inner-content"
             >
               <div
-                class="ant-popover-message"
+                class="ant-popconfirm-message"
               >
                 <span
                   aria-label="exclamation-circle"
@@ -844,13 +844,13 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
                   </svg>
                 </span>
                 <div
-                  class="ant-popover-message-title"
+                  class="ant-popconfirm-message-title"
                 >
                   Are you sure to delete this task?
                 </div>
               </div>
               <div
-                class="ant-popover-buttons"
+                class="ant-popconfirm-buttons"
               >
                 <button
                   class="ant-btn ant-btn-default ant-btn-sm"
@@ -885,7 +885,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     <div>
       <div
         class="ant-popover ant-popconfirm"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -902,10 +902,10 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
             role="tooltip"
           >
             <div
-              class="ant-popover-inner-content"
+              class="ant-popconfirm-inner-content"
             >
               <div
-                class="ant-popover-message"
+                class="ant-popconfirm-message"
               >
                 <span
                   aria-label="exclamation-circle"
@@ -927,13 +927,13 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
                   </svg>
                 </span>
                 <div
-                  class="ant-popover-message-title"
+                  class="ant-popconfirm-message-title"
                 >
                   Are you sure to delete this task?
                 </div>
               </div>
               <div
-                class="ant-popover-buttons"
+                class="ant-popconfirm-buttons"
               >
                 <button
                   class="ant-btn ant-btn-default ant-btn-sm"
@@ -972,7 +972,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     <div>
       <div
         class="ant-popover ant-popconfirm"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -989,10 +989,10 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
             role="tooltip"
           >
             <div
-              class="ant-popover-inner-content"
+              class="ant-popconfirm-inner-content"
             >
               <div
-                class="ant-popover-message"
+                class="ant-popconfirm-message"
               >
                 <span
                   aria-label="exclamation-circle"
@@ -1014,13 +1014,13 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
                   </svg>
                 </span>
                 <div
-                  class="ant-popover-message-title"
+                  class="ant-popconfirm-message-title"
                 >
                   Are you sure to delete this task?
                 </div>
               </div>
               <div
-                class="ant-popover-buttons"
+                class="ant-popconfirm-buttons"
               >
                 <button
                   class="ant-btn ant-btn-default ant-btn-sm"
@@ -1055,7 +1055,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     <div>
       <div
         class="ant-popover ant-popconfirm"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -1072,10 +1072,10 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
             role="tooltip"
           >
             <div
-              class="ant-popover-inner-content"
+              class="ant-popconfirm-inner-content"
             >
               <div
-                class="ant-popover-message"
+                class="ant-popconfirm-message"
               >
                 <span
                   aria-label="exclamation-circle"
@@ -1097,13 +1097,13 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
                   </svg>
                 </span>
                 <div
-                  class="ant-popover-message-title"
+                  class="ant-popconfirm-message-title"
                 >
                   Are you sure to delete this task?
                 </div>
               </div>
               <div
-                class="ant-popover-buttons"
+                class="ant-popconfirm-buttons"
               >
                 <button
                   class="ant-btn ant-btn-default ant-btn-sm"
@@ -1138,7 +1138,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     <div>
       <div
         class="ant-popover ant-popconfirm"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -1155,10 +1155,10 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
             role="tooltip"
           >
             <div
-              class="ant-popover-inner-content"
+              class="ant-popconfirm-inner-content"
             >
               <div
-                class="ant-popover-message"
+                class="ant-popconfirm-message"
               >
                 <span
                   aria-label="exclamation-circle"
@@ -1180,13 +1180,13 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
                   </svg>
                 </span>
                 <div
-                  class="ant-popover-message-title"
+                  class="ant-popconfirm-message-title"
                 >
                   Are you sure to delete this task?
                 </div>
               </div>
               <div
-                class="ant-popover-buttons"
+                class="ant-popconfirm-buttons"
               >
                 <button
                   class="ant-btn ant-btn-default ant-btn-sm"
@@ -1225,7 +1225,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     <div>
       <div
         class="ant-popover ant-popconfirm"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -1242,10 +1242,10 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
             role="tooltip"
           >
             <div
-              class="ant-popover-inner-content"
+              class="ant-popconfirm-inner-content"
             >
               <div
-                class="ant-popover-message"
+                class="ant-popconfirm-message"
               >
                 <span
                   aria-label="exclamation-circle"
@@ -1267,13 +1267,13 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
                   </svg>
                 </span>
                 <div
-                  class="ant-popover-message-title"
+                  class="ant-popconfirm-message-title"
                 >
                   Are you sure to delete this task?
                 </div>
               </div>
               <div
-                class="ant-popover-buttons"
+                class="ant-popconfirm-buttons"
               >
                 <button
                   class="ant-btn ant-btn-default ant-btn-sm"
@@ -1308,7 +1308,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     <div>
       <div
         class="ant-popover ant-popconfirm"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -1325,10 +1325,10 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
             role="tooltip"
           >
             <div
-              class="ant-popover-inner-content"
+              class="ant-popconfirm-inner-content"
             >
               <div
-                class="ant-popover-message"
+                class="ant-popconfirm-message"
               >
                 <span
                   aria-label="exclamation-circle"
@@ -1350,13 +1350,13 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
                   </svg>
                 </span>
                 <div
-                  class="ant-popover-message-title"
+                  class="ant-popconfirm-message-title"
                 >
                   Are you sure to delete this task?
                 </div>
               </div>
               <div
-                class="ant-popover-buttons"
+                class="ant-popconfirm-buttons"
               >
                 <button
                   class="ant-btn ant-btn-default ant-btn-sm"
@@ -1391,7 +1391,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     <div>
       <div
         class="ant-popover ant-popconfirm"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -1408,10 +1408,10 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
             role="tooltip"
           >
             <div
-              class="ant-popover-inner-content"
+              class="ant-popconfirm-inner-content"
             >
               <div
-                class="ant-popover-message"
+                class="ant-popconfirm-message"
               >
                 <span
                   aria-label="exclamation-circle"
@@ -1433,13 +1433,13 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
                   </svg>
                 </span>
                 <div
-                  class="ant-popover-message-title"
+                  class="ant-popconfirm-message-title"
                 >
                   Are you sure to delete this task?
                 </div>
               </div>
               <div
-                class="ant-popover-buttons"
+                class="ant-popconfirm-buttons"
               >
                 <button
                   class="ant-btn ant-btn-default ant-btn-sm"
@@ -1480,7 +1480,7 @@ Array [
   <div>
     <div
       class="ant-popover ant-popconfirm"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-popover-content"
@@ -1497,10 +1497,10 @@ Array [
           role="tooltip"
         >
           <div
-            class="ant-popover-inner-content"
+            class="ant-popconfirm-inner-content"
           >
             <div
-              class="ant-popover-message"
+              class="ant-popconfirm-message"
             >
               <span
                 aria-label="exclamation-circle"
@@ -1522,13 +1522,13 @@ Array [
                 </svg>
               </span>
               <div
-                class="ant-popover-message-title"
+                class="ant-popconfirm-message-title"
               >
                 Title
               </div>
             </div>
             <div
-              class="ant-popover-buttons"
+              class="ant-popconfirm-buttons"
             >
               <button
                 class="ant-btn ant-btn-default ant-btn-sm"

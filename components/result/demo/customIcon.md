@@ -13,16 +13,18 @@ title:
 
 Custom icon.
 
-```jsx
-import { Result, Button } from 'antd';
+```tsx
 import { SmileOutlined } from '@ant-design/icons';
+import { Button, Result } from 'antd';
+import React from 'react';
 
-ReactDOM.render(
+const App: React.FC = () => (
   <Result
     icon={<SmileOutlined />}
     title="Great, we have done all the operations!"
     extra={<Button type="primary">Next</Button>}
-  />,
-  mountNode,
+  />
 );
+
+export default App;
 ```

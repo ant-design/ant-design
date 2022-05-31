@@ -14,8 +14,10 @@ title:
 Both the top navigation and the sidebar, commonly used in documentation site.
 
 ```tsx
-import { Layout, Menu, Breadcrumb, MenuProps } from 'antd';
-import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
+import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
+import type { MenuProps } from 'antd';
+import { Breadcrumb, Layout, Menu } from 'antd';
+import React from 'react';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -44,7 +46,7 @@ const items2: MenuProps['items'] = [UserOutlined, LaptopOutlined, NotificationOu
   },
 );
 
-ReactDOM.render(
+const App: React.FC = () => (
   <Layout>
     <Header className="header">
       <div className="logo" />
@@ -70,9 +72,10 @@ ReactDOM.render(
       </Layout>
     </Content>
     <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
-  </Layout>,
-  mountNode,
+  </Layout>
 );
+
+export default App;
 ```
 
 ```css
@@ -89,7 +92,7 @@ ReactDOM.render(
   margin: 16px 0 16px 24px;
 }
 
-.site-layout-background {
+#components-layout-demo-top-side .site-layout-background {
   background: #fff;
 }
 ```

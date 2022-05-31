@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import Table from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { sleep } from '../../../tests/utils';
+import { sleep, render } from '../../../tests/utils';
 
 const { Column, ColumnGroup } = Table;
 
@@ -185,7 +185,7 @@ describe('Table', () => {
         dataSource={[]}
       />,
     );
-    wrapper.simulate('touchmove');
+    wrapper.find('.ant-table-wrapper').simulate('touchmove');
   });
 
   it('renders ellipsis by showTitle option', () => {
@@ -258,7 +258,7 @@ describe('Table', () => {
         dataIndex: 'name',
       },
     ];
-    mount(<Table columns={columns} rowKey={record => record.key} />);
+    render(<Table columns={columns} rowKey={record => record.key} />);
     expect(warnSpy).not.toBeCalled();
   });
 
@@ -275,7 +275,7 @@ describe('Table', () => {
       const ref = React.useRef();
       return <Table ref={ref} columns={columns} />;
     };
-    mount(<Wrapper />);
+    render(<Wrapper />);
     expect(warnSpy).not.toBeCalled();
   });
 });

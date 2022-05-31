@@ -1,5 +1,5 @@
 ---
-order: 5
+order: 4
 title:
   zh-CN: Promise 接口
   en-US: Promise interface
@@ -13,15 +13,31 @@ title:
 
 `message` provides a promise interface for `onClose`. The above example will display a new message when the old message is about to close.
 
-```jsx
-import { message, Button } from 'antd';
+```tsx
+import { Button, message } from 'antd';
+import React from 'react';
 
-const success = () => {
-  message
-    .loading('Action in progress..', 2.5)
-    .then(() => message.success('Loading finished', 2.5))
-    .then(() => message.info('Loading finished is finished', 2.5));
+const App: React.FC = () => {
+  const [messageApi, contextHolder] = message.useMessage();
+
+  const success = () => {
+    messageApi
+      .open({
+        type: 'loading',
+        content: 'Action in progress..',
+        duration: 2.5,
+      })
+      .then(() => message.success('Loading finished', 2.5))
+      .then(() => message.info('Loading finished', 2.5));
+  };
+
+  return (
+    <>
+      {contextHolder}
+      <Button onClick={success}>Display sequential messages</Button>
+    </>
+  );
 };
 
-ReactDOM.render(<Button onClick={success}>Display sequential messages</Button>, mountNode);
+export default App;
 ```

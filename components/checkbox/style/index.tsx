@@ -1,15 +1,13 @@
 // deps-lint-skip-all
 import { Keyframes } from '@ant-design/cssinjs';
-import {
-  resetComponent,
-  GenerateStyle,
-  genComponentStyleHook,
-  FullToken,
-  mergeToken,
-} from '../../_util/theme';
+import type { FullToken, GenerateStyle } from '../../_util/theme';
+import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
+
+export interface ComponentToken {}
 
 interface CheckboxToken extends FullToken<'Checkbox'> {
   checkboxCls: string;
+  checkboxSize: number;
 }
 
 // ============================== Motion ==============================
@@ -26,7 +24,7 @@ const antCheckboxEffect = new Keyframes('antCheckboxEffect', {
 });
 
 // ============================== Styles ==============================
-export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token, hashId) => {
+export const genCheckboxStyle: GenerateStyle<CheckboxToken> = token => {
   const { checkboxCls } = token;
   const wrapperCls = `${checkboxCls}-wrapper`;
 
@@ -97,8 +95,8 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token, hashId) =>
           top: 0,
           insetInlineStart: 0,
           display: 'block',
-          width: token.fontSizeLG,
-          height: token.fontSizeLG,
+          width: token.checkboxSize,
+          height: token.checkboxSize,
           direction: 'ltr',
           backgroundColor: token.colorBgComponent,
           border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
@@ -111,9 +109,9 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token, hashId) =>
             top: '50%',
             insetInlineStart: '21.5%',
             display: 'table',
-            width: (token.fontSizeLG / 14) * 5,
-            height: (token.fontSizeLG / 14) * 8,
-            border: `2px solid ${token.colorBgComponent}`,
+            width: (token.checkboxSize / 14) * 5,
+            height: (token.checkboxSize / 14) * 8,
+            border: `${token.lineWidthBold}px solid ${token.colorBgComponent}`,
             borderTop: 0,
             borderInlineStart: 0,
             transform: 'rotate(45deg) scale(0) translate(-50%,-50%)',
@@ -197,7 +195,9 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token, hashId) =>
           border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorPrimary}`,
           borderRadius: token.controlRadius,
           visibility: 'hidden',
-          animation: `${antCheckboxEffect.getName(hashId)} ${token.motionDurationSlow} ease-in-out`,
+          animationName: antCheckboxEffect,
+          animationDuration: token.motionDurationSlow,
+          animationTimingFunction: 'ease-in-out',
           animationFillMode: 'backwards',
           content: '""',
         },
@@ -224,7 +224,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token, hashId) =>
           borderColor: token.colorBorder,
 
           '&:after': {
-            borderColor: token.colorBorder,
+            borderColor: token.colorTextDisabled,
           },
         },
 
@@ -241,14 +241,15 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token, hashId) =>
 };
 
 // ============================== Export ==============================
-export function getStyle(prefixCls: string, token: FullToken<'Checkbox'>, hashId: string) {
+export function getStyle(prefixCls: string, token: FullToken<'Checkbox'>) {
   const checkboxToken: CheckboxToken = mergeToken<CheckboxToken>(token, {
     checkboxCls: `.${prefixCls}`,
+    checkboxSize: token.controlInteractiveSize,
   });
 
-  return [genCheckboxStyle(checkboxToken, hashId), antCheckboxEffect];
+  return [genCheckboxStyle(checkboxToken)];
 }
 
-export default genComponentStyleHook('Checkbox', (token, { prefixCls, hashId }) => [
-  getStyle(prefixCls, token, hashId),
+export default genComponentStyleHook('Checkbox', (token, { prefixCls }) => [
+  getStyle(prefixCls, token),
 ]);

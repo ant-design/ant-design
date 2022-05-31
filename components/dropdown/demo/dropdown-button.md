@@ -13,19 +13,21 @@ title:
 
 A button is on the left, and a related functional menu is on the right. You can set the icon property to modify the icon of right.
 
-```jsx
-import { Menu, Dropdown, Button, message, Space, Tooltip } from 'antd';
+```tsx
 import { DownOutlined, UserOutlined } from '@ant-design/icons';
+import type { MenuProps } from 'antd';
+import { Button, Dropdown, Menu, message, Space, Tooltip } from 'antd';
+import React from 'react';
 
-function handleButtonClick(e) {
+const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
   message.info('Click on left button.');
   console.log('click left button', e);
-}
+};
 
-function handleMenuClick(e) {
+const handleMenuClick: MenuProps['onClick'] = e => {
   message.info('Click on menu item.');
   console.log('click', e);
-}
+};
 
 const menu = (
   <Menu
@@ -50,7 +52,7 @@ const menu = (
   />
 );
 
-ReactDOM.render(
+const App: React.FC = () => (
   <Space wrap>
     <Dropdown.Button onClick={handleButtonClick} overlay={menu}>
       Dropdown
@@ -67,17 +69,21 @@ ReactDOM.render(
         <Tooltip title="tooltip" key="leftButton">
           {leftButton}
         </Tooltip>,
-        React.cloneElement(rightButton, { loading: true }),
+        React.cloneElement(rightButton as React.ReactElement<any, string>, { loading: true }),
       ]}
     >
       With Tooltip
     </Dropdown.Button>
     <Dropdown overlay={menu}>
       <Button>
-        Button <DownOutlined />
+        <Space>
+          Button
+          <DownOutlined />
+        </Space>
       </Button>
     </Dropdown>
-  </Space>,
-  mountNode,
+  </Space>
 );
+
+export default App;
 ```

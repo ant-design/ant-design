@@ -10,7 +10,7 @@
 import { gold } from '@ant-design/colors';
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { GenerateStyle } from '../../_util/theme';
-import { operationUnit } from '../../_util/theme/util/operationUnit';
+import { operationUnit } from '../../_util/theme';
 import { initInputToken } from '../../input/style';
 import type { TypographyToken } from '.';
 
@@ -107,6 +107,7 @@ export const getResetStyles = (): CSSObject => ({
 
   mark: {
     padding: 0,
+    // FIXME hardcode in v4
     backgroundColor: gold[2],
   },
 

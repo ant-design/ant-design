@@ -2,7 +2,7 @@
 
 exports[`renders ./components/collapse/demo/accordion.md correctly 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-left"
+  class="ant-collapse ant-collapse-icon-position-start"
   role="tablist"
 >
   <div
@@ -14,7 +14,9 @@ exports[`renders ./components/collapse/demo/accordion.md correctly 1`] = `
       role="tab"
       tabindex="0"
     >
-      <div>
+      <div
+        class="ant-collapse-expand-icon"
+      >
         <span
           aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
@@ -35,7 +37,11 @@ exports[`renders ./components/collapse/demo/accordion.md correctly 1`] = `
           </svg>
         </span>
       </div>
-      This is panel header 1
+      <span
+        class="ant-collapse-header-text"
+      >
+        This is panel header 1
+      </span>
     </div>
   </div>
   <div
@@ -47,7 +53,9 @@ exports[`renders ./components/collapse/demo/accordion.md correctly 1`] = `
       role="tab"
       tabindex="0"
     >
-      <div>
+      <div
+        class="ant-collapse-expand-icon"
+      >
         <span
           aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
@@ -68,7 +76,11 @@ exports[`renders ./components/collapse/demo/accordion.md correctly 1`] = `
           </svg>
         </span>
       </div>
-      This is panel header 2
+      <span
+        class="ant-collapse-header-text"
+      >
+        This is panel header 2
+      </span>
     </div>
   </div>
   <div
@@ -80,7 +92,9 @@ exports[`renders ./components/collapse/demo/accordion.md correctly 1`] = `
       role="tab"
       tabindex="0"
     >
-      <div>
+      <div
+        class="ant-collapse-expand-icon"
+      >
         <span
           aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
@@ -101,7 +115,11 @@ exports[`renders ./components/collapse/demo/accordion.md correctly 1`] = `
           </svg>
         </span>
       </div>
-      This is panel header 3
+      <span
+        class="ant-collapse-header-text"
+      >
+        This is panel header 3
+      </span>
     </div>
   </div>
 </div>
@@ -109,7 +127,7 @@ exports[`renders ./components/collapse/demo/accordion.md correctly 1`] = `
 
 exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-left"
+  class="ant-collapse ant-collapse-icon-position-start"
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"
@@ -120,7 +138,9 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
       role="button"
       tabindex="0"
     >
-      <div>
+      <div
+        class="ant-collapse-expand-icon"
+      >
         <span
           aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
@@ -142,7 +162,11 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
           </svg>
         </span>
       </div>
-      This is panel header 1
+      <span
+        class="ant-collapse-header-text"
+      >
+        This is panel header 1
+      </span>
     </div>
     <div
       class="ant-collapse-content ant-collapse-content-active"
@@ -169,7 +193,9 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
       role="button"
       tabindex="0"
     >
-      <div>
+      <div
+        class="ant-collapse-expand-icon"
+      >
         <span
           aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
@@ -190,7 +216,11 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
           </svg>
         </span>
       </div>
-      This is panel header 2
+      <span
+        class="ant-collapse-header-text"
+      >
+        This is panel header 2
+      </span>
     </div>
   </div>
   <div
@@ -202,7 +232,9 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
       role="button"
       tabindex="0"
     >
-      <div>
+      <div
+        class="ant-collapse-expand-icon"
+      >
         <span
           aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
@@ -223,7 +255,11 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
           </svg>
         </span>
       </div>
-      This is panel header 3
+      <span
+        class="ant-collapse-header-text"
+      >
+        This is panel header 3
+      </span>
     </div>
   </div>
 </div>
@@ -231,7 +267,7 @@ exports[`renders ./components/collapse/demo/basic.md correctly 1`] = `
 
 exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
 <div
-  class="ant-collapse ant-collapse-borderless ant-collapse-icon-position-left"
+  class="ant-collapse ant-collapse-icon-position-start ant-collapse-borderless"
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"
@@ -242,7 +278,9 @@ exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
       role="button"
       tabindex="0"
     >
-      <div>
+      <div
+        class="ant-collapse-expand-icon"
+      >
         <span
           aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
@@ -264,7 +302,11 @@ exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
           </svg>
         </span>
       </div>
-      This is panel header 1
+      <span
+        class="ant-collapse-header-text"
+      >
+        This is panel header 1
+      </span>
     </div>
     <div
       class="ant-collapse-content ant-collapse-content-active"
@@ -289,7 +331,9 @@ exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
       role="button"
       tabindex="0"
     >
-      <div>
+      <div
+        class="ant-collapse-expand-icon"
+      >
         <span
           aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
@@ -310,7 +354,11 @@ exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
           </svg>
         </span>
       </div>
-      This is panel header 2
+      <span
+        class="ant-collapse-header-text"
+      >
+        This is panel header 2
+      </span>
     </div>
   </div>
   <div
@@ -322,7 +370,9 @@ exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
       role="button"
       tabindex="0"
     >
-      <div>
+      <div
+        class="ant-collapse-expand-icon"
+      >
         <span
           aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
@@ -343,7 +393,11 @@ exports[`renders ./components/collapse/demo/borderless.md correctly 1`] = `
           </svg>
         </span>
       </div>
-      This is panel header 3
+      <span
+        class="ant-collapse-header-text"
+      >
+        This is panel header 3
+      </span>
     </div>
   </div>
 </div>
@@ -358,7 +412,7 @@ exports[`renders ./components/collapse/demo/collapsible.md correctly 1`] = `
     style="margin-bottom:8px"
   >
     <div
-      class="ant-collapse ant-collapse-icon-position-left"
+      class="ant-collapse ant-collapse-icon-position-start"
     >
       <div
         class="ant-collapse-item ant-collapse-item-active"
@@ -366,10 +420,10 @@ exports[`renders ./components/collapse/demo/collapsible.md correctly 1`] = `
         <div
           aria-expanded="true"
           class="ant-collapse-header ant-collapse-header-collapsible-only"
-          role="button"
-          tabindex="0"
         >
-          <div>
+          <div
+            class="ant-collapse-expand-icon"
+          >
             <span
               aria-label="right"
               class="anticon anticon-right ant-collapse-arrow"
@@ -419,7 +473,7 @@ exports[`renders ./components/collapse/demo/collapsible.md correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-collapse ant-collapse-icon-position-left"
+      class="ant-collapse ant-collapse-icon-position-start"
     >
       <div
         class="ant-collapse-item ant-collapse-item-disabled"
@@ -430,7 +484,9 @@ exports[`renders ./components/collapse/demo/collapsible.md correctly 1`] = `
           role="button"
           tabindex="-1"
         >
-          <div>
+          <div
+            class="ant-collapse-expand-icon"
+          >
             <span
               aria-label="right"
               class="anticon anticon-right ant-collapse-arrow"
@@ -451,7 +507,11 @@ exports[`renders ./components/collapse/demo/collapsible.md correctly 1`] = `
               </svg>
             </span>
           </div>
-          This panel can't be collapsed
+          <span
+            class="ant-collapse-header-text"
+          >
+            This panel can't be collapsed
+          </span>
         </div>
       </div>
     </div>
@@ -461,7 +521,7 @@ exports[`renders ./components/collapse/demo/collapsible.md correctly 1`] = `
 
 exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
 <div
-  class="ant-collapse ant-collapse-borderless ant-collapse-icon-position-left site-collapse-custom-collapse"
+  class="ant-collapse ant-collapse-icon-position-start ant-collapse-borderless site-collapse-custom-collapse"
 >
   <div
     class="ant-collapse-item ant-collapse-item-active site-collapse-custom-panel"
@@ -472,7 +532,9 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
       role="button"
       tabindex="0"
     >
-      <div>
+      <div
+        class="ant-collapse-expand-icon"
+      >
         <span
           aria-label="caret-right"
           class="anticon anticon-caret-right ant-collapse-arrow"
@@ -494,7 +556,11 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
           </svg>
         </span>
       </div>
-      This is panel header 1
+      <span
+        class="ant-collapse-header-text"
+      >
+        This is panel header 1
+      </span>
     </div>
     <div
       class="ant-collapse-content ant-collapse-content-active"
@@ -521,7 +587,9 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
       role="button"
       tabindex="0"
     >
-      <div>
+      <div
+        class="ant-collapse-expand-icon"
+      >
         <span
           aria-label="caret-right"
           class="anticon anticon-caret-right ant-collapse-arrow"
@@ -542,7 +610,11 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
           </svg>
         </span>
       </div>
-      This is panel header 2
+      <span
+        class="ant-collapse-header-text"
+      >
+        This is panel header 2
+      </span>
     </div>
   </div>
   <div
@@ -554,7 +626,9 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
       role="button"
       tabindex="0"
     >
-      <div>
+      <div
+        class="ant-collapse-expand-icon"
+      >
         <span
           aria-label="caret-right"
           class="anticon anticon-caret-right ant-collapse-arrow"
@@ -575,7 +649,11 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
           </svg>
         </span>
       </div>
-      This is panel header 3
+      <span
+        class="ant-collapse-header-text"
+      >
+        This is panel header 3
+      </span>
     </div>
   </div>
 </div>
@@ -584,7 +662,7 @@ exports[`renders ./components/collapse/demo/custom.md correctly 1`] = `
 exports[`renders ./components/collapse/demo/extra.md correctly 1`] = `
 Array [
   <div
-    class="ant-collapse ant-collapse-icon-position-left"
+    class="ant-collapse ant-collapse-icon-position-start"
   >
     <div
       class="ant-collapse-item ant-collapse-item-active"
@@ -595,7 +673,9 @@ Array [
         role="button"
         tabindex="0"
       >
-        <div>
+        <div
+          class="ant-collapse-expand-icon"
+        >
           <span
             aria-label="right"
             class="anticon anticon-right ant-collapse-arrow"
@@ -617,7 +697,11 @@ Array [
             </svg>
           </span>
         </div>
-        This is panel header 1
+        <span
+          class="ant-collapse-header-text"
+        >
+          This is panel header 1
+        </span>
         <div
           class="ant-collapse-extra"
         >
@@ -668,7 +752,9 @@ Array [
         role="button"
         tabindex="0"
       >
-        <div>
+        <div
+          class="ant-collapse-expand-icon"
+        >
           <span
             aria-label="right"
             class="anticon anticon-right ant-collapse-arrow"
@@ -689,7 +775,11 @@ Array [
             </svg>
           </span>
         </div>
-        This is panel header 2
+        <span
+          class="ant-collapse-header-text"
+        >
+          This is panel header 2
+        </span>
         <div
           class="ant-collapse-extra"
         >
@@ -725,7 +815,9 @@ Array [
         role="button"
         tabindex="0"
       >
-        <div>
+        <div
+          class="ant-collapse-expand-icon"
+        >
           <span
             aria-label="right"
             class="anticon anticon-right ant-collapse-arrow"
@@ -746,7 +838,11 @@ Array [
             </svg>
           </span>
         </div>
-        This is panel header 3
+        <span
+          class="ant-collapse-header-text"
+        >
+          This is panel header 3
+        </span>
         <div
           class="ant-collapse-extra"
         >
@@ -806,9 +902,9 @@ Array [
       </span>
       <span
         class="ant-select-selection-item"
-        title="left"
+        title="start"
       >
-        left
+        start
       </span>
     </div>
     <span
@@ -843,7 +939,7 @@ Array [
 
 exports[`renders ./components/collapse/demo/ghost.md correctly 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-left ant-collapse-ghost"
+  class="ant-collapse ant-collapse-icon-position-start ant-collapse-ghost"
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"
@@ -854,7 +950,9 @@ exports[`renders ./components/collapse/demo/ghost.md correctly 1`] = `
       role="button"
       tabindex="0"
     >
-      <div>
+      <div
+        class="ant-collapse-expand-icon"
+      >
         <span
           aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
@@ -876,7 +974,11 @@ exports[`renders ./components/collapse/demo/ghost.md correctly 1`] = `
           </svg>
         </span>
       </div>
-      This is panel header 1
+      <span
+        class="ant-collapse-header-text"
+      >
+        This is panel header 1
+      </span>
     </div>
     <div
       class="ant-collapse-content ant-collapse-content-active"
@@ -903,7 +1005,9 @@ exports[`renders ./components/collapse/demo/ghost.md correctly 1`] = `
       role="button"
       tabindex="0"
     >
-      <div>
+      <div
+        class="ant-collapse-expand-icon"
+      >
         <span
           aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
@@ -924,7 +1028,11 @@ exports[`renders ./components/collapse/demo/ghost.md correctly 1`] = `
           </svg>
         </span>
       </div>
-      This is panel header 2
+      <span
+        class="ant-collapse-header-text"
+      >
+        This is panel header 2
+      </span>
     </div>
   </div>
   <div
@@ -936,7 +1044,9 @@ exports[`renders ./components/collapse/demo/ghost.md correctly 1`] = `
       role="button"
       tabindex="0"
     >
-      <div>
+      <div
+        class="ant-collapse-expand-icon"
+      >
         <span
           aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
@@ -957,7 +1067,11 @@ exports[`renders ./components/collapse/demo/ghost.md correctly 1`] = `
           </svg>
         </span>
       </div>
-      This is panel header 3
+      <span
+        class="ant-collapse-header-text"
+      >
+        This is panel header 3
+      </span>
     </div>
   </div>
 </div>
@@ -965,7 +1079,7 @@ exports[`renders ./components/collapse/demo/ghost.md correctly 1`] = `
 
 exports[`renders ./components/collapse/demo/mix.md correctly 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-left"
+  class="ant-collapse ant-collapse-icon-position-start"
 >
   <div
     class="ant-collapse-item"
@@ -976,7 +1090,9 @@ exports[`renders ./components/collapse/demo/mix.md correctly 1`] = `
       role="button"
       tabindex="0"
     >
-      <div>
+      <div
+        class="ant-collapse-expand-icon"
+      >
         <span
           aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
@@ -997,7 +1113,11 @@ exports[`renders ./components/collapse/demo/mix.md correctly 1`] = `
           </svg>
         </span>
       </div>
-      This is panel header 1
+      <span
+        class="ant-collapse-header-text"
+      >
+        This is panel header 1
+      </span>
     </div>
   </div>
   <div
@@ -1009,7 +1129,9 @@ exports[`renders ./components/collapse/demo/mix.md correctly 1`] = `
       role="button"
       tabindex="0"
     >
-      <div>
+      <div
+        class="ant-collapse-expand-icon"
+      >
         <span
           aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
@@ -1030,7 +1152,11 @@ exports[`renders ./components/collapse/demo/mix.md correctly 1`] = `
           </svg>
         </span>
       </div>
-      This is panel header 2
+      <span
+        class="ant-collapse-header-text"
+      >
+        This is panel header 2
+      </span>
     </div>
   </div>
   <div
@@ -1042,7 +1168,9 @@ exports[`renders ./components/collapse/demo/mix.md correctly 1`] = `
       role="button"
       tabindex="0"
     >
-      <div>
+      <div
+        class="ant-collapse-expand-icon"
+      >
         <span
           aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
@@ -1063,7 +1191,11 @@ exports[`renders ./components/collapse/demo/mix.md correctly 1`] = `
           </svg>
         </span>
       </div>
-      This is panel header 3
+      <span
+        class="ant-collapse-header-text"
+      >
+        This is panel header 3
+      </span>
     </div>
   </div>
 </div>
@@ -1071,7 +1203,7 @@ exports[`renders ./components/collapse/demo/mix.md correctly 1`] = `
 
 exports[`renders ./components/collapse/demo/noarrow.md correctly 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-left"
+  class="ant-collapse ant-collapse-icon-position-start"
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"
@@ -1082,7 +1214,9 @@ exports[`renders ./components/collapse/demo/noarrow.md correctly 1`] = `
       role="button"
       tabindex="0"
     >
-      <div>
+      <div
+        class="ant-collapse-expand-icon"
+      >
         <span
           aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
@@ -1104,7 +1238,11 @@ exports[`renders ./components/collapse/demo/noarrow.md correctly 1`] = `
           </svg>
         </span>
       </div>
-      This is panel header with arrow icon
+      <span
+        class="ant-collapse-header-text"
+      >
+        This is panel header with arrow icon
+      </span>
     </div>
     <div
       class="ant-collapse-content ant-collapse-content-active"
@@ -1131,7 +1269,11 @@ exports[`renders ./components/collapse/demo/noarrow.md correctly 1`] = `
       role="button"
       tabindex="0"
     >
-      This is panel header with no arrow icon
+      <span
+        class="ant-collapse-header-text"
+      >
+        This is panel header with no arrow icon
+      </span>
     </div>
   </div>
 </div>

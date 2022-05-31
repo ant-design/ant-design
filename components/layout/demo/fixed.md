@@ -15,11 +15,12 @@ title:
 Fixed Header is generally used to fix the top navigation to facilitate page switching.
 
 ```tsx
-import { Layout, Menu, Breadcrumb } from 'antd';
+import { Breadcrumb, Layout, Menu } from 'antd';
+import React from 'react';
 
 const { Header, Content, Footer } = Layout;
 
-ReactDOM.render(
+const App: React.FC = () => (
   <Layout>
     <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
       <div className="logo" />
@@ -44,9 +45,10 @@ ReactDOM.render(
       </div>
     </Content>
     <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
-  </Layout>,
-  mountNode,
+  </Layout>
 );
+
+export default App;
 ```
 
 ```css
@@ -57,7 +59,7 @@ ReactDOM.render(
   margin: 16px 24px 16px 0;
   background: rgba(255, 255, 255, 0.2);
 }
-.site-layout .site-layout-background {
+#components-layout-demo-fixed .site-layout .site-layout-background {
   background: #fff;
 }
 ```

@@ -15,9 +15,10 @@ buggy!
 buggy!
 
 ```tsx
-import * as React from 'react';
-import { Menu, MenuProps, Switch } from 'antd';
-import { MailOutlined, AppstoreOutlined } from '@ant-design/icons';
+import { AppstoreOutlined, MailOutlined } from '@ant-design/icons';
+import type { MenuProps, MenuTheme } from 'antd';
+import { Menu, Switch } from 'antd';
+import React, { useState } from 'react';
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -51,9 +52,9 @@ const items: MenuItem[] = [
   getItem('Option 12', '12'),
 ];
 
-const Demo = () => {
-  const [theme, setTheme] = React.useState<'dark' | 'light'>('dark');
-  const [current, setCurrent] = React.useState('1');
+const App: React.FC = () => {
+  const [theme, setTheme] = useState<MenuTheme>('dark');
+  const [current, setCurrent] = useState('1');
 
   const changeTheme = (value: boolean) => {
     setTheme(value ? 'dark' : 'light');
@@ -106,5 +107,5 @@ const Demo = () => {
   );
 };
 
-ReactDOM.render(<Demo />, mountNode);
+export default App;
 ```

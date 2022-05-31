@@ -13,22 +13,25 @@ title:
 
 Custom each Transfer Item, and in this way you can render a complex datasource.
 
-```jsx
+```tsx
 import { Transfer } from 'antd';
+import type { TransferDirection } from 'antd/es/transfer';
+import React, { useEffect, useState } from 'react';
 
-class App extends React.Component {
-  state = {
-    mockData: [],
-    targetKeys: [],
-  };
+interface RecordType {
+  key: string;
+  title: string;
+  description: string;
+  chosen: boolean;
+}
 
-  componentDidMount() {
-    this.getMock();
-  }
+const App: React.FC = () => {
+  const [mockData, setMockData] = useState<RecordType[]>([]);
+  const [targetKeys, setTargetKeys] = useState<string[]>([]);
 
-  getMock = () => {
-    const targetKeys = [];
-    const mockData = [];
+  const getMock = () => {
+    const tempTargetKeys = [];
+    const tempMockData = [];
     for (let i = 0; i < 20; i++) {
       const data = {
         key: i.toString(),
@@ -37,19 +40,28 @@ class App extends React.Component {
         chosen: Math.random() * 2 > 1,
       };
       if (data.chosen) {
-        targetKeys.push(data.key);
+        tempTargetKeys.push(data.key);
       }
-      mockData.push(data);
+      tempMockData.push(data);
     }
-    this.setState({ mockData, targetKeys });
+    setMockData(tempMockData);
+    setTargetKeys(tempTargetKeys);
   };
 
-  handleChange = (targetKeys, direction, moveKeys) => {
-    console.log(targetKeys, direction, moveKeys);
-    this.setState({ targetKeys });
+  useEffect(() => {
+    getMock();
+  }, []);
+
+  const handleChange = (
+    newTargetKeys: string[],
+    direction: TransferDirection,
+    moveKeys: string[],
+  ) => {
+    console.log(newTargetKeys, direction, moveKeys);
+    setTargetKeys(newTargetKeys);
   };
 
-  renderItem = item => {
+  const renderItem = (item: RecordType) => {
     const customLabel = (
       <span className="custom-item">
         {item.title} - {item.description}
@@ -62,21 +74,19 @@ class App extends React.Component {
     };
   };
 
-  render() {
-    return (
-      <Transfer
-        dataSource={this.state.mockData}
-        listStyle={{
-          width: 300,
-          height: 300,
-        }}
-        targetKeys={this.state.targetKeys}
-        onChange={this.handleChange}
-        render={this.renderItem}
-      />
-    );
-  }
-}
+  return (
+    <Transfer
+      dataSource={mockData}
+      listStyle={{
+        width: 300,
+        height: 300,
+      }}
+      targetKeys={targetKeys}
+      onChange={handleChange}
+      render={renderItem}
+    />
+  );
+};
 
-ReactDOM.render(<App />, mountNode);
+export default App;
 ```

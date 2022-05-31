@@ -13,13 +13,14 @@ title:
 
 Complex error feedback.
 
-```jsx
-import { Result, Button, Typography } from 'antd';
+```tsx
 import { CloseCircleOutlined } from '@ant-design/icons';
+import { Button, Result, Typography } from 'antd';
+import React from 'react';
 
 const { Paragraph, Text } = Typography;
 
-ReactDOM.render(
+const App: React.FC = () => (
   <Result
     status="error"
     title="Submission Failed"
@@ -51,9 +52,10 @@ ReactDOM.render(
         eligible to apply. <a>Apply Unlock &gt;</a>
       </Paragraph>
     </div>
-  </Result>,
-  mountNode,
+  </Result>
 );
+
+export default App;
 ```
 
 ```css

@@ -1,17 +1,16 @@
-import * as React from 'react';
-import {
-  GetRowKey,
+import type {
   ColumnType as RcColumnType,
-  RenderedCell as RcRenderedCell,
-  ExpandableConfig,
   FixedType,
+  RenderedCell as RcRenderedCell,
 } from 'rc-table/lib/interface';
-import { TooltipProps } from '../tooltip';
-import { CheckboxProps } from '../checkbox';
-import { PaginationProps } from '../pagination';
-import { Breakpoint } from '../_util/responsiveObserve';
-import { INTERNAL_SELECTION_ITEM } from './hooks/useSelection';
+import { ExpandableConfig, GetRowKey } from 'rc-table/lib/interface';
+import type * as React from 'react';
+import type { CheckboxProps } from '../checkbox';
+import type { PaginationProps } from '../pagination';
+import type { TooltipProps } from '../tooltip';
+import type { Breakpoint } from '../_util/responsiveObserve';
 import { tuple } from '../_util/type';
+import type { INTERNAL_SELECTION_ITEM } from './hooks/useSelection';
 // import { TableAction } from './Table';
 
 export { GetRowKey, ExpandableConfig };
@@ -88,7 +87,7 @@ export interface FilterDropdownProps {
   visible: boolean;
 }
 
-export interface ColumnType<RecordType> extends RcColumnType<RecordType> {
+export interface ColumnType<RecordType> extends Omit<RcColumnType<RecordType>, 'title'> {
   title?: ColumnTitle<RecordType>;
   // Sorter
   sorter?:
@@ -145,20 +144,24 @@ export type SelectionSelectFn<T> = (
   nativeEvent: Event,
 ) => void;
 
+export type RowSelectMethod = 'all' | 'none' | 'invert' | 'single' | 'multiple';
+
 export interface TableRowSelection<T> {
   /** Keep the selection keys in list even the key not exist in `dataSource` anymore */
   preserveSelectedRowKeys?: boolean;
   type?: RowSelectionType;
   selectedRowKeys?: Key[];
   defaultSelectedRowKeys?: Key[];
-  onChange?: (selectedRowKeys: Key[], selectedRows: T[]) => void;
+  onChange?: (selectedRowKeys: Key[], selectedRows: T[], info: { type: RowSelectMethod }) => void;
   getCheckboxProps?: (record: T) => Partial<Omit<CheckboxProps, 'checked' | 'defaultChecked'>>;
   onSelect?: SelectionSelectFn<T>;
+  /** @deprecated This function is deprecated and should use `onChange` instead */
   onSelectMultiple?: (selected: boolean, selectedRows: T[], changeRows: T[]) => void;
-  /** @deprecated This function is meaningless and should use `onChange` instead */
+  /** @deprecated This function is deprecated and should use `onChange` instead */
   onSelectAll?: (selected: boolean, selectedRows: T[], changeRows: T[]) => void;
-  /** @deprecated This function is meaningless and should use `onChange` instead */
+  /** @deprecated This function is deprecated and should use `onChange` instead */
   onSelectInvert?: (selectedRowKeys: Key[]) => void;
+  /** @deprecated This function is deprecated and should use `onChange` instead */
   onSelectNone?: () => void;
   selections?: INTERNAL_SELECTION_ITEM[] | boolean;
   hideSelectAll?: boolean;

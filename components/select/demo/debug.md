@@ -14,16 +14,17 @@ debug: true
 
 Basic Usage.
 
-```jsx
-import { Select, Input, Button } from 'antd';
+```tsx
+import { Button, Input, Select } from 'antd';
+import React from 'react';
 
 const { Option } = Select;
 
-function handleChange(value) {
+const handleChange = (value: string | string[]) => {
   console.log(`selected ${value}`);
-}
+};
 
-ReactDOM.render(
+const App: React.FC = () => (
   <div
     style={{
       width: 500,
@@ -61,9 +62,10 @@ ReactDOM.render(
     </Select>
     <span className="debug-align">AntDesign</span>
     <Button>222</Button>
-  </div>,
-  mountNode,
+  </div>
 );
+
+export default App;
 ```
 
 <style>

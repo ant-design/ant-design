@@ -5,7 +5,7 @@ import DownOutlined from '@ant-design/icons/DownOutlined';
 import Checkbox from '../checkbox';
 import Menu from '../menu';
 import Dropdown from '../dropdown';
-import {
+import type {
   TransferDirection,
   RenderResult,
   RenderResultObject,
@@ -14,14 +14,15 @@ import {
   KeyWiseTransferItem,
 } from './index';
 import Search from './search';
-import DefaultListBody, { TransferListBodyProps, OmitProps } from './ListBody';
-import { PaginationType } from './interface';
+import type { TransferListBodyProps } from './ListBody';
+import DefaultListBody, { OmitProps } from './ListBody';
+import type { PaginationType } from './interface';
 import { isValidElement } from '../_util/reactNode';
 
 const defaultRender = () => null;
 
-function isRenderResultPlainObject(result: RenderResult) {
-  return (
+function isRenderResultPlainObject(result: RenderResult): result is RenderResultObject {
+  return !!(
     result &&
     !isValidElement(result) &&
     Object.prototype.toString.call(result) === '[object Object]'
@@ -274,7 +275,7 @@ export default class TransferList<
 
   renderItem = (item: RecordType): RenderedItem<RecordType> => {
     const { render = defaultRender } = this.props;
-    const renderResult: RenderResult = render(item);
+    const renderResult = render(item);
     const isRenderResultPlain = isRenderResultPlainObject(renderResult);
     return {
       renderedText: isRenderResultPlain
