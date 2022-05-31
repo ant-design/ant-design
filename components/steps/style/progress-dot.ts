@@ -5,8 +5,7 @@ import type { GenerateStyle } from '../../_util/theme';
 const genStepsProgressDotStyle: GenerateStyle<StepsToken, CSSObject> = token => {
   const {
     componentCls,
-    stepsDotTop,
-    stepsDescriptionMaxWidth,
+    descriptionWidth,
     lineHeight,
     stepsCurrentDotSize,
     stepsDotSize,
@@ -21,11 +20,11 @@ const genStepsProgressDotStyle: GenerateStyle<StepsToken, CSSObject> = token => 
         },
 
         '&-tail': {
-          top: stepsDotTop,
+          top: Math.floor((token.stepsDotSize - token.lineWidth * 3) / 2),
           width: '100%',
           marginTop: 0,
           marginBottom: 0,
-          marginInline: `${stepsDescriptionMaxWidth / 2}px 0`,
+          marginInline: `${descriptionWidth / 2}px 0`,
           padding: 0,
 
           '&::after': {
@@ -37,7 +36,7 @@ const genStepsProgressDotStyle: GenerateStyle<StepsToken, CSSObject> = token => 
         '&-icon': {
           width: stepsDotSize,
           height: stepsDotSize,
-          marginInlineStart: (token.stepsDescriptionMaxWidth - stepsDotSize) / 2,
+          marginInlineStart: (token.descriptionWidth - stepsDotSize) / 2,
           paddingInlineEnd: 0,
           lineHeight: `${stepsDotSize}px`,
           background: 'transparent',
@@ -65,7 +64,7 @@ const genStepsProgressDotStyle: GenerateStyle<StepsToken, CSSObject> = token => 
         },
 
         '&-content': {
-          width: stepsDescriptionMaxWidth,
+          width: descriptionWidth,
         },
         [`&-process ${componentCls}-item-icon`]: {
           position: 'relative',
@@ -74,7 +73,7 @@ const genStepsProgressDotStyle: GenerateStyle<StepsToken, CSSObject> = token => 
           height: stepsCurrentDotSize,
           lineHeight: `${stepsCurrentDotSize}px`,
           background: 'none',
-          marginInlineStart: (token.stepsDescriptionMaxWidth - stepsCurrentDotSize) / 2,
+          marginInlineStart: (token.descriptionWidth - stepsCurrentDotSize) / 2,
         },
         [`&-process ${componentCls}-icon`]: {
           [`&:first-child ${componentCls}-icon-dot`]: {

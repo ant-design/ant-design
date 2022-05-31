@@ -12,29 +12,26 @@ import genStepsRTLStyle from './rtl';
 import genStepsSmallStyle from './small';
 import genStepsVerticalStyle from './vertical';
 
+export interface ComponentToken {
+  descriptionWidth: number;
+}
+
 export interface StepsToken extends FullToken<'Steps'> {
   // Steps variable default.less
   processTailColor: string;
   stepsNavArrowColor: string;
-  stepsBackground: string;
   stepsIconSize: number;
   stepsIconCustomSize: number;
   stepsIconCustomTop: number;
   stepsIconCustomFontSize: number;
   stepsIconTop: number;
   stepsIconFontSize: number;
-  stepsIconMargin: string;
   stepsTitleLineHeight: number;
   stepsSmallIconSize: number;
-  stepsSmallIconMargin: string;
   stepsDotSize: number;
-  stepsDotTop: number;
   stepsCurrentDotSize: number;
-  stepsDescriptionMaxWidth: number;
+  descriptionWidth: number;
   stepsNavContentMaxWidth: string;
-  stepsVerticalIconWidth: number;
-  stepsVerticalTailWidth: number;
-  stepsVerticalTailWidthSm: number;
   // Steps component less variable
   processIconColor: string;
   processTitleColor: string;
@@ -53,6 +50,7 @@ export interface StepsToken extends FullToken<'Steps'> {
   errorDescriptionColor: string;
   errorTailColor: string;
   stepsNavActiveColor: string;
+  stepsProgressSize: number;
 }
 
 enum StepItemStatusEnum {
@@ -265,7 +263,7 @@ const genStepsClickableStyle: GenerateStyle<StepsToken, CSSObject> = token => {
           display: 'none',
         },
         '&-description': {
-          maxWidth: token.stepsDescriptionMaxWidth,
+          maxWidth: token.descriptionWidth,
           whiteSpace: 'normal',
         },
       },
@@ -308,53 +306,52 @@ const genStepsStyle: GenerateStyle<StepsToken, CSSObject> = token => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Steps', token => {
-  const stepsIconSize = token.controlHeight;
-  const processTailColor = token.colorSplit;
-  const processIconColor = token.colorPrimary;
+export default genComponentStyleHook(
+  'Steps',
+  token => {
+    const stepsIconSize = token.controlHeight;
+    const processTailColor = token.colorSplit;
+    const processIconColor = token.colorPrimary;
 
-  const stepsToken = mergeToken<StepsToken>(token, {
-    // Steps variable default.less
-    processTailColor,
-    stepsNavArrowColor: new TinyColor('#000').setAlpha(0.25).toRgbString(), //  fade(@black, 25%),
-    stepsBackground: token.colorBgComponent,
-    stepsIconSize,
-    stepsIconCustomSize: stepsIconSize,
-    stepsIconCustomTop: 0, // FIXME: hardcode in v4
-    stepsIconCustomFontSize: 24, // FIXME: hardcode in v4
-    stepsIconTop: -0.5, // FIXME: hardcode in v4
-    stepsIconFontSize: token.fontSizeLG,
-    stepsIconMargin: '0 8px 0 0', // FIXME: hardcode in v4
-    stepsTitleLineHeight: 32, // FIXME: hardcode in v4
-    stepsSmallIconSize: 24, // FIXME: hardcode in v4
-    stepsSmallIconMargin: '0 8px 0 0', // FIXME: hardcode in v4
-    stepsDotSize: 8, // FIXME: hardcode in v4
-    stepsDotTop: 2, // FIXME: hardcode in v4
-    stepsCurrentDotSize: 10, // FIXME: hardcode in v4
-    stepsDescriptionMaxWidth: 140, // FIXME: hardcode in v4
-    stepsNavContentMaxWidth: 'auto',
-    stepsVerticalIconWidth: 16, // FIXME: hardcode in v4
-    stepsVerticalTailWidth: 16, // FIXME: hardcode in v4
-    stepsVerticalTailWidthSm: 12, // FIXME: hardcode in v4
-    // Steps component less variable
-    processIconColor,
-    processTitleColor: new TinyColor('#000').setAlpha(0.85).toRgbString(), // @heading-color: fade(@black, 85%) FIXME: hardcode in v4
-    processDescriptionColor: token.colorText,
-    processIconTextColor: '#fff', // FIXME: hardcode in v4
-    waitIconColor: new TinyColor('#000').setAlpha(0.25).toRgbString(), // @disabled-color FIXME: hardcode in v4
-    waitTitleColor: token.colorTextSecondary,
-    waitDescriptionColor: token.colorTextSecondary,
-    waitTailColor: processTailColor,
-    finishIconColor: processIconColor,
-    finishTitleColor: token.colorText,
-    finishDescriptionColor: token.colorTextSecondary,
-    finishTailColor: token.colorPrimary,
-    errorIconColor: token.colorError,
-    errorTitleColor: token.colorError,
-    errorDescriptionColor: token.colorError,
-    errorTailColor: processTailColor,
-    stepsNavActiveColor: token.colorPrimary,
-  });
+    const stepsToken = mergeToken<StepsToken>(token, {
+      // Steps variable default.less
+      processTailColor,
+      stepsNavArrowColor: new TinyColor('#000').setAlpha(0.25).toRgbString(), //  fade(@black, 25%),
+      stepsIconSize,
+      stepsIconCustomSize: stepsIconSize,
+      stepsIconCustomTop: 0,
+      stepsIconCustomFontSize: token.fontSizeIcon * 2,
+      stepsIconTop: -0.5, // magic for ui experience
+      stepsIconFontSize: token.fontSizeLG,
+      stepsTitleLineHeight: token.controlHeight,
+      stepsSmallIconSize: token.fontSizeIcon * 2,
+      stepsDotSize: token.controlHeight / 4,
+      stepsCurrentDotSize: token.controlHeightLG / 4,
+      stepsNavContentMaxWidth: 'auto',
+      // Steps component less variable
+      processIconColor,
+      processTitleColor: token.colorText,
+      processDescriptionColor: token.colorText,
+      processIconTextColor: token.colorTextLightSolid,
+      waitIconColor: token.colorTextDisabled,
+      waitTitleColor: token.colorTextSecondary,
+      waitDescriptionColor: token.colorTextSecondary,
+      waitTailColor: processTailColor,
+      finishIconColor: processIconColor,
+      finishTitleColor: token.colorText,
+      finishDescriptionColor: token.colorTextSecondary,
+      finishTailColor: token.colorPrimary,
+      errorIconColor: token.colorError,
+      errorTitleColor: token.colorError,
+      errorDescriptionColor: token.colorError,
+      errorTailColor: processTailColor,
+      stepsNavActiveColor: token.colorPrimary,
+      stepsProgressSize: 40,
+    });
 
-  return [genStepsStyle(stepsToken)];
-});
+    return [genStepsStyle(stepsToken)];
+  },
+  {
+    descriptionWidth: 140,
+  },
+);

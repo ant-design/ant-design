@@ -3,14 +3,7 @@ import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../_util/theme';
 
 const genStepsVerticalStyle: GenerateStyle<StepsToken, CSSObject> = token => {
-  const {
-    componentCls,
-    stepsSmallIconSize,
-    stepsVerticalIconWidth,
-    stepsVerticalTailWidth,
-    stepsVerticalTailWidthSm,
-    stepsIconSize,
-  } = token;
+  const { componentCls, stepsSmallIconSize, stepsIconSize } = token;
 
   return {
     [`&${componentCls}-vertical`]: {
@@ -25,7 +18,7 @@ const genStepsVerticalStyle: GenerateStyle<StepsToken, CSSObject> = token => {
 
         [`${componentCls}-item-icon`]: {
           float: 'left',
-          marginInlineEnd: stepsVerticalIconWidth,
+          marginInlineEnd: token.margin,
         },
         [`${componentCls}-item-content`]: {
           display: 'block',
@@ -42,7 +35,7 @@ const genStepsVerticalStyle: GenerateStyle<StepsToken, CSSObject> = token => {
       [`> ${componentCls}-item > ${componentCls}-item-container > ${componentCls}-item-tail`]: {
         position: 'absolute',
         top: 0,
-        insetInlineStart: stepsVerticalTailWidth,
+        insetInlineStart: token.margin,
         width: token.lineWidth,
         height: '100%',
         padding: `${stepsIconSize + token.marginXXS * 1.5}px 0 ${token.marginXXS * 1.5}px`,
@@ -66,7 +59,7 @@ const genStepsVerticalStyle: GenerateStyle<StepsToken, CSSObject> = token => {
         [`${componentCls}-item-tail`]: {
           position: 'absolute',
           top: 0,
-          insetInlineStart: stepsVerticalTailWidthSm,
+          insetInlineStart: token.marginSM,
           padding: `${stepsSmallIconSize + token.marginXXS * 1.5}px 0 ${token.marginXXS * 1.5}px`,
         },
         [`${componentCls}-item-title`]: {

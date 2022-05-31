@@ -25,10 +25,10 @@ const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = token => {
 
         [`${antCls}-progress`]: {
           position: 'absolute',
-          top: -5, // FIXME: hardcode in v4
-          insetInlineEnd: -5, // FIXME: hardcode in v4
-          bottom: -5, // FIXME: hardcode in v4
-          insetInlineStart: -5, // FIXME: hardcode in v4
+          insetBlockStart:
+            (token.stepsIconSize - token.stepsProgressSize - token.lineWidth * 2) / 2,
+          insetInlineStart:
+            (token.stepsIconSize - token.stepsProgressSize - token.lineWidth * 2) / 2,
         },
       },
     },
