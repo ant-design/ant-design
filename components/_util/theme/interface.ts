@@ -24,6 +24,7 @@ import type { ComponentToken as NotificationComponentToken } from '../../notific
 import type { ComponentToken as PopconfirmComponentToken } from '../../popconfirm/style';
 import type { ComponentToken as PopoverComponentToken } from '../../popover/style';
 import type { ComponentToken as ProgressComponentToken } from '../../progress/style';
+import type { ComponentToken as ResultComponentToken } from '../../result/style';
 import type { ComponentToken as SegmentedComponentToken } from '../../segmented/style';
 import type { ComponentToken as SelectComponentToken } from '../../select/style';
 import type { ComponentToken as SliderComponentToken } from '../../slider/style';
@@ -94,7 +95,7 @@ export interface OverrideToken {
   Popover?: PopoverComponentToken;
   Popconfirm?: PopconfirmComponentToken;
   Rate?: {};
-  Result?: {};
+  Result?: ResultComponentToken;
   Segmented?: SegmentedComponentToken;
   Select?: SelectComponentToken;
   Skeleton?: {};
