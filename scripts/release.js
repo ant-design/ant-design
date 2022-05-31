@@ -15,7 +15,7 @@ const stdio = 'inherit';
 const execOptions = { cwd, stdio };
 
 const publishOptions = {
-  tag: 'v1.0.4', // you can also provide version: '1.0.0' instead of tag
+  tag: 'v1.0.6', // you can also provide version: '1.0.0' instead of tag
   push: {
     // set to false to not push
     remote: 'origin', // set to URL or remote name
