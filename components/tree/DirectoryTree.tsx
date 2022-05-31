@@ -13,6 +13,7 @@ import { ConfigContext } from '../config-provider';
 import type { TreeProps, AntdTreeNodeAttribute } from './Tree';
 import Tree from './Tree';
 import { calcRangeKeys, convertDirectoryKeysToNodes } from './utils/dictUtil';
+import omit from 'rc-util/lib/omit';
 
 export type ExpandAction = false | 'click' | 'doubleClick';
 
@@ -202,7 +203,7 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
   };
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
-  const { prefixCls: customizePrefixCls, className, expandAction, ...otherProps } = props;
+  const { prefixCls: customizePrefixCls, className, ...otherProps } = props;
 
   const prefixCls = getPrefixCls('tree', customizePrefixCls);
   const connectClassName = classNames(
@@ -218,7 +219,7 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
       icon={getIcon}
       ref={treeRef}
       blockNode
-      {...otherProps}
+      {...omit(otherProps, ['expandAction'])}
       prefixCls={prefixCls}
       className={connectClassName}
       expandedKeys={expandedKeys}
