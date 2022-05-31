@@ -104,7 +104,7 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
   const onExpand = (
     keys: Key[],
     info: {
-      node: EventDataNode;
+      node: EventDataNode<any>;
       expanded: boolean;
       nativeEvent: MouseEvent;
     },
@@ -116,7 +116,7 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
     return props.onExpand?.(keys, info);
   };
 
-  const onClick = (event: React.MouseEvent<HTMLElement>, node: EventDataNode) => {
+  const onClick = (event: React.MouseEvent<HTMLElement>, node: EventDataNode<any>) => {
     const { expandAction } = props;
 
     // Expand the tree
@@ -127,7 +127,7 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
     props.onClick?.(event, node);
   };
 
-  const onDoubleClick = (event: React.MouseEvent<HTMLElement>, node: EventDataNode) => {
+  const onDoubleClick = (event: React.MouseEvent<HTMLElement>, node: EventDataNode<any>) => {
     const { expandAction } = props;
 
     // Expand the tree
