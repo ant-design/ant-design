@@ -1,23 +1,26 @@
 // modal CSS start
-.ant-modal-mask {
+.ant-modal-root .ant-modal-mask {
   background-color: rgba(17, 24, 39, 0.5);
 }
-.ant-modal-content {
-  border-radius: 8px;
+.ant-modal {
+  .ant-modal-content {
+    border-radius: 8px;
+  }
+  .ant-modal-header {
+    background: #f4f7fa;
+    border-radius: 8px 8px 0 0;
+  }
+  .ant-modal-title {
+    color: #1f2937;
+    font-weight: 600;
+  }
+  .ant-modal-body {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .ant-modal-footer {
+    border-radius: 0 0 8px 8px;
+  }
 }
-.ant-modal-header {
-  background: #f4f7fa;
-  border-radius: 8px 8px 0 0;
-}
-.ant-modal-title {
-  color: #1f2937;
-  font-weight: 600;
-}
-.ant-modal-body {
-  font-size: 16px;
-  line-height: 20px;
-}
-.ant-modal-footer {
-  border-radius: 0 0 8px 8px;
-}
+
 // modal CSS end

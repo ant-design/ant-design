@@ -1,16 +1,22 @@
 // input and label CSS
 .ant-input,
 .ant-input-affix-wrapper {
-  padding: @large-input;
+  padding: @medium-input;
   font-size: @font-size-base;
   border: 1px solid #d1d5db;
   border-radius: 4px;
 }
 
+.ant-input {
+  &.ant-input-lg {
+    padding: @large-input;
+  }
+}
+
 .ant-form-item-label > label {
   height: auto;
   margin-bottom: 8px;
-  color: #6b7280;
+  color: @base-font-color;
   font-weight: 500;
   font-size: 14px;
   line-height: 18px;
@@ -20,6 +26,14 @@
 .ant-form-item-extra {
   font-size: 12px;
   line-height: 14px;
+}
+
+// select
+
+.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  height: 34px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
 }
 
 // checkbox CSS
@@ -46,6 +60,15 @@
 .ant-checkbox:hover .ant-checkbox-inner,
 .ant-checkbox-input:focus + .ant-checkbox-inner {
   border-color: @primary-color;
+}
+
+.ant-checkbox-indeterminate {
+  .ant-checkbox-inner {
+    &:after {
+      background-color: @primary-color;
+      border-radius: 2px;
+    }
+  }
 }
 
 // Button CSS
@@ -80,13 +103,20 @@
     font-size: 16px;
     line-height: 20px;
   }
+  &.ant-btn-icon-only {
+    width: 26px;
+    height: 26px;
+    padding: 1px;
+  }
   + .ant-btn {
     margin-left: 12px;
   }
 }
 
-//dropdown CSS
-.ant-dropdown-menu {
+// dropdown CSS
+
+.ant-dropdown-menu,
+.ant-dropdown {
   padding: 8px 0;
   background: #ffffff;
   border: 1px solid #d1d5db;
@@ -100,7 +130,7 @@
   font-size: 14px;
   line-height: 18px;
   &:hover {
-    color: #4f46e5;
+    color: @primary-color;
     background: #e0e7ff;
   }
 }
@@ -113,7 +143,7 @@
     font-size: 14px;
     line-height: 18px;
     &:hover {
-      color: #4f46e5;
+      color: @primary-color;
       background: #e0e7ff;
     }
     .ant-btn {
@@ -167,4 +197,8 @@
   line-height: 19px;
   background: #f3f4f6;
   border-radius: 4px;
+}
+
+.ant-switch-checked {
+  background: @primary-color;
 }
