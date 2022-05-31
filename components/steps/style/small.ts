@@ -1,6 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { GenerateStyle } from '../../_util/theme';
 import type { StepsToken } from '.';
+import type { GenerateStyle } from '../../_util/theme';
 
 const genStepsSmallStyle: GenerateStyle<StepsToken, CSSObject> = token => {
   const {
@@ -15,9 +15,9 @@ const genStepsSmallStyle: GenerateStyle<StepsToken, CSSObject> = token => {
   return {
     [`&${componentCls}-small`]: {
       [`&${componentCls}-horizontal:not(${componentCls}-label-vertical) ${componentCls}-item`]: {
-        paddingInlineStart: 12, // FIXME: hardcode in v4
+        paddingInlineStart: token.paddingSM,
         '&:first-child': {
-          paddingInlineStart: 0, // FIXME: hardcode in v4
+          paddingInlineStart: 0,
         },
       },
 
@@ -25,21 +25,21 @@ const genStepsSmallStyle: GenerateStyle<StepsToken, CSSObject> = token => {
         width: stepsSmallIconSize,
         height: stepsSmallIconSize,
         // margin: stepsSmallIconMargin,
-        marginTop: 0, // FIXME: hardcode in v4
-        marginBottom: 0, // FIXME: hardcode in v4
-        marginInline: '0 8px', // FIXME: hardcode in v4
+        marginTop: 0,
+        marginBottom: 0,
+        marginInline: `0 ${token.marginXS}px`,
         fontSize: fontSizeSM,
         lineHeight: `${stepsSmallIconSize}px`,
         textAlign: 'center',
         borderRadius: stepsSmallIconSize,
       },
       [`${componentCls}-item-title`]: {
-        paddingInlineEnd: 12, // FIXME: hardcode in v4
+        paddingInlineEnd: token.paddingSM,
         fontSize: fontSizeBase,
         lineHeight: `${stepsSmallIconSize}px`,
 
         '&::after': {
-          top: stepsSmallIconSize / 2, // FIXME: hardcode in v4
+          top: stepsSmallIconSize / 2,
         },
       },
       [`${componentCls}-item-description`]: {
@@ -47,15 +47,15 @@ const genStepsSmallStyle: GenerateStyle<StepsToken, CSSObject> = token => {
         fontSize: fontSizeBase,
       },
       [`${componentCls}-item-tail`]: {
-        top: 8, // FIXME: hardcode in v4
+        top: token.marginXS,
       },
       [`${componentCls}-item-custom ${componentCls}-item-icon`]: {
         width: 'inherit',
         height: 'inherit',
         lineHeight: 'inherit',
         background: 'none',
-        border: 0, // FIXME: hardcode in v4
-        borderRadius: 0, // FIXME: hardcode in v4
+        border: 0,
+        borderRadius: 0,
         [`> ${componentCls}-icon`]: {
           fontSize: stepsSmallIconSize,
           lineHeight: `${stepsSmallIconSize}px`,

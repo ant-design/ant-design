@@ -1,7 +1,7 @@
-import { TinyColor } from '@ctrl/tinycolor';
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { GenerateStyle } from '../../_util/theme';
+import { TinyColor } from '@ctrl/tinycolor';
 import type { StepsToken } from '.';
+import type { GenerateStyle } from '../../_util/theme';
 
 const genStepsProgressDotStyle: GenerateStyle<StepsToken, CSSObject> = token => {
   const {
@@ -23,17 +23,16 @@ const genStepsProgressDotStyle: GenerateStyle<StepsToken, CSSObject> = token => 
 
         '&-tail': {
           top: stepsDotTop,
-          width: '100%', // FIXME: hardcode in v4
-          // margin: `0 0 0 ${stepsDescriptionMaxWidth / 2}px`, // FIXME: hardcode in v4
-          marginTop: 0, // FIXME: hardcode in v4
-          marginBottom: 0, // FIXME: hardcode in v4
-          marginInline: `${stepsDescriptionMaxWidth / 2}px 0`, // FIXME: hardcode in v4
-          padding: 0, // FIXME: hardcode in v4
+          width: '100%',
+          marginTop: 0,
+          marginBottom: 0,
+          marginInline: `${stepsDescriptionMaxWidth / 2}px 0`,
+          padding: 0,
 
           '&::after': {
             width: 'calc(100% - 20px)', // FIXME: hardcode in v4
             height: 3, // FIXME: hardcode in v4
-            marginInlineStart: 12, // FIXME: hardcode in v4
+            marginInlineStart: token.marginSM,
           },
         },
         [`&:first-child ${componentCls}-icon-dot`]: {

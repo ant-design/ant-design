@@ -1,22 +1,16 @@
 // deps-lint-skip-all
-// import '../../style/index.less';
-// import './index.less';
-
-// style dependencies
-// deps-lint-skip: grid
-// import '../../progress/style';
-import { TinyColor } from '@ctrl/tinycolor';
 import type { CSSObject } from '@ant-design/cssinjs';
-import { resetComponent, genComponentStyleHook, mergeToken } from '../../_util/theme';
-import type { GenerateStyle, FullToken } from '../../_util/theme';
+import { TinyColor } from '@ctrl/tinycolor';
+import type { FullToken, GenerateStyle } from '../../_util/theme';
+import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
 import genStepsCustomIconStyle from './custom-icon';
+import genStepsLabelPlacementStyle from './label-placement';
+import genStepsNavStyle from './nav';
+import genStepsProgressStyle from './progress';
+import genStepsProgressDotStyle from './progress-dot';
+import genStepsRTLStyle from './rtl';
 import genStepsSmallStyle from './small';
 import genStepsVerticalStyle from './vertical';
-import genStepsLabelPlacementStyle from './label-placement';
-import genStepsProgressDotStyle from './progress-dot';
-import genStepsProgressStyle from './progress';
-import genStepsNavStyle from './nav';
-import genStepsRTLStyle from './rtl';
 
 export interface StepsToken extends FullToken<'Steps'> {
   // Steps variable default.less
@@ -74,10 +68,9 @@ const genStepsItemStatusStyle = (status: StepItemStatusEnum, token: StepsToken):
   const titleColorKey: keyof StepsToken = `${status}TitleColor`;
   const descriptionColorKey: keyof StepsToken = `${status}DescriptionColor`;
   const tailColorKey: keyof StepsToken = `${status}TailColor`;
-  const stepsBackground = '#fff'; // FIXME: hardcode in v4
   return {
     [`${prefix}-${status} ${prefix}-icon`]: {
-      backgroundColor: stepsBackground,
+      backgroundColor: token.colorBgComponent,
       borderColor: token[iconColorKey],
       [`> ${token.componentCls}-icon`]: {
         color: token[iconColorKey],
@@ -131,17 +124,15 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = token => {
     [`${stepsItemCls}-icon`]: {
       width: token.stepsIconSize,
       height: token.stepsIconSize,
-      // margin: token.stepsIconMargin,
-      marginTop: 0, // FIXME: hardcode in v4
-      marginBottom: 0, // FIXME: hardcode in v4
-      marginInline: '0 8px', // FIXME: hardcode in v4
+      marginTop: 0,
+      marginBottom: 0,
+      marginInlineStart: 0,
+      marginInlineEnd: token.marginXS,
       fontSize: token.stepsIconFontSize,
       fontFamily: token.fontFamily,
       lineHeight: `${token.stepsIconSize}px`,
       textAlign: 'center',
-      border: `${token.controlLineWidth}px ${token.controlLineType} ${new TinyColor('#000')
-        .setAlpha(0.25)
-        .toRgbString()}`, // FIXME: hardcode in v4
+      border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorTextDisabled}`,
       borderRadius: token.stepsIconSize,
       transition: `background-color ${motionDurationSlow}, border-color ${motionDurationSlow}`,
       [`${componentCls}-icon`]: {
@@ -153,17 +144,16 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = token => {
     },
     [`${stepsItemCls}-tail`]: {
       position: 'absolute',
-      top: 12, // FIXME: hardcode in v4
-      insetInlineStart: 0, // FIXME: hardcode in v4
-      width: '100%', // FIXME: hardcode in v4
-      padding: '0 10px', // FIXME: hardcode in v4
+      top: token.marginSM,
+      insetInlineStart: 0,
+      width: '100%',
 
       '&::after': {
         display: 'inline-block',
-        width: '100%', // FIXME: hardcode in v4
-        height: 1, // FIXME: hardcode in v4
+        width: '100%',
+        height: token.lineWidth,
         background: token.colorSplit,
-        borderRadius: 1, // FIXME: hardcode in v4
+        borderRadius: token.lineWidth,
         transition: `background ${motionDurationSlow}`,
         content: '""',
       },
@@ -171,7 +161,7 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = token => {
     [`${stepsItemCls}-title`]: {
       position: 'relative',
       display: 'inline-block',
-      paddingInlineEnd: 16, // FIXME: hardcode in v4
+      paddingInlineEnd: token.padding,
       color: token.colorText,
       fontSize: token.fontSizeLG,
       lineHeight: `${token.stepsTitleLineHeight}px`,
@@ -179,17 +169,17 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = token => {
       '&::after': {
         position: 'absolute',
         top: token.stepsTitleLineHeight / 2,
-        insetInlineStart: '100%', // FIXME: hardcode in v4
+        insetInlineStart: '100%',
         display: 'block',
-        width: 9999, // FIXME: hardcode in v4
-        height: 1, // FIXME: hardcode in v4
+        width: 9999,
+        height: token.lineWidth,
         background: token.processTailColor,
         content: '""',
       },
     },
     [`${stepsItemCls}-subtitle`]: {
       display: 'inline',
-      marginInlineStart: 8, // FIXME: hardcode in v4
+      marginInlineStart: token.marginXS,
       color: token.colorTextSecondary,
       fontWeight: 'normal',
       fontSize: token.fontSizeBase,
@@ -208,7 +198,7 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = token => {
       },
     },
     [`${stepsItemCls}-process > ${stepsItemCls}-container > ${stepsItemCls}-title`]: {
-      fontWeight: 500, // FIXME: hardcode in v4
+      fontWeight: token.fontWeightStrong,
     },
     ...genStepsItemStatusStyle(StepItemStatusEnum.finish, token),
     ...genStepsItemStatusStyle(StepItemStatusEnum.error, token),
@@ -262,14 +252,14 @@ const genStepsClickableStyle: GenerateStyle<StepsToken, CSSObject> = token => {
     },
     [`&${componentCls}-horizontal:not(${componentCls}-label-vertical)`]: {
       [`${componentCls}-item`]: {
-        paddingInlineStart: 16, // FIXME: hardcode in v4
+        paddingInlineStart: token.padding,
         whiteSpace: 'nowrap',
 
         '&:first-child': {
-          paddingInlineStart: 0, // FIXME: hardcode in v4
+          paddingInlineStart: 0,
         },
         [`&:last-child ${componentCls}-item-title`]: {
-          paddingInlineEnd: 0, // FIXME: hardcode in v4
+          paddingInlineEnd: 0,
         },
         '&-tail': {
           display: 'none',
@@ -291,7 +281,7 @@ const genStepsStyle: GenerateStyle<StepsToken, CSSObject> = token => {
       ...resetComponent(token),
       display: 'flex',
       width: '100%',
-      fontSize: 0, // FIXME: hardcode in v4
+      fontSize: 0,
       textAlign: 'initial',
       // single Item
       ...genStepsItemStyle(token),
@@ -319,7 +309,7 @@ const genStepsStyle: GenerateStyle<StepsToken, CSSObject> = token => {
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Steps', token => {
-  const stepsIconSize = 32; // FIXME: hardcode in v4
+  const stepsIconSize = token.controlHeight;
   const processTailColor = token.colorSplit;
   const processIconColor = token.colorPrimary;
 

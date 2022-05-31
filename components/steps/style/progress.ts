@@ -1,6 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { GenerateStyle } from '../../_util/theme';
 import type { StepsToken } from '.';
+import type { GenerateStyle } from '../../_util/theme';
 
 const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = token => {
   const { antCls, componentCls } = token;
@@ -8,16 +8,16 @@ const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = token => {
   return {
     [`&${componentCls}-with-progress`]: {
       [`${componentCls}-item`]: {
-        paddingTop: 4, // FIXME: hardcode in v4
+        paddingTop: token.paddingXXS,
 
         [`${componentCls}-item-tail`]: {
-          top: '4px !important', // FIXME: hardcode in v4
+          top: `${token.marginXXS}px !important`,
         },
       },
 
       [`&${componentCls}-horizontal ${componentCls}-item:first-child`]: {
-        paddingBottom: 4, // FIXME: hardcode in v4
-        paddingInlineStart: 4, // FIXME: hardcode in v4
+        paddingBottom: token.paddingXXS,
+        paddingInlineStart: token.paddingXXS,
       },
 
       [`${componentCls}-item-icon`]: {
