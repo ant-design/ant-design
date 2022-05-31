@@ -1,7 +1,7 @@
 import React from 'react';
 import Moment from 'moment';
 import MockDate from 'mockdate';
-import { mount } from 'enzyme';
+import { render } from '../utils';
 import ConfigProvider from '../../components/config-provider';
 
 // eslint-disable-next-line jest/no-export
@@ -11,12 +11,12 @@ export default function rtlTest(Component: React.ComponentType, mockDate?: boole
       if (mockDate) {
         MockDate.set(Moment('2000-09-28').valueOf());
       }
-      const wrapper = mount(
+      const { asFragment } = render(
         <ConfigProvider direction="rtl">
           <Component />
         </ConfigProvider>,
       );
-      expect(wrapper.render()).toMatchSnapshot();
+      expect(asFragment().firstChild).toMatchSnapshot();
       if (mockDate) {
         MockDate.reset();
       }
