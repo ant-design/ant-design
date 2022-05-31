@@ -269,17 +269,17 @@
   &::after {
     position: absolute;
     top: 0;
+    bottom: 0;
     right: -150%;
     left: -150%;
-    bottom: 0;
-    content: "";
     background: linear-gradient(
       90deg,
       @skeleton-color 25%,
       @skeleton-to-color 37%,
       @skeleton-color 63%
-    );
+      );
     animation: ~'@{skeleton-prefix-cls}-loading' 1.4s ease infinite;
+    content: "";
   }
 }
 
