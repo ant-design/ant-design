@@ -7,6 +7,7 @@ import type { ComponentToken as ButtonComponentToken } from '../../button/style'
 import type { ComponentToken as CalendarComponentToken } from '../../calendar/style';
 import type { ComponentToken as CarouselComponentToken } from '../../carousel/style';
 import type { ComponentToken as CascaderComponentToken } from '../../cascader/style';
+import type { ComponentToken as CheckboxComponentToken } from '../../checkbox/style';
 import type { ComponentToken as DatePickerComponentToken } from '../../date-picker/style';
 import type { ComponentToken as DividerComponentToken } from '../../divider/style';
 import type { ComponentToken as DropdownComponentToken } from '../../dropdown/style';
@@ -72,7 +73,7 @@ export interface OverrideToken {
   Breadcrumb?: {};
   Carousel?: CarouselComponentToken;
   Cascader?: CascaderComponentToken;
-  Checkbox?: {};
+  Checkbox?: CheckboxComponentToken;
   Collapse?: {};
   DatePicker?: DatePickerComponentToken;
   Descriptions?: {};
@@ -115,6 +116,7 @@ export interface OverrideToken {
   Message?: MessageComponentToken;
   Upload?: UploadComponentToken;
   Tooltip?: {};
+  Table?: {};
   Space?: SpaceComponentToken;
   Progress?: ProgressComponentToken;
   Transfer?: {};
@@ -314,6 +316,7 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   controlOutlineWidth: number;
   controlItemBgHover: string; // Note. It also is a color
   controlItemBgActive: string; // Note. It also is a color
+  controlInteractiveSize: number;
 
   // Color
   colorBorder: string;

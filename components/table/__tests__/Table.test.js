@@ -185,7 +185,7 @@ describe('Table', () => {
         dataSource={[]}
       />,
     );
-    wrapper.simulate('touchmove');
+    wrapper.find('.ant-table-wrapper').simulate('touchmove');
   });
 
   it('renders ellipsis by showTitle option', () => {
