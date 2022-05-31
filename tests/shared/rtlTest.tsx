@@ -16,7 +16,7 @@ export default function rtlTest(Component: React.ComponentType, mockDate?: boole
           <Component />
         </ConfigProvider>,
       );
-      expect(asFragment().firstChild).toMatchSnapshot();
+      expect(Array.from(asFragment().childNodes)).toMatchSnapshot();
       if (mockDate) {
         MockDate.reset();
       }
