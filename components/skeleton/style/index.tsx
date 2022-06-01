@@ -202,7 +202,6 @@ const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken) => {
     controlHeightSM,
     color,
     padding,
-    margin,
     marginSM,
     borderRadius,
     skeletonTitleHeight,
@@ -248,7 +247,6 @@ const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken) => {
         [`${skeletonTitleCls}`]: {
           width: '100%',
           height: skeletonTitleHeight,
-          marginBlockStart: margin,
           background: color,
           borderRadius: skeletonBlockRadius,
           [`+ ${skeletonParagraphCls}`]: {
