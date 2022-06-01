@@ -1,16 +1,9 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { GenerateStyle } from '../../_util/theme';
 import type { StepsToken } from '.';
+import type { GenerateStyle } from '../../_util/theme';
 
 const genStepsVerticalStyle: GenerateStyle<StepsToken, CSSObject> = token => {
-  const {
-    componentCls,
-    stepsSmallIconSize,
-    stepsVerticalIconWidth,
-    stepsVerticalTailWidth,
-    stepsVerticalTailWidthSm,
-    stepsIconSize,
-  } = token;
+  const { componentCls, stepsSmallIconSize, stepsIconSize } = token;
 
   return {
     [`&${componentCls}-vertical`]: {
@@ -20,36 +13,36 @@ const genStepsVerticalStyle: GenerateStyle<StepsToken, CSSObject> = token => {
       [`> ${componentCls}-item`]: {
         display: 'block',
         flex: '1 0 auto',
-        paddingInlineStart: 0, // FIXME: hardcode in v4
+        paddingInlineStart: 0,
         overflow: 'visible',
 
         [`${componentCls}-item-icon`]: {
           float: 'left',
-          marginInlineEnd: stepsVerticalIconWidth,
+          marginInlineEnd: token.margin,
         },
         [`${componentCls}-item-content`]: {
           display: 'block',
-          minHeight: 48, // FIXME: hardcode in v4
+          minHeight: token.controlHeight * 1.5,
           overflow: 'hidden',
         },
         [`${componentCls}-item-title`]: {
           lineHeight: `${stepsIconSize}px`,
         },
         [`${componentCls}-item-description`]: {
-          paddingBottom: 12, // FIXME: hardcode in v4
+          paddingBottom: token.paddingSM,
         },
       },
       [`> ${componentCls}-item > ${componentCls}-item-container > ${componentCls}-item-tail`]: {
         position: 'absolute',
-        top: 0, // FIXME: hardcode in v4
-        insetInlineStart: stepsVerticalTailWidth,
-        width: 1, // FIXME: hardcode in v4
-        height: '100%', // FIXME: hardcode in v4
-        padding: `${stepsIconSize + 6}px 0 6px`, // FIXME: hardcode in v4
+        top: 0,
+        insetInlineStart: token.margin,
+        width: token.lineWidth,
+        height: '100%',
+        padding: `${stepsIconSize + token.marginXXS * 1.5}px 0 ${token.marginXXS * 1.5}px`,
 
         '&::after': {
-          width: 1, // FIXME: hardcode in v4
-          height: '100%', // FIXME: hardcode in v4
+          width: token.lineWidth,
+          height: '100%',
         },
       },
       [`> ${componentCls}-item:not(:last-child) > ${componentCls}-item-container > ${componentCls}-item-tail`]:
@@ -65,9 +58,9 @@ const genStepsVerticalStyle: GenerateStyle<StepsToken, CSSObject> = token => {
       [`&${componentCls}-small ${componentCls}-item-container`]: {
         [`${componentCls}-item-tail`]: {
           position: 'absolute',
-          top: 0, // FIXME: hardcode in v4
-          insetInlineStart: stepsVerticalTailWidthSm,
-          padding: `${stepsSmallIconSize + 6}px 0 6px`, // FIXME: hardcode in v4
+          top: 0,
+          insetInlineStart: token.marginSM,
+          padding: `${stepsSmallIconSize + token.marginXXS * 1.5}px 0 ${token.marginXXS * 1.5}px`,
         },
         [`${componentCls}-item-title`]: {
           lineHeight: `${stepsSmallIconSize}px`,

@@ -1,46 +1,35 @@
 // deps-lint-skip-all
-// import '../../style/index.less';
-// import './index.less';
-
-// style dependencies
-// deps-lint-skip: grid
-// import '../../progress/style';
-import { TinyColor } from '@ctrl/tinycolor';
 import type { CSSObject } from '@ant-design/cssinjs';
-import { resetComponent, genComponentStyleHook, mergeToken } from '../../_util/theme';
-import type { GenerateStyle, FullToken } from '../../_util/theme';
+import type { FullToken, GenerateStyle } from '../../_util/theme';
+import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
 import genStepsCustomIconStyle from './custom-icon';
+import genStepsLabelPlacementStyle from './label-placement';
+import genStepsNavStyle from './nav';
+import genStepsProgressStyle from './progress';
+import genStepsProgressDotStyle from './progress-dot';
+import genStepsRTLStyle from './rtl';
 import genStepsSmallStyle from './small';
 import genStepsVerticalStyle from './vertical';
-import genStepsLabelPlacementStyle from './label-placement';
-import genStepsProgressDotStyle from './progress-dot';
-import genStepsProgressStyle from './progress';
-import genStepsNavStyle from './nav';
-import genStepsRTLStyle from './rtl';
+
+export interface ComponentToken {
+  descriptionWidth: number;
+}
 
 export interface StepsToken extends FullToken<'Steps'> {
   // Steps variable default.less
   processTailColor: string;
   stepsNavArrowColor: string;
-  stepsBackground: string;
   stepsIconSize: number;
   stepsIconCustomSize: number;
   stepsIconCustomTop: number;
   stepsIconCustomFontSize: number;
   stepsIconTop: number;
   stepsIconFontSize: number;
-  stepsIconMargin: string;
   stepsTitleLineHeight: number;
   stepsSmallIconSize: number;
-  stepsSmallIconMargin: string;
   stepsDotSize: number;
-  stepsDotTop: number;
   stepsCurrentDotSize: number;
-  stepsDescriptionMaxWidth: number;
   stepsNavContentMaxWidth: string;
-  stepsVerticalIconWidth: number;
-  stepsVerticalTailWidth: number;
-  stepsVerticalTailWidthSm: number;
   // Steps component less variable
   processIconColor: string;
   processTitleColor: string;
@@ -59,6 +48,7 @@ export interface StepsToken extends FullToken<'Steps'> {
   errorDescriptionColor: string;
   errorTailColor: string;
   stepsNavActiveColor: string;
+  stepsProgressSize: number;
 }
 
 enum StepItemStatusEnum {
@@ -74,10 +64,9 @@ const genStepsItemStatusStyle = (status: StepItemStatusEnum, token: StepsToken):
   const titleColorKey: keyof StepsToken = `${status}TitleColor`;
   const descriptionColorKey: keyof StepsToken = `${status}DescriptionColor`;
   const tailColorKey: keyof StepsToken = `${status}TailColor`;
-  const stepsBackground = '#fff'; // FIXME: hardcode in v4
   return {
     [`${prefix}-${status} ${prefix}-icon`]: {
-      backgroundColor: stepsBackground,
+      backgroundColor: token.colorBgComponent,
       borderColor: token[iconColorKey],
       [`> ${token.componentCls}-icon`]: {
         color: token[iconColorKey],
@@ -131,17 +120,15 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = token => {
     [`${stepsItemCls}-icon`]: {
       width: token.stepsIconSize,
       height: token.stepsIconSize,
-      // margin: token.stepsIconMargin,
-      marginTop: 0, // FIXME: hardcode in v4
-      marginBottom: 0, // FIXME: hardcode in v4
-      marginInline: '0 8px', // FIXME: hardcode in v4
+      marginTop: 0,
+      marginBottom: 0,
+      marginInlineStart: 0,
+      marginInlineEnd: token.marginXS,
       fontSize: token.stepsIconFontSize,
       fontFamily: token.fontFamily,
       lineHeight: `${token.stepsIconSize}px`,
       textAlign: 'center',
-      border: `${token.controlLineWidth}px ${token.controlLineType} ${new TinyColor('#000')
-        .setAlpha(0.25)
-        .toRgbString()}`, // FIXME: hardcode in v4
+      border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorTextDisabled}`,
       borderRadius: token.stepsIconSize,
       transition: `background-color ${motionDurationSlow}, border-color ${motionDurationSlow}`,
       [`${componentCls}-icon`]: {
@@ -153,17 +140,16 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = token => {
     },
     [`${stepsItemCls}-tail`]: {
       position: 'absolute',
-      top: 12, // FIXME: hardcode in v4
-      insetInlineStart: 0, // FIXME: hardcode in v4
-      width: '100%', // FIXME: hardcode in v4
-      padding: '0 10px', // FIXME: hardcode in v4
+      top: token.marginSM,
+      insetInlineStart: 0,
+      width: '100%',
 
       '&::after': {
         display: 'inline-block',
-        width: '100%', // FIXME: hardcode in v4
-        height: 1, // FIXME: hardcode in v4
+        width: '100%',
+        height: token.lineWidth,
         background: token.colorSplit,
-        borderRadius: 1, // FIXME: hardcode in v4
+        borderRadius: token.lineWidth,
         transition: `background ${motionDurationSlow}`,
         content: '""',
       },
@@ -171,7 +157,7 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = token => {
     [`${stepsItemCls}-title`]: {
       position: 'relative',
       display: 'inline-block',
-      paddingInlineEnd: 16, // FIXME: hardcode in v4
+      paddingInlineEnd: token.padding,
       color: token.colorText,
       fontSize: token.fontSizeLG,
       lineHeight: `${token.stepsTitleLineHeight}px`,
@@ -179,17 +165,17 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = token => {
       '&::after': {
         position: 'absolute',
         top: token.stepsTitleLineHeight / 2,
-        insetInlineStart: '100%', // FIXME: hardcode in v4
+        insetInlineStart: '100%',
         display: 'block',
-        width: 9999, // FIXME: hardcode in v4
-        height: 1, // FIXME: hardcode in v4
+        width: 9999,
+        height: token.lineWidth,
         background: token.processTailColor,
         content: '""',
       },
     },
     [`${stepsItemCls}-subtitle`]: {
       display: 'inline',
-      marginInlineStart: 8, // FIXME: hardcode in v4
+      marginInlineStart: token.marginXS,
       color: token.colorTextSecondary,
       fontWeight: 'normal',
       fontSize: token.fontSizeBase,
@@ -208,7 +194,7 @@ const genStepsItemStyle: GenerateStyle<StepsToken, CSSObject> = token => {
       },
     },
     [`${stepsItemCls}-process > ${stepsItemCls}-container > ${stepsItemCls}-title`]: {
-      fontWeight: 500, // FIXME: hardcode in v4
+      fontWeight: token.fontWeightStrong,
     },
     ...genStepsItemStatusStyle(StepItemStatusEnum.finish, token),
     ...genStepsItemStatusStyle(StepItemStatusEnum.error, token),
@@ -262,20 +248,20 @@ const genStepsClickableStyle: GenerateStyle<StepsToken, CSSObject> = token => {
     },
     [`&${componentCls}-horizontal:not(${componentCls}-label-vertical)`]: {
       [`${componentCls}-item`]: {
-        paddingInlineStart: 16, // FIXME: hardcode in v4
+        paddingInlineStart: token.padding,
         whiteSpace: 'nowrap',
 
         '&:first-child': {
-          paddingInlineStart: 0, // FIXME: hardcode in v4
+          paddingInlineStart: 0,
         },
         [`&:last-child ${componentCls}-item-title`]: {
-          paddingInlineEnd: 0, // FIXME: hardcode in v4
+          paddingInlineEnd: 0,
         },
         '&-tail': {
           display: 'none',
         },
         '&-description': {
-          maxWidth: token.stepsDescriptionMaxWidth,
+          maxWidth: token.descriptionWidth,
           whiteSpace: 'normal',
         },
       },
@@ -291,7 +277,7 @@ const genStepsStyle: GenerateStyle<StepsToken, CSSObject> = token => {
       ...resetComponent(token),
       display: 'flex',
       width: '100%',
-      fontSize: 0, // FIXME: hardcode in v4
+      fontSize: 0,
       textAlign: 'initial',
       // single Item
       ...genStepsItemStyle(token),
@@ -318,53 +304,52 @@ const genStepsStyle: GenerateStyle<StepsToken, CSSObject> = token => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Steps', token => {
-  const stepsIconSize = 32; // FIXME: hardcode in v4
-  const processTailColor = token.colorSplit;
-  const processIconColor = token.colorPrimary;
+export default genComponentStyleHook(
+  'Steps',
+  token => {
+    const stepsIconSize = token.controlHeight;
+    const processTailColor = token.colorSplit;
+    const processIconColor = token.colorPrimary;
 
-  const stepsToken = mergeToken<StepsToken>(token, {
-    // Steps variable default.less
-    processTailColor,
-    stepsNavArrowColor: new TinyColor('#000').setAlpha(0.25).toRgbString(), //  fade(@black, 25%),
-    stepsBackground: token.colorBgComponent,
-    stepsIconSize,
-    stepsIconCustomSize: stepsIconSize,
-    stepsIconCustomTop: 0, // FIXME: hardcode in v4
-    stepsIconCustomFontSize: 24, // FIXME: hardcode in v4
-    stepsIconTop: -0.5, // FIXME: hardcode in v4
-    stepsIconFontSize: token.fontSizeLG,
-    stepsIconMargin: '0 8px 0 0', // FIXME: hardcode in v4
-    stepsTitleLineHeight: 32, // FIXME: hardcode in v4
-    stepsSmallIconSize: 24, // FIXME: hardcode in v4
-    stepsSmallIconMargin: '0 8px 0 0', // FIXME: hardcode in v4
-    stepsDotSize: 8, // FIXME: hardcode in v4
-    stepsDotTop: 2, // FIXME: hardcode in v4
-    stepsCurrentDotSize: 10, // FIXME: hardcode in v4
-    stepsDescriptionMaxWidth: 140, // FIXME: hardcode in v4
-    stepsNavContentMaxWidth: 'auto',
-    stepsVerticalIconWidth: 16, // FIXME: hardcode in v4
-    stepsVerticalTailWidth: 16, // FIXME: hardcode in v4
-    stepsVerticalTailWidthSm: 12, // FIXME: hardcode in v4
-    // Steps component less variable
-    processIconColor,
-    processTitleColor: new TinyColor('#000').setAlpha(0.85).toRgbString(), // @heading-color: fade(@black, 85%) FIXME: hardcode in v4
-    processDescriptionColor: token.colorText,
-    processIconTextColor: '#fff', // FIXME: hardcode in v4
-    waitIconColor: new TinyColor('#000').setAlpha(0.25).toRgbString(), // @disabled-color FIXME: hardcode in v4
-    waitTitleColor: token.colorTextSecondary,
-    waitDescriptionColor: token.colorTextSecondary,
-    waitTailColor: processTailColor,
-    finishIconColor: processIconColor,
-    finishTitleColor: token.colorText,
-    finishDescriptionColor: token.colorTextSecondary,
-    finishTailColor: token.colorPrimary,
-    errorIconColor: token.colorError,
-    errorTitleColor: token.colorError,
-    errorDescriptionColor: token.colorError,
-    errorTailColor: processTailColor,
-    stepsNavActiveColor: token.colorPrimary,
-  });
+    const stepsToken = mergeToken<StepsToken>(token, {
+      // Steps variable default.less
+      processTailColor,
+      stepsNavArrowColor: token.colorTextDisabled,
+      stepsIconSize,
+      stepsIconCustomSize: stepsIconSize,
+      stepsIconCustomTop: 0,
+      stepsIconCustomFontSize: token.fontSizeHeading3,
+      stepsIconTop: -0.5, // magic for ui experience
+      stepsIconFontSize: token.fontSizeLG,
+      stepsTitleLineHeight: token.controlHeight,
+      stepsSmallIconSize: token.fontSizeHeading3,
+      stepsDotSize: token.controlHeight / 4,
+      stepsCurrentDotSize: token.controlHeightLG / 4,
+      stepsNavContentMaxWidth: 'auto',
+      // Steps component less variable
+      processIconColor,
+      processTitleColor: token.colorText,
+      processDescriptionColor: token.colorText,
+      processIconTextColor: token.colorTextLightSolid,
+      waitIconColor: token.colorTextDisabled,
+      waitTitleColor: token.colorTextSecondary,
+      waitDescriptionColor: token.colorTextSecondary,
+      waitTailColor: processTailColor,
+      finishIconColor: processIconColor,
+      finishTitleColor: token.colorText,
+      finishDescriptionColor: token.colorTextSecondary,
+      finishTailColor: token.colorPrimary,
+      errorIconColor: token.colorError,
+      errorTitleColor: token.colorError,
+      errorDescriptionColor: token.colorError,
+      errorTailColor: processTailColor,
+      stepsNavActiveColor: token.colorPrimary,
+      stepsProgressSize: token.controlHeightLG,
+    });
 
-  return [genStepsStyle(stepsToken)];
-});
+    return [genStepsStyle(stepsToken)];
+  },
+  {
+    descriptionWidth: 140,
+  },
+);

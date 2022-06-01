@@ -31,6 +31,7 @@ import type { ComponentToken as SelectComponentToken } from '../../select/style'
 import type { ComponentToken as SliderComponentToken } from '../../slider/style';
 import type { ComponentToken as SpaceComponentToken } from '../../space/style';
 import type { ComponentToken as SpinComponentToken } from '../../spin/style';
+import type { ComponentToken as StepsComponentToken } from '../../steps/style';
 import type { ComponentToken as TimelineComponentToken } from '../../timeline/style';
 import type { ComponentToken as TypographyComponentToken } from '../../typography/style';
 import type { ComponentToken as UploadComponentToken } from '../../upload/style';
@@ -113,7 +114,7 @@ export interface OverrideToken {
   Tabs?: {};
   Calendar?: CalendarComponentToken;
   Card?: {};
-  Steps?: {};
+  Steps?: StepsComponentToken;
   Menu?: MenuComponentToken;
   Modal?: ModalComponentToken;
   Message?: MessageComponentToken;
