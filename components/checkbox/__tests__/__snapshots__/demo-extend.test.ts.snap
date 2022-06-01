@@ -10,6 +10,7 @@ exports[`renders ./components/checkbox/demo/basic.md extend context correctly 1`
     <input
       class="ant-checkbox-input"
       type="checkbox"
+      value=""
     />
     <span
       class="ant-checkbox-inner"
@@ -33,6 +34,7 @@ Array [
         aria-checked="mixed"
         class="ant-checkbox-input"
         type="checkbox"
+        value=""
       />
       <span
         class="ant-checkbox-inner"
@@ -115,7 +117,7 @@ Array [
 exports[`renders ./components/checkbox/demo/controller.md extend context correctly 1`] = `
 Array [
   <p
-    style="margin-bottom:20px"
+    style="margin-bottom: 20px;"
   >
     <label
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
@@ -127,6 +129,7 @@ Array [
           checked=""
           class="ant-checkbox-input"
           type="checkbox"
+          value=""
         />
         <span
           class="ant-checkbox-inner"
@@ -148,7 +151,7 @@ Array [
     </button>
     <button
       class="ant-btn ant-btn-primary ant-btn-sm"
-      style="margin:0 10px"
+      style="margin: 0px 10px;"
       type="button"
     >
       <span>
@@ -163,11 +166,11 @@ exports[`renders ./components/checkbox/demo/debug-line.md extend context correct
 <div>
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
-    style="border:1px solid red;margin-bottom:16px"
+    style="border: 1px solid red; margin-bottom: 16px;"
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
+      style="margin-right: 8px;"
     >
       <label
         class="ant-checkbox-wrapper"
@@ -188,7 +191,7 @@ exports[`renders ./components/checkbox/demo/debug-line.md extend context correct
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px"
+      style="margin-right: 8px;"
     >
       <div>
         Bamboo
@@ -220,11 +223,11 @@ exports[`renders ./components/checkbox/demo/debug-line.md extend context correct
   </div>
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
-    style="border:1px solid red;margin-bottom:16px"
+    style="border: 1px solid red; margin-bottom: 16px;"
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
+      style="margin-right: 8px;"
     >
       <label
         class="ant-radio-wrapper"
@@ -245,7 +248,7 @@ exports[`renders ./components/checkbox/demo/debug-line.md extend context correct
     </div>
     <div
       class="ant-space-item"
-      style="margin-right:8px"
+      style="margin-right: 8px;"
     >
       <div>
         Bamboo
@@ -276,7 +279,7 @@ exports[`renders ./components/checkbox/demo/debug-line.md extend context correct
     </div>
   </div>
   <div
-    style="border:1px solid red;margin-bottom:16px;display:flex;align-items:center"
+    style="border: 1px solid red; margin-bottom: 16px; display: flex; align-items: center;"
   >
     <label
       class="ant-checkbox-wrapper"
@@ -318,7 +321,7 @@ exports[`renders ./components/checkbox/demo/debug-line.md extend context correct
     </label>
   </div>
   <div
-    style="border:1px solid red;margin-bottom:16px;display:flex;align-items:center"
+    style="border: 1px solid red; margin-bottom: 16px; display: flex; align-items: center;"
   >
     <label
       class="ant-radio-wrapper"
@@ -374,6 +377,7 @@ Array [
         class="ant-checkbox-input"
         disabled=""
         type="checkbox"
+        value=""
       />
       <span
         class="ant-checkbox-inner"
@@ -392,6 +396,7 @@ Array [
         class="ant-checkbox-input"
         disabled=""
         type="checkbox"
+        value=""
       />
       <span
         class="ant-checkbox-inner"
@@ -602,7 +607,7 @@ Array [
 exports[`renders ./components/checkbox/demo/layout.md extend context correctly 1`] = `
 <div
   class="ant-checkbox-group"
-  style="width:100%"
+  style="width: 100%;"
 >
   <div
     class="ant-row"

@@ -601,7 +601,7 @@ Array [
   <ul
     class="ant-rate"
     role="radiogroup"
-    style="font-size:36px"
+    style="font-size: 36px;"
     tabindex="0"
   >
     <li

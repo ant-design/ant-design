@@ -12,8 +12,8 @@ Array [
   </button>,
   <div>
     <div
-      class="ant-popover"
-      style="opacity:0"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
+      style="opacity: 0;"
     >
       <div
         class="ant-popover-content"
@@ -58,8 +58,8 @@ Array [
   </button>,
   <div>
     <div
-      class="ant-popover"
-      style="opacity:0"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
+      style="opacity: 0;"
     >
       <div
         class="ant-popover-content"
@@ -109,8 +109,8 @@ Array [
   </button>,
   <div>
     <div
-      class="ant-popover"
-      style="opacity:0"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
+      style="opacity: 0;"
     >
       <div
         class="ant-popover-content"
@@ -162,8 +162,8 @@ Array [
   </button>,
   <div>
     <div
-      class="ant-popover"
-      style="opacity:0"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
+      style="opacity: 0;"
     >
       <div
         class="ant-popover-content"
@@ -210,8 +210,8 @@ Array [
   </button>,
   <div>
     <div
-      class="ant-popover"
-      style="opacity:0"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
+      style="opacity: 0;"
     >
       <div
         class="ant-popover-content"
@@ -250,8 +250,8 @@ Array [
   </div>,
   <div>
     <div
-      class="ant-popover"
-      style="opacity:0"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
+      style="opacity: 0;"
     >
       <div
         class="ant-popover-content"
@@ -291,7 +291,7 @@ exports[`renders ./components/popover/demo/placement.md extend context correctly
   class="demo"
 >
   <div
-    style="margin-left:70px;white-space:nowrap"
+    style="margin-left: 70px; white-space: nowrap;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -303,8 +303,8 @@ exports[`renders ./components/popover/demo/placement.md extend context correctly
     </button>
     <div>
       <div
-        class="ant-popover"
-        style="opacity:0"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
+        style="opacity: 0;"
       >
         <div
           class="ant-popover-content"
@@ -353,8 +353,8 @@ exports[`renders ./components/popover/demo/placement.md extend context correctly
     </button>
     <div>
       <div
-        class="ant-popover"
-        style="opacity:0"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
+        style="opacity: 0;"
       >
         <div
           class="ant-popover-content"
@@ -403,8 +403,8 @@ exports[`renders ./components/popover/demo/placement.md extend context correctly
     </button>
     <div>
       <div
-        class="ant-popover"
-        style="opacity:0"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
+        style="opacity: 0;"
       >
         <div
           class="ant-popover-content"
@@ -445,7 +445,7 @@ exports[`renders ./components/popover/demo/placement.md extend context correctly
     </div>
   </div>
   <div
-    style="width:70px;float:left"
+    style="width: 70px; float: left;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -457,8 +457,8 @@ exports[`renders ./components/popover/demo/placement.md extend context correctly
     </button>
     <div>
       <div
-        class="ant-popover"
-        style="opacity:0"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
+        style="opacity: 0;"
       >
         <div
           class="ant-popover-content"
@@ -507,8 +507,8 @@ exports[`renders ./components/popover/demo/placement.md extend context correctly
     </button>
     <div>
       <div
-        class="ant-popover"
-        style="opacity:0"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
+        style="opacity: 0;"
       >
         <div
           class="ant-popover-content"
@@ -557,8 +557,8 @@ exports[`renders ./components/popover/demo/placement.md extend context correctly
     </button>
     <div>
       <div
-        class="ant-popover"
-        style="opacity:0"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
+        style="opacity: 0;"
       >
         <div
           class="ant-popover-content"
@@ -599,7 +599,7 @@ exports[`renders ./components/popover/demo/placement.md extend context correctly
     </div>
   </div>
   <div
-    style="width:70px;margin-left:304px"
+    style="width: 70px; margin-left: 304px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -611,8 +611,8 @@ exports[`renders ./components/popover/demo/placement.md extend context correctly
     </button>
     <div>
       <div
-        class="ant-popover"
-        style="opacity:0"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
+        style="opacity: 0;"
       >
         <div
           class="ant-popover-content"
@@ -661,8 +661,8 @@ exports[`renders ./components/popover/demo/placement.md extend context correctly
     </button>
     <div>
       <div
-        class="ant-popover"
-        style="opacity:0"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
+        style="opacity: 0;"
       >
         <div
           class="ant-popover-content"
@@ -711,8 +711,8 @@ exports[`renders ./components/popover/demo/placement.md extend context correctly
     </button>
     <div>
       <div
-        class="ant-popover"
-        style="opacity:0"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
+        style="opacity: 0;"
       >
         <div
           class="ant-popover-content"
@@ -753,7 +753,7 @@ exports[`renders ./components/popover/demo/placement.md extend context correctly
     </div>
   </div>
   <div
-    style="margin-left:70px;clear:both;white-space:nowrap"
+    style="margin-left: 70px; clear: both; white-space: nowrap;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -765,8 +765,8 @@ exports[`renders ./components/popover/demo/placement.md extend context correctly
     </button>
     <div>
       <div
-        class="ant-popover"
-        style="opacity:0"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
+        style="opacity: 0;"
       >
         <div
           class="ant-popover-content"
@@ -815,8 +815,8 @@ exports[`renders ./components/popover/demo/placement.md extend context correctly
     </button>
     <div>
       <div
-        class="ant-popover"
-        style="opacity:0"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
+        style="opacity: 0;"
       >
         <div
           class="ant-popover-content"
@@ -865,8 +865,8 @@ exports[`renders ./components/popover/demo/placement.md extend context correctly
     </button>
     <div>
       <div
-        class="ant-popover"
-        style="opacity:0"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
+        style="opacity: 0;"
       >
         <div
           class="ant-popover-content"
@@ -921,8 +921,8 @@ exports[`renders ./components/popover/demo/triggerType.md extend context correct
   </button>
   <div>
     <div
-      class="ant-popover"
-      style="opacity:0"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
+      style="opacity: 0;"
     >
       <div
         class="ant-popover-content"
@@ -969,8 +969,8 @@ exports[`renders ./components/popover/demo/triggerType.md extend context correct
   </button>
   <div>
     <div
-      class="ant-popover"
-      style="opacity:0"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
+      style="opacity: 0;"
     >
       <div
         class="ant-popover-content"
@@ -1017,8 +1017,8 @@ exports[`renders ./components/popover/demo/triggerType.md extend context correct
   </button>
   <div>
     <div
-      class="ant-popover"
-      style="opacity:0"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big"
+      style="opacity: 0;"
     >
       <div
         class="ant-popover-content"

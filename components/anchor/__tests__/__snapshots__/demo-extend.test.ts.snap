@@ -7,7 +7,7 @@ exports[`renders ./components/anchor/demo/basic.md extend context correctly 1`] 
   >
     <div
       class="ant-anchor-wrapper"
-      style="max-height:100vh"
+      style="max-height: 100vh;"
     >
       <div
         class="ant-anchor"
@@ -83,7 +83,7 @@ exports[`renders ./components/anchor/demo/basic.md extend context correctly 1`] 
 exports[`renders ./components/anchor/demo/customizeHighlight.md extend context correctly 1`] = `
 <div
   class="ant-anchor-wrapper"
-  style="max-height:100vh"
+  style="max-height: 100vh;"
 >
   <div
     class="ant-anchor ant-anchor-fixed"
@@ -92,7 +92,8 @@ exports[`renders ./components/anchor/demo/customizeHighlight.md extend context c
       class="ant-anchor-ink"
     >
       <span
-        class="ant-anchor-ink-ball"
+        class="ant-anchor-ink-ball visible"
+        style="top: -4.5px;"
       />
     </div>
     <div
@@ -107,10 +108,10 @@ exports[`renders ./components/anchor/demo/customizeHighlight.md extend context c
       </a>
     </div>
     <div
-      class="ant-anchor-link"
+      class="ant-anchor-link ant-anchor-link-active"
     >
       <a
-        class="ant-anchor-link-title"
+        class="ant-anchor-link-title ant-anchor-link-title-active"
         href="#components-anchor-demo-static"
         title="Static demo"
       >
@@ -157,7 +158,7 @@ exports[`renders ./components/anchor/demo/customizeHighlight.md extend context c
 exports[`renders ./components/anchor/demo/onChange.md extend context correctly 1`] = `
 <div
   class="ant-anchor-wrapper"
-  style="max-height:100vh"
+  style="max-height: 100vh;"
 >
   <div
     class="ant-anchor ant-anchor-fixed"
@@ -231,7 +232,7 @@ exports[`renders ./components/anchor/demo/onChange.md extend context correctly 1
 exports[`renders ./components/anchor/demo/onClick.md extend context correctly 1`] = `
 <div
   class="ant-anchor-wrapper"
-  style="max-height:100vh"
+  style="max-height: 100vh;"
 >
   <div
     class="ant-anchor ant-anchor-fixed"
@@ -305,7 +306,7 @@ exports[`renders ./components/anchor/demo/onClick.md extend context correctly 1`
 exports[`renders ./components/anchor/demo/static.md extend context correctly 1`] = `
 <div
   class="ant-anchor-wrapper"
-  style="max-height:100vh"
+  style="max-height: 100vh;"
 >
   <div
     class="ant-anchor ant-anchor-fixed"
@@ -383,7 +384,7 @@ exports[`renders ./components/anchor/demo/targetOffset.md extend context correct
   >
     <div
       class="ant-anchor-wrapper"
-      style="max-height:100vh"
+      style="max-height: 100vh;"
     >
       <div
         class="ant-anchor"

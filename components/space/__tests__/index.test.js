@@ -7,7 +7,12 @@ import rtlTest from '../../../tests/shared/rtlTest';
 
 describe('Space', () => {
   mountTest(Space);
-  rtlTest(Space);
+  rtlTest(() => (
+    <Space size={10}>
+      <span>1</span>
+      <span>2</span>
+    </Space>
+  ));
 
   it('should render width empty children', () => {
     const { container } = render(<Space />);

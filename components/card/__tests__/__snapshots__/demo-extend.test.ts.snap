@@ -4,7 +4,7 @@ exports[`renders ./components/card/demo/basic.md extend context correctly 1`] = 
 Array [
   <div
     class="ant-card ant-card-bordered"
-    style="width:300px"
+    style="width: 300px;"
   >
     <div
       class="ant-card-head"
@@ -44,7 +44,7 @@ Array [
   </div>,
   <div
     class="ant-card ant-card-bordered ant-card-small"
-    style="width:300px"
+    style="width: 300px;"
   >
     <div
       class="ant-card-head"
@@ -91,7 +91,7 @@ exports[`renders ./components/card/demo/border-less.md extend context correctly 
 >
   <div
     class="ant-card"
-    style="width:300px"
+    style="width: 300px;"
   >
     <div
       class="ant-card-head"
@@ -126,7 +126,7 @@ exports[`renders ./components/card/demo/border-less.md extend context correctly 
 exports[`renders ./components/card/demo/flexible-content.md extend context correctly 1`] = `
 <div
   class="ant-card ant-card-bordered ant-card-hoverable"
-  style="width:240px"
+  style="width: 240px;"
 >
   <div
     class="ant-card-cover"
@@ -183,43 +183,43 @@ exports[`renders ./components/card/demo/grid-card.md extend context correctly 1`
   >
     <div
       class="ant-card-grid ant-card-grid-hoverable"
-      style="width:25%;text-align:center"
+      style="width: 25%; text-align: center;"
     >
       Content
     </div>
     <div
       class="ant-card-grid"
-      style="width:25%;text-align:center"
+      style="width: 25%; text-align: center;"
     >
       Content
     </div>
     <div
       class="ant-card-grid ant-card-grid-hoverable"
-      style="width:25%;text-align:center"
+      style="width: 25%; text-align: center;"
     >
       Content
     </div>
     <div
       class="ant-card-grid ant-card-grid-hoverable"
-      style="width:25%;text-align:center"
+      style="width: 25%; text-align: center;"
     >
       Content
     </div>
     <div
       class="ant-card-grid ant-card-grid-hoverable"
-      style="width:25%;text-align:center"
+      style="width: 25%; text-align: center;"
     >
       Content
     </div>
     <div
       class="ant-card-grid ant-card-grid-hoverable"
-      style="width:25%;text-align:center"
+      style="width: 25%; text-align: center;"
     >
       Content
     </div>
     <div
       class="ant-card-grid ant-card-grid-hoverable"
-      style="width:25%;text-align:center"
+      style="width: 25%; text-align: center;"
     >
       Content
     </div>
@@ -233,11 +233,11 @@ exports[`renders ./components/card/demo/in-column.md extend context correctly 1`
 >
   <div
     class="ant-row"
-    style="margin-left:-8px;margin-right:-8px"
+    style="margin-left: -8px; margin-right: -8px;"
   >
     <div
       class="ant-col ant-col-8"
-      style="padding-left:8px;padding-right:8px"
+      style="padding-left: 8px; padding-right: 8px;"
     >
       <div
         class="ant-card"
@@ -264,7 +264,7 @@ exports[`renders ./components/card/demo/in-column.md extend context correctly 1`
     </div>
     <div
       class="ant-col ant-col-8"
-      style="padding-left:8px;padding-right:8px"
+      style="padding-left: 8px; padding-right: 8px;"
     >
       <div
         class="ant-card"
@@ -291,7 +291,7 @@ exports[`renders ./components/card/demo/in-column.md extend context correctly 1`
     </div>
     <div
       class="ant-col ant-col-8"
-      style="padding-left:8px;padding-right:8px"
+      style="padding-left: 8px; padding-right: 8px;"
     >
       <div
         class="ant-card"
@@ -373,7 +373,7 @@ exports[`renders ./components/card/demo/inner.md extend context correctly 1`] = 
     </div>
     <div
       class="ant-card ant-card-bordered ant-card-type-inner"
-      style="margin-top:16px"
+      style="margin-top: 16px;"
     >
       <div
         class="ant-card-head"
@@ -424,7 +424,7 @@ Array [
   </button>,
   <div
     class="ant-card ant-card-loading ant-card-bordered"
-    style="width:300px;margin-top:16px"
+    style="width: 300px; margin-top: 16px;"
   >
     <div
       class="ant-card-body"
@@ -434,11 +434,11 @@ Array [
       >
         <div
           class="ant-row"
-          style="margin-left:-4px;margin-right:-4px"
+          style="margin-left: -4px; margin-right: -4px;"
         >
           <div
             class="ant-col ant-col-22"
-            style="padding-left:4px;padding-right:4px"
+            style="padding-left: 4px; padding-right: 4px;"
           >
             <div
               class="ant-card-loading-block"
@@ -447,11 +447,11 @@ Array [
         </div>
         <div
           class="ant-row"
-          style="margin-left:-4px;margin-right:-4px"
+          style="margin-left: -4px; margin-right: -4px;"
         >
           <div
             class="ant-col ant-col-8"
-            style="padding-left:4px;padding-right:4px"
+            style="padding-left: 4px; padding-right: 4px;"
           >
             <div
               class="ant-card-loading-block"
@@ -459,7 +459,7 @@ Array [
           </div>
           <div
             class="ant-col ant-col-15"
-            style="padding-left:4px;padding-right:4px"
+            style="padding-left: 4px; padding-right: 4px;"
           >
             <div
               class="ant-card-loading-block"
@@ -468,11 +468,11 @@ Array [
         </div>
         <div
           class="ant-row"
-          style="margin-left:-4px;margin-right:-4px"
+          style="margin-left: -4px; margin-right: -4px;"
         >
           <div
             class="ant-col ant-col-6"
-            style="padding-left:4px;padding-right:4px"
+            style="padding-left: 4px; padding-right: 4px;"
           >
             <div
               class="ant-card-loading-block"
@@ -480,7 +480,7 @@ Array [
           </div>
           <div
             class="ant-col ant-col-18"
-            style="padding-left:4px;padding-right:4px"
+            style="padding-left: 4px; padding-right: 4px;"
           >
             <div
               class="ant-card-loading-block"
@@ -489,11 +489,11 @@ Array [
         </div>
         <div
           class="ant-row"
-          style="margin-left:-4px;margin-right:-4px"
+          style="margin-left: -4px; margin-right: -4px;"
         >
           <div
             class="ant-col ant-col-13"
-            style="padding-left:4px;padding-right:4px"
+            style="padding-left: 4px; padding-right: 4px;"
           >
             <div
               class="ant-card-loading-block"
@@ -501,7 +501,7 @@ Array [
           </div>
           <div
             class="ant-col ant-col-9"
-            style="padding-left:4px;padding-right:4px"
+            style="padding-left: 4px; padding-right: 4px;"
           >
             <div
               class="ant-card-loading-block"
@@ -510,11 +510,11 @@ Array [
         </div>
         <div
           class="ant-row"
-          style="margin-left:-4px;margin-right:-4px"
+          style="margin-left: -4px; margin-right: -4px;"
         >
           <div
             class="ant-col ant-col-4"
-            style="padding-left:4px;padding-right:4px"
+            style="padding-left: 4px; padding-right: 4px;"
           >
             <div
               class="ant-card-loading-block"
@@ -522,7 +522,7 @@ Array [
           </div>
           <div
             class="ant-col ant-col-3"
-            style="padding-left:4px;padding-right:4px"
+            style="padding-left: 4px; padding-right: 4px;"
           >
             <div
               class="ant-card-loading-block"
@@ -530,7 +530,7 @@ Array [
           </div>
           <div
             class="ant-col ant-col-16"
-            style="padding-left:4px;padding-right:4px"
+            style="padding-left: 4px; padding-right: 4px;"
           >
             <div
               class="ant-card-loading-block"
@@ -542,7 +542,7 @@ Array [
   </div>,
   <div
     class="ant-card ant-card-bordered"
-    style="width:300px;margin-top:16px"
+    style="width: 300px; margin-top: 16px;"
   >
     <div
       class="ant-card-body"
@@ -562,7 +562,7 @@ Array [
         >
           <h3
             class="ant-skeleton-title"
-            style="width:50%"
+            style="width: 50%;"
           />
           <ul
             class="ant-skeleton-paragraph"
@@ -577,7 +577,7 @@ Array [
       class="ant-card-actions"
     >
       <li
-        style="width:33.333333333333336%"
+        style="width: 33.333333333333336%;"
       >
         <span>
           <span
@@ -602,7 +602,7 @@ Array [
         </span>
       </li>
       <li
-        style="width:33.333333333333336%"
+        style="width: 33.333333333333336%;"
       >
         <span>
           <span
@@ -627,7 +627,7 @@ Array [
         </span>
       </li>
       <li
-        style="width:33.333333333333336%"
+        style="width: 33.333333333333336%;"
       >
         <span>
           <span
@@ -659,7 +659,7 @@ Array [
 exports[`renders ./components/card/demo/meta.md extend context correctly 1`] = `
 <div
   class="ant-card ant-card-bordered"
-  style="width:300px"
+  style="width: 300px;"
 >
   <div
     class="ant-card-cover"
@@ -706,7 +706,7 @@ exports[`renders ./components/card/demo/meta.md extend context correctly 1`] = `
     class="ant-card-actions"
   >
     <li
-      style="width:33.333333333333336%"
+      style="width: 33.333333333333336%;"
     >
       <span>
         <span
@@ -731,7 +731,7 @@ exports[`renders ./components/card/demo/meta.md extend context correctly 1`] = `
       </span>
     </li>
     <li
-      style="width:33.333333333333336%"
+      style="width: 33.333333333333336%;"
     >
       <span>
         <span
@@ -756,7 +756,7 @@ exports[`renders ./components/card/demo/meta.md extend context correctly 1`] = `
       </span>
     </li>
     <li
-      style="width:33.333333333333336%"
+      style="width: 33.333333333333336%;"
     >
       <span>
         <span
@@ -787,7 +787,7 @@ exports[`renders ./components/card/demo/meta.md extend context correctly 1`] = `
 exports[`renders ./components/card/demo/simple.md extend context correctly 1`] = `
 <div
   class="ant-card ant-card-bordered"
-  style="width:300px"
+  style="width: 300px;"
 >
   <div
     class="ant-card-body"
@@ -809,7 +809,7 @@ exports[`renders ./components/card/demo/tabs.md extend context correctly 1`] = `
 Array [
   <div
     class="ant-card ant-card-bordered ant-card-contain-tabs"
-    style="width:100%"
+    style="width: 100%;"
   >
     <div
       class="ant-card-head"
@@ -844,14 +844,16 @@ Array [
           >
             <div
               class="ant-tabs-nav-list"
-              style="transform:translate(0px, 0px)"
+              style="transform: translate(0px, 0px);"
             >
               <div
                 class="ant-tabs-tab ant-tabs-tab-active"
               >
                 <div
+                  aria-controls="rc-tabs-test-panel-tab1"
                   aria-selected="true"
                   class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-tab1"
                   role="tab"
                   tabindex="0"
                 >
@@ -862,8 +864,10 @@ Array [
                 class="ant-tabs-tab"
               >
                 <div
+                  aria-controls="rc-tabs-test-panel-tab2"
                   aria-selected="false"
                   class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-tab2"
                   role="tab"
                   tabindex="0"
                 >
@@ -879,13 +883,13 @@ Array [
             class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
           >
             <button
-              aria-controls="null-more-popup"
+              aria-controls="rc-tabs-test-more-popup"
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-hidden="true"
               class="ant-tabs-nav-more"
-              id="null-more"
-              style="visibility:hidden;order:1"
+              id="rc-tabs-test-more"
+              style="visibility: hidden; order: 1;"
               tabindex="-1"
               type="button"
             >
@@ -911,21 +915,21 @@ Array [
             </button>
             <div>
               <div
-                class="ant-tabs-dropdown"
-                style="opacity:0"
+                class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+                style="opacity: 0;"
               >
                 <ul
                   aria-label="expanded dropdown"
                   class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
                   data-dropdown-inject="true"
                   data-menu-list="true"
-                  id="null-more-popup"
+                  id="rc-tabs-test-more-popup"
                   role="listbox"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
-                  style="display:none"
+                  style="display: none;"
                 />
               </div>
             </div>
@@ -939,15 +943,19 @@ Array [
           >
             <div
               aria-hidden="false"
+              aria-labelledby="rc-tabs-test-tab-tab1"
               class="ant-tabs-tabpane ant-tabs-tabpane-active"
+              id="rc-tabs-test-panel-tab1"
               role="tabpanel"
               tabindex="0"
             />
             <div
               aria-hidden="true"
+              aria-labelledby="rc-tabs-test-tab-tab2"
               class="ant-tabs-tabpane"
+              id="rc-tabs-test-panel-tab2"
               role="tabpanel"
-              style="display:none"
+              style="display: none;"
               tabindex="-1"
             />
           </div>
@@ -966,7 +974,7 @@ Array [
   <br />,
   <div
     class="ant-card ant-card-bordered ant-card-contain-tabs"
-    style="width:100%"
+    style="width: 100%;"
   >
     <div
       class="ant-card-head"
@@ -986,14 +994,16 @@ Array [
           >
             <div
               class="ant-tabs-nav-list"
-              style="transform:translate(0px, 0px)"
+              style="transform: translate(0px, 0px);"
             >
               <div
                 class="ant-tabs-tab"
               >
                 <div
+                  aria-controls="rc-tabs-test-panel-article"
                   aria-selected="false"
                   class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-article"
                   role="tab"
                   tabindex="0"
                 >
@@ -1004,8 +1014,10 @@ Array [
                 class="ant-tabs-tab ant-tabs-tab-active"
               >
                 <div
+                  aria-controls="rc-tabs-test-panel-app"
                   aria-selected="true"
                   class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-app"
                   role="tab"
                   tabindex="0"
                 >
@@ -1016,8 +1028,10 @@ Array [
                 class="ant-tabs-tab"
               >
                 <div
+                  aria-controls="rc-tabs-test-panel-project"
                   aria-selected="false"
                   class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-project"
                   role="tab"
                   tabindex="0"
                 >
@@ -1033,13 +1047,13 @@ Array [
             class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
           >
             <button
-              aria-controls="null-more-popup"
+              aria-controls="rc-tabs-test-more-popup"
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-hidden="true"
               class="ant-tabs-nav-more"
-              id="null-more"
-              style="visibility:hidden;order:1"
+              id="rc-tabs-test-more"
+              style="visibility: hidden; order: 1;"
               tabindex="-1"
               type="button"
             >
@@ -1065,21 +1079,21 @@ Array [
             </button>
             <div>
               <div
-                class="ant-tabs-dropdown"
-                style="opacity:0"
+                class="ant-tabs-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up"
+                style="opacity: 0;"
               >
                 <ul
                   aria-label="expanded dropdown"
                   class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
                   data-dropdown-inject="true"
                   data-menu-list="true"
-                  id="null-more-popup"
+                  id="rc-tabs-test-more-popup"
                   role="listbox"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
-                  style="display:none"
+                  style="display: none;"
                 />
               </div>
             </div>
@@ -1102,22 +1116,28 @@ Array [
           >
             <div
               aria-hidden="true"
+              aria-labelledby="rc-tabs-test-tab-article"
               class="ant-tabs-tabpane"
+              id="rc-tabs-test-panel-article"
               role="tabpanel"
-              style="display:none"
+              style="display: none;"
               tabindex="-1"
             />
             <div
               aria-hidden="false"
+              aria-labelledby="rc-tabs-test-tab-app"
               class="ant-tabs-tabpane ant-tabs-tabpane-active"
+              id="rc-tabs-test-panel-app"
               role="tabpanel"
               tabindex="0"
             />
             <div
               aria-hidden="true"
+              aria-labelledby="rc-tabs-test-tab-project"
               class="ant-tabs-tabpane"
+              id="rc-tabs-test-panel-project"
               role="tabpanel"
-              style="display:none"
+              style="display: none;"
               tabindex="-1"
             />
           </div>

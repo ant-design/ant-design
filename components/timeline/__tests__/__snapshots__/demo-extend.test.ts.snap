@@ -47,7 +47,7 @@ exports[`renders ./components/timeline/demo/alternate.md extend context correctl
         aria-label="clock-circle"
         class="anticon anticon-clock-circle"
         role="img"
-        style="font-size:16px"
+        style="font-size: 16px;"
       >
         <svg
           aria-hidden="true"
@@ -116,7 +116,7 @@ exports[`renders ./components/timeline/demo/alternate.md extend context correctl
         aria-label="clock-circle"
         class="anticon anticon-clock-circle"
         role="img"
-        style="font-size:16px"
+        style="font-size: 16px;"
       >
         <svg
           aria-hidden="true"
@@ -346,7 +346,7 @@ exports[`renders ./components/timeline/demo/color.md extend context correctly 1`
     />
     <div
       class="ant-timeline-item-head ant-timeline-item-head-custom ant-timeline-item-head-#00CCFF"
-      style="border-color:#00CCFF;color:#00CCFF"
+      style="border-color: #00ccff; color: rgb(0, 204, 255);"
     >
       <span
         aria-label="smile"
@@ -473,7 +473,7 @@ exports[`renders ./components/timeline/demo/label.md extend context correctly 1`
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline"
-    style="margin-bottom:20px"
+    style="margin-bottom: 20px;"
   >
     <label
       class="ant-radio-wrapper ant-radio-wrapper-checked"
@@ -704,7 +704,7 @@ exports[`renders ./components/timeline/demo/pending.md extend context correctly 
   </ul>
   <button
     class="ant-btn ant-btn-primary"
-    style="margin-top:16px"
+    style="margin-top: 16px;"
     type="button"
   >
     <span>
@@ -761,7 +761,7 @@ exports[`renders ./components/timeline/demo/right.md extend context correctly 1`
         aria-label="clock-circle"
         class="anticon anticon-clock-circle"
         role="img"
-        style="font-size:16px"
+        style="font-size: 16px;"
       >
         <svg
           aria-hidden="true"

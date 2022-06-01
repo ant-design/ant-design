@@ -1137,7 +1137,7 @@ exports[`renders ./components/result/demo/error.md extend context correctly 1`] 
       >
         <span
           class="ant-typography"
-          style="font-size:16px"
+          style="font-size: 16px;"
         >
           <strong>
             The content you submitted has the following error:

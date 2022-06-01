@@ -13,14 +13,16 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
     >
       <div
         class="ant-tabs-nav-list"
-        style="transform:translate(0px, 0px)"
+        style="transform: translate(0px, 0px);"
       >
         <div
           class="ant-tabs-tab ant-tabs-tab-active"
         >
           <div
+            aria-controls="rc-tabs-test-panel-1"
             aria-selected="true"
             class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-1"
             role="tab"
             tabindex="0"
           >
@@ -31,8 +33,10 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
           class="ant-tabs-tab"
         >
           <div
+            aria-controls="rc-tabs-test-panel-2"
             aria-selected="false"
             class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-2"
             role="tab"
             tabindex="0"
           >
@@ -43,8 +47,10 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
           class="ant-tabs-tab"
         >
           <div
+            aria-controls="rc-tabs-test-panel-3"
             aria-selected="false"
             class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-3"
             role="tab"
             tabindex="0"
           >
@@ -60,13 +66,13 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
       class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
     >
       <button
-        aria-controls="null-more-popup"
+        aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-hidden="true"
         class="ant-tabs-nav-more"
-        id="null-more"
-        style="visibility:hidden;order:1"
+        id="rc-tabs-test-more"
+        style="visibility: hidden; order: 1;"
         tabindex="-1"
         type="button"
       >
@@ -100,7 +106,9 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
     >
       <div
         aria-hidden="false"
+        aria-labelledby="rc-tabs-test-tab-1"
         class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        id="rc-tabs-test-panel-1"
         role="tabpanel"
         tabindex="0"
       >
@@ -108,16 +116,20 @@ exports[`renders ./components/tabs/demo/basic.md correctly 1`] = `
       </div>
       <div
         aria-hidden="true"
+        aria-labelledby="rc-tabs-test-tab-2"
         class="ant-tabs-tabpane"
+        id="rc-tabs-test-panel-2"
         role="tabpanel"
-        style="display:none"
+        style="display: none;"
         tabindex="-1"
       />
       <div
         aria-hidden="true"
+        aria-labelledby="rc-tabs-test-tab-3"
         class="ant-tabs-tabpane"
+        id="rc-tabs-test-panel-3"
         role="tabpanel"
-        style="display:none"
+        style="display: none;"
         tabindex="-1"
       />
     </div>
@@ -138,14 +150,16 @@ exports[`renders ./components/tabs/demo/card.md correctly 1`] = `
     >
       <div
         class="ant-tabs-nav-list"
-        style="transform:translate(0px, 0px)"
+        style="transform: translate(0px, 0px);"
       >
         <div
           class="ant-tabs-tab ant-tabs-tab-active"
         >
           <div
+            aria-controls="rc-tabs-test-panel-1"
             aria-selected="true"
             class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-1"
             role="tab"
             tabindex="0"
           >
@@ -156,8 +170,10 @@ exports[`renders ./components/tabs/demo/card.md correctly 1`] = `
           class="ant-tabs-tab"
         >
           <div
+            aria-controls="rc-tabs-test-panel-2"
             aria-selected="false"
             class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-2"
             role="tab"
             tabindex="0"
           >
@@ -168,8 +184,10 @@ exports[`renders ./components/tabs/demo/card.md correctly 1`] = `
           class="ant-tabs-tab"
         >
           <div
+            aria-controls="rc-tabs-test-panel-3"
             aria-selected="false"
             class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-3"
             role="tab"
             tabindex="0"
           >
@@ -185,13 +203,13 @@ exports[`renders ./components/tabs/demo/card.md correctly 1`] = `
       class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
     >
       <button
-        aria-controls="null-more-popup"
+        aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-hidden="true"
         class="ant-tabs-nav-more"
-        id="null-more"
-        style="visibility:hidden;order:1"
+        id="rc-tabs-test-more"
+        style="visibility: hidden; order: 1;"
         tabindex="-1"
         type="button"
       >
@@ -225,7 +243,9 @@ exports[`renders ./components/tabs/demo/card.md correctly 1`] = `
     >
       <div
         aria-hidden="false"
+        aria-labelledby="rc-tabs-test-tab-1"
         class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        id="rc-tabs-test-panel-1"
         role="tabpanel"
         tabindex="0"
       >
@@ -233,16 +253,20 @@ exports[`renders ./components/tabs/demo/card.md correctly 1`] = `
       </div>
       <div
         aria-hidden="true"
+        aria-labelledby="rc-tabs-test-tab-2"
         class="ant-tabs-tabpane"
+        id="rc-tabs-test-panel-2"
         role="tabpanel"
-        style="display:none"
+        style="display: none;"
         tabindex="-1"
       />
       <div
         aria-hidden="true"
+        aria-labelledby="rc-tabs-test-tab-3"
         class="ant-tabs-tabpane"
+        id="rc-tabs-test-panel-3"
         role="tabpanel"
-        style="display:none"
+        style="display: none;"
         tabindex="-1"
       />
     </div>
@@ -266,14 +290,16 @@ exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
       >
         <div
           class="ant-tabs-nav-list"
-          style="transform:translate(0px, 0px)"
+          style="transform: translate(0px, 0px);"
         >
           <div
             class="ant-tabs-tab ant-tabs-tab-active"
           >
             <div
+              aria-controls="rc-tabs-test-panel-1"
               aria-selected="true"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-1"
               role="tab"
               tabindex="0"
             >
@@ -284,8 +310,10 @@ exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
             class="ant-tabs-tab"
           >
             <div
+              aria-controls="rc-tabs-test-panel-2"
               aria-selected="false"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-2"
               role="tab"
               tabindex="0"
             >
@@ -296,8 +324,10 @@ exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
             class="ant-tabs-tab"
           >
             <div
+              aria-controls="rc-tabs-test-panel-3"
               aria-selected="false"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-3"
               role="tab"
               tabindex="0"
             >
@@ -313,13 +343,13 @@ exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
         class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
       >
         <button
-          aria-controls="null-more-popup"
+          aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-hidden="true"
           class="ant-tabs-nav-more"
-          id="null-more"
-          style="visibility:hidden;order:1"
+          id="rc-tabs-test-more"
+          style="visibility: hidden; order: 1;"
           tabindex="-1"
           type="button"
         >
@@ -353,7 +383,9 @@ exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
       >
         <div
           aria-hidden="false"
+          aria-labelledby="rc-tabs-test-tab-1"
           class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          id="rc-tabs-test-panel-1"
           role="tabpanel"
           tabindex="0"
         >
@@ -369,16 +401,20 @@ exports[`renders ./components/tabs/demo/card-top.md correctly 1`] = `
         </div>
         <div
           aria-hidden="true"
+          aria-labelledby="rc-tabs-test-tab-2"
           class="ant-tabs-tabpane"
+          id="rc-tabs-test-panel-2"
           role="tabpanel"
-          style="display:none"
+          style="display: none;"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
+          aria-labelledby="rc-tabs-test-tab-3"
           class="ant-tabs-tabpane"
+          id="rc-tabs-test-panel-3"
           role="tabpanel"
-          style="display:none"
+          style="display: none;"
           tabindex="-1"
         />
       </div>
@@ -400,14 +436,16 @@ exports[`renders ./components/tabs/demo/centered.md correctly 1`] = `
     >
       <div
         class="ant-tabs-nav-list"
-        style="transform:translate(0px, 0px)"
+        style="transform: translate(0px, 0px);"
       >
         <div
           class="ant-tabs-tab ant-tabs-tab-active"
         >
           <div
+            aria-controls="rc-tabs-test-panel-1"
             aria-selected="true"
             class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-1"
             role="tab"
             tabindex="0"
           >
@@ -418,8 +456,10 @@ exports[`renders ./components/tabs/demo/centered.md correctly 1`] = `
           class="ant-tabs-tab"
         >
           <div
+            aria-controls="rc-tabs-test-panel-2"
             aria-selected="false"
             class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-2"
             role="tab"
             tabindex="0"
           >
@@ -430,8 +470,10 @@ exports[`renders ./components/tabs/demo/centered.md correctly 1`] = `
           class="ant-tabs-tab"
         >
           <div
+            aria-controls="rc-tabs-test-panel-3"
             aria-selected="false"
             class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-3"
             role="tab"
             tabindex="0"
           >
@@ -447,13 +489,13 @@ exports[`renders ./components/tabs/demo/centered.md correctly 1`] = `
       class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
     >
       <button
-        aria-controls="null-more-popup"
+        aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-hidden="true"
         class="ant-tabs-nav-more"
-        id="null-more"
-        style="visibility:hidden;order:1"
+        id="rc-tabs-test-more"
+        style="visibility: hidden; order: 1;"
         tabindex="-1"
         type="button"
       >
@@ -487,7 +529,9 @@ exports[`renders ./components/tabs/demo/centered.md correctly 1`] = `
     >
       <div
         aria-hidden="false"
+        aria-labelledby="rc-tabs-test-tab-1"
         class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        id="rc-tabs-test-panel-1"
         role="tabpanel"
         tabindex="0"
       >
@@ -495,16 +539,20 @@ exports[`renders ./components/tabs/demo/centered.md correctly 1`] = `
       </div>
       <div
         aria-hidden="true"
+        aria-labelledby="rc-tabs-test-tab-2"
         class="ant-tabs-tabpane"
+        id="rc-tabs-test-panel-2"
         role="tabpanel"
-        style="display:none"
+        style="display: none;"
         tabindex="-1"
       />
       <div
         aria-hidden="true"
+        aria-labelledby="rc-tabs-test-tab-3"
         class="ant-tabs-tabpane"
+        id="rc-tabs-test-panel-3"
         role="tabpanel"
-        style="display:none"
+        style="display: none;"
         tabindex="-1"
       />
     </div>
@@ -515,7 +563,7 @@ exports[`renders ./components/tabs/demo/centered.md correctly 1`] = `
 exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
 <div>
   <div
-    style="margin-bottom:16px"
+    style="margin-bottom: 16px;"
   >
     <button
       class="ant-btn ant-btn-default"
@@ -538,14 +586,16 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
       >
         <div
           class="ant-tabs-nav-list"
-          style="transform:translate(0px, 0px)"
+          style="transform: translate(0px, 0px);"
         >
           <div
             class="ant-tabs-tab ant-tabs-tab-with-remove ant-tabs-tab-active"
           >
             <div
+              aria-controls="rc-tabs-test-panel-1"
               aria-selected="true"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-1"
               role="tab"
               tabindex="0"
             >
@@ -582,8 +632,10 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
             class="ant-tabs-tab ant-tabs-tab-with-remove"
           >
             <div
+              aria-controls="rc-tabs-test-panel-2"
               aria-selected="false"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-2"
               role="tab"
               tabindex="0"
             >
@@ -625,13 +677,13 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
         class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
       >
         <button
-          aria-controls="null-more-popup"
+          aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-hidden="true"
           class="ant-tabs-nav-more"
-          id="null-more"
-          style="visibility:hidden;order:1"
+          id="rc-tabs-test-more"
+          style="visibility: hidden; order: 1;"
           tabindex="-1"
           type="button"
         >
@@ -665,7 +717,9 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
       >
         <div
           aria-hidden="false"
+          aria-labelledby="rc-tabs-test-tab-1"
           class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          id="rc-tabs-test-panel-1"
           role="tabpanel"
           tabindex="0"
         >
@@ -673,9 +727,11 @@ exports[`renders ./components/tabs/demo/custom-add-trigger.md correctly 1`] = `
         </div>
         <div
           aria-hidden="true"
+          aria-labelledby="rc-tabs-test-tab-2"
           class="ant-tabs-tabpane"
+          id="rc-tabs-test-panel-2"
           role="tabpanel"
-          style="display:none"
+          style="display: none;"
           tabindex="-1"
         />
       </div>
@@ -690,7 +746,9 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.md correctly 1`] = `
     class="ant-tabs ant-tabs-top"
   >
     <div>
-      <div />
+      <div
+        style="padding-bottom: 0px;"
+      />
       <div
         class="ant-tabs-nav site-custom-tab-bar"
         role="tablist"
@@ -700,14 +758,16 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.md correctly 1`] = `
         >
           <div
             class="ant-tabs-nav-list"
-            style="transform:translate(0px, 0px)"
+            style="transform: translate(0px, 0px);"
           >
             <div
               class="ant-tabs-tab ant-tabs-tab-active"
             >
               <div
+                aria-controls="rc-tabs-test-panel-1"
                 aria-selected="true"
                 class="ant-tabs-tab-btn"
+                id="rc-tabs-test-tab-1"
                 role="tab"
                 tabindex="0"
               >
@@ -718,8 +778,10 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.md correctly 1`] = `
               class="ant-tabs-tab"
             >
               <div
+                aria-controls="rc-tabs-test-panel-2"
                 aria-selected="false"
                 class="ant-tabs-tab-btn"
+                id="rc-tabs-test-tab-2"
                 role="tab"
                 tabindex="0"
               >
@@ -730,8 +792,10 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.md correctly 1`] = `
               class="ant-tabs-tab"
             >
               <div
+                aria-controls="rc-tabs-test-panel-3"
                 aria-selected="false"
                 class="ant-tabs-tab-btn"
+                id="rc-tabs-test-tab-3"
                 role="tab"
                 tabindex="0"
               >
@@ -747,13 +811,13 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.md correctly 1`] = `
           class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
         >
           <button
-            aria-controls="null-more-popup"
+            aria-controls="rc-tabs-test-more-popup"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-hidden="true"
             class="ant-tabs-nav-more"
-            id="null-more"
-            style="visibility:hidden;order:1"
+            id="rc-tabs-test-more"
+            style="visibility: hidden; order: 1;"
             tabindex="-1"
             type="button"
           >
@@ -788,25 +852,31 @@ exports[`renders ./components/tabs/demo/custom-tab-bar.md correctly 1`] = `
       >
         <div
           aria-hidden="false"
+          aria-labelledby="rc-tabs-test-tab-1"
           class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          id="rc-tabs-test-panel-1"
           role="tabpanel"
-          style="height:200px"
+          style="height: 200px;"
           tabindex="0"
         >
           Content of Tab Pane 1
         </div>
         <div
           aria-hidden="true"
+          aria-labelledby="rc-tabs-test-tab-2"
           class="ant-tabs-tabpane"
+          id="rc-tabs-test-panel-2"
           role="tabpanel"
-          style="display:none"
+          style="display: none;"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
+          aria-labelledby="rc-tabs-test-tab-3"
           class="ant-tabs-tabpane"
+          id="rc-tabs-test-panel-3"
           role="tabpanel"
-          style="display:none"
+          style="display: none;"
           tabindex="-1"
         />
       </div>
@@ -828,18 +898,21 @@ exports[`renders ./components/tabs/demo/custom-tab-bar-node.md correctly 1`] = `
     >
       <div
         class="ant-tabs-nav-list"
-        style="transform:translate(0px, 0px)"
+        style="transform: translate(0px, 0px);"
       >
         <div
           class=""
-          style="margin-right:24px"
+          draggable="true"
+          style="margin-right: 24px;"
         >
           <div
             class="ant-tabs-tab ant-tabs-tab-active"
           >
             <div
+              aria-controls="rc-tabs-test-panel-1"
               aria-selected="true"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-1"
               role="tab"
               tabindex="0"
             >
@@ -849,14 +922,17 @@ exports[`renders ./components/tabs/demo/custom-tab-bar-node.md correctly 1`] = `
         </div>
         <div
           class=""
-          style="margin-right:24px"
+          draggable="true"
+          style="margin-right: 24px;"
         >
           <div
             class="ant-tabs-tab"
           >
             <div
+              aria-controls="rc-tabs-test-panel-2"
               aria-selected="false"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-2"
               role="tab"
               tabindex="0"
             >
@@ -866,14 +942,17 @@ exports[`renders ./components/tabs/demo/custom-tab-bar-node.md correctly 1`] = `
         </div>
         <div
           class=""
-          style="margin-right:24px"
+          draggable="true"
+          style="margin-right: 24px;"
         >
           <div
             class="ant-tabs-tab"
           >
             <div
+              aria-controls="rc-tabs-test-panel-3"
               aria-selected="false"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-3"
               role="tab"
               tabindex="0"
             >
@@ -890,13 +969,13 @@ exports[`renders ./components/tabs/demo/custom-tab-bar-node.md correctly 1`] = `
       class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
     >
       <button
-        aria-controls="null-more-popup"
+        aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-hidden="true"
         class="ant-tabs-nav-more"
-        id="null-more"
-        style="visibility:hidden;order:1"
+        id="rc-tabs-test-more"
+        style="visibility: hidden; order: 1;"
         tabindex="-1"
         type="button"
       >
@@ -930,7 +1009,9 @@ exports[`renders ./components/tabs/demo/custom-tab-bar-node.md correctly 1`] = `
     >
       <div
         aria-hidden="false"
+        aria-labelledby="rc-tabs-test-tab-1"
         class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        id="rc-tabs-test-panel-1"
         role="tabpanel"
         tabindex="0"
       >
@@ -938,16 +1019,20 @@ exports[`renders ./components/tabs/demo/custom-tab-bar-node.md correctly 1`] = `
       </div>
       <div
         aria-hidden="true"
+        aria-labelledby="rc-tabs-test-tab-2"
         class="ant-tabs-tabpane"
+        id="rc-tabs-test-panel-2"
         role="tabpanel"
-        style="display:none"
+        style="display: none;"
         tabindex="-1"
       />
       <div
         aria-hidden="true"
+        aria-labelledby="rc-tabs-test-tab-3"
         class="ant-tabs-tabpane"
+        id="rc-tabs-test-panel-3"
         role="tabpanel"
-        style="display:none"
+        style="display: none;"
         tabindex="-1"
       />
     </div>
@@ -968,14 +1053,16 @@ exports[`renders ./components/tabs/demo/disabled.md correctly 1`] = `
     >
       <div
         class="ant-tabs-nav-list"
-        style="transform:translate(0px, 0px)"
+        style="transform: translate(0px, 0px);"
       >
         <div
           class="ant-tabs-tab ant-tabs-tab-active"
         >
           <div
+            aria-controls="rc-tabs-test-panel-1"
             aria-selected="true"
             class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-1"
             role="tab"
             tabindex="0"
           >
@@ -986,9 +1073,11 @@ exports[`renders ./components/tabs/demo/disabled.md correctly 1`] = `
           class="ant-tabs-tab ant-tabs-tab-disabled"
         >
           <div
+            aria-controls="rc-tabs-test-panel-2"
             aria-disabled="true"
             aria-selected="false"
             class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-2"
             role="tab"
           >
             Tab 2
@@ -998,8 +1087,10 @@ exports[`renders ./components/tabs/demo/disabled.md correctly 1`] = `
           class="ant-tabs-tab"
         >
           <div
+            aria-controls="rc-tabs-test-panel-3"
             aria-selected="false"
             class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-3"
             role="tab"
             tabindex="0"
           >
@@ -1015,13 +1106,13 @@ exports[`renders ./components/tabs/demo/disabled.md correctly 1`] = `
       class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
     >
       <button
-        aria-controls="null-more-popup"
+        aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-hidden="true"
         class="ant-tabs-nav-more"
-        id="null-more"
-        style="visibility:hidden;order:1"
+        id="rc-tabs-test-more"
+        style="visibility: hidden; order: 1;"
         tabindex="-1"
         type="button"
       >
@@ -1055,7 +1146,9 @@ exports[`renders ./components/tabs/demo/disabled.md correctly 1`] = `
     >
       <div
         aria-hidden="false"
+        aria-labelledby="rc-tabs-test-tab-1"
         class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        id="rc-tabs-test-panel-1"
         role="tabpanel"
         tabindex="0"
       >
@@ -1063,16 +1156,20 @@ exports[`renders ./components/tabs/demo/disabled.md correctly 1`] = `
       </div>
       <div
         aria-hidden="true"
+        aria-labelledby="rc-tabs-test-tab-2"
         class="ant-tabs-tabpane"
+        id="rc-tabs-test-panel-2"
         role="tabpanel"
-        style="display:none"
+        style="display: none;"
         tabindex="-1"
       />
       <div
         aria-hidden="true"
+        aria-labelledby="rc-tabs-test-tab-3"
         class="ant-tabs-tabpane"
+        id="rc-tabs-test-panel-3"
         role="tabpanel"
-        style="display:none"
+        style="display: none;"
         tabindex="-1"
       />
     </div>
@@ -1093,14 +1190,16 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
     >
       <div
         class="ant-tabs-nav-list"
-        style="transform:translate(0px, 0px)"
+        style="transform: translate(0px, 0px);"
       >
         <div
           class="ant-tabs-tab ant-tabs-tab-with-remove ant-tabs-tab-active"
         >
           <div
+            aria-controls="rc-tabs-test-panel-1"
             aria-selected="true"
             class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-1"
             role="tab"
             tabindex="0"
           >
@@ -1137,8 +1236,10 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
           class="ant-tabs-tab ant-tabs-tab-with-remove"
         >
           <div
+            aria-controls="rc-tabs-test-panel-2"
             aria-selected="false"
             class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-2"
             role="tab"
             tabindex="0"
           >
@@ -1175,8 +1276,10 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
           class="ant-tabs-tab"
         >
           <div
+            aria-controls="rc-tabs-test-panel-3"
             aria-selected="false"
             class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-3"
             role="tab"
             tabindex="0"
           >
@@ -1202,7 +1305,9 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
               viewBox="64 64 896 896"
               width="1em"
             >
-              <defs />
+              <defs>
+                <style />
+              </defs>
               <path
                 d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
               />
@@ -1221,13 +1326,13 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
       class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
     >
       <button
-        aria-controls="null-more-popup"
+        aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-hidden="true"
         class="ant-tabs-nav-more"
-        id="null-more"
-        style="visibility:hidden;order:1"
+        id="rc-tabs-test-more"
+        style="visibility: hidden; order: 1;"
         tabindex="-1"
         type="button"
       >
@@ -1270,7 +1375,9 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
             viewBox="64 64 896 896"
             width="1em"
           >
-            <defs />
+            <defs>
+              <style />
+            </defs>
             <path
               d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
             />
@@ -1290,7 +1397,9 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
     >
       <div
         aria-hidden="false"
+        aria-labelledby="rc-tabs-test-tab-1"
         class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        id="rc-tabs-test-panel-1"
         role="tabpanel"
         tabindex="0"
       >
@@ -1298,16 +1407,20 @@ exports[`renders ./components/tabs/demo/editable-card.md correctly 1`] = `
       </div>
       <div
         aria-hidden="true"
+        aria-labelledby="rc-tabs-test-tab-2"
         class="ant-tabs-tabpane"
+        id="rc-tabs-test-panel-2"
         role="tabpanel"
-        style="display:none"
+        style="display: none;"
         tabindex="-1"
       />
       <div
         aria-hidden="true"
+        aria-labelledby="rc-tabs-test-tab-3"
         class="ant-tabs-tabpane"
+        id="rc-tabs-test-panel-3"
         role="tabpanel"
-        style="display:none"
+        style="display: none;"
         tabindex="-1"
       />
     </div>
@@ -1329,14 +1442,16 @@ Array [
       >
         <div
           class="ant-tabs-nav-list"
-          style="transform:translate(0px, 0px)"
+          style="transform: translate(0px, 0px);"
         >
           <div
             class="ant-tabs-tab ant-tabs-tab-active"
           >
             <div
+              aria-controls="rc-tabs-test-panel-1"
               aria-selected="true"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-1"
               role="tab"
               tabindex="0"
             >
@@ -1347,8 +1462,10 @@ Array [
             class="ant-tabs-tab"
           >
             <div
+              aria-controls="rc-tabs-test-panel-2"
               aria-selected="false"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-2"
               role="tab"
               tabindex="0"
             >
@@ -1359,8 +1476,10 @@ Array [
             class="ant-tabs-tab"
           >
             <div
+              aria-controls="rc-tabs-test-panel-3"
               aria-selected="false"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-3"
               role="tab"
               tabindex="0"
             >
@@ -1376,13 +1495,13 @@ Array [
         class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
       >
         <button
-          aria-controls="null-more-popup"
+          aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-hidden="true"
           class="ant-tabs-nav-more"
-          id="null-more"
-          style="visibility:hidden;order:1"
+          id="rc-tabs-test-more"
+          style="visibility: hidden; order: 1;"
           tabindex="-1"
           type="button"
         >
@@ -1428,7 +1547,9 @@ Array [
       >
         <div
           aria-hidden="false"
+          aria-labelledby="rc-tabs-test-tab-1"
           class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          id="rc-tabs-test-panel-1"
           role="tabpanel"
           tabindex="0"
         >
@@ -1436,16 +1557,20 @@ Array [
         </div>
         <div
           aria-hidden="true"
+          aria-labelledby="rc-tabs-test-tab-2"
           class="ant-tabs-tabpane"
+          id="rc-tabs-test-panel-2"
           role="tabpanel"
-          style="display:none"
+          style="display: none;"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
+          aria-labelledby="rc-tabs-test-tab-3"
           class="ant-tabs-tabpane"
+          id="rc-tabs-test-panel-3"
           role="tabpanel"
-          style="display:none"
+          style="display: none;"
           tabindex="-1"
         />
       </div>
@@ -1531,14 +1656,16 @@ Array [
       >
         <div
           class="ant-tabs-nav-list"
-          style="transform:translate(0px, 0px)"
+          style="transform: translate(0px, 0px);"
         >
           <div
             class="ant-tabs-tab ant-tabs-tab-active"
           >
             <div
+              aria-controls="rc-tabs-test-panel-1"
               aria-selected="true"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-1"
               role="tab"
               tabindex="0"
             >
@@ -1549,8 +1676,10 @@ Array [
             class="ant-tabs-tab"
           >
             <div
+              aria-controls="rc-tabs-test-panel-2"
               aria-selected="false"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-2"
               role="tab"
               tabindex="0"
             >
@@ -1561,8 +1690,10 @@ Array [
             class="ant-tabs-tab"
           >
             <div
+              aria-controls="rc-tabs-test-panel-3"
               aria-selected="false"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-3"
               role="tab"
               tabindex="0"
             >
@@ -1578,13 +1709,13 @@ Array [
         class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
       >
         <button
-          aria-controls="null-more-popup"
+          aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-hidden="true"
           class="ant-tabs-nav-more"
-          id="null-more"
-          style="visibility:hidden;order:1"
+          id="rc-tabs-test-more"
+          style="visibility: hidden; order: 1;"
           tabindex="-1"
           type="button"
         >
@@ -1630,7 +1761,9 @@ Array [
       >
         <div
           aria-hidden="false"
+          aria-labelledby="rc-tabs-test-tab-1"
           class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          id="rc-tabs-test-panel-1"
           role="tabpanel"
           tabindex="0"
         >
@@ -1638,16 +1771,20 @@ Array [
         </div>
         <div
           aria-hidden="true"
+          aria-labelledby="rc-tabs-test-tab-2"
           class="ant-tabs-tabpane"
+          id="rc-tabs-test-panel-2"
           role="tabpanel"
-          style="display:none"
+          style="display: none;"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
+          aria-labelledby="rc-tabs-test-tab-3"
           class="ant-tabs-tabpane"
+          id="rc-tabs-test-panel-3"
           role="tabpanel"
-          style="display:none"
+          style="display: none;"
           tabindex="-1"
         />
       </div>
@@ -1669,14 +1806,16 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
     >
       <div
         class="ant-tabs-nav-list"
-        style="transform:translate(0px, 0px)"
+        style="transform: translate(0px, 0px);"
       >
         <div
           class="ant-tabs-tab"
         >
           <div
+            aria-controls="rc-tabs-test-panel-1"
             aria-selected="false"
             class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-1"
             role="tab"
             tabindex="0"
           >
@@ -1708,8 +1847,10 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
           class="ant-tabs-tab ant-tabs-tab-active"
         >
           <div
+            aria-controls="rc-tabs-test-panel-2"
             aria-selected="true"
             class="ant-tabs-tab-btn"
+            id="rc-tabs-test-tab-2"
             role="tab"
             tabindex="0"
           >
@@ -1746,13 +1887,13 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
       class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
     >
       <button
-        aria-controls="null-more-popup"
+        aria-controls="rc-tabs-test-more-popup"
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-hidden="true"
         class="ant-tabs-nav-more"
-        id="null-more"
-        style="visibility:hidden;order:1"
+        id="rc-tabs-test-more"
+        style="visibility: hidden; order: 1;"
         tabindex="-1"
         type="button"
       >
@@ -1786,14 +1927,18 @@ exports[`renders ./components/tabs/demo/icon.md correctly 1`] = `
     >
       <div
         aria-hidden="true"
+        aria-labelledby="rc-tabs-test-tab-1"
         class="ant-tabs-tabpane"
+        id="rc-tabs-test-panel-1"
         role="tabpanel"
-        style="display:none"
+        style="display: none;"
         tabindex="-1"
       />
       <div
         aria-hidden="false"
+        aria-labelledby="rc-tabs-test-tab-2"
         class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        id="rc-tabs-test-panel-2"
         role="tabpanel"
         tabindex="0"
       >
@@ -1808,7 +1953,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
 <div>
   <div
     class="ant-select ant-select-single ant-select-show-arrow"
-    style="width:200px"
+    style="width: 200px;"
   >
     <div
       class="ant-select-selector"
@@ -1817,16 +1962,17 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="undefined_list_0"
+          aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
           aria-autocomplete="list"
-          aria-controls="undefined_list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
           aria-haspopup="listbox"
-          aria-owns="undefined_list"
+          aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
+          id="rc_select_TEST_OR_SSR"
           readonly=""
           role="combobox"
-          style="opacity:0"
+          style="opacity: 0;"
           type="search"
           unselectable="on"
           value=""
@@ -1839,7 +1985,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
     <span
       aria-hidden="true"
       class="ant-select-arrow"
-      style="user-select:none;-webkit-user-select:none"
+      style="user-select: none;"
       unselectable="on"
     >
       <span
@@ -1865,7 +2011,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
   </div>
   <div
     class="ant-select ant-select-single ant-select-show-arrow"
-    style="width:200px"
+    style="width: 200px;"
   >
     <div
       class="ant-select-selector"
@@ -1874,16 +2020,17 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="undefined_list_0"
+          aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
           aria-autocomplete="list"
-          aria-controls="undefined_list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
           aria-haspopup="listbox"
-          aria-owns="undefined_list"
+          aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
+          id="rc_select_TEST_OR_SSR"
           readonly=""
           role="combobox"
-          style="opacity:0"
+          style="opacity: 0;"
           type="search"
           unselectable="on"
           value=""
@@ -1896,7 +2043,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
     <span
       aria-hidden="true"
       class="ant-select-arrow"
-      style="user-select:none;-webkit-user-select:none"
+      style="user-select: none;"
       unselectable="on"
     >
       <span
@@ -1922,7 +2069,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
   </div>
   <div
     class="ant-select ant-select-single ant-select-show-arrow"
-    style="width:200px"
+    style="width: 200px;"
   >
     <div
       class="ant-select-selector"
@@ -1931,16 +2078,17 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="undefined_list_0"
+          aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
           aria-autocomplete="list"
-          aria-controls="undefined_list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
           aria-haspopup="listbox"
-          aria-owns="undefined_list"
+          aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
+          id="rc_select_TEST_OR_SSR"
           readonly=""
           role="combobox"
-          style="opacity:0"
+          style="opacity: 0;"
           type="search"
           unselectable="on"
           value=""
@@ -1953,7 +2101,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
     <span
       aria-hidden="true"
       class="ant-select-arrow"
-      style="user-select:none;-webkit-user-select:none"
+      style="user-select: none;"
       unselectable="on"
     >
       <span
@@ -1979,7 +2127,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
   </div>
   <div
     class="ant-select ant-select-single ant-select-show-arrow"
-    style="width:200px"
+    style="width: 200px;"
   >
     <div
       class="ant-select-selector"
@@ -1988,16 +2136,17 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="undefined_list_0"
+          aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
           aria-autocomplete="list"
-          aria-controls="undefined_list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
           aria-haspopup="listbox"
-          aria-owns="undefined_list"
+          aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
+          id="rc_select_TEST_OR_SSR"
           readonly=""
           role="combobox"
-          style="opacity:0"
+          style="opacity: 0;"
           type="search"
           unselectable="on"
           value=""
@@ -2010,7 +2159,7 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
     <span
       aria-hidden="true"
       class="ant-select-arrow"
-      style="user-select:none;-webkit-user-select:none"
+      style="user-select: none;"
       unselectable="on"
     >
       <span
@@ -2046,14 +2195,16 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
       >
         <div
           class="ant-tabs-nav-list"
-          style="transform:translate(0px, 0px)"
+          style="transform: translate(0px, 0px);"
         >
           <div
             class="ant-tabs-tab ant-tabs-tab-active"
           >
             <div
+              aria-controls="rc-tabs-test-panel-1"
               aria-selected="true"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-1"
               role="tab"
               tabindex="0"
             >
@@ -2064,8 +2215,10 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
             class="ant-tabs-tab"
           >
             <div
+              aria-controls="rc-tabs-test-panel-2"
               aria-selected="false"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-2"
               role="tab"
               tabindex="0"
             >
@@ -2081,13 +2234,13 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
         class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
       >
         <button
-          aria-controls="null-more-popup"
+          aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-hidden="true"
           class="ant-tabs-nav-more"
-          id="null-more"
-          style="visibility:hidden;order:1"
+          id="rc-tabs-test-more"
+          style="visibility: hidden; order: 1;"
           tabindex="-1"
           type="button"
         >
@@ -2121,13 +2274,15 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
       >
         <div
           aria-hidden="false"
+          aria-labelledby="rc-tabs-test-tab-1"
           class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          id="rc-tabs-test-panel-1"
           role="tabpanel"
           tabindex="0"
         >
           <div
             class="ant-tabs ant-tabs-top"
-            style="height:300px"
+            style="height: 300px;"
           >
             <div
               class="ant-tabs-nav"
@@ -2138,14 +2293,16 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
               >
                 <div
                   class="ant-tabs-nav-list"
-                  style="transform:translate(0px, 0px)"
+                  style="transform: translate(0px, 0px);"
                 >
                   <div
                     class="ant-tabs-tab"
                   >
                     <div
+                      aria-controls="rc-tabs-test-panel-0"
                       aria-selected="false"
                       class="ant-tabs-tab-btn"
+                      id="rc-tabs-test-tab-0"
                       role="tab"
                       tabindex="0"
                     >
@@ -2156,8 +2313,10 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
                     class="ant-tabs-tab ant-tabs-tab-active"
                   >
                     <div
+                      aria-controls="rc-tabs-test-panel-1"
                       aria-selected="true"
                       class="ant-tabs-tab-btn"
+                      id="rc-tabs-test-tab-1"
                       role="tab"
                       tabindex="0"
                     >
@@ -2168,8 +2327,10 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
                     class="ant-tabs-tab"
                   >
                     <div
+                      aria-controls="rc-tabs-test-panel-2"
                       aria-selected="false"
                       class="ant-tabs-tab-btn"
+                      id="rc-tabs-test-tab-2"
                       role="tab"
                       tabindex="0"
                     >
@@ -2180,8 +2341,10 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
                     class="ant-tabs-tab"
                   >
                     <div
+                      aria-controls="rc-tabs-test-panel-3"
                       aria-selected="false"
                       class="ant-tabs-tab-btn"
+                      id="rc-tabs-test-tab-3"
                       role="tab"
                       tabindex="0"
                     >
@@ -2192,8 +2355,10 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
                     class="ant-tabs-tab"
                   >
                     <div
+                      aria-controls="rc-tabs-test-panel-4"
                       aria-selected="false"
                       class="ant-tabs-tab-btn"
+                      id="rc-tabs-test-tab-4"
                       role="tab"
                       tabindex="0"
                     >
@@ -2204,8 +2369,10 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
                     class="ant-tabs-tab"
                   >
                     <div
+                      aria-controls="rc-tabs-test-panel-5"
                       aria-selected="false"
                       class="ant-tabs-tab-btn"
+                      id="rc-tabs-test-tab-5"
                       role="tab"
                       tabindex="0"
                     >
@@ -2216,8 +2383,10 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
                     class="ant-tabs-tab"
                   >
                     <div
+                      aria-controls="rc-tabs-test-panel-6"
                       aria-selected="false"
                       class="ant-tabs-tab-btn"
+                      id="rc-tabs-test-tab-6"
                       role="tab"
                       tabindex="0"
                     >
@@ -2228,8 +2397,10 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
                     class="ant-tabs-tab"
                   >
                     <div
+                      aria-controls="rc-tabs-test-panel-7"
                       aria-selected="false"
                       class="ant-tabs-tab-btn"
+                      id="rc-tabs-test-tab-7"
                       role="tab"
                       tabindex="0"
                     >
@@ -2240,8 +2411,10 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
                     class="ant-tabs-tab"
                   >
                     <div
+                      aria-controls="rc-tabs-test-panel-8"
                       aria-selected="false"
                       class="ant-tabs-tab-btn"
+                      id="rc-tabs-test-tab-8"
                       role="tab"
                       tabindex="0"
                     >
@@ -2252,8 +2425,10 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
                     class="ant-tabs-tab"
                   >
                     <div
+                      aria-controls="rc-tabs-test-panel-9"
                       aria-selected="false"
                       class="ant-tabs-tab-btn"
+                      id="rc-tabs-test-tab-9"
                       role="tab"
                       tabindex="0"
                     >
@@ -2264,8 +2439,10 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
                     class="ant-tabs-tab"
                   >
                     <div
+                      aria-controls="rc-tabs-test-panel-10"
                       aria-selected="false"
                       class="ant-tabs-tab-btn"
+                      id="rc-tabs-test-tab-10"
                       role="tab"
                       tabindex="0"
                     >
@@ -2276,8 +2453,10 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
                     class="ant-tabs-tab"
                   >
                     <div
+                      aria-controls="rc-tabs-test-panel-11"
                       aria-selected="false"
                       class="ant-tabs-tab-btn"
+                      id="rc-tabs-test-tab-11"
                       role="tab"
                       tabindex="0"
                     >
@@ -2288,8 +2467,10 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
                     class="ant-tabs-tab"
                   >
                     <div
+                      aria-controls="rc-tabs-test-panel-12"
                       aria-selected="false"
                       class="ant-tabs-tab-btn"
+                      id="rc-tabs-test-tab-12"
                       role="tab"
                       tabindex="0"
                     >
@@ -2300,8 +2481,10 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
                     class="ant-tabs-tab"
                   >
                     <div
+                      aria-controls="rc-tabs-test-panel-13"
                       aria-selected="false"
                       class="ant-tabs-tab-btn"
+                      id="rc-tabs-test-tab-13"
                       role="tab"
                       tabindex="0"
                     >
@@ -2312,8 +2495,10 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
                     class="ant-tabs-tab"
                   >
                     <div
+                      aria-controls="rc-tabs-test-panel-14"
                       aria-selected="false"
                       class="ant-tabs-tab-btn"
+                      id="rc-tabs-test-tab-14"
                       role="tab"
                       tabindex="0"
                     >
@@ -2324,8 +2509,10 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
                     class="ant-tabs-tab"
                   >
                     <div
+                      aria-controls="rc-tabs-test-panel-15"
                       aria-selected="false"
                       class="ant-tabs-tab-btn"
+                      id="rc-tabs-test-tab-15"
                       role="tab"
                       tabindex="0"
                     >
@@ -2336,8 +2523,10 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
                     class="ant-tabs-tab"
                   >
                     <div
+                      aria-controls="rc-tabs-test-panel-16"
                       aria-selected="false"
                       class="ant-tabs-tab-btn"
+                      id="rc-tabs-test-tab-16"
                       role="tab"
                       tabindex="0"
                     >
@@ -2348,8 +2537,10 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
                     class="ant-tabs-tab"
                   >
                     <div
+                      aria-controls="rc-tabs-test-panel-17"
                       aria-selected="false"
                       class="ant-tabs-tab-btn"
+                      id="rc-tabs-test-tab-17"
                       role="tab"
                       tabindex="0"
                     >
@@ -2360,8 +2551,10 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
                     class="ant-tabs-tab"
                   >
                     <div
+                      aria-controls="rc-tabs-test-panel-18"
                       aria-selected="false"
                       class="ant-tabs-tab-btn"
+                      id="rc-tabs-test-tab-18"
                       role="tab"
                       tabindex="0"
                     >
@@ -2372,8 +2565,10 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
                     class="ant-tabs-tab"
                   >
                     <div
+                      aria-controls="rc-tabs-test-panel-19"
                       aria-selected="false"
                       class="ant-tabs-tab-btn"
+                      id="rc-tabs-test-tab-19"
                       role="tab"
                       tabindex="0"
                     >
@@ -2389,13 +2584,13 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
                 class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
               >
                 <button
-                  aria-controls="null-more-popup"
+                  aria-controls="rc-tabs-test-more-popup"
                   aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-hidden="true"
                   class="ant-tabs-nav-more"
-                  id="null-more"
-                  style="visibility:hidden;order:1"
+                  id="rc-tabs-test-more"
+                  style="visibility: hidden; order: 1;"
                   tabindex="-1"
                   type="button"
                 >
@@ -2429,14 +2624,18 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
               >
                 <div
                   aria-hidden="true"
+                  aria-labelledby="rc-tabs-test-tab-0"
                   class="ant-tabs-tabpane"
+                  id="rc-tabs-test-panel-0"
                   role="tabpanel"
-                  style="display:none"
+                  style="display: none;"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="false"
+                  aria-labelledby="rc-tabs-test-tab-1"
                   class="ant-tabs-tabpane ant-tabs-tabpane-active"
+                  id="rc-tabs-test-panel-1"
                   role="tabpanel"
                   tabindex="0"
                 >
@@ -2444,128 +2643,164 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
                 </div>
                 <div
                   aria-hidden="true"
+                  aria-labelledby="rc-tabs-test-tab-2"
                   class="ant-tabs-tabpane"
+                  id="rc-tabs-test-panel-2"
                   role="tabpanel"
-                  style="display:none"
+                  style="display: none;"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
+                  aria-labelledby="rc-tabs-test-tab-3"
                   class="ant-tabs-tabpane"
+                  id="rc-tabs-test-panel-3"
                   role="tabpanel"
-                  style="display:none"
+                  style="display: none;"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
+                  aria-labelledby="rc-tabs-test-tab-4"
                   class="ant-tabs-tabpane"
+                  id="rc-tabs-test-panel-4"
                   role="tabpanel"
-                  style="display:none"
+                  style="display: none;"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
+                  aria-labelledby="rc-tabs-test-tab-5"
                   class="ant-tabs-tabpane"
+                  id="rc-tabs-test-panel-5"
                   role="tabpanel"
-                  style="display:none"
+                  style="display: none;"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
+                  aria-labelledby="rc-tabs-test-tab-6"
                   class="ant-tabs-tabpane"
+                  id="rc-tabs-test-panel-6"
                   role="tabpanel"
-                  style="display:none"
+                  style="display: none;"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
+                  aria-labelledby="rc-tabs-test-tab-7"
                   class="ant-tabs-tabpane"
+                  id="rc-tabs-test-panel-7"
                   role="tabpanel"
-                  style="display:none"
+                  style="display: none;"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
+                  aria-labelledby="rc-tabs-test-tab-8"
                   class="ant-tabs-tabpane"
+                  id="rc-tabs-test-panel-8"
                   role="tabpanel"
-                  style="display:none"
+                  style="display: none;"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
+                  aria-labelledby="rc-tabs-test-tab-9"
                   class="ant-tabs-tabpane"
+                  id="rc-tabs-test-panel-9"
                   role="tabpanel"
-                  style="display:none"
+                  style="display: none;"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
+                  aria-labelledby="rc-tabs-test-tab-10"
                   class="ant-tabs-tabpane"
+                  id="rc-tabs-test-panel-10"
                   role="tabpanel"
-                  style="display:none"
+                  style="display: none;"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
+                  aria-labelledby="rc-tabs-test-tab-11"
                   class="ant-tabs-tabpane"
+                  id="rc-tabs-test-panel-11"
                   role="tabpanel"
-                  style="display:none"
+                  style="display: none;"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
+                  aria-labelledby="rc-tabs-test-tab-12"
                   class="ant-tabs-tabpane"
+                  id="rc-tabs-test-panel-12"
                   role="tabpanel"
-                  style="display:none"
+                  style="display: none;"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
+                  aria-labelledby="rc-tabs-test-tab-13"
                   class="ant-tabs-tabpane"
+                  id="rc-tabs-test-panel-13"
                   role="tabpanel"
-                  style="display:none"
+                  style="display: none;"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
+                  aria-labelledby="rc-tabs-test-tab-14"
                   class="ant-tabs-tabpane"
+                  id="rc-tabs-test-panel-14"
                   role="tabpanel"
-                  style="display:none"
+                  style="display: none;"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
+                  aria-labelledby="rc-tabs-test-tab-15"
                   class="ant-tabs-tabpane"
+                  id="rc-tabs-test-panel-15"
                   role="tabpanel"
-                  style="display:none"
+                  style="display: none;"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
+                  aria-labelledby="rc-tabs-test-tab-16"
                   class="ant-tabs-tabpane"
+                  id="rc-tabs-test-panel-16"
                   role="tabpanel"
-                  style="display:none"
+                  style="display: none;"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
+                  aria-labelledby="rc-tabs-test-tab-17"
                   class="ant-tabs-tabpane"
+                  id="rc-tabs-test-panel-17"
                   role="tabpanel"
-                  style="display:none"
+                  style="display: none;"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
+                  aria-labelledby="rc-tabs-test-tab-18"
                   class="ant-tabs-tabpane"
+                  id="rc-tabs-test-panel-18"
                   role="tabpanel"
-                  style="display:none"
+                  style="display: none;"
                   tabindex="-1"
                 />
                 <div
                   aria-hidden="true"
+                  aria-labelledby="rc-tabs-test-tab-19"
                   class="ant-tabs-tabpane"
+                  id="rc-tabs-test-panel-19"
                   role="tabpanel"
-                  style="display:none"
+                  style="display: none;"
                   tabindex="-1"
                 />
               </div>
@@ -2574,9 +2809,11 @@ exports[`renders ./components/tabs/demo/nest.md correctly 1`] = `
         </div>
         <div
           aria-hidden="true"
+          aria-labelledby="rc-tabs-test-tab-2"
           class="ant-tabs-tabpane"
+          id="rc-tabs-test-panel-2"
           role="tabpanel"
-          style="display:none"
+          style="display: none;"
           tabindex="-1"
         />
       </div>
@@ -2589,11 +2826,11 @@ exports[`renders ./components/tabs/demo/position.md correctly 1`] = `
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
-    style="margin-bottom:24px"
+    style="margin-bottom: 24px;"
   >
     <div
       class="ant-space-item"
-      style="margin-right:8px"
+      style="margin-right: 8px;"
     >
       Tab position:
     </div>
@@ -2695,14 +2932,16 @@ Array [
       >
         <div
           class="ant-tabs-nav-list"
-          style="transform:translate(0px, 0px)"
+          style="transform: translate(0px, 0px);"
         >
           <div
             class="ant-tabs-tab ant-tabs-tab-active"
           >
             <div
+              aria-controls="rc-tabs-test-panel-1"
               aria-selected="true"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-1"
               role="tab"
               tabindex="0"
             >
@@ -2713,8 +2952,10 @@ Array [
             class="ant-tabs-tab"
           >
             <div
+              aria-controls="rc-tabs-test-panel-2"
               aria-selected="false"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-2"
               role="tab"
               tabindex="0"
             >
@@ -2725,8 +2966,10 @@ Array [
             class="ant-tabs-tab"
           >
             <div
+              aria-controls="rc-tabs-test-panel-3"
               aria-selected="false"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-3"
               role="tab"
               tabindex="0"
             >
@@ -2742,13 +2985,13 @@ Array [
         class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
       >
         <button
-          aria-controls="null-more-popup"
+          aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-hidden="true"
           class="ant-tabs-nav-more"
-          id="null-more"
-          style="visibility:hidden;order:1"
+          id="rc-tabs-test-more"
+          style="visibility: hidden; order: 1;"
           tabindex="-1"
           type="button"
         >
@@ -2782,7 +3025,9 @@ Array [
       >
         <div
           aria-hidden="false"
+          aria-labelledby="rc-tabs-test-tab-1"
           class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          id="rc-tabs-test-panel-1"
           role="tabpanel"
           tabindex="0"
         >
@@ -2790,16 +3035,20 @@ Array [
         </div>
         <div
           aria-hidden="true"
+          aria-labelledby="rc-tabs-test-tab-2"
           class="ant-tabs-tabpane"
+          id="rc-tabs-test-panel-2"
           role="tabpanel"
-          style="display:none"
+          style="display: none;"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
+          aria-labelledby="rc-tabs-test-tab-3"
           class="ant-tabs-tabpane"
+          id="rc-tabs-test-panel-3"
           role="tabpanel"
-          style="display:none"
+          style="display: none;"
           tabindex="-1"
         />
       </div>
@@ -2812,7 +3061,7 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
 <div>
   <div
     class="ant-radio-group ant-radio-group-outline"
-    style="margin-bottom:16px"
+    style="margin-bottom: 16px;"
   >
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
@@ -2875,7 +3124,7 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
   </div>
   <div
     class="ant-tabs ant-tabs-top ant-tabs-small"
-    style="margin-bottom:32px"
+    style="margin-bottom: 32px;"
   >
     <div
       class="ant-tabs-nav"
@@ -2886,14 +3135,16 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
       >
         <div
           class="ant-tabs-nav-list"
-          style="transform:translate(0px, 0px)"
+          style="transform: translate(0px, 0px);"
         >
           <div
             class="ant-tabs-tab ant-tabs-tab-active"
           >
             <div
+              aria-controls="rc-tabs-test-panel-1"
               aria-selected="true"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-1"
               role="tab"
               tabindex="0"
             >
@@ -2904,8 +3155,10 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
             class="ant-tabs-tab"
           >
             <div
+              aria-controls="rc-tabs-test-panel-2"
               aria-selected="false"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-2"
               role="tab"
               tabindex="0"
             >
@@ -2916,8 +3169,10 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
             class="ant-tabs-tab"
           >
             <div
+              aria-controls="rc-tabs-test-panel-3"
               aria-selected="false"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-3"
               role="tab"
               tabindex="0"
             >
@@ -2933,13 +3188,13 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
         class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
       >
         <button
-          aria-controls="null-more-popup"
+          aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-hidden="true"
           class="ant-tabs-nav-more"
-          id="null-more"
-          style="visibility:hidden;order:1"
+          id="rc-tabs-test-more"
+          style="visibility: hidden; order: 1;"
           tabindex="-1"
           type="button"
         >
@@ -2973,7 +3228,9 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
       >
         <div
           aria-hidden="false"
+          aria-labelledby="rc-tabs-test-tab-1"
           class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          id="rc-tabs-test-panel-1"
           role="tabpanel"
           tabindex="0"
         >
@@ -2981,16 +3238,20 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
         </div>
         <div
           aria-hidden="true"
+          aria-labelledby="rc-tabs-test-tab-2"
           class="ant-tabs-tabpane"
+          id="rc-tabs-test-panel-2"
           role="tabpanel"
-          style="display:none"
+          style="display: none;"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
+          aria-labelledby="rc-tabs-test-tab-3"
           class="ant-tabs-tabpane"
+          id="rc-tabs-test-panel-3"
           role="tabpanel"
-          style="display:none"
+          style="display: none;"
           tabindex="-1"
         />
       </div>
@@ -3008,14 +3269,16 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
       >
         <div
           class="ant-tabs-nav-list"
-          style="transform:translate(0px, 0px)"
+          style="transform: translate(0px, 0px);"
         >
           <div
             class="ant-tabs-tab ant-tabs-tab-active"
           >
             <div
+              aria-controls="rc-tabs-test-panel-1"
               aria-selected="true"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-1"
               role="tab"
               tabindex="0"
             >
@@ -3026,8 +3289,10 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
             class="ant-tabs-tab"
           >
             <div
+              aria-controls="rc-tabs-test-panel-2"
               aria-selected="false"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-2"
               role="tab"
               tabindex="0"
             >
@@ -3038,8 +3303,10 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
             class="ant-tabs-tab"
           >
             <div
+              aria-controls="rc-tabs-test-panel-3"
               aria-selected="false"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-3"
               role="tab"
               tabindex="0"
             >
@@ -3055,13 +3322,13 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
         class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
       >
         <button
-          aria-controls="null-more-popup"
+          aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-hidden="true"
           class="ant-tabs-nav-more"
-          id="null-more"
-          style="visibility:hidden;order:1"
+          id="rc-tabs-test-more"
+          style="visibility: hidden; order: 1;"
           tabindex="-1"
           type="button"
         >
@@ -3095,7 +3362,9 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
       >
         <div
           aria-hidden="false"
+          aria-labelledby="rc-tabs-test-tab-1"
           class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          id="rc-tabs-test-panel-1"
           role="tabpanel"
           tabindex="0"
         >
@@ -3103,16 +3372,20 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
         </div>
         <div
           aria-hidden="true"
+          aria-labelledby="rc-tabs-test-tab-2"
           class="ant-tabs-tabpane"
+          id="rc-tabs-test-panel-2"
           role="tabpanel"
-          style="display:none"
+          style="display: none;"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
+          aria-labelledby="rc-tabs-test-tab-3"
           class="ant-tabs-tabpane"
+          id="rc-tabs-test-panel-3"
           role="tabpanel"
-          style="display:none"
+          style="display: none;"
           tabindex="-1"
         />
       </div>
@@ -3125,7 +3398,7 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
 <div>
   <div
     class="ant-radio-group ant-radio-group-outline"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
@@ -3169,7 +3442,7 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
   </div>
   <div
     class="ant-tabs ant-tabs-top"
-    style="height:220px"
+    style="height: 220px;"
   >
     <div
       class="ant-tabs-nav"
@@ -3180,15 +3453,17 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
       >
         <div
           class="ant-tabs-nav-list"
-          style="transform:translate(0px, 0px)"
+          style="transform: translate(0px, 0px);"
         >
           <div
             class="ant-tabs-tab"
           >
             <div
+              aria-controls="rc-tabs-test-panel-0"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-0"
               role="tab"
               tabindex="0"
             >
@@ -3199,9 +3474,11 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
             class="ant-tabs-tab ant-tabs-tab-active"
           >
             <div
+              aria-controls="rc-tabs-test-panel-1"
               aria-disabled="false"
               aria-selected="true"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-1"
               role="tab"
               tabindex="0"
             >
@@ -3212,9 +3489,11 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
             class="ant-tabs-tab"
           >
             <div
+              aria-controls="rc-tabs-test-panel-2"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-2"
               role="tab"
               tabindex="0"
             >
@@ -3225,9 +3504,11 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
             class="ant-tabs-tab"
           >
             <div
+              aria-controls="rc-tabs-test-panel-3"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-3"
               role="tab"
               tabindex="0"
             >
@@ -3238,9 +3519,11 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
             class="ant-tabs-tab"
           >
             <div
+              aria-controls="rc-tabs-test-panel-4"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-4"
               role="tab"
               tabindex="0"
             >
@@ -3251,9 +3534,11 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
             class="ant-tabs-tab"
           >
             <div
+              aria-controls="rc-tabs-test-panel-5"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-5"
               role="tab"
               tabindex="0"
             >
@@ -3264,9 +3549,11 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
             class="ant-tabs-tab"
           >
             <div
+              aria-controls="rc-tabs-test-panel-6"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-6"
               role="tab"
               tabindex="0"
             >
@@ -3277,9 +3564,11 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
             class="ant-tabs-tab"
           >
             <div
+              aria-controls="rc-tabs-test-panel-7"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-7"
               role="tab"
               tabindex="0"
             >
@@ -3290,9 +3579,11 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
             class="ant-tabs-tab"
           >
             <div
+              aria-controls="rc-tabs-test-panel-8"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-8"
               role="tab"
               tabindex="0"
             >
@@ -3303,9 +3594,11 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
             class="ant-tabs-tab"
           >
             <div
+              aria-controls="rc-tabs-test-panel-9"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-9"
               role="tab"
               tabindex="0"
             >
@@ -3316,9 +3609,11 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
             class="ant-tabs-tab"
           >
             <div
+              aria-controls="rc-tabs-test-panel-10"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-10"
               role="tab"
               tabindex="0"
             >
@@ -3329,9 +3624,11 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
             class="ant-tabs-tab"
           >
             <div
+              aria-controls="rc-tabs-test-panel-11"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-11"
               role="tab"
               tabindex="0"
             >
@@ -3342,9 +3639,11 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
             class="ant-tabs-tab"
           >
             <div
+              aria-controls="rc-tabs-test-panel-12"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-12"
               role="tab"
               tabindex="0"
             >
@@ -3355,9 +3654,11 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
             class="ant-tabs-tab"
           >
             <div
+              aria-controls="rc-tabs-test-panel-13"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-13"
               role="tab"
               tabindex="0"
             >
@@ -3368,9 +3669,11 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
             class="ant-tabs-tab"
           >
             <div
+              aria-controls="rc-tabs-test-panel-14"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-14"
               role="tab"
               tabindex="0"
             >
@@ -3381,9 +3684,11 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
             class="ant-tabs-tab"
           >
             <div
+              aria-controls="rc-tabs-test-panel-15"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-15"
               role="tab"
               tabindex="0"
             >
@@ -3394,9 +3699,11 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
             class="ant-tabs-tab"
           >
             <div
+              aria-controls="rc-tabs-test-panel-16"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-16"
               role="tab"
               tabindex="0"
             >
@@ -3407,9 +3714,11 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
             class="ant-tabs-tab"
           >
             <div
+              aria-controls="rc-tabs-test-panel-17"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-17"
               role="tab"
               tabindex="0"
             >
@@ -3420,9 +3729,11 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
             class="ant-tabs-tab"
           >
             <div
+              aria-controls="rc-tabs-test-panel-18"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-18"
               role="tab"
               tabindex="0"
             >
@@ -3433,9 +3744,11 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
             class="ant-tabs-tab"
           >
             <div
+              aria-controls="rc-tabs-test-panel-19"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-19"
               role="tab"
               tabindex="0"
             >
@@ -3446,9 +3759,11 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
             class="ant-tabs-tab"
           >
             <div
+              aria-controls="rc-tabs-test-panel-20"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-20"
               role="tab"
               tabindex="0"
             >
@@ -3459,9 +3774,11 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
             class="ant-tabs-tab"
           >
             <div
+              aria-controls="rc-tabs-test-panel-21"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-21"
               role="tab"
               tabindex="0"
             >
@@ -3472,9 +3789,11 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
             class="ant-tabs-tab"
           >
             <div
+              aria-controls="rc-tabs-test-panel-22"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-22"
               role="tab"
               tabindex="0"
             >
@@ -3485,9 +3804,11 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
             class="ant-tabs-tab"
           >
             <div
+              aria-controls="rc-tabs-test-panel-23"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-23"
               role="tab"
               tabindex="0"
             >
@@ -3498,9 +3819,11 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
             class="ant-tabs-tab"
           >
             <div
+              aria-controls="rc-tabs-test-panel-24"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-24"
               role="tab"
               tabindex="0"
             >
@@ -3511,9 +3834,11 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
             class="ant-tabs-tab"
           >
             <div
+              aria-controls="rc-tabs-test-panel-25"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-25"
               role="tab"
               tabindex="0"
             >
@@ -3524,9 +3849,11 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
             class="ant-tabs-tab"
           >
             <div
+              aria-controls="rc-tabs-test-panel-26"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-26"
               role="tab"
               tabindex="0"
             >
@@ -3537,9 +3864,11 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
             class="ant-tabs-tab"
           >
             <div
+              aria-controls="rc-tabs-test-panel-27"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-27"
               role="tab"
               tabindex="0"
             >
@@ -3550,9 +3879,11 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
             class="ant-tabs-tab ant-tabs-tab-disabled"
           >
             <div
+              aria-controls="rc-tabs-test-panel-28"
               aria-disabled="true"
               aria-selected="false"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-28"
               role="tab"
             >
               Tab-28
@@ -3562,9 +3893,11 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
             class="ant-tabs-tab"
           >
             <div
+              aria-controls="rc-tabs-test-panel-29"
               aria-disabled="false"
               aria-selected="false"
               class="ant-tabs-tab-btn"
+              id="rc-tabs-test-tab-29"
               role="tab"
               tabindex="0"
             >
@@ -3580,13 +3913,13 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
         class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
       >
         <button
-          aria-controls="null-more-popup"
+          aria-controls="rc-tabs-test-more-popup"
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-hidden="true"
           class="ant-tabs-nav-more"
-          id="null-more"
-          style="visibility:hidden;order:1"
+          id="rc-tabs-test-more"
+          style="visibility: hidden; order: 1;"
           tabindex="-1"
           type="button"
         >
@@ -3620,14 +3953,18 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
       >
         <div
           aria-hidden="true"
+          aria-labelledby="rc-tabs-test-tab-0"
           class="ant-tabs-tabpane"
+          id="rc-tabs-test-panel-0"
           role="tabpanel"
-          style="display:none"
+          style="display: none;"
           tabindex="-1"
         />
         <div
           aria-hidden="false"
+          aria-labelledby="rc-tabs-test-tab-1"
           class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          id="rc-tabs-test-panel-1"
           role="tabpanel"
           tabindex="0"
         >
@@ -3635,198 +3972,254 @@ exports[`renders ./components/tabs/demo/slide.md correctly 1`] = `
         </div>
         <div
           aria-hidden="true"
+          aria-labelledby="rc-tabs-test-tab-2"
           class="ant-tabs-tabpane"
+          id="rc-tabs-test-panel-2"
           role="tabpanel"
-          style="display:none"
+          style="display: none;"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
+          aria-labelledby="rc-tabs-test-tab-3"
           class="ant-tabs-tabpane"
+          id="rc-tabs-test-panel-3"
           role="tabpanel"
-          style="display:none"
+          style="display: none;"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
+          aria-labelledby="rc-tabs-test-tab-4"
           class="ant-tabs-tabpane"
+          id="rc-tabs-test-panel-4"
           role="tabpanel"
-          style="display:none"
+          style="display: none;"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
+          aria-labelledby="rc-tabs-test-tab-5"
           class="ant-tabs-tabpane"
+          id="rc-tabs-test-panel-5"
           role="tabpanel"
-          style="display:none"
+          style="display: none;"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
+          aria-labelledby="rc-tabs-test-tab-6"
           class="ant-tabs-tabpane"
+          id="rc-tabs-test-panel-6"
           role="tabpanel"
-          style="display:none"
+          style="display: none;"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
+          aria-labelledby="rc-tabs-test-tab-7"
           class="ant-tabs-tabpane"
+          id="rc-tabs-test-panel-7"
           role="tabpanel"
-          style="display:none"
+          style="display: none;"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
+          aria-labelledby="rc-tabs-test-tab-8"
           class="ant-tabs-tabpane"
+          id="rc-tabs-test-panel-8"
           role="tabpanel"
-          style="display:none"
+          style="display: none;"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
+          aria-labelledby="rc-tabs-test-tab-9"
           class="ant-tabs-tabpane"
+          id="rc-tabs-test-panel-9"
           role="tabpanel"
-          style="display:none"
+          style="display: none;"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
+          aria-labelledby="rc-tabs-test-tab-10"
           class="ant-tabs-tabpane"
+          id="rc-tabs-test-panel-10"
           role="tabpanel"
-          style="display:none"
+          style="display: none;"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
+          aria-labelledby="rc-tabs-test-tab-11"
           class="ant-tabs-tabpane"
+          id="rc-tabs-test-panel-11"
           role="tabpanel"
-          style="display:none"
+          style="display: none;"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
+          aria-labelledby="rc-tabs-test-tab-12"
           class="ant-tabs-tabpane"
+          id="rc-tabs-test-panel-12"
           role="tabpanel"
-          style="display:none"
+          style="display: none;"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
+          aria-labelledby="rc-tabs-test-tab-13"
           class="ant-tabs-tabpane"
+          id="rc-tabs-test-panel-13"
           role="tabpanel"
-          style="display:none"
+          style="display: none;"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
+          aria-labelledby="rc-tabs-test-tab-14"
           class="ant-tabs-tabpane"
+          id="rc-tabs-test-panel-14"
           role="tabpanel"
-          style="display:none"
+          style="display: none;"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
+          aria-labelledby="rc-tabs-test-tab-15"
           class="ant-tabs-tabpane"
+          id="rc-tabs-test-panel-15"
           role="tabpanel"
-          style="display:none"
+          style="display: none;"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
+          aria-labelledby="rc-tabs-test-tab-16"
           class="ant-tabs-tabpane"
+          id="rc-tabs-test-panel-16"
           role="tabpanel"
-          style="display:none"
+          style="display: none;"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
+          aria-labelledby="rc-tabs-test-tab-17"
           class="ant-tabs-tabpane"
+          id="rc-tabs-test-panel-17"
           role="tabpanel"
-          style="display:none"
+          style="display: none;"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
+          aria-labelledby="rc-tabs-test-tab-18"
           class="ant-tabs-tabpane"
+          id="rc-tabs-test-panel-18"
           role="tabpanel"
-          style="display:none"
+          style="display: none;"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
+          aria-labelledby="rc-tabs-test-tab-19"
           class="ant-tabs-tabpane"
+          id="rc-tabs-test-panel-19"
           role="tabpanel"
-          style="display:none"
+          style="display: none;"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
+          aria-labelledby="rc-tabs-test-tab-20"
           class="ant-tabs-tabpane"
+          id="rc-tabs-test-panel-20"
           role="tabpanel"
-          style="display:none"
+          style="display: none;"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
+          aria-labelledby="rc-tabs-test-tab-21"
           class="ant-tabs-tabpane"
+          id="rc-tabs-test-panel-21"
           role="tabpanel"
-          style="display:none"
+          style="display: none;"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
+          aria-labelledby="rc-tabs-test-tab-22"
           class="ant-tabs-tabpane"
+          id="rc-tabs-test-panel-22"
           role="tabpanel"
-          style="display:none"
+          style="display: none;"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
+          aria-labelledby="rc-tabs-test-tab-23"
           class="ant-tabs-tabpane"
+          id="rc-tabs-test-panel-23"
           role="tabpanel"
-          style="display:none"
+          style="display: none;"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
+          aria-labelledby="rc-tabs-test-tab-24"
           class="ant-tabs-tabpane"
+          id="rc-tabs-test-panel-24"
           role="tabpanel"
-          style="display:none"
+          style="display: none;"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
+          aria-labelledby="rc-tabs-test-tab-25"
           class="ant-tabs-tabpane"
+          id="rc-tabs-test-panel-25"
           role="tabpanel"
-          style="display:none"
+          style="display: none;"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
+          aria-labelledby="rc-tabs-test-tab-26"
           class="ant-tabs-tabpane"
+          id="rc-tabs-test-panel-26"
           role="tabpanel"
-          style="display:none"
+          style="display: none;"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
+          aria-labelledby="rc-tabs-test-tab-27"
           class="ant-tabs-tabpane"
+          id="rc-tabs-test-panel-27"
           role="tabpanel"
-          style="display:none"
+          style="display: none;"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
+          aria-labelledby="rc-tabs-test-tab-28"
           class="ant-tabs-tabpane"
+          id="rc-tabs-test-panel-28"
           role="tabpanel"
-          style="display:none"
+          style="display: none;"
           tabindex="-1"
         />
         <div
           aria-hidden="true"
+          aria-labelledby="rc-tabs-test-tab-29"
           class="ant-tabs-tabpane"
+          id="rc-tabs-test-panel-29"
           role="tabpanel"
-          style="display:none"
+          style="display: none;"
           tabindex="-1"
         />
       </div>

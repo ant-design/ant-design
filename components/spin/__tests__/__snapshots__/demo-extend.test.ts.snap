@@ -35,7 +35,7 @@ exports[`renders ./components/spin/demo/custom-indicator.md extend context corre
     aria-label="loading"
     class="anticon anticon-loading anticon-spin ant-spin-dot"
     role="img"
-    style="font-size:24px"
+    style="font-size: 24px;"
   >
     <svg
       aria-hidden="true"
@@ -85,7 +85,7 @@ exports[`renders ./components/spin/demo/delayAndDebounce.md extend context corre
     </div>
   </div>
   <div
-    style="margin-top:16px"
+    style="margin-top: 16px;"
   >
     Loading state：
     <button
@@ -165,7 +165,7 @@ exports[`renders ./components/spin/demo/nested.md extend context correctly 1`] =
     </div>
   </div>
   <div
-    style="margin-top:16px"
+    style="margin-top: 16px;"
   >
     Loading state：
     <button
@@ -191,7 +191,7 @@ exports[`renders ./components/spin/demo/size.md extend context correctly 1`] = `
 >
   <div
     class="ant-space-item"
-    style="margin-right:16px"
+    style="margin-right: 16px;"
   >
     <div
       aria-busy="true"
@@ -218,7 +218,7 @@ exports[`renders ./components/spin/demo/size.md extend context correctly 1`] = `
   </div>
   <div
     class="ant-space-item"
-    style="margin-right:16px"
+    style="margin-right: 16px;"
   >
     <div
       aria-busy="true"

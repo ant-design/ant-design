@@ -601,7 +601,7 @@ Array [
   <ul
     class="ant-rate"
     role="radiogroup"
-    style="font-size:36px"
+    style="font-size: 36px;"
     tabindex="0"
   >
     <li
@@ -2526,8 +2526,8 @@ exports[`renders ./components/rate/demo/text.md extend context correctly 1`] = `
     </li>
     <div>
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
+        style="opacity: 0;"
       >
         <div
           class="ant-tooltip-content"
@@ -2608,8 +2608,8 @@ exports[`renders ./components/rate/demo/text.md extend context correctly 1`] = `
     </li>
     <div>
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
+        style="opacity: 0;"
       >
         <div
           class="ant-tooltip-content"
@@ -2690,8 +2690,8 @@ exports[`renders ./components/rate/demo/text.md extend context correctly 1`] = `
     </li>
     <div>
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
+        style="opacity: 0;"
       >
         <div
           class="ant-tooltip-content"
@@ -2772,8 +2772,8 @@ exports[`renders ./components/rate/demo/text.md extend context correctly 1`] = `
     </li>
     <div>
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
+        style="opacity: 0;"
       >
         <div
           class="ant-tooltip-content"
@@ -2854,8 +2854,8 @@ exports[`renders ./components/rate/demo/text.md extend context correctly 1`] = `
     </li>
     <div>
       <div
-        class="ant-tooltip"
-        style="opacity:0"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast"
+        style="opacity: 0;"
       >
         <div
           class="ant-tooltip-content"

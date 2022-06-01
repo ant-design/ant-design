@@ -3,7 +3,7 @@
 exports[`renders ./components/select/demo/automatic-tokenization.md correctly 1`] = `
 <div
   class="ant-select ant-select-multiple ant-select-show-search"
-  style="width:100%"
+  style="width: 100%;"
 >
   <div
     class="ant-select-selector"
@@ -13,20 +13,21 @@ exports[`renders ./components/select/demo/automatic-tokenization.md correctly 1`
     >
       <div
         class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
-        style="opacity:1"
+        style="opacity: 1;"
       >
         <div
           class="ant-select-selection-search"
-          style="width:0"
+          style="width: 0px;"
         >
           <input
-            aria-activedescendant="undefined_list_0"
+            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
-            aria-controls="undefined_list"
+            aria-controls="rc_select_TEST_OR_SSR_list"
             aria-haspopup="listbox"
-            aria-owns="undefined_list"
+            aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
+            id="rc_select_TEST_OR_SSR"
             role="combobox"
             type="search"
             value=""
@@ -51,7 +52,7 @@ exports[`renders ./components/select/demo/basic.md correctly 1`] = `
 Array [
   <div
     class="ant-select ant-select-single ant-select-show-arrow"
-    style="width:120px"
+    style="width: 120px;"
   >
     <div
       class="ant-select-selector"
@@ -60,16 +61,17 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="undefined_list_0"
+          aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
           aria-autocomplete="list"
-          aria-controls="undefined_list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
           aria-haspopup="listbox"
-          aria-owns="undefined_list"
+          aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
+          id="rc_select_TEST_OR_SSR"
           readonly=""
           role="combobox"
-          style="opacity:0"
+          style="opacity: 0;"
           type="search"
           unselectable="on"
           value=""
@@ -85,7 +87,7 @@ Array [
     <span
       aria-hidden="true"
       class="ant-select-arrow"
-      style="user-select:none;-webkit-user-select:none"
+      style="user-select: none;"
       unselectable="on"
     >
       <span
@@ -111,7 +113,7 @@ Array [
   </div>,
   <div
     class="ant-select ant-select-single ant-select-show-arrow ant-select-disabled"
-    style="width:120px"
+    style="width: 120px;"
   >
     <div
       class="ant-select-selector"
@@ -120,18 +122,19 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="undefined_list_0"
+          aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
           aria-autocomplete="list"
-          aria-controls="undefined_list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="undefined_list"
+          aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
           disabled=""
+          id="rc_select_TEST_OR_SSR"
           readonly=""
           role="combobox"
-          style="opacity:0"
+          style="opacity: 0;"
           type="search"
           unselectable="on"
           value=""
@@ -147,7 +150,7 @@ Array [
     <span
       aria-hidden="true"
       class="ant-select-arrow"
-      style="user-select:none;-webkit-user-select:none"
+      style="user-select: none;"
       unselectable="on"
     >
       <span
@@ -173,7 +176,7 @@ Array [
   </div>,
   <div
     class="ant-select ant-select-single ant-select-show-arrow ant-select-loading"
-    style="width:120px"
+    style="width: 120px;"
   >
     <div
       class="ant-select-selector"
@@ -182,16 +185,17 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="undefined_list_0"
+          aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
           aria-autocomplete="list"
-          aria-controls="undefined_list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
           aria-haspopup="listbox"
-          aria-owns="undefined_list"
+          aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
+          id="rc_select_TEST_OR_SSR"
           readonly=""
           role="combobox"
-          style="opacity:0"
+          style="opacity: 0;"
           type="search"
           unselectable="on"
           value=""
@@ -207,7 +211,7 @@ Array [
     <span
       aria-hidden="true"
       class="ant-select-arrow ant-select-arrow-loading"
-      style="user-select:none;-webkit-user-select:none"
+      style="user-select: none;"
       unselectable="on"
     >
       <span
@@ -233,7 +237,7 @@ Array [
   </div>,
   <div
     class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-    style="width:120px"
+    style="width: 120px;"
   >
     <div
       class="ant-select-selector"
@@ -242,16 +246,17 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="undefined_list_0"
+          aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
           aria-autocomplete="list"
-          aria-controls="undefined_list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
           aria-haspopup="listbox"
-          aria-owns="undefined_list"
+          aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
+          id="rc_select_TEST_OR_SSR"
           readonly=""
           role="combobox"
-          style="opacity:0"
+          style="opacity: 0;"
           type="search"
           unselectable="on"
           value=""
@@ -267,7 +272,7 @@ Array [
     <span
       aria-hidden="true"
       class="ant-select-arrow"
-      style="user-select:none;-webkit-user-select:none"
+      style="user-select: none;"
       unselectable="on"
     >
       <span
@@ -293,7 +298,7 @@ Array [
     <span
       aria-hidden="true"
       class="ant-select-clear"
-      style="user-select:none;-webkit-user-select:none"
+      style="user-select: none;"
       unselectable="on"
     >
       <span
@@ -334,7 +339,7 @@ Array [
   </h4>,
   <div
     class="ant-select ant-select-multiple ant-select-show-search"
-    style="width:100%"
+    style="width: 100%;"
   >
     <div
       class="ant-select-selector"
@@ -344,7 +349,7 @@ Array [
       >
         <div
           class="ant-select-selection-overflow-item"
-          style="opacity:1"
+          style="opacity: 1;"
         >
           <span
             class="ant-select-selection-item ant-select-selection-item-disabled"
@@ -359,7 +364,7 @@ Array [
         </div>
         <div
           class="ant-select-selection-overflow-item"
-          style="opacity:1"
+          style="opacity: 1;"
         >
           <span
             class="ant-select-selection-item"
@@ -373,7 +378,7 @@ Array [
             <span
               aria-hidden="true"
               class="ant-select-selection-item-remove"
-              style="user-select:none;-webkit-user-select:none"
+              style="user-select: none;"
               unselectable="on"
             >
               <span
@@ -400,23 +405,24 @@ Array [
         </div>
         <div
           class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
-          style="opacity:1"
+          style="opacity: 1;"
         >
           <div
             class="ant-select-selection-search"
-            style="width:0"
+            style="width: 0px;"
           >
             <input
-              aria-activedescendant="undefined_list_0"
+              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
-              aria-controls="undefined_list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
               aria-haspopup="listbox"
-              aria-owns="undefined_list"
+              aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              id="rc_select_TEST_OR_SSR"
               readonly=""
               role="combobox"
-              style="opacity:0"
+              style="opacity: 0;"
               type="search"
               unselectable="on"
               value=""
@@ -443,7 +449,7 @@ Array [
   </h3>,
   <iframe
     src="https://codesandbox.io/embed/solitary-voice-m3vme?fontsize=14&hidenavigation=1&theme=dark&view=preview"
-    style="width:100%;height:300px"
+    style="width: 100%; height: 300px;"
     title="Ant Design 3.0 Select demo"
   />,
 ]
@@ -453,7 +459,7 @@ exports[`renders ./components/select/demo/bordered.md correctly 1`] = `
 Array [
   <div
     class="ant-select ant-select-borderless ant-select-single ant-select-show-arrow"
-    style="width:120px"
+    style="width: 120px;"
   >
     <div
       class="ant-select-selector"
@@ -462,16 +468,17 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="undefined_list_0"
+          aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
           aria-autocomplete="list"
-          aria-controls="undefined_list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
           aria-haspopup="listbox"
-          aria-owns="undefined_list"
+          aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
+          id="rc_select_TEST_OR_SSR"
           readonly=""
           role="combobox"
-          style="opacity:0"
+          style="opacity: 0;"
           type="search"
           unselectable="on"
           value=""
@@ -487,7 +494,7 @@ Array [
     <span
       aria-hidden="true"
       class="ant-select-arrow"
-      style="user-select:none;-webkit-user-select:none"
+      style="user-select: none;"
       unselectable="on"
     >
       <span
@@ -513,7 +520,7 @@ Array [
   </div>,
   <div
     class="ant-select ant-select-borderless ant-select-single ant-select-show-arrow ant-select-disabled"
-    style="width:120px"
+    style="width: 120px;"
   >
     <div
       class="ant-select-selector"
@@ -522,18 +529,19 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="undefined_list_0"
+          aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
           aria-autocomplete="list"
-          aria-controls="undefined_list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="undefined_list"
+          aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
           disabled=""
+          id="rc_select_TEST_OR_SSR"
           readonly=""
           role="combobox"
-          style="opacity:0"
+          style="opacity: 0;"
           type="search"
           unselectable="on"
           value=""
@@ -549,7 +557,7 @@ Array [
     <span
       aria-hidden="true"
       class="ant-select-arrow"
-      style="user-select:none;-webkit-user-select:none"
+      style="user-select: none;"
       unselectable="on"
     >
       <span
@@ -580,7 +588,7 @@ exports[`renders ./components/select/demo/coordinate.md correctly 1`] = `
 Array [
   <div
     class="ant-select ant-select-single ant-select-show-arrow"
-    style="width:120px"
+    style="width: 120px;"
   >
     <div
       class="ant-select-selector"
@@ -589,16 +597,17 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="undefined_list_0"
+          aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
           aria-autocomplete="list"
-          aria-controls="undefined_list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
           aria-haspopup="listbox"
-          aria-owns="undefined_list"
+          aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
+          id="rc_select_TEST_OR_SSR"
           readonly=""
           role="combobox"
-          style="opacity:0"
+          style="opacity: 0;"
           type="search"
           unselectable="on"
           value=""
@@ -614,7 +623,7 @@ Array [
     <span
       aria-hidden="true"
       class="ant-select-arrow"
-      style="user-select:none;-webkit-user-select:none"
+      style="user-select: none;"
       unselectable="on"
     >
       <span
@@ -640,7 +649,7 @@ Array [
   </div>,
   <div
     class="ant-select ant-select-single ant-select-show-arrow"
-    style="width:120px"
+    style="width: 120px;"
   >
     <div
       class="ant-select-selector"
@@ -649,16 +658,17 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="undefined_list_0"
+          aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
           aria-autocomplete="list"
-          aria-controls="undefined_list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
           aria-haspopup="listbox"
-          aria-owns="undefined_list"
+          aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
+          id="rc_select_TEST_OR_SSR"
           readonly=""
           role="combobox"
-          style="opacity:0"
+          style="opacity: 0;"
           type="search"
           unselectable="on"
           value=""
@@ -674,7 +684,7 @@ Array [
     <span
       aria-hidden="true"
       class="ant-select-arrow"
-      style="user-select:none;-webkit-user-select:none"
+      style="user-select: none;"
       unselectable="on"
     >
       <span
@@ -704,7 +714,7 @@ Array [
 exports[`renders ./components/select/demo/custom-dropdown-menu.md correctly 1`] = `
 <div
   class="ant-select ant-select-single ant-select-show-arrow"
-  style="width:300px"
+  style="width: 300px;"
 >
   <div
     class="ant-select-selector"
@@ -713,16 +723,17 @@ exports[`renders ./components/select/demo/custom-dropdown-menu.md correctly 1`] 
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
+        aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
         aria-autocomplete="list"
-        aria-controls="undefined_list"
+        aria-controls="rc_select_TEST_OR_SSR_list"
         aria-haspopup="listbox"
-        aria-owns="undefined_list"
+        aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
+        id="rc_select_TEST_OR_SSR"
         readonly=""
         role="combobox"
-        style="opacity:0"
+        style="opacity: 0;"
         type="search"
         unselectable="on"
         value=""
@@ -737,7 +748,7 @@ exports[`renders ./components/select/demo/custom-dropdown-menu.md correctly 1`] 
   <span
     aria-hidden="true"
     class="ant-select-arrow"
-    style="user-select:none;-webkit-user-select:none"
+    style="user-select: none;"
     unselectable="on"
   >
     <span
@@ -766,7 +777,7 @@ exports[`renders ./components/select/demo/custom-dropdown-menu.md correctly 1`] 
 exports[`renders ./components/select/demo/custom-tag-render.md correctly 1`] = `
 <div
   class="ant-select ant-select-multiple ant-select-show-arrow ant-select-show-search"
-  style="width:100%"
+  style="width: 100%;"
 >
   <div
     class="ant-select-selector"
@@ -776,12 +787,12 @@ exports[`renders ./components/select/demo/custom-tag-render.md correctly 1`] = `
     >
       <div
         class="ant-select-selection-overflow-item"
-        style="opacity:1"
+        style="opacity: 1;"
       >
         <span>
           <span
             class="ant-tag ant-tag-gold"
-            style="margin-right:3px"
+            style="margin-right: 3px;"
           >
             gold
             <span
@@ -809,12 +820,12 @@ exports[`renders ./components/select/demo/custom-tag-render.md correctly 1`] = `
       </div>
       <div
         class="ant-select-selection-overflow-item"
-        style="opacity:1"
+        style="opacity: 1;"
       >
         <span>
           <span
             class="ant-tag ant-tag-cyan"
-            style="margin-right:3px"
+            style="margin-right: 3px;"
           >
             cyan
             <span
@@ -842,23 +853,24 @@ exports[`renders ./components/select/demo/custom-tag-render.md correctly 1`] = `
       </div>
       <div
         class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
-        style="opacity:1"
+        style="opacity: 1;"
       >
         <div
           class="ant-select-selection-search"
-          style="width:0"
+          style="width: 0px;"
         >
           <input
-            aria-activedescendant="undefined_list_0"
+            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
-            aria-controls="undefined_list"
+            aria-controls="rc_select_TEST_OR_SSR_list"
             aria-haspopup="listbox"
-            aria-owns="undefined_list"
+            aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
+            id="rc_select_TEST_OR_SSR"
             readonly=""
             role="combobox"
-            style="opacity:0"
+            style="opacity: 0;"
             type="search"
             unselectable="on"
             value=""
@@ -876,7 +888,7 @@ exports[`renders ./components/select/demo/custom-tag-render.md correctly 1`] = `
   <span
     aria-hidden="true"
     class="ant-select-arrow"
-    style="user-select:none;-webkit-user-select:none"
+    style="user-select: none;"
     unselectable="on"
   >
     <span
@@ -904,17 +916,17 @@ exports[`renders ./components/select/demo/custom-tag-render.md correctly 1`] = `
 
 exports[`renders ./components/select/demo/debug.md correctly 1`] = `
 <div
-  style="width:500px;position:relative;z-index:1;border:1px solid red;background:#FFF"
+  style="width: 500px; position: relative; z-index: 1; border: 1px solid red; background: rgb(255, 255, 255);"
 >
   <input
     class="ant-input"
-    style="width:100px"
+    style="width: 100px;"
     type="text"
     value="222"
   />
   <div
     class="ant-select ant-select-single ant-select-show-arrow ant-select-show-search"
-    style="width:120px"
+    style="width: 120px;"
   >
     <div
       class="ant-select-selector"
@@ -923,13 +935,14 @@ exports[`renders ./components/select/demo/debug.md correctly 1`] = `
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="undefined_list_0"
+          aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
           aria-autocomplete="list"
-          aria-controls="undefined_list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
           aria-haspopup="listbox"
-          aria-owns="undefined_list"
+          aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
+          id="rc_select_TEST_OR_SSR"
           role="combobox"
           type="search"
           value=""
@@ -944,7 +957,7 @@ exports[`renders ./components/select/demo/debug.md correctly 1`] = `
     <span
       aria-hidden="true"
       class="ant-select-arrow"
-      style="user-select:none;-webkit-user-select:none"
+      style="user-select: none;"
       unselectable="on"
     >
       <span
@@ -970,7 +983,7 @@ exports[`renders ./components/select/demo/debug.md correctly 1`] = `
   </div>
   <div
     class="ant-select ant-select-multiple ant-select-show-search"
-    style="width:120px"
+    style="width: 120px;"
   >
     <div
       class="ant-select-selector"
@@ -980,7 +993,7 @@ exports[`renders ./components/select/demo/debug.md correctly 1`] = `
       >
         <div
           class="ant-select-selection-overflow-item"
-          style="opacity:1"
+          style="opacity: 1;"
         >
           <span
             class="ant-select-selection-item"
@@ -994,7 +1007,7 @@ exports[`renders ./components/select/demo/debug.md correctly 1`] = `
             <span
               aria-hidden="true"
               class="ant-select-selection-item-remove"
-              style="user-select:none;-webkit-user-select:none"
+              style="user-select: none;"
               unselectable="on"
             >
               <span
@@ -1021,23 +1034,24 @@ exports[`renders ./components/select/demo/debug.md correctly 1`] = `
         </div>
         <div
           class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
-          style="opacity:1"
+          style="opacity: 1;"
         >
           <div
             class="ant-select-selection-search"
-            style="width:0"
+            style="width: 0px;"
           >
             <input
-              aria-activedescendant="undefined_list_0"
+              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
-              aria-controls="undefined_list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
               aria-haspopup="listbox"
-              aria-owns="undefined_list"
+              aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              id="rc_select_TEST_OR_SSR"
               readonly=""
               role="combobox"
-              style="opacity:0"
+              style="opacity: 0;"
               type="search"
               unselectable="on"
               value=""
@@ -1072,7 +1086,7 @@ exports[`renders ./components/select/demo/debug.md correctly 1`] = `
 exports[`renders ./components/select/demo/hide-selected.md correctly 1`] = `
 <div
   class="ant-select ant-select-multiple ant-select-show-search"
-  style="width:100%"
+  style="width: 100%;"
 >
   <div
     class="ant-select-selector"
@@ -1082,23 +1096,24 @@ exports[`renders ./components/select/demo/hide-selected.md correctly 1`] = `
     >
       <div
         class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
-        style="opacity:1"
+        style="opacity: 1;"
       >
         <div
           class="ant-select-selection-search"
-          style="width:0"
+          style="width: 0px;"
         >
           <input
-            aria-activedescendant="undefined_list_0"
+            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
-            aria-controls="undefined_list"
+            aria-controls="rc_select_TEST_OR_SSR_list"
             aria-haspopup="listbox"
-            aria-owns="undefined_list"
+            aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
+            id="rc_select_TEST_OR_SSR"
             readonly=""
             role="combobox"
-            style="opacity:0"
+            style="opacity: 0;"
             type="search"
             unselectable="on"
             value=""
@@ -1124,7 +1139,7 @@ exports[`renders ./components/select/demo/hide-selected.md correctly 1`] = `
 exports[`renders ./components/select/demo/label-in-value.md correctly 1`] = `
 <div
   class="ant-select ant-select-single ant-select-show-arrow"
-  style="width:120px"
+  style="width: 120px;"
 >
   <div
     class="ant-select-selector"
@@ -1133,16 +1148,17 @@ exports[`renders ./components/select/demo/label-in-value.md correctly 1`] = `
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
+        aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
         aria-autocomplete="list"
-        aria-controls="undefined_list"
+        aria-controls="rc_select_TEST_OR_SSR_list"
         aria-haspopup="listbox"
-        aria-owns="undefined_list"
+        aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
+        id="rc_select_TEST_OR_SSR"
         readonly=""
         role="combobox"
-        style="opacity:0"
+        style="opacity: 0;"
         type="search"
         unselectable="on"
         value=""
@@ -1158,7 +1174,7 @@ exports[`renders ./components/select/demo/label-in-value.md correctly 1`] = `
   <span
     aria-hidden="true"
     class="ant-select-arrow"
-    style="user-select:none;-webkit-user-select:none"
+    style="user-select: none;"
     unselectable="on"
   >
     <span
@@ -1188,7 +1204,7 @@ exports[`renders ./components/select/demo/multiple.md correctly 1`] = `
 Array [
   <div
     class="ant-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
-    style="width:100%"
+    style="width: 100%;"
   >
     <div
       class="ant-select-selector"
@@ -1198,7 +1214,7 @@ Array [
       >
         <div
           class="ant-select-selection-overflow-item"
-          style="opacity:1"
+          style="opacity: 1;"
         >
           <span
             class="ant-select-selection-item"
@@ -1212,7 +1228,7 @@ Array [
             <span
               aria-hidden="true"
               class="ant-select-selection-item-remove"
-              style="user-select:none;-webkit-user-select:none"
+              style="user-select: none;"
               unselectable="on"
             >
               <span
@@ -1239,7 +1255,7 @@ Array [
         </div>
         <div
           class="ant-select-selection-overflow-item"
-          style="opacity:1"
+          style="opacity: 1;"
         >
           <span
             class="ant-select-selection-item"
@@ -1253,7 +1269,7 @@ Array [
             <span
               aria-hidden="true"
               class="ant-select-selection-item-remove"
-              style="user-select:none;-webkit-user-select:none"
+              style="user-select: none;"
               unselectable="on"
             >
               <span
@@ -1280,23 +1296,24 @@ Array [
         </div>
         <div
           class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
-          style="opacity:1"
+          style="opacity: 1;"
         >
           <div
             class="ant-select-selection-search"
-            style="width:0"
+            style="width: 0px;"
           >
             <input
-              aria-activedescendant="undefined_list_0"
+              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
-              aria-controls="undefined_list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
               aria-haspopup="listbox"
-              aria-owns="undefined_list"
+              aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              id="rc_select_TEST_OR_SSR"
               readonly=""
               role="combobox"
-              style="opacity:0"
+              style="opacity: 0;"
               type="search"
               unselectable="on"
               value=""
@@ -1314,7 +1331,7 @@ Array [
     <span
       aria-hidden="true"
       class="ant-select-clear"
-      style="user-select:none;-webkit-user-select:none"
+      style="user-select: none;"
       unselectable="on"
     >
       <span
@@ -1341,7 +1358,7 @@ Array [
   <br />,
   <div
     class="ant-select ant-select-multiple ant-select-disabled ant-select-show-search"
-    style="width:100%"
+    style="width: 100%;"
   >
     <div
       class="ant-select-selector"
@@ -1351,7 +1368,7 @@ Array [
       >
         <div
           class="ant-select-selection-overflow-item"
-          style="opacity:1"
+          style="opacity: 1;"
         >
           <span
             class="ant-select-selection-item"
@@ -1366,7 +1383,7 @@ Array [
         </div>
         <div
           class="ant-select-selection-overflow-item"
-          style="opacity:1"
+          style="opacity: 1;"
         >
           <span
             class="ant-select-selection-item"
@@ -1381,25 +1398,26 @@ Array [
         </div>
         <div
           class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
-          style="opacity:1"
+          style="opacity: 1;"
         >
           <div
             class="ant-select-selection-search"
-            style="width:0"
+            style="width: 0px;"
           >
             <input
-              aria-activedescendant="undefined_list_0"
+              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
-              aria-controls="undefined_list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="undefined_list"
+              aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
               disabled=""
+              id="rc_select_TEST_OR_SSR"
               readonly=""
               role="combobox"
-              style="opacity:0"
+              style="opacity: 0;"
               type="search"
               unselectable="on"
               value=""
@@ -1421,7 +1439,7 @@ Array [
 exports[`renders ./components/select/demo/optgroup.md correctly 1`] = `
 <div
   class="ant-select ant-select-single ant-select-show-arrow"
-  style="width:200px"
+  style="width: 200px;"
 >
   <div
     class="ant-select-selector"
@@ -1430,16 +1448,17 @@ exports[`renders ./components/select/demo/optgroup.md correctly 1`] = `
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
+        aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
         aria-autocomplete="list"
-        aria-controls="undefined_list"
+        aria-controls="rc_select_TEST_OR_SSR_list"
         aria-haspopup="listbox"
-        aria-owns="undefined_list"
+        aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
+        id="rc_select_TEST_OR_SSR"
         readonly=""
         role="combobox"
-        style="opacity:0"
+        style="opacity: 0;"
         type="search"
         unselectable="on"
         value=""
@@ -1455,7 +1474,7 @@ exports[`renders ./components/select/demo/optgroup.md correctly 1`] = `
   <span
     aria-hidden="true"
     class="ant-select-arrow"
-    style="user-select:none;-webkit-user-select:none"
+    style="user-select: none;"
     unselectable="on"
   >
     <span
@@ -1484,7 +1503,7 @@ exports[`renders ./components/select/demo/optgroup.md correctly 1`] = `
 exports[`renders ./components/select/demo/option-label-prop.md correctly 1`] = `
 <div
   class="ant-select ant-select-multiple ant-select-show-search"
-  style="width:100%"
+  style="width: 100%;"
 >
   <div
     class="ant-select-selector"
@@ -1494,7 +1513,7 @@ exports[`renders ./components/select/demo/option-label-prop.md correctly 1`] = `
     >
       <div
         class="ant-select-selection-overflow-item"
-        style="opacity:1"
+        style="opacity: 1;"
       >
         <span
           class="ant-select-selection-item"
@@ -1508,7 +1527,7 @@ exports[`renders ./components/select/demo/option-label-prop.md correctly 1`] = `
           <span
             aria-hidden="true"
             class="ant-select-selection-item-remove"
-            style="user-select:none;-webkit-user-select:none"
+            style="user-select: none;"
             unselectable="on"
           >
             <span
@@ -1535,23 +1554,24 @@ exports[`renders ./components/select/demo/option-label-prop.md correctly 1`] = `
       </div>
       <div
         class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
-        style="opacity:1"
+        style="opacity: 1;"
       >
         <div
           class="ant-select-selection-search"
-          style="width:0"
+          style="width: 0px;"
         >
           <input
-            aria-activedescendant="undefined_list_0"
+            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
-            aria-controls="undefined_list"
+            aria-controls="rc_select_TEST_OR_SSR_list"
             aria-haspopup="listbox"
-            aria-owns="undefined_list"
+            aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
+            id="rc_select_TEST_OR_SSR"
             readonly=""
             role="combobox"
-            style="opacity:0"
+            style="opacity: 0;"
             type="search"
             unselectable="on"
             value=""
@@ -1656,7 +1676,7 @@ Array [
   <br />,
   <div
     class="ant-select ant-select-single ant-select-show-arrow"
-    style="width:120px"
+    style="width: 120px;"
   >
     <div
       class="ant-select-selector"
@@ -1665,16 +1685,17 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="undefined_list_0"
+          aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
           aria-autocomplete="list"
-          aria-controls="undefined_list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
           aria-haspopup="listbox"
-          aria-owns="undefined_list"
+          aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
+          id="rc_select_TEST_OR_SSR"
           readonly=""
           role="combobox"
-          style="opacity:0"
+          style="opacity: 0;"
           type="search"
           unselectable="on"
           value=""
@@ -1690,7 +1711,7 @@ Array [
     <span
       aria-hidden="true"
       class="ant-select-arrow"
-      style="user-select:none;-webkit-user-select:none"
+      style="user-select: none;"
       unselectable="on"
     >
       <span
@@ -1720,15 +1741,15 @@ Array [
 exports[`renders ./components/select/demo/responsive.md correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
-  style="width:100%"
+  style="width: 100%;"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-select ant-select-multiple ant-select-show-search"
-      style="width:100%"
+      style="width: 100%;"
     >
       <div
         class="ant-select-selector"
@@ -1739,7 +1760,7 @@ exports[`renders ./components/select/demo/responsive.md correctly 1`] = `
           <div
             aria-hidden="true"
             class="ant-select-selection-overflow-item ant-select-selection-overflow-item-rest"
-            style="opacity:0;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none;position:absolute"
+            style="opacity: 0; height: 0px; overflow-y: hidden; order: 9007199254740991; pointer-events: none; position: absolute;"
           >
             <span
               class="ant-select-selection-item"
@@ -1754,23 +1775,24 @@ exports[`renders ./components/select/demo/responsive.md correctly 1`] = `
           </div>
           <div
             class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
-            style="opacity:1;order:0"
+            style="opacity: 1; order: 0;"
           >
             <div
               class="ant-select-selection-search"
-              style="width:0"
+              style="width: 0px;"
             >
               <input
-                aria-activedescendant="undefined_list_0"
+                aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                 aria-autocomplete="list"
-                aria-controls="undefined_list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-haspopup="listbox"
-                aria-owns="undefined_list"
+                aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
+                id="rc_select_TEST_OR_SSR"
                 readonly=""
                 role="combobox"
-                style="opacity:0"
+                style="opacity: 0;"
                 type="search"
                 unselectable="on"
                 value=""
@@ -1792,7 +1814,7 @@ exports[`renders ./components/select/demo/responsive.md correctly 1`] = `
   >
     <div
       class="ant-select ant-select-multiple ant-select-disabled ant-select-show-search"
-      style="width:100%"
+      style="width: 100%;"
     >
       <div
         class="ant-select-selector"
@@ -1803,7 +1825,7 @@ exports[`renders ./components/select/demo/responsive.md correctly 1`] = `
           <div
             aria-hidden="true"
             class="ant-select-selection-overflow-item ant-select-selection-overflow-item-rest"
-            style="opacity:0;height:0;overflow-y:hidden;order:9007199254740991;pointer-events:none;position:absolute"
+            style="opacity: 0; height: 0px; overflow-y: hidden; order: 9007199254740991; pointer-events: none; position: absolute;"
           >
             <span
               class="ant-select-selection-item"
@@ -1818,25 +1840,26 @@ exports[`renders ./components/select/demo/responsive.md correctly 1`] = `
           </div>
           <div
             class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
-            style="opacity:1;order:0"
+            style="opacity: 1; order: 0;"
           >
             <div
               class="ant-select-selection-search"
-              style="width:0"
+              style="width: 0px;"
             >
               <input
-                aria-activedescendant="undefined_list_0"
+                aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                 aria-autocomplete="list"
-                aria-controls="undefined_list"
+                aria-controls="rc_select_TEST_OR_SSR_list"
                 aria-expanded="false"
                 aria-haspopup="listbox"
-                aria-owns="undefined_list"
+                aria-owns="rc_select_TEST_OR_SSR_list"
                 autocomplete="off"
                 class="ant-select-selection-search-input"
                 disabled=""
+                id="rc_select_TEST_OR_SSR"
                 readonly=""
                 role="combobox"
-                style="opacity:0"
+                style="opacity: 0;"
                 type="search"
                 unselectable="on"
                 value=""
@@ -1867,13 +1890,14 @@ exports[`renders ./components/select/demo/search.md correctly 1`] = `
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
+        aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
         aria-autocomplete="list"
-        aria-controls="undefined_list"
+        aria-controls="rc_select_TEST_OR_SSR_list"
         aria-haspopup="listbox"
-        aria-owns="undefined_list"
+        aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
+        id="rc_select_TEST_OR_SSR"
         role="combobox"
         type="search"
         value=""
@@ -1888,7 +1912,7 @@ exports[`renders ./components/select/demo/search.md correctly 1`] = `
   <span
     aria-hidden="true"
     class="ant-select-arrow"
-    style="user-select:none;-webkit-user-select:none"
+    style="user-select: none;"
     unselectable="on"
   >
     <span
@@ -1917,7 +1941,7 @@ exports[`renders ./components/select/demo/search.md correctly 1`] = `
 exports[`renders ./components/select/demo/search-box.md correctly 1`] = `
 <div
   class="ant-select ant-select-single ant-select-show-search"
-  style="width:200px"
+  style="width: 200px;"
 >
   <div
     class="ant-select-selector"
@@ -1926,13 +1950,14 @@ exports[`renders ./components/select/demo/search-box.md correctly 1`] = `
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
+        aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
         aria-autocomplete="list"
-        aria-controls="undefined_list"
+        aria-controls="rc_select_TEST_OR_SSR_list"
         aria-haspopup="listbox"
-        aria-owns="undefined_list"
+        aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
+        id="rc_select_TEST_OR_SSR"
         role="combobox"
         type="search"
         value=""
@@ -1950,7 +1975,7 @@ exports[`renders ./components/select/demo/search-box.md correctly 1`] = `
 exports[`renders ./components/select/demo/search-sort.md correctly 1`] = `
 <div
   class="ant-select ant-select-single ant-select-show-arrow ant-select-show-search"
-  style="width:200px"
+  style="width: 200px;"
 >
   <div
     class="ant-select-selector"
@@ -1959,13 +1984,14 @@ exports[`renders ./components/select/demo/search-sort.md correctly 1`] = `
       class="ant-select-selection-search"
     >
       <input
-        aria-activedescendant="undefined_list_0"
+        aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
         aria-autocomplete="list"
-        aria-controls="undefined_list"
+        aria-controls="rc_select_TEST_OR_SSR_list"
         aria-haspopup="listbox"
-        aria-owns="undefined_list"
+        aria-owns="rc_select_TEST_OR_SSR_list"
         autocomplete="off"
         class="ant-select-selection-search-input"
+        id="rc_select_TEST_OR_SSR"
         role="combobox"
         type="search"
         value=""
@@ -1980,7 +2006,7 @@ exports[`renders ./components/select/demo/search-sort.md correctly 1`] = `
   <span
     aria-hidden="true"
     class="ant-select-arrow"
-    style="user-select:none;-webkit-user-select:none"
+    style="user-select: none;"
     unselectable="on"
   >
     <span
@@ -2009,7 +2035,7 @@ exports[`renders ./components/select/demo/search-sort.md correctly 1`] = `
 exports[`renders ./components/select/demo/select-users.md correctly 1`] = `
 <div
   class="ant-select ant-select-multiple ant-select-show-search"
-  style="width:100%"
+  style="width: 100%;"
 >
   <div
     class="ant-select-selector"
@@ -2019,23 +2045,24 @@ exports[`renders ./components/select/demo/select-users.md correctly 1`] = `
     >
       <div
         class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
-        style="opacity:1"
+        style="opacity: 1;"
       >
         <div
           class="ant-select-selection-search"
-          style="width:0"
+          style="width: 0px;"
         >
           <input
-            aria-activedescendant="undefined_list_0"
+            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
-            aria-controls="undefined_list"
+            aria-controls="rc_select_TEST_OR_SSR_list"
             aria-haspopup="listbox"
-            aria-owns="undefined_list"
+            aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
+            id="rc_select_TEST_OR_SSR"
             readonly=""
             role="combobox"
-            style="opacity:0"
+            style="opacity: 0;"
             type="search"
             unselectable="on"
             value=""
@@ -2125,7 +2152,7 @@ Array [
   <br />,
   <div
     class="ant-select ant-select-single ant-select-show-arrow"
-    style="width:200px"
+    style="width: 200px;"
   >
     <div
       class="ant-select-selector"
@@ -2134,16 +2161,17 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="undefined_list_0"
+          aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
           aria-autocomplete="list"
-          aria-controls="undefined_list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
           aria-haspopup="listbox"
-          aria-owns="undefined_list"
+          aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
+          id="rc_select_TEST_OR_SSR"
           readonly=""
           role="combobox"
-          style="opacity:0"
+          style="opacity: 0;"
           type="search"
           unselectable="on"
           value=""
@@ -2159,7 +2187,7 @@ Array [
     <span
       aria-hidden="true"
       class="ant-select-arrow"
-      style="user-select:none;-webkit-user-select:none"
+      style="user-select: none;"
       unselectable="on"
     >
       <span
@@ -2186,7 +2214,7 @@ Array [
   <br />,
   <div
     class="ant-select ant-select-multiple ant-select-show-search"
-    style="width:100%"
+    style="width: 100%;"
   >
     <div
       class="ant-select-selector"
@@ -2196,7 +2224,7 @@ Array [
       >
         <div
           class="ant-select-selection-overflow-item"
-          style="opacity:1"
+          style="opacity: 1;"
         >
           <span
             class="ant-select-selection-item"
@@ -2210,7 +2238,7 @@ Array [
             <span
               aria-hidden="true"
               class="ant-select-selection-item-remove"
-              style="user-select:none;-webkit-user-select:none"
+              style="user-select: none;"
               unselectable="on"
             >
               <span
@@ -2237,7 +2265,7 @@ Array [
         </div>
         <div
           class="ant-select-selection-overflow-item"
-          style="opacity:1"
+          style="opacity: 1;"
         >
           <span
             class="ant-select-selection-item"
@@ -2251,7 +2279,7 @@ Array [
             <span
               aria-hidden="true"
               class="ant-select-selection-item-remove"
-              style="user-select:none;-webkit-user-select:none"
+              style="user-select: none;"
               unselectable="on"
             >
               <span
@@ -2278,23 +2306,24 @@ Array [
         </div>
         <div
           class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
-          style="opacity:1"
+          style="opacity: 1;"
         >
           <div
             class="ant-select-selection-search"
-            style="width:0"
+            style="width: 0px;"
           >
             <input
-              aria-activedescendant="undefined_list_0"
+              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
-              aria-controls="undefined_list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
               aria-haspopup="listbox"
-              aria-owns="undefined_list"
+              aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              id="rc_select_TEST_OR_SSR"
               readonly=""
               role="combobox"
-              style="opacity:0"
+              style="opacity: 0;"
               type="search"
               unselectable="on"
               value=""
@@ -2313,7 +2342,7 @@ Array [
   <br />,
   <div
     class="ant-select ant-select-multiple ant-select-show-search"
-    style="width:100%"
+    style="width: 100%;"
   >
     <div
       class="ant-select-selector"
@@ -2323,7 +2352,7 @@ Array [
       >
         <div
           class="ant-select-selection-overflow-item"
-          style="opacity:1"
+          style="opacity: 1;"
         >
           <span
             class="ant-select-selection-item"
@@ -2337,7 +2366,7 @@ Array [
             <span
               aria-hidden="true"
               class="ant-select-selection-item-remove"
-              style="user-select:none;-webkit-user-select:none"
+              style="user-select: none;"
               unselectable="on"
             >
               <span
@@ -2364,7 +2393,7 @@ Array [
         </div>
         <div
           class="ant-select-selection-overflow-item"
-          style="opacity:1"
+          style="opacity: 1;"
         >
           <span
             class="ant-select-selection-item"
@@ -2378,7 +2407,7 @@ Array [
             <span
               aria-hidden="true"
               class="ant-select-selection-item-remove"
-              style="user-select:none;-webkit-user-select:none"
+              style="user-select: none;"
               unselectable="on"
             >
               <span
@@ -2405,20 +2434,21 @@ Array [
         </div>
         <div
           class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
-          style="opacity:1"
+          style="opacity: 1;"
         >
           <div
             class="ant-select-selection-search"
-            style="width:0"
+            style="width: 0px;"
           >
             <input
-              aria-activedescendant="undefined_list_0"
+              aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
               aria-autocomplete="list"
-              aria-controls="undefined_list"
+              aria-controls="rc_select_TEST_OR_SSR_list"
               aria-haspopup="listbox"
-              aria-owns="undefined_list"
+              aria-owns="rc_select_TEST_OR_SSR_list"
               autocomplete="off"
               class="ant-select-selection-search-input"
+              id="rc_select_TEST_OR_SSR"
               role="combobox"
               type="search"
               value=""
@@ -2440,15 +2470,15 @@ Array [
 exports[`renders ./components/select/demo/status.md correctly 1`] = `
 <div
   class="ant-space ant-space-vertical"
-  style="width:100%"
+  style="width: 100%;"
 >
   <div
     class="ant-space-item"
-    style="margin-bottom:8px"
+    style="margin-bottom: 8px;"
   >
     <div
       class="ant-select ant-select-status-error ant-select-single ant-select-show-arrow"
-      style="width:100%"
+      style="width: 100%;"
     >
       <div
         class="ant-select-selector"
@@ -2457,16 +2487,17 @@ exports[`renders ./components/select/demo/status.md correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
+            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
-            aria-controls="undefined_list"
+            aria-controls="rc_select_TEST_OR_SSR_list"
             aria-haspopup="listbox"
-            aria-owns="undefined_list"
+            aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
+            id="rc_select_TEST_OR_SSR"
             readonly=""
             role="combobox"
-            style="opacity:0"
+            style="opacity: 0;"
             type="search"
             unselectable="on"
             value=""
@@ -2479,7 +2510,7 @@ exports[`renders ./components/select/demo/status.md correctly 1`] = `
       <span
         aria-hidden="true"
         class="ant-select-arrow"
-        style="user-select:none;-webkit-user-select:none"
+        style="user-select: none;"
         unselectable="on"
       >
         <span
@@ -2509,7 +2540,7 @@ exports[`renders ./components/select/demo/status.md correctly 1`] = `
   >
     <div
       class="ant-select ant-select-status-warning ant-select-single ant-select-show-arrow"
-      style="width:100%"
+      style="width: 100%;"
     >
       <div
         class="ant-select-selector"
@@ -2518,16 +2549,17 @@ exports[`renders ./components/select/demo/status.md correctly 1`] = `
           class="ant-select-selection-search"
         >
           <input
-            aria-activedescendant="undefined_list_0"
+            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
-            aria-controls="undefined_list"
+            aria-controls="rc_select_TEST_OR_SSR_list"
             aria-haspopup="listbox"
-            aria-owns="undefined_list"
+            aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
+            id="rc_select_TEST_OR_SSR"
             readonly=""
             role="combobox"
-            style="opacity:0"
+            style="opacity: 0;"
             type="search"
             unselectable="on"
             value=""
@@ -2540,7 +2572,7 @@ exports[`renders ./components/select/demo/status.md correctly 1`] = `
       <span
         aria-hidden="true"
         class="ant-select-arrow"
-        style="user-select:none;-webkit-user-select:none"
+        style="user-select: none;"
         unselectable="on"
       >
         <span
@@ -2572,7 +2604,7 @@ exports[`renders ./components/select/demo/suffix.md correctly 1`] = `
 Array [
   <div
     class="ant-select ant-select-single ant-select-show-arrow"
-    style="width:120px"
+    style="width: 120px;"
   >
     <div
       class="ant-select-selector"
@@ -2581,16 +2613,17 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="undefined_list_0"
+          aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
           aria-autocomplete="list"
-          aria-controls="undefined_list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
           aria-haspopup="listbox"
-          aria-owns="undefined_list"
+          aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
+          id="rc_select_TEST_OR_SSR"
           readonly=""
           role="combobox"
-          style="opacity:0"
+          style="opacity: 0;"
           type="search"
           unselectable="on"
           value=""
@@ -2606,7 +2639,7 @@ Array [
     <span
       aria-hidden="true"
       class="ant-select-arrow"
-      style="user-select:none;-webkit-user-select:none"
+      style="user-select: none;"
       unselectable="on"
     >
       <span
@@ -2632,7 +2665,7 @@ Array [
   </div>,
   <div
     class="ant-select ant-select-single ant-select-show-arrow ant-select-disabled"
-    style="width:120px"
+    style="width: 120px;"
   >
     <div
       class="ant-select-selector"
@@ -2641,18 +2674,19 @@ Array [
         class="ant-select-selection-search"
       >
         <input
-          aria-activedescendant="undefined_list_0"
+          aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
           aria-autocomplete="list"
-          aria-controls="undefined_list"
+          aria-controls="rc_select_TEST_OR_SSR_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="undefined_list"
+          aria-owns="rc_select_TEST_OR_SSR_list"
           autocomplete="off"
           class="ant-select-selection-search-input"
           disabled=""
+          id="rc_select_TEST_OR_SSR"
           readonly=""
           role="combobox"
-          style="opacity:0"
+          style="opacity: 0;"
           type="search"
           unselectable="on"
           value=""
@@ -2668,7 +2702,7 @@ Array [
     <span
       aria-hidden="true"
       class="ant-select-arrow"
-      style="user-select:none;-webkit-user-select:none"
+      style="user-select: none;"
       unselectable="on"
     >
       <span
@@ -2698,7 +2732,7 @@ Array [
 exports[`renders ./components/select/demo/tags.md correctly 1`] = `
 <div
   class="ant-select ant-select-multiple ant-select-show-search"
-  style="width:100%"
+  style="width: 100%;"
 >
   <div
     class="ant-select-selector"
@@ -2708,20 +2742,21 @@ exports[`renders ./components/select/demo/tags.md correctly 1`] = `
     >
       <div
         class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
-        style="opacity:1"
+        style="opacity: 1;"
       >
         <div
           class="ant-select-selection-search"
-          style="width:0"
+          style="width: 0px;"
         >
           <input
-            aria-activedescendant="undefined_list_0"
+            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
             aria-autocomplete="list"
-            aria-controls="undefined_list"
+            aria-controls="rc_select_TEST_OR_SSR_list"
             aria-haspopup="listbox"
-            aria-owns="undefined_list"
+            aria-owns="rc_select_TEST_OR_SSR_list"
             autocomplete="off"
             class="ant-select-selection-search-input"
+            id="rc_select_TEST_OR_SSR"
             role="combobox"
             type="search"
             value=""
