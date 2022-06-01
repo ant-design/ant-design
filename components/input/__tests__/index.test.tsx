@@ -315,30 +315,29 @@ describe('Input allowClear', () => {
   });
 
   it('should trigger event correctly', () => {
-    let argumentEventObject: React.ChangeEvent<HTMLInputElement> | undefined;
-
+    let argumentEventObjectType;
     let argumentEventObjectValue;
     const onChange: InputProps['onChange'] = e => {
-      argumentEventObject = e;
+      argumentEventObjectType = e.type;
       argumentEventObjectValue = e.target.value;
     };
     const { container } = render(<Input allowClear defaultValue="111" onChange={onChange} />);
     fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
-    expect(argumentEventObject?.type).toBe('click');
+    expect(argumentEventObjectType).toBe('click');
     expect(argumentEventObjectValue).toBe('');
     expect(container.querySelector('input')?.value).toBe('');
   });
 
   it('should trigger event correctly on controlled mode', () => {
-    let argumentEventObject: React.ChangeEvent<HTMLInputElement> | undefined;
+    let argumentEventObjectType;
     let argumentEventObjectValue;
     const onChange: InputProps['onChange'] = e => {
-      argumentEventObject = e;
+      argumentEventObjectType = e.type;
       argumentEventObjectValue = e.target.value;
     };
     const { container } = render(<Input allowClear value="111" onChange={onChange} />);
     fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
-    expect(argumentEventObject?.type).toBe('click');
+    expect(argumentEventObjectType).toBe('click');
     expect(argumentEventObjectValue).toBe('');
     expect(container.querySelector('input')?.value).toBe('111');
   });
