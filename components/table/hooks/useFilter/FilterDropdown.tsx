@@ -391,6 +391,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
             locale={locale}
           />
           <Menu
+            selectable
             multiple={filterMultiple}
             prefixCls={`${dropdownPrefixCls}-menu`}
             className={dropdownMenuClass}
