@@ -86,10 +86,10 @@ describe('Table.expand', () => {
     it('basic', () => {
       const { container } = render(
         <Table
-          columns={[{ dataIndex: 'key' }]}
+          columns={[{ dataIndex: 'key' }, Table.EXPAND_COLUMN]}
           dataSource={[{ key: 'bamboo' }]}
           expandable={{
-            expandIconColumnIndex: 1,
+            // expandIconColumnIndex: 1,
             expandedRowRender: () => '',
           }}
         />,
@@ -103,10 +103,10 @@ describe('Table.expand', () => {
     it('work with selection', () => {
       const { container } = render(
         <Table
-          columns={[{ dataIndex: 'key' }]}
+          columns={[{ dataIndex: 'key' }, Table.EXPAND_COLUMN]}
           dataSource={[{ key: 'bamboo' }]}
           expandable={{
-            expandIconColumnIndex: 2,
+            // expandIconColumnIndex: 2,
             expandedRowRender: () => '',
           }}
           rowSelection={{}}
