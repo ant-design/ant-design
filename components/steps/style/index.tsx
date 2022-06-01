@@ -1,6 +1,5 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
-import { TinyColor } from '@ctrl/tinycolor';
 import type { FullToken, GenerateStyle } from '../../_util/theme';
 import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
 import genStepsCustomIconStyle from './custom-icon';
@@ -30,7 +29,6 @@ export interface StepsToken extends FullToken<'Steps'> {
   stepsSmallIconSize: number;
   stepsDotSize: number;
   stepsCurrentDotSize: number;
-  descriptionWidth: number;
   stepsNavContentMaxWidth: string;
   // Steps component less variable
   processIconColor: string;
@@ -316,15 +314,15 @@ export default genComponentStyleHook(
     const stepsToken = mergeToken<StepsToken>(token, {
       // Steps variable default.less
       processTailColor,
-      stepsNavArrowColor: new TinyColor('#000').setAlpha(0.25).toRgbString(), //  fade(@black, 25%),
+      stepsNavArrowColor: token.colorTextDisabled,
       stepsIconSize,
       stepsIconCustomSize: stepsIconSize,
       stepsIconCustomTop: 0,
-      stepsIconCustomFontSize: token.fontSizeIcon * 2,
+      stepsIconCustomFontSize: token.fontSizeHeading3,
       stepsIconTop: -0.5, // magic for ui experience
       stepsIconFontSize: token.fontSizeLG,
       stepsTitleLineHeight: token.controlHeight,
-      stepsSmallIconSize: token.fontSizeIcon * 2,
+      stepsSmallIconSize: token.fontSizeHeading3,
       stepsDotSize: token.controlHeight / 4,
       stepsCurrentDotSize: token.controlHeightLG / 4,
       stepsNavContentMaxWidth: 'auto',
@@ -346,7 +344,7 @@ export default genComponentStyleHook(
       errorDescriptionColor: token.colorError,
       errorTailColor: processTailColor,
       stepsNavActiveColor: token.colorPrimary,
-      stepsProgressSize: 40,
+      stepsProgressSize: token.controlHeightLG,
     });
 
     return [genStepsStyle(stepsToken)];
