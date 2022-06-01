@@ -220,7 +220,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
   const { status: contextStatus, hasFeedback: contextHasFeedback } =
     useContext(FormItemInputContext);
 
-  let mergedValidateStatus: ValidateStatus;
+  let mergedValidateStatus: ValidateStatus | undefined;
   if (validateStatus !== undefined) {
     mergedValidateStatus = validateStatus;
   } else if (contextStatus !== undefined) {
