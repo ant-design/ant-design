@@ -13,6 +13,13 @@ body {
 @heading-4-size: ceil(@font-size-base);
 @heading-5-size: ceil(@font-size-base * 1.14);
 
+a {
+  color: @b400;
+  &:hover {
+    color: @primary-color;
+  }
+}
+
 // common usefull classes
 
 .m-0 {
@@ -75,7 +82,7 @@ body {
   width: 480px;
   width: 100%;
   padding: 40px;
-  background: #ffffff;
+  background: @white;
   border-radius: 8px;
   box-shadow: 0px 2px 5px rgba(6, 25, 56, 0.06);
 }
@@ -118,24 +125,24 @@ body {
 
   h2 {
     margin-bottom: 16px;
-    color: #1f2937;
+    color: @dg200;
     font-weight: 700;
     font-size: 20px;
   }
 }
 
 .ant-layout {
-  background: #fff;
+  background: @white;
 }
 
 .ant-layout-sider {
-  background: #fff;
+  background: @white;
 }
 
 .ant-layout-header {
   height: auto;
   padding: 0 35px;
-  background: #fff;
+  background: @white;
 }
 
 .ant-page-header {
@@ -224,4 +231,11 @@ body {
   padding-bottom: 12px;
   padding-left: 52px;
   box-shadow: inset 0px -2px 0px #e5e7eb;
+}
+
+.page-title-with-content {
+  h4 {
+    font-weight: 600;
+    font-size: 16px;
+  }
 }

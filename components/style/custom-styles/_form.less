@@ -3,7 +3,7 @@
 .ant-input-affix-wrapper {
   padding: @medium-input;
   font-size: @font-size-base;
-  border: 1px solid #d1d5db;
+  border: 1px solid @dg700;
   border-radius: 4px;
 }
 
@@ -32,7 +32,7 @@
 
 .ant-select:not(.ant-select-customize-input) .ant-select-selector {
   height: 34px;
-  border: 1px solid #d1d5db;
+  border: 1px solid @dg700;
   border-radius: 4px;
 }
 
@@ -49,7 +49,7 @@
 }
 
 .ant-checkbox-inner {
-  border: 1px solid #d1d5db;
+  border: 1px solid @dg700;
   border-radius: 4px;
   &:after {
     margin-top: -1px;
@@ -75,25 +75,25 @@
 .ant-btn {
   height: auto;
   padding: 7px 12px;
-  color: #374151;
+  color: @dg300;
   font-weight: 500;
   font-size: @font-size-base;
   line-height: 18px;
-  background-color: #ffffff;
-  border: 1px solid #d1d5db;
+  background-color: @white;
+  border: 1px solid @dg700;
   border-radius: 4px;
   box-shadow: 0px 1px 2px rgba(6, 25, 56, 0.05);
   &:hover {
-    color: #374151;
-    background-color: #d1d5db;
-    border-color: #d1d5db;
+    color: @dg300;
+    background-color: @dg700;
+    border-color: @dg700;
   }
   &.ant-btn-primary {
-    color: #ffffff;
+    color: @white;
     background-color: @primary-color;
     border-color: @primary-color;
     &:hover {
-      color: #374151;
+      color: @dg300;
       background-color: transparent;
     }
   }
@@ -118,8 +118,8 @@
 .ant-dropdown-menu,
 .ant-dropdown {
   padding: 8px 0;
-  background: #ffffff;
-  border: 1px solid #d1d5db;
+  background: @white;
+  border: 1px solid @dg700;
   border-radius: 8px;
   box-shadow: 0px 6px 10px -1px rgba(6, 25, 56, 0.07);
 }
@@ -131,7 +131,7 @@
   line-height: 18px;
   &:hover {
     color: @primary-color;
-    background: #e0e7ff;
+    background: @b900;
   }
 }
 
@@ -144,7 +144,7 @@
     line-height: 18px;
     &:hover {
       color: @primary-color;
-      background: #e0e7ff;
+      background: @b900;
     }
     .ant-btn {
       padding: 0;
@@ -165,7 +165,7 @@
   span {
     display: block;
     padding: 8px 16px;
-    border: 1px solid #d1d5db;
+    border: 1px solid @dg700;
     border-radius: 4px;
   }
 }
@@ -174,8 +174,8 @@
 
 .ant-select-dropdown {
   padding: 12px 12px;
-  background: #ffffff;
-  border: 1px solid #d1d5db;
+  background: @white;
+  border: 1px solid @dg700;
   border-radius: 4px;
   box-shadow: 0px 14px 21px -1px rgba(6, 25, 56, 0.08);
 }
@@ -201,4 +201,25 @@
 
 .ant-switch-checked {
   background: @primary-color;
+}
+
+.input-label-text {
+  display: block;
+  margin-top: 8px;
+  color: @base-font-color;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+div.ant-typography {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 12px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  border: 1px dashed @dg700;
+  border-radius: 4px;
 }
