@@ -14,10 +14,10 @@ title:
 Search with remote data.
 
 ```tsx
-import React, { useState } from 'react';
 import { Select } from 'antd';
 import jsonp from 'fetch-jsonp';
 import qs from 'qs';
+import React, { useState } from 'react';
 
 const { Option } = Select;
 

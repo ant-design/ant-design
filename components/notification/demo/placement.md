@@ -14,17 +14,17 @@ title:
 A notification box can appear from the `topRight`, `bottomRight`, `bottomLeft` or `topLeft` of the viewport via `placement`.
 
 ```tsx
-import React from 'react';
-import { Button, notification, Divider, Space } from 'antd';
 import {
-  RadiusUpleftOutlined,
-  RadiusUprightOutlined,
+  BorderBottomOutlined,
+  BorderTopOutlined,
   RadiusBottomleftOutlined,
   RadiusBottomrightOutlined,
-  BorderTopOutlined,
-  BorderBottomOutlined,
+  RadiusUpleftOutlined,
+  RadiusUprightOutlined,
 } from '@ant-design/icons';
+import { Button, Divider, notification, Space } from 'antd';
 import type { NotificationPlacement } from 'antd/lib/notification';
+import React from 'react';
 
 const openNotification = (placement: NotificationPlacement) => {
   notification.info({

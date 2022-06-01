@@ -14,19 +14,19 @@ title:
 Use ConfigProvider set global Empty style.
 
 ```tsx
-import React, { useState } from 'react';
-import {
-  ConfigProvider,
-  Switch,
-  Divider,
-  TreeSelect,
-  Select,
-  Cascader,
-  Transfer,
-  Table,
-  List,
-} from 'antd';
 import { SmileOutlined } from '@ant-design/icons';
+import {
+  Cascader,
+  ConfigProvider,
+  Divider,
+  List,
+  Select,
+  Switch,
+  Table,
+  Transfer,
+  TreeSelect,
+} from 'antd';
+import React, { useState } from 'react';
 
 const customizeRenderEmpty = () => (
   <div style={{ textAlign: 'center' }}>

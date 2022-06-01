@@ -14,11 +14,13 @@ import getIcons from '../select/utils/iconUtil';
 import renderSwitcherIcon from '../tree/utils/iconUtil';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
+import DisabledContext from '../config-provider/DisabledContext';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName, getTransitionDirection } from '../_util/motion';
 import { FormItemInputContext } from '../form/context';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
+import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 
 type RawValue = string | number;
 
@@ -45,6 +47,7 @@ export interface TreeSelectProps<
   > {
   suffixIcon?: React.ReactNode;
   size?: SizeType;
+  disabled?: boolean;
   placement?: SelectCommonPlacement;
   bordered?: boolean;
   treeLine?: TreeProps['showLine'];
@@ -56,6 +59,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
   {
     prefixCls: customizePrefixCls,
     size: customizeSize,
+    disabled: customDisabled,
     bordered = true,
     className,
     treeCheckable,
@@ -128,7 +132,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
   if (notFoundContent !== undefined) {
     mergedNotFound = notFoundContent;
   } else {
-    mergedNotFound = renderEmpty('Select');
+    mergedNotFound = (renderEmpty || defaultRenderEmpty)('Select');
   }
 
   // ==================== Render =====================
@@ -151,6 +155,10 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
   };
 
   const mergedSize = customizeSize || size;
+  // ===================== Disabled =====================
+  const disabled = React.useContext(DisabledContext);
+  const mergedDisabled = customDisabled || disabled;
+
   const mergedClassName = classNames(
     !customizePrefixCls && treeSelectPrefixCls,
     {
@@ -169,6 +177,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
     <RcTreeSelect
       virtual={virtual}
       dropdownMatchSelectWidth={dropdownMatchSelectWidth}
+      disabled={mergedDisabled}
       {...selectProps}
       ref={ref as any}
       prefixCls={prefixCls}

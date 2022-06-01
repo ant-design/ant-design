@@ -14,9 +14,9 @@ title:
 Add or remove form items dynamically. `add` function support config initial value.
 
 ```tsx
-import React from 'react';
-import { Form, Input, Button } from 'antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
+import { Button, Form, Input } from 'antd';
+import React from 'react';
 
 const formItemLayout = {
   labelCol: {

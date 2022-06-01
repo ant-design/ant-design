@@ -17,9 +17,9 @@ You can use `filterMode` to change default filter interface, options: `menu`(def
 > `filterSearch` is used for making filter dropdown items searchable.
 
 ```tsx
-import React from 'react';
 import { Table } from 'antd';
 import type { ColumnsType, TableProps } from 'antd/lib/table';
+import React from 'react';
 
 interface DataType {
   key: React.Key;

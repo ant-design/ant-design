@@ -14,8 +14,8 @@ title:
 A non-case-sensitive AutoComplete
 
 ```tsx
-import React from 'react';
 import { AutoComplete } from 'antd';
+import React from 'react';
 
 const options = [
   { value: 'Burns Bay Road' },

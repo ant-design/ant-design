@@ -14,8 +14,8 @@ title:
 Click the left and right switch buttons to preview multiple images.
 
 ```tsx
-import React from 'react';
 import { Image } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <Image.PreviewGroup>

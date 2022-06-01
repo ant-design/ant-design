@@ -14,10 +14,10 @@ title:
 Use `rowSelection.selections` custom selections, default no select dropdown, show default selections via setting to `true`.
 
 ```tsx
-import React, { useState } from 'react';
 import { Table } from 'antd';
-import type { TableRowSelection } from 'antd/lib/table/interface';
 import type { ColumnsType } from 'antd/lib/table';
+import type { TableRowSelection } from 'antd/lib/table/interface';
+import React, { useState } from 'react';
 
 interface DataType {
   key: React.Key;

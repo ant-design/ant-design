@@ -14,9 +14,9 @@ title:
 Customize the dropdown menu via `dropdownRender`. Dropdown menu will be closed if click `dropdownRender` area, you can prevent it by wrapping `onMouseDown={e => e.preventDefault()}` (see more at [#13448](https://github.com/ant-design/ant-design/issues/13448)).
 
 ```tsx
-import React, { useState } from 'react';
-import { Select, Divider, Input, Typography, Space } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
+import { Divider, Input, Select, Space, Typography } from 'antd';
+import React, { useState } from 'react';
 
 const { Option } = Select;
 

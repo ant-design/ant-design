@@ -14,15 +14,15 @@ title:
 If you want to use a customized trigger, you can hide the default one by setting `trigger={null}`.
 
 ```tsx
-import React, { useState } from 'react';
-import { Layout, Menu } from 'antd';
 import {
-  MenuUnfoldOutlined,
   MenuFoldOutlined,
+  MenuUnfoldOutlined,
+  UploadOutlined,
   UserOutlined,
   VideoCameraOutlined,
-  UploadOutlined,
 } from '@ant-design/icons';
+import { Layout, Menu } from 'antd';
+import React, { useState } from 'react';
 
 const { Header, Sider, Content } = Layout;
 

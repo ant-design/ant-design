@@ -14,8 +14,8 @@ title:
 Use `visible` prop to control the display of the card.
 
 ```tsx
+import { Button, Popover } from 'antd';
 import React, { useState } from 'react';
-import { Popover, Button } from 'antd';
 
 const App: React.FC = () => {
   const [visible, setVisible] = useState(false);

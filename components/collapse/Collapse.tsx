@@ -11,8 +11,11 @@ import CollapsePanel from './CollapsePanel';
 import { ConfigContext } from '../config-provider';
 import collapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
+import warning from '../_util/warning';
 
-export type ExpandIconPosition = 'left' | 'right' | undefined;
+/** @deprecated Please use `start` | `end` instead */
+type ExpandIconPositionLegacy = 'left' | 'right';
+export type ExpandIconPosition = 'start' | 'end' | ExpandIconPositionLegacy | undefined;
 
 export interface CollapseProps {
   activeKey?: Array<string | number> | string | number;
@@ -51,16 +54,29 @@ interface CollapseInterface extends React.FC<CollapseProps> {
 
 const Collapse: CollapseInterface = props => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
-  const { prefixCls: customizePrefixCls, className = '', bordered = true, ghost } = props;
+  const {
+    prefixCls: customizePrefixCls,
+    className = '',
+    bordered = true,
+    ghost,
+    expandIconPosition = 'start',
+  } = props;
   const prefixCls = getPrefixCls('collapse', customizePrefixCls);
 
-  const getIconPosition = () => {
-    const { expandIconPosition } = props;
-    if (expandIconPosition !== undefined) {
-      return expandIconPosition;
+  // Warning if use legacy type `expandIconPosition`
+  warning(
+    expandIconPosition !== 'left' && expandIconPosition !== 'right',
+    'Collapse',
+    '`expandIconPosition` with `left` or `right` is deprecated. Please use `start` or `end` instead.',
+  );
+
+  // Align with logic position
+  const mergedExpandIconPosition = React.useMemo(() => {
+    if (expandIconPosition === 'left') {
+      return 'start';
     }
-    return direction === 'rtl' ? 'right' : 'left';
-  };
+    return expandIconPosition === 'right' ? 'end' : expandIconPosition;
+  }, [expandIconPosition]);
 
   const renderExpandIcon = (panelProps: PanelProps = {}) => {
     const { expandIcon } = props;
@@ -72,21 +88,15 @@ const Collapse: CollapseInterface = props => {
       )
     ) as React.ReactNode;
 
-    return (
-      // Create additional div here to make arrow align to center of first line
-      <div>
-        {cloneElement(icon, () => ({
-          className: classNames((icon as any).props.className, `${prefixCls}-arrow`),
-        }))}
-      </div>
-    );
+    return cloneElement(icon, () => ({
+      className: classNames((icon as any).props.className, `${prefixCls}-arrow`),
+    }));
   };
 
-  const iconPosition = getIconPosition();
   const collapseClassName = classNames(
+    `${prefixCls}-icon-position-${mergedExpandIconPosition}`,
     {
       [`${prefixCls}-borderless`]: !bordered,
-      [`${prefixCls}-icon-position-${iconPosition}`]: true,
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-ghost`]: !!ghost,
     },

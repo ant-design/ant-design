@@ -14,19 +14,19 @@ title:
 Set component size, only works for antd components.
 
 ```tsx
-import React, { useState } from 'react';
 import {
-  Form,
-  Input,
   Button,
-  Radio,
-  Select,
   Cascader,
   DatePicker,
+  Form,
+  Input,
   InputNumber,
-  TreeSelect,
+  Radio,
+  Select,
   Switch,
+  TreeSelect,
 } from 'antd';
+import React, { useState } from 'react';
 
 type SizeType = Parameters<typeof Form>[0]['size'];
 

@@ -15,11 +15,11 @@ debug: true
 Implement resizable column by integrate with [react-resizable](https://github.com/STRML/react-resizable). When sort needed, you can use [additional mark](https://codesandbox.io/s/zrj8xvyzxx) to prevent resize trigger sort.
 
 ```tsx
-import React, { useState } from 'react';
 import { Table } from 'antd';
-import { Resizable } from 'react-resizable';
-import type { ResizeCallbackData } from 'react-resizable';
 import type { ColumnsType, ColumnType } from 'antd/lib/table';
+import React, { useState } from 'react';
+import type { ResizeCallbackData } from 'react-resizable';
+import { Resizable } from 'react-resizable';
 
 interface DataType {
   key: React.Key;

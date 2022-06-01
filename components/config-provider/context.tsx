@@ -1,9 +1,8 @@
 import * as React from 'react';
-import type { RenderEmptyHandler } from './renderEmpty';
-import defaultRenderEmpty from './renderEmpty';
-import type { Locale } from '../locale-provider';
-import type { SizeType } from './SizeContext';
 import type { RequiredMark } from '../form/Form';
+import type { Locale } from '../locale-provider';
+import type { RenderEmptyHandler } from './defaultRenderEmpty';
+import type { SizeType } from './SizeContext';
 
 export interface Theme {
   primaryColor?: string;
@@ -26,11 +25,14 @@ export interface ConfigConsumerProps {
   rootPrefixCls?: string;
   iconPrefixCls?: string;
   getPrefixCls: (suffixCls?: string, customizePrefixCls?: string) => string;
-  renderEmpty: RenderEmptyHandler;
+  renderEmpty?: RenderEmptyHandler;
   csp?: CSPConfig;
   autoInsertSpaceInButton?: boolean;
   input?: {
     autoComplete?: string;
+  };
+  pagination?: {
+    showSizeChanger?: boolean;
   };
   locale?: Locale;
   pageHeader?: {
@@ -54,11 +56,10 @@ const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) =>
   return suffixCls ? `ant-${suffixCls}` : 'ant';
 };
 
+// zombieJ: 🚨 Do not pass `defaultRenderEmpty` here since it will case circular dependency.
 export const ConfigContext = React.createContext<ConfigConsumerProps>({
   // We provide a default function for Context without provider
   getPrefixCls: defaultGetPrefixCls,
-
-  renderEmpty: defaultRenderEmpty,
 });
 
 export const ConfigConsumer = ConfigContext.Consumer;

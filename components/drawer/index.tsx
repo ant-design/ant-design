@@ -1,7 +1,7 @@
-import * as React from 'react';
-import RcDrawer from 'rc-drawer';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
+import RcDrawer from 'rc-drawer';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import { tuple } from '../_util/type';
 

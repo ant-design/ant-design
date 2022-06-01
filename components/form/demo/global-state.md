@@ -18,8 +18,8 @@ We can store form data into upper component or [Redux](https://github.com/reactj
 **Note:** Save Form data globally [is not a good practice](https://github.com/reduxjs/redux/issues/1287#issuecomment-175351978). You should avoid this if not necessary.
 
 ```tsx
-import React, { useState } from 'react';
 import { Form, Input } from 'antd';
+import React, { useState } from 'react';
 
 interface FieldData {
   name: string | number | (string | number)[];

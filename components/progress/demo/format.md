@@ -14,8 +14,8 @@ title:
 You can set a custom text by setting the `format` prop.
 
 ```tsx
-import React from 'react';
 import { Progress } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <>

@@ -14,8 +14,8 @@ title:
 add suffix ellipsis support.
 
 ```tsx
+import { Slider, Typography } from 'antd';
 import React, { useState } from 'react';
-import { Typography, Slider } from 'antd';
 
 const { Paragraph } = Typography;
 

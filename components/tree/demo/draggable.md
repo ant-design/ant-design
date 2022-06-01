@@ -14,9 +14,9 @@ title:
 Drag treeNode to insert after the other treeNode or insert into the other parent TreeNode.
 
 ```tsx
-import React, { useState } from 'react';
 import { Tree } from 'antd';
 import type { DataNode, TreeProps } from 'antd/lib/tree';
+import React, { useState } from 'react';
 
 const x = 3;
 const y = 2;

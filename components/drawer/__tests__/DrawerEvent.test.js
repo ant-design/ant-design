@@ -1,6 +1,6 @@
 import React from 'react';
 import Drawer from '..';
-import { render, fireEvent } from '../../../tests/utils';
+import { fireEvent, render } from '../../../tests/utils';
 
 describe('Drawer', () => {
   const getDrawer = props => (

@@ -26,7 +26,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/xqsDu4ZyR/Progress.svg
 | showInfo | 是否显示进度数值或状态图标 | boolean | true |
 | status | 状态，可选：`success` `exception` `normal` `active`(仅限 line) | string | - |
 | strokeColor | 进度条的色彩 | string | - |
-| strokeLinecap | 进度条的样式 | `round` \| `square` | `round` |
+| strokeLinecap | 进度条的样式 | `round` \| `butt` \| `square`，区别详见 [stroke-linecap](https://developer.mozilla.org/docs/Web/SVG/Attribute/stroke-linecap) | `round` |
 | success | 成功进度条相关配置 | { percent: number, strokeColor: string } | - |
 | trailColor | 未完成的分段的颜色 | string | - |
 | type | 类型，可选 `line` `circle` `dashboard` | string | `line` |

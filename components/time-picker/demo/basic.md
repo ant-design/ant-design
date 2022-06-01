@@ -14,10 +14,10 @@ title:
 Click `TimePicker`, and then we could select or input a time in panel.
 
 ```tsx
-import React from 'react';
 import { TimePicker } from 'antd';
-import moment from 'moment';
 import type { Moment } from 'moment';
+import moment from 'moment';
+import React from 'react';
 
 const onChange = (time: Moment, timeString: string) => {
   console.log(time, timeString);

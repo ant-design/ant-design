@@ -14,9 +14,9 @@ title:
 The most basic usage, tell you how to use checkable, selectable, disabled, defaultExpandKeys, and etc.
 
 ```tsx
-import React from 'react';
 import { Tree } from 'antd';
 import type { DataNode, TreeProps } from 'antd/lib/tree';
+import React from 'react';
 
 const treeData: DataNode[] = [
   {

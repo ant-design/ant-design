@@ -14,9 +14,9 @@ title:
 Simple table with actions.
 
 ```tsx
-import React from 'react';
-import { Table, Tag, Space } from 'antd';
+import { Space, Table, Tag } from 'antd';
 import type { ColumnsType } from 'antd/lib/table';
+import React from 'react';
 
 interface DataType {
   key: string;

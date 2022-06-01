@@ -1,10 +1,9 @@
-import * as React from 'react';
-import RcRate from 'rc-rate';
 import StarFilled from '@ant-design/icons/StarFilled';
+import RcRate from 'rc-rate';
 import type { RateProps as RcRateProps } from 'rc-rate/lib/Rate';
-
-import Tooltip from '../tooltip';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
+import Tooltip from '../tooltip';
 
 export interface RateProps extends RcRateProps {
   tooltips?: Array<string>;

@@ -14,9 +14,9 @@ title:
 Auto collapse to tag with responsive case. Not recommend use in large form case since responsive calculation has a perf cost.
 
 ```tsx
-import React, { useState } from 'react';
-import { Select, Space } from 'antd';
 import type { SelectProps } from 'antd';
+import { Select, Space } from 'antd';
+import React, { useState } from 'react';
 
 interface ItemProps {
   label: string;

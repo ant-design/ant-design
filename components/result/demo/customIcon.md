@@ -14,9 +14,9 @@ title:
 Custom icon.
 
 ```tsx
-import React from 'react';
-import { Result, Button } from 'antd';
 import { SmileOutlined } from '@ant-design/icons';
+import { Button, Result } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <Result

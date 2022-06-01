@@ -14,8 +14,8 @@ title:
 Standard header, suitable for use in scenarios that require a brief description.
 
 ```tsx
-import React from 'react';
 import { PageHeader } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <PageHeader

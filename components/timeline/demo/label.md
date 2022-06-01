@@ -14,9 +14,9 @@ title:
 Use `label` show time alone.
 
 ```tsx
-import React, { useState } from 'react';
-import { Timeline, Radio } from 'antd';
 import type { RadioChangeEvent } from 'antd';
+import { Radio, Timeline } from 'antd';
+import React, { useState } from 'react';
 
 const App: React.FC = () => {
   const [mode, setMode] = useState<'left' | 'alternate' | 'right'>('left');

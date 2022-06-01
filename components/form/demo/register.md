@@ -14,19 +14,19 @@ title:
 Fill in this form to create a new account for you.
 
 ```tsx
-import React, { useState } from 'react';
 import {
+  AutoComplete,
+  Button,
+  Cascader,
+  Checkbox,
+  Col,
   Form,
   Input,
   InputNumber,
-  Cascader,
-  Select,
   Row,
-  Col,
-  Checkbox,
-  Button,
-  AutoComplete,
+  Select,
 } from 'antd';
+import React, { useState } from 'react';
 
 const { Option } = Select;
 

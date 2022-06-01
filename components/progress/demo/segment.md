@@ -14,8 +14,8 @@ title:
 A standard progress bar. Doesn't support trail color when `type="circle|dashboard"`.
 
 ```tsx
+import { Progress, Tooltip } from 'antd';
 import React from 'react';
-import { Tooltip, Progress } from 'antd';
 
 const App: React.FC = () => (
   <>

@@ -15,8 +15,8 @@ See issue [#32980](https://github.com/ant-design/ant-design/issues/32980).
 See issue [#32980](https://github.com/ant-design/ant-design/issues/32980).
 
 ```tsx
+import { Button, Form, Input } from 'antd';
 import React from 'react';
-import { Form, Input, Button } from 'antd';
 
 const App: React.FC = () => {
   const onFinish = (values: any) => {

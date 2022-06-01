@@ -1,11 +1,9 @@
 import React from 'react';
-
 import Result from '..';
-import Button from '../../button';
-
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render } from '../../../tests/utils';
+import Button from '../../button';
 
 describe('Result', () => {
   mountTest(Result);

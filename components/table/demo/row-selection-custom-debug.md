@@ -15,10 +15,10 @@ debug: true
 Customize selection group.
 
 ```tsx
-import React from 'react';
 import { Table } from 'antd';
-import type { TableRowSelection } from 'antd/lib/table/interface';
 import type { ColumnsType } from 'antd/lib/table';
+import type { TableRowSelection } from 'antd/lib/table/interface';
+import React from 'react';
 
 interface DataType {
   key: React.Key;
