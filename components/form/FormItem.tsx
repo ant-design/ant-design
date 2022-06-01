@@ -1,33 +1,33 @@
-import * as React from 'react';
-import type { ReactNode } from 'react';
-import { useContext, useMemo } from 'react';
+import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
+import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
+import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
+import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import classNames from 'classnames';
 import type { FormInstance } from 'rc-field-form';
 import { Field, FieldContext, ListContext } from 'rc-field-form';
 import type { FieldProps } from 'rc-field-form/lib/Field';
 import type { Meta, NamePath } from 'rc-field-form/lib/interface';
-import { supportRef } from 'rc-util/lib/ref';
 import useState from 'rc-util/lib/hooks/useState';
 import omit from 'rc-util/lib/omit';
-import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
-import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
-import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
-import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
-import Row from '../grid/row';
+import { supportRef } from 'rc-util/lib/ref';
+import type { ReactNode } from 'react';
+import * as React from 'react';
+import { useContext, useMemo } from 'react';
 import { ConfigContext } from '../config-provider';
+import Row from '../grid/row';
+import { cloneElement, isValidElement } from '../_util/reactNode';
 import { tuple } from '../_util/type';
 import warning from '../_util/warning';
-import type { FormItemLabelProps, LabelTooltipType } from './FormItemLabel';
-import FormItemLabel from './FormItemLabel';
+import type { FormItemStatusContextProps } from './context';
+import { FormContext, FormItemInputContext, NoFormStatus, NoStyleItemContext } from './context';
 import type { FormItemInputProps } from './FormItemInput';
 import FormItemInput from './FormItemInput';
-import type { FormItemStatusContextProps } from './context';
-import { FormContext, FormItemInputContext, NoStyleItemContext } from './context';
-import { toArray, getFieldId } from './util';
-import { cloneElement, isValidElement } from '../_util/reactNode';
-import useFrameState from './hooks/useFrameState';
+import type { FormItemLabelProps, LabelTooltipType } from './FormItemLabel';
+import FormItemLabel from './FormItemLabel';
 import useDebounce from './hooks/useDebounce';
+import useFrameState from './hooks/useFrameState';
 import useItemRef from './hooks/useItemRef';
+import { getFieldId, toArray } from './util';
 
 const NAME_SPLIT = '__SPLIT__';
 
@@ -261,7 +261,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
     isRequired?: boolean,
   ): React.ReactNode {
     if (noStyle && !hidden) {
-      return baseChildren;
+      return <NoFormStatus>{baseChildren}</NoFormStatus>;
     }
 
     const itemClassName = {

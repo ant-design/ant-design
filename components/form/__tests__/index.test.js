@@ -1,12 +1,12 @@
-import React, { Component, useState } from 'react';
 import { mount } from 'enzyme';
+import React, { Component, useState } from 'react';
 import { act } from 'react-dom/test-utils';
 import scrollIntoView from 'scroll-into-view-if-needed';
 import Form from '..';
 import * as Util from '../util';
 
-import Input from '../../input';
 import Button from '../../button';
+import Input from '../../input';
 import Select from '../../select';
 
 import Checkbox from '../../checkbox';
@@ -19,7 +19,7 @@ import Switch from '../../switch';
 
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { sleep, render, fireEvent } from '../../../tests/utils';
+import { fireEvent, render, sleep } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import zhCN from '../../locale/zh_CN';
 
@@ -1203,5 +1203,20 @@ describe('Form', () => {
 
     render(<Demo />);
     expect(subFormInstance).toBe(formInstance);
+  });
+
+  it('noStyle should not be affected by parent', () => {
+    const Demo = () => (
+      <Form>
+        <Form.Item validateStatus="error">
+          <Form.Item noStyle>
+            <Select className="modal-select" />
+          </Form.Item>
+        </Form.Item>
+      </Form>
+    );
+    const { container } = render(<Demo />, { container: document.body });
+    expect(container.querySelector('.modal-select')?.className).not.toContain('in-form-item');
+    expect(container.querySelector('.modal-select')?.className).not.toContain('status-error');
   });
 });
