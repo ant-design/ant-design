@@ -1022,14 +1022,14 @@ Array [
 exports[`renders ./components/list/demo/infinite-load.md correctly 1`] = `
 <div
   id="scrollableDiv"
-  style="height:400px;overflow:auto;padding:0 16px;border:1px solid rgba(140, 140, 140, 0.35)"
+  style="height: 400px; overflow: auto; padding: 0px 16px; border: 1px solid rgba(140, 140, 140, 0.35);"
 >
   <div
     class="infinite-scroll-component__outerdiv"
   >
     <div
       class="infinite-scroll-component "
-      style="height:auto;overflow:auto;-webkit-overflow-scrolling:touch"
+      style="height: auto; overflow: auto;"
     >
       <div
         class="ant-list ant-list-split"
@@ -1108,7 +1108,7 @@ exports[`renders ./components/list/demo/infinite-load.md correctly 1`] = `
         >
           <h3
             class="ant-skeleton-title"
-            style="width:50%"
+            style="width: 50%;"
           />
           <ul
             class="ant-skeleton-paragraph"
@@ -1157,7 +1157,7 @@ exports[`renders ./components/list/demo/loadmore.md correctly 1`] = `
       class="ant-spin-container ant-spin-blur"
     >
       <div
-        style="min-height:53px"
+        style="min-height: 53px;"
       />
     </div>
   </div>
@@ -2345,16 +2345,16 @@ exports[`renders ./components/list/demo/virtual-list.md correctly 1`] = `
     >
       <div
         class="rc-virtual-list"
-        style="position:relative"
+        style="position: relative;"
       >
         <div
           class="rc-virtual-list-holder"
-          style="height:400px;overflow-y:auto;overflow-anchor:none"
+          style="height: 400px; overflow-y: auto;"
         >
           <div>
             <div
               class="rc-virtual-list-holder-inner"
-              style="display:flex;flex-direction:column"
+              style="display: flex; flex-direction: column;"
             />
           </div>
         </div>

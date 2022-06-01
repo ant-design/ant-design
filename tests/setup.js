@@ -1,5 +1,6 @@
 const React = require('react');
 const util = require('util');
+const fetch = require('isomorphic-fetch');
 
 const { _rs: onLibResize } = require('rc-resize-observer/lib/utils/observerUtil');
 const { _rs: onEsResize } = require('rc-resize-observer/es/utils/observerUtil');
@@ -14,6 +15,7 @@ console.log('Current React Version:', React.version);
 
 /* eslint-disable global-require */
 if (typeof window !== 'undefined') {
+  global.window.fetch = fetch;
   global.window.resizeTo = (width, height) => {
     global.window.innerWidth = width || global.window.innerWidth;
     global.window.innerHeight = height || global.window.innerHeight;

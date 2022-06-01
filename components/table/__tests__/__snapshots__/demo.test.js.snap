@@ -7,8 +7,32 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
   <div
     class="ant-spin-nested-loading"
   >
+    <div>
+      <div
+        aria-busy="true"
+        aria-live="polite"
+        class="ant-spin ant-spin-spinning"
+      >
+        <span
+          class="ant-spin-dot ant-spin-dot-spin"
+        >
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+        </span>
+      </div>
+    </div>
     <div
-      class="ant-spin-container"
+      class="ant-spin-container ant-spin-blur"
     >
       <div
         class="ant-table ant-table-empty"
@@ -20,14 +44,14 @@ exports[`renders ./components/table/demo/ajax.md correctly 1`] = `
             class="ant-table-content"
           >
             <table
-              style="table-layout:auto"
+              style="table-layout: auto;"
             >
               <colgroup>
                 <col
-                  style="width:20%"
+                  style="width: 20%;"
                 />
                 <col
-                  style="width:20%"
+                  style="width: 20%;"
                 />
               </colgroup>
               <thead
