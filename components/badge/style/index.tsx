@@ -5,6 +5,7 @@ import type { GenerateStyle, PresetColorType, FullToken } from '../../_util/them
 import { resetComponent, PresetColors, genComponentStyleHook, mergeToken } from '../../_util/theme';
 
 interface BadgeToken extends FullToken<'Badge'> {
+  badgeFontHeight: number;
   badgeZIndex: number | string;
   badgeHeight: number;
   badgeHeightSm: number;
@@ -15,6 +16,11 @@ interface BadgeToken extends FullToken<'Badge'> {
   badgeDotSize: number;
   badgeFontSizeSm: number;
   badgeStatusSize: number;
+  badgeShadowSize: number;
+  badgeProcessingDuration: string;
+  badgeRibbbonOffset: number;
+  badgeRibbbonCornerTransform: string;
+  badgeRibbbonCornerFilter: string;
 }
 
 const antStatusProcessing = new Keyframes('antStatusProcessing', {
@@ -49,12 +55,22 @@ const antBadgeLoadingCircle = new Keyframes('antBadgeLoadingCircle', {
 });
 
 const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSObject => {
-  const { componentCls, iconCls, antCls } = token;
+  const {
+    componentCls,
+    iconCls,
+    antCls,
+    badgeFontHeight,
+    badgeShadowSize,
+    badgeHeightSm,
+    motionDurationSlow,
+    badgeStatusSize,
+    marginXS,
+    badgeRibbbonOffset,
+  } = token;
   const numberPrefixCls = `${antCls}-scroll-number`;
   const ribbonPrefixCls = `${antCls}-ribbon`;
   const ribbonWrapperPrefixCls = `${antCls}-ribbon-wrapper`;
 
-  // FIXME preset color 后面可能要统一重构
   const statusPreset = PresetColors.reduce((prev: CSSObject, colorKey: keyof PresetColorType) => {
     const darkColor = token[`${colorKey}-6`];
     return {
@@ -89,7 +105,6 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
         zIndex: token.badgeZIndex,
         minWidth: token.badgeHeight,
         height: token.badgeHeight,
-        padding: '0 6px', // FIXME: hard code, copied from old less file
         color: token.badgeTextColor,
         fontWeight: token.badgeFontWeight,
         fontSize: token.badgeFontSize,
@@ -98,7 +113,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
         textAlign: 'center',
         background: token.badgeColor,
         borderRadius: token.badgeHeight / 2,
-        boxShadow: `0 0 0 1px ${token.colorBgComponent}`,
+        boxShadow: `0 0 0 ${badgeShadowSize}px ${token.colorBgComponent}`,
         a: {
           color: token.badgeTextColor,
         },
@@ -107,12 +122,11 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
         },
       },
       [`${componentCls}-count-sm`]: {
-        minWidth: token.badgeHeightSm,
-        height: token.badgeHeightSm,
-        padding: 0,
+        minWidth: badgeHeightSm,
+        height: badgeHeightSm,
         fontSize: token.badgeFontSizeSm,
-        lineHeight: `${token.badgeHeightSm}px`,
-        borderRadius: token.badgeHeightSm / 2,
+        lineHeight: `${badgeHeightSm}px`,
+        borderRadius: badgeHeightSm / 2,
       },
 
       [`${componentCls}-multiple-words`]: {
@@ -126,10 +140,10 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
         height: token.badgeDotSize,
         background: token.badgeColor,
         borderRadius: '100%',
-        boxShadow: `0 0 0 1px ${token.colorBgComponent}`,
+        boxShadow: `0 0 0 ${badgeShadowSize}px ${token.colorBgComponent}`,
       },
       [`${componentCls}-dot${numberPrefixCls}`]: {
-        transition: 'background 1.5s', // FIXME: hard code, copied from old less file
+        transition: `background ${motionDurationSlow}`,
       },
       [`${componentCls}-count, ${componentCls}-dot, ${numberPrefixCls}-custom-component`]: {
         position: 'absolute',
@@ -150,10 +164,10 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
 
         [`${componentCls}-status-dot`]: {
           position: 'relative',
-          top: -1, // FIXME: hard code, copied from old less file
+          top: -1, // Magic number, but seems better experience
           display: 'inline-block',
-          width: token.badgeStatusSize,
-          height: token.badgeStatusSize,
+          width: badgeStatusSize,
+          height: badgeStatusSize,
           verticalAlign: 'middle',
           borderRadius: '50%',
         },
@@ -171,17 +185,17 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
             insetInlineStart: 0,
             width: '100%',
             height: '100%',
-            border: `1px solid ${token.colorPrimary}`,
+            border: `${badgeShadowSize}px solid ${token.colorPrimary}`,
             borderRadius: '50%',
             animationName: antStatusProcessing,
-            animationDuration: '1.2s',
+            animationDuration: token.badgeProcessingDuration,
             animationIterationCount: 'infinite',
             animationTimingFunction: 'ease-in-out',
             content: '""',
           },
         },
         [`${componentCls}-status-default`]: {
-          backgroundColor: '#d9d9d9', // FIXME: @normal-color;
+          backgroundColor: token.colorPlaceholder,
         },
 
         [`${componentCls}-status-error`]: {
@@ -193,7 +207,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
         },
         ...statusPreset,
         [`${componentCls}-status-text`]: {
-          marginInlineStart: token.marginXS,
+          marginInlineStart: marginXS,
           color: token.colorText,
           fontSize: token.fontSize,
         },
@@ -259,38 +273,29 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
     [`${ribbonPrefixCls}`]: {
       ...resetComponent(token),
       position: 'absolute',
-      top: 8, // FIXME: hard code, copied from old less file
-      height: 22, // FIXME: hard code, copied from old less file
+      top: marginXS,
+      height: badgeFontHeight,
       padding: `0 ${token.paddingXS}px`,
       color: token.badgeTextColor,
-      lineHeight: '22px', // colorPrimarycode, copied from old less file
+      lineHeight: `${badgeFontHeight}px`,
       whiteSpace: 'nowrap',
       backgroundColor: token.colorPrimary,
       borderRadius: token.controlRadius,
-      [`${ribbonPrefixCls}-text`]: { color: '#fff' },
+      [`${ribbonPrefixCls}-text`]: { color: token.colorTextLightSolid },
       [`${ribbonPrefixCls}-corner`]: {
         position: 'absolute',
         top: '100%',
-        width: 8,
-        height: 8,
+        width: badgeRibbbonOffset,
+        height: badgeRibbbonOffset,
         color: 'currentcolor',
-        border: '4px solid', // FIXME: hard code, copied from old less file
-        transform: 'scaleY(0.75)', // FIXME: hard code, copied from old less file
+        border: `${badgeRibbbonOffset / 2}px solid`,
+        transform: token.badgeRibbbonCornerTransform,
         transformOrigin: 'top',
-        '&::after': {
-          position: 'absolute',
-          top: `${-0.5 * token.paddingXS}px`,
-          insetInlineStart: `${-0.5 * token.paddingXS}px`,
-          width: 'inherit',
-          height: 'inherit',
-          color: 'rgba(0, 0, 0, 0.25)',
-          border: 'inherit',
-          content: "''",
-        },
+        filter: token.badgeRibbbonCornerFilter,
       },
       ...statusRibbonPreset,
       [`&${ribbonPrefixCls}-placement-end`]: {
-        insetInlineEnd: -1 * token.marginXS,
+        insetInlineEnd: -badgeRibbbonOffset,
         borderEndEndRadius: 0,
         [`${ribbonPrefixCls}-corner`]: {
           insetInlineEnd: 0,
@@ -298,7 +303,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
         },
       },
       [`&${ribbonPrefixCls}-placement-start`]: {
-        insetInlineStart: -1 * token.marginXS,
+        insetInlineStart: -badgeRibbbonOffset,
         borderEndStartRadius: 0,
         [`${ribbonPrefixCls}-corner`]: {
           insetInlineStart: 0,
@@ -311,18 +316,24 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Badge', token => {
+  const { fontSize, lineHeight, fontSizeSM, controlLineWidth, marginXS } = token;
+
+  const badgeFontHeight = Math.round(fontSize * lineHeight);
+  const badgeShadowSize = controlLineWidth;
   const badgeZIndex = 'auto';
-  const badgeHeight = 20; // FIXME: hard code
+  const badgeHeight = badgeFontHeight - 2 * badgeShadowSize;
   const badgeTextColor = token.colorBgComponent;
   const badgeFontWeight = 'normal';
-  const badgeFontSize = token.fontSizeSM;
-  const badgeColor = token.colorHighlight;
-  const badgeHeightSm = 14; // FIXME: hard code
-  const badgeDotSize = 6; // FIXME: hard code
-  const badgeFontSizeSm = token.fontSizeSM;
-  const badgeStatusSize = 6; // FIXME: hard code
+  const badgeFontSize = fontSizeSM;
+  const badgeColor = token.colorError;
+  const badgeHeightSm = fontSize;
+  const badgeDotSize = fontSizeSM / 2;
+  const badgeFontSizeSm = fontSizeSM;
+  const badgeStatusSize = fontSizeSM / 2;
 
   const badgeToken = mergeToken<BadgeToken>(token, {
+    badgeFontHeight,
+    badgeShadowSize,
     badgeZIndex,
     badgeHeight,
     badgeTextColor,
@@ -333,7 +344,13 @@ export default genComponentStyleHook('Badge', token => {
     badgeDotSize,
     badgeFontSizeSm,
     badgeStatusSize,
+    badgeProcessingDuration: '1.2s',
+    badgeRibbbonOffset: marginXS,
+
+    // Follow token just by Design. Not related with token
+    badgeRibbbonCornerTransform: 'scaleY(0.75)',
+    badgeRibbbonCornerFilter: `brightness(75%)`,
   });
 
-  return [genSharedBadgeStyle(badgeToken), { display: 'none' }];
+  return [genSharedBadgeStyle(badgeToken)];
 });
