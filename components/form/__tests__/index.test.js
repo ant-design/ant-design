@@ -1208,15 +1208,32 @@ describe('Form', () => {
   it('noStyle should not be affected by parent', () => {
     const Demo = () => (
       <Form>
-        <Form.Item validateStatus="error">
+        <Form.Item>
           <Form.Item noStyle>
-            <Select className="modal-select" />
+            <Select className="custom-select" />
           </Form.Item>
         </Form.Item>
       </Form>
     );
-    const { container } = render(<Demo />, { container: document.body });
-    expect(container.querySelector('.modal-select')?.className).not.toContain('in-form-item');
-    expect(container.querySelector('.modal-select')?.className).not.toContain('status-error');
+    const { container } = render(<Demo />);
+    expect(container.querySelector('.custom-select')?.className).not.toContain('in-form-item');
+  });
+
+  it('noStyle should not affect status', () => {
+    const Demo = () => (
+      <Form>
+        <Form.Item validateStatus="error" noStyle>
+          <Select className="custom-select" />
+        </Form.Item>
+        <Form.Item validateStatus="error">
+          <Form.Item noStyle>
+            <Select className="custom-select-b" />
+          </Form.Item>
+        </Form.Item>
+      </Form>
+    );
+    const { container } = render(<Demo />);
+    expect(container.querySelector('.custom-select')?.className).toContain('status-error');
+    expect(container.querySelector('.custom-select-b')?.className).toContain('status-error');
   });
 });
