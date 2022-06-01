@@ -42,9 +42,8 @@ const App: React.FC = () => {
         name="password"
         rules={[{ required: true, message: 'Please input your Password!' }]}
       >
-        <Input
+        <Input.Password
           prefix={<LockOutlined className="site-form-item-icon" />}
-          type="password"
           placeholder="Password"
         />
       </Form.Item>
