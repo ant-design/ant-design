@@ -8,6 +8,7 @@ interface LineProps extends ProgressProps {
   prefixCls: string;
   direction?: DirectionType;
   children: React.ReactNode;
+  strokeColor?: string | ProgressGradient;
 }
 
 /**

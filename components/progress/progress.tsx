@@ -38,7 +38,7 @@ export interface ProgressProps {
   showInfo?: boolean;
   strokeWidth?: number;
   strokeLinecap?: 'butt' | 'square' | 'round';
-  strokeColor?: string | ProgressGradient;
+  strokeColor?: string | string[] | ProgressGradient;
   trailColor?: string;
   width?: number;
   success?: SuccessProps;
@@ -53,7 +53,17 @@ export interface ProgressProps {
 }
 
 const Progress: React.FC<ProgressProps> = (props: ProgressProps) => {
-  const { percent = 0, size = 'default', showInfo = true, type = 'line' } = props;
+  const {
+    prefixCls: customizePrefixCls,
+    className,
+    steps,
+    strokeColor,
+    percent = 0,
+    size = 'default',
+    showInfo = true,
+    type = 'line',
+    ...restProps
+  } = props;
 
   function getPercentNumber() {
     const successPercent = getSuccessPercent(props);
@@ -96,7 +106,6 @@ const Progress: React.FC<ProgressProps> = (props: ProgressProps) => {
 
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
-  const { prefixCls: customizePrefixCls, className, steps, strokeColor, ...restProps } = props;
   const prefixCls = getPrefixCls('progress', customizePrefixCls);
   const progressStatus = getProgressStatus();
   const progressInfo = renderProcessInfo(prefixCls, progressStatus);
@@ -107,26 +116,34 @@ const Progress: React.FC<ProgressProps> = (props: ProgressProps) => {
     '`successPercent` is deprecated. Please use `success.percent` instead.',
   );
 
+  const strokeColorNotArray = Array.isArray(strokeColor) ? strokeColor[0] : strokeColor;
+  const strokeColorNotGradient =
+    typeof strokeColor === 'string' || Array.isArray(strokeColor) ? strokeColor : undefined;
   let progress;
   // Render progress shape
   if (type === 'line') {
     progress = steps ? (
-      <Steps
-        {...props}
-        strokeColor={typeof strokeColor === 'string' ? strokeColor : undefined}
-        prefixCls={prefixCls}
-        steps={steps}
-      >
+      <Steps {...props} strokeColor={strokeColorNotGradient} prefixCls={prefixCls} steps={steps}>
         {progressInfo}
       </Steps>
     ) : (
-      <Line {...props} prefixCls={prefixCls} direction={direction}>
+      <Line
+        {...props}
+        strokeColor={strokeColorNotArray}
+        prefixCls={prefixCls}
+        direction={direction}
+      >
         {progressInfo}
       </Line>
     );
   } else if (type === 'circle' || type === 'dashboard') {
     progress = (
-      <Circle {...props} prefixCls={prefixCls} progressStatus={progressStatus}>
+      <Circle
+        {...props}
+        strokeColor={strokeColorNotArray}
+        prefixCls={prefixCls}
+        progressStatus={progressStatus}
+      >
         {progressInfo}
       </Circle>
     );
@@ -155,10 +172,8 @@ const Progress: React.FC<ProgressProps> = (props: ProgressProps) => {
         'gapDegree',
         'gapPosition',
         'strokeLinecap',
-        'percent',
         'success',
         'successPercent',
-        'type',
       ])}
       className={classString}
     >

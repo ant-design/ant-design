@@ -1572,23 +1572,23 @@ Array [
     >
       <div
         class="ant-progress-steps-item ant-progress-steps-item-active"
-        style="background-color:#52c41a;width:2px;height:8px"
+        style="background-color:#389e0d;width:2px;height:8px"
       />
       <div
         class="ant-progress-steps-item ant-progress-steps-item-active"
-        style="background-color:#52c41a;width:2px;height:8px"
+        style="background-color:#389e0d;width:2px;height:8px"
       />
       <div
         class="ant-progress-steps-item ant-progress-steps-item-active"
-        style="background-color:#52c41a;width:2px;height:8px"
+        style="background-color:#389e0d;width:2px;height:8px"
       />
       <div
         class="ant-progress-steps-item ant-progress-steps-item-active"
-        style="background-color:#52c41a;width:2px;height:8px"
+        style="background-color:#389e0d;width:2px;height:8px"
       />
       <div
         class="ant-progress-steps-item ant-progress-steps-item-active"
-        style="background-color:#52c41a;width:2px;height:8px"
+        style="background-color:#389e0d;width:2px;height:8px"
       />
       <span
         class="ant-progress-text"
@@ -1612,6 +1612,41 @@ Array [
             />
           </svg>
         </span>
+      </span>
+    </div>
+  </div>,
+  <br />,
+  <div
+    class="ant-progress ant-progress-steps ant-progress-status-normal ant-progress-show-info ant-progress-default"
+  >
+    <div
+      class="ant-progress-steps-outer"
+    >
+      <div
+        class="ant-progress-steps-item ant-progress-steps-item-active"
+        style="background-color:#389e0d;width:14px;height:8px"
+      />
+      <div
+        class="ant-progress-steps-item ant-progress-steps-item-active"
+        style="background-color:#389e0d;width:14px;height:8px"
+      />
+      <div
+        class="ant-progress-steps-item ant-progress-steps-item-active"
+        style="background-color:#f5222d;width:14px;height:8px"
+      />
+      <div
+        class="ant-progress-steps-item"
+        style="width:14px;height:8px"
+      />
+      <div
+        class="ant-progress-steps-item"
+        style="width:14px;height:8px"
+      />
+      <span
+        class="ant-progress-text"
+        title="60%"
+      >
+        60%
       </span>
     </div>
   </div>,
