@@ -1,7 +1,7 @@
 import React from 'react';
 import List from '..';
-import { render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import { render } from '../../../tests/utils';
 
 describe('List Item Layout', () => {
   const data = [

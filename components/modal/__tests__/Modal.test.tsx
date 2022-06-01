@@ -1,9 +1,9 @@
 import React from 'react';
-import type { ModalProps } from '..';
 import Modal from '..';
+import type { ModalProps } from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render } from '../../../tests/utils';
+import { render, fireEvent } from '../../../tests/utils';
 
 jest.mock('rc-util/lib/Portal');
 

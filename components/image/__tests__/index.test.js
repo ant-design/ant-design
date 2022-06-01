@@ -1,7 +1,8 @@
+import React from 'react';
+import { render, fireEvent } from '../../../tests/utils';
 import Image from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render } from '../../../tests/utils';
 
 const src = 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png';
 

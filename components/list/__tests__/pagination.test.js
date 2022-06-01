@@ -1,5 +1,6 @@
-import List from '..';
+import React from 'react';
 import { fireEvent, render } from '../../../tests/utils';
+import List from '..';
 import { noop } from '../../_util/warning';
 
 describe('List.pagination', () => {

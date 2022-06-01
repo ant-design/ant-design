@@ -1,12 +1,12 @@
-import CSSMotion from 'rc-motion';
-import { genCSSMotion } from 'rc-motion/lib/CSSMotion';
 import React from 'react';
+import CSSMotion from 'rc-motion';
 import { act } from 'react-dom/test-utils';
+import { genCSSMotion } from 'rc-motion/lib/CSSMotion';
 import Modal from '..';
-import { fireEvent, render } from '../../../tests/utils';
 import Button from '../../button';
-import ConfigProvider from '../../config-provider';
 import Input from '../../input';
+import ConfigProvider from '../../config-provider';
+import { render, fireEvent } from '../../../tests/utils';
 import type { ModalFunc } from '../confirm';
 
 jest.mock('rc-util/lib/Portal');
