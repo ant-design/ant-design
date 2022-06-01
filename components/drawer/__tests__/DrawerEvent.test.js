@@ -76,10 +76,14 @@ describe('Drawer', () => {
     fireEvent(document.querySelector('.ant-drawer-content-wrapper'), ev);
 
     rerender(getDrawer({ visible: true, getContainer: false }));
-    rerender(getDrawer({ visible: false, getContainer: false }));
     const ev2 = new TransitionEvent('transitionend', { bubbles: true });
     ev2.propertyName = 'transform';
     fireEvent(document.querySelector('.ant-drawer-content-wrapper'), ev2);
+
+    rerender(getDrawer({ visible: false, getContainer: false }));
+    const ev3 = new TransitionEvent('transitionend', { bubbles: true });
+    ev3.propertyName = 'transform';
+    fireEvent(document.querySelector('.ant-drawer-content-wrapper'), ev3);
 
     expect(container.querySelector('.ant-drawer-wrapper-body')).toBeTruthy();
   });
