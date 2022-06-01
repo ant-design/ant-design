@@ -16,7 +16,16 @@ const DrawerTest = ({ getContainer }) => (
 
 describe('Drawer', () => {
   mountTest(Drawer);
-  rtlTest(Drawer);
+  mountTest(() => (
+    <div id="drawer-container">
+      <Drawer getContainer={() => document.querySelector('#drawer-container')} visible />
+    </div>
+  ));
+  rtlTest(() => (
+    <div id="drawer-container">
+      <Drawer getContainer={() => document.querySelector('#drawer-container')} visible />
+    </div>
+  ));
 
   it('render correctly', () => {
     const wrapper = mount(

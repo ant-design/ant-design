@@ -33,7 +33,11 @@ class ModalTester extends React.Component<ModalProps, { visible: boolean }> {
 
 describe('Modal', () => {
   mountTest(Modal);
-  rtlTest(Modal);
+  rtlTest(() => (
+    <div id="modal-container">
+      <Modal getContainer={() => document.querySelector('#modal-container')!} visible />
+    </div>
+  ));
 
   it('support closeIcon', () => {
     render(<Modal closeIcon={<a>closeIcon</a>} visible />);
