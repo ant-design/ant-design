@@ -178,6 +178,7 @@ export default class Progress extends React.Component<ProgressProps> {
           'percent',
           'success',
           'successPercent',
+          'showInfo',
         ])}
         className={classString}
       >
