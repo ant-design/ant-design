@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "4.20.6",
+  "version": "4.20.7",
   "description": "An enterprise-class UI design language and React components implementation",
   "title": "Ant Design",
   "keywords": [
@@ -126,7 +126,7 @@
     "rc-cascader": "~3.5.0",
     "rc-checkbox": "~2.3.0",
     "rc-collapse": "~3.3.0",
-    "rc-dialog": "~8.8.1",
+    "rc-dialog": "~8.8.2",
     "rc-drawer": "~4.4.2",
     "rc-dropdown": "~4.0.0",
     "rc-field-form": "~1.26.1",
@@ -161,7 +161,6 @@
   "devDependencies": {
     "@ant-design/bisheng-plugin": "^3.2.0",
     "@ant-design/hitu": "^0.0.0-alpha.13",
-    "@ant-design/jest-image-snapshot": "^4.5.2",
     "@ant-design/tools": "^15.0.2",
     "@docsearch/css": "^3.0.0",
     "@qixian.cs/github-contributors-list": "^1.0.3",
@@ -216,7 +215,7 @@
     "eslint-plugin-babel": "^5.3.0",
     "eslint-plugin-compat": "^4.0.0",
     "eslint-plugin-import": "^2.21.1",
-    "eslint-plugin-jest": "~26.3.0",
+    "eslint-plugin-jest": "^26.4.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-markdown": "^2.0.0",
     "eslint-plugin-react": "^7.28.0",
@@ -239,6 +238,7 @@
     "jest-axe": "^6.0.0",
     "jest-environment-jsdom": "^28.0.2",
     "jest-environment-node": "^28.0.2",
+    "jest-image-snapshot": "^5.1.0",
     "jest-puppeteer": "^6.0.0",
     "jquery": "^3.4.1",
     "jsdom": "^19.0.0",
