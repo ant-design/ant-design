@@ -2,54 +2,46 @@
 
 exports[`Table.filter clearFilters should support params 1`] = `
 <div
-  className="ant-dropdown-custom-view"
+  class="ant-dropdown-custom-view"
   id="customFilter"
 >
   <span
     id="setNoParams"
-    onClick={[Function]}
   >
     setSelectedKeys
   </span>
   <span
     id="resetNoParams"
-    onClick={[Function]}
   >
     Reset
   </span>
   <span
     id="setConfirm"
-    onClick={[Function]}
   >
     setSelectedKeys
   </span>
   <span
     id="resetConfirm"
-    onClick={[Function]}
   >
     Reset
   </span>
   <span
     id="setClose"
-    onClick={[Function]}
   >
     setSelectedKeys
   </span>
   <span
     id="resetClose"
-    onClick={[Function]}
   >
     Reset
   </span>
   <span
     id="setParams"
-    onClick={[Function]}
   >
     setSelectedKeys
   </span>
   <span
     id="resetParams"
-    onClick={[Function]}
   >
     Reset
   </span>
@@ -88,7 +80,17 @@ exports[`Table.filter override custom filter correctly 1`] = `
 </div>
 `;
 
-exports[`Table.filter renders custom content correctly 1`] = `<div />`;
+exports[`Table.filter renders custom content correctly 1`] = `
+<div
+  class="ant-table-filter-dropdown"
+>
+  <div
+    class="custom-filter-dropdown"
+  >
+    custom filter
+  </div>
+</div>
+`;
 
 exports[`Table.filter renders custom filter icon as ReactNode 1`] = `
 <div
@@ -562,6 +564,246 @@ exports[`Table.filter renders filter correctly 1`] = `
 </div>
 `;
 
-exports[`Table.filter renders menu correctly 1`] = `<div />`;
+exports[`Table.filter renders menu correctly 1`] = `
+<div
+  class="ant-table-filter-dropdown"
+>
+  <ul
+    class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+    data-menu-list="true"
+    role="menu"
+    tabindex="0"
+  >
+    <li
+      class="ant-dropdown-menu-item"
+      data-menu-id="rc-menu-uuid-test-boy"
+      role="menuitem"
+      tabindex="-1"
+    >
+      <span
+        class="ant-dropdown-menu-title-content"
+      >
+        <label
+          class="ant-checkbox-wrapper"
+        >
+          <span
+            class="ant-checkbox"
+          >
+            <input
+              class="ant-checkbox-input"
+              type="checkbox"
+              value=""
+            />
+            <span
+              class="ant-checkbox-inner"
+            />
+          </span>
+        </label>
+        <span>
+          Boy
+        </span>
+      </span>
+    </li>
+    <li
+      class="ant-dropdown-menu-item"
+      data-menu-id="rc-menu-uuid-test-girl"
+      role="menuitem"
+      tabindex="-1"
+    >
+      <span
+        class="ant-dropdown-menu-title-content"
+      >
+        <label
+          class="ant-checkbox-wrapper"
+        >
+          <span
+            class="ant-checkbox"
+          >
+            <input
+              class="ant-checkbox-input"
+              type="checkbox"
+              value=""
+            />
+            <span
+              class="ant-checkbox-inner"
+            />
+          </span>
+        </label>
+        <span>
+          Girl
+        </span>
+      </span>
+    </li>
+    <li
+      class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical"
+      role="none"
+    >
+      <div
+        aria-controls="rc-menu-uuid-test-title-popup"
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-dropdown-menu-submenu-title"
+        data-menu-id="rc-menu-uuid-test-title"
+        role="menuitem"
+        tabindex="-1"
+      >
+        <span
+          class="ant-dropdown-menu-title-content"
+        >
+          Title
+        </span>
+        <i
+          class="ant-dropdown-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+  </ul>
+  <div
+    aria-hidden="true"
+    style="display: none;"
+  />
+  <div
+    class="ant-table-filter-dropdown-btns"
+  >
+    <button
+      class="ant-btn ant-btn-link ant-btn-sm"
+      disabled=""
+      type="button"
+    >
+      <span>
+        Reset
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-primary ant-btn-sm"
+      type="button"
+    >
+      <span>
+        OK
+      </span>
+    </button>
+  </div>
+</div>
+`;
 
-exports[`Table.filter renders radio filter correctly 1`] = `<div />`;
+exports[`Table.filter renders radio filter correctly 1`] = `
+<div
+  class="ant-table-filter-dropdown"
+>
+  <ul
+    class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+    data-menu-list="true"
+    role="menu"
+    tabindex="0"
+  >
+    <li
+      class="ant-dropdown-menu-item"
+      data-menu-id="rc-menu-uuid-test-boy"
+      role="menuitem"
+      tabindex="-1"
+    >
+      <span
+        class="ant-dropdown-menu-title-content"
+      >
+        <label
+          class="ant-radio-wrapper"
+        >
+          <span
+            class="ant-radio"
+          >
+            <input
+              class="ant-radio-input"
+              type="radio"
+              value=""
+            />
+            <span
+              class="ant-radio-inner"
+            />
+          </span>
+        </label>
+        <span>
+          Boy
+        </span>
+      </span>
+    </li>
+    <li
+      class="ant-dropdown-menu-item"
+      data-menu-id="rc-menu-uuid-test-girl"
+      role="menuitem"
+      tabindex="-1"
+    >
+      <span
+        class="ant-dropdown-menu-title-content"
+      >
+        <label
+          class="ant-radio-wrapper"
+        >
+          <span
+            class="ant-radio"
+          >
+            <input
+              class="ant-radio-input"
+              type="radio"
+              value=""
+            />
+            <span
+              class="ant-radio-inner"
+            />
+          </span>
+        </label>
+        <span>
+          Girl
+        </span>
+      </span>
+    </li>
+    <li
+      class="ant-dropdown-menu-submenu ant-dropdown-menu-submenu-vertical"
+      role="none"
+    >
+      <div
+        aria-controls="rc-menu-uuid-test-title-popup"
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="ant-dropdown-menu-submenu-title"
+        data-menu-id="rc-menu-uuid-test-title"
+        role="menuitem"
+        tabindex="-1"
+      >
+        <span
+          class="ant-dropdown-menu-title-content"
+        >
+          Title
+        </span>
+        <i
+          class="ant-dropdown-menu-submenu-arrow"
+        />
+      </div>
+    </li>
+  </ul>
+  <div
+    aria-hidden="true"
+    style="display: none;"
+  />
+  <div
+    class="ant-table-filter-dropdown-btns"
+  >
+    <button
+      class="ant-btn ant-btn-link ant-btn-sm"
+      disabled=""
+      type="button"
+    >
+      <span>
+        Reset
+      </span>
+    </button>
+    <button
+      class="ant-btn ant-btn-primary ant-btn-sm"
+      type="button"
+    >
+      <span>
+        OK
+      </span>
+    </button>
+  </div>
+</div>
+`;
