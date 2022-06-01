@@ -38,7 +38,7 @@ export interface ProgressProps {
   showInfo?: boolean;
   strokeWidth?: number;
   strokeLinecap?: 'butt' | 'square' | 'round';
-  strokeColor?: string | ProgressGradient;
+  strokeColor?: string | string[] | ProgressGradient;
   trailColor?: string;
   width?: number;
   success?: SuccessProps;
@@ -113,7 +113,9 @@ const Progress: React.FC<ProgressProps> = (props: ProgressProps) => {
     progress = steps ? (
       <Steps
         {...props}
-        strokeColor={typeof strokeColor === 'string' ? strokeColor : undefined}
+        strokeColor={
+          typeof strokeColor === 'string' || Array.isArray(strokeColor) ? strokeColor : undefined
+        }
         prefixCls={prefixCls}
         steps={steps}
       >

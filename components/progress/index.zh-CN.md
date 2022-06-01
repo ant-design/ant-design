@@ -36,7 +36,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/xqsDu4ZyR/Progress.svg
 | 属性 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | steps | 进度条总共步数 | number | - |
-| strokeColor | 进度条的色彩，传入 object 时为渐变 | string \| { from: string; to: string; direction: string } | - |
+| strokeColor | 进度条的色彩，传入 object 时为渐变。当有 `steps` 时支持传入一个数组。 | string \| string[] \| { from: string; to: string; direction: string } | - |
 | strokeWidth | 进度条线的宽度，单位 px | number | 10 |
 
 ### `type="circle"`
