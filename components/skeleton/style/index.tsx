@@ -2,7 +2,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
 
-import type { GenerateStyle, FullToken } from '../../_util/theme';
+import type { FullToken, GenerateStyle } from '../../_util/theme';
 import { genComponentStyleHook, mergeToken } from '../../_util/theme';
 
 const skeletonClsLoading = new Keyframes(`ant-skeleton-loading`, {
@@ -24,7 +24,6 @@ interface SkeletonToken extends FullToken<'Skeleton'> {
   skeletonColor: string;
   skeletonToColor: string;
   imageSizeBase: number;
-  imageFontSizeBase: number;
   skeletonTitleHeight: number;
   skeletonBlockRadius: number;
   skeletonParagraphLiHeight: number;
@@ -48,7 +47,7 @@ const genSkeletonColor = (token: SkeletonToken): CSSObject => {
     background: `linear-gradient(90deg, ${skeletonColor} 25%, ${skeletonToColor} 37%, ${skeletonColor} 63%)`,
     backgroundSize: '400% 100%',
     animationName: skeletonClsLoading,
-    animationDuration: '1.4s', // FIXME: magic
+    animationDuration: '1.4s',
     animationTimingFunction: 'ease',
     animationIterationCount: 'infinite',
   };
@@ -357,9 +356,8 @@ export default genComponentStyleHook('Skeleton', token => {
     skeletonImageCls: `${componentCls}-image`,
     skeletonColor: 'rgba(190,190,190,0.2)', // FIXME: hard code in v4
     skeletonToColor: 'rgba(129,129,129,.24)', // FIXME: hard code in v4
-    imageSizeBase: 48, // FIXME: hard code in v4
-    imageFontSizeBase: 24, // FIXME: hard code in v4
-    skeletonTitleHeight: 16, // FIXME: hard code in v4
+    imageSizeBase: token.controlHeight * 1.5,
+    skeletonTitleHeight: token.controlHeight / 2, // FIXME: hard code in v4
     skeletonBlockRadius: 4, // FIXME: hard code in v4
     skeletonParagraphLiHeight: 16, // FIXME: hard code in v4
     skeletonParagraphMarginTop: 28, // FIXME: hard code in v4
