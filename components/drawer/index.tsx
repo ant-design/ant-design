@@ -312,14 +312,11 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
           className={drawerClassName}
           getContainer={getContainer}
           afterVisibleChange={open => {
-            if (!open) {
-              if (destroyOnClose) {
-                if (destroyCloseRef.current === false) {
-                  // set true only once
-                  destroyCloseRef.current = true;
-                }
-                setLoad(false);
-              }
+            if (open) {
+              destroyCloseRef.current = false;
+            } else if (destroyOnClose) {
+              destroyCloseRef.current = true;
+              setLoad(false);
             }
             afterVisibleChange?.(open);
           }}
