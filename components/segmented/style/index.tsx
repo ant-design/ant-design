@@ -12,12 +12,10 @@ interface SegmentedToken extends FullToken<'Segmented'> {
   segmentedSelectedBg: string;
   segmentedLabelColor: string;
   segmentedLabelHoverColor: string;
-  segmentedPaddingVertical: number;
-  segmentedPaddingVerticalLG: number;
-  segmentedPaddingVerticalSM: number;
   segmentedPaddingHorizontal: number;
   segmentedPaddingHorizontalSM: number;
   segmentedContainerPadding: number;
+  segmentedSelectedItemBoxShadow: string;
 }
 
 // ============================== Mixins ==============================
@@ -30,18 +28,11 @@ function segmentedDisabledItem(cls: string, token: SegmentedToken): CSSObject {
   };
 }
 
-// FIXME: hard code
-const segmentedSelectedItemBoxShadow = [
-  `0 2px 8px -2px ${new TinyColor('#000').setAlpha(0.05).toRgbString()}`,
-  `0 1px 4px -1px ${new TinyColor('#000').setAlpha(0.07).toRgbString()}`,
-  `0 0 1px 0 ${new TinyColor('#000').setAlpha(0.08).toRgbString()}`,
-].join(',');
-
 function getSegmentedItemSelectedStyle(token: SegmentedToken): CSSObject {
   return {
     backgroundColor: token.segmentedSelectedBg,
     borderRadius: token.controlRadius,
-    boxShadow: segmentedSelectedItemBoxShadow,
+    boxShadow: token.segmentedSelectedItemBoxShadow,
   };
 }
 
@@ -115,7 +106,6 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
         },
 
         '&-label': {
-          // FIXME: hard code
           minHeight: token.controlHeight - token.segmentedContainerPadding * 2,
           lineHeight: `${token.controlHeight - token.segmentedContainerPadding * 2}px`,
           padding: `0 ${token.segmentedPaddingHorizontal}px`,
@@ -124,7 +114,6 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
 
         // syntactic sugar to add `icon` for Segmented Item
         '&-icon + *': {
-          // FIXME: hard code
           marginInlineEnd: token.marginSM / 2,
         },
 
@@ -141,7 +130,6 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
 
       // size styles
       [`&&-lg ${componentCls}-item-label`]: {
-        // FIXME: hard code
         minHeight: token.controlHeightLG - token.segmentedContainerPadding * 2,
         lineHeight: `${token.controlHeightLG - token.segmentedContainerPadding * 2}px`,
         padding: `0 ${token.segmentedPaddingHorizontal}px`,
@@ -149,7 +137,6 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
       },
 
       [`&&-sm ${componentCls}-item-label`]: {
-        // FIXME: hard code
         minHeight: token.controlHeightSM - token.segmentedContainerPadding * 2,
         lineHeight: `${token.controlHeightSM - token.segmentedContainerPadding * 2}px`,
         padding: `0 ${token.segmentedPaddingHorizontalSM}px`,
@@ -182,34 +169,32 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Segmented', token => {
+  const {
+    colorBgComponentSecondary,
+    colorBgComponent,
+    colorTextSecondary,
+    colorText,
+    lineWidthBold,
+    controlLineWidth,
+  } = token;
+
+  const segmentedSelectedItemBoxShadow = [
+    `0 2px 8px -2px ${new TinyColor('#000').setAlpha(0.05).toRgbString()}`,
+    `0 1px 4px -1px ${new TinyColor('#000').setAlpha(0.07).toRgbString()}`,
+    `0 0 1px 0 ${new TinyColor('#000').setAlpha(0.08).toRgbString()}`,
+  ].join(',');
+
   const segmentedToken = mergeToken<SegmentedToken>(token, {
-    // FIXME: hard code
-    segmentedBg: new TinyColor('#000').setAlpha(0.04).toRgbString(),
-    // FIXME: hard code
-    segmentedHoverBg: new TinyColor('#000').setAlpha(0.06).toRgbString(),
-    // FIXME: hard code
-    segmentedSelectedBg: '#fff',
-    // FIXME: hard code
-    segmentedLabelColor: new TinyColor('#000').setAlpha(0.65).toRgbString(),
-    // FIXME: hard code
-    segmentedLabelHoverColor: '#262626',
-    segmentedPaddingVertical: Math.max(
-      Math.round(((token.controlHeight - token.fontSize * token.lineHeight) / 2) * 10) / 10 -
-        token.controlLineWidth,
-      3,
-    ),
-    segmentedPaddingVerticalLG:
-      Math.ceil(((token.controlHeightLG - token.fontSizeLG * token.lineHeight) / 2) * 10) / 10 -
-      token.controlLineWidth,
-    segmentedPaddingVerticalSM: Math.max(
-      Math.round(((token.controlHeightSM - token.fontSize * token.lineHeight) / 2) * 10) / 10 -
-        token.controlLineWidth,
-      0,
-    ),
-    segmentedPaddingHorizontal: token.controlPaddingHorizontal - token.controlLineWidth,
-    segmentedPaddingHorizontalSM: token.controlPaddingHorizontalSM - token.controlLineWidth,
-    // FIXME: hard code
-    segmentedContainerPadding: token.paddingXXS / 2,
+    segmentedSelectedItemBoxShadow,
+
+    segmentedBg: colorBgComponentSecondary,
+    segmentedHoverBg: new TinyColor(colorBgComponentSecondary).darken(2).toRgbString(),
+    segmentedSelectedBg: colorBgComponent,
+    segmentedLabelColor: colorTextSecondary,
+    segmentedLabelHoverColor: colorText,
+    segmentedPaddingHorizontal: token.controlPaddingHorizontal - controlLineWidth,
+    segmentedPaddingHorizontalSM: token.controlPaddingHorizontalSM - controlLineWidth,
+    segmentedContainerPadding: lineWidthBold,
   });
   return [genSegmentedStyle(segmentedToken)];
 });
