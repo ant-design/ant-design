@@ -9,7 +9,7 @@ import { getTransitionName } from '../_util/motion';
 export interface PopoverProps extends AbstractTooltipProps {
   title?: React.ReactNode | RenderFunction;
   content?: React.ReactNode | RenderFunction;
-  /** @private Used for Popconfirm. Safe to remove. */
+  /** @private Used For Popconfirm. Safe to remove. */
   _overlay?: React.ReactNode;
 }
 
