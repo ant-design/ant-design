@@ -1,4 +1,5 @@
 import { mount } from 'enzyme';
+import React from 'react';
 import Pagination from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
