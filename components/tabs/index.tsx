@@ -1,17 +1,17 @@
-import * as React from 'react';
+import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
+import PlusOutlined from '@ant-design/icons/PlusOutlined';
+import classNames from 'classnames';
 import type { TabsProps as RcTabsProps } from 'rc-tabs';
 import RcTabs, { TabPane, TabPaneProps } from 'rc-tabs';
 import type { EditableConfig } from 'rc-tabs/lib/interface';
-import classNames from 'classnames';
-import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
-import PlusOutlined from '@ant-design/icons/PlusOutlined';
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import * as React from 'react';
 
-import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
-import useStyle from './style';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
+import warning from '../_util/warning';
+import useStyle from './style';
 
 export type TabsType = 'line' | 'card' | 'editable-card';
 export type TabsPosition = 'top' | 'right' | 'bottom' | 'left';
@@ -35,6 +35,7 @@ function Tabs({
   hideAdd,
   centered,
   addIcon,
+  popupClassName,
   ...props
 }: TabsProps) {
   const { prefixCls: customizePrefixCls, moreIcon = <EllipsisOutlined /> } = props;
@@ -80,6 +81,7 @@ function Tabs({
               className,
               hashId,
             )}
+            popupClassName={classNames(popupClassName, hashId)}
             editable={editable}
             moreIcon={moreIcon}
             prefixCls={prefixCls}
