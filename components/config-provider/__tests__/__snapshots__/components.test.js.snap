@@ -19196,7 +19196,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
     </li>
   </ul>
   <ul
-    class="config-pagination mini"
+    class="config-pagination config-pagination-mini"
     unselectable="unselectable"
   >
     <li
@@ -19494,7 +19494,7 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
     </li>
   </ul>
   <ul
-    class="config-pagination mini"
+    class="config-pagination config-pagination-mini"
     unselectable="unselectable"
   >
     <li
@@ -19792,7 +19792,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
     </li>
   </ul>
   <ul
-    class="config-pagination mini"
+    class="config-pagination config-pagination-mini"
     unselectable="unselectable"
   >
     <li
@@ -20089,7 +20089,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
     </li>
   </ul>
   <ul
-    class="config-pagination mini"
+    class="config-pagination config-pagination-mini"
     unselectable="unselectable"
   >
     <li
@@ -20386,7 +20386,7 @@ exports[`ConfigProvider components Pagination configProvider virtual and dropdow
     </li>
   </ul>
   <ul
-    class="ant-pagination mini"
+    class="ant-pagination ant-pagination-mini"
     unselectable="unselectable"
   >
     <li
@@ -20683,7 +20683,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
     </li>
   </ul>
   <ul
-    class="ant-pagination mini"
+    class="ant-pagination ant-pagination-mini"
     unselectable="unselectable"
   >
     <li
@@ -20980,7 +20980,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
     </li>
   </ul>
   <ul
-    class="prefix-Pagination mini"
+    class="prefix-Pagination prefix-Pagination-mini"
     unselectable="unselectable"
   >
     <li
