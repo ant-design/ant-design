@@ -159,7 +159,7 @@ const genDropdownStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
         display: 'none',
       },
 
-      '&-menu': {
+      [`${componentCls}-dropdown-menu`]: {
         maxHeight: token.tabsDropdownHeight,
         margin: 0,
         padding: `${dropdownEdgeChildVerticalPadding}px 0`,
