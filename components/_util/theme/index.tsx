@@ -17,12 +17,14 @@ import formatToken from './util/alias';
 import type { FullToken } from './util/genComponentStyleHook';
 import genComponentStyleHook from './util/genComponentStyleHook';
 import statisticToken, { merge as mergeToken, statistic } from './util/statistic';
+import getArrowStyle from './util/placementArrow';
 
 export {
   resetComponent,
   resetIcon,
   clearFix,
   roundedArrow,
+  getArrowStyle,
   operationUnit,
   // colors
   PresetColors,
