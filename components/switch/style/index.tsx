@@ -22,6 +22,8 @@ interface SwitchToken extends FullToken<'Switch'> {
   switchPinSizeSM: number;
   switchHandleShadow: string;
   switchLoadingIconSize: number;
+  switchLoadingIconColor: string;
+  switchHandleActiveInset: string;
 }
 
 const genSwitchSmallStyle: GenerateStyle<SwitchToken, CSSObject> = token => ({
@@ -42,7 +44,7 @@ const genSwitchSmallStyle: GenerateStyle<SwitchToken, CSSObject> = token => ({
     },
 
     [`${token.componentCls}-loading-icon`]: {
-      top: (token.switchPinSizeSM - 9) / 2,
+      top: (token.switchPinSizeSM - token.switchLoadingIconSize) / 2,
       fontSize: token.switchLoadingIconSize,
     },
 
@@ -63,7 +65,7 @@ const genSwitchLoadingStyle: GenerateStyle<SwitchToken, CSSObject> = token => ({
   [`${token.componentCls}-loading-icon${token.iconCls}`]: {
     position: 'relative',
     top: (token.switchPinSize - token.fontSize) / 2,
-    color: `rgba(0, 0, 0, ${token.colorLoadingOpacity})`,
+    color: token.switchLoadingIconColor,
     verticalAlign: 'top',
   },
 
@@ -104,13 +106,13 @@ const genSwitchHandleStyle: GenerateStyle<SwitchToken, CSSObject> = token => {
 
     [`&:not(${token.componentCls}-disabled):active`]: {
       [`${switchHandleCls}::before`]: {
-        insetInlineEnd: '-30%',
+        insetInlineEnd: token.switchHandleActiveInset,
         insetInlineStart: 0,
       },
 
       [`&${token.componentCls}-checked ${switchHandleCls}::before`]: {
         insetInlineEnd: 0,
-        insetInlineStart: '-30%',
+        insetInlineStart: token.switchHandleActiveInset,
       },
     },
   };
@@ -215,7 +217,7 @@ export default genComponentStyleHook('Switch', token => {
     switchHeight,
     switchDuration: token.motionDurationMid,
     switchColor: token.colorPrimary,
-    switchDisabledOpacity: 0.4,
+    switchDisabledOpacity: token.colorLoadingOpacity,
     switchInnerMarginMin: Math.ceil(switchHeight * 0.3),
     switchInnerMarginMax: Math.ceil(switchHeight * 1.1),
     switchPadding,
@@ -225,9 +227,11 @@ export default genComponentStyleHook('Switch', token => {
     switchHeightSM,
     switchInnerMarginMinSM: Math.ceil(switchHeight * 0.3),
     switchInnerMarginMaxSM: Math.ceil(switchHeight * 1.1),
-    switchPinSizeSM: switchHeightSM - 4,
+    switchPinSizeSM: switchHeightSM - switchPadding * 2,
     switchHandleShadow: `0 2px 4px 0 ${new TinyColor('#00230b').setAlpha(0.2).toRgbString()}`,
     switchLoadingIconSize: token.fontSizeIcon * 0.75,
+    switchLoadingIconColor: `rgba(0, 0, 0, ${token.colorLoadingOpacity})`,
+    switchHandleActiveInset: '-30%',
   });
 
   return [genSwitchStyle(switchToken)];
