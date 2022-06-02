@@ -86,7 +86,7 @@ exports[`renders ./components/statistic/demo/basic.md correctly 1`] = `
         Active Users
       </div>
       <div
-        class="ant-skeleton"
+        class="ant-skeleton ant-statistic-skeleton"
       >
         <div
           class="ant-skeleton-content"
