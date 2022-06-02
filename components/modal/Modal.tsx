@@ -179,7 +179,6 @@ const Modal: React.FC<ModalProps> = props => {
     getContainer,
     closeIcon,
     focusTriggerAfterClose = true,
-    children,
     ...restProps
   } = props;
 
