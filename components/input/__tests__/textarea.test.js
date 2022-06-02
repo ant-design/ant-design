@@ -380,7 +380,7 @@ describe('TextArea allowClear', () => {
 
   it('scroll to bottom when autoSize', async () => {
     const ref = React.createRef();
-    const { container, unmount } = render(<Input.TextArea ref={ref} autoSize />, { container: document.body });
+    const { container, unmount } = render(<Input.TextArea ref={ref} autoSize />, { container: document.body, legacyRoot: true });
     fireEvent.focus(container.querySelector('textarea'));
     container.querySelector('textarea').focus();
 
