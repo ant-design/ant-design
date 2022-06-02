@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount, render } from 'enzyme';
+import { render, fireEvent } from '../../../tests/utils';
 import Tabs from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -24,7 +24,7 @@ describe('Tabs', () => {
 
     beforeEach(() => {
       handleEdit = jest.fn();
-      wrapper = mount(
+      const { container } = render(
         <Tabs type="editable-card" onEdit={handleEdit}>
           <TabPane tab="foo" key="1">
             foo
@@ -34,52 +34,53 @@ describe('Tabs', () => {
           {false}
         </Tabs>,
       );
+      wrapper = container;
     });
 
     it('add card', () => {
-      wrapper.find('.ant-tabs-nav-add').first().simulate('click');
+      fireEvent.click(wrapper.querySelector('.ant-tabs-nav-add'));
       expect(handleEdit.mock.calls[0][1]).toBe('add');
     });
 
     it('remove card', () => {
-      wrapper.find('.anticon-close').simulate('click');
+      fireEvent.click(wrapper.querySelector('.anticon-close'));
       expect(handleEdit).toHaveBeenCalledWith('1', 'remove');
     });
 
     it('validateElement', () => {
-      expect(wrapper.find('.ant-tabs-tab').length).toBe(1);
+      expect(wrapper.querySelectorAll('.ant-tabs-tab').length).toBe(1);
     });
   });
 
   describe('tabPosition', () => {
     it('remove card', () => {
-      const wrapper = render(
+      const { container } = render(
         <Tabs tabPosition="left" tabBarExtraContent="xxx">
           <TabPane tab="foo" key="1">
             foo
           </TabPane>
         </Tabs>,
       );
-      expect(wrapper).toMatchSnapshot();
+      expect(container.firstChild).toMatchSnapshot();
     });
   });
 
   describe('renderTabBar', () => {
     it('custom-tab-bar', () => {
-      const wrapper = render(
+      const { container } = render(
         <Tabs renderTabBar={() => <div>custom-tab-bar</div>}>
           <TabPane tab="foo" key="1">
             foo
           </TabPane>
         </Tabs>,
       );
-      expect(wrapper).toMatchSnapshot();
+      expect(container.firstChild).toMatchSnapshot();
     });
   });
 
   it('warning for onNextClick', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    mount(<Tabs onNextClick={() => {}} />);
+    render(<Tabs onNextClick={() => {}} />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Tabs] `onPrevClick` and `onNextClick` has been removed. Please use `onTabScroll` instead.',
     );
@@ -87,21 +88,21 @@ describe('Tabs', () => {
   });
 
   it('tabBarGutter should work', () => {
-    const wrapper = mount(
+    const { container: wrapper } = render(
       <Tabs tabBarGutter={0}>
         <TabPane />
         <TabPane />
         <TabPane />
       </Tabs>,
     );
-    expect(wrapper.render()).toMatchSnapshot();
-    const wrapper2 = mount(
+    expect(wrapper.firstChild).toMatchSnapshot();
+    const { container: wrapper2 } = render(
       <Tabs tabBarGutter={0} tabPosition="left">
         <TabPane />
         <TabPane />
         <TabPane />
       </Tabs>,
     );
-    expect(wrapper2.render()).toMatchSnapshot();
+    expect(wrapper2.firstChild).toMatchSnapshot();
   });
 });

@@ -1,6 +1,6 @@
 import React from 'react';
-import { render } from 'enzyme';
 import { LoadingOutlined } from '@ant-design/icons';
+import { render } from '../../../tests/utils';
 
 import List from '..';
 
@@ -9,20 +9,20 @@ describe('List', () => {
     const loading = {
       spinning: true,
     };
-    const wrapper = render(
+    const { container: wrapper } = render(
       <List loading={loading} dataSource={[]} renderItem={() => <List.Item />} />,
     );
-    expect(wrapper.find('.ant-list-empty-text')).toHaveLength(0);
+    expect(wrapper.querySelectorAll('.ant-list-empty-text')).toHaveLength(0);
   });
 
   it('renders object loading', () => {
     const loading = {
       spinning: true,
     };
-    const wrapper = render(
+    const { container: wrapper } = render(
       <List loading={loading} dataSource={[1]} renderItem={() => <List.Item />} />,
     );
-    expect(wrapper.find('.ant-spin-spinning')).toHaveLength(1);
+    expect(wrapper.querySelectorAll('.ant-spin-spinning')).toHaveLength(1);
   });
 
   it('renders object loading with indicator', () => {
@@ -32,9 +32,9 @@ describe('List', () => {
       spinning: true,
       indicator: antIcon,
     };
-    const wrapper = render(
+    const { container: wrapper } = render(
       <List loading={loading} dataSource={[1]} renderItem={() => <List.Item />} />,
     );
-    expect(wrapper.find('.anticon-loading')).toHaveLength(1);
+    expect(wrapper.querySelectorAll('.anticon-loading')).toHaveLength(1);
   });
 });
