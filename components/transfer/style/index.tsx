@@ -1,6 +1,5 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
-import { TinyColor } from '@ctrl/tinycolor';
 
 import {
   resetComponent,
@@ -22,7 +21,6 @@ interface TransferToken extends FullToken<'Transfer'> {
   transferHeaderHeight: number;
   transferHeaderVerticalPadding: number;
   transferItemPaddingVertical: number;
-  transferItemSelectedHoverBg: string;
 }
 
 const genTransferCustomizeStyle: GenerateStyle<TransferToken> = (
@@ -34,35 +32,33 @@ const genTransferCustomizeStyle: GenerateStyle<TransferToken> = (
   const inputCls = `${antCls}-input`;
 
   return {
-    [componentCls]: {
-      [`${componentCls}-customize-list`]: {
-        [`${componentCls}-list`]: {
-          flex: '1 1 50%',
-          width: 'auto',
-          height: 'auto',
-          minHeight: listHeight,
-        },
+    [`${componentCls}-customize-list`]: {
+      [`${componentCls}-list`]: {
+        flex: '1 1 50%',
+        width: 'auto',
+        height: 'auto',
+        minHeight: listHeight,
+      },
 
-        // =================== Hook Components ===================
-        [`${tableCls}-wrapper`]: {
-          [`${tableCls}-small`]: {
-            border: 0,
-            borderRadius: 0,
+      // =================== Hook Components ===================
+      [`${tableCls}-wrapper`]: {
+        [`${tableCls}-small`]: {
+          border: 0,
+          borderRadius: 0,
 
-            [`${tableCls}-selection-column`]: {
-              width: controlHeightLG,
-              minWidth: controlHeightLG,
-            },
-          },
-
-          [`${tableCls}-pagination${tableCls}-pagination`]: {
-            margin: `${margin}px 0 ${marginXXS}px`,
+          [`${tableCls}-selection-column`]: {
+            width: controlHeightLG,
+            minWidth: controlHeightLG,
           },
         },
 
-        [`${inputCls}[disabled]`]: {
-          backgroundColor: 'transparent',
+        [`${tableCls}-pagination${tableCls}-pagination`]: {
+          margin: `${margin}px 0 ${marginXXS}px`,
         },
+      },
+
+      [`${inputCls}[disabled]`]: {
+        backgroundColor: 'transparent',
       },
     },
   };
@@ -103,7 +99,8 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
     transferHeaderHeight,
     transferHeaderVerticalPadding,
     transferItemPaddingVertical,
-    transferItemSelectedHoverBg,
+    controlItemBgActive,
+    controlItemBgActiveHover,
     colorTextDisabled,
     listHeight,
     listWidth,
@@ -244,7 +241,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
           },
 
           [`&${componentCls}-list-content-item-checked:hover`]: {
-            backgroundColor: transferItemSelectedHoverBg,
+            backgroundColor: controlItemBgActiveHover,
           },
         },
 
@@ -255,7 +252,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
         },
 
         '&-checked': {
-          backgroundColor: token.controlItemBgActive,
+          backgroundColor: controlItemBgActive,
         },
 
         '&-disabled': {
@@ -368,7 +365,6 @@ export default genComponentStyleHook(
         (transferHeaderHeight - controlLineWidth - fontHeight) / 2,
       ),
       transferItemPaddingVertical: (transferItemHeight - fontHeight) / 2,
-      transferItemSelectedHoverBg: new TinyColor(token.controlItemBgActive).darken(2).toHexString(), // FIXME: hardcode in v4,
     });
 
     return [
