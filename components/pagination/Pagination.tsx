@@ -95,7 +95,7 @@ const Pagination: React.FC<PaginationProps> = ({
     const selectPrefixCls = getPrefixCls('select', customizeSelectPrefixCls);
     const extendedClassName = classNames(
       {
-        mini: isSmall,
+        [`${prefixCls}-mini`]: isSmall,
         [`${prefixCls}-rtl`]: direction === 'rtl',
       },
       className,
