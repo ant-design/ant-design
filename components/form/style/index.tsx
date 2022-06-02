@@ -13,7 +13,7 @@ const resetForm = (token: AliasToken): CSSObject => ({
   legend: {
     display: 'block',
     width: '100%',
-    marginBottom: 20, // FIXME: magic
+    marginBottom: token.marginLG,
     padding: 0,
     color: token.colorTextSecondary,
     fontSize: token.fontSizeLG,
@@ -212,9 +212,8 @@ const genFormItemStyle: GenerateStyle<FormToken> = token => {
           '&::after': {
             content: '":"',
             position: 'relative',
-            top: -0.5, // FIXME: magic
             marginBlock: 0,
-            marginInlineStart: 2, // FIXME: magic number
+            marginInlineStart: token.marginXXS / 2,
             marginInlineEnd: token.marginXS,
           },
 
