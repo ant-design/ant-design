@@ -230,80 +230,79 @@ describe('Table.sorter', () => {
     expect(sorter3.columnKey).toBe('name');
   });
 
-  // need to resolve Warning: An update to CSSMotion ran an effect, but was not wrapped in act(...).
+  // --- FIXME ---
   it('hover header show sorter tooltip', () => {
     // tooltip has delay
     jest.useFakeTimers();
-    const { container, rerender } = render(createTable({}));
+    const wrapper = mount(createTable({}));
     // default show sorter tooltip
-    fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters'));
+    wrapper.find('.ant-table-column-sorters').simulate('mouseenter');
     jest.runAllTimers();
-
-    expect(container.querySelectorAll('.ant-tooltip-open')).toHaveLength(1);
-    fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters'));
+    wrapper.update();
+    expect(wrapper.find('.ant-tooltip-open').length).toBeTruthy();
+    wrapper.find('.ant-table-column-sorters').simulate('mouseout');
 
     // set table props showSorterTooltip is false
-    rerender(createTable({ showSorterTooltip: false }));
+    wrapper.setProps({ showSorterTooltip: false });
     jest.runAllTimers();
-
-    expect(container.querySelectorAll('.ant-tooltip-open')).toHaveLength(0);
-
+    wrapper.update();
+    expect(wrapper.find('.ant-tooltip-open')).toHaveLength(0);
     // set table props showSorterTooltip is false, column showSorterTooltip is true
-    rerender(
-      createTable({
-        showSorterTooltip: false,
-        columns: [{ ...column, showSorterTooltip: true }],
-      }),
-    );
-    fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters'));
-
+    wrapper.setProps({
+      showSorterTooltip: false,
+      columns: [{ ...column, showSorterTooltip: true }],
+    });
+    wrapper.find('.ant-table-column-sorters').simulate('mouseenter');
     jest.runAllTimers();
-    expect(container.querySelectorAll('.ant-tooltip-open')).toHaveLength(1);
-    fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters'));
-
+    wrapper.update();
+    expect(wrapper.find('.ant-tooltip-open').length).toBeTruthy();
+    wrapper.find('.ant-table-column-sorters').simulate('mouseout');
     // set table props showSorterTooltip is true, column showSorterTooltip is false
-    rerender(
-      createTable({
-        showSorterTooltip: true,
-        columns: [{ ...column, showSorterTooltip: false }],
-      }),
-    );
+    wrapper.setProps({
+      showSorterTooltip: true,
+      columns: [{ ...column, showSorterTooltip: false }],
+    });
     jest.runAllTimers();
-    expect(container.querySelectorAll('.ant-tooltip-open')).toHaveLength(0);
+    wrapper.update();
+    expect(wrapper.find('.ant-tooltip-open')).toHaveLength(0);
   });
+  // --- END FIXME ---
 
-  // need to resolve Warning: An update to CSSMotion ran an effect, but was not wrapped in act(...).
+  // --- FIXME ---
   it('should show correct tooltip when showSorterTooltip is an object', () => {
     // basically copied from 'hover header show sorter tooltip'
     jest.useFakeTimers();
-    const { container, rerender } = render(
+    const wrapper = mount(
       createTable({ showSorterTooltip: { placement: 'bottom', title: 'static title' } }),
     );
-    fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters'));
+    wrapper.find('.ant-table-column-sorters').simulate('mouseenter');
     jest.runAllTimers();
+    wrapper.update();
+    expect(wrapper.find('.ant-tooltip-open').length).toBeTruthy();
+    wrapper.find('.ant-table-column-sorters').simulate('mouseout');
 
-    expect(container.querySelectorAll('.ant-tooltip-open')).toHaveLength(1);
-    fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters'));
-
-    rerender(createTable({ showSorterTooltip: false }));
+    wrapper.setProps({ showSorterTooltip: false });
     jest.runAllTimers();
-    expect(container.querySelectorAll('.ant-tooltip-open')).toHaveLength(0);
-
-    rerender(
-      createTable({ showSorterTooltip: false, columns: [{ ...column, showSorterTooltip: true }] }),
-    );
-    fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters'));
+    wrapper.update();
+    expect(wrapper.find('.ant-tooltip-open')).toHaveLength(0);
+    wrapper.setProps({
+      showSorterTooltip: false,
+      columns: [{ ...column, showSorterTooltip: true }],
+    });
+    wrapper.find('.ant-table-column-sorters').simulate('mouseenter');
     jest.runAllTimers();
-
-    expect(container.querySelectorAll('.ant-tooltip-open')).toHaveLength(1);
-    fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters'));
-
-    rerender(
-      createTable({ showSorterTooltip: true, columns: [{ ...column, showSorterTooltip: false }] }),
-    );
+    wrapper.update();
+    expect(wrapper.find('.ant-tooltip-open').length).toBeTruthy();
+    wrapper.find('.ant-table-column-sorters').simulate('mouseout');
+    wrapper.setProps({
+      showSorterTooltip: true,
+      columns: [{ ...column, showSorterTooltip: false }],
+    });
     jest.runAllTimers();
-    expect(container.querySelectorAll('.ant-tooltip-open')).toHaveLength(0);
+    wrapper.update();
+    expect(wrapper.find('.ant-tooltip-open')).toHaveLength(0);
   });
+  // --- END FIXME ---
 
   it('works with grouping columns in controlled mode', () => {
     const columns = [
