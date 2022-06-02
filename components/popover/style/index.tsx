@@ -1,7 +1,12 @@
 // deps-lint-skip-all
 import type { FullToken, GenerateStyle, PresetColorType } from '../../_util/theme';
-import { genComponentStyleHook, mergeToken, PresetColors, resetComponent } from '../../_util/theme';
-import getArrowStyle from './arrow';
+import {
+  genComponentStyleHook,
+  mergeToken,
+  PresetColors,
+  resetComponent,
+  getArrowStyle,
+} from '../../_util/theme';
 
 export interface ComponentToken {
   zIndexPopup: number;

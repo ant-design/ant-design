@@ -34,6 +34,7 @@ import type { ComponentToken as SpaceComponentToken } from '../../space/style';
 import type { ComponentToken as SpinComponentToken } from '../../spin/style';
 import type { ComponentToken as StepsComponentToken } from '../../steps/style';
 import type { ComponentToken as TimelineComponentToken } from '../../timeline/style';
+import type { ComponentToken as TooltipComponentToken } from '../../tooltip/style';
 import type { ComponentToken as TransferComponentToken } from '../../transfer/style';
 import type { ComponentToken as TypographyComponentToken } from '../../typography/style';
 import type { ComponentToken as UploadComponentToken } from '../../upload/style';
@@ -122,7 +123,7 @@ export interface OverrideToken {
   Modal?: ModalComponentToken;
   Message?: MessageComponentToken;
   Upload?: UploadComponentToken;
-  Tooltip?: {};
+  Tooltip?: TooltipComponentToken;
   Table?: {};
   Space?: SpaceComponentToken;
   Progress?: ProgressComponentToken;

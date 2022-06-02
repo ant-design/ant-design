@@ -203,7 +203,7 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     return overlay || title || '';
   };
 
-  const { getPopupContainer, ...otherProps } = props;
+  const { getPopupContainer, overlayStyle, ...otherProps } = props;
 
   const {
     prefixCls: customizePrefixCls,
@@ -242,6 +242,7 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-${color}`]: color && PresetColorRegex.test(color),
+      [`${prefixCls}-customize-color`]: color && !PresetColorRegex.test(color),
     },
     hashId,
   );
@@ -259,6 +260,10 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
       {...otherProps}
       prefixCls={prefixCls}
       overlayClassName={customOverlayClassName}
+      overlayStyle={{
+        ...arrowContentStyle,
+        ...overlayStyle,
+      }}
       getTooltipContainer={getPopupContainer || getTooltipContainer || getContextPopupContainer}
       ref={ref}
       builtinPlacements={getTooltipPlacements()}
@@ -267,7 +272,7 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
       onVisibleChange={onVisibleChange}
       onPopupAlign={onPopupAlign}
       overlayInnerStyle={formattedOverlayInnerStyle}
-      arrowContent={<span className={`${prefixCls}-arrow-content`} style={arrowContentStyle} />}
+      arrowContent={<span className={`${prefixCls}-arrow-content`} />}
       motion={{
         motionName: getTransitionName(rootPrefixCls, 'zoom-big-fast', props.transitionName),
         motionDeadline: 1000,

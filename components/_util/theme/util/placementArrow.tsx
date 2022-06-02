@@ -1,7 +1,7 @@
 import type { CSSInterpolation } from '@ant-design/cssinjs';
-import type { AliasToken } from '../../_util/theme';
-import { roundedArrow } from '../../_util/theme';
-import type { TokenWithCommonCls } from '../../_util/theme/util/genComponentStyleHook';
+import type { AliasToken } from '../interface';
+import type { TokenWithCommonCls } from './genComponentStyleHook';
+import { roundedArrow } from './roundedArrow';
 
 function connectArrowCls(classList: string[], showArrowCls: string = '') {
   return classList.map(cls => `${showArrowCls}${cls}`).join(',');
@@ -19,6 +19,13 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
 
   return {
     [componentCls]: {
+      [`&:not(${componentCls}-customize-color)`]: {
+        [`${componentCls}-arrow`]: {
+          // Use linear-gradient to prevent arrow from covering text
+          background: `linear-gradient(135deg, transparent 49%, ${colorBg} 50%)`,
+        },
+      },
+
       // ============================ Basic ============================
       [`${componentCls}-arrow`]: {
         position: 'absolute',
@@ -26,10 +33,17 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
         display: 'block',
         width: sizePopupArrow,
         height: sizePopupArrow,
-        // Use linear-gradient to prevent arrow from covering text
-        background: `linear-gradient(135deg, transparent 40%, ${colorBg} 40%)`,
 
         ...roundedArrow(sizePopupArrow, 5, colorBg),
+
+        '&:before': [
+          {
+            background: 'transparent',
+          },
+          {
+            background: 'var(--antd-arrow-background-color)',
+          },
+        ],
       },
 
       // ========================== Placement ==========================
