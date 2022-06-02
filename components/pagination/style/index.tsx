@@ -1,14 +1,14 @@
 // deps-lint-skip-all
-import { TinyColor } from '@ctrl/tinycolor';
 import type { CSSObject } from '@ant-design/cssinjs';
+import { TinyColor } from '@ctrl/tinycolor';
 import {
-  initInputToken,
   genBasicInputStyle,
   genInputSmallStyle,
+  initInputToken,
   type InputToken,
 } from '../../input/style';
-import { resetComponent, genComponentStyleHook, mergeToken } from '../../_util/theme';
-import type { GenerateStyle, FullToken } from '../../_util/theme';
+import type { FullToken, GenerateStyle } from '../../_util/theme';
+import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
 
 interface PaginationToken extends InputToken<FullToken<'Pagination'>> {
   paginationItemSize: number;
@@ -105,24 +105,24 @@ const genPaginationMiniStyle: GenerateStyle<PaginationToken, CSSObject> = token 
   const { componentCls } = token;
 
   return {
-    [`&.mini ${componentCls}-total-text, &.mini ${componentCls}-simple-pager`]: {
+    [`&&-mini ${componentCls}-total-text, &&-mini ${componentCls}-simple-pager`]: {
       height: token.paginationItemSizeSM,
       lineHeight: `${token.paginationItemSizeSM}px`,
     },
 
-    [`&.mini ${componentCls}-item`]: {
+    [`&&-mini ${componentCls}-item`]: {
       minWidth: token.paginationItemSizeSM,
       height: token.paginationItemSizeSM,
       margin: 0,
       lineHeight: `${token.paginationItemSizeSM - 2}px`,
     },
 
-    [`&.mini ${componentCls}-item:not(${componentCls}-item-active)`]: {
+    [`&&-mini ${componentCls}-item:not(${componentCls}-item-active)`]: {
       background: 'transparent',
       borderColor: 'transparent',
     },
 
-    [`&.mini ${componentCls}-prev, &.mini ${componentCls}-next`]: {
+    [`&&-mini ${componentCls}-prev, &&-mini ${componentCls}-next`]: {
       minWidth: token.paginationItemSizeSM,
       height: token.paginationItemSizeSM,
       margin: 0,
@@ -130,8 +130,8 @@ const genPaginationMiniStyle: GenerateStyle<PaginationToken, CSSObject> = token 
     },
 
     [`
-    &.mini ${componentCls}-prev ${componentCls}-item-link,
-    &.mini ${componentCls}-next ${componentCls}-item-link
+    &&-mini ${componentCls}-prev ${componentCls}-item-link,
+    &&-mini ${componentCls}-next ${componentCls}-item-link
     `]: {
       background: 'transparent',
       borderColor: 'transparent',
@@ -142,13 +142,13 @@ const genPaginationMiniStyle: GenerateStyle<PaginationToken, CSSObject> = token 
       },
     },
 
-    [`&.mini ${componentCls}-jump-prev, &.mini ${componentCls}-jump-next`]: {
+    [`&&-mini ${componentCls}-jump-prev, &&-mini ${componentCls}-jump-next`]: {
       height: token.paginationItemSizeSM,
       marginInlineEnd: 0,
       lineHeight: `${token.paginationItemSizeSM}px`,
     },
 
-    [`&.mini ${componentCls}-options`]: {
+    [`&&-mini ${componentCls}-options`]: {
       // FIXME
       marginInlineStart: 2,
 

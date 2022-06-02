@@ -1,8 +1,8 @@
 /* eslint-disable import/first */
 jest.mock('../../_util/scrollTo');
 
-import React from 'react';
 import { mount } from 'enzyme';
+import React from 'react';
 import Table from '..';
 import scrollTo from '../../_util/scrollTo';
 import { resetWarned } from '../../_util/warning';
@@ -110,7 +110,7 @@ describe('Table.pagination', () => {
         pagination: { size: 'small' },
       }),
     );
-    expect(wrapper.find('.ant-pagination.mini')).toHaveLength(1);
+    expect(wrapper.find('.ant-pagination.ant-pagination-mini')).toHaveLength(1);
   });
 
   it('should scroll to first row when page change', () => {
