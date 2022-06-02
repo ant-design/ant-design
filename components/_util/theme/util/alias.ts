@@ -96,6 +96,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     controlItemBgActive: primaryColors[0],
     controlItemBgActiveHover: new TinyColor(primaryColors[0]).darken(2).toRgbString(),
     fontWeightStrong: 600,
+    colorBgContainerWeak: new TinyColor('#000').setAlpha(0.75).toRgbString(),
 
     // 🔥🔥🔥🔥🔥🔥🔥🔥🔥 All TMP Token leaves here 🔥🔥🔥🔥🔥🔥🔥🔥🔥
     // FIXME: Handle this when derivative is ready

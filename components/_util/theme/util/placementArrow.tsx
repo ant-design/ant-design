@@ -11,6 +11,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
   token: Token,
   colorBg: string,
   showArrowCls?: string,
+  linearGradient: boolean = true,
 ): CSSInterpolation {
   const { componentCls, sizePopupArrow, marginXXS } = token;
 
@@ -19,32 +20,28 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
 
   return {
     [componentCls]: {
-      [`&:not(${componentCls}-customize-color)`]: {
-        [`${componentCls}-arrow`]: {
-          // Use linear-gradient to prevent arrow from covering text
-          background: `linear-gradient(135deg, transparent 49%, ${colorBg} 50%)`,
-        },
-      },
-
       // ============================ Basic ============================
-      [`${componentCls}-arrow`]: {
-        position: 'absolute',
-        zIndex: 1, // lift it up so the menu wouldn't cask shadow on it
-        display: 'block',
-        width: sizePopupArrow,
-        height: sizePopupArrow,
+      [`${componentCls}-arrow`]: [
+        linearGradient
+          ? {
+              // Use linear-gradient to prevent arrow from covering text
+              background: `linear-gradient(135deg, transparent 49%, ${colorBg} 50%)`,
+            }
+          : {},
+        {
+          position: 'absolute',
+          zIndex: 1, // lift it up so the menu wouldn't cask shadow on it
+          display: 'block',
+          width: sizePopupArrow,
+          height: sizePopupArrow,
 
-        ...roundedArrow(sizePopupArrow, 5, colorBg),
+          ...roundedArrow(sizePopupArrow, 5, colorBg),
 
-        '&:before': [
-          {
-            background: 'transparent',
+          '&:before': {
+            background: colorBg,
           },
-          {
-            background: 'var(--antd-arrow-background-color)',
-          },
-        ],
-      },
+        },
+      ],
 
       // ========================== Placement ==========================
       // Here handle the arrow position and rotate stuff

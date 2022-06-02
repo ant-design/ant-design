@@ -1,6 +1,5 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
-import { TinyColor } from '@ctrl/tinycolor';
 import type {
   FullToken,
   GenerateStyle,
@@ -38,6 +37,8 @@ const generatorTooltipPresetColor: GenerateStyle<TooltipToken, CSSObject> = toke
       },
       [`${componentCls}-arrow`]: {
         background: lightColor,
+
+        '--antd-arrow-background-color': lightColor,
       },
     };
     return previousValue;
@@ -72,6 +73,8 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = token => {
           display: 'none',
         },
 
+        '--antd-arrow-background-color': tooltipBg,
+
         // Wrapper for the tooltip content
         [`${componentCls}-inner`]: {
           minWidth: controlHeight,
@@ -101,7 +104,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = token => {
     },
 
     // Arrow Style
-    getArrowStyle(token, tooltipBg),
+    getArrowStyle(token, 'var(--antd-arrow-background-color)', '', false),
   ];
 };
 
@@ -115,9 +118,9 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         return [];
       }
 
-      const { radiusBase, colorTextLightSolid } = token;
+      const { radiusBase, colorTextLightSolid, colorBgContainerWeak } = token;
 
-      const tooltipBg = new TinyColor('#000').setAlpha(0.75).toRgbString(); // FIXME: hardcode in v4
+      const tooltipBg = colorBgContainerWeak;
 
       const TooltipToken = mergeToken<TooltipToken>(token, {
         // default variables

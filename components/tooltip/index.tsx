@@ -242,7 +242,6 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-${color}`]: color && PresetColorRegex.test(color),
-      [`${prefixCls}-customize-color`]: color && !PresetColorRegex.test(color),
     },
     hashId,
   );
