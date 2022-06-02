@@ -67,8 +67,28 @@ export interface TableToken extends FullToken<'Table'> {
 }
 
 const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
-  const { componentCls, fontWeightStrong, tablePaddingVertical, tablePaddingHorizontal } = token;
-  const tableBorder = `${token.controlLineWidth}px ${token.controlLineType} ${token.tableBorderColor}`;
+  const {
+    componentCls,
+    fontWeightStrong,
+    tablePaddingVertical,
+    tablePaddingHorizontal,
+    controlLineWidth,
+    controlLineType,
+    tableBorderColor,
+    tableFontSize,
+    tableBg,
+    tableRadius,
+    tableHeaderTextColor,
+    motionDurationSlow,
+    tableHeaderBg,
+    tableHeaderCellSplitColor,
+    tableRowHoverBg,
+    tableSelectedRowBg,
+    tableSelectedRowHoverBg,
+    tableFooterTextColor,
+    tableFooterBg,
+  } = token;
+  const tableBorder = `${controlLineWidth}px ${controlLineType} ${tableBorderColor}`;
   return {
     [`${componentCls}-wrapper`]: {
       clear: 'both',
@@ -77,15 +97,15 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
 
       [componentCls]: {
         ...resetComponent(token),
-        fontSize: token.tableFontSize,
-        background: token.tableBg,
-        borderRadius: token.tableRadius,
+        fontSize: tableFontSize,
+        background: tableBg,
+        borderRadius: tableRadius,
       },
       // https://github.com/ant-design/ant-design/issues/17611
       table: {
         width: '100%',
         textAlign: 'start',
-        borderRadius: `${token.tableRadius}px ${token.tableRadius}px 0 0`,
+        borderRadius: `${tableRadius}px ${tableRadius}px 0 0`,
         borderCollapse: 'separate',
         borderSpacing: 0,
       },
@@ -111,12 +131,12 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
       [`${componentCls}-thead`]: {
         '> tr > th': {
           position: 'relative',
-          color: token.tableHeaderTextColor,
+          color: tableHeaderTextColor,
           fontWeight: fontWeightStrong,
           textAlign: 'start',
-          background: token.tableHeaderBg,
+          background: tableHeaderBg,
           borderBottom: tableBorder,
-          transition: `background ${token.motionDurationSlow} ease`,
+          transition: `background ${motionDurationSlow} ease`,
 
           "&[colspan]:not([colspan='1'])": {
             textAlign: 'center',
@@ -129,9 +149,9 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
               insetInlineEnd: 0,
               width: 1,
               height: '1.6em',
-              backgroundColor: token.tableHeaderCellSplitColor,
+              backgroundColor: tableHeaderCellSplitColor,
               transform: 'translateY(-50%)',
-              transition: `background-color ${token.motionDurationSlow}`,
+              transition: `background-color ${motionDurationSlow}`,
               content: '""',
             },
         },
@@ -146,7 +166,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
         '> tr': {
           '> td': {
             borderBottom: tableBorder,
-            transition: `background ${token.motionDurationSlow}`,
+            transition: `background ${motionDurationSlow}`,
 
             // ========================= Nest Table ===========================
             [`
@@ -155,9 +175,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
             `]: {
               [componentCls]: {
                 marginBlock: `-${tablePaddingVertical}px`,
-                marginInline: `${
-                  tablePaddingHorizontal + Math.ceil(token.fontSizeSM * 1.4)
-                }px -${tablePaddingHorizontal}px`,
+                marginInline: `${tablePaddingHorizontal * 2}px -${tablePaddingHorizontal}px`,
                 [`${componentCls}-tbody > tr:last-child > td`]: {
                   borderBottom: 0,
                   '&:first-child, &:last-child': {
@@ -172,16 +190,16 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
             &${componentCls}-row:hover > td,
             > td${componentCls}-cell-row-hover
           `]: {
-            background: token.tableRowHoverBg,
+            background: tableRowHoverBg,
           },
 
           [`&${componentCls}-row-selected`]: {
             '> td': {
-              background: token.tableSelectedRowBg,
+              background: tableSelectedRowBg,
             },
 
             '&:hover > td': {
-              background: token.tableSelectedRowHoverBg,
+              background: tableSelectedRowHoverBg,
             },
           },
         },
@@ -190,8 +208,8 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
       // ============================ Footer ============================
       [`${componentCls}-footer`]: {
         padding: `${tablePaddingVertical}px ${tablePaddingHorizontal}px`,
-        color: token.tableFooterTextColor,
-        background: token.tableFooterBg,
+        color: tableFooterTextColor,
+        background: tableFooterBg,
       },
     },
   };
@@ -216,6 +234,7 @@ export default genComponentStyleHook('Table', token => {
     colorLoadingOpacity,
     colorBgComponent,
     colorBgContainer,
+    radiusBase,
   } = token;
 
   const baseColorAction = new TinyColor(colorAction);
@@ -227,7 +246,7 @@ export default genComponentStyleHook('Table', token => {
   const tableToken = mergeToken<TableToken>(token, {
     tableFontSize: fontSize,
     tableBg: colorBgComponent,
-    tableRadius: token.radiusBase,
+    tableRadius: radiusBase,
 
     tablePaddingVertical: padding,
     tablePaddingHorizontal: padding,

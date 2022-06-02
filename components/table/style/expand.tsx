@@ -8,14 +8,23 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = token => {
     componentCls,
     antCls,
     controlInteractiveSize: checkboxSize,
+    motionDurationSlow,
     controlLineWidth,
     padding,
     paddingXXS,
+    paddingXS,
+    controlLineType,
+    tableBorderColor,
+    tableExpandIconBg,
+    radiusBase,
+    tablePaddingVertical,
+    tablePaddingHorizontal,
+    tableExpandedRowBg,
   } = token;
   const halfInnerSize = checkboxSize / 2 - controlLineWidth;
-  // must be odd number, unless it cannot align centerly
+  // must be odd number, unless it cannot align center
   const expandIconSize = halfInnerSize * 2 + controlLineWidth * 3;
-  const tableBorder = `${controlLineWidth}px ${token.controlLineType} ${token.tableBorderColor}`;
+  const tableBorder = `${controlLineWidth}px ${controlLineType} ${tableBorderColor}`;
   const expandIconLineOffset = paddingXXS - controlLineWidth;
 
   return {
@@ -43,12 +52,12 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = token => {
         padding: 0,
         color: 'inherit',
         lineHeight: `${expandIconSize}px`,
-        background: token.tableExpandIconBg,
+        background: tableExpandIconBg,
         border: tableBorder,
-        borderRadius: token.radiusBase,
+        borderRadius: radiusBase,
         outline: 'none',
         transform: `scale(${checkboxSize / expandIconSize})`,
-        transition: `all ${token.motionDurationSlow}`,
+        transition: `all ${motionDurationSlow}`,
         userSelect: 'none',
 
         [`&:focus, &:hover, &:active`]: {
@@ -58,7 +67,7 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = token => {
         [`&::before, &::after`]: {
           position: 'absolute',
           background: 'currentcolor',
-          transition: `transform ${token.motionDurationSlow} ease-out`,
+          transition: `transform ${motionDurationSlow} ease-out`,
           content: '""',
         },
 
@@ -98,13 +107,13 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = token => {
       },
 
       [`${componentCls}-row-indent + ${componentCls}-row-expand-icon`]: {
-        marginInlineEnd: token.paddingXS,
+        marginInlineEnd: paddingXS,
       },
 
       [`tr${componentCls}-expanded-row`]: {
         '&, &:hover': {
           '> td': {
-            background: token.tableExpandedRowBg,
+            background: tableExpandedRowBg,
           },
         },
 
@@ -122,8 +131,8 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = token => {
       // With fixed
       [`${componentCls}-expanded-row-fixed`]: {
         position: 'relative',
-        margin: `-${token.tablePaddingVertical}px -${token.tablePaddingHorizontal}px`,
-        padding: `${token.tablePaddingVertical}px ${token.tablePaddingHorizontal}px`,
+        margin: `-${tablePaddingVertical}px -${tablePaddingHorizontal}px`,
+        padding: `${tablePaddingVertical}px ${tablePaddingHorizontal}px`,
       },
     },
   };

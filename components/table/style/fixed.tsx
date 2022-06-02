@@ -3,7 +3,8 @@ import type { GenerateStyle } from '../../_util/theme';
 import type { TableToken } from './index';
 
 const genFixedStyle: GenerateStyle<TableToken, CSSObject> = token => {
-  const { componentCls, lineWidth, colorSplit } = token;
+  const { componentCls, lineWidth, colorSplit, motionDurationSlow, zIndexTableFixed, tableBg } =
+    token;
 
   const shadowColor = colorSplit;
 
@@ -15,8 +16,8 @@ const genFixedStyle: GenerateStyle<TableToken, CSSObject> = token => {
         ${componentCls}-cell-fix-right
       `]: {
         position: 'sticky !important' as 'sticky',
-        zIndex: token.zIndexTableFixed,
-        background: token.tableBg,
+        zIndex: zIndexTableFixed,
+        background: tableBg,
       },
 
       [`
@@ -32,7 +33,7 @@ const genFixedStyle: GenerateStyle<TableToken, CSSObject> = token => {
         bottom: -lineWidth,
         width: 30,
         transform: 'translateX(100%)',
-        transition: `box-shadow ${token.motionDurationSlow}`,
+        transition: `box-shadow ${motionDurationSlow}`,
         content: '""',
         pointerEvents: 'none',
       },
@@ -50,7 +51,7 @@ const genFixedStyle: GenerateStyle<TableToken, CSSObject> = token => {
         },
         width: 30,
         transform: 'translateX(-100%)',
-        transition: `box-shadow ${token.motionDurationSlow}`,
+        transition: `box-shadow ${motionDurationSlow}`,
         content: '""',
         pointerEvents: 'none',
       },
@@ -62,7 +63,7 @@ const genFixedStyle: GenerateStyle<TableToken, CSSObject> = token => {
           bottom: 0,
           zIndex: 1,
           width: 30,
-          transition: `box-shadow ${token.motionDurationSlow}`,
+          transition: `box-shadow ${motionDurationSlow}`,
           content: '""',
           pointerEvents: 'none',
         },

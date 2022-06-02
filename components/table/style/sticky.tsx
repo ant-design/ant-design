@@ -10,6 +10,7 @@ const genStickyStyle: GenerateStyle<TableToken, CSSObject> = token => {
     tableScrollThumbBgHover,
     tableScrollThumbSize,
     tableScrollBg,
+    zIndexTableSticky,
   } = token;
   const tableBorder = `${token.controlLineWidth}px ${token.controlLineType} ${token.tableBorderColor}`;
   return {
@@ -17,7 +18,7 @@ const genStickyStyle: GenerateStyle<TableToken, CSSObject> = token => {
       [`${componentCls}-sticky`]: {
         '&-holder': {
           position: 'sticky',
-          zIndex: token.zIndexTableSticky,
+          zIndex: zIndexTableSticky,
           background: token.colorBgComponent,
         },
 
@@ -25,7 +26,7 @@ const genStickyStyle: GenerateStyle<TableToken, CSSObject> = token => {
           position: 'sticky',
           bottom: 0,
           height: `${tableScrollThumbSize}px !important`,
-          zIndex: token.zIndexTableSticky,
+          zIndex: zIndexTableSticky,
           display: 'flex',
           alignItems: 'center',
           background: tableScrollBg,
