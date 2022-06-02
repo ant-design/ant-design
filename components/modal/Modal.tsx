@@ -3,12 +3,12 @@ import classNames from 'classnames';
 import Dialog from 'rc-dialog';
 import * as React from 'react';
 
-import { NoFormStatus } from 'antd/es/form/context';
 import Button from '../button';
 import type { ButtonProps, LegacyButtonType } from '../button/button';
 import { convertLegacyProps } from '../button/button';
 import type { DirectionType } from '../config-provider';
 import { ConfigContext } from '../config-provider';
+import { NoFormStatus } from '../form/context';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { getTransitionName } from '../_util/motion';
 import { canUseDocElement } from '../_util/styleChecker';
