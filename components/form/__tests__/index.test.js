@@ -21,7 +21,9 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, sleep } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import Drawer from '../../drawer';
 import zhCN from '../../locale/zh_CN';
+import Modal from '../../modal';
 
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
@@ -1230,10 +1232,38 @@ describe('Form', () => {
             <Select className="custom-select-b" />
           </Form.Item>
         </Form.Item>
+        <Form.Item validateStatus="error">
+          <Form.Item noStyle validateStatus="warning">
+            <Select className="custom-select-c" />
+          </Form.Item>
+        </Form.Item>
       </Form>
     );
     const { container } = render(<Demo />);
     expect(container.querySelector('.custom-select')?.className).toContain('status-error');
     expect(container.querySelector('.custom-select-b')?.className).toContain('status-error');
+    expect(container.querySelector('.custom-select-c')?.className).toContain('status-warning');
+  });
+
+  it('should not affect Modal children style', () => {
+    const Demo = () => (
+      <Form>
+        <Form.Item validateStatus="error">
+          <Modal visible>
+            <Select className="modal-select" />
+          </Modal>
+        </Form.Item>
+        <Form.Item validateStatus="error">
+          <Drawer visible>
+            <Select className="drawer-select" />
+          </Drawer>
+        </Form.Item>
+      </Form>
+    );
+    const { container } = render(<Demo />, { container: document.body });
+    expect(container.querySelector('.modal-select')?.className).not.toContain('in-form-item');
+    expect(container.querySelector('.modal-select')?.className).not.toContain('status-error');
+    expect(container.querySelector('.drawer-select')?.className).not.toContain('in-form-item');
+    expect(container.querySelector('.drawer-select')?.className).not.toContain('status-error');
   });
 });

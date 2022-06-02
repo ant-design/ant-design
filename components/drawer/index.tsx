@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import RcDrawer from 'rc-drawer';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
+import { NoFormStatus } from '../form/context';
 import { tuple } from '../_util/type';
 
 type DrawerRef = {
@@ -292,37 +293,39 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
 
     return (
       <DrawerContext.Provider value={operations}>
-        <RcDrawer
-          handler={false}
-          {...{
-            placement,
-            prefixCls,
-            maskClosable,
-            level,
-            keyboard,
-            children,
-            onClose,
-            forceRender,
-            ...rest,
-          }}
-          {...offsetStyle}
-          open={visible || propsVisible}
-          showMask={mask}
-          style={getRcDrawerStyle()}
-          className={drawerClassName}
-          getContainer={getContainer}
-          afterVisibleChange={open => {
-            if (open) {
-              destroyCloseRef.current = false;
-            } else if (destroyOnClose) {
-              destroyCloseRef.current = true;
-              setLoad(false);
-            }
-            afterVisibleChange?.(open);
-          }}
-        >
-          {renderBody()}
-        </RcDrawer>
+        <NoFormStatus>
+          <RcDrawer
+            handler={false}
+            {...{
+              placement,
+              prefixCls,
+              maskClosable,
+              level,
+              keyboard,
+              children,
+              onClose,
+              forceRender,
+              ...rest,
+            }}
+            {...offsetStyle}
+            open={visible || propsVisible}
+            showMask={mask}
+            style={getRcDrawerStyle()}
+            className={drawerClassName}
+            getContainer={getContainer}
+            afterVisibleChange={open => {
+              if (open) {
+                destroyCloseRef.current = false;
+              } else if (destroyOnClose) {
+                destroyCloseRef.current = true;
+                setLoad(false);
+              }
+              afterVisibleChange?.(open);
+            }}
+          >
+            {renderBody()}
+          </RcDrawer>
+        </NoFormStatus>
       </DrawerContext.Provider>
     );
   },
