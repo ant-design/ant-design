@@ -33,6 +33,7 @@ import type { ComponentToken as SpaceComponentToken } from '../../space/style';
 import type { ComponentToken as SpinComponentToken } from '../../spin/style';
 import type { ComponentToken as StepsComponentToken } from '../../steps/style';
 import type { ComponentToken as TimelineComponentToken } from '../../timeline/style';
+import type { ComponentToken as TransferComponentToken } from '../../Transfer/style';
 import type { ComponentToken as TypographyComponentToken } from '../../typography/style';
 import type { ComponentToken as UploadComponentToken } from '../../upload/style';
 
@@ -111,6 +112,7 @@ export interface OverrideToken {
   TreeSelect?: {};
   Typography?: TypographyComponentToken;
   Timeline?: TimelineComponentToken;
+  Transfer?: TransferComponentToken;
   Tabs?: {};
   Calendar?: CalendarComponentToken;
   Card?: {};
@@ -123,7 +125,6 @@ export interface OverrideToken {
   Table?: {};
   Space?: SpaceComponentToken;
   Progress?: ProgressComponentToken;
-  Transfer?: {};
 }
 
 /** Final token which contains the components level override */
