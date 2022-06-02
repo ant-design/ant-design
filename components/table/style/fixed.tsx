@@ -1,12 +1,14 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import { TinyColor } from '@ctrl/tinycolor';
 import type { GenerateStyle } from '../../_util/theme';
 import type { TableToken } from './index';
 
 const genFixedStyle: GenerateStyle<TableToken, CSSObject> = token => {
-  const { componentCls } = token;
-  // FIXME
-  const shadowColor = new TinyColor('rgba(0, 0, 0, 0.15)').darken(5).toRgbString();
+  const { componentCls, lineWidth, colorSplit, motionDurationSlow, zIndexTableFixed, tableBg } =
+    token;
+
+  const shadowColor = colorSplit;
+
+  // Follow style is magic of shadow which should not follow token:
   return {
     [`${componentCls}-wrapper`]: {
       [`
@@ -14,8 +16,8 @@ const genFixedStyle: GenerateStyle<TableToken, CSSObject> = token => {
         ${componentCls}-cell-fix-right
       `]: {
         position: 'sticky !important' as 'sticky',
-        zIndex: token.zIndexTableFixed,
-        background: token.tableBg,
+        zIndex: zIndexTableFixed,
+        background: tableBg,
       },
 
       [`
@@ -28,10 +30,10 @@ const genFixedStyle: GenerateStyle<TableToken, CSSObject> = token => {
           _skip_check_: true,
           value: 0,
         },
-        bottom: -1,
+        bottom: -lineWidth,
         width: 30,
         transform: 'translateX(100%)',
-        transition: `box-shadow ${token.motionDurationSlow}`,
+        transition: `box-shadow ${motionDurationSlow}`,
         content: '""',
         pointerEvents: 'none',
       },
@@ -42,14 +44,14 @@ const genFixedStyle: GenerateStyle<TableToken, CSSObject> = token => {
       `]: {
         position: 'absolute',
         top: 0,
-        bottom: -1,
+        bottom: -lineWidth,
         left: {
           _skip_check_: true,
           value: 0,
         },
         width: 30,
         transform: 'translateX(-100%)',
-        transition: `box-shadow ${token.motionDurationSlow}`,
+        transition: `box-shadow ${motionDurationSlow}`,
         content: '""',
         pointerEvents: 'none',
       },
@@ -61,7 +63,7 @@ const genFixedStyle: GenerateStyle<TableToken, CSSObject> = token => {
           bottom: 0,
           zIndex: 1,
           width: 30,
-          transition: `box-shadow ${token.motionDurationSlow}`,
+          transition: `box-shadow ${motionDurationSlow}`,
           content: '""',
           pointerEvents: 'none',
         },

@@ -1,19 +1,19 @@
 // @import '../../style/themes/index';
 // @import '../../style/mixins/index';
 // @import '../../input/style/mixin';
-
+//
 // @pagination-prefix-cls: ~'@{ant-prefix}-pagination';
-
+//
 // .@{pagination-prefix-cls} {
 //   .reset-component();
-
+//
 //   ul,
 //   ol {
 //     margin: 0;
 //     padding: 0;
 //     list-style: none;
 //   }
-
+//
 //   &::after {
 //     display: block;
 //     clear: both;
@@ -22,7 +22,7 @@
 //     visibility: hidden;
 //     content: ' ';
 //   }
-
+//
 //   &-total-text {
 //     display: inline-block;
 //     height: @pagination-item-size;
@@ -30,7 +30,7 @@
 //     line-height: @pagination-item-size - 2px;
 //     vertical-align: middle;
 //   }
-
+//
 //   &-item {
 //     display: inline-block;
 //     min-width: @pagination-item-size;
@@ -47,78 +47,78 @@
 //     outline: 0;
 //     cursor: pointer;
 //     user-select: none;
-
+//
 //     a {
 //       display: block;
 //       padding: 0 6px;
 //       color: @text-color;
 //       transition: none;
-
+//
 //       &:hover {
 //         text-decoration: none;
 //       }
 //     }
-
+//
 //     &:hover {
 //       border-color: @primary-color;
 //       transition: all 0.3s;
-
+//
 //       a {
 //         color: @primary-color;
 //       }
 //     }
-
+//
 //     // cannot merge with `&:hover`
 //     // see https://github.com/ant-design/ant-design/pull/34002
 //     &:focus-visible {
 //       border-color: @primary-color;
 //       transition: all 0.3s;
-
+//
 //       a {
 //         color: @primary-color;
 //       }
 //     }
-
+//
 //     &-active {
 //       font-weight: @pagination-font-weight-active;
 //       background: @pagination-item-bg-active;
 //       border-color: @primary-color;
-
+//
 //       a {
 //         color: @primary-color;
 //       }
-
+//
 //       &:hover {
 //         border-color: @primary-5;
 //       }
-
+//
 //       &:focus-visible {
 //         border-color: @primary-5;
 //       }
-
+//
 //       &:hover a {
 //         color: @primary-5;
 //       }
-
+//
 //       &:focus-visible a {
 //         color: @primary-5;
 //       }
 //     }
 //   }
-
+//
 //   &-jump-prev,
 //   &-jump-next {
 //     outline: 0;
 //     .@{pagination-prefix-cls}-item-container {
 //       position: relative;
-
+//
 //       .@{pagination-prefix-cls}-item-link-icon {
 //         color: @primary-color;
 //         font-size: @font-size-sm;
 //         letter-spacing: -1px;
 //         opacity: 0;
 //         transition: all 0.2s;
-
+//
 //         &-svg {
 //           top: 0;
 //           right: 0;
@@ -127,7 +127,7 @@
 //           margin: auto;
 //         }
 //       }
-
+//
 //       .@{pagination-prefix-cls}-item-ellipsis {
 //         position: absolute;
 //         top: 0;
@@ -145,7 +145,7 @@
 //         transition: all 0.2s;
 //       }
 //     }
-
+//
 //     &:hover {
 //       .@{pagination-prefix-cls}-item-link-icon {
 //         opacity: 1;
@@ -154,7 +154,7 @@
 //         opacity: 0;
 //       }
 //     }
-
+//
 //     &:focus-visible {
 //       .@{pagination-prefix-cls}-item-link-icon {
 //         opacity: 1;
@@ -164,13 +164,13 @@
 //       }
 //     }
 //   }
-
+//
 //   &-prev,
 //   &-jump-prev,
 //   &-jump-next {
 //     margin-right: 8px;
 //   }
-
+//
 //   &-prev,
 //   &-next,
 //   &-jump-prev,
@@ -188,22 +188,22 @@
 //     cursor: pointer;
 //     transition: all 0.3s;
 //   }
-
+//
 //   &-prev,
 //   &-next {
 //     font-family: Arial, Helvetica, sans-serif;
 //     outline: 0;
-
+//
 //     button {
 //       color: @text-color;
 //       cursor: pointer;
 //       user-select: none;
 //     }
-
+//
 //     &:hover button {
 //       border-color: @primary-5;
 //     }
-
+//
 //     .@{pagination-prefix-cls}-item-link {
 //       display: block;
 //       width: 100%;
@@ -217,18 +217,18 @@
 //       outline: none;
 //       transition: all 0.3s;
 //     }
-
+//
 //     &:focus-visible .@{pagination-prefix-cls}-item-link {
 //       color: @primary-color;
 //       border-color: @primary-color;
 //     }
-
+//
 //     &:hover .@{pagination-prefix-cls}-item-link {
 //       color: @primary-color;
 //       border-color: @primary-color;
 //     }
 //   }
-
+//
 //   &-disabled {
 //     &,
 //     &:hover {
@@ -239,7 +239,7 @@
 //         cursor: not-allowed;
 //       }
 //     }
-
+//
 //     &:focus-visible {
 //       cursor: not-allowed;
 //       .@{pagination-prefix-cls}-item-link {
@@ -249,16 +249,16 @@
 //       }
 //     }
 //   }
-
+//
 //   &-slash {
 //     margin: 0 10px 0 5px;
 //   }
-
+//
 //   &-options {
 //     display: inline-block;
 //     margin-left: 16px;
 //     vertical-align: middle;
-
+//
 //     // IE11 css hack. `*::-ms-backdrop,` is a must have
 //     @media all and (-ms-high-contrast: none) {
 //       *::-ms-backdrop,
@@ -266,29 +266,29 @@
 //         vertical-align: top;
 //       }
 //     }
-
+//
 //     &-size-changer.@{ant-prefix}-select {
 //       display: inline-block;
 //       width: auto;
 //     }
-
+//
 //     &-quick-jumper {
 //       display: inline-block;
 //       height: @input-height-base;
 //       margin-left: @margin-xs;
 //       line-height: @input-height-base;
 //       vertical-align: top;
-
+//
 //       input {
 //         .input();
-
+//
 //         width: 50px;
 //         height: @input-height-base;
 //         margin: 0 8px;
 //       }
 //     }
 //   }
-
+//
 //   &-simple &-prev,
 //   &-simple &-next {
 //     height: @pagination-item-size-sm;
@@ -298,19 +298,19 @@
 //       height: @pagination-item-size-sm;
 //       background-color: transparent;
 //       border: 0;
-
+//
 //       &::after {
 //         height: @pagination-item-size-sm;
 //         line-height: @pagination-item-size-sm;
 //       }
 //     }
 //   }
-
+//
 //   &-simple &-simple-pager {
 //     display: inline-block;
 //     height: @pagination-item-size-sm;
 //     margin-right: 8px;
-
+//
 //     input {
 //       box-sizing: border-box;
 //       height: 100%;
@@ -322,16 +322,16 @@
 //       border-radius: @border-radius-base;
 //       outline: none;
 //       transition: border-color 0.3s;
-
+//
 //       &:hover {
 //         border-color: @primary-color;
 //       }
-
+//
 //       &:focus {
 //         border-color: @primary-color-hover;
 //         box-shadow: @input-outline-offset @outline-blur-size @outline-width @primary-color-outline;
 //       }
-
+//
 //       &[disabled] {
 //         color: @disabled-color;
 //         background: @disabled-bg;
@@ -340,96 +340,96 @@
 //       }
 //     }
 //   }
-
-//   &.mini &-total-text,
-//   &.mini &-simple-pager {
+//
+//   &&-mini &-total-text,
+//   &&-mini &-simple-pager {
 //     height: @pagination-item-size-sm;
 //     line-height: @pagination-item-size-sm;
 //   }
-
-//   &.mini &-item {
+//
+//   &&-mini &-item {
 //     min-width: @pagination-item-size-sm;
 //     height: @pagination-item-size-sm;
 //     margin: 0;
 //     line-height: @pagination-item-size-sm - 2px;
 //   }
-
-//   &.mini &-item:not(&-item-active) {
+//
+//   &&-mini &-item:not(&-item-active) {
 //     background: transparent;
 //     border-color: transparent;
 //   }
-
-//   &.mini &-prev,
-//   &.mini &-next {
+//
+//   &&-mini &-prev,
+//   &&-mini &-next {
 //     min-width: @pagination-item-size-sm;
 //     height: @pagination-item-size-sm;
 //     margin: 0;
 //     line-height: @pagination-item-size-sm;
 //   }
-
-//   &.mini &-prev &-item-link,
-//   &.mini &-next &-item-link {
+//
+//   &&-mini &-prev &-item-link,
+//   &&-mini &-next &-item-link {
 //     background: transparent;
 //     border-color: transparent;
-
+//
 //     &::after {
 //       height: @pagination-item-size-sm;
 //       line-height: @pagination-item-size-sm;
 //     }
 //   }
-
-//   &.mini &-jump-prev,
-//   &.mini &-jump-next {
+//
+//   &&-mini &-jump-prev,
+//   &&-mini &-jump-next {
 //     height: @pagination-item-size-sm;
 //     margin-right: 0;
 //     line-height: @pagination-item-size-sm;
 //   }
-
-//   &.mini &-options {
+//
+//   &&-mini &-options {
 //     margin-left: 2px;
-
+//
 //     &-size-changer {
 //       top: @pagination-mini-options-size-changer-top;
 //     }
-
+//
 //     &-quick-jumper {
 //       height: @pagination-item-size-sm;
 //       line-height: @pagination-item-size-sm;
-
+//
 //       input {
 //         .input-sm();
-
+//
 //         width: 44px;
 //         height: @input-height-sm;
 //       }
 //     }
 //   }
-
+//
 //   // ============================ Disabled ============================
 //   &&-disabled {
 //     cursor: not-allowed;
-
+//
 //     .@{pagination-prefix-cls}-item {
 //       background: @disabled-bg;
 //       border-color: @border-color-base;
 //       cursor: not-allowed;
-
+//
 //       a {
 //         color: @disabled-color;
 //         background: transparent;
 //         border: none;
 //         cursor: not-allowed;
 //       }
-
+//
 //       &-active {
 //         background: @pagination-item-disabled-bg-active;
-
+//
 //         a {
 //           color: @pagination-item-disabled-color-active;
 //         }
 //       }
 //     }
-
+//
 //     .@{pagination-prefix-cls}-item-link {
 //       color: @disabled-color;
 //       background: @disabled-bg;
@@ -439,21 +439,21 @@
 //         background: transparent;
 //       }
 //     }
-
+//
 //     .@{pagination-prefix-cls}-item-link-icon {
 //       opacity: 0;
 //     }
-
+//
 //     .@{pagination-prefix-cls}-item-ellipsis {
 //       opacity: 1;
 //     }
-
+//
 //     .@{pagination-prefix-cls}-simple-pager {
 //       color: @disabled-color;
 //     }
 //   }
 // }
-
+//
 // @media only screen and (max-width: @screen-lg) {
 //   .@{pagination-prefix-cls}-item {
 //     &-after-jump-prev,
@@ -462,11 +462,11 @@
 //     }
 //   }
 // }
-
+//
 // @media only screen and (max-width: @screen-sm) {
 //   .@{pagination-prefix-cls}-options {
 //     display: none;
 //   }
 // }
-
+//
 // @import './rtl';

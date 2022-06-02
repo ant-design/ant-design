@@ -4,11 +4,38 @@ import { resetComponent } from '../../_util/theme';
 import type { TableToken } from './index';
 
 const genFilterStyle: GenerateStyle<TableToken, CSSInterpolation> = token => {
-  const { componentCls, antCls, iconCls } = token;
+  const {
+    componentCls,
+    antCls,
+    iconCls,
+    tableFilterDropdownWidth,
+    tableFilterDropdownSearchWidth,
+    paddingXXS,
+    paddingXS,
+    lineWidth,
+    colorText,
+    controlLineWidth,
+    controlLineType,
+    tableBorderColor,
+    tableHeaderIconColor,
+    fontSizeSM,
+    tablePaddingHorizontal,
+    radiusBase,
+    motionDurationSlow,
+    colorTextSecondary,
+    colorPrimary,
+    colorPrimaryActive,
+    tableHeaderFilterActiveBg,
+    colorTextDisabled,
+    tableFilterDropdownBg,
+    tableFilterDropdownHeight,
+    controlItemBgHover,
+    boxShadow,
+  } = token;
   const dropdownPrefixCls = `${antCls}-dropdown`;
   const tableFilterDropdownPrefixCls = `${componentCls}-filter-dropdown`;
   const treePrefixCls = `${antCls}-tree`;
-  const tableBorder = `${token.controlLineWidth}px ${token.controlLineType} ${token.tableBorderColor}`;
+  const tableBorder = `${controlLineWidth}px ${controlLineType} ${tableBorderColor}`;
 
   return [
     {
@@ -22,22 +49,22 @@ const genFilterStyle: GenerateStyle<TableToken, CSSInterpolation> = token => {
           position: 'relative',
           display: 'flex',
           alignItems: 'center',
-          marginBlock: -token.paddingXXS,
-          marginInline: `${token.paddingXXS}px ${-token.tablePaddingHorizontal / 2}px`,
-          padding: `0 ${token.paddingXXS}px`,
-          color: token.tableHeaderIconColor,
-          fontSize: token.fontSizeSM,
-          borderRadius: token.radiusBase,
+          marginBlock: -paddingXXS,
+          marginInline: `${paddingXXS}px ${-tablePaddingHorizontal / 2}px`,
+          padding: `0 ${paddingXXS}px`,
+          color: tableHeaderIconColor,
+          fontSize: fontSizeSM,
+          borderRadius: radiusBase,
           cursor: 'pointer',
-          transition: `all ${token.motionDurationSlow}`,
+          transition: `all ${motionDurationSlow}`,
 
           '&:hover': {
-            color: token.colorTextSecondary,
-            background: token.tableHeaderFilterActiveBg,
+            color: colorTextSecondary,
+            background: tableHeaderFilterActiveBg,
           },
 
           '&.active': {
-            color: token.colorPrimary,
+            color: colorPrimary,
           },
         },
       },
@@ -47,76 +74,75 @@ const genFilterStyle: GenerateStyle<TableToken, CSSInterpolation> = token => {
       [`${antCls}-dropdown`]: {
         [tableFilterDropdownPrefixCls]: {
           ...resetComponent(token),
-          // FIXME
-          minWidth: 120,
-          backgroundColor: token.tableFilterDropdownBg,
-          borderRadius: token.radiusBase,
-          boxShadow: token.boxShadow,
+
+          minWidth: tableFilterDropdownWidth,
+          backgroundColor: tableFilterDropdownBg,
+          borderRadius: radiusBase,
+          boxShadow,
 
           // Reset menu
           [`${dropdownPrefixCls}-menu`]: {
             // https://github.com/ant-design/ant-design/issues/4916
             // https://github.com/ant-design/ant-design/issues/19542
-            maxHeight: token.tableFilterDropdownMaxHeight,
+            maxHeight: tableFilterDropdownHeight,
             overflowX: 'hidden',
             border: 0,
             boxShadow: 'none',
 
             '&:empty::after': {
               display: 'block',
-              padding: `${token.paddingXS}px 0`,
-              color: token.colorTextDisabled,
-              fontSize: token.fontSizeSM,
+              padding: `${paddingXS}px 0`,
+              color: colorTextDisabled,
+              fontSize: fontSizeSM,
               textAlign: 'center',
               content: '"Not Found"',
             },
           },
 
           [`${tableFilterDropdownPrefixCls}-tree`]: {
-            paddingBlock: `${token.paddingXS}px 0`,
-            paddingInline: token.paddingXS,
+            paddingBlock: `${paddingXS}px 0`,
+            paddingInline: paddingXS,
 
             [treePrefixCls]: {
               padding: 0,
             },
 
             [`${treePrefixCls}-treenode ${treePrefixCls}-node-content-wrapper:hover`]: {
-              backgroundColor: token.controlItemBgHover,
+              backgroundColor: controlItemBgHover,
             },
 
             [`${treePrefixCls}-treenode-checkbox-checked ${treePrefixCls}-node-content-wrapper`]: {
               '&, &:hover': {
-                backgroundColor: token.colorPrimaryActive,
+                backgroundColor: colorPrimaryActive,
               },
             },
           },
 
           [`${tableFilterDropdownPrefixCls}-search`]: {
-            padding: token.paddingXS,
+            padding: paddingXS,
             borderBottom: tableBorder,
 
             '&-input': {
               input: {
-                // FIXME
-                minWidth: 140,
+                minWidth: tableFilterDropdownSearchWidth,
               },
               [iconCls]: {
-                color: token.colorTextDisabled,
+                color: colorTextDisabled,
               },
             },
           },
 
           [`${tableFilterDropdownPrefixCls}-checkall`]: {
             width: '100%',
-            marginBottom: token.paddingXXS,
-            marginInlineStart: token.paddingXXS,
+            marginBottom: paddingXXS,
+            marginInlineStart: paddingXXS,
           },
 
           // Operation
           [`${tableFilterDropdownPrefixCls}-btns`]: {
             display: 'flex',
             justifyContent: 'space-between',
-            padding: `${token.paddingXS - 1}px ${token.paddingXS}px`,
+            padding: `${paddingXS - lineWidth}px ${paddingXS}px`,
             overflow: 'hidden',
             backgroundColor: 'inherit',
             borderTop: tableBorder,
@@ -131,8 +157,8 @@ const genFilterStyle: GenerateStyle<TableToken, CSSInterpolation> = token => {
         {
           // Checkbox
           [`${antCls}-checkbox-wrapper + span`]: {
-            paddingInlineStart: token.paddingXS,
-            color: token.colorText,
+            paddingInlineStart: paddingXS,
+            color: colorText,
           },
 
           [`> ul`]: {

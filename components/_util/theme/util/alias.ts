@@ -95,6 +95,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     colorSplit: 'rgba(0, 0, 0, 0.06)',
     controlItemBgActive: primaryColors[0],
     controlItemBgActiveHover: new TinyColor(primaryColors[0]).darken(2).toRgbString(),
+    controlItemBgActiveDisabled: new TinyColor('#000').tint(90).toRgbString(),
     fontWeightStrong: 600,
 
     // 🔥🔥🔥🔥🔥🔥🔥🔥🔥 All TMP Token leaves here 🔥🔥🔥🔥🔥🔥🔥🔥🔥
