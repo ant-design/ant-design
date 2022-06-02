@@ -1,26 +1,113 @@
-.ant-tree {
-  background: #f4f7fa;
-
-  .ant-tree-node-content-wrapper {
-    color: @dg200;
-    font-weight: 600;
-    font-size: 14px;
-
-    &:hover {
+.submenu {
+  .sidebar-submenu {
+    width: auto;
+    height: 100%;
+    background: #f4f7fa;
+    box-shadow: inset -16px 0px 24px -12px rgba(6, 25, 56, 0.08);
+    .ant-layout,
+    .ant-layout-sider {
       background: none;
     }
-
-    &.ant-tree-node-content-wrapper-normal {
-      margin: 8px 0;
-      color: @base-font-color;
-      font-weight: 400;
-      font-size: 14px;
-
-      &.ant-tree-node-selected {
-        color: @primary-color;
-        font-weight: 600;
-        background: none;
+    .ant-menu-inline > .ant-menu-item,
+    .ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title,
+    .ant-menu-vertical-left > .ant-menu-item,
+    .ant-menu-vertical-left > .ant-menu-submenu > .ant-menu-submenu-title,
+    .ant-menu-vertical-right > .ant-menu-item,
+    .ant-menu-vertical-right > .ant-menu-submenu > .ant-menu-submenu-title,
+    .ant-menu-vertical > .ant-menu-item,
+    .ant-menu-vertical > .ant-menu-submenu > .ant-menu-submenu-title {
+      display: block;
+      width: auto;
+      height: auto;
+      padding-right: 20px !important;
+      line-height: normal;
+    }
+  }
+  .ant-layout-sider {
+    width: 240px !important;
+    max-width: 240px !important;
+    &.ant-layout-sider-collapsed {
+      z-index: 0;
+      flex: 0 0 0px !important;
+      width: 0px !important;
+      min-width: 0px !important;
+      max-width: 0px !important;
+      margin-left: -200px;
+    }
+    .ant-menu-item-icon {
+      display: none;
+    }
+  }
+  .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+    background: #f4f7fa;
+    svg {
+      rect {
+        fill: #4f46e5 !important;
       }
     }
   }
+}
+
+.ant-menu {
+  color: #1f2937;
+  font-weight: 600;
+  font-size: 14px;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+.ant-layout,
+.ant-layout-sider {
+  height: 100%;
+}
+.ant-menu-sub.ant-menu-inline {
+  margin-left: 16px;
+  background: none;
+}
+.ant-menu-inline.ant-menu-root .ant-menu-item,
+.ant-menu-inline.ant-menu-root .ant-menu-submenu-title {
+  margin: 0;
+  padding: 8px 0 !important;
+}
+.ant-menu-item .ant-menu-item-icon + span,
+.ant-menu-item .anticon + span,
+.ant-menu-submenu-title .ant-menu-item-icon + span,
+.ant-menu-submenu-title .anticon + span {
+  margin-left: 0;
+}
+
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  background-color: transparent;
+}
+.ant-menu-sub.ant-menu-inline > .ant-menu-item,
+.ant-menu-sub.ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title {
+  font-weight: 400;
+  font-size: 14px;
+}
+.ant-menu-inline .ant-menu-item:after,
+.ant-menu-vertical-left .ant-menu-item:after,
+.ant-menu-vertical-right .ant-menu-item:after,
+.ant-menu-vertical .ant-menu-item:after {
+  display: none;
+}
+.ant-menu-item:active,
+.ant-menu-submenu-title:active {
+  background: transparent;
+}
+
+.ant-menu-sub.ant-menu-inline > .ant-menu-item,
+.ant-menu-sub.ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title {
+  height: auto;
+  line-height: normal;
+}
+
+.ant-menu-submenu-arrow,
+.ant-menu-submenu-expand-icon {
+  position: relative;
+  top: 11px;
+  right: -8px;
+  color: #6b7280;
+}
+.ant-menu-submenu-open.ant-menu-submenu-inline > .ant-menu-submenu-title > .ant-menu-submenu-arrow {
+  top: 8px;
 }
