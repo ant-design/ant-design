@@ -32,6 +32,8 @@ interface SkeletonToken extends FullToken<'Skeleton'> {
   skeletonBlockRadius: number;
   skeletonParagraphLineHeight: number;
   skeletonParagraphMarginTop: number;
+  skeletonLoadingBackground: string;
+  skeletonLoadingMotionDuration: string;
   borderRadius: number;
 }
 
@@ -45,17 +47,14 @@ const genSkeletonElementAvatarSize = (size: number): CSSObject => ({
   ...genSkeletonElementCommonSize(size),
 });
 
-const genSkeletonColor = (token: SkeletonToken): CSSObject => {
-  const { color, colorGradientEnd } = token;
-  return {
-    background: `linear-gradient(90deg, ${color} 25%, ${colorGradientEnd} 37%, ${color} 63%)`,
-    backgroundSize: '400% 100%',
-    animationName: skeletonClsLoading,
-    animationDuration: '1.4s',
-    animationTimingFunction: 'ease',
-    animationIterationCount: 'infinite',
-  };
-};
+const genSkeletonColor = (token: SkeletonToken): CSSObject => ({
+  background: token.skeletonLoadingBackground,
+  backgroundSize: '400% 100%',
+  animationName: skeletonClsLoading,
+  animationDuration: token.skeletonLoadingMotionDuration,
+  animationTimingFunction: 'ease',
+  animationIterationCount: 'infinite',
+});
 
 const genSkeletonElementInputSize = (size: number): CSSObject => ({
   width: size * 5,
@@ -356,6 +355,8 @@ export default genComponentStyleHook(
       skeletonParagraphLineHeight: token.controlHeight / 2,
       skeletonParagraphMarginTop: token.marginLG + token.marginXXS,
       borderRadius: 100, // Large number to make capsule shape
+      skeletonLoadingBackground: `linear-gradient(90deg, ${token.color} 25%, ${token.colorGradientEnd} 37%, ${token.color} 63%)`,
+      skeletonLoadingMotionDuration: '1.4s',
     });
     return [genBaseStyle(skeletonToken)];
   },
