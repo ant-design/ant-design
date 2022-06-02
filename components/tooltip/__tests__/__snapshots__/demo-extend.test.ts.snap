@@ -625,7 +625,7 @@ Array [
     <div>
       <div
         class="ant-tooltip"
-        style="opacity:0"
+        style="opacity:0;--antd-arrow-background-color:#f50"
       >
         <div
           class="ant-tooltip-content"
@@ -635,7 +635,6 @@ Array [
           >
             <span
               class="ant-tooltip-arrow-content"
-              style="--antd-arrow-background-color:#f50"
             />
           </div>
           <div
@@ -659,7 +658,7 @@ Array [
     <div>
       <div
         class="ant-tooltip"
-        style="opacity:0"
+        style="opacity:0;--antd-arrow-background-color:#2db7f5"
       >
         <div
           class="ant-tooltip-content"
@@ -669,7 +668,6 @@ Array [
           >
             <span
               class="ant-tooltip-arrow-content"
-              style="--antd-arrow-background-color:#2db7f5"
             />
           </div>
           <div
@@ -693,7 +691,7 @@ Array [
     <div>
       <div
         class="ant-tooltip"
-        style="opacity:0"
+        style="opacity:0;--antd-arrow-background-color:#87d068"
       >
         <div
           class="ant-tooltip-content"
@@ -703,7 +701,6 @@ Array [
           >
             <span
               class="ant-tooltip-arrow-content"
-              style="--antd-arrow-background-color:#87d068"
             />
           </div>
           <div
@@ -727,7 +724,7 @@ Array [
     <div>
       <div
         class="ant-tooltip"
-        style="opacity:0"
+        style="opacity:0;--antd-arrow-background-color:#108ee9"
       >
         <div
           class="ant-tooltip-content"
@@ -737,7 +734,6 @@ Array [
           >
             <span
               class="ant-tooltip-arrow-content"
-              style="--antd-arrow-background-color:#108ee9"
             />
           </div>
           <div
