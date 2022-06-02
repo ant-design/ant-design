@@ -13,6 +13,7 @@ const genStatisticStyle: GenerateStyle<StatisticToken> = (token: StatisticToken)
   const {
     componentCls,
     marginXXS,
+    paddingMD,
     colorTextSecondary,
     statisticTitleFontSize,
     colorTextHeading,
@@ -28,6 +29,11 @@ const genStatisticStyle: GenerateStyle<StatisticToken> = (token: StatisticToken)
         color: colorTextSecondary,
         fontSize: statisticTitleFontSize,
       },
+
+      [`${componentCls}-skeleton`]: {
+        paddingTop: paddingMD,
+      },
+
       [`${componentCls}-content`]: {
         color: colorTextHeading,
         fontSize: statisticContentFontSize,
