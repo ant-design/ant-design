@@ -1,6 +1,5 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
-import { TinyColor } from '@ctrl/tinycolor';
 import {
   genBasicInputStyle,
   genInputSmallStyle,
@@ -23,6 +22,13 @@ interface PaginationToken extends InputToken<FullToken<'Pagination'>> {
   paginationItemDisabledColorActive: string;
   paginationItemLinkBg: string;
   inputOutlineOffset: string;
+  paginationMiniOptionsMarginInlineStart: number;
+  paginationMiniQuickJumperInputWidth: number;
+  paginationItemPaddingInline: number;
+  paginationEllipsisLetterSpacing: number;
+  paginationEllipsisTextIndent: string;
+  paginationSlashMarginInlineStart: number;
+  paginationSlashMarginInlineEnd: number;
 }
 
 const genPaginationDisabledStyle: GenerateStyle<PaginationToken, CSSObject> = token => {
@@ -149,8 +155,7 @@ const genPaginationMiniStyle: GenerateStyle<PaginationToken, CSSObject> = token 
     },
 
     [`&&-mini ${componentCls}-options`]: {
-      // FIXME
-      marginInlineStart: 2,
+      marginInlineStart: token.paginationMiniOptionsMarginInlineStart,
 
       [`&-size-changer`]: {
         top: token.paginationMiniOptionsSizeChangerTop,
@@ -163,8 +168,7 @@ const genPaginationMiniStyle: GenerateStyle<PaginationToken, CSSObject> = token 
         input: {
           ...genInputSmallStyle(token),
 
-          // FIXME
-          width: 44,
+          width: token.paginationMiniQuickJumperInputWidth,
           height: token.controlHeightSM,
         },
       },
@@ -204,8 +208,7 @@ const genPaginationSimpleStyle: GenerateStyle<PaginationToken, CSSObject> = toke
         boxSizing: 'border-box',
         height: '100%',
         marginInlineEnd: token.marginXS,
-        // FIXME: hardcode in v4
-        padding: '0 6px',
+        padding: `0 ${token.paginationItemPaddingInline}px`,
         textAlign: 'center',
         backgroundColor: token.paginationItemInputBg,
         border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
@@ -246,8 +249,6 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = token 
         [`${componentCls}-item-link-icon`]: {
           color: token.colorPrimary,
           fontSize: token.fontSizeSM,
-          // FIXME
-          letterSpacing: -1,
           opacity: 0,
           transition: `all ${token.motionDurationMid}`,
 
@@ -270,11 +271,9 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = token 
           margin: 'auto',
           color: token.colorTextDisabled,
           fontFamily: 'Arial, Helvetica, sans-serif',
-          // FIXME
-          letterSpacing: 2,
+          letterSpacing: token.paginationEllipsisLetterSpacing,
           textAlign: 'center',
-          // FIXME
-          textIndent: '0.13em',
+          textIndent: token.paginationEllipsisTextIndent,
           opacity: 1,
           transition: `all ${token.motionDurationMid}`,
         },
@@ -343,7 +342,6 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = token 
 
       [`${componentCls}-item-link`]: {
         display: 'block',
-        // FIXME
         width: '100%',
         height: '100%',
         padding: 0,
@@ -368,22 +366,14 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = token 
     },
 
     [`${componentCls}-slash`]: {
-      // FIXME
-      marginInlineEnd: 10,
-      marginInlineStart: 5,
+      marginInlineEnd: token.paginationSlashMarginInlineEnd,
+      marginInlineStart: token.paginationSlashMarginInlineStart,
     },
 
     [`${componentCls}-options`]: {
       display: 'inline-block',
       marginInlineStart: token.margin,
       verticalAlign: 'middle',
-
-      // IE11 css hack. `*::-ms-backdrop,` is a must have
-      '@media all and (-ms-high-contrast: none)': {
-        [`*::-ms-backdrop, &-options`]: {
-          verticalAlign: 'top',
-        },
-      },
 
       '&-size-changer.-select': {
         display: 'inline-block',
@@ -400,8 +390,7 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = token 
         input: {
           ...genBasicInputStyle(token),
 
-          // FIXME
-          width: 50,
+          width: token.controlHeightLG * 1.25,
           height: token.controlHeight,
           margin: 0,
           marginInlineStart: token.marginXS,
@@ -435,8 +424,7 @@ const genPaginationItemStyle: GenerateStyle<PaginationToken, CSSObject> = token 
 
       a: {
         display: 'block',
-        // FIXME
-        padding: '0 6px',
+        padding: `0 ${token.paginationItemPaddingInline}px`,
         color: token.colorText,
         transition: 'none',
 
@@ -567,19 +555,25 @@ export default genComponentStyleHook('Pagination', token => {
   const paginationToken = mergeToken<PaginationToken>(
     token,
     {
-      // FIXME: missing token
       paginationItemSize: token.controlHeight,
       paginationFontFamily: token.fontFamily,
       paginationItemBg: token.colorBgComponent,
       paginationItemBgActive: token.colorBgComponent,
-      paginationFontWeightActive: 500,
-      paginationItemSizeSM: 24,
+      paginationFontWeightActive: token.fontWeightStrong,
+      paginationItemSizeSM: token.controlHeightSM,
       paginationItemInputBg: token.colorBgComponent,
       paginationMiniOptionsSizeChangerTop: 0,
-      paginationItemDisabledBgActive: new TinyColor('#000').tint(90).toString(), // tint(@black, 90%)
+      paginationItemDisabledBgActive: token.controlItemBgActiveDisabled,
       paginationItemDisabledColorActive: token.colorTextDisabled,
       paginationItemLinkBg: token.colorBgComponent,
       inputOutlineOffset: '0 0',
+      paginationMiniOptionsMarginInlineStart: token.marginXXS / 2,
+      paginationMiniQuickJumperInputWidth: token.controlHeightLG * 1.1,
+      paginationItemPaddingInline: token.marginXXS * 1.5,
+      paginationEllipsisLetterSpacing: token.marginXXS / 2,
+      paginationSlashMarginInlineStart: token.marginXXS,
+      paginationSlashMarginInlineEnd: token.marginSM,
+      paginationEllipsisTextIndent: '0.13em', // magic for ui experience
     },
     initInputToken(token),
   );
