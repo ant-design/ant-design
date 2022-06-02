@@ -1,5 +1,6 @@
 /* eslint-disable react/no-multi-comp */
 import React from 'react';
+import { mount } from 'enzyme';
 import { render, fireEvent } from '../../../tests/utils';
 import Table from '..';
 
