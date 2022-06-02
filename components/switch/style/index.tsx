@@ -211,23 +211,25 @@ export default genComponentStyleHook('Switch', token => {
   const switchHeight = token.fontSize * token.lineHeight;
   const switchHeightSM = token.controlHeight / 2;
   const switchPadding = token.paddingXXS / 2;
+  const switchPinSize = switchHeight - switchPadding * 2;
+  const switchPinSizeSM = switchHeightSM - switchPadding * 2;
 
   const switchToken = mergeToken<SwitchToken>(token, {
-    switchMinWidth: token.controlHeightLG * 1.1,
+    switchMinWidth: switchPinSize * 2 + switchPadding * 4,
     switchHeight,
     switchDuration: token.motionDurationMid,
     switchColor: token.colorPrimary,
     switchDisabledOpacity: token.colorLoadingOpacity,
-    switchInnerMarginMin: Math.ceil(switchHeight * 0.3),
-    switchInnerMarginMax: Math.ceil(switchHeight * 1.1),
+    switchInnerMarginMin: switchPinSize / 2,
+    switchInnerMarginMax: switchPinSize + switchPadding + token.paddingXXS,
     switchPadding,
-    switchPinSize: switchHeight - switchPadding * 2,
+    switchPinSize,
     switchBg: token.colorBgComponent,
-    switchMinWidthSM: token.controlHeight * 0.7,
+    switchMinWidthSM: switchPinSizeSM * 2 + switchPadding * 2,
     switchHeightSM,
-    switchInnerMarginMinSM: Math.ceil(switchHeight * 0.3),
-    switchInnerMarginMaxSM: Math.ceil(switchHeight * 1.1),
-    switchPinSizeSM: switchHeightSM - switchPadding * 2,
+    switchInnerMarginMinSM: switchPinSizeSM / 2,
+    switchInnerMarginMaxSM: switchPinSizeSM + switchPadding + token.paddingXXS,
+    switchPinSizeSM,
     switchHandleShadow: `0 2px 4px 0 ${new TinyColor('#00230b').setAlpha(0.2).toRgbString()}`,
     switchLoadingIconSize: token.fontSizeIcon * 0.75,
     switchLoadingIconColor: `rgba(0, 0, 0, ${token.colorLoadingOpacity})`,
