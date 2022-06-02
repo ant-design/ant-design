@@ -3,12 +3,12 @@ import type { GenerateStyle } from '../../_util/theme';
 import type { TableToken } from './index';
 
 const genRadiusStyle: GenerateStyle<TableToken, CSSObject> = token => {
-  const { componentCls } = token;
+  const { componentCls, tableRadius } = token;
   return {
     [`${componentCls}-wrapper`]: {
       [componentCls]: {
         '&-title': {
-          borderRadius: `${token.tableRadius}px ${token.tableRadius}px 0 0`,
+          borderRadius: `${tableRadius}px ${tableRadius}px 0 0`,
         },
 
         '&-title + &-container': {
@@ -27,22 +27,22 @@ const genRadiusStyle: GenerateStyle<TableToken, CSSObject> = token => {
         },
 
         '&-container': {
-          borderStartStartRadius: token.tableRadius,
-          borderStartEndRadius: token.tableRadius,
+          borderStartStartRadius: tableRadius,
+          borderStartEndRadius: tableRadius,
 
           'table > thead > tr:first-child': {
             'th:first-child': {
-              borderStartStartRadius: token.tableRadius,
+              borderStartStartRadius: tableRadius,
             },
 
             'th:last-child': {
-              borderStartEndRadius: token.tableRadius,
+              borderStartEndRadius: tableRadius,
             },
           },
         },
 
         '&-footer': {
-          borderRadius: `0 0 ${token.tableRadius}px ${token.tableRadius}px`,
+          borderRadius: `0 0 ${tableRadius}px ${tableRadius}px`,
         },
       },
     },

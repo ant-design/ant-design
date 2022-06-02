@@ -1,10 +1,16 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import { TinyColor } from '@ctrl/tinycolor';
 import type { GenerateStyle } from '../../_util/theme';
 import type { TableToken } from './index';
 
 const genStickyStyle: GenerateStyle<TableToken, CSSObject> = token => {
-  const { componentCls } = token;
+  const {
+    componentCls,
+    colorLoadingOpacity,
+    tableScrollThumbBg,
+    tableScrollThumbBgHover,
+    tableScrollThumbSize,
+    tableScrollBg,
+  } = token;
   const tableBorder = `${token.controlLineWidth}px ${token.controlLineType} ${token.tableBorderColor}`;
   return {
     [`${componentCls}-wrapper`]: {
@@ -18,12 +24,13 @@ const genStickyStyle: GenerateStyle<TableToken, CSSObject> = token => {
         '&-scroll': {
           position: 'sticky',
           bottom: 0,
+          height: `${tableScrollThumbSize}px !important`,
           zIndex: token.zIndexTableSticky,
           display: 'flex',
           alignItems: 'center',
-          background: new TinyColor(token.tableBorderColor).lighten(80).toRgbString(),
+          background: tableScrollBg,
           borderTop: tableBorder,
-          opacity: 0.6,
+          opacity: colorLoadingOpacity,
 
           '&:hover': {
             transformOrigin: 'center bottom',
@@ -31,16 +38,15 @@ const genStickyStyle: GenerateStyle<TableToken, CSSObject> = token => {
 
           // fake scrollbar style of sticky
           '&-bar': {
-            // FIXME
-            height: 8,
-            // FIXME
-            backgroundColor: 'rgba(0, 0, 0, 0.35)',
+            height: tableScrollThumbSize,
+            backgroundColor: tableScrollThumbBg,
             borderRadius: 100,
-            transition: `all ${token.motionDurationSlow}`,
+            transition: `all ${token.motionDurationSlow}, transform none`,
+            position: 'absolute',
+            bottom: 0,
 
             '&:hover, &-active': {
-              // FIXME
-              backgroundColor: 'rgba(0, 0, 0, 0.8)',
+              backgroundColor: tableScrollThumbBgHover,
             },
           },
         },

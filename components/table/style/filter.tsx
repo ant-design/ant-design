@@ -4,7 +4,16 @@ import { resetComponent } from '../../_util/theme';
 import type { TableToken } from './index';
 
 const genFilterStyle: GenerateStyle<TableToken, CSSInterpolation> = token => {
-  const { componentCls, antCls, iconCls } = token;
+  const {
+    componentCls,
+    antCls,
+    iconCls,
+    tableFilterDropdownWidth,
+    tableFilterDropdownSearchWidth,
+    paddingXXS,
+    paddingXS,
+    lineWidth,
+  } = token;
   const dropdownPrefixCls = `${antCls}-dropdown`;
   const tableFilterDropdownPrefixCls = `${componentCls}-filter-dropdown`;
   const treePrefixCls = `${antCls}-tree`;
@@ -22,9 +31,9 @@ const genFilterStyle: GenerateStyle<TableToken, CSSInterpolation> = token => {
           position: 'relative',
           display: 'flex',
           alignItems: 'center',
-          marginBlock: -token.paddingXXS,
-          marginInline: `${token.paddingXXS}px ${-token.tablePaddingHorizontal / 2}px`,
-          padding: `0 ${token.paddingXXS}px`,
+          marginBlock: -paddingXXS,
+          marginInline: `${paddingXXS}px ${-token.tablePaddingHorizontal / 2}px`,
+          padding: `0 ${paddingXXS}px`,
           color: token.tableHeaderIconColor,
           fontSize: token.fontSizeSM,
           borderRadius: token.radiusBase,
@@ -47,8 +56,8 @@ const genFilterStyle: GenerateStyle<TableToken, CSSInterpolation> = token => {
       [`${antCls}-dropdown`]: {
         [tableFilterDropdownPrefixCls]: {
           ...resetComponent(token),
-          // FIXME
-          minWidth: 120,
+
+          minWidth: tableFilterDropdownWidth,
           backgroundColor: token.tableFilterDropdownBg,
           borderRadius: token.radiusBase,
           boxShadow: token.boxShadow,
@@ -57,14 +66,14 @@ const genFilterStyle: GenerateStyle<TableToken, CSSInterpolation> = token => {
           [`${dropdownPrefixCls}-menu`]: {
             // https://github.com/ant-design/ant-design/issues/4916
             // https://github.com/ant-design/ant-design/issues/19542
-            maxHeight: token.tableFilterDropdownMaxHeight,
+            maxHeight: token.tableFilterDropdownHeight,
             overflowX: 'hidden',
             border: 0,
             boxShadow: 'none',
 
             '&:empty::after': {
               display: 'block',
-              padding: `${token.paddingXS}px 0`,
+              padding: `${paddingXS}px 0`,
               color: token.colorTextDisabled,
               fontSize: token.fontSizeSM,
               textAlign: 'center',
@@ -73,8 +82,8 @@ const genFilterStyle: GenerateStyle<TableToken, CSSInterpolation> = token => {
           },
 
           [`${tableFilterDropdownPrefixCls}-tree`]: {
-            paddingBlock: `${token.paddingXS}px 0`,
-            paddingInline: token.paddingXS,
+            paddingBlock: `${paddingXS}px 0`,
+            paddingInline: paddingXS,
 
             [treePrefixCls]: {
               padding: 0,
@@ -92,13 +101,12 @@ const genFilterStyle: GenerateStyle<TableToken, CSSInterpolation> = token => {
           },
 
           [`${tableFilterDropdownPrefixCls}-search`]: {
-            padding: token.paddingXS,
+            padding: paddingXS,
             borderBottom: tableBorder,
 
             '&-input': {
               input: {
-                // FIXME
-                minWidth: 140,
+                minWidth: tableFilterDropdownSearchWidth,
               },
               [iconCls]: {
                 color: token.colorTextDisabled,
@@ -108,15 +116,15 @@ const genFilterStyle: GenerateStyle<TableToken, CSSInterpolation> = token => {
 
           [`${tableFilterDropdownPrefixCls}-checkall`]: {
             width: '100%',
-            marginBottom: token.paddingXXS,
-            marginInlineStart: token.paddingXXS,
+            marginBottom: paddingXXS,
+            marginInlineStart: paddingXXS,
           },
 
           // Operation
           [`${tableFilterDropdownPrefixCls}-btns`]: {
             display: 'flex',
             justifyContent: 'space-between',
-            padding: `${token.paddingXS - 1}px ${token.paddingXS}px`,
+            padding: `${paddingXS - lineWidth}px ${paddingXS}px`,
             overflow: 'hidden',
             backgroundColor: 'inherit',
             borderTop: tableBorder,
@@ -131,7 +139,7 @@ const genFilterStyle: GenerateStyle<TableToken, CSSInterpolation> = token => {
         {
           // Checkbox
           [`${antCls}-checkbox-wrapper + span`]: {
-            paddingInlineStart: token.paddingXS,
+            paddingInlineStart: paddingXS,
             color: token.colorText,
           },
 

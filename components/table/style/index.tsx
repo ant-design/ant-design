@@ -9,7 +9,7 @@ import genEmptyStyle from './empty';
 import genExpandStyle from './expand';
 import genFilterStyle from './filter';
 import genFixedStyle from './fixed';
-import genPagniationStyle from './pagination';
+import genPaginationStyle from './pagination';
 import genRadiusStyle from './radius';
 import genRtlStyle from './rtl';
 import genSelectionStyle from './selection';
@@ -37,22 +37,33 @@ export interface TableToken extends FullToken<'Table'> {
   tableHeaderSortBg: string;
   tableHeaderSortHoverBg: string;
   tableHeaderIconColor: string;
+  tableHeaderIconColorHover: string;
   tableBodySortBg: string;
   tableFixedHeaderSortActiveBg: string;
   tableHeaderFilterActiveBg: string;
   tableFilterDropdownBg: string;
-  tableFilterDropdownMaxHeight: number;
+  tableFilterDropdownHeight: number;
   tableRowHoverBg: string;
   tableSelectedRowBg: string;
   tableSelectedRowHoverBg: string;
-  // FIXME: zIndexXxxx 统一提到一个地方
-  zIndexTableFixed: number;
-  zIndexTableSticky: number;
-  tabelFontSizeMiddle: number;
-  tabelFontSizeSmall: number;
+
+  tableFontSizeMiddle: number;
+  tableFontSizeSmall: number;
   tableSelectionColumnWidth: number;
   tableExpandIconBg: string;
   tableExpandedRowBg: string;
+  tableFilterDropdownWidth: number;
+  tableFilterDropdownSearchWidth: number;
+
+  // Z-Index
+  zIndexTableFixed: number;
+  zIndexTableSticky: number;
+
+  // Virtual Scroll Bar
+  tableScrollThumbSize: number;
+  tableScrollThumbBg: string;
+  tableScrollThumbBgHover: string;
+  tableScrollBg: string;
 }
 
 const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
@@ -190,56 +201,87 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Table', token => {
-  // FIXME: missing tokens
-  const tableSelectedRowBg = token.controlItemBgActive;
+  const {
+    controlItemBgActive,
+    controlItemBgActiveHover,
+    colorPlaceholder,
+    colorTextHeading,
+    colorSplit,
+    fontSize,
+    padding,
+    paddingXS,
+    paddingSM,
+    controlHeight,
+    colorBgComponentSecondary,
+    colorAction,
+    colorActionHover,
+    colorLoadingOpacity,
+    colorBgComponent,
+  } = token;
+
+  const baseColorAction = new TinyColor(colorAction);
+  const baseColorActionHover = new TinyColor(colorActionHover);
+
+  const tableSelectedRowBg = controlItemBgActive;
   const zIndexTableFixed: number = 2;
+
   const tableToken = mergeToken<TableToken>(token, {
-    tableFontSize: token.fontSizeBase,
-    tableBg: token.colorBgComponent,
+    tableFontSize: fontSize,
+    tableBg: colorBgComponent,
     tableRadius: token.radiusBase,
-    /*
-    @table-padding-vertical: 16px;
-    @table-padding-horizontal: 16px;
-    @table-padding-vertical-md: (@table-padding-vertical * 3 / 4);
-    @table-padding-horizontal-md: (@table-padding-horizontal / 2);
-    @table-padding-vertical-sm: (@table-padding-vertical / 2);
-    @table-padding-horizontal-sm: (@table-padding-horizontal / 2);
-    */
-    tablePaddingVertical: token.padding,
-    tablePaddingHorizontal: token.padding,
-    tablePaddingVerticalMiddle: (token.padding * 3) / 4,
-    tablePaddingHorizontalMiddle: token.padding / 2,
-    tablePaddingVerticalSmall: token.padding / 2,
-    tablePaddingHorizontalSmall: token.padding / 2,
-    tableBorderColor: token.colorSplit,
-    tableHeaderTextColor: token.colorTextHeading,
-    tableHeaderBg: token.colorBgComponentSecondary,
-    tableFooterTextColor: token.colorTextHeading,
-    tableFooterBg: token.colorBgComponentSecondary,
-    tableHeaderCellSplitColor: 'rgba(0, 0, 0, 0.06)',
+
+    tablePaddingVertical: padding,
+    tablePaddingHorizontal: padding,
+    tablePaddingVerticalMiddle: paddingSM,
+    tablePaddingHorizontalMiddle: paddingXS,
+    tablePaddingVerticalSmall: paddingXS,
+    tablePaddingHorizontalSmall: paddingXS,
+    tableBorderColor: colorSplit,
+    tableHeaderTextColor: colorTextHeading,
+    tableHeaderBg: colorBgComponentSecondary,
+    tableFooterTextColor: colorTextHeading,
+    tableFooterBg: colorBgComponentSecondary,
+    tableHeaderCellSplitColor: colorSplit,
     tableHeaderSortBg: token.colorBgContainer,
     tableHeaderSortHoverBg: 'rgba(0, 0, 0, 0.04)',
-    tableHeaderIconColor: '#bfbfbf',
-    tableBodySortBg: '#fafafa',
+    tableHeaderIconColor: baseColorAction
+      .clone()
+      .setAlpha(baseColorAction.getAlpha() * colorLoadingOpacity)
+      .toRgbString(),
+    tableHeaderIconColorHover: baseColorActionHover
+      .clone()
+      .setAlpha(baseColorActionHover.getAlpha() * colorLoadingOpacity)
+      .toRgbString(),
+    tableBodySortBg: colorBgComponentSecondary,
     tableFixedHeaderSortActiveBg: 'hsv(0, 0, 96%)',
     tableHeaderFilterActiveBg: 'rgba(0, 0, 0, 0.04)',
-    tableFilterDropdownBg: token.colorBgComponent,
-    tableFilterDropdownMaxHeight: 264,
-    tableRowHoverBg: token.colorBgComponentSecondary,
+    tableFilterDropdownBg: colorBgComponent,
+    tableRowHoverBg: colorBgComponentSecondary,
     tableSelectedRowBg,
-    tableSelectedRowHoverBg: new TinyColor(tableSelectedRowBg).darken(2).toHexString(),
+    tableSelectedRowHoverBg: controlItemBgActiveHover,
     zIndexTableFixed,
     zIndexTableSticky: zIndexTableFixed + 1,
-    tabelFontSizeMiddle: token.fontSizeBase,
-    tabelFontSizeSmall: token.fontSizeBase,
-    tableSelectionColumnWidth: 32,
-    tableExpandIconBg: token.colorBgComponent,
-    tableExpandedRowBg: token.colorBgComponentSecondary,
+    tableFontSizeMiddle: fontSize,
+    tableFontSizeSmall: fontSize,
+    tableSelectionColumnWidth: controlHeight,
+    tableExpandIconBg: colorBgComponent,
+    tableExpandedRowBg: colorBgComponentSecondary,
+
+    // Dropdown
+    tableFilterDropdownWidth: 120,
+    tableFilterDropdownHeight: 264,
+    tableFilterDropdownSearchWidth: 140,
+
+    // Virtual Scroll Bar
+    tableScrollThumbSize: 8, // Mac scroll bar size
+    tableScrollThumbBg: colorPlaceholder,
+    tableScrollThumbBgHover: colorTextHeading,
+    tableScrollBg: colorSplit,
   });
 
   return [
     genTableStyle(tableToken),
-    genPagniationStyle(tableToken),
+    genPaginationStyle(tableToken),
     genSummaryStyle(tableToken),
     genSorterStyle(tableToken),
     genFilterStyle(tableToken),

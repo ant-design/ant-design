@@ -4,18 +4,24 @@ import { operationUnit } from '../../_util/theme';
 import type { TableToken } from './index';
 
 const genExpandStyle: GenerateStyle<TableToken, CSSObject> = token => {
-  const { componentCls, antCls } = token;
-  // FIXME: 需要从 checkbox 那里取
-  const checkboxSize = token.controlInteractiveSize;
-  const halfInnerSize = checkboxSize / 2 - 1;
+  const {
+    componentCls,
+    antCls,
+    controlInteractiveSize: checkboxSize,
+    controlLineWidth,
+    padding,
+    paddingXXS,
+  } = token;
+  const halfInnerSize = checkboxSize / 2 - controlLineWidth;
   // must be odd number, unless it cannot align centerly
-  const expandIconSize = halfInnerSize * 2 + token.controlLineWidth * 3;
-  const tableBorder = `${token.controlLineWidth}px ${token.controlLineType} ${token.tableBorderColor}`;
+  const expandIconSize = halfInnerSize * 2 + controlLineWidth * 3;
+  const tableBorder = `${controlLineWidth}px ${token.controlLineType} ${token.tableBorderColor}`;
+  const expandIconLineOffset = paddingXXS - controlLineWidth;
+
   return {
     [`${componentCls}-wrapper`]: {
       [`${componentCls}-expand-icon-col`]: {
-        // FIXME
-        width: 48,
+        width: checkboxSize + padding * 2,
       },
 
       [`${componentCls}-row-expand-icon-cell`]: {
@@ -58,16 +64,16 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = token => {
 
         '&::before': {
           top: halfInnerSize,
-          insetInlineEnd: 3,
-          insetInlineStart: 3,
-          height: token.controlLineWidth,
+          insetInlineEnd: expandIconLineOffset,
+          insetInlineStart: expandIconLineOffset,
+          height: controlLineWidth,
         },
 
         '&::after': {
-          top: 3,
-          bottom: 3,
+          top: expandIconLineOffset,
+          bottom: expandIconLineOffset,
           insetInlineStart: halfInnerSize,
-          width: token.controlLineWidth,
+          width: controlLineWidth,
           transform: 'rotate(90deg)',
         },
 

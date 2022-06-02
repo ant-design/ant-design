@@ -1,10 +1,10 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import { TinyColor } from '@ctrl/tinycolor';
 import type { GenerateStyle } from '../../_util/theme';
 import type { TableToken } from './index';
 
 const genSorterStyle: GenerateStyle<TableToken, CSSObject> = token => {
-  const { componentCls } = token;
+  const { componentCls, marginXXS, fontSizeIcon, tableHeaderIconColor, tableHeaderIconColorHover } =
+    token;
   return {
     [`${componentCls}-wrapper`]: {
       [`${componentCls}-thead th${componentCls}-column-has-sorters`]: {
@@ -59,10 +59,7 @@ const genSorterStyle: GenerateStyle<TableToken, CSSObject> = token => {
 
         '&::after': {
           position: 'absolute',
-          top: 0,
-          insetInlineEnd: 0,
-          bottom: 0,
-          insetInlineStart: 0,
+          inset: 0,
           width: '100%',
           height: '100%',
           content: '""',
@@ -70,8 +67,8 @@ const genSorterStyle: GenerateStyle<TableToken, CSSObject> = token => {
       },
 
       [`${componentCls}-column-sorter`]: {
-        marginInlineStart: 4,
-        color: token.tableHeaderIconColor,
+        marginInlineStart: marginXXS,
+        color: tableHeaderIconColor,
         fontSize: 0,
         transition: `color ${token.motionDurationSlow}`,
 
@@ -82,7 +79,7 @@ const genSorterStyle: GenerateStyle<TableToken, CSSObject> = token => {
         },
 
         '&-up, &-down': {
-          fontSize: 11,
+          fontSize: fontSizeIcon,
 
           '&.active': {
             color: token.colorPrimary,
@@ -95,7 +92,7 @@ const genSorterStyle: GenerateStyle<TableToken, CSSObject> = token => {
       },
 
       [`${componentCls}-column-sorters:hover ${componentCls}-column-sorter`]: {
-        color: new TinyColor(token.tableHeaderIconColor).darken(10).toHexString(),
+        color: tableHeaderIconColorHover,
       },
     },
   };
