@@ -1,10 +1,17 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import { TinyColor } from '@ctrl/tinycolor';
 import type { GenerateStyle } from '../../_util/theme';
 import type { TableToken } from './index';
 
 const genSelectionStyle: GenerateStyle<TableToken, CSSObject> = token => {
-  const { componentCls, antCls, iconCls } = token;
+  const {
+    componentCls,
+    antCls,
+    iconCls,
+    fontSizeIcon,
+    paddingXS,
+    tableHeaderIconColor,
+    tableHeaderIconColorHover,
+  } = token;
   return {
     [`${componentCls}-wrapper`]: {
       // ========================== Selections ==========================
@@ -13,8 +20,7 @@ const genSelectionStyle: GenerateStyle<TableToken, CSSObject> = token => {
       },
 
       [`${componentCls}-bordered ${componentCls}-selection-col`]: {
-        // FIXME
-        width: token.tableSelectionColumnWidth + 18,
+        width: token.tableSelectionColumnWidth + paddingXS * 2,
       },
 
       [`
@@ -54,12 +60,12 @@ const genSelectionStyle: GenerateStyle<TableToken, CSSObject> = token => {
         paddingInlineStart: `${token.tablePaddingHorizontal / 4}px`,
 
         [iconCls]: {
-          color: token.tableHeaderIconColor,
-          fontSize: 10,
+          color: tableHeaderIconColor,
+          fontSize: fontSizeIcon,
           verticalAlign: 'baseline',
 
           '&:hover': {
-            color: new TinyColor(token.tableHeaderIconColor).darken(10).toRgbString(),
+            color: tableHeaderIconColorHover,
           },
         },
       },
