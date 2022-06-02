@@ -2,46 +2,54 @@
 
 exports[`Table.filter clearFilters should support params 1`] = `
 <div
-  class="ant-dropdown-custom-view"
+  className="ant-dropdown-custom-view"
   id="customFilter"
 >
   <span
     id="setNoParams"
+    onClick={[Function]}
   >
     setSelectedKeys
   </span>
   <span
     id="resetNoParams"
+    onClick={[Function]}
   >
     Reset
   </span>
   <span
     id="setConfirm"
+    onClick={[Function]}
   >
     setSelectedKeys
   </span>
   <span
     id="resetConfirm"
+    onClick={[Function]}
   >
     Reset
   </span>
   <span
     id="setClose"
+    onClick={[Function]}
   >
     setSelectedKeys
   </span>
   <span
     id="resetClose"
+    onClick={[Function]}
   >
     Reset
   </span>
   <span
     id="setParams"
+    onClick={[Function]}
   >
     setSelectedKeys
   </span>
   <span
     id="resetParams"
+    onClick={[Function]}
   >
     Reset
   </span>
@@ -303,14 +311,6 @@ exports[`Table.filter renders custom filter icon correctly 1`] = `
   class="customize-icon"
 >
   filtered
-</span>
-`;
-
-exports[`Table.filter renders custom filter icon correctly 2`] = `
-<span
-  class="customize-icon"
->
-  unfiltered
 </span>
 `;
 
