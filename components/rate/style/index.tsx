@@ -1,7 +1,7 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { GenerateStyle, FullToken } from '../../_util/theme';
-import { resetComponent, genComponentStyleHook, mergeToken } from '../../_util/theme';
+import type { FullToken, GenerateStyle } from '../../_util/theme';
+import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
 
 interface RateToken extends FullToken<'Rate'> {
   rateStarColor: string;
@@ -35,7 +35,7 @@ const genRateStarStyle: GenerateStyle<RateToken, CSSObject> = token => {
         },
 
         '&:focus-visible': {
-          outline: `1px dashed ${token.colorSplit}`,
+          outline: `${token.lineWidth} dashed ${token.colorSplit}`,
           transform: token.rateStarHoverScale,
         },
       },
@@ -121,10 +121,9 @@ const genRateStyle: GenerateStyle<RateToken> = token => {
 // ============================== Export ==============================
 export default genComponentStyleHook('Rate', token => {
   const rateToken = mergeToken<RateToken>(token, {
-    // FIXME: missing token
-    rateStarColor: '#fadb14', // @yellow-6
-    rateStarSize: 20, // fixed-value
-    rateStarHoverScale: 'scale(1.1)', // fixed-value
+    rateStarColor: token.yellow,
+    rateStarSize: token.controlHeightLG * 0.5,
+    rateStarHoverScale: 'scale(1.1)',
   });
   return [genRateStyle(rateToken)];
 });
