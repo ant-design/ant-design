@@ -67,7 +67,7 @@ export interface TableToken extends FullToken<'Table'> {
 }
 
 const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
-  const { componentCls } = token;
+  const { componentCls, fontWeightStrong, tablePaddingVertical, tablePaddingHorizontal } = token;
   const tableBorder = `${token.controlLineWidth}px ${token.controlLineType} ${token.tableBorderColor}`;
   return {
     [`${componentCls}-wrapper`]: {
@@ -98,13 +98,13 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
           tfoot > tr > td
         `]: {
         position: 'relative',
-        padding: `${token.tablePaddingVertical}px ${token.tablePaddingHorizontal}px`,
+        padding: `${tablePaddingVertical}px ${tablePaddingHorizontal}px`,
         overflowWrap: 'break-word',
       },
 
       // ============================ Title =============================
       [`${componentCls}-title`]: {
-        padding: `${token.tablePaddingVertical}px ${token.tablePaddingHorizontal}px`,
+        padding: `${tablePaddingVertical}px ${tablePaddingHorizontal}px`,
       },
 
       // ============================ Header ============================
@@ -112,7 +112,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
         '> tr > th': {
           position: 'relative',
           color: token.tableHeaderTextColor,
-          fontWeight: 500,
+          fontWeight: fontWeightStrong,
           textAlign: 'start',
           background: token.tableHeaderBg,
           borderBottom: tableBorder,
@@ -154,10 +154,10 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
               > ${componentCls}-expanded-row-fixed > ${componentCls}-wrapper:only-child
             `]: {
               [componentCls]: {
-                marginBlock: `-${token.tablePaddingVertical}px`,
+                marginBlock: `-${tablePaddingVertical}px`,
                 marginInline: `${
-                  token.tablePaddingHorizontal + Math.ceil(token.fontSizeSM * 1.4)
-                }px -${token.tablePaddingHorizontal}px`,
+                  tablePaddingHorizontal + Math.ceil(token.fontSizeSM * 1.4)
+                }px -${tablePaddingHorizontal}px`,
                 [`${componentCls}-tbody > tr:last-child > td`]: {
                   borderBottom: 0,
                   '&:first-child, &:last-child': {
@@ -178,8 +178,6 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
           [`&${componentCls}-row-selected`]: {
             '> td': {
               background: token.tableSelectedRowBg,
-              // FIXME
-              borderColor: 'rgba(0, 0, 0, 0.03)',
             },
 
             '&:hover > td': {
@@ -191,7 +189,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
 
       // ============================ Footer ============================
       [`${componentCls}-footer`]: {
-        padding: `${token.tablePaddingVertical}px ${token.tablePaddingHorizontal}px`,
+        padding: `${tablePaddingVertical}px ${tablePaddingHorizontal}px`,
         color: token.tableFooterTextColor,
         background: token.tableFooterBg,
       },
@@ -217,6 +215,7 @@ export default genComponentStyleHook('Table', token => {
     colorActionHover,
     colorLoadingOpacity,
     colorBgComponent,
+    colorBgContainer,
   } = token;
 
   const baseColorAction = new TinyColor(colorAction);
@@ -242,8 +241,8 @@ export default genComponentStyleHook('Table', token => {
     tableFooterTextColor: colorTextHeading,
     tableFooterBg: colorBgComponentSecondary,
     tableHeaderCellSplitColor: colorSplit,
-    tableHeaderSortBg: token.colorBgContainer,
-    tableHeaderSortHoverBg: 'rgba(0, 0, 0, 0.04)',
+    tableHeaderSortBg: colorBgContainer,
+    tableHeaderSortHoverBg: colorBgContainer,
     tableHeaderIconColor: baseColorAction
       .clone()
       .setAlpha(baseColorAction.getAlpha() * colorLoadingOpacity)
@@ -253,8 +252,8 @@ export default genComponentStyleHook('Table', token => {
       .setAlpha(baseColorActionHover.getAlpha() * colorLoadingOpacity)
       .toRgbString(),
     tableBodySortBg: colorBgComponentSecondary,
-    tableFixedHeaderSortActiveBg: 'hsv(0, 0, 96%)',
-    tableHeaderFilterActiveBg: 'rgba(0, 0, 0, 0.04)',
+    tableFixedHeaderSortActiveBg: colorBgContainer,
+    tableHeaderFilterActiveBg: colorBgContainer,
     tableFilterDropdownBg: colorBgComponent,
     tableRowHoverBg: colorBgComponentSecondary,
     tableSelectedRowBg,
