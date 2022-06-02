@@ -10015,7 +10015,7 @@ exports[`renders ./components/table/demo/grouping-columns.md correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
+        class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
         unselectable="unselectable"
       >
         <li
@@ -11641,7 +11641,7 @@ exports[`renders ./components/table/demo/narrow.md correctly 1`] = `
           </div>
         </div>
         <ul
-          class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
+          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
           unselectable="unselectable"
         >
           <li
@@ -16710,7 +16710,7 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
           </div>
         </div>
         <ul
-          class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
+          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
           unselectable="unselectable"
         >
           <li
@@ -16907,7 +16907,7 @@ exports[`renders ./components/table/demo/size.md correctly 1`] = `
           </div>
         </div>
         <ul
-          class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
+          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-right"
           unselectable="unselectable"
         >
           <li
