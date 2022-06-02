@@ -8,6 +8,7 @@ interface LineProps extends ProgressProps {
   prefixCls: string;
   direction?: DirectionType;
   children: React.ReactNode;
+  strokeColor?: string | ProgressGradient;
 }
 
 /**
@@ -83,27 +84,27 @@ const Line: React.FC<LineProps> = props => {
           background: strokeColor,
         };
 
-  const trailStyle = trailColor
-    ? {
-        backgroundColor: trailColor,
-      }
-    : undefined;
+  const borderRadius = strokeLinecap === 'square' || strokeLinecap === 'butt' ? 0 : undefined;
+  const trailStyle = {
+    backgroundColor: trailColor || undefined,
+    borderRadius,
+  };
 
   const percentStyle = {
     width: `${validProgress(percent)}%`,
     height: strokeWidth || (size === 'small' ? 6 : 8),
-    borderRadius: strokeLinecap === 'square' ? 0 : undefined,
+    borderRadius,
     ...backgroundProps,
-  } as React.CSSProperties;
+  };
 
   const successPercent = getSuccessPercent(props);
 
   const successPercentStyle = {
     width: `${validProgress(successPercent)}%`,
     height: strokeWidth || (size === 'small' ? 6 : 8),
-    borderRadius: strokeLinecap === 'square' ? 0 : undefined,
+    borderRadius,
     backgroundColor: success?.strokeColor,
-  } as React.CSSProperties;
+  };
 
   const successSegment =
     successPercent !== undefined ? (

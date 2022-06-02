@@ -144,7 +144,7 @@
     "rc-progress": "~3.3.2",
     "rc-rate": "~2.9.0",
     "rc-resize-observer": "^1.2.0",
-    "rc-segmented": "~2.1.0 ",
+    "rc-segmented": "~2.1.0",
     "rc-select": "~14.1.1",
     "rc-slider": "~10.0.0",
     "rc-steps": "~4.1.0",
@@ -164,7 +164,6 @@
   "devDependencies": {
     "@ant-design/bisheng-plugin": "^3.2.0",
     "@ant-design/hitu": "^0.0.0-alpha.13",
-    "@ant-design/jest-image-snapshot": "^4.5.2",
     "@ant-design/tools": "^15.0.2",
     "@docsearch/css": "^3.0.0",
     "@qixian.cs/github-contributors-list": "^1.0.3",

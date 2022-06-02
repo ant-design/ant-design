@@ -233,7 +233,7 @@ jobs:
       matrix:
         react: ['16', '17', '18']
         module: ['dom', 'node', 'dist']
-        shard: ['1/4', '2/4', '3/4', '4/4']
+        shard: ['1/2', '2/2']
     env:
       REACT: ${{ matrix.react }}
     runs-on: ubuntu-latest
@@ -350,7 +350,7 @@ jobs:
       matrix:
         react: ['16', '17', '18']
         module: [lib, es]
-        shard: ['1/4', '2/4', '3/4', '4/4']
+        shard: ['1/2', '2/2']
     env:
       REACT: ${{ matrix.react }}
     steps:
