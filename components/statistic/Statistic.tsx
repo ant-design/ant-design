@@ -58,7 +58,7 @@ const Statistic: React.FC<StatisticProps & ConfigConsumerProps> = props => {
   return wrapSSR(
     <div className={cls} style={style} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
       {title && <div className={`${prefixCls}-title`}>{title}</div>}
-      <Skeleton paragraph={false} loading={loading}>
+      <Skeleton paragraph={false} loading={loading} className={`${prefixCls}-skeleton`}>
         <div style={valueStyle} className={`${prefixCls}-content`}>
           {prefix && <span className={`${prefixCls}-content-prefix`}>{prefix}</span>}
           {valueRender ? valueRender(valueNode) : valueNode}
