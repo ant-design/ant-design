@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { mount } from 'enzyme';
 import { createPortal } from 'react-dom';
 import { render, fireEvent } from '../../../tests/utils';
 // eslint-disable-next-line import/no-unresolved
@@ -27,32 +26,32 @@ describe('Input', () => {
   rtlTest(Input.Group);
 
   it('should support maxLength', () => {
-    const wrapper = mount(<Input maxLength={3} />);
-    expect(wrapper.render()).toMatchSnapshot();
+    const { asFragment } = render(<Input maxLength={3} />);
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   it('select()', () => {
     const ref = React.createRef<InputRef>();
-    mount(<Input ref={ref} />);
+    render(<Input ref={ref} />);
     ref.current?.select();
   });
 
   it('should support size', () => {
-    const wrapper = mount(<Input size="large" />);
-    expect(wrapper.find('input').hasClass('ant-input-lg')).toBe(true);
-    expect(wrapper.render()).toMatchSnapshot();
+    const { asFragment, container } = render(<Input size="large" />);
+    expect(container.querySelector('input')?.classList.contains('ant-input-lg')).toBe(true);
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   it('should support size in form', () => {
-    const wrapper = mount(
+    const { asFragment, container } = render(
       <Form size="large">
         <Form.Item>
           <Input />
         </Form.Item>
       </Form>,
     );
-    expect(wrapper.find('input').hasClass('ant-input-lg')).toBe(true);
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(container.querySelector('input')?.classList.contains('ant-input-lg')).toBe(true);
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   describe('focus trigger warning', () => {
@@ -65,15 +64,13 @@ describe('Input', () => {
       expect(errorSpy).not.toHaveBeenCalled();
     });
     it('trigger warning', () => {
-      const wrapper = mount(<Input />);
-      wrapper.find('input').first().getDOMNode<HTMLInputElement>().focus();
-      wrapper.setProps({
-        suffix: 'light',
-      });
+      const { container, rerender, unmount } = render(<Input />);
+      container.querySelector('input')?.focus();
+      rerender(<Input suffix="light" />);
       expect(errorSpy).toHaveBeenCalledWith(
         'Warning: [antd: Input] When Input is focused, dynamic add or remove prefix / suffix will make it lose focus caused by dom structure change. Read more: https://ant.design/components/input/#FAQ',
       );
-      wrapper.unmount();
+      unmount();
     });
   });
 
@@ -115,10 +112,10 @@ describe('Input', () => {
     const defaultValue = '11111';
     const valLength = defaultValue.length;
     const ref = React.createRef<InputRef>();
-    const wrapper = mount(<Input ref={ref} autoFocus defaultValue={defaultValue} />);
+    const { container } = render(<Input ref={ref} autoFocus defaultValue={defaultValue} />);
     ref.current?.setSelectionRange(valLength, valLength);
-    expect(wrapper.find('input').first().getDOMNode<HTMLInputElement>().selectionStart).toEqual(5);
-    expect(wrapper.find('input').first().getDOMNode<HTMLInputElement>().selectionEnd).toEqual(5);
+    expect(container.querySelector('input')?.selectionStart).toEqual(5);
+    expect(container.querySelector('input')?.selectionEnd).toEqual(5);
   });
 });
 
@@ -230,133 +227,132 @@ describe('As Form Control', () => {
       );
     };
 
-    const wrapper = mount(<Demo />);
-    wrapper.find('input').simulate('change', { target: { value: '111' } });
-    wrapper.find('textarea').simulate('change', { target: { value: '222' } });
-    expect(wrapper.find('input').prop('value')).toBe('111');
-    expect(wrapper.find('textarea').prop('value')).toBe('222');
-    wrapper.find('button').simulate('click');
-    expect(wrapper.find('input').prop('value')).toBe('');
-    expect(wrapper.find('textarea').prop('value')).toBe('');
+    const { container } = render(<Demo />);
+    fireEvent.change(container.querySelector('input')!, { target: { value: '111' } });
+    fireEvent.change(container.querySelector('textarea')!, { target: { value: '222' } });
+    expect(container.querySelector('input')?.value).toBe('111');
+    expect(container.querySelector('textarea')?.value).toBe('222');
+    fireEvent.click(container.querySelector('button')!);
+    expect(container.querySelector('input')?.value).toBe('');
+    expect(container.querySelector('textarea')?.value).toBe('');
   });
 });
 
 describe('should support showCount', () => {
   it('maxLength', () => {
-    const wrapper = mount(<Input maxLength={5} showCount value="12345" />);
-    expect(wrapper.find('input').prop('value')).toBe('12345');
-    expect(wrapper.find('.ant-input-show-count-suffix').getDOMNode().innerHTML).toBe('5 / 5');
+    const { container } = render(<Input maxLength={5} showCount value="12345" />);
+    expect(container.querySelector('input')?.getAttribute('value')).toBe('12345');
+    expect(container.querySelector('.ant-input-show-count-suffix')?.innerHTML).toBe('5 / 5');
   });
 
   it('control exceed maxLength', () => {
-    const wrapper = mount(<Input maxLength={5} showCount value="12345678" />);
-    expect(wrapper.find('input').prop('value')).toBe('12345678');
-    expect(wrapper.find('.ant-input-show-count-suffix').getDOMNode().innerHTML).toBe('8 / 5');
+    const { container } = render(<Input maxLength={5} showCount value="12345678" />);
+    expect(container.querySelector('input')?.getAttribute('value')).toBe('12345678');
+    expect(container.querySelector('.ant-input-show-count-suffix')?.innerHTML).toBe('8 / 5');
   });
 
   describe('emoji', () => {
     it('should minimize value between emoji length and maxLength', () => {
-      const wrapper = mount(<Input maxLength={1} showCount value="👀" />);
-      expect(wrapper.find('input').prop('value')).toBe('👀');
-      expect(wrapper.find('.ant-input-show-count-suffix').getDOMNode().innerHTML).toBe('1 / 1');
+      const { container } = render(<Input maxLength={1} showCount value="👀" />);
+      expect(container.querySelector('input')?.getAttribute('value')).toBe('👀');
+      expect(container.querySelector('.ant-input-show-count-suffix')?.innerHTML).toBe('1 / 1');
 
-      const wrapper1 = mount(<Input maxLength={2} showCount value="👀" />);
-      expect(wrapper1.find('.ant-input-show-count-suffix').getDOMNode().innerHTML).toBe('1 / 2');
+      const { container: container1 } = render(<Input maxLength={2} showCount value="👀" />);
+      expect(container1.querySelector('.ant-input-show-count-suffix')?.innerHTML).toBe('1 / 2');
     });
 
     it('slice emoji', () => {
-      const wrapper = mount(<Input maxLength={5} showCount value="1234😂" />);
-      expect(wrapper.find('input').prop('value')).toBe('1234😂');
-      expect(wrapper.find('.ant-input-show-count-suffix').getDOMNode().innerHTML).toBe('5 / 5');
+      const { container } = render(<Input maxLength={5} showCount value="1234😂" />);
+      expect(container.querySelector('input')?.getAttribute('value')).toBe('1234😂');
+      expect(container.querySelector('.ant-input-show-count-suffix')?.innerHTML).toBe('5 / 5');
     });
   });
 
   it('count formatter', () => {
-    const wrapper = mount(
+    const { container } = render(
       <Input
         maxLength={5}
         showCount={{ formatter: ({ count, maxLength }) => `${count}, ${maxLength}` }}
         value="12345"
       />,
     );
-    expect(wrapper.find('input').prop('value')).toBe('12345');
-    expect(wrapper.find('.ant-input-show-count-suffix').getDOMNode().innerHTML).toBe('5, 5');
+    expect(container.querySelector('input')?.getAttribute('value')).toBe('12345');
+    expect(container.querySelector('.ant-input-show-count-suffix')?.innerHTML).toBe('5, 5');
   });
 });
 
 describe('Input allowClear', () => {
   it('should change type when click', () => {
-    const wrapper = mount(<Input allowClear />);
-    wrapper.find('input').simulate('change', { target: { value: '111' } });
-    expect(wrapper.find('input').getDOMNode<HTMLInputElement>().value).toEqual('111');
-    expect(wrapper.render()).toMatchSnapshot();
-    wrapper.find('.ant-input-clear-icon').at(0).simulate('click');
-    expect(wrapper.render()).toMatchSnapshot();
-    expect(wrapper.find('input').getDOMNode<HTMLInputElement>().value).toEqual('');
+    const { asFragment, container } = render(<Input allowClear />);
+    fireEvent.change(container.querySelector('input')!, { target: { value: '111' } });
+    expect(container.querySelector('input')?.value).toEqual('111');
+    expect(asFragment().firstChild).toMatchSnapshot();
+    fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
+    expect(asFragment().firstChild).toMatchSnapshot();
+    expect(container.querySelector('input')?.value).toEqual('');
   });
 
   it('should not show icon if value is undefined, null or empty string', () => {
     // @ts-ignore
-    const wrappers = [null, undefined, ''].map(val => mount(<Input allowClear value={val} />));
-    wrappers.forEach(wrapper => {
-      expect(wrapper.find('input').getDOMNode<HTMLInputElement>().value).toEqual('');
-      expect(wrapper.find('.ant-input-clear-icon-hidden').exists()).toBeTruthy();
-      expect(wrapper.render()).toMatchSnapshot();
+    const wrappers = [null, undefined, ''].map(val => render(<Input allowClear value={val} />));
+    wrappers.forEach(({ asFragment, container }) => {
+      expect(container.querySelector('input')?.value).toEqual('');
+      expect(container.querySelector('.ant-input-clear-icon-hidden')).toBeTruthy();
+      expect(asFragment().firstChild).toMatchSnapshot();
     });
   });
 
   it('should not show icon if defaultValue is undefined, null or empty string', () => {
     const wrappers = [null, undefined, ''].map(val =>
       // @ts-ignore
-      mount(<Input allowClear defaultValue={val} />),
+      render(<Input allowClear defaultValue={val} />),
     );
-    wrappers.forEach(wrapper => {
-      expect(wrapper.find('input').getDOMNode<HTMLInputElement>().value).toEqual('');
-      expect(wrapper.find('.ant-input-clear-icon-hidden').exists()).toBeTruthy();
-      expect(wrapper.render()).toMatchSnapshot();
+    wrappers.forEach(({ asFragment, container }) => {
+      expect(container.querySelector('input')?.value).toEqual('');
+      expect(container.querySelector('.ant-input-clear-icon-hidden')).toBeTruthy();
+      expect(asFragment().firstChild).toMatchSnapshot();
     });
   });
 
   it('should trigger event correctly', () => {
-    let argumentEventObject: React.ChangeEvent<HTMLInputElement> | undefined;
-
+    let argumentEventObjectType;
     let argumentEventObjectValue;
     const onChange: InputProps['onChange'] = e => {
-      argumentEventObject = e;
+      argumentEventObjectType = e.type;
       argumentEventObjectValue = e.target.value;
     };
-    const wrapper = mount(<Input allowClear defaultValue="111" onChange={onChange} />);
-    wrapper.find('.ant-input-clear-icon').at(0).simulate('click');
-    expect(argumentEventObject?.type).toBe('click');
+    const { container } = render(<Input allowClear defaultValue="111" onChange={onChange} />);
+    fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
+    expect(argumentEventObjectType).toBe('click');
     expect(argumentEventObjectValue).toBe('');
-    expect(wrapper.find('input').at(0).getDOMNode<HTMLInputElement>().value).toBe('');
+    expect(container.querySelector('input')?.value).toBe('');
   });
 
   it('should trigger event correctly on controlled mode', () => {
-    let argumentEventObject: React.ChangeEvent<HTMLInputElement> | undefined;
+    let argumentEventObjectType;
     let argumentEventObjectValue;
     const onChange: InputProps['onChange'] = e => {
-      argumentEventObject = e;
+      argumentEventObjectType = e.type;
       argumentEventObjectValue = e.target.value;
     };
-    const wrapper = mount(<Input allowClear value="111" onChange={onChange} />);
-    wrapper.find('.ant-input-clear-icon').at(0).simulate('click');
-    expect(argumentEventObject?.type).toBe('click');
+    const { container } = render(<Input allowClear value="111" onChange={onChange} />);
+    fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
+    expect(argumentEventObjectType).toBe('click');
     expect(argumentEventObjectValue).toBe('');
-    expect(wrapper.find('input').at(0).getDOMNode<HTMLInputElement>().value).toBe('111');
+    expect(container.querySelector('input')?.value).toBe('111');
   });
 
   it('should focus input after clear', () => {
-    const wrapper = mount(<Input allowClear defaultValue="111" />, { attachTo: document.body });
-    wrapper.find('.ant-input-clear-icon').at(0).simulate('click');
-    expect(document.activeElement).toBe(wrapper.find('input').at(0).getDOMNode());
-    wrapper.unmount();
+    const { container, unmount } = render(<Input allowClear defaultValue="111" />, { container: document.body });
+    fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
+    expect(document.activeElement).toBe(container.querySelector('input'));
+    unmount();
   });
 
   ['disabled', 'readOnly'].forEach(prop => {
     it(`should not support allowClear when it is ${prop}`, () => {
-      const wrapper = mount(<Input allowClear defaultValue="111" {...{ [prop]: true }} />);
-      expect(wrapper.find('.ant-input-clear-icon-hidden').exists()).toBeTruthy();
+      const { container } = render(<Input allowClear defaultValue="111" {...{ [prop]: true }} />);
+      expect(container.querySelector('.ant-input-clear-icon-hidden')).toBeTruthy();
     });
   });
 
@@ -370,17 +366,17 @@ describe('Input allowClear', () => {
   // https://github.com/ant-design/ant-design/issues/31200
   it('should not lost focus when clear input', () => {
     const onBlur = jest.fn();
-    const wrapper = mount(<Input allowClear defaultValue="value" onBlur={onBlur} />, {
-      attachTo: document.body,
+    const { container, unmount } = render(<Input allowClear defaultValue="value" onBlur={onBlur} />, {
+      container: document.body,
     });
-    wrapper.find('input').getDOMNode<HTMLInputElement>().focus();
-    wrapper.find('.ant-input-clear-icon').at(0).simulate('mouseDown');
-    wrapper.find('.ant-input-clear-icon').at(0).simulate('click');
-    wrapper.find('.ant-input-clear-icon').at(0).simulate('mouseUp');
-    wrapper.find('.ant-input-clear-icon').at(0).simulate('focus');
-    wrapper.find('.ant-input-clear-icon').at(0).getDOMNode<HTMLInputElement>().click();
+    container.querySelector('input')?.focus();
+    fireEvent.mouseDown(container.querySelector('.ant-input-clear-icon')!);
+    fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
+    fireEvent.mouseUp(container.querySelector('.ant-input-clear-icon')!);
+    fireEvent.focus(container.querySelector('.ant-input-clear-icon')!);
+    fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
     expect(onBlur).not.toBeCalled();
-    wrapper.unmount();
+    unmount();
   });
 
   // https://github.com/ant-design/ant-design/issues/31927
@@ -398,34 +394,35 @@ describe('Input allowClear', () => {
       );
     };
 
-    const wrapper = mount(<App />);
+    const { container, unmount } = render(<App />);
 
-    wrapper.find('input').getDOMNode<HTMLInputElement>().focus();
-    wrapper.find('input').simulate('change', { target: { value: '111' } });
-    expect(wrapper.find('input').getDOMNode<HTMLInputElement>().value).toEqual('111');
+    container.querySelector('input')?.focus();
+    fireEvent.change(container.querySelector('input')!, { target: { value: '111' } });
+    expect(container.querySelector('input')?.value).toEqual('111');
 
-    wrapper.find('.ant-input-clear-icon').at(0).simulate('click');
-    expect(wrapper.find('input').getDOMNode<HTMLInputElement>().value).toEqual('');
+    fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
+    expect(container.querySelector('input')?.value).toEqual('');
 
-    wrapper.unmount();
+    unmount();
   });
 
   it('not crash when value is number', () => {
-    const wrapper = mount(<Input suffix="Bamboo" value={1} />);
-    expect(wrapper).toBeTruthy();
+    const { container } = render(<Input suffix="Bamboo" value={1} />);
+    expect(container).toBeTruthy();
   });
 
   it('should display boolean value as string', () => {
     // @ts-ignore
-    const wrapper = mount(<Input value />);
-    expect(wrapper.find('input').first().getDOMNode<HTMLInputElement>().value).toBe('true');
-    wrapper.setProps({ value: false });
-    expect(wrapper.find('input').first().getDOMNode<HTMLInputElement>().value).toBe('false');
+    const { container, rerender } = render(<Input value />);
+    expect(container.querySelector('input')?.value).toBe('true');
+    // @ts-ignore
+    rerender(<Input value={false} />);
+    expect(container.querySelector('input')?.value).toBe('false');
   });
 
   it('should support custom clearIcon', () => {
-    const wrapper = mount(<Input allowClear={{ clearIcon: 'clear' }} />);
-    expect(wrapper.find('.ant-input-clear-icon').text()).toBe('clear');
+    const { container } = render(<Input allowClear={{ clearIcon: 'clear' }} />);
+    expect(container.querySelector('.ant-input-clear-icon')?.textContent).toBe('clear');
   });
 });
 
@@ -438,9 +435,9 @@ describe('typescript types ', () => {
       'data-testid': 'test-id',
       'data-id': '12345',
     };
-    const wrapper = mount(<Input {...props} />);
-    const input = wrapper.find('input').first().getDOMNode();
-    expect(input.getAttribute('data-testid')).toBe('test-id');
-    expect(input.getAttribute('data-id')).toBe('12345');
+    const { container } = render(<Input {...props} />);
+    const input = container.querySelector('input');
+    expect(input?.getAttribute('data-testid')).toBe('test-id');
+    expect(input?.getAttribute('data-id')).toBe('12345');
   });
 });
