@@ -42,6 +42,7 @@
     background-color: @primary-color;
     border-color: @primary-color;
   }
+
   &:after {
     border-color: @primary-color;
     border-radius: 4px;
@@ -51,6 +52,7 @@
 .ant-checkbox-inner {
   border: 1px solid @dg700;
   border-radius: 4px;
+
   &:after {
     margin-top: -1px;
   }
@@ -71,6 +73,45 @@
   }
 }
 
+// checkbox tree CSS
+
+.ant-select-tree-checkbox-checked {
+  .ant-select-tree-checkbox-inner {
+    background-color: @primary-color;
+    border-color: @primary-color;
+  }
+
+  &:after {
+    border-color: @primary-color;
+    border-radius: 4px;
+  }
+}
+
+.ant-select-tree-checkbox-indeterminate {
+  .ant-select-tree-checkbox-inner {
+    &:after {
+      margin-top: 0;
+      background-color: @primary-color;
+      border-radius: 2px;
+    }
+  }
+}
+
+.ant-select-tree-checkbox-inner {
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+
+  &:after {
+    margin-top: -1px;
+  }
+}
+
+.ant-select-tree-checkbox-wrapper:hover .ant-select-tree-checkbox-inner,
+.ant-select-tree-checkbox:hover .ant-select-tree-checkbox-inner,
+.ant-select-tree-checkbox-input:focus + .ant-select-tree-checkbox-inner {
+  border-color: @primary-color;
+}
+
 // Button CSS
 .ant-btn {
   height: auto;
@@ -83,31 +124,37 @@
   border: 1px solid @dg700;
   border-radius: 4px;
   box-shadow: 0px 1px 2px rgba(6, 25, 56, 0.05);
+
   &:hover {
     color: @dg300;
     background-color: @dg700;
     border-color: @dg700;
   }
+
   &.ant-btn-primary {
     color: @white;
     background-color: @primary-color;
     border-color: @primary-color;
+
     &:hover {
       color: @dg300;
       background-color: transparent;
     }
   }
+
   &.ant-btn-lg {
     height: auto;
     padding: 9px 12px;
     font-size: 16px;
     line-height: 20px;
   }
+
   &.ant-btn-icon-only {
     width: 26px;
     height: 26px;
     padding: 1px;
   }
+
   + .ant-btn {
     margin-left: 12px;
   }
@@ -129,6 +176,7 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 18px;
+
   &:hover {
     color: @primary-color;
     background: @b900;
@@ -142,10 +190,12 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 18px;
+
     &:hover {
       color: @primary-color;
       background: @b900;
     }
+
     .ant-btn {
       padding: 0;
       background-color: transparent;
@@ -162,6 +212,7 @@
     font-size: 14px;
     line-height: 18px;
   }
+
   span {
     display: block;
     padding: 8px 16px;
@@ -182,6 +233,7 @@
 
 .table-dropdown {
   width: 120px;
+
   .ant-btn {
     width: 100%;
     text-align: left;
@@ -222,4 +274,74 @@ div.ant-typography {
   line-height: 16px;
   border: 1px dashed @dg700;
   border-radius: 4px;
+}
+
+// Password strength
+
+.strength {
+  text-align: right;
+  > div {
+    justify-content: flex-end;
+  }
+  &.weak {
+    > div {
+      .strength-length {
+        &:first-child {
+          background: @r500;
+        }
+      }
+    }
+    .strength-word {
+      color: @r500;
+    }
+  }
+  &.fair {
+    > div {
+      .strength-length {
+        &:first-child,
+        &:nth-child(2) {
+          background: @y500;
+        }
+      }
+    }
+    .strength-word {
+      color: @y500;
+    }
+  }
+  &.good {
+    > div {
+      .strength-length {
+        &:first-child,
+        &:nth-child(2),
+        &:nth-child(3) {
+          background: @g500;
+        }
+      }
+    }
+    .strength-word {
+      color: @g500;
+    }
+  }
+  &.strong {
+    > div {
+      .strength-length {
+        background: @g500;
+      }
+    }
+    .strength-word {
+      color: @g500;
+    }
+  }
+}
+.strength-length {
+  width: 40px;
+  height: 4px;
+  margin: 8px 0 8px 8px;
+  background: #e5e7eb;
+  border-radius: 37px;
+}
+.strength-word {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
 }
