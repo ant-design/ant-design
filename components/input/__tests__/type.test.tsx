@@ -1,7 +1,7 @@
 import React from 'react';
-import { mount } from 'enzyme';
 import Input from '..';
 import type { InputProps } from '../Input';
+import { render } from '../../../tests/utils';
 
 describe('Input types', () => {
   it('should support data-attributes', () => {
@@ -9,9 +9,9 @@ describe('Input types', () => {
       'data-test': 'test',
       size: 'large',
     };
-    const wrapper = mount(<Input {...dataProps} />);
-    expect(wrapper.find('input').prop('data-test')).toBe('test');
-    const wrapper2 = mount(<Input data-test="test" size="large" />);
-    expect(wrapper2.find('input').prop('data-test')).toBe('test');
+    const { container } = render(<Input {...dataProps} />);
+    expect(container.querySelector('input')?.getAttribute('data-test')).toBe('test');
+    const { container: container2 } = render(<Input data-test="test" size="large" />);
+    expect(container2.querySelector('input')?.getAttribute('data-test')).toBe('test');
   });
 });
