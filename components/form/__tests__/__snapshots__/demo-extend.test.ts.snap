@@ -3121,7 +3121,7 @@ exports[`renders ./components/form/demo/form-context.md extend context correctly
           <span
             class="ant-typography ant-typography-secondary ant-form-text"
           >
-            ( 
+            (
             <span
               aria-label="smile"
               class="anticon anticon-smile"
@@ -3769,7 +3769,7 @@ exports[`renders ./components/form/demo/layout-can-wrap.md extend context correc
         class="ant-form-item-no-colon"
         title=" "
       >
-         
+
       </label>
     </div>
     <div
@@ -4228,7 +4228,7 @@ exports[`renders ./components/form/demo/normal-login.md extend context correctly
               Log in
             </span>
           </button>
-          Or 
+          Or
           <a
             href=""
           >
@@ -5593,7 +5593,7 @@ exports[`renders ./components/form/demo/register.md extend context correctly 1`]
               />
             </span>
             <span>
-              I have read the 
+              I have read the
               <a
                 href=""
               >
@@ -8539,7 +8539,7 @@ exports[`renders ./components/form/demo/time-related-controls.md extend context 
                         <div
                           class="ant-picker-header-view"
                         >
-                           
+
                         </div>
                       </div>
                       <div
@@ -9883,7 +9883,7 @@ exports[`renders ./components/form/demo/time-related-controls.md extend context 
                           type="button"
                         >
                           <span>
-                            Ok
+                            OK
                           </span>
                         </button>
                       </li>
@@ -12030,7 +12030,7 @@ exports[`renders ./components/form/demo/time-related-controls.md extend context 
                             <div
                               class="ant-picker-header-view"
                             >
-                               
+
                             </div>
                           </div>
                           <div
@@ -13367,7 +13367,7 @@ exports[`renders ./components/form/demo/time-related-controls.md extend context 
                           type="button"
                         >
                           <span>
-                            Ok
+                            OK
                           </span>
                         </button>
                       </li>
@@ -14802,7 +14802,7 @@ exports[`renders ./components/form/demo/time-related-controls.md extend context 
                           type="button"
                         >
                           <span>
-                            Ok
+                            OK
                           </span>
                         </button>
                       </li>
@@ -14988,7 +14988,7 @@ Array [
     class="ant-typography"
   >
     <pre>
-      Name Value: 
+      Name Value:
     </pre>
   </article>,
 ]
@@ -15258,7 +15258,7 @@ exports[`renders ./components/form/demo/validate-other.md extend context correct
                       aria-hidden="true"
                       class="ant-select-selection-search-mirror"
                     >
-                       
+
                     </span>
                   </div>
                 </div>
@@ -18993,7 +18993,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
                           type="button"
                         >
                           <span>
-                            Ok
+                            OK
                           </span>
                         </button>
                       </li>
