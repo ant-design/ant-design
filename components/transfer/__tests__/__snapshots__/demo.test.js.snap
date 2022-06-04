@@ -49,7 +49,7 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
       <span
         class="ant-transfer-list-header-selected"
       >
-        8 items
+        10 items
       </span>
       <span
         class="ant-transfer-list-header-title"
@@ -129,7 +129,7 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
       >
         <li
           class="ant-transfer-list-content-item"
-          title="content5-description of content5"
+          title="content1-description of content1"
         >
           <label
             class="ant-checkbox-wrapper ant-transfer-list-checkbox"
@@ -150,7 +150,33 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
           <span
             class="ant-transfer-list-content-item-text"
           >
-            content5-description of content5
+            content1-description of content1
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content4-description of content4"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content4-description of content4
           </span>
         </li>
         <li
@@ -181,6 +207,32 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
         </li>
         <li
           class="ant-transfer-list-content-item"
+          title="content7-description of content7"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content7-description of content7
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
           title="content9-description of content9"
         >
           <label
@@ -207,7 +259,7 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
         </li>
         <li
           class="ant-transfer-list-content-item"
-          title="content11-description of content11"
+          title="content13-description of content13"
         >
           <label
             class="ant-checkbox-wrapper ant-transfer-list-checkbox"
@@ -228,12 +280,12 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
           <span
             class="ant-transfer-list-content-item-text"
           >
-            content11-description of content11
+            content13-description of content13
           </span>
         </li>
         <li
           class="ant-transfer-list-content-item"
-          title="content15-description of content15"
+          title="content14-description of content14"
         >
           <label
             class="ant-checkbox-wrapper ant-transfer-list-checkbox"
@@ -254,7 +306,7 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
           <span
             class="ant-transfer-list-content-item-text"
           >
-            content15-description of content15
+            content14-description of content14
           </span>
         </li>
         <li
@@ -456,7 +508,7 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
       <span
         class="ant-transfer-list-header-selected"
       >
-        12 items
+        10 items
       </span>
       <span
         class="ant-transfer-list-header-title"
@@ -536,32 +588,6 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
       >
         <li
           class="ant-transfer-list-content-item"
-          title="content1-description of content1"
-        >
-          <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
-          >
-            <span
-              class="ant-checkbox"
-            >
-              <input
-                class="ant-checkbox-input"
-                type="checkbox"
-                value=""
-              />
-              <span
-                class="ant-checkbox-inner"
-              />
-            </span>
-          </label>
-          <span
-            class="ant-transfer-list-content-item-text"
-          >
-            content1-description of content1
-          </span>
-        </li>
-        <li
-          class="ant-transfer-list-content-item"
           title="content2-description of content2"
         >
           <label
@@ -614,7 +640,7 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
         </li>
         <li
           class="ant-transfer-list-content-item"
-          title="content4-description of content4"
+          title="content5-description of content5"
         >
           <label
             class="ant-checkbox-wrapper ant-transfer-list-checkbox"
@@ -635,33 +661,7 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
           <span
             class="ant-transfer-list-content-item-text"
           >
-            content4-description of content4
-          </span>
-        </li>
-        <li
-          class="ant-transfer-list-content-item"
-          title="content7-description of content7"
-        >
-          <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
-          >
-            <span
-              class="ant-checkbox"
-            >
-              <input
-                class="ant-checkbox-input"
-                type="checkbox"
-                value=""
-              />
-              <span
-                class="ant-checkbox-inner"
-              />
-            </span>
-          </label>
-          <span
-            class="ant-transfer-list-content-item-text"
-          >
-            content7-description of content7
+            content5-description of content5
           </span>
         </li>
         <li
@@ -718,6 +718,32 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
         </li>
         <li
           class="ant-transfer-list-content-item"
+          title="content11-description of content11"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content11-description of content11
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
           title="content12-description of content12"
         >
           <label
@@ -744,7 +770,7 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
         </li>
         <li
           class="ant-transfer-list-content-item"
-          title="content13-description of content13"
+          title="content15-description of content15"
         >
           <label
             class="ant-checkbox-wrapper ant-transfer-list-checkbox"
@@ -765,33 +791,7 @@ exports[`renders ./components/transfer/demo/advanced.md correctly 1`] = `
           <span
             class="ant-transfer-list-content-item-text"
           >
-            content13-description of content13
-          </span>
-        </li>
-        <li
-          class="ant-transfer-list-content-item"
-          title="content14-description of content14"
-        >
-          <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
-          >
-            <span
-              class="ant-checkbox"
-            >
-              <input
-                class="ant-checkbox-input"
-                type="checkbox"
-                value=""
-              />
-              <span
-                class="ant-checkbox-inner"
-              />
-            </span>
-          </label>
-          <span
-            class="ant-transfer-list-content-item-text"
-          >
-            content14-description of content14
+            content15-description of content15
           </span>
         </li>
         <li
@@ -1617,7 +1617,7 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
       <span
         class="ant-transfer-list-header-selected"
       >
-        9 items
+        12 items
       </span>
       <span
         class="ant-transfer-list-header-title"
@@ -1661,36 +1661,6 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
         </li>
         <li
           class="ant-transfer-list-content-item"
-          title="content2"
-        >
-          <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
-          >
-            <span
-              class="ant-checkbox"
-            >
-              <input
-                class="ant-checkbox-input"
-                type="checkbox"
-                value=""
-              />
-              <span
-                class="ant-checkbox-inner"
-              />
-            </span>
-          </label>
-          <span
-            class="ant-transfer-list-content-item-text"
-          >
-            <span
-              class="custom-item"
-            >
-              content2 - description of content2
-            </span>
-          </span>
-        </li>
-        <li
-          class="ant-transfer-list-content-item"
           title="content3"
         >
           <label
@@ -1716,6 +1686,36 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
               class="custom-item"
             >
               content3 - description of content3
+            </span>
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content4"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            <span
+              class="custom-item"
+            >
+              content4 - description of content4
             </span>
           </span>
         </li>
@@ -1751,7 +1751,7 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
         </li>
         <li
           class="ant-transfer-list-content-item"
-          title="content6"
+          title="content7"
         >
           <label
             class="ant-checkbox-wrapper ant-transfer-list-checkbox"
@@ -1775,13 +1775,13 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
             <span
               class="custom-item"
             >
-              content6 - description of content6
+              content7 - description of content7
             </span>
           </span>
         </li>
         <li
           class="ant-transfer-list-content-item"
-          title="content14"
+          title="content8"
         >
           <label
             class="ant-checkbox-wrapper ant-transfer-list-checkbox"
@@ -1805,13 +1805,13 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
             <span
               class="custom-item"
             >
-              content14 - description of content14
+              content8 - description of content8
             </span>
           </span>
         </li>
         <li
           class="ant-transfer-list-content-item"
-          title="content15"
+          title="content9"
         >
           <label
             class="ant-checkbox-wrapper ant-transfer-list-checkbox"
@@ -1835,7 +1835,67 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
             <span
               class="custom-item"
             >
-              content15 - description of content15
+              content9 - description of content9
+            </span>
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content12"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            <span
+              class="custom-item"
+            >
+              content12 - description of content12
+            </span>
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content16"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            <span
+              class="custom-item"
+            >
+              content16 - description of content16
             </span>
           </span>
         </li>
@@ -1871,7 +1931,7 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
         </li>
         <li
           class="ant-transfer-list-content-item"
-          title="content18"
+          title="content19"
         >
           <label
             class="ant-checkbox-wrapper ant-transfer-list-checkbox"
@@ -1895,7 +1955,37 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
             <span
               class="custom-item"
             >
-              content18 - description of content18
+              content19 - description of content19
+            </span>
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content20"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            <span
+              class="custom-item"
+            >
+              content20 - description of content20
             </span>
           </span>
         </li>
@@ -2001,7 +2091,7 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
       <span
         class="ant-transfer-list-header-selected"
       >
-        11 items
+        8 items
       </span>
       <span
         class="ant-transfer-list-header-title"
@@ -2015,7 +2105,7 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
       >
         <li
           class="ant-transfer-list-content-item"
-          title="content4"
+          title="content2"
         >
           <label
             class="ant-checkbox-wrapper ant-transfer-list-checkbox"
@@ -2039,13 +2129,13 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
             <span
               class="custom-item"
             >
-              content4 - description of content4
+              content2 - description of content2
             </span>
           </span>
         </li>
         <li
           class="ant-transfer-list-content-item"
-          title="content7"
+          title="content6"
         >
           <label
             class="ant-checkbox-wrapper ant-transfer-list-checkbox"
@@ -2069,67 +2159,7 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
             <span
               class="custom-item"
             >
-              content7 - description of content7
-            </span>
-          </span>
-        </li>
-        <li
-          class="ant-transfer-list-content-item"
-          title="content8"
-        >
-          <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
-          >
-            <span
-              class="ant-checkbox"
-            >
-              <input
-                class="ant-checkbox-input"
-                type="checkbox"
-                value=""
-              />
-              <span
-                class="ant-checkbox-inner"
-              />
-            </span>
-          </label>
-          <span
-            class="ant-transfer-list-content-item-text"
-          >
-            <span
-              class="custom-item"
-            >
-              content8 - description of content8
-            </span>
-          </span>
-        </li>
-        <li
-          class="ant-transfer-list-content-item"
-          title="content9"
-        >
-          <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
-          >
-            <span
-              class="ant-checkbox"
-            >
-              <input
-                class="ant-checkbox-input"
-                type="checkbox"
-                value=""
-              />
-              <span
-                class="ant-checkbox-inner"
-              />
-            </span>
-          </label>
-          <span
-            class="ant-transfer-list-content-item-text"
-          >
-            <span
-              class="custom-item"
-            >
-              content9 - description of content9
+              content6 - description of content6
             </span>
           </span>
         </li>
@@ -2195,36 +2225,6 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
         </li>
         <li
           class="ant-transfer-list-content-item"
-          title="content12"
-        >
-          <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
-          >
-            <span
-              class="ant-checkbox"
-            >
-              <input
-                class="ant-checkbox-input"
-                type="checkbox"
-                value=""
-              />
-              <span
-                class="ant-checkbox-inner"
-              />
-            </span>
-          </label>
-          <span
-            class="ant-transfer-list-content-item-text"
-          >
-            <span
-              class="custom-item"
-            >
-              content12 - description of content12
-            </span>
-          </span>
-        </li>
-        <li
-          class="ant-transfer-list-content-item"
           title="content13"
         >
           <label
@@ -2255,7 +2255,7 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
         </li>
         <li
           class="ant-transfer-list-content-item"
-          title="content16"
+          title="content14"
         >
           <label
             class="ant-checkbox-wrapper ant-transfer-list-checkbox"
@@ -2279,13 +2279,13 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
             <span
               class="custom-item"
             >
-              content16 - description of content16
+              content14 - description of content14
             </span>
           </span>
         </li>
         <li
           class="ant-transfer-list-content-item"
-          title="content19"
+          title="content15"
         >
           <label
             class="ant-checkbox-wrapper ant-transfer-list-checkbox"
@@ -2309,13 +2309,13 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
             <span
               class="custom-item"
             >
-              content19 - description of content19
+              content15 - description of content15
             </span>
           </span>
         </li>
         <li
           class="ant-transfer-list-content-item"
-          title="content20"
+          title="content18"
         >
           <label
             class="ant-checkbox-wrapper ant-transfer-list-checkbox"
@@ -2339,7 +2339,7 @@ exports[`renders ./components/transfer/demo/custom-item.md correctly 1`] = `
             <span
               class="custom-item"
             >
-              content20 - description of content20
+              content18 - description of content18
             </span>
           </span>
         </li>
@@ -2821,7 +2821,7 @@ Array [
         <span
           class="ant-transfer-list-header-selected"
         >
-          997 items
+          980 items
         </span>
         <span
           class="ant-transfer-list-header-title"
@@ -2833,6 +2833,84 @@ Array [
         <ul
           class="ant-transfer-list-content"
         >
+          <li
+            class="ant-transfer-list-content-item"
+            title="content1"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            >
+              <span
+                class="ant-checkbox"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                  value=""
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content1
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content2"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            >
+              <span
+                class="ant-checkbox"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                  value=""
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content2
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content3"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            >
+              <span
+                class="ant-checkbox"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                  value=""
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content3
+            </span>
+          </li>
           <li
             class="ant-transfer-list-content-item"
             title="content4"
@@ -2857,6 +2935,32 @@ Array [
               class="ant-transfer-list-content-item-text"
             >
               content4
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content5"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            >
+              <span
+                class="ant-checkbox"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                  value=""
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content5
             </span>
           </li>
           <li
@@ -2887,7 +2991,7 @@ Array [
           </li>
           <li
             class="ant-transfer-list-content-item"
-            title="content8"
+            title="content7"
           >
             <label
               class="ant-checkbox-wrapper ant-transfer-list-checkbox"
@@ -2908,7 +3012,7 @@ Array [
             <span
               class="ant-transfer-list-content-item-text"
             >
-              content8
+              content7
             </span>
           </li>
           <li
@@ -2939,7 +3043,7 @@ Array [
           </li>
           <li
             class="ant-transfer-list-content-item"
-            title="content15"
+            title="content11"
           >
             <label
               class="ant-checkbox-wrapper ant-transfer-list-checkbox"
@@ -2960,12 +3064,12 @@ Array [
             <span
               class="ant-transfer-list-content-item-text"
             >
-              content15
+              content11
             </span>
           </li>
           <li
             class="ant-transfer-list-content-item"
-            title="content17"
+            title="content13"
           >
             <label
               class="ant-checkbox-wrapper ant-transfer-list-checkbox"
@@ -2986,111 +3090,7 @@ Array [
             <span
               class="ant-transfer-list-content-item-text"
             >
-              content17
-            </span>
-          </li>
-          <li
-            class="ant-transfer-list-content-item"
-            title="content19"
-          >
-            <label
-              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
-            >
-              <span
-                class="ant-checkbox"
-              >
-                <input
-                  class="ant-checkbox-input"
-                  type="checkbox"
-                  value=""
-                />
-                <span
-                  class="ant-checkbox-inner"
-                />
-              </span>
-            </label>
-            <span
-              class="ant-transfer-list-content-item-text"
-            >
-              content19
-            </span>
-          </li>
-          <li
-            class="ant-transfer-list-content-item"
-            title="content20"
-          >
-            <label
-              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
-            >
-              <span
-                class="ant-checkbox"
-              >
-                <input
-                  class="ant-checkbox-input"
-                  type="checkbox"
-                  value=""
-                />
-                <span
-                  class="ant-checkbox-inner"
-                />
-              </span>
-            </label>
-            <span
-              class="ant-transfer-list-content-item-text"
-            >
-              content20
-            </span>
-          </li>
-          <li
-            class="ant-transfer-list-content-item"
-            title="content21"
-          >
-            <label
-              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
-            >
-              <span
-                class="ant-checkbox"
-              >
-                <input
-                  class="ant-checkbox-input"
-                  type="checkbox"
-                  value=""
-                />
-                <span
-                  class="ant-checkbox-inner"
-                />
-              </span>
-            </label>
-            <span
-              class="ant-transfer-list-content-item-text"
-            >
-              content21
-            </span>
-          </li>
-          <li
-            class="ant-transfer-list-content-item"
-            title="content23"
-          >
-            <label
-              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
-            >
-              <span
-                class="ant-checkbox"
-              >
-                <input
-                  class="ant-checkbox-input"
-                  type="checkbox"
-                  value=""
-                />
-                <span
-                  class="ant-checkbox-inner"
-                />
-              </span>
-            </label>
-            <span
-              class="ant-transfer-list-content-item-text"
-            >
-              content23
+              content13
             </span>
           </li>
         </ul>
@@ -3131,7 +3131,7 @@ Array [
           </li>
           <li
             class="ant-pagination-simple-pager"
-            title="1/100"
+            title="1/98"
           >
             <input
               size="3"
@@ -3143,7 +3143,7 @@ Array [
             >
               /
             </span>
-            100
+            98
           </li>
           <li
             aria-disabled="false"
@@ -3261,7 +3261,7 @@ Array [
         <span
           class="ant-transfer-list-header-selected"
         >
-          1003 items
+          1020 items
         </span>
         <span
           class="ant-transfer-list-header-title"
@@ -3275,7 +3275,7 @@ Array [
         >
           <li
             class="ant-transfer-list-content-item"
-            title="content1"
+            title="content8"
           >
             <label
               class="ant-checkbox-wrapper ant-transfer-list-checkbox"
@@ -3296,111 +3296,7 @@ Array [
             <span
               class="ant-transfer-list-content-item-text"
             >
-              content1
-            </span>
-          </li>
-          <li
-            class="ant-transfer-list-content-item"
-            title="content2"
-          >
-            <label
-              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
-            >
-              <span
-                class="ant-checkbox"
-              >
-                <input
-                  class="ant-checkbox-input"
-                  type="checkbox"
-                  value=""
-                />
-                <span
-                  class="ant-checkbox-inner"
-                />
-              </span>
-            </label>
-            <span
-              class="ant-transfer-list-content-item-text"
-            >
-              content2
-            </span>
-          </li>
-          <li
-            class="ant-transfer-list-content-item"
-            title="content3"
-          >
-            <label
-              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
-            >
-              <span
-                class="ant-checkbox"
-              >
-                <input
-                  class="ant-checkbox-input"
-                  type="checkbox"
-                  value=""
-                />
-                <span
-                  class="ant-checkbox-inner"
-                />
-              </span>
-            </label>
-            <span
-              class="ant-transfer-list-content-item-text"
-            >
-              content3
-            </span>
-          </li>
-          <li
-            class="ant-transfer-list-content-item"
-            title="content5"
-          >
-            <label
-              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
-            >
-              <span
-                class="ant-checkbox"
-              >
-                <input
-                  class="ant-checkbox-input"
-                  type="checkbox"
-                  value=""
-                />
-                <span
-                  class="ant-checkbox-inner"
-                />
-              </span>
-            </label>
-            <span
-              class="ant-transfer-list-content-item-text"
-            >
-              content5
-            </span>
-          </li>
-          <li
-            class="ant-transfer-list-content-item"
-            title="content7"
-          >
-            <label
-              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
-            >
-              <span
-                class="ant-checkbox"
-              >
-                <input
-                  class="ant-checkbox-input"
-                  type="checkbox"
-                  value=""
-                />
-                <span
-                  class="ant-checkbox-inner"
-                />
-              </span>
-            </label>
-            <span
-              class="ant-transfer-list-content-item-text"
-            >
-              content7
+              content8
             </span>
           </li>
           <li
@@ -3431,32 +3327,6 @@ Array [
           </li>
           <li
             class="ant-transfer-list-content-item"
-            title="content11"
-          >
-            <label
-              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
-            >
-              <span
-                class="ant-checkbox"
-              >
-                <input
-                  class="ant-checkbox-input"
-                  type="checkbox"
-                  value=""
-                />
-                <span
-                  class="ant-checkbox-inner"
-                />
-              </span>
-            </label>
-            <span
-              class="ant-transfer-list-content-item-text"
-            >
-              content11
-            </span>
-          </li>
-          <li
-            class="ant-transfer-list-content-item"
             title="content12"
           >
             <label
@@ -3483,32 +3353,6 @@ Array [
           </li>
           <li
             class="ant-transfer-list-content-item"
-            title="content13"
-          >
-            <label
-              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
-            >
-              <span
-                class="ant-checkbox"
-              >
-                <input
-                  class="ant-checkbox-input"
-                  type="checkbox"
-                  value=""
-                />
-                <span
-                  class="ant-checkbox-inner"
-                />
-              </span>
-            </label>
-            <span
-              class="ant-transfer-list-content-item-text"
-            >
-              content13
-            </span>
-          </li>
-          <li
-            class="ant-transfer-list-content-item"
             title="content14"
           >
             <label
@@ -3531,6 +3375,162 @@ Array [
               class="ant-transfer-list-content-item-text"
             >
               content14
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content16"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            >
+              <span
+                class="ant-checkbox"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                  value=""
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content16
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content17"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            >
+              <span
+                class="ant-checkbox"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                  value=""
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content17
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content18"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            >
+              <span
+                class="ant-checkbox"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                  value=""
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content18
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content19"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            >
+              <span
+                class="ant-checkbox"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                  value=""
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content19
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content21"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            >
+              <span
+                class="ant-checkbox"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                  value=""
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content21
+            </span>
+          </li>
+          <li
+            class="ant-transfer-list-content-item"
+            title="content24"
+          >
+            <label
+              class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+            >
+              <span
+                class="ant-checkbox"
+              >
+                <input
+                  class="ant-checkbox-input"
+                  type="checkbox"
+                  value=""
+                />
+                <span
+                  class="ant-checkbox-inner"
+                />
+              </span>
+            </label>
+            <span
+              class="ant-transfer-list-content-item-text"
+            >
+              content24
             </span>
           </li>
         </ul>
@@ -3571,7 +3571,7 @@ Array [
           </li>
           <li
             class="ant-pagination-simple-pager"
-            title="1/101"
+            title="1/102"
           >
             <input
               size="3"
@@ -3583,7 +3583,7 @@ Array [
             >
               /
             </span>
-            101
+            102
           </li>
           <li
             aria-disabled="false"
@@ -4440,7 +4440,7 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
       <span
         class="ant-transfer-list-header-selected"
       >
-        11 items
+        12 items
       </span>
       <span
         class="ant-transfer-list-header-title"
@@ -4546,6 +4546,84 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
         </li>
         <li
           class="ant-transfer-list-content-item"
+          title="content3"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content3
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content4"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content4
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content6"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content6
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
           title="content7"
         >
           <label
@@ -4572,7 +4650,7 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
         </li>
         <li
           class="ant-transfer-list-content-item"
-          title="content8"
+          title="content9"
         >
           <label
             class="ant-checkbox-wrapper ant-transfer-list-checkbox"
@@ -4593,59 +4671,7 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
           <span
             class="ant-transfer-list-content-item-text"
           >
-            content8
-          </span>
-        </li>
-        <li
-          class="ant-transfer-list-content-item"
-          title="content10"
-        >
-          <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
-          >
-            <span
-              class="ant-checkbox"
-            >
-              <input
-                class="ant-checkbox-input"
-                type="checkbox"
-                value=""
-              />
-              <span
-                class="ant-checkbox-inner"
-              />
-            </span>
-          </label>
-          <span
-            class="ant-transfer-list-content-item-text"
-          >
-            content10
-          </span>
-        </li>
-        <li
-          class="ant-transfer-list-content-item"
-          title="content11"
-        >
-          <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
-          >
-            <span
-              class="ant-checkbox"
-            >
-              <input
-                class="ant-checkbox-input"
-                type="checkbox"
-                value=""
-              />
-              <span
-                class="ant-checkbox-inner"
-              />
-            </span>
-          </label>
-          <span
-            class="ant-transfer-list-content-item-text"
-          >
-            content11
+            content9
           </span>
         </li>
         <li
@@ -4676,6 +4702,32 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
         </li>
         <li
           class="ant-transfer-list-content-item"
+          title="content13"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content13
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
           title="content14"
         >
           <label
@@ -4698,58 +4750,6 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
             class="ant-transfer-list-content-item-text"
           >
             content14
-          </span>
-        </li>
-        <li
-          class="ant-transfer-list-content-item"
-          title="content15"
-        >
-          <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
-          >
-            <span
-              class="ant-checkbox"
-            >
-              <input
-                class="ant-checkbox-input"
-                type="checkbox"
-                value=""
-              />
-              <span
-                class="ant-checkbox-inner"
-              />
-            </span>
-          </label>
-          <span
-            class="ant-transfer-list-content-item-text"
-          >
-            content15
-          </span>
-        </li>
-        <li
-          class="ant-transfer-list-content-item"
-          title="content16"
-        >
-          <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
-          >
-            <span
-              class="ant-checkbox"
-            >
-              <input
-                class="ant-checkbox-input"
-                type="checkbox"
-                value=""
-              />
-              <span
-                class="ant-checkbox-inner"
-              />
-            </span>
-          </label>
-          <span
-            class="ant-transfer-list-content-item-text"
-          >
-            content16
           </span>
         </li>
         <li
@@ -4802,6 +4802,32 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
             class="ant-transfer-list-content-item-text"
           >
             content18
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content20"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content20
           </span>
         </li>
       </ul>
@@ -4905,7 +4931,7 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
       <span
         class="ant-transfer-list-header-selected"
       >
-        9 items
+        8 items
       </span>
       <span
         class="ant-transfer-list-header-title"
@@ -5011,58 +5037,6 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
         </li>
         <li
           class="ant-transfer-list-content-item"
-          title="content3"
-        >
-          <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
-          >
-            <span
-              class="ant-checkbox"
-            >
-              <input
-                class="ant-checkbox-input"
-                type="checkbox"
-                value=""
-              />
-              <span
-                class="ant-checkbox-inner"
-              />
-            </span>
-          </label>
-          <span
-            class="ant-transfer-list-content-item-text"
-          >
-            content3
-          </span>
-        </li>
-        <li
-          class="ant-transfer-list-content-item"
-          title="content4"
-        >
-          <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
-          >
-            <span
-              class="ant-checkbox"
-            >
-              <input
-                class="ant-checkbox-input"
-                type="checkbox"
-                value=""
-              />
-              <span
-                class="ant-checkbox-inner"
-              />
-            </span>
-          </label>
-          <span
-            class="ant-transfer-list-content-item-text"
-          >
-            content4
-          </span>
-        </li>
-        <li
-          class="ant-transfer-list-content-item"
           title="content5"
         >
           <label
@@ -5089,7 +5063,7 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
         </li>
         <li
           class="ant-transfer-list-content-item"
-          title="content6"
+          title="content8"
         >
           <label
             class="ant-checkbox-wrapper ant-transfer-list-checkbox"
@@ -5110,12 +5084,12 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
           <span
             class="ant-transfer-list-content-item-text"
           >
-            content6
+            content8
           </span>
         </li>
         <li
           class="ant-transfer-list-content-item"
-          title="content9"
+          title="content10"
         >
           <label
             class="ant-checkbox-wrapper ant-transfer-list-checkbox"
@@ -5136,12 +5110,12 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
           <span
             class="ant-transfer-list-content-item-text"
           >
-            content9
+            content10
           </span>
         </li>
         <li
           class="ant-transfer-list-content-item"
-          title="content13"
+          title="content11"
         >
           <label
             class="ant-checkbox-wrapper ant-transfer-list-checkbox"
@@ -5162,7 +5136,59 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
           <span
             class="ant-transfer-list-content-item-text"
           >
-            content13
+            content11
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content15"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content15
+          </span>
+        </li>
+        <li
+          class="ant-transfer-list-content-item"
+          title="content16"
+        >
+          <label
+            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
+          >
+            <span
+              class="ant-checkbox"
+            >
+              <input
+                class="ant-checkbox-input"
+                type="checkbox"
+                value=""
+              />
+              <span
+                class="ant-checkbox-inner"
+              />
+            </span>
+          </label>
+          <span
+            class="ant-transfer-list-content-item-text"
+          >
+            content16
           </span>
         </li>
         <li
@@ -5189,32 +5215,6 @@ exports[`renders ./components/transfer/demo/search.md correctly 1`] = `
             class="ant-transfer-list-content-item-text"
           >
             content19
-          </span>
-        </li>
-        <li
-          class="ant-transfer-list-content-item"
-          title="content20"
-        >
-          <label
-            class="ant-checkbox-wrapper ant-transfer-list-checkbox"
-          >
-            <span
-              class="ant-checkbox"
-            >
-              <input
-                class="ant-checkbox-input"
-                type="checkbox"
-                value=""
-              />
-              <span
-                class="ant-checkbox-inner"
-              />
-            </span>
-          </label>
-          <span
-            class="ant-transfer-list-content-item-text"
-          >
-            content20
           </span>
         </li>
       </ul>
