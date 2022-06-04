@@ -114,7 +114,7 @@ class Input extends React.Component<InputProps, InputState> {
 
   clearableInput: ClearableLabeledInput;
 
-  removePasswordTimeout: number;
+  removePasswordTimeout: any;
 
   constructor(props: InputProps) {
     super(props);

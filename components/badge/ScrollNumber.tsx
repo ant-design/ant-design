@@ -71,7 +71,7 @@ class ScrollNumber extends React.Component<ScrollNumberProps, ScrollNumberState>
 
   lastCount?: string | number | null;
 
-  private timeout?: number;
+  private timeout?: any;
 
   constructor(props: ScrollNumberProps) {
     super(props);
