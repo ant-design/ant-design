@@ -84,11 +84,12 @@ exports[`renders ./components/input-number/demo/addon.md correctly 1`] = `
             class="ant-input-number-input-wrap"
           >
             <input
+              aria-valuenow="100"
               autocomplete="off"
               class="ant-input-number-input"
               role="spinbutton"
               step="1"
-              value=""
+              value="100"
             />
           </div>
         </div>
@@ -240,11 +241,12 @@ exports[`renders ./components/input-number/demo/addon.md correctly 1`] = `
             class="ant-input-number-input-wrap"
           >
             <input
+              aria-valuenow="100"
               autocomplete="off"
               class="ant-input-number-input"
               role="spinbutton"
               step="1"
-              value=""
+              value="100"
             />
           </div>
         </div>
@@ -391,11 +393,12 @@ exports[`renders ./components/input-number/demo/addon.md correctly 1`] = `
             class="ant-input-number-input-wrap"
           >
             <input
+              aria-valuenow="100"
               autocomplete="off"
               class="ant-input-number-input"
               role="spinbutton"
               step="1"
-              value=""
+              value="100"
             />
           </div>
         </div>
@@ -562,11 +565,12 @@ exports[`renders ./components/input-number/demo/addon.md correctly 1`] = `
             class="ant-input-number-input-wrap"
           >
             <input
+              aria-valuenow="100"
               autocomplete="off"
               class="ant-input-number-input"
               role="spinbutton"
               step="1"
-              value=""
+              value="100"
             />
           </div>
         </div>
@@ -644,11 +648,12 @@ exports[`renders ./components/input-number/demo/basic.md correctly 1`] = `
     <input
       aria-valuemax="10"
       aria-valuemin="1"
+      aria-valuenow="3"
       autocomplete="off"
       class="ant-input-number-input"
       role="spinbutton"
       step="1"
-      value=""
+      value="3"
     />
   </div>
 </div>
@@ -722,11 +727,12 @@ exports[`renders ./components/input-number/demo/borderless.md correctly 1`] = `
     <input
       aria-valuemax="10"
       aria-valuemin="1"
+      aria-valuenow="3"
       autocomplete="off"
       class="ant-input-number-input"
       role="spinbutton"
       step="1"
-      value=""
+      value="3"
     />
   </div>
 </div>
@@ -885,11 +891,12 @@ exports[`renders ./components/input-number/demo/digit.md correctly 1`] = `
     <input
       aria-valuemax="10"
       aria-valuemin="0"
+      aria-valuenow="1"
       autocomplete="off"
       class="ant-input-number-input"
       role="spinbutton"
       step="0.00000000000001"
-      value=""
+      value="1.00000000000000"
     />
   </div>
 </div>
@@ -964,12 +971,13 @@ Array [
       <input
         aria-valuemax="10"
         aria-valuemin="1"
+        aria-valuenow="3"
         autocomplete="off"
         class="ant-input-number-input"
         disabled=""
         role="spinbutton"
         step="1"
-        value=""
+        value="3"
       />
     </div>
   </div>,
@@ -1061,11 +1069,12 @@ exports[`renders ./components/input-number/demo/formatter.md correctly 1`] = `
         class="ant-input-number-input-wrap"
       >
         <input
+          aria-valuenow="1000"
           autocomplete="off"
           class="ant-input-number-input"
           role="spinbutton"
           step="1"
-          value="$ "
+          value="$ 1,000"
         />
       </div>
     </div>
@@ -1080,9 +1089,9 @@ exports[`renders ./components/input-number/demo/formatter.md correctly 1`] = `
         class="ant-input-number-handler-wrap"
       >
         <span
-          aria-disabled="false"
+          aria-disabled="true"
           aria-label="Increase Value"
-          class="ant-input-number-handler ant-input-number-handler-up"
+          class="ant-input-number-handler ant-input-number-handler-up ant-input-number-handler-up-disabled"
           role="button"
           unselectable="on"
         >
@@ -1140,11 +1149,12 @@ exports[`renders ./components/input-number/demo/formatter.md correctly 1`] = `
         <input
           aria-valuemax="100"
           aria-valuemin="0"
+          aria-valuenow="100"
           autocomplete="off"
           class="ant-input-number-input"
           role="spinbutton"
           step="1"
-          value="%"
+          value="100%"
         />
       </div>
     </div>
@@ -1227,11 +1237,12 @@ exports[`renders ./components/input-number/demo/keyboard.md correctly 1`] = `
         <input
           aria-valuemax="10"
           aria-valuemin="1"
+          aria-valuenow="3"
           autocomplete="off"
           class="ant-input-number-input"
           role="spinbutton"
           step="1"
-          value=""
+          value="3"
         />
       </div>
     </div>
@@ -1728,11 +1739,12 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
         <input
           aria-valuemax="100000"
           aria-valuemin="1"
+          aria-valuenow="3"
           autocomplete="off"
           class="ant-input-number-input"
           role="spinbutton"
           step="1"
-          value=""
+          value="3"
         />
       </div>
     </div>
@@ -1808,11 +1820,12 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
         <input
           aria-valuemax="100000"
           aria-valuemin="1"
+          aria-valuenow="3"
           autocomplete="off"
           class="ant-input-number-input"
           role="spinbutton"
           step="1"
-          value=""
+          value="3"
         />
       </div>
     </div>
@@ -1887,11 +1900,12 @@ exports[`renders ./components/input-number/demo/size.md correctly 1`] = `
         <input
           aria-valuemax="100000"
           aria-valuemin="1"
+          aria-valuenow="3"
           autocomplete="off"
           class="ant-input-number-input"
           role="spinbutton"
           step="1"
-          value=""
+          value="3"
         />
       </div>
     </div>

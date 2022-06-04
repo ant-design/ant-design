@@ -1198,13 +1198,13 @@ Array [
     tabindex="0"
   >
     <li
-      class="ant-menu-submenu ant-menu-submenu-vertical ant-menu-submenu-selected"
+      class="ant-menu-submenu ant-menu-submenu-vertical ant-menu-submenu-open ant-menu-submenu-selected"
       role="none"
       theme="light"
     >
       <div
         aria-controls="rc-menu-uuid-test-sub1-popup"
-        aria-expanded="false"
+        aria-expanded="true"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
         data-menu-id="rc-menu-uuid-test-sub1"

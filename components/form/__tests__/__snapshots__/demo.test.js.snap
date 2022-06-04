@@ -1306,7 +1306,7 @@ exports[`renders ./components/form/demo/dep-debug.md correctly 1`] = `
   class="ant-form ant-form-horizontal"
   id="debug"
 >
-  2
+  0
   <div
     class="ant-row ant-form-item"
   >
