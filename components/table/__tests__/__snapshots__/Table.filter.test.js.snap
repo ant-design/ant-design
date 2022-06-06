@@ -2,54 +2,46 @@
 
 exports[`Table.filter clearFilters should support params 1`] = `
 <div
-  className="ant-dropdown-custom-view"
+  class="ant-dropdown-custom-view"
   id="customFilter"
 >
   <span
     id="setNoParams"
-    onClick={[Function]}
   >
     setSelectedKeys
   </span>
   <span
     id="resetNoParams"
-    onClick={[Function]}
   >
     Reset
   </span>
   <span
     id="setConfirm"
-    onClick={[Function]}
   >
     setSelectedKeys
   </span>
   <span
     id="resetConfirm"
-    onClick={[Function]}
   >
     Reset
   </span>
   <span
     id="setClose"
-    onClick={[Function]}
   >
     setSelectedKeys
   </span>
   <span
     id="resetClose"
-    onClick={[Function]}
   >
     Reset
   </span>
   <span
     id="setParams"
-    onClick={[Function]}
   >
     setSelectedKeys
   </span>
   <span
     id="resetParams"
-    onClick={[Function]}
   >
     Reset
   </span>
@@ -58,30 +50,26 @@ exports[`Table.filter clearFilters should support params 1`] = `
 
 exports[`Table.filter override custom filter correctly 1`] = `
 <div
-  className="ant-dropdown-custom-view"
+  class="ant-dropdown-custom-view"
   id="customFilter"
 >
   <span
     id="setSelectedKeys"
-    onClick={[Function]}
   >
     setSelectedKeys
   </span>
   <span
     id="confirm"
-    onClick={[Function]}
   >
     Confirm
   </span>
   <span
     id="reset"
-    onClick={[Function]}
   >
     Reset
   </span>
   <span
     id="simulateOnSelect"
-    onClick={[Function]}
   >
     SimulateOnSelect
   </span>
