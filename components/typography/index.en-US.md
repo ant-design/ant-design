@@ -79,10 +79,10 @@ Basic text writing, including headings, body text, lists, and more.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| format | The Mime Type of the text | 'text/plain' \| 'text/html' | - | 4.21.0 |
 | icon | Custom copy icon: \[copyIcon, copiedIcon] | \[ReactNode, ReactNode] | - | 4.6.0 |
 | text | The text to copy | string | - |  |
 | tooltips | Custom tooltip text, hide when it is false | \[ReactNode, ReactNode] | \[`Copy`, `Copied`] | 4.4.0 |
-| format | The Mime Type of the text | 'text/plain' \| 'text/html' | - |  |
 | onCopy | Called when copied text | function | - |  |
 
 ### editable
