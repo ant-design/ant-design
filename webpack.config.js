@@ -16,7 +16,7 @@ function addLocales(webpackConfig) {
   if (webpackConfig.entry['antd.min']) {
     packageName += '.min';
   }
-  webpackConfig.entry[packageName] = './index-with-locales.js';
+  // webpackConfig.entry[packageName] = './index-with-locales.js';
   webpackConfig.output.filename = '[name].js';
 }
 

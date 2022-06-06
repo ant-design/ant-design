@@ -7,7 +7,7 @@ import classNames from 'classnames';
 import warning from '../_util/warning';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import enUS from './locale/en_US';
+import defaultLocale from '../locale/default';
 import interopDefault from '../_util/interopDefault';
 import Icon from '../icon';
 
@@ -124,11 +124,11 @@ class TimePicker extends React.Component<TimePickerProps, any> {
   }
 
   getDefaultLocale = () => {
-    const defaultLocale = {
-      ...enUS,
+    const locale = {
+      ...defaultLocale.TimePicker,
       ...this.props.locale,
     };
-    return defaultLocale;
+    return locale;
   };
 
   handleOpenClose = ({ open }: { open: boolean }) => {

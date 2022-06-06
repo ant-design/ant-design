@@ -4,7 +4,7 @@ import * as moment from 'moment';
 import FullCalendar from 'rc-calendar/lib/FullCalendar';
 import { polyfill } from 'react-lifecycles-compat';
 import Header, { HeaderRender } from './Header';
-import enUS from './locale/en_US';
+import defaultLocale from '../locale/default';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
 import interopDefault from '../_util/interopDefault';
@@ -163,7 +163,7 @@ class Calendar extends React.Component<CalendarProps, CalendarState> {
 
   getDefaultLocale = () => {
     const result = {
-      ...enUS,
+      ...defaultLocale.DatePicker,
       ...this.props.locale,
     };
     result.lang = {

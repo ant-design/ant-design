@@ -3,7 +3,7 @@ import { polyfill } from 'react-lifecycles-compat';
 import TimePickerPanel from 'rc-time-picker/lib/Panel';
 import classNames from 'classnames';
 import * as moment from 'moment';
-import enUS from './locale/en_US';
+import defaultLocale from '../locale/default';
 import interopDefault from '../_util/interopDefault';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { generateShowHourMinuteSecond } from '../time-picker';
@@ -17,10 +17,10 @@ interface PickerMap {
 }
 
 const DEFAULT_FORMAT: PickerMap = {
-  date: 'YYYY-MM-DD',
-  dateTime: 'YYYY-MM-DD HH:mm:ss',
-  week: 'gggg-wo',
-  month: 'YYYY-MM',
+  date: 'YYYY.MM.DD',
+  dateTime: 'YYYY.MM.DD HH:mm:ss',
+  week: 'gggg.wo',
+  month: 'YYYY.MM',
 };
 
 const LOCALE_FORMAT_MAPPING: PickerMap = {
@@ -95,7 +95,7 @@ export default function wrapPicker(Picker: React.ComponentClass<any>, pickerType
 
     getDefaultLocale = () => {
       const result = {
-        ...enUS,
+        ...defaultLocale.DatePicker,
         ...this.props.locale,
       };
       result.lang = {

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import RcPagination from 'rc-pagination';
-import enUS from 'rc-pagination/lib/locale/en_US';
+import defaultLocale from '../locale/default';
 import classNames from 'classnames';
 import MiniSelect from './MiniSelect';
 import Icon from '../icon';
@@ -117,7 +117,7 @@ export default class Pagination extends React.Component<PaginationProps, {}> {
 
   render() {
     return (
-      <LocaleReceiver componentName="Pagination" defaultLocale={enUS}>
+      <LocaleReceiver componentName="Pagination" defaultLocale={defaultLocale.Pagination}>
         {this.renderPagination}
       </LocaleReceiver>
     );
