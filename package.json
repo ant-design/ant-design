@@ -123,7 +123,7 @@
     "lodash": "^4.17.21",
     "memoize-one": "^6.0.0",
     "moment": "^2.29.2",
-    "rc-cascader": "~3.5.0",
+    "rc-cascader": "~3.6.0",
     "rc-checkbox": "~2.3.0",
     "rc-collapse": "~3.3.0",
     "rc-dialog": "~8.8.2",
@@ -151,8 +151,8 @@
     "rc-tabs": "~11.16.0",
     "rc-textarea": "~0.3.0",
     "rc-tooltip": "~5.1.1",
-    "rc-tree": "~5.5.0",
-    "rc-tree-select": "~5.3.0",
+    "rc-tree": "~5.6.4",
+    "rc-tree-select": "~5.4.0",
     "rc-trigger": "^5.2.10",
     "rc-upload": "~4.3.0",
     "rc-util": "^5.20.0",
@@ -305,7 +305,7 @@
   "bundlesize": [
     {
       "path": "./dist/antd.min.js",
-      "maxSize": "282 kB"
+      "maxSize": "283 kB"
     },
     {
       "path": "./dist/antd.min.css",
