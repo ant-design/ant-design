@@ -15,6 +15,51 @@ timeline: true
 
 ---
 
+## 4.21.0
+
+`2022-06-06`
+
+- 🔥 Add Form level control input component `disabled`. [#35210](https://github.com/ant-design/ant-design/pull/35210) [@heiyu4585](https://github.com/heiyu4585)
+- 🆕 Tabs support `popupClassName` for more Dropdown. [#35892](https://github.com/ant-design/ant-design/pull/35892)
+- 🆕 Table `rowSelection.onChange` support `info.type` param. [#35598](https://github.com/ant-design/ant-design/pull/35598)
+- 🆕 The `copyable` prop of Typography.Paragraph supports to reset the mime type of the clipboardData by the `format`. [#35219](https://github.com/ant-design/ant-design/pull/35219) [@kanweiwei](https://github.com/kanweiwei)
+- ConfigProvider
+  - 🆕 ConfigProvider support config Pagination `showSizeChanger`. [#35750](https://github.com/ant-design/ant-design/pull/35750)
+  - 🆕 ConfigProvider support `componentDisabled` to config components `disabled` status. [#35718](https://github.com/ant-design/ant-design/pull/35718)
+  - 🛠 Refactor ConfigProvider removing default `renderEmpty` to resolve dist circle deps. [#35570](https://github.com/ant-design/ant-design/pull/35570)
+- Collapse
+  - 🛠 Refactor Collapse to keep stable dom structure with header content. [#35781](https://github.com/ant-design/ant-design/pull/35781)
+  - 🛠 Refactor Collapse `expandIconPosition` with logical position `start` or `end` to resolve RTL style issue. [#35770](https://github.com/ant-design/ant-design/pull/35770)
+- Progress
+  - 🆕 Progress steps support custom strokeColor for each step. [#35855](https://github.com/ant-design/ant-design/pull/35855)
+  - 🛠 Refactor Progress `type="circle"` and `type="dashboard"` for simpler dom structure and better rendering. [#35433](https://github.com/ant-design/ant-design/pull/35433)
+  - 🛠 Refactor Progress to React hooks. [#35393](https://github.com/ant-design/ant-design/pull/35393) [@shuaijiumei](https://github.com/shuaijiumei)
+  - 🐞 Fix Progress percent accuracy issue when near 100%. [#35433](https://github.com/ant-design/ant-design/pull/35433)
+  - 🐞 Fix Progress `gapDegree` displayed with wrong degree when `type="dashboard"`. [#35433](https://github.com/ant-design/ant-design/pull/35433)
+  - 💄 Fix Progress border radius style when `type="line"` and `strokeLinecap="butt"`. [#35822](https://github.com/ant-design/ant-design/pull/35822)
+- Dropdown
+  - 🆕 Dropdown support `autoFocus` to focus elements in `overlay` automaticly when opened. [#35391](https://github.com/ant-design/ant-design/pull/35391)
+  - 🛠 Fix Dropdown nesting menu injection logic. [#35810](https://github.com/ant-design/ant-design/pull/35810)
+- Card
+  - 🛠 Refactor Card `loading` with Skeleton. [#35525](https://github.com/ant-design/ant-design/pull/35525)
+  - 🛠 Refactor Card style to use flex instead of float. [#35236](https://github.com/ant-design/ant-design/pull/35236) [@miracles1919](https://github.com/miracles1919)
+- 🛠 DatePicker refactored to React hooks. [#35425](https://github.com/ant-design/ant-design/pull/35425) [@heiyu4585](https://github.com/heiyu4585)
+- 🛠 Rename className of Pagination `mini` mode with `ant-pagination-mini`. [#35881](https://github.com/ant-design/ant-design/pull/35881)
+- 🛠 Refactor Popconfirm internal realize with Popover component. [#35676](https://github.com/ant-design/ant-design/pull/35676)
+- 🛠 Change the implementation of the bottom button layout of the Modal confirm component. [#35530](https://github.com/ant-design/ant-design/pull/35530) [@foryuki](https://github.com/foryuki)
+- 🐞 Fix the Wave effect does not work in React 18 strict mode. [#35889](https://github.com/ant-design/ant-design/pull/35889) [@Carrotzpc](https://github.com/Carrotzpc)
+- 🐞 Fix Drawer close twice `children` will undefined. [#35853](https://github.com/ant-design/ant-design/pull/35853) [@crazyair](https://github.com/crazyair)
+- Skeleton
+  - 💄 Remove Skeleton default `margin-top` style. [#35848](https://github.com/ant-design/ant-design/pull/35848)
+  - 💄 Optimize Skeleton `active` animation perfermance. [#35836](https://github.com/ant-design/ant-design/pull/35836) [@slotDumpling](https://github.com/slotDumpling)
+- 💄 Remove `!important` in Radio style with `disabled`. [#35920](https://github.com/ant-design/ant-design/pull/35920)
+- TypeScript
+  - 🤖 Fix Form.List type `FormListFieldData` missing property `fieldKey`. [#35884](https://github.com/ant-design/ant-design/pull/35884) [@nanianlisao](https://github.com/nanianlisao)
+- 🌐 Localization
+  - 🇹🇲 Add a new locale `tk_TK`. [#35605](https://github.com/ant-design/ant-design/pull/35605)
+- RTL
+  - 💄 Fix the wrong direction of `border` and `border-radius` for InputNumber and Input in RTL mode. [#35876](https://github.com/ant-design/ant-design/pull/35876) [@yykoypj](https://github.com/yykoypj)
+
 ## 4.20.7
 
 `2022-05-30`
