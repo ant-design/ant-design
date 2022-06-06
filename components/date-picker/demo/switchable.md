@@ -14,9 +14,9 @@ title:
 Switch in different types of pickers by Select.
 
 ```tsx
+import type { DatePickerProps, TimePickerProps } from 'antd';
+import { DatePicker, Select, Space, TimePicker } from 'antd';
 import React, { useState } from 'react';
-import { DatePicker, TimePicker, Select, Space } from 'antd';
-import type { TimePickerProps, DatePickerProps } from 'antd';
 
 const { Option } = Select;
 

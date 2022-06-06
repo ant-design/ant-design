@@ -14,8 +14,8 @@ title:
 The simplest use.
 
 ```tsx
-import React from 'react';
 import { Radio } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => <Radio>Radio</Radio>;
 

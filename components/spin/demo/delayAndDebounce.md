@@ -14,8 +14,8 @@ title:
 Specifies a delay for loading state. If `spinning` ends during delay, loading status won't appear.
 
 ```tsx
+import { Alert, Spin, Switch } from 'antd';
 import React, { useState } from 'react';
-import { Spin, Alert, Switch } from 'antd';
 
 const App: React.FC = () => {
   const [loading, setLoading] = useState(false);

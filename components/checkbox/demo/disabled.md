@@ -14,8 +14,8 @@ checkbox 不可用。
 Disabled checkbox.
 
 ```tsx
-import React from 'react';
 import { Checkbox } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <>

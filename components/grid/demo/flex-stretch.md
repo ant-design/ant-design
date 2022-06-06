@@ -14,8 +14,8 @@ Col 提供 `flex` 属性以支持填充。
 Col provides `flex` prop to support fill rest.
 
 ```tsx
+import { Col, Divider, Row } from 'antd';
 import React from 'react';
-import { Row, Col, Divider } from 'antd';
 
 const App: React.FC = () => (
   <>

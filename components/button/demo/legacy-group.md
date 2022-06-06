@@ -15,10 +15,10 @@ Debug usage
 Debug usage
 
 ```tsx
-import React from 'react';
-import { Button, Tooltip } from 'antd';
 import { DownloadOutlined } from '@ant-design/icons';
+import { Button, Tooltip } from 'antd';
 import type { ButtonGroupProps } from 'antd/es/button';
+import React from 'react';
 
 const getGroup = (props?: ButtonGroupProps) => (
   <div>

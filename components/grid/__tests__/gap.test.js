@@ -1,10 +1,8 @@
+import { mount } from 'enzyme';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import { mount } from 'enzyme';
-import { render, screen } from '../../../tests/utils';
 import { Col, Row } from '..';
-// eslint-disable-next-line no-unused-vars
-import * as styleChecker from '../../_util/styleChecker';
+import { render, screen } from '../../../tests/utils';
 
 jest.mock('../../_util/styleChecker', () => ({
   canUseDocElement: () => true,

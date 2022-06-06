@@ -14,9 +14,9 @@ title:
 The Drawer can appear from any edge of the screen.
 
 ```tsx
-import React, { useState } from 'react';
-import { Drawer, Button, Radio, Space } from 'antd';
 import type { DrawerProps, RadioChangeEvent } from 'antd';
+import { Button, Drawer, Radio, Space } from 'antd';
+import React, { useState } from 'react';
 
 const App: React.FC = () => {
   const [visible, setVisible] = useState(false);

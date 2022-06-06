@@ -14,9 +14,9 @@ title:
 A Card that supports `cover`, `avatar`, `title` and `description`.
 
 ```tsx
-import React from 'react';
-import { Card, Avatar } from 'antd';
 import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
+import { Avatar, Card } from 'antd';
+import React from 'react';
 
 const { Meta } = Card;
 

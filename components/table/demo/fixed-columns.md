@@ -26,9 +26,9 @@ To fix some columns and scroll inside other columns, and you must set `scroll.x`
 **Note: v4 using sticky to implement fixed effect. IE 11 will downgrade to horizontal scroll.**
 
 ```tsx
-import React from 'react';
 import { Table } from 'antd';
 import type { ColumnsType } from 'antd/lib/table';
+import React from 'react';
 
 interface DataType {
   key: React.Key;

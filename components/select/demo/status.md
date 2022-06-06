@@ -15,8 +15,8 @@ title:
 Add status to Select with `status`, which could be `error` or `warning`.
 
 ```tsx
-import React from 'react';
 import { Select, Space } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <Space direction="vertical" style={{ width: '100%' }}>

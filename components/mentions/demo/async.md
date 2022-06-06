@@ -14,9 +14,9 @@ title:
 async
 
 ```tsx
-import React, { useState, useCallback, useRef } from 'react';
 import { Mentions } from 'antd';
 import debounce from 'lodash/debounce';
+import React, { useCallback, useRef, useState } from 'react';
 
 const { Option } = Mentions;
 const App: React.FC = () => {

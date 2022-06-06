@@ -14,10 +14,10 @@ title:
 `beforeUpload` only prevent upload behavior when return false or reject promise, the prevented file would still show in file list. Here is the example you can keep prevented files out of list by return `UPLOAD.LIST_IGNORE`.
 
 ```tsx
-import React from 'react';
-import { Upload, Button, message } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import type { UploadProps } from 'antd';
+import { Button, message, Upload } from 'antd';
+import React from 'react';
 
 const props: UploadProps = {
   beforeUpload: file => {

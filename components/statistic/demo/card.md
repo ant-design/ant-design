@@ -14,9 +14,9 @@ title:
 Display statistic data in Card.
 
 ```tsx
+import { ArrowDownOutlined, ArrowUpOutlined } from '@ant-design/icons';
+import { Card, Col, Row, Statistic } from 'antd';
 import React from 'react';
-import { Statistic, Card, Row, Col } from 'antd';
-import { ArrowUpOutlined, ArrowDownOutlined } from '@ant-design/icons';
 
 const App: React.FC = () => (
   <div className="site-statistic-demo-card">

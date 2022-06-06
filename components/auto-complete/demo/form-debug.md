@@ -7,9 +7,9 @@ debug: true
 ---
 
 ```tsx
-import React from 'react';
-import { Input, AutoComplete, Form, TreeSelect, Button } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
+import { AutoComplete, Button, Form, Input, TreeSelect } from 'antd';
+import React from 'react';
 
 const formItemLayout = {
   labelCol: {

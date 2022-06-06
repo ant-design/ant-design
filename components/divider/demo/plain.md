@@ -14,8 +14,8 @@ title:
 You can use non-heading style of divider text by setting `plain`.
 
 ```tsx
-import React from 'react';
 import { Divider } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <>

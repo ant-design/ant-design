@@ -14,9 +14,9 @@ title:
 Add a prefix or suffix icons inside input.
 
 ```tsx
-import React from 'react';
-import { Input, Tooltip } from 'antd';
 import { InfoCircleOutlined, UserOutlined } from '@ant-design/icons';
+import { Input, Tooltip } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <>

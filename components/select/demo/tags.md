@@ -14,8 +14,8 @@ tags select，随意输入的内容（scroll the menu）。
 Select with tags, transform input to tag (scroll the menu).
 
 ```tsx
-import React from 'react';
 import { Select } from 'antd';
+import React from 'react';
 
 const { Option } = Select;
 

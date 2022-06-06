@@ -14,10 +14,10 @@ title:
 You can manually specify the position of the popup via `placement`.
 
 ```tsx
-import React, { useState } from 'react';
-import { Select, Radio } from 'antd';
-import type { SelectCommonPlacement } from 'antd/es/_util/motion';
 import type { RadioChangeEvent } from 'antd';
+import { Radio, Select } from 'antd';
+import type { SelectCommonPlacement } from 'antd/es/_util/motion';
+import React, { useState } from 'react';
 
 const { Option } = Select;
 

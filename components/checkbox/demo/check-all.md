@@ -14,10 +14,10 @@ title:
 The `indeterminate` property can help you to achieve a 'check all' effect.
 
 ```tsx
-import React, { useState } from 'react';
 import { Checkbox, Divider } from 'antd';
-import type { CheckboxValueType } from 'antd/es/checkbox/Group';
 import type { CheckboxChangeEvent } from 'antd/es/checkbox';
+import type { CheckboxValueType } from 'antd/es/checkbox/Group';
+import React, { useState } from 'react';
 
 const CheckboxGroup = Checkbox.Group;
 

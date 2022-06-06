@@ -8,6 +8,7 @@ import { useContext } from 'react';
 import { ConfigContext } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
+import DisabledContext from '../config-provider/DisabledContext';
 import { FormItemInputContext, NoFormStatus } from '../form/context';
 import { cloneElement } from '../_util/reactNode';
 import type { InputStatus } from '../_util/statusUtils';
@@ -22,6 +23,7 @@ export interface InputNumberProps<T extends ValueType = ValueType>
   addonAfter?: React.ReactNode;
   prefix?: React.ReactNode;
   size?: SizeType;
+  disabled?: boolean;
   bordered?: boolean;
   status?: InputStatus;
   controls?: boolean | { upIcon?: React.ReactNode; downIcon?: React.ReactNode };
@@ -38,6 +40,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   const {
     className,
     size: customizeSize,
+    disabled: customDisabled,
     prefixCls: customizePrefixCls,
     addonBefore,
     addonAfter,
@@ -78,6 +81,10 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
   const mergeSize = customizeSize || size;
+  // ===================== Disabled =====================
+  const disabled = React.useContext(DisabledContext);
+  const mergedDisabled = customDisabled || disabled;
+
   const inputNumberClass = classNames(
     {
       [`${prefixCls}-lg`]: mergeSize === 'large',
@@ -94,6 +101,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   let element = (
     <RcInputNumber
       ref={inputRef}
+      disabled={mergedDisabled}
       className={inputNumberClass}
       upHandler={upIcon}
       downHandler={downIcon}
@@ -171,7 +179,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       <div className={mergedGroupClassName} style={props.style}>
         <div className={mergedWrapperClassName}>
           {addonBeforeNode && <NoFormStatus>{addonBeforeNode}</NoFormStatus>}
-          {cloneElement(element, { style: null })}
+          {cloneElement(element, { style: null, disabled: mergedDisabled })}
           {addonAfterNode && <NoFormStatus>{addonAfterNode}</NoFormStatus>}
         </div>
       </div>

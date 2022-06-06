@@ -12,11 +12,13 @@ import { ConfigContext } from '../config-provider';
 import getIcons from './utils/iconUtil';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
+import DisabledContext from '../config-provider/DisabledContext';
 import { FormItemInputContext } from '../form/context';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName, getTransitionDirection } from '../_util/motion';
+import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 
 type RawValue = string | number;
 
@@ -36,6 +38,7 @@ export interface InternalSelectProps<
 > extends Omit<RcSelectProps<ValueType, OptionType>, 'mode'> {
   suffixIcon?: React.ReactNode;
   size?: SizeType;
+  disabled?: boolean;
   mode?: 'multiple' | 'tags' | 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
   bordered?: boolean;
 }
@@ -65,6 +68,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     placement,
     listItemHeight = 24,
     size: customizeSize,
+    disabled: customDisabled,
     notFoundContent,
     status: customStatus,
     showArrow,
@@ -119,7 +123,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
   } else if (mode === 'combobox') {
     mergedNotFound = null;
   } else {
-    mergedNotFound = renderEmpty('Select');
+    mergedNotFound = (renderEmpty || defaultRenderEmpty)('Select');
   }
 
   // ===================== Icons =====================
@@ -139,6 +143,11 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
   });
 
   const mergedSize = customizeSize || size;
+
+  // ===================== Disabled =====================
+  const disabled = React.useContext(DisabledContext);
+  const mergedDisabled = customDisabled || disabled;
+
   const mergedClassName = classNames(
     {
       [`${prefixCls}-lg`]: mergedSize === 'large',
@@ -187,6 +196,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       dropdownClassName={rcSelectRtlDropdownClassName}
       showArrow={hasFeedback || showArrow}
+      disabled={mergedDisabled}
     />
   );
 };

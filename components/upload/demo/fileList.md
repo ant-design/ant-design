@@ -22,11 +22,11 @@ You can gain full control over filelist by configuring `fileList`. You can accom
 2. read from response and show file link.
 
 ```tsx
-import React, { useState } from 'react';
-import { Upload, Button } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
-import type { UploadFile } from 'antd/es/upload/interface';
 import type { UploadProps } from 'antd';
+import { Button, Upload } from 'antd';
+import type { UploadFile } from 'antd/es/upload/interface';
+import React, { useState } from 'react';
 
 const App: React.FC = () => {
   const [fileList, setFileList] = useState<UploadFile[]>([

@@ -14,11 +14,11 @@ title:
 Integrate virtual scroll with `react-window` to achieve a high performance table of 100,000 data.
 
 ```tsx
-import React, { useState, useEffect, useRef } from 'react';
-import { VariableSizeGrid as Grid } from 'react-window';
-import ResizeObserver from 'rc-resize-observer';
-import classNames from 'classnames';
 import { Table } from 'antd';
+import classNames from 'classnames';
+import ResizeObserver from 'rc-resize-observer';
+import React, { useEffect, useRef, useState } from 'react';
+import { VariableSizeGrid as Grid } from 'react-window';
 
 const VirtualTable = (props: Parameters<typeof Table>[0]) => {
   const { columns, scroll } = props;
