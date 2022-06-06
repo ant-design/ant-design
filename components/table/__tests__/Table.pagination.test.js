@@ -1,17 +1,20 @@
-/* eslint-disable react/no-multi-comp */
+/* eslint-disable import/first */
+jest.mock('../../_util/scrollTo');
+
 import React from 'react';
-import { render, fireEvent, act } from '../../../tests/utils';
+import { act } from 'react-dom/test-utils';
+import { render, fireEvent } from '../../../tests/utils';
 import Table from '..';
+import scrollTo from '../../_util/scrollTo';
+import { resetWarned } from '../../_util/warning';
 
-describe('Table.sorter', () => {
-  const sorterFn = (a, b) => a.name[0].charCodeAt() - b.name[0].charCodeAt();
-
-  const column = {
-    title: 'Name',
-    dataIndex: 'name',
-    key: 'name',
-    sorter: sorterFn,
-  };
+describe('Table.pagination', () => {
+  const columns = [
+    {
+      title: 'Name',
+      dataIndex: 'name',
+    },
+  ];
 
   const data = [
     { key: 0, name: 'Jack' },
@@ -20,23 +23,20 @@ describe('Table.sorter', () => {
     { key: 3, name: 'Jerry' },
   ];
 
-  function createTable(tableProps = {}, columnProps = {}) {
-    return (
-      <Table
-        columns={[
-          {
-            ...column,
-            ...columnProps,
-          },
-        ]}
-        dataSource={data}
-        pagination={false}
-        {...tableProps}
-      />
-    );
+  const longData = [];
+  for (let i = 0; i < 100; i += 1) {
+    longData.push({ key: i, name: `${i}` });
+  }
+
+  const pagination = { className: 'my-page', pageSize: 2 };
+
+  function createTable(props) {
+    return <Table columns={columns} dataSource={data} pagination={pagination} {...props} />;
   }
 
   function renderedNames(contain) {
+    // --- reserve comment for code review ---
+    // return wrapper.find('BodyRow').map(row => row.props().record.name);
     const namesList = [];
     contain
       .querySelector('.ant-table-tbody')
@@ -47,951 +47,599 @@ describe('Table.sorter', () => {
     return namesList;
   }
 
-  it('renders sorter icon correctly', () => {
-    const { container } = render(createTable());
-    expect(container.querySelector('thead')).toMatchSnapshot();
+  it('renders pagination correctly', () => {
+    const { asFragment } = render(createTable());
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 
-  it('default sort order ascend', () => {
-    const { container } = render(
-      createTable(
-        {},
-        {
-          defaultSortOrder: 'ascend',
-        },
-      ),
-    );
-
-    expect(renderedNames(container)).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
+  it('not crash when pageSize is undefined', () => {
+    expect(() => {
+      render(createTable({ pagination: { pageSize: undefined } }));
+    }).not.toThrow();
   });
 
-  it('default sort order descend', () => {
-    const { container } = render(
-      createTable(
-        {},
-        {
-          defaultSortOrder: 'descend',
-        },
-      ),
-    );
-
-    expect(renderedNames(container)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
-    expect(container.querySelector('th').getAttribute('aria-sort')).toEqual('descending');
-  });
-
-  it('should change aria-sort when default sort order is set to descend', () => {
-    const { container } = render(
-      createTable(
-        {
-          sortDirections: ['descend', 'ascend'],
-        },
-        {
-          defaultSortOrder: 'descend',
-        },
-      ),
-    );
-
-    const getNameColumn = () => container.querySelector('th');
-
-    // Test that it cycles through the order of sortDirections
-    expect(renderedNames(container)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual('descending');
-
-    fireEvent.click(container.querySelector('.ant-table-column-sorters'));
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual('ascending');
-
-    fireEvent.click(container.querySelector('.ant-table-column-sorters'));
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual(null);
-  });
-
-  it('sort records', () => {
-    const { container } = render(createTable());
-    const getNameColumn = () => container.querySelector('th');
-
-    // first assert default state
-    expect(renderedNames(container)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual(null);
-
-    // ascend
-    fireEvent.click(container.querySelector('.ant-table-column-sorters'));
-    expect(renderedNames(container)).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual('ascending');
-
-    // descend
-    fireEvent.click(container.querySelector('.ant-table-column-sorters'));
-    expect(renderedNames(container)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual('descending');
-  });
-
-  it('sort records with keydown', () => {
-    const { container } = render(createTable());
-
-    // ascend
-    fireEvent.keyDown(container.querySelector('.ant-table-column-sorters'), { keyCode: 13 });
-    expect(renderedNames(container)).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
-
-    // descend
-    fireEvent.keyDown(container.querySelector('.ant-table-column-sorters'), { keyCode: 13 });
-    expect(renderedNames(container)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
-  });
-
-  describe('can be controlled by sortOrder', () => {
-    it('single', () => {
-      const { container } = render(
-        createTable({
-          columns: [{ ...column, sortOrder: 'ascend' }],
-        }),
-      );
-      expect(renderedNames(container)).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
-    });
-
-    it('invalidate mix with single & multiple sorters', () => {
-      const { container } = render(
-        createTable({
-          columns: [
-            {
-              title: 'Name',
-              dataIndex: 'name',
-              sortOrder: 'ascend',
-              sorter: {
-                multiple: 1,
-              },
-            },
-            {
-              title: 'Name',
-              dataIndex: 'name',
-              sortOrder: 'ascend',
-              sorter: {},
-            },
-          ],
-        }),
-      );
-
-      expect(renderedNames(container)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
-    });
-  });
-
-  it('provides sortOrder in the sorterFn', () => {
-    let actualSortOrder;
-    render(
-      createTable(
-        {},
-        {
-          sortOrder: 'ascend',
-          sorter: (a, b, sortOrder) => {
-            actualSortOrder = sortOrder;
-            return sorterFn(a, b);
-          },
-        },
-      ),
-    );
-    expect(actualSortOrder).toEqual('ascend');
-  });
-
-  it('can update column sortOrder', () => {
+  it('should not show pager if pagination.hideOnSinglePage is true and only 1 page', () => {
     const { container, rerender } = render(
+      createTable({ pagination: { pageSize: 3, hideOnSinglePage: true } }),
+    );
+    expect(container.querySelectorAll('.ant-pagination')).toHaveLength(1);
+    rerender(createTable({ pagination: { pageSize: 3, hideOnSinglePage: false } }));
+    expect(container.querySelectorAll('.ant-pagination')).toHaveLength(1);
+    rerender(createTable({ pagination: { pageSize: 4, hideOnSinglePage: true } }));
+    expect(container.querySelectorAll('.ant-pagination')).toHaveLength(0);
+    rerender(createTable({ pagination: { pageSize: 4, hideOnSinglePage: false } }));
+    expect(container.querySelectorAll('.ant-pagination')).toHaveLength(1);
+    rerender(createTable({ pagination: { pageSize: 5, hideOnSinglePage: true } }));
+    expect(container.querySelectorAll('.ant-pagination')).toHaveLength(0);
+    rerender(createTable({ pagination: { pageSize: 5, hideOnSinglePage: false } }));
+    expect(container.querySelectorAll('.ant-pagination')).toHaveLength(1);
+  });
+
+  it('should use pageSize when defaultPageSize and pageSize are both specified', () => {
+    const { container } = render(createTable({ pagination: { pageSize: 3, defaultPageSize: 4 } }));
+    expect(container.querySelectorAll('.ant-pagination-item')).toHaveLength(2);
+  });
+
+  it('paginate data', () => {
+    const { container } = render(createTable());
+
+    expect(renderedNames(container)).toEqual(['Jack', 'Lucy']);
+    fireEvent.click(container.querySelector('.ant-pagination-next'));
+    expect(renderedNames(container)).toEqual(['Tom', 'Jerry']);
+  });
+
+  it('repaginates when pageSize change', () => {
+    const { container, rerender } = render(createTable());
+    rerender(createTable({ pagination: { pageSize: 1 } }));
+    expect(renderedNames(container)).toEqual(['Jack']);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/33487
+  it('should not crash when trigger onChange in render', () => {
+    function App() {
+      const [page, setPage] = React.useState({ current: 1, pageSize: 10 });
+      const onChange = (current, pageSize) => {
+        setPage({ current, pageSize });
+      };
+      return (
+        <Table
+          dataSource={[]}
+          pagination={{
+            ...page,
+            onChange,
+          }}
+        />
+      );
+    }
+    const { asFragment } = render(<App />);
+    expect(asFragment().firstChild).toMatchSnapshot();
+  });
+
+  it('should accept pagination size', () => {
+    const { container } = render(
       createTable({
-        columns: [column],
+        pagination: { size: 'small' },
       }),
     );
-    expect(renderedNames(container)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
-    rerender(
-      createTable({
-        columns: [{ ...column, sortOrder: 'ascend' }],
-      }),
+    expect(container.querySelectorAll('.ant-pagination.ant-pagination-mini')).toHaveLength(1);
+  });
+
+  it('should scroll to first row when page change', () => {
+    scrollTo.mockReturnValue(null);
+
+    const { container } = render(
+      createTable({ scroll: { y: 20 }, pagination: { showSizeChanger: true, pageSize: 2 } }),
     );
-    expect(renderedNames(container)).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
+    expect(scrollTo).toHaveBeenCalledTimes(0);
+
+    fireEvent.click(container.querySelector('.ant-pagination-next'));
+    expect(scrollTo).toHaveBeenCalledTimes(1);
+
+    fireEvent.mouseDown(container.querySelector('.ant-select-selector'));
+    fireEvent.click(container.querySelectorAll('.ant-select-item')[1]);
+    expect(scrollTo).toHaveBeenCalledTimes(2);
+  });
+
+  it('should scroll inside .ant-table-body', () => {
+    scrollTo.mockImplementationOnce((top, { getContainer }) => {
+      expect(top).toBe(0);
+      expect(getContainer().className).toBe('ant-table-body');
+    });
+    const { container } = render(
+      createTable({ scroll: { y: 20 }, pagination: { showSizeChanger: true, pageSize: 2 } }),
+    );
+    fireEvent.click(container.querySelector('.ant-pagination-next'));
   });
 
   it('fires change event', () => {
     const handleChange = jest.fn();
-    const { container } = render(createTable({ onChange: handleChange }));
-
-    // ascent
-    fireEvent.click(container.querySelector('.ant-table-column-sorters'));
-    const sorter1 = handleChange.mock.calls[0][2];
-    expect(sorter1.column.dataIndex).toBe('name');
-    expect(sorter1.order).toBe('ascend');
-    expect(sorter1.field).toBe('name');
-    expect(sorter1.columnKey).toBe('name');
-
-    fireEvent.click(container.querySelector('.ant-table-column-sorters'));
-    const sorter2 = handleChange.mock.calls[1][2];
-    expect(sorter2.column.dataIndex).toBe('name');
-    expect(sorter2.order).toBe('descend');
-    expect(sorter2.field).toBe('name');
-    expect(sorter2.columnKey).toBe('name');
-
-    fireEvent.click(container.querySelector('.ant-table-column-sorters'));
-    const sorter3 = handleChange.mock.calls[2][2];
-    expect(sorter3.column).toBe(undefined);
-    expect(sorter3.order).toBe(undefined);
-    expect(sorter3.field).toBe('name');
-    expect(sorter3.columnKey).toBe('name');
-  });
-
-  // need to resolve Warning: An update to CSSMotion ran an effect, but was not wrapped in act(...).
-  it('hover header show sorter tooltip', () => {
-    // tooltip has delay
-    jest.useFakeTimers();
-    const { container, rerender } = render(createTable());
-
-    // default show sorter tooltip
-    fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters'));
-    act(() => {
-      jest.runAllTimers();
-    });
-
-    expect(container.querySelector('.ant-tooltip-open')).toBeTruthy();
-    fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters'));
-
-    // set table props showSorterTooltip is false
-    rerender(createTable({ showSorterTooltip: false }));
-    fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters'));
-    act(() => {
-      jest.runAllTimers();
-    });
-    expect(container.querySelector('.ant-tooltip-open')).toBeFalsy();
-    fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters'));
-
-    // set table props showSorterTooltip is false, column showSorterTooltip is true
-    rerender(
-      createTable({ showSorterTooltip: true, columns: [{ ...column, showSorterTooltip: true }] }),
-    );
-    fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters'));
-    act(() => {
-      jest.runAllTimers();
-    });
-    expect(container.querySelector('.ant-tooltip-open')).toBeTruthy();
-    fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters'));
-
-    // set table props showSorterTooltip is true, column showSorterTooltip is false
-    rerender(
+    const handlePaginationChange = jest.fn();
+    const noop = () => {};
+    const { container } = render(
       createTable({
-        showSorterTooltip: true,
-        columns: [{ ...column, showSorterTooltip: false }],
+        pagination: { ...pagination, onChange: handlePaginationChange, onShowSizeChange: noop },
+        onChange: handleChange,
       }),
     );
-    fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters'));
-    act(() => {
-      jest.runAllTimers();
-    });
-    expect(container.querySelector('.ant-tooltip-open')).toBeFalsy();
-    fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters'));
-  });
+    fireEvent.click(container.querySelector('.ant-pagination-next'));
 
-  // need to resolve Warning: An update to CSSMotion ran an effect, but was not wrapped in act(...).
-  it('should show correct tooltip when showSorterTooltip is an object', () => {
-    // basically copied from 'hover header show sorter tooltip'
-    jest.useFakeTimers();
-    const { container, rerender } = render(
-      createTable({ showSorterTooltip: { placement: 'bottom', title: 'static title' } }),
-    );
-
-    fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters'));
-    act(() => {
-      jest.runAllTimers();
-    });
-    expect(container.querySelector('.ant-tooltip-open')).toBeTruthy();
-    fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters'));
-
-    // Root to false
-    rerender(createTable({ showSorterTooltip: false }));
-    act(() => {
-      jest.runAllTimers();
-    });
-    expect(container.querySelector('.ant-tooltip-open')).toBeFalsy();
-
-    // Column to true
-    rerender(
-      createTable({
-        showSorterTooltip: false,
-        columns: [{ ...column, showSorterTooltip: true }],
-      }),
-    );
-    fireEvent.mouseEnter(container.querySelector('.ant-table-column-sorters'));
-    act(() => {
-      jest.runAllTimers();
-    });
-    expect(container.querySelector('.ant-tooltip-open')).toBeTruthy();
-    fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters'));
-
-    // Column to false
-    rerender(
-      createTable({
-        showSorterTooltip: true,
-        columns: [{ ...column, showSorterTooltip: false }],
-      }),
-    );
-    act(() => {
-      jest.runAllTimers();
-    });
-    expect(container.querySelector('.ant-tooltip-open')).toBeFalsy();
-  });
-
-  it('works with grouping columns in controlled mode', () => {
-    const columns = [
+    expect(handleChange).toHaveBeenCalledWith(
       {
-        title: 'group',
-        key: 'group',
-        children: [
-          {
-            title: 'Name',
-            dataIndex: 'name',
-            key: 'name',
-            sorter: sorterFn,
-            sortOrder: 'descend',
-          },
-          {
-            title: 'Age',
-            dataIndex: 'age',
-            key: 'age',
-          },
+        className: 'my-page',
+        current: 2,
+        pageSize: 2,
+      },
+      {},
+      {},
+      {
+        currentDataSource: [
+          { key: 0, name: 'Jack' },
+          { key: 1, name: 'Lucy' },
+          { key: 2, name: 'Tom' },
+          { key: 3, name: 'Jerry' },
         ],
+        action: 'paginate',
       },
-    ];
-    const testData = [
-      { key: 0, name: 'Jack', age: 11 },
-      { key: 1, name: 'Lucy', age: 20 },
-      { key: 2, name: 'Tom', age: 21 },
-      { key: 3, name: 'Jerry', age: 22 },
-    ];
-    const { container } = render(<Table columns={columns} dataSource={testData} />);
-
-    expect(renderedNames(container)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
-  });
-
-  // https://github.com/ant-design/ant-design/issues/11246#issuecomment-405009167
-  it('Allow column title as render props with sortOrder argument', () => {
-    const title = ({ sortOrder }) => <div className="custom-title">{sortOrder}</div>;
-    const columns = [
-      {
-        title,
-        key: 'group',
-        sorter: true,
-      },
-    ];
-    const testData = [
-      { key: 0, name: 'Jack', age: 11 },
-      { key: 1, name: 'Lucy', age: 20 },
-      { key: 2, name: 'Tom', age: 21 },
-      { key: 3, name: 'Jerry', age: 22 },
-    ];
-    const { container } = render(<Table columns={columns} dataSource={testData} />);
-    expect(container.querySelector('.custom-title').textContent).toEqual('');
-    fireEvent.click(container.querySelector('.ant-table-column-sorters'));
-    expect(container.querySelector('.custom-title').textContent).toEqual('ascend');
-    fireEvent.click(container.querySelector('.ant-table-column-sorters'));
-    expect(container.querySelector('.custom-title').textContent).toEqual('descend');
-  });
-
-  // https://github.com/ant-design/ant-design/pull/12264#discussion_r218053034
-  it('should sort from beginning state when toggle from different columns', () => {
-    const columns = [
-      {
-        title: 'name',
-        dataIndex: 'name',
-        sorter: true,
-      },
-      {
-        title: 'age',
-        dataIndex: 'age',
-        sorter: true,
-      },
-    ];
-    const testData = [
-      { key: 0, name: 'Jack', age: 11 },
-      { key: 1, name: 'Lucy', age: 20 },
-      { key: 2, name: 'Tom', age: 21 },
-      { key: 3, name: 'Jerry', age: 22 },
-    ];
-    const { container } = render(<Table columns={columns} dataSource={testData} />);
-
-    const getNameColumn = () => container.querySelectorAll('.ant-table-column-has-sorters')[0];
-    const getAgeColumn = () => container.querySelectorAll('.ant-table-column-has-sorters')[1];
-    const getNameIcon = name => getNameColumn().querySelector(`.ant-table-column-sorter-${name}`);
-    const getAgeIcon = name => getAgeColumn().querySelector(`.ant-table-column-sorter-${name}`);
-
-    // sort name
-    fireEvent.click(getNameColumn());
-    expect(getNameIcon('up').className.includes('active')).toBeTruthy();
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual('ascending');
-    expect(getAgeIcon('up').className.includes('active')).toBeFalsy();
-    expect(getAgeColumn().getAttribute('aria-sort')).toEqual(null);
-
-    // sort age
-    fireEvent.click(getAgeColumn());
-    expect(getNameIcon('up').className.includes('active')).toBeFalsy();
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual(null);
-    expect(getAgeIcon('up').className.includes('active')).toBeTruthy();
-    expect(getAgeColumn().getAttribute('aria-sort')).toEqual('ascending');
-  });
-
-  // https://github.com/ant-design/ant-design/issues/12571
-  it('should toggle sort state when columns are put in render', () => {
-    const testData = [
-      { key: 0, name: 'Jack', age: 11 },
-      { key: 1, name: 'Lucy', age: 20 },
-      { key: 2, name: 'Tom', age: 21 },
-      { key: 3, name: 'Jerry', age: 22 },
-    ];
-    class TableTest extends React.Component {
-      state = {
-        pagination: {},
-      };
-
-      onChange = pagination => {
-        this.setState({ pagination });
-      };
-
-      render() {
-        const columns = [
-          {
-            title: 'name',
-            dataIndex: 'name',
-            sorter: true,
-          },
-        ];
-        const { pagination } = this.state;
-        return (
-          <Table
-            columns={columns}
-            pagination={pagination}
-            dataSource={testData}
-            onChange={this.onChange}
-          />
-        );
-      }
-    }
-
-    const { container } = render(<TableTest />);
-
-    const getNameColumn = () => container.querySelector('th');
-    const getIcon = name => getNameColumn().querySelector(`.ant-table-column-sorter-${name}`);
-
-    expect(getIcon('up').className.includes('active')).toBeFalsy();
-    expect(getIcon('down').className.includes('active')).toBeFalsy();
-
-    // sort name
-    fireEvent.click(getNameColumn());
-    expect(getIcon('up').className.includes('active')).toBeTruthy();
-    expect(getIcon('down').className.includes('active')).toBeFalsy();
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual('ascending');
-
-    // sort name
-    fireEvent.click(getNameColumn());
-    expect(getIcon('up').className.includes('active')).toBeFalsy();
-    expect(getIcon('down').className.includes('active')).toBeTruthy();
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual('descending');
-
-    // sort name
-    fireEvent.click(getNameColumn());
-    expect(getIcon('up').className.includes('active')).toBeFalsy();
-    expect(getIcon('down').className.includes('active')).toBeFalsy();
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual(null);
-  });
-
-  // https://github.com/ant-design/ant-design/issues/12737
-  // https://github.com/ant-design/ant-design/issues/19398
-  it('should toggle sort state when columns with non primitive properties are put in render', () => {
-    const testData = [
-      { key: 0, name: 'Jack', age: 11 },
-      { key: 1, name: 'Lucy', age: 20 },
-      { key: 2, name: 'Tom', age: 21 },
-      { key: 3, name: 'Jerry', age: 22 },
-    ];
-    class TableTest extends React.Component {
-      state = {
-        pagination: {},
-      };
-
-      onChange = pagination => {
-        this.setState({ pagination });
-      };
-
-      render() {
-        const columns = [
-          {
-            title: 'name',
-            dataIndex: 'name',
-            sorter: true,
-            render: text => text,
-            array: ['1', '2', 3],
-          },
-        ];
-        const { pagination } = this.state;
-        return (
-          <Table
-            columns={columns}
-            pagination={pagination}
-            dataSource={testData}
-            onChange={this.onChange}
-          />
-        );
-      }
-    }
-
-    const { container } = render(<TableTest />);
-
-    const getNameColumn = () => container.querySelector('th');
-    const getIcon = name => getNameColumn().querySelector(`.ant-table-column-sorter-${name}`);
-
-    expect(getIcon('up').className.includes('active')).toBeFalsy();
-    expect(getIcon('down').className.includes('active')).toBeFalsy();
-
-    // sort name
-    fireEvent.click(getNameColumn());
-    expect(getIcon('up').className.includes('active')).toBeTruthy();
-    expect(getIcon('down').className.includes('active')).toBeFalsy();
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual('ascending');
-
-    // sort name
-    fireEvent.click(getNameColumn());
-    expect(getIcon('up').className.includes('active')).toBeFalsy();
-    expect(getIcon('down').className.includes('active')).toBeTruthy();
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual('descending');
-
-    // sort name
-    fireEvent.click(getNameColumn());
-    expect(getIcon('up').className.includes('active')).toBeFalsy();
-    expect(getIcon('down').className.includes('active')).toBeFalsy();
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual(null);
-  });
-
-  // https://github.com/ant-design/ant-design/issues/12870
-  it('should toggle sort state when columns with key are put in render', () => {
-    const testData = [
-      { key: 0, name: 'Jack', age: 11 },
-      { key: 1, name: 'Lucy', age: 20 },
-      { key: 2, name: 'Tom', age: 21 },
-      { key: 3, name: 'Jerry', age: 22 },
-    ];
-    class TableTest extends React.Component {
-      state = {
-        pagination: {},
-      };
-
-      onChange = pagination => {
-        this.setState({ pagination });
-      };
-
-      render() {
-        const columns = [
-          {
-            title: 'name',
-            dataIndex: 'name',
-            sorter: true,
-            key: 'a',
-            style: {
-              fontSize: 18,
-            },
-          },
-        ];
-        const { pagination } = this.state;
-        return (
-          <Table
-            columns={columns}
-            pagination={pagination}
-            dataSource={testData}
-            onChange={this.onChange}
-          />
-        );
-      }
-    }
-
-    const { container } = render(<TableTest />);
-    const getNameColumn = () => container.querySelector('th');
-    expect(
-      getNameColumn().querySelector('.ant-table-column-sorter-up').className.includes('active'),
-    ).toBeFalsy();
-    expect(
-      getNameColumn().querySelector('.ant-table-column-sorter-down').className.includes('active'),
-    ).toBeFalsy();
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual(null);
-
-    // sort name
-    fireEvent.click(getNameColumn());
-    expect(
-      getNameColumn().querySelector('.ant-table-column-sorter-up').className.includes('active'),
-    ).toBeTruthy();
-    expect(
-      getNameColumn().querySelector('.ant-table-column-sorter-down').className.includes('active'),
-    ).toBeFalsy();
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual('ascending');
-
-    // sort name
-    fireEvent.click(getNameColumn());
-    expect(
-      getNameColumn().querySelector('.ant-table-column-sorter-up').className.includes('active'),
-    ).toBeFalsy();
-    expect(
-      getNameColumn().querySelector('.ant-table-column-sorter-down').className.includes('active'),
-    ).toBeTruthy();
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual('descending');
-
-    // sort name
-    fireEvent.click(getNameColumn());
-    expect(
-      getNameColumn().querySelector('.ant-table-column-sorter-up').className.includes('active'),
-    ).toBeFalsy();
-    expect(
-      getNameColumn().querySelector('.ant-table-column-sorter-down').className.includes('active'),
-    ).toBeFalsy();
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual(null);
-  });
-
-  it('should first sort by descend, then ascend, then cancel sort', () => {
-    const { container } = render(
-      createTable({
-        sortDirections: ['descend', 'ascend'],
-      }),
-    );
-    const getNameColumn = () => container.querySelector('th');
-
-    // descend
-    fireEvent.click(getNameColumn());
-    expect(renderedNames(container)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual('descending');
-
-    // ascend
-    fireEvent.click(getNameColumn());
-    expect(renderedNames(container)).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual('ascending');
-
-    // cancel sort
-    fireEvent.click(getNameColumn());
-    expect(renderedNames(container)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual(null);
-  });
-
-  it('should first sort by descend, then cancel sort', () => {
-    const { container } = render(
-      createTable({
-        sortDirections: ['descend'],
-      }),
     );
 
-    const getNameColumn = () => container.querySelector('th');
-
-    // default
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual(null);
-
-    // descend
-    fireEvent.click(getNameColumn());
-    expect(renderedNames(container)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual('descending');
-
-    // cancel sort
-    fireEvent.click(getNameColumn());
-    expect(renderedNames(container)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual(null);
+    expect(handlePaginationChange).toHaveBeenCalledWith(2, 2);
   });
 
-  it('should first sort by descend, then cancel sort. (column prop)', () => {
-    const { container } = render(
-      createTable(
-        {},
-        {
-          sortDirections: ['descend'],
-        },
-      ),
-    );
+  // https://github.com/ant-design/ant-design/issues/4532
+  // https://codepen.io/afc163/pen/dVeNoP?editors=001
+  it('should have pager when change pagination from false to undefined', () => {
+    const { container, rerender } = render(createTable({ pagination: false }));
+    expect(container.querySelectorAll('.ant-pagination')).toHaveLength(0);
 
-    const getNameColumn = () => container.querySelector('th');
-
-    // default
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual(null);
-
-    // descend
-    fireEvent.click(getNameColumn());
-    expect(renderedNames(container)).toEqual(['Tom', 'Lucy', 'Jack', 'Jerry']);
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual('descending');
-
-    // cancel sort
-    fireEvent.click(getNameColumn());
-    expect(renderedNames(container)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual(null);
+    rerender(createTable({ pagination: undefined }));
+    expect(container.querySelectorAll('.ant-pagination')).toHaveLength(1);
+    expect(container.querySelectorAll('.ant-pagination-item-active')).toHaveLength(1);
   });
 
-  it('pagination back', () => {
-    const onPageChange = jest.fn();
+  // https://github.com/ant-design/ant-design/issues/4532
+  // https://codepen.io/afc163/pen/pWVRJV?editors=001
+  it('should display pagination as prop pagination change between true and false', () => {
+    const { container, rerender } = render(createTable());
+    expect(container.querySelectorAll('.ant-pagination')).toHaveLength(1);
+    expect(container.querySelectorAll('.ant-pagination-item')).toHaveLength(2);
+
+    rerender(createTable({ pagination: false }));
+    expect(container.querySelectorAll('.ant-pagination')).toHaveLength(0);
+
+    rerender(createTable({ pagination }));
+    expect(container.querySelectorAll('.ant-pagination')).toHaveLength(1);
+    expect(container.querySelectorAll('.ant-pagination-item')).toHaveLength(2);
+    fireEvent.click(container.querySelector('.ant-pagination-item-2'));
+    expect(renderedNames(container)).toEqual(['Tom', 'Jerry']);
+
+    rerender(createTable({ pagination: false }));
+    expect(container.querySelectorAll('.ant-pagination')).toHaveLength(0);
+
+    rerender(createTable({ pagination: undefined }));
+    expect(container.querySelectorAll('.ant-pagination')).toHaveLength(1);
+    expect(container.querySelectorAll('.ant-pagination-item')).toHaveLength(2);
+    expect(renderedNames(container)).toEqual(['Tom', 'Jerry']);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/5259
+  it('change to correct page when data source changes', () => {
+    const { container, rerender } = render(createTable({ pagination: { pageSize: 1 } }));
+    fireEvent.click(container.querySelector('.ant-pagination-item-3'));
+    rerender(createTable({ dataSource: [data[0]] }));
+    expect(
+      container
+        .querySelector('.ant-pagination-item-1')
+        .className.includes('ant-pagination-item-active'),
+    ).toBe(true);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/24913
+  it('should called onChange when pageSize change', () => {
     const onChange = jest.fn();
-
+    const onShowSizeChange = jest.fn();
     const { container } = render(
       createTable({
         pagination: {
-          pageSize: 2,
-          defaultCurrent: 2,
-          onChange: onPageChange,
+          current: 1,
+          pageSize: 10,
+          total: 200,
+          onChange,
+          onShowSizeChange,
+        },
+      }),
+    );
+
+    fireEvent.mouseDown(container.querySelector('.ant-select-selector'));
+    expect(container.querySelectorAll('.ant-select-item-option').length).toBe(4);
+    fireEvent.click(container.querySelectorAll('.ant-select-item-option')[1]);
+    expect(onChange).toHaveBeenCalledWith(1, 20);
+  });
+
+  it('should not change page when pagination current is specified', () => {
+    const { container } = render(createTable({ pagination: { current: 2, pageSize: 1 } }));
+
+    expect(
+      container
+        .querySelector('.ant-pagination-item-2')
+        .className.includes('ant-pagination-item-active'),
+    ).toBe(true);
+    fireEvent.click(container.querySelector('.ant-pagination-item-3'));
+    expect(
+      container
+        .querySelector('.ant-pagination-item-2')
+        .className.includes('ant-pagination-item-active'),
+    ).toBe(true);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/29175
+  it('should change page to max page count when pageSize change without pagination.total', () => {
+    const onChange = jest.fn();
+    const onShowSizeChange = jest.fn();
+    const { container } = render(
+      createTable({
+        pagination: {
+          current: 10,
+          pageSize: 10,
+          onChange,
+          onShowSizeChange,
+        },
+        dataSource: longData,
+      }),
+    );
+    fireEvent.mouseDown(container.querySelector('.ant-select-selector'));
+    expect(container.querySelectorAll('.ant-select-item-option').length).toBe(4);
+    fireEvent.click(container.querySelectorAll('.ant-select-item-option')[1]);
+    const newPageSize = parseInt(
+      container.querySelectorAll('.ant-select-item-option')[1].textContent,
+      10,
+    );
+    expect(onChange).toHaveBeenCalledWith(longData.length / newPageSize, 20);
+  });
+
+  it('should change page to max page count when pageSize change with pagination.total', () => {
+    const onChange = jest.fn();
+    const onShowSizeChange = jest.fn();
+    const total = 20000;
+    const { container } = render(
+      createTable({
+        pagination: {
+          current: total / 10,
+          pageSize: 10,
+          onChange,
+          total,
+          onShowSizeChange,
+        },
+        dataSource: longData,
+      }),
+    );
+
+    fireEvent.mouseDown(container.querySelector('.ant-select-selector'));
+    expect(container.querySelectorAll('.ant-select-item-option').length).toBe(4);
+    fireEvent.click(container.querySelectorAll('.ant-select-item-option')[1]);
+    const newPageSize = parseInt(
+      container.querySelectorAll('.ant-select-item-option')[1].textContent,
+      10,
+    );
+    expect(onChange).toHaveBeenCalledWith(total / newPageSize, 20);
+  });
+
+  // https://github.com/ant-design/ant-design/issues/29175
+  it('should not change page to max page if current is not greater max page when pageSize change', () => {
+    const onChange = jest.fn();
+    const onShowSizeChange = jest.fn();
+    const { container } = render(
+      createTable({
+        pagination: {
+          current: 4,
+          pageSize: 10,
+          onChange,
+          onShowSizeChange,
+        },
+        dataSource: longData,
+      }),
+    );
+    fireEvent.mouseDown(container.querySelector('.ant-select-selector'));
+    expect(container.querySelectorAll('.ant-select-item-option').length).toBe(4);
+    fireEvent.click(container.querySelectorAll('.ant-select-item-option')[1]);
+    expect(onChange).toHaveBeenCalledWith(4, 20);
+  });
+
+  it('should reset current to max page when data length is cut', () => {
+    const onChange = jest.fn();
+    const { container, rerender } = render(
+      createTable({
+        pagination: {
+          current: 10,
+          pageSize: 10,
+          onChange,
+        },
+        dataSource: longData,
+      }),
+    );
+    expect(container.querySelector('.ant-pagination-item-active').textContent).toBe('10');
+    rerender(
+      createTable({
+        pagination: {
+          current: 10,
+          pageSize: 10,
+          onChange,
+        },
+        dataSource: longData.filter(item => item.key < 60),
+      }),
+    );
+
+    expect(container.querySelector('.ant-pagination-item-active').textContent).toBe('6');
+  });
+
+  it('specify the position of pagination', () => {
+    const { container, rerender } = render(createTable({ pagination: { position: ['topLeft'] } }));
+    expect(container.querySelector('.ant-spin-container').children).toHaveLength(2);
+    expect(
+      container
+        .querySelector('.ant-spin-container')
+        .children[0].className.includes('ant-pagination'),
+    ).toBe(true);
+
+    rerender(createTable({ pagination: { position: ['bottomRight'] } }));
+    expect(container.querySelector('.ant-spin-container').children).toHaveLength(2);
+    expect(
+      container
+        .querySelector('.ant-spin-container')
+        .children[1].className.includes('ant-pagination'),
+    ).toBe(true);
+
+    rerender(createTable({ pagination: { position: ['topLeft', 'bottomRight'] } }));
+    expect(container.querySelector('.ant-spin-container').children).toHaveLength(3);
+    expect(
+      container
+        .querySelector('.ant-spin-container')
+        .children[0].className.includes('ant-pagination'),
+    ).toBe(true);
+    expect(
+      container
+        .querySelector('.ant-spin-container')
+        .children[2].className.includes('ant-pagination'),
+    ).toBe(true);
+
+    rerender(createTable({ pagination: { position: ['none', 'none'] } }));
+    expect(container.querySelectorAll('.ant-pagination')).toHaveLength(0);
+
+    rerender(createTable({ pagination: { position: ['invalid'] } }));
+    expect(container.querySelectorAll('.ant-pagination')).toHaveLength(1);
+
+    rerender(createTable({ pagination: { position: ['invalid', 'invalid'] } }));
+    expect(container.querySelectorAll('.ant-pagination')).toHaveLength(1);
+  });
+
+  /**
+   * `pagination` is not designed to accept `true` value, but in practice, many people assign `true`
+   * to `pagination`, since they misunderstand that `pagination` can accept a boolean value.
+   */
+  it('Accepts pagination as true', () => {
+    const { asFragment } = render(createTable({ pagination: true }));
+    expect(asFragment().firstChild).toMatchSnapshot();
+  });
+
+  it('ajax render should keep display by the dataSource', () => {
+    const onChange = jest.fn();
+    const onPaginationChange = jest.fn();
+
+    const { container } = render(
+      createTable({
+        onChange,
+        pagination: {
+          total: 200,
+          onChange: onPaginationChange,
+        },
+      }),
+    );
+
+    expect(container.querySelectorAll('.ant-table-tbody tr.ant-table-row')).toHaveLength(
+      data.length,
+    );
+
+    fireEvent.click(container.querySelector('.ant-pagination .ant-pagination-item-2'));
+    expect(onChange.mock.calls[0][0].current).toBe(2);
+    expect(onChange).toHaveBeenCalledWith(
+      { current: 2, pageSize: 10, total: 200 },
+      {},
+      {},
+      {
+        currentDataSource: [
+          { key: 0, name: 'Jack' },
+          { key: 1, name: 'Lucy' },
+          { key: 2, name: 'Tom' },
+          { key: 3, name: 'Jerry' },
+        ],
+        action: 'paginate',
+      },
+    );
+    expect(onPaginationChange).toHaveBeenCalledWith(2, 10);
+
+    expect(container.querySelectorAll('.ant-table-tbody tr.ant-table-row')).toHaveLength(
+      data.length,
+    );
+  });
+
+  it('onShowSizeChange should trigger once', () => {
+    jest.useFakeTimers();
+    const onShowSizeChange = jest.fn();
+    const onChange = jest.fn();
+    const { container } = render(
+      createTable({
+        pagination: {
+          total: 200,
+          showSizeChanger: true,
+          onShowSizeChange,
         },
         onChange,
       }),
     );
 
-    const getNameColumn = () => container.querySelector('th');
-
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual(null);
-
-    fireEvent.click(getNameColumn());
-    expect(onChange.mock.calls[0][0].current).toBe(2);
-    expect(onPageChange).not.toHaveBeenCalled();
-    expect(getNameColumn().getAttribute('aria-sort')).toEqual('ascending');
+    fireEvent.mouseDown(container.querySelector('.ant-select-selector'));
+    //  resolve Warning: An update to Align ran an effect, but was not wrapped in act(...)
+    act(() => {
+      jest.runAllTimers();
+    });
+    expect(container.querySelectorAll('.ant-select-item-option').length).toBe(4);
+    fireEvent.click(container.querySelectorAll('.ant-select-item-option')[3]);
+    expect(onShowSizeChange).toHaveBeenCalledTimes(1);
+    expect(onShowSizeChange).toHaveBeenLastCalledWith(1, 100);
+    expect(onChange).toHaveBeenCalled();
+    jest.useRealTimers();
   });
 
-  it('should support onHeaderCell in sort column', () => {
-    const onClick = jest.fn();
-    const { container } = render(
-      <Table columns={[{ title: 'title', onHeaderCell: () => ({ onClick }), sorter: true }]} />,
-    );
-    fireEvent.click(container.querySelector('th'));
-    expect(onClick).toHaveBeenCalled();
+  it('should support current in pagination', () => {
+    const { container } = render(createTable({ pagination: { current: 2, pageSize: 1 } }));
+    expect(container.querySelector('.ant-pagination-item-active').textContent).toBe('2');
   });
 
-  it('could sort data with children', () => {
-    const { container } = render(
-      createTable(
-        {
-          defaultExpandAllRows: true,
-          dataSource: [
-            {
-              key: '1',
-              name: 'Brown',
-              children: [
-                {
-                  key: '2',
-                  name: 'Zoe',
-                },
-                {
-                  key: '3',
-                  name: 'Mike',
-                  children: [
-                    {
-                      key: '3-1',
-                      name: 'Petter',
-                    },
-                    {
-                      key: '3-2',
-                      name: 'Alex',
-                    },
-                  ],
-                },
-                {
-                  key: '4',
-                  name: 'Green',
-                },
-              ],
-            },
-          ],
-        },
-        {
-          defaultSortOrder: 'ascend',
-        },
-      ),
-    );
-
-    expect(renderedNames(container)).toEqual(['Brown', 'Green', 'Mike', 'Alex', 'Petter', 'Zoe']);
+  it('should support defaultCurrent in pagination', () => {
+    const { container } = render(createTable({ pagination: { defaultCurrent: 2, pageSize: 1 } }));
+    expect(container.querySelector('.ant-pagination-item-active').textContent).toBe('2');
   });
 
-  // https://github.com/ant-design/ant-design/issues/19443
-  it('should not being inifinite loop when using Table.Column with sortOrder', () => {
-    class Demo extends React.Component {
-      componentDidMount() {
-        this.setState({});
-      }
-
-      render() {
-        return (
-          <Table dataSource={[]}>
-            <Table.Column title="Age" dataIndex="age" sorter sortOrder="ascend" key="age" />
-          </Table>
-        );
-      }
-    }
-    expect(() => {
-      render(<Demo />);
-    }).not.toThrow();
+  it('should support defaultPageSize in pagination', () => {
+    const { container } = render(createTable({ pagination: { defaultPageSize: 1 } }));
+    expect(container.querySelectorAll('.ant-pagination-item')).toHaveLength(4);
   });
 
-  it('should support defaultOrder in Column', () => {
-    const { asFragment } = render(
-      <Table dataSource={[{ key: '1', age: 1 }]}>
-        <Table.Column title="Age" dataIndex="age" sorter defaultSortOrder="ascend" key="age" />
-      </Table>,
-    );
+  // https://github.com/ant-design/ant-design/issues/19957
+  it('ajax should work with pagination', () => {
+    const { container, rerender } = render(createTable({ pagination: { total: 100 } }));
+
+    fireEvent.click(container.querySelector('.ant-pagination-item-2'));
+    rerender(createTable({ pagination: { current: 2, total: 100 } }));
+
+    expect(
+      container
+        .querySelector('.ant-pagination-item-2')
+        .className.includes('ant-pagination-item-active'),
+    ).toBeTruthy();
+  });
+
+  it('pagination should ignore invalidate total', () => {
+    const { container } = render(createTable({ pagination: { total: null } }));
+    expect(container.querySelectorAll('.ant-pagination-item-1').length).toBeTruthy();
+  });
+
+  it('renders pagination topLeft and bottomRight', () => {
+    const { asFragment } = render(createTable({ pagination: ['topLeft', 'bottomRight'] }));
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
-  // https://github.com/ant-design/ant-design/issues/20096
-  it('invalidate sorter should not display sorter button', () => {
-    const { container } = render(
-      <Table
-        columns={[
-          {
-            title: 'Name',
-            dataIndex: 'name',
-            key: 'name',
-            sorter: false,
-          },
-          {
-            title: 'Age',
-            dataIndex: 'age',
-            key: 'age',
-            sorter: null,
-          },
-          {
-            title: 'Address',
-            dataIndex: 'address',
-            key: 'address',
-            sorter: undefined,
-          },
-        ]}
-      />,
-    );
-
-    expect(container.querySelectorAll('.ant-table-column-sorter-inner')).toHaveLength(0);
-  });
-
-  // https://github.com/ant-design/ant-design/issues/21193
-  it('table with sugar column', () => {
-    const { container } = render(
-      <Table>
-        <Table.Column
-          title="Chinese Score"
-          dataIndex="chinese"
-          sorter={{
-            compare: (a, b) => a.chinese - b.chinese,
-            multiple: 3,
-          }}
-        />
-        <Table.Column
-          title="Math Score"
-          dataIndex="math"
-          sorter={{
-            compare: (a, b) => a.math - b.math,
-            multiple: 2,
-          }}
-        />
-      </Table>,
-    );
-
-    fireEvent.click(container.querySelector('th'));
-
-    expect(container.querySelectorAll('th.ant-table-column-sort')).toHaveLength(1);
-  });
-
-  it('surger should support sorterOrder', () => {
-    const { container } = render(
-      <Table>
-        <Table.Column key="name" title="Name" dataIndex="name" sortOrder="ascend" sorter />
-      </Table>,
-    );
-
-    expect(
-      container.querySelector('.ant-table-column-sorter-up').className.includes('active'),
-    ).toBeTruthy();
-    expect(
-      container.querySelector('.ant-table-column-sorter-down').className.includes('active'),
-    ).toBeFalsy();
-  });
-
-  it('controlled multiple group', () => {
-    const groupColumns = [
-      {
-        title: 'Math Score',
-        dataIndex: 'math1',
-        sortOrder: 'ascend',
-        sorter: { multiple: 1 },
-        children: [
-          {
-            title: 'math',
-            dataIndex: 'math',
-          },
-        ],
-      },
-      {
-        title: 'English Score',
-        dataIndex: 'english',
-        sortOrder: 'descend',
-        sorter: { multiple: 2 },
-      },
-    ];
-
-    const groupData = [
-      {
-        key: '1',
-        name: 'John Brown',
-        chinese: 98,
-        math: 60,
-        english: 70,
-      },
-    ];
-
-    const { container } = render(<Table columns={groupColumns} data={groupData} />);
-
-    expect(
-      container
-        .querySelectorAll('.ant-table-column-sorter-full')[0]
-        .querySelector('.ant-table-column-sorter-up')
-        .className.includes('active'),
-    ).toBeTruthy();
-    expect(
-      container
-        .querySelectorAll('.ant-table-column-sorter-full')[1]
-        .querySelector('.ant-table-column-sorter-down')
-        .className.includes('active'),
-    ).toBeTruthy();
-  });
-
-  it('onChange with correct sorter for multiple', () => {
-    const groupColumns = [
-      {
-        title: 'Math Score',
-        dataIndex: 'math',
-        sorter: { multiple: 1 },
-      },
-      {
-        title: 'English Score',
-        dataIndex: 'english',
-        sorter: { multiple: 2 },
-      },
-    ];
-
-    const groupData = [
-      {
-        key: '1',
-        name: 'John Brown',
-        chinese: 98,
-        math: 60,
-        english: 70,
-      },
-    ];
-
+  it('should call onChange when change pagination size', () => {
     const onChange = jest.fn();
     const { container } = render(
-      <Table columns={groupColumns} data={groupData} onChange={onChange} />,
+      createTable({
+        pagination: {
+          total: 200,
+          showSizeChanger: true,
+        },
+        onChange,
+      }),
     );
+    fireEvent.mouseDown(container.querySelector('.ant-select-selector'));
+    fireEvent.click(container.querySelectorAll('.ant-select-item-option')[2]);
+    expect(onChange).toBeCalledTimes(1);
+  });
 
-    function clickToMatchExpect(index, sorter) {
-      fireEvent.click(container.querySelectorAll('.ant-table-column-sorters')[index]);
+  it('dynamic warning', () => {
+    resetWarned();
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
-      expect(onChange).toHaveBeenCalledWith(
-        expect.anything(),
-        expect.anything(),
-        expect.objectContaining(sorter),
-        expect.anything(),
-      );
-
-      onChange.mockReset();
+    const dynamicData = [];
+    for (let i = 0; i < 15; i += 1) {
+      dynamicData.push({
+        key: i,
+        name: i,
+      });
     }
 
-    // First
-    clickToMatchExpect(0, { field: 'math', order: 'ascend' });
-    clickToMatchExpect(0, { field: 'math', order: 'descend' });
-    clickToMatchExpect(0, { field: 'math', order: undefined });
+    const { container } = render(
+      createTable({
+        dataSource: dynamicData,
+        pagination: { total: 100, pageSize: 10, current: 2 },
+      }),
+    );
 
-    // Last
-    clickToMatchExpect(1, { field: 'english', order: 'ascend' });
-    clickToMatchExpect(1, { field: 'english', order: 'descend' });
-    clickToMatchExpect(1, { field: 'english', order: undefined });
+    expect(container.querySelectorAll('tbody tr')).toHaveLength(5);
+
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Table] `dataSource` length is less than `pagination.total` but large than `pagination.pageSize`. Please make sure your config correct data with async mode.',
+    );
+  });
+
+  it('should render pagination after last item on last page being removed', () => {
+    const total = data.length;
+    const paginationProp = {
+      pageSize: 1,
+      total,
+      current: total,
+      position: ['topLeft', 'bottomLeft'],
+    };
+    const { container, rerender } = render(
+      createTable({
+        pagination: paginationProp,
+      }),
+    );
+    rerender(
+      createTable({
+        dataSource: data.slice(total - 1),
+        pagination: { ...paginationProp, total: total - 1 },
+      }),
+    );
+
+    expect(container.querySelectorAll('.ant-pagination')).toHaveLength(2);
+  });
+
+  it('showTotal should hide when removed', () => {
+    const Demo = () => {
+      const [p, setP] = React.useState({
+        showTotal: t => `>${t}<`,
+        total: 200,
+        current: 1,
+        pageSize: 10,
+      });
+
+      return (
+        <Table
+          data={[]}
+          columns={[]}
+          pagination={p}
+          onChange={pg => {
+            setP({
+              ...pg,
+              total: 23,
+            });
+          }}
+        />
+      );
+    };
+
+    const { container } = render(<Demo />);
+    expect(container.querySelector('.ant-pagination-total-text').textContent).toEqual('>200<');
+
+    // Should hide
+    fireEvent.click(container.querySelector('.ant-pagination-item-2'));
+    expect(container.querySelectorAll('.ant-pagination-total-text')).toHaveLength(0);
+  });
+
+  it('should preserve table pagination className', () => {
+    const { container } = render(
+      <Table
+        data={[]}
+        columns={[]}
+        pagination={{
+          className: 'pagination',
+          total: 200,
+          current: 1,
+          pageSize: 10,
+        }}
+      />,
+    );
+    expect(container.querySelector('.ant-pagination').className).toEqual(
+      'ant-pagination ant-table-pagination ant-table-pagination-right pagination',
+    );
   });
 });

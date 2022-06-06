@@ -230,7 +230,6 @@ describe('Table.sorter', () => {
     expect(sorter3.columnKey).toBe('name');
   });
 
-  // need to resolve Warning: An update to CSSMotion ran an effect, but was not wrapped in act(...).
   it('hover header show sorter tooltip', () => {
     // tooltip has delay
     jest.useFakeTimers();
@@ -280,7 +279,6 @@ describe('Table.sorter', () => {
     fireEvent.mouseOut(container.querySelector('.ant-table-column-sorters'));
   });
 
-  // need to resolve Warning: An update to CSSMotion ran an effect, but was not wrapped in act(...).
   it('should show correct tooltip when showSorterTooltip is an object', () => {
     // basically copied from 'hover header show sorter tooltip'
     jest.useFakeTimers();

@@ -249,8 +249,6 @@ describe('Table.filter', () => {
         ],
       }),
     );
-    // let dropdown = wrapper.find('Dropdown').first();
-    // expect(dropdown.props().visible).toBe(true);
 
     expect(container.querySelector('.ant-dropdown-open')).toBeTruthy();
 
@@ -359,7 +357,6 @@ describe('Table.filter', () => {
     expect(container.querySelectorAll('tbody tr').length).toBe(4);
   });
 
-  // need help get filterState.filteredKeys
   it('should handle filteredValue and non-array filterValue as expected', () => {
     let filterKeys = new Set();
 
@@ -527,6 +524,7 @@ describe('Table.filter', () => {
     );
     expect(container.querySelectorAll('tbody tr').length).toBe(4);
   });
+
   //  Warning: An update to Item ran an effect, but was not wrapped in act(...).
   it('fires change event', () => {
     const handleChange = jest.fn();
@@ -1999,6 +1997,8 @@ describe('Table.filter', () => {
       );
       expect(container.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(0);
 
+      // fireEvent.change(container.querySelector('.ant-table-filter-dropdown-checkall input'), { target: { checked: true } });
+      // 为什么 fireEvent.change 模拟 checkbox 触发会失败
       fireEvent.click(container.querySelector('.ant-table-filter-dropdown-checkall'));
       expect(container.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(5);
 
