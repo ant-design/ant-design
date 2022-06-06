@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import type RcTree from 'rc-tree';
 import debounce from 'lodash/debounce';
 import { conductExpandParent } from 'rc-tree/lib/util';
+import omit from 'rc-util/lib/omit';
 import type { EventDataNode, DataNode, Key } from 'rc-tree/lib/interface';
 import { convertDataToEntities, convertTreeToData } from 'rc-tree/lib/utils/treeUtil';
 import FileOutlined from '@ant-design/icons/FileOutlined';
@@ -104,7 +105,7 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
   const onExpand = (
     keys: Key[],
     info: {
-      node: EventDataNode;
+      node: EventDataNode<any>;
       expanded: boolean;
       nativeEvent: MouseEvent;
     },
@@ -116,7 +117,7 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
     return props.onExpand?.(keys, info);
   };
 
-  const onClick = (event: React.MouseEvent<HTMLElement>, node: EventDataNode) => {
+  const onClick = (event: React.MouseEvent<HTMLElement>, node: EventDataNode<any>) => {
     const { expandAction } = props;
 
     // Expand the tree
@@ -127,7 +128,7 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
     props.onClick?.(event, node);
   };
 
-  const onDoubleClick = (event: React.MouseEvent<HTMLElement>, node: EventDataNode) => {
+  const onDoubleClick = (event: React.MouseEvent<HTMLElement>, node: EventDataNode<any>) => {
     const { expandAction } = props;
 
     // Expand the tree
@@ -218,7 +219,7 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
       icon={getIcon}
       ref={treeRef}
       blockNode
-      {...otherProps}
+      {...omit(otherProps, ['expandAction'])}
       prefixCls={prefixCls}
       className={connectClassName}
       expandedKeys={expandedKeys}
