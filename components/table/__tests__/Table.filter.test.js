@@ -170,32 +170,36 @@ describe('Table.filter', () => {
     );
   });
 
-  // --- FIXME --
   it('override custom filter correctly', () => {
-    const filter = ({ prefixCls, setSelectedKeys, confirm, clearFilters }) => (
-      <div className={`${prefixCls}-view`} id="customFilter">
-        <span onClick={() => setSelectedKeys([42])} id="setSelectedKeys">
-          setSelectedKeys
-        </span>
-        <span onClick={() => confirm()} id="confirm">
-          Confirm
-        </span>
-        <span onClick={() => clearFilters()} id="reset">
-          Reset
-        </span>
-        <span
-          onClick={() => {
-            setSelectedKeys([43]);
-            confirm();
-          }}
-          id="simulateOnSelect"
-        >
-          SimulateOnSelect
-        </span>
-      </div>
-    );
+    let renderSelectedKeys = null;
+    const filter = ({ prefixCls, setSelectedKeys, selectedKeys, confirm, clearFilters }) => {
+      renderSelectedKeys = selectedKeys;
 
-    const wrapper = mount(
+      return (
+        <div className={`${prefixCls}-view`} id="customFilter">
+          <span onClick={() => setSelectedKeys([42])} id="setSelectedKeys">
+            setSelectedKeys
+          </span>
+          <span onClick={() => confirm()} id="confirm">
+            Confirm
+          </span>
+          <span onClick={() => clearFilters()} id="reset">
+            Reset
+          </span>
+          <span
+            onClick={() => {
+              setSelectedKeys([43]);
+              confirm();
+            }}
+            id="simulateOnSelect"
+          >
+            SimulateOnSelect
+          </span>
+        </div>
+      );
+    };
+
+    const { container } = render(
       createTable({
         columns: [
           {
@@ -206,41 +210,41 @@ describe('Table.filter', () => {
       }),
     );
 
-    function getFilterMenu() {
-      return wrapper.find('FilterDropdown');
-    }
+    // function getFilterMenu() {
+    //   return wrapper.find('FilterDropdown');
+    // }
 
     // check if renderer well
-    wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
-    expect(wrapper.find('#customFilter')).toMatchSnapshot();
+    fireEvent.click(container.querySelector('span.ant-dropdown-trigger'));
+    expect(container.querySelector('#customFilter')).toMatchSnapshot();
 
     // try to use reset btn
-    expect(getFilterMenu().props().filterState.filteredKeys).toBeFalsy();
-    wrapper.find('#setSelectedKeys').simulate('click');
-    wrapper.find('#confirm').simulate('click');
-    expect(getFilterMenu().props().filterState.filteredKeys).toEqual([42]);
-    wrapper.find('#reset').simulate('click');
-    wrapper.find('#confirm').simulate('click');
-    expect(getFilterMenu().props().filterState.filteredKeys).toBeFalsy();
+    expect(renderSelectedKeys).toHaveLength(0);
+    fireEvent.click(container.querySelector('#setSelectedKeys'));
+    fireEvent.click(container.querySelector('#confirm'));
+    expect(renderSelectedKeys).toEqual([42]);
+
+    // Reset
+    fireEvent.click(container.querySelector('#reset'));
+    fireEvent.click(container.querySelector('#confirm'));
+    expect(renderSelectedKeys).toHaveLength(0);
 
     // try to use confirm btn
-    wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
-    wrapper.find('#setSelectedKeys').simulate('click');
-    expect(getFilterMenu().find('Dropdown').first().props().visible).toBeTruthy();
-    wrapper.find('#confirm').simulate('click');
-    expect(getFilterMenu().props().filterState.filteredKeys).toEqual([42]);
-    expect(getFilterMenu().find('Dropdown').first().props().visible).toBeFalsy();
+    fireEvent.click(container.querySelector('span.ant-dropdown-trigger'));
+    fireEvent.click(container.querySelector('#setSelectedKeys'));
+    expect(container.querySelector('.ant-dropdown-open')).toBeTruthy();
+    fireEvent.click(container.querySelector('#confirm'));
+    expect(renderSelectedKeys).toEqual([42]);
+    expect(container.querySelector('.ant-dropdown-open')).toBeFalsy();
 
     // Simulate onSelect, setSelectedKeys & confirm
-    wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
-    wrapper.find('#simulateOnSelect').simulate('click');
-    expect(getFilterMenu().props().filterState.filteredKeys).toEqual([43]);
+    fireEvent.click(container.querySelector('span.ant-dropdown-trigger'));
+    fireEvent.click(container.querySelector('#simulateOnSelect'));
+    expect(renderSelectedKeys).toEqual([43]);
   });
-  // --- END FIXME --
 
-  // --- FIXME --
   it('can be controlled by filterDropdownVisible', () => {
-    const wrapper = mount(
+    const { container, rerender } = render(
       createTable({
         columns: [
           {
@@ -251,47 +255,68 @@ describe('Table.filter', () => {
       }),
     );
 
-    let dropdown = wrapper.find('Dropdown').first();
-    expect(dropdown.props().visible).toBe(true);
+    expect(container.querySelector('.ant-dropdown-open')).toBeTruthy();
 
-    wrapper.setProps({
+    rerender(
+      createTable({
+        columns: [
+          {
+            ...column,
+            filterDropdownVisible: false,
+          },
+        ],
+      }),
+    );
+
+    expect(container.querySelector('.ant-dropdown-open')).toBeFalsy();
+  });
+
+  it('if the filter is visible it should ignore the selectedKeys changes', () => {
+    const myColumn = {
+      title: 'Name',
+      dataIndex: 'name',
+      filters: [{ text: 'J', value: 'J' }],
+      onFilter: (value, record) => record.name.includes(value),
+    };
+
+    const tableProps = {
       columns: [
         {
-          ...column,
-          filterDropdownVisible: false,
+          ...myColumn,
+          filterDropdownVisible: true,
         },
       ],
+    };
+
+    const { container, rerender } = render(createTable(tableProps));
+
+    const checkboxList = container
+      .querySelector('.ant-table-filter-dropdown')
+      .querySelectorAll('input[type="checkbox"]');
+    expect(checkboxList.length).toBeTruthy();
+    checkboxList.forEach(checkbox => {
+      expect(checkbox.checkbox).toBeFalsy();
     });
 
-    dropdown = wrapper.find('Dropdown').first();
-    expect(dropdown.props().visible).toBe(false);
-  });
-  // ---END FIXME --
-
-  // --- FIXME --
-  it('if the filter is visible it should ignore the selectedKeys changes', () => {
-    const wrapper = mount(
-      createTable({
-        columns: [
-          {
-            ...column,
-            filterDropdownVisible: true,
-          },
-        ],
-      }),
+    fireEvent.click(
+      container.querySelector('.ant-table-filter-dropdown').querySelector('input[type="checkbox"]'),
+    );
+    fireEvent.click(
+      container
+        .querySelector('.ant-table-filter-dropdown')
+        .querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary'),
     );
 
-    expect(wrapper.find('FilterDropdown').props().filterState.filteredKeys).toBeFalsy();
-    wrapper.find('FilterDropdown').find('input[type="checkbox"]').first().simulate('click');
-    wrapper
-      .find('FilterDropdown')
-      .find('.ant-table-filter-dropdown-btns .ant-btn-primary')
-      .simulate('click');
-    expect(wrapper.find('FilterDropdown').props().filterState.filteredKeys).toEqual(['boy']);
-    wrapper.setProps({ dataSource: [...data, { key: 999, name: 'Chris' }] });
-    expect(wrapper.find('FilterDropdown').props().filterState.filteredKeys).toEqual(['boy']);
+    expect(container.querySelectorAll('tbody tr')).toHaveLength(2);
+
+    rerender(
+      createTable({
+        ...tableProps,
+        dataSource: [...data, { key: 999, name: 'Jason' }],
+      }),
+    );
+    expect(container.querySelectorAll('tbody tr')).toHaveLength(3);
   });
-  // ---END FIXME --
 
   it('fires change event when visible change', () => {
     const handleChange = jest.fn();
