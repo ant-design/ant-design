@@ -1,18 +1,18 @@
-import React, { forwardRef, useContext, useEffect, useRef } from 'react';
-import type { InputProps as RcInputProps, InputRef } from 'rc-input';
-import RcInput from 'rc-input';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import classNames from 'classnames';
+import type { InputProps as RcInputProps, InputRef } from 'rc-input';
+import RcInput from 'rc-input';
 import { composeRef } from 'rc-util/lib/ref';
+import React, { forwardRef, useContext, useEffect, useRef } from 'react';
+import { ConfigContext } from '../config-provider';
+import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
-import DisabledContext from '../config-provider/DisabledContext';
+import { FormItemInputContext, NoFormStyle } from '../form/context';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
-import { ConfigContext } from '../config-provider';
-import { FormItemInputContext, NoFormStatus } from '../form/context';
-import { hasPrefixSuffix } from './utils';
 import warning from '../_util/warning';
+import { hasPrefixSuffix } from './utils';
 
 export interface InputFocusOptions extends FocusOptions {
   cursor?: 'start' | 'end' | 'all';
@@ -224,8 +224,20 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       onFocus={handleFocus}
       suffix={suffixNode}
       allowClear={mergedAllowClear}
-      addonAfter={addonAfter && <NoFormStatus>{addonAfter}</NoFormStatus>}
-      addonBefore={addonBefore && <NoFormStatus>{addonBefore}</NoFormStatus>}
+      addonAfter={
+        addonAfter && (
+          <NoFormStyle override status>
+            {addonAfter}
+          </NoFormStyle>
+        )
+      }
+      addonBefore={
+        addonBefore && (
+          <NoFormStyle override status>
+            {addonBefore}
+          </NoFormStyle>
+        )
+      }
       inputClassName={classNames(
         {
           [`${prefixCls}-sm`]: mergedSize === 'small',
