@@ -18,14 +18,14 @@ title:
 If you want specific control over the positioning and placement of the `Icon`, then that should be done by placing the `Icon` component within the `Tag` rather than using the `icon` property.
 
 ```tsx
-import React from 'react';
-import { Tag } from 'antd';
 import {
-  TwitterOutlined,
-  YoutubeOutlined,
   FacebookOutlined,
   LinkedinOutlined,
+  TwitterOutlined,
+  YoutubeOutlined,
 } from '@ant-design/icons';
+import { Tag } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <>

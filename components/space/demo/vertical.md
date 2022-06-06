@@ -14,8 +14,8 @@ title:
 Crowded components vertical spacing.
 
 ```tsx
+import { Card, Space } from 'antd';
 import React from 'react';
-import { Space, Card } from 'antd';
 
 const App: React.FC = () => (
   <Space direction="vertical" size="middle" style={{ display: 'flex' }}>

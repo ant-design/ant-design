@@ -14,8 +14,8 @@ title:
 Customize the dropdown menu via `dropdownRender`.
 
 ```tsx
-import React from 'react';
 import { Cascader, Divider } from 'antd';
+import React from 'react';
 
 interface Option {
   value: string;

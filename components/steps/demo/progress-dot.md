@@ -14,8 +14,8 @@ title:
 Steps with progress dot style.
 
 ```tsx
+import { Divider, Steps } from 'antd';
 import React from 'react';
-import { Steps, Divider } from 'antd';
 
 const { Step } = Steps;
 

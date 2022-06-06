@@ -14,8 +14,8 @@ title:
 Responsive configuration enables perfect presentation on small screen devices.
 
 ```tsx
-import React from 'react';
 import { Descriptions } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <div>

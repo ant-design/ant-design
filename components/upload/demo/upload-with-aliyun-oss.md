@@ -14,11 +14,11 @@ title:
 Use Aliyun OSS upload example.
 
 ```tsx
-import React, { useState, useEffect } from 'react';
-import { Form, Upload, message, Button } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import type { UploadProps } from 'antd';
+import { Button, Form, message, Upload } from 'antd';
 import type { UploadFile } from 'antd/es/upload/interface';
+import React, { useEffect, useState } from 'react';
 
 interface OSSDataType {
   dir: string;

@@ -14,8 +14,8 @@ title:
 Should be used at the top of container, needs to override styles.
 
 ```tsx
-import React from 'react';
 import { Tabs } from 'antd';
+import React from 'react';
 
 const { TabPane } = Tabs;
 

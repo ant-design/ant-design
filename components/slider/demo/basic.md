@@ -14,8 +14,8 @@ title:
 Basic slider. When `range` is `true`, display as dual thumb mode. When `disable` is `true`, the slider will not be interactable.
 
 ```tsx
-import React, { useState } from 'react';
 import { Slider, Switch } from 'antd';
+import React, { useState } from 'react';
 
 const App: React.FC = () => {
   const [disabled, setDisabled] = useState(false);

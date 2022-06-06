@@ -15,9 +15,9 @@ title:
 Add status to InputNumber with `status`, which could be `error` or `warning`.
 
 ```tsx
-import React from 'react';
-import { InputNumber, Space } from 'antd';
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
+import { InputNumber, Space } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <Space direction="vertical" style={{ width: '100%' }}>

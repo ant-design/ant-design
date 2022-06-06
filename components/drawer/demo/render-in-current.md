@@ -14,8 +14,8 @@ title:
 Render in current dom. custom container, check `getContainer`.
 
 ```tsx
+import { Button, Drawer } from 'antd';
 import React, { useState } from 'react';
-import { Drawer, Button } from 'antd';
 
 const App: React.FC = () => {
   const [visible, setVisible] = useState(false);

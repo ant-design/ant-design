@@ -14,10 +14,10 @@ title:
 Large size tabs are usually used in page header, and small size could be used in Modal.
 
 ```tsx
-import React, { useState } from 'react';
-import { Tabs, Radio } from 'antd';
-import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import type { RadioChangeEvent } from 'antd';
+import { Radio, Tabs } from 'antd';
+import type { SizeType } from 'antd/lib/config-provider/SizeContext';
+import React, { useState } from 'react';
 
 const { TabPane } = Tabs;
 

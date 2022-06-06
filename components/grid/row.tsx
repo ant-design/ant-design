@@ -1,11 +1,11 @@
-import * as React from 'react';
 import classNames from 'classnames';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
-import RowContext from './RowContext';
-import { tuple } from '../_util/type';
+import useFlexGapSupport from '../_util/hooks/useFlexGapSupport';
 import type { Breakpoint, ScreenMap } from '../_util/responsiveObserve';
 import ResponsiveObserve, { responsiveArray } from '../_util/responsiveObserve';
-import useFlexGapSupport from '../_util/hooks/useFlexGapSupport';
+import { tuple } from '../_util/type';
+import RowContext from './RowContext';
 
 const RowAligns = tuple('top', 'middle', 'bottom', 'stretch');
 const RowJustify = tuple('start', 'end', 'center', 'space-around', 'space-between', 'space-evenly');

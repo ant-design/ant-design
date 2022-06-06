@@ -14,8 +14,8 @@ title:
 By using `status` of `Steps`, you can specify the state for current step.
 
 ```tsx
-import React from 'react';
 import { Steps } from 'antd';
+import React from 'react';
 
 const { Step } = Steps;
 

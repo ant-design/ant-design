@@ -14,9 +14,9 @@ title:
 For long table，need to scroll to view the header and scroll bar，then you can now set the fixed header and scroll bar to follow the page.
 
 ```tsx
-import React, { useState } from 'react';
-import { Table, Switch } from 'antd';
+import { Switch, Table } from 'antd';
 import type { ColumnsType } from 'antd/lib/table';
+import React, { useState } from 'react';
 
 interface DataType {
   key: React.Key;

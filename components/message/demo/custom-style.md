@@ -14,8 +14,8 @@ title:
 The `style` and `className` are available to customize Message.
 
 ```tsx
+import { Button, message } from 'antd';
 import React from 'react';
-import { message, Button } from 'antd';
 
 const success = () => {
   message.success({

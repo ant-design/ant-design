@@ -14,8 +14,8 @@ title:
 `${overflowCount}+` is displayed when count is larger than `overflowCount`. The default value of `overflowCount` is `99`.
 
 ```tsx
+import { Avatar, Badge } from 'antd';
 import React from 'react';
-import { Badge, Avatar } from 'antd';
 
 const App: React.FC = () => (
   <>

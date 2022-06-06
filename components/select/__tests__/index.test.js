@@ -1,11 +1,11 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
-import { render, fireEvent } from '../../../tests/utils';
 import Select from '..';
-import Icon from '../../icon';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { fireEvent, render } from '../../../tests/utils';
+import Icon from '../../icon';
 
 const { Option } = Select;
 

@@ -14,10 +14,10 @@ title:
 Classic mode. File selection dialog pops up when upload button is clicked.
 
 ```tsx
-import React from 'react';
-import { Upload, message, Button } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import type { UploadProps } from 'antd';
+import { Button, message, Upload } from 'antd';
+import React from 'react';
 
 const props: UploadProps = {
   name: 'file',

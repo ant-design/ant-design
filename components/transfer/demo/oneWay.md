@@ -14,9 +14,9 @@ title:
 Use `oneWay` to makes Transfer to one way style.
 
 ```tsx
-import React, { useState } from 'react';
-import { Transfer, Switch } from 'antd';
+import { Switch, Transfer } from 'antd';
 import type { TransferDirection } from 'antd/es/transfer';
+import React, { useState } from 'react';
 
 interface RecordType {
   key: string;

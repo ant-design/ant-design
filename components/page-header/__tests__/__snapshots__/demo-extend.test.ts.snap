@@ -737,7 +737,6 @@ exports[`renders ./components/page-header/demo/content.md extend context correct
             >
               <ul
                 class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
-                data-dropdown-inject="true"
                 data-menu-list="true"
                 role="menu"
                 tabindex="0"
@@ -1613,7 +1612,6 @@ exports[`renders ./components/page-header/demo/responsive.md extend context corr
               <ul
                 aria-label="expanded dropdown"
                 class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
-                data-dropdown-inject="true"
                 data-menu-list="true"
                 id="null-more-popup"
                 role="listbox"

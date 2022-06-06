@@ -14,8 +14,8 @@ title:
 Referring to the Bootstrap [responsive design](http://getbootstrap.com/css/#grid-media-queries), here preset six dimensions: `xs` `sm` `md` `lg` `xl` `xxl`.
 
 ```tsx
+import { Col, Row } from 'antd';
 import React from 'react';
-import { Row, Col } from 'antd';
 
 const App: React.FC = () => (
   <Row>

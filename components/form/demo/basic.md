@@ -14,8 +14,8 @@ title:
 Basic Form data control. Includes layout, initial values, validation and submit.
 
 ```tsx
+import { Button, Checkbox, Form, Input } from 'antd';
 import React from 'react';
-import { Form, Input, Button, Checkbox } from 'antd';
 
 const App: React.FC = () => {
   const onFinish = (values: any) => {

@@ -14,26 +14,26 @@ title:
 Components which need localization support are listed here, you can toggle the language in the demo.
 
 ```tsx
-import React, { useState } from 'react';
+import type { RadioChangeEvent } from 'antd';
 import {
-  ConfigProvider,
-  Pagination,
-  DatePicker,
-  TimePicker,
-  Calendar,
-  Popconfirm,
-  Table,
-  Modal,
   Button,
-  Select,
-  Transfer,
+  Calendar,
+  ConfigProvider,
+  DatePicker,
+  Modal,
+  Pagination,
+  Popconfirm,
   Radio,
+  Select,
+  Table,
+  TimePicker,
+  Transfer,
 } from 'antd';
 import enUS from 'antd/lib/locale/en_US';
 import zhCN from 'antd/lib/locale/zh_CN';
 import moment from 'moment';
-import type { RadioChangeEvent } from 'antd';
 import 'moment/locale/zh-cn';
+import React, { useState } from 'react';
 
 moment.locale('en');
 

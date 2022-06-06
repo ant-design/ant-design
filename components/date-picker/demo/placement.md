@@ -14,9 +14,9 @@ title:
 You can manually specify the position of the popup via `placement`.
 
 ```tsx
-import React, { useState } from 'react';
-import { DatePicker, Radio } from 'antd';
 import type { DatePickerProps, RadioChangeEvent } from 'antd';
+import { DatePicker, Radio } from 'antd';
+import React, { useState } from 'react';
 
 const { RangePicker } = DatePicker;
 

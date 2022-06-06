@@ -14,9 +14,9 @@ title:
 The count will be animated as it changes.
 
 ```tsx
-import React, { useState } from 'react';
-import { Badge, Button, Switch, Divider, Avatar } from 'antd';
 import { MinusOutlined, PlusOutlined, QuestionOutlined } from '@ant-design/icons';
+import { Avatar, Badge, Button, Divider, Switch } from 'antd';
+import React, { useState } from 'react';
 
 const ButtonGroup = Button.Group;
 

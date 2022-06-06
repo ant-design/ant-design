@@ -14,9 +14,9 @@ title:
 Complex error feedback.
 
 ```tsx
-import React from 'react';
-import { Result, Button, Typography } from 'antd';
 import { CloseCircleOutlined } from '@ant-design/icons';
+import { Button, Result, Typography } from 'antd';
+import React from 'react';
 
 const { Paragraph, Text } = Typography;
 

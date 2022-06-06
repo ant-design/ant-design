@@ -14,9 +14,9 @@ title:
 A example shows how to select a dynamic range by using `onCalendarChange` and `disabledDate`.
 
 ```tsx
-import React, { useState } from 'react';
 import { DatePicker } from 'antd';
 import type { Moment } from 'moment';
+import React, { useState } from 'react';
 
 const { RangePicker } = DatePicker;
 

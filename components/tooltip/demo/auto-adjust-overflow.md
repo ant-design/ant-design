@@ -15,8 +15,8 @@ debug: true
 Adjust placement automatically when tooltip is invisible.
 
 ```tsx
+import { Button, Tooltip } from 'antd';
 import React from 'react';
-import { Tooltip, Button } from 'antd';
 
 const wrapStyles: React.CSSProperties = {
   overflow: 'hidden',
