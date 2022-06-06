@@ -1,11 +1,11 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
-import { mount } from 'enzyme';
+// import { mount } from 'enzyme';
 import Table from '..';
 import Checkbox from '../../checkbox';
 import { resetWarned } from '../../_util/warning';
 import ConfigProvider from '../../config-provider';
-import { render } from '../../../tests/utils';
+import { render, fireEvent } from '../../../tests/utils';
 
 describe('Table.rowSelection', () => {
   window.requestAnimationFrame = callback => window.setTimeout(callback, 16);
@@ -43,18 +43,15 @@ describe('Table.rowSelection', () => {
     return wrapper.find('BodyRow').map(row => row.props().record.name);
   }
 
-  function getSelections(wrapper) {
-    return wrapper
-      .find('BodyRow')
-      .map(row => {
-        const { key } = row.props().record;
-        if (!row.find('input').at(0).props().checked) {
-          return null;
-        }
-
-        return key;
-      })
-      .filter(key => key !== null);
+  function getSelections(container) {
+    const keys = [];
+    container.querySelectorAll('.ant-table-tbody tr').forEach(row => {
+      const key = row.getAttribute('data-row-key');
+      if (row.querySelector('input').checked) {
+        keys.push(Number(key));
+      }
+    });
+    return keys;
   }
 
   function getIndeterminateSelection(wrapper) {
@@ -72,19 +69,18 @@ describe('Table.rowSelection', () => {
   }
 
   it('select default row', () => {
-    const wrapper = mount(createTable({ rowSelection: { defaultSelectedRowKeys: [0] } }));
-    const checkboxes = wrapper.find('input');
+    const { container } = render(createTable({ rowSelection: { defaultSelectedRowKeys: [0] } }));
+    const checkboxes = container.querySelectorAll('input[type="checkbox"]');
+    expect(getSelections(container)).toEqual([0]);
 
-    expect(getSelections(wrapper)).toEqual([0]);
+    fireEvent.click(checkboxes[1]);
+    expect(getSelections(container)).toEqual([]);
 
-    checkboxes.at(1).simulate('change', { target: { checked: false } });
-    expect(getSelections(wrapper)).toEqual([]);
+    fireEvent.click(checkboxes[0]);
+    expect(getSelections(container)).toEqual([0, 1, 2, 3]);
 
-    checkboxes.at(0).simulate('change', { target: { checked: true } });
-    expect(getSelections(wrapper)).toEqual([0, 1, 2, 3]);
-
-    checkboxes.at(0).simulate('change', { target: { checked: false } });
-    expect(getSelections(wrapper)).toEqual([]);
+    fireEvent.click(checkboxes[0]);
+    expect(getSelections(container)).toEqual([]);
   });
 
   it('select by checkbox', () => {
