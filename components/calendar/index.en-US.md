@@ -44,7 +44,7 @@ When data is in the form of dates, such as schedules, timetables, prices calenda
 | monthFullCellRender | Customize the display of the month cell, the returned content will override the cell | function(date: Moment): ReactNode | - |  |
 | validRange | To set valid range | \[[moment](http://momentjs.com/), [moment](http://momentjs.com/)] | - |  |
 | value | The current selected date | [moment](http://momentjs.com/) | - |  |
-| onChange | Callback for when date changes | function(date: Moment | - |  |
+| onChange | Callback for when date changes | function(date: Moment) | - |  |
 | onPanelChange | Callback for when panel changes | function(date: Moment, mode: string) | - |  |
 | onSelect | Callback for when a date is selected | function(date: Moment） | - |  |
 
