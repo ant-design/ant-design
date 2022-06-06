@@ -54,7 +54,7 @@ timeline: true
   - 💄 Remove Skeleton default `margin-top` style. [#35848](https://github.com/ant-design/ant-design/pull/35848)
   - 💄 Optimize Skeleton `active` animation perfermance. [#35836](https://github.com/ant-design/ant-design/pull/35836) [@slotDumpling](https://github.com/slotDumpling)
 - 🌐 Localization
-  - 🇹🇰 Add a new locale `tk_TK`. [#35605](https://github.com/ant-design/ant-design/pull/35605)
+  - 🇹🇲 Add a new locale `tk_TK`. [#35605](https://github.com/ant-design/ant-design/pull/35605)
 - RTL
   - 💄 Fix the wrong direction of border and borderRadius for InputNumber and Input in RTL mode. [#35876](https://github.com/ant-design/ant-design/pull/35876) [@yykoypj](https://github.com/yykoypj)
 
