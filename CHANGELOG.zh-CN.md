@@ -54,7 +54,7 @@ timeline: true
   - 💄 移除 Skeleton 默认的 `margin-top` 以便在默认情况下更对称。[#35848](https://github.com/ant-design/ant-design/pull/35848)
   - 💄 优化 Skeleton `active` 的动画性能。[#35836](https://github.com/ant-design/ant-design/pull/35836) [@slotDumpling](https://github.com/slotDumpling)
 - 🌐 国际化
-  - 🇹🇰 添加土库曼语国际化。[#35605](https://github.com/ant-design/ant-design/pull/35605)
+  - 🇹🇲 添加土库曼语国际化。[#35605](https://github.com/ant-design/ant-design/pull/35605)
 - RTL
   - 💄 修正 Input 和 InputNumber 的 border 和 borderRadius 在 RTL 模式下的方向问题。[#35876](https://github.com/ant-design/ant-design/pull/35876) [@yykoypj](https://github.com/yykoypj)
 
