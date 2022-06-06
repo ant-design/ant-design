@@ -72,16 +72,16 @@ export const NoFormStyle: FC<NoFormStyleProps> = ({ children, status, override }
   const formItemInputContext = useContext(FormItemInputContext);
 
   const newFormItemInputContext = useMemo(() => {
-    if (status && !override) {
-      return { isFormItemInput: formItemInputContext.isFormItemInput };
+    const newContext = { ...formItemInputContext };
+    if (override) {
+      delete newContext.isFormItemInput;
     }
-    if (override && !status) {
-      return { ...formItemInputContext, isFormItemInput: false };
+    if (status) {
+      delete newContext.status;
+      delete newContext.hasFeedback;
+      delete newContext.feedbackIcon;
     }
-    if (override && status) {
-      return {};
-    }
-    return formItemInputContext;
+    return newContext;
   }, [status, override, formItemInputContext]);
 
   return (
