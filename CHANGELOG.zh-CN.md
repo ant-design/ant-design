@@ -53,8 +53,9 @@ timeline: true
 - Skeleton
   - 💄 移除 Skeleton 默认的 `margin-top` 以便在默认情况下更对称。[#35848](https://github.com/ant-design/ant-design/pull/35848)
   - 💄 优化 Skeleton `active` 的动画性能。[#35836](https://github.com/ant-design/ant-design/pull/35836) [@slotDumpling](https://github.com/slotDumpling)
+- 💄 移除 Radio 禁用状态时样式中的 `!important`。[#35920](https://github.com/ant-design/ant-design/pull/35920)
 - TypeScript
-  - 🤖 修复 FormList 类型 `FormListFieldData` 缺失属性 `fieldKey`。[#35884](https://github.com/ant-design/ant-design/pull/35884) [@nanianlisao](https://github.com/nanianlisao)
+  - 🤖 修复 Form.List 类型 `FormListFieldData` 缺失属性 `fieldKey`。[#35884](https://github.com/ant-design/ant-design/pull/35884) [@nanianlisao](https://github.com/nanianlisao)
 - 🌐 国际化
   - 🇹🇲 添加土库曼语国际化。[#35605](https://github.com/ant-design/ant-design/pull/35605)
 - RTL
