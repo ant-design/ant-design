@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import RcDrawer from 'rc-drawer';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
-import { NoFormStatus } from '../form/context';
+import { NoFormStyle } from '../form/context';
 import { tuple } from '../_util/type';
 
 type DrawerRef = {
@@ -293,7 +293,7 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
 
     return (
       <DrawerContext.Provider value={operations}>
-        <NoFormStatus>
+        <NoFormStyle status override>
           <RcDrawer
             handler={false}
             {...{
@@ -325,7 +325,7 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
           >
             {renderBody()}
           </RcDrawer>
-        </NoFormStatus>
+        </NoFormStyle>
       </DrawerContext.Provider>
     );
   },

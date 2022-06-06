@@ -8,7 +8,7 @@ import type { ButtonProps, LegacyButtonType } from '../button/button';
 import { convertLegacyProps } from '../button/button';
 import type { DirectionType } from '../config-provider';
 import { ConfigContext } from '../config-provider';
-import { NoFormStatus } from '../form/context';
+import { NoFormStyle } from '../form/context';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { getTransitionName } from '../_util/motion';
 import { canUseDocElement } from '../_util/styleChecker';
@@ -202,7 +202,7 @@ const Modal: React.FC<ModalProps> = props => {
     [`${prefixCls}-wrap-rtl`]: direction === 'rtl',
   });
   return (
-    <NoFormStatus>
+    <NoFormStyle status override>
       <Dialog
         {...restProps}
         getContainer={
@@ -219,7 +219,7 @@ const Modal: React.FC<ModalProps> = props => {
         transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
         maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
       />
-    </NoFormStatus>
+    </NoFormStyle>
   );
 };
 

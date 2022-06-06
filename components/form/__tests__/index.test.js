@@ -9,13 +9,13 @@ import Button from '../../button';
 import Input from '../../input';
 import Select from '../../select';
 
-import Checkbox from '../../checkbox';
-import Radio from '../../radio';
-import TreeSelect from '../../tree-select';
 import Cascader from '../../cascader';
+import Checkbox from '../../checkbox';
 import DatePicker from '../../date-picker';
 import InputNumber from '../../input-number';
+import Radio from '../../radio';
 import Switch from '../../switch';
+import TreeSelect from '../../tree-select';
 
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -1245,10 +1245,10 @@ describe('Form', () => {
     expect(container.querySelector('.custom-select-c')?.className).toContain('status-warning');
   });
 
-  it('should not affect Modal children style', () => {
+  it('should not affect Popup children style', () => {
     const Demo = () => (
       <Form>
-        <Form.Item validateStatus="error">
+        <Form.Item labelCol={4} validateStatus="error">
           <Modal visible>
             <Select className="modal-select" />
           </Modal>
