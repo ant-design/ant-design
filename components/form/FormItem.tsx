@@ -19,7 +19,7 @@ import { cloneElement, isValidElement } from '../_util/reactNode';
 import { tuple } from '../_util/type';
 import warning from '../_util/warning';
 import type { FormItemStatusContextProps } from './context';
-import { FormContext, FormItemInputContext, NoFormStyle, NoStyleItemContext } from './context';
+import { FormContext, FormItemInputContext, NoStyleItemContext } from './context';
 import type { FormItemInputProps } from './FormItemInput';
 import FormItemInput from './FormItemInput';
 import type { FormItemLabelProps, LabelTooltipType } from './FormItemLabel';
@@ -261,6 +261,14 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
     };
   }, [mergedValidateStatus, mergedHasFeedback]);
 
+  const noOverrideFormItemContext = useMemo<FormItemStatusContextProps>(
+    () => ({
+      ...formItemStatusContext,
+      isFormItemInput: false,
+    }),
+    [formItemStatusContext],
+  );
+
   // ======================== Render ========================
   function renderLayout(
     baseChildren: React.ReactNode,
@@ -268,7 +276,11 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
     isRequired?: boolean,
   ): React.ReactNode {
     if (noStyle && !hidden) {
-      return <NoFormStyle override>{baseChildren}</NoFormStyle>;
+      return (
+        <FormItemInputContext.Provider value={noOverrideFormItemContext}>
+          {baseChildren}
+        </FormItemInputContext.Provider>
+      );
     }
 
     const itemClassName = {
