@@ -15,11 +15,6 @@ timeline: true
 
 ---
 
-## 4.20.8
-
-`2022-06-06`
-
-- 🐞 Fix that property 'fieldKey' does not exist on type 'FormListFieldData' in FormList。[#35884](https://github.com/ant-design/ant-design/pull/35884)
 ## 4.20.7
 
 `2022-05-30`
