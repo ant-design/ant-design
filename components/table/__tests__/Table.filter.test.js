@@ -209,10 +209,6 @@ describe('Table.filter', () => {
       }),
     );
 
-    // function getFilterMenu() {
-    //   return wrapper.find('FilterDropdown');
-    // }
-
     // check if renderer well
     fireEvent.click(container.querySelector('span.ant-dropdown-trigger'));
     expect(container.querySelector('#customFilter')).toMatchSnapshot();
@@ -583,7 +579,6 @@ describe('Table.filter', () => {
     await waitFor(() => expect(handleChange).not.toHaveBeenCalled());
   });
 
-  // --- FIXME --
   it('three levels menu', async () => {
     const onChange = jest.fn();
     const filters = [
@@ -620,11 +615,7 @@ describe('Table.filter', () => {
     );
     jest.useFakeTimers();
 
-    expect(
-      Array.from(container.querySelectorAll('tbody tr')).map(
-        tr => tr.querySelector('td').textContent,
-      ),
-    ).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
+    expect(renderedNames(container)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
 
     // Open
     fireEvent.click(container.querySelector('.ant-table-filter-trigger'));
@@ -669,11 +660,7 @@ describe('Table.filter', () => {
       expect(val).toEqual(['Jack']);
     });
 
-    expect(
-      Array.from(container.querySelectorAll('tbody tr')).map(
-        tr => tr.querySelector('td').textContent,
-      ),
-    ).toEqual(['Jack']);
+    expect(renderedNames(container)).toEqual(['Jack']);
 
     // What's this? Is that a coverage case? Or check a crash?
     const latestItems = getFilterMenu().querySelectorAll('li.ant-dropdown-menu-item');
@@ -683,12 +670,13 @@ describe('Table.filter', () => {
   });
 
   describe('should support value types', () => {
+    const filterKeys = new Set();
     [
       ['Light', 93],
       ['Bamboo', false],
     ].forEach(([text, value]) => {
       it(`${typeof value} type`, async () => {
-        const onFilter = jest.fn();
+        jest.useFakeTimers();
         const onChange = jest.fn();
         const filters = [{ text, value }];
         const { container } = render(
@@ -697,7 +685,11 @@ describe('Table.filter', () => {
               {
                 ...column,
                 filters,
-                onFilter,
+                onFilter: val => {
+                  expect(val).toBe(value);
+                  filterKeys.add(val);
+                  return false;
+                },
               },
             ],
             onChange,
@@ -714,6 +706,7 @@ describe('Table.filter', () => {
         fireEvent.click(
           container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary'),
         );
+
         await waitFor(() =>
           expect(
             container
@@ -722,17 +715,10 @@ describe('Table.filter', () => {
           ).toEqual(true),
         );
 
-        // --- FIXEM ---
-        // expect(typeof wrapper.find('FilterDropdown').props().filterState.filteredKeys[0]).toEqual(
-        //   'string',
-        // );
-        // --- END FIME ---
+        expect(typeof Array.from(filterKeys)[0]).toEqual('number');
 
-        expect(onFilter.mock.calls.length > 0).toBeTruthy();
+        expect(Array.from(filterKeys).length > 0).toBeTruthy();
 
-        onFilter.mock.calls.forEach(([val]) => {
-          expect(val).toBe(value);
-        });
         onChange.mock.calls.forEach(([, currentFilters]) => {
           const [, val] = Object.entries(currentFilters)[0];
           expect(val).toEqual([value]);
@@ -754,7 +740,6 @@ describe('Table.filter', () => {
 
   it('works with JSX in controlled mode', () => {
     const { Column } = Table;
-
     class App extends React.Component {
       state = {
         filters: {},
@@ -787,25 +772,22 @@ describe('Table.filter', () => {
     const { container } = render(<App />);
 
     fireEvent.click(container.querySelector('.ant-dropdown-trigger'));
-    // --- FIXME --
-    // expect(wrapper.find('Dropdown').first().props().visible).toBe(true);
+    expect(container.querySelector('.ant-dropdown-open')).toBeTruthy();
 
     fireEvent.click(container.querySelectorAll('.ant-dropdown-menu-item')[0]);
     fireEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary'));
     expect(renderedNames(container)).toEqual(['Jack']);
-    // --- FIXME --
-    // expect(wrapper.find('Dropdown').first().props().visible).toBe(false);
+    expect(container.querySelector('.ant-dropdown-open')).toBeFalsy();
 
     fireEvent.click(container.querySelector('.ant-dropdown-trigger'));
     fireEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-link'));
-    // --- FIXME --
-    // expect(wrapper.find('Dropdown').first().props().visible).toBe(true);
 
+    expect(container.querySelector('.ant-dropdown-open')).toBeTruthy();
     expect(renderedNames(container)).toEqual(['Jack']);
+
     fireEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary'));
     expect(renderedNames(container)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
-    // --- FIXME --
-    // expect(wrapper.find('Dropdown').first().props().visible).toBe(false);
+    expect(container.querySelector('.ant-dropdown-open')).toBeFalsy();
   });
 
   it('works with grouping columns in controlled mode', () => {
@@ -1047,8 +1029,11 @@ describe('Table.filter', () => {
   });
 
   it('should work as expected with complex custom filterDropdown', () => {
+    let renderSelectedKeys = null;
     const onChange = jest.fn();
+
     const filterDropdown = ({ setSelectedKeys, selectedKeys, confirm }) => {
+      renderSelectedKeys = selectedKeys;
       const handleChange = selectedValues => {
         setSelectedKeys(selectedValues);
       };
@@ -1115,8 +1100,8 @@ describe('Table.filter', () => {
         ],
       }),
     );
-    // --- FIXME ---
-    // expect(wrapper.find('FilterDropdown').props().filterState.filteredKeys).toEqual(filteredValue);
+
+    expect(renderSelectedKeys).toEqual(filteredValue);
 
     fireEvent.click(container.querySelector('.ant-dropdown-trigger'));
     fireEvent.mouseDown(container.querySelector('.ant-select-selector'));
@@ -2303,19 +2288,11 @@ describe('Table.filter', () => {
 
     filterConfig.forEach(([text, id, , matchNames, visible]) => {
       fireEvent.click(container.querySelector(`#set${id}`));
-      expect(
-        Array.from(container.querySelectorAll('tbody tr')).map(
-          row => row.querySelector('td').textContent,
-        ),
-      ).toEqual([text]);
+      expect(renderedNames(container)).toEqual([text]);
 
       fireEvent.click(container.querySelector('span.ant-dropdown-trigger'));
       fireEvent.click(container.querySelector(`#reset${id}`));
-      expect(
-        Array.from(container.querySelectorAll('tbody tr')).map(
-          row => row.querySelector('td').textContent,
-        ),
-      ).toEqual(matchNames);
+      expect(renderedNames(container)).toEqual(matchNames);
 
       expect(container.querySelector('.ant-dropdown-open'))[visible ? 'toBeTruthy' : 'toBeFalsy']();
     });
