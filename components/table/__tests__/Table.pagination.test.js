@@ -121,7 +121,7 @@ describe('Table.pagination', () => {
         pagination: { size: 'small' },
       }),
     );
-    expect(container.querySelectorAll('.ant-pagination.mini')).toHaveLength(1);
+    expect(container.querySelectorAll('.ant-pagination.ant-pagination-mini')).toHaveLength(1);
   });
 
   it('should scroll to first row when page change', () => {
