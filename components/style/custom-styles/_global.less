@@ -13,11 +13,13 @@ body {
 @heading-4-size: ceil(@font-size-base);
 @heading-5-size: ceil(@font-size-base * 1.14);
 
-a {
-  color: @b400;
+a,
+a.ant-typography,
+.ant-typography a {
+  color: @primary-color;
 
   &:hover {
-    color: @primary-color;
+    color: @b100;
   }
 }
 
@@ -33,6 +35,14 @@ a {
 
 .text-right {
   text-align: right;
+}
+
+.display-block {
+  display: block;
+}
+
+.m-r-16 {
+  margin-right: 16px;
 }
 
 .w-100 {
@@ -237,6 +247,21 @@ a {
 .page-title-with-content {
   h4 {
     font-weight: 600;
-    font-size: 16px;
+    font-size: @font-size-lg;
+  }
+}
+
+.no-data {
+  padding-top: 96px;
+  text-align: center;
+  h5 {
+    margin: 0 0 8px 0;
+    font-weight: 500;
+    font-size: @font-size-lg;
+  }
+  span {
+    color: @base-font-color;
+    font-size: @font-size-sm;
+    line-height: 14px;
   }
 }
