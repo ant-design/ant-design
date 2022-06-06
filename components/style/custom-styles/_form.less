@@ -158,6 +158,17 @@
   + .ant-btn {
     margin-left: 12px;
   }
+
+  &.ant-btn-link {
+    padding: 0;
+    color: @primary-color;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    &:hover {
+      color: @b200;
+    }
+  }
 }
 
 // dropdown CSS
@@ -344,4 +355,23 @@ div.ant-typography {
   font-weight: 400;
   font-size: 14px;
   line-height: 18px;
+}
+
+.custom-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  input {
+    width: 300px;
+  }
+  .custom-text {
+    width: calc(100% - 300px);
+    text-align: right;
+  }
+}
+
+.resend-code {
+  display: flex;
+  margin-top: -10px;
+  margin-bottom: 26px;
 }
