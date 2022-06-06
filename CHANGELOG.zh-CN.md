@@ -34,7 +34,7 @@ timeline: true
 - Progress
   - 🆕 Progress 分步进度条支持单独自定义色彩。[#35855](https://github.com/ant-design/ant-design/pull/35855)
   - 🛠 重构 Progress `type="circle"` 和 `type="dashboard"` 以简化 dom 结构和带来更好的渲染效果。[#35433](https://github.com/ant-design/ant-design/pull/35433)
-  - 🛠 重构 Progress 成 hook。[#35393](https://github.com/ant-design/ant-design/pull/35393) [@shuaijiumei](https://github.com/shuaijiumei)
+  - 🛠 重构 Progress 成 React hooks。[#35393](https://github.com/ant-design/ant-design/pull/35393) [@shuaijiumei](https://github.com/shuaijiumei)
   - 🐞 修复 Progress 进度接近 100% 间距几乎消失的问题。[#35433](https://github.com/ant-design/ant-design/pull/35433)
   - 🐞 修复 Progress `type="dashboard"` 的 `gapDegree` 角度不准确的问题。[#35433](https://github.com/ant-design/ant-design/pull/35433)
   - 💄 修复 Progress `type="line"` 和 `strokeLinecap="butt"` 时的圆角样式。[#35822](https://github.com/ant-design/ant-design/pull/35822)
@@ -44,7 +44,7 @@ timeline: true
 - Card
   - 🛠 使用 Skeleton 重构 Card `loading` 属性。[#35525](https://github.com/ant-design/ant-design/pull/35525)
   - 🛠 重构 Card 样式用 flex 代替 float。[#35236](https://github.com/ant-design/ant-design/pull/35236) [@miracles1919](https://github.com/miracles1919)
-- 🛠 DatePicker 重构成 hook。[#35425](https://github.com/ant-design/ant-design/pull/35425) [@heiyu4585](https://github.com/heiyu4585)
+- 🛠 DatePicker 重构成 React hooks。[#35425](https://github.com/ant-design/ant-design/pull/35425) [@heiyu4585](https://github.com/heiyu4585)
 - 🛠 将 Pagination `mini` 模式的 className 重命名为 `ant-pagination-mini`。[#35881](https://github.com/ant-design/ant-design/pull/35881)
 - 🛠 重构 Popconfirm 内部实现为 Popover 组件。[#35676](https://github.com/ant-design/ant-design/pull/35676)
 - 🛠 改变 Modal confirm 组件底部按钮布局实现方式。[#35530](https://github.com/ant-design/ant-design/pull/35530) [@foryuki](https://github.com/foryuki)
@@ -59,7 +59,7 @@ timeline: true
 - 🌐 国际化
   - 🇹🇲 添加土库曼语国际化。[#35605](https://github.com/ant-design/ant-design/pull/35605)
 - RTL
-  - 💄 修正 Input 和 InputNumber 的 border 和 borderRadius 在 RTL 模式下的方向问题。[#35876](https://github.com/ant-design/ant-design/pull/35876) [@yykoypj](https://github.com/yykoypj)
+  - 💄 修正 Input 和 InputNumber 的 `border` 和 `border-radius` 在 RTL 模式下的方向问题。[#35876](https://github.com/ant-design/ant-design/pull/35876) [@yykoypj](https://github.com/yykoypj)
 
 ## 4.20.7
 

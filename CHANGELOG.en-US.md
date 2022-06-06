@@ -34,7 +34,7 @@ timeline: true
 - Progress
   - 🆕 Progress steps support custom strokeColor for each step. [#35855](https://github.com/ant-design/ant-design/pull/35855)
   - 🛠 Refactor Progress `type="circle"` and `type="dashboard"` for simpler dom structure and better rendering. [#35433](https://github.com/ant-design/ant-design/pull/35433)
-  - 🛠 Refactor Progress to hook. [#35393](https://github.com/ant-design/ant-design/pull/35393) [@shuaijiumei](https://github.com/shuaijiumei)
+  - 🛠 Refactor Progress to React hooks. [#35393](https://github.com/ant-design/ant-design/pull/35393) [@shuaijiumei](https://github.com/shuaijiumei)
   - 🐞 Fix Progress percent accuracy issue when near 100%. [#35433](https://github.com/ant-design/ant-design/pull/35433)
   - 🐞 Fix Progress `gapDegree` displayed with wrong degree when `type="dashboard"`. [#35433](https://github.com/ant-design/ant-design/pull/35433)
   - 💄 Fix Progress border radius style when `type="line"` and `strokeLinecap="butt"`. [#35822](https://github.com/ant-design/ant-design/pull/35822)
@@ -44,7 +44,7 @@ timeline: true
 - Card
   - 🛠 Refactor Card `loading` with Skeleton. [#35525](https://github.com/ant-design/ant-design/pull/35525)
   - 🛠 Refactor Card style to use flex instead of float. [#35236](https://github.com/ant-design/ant-design/pull/35236) [@miracles1919](https://github.com/miracles1919)
-- 🛠 DatePicker refactored to hook. [#35425](https://github.com/ant-design/ant-design/pull/35425) [@heiyu4585](https://github.com/heiyu4585)
+- 🛠 DatePicker refactored to React hooks. [#35425](https://github.com/ant-design/ant-design/pull/35425) [@heiyu4585](https://github.com/heiyu4585)
 - 🛠 Rename className of Pagination `mini` mode with `ant-pagination-mini`. [#35881](https://github.com/ant-design/ant-design/pull/35881)
 - 🛠 Refactor Popconfirm internal realize with Popover component. [#35676](https://github.com/ant-design/ant-design/pull/35676)
 - 🛠 Change the implementation of the bottom button layout of the Modal confirm component. [#35530](https://github.com/ant-design/ant-design/pull/35530) [@foryuki](https://github.com/foryuki)
@@ -59,7 +59,7 @@ timeline: true
 - 🌐 Localization
   - 🇹🇲 Add a new locale `tk_TK`. [#35605](https://github.com/ant-design/ant-design/pull/35605)
 - RTL
-  - 💄 Fix the wrong direction of border and borderRadius for InputNumber and Input in RTL mode. [#35876](https://github.com/ant-design/ant-design/pull/35876) [@yykoypj](https://github.com/yykoypj)
+  - 💄 Fix the wrong direction of `border` and `border-radius` for InputNumber and Input in RTL mode. [#35876](https://github.com/ant-design/ant-design/pull/35876) [@yykoypj](https://github.com/yykoypj)
 
 ## 4.20.7
 
