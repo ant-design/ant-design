@@ -22,7 +22,6 @@ timeline: true
 - 🔥 新增 Form 级别控制输入组件 `disabled`。[#35210](https://github.com/ant-design/ant-design/pull/35210) [@heiyu4585](https://github.com/heiyu4585)
 - 🆕 Tabs 组件支持 `popupClassName` 用于更多菜单。[#35892](https://github.com/ant-design/ant-design/pull/35892)
 - 🆕 Table 组件 `rowSelection.onChange` 新增 `info.type` 参数。[#35598](https://github.com/ant-design/ant-design/pull/35598)
-- 🆕 新增聚焦 Menu 时自动聚焦 MenuItem。[#35407](https://github.com/ant-design/ant-design/pull/35407)
 - 🆕 Typography.Paragraph 的 `copyable` 属性支持 `format` 以重置剪切板数据的 Mime Type。[#35219](https://github.com/ant-design/ant-design/pull/35219) [@kanweiwei](https://github.com/kanweiwei)
 - ConfigProvider
   - 🆕 ConfigProvider 支持全局配置 Pagination `showSizeChanger` 属性。[#35750](https://github.com/ant-design/ant-design/pull/35750)
