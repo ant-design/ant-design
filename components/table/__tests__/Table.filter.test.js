@@ -1,6 +1,5 @@
 /* eslint-disable react/no-multi-comp */
 import React from 'react';
-import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import { render, fireEvent, waitFor } from '../../../tests/utils';
 import Table from '..';
@@ -362,35 +361,43 @@ describe('Table.filter', () => {
     expect(container.querySelectorAll('tbody tr').length).toBe(4);
   });
 
-  // --- FIXME --
   it('should handle filteredValue and non-array filterValue as expected', () => {
-    const wrapper = mount(
+    let filterKeys = new Set();
+
+    const { rerender } = render(
       createTable({
         columns: [
           {
             ...column,
             filteredValue: ['Lucy', 12, true],
+            onFilter: value => {
+              filterKeys.add(value);
+              return false;
+            },
           },
         ],
       }),
     );
-    function getFilterMenu() {
-      return wrapper.find('FilterDropdown');
-    }
 
-    expect(getFilterMenu().props().filterState.filteredKeys).toEqual(['Lucy', '12', 'true']);
+    expect(Array.from(filterKeys)).toEqual(['Lucy', '12', 'true']);
 
-    wrapper.setProps({
-      columns: [
-        {
-          ...column,
-          filteredValue: null,
-        },
-      ],
-    });
-    expect(getFilterMenu().props().filterState.filteredKeys).toEqual(null);
+    filterKeys = new Set();
+    rerender(
+      createTable({
+        columns: [
+          {
+            ...column,
+            filteredValue: null,
+            onFilter: value => {
+              filterKeys.add(value);
+              return true;
+            },
+          },
+        ],
+      }),
+    );
+    expect(Array.from(filterKeys)).toHaveLength(0);
   });
-  // --- END FIXME --
 
   it('can be controlled by filteredValue null', () => {
     const { container, rerender } = render(
@@ -600,7 +607,7 @@ describe('Table.filter', () => {
         ],
       },
     ];
-    const wrapper = mount(
+    const { container } = render(
       createTable({
         columns: [
           {
@@ -613,18 +620,17 @@ describe('Table.filter', () => {
     );
     jest.useFakeTimers();
 
-    expect(wrapper.find('BodyRow').map(row => row.props().record.name)).toEqual([
-      'Jack',
-      'Lucy',
-      'Tom',
-      'Jerry',
-    ]);
+    expect(
+      Array.from(container.querySelectorAll('tbody tr')).map(
+        tr => tr.querySelector('td').textContent,
+      ),
+    ).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
 
     // Open
-    wrapper.find('.ant-table-filter-trigger').simulate('click');
+    fireEvent.click(container.querySelector('.ant-table-filter-trigger'));
 
     function getFilterMenu() {
-      return wrapper.find('FilterDropdown');
+      return container.querySelector('.ant-table-filter-dropdown');
     }
 
     // Seems raf not trigger when in useEffect for async update
@@ -633,37 +639,48 @@ describe('Table.filter', () => {
       for (let i = 0; i < 3; i += 1) {
         act(() => {
           jest.runAllTimers();
-          wrapper.update();
         });
       }
     }
 
     // Open Level2
-    getFilterMenu().find('div.ant-dropdown-menu-submenu-title').at(0).simulate('mouseEnter');
+    fireEvent.mouseEnter(
+      getFilterMenu().querySelectorAll('div.ant-dropdown-menu-submenu-title')[0],
+    );
     refreshTimer();
 
     // Open Level3
-    getFilterMenu().find('div.ant-dropdown-menu-submenu-title').at(1).simulate('mouseEnter');
+    fireEvent.mouseEnter(
+      getFilterMenu().querySelectorAll('div.ant-dropdown-menu-submenu-title')[1],
+    );
     refreshTimer();
 
     // Select Level3 value
-    getFilterMenu().find('li.ant-dropdown-menu-item').last().simulate('click');
-    getFilterMenu().find('.ant-table-filter-dropdown-btns .ant-btn-primary').simulate('click');
+    const items = getFilterMenu().querySelectorAll('li.ant-dropdown-menu-item');
+    fireEvent.click(items[items.length - 1]);
+    fireEvent.click(
+      getFilterMenu().querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary'),
+    );
     refreshTimer();
 
+    expect(onChange).toHaveBeenCalled();
     onChange.mock.calls.forEach(([, currentFilters]) => {
       const [, val] = Object.entries(currentFilters)[0];
       expect(val).toEqual(['Jack']);
     });
 
-    expect(wrapper.find('BodyRow').map(row => row.props().record.name)).toEqual(['Jack']);
+    expect(
+      Array.from(container.querySelectorAll('tbody tr')).map(
+        tr => tr.querySelector('td').textContent,
+      ),
+    ).toEqual(['Jack']);
 
-    // What's this? Is that a coverage case?
-    getFilterMenu().find('li.ant-dropdown-menu-item').last().simulate('click');
+    // What's this? Is that a coverage case? Or check a crash?
+    const latestItems = getFilterMenu().querySelectorAll('li.ant-dropdown-menu-item');
+    fireEvent.click(latestItems[latestItems.length - 1]);
 
     jest.useRealTimers();
   });
-  // --- END FIXME --
 
   describe('should support value types', () => {
     [
@@ -2228,7 +2245,6 @@ describe('Table.filter', () => {
     expect(renderedNames(container)).toEqual(['Jack']);
   });
 
-  // --- FIXME ---
   it('clearFilters should support params', () => {
     const filterConfig = [
       ['Jack', 'NoParams', {}, ['Jack'], true],
@@ -2242,28 +2258,34 @@ describe('Table.filter', () => {
         false,
       ],
     ];
-    const filter = ({ prefixCls, setSelectedKeys, confirm, clearFilters }) => (
-      <div className={`${prefixCls}-view`} id="customFilter">
-        {filterConfig.map(([text, id, param]) => (
-          <>
-            <span
-              onClick={() => {
-                setSelectedKeys([text]);
-                confirm();
-              }}
-              id={`set${id}`}
-            >
-              setSelectedKeys
-            </span>
-            <span onClick={() => clearFilters(param)} id={`reset${id}`}>
-              Reset
-            </span>
-          </>
-        ))}
-      </div>
-    );
 
-    const wrapper = mount(
+    let renderSelectedKeys;
+    const filter = ({ prefixCls, setSelectedKeys, selectedKeys, confirm, clearFilters }) => {
+      renderSelectedKeys = selectedKeys;
+
+      return (
+        <div className={`${prefixCls}-view`} id="customFilter">
+          {filterConfig.map(([text, id, param]) => (
+            <>
+              <span
+                onClick={() => {
+                  setSelectedKeys([text]);
+                  confirm();
+                }}
+                id={`set${id}`}
+              >
+                setSelectedKeys
+              </span>
+              <span onClick={() => clearFilters(param)} id={`reset${id}`}>
+                Reset
+              </span>
+            </>
+          ))}
+        </div>
+      );
+    };
+
+    const { container } = render(
       createTable({
         columns: [
           {
@@ -2274,28 +2296,30 @@ describe('Table.filter', () => {
       }),
     );
 
-    function getFilterMenu() {
-      return wrapper.find('FilterDropdown');
-    }
-
     // check if renderer well
-    wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
-    expect(wrapper.find('#customFilter')).toMatchSnapshot();
-    expect(getFilterMenu().props().filterState.filteredKeys).toBeFalsy();
+    fireEvent.click(container.querySelector('span.ant-dropdown-trigger'));
+    expect(container.querySelector('#customFilter')).toMatchSnapshot();
+    expect(renderSelectedKeys).toHaveLength(0);
 
-    filterConfig.forEach(([text, id, , res1, res2]) => {
-      wrapper.find(`#set${id}`).simulate('click');
-      wrapper.update();
-      expect(wrapper.find('BodyRow').map(row => row.props().record.name)).toEqual([text]);
+    filterConfig.forEach(([text, id, , matchNames, visible]) => {
+      fireEvent.click(container.querySelector(`#set${id}`));
+      expect(
+        Array.from(container.querySelectorAll('tbody tr')).map(
+          row => row.querySelector('td').textContent,
+        ),
+      ).toEqual([text]);
 
-      wrapper.find('span.ant-dropdown-trigger').simulate('click', nativeEvent);
-      wrapper.find(`#reset${id}`).simulate('click');
-      wrapper.update();
-      expect(wrapper.find('BodyRow').map(row => row.props().record.name)).toEqual(res1);
-      expect(wrapper.find('Dropdown').first().props().visible).toBe(res2);
+      fireEvent.click(container.querySelector('span.ant-dropdown-trigger'));
+      fireEvent.click(container.querySelector(`#reset${id}`));
+      expect(
+        Array.from(container.querySelectorAll('tbody tr')).map(
+          row => row.querySelector('td').textContent,
+        ),
+      ).toEqual(matchNames);
+
+      expect(container.querySelector('.ant-dropdown-open'))[visible ? 'toBeTruthy' : 'toBeFalsy']();
     });
   });
-  // --- END FIXME ---
 
   it('filterDropdown should support filterResetToDefaultFilteredValue', () => {
     jest.useFakeTimers();
