@@ -55,6 +55,7 @@ export default class Wave extends React.Component<WaveProps> {
   context: ConfigConsumerProps;
 
   componentDidMount() {
+    this.destroyed = false;
     const node = this.containerRef.current as HTMLDivElement;
     if (!node || node.nodeType !== 1) {
       return;

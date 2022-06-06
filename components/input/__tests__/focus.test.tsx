@@ -1,5 +1,4 @@
 import React from 'react';
-import { mount } from 'enzyme';
 import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 import type { InputRef } from '../Input';
 import Input from '..';
@@ -33,7 +32,7 @@ describe('Input.Focus', () => {
 
   it('start', () => {
     const ref = React.createRef<InputRef>();
-    mount(<TextArea ref={ref} defaultValue="light" />);
+    render(<TextArea ref={ref} defaultValue="light" />);
     ref.current!.focus({ cursor: 'start' });
 
     expect(focus).toHaveBeenCalled();
@@ -42,7 +41,7 @@ describe('Input.Focus', () => {
 
   it('end', () => {
     const ref = React.createRef<InputRef>();
-    mount(<TextArea ref={ref} defaultValue="light" />);
+    render(<TextArea ref={ref} defaultValue="light" />);
     ref.current!.focus({ cursor: 'end' });
 
     expect(focus).toHaveBeenCalled();
@@ -51,7 +50,7 @@ describe('Input.Focus', () => {
 
   it('all', () => {
     const ref = React.createRef<any>();
-    mount(<TextArea ref={ref} defaultValue="light" />);
+    render(<TextArea ref={ref} defaultValue="light" />);
     ref.current!.focus({ cursor: 'all' });
 
     expect(focus).toHaveBeenCalled();
