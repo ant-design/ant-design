@@ -77,6 +77,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
     choiceTransitionName = '',
     status: customStatus,
     showArrow,
+    treeExpandAction,
     ...props
   }: TreeSelectProps<OptionType>,
   ref: React.Ref<BaseSelectRef>,
@@ -208,6 +209,7 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
         transitionName,
       )}
       showArrow={hasFeedback || showArrow}
+      treeExpandAction={treeExpandAction}
     />
   );
 };
