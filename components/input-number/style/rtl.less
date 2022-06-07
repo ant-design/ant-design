@@ -46,3 +46,26 @@
     }
   }
 }
+
+// https://github.com/ant-design/ant-design/issues/35870
+.input-group(@input-number-prefix-cls) {
+  > .@{input-number-prefix-cls}-rtl:first-child {
+    border-radius: 0 @border-radius-base @border-radius-base 0;
+  }
+  > .@{input-number-prefix-cls}-rtl:last-child {
+    border-radius: @border-radius-base 0 0 @border-radius-base;
+  }
+
+  &-addon {
+    .@{input-number-prefix-cls}-group-rtl &:first-child {
+      border-right: @border-width-base @border-style-base @input-border-color;
+      border-left: 0;
+      border-radius: 0 @border-radius-base @border-radius-base 0;
+    }
+    .@{input-number-prefix-cls}-group-rtl &:last-child {
+      border-right: 0;
+      border-left: @border-width-base @border-style-base @input-border-color;
+      border-radius: @border-radius-base 0 0 @border-radius-base;
+    }
+  }
+}

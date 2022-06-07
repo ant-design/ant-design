@@ -1,11 +1,10 @@
 import React from 'react';
-import { mount } from 'enzyme';
 // eslint-disable-next-line import/no-unresolved
 import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { sleep } from '../../../tests/utils';
+import { sleep, render, fireEvent } from '../../../tests/utils';
 import Password from '../Password';
 
 describe('Input.Password', () => {
@@ -17,101 +16,94 @@ describe('Input.Password', () => {
     const ref = React.createRef();
     const onSelect = jest.fn();
 
-    const wrapper = mount(<Input.Password onSelect={onSelect} ref={ref} />);
+    const { container } = render(<Input.Password onSelect={onSelect} ref={ref} />);
     expect(ref.current.input instanceof HTMLInputElement).toBe(true);
-    wrapper.find('input').simulate('select');
+    fireEvent.select(container.querySelector('input'));
     expect(onSelect).toHaveBeenCalled();
   });
 
   it('should support size', () => {
-    const wrapper = mount(<Password size="large" />);
-    expect(wrapper.find('.ant-input-affix-wrapper-lg')).toBeTruthy();
-    expect(wrapper.render()).toMatchSnapshot();
+    const { asFragment, container } = render(<Password size="large" />);
+    expect(container.querySelector('.ant-input-affix-wrapper-lg')).toBeTruthy();
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   it('should change type when click', () => {
-    const wrapper = mount(<Input.Password />);
-    wrapper.find('input').simulate('change', { target: { value: '111' } });
-    expect(wrapper.render()).toMatchSnapshot();
-    wrapper.find('.ant-input-password-icon').at(0).simulate('click');
-    expect(wrapper.render()).toMatchSnapshot();
-    wrapper.find('.ant-input-password-icon').at(0).simulate('click');
-    expect(wrapper.render()).toMatchSnapshot();
+    const { asFragment, container } = render(<Input.Password />);
+    fireEvent.change(container.querySelector('input'), { target: { value: '111' } });
+    expect(asFragment().firstChild).toMatchSnapshot();
+
+    fireEvent.click(container.querySelector('.ant-input-password-icon'));
+    expect(asFragment().firstChild).toMatchSnapshot();
+
+    fireEvent.click(container.querySelector('.ant-input-password-icon'));
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   it('visibilityToggle should work', () => {
-    const wrapper = mount(<Input.Password visibilityToggle={false} />);
-    expect(wrapper.find('.anticon-eye').length).toBe(0);
-    wrapper.setProps({ visibilityToggle: true });
-    expect(wrapper.find('.anticon-eye-invisible').length).toBe(1);
+    const { container, rerender } = render(<Input.Password visibilityToggle={false} />);
+    expect(container.querySelectorAll('.anticon-eye').length).toBe(0);
+    rerender(<Input.Password visibilityToggle />);
+    expect(container.querySelectorAll('.anticon-eye-invisible').length).toBe(1);
   });
 
   it('should not toggle visibility when disabled prop is true', () => {
-    const wrapper = mount(<Input.Password disabled />);
-    expect(wrapper.find('.anticon-eye-invisible').length).toBe(1);
-    wrapper.find('.anticon-eye-invisible').simulate('click');
-    expect(wrapper.find('.anticon-eye').length).toBe(0);
+    const { container } = render(<Input.Password disabled />);
+    expect(container.querySelectorAll('.anticon-eye-invisible').length).toBe(1);
+    fireEvent.click(container.querySelector('.anticon-eye-invisible'));
+    expect(container.querySelectorAll('.anticon-eye').length).toBe(0);
   });
 
   it('should keep focus state', () => {
-    const wrapper = mount(<Input.Password defaultValue="111" autoFocus />, {
-      attachTo: document.body,
+    const { container, unmount } = render(<Input.Password defaultValue="111" autoFocus />, {
+      container: document.body,
     });
-    expect(document.activeElement).toBe(wrapper.find('input').at(0).getDOMNode());
+    expect(document.activeElement).toBe(container.querySelector('input'));
     document.activeElement.setSelectionRange(2, 2);
     expect(document.activeElement.selectionStart).toBe(2);
-    wrapper.find('.ant-input-password-icon').at(0).simulate('mousedown');
-    wrapper.find('.ant-input-password-icon').at(0).simulate('mouseup');
-    wrapper.find('.ant-input-password-icon').at(0).simulate('click');
-    expect(document.activeElement).toBe(wrapper.find('input').at(0).getDOMNode());
+    fireEvent.mouseDown(container.querySelector('.ant-input-password-icon'));
+    fireEvent.mouseUp(container.querySelector('.ant-input-password-icon'));
+    fireEvent.click(container.querySelector('.ant-input-password-icon'));
+    expect(document.activeElement).toBe(container.querySelector('input'));
     expect(document.activeElement.selectionStart).toBe(2);
-    wrapper.unmount();
+    unmount();
   });
 
   // https://github.com/ant-design/ant-design/issues/20541
   it('should not show value attribute in input element', async () => {
-    const wrapper = mount(<Input.Password />);
-    wrapper
-      .find('input')
-      .at('0')
-      .simulate('change', { target: { value: 'value' } });
+    const { container } = render(<Input.Password />);
+    fireEvent.change(container.querySelector('input'), { target: { value: 'value' } });
     await sleep();
-    expect(wrapper.find('input').at('0').getDOMNode().getAttribute('value')).toBeFalsy();
+    expect(container.querySelector('input').getAttribute('value')).toBeFalsy();
   });
 
   // https://github.com/ant-design/ant-design/issues/24526
   it('should not show value attribute in input element after blur it', async () => {
-    const wrapper = mount(<Input.Password />);
-    wrapper
-      .find('input')
-      .at('0')
-      .simulate('change', { target: { value: 'value' } });
+    const { container } = render(<Input.Password />);
+    fireEvent.change(container.querySelector('input'), { target: { value: 'value' } });
     await sleep();
-    expect(wrapper.find('input').at('0').getDOMNode().getAttribute('value')).toBeFalsy();
-    wrapper.find('input').at('0').simulate('blur');
+    expect(container.querySelector('input').getAttribute('value')).toBeFalsy();
+    fireEvent.blur(container.querySelector('input'));
     await sleep();
-    expect(wrapper.find('input').at('0').getDOMNode().getAttribute('value')).toBeFalsy();
-    wrapper.find('input').at('0').simulate('focus');
+    expect(container.querySelector('input').getAttribute('value')).toBeFalsy();
+    fireEvent.focus(container.querySelector('input'));
     await sleep();
-    expect(wrapper.find('input').at('0').getDOMNode().getAttribute('value')).toBeFalsy();
+    expect(container.querySelector('input').getAttribute('value')).toBeFalsy();
   });
 
   // https://github.com/ant-design/ant-design/issues/20541
   it('could be unmount without errors', () => {
     expect(() => {
-      const wrapper = mount(<Input.Password />);
-      wrapper
-        .find('input')
-        .at('0')
-        .simulate('change', { target: { value: 'value' } });
-      wrapper.unmount();
+      const { container, unmount } = render(<Input.Password />);
+      fireEvent.change(container.querySelector('input'), { target: { value: 'value' } });
+      unmount();
     }).not.toThrow();
   });
 
   // https://github.com/ant-design/ant-design/pull/20544#issuecomment-569861679
   it('should not contain value attribute in input element with defaultValue', async () => {
-    const wrapper = mount(<Input.Password defaultValue="value" />);
+    const { container } = render(<Input.Password defaultValue="value" />);
     await sleep();
-    expect(wrapper.find('input').at('0').getDOMNode().getAttribute('value')).toBeFalsy();
+    expect(container.querySelector('input').getAttribute('value')).toBeFalsy();
   });
 });

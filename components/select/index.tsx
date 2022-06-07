@@ -1,24 +1,24 @@
 // TODO: 4.0 - codemod should help to change `filterOption` to support node props.
 
-import * as React from 'react';
-import omit from 'rc-util/lib/omit';
 import classNames from 'classnames';
 import type { SelectProps as RcSelectProps } from 'rc-select';
-import RcSelect, { Option, OptGroup, BaseSelectRef } from 'rc-select';
-import type { BaseOptionType, DefaultOptionType } from 'rc-select/lib/Select';
+import RcSelect, { BaseSelectRef, OptGroup, Option } from 'rc-select';
 import { OptionProps } from 'rc-select/lib/Option';
+import type { BaseOptionType, DefaultOptionType } from 'rc-select/lib/Select';
+import omit from 'rc-util/lib/omit';
+import * as React from 'react';
 import { useContext } from 'react';
 import { ConfigContext } from '../config-provider';
-import getIcons from './utils/iconUtil';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
 import DisabledContext from '../config-provider/DisabledContext';
 import { FormItemInputContext } from '../form/context';
+import type { SelectCommonPlacement } from '../_util/motion';
+import { getTransitionDirection, getTransitionName } from '../_util/motion';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
-import type { SelectCommonPlacement } from '../_util/motion';
-import { getTransitionName, getTransitionDirection } from '../_util/motion';
 import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import getIcons from './utils/iconUtil';
 
 import useStyle from './style';
 
