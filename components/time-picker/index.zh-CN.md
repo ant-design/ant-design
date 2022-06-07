@@ -61,7 +61,7 @@ dayjs.extend(customParseFormat)
 #### DisabledTime
 
 ```typescript
-type DisabledTime = (now: Moment) => {
+type DisabledTime = (now: Dayjs) => {
   disabledHours?: () => number[];
   disabledMinutes?: (selectedHour: number) => number[];
   disabledSeconds?: (selectedHour: number, selectedMinute: number) => number[];
@@ -88,7 +88,7 @@ type DisabledTime = (now: Moment) => {
 
 ```typescript
 type RangeDisabledTime = (
-  now: Moment,
+  now: Dayjs,
   type = 'start' | 'end',
 ) => {
   disabledHours?: () => number[];
@@ -104,4 +104,4 @@ type RangeDisabledTime = (
 
 ## FAQ
 
-- [如何在 TimePicker 中使用自定义日期库（如 dayjs ）](/docs/react/replace-moment#TimePicker)
+- [如何在 TimePicker 中使用自定义日期库（如 dayjs ）](/docs/react/use-custom-date-library#TimePicker)

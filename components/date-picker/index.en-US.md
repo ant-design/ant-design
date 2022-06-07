@@ -181,15 +181,15 @@ Please refer [FAQ](/docs/react/faq#When-set-mode-to-DatePicker/RangePicker,-cann
 
 ### How to use DatePicker with customize date library like dayjs?
 
-Please refer [replace moment](/docs/react/replace-moment#DatePicker)
+Please refer [replace dayjs](/docs/react/use-custom-date-library#DatePicker)
 
-### Why config moment.locale globally not work?
+### Why config dayjs.locale globally not work?
 
 DatePicker default set `locale` as `en` in v4. You can config DatePicker `locale` prop or [ConfigProvider `locale`](/components/config-provider) prop instead.
 
 ### How to modify start day of week?
 
-Please use correct [language](/docs/react/i18n) ([#5605](https://github.com/ant-design/ant-design/issues/5605)), or update moment `locale` config:
+Please use correct [language](/docs/react/i18n) ([#5605](https://github.com/ant-design/ant-design/issues/5605)), or update dayjs `locale` config:
 
 - Example: <https://codesandbox.io/s/moment-day-of-week-6dby5>
 - Alternate example: <https://stackblitz.com/edit/react-9aegkj>
@@ -199,7 +199,7 @@ Please use correct [language](/docs/react/i18n) ([#5605](https://github.com/ant-
 When you change the layout of nodes by `panelRender`, React will unmount and re-mount it which reset the component state. You should keep the layout stable. Please ref [#27263](https://github.com/ant-design/ant-design/issues/27263) for more info.
 
 ```js
-moment.locale('en', {
+dayjs.locale('en', {
   week: {
     dow: 1,
   },
