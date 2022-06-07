@@ -6,14 +6,14 @@ import RcInputNumber from 'rc-input-number';
 import * as React from 'react';
 import { useContext } from 'react';
 import { ConfigContext } from '../config-provider';
+import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
-import DisabledContext from '../config-provider/DisabledContext';
-import { FormItemInputContext, NoFormStatus } from '../form/context';
+import { FormItemInputContext, NoFormStyle } from '../form/context';
 import { cloneElement } from '../_util/reactNode';
 import useStyle from './style';
 import type { InputStatus } from '../_util/statusUtils';
-import { getStatusClassNames, getMergedStatus } from '../_util/statusUtils';
+import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 
 type ValueType = string | number;
 
@@ -186,9 +186,17 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     element = (
       <div className={mergedGroupClassName} style={props.style}>
         <div className={mergedWrapperClassName}>
-          {addonBeforeNode && <NoFormStatus>{addonBeforeNode}</NoFormStatus>}
+          {addonBeforeNode && (
+            <NoFormStyle status override>
+              {addonBeforeNode}
+            </NoFormStyle>
+          )}
           {cloneElement(element, { style: null, disabled: mergedDisabled })}
-          {addonAfterNode && <NoFormStatus>{addonAfterNode}</NoFormStatus>}
+          {addonAfterNode && (
+            <NoFormStyle status override>
+              {addonAfterNode}
+            </NoFormStyle>
+          )}
         </div>
       </div>
     );
