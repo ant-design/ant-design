@@ -2,7 +2,7 @@ import debounce from 'lodash/debounce';
 import React from 'react';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render } from '../../../tests/utils';
+import { act, fireEvent, render } from '../../../tests/utils';
 import Tree from '../index';
 
 const { DirectoryTree, TreeNode } = Tree;
@@ -48,11 +48,19 @@ describe('Directory Tree', () => {
       const { container } = render(createTree({ onExpand }));
 
       fireEvent.click(container.querySelector('.ant-tree-node-content-wrapper'));
-      jest.runAllTimers();
+      act(() => {
+        jest.runAllTimers();
+      });
       expect(onExpand).toHaveBeenCalledWith(['0-0'], expect.anything());
-      jest.runAllTimers();
+      onExpand.mockReset();
+
+      act(() => {
+        jest.runAllTimers();
+      });
       fireEvent.click(container.querySelector('.ant-tree-node-content-wrapper'));
-      jest.runAllTimers();
+      act(() => {
+        jest.runAllTimers();
+      });
       expect(onExpand).toHaveBeenCalledWith([], expect.anything());
     });
 
@@ -61,11 +69,19 @@ describe('Directory Tree', () => {
       const { container } = render(createTree({ expandAction: 'doubleClick', onExpand }));
 
       fireEvent.doubleClick(container.querySelector('.ant-tree-node-content-wrapper'));
-      jest.runAllTimers();
+      act(() => {
+        jest.runAllTimers();
+      });
       expect(onExpand).toHaveBeenCalledWith(['0-0'], expect.anything());
-      jest.runAllTimers();
+      onExpand.mockReset();
+
+      act(() => {
+        jest.runAllTimers();
+      });
       fireEvent.doubleClick(container.querySelector('.ant-tree-node-content-wrapper'));
-      jest.runAllTimers();
+      act(() => {
+        jest.runAllTimers();
+      });
       expect(onExpand).toHaveBeenCalledWith([], expect.anything());
     });
 
