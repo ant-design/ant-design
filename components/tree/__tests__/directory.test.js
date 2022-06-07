@@ -44,27 +44,29 @@ describe('Directory Tree', () => {
 
   describe('expand', () => {
     it('click', () => {
-      const { container, asFragment } = render(createTree());
+      const onExpand = jest.fn();
+      const { container } = render(createTree({ onExpand }));
 
       fireEvent.click(container.querySelector('.ant-tree-node-content-wrapper'));
       jest.runAllTimers();
-      expect(asFragment().firstChild).toMatchSnapshot();
+      expect(onExpand).toHaveBeenCalledWith(['0-0'], expect.anything());
       jest.runAllTimers();
       fireEvent.click(container.querySelector('.ant-tree-node-content-wrapper'));
       jest.runAllTimers();
-      expect(asFragment().firstChild).toMatchSnapshot();
+      expect(onExpand).toHaveBeenCalledWith([], expect.anything());
     });
 
     it('double click', () => {
-      const { container, asFragment } = render(createTree({ expandAction: 'doubleClick' }));
+      const onExpand = jest.fn();
+      const { container } = render(createTree({ expandAction: 'doubleClick', onExpand }));
 
       fireEvent.doubleClick(container.querySelector('.ant-tree-node-content-wrapper'));
       jest.runAllTimers();
-      expect(asFragment().firstChild).toMatchSnapshot();
+      expect(onExpand).toHaveBeenCalledWith(['0-0'], expect.anything());
       jest.runAllTimers();
       fireEvent.doubleClick(container.querySelector('.ant-tree-node-content-wrapper'));
       jest.runAllTimers();
-      expect(asFragment().firstChild).toMatchSnapshot();
+      expect(onExpand).toHaveBeenCalledWith([], expect.anything());
     });
 
     describe('with state control', () => {
