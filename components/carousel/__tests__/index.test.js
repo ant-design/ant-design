@@ -1,4 +1,3 @@
-import { mount } from 'enzyme';
 import React from 'react';
 import Carousel from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -19,7 +18,7 @@ describe('Carousel', () => {
 
   it('should has innerSlider', () => {
     const ref = React.createRef();
-    mount(
+    render(
       <Carousel ref={ref}>
         <div />
       </Carousel>,
@@ -30,7 +29,7 @@ describe('Carousel', () => {
 
   it('should has prev, next and go function', () => {
     const ref = React.createRef();
-    mount(
+    render(
       <Carousel ref={ref}>
         <div>1</div>
         <div>2</div>
@@ -56,7 +55,7 @@ describe('Carousel', () => {
   it('should trigger autoPlay after window resize', async () => {
     jest.useRealTimers();
     const ref = React.createRef();
-    mount(
+    render(
       <Carousel autoplay ref={ref}>
         <div>1</div>
         <div>2</div>
@@ -64,14 +63,14 @@ describe('Carousel', () => {
       </Carousel>,
     );
     const spy = jest.spyOn(ref.current.innerSlider, 'autoPlay');
-    window.resizeTo(1000);
+    window.resizeTo(1000, window.outerHeight);
     expect(spy).not.toHaveBeenCalled();
     await sleep(500);
     expect(spy).toHaveBeenCalled();
   });
 
   it('cancel resize listener when unmount', async () => {
-    const wrapper = mount(
+    const { unmount } = render(
       <Carousel autoplay>
         <div>1</div>
         <div>2</div>
@@ -79,7 +78,7 @@ describe('Carousel', () => {
       </Carousel>,
     );
     const spy = jest.spyOn(window, 'removeEventListener');
-    wrapper.unmount();
+    unmount();
     expect(spy).toHaveBeenCalled();
   });
 
@@ -87,12 +86,12 @@ describe('Carousel', () => {
     ['left', 'right', 'top', 'bottom'].forEach(dotPosition => {
       // eslint-disable-next-line jest/valid-title
       it(dotPosition, () => {
-        const wrapper = mount(
+        const { container } = render(
           <Carousel dotPosition={dotPosition}>
             <div />
           </Carousel>,
         );
-        expect(wrapper.render()).toMatchSnapshot();
+        expect(container.firstChild).toMatchSnapshot();
       });
     });
   });
@@ -126,15 +125,14 @@ describe('Carousel', () => {
 
   describe('dots precise control by plain object', () => {
     it('use dots to provide dotsClasse', () => {
-      const wrapper = mount(
+      const { container } = render(
         <Carousel dots={{ className: 'customDots' }}>
           <div>1</div>
           <div>2</div>
           <div>3</div>
         </Carousel>,
       );
-      wrapper.update();
-      expect(wrapper.find('.slick-dots').hasClass('customDots')).toBeTruthy();
+      expect(container.querySelector('.slick-dots')).toHaveClass('customDots');
     });
   });
 });

@@ -26,6 +26,7 @@ exports[`Carousel should works for dotPosition bottom 1`] = `
   <div
     class="slick-slider slick-initialized"
   >
+    
     <div
       class="slick-list"
     >
@@ -49,6 +50,8 @@ exports[`Carousel should works for dotPosition bottom 1`] = `
         </div>
       </div>
     </div>
+    
+    
   </div>
 </div>
 `;
@@ -60,6 +63,7 @@ exports[`Carousel should works for dotPosition left 1`] = `
   <div
     class="slick-slider slick-vertical slick-initialized"
   >
+    
     <div
       class="slick-list"
     >
@@ -83,6 +87,8 @@ exports[`Carousel should works for dotPosition left 1`] = `
         </div>
       </div>
     </div>
+    
+    
   </div>
 </div>
 `;
@@ -94,6 +100,7 @@ exports[`Carousel should works for dotPosition right 1`] = `
   <div
     class="slick-slider slick-vertical slick-initialized"
   >
+    
     <div
       class="slick-list"
     >
@@ -117,6 +124,8 @@ exports[`Carousel should works for dotPosition right 1`] = `
         </div>
       </div>
     </div>
+    
+    
   </div>
 </div>
 `;
@@ -128,6 +137,7 @@ exports[`Carousel should works for dotPosition top 1`] = `
   <div
     class="slick-slider slick-initialized"
   >
+    
     <div
       class="slick-list"
     >
@@ -151,6 +161,8 @@ exports[`Carousel should works for dotPosition top 1`] = `
         </div>
       </div>
     </div>
+    
+    
   </div>
 </div>
 `;
