@@ -1,5 +1,4 @@
 // deps-lint-skip-all
-import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
 import type { FullToken, GenerateStyle } from '../../_util/theme';
 import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
@@ -16,7 +15,7 @@ interface MessageToken extends FullToken<'Message'> {
   messageNoticeContentPadding: string;
 }
 
-const genMessageStyle: GenerateStyle<MessageToken, CSSObject> = token => {
+const genMessageStyle: GenerateStyle<MessageToken> = token => {
   const {
     componentCls,
     iconCls,
@@ -64,81 +63,92 @@ const genMessageStyle: GenerateStyle<MessageToken, CSSObject> = token => {
     },
   });
 
-  return {
-    [componentCls]: {
-      ...resetComponent(token),
-      position: 'fixed',
-      top: marginXS,
-      insetInlineStart: 0, // affected by ltr or rtl
-      width: '100%',
-      pointerEvents: 'none',
-      zIndex: zIndexPopup,
-      [iconCls]: {
-        verticalAlign: 'text-bottom',
-        marginInlineEnd: marginXS, // affected by ltr or rtl
-        fontSize: fontSizeLG,
-      },
-      [`${componentCls}-notice`]: {
-        padding: paddingXS,
-        textAlign: 'center',
-      },
-      [`${componentCls}-notice-content`]: {
-        display: 'inline-block',
-        padding: messageNoticeContentPadding,
-        background: colorBgComponent,
-        borderRadius: radiusBase,
-        boxShadow,
-        pointerEvents: 'all',
-      },
-      [`${componentCls}-success ${iconCls}`]: {
-        color: colorSuccess,
-      },
-      [`${componentCls}-error ${iconCls}`]: {
-        color: colorError,
-      },
-      [`${componentCls}-warning ${iconCls}`]: {
-        color: colorWarning,
-      },
-      [`
-        ${componentCls}-info ${iconCls},
-        ${componentCls}-loading ${iconCls}`]: {
-        color: colorInfo,
-      },
-      [`${componentCls}-move-up`]: {
-        animationFillMode: 'forwards',
-      },
-      [`
+  return [
+    // ============================ Holder ============================
+    {
+      [componentCls]: {
+        ...resetComponent(token),
+        position: 'fixed',
+        top: marginXS,
+        insetInlineStart: 0, // affected by ltr or rtl
+        width: '100%',
+        pointerEvents: 'none',
+        zIndex: zIndexPopup,
+
+        [`${componentCls}-move-up`]: {
+          animationFillMode: 'forwards',
+        },
+        [`
         ${componentCls}-move-up-appear,
         ${componentCls}-move-up-enter
       `]: {
-        animationName: messageMoveIn,
-        animationDuration: motionDurationSlow,
-        animationPlayState: 'paused',
-        animationTimingFunction: motionEaseInOutCirc,
-      },
-      [`
+          animationName: messageMoveIn,
+          animationDuration: motionDurationSlow,
+          animationPlayState: 'paused',
+          animationTimingFunction: motionEaseInOutCirc,
+        },
+        [`
         ${componentCls}-move-up-appear${componentCls}-move-up-appear-active,
         ${componentCls}-move-up-enter${componentCls}-move-up-enter-active
       `]: {
-        animationPlayState: 'running',
-      },
-      [`${componentCls}-move-up-leave`]: {
-        animationName: messageMoveOut,
-        animationDuration: motionDurationSlow,
-        animationPlayState: 'paused',
-        animationTimingFunction: motionEaseInOutCirc,
-      },
-      [`${componentCls}-move-up-leave${componentCls}-move-up-leave-active`]: {
-        animationPlayState: 'running',
-      },
-      '&-rtl': {
-        direction: 'rtl',
-        span: {
+          animationPlayState: 'running',
+        },
+        [`${componentCls}-move-up-leave`]: {
+          animationName: messageMoveOut,
+          animationDuration: motionDurationSlow,
+          animationPlayState: 'paused',
+          animationTimingFunction: motionEaseInOutCirc,
+        },
+        [`${componentCls}-move-up-leave${componentCls}-move-up-leave-active`]: {
+          animationPlayState: 'running',
+        },
+        '&-rtl': {
           direction: 'rtl',
+          span: {
+            direction: 'rtl',
+          },
         },
       },
     },
-  };
+
+    // ============================ Notice ============================
+    {
+      [`${componentCls}-notice`]: {
+        padding: paddingXS,
+        textAlign: 'center',
+
+        [iconCls]: {
+          verticalAlign: 'text-bottom',
+          marginInlineEnd: marginXS, // affected by ltr or rtl
+          fontSize: fontSizeLG,
+        },
+
+        [`${componentCls}-notice-content`]: {
+          display: 'inline-block',
+          padding: messageNoticeContentPadding,
+          background: colorBgComponent,
+          borderRadius: radiusBase,
+          boxShadow,
+          pointerEvents: 'all',
+        },
+
+        [`${componentCls}-success ${iconCls}`]: {
+          color: colorSuccess,
+        },
+        [`${componentCls}-error ${iconCls}`]: {
+          color: colorError,
+        },
+        [`${componentCls}-warning ${iconCls}`]: {
+          color: colorWarning,
+        },
+        [`
+        ${componentCls}-info ${iconCls},
+        ${componentCls}-loading ${iconCls}`]: {
+          color: colorInfo,
+        },
+      },
+    },
+  ];
 };
 
 // ============================== Export ==============================
