@@ -11,6 +11,7 @@ import type {
 } from './interface';
 import ConfigProvider, { globalConfig } from '../config-provider';
 import { wrapPromiseFn } from './util';
+import PurePanel from './PurePanel';
 
 export { ArgsProps };
 
@@ -314,11 +315,14 @@ const baseStaticMethods: {
   destroy: (key?: React.Key) => void;
   config: any;
   useMessage: typeof useMessage;
+  /** @private Internal Component. Do not use in your production. */
+  _RenderPanel: typeof PurePanel;
 } = {
   open,
   destroy,
   config: setMessageGlobalConfig,
   useMessage,
+  _RenderPanel: PurePanel,
 };
 
 const staticMethods: typeof baseStaticMethods & Record<MethodType, TypeOpen> =
