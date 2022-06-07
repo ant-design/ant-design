@@ -18,7 +18,7 @@ Create `src/components/DatePicker.tsx`.
 For example:
 
 ```tsx
-import { Moment } from 'moment';
+import type { Moment } from 'moment';
 import momentGenerateConfig from 'rc-picker/lib/generate/moment';
 import generatePicker from 'antd/es/date-picker/generatePicker';
 import 'antd/es/date-picker/style/index';
@@ -35,16 +35,16 @@ Create `src/components/TimePicker.tsx`.
 For example:
 
 ```tsx
-import { Moment } from 'moment';
+import type { Moment } from 'moment';
 import * as React from 'react';
+import type { PickerTimeProps } from 'antd/es/date-picker/generatePicker';
 import DatePicker from './DatePicker';
-import { PickerTimeProps } from 'antd/es/date-picker/generatePicker';
 
 export interface TimePickerProps extends Omit<PickerTimeProps<Moment>, 'picker'> {}
 
-const TimePicker = React.forwardRef<any, TimePickerProps>((props, ref) => {
-  return <DatePicker {...props} picker="time" mode={undefined} ref={ref} />;
-});
+const TimePicker = React.forwardRef<any, TimePickerProps>((props, ref) => (
+  <DatePicker {...props} picker="time" mode={undefined} ref={ref} />
+));
 
 TimePicker.displayName = 'TimePicker';
 
@@ -58,7 +58,7 @@ Create `src/components/Calendar.tsx`.
 For example:
 
 ```tsx
-import { Moment } from 'moment';
+import type { Moment } from 'moment';
 import momentGenerateConfig from 'rc-picker/lib/generate/moment';
 import generateCalendar from 'antd/es/calendar/generateCalendar';
 import 'antd/es/calendar/style';
@@ -98,11 +98,11 @@ We also provide another implementation, which we provide with `antd-moment-webpa
 
 ```js
 // webpack-config.js
-import AntdMomentjsWebpackPlugin from 'antd-moment-webpack-plugin';
+import AntdMomentWebpackPlugin from 'antd-moment-webpack-plugin';
 
 module.exports = {
   // ...
-  plugins: [new AntdMomentjsWebpackPlugin()],
+  plugins: [new AntdMomentWebpackPlugin()],
 };
 ```
 
