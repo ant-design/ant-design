@@ -40,6 +40,10 @@ export const statistic: Record<
   { global: string[]; component: Record<string, string | number> }
 > = {};
 
+/** @private Internal Usage. Not use in your production. */
+// eslint-disable-next-line camelcase
+export const _statistic_build_: typeof statistic = {};
+
 /* istanbul ignore next */
 function noop() {}
 

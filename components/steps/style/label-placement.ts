@@ -1,9 +1,9 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { GenerateStyle } from '../../_util/theme';
 import type { StepsToken } from '.';
+import type { GenerateStyle } from '../../_util/theme';
 
 const genStepsLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = token => {
-  const { componentCls, stepsIconSize, lineHeight } = token;
+  const { componentCls, stepsIconSize, lineHeight, stepsSmallIconSize } = token;
 
   return {
     [`&${componentCls}-label-vertical`]: {
@@ -11,25 +11,25 @@ const genStepsLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = token 
         overflow: 'visible',
 
         '&-tail': {
-          marginInlineStart: 58, // FIXME: hardcode in v4
-          padding: '3.5px 24px', // FIXME: hardcode in v4
+          marginInlineStart: stepsIconSize / 2 + token.controlHeightLG,
+          padding: `${token.paddingXXS}px ${token.paddingLG}px`,
         },
 
         '&-content': {
           display: 'block',
-          width: (stepsIconSize / 2 + 42) * 2, // FIXME: hardcode in v4
-          marginTop: 8, // FIXME: hardcode in v4
+          width: (stepsIconSize / 2 + token.controlHeightLG) * 2,
+          marginTop: token.marginSM,
           textAlign: 'center',
         },
 
         '&-icon': {
           display: 'inline-block',
-          marginInlineStart: 42, // FIXME: hardcode in v4
+          marginInlineStart: token.controlHeightLG,
         },
 
         '&-title': {
-          paddingInlineEnd: 0, // FIXME: hardcode in v4
-          paddingInlineStart: 0, // FIXME: hardcode in v4
+          paddingInlineEnd: 0,
+          paddingInlineStart: 0,
 
           '&::after': {
             display: 'none',
@@ -38,15 +38,15 @@ const genStepsLabelPlacementStyle: GenerateStyle<StepsToken, CSSObject> = token 
 
         '&-subtitle': {
           display: 'block',
-          marginBottom: 4, // FIXME: hardcode in v4
-          marginInlineStart: 0, // FIXME: hardcode in v4
+          marginBottom: token.marginXXS,
+          marginInlineStart: 0,
           lineHeight,
         },
       },
       [`&${componentCls}-small:not(${componentCls}-dot)`]: {
         [`${componentCls}-item`]: {
           '&-icon': {
-            marginInlineStart: 46, // FIXME: hardcode in v4
+            marginInlineStart: token.controlHeightLG + (stepsIconSize - stepsSmallIconSize) / 2,
           },
         },
       },

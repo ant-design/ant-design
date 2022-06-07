@@ -84,6 +84,8 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     controlLineWidth: mergedToken.lineWidth,
     controlOutlineWidth: mergedToken.lineWidth * 2,
     controlItemBgHover: mergedToken.colorBgBelow2,
+    // Checkbox size and expand icon size
+    controlInteractiveSize: mergedToken.controlHeight / 2,
 
     // 👀👀👀👀👀👀👀👀👀 Not align with Derivative 👀👀👀👀👀👀👀👀👀
     // FIXME: @arvinxx handle this
@@ -92,7 +94,10 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     colorBorder: new TinyColor({ h: 0, s: 0, v: 85 }).toHexString(),
     colorSplit: 'rgba(0, 0, 0, 0.06)',
     controlItemBgActive: primaryColors[0],
+    controlItemBgActiveHover: new TinyColor(primaryColors[0]).darken(2).toRgbString(),
+    controlItemBgActiveDisabled: new TinyColor('#000').tint(90).toRgbString(),
     fontWeightStrong: 600,
+    colorBgContainerWeak: new TinyColor('#000').setAlpha(0.75).toRgbString(),
 
     // 🔥🔥🔥🔥🔥🔥🔥🔥🔥 All TMP Token leaves here 🔥🔥🔥🔥🔥🔥🔥🔥🔥
     // FIXME: Handle this when derivative is ready

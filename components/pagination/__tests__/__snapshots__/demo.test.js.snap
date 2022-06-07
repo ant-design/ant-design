@@ -1707,7 +1707,7 @@ Array [
 exports[`renders ./components/pagination/demo/mini.md correctly 1`] = `
 Array [
   <ul
-    class="ant-pagination mini"
+    class="ant-pagination ant-pagination-mini"
     unselectable="unselectable"
   >
     <li
@@ -1831,7 +1831,7 @@ Array [
     </li>
   </ul>,
   <ul
-    class="ant-pagination mini"
+    class="ant-pagination ant-pagination-mini"
     unselectable="unselectable"
   >
     <li
@@ -2032,7 +2032,7 @@ Array [
     </li>
   </ul>,
   <ul
-    class="ant-pagination mini"
+    class="ant-pagination ant-pagination-mini"
     unselectable="unselectable"
   >
     <li
@@ -2161,7 +2161,7 @@ Array [
     </li>
   </ul>,
   <ul
-    class="ant-pagination mini ant-pagination-disabled"
+    class="ant-pagination ant-pagination-mini ant-pagination-disabled"
     unselectable="unselectable"
   >
     <li

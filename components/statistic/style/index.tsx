@@ -9,41 +9,61 @@ interface StatisticToken extends FullToken<'Statistic'> {
   statisticFontFamily: string;
 }
 
-const genStatisticStyle: GenerateStyle<StatisticToken> = (token: StatisticToken): CSSObject => ({
-  [`${token.componentCls}`]: {
-    ...resetComponent(token),
-    [`${token.componentCls}-title`]: {
-      marginBottom: token.marginXXS,
-      color: token.colorTextSecondary,
-      fontSize: token.statisticTitleFontSize,
+const genStatisticStyle: GenerateStyle<StatisticToken> = (token: StatisticToken): CSSObject => {
+  const {
+    componentCls,
+    marginXXS,
+    padding,
+    colorTextSecondary,
+    statisticTitleFontSize,
+    colorTextHeading,
+    statisticContentFontSize,
+    statisticFontFamily,
+  } = token;
+
+  return {
+    [`${componentCls}`]: {
+      ...resetComponent(token),
+      [`${componentCls}-title`]: {
+        marginBottom: marginXXS,
+        color: colorTextSecondary,
+        fontSize: statisticTitleFontSize,
+      },
+
+      [`${componentCls}-skeleton`]: {
+        paddingTop: padding,
+      },
+
+      [`${componentCls}-content`]: {
+        color: colorTextHeading,
+        fontSize: statisticContentFontSize,
+        fontFamily: statisticFontFamily,
+        [`${componentCls}-content-value`]: {
+          display: 'inline-block',
+          direction: 'ltr',
+        },
+        [`${componentCls}-content-prefix, ${componentCls}-content-suffix`]: {
+          display: 'inline-block',
+        },
+        [`${componentCls}-content-prefix`]: {
+          marginInlineEnd: marginXXS,
+        },
+        [`${componentCls}-content-suffix`]: {
+          marginInlineStart: marginXXS,
+        },
+      },
     },
-    [`${token.componentCls}-content`]: {
-      color: token.colorTextHeading,
-      fontSize: token.statisticContentFontSize,
-      fontFamily: token.statisticFontFamily,
-      [`${token.componentCls}-content-value`]: {
-        display: 'inline-block',
-        direction: 'ltr',
-      },
-      [`${token.componentCls}-content-prefix, ${token.componentCls}-content-suffix`]: {
-        display: 'inline-block',
-      },
-      [`${token.componentCls}-content-prefix`]: {
-        marginInlineStart: 4, // FIXME: hard code
-      },
-      [`${token.componentCls}-content-suffix`]: {
-        marginInlineEnd: 4, // FIXME: hard code
-      },
-    },
-  },
-});
+  };
+};
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Statistic', token => {
+  const { fontSizeHeading3, fontSize, fontFamily } = token;
+
   const statisticToken = mergeToken<StatisticToken>(token, {
-    statisticTitleFontSize: token.fontSize,
-    statisticContentFontSize: 24, // FIXME: hard code
-    statisticFontFamily: token.fontFamily,
+    statisticTitleFontSize: fontSize,
+    statisticContentFontSize: fontSizeHeading3,
+    statisticFontFamily: fontFamily,
   });
   return [genStatisticStyle(statisticToken)];
 });

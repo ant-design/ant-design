@@ -22,7 +22,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
   const groupPrefixCls = `${prefixCls}-group`;
 
   // Style
-  const [wrapSSR, hashId] = useStyle(prefixCls, getPrefixCls());
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const onRadioChange = (ev: RadioChangeEvent) => {
     const lastValue = value;

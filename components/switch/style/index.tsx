@@ -1,8 +1,8 @@
 // deps-lint-skip-all
-import { TinyColor } from '@ctrl/tinycolor';
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { GenerateStyle, FullToken } from '../../_util/theme';
-import { resetComponent, genComponentStyleHook, mergeToken } from '../../_util/theme';
+import { TinyColor } from '@ctrl/tinycolor';
+import type { FullToken, GenerateStyle } from '../../_util/theme';
+import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
 
 interface SwitchToken extends FullToken<'Switch'> {
   switchMinWidth: number;
@@ -15,12 +15,15 @@ interface SwitchToken extends FullToken<'Switch'> {
   switchPadding: number;
   switchPinSize: number;
   switchBg: string;
-  switchShadowColor: string;
   switchMinWidthSM: number;
   switchHeightSM: number;
   switchInnerMarginMinSM: number;
   switchInnerMarginMaxSM: number;
   switchPinSizeSM: number;
+  switchHandleShadow: string;
+  switchLoadingIconSize: number;
+  switchLoadingIconColor: string;
+  switchHandleActiveInset: string;
 }
 
 const genSwitchSmallStyle: GenerateStyle<SwitchToken, CSSObject> = token => ({
@@ -41,9 +44,8 @@ const genSwitchSmallStyle: GenerateStyle<SwitchToken, CSSObject> = token => ({
     },
 
     [`${token.componentCls}-loading-icon`]: {
-      top: (token.switchPinSizeSM - 9) / 2,
-      // FIXME
-      fontSize: 9,
+      top: (token.switchPinSizeSM - token.switchLoadingIconSize) / 2,
+      fontSize: token.switchLoadingIconSize,
     },
 
     [`&${token.componentCls}-checked`]: {
@@ -63,7 +65,7 @@ const genSwitchLoadingStyle: GenerateStyle<SwitchToken, CSSObject> = token => ({
   [`${token.componentCls}-loading-icon${token.iconCls}`]: {
     position: 'relative',
     top: (token.switchPinSize - token.fontSize) / 2,
-    color: 'rgba(0, 0, 0, 0.65)',
+    color: token.switchLoadingIconColor,
     verticalAlign: 'top',
   },
 
@@ -92,8 +94,7 @@ const genSwitchHandleStyle: GenerateStyle<SwitchToken, CSSObject> = token => {
         insetInlineStart: 0,
         backgroundColor: token.switchBg,
         borderRadius: token.switchPinSize / 2,
-        // FIXME
-        boxShadow: `0 2px 4px 0 ${token.switchShadowColor}`,
+        boxShadow: token.switchHandleShadow,
         transition: `all ${token.switchDuration} ease-in-out`,
         content: '""',
       },
@@ -105,15 +106,13 @@ const genSwitchHandleStyle: GenerateStyle<SwitchToken, CSSObject> = token => {
 
     [`&:not(${token.componentCls}-disabled):active`]: {
       [`${switchHandleCls}::before`]: {
-        // FIXME
-        insetInlineEnd: '-30%',
+        insetInlineEnd: token.switchHandleActiveInset,
         insetInlineStart: 0,
       },
 
       [`&${token.componentCls}-checked ${switchHandleCls}::before`]: {
         insetInlineEnd: 0,
-        // FIXME
-        insetInlineStart: '-30%',
+        insetInlineStart: token.switchHandleActiveInset,
       },
     },
   };
@@ -209,27 +208,32 @@ const genSwitchStyle = (token: SwitchToken): CSSObject => {
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Switch', token => {
-  const switchHeight = 22;
-  const switchHeightSM = 16;
+  const switchHeight = token.fontSize * token.lineHeight;
+  const switchHeightSM = token.controlHeight / 2;
+  const switchPadding = token.paddingXXS / 2;
+  const switchPinSize = switchHeight - switchPadding * 2;
+  const switchPinSizeSM = switchHeightSM - switchPadding * 2;
 
   const switchToken = mergeToken<SwitchToken>(token, {
-    // FIXME: missing token
-    switchMinWidth: 44,
+    switchMinWidth: switchPinSize * 2 + switchPadding * 4,
     switchHeight,
-    switchDuration: '0.2s',
+    switchDuration: token.motionDurationMid,
     switchColor: token.colorPrimary,
-    switchDisabledOpacity: 0.4,
-    switchInnerMarginMin: Math.ceil(switchHeight * 0.3),
-    switchInnerMarginMax: Math.ceil(switchHeight * 1.1),
-    switchPadding: 2,
-    switchPinSize: switchHeight - 4,
+    switchDisabledOpacity: token.colorLoadingOpacity,
+    switchInnerMarginMin: switchPinSize / 2,
+    switchInnerMarginMax: switchPinSize + switchPadding + token.paddingXXS,
+    switchPadding,
+    switchPinSize,
     switchBg: token.colorBgComponent,
-    switchShadowColor: new TinyColor('#00230b').setAlpha(0.2).toRgbString(),
-    switchMinWidthSM: 28,
+    switchMinWidthSM: switchPinSizeSM * 2 + switchPadding * 2,
     switchHeightSM,
-    switchInnerMarginMinSM: Math.ceil(switchHeight * 0.3),
-    switchInnerMarginMaxSM: Math.ceil(switchHeight * 1.1),
-    switchPinSizeSM: switchHeightSM - 4,
+    switchInnerMarginMinSM: switchPinSizeSM / 2,
+    switchInnerMarginMaxSM: switchPinSizeSM + switchPadding + token.paddingXXS,
+    switchPinSizeSM,
+    switchHandleShadow: `0 2px 4px 0 ${new TinyColor('#00230b').setAlpha(0.2).toRgbString()}`,
+    switchLoadingIconSize: token.fontSizeIcon * 0.75,
+    switchLoadingIconColor: `rgba(0, 0, 0, ${token.colorLoadingOpacity})`,
+    switchHandleActiveInset: '-30%',
   });
 
   return [genSwitchStyle(switchToken)];

@@ -1,7 +1,7 @@
 import type { CSSInterpolation } from '@ant-design/cssinjs';
-import type { AliasToken } from '../../_util/theme';
-import { roundedArrow } from '../../_util/theme';
-import type { TokenWithCommonCls } from '../../_util/theme/util/genComponentStyleHook';
+import type { AliasToken } from '../interface';
+import type { TokenWithCommonCls } from './genComponentStyleHook';
+import { roundedArrow } from './roundedArrow';
 
 function connectArrowCls(classList: string[], showArrowCls: string = '') {
   return classList.map(cls => `${showArrowCls}${cls}`).join(',');
@@ -11,6 +11,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
   token: Token,
   colorBg: string,
   showArrowCls?: string,
+  linearGradient: boolean = true,
 ): CSSInterpolation {
   const { componentCls, sizePopupArrow, marginXXS } = token;
 
@@ -20,17 +21,27 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
   return {
     [componentCls]: {
       // ============================ Basic ============================
-      [`${componentCls}-arrow`]: {
-        position: 'absolute',
-        zIndex: 1, // lift it up so the menu wouldn't cask shadow on it
-        display: 'block',
-        width: sizePopupArrow,
-        height: sizePopupArrow,
-        // Use linear-gradient to prevent arrow from covering text
-        background: `linear-gradient(135deg, transparent 40%, ${colorBg} 40%)`,
+      [`${componentCls}-arrow`]: [
+        linearGradient
+          ? {
+              // Use linear-gradient to prevent arrow from covering text
+              background: `linear-gradient(135deg, transparent 49%, ${colorBg} 50%)`,
+            }
+          : {},
+        {
+          position: 'absolute',
+          zIndex: 1, // lift it up so the menu wouldn't cask shadow on it
+          display: 'block',
+          width: sizePopupArrow,
+          height: sizePopupArrow,
 
-        ...roundedArrow(sizePopupArrow, 5, colorBg),
-      },
+          ...roundedArrow(sizePopupArrow, 5, colorBg),
+
+          '&:before': {
+            background: colorBg,
+          },
+        },
+      ],
 
       // ========================== Placement ==========================
       // Here handle the arrow position and rotate stuff

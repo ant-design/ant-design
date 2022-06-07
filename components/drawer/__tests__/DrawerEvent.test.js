@@ -68,6 +68,25 @@ describe('Drawer', () => {
 
     expect(container.querySelector('.ant-drawer-wrapper-body')).toBeTruthy();
   });
+  it('dom should be existed after close twice when getContainer is false', () => {
+    const { container, rerender } = render(getDrawer({ visible: true, getContainer: false }));
+    rerender(getDrawer({ visible: false, getContainer: false }));
+    const ev = new TransitionEvent('transitionend', { bubbles: true });
+    ev.propertyName = 'transform';
+    fireEvent(document.querySelector('.ant-drawer-content-wrapper'), ev);
+
+    rerender(getDrawer({ visible: true, getContainer: false }));
+    const ev2 = new TransitionEvent('transitionend', { bubbles: true });
+    ev2.propertyName = 'transform';
+    fireEvent(document.querySelector('.ant-drawer-content-wrapper'), ev2);
+
+    rerender(getDrawer({ visible: false, getContainer: false }));
+    const ev3 = new TransitionEvent('transitionend', { bubbles: true });
+    ev3.propertyName = 'transform';
+    fireEvent(document.querySelector('.ant-drawer-content-wrapper'), ev3);
+
+    expect(container.querySelector('.ant-drawer-wrapper-body')).toBeTruthy();
+  });
   it('test afterVisibleChange', async () => {
     const afterVisibleChange = jest.fn();
     const { rerender } = render(getDrawer({ afterVisibleChange, visible: true }));

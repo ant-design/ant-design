@@ -1,51 +1,32 @@
-// import '../../style/index.less';
-// import './index.less';
-
-// style dependencies
-// import '../../empty/style';
-// import '../../checkbox/style';
-// import '../../button/style';
-// import '../../input/style';
-// import '../../menu/style';
-// import '../../dropdown/style';
-// import '../../pagination/style';
-
-// deps-lint-skip: form
-
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
-import { TinyColor } from '@ctrl/tinycolor';
 
 import {
   resetComponent,
   genComponentStyleHook,
   mergeToken,
   operationUnit,
+  resetIcon,
 } from '../../_util/theme';
 import type { FullToken, GenerateStyle } from '../../_util/theme';
 
-import { genHoverStyle, genActiveStyle, initInputToken } from '../../input/style';
-import type { InputToken } from '../../input/style';
+export interface ComponentToken {
+  listWidth: number;
+  listWidthLG: number;
+  listHeight: number;
+}
 
-// FIXME: need full token check
-type TransferToken = InputToken<FullToken<'Transfer'>> & {
-  borderColorBase: string;
-  borderColorSplit: string;
-  heightBase: number;
-  disabledColor: string;
-  backgroundColorLight: string;
-  transferListHeight: number;
+interface TransferToken extends FullToken<'Transfer'> {
+  transferItemHeight: number;
   transferHeaderHeight: number;
   transferHeaderVerticalPadding: number;
   transferItemPaddingVertical: number;
-  transferItemSelectedHoverBg: string;
-};
+}
 
 const genTransferCustomizeStyle: GenerateStyle<TransferToken> = (
   token: TransferToken,
 ): CSSObject => {
-  const { antCls, componentCls, borderColorSplit, backgroundColorLight, transferListHeight } =
-    token;
+  const { antCls, componentCls, listHeight, controlHeightLG, marginXXS, margin } = token;
 
   const tableCls = `${antCls}-table`;
   const inputCls = `${antCls}-input`;
@@ -56,7 +37,7 @@ const genTransferCustomizeStyle: GenerateStyle<TransferToken> = (
         flex: '1 1 50%',
         width: 'auto',
         height: 'auto',
-        minHeight: transferListHeight,
+        minHeight: listHeight,
       },
 
       // =================== Hook Components ===================
@@ -66,28 +47,13 @@ const genTransferCustomizeStyle: GenerateStyle<TransferToken> = (
           borderRadius: 0,
 
           [`${tableCls}-selection-column`]: {
-            width: 40, // FIXME: hardcode in v4,
-            minWidth: 40, // FIXME: hardcode in v4,
-          },
-
-          [`> ${tableCls}-content`]: {
-            // Header background color
-            [`> ${tableCls}-body > table > ${tableCls}-thead > tr > th`]: {
-              background: backgroundColorLight,
-            },
-
-            [`${tableCls}-row:last-child td`]: {
-              borderBottom: `${token.controlLineWidth}px ${token.controlLineType} ${borderColorSplit}`,
-            },
-          },
-
-          [`${tableCls}-body`]: {
-            margin: 0,
+            width: controlHeightLG,
+            minWidth: controlHeightLG,
           },
         },
 
         [`${tableCls}-pagination${tableCls}-pagination`]: {
-          margin: '16px 0 4px', // FIXME: hardcode in v4,
+          margin: `${margin}px 0 ${marginXXS}px`,
         },
       },
 
@@ -99,21 +65,13 @@ const genTransferCustomizeStyle: GenerateStyle<TransferToken> = (
 };
 
 const genTransferStatusColor = (token: TransferToken, color: string): CSSObject => {
-  const { componentCls, borderColorBase } = token;
+  const { componentCls, colorBorder } = token;
   return {
     [`${componentCls}-list`]: {
       borderColor: color,
 
       '&-search:not([disabled])': {
-        borderColor: borderColorBase,
-
-        '&:hover': {
-          ...genHoverStyle(token),
-        },
-
-        '&:focus': {
-          ...genActiveStyle(token),
-        },
+        borderColor: colorBorder,
       },
     },
   };
@@ -134,33 +92,43 @@ const genTransferStatusStyle: GenerateStyle<TransferToken> = (token: TransferTok
 const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken): CSSObject => {
   const {
     componentCls,
-    borderColorBase,
-    borderColorSplit,
-    heightBase,
-    transferListHeight,
+    colorBorder,
+    colorSplit,
+    controlLineWidth,
+    transferItemHeight,
     transferHeaderHeight,
     transferHeaderVerticalPadding,
     transferItemPaddingVertical,
-    transferItemSelectedHoverBg,
-    disabledColor,
+    controlItemBgActive,
+    controlItemBgActiveHover,
+    colorTextDisabled,
+    listHeight,
+    listWidth,
+    listWidthLG,
+    marginXXS,
+    fontSizeIcon,
+    marginXS,
+    paddingSM,
+    controlLineType,
+    iconCls,
   } = token;
 
   return {
     display: 'flex',
     flexDirection: 'column',
-    width: 180, // FIXME: hardcode in v4,
-    height: transferListHeight,
-    border: `${token.controlLineWidth}px ${token.controlLineType} ${borderColorBase}`,
+    width: listWidth,
+    height: listHeight,
+    border: `${controlLineWidth}px ${controlLineType} ${colorBorder}`,
     borderRadius: token.radiusBase,
 
     '&-with-pagination': {
-      width: 250, // FIXME: hardcode in v4,
+      width: listWidthLG,
       height: 'auto',
     },
 
     '&-search': {
-      '.anticon-search': {
-        color: disabledColor,
+      [`${iconCls}-search`]: {
+        color: colorTextDisabled,
       },
     },
 
@@ -170,16 +138,16 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
       alignItems: 'center',
       height: transferHeaderHeight,
       // border-top is on the transfer dom. We should minus 1px for this
-      padding: `${transferHeaderVerticalPadding - 1}px ${
-        token.paddingSM
-      }px ${transferHeaderVerticalPadding}px`,
+      padding: `${
+        transferHeaderVerticalPadding - controlLineWidth
+      }px ${paddingSM}px ${transferHeaderVerticalPadding}px`,
       color: token.colorText,
       background: token.colorBgComponent,
-      borderBottom: `${token.controlLineWidth}px ${token.controlLineType} ${borderColorSplit}`,
+      borderBottom: `${controlLineWidth}px ${controlLineType} ${colorSplit}`,
       borderRadius: `${token.radiusBase}px ${token.radiusBase}px 0 0`,
 
       '> *:not(:last-child)': {
-        marginInlineEnd: 4, // FIXME: hardcode in v4,
+        marginInlineEnd: marginXXS,
       },
 
       '> *': {
@@ -195,7 +163,9 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
       },
 
       '&-dropdown': {
-        fontSize: 10, // FIXME: hardcode in v4,
+        ...resetIcon(),
+
+        fontSize: fontSizeIcon,
         transform: 'translateY(10%)',
         cursor: 'pointer',
 
@@ -215,7 +185,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
       '&-search-wrapper': {
         position: 'relative',
         flex: 'none',
-        padding: token.paddingSM,
+        padding: paddingSM,
       },
     },
 
@@ -229,13 +199,12 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
       '&-item': {
         display: 'flex',
         alignItems: 'center',
-        minHeight: heightBase,
-        padding: `${transferItemPaddingVertical}px ${token.paddingSM}px`,
-        lineHeight: `${heightBase - 2 * transferItemPaddingVertical}px`,
+        minHeight: transferItemHeight,
+        padding: `${transferItemPaddingVertical}px ${paddingSM}px`,
         transition: `all ${token.motionDurationSlow}`,
 
         '> *:not(:last-child)': {
-          marginInlineEnd: 8, // FIXME: hardcode in v4,
+          marginInlineEnd: marginXS,
         },
 
         '> *': {
@@ -252,7 +221,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
         '&-remove': {
           ...operationUnit(token),
           position: 'relative',
-          color: token.borderColorBase,
+          color: colorBorder,
 
           '&::after': {
             position: 'absolute',
@@ -272,7 +241,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
           },
 
           [`&${componentCls}-list-content-item-checked:hover`]: {
-            backgroundColor: transferItemSelectedHoverBg,
+            backgroundColor: controlItemBgActiveHover,
           },
         },
 
@@ -283,11 +252,11 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
         },
 
         '&-checked': {
-          backgroundColor: token.controlItemBgActive,
+          backgroundColor: controlItemBgActive,
         },
 
         '&-disabled': {
-          color: disabledColor,
+          color: colorTextDisabled,
           cursor: 'not-allowed',
         },
       },
@@ -296,25 +265,35 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
     '&-pagination': {
       padding: `${token.paddingXS}px 0`,
       textAlign: 'end',
-      borderTop: `${token.controlLineWidth}px ${token.controlLineType} ${borderColorSplit}`,
+      borderTop: `${controlLineWidth}px ${controlLineType} ${colorSplit}`,
     },
 
     '&-body-not-found': {
       flex: 'none',
       width: '100%',
       margin: 'auto 0',
-      color: disabledColor,
+      color: colorTextDisabled,
       textAlign: 'center',
     },
 
     '&-footer': {
-      borderTop: `${token.controlLineWidth}px ${token.controlLineType} ${borderColorSplit}`,
+      borderTop: `${controlLineWidth}px ${controlLineType} ${colorSplit}`,
     },
   };
 };
 
 const genTransferStyle: GenerateStyle<TransferToken> = (token: TransferToken): CSSObject => {
-  const { antCls, iconCls, componentCls, transferHeaderHeight } = token;
+  const {
+    antCls,
+    iconCls,
+    componentCls,
+    transferHeaderHeight,
+    marginXS,
+    marginXXS,
+    fontSizeIcon,
+    fontSize,
+    lineHeight,
+  } = token;
 
   return {
     [componentCls]: {
@@ -337,24 +316,24 @@ const genTransferStyle: GenerateStyle<TransferToken> = (token: TransferToken): C
         flex: 'none',
         flexDirection: 'column',
         alignSelf: 'center',
-        margin: '0 8px', // FIXME: hardcode in v4,
+        margin: `0 ${marginXS}px`,
         verticalAlign: 'middle',
 
         [`${antCls}-btn`]: {
           display: 'block',
 
           '&:first-child': {
-            marginBottom: 4, // FIXME: hardcode in v4,
+            marginBottom: marginXXS,
           },
 
           [iconCls]: {
-            fontSize: 12, // FIXME: hardcode in v4,
+            fontSize: fontSizeIcon,
           },
         },
       },
 
       [`${antCls}-empty-image`]: {
-        maxHeight: transferHeaderHeight / 2 - 22, // FIXME: hardcode in v4,
+        maxHeight: transferHeaderHeight / 2 - Math.round(fontSize * lineHeight),
       },
     },
   };
@@ -365,41 +344,39 @@ const genTransferRTLStyle: GenerateStyle<TransferToken> = (token: TransferToken)
   return {
     [`${componentCls}-rtl`]: {
       direction: 'rtl',
-
-      [`${componentCls}-list`]: {
-        '&-search': {
-          paddingInlineStart: token.paddingXS,
-          paddingInlineEnd: 24, // FIXME: hardcode in v4,
-        },
-      },
     },
   };
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Transfer', token => {
-  const transferHeaderHeight = 40;
-  const lineHeightBase = 1.5715;
+export default genComponentStyleHook(
+  'Transfer',
+  token => {
+    const { fontSize, lineHeight, controlLineWidth, controlHeightLG, controlHeight } = token;
 
-  const transferToken = mergeToken<TransferToken>(initInputToken<FullToken<'Transfer'>>(token), {
-    borderColorBase: new TinyColor({ h: 0, s: 0, v: 85 }).toHexString(), // FIXME: hardcode in v4
-    borderColorSplit: new TinyColor({ h: 0, s: 0, v: 94 }).toHexString(), // FIXME: hardcode in v4
-    backgroundColorLight: new TinyColor({ h: 0, s: 0, v: 98 }).toHexString(), // FIXME: hardcode in v4
-    disabledColor: new TinyColor('#000').setAlpha(0.25).toRgbString(), // FIXME: hardcode in v4
-    heightBase: 32, // FIXME: hardcode in v4,
-    transferListHeight: 200, // FIXME: hardcode in v4,
-    transferHeaderHeight, // FIXME: hardcode in v4,
-    transferHeaderVerticalPadding: Math.ceil(
-      (transferHeaderHeight - 1 - token.fontSizeBase * lineHeightBase) / 2, // FIXME: hardcode in v4,
-    ),
-    transferItemPaddingVertical: 6, // FIXME: hardcode in v4,
-    transferItemSelectedHoverBg: new TinyColor(token.controlItemBgActive).darken(2).toHexString(), // FIXME: hardcode in v4,
-  });
+    const fontHeight = Math.round(fontSize * lineHeight);
+    const transferHeaderHeight = controlHeightLG;
+    const transferItemHeight = controlHeight;
 
-  return [
-    genTransferStyle(transferToken),
-    genTransferCustomizeStyle(transferToken),
-    genTransferStatusStyle(transferToken),
-    genTransferRTLStyle(transferToken),
-  ];
-});
+    const transferToken = mergeToken<TransferToken>(token, {
+      transferItemHeight,
+      transferHeaderHeight,
+      transferHeaderVerticalPadding: Math.ceil(
+        (transferHeaderHeight - controlLineWidth - fontHeight) / 2,
+      ),
+      transferItemPaddingVertical: (transferItemHeight - fontHeight) / 2,
+    });
+
+    return [
+      genTransferStyle(transferToken),
+      genTransferCustomizeStyle(transferToken),
+      genTransferStatusStyle(transferToken),
+      genTransferRTLStyle(transferToken),
+    ];
+  },
+  {
+    listWidth: 180,
+    listHeight: 200,
+    listWidthLG: 250,
+  },
+);

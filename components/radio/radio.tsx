@@ -42,7 +42,7 @@ const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (
       : radioPrefixCls;
 
   // Style
-  const [wrapSSR, hashId] = useStyle(radioPrefixCls, getPrefixCls());
+  const [wrapSSR, hashId] = useStyle(radioPrefixCls);
 
   const radioProps: RadioProps = { ...restProps };
 

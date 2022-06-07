@@ -1,10 +1,13 @@
 // deps-lint-skip-all
 import { Keyframes } from '@ant-design/cssinjs';
-import type { GenerateStyle, FullToken } from '../../_util/theme';
-import { resetComponent, genComponentStyleHook, mergeToken } from '../../_util/theme';
+import type { FullToken, GenerateStyle } from '../../_util/theme';
+import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
+
+export interface ComponentToken {}
 
 interface CheckboxToken extends FullToken<'Checkbox'> {
   checkboxCls: string;
+  checkboxSize: number;
 }
 
 // ============================== Motion ==============================
@@ -92,8 +95,8 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = token => {
           top: 0,
           insetInlineStart: 0,
           display: 'block',
-          width: token.fontSizeLG,
-          height: token.fontSizeLG,
+          width: token.checkboxSize,
+          height: token.checkboxSize,
           direction: 'ltr',
           backgroundColor: token.colorBgComponent,
           border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
@@ -106,8 +109,8 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = token => {
             top: '50%',
             insetInlineStart: '21.5%',
             display: 'table',
-            width: (token.fontSizeLG / 14) * 5,
-            height: (token.fontSizeLG / 14) * 8,
+            width: (token.checkboxSize / 14) * 5,
+            height: (token.checkboxSize / 14) * 8,
             border: `${token.lineWidthBold}px solid ${token.colorBgComponent}`,
             borderTop: 0,
             borderInlineStart: 0,
@@ -241,6 +244,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = token => {
 export function getStyle(prefixCls: string, token: FullToken<'Checkbox'>) {
   const checkboxToken: CheckboxToken = mergeToken<CheckboxToken>(token, {
     checkboxCls: `.${prefixCls}`,
+    checkboxSize: token.controlInteractiveSize,
   });
 
   return [genCheckboxStyle(checkboxToken)];

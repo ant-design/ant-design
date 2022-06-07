@@ -1,6 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { GenerateStyle } from '../../_util/theme';
 import type { StepsToken } from '.';
+import type { GenerateStyle } from '../../_util/theme';
 
 const genStepsCustomIconStyle: GenerateStyle<StepsToken, CSSObject> = token => {
   const {
@@ -16,10 +16,9 @@ const genStepsCustomIconStyle: GenerateStyle<StepsToken, CSSObject> = token => {
       [`> ${componentCls}-item-container > ${componentCls}-item-icon`]: {
         height: 'auto',
         background: 'none',
-        border: 0, // FIXME: hardcode in v4
+        border: 0,
         [`> ${componentCls}-icon`]: {
           top: stepsIconCustomTop,
-          insetInlineStart: 0.5, // FIXME: hardcode in v4
           width: stepsIconCustomSize,
           height: stepsIconCustomSize,
           fontSize: stepsIconCustomFontSize,

@@ -66,7 +66,7 @@ export default App;
 ```
 
 ```css
-.ant-card {
+#components-badge-demo-ribbbon .ant-card {
   margin-bottom: 16px;
 }
 ```
