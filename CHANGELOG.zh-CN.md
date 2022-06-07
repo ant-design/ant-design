@@ -23,7 +23,7 @@ timeline: true
 - 🆕 Tabs 组件支持 `popupClassName` 用于更多菜单。[#35892](https://github.com/ant-design/ant-design/pull/35892)
 - 🆕 Table 组件 `rowSelection.onChange` 新增 `info.type` 参数。[#35598](https://github.com/ant-design/ant-design/pull/35598)
 - 🆕 Typography.Paragraph 的 `copyable` 属性支持 `format` 以重置剪切板数据的 Mime Type。[#35219](https://github.com/ant-design/ant-design/pull/35219) [@kanweiwei](https://github.com/kanweiwei)
-- 🆕 TreeSelect 支持 `treeExpandAction` 定义展开操作。 [#35618](https://github.com/ant-design/ant-design/pull/35618) [@NE-SmallTown](https://github.com/NE-SmallTown)
+- 🆕 TreeSelect 支持 `treeExpandAction` 定义展开操作。[#35618](https://github.com/ant-design/ant-design/pull/35618) [@NE-SmallTown](https://github.com/NE-SmallTown)
 - ConfigProvider
   - 🆕 ConfigProvider 支持全局配置 Pagination `showSizeChanger` 属性。[#35750](https://github.com/ant-design/ant-design/pull/35750)
   - 🆕 ConfigProvider 支持 `componentDisabled` 来配置组件禁用状态。[#35718](https://github.com/ant-design/ant-design/pull/35718)
