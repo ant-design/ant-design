@@ -1,17 +1,18 @@
-import * as React from 'react';
-import Dialog from 'rc-dialog';
-import classNames from 'classnames';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import classNames from 'classnames';
+import Dialog from 'rc-dialog';
+import * as React from 'react';
 
-import { getConfirmLocale } from './locale';
 import Button from '../button';
-import type { LegacyButtonType, ButtonProps } from '../button/button';
+import type { ButtonProps, LegacyButtonType } from '../button/button';
 import { convertLegacyProps } from '../button/button';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import type { DirectionType } from '../config-provider';
 import { ConfigContext } from '../config-provider';
-import { canUseDocElement } from '../_util/styleChecker';
+import { NoFormStyle } from '../form/context';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { getTransitionName } from '../_util/motion';
+import { canUseDocElement } from '../_util/styleChecker';
+import { getConfirmLocale } from './locale';
 import useStyle from './style';
 
 let mousePosition: { x: number; y: number } | null;
@@ -204,23 +205,25 @@ const Modal: React.FC<ModalProps> = props => {
     [`${prefixCls}-wrap-rtl`]: direction === 'rtl',
   });
   return wrapSSR(
-    <Dialog
-      {...restProps}
-      getContainer={
-        getContainer === undefined ? (getContextPopupContainer as getContainerFunc) : getContainer
-      }
-      prefixCls={prefixCls}
-      rootClassName={hashId}
-      wrapClassName={wrapClassNameExtended}
-      footer={footer === undefined ? defaultFooter : footer}
-      visible={visible}
-      mousePosition={mousePosition}
-      onClose={handleCancel}
-      closeIcon={closeIconToRender}
-      focusTriggerAfterClose={focusTriggerAfterClose}
-      transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
-      maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
-    />,
+    <NoFormStyle status override>
+      <Dialog
+        {...restProps}
+        getContainer={
+          getContainer === undefined ? (getContextPopupContainer as getContainerFunc) : getContainer
+        }
+        prefixCls={prefixCls}
+        rootClassName={hashId}
+        wrapClassName={wrapClassNameExtended}
+        footer={footer === undefined ? defaultFooter : footer}
+        visible={visible}
+        mousePosition={mousePosition}
+        onClose={handleCancel}
+        closeIcon={closeIconToRender}
+        focusTriggerAfterClose={focusTriggerAfterClose}
+        transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
+        maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
+      />
+    </NoFormStyle>,
   );
 };
 

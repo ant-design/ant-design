@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import Button from '../button';
+import { render, fireEvent } from '../../../tests/utils';
 
 const specialDelay = 9529;
 const Content = () => {
@@ -33,7 +33,7 @@ it('Delay loading timer in Button component', () => {
   jest.spyOn(window, 'setTimeout').mockReturnValue(otherTimer);
   jest.restoreAllMocks();
 
-  const wrapper = mount(<Content />);
+  const wrapper = render(<Content />);
 
   const btnTimer: any = 9527;
   jest.spyOn(window, 'setTimeout').mockReturnValue(btnTimer);
@@ -52,7 +52,7 @@ it('Delay loading timer in Button component', () => {
   };
 
   // switch loading state to true
-  wrapper.find('#toggle_loading').at(0).simulate('click');
+  fireEvent.click(wrapper.container.querySelectorAll('#toggle_loading')[0]);
   expect(setTimeoutCount()).toBe(1);
   expect(clearTimeoutCount()).toBe(0);
 
@@ -64,24 +64,24 @@ it('Delay loading timer in Button component', () => {
   expect(clearTimeoutCount()).toBe(0);
 
   // switch loading state to false
-  wrapper.find('#toggle_loading').at(0).simulate('click');
+  fireEvent.click(wrapper.container.querySelectorAll('#toggle_loading')[0]);
   expect(setTimeoutCount()).toBe(1);
   expect(clearTimeoutCount()).toBe(0);
 
   // switch loading state to true
-  wrapper.find('#toggle_loading').at(0).simulate('click');
+  fireEvent.click(wrapper.container.querySelectorAll('#toggle_loading')[0]);
   expect(setTimeoutCount()).toBe(2);
   expect(clearTimeoutCount()).toBe(0);
 
   // switch loading state to false
-  wrapper.find('#toggle_loading').at(0).simulate('click');
+  fireEvent.click(wrapper.container.querySelectorAll('#toggle_loading')[0]);
   expect(setTimeoutCount()).toBe(2);
   expect(clearTimeoutCount()).toBe(1);
 
   // switch loading state to true
-  wrapper.find('#toggle_loading').at(0).simulate('click');
+  fireEvent.click(wrapper.container.querySelectorAll('#toggle_loading')[0]);
   // remove Button component
-  wrapper.find('#toggle_visible').at(0).simulate('click');
+  fireEvent.click(wrapper.container.querySelectorAll('#toggle_visible')[0]);
   expect(setTimeoutCount()).toBe(3);
   expect(clearTimeoutCount()).toBe(2);
 

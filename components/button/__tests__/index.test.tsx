@@ -28,11 +28,12 @@ describe('Button', () => {
   rtlTest(() => <Button.Group size="middle" />);
 
   it('renders correctly', () => {
-    expect(mount(<Button>Follow</Button>).render()).toMatchSnapshot();
+    const { container } = render(<Button>Follow</Button>);
+    expect(container.firstChild).toMatchSnapshot();
   });
 
   it('mount correctly', () => {
-    expect(() => mount(<Button>Follow</Button>)).not.toThrow();
+    expect(() => render(<Button>Follow</Button>)).not.toThrow();
   });
 
   it('warns if size is wrong', () => {
@@ -46,38 +47,42 @@ describe('Button', () => {
   });
 
   it('renders Chinese characters correctly', () => {
-    expect(mount(<Button>按钮</Button>).render()).toMatchSnapshot();
-    // should not insert space when there is icon
-    expect(mount(<Button icon={<SearchOutlined />}>按钮</Button>).render()).toMatchSnapshot();
+    expect(render(<Button>按钮</Button>).container.firstChild).toMatchSnapshot();
     // should not insert space when there is icon
     expect(
-      mount(
+      render(<Button icon={<SearchOutlined />}>按钮</Button>).container.firstChild,
+    ).toMatchSnapshot();
+    // should not insert space when there is icon
+    expect(
+      render(
         <Button>
           <SearchOutlined />
           按钮
         </Button>,
-      ).render(),
+      ).container.firstChild,
     ).toMatchSnapshot();
     // should not insert space when there is icon
-    expect(mount(<Button icon={<SearchOutlined />}>按钮</Button>).render()).toMatchSnapshot();
+    expect(
+      render(<Button icon={<SearchOutlined />}>按钮</Button>).container.firstChild,
+    ).toMatchSnapshot();
     // should not insert space when there is icon while loading
     expect(
-      mount(
+      render(
         <Button icon={<SearchOutlined />} loading>
           按钮
         </Button>,
-      ).render(),
+      ).container.firstChild,
     ).toMatchSnapshot();
     // should insert space while loading
-    expect(mount(<Button loading>按钮</Button>).render()).toMatchSnapshot();
+    expect(render(<Button loading>按钮</Button>).container.firstChild).toMatchSnapshot();
 
     // should insert space while only one nested element
     expect(
-      mount(
+      render(
         <Button>
           <span>按钮</span>
         </Button>,
-      ).render(),
+      ).container.firstChild,
     ).toMatchSnapshot();
   });
 
@@ -107,20 +112,21 @@ describe('Button', () => {
 
   // https://github.com/ant-design/ant-design/issues/18118
   it('should not insert space to link or text button', () => {
-    const wrapper1 = mount(<Button type="link">按钮</Button>);
-    expect(wrapper1.text()).toBe('按钮');
-    const wrapper2 = mount(<Button type="text">按钮</Button>);
-    expect(wrapper2.text()).toBe('按钮');
+    const wrapper1 = render(<Button type="link">按钮</Button>);
+    expect(wrapper1.getByRole('button')).toHaveTextContent('按钮');
+    wrapper1.unmount();
+    const wrapper2 = render(<Button type="text">按钮</Button>);
+    expect(wrapper2.getByRole('button')).toHaveTextContent('按钮');
   });
 
   it('should render empty button without errors', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <Button>
         {null}
         {undefined}
       </Button>,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper.container.firstChild).toMatchSnapshot();
   });
 
   it('have static property for type detecting', () => {
@@ -147,9 +153,9 @@ describe('Button', () => {
         );
       }
     }
-    const wrapper = mount(<DefaultButton />);
-    wrapper.simulate('click');
-    expect(wrapper.find('.ant-btn-loading').length).toBe(1);
+    const wrapper = render(<DefaultButton />);
+    fireEvent.click(wrapper.container.firstChild!);
+    expect(wrapper.container.querySelectorAll('.ant-btn-loading').length).toBe(1);
   });
 
   it('should change loading state with delay', () => {
@@ -171,25 +177,22 @@ describe('Button', () => {
         );
       }
     }
-    const wrapper = mount(<DefaultButton />);
-    wrapper.simulate('click');
-    expect(wrapper.hasClass('ant-btn-loading')).toBe(false);
+    const wrapper = render(<DefaultButton />);
+    fireEvent.click(wrapper.container.firstChild!);
+    expect(wrapper.container.firstChild).not.toHaveClass('ant-btn-loading');
   });
 
   it('reset when loading back of delay', () => {
     jest.useFakeTimers();
-    const wrapper = mount(<Button loading={{ delay: 1000 }} />);
-    wrapper.update();
-    wrapper.setProps({ loading: { delay: 2000 } });
-    wrapper.update();
-    wrapper.setProps({ loading: false });
+    const { rerender, container } = render(<Button loading={{ delay: 1000 }} />);
+    rerender(<Button loading={{ delay: 2000 }} />);
+    rerender(<Button loading={false} />);
 
     act(() => {
       jest.runAllTimers();
-      wrapper.update();
     });
 
-    expect(wrapper.find('.ant-btn-loading')).toHaveLength(0);
+    expect(container.querySelectorAll('.ant-btn-loading')).toHaveLength(0);
 
     jest.useRealTimers();
   });
@@ -206,60 +209,55 @@ describe('Button', () => {
   });
 
   it('should support link button', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <Button target="_blank" href="https://ant.design">
         link button
       </Button>,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper.container.firstChild).toMatchSnapshot();
   });
 
   it('fixbug renders {0} , 0 and {false}', () => {
-    expect(mount(<Button>{0}</Button>).render()).toMatchSnapshot();
-    expect(mount(<Button>0</Button>).render()).toMatchSnapshot();
-    expect(mount(<Button>{false}</Button>).render()).toMatchSnapshot();
+    expect(render(<Button>{0}</Button>).container.firstChild).toMatchSnapshot();
+    expect(render(<Button>0</Button>).container.firstChild).toMatchSnapshot();
+    expect(render(<Button>{false}</Button>).container.firstChild).toMatchSnapshot();
   });
 
   it('should not render as link button when href is undefined', async () => {
-    const wrapper = mount(
+    const wrapper = render(
       <Button type="primary" href={undefined}>
         button
       </Button>,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper.container.firstChild).toMatchSnapshot();
   });
 
-  // https://github.com/ant-design/ant-design/issues/15342
+  // // https://github.com/ant-design/ant-design/issues/15342
   it('should merge text if children using variable', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <Button>
         {/* eslint-disable-next-line react/jsx-curly-brace-presence */}
         This {'is'} a test {1}
       </Button>,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper.container.firstChild).toMatchSnapshot();
   });
 
   it('should support to change loading', async () => {
-    const wrapper = mount(<Button>Button</Button>);
-    wrapper.setProps({ loading: true });
-    wrapper.update();
-    expect(wrapper.find('.ant-btn-loading').length).toBe(1);
-    wrapper.setProps({ loading: false });
-    wrapper.update();
-    expect(wrapper.find('.ant-btn-loading').length).toBe(0);
-    wrapper.setProps({ loading: { delay: 50 } });
-    wrapper.update();
-    expect(wrapper.find('.ant-btn-loading').length).toBe(0);
+    const { rerender, container, unmount } = render(<Button>Button</Button>);
+    rerender(<Button loading />);
+    expect(container.querySelectorAll('.ant-btn-loading').length).toBe(1);
+    rerender(<Button loading={false} />);
+    expect(container.querySelectorAll('.ant-btn-loading').length).toBe(0);
+    rerender(<Button loading={{ delay: 50 }} />);
+    expect(container.querySelectorAll('.ant-btn-loading').length).toBe(0);
     await sleep(50);
-    wrapper.update();
-    expect(wrapper.find('.ant-btn-loading').length).toBe(1);
-    wrapper.setProps({ loading: false });
+    expect(container.querySelectorAll('.ant-btn-loading').length).toBe(1);
+    rerender(<Button loading={false} />);
     await sleep(50);
-    wrapper.update();
-    expect(wrapper.find('.ant-btn-loading').length).toBe(0);
+    expect(container.querySelectorAll('.ant-btn-loading').length).toBe(0);
     expect(() => {
-      wrapper.unmount();
+      unmount();
     }).not.toThrow();
   });
 
@@ -281,7 +279,7 @@ describe('Button', () => {
   it('should warning when pass type=link and ghost=true', () => {
     resetWarned();
     const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    mount(<Button type="link" ghost />);
+    render(<Button type="link" ghost />);
     expect(warnSpy).toHaveBeenCalledWith(
       "Warning: [antd: Button] `link` or `text` button can't be a `ghost` button.",
     );
@@ -291,7 +289,7 @@ describe('Button', () => {
   it('should warning when pass type=text and ghost=true', () => {
     resetWarned();
     const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    mount(<Button type="text" ghost />);
+    render(<Button type="text" ghost />);
     expect(warnSpy).toHaveBeenCalledWith(
       "Warning: [antd: Button] `link` or `text` button can't be a `ghost` button.",
     );
@@ -299,14 +297,20 @@ describe('Button', () => {
   });
 
   it('skip check 2 words when ConfigProvider disable this', () => {
-    const wrapper = mount(
+    let buttonInstance: any;
+    render(
       <ConfigProvider autoInsertSpaceInButton={false}>
-        <Button>test</Button>
+        <Button
+          ref={node => {
+            buttonInstance = node;
+          }}
+        >
+          test
+        </Button>
       </ConfigProvider>,
     );
 
-    const btn = wrapper.find('button').instance();
-    Object.defineProperty(btn, 'textContent', {
+    Object.defineProperty(buttonInstance, 'textContent', {
       get() {
         throw new Error('Should not called!!!');
       },
@@ -326,12 +330,12 @@ describe('Button', () => {
 
   // https://github.com/ant-design/ant-design/issues/30953
   it('should handle fragment as children', () => {
-    const wrapper = mount(
+    const wrapper = render(
       <Button>
         {/* eslint-disable-next-line react/jsx-no-useless-fragment */}
         <>text</>
       </Button>,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper.container.firstChild).toMatchSnapshot();
   });
 });

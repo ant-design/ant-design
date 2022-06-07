@@ -1,14 +1,14 @@
-import * as React from 'react';
-import omit from 'rc-util/lib/omit';
-import type { Meta } from 'rc-field-form/lib/interface';
 import { FormProvider as RcFormProvider } from 'rc-field-form';
 import type { FormProviderProps as RcFormProviderProps } from 'rc-field-form/lib/FormContext';
+import type { Meta } from 'rc-field-form/lib/interface';
+import omit from 'rc-util/lib/omit';
 import type { FC, PropsWithChildren, ReactNode } from 'react';
-import { useMemo } from 'react';
+import * as React from 'react';
+import { useContext, useMemo } from 'react';
 import type { ColProps } from '../grid/col';
-import type { FormLabelAlign } from './interface';
 import type { FormInstance, RequiredMark } from './Form';
 import type { ValidateStatus } from './FormItem';
+import type { FormLabelAlign } from './interface';
 
 /** Form Context. Set top form style and pass to Form Item usage. */
 export interface FormContextProps {
@@ -63,10 +63,30 @@ export interface FormItemStatusContextProps {
 
 export const FormItemInputContext = React.createContext<FormItemStatusContextProps>({});
 
-export const NoFormStatus: FC<PropsWithChildren<{}>> = ({ children }: PropsWithChildren<{}>) => {
-  const emptyContext = useMemo(() => ({}), []);
+export type NoFormStyleProps = PropsWithChildren<{
+  status?: boolean;
+  override?: boolean;
+}>;
+
+export const NoFormStyle: FC<NoFormStyleProps> = ({ children, status, override }) => {
+  const formItemInputContext = useContext(FormItemInputContext);
+
+  const newFormItemInputContext = useMemo(() => {
+    const newContext = { ...formItemInputContext };
+    if (override) {
+      delete newContext.isFormItemInput;
+    }
+    if (status) {
+      delete newContext.status;
+      delete newContext.hasFeedback;
+      delete newContext.feedbackIcon;
+    }
+    return newContext;
+  }, [status, override, formItemInputContext]);
 
   return (
-    <FormItemInputContext.Provider value={emptyContext}>{children}</FormItemInputContext.Provider>
+    <FormItemInputContext.Provider value={newFormItemInputContext}>
+      {children}
+    </FormItemInputContext.Provider>
   );
 };
