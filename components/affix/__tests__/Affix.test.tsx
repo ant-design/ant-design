@@ -1,7 +1,7 @@
 import React from 'react';
 import type { ReactWrapper } from 'enzyme';
 import { mount } from 'enzyme';
-import type { AffixProps, AffixState } from '..';
+import type { AffixProps, AffixState, InternalAffixClass } from '..';
 import Affix from '..';
 import { getObserverEntities } from '../utils';
 import Button from '../../button';
@@ -60,7 +60,6 @@ describe('Affix Render', () => {
 
   const domMock = jest.spyOn(HTMLElement.prototype, 'getBoundingClientRect');
   let affixMounterWrapper: ReactWrapper<unknown, unknown, AffixMounter>;
-  let affixWrapper: ReactWrapper<AffixProps, AffixState, React.Component<AffixProps, AffixState>>;
 
   const classRect: Record<string, DOMRect> = {
     container: {
@@ -143,15 +142,35 @@ describe('Affix Render', () => {
   });
 
   describe('updatePosition when target changed', () => {
-    it('function change', () => {
+    it('function change', async () => {
       document.body.innerHTML = '<div id="mounter" />';
       const container = document.querySelector('#id') as HTMLDivElement;
       const getTarget = () => container;
-      affixWrapper = mount(<Affix target={getTarget}>{null}</Affix>);
-      affixWrapper.setProps({ target: () => null });
-      expect(affixWrapper.find('Affix').last().state().status).toBe(0);
-      expect(affixWrapper.find('Affix').last().state().affixStyle).toBe(undefined);
-      expect(affixWrapper.find('Affix').last().state().placeholderStyle).toBe(undefined);
+      let affixInstance: InternalAffixClass;
+      const { rerender } = render(
+        <Affix
+          ref={node => {
+            affixInstance = node as InternalAffixClass;
+          }}
+          target={getTarget}
+        >
+          {null}
+        </Affix>,
+      );
+      rerender(
+        <Affix
+          ref={node => {
+            affixInstance = node as InternalAffixClass;
+          }}
+          target={() => null}
+        >
+          {null}
+        </Affix>,
+      );
+      expect(affixInstance!.state.status).toBe(0);
+      expect(affixInstance!.state.affixStyle).toBe(undefined);
+      expect(affixInstance!.state.placeholderStyle).toBe(undefined);
+      await sleep(100);
     });
 
     it('instance change', async () => {
@@ -163,13 +182,12 @@ describe('Affix Render', () => {
 
       const originLength = getObserverLength();
       const getTarget = () => target;
-      affixWrapper = mount(<Affix target={getTarget}>{null}</Affix>);
+      const { rerender } = render(<Affix target={getTarget}>{null}</Affix>);
       await sleep(100);
 
       expect(getObserverLength()).toBe(originLength + 1);
       target = null;
-      affixWrapper.setProps({});
-      affixWrapper.update();
+      rerender(<Affix>{null}</Affix>);
       await sleep(100);
       expect(getObserverLength()).toBe(originLength);
     });
