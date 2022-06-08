@@ -1,4 +1,5 @@
 body {
+  color: @base-font-color;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell,
     'Helvetica Neue', sans-serif;
 }
@@ -12,6 +13,23 @@ body {
 @heading-3-size: ceil(@font-size-base * 1.71);
 @heading-4-size: ceil(@font-size-base);
 @heading-5-size: ceil(@font-size-base * 1.14);
+
+h1,
+.h1 {
+  font-weight: 600;
+  font-size: @heading-1-size;
+  line-height: 32px;
+}
+
+h2,
+.h2 {
+  font-size: @heading-2-size;
+}
+
+h4,
+.h4 {
+  font-size: @heading-4-size;
+}
 
 a,
 a.ant-typography,
@@ -99,7 +117,9 @@ a.ant-typography,
 }
 
 .bottom-link {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
 
   .ant-space {
@@ -111,6 +131,35 @@ a.ant-typography,
       line-height: 18px;
     }
   }
+
+  p {
+    margin: 0;
+
+    span {
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      margin: 0 5px;
+      vertical-align: middle;
+      background: #d1d5db;
+      border-radius: 50%;
+    }
+
+    a {
+      color: #374151;
+    }
+  }
+}
+
+// divider CSS
+.ant-divider-plain.ant-divider-with-text {
+  margin: 16px 0 24px 0;
+  color: #6b7280;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .page-content {
@@ -152,12 +201,12 @@ a.ant-typography,
 
 .ant-layout-header {
   height: auto;
-  padding: 0 35px;
+  padding: 0 32px;
   background: @white;
 }
 
 .ant-page-header {
-  padding: 16px 20px;
+  padding: 16px 0px 16px 10px;
 }
 
 .ant-page-header-heading-left {
@@ -203,11 +252,31 @@ a.ant-typography,
 .generate-box {
   padding: 42px 64px;
   border: 1px solid #e5e7eb;
+  @media screen and (max-width: 1439px) {
+    padding: 32px;
+  }
 }
 
 .generate-box-content {
-  width: 800px;
-  margin-right: 110px;
+  width: calc(100% - 226px);
+  margin: 0;
+  padding-right: 110px;
+  @media screen and (max-width: 1439px) {
+    width: calc(100% - 180px);
+    padding-right: 60px;
+  }
+}
+
+.generate-box-img {
+  width: 226px;
+  @media screen and (max-width: 1439px) {
+    width: 180px;
+  }
+  img {
+    @media screen and (max-width: 1439px) {
+      width: 180px;
+    }
+  }
 }
 
 .drag-content {
@@ -254,14 +323,66 @@ a.ant-typography,
 .no-data {
   padding-top: 96px;
   text-align: center;
+
   h5 {
     margin: 0 0 8px 0;
     font-weight: 500;
     font-size: @font-size-lg;
   }
+
   span {
     color: @base-font-color;
     font-size: @font-size-sm;
     line-height: 14px;
   }
+}
+
+.ant-page-header-heading-title {
+  font-weight: 700;
+}
+
+//User List and  Create User
+.filters {
+  .ant-select:not(.ant-select-customize-input) .ant-select-selector {
+    border: none;
+  }
+
+  span {
+    color: #6b7280;
+    font-weight: 400;
+    font-size: 14px;
+  }
+
+  .ant-space-item {
+    margin-left: 35px;
+  }
+}
+
+.ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input)
+  .ant-select-selector {
+  outline: 0;
+  box-shadow: none;
+}
+
+.ant-select-single .ant-select-selector .ant-select-selection-item {
+  color: #1f2937;
+}
+
+.ant-select-dropdown {
+  width: 250px !important;
+}
+
+.formitem-withtitle {
+  h5 {
+    margin-bottom: 12px;
+    padding: 0 0 10px 0;
+    color: #1f2937;
+    font-weight: 600;
+    font-size: 14px;
+    box-shadow: inset 0px -2px 0px #e5e7eb;
+  }
+}
+
+.ant-form {
+  height: 100%;
 }

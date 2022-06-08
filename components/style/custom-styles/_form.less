@@ -165,6 +165,7 @@
     background: transparent;
     border: none;
     box-shadow: none;
+
     &:hover {
       color: @b200;
     }
@@ -173,8 +174,7 @@
 
 // dropdown CSS
 
-.ant-dropdown-menu,
-.ant-dropdown {
+.ant-dropdown-menu {
   padding: 8px 0;
   background: @white;
   border: 1px solid @dg700;
@@ -291,9 +291,11 @@ div.ant-typography {
 
 .strength {
   text-align: right;
+
   > div {
     justify-content: flex-end;
   }
+
   &.weak {
     > div {
       .strength-length {
@@ -302,10 +304,12 @@ div.ant-typography {
         }
       }
     }
+
     .strength-word {
       color: @r500;
     }
   }
+
   &.fair {
     > div {
       .strength-length {
@@ -315,10 +319,12 @@ div.ant-typography {
         }
       }
     }
+
     .strength-word {
       color: @y500;
     }
   }
+
   &.good {
     > div {
       .strength-length {
@@ -329,21 +335,25 @@ div.ant-typography {
         }
       }
     }
+
     .strength-word {
       color: @g500;
     }
   }
+
   &.strong {
     > div {
       .strength-length {
         background: @g500;
       }
     }
+
     .strength-word {
       color: @g500;
     }
   }
 }
+
 .strength-length {
   width: 40px;
   height: 4px;
@@ -351,6 +361,7 @@ div.ant-typography {
   background: #e5e7eb;
   border-radius: 37px;
 }
+
 .strength-word {
   font-weight: 400;
   font-size: 14px;
@@ -361,9 +372,11 @@ div.ant-typography {
   display: flex;
   align-items: center;
   justify-content: center;
+
   input {
     width: 300px;
   }
+
   .custom-text {
     width: calc(100% - 300px);
     text-align: right;
