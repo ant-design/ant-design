@@ -80,7 +80,6 @@
   }
 
   &-extra {
-    float: right;
     // https://stackoverflow.com/a/22429853/3040605
     margin-left: auto;
     padding: @card-head-padding 0;
@@ -99,13 +98,17 @@
     .clearfix();
   }
 
+  &-contain-grid &-body {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
   &-contain-grid:not(&-loading) &-body {
     margin: -1px 0 0 -1px;
     padding: 0;
   }
 
   &-grid {
-    float: left;
     width: 33.33%;
     padding: @card-padding-base;
     border: 0;
@@ -114,10 +117,6 @@
       1px 1px 0 0 @border-color-split, 1px 0 0 0 @border-color-split inset,
       0 1px 0 0 @border-color-split inset;
     transition: all 0.3s;
-
-    .@{card-prefix-cls}-rtl & {
-      float: right;
-    }
 
     &-hoverable {
       &:hover {
@@ -155,6 +154,7 @@
   }
 
   &-actions {
+    display: flex;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -163,14 +163,9 @@
     .clearfix();
 
     & > li {
-      float: left;
       margin: @card-actions-li-margin;
       color: @text-color-secondary;
       text-align: center;
-
-      .@{card-prefix-cls}-rtl & {
-        float: right;
-      }
 
       > span {
         position: relative;
@@ -234,15 +229,14 @@
   }
 
   &-meta {
+    display: flex;
     margin: -4px 0;
     .clearfix();
 
     &-avatar {
-      float: left;
       padding-right: 16px;
 
       .@{card-prefix-cls}-rtl & {
-        float: right;
         padding-right: 0;
         padding-left: 16px;
       }
@@ -276,32 +270,6 @@
 
   &-loading &-body {
     user-select: none;
-  }
-
-  &-loading-content {
-    p {
-      margin: 0;
-    }
-  }
-
-  &-loading-block {
-    height: 14px;
-    margin: 4px 0;
-    background: linear-gradient(90deg, @gradient-min, @gradient-max, @gradient-min);
-    background-size: 600% 600%;
-    border-radius: @card-radius;
-    animation: card-loading 1.4s ease infinite;
-  }
-}
-
-@keyframes card-loading {
-  0%,
-  100% {
-    background-position: 0 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
   }
 }
 

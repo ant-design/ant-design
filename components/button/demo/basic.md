@@ -14,8 +14,8 @@ title:
 There are `primary` button, `default` button, `dashed` button, `text` button and `link` button in antd.
 
 ```tsx
-import React from 'react';
 import { Button } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <>

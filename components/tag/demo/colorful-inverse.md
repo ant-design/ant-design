@@ -15,8 +15,8 @@ debug: true
 Internal inverse color tag
 
 ```tsx
+import { Divider, Tag } from 'antd';
 import React from 'react';
-import { Tag, Divider } from 'antd';
 
 const App: React.FC = () => (
   <>

@@ -14,8 +14,8 @@ title:
 You can use the Input in conjunction with [Tooltip](/components/tooltip) component to create a Numeric Input, which can provide a good experience for extra-long content display.
 
 ```tsx
-import React, { useState } from 'react';
 import { Input, Tooltip } from 'antd';
+import React, { useState } from 'react';
 
 interface NumericInputProps {
   style: React.CSSProperties;

@@ -14,9 +14,9 @@ Checkbox.Group 内嵌 Checkbox 并与 Grid 组件一起使用，可以实现灵�
 We can use Checkbox and Grid in Checkbox.Group, to implement complex layout.
 
 ```tsx
-import React from 'react';
-import { Checkbox, Row, Col } from 'antd';
+import { Checkbox, Col, Row } from 'antd';
 import type { CheckboxValueType } from 'antd/es/checkbox/Group';
+import React from 'react';
 
 const onChange = (checkedValues: CheckboxValueType[]) => {
   console.log('checked = ', checkedValues);

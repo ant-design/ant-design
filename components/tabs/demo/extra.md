@@ -14,8 +14,8 @@ title:
 You can add extra actions to the right or left or even both side of Tabs.
 
 ```tsx
+import { Button, Checkbox, Divider, Tabs } from 'antd';
 import React, { useMemo, useState } from 'react';
-import { Tabs, Button, Divider, Checkbox } from 'antd';
 
 const { TabPane } = Tabs;
 

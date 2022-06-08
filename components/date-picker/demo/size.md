@@ -14,10 +14,10 @@ title:
 The input box comes in three sizes. `middle` will be used if `size` is omitted.
 
 ```tsx
-import React, { useState } from 'react';
-import { DatePicker, Radio, Space } from 'antd';
 import type { RadioChangeEvent } from 'antd';
+import { DatePicker, Radio, Space } from 'antd';
 import type { SizeType } from 'antd/es/config-provider/SizeContext';
+import React, { useState } from 'react';
 
 const { RangePicker } = DatePicker;
 

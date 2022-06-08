@@ -14,9 +14,9 @@ title:
 Displaying a series of comments using the `antd` List Component.
 
 ```tsx
-import React from 'react';
-import { Comment, Tooltip, List } from 'antd';
+import { Comment, List, Tooltip } from 'antd';
 import moment from 'moment';
+import React from 'react';
 
 const data = [
   {

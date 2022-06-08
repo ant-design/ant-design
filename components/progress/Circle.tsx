@@ -3,12 +3,13 @@ import { Circle as RCCircle } from 'rc-progress';
 import { presetPrimaryColors } from '@ant-design/colors';
 import classNames from 'classnames';
 import { validProgress, getSuccessPercent } from './utils';
-import type { ProgressProps } from './progress';
+import type { ProgressProps, ProgressGradient } from './progress';
 
 interface CircleProps extends ProgressProps {
   prefixCls: string;
   children: React.ReactNode;
   progressStatus: string;
+  strokeColor?: string | ProgressGradient;
 }
 
 function getPercentage({ percent, success, successPercent }: CircleProps) {
@@ -29,8 +30,8 @@ const Circle: React.FC<CircleProps> = props => {
     prefixCls,
     width,
     strokeWidth,
-    trailColor,
-    strokeLinecap,
+    trailColor = null as any,
+    strokeLinecap = 'round',
     gapPosition,
     gapDegree,
     type,
@@ -44,7 +45,7 @@ const Circle: React.FC<CircleProps> = props => {
     fontSize: circleSize * 0.15 + 6,
   } as React.CSSProperties;
   const circleWidth = strokeWidth || 6;
-  const gapPos = gapPosition || (type === 'dashboard' && 'bottom') || 'top';
+  const gapPos = gapPosition || (type === 'dashboard' && 'bottom') || undefined;
 
   const getGapDegree = () => {
     // Support gapDeg = 0 when type = 'dashboard'

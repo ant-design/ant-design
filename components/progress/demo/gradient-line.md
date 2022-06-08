@@ -14,8 +14,8 @@ title:
 A package of `linear-gradient`. It is recommended to only pass two colors.
 
 ```tsx
-import React from 'react';
 import { Progress } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <>

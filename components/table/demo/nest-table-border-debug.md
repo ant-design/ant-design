@@ -15,10 +15,10 @@ debug: true
 To see if bordered style applied to other tables.
 
 ```tsx
-import React, { useState } from 'react';
-import { Table, Badge, Menu, Dropdown, Switch, Form, Space } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
+import { Badge, Dropdown, Form, Menu, Space, Switch, Table } from 'antd';
 import type { ColumnsType } from 'antd/lib/table';
+import React, { useState } from 'react';
 
 interface DataType {
   key: React.Key;

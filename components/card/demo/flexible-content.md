@@ -14,8 +14,8 @@ title:
 You can use `Card.Meta` to support more flexible content.
 
 ```tsx
-import React from 'react';
 import { Card } from 'antd';
+import React from 'react';
 
 const { Meta } = Card;
 

@@ -14,8 +14,8 @@ title:
 Configurate `disabled` and `readOnly`.
 
 ```tsx
-import React from 'react';
 import { Mentions } from 'antd';
+import React from 'react';
 
 const { Option } = Mentions;
 

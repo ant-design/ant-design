@@ -14,9 +14,9 @@ title:
 Use a form in Drawer with a submit button.
 
 ```tsx
-import React, { useState } from 'react';
-import { Drawer, Form, Button, Col, Row, Input, Select, DatePicker, Space } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
+import { Button, Col, DatePicker, Drawer, Form, Input, Row, Select, Space } from 'antd';
+import React, { useState } from 'react';
 
 const { Option } = Select;
 

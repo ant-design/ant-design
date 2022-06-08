@@ -15,9 +15,9 @@ Buggy!
 Buggy!
 
 ```tsx
-import React, { useState } from 'react';
-import { Steps, Button } from 'antd';
 import type { StepsProps } from 'antd';
+import { Button, Steps } from 'antd';
+import React, { useState } from 'react';
 
 const { Step } = Steps;
 

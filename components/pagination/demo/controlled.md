@@ -14,9 +14,9 @@ title:
 Controlled page number.
 
 ```tsx
-import React, { useState } from 'react';
-import { Pagination } from 'antd';
 import type { PaginationProps } from 'antd';
+import { Pagination } from 'antd';
+import React, { useState } from 'react';
 
 const App: React.FC = () => {
   const [current, setCurrent] = useState(3);

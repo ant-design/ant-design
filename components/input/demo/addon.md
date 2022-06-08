@@ -14,9 +14,9 @@ title:
 Using pre & post tabs example.
 
 ```tsx
-import React from 'react';
-import { Input, Select, Space, Cascader } from 'antd';
 import { SettingOutlined } from '@ant-design/icons';
+import { Cascader, Input, Select, Space } from 'antd';
+import React from 'react';
 
 const { Option } = Select;
 

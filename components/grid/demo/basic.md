@@ -18,8 +18,8 @@ From the stack to the horizontal arrangement.
 You can create a basic grid system by using a single set of `Row` and `Col` grid assembly, all of the columns (Col) must be placed in `Row`.
 
 ```tsx
+import { Col, Row } from 'antd';
 import React from 'react';
-import { Row, Col } from 'antd';
 
 const App: React.FC = () => (
   <>

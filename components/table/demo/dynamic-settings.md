@@ -14,13 +14,13 @@ title:
 Select different settings to see the result.
 
 ```tsx
-import React, { useState } from 'react';
-import { Table, Switch, Radio, Form, Space } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
-import type { SizeType } from 'antd/lib/config-provider/SizeContext';
-import type { ExpandableConfig, TableRowSelection } from 'antd/lib/table/interface';
 import type { RadioChangeEvent } from 'antd';
+import { Form, Radio, Space, Switch, Table } from 'antd';
+import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import type { ColumnsType, TableProps } from 'antd/lib/table';
+import type { ExpandableConfig, TableRowSelection } from 'antd/lib/table/interface';
+import React, { useState } from 'react';
 
 interface DataType {
   key: number;

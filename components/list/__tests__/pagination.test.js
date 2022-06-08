@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, mount } from 'enzyme';
+import { fireEvent, render } from '../../../tests/utils';
 import List from '..';
 import { noop } from '../../_util/warning';
 
@@ -26,47 +26,58 @@ describe('List.pagination', () => {
   }
 
   function renderedNames(wrapper) {
-    return wrapper.find('.ant-list-item').map(row => row.text());
+    return Array.prototype.map.call(
+      wrapper.querySelectorAll('.ant-list-item'),
+      row => row.textContent,
+    );
   }
 
   it('renders pagination correctly', () => {
-    const wrapper = render(createList());
-    expect(wrapper).toMatchSnapshot();
+    const { container } = render(createList());
+    expect(container.firstChild).toMatchSnapshot();
   });
 
   it('should not show pager if pagination.hideOnSinglePage is true and only 1 page', () => {
-    const wrapper = mount(createList({ pagination: { pageSize: 3, hideOnSinglePage: true } }));
-    expect(wrapper.find('.ant-pagination')).toHaveLength(1);
-    wrapper.setProps({ pagination: { pageSize: 3, hideOnSinglePage: false } });
-    expect(wrapper.find('.ant-pagination')).toHaveLength(1);
-    wrapper.setProps({ pagination: { pageSize: 4, hideOnSinglePage: true } });
-    expect(wrapper.find('.ant-pagination')).toHaveLength(0);
-    wrapper.setProps({ pagination: { pageSize: 4, hideOnSinglePage: false } });
-    expect(wrapper.find('.ant-pagination')).toHaveLength(1);
-    wrapper.setProps({ pagination: { pageSize: 5, hideOnSinglePage: true } });
-    expect(wrapper.find('.ant-pagination')).toHaveLength(0);
-    wrapper.setProps({ pagination: { pageSize: 5, hideOnSinglePage: false } });
-    expect(wrapper.find('.ant-pagination')).toHaveLength(1);
+    const { container: wrapper, rerender } = render(
+      createList({
+        pagination: {
+          pageSize: 3,
+          hideOnSinglePage: true,
+        },
+      }),
+    );
+    expect(wrapper.querySelectorAll('.ant-pagination')).toHaveLength(1);
+    rerender(createList({ pagination: { pageSize: 3, hideOnSinglePage: false } }));
+    expect(wrapper.querySelectorAll('.ant-pagination')).toHaveLength(1);
+    rerender(createList({ pagination: { pageSize: 4, hideOnSinglePage: true } }));
+    expect(wrapper.querySelectorAll('.ant-pagination')).toHaveLength(0);
+    rerender(createList({ pagination: { pageSize: 4, hideOnSinglePage: false } }));
+    expect(wrapper.querySelectorAll('.ant-pagination')).toHaveLength(1);
+    rerender(createList({ pagination: { pageSize: 5, hideOnSinglePage: true } }));
+    expect(wrapper.querySelectorAll('.ant-pagination')).toHaveLength(0);
+    rerender(createList({ pagination: { pageSize: 5, hideOnSinglePage: false } }));
+    expect(wrapper.querySelectorAll('.ant-pagination')).toHaveLength(1);
   });
 
   it('paginate data', () => {
-    const wrapper = mount(createList());
-
+    const { container: wrapper } = render(createList());
     expect(renderedNames(wrapper)).toEqual(['Jack', 'Lucy']);
-    wrapper.find('Pager').last().simulate('click');
+
+    const paginationItems = wrapper.querySelectorAll('.ant-pagination-item');
+    fireEvent.click(paginationItems[paginationItems.length - 1]);
     expect(renderedNames(wrapper)).toEqual(['Tom', 'Jerry']);
   });
 
   it('repaginates when pageSize change', () => {
-    const wrapper = mount(createList());
+    const { container: wrapper, rerender } = render(createList());
 
-    wrapper.setProps({ pagination: { pageSize: 1 } });
+    rerender(createList({ pagination: { pageSize: 1 } }));
     expect(renderedNames(wrapper)).toEqual(['Jack']);
   });
 
   it('fires change event', () => {
     const handlePaginationChange = jest.fn();
-    const wrapper = mount(
+    const { container: wrapper } = render(
       createList({
         pagination: {
           ...pagination,
@@ -76,7 +87,8 @@ describe('List.pagination', () => {
       }),
     );
 
-    wrapper.find('Pager').last().simulate('click');
+    const paginationItems = wrapper.querySelectorAll('.ant-pagination-item');
+    fireEvent.click(paginationItems[paginationItems.length - 1]);
 
     expect(handlePaginationChange).toHaveBeenCalledWith(2, 2);
   });
@@ -84,56 +96,70 @@ describe('List.pagination', () => {
   // https://github.com/ant-design/ant-design/issues/4532
   // https://codepen.io/afc163/pen/pWVRJV?editors=001
   it('should display pagination as prop pagination change between true and false', () => {
-    const wrapper = mount(createList());
-    expect(wrapper.find('.ant-pagination')).toHaveLength(1);
-    expect(wrapper.find('.ant-pagination-item')).toHaveLength(2);
-    wrapper.setProps({ pagination: false });
-    expect(wrapper.find('.ant-pagination')).toHaveLength(0);
-    wrapper.setProps({ pagination });
-    wrapper.update();
-    expect(wrapper.find('.ant-pagination')).toHaveLength(1);
-    expect(wrapper.find('.ant-pagination-item')).toHaveLength(2);
-    wrapper.find('.ant-pagination-item-2').simulate('click');
+    const { container: wrapper, rerender } = render(createList());
+    expect(wrapper.querySelectorAll('.ant-pagination')).toHaveLength(1);
+    expect(wrapper.querySelectorAll('.ant-pagination-item')).toHaveLength(2);
+
+    rerender(createList({ pagination: false }));
+    expect(wrapper.querySelectorAll('.ant-pagination')).toHaveLength(0);
+
+    rerender(createList({ pagination }));
+    expect(wrapper.querySelectorAll('.ant-pagination')).toHaveLength(1);
+    expect(wrapper.querySelectorAll('.ant-pagination-item')).toHaveLength(2);
+
+    fireEvent.click(wrapper.querySelector('.ant-pagination-item-2'));
     expect(renderedNames(wrapper)).toEqual(['Tom', 'Jerry']);
-    wrapper.setProps({ pagination: false });
-    expect(wrapper.find('.ant-pagination')).toHaveLength(0);
-    wrapper.setProps({ pagination: true });
-    expect(wrapper.find('.ant-pagination')).toHaveLength(1);
+
+    rerender(createList({ pagination: false }));
+    expect(wrapper.querySelectorAll('.ant-pagination')).toHaveLength(0);
+
+    rerender(createList({ pagination: true }));
+    expect(wrapper.querySelectorAll('.ant-pagination')).toHaveLength(1);
     // Legacy code will make pageSize ping with 10, here we fixed to keep sync by current one
-    expect(wrapper.find('.ant-pagination-item')).toHaveLength(2);
+    expect(wrapper.querySelectorAll('.ant-pagination-item')).toHaveLength(2);
     expect(renderedNames(wrapper)).toEqual(['Tom', 'Jerry']);
   });
 
   // https://github.com/ant-design/ant-design/issues/5259
   it('change to correct page when data source changes', () => {
-    const wrapper = mount(createList({ pagination: { pageSize: 1 } }));
-    wrapper.find('.ant-pagination-item-3').simulate('click');
-    wrapper.setProps({ dataSource: [data[0]] });
-    expect(wrapper.find('.ant-pagination-item-1').hasClass('ant-pagination-item-active')).toBe(
-      true,
+    const { container: wrapper, rerender } = render(createList({ pagination: { pageSize: 1 } }));
+    fireEvent.click(wrapper.querySelector('.ant-pagination-item-3'));
+    rerender(createList({ dataSource: [data[0]] }));
+    expect(wrapper.querySelector('.ant-pagination-item-1')).toHaveClass(
+      'ant-pagination-item-active',
     );
   });
 
   it('specify the position of pagination', () => {
-    const wrapper = mount(createList({ pagination: { position: 'top' } }));
-    expect(wrapper.find('.ant-list').childAt(0).find('.ant-pagination')).toHaveLength(1);
-    wrapper.setProps({ pagination: { position: 'bottom' } });
-    expect(wrapper.find('.ant-list').children().last().find('.ant-pagination')).toHaveLength(1);
-    wrapper.setProps({ pagination: { position: 'both' } });
-    expect(wrapper.find('.ant-pagination')).toHaveLength(2);
-    expect(wrapper.find('.ant-list').childAt(0).find('.ant-pagination')).toHaveLength(1);
-    expect(wrapper.find('.ant-list').children().last().find('.ant-pagination')).toHaveLength(1);
+    const { container: wrapper, rerender } = render(
+      createList({ pagination: { position: 'top' } }),
+    );
+    expect(wrapper.querySelector('.ant-list').querySelectorAll('.ant-pagination')).toHaveLength(1);
+
+    rerender(createList({ pagination: { position: 'bottom' } }));
+    expect(
+      wrapper.querySelector('.ant-list').lastElementChild.querySelectorAll('.ant-pagination'),
+    ).toHaveLength(1);
+
+    rerender(createList({ pagination: { position: 'both' } }));
+    expect(wrapper.querySelectorAll('.ant-pagination')).toHaveLength(2);
+    expect(
+      wrapper.querySelector('.ant-list').firstElementChild.querySelectorAll('.ant-pagination'),
+    ).toHaveLength(1);
+    expect(
+      wrapper.querySelector('.ant-list').lastElementChild.querySelectorAll('.ant-pagination'),
+    ).toHaveLength(1);
   });
 
   it('should change page size work', () => {
-    const wrapper = mount(createList({ pagination: { showSizeChanger: true } }));
-    expect(wrapper.find('Pagination').first().render()).toMatchSnapshot();
+    const { container: wrapper } = render(createList({ pagination: { showSizeChanger: true } }));
+    expect(wrapper.querySelector('.ant-pagination')).toMatchSnapshot();
 
-    wrapper.find('.ant-select-selector').simulate('mousedown');
-    wrapper.find('.ant-select-item-option').at(2).simulate('click');
+    fireEvent.mouseDown(wrapper.querySelector('.ant-select-selector'));
+    fireEvent.click(wrapper.querySelectorAll('.ant-select-item-option')[2]);
 
-    wrapper.find('.ant-select-selector').simulate('mousedown');
-    expect(wrapper.find('Pagination').first().render()).toMatchSnapshot();
+    fireEvent.mouseDown(wrapper.querySelector('.ant-select-selector'));
+    expect(wrapper.querySelector('.ant-pagination')).toMatchSnapshot();
   });
 
   // https://github.com/ant-design/ant-design/issues/24913
@@ -141,7 +167,7 @@ describe('List.pagination', () => {
   it('should onChange called when pageSize change', () => {
     const handlePaginationChange = jest.fn();
     const handlePageSizeChange = () => {};
-    const wrapper = mount(
+    const { container: wrapper } = render(
       createList({
         pagination: {
           ...pagination,
@@ -152,13 +178,13 @@ describe('List.pagination', () => {
       }),
     );
 
-    wrapper.find('.ant-select-selector').simulate('mousedown');
-    wrapper.find('.ant-select-item-option').at(1).simulate('click');
+    fireEvent.mouseDown(wrapper.querySelector('.ant-select-selector'));
+    fireEvent.click(wrapper.querySelectorAll('.ant-select-item-option')[1]);
     expect(handlePaginationChange).toHaveBeenCalledWith(1, 10);
   });
 
   it('should default work', () => {
-    const wrapper = mount(
+    const { container: wrapper } = render(
       createList({
         pagination: {
           defaultPageSize: 3,
@@ -169,11 +195,11 @@ describe('List.pagination', () => {
       }),
     );
 
-    expect(wrapper.find('Pagination').first().render()).toMatchSnapshot();
+    expect(wrapper.querySelector('.ant-pagination')).toMatchSnapshot();
   });
 
   it('should not crash when pagination is null', () => {
-    mount(
+    render(
       createList({
         pagination: null,
       }),

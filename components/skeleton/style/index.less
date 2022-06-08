@@ -34,7 +34,6 @@
     .@{skeleton-title-prefix-cls} {
       width: 100%;
       height: @skeleton-title-height;
-      margin-top: @margin-md;
       background: @skeleton-color;
       border-radius: @skeleton-block-radius;
 
@@ -262,23 +261,34 @@
 }
 
 .skeleton-color() {
-  background: linear-gradient(
-    90deg,
-    @skeleton-color 25%,
-    @skeleton-to-color 37%,
-    @skeleton-color 63%
-  );
-  background-size: 400% 100%;
-  animation: ~'@{skeleton-prefix-cls}-loading' 1.4s ease infinite;
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+
+  &::after {
+    position: absolute;
+    top: 0;
+    right: -150%;
+    bottom: 0;
+    left: -150%;
+    background: linear-gradient(
+      90deg,
+      @skeleton-color 25%,
+      @skeleton-to-color 37%,
+      @skeleton-color 63%
+      );
+    animation: ~'@{skeleton-prefix-cls}-loading' 1.4s ease infinite;
+    content: "";
+  }
 }
 
 @keyframes ~"@{skeleton-prefix-cls}-loading" {
   0% {
-    background-position: 100% 50%;
+    transform: translateX(-37.5%);
   }
 
   100% {
-    background-position: 0 50%;
+    transform: translateX(37.5%);
   }
 }
 

@@ -14,10 +14,10 @@ title:
 There are two built-in themes: `light` and `dark`. The default value is `light`.
 
 ```tsx
-import React, { useState } from 'react';
+import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
+import type { MenuProps, MenuTheme } from 'antd';
 import { Menu, Switch } from 'antd';
-import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
-import type { MenuTheme, MenuProps } from 'antd';
+import React, { useState } from 'react';
 
 type MenuItem = Required<MenuProps>['items'][number];
 

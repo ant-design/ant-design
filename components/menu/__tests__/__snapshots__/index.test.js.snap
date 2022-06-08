@@ -162,6 +162,167 @@ Array [
 ]
 `;
 
+exports[`Menu all types must be available in the "items" syntax 1`] = `
+Array [
+  <ul
+    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+    data-menu-list="true"
+    role="menu"
+    tabindex="0"
+  >
+    <li
+      class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
+      role="none"
+    >
+      <div
+        aria-controls="rc-menu-uuid-test-submenu-popup"
+        aria-expanded="true"
+        aria-haspopup="true"
+        class="ant-menu-submenu-title"
+        data-menu-id="rc-menu-uuid-test-submenu"
+        role="menuitem"
+        style="padding-left: 24px;"
+        tabindex="-1"
+      >
+        <span
+          class="ant-menu-title-content"
+        >
+          Submenu
+        </span>
+        <i
+          class="ant-menu-submenu-arrow"
+        />
+      </div>
+      <ul
+        class="ant-menu ant-menu-sub ant-menu-inline"
+        data-menu-list="true"
+        id="rc-menu-uuid-test-submenu-popup"
+      >
+        <li
+          class="ant-menu-item ant-menu-item-only-child"
+          data-menu-id="rc-menu-uuid-test-submenu-item1"
+          role="menuitem"
+          style="padding-left: 48px;"
+          tabindex="-1"
+        >
+          <span
+            class="ant-menu-title-content"
+          >
+            SubmenuItem 1
+          </span>
+        </li>
+        <li
+          class="ant-menu-item ant-menu-item-only-child"
+          data-menu-id="rc-menu-uuid-test-submenu-item2"
+          role="menuitem"
+          style="padding-left: 48px;"
+          tabindex="-1"
+        >
+          <span
+            class="ant-menu-title-content"
+          >
+            SubmenuItem 2
+          </span>
+        </li>
+      </ul>
+    </li>
+    <li
+      class="ant-menu-item-divider"
+    />
+    <li
+      class="ant-menu-item-group"
+    >
+      <div
+        class="ant-menu-item-group-title"
+        title="Group"
+      >
+        Group
+      </div>
+      <ul
+        class="ant-menu-item-group-list"
+      >
+        <li
+          class="ant-menu-item ant-menu-item-only-child"
+          data-menu-id="rc-menu-uuid-test-group-item"
+          role="menuitem"
+          style="padding-left: 24px;"
+          tabindex="-1"
+        >
+          <span
+            class="ant-menu-title-content"
+          >
+            GroupItem
+          </span>
+        </li>
+        <li
+          class="ant-menu-item-divider"
+        />
+        <li
+          class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
+          role="none"
+        >
+          <div
+            aria-controls="rc-menu-uuid-test-group-submenu-popup"
+            aria-expanded="true"
+            aria-haspopup="true"
+            class="ant-menu-submenu-title"
+            data-menu-id="rc-menu-uuid-test-group-submenu"
+            role="menuitem"
+            style="padding-left: 24px;"
+            tabindex="-1"
+          >
+            <span
+              class="ant-menu-title-content"
+            >
+              GroupSubmenu
+            </span>
+            <i
+              class="ant-menu-submenu-arrow"
+            />
+          </div>
+          <ul
+            class="ant-menu ant-menu-sub ant-menu-inline"
+            data-menu-list="true"
+            id="rc-menu-uuid-test-group-submenu-popup"
+          >
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-test-group-submenu-item1"
+              role="menuitem"
+              style="padding-left: 48px;"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                GroupSubmenuItem 1
+              </span>
+            </li>
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-test-group-submenu-item2"
+              role="menuitem"
+              style="padding-left: 48px;"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                GroupSubmenuItem 2
+              </span>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>,
+  <div
+    aria-hidden="true"
+    style="display: none;"
+  />,
+]
+`;
+
 exports[`Menu rtl render component should be rendered correctly in RTL direction 1`] = `
 Array [
   <ul

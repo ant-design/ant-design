@@ -14,10 +14,10 @@ title:
 A basic calendar component with Year/Month switch.
 
 ```tsx
-import React from 'react';
 import { Calendar } from 'antd';
 import type { CalendarMode } from 'antd/lib/calendar/generateCalendar';
 import type { Moment } from 'moment';
+import React from 'react';
 
 const App: React.FC = () => {
   const onPanelChange = (value: Moment, mode: CalendarMode) => {

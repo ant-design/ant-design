@@ -14,11 +14,11 @@ title:
 Animating the Tag by using [rc-tween-one](https://github.com/react-component/tween-one).
 
 ```tsx
-import React, { useEffect, useState, useRef } from 'react';
-import { Tag, Input } from 'antd';
-import { TweenOneGroup } from 'rc-tween-one';
 import { PlusOutlined } from '@ant-design/icons';
 import type { InputRef } from 'antd';
+import { Input, Tag } from 'antd';
+import { TweenOneGroup } from 'rc-tween-one';
+import React, { useEffect, useRef, useState } from 'react';
 
 const App: React.FC = () => {
   const [tags, setTags] = useState<string[]>(['Tag 1', 'Tag 2', 'Tag 3']);

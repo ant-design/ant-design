@@ -14,8 +14,8 @@ title:
 You could display an arrow.
 
 ```tsx
+import { Button, Dropdown, Menu } from 'antd';
 import React from 'react';
-import { Menu, Dropdown, Button } from 'antd';
 
 const menu = (
   <Menu

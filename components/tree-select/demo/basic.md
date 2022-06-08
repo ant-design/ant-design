@@ -14,8 +14,8 @@ title:
 The most basic usage.
 
 ```tsx
-import React, { useState } from 'react';
 import { TreeSelect } from 'antd';
+import React, { useState } from 'react';
 
 const { TreeNode } = TreeSelect;
 

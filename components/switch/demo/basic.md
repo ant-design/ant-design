@@ -14,8 +14,8 @@ title:
 The most basic usage.
 
 ```tsx
-import React from 'react';
 import { Switch } from 'antd';
+import React from 'react';
 
 const onChange = (checked: boolean) => {
   console.log(`switch to ${checked}`);

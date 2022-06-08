@@ -14,8 +14,8 @@ title:
 We can customize the rendering of date cells in the calendar by providing a `dateRender` function to `DatePicker`.
 
 ```tsx
-import React from 'react';
 import { DatePicker, Space } from 'antd';
+import React from 'react';
 
 const { RangePicker } = DatePicker;
 
