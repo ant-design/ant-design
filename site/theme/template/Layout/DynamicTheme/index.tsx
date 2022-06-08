@@ -16,7 +16,11 @@ export interface ThemeConfigProps {
   onChangeTheme: (theme: SeedToken) => void;
 }
 
-export default ({ onChangeTheme, defaultToken, componentName }: ThemeConfigProps) => {
+export default function DynamicTheme({
+  onChangeTheme,
+  defaultToken,
+  componentName,
+}: ThemeConfigProps) {
   const { formatMessage } = useIntl();
   const [visible, setVisible] = React.useState(false);
   const [previewVisible, setPreviewVisible] = React.useState(false);
@@ -130,4 +134,4 @@ export default ({ onChangeTheme, defaultToken, componentName }: ThemeConfigProps
       />
     </>
   );
-};
+}

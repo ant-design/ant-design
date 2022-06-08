@@ -214,7 +214,7 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = token => {
 
         [radioInnerPrefixCls]: {
           backgroundColor: colorBgComponentDisabled,
-          borderColor: `${colorBorder} !important`,
+          borderColor: colorBorder,
           cursor: 'not-allowed',
 
           '&::after': {

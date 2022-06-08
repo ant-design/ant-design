@@ -300,6 +300,8 @@ class Affix extends React.Component<InternalAffixProps, AffixState> {
     );
   }
 }
+// just use in test
+export type InternalAffixClass = Affix;
 
 const AffixFC = React.forwardRef<Affix, AffixProps>((props, ref) => {
   const { prefixCls: customizePrefixCls } = props;
