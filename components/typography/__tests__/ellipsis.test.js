@@ -1,9 +1,7 @@
 import React from 'react';
-import { mount } from 'enzyme';
 import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 import Base from '../Base';
-import Typography from '../Typography';
-import { sleep } from '../../../tests/utils';
+import { fireEvent, render, sleep, triggerResize, waitFor } from '../../../tests/utils';
 // eslint-disable-next-line no-unused-vars
 import * as styleChecker from '../../_util/styleChecker';
 
@@ -53,47 +51,59 @@ describe('Typography.Ellipsis', () => {
     'Bamboo is Little Light Bamboo is Little Light Bamboo is Little Light Bamboo is Little Light Bamboo is Little Light';
 
   it('should trigger update', async () => {
+    const ref = React.createRef();
     const onEllipsis = jest.fn();
-    const wrapper = mount(
-      <Base ellipsis={{ onEllipsis }} component="p" editable>
+    const {
+      container: wrapper,
+      rerender,
+      unmount,
+    } = render(
+      <Base ellipsis={{ onEllipsis }} component="p" editable ref={ref}>
         {fullStr}
       </Base>,
     );
 
-    // First resize
-    wrapper.triggerResize();
+    triggerResize(ref.current);
     await sleep(20);
-    wrapper.update();
-    expect(wrapper.text()).toEqual('Bamboo is Little ...');
+
+    expect(wrapper.firstChild.textContent).toEqual('Bamboo is Little ...');
     expect(onEllipsis).toHaveBeenCalledWith(true);
     onEllipsis.mockReset();
 
     // Second resize
-    wrapper.setProps({ ellipsis: { rows: 2, onEllipsis } });
-    await sleep(20);
-    wrapper.update();
-    expect(wrapper.text()).toEqual('Bamboo is Little Light Bamboo is Litt...');
+    rerender(
+      <Base ellipsis={{ rows: 2, onEllipsis }} component="p" editable>
+        {fullStr}
+      </Base>,
+    );
+    expect(wrapper.textContent).toEqual('Bamboo is Little Light Bamboo is Litt...');
     expect(onEllipsis).not.toHaveBeenCalled();
 
     // Third resize
-    wrapper.setProps({ ellipsis: { rows: 99, onEllipsis } });
-    await sleep(20);
-    wrapper.update();
-    expect(wrapper.find('p').text()).toEqual(fullStr);
+    rerender(
+      <Base ellipsis={{ rows: 99, onEllipsis }} component="p" editable>
+        {fullStr}
+      </Base>,
+    );
+    expect(wrapper.querySelector('p').textContent).toEqual(fullStr);
     expect(onEllipsis).toHaveBeenCalledWith(false);
 
-    wrapper.unmount();
+    unmount();
   });
 
   it('support css multiple lines', async () => {
-    const wrapper = mount(
+    const { container: wrapper } = render(
       <Base ellipsis={{ rows: 2 }} component="p">
         {fullStr}
       </Base>,
     );
 
-    expect(wrapper.exists('.ant-typography-ellipsis-multiple-line')).toBeTruthy();
-    expect(wrapper.find(Typography).prop('style').WebkitLineClamp).toEqual(2);
+    expect(
+      wrapper.querySelectorAll('.ant-typography-ellipsis-multiple-line').length,
+    ).toBeGreaterThan(0);
+    expect(
+      wrapper.querySelector('.ant-typography-ellipsis-multiple-line').style.WebkitLineClamp,
+    ).toEqual('2');
   });
 
   it('string with parentheses', async () => {
@@ -105,71 +115,87 @@ describe('Typography.Ellipsis', () => {
         design language for background applications, is refined by Ant UED Team.
         Ant Design, a design language for background applications, is refined by
         Ant UED Team.`;
+    const ref = React.createRef();
     const onEllipsis = jest.fn();
-    const wrapper = mount(
-      <Base ellipsis={{ onEllipsis }} component="p" editable>
+    const { container: wrapper, unmount } = render(
+      <Base ellipsis={{ onEllipsis }} component="p" editable ref={ref}>
         {parenthesesStr}
       </Base>,
     );
 
-    wrapper.triggerResize();
+    triggerResize(ref.current);
     await sleep(20);
-    wrapper.update();
-    expect(wrapper.text()).toEqual('Ant Design, a des...');
-    const ellipsisSpan = wrapper.find('span[aria-hidden]').last();
-    expect(ellipsisSpan.text()).toEqual('...');
+
+    expect(wrapper.firstChild.textContent).toEqual('Ant Design, a des...');
+    const ellipsisSpans = wrapper.querySelectorAll('span[aria-hidden]');
+    expect(ellipsisSpans[ellipsisSpans.length - 1].textContent).toEqual('...');
     onEllipsis.mockReset();
 
-    wrapper.unmount();
+    unmount();
   });
 
   it('should middle ellipsis', async () => {
     const suffix = '--suffix';
-    const wrapper = mount(
-      <Base ellipsis={{ rows: 1, suffix }} component="p">
+    const ref = React.createRef();
+    const { container: wrapper, unmount } = render(
+      <Base ellipsis={{ rows: 1, suffix }} component="p" ref={ref}>
         {fullStr}
       </Base>,
     );
 
-    wrapper.triggerResize();
+    triggerResize(ref.current);
     await sleep(20);
-    wrapper.update();
-    expect(wrapper.find('p').text()).toEqual('Bamboo is...--suffix');
-    wrapper.unmount();
+
+    expect(wrapper.querySelector('p').textContent).toEqual('Bamboo is...--suffix');
+    unmount();
   });
 
   it('should front or middle ellipsis', async () => {
     const suffix = '--The information is very important';
-    const wrapper = mount(
-      <Base ellipsis={{ rows: 1, suffix }} component="p">
+    const ref = React.createRef();
+    const {
+      container: wrapper,
+      rerender,
+      unmount,
+    } = render(
+      <Base ellipsis={{ rows: 1, suffix }} component="p" ref={ref}>
         {fullStr}
       </Base>,
     );
 
-    wrapper.triggerResize();
+    triggerResize(ref.current);
     await sleep(20);
-    wrapper.update();
-    expect(wrapper.find('p').text()).toEqual('...--The information is very important');
 
-    wrapper.setProps({ ellipsis: { rows: 2, suffix } });
-    await sleep(20);
-    wrapper.update();
-    expect(wrapper.find('p').text()).toEqual('Ba...--The information is very important');
+    expect(wrapper.querySelector('p').textContent).toEqual(
+      '...--The information is very important',
+    );
 
-    wrapper.setProps({ ellipsis: { rows: 99, suffix } });
-    await sleep(20);
-    wrapper.update();
-    expect(wrapper.find('p').text()).toEqual(fullStr + suffix);
+    rerender(
+      <Base ellipsis={{ rows: 2, suffix }} component="p">
+        {fullStr}
+      </Base>,
+    );
+    expect(wrapper.querySelector('p').textContent).toEqual(
+      'Ba...--The information is very important',
+    );
 
-    wrapper.unmount();
+    rerender(
+      <Base ellipsis={{ rows: 99, suffix }} component="p">
+        {fullStr}
+      </Base>,
+    );
+    expect(wrapper.querySelector('p').textContent).toEqual(fullStr + suffix);
+
+    unmount();
   });
 
   it('connect children', async () => {
     const bamboo = 'Bamboo';
     const is = ' is ';
 
-    const wrapper = mount(
-      <Base ellipsis component="p" editable>
+    const ref = React.createRef();
+    const { container: wrapper } = render(
+      <Base ellipsis component="p" editable ref={ref}>
         {bamboo}
         {is}
         <code>Little</code>
@@ -177,54 +203,49 @@ describe('Typography.Ellipsis', () => {
       </Base>,
     );
 
-    wrapper.triggerResize();
+    triggerResize(ref.current);
     await sleep(20);
-    wrapper.update();
 
-    expect(wrapper.text()).toEqual('Bamboo is Little...');
+    expect(wrapper.textContent).toEqual('Bamboo is Little...');
   });
 
   it('should expandable work', async () => {
     const onExpand = jest.fn();
-    const wrapper = mount(
+    const { container: wrapper } = render(
       <Base ellipsis={{ expandable: true, onExpand }} component="p" copyable editable>
         {fullStr}
       </Base>,
     );
 
-    await sleep(20);
-    wrapper.update();
-
-    wrapper.find('.ant-typography-expand').simulate('click');
+    fireEvent.click(wrapper.querySelector('.ant-typography-expand'));
     expect(onExpand).toHaveBeenCalled();
-    await sleep(20);
-    wrapper.update();
-
-    expect(wrapper.find('p').text()).toEqual(fullStr);
+    expect(wrapper.querySelector('p').textContent).toEqual(fullStr);
   });
 
   it('should have custom expand style', async () => {
     const symbol = 'more';
-    const wrapper = mount(
+    const { container: wrapper } = render(
       <Base ellipsis={{ expandable: true, symbol }} component="p">
         {fullStr}
       </Base>,
     );
-    await sleep(20);
-    wrapper.update();
-    expect(wrapper.find('.ant-typography-expand').text()).toEqual('more');
+    expect(wrapper.querySelector('.ant-typography-expand').textContent).toEqual('more');
   });
 
   it('can use css ellipsis', () => {
-    const wrapper = mount(<Base ellipsis component="p" />);
-    expect(wrapper.find('.ant-typography-ellipsis-single-line').length).toBeTruthy();
+    const { container: wrapper } = render(<Base ellipsis component="p" />);
+    expect(wrapper.querySelectorAll('.ant-typography-ellipsis-single-line').length).toBeGreaterThan(
+      0,
+    );
   });
 
   it('should calculate padding', () => {
-    const wrapper = mount(
+    const { container: wrapper } = render(
       <Base ellipsis component="p" style={{ paddingTop: '12px', paddingBottom: '12px' }} />,
     );
-    expect(wrapper.find('.ant-typography-ellipsis-single-line').length).toBeTruthy();
+    expect(wrapper.querySelectorAll('.ant-typography-ellipsis-single-line').length).toBeGreaterThan(
+      0,
+    );
   });
 
   describe('should tooltip support', () => {
@@ -245,40 +266,52 @@ describe('Typography.Ellipsis', () => {
       domSpy.mockRestore();
     });
 
-    function getWrapper(tooltip) {
-      return mount(
-        <Base ellipsis={{ tooltip }} component="p">
+    async function getWrapper(tooltip) {
+      const ref = React.createRef();
+      const wrapper = render(
+        <Base ellipsis={{ tooltip }} component="p" ref={ref}>
           {fullStr}
         </Base>,
       );
+      triggerResize(ref.current);
+      await sleep(20);
+      return wrapper;
     }
 
     it('boolean', async () => {
-      const wrapper = getWrapper(true);
-      await sleep(20);
-      wrapper.update();
-
-      expect(wrapper.find('Tooltip').prop('title')).toEqual(fullStr);
+      const { container, baseElement } = await getWrapper(true);
+      fireEvent.mouseEnter(container.firstChild);
+      await waitFor(() => {
+        expect(baseElement.querySelector('.ant-tooltip-open')).not.toBeNull();
+      });
     });
 
     it('customize', async () => {
-      const wrapper = getWrapper('Bamboo is Light');
-      await sleep(20);
-      wrapper.update();
-
-      expect(wrapper.find('Tooltip').prop('title')).toEqual('Bamboo is Light');
+      const { container, baseElement } = await getWrapper('Bamboo is Light');
+      fireEvent.mouseEnter(container.firstChild);
+      await waitFor(() => {
+        expect(baseElement.querySelector('.ant-tooltip-open')).not.toBeNull();
+      });
     });
   });
 
   it('js ellipsis should show aria-label', () => {
-    const titleWrapper = mount(<Base title="bamboo" ellipsis={{ expandable: true }} />);
-    expect(titleWrapper.find('.ant-typography').prop('aria-label')).toEqual('bamboo');
+    const { container: titleWrapper } = render(
+      <Base title="bamboo" ellipsis={{ expandable: true }} />,
+    );
+    expect(titleWrapper.querySelector('.ant-typography').getAttribute('aria-label')).toEqual(
+      'bamboo',
+    );
 
-    const tooltipWrapper = mount(<Base ellipsis={{ expandable: true, tooltip: 'little' }} />);
-    expect(tooltipWrapper.find('.ant-typography').prop('aria-label')).toEqual('little');
+    const { container: tooltipWrapper } = render(
+      <Base ellipsis={{ expandable: true, tooltip: 'little' }} />,
+    );
+    expect(tooltipWrapper.querySelector('.ant-typography').getAttribute('aria-label')).toEqual(
+      'little',
+    );
   });
 
-  it('should display tooltip if line clamp', () => {
+  it('should display tooltip if line clamp', async () => {
     mockRectSpy = spyElementPrototypes(HTMLElement, {
       scrollHeight: {
         get() {
@@ -299,12 +332,19 @@ describe('Typography.Ellipsis', () => {
       },
     });
 
-    const wrapper = mount(
-      <Base ellipsis={{ tooltip: 'This is tooltip', rows: 2 }}>
+    const ref = React.createRef();
+    const { container: wrapper, baseElement } = render(
+      <Base ellipsis={{ tooltip: 'This is tooltip', rows: 2 }} ref={ref}>
         Ant Design, a design language for background applications, is refined by Ant UED Team.
       </Base>,
     );
-    expect(wrapper.find('EllipsisTooltip').prop('isEllipsis')).toBeTruthy();
+    triggerResize(ref.current);
+    await sleep(20);
+
+    fireEvent.mouseEnter(wrapper.firstChild);
+    await waitFor(() => {
+      expect(baseElement.querySelector('.ant-tooltip-open')).not.toBeNull();
+    });
     mockRectSpy.mockRestore();
   });
 });
