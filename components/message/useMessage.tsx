@@ -1,12 +1,7 @@
 import * as React from 'react';
-import { useNotification as useRcNotification } from 'rc-notification/lib';
+import { useNotification as useRcNotification } from 'rc-notification';
 import type { NotificationAPI } from 'rc-notification/lib';
 import classNames from 'classnames';
-import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
-import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
-import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
-import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
-import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
@@ -20,14 +15,7 @@ import type {
 } from './interface';
 import { getMotion, wrapPromiseFn } from './util';
 import warning from '../_util/warning';
-
-const TypeIcon = {
-  info: <InfoCircleFilled />,
-  success: <CheckCircleFilled />,
-  error: <CloseCircleFilled />,
-  warning: <ExclamationCircleFilled />,
-  loading: <LoadingOutlined />,
-};
+import { PureContent } from './PurePanel';
 
 const DEFAULT_OFFSET = 8;
 const DEFAULT_DURATION = 3;
@@ -41,6 +29,7 @@ type HolderProps = ConfigOptions & {
 
 interface HolderRef extends NotificationAPI {
   prefixCls: string;
+  hashId: string;
 }
 
 const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
@@ -96,6 +85,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   React.useImperativeHandle(ref, () => ({
     ...api,
     prefixCls,
+    hashId,
   }));
 
   return holder;
@@ -134,7 +124,7 @@ export function useInternalMessage(
         return fakeResult;
       }
 
-      const { open: originOpen, prefixCls } = holderRef.current;
+      const { open: originOpen, prefixCls, hashId } = holderRef.current;
       const noticePrefixCls = `${prefixCls}-notice`;
 
       const { content, icon, type, key, className, onClose, ...restConfig } = config;
@@ -150,13 +140,12 @@ export function useInternalMessage(
           ...restConfig,
           key: mergedKey,
           content: (
-            <div className={classNames(`${prefixCls}-custom-content`, `${prefixCls}-${type}`)}>
-              {icon || TypeIcon[type!]}
-              <span>{content}</span>
-            </div>
+            <PureContent prefixCls={prefixCls} type={type} icon={icon}>
+              {content}
+            </PureContent>
           ),
           placement: 'top',
-          className: classNames(type && `${noticePrefixCls}-${type}`, className),
+          className: classNames(type && `${noticePrefixCls}-${type}`, hashId, className),
           onClose: () => {
             onClose?.();
             resolve();

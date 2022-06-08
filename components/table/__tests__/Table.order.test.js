@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { render } from '../../../tests/utils';
 import Table from '..';
 import { resetWarned } from '../../_util/warning';
 
@@ -37,7 +37,7 @@ describe('Table.order', () => {
 
   it('warning if duplicated SELECTION_COLUMN', () => {
     resetWarned();
-    mount(
+    render(
       createTable({
         columns: [Table.SELECTION_COLUMN, Table.SELECTION_COLUMN],
         rowSelection: {},
@@ -53,7 +53,7 @@ describe('Table.order', () => {
   });
 
   it('auto fixed', () => {
-    const wrapper = mount(
+    const { container } = render(
       createTable({
         columns: [
           {
@@ -69,8 +69,9 @@ describe('Table.order', () => {
       }),
     );
 
-    expect(wrapper.find('tr').last().find('td')).toHaveLength(3);
-    expect(wrapper.find('tr').last().find('td.ant-table-cell-fix-left')).toHaveLength(2);
-    wrapper.unmount();
+    expect(container.querySelectorAll('tr')[1].querySelectorAll('td')).toHaveLength(3);
+    expect(
+      container.querySelectorAll('tr')[1].querySelectorAll('td.ant-table-cell-fix-left'),
+    ).toHaveLength(2);
   });
 });
