@@ -113,17 +113,6 @@
   }
 
   //https://github.com/ant-design/ant-design/issues/35795
-  &-item,
-  &-submenu-title {
-    > .@{ant-prefix}-badge {
-      color: rgba(255, 255, 255, 0.65);
-    }
-
-    &:hover .@{ant-prefix}-badge {
-      color: #fff;
-    }
-  }
-
   &:not(.@{menu-prefix-cls}-dark) {
     .@{menu-prefix-cls}-item,
     .@{menu-prefix-cls}-submenu-title {
@@ -271,6 +260,15 @@
 
     &:focus-visible {
       .accessibility-focus();
+    }
+
+    //https://github.com/ant-design/ant-design/issues/35795
+    > .@{ant-prefix}-badge {
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    &:hover .@{ant-prefix}-badge {
+      color: #fff;
     }
   }
 
