@@ -1,8 +1,8 @@
 ---
 order: 99
 title:
-  zh-CN: 纯粹容器
-  en-US: PurePanel
+  zh-CN: _DoNotUseOrYouWillBeFired
+  en-US: _DoNotUseOrYouWillBeFired
 debug: true
 ---
 
@@ -18,7 +18,8 @@ Debug usage. Do not use in your production.
 import { message } from 'antd';
 import React from 'react';
 
-const { _RenderPanel: RenderPanel } = message;
+/** Test usage. Do not use in your production. */
+const { _DoNotUseOrYouWillBeFired: InternalPanel } = message;
 
-export default () => <RenderPanel content="Hello World!" type="error" />;
+export default () => <InternalPanel content="Hello World!" type="error" />;
 ```

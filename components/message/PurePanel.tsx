@@ -54,7 +54,7 @@ export default function PurePanel(props: PurePanelProps) {
     <Notice
       {...restProps}
       prefixCls={prefixCls}
-      className={classNames(className, hashId)}
+      className={classNames(className, hashId, `${prefixCls}-notice-pure-panel`)}
       eventKey="pure"
       duration={null}
       content={

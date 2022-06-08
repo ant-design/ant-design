@@ -316,13 +316,13 @@ const baseStaticMethods: {
   config: any;
   useMessage: typeof useMessage;
   /** @private Internal Component. Do not use in your production. */
-  _RenderPanel: typeof PurePanel;
+  _DoNotUseOrYouWillBeFired: typeof PurePanel;
 } = {
   open,
   destroy,
   config: setMessageGlobalConfig,
   useMessage,
-  _RenderPanel: PurePanel,
+  _DoNotUseOrYouWillBeFired: PurePanel,
 };
 
 const staticMethods: typeof baseStaticMethods & Record<MethodType, TypeOpen> =
