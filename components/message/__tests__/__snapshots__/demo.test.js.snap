@@ -102,7 +102,7 @@ exports[`renders ./components/message/demo/other.md correctly 1`] = `
 
 exports[`renders ./components/message/demo/render-panel.md correctly 1`] = `
 <div
-  class="ant-message-notice"
+  class="ant-message-notice ant-message-notice-pure-panel"
 >
   <div
     class="ant-message-notice-content"

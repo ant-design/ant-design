@@ -2,11 +2,6 @@ import * as React from 'react';
 import { useNotification as useRcNotification } from 'rc-notification';
 import type { NotificationAPI } from 'rc-notification/lib';
 import classNames from 'classnames';
-import CheckCircleOutlined from '@ant-design/icons/CheckCircleOutlined';
-import CloseCircleOutlined from '@ant-design/icons/CloseCircleOutlined';
-import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlined';
-import InfoCircleOutlined from '@ant-design/icons/InfoCircleOutlined';
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import { ConfigContext } from '../config-provider';
 import type {
   NotificationInstance,
@@ -17,13 +12,7 @@ import type {
 import { getPlacementStyle, getMotion } from './util';
 import warning from '../_util/warning';
 import useStyle from './style';
-
-const typeToIcon = {
-  success: CheckCircleOutlined,
-  info: InfoCircleOutlined,
-  error: CloseCircleOutlined,
-  warning: ExclamationCircleOutlined,
-};
+import { getCloseIcon, PureContent } from './PurePanel';
 
 const DEFAULT_OFFSET = 24;
 const DEFAULT_DURATION = 4.5;
@@ -37,6 +26,7 @@ type HolderProps = NotificationConfig & {
 
 interface HolderRef extends NotificationAPI {
   prefixCls: string;
+  hashId: string;
 }
 
 const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
@@ -65,13 +55,6 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   // ============================== Motion ===============================
   const getNotificationMotion = () => getMotion(prefixCls);
 
-  // ============================ Close Icon =============================
-  const mergedCloseIcon = (
-    <span className={`${prefixCls}-close-x`}>
-      <CloseOutlined className={`${prefixCls}-close-icon`} />
-    </span>
-  );
-
   // ============================== Origin ===============================
   const [api, holder] = useRcNotification({
     prefixCls,
@@ -79,7 +62,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     className: getClassName,
     motion: getNotificationMotion,
     closable: true,
-    closeIcon: mergedCloseIcon,
+    closeIcon: getCloseIcon(prefixCls),
     duration: DEFAULT_DURATION,
     getContainer: () => staticGetContainer?.() || getPopupContainer?.() || document.body,
     maxCount,
@@ -90,6 +73,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   React.useImperativeHandle(ref, () => ({
     ...api,
     prefixCls,
+    hashId,
   }));
 
   return holder;
@@ -118,7 +102,7 @@ export function useInternalNotification(
         return;
       }
 
-      const { open: originOpen, prefixCls } = holderRef.current;
+      const { open: originOpen, prefixCls, hashId } = holderRef.current;
       const noticePrefixCls = `${prefixCls}-notice`;
 
       const {
@@ -132,32 +116,20 @@ export function useInternalNotification(
         ...restConfig
       } = config;
 
-      let iconNode: React.ReactNode = null;
-      if (icon) {
-        iconNode = <span className={`${noticePrefixCls}-icon`}>{icon}</span>;
-      } else if (type) {
-        iconNode = React.createElement(typeToIcon[type] || null, {
-          className: classNames(`${noticePrefixCls}-icon`, `${noticePrefixCls}-icon-${type}`),
-        });
-      }
-
       return originOpen({
         ...restConfig,
         content: (
-          <div
-            className={classNames({
-              [`${noticePrefixCls}-with-icon`]: iconNode,
-            })}
-            role="alert"
-          >
-            {iconNode}
-            <div className={`${noticePrefixCls}-message`}>{message}</div>
-            <div className={`${noticePrefixCls}-description`}>{description}</div>
-            {btn && <div className={`${noticePrefixCls}-btn`}>{btn}</div>}
-          </div>
+          <PureContent
+            prefixCls={noticePrefixCls}
+            icon={icon}
+            type={type}
+            message={message}
+            description={description}
+            btn={btn}
+          />
         ),
         placement,
-        className: classNames(type && `${noticePrefixCls}-${type}`, className),
+        className: classNames(type && `${noticePrefixCls}-${type}`, hashId, className),
       });
     };
 
