@@ -1,11 +1,11 @@
-import * as React from 'react';
-import { mount } from 'enzyme';
 import type { BasicDataNode } from 'rc-tree';
+import * as React from 'react';
+import { render } from '../../../tests/utils';
 import Tree from '../index';
 
 describe('Tree.TypeScript', () => {
   it('without generic', () => {
-    const wrapper = mount(
+    const { container } = render(
       <Tree
         treeData={[
           {
@@ -22,7 +22,7 @@ describe('Tree.TypeScript', () => {
       />,
     );
 
-    expect(wrapper).toBeTruthy();
+    expect(container).toBeTruthy();
   });
 
   it('support generic', () => {
@@ -31,7 +31,7 @@ describe('Tree.TypeScript', () => {
       list?: MyDataNode[];
     }
 
-    const wrapper = mount(
+    const { container } = render(
       <Tree<MyDataNode>
         treeData={[
           {
@@ -46,6 +46,6 @@ describe('Tree.TypeScript', () => {
       />,
     );
 
-    expect(wrapper).toBeTruthy();
+    expect(container).toBeTruthy();
   });
 });

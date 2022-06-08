@@ -1,6 +1,6 @@
 /* eslint-disable react/no-multi-comp */
 import React from 'react';
-import { mount } from 'enzyme';
+import { render, fireEvent } from '../../../tests/utils';
 import Table from '..';
 
 const columns = [
@@ -39,13 +39,13 @@ const data = [
 
 describe('Table.expand', () => {
   it('click to expand', () => {
-    const wrapper = mount(<Table columns={columns} dataSource={data} />);
-    wrapper.find('.ant-table-row-expand-icon').last().simulate('click');
-    expect(wrapper.render()).toMatchSnapshot();
+    const { container, asFragment } = render(<Table columns={columns} dataSource={data} />);
+    fireEvent.click(container.querySelector('.ant-table-row-expand-icon'));
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   it('expandRowByClick should not block click icon', () => {
-    const wrapper = mount(
+    const { container } = render(
       <Table
         columns={columns}
         dataSource={[John, Jim]}
@@ -55,26 +55,15 @@ describe('Table.expand', () => {
         }}
       />,
     );
+    fireEvent.click(container.querySelector('.ant-table-row-expand-icon'));
+    expect(container.querySelector('.ant-table-row-expand-icon-expanded')).toBeTruthy();
 
-    wrapper.find('.ant-table-row-expand-icon').first().simulate('click');
-    expect(
-      wrapper
-        .find('.ant-table-row-expand-icon')
-        .first()
-        .hasClass('ant-table-row-expand-icon-expanded'),
-    ).toBeTruthy();
-
-    wrapper.find('.ant-table-row-expand-icon').first().simulate('click');
-    expect(
-      wrapper
-        .find('.ant-table-row-expand-icon')
-        .first()
-        .hasClass('ant-table-row-expand-icon-collapsed'),
-    ).toBeTruthy();
+    fireEvent.click(container.querySelector('.ant-table-row-expand-icon'));
+    expect(container.querySelector('.ant-table-row-expand-icon-collapsed')).toBeTruthy();
   });
 
   it('show expandIcon', () => {
-    const wrapper = mount(
+    const { container } = render(
       <Table
         columns={[{ dataIndex: 'key' }]}
         dataSource={[{ key: 233 }]}
@@ -83,23 +72,19 @@ describe('Table.expand', () => {
         }}
       />,
     );
-
-    expect(wrapper.find('.expand-icon')).toHaveLength(1);
+    expect(container.querySelectorAll('.expand-icon')).toHaveLength(1);
   });
 
   it('row indent padding should be 0px when indentSize defined as 0', () => {
-    const wrapper = mount(<Table indentSize={0} columns={columns} dataSource={data} />);
-    const button = wrapper.find('.ant-table-row-expand-icon').at(0);
-    button.simulate('click');
-    expect(wrapper.find('.indent-level-1').at(0).prop('style')).toHaveProperty(
-      'paddingLeft',
-      '0px',
-    );
+    const { container } = render(<Table indentSize={0} columns={columns} dataSource={data} />);
+
+    fireEvent.click(container.querySelector('.ant-table-row-expand-icon'));
+    expect(container.querySelector('.indent-level-1').style.paddingLeft).toEqual('0px');
   });
 
   describe('expandIconColumnIndex', () => {
     it('basic', () => {
-      const wrapper = mount(
+      const { container } = render(
         <Table
           columns={[{ dataIndex: 'key' }]}
           dataSource={[{ key: 'bamboo' }]}
@@ -110,12 +95,13 @@ describe('Table.expand', () => {
         />,
       );
 
-      expect(wrapper.find('td').at(0).text()).toEqual('bamboo');
-      expect(wrapper.find('td').at(1).find('.ant-table-row-expand-icon').length).toBeTruthy();
+      const tdNodeList = container.querySelectorAll('td');
+      expect(tdNodeList[0].textContent).toEqual('bamboo');
+      expect(tdNodeList[1].querySelector('.ant-table-row-expand-icon')).toBeTruthy();
     });
 
     it('work with selection', () => {
-      const wrapper = mount(
+      const { container } = render(
         <Table
           columns={[{ dataIndex: 'key' }]}
           dataSource={[{ key: 'bamboo' }]}
@@ -126,10 +112,10 @@ describe('Table.expand', () => {
           rowSelection={{}}
         />,
       );
-
-      expect(wrapper.find('td').at(0).find('.ant-checkbox-input').length).toBeTruthy();
-      expect(wrapper.find('td').at(1).text()).toEqual('bamboo');
-      expect(wrapper.find('td').at(2).find('.ant-table-row-expand-icon').length).toBeTruthy();
+      const tdNodeList = container.querySelectorAll('td');
+      expect(tdNodeList[0].querySelector('.ant-checkbox-input')).toBeTruthy();
+      expect(tdNodeList[1].textContent).toEqual('bamboo');
+      expect(tdNodeList[2].querySelector('.ant-table-row-expand-icon')).toBeTruthy();
     });
   });
 });
