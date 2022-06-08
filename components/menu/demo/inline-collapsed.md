@@ -18,18 +18,18 @@ Inline menu could be collapsed.
 Here is [a complete demo](/components/layout/#components-layout-demo-side) with sider layout.
 
 ```tsx
-import React, { useState } from 'react';
-import { Menu, Button } from 'antd';
 import {
   AppstoreOutlined,
-  MenuUnfoldOutlined,
-  MenuFoldOutlined,
-  PieChartOutlined,
-  DesktopOutlined,
   ContainerOutlined,
+  DesktopOutlined,
   MailOutlined,
+  MenuFoldOutlined,
+  MenuUnfoldOutlined,
+  PieChartOutlined,
 } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
+import { Button, Menu } from 'antd';
+import React, { useState } from 'react';
 
 type MenuItem = Required<MenuProps>['items'][number];
 

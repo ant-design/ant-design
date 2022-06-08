@@ -14,8 +14,8 @@ title:
 Appropriate for a narrow area.
 
 ```tsx
-import React from 'react';
 import { Progress } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <div style={{ width: 170 }}>

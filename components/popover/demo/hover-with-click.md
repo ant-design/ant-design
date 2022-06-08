@@ -14,8 +14,8 @@ title:
 The following example shows how to create a popover which can be hovered and clicked.
 
 ```tsx
+import { Button, Popover } from 'antd';
 import React, { useState } from 'react';
-import { Popover, Button } from 'antd';
 
 const App: React.FC = () => {
   const [clicked, setClicked] = useState(false);

@@ -14,8 +14,8 @@ title:
 Display a global loading indicator, which is dismissed by itself asynchronously.
 
 ```tsx
+import { Button, message } from 'antd';
 import React from 'react';
-import { message, Button } from 'antd';
 
 const success = () => {
   const hide = message.loading('Action in progress..', 0);

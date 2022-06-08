@@ -15,9 +15,9 @@ title:
 Test style of Steps inside Steps.
 
 ```tsx
-import React, { useState } from 'react';
-import { Steps, Radio, Card } from 'antd';
 import type { StepsProps } from 'antd';
+import { Card, Radio, Steps } from 'antd';
+import React, { useState } from 'react';
 
 const { Step } = Steps;
 

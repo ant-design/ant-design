@@ -14,8 +14,8 @@ title:
 Multiple selection, selecting from existing items.
 
 ```tsx
-import React from 'react';
 import { Select } from 'antd';
+import React from 'react';
 
 const { Option } = Select;
 

@@ -14,8 +14,8 @@ title:
 The tree structure can be populated using `treeData` property. This is a quick and easy way to provide the tree content.
 
 ```tsx
-import React, { useState } from 'react';
 import { TreeSelect } from 'antd';
+import React, { useState } from 'react';
 
 const treeData = [
   {

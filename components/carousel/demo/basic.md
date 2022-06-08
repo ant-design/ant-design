@@ -14,8 +14,8 @@ title:
 Basic usage.
 
 ```tsx
-import React from 'react';
 import { Carousel } from 'antd';
+import React from 'react';
 
 const contentStyle: React.CSSProperties = {
   height: '160px',

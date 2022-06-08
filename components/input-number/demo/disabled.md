@@ -14,8 +14,8 @@ title:
 Click the button to toggle between available and disabled states.
 
 ```tsx
+import { Button, InputNumber } from 'antd';
 import React, { useState } from 'react';
-import { InputNumber, Button } from 'antd';
 
 const App: React.FC = () => {
   const [disabled, setDisabled] = useState(true);

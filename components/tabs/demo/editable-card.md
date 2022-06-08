@@ -14,8 +14,8 @@ title:
 Only card type Tabs support adding & closable. +Use `closable={false}` to disable close.
 
 ```tsx
-import React, { useRef, useState } from 'react';
 import { Tabs } from 'antd';
+import React, { useRef, useState } from 'react';
 
 const { TabPane } = Tabs;
 

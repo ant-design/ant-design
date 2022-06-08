@@ -14,8 +14,8 @@ title:
 Customized description content.
 
 ```tsx
+import { Alert, Spin } from 'antd';
 import React from 'react';
-import { Spin, Alert } from 'antd';
 
 const App: React.FC = () => (
   <Spin tip="Loading...">

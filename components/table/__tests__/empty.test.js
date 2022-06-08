@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from 'enzyme';
+import { render } from '../../../tests/utils';
 import Table from '..';
 
 const columns = [
@@ -46,19 +46,19 @@ const columnsFixed = [
 
 describe('Table', () => {
   it('renders empty table', () => {
-    const wrapper = render(<Table dataSource={[]} columns={columns} pagination={false} />);
-    expect(wrapper).toMatchSnapshot();
+    const { asFragment } = render(<Table dataSource={[]} columns={columns} pagination={false} />);
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   it('renders empty table with fixed columns', () => {
-    const wrapper = render(
+    const { asFragment } = render(
       <Table dataSource={[]} columns={columnsFixed} pagination={false} scroll={{ x: 1 }} />,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   it('renders empty table with custom emptyText', () => {
-    const wrapper = render(
+    const { asFragment } = render(
       <Table
         dataSource={[]}
         columns={columns}
@@ -66,11 +66,11 @@ describe('Table', () => {
         locale={{ emptyText: 'custom empty text' }}
       />,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   it('renders empty table without emptyText when loading', () => {
-    const wrapper = render(<Table dataSource={[]} columns={columns} loading />);
-    expect(wrapper).toMatchSnapshot();
+    const { asFragment } = render(<Table dataSource={[]} columns={columns} loading />);
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 });

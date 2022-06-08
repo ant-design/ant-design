@@ -14,10 +14,10 @@ title:
 Both the top navigation and the sidebar, commonly used in documentation site.
 
 ```tsx
-import React from 'react';
-import { Layout, Menu, Breadcrumb } from 'antd';
-import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons';
+import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
+import { Breadcrumb, Layout, Menu } from 'antd';
+import React from 'react';
 
 const { Header, Content, Footer, Sider } = Layout;
 

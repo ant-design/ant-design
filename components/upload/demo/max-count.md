@@ -14,9 +14,9 @@ title:
 Limit files with `maxCount`. Will replace current one when `maxCount` is `1`.
 
 ```tsx
-import React from 'react';
-import { Upload, Button, Space } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
+import { Button, Space, Upload } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <Space direction="vertical" style={{ width: '100%' }} size="large">

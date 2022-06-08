@@ -14,9 +14,9 @@ title:
 The default trigger mode is `hover`, you can change it to `click`.
 
 ```tsx
-import React from 'react';
-import { Menu, Dropdown, Space } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
+import { Dropdown, Menu, Space } from 'antd';
+import React from 'react';
 
 const menu = (
   <Menu

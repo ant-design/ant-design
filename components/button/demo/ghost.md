@@ -14,8 +14,8 @@ title:
 `ghost` property will make button's background transparent, it is commonly used in colored background.
 
 ```tsx
-import React from 'react';
 import { Button } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <div className="site-button-ghost-wrapper">

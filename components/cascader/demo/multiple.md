@@ -15,8 +15,8 @@ title:
 Select multiple options
 
 ```tsx
-import React from 'react';
 import { Cascader } from 'antd';
+import React from 'react';
 
 interface Option {
   value: string | number;

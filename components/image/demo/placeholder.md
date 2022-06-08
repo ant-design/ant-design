@@ -14,8 +14,8 @@ title:
 Progressive when large image loading.
 
 ```tsx
+import { Button, Image, Space } from 'antd';
 import React, { useState } from 'react';
-import { Image, Button, Space } from 'antd';
 
 const App: React.FC = () => {
   const [random, setRandom] = useState<number>();

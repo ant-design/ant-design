@@ -16,9 +16,9 @@ Advanced Usage of Transfer.
 You can customize the labels of the transfer buttons, the width and height of the columns, and what should be displayed in the footer.
 
 ```tsx
-import React, { useState, useEffect } from 'react';
-import { Transfer, Button } from 'antd';
+import { Button, Transfer } from 'antd';
 import type { TransferDirection, TransferListProps } from 'antd/es/transfer';
+import React, { useEffect, useState } from 'react';
 
 interface RecordType {
   key: string;

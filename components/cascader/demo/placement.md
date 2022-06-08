@@ -14,9 +14,9 @@ title:
 You can manually specify the position of the popup via `placement`.
 
 ```tsx
-import React, { useState } from 'react';
-import { Cascader, Radio } from 'antd';
 import type { RadioChangeEvent } from 'antd';
+import { Cascader, Radio } from 'antd';
+import React, { useState } from 'react';
 
 interface Option {
   value: string;

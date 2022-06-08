@@ -14,8 +14,8 @@ title:
 Skeleton contains sub component.
 
 ```tsx
+import { Button, Skeleton } from 'antd';
 import React, { useState } from 'react';
-import { Skeleton, Button } from 'antd';
 
 const App: React.FC = () => {
   const [loading, setLoading] = useState(false);

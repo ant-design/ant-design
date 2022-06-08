@@ -14,8 +14,8 @@ title:
 For letter type Avatar, when the letters are too long to display, the font size can be automatically adjusted according to the width of the Avatar. You can also use `gap` to set the unit distance between left and right sides.
 
 ```tsx
-import React, { useState } from 'react';
 import { Avatar, Button } from 'antd';
+import React, { useState } from 'react';
 
 const UserList = ['U', 'Lucy', 'Tom', 'Edward'];
 const ColorList = ['#f56a00', '#7265e6', '#ffbf00', '#00a2ae'];

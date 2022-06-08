@@ -15,9 +15,9 @@ title:
 Use `suffixIcon` to customize the selection box suffix icon, and use `expandIcon` to customize the current item expand icon.
 
 ```tsx
-import React from 'react';
-import { Cascader } from 'antd';
 import { SmileOutlined } from '@ant-design/icons';
+import { Cascader } from 'antd';
+import React from 'react';
 
 interface Option {
   value: string;

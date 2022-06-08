@@ -15,8 +15,8 @@ List `grid` 在各种情况下的样式表现，如 Fragment 和封装了 List.I
 Test List `grid` for some edge cases.
 
 ```tsx
+import { Card, List } from 'antd';
 import React from 'react';
-import { List, Card } from 'antd';
 
 const data = [
   {

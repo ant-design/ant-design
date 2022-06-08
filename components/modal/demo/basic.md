@@ -14,8 +14,8 @@ title:
 Basic modal.
 
 ```tsx
+import { Button, Modal } from 'antd';
 import React, { useState } from 'react';
-import { Modal, Button } from 'antd';
 
 const App: React.FC = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);

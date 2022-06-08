@@ -2,11 +2,12 @@ import React from 'react';
 import CSSMotion from 'rc-motion';
 import { act } from 'react-dom/test-utils';
 import { genCSSMotion } from 'rc-motion/lib/CSSMotion';
-import { mount } from 'enzyme';
 import Modal from '..';
 import Button from '../../button';
 import Input from '../../input';
 import ConfigProvider from '../../config-provider';
+import { render, fireEvent } from '../../../tests/utils';
+import type { ModalFunc } from '../confirm';
 
 jest.mock('rc-util/lib/Portal');
 jest.mock('rc-motion');
@@ -15,13 +16,14 @@ describe('Modal.hook', () => {
   // Inject CSSMotion to replace with No transition support
   const MockCSSMotion = genCSSMotion(false);
   Object.keys(MockCSSMotion).forEach(key => {
+    // @ts-ignore
     CSSMotion[key] = MockCSSMotion[key];
   });
 
   it('hooks support context', () => {
     jest.useFakeTimers();
     const Context = React.createContext('light');
-    let instance;
+    let instance: ReturnType<ModalFunc>;
 
     const Demo = () => {
       const [modal, contextHolder] = Modal.useModal();
@@ -43,12 +45,12 @@ describe('Modal.hook', () => {
       );
     };
 
-    const wrapper = mount(<Demo />);
-    wrapper.find('button').simulate('click');
+    const { container } = render(<Demo />);
+    fireEvent.click(container.querySelectorAll('button')[0]);
 
-    expect(wrapper.find('.test-hook').text()).toEqual('bamboo');
-    expect(wrapper.find('.ant-btn').length).toBeTruthy();
-    expect(wrapper.find('.ant-modal-body').length).toBeTruthy();
+    expect(document.body.querySelectorAll('.test-hook')[0].textContent).toBe('bamboo');
+    expect(document.body.querySelectorAll('.ant-btn').length).toBeTruthy();
+    expect(document.body.querySelectorAll('.ant-modal-body').length).toBeTruthy();
 
     // Update instance
     act(() => {
@@ -56,16 +58,14 @@ describe('Modal.hook', () => {
         content: <div className="updated-content" />,
       });
     });
-    wrapper.update();
-    expect(wrapper.find('.updated-content')).toHaveLength(1);
+    expect(document.body.querySelectorAll('.updated-content')).toHaveLength(1);
 
     // Destroy
     act(() => {
       instance.destroy();
       jest.runAllTimers();
     });
-    wrapper.update();
-    expect(wrapper.find('Modal')).toHaveLength(0);
+    expect(document.body.querySelectorAll('Modal')).toHaveLength(0);
 
     jest.useRealTimers();
   });
@@ -88,14 +88,14 @@ describe('Modal.hook', () => {
       );
     };
 
-    const wrapper = mount(
+    const { container } = render(
       <ConfigProvider direction="rtl">
         <Demo />
       </ConfigProvider>,
     );
 
-    wrapper.find('button').simulate('click');
-    expect(wrapper.find('.ant-input-rtl').length).toBeTruthy();
+    fireEvent.click(container.querySelectorAll('button')[0]);
+    expect(document.body.querySelectorAll('.ant-input-rtl').length).toBeTruthy();
   });
 
   it('hooks modal should trigger onCancel', () => {
@@ -125,14 +125,14 @@ describe('Modal.hook', () => {
       );
     };
 
-    const wrapper = mount(<Demo />);
+    const { container } = render(<Demo />);
 
-    wrapper.find('.open-hook-modal-btn').simulate('click');
-    wrapper.find('.ant-modal-confirm-btns .ant-btn').first().simulate('click');
+    fireEvent.click(container.querySelectorAll('.open-hook-modal-btn')[0]);
+    fireEvent.click(document.body.querySelectorAll('.ant-modal-confirm-btns .ant-btn')[0]);
     expect(cancelCount).toEqual(1); // click cancel btn, trigger onCancel
 
-    wrapper.find('.open-hook-modal-btn').simulate('click');
-    wrapper.find('.ant-modal-wrap').simulate('click');
+    fireEvent.click(container.querySelectorAll('.open-hook-modal-btn')[0]);
+    fireEvent.click(document.body.querySelectorAll('.ant-modal-wrap')[0]);
     expect(cancelCount).toEqual(2); // click modal wrapper, trigger onCancel
   });
 
@@ -160,10 +160,11 @@ describe('Modal.hook', () => {
       );
     };
 
-    const wrapper = mount(<Demo />);
-    wrapper.find('.open-hook-modal-btn').simulate('click');
-
-    expect(wrapper.find('.ant-modal-confirm-title').text()).toEqual('Bamboo');
+    const { container } = render(<Demo />);
+    fireEvent.click(container.querySelectorAll('.open-hook-modal-btn')[0]);
+    expect(document.body.querySelectorAll('.ant-modal-confirm-title')[0].textContent).toEqual(
+      'Bamboo',
+    );
   });
 
   it('destroy before render', () => {
@@ -188,9 +189,8 @@ describe('Modal.hook', () => {
       );
     };
 
-    const wrapper = mount(<Demo />);
-    wrapper.find('.open-hook-modal-btn').simulate('click');
-
-    expect(wrapper.exists('.ant-modal-confirm-title')).toBeFalsy();
+    const { container } = render(<Demo />);
+    fireEvent.click(container.querySelectorAll('.open-hook-modal-btn')[0]);
+    expect(document.body.classList.contains('ant-modal-confirm-title')).toBeFalsy();
   });
 });

@@ -14,8 +14,8 @@ title:
 Search the options with sorting.
 
 ```tsx
-import React from 'react';
 import { Select } from 'antd';
+import React from 'react';
 
 const { Option } = Select;
 

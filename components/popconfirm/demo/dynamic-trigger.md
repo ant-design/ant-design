@@ -14,8 +14,8 @@ title:
 Make it pop up under some conditions.
 
 ```tsx
+import { message, Popconfirm, Switch } from 'antd';
 import React, { useState } from 'react';
-import { Popconfirm, Switch, message } from 'antd';
 
 const App: React.FC = () => {
   const [visible, setVisible] = useState(false);

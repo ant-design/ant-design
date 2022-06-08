@@ -14,8 +14,8 @@ title:
 The simplest usage that close the notification box after 4.5s.
 
 ```tsx
-import React from 'react';
 import { Button, notification } from 'antd';
+import React from 'react';
 
 const openNotification = () => {
   notification.open({

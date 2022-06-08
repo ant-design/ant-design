@@ -14,10 +14,10 @@ title:
 Custom modal content render. use `react-draggable` implements draggable.
 
 ```tsx
+import { Button, Modal } from 'antd';
 import React, { useRef, useState } from 'react';
-import { Modal, Button } from 'antd';
+import type { DraggableData, DraggableEvent } from 'react-draggable';
 import Draggable from 'react-draggable';
-import type { DraggableEvent, DraggableData } from 'react-draggable';
 
 const App: React.FC = () => {
   const [visible, setVisible] = useState(false);
