@@ -79,7 +79,7 @@ export function useToken(): [Theme<SeedToken, DerivativeToken>, GlobalToken, str
     [defaultSeedToken, rootDesignToken],
     {
       salt,
-      override,
+      override: override?.derivative,
       formatToken,
     },
   );
