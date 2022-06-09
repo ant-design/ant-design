@@ -1,7 +1,7 @@
 import React from 'react';
 import { LikeOutlined, SmileOutlined } from '@ant-design/icons';
 import * as copyObj from 'copy-to-clipboard';
-import { fireEvent, render } from '../../../tests/utils';
+import { fireEvent, render, waitFor } from '../../../tests/utils';
 
 import Base from '../Base';
 
@@ -51,11 +51,17 @@ describe('Typography copy', () => {
           jest.runAllTimers();
 
           if (tooltipTexts[0] !== undefined) {
-            expect(wrapper.querySelector('.ant-tooltip-inner')?.textContent).toBe(tooltipTexts[0]);
+            await waitFor(() => {
+              expect(wrapper.querySelector('.ant-tooltip-inner')?.textContent).toBe(
+                tooltipTexts[0],
+              );
+            });
           }
 
           if (tooltipLength !== undefined) {
-            expect(wrapper.querySelectorAll('.ant-tooltip-inner').length).toBe(tooltipLength);
+            await waitFor(() => {
+              expect(wrapper.querySelectorAll('.ant-tooltip-inner').length).toBe(tooltipLength);
+            });
           }
 
           fireEvent.click(wrapper.querySelectorAll('.ant-typography-copy')[0]);
@@ -68,7 +74,11 @@ describe('Typography copy', () => {
           fireEvent.mouseEnter(wrapper.querySelectorAll('.ant-typography-copy')[0]);
 
           if (tooltipTexts[1] !== undefined) {
-            expect(wrapper.querySelector('.ant-tooltip-inner')?.textContent).toBe(tooltipTexts[1]);
+            await waitFor(() => {
+              expect(wrapper.querySelector('.ant-tooltip-inner')?.textContent).toBe(
+                tooltipTexts[1],
+              );
+            });
           }
 
           if (iconTexts[1] !== undefined) {

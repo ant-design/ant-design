@@ -1,5 +1,5 @@
 import React from 'react';
-import { SmileOutlined, LikeOutlined, HighlightOutlined, CheckOutlined } from '@ant-design/icons';
+import { CheckOutlined, HighlightOutlined, LikeOutlined, SmileOutlined } from '@ant-design/icons';
 import KeyCode from 'rc-util/lib/KeyCode';
 import { resetWarned } from 'rc-util/lib/warning';
 import { spyElementPrototype } from 'rc-util/lib/test/domHook';
@@ -12,7 +12,7 @@ import Base from '../Base';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import Typography from '../Typography';
-import { sleep, render, fireEvent } from '../../../tests/utils';
+import { fireEvent, render, sleep, waitFor } from '../../../tests/utils';
 
 jest.mock('copy-to-clipboard');
 
@@ -108,17 +108,29 @@ describe('Typography', () => {
           jest.runAllTimers();
 
           if (tooltips === undefined || tooltips === true) {
-            expect(wrapper.querySelector('.ant-tooltip-inner').textContent).toBe('Copy');
+            await waitFor(() => {
+              expect(wrapper.querySelector('.ant-tooltip-inner').textContent).toBe('Copy');
+            });
           } else if (tooltips === false) {
-            expect(wrapper.querySelectorAll('.ant-tooltip-inner').length).toBe(0);
+            await waitFor(() => {
+              expect(wrapper.querySelectorAll('.ant-tooltip-inner').length).toBe(0);
+            });
           } else if (tooltips[0] === '' && tooltips[1] === '') {
-            expect(wrapper.querySelectorAll('.ant-tooltip-inner').length).toBe(0);
+            await waitFor(() => {
+              expect(wrapper.querySelectorAll('.ant-tooltip-inner').length).toBe(0);
+            });
           } else if (tooltips[0] === '' && tooltips[1]) {
-            expect(wrapper.querySelectorAll('.ant-tooltip-inner').length).toBe(0);
+            await waitFor(() => {
+              expect(wrapper.querySelectorAll('.ant-tooltip-inner').length).toBe(0);
+            });
           } else if (tooltips[1] === '' && tooltips[0]) {
-            expect(wrapper.querySelector('.ant-tooltip-inner').textContent).toBe(tooltips[0]);
+            await waitFor(() => {
+              expect(wrapper.querySelector('.ant-tooltip-inner').textContent).toBe(tooltips[0]);
+            });
           } else {
-            expect(wrapper.querySelector('.ant-tooltip-inner').textContent).toBe(tooltips[0]);
+            await waitFor(() => {
+              expect(wrapper.querySelector('.ant-tooltip-inner').textContent).toBe(tooltips[0]);
+            });
           }
 
           fireEvent.click(wrapper.querySelector('.ant-typography-copy'));
@@ -144,17 +156,29 @@ describe('Typography', () => {
           fireEvent.mouseEnter(wrapper.querySelectorAll('.ant-typography-copy')[0]);
 
           if (tooltips === undefined || tooltips === true) {
-            expect(wrapper.querySelector('.ant-tooltip-inner').textContent).toBe('Copied');
+            await waitFor(() => {
+              expect(wrapper.querySelector('.ant-tooltip-inner').textContent).toBe('Copied');
+            });
           } else if (tooltips === false) {
-            expect(wrapper.querySelectorAll('.ant-tooltip-inner').length).toBe(0);
+            await waitFor(() => {
+              expect(wrapper.querySelectorAll('.ant-tooltip-inner').length).toBe(0);
+            });
           } else if (tooltips[0] === '' && tooltips[1] === '') {
-            expect(wrapper.querySelectorAll('.ant-tooltip-inner').length).toBe(0);
+            await waitFor(() => {
+              expect(wrapper.querySelectorAll('.ant-tooltip-inner').length).toBe(0);
+            });
           } else if (tooltips[0] === '' && tooltips[1]) {
-            expect(wrapper.querySelector('.ant-tooltip-inner').textContent).toBe(tooltips[1]);
+            await waitFor(() => {
+              expect(wrapper.querySelector('.ant-tooltip-inner').textContent).toBe(tooltips[1]);
+            });
           } else if (tooltips[1] === '' && tooltips[0]) {
-            expect(wrapper.querySelector('.ant-tooltip-inner').textContent).toBe('');
+            await waitFor(() => {
+              expect(wrapper.querySelector('.ant-tooltip-inner').textContent).toBe('');
+            });
           } else {
-            expect(wrapper.querySelector('.ant-tooltip-inner').textContent).toBe(tooltips[1]);
+            await waitFor(() => {
+              expect(wrapper.querySelector('.ant-tooltip-inner').textContent).toBe(tooltips[1]);
+            });
           }
 
           jest.useFakeTimers();
@@ -217,7 +241,7 @@ describe('Typography', () => {
         submitFunc,
         expectFunc,
       ) {
-        it(name, () => {
+        it(name, async () => {
           jest.useFakeTimers();
           const onStart = jest.fn();
           const onChange = jest.fn();
@@ -250,11 +274,17 @@ describe('Typography', () => {
             jest.runAllTimers();
 
             if (tooltip === undefined || tooltip === true) {
-              expect(wrapper.querySelector('.ant-tooltip-inner').textContent).toBe('Edit');
+              await waitFor(() => {
+                expect(wrapper.querySelector('.ant-tooltip-inner').textContent).toBe('Edit');
+              });
             } else if (tooltip === false) {
-              expect(wrapper.querySelectorAll('.ant-tooltip-inner').length).toBe(0);
+              await waitFor(() => {
+                expect(wrapper.querySelectorAll('.ant-tooltip-inner').length).toBe(0);
+              });
             } else {
-              expect(wrapper.querySelector('.ant-tooltip-inner').textContent).toBe(tooltip);
+              await waitFor(() => {
+                expect(wrapper.querySelector('.ant-tooltip-inner').textContent).toBe(tooltip);
+              });
             }
 
             fireEvent.click(wrapper.querySelectorAll('.ant-typography-edit')[0]);
