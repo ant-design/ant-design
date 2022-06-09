@@ -23,6 +23,8 @@ type ModalType = typeof OriginModal &
     useModal: typeof useModal;
     destroyAll: () => void;
     config: typeof modalGlobalConfig;
+    /** @private Internal Component. Do not use in your production. */
+    _DoNotUseOrYouWillBeFired: typeof Modal;
   };
 
 const Modal = OriginModal as ModalType;
