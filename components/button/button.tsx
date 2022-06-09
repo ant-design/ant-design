@@ -279,7 +279,14 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
   const linkButtonRestProps = omit(rest as AnchorButtonProps & { navigate: any }, ['navigate']);
   if (linkButtonRestProps.href !== undefined) {
     return (
-      <a {...linkButtonRestProps} className={classes} onClick={handleClick} ref={buttonRef}>
+      <a
+        {...linkButtonRestProps}
+        className={classes}
+        onClick={handleClick}
+        // @ts-ignore
+        disabled={mergedDisabled}
+        ref={buttonRef}
+      >
         {iconNode}
         {kids}
       </a>
