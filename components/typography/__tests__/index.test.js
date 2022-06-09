@@ -2,7 +2,6 @@ import React from 'react';
 import { CheckOutlined, HighlightOutlined, LikeOutlined, SmileOutlined } from '@ant-design/icons';
 import KeyCode from 'rc-util/lib/KeyCode';
 import { resetWarned } from 'rc-util/lib/warning';
-import { spyElementPrototype } from 'rc-util/lib/test/domHook';
 import copy from 'copy-to-clipboard';
 import Title from '../Title';
 import Link from '../Link';
@@ -12,7 +11,7 @@ import Base from '../Base';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import Typography from '../Typography';
-import { fireEvent, render, sleep, waitFor, screen } from '../../../tests/utils';
+import { fireEvent, render, sleep, waitFor } from '../../../tests/utils';
 
 jest.mock('copy-to-clipboard');
 
@@ -407,14 +406,17 @@ describe('Typography', () => {
 
       it('should only trigger focus on the first time', () => {
         let triggerTimes = 0;
-        const mockFocus = spyElementPrototype(HTMLElement, 'focus', (ori, e) => {
+        const { container: wrapper } = render(<Paragraph editable>Bamboo</Paragraph>);
+        const editIcon = wrapper.querySelectorAll('.ant-typography-edit')[0];
+
+        editIcon.addEventListener('focus', () => {
           triggerTimes += 1;
-          console.log(ori, e);
         });
 
-        const { container: wrapper } = render(<Paragraph editable>Bamboo</Paragraph>);
+        fireEvent.focus(editIcon);
+        expect(triggerTimes).toEqual(1);
 
-        fireEvent.click(wrapper.querySelectorAll('.ant-typography-edit')[0]);
+        fireEvent.click(editIcon);
         expect(triggerTimes).toEqual(1);
 
         fireEvent.change(wrapper.querySelector('textarea'), {
@@ -422,8 +424,6 @@ describe('Typography', () => {
         });
 
         expect(triggerTimes).toEqual(1);
-
-        mockFocus.mockRestore();
       });
     });
 
