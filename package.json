@@ -272,7 +272,6 @@
     "react-router-dom": "^6.0.2",
     "react-sortable-hoc": "^2.0.0",
     "react-sticky": "^6.0.3",
-    "react-text-loop-next": "0.0.3",
     "react-window": "^1.8.5",
     "remark": "^14.0.1",
     "remark-cli": "^10.0.0",
