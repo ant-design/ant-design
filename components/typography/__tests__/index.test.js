@@ -12,7 +12,7 @@ import Base from '../Base';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import Typography from '../Typography';
-import { fireEvent, render, sleep, waitFor } from '../../../tests/utils';
+import { fireEvent, render, sleep, waitFor, screen } from '../../../tests/utils';
 
 jest.mock('copy-to-clipboard');
 
@@ -186,6 +186,7 @@ describe('Typography', () => {
           jest.runAllTimers();
 
           // Will set back when 3 seconds pass
+          await sleep(3000);
           expect(wrapper.querySelectorAll(copiedIcon).length).toBe(0);
           unmount();
           jest.useRealTimers();
@@ -406,8 +407,9 @@ describe('Typography', () => {
 
       it('should only trigger focus on the first time', () => {
         let triggerTimes = 0;
-        const mockFocus = spyElementPrototype(HTMLElement, 'focus', () => {
+        const mockFocus = spyElementPrototype(HTMLElement, 'focus', (ori, e) => {
           triggerTimes += 1;
+          console.log(ori, e);
         });
 
         const { container: wrapper } = render(<Paragraph editable>Bamboo</Paragraph>);
