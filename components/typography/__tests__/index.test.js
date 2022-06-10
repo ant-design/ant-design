@@ -1,9 +1,7 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import { SmileOutlined, LikeOutlined, HighlightOutlined, CheckOutlined } from '@ant-design/icons';
+import { CheckOutlined, HighlightOutlined, LikeOutlined, SmileOutlined } from '@ant-design/icons';
 import KeyCode from 'rc-util/lib/KeyCode';
 import { resetWarned } from 'rc-util/lib/warning';
-import { spyElementPrototype } from 'rc-util/lib/test/domHook';
 import copy from 'copy-to-clipboard';
 import Title from '../Title';
 import Link from '../Link';
@@ -13,7 +11,7 @@ import Base from '../Base';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import Typography from '../Typography';
-import { sleep, render } from '../../../tests/utils';
+import { fireEvent, render, sleep, waitFor } from '../../../tests/utils';
 
 jest.mock('copy-to-clipboard');
 
@@ -79,7 +77,7 @@ describe('Typography', () => {
 
   describe('Title', () => {
     it('warning if `level` not correct', () => {
-      mount(<Title level={false} />);
+      render(<Title level={false} />);
 
       expect(errorSpy).toHaveBeenCalledWith(
         'Warning: [antd: Typography.Title] Title only accept `1 | 2 | 3 | 4 | 5` as `level` value. And `5` need 4.6.0+ version.',
@@ -93,47 +91,57 @@ describe('Typography', () => {
         it(name, async () => {
           jest.useFakeTimers();
           const onCopy = jest.fn();
-          const wrapper = mount(
+          const { container: wrapper, unmount } = render(
             <Base component="p" copyable={{ text, onCopy, icon, tooltips, format }}>
               test copy
             </Base>,
           );
 
           if (icon) {
-            expect(wrapper.find('.anticon-smile').length).toBeTruthy();
+            expect(wrapper.querySelectorAll('.anticon-smile').length).toBeGreaterThan(0);
           } else {
-            expect(wrapper.find('.anticon-copy').length).toBeTruthy();
+            expect(wrapper.querySelectorAll('.anticon-copy').length).toBeGreaterThan(0);
           }
 
-          wrapper.find('.ant-typography-copy').first().simulate('mouseenter');
+          fireEvent.mouseEnter(wrapper.querySelector('.ant-typography-copy'));
           jest.runAllTimers();
-          wrapper.update();
 
           if (tooltips === undefined || tooltips === true) {
-            expect(wrapper.find('.ant-tooltip-inner').text()).toBe('Copy');
+            await waitFor(() => {
+              expect(wrapper.querySelector('.ant-tooltip-inner').textContent).toBe('Copy');
+            });
           } else if (tooltips === false) {
-            expect(wrapper.find('.ant-tooltip-inner').length).toBeFalsy();
+            await waitFor(() => {
+              expect(wrapper.querySelectorAll('.ant-tooltip-inner').length).toBe(0);
+            });
           } else if (tooltips[0] === '' && tooltips[1] === '') {
-            expect(wrapper.find('.ant-tooltip-inner').length).toBeFalsy();
+            await waitFor(() => {
+              expect(wrapper.querySelectorAll('.ant-tooltip-inner').length).toBe(0);
+            });
           } else if (tooltips[0] === '' && tooltips[1]) {
-            expect(wrapper.find('.ant-tooltip-inner').length).toBeFalsy();
+            await waitFor(() => {
+              expect(wrapper.querySelectorAll('.ant-tooltip-inner').length).toBe(0);
+            });
           } else if (tooltips[1] === '' && tooltips[0]) {
-            expect(wrapper.find('.ant-tooltip-inner').text()).toBe(tooltips[0]);
+            await waitFor(() => {
+              expect(wrapper.querySelector('.ant-tooltip-inner').textContent).toBe(tooltips[0]);
+            });
           } else {
-            expect(wrapper.find('.ant-tooltip-inner').text()).toBe(tooltips[0]);
+            await waitFor(() => {
+              expect(wrapper.querySelector('.ant-tooltip-inner').textContent).toBe(tooltips[0]);
+            });
           }
 
-          wrapper.find('.ant-typography-copy').first().simulate('click');
+          fireEvent.click(wrapper.querySelector('.ant-typography-copy'));
           jest.useRealTimers();
-          wrapper.find('.ant-typography-copy').first().simulate('mouseenter');
-          // tooltips 为 ['', 'xxx'] 时，切换时需要延时 mousenEnterDelay 的时长
+          fireEvent.mouseEnter(wrapper.querySelectorAll('.ant-typography-copy')[0]);
+          // tooltips 为 ['', 'xxx'] 时，切换时需要延时 mouseEnterDelay 的时长
           if (tooltips && tooltips[0] === '' && tooltips[1]) {
             await sleep(150);
           }
 
           expect(copy.lastStr).toEqual(target);
           expect(copy.lastOptions.format).toEqual(format);
-          wrapper.update();
           expect(onCopy).toHaveBeenCalled();
 
           let copiedIcon = '.anticon-check';
@@ -143,31 +151,43 @@ describe('Typography', () => {
             copiedIcon = '.anticon-check';
           }
 
-          expect(wrapper.find(copiedIcon).length).toBeTruthy();
-          wrapper.find('.ant-typography-copy').first().simulate('mouseenter');
+          expect(wrapper.querySelectorAll(copiedIcon).length).toBeGreaterThan(0);
+          fireEvent.mouseEnter(wrapper.querySelectorAll('.ant-typography-copy')[0]);
 
           if (tooltips === undefined || tooltips === true) {
-            expect(wrapper.find('.ant-tooltip-inner').text()).toBe('Copied');
+            await waitFor(() => {
+              expect(wrapper.querySelector('.ant-tooltip-inner').textContent).toBe('Copied');
+            });
           } else if (tooltips === false) {
-            expect(wrapper.find('.ant-tooltip-inner').length).toBeFalsy();
+            await waitFor(() => {
+              expect(wrapper.querySelectorAll('.ant-tooltip-inner').length).toBe(0);
+            });
           } else if (tooltips[0] === '' && tooltips[1] === '') {
-            expect(wrapper.find('.ant-tooltip-inner').length).toBeFalsy();
+            await waitFor(() => {
+              expect(wrapper.querySelectorAll('.ant-tooltip-inner').length).toBe(0);
+            });
           } else if (tooltips[0] === '' && tooltips[1]) {
-            expect(wrapper.find('.ant-tooltip-inner').text()).toBe(tooltips[1]);
+            await waitFor(() => {
+              expect(wrapper.querySelector('.ant-tooltip-inner').textContent).toBe(tooltips[1]);
+            });
           } else if (tooltips[1] === '' && tooltips[0]) {
-            expect(wrapper.find('.ant-tooltip-inner').text()).toBe('');
+            await waitFor(() => {
+              expect(wrapper.querySelector('.ant-tooltip-inner').textContent).toBe('');
+            });
           } else {
-            expect(wrapper.find('.ant-tooltip-inner').text()).toBe(tooltips[1]);
+            await waitFor(() => {
+              expect(wrapper.querySelector('.ant-tooltip-inner').textContent).toBe(tooltips[1]);
+            });
           }
 
           jest.useFakeTimers();
-          wrapper.find('.ant-typography-copy').first().simulate('click');
+          fireEvent.click(wrapper.querySelectorAll('.ant-typography-copy')[0]);
           jest.runAllTimers();
-          wrapper.update();
 
           // Will set back when 3 seconds pass
-          expect(wrapper.find(copiedIcon).length).toBeFalsy();
-          wrapper.unmount();
+          await sleep(3000);
+          expect(wrapper.querySelectorAll(copiedIcon).length).toBe(0);
+          unmount();
           jest.useRealTimers();
         });
       }
@@ -221,15 +241,15 @@ describe('Typography', () => {
         submitFunc,
         expectFunc,
       ) {
-        it(name, () => {
+        it(name, async () => {
           jest.useFakeTimers();
           const onStart = jest.fn();
           const onChange = jest.fn();
 
           const className = 'test';
-          const style = {};
+          const style = { padding: 'unset' };
 
-          const wrapper = mount(
+          const { container: wrapper } = render(
             <Paragraph
               editable={{ onChange, onStart, icon, tooltip, triggerType, enterIcon }}
               className={className}
@@ -241,64 +261,71 @@ describe('Typography', () => {
 
           if (triggerType === undefined || triggerType.indexOf('icon') !== -1) {
             if (icon) {
-              expect(wrapper.find('.anticon-highlight').length).toBeTruthy();
+              expect(wrapper.querySelectorAll('.anticon-highlight').length).toBeGreaterThan(0);
             } else {
-              expect(wrapper.find('.anticon-edit').length).toBeTruthy();
+              expect(wrapper.querySelectorAll('.anticon-edit').length).toBeGreaterThan(0);
             }
 
             if (triggerType === undefined || triggerType.indexOf('text') === -1) {
-              wrapper.simulate('click');
+              fireEvent.click(wrapper.firstChild);
               expect(onStart).not.toHaveBeenCalled();
             }
-            wrapper.find('.ant-typography-edit').first().simulate('mouseenter');
+            fireEvent.mouseEnter(wrapper.querySelectorAll('.ant-typography-edit')[0]);
             jest.runAllTimers();
-            wrapper.update();
 
             if (tooltip === undefined || tooltip === true) {
-              expect(wrapper.find('.ant-tooltip-inner').text()).toBe('Edit');
+              await waitFor(() => {
+                expect(wrapper.querySelector('.ant-tooltip-inner').textContent).toBe('Edit');
+              });
             } else if (tooltip === false) {
-              expect(wrapper.find('.ant-tooltip-inner').length).toBeFalsy();
+              await waitFor(() => {
+                expect(wrapper.querySelectorAll('.ant-tooltip-inner').length).toBe(0);
+              });
             } else {
-              expect(wrapper.find('.ant-tooltip-inner').text()).toBe(tooltip);
+              await waitFor(() => {
+                expect(wrapper.querySelector('.ant-tooltip-inner').textContent).toBe(tooltip);
+              });
             }
 
-            wrapper.find('.ant-typography-edit').first().simulate('click');
+            fireEvent.click(wrapper.querySelectorAll('.ant-typography-edit')[0]);
 
             expect(onStart).toHaveBeenCalled();
             if (triggerType !== undefined && triggerType.indexOf('text') !== -1) {
-              wrapper.find('textarea').simulate('keyDown', { keyCode: KeyCode.ESC });
-              wrapper.find('textarea').simulate('keyUp', { keyCode: KeyCode.ESC });
+              fireEvent.keyDown(wrapper.querySelector('textarea'), { keyCode: KeyCode.ESC });
+              fireEvent.keyUp(wrapper.querySelector('textarea'), { keyCode: KeyCode.ESC });
               expect(onChange).not.toHaveBeenCalled();
             }
           }
 
           if (triggerType !== undefined && triggerType.indexOf('text') !== -1) {
             if (triggerType.indexOf('icon') === -1) {
-              expect(wrapper.find('.anticon-highlight').length).toBeFalsy();
-              expect(wrapper.find('.anticon-edit').length).toBeFalsy();
+              expect(wrapper.querySelectorAll('.anticon-highlight').length).toBe(0);
+              expect(wrapper.querySelectorAll('.anticon-edit').length).toBe(0);
             }
-            wrapper.simulate('click');
+            fireEvent.click(wrapper.firstChild);
             expect(onStart).toHaveBeenCalled();
           }
 
           // Should have className
-          const props = wrapper.find('div').first().props();
-          expect(props.style).toEqual(style);
+          const props = wrapper.querySelectorAll('div')[0];
+          expect(props.getAttribute('style')).toContain('padding: unset');
           expect(props.className.includes(className)).toBeTruthy();
 
-          wrapper.find('textarea').simulate('change', {
+          fireEvent.change(wrapper.querySelector('textarea'), {
             target: { value: 'Bamboo' },
           });
 
           if (enterIcon === undefined) {
             expect(
-              wrapper.find('span.ant-typography-edit-content-confirm').first().props().className,
+              wrapper.querySelectorAll('span.ant-typography-edit-content-confirm')[0].className,
             ).toContain('anticon-enter');
           } else if (enterIcon === null) {
-            expect(wrapper.find('span.ant-typography-edit-content-confirm').length).toBe(0);
+            expect(
+              wrapper.querySelectorAll('span.ant-typography-edit-content-confirm').length,
+            ).toBe(0);
           } else {
             expect(
-              wrapper.find('span.ant-typography-edit-content-confirm').first().props().className,
+              wrapper.querySelectorAll('span.ant-typography-edit-content-confirm')[0].className,
             ).not.toContain('anticon-enter');
           }
 
@@ -319,21 +346,21 @@ describe('Typography', () => {
 
       testStep({ name: 'by key up' }, wrapper => {
         // Not trigger when inComposition
-        wrapper.find('textarea').simulate('compositionStart');
-        wrapper.find('textarea').simulate('keyDown', { keyCode: KeyCode.ENTER });
-        wrapper.find('textarea').simulate('compositionEnd');
-        wrapper.find('textarea').simulate('keyUp', { keyCode: KeyCode.ENTER });
+        fireEvent.compositionStart(wrapper.querySelector('textarea'));
+        fireEvent.keyDown(wrapper.querySelector('textarea'), { keyCode: KeyCode.ENTER });
+        fireEvent.compositionEnd(wrapper.querySelector('textarea'));
+        fireEvent.keyUp(wrapper.querySelector('textarea'), { keyCode: KeyCode.ENTER });
 
         // Now trigger
-        wrapper.find('textarea').simulate('keyDown', { keyCode: KeyCode.ENTER });
-        wrapper.find('textarea').simulate('keyUp', { keyCode: KeyCode.ENTER });
+        fireEvent.keyDown(wrapper.querySelector('textarea'), { keyCode: KeyCode.ENTER });
+        fireEvent.keyUp(wrapper.querySelector('textarea'), { keyCode: KeyCode.ENTER });
       });
 
       testStep(
         { name: 'by esc key' },
         wrapper => {
-          wrapper.find('textarea').simulate('keyDown', { keyCode: KeyCode.ESC });
-          wrapper.find('textarea').simulate('keyUp', { keyCode: KeyCode.ESC });
+          fireEvent.keyDown(wrapper.querySelector('textarea'), { keyCode: KeyCode.ESC });
+          fireEvent.keyUp(wrapper.querySelector('textarea'), { keyCode: KeyCode.ESC });
         },
         onChange => {
           // eslint-disable-next-line jest/no-standalone-expect
@@ -342,7 +369,7 @@ describe('Typography', () => {
       );
 
       testStep({ name: 'by blur' }, wrapper => {
-        wrapper.find('textarea').simulate('blur');
+        fireEvent.blur(wrapper.querySelector('textarea'));
       });
 
       testStep({ name: 'customize edit icon', icon: <HighlightOutlined /> });
@@ -359,47 +386,51 @@ describe('Typography', () => {
 
       it('should trigger onEnd when type Enter', () => {
         const onEnd = jest.fn();
-        const wrapper = mount(<Paragraph editable={{ onEnd }}>Bamboo</Paragraph>);
-        wrapper.find('.ant-typography-edit').first().simulate('click');
-        wrapper.find('textarea').simulate('keyDown', { keyCode: KeyCode.ENTER });
-        wrapper.find('textarea').simulate('keyUp', { keyCode: KeyCode.ENTER });
+        const { container: wrapper } = render(<Paragraph editable={{ onEnd }}>Bamboo</Paragraph>);
+        fireEvent.click(wrapper.querySelectorAll('.ant-typography-edit')[0]);
+        fireEvent.keyDown(wrapper.querySelector('textarea'), { keyCode: KeyCode.ENTER });
+        fireEvent.keyUp(wrapper.querySelector('textarea'), { keyCode: KeyCode.ENTER });
         expect(onEnd).toHaveBeenCalledTimes(1);
       });
 
       it('should trigger onCancel when type ESC', () => {
         const onCancel = jest.fn();
-        const wrapper = mount(<Paragraph editable={{ onCancel }}>Bamboo</Paragraph>);
-        wrapper.find('.ant-typography-edit').first().simulate('click');
-        wrapper.find('textarea').simulate('keyDown', { keyCode: KeyCode.ESC });
-        wrapper.find('textarea').simulate('keyUp', { keyCode: KeyCode.ESC });
+        const { container: wrapper } = render(
+          <Paragraph editable={{ onCancel }}>Bamboo</Paragraph>,
+        );
+        fireEvent.click(wrapper.querySelectorAll('.ant-typography-edit')[0]);
+        fireEvent.keyDown(wrapper.querySelector('textarea'), { keyCode: KeyCode.ESC });
+        fireEvent.keyUp(wrapper.querySelector('textarea'), { keyCode: KeyCode.ESC });
         expect(onCancel).toHaveBeenCalledTimes(1);
       });
 
       it('should only trigger focus on the first time', () => {
         let triggerTimes = 0;
-        const mockFocus = spyElementPrototype(HTMLElement, 'focus', () => {
+        const { container: wrapper } = render(<Paragraph editable>Bamboo</Paragraph>);
+        const editIcon = wrapper.querySelectorAll('.ant-typography-edit')[0];
+
+        editIcon.addEventListener('focus', () => {
           triggerTimes += 1;
         });
 
-        const wrapper = mount(<Paragraph editable>Bamboo</Paragraph>);
-
-        wrapper.find('.ant-typography-edit').first().simulate('click');
+        fireEvent.focus(editIcon);
         expect(triggerTimes).toEqual(1);
 
-        wrapper.find('textarea').simulate('change', {
+        fireEvent.click(editIcon);
+        expect(triggerTimes).toEqual(1);
+
+        fireEvent.change(wrapper.querySelector('textarea'), {
           target: { value: 'good' },
         });
 
         expect(triggerTimes).toEqual(1);
-
-        mockFocus.mockRestore();
       });
     });
 
     it('should focus at the end of textarea', () => {
-      const wrapper = mount(<Paragraph editable>content</Paragraph>);
-      wrapper.find('.ant-typography-edit').first().simulate('click');
-      const textareaNode = wrapper.find('textarea').getDOMNode();
+      const { container: wrapper } = render(<Paragraph editable>content</Paragraph>);
+      fireEvent.click(wrapper.querySelectorAll('.ant-typography-edit')[0]);
+      const textareaNode = wrapper.querySelector('textarea');
       expect(textareaNode.selectionStart).toBe(7);
       expect(textareaNode.selectionEnd).toBe(7);
     });
@@ -407,7 +438,7 @@ describe('Typography', () => {
 
   it('warning if use setContentRef', () => {
     const refFunc = () => {};
-    mount(<Typography setContentRef={refFunc} />);
+    render(<Typography setContentRef={refFunc} />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Typography] `setContentRef` is deprecated. Please use `ref` instead.',
     );
@@ -423,21 +454,21 @@ describe('Typography', () => {
   it('should get HTMLHeadingElement ref from Title', () => {
     const ref = React.createRef();
 
-    mount(<Title level={1} ref={ref} />);
+    render(<Title level={1} ref={ref} />);
     expect(ref.current instanceof HTMLHeadingElement).toBe(true);
   });
 
   it('should get HTMLDivElement ref from Paragraph', () => {
     const ref = React.createRef();
 
-    mount(<Paragraph ref={ref} />);
+    render(<Paragraph ref={ref} />);
     expect(ref.current instanceof HTMLDivElement).toBe(true);
   });
 
   it('should get HTMLSpanElement ref from Text', () => {
     const ref = React.createRef();
 
-    mount(<Text ref={ref} />);
+    render(<Text ref={ref} />);
     expect(ref.current instanceof HTMLSpanElement).toBe(true);
   });
 });
