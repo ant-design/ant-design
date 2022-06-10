@@ -1,3 +1,7 @@
+.ant-popover {
+  width: 220px;
+}
+
 .ant-popover-placement-bottom,
 .ant-popover-placement-bottomLeft,
 .ant-popover-placement-bottomRight {
@@ -19,9 +23,30 @@
 }
 
 .ant-popover-inner-content {
+  height: 220px;
   padding: 12px;
+  overflow-y: auto;
   background: @white;
   border: 1px solid @dg700;
   border-radius: 8px;
   box-shadow: 0px 14px 21px -1px rgba(6, 25, 56, 0.08);
+}
+
+p {
+  &.group-users {
+    margin: 0;
+    color: @base-font-color;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    strong {
+      display: block;
+      margin-bottom: 8px;
+      color: @secondary-color;
+      font-weight: 600;
+    }
+    + .group-users {
+      margin-top: 16px;
+    }
+  }
 }

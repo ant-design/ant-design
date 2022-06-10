@@ -22,10 +22,26 @@
   line-height: 18px;
 }
 
-.ant-form-item-explain,
-.ant-form-item-extra {
-  font-size: 12px;
-  line-height: 14px;
+.ant-form-item-with-help {
+  .ant-form-item-explain,
+  .ant-form-item-extra {
+    height: auto;
+    min-height: auto;
+    margin-top: 8px;
+    font-size: 12px;
+    line-height: 14px;
+  }
+}
+
+.ant-form-item-explain-error {
+  color: #ef4444;
+}
+
+.ant-form-item-label
+  > label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before {
+  margin-right: 2px;
+  color: @r300;
+  font-weight: bold;
 }
 
 // select
@@ -115,7 +131,7 @@
 // Button CSS
 .ant-btn {
   height: auto;
-  padding: 7px 12px;
+  padding: 6px 12px;
   color: @dg300;
   font-weight: 500;
   font-size: @font-size-base;
@@ -153,6 +169,14 @@
     width: 26px;
     height: 26px;
     padding: 1px;
+    &.onlyIcon {
+      width: auto;
+      height: auto;
+      padding: 0;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+    }
   }
 
   + .ant-btn {
@@ -174,7 +198,8 @@
 
 // dropdown CSS
 
-.ant-dropdown-menu {
+.ant-dropdown-menu,
+.table-dropdown .ant-menu {
   padding: 8px 0;
   background: @white;
   border: 1px solid @dg700;
@@ -242,6 +267,12 @@
   box-shadow: 0px 14px 21px -1px rgba(6, 25, 56, 0.08);
 }
 
+.ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+  color: @b400;
+  font-weight: normal;
+  background: #eef2ff;
+}
+
 .table-dropdown {
   width: 120px;
 
@@ -283,8 +314,13 @@ div.ant-typography {
   font-weight: 400;
   font-size: 14px;
   line-height: 16px;
-  border: 1px dashed @dg700;
+  word-break: break-all;
+  background: #f4f7fa;
+  border: 2px dashed @dg700;
   border-radius: 4px;
+  .ant-typography-copy {
+    margin-left: 20px;
+  }
 }
 
 // Password strength
@@ -380,6 +416,15 @@ div.ant-typography {
   .custom-text {
     width: calc(100% - 300px);
     text-align: right;
+  }
+}
+
+.custom-label-input {
+  .ant-form-item {
+    margin-bottom: 0;
+  }
+  + .custom-label-input {
+    margin-top: 24px;
   }
 }
 
