@@ -1,13 +1,13 @@
-import React from 'react';
-import { mount } from 'enzyme';
+import * as React from 'react';
 import KeyCode from 'rc-util/lib/KeyCode';
+import { fireEvent, render } from '../../../tests/utils';
 import Paragraph from '../Paragraph';
 
 test('Callback on enter key is triggered', () => {
   const onEditStart = jest.fn();
   const onCopy = jest.fn();
 
-  const wrapper = mount(
+  const { container: wrapper } = render(
     <Paragraph
       copyable={{
         onCopy,
@@ -23,8 +23,8 @@ test('Callback on enter key is triggered', () => {
   jest.spyOn(window, 'setTimeout').mockReturnValue(timer);
   jest.spyOn(window, 'clearTimeout');
   // must copy first, because editing button will hide copy button
-  wrapper.find('.ant-typography-copy').at(0).simulate('keyup', { keyCode: KeyCode.ENTER });
-  wrapper.find('.anticon-edit').at(0).simulate('keyup', { keyCode: KeyCode.ENTER });
+  fireEvent.keyUp(wrapper.querySelectorAll('.ant-typography-copy')[0], { keyCode: KeyCode.ENTER });
+  fireEvent.keyUp(wrapper.querySelectorAll('.anticon-edit')[0], { keyCode: KeyCode.ENTER });
 
   expect(onEditStart.mock.calls.length).toBe(1);
   expect(onCopy.mock.calls.length).toBe(1);
