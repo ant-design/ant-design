@@ -1,3 +1,4 @@
+import React from 'react';
 import BackTop from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';

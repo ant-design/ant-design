@@ -1,3 +1,4 @@
+import * as React from 'react';
 import KeyCode from 'rc-util/lib/KeyCode';
 import { fireEvent, render } from '../../../tests/utils';
 import Paragraph from '../Paragraph';
