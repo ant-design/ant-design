@@ -24,7 +24,7 @@ const localeValues: Locale = {
     sortTitle: 'Ordina',
     triggerDesc: 'Clicca per ordinare in modo discendente',
     triggerAsc: 'Clicca per ordinare in modo ascendente',
-    cancelSort: 'Clicca per eliminare l'ordinamento',
+    cancelSort: "Clicca per eliminare l'ordinamento",
   },
   Modal: {
     okText: 'OK',
