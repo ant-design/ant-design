@@ -3,7 +3,7 @@ order: 7.5
 title: 使用自定义日期库
 ---
 
-你可以用自定义日期库如（[moment](http://momentjs.com/)、[date-fns](https://date-fns.org)）。在这里我们提供了两种方式来实现替换:
+Ant Design 默认使用 [Day.js](https://day.js.org) 来处理时间日期问题。Day.js 相比于 moment 使用了不可变数据结构，性能更快，体积仅 2KB，API 设计完全一致。你可以很方便的改用其他自定义日期库如（[moment](http://momentjs.com/)、[date-fns](https://date-fns.org)）。在这里我们提供了两种方式来实现替换:
 
 ## 自定义组件
 
