@@ -328,6 +328,15 @@ describe('Button', () => {
     expect(onClick).not.toHaveBeenCalled();
   });
 
+  it('should match class .ant-btn-disabled when button is disabled and href is not undefined', () => {
+    const wrapper = render(
+      <Button href="https://ant.design" disabled>
+        click me
+      </Button>,
+    );
+    expect(wrapper.container.querySelector('.ant-btn')).toHaveClass('ant-btn-disabled');
+  });
+
   // https://github.com/ant-design/ant-design/issues/30953
   it('should handle fragment as children', () => {
     const wrapper = render(
