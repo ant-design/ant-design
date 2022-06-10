@@ -14,9 +14,9 @@ title:
 Basic usage.
 
 ```tsx
-import React from 'react';
 import { Mentions } from 'antd';
 import type { OptionProps } from 'antd/es/mentions';
+import React from 'react';
 
 const { Option } = Mentions;
 

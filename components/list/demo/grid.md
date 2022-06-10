@@ -14,8 +14,8 @@ title:
 Create a grid layout by setting the `grid` property of List.
 
 ```tsx
+import { Card, List } from 'antd';
 import React from 'react';
-import { List, Card } from 'antd';
 
 const data = [
   {

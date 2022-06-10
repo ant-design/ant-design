@@ -221,7 +221,9 @@ describe('Table.rowSelection', () => {
 
     fireEvent.click(container.querySelectorAll('input[type="checkbox"]')[4]);
 
-    expect(handleChange).toHaveBeenCalledWith([3], [{ key: 3, name: 'Jerry' }]);
+    expect(handleChange).toHaveBeenCalledWith([3], [{ key: 3, name: 'Jerry' }], {
+      type: 'single',
+    });
     expect(handleSelect.mock.calls.length).toBe(1);
     expect(handleSelect.mock.calls[0][0]).toEqual({ key: 3, name: 'Jerry' });
     expect(handleSelect.mock.calls[0][1]).toEqual(true);
@@ -258,6 +260,9 @@ describe('Table.rowSelection', () => {
       });
 
     expect(handleSelect).toHaveBeenCalled();
+    expect(handleChange).toHaveBeenLastCalledWith([0], [{ key: 0, name: 'Jack' }], {
+      type: 'single',
+    });
 
     wrapper
       .find('input')
@@ -271,6 +276,15 @@ describe('Table.rowSelection', () => {
       [data[0], data[1], data[2]],
       [data[1], data[2]],
     );
+    expect(handleChange).toHaveBeenLastCalledWith(
+      [0, 1, 2],
+      [
+        { key: 0, name: 'Jack' },
+        { key: 1, name: 'Lucy' },
+        { key: 2, name: 'Tom' },
+      ],
+      { type: 'multiple' },
+    );
 
     wrapper
       .find('input')
@@ -280,6 +294,7 @@ describe('Table.rowSelection', () => {
         nativeEvent: { shiftKey: true },
       });
     expect(handleSelectMulti).toHaveBeenCalledWith(false, [], [data[0], data[1], data[2]]);
+    expect(handleChange).toHaveBeenLastCalledWith([], [], { type: 'multiple' });
 
     expect(order).toEqual([
       'onSelect',
@@ -473,7 +488,7 @@ describe('Table.rowSelection', () => {
       });
 
       fireEvent.click(container.querySelector('li.ant-dropdown-menu-item'));
-      expect(onChange).toHaveBeenCalledWith([0, 2], expect.anything());
+      expect(onChange).toHaveBeenCalledWith([0, 2], expect.anything(), { type: 'all' });
     });
 
     it('SELECTION_INVERT', () => {
@@ -499,7 +514,7 @@ describe('Table.rowSelection', () => {
 
       fireEvent.click(container.querySelector('li.ant-dropdown-menu-item'));
 
-      expect(onChange).toHaveBeenCalledWith([0], expect.anything());
+      expect(onChange).toHaveBeenCalledWith([0], expect.anything(), { type: 'invert' });
     });
 
     it('SELECTION_NONE', () => {
@@ -525,7 +540,7 @@ describe('Table.rowSelection', () => {
 
       fireEvent.click(container.querySelector('li.ant-dropdown-menu-item'));
 
-      expect(onChange).toHaveBeenCalledWith([1], expect.anything());
+      expect(onChange).toHaveBeenCalledWith([1], expect.anything(), { type: 'none' });
     });
   });
 
@@ -915,12 +930,15 @@ describe('Table.rowSelection', () => {
     const checkboxes = container.querySelectorAll('input');
 
     fireEvent.click(checkboxes[2]);
-    expect(onChange).toHaveBeenLastCalledWith([11], [newDatas[0].list[0]]);
+
+    expect(onChange).toHaveBeenLastCalledWith([11], [newDatas[0].list[0]], { type: 'single' });
     onChange.mockReset();
 
     fireEvent.click(checkboxes[1]);
     const item0 = newDatas[0];
-    expect(onChange).toHaveBeenLastCalledWith([11, 1], [newDatas[0].list[0], item0]);
+    expect(onChange).toHaveBeenLastCalledWith([11, 1], [newDatas[0].list[0], item0], {
+      type: 'single',
+    });
   });
 
   it('clear selection className when remove `rowSelection`', () => {
@@ -1453,13 +1471,12 @@ describe('Table.rowSelection', () => {
       );
 
       fireEvent.click(container.querySelector('tbody input'));
-      expect(onChange).toHaveBeenCalledWith(['light'], [{ name: 'light' }]);
-
+      expect(onChange).toHaveBeenCalledWith(['light'], [{ name: 'light' }], { type: 'single' });
       rerender(
         <Table dataSource={[{ name: 'bamboo' }]} rowSelection={{ onChange }} rowKey="name" />,
       );
       fireEvent.click(container.querySelector('tbody input'));
-      expect(onChange).toHaveBeenCalledWith(['bamboo'], [{ name: 'bamboo' }]);
+      expect(onChange).toHaveBeenCalledWith(['bamboo'], [{ name: 'bamboo' }], { type: 'single' });
     });
 
     it('cache with preserveSelectedRowKeys', () => {
@@ -1473,7 +1490,7 @@ describe('Table.rowSelection', () => {
       );
 
       fireEvent.click(container.querySelector('tbody input'));
-      expect(onChange).toHaveBeenCalledWith(['light'], [{ name: 'light' }]);
+      expect(onChange).toHaveBeenCalledWith(['light'], [{ name: 'light' }], { type: 'single' });
 
       rerender(
         <Table
@@ -1486,6 +1503,7 @@ describe('Table.rowSelection', () => {
       expect(onChange).toHaveBeenCalledWith(
         ['light', 'bamboo'],
         [{ name: 'light' }, { name: 'bamboo' }],
+        { type: 'single' },
       );
     });
 
@@ -1509,7 +1527,7 @@ describe('Table.rowSelection', () => {
       );
 
       fireEvent.click(container.querySelector('tbody input'));
-      expect(onChange).toHaveBeenCalledWith(['Jack'], [{ name: 'Jack' }]);
+      expect(onChange).toHaveBeenCalledWith(['Jack'], [{ name: 'Jack' }], { type: 'single' });
     });
 
     it('works with selectionType radio receive selectedRowKeys from [] to undefined', () => {
@@ -1531,7 +1549,7 @@ describe('Table.rowSelection', () => {
       );
 
       fireEvent.click(container.querySelector('tbody input'));
-      expect(onChange).toHaveBeenCalledWith(['Jack'], [{ name: 'Jack' }]);
+      expect(onChange).toHaveBeenCalledWith(['Jack'], [{ name: 'Jack' }], { type: 'single' });
     });
 
     it('selectedRows ant selectedKeys should keep sync in initial state', () => {
@@ -1572,7 +1590,11 @@ describe('Table.rowSelection', () => {
         />,
       );
       fireEvent.click(container.querySelector('tbody input'));
-      expect(onChange).toHaveBeenCalledWith(['Jack', 'Lucy'], [{ name: 'Jack' }, { name: 'Lucy' }]);
+      expect(onChange).toHaveBeenCalledWith(
+        ['Jack', 'Lucy'],
+        [{ name: 'Jack' }, { name: 'Lucy' }],
+        { type: 'single' },
+      );
     });
   });
 });

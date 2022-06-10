@@ -14,9 +14,9 @@ title:
 Searchable Tree.
 
 ```tsx
-import React, { useMemo, useState } from 'react';
-import { Tree, Input } from 'antd';
+import { Input, Tree } from 'antd';
 import type { DataNode } from 'antd/lib/tree';
+import React, { useMemo, useState } from 'react';
 
 const { Search } = Input;
 
@@ -116,7 +116,7 @@ const App: React.FC = () => {
               {afterStr}
             </span>
           ) : (
-            <span>{item.title}</span>
+            <span>{strTitle}</span>
           );
         if (item.children) {
           return { title, key: item.key, children: loop(item.children) };

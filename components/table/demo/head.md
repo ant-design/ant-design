@@ -30,9 +30,9 @@ Uses `defaultSortOrder` to make a column sorted by default.
 If a `sortOrder` or `defaultSortOrder` is specified with the value `ascend` or `descend`, you can access this value from within the function passed to the `sorter` as explained above. Such a function can take the form: `function(a, b, sortOrder) { ... }`.
 
 ```tsx
-import React from 'react';
 import { Table } from 'antd';
 import type { ColumnsType, TableProps } from 'antd/lib/table';
+import React from 'react';
 
 interface DataType {
   key: React.Key;

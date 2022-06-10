@@ -14,9 +14,9 @@ title:
 Simplest Usage. Badge will be hidden when `count` is `0`, but we can use `showZero` to show it.
 
 ```tsx
-import React from 'react';
-import { Badge, Avatar } from 'antd';
 import { ClockCircleOutlined } from '@ant-design/icons';
+import { Avatar, Badge } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <>

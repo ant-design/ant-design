@@ -14,8 +14,8 @@ title:
 Support set allow to clear star when click again.
 
 ```tsx
-import React from 'react';
 import { Rate } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <>

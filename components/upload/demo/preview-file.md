@@ -14,10 +14,10 @@ title:
 Customize local preview. Can handle with non-image format files such as video.
 
 ```tsx
-import React from 'react';
-import { Upload, Button } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import type { UploadProps } from 'antd';
+import { Button, Upload } from 'antd';
+import React from 'react';
 
 const props: UploadProps = {
   action: '//jsonplaceholder.typicode.com/posts/',

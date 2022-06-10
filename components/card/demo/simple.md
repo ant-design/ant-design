@@ -14,8 +14,8 @@ title:
 A simple card only containing a content area.
 
 ```tsx
-import React from 'react';
 import { Card } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <Card style={{ width: 300 }}>

@@ -14,39 +14,38 @@ title:
 Components which support rtl direction are listed here, you can toggle the direction in the demo.
 
 ```tsx
-import React, { useState } from 'react';
 import {
-  Input,
+  DownloadOutlined,
+  LeftOutlined,
+  MinusOutlined,
+  PlusOutlined,
+  RightOutlined,
+  SearchOutlined as SearchIcon,
+  SmileOutlined,
+} from '@ant-design/icons';
+import type { RadioChangeEvent } from 'antd';
+import {
+  Badge,
+  Button,
+  Cascader,
   Col,
+  ConfigProvider,
+  Divider,
+  Input,
+  InputNumber,
+  Modal,
+  Pagination,
+  Radio,
+  Rate,
   Row,
   Select,
-  InputNumber,
-  ConfigProvider,
-  Cascader,
-  Radio,
+  Steps,
   Switch,
   Tree,
   TreeSelect,
-  Modal,
-  Button,
-  Pagination,
-  Steps,
-  Rate,
-  Badge,
-  Divider,
 } from 'antd';
-
-import {
-  SearchOutlined as SearchIcon,
-  SmileOutlined,
-  DownloadOutlined,
-  LeftOutlined,
-  RightOutlined,
-  MinusOutlined,
-  PlusOutlined,
-} from '@ant-design/icons';
 import type { DirectionType } from 'antd/lib/config-provider';
-import type { RadioChangeEvent } from 'antd';
+import React, { useState } from 'react';
 
 const InputGroup = Input.Group;
 const ButtonGroup = Button.Group;

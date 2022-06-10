@@ -14,8 +14,8 @@ title:
 For multi-line input.
 
 ```tsx
-import React from 'react';
 import { Input } from 'antd';
+import React from 'react';
 
 const { TextArea } = Input;
 

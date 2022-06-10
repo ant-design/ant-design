@@ -39,6 +39,7 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | autoInsertSpaceInButton | Set false to remove space between 2 chinese characters on Button | boolean | true |  |
+| componentDisabled | Config antd component `disabled` | boolean | - | 4.21.0 |
 | componentSize | Config antd component size | `small` \| `middle` \| `large` | - |  |
 | csp | Set [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) config | { nonce: string } | - |  |
 | direction | Set direction of layout. See [demo](#components-config-provider-demo-direction) | `ltr` \| `rtl` | `ltr` |  |

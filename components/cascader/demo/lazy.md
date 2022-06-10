@@ -18,8 +18,8 @@ Load options lazily with `loadData`.
 > Note: `loadData` cannot work with `showSearch`.
 
 ```tsx
-import React, { useState } from 'react';
 import { Cascader } from 'antd';
+import React, { useState } from 'react';
 
 interface Option {
   value: string;

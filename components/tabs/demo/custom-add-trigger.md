@@ -14,8 +14,8 @@ title:
 Hide default plus icon, and bind event for customized trigger.
 
 ```tsx
+import { Button, Tabs } from 'antd';
 import React, { useRef, useState } from 'react';
-import { Tabs, Button } from 'antd';
 
 const { TabPane } = Tabs;
 

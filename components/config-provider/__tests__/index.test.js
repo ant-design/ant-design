@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { mount } from 'enzyme';
 import { SmileOutlined } from '@ant-design/icons';
-import { fireEvent, render } from '@testing-library/react';
 import ConfigProvider, { ConfigContext } from '..';
 import Button from '../../button';
 import Table from '../../table';
 import Input from '../../input';
 import mountTest from '../../../tests/shared/mountTest';
+import { render, fireEvent } from '../../../tests/utils';
 
 describe('ConfigProvider', () => {
   mountTest(() => (
@@ -104,16 +104,23 @@ describe('ConfigProvider', () => {
   });
 
   it('render empty', () => {
+    let rendered = false;
+    let cacheRenderEmpty;
+
     const App = () => {
       const { renderEmpty } = React.useContext(ConfigContext);
-      return renderEmpty();
+      rendered = true;
+      cacheRenderEmpty = renderEmpty;
+      return null;
     };
-    const wrapper = mount(
+
+    render(
       <ConfigProvider>
         <App />
       </ConfigProvider>,
     );
 
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(rendered).toBeTruthy();
+    expect(cacheRenderEmpty).toBeFalsy();
   });
 });

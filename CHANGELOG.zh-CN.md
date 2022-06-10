@@ -15,6 +15,52 @@ timeline: true
 
 ---
 
+## 4.21.0
+
+`2022-06-06`
+
+- 🔥 新增 Form 级别控制输入组件 `disabled`。[#35210](https://github.com/ant-design/ant-design/pull/35210) [@heiyu4585](https://github.com/heiyu4585)
+- 🆕 Tabs 组件支持 `popupClassName` 用于更多菜单。[#35892](https://github.com/ant-design/ant-design/pull/35892)
+- 🆕 Table 组件 `rowSelection.onChange` 新增 `info.type` 参数。[#35598](https://github.com/ant-design/ant-design/pull/35598)
+- 🆕 Typography.Paragraph 的 `copyable` 属性支持 `format` 以重置剪切板数据的 Mime Type。[#35219](https://github.com/ant-design/ant-design/pull/35219) [@kanweiwei](https://github.com/kanweiwei)
+- 🆕 TreeSelect 支持 `treeExpandAction` 定义展开操作。[#35618](https://github.com/ant-design/ant-design/pull/35618) [@NE-SmallTown](https://github.com/NE-SmallTown)
+- ConfigProvider
+  - 🆕 ConfigProvider 支持全局配置 Pagination `showSizeChanger` 属性。[#35750](https://github.com/ant-design/ant-design/pull/35750)
+  - 🆕 ConfigProvider 支持 `componentDisabled` 来配置组件禁用状态。[#35718](https://github.com/ant-design/ant-design/pull/35718)
+  - 🛠 重构 ConfigProvider 移除默认的 `renderEmpty` 方法以解决打包循环依赖的问题。[#35570](https://github.com/ant-design/ant-design/pull/35570)
+- Collapse
+  - 🛠 重构 Collapse 标题部分以确保其稳定的 DOM 结构易于样式选择。[#35781](https://github.com/ant-design/ant-design/pull/35781)
+  - 🛠 重构 Collapse `expandIconPosition` 为逻辑位置 `start` 与 `end` 以解决 RTL 下的样式问题。[#35770](https://github.com/ant-design/ant-design/pull/35770)
+- Progress
+  - 🆕 Progress 分步进度条支持单独自定义色彩。[#35855](https://github.com/ant-design/ant-design/pull/35855)
+  - 🛠 重构 Progress `type="circle"` 和 `type="dashboard"` 以简化 dom 结构和带来更好的渲染效果。[#35433](https://github.com/ant-design/ant-design/pull/35433)
+  - 🛠 重构 Progress 成 React hooks。[#35393](https://github.com/ant-design/ant-design/pull/35393) [@shuaijiumei](https://github.com/shuaijiumei)
+  - 🐞 修复 Progress 进度接近 100% 间距几乎消失的问题。[#35433](https://github.com/ant-design/ant-design/pull/35433)
+  - 🐞 修复 Progress `type="dashboard"` 的 `gapDegree` 角度不准确的问题。[#35433](https://github.com/ant-design/ant-design/pull/35433)
+  - 💄 修复 Progress `type="line"` 和 `strokeLinecap="butt"` 时的圆角样式。[#35822](https://github.com/ant-design/ant-design/pull/35822)
+- Dropdown
+  - 🆕 Dropdown 支持 `autoFocus` 属性，打开时自动聚焦下拉单。[#35391](https://github.com/ant-design/ant-design/pull/35391)
+  - 🛠 修复 Dropdown 嵌套菜单注入逻辑。[#35810](https://github.com/ant-design/ant-design/pull/35810)
+- Card
+  - 🛠 使用 Skeleton 重构 Card `loading` 属性。[#35525](https://github.com/ant-design/ant-design/pull/35525)
+  - 🛠 重构 Card 样式用 flex 代替 float。[#35236](https://github.com/ant-design/ant-design/pull/35236) [@miracles1919](https://github.com/miracles1919)
+- 🛠 DatePicker 重构成 React hooks。[#35425](https://github.com/ant-design/ant-design/pull/35425) [@heiyu4585](https://github.com/heiyu4585)
+- 🛠 将 Pagination `mini` 模式的 className 重命名为 `ant-pagination-mini`。[#35881](https://github.com/ant-design/ant-design/pull/35881)
+- 🛠 重构 Popconfirm 内部实现为 Popover 组件。[#35676](https://github.com/ant-design/ant-design/pull/35676)
+- 🛠 改变 Modal confirm 组件底部按钮布局实现方式。[#35530](https://github.com/ant-design/ant-design/pull/35530) [@foryuki](https://github.com/foryuki)
+- 🐞 修复波浪效果在 React 18 严格模式不生效的问题。[#35889](https://github.com/ant-design/ant-design/pull/35889) [@Carrotzpc](https://github.com/Carrotzpc)
+- 🐞 修复 Drawer 关闭 2 次后 `children` 为 undefined 的问题。[#35853](https://github.com/ant-design/ant-design/pull/35853) [@crazyair](https://github.com/crazyair)
+- Skeleton
+  - 💄 移除 Skeleton 默认的 `margin-top` 以便在默认情况下更对称。[#35848](https://github.com/ant-design/ant-design/pull/35848)
+  - 💄 优化 Skeleton `active` 的动画性能。[#35836](https://github.com/ant-design/ant-design/pull/35836) [@slotDumpling](https://github.com/slotDumpling)
+- 💄 移除 Radio 禁用状态时样式中的 `!important`。[#35920](https://github.com/ant-design/ant-design/pull/35920)
+- TypeScript
+  - 🤖 修复 Form.List 类型 `FormListFieldData` 缺失属性 `fieldKey`。[#35884](https://github.com/ant-design/ant-design/pull/35884) [@nanianlisao](https://github.com/nanianlisao)
+- 🌐 国际化
+  - 🇹🇲 添加土库曼语国际化。[#35605](https://github.com/ant-design/ant-design/pull/35605)
+- RTL
+  - 💄 修正 Input 和 InputNumber 的 `border` 和 `border-radius` 在 RTL 模式下的方向问题。[#35876](https://github.com/ant-design/ant-design/pull/35876) [@yykoypj](https://github.com/yykoypj)
+
 ## 4.20.7
 
 `2022-05-30`

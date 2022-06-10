@@ -23,16 +23,16 @@ Generally, the mainnav is placed on the left side of the page, and the secondary
 The level of the aside navigation is scalable. The first, second, and third level navigations could be present more fluently and relevantly, and aside navigation can be fixed, allowing the user to quickly switch and spot the current position, improving the user experience. However, this navigation occupies some horizontal space of the contents.
 
 ```tsx
-import React, { useState } from 'react';
-import { Layout, Menu, Breadcrumb } from 'antd';
 import {
   DesktopOutlined,
-  PieChartOutlined,
   FileOutlined,
+  PieChartOutlined,
   TeamOutlined,
   UserOutlined,
 } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
+import { Breadcrumb, Layout, Menu } from 'antd';
+import React, { useState } from 'react';
 
 const { Header, Content, Footer, Sider } = Layout;
 

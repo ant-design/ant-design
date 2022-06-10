@@ -23,7 +23,7 @@ interface SubMenuType extends Omit<RcSubMenuType, 'children'> {
 }
 
 interface MenuItemGroupType extends Omit<RcMenuItemGroupType, 'children'> {
-  children?: MenuItemType[];
+  children?: ItemType[];
   key?: React.Key;
 }
 

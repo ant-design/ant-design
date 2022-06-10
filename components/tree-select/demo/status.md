@@ -15,8 +15,8 @@ title:
 Add status to TreeSelect with `status`, which could be `error` or `warning`.
 
 ```tsx
+import { Space, TreeSelect } from 'antd';
 import React from 'react';
-import { TreeSelect, Space } from 'antd';
 
 const App: React.FC = () => (
   <Space direction="vertical" style={{ width: '100%' }}>

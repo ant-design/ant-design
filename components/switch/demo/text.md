@@ -14,9 +14,9 @@ title:
 With text and icon.
 
 ```tsx
-import React from 'react';
+import { CheckOutlined, CloseOutlined } from '@ant-design/icons';
 import { Switch } from 'antd';
-import { CloseOutlined, CheckOutlined } from '@ant-design/icons';
+import React from 'react';
 
 const App: React.FC = () => (
   <>

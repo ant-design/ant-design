@@ -14,9 +14,9 @@ title:
 A disabled state of the `DatePicker`. You can also set as array to disable one of input.
 
 ```tsx
-import React from 'react';
 import { DatePicker, Space } from 'antd';
 import moment from 'moment';
+import React from 'react';
 
 const { RangePicker } = DatePicker;
 

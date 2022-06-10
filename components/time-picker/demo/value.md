@@ -14,9 +14,9 @@ value 和 onChange 需要配合使用。
 `value` and `onChange` should be used together,
 
 ```tsx
-import React, { useState } from 'react';
 import { TimePicker } from 'antd';
 import type { Moment } from 'moment';
+import React, { useState } from 'react';
 
 const App: React.FC = () => {
   const [value, setValue] = useState<Moment | null>(null);

@@ -15,8 +15,8 @@ debug: true
 config by ConfigProvider.
 
 ```tsx
-import React, { useState, useRef } from 'react';
-import { Drawer, ConfigProvider, Button } from 'antd';
+import { Button, ConfigProvider, Drawer } from 'antd';
+import React, { useRef, useState } from 'react';
 
 const App: React.FC = () => {
   const domRef = useRef<HTMLDivElement>(null);

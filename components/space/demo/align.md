@@ -14,8 +14,8 @@ title:
 Config item align.
 
 ```tsx
+import { Button, Space } from 'antd';
 import React from 'react';
-import { Space, Button } from 'antd';
 
 const App: React.FC = () => (
   <div className="space-align-container">

@@ -14,8 +14,8 @@ title:
 Messages of success, error and warning types.
 
 ```tsx
+import { Button, message, Space } from 'antd';
 import React from 'react';
-import { message, Button, Space } from 'antd';
 
 const success = () => {
   message.success('This is a success message');

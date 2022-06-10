@@ -14,9 +14,9 @@ title:
 The menu has multiple levels.
 
 ```tsx
-import React from 'react';
-import { Menu, Dropdown, Space } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
+import { Dropdown, Menu, Space } from 'antd';
+import React from 'react';
 
 const menu = (
   <Menu

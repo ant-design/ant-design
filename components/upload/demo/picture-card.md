@@ -14,11 +14,11 @@ title:
 After users upload picture, the thumbnail will be shown in list. The upload button will disappear when count meets limitation.
 
 ```tsx
-import React, { useState } from 'react';
-import { Upload, Modal } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
-import type { UploadFile } from 'antd/es/upload/interface';
+import { Modal, Upload } from 'antd';
 import type { RcFile, UploadProps } from 'antd/es/upload';
+import type { UploadFile } from 'antd/es/upload/interface';
+import React, { useState } from 'react';
 
 const getBase64 = (file: RcFile): Promise<string> =>
   new Promise((resolve, reject) => {
