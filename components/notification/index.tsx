@@ -3,6 +3,7 @@ import { render } from 'rc-util/lib/React/render';
 import useNotification, { useInternalNotification } from './useNotification';
 import type { ArgsProps, NotificationInstance, GlobalConfigProps } from './interface';
 import ConfigProvider, { globalConfig } from '../config-provider';
+import PurePanel from './PurePanel';
 
 let notification: GlobalNotification | null = null;
 
@@ -222,11 +223,14 @@ const baseStaticMethods: {
   destroy: (key?: React.Key) => void;
   config: any;
   useNotification: typeof useNotification;
+  /** @private Internal Component. Do not use in your production. */
+  _DoNotUseOrYouWillBeFired: typeof PurePanel;
 } = {
   open,
   destroy,
   config: setNotificationGlobalConfig,
   useNotification,
+  _DoNotUseOrYouWillBeFired: PurePanel,
 };
 
 const staticMethods: typeof baseStaticMethods & Record<MethodType, (config: ArgsProps) => void> =

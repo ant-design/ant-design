@@ -148,6 +148,14 @@ const genMessageStyle: GenerateStyle<MessageToken> = token => {
         },
       },
     },
+
+    // ============================= Pure =============================
+    {
+      [`${componentCls}-notice-pure-panel`]: {
+        padding: 0,
+        textAlign: 'start',
+      },
+    },
   ];
 };
 

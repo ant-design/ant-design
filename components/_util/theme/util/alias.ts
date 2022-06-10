@@ -11,7 +11,7 @@ type RawMergedToken = DerivativeToken & OverrideToken;
  * Merge seed & derivative & override token and generate alias token for developer.
  */
 export default function formatToken(derivativeToken: RawMergedToken): AliasToken {
-  const { derivative, ...restToken } = derivativeToken;
+  const { derivative, alias, ...restToken } = derivativeToken;
 
   const mergedToken = {
     ...restToken,
@@ -164,6 +164,9 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
 
     colorPopupBg: new TinyColor('#000').setAlpha(0.45).toRgbString(),
     colorBorderSecondary: new TinyColor({ h: 0, s: 0, v: 94 }).toHexString(),
+
+    // Override AliasToken
+    ...alias,
   };
 
   return aliasToken;

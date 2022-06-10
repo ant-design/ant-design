@@ -401,6 +401,94 @@ Array [
 ]
 `;
 
+exports[`renders ./components/notification/demo/render-panel.md correctly 1`] = `
+<div
+  class="ant-notification-notice ant-notification-notice-pure-panel ant-notification-notice-closable"
+>
+  <div
+    class="ant-notification-notice-content"
+  >
+    <div
+      class="ant-notification-notice-with-icon"
+      role="alert"
+    >
+      <span
+        aria-label="check-circle"
+        class="anticon anticon-check-circle ant-notification-notice-icon ant-notification-notice-icon-success"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="check-circle"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M699 353h-46.9c-10.2 0-19.9 4.9-25.9 13.3L469 584.3l-71.2-98.8c-6-8.3-15.6-13.3-25.9-13.3H325c-6.5 0-10.3 7.4-6.5 12.7l124.6 172.8a31.8 31.8 0 0051.7 0l210.6-292c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+          <path
+            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+          />
+        </svg>
+      </span>
+      <div
+        class="ant-notification-notice-message"
+      >
+        Hello World!
+      </div>
+      <div
+        class="ant-notification-notice-description"
+      >
+        Hello World?
+      </div>
+      <div
+        class="ant-notification-notice-btn"
+      >
+        <button
+          class="ant-btn ant-btn-primary ant-btn-sm"
+          type="button"
+        >
+          <span>
+            My Button
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <a
+    class="ant-notification-notice-close"
+    tabindex="0"
+  >
+    <span
+      class="ant-notification-close-x"
+    >
+      <span
+        aria-label="close"
+        class="anticon anticon-close ant-notification-close-icon"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="close"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+          />
+        </svg>
+      </span>
+    </span>
+  </a>
+</div>
+`;
+
 exports[`renders ./components/notification/demo/update.md correctly 1`] = `
 <button
   class="ant-btn ant-btn-primary"

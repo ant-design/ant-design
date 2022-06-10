@@ -2,6 +2,7 @@ import * as React from 'react';
 import { mount } from 'enzyme';
 import ConfigProvider from '..';
 import Button from '../../button';
+import Divider from '../../divider';
 
 describe('ConfigProvider.DynamicTheme', () => {
   beforeEach(() => {
@@ -45,5 +46,32 @@ describe('ConfigProvider.DynamicTheme', () => {
         />,
       );
     }).not.toThrow();
+  });
+
+  it('should support overriding aliasToken', () => {
+    mount(
+      <ConfigProvider
+        theme={{
+          override: {
+            alias: {
+              colorSplit: 'blue',
+            },
+          },
+        }}
+      >
+        <Divider />
+      </ConfigProvider>,
+    );
+
+    const dynamicStyles = Array.from(document.querySelectorAll('style[data-css-hash]'));
+
+    expect(
+      dynamicStyles.some(style => {
+        const { innerHTML } = style;
+        return (
+          innerHTML.includes('.ant-divider') && innerHTML.includes('border-block-start:0 blue')
+        );
+      }),
+    ).toBeTruthy();
   });
 });
