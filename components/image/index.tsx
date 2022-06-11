@@ -41,8 +41,8 @@ const Image: CompositionImage<ImageProps> = ({
         </div>
       ),
       icons,
-      getContainer: getContainer || getContextPopupContainer,
       ...restPreviewProps,
+      getContainer: getContainer || getContextPopupContainer,
       transitionName: getTransitionName(rootPrefixCls, 'zoom', _preview.transitionName),
       maskTransitionName: getTransitionName(rootPrefixCls, 'fade', _preview.maskTransitionName),
     };
