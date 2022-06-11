@@ -1,19 +1,19 @@
-import classNames from 'classnames';
-import toArray from 'rc-util/lib/Children/toArray';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import * as React from 'react';
-// import copy from 'copy-to-clipboard';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CopyOutlined from '@ant-design/icons/CopyOutlined';
 import EditOutlined from '@ant-design/icons/EditOutlined';
+import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
 import type { AutoSizeType } from 'rc-textarea/lib/ResizableTextArea';
+import toArray from 'rc-util/lib/Children/toArray';
 import useIsomorphicLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'rc-util/lib/omit';
 import { composeRef } from 'rc-util/lib/ref';
+import * as React from 'react';
 import { ConfigContext } from '../../config-provider';
 import { useLocaleReceiver } from '../../locale-provider/LocaleReceiver';
 import Tooltip from '../../tooltip';
+import { writeText } from '../../_util/clipboard';
 import { isStyleSupport } from '../../_util/styleChecker';
 import TransButton from '../../_util/transButton';
 import Editable from '../Editable';
@@ -25,24 +25,6 @@ import Ellipsis from './Ellipsis';
 import EllipsisTooltip from './EllipsisTooltip';
 
 export type BaseType = 'secondary' | 'success' | 'warning' | 'danger';
-
-const copy = (content: string, format?: 'text/plain' | 'text/html') =>
-  new Promise<void>((resolve, reject) => {
-    let success = false;
-    const listener = (e: ClipboardEvent) => {
-      e.preventDefault();
-      e.clipboardData?.setData(format || 'text/plain', content);
-      success = true;
-    };
-    document.addEventListener('copy', listener);
-    document.execCommand('copy');
-    document.removeEventListener('copy', listener);
-    if (success) {
-      resolve();
-    } else {
-      reject();
-    }
-  });
 
 interface CopyConfig {
   text?: string;
@@ -222,7 +204,7 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
     e?.preventDefault();
     e?.stopPropagation();
 
-    copy(copyConfig.text || String(children) || '', copyConfig.format);
+    writeText(copyConfig.text || String(children) || '', copyConfig.format);
 
     setCopied(true);
 
