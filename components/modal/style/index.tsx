@@ -1,9 +1,9 @@
 // deps-lint-skip-all
-import type React from 'react';
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { TokenWithCommonCls } from 'antd/es/_util/theme/util/genComponentStyleHook';
-import { genComponentStyleHook, mergeToken, resetComponent, clearFix } from '../../_util/theme';
-import type { FullToken, GenerateStyle, AliasToken } from '../../_util/theme';
+import type React from 'react';
+import type { AliasToken, FullToken, GenerateStyle } from '../../_util/theme';
+import { clearFix, genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -79,10 +79,59 @@ export function modalMask(componentCls: string, token: TokenWithCommonCls<AliasT
 const genModalStyle: GenerateStyle<ModalToken> = token => {
   const { componentCls } = token;
 
-  return {
-    [`${componentCls}-root`]: {
-      ...modalMask(componentCls, token),
+  return [
+    // ======================== Root =========================
+    {
+      [`${componentCls}-root`]: {
+        ...modalMask(componentCls, token),
 
+        [`${componentCls}-wrap`]: {
+          zIndex: token.zIndexPopupBase,
+          position: 'fixed',
+          inset: 0,
+          overflow: 'auto',
+          outline: 0,
+          WebkitOverflowScrolling: 'touch',
+        },
+        [`${componentCls}-wrap-rtl`]: {
+          direction: 'rtl',
+        },
+
+        [`${componentCls}-centered`]: {
+          textAlign: 'center',
+
+          '&::before': {
+            display: 'inline-block',
+            width: 0,
+            height: '100%',
+            verticalAlign: 'middle',
+            content: '""',
+          },
+          [componentCls]: {
+            top: 0,
+            display: 'inline-block',
+            paddingBottom: 0,
+            textAlign: 'start',
+            verticalAlign: 'middle',
+          },
+        },
+
+        [`@media (max-width: ${token.screenSMMax})`]: {
+          [componentCls]: {
+            maxWidth: 'calc(100vw - 16px)',
+            margin: `${token.marginXS} auto`,
+          },
+          [`${componentCls}-centered`]: {
+            [componentCls]: {
+              flex: 1,
+            },
+          },
+        },
+      },
+    },
+
+    // ======================== Modal ========================
+    {
       [componentCls]: {
         ...resetComponent(token),
         pointerEvents: 'none',
@@ -93,7 +142,7 @@ const genModalStyle: GenerateStyle<ModalToken> = token => {
         margin: '0 auto',
         paddingBottom: token.paddingLG,
 
-        '&-title': {
+        [`${componentCls}-title`]: {
           margin: 0,
           color: token.modalHeadingColor,
           fontWeight: token.fontWeightStrong,
@@ -102,7 +151,7 @@ const genModalStyle: GenerateStyle<ModalToken> = token => {
           wordWrap: 'break-word',
         },
 
-        '&-content': {
+        [`${componentCls}-content`]: {
           position: 'relative',
           backgroundColor: token.modalContentBg,
           backgroundClip: 'padding-box',
@@ -112,7 +161,7 @@ const genModalStyle: GenerateStyle<ModalToken> = token => {
           pointerEvents: 'auto',
         },
 
-        '&-close': {
+        [`${componentCls}-close`]: {
           position: 'absolute',
           top: 0,
           insetInlineEnd: 0,
@@ -146,7 +195,7 @@ const genModalStyle: GenerateStyle<ModalToken> = token => {
           },
         },
 
-        '&-header': {
+        [`${componentCls}-header`]: {
           padding: token.modalHeaderPadding,
           color: token.colorText,
           background: token.modalHeaderBg,
@@ -154,14 +203,14 @@ const genModalStyle: GenerateStyle<ModalToken> = token => {
           borderRadius: `${token.controlRadius}px ${token.controlRadius}px 0 0`,
         },
 
-        '&-body': {
+        [`${componentCls}-body`]: {
           padding: token.modalBodyPadding,
           fontSize: token.fontSizeBase,
           lineHeight: token.lineHeight,
           wordWrap: 'break-word',
         },
 
-        '&-footer': {
+        [`${componentCls}-footer`]: {
           padding: `${token.modalFooterPaddingVertical}px ${token.modalFooterPaddingHorizontal}px`,
           textAlign: 'end',
           background: token.modalFooterBg,
@@ -174,55 +223,20 @@ const genModalStyle: GenerateStyle<ModalToken> = token => {
           },
         },
 
-        '&-open': {
+        [`${componentCls}-open`]: {
           overflow: 'hidden',
         },
       },
+    },
 
-      [`${componentCls}-wrap`]: {
-        zIndex: token.zIndexPopupBase,
-        position: 'fixed',
-        inset: 0,
-        overflow: 'auto',
-        outline: 0,
-        WebkitOverflowScrolling: 'touch',
-      },
-      [`${componentCls}-wrap-rtl`]: {
-        direction: 'rtl',
-      },
-
-      [`${componentCls}-centered`]: {
-        textAlign: 'center',
-
-        '&::before': {
-          display: 'inline-block',
-          width: 0,
-          height: '100%',
-          verticalAlign: 'middle',
-          content: '""',
-        },
-        [componentCls]: {
-          top: 0,
-          display: 'inline-block',
-          paddingBottom: 0,
-          textAlign: 'start',
-          verticalAlign: 'middle',
-        },
-      },
-
-      [`@media (max-width: ${token.screenSMMax})`]: {
-        [componentCls]: {
-          maxWidth: 'calc(100vw - 16px)',
-          margin: `${token.marginXS} auto`,
-        },
-        [`${componentCls}-centered`]: {
-          [componentCls]: {
-            flex: 1,
-          },
-        },
+    // ======================== Pure =========================
+    {
+      [`${componentCls}-pure-panel`]: {
+        top: 'auto',
+        padding: 0,
       },
     },
-  };
+  ];
 };
 
 const genModalConfirmStyle: GenerateStyle<ModalToken> = token => {

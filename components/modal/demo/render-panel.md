@@ -4,7 +4,6 @@ title:
   zh-CN: _DoNotUseOrYouWillBeFired
   en-US: _DoNotUseOrYouWillBeFired
 debug: true
-only: true
 ---
 
 ## zh-CN
@@ -17,10 +16,9 @@ Debug usage. Do not use in your production.
 
 ```tsx
 import { Modal } from 'antd';
-import React from 'react';
 
 /** Test usage. Do not use in your production. */
 const { _DoNotUseOrYouWillBeFired: InternalPanel } = Modal;
 
-export default () => <InternalPanel content="Hello World!" type="error" />;
+export default () => <InternalPanel title="Hello World!">Hello World?!</InternalPanel>;
 ```
