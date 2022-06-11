@@ -8,7 +8,9 @@ export const writeText = (content: string, format?: 'text/plain' | 'text/html') 
     let success = false;
     const listener = (e: ClipboardEvent) => {
       e.preventDefault();
-      e.clipboardData?.setData(format || 'text/plain', content);
+      const clipboardData = e.clipboardData || (window as any).clipboardData;
+      clipboardData?.clearData();
+      clipboardData?.setData(format || 'text/plain', content);
       success = true;
     };
     document.addEventListener('copy', listener);
