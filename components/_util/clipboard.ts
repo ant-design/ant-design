@@ -1,3 +1,8 @@
+const clipboardToIE11Formatting = {
+  'text/plain': 'Text',
+  'text/html': 'Url',
+};
+
 // eslint-disable-next-line import/prefer-default-export
 export const writeText = (content: string, format?: 'text/plain' | 'text/html') =>
   new Promise<void>((resolve, reject) => {
@@ -8,9 +13,13 @@ export const writeText = (content: string, format?: 'text/plain' | 'text/html') 
     let success = false;
     const listener = (e: ClipboardEvent) => {
       e.preventDefault();
+
+      const formatting = e.clipboardData
+        ? format || 'text/plain'
+        : clipboardToIE11Formatting[format || 'text/plain'];
       const clipboardData = e.clipboardData || (window as any).clipboardData;
       clipboardData?.clearData();
-      clipboardData?.setData(format || 'text/plain', content);
+      clipboardData?.setData(formatting, content);
       success = true;
     };
     document.addEventListener('copy', listener);
