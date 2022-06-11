@@ -1,15 +1,15 @@
-import * as React from 'react';
-import RcDropdown from 'rc-dropdown';
-import classNames from 'classnames';
 import RightOutlined from '@ant-design/icons/RightOutlined';
-import DropdownButton from './dropdown-button';
+import classNames from 'classnames';
+import RcDropdown from 'rc-dropdown';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
-import warning from '../_util/warning';
-import { tuple } from '../_util/type';
-import { cloneElement } from '../_util/reactNode';
-import getPlacements from '../_util/placements';
-import OverrideContext from '../menu/OverrideContext';
 import type { OverrideContextProps } from '../menu/OverrideContext';
+import OverrideContext from '../menu/OverrideContext';
+import getPlacements from '../_util/placements';
+import { cloneElement } from '../_util/reactNode';
+import { tuple } from '../_util/type';
+import warning from '../_util/warning';
+import DropdownButton from './dropdown-button';
 
 const Placements = tuple(
   'topLeft',
@@ -44,7 +44,7 @@ export type DropdownArrowOptions = {
 };
 
 export interface DropdownProps {
-  autoFocus?: boolean
+  autoFocus?: boolean;
   arrow?: boolean | DropdownArrowOptions;
   trigger?: ('click' | 'hover' | 'contextMenu')[];
   overlay: React.ReactElement | OverlayFunc;
