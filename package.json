@@ -282,7 +282,7 @@
     "scrollama": "^3.0.0",
     "semver": "^7.3.5",
     "simple-git": "^3.0.0",
-    "stylelint": "14.9.0",
+    "stylelint": "^14.9.0",
     "stylelint-config-prettier": "^9.0.2",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard": "^25.0.0",
