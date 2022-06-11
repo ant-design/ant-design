@@ -44,6 +44,7 @@ export type DropdownArrowOptions = {
 };
 
 export interface DropdownProps {
+  autoFocus?: boolean
   arrow?: boolean | DropdownArrowOptions;
   trigger?: ('click' | 'hover' | 'contextMenu')[];
   overlay: React.ReactElement | OverlayFunc;
