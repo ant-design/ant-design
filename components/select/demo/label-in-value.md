@@ -18,8 +18,8 @@ As a default behavior, the `onChange` callback can only get the `value` of the s
 The `label` of the selected item will be packed as an object for passing to the `onChange` callback.
 
 ```tsx
-import React from 'react';
 import { Select } from 'antd';
+import React from 'react';
 
 const { Option } = Select;
 

@@ -15,9 +15,9 @@ title:
 The close icon can be customized using `closeIcon`.
 
 ```tsx
-import React from 'react';
-import { Tag } from 'antd';
 import { CloseCircleOutlined } from '@ant-design/icons';
+import { Tag } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <>

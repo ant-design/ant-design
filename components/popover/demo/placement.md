@@ -14,8 +14,8 @@ title:
 There are 12 `placement` options available.
 
 ```tsx
+import { Button, Popover } from 'antd';
 import React from 'react';
-import { Popover, Button } from 'antd';
 
 const text = <span>Title</span>;
 const content = (

@@ -18,9 +18,9 @@ Ellipsis cell content via setting `column.ellipsis`.
 > Cannot ellipsis table header with sorters and filters for now.
 
 ```tsx
-import React from 'react';
 import { Table } from 'antd';
 import type { ColumnsType } from 'antd/lib/table';
+import React from 'react';
 
 interface DataType {
   key: React.Key;

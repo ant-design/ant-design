@@ -14,8 +14,8 @@ title:
 Display title in different level.
 
 ```tsx
-import React from 'react';
 import { Typography } from 'antd';
+import React from 'react';
 
 const { Title } = Typography;
 

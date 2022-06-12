@@ -14,10 +14,10 @@ title:
 Showing more detailed info of every row.
 
 ```tsx
-import React from 'react';
-import { Table, Badge, Menu, Dropdown, Space } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
+import { Badge, Dropdown, Menu, Space, Table } from 'antd';
 import type { ColumnsType } from 'antd/lib/table';
+import React from 'react';
 
 interface DataType {
   key: React.Key;

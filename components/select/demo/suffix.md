@@ -15,9 +15,9 @@ title:
 Basic Usage.
 
 ```tsx
-import React from 'react';
+import { MehOutlined, SmileOutlined } from '@ant-design/icons';
 import { Select } from 'antd';
-import { SmileOutlined, MehOutlined } from '@ant-design/icons';
+import React from 'react';
 
 const smileIcon = <SmileOutlined />;
 const mehIcon = <MehOutlined />;

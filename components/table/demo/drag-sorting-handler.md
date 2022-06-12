@@ -14,13 +14,13 @@ title:
 Alternatively you can implement drag sorting with handler using [react-sortable-hoc](https://github.com/clauderic/react-sortable-hoc).
 
 ```tsx
-import React, { useState } from 'react';
-import { Table } from 'antd';
-import { SortableContainer, SortableElement, SortableHandle } from 'react-sortable-hoc';
 import { MenuOutlined } from '@ant-design/icons';
-import { arrayMoveImmutable } from 'array-move';
+import { Table } from 'antd';
 import type { ColumnsType } from 'antd/lib/table';
+import { arrayMoveImmutable } from 'array-move';
+import React, { useState } from 'react';
 import type { SortableContainerProps, SortEnd } from 'react-sortable-hoc';
+import { SortableContainer, SortableElement, SortableHandle } from 'react-sortable-hoc';
 
 interface DataType {
   key: string;

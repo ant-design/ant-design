@@ -14,9 +14,9 @@ title:
 Add unit through `prefix` and `suffix`.
 
 ```tsx
-import React from 'react';
-import { Statistic, Row, Col } from 'antd';
 import { LikeOutlined } from '@ant-design/icons';
+import { Col, Row, Statistic } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <Row gutter={16}>

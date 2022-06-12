@@ -14,9 +14,9 @@ title:
 Allows for custom rendering of tags.
 
 ```tsx
-import React from 'react';
 import { Select, Tag } from 'antd';
 import type { CustomTagProps } from 'rc-select/lib/BaseSelect';
+import React from 'react';
 
 const options = [{ value: 'gold' }, { value: 'lime' }, { value: 'green' }, { value: 'cyan' }];
 

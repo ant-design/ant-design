@@ -14,9 +14,9 @@ title:
 The input box comes in three sizes. large is used in the form, while the medium size is the default.
 
 ```tsx
-import React from 'react';
 import { TimePicker } from 'antd';
 import moment from 'moment';
+import React from 'react';
 
 const App: React.FC = () => (
   <>

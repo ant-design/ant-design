@@ -16,8 +16,8 @@ title:
 Child elements depending on the value of the `start`, `center`, `end`, `space-between`, `space-around` and `space-evenly`, which are defined in its parent node typesetting mode.
 
 ```tsx
+import { Col, Divider, Row } from 'antd';
 import React from 'react';
-import { Row, Col, Divider } from 'antd';
 
 const App: React.FC = () => (
   <>

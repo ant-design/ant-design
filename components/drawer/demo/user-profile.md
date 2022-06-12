@@ -14,8 +14,8 @@ title:
 Use Drawer to quickly preview details of an object, such as those in a list.
 
 ```tsx
+import { Avatar, Col, Divider, Drawer, List, Row } from 'antd';
 import React, { useState } from 'react';
-import { Drawer, List, Avatar, Divider, Col, Row } from 'antd';
 
 interface DescriptionItemProps {
   title: string;

@@ -14,9 +14,9 @@ title:
 Communicated with other components.
 
 ```tsx
-import React, { useState } from 'react';
-import { Checkbox, Button } from 'antd';
+import { Button, Checkbox } from 'antd';
 import type { CheckboxChangeEvent } from 'antd/es/checkbox';
+import React, { useState } from 'react';
 
 const App: React.FC = () => {
   const [checked, setChecked] = useState(true);

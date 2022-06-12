@@ -14,8 +14,8 @@ title:
 Click the image to zoom in.
 
 ```tsx
-import React from 'react';
 import { Image } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <Image

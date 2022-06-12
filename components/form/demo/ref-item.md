@@ -15,9 +15,9 @@ debug: true
 Use `ref` first!
 
 ```tsx
-import React from 'react';
-import { Button, Form, Input } from 'antd';
 import type { InputRef } from 'antd';
+import { Button, Form, Input } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => {
   const [form] = Form.useForm();

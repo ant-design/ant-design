@@ -15,8 +15,8 @@ Test disabled Input with validate state
 Test disabled Input with validate state
 
 ```tsx
-import React from 'react';
 import { Form, Input } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <Form>

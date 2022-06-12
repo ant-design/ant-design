@@ -18,8 +18,8 @@ A more complex example which define a customized footer button bar. The dialog w
 You could set `footer` to `null` if you don't need default footer buttons.
 
 ```tsx
+import { Button, Modal } from 'antd';
 import React, { useState } from 'react';
-import { Modal, Button } from 'antd';
 
 const App: React.FC = () => {
   const [loading, setLoading] = useState(false);

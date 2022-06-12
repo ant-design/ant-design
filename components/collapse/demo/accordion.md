@@ -14,8 +14,8 @@ title:
 In accordion mode, only one panel can be expanded at a time.
 
 ```tsx
-import React from 'react';
 import { Collapse } from 'antd';
+import React from 'react';
 
 const { Panel } = Collapse;
 

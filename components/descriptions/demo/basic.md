@@ -14,8 +14,8 @@ title:
 Simplest Usage.
 
 ```tsx
-import React from 'react';
 import { Descriptions } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <Descriptions title="User Info">

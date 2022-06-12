@@ -14,10 +14,10 @@ title:
 A basic comment with author, avatar, time and actions.
 
 ```tsx
-import React, { createElement, useState } from 'react';
-import { Comment, Tooltip, Avatar } from 'antd';
+import { DislikeFilled, DislikeOutlined, LikeFilled, LikeOutlined } from '@ant-design/icons';
+import { Avatar, Comment, Tooltip } from 'antd';
 import moment from 'moment';
-import { DislikeOutlined, LikeOutlined, DislikeFilled, LikeFilled } from '@ant-design/icons';
+import React, { createElement, useState } from 'react';
 
 const App: React.FC = () => {
   const [likes, setLikes] = useState(0);

@@ -14,9 +14,9 @@ title:
 Demonstration of [Lookup Patterns: Uncertain Category](https://ant.design/docs/spec/reaction#Lookup-Patterns).
 
 ```tsx
-import React, { useState } from 'react';
-import { Input, AutoComplete } from 'antd';
+import { AutoComplete, Input } from 'antd';
 import type { SelectProps } from 'antd/es/select';
+import React, { useState } from 'react';
 
 const getRandomInt = (max: number, min = 0) => Math.floor(Math.random() * (max - min + 1)) + min;
 

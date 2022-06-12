@@ -7,21 +7,21 @@ debug: true
 ---
 
 ```tsx
-import React from 'react';
 import {
-  Typography,
-  Button,
-  Input,
-  Select,
-  Cascader,
-  TreeSelect,
-  DatePicker,
-  TimePicker,
-  InputNumber,
-  Radio,
   AutoComplete,
+  Button,
+  Cascader,
+  DatePicker,
+  Input,
+  InputNumber,
   Mentions,
+  Radio,
+  Select,
+  TimePicker,
+  TreeSelect,
+  Typography,
 } from 'antd';
+import React from 'react';
 
 const { Text } = Typography;
 const { Option } = Select;

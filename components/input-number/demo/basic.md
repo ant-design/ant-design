@@ -14,8 +14,8 @@ title:
 Numeric-only input box.
 
 ```tsx
-import React from 'react';
 import { InputNumber } from 'antd';
+import React from 'react';
 
 const onChange = (value: number) => {
   console.log('changed', value);

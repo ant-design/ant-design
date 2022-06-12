@@ -14,8 +14,8 @@ title:
 Crowded components split.
 
 ```tsx
+import { Divider, Space, Typography } from 'antd';
 import React from 'react';
-import { Space, Typography, Divider } from 'antd';
 
 const App: React.FC = () => (
   <Space split={<Divider type="vertical" />}>

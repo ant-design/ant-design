@@ -14,8 +14,8 @@ title:
 You can set different preview image.
 
 ```tsx
-import React from 'react';
 import { Image } from 'antd';
+import React from 'react';
 
 const App: React.FC = () => (
   <Image

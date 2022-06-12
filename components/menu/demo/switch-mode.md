@@ -14,16 +14,16 @@ title:
 Show the dynamic switching mode (between `inline` and `vertical`).
 
 ```tsx
-import React, { useState } from 'react';
-import { Menu, Switch, Divider } from 'antd';
 import {
-  MailOutlined,
-  CalendarOutlined,
   AppstoreOutlined,
-  SettingOutlined,
+  CalendarOutlined,
   LinkOutlined,
+  MailOutlined,
+  SettingOutlined,
 } from '@ant-design/icons';
-import type { MenuTheme, MenuProps } from 'antd/es/menu';
+import { Divider, Menu, Switch } from 'antd';
+import type { MenuProps, MenuTheme } from 'antd/es/menu';
+import React, { useState } from 'react';
 
 type MenuItem = Required<MenuProps>['items'][number];
 

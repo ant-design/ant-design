@@ -15,11 +15,11 @@ debug: true
 Determing which panel to show with `mode` and `onPanelChange`.
 
 ```tsx
-import React, { useState } from 'react';
+import type { DatePickerProps } from 'antd';
 import { DatePicker, Space } from 'antd';
 import type { RangePickerProps } from 'antd/es/date-picker';
 import type { Moment } from 'moment';
-import type { DatePickerProps } from 'antd';
+import React, { useState } from 'react';
 
 const { RangePicker } = DatePicker;
 

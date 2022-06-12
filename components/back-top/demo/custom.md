@@ -19,8 +19,8 @@ You can customize the style of the button, just note the size limit: no more tha
 > Note: `BackTop` expects a element could accept `onClick` propety as children. If you put a text directly as children the component will not function properly.
 
 ```tsx
-import React from 'react';
 import { BackTop } from 'antd';
+import React from 'react';
 
 const style: React.CSSProperties = {
   height: 40,

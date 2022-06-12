@@ -14,10 +14,10 @@ title:
 We can set the date format by `format`.
 
 ```tsx
-import React from 'react';
+import type { DatePickerProps } from 'antd';
 import { DatePicker, Space } from 'antd';
 import moment from 'moment';
-import type { DatePickerProps } from 'antd';
+import React from 'react';
 
 const { RangePicker } = DatePicker;
 

@@ -14,9 +14,9 @@ title:
 Tab's position: left, right, top or bottom. Will auto switch to `top` in mobile.
 
 ```tsx
-import React, { useState } from 'react';
-import { Tabs, Radio, Space } from 'antd';
 import type { RadioChangeEvent } from 'antd';
+import { Radio, Space, Tabs } from 'antd';
+import React, { useState } from 'react';
 
 const { TabPane } = Tabs;
 

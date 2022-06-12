@@ -16,8 +16,8 @@ title:
 `span` `pull` `push` `offset` `order` property can be embedded into `xs` `sm` `md` `lg` `xl` `xxl` properties to use, where `xs={6}` is equivalent to `xs={{span: 6}}`.
 
 ```tsx
+import { Col, Row } from 'antd';
 import React from 'react';
-import { Row, Col } from 'antd';
 
 const App: React.FC = () => (
   <Row>

@@ -14,9 +14,9 @@ title:
 Show all props provided by PageHeader.
 
 ```tsx
-import React from 'react';
-import { PageHeader, Menu, Dropdown, Button, Tag, Typography, Row } from 'antd';
 import { MoreOutlined } from '@ant-design/icons';
+import { Button, Dropdown, Menu, PageHeader, Row, Tag, Typography } from 'antd';
+import React from 'react';
 
 const { Paragraph } = Typography;
 

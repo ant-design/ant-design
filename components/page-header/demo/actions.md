@@ -14,8 +14,8 @@ title:
 Use the operating area and customize the sub-nodes, suitable for use in the need to display some complex information to help users quickly understand the information and operations of this page.
 
 ```tsx
+import { Button, Descriptions, PageHeader, Row, Statistic, Tag } from 'antd';
 import React from 'react';
-import { PageHeader, Tag, Button, Statistic, Descriptions, Row } from 'antd';
 
 const App: React.FC = () => (
   <>

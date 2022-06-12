@@ -385,6 +385,24 @@
   }
   .button-disabled(@disabled-color; transparent; transparent);
 }
+// link button disabled style
+.btn-href-disabled() {
+  cursor: not-allowed;
+
+  > * {
+    pointer-events: none;
+  }
+
+  &,
+  &:hover,
+  &:focus,
+  &:active {
+    .button-color(@btn-disable-color,transparent, transparent);
+
+    text-shadow: none;
+    box-shadow: none;
+  }
+}
 // text button style
 .btn-text() {
   .button-variant-other(@text-color, transparent, transparent);
