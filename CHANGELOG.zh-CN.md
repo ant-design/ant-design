@@ -28,7 +28,6 @@ timeline: true
   - 🤖 修复 Dropdown `autoFocus` 属性定义。[#35990](https://github.com/ant-design/ant-design/pull/35990) [@robothot](https://github.com/robothot)
   - 🤖 修复 Menu 中 `MenuItemGroupType` 的类型定义。[#35790](https://github.com/ant-design/ant-design/pull/35790) [@MasaoBlue](https://github.com/MasaoBlue)
   - 🤖 修复 Carousel 在 React 18 下的 TS 定义问题。[#35959](https://github.com/ant-design/ant-design/pull/35959)
-  - 🤖 修复 Dropdown TS 类型定义中缺少分号的问题。[#36008](https://github.com/ant-design/ant-design/pull/36008) [@robothot](https://github.com/robothot)
 - 🌐 国际化
   - 🇮🇹 修复 `Table.cancelSort` 的意大利语翻译。[#35970](https://github.com/ant-design/ant-design/pull/35970) [@gariggio](https://github.com/gariggio)
 

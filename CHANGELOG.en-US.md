@@ -25,10 +25,9 @@ timeline: true
 - 🐞 Fix Upload image flickering. [#35943](https://github.com/ant-design/ant-design/pull/35943)
 - 💄 Remove styles from Form such as `status` for children of Modal and Drawer. [#35849](https://github.com/ant-design/ant-design/pull/35849)
 - TypeScript
-  - 🤖 Fix `autoFocus` property definition in `DropdownProps` in typescript. [#35990](https://github.com/ant-design/ant-design/pull/35990) [@robothot](https://github.com/robothot)
-  - 🤖 Fix type definition of `MenuItemGroupType` in Menu. [#35790](https://github.com/ant-design/ant-design/pull/35790) [@MasaoBlue](https://github.com/MasaoBlue)
-  - 🤖 Fix Carousel TS definition in React 18. [#35959](https://github.com/ant-design/ant-design/pull/35959)
-  - 🤖 Fix missing semicolon in Dropdown TS type definition. [#36008](https://github.com/ant-design/ant-design/pull/36008) [@robothot](https://github.com/robothot)
+  - 🤖 Fix type definition for `autoFocus` in Dropdown. [#35990](https://github.com/ant-design/ant-design/pull/35990) [@robothot](https://github.com/robothot)
+  - 🤖 Fix type definition for `MenuItemGroupType` in Menu. [#35790](https://github.com/ant-design/ant-design/pull/35790) [@MasaoBlue](https://github.com/MasaoBlue)
+  - 🤖 Fix Carousel type definition in React 18. [#35959](https://github.com/ant-design/ant-design/pull/35959)
 - 🌐 Localization
   - 🇮🇹 Fix italian translation for `Table.cancelSort` key. [#35970](https://github.com/ant-design/ant-design/pull/35970) [@gariggio](https://github.com/gariggio)
 
