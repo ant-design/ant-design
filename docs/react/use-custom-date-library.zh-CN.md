@@ -1,9 +1,9 @@
 ---
 order: 7.5
-title: 替换 Moment.js
+title: 使用自定义日期库
 ---
 
-你可以用自定义日期库（[day.js](https://day.js.org)、[date-fns](https://date-fns.org)）替换 Moment 以优化打包大小。在这里我们提供了两种方式来实现替换:
+Ant Design 默认使用 [Day.js](https://day.js.org) 来处理时间日期问题。Day.js 相比于 moment 使用了不可变数据结构，性能更快，体积仅 2KB，API 设计完全一致。你可以很方便的改用其他自定义日期库如（[moment](http://momentjs.com/)、[date-fns](https://date-fns.org)）。在这里我们提供了两种方式来实现替换:
 
 ## 自定义组件
 
@@ -18,12 +18,12 @@ title: 替换 Moment.js
 编写如下代码:
 
 ```tsx
-import { Dayjs } from 'dayjs';
-import dayjsGenerateConfig from 'rc-picker/es/generate/dayjs';
+import { Moment } from 'moment';
+import momentGenerateConfig from 'rc-picker/es/generate/moment';
 import generatePicker from 'antd/es/date-picker/generatePicker';
 import 'antd/es/date-picker/style/index';
 
-const DatePicker = generatePicker<Dayjs>(dayjsGenerateConfig);
+const DatePicker = generatePicker<Moment>(momentGenerateConfig);
 
 export default DatePicker;
 ```
@@ -35,12 +35,12 @@ export default DatePicker;
 编写如下代码:
 
 ```tsx
-import { Dayjs } from 'dayjs';
+import { Moment } from 'moment';
 import * as React from 'react';
 import DatePicker from './DatePicker';
 import { PickerTimeProps } from 'antd/es/date-picker/generatePicker';
 
-export interface TimePickerProps extends Omit<PickerTimeProps<Dayjs>, 'picker'> {}
+export interface TimePickerProps extends Omit<PickerTimeProps<Moment>, 'picker'> {}
 
 const TimePicker = React.forwardRef<any, TimePickerProps>((props, ref) => {
   return <DatePicker {...props} picker="time" mode={undefined} ref={ref} />;
@@ -58,12 +58,12 @@ export default TimePicker;
 编写如下代码:
 
 ```tsx
-import { Dayjs } from 'dayjs';
-import dayjsGenerateConfig from 'rc-picker/es/generate/dayjs';
+import { Moment } from 'moment';
+import momentGenerateConfig from 'rc-picker/es/generate/moment';
 import generateCalendar from 'antd/es/calendar/generateCalendar';
 import 'antd/es/calendar/style';
 
-const Calendar = generateCalendar<Dayjs>(dayjsGenerateConfig);
+const Calendar = generateCalendar<Moment>(momentGenerateConfig);
 
 export default Calendar;
 ```
@@ -82,33 +82,27 @@ export { default as TimePicker } from './TimePicker';
 
 ### 使用自定义组件
 
-修改 `src/App.tsx`，引入 `dayjs` 和自定义的组件。
+修改 `src/App.tsx`，引入 `moment` 和自定义的组件。
 
 ```diff
 - import { DatePicker, Calendar } from 'antd';
-- import format from 'moment';
+- import format from 'dayjs';
 
 + import { DatePicker, TimePicker, Calendar } from './components';
-+ import format from 'dayjs';
++ import format from 'moment';
 ```
 
-如果按照上述步骤无法正确运行的话，你可以参考[antd4-generate-picker/antd-ts](https://github.com/xiaohuoni/antd4-generate-picker/tree/master/antd-ts)。
+## antd-moment-webpack-plugin
 
-如果你需要 JavaScript 代码，你可以参考 [antd4-generate-picker/antd-demo](https://github.com/xiaohuoni/antd4-generate-picker/tree/master/antd-demo)。
-
-如果你熟悉 [umi](https://umijs.org/)，你可以参考 [antd4-use-dayjs-replace-moment](https://github.com/xiaohuoni/antd4-use-dayjs-replace-moment)。
-
-## antd-dayjs-webpack-plugin
-
-我们还提供另一种实现方式。使用 `antd-dayjs-webpack-plugin` 插件，无需对现有代码做任何修改直接替换成 `Day.js`。请参考 [antd-dayjs-webpack-plugin](https://github.com/ant-design/antd-dayjs-webpack-plugin)。
+我们还提供另一种实现方式。使用 `@ant-design/moment-webpack-plugin` 插件，无需对现有代码做任何修改直接替换成 `Moment.js`。请参考 [@ant-design/moment-webpack-plugin](https://github.com/ant-design/antd-moment-webpack-plugin)。
 
 ```js
 // webpack-config.js
-import AntdDayjsWebpackPlugin from 'antd-dayjs-webpack-plugin';
+import AntdMomentWebpackPlugin from '@ant-design/moment-webpack-plugin';
 
 module.exports = {
   // ...
-  plugins: [new AntdDayjsWebpackPlugin()],
+  plugins: [new AntdMomentWebpackPlugin()],
 };
 ```
 

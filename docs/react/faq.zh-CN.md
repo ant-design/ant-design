@@ -35,9 +35,9 @@ title: FAQ
 
 你可以覆盖它们的样式，但是我们不推荐这么做。antd 是一系列 React 组件，但同样是一套设计规范。
 
-## 如何使用 Day.js 替换 Moment.js 来减小打包大小？
+## 如何使用其他时间日期库如 Moment.js？
 
-可以参考[替换 Moment.js](/docs/react/replace-moment)。
+可以参考[使用自定义日期库](/docs/react/use-custom-date-library)。
 
 ## 当我动态改变 `defaultValue` 的时候它并没有生效。
 
@@ -103,7 +103,7 @@ antd 内部会对 props 进行浅比较实现性能优化。当状态变更，�
 
 请尝试使用 [ConfigProvider](/components/config-provider/#components-config-provider-demo-locale) 组件来包裹你的应用。
 
-如果日期组件的国际化仍未生效，请配置 `moment.locale('zh-cn')` 并**检查你本地的 `moment` 版本和 `antd` 依赖的 `moment` 版本是否一致**。
+如果日期组件的国际化仍未生效，请配置 `dayjs.locale('zh-cn')` 并**检查你本地的 `dayjs` 版本和 `antd` 依赖的 `dayjs` 版本是否一致**。
 
 ## 开启了 Content Security Policy (CSP) 如何处理动态样式？
 

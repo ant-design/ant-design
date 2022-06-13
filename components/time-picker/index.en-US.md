@@ -62,7 +62,7 @@ dayjs.extend(customParseFormat)
 #### DisabledTime
 
 ```typescript
-type DisabledTime = (now: Moment) => {
+type DisabledTime = (now: Dayjs) => {
   disabledHours?: () => number[];
   disabledMinutes?: (selectedHour: number) => number[];
   disabledSeconds?: (selectedHour: number, selectedMinute: number) => number[];
@@ -89,7 +89,7 @@ Same props from [RangePicker](/components/date-picker/#RangePicker) of DatePicke
 
 ```typescript
 type RangeDisabledTime = (
-  now: Moment,
+  now: Dayjs,
   type = 'start' | 'end',
 ) => {
   disabledHours?: () => number[];
@@ -105,4 +105,4 @@ type RangeDisabledTime = (
 
 ## FAQ
 
-- [How to use TimePicker with customize date library like dayjs](/docs/react/replace-moment#TimePicker)
+- [How to use TimePicker with customize date library like dayjs](/docs/react/use-custom-date-library#TimePicker)

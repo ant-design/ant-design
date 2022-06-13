@@ -35,9 +35,9 @@ See: https://ant.design/docs/react/customize-theme .
 
 While you can override a component's style, we don't recommend doing so. antd is not only a set of React components, but also a design specification as well.
 
-## How do I replace Moment.js with Day.js to reduce bundle size？
+## How to use other data-time lib like Moment.js?
 
-Please refer to [Replace Moment.js](/docs/react/replace-moment).
+Please refer to [Use custom date library](/docs/react/use-custom-date-library).
 
 ## It doesn't work when I change `defaultValue` dynamically.
 

@@ -325,7 +325,7 @@ describe('Locale Provider', () => {
     });
   });
 
-  it('set moment locale when locale changes', () => {
+  it('set dayjs locale when locale changes', () => {
     const Test = ({ locale }) => (
       <LocaleProvider locale={locale}>
         <div>

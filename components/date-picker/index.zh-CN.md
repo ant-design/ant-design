@@ -182,22 +182,22 @@ import locale from 'antd/lib/locale/zh_CN';
 
 ### 如何在 DatePicker 中使用自定义日期库（如 dayjs ）？
 
-请参考[《替换 Moment.js》](/docs/react/replace-moment#DatePicker)
+请参考[《替换 Day.js》](/docs/react/use-custom-date-library#DatePicker)
 
-### 为何全局修改 moment.locale 不生效？
+### 为何全局修改 dayjs.locale 不生效？
 
 v4 中，DatePicker 默认 `locale` 为 `en`。你可以通过 DatePicker 的 `locale` 属性来单独设置，也可以通过 [ConfigProvider `locale`](/components/config-provider) 属性来配置。
 
 ### 如何修改周的起始日？
 
-请使用正确的[语言包](/docs/react/i18n)（[#5605](https://github.com/ant-design/ant-design/issues/5605)），或者修改 moment 的 `locale` 配置：<https://codesandbox.io/s/moment-day-of-week-6dby5>
+请使用正确的[语言包](/docs/react/i18n)（[#5605](https://github.com/ant-design/ant-design/issues/5605)），或者修改 dayjs 的 `locale` 配置：<https://codesandbox.io/s/moment-day-of-week-6dby5>
 
 ### 为何使用 `panelRender` 时，原来面板无法切换？
 
 当你通过 `panelRender` 动态改变层级结构时，会使得原本的 Panel 被当做新的节点删除并创建。这使得其原本的状态会被重置，保持结构稳定即可。详情请参考 [#27263](https://github.com/ant-design/ant-design/issues/27263)。
 
 ```js
-moment.locale('en', {
+dayjs.locale('en', {
   // 注意请修改你正在使用的 locale 语言，比如 zh-cn
   week: {
     dow: 1,

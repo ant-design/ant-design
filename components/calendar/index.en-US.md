@@ -14,7 +14,7 @@ When data is in the form of dates, such as schedules, timetables, prices calenda
 
 ## API
 
-**Note:** Part of the Calendar's locale is read from `value`. So, please set the locale of `moment` correctly.
+**Note:** Part of the Calendar's locale is read from `value`. So, please set the locale of `dayjs` correctly.
 
 ```jsx
 // The default locale is en-US, if you want to use other locale, just set locale in entry file globally.
@@ -32,22 +32,22 @@ When data is in the form of dates, such as schedules, timetables, prices calenda
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| dateCellRender | Customize the display of the date cell, the returned content will be appended to the cell | function(date: Moment): ReactNode | - |  |
-| dateFullCellRender | Customize the display of the date cell, the returned content will override the cell | function(date: Moment): ReactNode | - |  |
-| defaultValue | The date selected by default | [moment](http://momentjs.com/) | - |  |
-| disabledDate | Function that specifies the dates that cannot be selected, `currentDate` is same moment object as `value` prop which you shouldn't mutate it](https://github.com/ant-design/ant-design/issues/30987) | (currentDate: Moment) => boolean | - |  |
+| dateCellRender | Customize the display of the date cell, the returned content will be appended to the cell | function(date: Dayjs): ReactNode | - |  |
+| dateFullCellRender | Customize the display of the date cell, the returned content will override the cell | function(date: Dayjs): ReactNode | - |  |
+| defaultValue | The date selected by default | [dayjs](https://day.js.org/) | - |  |
+| disabledDate | Function that specifies the dates that cannot be selected, `currentDate` is same dayjs object as `value` prop which you shouldn't mutate it](https://github.com/ant-design/ant-design/issues/30987) | (currentDate: Dayjs) => boolean | - |  |
 | fullscreen | Whether to display in full-screen | boolean | true |  |
-| headerRender | Render custom header in panel | function(object:{value: Moment, type: string, onChange: f(), onTypeChange: f()}) | - |  |
+| headerRender | Render custom header in panel | function(object:{value: Dayjs, type: string, onChange: f(), onTypeChange: f()}) | - |  |
 | locale | The calendar's locale | object | [(default)](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |  |
 | mode | The display mode of the calendar | `month` \| `year` | `month` |  |
-| monthCellRender | Customize the display of the month cell, the returned content will be appended to the cell | function(date: Moment): ReactNode | - |  |
-| monthFullCellRender | Customize the display of the month cell, the returned content will override the cell | function(date: Moment): ReactNode | - |  |
-| validRange | To set valid range | \[[moment](http://momentjs.com/), [moment](http://momentjs.com/)] | - |  |
-| value | The current selected date | [moment](http://momentjs.com/) | - |  |
-| onChange | Callback for when date changes | function(date: Moment) | - |  |
-| onPanelChange | Callback for when panel changes | function(date: Moment, mode: string) | - |  |
-| onSelect | Callback for when a date is selected | function(date: Moment） | - |  |
+| monthCellRender | Customize the display of the month cell, the returned content will be appended to the cell | function(date: Dayjs): ReactNode | - |  |
+| monthFullCellRender | Customize the display of the month cell, the returned content will override the cell | function(date: Dayjs): ReactNode | - |  |
+| validRange | To set valid range | \[[dayjs](https://day.js.org/), [dayjs](https://day.js.org/)] | - |  |
+| value | The current selected date | [dayjs](https://day.js.org/) | - |  |
+| onChange | Callback for when date changes | function(date: Dayjs) | - |  |
+| onPanelChange | Callback for when panel changes | function(date: Dayjs, mode: string) | - |  |
+| onSelect | Callback for when a date is selected | function(date: Dayjs） | - |  |
 
 ## FAQ
 
-- [How to use Calendar with customize date library like dayjs](/docs/react/replace-moment#Calendar)
+- [How to use Calendar with customize date library](/docs/react/use-custom-date-library#Calendar)
