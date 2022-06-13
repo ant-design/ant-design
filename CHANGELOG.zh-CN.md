@@ -29,9 +29,6 @@ timeline: true
   - 🤖 修复 Menu 中 `MenuItemGroupType` 的类型定义。[#35790](https://github.com/ant-design/ant-design/pull/35790) [@MasaoBlue](https://github.com/MasaoBlue)
   - 🤖 修复 Carousel 在 React 18 下的 TS 定义问题。[#35959](https://github.com/ant-design/ant-design/pull/35959)
   - 🤖 修复 Dropdown TS 类型定义中缺少分号的问题。[#36008](https://github.com/ant-design/ant-design/pull/36008) [@robothot](https://github.com/robothot)
-- 文档
-  - 📃 修复了 AutoComplete 文档中重复两次的 `onChange` 描述。[#36013](https://github.com/ant-design/ant-design/pull/36013) [@hinatades](https://github.com/hinatades)
-  - 📃 修复 Segmented 组件文档中 interface 描述。[#35974](https://github.com/ant-design/ant-design/pull/35974) [@hoosin](https://github.com/hoosin)
 - 🌐 国际化
   - 🇮🇹 修复 `Table.cancelSort` 的意大利语翻译。[#35970](https://github.com/ant-design/ant-design/pull/35970) [@gariggio](https://github.com/gariggio)
 
