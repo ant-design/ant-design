@@ -96,11 +96,11 @@ Modify `src/App.tsx`,import `moment` and custom component.
 
 ## antd-moment-webpack-plugin
 
-We also provide another implementation, which we provide with `antd-moment-webpack-plugin`, replacing `momentjs` with `Day.js` directly without changing a line of existing code. More info can be found at [antd-moment-webpack-plugin](https://github.com/ant-design/antd-moment-webpack-plugin).
+We also provide another implementation, which we provide with `@ant-design/moment-webpack-plugin`, replacing `Day.js` with `moment` directly without changing a line of existing code. More info can be found at [@ant-design/moment-webpack-plugin](https://github.com/ant-design/antd-moment-webpack-plugin).
 
 ```js
 // webpack-config.js
-import AntdMomentWebpackPlugin from 'antd-moment-webpack-plugin';
+import AntdMomentWebpackPlugin from '@ant-design/moment-webpack-plugin';
 
 module.exports = {
   // ...

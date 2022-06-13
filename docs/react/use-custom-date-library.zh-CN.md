@@ -94,11 +94,11 @@ export { default as TimePicker } from './TimePicker';
 
 ## antd-moment-webpack-plugin
 
-我们还提供另一种实现方式。使用 `antd-moment-webpack-plugin` 插件，无需对现有代码做任何修改直接替换成 `Moment.js`。请参考 [antd-moment-webpack-plugin](https://github.com/ant-design/antd-moment-webpack-plugin)。
+我们还提供另一种实现方式。使用 `@ant-design/moment-webpack-plugin` 插件，无需对现有代码做任何修改直接替换成 `Moment.js`。请参考 [@ant-design/moment-webpack-plugin](https://github.com/ant-design/antd-moment-webpack-plugin)。
 
 ```js
 // webpack-config.js
-import AntdMomentWebpackPlugin from 'antd-moment-webpack-plugin';
+import AntdMomentWebpackPlugin from '@ant-design/moment-webpack-plugin';
 
 module.exports = {
   // ...
