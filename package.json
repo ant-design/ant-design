@@ -74,7 +74,13 @@
     "test-all": "./scripts/test-all.sh",
     "test-node": "jest --config .jest.node.js --no-cache",
     "tsc": "tsc",
-    "site:test": "jest --config .jest.site.js --cache=false"
+    "site:test": "jest --config .jest.site.js --cache=false",
+    "setheme": "lessc --js ./lib/style/se.less ./dist/antd.se.css",
+    "setheme:min": "lessc --js --clean-css='--s1 --advanced' ./lib/style/se.less ./dist/antd.se.min.css",
+    "seRootTheme": "lessc --js ./lib/style/se.root.less ./dist/antd.se.root.css",
+    "seRootTheme:min": "lessc --js --clean-css='--s1 --advanced' ./lib/style/se.root.less ./dist/antd.se.root.min.css",
+    "darktheme": "lessc --js ./lib/style/dark.less ./dist/antd.dark.min.css",
+    "darktheme:min": "lessc --js --clean-css='--s1 --advanced' ./lib/style/dark.less ./dist/antd.dark.css"
   },
   "browserslist": [
     "last 2 version",
@@ -94,6 +100,7 @@
     "dom-closest": "^0.2.0",
     "enquire.js": "^2.1.6",
     "is-mobile": "^2.1.0",
+    "less-plugin-clean-css": "^1.5.1",
     "lodash": "^4.17.13",
     "moment": "^2.24.0",
     "omit.js": "^1.0.2",
@@ -111,7 +118,7 @@
     "rc-form": "^2.4.10",
     "rc-input-number": "~4.5.0",
     "rc-mentions": "~0.4.0",
-    "rc-menu": "~7.5.1",
+    "rc-menu": "7.5.3",
     "rc-notification": "~3.3.1",
     "rc-pagination": "~1.20.11",
     "rc-progress": "~2.5.0",
