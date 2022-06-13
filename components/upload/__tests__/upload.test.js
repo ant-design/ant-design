@@ -10,7 +10,7 @@ import { setup, teardown } from './mock';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { sleep, render, fireEvent } from '../../../tests/utils';
+import { sleep, render, fireEvent, waitFor } from '../../../tests/utils';
 
 globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 
@@ -49,8 +49,9 @@ describe('Upload', () => {
     expect(ref).toBeDefined();
   });
 
-  it('return promise in beforeUpload', done => {
+  it('return promise in beforeUpload', async () => {
     const data = jest.fn();
+    const done = jest.fn();
     const props = {
       action: 'http://upload.com',
       beforeUpload: () =>
@@ -76,9 +77,13 @@ describe('Upload', () => {
         files: [{ file: 'foo.png' }],
       },
     });
+    await waitFor(() => {
+      expect(done).toHaveBeenCalled();
+    });
   });
 
-  it('beforeUpload can be falsy', done => {
+  it('beforeUpload can be falsy', async () => {
+    const done = jest.fn();
     const props = {
       action: 'http://upload.com',
       beforeUpload: false,
@@ -100,9 +105,14 @@ describe('Upload', () => {
         files: [{ file: 'foo.png' }],
       },
     });
+
+    await waitFor(() => {
+      expect(done).toHaveBeenCalled();
+    });
   });
 
-  it('upload promise return file in beforeUpload', done => {
+  it('upload promise return file in beforeUpload', async () => {
+    const done = jest.fn();
     const data = jest.fn();
     const props = {
       action: 'http://upload.com',
@@ -134,6 +144,10 @@ describe('Upload', () => {
       target: {
         files: [{ file: 'foo.png' }],
       },
+    });
+
+    await waitFor(() => {
+      expect(done).toHaveBeenCalled();
     });
   });
 
@@ -618,7 +632,8 @@ describe('Upload', () => {
   });
 
   // https://github.com/ant-design/ant-design/issues/26427
-  it('should sync file list with control mode', done => {
+  it('should sync file list with control mode', async () => {
+    const done = jest.fn();
     let callTimes = 0;
 
     const customRequest = jest.fn(async options => {
@@ -670,12 +685,14 @@ describe('Upload', () => {
 
     const { container: wrapper } = render(<Demo />);
 
-    act(() => {
-      fireEvent.change(wrapper.querySelector('input'), {
-        target: {
-          files: [{ file: 'foo.png' }],
-        },
-      });
+    fireEvent.change(wrapper.querySelector('input'), {
+      target: {
+        files: [{ file: 'foo.png' }],
+      },
+    });
+
+    await waitFor(() => {
+      expect(done).toHaveBeenCalled();
     });
   });
 
