@@ -1,3 +1,1 @@
-import packageInfo from '../../package.json';
-
-export default packageInfo.version;
+export default '3.26.20';

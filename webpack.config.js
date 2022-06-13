@@ -27,6 +27,7 @@ function externalMoment(config) {
     commonjs: 'moment',
     amd: 'moment',
   };
+  config.externals['@hi/core'] = true;
 }
 
 const webpackConfig = getWebpackConfig(false);

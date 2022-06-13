@@ -58,6 +58,8 @@
     outline: none;
     box-shadow: @box-shadow-base;
     -webkit-transform: translate3d(0, 0, 0);
+    max-width: 400px;
+    max-height: 360px;
 
     &-item-group-title {
       padding: 5px @control-padding-horizontal;
@@ -97,6 +99,7 @@
       white-space: nowrap;
       cursor: pointer;
       transition: all 0.3s;
+      text-overflow: ellipsis;
 
       > .anticon:first-child,
       > span > .anticon:first-child {

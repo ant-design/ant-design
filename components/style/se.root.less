@@ -1,0 +1,41 @@
+.se-root {
+  @import '../../dist/antd.less';
+  @import './themes/se.less';
+  font-size: @font-size-base;
+  line-height: 1.15; // 3
+  -webkit-text-size-adjust: 100%; // 4
+  -ms-text-size-adjust: 100%; // 4
+  -ms-overflow-style: scrollbar; // 5
+  -webkit-tap-highlight-color: fade(@black, 0%); // 6
+  -webkit-font-smoothing: antialiased;
+  --se-primary-color: @primary-color;
+  --se-success-color: @success-color;
+  --se-warning-color: @warning-color;
+  --se-error-color: @error-color;
+  --se-disabled-color: @disabled-color;
+  --se-border-color: @border-color-base;
+  --se-font-size: @font-size-base;
+  --se-font-size-sm: @font-size-sm;
+  --se-font-size-lg: @font-size-lg;
+  --se-color: @text-color;
+  --se-color-lg: @heading-color;
+  --se-color-sm: @text-color-secondary;
+  --se-color-xs: @disabled-bg;
+  --se-color-inverse: @text-color-inverse;
+  --se-padding: @padding-md;
+  --se-padding-sm: @padding-sm;
+  --se-padding-xs: @padding-xs;
+  --se-padding-lg: @padding-lg;
+  --se-height: @height-base;
+  --se-height-sm: @height-sm;
+  --se-height-lg: @height-lg;
+  --se-bg-color: @layout-body-background;
+  --se-border-radius: @border-radius-base;
+  --se-border-color: @border-color-base;
+  --se-screen-md: @screen-md;
+  --se-screen-sm: @screen-sm;
+  --se-screen-xs: @screen-xs;
+  --se-screen-lg: @screen-lg;
+  --se-screen-xl: @screen-xl;
+  --se-screen-xxl: @screen-xxl;
+}
