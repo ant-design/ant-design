@@ -1,18 +1,13 @@
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import Dialog from 'rc-dialog';
 import * as React from 'react';
-
-import Button from '../button';
 import type { ButtonProps, LegacyButtonType } from '../button/button';
-import { convertLegacyProps } from '../button/button';
 import type { DirectionType } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import { NoFormStyle } from '../form/context';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { getTransitionName } from '../_util/motion';
 import { canUseDocElement } from '../_util/styleChecker';
-import { getConfirmLocale } from './locale';
+import { renderCloseIcon, renderFooter } from './PurePanel';
 import useStyle from './style';
 
 let mousePosition: { x: number; y: number } | null;
@@ -152,28 +147,9 @@ const Modal: React.FC<ModalProps> = props => {
     onOk?.(e);
   };
 
-  const renderFooter = (locale: ModalLocale) => {
-    const { okText, okType, cancelText, confirmLoading } = props;
-    return (
-      <>
-        <Button onClick={handleCancel} {...props.cancelButtonProps}>
-          {cancelText || locale.cancelText}
-        </Button>
-        <Button
-          {...convertLegacyProps(okType)}
-          loading={confirmLoading}
-          onClick={handleOk}
-          {...props.okButtonProps}
-        >
-          {okText || locale.okText}
-        </Button>
-      </>
-    );
-  };
-
   const {
     prefixCls: customizePrefixCls,
-    footer,
+    className,
     visible,
     wrapClassName,
     centered,
@@ -187,18 +163,6 @@ const Modal: React.FC<ModalProps> = props => {
   const rootPrefixCls = getPrefixCls();
   // Style
   const [wrapSSR, hashId] = useStyle(prefixCls);
-
-  const defaultFooter = (
-    <LocaleReceiver componentName="Modal" defaultLocale={getConfirmLocale()}>
-      {renderFooter}
-    </LocaleReceiver>
-  );
-
-  const closeIconToRender = (
-    <span className={`${prefixCls}-close-x`}>
-      {closeIcon || <CloseOutlined className={`${prefixCls}-close-icon`} />}
-    </span>
-  );
 
   const wrapClassNameExtended = classNames(wrapClassName, {
     [`${prefixCls}-centered`]: !!centered,
@@ -214,14 +178,19 @@ const Modal: React.FC<ModalProps> = props => {
         prefixCls={prefixCls}
         rootClassName={hashId}
         wrapClassName={wrapClassNameExtended}
-        footer={footer === undefined ? defaultFooter : footer}
+        footer={renderFooter({
+          ...props,
+          onOk: handleOk,
+          onCancel: handleCancel,
+        })}
         visible={visible}
         mousePosition={mousePosition}
         onClose={handleCancel}
-        closeIcon={closeIconToRender}
+        closeIcon={renderCloseIcon(prefixCls, closeIcon)}
         focusTriggerAfterClose={focusTriggerAfterClose}
         transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
         maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
+        className={classNames(hashId, className)}
       />
     </NoFormStyle>,
   );
@@ -231,7 +200,6 @@ Modal.defaultProps = {
   width: 520,
   confirmLoading: false,
   visible: false,
-  okType: 'primary' as LegacyButtonType,
 };
 
 export default Modal;
