@@ -22,7 +22,7 @@ timeline: true
 - 🐞 Fixed the `getContainer` property in Image not reading the settings in ConfigProvider. [#36002](https://github.com/ant-design/ant-design/pull/36002) [@robothot](https://github.com/robothot)
 - 🐞 Fixed the issue [#35952](https://github.com/ant-design/ant-design/issues/35952) where the `disabled` attribute does not take effect when a Button has `href`. [#35975](https://github.com/ant-design/ant-design/pull/35975) [@MuxinFeng](https://github.com/MuxinFeng)
 - 🐞 Fix less color palette algorithm accord to `@ant-design/colors`. [#35954](https://github.com/ant-design/ant-design/pull/35954) [@christian-lechner](https://github.com/christian-lechner)
-- 🐞 Fix flickering of the image in Upload. [#35943](https://github.com/ant-design/ant-design/pull/35943)
+- 🐞 Fix Upload image flickering. [#35943](https://github.com/ant-design/ant-design/pull/35943)
 - 💄 Remove styles from Form such as `status` for children of Modal and Drawer. [#35849](https://github.com/ant-design/ant-design/pull/35849)
 - TypeScript
   - 🤖 Fix `autoFocus` property definition in `DropdownProps` in typescript. [#35990](https://github.com/ant-design/ant-design/pull/35990) [@robothot](https://github.com/robothot)
