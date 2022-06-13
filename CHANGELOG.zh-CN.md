@@ -15,6 +15,26 @@ timeline: true
 
 ---
 
+## 4.21.1
+
+`2022-06-13`
+
+- 🐞 修复 Image 中的 `getContainer` 属性没有读取 ConfigProvider 中的设置。[#36002](https://github.com/ant-design/ant-design/pull/36002) [@robothot](https://github.com/robothot)
+- 🐞 修复 Button 有 `href` 时 `disabled` 属性不生效的问题 [#35952]。[#35975](https://github.com/ant-design/ant-design/pull/35975) [@MuxinFeng](https://github.com/MuxinFeng)
+- 🐞 修复 Upload 组件 `animtion-timing-function` 错误。[#35943](https://github.com/ant-design/ant-design/pull/35943)
+- 🐞 修复 less 色彩算法，使其和 `@ant-design/colors` 保持一致。[#35954](https://github.com/ant-design/ant-design/pull/35954) [@christian-lechner](https://github.com/christian-lechner)
+- 💄 Form.Item 中的 Modal 或 Drawer 组件包含的控件去除 `status` 等受 Form 影响的样式。[#35849](https://github.com/ant-design/ant-design/pull/35849)
+- TypeScript
+  - 🤖 修复 typescript 中的 `DropdownProps` 中的 `autoFocus` 属性定义。[#35990](https://github.com/ant-design/ant-design/pull/35990) [@robothot](https://github.com/robothot)
+  - 🤖 修复 Menu 中 `MenuItemGroupType` 的类型定义。[#35790](https://github.com/ant-design/ant-design/pull/35790) [@MasaoBlue](https://github.com/MasaoBlue)
+  - 🤖 修复 Carousel 在 React 18 下的 TS 定义问题。[#35959](https://github.com/ant-design/ant-design/pull/35959)
+  - 🤖 修复 Dropdown TS 类型定义中缺少分号的问题。[#36008](https://github.com/ant-design/ant-design/pull/36008) [@robothot](https://github.com/robothot)
+- 文档
+  - 📃 修复了 AutoComplete 文档中重复两次的 `onChange` 描述。[#36013](https://github.com/ant-design/ant-design/pull/36013) [@hinatades](https://github.com/hinatades)
+  - 📃 修复 Segmented 组件文档中 interface 描述。[#35974](https://github.com/ant-design/ant-design/pull/35974) [@hoosin](https://github.com/hoosin)
+- 🌐 国际化
+  - 🇮🇹 修复 `Table.cancelSort` 的意大利语翻译。[#35970](https://github.com/ant-design/ant-design/pull/35970) [@gariggio](https://github.com/gariggio)
+
 ## 4.21.0
 
 `2022-06-06`

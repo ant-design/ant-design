@@ -15,6 +15,26 @@ timeline: true
 
 ---
 
+## 4.21.1
+
+`2022-06-13`
+
+- 🐞 Fixed the `getContainer` property in Image not reading the settings in ConfigProvider. [#36002](https://github.com/ant-design/ant-design/pull/36002) [@robothot](https://github.com/robothot)
+- 🐞 Fixed the issue [#35952] where the `disabled` attribute does not take effect when a Button has `href`. [#35975](https://github.com/ant-design/ant-design/pull/35975) [@MuxinFeng](https://github.com/MuxinFeng)
+- 🐞 Fix less color palette algorithm accord to `@ant-design/colors`. [#35954](https://github.com/ant-design/ant-design/pull/35954) [@christian-lechner](https://github.com/christian-lechner)
+- 🐞 Fix `animation-timing-function` in Upload. [#35943](https://github.com/ant-design/ant-design/pull/35943)
+- 💄 Remove styles from Form such as `status` for children of Modal and Drawer. [#35849](https://github.com/ant-design/ant-design/pull/35849)
+- TypeScript
+  - 🤖 Fix `autoFocus` property definition in `DropdownProps` in typescript. [#35990](https://github.com/ant-design/ant-design/pull/35990) [@robothot](https://github.com/robothot)
+  - 🤖 Fix type definition of `MenuItemGroupType` in Menu. [#35790](https://github.com/ant-design/ant-design/pull/35790) [@MasaoBlue](https://github.com/MasaoBlue)
+  - 🤖 Fix Carousel TS definition in React 18. [#35959](https://github.com/ant-design/ant-design/pull/35959)
+  - 🤖 Fix missing semicolon in Dropdown TS type definition. [#36008](https://github.com/ant-design/ant-design/pull/36008) [@robothot](https://github.com/robothot)
+- Docs
+  - 📃 Fixed `onChange` description repeated twice in AutoComplete docs. [#36013](https://github.com/ant-design/ant-design/pull/36013) [@hinatades](https://github.com/hinatades)
+  - 📃 Fix interface in doc for Segmented component. [#35974](https://github.com/ant-design/ant-design/pull/35974) [@hoosin](https://github.com/hoosin)
+- 🌐 Localization
+  - 🇮🇹 Fix italian translation for `Table.cancelSort` key. [#35970](https://github.com/ant-design/ant-design/pull/35970) [@gariggio](https://github.com/gariggio)
+
 ## 4.21.0
 
 `2022-06-06`
