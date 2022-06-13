@@ -1,0 +1,44 @@
+.ant-message {
+  .ant-message-notice {
+    .ant-message-notice-content {
+      color: @dg200;
+      font-weight: 400;
+      font-size: 14px;
+      border: 1px solid @dg700;
+      border-radius: 8px;
+      box-shadow: 0px 6px 10px -1px rgba(6, 25, 56, 0.07);
+      .my-message-custom-content {
+        .anticon {
+          margin-right: 18px;
+        }
+        &.my-message-success {
+          .anticon {
+            svg {
+              path {
+                fill: @g500;
+              }
+            }
+          }
+        }
+        &.my-message-error {
+          .anticon {
+            svg {
+              path {
+                fill: @y500;
+              }
+            }
+          }
+        }
+        &.my-message-warning {
+          .anticon {
+            svg {
+              path {
+                fill: @r500;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
