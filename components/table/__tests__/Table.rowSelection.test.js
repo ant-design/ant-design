@@ -328,7 +328,9 @@ describe('Table.rowSelection', () => {
 
     // Open
     fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger'));
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
 
     fireEvent.click(container.querySelectorAll('.ant-dropdown-menu-item')[0]);
 
@@ -342,7 +344,9 @@ describe('Table.rowSelection', () => {
     };
     const { container } = render(createTable({ rowSelection }));
     fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger'));
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
 
     expect(container.querySelector('.ant-dropdown')).toMatchSnapshot();
   });
@@ -368,7 +372,9 @@ describe('Table.rowSelection', () => {
     // Open
     fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger'));
 
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
 
     fireEvent.click(container.querySelectorAll('li.ant-dropdown-menu-item')[1]);
 
@@ -397,7 +403,9 @@ describe('Table.rowSelection', () => {
     fireEvent.click(container.querySelectorAll('.ant-checkbox')[1]);
     // Open
     fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger'));
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
     const dropdownMenuItems = container.querySelectorAll('.ant-dropdown-menu-item');
     fireEvent.click(dropdownMenuItems[dropdownMenuItems.length - 1]);
 
@@ -429,7 +437,9 @@ describe('Table.rowSelection', () => {
 
     // Open
     fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger'));
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
 
     const dropdownMenuItems = container.querySelectorAll('.ant-dropdown-menu-item');
 
@@ -559,7 +569,9 @@ describe('Table.rowSelection', () => {
 
     // Open
     fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger'));
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
 
     const dropdownMenuItems = container.querySelectorAll('li.ant-dropdown-menu-item');
     expect(dropdownMenuItems.length).toBe(2);
@@ -1078,7 +1090,9 @@ describe('Table.rowSelection', () => {
     );
     jest.useFakeTimers();
     fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger'));
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
     expect(container.firstChild).toMatchSnapshot();
     expect(getPopupContainer).toHaveBeenCalled();
   });
@@ -1096,7 +1110,9 @@ describe('Table.rowSelection', () => {
     );
     jest.useFakeTimers();
     fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger'));
-    jest.runAllTimers();
+    act(() => {
+      jest.runAllTimers();
+    });
     expect(container.firstChild).toMatchSnapshot();
   });
 
