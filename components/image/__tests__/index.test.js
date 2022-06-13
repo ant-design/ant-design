@@ -1,8 +1,9 @@
 import React from 'react';
-import { render, fireEvent } from '../../../tests/utils';
 import Image from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { fireEvent, render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 const src = 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png';
 
@@ -75,5 +76,18 @@ describe('Image', () => {
 
     expect(baseElement.querySelector('.ant-image-preview')).toHaveClass('abc');
     expect(baseElement.querySelector('.ant-image-preview-mask')).toHaveClass('def');
+  });
+  it('ConfigProvider getPopupContainer', () => {
+    const { container: wrapper, baseElement } = render(
+      <>
+        <div className="container" />
+        <ConfigProvider getPopupContainer={() => document.querySelector('.container')}>
+          <Image src={src} />
+        </ConfigProvider>
+      </>,
+    );
+    fireEvent.click(wrapper.querySelector('.ant-image'));
+    const containerElement = baseElement.querySelector('.container');
+    expect(containerElement.children.length).not.toBe(0);
   });
 });
