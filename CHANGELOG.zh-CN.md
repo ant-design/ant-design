@@ -19,7 +19,7 @@ timeline: true
 
 `2022-06-13`
 
-- 🐞 修复 Image 中的 `getContainer` 属性没有读取 ConfigProvider 中的设置。[#36002](https://github.com/ant-design/ant-design/pull/36002) [@robothot](https://github.com/robothot)
+- 🐞 修复 Image `getContainer` 属性没有从 ConfigProvider 中读取的问题。[#36002](https://github.com/ant-design/ant-design/pull/36002) [@robothot](https://github.com/robothot)
 - 🐞 修复 Button 有 `href` 时 `disabled` 属性不生效的问题。[#35952](https://github.com/ant-design/ant-design/issues/35952)。[#35975](https://github.com/ant-design/ant-design/pull/35975) [@MuxinFeng](https://github.com/MuxinFeng)
 - 🐞 修复 Upload 组件动画闪烁的问题。[#35943](https://github.com/ant-design/ant-design/pull/35943)
 - 🐞 修复 less 色彩算法，使其和 `@ant-design/colors` 保持一致。[#35954](https://github.com/ant-design/ant-design/pull/35954) [@christian-lechner](https://github.com/christian-lechner)
