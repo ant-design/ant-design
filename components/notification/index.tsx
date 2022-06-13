@@ -1,9 +1,9 @@
-import * as React from 'react';
 import { render } from 'rc-util/lib/React/render';
-import useNotification, { useInternalNotification } from './useNotification';
-import type { ArgsProps, NotificationInstance, GlobalConfigProps } from './interface';
+import * as React from 'react';
 import ConfigProvider, { globalConfig } from '../config-provider';
+import type { ArgsProps, GlobalConfigProps, NotificationInstance } from './interface';
 import PurePanel from './PurePanel';
+import useNotification, { useInternalNotification } from './useNotification';
 
 let notification: GlobalNotification | null = null;
 
@@ -224,13 +224,13 @@ const baseStaticMethods: {
   config: any;
   useNotification: typeof useNotification;
   /** @private Internal Component. Do not use in your production. */
-  _DoNotUseOrYouWillBeFired: typeof PurePanel;
+  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
 } = {
   open,
   destroy,
   config: setNotificationGlobalConfig,
   useNotification,
-  _DoNotUseOrYouWillBeFired: PurePanel,
+  _InternalPanelDoNotUseOrYouWillBeFired: PurePanel,
 };
 
 const staticMethods: typeof baseStaticMethods & Record<MethodType, (config: ArgsProps) => void> =

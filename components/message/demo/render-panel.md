@@ -1,8 +1,8 @@
 ---
 order: 99
 title:
-  zh-CN: _DoNotUseOrYouWillBeFired
-  en-US: _DoNotUseOrYouWillBeFired
+  zh-CN: _InternalPanelDoNotUseOrYouWillBeFired
+  en-US: _InternalPanelDoNotUseOrYouWillBeFired
 debug: true
 ---
 
@@ -16,10 +16,9 @@ Debug usage. Do not use in your production.
 
 ```tsx
 import { message } from 'antd';
-import React from 'react';
 
 /** Test usage. Do not use in your production. */
-const { _DoNotUseOrYouWillBeFired: InternalPanel } = message;
+const { _InternalPanelDoNotUseOrYouWillBeFired: InternalPanel } = message;
 
 export default () => <InternalPanel content="Hello World!" type="error" />;
 ```

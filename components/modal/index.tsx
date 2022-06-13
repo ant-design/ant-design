@@ -25,7 +25,7 @@ type ModalType = typeof OriginModal &
     destroyAll: () => void;
     config: typeof modalGlobalConfig;
     /** @private Internal Component. Do not use in your production. */
-    _DoNotUseOrYouWillBeFired: typeof PurePanel;
+    _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
   };
 
 const Modal = OriginModal as ModalType;
@@ -63,6 +63,6 @@ Modal.destroyAll = function destroyAllFn() {
 
 Modal.config = modalGlobalConfig;
 
-Modal._DoNotUseOrYouWillBeFired = PurePanel;
+Modal._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
 export default Modal;
