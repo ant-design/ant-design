@@ -1,10 +1,9 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
-import { mount } from 'enzyme';
 import Table from '..';
-import { resetWarned } from '../../_util/warning';
+import { fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
-import { render, fireEvent } from '../../../tests/utils';
+import { resetWarned } from '../../_util/warning';
 
 describe('Table.rowSelection', () => {
   window.requestAnimationFrame = callback => window.setTimeout(callback, 16);
@@ -232,7 +231,6 @@ describe('Table.rowSelection', () => {
     expect(order).toEqual(['onSelect', 'onChange']);
   });
 
-  // FIXME
   it('fires selectMulti event', () => {
     const order = [];
     const handleSelectMulti = jest.fn().mockImplementation(() => {
@@ -249,28 +247,20 @@ describe('Table.rowSelection', () => {
       onSelect: handleSelect,
       onSelectMultiple: handleSelectMulti,
     };
-    const wrapper = mount(createTable({ rowSelection }));
-
-    wrapper
-      .find('input')
-      .at(1)
-      .simulate('change', {
-        target: { checked: true },
-        nativeEvent: { shiftKey: true },
-      });
+    const { container } = render(createTable({ rowSelection }));
+    fireEvent.click(container.querySelectorAll('tbody input[type="checkbox"]')[0], {
+      shiftKey: true,
+    });
 
     expect(handleSelect).toHaveBeenCalled();
     expect(handleChange).toHaveBeenLastCalledWith([0], [{ key: 0, name: 'Jack' }], {
       type: 'single',
     });
 
-    wrapper
-      .find('input')
-      .at(3)
-      .simulate('change', {
-        target: { checked: true },
-        nativeEvent: { shiftKey: true },
-      });
+    fireEvent.click(container.querySelectorAll('tbody input[type="checkbox"]')[2], {
+      shiftKey: true,
+    });
+
     expect(handleSelectMulti).toHaveBeenCalledWith(
       true,
       [data[0], data[1], data[2]],
@@ -286,13 +276,9 @@ describe('Table.rowSelection', () => {
       { type: 'multiple' },
     );
 
-    wrapper
-      .find('input')
-      .at(1)
-      .simulate('change', {
-        target: { checked: false },
-        nativeEvent: { shiftKey: true },
-      });
+    fireEvent.click(container.querySelectorAll('tbody input[type="checkbox"]')[0], {
+      shiftKey: true,
+    });
     expect(handleSelectMulti).toHaveBeenCalledWith(false, [], [data[0], data[1], data[2]]);
     expect(handleChange).toHaveBeenLastCalledWith([], [], { type: 'multiple' });
 
@@ -305,7 +291,6 @@ describe('Table.rowSelection', () => {
       'onChange',
     ]);
   });
-  // FIXME end
 
   it('fires selectAll event', () => {
     const order = [];
