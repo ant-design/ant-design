@@ -1,8 +1,8 @@
 ---
 order: 99
 title:
-  zh-CN: _DoNotUseOrYouWillBeFired
-  en-US: _DoNotUseOrYouWillBeFired
+  zh-CN: _InternalPanelDoNotUseOrYouWillBeFired
+  en-US: _InternalPanelDoNotUseOrYouWillBeFired
 debug: true
 ---
 
@@ -18,7 +18,7 @@ Debug usage. Do not use in your production.
 import { Modal } from 'antd';
 
 /** Test usage. Do not use in your production. */
-const { _DoNotUseOrYouWillBeFired: InternalPanel } = Modal;
+const { _InternalPanelDoNotUseOrYouWillBeFired: InternalPanel } = Modal;
 
 export default () => <InternalPanel title="Hello World!">Hello World?!</InternalPanel>;
 ```

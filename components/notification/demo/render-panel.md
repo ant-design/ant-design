@@ -1,8 +1,8 @@
 ---
 order: 99
 title:
-  zh-CN: _DoNotUseOrYouWillBeFired
-  en-US: _DoNotUseOrYouWillBeFired
+  zh-CN: _InternalPanelDoNotUseOrYouWillBeFired
+  en-US: _InternalPanelDoNotUseOrYouWillBeFired
 debug: true
 ---
 
@@ -15,11 +15,10 @@ debug: true
 Debug usage. Do not use in your production.
 
 ```tsx
-import { notification, Button } from 'antd';
-import React from 'react';
+import { Button, notification } from 'antd';
 
 /** Test usage. Do not use in your production. */
-const { _DoNotUseOrYouWillBeFired: InternalPanel } = notification;
+const { _InternalPanelDoNotUseOrYouWillBeFired: InternalPanel } = notification;
 
 export default () => (
   <InternalPanel
