@@ -1207,20 +1207,6 @@ describe('Form', () => {
     expect(subFormInstance).toBe(formInstance);
   });
 
-  it('noStyle should not be affected by parent', () => {
-    const Demo = () => (
-      <Form>
-        <Form.Item>
-          <Form.Item noStyle>
-            <Select className="custom-select" />
-          </Form.Item>
-        </Form.Item>
-      </Form>
-    );
-    const { container } = render(<Demo />);
-    expect(container.querySelector('.custom-select')?.className).not.toContain('in-form-item');
-  });
-
   it('noStyle should not affect status', () => {
     const Demo = () => (
       <Form>
@@ -1246,9 +1232,13 @@ describe('Form', () => {
     );
     const { container } = render(<Demo />);
     expect(container.querySelector('.custom-select')?.className).not.toContain('status-error');
+    expect(container.querySelector('.custom-select')?.className).not.toContain('in-form-item');
     expect(container.querySelector('.custom-select-b')?.className).toContain('status-error');
-    expect(container.querySelector('.custom-select-c')?.className).toContain('status-warning');
+    expect(container.querySelector('.custom-select-b')?.className).toContain('in-form-item');
+    expect(container.querySelector('.custom-select-c')?.className).toContain('status-error');
+    expect(container.querySelector('.custom-select-c')?.className).toContain('in-form-item');
     expect(container.querySelector('.custom-select-d')?.className).toContain('status-warning');
+    expect(container.querySelector('.custom-select-d')?.className).toContain('in-form-item');
   });
 
   it('should not affect Popup children style', () => {
