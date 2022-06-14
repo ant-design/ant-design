@@ -960,4 +960,46 @@ describe('Menu', () => {
 
     expect(wrapper.exists('.bamboo')).toBeTruthy();
   });
+
+  it('all types must be available in the "items" syntax', () => {
+    const wrapper = mount(
+      <Menu
+        mode="inline"
+        defaultOpenKeys={['submenu', 'group-submenu']}
+        items={[
+          {
+            key: 'submenu',
+            label: 'Submenu',
+            children: [
+              { key: 'submenu-item1', label: 'SubmenuItem 1' },
+              { key: 'submenu-item2', label: 'SubmenuItem 2' },
+            ],
+          },
+          { key: 'divider', type: 'divider' },
+          {
+            key: 'group',
+            type: 'group',
+            label: 'Group',
+            children: [
+              {
+                key: 'group-item',
+                label: 'GroupItem',
+              },
+              { key: 'group-divider', type: 'divider' },
+              {
+                key: 'group-submenu',
+                label: 'GroupSubmenu',
+                children: [
+                  { key: 'group-submenu-item1', label: 'GroupSubmenuItem 1' },
+                  { key: 'group-submenu-item2', label: 'GroupSubmenuItem 2' },
+                ],
+              },
+            ],
+          },
+        ]}
+      />,
+    );
+
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });

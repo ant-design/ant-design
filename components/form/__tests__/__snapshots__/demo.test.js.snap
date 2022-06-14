@@ -4451,7 +4451,7 @@ exports[`renders ./components/form/demo/normal-login.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <label
-            class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-in-form-item"
+            class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
           >
             <span
               class="ant-checkbox ant-checkbox-checked"
@@ -7257,7 +7257,7 @@ exports[`renders ./components/form/demo/validate-other.md correctly 1`] = `
           class="ant-form-item-control-input-content"
         >
           <div
-            class="ant-input-number ant-input-number-in-form-item"
+            class="ant-input-number"
           >
             <div
               class="ant-input-number-handler-wrap"
