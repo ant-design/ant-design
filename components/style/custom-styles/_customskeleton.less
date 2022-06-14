@@ -1,0 +1,108 @@
+.gridskeleton {
+  .ant-table {
+    .ant-table-thead {
+      display: block;
+      background: #efefef;
+      border-radius: 7px;
+    }
+    .ant-table-tbody {
+      display: block;
+      margin-top: 20px;
+    }
+    tr {
+      display: flex;
+      justify-content: space-between;
+      th {
+        width: 33%;
+        height: 20px;
+        margin: 10px;
+        padding: 0 20px;
+        font-size: 0;
+        background-image: linear-gradient(90deg, #ddd 0px, #e8e8e8 40px, #ddd 80px);
+        background-size: 600px;
+        border: 0;
+        border-radius: 7px !important;
+        animation: shine-lines 1.6s infinite linear;
+      }
+      td {
+        width: 33%;
+        margin-bottom: 20px;
+        font-size: 0;
+        background-image: linear-gradient(90deg, #ddd 0px, #e8e8e8 40px, #ddd 80px);
+        background-size: 600px;
+        border: 0;
+        border-radius: 7px;
+        animation: shine-lines 1.6s infinite linear;
+      }
+      &:hover {
+        td {
+          background-image: linear-gradient(90deg, #ddd 0px, #e8e8e8 40px, #ddd 80px);
+          background-size: 600px;
+          animation: shine-lines 1.6s infinite linear;
+        }
+      }
+    }
+  }
+  .ant-table-pagination {
+    &.ant-pagination {
+      .ant-pagination-prev {
+        button {
+          margin-bottom: 20px;
+          font-size: 0;
+          background-image: linear-gradient(90deg, #ddd 0px, #e8e8e8 40px, #ddd 80px);
+          background-size: 600px;
+          border: 0;
+          border-radius: 7px;
+          animation: shine-lines 1.6s infinite linear;
+        }
+      }
+      .ant-pagination-item {
+        margin-bottom: 20px;
+        font-size: 0;
+        background-image: linear-gradient(90deg, #ddd 0px, #e8e8e8 40px, #ddd 80px);
+        background-size: 600px;
+        border: 0;
+        border-radius: 7px;
+        animation: shine-lines 1.6s infinite linear;
+      }
+      .ant-pagination-next {
+        button {
+          margin-bottom: 20px;
+          font-size: 0;
+          background-image: linear-gradient(90deg, #ddd 0px, #e8e8e8 40px, #ddd 80px);
+          background-size: 600px;
+          border: 0;
+          border-radius: 7px;
+          animation: shine-lines 1.6s infinite linear;
+        }
+      }
+    }
+  }
+}
+
+.post .avatar + .line {
+  width: 100px;
+  margin-top: 11px;
+}
+.post .line ~ .line {
+  background-color: #ddd;
+}
+
+@keyframes shine-lines {
+  0% {
+    background-position: -100px;
+  }
+  40%,
+  100% {
+    background-position: 140px;
+  }
+}
+@keyframes shine-avatar {
+  0% {
+    background-position: -32px;
+  }
+  40%,
+  100% {
+    background-position: 208px;
+  }
+}
