@@ -16,17 +16,17 @@ Upload files manually after `beforeUpload` returns `false`.
 ```tsx
 import { UploadOutlined } from '@ant-design/icons';
 import { Button, message, Upload } from 'antd';
-import type { RcFile, UploadFile, UploadProps } from 'antd/es/upload/interface';
+import type { RcFile, UploadProps } from 'antd/es/upload/interface';
 import React, { useState } from 'react';
 
 const App: React.FC = () => {
-  const [fileList, setFileList] = useState<UploadFile[]>([]);
+  const [fileList, setFileList] = useState<RcFile[]>([]);
   const [uploading, setUploading] = useState(false);
 
   const handleUpload = () => {
     const formData = new FormData();
     fileList.forEach(file => {
-      formData.append('files[]', file.originFileObj as RcFile);
+      formData.append('files[]', file);
     });
     setUploading(true);
     // You can use any AJAX library you like
