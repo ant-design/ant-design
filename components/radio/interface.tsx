@@ -20,6 +20,8 @@ export interface RadioGroupProps extends AbstractCheckboxGroupProps {
   id?: string;
   optionType?: RadioGroupOptionType;
   buttonStyle?: RadioGroupButtonStyle;
+  onFocus?: React.FocusEventHandler<HTMLDivElement>;
+  onBlur?: React.FocusEventHandler<HTMLDivElement>;
 }
 
 export interface RadioGroupContextProps {

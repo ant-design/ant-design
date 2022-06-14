@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount, render } from 'enzyme';
-import { render as testLibRender } from '@testing-library/react';
+import { fireEvent, render as testLibRender } from '@testing-library/react';
 import Radio from '..';
 
 describe('Radio Group', () => {
@@ -223,5 +223,17 @@ describe('Radio Group', () => {
         );
       });
     });
+  });
+
+  it('onBlur & onFocus should work', () => {
+    const handleBlur = jest.fn();
+    const handleFocus = jest.fn();
+    const { container } = testLibRender(
+      <Radio.Group options={['1', '2', '3']} onBlur={handleBlur} onFocus={handleFocus} />,
+    );
+    fireEvent.focus(container.firstChild);
+    expect(handleFocus).toHaveBeenCalledTimes(1);
+    fireEvent.blur(container.firstChild);
+    expect(handleBlur).toHaveBeenCalledTimes(1);
   });
 });
