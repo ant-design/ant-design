@@ -1237,12 +1237,18 @@ describe('Form', () => {
             <Select className="custom-select-c" />
           </Form.Item>
         </Form.Item>
+        <Form.Item noStyle>
+          <Form.Item validateStatus="warning">
+            <Select className="custom-select-d" />
+          </Form.Item>
+        </Form.Item>
       </Form>
     );
     const { container } = render(<Demo />);
-    expect(container.querySelector('.custom-select')?.className).toContain('status-error');
+    expect(container.querySelector('.custom-select')?.className).not.toContain('status-error');
     expect(container.querySelector('.custom-select-b')?.className).toContain('status-error');
     expect(container.querySelector('.custom-select-c')?.className).toContain('status-warning');
+    expect(container.querySelector('.custom-select-d')?.className).toContain('status-warning');
   });
 
   it('should not affect Popup children style', () => {

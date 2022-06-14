@@ -217,14 +217,9 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
   const getItemRef = useItemRef();
 
   // ======================== Status ========================
-  const { status: contextStatus, hasFeedback: contextHasFeedback } =
-    useContext(FormItemInputContext);
-
-  let mergedValidateStatus: ValidateStatus | undefined;
+  let mergedValidateStatus: ValidateStatus = '';
   if (validateStatus !== undefined) {
     mergedValidateStatus = validateStatus;
-  } else if (contextStatus !== undefined) {
-    mergedValidateStatus = contextStatus;
   } else if (meta?.validating) {
     mergedValidateStatus = 'validating';
   } else if (debounceErrors.length) {
@@ -235,11 +230,9 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
     mergedValidateStatus = 'success';
   }
 
-  const mergedHasFeedback = hasFeedback || contextHasFeedback;
-
   const formItemStatusContext = useMemo<FormItemStatusContextProps>(() => {
     let feedbackIcon: ReactNode;
-    if (mergedHasFeedback) {
+    if (hasFeedback) {
       const IconNode = mergedValidateStatus && iconMap[mergedValidateStatus];
       feedbackIcon = IconNode ? (
         <span
@@ -255,19 +248,11 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
 
     return {
       status: mergedValidateStatus,
-      hasFeedback: mergedHasFeedback,
+      hasFeedback,
       feedbackIcon,
       isFormItemInput: true,
     };
-  }, [mergedValidateStatus, mergedHasFeedback]);
-
-  const noOverrideFormItemContext = useMemo<FormItemStatusContextProps>(
-    () => ({
-      ...formItemStatusContext,
-      isFormItemInput: false,
-    }),
-    [formItemStatusContext],
-  );
+  }, [mergedValidateStatus, hasFeedback]);
 
   // ======================== Render ========================
   function renderLayout(
@@ -276,11 +261,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
     isRequired?: boolean,
   ): React.ReactNode {
     if (noStyle && !hidden) {
-      return (
-        <FormItemInputContext.Provider value={noOverrideFormItemContext}>
-          {baseChildren}
-        </FormItemInputContext.Provider>
-      );
+      return baseChildren;
     }
 
     const itemClassName = {
@@ -290,7 +271,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
       [`${className}`]: !!className,
 
       // Status
-      [`${prefixCls}-item-has-feedback`]: mergedValidateStatus && mergedHasFeedback,
+      [`${prefixCls}-item-has-feedback`]: mergedValidateStatus && hasFeedback,
       [`${prefixCls}-item-has-success`]: mergedValidateStatus === 'success',
       [`${prefixCls}-item-has-warning`]: mergedValidateStatus === 'warning',
       [`${prefixCls}-item-has-error`]: mergedValidateStatus === 'error',
