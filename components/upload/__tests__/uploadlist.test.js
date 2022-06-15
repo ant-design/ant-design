@@ -151,7 +151,10 @@ describe('Upload List', () => {
     });
 
     // Progress motion to done
-    fireEvent.animationEnd(container.querySelector('.ant-upload-animate-leave-active'));
+    // React 17 will reach deadline, so we need check if already done
+    if (container.querySelector('.ant-upload-animate-leave-active')) {
+      fireEvent.animationEnd(container.querySelector('.ant-upload-animate-leave-active'));
+    }
     act(() => {
       jest.runAllTimers();
     });
