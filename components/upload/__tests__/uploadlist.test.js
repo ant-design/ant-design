@@ -1,12 +1,12 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 import Upload from '..';
+import { fireEvent, render, sleep, waitFor } from '../../../tests/utils';
+import Form from '../../form';
 import UploadList from '../UploadList';
 import { previewImage } from '../utils';
-import Form from '../../form';
-import { errorRequest, successRequest } from './requests';
 import { setup, teardown } from './mock';
-import { fireEvent, render, sleep, waitFor } from '../../../tests/utils';
+import { errorRequest, successRequest } from './requests';
 
 const fileList = [
   {
@@ -109,6 +109,8 @@ describe('Upload List', () => {
 
   // https://github.com/ant-design/ant-design/issues/7269
   it('should remove correct item when uid is 0', async () => {
+    jest.useFakeTimers();
+
     const list = [
       {
         uid: '0',
@@ -125,29 +127,40 @@ describe('Upload List', () => {
         thumbUrl: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
       },
     ];
-    const { container: wrapper, unmount } = render(
+    const { container, unmount } = render(
       <Upload defaultFileList={list}>
         <button type="button">upload</button>
       </Upload>,
     );
-    expect(wrapper.querySelectorAll('.ant-upload-list-item').length).toBe(2);
+    expect(container.querySelectorAll('.ant-upload-list-item').length).toBe(2);
     fireEvent.click(
-      wrapper.querySelectorAll('.ant-upload-list-item')[0].querySelector('.anticon-delete'),
+      container.querySelectorAll('.ant-upload-list-item')[0].querySelector('.anticon-delete'),
     );
 
+    // Upload use Promise to wait remove action. Let's wait this also.
     await act(async () => {
-      await sleep(1000);
-
-      const domNode = wrapper.querySelectorAll('.ant-upload-list-text-container')[0];
-      const transitionEndEvent = new Event('transitionend');
-      domNode.dispatchEvent(transitionEndEvent);
+      for (let i = 0; i < 10; i += 1) {
+        // eslint-disable-next-line no-await-in-loop
+        await Promise.resolve();
+      }
     });
 
-    // console.log(wrapper.html());
+    // Progress motion to active
+    act(() => {
+      jest.runAllTimers();
+    });
 
-    expect(wrapper.querySelectorAll('.ant-upload-list-text-container').length).toBe(1);
+    // Progress motion to done
+    fireEvent.animationEnd(container.querySelector('.ant-upload-animate-leave-active'));
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    expect(container.querySelectorAll('.ant-upload-list-text-container')).toHaveLength(1);
 
     unmount();
+
+    jest.useRealTimers();
   });
 
   it('should be uploading when upload a file', done => {
