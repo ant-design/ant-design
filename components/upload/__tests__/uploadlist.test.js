@@ -166,26 +166,24 @@ describe('Upload List', () => {
     jest.useRealTimers();
   });
 
-  it('should be uploading when upload a file', done => {
+  it('should be uploading when upload a file', async () => {
+    jest.useFakeTimers();
+    const done = jest.fn();
     let wrapper;
-    let unmount;
     let latestFileList = null;
-    const onChange = ({ file, fileList: eventFileList }) => {
+    const onChange = async ({ file, fileList: eventFileList }) => {
       expect(eventFileList === latestFileList).toBeFalsy();
       if (file.status === 'uploading') {
-        expect(wrapper.firstChild).toMatchSnapshot();
+        await Promise.resolve();
+        expect(wrapper.container.firstChild).toMatchSnapshot();
       }
       if (file.status === 'done') {
-        (async function run() {
-          await sleep(200);
-          unmount();
-          done();
-        })();
+        done();
       }
 
       latestFileList = eventFileList;
     };
-    ({ container: wrapper, unmount } = render(
+    wrapper = render(
       <Upload
         action="http://jsonplaceholder.typicode.com/posts/"
         onChange={onChange}
@@ -193,15 +191,29 @@ describe('Upload List', () => {
       >
         <button type="button">upload</button>
       </Upload>,
-    ));
-    fireEvent.change(wrapper.querySelector('input'), {
+    );
+    fireEvent.change(wrapper.container.querySelector('input'), {
       target: {
         files: [{ name: 'foo.png' }],
       },
     });
+    await act(async () => {
+      await Promise.resolve();
+      await Promise.resolve();
+    });
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    expect(done).toHaveBeenCalled();
+
+    wrapper.unmount();
+
+    jest.useRealTimers();
   });
 
   it('handle error', async () => {
+    jest.useFakeTimers();
     const onChange = jest.fn();
 
     const {
@@ -223,10 +235,13 @@ describe('Upload List', () => {
       },
     });
 
-    // Wait twice since `errorRequest` also use timeout for mock
     await act(async () => {
-      await sleep();
-      await sleep();
+      await Promise.resolve();
+    });
+
+    // Wait twice since `errorRequest` also use timeout for mock
+    act(() => {
+      jest.runAllTimers();
     });
 
     expect(onChange).toHaveBeenLastCalledWith(
@@ -237,24 +252,18 @@ describe('Upload List', () => {
       }),
     );
 
-    await act(async () => {
-      await sleep(1000);
-    });
-
     expect(wrapper.firstChild).toMatchSnapshot();
 
     // Error message
-    jest.useFakeTimers();
     fireEvent.mouseEnter(wrapper.querySelector('.ant-upload-list-item'));
 
     await act(() => {
       jest.runAllTimers();
     });
 
-    jest.useRealTimers();
-
     expect(baseElement.querySelector('.ant-tooltip')).not.toHaveClass('.ant-tooltip-hidden');
 
+    jest.useRealTimers();
     unmount();
   });
 

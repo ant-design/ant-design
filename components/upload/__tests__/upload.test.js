@@ -10,7 +10,7 @@ import { setup, teardown } from './mock';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { sleep, render, fireEvent, waitFor } from '../../../tests/utils';
+import { sleep, render, fireEvent } from '../../../tests/utils';
 
 globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 
@@ -50,6 +50,7 @@ describe('Upload', () => {
   });
 
   it('return promise in beforeUpload', async () => {
+    jest.useFakeTimers();
     const data = jest.fn();
     const done = jest.fn();
     const props = {
@@ -77,12 +78,22 @@ describe('Upload', () => {
         files: [{ file: 'foo.png' }],
       },
     });
-    await waitFor(() => {
-      expect(done).toHaveBeenCalled();
+    act(() => {
+      jest.runAllTimers();
     });
+    await act(async () => {
+      for (let i = 0; i < 4; i += 1) {
+        // eslint-disable-next-line no-await-in-loop
+        await Promise.resolve();
+      }
+    });
+    expect(done).toHaveBeenCalled();
+
+    jest.useRealTimers();
   });
 
   it('beforeUpload can be falsy', async () => {
+    jest.useFakeTimers();
     const done = jest.fn();
     const props = {
       action: 'http://upload.com',
@@ -105,13 +116,18 @@ describe('Upload', () => {
         files: [{ file: 'foo.png' }],
       },
     });
-
-    await waitFor(() => {
-      expect(done).toHaveBeenCalled();
+    await act(async () => {
+      for (let i = 0; i < 4; i += 1) {
+        // eslint-disable-next-line no-await-in-loop
+        await Promise.resolve();
+      }
     });
+    expect(done).toHaveBeenCalled();
+    jest.useRealTimers();
   });
 
   it('upload promise return file in beforeUpload', async () => {
+    jest.useFakeTimers();
     const done = jest.fn();
     const data = jest.fn();
     const props = {
@@ -145,10 +161,18 @@ describe('Upload', () => {
         files: [{ file: 'foo.png' }],
       },
     });
-
-    await waitFor(() => {
-      expect(done).toHaveBeenCalled();
+    act(() => {
+      jest.runAllTimers();
     });
+    await act(async () => {
+      for (let i = 0; i < 4; i += 1) {
+        // eslint-disable-next-line no-await-in-loop
+        await Promise.resolve();
+      }
+    });
+
+    expect(done).toHaveBeenCalled();
+    jest.useRealTimers();
   });
 
   it('should not stop upload when return value of beforeUpload is false', done => {
@@ -633,10 +657,14 @@ describe('Upload', () => {
 
   // https://github.com/ant-design/ant-design/issues/26427
   it('should sync file list with control mode', async () => {
+    jest.useFakeTimers();
     const done = jest.fn();
     let callTimes = 0;
 
     const customRequest = jest.fn(async options => {
+      // stop here to make sure new fileList has been set and passed to Upload
+      // eslint-disable-next-line no-promise-executor-return
+      await new Promise(resolve => setTimeout(resolve, 0));
       options.onProgress({ percent: 0 });
       const url = Promise.resolve('https://ant.design');
       options.onProgress({ percent: 100 });
@@ -646,7 +674,7 @@ describe('Upload', () => {
     const Demo = () => {
       const [fileList, setFileList] = React.useState([]);
 
-      const onChange = e => {
+      const onChange = async e => {
         const newFileList = Array.isArray(e) ? e : e.fileList;
         setFileList(newFileList);
         const file = newFileList[0];
@@ -691,9 +719,21 @@ describe('Upload', () => {
       },
     });
 
-    await waitFor(() => {
-      expect(done).toHaveBeenCalled();
+    await act(async () => {
+      for (let i = 0; i < 3; i += 1) {
+        // eslint-disable-next-line no-await-in-loop
+        await Promise.resolve();
+      }
     });
+    await act(() => {
+      jest.runAllTimers();
+    });
+    await act(async () => {
+      await Promise.resolve();
+    });
+
+    expect(done).toHaveBeenCalled();
+    jest.useRealTimers();
   });
 
   describe('maxCount', () => {
@@ -902,7 +942,7 @@ describe('Upload', () => {
     });
 
     // Motion leave status change: start > active
-    act(() => {
+    await act(() => {
       jest.runAllTimers();
     });
 
