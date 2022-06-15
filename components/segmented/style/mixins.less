@@ -1,0 +1,24 @@
+// mixins
+.segmented-disabled-item {
+  &,
+  &:hover,
+  &:focus {
+    color: @disabled-color;
+    cursor: not-allowed;
+  }
+}
+
+.segmented-item-selected {
+  background-color: @segmented-selected-bg;
+  border-radius: @border-radius-base;
+  box-shadow: 0 2px 8px -2px fade(@black, 5%), 0 1px 4px -1px fade(@black, 7%),
+    0 0 1px 0 fade(@black, 8%);
+}
+
+.segmented-text-ellipsis {
+  overflow: hidden;
+  // handle text ellipsis
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: keep-all;
+}

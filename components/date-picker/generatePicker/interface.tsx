@@ -1,5 +1,5 @@
 import type { ComponentClass, ForwardedRef, Component } from 'react';
-import { PickerProps, RangePickerProps } from '.';
+import type { PickerProps, RangePickerProps } from '.';
 
 export interface CommonPickerMethods {
   focus: () => void;

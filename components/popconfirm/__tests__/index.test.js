@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import { spyElementPrototype } from 'rc-util/lib/test/domHook';
 import Popconfirm from '..';
 import mountTest from '../../../tests/shared/mountTest';
-import { sleep } from '../../../tests/utils';
+import { sleep, render, fireEvent } from '../../../tests/utils';
 import rtlTest from '../../../tests/shared/rtlTest';
 import Button from '../../button';
 
@@ -251,18 +251,19 @@ describe('Popconfirm', () => {
       return <Button>Unmounted</Button>;
     };
 
-    const wrapper = mount(
+    const { container } = render(
       <div>
         <Test />
       </div>,
     );
 
-    expect(wrapper.text()).toEqual('Test');
-    const triggerNode = wrapper.find('.clickTarget').at(0);
-    triggerNode.simulate('click');
-    wrapper.find('.ant-btn-primary').simulate('click');
+    expect(container.textContent).toEqual('Test');
+
+    fireEvent.click(container.querySelector('.clickTarget'));
+    fireEvent.click(container.querySelector('.ant-btn-primary'));
+
     await sleep(500);
-    expect(wrapper.text()).toEqual('Unmounted');
+    expect(container.textContent).toEqual('Unmounted');
     expect(error).not.toHaveBeenCalled();
   });
 });

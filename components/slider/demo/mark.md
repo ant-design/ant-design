@@ -13,10 +13,12 @@ title:
 
 Using `marks` property to mark a graduated slider, use `value` or `defaultValue` to specify the position of thumb. When `included` is false, means that different thumbs are coordinative. when `step` is null, users can only slide the thumbs onto marks.
 
-```jsx
+```tsx
 import { Slider } from 'antd';
+import type { SliderMarks } from 'antd/lib/slider';
+import React from 'react';
 
-const marks = {
+const marks: SliderMarks = {
   0: '0°C',
   26: '26°C',
   37: '37°C',
@@ -28,7 +30,7 @@ const marks = {
   },
 };
 
-ReactDOM.render(
+const App: React.FC = () => (
   <>
     <h4>included=true</h4>
     <Slider marks={marks} defaultValue={37} />
@@ -42,9 +44,10 @@ ReactDOM.render(
 
     <h4>step=null</h4>
     <Slider marks={marks} step={null} defaultValue={37} />
-  </>,
-  mountNode,
+  </>
 );
+
+export default App;
 ```
 
 <style>

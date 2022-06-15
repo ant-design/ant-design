@@ -3,9 +3,9 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import classNames from 'classnames';
 import padStart from 'lodash/padStart';
 import { PickerPanel as RCPickerPanel } from 'rc-picker';
-import { Locale } from 'rc-picker/lib/interface';
-import { GenerateConfig } from 'rc-picker/lib/generate';
-import {
+import type { Locale } from 'rc-picker/lib/interface';
+import type { GenerateConfig } from 'rc-picker/lib/generate';
+import type {
   PickerPanelBaseProps as RCPickerPanelBaseProps,
   PickerPanelDateProps as RCPickerPanelDateProps,
   PickerPanelTimeProps as RCPickerPanelTimeProps,

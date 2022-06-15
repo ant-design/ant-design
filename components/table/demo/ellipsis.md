@@ -17,10 +17,19 @@ Ellipsis cell content via setting `column.ellipsis`.
 
 > Cannot ellipsis table header with sorters and filters for now.
 
-```jsx
+```tsx
 import { Table } from 'antd';
+import type { ColumnsType } from 'antd/lib/table';
+import React from 'react';
 
-const columns = [
+interface DataType {
+  key: React.Key;
+  name: string;
+  age: number;
+  address: string;
+}
+
+const columns: ColumnsType<DataType> = [
   {
     title: 'Name',
     dataIndex: 'name',
@@ -84,5 +93,7 @@ const data = [
   },
 ];
 
-ReactDOM.render(<Table columns={columns} dataSource={data} />, mountNode);
+const App: React.FC = () => <Table columns={columns} dataSource={data} />;
+
+export default App;
 ```

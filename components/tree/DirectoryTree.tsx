@@ -1,16 +1,16 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import RcTree from 'rc-tree';
-import debounce from 'lodash/debounce';
+import type RcTree from 'rc-tree';
 import { conductExpandParent } from 'rc-tree/lib/util';
-import { EventDataNode, DataNode, Key } from 'rc-tree/lib/interface';
+import type { EventDataNode, DataNode, Key } from 'rc-tree/lib/interface';
 import { convertDataToEntities, convertTreeToData } from 'rc-tree/lib/utils/treeUtil';
 import FileOutlined from '@ant-design/icons/FileOutlined';
 import FolderOpenOutlined from '@ant-design/icons/FolderOpenOutlined';
 import FolderOutlined from '@ant-design/icons/FolderOutlined';
 import { ConfigContext } from '../config-provider';
 
-import Tree, { TreeProps, AntdTreeNodeAttribute } from './Tree';
+import type { TreeProps, AntdTreeNodeAttribute } from './Tree';
+import Tree from './Tree';
 import { calcRangeKeys, convertDirectoryKeysToNodes } from './utils/dictUtil';
 
 export type ExpandAction = false | 'click' | 'doubleClick';
@@ -85,25 +85,10 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
     }
   }, [props.expandedKeys]);
 
-  const expandFolderNode = (event: React.MouseEvent<HTMLElement>, node: any) => {
-    const { isLeaf } = node;
-
-    if (isLeaf || event.shiftKey || event.metaKey || event.ctrlKey) {
-      return;
-    }
-
-    // Call internal rc-tree expand function
-    // https://github.com/ant-design/ant-design/issues/12567
-    treeRef.current!.onNodeExpand(event as any, node);
-  };
-
-  const onDebounceExpand = debounce(expandFolderNode, 200, {
-    leading: true,
-  });
   const onExpand = (
     keys: Key[],
     info: {
-      node: EventDataNode;
+      node: EventDataNode<any>;
       expanded: boolean;
       nativeEvent: MouseEvent;
     },
@@ -113,28 +98,6 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
     }
     // Call origin function
     return props.onExpand?.(keys, info);
-  };
-
-  const onClick = (event: React.MouseEvent<HTMLElement>, node: EventDataNode) => {
-    const { expandAction } = props;
-
-    // Expand the tree
-    if (expandAction === 'click') {
-      onDebounceExpand(event, node);
-    }
-
-    props.onClick?.(event, node);
-  };
-
-  const onDoubleClick = (event: React.MouseEvent<HTMLElement>, node: EventDataNode) => {
-    const { expandAction } = props;
-
-    // Expand the tree
-    if (expandAction === 'doubleClick') {
-      onDebounceExpand(event, node);
-    }
-
-    props.onDoubleClick?.(event, node);
   };
 
   const onSelect = (
@@ -223,8 +186,6 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
       expandedKeys={expandedKeys}
       selectedKeys={selectedKeys}
       onSelect={onSelect}
-      onClick={onClick}
-      onDoubleClick={onDoubleClick}
       onExpand={onExpand}
     />
   );

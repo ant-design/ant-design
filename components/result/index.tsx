@@ -6,7 +6,7 @@ import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import WarningFilled from '@ant-design/icons/WarningFilled';
 
 import { ConfigContext } from '../config-provider';
-import devWarning from '../_util/devWarning';
+import warning from '../_util/warning';
 
 import noFound from './noFound';
 import serverError from './serverError';
@@ -37,6 +37,7 @@ export interface ResultProps {
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
+  children?: React.ReactNode;
 }
 
 // ExceptionImageMap keys
@@ -51,7 +52,7 @@ const ExceptionStatus = Object.keys(ExceptionMap);
 const renderIcon = (prefixCls: string, { status, icon }: ResultProps) => {
   const className = classNames(`${prefixCls}-icon`);
 
-  devWarning(
+  warning(
     !(typeof icon === 'string' && icon.length > 2),
     'Result',
     `\`icon\` is using ReactNode instead of string naming in v4. Please check \`${icon}\` at https://ant.design/components/icon`,
@@ -76,9 +77,9 @@ const renderExtra = (prefixCls: string, { extra }: ResultProps) =>
   extra && <div className={`${prefixCls}-extra`}>{extra}</div>;
 
 export interface ResultType extends React.FC<ResultProps> {
-  PRESENTED_IMAGE_404: React.ReactNode;
-  PRESENTED_IMAGE_403: React.ReactNode;
-  PRESENTED_IMAGE_500: React.ReactNode;
+  PRESENTED_IMAGE_404: React.FC;
+  PRESENTED_IMAGE_403: React.FC;
+  PRESENTED_IMAGE_500: React.FC;
 }
 
 const Result: ResultType = ({

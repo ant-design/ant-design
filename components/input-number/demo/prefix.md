@@ -13,11 +13,12 @@ title:
 
 Add a prefix inside input.
 
-```jsx
+```tsx
+import { UserOutlined } from '@ant-design/icons';
 import { InputNumber } from 'antd';
-import { InfoCircleOutlined, SmileOutlined, UserOutlined } from '@ant-design/icons';
+import React from 'react';
 
-ReactDOM.render(
+const App: React.FC = () => (
   <>
     <InputNumber prefix="￥" style={{ width: '100%' }} />
     <br />
@@ -26,7 +27,8 @@ ReactDOM.render(
     <br />
     <br />
     <InputNumber prefix="￥" disabled style={{ width: '100%' }} />
-  </>,
-  mountNode,
+  </>
 );
+
+export default App;
 ```

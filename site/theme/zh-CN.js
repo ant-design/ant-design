@@ -24,6 +24,8 @@ module.exports = {
     'app.component.examples.collapse': '收起全部代码',
     'app.component.examples.visible': '显示调试专用演示',
     'app.component.examples.hide': '隐藏调试专用演示',
+    'app.component.examples.openDemoNotReact18': '使用 React 18 以下版本打开 Demo',
+    'app.component.examples.openDemoWithReact18': '使用 React 18 打开 Demo',
     'app.demo.debug': '此演示仅供调试，线上不会展示',
     'app.demo.copy': '复制代码',
     'app.demo.copied': '复制成功',

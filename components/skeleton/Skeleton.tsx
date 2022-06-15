@@ -1,10 +1,13 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import Title, { SkeletonTitleProps } from './Title';
-import Paragraph, { SkeletonParagraphProps } from './Paragraph';
+import type { SkeletonTitleProps } from './Title';
+import Title from './Title';
+import type { SkeletonParagraphProps } from './Paragraph';
+import Paragraph from './Paragraph';
 import { ConfigContext } from '../config-provider';
 import Element from './Element';
-import SkeletonAvatar, { AvatarProps } from './Avatar';
+import type { AvatarProps } from './Avatar';
+import SkeletonAvatar from './Avatar';
 import SkeletonButton from './Button';
 import SkeletonInput from './Input';
 import SkeletonImage from './Image';
@@ -161,7 +164,7 @@ const Skeleton = (props: SkeletonProps) => {
       </div>
     );
   }
-  return React.isValidElement(children) ? children : null;
+  return typeof children !== 'undefined' ? (children as React.ReactElement) : null;
 };
 
 Skeleton.defaultProps = {

@@ -13,10 +13,11 @@ title:
 
 `block` property will make the button fit to its parent width.
 
-```jsx
+```tsx
 import { Button } from 'antd';
+import React from 'react';
 
-ReactDOM.render(
+const App: React.FC = () => (
   <>
     <Button type="primary" block>
       Primary
@@ -28,7 +29,8 @@ ReactDOM.render(
     <Button type="link" block>
       Link
     </Button>
-  </>,
-  mountNode,
+  </>
 );
+
+export default App;
 ```

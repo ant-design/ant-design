@@ -1,6 +1,6 @@
 import * as React from 'react';
 import padEnd from 'lodash/padEnd';
-import { valueType, FormatConfig } from './utils';
+import type { valueType, FormatConfig } from './utils';
 
 interface NumberProps extends FormatConfig {
   value: valueType;
@@ -30,7 +30,7 @@ const StatisticNumber: React.FC<NumberProps> = props => {
       int = int.replace(/\B(?=(\d{3})+(?!\d))/g, groupSeparator);
 
       if (typeof precision === 'number') {
-        decimal = padEnd(decimal, precision, '0').slice(0, precision);
+        decimal = padEnd(decimal, precision, '0').slice(0, precision > 0 ? precision : 0);
       }
 
       if (decimal) {

@@ -5,14 +5,10 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 
 import CheckableTag from './CheckableTag';
 import { ConfigContext } from '../config-provider';
-import {
-  PresetColorTypes,
-  PresetStatusColorTypes,
-  PresetColorType,
-  PresetStatusColorType,
-} from '../_util/colors';
+import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
+import { PresetColorTypes, PresetStatusColorTypes } from '../_util/colors';
 import Wave from '../_util/wave';
-import { LiteralUnion } from '../_util/type';
+import type { LiteralUnion } from '../_util/type';
 
 export { CheckableTagProps } from './CheckableTag';
 

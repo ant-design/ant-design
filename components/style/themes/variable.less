@@ -9,7 +9,7 @@
 // An override for the html selector for theme prefixes
 @html-selector: html;
 
-html {
+@{html-selector} {
   @base-primary: @blue-6;
 
   // ========= Primary Color =========
@@ -162,6 +162,12 @@ html {
 @line-height-base: 1.5715;
 @border-radius-base: 2px;
 @border-radius-sm: @border-radius-base;
+
+// control border
+@control-border-radius: @border-radius-base;
+
+// arrow border
+@arrow-border-radius: @border-radius-sm;
 
 // vertical paddings
 @padding-lg: 24px; // containers
@@ -558,7 +564,7 @@ html {
 // ---
 @anchor-bg: transparent;
 @anchor-border-color: @border-color-split;
-@anchor-link-top: 7px;
+@anchor-link-top: 4px;
 @anchor-link-left: 16px;
 @anchor-link-padding: @anchor-link-top 0 @anchor-link-top @anchor-link-left;
 
@@ -576,6 +582,7 @@ html {
 @tooltip-distance: @tooltip-arrow-width - 1px + 4px;
 // Tooltip arrow color
 @tooltip-arrow-color: @tooltip-bg;
+@tooltip-border-radius: @border-radius-base;
 
 // Popover
 // ---
@@ -723,6 +730,7 @@ html {
 
 // Tag
 // --
+@tag-border-radius: @border-radius-base;
 @tag-default-bg: @background-color-light;
 @tag-default-color: @text-color;
 @tag-font-size: @font-size-sm;
@@ -919,7 +927,7 @@ html {
 @breadcrumb-font-size: @font-size-base;
 @breadcrumb-icon-font-size: @font-size-base;
 @breadcrumb-link-color: @text-color-secondary;
-@breadcrumb-link-color-hover: @primary-5;
+@breadcrumb-link-color-hover: @text-color;
 @breadcrumb-separator-color: @text-color-secondary;
 @breadcrumb-separator-margin: 0 @padding-xs;
 
@@ -1100,7 +1108,7 @@ html {
 @notification-padding-vertical: 16px;
 @notification-padding-horizontal: 24px;
 
-//  Result
+// Result
 // ---
 @result-title-font-size: 24px;
 @result-subtitle-font-size: @font-size-base;
@@ -1117,3 +1125,11 @@ html {
 @image-preview-operation-size: 18px;
 @image-preview-operation-color: @text-color-dark;
 @image-preview-operation-disabled-color: fade(@image-preview-operation-color, 25%);
+
+// Segmented
+// ---
+@segmented-bg: fade(@black, 4%);
+@segmented-hover-bg: fade(@black, 6%);
+@segmented-selected-bg: @white;
+@segmented-label-color: fade(@black, 65%);
+@segmented-label-hover-color: #262626;

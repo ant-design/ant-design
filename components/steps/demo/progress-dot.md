@@ -13,12 +13,13 @@ title:
 
 Steps with progress dot style.
 
-```jsx
-import { Steps, Divider } from 'antd';
+```tsx
+import { Divider, Steps } from 'antd';
+import React from 'react';
 
 const { Step } = Steps;
 
-ReactDOM.render(
+const App: React.FC = () => (
   <>
     <Steps progressDot current={1}>
       <Step title="Finished" description="This is a description." />
@@ -33,7 +34,8 @@ ReactDOM.render(
       <Step title="Waiting" description="This is a description." />
       <Step title="Waiting" description="This is a description." />
     </Steps>
-  </>,
-  mountNode,
+  </>
 );
+
+export default App;
 ```

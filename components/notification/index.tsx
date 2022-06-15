@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Notification from 'rc-notification';
-import { NotificationInstance as RCNotificationInstance } from 'rc-notification/lib/Notification';
+import type { NotificationInstance as RCNotificationInstance } from 'rc-notification/lib/Notification';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import CheckCircleOutlined from '@ant-design/icons/CheckCircleOutlined';
@@ -156,6 +156,7 @@ function getNotificationInstance(
 
   const cacheKey = `${prefixCls}-${placement}`;
   const cacheInstance = notificationInstance[cacheKey];
+
   if (cacheInstance) {
     Promise.resolve(cacheInstance).then(instance => {
       callback({ prefixCls: `${prefixCls}-notice`, iconPrefixCls, instance });
@@ -205,6 +206,7 @@ export interface ArgsProps {
   duration?: number | null;
   icon?: React.ReactNode;
   placement?: NotificationPlacement;
+  maxCount?: number;
   style?: React.CSSProperties;
   prefixCls?: string;
   className?: string;

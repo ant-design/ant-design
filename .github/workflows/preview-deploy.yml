@@ -8,8 +8,15 @@ on:
     types:
       - completed
 
+permissions:
+  contents: read
+
 jobs:
   deploy-site:
+    permissions:
+      actions: read  # for dawidd6/action-download-artifact to query and download artifacts
+      issues: write  # for actions-cool/maintain-one-comment to modify or create issue comments
+      pull-requests: write  # for actions-cool/maintain-one-comment to modify or create PR comments
     name: deploy preview
     runs-on: ubuntu-latest
     if: >
@@ -65,6 +72,10 @@ jobs:
           number: ${{ steps.pr.outputs.id }}
 
   build-site-failed:
+    permissions:
+      actions: read  # for dawidd6/action-download-artifact to query and download artifacts
+      issues: write  # for actions-cool/maintain-one-comment to modify or create issue comments
+      pull-requests: write  # for actions-cool/maintain-one-comment to modify or create PR comments
     name: build preview failed
     runs-on: ubuntu-latest
     if: >

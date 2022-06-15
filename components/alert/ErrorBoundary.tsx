@@ -4,6 +4,7 @@ import Alert from '.';
 interface ErrorBoundaryProps {
   message?: React.ReactNode;
   description?: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 export default class ErrorBoundary extends React.Component<

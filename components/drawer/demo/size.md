@@ -14,24 +14,28 @@ title:
 The default width (or height) of Drawer is `378px`, and there is a presetted large size `736px`.
 
 ```tsx
+import { Button, Drawer, Space } from 'antd';
+import type { DrawerProps } from 'antd/es/drawer';
 import React, { useState } from 'react';
-import { Drawer, Button, Space } from 'antd';
-import { DrawerProps } from 'antd/es/drawer';
 
 const App: React.FC = () => {
   const [visible, setVisible] = useState(false);
   const [size, setSize] = useState<DrawerProps['size']>();
+
   const showDefaultDrawer = () => {
     setSize('default');
     setVisible(true);
   };
+
   const showLargeDrawer = () => {
     setSize('large');
     setVisible(true);
   };
+
   const onClose = () => {
     setVisible(false);
   };
+
   return (
     <>
       <Space>
@@ -65,5 +69,5 @@ const App: React.FC = () => {
   );
 };
 
-ReactDOM.render(<App />, mountNode);
+export default App;
 ```

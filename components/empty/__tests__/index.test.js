@@ -1,7 +1,7 @@
 import React from 'react';
-import { render, mount } from 'enzyme';
 import Empty from '..';
 import ConfigProvider from '../../config-provider';
+import { render } from '../../../tests/utils';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 
@@ -10,21 +10,21 @@ describe('Empty', () => {
   rtlTest(Empty);
 
   it('image size should change', () => {
-    const wrapper = mount(<Empty imageStyle={{ height: 20 }} />);
-    expect(wrapper.find('.ant-empty-image').props().style.height).toBe(20);
+    const { container } = render(<Empty imageStyle={{ height: 20 }} />);
+    expect(container.querySelector('.ant-empty-image').style.height).toBe('20px');
   });
 
   it('description can be false', () => {
-    const wrapper = mount(<Empty description={false} />);
-    expect(wrapper.find('.ant-empty-description').length).toBe(0);
+    const { container } = render(<Empty description={false} />);
+    expect(container.querySelector('.ant-empty-description')).toBeFalsy();
   });
 
   it('should render in RTL direction', () => {
-    const wrapper = mount(
+    const { asFragment } = render(
       <ConfigProvider direction="rtl">
         <Empty />
       </ConfigProvider>,
     );
-    expect(render(wrapper)).toMatchSnapshot();
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 });

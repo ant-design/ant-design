@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, mount } from 'enzyme';
+import { render } from '../../../tests/utils';
 import Drawer from '..';
 import ConfigProvider from '../../config-provider';
 import mountTest from '../../../tests/shared/mountTest';
@@ -18,71 +18,71 @@ describe('Drawer', () => {
   rtlTest(Drawer);
 
   it('render correctly', () => {
-    const wrapper = render(
+    const { container: wrapper } = render(
       <Drawer visible width={400} getContainer={false}>
         Here is content of Drawer
       </Drawer>,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.firstChild).toMatchSnapshot();
   });
 
   it('getContainer return undefined', () => {
-    let wrapper = mount(<DrawerTest getContainer={() => undefined} />);
-    expect(wrapper.render()).toMatchSnapshot();
-    wrapper = mount(<DrawerTest getContainer={false} />);
-    expect(wrapper.render()).toMatchSnapshot();
+    const { container: wrapper, rerender } = render(<DrawerTest getContainer={() => undefined} />);
+    expect(wrapper.firstChild).toMatchSnapshot();
+    rerender(<DrawerTest getContainer={false} />);
+    expect(wrapper.firstChild).toMatchSnapshot();
   });
 
   it('render top drawer', () => {
-    const wrapper = render(
+    const { container: wrapper } = render(
       <Drawer visible height={400} placement="top" getContainer={false}>
         Here is content of Drawer
       </Drawer>,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.firstChild).toMatchSnapshot();
   });
 
   it('have a title', () => {
-    const wrapper = render(
+    const { container: wrapper } = render(
       <Drawer visible title="Test Title" getContainer={false}>
         Here is content of Drawer
       </Drawer>,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.firstChild).toMatchSnapshot();
   });
 
   it('closable is false', () => {
-    const wrapper = render(
+    const { container: wrapper } = render(
       <Drawer visible closable={false} getContainer={false}>
         Here is content of Drawer
       </Drawer>,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.firstChild).toMatchSnapshot();
   });
 
   it('destroyOnClose is true', () => {
-    const wrapper = render(
+    const { container: wrapper } = render(
       <Drawer destroyOnClose visible={false} getContainer={false}>
         Here is content of Drawer
       </Drawer>,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.firstChild).toMatchSnapshot();
   });
 
   it('className is test_drawer', () => {
-    const wrapper = render(
+    const { container: wrapper } = render(
       <Drawer destroyOnClose visible={false} className="test_drawer" getContainer={false}>
         Here is content of Drawer
       </Drawer>,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.firstChild).toMatchSnapshot();
   });
 
   it('style/drawerStyle/headerStyle/bodyStyle should work', () => {
     const style = {
       backgroundColor: '#08c',
     };
-    const wrapper = render(
+    const { container: wrapper } = render(
       <Drawer
         visible
         style={style}
@@ -94,50 +94,50 @@ describe('Drawer', () => {
         Here is content of Drawer
       </Drawer>,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.firstChild).toMatchSnapshot();
   });
 
   it('have a footer', () => {
-    const wrapper = render(
+    const { container: wrapper } = render(
       <Drawer visible footer="Test Footer" getContainer={false}>
         Here is content of Drawer
       </Drawer>,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.firstChild).toMatchSnapshot();
   });
 
   it('forceRender works', () => {
-    const wrapper = mount(
+    const { baseElement, rerender } = render(
       <Drawer>
         <button type="button" className="forceRender">
           should not be rendered
         </button>
       </Drawer>,
     );
-    expect(wrapper.find('button.forceRender').length).toBe(0);
-    const wrapper2 = mount(
+    expect(baseElement.querySelectorAll('button.forceRender').length).toBe(0);
+    rerender(
       <Drawer forceRender>
         <button type="button" className="forceRender">
           should be rendered
         </button>
       </Drawer>,
     );
-    expect(wrapper2.find('button.forceRender').length).toBe(1);
+    expect(baseElement.querySelectorAll('button.forceRender').length).toBe(1);
   });
 
   it('support closeIcon', () => {
-    const wrapper = render(
+    const { container: wrapper } = render(
       <Drawer visible closable closeIcon={<span>close</span>} width={400} getContainer={false}>
         Here is content of Drawer
       </Drawer>,
     );
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.firstChild).toMatchSnapshot();
   });
 
   it('ConfigProvider should not warning', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
-    mount(
+    render(
       <ConfigProvider virtual>
         <Drawer visible>Bamboo is Light</Drawer>
       </ConfigProvider>,
@@ -150,7 +150,7 @@ describe('Drawer', () => {
 
   it('should support ref', () => {
     const ref = React.createRef();
-    mount(
+    render(
       <Drawer visible ref={ref} width={400}>
         Here is content of Drawer
       </Drawer>,

@@ -1,12 +1,17 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import Spin, { SpinProps } from '../spin';
+import type { SpinProps } from '../spin';
+import Spin from '../spin';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
-import { Breakpoint, responsiveArray } from '../_util/responsiveObserve';
-import { RenderEmptyHandler, ConfigContext } from '../config-provider';
-import Pagination, { PaginationConfig } from '../pagination';
+import type { Breakpoint } from '../_util/responsiveObserve';
+import { responsiveArray } from '../_util/responsiveObserve';
+import type { RenderEmptyHandler } from '../config-provider';
+import { ConfigContext } from '../config-provider';
+import type { PaginationConfig } from '../pagination';
+import Pagination from '../pagination';
 import { Row } from '../grid';
 import Item from './Item';
+import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 
 export { ListItemProps, ListItemMetaProps } from './Item';
 
@@ -53,7 +58,7 @@ export interface ListProps<T> {
 }
 
 export interface ListLocale {
-  emptyText: React.ReactNode | (() => React.ReactNode);
+  emptyText: React.ReactNode;
 }
 
 export interface ListConsumerProps {
@@ -255,7 +260,7 @@ function List<T>({
       <ul className={`${prefixCls}-items`}>{items}</ul>
     );
   } else if (!children && !isLoading) {
-    childrenContent = renderEmptyFunc(prefixCls, renderEmpty);
+    childrenContent = renderEmptyFunc(prefixCls, renderEmpty || defaultRenderEmpty);
   }
 
   const paginationPosition = paginationProps.position || 'bottom';

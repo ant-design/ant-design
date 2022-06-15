@@ -7,8 +7,9 @@ debug: true
 ---
 
 ```tsx
-import { Input, AutoComplete, Form, TreeSelect, Button } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
+import { AutoComplete, Button, Form, Input, TreeSelect } from 'antd';
+import React from 'react';
 
 const formItemLayout = {
   labelCol: {
@@ -21,7 +22,7 @@ const formItemLayout = {
   },
 };
 
-ReactDOM.render(
+const App: React.FC = () => (
   <Form style={{ margin: '0 auto' }} {...formItemLayout}>
     <Form.Item label="单独 AutoComplete">
       <AutoComplete />
@@ -67,7 +68,8 @@ ReactDOM.render(
         </Button>
       </Input.Group>
     </Form.Item>
-  </Form>,
-  mountNode,
+  </Form>
 );
+
+export default App;
 ```

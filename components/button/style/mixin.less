@@ -210,28 +210,6 @@
   .@{btnClassName}-icon-only {
     font-size: @font-size-base;
   }
-  // size
-  &-lg > .@{btnClassName},
-  &-lg > span > .@{btnClassName} {
-    .button-size(@btn-height-lg; @btn-padding-horizontal-lg; @btn-font-size-lg; 0);
-  }
-  &-lg .@{btnClassName}.@{btnClassName}-icon-only {
-    .square(@btn-height-lg);
-    padding-right: 0;
-    padding-left: 0;
-  }
-  &-sm > .@{btnClassName},
-  &-sm > span > .@{btnClassName} {
-    .button-size(@btn-height-sm; @btn-padding-horizontal-sm; @font-size-base; 0);
-    > .@{iconfont-css-prefix} {
-      font-size: @font-size-base;
-    }
-  }
-  &-sm .@{btnClassName}.@{btnClassName}-icon-only {
-    .square(@btn-height-sm);
-    padding-right: 0;
-    padding-left: 0;
-  }
 }
 // Base styles of buttons
 // --------------------------------------------------
@@ -406,6 +384,24 @@
     border-color: transparent;
   }
   .button-disabled(@disabled-color; transparent; transparent);
+}
+// link button disabled style
+.btn-href-disabled() {
+  cursor: not-allowed;
+
+  > * {
+    pointer-events: none;
+  }
+
+  &,
+  &:hover,
+  &:focus,
+  &:active {
+    .button-color(@btn-disable-color,transparent, transparent);
+
+    text-shadow: none;
+    box-shadow: none;
+  }
 }
 // text button style
 .btn-text() {

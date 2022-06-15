@@ -1,7 +1,8 @@
 import * as React from 'react';
-import RcSlider, { SliderProps as RcSliderProps } from 'rc-slider';
+import type { SliderProps as RcSliderProps } from 'rc-slider';
+import RcSlider from 'rc-slider';
 import classNames from 'classnames';
-import { TooltipPlacement } from '../tooltip';
+import type { TooltipPlacement } from '../tooltip';
 import SliderTooltip from './SliderTooltip';
 import { ConfigContext } from '../config-provider';
 

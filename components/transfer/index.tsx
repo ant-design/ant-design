@@ -1,16 +1,20 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import List, { TransferListProps } from './list';
+import type { TransferListProps } from './list';
+import List from './list';
 import Operation from './operation';
 import Search from './search';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
-import { ConfigConsumer, ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
-import { TransferListBodyProps } from './ListBody';
-import { PaginationType } from './interface';
-import devWarning from '../_util/devWarning';
-import { FormItemStatusContext } from '../form/context';
-import { getMergedStatus, getStatusClassNames, InputStatus } from '../_util/statusUtils';
+import type { ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
+import { ConfigConsumer } from '../config-provider';
+import type { TransferListBodyProps } from './ListBody';
+import type { PaginationType } from './interface';
+import warning from '../_util/warning';
+import { FormItemInputContext } from '../form/context';
+import type { InputStatus } from '../_util/statusUtils';
+import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
+import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 
 export { TransferListProps } from './list';
 export { TransferOperationProps } from './operation';
@@ -79,9 +83,12 @@ export interface TransferProps<RecordType> {
   showSearch?: boolean;
   filterOption?: (inputValue: string, item: RecordType) => boolean;
   locale?: Partial<TransferLocale>;
-  footer?: (props: TransferListProps<RecordType>, info?: {
-    direction: TransferDirection;
-  }) => React.ReactNode;
+  footer?: (
+    props: TransferListProps<RecordType>,
+    info?: {
+      direction: TransferDirection;
+    },
+  ) => React.ReactNode;
   rowKey?: (record: RecordType) => string;
   onSearch?: (direction: TransferDirection, value: string) => void;
   onScroll?: (direction: TransferDirection, e: React.SyntheticEvent<HTMLUListElement>) => void;
@@ -130,7 +137,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
       };
     }
 
-    devWarning(
+    warning(
       !pagination || !children,
       'Transfer',
       '`pagination` not support customize render list.',
@@ -348,7 +355,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
   renderTransfer = (transferLocale: TransferLocale) => (
     <ConfigConsumer>
       {({ getPrefixCls, renderEmpty, direction }: ConfigConsumerProps) => (
-        <FormItemStatusContext.Consumer>
+        <FormItemInputContext.Consumer>
           {({ hasFeedback, status: contextStatus }) => {
             const {
               prefixCls: customizePrefixCls,
@@ -369,7 +376,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
               status: customStatus,
             } = this.props;
             const prefixCls = getPrefixCls('transfer', customizePrefixCls);
-            const locale = this.getLocale(transferLocale, renderEmpty);
+            const locale = this.getLocale(transferLocale, renderEmpty || defaultRenderEmpty);
             const { sourceSelectedKeys, targetSelectedKeys } = this.state;
             const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
@@ -458,7 +465,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
               </div>
             );
           }}
-        </FormItemStatusContext.Consumer>
+        </FormItemInputContext.Consumer>
       )}
     </ConfigConsumer>
   );

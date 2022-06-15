@@ -3,7 +3,7 @@ import Pagination from 'rc-pagination/lib/locale/es_ES';
 import DatePicker from '../date-picker/locale/es_ES';
 import TimePicker from '../time-picker/locale/es_ES';
 import Calendar from '../calendar/locale/es_ES';
-import { Locale } from '../locale-provider';
+import type { Locale } from '../locale-provider';
 
 const typeTemplate = '${label} no es un ${type} válido';
 
@@ -21,6 +21,8 @@ const localeValues: Locale = {
     filterConfirm: 'Aceptar',
     filterReset: 'Reiniciar',
     filterEmptyText: 'Sin filtros',
+    filterCheckall: 'Seleccionar todo',
+    filterSearchPlaceholder: 'Buscar en filtros',
     emptyText: 'Sin datos',
     selectAll: 'Seleccionar todo',
     selectInvert: 'Invertir selección',

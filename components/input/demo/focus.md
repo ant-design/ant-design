@@ -14,11 +14,12 @@ title:
 Focus with additional option.
 
 ```tsx
-import { Input, Space, Button, Switch } from 'antd';
+import { Button, Input, Space, Switch } from 'antd';
+import React, { useRef, useState } from 'react';
 
-const Demo = () => {
-  const inputRef = React.useRef<any>(null);
-  const [input, setInput] = React.useState(true);
+const App: React.FC = () => {
+  const inputRef = useRef<any>(null);
+  const [input, setInput] = useState(true);
 
   const sharedProps = {
     style: { width: '100%' },
@@ -80,5 +81,5 @@ const Demo = () => {
   );
 };
 
-ReactDOM.render(<Demo />, mountNode);
+export default App;
 ```
