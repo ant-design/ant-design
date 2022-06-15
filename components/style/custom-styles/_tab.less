@@ -14,6 +14,10 @@
   font-weight: 500;
   font-size: 14px;
   line-height: 18px;
+
+  &:hover {
+    color: @primary-color;
+  }
 }
 
 .ant-tabs-bottom > .ant-tabs-nav:before,
@@ -47,9 +51,6 @@
   width: 40%;
   padding-right: 16px;
 
-  // &.lg-width {
-  //   width: 592px;
-  // }
   h5 {
     margin: 0;
     padding-left: 14px;
@@ -59,27 +60,36 @@
 }
 
 .tab-content-right {
-  // width: 480px;
   width: 60%;
 
   .ant-checkbox-group {
     width: 100%;
 
     > label {
-      width: 19%;
+      width: 20%;
     }
   }
 
   > div {
-    width: 19%;
+    width: 20%;
   }
 
   > label {
-    width: 19%;
+    width: 20%;
   }
 
   .ant-checkbox-wrapper + .ant-checkbox-wrapper {
     margin: 0;
+  }
+
+  &.four-checkbox {
+    > div {
+      width: 25%;
+    }
+
+    > label {
+      width: 25%;
+    }
   }
 }
 
@@ -94,6 +104,10 @@
     .ant-collapse-arrow {
     right: auto;
     left: 12%;
+
+    @media screen and (max-width: 1279px) {
+      left: 18%;
+    }
   }
 
   .ant-collapse .ant-collapse-item {
