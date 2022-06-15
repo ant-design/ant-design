@@ -43,14 +43,14 @@ describe('ConfigProvider.Token', () => {
 
   it('genStyleHook', () => {
     const useStyle = makeStyle(token => ({
-      '.box': {
+      [token.componentCls]: {
         backgroundColor: token.colorAlert,
         color: token.colorAlertActive,
       },
     }));
 
     const Demo = () => {
-      const { wrapSSR, hashId } = useStyle('customToken');
+      const { wrapSSR, hashId } = useStyle('box');
       return wrapSSR(<div className={classNames('box', hashId)}>test genStyleHook</div>);
     };
 
