@@ -232,7 +232,7 @@
 
     &-placement-bottomLeft {
       .@{picker-prefix-cls}-range-arrow {
-        top: (@arrow-size / 2) - (@arrow-size / 3) + 0.7px;
+        top: (@arrow-size / 2) - (@arrow-size / 3) + 12.7px;
         display: block;
         transform: rotate(-135deg) translateY(1px);
       }
@@ -240,7 +240,7 @@
 
     &-placement-topLeft {
       .@{picker-prefix-cls}-range-arrow {
-        bottom: (@arrow-size / 2) - (@arrow-size / 3) + 0.7px;
+        bottom: (@arrow-size / 2) - (@arrow-size / 3) + 12.7px;
         display: block;
         transform: rotate(45deg);
       }
@@ -317,7 +317,7 @@
 
   &-range-arrow {
     position: absolute;
-    z-index: 1;
+    z-index: 0;
     display: none;
     width: @arrow-size;
     height: @arrow-size;
