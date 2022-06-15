@@ -1,6 +1,5 @@
 import ConfigProvider from '..';
 import { render } from '../../../tests/utils';
-import type { AliasToken } from '../../_util/theme';
 
 const { useCustomToken } = ConfigProvider;
 
@@ -10,34 +9,17 @@ describe('ConfigProvider.Token', () => {
       colorAlert: string;
     };
 
-    type MyOverrideToken = {
-      derivative?: {
-        colorAlertHover: string;
-      };
-      MyAlert?: {
-        colorBg: string;
-      };
+    type MyAliasToken = {
+      colorAlertActive: string;
     };
 
     const useMyToken = () => {
-      const [, token] = useCustomToken<MySeedToken, MyOverrideToken>({
+      const { token } = useCustomToken<MySeedToken, MyAliasToken>({
         seedToken: { colorAlert: 'red' },
-        override: {
-          derivative: {
-            colorAlertHover: 'pink',
-          },
-          MyAlert: {
-            colorBg: 'black',
-          },
-        },
-        formatToken: (derivativeToken: AliasToken & MySeedToken & MyOverrideToken) => {
-          const { derivative, ...restToken } = derivativeToken;
-          return {
-            ...restToken,
-            ...derivative,
-            colorAlertActive: 'purple',
-          };
-        },
+        formatToken: derivativeToken => ({
+          ...derivativeToken,
+          colorAlertActive: 'purple',
+        }),
         hashed: true,
       });
 
@@ -52,10 +34,6 @@ describe('ConfigProvider.Token', () => {
     const { container } = render(<Demo />);
     const finalToken = JSON.parse(container.firstElementChild?.innerHTML ?? '');
     expect(finalToken).toHaveProperty('colorAlert', 'red');
-    expect(finalToken).toHaveProperty('colorAlertHover', 'pink');
     expect(finalToken).toHaveProperty('colorAlertActive', 'purple');
-    expect(finalToken).toHaveProperty('MyAlert', {
-      colorBg: 'black',
-    });
   });
 });

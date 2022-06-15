@@ -96,32 +96,37 @@ export type GenerateStyle<
 
 export type CustomTokenOptions<
   CustomSeedToken extends Record<string, any>,
-  CustomOverride extends object,
+  CustomAliasToken extends Record<string, any> = {},
 > = {
   seedToken?: CustomSeedToken;
-  override?: CustomOverride;
-  formatToken?: (mergedToken: any) => AliasToken & CustomSeedToken;
+  formatToken?: (
+    mergedToken: AliasToken & CustomSeedToken,
+  ) => AliasToken & CustomSeedToken & CustomAliasToken;
   hashed?: boolean;
 };
 
 export function useCustomToken<
   CustomSeedToken extends Record<string, any>,
-  CustomOverride extends object,
+  CustomAliasToken extends Record<string, any> = {},
 >({
   seedToken,
-  override,
   formatToken: customFormatToken,
   hashed,
-}: CustomTokenOptions<CustomSeedToken, CustomOverride>) {
+}: CustomTokenOptions<CustomSeedToken, CustomAliasToken>): {
+  token: AliasToken & CustomSeedToken & CustomAliasToken;
+  hashId: string;
+} {
   const [theme, antdToken] = useToken();
 
   const salt = `${saltPrefix}-${hashed || ''}`;
 
   const [token, hashId] = useCacheToken(theme, [antdToken, seedToken ?? {}], {
     salt,
-    override,
     formatToken: customFormatToken,
   });
 
-  return [theme, token, hashed ? hashId : ''];
+  return {
+    token,
+    hashId: hashed ? hashId : '',
+  };
 }
