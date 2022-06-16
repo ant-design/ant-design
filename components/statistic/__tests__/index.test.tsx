@@ -84,7 +84,13 @@ describe('Statistic', () => {
 
   describe('Countdown', () => {
     it('render correctly', () => {
-      const now = dayjs().add(2, 'd').add(11, 'h').add(28, 'm').add(9, 's').add(3, 'ms');
+      const now = dayjs()
+        .add(2, 'd')
+        .add(11, 'h')
+        .add(28, 'm')
+        .add(9, 's')
+        .add(3, 'ms')
+        .toISOString();
       [
         ['H:m:s', '59:28:9'],
         ['HH:mm:ss', '59:28:09'],
