@@ -50,6 +50,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     colorBgComponent: mergedToken.colorBg,
     colorBgComponentSecondary: mergedToken.colorBg2,
     colorBgComponentDisabled: mergedToken.colorBgBelow2,
+    colorBgElevated: mergedToken.colorBg,
 
     colorLink: mergedToken.colorPrimary,
     colorLinkHover: primaryColors[4],

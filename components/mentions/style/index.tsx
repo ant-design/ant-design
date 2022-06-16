@@ -1,6 +1,4 @@
 // deps-lint-skip-all
-import type { FullToken, GenerateStyle } from '../../_util/theme';
-import { genComponentStyleHook, resetComponent } from '../../_util/theme';
 import type { InputToken } from '../../input/style';
 import {
   genActiveStyle,
@@ -10,6 +8,8 @@ import {
   genStatusStyle,
   initInputToken,
 } from '../../input/style';
+import type { FullToken, GenerateStyle } from '../../_util/theme';
+import { genComponentStyleHook, resetComponent } from '../../_util/theme';
 
 export interface ComponentToken {
   zIndexPopup: number;
@@ -109,6 +109,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
         border: 'none',
         outline: 'none',
         resize: 'none',
+        backgroundColor: 'inherit',
         ...genPlaceholderStyle(token.colorPlaceholder),
       },
 

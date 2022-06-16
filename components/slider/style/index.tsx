@@ -5,10 +5,10 @@
 // import '../../tooltip/style';
 
 // deps-lint-skip-all
-import type * as React from 'react';
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { GenerateStyle, FullToken } from '../../_util/theme';
-import { resetComponent, genComponentStyleHook, mergeToken } from '../../_util/theme';
+import type * as React from 'react';
+import type { FullToken, GenerateStyle } from '../../_util/theme';
+import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
 
 // Direction naming standard:
 // Horizontal base:
@@ -59,7 +59,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
 
       [`${componentCls}-track`]: {
         position: 'absolute',
-        backgroundColor: token.colorPrimarySecondary,
+        backgroundColor: token.colorPrimaryBorder,
         borderRadius: token.controlRadius,
         transition: `background-color ${token.motionDurationSlow}`,
       },
@@ -69,7 +69,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         width: token.handleSize,
         height: token.handleSize,
         backgroundColor: token.colorBgComponent,
-        border: `${token.lineHandleWidth}px solid ${token.colorPrimarySecondary}`,
+        border: `${token.lineHandleWidth}px solid ${token.colorPrimaryBorder}`,
         borderRadius: '50%',
         boxShadow: 'none',
         cursor: 'pointer',
@@ -90,7 +90,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         },
 
         '&:focus-visible': {
-          boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${token.colorPrimarySecondary}`,
+          boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${token.colorPrimaryBorder}`,
         },
 
         // Seems useless?
@@ -161,7 +161,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         transition: `border-color ${token.motionDurationSlow}`,
 
         '&-active': {
-          borderColor: token.colorPrimarySecondary,
+          borderColor: token.colorPrimaryBorder,
         },
       },
 

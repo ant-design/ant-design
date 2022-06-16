@@ -207,7 +207,8 @@ export interface DerivativeToken extends SeedToken, ColorPalettes {
   colorPrimaryHover: string;
   colorPrimaryActive: string;
   colorPrimaryOutline: string;
-  colorPrimarySecondary: string; // primary[2]
+  colorPrimaryBorder: string; // primary[2]
+  colorPrimaryBorderHover: string;
 
   colorSuccessSecondary: string;
   colorBgSuccess: string; // success[0]
@@ -354,6 +355,7 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   colorBgComponentSecondary: string;
   colorBgComponentDisabled: string;
   colorBgContainerWeak: string;
+  colorBgElevated: string;
 
   // =============== Legacy: should be remove ===============
   colorLoadingOpacity: number;

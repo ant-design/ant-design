@@ -1111,7 +1111,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
           [`${componentCls}-preset > ${antCls}-tag-blue`]: {
             color: token.colorPrimary,
             background: token.controlItemBgActive,
-            borderColor: token.colorPrimarySecondary,
+            borderColor: token.colorPrimaryBorder,
             cursor: 'pointer',
           },
 
