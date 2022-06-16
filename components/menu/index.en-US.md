@@ -127,7 +127,6 @@ The legacy demo code for version `<4.20.0` could be found at [https://github.com
 | label | Menu label | ReactNode | - |  |
 | popupClassName | Sub-menu class name, not working when `mode="inline"` | string | - |  |
 | popupOffset | Sub-menu offset, not working when `mode="inline"` | \[number, number] | - |  |
-| title | Title of sub menu | ReactNode | - |  |
 | theme | Color theme of the SubMenu (inherits from Menu by default) |  | `light` \| `dark` | - |  |
 | onTitleClick | Callback executed when the sub-menu title is clicked | function({ key, domEvent }) | - |  |
 

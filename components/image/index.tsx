@@ -20,7 +20,12 @@ const Image: CompositionImage<ImageProps> = ({
   rootClassName,
   ...otherProps
 }) => {
-  const { getPrefixCls, locale: contextLocale = defaultLocale } = useContext(ConfigContext);
+  const {
+    getPrefixCls,
+    locale: contextLocale = defaultLocale,
+    getPopupContainer: getContextPopupContainer,
+  } = useContext(ConfigContext);
+
   const prefixCls = getPrefixCls('image', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
 
@@ -34,7 +39,7 @@ const Image: CompositionImage<ImageProps> = ({
       return preview;
     }
     const _preview = typeof preview === 'object' ? preview : {};
-
+    const { getContainer, ...restPreviewProps } = _preview;
     return {
       mask: (
         <div className={`${prefixCls}-mask-info`}>
@@ -43,7 +48,8 @@ const Image: CompositionImage<ImageProps> = ({
         </div>
       ),
       icons,
-      ..._preview,
+      ...restPreviewProps,
+      getContainer: getContainer || getContextPopupContainer,
       transitionName: getTransitionName(rootPrefixCls, 'zoom', _preview.transitionName),
       maskTransitionName: getTransitionName(rootPrefixCls, 'fade', _preview.maskTransitionName),
     };
