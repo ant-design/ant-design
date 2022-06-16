@@ -10,7 +10,7 @@ import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
 import { DesignTokenContext, useCustomToken, useToken } from '../_util/theme';
 import defaultSeedToken from '../_util/theme/themes/default';
-import registerToken from '../_util/theme/util/registerToken';
+import registerToken, { genStyleHook } from '../_util/theme/util/registerToken';
 import type { ConfigConsumerProps, CSPConfig, DirectionType, Theme, ThemeConfig } from './context';
 import { ConfigConsumer, ConfigContext, defaultIconPrefixCls } from './context';
 import { registerTheme } from './cssVariables';
@@ -285,6 +285,7 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
   useToken: typeof useToken;
   useCustomToken: typeof useCustomToken;
   registerToken: typeof registerToken;
+  genStyleHook: typeof genStyleHook;
 } = props => (
   <LocaleReceiver>
     {(_, __, legacyLocale) => (
@@ -307,5 +308,6 @@ ConfigProvider.config = setGlobalConfig;
 ConfigProvider.useToken = useToken;
 ConfigProvider.useCustomToken = useCustomToken;
 ConfigProvider.registerToken = registerToken;
+ConfigProvider.genStyleHook = genStyleHook;
 
 export default ConfigProvider;

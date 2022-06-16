@@ -3,11 +3,8 @@ import ConfigProvider from '..';
 import { render } from '../../../tests/utils';
 import type { AliasToken } from '../../_util/theme';
 import type { UseToken } from '../../_util/theme/util/registerToken';
-import registerToken, {
-  genStyleHook as genAntdStyleHook,
-} from '../../_util/theme/util/registerToken';
 
-const { useCustomToken } = ConfigProvider;
+const { useCustomToken, registerToken, genStyleHook: genAntdStyleHook } = ConfigProvider;
 
 describe('ConfigProvider.Token', () => {
   type MySeedToken = {
