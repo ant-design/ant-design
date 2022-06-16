@@ -11,15 +11,15 @@ title: FAQ
 
 暂无计划。事实上你可以使用工具（请自行 Google）将 Less 转换成 Sass/Stylus 等。
 
-## `null` 和 `undefined` 在 `antd` 的受控组件中有区别吗？
+## `undefined` 和 `null` 在 `antd` 的受控组件中有区别吗？
 
 **有。antd 约定：undefined 是非受控的标志，null 作为显式的受控空值。**
 
-首先，React 认为 null 和 undefined 都属于非受控的标志。对于 React 来说，受控的空值应该是空字符串，即：`value={''}`。所以当 value 被意外赋值为 null 或 undefined 时，组件不受控了。意外的从受控变成不受控，常常会导致意料之外情况发生。例如：“我这是受控组件，为什么表单提交的 value 和显示的值不一样了？”
+在输入元素中，React 认为 undefined 和 null 都属于非受控的标志。对于 React 来说，受控的空值应该是空字符串，即：`value={''}`。所以当 value 由非空值转化为 undefined 或 null 时，组件不受控了，这常常会导致意料之外的情况发生。例如：“我这是受控组件，为什么表单提交的 value 和显示的值不一样了？”
 
-对于 antd 来说，undefined 也属于非受控的标志。在 antd 中 `''` 和 `0`（ `string | number` ） 都可以作为正确的值赋值给 value，因此，antd 约定，把 null 作为显式的受控空值。如果需要让组件受控且希望将 value 置为空值，请将 value 设置为 null。
+于 antd 中，我们定义 undefined 为非受控标志，而 null 则作为显式的受控空值。在 antd 中 `''` 和 `0`（ `string | number` ）都可以作为正确的值赋值给 value，因此，antd 约定，把 null 作为显式的受控空值。如果需要让组件受控且希望将 value 置为空值，请将 value 设置为 null。
 
-注意：对于类 `Select` 组件的 options，建议不要使用 null 和 undefined 作为 options 中的 value，请使用 `string | number` 作为 option 的 value。
+注意：对于类 `Select` 组件的 options，建议不要使用 undefined 和 null 作为 options 中的 value，请使用 `string | number` 作为 option 的 value。
 
 ## 当我点击 `Select Dropdown DatePicker TimePicker Popover Popconfirm` 内的另一个 popup 组件时它会消失，如何解决？
 
