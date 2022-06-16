@@ -44,7 +44,7 @@ describe('ConfigProvider.Token', () => {
     expect(finalToken).toHaveProperty('colorAlertActive', 'purple');
   });
 
-  it('useStyle', () => {
+  it('useCustomStyle', () => {
     const Demo = () => {
       const { wrapSSR, hashId } = useMyStyle('box', token => ({
         '.box': {
@@ -64,7 +64,7 @@ describe('ConfigProvider.Token', () => {
     ).toBeTruthy();
   });
 
-  it('default useStyle', () => {
+  it('useStyle', () => {
     const Demo = () => {
       const { wrapSSR, hashId } = useStyle('default-useStyle', token => ({
         '.default-genStyleHook': {

@@ -96,9 +96,6 @@ export type GenerateStyle<
 
 export const emptyTheme = new Theme(token => token);
 
-/**
- *
- */
 export type CustomTokenOptions<
   CustomSeedToken extends Record<string, any>,
   CustomAliasToken extends Record<string, any> = {},
