@@ -251,7 +251,13 @@ describe('Upload List', () => {
         }),
       }),
     );
+    if (wrapper.querySelector('.ant-upload-animate-appear-active')) {
+      fireEvent.animationEnd(wrapper.querySelector('.ant-upload-animate-appear-active'));
+    }
 
+    act(() => {
+      jest.runAllTimers();
+    });
     expect(wrapper.firstChild).toMatchSnapshot();
 
     // Error message
