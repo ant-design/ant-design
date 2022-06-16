@@ -1,9 +1,7 @@
-import { mount } from 'enzyme';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 import Table from '..';
-import { render } from '../../../tests/utils';
-import Checkbox from '../../checkbox';
+import { fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import { resetWarned } from '../../_util/warning';
 
@@ -39,80 +37,88 @@ describe('Table.rowSelection', () => {
     return <Table columns={columns} dataSource={data} rowSelection={{}} {...props} />;
   }
 
-  function renderedNames(wrapper) {
-    return wrapper.find('BodyRow').map(row => row.props().record.name);
+  function renderedNames(contain) {
+    const namesList = [];
+    contain
+      .querySelector('.ant-table-tbody')
+      .querySelectorAll('tr')
+      .forEach(tr => {
+        namesList.push(tr.querySelectorAll('td')[1].textContent);
+      });
+    return namesList;
   }
 
-  function getSelections(wrapper) {
-    return wrapper
-      .find('BodyRow')
-      .map(row => {
-        const { key } = row.props().record;
-        if (!row.find('input').at(0).props().checked) {
-          return null;
+  function getSelections(container) {
+    const keys = [];
+    container.querySelectorAll('.ant-table-tbody tr').forEach(row => {
+      const key = row.getAttribute('data-row-key');
+      if (row.querySelector('input').checked) {
+        if (isNaN(Number(key))) {
+          // rowKey
+          keys.push(key);
+        } else {
+          keys.push(Number(key));
         }
-
-        return key;
-      })
-      .filter(key => key !== null);
+      }
+    });
+    return keys;
   }
 
-  function getIndeterminateSelection(wrapper) {
-    return wrapper
-      .find('BodyRow')
-      .map(row => {
-        const { key } = row.props().record;
-        if (!row.find('Checkbox').at(0).props().indeterminate) {
-          return null;
+  function getIndeterminateSelection(container) {
+    const keys = [];
+    container.querySelectorAll('.ant-table-tbody tr').forEach(row => {
+      const key = row.getAttribute('data-row-key');
+      if (row.querySelector('.ant-checkbox-indeterminate')) {
+        if (isNaN(Number(key))) {
+          // rowKey
+          keys.push(key);
+        } else {
+          keys.push(Number(key));
         }
-
-        return key;
-      })
-      .filter(key => key !== null);
+      }
+    });
+    return keys;
   }
 
   it('select default row', () => {
-    const wrapper = mount(createTable({ rowSelection: { defaultSelectedRowKeys: [0] } }));
-    const checkboxes = wrapper.find('input');
+    const { container } = render(createTable({ rowSelection: { defaultSelectedRowKeys: [0] } }));
+    const checkboxes = container.querySelectorAll('input[type="checkbox"]');
+    expect(getSelections(container)).toEqual([0]);
 
-    expect(getSelections(wrapper)).toEqual([0]);
+    fireEvent.click(checkboxes[1]);
+    expect(getSelections(container)).toEqual([]);
 
-    checkboxes.at(1).simulate('change', { target: { checked: false } });
-    expect(getSelections(wrapper)).toEqual([]);
+    fireEvent.click(checkboxes[0]);
+    expect(getSelections(container)).toEqual([0, 1, 2, 3]);
 
-    checkboxes.at(0).simulate('change', { target: { checked: true } });
-    expect(getSelections(wrapper)).toEqual([0, 1, 2, 3]);
-
-    checkboxes.at(0).simulate('change', { target: { checked: false } });
-    expect(getSelections(wrapper)).toEqual([]);
+    fireEvent.click(checkboxes[0]);
+    expect(getSelections(container)).toEqual([]);
   });
 
   it('select by checkbox', () => {
-    const wrapper = mount(createTable());
-    const checkboxes = wrapper.find('input');
-    const checkboxAll = checkboxes.first();
+    const { container } = render(createTable());
+    const checkboxes = container.querySelectorAll('input[type="checkbox"]');
 
-    checkboxAll.simulate('change', { target: { checked: true } });
-    expect(getSelections(wrapper)).toEqual([0, 1, 2, 3]);
+    fireEvent.click(checkboxes[0]);
+    expect(getSelections(container)).toEqual([0, 1, 2, 3]);
 
-    checkboxes.at(1).simulate('change', { target: { checked: false } });
-    expect(getSelections(wrapper)).toEqual([1, 2, 3]);
+    fireEvent.click(checkboxes[1]);
+    expect(getSelections(container)).toEqual([1, 2, 3]);
 
-    checkboxes.at(1).simulate('change', { target: { checked: true } });
-    expect(getSelections(wrapper)).toEqual([0, 1, 2, 3]);
+    fireEvent.click(checkboxes[1]);
+    expect(getSelections(container)).toEqual([0, 1, 2, 3]);
   });
 
   it('select by radio', () => {
-    const wrapper = mount(createTable({ rowSelection: { type: 'radio' } }));
-    const radios = wrapper.find('input');
+    const { container } = render(createTable({ rowSelection: { type: 'radio' } }));
+    const radios = container.querySelectorAll('input[type="radio"]');
 
     expect(radios.length).toBe(4);
-    radios.first().simulate('click');
-    radios.first().simulate('change', { target: { checked: true } });
-    expect(getSelections(wrapper)).toEqual([0]);
+    fireEvent.click(radios[0]);
+    expect(getSelections(container)).toEqual([0]);
 
-    radios.last().simulate('change', { target: { checked: true } });
-    expect(getSelections(wrapper)).toEqual([3]);
+    fireEvent.click(radios[radios.length - 1]);
+    expect(getSelections(container)).toEqual([3]);
   });
 
   it('pass getCheckboxProps to checkbox', () => {
@@ -124,15 +130,15 @@ describe('Table.rowSelection', () => {
       }),
     };
 
-    const wrapper = mount(createTable({ rowSelection }));
-    const checkboxes = wrapper.find('input');
+    const { container } = render(createTable({ rowSelection }));
+    const checkboxes = container.querySelectorAll('input[type="checkbox"]');
 
-    expect(checkboxes.at(1).props().disabled).toBe(false);
-    expect(checkboxes.at(1).props().name).toEqual(data[0].name);
-    expect(checkboxes.at(2).props().disabled).toBe(true);
-    expect(checkboxes.at(2).props().name).toEqual(data[1].name);
+    expect(checkboxes[1].disabled).toBe(false);
+    expect(checkboxes[1].name).toEqual(data[0].name);
+    expect(checkboxes[2].disabled).toBe(true);
+    expect(checkboxes[2].name).toEqual(data[1].name);
 
-    expect(getIndeterminateSelection(wrapper)).toEqual([2]);
+    expect(getIndeterminateSelection(container)).toEqual([2]);
   });
 
   it("make getCheckboxProps's `indeterminate` override selectedRowKeys' effect", () => {
@@ -145,31 +151,31 @@ describe('Table.rowSelection', () => {
       selectedRowKeys: [2],
     };
 
-    const wrapper = mount(createTable({ rowSelection }));
-    expect(getIndeterminateSelection(wrapper)).toEqual([2]);
+    const { container } = render(createTable({ rowSelection }));
+    expect(getIndeterminateSelection(container)).toEqual([2]);
   });
 
   it('works with pagination', () => {
-    const wrapper = mount(createTable({ pagination: { pageSize: 2 } }));
-    const pagers = wrapper.find('Pager');
+    const { container } = render(createTable({ pagination: { pageSize: 2 } }));
 
-    wrapper
-      .find('input')
-      .first()
-      .simulate('change', { target: { checked: true } });
-    expect(wrapper.find('Checkbox').first().props()).toEqual(
-      expect.objectContaining({ checked: true, indeterminate: false }),
-    );
+    const pagers = container.querySelectorAll('.ant-pagination-item');
+    const checkboxAll = container.querySelector('input[type="checkbox"]');
 
-    pagers.at(1).simulate('click');
-    expect(wrapper.find('Checkbox').first().props()).toEqual(
-      expect.objectContaining({ checked: false, indeterminate: false }),
-    );
+    const objectContaining = {};
+    fireEvent.click(checkboxAll);
+    objectContaining.checked = checkboxAll.checked; // true
+    objectContaining.indeterminate = getIndeterminateSelection(container).length > 0; // false
+    expect.objectContaining(objectContaining);
 
-    pagers.at(0).simulate('click');
-    expect(wrapper.find('Checkbox').first().props()).toEqual(
-      expect.objectContaining({ checked: true, indeterminate: false }),
-    );
+    fireEvent.click(pagers[1]);
+    objectContaining.checked = checkboxAll.checked; // false
+    objectContaining.indeterminate = getIndeterminateSelection(container).length > 0; // false
+    expect.objectContaining(objectContaining);
+
+    fireEvent.click(pagers[0]);
+    objectContaining.checked = checkboxAll.checked; // true
+    objectContaining.indeterminate = getIndeterminateSelection(container).length > 0; // false
+    expect.objectContaining(objectContaining);
   });
 
   // https://github.com/ant-design/ant-design/issues/4020
@@ -181,7 +187,7 @@ describe('Table.rowSelection', () => {
       }),
     };
 
-    mount(createTable({ rowSelection }));
+    render(createTable({ rowSelection }));
 
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Table] Do not set `checked` or `defaultChecked` in `getCheckboxProps`. Please use `selectedRowKeys` instead.',
@@ -189,13 +195,13 @@ describe('Table.rowSelection', () => {
   });
 
   it('can be controlled', () => {
-    const wrapper = mount(createTable({ rowSelection: { selectedRowKeys: [0] } }));
+    const { container, rerender } = render(createTable({ rowSelection: { selectedRowKeys: [0] } }));
 
-    expect(getSelections(wrapper)).toEqual([0]);
+    expect(getSelections(container)).toEqual([0]);
 
-    wrapper.setProps({ rowSelection: { selectedRowKeys: [1] } });
+    rerender(createTable({ rowSelection: { selectedRowKeys: [1] } }));
 
-    expect(getSelections(wrapper)).toEqual([1]);
+    expect(getSelections(container)).toEqual([1]);
   });
 
   it('fires change & select events', () => {
@@ -210,12 +216,9 @@ describe('Table.rowSelection', () => {
       onChange: handleChange,
       onSelect: handleSelect,
     };
-    const wrapper = mount(createTable({ rowSelection }));
+    const { container } = render(createTable({ rowSelection }));
 
-    wrapper
-      .find('input')
-      .last()
-      .simulate('change', { target: { checked: true } });
+    fireEvent.click(container.querySelectorAll('input[type="checkbox"]')[4]);
 
     expect(handleChange).toHaveBeenCalledWith([3], [{ key: 3, name: 'Jerry' }], {
       type: 'single',
@@ -224,7 +227,7 @@ describe('Table.rowSelection', () => {
     expect(handleSelect.mock.calls[0][0]).toEqual({ key: 3, name: 'Jerry' });
     expect(handleSelect.mock.calls[0][1]).toEqual(true);
     expect(handleSelect.mock.calls[0][2]).toEqual([{ key: 3, name: 'Jerry' }]);
-    expect(handleSelect.mock.calls[0][3].type).toBe('change');
+    expect(handleSelect.mock.calls[0][3].type).toBe('click');
     expect(order).toEqual(['onSelect', 'onChange']);
   });
 
@@ -244,27 +247,20 @@ describe('Table.rowSelection', () => {
       onSelect: handleSelect,
       onSelectMultiple: handleSelectMulti,
     };
-    const wrapper = mount(createTable({ rowSelection }));
+    const { container } = render(createTable({ rowSelection }));
+    fireEvent.click(container.querySelectorAll('tbody input[type="checkbox"]')[0], {
+      shiftKey: true,
+    });
 
-    wrapper
-      .find('input')
-      .at(1)
-      .simulate('change', {
-        target: { checked: true },
-        nativeEvent: { shiftKey: true },
-      });
     expect(handleSelect).toHaveBeenCalled();
     expect(handleChange).toHaveBeenLastCalledWith([0], [{ key: 0, name: 'Jack' }], {
       type: 'single',
     });
 
-    wrapper
-      .find('input')
-      .at(3)
-      .simulate('change', {
-        target: { checked: true },
-        nativeEvent: { shiftKey: true },
-      });
+    fireEvent.click(container.querySelectorAll('tbody input[type="checkbox"]')[2], {
+      shiftKey: true,
+    });
+
     expect(handleSelectMulti).toHaveBeenCalledWith(
       true,
       [data[0], data[1], data[2]],
@@ -280,13 +276,9 @@ describe('Table.rowSelection', () => {
       { type: 'multiple' },
     );
 
-    wrapper
-      .find('input')
-      .at(1)
-      .simulate('change', {
-        target: { checked: false },
-        nativeEvent: { shiftKey: true },
-      });
+    fireEvent.click(container.querySelectorAll('tbody input[type="checkbox"]')[0], {
+      shiftKey: true,
+    });
     expect(handleSelectMulti).toHaveBeenCalledWith(false, [], [data[0], data[1], data[2]]);
     expect(handleChange).toHaveBeenLastCalledWith([], [], { type: 'multiple' });
 
@@ -312,46 +304,51 @@ describe('Table.rowSelection', () => {
       onChange: handleChange,
       onSelectAll: handleSelectAll,
     };
-    const wrapper = mount(createTable({ rowSelection }));
+    const { container } = render(createTable({ rowSelection }));
 
-    wrapper
-      .find('input')
-      .first()
-      .simulate('change', { target: { checked: true } });
+    const checkAll = container.querySelector('input[type="checkbox"]');
+
+    fireEvent.click(checkAll);
     expect(handleSelectAll).toHaveBeenCalledWith(true, data, data);
 
     expect(order).toEqual(['onSelectAll', 'onChange']);
 
-    wrapper
-      .find('input')
-      .first()
-      .simulate('change', { target: { checked: false } });
+    fireEvent.click(checkAll);
     expect(handleSelectAll).toHaveBeenCalledWith(false, [], data);
   });
 
   it('works with selectAll option inside selection menu', () => {
+    jest.useFakeTimers();
     const handleChange = jest.fn();
     const rowSelection = {
       onChange: handleChange,
       selections: true,
     };
-    const wrapper = mount(createTable({ rowSelection }));
+    const { container } = render(createTable({ rowSelection }));
 
     // Open
-    wrapper.find('Trigger').setState({ popupVisible: true });
+    fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger'));
+    act(() => {
+      jest.runAllTimers();
+    });
 
-    const dropdownWrapper = mount(wrapper.find('Trigger').first().instance().getComponent());
-    dropdownWrapper.find('.ant-dropdown-menu-item').first().simulate('click');
+    fireEvent.click(container.querySelectorAll('.ant-dropdown-menu-item')[0]);
+
     expect(handleChange.mock.calls[0][0]).toEqual([0, 1, 2, 3]);
   });
 
   it('render with default selection correctly', () => {
+    jest.useFakeTimers();
     const rowSelection = {
       selections: true,
     };
-    const wrapper = mount(createTable({ rowSelection }));
-    const dropdownWrapper = mount(wrapper.find('Trigger').instance().getComponent());
-    expect(dropdownWrapper.render()).toMatchSnapshot();
+    const { container } = render(createTable({ rowSelection }));
+    fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger'));
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    expect(container.querySelector('.ant-dropdown')).toMatchSnapshot();
   });
 
   it('fires selectInvert event', () => {
@@ -369,33 +366,26 @@ describe('Table.rowSelection', () => {
       onSelectInvert: handleSelectInvert,
       selections: true,
     };
-    const wrapper = mount(createTable({ rowSelection }));
-    const checkboxes = wrapper.find('input');
+    const { container } = render(createTable({ rowSelection }));
 
-    checkboxes.at(1).simulate('change', { target: { checked: true } });
-
+    fireEvent.click(container.querySelectorAll('.ant-checkbox')[1]);
     // Open
-    wrapper.find('span.ant-dropdown-trigger').simulate('mouseEnter');
+    fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger'));
 
-    // enzyme has bug for state sync.
-    // Let fresh multiple times to force sync back.
-    for (let i = 0; i < 3; i += 1) {
-      act(() => {
-        jest.runAllTimers();
-        wrapper.update();
-      });
-    }
+    act(() => {
+      jest.runAllTimers();
+    });
 
-    wrapper.find('li.ant-dropdown-menu-item').at(1).simulate('click');
+    fireEvent.click(container.querySelectorAll('li.ant-dropdown-menu-item')[1]);
 
     expect(handleSelectInvert).toHaveBeenCalledWith([1, 2, 3]);
-
     expect(order).toEqual(['onChange', 'onSelectInvert', 'onChange']);
 
     jest.useRealTimers();
   });
 
   it('fires selectNone event', () => {
+    jest.useFakeTimers();
     const order = [];
     const handleChange = jest.fn().mockImplementation(() => {
       order.push('onChange');
@@ -408,22 +398,23 @@ describe('Table.rowSelection', () => {
       onSelectNone: handleSelectNone,
       selections: true,
     };
-    const wrapper = mount(createTable({ rowSelection }));
-    const checkboxes = wrapper.find('input');
+    const { container } = render(createTable({ rowSelection }));
 
-    checkboxes.at(1).simulate('change', { target: { checked: true } });
-
+    fireEvent.click(container.querySelectorAll('.ant-checkbox')[1]);
     // Open
-    wrapper.find('Trigger').setState({ popupVisible: true });
-
-    const dropdownWrapper = mount(wrapper.find('Trigger').first().instance().getComponent());
-    dropdownWrapper.find('.ant-dropdown-menu-item').last().simulate('click');
+    fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger'));
+    act(() => {
+      jest.runAllTimers();
+    });
+    const dropdownMenuItems = container.querySelectorAll('.ant-dropdown-menu-item');
+    fireEvent.click(dropdownMenuItems[dropdownMenuItems.length - 1]);
 
     expect(handleSelectNone).toHaveBeenCalled();
     expect(order).toEqual(['onChange', 'onSelectNone', 'onChange']);
   });
 
   it('fires selection event', () => {
+    jest.useFakeTimers();
     const handleSelectOdd = jest.fn();
     const handleSelectEven = jest.fn();
     const rowSelection = {
@@ -442,18 +433,22 @@ describe('Table.rowSelection', () => {
         },
       ],
     };
-    const wrapper = mount(createTable({ rowSelection }));
+    const { container } = render(createTable({ rowSelection }));
 
     // Open
-    wrapper.find('Trigger').setState({ popupVisible: true });
+    fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger'));
+    act(() => {
+      jest.runAllTimers();
+    });
 
-    const dropdownWrapper = mount(wrapper.find('Trigger').first().instance().getComponent());
-    expect(dropdownWrapper.find('li.ant-dropdown-menu-item').length).toBe(4);
+    const dropdownMenuItems = container.querySelectorAll('.ant-dropdown-menu-item');
 
-    dropdownWrapper.find('li.ant-dropdown-menu-item').at(2).simulate('click');
+    expect(dropdownMenuItems.length).toBe(4);
+
+    fireEvent.click(dropdownMenuItems[2]);
     expect(handleSelectOdd).toHaveBeenCalledWith([0, 1, 2, 3]);
 
-    dropdownWrapper.find('li.ant-dropdown-menu-item').at(3).simulate('click');
+    fireEvent.click(dropdownMenuItems[3]);
     expect(handleSelectEven).toHaveBeenCalledWith([0, 1, 2, 3]);
   });
 
@@ -467,8 +462,9 @@ describe('Table.rowSelection', () => {
     const getCheckboxProps = record => record;
 
     it('SELECTION_ALL', () => {
+      jest.useFakeTimers();
       const onChange = jest.fn();
-      const wrapper = mount(
+      const { container } = render(
         createTable({
           dataSource: presetData,
           rowSelection: {
@@ -480,15 +476,20 @@ describe('Table.rowSelection', () => {
         }),
       );
 
-      wrapper.find('Trigger').setState({ popupVisible: true });
-      wrapper.find('li.ant-dropdown-menu-item').first().simulate('click');
+      fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger'));
 
+      act(() => {
+        jest.runAllTimers();
+      });
+
+      fireEvent.click(container.querySelector('li.ant-dropdown-menu-item'));
       expect(onChange).toHaveBeenCalledWith([0, 2], expect.anything(), { type: 'all' });
     });
 
     it('SELECTION_INVERT', () => {
+      jest.useFakeTimers();
       const onChange = jest.fn();
-      const wrapper = mount(
+      const { container } = render(
         createTable({
           dataSource: presetData,
           rowSelection: {
@@ -500,15 +501,21 @@ describe('Table.rowSelection', () => {
         }),
       );
 
-      wrapper.find('Trigger').setState({ popupVisible: true });
-      wrapper.find('li.ant-dropdown-menu-item').first().simulate('click');
+      fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger'));
+
+      act(() => {
+        jest.runAllTimers();
+      });
+
+      fireEvent.click(container.querySelector('li.ant-dropdown-menu-item'));
 
       expect(onChange).toHaveBeenCalledWith([0], expect.anything(), { type: 'invert' });
     });
 
     it('SELECTION_NONE', () => {
+      jest.useFakeTimers();
       const onChange = jest.fn();
-      const wrapper = mount(
+      const { container } = render(
         createTable({
           dataSource: presetData,
           rowSelection: {
@@ -520,8 +527,13 @@ describe('Table.rowSelection', () => {
         }),
       );
 
-      wrapper.find('Trigger').setState({ popupVisible: true });
-      wrapper.find('li.ant-dropdown-menu-item').first().simulate('click');
+      fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger'));
+
+      act(() => {
+        jest.runAllTimers();
+      });
+
+      fireEvent.click(container.querySelector('li.ant-dropdown-menu-item'));
 
       expect(onChange).toHaveBeenCalledWith([1], expect.anything(), { type: 'none' });
     });
@@ -531,11 +543,12 @@ describe('Table.rowSelection', () => {
     const rowSelection = {
       hideSelectAll: true,
     };
-    const wrapper = mount(createTable({ rowSelection }));
-    expect(wrapper.find('.ant-selection').exists()).toBeFalsy();
+    const { container } = render(createTable({ rowSelection }));
+    expect(container.querySelector('.ant-selection')).toBeFalsy();
   });
 
   it('handle custom selection onSelect correctly when hide default selection options', () => {
+    jest.useFakeTimers();
     const handleSelectOdd = jest.fn();
     const handleSelectEven = jest.fn();
     const rowSelection = {
@@ -552,18 +565,21 @@ describe('Table.rowSelection', () => {
         },
       ],
     };
-    const wrapper = mount(createTable({ rowSelection }));
+    const { container } = render(createTable({ rowSelection }));
 
     // Open
-    wrapper.find('Trigger').setState({ popupVisible: true });
+    fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger'));
+    act(() => {
+      jest.runAllTimers();
+    });
 
-    const dropdownWrapper = mount(wrapper.find('Trigger').first().instance().getComponent());
-    expect(dropdownWrapper.find('li.ant-dropdown-menu-item').length).toBe(2);
+    const dropdownMenuItems = container.querySelectorAll('li.ant-dropdown-menu-item');
+    expect(dropdownMenuItems.length).toBe(2);
 
-    dropdownWrapper.find('li.ant-dropdown-menu-item').at(0).simulate('click');
+    fireEvent.click(dropdownMenuItems[0]);
     expect(handleSelectOdd).toHaveBeenCalledWith([0, 1, 2, 3]);
 
-    dropdownWrapper.find('li.ant-dropdown-menu-item').at(1).simulate('click');
+    fireEvent.click(dropdownMenuItems[1]);
     expect(handleSelectEven).toHaveBeenCalledWith([0, 1, 2, 3]);
   });
 
@@ -572,14 +588,15 @@ describe('Table.rowSelection', () => {
     const rowSelection = {
       getCheckboxProps: record => ({ disabled: record.disabled }),
     };
-    const wrapper = mount(createTable({ rowSelection }));
+    const { container, rerender } = render(createTable({ rowSelection }));
     const newData = [
       { key: 0, name: 'Jack', disabled: true },
       { key: 1, name: 'Lucy', disabled: true },
     ];
-    wrapper.setProps({ dataSource: newData });
-    wrapper.find('input').forEach(checkbox => {
-      expect(checkbox.props().disabled).toBe(true);
+
+    rerender(createTable({ rowSelection, dataSource: newData }));
+    container.querySelectorAll('input').forEach(checkbox => {
+      expect(checkbox.disabled).toBe(true);
     });
   });
 
@@ -622,20 +639,16 @@ describe('Table.rowSelection', () => {
         name: i.toString(),
       });
     }
-    const wrapper = mount(
+    const { container } = render(
       createTable({
         rowSelection: {},
         dataSource: newData,
       }),
     );
-    wrapper.find('Pager').last().simulate('click'); // switch to second page
-    wrapper.update();
-    wrapper
-      .find('input')
-      .first()
-      .simulate('change', { target: { checked: true } });
-    wrapper.update();
-    expect(renderedNames(wrapper)).toEqual([
+    fireEvent.click(container.querySelectorAll('.ant-pagination-item')[1]); // switch to second page
+    fireEvent.click(container.querySelector('.ant-checkbox'));
+
+    expect(renderedNames(container)).toEqual([
       '10',
       '11',
       '12',
@@ -650,27 +663,27 @@ describe('Table.rowSelection', () => {
   });
 
   it('highlight selected row', () => {
-    const wrapper = mount(createTable());
-    wrapper
-      .find('input')
-      .at(1)
-      .simulate('change', { target: { checked: true } });
-    expect(wrapper.find('tbody tr').at(0).hasClass('ant-table-row-selected')).toBe(true);
+    const { container } = render(createTable());
+
+    fireEvent.click(container.querySelectorAll('input')[1]);
+    expect(
+      container.querySelectorAll('tbody tr')[0].className.includes('ant-table-row-selected'),
+    ).toBe(true);
   });
 
   it('fix selection column on the left', () => {
-    const wrapper = mount(
+    const { asFragment } = render(
       createTable({
         rowSelection: { fixed: true },
         scroll: { x: 903 },
       }),
     );
 
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   it('fix expand on th left when selection column fixed on the left', () => {
-    const wrapper = mount(
+    const { asFragment } = render(
       createTable({
         expandable: {
           expandedRowRender() {
@@ -682,11 +695,11 @@ describe('Table.rowSelection', () => {
       }),
     );
 
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   it('fix selection column on the left when any other column is fixed', () => {
-    const wrapper = mount(
+    const { asFragment } = render(
       createTable({
         rowSelection: {},
         columns: [
@@ -700,11 +713,11 @@ describe('Table.rowSelection', () => {
       }),
     );
 
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   it('use column as selection column when key is `selection-column`', () => {
-    const wrapper = mount(
+    const { asFragment } = render(
       createTable({
         rowSelection: {},
         columns: [
@@ -717,12 +730,12 @@ describe('Table.rowSelection', () => {
       }),
     );
 
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   // https://github.com/ant-design/ant-design/issues/10629
   it('should keep all checked state when remove item from dataSource', () => {
-    const wrapper = mount(
+    const { container, rerender } = render(
       <Table
         rowSelection={{
           selectedRowKeys: [0, 1, 2, 3],
@@ -731,27 +744,33 @@ describe('Table.rowSelection', () => {
         dataSource={data}
       />,
     );
-    expect(wrapper.find(Checkbox).length).toBe(5);
-    wrapper.find(Checkbox).forEach(checkbox => {
-      expect(checkbox.props().checked).toBe(true);
-      expect(checkbox.props().indeterminate).toBe(false);
+    const checkboxs = container.querySelectorAll('.ant-checkbox');
+    expect(checkboxs.length).toBe(5);
+    checkboxs.forEach(checkbox => {
+      expect(checkbox.querySelector('input').checked).toBe(true);
+      expect(checkbox.className.includes('ant-checkbox-indeterminate')).toBe(false);
     });
-    wrapper.setProps({
-      dataSource: data.slice(1),
-      rowSelection: {
-        selectedRowKeys: [1, 2, 3],
-      },
-    });
-    expect(wrapper.find(Checkbox).length).toBe(4);
-    wrapper.find(Checkbox).forEach(checkbox => {
-      expect(checkbox.props().checked).toBe(true);
-      expect(checkbox.props().indeterminate).toBe(false);
+
+    rerender(
+      <Table
+        rowSelection={{
+          selectedRowKeys: [1, 2, 3],
+        }}
+        columns={columns}
+        dataSource={data.slice(1)}
+      />,
+    );
+
+    expect(container.querySelectorAll('.ant-checkbox').length).toBe(4);
+    container.querySelectorAll('.ant-checkbox').forEach(checkbox => {
+      expect(checkbox.querySelector('input').checked).toBe(true);
+      expect(checkbox.className.includes('ant-checkbox-indeterminate')).toBe(false);
     });
   });
 
   // https://github.com/ant-design/ant-design/issues/11042
   it('add columnTitle for rowSelection', () => {
-    const wrapper = mount(
+    const { container, rerender } = render(
       <Table
         columns={columns}
         dataSource={data}
@@ -760,14 +779,18 @@ describe('Table.rowSelection', () => {
         }}
       />,
     );
-    expect(wrapper.find('thead tr th').at(0).text()).toBe('多选');
-    wrapper.setProps({
-      rowSelection: {
-        type: 'radio',
-        columnTitle: '单选',
-      },
-    });
-    expect(wrapper.find('thead tr th').at(0).text()).toBe('单选');
+    expect(container.querySelector('thead tr th').textContent).toBe('多选');
+    rerender(
+      <Table
+        columns={columns}
+        dataSource={data}
+        rowSelection={{
+          type: 'radio',
+          columnTitle: '单选',
+        }}
+      />,
+    );
+    expect(container.querySelector('thead tr th').textContent).toBe('单选');
   });
 
   // https://github.com/ant-design/ant-design/issues/11384
@@ -796,36 +819,43 @@ describe('Table.rowSelection', () => {
       onChange,
     };
 
-    const wrapper = mount(
+    const { container } = render(
       <Table columns={filterColumns} dataSource={data} rowSelection={rowSelection} />,
     );
 
     function clickFilter(indexList) {
       indexList.forEach(index => {
-        wrapper.find('.ant-dropdown-menu-item .ant-checkbox-wrapper').at(index).simulate('click');
+        // wrapper.find('.ant-dropdown-menu-item .ant-checkbox-wrapper').at(index).simulate('click');
+        fireEvent.click(
+          container.querySelectorAll('.ant-dropdown-menu-item .ant-checkbox-wrapper')[index],
+        );
       });
-      wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-primary').simulate('click');
+      // wrapper.find('.ant-table-filter-dropdown-btns .ant-btn-primary').simulate('click');
+      fireEvent.click(container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-primary'));
     }
 
     function clickItem() {
-      wrapper
-        .find('tbody .ant-table-selection-column .ant-checkbox-input')
-        .at(0)
-        .simulate('change', {
-          target: { checked: true },
-        });
+      fireEvent.click(
+        container.querySelectorAll('tbody .ant-table-selection-column .ant-checkbox-input')[0],
+      );
+      // wrapper
+      //   .find('tbody .ant-table-selection-column .ant-checkbox-input')
+      //   .at(0)
+      //   .simulate('change', {
+      //     target: { checked: true },
+      //   });
     }
 
     // Check Jack
     clickFilter([0]);
-    expect(wrapper.find('tbody tr').length).toBe(1);
+    expect(container.querySelectorAll('tbody tr').length).toBe(1);
     clickItem();
     expect(onChange.mock.calls[0][0].length).toBe(1);
     expect(onChange.mock.calls[0][1].length).toBe(1);
 
     // Check Lucy
     clickFilter([0, 1]);
-    expect(wrapper.find('tbody tr').length).toBe(1);
+    expect(container.querySelectorAll('tbody tr').length).toBe(1);
     clickItem();
     expect(onChange.mock.calls[1][0].length).toBe(2);
     expect(onChange.mock.calls[1][1].length).toBe(2);
@@ -854,20 +884,20 @@ describe('Table.rowSelection', () => {
         ],
       },
     ];
-    const wrapper = mount(
+    const { container } = render(
       <Table columns={columns} dataSource={newDatas} childrenColumnName="test" rowSelection={{}} />,
     );
-    const checkboxes = wrapper.find('input');
+    const checkboxes = container.querySelectorAll('input');
+    const objectContaining = {};
+    fireEvent.click(checkboxes[1]);
+    objectContaining.checked = checkboxes[0].checked; // false
+    objectContaining.indeterminate = getIndeterminateSelection(container).length > 0; // true
+    expect.objectContaining(objectContaining);
 
-    checkboxes.at(1).simulate('change', { target: { checked: true } });
-    expect(wrapper.find('Checkbox').first().props()).toEqual(
-      expect.objectContaining({ indeterminate: true, checked: false }),
-    );
-
-    checkboxes.at(2).simulate('change', { target: { checked: true } });
-    expect(wrapper.find('Checkbox').first().props()).toEqual(
-      expect.objectContaining({ indeterminate: false, checked: true }),
-    );
+    fireEvent.click(checkboxes[2]);
+    objectContaining.checked = checkboxes[0].checked; // true
+    objectContaining.indeterminate = getIndeterminateSelection(container).length > 0; // false
+    expect.objectContaining(objectContaining);
   });
 
   // https://github.com/ant-design/ant-design/issues/16614
@@ -885,7 +915,7 @@ describe('Table.rowSelection', () => {
         ],
       },
     ];
-    const wrapper = mount(
+    const { container } = render(
       <Table
         columns={columns}
         dataSource={newDatas}
@@ -894,12 +924,14 @@ describe('Table.rowSelection', () => {
         expandedRowKeys={[1]}
       />,
     );
-    const checkboxes = wrapper.find('input');
-    checkboxes.at(2).simulate('change', { target: { checked: true } });
+    const checkboxes = container.querySelectorAll('input');
+
+    fireEvent.click(checkboxes[2]);
+
     expect(onChange).toHaveBeenLastCalledWith([11], [newDatas[0].list[0]], { type: 'single' });
     onChange.mockReset();
 
-    checkboxes.at(1).simulate('change', { target: { checked: true } });
+    fireEvent.click(checkboxes[1]);
     const item0 = newDatas[0];
     expect(onChange).toHaveBeenLastCalledWith([11, 1], [newDatas[0].list[0], item0], {
       type: 'single',
@@ -912,7 +944,7 @@ describe('Table.rowSelection', () => {
       { id: 2, name: 'World', age: 30 },
     ];
 
-    const wrapper = mount(
+    const { container, rerender } = render(
       <Table
         columns={columns}
         dataSource={dataSource}
@@ -921,25 +953,33 @@ describe('Table.rowSelection', () => {
         rowKey="id"
       />,
     );
-    const checkboxes = wrapper.find('input');
-    checkboxes.at(1).simulate('change', { target: { checked: true } });
+    const checkboxes = container.querySelectorAll('input');
+    fireEvent.click(checkboxes[1]);
 
-    expect(wrapper.find('tr.ant-table-row-selected').length).toBe(1);
+    expect(container.querySelectorAll('tr.ant-table-row-selected').length).toBe(1);
 
-    wrapper.setProps({ rowSelection: null });
-    wrapper.update();
-    expect(wrapper.find('tr.ant-table-row-selected').length).toBe(0);
+    rerender(
+      <Table
+        columns={columns}
+        dataSource={dataSource}
+        rowSelection={null}
+        expandedRowRender={() => null}
+        rowKey="id"
+      />,
+    );
+
+    expect(container.querySelectorAll('tr.ant-table-row-selected').length).toBe(0);
   });
 
   it('select by checkbox to trigger stopPropagation', () => {
-    const wrapper = mount(createTable());
+    const { container } = render(createTable());
     expect(() => {
-      wrapper.find('span').at(10).simulate('click');
+      fireEvent.click(container.querySelectorAll('span')[10]);
     }).not.toThrow();
   });
 
   it('all disabled should not make select all checked', () => {
-    const wrapper = mount(
+    const { container } = render(
       createTable({
         rowSelection: {
           getCheckboxProps: () => ({
@@ -949,12 +989,12 @@ describe('Table.rowSelection', () => {
       }),
     );
 
-    expect(wrapper.find('thead .ant-checkbox-input').props().disabled).toBeTruthy();
-    expect(wrapper.find('thead .ant-checkbox-input').props().checked).toBeFalsy();
+    expect(container.querySelector('thead .ant-checkbox-input').disabled).toBeTruthy();
+    expect(container.querySelector('thead .ant-checkbox-input').checked).toBeFalsy();
   });
 
   it('should make select all checked when each item is checked and disabled', () => {
-    const wrapper = mount(
+    const { container } = render(
       createTable({
         rowSelection: {
           selectedRowKeys: [0, 1, 2, 3],
@@ -965,12 +1005,12 @@ describe('Table.rowSelection', () => {
       }),
     );
 
-    expect(wrapper.find('thead .ant-checkbox-input').props().disabled).toBeTruthy();
-    expect(wrapper.find('thead .ant-checkbox-input').props().checked).toBeTruthy();
+    expect(container.querySelector('thead .ant-checkbox-input').disabled).toBeTruthy();
+    expect(container.querySelector('thead .ant-checkbox-input').checked).toBeTruthy();
   });
 
   it('should make select all indeterminated when each item is disabled and some item is checked', () => {
-    const wrapper = mount(
+    const { container } = render(
       createTable({
         rowSelection: {
           selectedRowKeys: [0],
@@ -981,15 +1021,15 @@ describe('Table.rowSelection', () => {
       }),
     );
 
-    expect(wrapper.find('thead .ant-checkbox-input').props().disabled).toBeTruthy();
-    expect(wrapper.find('thead .ant-checkbox-input').props().checked).toBeFalsy();
+    expect(container.querySelector('thead .ant-checkbox-input').disabled).toBeTruthy();
+    expect(container.querySelector('thead .ant-checkbox-input').checked).toBeFalsy();
     expect(
-      wrapper.find('thead .ant-checkbox-indeterminate.ant-checkbox-disabled').exists(),
+      container.querySelector('thead .ant-checkbox-indeterminate.ant-checkbox-disabled'),
     ).toBeTruthy();
   });
 
   it('should make select all checked when each item is checked and some item is disabled', () => {
-    const wrapper = mount(
+    const { container } = render(
       createTable({
         rowSelection: {
           selectedRowKeys: [0, 1, 2, 3],
@@ -1000,12 +1040,12 @@ describe('Table.rowSelection', () => {
       }),
     );
 
-    expect(wrapper.find('thead .ant-checkbox-input').props().disabled).toBeFalsy();
-    expect(wrapper.find('thead .ant-checkbox-input').props().checked).toBeTruthy();
+    expect(container.querySelector('thead .ant-checkbox-input').disabled).toBeFalsy();
+    expect(container.querySelector('thead .ant-checkbox-input').checked).toBeTruthy();
   });
 
   it('should not make select all checked when some item is checked and disabled', () => {
-    const wrapper = mount(
+    const { container } = render(
       createTable({
         rowSelection: {
           selectedRowKeys: [1],
@@ -1016,23 +1056,23 @@ describe('Table.rowSelection', () => {
       }),
     );
 
-    expect(wrapper.find('thead .ant-checkbox-input').props().disabled).toBeFalsy();
-    expect(wrapper.find('thead .ant-checkbox-input').props().checked).toBeFalsy();
-    expect(wrapper.find('thead .ant-checkbox-indeterminate').exists()).toBeTruthy();
+    expect(container.querySelector('thead .ant-checkbox-input').disabled).toBeFalsy();
+    expect(container.querySelector('thead .ant-checkbox-input').checked).toBeFalsy();
+    expect(container.querySelector('thead .ant-checkbox-indeterminate')).toBeTruthy();
   });
 
   it('should onRowClick not called when checkbox clicked', () => {
     const onRowClick = jest.fn();
 
-    const wrapper = mount(
+    const { container } = render(
       createTable({
         onRow: () => ({
           onClick: onRowClick,
         }),
       }),
     );
-
-    wrapper.find('input').last().simulate('click');
+    const checkboxes = container.querySelectorAll('input');
+    fireEvent.click(checkboxes[checkboxes.length - 1]);
 
     expect(onRowClick).not.toHaveBeenCalled();
   });
@@ -1042,16 +1082,18 @@ describe('Table.rowSelection', () => {
       selections: true,
     };
     const getPopupContainer = jest.fn(node => node);
-    const wrapper = mount(
+    const { container } = render(
       createTable({
         rowSelection,
         getPopupContainer,
       }),
     );
     jest.useFakeTimers();
-    wrapper.find('.ant-dropdown-trigger').simulate('mouseenter');
-    jest.runAllTimers();
-    expect(wrapper.render()).toMatchSnapshot();
+    fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger'));
+    act(() => {
+      jest.runAllTimers();
+    });
+    expect(container.firstChild).toMatchSnapshot();
     expect(getPopupContainer).toHaveBeenCalled();
   });
 
@@ -1059,7 +1101,7 @@ describe('Table.rowSelection', () => {
     const rowSelection = {
       selections: true,
     };
-    const wrapper = mount(
+    const { container } = render(
       <ConfigProvider getPopupContainer={node => node.parentNode}>
         {createTable({
           rowSelection,
@@ -1067,14 +1109,16 @@ describe('Table.rowSelection', () => {
       </ConfigProvider>,
     );
     jest.useFakeTimers();
-    wrapper.find('.ant-dropdown-trigger').simulate('mouseenter');
-    jest.runAllTimers();
-    expect(wrapper.render()).toMatchSnapshot();
+    fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger'));
+    act(() => {
+      jest.runAllTimers();
+    });
+    expect(container.firstChild).toMatchSnapshot();
   });
 
   it('Table selection should check', () => {
     const onChange = jest.fn();
-    const wrapper = mount(
+    const { container } = render(
       <Table
         dataSource={[{ name: 'light', sub: [{ name: 'bamboo' }] }]}
         expandable={{ expandedRowKeys: ['light'], childrenColumnName: 'sub' }}
@@ -1083,10 +1127,9 @@ describe('Table.rowSelection', () => {
       />,
     );
 
-    wrapper
-      .find('input')
-      .last()
-      .simulate('change', { target: { checked: true } });
+    const checkboxs = container.querySelectorAll('input');
+    fireEvent.click(checkboxs[checkboxs.length - 1]);
+
     expect(onChange.mock.calls[0][1]).toEqual([expect.objectContaining({ name: 'bamboo' })]);
   });
 
@@ -1140,16 +1183,19 @@ describe('Table.rowSelection', () => {
             onChange,
           },
         });
-        const wrapper = mount(table);
-        const checkboxes = wrapper.find('input');
+        const { container } = render(table);
+        const checkboxes = container.querySelectorAll('input');
 
-        checkboxes.at(4).simulate('change', { target: { checked: true } });
-        expect(getSelections(wrapper)).toEqual([3, 4, 5, 6, 7, 8, 9]);
-        expect(getIndeterminateSelection(wrapper)).toEqual([]);
+        fireEvent.click(checkboxes[4]);
+
+        expect(getSelections(container)).toEqual([3, 4, 5, 6, 7, 8, 9]);
+        expect(getIndeterminateSelection(container)).toEqual([]);
         expect(onChange.mock.calls[0][0]).toEqual([3, 4, 5, 6, 7, 8, 9]);
-        checkboxes.at(7).simulate('change', { target: { checked: true } });
-        expect(getSelections(wrapper)).toEqual([4, 5]);
-        expect(getIndeterminateSelection(wrapper)).toEqual([3]);
+
+        fireEvent.click(checkboxes[7]);
+
+        expect(getSelections(container)).toEqual([4, 5]);
+        expect(getIndeterminateSelection(container)).toEqual([3]);
         expect(onChange.mock.calls[1][0]).toEqual([4, 5]);
       });
       it('use function rowkey', () => {
@@ -1163,12 +1209,20 @@ describe('Table.rowSelection', () => {
           },
           rowKey: entity => entity.name,
         });
-        const wrapper = mount(table);
-        const checkboxes = wrapper.find('input');
+        const { container } = render(table);
+        const checkboxes = container.querySelectorAll('input');
 
-        checkboxes.at(4).simulate('change', { target: { checked: true } });
-        expect(getSelections(wrapper)).toEqual([3, 4, 5, 6, 7, 8, 9]);
-        expect(getIndeterminateSelection(wrapper)).toEqual([]);
+        fireEvent.click(checkboxes[4]);
+        expect(getSelections(container)).toEqual([
+          'Jerry',
+          'Jerry Jack',
+          'Jerry Lucy',
+          'Jerry Tom',
+          'Jerry Tom Jack',
+          'Jerry Tom Lucy',
+          'Jerry Tom Tom',
+        ]);
+        expect(getIndeterminateSelection(container)).toEqual([]);
         expect(onChange.mock.calls[0][0]).toEqual([
           'Jerry',
           'Jerry Jack',
@@ -1178,9 +1232,10 @@ describe('Table.rowSelection', () => {
           'Jerry Tom Lucy',
           'Jerry Tom Tom',
         ]);
-        checkboxes.at(7).simulate('change', { target: { checked: true } });
-        expect(getSelections(wrapper)).toEqual([4, 5]);
-        expect(getIndeterminateSelection(wrapper)).toEqual([3]);
+
+        fireEvent.click(checkboxes[7]);
+        expect(getSelections(container)).toEqual(['Jerry Jack', 'Jerry Lucy']);
+        expect(getIndeterminateSelection(container)).toEqual(['Jerry']);
         expect(onChange.mock.calls[1][0]).toEqual(['Jerry Jack', 'Jerry Lucy']);
       });
       it('use string rowkey', () => {
@@ -1194,12 +1249,20 @@ describe('Table.rowSelection', () => {
           },
           rowKey: 'name',
         });
-        const wrapper = mount(table);
-        const checkboxes = wrapper.find('input');
+        const { container } = render(table);
+        const checkboxes = container.querySelectorAll('input');
 
-        checkboxes.at(4).simulate('change', { target: { checked: true } });
-        expect(getSelections(wrapper)).toEqual([3, 4, 5, 6, 7, 8, 9]);
-        expect(getIndeterminateSelection(wrapper)).toEqual([]);
+        fireEvent.click(checkboxes[4]);
+        expect(getSelections(container)).toEqual([
+          'Jerry',
+          'Jerry Jack',
+          'Jerry Lucy',
+          'Jerry Tom',
+          'Jerry Tom Jack',
+          'Jerry Tom Lucy',
+          'Jerry Tom Tom',
+        ]);
+        expect(getIndeterminateSelection(container)).toEqual([]);
         expect(onChange.mock.calls[0][0]).toEqual([
           'Jerry',
           'Jerry Jack',
@@ -1209,9 +1272,10 @@ describe('Table.rowSelection', () => {
           'Jerry Tom Lucy',
           'Jerry Tom Tom',
         ]);
-        checkboxes.at(7).simulate('change', { target: { checked: true } });
-        expect(getSelections(wrapper)).toEqual([4, 5]);
-        expect(getIndeterminateSelection(wrapper)).toEqual([3]);
+
+        fireEvent.click(checkboxes[7]);
+        expect(getSelections(container)).toEqual(['Jerry Jack', 'Jerry Lucy']);
+        expect(getIndeterminateSelection(container)).toEqual(['Jerry']);
         expect(onChange.mock.calls[1][0]).toEqual(['Jerry Jack', 'Jerry Lucy']);
       });
       it('initialized correctly', () => {
@@ -1224,9 +1288,9 @@ describe('Table.rowSelection', () => {
           },
           rowKey: 'key',
         });
-        const wrapper = mount(table);
-        expect(getSelections(wrapper)).toEqual([6, 7, 8, 9]);
-        expect(getIndeterminateSelection(wrapper)).toEqual([3]);
+        const { container } = render(table);
+        expect(getSelections(container)).toEqual([6, 7, 8, 9]);
+        expect(getIndeterminateSelection(container)).toEqual([3]);
       });
       it('works with disabled checkbox', () => {
         const onChange = jest.fn();
@@ -1244,17 +1308,20 @@ describe('Table.rowSelection', () => {
             },
           },
         });
-        const wrapper = mount(table);
-        const checkboxes = wrapper.find('input');
+        const { container } = render(table);
 
-        checkboxes.at(10).simulate('change', { target: { checked: true } });
-        checkboxes.at(4).simulate('change', { target: { checked: true } });
-        expect(getSelections(wrapper).sort()).toEqual([3, 4, 5, 9]);
-        expect(getIndeterminateSelection(wrapper)).toEqual([]);
+        const checkboxes = container.querySelectorAll('input');
+
+        fireEvent.click(checkboxes[10]);
+        fireEvent.click(checkboxes[4]);
+
+        expect(getSelections(container).sort()).toEqual([3, 4, 5, 9]);
+        expect(getIndeterminateSelection(container)).toEqual([]);
         expect(Array.from(onChange.mock.calls[1][0]).sort()).toEqual([3, 4, 5, 9]);
-        checkboxes.at(4).simulate('change', { target: { checked: false } });
-        expect(getSelections(wrapper)).toEqual([9]);
-        expect(getIndeterminateSelection(wrapper)).toEqual([]);
+
+        fireEvent.click(checkboxes[4]);
+        expect(getSelections(container)).toEqual([9]);
+        expect(getIndeterminateSelection(container)).toEqual([]);
         expect(onChange.mock.calls[2][0]).toEqual([9]);
       });
       it('works with disabled checkbox and function rowkey', () => {
@@ -1274,22 +1341,28 @@ describe('Table.rowSelection', () => {
           },
           rowKey: entity => entity.name,
         });
-        const wrapper = mount(table);
-        const checkboxes = wrapper.find('input');
+        const { container } = render(table);
+        const checkboxes = container.querySelectorAll('input');
 
-        checkboxes.at(10).simulate('change', { target: { checked: true } });
-        checkboxes.at(4).simulate('change', { target: { checked: true } });
-        expect(getSelections(wrapper).sort()).toEqual([3, 4, 5, 9]);
-        expect(getIndeterminateSelection(wrapper)).toEqual([]);
+        fireEvent.click(checkboxes[10]);
+        fireEvent.click(checkboxes[4]);
+        expect(getSelections(container)).toEqual([
+          'Jerry',
+          'Jerry Jack',
+          'Jerry Lucy',
+          'Jerry Tom Tom',
+        ]);
+        expect(getIndeterminateSelection(container)).toEqual([]);
         expect(Array.from(onChange.mock.calls[1][0]).sort()).toEqual([
           'Jerry',
           'Jerry Jack',
           'Jerry Lucy',
           'Jerry Tom Tom',
         ]);
-        checkboxes.at(4).simulate('change', { target: { checked: false } });
-        expect(getSelections(wrapper)).toEqual([9]);
-        expect(getIndeterminateSelection(wrapper)).toEqual([]);
+
+        fireEvent.click(checkboxes[4]);
+        expect(getSelections(container)).toEqual(['Jerry Tom Tom']);
+        expect(getIndeterminateSelection(container)).toEqual([]);
         expect(onChange.mock.calls[2][0]).toEqual(['Jerry Tom Tom']);
       });
       it('works with disabled checkbox and string rowkey', () => {
@@ -1309,22 +1382,28 @@ describe('Table.rowSelection', () => {
           },
           rowKey: 'name',
         });
-        const wrapper = mount(table);
-        const checkboxes = wrapper.find('input');
+        const { container } = render(table);
+        const checkboxes = container.querySelectorAll('input');
 
-        checkboxes.at(10).simulate('change', { target: { checked: true } });
-        checkboxes.at(4).simulate('change', { target: { checked: true } });
-        expect(getSelections(wrapper).sort()).toEqual([3, 4, 5, 9]);
-        expect(getIndeterminateSelection(wrapper)).toEqual([]);
+        fireEvent.click(checkboxes[10]);
+        fireEvent.click(checkboxes[4]);
+        expect(getSelections(container)).toEqual([
+          'Jerry',
+          'Jerry Jack',
+          'Jerry Lucy',
+          'Jerry Tom Tom',
+        ]);
+        expect(getIndeterminateSelection(container)).toEqual([]);
         expect(Array.from(onChange.mock.calls[1][0]).sort()).toEqual([
           'Jerry',
           'Jerry Jack',
           'Jerry Lucy',
           'Jerry Tom Tom',
         ]);
-        checkboxes.at(4).simulate('change', { target: { checked: false } });
-        expect(getSelections(wrapper)).toEqual([9]);
-        expect(getIndeterminateSelection(wrapper)).toEqual([]);
+
+        fireEvent.click(checkboxes[4]);
+        expect(getSelections(container)).toEqual(['Jerry Tom Tom']);
+        expect(getIndeterminateSelection(container)).toEqual([]);
         expect(onChange.mock.calls[2][0]).toEqual(['Jerry Tom Tom']);
       });
 
@@ -1351,17 +1430,17 @@ describe('Table.rowSelection', () => {
             onChange,
           },
         });
-        const wrapper = mount(table);
-        const checkboxes = wrapper.find('input');
+        const { container } = render(table);
+        const checkboxes = container.querySelectorAll('input');
         expect(checkboxes).toHaveLength(1 + 3);
 
-        checkboxes.at(1).simulate('change', { target: { checked: true } });
-        expect(getSelections(wrapper)).toEqual([0, 1, 2]);
+        fireEvent.click(checkboxes[1]);
+        expect(getSelections(container)).toEqual([0, 1, 2]);
       });
     });
     it('warns when set `indeterminate` using `rowSelection.getCheckboxProps` is not allowed with tree structured data.', () => {
       resetWarned();
-      mount(
+      render(
         createTable({
           dataSource: dataWithChildren,
           defaultExpandAllRows: true,
@@ -1384,7 +1463,7 @@ describe('Table.rowSelection', () => {
   describe('cache with selected keys', () => {
     it('default not cache', () => {
       const onChange = jest.fn();
-      const wrapper = mount(
+      const { container, rerender } = render(
         <Table
           dataSource={[{ name: 'light' }, { name: 'bamboo' }]}
           rowSelection={{ onChange }}
@@ -1392,23 +1471,18 @@ describe('Table.rowSelection', () => {
         />,
       );
 
-      wrapper
-        .find('tbody input')
-        .first()
-        .simulate('change', { target: { checked: true } });
+      fireEvent.click(container.querySelector('tbody input'));
       expect(onChange).toHaveBeenCalledWith(['light'], [{ name: 'light' }], { type: 'single' });
-
-      wrapper.setProps({ dataSource: [{ name: 'bamboo' }] });
-      wrapper
-        .find('tbody input')
-        .first()
-        .simulate('change', { target: { checked: true } });
+      rerender(
+        <Table dataSource={[{ name: 'bamboo' }]} rowSelection={{ onChange }} rowKey="name" />,
+      );
+      fireEvent.click(container.querySelector('tbody input'));
       expect(onChange).toHaveBeenCalledWith(['bamboo'], [{ name: 'bamboo' }], { type: 'single' });
     });
 
     it('cache with preserveSelectedRowKeys', () => {
       const onChange = jest.fn();
-      const wrapper = mount(
+      const { container, rerender } = render(
         <Table
           dataSource={[{ name: 'light' }, { name: 'bamboo' }]}
           rowSelection={{ onChange, preserveSelectedRowKeys: true }}
@@ -1416,17 +1490,17 @@ describe('Table.rowSelection', () => {
         />,
       );
 
-      wrapper
-        .find('tbody input')
-        .first()
-        .simulate('change', { target: { checked: true } });
+      fireEvent.click(container.querySelector('tbody input'));
       expect(onChange).toHaveBeenCalledWith(['light'], [{ name: 'light' }], { type: 'single' });
 
-      wrapper.setProps({ dataSource: [{ name: 'bamboo' }] });
-      wrapper
-        .find('tbody input')
-        .first()
-        .simulate('change', { target: { checked: true } });
+      rerender(
+        <Table
+          dataSource={[{ name: 'bamboo' }]}
+          rowSelection={{ onChange, preserveSelectedRowKeys: true }}
+          rowKey="name"
+        />,
+      );
+      fireEvent.click(container.querySelector('tbody input'));
       expect(onChange).toHaveBeenCalledWith(
         ['light', 'bamboo'],
         [{ name: 'light' }, { name: 'bamboo' }],
@@ -1437,7 +1511,7 @@ describe('Table.rowSelection', () => {
     it('works with receive selectedRowKeys fron [] to undefined', () => {
       const onChange = jest.fn();
       const dataSource = [{ name: 'Jack' }];
-      const wrapper = mount(
+      const { container, rerender } = render(
         <Table
           dataSource={dataSource}
           rowSelection={{ onChange, selectedRowKeys: [0] }}
@@ -1445,30 +1519,37 @@ describe('Table.rowSelection', () => {
         />,
       );
 
-      wrapper.setProps({ rowSelection: { onChange, selectedRowKeys: undefined } });
-      wrapper
-        .find('tbody input')
-        .first()
-        .simulate('change', { target: { checked: true } });
+      rerender(
+        <Table
+          dataSource={dataSource}
+          rowSelection={{ onChange, selectedRowKeys: undefined }}
+          rowKey="name"
+        />,
+      );
+
+      fireEvent.click(container.querySelector('tbody input'));
       expect(onChange).toHaveBeenCalledWith(['Jack'], [{ name: 'Jack' }], { type: 'single' });
     });
 
     it('works with selectionType radio receive selectedRowKeys from [] to undefined', () => {
       const onChange = jest.fn();
       const dataSource = [{ name: 'Jack' }];
-      const wrapper = mount(
+      const { container, rerender } = render(
         <Table
           dataSource={dataSource}
           rowSelection={{ onChange, selectedRowKeys: [0], type: 'radio' }}
           rowKey="name"
         />,
       );
+      rerender(
+        <Table
+          dataSource={dataSource}
+          rowSelection={{ onChange, selectedRowKeys: undefined, type: 'radio' }}
+          rowKey="name"
+        />,
+      );
 
-      wrapper.setProps({ rowSelection: { onChange, selectedRowKeys: undefined, type: 'radio' } });
-      wrapper
-        .find('tbody input')
-        .first()
-        .simulate('change', { target: { checked: true } });
+      fireEvent.click(container.querySelector('tbody input'));
       expect(onChange).toHaveBeenCalledWith(['Jack'], [{ name: 'Jack' }], { type: 'single' });
     });
 
@@ -1480,7 +1561,7 @@ describe('Table.rowSelection', () => {
         onChange,
         selectedRowKeys: ['Jack'],
       };
-      const wrapper = mount(
+      const { container, rerender } = render(
         <Table
           dataSource={dataSource.slice(0, 2)}
           rowSelection={rowSelection}
@@ -1495,13 +1576,21 @@ describe('Table.rowSelection', () => {
         />,
       );
 
-      wrapper.setProps({
-        dataSource: dataSource.slice(2, 4),
-      });
-      wrapper
-        .find('tbody input')
-        .first()
-        .simulate('change', { target: { checked: true } });
+      rerender(
+        <Table
+          dataSource={dataSource.slice(2, 4)}
+          rowSelection={rowSelection}
+          rowKey="name"
+          columns={[
+            {
+              title: 'Name',
+              dataIndex: 'name',
+              key: 'name',
+            },
+          ]}
+        />,
+      );
+      fireEvent.click(container.querySelector('tbody input'));
       expect(onChange).toHaveBeenCalledWith(
         ['Jack', 'Lucy'],
         [{ name: 'Jack' }, { name: 'Lucy' }],

@@ -1,13 +1,12 @@
-import React from 'react';
-import MockDate from 'mockdate';
 import dayjs from 'dayjs';
-import { mount } from 'enzyme';
-import { fireEvent, render } from '@testing-library/react';
+import MockDate from 'mockdate';
+import React from 'react';
 import Statistic from '..';
-import { formatTimeStr } from '../utils';
-import { sleep } from '../../../tests/utils';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { fireEvent, render, sleep } from '../../../tests/utils';
+import type Countdown from '../Countdown';
+import { formatTimeStr } from '../utils';
 
 describe('Statistic', () => {
   mountTest(Statistic);
@@ -23,32 +22,34 @@ describe('Statistic', () => {
   });
 
   it('`-` is not a number', () => {
-    const wrapper = mount(<Statistic value="-" />);
-    expect(wrapper.find('.ant-statistic-content').text()).toEqual('-');
+    const { container } = render(<Statistic value="-" />);
+    expect(container.querySelector('.ant-statistic-content')!.textContent).toEqual('-');
   });
 
   it('customize formatter', () => {
     const formatter = jest.fn(() => 93);
-    const wrapper = mount(<Statistic value={1128} formatter={formatter} />);
+    const { container } = render(<Statistic value={1128} formatter={formatter} />);
     expect(formatter).toHaveBeenCalledWith(1128);
-    expect(wrapper.find('.ant-statistic-content-value').text()).toEqual('93');
+    expect(container.querySelector('.ant-statistic-content-value')!.textContent).toEqual('93');
   });
 
   it('groupSeparator', () => {
-    const wrapper = mount(<Statistic value={1128} groupSeparator="__TEST__" />);
-    expect(wrapper.find('.ant-statistic-content-value').text()).toEqual('1__TEST__128');
+    const { container } = render(<Statistic value={1128} groupSeparator="__TEST__" />);
+    expect(container.querySelector('.ant-statistic-content-value')!.textContent).toEqual(
+      '1__TEST__128',
+    );
   });
 
   it('not a number', () => {
-    const wrapper = mount(<Statistic value="bamboo" />);
-    expect(wrapper.find('.ant-statistic-content-value').text()).toEqual('bamboo');
+    const { container } = render(<Statistic value="bamboo" />);
+    expect(container.querySelector('.ant-statistic-content-value')!.textContent).toEqual('bamboo');
   });
 
   it('support negetive number', () => {
-    const wrapper = mount(
+    const { asFragment } = render(
       <Statistic title="Account Balance (CNY)" value={-112893.12345} precision={2} />,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   it('allow negetive precision', () => {
@@ -58,54 +59,57 @@ describe('Statistic', () => {
       [-3, -1112893.1212, '-1,112,893'],
       [-1, -1112893, '-1,112,893'],
       [-1, 1112893, '1,112,893'],
-    ].forEach(([precision, value, expectValue]) => {
-      const wrapper = mount(<Statistic precision={precision} value={value} />);
-      expect(wrapper.find('.ant-statistic-content-value-int').text()).toEqual(expectValue);
-      expect(wrapper.find('.ant-statistic-content-value-decimal').length).toBe(0);
+    ].forEach(([precision, value, expectValue]: [number, number, string]) => {
+      const { container } = render(<Statistic precision={precision} value={value} />);
+      expect(container.querySelector('.ant-statistic-content-value-int')!.textContent).toEqual(
+        expectValue,
+      );
+      expect(container.querySelectorAll('.ant-statistic-content-value-decimal').length).toBe(0);
     });
   });
 
   it('loading with skeleton', async () => {
     let loading = false;
-    const wrapper = mount(<Statistic title="Active Users" value={112112} loading={loading} />);
-    expect(wrapper.find('.ant-skeleton')).toHaveLength(0);
-    expect(wrapper.find('.ant-statistic-content')).toHaveLength(1);
+    const { container, rerender } = render(
+      <Statistic title="Active Users" value={112112} loading={loading} />,
+    );
+    expect(container.querySelectorAll('.ant-skeleton')).toHaveLength(0);
+    expect(container.querySelectorAll('.ant-statistic-content')).toHaveLength(1);
 
     loading = true;
-    wrapper.setProps({ loading });
-    expect(wrapper.find('.ant-skeleton')).toHaveLength(1);
-    expect(wrapper.find('.ant-statistic-content')).toHaveLength(0);
+    rerender(<Statistic title="Active Users" value={112112} loading={loading} />);
+    expect(container.querySelectorAll('.ant-skeleton')).toHaveLength(1);
+    expect(container.querySelectorAll('.ant-statistic-content')).toHaveLength(0);
   });
 
   describe('Countdown', () => {
     it('render correctly', () => {
       const now = dayjs().add(2, 'd').add(11, 'h').add(28, 'm').add(9, 's').add(3, 'ms');
-
       [
         ['H:m:s', '59:28:9'],
         ['HH:mm:ss', '59:28:09'],
         ['HH:mm:ss:SSS', '59:28:09:003'],
         ['DD-HH:mm:ss', '02-11:28:09'],
       ].forEach(([format, value]) => {
-        const wrapper = mount(<Statistic.Countdown format={format} value={now} />);
-        expect(wrapper.find('.ant-statistic-content-value').text()).toEqual(value);
+        const { container } = render(<Statistic.Countdown format={format} value={now} />);
+        expect(container.querySelector('.ant-statistic-content-value')!.textContent).toEqual(value);
       });
     });
 
     it('time going', async () => {
       const now = Date.now() + 1000;
       const onFinish = jest.fn();
-      const wrapper = mount(<Statistic.Countdown value={now} onFinish={onFinish} />);
-      wrapper.update();
+      const instance = React.createRef<Countdown>();
+      const { unmount } = render(
+        <Statistic.Countdown ref={instance} value={now} onFinish={onFinish} />,
+      );
 
       // setInterval should work
-      const instance = wrapper.find('Countdown').instance();
-      expect(instance.countdownId).not.toBe(undefined);
+      expect(instance.current!.countdownId).not.toBe(undefined);
 
       await sleep(10);
 
-      wrapper.unmount();
-      expect(instance.countdownId).toBe(undefined);
+      unmount();
       expect(onFinish).not.toHaveBeenCalled();
     });
 
@@ -115,21 +119,21 @@ describe('Statistic', () => {
       const { container } = render(
         <Statistic onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />,
       );
-      fireEvent.mouseEnter(container.firstChild);
+      fireEvent.mouseEnter(container.firstChild!);
       expect(onMouseEnter).toHaveBeenCalled();
-      fireEvent.mouseLeave(container.firstChild);
+      fireEvent.mouseLeave(container.firstChild!);
       expect(onMouseLeave).toHaveBeenCalled();
     });
 
     it('responses hover events for Countdown', () => {
       const onMouseEnter = jest.fn();
       const onMouseLeave = jest.fn();
-      const wrapper = mount(
+      const { container } = render(
         <Statistic.Countdown onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave} />,
       );
-      wrapper.simulate('mouseenter');
+      fireEvent.mouseEnter(container.firstChild!);
       expect(onMouseEnter).toHaveBeenCalled();
-      wrapper.simulate('mouseleave');
+      fireEvent.mouseLeave(container.firstChild!);
       expect(onMouseLeave).toHaveBeenCalled();
     });
 
@@ -138,11 +142,11 @@ describe('Statistic', () => {
         const deadline = Date.now() + 10 * 1000;
         let remainingTime;
 
-        const onChange = value => {
+        const onChange = (value: number) => {
           remainingTime = value;
         };
-        const wrapper = mount(<Statistic.Countdown value={deadline} onChange={onChange} />);
-        wrapper.update();
+        render(<Statistic.Countdown value={deadline} onChange={onChange} />);
+        // container.update();
         await sleep(100);
         expect(remainingTime).toBeGreaterThan(0);
       });
@@ -151,20 +155,18 @@ describe('Statistic', () => {
     describe('time finished', () => {
       it('not call if time already passed', () => {
         const now = Date.now() - 1000;
-
+        const instance = React.createRef<Countdown>();
         const onFinish = jest.fn();
-        const wrapper = mount(<Statistic.Countdown value={now} onFinish={onFinish} />);
-        wrapper.update();
+        render(<Statistic.Countdown ref={instance} value={now} onFinish={onFinish} />);
 
-        expect(wrapper.find('Countdown').instance().countdownId).toBe(undefined);
+        expect(instance.current!.countdownId).toBe(undefined);
         expect(onFinish).not.toHaveBeenCalled();
       });
 
       it('called if finished', async () => {
         const now = Date.now() + 10;
         const onFinish = jest.fn();
-        const wrapper = mount(<Statistic.Countdown value={now} onFinish={onFinish} />);
-        wrapper.update();
+        render(<Statistic.Countdown value={now} onFinish={onFinish} />);
         MockDate.set(dayjs('2019-11-28 00:00:00').valueOf());
         await sleep(100);
         expect(onFinish).toHaveBeenCalled();

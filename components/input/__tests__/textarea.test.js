@@ -1,7 +1,8 @@
+import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 import React, { useState } from 'react';
 import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
-import { sleep, render, fireEvent, triggerResize } from '../../../tests/utils';
+import { fireEvent, render, sleep, triggerResize } from '../../../tests/utils';
 
 const { TextArea } = Input;
 
@@ -529,5 +530,29 @@ describe('TextArea allowClear', () => {
     expect(container.querySelector('textarea').value).toBe('true');
     rerender(<TextArea value={false} />);
     expect(container.querySelector('textarea').value).toBe('false');
+  });
+
+  it('should focus when clearBtn is clicked in controlled case', () => {
+    const handleFocus = jest.fn();
+
+    const textareaSpy = spyElementPrototypes(HTMLTextAreaElement, {
+      focus: handleFocus,
+    });
+
+    const Demo = () => {
+      const [value, setValue] = React.useState('');
+
+      return <Input.TextArea allowClear value={value} onChange={e => setValue(e.target.value)} />;
+    };
+
+    const { container } = render(<Demo />);
+    fireEvent.change(container.querySelector('textarea'), { target: { value: 'test' } });
+    expect(container.querySelector('.ant-input-clear-icon')?.className).not.toContain(
+      'ant-input-clear-icon-hidden',
+    );
+    fireEvent.click(container.querySelector('.ant-input-clear-icon'));
+    expect(handleFocus).toHaveBeenCalledTimes(1);
+
+    textareaSpy.mockRestore();
   });
 });
