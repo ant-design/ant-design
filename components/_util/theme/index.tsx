@@ -109,8 +109,6 @@ export type CustomTokenOptions<
   formatToken?: (
     mergedToken: AliasToken & CustomSeedToken,
   ) => AliasToken & CustomSeedToken & CustomAliasToken;
-  /** If hashId computed with tokens is needed. */
-  hashed?: boolean;
 };
 
 /**
@@ -122,12 +120,11 @@ export function useCustomToken<
 >({
   seedToken,
   formatToken: customFormatToken,
-  hashed,
 }: CustomTokenOptions<CustomSeedToken, CustomAliasToken>): {
   token: AliasToken & CustomSeedToken & CustomAliasToken;
   hashId: string;
 } {
-  const [, antdToken] = useToken();
+  const [, antdToken, hashed] = useToken();
 
   const salt = `${saltPrefix}-${hashed || ''}`;
 

@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-import React from 'react';
 import ConfigProvider from '..';
 import { render } from '../../../tests/utils';
 import type { AliasToken } from '../../_util/theme';
@@ -23,7 +22,6 @@ describe('ConfigProvider.Token', () => {
         ...derivativeToken,
         colorAlertActive: 'purple',
       }),
-      hashed: true,
     });
 
   const genStyleHook = registerToken(useMyToken);
