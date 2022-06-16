@@ -96,17 +96,26 @@ export type GenerateStyle<
 
 export const emptyTheme = new Theme(token => token);
 
+/**
+ *
+ */
 export type CustomTokenOptions<
   CustomSeedToken extends Record<string, any>,
   CustomAliasToken extends Record<string, any> = {},
 > = {
+  /** The original tokens, which may affect other tokens. */
   seedToken?: CustomSeedToken;
+  /** Generate token based on seedToken. */
   formatToken?: (
     mergedToken: AliasToken & CustomSeedToken,
   ) => AliasToken & CustomSeedToken & CustomAliasToken;
+  /** If hashId computed with tokens is needed. */
   hashed?: boolean;
 };
 
+/**
+ * Generate custom tokens with tokens of ant-design.
+ */
 export function useCustomToken<
   CustomSeedToken extends Record<string, any>,
   CustomAliasToken extends Record<string, any> = {},

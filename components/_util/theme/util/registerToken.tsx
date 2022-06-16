@@ -17,6 +17,10 @@ export type UseToken<T extends AliasToken = AliasToken> = () => {
   hashId: string;
 };
 
+/**
+ * Register custom tokens into `useStyle` hook.
+ * @param useCustomToken - Custom hook that return the whole tokens and hashId.
+ */
 export default function registerToken<Token extends AliasToken = AliasToken>(
   useCustomToken: UseToken<Token>,
 ) {
@@ -50,4 +54,7 @@ const useAntdToken: UseToken = () => {
   };
 };
 
+/**
+ * Generate `useStyle` hook with tokens of ant-design.
+ */
 export const genStyleHook = registerToken(useAntdToken);
