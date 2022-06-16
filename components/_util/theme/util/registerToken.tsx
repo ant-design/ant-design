@@ -3,30 +3,31 @@ import { useStyleRegister } from '@ant-design/cssinjs';
 import type React from 'react';
 import { useContext } from 'react';
 import type { AliasToken } from '..';
-import { useToken } from '..';
-import type { TokenWithCommonCls } from './genComponentStyleHook';
+import { emptyTheme, useToken } from '..';
 import { ConfigContext } from '../../../config-provider';
+import type { TokenWithCommonCls } from './genComponentStyleHook';
 
 export type UseStyleResult = {
   wrapSSR: (node: React.ReactNode) => React.ReactElement;
   hashId: string;
 };
 
-export type UseToken<T extends AliasToken> = () => {
+export type UseToken<T extends AliasToken = AliasToken> = () => {
   token: T;
   hashId: string;
 };
 
-export default function genStyleHook<Token extends AliasToken>(useCustomToken: UseToken<Token>) {
+export default function registerToken<Token extends AliasToken = AliasToken>(
+  useCustomToken: UseToken<Token>,
+) {
   return (styleFn: (token: TokenWithCommonCls<Token>) => CSSInterpolation) =>
     (prefixCls: string): UseStyleResult => {
       const { token, hashId } = useCustomToken();
-      const [theme] = useToken();
       const { getPrefixCls, iconPrefixCls } = useContext(ConfigContext);
       const rootPrefixCls = getPrefixCls();
 
       return {
-        wrapSSR: useStyleRegister({ theme, token, hashId, path: [prefixCls] }, () => {
+        wrapSSR: useStyleRegister({ theme: emptyTheme, token, hashId, path: [prefixCls] }, () => {
           const mergedToken: TokenWithCommonCls<Token> = {
             ...token,
             componentCls: `.${prefixCls}`,
@@ -40,3 +41,13 @@ export default function genStyleHook<Token extends AliasToken>(useCustomToken: U
       };
     };
 }
+
+const useAntdToken: UseToken = () => {
+  const [, token, hashId] = useToken();
+  return {
+    token,
+    hashId,
+  };
+};
+
+export const genStyleHook = registerToken(useAntdToken);

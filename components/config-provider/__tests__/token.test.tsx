@@ -1,10 +1,11 @@
 import classNames from 'classnames';
-import React from 'react';
 import ConfigProvider from '..';
 import { render } from '../../../tests/utils';
 import type { AliasToken } from '../../_util/theme';
-import type { UseToken } from '../../_util/theme/util/genStyleHook';
-import genStyleHook from '../../_util/theme/util/genStyleHook';
+import type { UseToken } from '../../_util/theme/util/registerToken';
+import registerToken, {
+  genStyleHook as genAntdStyleHook,
+} from '../../_util/theme/util/registerToken';
 
 const { useCustomToken } = ConfigProvider;
 
@@ -27,7 +28,7 @@ describe('ConfigProvider.Token', () => {
       hashed: true,
     });
 
-  const makeStyle = genStyleHook(useMyToken);
+  const genStyleHook = registerToken(useMyToken);
 
   it('should support customSeedToken & customOverride', () => {
     const Demo = () => {
@@ -41,8 +42,8 @@ describe('ConfigProvider.Token', () => {
     expect(finalToken).toHaveProperty('colorAlertActive', 'purple');
   });
 
-  it('genStyleHook', () => {
-    const useStyle = makeStyle(token => ({
+  it('registerToken', () => {
+    const useStyle = genStyleHook(token => ({
       [token.componentCls]: {
         backgroundColor: token.colorAlert,
         color: token.colorAlertActive,
@@ -51,7 +52,7 @@ describe('ConfigProvider.Token', () => {
 
     const Demo = () => {
       const { wrapSSR, hashId } = useStyle('box');
-      return wrapSSR(<div className={classNames('box', hashId)}>test genStyleHook</div>);
+      return wrapSSR(<div className={classNames('box', hashId)}>test registerToken</div>);
     };
 
     render(<Demo />);
@@ -60,6 +61,32 @@ describe('ConfigProvider.Token', () => {
     );
     expect(
       dynamicStyles.some(style => style.includes('.box{background-color:red;color:purple;}')),
+    ).toBeTruthy();
+  });
+
+  it('default genStyleHook', () => {
+    const useStyle = genAntdStyleHook(token => ({
+      [token.componentCls]: {
+        backgroundColor: token.colorPrimary,
+        color: token.colorSuccess,
+      },
+    }));
+
+    const Demo = () => {
+      const { wrapSSR, hashId } = useStyle('default-genStyleHook');
+      return wrapSSR(
+        <div className={classNames('default-genStyleHook', hashId)}>test registerToken</div>,
+      );
+    };
+
+    render(<Demo />);
+    const dynamicStyles = Array.from(document.querySelectorAll('style[data-css-hash]')).map(
+      item => item?.innerHTML ?? '',
+    );
+    expect(
+      dynamicStyles.some(style =>
+        style.includes('.default-genStyleHook{background-color:#1890ff;color:#52c41a;}'),
+      ),
     ).toBeTruthy();
   });
 });

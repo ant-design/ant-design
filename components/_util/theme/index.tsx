@@ -94,6 +94,8 @@ export type GenerateStyle<
   ReturnType = CSSInterpolation,
 > = (token: ComponentToken) => ReturnType;
 
+export const emptyTheme = new Theme(token => token);
+
 export type CustomTokenOptions<
   CustomSeedToken extends Record<string, any>,
   CustomAliasToken extends Record<string, any> = {},
@@ -116,11 +118,11 @@ export function useCustomToken<
   token: AliasToken & CustomSeedToken & CustomAliasToken;
   hashId: string;
 } {
-  const [theme, antdToken] = useToken();
+  const [, antdToken] = useToken();
 
   const salt = `${saltPrefix}-${hashed || ''}`;
 
-  const [token, hashId] = useCacheToken(theme, [antdToken, seedToken ?? {}], {
+  const [token, hashId] = useCacheToken(emptyTheme, [antdToken, seedToken ?? {}], {
     salt,
     formatToken: customFormatToken,
   });
