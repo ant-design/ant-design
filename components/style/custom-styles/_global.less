@@ -10,7 +10,7 @@ body {
 @font-size-sm: 12px;
 @heading-1-size: ceil(@font-size-base * 2);
 @heading-2-size: ceil(@font-size-base * 1.42);
-@heading-3-size: ceil(@font-size-base * 1.71);
+@heading-3-size: ceil(@font-size-lg);
 @heading-4-size: ceil(@font-size-base);
 @heading-5-size: ceil(@font-size-base * 1.14);
 
@@ -26,6 +26,11 @@ h2,
   font-size: @heading-2-size;
 }
 
+h3,
+.h3 {
+  font-size: @heading-3-size;
+}
+
 h4,
 .h4 {
   font-size: @heading-4-size;
@@ -38,6 +43,12 @@ a.ant-typography,
 
   &:hover {
     color: @b100;
+  }
+}
+
+p {
+  small {
+    font-size: @font-size-sm;
   }
 }
 
@@ -158,7 +169,7 @@ a.ant-typography,
 // divider CSS
 .ant-divider-plain.ant-divider-with-text {
   margin: 16px 0 24px 0;
-  color: #6b7280;
+  color: @base-font-color;
   font-weight: 400;
   font-size: 12px;
   line-height: 14px;
@@ -358,7 +369,7 @@ a.ant-typography,
   }
 
   span {
-    color: #6b7280;
+    color: @base-font-color;
     font-weight: 400;
     font-size: 14px;
   }
@@ -395,4 +406,52 @@ a.ant-typography,
 
 .ant-form {
   height: 100%;
+}
+
+// Workspace CSS
+
+.four-column-card {
+  max-width: 0 -8px;
+  > div {
+    width: 25%;
+    padding: 0 8px;
+  }
+  div.ant-typography {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    .ant-typography-copy {
+      margin: 0 16px 0 0;
+    }
+  }
+  .ant-card-body {
+    display: flex;
+    flex-wrap: wrap;
+    height: 156px;
+    padding: 16px;
+  }
+  .ant-btn.ant-btn-icon-only.onlyIcon {
+    width: 26px;
+    height: 26px;
+    padding: 1px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    &.ant-dropdown-open {
+      &:hover,
+      &:focus {
+        background: #e5e7eb;
+        border: 1px solid #d1d5db;
+        box-shadow: 0px 1px 2px rgba(6, 25, 56, 0.05);
+      }
+    }
+  }
+  .ant-avatar {
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    .ant-avatar-string {
+      font-size: 12px;
+    }
+  }
 }
