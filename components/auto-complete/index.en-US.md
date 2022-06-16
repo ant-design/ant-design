@@ -41,7 +41,7 @@ The differences with Select are:
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | value | Selected option | string | - |  |
 | onBlur | Called when leaving the component | function() | - |  |
-| onChange | Called when select an option or input value change, or value of input is changed | function(value) | - |  |
+| onChange | Called when selecting an option or changing an input value | function(value) | - |  |
 | onDropdownVisibleChange | Call when dropdown open | function(open) | - |  |
 | onFocus | Called when entering the component | function() | - |  |
 | onSearch | Called when searching items | function(value) | - |  |

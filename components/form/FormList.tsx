@@ -9,7 +9,7 @@ export interface FormListFieldData {
   name: number;
   key: number;
   /** @deprecated No need anymore Use key instead */
-  fieldKey?:number
+  fieldKey?: number;
 }
 
 export interface FormListOperation {
