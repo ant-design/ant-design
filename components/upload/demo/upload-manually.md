@@ -26,7 +26,7 @@ const App: React.FC = () => {
   const handleUpload = () => {
     const formData = new FormData();
     fileList.forEach(file => {
-      formData.append('files[]', file.originFileObj as RcFile);
+      formData.append('files[]', file as RcFile);
     });
     setUploading(true);
     // You can use any AJAX library you like

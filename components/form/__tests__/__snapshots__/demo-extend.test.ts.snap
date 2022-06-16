@@ -6836,7 +6836,7 @@ exports[`renders ./components/form/demo/normal-login.md extend context correctly
           class="ant-form-item-control-input-content"
         >
           <label
-            class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
+            class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-in-form-item"
           >
             <span
               class="ant-checkbox ant-checkbox-checked"
@@ -18031,7 +18031,7 @@ exports[`renders ./components/form/demo/validate-other.md extend context correct
           class="ant-form-item-control-input-content"
         >
           <div
-            class="ant-input-number"
+            class="ant-input-number ant-input-number-in-form-item"
           >
             <div
               class="ant-input-number-handler-wrap"
