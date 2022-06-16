@@ -17,6 +17,13 @@ export type UseToken<T extends AliasToken = AliasToken> = () => {
   hashId: string;
 };
 
+function useStyle<T extends AliasToken = AliasToken>(componentName: string, styleFn: (token: T) => CSSInterpolation, token: T, hashId: string) {
+  return {
+    wrapSSR: useStyleRegister({ theme: emptyTheme, token, hashId, path: [componentName] }, () => styleFn(token)),
+    hashId,
+  };
+}
+
 /**
  * Register custom tokens into `useStyle` hook.
  * @param useCustomToken - Custom hook that return the whole tokens and hashId.
