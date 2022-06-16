@@ -3,9 +3,9 @@ import React from 'react';
 import ConfigProvider from '..';
 import { render } from '../../../tests/utils';
 import type { AliasToken } from '../../_util/theme';
-import type { UseToken } from '../../_util/theme/util/registerToken';
+import type { UseCustomStyle, UseToken } from '../../_util/theme/util/useStyle';
 
-const { useCustomToken, registerToken, genStyleHook: genAntdStyleHook } = ConfigProvider;
+const { useCustomToken, useStyle, useCustomStyle } = ConfigProvider;
 
 describe('ConfigProvider.Token', () => {
   type MySeedToken = {
@@ -16,6 +16,8 @@ describe('ConfigProvider.Token', () => {
     colorAlertActive: string;
   };
 
+  type MyToken = AliasToken & MySeedToken & MyAliasToken;
+
   const useMyToken: UseToken<AliasToken & MySeedToken & MyAliasToken> = () =>
     useCustomToken<MySeedToken, MyAliasToken>({
       seedToken: { colorAlert: 'red' },
@@ -25,7 +27,10 @@ describe('ConfigProvider.Token', () => {
       }),
     });
 
-  const genStyleHook = registerToken(useMyToken);
+  const useMyStyle: UseCustomStyle<MyToken> = (componentName, styleFn) => {
+    const { token, hashId } = useMyToken();
+    return useCustomStyle(componentName, styleFn, token, hashId);
+  };
 
   it('should support customSeedToken & customOverride', () => {
     const Demo = () => {
@@ -39,16 +44,14 @@ describe('ConfigProvider.Token', () => {
     expect(finalToken).toHaveProperty('colorAlertActive', 'purple');
   });
 
-  it('registerToken', () => {
-    const useStyle = genStyleHook(token => ({
-      [token.componentCls]: {
-        backgroundColor: token.colorAlert,
-        color: token.colorAlertActive,
-      },
-    }));
-
+  it('useStyle', () => {
     const Demo = () => {
-      const { wrapSSR, hashId } = useStyle('box');
+      const { wrapSSR, hashId } = useMyStyle('box', token => ({
+        '.box': {
+          backgroundColor: token.colorAlert,
+          color: token.colorAlertActive,
+        },
+      }));
       return wrapSSR(<div className={classNames('box', hashId)}>test registerToken</div>);
     };
 
@@ -61,16 +64,14 @@ describe('ConfigProvider.Token', () => {
     ).toBeTruthy();
   });
 
-  it('default genStyleHook', () => {
-    const useStyle = genAntdStyleHook(token => ({
-      [token.componentCls]: {
-        backgroundColor: token.colorPrimary,
-        color: token.colorSuccess,
-      },
-    }));
-
+  it('default useStyle', () => {
     const Demo = () => {
-      const { wrapSSR, hashId } = useStyle('default-genStyleHook');
+      const { wrapSSR, hashId } = useStyle('default-useStyle', token => ({
+        '.default-genStyleHook': {
+          backgroundColor: token.colorPrimary,
+          color: token.colorSuccess,
+        },
+      }));
       return wrapSSR(
         <div className={classNames('default-genStyleHook', hashId)}>test registerToken</div>,
       );
