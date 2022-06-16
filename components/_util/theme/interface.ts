@@ -67,7 +67,9 @@ export type ColorPalettes = {
 };
 
 export interface OverrideToken {
-  derivative?: Partial<DerivativeToken & AliasToken>;
+  derivative?: Partial<DerivativeToken>;
+  /** @private Internal Usage */
+  alias?: Partial<AliasToken>;
 
   // Customize component
   Affix?: {};
@@ -131,7 +133,7 @@ export interface OverrideToken {
 }
 
 /** Final token which contains the components level override */
-export type GlobalToken = AliasToken & Omit<OverrideToken, 'derivative'>;
+export type GlobalToken = AliasToken & Omit<OverrideToken, 'derivative' | 'alias'>;
 
 // ======================================================================
 // ==                            Seed Token                            ==

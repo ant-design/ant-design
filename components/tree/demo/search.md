@@ -116,7 +116,7 @@ const App: React.FC = () => {
               {afterStr}
             </span>
           ) : (
-            <span>{item.title}</span>
+            <span>{strTitle}</span>
           );
         if (item.children) {
           return { title, key: item.key, children: loop(item.children) };

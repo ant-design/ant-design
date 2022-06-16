@@ -1,15 +1,16 @@
-import * as React from 'react';
 import { render } from 'rc-util/lib/React/render';
-import useMessage, { useInternalMessage } from './useMessage';
+import * as React from 'react';
+import ConfigProvider, { globalConfig } from '../config-provider';
 import type {
   ArgsProps,
-  MessageInstance,
   ConfigOptions,
+  MessageInstance,
+  MessageType,
   NoticeType,
   TypeOpen,
-  MessageType,
 } from './interface';
-import ConfigProvider, { globalConfig } from '../config-provider';
+import PurePanel from './PurePanel';
+import useMessage, { useInternalMessage } from './useMessage';
 import { wrapPromiseFn } from './util';
 
 export { ArgsProps };
@@ -314,11 +315,14 @@ const baseStaticMethods: {
   destroy: (key?: React.Key) => void;
   config: any;
   useMessage: typeof useMessage;
+  /** @private Internal Component. Do not use in your production. */
+  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
 } = {
   open,
   destroy,
   config: setMessageGlobalConfig,
   useMessage,
+  _InternalPanelDoNotUseOrYouWillBeFired: PurePanel,
 };
 
 const staticMethods: typeof baseStaticMethods & Record<MethodType, TypeOpen> =

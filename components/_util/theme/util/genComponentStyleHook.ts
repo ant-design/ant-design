@@ -7,7 +7,7 @@ import type { UseComponentStyleResult } from '../index';
 import { mergeToken, statisticToken, useToken } from '../index';
 import type { GlobalToken, OverrideToken } from '../interface';
 
-export type OverrideTokenWithoutDerivative = Omit<OverrideToken, 'derivative'>;
+export type OverrideTokenWithoutDerivative = Omit<OverrideToken, 'derivative' | 'alias'>;
 export type OverrideComponent = keyof OverrideTokenWithoutDerivative;
 export type GlobalTokenWithComponent<ComponentName extends OverrideComponent> = GlobalToken &
   OverrideToken[ComponentName];

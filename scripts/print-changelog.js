@@ -35,7 +35,7 @@ const MAINTAINERS = [
   'Rustin-Liu',
   'fireairforce',
   'kerm1it',
-  'MadCcc',
+  'madccc',
 ].map(author => author.toLowerCase());
 
 const cwd = process.cwd();
@@ -47,7 +47,7 @@ function getDescription(entity) {
   }
   const descEle = entity.element.find('td:last');
   let htmlContent = descEle.html();
-  htmlContent = htmlContent.replace(/<code>([^<]*)<\/code>/g, '`$1`');
+  htmlContent = htmlContent.replace(/<code class="notranslate">([^<]*)<\/code>/g, '`$1`');
   return htmlContent.trim();
 }
 
@@ -178,6 +178,9 @@ async function printLog() {
         let icon = '';
         if (str.toLowerCase().includes('fix') || str.includes('修复')) {
           icon = '🐞';
+        }
+        if (str.toLowerCase().includes('feat')) {
+          icon = '🆕';
         }
 
         let authorText = '';
