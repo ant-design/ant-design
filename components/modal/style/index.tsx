@@ -60,7 +60,7 @@ export function modalMask(componentCls: string, token: TokenWithCommonCls<AliasT
       ...box('fixed'),
       zIndex: token.zIndexPopupBase,
       height: '100%',
-      backgroundColor: token.colorPopupBg,
+      backgroundColor: token.controlMaskBg,
 
       [`${componentCls}-hidden`]: {
         display: 'none',
@@ -347,7 +347,7 @@ export default genComponentStyleHook('Modal', token => {
 
   const modalToken = mergeToken<ModalToken>(token, {
     modalBodyPadding: token.paddingLG,
-    modalHeaderBg: token.colorBgComponent,
+    modalHeaderBg: token.colorBgElevated,
     modalHeaderPadding: `${headerPaddingVertical}px ${token.paddingLG}px`,
     modalHeaderBorderWidth: token.controlLineWidth,
     modalHeaderBorderStyle: token.controlLineType,
@@ -355,7 +355,7 @@ export default genComponentStyleHook('Modal', token => {
     modalHeaderTitleFontSize: headerFontSize,
     modalHeaderBorderColorSplit: token.colorSplit,
     modalHeaderCloseSize: headerLineHeight * headerFontSize + headerPaddingVertical * 2,
-    modalContentBg: token.colorBgComponent,
+    modalContentBg: token.colorBgElevated,
     modalHeadingColor: token.colorTextHeading,
     modalCloseColor: token.colorTextSecondary,
     modalFooterBg: 'transparent',

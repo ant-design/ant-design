@@ -1,14 +1,9 @@
-// import '../../style/index.less';
-// import './index.less';
-
-// // style dependencies
-// import '../../tooltip/style';
-
 // deps-lint-skip-all
-import type * as React from 'react';
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { GenerateStyle, FullToken } from '../../_util/theme';
-import { resetComponent, genComponentStyleHook, mergeToken } from '../../_util/theme';
+import { TinyColor } from '@ctrl/tinycolor';
+import type * as React from 'react';
+import type { FullToken, GenerateStyle } from '../../_util/theme';
+import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
 
 // Direction naming standard:
 // Horizontal base:
@@ -28,12 +23,20 @@ interface SliderToken extends FullToken<'Slider'> {
   marginFull: number;
   marginPart: number;
   marginPartWithMark: number;
+  handleFocusShadow: string;
 }
 
 // =============================== Base ===============================
 const genBaseStyle: GenerateStyle<SliderToken> = token => {
-  const { componentCls, controlSize, dotSize, marginFull, marginPart, colorBgContainerSecondary } =
-    token;
+  const {
+    componentCls,
+    controlSize,
+    dotSize,
+    marginFull,
+    marginPart,
+    colorBgContainerSecondary,
+    antCls,
+  } = token;
 
   return {
     [componentCls]: {
@@ -86,17 +89,9 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
 
         '&:focus': {
           borderColor: token.colorPrimaryHover,
-          boxShadow: 'none',
+          outline: 'none',
+          boxShadow: token.handleFocusShadow,
         },
-
-        '&:focus-visible': {
-          boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${token.colorPrimarySecondary}`,
-        },
-
-        // Seems useless?
-        //     &.@{ant-prefix}-tooltip-open {
-        //       border-color: @slider-handle-color-tooltip-open;
-        //     }
       },
 
       '&:hover': {
@@ -105,11 +100,15 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         },
 
         [`${componentCls}-track`]: {
-          backgroundColor: token.colorPrimaryHover,
+          backgroundColor: token.colorPrimaryBorderHover,
         },
 
         [`${componentCls}-dot`]: {
           borderColor: colorBgContainerSecondary,
+        },
+
+        [`${componentCls}-handle${antCls}-tooltip-open`]: {
+          borderColor: token.colorPrimary,
         },
 
         // We use below style instead
@@ -282,6 +281,9 @@ export default genComponentStyleHook(
       marginPart: (token.controlHeight - token.controlSize) / 2,
       marginFull: token.controlSize / 2,
       marginPartWithMark: token.controlHeightLG - token.controlSize,
+      handleFocusShadow: `0 0 0 5px ${new TinyColor(token.colorPrimary)
+        .setAlpha(0.12)
+        .toRgbString()}`,
     });
     return [
       genBaseStyle(sliderToken),

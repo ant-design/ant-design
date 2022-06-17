@@ -14,7 +14,6 @@ export interface NotificationToken extends FullToken<'Notification'> {
   notificationBg: string;
   notificationPaddingVertical: number;
   notificationPaddingHorizontal: number;
-  popoverBackground: string;
   notificationPadding: string;
   notificationMarginBottom: number;
   notificationMarginEdge: number;
@@ -251,17 +250,15 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = token => {
 export default genComponentStyleHook(
   'Notification',
   token => {
-    const { colorBgComponent } = token;
     const notificationPaddingVertical = token.padding;
     const notificationPaddingHorizontal = token.paddingLG;
 
     const notificationToken = mergeToken<NotificationToken>(token, {
       // default.less variables
-      notificationBg: colorBgComponent,
+      notificationBg: token.colorBgElevated,
       notificationPaddingVertical,
       notificationPaddingHorizontal,
       // index.less variables
-      popoverBackground: colorBgComponent,
       notificationPadding: `${notificationPaddingVertical}px ${notificationPaddingHorizontal}px`,
       notificationMarginBottom: token.margin,
       notificationMarginEdge: token.marginLG,

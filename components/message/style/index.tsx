@@ -20,7 +20,7 @@ const genMessageStyle: GenerateStyle<MessageToken> = token => {
     componentCls,
     iconCls,
     boxShadow,
-    colorBgComponent,
+    colorBgElevated,
     colorSuccess,
     colorError,
     colorWarning,
@@ -126,7 +126,7 @@ const genMessageStyle: GenerateStyle<MessageToken> = token => {
         [`${componentCls}-notice-content`]: {
           display: 'inline-block',
           padding: messageNoticeContentPadding,
-          background: colorBgComponent,
+          background: colorBgElevated,
           borderRadius: radiusBase,
           boxShadow,
           pointerEvents: 'all',

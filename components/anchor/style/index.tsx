@@ -45,7 +45,7 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
             width: lineWidthBold,
             height: '100%',
             margin: '0 auto',
-            backgroundColor: token.colorBorderSecondary,
+            backgroundColor: token.colorSplit,
             content: '" "',
           },
         },

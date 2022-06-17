@@ -1,5 +1,6 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
+import { TinyColor } from '@ctrl/tinycolor';
 import type {
   FullToken,
   GenerateStyle,
@@ -8,14 +9,15 @@ import type {
 } from '../../_util/theme';
 import {
   genComponentStyleHook,
+  getArrowStyle,
   mergeToken,
   PresetColors,
   resetComponent,
-  getArrowStyle,
 } from '../../_util/theme';
 
 export interface ComponentToken {
   zIndexPopup: number;
+  colorBgDefault: string;
 }
 
 interface TooltipToken extends FullToken<'Tooltip'> {
@@ -118,22 +120,21 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         return [];
       }
 
-      const { radiusBase, colorTextLightSolid, colorBgContainerWeak } = token;
-
-      const tooltipBg = colorBgContainerWeak;
+      const { radiusBase, colorTextLightSolid, colorBgDefault } = token;
 
       const TooltipToken = mergeToken<TooltipToken>(token, {
         // default variables
         tooltipMaxWidth: 250,
         tooltipColor: colorTextLightSolid,
-        tooltipBg,
         tooltipBorderRadius: radiusBase,
+        tooltipBg: colorBgDefault,
       });
 
       return [genTooltipStyle(TooltipToken)];
     },
     ({ zIndexPopupBase }) => ({
       zIndexPopup: zIndexPopupBase + 70,
+      colorBgDefault: new TinyColor('#000').setAlpha(0.75).toRgbString(),
     }),
   );
 
