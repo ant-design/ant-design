@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import type RcTree from 'rc-tree';
+import type RcTree, { BasicDataNode } from 'rc-tree';
 import { conductExpandParent } from 'rc-tree/lib/util';
 import type { EventDataNode, DataNode, Key } from 'rc-tree/lib/interface';
 import { convertDataToEntities, convertTreeToData } from 'rc-tree/lib/utils/treeUtil';
@@ -15,7 +15,7 @@ import { calcRangeKeys, convertDirectoryKeysToNodes } from './utils/dictUtil';
 
 export type ExpandAction = false | 'click' | 'doubleClick';
 
-export interface DirectoryTreeProps extends TreeProps {
+export interface DirectoryTreeProps<T extends BasicDataNode = DataNode> extends TreeProps<T> {
   expandAction?: ExpandAction;
 }
 
