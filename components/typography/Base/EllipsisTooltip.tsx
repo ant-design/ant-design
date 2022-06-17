@@ -1,8 +1,10 @@
 import * as React from 'react';
 import Tooltip from '../../tooltip';
+import type { TooltipProps } from '../../tooltip';
 
 export interface EllipsisTooltipProps {
   title?: React.ReactNode;
+  tooltipProps?: TooltipProps;
   enabledEllipsis: boolean;
   isEllipsis?: boolean;
   children: React.ReactElement;
@@ -13,13 +15,14 @@ const EllipsisTooltip = ({
   enabledEllipsis,
   isEllipsis,
   children,
+  tooltipProps,
 }: EllipsisTooltipProps) => {
   if (!title || !enabledEllipsis) {
     return children;
   }
 
   return (
-    <Tooltip title={title} visible={isEllipsis ? undefined : false}>
+    <Tooltip title={title} visible={isEllipsis ? undefined : false} {...tooltipProps}>
       {children}
     </Tooltip>
   );
