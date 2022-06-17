@@ -16,8 +16,8 @@ import { clearFix, operationUnit, resetComponent, resetIcon, roundedArrow } from
 import formatToken from './util/alias';
 import type { FullToken } from './util/genComponentStyleHook';
 import genComponentStyleHook from './util/genComponentStyleHook';
-import statisticToken, { merge as mergeToken, statistic } from './util/statistic';
 import getArrowStyle from './util/placementArrow';
+import statisticToken, { merge as mergeToken, statistic } from './util/statistic';
 
 export {
   resetComponent,
@@ -93,3 +93,45 @@ export type GenerateStyle<
   ComponentToken extends object = AliasToken,
   ReturnType = CSSInterpolation,
 > = (token: ComponentToken) => ReturnType;
+
+export const emptyTheme = new Theme(token => token);
+
+export type CustomTokenOptions<
+  CustomSeedToken extends Record<string, any>,
+  CustomAliasToken extends Record<string, any> = {},
+> = {
+  /** The original tokens, which may affect other tokens. */
+  seedToken?: CustomSeedToken;
+  /** Generate token based on seedToken. */
+  formatToken?: (
+    mergedToken: AliasToken & CustomSeedToken,
+  ) => AliasToken & CustomSeedToken & CustomAliasToken;
+};
+
+/**
+ * Generate custom tokens with tokens of ant-design.
+ */
+export function useCustomToken<
+  CustomSeedToken extends Record<string, any>,
+  CustomAliasToken extends Record<string, any> = {},
+>({
+  seedToken,
+  formatToken: customFormatToken,
+}: CustomTokenOptions<CustomSeedToken, CustomAliasToken>): {
+  token: AliasToken & CustomSeedToken & CustomAliasToken;
+  hashId: string;
+} {
+  const [, antdToken, hashed] = useToken();
+
+  const salt = `${saltPrefix}-${hashed || ''}`;
+
+  const [token, hashId] = useCacheToken(emptyTheme, [antdToken, seedToken ?? {}], {
+    salt,
+    formatToken: customFormatToken,
+  });
+
+  return {
+    token,
+    hashId: hashed ? hashId : '',
+  };
+}
