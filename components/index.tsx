@@ -92,7 +92,14 @@ export { default as Drawer } from './drawer';
 export type { EmptyProps } from './empty';
 export { default as Empty } from './empty';
 
-export type { FormInstance, FormProps, FormItemProps } from './form';
+export type {
+  FormInstance,
+  FormProps,
+  FormItemProps,
+  FormListFieldData,
+  FormListOperation,
+  Rule as FormRule,
+} from './form';
 export { default as Form } from './form';
 
 export { default as Grid } from './grid';
