@@ -163,7 +163,7 @@ export { default as Result } from './result';
 export type { RowProps } from './row';
 export { default as Row } from './row';
 
-export type { SelectProps } from './select';
+export type { SelectProps, RefSelectProps } from './select';
 export { default as Select } from './select';
 
 export type { SegmentedProps } from './segmented';
