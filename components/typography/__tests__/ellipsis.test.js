@@ -347,4 +347,14 @@ describe('Typography.Ellipsis', () => {
     });
     mockRectSpy.mockRestore();
   });
+
+  it('tooltipProps', async () => {
+    const { container } = render(
+      <Base
+        title="bamboo"
+        ellipsis={{ tooltip: 'This is tooltip', tooltipProps: { className: 'tooltip-class-name' } }}
+      />,
+    );
+    expect(container.querySelector('.tooltip-class-name')).toBeTruthy();
+  });
 });

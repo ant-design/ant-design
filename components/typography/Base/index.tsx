@@ -15,6 +15,7 @@ import { ConfigContext } from '../../config-provider';
 import { useLocaleReceiver } from '../../locale-provider/LocaleReceiver';
 import TransButton from '../../_util/transButton';
 import { isStyleSupport } from '../../_util/styleChecker';
+import type { TooltipProps } from '../../tooltip';
 import Tooltip from '../../tooltip';
 import type { TypographyProps } from '../Typography';
 import Typography from '../Typography';
@@ -56,6 +57,7 @@ export interface EllipsisConfig {
   onExpand?: React.MouseEventHandler<HTMLElement>;
   onEllipsis?: (ellipsis: boolean) => void;
   tooltip?: React.ReactNode;
+  tooltipProps?: TooltipProps;
 }
 
 export interface BlockProps extends TypographyProps {
@@ -455,6 +457,7 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
           title={tooltipTitle}
           enabledEllipsis={mergedEnableEllipsis}
           isEllipsis={isMergedEllipsis}
+          tooltipProps={ellipsisConfig.tooltipProps}
         >
           <Typography
             className={classNames(
