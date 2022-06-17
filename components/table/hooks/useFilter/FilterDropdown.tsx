@@ -1,32 +1,33 @@
-import * as React from 'react';
+import FilterFilled from '@ant-design/icons/FilterFilled';
 import classNames from 'classnames';
 import isEqual from 'lodash/isEqual';
 import type { FieldDataNode } from 'rc-tree';
-import FilterFilled from '@ant-design/icons/FilterFilled';
-import Button from '../../../button';
-import Menu from '../../../menu';
-import type { MenuProps } from '../../../menu';
-import Tree from '../../../tree';
-import type { EventDataNode } from '../../../tree';
-import Checkbox from '../../../checkbox';
-import type { CheckboxChangeEvent } from '../../../checkbox';
-import Radio from '../../../radio';
-import Dropdown from '../../../dropdown';
-import Empty from '../../../empty';
-import type {
-  ColumnType,
-  ColumnFilterItem,
-  Key,
-  TableLocale,
-  GetPopupContainer,
-  FilterSearchType,
-} from '../../interface';
-import FilterDropdownMenuWrapper from './FilterWrapper';
-import FilterSearch from './FilterSearch';
+import * as React from 'react';
 import type { FilterState } from '.';
 import { flattenKeys } from '.';
-import useSyncState from '../../../_util/hooks/useSyncState';
+import Button from '../../../button';
+import type { CheckboxChangeEvent } from '../../../checkbox';
+import Checkbox from '../../../checkbox';
 import { ConfigContext } from '../../../config-provider/context';
+import Dropdown from '../../../dropdown';
+import Empty from '../../../empty';
+import type { MenuProps } from '../../../menu';
+import Menu from '../../../menu';
+import { OverrideProvider } from '../../../menu/OverrideContext';
+import Radio from '../../../radio';
+import type { EventDataNode } from '../../../tree';
+import Tree from '../../../tree';
+import useSyncState from '../../../_util/hooks/useSyncState';
+import type {
+  ColumnFilterItem,
+  ColumnType,
+  FilterSearchType,
+  GetPopupContainer,
+  Key,
+  TableLocale,
+} from '../../interface';
+import FilterSearch from './FilterSearch';
+import FilterDropdownMenuWrapper from './FilterWrapper';
 
 type FilterTreeDataNode = FieldDataNode<{ title: React.ReactNode; key: React.Key }>;
 
@@ -303,6 +304,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     });
 
   let dropdownContent: React.ReactNode;
+
   if (typeof column.filterDropdown === 'function') {
     dropdownContent = column.filterDropdown({
       prefixCls: `${dropdownPrefixCls}-custom`,
@@ -439,6 +441,11 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
         </div>
       </>
     );
+  }
+
+  // We should not block customize Menu with additional props
+  if (column.filterDropdown) {
+    dropdownContent = <OverrideProvider selectable={undefined}>{dropdownContent}</OverrideProvider>;
   }
 
   const menu = (
