@@ -114,7 +114,7 @@ export function derivative(token: SeedToken): DerivativeToken {
     colorPrimaryActive: primaryColors[6],
     colorPrimaryHover: primaryColors[4],
     colorPrimaryOutline: new TinyColor(colorPrimary).setAlpha(0.2).toRgbString(),
-    colorPrimaryBorder: primaryColors[2],
+    colorPrimarySecondary: primaryColors[2],
     colorPrimaryBorderHover: primaryColors[3],
 
     colorSuccessSecondary: successColors[2],

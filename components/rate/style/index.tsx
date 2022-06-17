@@ -3,6 +3,10 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import type { FullToken, GenerateStyle } from '../../_util/theme';
 import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
 
+export type ComponentToken = {
+  defaultColor: string;
+};
+
 interface RateToken extends FullToken<'Rate'> {
   rateStarColor: string;
   rateStarSize: number;
@@ -35,13 +39,13 @@ const genRateStarStyle: GenerateStyle<RateToken, CSSObject> = token => {
         },
 
         '&:focus-visible': {
-          outline: `${token.lineWidth} dashed ${token.colorSplit}`,
+          outline: `${token.lineWidth}px dashed ${token.rateStarColor}`,
           transform: token.rateStarHoverScale,
         },
       },
 
       '&-first, &-second': {
-        color: token.colorSplit,
+        color: token.defaultColor,
         transition: `all ${token.motionDurationSlow}`,
         userSelect: 'none',
 
@@ -119,11 +123,17 @@ const genRateStyle: GenerateStyle<RateToken> = token => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Rate', token => {
-  const rateToken = mergeToken<RateToken>(token, {
-    rateStarColor: token.yellow,
-    rateStarSize: token.controlHeightLG * 0.5,
-    rateStarHoverScale: 'scale(1.1)',
-  });
-  return [genRateStyle(rateToken)];
-});
+export default genComponentStyleHook(
+  'Rate',
+  token => {
+    const rateToken = mergeToken<RateToken>(token, {
+      rateStarColor: token.yellow,
+      rateStarSize: token.controlHeightLG * 0.5,
+      rateStarHoverScale: 'scale(1.1)',
+    });
+    return [genRateStyle(rateToken)];
+  },
+  token => ({
+    defaultColor: token.colorSplit,
+  }),
+);

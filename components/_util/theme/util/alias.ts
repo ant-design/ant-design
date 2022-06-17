@@ -51,6 +51,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     colorBgComponentSecondary: mergedToken.colorBg2,
     colorBgComponentDisabled: mergedToken.colorBgBelow2,
     colorBgElevated: mergedToken.colorBg,
+    colorBgComponentTmp: mergedToken.colorBgBelow2,
 
     colorLink: mergedToken.colorPrimary,
     colorLinkHover: primaryColors[4],
@@ -58,6 +59,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
 
     colorAction: mergedToken.colorTextBelow,
     colorActionHover: mergedToken.colorText,
+    colorActionTmp: mergedToken.colorTextBelow2,
 
     // Font
     fontSizeSM,
@@ -98,7 +100,6 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     controlItemBgActiveHover: new TinyColor(primaryColors[0]).darken(2).toRgbString(),
     controlItemBgActiveDisabled: new TinyColor('#000').tint(90).toRgbString(),
     fontWeightStrong: 600,
-    colorBgContainerWeak: new TinyColor('#000').setAlpha(0.75).toRgbString(),
 
     // 🔥🔥🔥🔥🔥🔥🔥🔥🔥 All TMP Token leaves here 🔥🔥🔥🔥🔥🔥🔥🔥🔥
     // FIXME: Handle this when derivative is ready
@@ -163,7 +164,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
 
     motionEaseOut: 'cubic-bezier(0.215, 0.61, 0.355, 1)',
 
-    colorPopupBg: new TinyColor('#000').setAlpha(0.45).toRgbString(),
+    controlMaskBg: new TinyColor('#000').setAlpha(0.45).toRgbString(),
     colorBorderSecondary: new TinyColor({ h: 0, s: 0, v: 94 }).toHexString(),
 
     // Override AliasToken

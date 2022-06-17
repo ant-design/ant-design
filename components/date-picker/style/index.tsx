@@ -1111,7 +1111,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
           [`${componentCls}-preset > ${antCls}-tag-blue`]: {
             color: token.colorPrimary,
             background: token.controlItemBgActive,
-            borderColor: token.colorPrimaryBorder,
+            borderColor: token.colorPrimarySecondary,
             cursor: 'pointer',
           },
 
@@ -1140,7 +1140,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
         [`${componentCls}-panel-container`]: {
           overflow: 'hidden',
           verticalAlign: 'top',
-          background: token.colorBgComponent,
+          background: token.colorBgElevated,
           borderRadius: token.radiusBase,
           boxShadow: token.boxShadow,
           transition: `margin ${token.motionDurationSlow}`,

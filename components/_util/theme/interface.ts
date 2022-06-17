@@ -25,6 +25,7 @@ import type { ComponentToken as PopconfirmComponentToken } from '../../popconfir
 import type { ComponentToken as PopoverComponentToken } from '../../popover/style';
 import type { ComponentToken as ProgressComponentToken } from '../../progress/style';
 import type { ComponentToken as RadioComponentToken } from '../../radio/style';
+import type { ComponentToken as RateComponentToken } from '../../rate/style';
 import type { ComponentToken as ResultComponentToken } from '../../result/style';
 import type { ComponentToken as SegmentedComponentToken } from '../../segmented/style';
 import type { ComponentToken as SelectComponentToken } from '../../select/style';
@@ -33,6 +34,7 @@ import type { ComponentToken as SliderComponentToken } from '../../slider/style'
 import type { ComponentToken as SpaceComponentToken } from '../../space/style';
 import type { ComponentToken as SpinComponentToken } from '../../spin/style';
 import type { ComponentToken as StepsComponentToken } from '../../steps/style';
+import type { ComponentToken as TableComponentToken } from '../../table/style';
 import type { ComponentToken as TabsComponentToken } from '../../tabs/style';
 import type { ComponentToken as TimelineComponentToken } from '../../timeline/style';
 import type { ComponentToken as TooltipComponentToken } from '../../tooltip/style';
@@ -102,7 +104,7 @@ export interface OverrideToken {
   Pagination?: {};
   Popover?: PopoverComponentToken;
   Popconfirm?: PopconfirmComponentToken;
-  Rate?: {};
+  Rate?: RateComponentToken;
   Radio?: RadioComponentToken;
   Result?: ResultComponentToken;
   Segmented?: SegmentedComponentToken;
@@ -127,7 +129,7 @@ export interface OverrideToken {
   Message?: MessageComponentToken;
   Upload?: UploadComponentToken;
   Tooltip?: TooltipComponentToken;
-  Table?: {};
+  Table?: TableComponentToken;
   Space?: SpaceComponentToken;
   Progress?: ProgressComponentToken;
 }
@@ -207,7 +209,7 @@ export interface DerivativeToken extends SeedToken, ColorPalettes {
   colorPrimaryHover: string;
   colorPrimaryActive: string;
   colorPrimaryOutline: string;
-  colorPrimaryBorder: string; // primary[2]
+  colorPrimarySecondary: string; // primary[2]
   colorPrimaryBorderHover: string;
 
   colorSuccessSecondary: string;
@@ -344,6 +346,7 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   colorAction: string;
   /** Weak action hover color. Such as `allowClear` or Alert close button */
   colorActionHover: string;
+  colorActionTmp: string;
 
   colorLink: string;
   colorLinkHover: string;
@@ -354,8 +357,8 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   colorBgComponent: string;
   colorBgComponentSecondary: string;
   colorBgComponentDisabled: string;
-  colorBgContainerWeak: string;
   colorBgElevated: string;
+  colorBgComponentTmp: string;
 
   // =============== Legacy: should be remove ===============
   colorLoadingOpacity: number;
@@ -406,6 +409,6 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
 
   motionEaseOut: string;
 
-  colorPopupBg: string;
+  controlMaskBg: string;
   colorBorderSecondary: string;
 }
