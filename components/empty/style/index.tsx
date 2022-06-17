@@ -1,7 +1,7 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
+import type { FullToken, GenerateStyle } from '../../_util/theme';
 import { genComponentStyleHook, mergeToken } from '../../_util/theme';
-import type { GenerateStyle, FullToken } from '../../_util/theme';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {}
@@ -28,7 +28,7 @@ const genSharedEmptyStyle: GenerateStyle<EmptyToken> = (token): CSSObject => {
       [`${componentCls}-image`]: {
         height: token.emptyImgHeight,
         marginBottom: marginXS,
-        opacity: token.imgOpacity,
+        opacity: token.opacityImage,
 
         img: {
           height: '100%',

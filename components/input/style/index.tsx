@@ -128,7 +128,7 @@ export const genBasicInputStyle = (token: InputToken): CSSObject => ({
   borderColor: token.colorBorder,
   borderRadius: token.controlRadius,
   transition: `all ${token.motionDurationSlow}`,
-  ...genPlaceholderStyle(token.colorPlaceholder),
+  ...genPlaceholderStyle(token.colorTextPlaceholder),
 
   '&:hover': {
     ...genHoverStyle(token),

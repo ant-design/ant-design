@@ -228,7 +228,7 @@ export default genComponentStyleHook(
     const {
       controlItemBgActive,
       controlItemBgActiveHover,
-      colorPlaceholder,
+      colorTextPlaceholder,
       colorTextHeading,
       colorSplit,
       fontSize,
@@ -239,7 +239,7 @@ export default genComponentStyleHook(
       colorBgComponentSecondary,
       colorAction,
       colorActionHover,
-      colorLoadingOpacity,
+      opacityLoading,
       colorBgComponent,
       colorBgContainer,
       radiusBase,
@@ -274,11 +274,11 @@ export default genComponentStyleHook(
       tableHeaderSortHoverBg: headerHoverBgColor,
       tableHeaderIconColor: baseColorAction
         .clone()
-        .setAlpha(baseColorAction.getAlpha() * colorLoadingOpacity)
+        .setAlpha(baseColorAction.getAlpha() * opacityLoading)
         .toRgbString(),
       tableHeaderIconColorHover: baseColorActionHover
         .clone()
-        .setAlpha(baseColorActionHover.getAlpha() * colorLoadingOpacity)
+        .setAlpha(baseColorActionHover.getAlpha() * opacityLoading)
         .toRgbString(),
       tableBodySortBg: colorBgComponentSecondary,
       tableFixedHeaderSortActiveBg: colorBgContainer,
@@ -302,7 +302,7 @@ export default genComponentStyleHook(
 
       // Virtual Scroll Bar
       tableScrollThumbSize: 8, // Mac scroll bar size
-      tableScrollThumbBg: colorPlaceholder,
+      tableScrollThumbBg: colorTextPlaceholder,
       tableScrollThumbBgHover: colorTextHeading,
       tableScrollBg: colorSplit,
     });

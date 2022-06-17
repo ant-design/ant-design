@@ -205,7 +205,7 @@ const seedToken: SeedToken = {
   zIndexPopupBase: 1000,
 
   // Image
-  imgOpacity: 1,
+  opacityImage: 1,
 };
 
 export default seedToken;

@@ -194,7 +194,7 @@ export interface SeedToken extends PresetColorType {
 
   // Image
   /** Define default Image opacity. Useful when in dark-like theme */
-  imgOpacity: number;
+  opacityImage: number;
 }
 
 // ======================================================================
@@ -339,7 +339,7 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   colorTextSecondary: string;
   colorTextDisabled: string;
   /** Placeholder text color */
-  colorPlaceholder: string;
+  colorTextPlaceholder: string;
   colorTextHeading: string;
 
   /** Weak action. Such as `allowClear` or Alert close button */
@@ -361,7 +361,7 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   colorBgComponentTmp: string;
 
   // =============== Legacy: should be remove ===============
-  colorLoadingOpacity: number;
+  opacityLoading: number;
 
   padding: number;
   margin: number;

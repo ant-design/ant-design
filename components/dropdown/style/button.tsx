@@ -1,8 +1,8 @@
-import type { GenerateStyle } from '../../_util/theme';
 import type { DropdownToken } from '.';
+import type { GenerateStyle } from '../../_util/theme';
 
 const genButtonStyle: GenerateStyle<DropdownToken> = token => {
-  const { componentCls, antCls, paddingXS, colorLoadingOpacity } = token;
+  const { componentCls, antCls, paddingXS, opacityLoading } = token;
 
   return {
     [`${componentCls}-button`]: {
@@ -12,7 +12,7 @@ const genButtonStyle: GenerateStyle<DropdownToken> = token => {
         [`&-loading, &-loading + ${antCls}-btn`]: {
           cursor: 'default',
           pointerEvents: 'none',
-          opacity: colorLoadingOpacity,
+          opacity: opacityLoading,
         },
 
         [`&:last-child:not(:first-child):not(${antCls}-btn-icon-only)`]: {

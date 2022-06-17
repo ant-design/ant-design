@@ -110,7 +110,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
         outline: 'none',
         resize: 'none',
         backgroundColor: 'inherit',
-        ...genPlaceholderStyle(token.colorPlaceholder),
+        ...genPlaceholderStyle(token.colorTextPlaceholder),
       },
 
       [`${componentCls}-measure`]: {

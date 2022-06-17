@@ -173,6 +173,6 @@ export default genComponentStyleHook(
   },
   token => ({
     groupBorderColor: '#fff',
-    bgColor: token.colorPlaceholder,
+    bgColor: token.colorTextPlaceholder,
   }),
 );

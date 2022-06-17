@@ -1,6 +1,4 @@
 // deps-lint-skip-all
-import type { FullToken, GenerateStyle } from '../../_util/theme';
-import { genComponentStyleHook, resetComponent, resetIcon } from '../../_util/theme';
 import type { InputToken } from '../../input/style';
 import {
   genActiveStyle,
@@ -12,6 +10,8 @@ import {
   genStatusStyle,
   initInputToken,
 } from '../../input/style';
+import type { FullToken, GenerateStyle } from '../../_util/theme';
+import { genComponentStyleHook, resetComponent, resetIcon } from '../../_util/theme';
 
 export interface ComponentToken {
   controlWidth: number;
@@ -135,7 +135,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
             outline: 0,
             transition: `all ${motionDurationSlow} linear`,
             appearance: 'textfield',
-            ...genPlaceholderStyle(token.colorPlaceholder),
+            ...genPlaceholderStyle(token.colorTextPlaceholder),
 
             '&[type="number"]::-webkit-inner-spin-button, &[type="number"]::-webkit-outer-spin-button':
               {

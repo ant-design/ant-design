@@ -889,7 +889,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
 
         '&-placeholder': {
           '> input': {
-            color: token.colorPlaceholder,
+            color: token.colorTextPlaceholder,
           },
         },
       },

@@ -42,7 +42,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     // Colors
     colorTextSecondary: mergedToken.colorTextBelow,
     colorTextDisabled: mergedToken.colorTextBelow2,
-    colorPlaceholder: mergedToken.colorTextBelow2,
+    colorTextPlaceholder: mergedToken.colorTextBelow2,
     colorTextHeading: mergedToken.colorText,
 
     colorBgContainer: mergedToken.colorBgBelow2,
@@ -107,7 +107,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     // warningColors,
     // errorColors,
 
-    colorLoadingOpacity: 0.65,
+    opacityLoading: 0.65,
 
     colorSuccessSecondary: successColors[2],
     colorWarningSecondary: warningColors[2],
