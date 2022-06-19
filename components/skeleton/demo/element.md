@@ -26,7 +26,7 @@ const App: React.FC = () => {
   const [active, setActive] = useState(false);
   const [block, setBlock] = useState(false);
   const [size, setSize] = useState<SizeType>('default');
-  const [buttonShape, setButtonShape] = useState<ButtonShapeType>('square');
+  const [buttonShape, setButtonShape] = useState<ButtonShapeType>('default');
   const [avatarShape, setAvatarShape] = useState<AvatarShapeType>('circle');
 
   const handleActiveChange = (checked: boolean) => {
@@ -82,6 +82,7 @@ const App: React.FC = () => {
         </Form.Item>
         <Form.Item label="Button Shape">
           <Radio.Group value={buttonShape} onChange={handleShapeButton}>
+            <Radio.Button value="default">Default</Radio.Button>
             <Radio.Button value="square">Square</Radio.Button>
             <Radio.Button value="round">Round</Radio.Button>
             <Radio.Button value="circle">Circle</Radio.Button>
