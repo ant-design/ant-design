@@ -47,28 +47,28 @@
 
 [![](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*Yl83RJhUE7kAAAAAAAAAAABkARQnAQ)](https://ant.design)
 
-English | [Português](./README-pt_BR.md) | [简体中文](./README-zh_CN.md) | [Українською](./README-uk_UA.md) | [Spanish](./README-sp_MX.md) | [日本語](./README-ja_JP.md)
+English | [Português](./README-pt_BR.md) | [简体中文](./README-zh_CN.md) | [Українською](./README-uk_UA.md) | [Spanish](./README-sp_MX.md) | [日本語](./README-ja_JP.md) | සිංහල
 
-## ✨ Features
+## ✨ විශේෂාංග
 
-- 🌈 Enterprise-class UI designed for web applications.
-- 📦 A set of high-quality React components out of the box.
-- 🛡 Written in TypeScript with predictable static types.
-- ⚙️ Whole package of design resources and development tools.
-- 🌍 Internationalization support for dozens of languages.
-- 🎨 Powerful theme customization in every detail.
+- 🌈 වියමන යෙදුම් සඳහා නිර්මිත ව්‍යවසාය පන්තියේ අතුරු මුහුණතකි.
+- 📦 ක්‍ෂණික භාවිතයට ඉතා ගුණත්ව රියැක්ට් සංරචක කට්ටලයක් තිබේ.
+- 🛡 පුරෝකථනය කළ හැකි ස්ථිතික වර්ග සහිතව ටයිප්ස්ක්‍රිප්ට් වලින් ලියා ඇත.
+- ⚙️ නිර්මාණ සම්පත් සහ සංවර්ධන මෙවලම් වලින් පිරුණු ඇසුරුමකි.
+- 🌍 භාෂා බොහෝ ගණනකට දේශීයකරණ සහාය.
+- 🎨 සවිස්තරාත්මක තොරතුරු අඩංගු ප්‍රබල තේමා අභිරුචිකරණය.
 
-## 🖥 Environment Support
+## 🖥 සහාය දක්වන පරිසරය
 
-- Modern browsers and Internet Explorer 11 (with [polyfills](https://stackoverflow.com/questions/57020976/polyfills-in-2019-for-ie11))
-- Server-side Rendering
-- [Electron](https://www.electronjs.org/)
+- නවීන අතිරික්සු සහ ඉන්ටර්නෙට් එක්ස්ප්ලෝරර් 11 ([polyfills](https://stackoverflow.com/questions/57020976/polyfills-in-2019-for-ie11) සමඟ)
+- සේවාදායක පාර්ශවීය ප්‍රවාචනය
+- [ඉලෙක්ට්‍රෝන්](https://www.electronjs.org/)
 
-| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png" alt="Electron" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>Electron |
+| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>IE / එඩ්ගේ | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>ෆයර්ෆොක්ස් | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>ක්‍රෝම් | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>සෆාරි | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png" alt="Electron" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br>ඉලෙක්ට්‍රෝන් |
 | --- | --- | --- | --- | --- |
-| IE11, Edge | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
+| IE11, එඩ්ගේ | අන්තිම අනුවාද 2 | අන්තිම අනුවාද 2 | අන්තිම අනුවාද 2 | අන්තිම අනුවාද 2 |
 
-## 📦 Install
+## 📦 ස්ථාපනය
 
 ```bash
 npm install antd
@@ -78,7 +78,7 @@ npm install antd
 yarn add antd
 ```
 
-## 🔨 Usage
+## 🔨 භාවිතය
 
 ```jsx
 import { Button, DatePicker } from 'antd';
@@ -91,49 +91,49 @@ const App = () => (
 );
 ```
 
-And import style manually:
+සහ ශෛලිය අතින් ආයාත කරන්න:
 
 ```jsx
 import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 ```
 
-### TypeScript
+### ටයිප්ස්ක්‍රිප්ට්
 
-`antd` is written in TypeScript with complete definitions, check [Use in TypeScript](https://ant.design/docs/react/use-in-typescript) to get started.
+`antd` සම්පූර්ණ නිර්වචන සහිතව ටයිප්ස්ක්‍රිප්ට් වලින් ලියා ඇත, පටන් ගැනීමට [ටයිප්ස්ක්‍රිප්ට් තුළ භාවිතය](https://ant.design/docs/react/use-in-typescript) පරීක්‍ෂා කරන්න.
 
-## 🌍 Internationalization
+## 🌍 දේශීයකරණය
 
-Dozens of languages supported in `antd`, see [i18n](https://ant.design/docs/react/i18n).
+`antd` හි භාෂා බොහොමයකට සහාය දක්වයි, [i18n](https://ant.design/docs/react/i18n) බලන්න.
 
-## 🔗 Links
+## 🔗 සබැඳි
 
-- [Home page](https://ant.design/)
-- [Components Overview](https://ant.design/components/overview)
-- [Ant Design Pro](http://pro.ant.design/)
-- [Change Log](CHANGELOG.en-US.md)
-- [rc-components](http://react-component.github.io/)
-- [Mobile UI](http://mobile.ant.design)
-- [Ant Design Pro Components](https://procomponents.ant.design)
-- [Ant Design Charts](https://charts.ant.design)
-- [Ant Design Icons](https://github.com/ant-design/ant-design-icons)
-- [Ant Design Colors](https://github.com/ant-design/ant-design-colors)
-- [Landing Pages](https://landing.ant.design)
-- [Motion](https://motion.ant.design)
-- [Scaffold Market](http://scaffold.ant.design)
-- [Developer Instruction](https://github.com/ant-design/ant-design/wiki/Development)
-- [Versioning Release Note](https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B)
-- [FAQ](https://ant.design/docs/react/faq)
-- [CodeSandbox Template](https://u.ant.design/codesandbox-repro) for bug reports
-- [Customize Theme](https://ant.design/docs/react/customize-theme)
-- [How to Apply for Being A Collaborator](https://github.com/ant-design/ant-design/wiki/Collaborators#how-to-apply-for-being-a-collaborator)
+- [මුල් පිටුව](https://ant.design/)
+- [සංරචක දළ විශ්ලේෂණය](https://ant.design/components/overview)
+- [ඈන්ට් ඩිසයින් ප්‍රෝ](http://pro.ant.design/)
+- [වෙනස්කම් සටහන](CHANGELOG.en-US.md)
+- [rc-සංරචක](http://react-component.github.io/)
+- [ජංගම අතුරු මුහුණත්](http://mobile.ant.design)
+- [ඈන්ට් ඩිසයින් ප්‍රෝ සංරචක](https://procomponents.ant.design)
+- [ඈන්ට් ඩිසයින් ප්‍රස්තාර](https://charts.ant.design)
+- [ඈන්ට් ඩිසයින් නිරූපක](https://github.com/ant-design/ant-design-icons)
+- [ඈන්ට් ඩිසයින් වර්ණ](https://github.com/ant-design/ant-design-colors)
+- [පළමුව ගොඩවදින පිටු](https://landing.ant.design)
+- [චලනය](https://motion.ant.design)
+- [ස්කැෆෝල්ඩ් වෙළඳපොළ](http://scaffold.ant.design)
+- [සංවර්ධන උපදෙස්](https://github.com/ant-design/ant-design/wiki/Development)
+- [අනුවාද නිකුත් කිරීමේ සටහන](https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B)
+- [නිතර අසන ප්‍රශ්න](https://ant.design/docs/react/faq)
+- [කෝඩ්සෑන්ඩ්බොක්ස් ආකෘතිය](https://u.ant.design/codesandbox-repro) දෝෂ වාර්තා කිරීමට යොදාගන්න
+- [තේමාව අභිරුචිකරණය](https://ant.design/docs/react/customize-theme)
+- [සහකාරකයෙකු වීම සඳහා අයදුම් කරන්නේ කෙසේද?](https://github.com/ant-design/ant-design/wiki/Collaborators#how-to-apply-for-being-a-collaborator)
 
-## ⌨️ Development
+## ⌨️ සංවර්ධනය
 
-Use Gitpod, a free online dev environment for GitHub.
+ගිට්පොඩ් භාවිතා කරන්න, ගිට්හබ් සඳහා නොමිලේ මාර්ගගත සංවර්ධන පරිසරයකි.
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/ant-design/ant-design)
 
-Or clone locally:
+හෝ ස්ථානීයව අනුපිටපතක් බාගන්න:
 
 ```bash
 $ git clone git@github.com:ant-design/ant-design.git
@@ -142,19 +142,19 @@ $ npm install
 $ npm start
 ```
 
-Open your browser and visit http://127.0.0.1:8001 , see more at [Development](https://github.com/ant-design/ant-design/wiki/Development).
+ඔබගේ අතිරික්සුව විවෘත කර http://127.0.0.1:8001 වෙත පිවිසෙන්න, [සංවර්ධනය](https://github.com/ant-design/ant-design/wiki/Development) පිටුවෙහි තව බලන්න.
 
-## 🤝 Contributing [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+## 🤝 දායකත්වය [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-Read our [contributing guide](https://ant.design/docs/react/contributing) and let's build a better antd together.
+අපගේ [දායකත්ව මාර්ගෝපදේශය](https://ant.design/docs/react/contributing) කියවන්න සහ එක්ව antd වඩාත් හොඳින් දියුණු කරමු.
 
-We welcome all contributions. Please read our [CONTRIBUTING.md](https://github.com/ant-design/ant-design/blob/master/.github/CONTRIBUTING.md) first. You can submit any ideas as [pull requests](https://github.com/ant-design/ant-design/pulls) or as [GitHub issues](https://github.com/ant-design/ant-design/issues). If you'd like to improve code, check out the [Development Instructions](https://github.com/ant-design/ant-design/wiki/Development) and have a good time! :)
+අපි සියළුම දායකත්ව සතුටින් පිළිගන්නෙමු. කරුණාකර පළමුව අපගේ [දායකත්වය.md](https://github.com/ant-design/ant-design/blob/master/.github/CONTRIBUTING.md) සැපයීමේ උපදෙස් කියවන්න. ඕනෑම අදහසක් [තල්ලු ඉල්ලීම්](https://github.com/ant-design/ant-design/pulls) ලෙස හෝ [ගිට්හබ් ගැටළු](https://github.com/ant-design/ant-design/issues) හරහා යොමු කිරීමට හැකිය. ඔබ කේත වැඩිදියුණු කිරීමට කැමති නම්, [සංවර්ධන මාර්ගෝපදේශය](https://github.com/ant-design/ant-design/wiki/Development) පරීක්‍ෂා කරන්න. හොඳින් ඉන්න, සුභ දවසක්! :)
 
-If you are a collaborator, please follow our [Pull Request principle](https://github.com/ant-design/ant-design/wiki/PR-principle) to create a Pull Request with [collaborator template](https://github.com/ant-design/ant-design/compare?expand=1&template=collaborator.md).
+ඔබ සහකාරකයෙක් නම්, [සහකාරක අච්චුව](https://github.com/ant-design/ant-design/compare?expand=1&template=collaborator.md) සමඟ තල්ලු ඉල්ලීමක් සෑදීමට කරුණාකර අපගේ [තල්ලු ඉල්ලීම් මූලධර්ම](https://github.com/ant-design/ant-design/wiki/PR-principle) අනුගමනය කරන්න.
 
 [![Let's fund issues in this repository](https://issuehunt.io/static/embed/issuehunt-button-v1.svg)](https://issuehunt.io/repos/34526884)
 
-## ❤️ Sponsors and Backers [![](https://opencollective.com/ant-design/tiers/sponsors/badge.svg?label=Sponsors&color=brightgreen)](https://opencollective.com/ant-design#support) [![](https://opencollective.com/ant-design/tiers/backers/badge.svg?label=Backers&color=brightgreen)](https://opencollective.com/ant-design#support)
+## ❤️ අනුග්‍රාහකයින් හා මූල්‍යදායකයින් [![](https://opencollective.com/ant-design/tiers/sponsors/badge.svg?label=Sponsors&color=brightgreen)](https://opencollective.com/ant-design#support) [![](https://opencollective.com/ant-design/tiers/backers/badge.svg?label=Backers&color=brightgreen)](https://opencollective.com/ant-design#support)
 
 [![](https://opencollective.com/ant-design/tiers/sponsors.svg?avatarHeight=36)](https://opencollective.com/ant-design#support)
 
