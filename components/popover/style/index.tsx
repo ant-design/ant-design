@@ -1,5 +1,5 @@
 // deps-lint-skip-all
-import { initZoomMotion } from 'antd/es/style/motion/zoom';
+import { initZoomMotion } from '../../style/motion';
 import type { FullToken, GenerateStyle, PresetColorType } from '../../_util/theme';
 import {
   genComponentStyleHook,

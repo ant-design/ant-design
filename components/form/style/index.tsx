@@ -1,6 +1,6 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
-import { zoomIn } from '../../style/motion/zoom';
+import { zoomIn } from '../../style/motion';
 import type { AliasToken, FullToken, GenerateStyle } from '../../_util/theme';
 import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
 

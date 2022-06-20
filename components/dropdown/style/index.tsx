@@ -1,13 +1,13 @@
 // deps-lint-skip-all
-import type { GenerateStyle, FullToken } from '../../_util/theme';
-import { resetComponent, genComponentStyleHook, mergeToken, roundedArrow } from '../../_util/theme';
 import {
   initSlideMotion,
-  slideUpIn,
-  slideUpOut,
   slideDownIn,
   slideDownOut,
+  slideUpIn,
+  slideUpOut,
 } from '../../style/motion';
+import type { FullToken, GenerateStyle } from '../../_util/theme';
+import { genComponentStyleHook, mergeToken, resetComponent, roundedArrow } from '../../_util/theme';
 import genButtonStyle from './button';
 import genStatusStyle from './status';
 

@@ -1,7 +1,7 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-import { initZoomMotion } from 'antd/es/style/motion/zoom';
+import { initZoomMotion } from '../../style/motion';
 import type {
   FullToken,
   GenerateStyle,

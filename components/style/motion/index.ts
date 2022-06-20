@@ -10,7 +10,21 @@ import {
   slideUpIn,
   slideUpOut,
 } from './slide';
-import { zoomIn, zoomOut } from './zoom';
+import {
+  initZoomMotion,
+  zoomBigIn,
+  zoomBigOut,
+  zoomDownIn,
+  zoomDownOut,
+  zoomIn,
+  zoomLeftIn,
+  zoomLeftOut,
+  zoomOut,
+  zoomRightIn,
+  zoomRightOut,
+  zoomUpIn,
+  zoomUpOut,
+} from './zoom';
 
 export {
   initSlideMotion,
@@ -24,6 +38,17 @@ export {
   slideRightOut,
   zoomOut,
   zoomIn,
+  zoomBigIn,
+  zoomLeftOut,
+  zoomBigOut,
+  zoomLeftIn,
+  zoomRightIn,
+  zoomUpIn,
+  zoomRightOut,
+  zoomUpOut,
+  zoomDownIn,
+  zoomDownOut,
+  initZoomMotion,
   initFadeMotion,
   fadeIn,
   fadeOut,
