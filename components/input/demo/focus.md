@@ -14,11 +14,13 @@ title:
 Focus with additional option.
 
 ```tsx
+import type { ElementRef } from 'react';
+
 import { Button, Input, Space, Switch } from 'antd';
 import React, { useRef, useState } from 'react';
 
 const App: React.FC = () => {
-  const inputRef = useRef<any>(null);
+  const inputRef = useRef<ElementRef<typeof Input>>(null);
   const [input, setInput] = useState(true);
 
   const sharedProps = {
