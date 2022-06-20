@@ -23,6 +23,14 @@
         font-size: 14px;
         border: none;
         box-shadow: inset 0px -1px 0px #e5e7eb;
+        .on-hover {
+          display: none;
+        }
+        &.ant-table-cell-row-hover {
+          .on-hover {
+            display: block;
+          }
+        }
       }
 
       &.ant-table-row {
