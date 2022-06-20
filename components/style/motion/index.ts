@@ -1,5 +1,16 @@
 import { fadeIn, fadeOut, initFadeMotion } from './fade';
 import {
+  initMoveMotion,
+  moveDownIn,
+  moveDownOut,
+  moveLeftIn,
+  moveLeftOut,
+  moveRightIn,
+  moveRightOut,
+  moveUpIn,
+  moveUpOut,
+} from './move';
+import {
   initSlideMotion,
   slideDownIn,
   slideDownOut,
@@ -49,7 +60,16 @@ export {
   zoomDownIn,
   zoomDownOut,
   initZoomMotion,
-  initFadeMotion,
   fadeIn,
   fadeOut,
+  initFadeMotion,
+  moveRightOut,
+  moveRightIn,
+  moveLeftOut,
+  moveLeftIn,
+  moveDownOut,
+  moveDownIn,
+  moveUpIn,
+  moveUpOut,
+  initMoveMotion,
 };
