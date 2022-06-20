@@ -154,13 +154,24 @@ export const zoomDownOut = new Keyframes('antZoomDownOut', {
   },
 });
 
-type ZoomMotionTypes = 'zoom' | 'zoom-big' | 'zoom-left' | 'zoom-right' | 'zoom-up' | 'zoom-down';
+type ZoomMotionTypes =
+  | 'zoom'
+  | 'zoom-big'
+  | 'zoom-big-fast'
+  | 'zoom-left'
+  | 'zoom-right'
+  | 'zoom-up'
+  | 'zoom-down';
 const zoomMotion: Record<ZoomMotionTypes, { inKeyframes: Keyframes; outKeyframes: Keyframes }> = {
   zoom: {
     inKeyframes: zoomIn,
     outKeyframes: zoomOut,
   },
   'zoom-big': {
+    inKeyframes: zoomBigIn,
+    outKeyframes: zoomBigOut,
+  },
+  'zoom-big-fast': {
     inKeyframes: zoomBigIn,
     outKeyframes: zoomBigOut,
   },
@@ -191,7 +202,12 @@ export const initZoomMotion = (
   const { inKeyframes, outKeyframes } = zoomMotion[motionName];
 
   return [
-    initMotion(motionCls, inKeyframes, outKeyframes, token.motionDurationMid),
+    initMotion(
+      motionCls,
+      inKeyframes,
+      outKeyframes,
+      motionName === 'zoom-big-fast' ? token.motionDurationFast : token.motionDurationMid,
+    ),
     {
       [`
         ${motionCls}-enter,
