@@ -11,6 +11,16 @@ Here are the frequently asked questions about Ant Design and antd that you shoul
 
 There is currently no plan to add support for Sass/Stylus(etc.) style files, but using tools on Google you can easily convert the provided Less files to your desired style format.
 
+## Is there a difference between undefined and null in the controlled components of antd?
+
+**Yes. antd convention: undefined is a sign for uncontrolled, while null is an explicit empty value of controlled.**
+
+As input element, React treats both undefined and null as signs of uncontrolled. For React, the empty value of controlled components should be an empty string, that is, `value={''}`. Therefore, when the value is converted from a valid value to undefined or null, the component is no longer controlled, which causes some unexpected situations. For example: "I'm using a controlled component. Why is the value submitted by the form is different from the value displayed?"
+
+In antd, undefined is treated as a sign for uncontrolled, and null is used as an explicit empty value of controlled components. In antd, `''` and `0` (`string | number`) can be assigned to the value as a acceptable value, so antd agrees that null is controlled. If you need a component controlled with the value valid, just set the value as null.
+
+Note: For options in `Select-like` components, it is recommended not to use undefined and null as value in options. Please use `string | number` as a valid value in option.
+
 ## `Select Dropdown DatePicker TimePicker Popover Popconfirm` disappears when I click another popup component inside it. How do I resolve this?
 
 This is an old bug that has been fixed since `v3.11.x`. If you're using an older version, you can use `<Select getPopupContainer={trigger => trigger.parentElement}>` to render a component inside Popover. (Or other `getXxxxContainer` props)
