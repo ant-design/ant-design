@@ -3,7 +3,6 @@ import Tooltip from '../../tooltip';
 import type { TooltipProps } from '../../tooltip';
 
 export interface EllipsisTooltipProps {
-  title?: React.ReactNode;
   tooltipProps?: TooltipProps;
   enabledEllipsis: boolean;
   isEllipsis?: boolean;
@@ -11,18 +10,17 @@ export interface EllipsisTooltipProps {
 }
 
 const EllipsisTooltip = ({
-  title,
   enabledEllipsis,
   isEllipsis,
   children,
   tooltipProps,
 }: EllipsisTooltipProps) => {
-  if (!title || !enabledEllipsis) {
+  if (!tooltipProps?.title || !enabledEllipsis) {
     return children;
   }
 
   return (
-    <Tooltip title={title} visible={isEllipsis ? undefined : false} {...tooltipProps}>
+    <Tooltip visible={isEllipsis ? undefined : false} {...tooltipProps}>
       {children}
     </Tooltip>
   );
