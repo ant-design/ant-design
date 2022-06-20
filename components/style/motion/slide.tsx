@@ -4,17 +4,16 @@ import type { DerivativeToken } from '../../_util/theme';
 import { initMotion } from './motion';
 
 export const initSlideMotion = (
-  rootPrefixCls: string,
+  antCls: string,
   motionName: string,
   inKeyframes: Keyframes,
   outKeyframes: Keyframes,
   token: DerivativeToken,
 ): CSSInterpolation => {
-  const rootMotionName = `${rootPrefixCls}-${motionName}`;
-  const motionCls = `.${rootMotionName}`;
+  const motionCls = `${antCls}-${motionName}`;
 
   return [
-    initMotion(rootMotionName, inKeyframes, outKeyframes, token.motionDurationMid),
+    initMotion(motionCls, inKeyframes, outKeyframes, token.motionDurationMid),
 
     {
       [`

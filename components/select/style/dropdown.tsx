@@ -28,7 +28,7 @@ const genItemStyle: GenerateStyle<SelectToken, CSSObject> = token => {
 };
 
 const genSingleStyle: GenerateStyle<SelectToken> = token => {
-  const { rootPrefixCls, antCls, componentCls } = token;
+  const { antCls, componentCls } = token;
 
   const selectItemCls = `${componentCls}-item`;
 
@@ -153,8 +153,8 @@ const genSingleStyle: GenerateStyle<SelectToken> = token => {
     },
 
     // Follow code may reuse in other components
-    initSlideMotion(rootPrefixCls, 'slide-up', slideUpIn, slideUpOut, token),
-    initSlideMotion(rootPrefixCls, 'slide-down', slideDownIn, slideDownOut, token),
+    initSlideMotion(antCls, 'slide-up', slideUpIn, slideUpOut, token),
+    initSlideMotion(antCls, 'slide-down', slideDownIn, slideDownOut, token),
   ];
 };
 

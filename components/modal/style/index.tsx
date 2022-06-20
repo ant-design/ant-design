@@ -1,8 +1,9 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { TokenWithCommonCls } from 'antd/es/_util/theme/util/genComponentStyleHook';
 import type React from 'react';
-import type { AliasToken, FullToken, GenerateStyle } from '../../_util/theme';
+import { initFadeMotion } from '../../style/motion';
+import { initZoomMotion } from '../../style/motion/zoom';
+import type { FullToken, GenerateStyle } from '../../_util/theme';
 import { clearFix, genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
 
 /** Component only token. Which will handle additional calculation of alias token */
@@ -45,7 +46,9 @@ function box(position: React.CSSProperties['position']): React.CSSProperties {
   };
 }
 
-export function modalMask(componentCls: string, token: TokenWithCommonCls<AliasToken>): CSSObject {
+export function modalMask(token: ModalToken): CSSObject {
+  const { componentCls } = token;
+
   return {
     [`${componentCls}${token.antCls}-zoom-enter, ${componentCls}${token.antCls}-zoom-appear`]: {
       // reset scale avoid mousePosition bug
@@ -83,7 +86,7 @@ const genModalStyle: GenerateStyle<ModalToken> = token => {
     // ======================== Root =========================
     {
       [`${componentCls}-root`]: {
-        ...modalMask(componentCls, token),
+        ...modalMask(token),
 
         [`${componentCls}-wrap`]: {
           zIndex: token.zIndexPopupBase,
@@ -341,6 +344,8 @@ const genRTLStyle: GenerateStyle<ModalToken> = token => {
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Modal', token => {
+  const { antCls, componentCls } = token;
+
   const headerPaddingVertical = token.padding;
   const headerFontSize = token.fontSizeHeading5;
   const headerLineHeight = token.lineHeightHeading5;
@@ -368,5 +373,13 @@ export default genComponentStyleHook('Modal', token => {
     modalIconHoverColor: token.colorActionHover,
     modalConfirmIconSize: token.fontSize * token.lineHeight,
   });
-  return [genModalStyle(modalToken), genModalConfirmStyle(modalToken), genRTLStyle(modalToken)];
+  return [
+    genModalStyle(modalToken),
+    genModalConfirmStyle(modalToken),
+    genRTLStyle(modalToken),
+    initZoomMotion(antCls, 'zoom', modalToken),
+    {
+      [`${componentCls}-root`]: initFadeMotion(antCls, modalToken),
+    },
+  ];
 });

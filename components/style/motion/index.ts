@@ -1,15 +1,16 @@
+import { fadeIn, fadeOut, initFadeMotion } from './fade';
 import {
   initSlideMotion,
-  slideUpIn,
-  slideUpOut,
   slideDownIn,
   slideDownOut,
   slideLeftIn,
   slideLeftOut,
   slideRightIn,
   slideRightOut,
+  slideUpIn,
+  slideUpOut,
 } from './slide';
-import { antZoomIn, antZoomOut } from './zoom';
+import { zoomIn, zoomOut } from './zoom';
 
 export {
   initSlideMotion,
@@ -21,6 +22,9 @@ export {
   slideLeftOut,
   slideRightIn,
   slideRightOut,
-  antZoomOut,
-  antZoomIn,
+  zoomOut,
+  zoomIn,
+  initFadeMotion,
+  fadeIn,
+  fadeOut,
 };

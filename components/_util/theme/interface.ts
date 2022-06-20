@@ -169,6 +169,7 @@ export interface SeedToken extends PresetColorType {
   // Motion
   motionUnit: number;
   motionBase: number;
+  motionEaseOutCirc: string;
   motionEaseInOutCirc: string;
   motionEaseInOut: string;
   motionEaseOutBack: string;

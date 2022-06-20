@@ -13,39 +13,35 @@ const initMotionCommonLeave = (duration: string): CSSObject => ({
 });
 
 export const initMotion = (
-  motionName: string,
+  motionCls: string,
   inKeyframes: Keyframes,
   outKeyframes: Keyframes,
   duration: string,
-): CSSObject => {
-  const motionCls = `.${motionName}`;
-
-  return {
-    [`
+): CSSObject => ({
+  [`
       ${motionCls}-enter,
       ${motionCls}-appear
     `]: {
-      ...initMotionCommon(duration),
-      animationPlayState: 'paused',
-    },
+    ...initMotionCommon(duration),
+    animationPlayState: 'paused',
+  },
 
-    [`${motionCls}-leave`]: {
-      ...initMotionCommonLeave(duration),
-      animationPlayState: 'paused',
-    },
+  [`${motionCls}-leave`]: {
+    ...initMotionCommonLeave(duration),
+    animationPlayState: 'paused',
+  },
 
-    [`
+  [`
       ${motionCls}-enter${motionCls}-enter-active,
       ${motionCls}-appear${motionCls}-appear-active
     `]: {
-      animationName: inKeyframes,
-      animationPlayState: 'running',
-    },
+    animationName: inKeyframes,
+    animationPlayState: 'running',
+  },
 
-    [`${motionCls}-leave${motionCls}-leave-active`]: {
-      animationName: outKeyframes,
-      animationPlayState: 'running',
-      pointerEvents: 'none',
-    },
-  };
-};
+  [`${motionCls}-leave${motionCls}-leave-active`]: {
+    animationName: outKeyframes,
+    animationPlayState: 'running',
+    pointerEvents: 'none',
+  },
+});
