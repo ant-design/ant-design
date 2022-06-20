@@ -79,7 +79,7 @@ export const genModalMaskStyle: GenerateStyle<TokenWithCommonCls<AliasToken>> = 
         },
       },
     },
-    { [`${componentCls}-root`]: initFadeMotion(antCls, token) },
+    { [`${componentCls}-root`]: initFadeMotion(token) },
   ];
 };
 

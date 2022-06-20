@@ -1,6 +1,7 @@
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
-import type { DerivativeToken } from '../../_util/theme';
+import type { TokenWithCommonCls } from 'antd/es/_util/theme/util/genComponentStyleHook';
+import type { AliasToken } from '../../_util/theme';
 import { initMotion } from './motion';
 
 export const fadeIn = new Keyframes('antFadeIn', {
@@ -21,7 +22,8 @@ export const fadeOut = new Keyframes('antFadeOut', {
   },
 });
 
-export const initFadeMotion = (antCls: string, token: DerivativeToken): CSSInterpolation => {
+export const initFadeMotion = (token: TokenWithCommonCls<AliasToken>): CSSInterpolation => {
+  const { antCls } = token;
   const motionCls = `${antCls}-fade`;
 
   return [

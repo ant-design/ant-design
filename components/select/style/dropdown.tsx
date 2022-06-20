@@ -153,8 +153,8 @@ const genSingleStyle: GenerateStyle<SelectToken> = token => {
     },
 
     // Follow code may reuse in other components
-    initSlideMotion(antCls, 'slide-up', slideUpIn, slideUpOut, token),
-    initSlideMotion(antCls, 'slide-down', slideDownIn, slideDownOut, token),
+    initSlideMotion(token, 'slide-up'),
+    initSlideMotion(token, 'slide-down'),
   ];
 };
 

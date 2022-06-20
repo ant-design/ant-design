@@ -27,7 +27,6 @@ export interface DropdownToken extends FullToken<'Dropdown'> {
 // =============================== Base ===============================
 const genBaseStyle: GenerateStyle<DropdownToken> = token => {
   const {
-    rootPrefixCls,
     componentCls,
     menuCls,
     zIndexPopup,
@@ -405,10 +404,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
     },
 
     // Follow code may reuse in other components
-    [
-      initSlideMotion(rootPrefixCls, 'slide-up', slideUpIn, slideUpOut, token),
-      initSlideMotion(rootPrefixCls, 'slide-down', slideDownIn, slideDownOut, token),
-    ],
+    [initSlideMotion(token, 'slide-up'), initSlideMotion(token, 'slide-down')],
   ];
 };
 
