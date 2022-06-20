@@ -56,8 +56,7 @@ export interface EllipsisConfig {
   symbol?: React.ReactNode;
   onExpand?: React.MouseEventHandler<HTMLElement>;
   onEllipsis?: (ellipsis: boolean) => void;
-  tooltip?: React.ReactNode;
-  tooltipProps?: TooltipProps;
+  tooltip?: React.ReactNode | TooltipProps;
 }
 
 export interface BlockProps extends TypographyProps {
@@ -311,7 +310,14 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
   }, [enableEllipsis, cssEllipsis, children, cssLineClamp]);
 
   // ========================== Tooltip ===========================
-  const tooltipTitle = ellipsisConfig.tooltip === true ? children : ellipsisConfig.tooltip;
+  let tooltipProps: TooltipProps = {};
+  if (ellipsisConfig.tooltip === true) {
+    tooltipProps = { title: children };
+  } else if (typeof ellipsisConfig.tooltip === 'object') {
+    tooltipProps = { title: children, ...ellipsisConfig.tooltip };
+  } else {
+    tooltipProps = { title: ellipsisConfig.tooltip };
+  }
   const topAriaLabel = React.useMemo(() => {
     const isValid = (val: any) => ['string', 'number'].includes(typeof val);
 
@@ -327,12 +333,12 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
       return title;
     }
 
-    if (isValid(tooltipTitle)) {
-      return tooltipTitle;
+    if (isValid(tooltipProps.title)) {
+      return tooltipProps.title;
     }
 
     return undefined;
-  }, [enableEllipsis, cssEllipsis, title, tooltipTitle, isMergedEllipsis]);
+  }, [enableEllipsis, cssEllipsis, title, tooltipProps.title, isMergedEllipsis]);
 
   // =========================== Render ===========================
   // >>>>>>>>>>> Editing input
@@ -454,10 +460,9 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
     <ResizeObserver onResize={onResize} disabled={!mergedEnableEllipsis || cssEllipsis}>
       {resizeRef => (
         <EllipsisTooltip
-          title={tooltipTitle}
+          tooltipProps={tooltipProps}
           enabledEllipsis={mergedEnableEllipsis}
           isEllipsis={isMergedEllipsis}
-          tooltipProps={ellipsisConfig.tooltipProps}
         >
           <Typography
             className={classNames(
