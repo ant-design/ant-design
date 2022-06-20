@@ -1,5 +1,6 @@
 // deps-lint-skip-all
 import {
+  initMoveMotion,
   initSlideMotion,
   slideDownIn,
   slideDownOut,
@@ -404,7 +405,12 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
     },
 
     // Follow code may reuse in other components
-    [initSlideMotion(token, 'slide-up'), initSlideMotion(token, 'slide-down')],
+    [
+      initSlideMotion(token, 'slide-up'),
+      initSlideMotion(token, 'slide-down'),
+      initMoveMotion(token, 'move-up'),
+      initMoveMotion(token, 'move-down'),
+    ],
   ];
 };
 

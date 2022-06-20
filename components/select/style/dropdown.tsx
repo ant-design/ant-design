@@ -1,6 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { SelectToken } from '.';
 import {
+  initMoveMotion,
   initSlideMotion,
   slideDownIn,
   slideDownOut,
@@ -155,6 +156,8 @@ const genSingleStyle: GenerateStyle<SelectToken> = token => {
     // Follow code may reuse in other components
     initSlideMotion(token, 'slide-up'),
     initSlideMotion(token, 'slide-down'),
+    initMoveMotion(token, 'move-up'),
+    initMoveMotion(token, 'move-down'),
   ];
 };
 
