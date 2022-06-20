@@ -46,7 +46,7 @@ function box(position: React.CSSProperties['position']): React.CSSProperties {
 }
 
 export const genModalMaskStyle: GenerateStyle<TokenWithCommonCls<AliasToken>> = token => {
-  const { componentCls, antCls } = token;
+  const { componentCls } = token;
 
   return [
     {
