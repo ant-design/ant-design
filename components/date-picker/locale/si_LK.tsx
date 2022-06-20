@@ -1,5 +1,5 @@
-import CalendarLocale from 'rc-picker/lib/locale/en_US';
-import TimePickerLocale from '../../time-picker/locale/en_US';
+import CalendarLocale from 'rc-picker/lib/locale/si_LK';
+import TimePickerLocale from '../../time-picker/locale/si_LK';
 import type { PickerLocale } from '../generatePicker';
 
 // Merge into a locale object
