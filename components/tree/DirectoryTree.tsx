@@ -203,7 +203,9 @@ const ForwardDirectoryTree = React.forwardRef(
   DirectoryTree,
 ) as unknown as DirectoryTreeCompoundedComponent;
 
-ForwardDirectoryTree.displayName = 'DirectoryTree';
+if (process.env.NODE_ENV !== 'production') {
+  ForwardDirectoryTree.displayName = 'DirectoryTree';
+}
 
 ForwardDirectoryTree.defaultProps = {
   showIcon: true,
