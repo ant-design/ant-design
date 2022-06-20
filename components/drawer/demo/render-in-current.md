@@ -13,11 +13,12 @@ title:
 
 Render in current dom. custom container, check `getContainer`.
 
-```jsx
-import { Drawer, Button } from 'antd';
+```tsx
+import { Button, Drawer } from 'antd';
+import React, { useState } from 'react';
 
-export default () => {
-  const [visible, setVisible] = React.useState(false);
+const App: React.FC = () => {
+  const [visible, setVisible] = useState(false);
 
   const showDrawer = () => {
     setVisible(true);
@@ -49,6 +50,8 @@ export default () => {
     </div>
   );
 };
+
+export default App;
 ```
 
 ```css

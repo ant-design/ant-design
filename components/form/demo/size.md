@@ -14,27 +14,29 @@ title:
 Set component size, only works for antd components.
 
 ```tsx
-import React, { useState } from 'react';
 import {
-  Form,
-  Input,
   Button,
-  Radio,
-  Select,
   Cascader,
   DatePicker,
+  Form,
+  Input,
   InputNumber,
-  TreeSelect,
+  Radio,
+  Select,
   Switch,
+  TreeSelect,
 } from 'antd';
+import React, { useState } from 'react';
 
 type SizeType = Parameters<typeof Form>[0]['size'];
 
-const FormSizeDemo = () => {
+const App: React.FC = () => {
   const [componentSize, setComponentSize] = useState<SizeType | 'default'>('default');
+
   const onFormLayoutChange = ({ size }: { size: SizeType }) => {
     setComponentSize(size);
   };
+
   return (
     <Form
       labelCol={{ span: 4 }}
@@ -98,5 +100,5 @@ const FormSizeDemo = () => {
   );
 };
 
-export default () => <FormSizeDemo />;
+export default App;
 ```

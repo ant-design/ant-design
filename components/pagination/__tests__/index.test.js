@@ -1,10 +1,10 @@
-import React from 'react';
 import { mount } from 'enzyme';
+import React from 'react';
 import Pagination from '..';
-import Select from '../../select';
-import ConfigProvider from '../../config-provider';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import ConfigProvider from '../../config-provider';
+import Select from '../../select';
 
 describe('Pagination', () => {
   mountTest(Pagination);
@@ -26,7 +26,7 @@ describe('Pagination', () => {
 
   it('should autometically be small when size is not specified', async () => {
     const wrapper = mount(<Pagination responsive />);
-    expect(wrapper.find('ul').at(0).hasClass('mini')).toBe(true);
+    expect(wrapper.find('ul').at(0).hasClass('ant-pagination-mini')).toBe(true);
   });
 
   // https://github.com/ant-design/ant-design/issues/24913

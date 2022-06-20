@@ -25,11 +25,34 @@ Setting `rowSelection.preserveSelectedRowKeys` to keep the `key` when enable sel
 
 **Note, this example use [Mock API](https://randomuser.me) that you can look up in Network Console.**
 
-```jsx
+```tsx
 import { Table } from 'antd';
+import type { ColumnsType, TablePaginationConfig } from 'antd/lib/table';
+import type { FilterValue, SorterResult } from 'antd/lib/table/interface';
 import qs from 'qs';
+import React, { useEffect, useState } from 'react';
 
-const columns = [
+interface DataType {
+  name: {
+    first: string;
+    last: string;
+  };
+  gender: string;
+  email: string;
+  login: {
+    uuid: string;
+  };
+}
+
+interface Params {
+  pagination?: TablePaginationConfig;
+  sorter?: SorterResult<any> | SorterResult<any>[];
+  total?: number;
+  sortField?: string;
+  sortOrder?: string;
+}
+
+const columns: ColumnsType<DataType> = [
   {
     title: 'Name',
     dataIndex: 'name',
@@ -52,69 +75,64 @@ const columns = [
   },
 ];
 
-const getRandomuserParams = params => ({
-  results: params.pagination.pageSize,
-  page: params.pagination.current,
+const getRandomuserParams = (params: Params) => ({
+  results: params.pagination?.pageSize,
+  page: params.pagination?.current,
   ...params,
 });
 
-class App extends React.Component {
-  state = {
-    data: [],
-    pagination: {
-      current: 1,
-      pageSize: 10,
-    },
-    loading: false,
-  };
+const App: React.FC = () => {
+  const [data, setData] = useState();
+  const [loading, setLoading] = useState(false);
+  const [pagination, setPagination] = useState<TablePaginationConfig>({
+    current: 1,
+    pageSize: 10,
+  });
 
-  componentDidMount() {
-    const { pagination } = this.state;
-    this.fetch({ pagination });
-  }
-
-  handleTableChange = (pagination, filters, sorter) => {
-    this.fetch({
-      sortField: sorter.field,
-      sortOrder: sorter.order,
-      pagination,
-      ...filters,
-    });
-  };
-
-  fetch = (params = {}) => {
-    this.setState({ loading: true });
+  const fetchData = (params: Params = {}) => {
+    setLoading(true);
     fetch(`https://randomuser.me/api?${qs.stringify(getRandomuserParams(params))}`)
       .then(res => res.json())
-      .then(data => {
-        console.log(data);
-        this.setState({
-          loading: false,
-          data: data.results,
-          pagination: {
-            ...params.pagination,
-            total: 200,
-            // 200 is mock data, you should read it from server
-            // total: data.totalCount,
-          },
+      .then(({ results }) => {
+        setData(results);
+        setLoading(false);
+        setPagination({
+          ...params.pagination,
+          total: 200,
+          // 200 is mock data, you should read it from server
+          // total: data.totalCount,
         });
       });
   };
 
-  render() {
-    const { data, pagination, loading } = this.state;
-    return (
-      <Table
-        columns={columns}
-        rowKey={record => record.login.uuid}
-        dataSource={data}
-        pagination={pagination}
-        loading={loading}
-        onChange={this.handleTableChange}
-      />
-    );
-  }
-}
+  useEffect(() => {
+    fetchData({ pagination });
+  }, []);
+
+  const handleTableChange = (
+    newPagination: TablePaginationConfig,
+    filters: Record<string, FilterValue>,
+    sorter: SorterResult<DataType>,
+  ) => {
+    fetchData({
+      sortField: sorter.field as string,
+      sortOrder: sorter.order as string,
+      pagination: newPagination,
+      ...filters,
+    });
+  };
+
+  return (
+    <Table
+      columns={columns}
+      rowKey={record => record.login.uuid}
+      dataSource={data}
+      pagination={pagination}
+      loading={loading}
+      onChange={handleTableChange}
+    />
+  );
+};
 
 export default App;
 ```

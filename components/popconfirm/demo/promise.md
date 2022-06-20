@@ -14,13 +14,14 @@ title:
 
 Asynchronously close a popconfirm when the OK button is pressed. For example, you can use this pattern when you submit a form.
 
-```jsx
+```tsx
 import { Button, Popconfirm } from 'antd';
+import React from 'react';
 
-const App = () => {
+const App: React.FC = () => {
   const confirm = () =>
     new Promise(resolve => {
-      setTimeout(() => resolve(), 3000);
+      setTimeout(() => resolve(null), 3000);
     });
 
   return (

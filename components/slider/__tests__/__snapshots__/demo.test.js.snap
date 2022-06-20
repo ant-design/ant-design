@@ -250,11 +250,9 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
 <div>
   <div
     class="ant-row"
-    role="row"
   >
     <div
       class="ant-col ant-col-12"
-      role="cell"
     >
       <div
         class="ant-slider ant-slider-horizontal"
@@ -283,7 +281,6 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
     </div>
     <div
       class="ant-col ant-col-4"
-      role="cell"
     >
       <div
         class="ant-input-number"
@@ -366,11 +363,9 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
   </div>
   <div
     class="ant-row"
-    role="row"
   >
     <div
       class="ant-col ant-col-12"
-      role="cell"
     >
       <div
         class="ant-slider ant-slider-horizontal"
@@ -399,7 +394,6 @@ exports[`renders ./components/slider/demo/input-number.md correctly 1`] = `
     </div>
     <div
       class="ant-col ant-col-4"
-      role="cell"
     >
       <div
         class="ant-input-number"

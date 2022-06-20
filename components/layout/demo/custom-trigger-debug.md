@@ -11,17 +11,18 @@ debug: true
 修改内容前，请尝试此 Demo 查看样式是否抖动。
 
 ```tsx
-import type { MenuProps } from 'antd';
-import { Layout, Menu } from 'antd';
 import {
+  DesktopOutlined,
+  FileOutlined,
+  MenuFoldOutlined,
+  MenuUnfoldOutlined,
+  PieChartOutlined,
   TeamOutlined,
   UserOutlined,
-  FileOutlined,
-  DesktopOutlined,
-  PieChartOutlined,
-  MenuUnfoldOutlined,
-  MenuFoldOutlined,
 } from '@ant-design/icons';
+import type { MenuProps } from 'antd';
+import { Layout, Menu } from 'antd';
+import React, { useState } from 'react';
 
 const { Header, Sider, Content } = Layout;
 
@@ -76,54 +77,44 @@ const items: MenuProps['items'] = [
   },
 ];
 
-class SiderDemo extends React.Component {
-  state = {
-    collapsed: true,
-  };
+const App: React.FC = () => {
+  const [collapsed, setCollapsed] = useState(true);
 
-  toggle = () => {
-    this.setState({
-      collapsed: !this.state.collapsed,
-    });
-  };
-
-  render() {
-    return (
+  return (
+    <Layout>
+      <Sider trigger={null} collapsible collapsed={collapsed}>
+        <div className="logo" />
+        <Menu
+          theme="dark"
+          mode="inline"
+          defaultSelectedKeys={['3']}
+          defaultOpenKeys={['sub1']}
+          items={items}
+        />
+      </Sider>
       <Layout>
-        <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
-          <div className="logo" />
-          <Menu
-            theme="dark"
-            mode="inline"
-            defaultSelectedKeys={['3']}
-            defaultOpenKeys={['sub1']}
-            items={items}
-          />
-        </Sider>
-        <Layout>
-          <Header className="site-layout-background" style={{ padding: 0 }}>
-            {React.createElement(this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
-              className: 'trigger',
-              onClick: this.toggle,
-            })}
-          </Header>
-          <Content
-            className="site-layout-background"
-            style={{
-              margin: '24px 16px',
-              padding: 24,
-              minHeight: 280,
-            }}
-          >
-            Content
-          </Content>
-        </Layout>
+        <Header className="site-layout-background" style={{ padding: 0 }}>
+          {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
+            className: 'trigger',
+            onClick: () => setCollapsed(!collapsed),
+          })}
+        </Header>
+        <Content
+          className="site-layout-background"
+          style={{
+            margin: '24px 16px',
+            padding: 24,
+            minHeight: 280,
+          }}
+        >
+          Content
+        </Content>
       </Layout>
-    );
-  }
-}
+    </Layout>
+  );
+};
 
-export default () => <SiderDemo />;
+export default App;
 ```
 
 ```css

@@ -29,10 +29,19 @@ Uses `defaultSortOrder` to make a column sorted by default.
 
 If a `sortOrder` or `defaultSortOrder` is specified with the value `ascend` or `descend`, you can access this value from within the function passed to the `sorter` as explained above. Such a function can take the form: `function(a, b, sortOrder) { ... }`.
 
-```jsx
+```tsx
 import { Table } from 'antd';
+import type { ColumnsType, TableProps } from 'antd/lib/table';
+import React from 'react';
 
-const columns = [
+interface DataType {
+  key: React.Key;
+  name: string;
+  age: number;
+  address: string;
+}
+
+const columns: ColumnsType<DataType> = [
   {
     title: 'Name',
     dataIndex: 'name',
@@ -62,7 +71,7 @@ const columns = [
     ],
     // specify the condition of filtering result
     // here is that finding the name started with `value`
-    onFilter: (value, record) => record.name.indexOf(value) === 0,
+    onFilter: (value: string, record) => record.name.indexOf(value) === 0,
     sorter: (a, b) => a.name.length - b.name.length,
     sortDirections: ['descend'],
   },
@@ -85,7 +94,7 @@ const columns = [
         value: 'New York',
       },
     ],
-    onFilter: (value, record) => record.address.indexOf(value) === 0,
+    onFilter: (value: string, record) => record.address.indexOf(value) === 0,
   },
 ];
 
@@ -116,9 +125,11 @@ const data = [
   },
 ];
 
-function onChange(pagination, filters, sorter, extra) {
+const onChange: TableProps<DataType>['onChange'] = (pagination, filters, sorter, extra) => {
   console.log('params', pagination, filters, sorter, extra);
-}
+};
 
-export default () => <Table columns={columns} dataSource={data} onChange={onChange} />;
+const App: React.FC = () => <Table columns={columns} dataSource={data} onChange={onChange} />;
+
+export default App;
 ```

@@ -233,12 +233,10 @@ exports[`renders ./components/card/demo/in-column.md extend context correctly 1`
 >
   <div
     class="ant-row"
-    role="row"
     style="margin-left:-8px;margin-right:-8px"
   >
     <div
       class="ant-col ant-col-8"
-      role="cell"
       style="padding-left:8px;padding-right:8px"
     >
       <div
@@ -266,7 +264,6 @@ exports[`renders ./components/card/demo/in-column.md extend context correctly 1`
     </div>
     <div
       class="ant-col ant-col-8"
-      role="cell"
       style="padding-left:8px;padding-right:8px"
     >
       <div
@@ -294,7 +291,6 @@ exports[`renders ./components/card/demo/in-column.md extend context correctly 1`
     </div>
     <div
       class="ant-col ant-col-8"
-      role="cell"
       style="padding-left:8px;padding-right:8px"
     >
       <div
@@ -434,127 +430,21 @@ Array [
       class="ant-card-body"
     >
       <div
-        class="ant-card-loading-content"
+        class="ant-skeleton ant-skeleton-active"
       >
         <div
-          class="ant-row"
-          role="row"
-          style="margin-left:-4px;margin-right:-4px"
+          class="ant-skeleton-content"
         >
-          <div
-            class="ant-col ant-col-22"
-            role="cell"
-            style="padding-left:4px;padding-right:4px"
+          <ul
+            class="ant-skeleton-paragraph"
           >
-            <div
-              class="ant-card-loading-block"
+            <li />
+            <li />
+            <li />
+            <li
+              style="width:61%"
             />
-          </div>
-        </div>
-        <div
-          class="ant-row"
-          role="row"
-          style="margin-left:-4px;margin-right:-4px"
-        >
-          <div
-            class="ant-col ant-col-8"
-            role="cell"
-            style="padding-left:4px;padding-right:4px"
-          >
-            <div
-              class="ant-card-loading-block"
-            />
-          </div>
-          <div
-            class="ant-col ant-col-15"
-            role="cell"
-            style="padding-left:4px;padding-right:4px"
-          >
-            <div
-              class="ant-card-loading-block"
-            />
-          </div>
-        </div>
-        <div
-          class="ant-row"
-          role="row"
-          style="margin-left:-4px;margin-right:-4px"
-        >
-          <div
-            class="ant-col ant-col-6"
-            role="cell"
-            style="padding-left:4px;padding-right:4px"
-          >
-            <div
-              class="ant-card-loading-block"
-            />
-          </div>
-          <div
-            class="ant-col ant-col-18"
-            role="cell"
-            style="padding-left:4px;padding-right:4px"
-          >
-            <div
-              class="ant-card-loading-block"
-            />
-          </div>
-        </div>
-        <div
-          class="ant-row"
-          role="row"
-          style="margin-left:-4px;margin-right:-4px"
-        >
-          <div
-            class="ant-col ant-col-13"
-            role="cell"
-            style="padding-left:4px;padding-right:4px"
-          >
-            <div
-              class="ant-card-loading-block"
-            />
-          </div>
-          <div
-            class="ant-col ant-col-9"
-            role="cell"
-            style="padding-left:4px;padding-right:4px"
-          >
-            <div
-              class="ant-card-loading-block"
-            />
-          </div>
-        </div>
-        <div
-          class="ant-row"
-          role="row"
-          style="margin-left:-4px;margin-right:-4px"
-        >
-          <div
-            class="ant-col ant-col-4"
-            role="cell"
-            style="padding-left:4px;padding-right:4px"
-          >
-            <div
-              class="ant-card-loading-block"
-            />
-          </div>
-          <div
-            class="ant-col ant-col-3"
-            role="cell"
-            style="padding-left:4px;padding-right:4px"
-          >
-            <div
-              class="ant-card-loading-block"
-            />
-          </div>
-          <div
-            class="ant-col ant-col-16"
-            role="cell"
-            style="padding-left:4px;padding-right:4px"
-          >
-            <div
-              class="ant-card-loading-block"
-            />
-          </div>
+          </ul>
         </div>
       </div>
     </div>
@@ -936,7 +826,6 @@ Array [
                 <ul
                   aria-label="expanded dropdown"
                   class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
-                  data-dropdown-inject="true"
                   data-menu-list="true"
                   id="null-more-popup"
                   role="listbox"
@@ -1090,7 +979,6 @@ Array [
                 <ul
                   aria-label="expanded dropdown"
                   class="ant-tabs-dropdown-menu ant-tabs-dropdown-menu-root ant-tabs-dropdown-menu-vertical"
-                  data-dropdown-inject="true"
                   data-menu-list="true"
                   id="null-more-popup"
                   role="listbox"

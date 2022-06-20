@@ -16,8 +16,9 @@ debug: true
 
 ```tsx
 import { Avatar } from 'antd';
+import React from 'react';
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Avatar shape="circle" src="http://abc.com/not-exist.jpg">
       A
@@ -27,4 +28,6 @@ export default () => (
     </Avatar>
   </>
 );
+
+export default App;
 ```
