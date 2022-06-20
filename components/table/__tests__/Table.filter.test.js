@@ -2514,6 +2514,12 @@ describe('Table.filter', () => {
 
     // Leave & Enter
     fireEvent.mouseLeave(container.querySelectorAll('.ant-dropdown-menu-submenu-title')[0]);
+
+    // zombieJ: This will not same as the real behavior
+    act(() => {
+      jest.runAllTimers();
+    });
+
     fireEvent.mouseEnter(container.querySelectorAll('.ant-dropdown-menu-submenu-title')[1]);
 
     act(() => {
