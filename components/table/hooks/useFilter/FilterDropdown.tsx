@@ -185,8 +185,10 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
   // ====================== Open Keys ======================
   const [openKeys, setOpenKeys] = React.useState<string[]>([]);
   const onOpenChange = (keys: string[]) => {
+    console.log('Set Open:', keys);
     setOpenKeys(keys);
   };
+  console.log('openKeys:', openKeys);
 
   // search in tree mode column filter
   const [searchValue, setSearchValue] = React.useState('');
