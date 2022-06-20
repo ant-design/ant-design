@@ -74,6 +74,58 @@ describe('Table.filter', () => {
     jest.useRealTimers();
   });
 
+  it('multiple sub menu', () => {
+    const { container } = render(
+      <Table
+        columns={[
+          {
+            title: 'Name',
+            dataIndex: 'name',
+            filters: [
+              {
+                text: '1',
+                value: '1',
+                children: [{ text: '1-1', value: '1-1' }],
+              },
+              {
+                text: '2',
+                value: '2',
+                children: [{ text: '2-1', value: '2-1' }],
+              },
+            ],
+            onFilter: filterFn,
+          },
+        ]}
+        dataSource={data}
+      />,
+    );
+
+    expect(container.querySelectorAll('.ant-dropdown-menu-submenu-open')).toHaveLength(0);
+    fireEvent.click(container.querySelector('.ant-dropdown-trigger'));
+
+    // Enter
+    fireEvent.mouseEnter(container.querySelectorAll('.ant-dropdown-menu-submenu-title')[0]);
+    act(() => {
+      jest.runAllTimers();
+    });
+    expect(container.querySelectorAll('.ant-dropdown-menu-submenu-open')).toHaveLength(1);
+
+    // Leave & Enter
+    fireEvent.mouseLeave(container.querySelectorAll('.ant-dropdown-menu-submenu-title')[0]);
+
+    // zombieJ: This will not same as the real behavior
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    fireEvent.mouseEnter(container.querySelectorAll('.ant-dropdown-menu-submenu-title')[1]);
+
+    act(() => {
+      jest.runAllTimers();
+    });
+    expect(container.querySelectorAll('.ant-dropdown-menu-submenu-open')).toHaveLength(1);
+  });
+
   it('not show filter icon when undefined', () => {
     const noFilterColumn = { ...column, filters: undefined };
     delete noFilterColumn.onFilter;
@@ -2473,58 +2525,5 @@ describe('Table.filter', () => {
     expect(
       container.querySelector('.ant-table-filter-dropdown-btns .ant-btn-link').disabled,
     ).toBeTruthy();
-  });
-
-  it('multiple sub menu', () => {
-    jest.spyOn(console, 'error').mockImplementation(() => {});
-
-    const { container } = render(
-      <Table
-        columns={[
-          {
-            title: 'Name',
-            dataIndex: 'name',
-            filters: [
-              {
-                text: '1',
-                value: '1',
-                children: [{ text: '1-1', value: '1-1' }],
-              },
-              {
-                text: '2',
-                value: '2',
-                children: [{ text: '2-1', value: '2-1' }],
-              },
-            ],
-            onFilter: filterFn,
-          },
-        ]}
-        dataSource={data}
-      />,
-    );
-
-    fireEvent.click(container.querySelector('.ant-dropdown-trigger'));
-
-    // Enter
-    fireEvent.mouseEnter(container.querySelectorAll('.ant-dropdown-menu-submenu-title')[0]);
-    act(() => {
-      jest.runAllTimers();
-    });
-    expect(container.querySelectorAll('.ant-dropdown-menu-submenu-open')).toHaveLength(1);
-
-    // Leave & Enter
-    fireEvent.mouseLeave(container.querySelectorAll('.ant-dropdown-menu-submenu-title')[0]);
-
-    // zombieJ: This will not same as the real behavior
-    act(() => {
-      jest.runAllTimers();
-    });
-
-    fireEvent.mouseEnter(container.querySelectorAll('.ant-dropdown-menu-submenu-title')[1]);
-
-    act(() => {
-      jest.runAllTimers();
-    });
-    expect(container.querySelectorAll('.ant-dropdown-menu-submenu-open')).toHaveLength(1);
   });
 });
