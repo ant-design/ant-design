@@ -311,12 +311,10 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
 
   // ========================== Tooltip ===========================
   let tooltipProps: TooltipProps = {};
-  if (ellipsisConfig.tooltip === true) {
-    tooltipProps = { title: children };
-  } else if (typeof ellipsisConfig.tooltip === 'object') {
+  if (typeof ellipsisConfig.tooltip === 'object') {
     tooltipProps = { title: children, ...ellipsisConfig.tooltip };
   } else {
-    tooltipProps = { title: ellipsisConfig.tooltip };
+    tooltipProps = { title: ellipsisConfig.tooltip === true ? children : ellipsisConfig.tooltip };
   }
   const topAriaLabel = React.useMemo(() => {
     const isValid = (val: any) => ['string', 'number'].includes(typeof val);
