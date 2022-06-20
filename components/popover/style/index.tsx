@@ -1,4 +1,5 @@
 // deps-lint-skip-all
+import { initZoomMotion } from '../../style/motion';
 import type { FullToken, GenerateStyle, PresetColorType } from '../../_util/theme';
 import {
   genComponentStyleHook,
@@ -134,7 +135,11 @@ export default genComponentStyleHook(
       popoverPaddingHorizontal: token.padding,
     });
 
-    return [genBaseStyle(popoverToken), genColorStyle(popoverToken)];
+    return [
+      genBaseStyle(popoverToken),
+      genColorStyle(popoverToken),
+      initZoomMotion(popoverToken, 'zoom-big'),
+    ];
   },
   ({ zIndexPopupBase }) => ({
     zIndexPopup: zIndexPopupBase + 30,

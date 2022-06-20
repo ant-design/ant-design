@@ -183,6 +183,7 @@ const seedToken: SeedToken = {
   // Motion
   motionUnit: 0.1,
   motionBase: 0,
+  motionEaseOutCirc: `cubic-bezier(0.08, 0.82, 0.17, 1)`,
   motionEaseInOutCirc: `cubic-bezier(0.78, 0.14, 0.15, 0.86)`,
   motionEaseInOut: `cubic-bezier(0.645, 0.045, 0.355, 1)`,
   motionEaseOutBack: `cubic-bezier(0.12, 0.4, 0.29, 1.46)`,

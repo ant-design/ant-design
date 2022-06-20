@@ -1,6 +1,7 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
+import { initZoomMotion } from '../../style/motion';
 import type {
   FullToken,
   GenerateStyle,
@@ -130,7 +131,7 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         tooltipBg: colorBgDefault,
       });
 
-      return [genTooltipStyle(TooltipToken)];
+      return [genTooltipStyle(TooltipToken), initZoomMotion(token, 'zoom-big-fast')];
     },
     ({ zIndexPopupBase }) => ({
       zIndexPopup: zIndexPopupBase + 70,
