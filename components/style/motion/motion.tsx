@@ -19,9 +19,9 @@ export const initMotion = (
   duration: string,
 ): CSSObject => ({
   [`
-      ${motionCls}-enter,
-      ${motionCls}-appear
-    `]: {
+    ${motionCls}-enter,
+    ${motionCls}-appear
+  `]: {
     ...initMotionCommon(duration),
     animationPlayState: 'paused',
   },
@@ -32,9 +32,9 @@ export const initMotion = (
   },
 
   [`
-      ${motionCls}-enter${motionCls}-enter-active,
-      ${motionCls}-appear${motionCls}-appear-active
-    `]: {
+    ${motionCls}-enter${motionCls}-enter-active,
+    ${motionCls}-appear${motionCls}-appear-active
+  `]: {
     animationName: inKeyframes,
     animationPlayState: 'running',
   },

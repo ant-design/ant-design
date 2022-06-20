@@ -1,6 +1,7 @@
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
-import type { DerivativeToken } from '../../_util/theme';
+import type { TokenWithCommonCls } from 'antd/es/_util/theme/util/genComponentStyleHook';
+import type { AliasToken } from '../../_util/theme';
 import { initMotion } from './motion';
 
 export const zoomIn = new Keyframes('antZoomIn', {
@@ -182,10 +183,10 @@ const zoomMotion: Record<ZoomMotionTypes, { inKeyframes: Keyframes; outKeyframes
 };
 
 export const initZoomMotion = (
-  antCls: string,
+  token: TokenWithCommonCls<AliasToken>,
   motionName: ZoomMotionTypes,
-  token: DerivativeToken,
 ): CSSInterpolation => {
+  const { antCls } = token;
   const motionCls = `${antCls}-${motionName}`;
   const { inKeyframes, outKeyframes } = zoomMotion[motionName];
 
