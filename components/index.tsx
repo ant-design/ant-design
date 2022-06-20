@@ -228,8 +228,7 @@ export { default as Tooltip } from './tooltip';
 export type { TypographyProps } from './typography';
 export { default as Typography } from './typography';
 
-export type { UploadProps } from './upload';
-
+export type { UploadProps, UploadFile } from './upload';
 export { default as Upload } from './upload';
 
 export { default as version } from './version';
