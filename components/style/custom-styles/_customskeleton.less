@@ -80,6 +80,62 @@
   }
 }
 
+.gridskeletonfix {
+  border: solid 1px #f3f3f3ff;
+  .th {
+    width: 100%;
+    background: #f3f3f3ff;
+    div {
+      display: inline-block;
+      width: 18%;
+      height: 20px;
+      margin: 10px;
+      span {
+        width: 60px;
+      }
+    }
+    span {
+      display: inline-block;
+      width: 20px;
+      height: 15px;
+      padding: 0;
+      font-size: 0;
+      vertical-align: top;
+      background-image: linear-gradient(90deg, #ddd 0px, #e8e8e8 40px, #ddd 80px);
+      background-size: 600px;
+      border: 0;
+      border-radius: 3px !important;
+      animation: shine-lines 1.6s infinite linear;
+    }
+  }
+  .td {
+    width: 100%;
+    box-shadow: inset 0px -1px 0px #e5e7eb;
+    div {
+      display: inline-block;
+      width: 18%;
+      height: 15px;
+      margin: 10px;
+      span {
+        width: 80px;
+      }
+    }
+    span {
+      display: inline-block;
+      width: 100px;
+      height: 12px;
+      padding: 0;
+      font-size: 0;
+      vertical-align: top;
+      background-image: linear-gradient(90deg, #ddd 0px, #e8e8e8 40px, #ddd 80px);
+      background-size: 600px;
+      border: 0;
+      border-radius: 3px !important;
+      animation: shine-lines 1.6s infinite linear;
+    }
+  }
+}
+
 .post .avatar + .line {
   width: 100px;
   margin-top: 11px;
