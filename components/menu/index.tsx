@@ -1,28 +1,30 @@
-import * as React from 'react';
+import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
+import classNames from 'classnames';
 import type { MenuProps as RcMenuProps, MenuRef } from 'rc-menu';
 import RcMenu, { ItemGroup } from 'rc-menu';
-import classNames from 'classnames';
+import useEvent from 'rc-util/lib/hooks/useEvent';
 import omit from 'rc-util/lib/omit';
-import EllipsisOutlined from '@ant-design/icons/EllipsisOutlined';
+import * as React from 'react';
 import { forwardRef } from 'react';
-import SubMenu, { SubMenuProps } from './SubMenu';
-import Item, { MenuItemProps } from './MenuItem';
 import { ConfigContext } from '../config-provider';
-import warning from '../_util/warning';
 import type { SiderContextProps } from '../layout/Sider';
 import { SiderContext } from '../layout/Sider';
 import collapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
-import MenuContext, { MenuTheme } from './MenuContext';
-import MenuDivider from './MenuDivider';
+import warning from '../_util/warning';
 import type { ItemType } from './hooks/useItems';
 import useItems from './hooks/useItems';
+import MenuContext, { MenuTheme } from './MenuContext';
+import MenuDivider from './MenuDivider';
+import Item, { MenuItemProps } from './MenuItem';
 import OverrideContext from './OverrideContext';
+import SubMenu, { SubMenuProps } from './SubMenu';
+
 import useStyle from './style';
 
-export { MenuDividerProps } from './MenuDivider';
-
 export { MenuItemGroupProps } from 'rc-menu';
+export { MenuDividerProps } from './MenuDivider';
+export { MenuTheme, SubMenuProps, MenuItemProps };
 
 export type MenuMode = 'vertical' | 'vertical-left' | 'vertical-right' | 'horizontal' | 'inline';
 
@@ -46,8 +48,9 @@ type InternalMenuProps = MenuProps &
   };
 
 const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
-  const override = React.useContext(OverrideContext);
+  const override = React.useContext(OverrideContext) || {};
   const overrideObj = override || {};
+
   const { getPrefixCls, getPopupContainer, direction } = React.useContext(ConfigContext);
 
   const rootPrefixCls = getPrefixCls();
@@ -65,6 +68,7 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
     rootClassName,
     mode,
     selectable,
+    onClick,
     ...restProps
   } = props;
 
@@ -93,6 +97,13 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
   );
 
   overrideObj.validator?.({ mode });
+
+  // ========================== Click ==========================
+  // Tell dropdown that item clicked
+  const onItemClick = useEvent<Required<MenuProps>['onClick']>((...args) => {
+    onClick?.(...args);
+    override?.onClick?.();
+  });
 
   // ========================== Mode ===========================
   const mergedMode = overrideObj.mode || mode;
@@ -152,6 +163,7 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
           overflowedIndicatorPopupClassName={`${prefixCls}-${theme}`}
           mode={mergedMode}
           selectable={mergedSelectable}
+          onClick={onItemClick}
           {...passedProps}
           inlineCollapsed={mergedInlineCollapsed}
           className={menuClassName}
@@ -201,7 +213,5 @@ class Menu extends React.Component<MenuProps, {}> {
     );
   }
 }
-
-export { MenuTheme, SubMenuProps, MenuItemProps };
 
 export default Menu;
