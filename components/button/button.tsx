@@ -1,18 +1,18 @@
 /* eslint-disable react/button-has-type */
-import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
+import * as React from 'react';
 
-import Group, { GroupSizeContext } from './button-group';
 import { ConfigContext } from '../config-provider';
-import Wave from '../_util/wave';
-import { tuple } from '../_util/type';
-import warning from '../_util/warning';
+import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
-import DisabledContext from '../config-provider/DisabledContext';
-import LoadingIcon from './LoadingIcon';
 import { cloneElement } from '../_util/reactNode';
+import { tuple } from '../_util/type';
+import warning from '../_util/warning';
+import Wave from '../_util/wave';
+import Group, { GroupSizeContext } from './button-group';
+import LoadingIcon from './LoadingIcon';
 
 const rxTwoCNChar = /^[\u4e00-\u9fa5]{2}$/;
 const isTwoCNChar = rxTwoCNChar.test.bind(rxTwoCNChar);
@@ -310,8 +310,9 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
 };
 
 const Button = React.forwardRef<unknown, ButtonProps>(InternalButton) as CompoundedComponent;
-
-Button.displayName = 'Button';
+if (process.env.NODE_ENV !== 'production') {
+  Button.displayName = 'Button';
+}
 
 Button.Group = Group;
 Button.__ANT_BUTTON = true;

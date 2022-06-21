@@ -330,7 +330,8 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
     );
   },
 );
-
-Drawer.displayName = 'Drawer';
+if (process.env.NODE_ENV !== 'production') {
+  Drawer.displayName = 'Drawer';
+}
 
 export default Drawer;
