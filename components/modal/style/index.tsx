@@ -1,7 +1,7 @@
 // deps-lint-skip-all
-import type { CSSObject } from '@ant-design/cssinjs';
 import type { TokenWithCommonCls } from 'antd/es/_util/theme/util/genComponentStyleHook';
 import type React from 'react';
+import { initFadeMotion, initZoomMotion } from '../../style/motion';
 import type { AliasToken, FullToken, GenerateStyle } from '../../_util/theme';
 import { clearFix, genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
 
@@ -45,36 +45,43 @@ function box(position: React.CSSProperties['position']): React.CSSProperties {
   };
 }
 
-export function modalMask(componentCls: string, token: TokenWithCommonCls<AliasToken>): CSSObject {
-  return {
-    [`${componentCls}${token.antCls}-zoom-enter, ${componentCls}${token.antCls}-zoom-appear`]: {
-      // reset scale avoid mousePosition bug
-      transform: 'none',
-      opacity: 0,
-      animationDuration: token.motionDurationSlow,
-      // https://github.com/ant-design/ant-design/issues/11777
-      userSelect: 'none',
-    },
+export const genModalMaskStyle: GenerateStyle<TokenWithCommonCls<AliasToken>> = token => {
+  const { componentCls } = token;
 
-    [`${componentCls}-mask`]: {
-      ...box('fixed'),
-      zIndex: token.zIndexPopupBase,
-      height: '100%',
-      backgroundColor: token.colorPopupBg,
+  return [
+    {
+      [`${componentCls}-root`]: {
+        [`${componentCls}${token.antCls}-zoom-enter, ${componentCls}${token.antCls}-zoom-appear`]: {
+          // reset scale avoid mousePosition bug
+          transform: 'none',
+          opacity: 0,
+          animationDuration: token.motionDurationSlow,
+          // https://github.com/ant-design/ant-design/issues/11777
+          userSelect: 'none',
+        },
 
-      [`${componentCls}-hidden`]: {
-        display: 'none',
+        [`${componentCls}-mask`]: {
+          ...box('fixed'),
+          zIndex: token.zIndexPopupBase,
+          height: '100%',
+          backgroundColor: token.controlMaskBg,
+
+          [`${componentCls}-hidden`]: {
+            display: 'none',
+          },
+        },
+
+        [`${componentCls}-wrap`]: {
+          ...box('fixed'),
+          overflow: 'auto',
+          outline: 0,
+          WebkitOverflowScrolling: 'touch',
+        },
       },
     },
-
-    [`${componentCls}-wrap`]: {
-      ...box('fixed'),
-      overflow: 'auto',
-      outline: 0,
-      WebkitOverflowScrolling: 'touch',
-    },
-  };
-}
+    { [`${componentCls}-root`]: initFadeMotion(token) },
+  ];
+};
 
 const genModalStyle: GenerateStyle<ModalToken> = token => {
   const { componentCls } = token;
@@ -83,8 +90,6 @@ const genModalStyle: GenerateStyle<ModalToken> = token => {
     // ======================== Root =========================
     {
       [`${componentCls}-root`]: {
-        ...modalMask(componentCls, token),
-
         [`${componentCls}-wrap`]: {
           zIndex: token.zIndexPopupBase,
           position: 'fixed',
@@ -347,7 +352,7 @@ export default genComponentStyleHook('Modal', token => {
 
   const modalToken = mergeToken<ModalToken>(token, {
     modalBodyPadding: token.paddingLG,
-    modalHeaderBg: token.colorBgComponent,
+    modalHeaderBg: token.colorBgElevated,
     modalHeaderPadding: `${headerPaddingVertical}px ${token.paddingLG}px`,
     modalHeaderBorderWidth: token.controlLineWidth,
     modalHeaderBorderStyle: token.controlLineType,
@@ -355,7 +360,7 @@ export default genComponentStyleHook('Modal', token => {
     modalHeaderTitleFontSize: headerFontSize,
     modalHeaderBorderColorSplit: token.colorSplit,
     modalHeaderCloseSize: headerLineHeight * headerFontSize + headerPaddingVertical * 2,
-    modalContentBg: token.colorBgComponent,
+    modalContentBg: token.colorBgElevated,
     modalHeadingColor: token.colorTextHeading,
     modalCloseColor: token.colorTextSecondary,
     modalFooterBg: 'transparent',
@@ -368,5 +373,11 @@ export default genComponentStyleHook('Modal', token => {
     modalIconHoverColor: token.colorActionHover,
     modalConfirmIconSize: token.fontSize * token.lineHeight,
   });
-  return [genModalStyle(modalToken), genModalConfirmStyle(modalToken), genRTLStyle(modalToken)];
+  return [
+    genModalStyle(modalToken),
+    genModalConfirmStyle(modalToken),
+    genRTLStyle(modalToken),
+    genModalMaskStyle(modalToken),
+    initZoomMotion(modalToken, 'zoom'),
+  ];
 });

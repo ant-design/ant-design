@@ -4,14 +4,16 @@ import { TinyColor } from '@ctrl/tinycolor';
 import type { FullToken, GenerateStyle } from '../../_util/theme';
 import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
 
-export interface ComponentToken {}
+export interface ComponentToken {
+  // FIXME: need to be removed
+  bgColor: string;
+  bgColorHover: string;
+  bgColorSelected: string;
+  labelColor: string;
+  labelColorHover: string;
+}
 
 interface SegmentedToken extends FullToken<'Segmented'> {
-  segmentedBg: string;
-  segmentedHoverBg: string;
-  segmentedSelectedBg: string;
-  segmentedLabelColor: string;
-  segmentedLabelHoverColor: string;
   segmentedPaddingHorizontal: number;
   segmentedPaddingHorizontalSM: number;
   segmentedContainerPadding: number;
@@ -30,7 +32,7 @@ function segmentedDisabledItem(cls: string, token: SegmentedToken): CSSObject {
 
 function getSegmentedItemSelectedStyle(token: SegmentedToken): CSSObject {
   return {
-    backgroundColor: token.segmentedSelectedBg,
+    backgroundColor: token.bgColorSelected,
     borderRadius: token.controlRadius,
     boxShadow: token.segmentedSelectedItemBoxShadow,
   };
@@ -54,8 +56,8 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
 
       display: 'inline-block',
       padding: token.segmentedContainerPadding,
-      color: token.segmentedLabelColor,
-      backgroundColor: token.segmentedBg,
+      color: token.labelColor,
+      backgroundColor: token.bgColor,
       borderRadius: token.radiusBase,
       transition: `all ${token.motionDurationSlow} ${token.motionEaseInOut}`,
 
@@ -75,7 +77,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
       // hover/focus styles
       [`&:not(${componentCls}-disabled)`]: {
         '&:hover, &:focus': {
-          backgroundColor: token.segmentedHoverBg,
+          backgroundColor: token.bgColorHover,
         },
       },
 
@@ -98,11 +100,11 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
 
         '&-selected': {
           ...getSegmentedItemSelectedStyle(token),
-          color: token.segmentedLabelHoverColor,
+          color: token.labelColorHover,
         },
 
         '&:hover, &:focus': {
-          color: token.segmentedLabelHoverColor,
+          color: token.labelColorHover,
         },
 
         '&-label': {
@@ -168,33 +170,30 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook('Segmented', token => {
-  const {
-    colorBgComponentSecondary,
-    colorBgComponent,
-    colorTextSecondary,
-    colorText,
-    lineWidthBold,
-    controlLineWidth,
-  } = token;
+export default genComponentStyleHook(
+  'Segmented',
+  token => {
+    const { lineWidthBold, controlLineWidth } = token;
 
-  const segmentedSelectedItemBoxShadow = [
-    `0 2px 8px -2px ${new TinyColor('#000').setAlpha(0.05).toRgbString()}`,
-    `0 1px 4px -1px ${new TinyColor('#000').setAlpha(0.07).toRgbString()}`,
-    `0 0 1px 0 ${new TinyColor('#000').setAlpha(0.08).toRgbString()}`,
-  ].join(',');
+    const segmentedSelectedItemBoxShadow = [
+      `0 2px 8px -2px ${new TinyColor('#000').setAlpha(0.05).toRgbString()}`,
+      `0 1px 4px -1px ${new TinyColor('#000').setAlpha(0.07).toRgbString()}`,
+      `0 0 1px 0 ${new TinyColor('#000').setAlpha(0.08).toRgbString()}`,
+    ].join(',');
 
-  const segmentedToken = mergeToken<SegmentedToken>(token, {
-    segmentedSelectedItemBoxShadow,
-
-    segmentedBg: colorBgComponentSecondary,
-    segmentedHoverBg: new TinyColor(colorBgComponentSecondary).darken(2).toRgbString(),
-    segmentedSelectedBg: colorBgComponent,
-    segmentedLabelColor: colorTextSecondary,
-    segmentedLabelHoverColor: colorText,
-    segmentedPaddingHorizontal: token.controlPaddingHorizontal - controlLineWidth,
-    segmentedPaddingHorizontalSM: token.controlPaddingHorizontalSM - controlLineWidth,
-    segmentedContainerPadding: lineWidthBold,
-  });
-  return [genSegmentedStyle(segmentedToken)];
-});
+    const segmentedToken = mergeToken<SegmentedToken>(token, {
+      segmentedSelectedItemBoxShadow,
+      segmentedPaddingHorizontal: token.controlPaddingHorizontal - controlLineWidth,
+      segmentedPaddingHorizontalSM: token.controlPaddingHorizontalSM - controlLineWidth,
+      segmentedContainerPadding: lineWidthBold,
+    });
+    return [genSegmentedStyle(segmentedToken)];
+  },
+  {
+    bgColor: new TinyColor('#000').setAlpha(0.04).toRgbString(),
+    bgColorHover: new TinyColor('#000').setAlpha(0.06).toRgbString(),
+    bgColorSelected: '#fff',
+    labelColor: new TinyColor('#000').setAlpha(0.65).toRgbString(),
+    labelColorHover: '#262626',
+  },
+);

@@ -1,36 +1,8 @@
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
-import type { DerivativeToken } from '../../_util/theme';
+import type { TokenWithCommonCls } from 'antd/es/_util/theme/util/genComponentStyleHook';
+import type { AliasToken } from '../../_util/theme';
 import { initMotion } from './motion';
-
-export const initSlideMotion = (
-  rootPrefixCls: string,
-  motionName: string,
-  inKeyframes: Keyframes,
-  outKeyframes: Keyframes,
-  token: DerivativeToken,
-): CSSInterpolation => {
-  const rootMotionName = `${rootPrefixCls}-${motionName}`;
-  const motionCls = `.${rootMotionName}`;
-
-  return [
-    initMotion(rootMotionName, inKeyframes, outKeyframes, token.motionDurationMid),
-
-    {
-      [`
-      ${motionCls}-enter,
-      ${motionCls}-appear
-    `]: {
-        opacity: 0,
-        animationTimingFunction: token.motionEaseOutQuint,
-      },
-
-      [`${motionCls}-leave`]: {
-        animationTimingFunction: token.motionEaseInQuint,
-      },
-    },
-  ];
-};
 
 export const slideUpIn = new Keyframes('antSlideUpIn', {
   '0%': {
@@ -143,3 +115,50 @@ export const slideRightOut = new Keyframes('antSlideRightOut', {
     opacity: 0,
   },
 });
+
+type SlideMotionTypes = 'slide-up' | 'slide-down' | 'slide-left' | 'slide-right';
+const slideMotion: Record<SlideMotionTypes, { inKeyframes: Keyframes; outKeyframes: Keyframes }> = {
+  'slide-up': {
+    inKeyframes: slideUpIn,
+    outKeyframes: slideUpOut,
+  },
+  'slide-down': {
+    inKeyframes: slideDownIn,
+    outKeyframes: slideDownOut,
+  },
+  'slide-left': {
+    inKeyframes: slideLeftIn,
+    outKeyframes: slideLeftOut,
+  },
+  'slide-right': {
+    inKeyframes: slideRightIn,
+    outKeyframes: slideRightOut,
+  },
+};
+
+export const initSlideMotion = (
+  token: TokenWithCommonCls<AliasToken>,
+  motionName: SlideMotionTypes,
+): CSSInterpolation => {
+  const { antCls } = token;
+  const motionCls = `${antCls}-${motionName}`;
+  const { inKeyframes, outKeyframes } = slideMotion[motionName];
+
+  return [
+    initMotion(motionCls, inKeyframes, outKeyframes, token.motionDurationMid),
+
+    {
+      [`
+      ${motionCls}-enter,
+      ${motionCls}-appear
+    `]: {
+        opacity: 0,
+        animationTimingFunction: token.motionEaseOutQuint,
+      },
+
+      [`${motionCls}-leave`]: {
+        animationTimingFunction: token.motionEaseInQuint,
+      },
+    },
+  ];
+};

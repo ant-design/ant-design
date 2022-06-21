@@ -1,6 +1,6 @@
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
-import { mergeToken } from '../../_util/theme';
 import type { SelectToken } from '.';
+import { mergeToken } from '../../_util/theme';
 
 function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
   const { componentCls, inputPaddingHorizontalBase } = token;
@@ -78,7 +78,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
 
       // Opacity selection if open
       [`&${componentCls}-open ${componentCls}-selection-item`]: {
-        color: token.colorPlaceholder,
+        color: token.colorTextPlaceholder,
       },
 
       // ========================== Input ==========================

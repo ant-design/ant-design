@@ -1,7 +1,8 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-import { modalMask } from '../../modal/style';
+import { genModalMaskStyle } from '../../modal/style';
+import { initZoomMotion } from '../../style/motion';
 import type { FullToken, GenerateStyle } from '../../_util/theme';
 import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
 
@@ -134,8 +135,6 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken> = (token: ImageToke
   return [
     {
       [`${componentCls}-preview-root`]: {
-        ...modalMask(previewCls, token),
-
         [previewCls]: {
           height: '100%',
           textAlign: 'center',
@@ -242,6 +241,14 @@ const genImageStyle: GenerateStyle<ImageToken> = (token: ImageToken) => {
   };
 };
 
+const genPreviewMotion: GenerateStyle<ImageToken> = token => {
+  const { previewCls } = token;
+
+  return {
+    [`${previewCls}-root`]: initZoomMotion(token, 'zoom'),
+  };
+};
+
 // ============================== Export ==============================
 export default genComponentStyleHook(
   'Image',
@@ -259,7 +266,12 @@ export default genComponentStyleHook(
       imagePreviewSwitchSize: token.controlHeightLG,
     });
 
-    return [genImageStyle(imageToken), genImagePreviewStyle(imageToken)];
+    return [
+      genImageStyle(imageToken),
+      genImagePreviewStyle(imageToken),
+      genModalMaskStyle(imageToken),
+      genPreviewMotion(imageToken),
+    ];
   },
   token => ({
     zIndexPopup: token.zIndexPopupBase + 80,

@@ -1,14 +1,16 @@
 // deps-lint-skip-all
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-import { mergeToken, genComponentStyleHook } from '../../_util/theme';
-import type { GenerateStyle, FullToken } from '../../_util/theme';
+import type { FullToken, GenerateStyle } from '../../_util/theme';
+import { genComponentStyleHook, mergeToken } from '../../_util/theme';
 import genGroupStyle from './group';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
   colorBgTextHover: string;
   colorBgTextActive: string;
+  // FIXME: should be removed
+  colorOutlineDefault: string;
 }
 
 export interface ButtonToken extends FullToken<'Button'> {}
@@ -86,6 +88,10 @@ const genGhostButtonStyle = (
     backgroundColor: 'transparent',
     borderColor: borderColor || undefined,
     boxShadow: 'none',
+
+    '&:hover': {
+      backgroundColor: 'transparent',
+    },
 
     '&:disabled': {
       cursor: 'not-allowed',
@@ -326,7 +332,7 @@ const genSizeButtonStyle = (token: ButtonToken, sizePrefixCls: string = ''): CSS
 
         // Loading
         [`&${componentCls}-loading`]: {
-          opacity: token.colorLoadingOpacity,
+          opacity: token.opacityLoading,
           cursor: 'default',
         },
 
@@ -401,6 +407,7 @@ export default genComponentStyleHook(
         .clone()
         .setAlpha(textColor.getAlpha() * 0.03)
         .toRgbString(),
+      colorOutlineDefault: new TinyColor({ h: 0, s: 0, v: 96 }).toHexString(),
     };
   },
 );

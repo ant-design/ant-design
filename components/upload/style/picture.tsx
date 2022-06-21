@@ -1,7 +1,7 @@
 import { TinyColor } from '@ctrl/tinycolor';
-import { clearFix } from '../../_util/theme';
-import type { GenerateStyle } from '../../_util/theme';
 import type { UploadToken } from '.';
+import type { GenerateStyle } from '../../_util/theme';
+import { clearFix } from '../../_util/theme';
 
 const genPictureStyle: GenerateStyle<UploadToken> = token => {
   const { componentCls, iconCls, uploadThumbnailSize, uploadProgressOffset } = token;
@@ -142,7 +142,7 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = token => {
             zIndex: 1,
             width: `calc(100% - ${token.paddingXS * 2}px)`,
             height: `calc(100% - ${token.paddingXS * 2}px)`,
-            backgroundColor: token.colorPopupBg,
+            backgroundColor: token.controlMaskBg,
             opacity: 0,
             transition: `all ${token.motionDurationSlow}`,
             content: '" "',

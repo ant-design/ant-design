@@ -889,7 +889,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
 
         '&-placeholder': {
           '> input': {
-            color: token.colorPlaceholder,
+            color: token.colorTextPlaceholder,
           },
         },
       },
@@ -1140,7 +1140,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
         [`${componentCls}-panel-container`]: {
           overflow: 'hidden',
           verticalAlign: 'top',
-          background: token.colorBgComponent,
+          background: token.colorBgElevated,
           borderRadius: token.radiusBase,
           boxShadow: token.boxShadow,
           transition: `margin ${token.motionDurationSlow}`,

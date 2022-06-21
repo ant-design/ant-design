@@ -1,11 +1,12 @@
 // deps-lint-skip-all
+import { initZoomMotion } from '../../style/motion';
 import type { FullToken, GenerateStyle, PresetColorType } from '../../_util/theme';
 import {
   genComponentStyleHook,
+  getArrowStyle,
   mergeToken,
   PresetColors,
   resetComponent,
-  getArrowStyle,
 } from '../../_util/theme';
 
 export interface ComponentToken {
@@ -123,18 +124,22 @@ const genColorStyle: GenerateStyle<PopoverToken> = token => {
 export default genComponentStyleHook(
   'Popover',
   token => {
-    const { colorBgComponent, controlHeight, fontSize, lineHeight, lineWidth } = token;
+    const { controlHeight, fontSize, lineHeight, lineWidth, colorBgElevated } = token;
     const titlePaddingBlockDist = controlHeight - Math.round(fontSize * lineHeight);
 
     const popoverToken = mergeToken<PopoverToken>(token, {
-      popoverBg: colorBgComponent,
+      popoverBg: colorBgElevated,
       popoverColor: token.colorText,
       popoverTitlePaddingBlockTop: titlePaddingBlockDist / 2,
       popoverTitlePaddingBlockBottom: titlePaddingBlockDist / 2 - lineWidth,
       popoverPaddingHorizontal: token.padding,
     });
 
-    return [genBaseStyle(popoverToken), genColorStyle(popoverToken)];
+    return [
+      genBaseStyle(popoverToken),
+      genColorStyle(popoverToken),
+      initZoomMotion(popoverToken, 'zoom-big'),
+    ];
   },
   ({ zIndexPopupBase }) => ({
     zIndexPopup: zIndexPopupBase + 30,

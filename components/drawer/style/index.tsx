@@ -57,7 +57,7 @@ const genBaseStyle: GenerateStyle<DrawerToken> = (token: DrawerToken): CSSObject
           position: 'relative',
           zIndex: 1,
           overflow: 'auto',
-          backgroundColor: token.colorBgComponent,
+          backgroundColor: token.colorBgElevated,
           backgroundClip: `padding-box`,
           border: 0,
           [`${componentCls}-wrapper-body`]: {
@@ -72,7 +72,7 @@ const genBaseStyle: GenerateStyle<DrawerToken> = (token: DrawerToken): CSSObject
               justifyContent: 'space-between',
               padding: `${padding}px ${paddingLG}px`,
               color: colorText,
-              background: token.colorBgComponent,
+              background: token.colorBgElevated,
               borderBottom: `${lineWidth}px ${lineType} ${colorSplit}`,
               borderRadius: `${radiusBase}px ${radiusBase}px 0 0`,
 
@@ -140,7 +140,7 @@ const genBaseStyle: GenerateStyle<DrawerToken> = (token: DrawerToken): CSSObject
         insetInlineStart: 0,
         width: '100%',
         height: 0,
-        backgroundColor: token.colorPopupBg,
+        backgroundColor: token.controlMaskBg,
         opacity: 0,
         transition: `opacity ${motionDurationSlow} linear, height 0s ease ${motionDurationSlow}`,
         pointerEvents: 'none',

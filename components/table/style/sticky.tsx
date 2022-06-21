@@ -5,7 +5,7 @@ import type { TableToken } from './index';
 const genStickyStyle: GenerateStyle<TableToken, CSSObject> = token => {
   const {
     componentCls,
-    colorLoadingOpacity,
+    opacityLoading,
     tableScrollThumbBg,
     tableScrollThumbBgHover,
     tableScrollThumbSize,
@@ -31,7 +31,7 @@ const genStickyStyle: GenerateStyle<TableToken, CSSObject> = token => {
           alignItems: 'center',
           background: tableScrollBg,
           borderTop: tableBorder,
-          opacity: colorLoadingOpacity,
+          opacity: opacityLoading,
 
           '&:hover': {
             transformOrigin: 'center bottom',

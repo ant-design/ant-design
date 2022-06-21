@@ -1,7 +1,7 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
-import { clearFix, genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
 import type { FullToken, GenerateStyle } from '../../_util/theme';
+import { clearFix, genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
 import type { GlobalToken } from '../../_util/theme/interface';
 
 export type InputToken<T extends GlobalToken = FullToken<'Input'>> = T & {
@@ -128,7 +128,7 @@ export const genBasicInputStyle = (token: InputToken): CSSObject => ({
   borderColor: token.colorBorder,
   borderRadius: token.controlRadius,
   transition: `all ${token.motionDurationSlow}`,
-  ...genPlaceholderStyle(token.colorPlaceholder),
+  ...genPlaceholderStyle(token.colorTextPlaceholder),
 
   '&:hover': {
     ...genHoverStyle(token),
@@ -515,7 +515,7 @@ const genAllowClearStyle = (token: InputToken): CSSObject => {
     // ========================= Input =========================
     [`.${prefixCls}-clear-icon`]: {
       margin: 0,
-      color: token.colorTextDisabled,
+      color: token.colorActionTmp,
       fontSize: token.fontSizeIcon,
       verticalAlign: -1,
       // https://github.com/ant-design/ant-design/pull/18151

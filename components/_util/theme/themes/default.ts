@@ -2,7 +2,7 @@
 
 import { generate } from '@ant-design/colors';
 import { TinyColor } from '@ctrl/tinycolor';
-import type { PresetColorType, SeedToken, DerivativeToken, ColorPalettes } from '../interface';
+import type { ColorPalettes, DerivativeToken, PresetColorType, SeedToken } from '../interface';
 import { getFontSizes } from './shared';
 
 const defaultPresetColors: PresetColorType = {
@@ -115,6 +115,7 @@ export function derivative(token: SeedToken): DerivativeToken {
     colorPrimaryHover: primaryColors[4],
     colorPrimaryOutline: new TinyColor(colorPrimary).setAlpha(0.2).toRgbString(),
     colorPrimarySecondary: primaryColors[2],
+    colorPrimaryBorderHover: primaryColors[3],
 
     colorSuccessSecondary: successColors[2],
     colorBgSuccess: successColors[0],
@@ -182,6 +183,7 @@ const seedToken: SeedToken = {
   // Motion
   motionUnit: 0.1,
   motionBase: 0,
+  motionEaseOutCirc: `cubic-bezier(0.08, 0.82, 0.17, 1)`,
   motionEaseInOutCirc: `cubic-bezier(0.78, 0.14, 0.15, 0.86)`,
   motionEaseInOut: `cubic-bezier(0.645, 0.045, 0.355, 1)`,
   motionEaseOutBack: `cubic-bezier(0.12, 0.4, 0.29, 1.46)`,
@@ -204,7 +206,7 @@ const seedToken: SeedToken = {
   zIndexPopupBase: 1000,
 
   // Image
-  imgOpacity: 1,
+  opacityImage: 1,
 };
 
 export default seedToken;

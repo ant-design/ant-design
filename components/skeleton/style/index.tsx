@@ -13,10 +13,10 @@ export type ComponentToken = {
 
 const skeletonClsLoading = new Keyframes(`ant-skeleton-loading`, {
   '0%': {
-    backgroundPosition: '100% 50%',
+    transform: 'translateX(-37.5%)',
   },
   '100%': {
-    backgroundPosition: '0 50%',
+    transform: 'translateX(37.5%)',
   },
 });
 
@@ -48,12 +48,22 @@ const genSkeletonElementAvatarSize = (size: number): CSSObject => ({
 });
 
 const genSkeletonColor = (token: SkeletonToken): CSSObject => ({
-  background: token.skeletonLoadingBackground,
-  backgroundSize: '400% 100%',
-  animationName: skeletonClsLoading,
-  animationDuration: token.skeletonLoadingMotionDuration,
-  animationTimingFunction: 'ease',
-  animationIterationCount: 'infinite',
+  position: 'relative',
+  overflow: 'hidden',
+  background: 'transparent',
+  '&::after': {
+    position: 'absolute',
+    top: 0,
+    insetInlineEnd: '-150%',
+    bottom: 0,
+    insetInlineStart: '-150%',
+    background: token.skeletonLoadingBackground,
+    animationName: skeletonClsLoading,
+    animationDuration: token.skeletonLoadingMotionDuration,
+    animationTimingFunction: 'ease',
+    animationIterationCount: 'infinite',
+    content: '""',
+  },
 });
 
 const genSkeletonElementInputSize = (size: number): CSSObject => ({

@@ -1,14 +1,15 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { GenerateStyle } from '../../_util/theme';
-import { resetComponent } from '../../_util/theme';
+import type { SelectToken } from '.';
 import {
+  initMoveMotion,
   initSlideMotion,
-  slideUpIn,
-  slideUpOut,
   slideDownIn,
   slideDownOut,
+  slideUpIn,
+  slideUpOut,
 } from '../../style/motion';
-import type { SelectToken } from '.';
+import type { GenerateStyle } from '../../_util/theme';
+import { resetComponent } from '../../_util/theme';
 
 const genItemStyle: GenerateStyle<SelectToken, CSSObject> = token => {
   const { controlPaddingHorizontal } = token;
@@ -28,7 +29,7 @@ const genItemStyle: GenerateStyle<SelectToken, CSSObject> = token => {
 };
 
 const genSingleStyle: GenerateStyle<SelectToken> = token => {
-  const { rootPrefixCls, antCls, componentCls } = token;
+  const { antCls, componentCls } = token;
 
   const selectItemCls = `${componentCls}-item`;
 
@@ -49,7 +50,7 @@ const genSingleStyle: GenerateStyle<SelectToken> = token => {
         // https://github.com/ant-design/ant-design/issues/11456
         // https://github.com/ant-design/ant-design/issues/11843
         fontVariant: 'initial',
-        backgroundColor: token.colorBgComponent,
+        backgroundColor: token.colorBgElevated,
         borderRadius: token.controlRadius,
         outline: 'none',
         boxShadow: token.boxShadow,
@@ -153,8 +154,10 @@ const genSingleStyle: GenerateStyle<SelectToken> = token => {
     },
 
     // Follow code may reuse in other components
-    initSlideMotion(rootPrefixCls, 'slide-up', slideUpIn, slideUpOut, token),
-    initSlideMotion(rootPrefixCls, 'slide-down', slideDownIn, slideDownOut, token),
+    initSlideMotion(token, 'slide-up'),
+    initSlideMotion(token, 'slide-down'),
+    initMoveMotion(token, 'move-up'),
+    initMoveMotion(token, 'move-down'),
   ];
 };
 

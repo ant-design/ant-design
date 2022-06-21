@@ -219,7 +219,7 @@ export default genComponentStyleHook('Switch', token => {
     switchHeight,
     switchDuration: token.motionDurationMid,
     switchColor: token.colorPrimary,
-    switchDisabledOpacity: token.colorLoadingOpacity,
+    switchDisabledOpacity: token.opacityLoading,
     switchInnerMarginMin: switchPinSize / 2,
     switchInnerMarginMax: switchPinSize + switchPadding + token.paddingXXS,
     switchPadding,
@@ -232,7 +232,7 @@ export default genComponentStyleHook('Switch', token => {
     switchPinSizeSM,
     switchHandleShadow: `0 2px 4px 0 ${new TinyColor('#00230b').setAlpha(0.2).toRgbString()}`,
     switchLoadingIconSize: token.fontSizeIcon * 0.75,
-    switchLoadingIconColor: `rgba(0, 0, 0, ${token.colorLoadingOpacity})`,
+    switchLoadingIconColor: `rgba(0, 0, 0, ${token.opacityLoading})`,
     switchHandleActiveInset: '-30%',
   });
 

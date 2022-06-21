@@ -8,8 +8,9 @@ import type { Locale } from '../locale-provider';
 import LocaleProvider, { ANT_MARK } from '../locale-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
-import { DesignTokenContext, useToken } from '../_util/theme';
+import { DesignTokenContext, useCustomToken, useToken } from '../_util/theme';
 import defaultSeedToken from '../_util/theme/themes/default';
+import { useCustomStyle, useStyle } from '../_util/theme/util/useStyle';
 import type { ConfigConsumerProps, CSPConfig, DirectionType, Theme, ThemeConfig } from './context';
 import { ConfigConsumer, ConfigContext, defaultIconPrefixCls } from './context';
 import { registerTheme } from './cssVariables';
@@ -282,6 +283,9 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
   SizeContext: typeof SizeContext;
   config: typeof setGlobalConfig;
   useToken: typeof useToken;
+  useStyle: typeof useStyle;
+  useCustomToken: typeof useCustomToken;
+  useCustomStyle: typeof useCustomStyle;
 } = props => (
   <LocaleReceiver>
     {(_, __, legacyLocale) => (
@@ -302,5 +306,8 @@ ConfigProvider.ConfigContext = ConfigContext;
 ConfigProvider.SizeContext = SizeContext;
 ConfigProvider.config = setGlobalConfig;
 ConfigProvider.useToken = useToken;
+ConfigProvider.useStyle = useStyle;
+ConfigProvider.useCustomToken = useCustomToken;
+ConfigProvider.useCustomStyle = useCustomStyle;
 
 export default ConfigProvider;
