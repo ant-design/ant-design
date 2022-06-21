@@ -318,8 +318,9 @@ const InternalButton: React.ForwardRefRenderFunction<unknown, ButtonProps> = (pr
 };
 
 const Button = React.forwardRef<unknown, ButtonProps>(InternalButton) as CompoundedComponent;
-
-Button.displayName = 'Button';
+if (process.env.NODE_ENV !== 'production') {
+  Button.displayName = 'Button';
+}
 
 Button.Group = Group;
 Button.__ANT_BUTTON = true;

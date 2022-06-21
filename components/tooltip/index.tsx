@@ -11,6 +11,7 @@ import { getTransitionName } from '../_util/motion';
 import getPlacements, { AdjustOverflow, PlacementsConfig } from '../_util/placements';
 import { cloneElement, isValidElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
+
 import useStyle from './style';
 
 export { AdjustOverflow, PlacementsConfig };
@@ -282,7 +283,9 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
   );
 });
 
-Tooltip.displayName = 'Tooltip';
+if (process.env.NODE_ENV !== 'production') {
+  Tooltip.displayName = 'Tooltip';
+}
 
 Tooltip.defaultProps = {
   placement: 'top' as TooltipPlacement,

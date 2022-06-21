@@ -11,9 +11,9 @@ import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
 import { FormItemInputContext, NoFormStyle } from '../form/context';
 import { cloneElement } from '../_util/reactNode';
-import useStyle from './style';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
+import useStyle from './style';
 
 type ValueType = string | number;
 
@@ -95,7 +95,6 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       [`${prefixCls}-lg`]: mergeSize === 'large',
       [`${prefixCls}-sm`]: mergeSize === 'small',
       [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-readonly`]: readOnly,
       [`${prefixCls}-borderless`]: !bordered,
       [`${prefixCls}-in-form-item`]: isFormItemInput,
     },

@@ -1,14 +1,15 @@
-import * as React from 'react';
-import RcCheckbox from 'rc-checkbox';
 import classNames from 'classnames';
+import RcCheckbox from 'rc-checkbox';
 import { composeRef } from 'rc-util/lib/ref';
+import * as React from 'react';
 import { useContext } from 'react';
-import { FormItemInputContext } from '../form/context';
-import type { RadioProps, RadioChangeEvent } from './interface';
 import { ConfigContext } from '../config-provider';
-import RadioGroupContext, { RadioOptionTypeContext } from './context';
 import DisabledContext from '../config-provider/DisabledContext';
+import { FormItemInputContext } from '../form/context';
 import warning from '../_util/warning';
+import RadioGroupContext, { RadioOptionTypeContext } from './context';
+import type { RadioChangeEvent, RadioProps } from './interface';
+
 import useStyle from './style';
 
 const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (props, ref) => {
@@ -84,6 +85,8 @@ const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (
 
 const Radio = React.forwardRef<unknown, RadioProps>(InternalRadio);
 
-Radio.displayName = 'Radio';
+if (process.env.NODE_ENV !== 'production') {
+  Radio.displayName = 'Radio';
+}
 
 export default Radio;
