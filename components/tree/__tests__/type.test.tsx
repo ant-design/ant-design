@@ -3,6 +3,8 @@ import * as React from 'react';
 import { render } from '../../../tests/utils';
 import Tree from '../index';
 
+const { DirectoryTree } = Tree;
+
 describe('Tree.TypeScript', () => {
   it('without generic', () => {
     const { container } = render(
@@ -33,6 +35,31 @@ describe('Tree.TypeScript', () => {
 
     const { container } = render(
       <Tree<MyDataNode>
+        treeData={[
+          {
+            bamboo: 'good',
+            list: [
+              {
+                bamboo: 'well',
+              },
+            ],
+          },
+        ]}
+      />,
+    );
+
+    expect(container).toBeTruthy();
+  });
+
+
+  it('directoryTree support generic', () => {
+    interface MyDataNode extends BasicDataNode {
+      bamboo: string;
+      list?: MyDataNode[];
+    }
+
+    const { container } = render(
+      <DirectoryTree<MyDataNode>
         treeData={[
           {
             bamboo: 'good',
