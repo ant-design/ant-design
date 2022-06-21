@@ -1,13 +1,14 @@
 /* eslint-disable react/no-multi-comp */
 import React from 'react';
 import { act } from 'react-dom/test-utils';
-import { render, fireEvent, waitFor } from '../../../tests/utils';
 import Table from '..';
-import Input from '../../input';
-import Tooltip from '../../tooltip';
+import { fireEvent, render, waitFor } from '../../../tests/utils';
 import Button from '../../button';
-import Select from '../../select';
 import ConfigProvider from '../../config-provider';
+import Input from '../../input';
+import Menu from '../../menu';
+import Select from '../../select';
+import Tooltip from '../../tooltip';
 
 // https://github.com/Semantic-Org/Semantic-UI-React/blob/72c45080e4f20b531fda2e3e430e384083d6766b/test/specs/modules/Dropdown/Dropdown-test.js#L73
 const nativeEvent = { nativeEvent: { stopImmediatePropagation: () => {} } };
@@ -65,6 +66,14 @@ describe('Table.filter', () => {
     return namesList;
   }
 
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+
+  afterEach(() => {
+    jest.useRealTimers();
+  });
+
   it('not show filter icon when undefined', () => {
     const noFilterColumn = { ...column, filters: undefined };
     delete noFilterColumn.onFilter;
@@ -106,8 +115,6 @@ describe('Table.filter', () => {
   });
 
   it('renders empty menu correctly', () => {
-    jest.useFakeTimers();
-
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => undefined);
     const { container } = render(
       createTable({
@@ -129,8 +136,6 @@ describe('Table.filter', () => {
     expect(container.querySelector('.ant-empty')).toBeTruthy();
     expect(errorSpy).not.toHaveBeenCalled();
     errorSpy.mockRestore();
-
-    jest.useRealTimers();
   });
 
   it('renders radio filter correctly', async () => {
@@ -613,7 +618,6 @@ describe('Table.filter', () => {
         onChange,
       }),
     );
-    jest.useFakeTimers();
 
     expect(renderedNames(container)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
 
@@ -665,8 +669,6 @@ describe('Table.filter', () => {
     // What's this? Is that a coverage case? Or check a crash?
     const latestItems = getFilterMenu().querySelectorAll('li.ant-dropdown-menu-item');
     fireEvent.click(latestItems[latestItems.length - 1]);
-
-    jest.useRealTimers();
   });
 
   describe('should support value types', () => {
@@ -676,7 +678,6 @@ describe('Table.filter', () => {
       ['Bamboo', false],
     ].forEach(([text, value]) => {
       it(`${typeof value} type`, async () => {
-        jest.useFakeTimers();
         const onChange = jest.fn();
         const filters = [{ text, value }];
         const { container } = render(
@@ -697,8 +698,6 @@ describe('Table.filter', () => {
         );
 
         fireEvent.click(container.querySelector('.ant-dropdown-trigger'));
-
-        jest.useFakeTimers();
 
         fireEvent.click(container.querySelectorAll('.ant-dropdown-menu-item')[0]);
 
@@ -733,7 +732,6 @@ describe('Table.filter', () => {
             .querySelector('.ant-table-filter-dropdown')
             .querySelectorAll('.ant-checkbox-input')[0].checked,
         ).toEqual(false);
-        jest.useRealTimers();
       });
     });
   });
@@ -1831,7 +1829,6 @@ describe('Table.filter', () => {
 
   describe('filter tree mode', () => {
     it('supports filter tree', () => {
-      jest.useFakeTimers();
       jest.spyOn(console, 'error').mockImplementation(() => undefined);
       const { container } = render(
         createTable({
@@ -1852,7 +1849,6 @@ describe('Table.filter', () => {
     });
 
     it('supports search input in filter tree', () => {
-      jest.useFakeTimers();
       jest.spyOn(console, 'error').mockImplementation(() => undefined);
       const { container } = render(
         createTable({
@@ -1875,7 +1871,6 @@ describe('Table.filter', () => {
     });
 
     it('supports search input in filter menu', () => {
-      jest.useFakeTimers();
       jest.spyOn(console, 'error').mockImplementation(() => undefined);
       const { container } = render(
         createTable({
@@ -1897,7 +1892,6 @@ describe('Table.filter', () => {
     });
 
     it('should skip search when filters[0].text is ReactNode', () => {
-      jest.useFakeTimers();
       jest.spyOn(console, 'error').mockImplementation(() => undefined);
       const { container } = render(
         createTable({
@@ -1936,7 +1930,6 @@ describe('Table.filter', () => {
     });
 
     it('should supports filterSearch has type of function', () => {
-      jest.useFakeTimers();
       jest.spyOn(console, 'error').mockImplementation(() => undefined);
       const { container } = render(
         createTable({
@@ -1974,7 +1967,6 @@ describe('Table.filter', () => {
     });
 
     it('supports check all items', () => {
-      jest.useFakeTimers();
       jest.spyOn(console, 'error').mockImplementation(() => undefined);
       const { container } = render(
         createTable({
@@ -2007,7 +1999,6 @@ describe('Table.filter', () => {
     });
 
     it('supports check item by selecting it', () => {
-      jest.useFakeTimers();
       jest.spyOn(console, 'error').mockImplementation(() => undefined);
       const { container } = render(
         createTable({
@@ -2043,7 +2034,6 @@ describe('Table.filter', () => {
     });
 
     it('select-all checkbox should change when all items are selected', () => {
-      jest.useFakeTimers();
       jest.spyOn(console, 'error').mockImplementation(() => undefined);
       const { container } = render(
         createTable({
@@ -2075,7 +2065,6 @@ describe('Table.filter', () => {
   });
 
   it('filterMultiple is false - check item', () => {
-    jest.useFakeTimers();
     jest.spyOn(console, 'error').mockImplementation(() => undefined);
     const { container } = render(
       createTable({
@@ -2123,7 +2112,6 @@ describe('Table.filter', () => {
   });
 
   it('filterMultiple is false - select item', () => {
-    jest.useFakeTimers();
     jest.spyOn(console, 'error').mockImplementation(() => undefined);
     const { container } = render(
       createTable({
@@ -2170,7 +2158,6 @@ describe('Table.filter', () => {
   });
 
   it('should select children when select parent', () => {
-    jest.useFakeTimers();
     jest.spyOn(console, 'error').mockImplementation(() => undefined);
     const { container } = render(
       createTable({
@@ -2299,7 +2286,6 @@ describe('Table.filter', () => {
   });
 
   it('filterDropdown should support filterResetToDefaultFilteredValue', () => {
-    jest.useFakeTimers();
     jest.spyOn(console, 'error').mockImplementation(() => undefined);
 
     const columnFilter = {
@@ -2345,6 +2331,44 @@ describe('Table.filter', () => {
     fireEvent.click(container.querySelector('button.ant-btn-link'), nativeEvent);
     expect(container.querySelectorAll('.ant-tree-checkbox-checked').length).toBe(1);
     expect(container.querySelector('.ant-tree-checkbox-checked+span').textContent).toBe('Girl');
+  });
+
+  it('filterDropdown should not override customize Menu selectable', () => {
+    const onSelect = jest.fn();
+
+    const { container } = render(
+      createTable({
+        columns: [
+          {
+            ...column,
+            filterDropdown: (
+              <div className="custom-filter-dropdown">
+                <Menu
+                  onSelect={onSelect}
+                  items={[
+                    {
+                      key: '1',
+                      label: 'Item 1',
+                    },
+                  ]}
+                />
+              </div>
+            ),
+          },
+        ],
+      }),
+    );
+
+    // Open Filter
+    fireEvent.click(container.querySelector('span.ant-dropdown-trigger'));
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    // Click Item
+    fireEvent.click(container.querySelector('.ant-table-filter-dropdown .ant-dropdown-menu-item'));
+
+    expect(onSelect).toHaveBeenCalled();
   });
 
   it('filteredKeys should all be controlled or not controlled', () => {
