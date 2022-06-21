@@ -50,9 +50,6 @@ When data is in the form of dates, such as schedules, timetables, prices calenda
 
 ## FAQ
 
-<<<<<<< HEAD
-
 - # [How to use Calendar with customize date library](/docs/react/use-custom-date-library#Calendar)
 - [How to use Calendar with customize date library like dayjs](/docs/react/replace-moment#Calendar)
 - [How to set locale for date-related components](/components/date-picker/#Localization)
-  > > > > > > > origin/master
