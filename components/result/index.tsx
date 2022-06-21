@@ -50,12 +50,13 @@ const ExceptionStatus = Object.keys(ExceptionMap);
  * @param {status, icon}
  */
 
-interface RenderIconProps {
+interface IconProps {
   prefixCls: string;
-  resultProps: ResultProps;
+  icon: React.ReactNode;
+  status: ResultStatusType;
 }
 
-const RenderIcon: React.FC<RenderIconProps> = ({ prefixCls, resultProps: { status, icon } }) => {
+const Icon: React.FC<IconProps> = ({ prefixCls, icon, status }) => {
   const className = classNames(`${prefixCls}-icon`);
 
   warning(
@@ -79,12 +80,12 @@ const RenderIcon: React.FC<RenderIconProps> = ({ prefixCls, resultProps: { statu
   return <div className={className}>{icon || iconNode}</div>;
 };
 
-interface RenderExtraProps {
+interface ExtraProps {
   prefixCls: string;
-  extraProps: ResultProps;
+  extra: React.ReactNode;
 }
 
-const RenderExtra: React.FC<RenderExtraProps> = ({ prefixCls, extraProps: { extra } }) => {
+const Extra: React.FC<ExtraProps> = ({ prefixCls, extra }) => {
   if (!extra) {
     return null;
   }
@@ -116,10 +117,10 @@ const Result: ResultType = ({
   });
   return (
     <div className={className} style={style}>
-      <RenderIcon prefixCls={prefixCls} resultProps={{ status, icon }} />
+      <Icon prefixCls={prefixCls} status={status} icon={icon} />
       <div className={`${prefixCls}-title`}>{title}</div>
       {subTitle && <div className={`${prefixCls}-subtitle`}>{subTitle}</div>}
-      <RenderExtra prefixCls={prefixCls} extraProps={{ extra }} />
+      <Extra prefixCls={prefixCls} extra={extra} />
       {children && <div className={`${prefixCls}-content`}>{children}</div>}
     </div>
   );
