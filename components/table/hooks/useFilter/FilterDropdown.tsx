@@ -184,21 +184,9 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
 
   // ====================== Open Keys ======================
   const [openKeys, setOpenKeys] = React.useState<string[]>([]);
-  const openRef = React.useRef<number>();
   const onOpenChange = (keys: string[]) => {
-    openRef.current = window.setTimeout(() => {
-      setOpenKeys(keys);
-    });
+    setOpenKeys(keys);
   };
-  const onMenuClick = () => {
-    window.clearTimeout(openRef.current);
-  };
-  React.useEffect(
-    () => () => {
-      window.clearTimeout(openRef.current);
-    },
-    [],
-  );
 
   // search in tree mode column filter
   const [searchValue, setSearchValue] = React.useState('');
@@ -397,7 +385,6 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
             multiple={filterMultiple}
             prefixCls={`${dropdownPrefixCls}-menu`}
             className={dropdownMenuClass}
-            onClick={onMenuClick}
             onSelect={onSelectKeys}
             onDeselect={onSelectKeys}
             selectedKeys={selectedKeys}
