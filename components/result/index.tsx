@@ -1,9 +1,9 @@
-import * as React from 'react';
-import classNames from 'classnames';
 import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import WarningFilled from '@ant-design/icons/WarningFilled';
+import classNames from 'classnames';
+import * as React from 'react';
 
 import { ConfigContext } from '../config-provider';
 import warning from '../_util/warning';
@@ -49,7 +49,13 @@ const ExceptionStatus = Object.keys(ExceptionMap);
  * @param prefixCls
  * @param {status, icon}
  */
-const renderIcon = (prefixCls: string, { status, icon }: ResultProps) => {
+
+interface RenderIconProps {
+  prefixCls: string;
+  resultProps: ResultProps;
+}
+
+const RenderIcon: React.FC<RenderIconProps> = ({ prefixCls, resultProps: { status, icon } }) => {
   const className = classNames(`${prefixCls}-icon`);
 
   warning(
@@ -73,8 +79,17 @@ const renderIcon = (prefixCls: string, { status, icon }: ResultProps) => {
   return <div className={className}>{icon || iconNode}</div>;
 };
 
-const renderExtra = (prefixCls: string, { extra }: ResultProps) =>
-  extra && <div className={`${prefixCls}-extra`}>{extra}</div>;
+interface RenderExtraProps {
+  prefixCls: string;
+  extraProps: ResultProps;
+}
+
+const RenderExtra: React.FC<RenderExtraProps> = ({ prefixCls, extraProps: { extra } }) => {
+  if (!extra) {
+    return null;
+  }
+  return <div className={`${prefixCls}-extra`}>{extra}</div>;
+};
 
 export interface ResultType extends React.FC<ResultProps> {
   PRESENTED_IMAGE_404: React.FC;
@@ -101,10 +116,10 @@ const Result: ResultType = ({
   });
   return (
     <div className={className} style={style}>
-      {renderIcon(prefixCls, { status, icon })}
+      <RenderIcon prefixCls={prefixCls} resultProps={{ status, icon }} />
       <div className={`${prefixCls}-title`}>{title}</div>
       {subTitle && <div className={`${prefixCls}-subtitle`}>{subTitle}</div>}
-      {renderExtra(prefixCls, { extra })}
+      <RenderExtra prefixCls={prefixCls} extraProps={{ extra }} />
       {children && <div className={`${prefixCls}-content`}>{children}</div>}
     </div>
   );
