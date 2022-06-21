@@ -104,8 +104,9 @@ export function withConfigConsumer<ExportProps extends BasicExportProps>(config:
     const cons: ConstructorProps = Component.constructor as ConstructorProps;
     const name = (cons && cons.displayName) || Component.name || 'Component';
 
-    SFC.displayName = `withConfigConsumer(${name})`;
-
+    if (process.env.NODE_ENV !== 'production') {
+      SFC.displayName = `withConfigConsumer(${name})`;
+    }
     return SFC;
   };
 }

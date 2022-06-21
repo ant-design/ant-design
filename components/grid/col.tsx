@@ -134,6 +134,8 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   );
 });
 
-Col.displayName = 'Col';
+if (process.env.NODE_ENV !== 'production') {
+  Col.displayName = 'Col';
+}
 
 export default Col;

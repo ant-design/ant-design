@@ -33,7 +33,9 @@ const Rate = React.forwardRef<unknown, RateProps>(({ prefixCls, tooltips, ...pro
   );
 });
 
-Rate.displayName = 'Rate';
+if (process.env.NODE_ENV !== 'production') {
+  Rate.displayName = 'Rate';
+}
 
 Rate.defaultProps = {
   character: <StarFilled />,
