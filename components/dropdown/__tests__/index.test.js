@@ -142,7 +142,10 @@ describe('Dropdown', () => {
       });
     }
 
-    console.log(container.innerHTML);
+    // Motion End
+    fireEvent.animationEnd(container.querySelector('.ant-slide-up-leave-active'));
+
+    expect(container.querySelector('.ant-dropdown-hidden')).toBeTruthy();
 
     jest.useRealTimers();
   });

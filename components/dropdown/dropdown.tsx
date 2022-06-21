@@ -1,6 +1,8 @@
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import classNames from 'classnames';
 import RcDropdown from 'rc-dropdown';
+import useEvent from 'rc-util/lib/hooks/useEvent';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import { OverrideProvider } from '../menu/OverrideContext';
@@ -116,6 +118,8 @@ const Dropdown: DropdownInterface = props => {
     disabled,
     getPopupContainer,
     overlayClassName,
+    visible,
+    onVisibleChange,
   } = props;
 
   const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
@@ -132,20 +136,35 @@ const Dropdown: DropdownInterface = props => {
     disabled,
   });
 
-  const overlayClassNameCustomized = classNames(overlayClassName, {
-    [`${prefixCls}-rtl`]: direction === 'rtl',
-  });
-
   const triggerActions = disabled ? [] : trigger;
   let alignPoint;
   if (triggerActions && triggerActions.indexOf('contextMenu') !== -1) {
     alignPoint = true;
   }
 
+  // =========================== Visible ============================
+  const [mergedVisible, setVisible] = useMergedState(false, {
+    value: visible,
+  });
+
+  const onInnerVisibleChange = useEvent((nextVisible: boolean) => {
+    onVisibleChange?.(nextVisible);
+    setVisible(nextVisible);
+  });
+
+  // =========================== Overlay ============================
+  const overlayClassNameCustomized = classNames(overlayClassName, {
+    [`${prefixCls}-rtl`]: direction === 'rtl',
+  });
+
   const builtinPlacements = getPlacements({
     arrowPointAtCenter: typeof arrow === 'object' && arrow.pointAtCenter,
     autoAdjustOverflow: true,
   });
+
+  const onMenuClick = React.useCallback(() => {
+    setVisible(false);
+  }, []);
 
   const renderOverlay = () => {
     // rc-dropdown already can process the function of overlay, but we have check logic here.
@@ -172,6 +191,7 @@ const Dropdown: DropdownInterface = props => {
         }
         mode="vertical"
         selectable={false}
+        onClick={onMenuClick}
         validator={({ mode }) => {
           // Warning if use other mode
           warning(
@@ -186,10 +206,12 @@ const Dropdown: DropdownInterface = props => {
     );
   };
 
+  // ============================ Render ============================
   return (
     <RcDropdown
       alignPoint={alignPoint}
       {...props}
+      visible={mergedVisible}
       builtinPlacements={builtinPlacements}
       arrow={!!arrow}
       overlayClassName={overlayClassNameCustomized}
@@ -199,6 +221,7 @@ const Dropdown: DropdownInterface = props => {
       trigger={triggerActions}
       overlay={renderOverlay}
       placement={getPlacement()}
+      onVisibleChange={onInnerVisibleChange}
     >
       {dropdownTrigger}
     </RcDropdown>
