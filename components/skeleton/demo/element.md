@@ -19,7 +19,7 @@ import { Divider, Form, Radio, Skeleton, Space, Switch } from 'antd';
 import React, { useState } from 'react';
 
 type SizeType = 'default' | 'small' | 'large';
-type ButtonShapeType = 'circle' | 'square' | 'round';
+type ButtonShapeType = 'circle' | 'square' | 'round' | 'default';
 type AvatarShapeType = 'circle' | 'square';
 
 const App: React.FC = () => {
