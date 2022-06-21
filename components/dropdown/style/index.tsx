@@ -1,13 +1,13 @@
 // deps-lint-skip-all
-import type { GenerateStyle, FullToken } from '../../_util/theme';
-import { resetComponent, genComponentStyleHook, mergeToken, roundedArrow } from '../../_util/theme';
 import {
   initSlideMotion,
-  slideUpIn,
-  slideUpOut,
   slideDownIn,
   slideDownOut,
+  slideUpIn,
+  slideUpOut,
 } from '../../style/motion';
+import type { FullToken, GenerateStyle } from '../../_util/theme';
+import { genComponentStyleHook, mergeToken, resetComponent, roundedArrow } from '../../_util/theme';
 import genButtonStyle from './button';
 import genStatusStyle from './status';
 
@@ -36,7 +36,6 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
     sizePopupArrow,
     antCls,
     iconCls,
-    colorBgComponent,
     motionDurationMid,
     motionDurationSlow,
     dropdownPaddingVertical,
@@ -46,6 +45,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
     colorTextDisabled,
     fontSizeIcon,
     controlPaddingHorizontal,
+    colorBgElevated,
   } = token;
 
   return [
@@ -126,9 +126,9 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
           width: sizePopupArrow,
           height: sizePopupArrow,
           // Use linear-gradient to prevent arrow from covering text
-          background: `linear-gradient(135deg, transparent 40%, ${colorBgComponent} 40%)`,
+          background: `linear-gradient(135deg, transparent 40%, ${colorBgElevated} 40%)`,
 
-          ...roundedArrow(sizePopupArrow, 5, colorBgComponent),
+          ...roundedArrow(sizePopupArrow, 5, colorBgElevated),
         },
 
         [`
@@ -261,7 +261,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
         [menuCls]: {
           padding: `${dropdownEdgeChildVerticalPadding}px 0`,
           listStyleType: 'none',
-          backgroundColor: colorBgComponent,
+          backgroundColor: colorBgElevated,
           backgroundClip: 'padding-box',
           borderRadius: token.controlRadius,
           outline: 'none',
@@ -344,7 +344,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
 
               '&:hover': {
                 color: colorTextDisabled,
-                backgroundColor: colorBgComponent,
+                backgroundColor: colorBgElevated,
                 cursor: 'not-allowed',
               },
 
@@ -391,7 +391,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
           [`${menuCls}-submenu${menuCls}-submenu-disabled ${componentCls}-menu-submenu-title`]: {
             [`&, ${componentCls}-menu-submenu-arrow-icon`]: {
               color: colorTextDisabled,
-              backgroundColor: colorBgComponent,
+              backgroundColor: colorBgElevated,
               cursor: 'not-allowed',
             },
           },
