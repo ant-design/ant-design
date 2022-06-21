@@ -40,7 +40,12 @@ const VirtualTable = (props: Parameters<typeof Table>[0]) => {
   const [connectObject] = useState<any>(() => {
     const obj = {};
     Object.defineProperty(obj, 'scrollLeft', {
-      get: () => null,
+      get: () => {
+        if (gridRef.current) {
+          return gridRef.current?.state?.scrollLeft;
+        }
+        return null;
+      },
       set: (scrollLeft: number) => {
         if (gridRef.current) {
           gridRef.current.scrollTo({ scrollLeft });
