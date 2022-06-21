@@ -3,8 +3,7 @@ import classNames from 'classnames';
 import RcDropdown from 'rc-dropdown';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
-import type { OverrideContextProps } from '../menu/OverrideContext';
-import OverrideContext from '../menu/OverrideContext';
+import { OverrideProvider } from '../menu/OverrideContext';
 import getPlacements from '../_util/placements';
 import { cloneElement } from '../_util/reactNode';
 import { tuple } from '../_util/type';
@@ -148,28 +147,6 @@ const Dropdown: DropdownInterface = props => {
     autoAdjustOverflow: true,
   });
 
-  const overlayContext = React.useMemo<OverrideContextProps>(
-    () => ({
-      prefixCls: `${prefixCls}-menu`,
-      expandIcon: (
-        <span className={`${prefixCls}-menu-submenu-arrow`}>
-          <RightOutlined className={`${prefixCls}-menu-submenu-arrow-icon`} />
-        </span>
-      ),
-      mode: 'vertical',
-      selectable: false,
-      validator: ({ mode }) => {
-        // Warning if use other mode
-        warning(
-          !mode || mode === 'vertical',
-          'Dropdown',
-          `mode="${mode}" is not supported for Dropdown's Menu.`,
-        );
-      },
-    }),
-    [prefixCls],
-  );
-
   const renderOverlay = () => {
     // rc-dropdown already can process the function of overlay, but we have check logic here.
     // So we need render the element to check and pass back to rc-dropdown.
@@ -186,7 +163,26 @@ const Dropdown: DropdownInterface = props => {
     );
 
     return (
-      <OverrideContext.Provider value={overlayContext}>{overlayNode}</OverrideContext.Provider>
+      <OverrideProvider
+        prefixCls={`${prefixCls}-menu`}
+        expandIcon={
+          <span className={`${prefixCls}-menu-submenu-arrow`}>
+            <RightOutlined className={`${prefixCls}-menu-submenu-arrow-icon`} />
+          </span>
+        }
+        mode="vertical"
+        selectable={false}
+        validator={({ mode }) => {
+          // Warning if use other mode
+          warning(
+            !mode || mode === 'vertical',
+            'Dropdown',
+            `mode="${mode}" is not supported for Dropdown's Menu.`,
+          );
+        }}
+      >
+        {overlayNode}
+      </OverrideProvider>
     );
   };
 

@@ -100,19 +100,13 @@ describe('Statistic', () => {
     it('time going', async () => {
       const now = Date.now() + 1000;
       const onFinish = jest.fn();
-      let instance: Countdown | null;
+      const instance = React.createRef<Countdown>();
       const { unmount } = render(
-        <Statistic.Countdown
-          ref={n => {
-            instance = n;
-          }}
-          value={now}
-          onFinish={onFinish}
-        />,
+        <Statistic.Countdown ref={instance} value={now} onFinish={onFinish} />,
       );
 
       // setInterval should work
-      expect(instance!.countdownId).not.toBe(undefined);
+      expect(instance.current!.countdownId).not.toBe(undefined);
 
       await sleep(10);
 
@@ -162,19 +156,11 @@ describe('Statistic', () => {
     describe('time finished', () => {
       it('not call if time already passed', () => {
         const now = Date.now() - 1000;
-        let instance: Countdown | null;
+        const instance = React.createRef<Countdown>();
         const onFinish = jest.fn();
-        render(
-          <Statistic.Countdown
-            ref={n => {
-              instance = n;
-            }}
-            value={now}
-            onFinish={onFinish}
-          />,
-        );
+        render(<Statistic.Countdown ref={instance} value={now} onFinish={onFinish} />);
 
-        expect(instance!.countdownId).toBe(undefined);
+        expect(instance.current!.countdownId).toBe(undefined);
         expect(onFinish).not.toHaveBeenCalled();
       });
 
