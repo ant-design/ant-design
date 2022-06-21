@@ -8,7 +8,7 @@ import type { Locale } from '../locale-provider';
 const typeTemplate = '${label} වලංගු ${type} ක් නොවේ';
 
 const localeValues: Locale = {
-  locale: 'si-lk',
+  locale: 'si',
   Pagination,
   DatePicker,
   TimePicker,
