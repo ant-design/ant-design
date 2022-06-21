@@ -17,7 +17,7 @@ title: FAQ
 
 在输入元素中，React 认为 undefined 和 null 都属于非受控的标志。对于 React 来说，受控的空值应该是空字符串，即：`value={''}`。所以当 value 由非空值转化为 undefined 或 null 时，组件不再受控，这通常是一些意外情况发生的原因。例如：“我这是受控组件，为什么表单提交的 value 和显示的值不一样了？”
 
-于 antd 中，我们定义 undefined 为非受控的标志，而 null 则作为显式的受控空值。在 antd 中 `''` 和 `0`（ `string | number` ）都可以作为合理的值赋值给 value，而为了处理 value 为复杂数据类型时的清空置 value 为空值等场景，antd 约定，把 null 作为显式的受控空值。如果需要让组件受控且希望将 value 置为空值，请将 value 设置为 null。
+于 antd 中，我们定义 undefined 为非受控的标志，而 null 则作为显式的受控空值。在 antd 中 `''`，`0`，`{label: '', value: ''}`（ `string | number | LabeledValue` ）都可以作为合理的值赋值给 value。为了处理 value 为复杂数据类型时的清空（`allowClear`）置 value 为空值等场景，antd 约定，把 null 作为显式的受控空值。如果需要让组件受控且希望将 value 置为空值，请将 value 设置为 null。
 
 注意：对于类 `Select` 组件的 options，建议不要使用 undefined 和 null 作为 options 中的 value，请使用 `string | number` 作为 option 的 value。
 
