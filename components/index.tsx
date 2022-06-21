@@ -92,7 +92,14 @@ export { default as Drawer } from './drawer';
 export type { EmptyProps } from './empty';
 export { default as Empty } from './empty';
 
-export type { FormInstance, FormProps, FormItemProps } from './form';
+export type {
+  FormInstance,
+  FormProps,
+  FormItemProps,
+  FormListFieldData,
+  FormListOperation,
+  Rule as FormRule,
+} from './form';
 export { default as Form } from './form';
 
 export { default as Grid } from './grid';
@@ -156,7 +163,7 @@ export { default as Result } from './result';
 export type { RowProps } from './row';
 export { default as Row } from './row';
 
-export type { SelectProps } from './select';
+export type { SelectProps, RefSelectProps } from './select';
 export { default as Select } from './select';
 
 export type { SegmentedProps } from './segmented';
@@ -221,8 +228,7 @@ export { default as Tooltip } from './tooltip';
 export type { TypographyProps } from './typography';
 export { default as Typography } from './typography';
 
-export type { UploadProps } from './upload';
-
+export type { UploadProps, UploadFile } from './upload';
 export { default as Upload } from './upload';
 
 export { default as version } from './version';

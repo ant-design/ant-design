@@ -1,7 +1,8 @@
+import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 import React, { useState } from 'react';
 import Input from '..';
 import focusTest from '../../../tests/shared/focusTest';
-import { sleep, render, fireEvent, triggerResize } from '../../../tests/utils';
+import { fireEvent, render, sleep, triggerResize } from '../../../tests/utils';
 
 const { TextArea } = Input;
 
@@ -115,7 +116,9 @@ describe('TextArea', () => {
       const { container } = render(<TextArea maxLength={1} onChange={onChange} />);
       fireEvent.compositionStart(container.querySelector('textarea'));
       fireEvent.change(container.querySelector('textarea'), { target: { value: 'zhu' } });
-      fireEvent.compositionEnd(container.querySelector('textarea'), { currentTarget: { value: '竹' } });
+      fireEvent.compositionEnd(container.querySelector('textarea'), {
+        currentTarget: { value: '竹' },
+      });
       fireEvent.change(container.querySelector('textarea'), { target: { value: '竹' } });
 
       expect(onChange).toHaveBeenLastCalledWith(
@@ -126,9 +129,15 @@ describe('TextArea', () => {
     // 字符输入
     it('should not cut off string when cursor position is not at the end', () => {
       const onChange = jest.fn();
-      const { container } = render(<TextArea maxLength={6} defaultValue="123456" onChange={onChange} />);
-      fireEvent.change(container.querySelector('textarea'), { target: { selectionStart: 1, value: 'w123456' } });
-      fireEvent.change(container.querySelector('textarea'), { target: { selectionStart: 3, value: 'w123456' } });
+      const { container } = render(
+        <TextArea maxLength={6} defaultValue="123456" onChange={onChange} />,
+      );
+      fireEvent.change(container.querySelector('textarea'), {
+        target: { selectionStart: 1, value: 'w123456' },
+      });
+      fireEvent.change(container.querySelector('textarea'), {
+        target: { selectionStart: 3, value: 'w123456' },
+      });
       expect(container.querySelector('textarea').value).toBe('123456');
     });
 
@@ -136,12 +145,20 @@ describe('TextArea', () => {
     // 1. 光标位于最后，且当前字符数未达到6个，若选中的字符 + 原字符的长度超过6个，则将最终的字符按照maxlength截断
     it('when the input method is pinyin and the cursor is at the end, should use maxLength to crop', () => {
       const onChange = jest.fn();
-      const { container } = render(<TextArea maxLength={6} defaultValue="1234" onChange={onChange} />);
-      fireEvent.change(container.querySelector('textarea'), { target: { selectionStart: 4, value: '1234' } });
+      const { container } = render(
+        <TextArea maxLength={6} defaultValue="1234" onChange={onChange} />,
+      );
+      fireEvent.change(container.querySelector('textarea'), {
+        target: { selectionStart: 4, value: '1234' },
+      });
       fireEvent.compositionStart(container.querySelector('textarea'));
 
-      fireEvent.change(container.querySelector('textarea'), { target: { selectionStart: 9, value: '1234z z z' } });
-      fireEvent.change(container.querySelector('textarea'), { target: { selectionStart: 7, value: '1234组织者' } });
+      fireEvent.change(container.querySelector('textarea'), {
+        target: { selectionStart: 9, value: '1234z z z' },
+      });
+      fireEvent.change(container.querySelector('textarea'), {
+        target: { selectionStart: 7, value: '1234组织者' },
+      });
 
       fireEvent.compositionEnd(container.querySelector('textarea'));
 
@@ -151,13 +168,20 @@ describe('TextArea', () => {
     // 2. 光标位于中间或开头，且当前字符数未达到6个，若选中的字符 + 原字符的长度超过6个，则显示原有字符
     it('when the input method is Pinyin and the cursor is in the middle, should display the original string', () => {
       const onChange = jest.fn();
-      const { container } = render(<TextArea maxLength={6} defaultValue="1234" onChange={onChange} />);
-      fireEvent.change(container.querySelector('textarea'), { target: { selectionStart: 2, value: '1234' } });
+      const { container } = render(
+        <TextArea maxLength={6} defaultValue="1234" onChange={onChange} />,
+      );
+      fireEvent.change(container.querySelector('textarea'), {
+        target: { selectionStart: 2, value: '1234' },
+      });
       fireEvent.compositionStart(container.querySelector('textarea'));
 
-
-      fireEvent.change(container.querySelector('textarea'), { target: { selectionStart: 2, value: '12z z z34' } });
-      fireEvent.change(container.querySelector('textarea'), { target: { selectionStart: 5, value: '12组织者34' } });
+      fireEvent.change(container.querySelector('textarea'), {
+        target: { selectionStart: 2, value: '12z z z34' },
+      });
+      fireEvent.change(container.querySelector('textarea'), {
+        target: { selectionStart: 5, value: '12组织者34' },
+      });
 
       fireEvent.compositionEnd(container.querySelector('textarea'));
 
@@ -218,25 +242,33 @@ describe('TextArea', () => {
     it('maxLength', () => {
       const { container } = render(<TextArea maxLength={5} showCount value="12345" />);
       expect(container.querySelector('textarea').value).toBe('12345');
-      expect(container.querySelector('.ant-input-textarea').getAttribute('data-count')).toBe('5 / 5');
+      expect(container.querySelector('.ant-input-textarea').getAttribute('data-count')).toBe(
+        '5 / 5',
+      );
     });
 
     it('control exceed maxLength', () => {
       const { container } = render(<TextArea maxLength={5} showCount value="12345678" />);
       expect(container.querySelector('textarea').value).toBe('12345678');
-      expect(container.querySelector('.ant-input-textarea').getAttribute('data-count')).toBe('8 / 5');
+      expect(container.querySelector('.ant-input-textarea').getAttribute('data-count')).toBe(
+        '8 / 5',
+      );
     });
 
     describe('emoji', () => {
       it('should minimize value between emoji length and maxLength', () => {
         const { container } = render(<TextArea maxLength={1} showCount value="👀" />);
         expect(container.querySelector('textarea').value).toBe('👀');
-        expect(container.querySelector('.ant-input-textarea').getAttribute('data-count')).toBe('1 / 1');
+        expect(container.querySelector('.ant-input-textarea').getAttribute('data-count')).toBe(
+          '1 / 1',
+        );
 
         // fix: 当 maxLength 长度为 2 的时候，输入 emoji 之后 showCount 会显示 1/2，但是不能再输入了
         // zombieJ: 逻辑统一了，emoji 现在也可以正确计数了
         const { container: container1 } = render(<TextArea maxLength={2} showCount value="👀" />);
-        expect(container1.querySelector('.ant-input-textarea').getAttribute('data-count')).toBe('1 / 2');
+        expect(container1.querySelector('.ant-input-textarea').getAttribute('data-count')).toBe(
+          '1 / 2',
+        );
       });
 
       it('defaultValue should slice', () => {
@@ -248,7 +280,9 @@ describe('TextArea', () => {
       it('slice emoji', () => {
         const { container } = render(<TextArea maxLength={5} showCount value="1234😂" />);
         expect(container.querySelector('textarea').value).toBe('1234😂');
-        expect(container.querySelector('.ant-input-textarea').getAttribute('data-count')).toBe('5 / 5');
+        expect(container.querySelector('.ant-input-textarea').getAttribute('data-count')).toBe(
+          '5 / 5',
+        );
       });
     });
 
@@ -275,7 +309,9 @@ describe('TextArea', () => {
         />,
       );
       expect(container.querySelector('textarea').value).toBe('12345');
-      expect(container.querySelector('.ant-input-textarea').getAttribute('data-count')).toBe('5, 5');
+      expect(container.querySelector('.ant-input-textarea').getAttribute('data-count')).toBe(
+        '5, 5',
+      );
     });
   });
 
@@ -356,7 +392,9 @@ describe('TextArea allowClear', () => {
   });
 
   it('should focus textarea after clear', () => {
-    const { container, unmount } = render(<TextArea allowClear defaultValue="111" />, { container: document.body });
+    const { container, unmount } = render(<TextArea allowClear defaultValue="111" />, {
+      container: document.body,
+    });
     fireEvent.click(container.querySelector('.ant-input-clear-icon'));
     expect(document.activeElement).toBe(container.querySelector('textarea'));
     unmount();
@@ -380,7 +418,10 @@ describe('TextArea allowClear', () => {
 
   it('scroll to bottom when autoSize', async () => {
     const ref = React.createRef();
-    const { container, unmount } = render(<Input.TextArea ref={ref} autoSize />, { container: document.body, legacyRoot: true });
+    const { container, unmount } = render(<Input.TextArea ref={ref} autoSize />, {
+      container: document.body,
+      legacyRoot: true,
+    });
     fireEvent.focus(container.querySelector('textarea'));
     container.querySelector('textarea').focus();
 
@@ -459,9 +500,12 @@ describe('TextArea allowClear', () => {
   // https://github.com/ant-design/ant-design/issues/31200
   it('should not lost focus when clear input', () => {
     const onBlur = jest.fn();
-    const { container, unmount } = render(<TextArea allowClear defaultValue="value" onBlur={onBlur} />, {
-      container: document.body,
-    });
+    const { container, unmount } = render(
+      <TextArea allowClear defaultValue="value" onBlur={onBlur} />,
+      {
+        container: document.body,
+      },
+    );
     container.querySelector('textarea').focus();
     fireEvent.mouseDown(container.querySelector('.ant-input-clear-icon'));
     fireEvent.click(container.querySelector('.ant-input-clear-icon'));
@@ -473,7 +517,9 @@ describe('TextArea allowClear', () => {
   });
 
   it('should focus text area after clear', () => {
-    const { container, unmount } = render(<TextArea allowClear defaultValue="111" />, { container: document.body });
+    const { container, unmount } = render(<TextArea allowClear defaultValue="111" />, {
+      container: document.body,
+    });
     fireEvent.click(container.querySelector('.ant-input-clear-icon'));
     expect(document.activeElement).toBe(container.querySelector('textarea'));
     unmount();
@@ -484,5 +530,29 @@ describe('TextArea allowClear', () => {
     expect(container.querySelector('textarea').value).toBe('true');
     rerender(<TextArea value={false} />);
     expect(container.querySelector('textarea').value).toBe('false');
+  });
+
+  it('should focus when clearBtn is clicked in controlled case', () => {
+    const handleFocus = jest.fn();
+
+    const textareaSpy = spyElementPrototypes(HTMLTextAreaElement, {
+      focus: handleFocus,
+    });
+
+    const Demo = () => {
+      const [value, setValue] = React.useState('');
+
+      return <Input.TextArea allowClear value={value} onChange={e => setValue(e.target.value)} />;
+    };
+
+    const { container } = render(<Demo />);
+    fireEvent.change(container.querySelector('textarea'), { target: { value: 'test' } });
+    expect(container.querySelector('.ant-input-clear-icon')?.className).not.toContain(
+      'ant-input-clear-icon-hidden',
+    );
+    fireEvent.click(container.querySelector('.ant-input-clear-icon'));
+    expect(handleFocus).toHaveBeenCalledTimes(1);
+
+    textareaSpy.mockRestore();
   });
 });
