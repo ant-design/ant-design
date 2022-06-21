@@ -893,7 +893,7 @@ describe('Upload', () => {
     const frozenFileList = fileList.map(file => Object.freeze(file));
 
     const { container: wrapper } = render(<Upload fileList={frozenFileList} />);
-    const rmBtn = wrapper.querySelectorAll('.ant-upload-list-item-card-actions-btn');
+    const rmBtn = wrapper.querySelectorAll('.ant-upload-list-item-action');
     fireEvent.click(rmBtn[rmBtn.length - 1]);
 
     // Wait for Upload async remove
