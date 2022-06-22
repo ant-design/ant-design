@@ -1,8 +1,8 @@
 import * as React from 'react';
-import type { DescriptionsItemProps } from './Item';
-import Cell from './Cell';
 import type { DescriptionsContextProps } from '.';
 import { DescriptionsContext } from '.';
+import Cell from './Cell';
+import type { DescriptionsItemProps } from './Item';
 
 interface CellConfig {
   component: string | [string, string];

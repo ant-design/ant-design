@@ -1,14 +1,14 @@
 /* eslint-disable react/no-array-index-key */
-import * as React from 'react';
 import classNames from 'classnames';
 import toArray from 'rc-util/lib/Children/toArray';
+import * as React from 'react';
+import { ConfigContext } from '../config-provider';
+import { cloneElement } from '../_util/reactNode';
 import type { Breakpoint, ScreenMap } from '../_util/responsiveObserve';
 import ResponsiveObserve, { responsiveArray } from '../_util/responsiveObserve';
 import warning from '../_util/warning';
-import { ConfigContext } from '../config-provider';
-import Row from './Row';
 import DescriptionsItem from './Item';
-import { cloneElement } from '../_util/reactNode';
+import Row from './Row';
 
 export interface DescriptionsContextProps {
   labelStyle?: React.CSSProperties;

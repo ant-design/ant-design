@@ -1,7 +1,7 @@
-import React from 'react';
 import { mount } from 'enzyme';
+import React from 'react';
 import { act } from 'react-dom/test-utils';
-import { sleep, render } from '../../../tests/utils';
+import { render, sleep } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
 
 describe('Collapse', () => {

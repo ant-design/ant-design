@@ -1,10 +1,10 @@
-import React from 'react';
 import { mount } from 'enzyme';
+import React from 'react';
 import { act } from 'react-dom/test-utils';
-import { render } from '../../../tests/utils';
 import ConfigProvider from '..';
-import zhCN from '../../locale/zh_CN';
+import { render } from '../../../tests/utils';
 import Form from '../../form';
+import zhCN from '../../locale/zh_CN';
 
 describe('ConfigProvider.Form', () => {
   beforeAll(() => {

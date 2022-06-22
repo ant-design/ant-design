@@ -1,9 +1,9 @@
 /* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/tk_TK';
-import DatePicker from '../date-picker/locale/tk_TK';
-import TimePicker from '../time-picker/locale/tk_TK';
 import Calendar from '../calendar/locale/tk_TK';
+import DatePicker from '../date-picker/locale/tk_TK';
 import type { Locale } from '../locale-provider';
+import TimePicker from '../time-picker/locale/tk_TK';
 
 const typeTemplate: string = '${label} ${type} görnüşinde däl';
 

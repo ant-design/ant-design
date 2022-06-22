@@ -1,8 +1,8 @@
-import React from 'react';
 import { mount } from 'enzyme';
-import Comment from '../index';
+import React from 'react';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import Comment from '../index';
 
 describe('Comment', () => {
   mountTest(Comment);
