@@ -14,10 +14,11 @@ title:
 Controlled mode lets parent nodes reflect the status of child nodes more intelligently.
 
 ```tsx
-import React, { useState } from 'react';
 import { Tree } from 'antd';
+import type { DataNode } from 'antd/lib/tree';
+import React, { useState } from 'react';
 
-const treeData = [
+const treeData: DataNode[] = [
   {
     title: '0-0',
     key: '0-0',
@@ -61,7 +62,7 @@ const treeData = [
   },
 ];
 
-const Demo = () => {
+const App: React.FC = () => {
   const [expandedKeys, setExpandedKeys] = useState<React.Key[]>(['0-0-0', '0-0-1']);
   const [checkedKeys, setCheckedKeys] = useState<React.Key[]>(['0-0-0']);
   const [selectedKeys, setSelectedKeys] = useState<React.Key[]>([]);
@@ -100,5 +101,5 @@ const Demo = () => {
   );
 };
 
-ReactDOM.render(<Demo />, mountNode);
+export default App;
 ```

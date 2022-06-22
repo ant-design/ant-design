@@ -1,13 +1,14 @@
 import * as React from 'react';
 import { presetPrimaryColors } from '@ant-design/colors';
-import { ProgressGradient, ProgressProps, StringGradients } from './progress';
+import type { ProgressGradient, ProgressProps, StringGradients } from './progress';
 import { validProgress, getSuccessPercent } from './utils';
-import { DirectionType } from '../config-provider';
+import type { DirectionType } from '../config-provider';
 
 interface LineProps extends ProgressProps {
   prefixCls: string;
   direction?: DirectionType;
   children: React.ReactNode;
+  strokeColor?: string | ProgressGradient;
 }
 
 /**
@@ -70,9 +71,9 @@ const Line: React.FC<LineProps> = props => {
     strokeWidth,
     size,
     strokeColor,
-    strokeLinecap,
+    strokeLinecap = 'round',
     children,
-    trailColor,
+    trailColor = null,
     success,
   } = props;
 
@@ -83,27 +84,27 @@ const Line: React.FC<LineProps> = props => {
           background: strokeColor,
         };
 
-  const trailStyle = trailColor
-    ? {
-        backgroundColor: trailColor,
-      }
-    : undefined;
+  const borderRadius = strokeLinecap === 'square' || strokeLinecap === 'butt' ? 0 : undefined;
+  const trailStyle = {
+    backgroundColor: trailColor || undefined,
+    borderRadius,
+  };
 
   const percentStyle = {
     width: `${validProgress(percent)}%`,
     height: strokeWidth || (size === 'small' ? 6 : 8),
-    borderRadius: strokeLinecap === 'square' ? 0 : '',
+    borderRadius,
     ...backgroundProps,
-  } as React.CSSProperties;
+  };
 
   const successPercent = getSuccessPercent(props);
 
   const successPercentStyle = {
     width: `${validProgress(successPercent)}%`,
     height: strokeWidth || (size === 'small' ? 6 : 8),
-    borderRadius: strokeLinecap === 'square' ? 0 : '',
+    borderRadius,
     backgroundColor: success?.strokeColor,
-  } as React.CSSProperties;
+  };
 
   const successSegment =
     successPercent !== undefined ? (

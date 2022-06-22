@@ -17,8 +17,9 @@ Coordinating the selection of provinces and cities is a common use case and demo
 
 Using the [Cascader](/components/cascader) component is strongly recommended instead as it is more flexible and capable.
 
-```jsx
+```tsx
 import { Select } from 'antd';
+import React, { useState } from 'react';
 
 const { Option } = Select;
 const provinceData = ['Zhejiang', 'Jiangsu'];
@@ -27,16 +28,18 @@ const cityData = {
   Jiangsu: ['Nanjing', 'Suzhou', 'Zhenjiang'],
 };
 
-const App = () => {
-  const [cities, setCities] = React.useState(cityData[provinceData[0]]);
-  const [secondCity, setSecondCity] = React.useState(cityData[provinceData[0]][0]);
+type CityName = keyof typeof cityData;
 
-  const handleProvinceChange = value => {
+const App: React.FC = () => {
+  const [cities, setCities] = useState(cityData[provinceData[0] as CityName]);
+  const [secondCity, setSecondCity] = useState(cityData[provinceData[0] as CityName][0]);
+
+  const handleProvinceChange = (value: CityName) => {
     setCities(cityData[value]);
     setSecondCity(cityData[value][0]);
   };
 
-  const onSecondCityChange = value => {
+  const onSecondCityChange = (value: CityName) => {
     setSecondCity(value);
   };
 
@@ -56,5 +59,5 @@ const App = () => {
   );
 };
 
-ReactDOM.render(<App />, mountNode);
+export default App;
 ```

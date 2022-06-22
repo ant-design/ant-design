@@ -144,6 +144,6 @@ describe('react router', () => {
       },
     ];
     const wrapper = mount(<Breadcrumb routes={routes} params={{ id: 1 }} />);
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });

@@ -8,7 +8,7 @@ import Tooltip from '../../tooltip';
 import Progress from '../../progress';
 import { ConfigContext } from '../../config-provider';
 
-import {
+import type {
   ItemRender,
   UploadFile,
   UploadListProgressProps,
@@ -104,6 +104,7 @@ const ListItem = React.forwardRef(
             src={file.thumbUrl || file.url}
             alt={file.name}
             className={`${prefixCls}-list-item-image`}
+            crossOrigin={file.crossOrigin}
           />
         ) : (
           iconNode

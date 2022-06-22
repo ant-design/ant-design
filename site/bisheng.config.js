@@ -87,6 +87,7 @@ module.exports = {
       };
     } else if (process.env.ESBUILD) {
       // use esbuild
+      config.optimization.minimize = true;
       config.optimization.minimizer = [
         new ESBuildMinifyPlugin({
           target: 'es2015',
@@ -158,6 +159,33 @@ module.exports = {
         /tinycolor/,
         /bisheng-plugin/,
       ];
+    }
+
+    // Split chunks
+    if (config.mode === 'production') {
+      config.optimization.splitChunks = {
+        ...config.optimization.splitChunks,
+        cacheGroups: {
+          vendors: {
+            test: /[/\\]node_modules[/\\]@ant-design[/\\]icon/,
+            name: 'anticon',
+            chunks: 'initial',
+            maxSize: 1024 * 1024,
+          },
+          components: {
+            test(module) {
+              return (
+                module.resource &&
+                module.resource.includes('ant-design/components') &&
+                !module.resource.includes('demo') &&
+                !module.resource.endsWith('md')
+              );
+            },
+            name: 'components',
+            chunks: 'initial',
+          },
+        },
+      };
     }
 
     return config;

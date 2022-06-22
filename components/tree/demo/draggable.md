@@ -13,17 +13,19 @@ title:
 
 Drag treeNode to insert after the other treeNode or insert into the other parent TreeNode.
 
-```jsx
+```tsx
 import { Tree } from 'antd';
+import type { DataNode, TreeProps } from 'antd/lib/tree';
+import React, { useState } from 'react';
 
 const x = 3;
 const y = 2;
 const z = 1;
-const gData = [];
+const defaultData: DataNode[] = [];
 
-const generateData = (_level, _preKey, _tns) => {
+const generateData = (_level: number, _preKey?: React.Key, _tns?: DataNode[]) => {
   const preKey = _preKey || '0';
-  const tns = _tns || gData;
+  const tns = _tns || defaultData;
 
   const children = [];
   for (let i = 0; i < x; i++) {
@@ -44,41 +46,41 @@ const generateData = (_level, _preKey, _tns) => {
 };
 generateData(z);
 
-class Demo extends React.Component {
-  state = {
-    gData,
-    expandedKeys: ['0-0', '0-0-0', '0-0-0-0'],
-  };
+const App: React.FC = () => {
+  const [gData, setGData] = useState(defaultData);
+  const [expandedKeys] = useState(['0-0', '0-0-0', '0-0-0-0']);
 
-  onDragEnter = info => {
+  const onDragEnter: TreeProps['onDragEnter'] = info => {
     console.log(info);
     // expandedKeys 需要受控时设置
-    // this.setState({
-    //   expandedKeys: info.expandedKeys,
-    // });
+    // setExpandedKeys(info.expandedKeys)
   };
 
-  onDrop = info => {
+  const onDrop: TreeProps['onDrop'] = info => {
     console.log(info);
     const dropKey = info.node.key;
     const dragKey = info.dragNode.key;
     const dropPos = info.node.pos.split('-');
     const dropPosition = info.dropPosition - Number(dropPos[dropPos.length - 1]);
 
-    const loop = (data, key, callback) => {
+    const loop = (
+      data: DataNode[],
+      key: React.Key,
+      callback: (node: DataNode, i: number, data: DataNode[]) => void,
+    ) => {
       for (let i = 0; i < data.length; i++) {
         if (data[i].key === key) {
           return callback(data[i], i, data);
         }
         if (data[i].children) {
-          loop(data[i].children, key, callback);
+          loop(data[i].children!, key, callback);
         }
       }
     };
-    const data = [...this.state.gData];
+    const data = [...gData];
 
     // Find dragObject
-    let dragObj;
+    let dragObj: DataNode;
     loop(data, dragKey, (item, index, arr) => {
       arr.splice(index, 1);
       dragObj = item;
@@ -92,8 +94,8 @@ class Demo extends React.Component {
         item.children.unshift(dragObj);
       });
     } else if (
-      (info.node.props.children || []).length > 0 && // Has children
-      info.node.props.expanded && // Is expanded
+      ((info.node as any).props.children || []).length > 0 && // Has children
+      (info.node as any).props.expanded && // Is expanded
       dropPosition === 1 // On the bottom gap
     ) {
       loop(data, dropKey, item => {
@@ -104,38 +106,33 @@ class Demo extends React.Component {
         // item to the tail of the children
       });
     } else {
-      let ar;
-      let i;
-      loop(data, dropKey, (item, index, arr) => {
+      let ar: DataNode[] = [];
+      let i: number;
+      loop(data, dropKey, (_item, index, arr) => {
         ar = arr;
         i = index;
       });
       if (dropPosition === -1) {
-        ar.splice(i, 0, dragObj);
+        ar.splice(i!, 0, dragObj!);
       } else {
-        ar.splice(i + 1, 0, dragObj);
+        ar.splice(i! + 1, 0, dragObj!);
       }
     }
-
-    this.setState({
-      gData: data,
-    });
+    setGData(data);
   };
 
-  render() {
-    return (
-      <Tree
-        className="draggable-tree"
-        defaultExpandedKeys={this.state.expandedKeys}
-        draggable
-        blockNode
-        onDragEnter={this.onDragEnter}
-        onDrop={this.onDrop}
-        treeData={this.state.gData}
-      />
-    );
-  }
-}
+  return (
+    <Tree
+      className="draggable-tree"
+      defaultExpandedKeys={expandedKeys}
+      draggable
+      blockNode
+      onDragEnter={onDragEnter}
+      onDrop={onDrop}
+      treeData={gData}
+    />
+  );
+};
 
-ReactDOM.render(<Demo />, mountNode);
+export default App;
 ```

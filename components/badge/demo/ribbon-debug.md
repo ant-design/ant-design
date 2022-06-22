@@ -14,10 +14,11 @@ Buggy!
 
 Buggy!
 
-```jsx
+```tsx
 import { Badge, Card, Space } from 'antd';
+import React from 'react';
 
-ReactDOM.render(
+const App: React.FC = () => (
   <Space direction="vertical" style={{ width: '100%' }}>
     <Badge.Ribbon text="啦啦啦啦">
       <Card>推开窗户举起望远镜</Card>
@@ -34,7 +35,8 @@ ReactDOM.render(
     <Badge.Ribbon text="啦啦啦啦" color="#2db7f5" placement="end">
       <Card>推开窗户举起望远镜</Card>
     </Badge.Ribbon>
-  </Space>,
-  mountNode,
+  </Space>
 );
+
+export default App;
 ```

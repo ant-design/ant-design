@@ -13,21 +13,22 @@ title:
 
 Multiple selection, selecting from existing items.
 
-```jsx
+```tsx
 import { Select } from 'antd';
+import React from 'react';
 
 const { Option } = Select;
 
-const children = [];
+const children: React.ReactNode[] = [];
 for (let i = 10; i < 36; i++) {
   children.push(<Option key={i.toString(36) + i}>{i.toString(36) + i}</Option>);
 }
 
-function handleChange(value) {
+const handleChange = (value: string[]) => {
   console.log(`selected ${value}`);
-}
+};
 
-ReactDOM.render(
+const App: React.FC = () => (
   <>
     <Select
       mode="multiple"
@@ -50,7 +51,8 @@ ReactDOM.render(
     >
       {children}
     </Select>
-  </>,
-  mountNode,
+  </>
 );
+
+export default App;
 ```

@@ -78,7 +78,12 @@ export { default as Descriptions } from './descriptions';
 export type { DividerProps } from './divider';
 export { default as Divider } from './divider';
 
-export type { DropDownProps } from './dropdown';
+export type {
+  DropdownProps,
+  // typo, but we need to support it for backwards compatibility
+  // https://github.com/ant-design/ant-design/pull/35161
+  DropdownProps as DropDownProps,
+} from './dropdown';
 export { default as Dropdown } from './dropdown';
 
 export type { DrawerProps } from './drawer';
@@ -87,7 +92,14 @@ export { default as Drawer } from './drawer';
 export type { EmptyProps } from './empty';
 export { default as Empty } from './empty';
 
-export type { FormInstance, FormProps, FormItemProps } from './form';
+export type {
+  FormInstance,
+  FormProps,
+  FormItemProps,
+  FormListFieldData,
+  FormListOperation,
+  Rule as FormRule,
+} from './form';
 export { default as Form } from './form';
 
 export { default as Grid } from './grid';
@@ -151,8 +163,11 @@ export { default as Result } from './result';
 export type { RowProps } from './row';
 export { default as Row } from './row';
 
-export type { SelectProps } from './select';
+export type { SelectProps, RefSelectProps } from './select';
 export { default as Select } from './select';
+
+export type { SegmentedProps } from './segmented';
+export { default as Segmented } from './segmented';
 
 export type { SkeletonProps } from './skeleton';
 export { default as Skeleton } from './skeleton';
@@ -213,8 +228,7 @@ export { default as Tooltip } from './tooltip';
 export type { TypographyProps } from './typography';
 export { default as Typography } from './typography';
 
-export type { UploadProps } from './upload';
-
+export type { UploadProps, UploadFile } from './upload';
 export { default as Upload } from './upload';
 
 export { default as version } from './version';

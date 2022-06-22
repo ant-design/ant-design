@@ -14,10 +14,11 @@ debug: true
 
 Using `count/dot` with custom `stauts/color`.
 
-```jsx
-import { Badge, Avatar } from 'antd';
+```tsx
+import { Avatar, Badge } from 'antd';
+import React from 'react';
 
-ReactDOM.render(
+const App: React.FC = () => (
   <>
     <Badge count={5} status="success">
       <Avatar shape="square" size="large" />
@@ -43,7 +44,8 @@ ReactDOM.render(
     <Badge dot color="#fa541c">
       <Avatar shape="square" size="large" />
     </Badge>
-  </>,
-  mountNode,
+  </>
 );
+
+export default App;
 ```

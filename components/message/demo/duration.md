@@ -13,12 +13,15 @@ title:
 
 Customize message display duration from default `3s` to `10s`.
 
-```jsx
-import { message, Button } from 'antd';
+```tsx
+import { Button, message } from 'antd';
+import React from 'react';
 
 const success = () => {
   message.success('This is a prompt message for success, and it will disappear in 10 seconds', 10);
 };
 
-ReactDOM.render(<Button onClick={success}>Customized display duration</Button>, mountNode);
+const App: React.FC = () => <Button onClick={success}>Customized display duration</Button>;
+
+export default App;
 ```

@@ -13,8 +13,9 @@ title:
 
 `message` provides a promise interface for `onClose`. The above example will display a new message when the old message is about to close.
 
-```jsx
-import { message, Button } from 'antd';
+```tsx
+import { Button, message } from 'antd';
+import React from 'react';
 
 const success = () => {
   message
@@ -23,5 +24,7 @@ const success = () => {
     .then(() => message.info('Loading finished is finished', 2.5));
 };
 
-ReactDOM.render(<Button onClick={success}>Display sequential messages</Button>, mountNode);
+const App: React.FC = () => <Button onClick={success}>Display sequential messages</Button>;
+
+export default App;
 ```

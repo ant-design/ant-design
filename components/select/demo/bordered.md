@@ -13,12 +13,13 @@ title:
 
 Bordered-less style component.
 
-```jsx
+```tsx
 import { Select } from 'antd';
+import React from 'react';
 
 const { Option } = Select;
 
-ReactDOM.render(
+const App: React.FC = () => (
   <>
     <Select defaultValue="lucy" style={{ width: 120 }} bordered={false}>
       <Option value="jack">Jack</Option>
@@ -28,7 +29,8 @@ ReactDOM.render(
     <Select defaultValue="lucy" style={{ width: 120 }} disabled bordered={false}>
       <Option value="lucy">Lucy</Option>
     </Select>
-  </>,
-  mountNode,
+  </>
 );
+
+export default App;
 ```

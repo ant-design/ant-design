@@ -13,20 +13,21 @@ title:
 
 Asynchronous loading tree node.
 
-```jsx
+```tsx
+import type { TreeSelectProps } from 'antd';
 import { TreeSelect } from 'antd';
+import type { DefaultOptionType } from 'antd/es/select';
+import React, { useState } from 'react';
 
-class Demo extends React.Component {
-  state = {
-    value: undefined,
-    treeData: [
-      { id: 1, pId: 0, value: '1', title: 'Expand to load' },
-      { id: 2, pId: 0, value: '2', title: 'Expand to load' },
-      { id: 3, pId: 0, value: '3', title: 'Tree Node', isLeaf: true },
-    ],
-  };
+const App: React.FC = () => {
+  const [value, setValue] = useState<string>();
+  const [treeData, setTreeData] = useState<Omit<DefaultOptionType, 'label'>[]>([
+    { id: 1, pId: 0, value: '1', title: 'Expand to load' },
+    { id: 2, pId: 0, value: '2', title: 'Expand to load' },
+    { id: 3, pId: 0, value: '3', title: 'Tree Node', isLeaf: true },
+  ]);
 
-  genTreeNode = (parentId, isLeaf = false) => {
+  const genTreeNode = (parentId: number, isLeaf = false) => {
     const random = Math.random().toString(36).substring(2, 6);
     return {
       id: random,
@@ -37,41 +38,34 @@ class Demo extends React.Component {
     };
   };
 
-  onLoadData = ({ id }) =>
+  const onLoadData: TreeSelectProps['loadData'] = ({ id }) =>
     new Promise(resolve => {
       setTimeout(() => {
-        this.setState({
-          treeData: this.state.treeData.concat([
-            this.genTreeNode(id, false),
-            this.genTreeNode(id, true),
-            this.genTreeNode(id, true),
-          ]),
-        });
-        resolve();
+        setTreeData(
+          treeData.concat([genTreeNode(id, false), genTreeNode(id, true), genTreeNode(id, true)]),
+        );
+        resolve(undefined);
       }, 300);
     });
 
-  onChange = value => {
-    console.log(value);
-    this.setState({ value });
+  const onChange = (newValue: string) => {
+    console.log(newValue);
+    setValue(newValue);
   };
 
-  render() {
-    const { treeData } = this.state;
-    return (
-      <TreeSelect
-        treeDataSimpleMode
-        style={{ width: '100%' }}
-        value={this.state.value}
-        dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
-        placeholder="Please select"
-        onChange={this.onChange}
-        loadData={this.onLoadData}
-        treeData={treeData}
-      />
-    );
-  }
-}
+  return (
+    <TreeSelect
+      treeDataSimpleMode
+      style={{ width: '100%' }}
+      value={value}
+      dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
+      placeholder="Please select"
+      onChange={onChange}
+      loadData={onLoadData}
+      treeData={treeData}
+    />
+  );
+};
 
-ReactDOM.render(<Demo />, mountNode);
+export default App;
 ```

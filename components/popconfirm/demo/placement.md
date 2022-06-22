@@ -13,16 +13,17 @@ title:
 
 There are 12 `placement` options available. Use `arrowPointAtCenter` if you want the arrow to point at the center of target.
 
-```jsx
-import { Popconfirm, message, Button } from 'antd';
+```tsx
+import { Button, message, Popconfirm } from 'antd';
+import React from 'react';
 
 const text = 'Are you sure to delete this task?';
 
-function confirm() {
+const confirm = () => {
   message.info('Clicked on Yes.');
-}
+};
 
-ReactDOM.render(
+const App: React.FC = () => (
   <div className="demo">
     <div style={{ marginLeft: 70, whiteSpace: 'nowrap' }}>
       <Popconfirm placement="topLeft" title={text} onConfirm={confirm} okText="Yes" cancelText="No">
@@ -104,9 +105,10 @@ ReactDOM.render(
         <Button>BR</Button>
       </Popconfirm>
     </div>
-  </div>,
-  mountNode,
+  </div>
 );
+
+export default App;
 ```
 
 <style>

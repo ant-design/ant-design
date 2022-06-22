@@ -4,6 +4,9 @@ name: Deploy website
 on:
   create
 
+permissions:
+  contents: read
+
 jobs:
   setup:
     runs-on: ubuntu-latest

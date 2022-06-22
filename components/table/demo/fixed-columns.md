@@ -25,10 +25,19 @@ To fix some columns and scroll inside other columns, and you must set `scroll.x`
 
 **Note: v4 using sticky to implement fixed effect. IE 11 will downgrade to horizontal scroll.**
 
-```jsx
+```tsx
 import { Table } from 'antd';
+import type { ColumnsType } from 'antd/lib/table';
+import React from 'react';
 
-const columns = [
+interface DataType {
+  key: React.Key;
+  name: string;
+  age: number;
+  address: string;
+}
+
+const columns: ColumnsType<DataType> = [
   {
     title: 'Full Name',
     width: 100,
@@ -60,7 +69,7 @@ const columns = [
   },
 ];
 
-const data = [
+const data: DataType[] = [
   {
     key: '1',
     name: 'John Brown',
@@ -75,5 +84,7 @@ const data = [
   },
 ];
 
-ReactDOM.render(<Table columns={columns} dataSource={data} scroll={{ x: 1300 }} />, mountNode);
+const App: React.FC = () => <Table columns={columns} dataSource={data} scroll={{ x: 1300 }} />;
+
+export default App;
 ```

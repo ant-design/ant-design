@@ -13,24 +13,26 @@ title:
 
 Try to copy `Lucy,Jack` and paste to the input. Only available in tags and multiple mode.
 
-```jsx
+```tsx
 import { Select } from 'antd';
+import React from 'react';
 
 const { Option } = Select;
 
-const children = [];
+const children: React.ReactNode[] = [];
 for (let i = 10; i < 36; i++) {
   children.push(<Option key={i.toString(36) + i}>{i.toString(36) + i}</Option>);
 }
 
-function handleChange(value) {
+const handleChange = (value: string) => {
   console.log(`selected ${value}`);
-}
+};
 
-ReactDOM.render(
+const App: React.FC = () => (
   <Select mode="tags" style={{ width: '100%' }} onChange={handleChange} tokenSeparators={[',']}>
     {children}
-  </Select>,
-  mountNode,
+  </Select>
 );
+
+export default App;
 ```

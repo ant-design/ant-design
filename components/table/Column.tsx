@@ -1,4 +1,4 @@
-import { ColumnType } from './interface';
+import type { ColumnType } from './interface';
 
 export interface ColumnProps<RecordType> extends ColumnType<RecordType> {
   children?: null;

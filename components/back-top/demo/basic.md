@@ -13,18 +13,20 @@ title:
 
 The most basic usage.
 
-```jsx
+```tsx
 import { BackTop } from 'antd';
+import React from 'react';
 
-ReactDOM.render(
+const App: React.FC = () => (
   <>
     <BackTop />
     Scroll down to see the bottom-right
     <strong className="site-back-top-basic"> gray </strong>
     button.
-  </>,
-  mountNode,
+  </>
 );
+
+export default App;
 ```
 
 ```css

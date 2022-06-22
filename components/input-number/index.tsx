@@ -1,19 +1,18 @@
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import UpOutlined from '@ant-design/icons/UpOutlined';
 import classNames from 'classnames';
-import RcInputNumber, { InputNumberProps as RcInputNumberProps } from 'rc-input-number';
+import type { InputNumberProps as RcInputNumberProps } from 'rc-input-number';
+import RcInputNumber from 'rc-input-number';
 import * as React from 'react';
 import { useContext } from 'react';
 import { ConfigContext } from '../config-provider';
-import SizeContext, { SizeType } from '../config-provider/SizeContext';
-import { FormItemStatusContext, NoFormStatus } from '../form/context';
+import DisabledContext from '../config-provider/DisabledContext';
+import type { SizeType } from '../config-provider/SizeContext';
+import SizeContext from '../config-provider/SizeContext';
+import { FormItemInputContext, NoFormStyle } from '../form/context';
 import { cloneElement } from '../_util/reactNode';
-import {
-  getFeedbackIcon,
-  getStatusClassNames,
-  InputStatus,
-  getMergedStatus,
-} from '../_util/statusUtils';
+import type { InputStatus } from '../_util/statusUtils';
+import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 
 type ValueType = string | number;
 
@@ -24,6 +23,7 @@ export interface InputNumberProps<T extends ValueType = ValueType>
   addonAfter?: React.ReactNode;
   prefix?: React.ReactNode;
   size?: SizeType;
+  disabled?: boolean;
   bordered?: boolean;
   status?: InputStatus;
   controls?: boolean | { upIcon?: React.ReactNode; downIcon?: React.ReactNode };
@@ -40,6 +40,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   const {
     className,
     size: customizeSize,
+    disabled: customDisabled,
     prefixCls: customizePrefixCls,
     addonBefore,
     addonAfter,
@@ -71,17 +72,26 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
       );
   }
 
-  const { hasFeedback, status: contextStatus } = useContext(FormItemStatusContext);
+  const {
+    hasFeedback,
+    status: contextStatus,
+    isFormItemInput,
+    feedbackIcon,
+  } = useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
   const mergeSize = customizeSize || size;
+  // ===================== Disabled =====================
+  const disabled = React.useContext(DisabledContext);
+  const mergedDisabled = customDisabled || disabled;
+
   const inputNumberClass = classNames(
     {
       [`${prefixCls}-lg`]: mergeSize === 'large',
       [`${prefixCls}-sm`]: mergeSize === 'small',
       [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-readonly`]: readOnly,
       [`${prefixCls}-borderless`]: !bordered,
+      [`${prefixCls}-in-form-item`]: isFormItemInput,
     },
     getStatusClassNames(prefixCls, mergedStatus),
     className,
@@ -90,6 +100,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
   let element = (
     <RcInputNumber
       ref={inputRef}
+      disabled={mergedDisabled}
       className={inputNumberClass}
       upHandler={upIcon}
       downHandler={downIcon}
@@ -136,9 +147,7 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
             props.onBlur?.(event);
           },
         })}
-        {hasFeedback && (
-          <span className={`${prefixCls}-suffix`}>{getFeedbackIcon(prefixCls, mergedStatus)}</span>
-        )}
+        {hasFeedback && <span className={`${prefixCls}-suffix`}>{feedbackIcon}</span>}
       </div>
     );
   }
@@ -168,9 +177,17 @@ const InputNumber = React.forwardRef<HTMLInputElement, InputNumberProps>((props,
     element = (
       <div className={mergedGroupClassName} style={props.style}>
         <div className={mergedWrapperClassName}>
-          {addonBeforeNode && <NoFormStatus>{addonBeforeNode}</NoFormStatus>}
-          {cloneElement(element, { style: null })}
-          {addonAfterNode && <NoFormStatus>{addonAfterNode}</NoFormStatus>}
+          {addonBeforeNode && (
+            <NoFormStyle status override>
+              {addonBeforeNode}
+            </NoFormStyle>
+          )}
+          {cloneElement(element, { style: null, disabled: mergedDisabled })}
+          {addonAfterNode && (
+            <NoFormStyle status override>
+              {addonAfterNode}
+            </NoFormStyle>
+          )}
         </div>
       </div>
     );

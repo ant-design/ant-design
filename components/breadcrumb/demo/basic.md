@@ -13,10 +13,11 @@ title:
 
 The simplest use.
 
-```jsx
+```tsx
 import { Breadcrumb } from 'antd';
+import React from 'react';
 
-ReactDOM.render(
+const App: React.FC = () => (
   <Breadcrumb>
     <Breadcrumb.Item>Home</Breadcrumb.Item>
     <Breadcrumb.Item>
@@ -26,7 +27,8 @@ ReactDOM.render(
       <a href="">Application List</a>
     </Breadcrumb.Item>
     <Breadcrumb.Item>An Application</Breadcrumb.Item>
-  </Breadcrumb>,
-  mountNode,
+  </Breadcrumb>
 );
+
+export default App;
 ```

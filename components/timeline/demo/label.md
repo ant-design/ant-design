@@ -13,14 +13,15 @@ title:
 
 Use `label` show time alone.
 
-```jsx
-import { useState } from 'react';
-import { Timeline, Radio } from 'antd';
+```tsx
+import type { RadioChangeEvent } from 'antd';
+import { Radio, Timeline } from 'antd';
+import React, { useState } from 'react';
 
-function TimelimeLabelDemo() {
-  const [mode, setMode] = useState('left');
+const App: React.FC = () => {
+  const [mode, setMode] = useState<'left' | 'alternate' | 'right'>('left');
 
-  const onChange = e => {
+  const onChange = (e: RadioChangeEvent) => {
     setMode(e.target.value);
   };
 
@@ -45,7 +46,7 @@ function TimelimeLabelDemo() {
       </Timeline>
     </>
   );
-}
+};
 
-ReactDOM.render(<TimelimeLabelDemo />, mountNode);
+export default App;
 ```

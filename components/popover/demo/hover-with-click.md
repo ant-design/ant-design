@@ -13,66 +13,57 @@ title:
 
 The following example shows how to create a popover which can be hovered and clicked.
 
-```jsx
-import { Popover, Button } from 'antd';
+```tsx
+import { Button, Popover } from 'antd';
+import React, { useState } from 'react';
 
-class App extends React.Component {
-  state = {
-    clicked: false,
-    hovered: false,
+const App: React.FC = () => {
+  const [clicked, setClicked] = useState(false);
+  const [hovered, setHovered] = useState(false);
+
+  const hide = () => {
+    setClicked(false);
+    setHovered(false);
   };
 
-  hide = () => {
-    this.setState({
-      clicked: false,
-      hovered: false,
-    });
+  const handleHoverChange = (visible: boolean) => {
+    setHovered(visible);
+    setClicked(false);
   };
 
-  handleHoverChange = visible => {
-    this.setState({
-      hovered: visible,
-      clicked: false,
-    });
+  const handleClickChange = (visible: boolean) => {
+    setHovered(false);
+    setClicked(visible);
   };
 
-  handleClickChange = visible => {
-    this.setState({
-      clicked: visible,
-      hovered: false,
-    });
-  };
-
-  render() {
-    const hoverContent = <div>This is hover content.</div>;
-    const clickContent = <div>This is click content.</div>;
-    return (
+  const hoverContent = <div>This is hover content.</div>;
+  const clickContent = <div>This is click content.</div>;
+  return (
+    <Popover
+      style={{ width: 500 }}
+      content={hoverContent}
+      title="Hover title"
+      trigger="hover"
+      visible={hovered}
+      onVisibleChange={handleHoverChange}
+    >
       <Popover
-        style={{ width: 500 }}
-        content={hoverContent}
-        title="Hover title"
-        trigger="hover"
-        visible={this.state.hovered}
-        onVisibleChange={this.handleHoverChange}
+        content={
+          <div>
+            {clickContent}
+            <a onClick={hide}>Close</a>
+          </div>
+        }
+        title="Click title"
+        trigger="click"
+        visible={clicked}
+        onVisibleChange={handleClickChange}
       >
-        <Popover
-          content={
-            <div>
-              {clickContent}
-              <a onClick={this.hide}>Close</a>
-            </div>
-          }
-          title="Click title"
-          trigger="click"
-          visible={this.state.clicked}
-          onVisibleChange={this.handleClickChange}
-        >
-          <Button>Hover and click / 悬停并单击</Button>
-        </Popover>
+        <Button>Hover and click / 悬停并单击</Button>
       </Popover>
-    );
-  }
-}
+    </Popover>
+  );
+};
 
-ReactDOM.render(<App />, mountNode);
+export default App;
 ```

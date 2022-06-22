@@ -5,7 +5,8 @@ import { cloneElement } from '../_util/reactNode';
 import { ConfigContext } from '../config-provider';
 import Avatar from './avatar';
 import Popover from '../popover';
-import { AvatarSize, SizeContextProvider } from './SizeContext';
+import type { AvatarSize } from './SizeContext';
+import { SizeContextProvider } from './SizeContext';
 
 export interface GroupProps {
   className?: string;

@@ -1,20 +1,20 @@
 import classNames from 'classnames';
-import RcTextArea, { TextAreaProps as RcTextAreaProps } from 'rc-textarea';
-import ResizableTextArea from 'rc-textarea/lib/ResizableTextArea';
+import type { TextAreaProps as RcTextAreaProps } from 'rc-textarea';
+import RcTextArea from 'rc-textarea';
+import type ResizableTextArea from 'rc-textarea/lib/ResizableTextArea';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
-import SizeContext, { SizeType } from '../config-provider/SizeContext';
-import { FormItemStatusContext } from '../form/context';
-import {
-  getFeedbackIcon,
-  getStatusClassNames,
-  InputStatus,
-  getMergedStatus,
-} from '../_util/statusUtils';
+import DisabledContext from '../config-provider/DisabledContext';
+import type { SizeType } from '../config-provider/SizeContext';
+import SizeContext from '../config-provider/SizeContext';
+import { FormItemInputContext } from '../form/context';
+import type { InputStatus } from '../_util/statusUtils';
+import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import ClearableLabeledInput from './ClearableLabeledInput';
-import { fixControlledValue, InputFocusOptions, resolveOnChange, triggerFocus } from './Input';
+import type { InputFocusOptions } from './Input';
+import { fixControlledValue, resolveOnChange, triggerFocus } from './Input';
 
 interface ShowCountProps {
   formatter: (args: { count: number; maxLength?: number }) => string;
@@ -49,6 +49,7 @@ export interface TextAreaProps extends RcTextAreaProps {
   bordered?: boolean;
   showCount?: boolean | ShowCountProps;
   size?: SizeType;
+  disabled?: boolean;
   status?: InputStatus;
 }
 
@@ -68,6 +69,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
       className,
       style,
       size: customizeSize,
+      disabled: customDisabled,
       onCompositionStart,
       onCompositionEnd,
       onChange,
@@ -79,7 +81,16 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
     const { getPrefixCls, direction } = React.useContext(ConfigContext);
     const size = React.useContext(SizeContext);
 
-    const { status: contextStatus, hasFeedback } = React.useContext(FormItemStatusContext);
+    // ===================== Disabled =====================
+    const disabled = React.useContext(DisabledContext);
+    const mergedDisabled = customDisabled || disabled;
+
+    const {
+      status: contextStatus,
+      hasFeedback,
+      isFormItemInput,
+      feedbackIcon,
+    } = React.useContext(FormItemInputContext);
     const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
     const innerRef = React.useRef<RcTextArea>(null);
@@ -154,9 +165,8 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
 
     // ============================== Reset ===============================
     const handleReset = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
-      handleSetValue('', () => {
-        innerRef.current?.focus();
-      });
+      handleSetValue('');
+      innerRef.current?.focus();
       resolveOnChange(innerRef.current?.resizableTextArea?.textArea!, e, onChange);
     };
 
@@ -173,6 +183,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
     const textArea = (
       <RcTextArea
         {...omit(props, ['allowClear'])}
+        disabled={mergedDisabled}
         className={classNames(
           {
             [`${prefixCls}-borderless`]: !bordered,
@@ -201,6 +212,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
     // TextArea
     const textareaNode = (
       <ClearableLabeledInput
+        disabled={mergedDisabled}
         {...props}
         prefixCls={prefixCls}
         direction={direction}
@@ -234,6 +246,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
             {
               [`${prefixCls}-textarea-rtl`]: direction === 'rtl',
               [`${prefixCls}-textarea-show-count`]: showCount,
+              [`${prefixCls}-textarea-in-form-item`]: isFormItemInput,
             },
             getStatusClassNames(`${prefixCls}-textarea`, mergedStatus, hasFeedback),
             className,
@@ -242,7 +255,7 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
           data-count={dataCount}
         >
           {textareaNode}
-          {hasFeedback && getFeedbackIcon(prefixCls, mergedStatus)}
+          {hasFeedback && <span className={`${prefixCls}-textarea-suffix`}>{feedbackIcon}</span>}
         </div>
       );
     }

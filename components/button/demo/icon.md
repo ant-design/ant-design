@@ -17,11 +17,12 @@ title:
 
 If you want specific control over the positioning and placement of the `Icon`, then that should be done by placing the `Icon` component within the `Button` rather than using the `icon` property.
 
-```jsx
-import { Button, Tooltip } from 'antd';
+```tsx
 import { SearchOutlined } from '@ant-design/icons';
+import { Button, Tooltip } from 'antd';
+import React from 'react';
 
-ReactDOM.render(
+const App: React.FC = () => (
   <>
     <Tooltip title="search">
       <Button type="primary" shape="circle" icon={<SearchOutlined />} />
@@ -79,7 +80,8 @@ ReactDOM.render(
       Search
     </Button>
     <Button icon={<SearchOutlined />} size="large" href="https://www.google.com" />
-  </>,
-  mountNode,
+  </>
 );
+
+export default App;
 ```

@@ -14,11 +14,18 @@ title:
 
 Use `suffixIcon` to customize the selection box suffix icon, and use `expandIcon` to customize the current item expand icon.
 
-```jsx
-import { Cascader } from 'antd';
+```tsx
 import { SmileOutlined } from '@ant-design/icons';
+import { Cascader } from 'antd';
+import React from 'react';
 
-const options = [
+interface Option {
+  value: string;
+  label: string;
+  children?: Option[];
+}
+
+const options: Option[] = [
   {
     value: 'zhejiang',
     label: 'Zhejiang',
@@ -53,11 +60,11 @@ const options = [
   },
 ];
 
-function onChange(value) {
+const onChange = (value: string[]) => {
   console.log(value);
-}
+};
 
-ReactDOM.render(
+const App: React.FC = () => (
   <>
     <Cascader
       suffixIcon={<SmileOutlined />}
@@ -79,7 +86,8 @@ ReactDOM.render(
     <br />
     <br />
     <Cascader expandIcon="ab" options={options} onChange={onChange} placeholder="Please select" />
-  </>,
-  mountNode,
+  </>
 );
+
+export default App;
 ```

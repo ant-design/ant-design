@@ -1,11 +1,12 @@
-import OriginModal, { ModalFuncProps } from './Modal';
+import type { ModalFuncProps } from './Modal';
+import OriginModal from './Modal';
+import type { ModalStaticFunctions } from './confirm';
 import confirm, {
   withWarn,
   withInfo,
   withSuccess,
   withError,
   withConfirm,
-  ModalStaticFunctions,
   modalGlobalConfig,
 } from './confirm';
 import useModal from './useModal';

@@ -2843,14 +2843,14 @@ exports[`renders ./components/tabs/demo/size.md correctly 1`] = `
         <input
           class="ant-radio-button-input"
           type="radio"
-          value="default"
+          value="middle"
         />
         <span
           class="ant-radio-button-inner"
         />
       </span>
       <span>
-        Default
+        Middle
       </span>
     </label>
     <label

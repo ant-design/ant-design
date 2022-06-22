@@ -13,10 +13,17 @@ title:
 
 Custom field names.
 
-```jsx
+```tsx
 import { Cascader } from 'antd';
+import React from 'react';
 
-const options = [
+interface Option {
+  code: string;
+  name: string;
+  items?: Option[];
+}
+
+const options: Option[] = [
   {
     code: 'zhejiang',
     name: 'Zhejiang',
@@ -51,17 +58,18 @@ const options = [
   },
 ];
 
-function onChange(value) {
+const onChange = (value: string[]) => {
   console.log(value);
-}
+};
 
-ReactDOM.render(
+const App: React.FC = () => (
   <Cascader
     fieldNames={{ label: 'name', value: 'code', children: 'items' }}
     options={options}
     onChange={onChange}
     placeholder="Please select"
-  />,
-  mountNode,
+  />
 );
+
+export default App;
 ```

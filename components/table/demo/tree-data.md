@@ -17,10 +17,21 @@ Display tree structure data in Table when there is field key `children` in dataS
 
 You can control the indent width by setting `indentSize`.
 
-```jsx
-import { Table, Switch, Space } from 'antd';
+```tsx
+import { Space, Switch, Table } from 'antd';
+import type { ColumnsType } from 'antd/lib/table';
+import type { TableRowSelection } from 'antd/lib/table/interface';
+import React, { useState } from 'react';
 
-const columns = [
+interface DataType {
+  key: React.ReactNode;
+  name: string;
+  age: number;
+  address: string;
+  children?: DataType[];
+}
+
+const columns: ColumnsType<DataType> = [
   {
     title: 'Name',
     dataIndex: 'name',
@@ -40,7 +51,7 @@ const columns = [
   },
 ];
 
-const data = [
+const data: DataType[] = [
   {
     key: 1,
     name: 'John Brown sr.',
@@ -106,7 +117,7 @@ const data = [
 ];
 
 // rowSelection objects indicates the need for row selection
-const rowSelection = {
+const rowSelection: TableRowSelection<DataType> = {
   onChange: (selectedRowKeys, selectedRows) => {
     console.log(`selectedRowKeys: ${selectedRowKeys}`, 'selectedRows: ', selectedRows);
   },
@@ -118,8 +129,9 @@ const rowSelection = {
   },
 };
 
-function TreeData() {
-  const [checkStrictly, setCheckStrictly] = React.useState(false);
+const App: React.FC = () => {
+  const [checkStrictly, setCheckStrictly] = useState(false);
+
   return (
     <>
       <Space align="center" style={{ marginBottom: 16 }}>
@@ -132,7 +144,7 @@ function TreeData() {
       />
     </>
   );
-}
+};
 
-ReactDOM.render(<TreeData />, mountNode);
+export default App;
 ```

@@ -13,10 +13,11 @@ title:
 
 Click the left and right switch buttons to preview multiple images.
 
-```jsx
+```tsx
 import { Image } from 'antd';
+import React from 'react';
 
-const App = () => (
+const App: React.FC = () => (
   <Image.PreviewGroup>
     <Image width={200} src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" />
     <Image
@@ -26,5 +27,5 @@ const App = () => (
   </Image.PreviewGroup>
 );
 
-ReactDOM.render(<App />, mountNode);
+export default App;
 ```

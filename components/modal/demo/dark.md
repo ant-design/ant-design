@@ -15,6 +15,7 @@ debug: true
 Basic modal.
 
 ```jsx
+import { useState } from 'react';
 import {
   Modal,
   DatePicker,
@@ -296,303 +297,283 @@ const TableTransfer = ({ leftColumns, rightColumns, ...restProps }) => (
   </Transfer>
 );
 
-class App extends React.Component {
-  state = {
-    visible: false,
-    targetKeys: oriTargetKeys,
-    selectedKeys: [],
-    disabled: false,
-    showSearch: false,
+export default () => {
+  const [visible, setVisible] = useState(false);
+  const [targetKeys, setTargetKeys] = useState(oriTargetKeys);
+  const [selectedKeys, setSelectedKeys] = useState([]);
+  const [disabled, setDisabled] = useState(false);
+  const [showSearch, setShowSearch] = useState(false);
+
+  const handleDisable = isDisabled => {
+    setDisabled(isDisabled);
   };
 
-  handleDisable = disabled => {
-    this.setState({
-      disabled,
-    });
+  const handleTableTransferChange = nextTargetKeys => {
+    setTargetKeys(nextTargetKeys);
   };
 
-  handleTableTransferChange = nextTargetKeys => {
-    this.setState({ targetKeys: nextTargetKeys });
+  const triggerDisable = isDisabled => {
+    setDisabled(isDisabled);
   };
 
-  triggerDisable = disabled => {
-    this.setState({ disabled });
+  const triggerShowSearch = isShowSearch => {
+    setShowSearch(isShowSearch);
   };
 
-  triggerShowSearch = showSearch => {
-    this.setState({ showSearch });
+  const handleTransferChange = nextTargetKeys => {
+    setTargetKeys(nextTargetKeys);
   };
 
-  handleTransferChange = nextTargetKeys => {
-    this.setState({ targetKeys: nextTargetKeys });
+  const handleTransferSelectChange = (sourceSelectedKeys, targetSelectedKeys) => {
+    setSelectedKeys([...sourceSelectedKeys, ...targetSelectedKeys]);
   };
 
-  handleTransferSelectChange = (sourceSelectedKeys, targetSelectedKeys) => {
-    this.setState({ selectedKeys: [...sourceSelectedKeys, ...targetSelectedKeys] });
+  const showModal = () => {
+    setVisible(true);
   };
 
-  showModal = () => {
-    this.setState({
-      visible: true,
-    });
-  };
-
-  handleOk = e => {
+  const handleOk = e => {
     console.log(e);
-    this.setState({
-      visible: false,
-    });
+    setVisible(false);
   };
 
-  handleCancel = e => {
+  const handleCancel = e => {
     console.log(e);
-    this.setState({
-      visible: false,
-    });
+    setVisible(false);
   };
 
-  render() {
-    const { disabled, selectedKeys, targetKeys, showSearch } = this.state;
-    const columns = [
-      {
-        title: 'Name',
-        dataIndex: 'name',
-        key: 'name',
-        filters: [
-          { text: 'Joe', value: 'Joe' },
-          { text: 'Jim', value: 'Jim' },
-        ],
-        filteredValue: null,
-        onFilter: (value, record) => record.name.includes(value),
-        sorter: (a, b) => a.name.length - b.name.length,
-        sortOrder: true,
-        ellipsis: true,
-      },
-      {
-        title: 'Age',
-        dataIndex: 'age',
-        key: 'age',
-        sorter: false,
-        sortOrder: true,
-        ellipsis: true,
-      },
-      {
-        title: 'Address',
-        dataIndex: 'address',
-        key: 'address',
-        filters: [
-          { text: 'London', value: 'London' },
-          { text: 'New York', value: 'New York' },
-        ],
-        filteredValue: null,
-        onFilter: (value, record) => record.address.includes(value),
-        sorter: false,
-        sortOrder: true,
-        ellipsis: true,
-      },
-    ];
-    return (
-      <>
-        <Button type="primary" onClick={this.showModal}>
-          Open Modal
-        </Button>
-        <Modal
-          title="Basic Modal"
-          visible={this.state.visible}
-          onOk={this.handleOk}
-          onCancel={this.handleCancel}
-        >
-          <Switch
-            unCheckedChildren="disabled"
-            checkedChildren="disabled"
-            checked={disabled}
-            onChange={this.handleDisable}
-            style={{ marginBottom: 16 }}
+  const columns = [
+    {
+      title: 'Name',
+      dataIndex: 'name',
+      key: 'name',
+      filters: [
+        { text: 'Joe', value: 'Joe' },
+        { text: 'Jim', value: 'Jim' },
+      ],
+      filteredValue: null,
+      onFilter: (value, record) => record.name.includes(value),
+      sorter: (a, b) => a.name.length - b.name.length,
+      sortOrder: true,
+      ellipsis: true,
+    },
+    {
+      title: 'Age',
+      dataIndex: 'age',
+      key: 'age',
+      sorter: false,
+      sortOrder: true,
+      ellipsis: true,
+    },
+    {
+      title: 'Address',
+      dataIndex: 'address',
+      key: 'address',
+      filters: [
+        { text: 'London', value: 'London' },
+        { text: 'New York', value: 'New York' },
+      ],
+      filteredValue: null,
+      onFilter: (value, record) => record.address.includes(value),
+      sorter: false,
+      sortOrder: true,
+      ellipsis: true,
+    },
+  ];
+  return (
+    <>
+      <Button type="primary" onClick={showModal}>
+        Open Modal
+      </Button>
+      <Modal title="Basic Modal" visible={visible} onOk={handleOk} onCancel={handleCancel}>
+        <Switch
+          unCheckedChildren="disabled"
+          checkedChildren="disabled"
+          checked={disabled}
+          onChange={handleDisable}
+          style={{ marginBottom: 16 }}
+        />
+        <Card title="Card Title">
+          <Card.Grid>Content</Card.Grid>
+          <Card.Grid hoverable={false}>Content</Card.Grid>
+          <Card.Grid>Content</Card.Grid>
+          <Card.Grid>Content</Card.Grid>
+          <Card.Grid>Content</Card.Grid>
+          <Card.Grid>Content</Card.Grid>
+          <Card.Grid>Content</Card.Grid>
+        </Card>
+        <Collapse>
+          <Panel header="This is panel header 1" key="1">
+            <Collapse defaultActiveKey="1">
+              <Panel header="This is panel nest panel" key="1">
+                <p>{text}</p>
+              </Panel>
+            </Collapse>
+          </Panel>
+          <Panel header="This is panel header 2" key="2">
+            <p>{text}</p>
+          </Panel>
+          <Panel header="This is panel header 3" key="3">
+            <p>{text}</p>
+          </Panel>
+        </Collapse>
+        <Transfer
+          dataSource={mockData}
+          titles={['Source', 'Target']}
+          targetKeys={targetKeys}
+          selectedKeys={selectedKeys}
+          onChange={handleTransferChange}
+          onSelectChange={handleTransferSelectChange}
+          render={item => item.title}
+          disabled={disabled}
+        />
+        <TableTransfer
+          dataSource={mockData}
+          targetKeys={targetKeys}
+          disabled={disabled}
+          showSearch={showSearch}
+          onChange={handleTableTransferChange}
+          filterOption={(inputValue, item) =>
+            item.title.indexOf(inputValue) !== -1 || item.tag?.indexOf(inputValue) !== -1
+          }
+          leftColumns={[
+            {
+              dataIndex: 'title',
+              title: 'Name',
+            },
+            {
+              dataIndex: 'description',
+              title: 'Description',
+            },
+          ]}
+          rightColumns={[
+            {
+              dataIndex: 'title',
+              title: 'Name',
+            },
+          ]}
+        />
+        <Switch
+          unCheckedChildren="disabled"
+          checkedChildren="disabled"
+          checked={disabled}
+          onChange={triggerDisable}
+          style={{ marginTop: 16 }}
+        />
+        <Switch
+          unCheckedChildren="showSearch"
+          checkedChildren="showSearch"
+          checked={showSearch}
+          onChange={triggerShowSearch}
+          style={{ marginTop: 16 }}
+        />
+        <Anchor>
+          <Link href="#components-anchor-demo-basic" title="Basic demo" />
+          <Link href="#components-anchor-demo-static" title="Static demo" />
+          <Link
+            href="#components-anchor-demo-basic"
+            title="Basic demo with Target"
+            target="_blank"
           />
-          <Card title="Card Title">
-            <Card.Grid>Content</Card.Grid>
-            <Card.Grid hoverable={false}>Content</Card.Grid>
-            <Card.Grid>Content</Card.Grid>
-            <Card.Grid>Content</Card.Grid>
-            <Card.Grid>Content</Card.Grid>
-            <Card.Grid>Content</Card.Grid>
-            <Card.Grid>Content</Card.Grid>
-          </Card>
-          <Collapse>
-            <Panel header="This is panel header 1" key="1">
-              <Collapse defaultActiveKey="1">
-                <Panel header="This is panel nest panel" key="1">
-                  <p>{text}</p>
-                </Panel>
-              </Collapse>
-            </Panel>
-            <Panel header="This is panel header 2" key="2">
-              <p>{text}</p>
-            </Panel>
-            <Panel header="This is panel header 3" key="3">
-              <p>{text}</p>
-            </Panel>
-          </Collapse>
-          <Transfer
-            dataSource={mockData}
-            titles={['Source', 'Target']}
-            targetKeys={targetKeys}
-            selectedKeys={selectedKeys}
-            onChange={this.handleTransferChange}
-            onSelectChange={this.handleTransferSelectChange}
-            render={item => item.title}
-            disabled={disabled}
-          />
-          <TableTransfer
-            dataSource={mockData}
-            targetKeys={targetKeys}
-            disabled={disabled}
-            showSearch={showSearch}
-            onChange={this.handleTableTransferChange}
-            filterOption={(inputValue, item) =>
-              item.title.indexOf(inputValue) !== -1 || item.tag.indexOf(inputValue) !== -1
-            }
-            leftColumns={[
-              {
-                dataIndex: 'title',
-                title: 'Name',
-              },
-              {
-                dataIndex: 'description',
-                title: 'Description',
-              },
-            ]}
-            rightColumns={[
-              {
-                dataIndex: 'title',
-                title: 'Name',
-              },
-            ]}
-          />
-          <Switch
-            unCheckedChildren="disabled"
-            checkedChildren="disabled"
-            checked={disabled}
-            onChange={this.triggerDisable}
-            style={{ marginTop: 16 }}
-          />
-          <Switch
-            unCheckedChildren="showSearch"
-            checkedChildren="showSearch"
-            checked={showSearch}
-            onChange={this.triggerShowSearch}
-            style={{ marginTop: 16 }}
-          />
-          <Anchor>
-            <Link href="#components-anchor-demo-basic" title="Basic demo" />
-            <Link href="#components-anchor-demo-static" title="Static demo" />
-            <Link
-              href="#components-anchor-demo-basic"
-              title="Basic demo with Target"
-              target="_blank"
-            />
-            <Link href="#API" title="API">
-              <Link href="#Anchor-Props" title="Anchor Props" />
-              <Link href="#Link-Props" title="Link Props" />
-            </Link>
-          </Anchor>
-          <Tabs type="card">
-            <TabPane tab="Tab 1" key="1">
-              Content of Tab Pane 1
-            </TabPane>
-            <TabPane tab="Tab 2" key="2">
-              Content of Tab Pane 2
-            </TabPane>
-            <TabPane tab="Tab 3" key="3">
-              Content of Tab Pane 3
-            </TabPane>
-          </Tabs>
-          <Timeline>
-            <Timeline.Item>Create a services site 2015-09-01</Timeline.Item>
-            <Timeline.Item>Solve initial network problems 2015-09-01</Timeline.Item>
-            <Timeline.Item dot={<ClockCircleOutlined style={{ fontSize: '16px' }} />} color="red">
-              Technical testing 2015-09-01
-            </Timeline.Item>
-            <Timeline.Item>Network problems being solved 2015-09-01</Timeline.Item>
-          </Timeline>
-          <Calendar />
-          <Tree showLine switcherIcon={<DownOutlined />} defaultExpandedKeys={['0-0-0']}>
-            <TreeNode title="parent 1" key="0-0">
-              <TreeNode title="parent 1-0" key="0-0-0">
-                <TreeNode title="leaf" key="0-0-0-0" />
-                <TreeNode title="leaf" key="0-0-0-1" />
-                <TreeNode title="leaf" key="0-0-0-2" />
-              </TreeNode>
-              <TreeNode title="parent 1-1" key="0-0-1">
-                <TreeNode title="leaf" key="0-0-1-0" />
-              </TreeNode>
-              <TreeNode title="parent 1-2" key="0-0-2">
-                <TreeNode title="leaf" key="0-0-2-0" />
-                <TreeNode title="leaf" key="0-0-2-1" />
-              </TreeNode>
+          <Link href="#API" title="API">
+            <Link href="#Anchor-Props" title="Anchor Props" />
+            <Link href="#Link-Props" title="Link Props" />
+          </Link>
+        </Anchor>
+        <Tabs type="card">
+          <TabPane tab="Tab 1" key="1">
+            Content of Tab Pane 1
+          </TabPane>
+          <TabPane tab="Tab 2" key="2">
+            Content of Tab Pane 2
+          </TabPane>
+          <TabPane tab="Tab 3" key="3">
+            Content of Tab Pane 3
+          </TabPane>
+        </Tabs>
+        <Timeline>
+          <Timeline.Item>Create a services site 2015-09-01</Timeline.Item>
+          <Timeline.Item>Solve initial network problems 2015-09-01</Timeline.Item>
+          <Timeline.Item dot={<ClockCircleOutlined style={{ fontSize: '16px' }} />} color="red">
+            Technical testing 2015-09-01
+          </Timeline.Item>
+          <Timeline.Item>Network problems being solved 2015-09-01</Timeline.Item>
+        </Timeline>
+        <Calendar />
+        <Tree showLine switcherIcon={<DownOutlined />} defaultExpandedKeys={['0-0-0']}>
+          <TreeNode title="parent 1" key="0-0">
+            <TreeNode title="parent 1-0" key="0-0-0">
+              <TreeNode title="leaf" key="0-0-0-0" />
+              <TreeNode title="leaf" key="0-0-0-1" />
+              <TreeNode title="leaf" key="0-0-0-2" />
             </TreeNode>
-          </Tree>
-          <Table columns={columns} dataSource={data} footer={() => 'Footer'} />
-          <Table
-            columns={columnsTable}
-            dataSource={dataTable}
-            pagination={false}
-            id="table-demo-summary"
-            bordered
-            summary={pageData => {
-              let totalBorrow = 0;
-              let totalRepayment = 0;
+            <TreeNode title="parent 1-1" key="0-0-1">
+              <TreeNode title="leaf" key="0-0-1-0" />
+            </TreeNode>
+            <TreeNode title="parent 1-2" key="0-0-2">
+              <TreeNode title="leaf" key="0-0-2-0" />
+              <TreeNode title="leaf" key="0-0-2-1" />
+            </TreeNode>
+          </TreeNode>
+        </Tree>
+        <Table columns={columns} dataSource={data} footer={() => 'Footer'} />
+        <Table
+          columns={columnsTable}
+          dataSource={dataTable}
+          pagination={false}
+          id="table-demo-summary"
+          bordered
+          summary={pageData => {
+            let totalBorrow = 0;
+            let totalRepayment = 0;
 
-              pageData.forEach(({ borrow, repayment }) => {
-                totalBorrow += borrow;
-                totalRepayment += repayment;
-              });
+            pageData.forEach(({ borrow, repayment }) => {
+              totalBorrow += borrow;
+              totalRepayment += repayment;
+            });
 
-              return (
-                <>
-                  <tr>
-                    <th>Total</th>
-                    <td>
-                      <Text type="danger">{totalBorrow}</Text>
-                    </td>
-                    <td>
-                      <Text>{totalRepayment}</Text>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th>Balance</th>
-                    <td colSpan={2}>
-                      <Text type="danger">{totalBorrow - totalRepayment}</Text>
-                    </td>
-                  </tr>
-                </>
-              );
-            }}
-          />
-          <br />
-          <Table columns={columnsNest} expandable={{ expandedRowRender }} dataSource={dataNest} />
-          <Table columns={columnsFixed} dataSource={dataFixed} scroll={{ x: 1300, y: 100 }} />
-          <Card
-            hoverable
-            style={{ width: 240 }}
-            cover={
-              <img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />
-            }
-          >
-            <Meta title="Europe Street beat" description="www.instagram.com" />
-          </Card>
-          <Slider defaultValue={30} />
-          <DatePicker defaultValue={moment('2015/01/01', 'YYYY/MM/DD')} format="YYYY/MM/DD" />
-          <Badge count={5}>
-            <a href="#" className="head-example" />
-          </Badge>
-        </Modal>
-      </>
-    );
-  }
-}
-
-ReactDOM.render(<App />, mountNode);
+            return (
+              <>
+                <tr>
+                  <th>Total</th>
+                  <td>
+                    <Text type="danger">{totalBorrow}</Text>
+                  </td>
+                  <td>
+                    <Text>{totalRepayment}</Text>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Balance</th>
+                  <td colSpan={2}>
+                    <Text type="danger">{totalBorrow - totalRepayment}</Text>
+                  </td>
+                </tr>
+              </>
+            );
+          }}
+        />
+        <br />
+        <Table columns={columnsNest} expandable={{ expandedRowRender }} dataSource={dataNest} />
+        <Table columns={columnsFixed} dataSource={dataFixed} scroll={{ x: 1300, y: 100 }} />
+        <Card
+          hoverable
+          style={{ width: 240 }}
+          cover={
+            <img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />
+          }
+        >
+          <Meta title="Europe Street beat" description="www.instagram.com" />
+        </Card>
+        <Slider defaultValue={30} />
+        <DatePicker defaultValue={moment('2015/01/01', 'YYYY/MM/DD')} format="YYYY/MM/DD" />
+        <Badge count={5}>
+          <a href="#" className="head-example" />
+        </Badge>
+      </Modal>
+    </>
+  );
+};
 ```
 
 <style>
