@@ -1,4 +1,3 @@
-import type { BgPalettes, TextAlphaPalettes } from 'antd/es/_util/theme/themes/IPalettes';
 import type * as React from 'react';
 import type { ComponentToken as AlertComponentToken } from '../../alert/style';
 import type { ComponentToken as AnchorComponentToken } from '../../anchor/style';
@@ -42,6 +41,7 @@ import type { ComponentToken as TooltipComponentToken } from '../../tooltip/styl
 import type { ComponentToken as TransferComponentToken } from '../../transfer/style';
 import type { ComponentToken as TypographyComponentToken } from '../../typography/style';
 import type { ComponentToken as UploadComponentToken } from '../../upload/style';
+import type { BgPalettes, TextAlphaPalettes } from './themes/IPalettes';
 
 export const PresetColors = [
   'blue',
