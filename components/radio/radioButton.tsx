@@ -1,9 +1,9 @@
 import * as React from 'react';
-import Radio from './radio';
-import type { RadioChangeEvent } from './interface';
 import type { AbstractCheckboxProps } from '../checkbox/Checkbox';
 import { ConfigContext } from '../config-provider';
 import { RadioOptionTypeContextProvider } from './context';
+import type { RadioChangeEvent } from './interface';
+import Radio from './radio';
 
 export type RadioButtonProps = AbstractCheckboxProps<RadioChangeEvent>;
 

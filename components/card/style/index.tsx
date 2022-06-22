@@ -2,8 +2,8 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 
-import type { GenerateStyle, FullToken } from '../../_util/theme';
-import { resetComponent, genComponentStyleHook, mergeToken, clearFix } from '../../_util/theme';
+import type { FullToken, GenerateStyle } from '../../_util/theme';
+import { clearFix, genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
 
 interface CardToken extends FullToken<'Card'> {
   cardShadow: string;

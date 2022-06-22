@@ -2,12 +2,12 @@
 import type { FullToken, GenerateStyle } from '../../_util/theme';
 import { genComponentStyleHook, operationUnit } from '../../_util/theme';
 import {
-  getTitleStyles,
-  getResetStyles,
-  getLinkStyles,
-  getEditableStyles,
   getCopiableStyles,
+  getEditableStyles,
   getEllipsisStyles,
+  getLinkStyles,
+  getResetStyles,
+  getTitleStyles,
 } from './mixins';
 
 /** Component only token. Which will handle additional calculation of alias token */

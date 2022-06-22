@@ -1,8 +1,8 @@
-import React from 'react';
 import { mount } from 'enzyme';
+import React from 'react';
 import Switch from '..';
-import Wave from '../../_util/wave';
 import { sleep } from '../../../tests/utils';
+import Wave from '../../_util/wave';
 
 describe('click wave effect', () => {
   async function click(wrapper) {

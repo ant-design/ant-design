@@ -1,6 +1,6 @@
 import * as React from 'react';
-import Select from '../select';
 import type { SelectProps } from '../select';
+import Select from '../select';
 
 interface MiniOrMiddleSelectInterface extends React.FC<SelectProps> {
   Option: typeof Select.Option;

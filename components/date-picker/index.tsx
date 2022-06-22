@@ -1,8 +1,8 @@
 import type { Dayjs } from 'dayjs';
 import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
 import type {
-  PickerProps,
   PickerDateProps,
+  PickerProps,
   RangePickerProps as BaseRangePickerProps,
 } from './generatePicker';
 import generatePicker from './generatePicker';

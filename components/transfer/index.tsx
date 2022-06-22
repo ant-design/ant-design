@@ -1,20 +1,20 @@
-import * as React from 'react';
 import classNames from 'classnames';
-import type { TransferListProps } from './list';
-import List from './list';
-import Operation from './operation';
-import Search from './search';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import defaultLocale from '../locale/default';
+import * as React from 'react';
 import type { ConfigConsumerProps, RenderEmptyHandler } from '../config-provider';
 import { ConfigConsumer } from '../config-provider';
-import type { TransferListBodyProps } from './ListBody';
-import type { PaginationType } from './interface';
-import warning from '../_util/warning';
+import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import { FormItemInputContext } from '../form/context';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import defaultLocale from '../locale/default';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
-import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import warning from '../_util/warning';
+import type { PaginationType } from './interface';
+import type { TransferListProps } from './list';
+import List from './list';
+import type { TransferListBodyProps } from './ListBody';
+import Operation from './operation';
+import Search from './search';
 
 import useStyle from './style';
 

@@ -11,6 +11,7 @@ import { ConfigContext } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
 import warning from '../_util/warning';
+
 import useStyle from './style';
 
 export type TabsType = 'line' | 'card' | 'editable-card';

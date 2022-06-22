@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
-import { render, fireEvent } from '../../../tests/utils';
+import { fireEvent, render } from '../../../tests/utils';
 // eslint-disable-next-line import/no-unresolved
-import Form from '../../form';
 import type { InputProps, InputRef } from '..';
 import Input from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import Form from '../../form';
 
 describe('Input', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});

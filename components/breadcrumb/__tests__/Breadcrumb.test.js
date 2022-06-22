@@ -1,10 +1,10 @@
-import React from 'react';
 import { mount } from 'enzyme';
-import { render } from '../../../tests/utils';
-import Breadcrumb from '../index';
+import React from 'react';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import accessibilityTest from '../../../tests/shared/accessibilityTest';
+import { render } from '../../../tests/utils';
+import Breadcrumb from '../index';
 
 describe('Breadcrumb', () => {
   mountTest(Breadcrumb);

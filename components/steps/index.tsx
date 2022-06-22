@@ -1,12 +1,13 @@
-import * as React from 'react';
-import RcSteps from 'rc-steps';
-import type { ProgressDotRender } from 'rc-steps/lib/Steps';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
+import RcSteps from 'rc-steps';
+import type { ProgressDotRender } from 'rc-steps/lib/Steps';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
-import Progress from '../progress';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
+import Progress from '../progress';
+
 import useStyle from './style';
 
 export interface StepsProps {
