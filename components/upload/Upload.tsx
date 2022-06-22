@@ -24,6 +24,11 @@ export const LIST_IGNORE = `__LIST_IGNORE_${Date.now()}__`;
 
 export { UploadProps };
 
+interface UploadListProps {
+  button?: React.ReactNode;
+  buttonVisible?: boolean;
+}
+
 const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (props, ref) => {
   const {
     fileList,
@@ -320,8 +325,8 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     delete rcUploadProps.id;
   }
 
-  const renderUploadList = (button?: React.ReactNode, buttonVisible?: boolean) =>
-    showUploadList ? (
+  const RenderUploadList: React.FC<UploadListProps> = ({ button, buttonVisible }) => {
+    return showUploadList ? (
       <LocaleReceiver componentName="Upload" defaultLocale={defaultLocale.Upload}>
         {(locale: UploadLocale) => {
           const {
@@ -360,8 +365,9 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
         }}
       </LocaleReceiver>
     ) : (
-      button
+      (button as React.ReactElement)
     );
+  };
 
   if (type === 'drag') {
     const dragCls = classNames(
@@ -388,7 +394,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
             <div className={`${prefixCls}-drag-container`}>{children}</div>
           </RcUpload>
         </div>
-        {renderUploadList()}
+        <RenderUploadList />
       </span>
     );
   }
@@ -400,8 +406,8 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     [`${prefixCls}-rtl`]: direction === 'rtl',
   });
 
-  const renderUploadButton = (uploadButtonStyle?: React.CSSProperties) => (
-    <div className={uploadButtonCls} style={uploadButtonStyle}>
+  const UploadButton: React.FC<{ style?: React.CSSProperties }> = ({ style }) => (
+    <div className={uploadButtonCls} style={style}>
       <RcUpload {...rcUploadProps} ref={upload} />
     </div>
   );
@@ -409,15 +415,15 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
   if (listType === 'picture-card') {
     return (
       <span className={classNames(`${prefixCls}-picture-card-wrapper`, className)}>
-        {renderUploadList(renderUploadButton(), !!children)}
+        <RenderUploadList button={<UploadButton />} buttonVisible={!!children} />
       </span>
     );
   }
 
   return (
     <span className={className}>
-      {renderUploadButton(children ? undefined : { display: 'none' })}
-      {renderUploadList()}
+      <UploadButton style={children ? undefined : { display: 'none' }} />
+      <RenderUploadList />
     </span>
   );
 };

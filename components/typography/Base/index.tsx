@@ -98,12 +98,21 @@ function wrapperDecorations(
   return currentContent;
 }
 
-function getNode(dom: React.ReactNode, defaultNode: React.ReactNode, needDom?: boolean) {
-  if (dom === true || dom === undefined) {
-    return defaultNode;
-  }
-  return dom || (needDom && defaultNode);
+interface GetNodeProps {
+  dom: React.ReactNode;
+  defaultNode: React.ReactNode;
+  needDom?: boolean;
 }
+
+const GetNode: React.FC<GetNodeProps> = ({ dom, defaultNode, needDom }) => {
+  if (dom === true || dom === undefined) {
+    return <>{defaultNode}</>;
+  }
+  if (dom) {
+    return <>{dom}</>;
+  }
+  return needDom ? <>{defaultNode}</> : null;
+};
 
 function toList<T>(val: T | T[]): T[] {
   return Array.isArray(val) ? val : [val];
@@ -355,10 +364,12 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
 
   // >>>>>>>>>>> Typography
   // Expand
-  const renderExpand = () => {
+  const RenderExpand: React.FC = () => {
     const { expandable, symbol } = ellipsisConfig;
 
-    if (!expandable) return null;
+    if (!expandable) {
+      return null;
+    }
 
     let expandContent: React.ReactNode;
     if (symbol) {
@@ -380,8 +391,10 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
   };
 
   // Edit
-  const renderEdit = () => {
-    if (!enableEdit) return;
+  const RenderEdit: React.FC = () => {
+    if (!enableEdit) {
+      return null;
+    }
 
     const { icon, tooltip } = editConfig;
 
@@ -403,17 +416,21 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
   };
 
   // Copy
-  const renderCopy = () => {
-    if (!enableCopy) return;
+  const RenderCopy: React.FC = () => {
+    if (!enableCopy) {
+      return null;
+    }
 
     const { tooltips, icon } = copyConfig;
 
     const tooltipNodes = toList(tooltips);
     const iconNodes = toList(icon);
 
-    const copyTitle = copied
-      ? getNode(tooltipNodes[1], textLocale.copied)
-      : getNode(tooltipNodes[0], textLocale.copy);
+    const copyTitle = copied ? (
+      <GetNode dom={tooltipNodes[1]} defaultNode={textLocale.copied} />
+    ) : (
+      <GetNode dom={tooltipNodes[0]} defaultNode={textLocale.copy} />
+    );
     const systemStr = copied ? textLocale.copied : textLocale.copy;
     const ariaLabel = typeof copyTitle === 'string' ? copyTitle : systemStr;
 
@@ -424,18 +441,20 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
           onClick={onCopyClick}
           aria-label={ariaLabel}
         >
-          {copied
-            ? getNode(iconNodes[1], <CheckOutlined />, true)
-            : getNode(iconNodes[0], <CopyOutlined />, true)}
+          {copied ? (
+            <GetNode dom={iconNodes[1]} defaultNode={<CheckOutlined />} needDom />
+          ) : (
+            <GetNode dom={iconNodes[0]} defaultNode={<CopyOutlined />} needDom />
+          )}
         </TransButton>
       </Tooltip>
     );
   };
 
   const renderOperations = (renderExpanded: boolean) => [
-    renderExpanded && renderExpand(),
-    renderEdit(),
-    renderCopy(),
+    renderExpanded && <RenderExpand />,
+    <RenderEdit />,
+    <RenderCopy />,
   ];
 
   const renderEllipsis = (needEllipsis: boolean) => [
@@ -504,7 +523,6 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
                     {renderEllipsis(needEllipsis)}
                   </>,
                 );
-
                 return wrappedContext;
               }}
             </Ellipsis>
