@@ -293,7 +293,6 @@ describe('Table.rowSelection', () => {
   });
 
   it('reset last select key after performing select and bulk operations', () => {
-    jest.useFakeTimers();
     const onChange = jest.fn();
     const changeArgs = (checked = true, shiftKey = false) => ({
       target: {
@@ -308,7 +307,7 @@ describe('Table.rowSelection', () => {
         : {}),
     });
 
-    const wrapper = mount(
+    const { container } = render(
       createTable({
         checkbox: true,
         rowSelection: {
@@ -318,46 +317,49 @@ describe('Table.rowSelection', () => {
       }),
     );
 
+    const last = () => {
+      const elements = container.querySelectorAll('td input');
+      return elements[elements.length - 1];
+    };
+    const first = () => {
+      const elements = container.querySelectorAll('td input');
+      return elements[0];
+    };
+
+    const element = () => {
+      return container.querySelector('td input');
+    };
+
     // Multiple select normal
-    wrapper.find('td input').last().simulate('change', changeArgs(true));
+    last().simulate('change', changeArgs(true));
     expect(onChange).toHaveBeenLastCalledWith([3]);
-    wrapper.find('td input').first().simulate('change', changeArgs(true, true));
+    fireEvent(first()).change(changeArgs(true, true));
     expect(onChange).toHaveBeenLastCalledWith([3, 0, 1, 2]);
-    wrapper.find('th input').simulate('change', changeArgs(false));
+    fireEvent(element()).change(changeArgs(false));
     expect(onChange).toHaveBeenLastCalledWith([]);
 
     // Reset last select key when select all
-    wrapper.find('td input').last().simulate('change', changeArgs(true));
+    last().simulate('change', changeArgs(true));
     expect(onChange).toHaveBeenLastCalledWith([3]);
-    wrapper.find('th input').simulate('change', changeArgs(true));
-    wrapper.find('th input').simulate('change', changeArgs(false));
+    fireEvent(element()).change(changeArgs(true));
+    fireEvent(element()).change(changeArgs(false));
     expect(onChange).toHaveBeenLastCalledWith([]);
-    wrapper.find('td input').first().simulate('change', changeArgs(true, true));
+    fireEvent(first()).change(changeArgs(true, true));
     expect(onChange).toHaveBeenLastCalledWith([0]);
 
     // Reset last select key when deselect
-    wrapper.find('td input').last().simulate('change', changeArgs(true));
+    fireEvent(last()).change(changeArgs(true));
     expect(onChange).toHaveBeenLastCalledWith([0, 3]);
-    wrapper.find('td input').first().simulate('change', changeArgs(false));
+    fireEvent(first()).change(changeArgs(false));
     expect(onChange).toHaveBeenLastCalledWith([3]);
-    wrapper.find('td input').first().simulate('change', changeArgs(true, true));
+    fireEvent(first()).change(changeArgs(true, true));
     expect(onChange).toHaveBeenLastCalledWith([3, 0]);
 
     // Reset last select key when bulk operations
-    wrapper.find('span.ant-dropdown-trigger').simulate('mouseEnter');
-
-    // enzyme has bug for state sync.
-    // Let fresh multiple times to force sync back.
-    for (let i = 0; i < 3; i += 1) {
-      act(() => {
-        jest.runAllTimers();
-        wrapper.update();
-      });
-    }
-
-    wrapper.find('li.ant-dropdown-menu-item').first().simulate('click');
+    wrapper.querySelector('span.ant-dropdown-trigger').simulate('mouseEnter');
+    wrapper.querySelectorAll('li.ant-dropdown-menu-item')[0].simulate('click');
     expect(onChange).toHaveBeenLastCalledWith([]);
-    wrapper.find('td input').first().simulate('change', changeArgs(true, true));
+    fireEvent(first()).change(changeArgs(true, true));
     expect(onChange).toHaveBeenLastCalledWith([0]);
 
     jest.useRealTimers();
