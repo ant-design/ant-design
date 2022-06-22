@@ -17,7 +17,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     ...derivative,
   };
 
-  const { fontSizes, lineHeights } = mergedToken;
+  const { fontSizes, lineHeights, textColors, bgColors } = mergedToken;
 
   // FIXME: tmp
   const primaryColors = generate(mergedToken.colorPrimary);
@@ -39,40 +39,40 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     ...mergedToken,
 
     // Colors
-    colorText: mergedToken.textColors['85'],
+    colorText: textColors['85'],
     // TODO: 只有 Slider 用了，感觉命名有问题
-    colorTextSecondary: mergedToken.textColors['45'],
+    colorTextSecondary: textColors['45'],
     // TODO: 这个 30 估计要改成 25
-    colorTextDisabled: mergedToken.textColors['30'],
-    colorTextPlaceholder: mergedToken.textColors['25'],
-    colorTextHeading: mergedToken.textColors['85'],
+    colorTextDisabled: textColors['30'],
+    colorTextPlaceholder: textColors['25'],
+    colorTextHeading: textColors['85'],
 
-    colorBgContainer: mergedToken.bgColors['0'],
-    colorBgContainerSecondary: mergedToken.bgColors['26'],
-    colorBgComponent: mergedToken.bgColors['8'],
+    colorBgContainer: bgColors['0'],
+    colorBgContainerSecondary: bgColors['26'],
+    colorBgComponent: bgColors['8'],
     // TODO：Menu 用了这个 感觉命名有问题
     // TODO：能不能用透明色？用透明色会造成重叠后变亮的问题，是不是得用实色？
-    colorBgComponentSecondary: mergedToken.textColors['4'],
-    colorBgComponentDisabled: mergedToken.textColors['8'],
+    colorBgComponentSecondary: textColors['4'],
+    colorBgComponentDisabled: textColors['8'],
     // 浮窗等组件的背景色 token
-    colorBgElevated: mergedToken.bgColors['12'],
+    colorBgElevated: bgColors['12'],
     // TODO: Slider 和 Progress 需要一个名字
-    colorBgComponentTmp: mergedToken.bgColors['15'],
+    colorBgComponentTmp: bgColors['15'],
 
     colorLink: mergedToken.colorPrimary,
     colorLinkHover: primaryColors[4],
     colorLinkActive: primaryColors[6],
 
     // TODO: 确认 Action 的色彩关系
-    colorAction: mergedToken.textColors['45'],
-    colorActionHover: mergedToken.textColors['75'],
-    colorActionTmp: mergedToken.textColors['30'],
+    colorAction: textColors['45'],
+    colorActionHover: textColors['75'],
+    colorActionTmp: textColors['30'],
 
     // Split
-    colorBorder: mergedToken.bgColors['26'],
+    colorBorder: bgColors['26'],
     // TODO：Secondary 在纯实色背景下的颜色和 Split 是一样的
-    colorBorderSecondary: mergedToken.bgColors['19'],
-    colorSplit: mergedToken.textColors['12'],
+    colorBorderSecondary: bgColors['19'],
+    colorSplit: textColors['12'],
 
     // Font
     fontSizeSM,
@@ -104,15 +104,16 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     // Checkbox size and expand icon size
     controlInteractiveSize: mergedToken.controlHeight / 2,
 
+    controlItemBgHover: mergedToken.textColors['8'],
+    controlItemBgActive: primaryColors[0],
+    controlItemBgActiveHover: primaryColors[1],
+    controlItemBgActiveDisabled: textColors['25'],
+    controlMaskBg: textColors['45'],
+
     // 👀👀👀👀👀👀👀👀👀 Not align with Derivative 👀👀👀👀👀👀👀👀👀
     // FIXME: @arvinxx handle this
     controlLineType: mergedToken.lineType,
     controlRadius: mergedToken.radiusBase,
-    controlItemBgHover: mergedToken.textColors['8'],
-    controlItemBgActive: primaryColors[0],
-    controlItemBgActiveHover: primaryColors[1],
-    controlItemBgActiveDisabled: mergedToken.textColors['25'],
-    controlMaskBg: mergedToken.textColors['45'],
     fontWeightStrong: 600,
 
     // 🔥🔥🔥🔥🔥🔥🔥🔥🔥 All TMP Token leaves here 🔥🔥🔥🔥🔥🔥🔥🔥🔥
