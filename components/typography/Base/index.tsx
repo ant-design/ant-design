@@ -10,6 +10,7 @@ import useIsomorphicLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'rc-util/lib/omit';
 import { composeRef } from 'rc-util/lib/ref';
+import type { ReactElement } from 'react';
 import * as React from 'react';
 import { ConfigContext } from '../../config-provider';
 import { useLocaleReceiver } from '../../locale-provider/LocaleReceiver';
@@ -106,12 +107,12 @@ interface GetNodeProps {
 
 const GetNode: React.FC<GetNodeProps> = ({ dom, defaultNode, needDom }) => {
   if (dom === true || dom === undefined) {
-    return <>{defaultNode}</>;
+    return defaultNode as ReactElement;
   }
   if (dom) {
-    return <>{dom}</>;
+    return dom as ReactElement;
   }
-  return needDom ? <>{defaultNode}</> : null;
+  return needDom ? (defaultNode as ReactElement) : null;
 };
 
 function toList<T>(val: T | T[]): T[] {
