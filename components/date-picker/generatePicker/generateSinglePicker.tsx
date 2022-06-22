@@ -1,25 +1,25 @@
-import * as React from 'react';
-import classNames from 'classnames';
 import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
+import classNames from 'classnames';
 import RCPicker from 'rc-picker';
-import type { PickerMode } from 'rc-picker/lib/interface';
 import type { GenerateConfig } from 'rc-picker/lib/generate/index';
+import type { PickerMode } from 'rc-picker/lib/interface';
+import * as React from 'react';
 import { forwardRef, useContext, useImperativeHandle } from 'react';
-import enUS from '../locale/en_US';
-import { getPlaceholder, transPlacement2DropdownAlign } from '../util';
-import warning from '../../_util/warning';
+import type { PickerDateProps, PickerLocale, PickerProps, PickerTimeProps } from '.';
+import { Components, getTimeProps } from '.';
 import { ConfigContext } from '../../config-provider';
-import LocaleReceiver from '../../locale-provider/LocaleReceiver';
-import SizeContext from '../../config-provider/SizeContext';
 import DisabledContext from '../../config-provider/DisabledContext';
-import type { PickerProps, PickerLocale, PickerDateProps, PickerTimeProps } from '.';
-import { getTimeProps, Components } from '.';
+import SizeContext from '../../config-provider/SizeContext';
 import { FormItemInputContext } from '../../form/context';
+import LocaleReceiver from '../../locale-provider/LocaleReceiver';
 import type { InputStatus } from '../../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
-import type { DatePickRef, PickerComponentClass, CommonPickerMethods } from './interface';
+import warning from '../../_util/warning';
+import enUS from '../locale/en_US';
+import { getPlaceholder, transPlacement2DropdownAlign } from '../util';
+import type { CommonPickerMethods, DatePickRef, PickerComponentClass } from './interface';
 
 export default function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   type DatePickerProps = PickerProps<DateType> & {

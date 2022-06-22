@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
-import { mount } from 'enzyme';
 import {
-  MailOutlined,
-  InboxOutlined,
   AppstoreOutlined,
+  InboxOutlined,
+  MailOutlined,
   PieChartOutlined,
   UserOutlined,
 } from '@ant-design/icons';
+import { mount } from 'enzyme';
+import React, { useState } from 'react';
 import { act } from 'react-dom/test-utils';
 import Menu from '..';
-import Layout from '../../layout';
-import Tooltip from '../../tooltip';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render, fireEvent } from '../../../tests/utils';
+import { fireEvent, render } from '../../../tests/utils';
+import Layout from '../../layout';
+import Tooltip from '../../tooltip';
 import collapseMotion from '../../_util/motion';
 import { noop } from '../../_util/warning';
 

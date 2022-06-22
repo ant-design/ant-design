@@ -1,9 +1,8 @@
-import React from 'react';
 import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
-import Base from '../Base';
+import React from 'react';
 import { fireEvent, render, sleep, triggerResize, waitFor } from '../../../tests/utils';
+import Base from '../Base';
 // eslint-disable-next-line no-unused-vars
-import * as styleChecker from '../../_util/styleChecker';
 
 jest.mock('copy-to-clipboard');
 

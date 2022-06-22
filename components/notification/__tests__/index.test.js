@@ -1,9 +1,9 @@
+import { UserOutlined } from '@ant-design/icons';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
-import { UserOutlined } from '@ant-design/icons';
 import notification, { getInstance } from '..';
-import ConfigProvider from '../../config-provider';
 import { sleep } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 

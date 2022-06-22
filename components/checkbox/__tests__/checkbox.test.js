@@ -1,10 +1,10 @@
 import React from 'react';
-import { render, fireEvent } from '../../../tests/utils';
 import Checkbox from '..';
 import focusTest from '../../../tests/shared/focusTest';
-import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { fireEvent, render } from '../../../tests/utils';
+import { resetWarned } from '../../_util/warning';
 
 describe('Checkbox', () => {
   focusTest(Checkbox, { refFocus: true });

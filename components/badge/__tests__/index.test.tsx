@@ -1,10 +1,10 @@
+import { fireEvent, render } from '@testing-library/react';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
-import { fireEvent, render } from '@testing-library/react';
-import Badge from '../index';
-import Tooltip from '../../tooltip';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import Tooltip from '../../tooltip';
+import Badge from '../index';
 
 describe('Badge', () => {
   mountTest(Badge);

@@ -1,15 +1,15 @@
-import * as React from 'react';
+import VerticalAlignTopOutlined from '@ant-design/icons/VerticalAlignTopOutlined';
+import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-import VerticalAlignTopOutlined from '@ant-design/icons/VerticalAlignTopOutlined';
-import { throttleByAnimationFrame } from '../_util/throttleByAnimationFrame';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import getScroll from '../_util/getScroll';
-import scrollTo from '../_util/scrollTo';
 import { cloneElement } from '../_util/reactNode';
+import scrollTo from '../_util/scrollTo';
+import { throttleByAnimationFrame } from '../_util/throttleByAnimationFrame';
 
 export interface BackTopProps {
   visibilityHeight?: number;
