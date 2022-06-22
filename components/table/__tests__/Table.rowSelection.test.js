@@ -331,7 +331,7 @@ describe('Table.rowSelection', () => {
     };
 
     // Multiple select normal
-    last().simulate('change', changeArgs(true));
+    fireEvent(last()).change(changeArgs(true));
     expect(onChange).toHaveBeenLastCalledWith([3]);
     fireEvent(first()).change(changeArgs(true, true));
     expect(onChange).toHaveBeenLastCalledWith([3, 0, 1, 2]);
@@ -339,7 +339,7 @@ describe('Table.rowSelection', () => {
     expect(onChange).toHaveBeenLastCalledWith([]);
 
     // Reset last select key when select all
-    last().simulate('change', changeArgs(true));
+    fireEvent(last()).change(changeArgs(true));
     expect(onChange).toHaveBeenLastCalledWith([3]);
     fireEvent(element()).change(changeArgs(true));
     fireEvent(element()).change(changeArgs(false));
@@ -356,8 +356,8 @@ describe('Table.rowSelection', () => {
     expect(onChange).toHaveBeenLastCalledWith([3, 0]);
 
     // Reset last select key when bulk operations
-    wrapper.querySelector('span.ant-dropdown-trigger').simulate('mouseEnter');
-    wrapper.querySelectorAll('li.ant-dropdown-menu-item')[0].simulate('click');
+    firEvent(wrapper.querySelector('span.ant-dropdown-trigger')).mouseEnter();
+    fireEvent(wrapper.querySelectorAll('li.ant-dropdown-menu-item')[0]).click();
     expect(onChange).toHaveBeenLastCalledWith([]);
     fireEvent(first()).change(changeArgs(true, true));
     expect(onChange).toHaveBeenLastCalledWith([0]);
