@@ -1,5 +1,5 @@
-import React, { memo, useRef, useState, useContext } from 'react';
 import { mount } from 'enzyme';
+import React, { memo, useContext, useRef, useState } from 'react';
 import Row from '../row';
 import RowContext from '../RowContext';
 

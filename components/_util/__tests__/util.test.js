@@ -1,18 +1,18 @@
 /* eslint-disable class-methods-use-this */
-import raf from 'rc-util/lib/raf';
-import React from 'react';
 import { mount } from 'enzyme';
 import KeyCode from 'rc-util/lib/KeyCode';
+import raf from 'rc-util/lib/raf';
+import React from 'react';
+import { sleep } from '../../../tests/utils';
+import getDataOrAriaProps from '../getDataOrAriaProps';
 import delayRaf from '../raf';
+import { isStyleSupport } from '../styleChecker';
 import {
   throttleByAnimationFrame,
   throttleByAnimationFrameDecorator,
 } from '../throttleByAnimationFrame';
-import getDataOrAriaProps from '../getDataOrAriaProps';
-import Wave from '../wave';
 import TransButton from '../transButton';
-import { isStyleSupport } from '../styleChecker';
-import { sleep } from '../../../tests/utils';
+import Wave from '../wave';
 
 describe('Test utils function', () => {
   describe('throttle', () => {

@@ -1,14 +1,14 @@
-import React from 'react';
 import { spyElementPrototype } from 'rc-util/lib/test/domHook';
+import React from 'react';
 import Tooltip from '..';
+import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
+import { fireEvent, render, sleep, waitFor } from '../../../tests/utils';
 import Button from '../../button';
-import Switch from '../../switch';
 import DatePicker from '../../date-picker';
 import Input from '../../input';
 import Group from '../../input/Group';
-import { sleep, render, fireEvent, waitFor } from '../../../tests/utils';
-import mountTest from '../../../tests/shared/mountTest';
-import rtlTest from '../../../tests/shared/rtlTest';
+import Switch from '../../switch';
 
 describe('Tooltip', () => {
   mountTest(Tooltip);

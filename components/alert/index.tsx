@@ -1,20 +1,20 @@
-import * as React from 'react';
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
-import CheckCircleOutlined from '@ant-design/icons/CheckCircleOutlined';
-import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlined';
-import InfoCircleOutlined from '@ant-design/icons/InfoCircleOutlined';
-import CloseCircleOutlined from '@ant-design/icons/CloseCircleOutlined';
 import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
-import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
-import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
+import CheckCircleOutlined from '@ant-design/icons/CheckCircleOutlined';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
-import CSSMotion from 'rc-motion';
+import CloseCircleOutlined from '@ant-design/icons/CloseCircleOutlined';
+import CloseOutlined from '@ant-design/icons/CloseOutlined';
+import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
+import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlined';
+import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
+import InfoCircleOutlined from '@ant-design/icons/InfoCircleOutlined';
 import classNames from 'classnames';
+import CSSMotion from 'rc-motion';
+import * as React from 'react';
 
 import { ConfigContext } from '../config-provider';
 import getDataOrAriaProps from '../_util/getDataOrAriaProps';
-import ErrorBoundary from './ErrorBoundary';
 import { replaceElement } from '../_util/reactNode';
+import ErrorBoundary from './ErrorBoundary';
 
 export interface AlertProps {
   /** Type of Alert styles, options:`success`, `info`, `warning`, `error` */

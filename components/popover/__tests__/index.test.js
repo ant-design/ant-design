@@ -1,8 +1,8 @@
-import React from 'react';
 import { mount } from 'enzyme';
-import { render } from '../../../tests/utils';
+import React from 'react';
 import Popover from '..';
 import mountTest from '../../../tests/shared/mountTest';
+import { render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 describe('Popover', () => {

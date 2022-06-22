@@ -1,7 +1,7 @@
-import React from 'react';
 import { mount } from 'enzyme';
-import List from '../list';
+import React from 'react';
 import Checkbox from '../../checkbox';
+import List from '../list';
 
 const listCommonProps = {
   prefixCls: 'ant-transfer-list',

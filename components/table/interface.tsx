@@ -1,16 +1,16 @@
-import type * as React from 'react';
 import type {
   ColumnType as RcColumnType,
-  RenderedCell as RcRenderedCell,
   FixedType,
+  RenderedCell as RcRenderedCell,
 } from 'rc-table/lib/interface';
-import { GetRowKey, ExpandableConfig } from 'rc-table/lib/interface';
-import type { TooltipProps } from '../tooltip';
+import { ExpandableConfig, GetRowKey } from 'rc-table/lib/interface';
+import type * as React from 'react';
 import type { CheckboxProps } from '../checkbox';
 import type { PaginationProps } from '../pagination';
+import type { TooltipProps } from '../tooltip';
 import type { Breakpoint } from '../_util/responsiveObserve';
-import type { INTERNAL_SELECTION_ITEM } from './hooks/useSelection';
 import { tuple } from '../_util/type';
+import type { INTERNAL_SELECTION_ITEM } from './hooks/useSelection';
 // import { TableAction } from './Table';
 
 export { GetRowKey, ExpandableConfig };
