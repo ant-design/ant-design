@@ -292,22 +292,11 @@ describe('Table.rowSelection', () => {
     ]);
   });
 
-  it('reset last select key after performing select and bulk operations', () => {
+  it('reset last select key after performing select and bulk operations', async () => {
+    jest.useFakeTimers();
     const onChange = jest.fn();
-    const changeArgs = (checked = true, shiftKey = false) => ({
-      target: {
-        checked,
-      },
-      ...(shiftKey
-        ? {
-            nativeEvent: {
-              shiftKey: true,
-            },
-          }
-        : {}),
-    });
 
-    const { container } = render(
+    const { container, baseElement } = render(
       createTable({
         checkbox: true,
         rowSelection: {
@@ -321,43 +310,56 @@ describe('Table.rowSelection', () => {
       const elements = container.querySelectorAll('td input');
       return elements[elements.length - 1];
     };
+
     const first = () => {
       const elements = container.querySelectorAll('td input');
       return elements[0];
     };
 
-    const element = () => container.querySelector('td input');
+    const allElement = () => container.querySelector('th input');
 
     // Multiple select normal
-    fireEvent.change(last(), changeArgs(true));
+    fireEvent.click(last());
     expect(onChange).toHaveBeenLastCalledWith([3]);
-    fireEvent.change(first(), changeArgs(true, true));
+    fireEvent.click(first(), {
+      shiftKey: true,
+    });
     expect(onChange).toHaveBeenLastCalledWith([3, 0, 1, 2]);
-    fireEvent.change(element(), changeArgs(false));
+    fireEvent.click(allElement());
+    console.log(baseElement.innerHTML);
     expect(onChange).toHaveBeenLastCalledWith([]);
 
     // Reset last select key when select all
-    fireEvent.change(last(), changeArgs(true));
+    fireEvent.click(last());
     expect(onChange).toHaveBeenLastCalledWith([3]);
-    fireEvent.change(element(), changeArgs(true));
-    fireEvent.change(element(), changeArgs(false));
+    fireEvent.click(allElement());
+    fireEvent.click(allElement());
     expect(onChange).toHaveBeenLastCalledWith([]);
-    fireEvent.change(first(), changeArgs(true, true));
+    fireEvent.click(first(), {
+      shiftKey: true,
+    });
     expect(onChange).toHaveBeenLastCalledWith([0]);
 
     // Reset last select key when deselect
-    fireEvent.change(last(), changeArgs(true));
+    fireEvent.click(last());
     expect(onChange).toHaveBeenLastCalledWith([0, 3]);
-    fireEvent.change(first(), changeArgs(false));
+    fireEvent.click(first());
     expect(onChange).toHaveBeenLastCalledWith([3]);
-    fireEvent.change(first(), changeArgs(true, true));
+    fireEvent.click(first(), {
+      shiftKey: true,
+    });
     expect(onChange).toHaveBeenLastCalledWith([3, 0]);
 
     // Reset last select key when bulk operations
-    firEvent.mouseEnter(wrapper.querySelector('span.ant-dropdown-trigger'));
-    fireEvent.click(wrapper.querySelectorAll('li.ant-dropdown-menu-item')[0]);
+    fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger'));
+    act(() => {
+      jest.runAllTimers();
+    });
+    fireEvent.click(baseElement.querySelector('li.ant-dropdown-menu-item'));
     expect(onChange).toHaveBeenLastCalledWith([]);
-    fireEvent.change(first(), changeArgs(true, true));
+    fireEvent.click(first(), {
+      shiftKey: true,
+    });
     expect(onChange).toHaveBeenLastCalledWith([0]);
 
     jest.useRealTimers();
