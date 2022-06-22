@@ -1,8 +1,8 @@
-import React from 'react';
 import { render } from '@testing-library/react';
-import Badge from '../index';
+import React from 'react';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import Badge from '../index';
 
 describe('Ribbon', () => {
   mountTest(Badge.Ribbon);

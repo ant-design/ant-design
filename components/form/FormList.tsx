@@ -1,8 +1,8 @@
-import * as React from 'react';
 import { List } from 'rc-field-form';
-import type { ValidatorRule, StoreValue } from 'rc-field-form/lib/interface';
-import warning from '../_util/warning';
+import type { StoreValue, ValidatorRule } from 'rc-field-form/lib/interface';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
+import warning from '../_util/warning';
 import { FormItemPrefixContext } from './context';
 
 export interface FormListFieldData {

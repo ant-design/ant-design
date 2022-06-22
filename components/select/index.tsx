@@ -9,15 +9,15 @@ import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 import { useContext } from 'react';
 import { ConfigContext } from '../config-provider';
+import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
-import DisabledContext from '../config-provider/DisabledContext';
 import { FormItemInputContext } from '../form/context';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionDirection, getTransitionName } from '../_util/motion';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
-import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import getIcons from './utils/iconUtil';
 
 type RawValue = string | number;

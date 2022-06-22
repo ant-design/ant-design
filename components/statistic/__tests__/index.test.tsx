@@ -1,12 +1,12 @@
-import React from 'react';
 import MockDate from 'mockdate';
 import moment from 'moment';
+import React from 'react';
 import Statistic from '..';
-import type Countdown from '../Countdown';
-import { formatTimeStr } from '../utils';
-import { sleep, render, fireEvent } from '../../../tests/utils';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { fireEvent, render, sleep } from '../../../tests/utils';
+import type Countdown from '../Countdown';
+import { formatTimeStr } from '../utils';
 
 describe('Statistic', () => {
   mountTest(Statistic);

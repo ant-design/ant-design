@@ -1,8 +1,8 @@
-import * as React from 'react';
 import { presetPrimaryColors } from '@ant-design/colors';
-import type { ProgressGradient, ProgressProps, StringGradients } from './progress';
-import { validProgress, getSuccessPercent } from './utils';
+import * as React from 'react';
 import type { DirectionType } from '../config-provider';
+import type { ProgressGradient, ProgressProps, StringGradients } from './progress';
+import { getSuccessPercent, validProgress } from './utils';
 
 interface LineProps extends ProgressProps {
   prefixCls: string;

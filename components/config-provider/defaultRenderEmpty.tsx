@@ -1,7 +1,7 @@
 import * as React from 'react';
-import Empty from '../empty';
 import type { ConfigConsumerProps } from '.';
 import { ConfigConsumer } from '.';
+import Empty from '../empty';
 
 const defaultRenderEmpty = (componentName?: string): React.ReactNode => (
   <ConfigConsumer>

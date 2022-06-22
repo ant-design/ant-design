@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import { mount } from 'enzyme';
+import React, { useState } from 'react';
 import Sider from '../Sider';
 
 const Content = () => {
