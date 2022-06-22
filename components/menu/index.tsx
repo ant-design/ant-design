@@ -48,7 +48,7 @@ type InternalMenuProps = MenuProps &
   };
 
 const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
-  const override = React.useContext(OverrideContext) || {};
+  const override = React.useContext(OverrideContext);
   const overrideObj = override || {};
 
   const { getPrefixCls, getPopupContainer, direction } = React.useContext(ConfigContext);
@@ -102,7 +102,7 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
   // Tell dropdown that item clicked
   const onItemClick = useEvent<Required<MenuProps>['onClick']>((...args) => {
     onClick?.(...args);
-    override?.onClick?.();
+    overrideObj.onClick?.();
   });
 
   // ========================== Mode ===========================
