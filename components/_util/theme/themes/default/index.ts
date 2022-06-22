@@ -1,9 +1,8 @@
-/* eslint-disable import/prefer-default-export */
-
 import { generate } from '@ant-design/colors';
 import { TinyColor } from '@ctrl/tinycolor';
-import type { ColorPalettes, DerivativeToken, PresetColorType, SeedToken } from '../interface';
-import { getFontSizes } from './shared';
+import type { ColorPalettes, DerivativeToken, PresetColorType, SeedToken } from '../../interface';
+import { getFontSizes } from '../shared';
+import { generateBgPalettes, generateTextAlphaPalettes } from './palettes';
 
 const defaultPresetColors: PresetColorType = {
   blue: '#1890FF',
@@ -21,13 +20,14 @@ const defaultPresetColors: PresetColorType = {
   lime: '#A0D911',
 };
 
-export default function derivative(token: SeedToken): DerivativeToken {
+export function derivative(token: SeedToken): DerivativeToken {
   const {
     colorPrimary,
     colorSuccess,
     colorWarning,
     colorError,
     colorInfo,
+    colorBg,
     motionUnit,
     motionBase,
     fontSizeBase,
@@ -39,12 +39,6 @@ export default function derivative(token: SeedToken): DerivativeToken {
     controlHeight,
     lineWidth,
   } = token;
-
-  const primaryColors = generate(colorPrimary);
-  const successColors = generate(colorSuccess);
-  const warningColors = generate(colorWarning);
-  const errorColors = generate(colorError);
-  const infoColors = generate(colorInfo);
 
   const colorPalettes = Object.keys(defaultPresetColors)
     .map((colorKey: keyof PresetColorType) => {
@@ -63,11 +57,16 @@ export default function derivative(token: SeedToken): DerivativeToken {
       return prev;
     }, {} as ColorPalettes);
 
-  const fontSizes = getFontSizes(fontSizeBase);
+  const primaryColors = generate(colorPrimary);
+  const successColors = generate(colorSuccess);
+  const warningColors = generate(colorWarning);
+  const errorColors = generate(colorError);
+  const infoColors = generate(colorInfo);
+  const bgColors = generateBgPalettes(colorBg);
+  // FIXME: need seedToken '#000'
+  const textColors = generateTextAlphaPalettes('#000');
 
-  const colorBg2 = new TinyColor({ h: 0, s: 0, v: 98 }).toHexString();
-  const colorBgBelow = new TinyColor({ h: 0, s: 0, v: 98 }).toHexString();
-  const colorBgBelow2 = new TinyColor({ h: 0, s: 0, v: 96 }).toHexString();
+  const fontSizes = getFontSizes(fontSizeBase);
 
   return {
     ...token,
@@ -103,13 +102,7 @@ export default function derivative(token: SeedToken): DerivativeToken {
     radiusLG: radiusBase * 2,
     radiusXL: radiusBase * 4,
 
-    // color
-    colorBg2,
-    colorBg3: '#e1e1e1',
-    colorBgBelow,
-    colorBgBelow2,
-
-    colorDefaultOutline: colorBgBelow2,
+    colorDefaultOutline: textColors['4'],
 
     colorPrimaryActive: primaryColors[6],
     colorPrimaryHover: primaryColors[4],
@@ -137,16 +130,73 @@ export default function derivative(token: SeedToken): DerivativeToken {
 
     colorHighlight: errorColors[4],
 
-    // text color
-    colorText2: new TinyColor('#000').setAlpha(0.85).toRgbString(),
-
-    colorTextBelow: new TinyColor('#000').setAlpha(0.45).toRgbString(),
-    colorTextBelow2: new TinyColor('#000').setAlpha(0.25).toRgbString(),
-    colorTextBelow3: new TinyColor({ h: 0, s: 0, v: 75 }).setAlpha(0.5).toRgbString(),
-
     // control
     controlHeightSM: controlHeight * 0.75,
     controlHeightXS: controlHeight * 0.5,
     controlHeightLG: controlHeight * 1.25,
+
+    // Palettes
+    bgColors,
+    textColors,
   };
 }
+
+const seedToken: SeedToken = {
+  // preset color palettes
+  ...defaultPresetColors,
+
+  // Color
+  colorPrimary: '#1890ff',
+  colorSuccess: '#52c41a',
+  colorWarning: '#faad14',
+  colorError: '#ff4d4f',
+  colorInfo: '#1890ff',
+  colorText: new TinyColor('#000').setAlpha(0.85).toRgbString(),
+  colorTextLightSolid: '#fff',
+
+  colorBg: new TinyColor({ h: 0, s: 0, v: 100 }).toHexString(),
+
+  // Font
+  fontFamily: `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+'Noto Color Emoji'`,
+  fontSizeBase: 14,
+
+  // Grid
+  gridUnit: 4,
+  gridBaseStep: 2,
+
+  // Line
+  lineWidth: 1,
+  lineType: 'solid',
+
+  // Motion
+  motionUnit: 0.1,
+  motionBase: 0,
+  motionEaseOutCirc: `cubic-bezier(0.08, 0.82, 0.17, 1)`,
+  motionEaseInOutCirc: `cubic-bezier(0.78, 0.14, 0.15, 0.86)`,
+  motionEaseInOut: `cubic-bezier(0.645, 0.045, 0.355, 1)`,
+  motionEaseOutBack: `cubic-bezier(0.12, 0.4, 0.29, 1.46)`,
+  motionEaseInQuint: `cubic-bezier(0.645, 0.045, 0.355, 1)`,
+  motionEaseOutQuint: `cubic-bezier(0.23, 1, 0.32, 1)`,
+
+  // Radius
+  radiusBase: 2,
+
+  // Size
+  sizeUnit: 4,
+  sizeBaseStep: 4,
+  sizePopupArrow: 8 * Math.sqrt(2),
+
+  // Control Base
+  controlHeight: 32,
+
+  // zIndex
+  zIndexBase: 0,
+  zIndexPopupBase: 1000,
+
+  // Image
+  opacityImage: 1,
+};
+
+export default seedToken;

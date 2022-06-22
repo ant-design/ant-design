@@ -1,3 +1,4 @@
+import type { BgPalettes, TextAlphaPalettes } from 'antd/es/_util/theme/themes/IPalettes';
 import type * as React from 'react';
 import type { ComponentToken as AlertComponentToken } from '../../alert/style';
 import type { ComponentToken as AnchorComponentToken } from '../../anchor/style';
@@ -231,16 +232,6 @@ export interface DerivativeToken extends SeedToken, ColorPalettes {
   colorInfoSecondary: string;
   colorBgInfo: string;
 
-  colorText2: string;
-  colorTextBelow: string;
-  colorTextBelow2: string;
-  colorTextBelow3: string;
-
-  colorBg2: string;
-  colorBg3: string;
-  colorBgBelow: string;
-  colorBgBelow2: string;
-
   colorHighlight: string;
 
   // Font
@@ -278,23 +269,18 @@ export interface DerivativeToken extends SeedToken, ColorPalettes {
   controlHeightXS: number;
   controlHeightSM: number;
   controlHeightLG: number;
+
+  // Palettes
+  bgColors: BgPalettes;
+  textColors: TextAlphaPalettes;
 }
 
 // ======================================================================
 // ==                           Alias Token                            ==
 // ======================================================================
 // FIXME: DerivativeToken should part pick
-type OmitDerivativeKey =
-  | 'colorText2'
-  | 'colorTextBelow'
-  | 'colorTextBelow2'
-  | 'colorTextBelow3'
-  | 'colorBg2'
-  | 'colorBgBelow'
-  | 'colorBgBelow2';
-
 // 🔥🔥🔥🔥🔥🔥🔥 DO NOT MODIFY THIS. PLEASE CONTACT DESIGNER. 🔥🔥🔥🔥🔥🔥🔥
-export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
+export interface AliasToken extends Omit<DerivativeToken, 'bgColors' | 'textColors' | 'fontSizes'> {
   // Font
   fontSizeSM: number;
   fontSize: number;

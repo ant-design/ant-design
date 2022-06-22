@@ -1,9 +1,9 @@
-import type { DeepPartial } from 'antd/es/_util/type';
 import * as React from 'react';
 import type { RequiredMark } from '../form/Form';
 import type { Locale } from '../locale-provider';
 import type { SeedToken } from '../_util/theme';
 import type { OverrideToken } from '../_util/theme/interface';
+import type { DeepPartial } from '../_util/type';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
 import type { SizeType } from './SizeContext';
 

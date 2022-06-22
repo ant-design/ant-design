@@ -1,5 +1,4 @@
 import { generate } from '@ant-design/colors';
-import { TinyColor } from '@ctrl/tinycolor';
 import type { AliasToken, DerivativeToken, OverrideToken } from '../interface';
 
 /** Raw merge of `@ant-design/cssinjs` token. Which need additional process */
@@ -40,26 +39,40 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     ...mergedToken,
 
     // Colors
-    colorTextSecondary: mergedToken.colorTextBelow,
-    colorTextDisabled: mergedToken.colorTextBelow2,
-    colorTextPlaceholder: mergedToken.colorTextBelow2,
-    colorTextHeading: mergedToken.colorText,
+    colorText: mergedToken.textColors['85'],
+    // TODO: 只有 Slider 用了，感觉命名有问题
+    colorTextSecondary: mergedToken.textColors['45'],
+    // TODO: 这个 30 估计要改成 25
+    colorTextDisabled: mergedToken.textColors['30'],
+    colorTextPlaceholder: mergedToken.textColors['25'],
+    colorTextHeading: mergedToken.textColors['85'],
 
-    colorBgContainer: mergedToken.colorBgBelow2,
-    colorBgContainerSecondary: mergedToken.colorBg3,
-    colorBgComponent: mergedToken.colorBg,
-    colorBgComponentSecondary: mergedToken.colorBg2,
-    colorBgComponentDisabled: mergedToken.colorBgBelow2,
-    colorBgElevated: mergedToken.colorBg,
-    colorBgComponentTmp: mergedToken.colorBgBelow2,
+    colorBgContainer: mergedToken.bgColors['0'],
+    colorBgContainerSecondary: mergedToken.bgColors['26'],
+    colorBgComponent: mergedToken.bgColors['8'],
+    // TODO：Menu 用了这个 感觉命名有问题
+    // TODO：能不能用透明色？用透明色会造成重叠后变亮的问题，是不是得用实色？
+    colorBgComponentSecondary: mergedToken.textColors['4'],
+    colorBgComponentDisabled: mergedToken.textColors['8'],
+    // 浮窗等组件的背景色 token
+    colorBgElevated: mergedToken.bgColors['12'],
+    // TODO: Slider 和 Progress 需要一个名字
+    colorBgComponentTmp: mergedToken.bgColors['15'],
 
     colorLink: mergedToken.colorPrimary,
     colorLinkHover: primaryColors[4],
     colorLinkActive: primaryColors[6],
 
-    colorAction: mergedToken.colorTextBelow,
-    colorActionHover: mergedToken.colorText,
-    colorActionTmp: mergedToken.colorTextBelow2,
+    // TODO: 确认 Action 的色彩关系
+    colorAction: mergedToken.textColors['45'],
+    colorActionHover: mergedToken.textColors['75'],
+    colorActionTmp: mergedToken.textColors['30'],
+
+    // Split
+    colorBorder: mergedToken.bgColors['26'],
+    // TODO：Secondary 在纯实色背景下的颜色和 Split 是一样的
+    colorBorderSecondary: mergedToken.bgColors['19'],
+    colorSplit: mergedToken.textColors['12'],
 
     // Font
     fontSizeSM,
@@ -84,9 +97,10 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     lineHeightHeading5: lineHeights[2],
 
     // Control
+    // TODO: 确认下 hover 是用 Alpha 还是实色
+    // 暂时确认下来应该用 alpha
     controlLineWidth: mergedToken.lineWidth,
     controlOutlineWidth: mergedToken.lineWidth * 2,
-    controlItemBgHover: mergedToken.colorBgBelow2,
     // Checkbox size and expand icon size
     controlInteractiveSize: mergedToken.controlHeight / 2,
 
@@ -94,11 +108,11 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     // FIXME: @arvinxx handle this
     controlLineType: mergedToken.lineType,
     controlRadius: mergedToken.radiusBase,
-    colorBorder: new TinyColor({ h: 0, s: 0, v: 85 }).toHexString(),
-    colorSplit: 'rgba(0, 0, 0, 0.06)',
+    controlItemBgHover: mergedToken.textColors['8'],
     controlItemBgActive: primaryColors[0],
-    controlItemBgActiveHover: new TinyColor(primaryColors[0]).darken(2).toRgbString(),
-    controlItemBgActiveDisabled: new TinyColor('#000').tint(90).toRgbString(),
+    controlItemBgActiveHover: primaryColors[1],
+    controlItemBgActiveDisabled: mergedToken.textColors['25'],
+    controlMaskBg: mergedToken.textColors['45'],
     fontWeightStrong: 600,
 
     // 🔥🔥🔥🔥🔥🔥🔥🔥🔥 All TMP Token leaves here 🔥🔥🔥🔥🔥🔥🔥🔥🔥
@@ -163,9 +177,6 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     screenXXLMax: screenXXL - 1,
 
     motionEaseOut: 'cubic-bezier(0.215, 0.61, 0.355, 1)',
-
-    controlMaskBg: new TinyColor('#000').setAlpha(0.45).toRgbString(),
-    colorBorderSecondary: new TinyColor({ h: 0, s: 0, v: 94 }).toHexString(),
 
     // Override AliasToken
     ...alias,
