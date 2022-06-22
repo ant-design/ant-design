@@ -326,9 +326,7 @@ describe('Table.rowSelection', () => {
       return elements[0];
     };
 
-    const element = () => {
-      return container.querySelector('td input');
-    };
+    const element = () => container.querySelector('td input');
 
     // Multiple select normal
     fireEvent(last()).change(changeArgs(true));
