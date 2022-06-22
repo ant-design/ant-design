@@ -329,35 +329,35 @@ describe('Table.rowSelection', () => {
     const element = () => container.querySelector('td input');
 
     // Multiple select normal
-    fireEvent(last()).change(changeArgs(true));
+    fireEvent.change(last(), changeArgs(true));
     expect(onChange).toHaveBeenLastCalledWith([3]);
-    fireEvent(first()).change(changeArgs(true, true));
+    fireEvent.change(first(), changeArgs(true, true));
     expect(onChange).toHaveBeenLastCalledWith([3, 0, 1, 2]);
-    fireEvent(element()).change(changeArgs(false));
+    fireEvent.change(element(), changeArgs(false));
     expect(onChange).toHaveBeenLastCalledWith([]);
 
     // Reset last select key when select all
-    fireEvent(last()).change(changeArgs(true));
+    fireEvent.change(last(), changeArgs(true));
     expect(onChange).toHaveBeenLastCalledWith([3]);
-    fireEvent(element()).change(changeArgs(true));
-    fireEvent(element()).change(changeArgs(false));
+    fireEvent.change(element(), changeArgs(true));
+    fireEvent.change(element(), changeArgs(false));
     expect(onChange).toHaveBeenLastCalledWith([]);
-    fireEvent(first()).change(changeArgs(true, true));
+    fireEvent.change(first(), changeArgs(true, true));
     expect(onChange).toHaveBeenLastCalledWith([0]);
 
     // Reset last select key when deselect
-    fireEvent(last()).change(changeArgs(true));
+    fireEvent.change(last(), changeArgs(true));
     expect(onChange).toHaveBeenLastCalledWith([0, 3]);
-    fireEvent(first()).change(changeArgs(false));
+    fireEvent.change(first(), changeArgs(false));
     expect(onChange).toHaveBeenLastCalledWith([3]);
-    fireEvent(first()).change(changeArgs(true, true));
+    fireEvent.change(first(), changeArgs(true, true));
     expect(onChange).toHaveBeenLastCalledWith([3, 0]);
 
     // Reset last select key when bulk operations
-    firEvent(wrapper.querySelector('span.ant-dropdown-trigger')).mouseEnter();
-    fireEvent(wrapper.querySelectorAll('li.ant-dropdown-menu-item')[0]).click();
+    firEvent.mouseEnter(wrapper.querySelector('span.ant-dropdown-trigger'));
+    fireEvent.click(wrapper.querySelectorAll('li.ant-dropdown-menu-item')[0]);
     expect(onChange).toHaveBeenLastCalledWith([]);
-    fireEvent(first()).change(changeArgs(true, true));
+    fireEvent.change(first(), changeArgs(true, true));
     expect(onChange).toHaveBeenLastCalledWith([0]);
 
     jest.useRealTimers();
