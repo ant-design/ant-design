@@ -1,16 +1,16 @@
-import * as React from 'react';
-import RcTooltip from 'rc-tooltip';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import type { TooltipProps as RcTooltipProps } from 'rc-tooltip/lib/Tooltip';
 import classNames from 'classnames';
+import RcTooltip from 'rc-tooltip';
 import type { placements as Placements } from 'rc-tooltip/lib/placements';
-import getPlacements, { AdjustOverflow, PlacementsConfig } from '../_util/placements';
-import { cloneElement, isValidElement } from '../_util/reactNode';
+import type { TooltipProps as RcTooltipProps } from 'rc-tooltip/lib/Tooltip';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import type { PresetColorType } from '../_util/colors';
 import { PresetColorTypes } from '../_util/colors';
-import type { LiteralUnion } from '../_util/type';
 import { getTransitionName } from '../_util/motion';
+import getPlacements, { AdjustOverflow, PlacementsConfig } from '../_util/placements';
+import { cloneElement, isValidElement } from '../_util/reactNode';
+import type { LiteralUnion } from '../_util/type';
 
 export { AdjustOverflow, PlacementsConfig };
 
@@ -268,7 +268,9 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
   );
 });
 
-Tooltip.displayName = 'Tooltip';
+if (process.env.NODE_ENV !== 'production') {
+  Tooltip.displayName = 'Tooltip';
+}
 
 Tooltip.defaultProps = {
   placement: 'top' as TooltipPlacement,

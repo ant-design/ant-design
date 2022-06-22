@@ -2,7 +2,7 @@ import { Rule, RuleObject, RuleRender } from 'rc-field-form/lib/interface';
 import InternalForm, { useForm, FormInstance, FormProps, useWatch } from './Form';
 import Item, { FormItemProps } from './FormItem';
 import ErrorList, { ErrorListProps } from './ErrorList';
-import List, { FormListProps } from './FormList';
+import List, { FormListProps, FormListFieldData, FormListOperation } from './FormList';
 import { FormProvider } from './context';
 import warning from '../_util/warning';
 import useFormInstance from './hooks/useFormInstance';
@@ -48,6 +48,8 @@ export {
   RuleObject,
   RuleRender,
   FormListProps,
+  FormListFieldData,
+  FormListOperation,
 };
 
 export default Form;

@@ -15,6 +15,39 @@ timeline: true
 
 ---
 
+## 4.21.3
+
+`2022-06-17`
+
+- 🐞 Fix Table customize `filterDropdown` with Menu should not break default `selectable`. [#36098](https://github.com/ant-design/ant-design/pull/36098)
+- 🐞 Fix Input.Textarea cannot focus after click clear icon in controlled mode. [#34728](https://github.com/ant-design/ant-design/pull/34728) [@Pulset](https://github.com/Pulset)
+- TypeScript
+  - 🤖 Tree.DirectoryTree supports generic DataNode type. [#36092](https://github.com/ant-design/ant-design/pull/36092) [@JaylanChen](https://github.com/JaylanChen)
+  - 🤖 Export `RefSelectProps` from `Select`. [#34732](https://github.com/ant-design/ant-design/pull/34732) [@chentsulin](https://github.com/chentsulin)
+  - 🤖 Export `FormRule`, `FormListFieldData`, `FormListOperation` from `Form`. [#34735](https://github.com/ant-design/ant-design/pull/34735) [@chentsulin](https://github.com/chentsulin)
+
+## 4.21.2
+
+`2022-06-15`
+
+- 🐞 Fix incorrect Form status with `noStyle`. [#36054](https://github.com/ant-design/ant-design/pull/36054)
+
+## 4.21.1
+
+`2022-06-13`
+
+- 🐞 Fixed Image the `getContainer` property not reading from ConfigProvider. [#36002](https://github.com/ant-design/ant-design/pull/36002) [@robothot](https://github.com/robothot)
+- 🐞 Fixed Button issue [#35952](https://github.com/ant-design/ant-design/issues/35952) where the `disabled` attribute does not take effect with `href`. [#35975](https://github.com/ant-design/ant-design/pull/35975) [@MuxinFeng](https://github.com/MuxinFeng)
+- 🐞 Fix less color palette algorithm according to `@ant-design/colors`. [#35954](https://github.com/ant-design/ant-design/pull/35954) [@christian-lechner](https://github.com/christian-lechner)
+- 🐞 Fix Upload image flickering. [#35943](https://github.com/ant-design/ant-design/pull/35943)
+- 💄 Remove styles from Form such as `status` for children of Modal and Drawer. [#35849](https://github.com/ant-design/ant-design/pull/35849)
+- TypeScript
+  - 🤖 Fix type definition for `autoFocus` in Dropdown. [#35990](https://github.com/ant-design/ant-design/pull/35990) [@robothot](https://github.com/robothot)
+  - 🤖 Fix type definition for `MenuItemGroupType` in Menu. [#35790](https://github.com/ant-design/ant-design/pull/35790) [@MasaoBlue](https://github.com/MasaoBlue)
+  - 🤖 Fix Carousel type definition in React 18. [#35959](https://github.com/ant-design/ant-design/pull/35959)
+- 🌐 Localization
+  - 🇮🇹 Fix italian translation for `Table.cancelSort` key. [#35970](https://github.com/ant-design/ant-design/pull/35970) [@gariggio](https://github.com/gariggio)
+
 ## 4.21.0
 
 `2022-06-06`

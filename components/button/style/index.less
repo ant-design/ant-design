@@ -107,6 +107,10 @@
       display: flex;
       justify-content: center;
     }
+
+    .@{iconfont-css-prefix}-loading {
+      padding: 0 !important;
+    }
   }
 
   // https://github.com/ant-design/ant-design/issues/32365
@@ -176,12 +180,6 @@
       // for smooth button padding transition
       svg {
         animation: loadingCircle 1s infinite linear;
-      }
-    }
-
-    &:only-child {
-      .@{iconfont-css-prefix} {
-        padding-right: 0;
       }
     }
   }
