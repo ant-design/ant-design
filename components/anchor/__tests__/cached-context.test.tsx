@@ -1,7 +1,7 @@
-import React, { memo, useState, useRef, useContext } from 'react';
+import React, { memo, useContext, useRef, useState } from 'react';
+import { fireEvent, getNodeText, render } from '../../../tests/utils';
 import Anchor from '../Anchor';
 import AnchorContext from '../context';
-import { getNodeText, render, fireEvent } from '../../../tests/utils';
 
 // we use'memo' here in order to only render inner component while context changed.
 const CacheInner = memo(() => {

@@ -1,12 +1,12 @@
-import React from 'react';
-import { mount } from 'enzyme';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
+import { mount } from 'enzyme';
+import React from 'react';
 import TimePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
-import { resetWarned } from '../../_util/warning';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { resetWarned } from '../../_util/warning';
 
 dayjs.extend(customParseFormat);
 

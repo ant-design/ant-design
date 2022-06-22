@@ -1,17 +1,17 @@
-import React from 'react';
 import Dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
-import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
 import { mount } from 'enzyme';
 import MockDate from 'mockdate';
+import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
+import * as React from 'react';
 import Calendar from '..';
-import Header from '../Header';
-import Select from '../../select';
-import Group from '../../radio/group';
-import Button from '../../radio/radioButton';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render, fireEvent } from '../../../tests/utils';
+import { fireEvent, render } from '../../../tests/utils';
+import Group from '../../radio/group';
+import Button from '../../radio/radioButton';
+import Select from '../../select';
+import Header from '../Header';
 
 describe('Calendar', () => {
   mountTest(Calendar);

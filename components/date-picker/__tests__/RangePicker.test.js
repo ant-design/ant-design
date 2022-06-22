@@ -1,12 +1,12 @@
-import React from 'react';
-import { mount } from 'enzyme';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
+import { mount } from 'enzyme';
+import React from 'react';
 import DatePicker from '..';
-import { setMockDate, resetMockDate } from '../../../tests/utils';
-import { openPicker, selectCell, closePicker } from './utils';
 import focusTest from '../../../tests/shared/focusTest';
+import { resetMockDate, setMockDate } from '../../../tests/utils';
 import enUS from '../locale/en_US';
+import { closePicker, openPicker, selectCell } from './utils';
 
 dayjs.extend(customParseFormat);
 

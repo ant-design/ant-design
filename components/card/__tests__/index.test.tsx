@@ -1,9 +1,9 @@
 import React from 'react';
-import Card from '../index';
-import Button from '../../button/index';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render, fireEvent } from '../../../tests/utils';
+import { fireEvent, render } from '../../../tests/utils';
+import Button from '../../button/index';
+import Card from '../index';
 
 describe('Card', () => {
   mountTest(Card);

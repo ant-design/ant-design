@@ -1,9 +1,10 @@
-import * as React from 'react';
-import omit from 'rc-util/lib/omit';
 import classNames from 'classnames';
+import omit from 'rc-util/lib/omit';
+import * as React from 'react';
+import { ConfigContext } from '../config-provider';
 import type { SkeletonElementProps } from './Element';
 import Element from './Element';
-import { ConfigContext } from '../config-provider';
+
 import useStyle from './style';
 
 export interface SkeletonButtonProps extends Omit<SkeletonElementProps, 'size'> {

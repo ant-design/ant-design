@@ -1,8 +1,8 @@
-import * as React from 'react';
 import classNames from 'classnames';
-import type { AntAnchor } from './Anchor';
+import * as React from 'react';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigConsumer } from '../config-provider';
+import type { AntAnchor } from './Anchor';
 import AnchorContext from './context';
 
 export interface AnchorLinkProps {

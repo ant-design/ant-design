@@ -1,5 +1,5 @@
-import React from 'react';
 import { LoadingOutlined } from '@ant-design/icons';
+import React from 'react';
 import { render } from '../../../tests/utils';
 
 import List from '..';

@@ -1,12 +1,12 @@
-import * as React from 'react';
 import classNames from 'classnames';
 import memoizeOne from 'memoize-one';
 import addEventListener from 'rc-util/lib/Dom/addEventListener';
+import * as React from 'react';
 import Affix from '../affix';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
-import scrollTo from '../_util/scrollTo';
 import getScroll from '../_util/getScroll';
+import scrollTo from '../_util/scrollTo';
 import AnchorContext from './context';
 
 import useStyle from './style';
