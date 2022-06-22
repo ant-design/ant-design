@@ -9,8 +9,8 @@ import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import InfoCircleOutlined from '@ant-design/icons/InfoCircleOutlined';
 import classNames from 'classnames';
 import CSSMotion from 'rc-motion';
+import type { ReactElement } from 'react';
 import * as React from 'react';
-
 import { ConfigContext } from '../config-provider';
 import getDataOrAriaProps from '../_util/getDataOrAriaProps';
 import { replaceElement } from '../_util/reactNode';
@@ -62,6 +62,43 @@ const iconMapOutlined = {
   warning: ExclamationCircleOutlined,
 };
 
+interface IconNodeProps {
+  type: AlertProps['type'];
+  icon: AlertProps['icon'];
+  prefixCls: AlertProps['prefixCls'];
+  description: AlertProps['description'];
+}
+
+const IconNode: React.FC<IconNodeProps> = props => {
+  const { description, icon, prefixCls, type } = props;
+  const iconType = (description ? iconMapOutlined : iconMapFilled)[type!] || null;
+  if (icon) {
+    return replaceElement(icon, <span className={`${prefixCls}-icon`}>{icon}</span>, () => ({
+      className: classNames(`${prefixCls}-icon`, {
+        [(icon as ReactElement).props.className]: (icon as ReactElement).props.className,
+      }),
+    })) as ReactElement;
+  }
+  return React.createElement(iconType, { className: `${prefixCls}-icon` });
+};
+
+interface CloseIconProps {
+  isClosable: boolean;
+  prefixCls: AlertProps['prefixCls'];
+  closeText: AlertProps['closeText'];
+  closeIcon: AlertProps['closeIcon'];
+  handleClose: AlertProps['onClose'];
+}
+
+const CloseIcon: React.FC<CloseIconProps> = props => {
+  const { isClosable, closeText, prefixCls, closeIcon, handleClose } = props;
+  return isClosable ? (
+    <button type="button" onClick={handleClose} className={`${prefixCls}-close-icon`} tabIndex={0}>
+      {closeText ? <span className={`${prefixCls}-close-text`}>{closeText}</span> : closeIcon}
+    </button>
+  ) : null;
+};
+
 interface AlertInterface extends React.FC<AlertProps> {
   ErrorBoundary: typeof ErrorBoundary;
 }
@@ -108,32 +145,6 @@ const Alert: AlertInterface = ({
   const isClosable = closeText ? true : closable;
   const type = getType();
 
-  const renderIconNode = () => {
-    const { icon } = props;
-    // use outline icon in alert with description
-    const iconType = (description ? iconMapOutlined : iconMapFilled)[type] || null;
-    if (icon) {
-      return replaceElement(icon, <span className={`${prefixCls}-icon`}>{icon}</span>, () => ({
-        className: classNames(`${prefixCls}-icon`, {
-          [(icon as any).props.className]: (icon as any).props.className,
-        }),
-      }));
-    }
-    return React.createElement(iconType, { className: `${prefixCls}-icon` });
-  };
-
-  const renderCloseIcon = () =>
-    isClosable ? (
-      <button
-        type="button"
-        onClick={handleClose}
-        className={`${prefixCls}-close-icon`}
-        tabIndex={0}
-      >
-        {closeText ? <span className={`${prefixCls}-close-text`}>{closeText}</span> : closeIcon}
-      </button>
-    ) : null;
-
   // banner 模式默认有 Icon
   const isShowIcon = banner && showIcon === undefined ? true : showIcon;
 
@@ -174,13 +185,26 @@ const Alert: AlertInterface = ({
           role="alert"
           {...dataOrAriaProps}
         >
-          {isShowIcon ? renderIconNode() : null}
+          {isShowIcon ? (
+            <IconNode
+              description={description}
+              icon={props.icon}
+              prefixCls={prefixCls}
+              type={type}
+            />
+          ) : null}
           <div className={`${prefixCls}-content`}>
             {message ? <div className={`${prefixCls}-message`}>{message}</div> : null}
             {description ? <div className={`${prefixCls}-description`}>{description}</div> : null}
           </div>
           {action ? <div className={`${prefixCls}-action`}>{action}</div> : null}
-          {renderCloseIcon()}
+          <CloseIcon
+            isClosable={!!isClosable}
+            closeText={closeText}
+            prefixCls={prefixCls}
+            closeIcon={closeIcon}
+            handleClose={handleClose}
+          />
         </div>
       )}
     </CSSMotion>
