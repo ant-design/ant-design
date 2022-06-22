@@ -14,7 +14,7 @@ https://github.com/ant-design/ant-design/issues/36165
 
 https://github.com/ant-design/ant-design/issues/36165
 
-```tsx
+```jsx
 import { PoweroffOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import React from 'react';
@@ -23,7 +23,7 @@ const Text1 = () => '部署';
 const Text2 = () => <span>部署</span>;
 const Text3 = () => 'Submit';
 
-const App: React.FC = () => (
+const App = () => (
   <>
     <Button loading>部署</Button>
     <Button loading>
