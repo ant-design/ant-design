@@ -5,6 +5,7 @@
       "antd": ["components/index.tsx"],
       "antd/es/*": ["components/*"]
     },
+    "strict": true,
     "strictNullChecks": true,
     "module": "esnext",
     "moduleResolution": "node",
@@ -15,6 +16,7 @@
     "jsxFragmentFactory": "React.Fragment",
     "noUnusedParameters": true,
     "noUnusedLocals": true,
+    "strictPropertyInitialization": false,
     "noImplicitAny": true,
     "target": "es6",
     "lib": ["dom", "es2017"],
