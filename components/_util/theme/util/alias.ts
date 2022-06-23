@@ -177,8 +177,6 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     screenXXLMin: screenXXL,
     screenXXLMax: screenXXL - 1,
 
-    motionEaseOut: 'cubic-bezier(0.215, 0.61, 0.355, 1)',
-
     // Override AliasToken
     ...alias,
   };

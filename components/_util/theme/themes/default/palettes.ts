@@ -27,7 +27,7 @@ export function generateTextAlphaPalettes(textBaseColor: string): TextAlphaPalet
     // 从 12 往下基本上就是偏背景和装饰性元素了
     12: getAlphaColor(textBaseColor, 0.06), // 主要是 Split
     8: getAlphaColor(textBaseColor, 0.04),
-    4: getAlphaColor(textBaseColor, 0.02),
-    3: getAlphaColor(textBaseColor, 0.03),
+    4: getAlphaColor(textBaseColor, 0.03),
+    3: getAlphaColor(textBaseColor, 0.02),
   };
 }

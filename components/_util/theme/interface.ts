@@ -176,6 +176,7 @@ export interface SeedToken extends PresetColorType {
   motionEaseOutBack: string;
   motionEaseInQuint: string;
   motionEaseOutQuint: string;
+  motionEaseOut: string;
 
   // Radius
   radiusBase: number;
@@ -393,8 +394,6 @@ export interface AliasToken extends DerivativeToken {
   screenXXL: number;
   screenXXLMin: number;
   screenXXLMax: number;
-
-  motionEaseOut: string;
 
   controlMaskBg: string;
   colorBorderSecondary: string;

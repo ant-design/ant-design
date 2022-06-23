@@ -12,7 +12,8 @@ import type {
   SeedToken,
 } from './interface';
 import { PresetColors } from './interface';
-import defaultSeedToken, { derivative as defaultDerivative } from './themes/default';
+import defaultDerivative from './themes/default';
+import defaultSeedToken from './themes/seed';
 import { clearFix, operationUnit, resetComponent, resetIcon, roundedArrow } from './util';
 import formatToken from './util/alias';
 import type { FullToken } from './util/genComponentStyleHook';

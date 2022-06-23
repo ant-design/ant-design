@@ -27,7 +27,7 @@ export default function derivative(token: SeedToken): DerivativeToken {
 
   const colorPalettes = Object.keys(defaultPresetColors)
     .map((colorKey: keyof PresetColorType) => {
-      const colors = generate(token[colorKey]);
+      const colors = generate(token[colorKey], { theme: 'dark' });
 
       return new Array(10).fill(1).reduce((prev, _, i) => {
         prev[`${colorKey}-${i + 1}`] = colors[i];
