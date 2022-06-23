@@ -1,12 +1,12 @@
 import { BugOutlined, EyeOutlined } from '@ant-design/icons';
 import { TinyColor } from '@ctrl/tinycolor';
 import { Button, Checkbox, Drawer, Form, Input, InputNumber, Space } from 'antd';
-import defaultSeedToken from 'antd/es/_util/theme/themes/seed';
 import * as React from 'react';
 import { useState } from 'react';
 import { useIntl } from 'react-intl';
 import type { SeedToken } from '../../../../../components/_util/theme';
 import { PresetColors } from '../../../../../components/_util/theme/interface';
+import defaultSeedToken from '../../../../../components/_util/theme/themes/seed';
 import Diff from './Diff';
 import Preview from './Preview';
 

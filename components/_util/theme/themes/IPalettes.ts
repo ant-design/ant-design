@@ -1,31 +1,3 @@
-export interface PrimaryPalettes {
-  0: string;
-  1: string;
-  2: string;
-  3: string;
-  4: string;
-  5: string;
-  6: string;
-  7: string;
-}
-
-export interface SuccessPalettes {
-  1: string;
-  3: string;
-  6: string;
-}
-
-export interface WarningPalettes {
-  1: string;
-  3: string;
-  6: string;
-}
-export interface ErrorPalettes {
-  1: string;
-  3: string;
-  6: string;
-}
-
 export interface TextAlphaPalettes {
   85: string;
   75: string;
