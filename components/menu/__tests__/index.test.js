@@ -816,6 +816,7 @@ describe('Menu', () => {
     );
     expect(onOpen).not.toHaveBeenCalled();
     expect(onClose).not.toHaveBeenCalled();
+    errorSpy.mockRestore();
   });
 
   // https://github.com/ant-design/ant-design/issues/18825
@@ -1001,5 +1002,14 @@ describe('Menu', () => {
     );
 
     expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('should not warning deprecated message when items={undefined}', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => undefined);
+    mount(<Menu items={undefined} />);
+    expect(errorSpy).not.toHaveBeenCalledWith(
+      expect.stringContaining('`children` will be removed in next major version'),
+    );
+    errorSpy.mockRestore();
   });
 });
