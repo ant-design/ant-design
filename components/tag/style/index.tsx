@@ -1,8 +1,8 @@
 // deps-lint-skip-all
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import capitalize from '../../_util/capitalize';
-import type { PresetColorType, FullToken } from '../../_util/theme';
-import { resetComponent, PresetColors, genComponentStyleHook, mergeToken } from '../../_util/theme';
+import type { FullToken, PresetColorType } from '../../_util/theme';
+import { genComponentStyleHook, mergeToken, PresetColors, resetComponent } from '../../_util/theme';
 
 interface TagToken extends FullToken<'Tag'> {
   tagFontSize: number;
@@ -25,7 +25,7 @@ const genTagStatusStyle = (
   return {
     [`${token.componentCls}-${status}`]: {
       color: token[`color${cssVariableType}`],
-      background: token[`colorBg${capitalizedCssVariableType}`],
+      background: token[`color${capitalizedCssVariableType}Bg`],
       borderColor: token[`color${capitalizedCssVariableType}Secondary`],
     },
   };
