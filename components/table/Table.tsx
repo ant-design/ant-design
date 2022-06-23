@@ -156,7 +156,7 @@ function InternalTable<RecordType extends object = any>(
   const screens = useBreakpoint(needResponsive);
 
   const mergedColumns = React.useMemo(() => {
-    const matched = new Set(Object.keys(screens).filter((m: Breakpoint) => screens[m]));
+    const matched = new Set(Object.keys(screens).filter(m => screens[m as Breakpoint]));
 
     return baseColumns.filter(
       c => !c.responsive || c.responsive.some((r: Breakpoint) => matched.has(r)),
@@ -293,7 +293,7 @@ function InternalTable<RecordType extends object = any>(
 
   // ============================ Filter ============================
   const onFilterChange = (
-    filters: Record<string, FilterValue>,
+    filters: Record<string, FilterValue | null>,
     filterStates: FilterState<RecordType>[],
   ) => {
     triggerOnChange(
@@ -522,7 +522,9 @@ function InternalTable<RecordType extends object = any>(
           // Internal
           internalHooks={INTERNAL_HOOKS}
           internalRefs={internalRefs as any}
-          transformColumns={transformColumns as RcTableProps<RecordType>['transformColumns']}
+          transformColumns={
+            transformColumns as unknown as RcTableProps<RecordType>['transformColumns']
+          }
         />
         {bottomPaginationNode}
       </Spin>

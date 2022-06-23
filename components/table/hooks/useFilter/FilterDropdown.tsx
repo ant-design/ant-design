@@ -1,7 +1,8 @@
 import FilterFilled from '@ant-design/icons/FilterFilled';
 import classNames from 'classnames';
 import isEqual from 'lodash/isEqual';
-import type { FieldDataNode } from 'rc-tree';
+import { TreeProps } from 'rc-tree';
+import { FieldDataNode } from 'rc-tree/lib/interface';
 import * as React from 'react';
 import type { FilterState } from '.';
 import { flattenKeys } from '.';
@@ -15,7 +16,6 @@ import type { MenuProps } from '../../../menu';
 import Menu from '../../../menu';
 import { OverrideProvider } from '../../../menu/OverrideContext';
 import Radio from '../../../radio';
-import type { EventDataNode } from '../../../tree';
 import Tree from '../../../tree';
 import useSyncState from '../../../_util/hooks/useSyncState';
 import type {
@@ -164,10 +164,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     setFilteredKeysSync(selectedKeys);
   };
 
-  const onCheck = (
-    keys: Key[],
-    { node, checked }: { node: EventDataNode<FilterTreeDataNode>; checked: boolean },
-  ) => {
+  const onCheck: TreeProps['onCheck'] = (keys, { node, checked }) => {
     if (!filterMultiple) {
       onSelectKeys({ selectedKeys: checked && node.key ? [node.key] : [] });
     } else {

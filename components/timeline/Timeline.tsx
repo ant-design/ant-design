@@ -44,7 +44,7 @@ const Timeline: TimelineType = props => {
     </TimelineItem>
   ) : null;
 
-  const timeLineItems = React.Children.toArray(children);
+  const timeLineItems = React.Children.toArray(children) as React.ReactElement<any>[];
   timeLineItems.push(pendingItem as any);
   if (reverse) {
     timeLineItems.reverse();
@@ -66,7 +66,7 @@ const Timeline: TimelineType = props => {
   const truthyItems = timeLineItems.filter(item => !!item);
   const itemsCount = React.Children.count(truthyItems);
   const lastCls = `${prefixCls}-item-last`;
-  const items = React.Children.map(truthyItems, (ele: React.ReactElement<any>, idx) => {
+  const items = React.Children.map(truthyItems, (ele, idx) => {
     const pendingClass = idx === itemsCount - 2 ? lastCls : '';
     const readyClass = idx === itemsCount - 1 ? lastCls : '';
     return cloneElement(ele, {

@@ -76,14 +76,14 @@ class Countdown extends React.Component<CountdownProps, {}> {
     }
   };
 
-  formatCountdown = (value: countdownValueType, config: FormatConfig) => {
+  formatCountdown = (value: countdownValueType, config?: FormatConfig) => {
     const { format } = this.props;
     return formatCountdown(value, { ...config, format });
   };
 
   // Countdown do not need display the timestamp
   // eslint-disable-next-line class-methods-use-this
-  valueRender = (node: React.ReactElement<HTMLDivElement>) =>
+  valueRender = (node: React.ReactNode) =>
     cloneElement(node, {
       title: undefined,
     });
