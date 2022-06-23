@@ -12,7 +12,8 @@ function getTestRegex(libDir) {
   return '.*\\.test\\.(j|t)sx?$';
 }
 
-module.exports = {
+/** @type {import('@jest/types').Config.InitialOptions} */
+const commonConfig = {
   verbose: true,
   testEnvironment: 'jsdom',
   setupFiles: ['./tests/setup.js'],
@@ -28,31 +29,49 @@ module.exports = {
     '/^react-dnd-test-utils$/': 'react-dnd-test-utils/dist/cjs',
     '/\\.(css|less)$/': 'identity-obj-proxy',
   },
-  testPathIgnorePatterns: ['/node_modules/', 'dekko', 'node', 'image.test.js', 'image.test.ts'],
-  transform: {
-    '\\.tsx?$': './node_modules/@ant-design/tools/lib/jest/codePreprocessor',
-    '\\.(m?)js$': './node_modules/@ant-design/tools/lib/jest/codePreprocessor',
-    '\\.md$': './node_modules/@ant-design/tools/lib/jest/demoPreprocessor',
-    '\\.(jpg|png|gif|svg)$': './node_modules/@ant-design/tools/lib/jest/imagePreprocessor',
-  },
-  testRegex: getTestRegex(process.env.LIB_DIR),
-  collectCoverageFrom: [
-    'components/**/*.{ts,tsx}',
-    '!components/*/style/index.tsx',
-    '!components/style/index.tsx',
-    '!components/*/locale/index.tsx',
-    '!components/*/__tests__/type.test.tsx',
-    '!components/**/*/interface.{ts,tsx}',
-    '!components/*/__tests__/image.test.{ts,tsx}',
-  ],
   transformIgnorePatterns,
   snapshotSerializers: ['enzyme-to-json/serializer'],
-  globals: {
-    'ts-jest': {
-      tsConfig: './tsconfig.test.json',
-    },
-  },
   testEnvironmentOptions: {
     url: 'http://localhost',
   },
 };
+
+/** @type {import('@jest/types').Config.InitialOptions} */
+const config = {
+  projects: [
+    {
+      ...commonConfig,
+      transform: {
+        '\\.tsx?$': './node_modules/@ant-design/tools/lib/jest/codePreprocessor',
+        '\\.(m?)js$': './node_modules/@ant-design/tools/lib/jest/codePreprocessor',
+        '\\.md$': './node_modules/@ant-design/tools/lib/jest/demoPreprocessor',
+        '\\.(jpg|png|gif|svg)$': './node_modules/@ant-design/tools/lib/jest/imagePreprocessor',
+      },
+      testRegex: getTestRegex(process.env.LIB_DIR),
+      testPathIgnorePatterns: [
+        '/node_modules/',
+        'dekko',
+        'node',
+        'image.test.js',
+        'image.test.ts',
+        'strict.test.tsx?',
+      ],
+    },
+    {
+      ...commonConfig,
+      testRegex: '.*\\.strict\\.test\\.tsx?$',
+      displayName: 'type-strict',
+      transform: {
+        '\\.tsx?$': 'ts-jest',
+        '\\.(m?)js$': './node_modules/@ant-design/tools/lib/jest/codePreprocessor',
+      },
+      globals: {
+        'ts-jest': {
+          tsconfig: 'tsconfig.strict.test.json',
+        },
+      },
+    },
+  ],
+};
+
+module.exports = config;
