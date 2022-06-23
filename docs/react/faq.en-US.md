@@ -13,11 +13,11 @@ There is currently no plan to add support for Sass/Stylus(etc.) style files, but
 
 ## Is there a difference between undefined and null in the controlled components of antd?
 
-**Yes. antd convention: `undefined` is uncontrolled, while `null` is an explicit empty value of controlled.**
+**Yes. antd will treat `undefined` as uncontrolled but null as controlled components which means empty value of it.**
 
 As input element, React treats both `undefined` and `null` as uncontrolled. When the `value` is converted from a valid value to `undefined` or `null`, the component is no longer controlled, which causes some unexpected cases.
 
-In antd, `undefined` is treated as uncontrolled, and `null` is used as an explicit empty value of controlled components. In order to deal with cases (e.g. `allowClear`) like clearing the `value` when the `value` is non-primitive, so antd agrees that `null` is controlled. If you need a component controlled with the `value` valid, just set the `value` as `null`.
+But in antd, `undefined` is treated as uncontrolled, and `null` is used as an explicit empty value of controlled components. To deal with some cases (e.g. `allowClear`) like clearing the `value` when the `value` is non-primitive. If you need a component controlled with the `value` valid, just set the `value` as `null`.
 
 Note: For `options` in `Select-like` components, it is **strongly recommended not** to use `undefined` and `null` as `value` in `option`. Please use `string | number` as a valid `value` in `option`.
 
