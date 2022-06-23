@@ -1,4 +1,4 @@
-import type { CSSObject, CSSInterpolation } from '@ant-design/cssinjs';
+import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import type { SelectToken } from '.';
 import { mergeToken, resetIcon } from '../../_util/theme';
 
@@ -92,7 +92,7 @@ function genSizeStyle(token: SelectToken, suffix?: string): CSSObject {
         marginTop: FIXED_ITEM_MARGIN,
         marginBottom: FIXED_ITEM_MARGIN,
         lineHeight: `${selectItemHeight - token.controlLineWidth * 2}px`,
-        background: token.colorBgContainer,
+        background: token.colorBgComponentTmp,
         border: `${token.controlLineWidth}px solid ${token.colorSplit}`,
         borderRadius: token.controlRadius,
         cursor: 'default',

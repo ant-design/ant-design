@@ -235,7 +235,7 @@ export default genComponentStyleHook('Table', token => {
     colorActionHover,
     opacityLoading,
     colorBgComponent,
-    colorBgContainer,
+    colorBgComponentTmp,
     radiusBase,
     bgColors,
     textColors,
@@ -275,7 +275,7 @@ export default genComponentStyleHook('Table', token => {
       .setAlpha(baseColorActionHover.getAlpha() * opacityLoading)
       .toRgbString(),
     tableBodySortBg: colorBgComponentSecondary,
-    tableFixedHeaderSortActiveBg: colorBgContainer,
+    tableFixedHeaderSortActiveBg: colorBgComponentTmp,
     tableHeaderFilterActiveBg: textColors['12'],
     tableFilterDropdownBg: colorBgComponent,
     tableRowHoverBg: colorBgComponentSecondary,
