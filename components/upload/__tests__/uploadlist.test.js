@@ -1499,4 +1499,43 @@ describe('Upload List', () => {
     });
     unmount();
   });
+
+  describe('should not display upload file-select button when listType is picture-card and children is empty', () => {
+    it('when showUploadList is true', () => {
+      const list = [
+        {
+          uid: '0',
+          name: 'xxx.png',
+          status: 'done',
+          url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+          thumbUrl: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
+        },
+      ];
+      const { container: wrapper, unmount } = render(
+        <Upload fileList={list} listType="picture-card" />,
+      );
+      expect(wrapper.querySelectorAll('.ant-upload-select').length).toBe(1);
+      expect(wrapper.querySelectorAll('.ant-upload-select')[0].style.display).toBe('none');
+      unmount();
+    });
+
+    // https://github.com/ant-design/ant-design/issues/36183
+    it('when showUploadList is false', () => {
+      const list = [
+        {
+          uid: '0',
+          name: 'xxx.png',
+          status: 'done',
+          url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
+          thumbUrl: 'https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png',
+        },
+      ];
+      const { container: wrapper, unmount } = render(
+        <Upload fileList={list} showUploadList={false} listType="picture-card" />,
+      );
+      expect(wrapper.querySelectorAll('.ant-upload-select').length).toBe(1);
+      expect(wrapper.querySelectorAll('.ant-upload-select')[0].style.display).toBe('none');
+      unmount();
+    });
+  });
 });
