@@ -6,12 +6,12 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
+import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
-import DisabledContext from '../config-provider/DisabledContext';
 import { FormItemInputContext } from '../form/context';
 import type { InputStatus } from '../_util/statusUtils';
-import { getStatusClassNames, getMergedStatus } from '../_util/statusUtils';
+import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import ClearableLabeledInput from './ClearableLabeledInput';
 import type { InputFocusOptions } from './Input';
 import { fixControlledValue, resolveOnChange, triggerFocus } from './Input';
@@ -165,9 +165,8 @@ const TextArea = React.forwardRef<TextAreaRef, TextAreaProps>(
 
     // ============================== Reset ===============================
     const handleReset = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
-      handleSetValue('', () => {
-        innerRef.current?.focus();
-      });
+      handleSetValue('');
+      innerRef.current?.focus();
       resolveOnChange(innerRef.current?.resizableTextArea?.textArea!, e, onChange);
     };
 

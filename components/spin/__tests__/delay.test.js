@@ -1,5 +1,5 @@
-import React from 'react';
 import { mount } from 'enzyme';
+import React from 'react';
 // eslint-disable-next-line import/no-named-as-default
 import { render } from '@testing-library/react';
 import debounce from 'lodash/debounce';

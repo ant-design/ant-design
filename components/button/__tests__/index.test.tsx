@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import { mount } from 'enzyme';
-import { act } from 'react-dom/test-utils';
 import { SearchOutlined } from '@ant-design/icons';
+import { mount } from 'enzyme';
 import { resetWarned } from 'rc-util/lib/warning';
+import React, { Component } from 'react';
+import { act } from 'react-dom/test-utils';
 import Button from '..';
-import ConfigProvider from '../../config-provider';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { sleep, render, fireEvent } from '../../../tests/utils';
+import { fireEvent, render, sleep } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import type { SizeType } from '../../config-provider/SizeContext';
 
 describe('Button', () => {

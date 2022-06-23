@@ -1,12 +1,12 @@
-import * as React from 'react';
 import classNames from 'classnames';
+import * as React from 'react';
+import type { KeyWiseTransferItem } from '.';
+import Pagination from '../pagination';
 import type { ElementOf } from '../_util/type';
 import { tuple } from '../_util/type';
-import Pagination from '../pagination';
-import type { TransferListProps, RenderedItem } from './list';
-import ListItem from './ListItem';
 import type { PaginationType } from './interface';
-import type { KeyWiseTransferItem } from '.';
+import type { RenderedItem, TransferListProps } from './list';
+import ListItem from './ListItem';
 
 export const OmitProps = tuple('handleFilter', 'handleClear', 'checkedKeys');
 export type OmitProp = ElementOf<typeof OmitProps>;

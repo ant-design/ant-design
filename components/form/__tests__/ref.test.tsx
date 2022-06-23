@@ -1,10 +1,10 @@
 /* eslint-disable react/jsx-key */
 
-import React from 'react';
 import { mount } from 'enzyme';
+import React from 'react';
 import Form from '..';
-import Input from '../../input';
 import Button from '../../button';
+import Input from '../../input';
 
 describe('Form.Ref', () => {
   const Test = ({

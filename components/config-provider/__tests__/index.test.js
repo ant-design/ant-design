@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { mount } from 'enzyme';
 import { SmileOutlined } from '@ant-design/icons';
+import { mount } from 'enzyme';
+import React, { useState } from 'react';
 import ConfigProvider, { ConfigContext } from '..';
-import Button from '../../button';
-import Table from '../../table';
-import Input from '../../input';
 import mountTest from '../../../tests/shared/mountTest';
-import { render, fireEvent } from '../../../tests/utils';
+import { fireEvent, render } from '../../../tests/utils';
+import Button from '../../button';
+import Input from '../../input';
+import Table from '../../table';
 
 describe('ConfigProvider', () => {
   mountTest(() => (

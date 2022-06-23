@@ -1,10 +1,10 @@
-import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
-import Search from '../Search';
-import Button from '../../button';
+import React from 'react';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import Button from '../../button';
+import Search from '../Search';
 
 describe('Input.Search', () => {
   focusTest(Search, { refFocus: true });
@@ -151,7 +151,7 @@ describe('Input.Search', () => {
   it('should trigger onSearch when press enter', () => {
     const onSearch = jest.fn();
     const { container } = render(<Search defaultValue="search text" onSearch={onSearch} />);
-    fireEvent.keyDown(container.querySelector('input'), { key: 'Enter', keyCode: 13 })
+    fireEvent.keyDown(container.querySelector('input'), { key: 'Enter', keyCode: 13 });
     expect(onSearch).toHaveBeenCalledTimes(1);
     expect(onSearch).toHaveBeenCalledWith(
       'search text',
@@ -173,7 +173,7 @@ describe('Input.Search', () => {
     expect(onSearch).not.toHaveBeenCalled();
 
     fireEvent.compositionEnd(container.querySelector('input'));
-    fireEvent.keyDown(container.querySelector('input'), { key: 'Enter', keyCode: 13 });;
+    fireEvent.keyDown(container.querySelector('input'), { key: 'Enter', keyCode: 13 });
     expect(onSearch).toHaveBeenCalledTimes(1);
     expect(onSearch).toHaveBeenCalledWith(
       'search text',
@@ -190,7 +190,9 @@ describe('Input.Search', () => {
   it('should support addonAfter', () => {
     const addonAfter = <span>Addon After</span>;
     const { asFragment } = render(<Search addonAfter={addonAfter} />);
-    const {asFragment: asFragmentWithEnterButton } = render(<Search enterButton addonAfter={addonAfter} />);
+    const { asFragment: asFragmentWithEnterButton } = render(
+      <Search enterButton addonAfter={addonAfter} />,
+    );
     expect(asFragment().firstChild).toMatchSnapshot();
     expect(asFragmentWithEnterButton().firstChild).toMatchSnapshot();
   });
@@ -209,14 +211,14 @@ describe('Input.Search', () => {
 
   it('should support loading', () => {
     const { asFragment } = render(<Search loading />);
-    const {asFragment: asFragmentWithEnterButton } = render(<Search loading enterButton />);
+    const { asFragment: asFragmentWithEnterButton } = render(<Search loading enterButton />);
     expect(asFragment().firstChild).toMatchSnapshot();
     expect(asFragmentWithEnterButton().firstChild).toMatchSnapshot();
   });
 
   it('should support addonAfter and suffix for loading', () => {
     const { asFragment } = render(<Search loading suffix="suffix" addonAfter="addonAfter" />);
-    const {asFragment: asFragmentWithEnterButton } = render(
+    const { asFragment: asFragmentWithEnterButton } = render(
       <Search loading enterButton suffix="suffix" addonAfter="addonAfter" />,
     );
     expect(asFragment().firstChild).toMatchSnapshot();
@@ -255,7 +257,11 @@ describe('Input.Search', () => {
   // https://github.com/ant-design/ant-design/issues/27258
   it('Search with allowClear should have one className only', () => {
     const { container } = render(<Search allowClear className="className" />);
-    expect(container.querySelector('.ant-input-group-wrapper').classList.contains('className')).toBe(true);
-    expect(container.querySelector('.ant-input-affix-wrapper').classList.contains('className')).toBe(false);
+    expect(
+      container.querySelector('.ant-input-group-wrapper').classList.contains('className'),
+    ).toBe(true);
+    expect(
+      container.querySelector('.ant-input-affix-wrapper').classList.contains('className'),
+    ).toBe(false);
   });
 });

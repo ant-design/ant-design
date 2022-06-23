@@ -1,14 +1,14 @@
-import React from 'react';
 import { mount } from 'enzyme';
+import React from 'react';
 import ConfigProvider from '..';
-import LocaleProvider from '../../locale-provider';
-import zhCN from '../../locale/zh_CN';
-import enUS from '../../locale/en_US';
-import TimePicker from '../../time-picker';
 import DatePicker from '../../date-picker';
-import { openPicker, selectCell, closePicker } from '../../date-picker/__tests__/utils';
-import Pagination from '../../pagination';
+import { closePicker, openPicker, selectCell } from '../../date-picker/__tests__/utils';
+import LocaleProvider from '../../locale-provider';
+import enUS from '../../locale/en_US';
+import zhCN from '../../locale/zh_CN';
 import Modal from '../../modal';
+import Pagination from '../../pagination';
+import TimePicker from '../../time-picker';
 
 describe('ConfigProvider.Locale', () => {
   function $$(className) {

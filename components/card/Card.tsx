@@ -1,12 +1,12 @@
-import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-import Tabs from '../tabs';
-import Grid from './Grid';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import SizeContext from '../config-provider/SizeContext';
-import type { TabsProps } from '../tabs';
 import Skeleton from '../skeleton';
+import type { TabsProps } from '../tabs';
+import Tabs from '../tabs';
+import Grid from './Grid';
 
 export type CardType = 'inner';
 export type CardSize = 'default' | 'small';

@@ -1,7 +1,7 @@
 /* eslint-disable react/no-multi-comp */
 import React from 'react';
-import { render, fireEvent } from '../../../tests/utils';
 import Table from '..';
+import { fireEvent, render } from '../../../tests/utils';
 
 const columns = [
   {

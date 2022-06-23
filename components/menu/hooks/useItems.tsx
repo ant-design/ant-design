@@ -1,14 +1,14 @@
-import * as React from 'react';
 import { ItemGroup } from 'rc-menu';
 import type {
-  MenuItemType as RcMenuItemType,
   MenuDividerType as RcMenuDividerType,
-  SubMenuType as RcSubMenuType,
   MenuItemGroupType as RcMenuItemGroupType,
+  MenuItemType as RcMenuItemType,
+  SubMenuType as RcSubMenuType,
 } from 'rc-menu/lib/interface';
-import SubMenu from '../SubMenu';
+import * as React from 'react';
 import MenuDivider from '../MenuDivider';
 import MenuItem from '../MenuItem';
+import SubMenu from '../SubMenu';
 
 interface MenuItemType extends RcMenuItemType {
   danger?: boolean;

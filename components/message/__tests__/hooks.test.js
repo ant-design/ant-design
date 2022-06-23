@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import React from 'react';
 import { mount } from 'enzyme';
+import React from 'react';
 import { act } from 'react-dom/test-utils';
 import message, { getInstance } from '..';
 import ConfigProvider from '../../config-provider';

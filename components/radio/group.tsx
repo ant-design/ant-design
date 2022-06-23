@@ -1,12 +1,12 @@
-import * as React from 'react';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import Radio from './radio';
-import type { RadioGroupProps, RadioChangeEvent, RadioGroupButtonStyle } from './interface';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import SizeContext from '../config-provider/SizeContext';
-import { RadioGroupContextProvider } from './context';
 import getDataOrAriaProps from '../_util/getDataOrAriaProps';
+import { RadioGroupContextProvider } from './context';
+import type { RadioChangeEvent, RadioGroupButtonStyle, RadioGroupProps } from './interface';
+import Radio from './radio';
 
 const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
