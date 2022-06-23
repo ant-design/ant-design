@@ -21,7 +21,7 @@ export default class LocaleReceiver<
 
   static contextType = LocaleContext;
 
-  context: LocaleContextProps;
+  context: LocaleContextProps | undefined = undefined;
 
   getLocale(): Locale[C] {
     const { componentName, defaultLocale } = this.props;

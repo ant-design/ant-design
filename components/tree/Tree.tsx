@@ -2,7 +2,7 @@ import HolderOutlined from '@ant-design/icons/HolderOutlined';
 import classNames from 'classnames';
 import type { BasicDataNode, TreeProps as RcTreeProps } from 'rc-tree';
 import RcTree, { TreeNode } from 'rc-tree';
-import type { DataNode, Key } from 'rc-tree/lib/interface';
+import type { DataNode, IconType, Key } from 'rc-tree/lib/interface';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import collapseMotion from '../_util/motion';
@@ -177,6 +177,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
   const prefixCls = getPrefixCls('tree', customizePrefixCls);
   const newProps = {
     ...props,
+    icon: props.icon as IconType,
     showLine: Boolean(showLine),
     dropIndicatorRender,
   };
@@ -226,8 +227,9 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
       direction={direction}
       checkable={checkable ? <span className={`${prefixCls}-checkbox-inner`} /> : checkable}
       selectable={selectable}
-      switcherIcon={(nodeProps: AntTreeNodeProps) =>
-        renderSwitcherIcon(prefixCls, switcherIcon, showLine, nodeProps)
+      switcherIcon={
+        ((nodeProps: AntTreeNodeProps) =>
+          renderSwitcherIcon(prefixCls, switcherIcon, showLine, nodeProps)) as IconType
       }
       draggable={draggableConfig as any}
     >

@@ -41,9 +41,9 @@ const Empty: EmptyType = ({
 
   return (
     <LocaleReceiver componentName="Empty">
-      {(locale: TransferLocale) => {
+      {(locale?: TransferLocale) => {
         const prefixCls = getPrefixCls('empty', customizePrefixCls);
-        const des = typeof description !== 'undefined' ? description : locale.description;
+        const des = typeof description !== 'undefined' ? description : locale!.description;
         const alt = typeof des === 'string' ? des : 'empty';
 
         let imageNode: React.ReactNode = null;

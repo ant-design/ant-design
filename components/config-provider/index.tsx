@@ -171,7 +171,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
   } = props;
 
   const getPrefixCls = React.useCallback(
-    (suffixCls: string, customizePrefixCls?: string) => {
+    (suffixCls?: string, customizePrefixCls?: string) => {
       const { prefixCls } = props;
 
       if (customizePrefixCls) return customizePrefixCls;
@@ -183,7 +183,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     [parentContext.getPrefixCls, props.prefixCls],
   );
 
-  const config = {
+  const config: ConfigConsumerProps = {
     ...parentContext,
     csp,
     autoInsertSpaceInButton,

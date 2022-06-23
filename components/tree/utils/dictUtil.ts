@@ -8,7 +8,7 @@ enum Record {
 
 function traverseNodesKey(
   treeData: DataNode[],
-  callback: (key: Key | number | null, node: DataNode) => boolean,
+  callback: (key: Key | number, node: DataNode) => boolean,
 ) {
   function processNode(dataNode: DataNode) {
     const { key, children } = dataNode;

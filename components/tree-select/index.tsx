@@ -3,6 +3,7 @@ import type { BaseSelectRef } from 'rc-select';
 import type { TreeSelectProps as RcTreeSelectProps } from 'rc-tree-select';
 import RcTreeSelect, { SHOW_ALL, SHOW_CHILD, SHOW_PARENT, TreeNode } from 'rc-tree-select';
 import type { BaseOptionType, DefaultOptionType } from 'rc-tree-select/lib/TreeSelect';
+import { IconType } from 'rc-tree/lib/interface';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
 import { useContext } from 'react';
@@ -195,8 +196,9 @@ const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionTyp
       placement={getPlacement()}
       removeIcon={removeIcon}
       clearIcon={clearIcon}
-      switcherIcon={(nodeProps: AntTreeNodeProps) =>
-        renderSwitcherIcon(treePrefixCls, switcherIcon, treeLine, nodeProps)
+      switcherIcon={
+        ((nodeProps: AntTreeNodeProps) =>
+          renderSwitcherIcon(treePrefixCls, switcherIcon, treeLine, nodeProps)) as IconType
       }
       showTreeIcon={treeIcon as any}
       notFoundContent={mergedNotFound}

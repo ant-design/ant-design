@@ -1,3 +1,4 @@
+import { Direction } from 'rc-tree/lib/interface';
 import React from 'react';
 
 export const offset = 4;
@@ -6,8 +7,8 @@ export default function dropIndicatorRender(props: {
   dropPosition: -1 | 0 | 1;
   dropLevelOffset: number;
   indent: number;
+  direction: Direction;
   prefixCls: string;
-  direction: 'ltr' | 'rtl';
 }) {
   const { dropPosition, dropLevelOffset, prefixCls, indent, direction = 'ltr' } = props;
   const startPosition = direction === 'ltr' ? 'left' : 'right';
