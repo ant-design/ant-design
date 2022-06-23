@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import type { UploadProps as RcUploadProps } from 'rc-upload';
 import RcUpload from 'rc-upload';
-import { RcFile, UploadProgressEvent } from 'rc-upload/lib/interface';
+import type { RcFile, UploadProgressEvent } from 'rc-upload/lib/interface';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';

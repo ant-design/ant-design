@@ -1,4 +1,4 @@
-import { RcFile } from 'rc-upload/lib/interface';
+import type { RcFile } from 'rc-upload/lib/interface';
 import type { InternalUploadFile, UploadFile } from './interface';
 
 export function file2Obj(file: RcFile): InternalUploadFile {

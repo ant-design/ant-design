@@ -1,4 +1,4 @@
-import { RcFile as ORcFile } from 'rc-upload/lib/interface';
+import type { RcFile as ORcFile } from 'rc-upload/lib/interface';
 import Dragger from './Dragger';
 import type { UploadProps } from './Upload';
 import InternalUpload, { LIST_IGNORE } from './Upload';

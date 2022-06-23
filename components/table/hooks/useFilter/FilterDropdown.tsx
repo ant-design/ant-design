@@ -1,8 +1,8 @@
 import FilterFilled from '@ant-design/icons/FilterFilled';
 import classNames from 'classnames';
 import isEqual from 'lodash/isEqual';
-import { TreeProps } from 'rc-tree';
-import { FieldDataNode } from 'rc-tree/lib/interface';
+import type { TreeProps } from 'rc-tree';
+import type { FieldDataNode } from 'rc-tree/lib/interface';
 import * as React from 'react';
 import type { FilterState } from '.';
 import { flattenKeys } from '.';
