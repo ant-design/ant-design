@@ -1,8 +1,9 @@
+import canUseDom from 'rc-util/lib/Dom/canUseDom';
 import * as React from 'react';
 import Notification from './notification';
 
 // Alpha version warning, should remove when published
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV !== 'production' && canUseDom()) {
   const icon: React.ReactNode = (
     <img
       alt="antd"
