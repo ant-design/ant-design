@@ -1,5 +1,5 @@
-import * as React from 'react';
 import type { Dayjs } from 'dayjs';
+import * as React from 'react';
 import DatePicker from '..';
 import type { DatePickRef, RangePickerRef } from '../generatePicker/interface';
 

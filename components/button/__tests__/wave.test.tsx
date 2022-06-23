@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '..';
-import { sleep, render, fireEvent } from '../../../tests/utils';
+import { fireEvent, render, sleep } from '../../../tests/utils';
 
 // Mock Wave ref
 let waveInstanceMock: any;

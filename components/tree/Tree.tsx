@@ -1,14 +1,15 @@
-import * as React from 'react';
 import HolderOutlined from '@ant-design/icons/HolderOutlined';
-import type { TreeProps as RcTreeProps, BasicDataNode } from 'rc-tree';
-import RcTree, { TreeNode } from 'rc-tree';
 import classNames from 'classnames';
+import type { BasicDataNode, TreeProps as RcTreeProps } from 'rc-tree';
+import RcTree, { TreeNode } from 'rc-tree';
 import type { DataNode, Key } from 'rc-tree/lib/interface';
-import DirectoryTree from './DirectoryTree';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import collapseMotion from '../_util/motion';
-import renderSwitcherIcon from './utils/iconUtil';
+import DirectoryTree from './DirectoryTree';
 import dropIndicatorRender from './utils/dropIndicator';
+import renderSwitcherIcon from './utils/iconUtil';
+
 import useStyle from './style';
 
 export type SwitcherIcon = React.ReactNode | ((props: { expanded: boolean }) => React.ReactNode);

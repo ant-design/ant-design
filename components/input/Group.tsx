@@ -1,9 +1,9 @@
+import classNames from 'classnames';
 import * as React from 'react';
 import { useContext, useMemo } from 'react';
-import classNames from 'classnames';
 import { ConfigContext } from '../config-provider';
-import useStyle from './style';
 import { FormItemInputContext } from '../form/context';
+import useStyle from './style';
 
 export interface GroupProps {
   className?: string;

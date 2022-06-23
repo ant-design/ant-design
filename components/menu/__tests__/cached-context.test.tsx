@@ -1,5 +1,5 @@
-import React, { memo, useState, useRef, useContext } from 'react';
 import { mount } from 'enzyme';
+import React, { memo, useContext, useRef, useState } from 'react';
 import Menu from '../index';
 import MenuContext from '../MenuContext';
 

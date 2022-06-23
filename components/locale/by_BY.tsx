@@ -1,9 +1,9 @@
 /* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/by_BY';
-import DatePicker from '../date-picker/locale/by_BY';
-import TimePicker from '../time-picker/locale/by_BY';
 import Calendar from '../calendar/locale/by_BY';
+import DatePicker from '../date-picker/locale/by_BY';
 import type { Locale } from '../locale-provider';
+import TimePicker from '../time-picker/locale/by_BY';
 
 const typeTemplate: string = "${label} не з'яўляецца тыпам ${type}";
 

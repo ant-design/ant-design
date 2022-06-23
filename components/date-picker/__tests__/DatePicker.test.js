@@ -1,11 +1,11 @@
-import React from 'react';
-import { mount } from 'enzyme';
 import dayjs from 'dayjs';
+import 'dayjs/locale/mk'; // to test local in 'prop locale should works' test case
 import customParseFormat from 'dayjs/plugin/customParseFormat';
+import { mount } from 'enzyme';
 import MockDate from 'mockdate';
+import React from 'react';
 import DatePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
-import 'dayjs/locale/mk'; // to test local in 'prop locale should works' test case
 
 dayjs.extend(customParseFormat);
 

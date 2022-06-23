@@ -1,17 +1,18 @@
-import * as React from 'react';
+import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
+import CheckOutlined from '@ant-design/icons/CheckOutlined';
+import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
+import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
-import CheckOutlined from '@ant-design/icons/CheckOutlined';
-import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
-import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import { tuple } from '../_util/type';
 import warning from '../_util/warning';
-import Line from './Line';
 import Circle from './Circle';
+import Line from './Line';
 import Steps from './Steps';
-import { validProgress, getSuccessPercent } from './utils';
+import { getSuccessPercent, validProgress } from './utils';
+
 import useStyle from './style';
 
 const ProgressTypes = tuple('line', 'circle', 'dashboard');
