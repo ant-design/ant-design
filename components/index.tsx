@@ -1,6 +1,5 @@
 /* @remove-on-es-build-begin */
-import * as React from 'react';
-import Notification from './notification';
+import './alphaWarning';
 
 // this file is not used if use https://github.com/ant-design/babel-plugin-import
 const ENV = process.env.NODE_ENV;
@@ -18,50 +17,6 @@ if (
   );
 }
 /* @remove-on-es-build-end */
-
-// Alpha version warning, should remove when published
-if (process.env.NODE_ENV !== 'production') {
-  const icon: React.ReactNode = (
-    <img
-      alt="antd"
-      style={{
-        filter: ' brightness(100)',
-        width: 40,
-        transform: 'translateX(-10px)',
-      }}
-      src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
-    />
-  );
-
-  Notification.warning({
-    duration: 0,
-    placement: 'top',
-    message: <span style={{ color: '#FFF' }}>You are using dev version</span>,
-    description: (
-      <div>
-        <p>Which is used for validating and may not same as final release version.</p>
-        <p>DO NOT USE IN YOUR PRODUCTION!</p>
-        <p style={{ marginTop: 8 }}>
-          Ref:
-          <a
-            target="_blank"
-            rel="noreferrer"
-            style={{ marginInline: 4, color: '#FFF', textDecoration: 'underline' }}
-            href="https://github.com/ant-design/ant-design/issues/33862#user-content-alpha-offset"
-          >
-            #33862 - What is in alpha?
-          </a>
-        </p>
-      </div>
-    ),
-    icon,
-    closeIcon: <span style={{ color: '#FFF' }}>X</span>,
-    style: {
-      background: '#CE5345',
-      color: '#FFF',
-    },
-  });
-}
 
 export { default as Affix } from './affix';
 export type { AffixProps } from './affix';
