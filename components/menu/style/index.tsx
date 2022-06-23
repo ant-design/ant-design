@@ -416,8 +416,6 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
         lineWidthBold,
       } = token;
 
-      console.log(token);
-
       const menuArrowSize = (fontSize / 7) * 5;
 
       // Menu Token

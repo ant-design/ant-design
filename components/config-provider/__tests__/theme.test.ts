@@ -49,4 +49,6 @@ describe('ConfigProvider.Theme', () => {
     );
     errorSpy.mockRestore();
   });
+
+  it('derivative should work', () => {});
 });

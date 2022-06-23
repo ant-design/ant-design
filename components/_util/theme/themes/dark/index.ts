@@ -12,7 +12,6 @@ export default function derivative(token: SeedToken): DerivativeToken {
     colorWarning,
     colorError,
     colorInfo,
-    colorBg,
     motionUnit,
     motionBase,
     fontSizeBase,
@@ -42,14 +41,13 @@ export default function derivative(token: SeedToken): DerivativeToken {
       return prev;
     }, {} as ColorPalettes);
 
-  const primaryColors = generate(colorPrimary);
-  const successColors = generate(colorSuccess);
-  const warningColors = generate(colorWarning);
-  const errorColors = generate(colorError);
-  const infoColors = generate(colorInfo);
-  const bgColors = generateBgPalettes(colorBg);
-  // FIXME: need seedToken '#000'
-  const textColors = generateTextAlphaPalettes('#000');
+  const primaryColors = generate(colorPrimary, { theme: 'dark' });
+  const successColors = generate(colorSuccess, { theme: 'dark' });
+  const warningColors = generate(colorWarning, { theme: 'dark' });
+  const errorColors = generate(colorError, { theme: 'dark' });
+  const infoColors = generate(colorInfo, { theme: 'dark' });
+  const bgColors = generateBgPalettes('#000');
+  const textColors = generateTextAlphaPalettes('#fff');
 
   const fontSizes = getFontSizes(fontSizeBase);
 

@@ -1,9 +1,9 @@
 // deps-lint-skip-all
-import type { TokenWithCommonCls } from 'antd/es/_util/theme/util/genComponentStyleHook';
 import type React from 'react';
 import { initFadeMotion, initZoomMotion } from '../../style/motion';
 import type { AliasToken, FullToken, GenerateStyle } from '../../_util/theme';
 import { clearFix, genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
+import type { TokenWithCommonCls } from '../../_util/theme/util/genComponentStyleHook';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
