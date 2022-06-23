@@ -1,4 +1,4 @@
-import { Direction } from 'rc-tree/lib/interface';
+import type { Direction } from 'rc-tree/lib/interface';
 import React from 'react';
 
 export const offset = 4;

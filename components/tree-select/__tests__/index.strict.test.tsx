@@ -4,6 +4,6 @@ import { render } from '../../../tests/utils';
 
 describe('TreeSelect strict type', () => {
   it('work', () => {
-    render(<TreeSelect></TreeSelect>);
+    render(<TreeSelect />);
   });
 });
