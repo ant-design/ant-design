@@ -1,13 +1,13 @@
-import * as React from 'react';
-import { useState, useCallback, useMemo } from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
-import { convertDataToEntities } from 'rc-tree/lib/utils/treeUtil';
-import { conductCheck } from 'rc-tree/lib/utils/conductUtil';
-import { arrAdd, arrDel } from 'rc-tree/lib/util';
-import type { DataNode, GetCheckDisabled } from 'rc-tree/lib/interface';
 import { INTERNAL_COL_DEFINE } from 'rc-table';
 import type { FixedType } from 'rc-table/lib/interface';
+import type { DataNode, GetCheckDisabled } from 'rc-tree/lib/interface';
+import { arrAdd, arrDel } from 'rc-tree/lib/util';
+import { conductCheck } from 'rc-tree/lib/utils/conductUtil';
+import { convertDataToEntities } from 'rc-tree/lib/utils/treeUtil';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import * as React from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import type { CheckboxProps } from '../../checkbox';
 import Checkbox from '../../checkbox';
 import Dropdown from '../../dropdown';
@@ -15,17 +15,17 @@ import Menu from '../../menu';
 import Radio from '../../radio';
 import warning from '../../_util/warning';
 import type {
-  TableRowSelection,
-  Key,
   ColumnsType,
   ColumnType,
-  GetRowKey,
-  TableLocale,
-  SelectionItem,
-  TransformColumns,
   ExpandType,
   GetPopupContainer,
+  GetRowKey,
+  Key,
   RowSelectMethod,
+  SelectionItem,
+  TableLocale,
+  TableRowSelection,
+  TransformColumns,
 } from '../interface';
 
 // TODO: warning if use ajax!!!
@@ -679,12 +679,15 @@ export default function useSelection<RecordType>(
       }
 
       // Replace with real selection column
-      const selectionColumn = {
+      const selectionColumn: ColumnsType<RecordType>[0] & {
+        RC_TABLE_INTERNAL_COL_DEFINE: Record<string, any>;
+      } = {
         fixed: mergedFixed,
         width: selectionColWidth,
         className: `${prefixCls}-selection-column`,
         title: rowSelection.columnTitle || title,
         render: renderSelectionCell,
+        onCell: rowSelection.onCell,
         [INTERNAL_COL_DEFINE]: {
           className: `${prefixCls}-selection-col`,
         },
