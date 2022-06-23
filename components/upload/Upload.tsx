@@ -179,11 +179,11 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
         try {
           clone = new File([originFileObj], originFileObj.name, {
             type: originFileObj.type,
-          }) as any as UploadFile;
+          }) as unknown as UploadFile;
         } catch (e) {
           clone = new Blob([originFileObj], {
             type: originFileObj.type,
-          }) as any as UploadFile;
+          }) as unknown as UploadFile;
           clone.name = originFileObj.name;
           clone.lastModifiedDate = new Date();
           clone.lastModified = new Date().getTime();
@@ -406,8 +406,8 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     [`${prefixCls}-rtl`]: direction === 'rtl',
   });
 
-  const UploadButton: React.FC<{ style?: React.CSSProperties }> = ({ style }) => (
-    <div className={uploadButtonCls} style={style}>
+  const UploadButton: React.FC<{ btnStyle?: React.CSSProperties }> = ({ btnStyle }) => (
+    <div className={uploadButtonCls} style={btnStyle}>
       <RcUpload {...rcUploadProps} ref={upload} />
     </div>
   );
@@ -422,7 +422,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
 
   return (
     <span className={className}>
-      <UploadButton style={children ? undefined : { display: 'none' }} />
+      <UploadButton btnStyle={children ? undefined : { display: 'none' }} />
       <RenderUploadList />
     </span>
   );
