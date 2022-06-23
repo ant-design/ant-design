@@ -189,11 +189,14 @@ export default genComponentStyleHook(
     });
     return [genSegmentedStyle(segmentedToken)];
   },
-  {
-    bgColor: new TinyColor('#000').setAlpha(0.04).toRgbString(),
-    bgColorHover: new TinyColor('#000').setAlpha(0.06).toRgbString(),
-    bgColorSelected: '#fff',
-    labelColor: new TinyColor('#000').setAlpha(0.65).toRgbString(),
-    labelColorHover: '#262626',
+  token => {
+    const { bgColors, textColors } = token;
+    return {
+      bgColor: 'rgba(0,0,0,0.25)',
+      bgColorHover: 'rgba(0,0,0,0.45)',
+      bgColorSelected: bgColors['19'],
+      labelColor: textColors['65'],
+      labelColorHover: textColors['85'],
+    };
   },
 );

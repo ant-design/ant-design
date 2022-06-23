@@ -270,7 +270,7 @@ export interface DerivativeToken extends SeedToken, ColorPalettes {
   controlHeightSM: number;
   controlHeightLG: number;
 
-  // Palettes
+  // Map Token
   bgColors: BgPalettes;
   textColors: TextAlphaPalettes;
 }
@@ -280,7 +280,7 @@ export interface DerivativeToken extends SeedToken, ColorPalettes {
 // ======================================================================
 // FIXME: DerivativeToken should part pick
 // 🔥🔥🔥🔥🔥🔥🔥 DO NOT MODIFY THIS. PLEASE CONTACT DESIGNER. 🔥🔥🔥🔥🔥🔥🔥
-export interface AliasToken extends Omit<DerivativeToken, 'bgColors' | 'textColors' | 'fontSizes'> {
+export interface AliasToken extends DerivativeToken {
   // Font
   fontSizeSM: number;
   fontSize: number;

@@ -1,6 +1,5 @@
 // deps-lint-skip-all
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
-import { TinyColor } from '@ctrl/tinycolor';
 import type { FullToken, GenerateStyle } from '../../_util/theme';
 import { genComponentStyleHook, mergeToken } from '../../_util/theme';
 import genGroupStyle from './group';
@@ -395,19 +394,12 @@ export default genComponentStyleHook(
     genGroupStyle(token),
   ],
   token => {
-    const { colorText } = token;
-    const textColor = new TinyColor(colorText);
+    const { textColors } = token;
 
     return {
-      colorBgTextHover: textColor
-        .clone()
-        .setAlpha(textColor.getAlpha() * 0.02)
-        .toRgbString(),
-      colorBgTextActive: textColor
-        .clone()
-        .setAlpha(textColor.getAlpha() * 0.03)
-        .toRgbString(),
-      colorOutlineDefault: new TinyColor({ h: 0, s: 0, v: 96 }).toHexString(),
+      colorBgTextHover: textColors['3'],
+      colorBgTextActive: textColors['4'],
+      colorOutlineDefault: textColors['4'],
     };
   },
 );

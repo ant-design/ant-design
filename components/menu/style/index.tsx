@@ -394,9 +394,9 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
     'Menu',
     token => {
       // Dropdown will handle menu style self. We do not need to handle this.
-      // if (injectStyle === false) {
-      //   return [];
-      // }
+      if (injectStyle === false) {
+        return [];
+      }
 
       const {
         colorPrimary,

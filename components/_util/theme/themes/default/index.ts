@@ -135,7 +135,7 @@ export function derivative(token: SeedToken): DerivativeToken {
     controlHeightXS: controlHeight * 0.5,
     controlHeightLG: controlHeight * 1.25,
 
-    // Palettes
+    // map token
     bgColors,
     textColors,
   };
