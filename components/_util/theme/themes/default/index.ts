@@ -96,22 +96,22 @@ export default function derivative(token: SeedToken): DerivativeToken {
     colorPrimaryBorderHover: primaryColors[3],
 
     colorSuccessSecondary: successColors[2],
-    colorBgSuccess: successColors[0],
+    colorSuccessBg: successColors[0],
 
     colorErrorActive: errorColors[6],
     colorErrorHover: errorColors[4],
     colorErrorOutline: new TinyColor(colorError).setAlpha(0.2).toRgbString(),
     colorErrorSecondary: errorColors[2],
-    colorBgError: errorColors[0],
+    colorErrorBg: errorColors[0],
 
     colorWarningActive: warningColors[6],
     colorWarningHover: warningColors[4],
     colorWarningOutline: new TinyColor(colorWarning).setAlpha(0.2).toRgbString(),
     colorWarningSecondary: warningColors[2],
-    colorBgWarning: warningColors[0],
+    colorWarningBg: warningColors[0],
 
     colorInfoSecondary: infoColors[2],
-    colorBgInfo: infoColors[0],
+    colorInfoBg: infoColors[0],
 
     colorHighlight: errorColors[4],
 

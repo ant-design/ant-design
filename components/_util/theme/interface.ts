@@ -216,22 +216,22 @@ export interface DerivativeToken extends SeedToken, ColorPalettes {
   colorPrimaryBorderHover: string;
 
   colorSuccessSecondary: string;
-  colorBgSuccess: string; // success[0]
+  colorSuccessBg: string; // success[0]
 
   colorWarningHover: string;
   colorWarningActive: string;
   colorWarningOutline: string;
   colorWarningSecondary: string;
-  colorBgWarning: string;
+  colorWarningBg: string;
 
   colorErrorHover: string;
   colorErrorActive: string;
   colorErrorOutline: string;
   colorErrorSecondary: string;
-  colorBgError: string;
+  colorErrorBg: string;
 
   colorInfoSecondary: string;
-  colorBgInfo: string;
+  colorInfoBg: string;
 
   colorHighlight: string;
 
