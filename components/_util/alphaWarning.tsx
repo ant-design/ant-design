@@ -1,6 +1,6 @@
 import canUseDom from 'rc-util/lib/Dom/canUseDom';
 import * as React from 'react';
-import Notification from './notification';
+import Notification from '../notification';
 
 // Alpha version warning, should remove when published
 if (process.env.NODE_ENV !== 'production' && canUseDom()) {
