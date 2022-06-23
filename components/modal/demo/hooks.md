@@ -66,7 +66,7 @@ const App: React.FC = () => {
           Error
         </Button>
       </Space>
-      {/* `contextHolder` should always under the context you want to access */}
+      {/* `contextHolder` should always be placed under the context you want to access */}
       {contextHolder}
 
       {/* Can not access this context since `contextHolder` is not in it */}
