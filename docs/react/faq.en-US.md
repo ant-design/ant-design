@@ -13,13 +13,14 @@ There is currently no plan to add support for Sass/Stylus(etc.) style files, but
 
 ## Is there a difference between undefined and null in the controlled components of antd?
 
-**Yes. antd convention: undefined is a sign for uncontrolled, while null is an explicit empty value of controlled.**
+**Yes. antd convention: `undefined` is uncontrolled, while null is an explicit empty value of controlled.**
 
-As input element, React treats both undefined and null as signs of uncontrolled. For React, the empty value of controlled components should be an empty string, that is, `value={''}`. Therefore, when the value is converted from a valid value to undefined or null, the component is no longer controlled, which causes some unexpected situations. For example: "I'm using a controlled component. Why is the value submitted by the form is different from the value displayed?"
+As input element, React treats both `undefined` and `null` as uncontrolled. When the `value` is converted from a valid value to `undefined` or `null`, the component is no longer controlled, which causes some unexpected cases.
 
-In antd, undefined is treated as a sign for uncontrolled, and null is used as an explicit empty value of controlled components. In antd, `''`, `0`, `{label: '', value: ''}` (`string | number | LabeledValue`) can be assigned to the value as a reasonable value, In order to deal with situations (`allowClear`) such as clearing the value when the value is non-primitive, so antd agrees that null is controlled. If you need a component controlled with the value valid, just set the value as null.
+In antd, `undefined` is treated as uncontrolled, and `null` is used as an explicit empty value of controlled components. In order to deal with cases (e.g. `allowClear`) like clearing the `value` when the `value` is non-primitive, so antd agrees that `null` is controlled. If you need a component controlled with the `value` valid, just set the `value` as `null`.
 
-Note: For options in `Select-like` components, it is recommended not to use undefined and null as value in options. Please use `string | number` as a valid value in option.
+Note: For `options` in `Select-like` components, it is **strongly recommended not** to use `undefined` and `null` as `value` in `option`. Please use `string | number` as a valid `value` in `option`.
+
 
 ## `Select Dropdown DatePicker TimePicker Popover Popconfirm` disappears when I click another popup component inside it. How do I resolve this?
 
