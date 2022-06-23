@@ -91,7 +91,7 @@ const App: React.FC = () => {
     return <Table columns={columns} dataSource={data} pagination={false} />;
   };
 
-  const columns: ColumnsType<DataType> = [
+  const columns: TableColumnsType<DataType> = [
     { title: 'Name', dataIndex: 'name', key: 'name' },
     { title: 'Platform', dataIndex: 'platform', key: 'platform' },
     { title: 'Version', dataIndex: 'version', key: 'version' },
