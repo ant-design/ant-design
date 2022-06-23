@@ -24,11 +24,6 @@ export const LIST_IGNORE = `__LIST_IGNORE_${Date.now()}__`;
 
 export { UploadProps };
 
-interface UploadListProps {
-  button?: React.ReactNode;
-  buttonVisible?: boolean;
-}
-
 const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (props, ref) => {
   const {
     fileList,
@@ -179,11 +174,11 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
         try {
           clone = new File([originFileObj], originFileObj.name, {
             type: originFileObj.type,
-          }) as unknown as UploadFile;
+          }) as any as UploadFile;
         } catch (e) {
           clone = new Blob([originFileObj], {
             type: originFileObj.type,
-          }) as unknown as UploadFile;
+          }) as any as UploadFile;
           clone.name = originFileObj.name;
           clone.lastModifiedDate = new Date();
           clone.lastModified = new Date().getTime();
@@ -325,8 +320,8 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     delete rcUploadProps.id;
   }
 
-  const RenderUploadList: React.FC<UploadListProps> = ({ button, buttonVisible }) => {
-    return showUploadList ? (
+  const renderUploadList = (button?: React.ReactNode, buttonVisible?: boolean) =>
+    showUploadList ? (
       <LocaleReceiver componentName="Upload" defaultLocale={defaultLocale.Upload}>
         {(locale: UploadLocale) => {
           const {
@@ -365,9 +360,8 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
         }}
       </LocaleReceiver>
     ) : (
-      (button as React.ReactElement)
+      button
     );
-  };
 
   if (type === 'drag') {
     const dragCls = classNames(
@@ -394,7 +388,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
             <div className={`${prefixCls}-drag-container`}>{children}</div>
           </RcUpload>
         </div>
-        <RenderUploadList />
+        {renderUploadList()}
       </span>
     );
   }
@@ -406,8 +400,8 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     [`${prefixCls}-rtl`]: direction === 'rtl',
   });
 
-  const UploadButton: React.FC<{ btnStyle?: React.CSSProperties }> = ({ btnStyle }) => (
-    <div className={uploadButtonCls} style={btnStyle}>
+  const renderUploadButton = (uploadButtonStyle?: React.CSSProperties) => (
+    <div className={uploadButtonCls} style={uploadButtonStyle}>
       <RcUpload {...rcUploadProps} ref={upload} />
     </div>
   );
@@ -415,15 +409,15 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
   if (listType === 'picture-card') {
     return (
       <span className={classNames(`${prefixCls}-picture-card-wrapper`, className)}>
-        <RenderUploadList button={<UploadButton />} buttonVisible={!!children} />
+        {renderUploadList(renderUploadButton(), !!children)}
       </span>
     );
   }
 
   return (
     <span className={className}>
-      <UploadButton btnStyle={children ? undefined : { display: 'none' }} />
-      <RenderUploadList />
+      {renderUploadButton(children ? undefined : { display: 'none' })}
+      {renderUploadList()}
     </span>
   );
 };
