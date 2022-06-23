@@ -5,14 +5,14 @@ import { genComponentStyleHook, mergeToken } from '../../_util/theme';
 import genGroupStyle from './group';
 
 /** Component only token. Which will handle additional calculation of alias token */
-export interface ComponentToken {
+export interface ComponentToken {}
+
+export interface ButtonToken extends FullToken<'Button'> {
   colorBgTextHover: string;
   colorBgTextActive: string;
   // FIXME: should be removed
   colorOutlineDefault: string;
 }
-
-export interface ButtonToken extends FullToken<'Button'> {}
 
 // ============================== Shared ==============================
 const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSSObject => {
@@ -376,30 +376,28 @@ const genSizeLargeButtonStyle: GenerateStyle<ButtonToken> = token => {
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook(
-  'Button',
-  token => [
+export default genComponentStyleHook('Button', token => {
+  const { textColors } = token;
+
+  const buttonToken = mergeToken<ButtonToken>(token, {
+    colorBgTextHover: textColors['3'],
+    colorBgTextActive: textColors['4'],
+    colorOutlineDefault: textColors['8'],
+  });
+
+  return [
     // Shared
-    genSharedButtonStyle(token),
+    genSharedButtonStyle(buttonToken),
 
     // Size
-    genSizeSmallButtonStyle(token),
-    genSizeBaseButtonStyle(token),
-    genSizeLargeButtonStyle(token),
+    genSizeSmallButtonStyle(buttonToken),
+    genSizeBaseButtonStyle(buttonToken),
+    genSizeLargeButtonStyle(buttonToken),
 
     // Group (type, ghost, danger, disabled, loading)
-    genTypeButtonStyle(token),
+    genTypeButtonStyle(buttonToken),
 
     // Button Group
-    genGroupStyle(token),
-  ],
-  token => {
-    const { textColors } = token;
-
-    return {
-      colorBgTextHover: textColors['3'],
-      colorBgTextActive: textColors['4'],
-      colorOutlineDefault: textColors['4'],
-    };
-  },
-);
+    genGroupStyle(buttonToken),
+  ];
+});

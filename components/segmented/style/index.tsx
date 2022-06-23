@@ -9,8 +9,6 @@ export interface ComponentToken {
   bgColor: string;
   bgColorHover: string;
   bgColorSelected: string;
-  labelColor: string;
-  labelColorHover: string;
 }
 
 interface SegmentedToken extends FullToken<'Segmented'> {
@@ -18,6 +16,8 @@ interface SegmentedToken extends FullToken<'Segmented'> {
   segmentedPaddingHorizontalSM: number;
   segmentedContainerPadding: number;
   segmentedSelectedItemBoxShadow: string;
+  labelColor: string;
+  labelColorHover: string;
 }
 
 // ============================== Mixins ==============================
@@ -173,7 +173,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
 export default genComponentStyleHook(
   'Segmented',
   token => {
-    const { lineWidthBold, controlLineWidth } = token;
+    const { lineWidthBold, controlLineWidth, textColors } = token;
 
     const segmentedSelectedItemBoxShadow = [
       `0 2px 8px -2px ${new TinyColor('#000').setAlpha(0.05).toRgbString()}`,
@@ -186,17 +186,14 @@ export default genComponentStyleHook(
       segmentedPaddingHorizontal: token.controlPaddingHorizontal - controlLineWidth,
       segmentedPaddingHorizontalSM: token.controlPaddingHorizontalSM - controlLineWidth,
       segmentedContainerPadding: lineWidthBold,
+      labelColor: textColors['65'],
+      labelColorHover: textColors['85'],
     });
     return [genSegmentedStyle(segmentedToken)];
   },
-  token => {
-    const { bgColors, textColors } = token;
-    return {
-      bgColor: 'rgba(0,0,0,0.25)',
-      bgColorHover: 'rgba(0,0,0,0.45)',
-      bgColorSelected: bgColors['19'],
-      labelColor: textColors['65'],
-      labelColorHover: textColors['85'],
-    };
-  },
+  ({ bgColors, textColors }) => ({
+    bgColor: textColors['8'],
+    bgColorHover: textColors['12'],
+    bgColorSelected: bgColors['8'],
+  }),
 );

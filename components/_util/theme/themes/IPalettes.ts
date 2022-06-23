@@ -34,7 +34,7 @@ export interface TextAlphaPalettes {
   30: string;
   25: string;
   // FIXME: 只有 Popover 用了
-  'light-75'?: string;
+  'light-75': string;
 
   // 从 12 往下基本上就是偏背景和装饰性元素了
   12: string;
