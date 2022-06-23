@@ -1,14 +1,11 @@
 import type {
-  RcFile as OriRcFile,
+  RcFile,
+  UploadProgressEvent,
   UploadProps as RcUploadProps,
   UploadRequestOption as RcCustomRequestOptions,
 } from 'rc-upload/lib/interface';
 import type * as React from 'react';
 import type { ProgressProps } from '../progress';
-
-export interface RcFile extends OriRcFile {
-  readonly lastModifiedDate: Date;
-}
 
 export type UploadFileStatus = 'error' | 'success' | 'done' | 'uploading' | 'removed';
 
@@ -45,7 +42,7 @@ export interface UploadChangeParam<T = UploadFile> {
   // https://github.com/ant-design/ant-design/issues/14420
   file: T;
   fileList: T[];
-  event?: { percent: number };
+  event?: UploadProgressEvent;
 }
 
 export interface ShowUploadListInterface {
@@ -75,7 +72,7 @@ export type ItemRender<T = any> = (
   fileList: Array<UploadFile<T>>,
   actions: {
     download: () => void;
-    preview: () => void;
+    preview: (e: React.SyntheticEvent<HTMLElement>) => void;
     remove: () => void;
   },
 ) => React.ReactNode;

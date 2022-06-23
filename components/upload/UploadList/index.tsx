@@ -57,13 +57,13 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
     if (listType !== 'picture' && listType !== 'picture-card') {
       return;
     }
-    (items || []).forEach((file: InternalUploadFile) => {
+    ((items || []) as InternalUploadFile[]).forEach(file => {
       if (
         typeof document === 'undefined' ||
         typeof window === 'undefined' ||
         !(window as any).FileReader ||
         !(window as any).File ||
-        !(file.originFileObj instanceof File || (file.originFileObj as Blob) instanceof Blob) ||
+        !(file.originFileObj instanceof File || (file.originFileObj! as Blob) instanceof Blob) ||
         file.thumbUrl !== undefined
       ) {
         return;

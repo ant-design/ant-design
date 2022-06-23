@@ -1,10 +1,11 @@
-import type { InternalUploadFile, RcFile, UploadFile } from './interface';
+import { RcFile } from 'rc-upload/lib/interface';
+import type { InternalUploadFile, UploadFile } from './interface';
 
 export function file2Obj(file: RcFile): InternalUploadFile {
   return {
     ...file,
     lastModified: file.lastModified,
-    lastModifiedDate: file.lastModifiedDate,
+    lastModifiedDate: (file as RcFile & { lastModifiedDate: Date }).lastModifiedDate,
     name: file.name,
     size: file.size,
     type: file.type,

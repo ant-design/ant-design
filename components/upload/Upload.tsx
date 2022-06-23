@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import type { UploadProps as RcUploadProps } from 'rc-upload';
 import RcUpload from 'rc-upload';
+import { RcFile, UploadProgressEvent } from 'rc-upload/lib/interface';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
@@ -8,7 +9,6 @@ import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
 import warning from '../_util/warning';
 import type {
-  RcFile,
   ShowUploadListInterface,
   UploadChangeParam,
   UploadFile,
@@ -85,7 +85,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
   const onInternalChange = (
     file: UploadFile,
     changedFileList: UploadFile[],
-    event?: { percent: number },
+    event?: UploadProgressEvent,
   ) => {
     let cloneList = [...changedFileList];
 
@@ -220,7 +220,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     onInternalChange(targetItem, nextFileList);
   };
 
-  const onProgress = (e: { percent: number }, file: RcFile) => {
+  const onProgress = (e: UploadProgressEvent, file: RcFile) => {
     // removed
     if (!getFileItem(file, mergedFileList)) {
       return;
@@ -323,7 +323,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
   const renderUploadList = (button?: React.ReactNode, buttonVisible?: boolean) =>
     showUploadList ? (
       <LocaleReceiver componentName="Upload" defaultLocale={defaultLocale.Upload}>
-        {(locale: UploadLocale) => {
+        {(locale: UploadLocale | undefined) => {
           const {
             showRemoveIcon,
             showPreviewIcon,
