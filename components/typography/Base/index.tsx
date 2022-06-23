@@ -365,7 +365,7 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
 
   // >>>>>>>>>>> Typography
   // Expand
-  const RenderExpand: React.FC = () => {
+  const RenderExpand = () => {
     const { expandable, symbol } = ellipsisConfig;
 
     if (!expandable) {
@@ -392,7 +392,7 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
   };
 
   // Edit
-  const RenderEdit: React.FC = () => {
+  const RenderEdit = () => {
     if (!enableEdit) {
       return null;
     }
@@ -417,7 +417,7 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
   };
 
   // Copy
-  const RenderCopy: React.FC = () => {
+  const RenderCopy = () => {
     if (!enableCopy) {
       return null;
     }

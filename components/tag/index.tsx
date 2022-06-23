@@ -93,7 +93,7 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
     }
   };
 
-  const CloseIcon: React.FC = () => {
+  const CloseIcon = () => {
     if (closable) {
       return closeIcon ? (
         <span className={`${prefixCls}-close-icon`} onClick={handleCloseClick}>
