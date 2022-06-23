@@ -406,17 +406,19 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     </div>
   );
 
+  const uploadButton = renderUploadButton(children ? undefined : { display: 'none' });
+
   if (listType === 'picture-card') {
     return (
       <span className={classNames(`${prefixCls}-picture-card-wrapper`, className)}>
-        {renderUploadList(renderUploadButton(), !!children)}
+        {renderUploadList(uploadButton, !!children)}
       </span>
     );
   }
 
   return (
     <span className={className}>
-      {renderUploadButton(children ? undefined : { display: 'none' })}
+      {uploadButton}
       {renderUploadList()}
     </span>
   );
