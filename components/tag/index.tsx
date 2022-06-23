@@ -129,7 +129,7 @@ const InternalTag: React.ForwardRefRenderFunction<HTMLSpanElement, TagProps> = (
   return isNeedWave ? <Wave>{tagNode}</Wave> : tagNode;
 };
 
-const Tag = React.forwardRef<unknown, TagProps>(InternalTag) as TagType;
+const Tag = React.forwardRef<HTMLSpanElement, TagProps>(InternalTag) as TagType;
 
 if (process.env.NODE_ENV !== 'production') {
   Tag.displayName = 'Tag';

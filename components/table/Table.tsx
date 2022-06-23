@@ -107,7 +107,7 @@ export interface TableProps<RecordType>
 
 function InternalTable<RecordType extends object = any>(
   props: TableProps<RecordType>,
-  ref: React.MutableRefObject<HTMLDivElement>,
+  ref: React.ForwardedRef<HTMLDivElement>,
 ) {
   const {
     prefixCls: customizePrefixCls,
