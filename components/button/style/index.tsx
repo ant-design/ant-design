@@ -340,7 +340,7 @@ const genSizeButtonStyle = (token: ButtonToken, sizePrefixCls: string = ''): CSS
           transition: `width ${token.motionDurationSlow} ${token.motionEaseInOut}, opacity ${token.motionDurationSlow} ${token.motionEaseInOut}`,
         },
 
-        [`&:not(${iconOnlyCls}) ${componentCls}-loading-icon:not(:only-child) > ${iconCls}`]: {
+        [`&:not(${iconOnlyCls}) ${componentCls}-loading-icon > ${iconCls}`]: {
           marginInlineEnd: token.marginXS,
         },
       },
