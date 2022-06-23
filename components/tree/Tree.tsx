@@ -102,7 +102,7 @@ interface DraggableConfig {
 }
 
 export interface TreeProps<T extends BasicDataNode = DataNode>
-  extends Omit<RcTreeProps<T>, 'prefixCls' | 'showLine' | 'direction' | 'draggable'> {
+  extends Omit<RcTreeProps<T>, 'prefixCls' | 'showLine' | 'direction' | 'draggable' | 'icon'> {
   showLine?: boolean | { showLeafIcon: boolean };
   className?: string;
   /** 是否支持多选 */
@@ -139,7 +139,10 @@ export interface TreeProps<T extends BasicDataNode = DataNode>
   draggable?: DraggableFn | boolean | DraggableConfig;
   style?: React.CSSProperties;
   showIcon?: boolean;
-  icon?: ((nodeProps: AntdTreeNodeAttribute) => React.ReactNode) | React.ReactNode;
+  icon?:
+    | ((nodeProps: AntdTreeNodeAttribute) => React.ReactNode)
+    | React.ReactNode
+    | RcTreeProps<T>['icon'];
   switcherIcon?: SwitcherIcon;
   prefixCls?: string;
   children?: React.ReactNode;
