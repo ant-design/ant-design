@@ -69,13 +69,13 @@ class ListBody<RecordType extends KeyWiseTransferItem> extends React.Component<
     return null;
   }
 
-  onItemSelect = (item: RecordType) => {
+  onItemSelect = (item: KeyWiseTransferItem) => {
     const { onItemSelect, selectedKeys } = this.props;
     const checked = selectedKeys.indexOf(item.key) >= 0;
     onItemSelect(item.key, !checked);
   };
 
-  onItemRemove = (item: RecordType) => {
+  onItemRemove = (item: KeyWiseTransferItem) => {
     const { onItemRemove } = this.props;
     onItemRemove?.([item.key]);
   };

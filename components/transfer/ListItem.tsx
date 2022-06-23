@@ -45,7 +45,7 @@ const ListItem = <RecordType extends KeyWiseTransferItem>(props: ListItemProps<R
 
   return (
     <LocaleReceiver componentName="Transfer" defaultLocale={defaultLocale.Transfer}>
-      {(transferLocale: TransferLocale) => {
+      {(transferLocale: Partial<TransferLocale> | undefined) => {
         const liProps: React.HTMLAttributes<HTMLLIElement> = { className, title };
         const labelNode = <span className={`${prefixCls}-content-item-text`}>{renderedEl}</span>;
 
@@ -57,7 +57,7 @@ const ListItem = <RecordType extends KeyWiseTransferItem>(props: ListItemProps<R
               <TransButton
                 disabled={disabled || item.disabled}
                 className={`${prefixCls}-content-item-remove`}
-                aria-label={transferLocale.remove}
+                aria-label={transferLocale?.remove}
                 onClick={() => {
                   onRemove?.(item);
                 }}

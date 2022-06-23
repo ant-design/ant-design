@@ -84,7 +84,7 @@ export interface TransferProps<RecordType> {
   filterOption?: (inputValue: string, item: RecordType) => boolean;
   locale?: Partial<TransferLocale>;
   footer?: (
-    props: TransferListProps<RecordType>,
+    props: TransferListProps<KeyWise<RecordType>>,
     info?: {
       direction: TransferDirection;
     },
@@ -92,7 +92,7 @@ export interface TransferProps<RecordType> {
   rowKey?: (record: RecordType) => string;
   onSearch?: (direction: TransferDirection, value: string) => void;
   onScroll?: (direction: TransferDirection, e: React.SyntheticEvent<HTMLUListElement>) => void;
-  children?: (props: TransferListBodyProps<RecordType>) => React.ReactNode;
+  children?: (props: TransferListBodyProps<KeyWise<RecordType>>) => React.ReactNode;
   showSelectAll?: boolean;
   selectAllLabels?: SelectAllLabel[];
   oneWay?: boolean;
@@ -328,7 +328,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
 
     const leftDataSource: KeyWise<RecordType>[] = [];
     const rightDataSource: KeyWise<RecordType>[] = new Array(targetKeys.length);
-    dataSource.forEach((record: KeyWise<RecordType>) => {
+    (dataSource as KeyWise<RecordType>[]).forEach(record => {
       if (rowKey) {
         record = {
           ...record,
@@ -338,7 +338,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
 
       // rightDataSource should be ordered by targetKeys
       // leftDataSource should be ordered by dataSource
-      const indexOfKey = targetKeys.indexOf(record.key);
+      const indexOfKey = targetKeys.indexOf(record.key!);
       if (indexOfKey !== -1) {
         rightDataSource[indexOfKey] = record;
       } else {
@@ -352,7 +352,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
     };
   }
 
-  renderTransfer = (transferLocale: TransferLocale) => (
+  renderTransfer = (transferLocale?: Partial<TransferLocale>) => (
     <ConfigConsumer>
       {({ getPrefixCls, renderEmpty, direction }: ConfigConsumerProps) => (
         <FormItemInputContext.Consumer>
@@ -376,7 +376,10 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
               status: customStatus,
             } = this.props;
             const prefixCls = getPrefixCls('transfer', customizePrefixCls);
-            const locale = this.getLocale(transferLocale, renderEmpty || defaultRenderEmpty);
+            const locale = this.getLocale(
+              transferLocale as TransferLocale,
+              renderEmpty || defaultRenderEmpty,
+            );
             const { sourceSelectedKeys, targetSelectedKeys } = this.state;
             const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
