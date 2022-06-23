@@ -453,9 +453,9 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
   };
 
   const renderOperations = (renderExpanded: boolean) => [
-    renderExpanded && <RenderExpand />,
-    <RenderEdit />,
-    <RenderCopy />,
+    renderExpanded && <RenderExpand key="renderExpand" />,
+    <RenderEdit key="renderEdit" />,
+    <RenderCopy key="renderCopy" />,
   ];
 
   const renderEllipsis = (needEllipsis: boolean) => [
