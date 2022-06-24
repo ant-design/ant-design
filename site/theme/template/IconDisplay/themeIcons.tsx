@@ -1,4 +1,4 @@
-import { IconComponentProps } from '@ant-design/icons/lib/components/Icon';
+import type { IconComponentProps } from '@ant-design/icons/lib/components/Icon';
 import * as React from 'react';
 
 type OnlyComponentProps<T> = T extends React.ComponentType ? T : never;

@@ -6,7 +6,8 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, sleep } from '../../../tests/utils';
 import type Countdown from '../Countdown';
-import { countdownValueType, formatTimeStr } from '../utils';
+import type { countdownValueType } from '../utils';
+import { formatTimeStr } from '../utils';
 
 describe('Statistic', () => {
   mountTest(Statistic);
