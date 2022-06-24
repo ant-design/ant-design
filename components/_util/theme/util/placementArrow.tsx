@@ -52,7 +52,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
         `&-placement-topRight ${componentCls}-arrow`,
       ].join(',')]: {
         bottom: 0,
-        boxShadow: token.shadowPopoverArrow,
+        boxShadow: token.boxShadowPopoverArrow,
         transform: 'translateY(50%) rotate(45deg)',
       },
 
@@ -85,7 +85,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
         `&-placement-bottomRight ${componentCls}-arrow`,
       ].join(',')]: {
         top: 0,
-        boxShadow: token.shadowPopoverArrow,
+        boxShadow: token.boxShadowPopoverArrow,
         transform: `translateY(-50%) rotate(-135deg)`,
       },
 
@@ -121,7 +121,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
           _skip_check_: true,
           value: 0,
         },
-        boxShadow: token.shadowPopoverArrow,
+        boxShadow: token.boxShadowPopoverArrow,
         transform: 'translateX(50%) rotate(-45deg)',
       },
 
@@ -151,7 +151,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
           _skip_check_: true,
           value: 0,
         },
-        boxShadow: token.shadowPopoverArrow,
+        boxShadow: token.boxShadowPopoverArrow,
         transform: 'translateX(-50%) rotate(135deg)',
       },
 

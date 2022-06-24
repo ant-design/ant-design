@@ -33,7 +33,7 @@ function getSegmentedItemSelectedStyle(token: SegmentedToken): CSSObject {
   return {
     backgroundColor: token.bgColorSelected,
     borderRadius: token.controlRadius,
-    boxShadow: token.shadowSegmentedSelectedItem,
+    boxShadow: token.boxShadowSegmentedSelectedItem,
   };
 }
 

@@ -168,12 +168,17 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     colorBorderSecondary: new TinyColor({ h: 0, s: 0, v: 94 }).toHexString(),
 
     // FIXME: component box-shadow, should be removed
-    shadowPopoverArrow: `3px 3px 7px -3px rgba(0, 0, 0, 0.1)`,
-    shadowSegmentedSelectedItem: [
+    boxShadowPopoverArrow: `3px 3px 7px -3px rgba(0, 0, 0, 0.1)`,
+    boxShadowSegmentedSelectedItem: [
       `0 2px 8px -2px ${new TinyColor('#000').setAlpha(0.05).toRgbString()}`,
       `0 1px 4px -1px ${new TinyColor('#000').setAlpha(0.07).toRgbString()}`,
       `0 0 1px 0 ${new TinyColor('#000').setAlpha(0.08).toRgbString()}`,
     ].join(','),
+    boxShadowCard: `
+      0 1px 2px -2px ${new TinyColor('rgba(0, 0, 0, 0.16)').toRgbString()},
+      0 3px 6px 0 ${new TinyColor('rgba(0, 0, 0, 0.12)').toRgbString()},
+      0 5px 12px 4px ${new TinyColor('rgba(0, 0, 0, 0.09)').toRgbString()}
+    `,
 
     // Override AliasToken
     ...alias,

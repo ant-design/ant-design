@@ -414,6 +414,7 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   colorBorderSecondary: string;
 
   // FIXME: component box-shadow, should be removed
-  shadowPopoverArrow: string;
-  shadowSegmentedSelectedItem: string;
+  boxShadowPopoverArrow: string;
+  boxShadowSegmentedSelectedItem: string;
+  boxShadowCard: string;
 }
