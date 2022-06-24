@@ -85,7 +85,7 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
         `&-placement-bottomRight ${componentCls}-arrow`,
       ].join(',')]: {
         top: 0,
-        boxShadow: token.boxShadowPopoverArrow,
+        boxShadow: token.boxShadowPopoverArrowBottom,
         transform: `translateY(-50%) rotate(-135deg)`,
       },
 
