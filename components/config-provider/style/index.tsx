@@ -211,7 +211,7 @@ const genBasicStyle = (token: AliasToken): CSSObject => ({
     },
 
     [`&:active,
-  &:hover`]: {
+      &:hover`]: {
       textDecoration: token.linkHoverDecoration,
       outline: 0,
     },
@@ -466,7 +466,7 @@ const genBasicStyle = (token: AliasToken): CSSObject => ({
   },
 
   '::selection': {
-    color: token.colorTextLightSolid,
+    color: token.colorTextLightSolid, // FIXME: colorTextInverse
     background: token.colorPrimary,
   },
 
@@ -478,7 +478,7 @@ const genBasicStyle = (token: AliasToken): CSSObject => ({
 export default (disabled: boolean = false) => {
   const [theme, token] = useToken();
 
-  return useStyleRegister({ theme, token, path: ['global-css'] }, () => {
+  return useStyleRegister({ theme, token, path: ['global-style'] }, () => {
     if (disabled) {
       return [];
     }

@@ -123,4 +123,12 @@ describe('ConfigProvider', () => {
     expect(rendered).toBeTruthy();
     expect(cacheRenderEmpty).toBeFalsy();
   });
+
+  it('disableGlobalStyle', () => {
+    render(<ConfigProvider disableGlobalStyle />);
+    const dynamicStyles = Array.from(document.querySelectorAll('style[data-css-hash]')).map(
+      item => item?.innerHTML ?? '',
+    );
+    expect(document.querySelector('style')).toBeFalsy();
+  });
 });
