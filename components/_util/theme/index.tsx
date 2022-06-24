@@ -1,8 +1,8 @@
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { Theme, useCacheToken, useStyleRegister } from '@ant-design/cssinjs';
-import type { DeepPartial } from 'antd/es/_util/type';
 import React from 'react';
 import version from '../../version';
+import type { DeepPartial } from '../type';
 import type {
   AliasToken,
   DerivativeToken,
@@ -12,7 +12,8 @@ import type {
   SeedToken,
 } from './interface';
 import { PresetColors } from './interface';
-import defaultSeedToken, { derivative as defaultDerivative } from './themes/default';
+import defaultDerivative from './themes/default';
+import defaultSeedToken from './themes/seed';
 import { clearFix, operationUnit, resetComponent, resetIcon, roundedArrow } from './util';
 import formatToken from './util/alias';
 import type { FullToken } from './util/genComponentStyleHook';
@@ -47,16 +48,13 @@ export type {
 };
 
 // ================================ Context =================================
-const defaultTheme = new Theme(defaultDerivative);
-
 export const DesignTokenContext = React.createContext<{
   token: Partial<SeedToken>;
-  theme?: Theme<SeedToken, DerivativeToken>;
+  derivative?: (token: SeedToken) => DerivativeToken;
   override?: DeepPartial<OverrideToken>;
   hashed?: string | boolean;
 }>({
   token: defaultSeedToken,
-  theme: defaultTheme,
 });
 
 // ================================== Hook ==================================
@@ -68,10 +66,12 @@ const saltPrefix =
 export function useToken(): [Theme<SeedToken, DerivativeToken>, GlobalToken, string] {
   const {
     token: rootDesignToken,
-    theme = defaultTheme,
     override,
+    derivative = defaultDerivative,
     hashed,
   } = React.useContext(DesignTokenContext);
+
+  const theme = new Theme(derivative);
 
   const salt = `${saltPrefix}-${hashed || ''}`;
 
