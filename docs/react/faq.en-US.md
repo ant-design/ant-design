@@ -11,7 +11,7 @@ Here are the frequently asked questions about Ant Design and antd that you shoul
 
 There is currently no plan to add support for Sass/Stylus(etc.) style files, but using tools on Google you can easily convert the provided Less files to your desired style format.
 
-## Is there a difference between undefined and null in the controlled components of antd?
+## Is there a difference between `undefined` and `null` in the controlled components of `antd`?
 
 **Yes. antd will treats `undefined` as uncontrolled but `null` as controlled components which means empty value of it.**
 
@@ -20,7 +20,6 @@ As input element, React treats both `undefined` and `null` as uncontrolled. When
 But in antd, `undefined` is treated as uncontrolled, and `null` is used as an explicit empty value of controlled components. To deal with some cases (e.g. `allowClear`) like clearing the `value` when the `value` is non-primitive. If you need a component controlled with the `value` valid, just set the `value` as `null`.
 
 Note: For `options` in `Select-like` components, it is **strongly recommended not** to use `undefined` and `null` as `value` in `option`. Please use `string | number` as a valid `value` in `option`.
-
 
 ## `Select Dropdown DatePicker TimePicker Popover Popconfirm` disappears when I click another popup component inside it. How do I resolve this?
 
