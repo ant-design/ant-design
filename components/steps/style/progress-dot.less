@@ -76,6 +76,7 @@
     margin-left: 0;
     background: none;
   }
+
   // https://github.com/ant-design/ant-design/issues/18354
   .@{steps-prefix-cls}-item > .@{steps-prefix-cls}-item-container > .@{steps-prefix-cls}-item-tail {
     top: 6.5px;
@@ -83,6 +84,19 @@
     margin: 0;
     padding: 22px 0 4px;
   }
+
+  &.@{steps-prefix-cls}-small {
+    .@{steps-prefix-cls}-item-icon {
+      margin-top: 10px;
+    }
+
+    .@{steps-prefix-cls}-item
+      > .@{steps-prefix-cls}-item-container
+      > .@{steps-prefix-cls}-item-tail {
+      top: 3.5px;
+    }
+  }
+
   .@{steps-prefix-cls}-item:first-child .@{steps-prefix-cls}-icon-dot {
     left: 0;
   }

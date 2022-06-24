@@ -13,8 +13,9 @@ title:
 
 To customize the style or font of the close button.
 
-```jsx
+```tsx
 import { Button, notification } from 'antd';
+import React from 'react';
 
 const close = () => {
   console.log(
@@ -39,10 +40,11 @@ const openNotification = () => {
   });
 };
 
-ReactDOM.render(
+const App: React.FC = () => (
   <Button type="primary" onClick={openNotification}>
     Open the notification box
-  </Button>,
-  mountNode,
+  </Button>
 );
+
+export default App;
 ```

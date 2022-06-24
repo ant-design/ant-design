@@ -13,17 +13,18 @@ title:
 
 `Modal.destroyAll()` will destroy all confirmation modal dialogs. Usually, you can use it in router change event to destroy confirm modal dialog automatically.
 
-```jsx
-import { Modal, Button } from 'antd';
+```tsx
 import { ExclamationCircleOutlined } from '@ant-design/icons';
-
-function destroyAll() {
-  Modal.destroyAll();
-}
+import { Button, Modal } from 'antd';
+import React from 'react';
 
 const { confirm } = Modal;
 
-function showConfirm() {
+const destroyAll = () => {
+  Modal.destroyAll();
+};
+
+const showConfirm = () => {
   for (let i = 0; i < 3; i += 1) {
     setTimeout(() => {
       confirm({
@@ -38,7 +39,9 @@ function showConfirm() {
       });
     }, i * 500);
   }
-}
+};
 
-ReactDOM.render(<Button onClick={showConfirm}>Confirm</Button>, mountNode);
+const App: React.FC = () => <Button onClick={showConfirm}>Confirm</Button>;
+
+export default App;
 ```

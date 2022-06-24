@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import { mount } from 'enzyme';
+import React, { useState } from 'react';
 import ConfigProvider from '..';
 import Tooltip from '../../tooltip';
 

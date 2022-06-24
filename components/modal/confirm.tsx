@@ -1,15 +1,15 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import InfoCircleOutlined from '@ant-design/icons/InfoCircleOutlined';
 import CheckCircleOutlined from '@ant-design/icons/CheckCircleOutlined';
 import CloseCircleOutlined from '@ant-design/icons/CloseCircleOutlined';
 import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlined';
+import InfoCircleOutlined from '@ant-design/icons/InfoCircleOutlined';
+import { render as reactRender, unmount as reactUnmount } from 'rc-util/lib/React/render';
+import * as React from 'react';
+import { globalConfig } from '../config-provider';
+import warning from '../_util/warning';
+import ConfirmDialog from './ConfirmDialog';
+import destroyFns from './destroyFns';
 import { getConfirmLocale } from './locale';
 import type { ModalFuncProps } from './Modal';
-import ConfirmDialog from './ConfirmDialog';
-import { globalConfig } from '../config-provider';
-import devWarning from '../_util/devWarning';
-import destroyFns from './destroyFns';
 
 let defaultRootPrefixCls = '';
 
@@ -32,7 +32,6 @@ export default function confirm(config: ModalFuncProps) {
   let currentConfig = { ...config, close, visible: true } as any;
 
   function destroy(...args: any[]) {
-    ReactDOM.unmountComponentAtNode(container);
     const triggerCancel = args.some(param => param && param.triggerCancel);
     if (config.onCancel && triggerCancel) {
       config.onCancel(...args);
@@ -45,6 +44,8 @@ export default function confirm(config: ModalFuncProps) {
         break;
       }
     }
+
+    reactUnmount(container);
   }
 
   function render({ okText, cancelText, prefixCls: customizePrefixCls, ...props }: any) {
@@ -61,7 +62,7 @@ export default function confirm(config: ModalFuncProps) {
       const prefixCls = customizePrefixCls || `${rootPrefixCls}-modal`;
       const iconPrefixCls = getIconPrefixCls();
 
-      ReactDOM.render(
+      reactRender(
         <ConfirmDialog
           {...props}
           prefixCls={prefixCls}
@@ -83,6 +84,7 @@ export default function confirm(config: ModalFuncProps) {
         if (typeof config.afterClose === 'function') {
           config.afterClose();
         }
+
         destroy.apply(this, args);
       },
     };
@@ -157,10 +159,6 @@ export function withConfirm(props: ModalFuncProps): ModalFuncProps {
 }
 
 export function modalGlobalConfig({ rootPrefixCls }: { rootPrefixCls: string }) {
-  devWarning(
-    false,
-    'Modal',
-    'Modal.config is deprecated. Please use ConfigProvider.config instead.',
-  );
+  warning(false, 'Modal', 'Modal.config is deprecated. Please use ConfigProvider.config instead.');
   defaultRootPrefixCls = rootPrefixCls;
 }

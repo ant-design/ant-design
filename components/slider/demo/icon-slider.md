@@ -13,36 +13,36 @@ title:
 
 You can add an icon beside the slider to make it meaningful.
 
-```jsx
-import { Slider } from 'antd';
+```tsx
 import { FrownOutlined, SmileOutlined } from '@ant-design/icons';
+import { Slider } from 'antd';
+import React, { useState } from 'react';
 
-class IconSlider extends React.Component {
-  state = {
-    value: 0,
-  };
-
-  handleChange = value => {
-    this.setState({ value });
-  };
-
-  render() {
-    const { max, min } = this.props;
-    const { value } = this.state;
-    const mid = ((max - min) / 2).toFixed(5);
-    const preColorCls = value >= mid ? '' : 'icon-wrapper-active';
-    const nextColorCls = value >= mid ? 'icon-wrapper-active' : '';
-    return (
-      <div className="icon-wrapper">
-        <FrownOutlined className={preColorCls} />
-        <Slider {...this.props} onChange={this.handleChange} value={value} />
-        <SmileOutlined className={nextColorCls} />
-      </div>
-    );
-  }
+interface IconSliderProps {
+  max: number;
+  min: number;
 }
 
-ReactDOM.render(<IconSlider min={0} max={20} />, mountNode);
+const IconSlider: React.FC<IconSliderProps> = props => {
+  const { max, min } = props;
+  const [value, setValue] = useState(0);
+
+  const mid = Number(((max - min) / 2).toFixed(5));
+  const preColorCls = value >= mid ? '' : 'icon-wrapper-active';
+  const nextColorCls = value >= mid ? 'icon-wrapper-active' : '';
+
+  return (
+    <div className="icon-wrapper">
+      <FrownOutlined className={preColorCls} />
+      <Slider {...props} onChange={setValue} value={value} />
+      <SmileOutlined className={nextColorCls} />
+    </div>
+  );
+};
+
+const App: React.FC = () => <IconSlider min={0} max={20} />;
+
+export default App;
 ```
 
 ```css

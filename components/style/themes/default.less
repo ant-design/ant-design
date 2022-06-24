@@ -108,6 +108,12 @@
 @border-radius-base: 2px;
 @border-radius-sm: @border-radius-base;
 
+// control border
+@control-border-radius: @border-radius-base;
+
+// arrow border
+@arrow-border-radius: 2px;
+
 // vertical paddings
 @padding-lg: 24px; // containers
 @padding-md: 16px; // small containers and buttons
@@ -283,10 +289,12 @@
 @divider-text-padding: 1em;
 @divider-orientation-margin: 5%;
 @divider-color: rgba(0, 0, 0, 6%);
+@divider-vertical-gutter: 8px;
 
 // Dropdown
 @dropdown-selected-color: @primary-color;
 @dropdown-menu-submenu-disabled-bg: @component-background;
+@dropdown-selected-bg: @item-active-bg;
 
 // Empty
 @empty-font-size: @font-size-base;
@@ -306,6 +314,7 @@
 @radio-button-color: @btn-default-color;
 @radio-button-hover-color: @primary-5;
 @radio-button-active-color: @primary-7;
+@radio-button-padding-horizontal: @padding-md - 1px;
 @radio-disabled-button-checked-bg: @disabled-active-bg;
 @radio-disabled-button-checked-color: @disabled-color;
 @radio-wrapper-margin-right: 8px;
@@ -500,7 +509,7 @@
 // ---
 @anchor-bg: transparent;
 @anchor-border-color: @border-color-split;
-@anchor-link-top: 7px;
+@anchor-link-top: 4px;
 @anchor-link-left: 16px;
 @anchor-link-padding: @anchor-link-top 0 @anchor-link-top @anchor-link-left;
 
@@ -513,11 +522,12 @@
 // Tooltip background color
 @tooltip-bg: rgba(0, 0, 0, 0.75);
 // Tooltip arrow width
-@tooltip-arrow-width: 5px;
+@tooltip-arrow-width: 8px * sqrt(2);
 // Tooltip distance with trigger
 @tooltip-distance: @tooltip-arrow-width - 1px + 4px;
 // Tooltip arrow color
 @tooltip-arrow-color: @tooltip-bg;
+@tooltip-border-radius: @border-radius-base;
 
 // Popover
 // ---
@@ -529,7 +539,7 @@
 @popover-min-width: 177px;
 @popover-min-height: 32px;
 // Popover arrow width
-@popover-arrow-width: 6px;
+@popover-arrow-width: @tooltip-arrow-width;
 // Popover arrow color
 @popover-arrow-color: @popover-bg;
 // Popover outer arrow width
@@ -563,6 +573,7 @@
 @modal-footer-border-width: @border-width-base;
 @modal-mask-bg: fade(@black, 45%);
 @modal-confirm-body-padding: 32px 32px 24px;
+@modal-confirm-title-font-size: @font-size-lg;
 
 // Progress
 // --
@@ -664,6 +675,7 @@
 
 // Tag
 // --
+@tag-border-radius: @border-radius-base;
 @tag-default-bg: @background-color-light;
 @tag-default-color: @text-color;
 @tag-font-size: @font-size-sm;
@@ -860,7 +872,7 @@
 @breadcrumb-font-size: @font-size-base;
 @breadcrumb-icon-font-size: @font-size-base;
 @breadcrumb-link-color: @text-color-secondary;
-@breadcrumb-link-color-hover: @primary-5;
+@breadcrumb-link-color-hover: @text-color;
 @breadcrumb-separator-color: @text-color-secondary;
 @breadcrumb-separator-margin: 0 @padding-xs;
 
@@ -989,6 +1001,8 @@
 @drawer-footer-padding-vertical: @modal-footer-padding-vertical;
 @drawer-footer-padding-horizontal: @modal-footer-padding-horizontal;
 @drawer-header-close-size: 56px;
+@drawer-title-font-size: @font-size-lg;
+@drawer-title-line-height: 22px;
 
 // Timeline
 // ---
@@ -1039,7 +1053,7 @@
 @notification-padding-vertical: 16px;
 @notification-padding-horizontal: 24px;
 
-//  Result
+// Result
 // ---
 @result-title-font-size: 24px;
 @result-subtitle-font-size: @font-size-base;
@@ -1056,3 +1070,11 @@
 @image-preview-operation-size: 18px;
 @image-preview-operation-color: @text-color-dark;
 @image-preview-operation-disabled-color: fade(@image-preview-operation-color, 25%);
+
+// Segmented
+// ---
+@segmented-bg: fade(@black, 4%);
+@segmented-hover-bg: fade(@black, 6%);
+@segmented-selected-bg: @white;
+@segmented-label-color: fade(@black, 65%);
+@segmented-label-hover-color: #262626;

@@ -72,13 +72,15 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 
     {
       text: string,
-      onCopy: function,
+      onCopy: function(event),
       icon: ReactNode,
       tooltips: false | [ReactNode, ReactNode],
+      format: 'text/plain' | 'text/html',
     }
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| format | 剪切板数据的 Mime Type | 'text/plain' \| 'text/html' | - | 4.21.0 |
 | icon | 自定义拷贝图标：\[默认图标, 拷贝后的图标] | \[ReactNode, ReactNode] | - | 4.6.0 |
 | text | 拷贝到剪切板里的文本 | string | - |  |
 | tooltips | 自定义提示文案，为 false 时隐藏文案 | \[ReactNode, ReactNode] | \[`复制`, `复制成功`] | 4.4.0 |
@@ -145,3 +147,5 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 ```tsx
 <Link to="/" component={Typography.Link} />
 ```
+
+**注意：** 这并不是和 react-router 的 Link 的执行逻辑等价 [参考](https://github.com/ant-design/ant-design/pull/26737/files#r488769888)

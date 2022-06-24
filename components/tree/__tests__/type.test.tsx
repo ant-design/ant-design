@@ -1,11 +1,13 @@
-import * as React from 'react';
-import { mount } from 'enzyme';
 import type { BasicDataNode } from 'rc-tree';
+import * as React from 'react';
+import { render } from '../../../tests/utils';
 import Tree from '../index';
+
+const { DirectoryTree } = Tree;
 
 describe('Tree.TypeScript', () => {
   it('without generic', () => {
-    const wrapper = mount(
+    const { container } = render(
       <Tree
         treeData={[
           {
@@ -22,7 +24,7 @@ describe('Tree.TypeScript', () => {
       />,
     );
 
-    expect(wrapper).toBeTruthy();
+    expect(container).toBeTruthy();
   });
 
   it('support generic', () => {
@@ -31,7 +33,7 @@ describe('Tree.TypeScript', () => {
       list?: MyDataNode[];
     }
 
-    const wrapper = mount(
+    const { container } = render(
       <Tree<MyDataNode>
         treeData={[
           {
@@ -46,6 +48,30 @@ describe('Tree.TypeScript', () => {
       />,
     );
 
-    expect(wrapper).toBeTruthy();
+    expect(container).toBeTruthy();
+  });
+
+  it('directoryTree support generic', () => {
+    interface MyDataNode extends BasicDataNode {
+      bamboo: string;
+      list?: MyDataNode[];
+    }
+
+    const { container } = render(
+      <DirectoryTree<MyDataNode>
+        treeData={[
+          {
+            bamboo: 'good',
+            list: [
+              {
+                bamboo: 'well',
+              },
+            ],
+          },
+        ]}
+      />,
+    );
+
+    expect(container).toBeTruthy();
   });
 });

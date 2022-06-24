@@ -66,8 +66,8 @@
     }
   }
 
-  // Expand Icon right
-  &-icon-position-right {
+  // Expand Icon end
+  &-icon-position-end {
     & > .@{collapse-prefix-cls}-item {
       > .@{collapse-prefix-cls}-header {
         position: relative;
@@ -118,6 +118,11 @@
   &-borderless > &-item:last-child,
   &-borderless > &-item:last-child &-header {
     border-radius: 0;
+  }
+
+  // hide the last border-bottom in borderless mode
+  &-borderless > &-item:last-child {
+    border-bottom: 0;
   }
 
   &-borderless > &-item > &-content {

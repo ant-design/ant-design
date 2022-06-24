@@ -14,11 +14,12 @@ title:
 Controlled mode, for example, to work with `Form`.
 
 ```tsx
-import { Mentions, Form, Button } from 'antd';
+import { Button, Form, Mentions } from 'antd';
+import React from 'react';
 
 const { Option, getMentions } = Mentions;
 
-const App = () => {
+const App: React.FC = () => {
   const [form] = Form.useForm();
 
   const onReset = () => {
@@ -83,5 +84,5 @@ const App = () => {
   );
 };
 
-ReactDOM.render(<App />, mountNode);
+export default App;
 ```

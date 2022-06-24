@@ -13,11 +13,12 @@ title:
 
 This will simply display a red badge, without a specific count. If count equals 0, it won't display the dot.
 
-```jsx
-import { Badge } from 'antd';
+```tsx
 import { NotificationOutlined } from '@ant-design/icons';
+import { Badge } from 'antd';
+import React from 'react';
 
-ReactDOM.render(
+const App: React.FC = () => (
   <>
     <Badge dot>
       <NotificationOutlined style={{ fontSize: 16 }} />
@@ -25,7 +26,8 @@ ReactDOM.render(
     <Badge dot>
       <a href="#">Link something</a>
     </Badge>
-  </>,
-  mountNode,
+  </>
 );
+
+export default App;
 ```

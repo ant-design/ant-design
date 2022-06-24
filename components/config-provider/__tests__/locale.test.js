@@ -1,14 +1,14 @@
-import React from 'react';
 import { mount } from 'enzyme';
+import React from 'react';
 import ConfigProvider from '..';
-import LocaleProvider from '../../locale-provider';
-import zhCN from '../../locale/zh_CN';
-import enUS from '../../locale/en_US';
-import TimePicker from '../../time-picker';
 import DatePicker from '../../date-picker';
-import { openPicker, selectCell, closePicker } from '../../date-picker/__tests__/utils';
-import Pagination from '../../pagination';
+import { closePicker, openPicker, selectCell } from '../../date-picker/__tests__/utils';
+import LocaleProvider from '../../locale-provider';
+import enUS from '../../locale/en_US';
+import zhCN from '../../locale/zh_CN';
 import Modal from '../../modal';
+import Pagination from '../../pagination';
+import TimePicker from '../../time-picker';
 
 describe('ConfigProvider.Locale', () => {
   function $$(className) {
@@ -70,22 +70,12 @@ describe('ConfigProvider.Locale', () => {
 
   // https://github.com/ant-design/ant-design/issues/31592
   it('should not reset the component state when switching locale', () => {
-    class App extends React.Component {
-      state = {
-        locale: zhCN,
-      };
-
-      render() {
-        return (
-          <ConfigProvider locale={this.state.locale}>
-            <DatePicker />
-            <Pagination total={50} />
-          </ConfigProvider>
-        );
-      }
-    }
-
-    const wrapper = mount(<App />);
+    const wrapper = mount(
+      <ConfigProvider locale={zhCN}>
+        <DatePicker />
+        <Pagination total={50} />
+      </ConfigProvider>,
+    );
 
     const datepickerInitProps = wrapper.find('.ant-picker-input input').props();
     expect(datepickerInitProps.value).toBe('');
@@ -100,7 +90,7 @@ describe('ConfigProvider.Locale', () => {
 
     expect(wrapper.find('.ant-picker-input input').props().value).not.toBe('');
 
-    wrapper.setState({ locale: {} });
+    wrapper.setProps({ locale: {} });
     wrapper.find('.ant-pagination-item-3').simulate('click');
 
     const datepickerProps = wrapper.find('.ant-picker-input input').props();

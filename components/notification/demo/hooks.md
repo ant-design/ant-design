@@ -13,21 +13,23 @@ title:
 
 Use `notification.useNotification` to get `contextHolder` with context accessible issue.
 
-```jsx
-import { Button, notification, Divider, Space } from 'antd';
+```tsx
 import {
-  RadiusUpleftOutlined,
-  RadiusUprightOutlined,
   RadiusBottomleftOutlined,
   RadiusBottomrightOutlined,
+  RadiusUpleftOutlined,
+  RadiusUprightOutlined,
 } from '@ant-design/icons';
+import { Button, Divider, notification, Space } from 'antd';
+import type { NotificationPlacement } from 'antd/lib/notification';
+import React from 'react';
 
 const Context = React.createContext({ name: 'Default' });
 
-const Demo = () => {
+const App: React.FC = () => {
   const [api, contextHolder] = notification.useNotification();
 
-  const openNotification = placement => {
+  const openNotification = (placement: NotificationPlacement) => {
     api.info({
       message: `Notification ${placement}`,
       description: <Context.Consumer>{({ name }) => `Hello, ${name}!`}</Context.Consumer>,
@@ -63,5 +65,5 @@ const Demo = () => {
   );
 };
 
-ReactDOM.render(<Demo />, mountNode);
+export default App;
 ```

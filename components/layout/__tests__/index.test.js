@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
 import { mount, render } from 'enzyme';
 import { act } from 'react-dom/test-utils';
+import React, { useState } from 'react';
 import Layout from '..';
-import Icon from '../../icon';
-import Menu from '../../menu';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import Icon from '../../icon';
+import Menu from '../../menu';
 
-const { Sider, Content } = Layout;
+const { Sider, Content, Footer, Header } = Layout;
 
 describe('Layout', () => {
   mountTest(Layout);
@@ -177,10 +177,10 @@ describe('Layout', () => {
 
   it('should be controlled by collapsed', () => {
     const wrapper = mount(<Sider>Sider</Sider>);
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
     wrapper.setProps({ collapsed: true });
     wrapper.update();
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('should not add ant-layout-has-sider when `hasSider` is `false`', () => {
@@ -310,15 +310,19 @@ describe('Sider', () => {
     expect(wrapper.find('.ant-layout-sider-zero-width-trigger').find('.my-trigger').length).toBe(1);
   });
 
-  it('should get aside element from ref', () => {
-    const ref = React.createRef();
-    const onSelect = jest.fn();
+  ['Layout', 'Header', 'Footer', 'Sider'].forEach(tag => {
+    const ComponentMap = { Layout, Header, Footer, Sider };
+    it(`should get ${tag} element from ref`, () => {
+      const ref = React.createRef();
+      const onSelect = jest.fn();
+      const Component = ComponentMap[tag];
 
-    mount(
-      <Sider onSelect={onSelect} ref={ref}>
-        Sider
-      </Sider>,
-    );
-    expect(ref.current instanceof HTMLElement).toBe(true);
+      mount(
+        <Component onSelect={onSelect} ref={ref}>
+          {tag}
+        </Component>,
+      );
+      expect(ref.current instanceof HTMLElement).toBe(true);
+    });
   });
 });

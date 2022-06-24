@@ -71,13 +71,15 @@ Basic text writing, including headings, body text, lists, and more.
 
     {
       text: string,
-      onCopy: function,
+      onCopy: function(event),
       icon: ReactNode,
       tooltips: false | [ReactNode, ReactNode],
+      format: 'text/plain' | 'text/html',
     }
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| format | The Mime Type of the text | 'text/plain' \| 'text/html' | - | 4.21.0 |
 | icon | Custom copy icon: \[copyIcon, copiedIcon] | \[ReactNode, ReactNode] | - | 4.6.0 |
 | text | The text to copy | string | - |  |
 | tooltips | Custom tooltip text, hide when it is false | \[ReactNode, ReactNode] | \[`Copy`, `Copied`] | 4.4.0 |
@@ -144,3 +146,5 @@ Basic text writing, including headings, body text, lists, and more.
 ```tsx
 <Link to="/" component={Typography.Link} />
 ```
+
+**Note：** This is not equivalent to the execution logic of react-router's Link [reference](https://github.com/ant-design/ant-design/pull/26737/files#r488769888)

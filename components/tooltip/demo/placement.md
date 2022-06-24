@@ -13,14 +13,15 @@ title:
 
 There are 12 placement options available.
 
-```jsx
-import { Tooltip, Button } from 'antd';
+```tsx
+import { Button, Tooltip } from 'antd';
+import React from 'react';
 
 const text = <span>prompt text</span>;
 
 const buttonWidth = 70;
 
-ReactDOM.render(
+const App: React.FC = () => (
   <div className="demo">
     <div style={{ marginLeft: buttonWidth, whiteSpace: 'nowrap' }}>
       <Tooltip placement="topLeft" title={text}>
@@ -66,9 +67,10 @@ ReactDOM.render(
         <Button>BR</Button>
       </Tooltip>
     </div>
-  </div>,
-  mountNode,
+  </div>
 );
+
+export default App;
 ```
 
 <style>

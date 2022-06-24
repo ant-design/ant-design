@@ -13,16 +13,18 @@ title:
 
 The vertical Slider.
 
-```jsx
+```tsx
 import { Slider } from 'antd';
+import type { SliderMarks } from 'antd/lib/slider';
+import React from 'react';
 
-const style = {
+const style: React.CSSProperties = {
   display: 'inline-block',
   height: 300,
   marginLeft: 70,
 };
 
-const marks = {
+const marks: SliderMarks = {
   0: '0°C',
   26: '26°C',
   37: '37°C',
@@ -34,7 +36,7 @@ const marks = {
   },
 };
 
-ReactDOM.render(
+const App: React.FC = () => (
   <>
     <div style={style}>
       <Slider vertical defaultValue={30} />
@@ -45,7 +47,8 @@ ReactDOM.render(
     <div style={style}>
       <Slider vertical range marks={marks} defaultValue={[26, 37]} />
     </div>
-  </>,
-  mountNode,
+  </>
 );
+
+export default App;
 ```

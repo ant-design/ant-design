@@ -1,12 +1,12 @@
-import * as React from 'react';
 import SearchOutlined from '@ant-design/icons/SearchOutlined';
+import * as React from 'react';
 import Input from '../../../input';
-import { TableLocale } from '../../interface';
+import type { FilterSearchType, TableLocale } from '../../interface';
 
 interface FilterSearchProps {
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  filterSearch: Boolean;
+  filterSearch: FilterSearchType;
   tablePrefixCls: string;
   locale: TableLocale;
 }

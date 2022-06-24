@@ -13,12 +13,13 @@ title:
 
 Preview a collection from one image.
 
-```jsx
-import React, { useState } from 'react';
+```tsx
 import { Image } from 'antd';
+import React, { useState } from 'react';
 
-const App = () => {
+const App: React.FC = () => {
   const [visible, setVisible] = useState(false);
+
   return (
     <>
       <Image
@@ -38,5 +39,5 @@ const App = () => {
   );
 };
 
-ReactDOM.render(<App />, mountNode);
+export default App;
 ```

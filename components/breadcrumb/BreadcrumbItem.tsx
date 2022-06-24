@@ -1,17 +1,19 @@
-import * as React from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
+import * as React from 'react';
 
-import DropDown, { DropDownProps } from '../dropdown/dropdown';
 import { ConfigContext } from '../config-provider';
+import type { DropdownProps } from '../dropdown/dropdown';
+import Dropdown from '../dropdown/dropdown';
 
 export interface BreadcrumbItemProps {
   prefixCls?: string;
   separator?: React.ReactNode;
   href?: string;
-  overlay?: DropDownProps['overlay'];
-  dropdownProps?: DropDownProps;
+  overlay?: DropdownProps['overlay'];
+  dropdownProps?: DropdownProps;
   onClick?: React.MouseEventHandler<HTMLAnchorElement | HTMLSpanElement>;
   className?: string;
+  children?: React.ReactNode;
 }
 interface BreadcrumbItemInterface extends React.FC<BreadcrumbItemProps> {
   __ANT_BREADCRUMB_ITEM: boolean;
@@ -26,16 +28,16 @@ const BreadcrumbItem: BreadcrumbItemInterface = ({
 }) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('breadcrumb', customizePrefixCls);
-  /** If overlay is have Wrap a DropDown */
+  /** If overlay is have Wrap a Dropdown */
   const renderBreadcrumbNode = (breadcrumbItem: React.ReactNode) => {
     if (overlay) {
       return (
-        <DropDown overlay={overlay} placement="bottomCenter" {...dropdownProps}>
+        <Dropdown overlay={overlay} placement="bottom" {...dropdownProps}>
           <span className={`${prefixCls}-overlay-link`}>
             {breadcrumbItem}
             <DownOutlined />
           </span>
-        </DropDown>
+        </Dropdown>
       );
     }
     return breadcrumbItem;
@@ -60,12 +62,10 @@ const BreadcrumbItem: BreadcrumbItemInterface = ({
   link = renderBreadcrumbNode(link);
   if (children) {
     return (
-      <span>
+      <li>
         {link}
-        {separator && (
-          <span className={`${prefixCls}-separator`}>{separator}</span>
-        )}
-      </span>
+        {separator && <span className={`${prefixCls}-separator`}>{separator}</span>}
+      </li>
     );
   }
   return null;

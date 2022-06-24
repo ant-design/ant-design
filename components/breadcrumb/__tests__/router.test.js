@@ -1,6 +1,6 @@
-import React from 'react';
-import { Route, Routes, Link, useLocation, useNavigate, MemoryRouter } from 'react-router-dom';
 import { mount } from 'enzyme';
+import React from 'react';
+import { Link, MemoryRouter, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import Breadcrumb from '../index';
 
 const Apps = () => (
@@ -144,6 +144,6 @@ describe('react router', () => {
       },
     ];
     const wrapper = mount(<Breadcrumb routes={routes} params={{ id: 1 }} />);
-    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.render()).toMatchSnapshot();
   });
 });

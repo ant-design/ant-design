@@ -13,16 +13,17 @@ title:
 
 Basic Usage.
 
-```jsx
+```tsx
 import { Select } from 'antd';
+import React from 'react';
 
 const { Option } = Select;
 
-function handleChange(value) {
+const handleChange = (value: string) => {
   console.log(`selected ${value}`);
-}
+};
 
-ReactDOM.render(
+const App: React.FC = () => (
   <>
     <Select defaultValue="lucy" style={{ width: 120 }} onChange={handleChange}>
       <Option value="jack">Jack</Option>
@@ -41,7 +42,8 @@ ReactDOM.render(
     <Select defaultValue="lucy" style={{ width: 120 }} allowClear>
       <Option value="lucy">Lucy</Option>
     </Select>
-  </>,
-  mountNode,
+  </>
 );
+
+export default App;
 ```

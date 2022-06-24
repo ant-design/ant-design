@@ -9,9 +9,9 @@
   display: inline-block;
 
   &-img {
-    display: block;
     width: 100%;
     height: auto;
+    vertical-align: middle;
 
     &-placeholder {
       background-color: @image-bg;
@@ -133,6 +133,12 @@
         &:last-of-type {
           margin-left: 0;
         }
+      }
+
+      &-progress {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
       }
 
       &-icon {

@@ -13,38 +13,43 @@ title:
 
 The most basic usage of `Transfer` involves providing the source data and target keys arrays, plus the rendering and some callback functions.
 
-```jsx
-import React, { useState } from 'react';
+```tsx
 import { Transfer } from 'antd';
+import type { TransferDirection } from 'antd/es/transfer';
+import React, { useState } from 'react';
 
-const mockData = [];
-for (let i = 0; i < 20; i++) {
-  mockData.push({
-    key: i.toString(),
-    title: `content${i + 1}`,
-    description: `description of content${i + 1}`,
-  });
+interface RecordType {
+  key: string;
+  title: string;
+  description: string;
 }
 
-const initialTargetKeys = mockData.filter(item => +item.key > 10).map(item => item.key);
+const mockData: RecordType[] = Array.from({ length: 20 }).map((_, i) => ({
+  key: i.toString(),
+  title: `content${i + 1}`,
+  description: `description of content${i + 1}`,
+}));
 
-const App = () => {
+const initialTargetKeys = mockData.filter(item => Number(item.key) > 10).map(item => item.key);
+
+const App: React.FC = () => {
   const [targetKeys, setTargetKeys] = useState(initialTargetKeys);
-  const [selectedKeys, setSelectedKeys] = useState([]);
-  const onChange = (nextTargetKeys, direction, moveKeys) => {
+  const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
+
+  const onChange = (nextTargetKeys: string[], direction: TransferDirection, moveKeys: string[]) => {
     console.log('targetKeys:', nextTargetKeys);
     console.log('direction:', direction);
     console.log('moveKeys:', moveKeys);
     setTargetKeys(nextTargetKeys);
   };
 
-  const onSelectChange = (sourceSelectedKeys, targetSelectedKeys) => {
+  const onSelectChange = (sourceSelectedKeys: string[], targetSelectedKeys: string[]) => {
     console.log('sourceSelectedKeys:', sourceSelectedKeys);
     console.log('targetSelectedKeys:', targetSelectedKeys);
     setSelectedKeys([...sourceSelectedKeys, ...targetSelectedKeys]);
   };
 
-  const onScroll = (direction, e) => {
+  const onScroll = (direction: TransferDirection, e: React.SyntheticEvent<HTMLUListElement>) => {
     console.log('direction:', direction);
     console.log('target:', e.target);
   };
@@ -63,5 +68,5 @@ const App = () => {
   );
 };
 
-ReactDOM.render(<App />, mountNode);
+export default App;
 ```

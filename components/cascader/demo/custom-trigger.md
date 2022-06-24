@@ -13,10 +13,17 @@ title:
 
 Separate trigger button and result.
 
-```jsx
+```tsx
 import { Cascader } from 'antd';
+import React, { useState } from 'react';
 
-const options = [
+interface Option {
+  value: string;
+  label: string;
+  children?: Option[];
+}
+
+const options: Option[] = [
   {
     value: 'zhejiang',
     label: 'Zhejiang',
@@ -39,29 +46,23 @@ const options = [
   },
 ];
 
-class CitySwitcher extends React.Component {
-  state = {
-    text: 'Unselect',
+const App: React.FC = () => {
+  const [text, setText] = useState('Unselect');
+
+  const onChange = (_: string[], selectedOptions: Option[]) => {
+    setText(selectedOptions.map(o => o.label).join(', '));
   };
 
-  onChange = (value, selectedOptions) => {
-    this.setState({
-      text: selectedOptions.map(o => o.label).join(', '),
-    });
-  };
+  return (
+    <span>
+      {text}
+      &nbsp;
+      <Cascader options={options} onChange={onChange}>
+        <a href="#">Change city</a>
+      </Cascader>
+    </span>
+  );
+};
 
-  render() {
-    return (
-      <span>
-        {this.state.text}
-        &nbsp;
-        <Cascader options={options} onChange={this.onChange}>
-          <a href="#">Change city</a>
-        </Cascader>
-      </span>
-    );
-  }
-}
-
-ReactDOM.render(<CitySwitcher />, mountNode);
+export default App;
 ```

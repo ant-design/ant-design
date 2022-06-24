@@ -13,22 +13,23 @@ title:
 
 Search the options with sorting.
 
-```jsx
+```tsx
 import { Select } from 'antd';
+import React from 'react';
 
 const { Option } = Select;
 
-ReactDOM.render(
+const App: React.FC = () => (
   <Select
     showSearch
     style={{ width: 200 }}
     placeholder="Search to Select"
     optionFilterProp="children"
-    filterOption={(input, option) =>
-      option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-    }
+    filterOption={(input, option) => (option!.children as unknown as string).includes(input)}
     filterSort={(optionA, optionB) =>
-      optionA.children.toLowerCase().localeCompare(optionB.children.toLowerCase())
+      (optionA!.children as unknown as string)
+        .toLowerCase()
+        .localeCompare((optionB!.children as unknown as string).toLowerCase())
     }
   >
     <Option value="1">Not Identified</Option>
@@ -37,7 +38,8 @@ ReactDOM.render(
     <Option value="4">Identified</Option>
     <Option value="5">Resolved</Option>
     <Option value="6">Cancelled</Option>
-  </Select>,
-  mountNode,
+  </Select>
 );
+
+export default App;
 ```

@@ -13,8 +13,10 @@ title:
 
 Simplest Usage with no description.
 
-```jsx
+```tsx
 import { Empty } from 'antd';
 
-ReactDOM.render(<Empty description={false} />, mountNode);
+const App: React.FC = () => <Empty description={false} />;
+
+export default App;
 ```

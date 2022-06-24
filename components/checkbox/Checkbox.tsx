@@ -1,9 +1,11 @@
-import * as React from 'react';
 import classNames from 'classnames';
 import RcCheckbox from 'rc-checkbox';
-import { GroupContext } from './Group';
+import * as React from 'react';
+import { useContext } from 'react';
 import { ConfigContext } from '../config-provider';
-import devWarning from '../_util/devWarning';
+import { FormItemInputContext } from '../form/context';
+import warning from '../_util/warning';
+import { GroupContext } from './Group';
 
 export interface AbstractCheckboxProps<T> {
   prefixCls?: string;
@@ -59,12 +61,13 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
 ) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const checkboxGroup = React.useContext(GroupContext);
+  const { isFormItemInput } = useContext(FormItemInputContext);
 
   const prevValue = React.useRef(restProps.value);
 
   React.useEffect(() => {
     checkboxGroup?.registerValue(restProps.value);
-    devWarning(
+    warning(
       'checked' in restProps || !!checkboxGroup || !('value' in restProps),
       'Checkbox',
       '`value` is not a valid prop, do you mean `checked`?',
@@ -78,6 +81,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
     if (restProps.value !== prevValue.current) {
       checkboxGroup?.cancelValue(prevValue.current);
       checkboxGroup?.registerValue(restProps.value);
+      prevValue.current = restProps.value;
     }
     return () => checkboxGroup?.cancelValue(restProps.value);
   }, [restProps.value]);
@@ -103,12 +107,14 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-wrapper-checked`]: checkboxProps.checked,
       [`${prefixCls}-wrapper-disabled`]: checkboxProps.disabled,
+      [`${prefixCls}-wrapper-in-form-item`]: isFormItemInput,
     },
     className,
   );
   const checkboxClass = classNames({
     [`${prefixCls}-indeterminate`]: indeterminate,
   });
+  const ariaChecked = indeterminate ? 'mixed' : undefined;
   return (
     // eslint-disable-next-line jsx-a11y/label-has-associated-control
     <label
@@ -117,14 +123,21 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <RcCheckbox {...checkboxProps} prefixCls={prefixCls} className={checkboxClass} ref={ref} />
+      <RcCheckbox
+        aria-checked={ariaChecked}
+        {...checkboxProps}
+        prefixCls={prefixCls}
+        className={checkboxClass}
+        ref={ref}
+      />
       {children !== undefined && <span>{children}</span>}
     </label>
   );
 };
 
 const Checkbox = React.forwardRef<unknown, CheckboxProps>(InternalCheckbox);
-
-Checkbox.displayName = 'Checkbox';
+if (process.env.NODE_ENV !== 'production') {
+  Checkbox.displayName = 'Checkbox';
+}
 
 export default Checkbox;

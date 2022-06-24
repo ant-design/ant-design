@@ -242,7 +242,7 @@ Provide linkage between forms. If a sub form with `name` prop update, it will au
 | isFieldsTouched | Check if fields have been operated. Check if all fields is touched when `allTouched` is `true` | (nameList?: [NamePath](#NamePath)\[], allTouched?: boolean) => boolean |  |
 | isFieldTouched | Check if a field has been operated | (name: [NamePath](#NamePath)) => boolean |  |
 | isFieldValidating | Check field if is in validating | (name: [NamePath](#NamePath)) => boolean |  |
-| resetFields | Reset fields to `initialValues` | (fields?: [FieldData](#FieldData)\[]) => void |  |
+| resetFields | Reset fields to `initialValues` | (fields?: [NamePath](#NamePath)\[]) => void |  |
 | scrollToField | Scroll to field position | (name: [NamePath](#NamePath), options: \[[ScrollOptions](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options)]) => void |  |
 | setFields | Set fields status | (fields: [FieldData](#FieldData)\[]) => void |  |
 | setFieldsValue | Set fields value(Will directly pass to form store. If you do not want to modify passed object, please clone first) | (values) => void |  |
@@ -278,6 +278,65 @@ validateFields()
     */
   });
 ```
+
+## Hooks
+
+### Form.useForm
+
+`type Form.useForm = (): [FormInstance]`
+
+Create Form instance to maintain data store.
+
+### Form.useFormInstance
+
+`type Form.useFormInstance = (): FormInstance`
+
+Added in `4.20.0`. Get current context form instance to avoid pass as props between components:
+
+```tsx
+const Sub = () => {
+  const form = Form.useFormInstance();
+
+  return <Button onClick={() => form.setFieldsValue({})} />;
+};
+
+export default () => {
+  const [form] = Form.useForm();
+
+  return (
+    <Form form={form}>
+      <Sub />
+    </Form>
+  );
+};
+```
+
+### Form.useWatch
+
+`type Form.useWatch = (namePath: NamePath, formInstance: FormInstance): Value`
+
+Added in `4.20.0`. Watch the value of a field. You can use this to interactive with other hooks like `useSWR` to reduce develop cost:
+
+```tsx
+const Demo = () => {
+  const [form] = Form.useForm();
+  const userName = Form.useWatch('username', form);
+
+  const { data: options } = useSWR(`/api/user/${userName}`, fetcher);
+
+  return (
+    <Form form={form}>
+      <Form.Item name="username">
+        <AutoComplete options={options} />
+      </Form.Item>
+    </Form>
+  );
+};
+```
+
+#### Difference between other data fetching method
+
+Form only update the Field which changed to avoid full refresh perf issue. Thus you can not get real time value with `getFieldsValue` in render. And `useWatch` will rerender current component to sync with latest value. You can also use Field renderProps to get better performance if only want to do conditional render. If component no need care field value change, you can use `onValuesChange` to give to parent component to avoid current one rerender.
 
 ### Interface
 

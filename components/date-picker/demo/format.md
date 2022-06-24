@@ -13,9 +13,11 @@ title:
 
 We can set the date format by `format`.
 
-```jsx
+```tsx
+import type { DatePickerProps } from 'antd';
 import { DatePicker, Space } from 'antd';
 import moment from 'moment';
+import React from 'react';
 
 const { RangePicker } = DatePicker;
 
@@ -25,14 +27,15 @@ const monthFormat = 'YYYY/MM';
 
 const dateFormatList = ['DD/MM/YYYY', 'DD/MM/YY'];
 
-const customFormat = value => `custom format: ${value.format(dateFormat)}`;
+const customFormat: DatePickerProps['format'] = value =>
+  `custom format: ${value.format(dateFormat)}`;
 
-const customWeekStartEndFormat = value =>
+const customWeekStartEndFormat: DatePickerProps['format'] = value =>
   `${moment(value).startOf('week').format(weekFormat)} ~ ${moment(value)
     .endOf('week')
     .format(weekFormat)}`;
 
-ReactDOM.render(
+const App: React.FC = () => (
   <Space direction="vertical" size={12}>
     <DatePicker defaultValue={moment('2015/01/01', dateFormat)} format={dateFormat} />
     <DatePicker defaultValue={moment('01/01/2015', dateFormatList[0])} format={dateFormatList} />
@@ -43,7 +46,8 @@ ReactDOM.render(
       format={dateFormat}
     />
     <DatePicker defaultValue={moment('2015/01/01', dateFormat)} format={customFormat} />
-  </Space>,
-  mountNode,
+  </Space>
 );
+
+export default App;
 ```

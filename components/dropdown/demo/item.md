@@ -13,35 +13,52 @@ title:
 
 Divider and disabled menu item.
 
-```jsx
-import { Menu, Dropdown } from 'antd';
+```tsx
 import { DownOutlined } from '@ant-design/icons';
+import { Dropdown, Menu, Space } from 'antd';
+import React from 'react';
 
 const menu = (
-  <Menu>
-    <Menu.Item key="0">
-      <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
-        1st menu item
-      </a>
-    </Menu.Item>
-    <Menu.Item key="1">
-      <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
-        2nd menu item
-      </a>
-    </Menu.Item>
-    <Menu.Divider />
-    <Menu.Item key="3" disabled>
-      3rd menu item（disabled）
-    </Menu.Item>
-  </Menu>
+  <Menu
+    items={[
+      {
+        label: (
+          <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
+            1st menu item
+          </a>
+        ),
+        key: '0',
+      },
+      {
+        label: (
+          <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
+            2nd menu item
+          </a>
+        ),
+        key: '1',
+      },
+      {
+        type: 'divider',
+      },
+      {
+        label: '3rd menu item（disabled）',
+        key: '3',
+        disabled: true,
+      },
+    ]}
+  />
 );
 
-ReactDOM.render(
+const App: React.FC = () => (
   <Dropdown overlay={menu}>
-    <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-      Hover me <DownOutlined />
+    <a onClick={e => e.preventDefault()}>
+      <Space>
+        Hover me
+        <DownOutlined />
+      </Space>
     </a>
-  </Dropdown>,
-  mountNode,
+  </Dropdown>
 );
+
+export default App;
 ```

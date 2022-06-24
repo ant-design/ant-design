@@ -1,6 +1,7 @@
 @import '../../style/themes/index';
 @import '../../style/mixins/index';
 @import '../../input/style/mixin';
+@import './status';
 
 @picker-prefix-cls: ~'@{ant-prefix}-picker';
 
@@ -13,7 +14,7 @@
 }
 
 .@{picker-prefix-cls} {
-  @arrow-size: 10px;
+  @arrow-size: @popover-arrow-width;
 
   .reset-component();
   .picker-padding(@input-height-base, @font-size-base, @input-padding-horizontal-base);
@@ -22,7 +23,7 @@
   align-items: center;
   background: @picker-bg;
   border: @border-width-base @border-style-base @select-border-color;
-  border-radius: @border-radius-base;
+  border-radius: @control-border-radius;
   transition: border @animation-duration-slow, box-shadow @animation-duration-slow;
 
   &:hover,
@@ -106,6 +107,8 @@
   }
 
   &-suffix {
+    display: flex;
+    flex: none;
     align-self: center;
     margin-left: (@padding-xs / 2);
     color: @disabled-color;
@@ -114,6 +117,10 @@
 
     > * {
       vertical-align: top;
+
+      &:not(:last-child) {
+        margin-right: 8px;
+      }
     }
   }
 
@@ -213,6 +220,10 @@
   &-dropdown {
     .reset-component();
     position: absolute;
+    // Fix incorrect position of picker popup
+    // https://github.com/ant-design/ant-design/issues/35590
+    top: -9999px;
+    left: -9999px;
     z-index: @zindex-picker;
 
     &-hidden {
@@ -221,17 +232,17 @@
 
     &-placement-bottomLeft {
       .@{picker-prefix-cls}-range-arrow {
-        top: (@arrow-size / 2) - (@arrow-size / 3);
+        top: (@arrow-size / 2) - (@arrow-size / 3) + 0.7px;
         display: block;
-        transform: rotate(-45deg);
+        transform: rotate(-135deg) translateY(1px);
       }
     }
 
     &-placement-topLeft {
       .@{picker-prefix-cls}-range-arrow {
-        bottom: (@arrow-size / 2) - (@arrow-size / 3);
+        bottom: (@arrow-size / 2) - (@arrow-size / 3) + 0.7px;
         display: block;
-        transform: rotate(135deg);
+        transform: rotate(45deg);
       }
     }
 
@@ -311,19 +322,14 @@
     width: @arrow-size;
     height: @arrow-size;
     margin-left: @input-padding-horizontal-base * 1.5;
-    box-shadow: 2px -2px 6px fade(@black, 6%);
+    background: linear-gradient(
+      135deg,
+      transparent 40%,
+      @calendar-bg 40%
+    ); // Use linear-gradient to prevent arrow from covering text
+    box-shadow: 2px 2px 6px -2px fade(@black, 10%); // use spread radius to hide shadow over popover
     transition: left @animation-duration-slow ease-out;
-
-    &::after {
-      position: absolute;
-      top: @border-width-base;
-      right: @border-width-base;
-      width: @arrow-size;
-      height: @arrow-size;
-      border: (@arrow-size / 2) solid @border-color-split;
-      border-color: @calendar-bg @calendar-bg transparent transparent;
-      content: '';
-    }
+    .roundedArrow(@arrow-size, 5px, @calendar-bg);
   }
 
   &-panel-container {

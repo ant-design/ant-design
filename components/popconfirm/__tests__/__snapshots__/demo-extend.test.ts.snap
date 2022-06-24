@@ -13,7 +13,7 @@ Array [
   <div>
     <div
       class="ant-popover ant-popconfirm"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-popover-content"
@@ -64,7 +64,7 @@ Array [
               class="ant-popover-buttons"
             >
               <button
-                class="ant-btn ant-btn-sm"
+                class="ant-btn ant-btn-default ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -98,7 +98,7 @@ Array [
   <div>
     <div
       class="ant-popover ant-popconfirm"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-popover-content"
@@ -149,7 +149,7 @@ Array [
               class="ant-popover-buttons"
             >
               <button
-                class="ant-btn ant-btn-sm"
+                class="ant-btn ant-btn-default ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -183,7 +183,7 @@ exports[`renders ./components/popconfirm/demo/dynamic-trigger.md extend context 
   <div>
     <div
       class="ant-popover ant-popconfirm"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-popover-content"
@@ -234,7 +234,7 @@ exports[`renders ./components/popconfirm/demo/dynamic-trigger.md extend context 
               class="ant-popover-buttons"
             >
               <button
-                class="ant-btn ant-btn-sm"
+                class="ant-btn ant-btn-default ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -284,7 +284,7 @@ Array [
   <div>
     <div
       class="ant-popover ant-popconfirm"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-popover-content"
@@ -339,7 +339,7 @@ Array [
               class="ant-popover-buttons"
             >
               <button
-                class="ant-btn ant-btn-sm"
+                class="ant-btn ant-btn-default ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -373,7 +373,7 @@ Array [
   <div>
     <div
       class="ant-popover ant-popconfirm"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-popover-content"
@@ -424,7 +424,7 @@ Array [
               class="ant-popover-buttons"
             >
               <button
-                class="ant-btn ant-btn-sm"
+                class="ant-btn ant-btn-default ant-btn-sm"
                 type="button"
               >
                 <span>
@@ -456,7 +456,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     style="margin-left:70px;white-space:nowrap"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -466,7 +466,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     <div>
       <div
         class="ant-popover ant-popconfirm"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -517,7 +517,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
                 class="ant-popover-buttons"
               >
                 <button
-                  class="ant-btn ant-btn-sm"
+                  class="ant-btn ant-btn-default ant-btn-sm"
                   type="button"
                 >
                   <span>
@@ -539,7 +539,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
       </div>
     </div>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -549,7 +549,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     <div>
       <div
         class="ant-popover ant-popconfirm"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -600,7 +600,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
                 class="ant-popover-buttons"
               >
                 <button
-                  class="ant-btn ant-btn-sm"
+                  class="ant-btn ant-btn-default ant-btn-sm"
                   type="button"
                 >
                   <span>
@@ -622,7 +622,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
       </div>
     </div>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -632,7 +632,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     <div>
       <div
         class="ant-popover ant-popconfirm"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -683,7 +683,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
                 class="ant-popover-buttons"
               >
                 <button
-                  class="ant-btn ant-btn-sm"
+                  class="ant-btn ant-btn-default ant-btn-sm"
                   type="button"
                 >
                   <span>
@@ -709,7 +709,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     style="width:70px;float:left"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -719,7 +719,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     <div>
       <div
         class="ant-popover ant-popconfirm"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -770,7 +770,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
                 class="ant-popover-buttons"
               >
                 <button
-                  class="ant-btn ant-btn-sm"
+                  class="ant-btn ant-btn-default ant-btn-sm"
                   type="button"
                 >
                   <span>
@@ -792,7 +792,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
       </div>
     </div>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -802,7 +802,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     <div>
       <div
         class="ant-popover ant-popconfirm"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -853,7 +853,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
                 class="ant-popover-buttons"
               >
                 <button
-                  class="ant-btn ant-btn-sm"
+                  class="ant-btn ant-btn-default ant-btn-sm"
                   type="button"
                 >
                   <span>
@@ -875,7 +875,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
       </div>
     </div>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -885,7 +885,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     <div>
       <div
         class="ant-popover ant-popconfirm"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -936,7 +936,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
                 class="ant-popover-buttons"
               >
                 <button
-                  class="ant-btn ant-btn-sm"
+                  class="ant-btn ant-btn-default ant-btn-sm"
                   type="button"
                 >
                   <span>
@@ -962,7 +962,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     style="width:70px;margin-left:304px"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -972,7 +972,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     <div>
       <div
         class="ant-popover ant-popconfirm"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -1023,7 +1023,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
                 class="ant-popover-buttons"
               >
                 <button
-                  class="ant-btn ant-btn-sm"
+                  class="ant-btn ant-btn-default ant-btn-sm"
                   type="button"
                 >
                   <span>
@@ -1045,7 +1045,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
       </div>
     </div>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -1055,7 +1055,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     <div>
       <div
         class="ant-popover ant-popconfirm"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -1106,7 +1106,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
                 class="ant-popover-buttons"
               >
                 <button
-                  class="ant-btn ant-btn-sm"
+                  class="ant-btn ant-btn-default ant-btn-sm"
                   type="button"
                 >
                   <span>
@@ -1128,7 +1128,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
       </div>
     </div>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -1138,7 +1138,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     <div>
       <div
         class="ant-popover ant-popconfirm"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -1189,7 +1189,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
                 class="ant-popover-buttons"
               >
                 <button
-                  class="ant-btn ant-btn-sm"
+                  class="ant-btn ant-btn-default ant-btn-sm"
                   type="button"
                 >
                   <span>
@@ -1215,7 +1215,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     style="margin-left:70px;clear:both;white-space:nowrap"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -1225,7 +1225,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     <div>
       <div
         class="ant-popover ant-popconfirm"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -1276,7 +1276,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
                 class="ant-popover-buttons"
               >
                 <button
-                  class="ant-btn ant-btn-sm"
+                  class="ant-btn ant-btn-default ant-btn-sm"
                   type="button"
                 >
                   <span>
@@ -1298,7 +1298,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
       </div>
     </div>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -1308,7 +1308,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     <div>
       <div
         class="ant-popover ant-popconfirm"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -1359,7 +1359,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
                 class="ant-popover-buttons"
               >
                 <button
-                  class="ant-btn ant-btn-sm"
+                  class="ant-btn ant-btn-default ant-btn-sm"
                   type="button"
                 >
                   <span>
@@ -1381,7 +1381,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
       </div>
     </div>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -1391,7 +1391,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
     <div>
       <div
         class="ant-popover ant-popconfirm"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-popover-content"
@@ -1442,7 +1442,7 @@ exports[`renders ./components/popconfirm/demo/placement.md extend context correc
                 class="ant-popover-buttons"
               >
                 <button
-                  class="ant-btn ant-btn-sm"
+                  class="ant-btn ant-btn-default ant-btn-sm"
                   type="button"
                 >
                   <span>
@@ -1480,7 +1480,7 @@ Array [
   <div>
     <div
       class="ant-popover ant-popconfirm"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-popover-content"
@@ -1531,7 +1531,7 @@ Array [
               class="ant-popover-buttons"
             >
               <button
-                class="ant-btn ant-btn-sm"
+                class="ant-btn ant-btn-default ant-btn-sm"
                 type="button"
               >
                 <span>

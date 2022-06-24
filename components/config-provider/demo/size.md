@@ -13,25 +13,27 @@ title:
 
 Config component default size.
 
-```jsx
-import React, { useState } from 'react';
+```tsx
 import {
-  ConfigProvider,
-  Radio,
-  Input,
   Button,
-  Select,
+  Card,
+  ConfigProvider,
   DatePicker,
   Divider,
+  Input,
+  Radio,
+  Select,
   Table,
-  Card,
   Tabs,
 } from 'antd';
+import type { SizeType } from 'antd/lib/config-provider/SizeContext';
+import React, { useState } from 'react';
 
 const { TabPane } = Tabs;
 
-const FormSizeDemo = () => {
-  const [componentSize, setComponentSize] = useState('small');
+const App: React.FC = () => {
+  const [componentSize, setComponentSize] = useState<SizeType>('small');
+
   return (
     <div>
       <Radio.Group
@@ -111,5 +113,6 @@ const FormSizeDemo = () => {
     </div>
   );
 };
-ReactDOM.render(<FormSizeDemo />, mountNode);
+
+export default App;
 ```

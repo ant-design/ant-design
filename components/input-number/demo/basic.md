@@ -13,12 +13,15 @@ title:
 
 Numeric-only input box.
 
-```jsx
+```tsx
 import { InputNumber } from 'antd';
+import React from 'react';
 
-function onChange(value) {
+const onChange = (value: number) => {
   console.log('changed', value);
-}
+};
 
-ReactDOM.render(<InputNumber min={1} max={10} defaultValue={3} onChange={onChange} />, mountNode);
+const App: React.FC = () => <InputNumber min={1} max={10} defaultValue={3} onChange={onChange} />;
+
+export default App;
 ```

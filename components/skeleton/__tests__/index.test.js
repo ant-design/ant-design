@@ -1,5 +1,5 @@
-import React from 'react';
 import { mount } from 'enzyme';
+import React from 'react';
 import Skeleton from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -32,6 +32,21 @@ describe('Skeleton', () => {
   it('should round title and paragraph', () => {
     const wrapperSmall = genSkeleton({ round: true, title: true, paragraph: true });
     expect(wrapperSmall.render()).toMatchSnapshot();
+  });
+
+  it('should display without children and falsy loading props', () => {
+    const wrapper = mount(<Skeleton loading={false} />);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('should display with empty children and falsy loading props', () => {
+    const wrapper = mount(<Skeleton loading={false}>{0}</Skeleton>);
+    expect(wrapper.text()).toBe('0');
+  });
+
+  it('should display children', () => {
+    const wrapper = mount(<Skeleton loading={false}>{[1, 2, 3]}</Skeleton>);
+    expect(wrapper.text()).toBe('123');
   });
 
   describe('avatar', () => {

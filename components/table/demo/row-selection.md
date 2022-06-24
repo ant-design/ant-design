@@ -18,10 +18,18 @@ Rows can be selectable by making first column as a selectable column. You can us
 > selection happens when clicking checkbox by default. You can see <https://codesandbox.io/s/000vqw38rl> if you need row-click selection behavior.
 
 ```tsx
+import { Divider, Radio, Table } from 'antd';
+import type { ColumnsType } from 'antd/lib/table';
 import React, { useState } from 'react';
-import { Table, Radio, Divider } from 'antd';
 
-const columns = [
+interface DataType {
+  key: React.Key;
+  name: string;
+  age: number;
+  address: string;
+}
+
+const columns: ColumnsType<DataType> = [
   {
     title: 'Name',
     dataIndex: 'name',
@@ -36,13 +44,6 @@ const columns = [
     dataIndex: 'address',
   },
 ];
-
-interface DataType {
-  key: React.Key;
-  name: string;
-  age: number;
-  address: string;
-}
 
 const data: DataType[] = [
   {
@@ -82,7 +83,7 @@ const rowSelection = {
   }),
 };
 
-const Demo = () => {
+const App: React.FC = () => {
   const [selectionType, setSelectionType] = useState<'checkbox' | 'radio'>('checkbox');
 
   return (
@@ -111,5 +112,5 @@ const Demo = () => {
   );
 };
 
-ReactDOM.render(<Demo />, mountNode);
+export default App;
 ```

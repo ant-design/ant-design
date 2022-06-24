@@ -13,10 +13,20 @@ title:
 
 When there's too much information to show and the table can't display all at once.
 
-```jsx
+```tsx
 import { Table } from 'antd';
+import type { ColumnsType } from 'antd/lib/table';
+import React from 'react';
 
-const columns = [
+interface DataType {
+  key: React.Key;
+  name: string;
+  age: number;
+  address: string;
+  description: string;
+}
+
+const columns: ColumnsType<DataType> = [
   { title: 'Name', dataIndex: 'name', key: 'name' },
   { title: 'Age', dataIndex: 'age', key: 'age' },
   { title: 'Address', dataIndex: 'address', key: 'address' },
@@ -28,7 +38,7 @@ const columns = [
   },
 ];
 
-const data = [
+const data: DataType[] = [
   {
     key: 1,
     name: 'John Brown',
@@ -59,7 +69,7 @@ const data = [
   },
 ];
 
-ReactDOM.render(
+const App: React.FC = () => (
   <Table
     columns={columns}
     expandable={{
@@ -67,7 +77,8 @@ ReactDOM.render(
       rowExpandable: record => record.name !== 'Not Expandable',
     }}
     dataSource={data}
-  />,
-  mountNode,
+  />
 );
+
+export default App;
 ```

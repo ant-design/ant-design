@@ -13,8 +13,26 @@ title:
 
 Table pagination settings.
 
-```jsx
-import { Table, Tag, Radio, Space } from 'antd';
+```tsx
+import { Radio, Space, Table, Tag } from 'antd';
+import type { ColumnsType } from 'antd/lib/table';
+import React, { useState } from 'react';
+
+interface DataType {
+  key: string;
+  name: string;
+  age: number;
+  address: string;
+  tags: string[];
+}
+
+type TablePaginationPosition =
+  | 'topLeft'
+  | 'topCenter'
+  | 'topRight'
+  | 'bottomLeft'
+  | 'bottomCenter'
+  | 'bottomRight';
 
 const topOptions = [
   { label: 'topLeft', value: 'topLeft' },
@@ -30,7 +48,7 @@ const bottomOptions = [
   { label: 'none', value: 'none' },
 ];
 
-const columns = [
+const columns: ColumnsType<DataType> = [
   {
     title: 'Name',
     dataIndex: 'name',
@@ -51,7 +69,7 @@ const columns = [
     title: 'Tags',
     key: 'tags',
     dataIndex: 'tags',
-    render: tags => (
+    render: (tags: string[]) => (
       <span>
         {tags.map(tag => {
           let color = tag.length > 5 ? 'geekblue' : 'green';
@@ -70,7 +88,7 @@ const columns = [
   {
     title: 'Action',
     key: 'action',
-    render: (text, record) => (
+    render: (_, record) => (
       <Space size="middle">
         <a>Invite {record.name}</a>
         <a>Delete</a>
@@ -79,7 +97,7 @@ const columns = [
   },
 ];
 
-const data = [
+const data: DataType[] = [
   {
     key: '1',
     name: 'John Brown',
@@ -103,42 +121,34 @@ const data = [
   },
 ];
 
-class Demo extends React.Component {
-  state = {
-    top: 'topLeft',
-    bottom: 'bottomRight',
-  };
+const App: React.FC = () => {
+  const [top, setTop] = useState<TablePaginationPosition>('topLeft');
+  const [bottom, setBottom] = useState<TablePaginationPosition>('bottomRight');
 
-  render() {
-    return (
+  return (
+    <div>
       <div>
-        <div>
-          <Radio.Group
-            style={{ marginBottom: 10 }}
-            options={topOptions}
-            value={this.state.top}
-            onChange={e => {
-              this.setState({ top: e.target.value });
-            }}
-          />
-        </div>
         <Radio.Group
           style={{ marginBottom: 10 }}
-          options={bottomOptions}
-          value={this.state.bottom}
+          options={topOptions}
+          value={top}
           onChange={e => {
-            this.setState({ bottom: e.target.value });
+            setTop(e.target.value);
           }}
         />
-        <Table
-          columns={columns}
-          pagination={{ position: [this.state.top, this.state.bottom] }}
-          dataSource={data}
-        />
       </div>
-    );
-  }
-}
+      <Radio.Group
+        style={{ marginBottom: 10 }}
+        options={bottomOptions}
+        value={bottom}
+        onChange={e => {
+          setBottom(e.target.value);
+        }}
+      />
+      <Table columns={columns} pagination={{ position: [top, bottom] }} dataSource={data} />
+    </div>
+  );
+};
 
-ReactDOM.render(<Demo />, mountNode);
+export default App;
 ```

@@ -1,8 +1,9 @@
-import * as React from 'react';
 import classNames from 'classnames';
-import RowContext from './RowContext';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
-import responsiveObserve, { responsiveArray, ScreenMap } from '../_util/responsiveObserve';
+import type { ScreenMap } from '../_util/responsiveObserve';
+import responsiveObserve, { responsiveArray } from '../_util/responsiveObserve';
+import RowContext from './RowContext';
 
 // https://github.com/ant-design/ant-design/issues/14324
 type ColSpanType = number | string;
@@ -167,6 +168,8 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   );
 });
 
-Col.displayName = 'Col';
+if (process.env.NODE_ENV !== 'production') {
+  Col.displayName = 'Col';
+}
 
 export default Col;

@@ -122,6 +122,7 @@
 
     .@{checkbox-prefix-cls}-input {
       cursor: not-allowed;
+      pointer-events: none;
     }
 
     .@{checkbox-inner-prefix-cls} {
@@ -167,6 +168,13 @@
 
     & + & {
       margin-left: 8px;
+    }
+
+    &&-in-form-item {
+      input[type='checkbox'] {
+        width: 14px;
+        height: 14px;
+      }
     }
   }
 

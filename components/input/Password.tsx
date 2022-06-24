@@ -1,12 +1,14 @@
-import * as React from 'react';
+import EyeInvisibleOutlined from '@ant-design/icons/EyeInvisibleOutlined';
+import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
-import EyeOutlined from '@ant-design/icons/EyeOutlined';
-import EyeInvisibleOutlined from '@ant-design/icons/EyeInvisibleOutlined';
+import * as React from 'react';
 
 import { useState } from 'react';
-import { ConfigConsumer, ConfigConsumerProps } from '../config-provider';
-import Input, { InputProps } from './Input';
+import type { ConfigConsumerProps } from '../config-provider';
+import { ConfigConsumer } from '../config-provider';
+import type { InputProps, InputRef } from './Input';
+import Input from './Input';
 
 export interface PasswordProps extends InputProps {
   readonly inputPrefixCls?: string;
@@ -20,7 +22,7 @@ const ActionMap: Record<string, string> = {
   hover: 'onMouseOver',
 };
 
-const Password = React.forwardRef<any, PasswordProps>((props, ref) => {
+const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
   const [visible, setVisible] = useState(false);
 
   const onVisibleChange = () => {
@@ -96,6 +98,8 @@ Password.defaultProps = {
   iconRender: (visible: boolean) => (visible ? <EyeOutlined /> : <EyeInvisibleOutlined />),
 };
 
-Password.displayName = 'Password';
+if (process.env.NODE_ENV !== 'production') {
+  Password.displayName = 'Password';
+}
 
 export default Password;

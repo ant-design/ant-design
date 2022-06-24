@@ -1,8 +1,9 @@
-import * as React from 'react';
 import { updateCSS } from 'rc-util/lib/Dom/dynamicCSS';
-import { supportRef, composeRef } from 'rc-util/lib/ref';
+import { composeRef, supportRef } from 'rc-util/lib/ref';
+import * as React from 'react';
+import type { ConfigConsumerProps, CSPConfig } from '../config-provider';
+import { ConfigConsumer, ConfigContext } from '../config-provider';
 import raf from './raf';
-import { ConfigConsumer, ConfigConsumerProps, CSPConfig, ConfigContext } from '../config-provider';
 import { cloneElement } from './reactNode';
 
 let styleForPseudo: HTMLStyleElement | null;
@@ -27,6 +28,7 @@ function isNotGrey(color: string) {
 export interface WaveProps {
   insertExtraNode?: boolean;
   disabled?: boolean;
+  children?: React.ReactNode;
 }
 
 export default class Wave extends React.Component<WaveProps> {
@@ -53,6 +55,7 @@ export default class Wave extends React.Component<WaveProps> {
   context: ConfigConsumerProps;
 
   componentDidMount() {
+    this.destroyed = false;
     const node = this.containerRef.current as HTMLDivElement;
     if (!node || node.nodeType !== 1) {
       return;

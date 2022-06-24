@@ -70,7 +70,7 @@ exports[`renders ./components/upload/demo/basic.md correctly 1`] = `
         type="file"
       />
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span
@@ -242,7 +242,7 @@ exports[`renders ./components/upload/demo/customize-progress-bar.md correctly 1`
         type="file"
       />
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span
@@ -294,7 +294,7 @@ exports[`renders ./components/upload/demo/defaultFileList.md correctly 1`] = `
         type="file"
       />
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span
@@ -583,7 +583,7 @@ exports[`renders ./components/upload/demo/directory.md correctly 1`] = `
         webkitdirectory="webkitdirectory"
       />
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span
@@ -696,7 +696,7 @@ exports[`renders ./components/upload/demo/drag-sorting.md correctly 1`] = `
         type="file"
       />
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span
@@ -1804,7 +1804,7 @@ exports[`renders ./components/upload/demo/fileList.md correctly 1`] = `
         type="file"
       />
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span
@@ -1943,7 +1943,7 @@ exports[`renders ./components/upload/demo/max-count.md correctly 1`] = `
             type="file"
           />
           <button
-            class="ant-btn"
+            class="ant-btn ant-btn-default"
             type="button"
           >
             <span
@@ -1997,7 +1997,7 @@ exports[`renders ./components/upload/demo/max-count.md correctly 1`] = `
             type="file"
           />
           <button
-            class="ant-btn"
+            class="ant-btn ant-btn-default"
             type="button"
           >
             <span
@@ -2628,7 +2628,7 @@ Array [
           type="file"
         />
         <button
-          class="ant-btn"
+          class="ant-btn ant-btn-default"
           type="button"
         >
           <span
@@ -2839,7 +2839,7 @@ Array [
           type="file"
         />
         <button
-          class="ant-btn"
+          class="ant-btn ant-btn-default"
           type="button"
         >
           <span
@@ -3052,7 +3052,7 @@ exports[`renders ./components/upload/demo/preview-file.md correctly 1`] = `
         type="file"
       />
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span
@@ -3104,7 +3104,7 @@ exports[`renders ./components/upload/demo/transform-file.md correctly 1`] = `
         type="file"
       />
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span
@@ -3156,7 +3156,7 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md correctly
         type="file"
       />
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span
@@ -3240,7 +3240,7 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md correctly
                 type="button"
               >
                 <span>
-                  download 
+                  Download
                 </span>
               </button>
               <button
@@ -3327,7 +3327,7 @@ exports[`renders ./components/upload/demo/upload-custom-action-icon.md correctly
                 type="button"
               >
                 <span>
-                  download 
+                  Download
                 </span>
               </button>
               <button
@@ -3462,7 +3462,7 @@ Array [
           type="file"
         />
         <button
-          class="ant-btn"
+          class="ant-btn ant-btn-default"
           type="button"
         >
           <span
@@ -3525,7 +3525,7 @@ exports[`renders ./components/upload/demo/upload-png-only.md correctly 1`] = `
         type="file"
       />
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span
@@ -3603,7 +3603,7 @@ exports[`renders ./components/upload/demo/upload-with-aliyun-oss.md correctly 1`
                   type="file"
                 />
                 <button
-                  class="ant-btn"
+                  class="ant-btn ant-btn-default"
                   type="button"
                 >
                   <span
