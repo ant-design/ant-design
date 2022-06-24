@@ -1,9 +1,9 @@
-import * as React from 'react';
 import classNames from 'classnames';
 import omit from 'rc-util/lib/omit';
+import * as React from 'react';
+import { ConfigContext } from '../config-provider';
 import type { CheckboxChangeEvent } from './Checkbox';
 import Checkbox from './Checkbox';
-import { ConfigContext } from '../config-provider';
 
 export type CheckboxValueType = string | number | boolean;
 

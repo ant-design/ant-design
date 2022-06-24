@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
-import { render, fireEvent } from '../../../tests/utils';
+import { fireEvent, render } from '../../../tests/utils';
 // eslint-disable-next-line import/no-unresolved
-import Form from '../../form';
 import type { InputProps, InputRef } from '..';
 import Input from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import Form from '../../form';
 
 describe('Input', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -343,7 +343,9 @@ describe('Input allowClear', () => {
   });
 
   it('should focus input after clear', () => {
-    const { container, unmount } = render(<Input allowClear defaultValue="111" />, { container: document.body });
+    const { container, unmount } = render(<Input allowClear defaultValue="111" />, {
+      container: document.body,
+    });
     fireEvent.click(container.querySelector('.ant-input-clear-icon')!);
     expect(document.activeElement).toBe(container.querySelector('input'));
     unmount();
@@ -366,9 +368,12 @@ describe('Input allowClear', () => {
   // https://github.com/ant-design/ant-design/issues/31200
   it('should not lost focus when clear input', () => {
     const onBlur = jest.fn();
-    const { container, unmount } = render(<Input allowClear defaultValue="value" onBlur={onBlur} />, {
-      container: document.body,
-    });
+    const { container, unmount } = render(
+      <Input allowClear defaultValue="value" onBlur={onBlur} />,
+      {
+        container: document.body,
+      },
+    );
     container.querySelector('input')?.focus();
     fireEvent.mouseDown(container.querySelector('.ant-input-clear-icon')!);
     fireEvent.click(container.querySelector('.ant-input-clear-icon')!);

@@ -1,7 +1,7 @@
 /* eslint-disable react/no-multi-comp */
 import React from 'react';
-import { render, fireEvent, act } from '../../../tests/utils';
 import Table from '..';
+import { act, fireEvent, render } from '../../../tests/utils';
 
 describe('Table.sorter', () => {
   const sorterFn = (a, b) => a.name[0].charCodeAt() - b.name[0].charCodeAt();

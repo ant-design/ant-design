@@ -1,5 +1,5 @@
-import type * as React from 'react';
 import padStart from 'lodash/padStart';
+import type * as React from 'react';
 
 export type valueType = number | string;
 export type countdownValueType = valueType | string;

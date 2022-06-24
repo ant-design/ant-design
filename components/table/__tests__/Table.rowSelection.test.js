@@ -292,6 +292,79 @@ describe('Table.rowSelection', () => {
     ]);
   });
 
+  it('reset last select key after performing select and bulk operations', async () => {
+    jest.useFakeTimers();
+    const onChange = jest.fn();
+
+    const { container, baseElement } = render(
+      createTable({
+        checkbox: true,
+        rowSelection: {
+          selections: [Table.SELECTION_NONE],
+          onChange: keys => onChange(keys),
+        },
+      }),
+    );
+
+    const last = () => {
+      const elements = container.querySelectorAll('td input');
+      return elements[elements.length - 1];
+    };
+
+    const first = () => {
+      const elements = container.querySelectorAll('td input');
+      return elements[0];
+    };
+
+    const allElement = () => container.querySelector('th input');
+
+    // Multiple select normal
+    fireEvent.click(last());
+    expect(onChange).toHaveBeenLastCalledWith([3]);
+    fireEvent.click(first(), {
+      shiftKey: true,
+    });
+    expect(onChange).toHaveBeenLastCalledWith([3, 0, 1, 2]);
+    fireEvent.click(allElement());
+    console.log(baseElement.innerHTML);
+    expect(onChange).toHaveBeenLastCalledWith([]);
+
+    // Reset last select key when select all
+    fireEvent.click(last());
+    expect(onChange).toHaveBeenLastCalledWith([3]);
+    fireEvent.click(allElement());
+    fireEvent.click(allElement());
+    expect(onChange).toHaveBeenLastCalledWith([]);
+    fireEvent.click(first(), {
+      shiftKey: true,
+    });
+    expect(onChange).toHaveBeenLastCalledWith([0]);
+
+    // Reset last select key when deselect
+    fireEvent.click(last());
+    expect(onChange).toHaveBeenLastCalledWith([0, 3]);
+    fireEvent.click(first());
+    expect(onChange).toHaveBeenLastCalledWith([3]);
+    fireEvent.click(first(), {
+      shiftKey: true,
+    });
+    expect(onChange).toHaveBeenLastCalledWith([3, 0]);
+
+    // Reset last select key when bulk operations
+    fireEvent.mouseEnter(container.querySelector('.ant-dropdown-trigger'));
+    act(() => {
+      jest.runAllTimers();
+    });
+    fireEvent.click(baseElement.querySelector('li.ant-dropdown-menu-item'));
+    expect(onChange).toHaveBeenLastCalledWith([]);
+    fireEvent.click(first(), {
+      shiftKey: true,
+    });
+    expect(onChange).toHaveBeenLastCalledWith([0]);
+
+    jest.useRealTimers();
+  });
+
   it('fires selectAll event', () => {
     const order = [];
     const handleSelectAll = jest.fn().mockImplementation(() => {

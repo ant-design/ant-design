@@ -1,6 +1,6 @@
 import React from 'react';
-import { render } from '../../../tests/utils';
 import Table from '..';
+import { render } from '../../../tests/utils';
 
 const columns = [
   { title: 'Column 1', dataIndex: 'address', key: '1' },

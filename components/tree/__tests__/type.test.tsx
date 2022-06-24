@@ -51,7 +51,6 @@ describe('Tree.TypeScript', () => {
     expect(container).toBeTruthy();
   });
 
-
   it('directoryTree support generic', () => {
     interface MyDataNode extends BasicDataNode {
       bamboo: string;

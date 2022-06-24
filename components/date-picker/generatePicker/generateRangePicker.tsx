@@ -1,23 +1,23 @@
-import * as React from 'react';
-import { forwardRef, useContext, useImperativeHandle } from 'react';
-import classNames from 'classnames';
 import CalendarOutlined from '@ant-design/icons/CalendarOutlined';
 import ClockCircleOutlined from '@ant-design/icons/ClockCircleOutlined';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import SwapRightOutlined from '@ant-design/icons/SwapRightOutlined';
+import classNames from 'classnames';
 import { RangePicker as RCRangePicker } from 'rc-picker';
 import type { GenerateConfig } from 'rc-picker/lib/generate/index';
-import enUS from '../locale/en_US';
-import { ConfigContext } from '../../config-provider';
-import SizeContext from '../../config-provider/SizeContext';
-import DisabledContext from '../../config-provider/DisabledContext';
-import LocaleReceiver from '../../locale-provider/LocaleReceiver';
-import { getRangePlaceholder, transPlacement2DropdownAlign } from '../util';
+import * as React from 'react';
+import { forwardRef, useContext, useImperativeHandle } from 'react';
 import type { PickerLocale, RangePickerProps } from '.';
 import { Components, getTimeProps } from '.';
+import { ConfigContext } from '../../config-provider';
+import DisabledContext from '../../config-provider/DisabledContext';
+import SizeContext from '../../config-provider/SizeContext';
 import { FormItemInputContext } from '../../form/context';
+import LocaleReceiver from '../../locale-provider/LocaleReceiver';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
-import type { PickerComponentClass, CommonPickerMethods } from './interface';
+import enUS from '../locale/en_US';
+import { getRangePlaceholder, transPlacement2DropdownAlign } from '../util';
+import type { CommonPickerMethods, PickerComponentClass } from './interface';
 
 export default function generateRangePicker<DateType>(
   generateConfig: GenerateConfig<DateType>,
