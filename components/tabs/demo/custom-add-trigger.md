@@ -51,7 +51,7 @@ const App: React.FC = () => {
       if (lastIndex >= 0) {
         newActiveKey = panes[lastIndex].key;
       } else {
-        newActiveKey = panes[0].key;
+        newActiveKey = panes[1].key;
       }
       setActiveKey(newActiveKey);
     }
