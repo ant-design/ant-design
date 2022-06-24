@@ -220,7 +220,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = token => {
 
         // Wrapper > Checkbox > inner
         [`${checkboxCls}-inner`]: {
-          background: token.colorBgContainer,
+          background: token.colorBgComponentDisabled,
           borderColor: token.colorBorder,
 
           '&:after': {

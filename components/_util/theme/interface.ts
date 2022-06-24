@@ -41,6 +41,7 @@ import type { ComponentToken as TooltipComponentToken } from '../../tooltip/styl
 import type { ComponentToken as TransferComponentToken } from '../../transfer/style';
 import type { ComponentToken as TypographyComponentToken } from '../../typography/style';
 import type { ComponentToken as UploadComponentToken } from '../../upload/style';
+import type { BgPalettes, TextAlphaPalettes } from './themes/IPalettes';
 
 export const PresetColors = [
   'blue',
@@ -175,6 +176,7 @@ export interface SeedToken extends PresetColorType {
   motionEaseOutBack: string;
   motionEaseInQuint: string;
   motionEaseOutQuint: string;
+  motionEaseOut: string;
 
   // Radius
   radiusBase: number;
@@ -214,32 +216,22 @@ export interface DerivativeToken extends SeedToken, ColorPalettes {
   colorPrimaryBorderHover: string;
 
   colorSuccessSecondary: string;
-  colorBgSuccess: string; // success[0]
+  colorSuccessBg: string; // success[0]
 
   colorWarningHover: string;
   colorWarningActive: string;
   colorWarningOutline: string;
   colorWarningSecondary: string;
-  colorBgWarning: string;
+  colorWarningBg: string;
 
   colorErrorHover: string;
   colorErrorActive: string;
   colorErrorOutline: string;
   colorErrorSecondary: string;
-  colorBgError: string;
+  colorErrorBg: string;
 
   colorInfoSecondary: string;
-  colorBgInfo: string;
-
-  colorText2: string;
-  colorTextBelow: string;
-  colorTextBelow2: string;
-  colorTextBelow3: string;
-
-  colorBg2: string;
-  colorBg3: string;
-  colorBgBelow: string;
-  colorBgBelow2: string;
+  colorInfoBg: string;
 
   colorHighlight: string;
 
@@ -278,23 +270,18 @@ export interface DerivativeToken extends SeedToken, ColorPalettes {
   controlHeightXS: number;
   controlHeightSM: number;
   controlHeightLG: number;
+
+  // Map Token
+  bgColors: BgPalettes;
+  textColors: TextAlphaPalettes;
 }
 
 // ======================================================================
 // ==                           Alias Token                            ==
 // ======================================================================
 // FIXME: DerivativeToken should part pick
-type OmitDerivativeKey =
-  | 'colorText2'
-  | 'colorTextBelow'
-  | 'colorTextBelow2'
-  | 'colorTextBelow3'
-  | 'colorBg2'
-  | 'colorBgBelow'
-  | 'colorBgBelow2';
-
 // 🔥🔥🔥🔥🔥🔥🔥 DO NOT MODIFY THIS. PLEASE CONTACT DESIGNER. 🔥🔥🔥🔥🔥🔥🔥
-export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
+export interface AliasToken extends DerivativeToken {
   // Font
   fontSizeSM: number;
   fontSize: number;
@@ -407,8 +394,6 @@ export interface AliasToken extends Omit<DerivativeToken, OmitDerivativeKey> {
   screenXXL: number;
   screenXXLMin: number;
   screenXXLMax: number;
-
-  motionEaseOut: string;
 
   controlMaskBg: string;
   colorBorderSecondary: string;

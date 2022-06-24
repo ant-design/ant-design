@@ -1,8 +1,6 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
-
-import { TinyColor } from '@ctrl/tinycolor';
 import type { FullToken, GenerateStyle } from '../../_util/theme';
 import { genComponentStyleHook, mergeToken } from '../../_util/theme';
 
@@ -370,8 +368,12 @@ export default genComponentStyleHook(
     });
     return [genBaseStyle(skeletonToken)];
   },
-  {
-    color: new TinyColor({ r: 190, g: 190, b: 190, a: 0.2 }).toRgbString(),
-    colorGradientEnd: new TinyColor({ r: 129, g: 129, b: 129, a: 0.24 }).toRgbString(),
+  token => {
+    const { textColors } = token;
+
+    return {
+      color: textColors['12'],
+      colorGradientEnd: textColors['25'],
+    };
   },
 );

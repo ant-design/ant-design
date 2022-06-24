@@ -1,23 +1,23 @@
+import { presetDarkPalettes, presetPalettes } from '@ant-design/colors';
+import { createCache, StyleProvider } from '@ant-design/cssinjs';
+import { setTwoToneColor } from '@ant-design/icons';
+import { ConfigProvider } from 'antd';
+import zhCN from 'antd/lib/locale/zh_CN';
+import { browserHistory } from 'bisheng/router';
+import classNames from 'classnames';
+import 'dayjs/locale/zh-cn';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import classNames from 'classnames';
-import { IntlProvider } from 'react-intl';
-import { presetPalettes, presetDarkPalettes } from '@ant-design/colors';
-import themeSwitcher from 'theme-switcher';
-import { setTwoToneColor } from '@ant-design/icons';
-import { StyleProvider, createCache } from '@ant-design/cssinjs';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import 'dayjs/locale/zh-cn';
-import { ConfigProvider } from 'antd';
-import { browserHistory } from 'bisheng/router';
-import zhCN from 'antd/lib/locale/zh_CN';
-import Header from './Header';
-import SiteContext from './SiteContext';
+import { IntlProvider } from 'react-intl';
+import themeSwitcher from 'theme-switcher';
 import enLocale from '../../en-US';
 import cnLocale from '../../zh-CN';
 import * as utils from '../utils';
-import defaultSeedToken from '../../../../components/_util/theme/themes/default';
+import Header from './Header';
+import SiteContext from './SiteContext';
 
+import defaultSeedToken from '../../../../components/_util/theme/themes/seed';
 import DynamicTheme from './DynamicTheme';
 
 if (typeof window !== 'undefined' && navigator.serviceWorker) {
@@ -44,7 +44,7 @@ if (typeof window !== 'undefined') {
   window['@ant-design/icons'] = require('@ant-design/icons');
 
   // Error log statistic
-  window.addEventListener('error', function onError(e) {
+  window.addEventListener('error', e => {
     // Ignore ResizeObserver error
     if (e.message === 'ResizeObserver loop limit exceeded') {
       e.stopPropagation();
@@ -76,6 +76,7 @@ export default class Layout extends React.Component {
   static contextType = SiteContext;
 
   isBeforeComponent = false;
+
   syncIframeThemeId = null;
 
   constructor(props) {
@@ -266,7 +267,6 @@ export default class Layout extends React.Component {
               />
               <title>{title}</title>
               <link
-                rel="apple-touch-icon-precomposed"
                 sizes="144x144"
                 href="https://gw.alipayobjects.com/zos/antfincdn/UmVnt3t4T0/antd.png"
               />

@@ -1,6 +1,5 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
-import { TinyColor } from '@ctrl/tinycolor';
 import type { FullToken, GenerateStyle } from '../../_util/theme';
 import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
 
@@ -9,14 +8,14 @@ export interface ComponentToken {
   bgColor: string;
   bgColorHover: string;
   bgColorSelected: string;
-  labelColor: string;
-  labelColorHover: string;
 }
 
 interface SegmentedToken extends FullToken<'Segmented'> {
   segmentedPaddingHorizontal: number;
   segmentedPaddingHorizontalSM: number;
   segmentedContainerPadding: number;
+  labelColor: string;
+  labelColorHover: string;
 }
 
 // ============================== Mixins ==============================
@@ -172,20 +171,20 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
 export default genComponentStyleHook(
   'Segmented',
   token => {
-    const { lineWidthBold, controlLineWidth } = token;
+    const { lineWidthBold, controlLineWidth, textColors } = token;
 
     const segmentedToken = mergeToken<SegmentedToken>(token, {
       segmentedPaddingHorizontal: token.controlPaddingHorizontal - controlLineWidth,
       segmentedPaddingHorizontalSM: token.controlPaddingHorizontalSM - controlLineWidth,
       segmentedContainerPadding: lineWidthBold,
+      labelColor: textColors['65'],
+      labelColorHover: textColors['85'],
     });
     return [genSegmentedStyle(segmentedToken)];
   },
-  {
-    bgColor: new TinyColor('#000').setAlpha(0.04).toRgbString(),
-    bgColorHover: new TinyColor('#000').setAlpha(0.06).toRgbString(),
-    bgColorSelected: '#fff',
-    labelColor: new TinyColor('#000').setAlpha(0.65).toRgbString(),
-    labelColorHover: '#262626',
-  },
+  ({ bgColors, textColors }) => ({
+    bgColor: textColors['8'],
+    bgColorHover: textColors['12'],
+    bgColorSelected: bgColors['8'],
+  }),
 );
