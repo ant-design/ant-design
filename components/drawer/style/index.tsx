@@ -5,10 +5,6 @@ import type { FullToken, GenerateStyle } from '../../_util/theme';
 import { genComponentStyleHook, mergeToken } from '../../_util/theme';
 
 export interface DrawerToken extends FullToken<'Drawer'> {
-  shadow1Right: string;
-  shadow1Left: string;
-  shadow1Up: string;
-  shadow1Down: string;
   drawerFooterPaddingVertical: number;
   drawerFooterPaddingHorizontal: number;
 }
@@ -159,16 +155,7 @@ const genBaseStyle: GenerateStyle<DrawerToken> = (token: DrawerToken): CSSObject
 };
 
 const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
-  const {
-    componentCls,
-    motionDurationSlow,
-    shadow1Right,
-    shadow1Left,
-    shadow1Down,
-    shadow1Up,
-    lineWidth,
-    motionEaseOut,
-  } = token;
+  const { componentCls, motionDurationSlow, lineWidth, motionEaseOut } = token;
 
   return {
     // =================== left,right ===================
@@ -186,7 +173,7 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
       width: '100%',
       transition: `transform ${motionDurationSlow} ${motionEaseOut}`,
       [`${componentCls}-content-wrapper`]: {
-        boxShadow: shadow1Right,
+        boxShadow: token.boxShadowDrawerRight,
       },
     },
     [`${componentCls}-right`]: {
@@ -203,7 +190,7 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
       width: '100%',
       transition: `transform ${motionDurationSlow} ${motionEaseOut}`,
       [`${componentCls}-content-wrapper`]: {
-        boxShadow: shadow1Left,
+        boxShadow: token.boxShadowDrawerLeft,
       },
     },
     // https://github.com/ant-design/ant-design/issues/18607, Avoid edge alignment bug.
@@ -233,7 +220,7 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
 
     [`${componentCls}-top${componentCls}-open`]: {
       [`${componentCls}-content-wrapper`]: {
-        boxShadow: shadow1Down,
+        boxShadow: token.boxShadowDrawerDown,
       },
     },
 
@@ -246,7 +233,7 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
 
     [`${componentCls}-bottom${componentCls}-bottom-open`]: {
       [`${componentCls}-content-wrapper`]: {
-        boxShadow: shadow1Up,
+        boxShadow: token.boxShadowDrawerUp,
       },
     },
 
@@ -260,15 +247,6 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token: DrawerToken) => {
 // ============================== Export ==============================
 export default genComponentStyleHook('Drawer', token => {
   const drawerToken = mergeToken<DrawerToken>(token, {
-    // FIXME: shadow
-    shadow1Right:
-      '6px 0 16px -8px rgba(0, 0, 0, 0.08), 9px 0 28px 0 rgba(0, 0, 0, 0.05),12px 0 48px 16px rgba(0, 0, 0, 0.03)',
-    shadow1Left:
-      '-6px 0 16px -8px rgba(0, 0, 0, 0.08), -9px 0 28px 0 rgba(0, 0, 0, 0.05), -12px 0 48px 16px rgba(0, 0, 0, 0.03)',
-    shadow1Up:
-      '0 -6px 16px -8px rgba(0, 0, 0, 0.32), 0 -9px 28px 0 rgba(0, 0, 0, 0.2),0 -12px 48px 16px rgba(0, 0, 0, 0.12)',
-    shadow1Down:
-      '0 6px 16px -8px rgba(0, 0, 0, 0.32), 0 9px 28px 0 rgba(0, 0, 0, 0.2), 0 12px 48px 16px rgba(0, 0, 0, 0.12)',
     drawerFooterPaddingVertical: token.paddingXS,
     drawerFooterPaddingHorizontal: token.padding,
   });

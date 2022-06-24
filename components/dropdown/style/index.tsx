@@ -137,7 +137,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
         &-placement-topRight > ${componentCls}-arrow
       `]: {
           bottom: sizePopupArrow * Math.sqrt(1 / 2) + 2,
-          boxShadow: `3px 3px 7px -3px rgba(0, 0, 0, 0.1)`, // FIXME: hardcode
+          boxShadow: token.boxShadowPopoverArrow,
           transform: 'rotate(45deg)',
         },
 
@@ -169,7 +169,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
           &-placement-bottomRight > ${componentCls}-arrow
         `]: {
           top: (sizePopupArrow + 2) * Math.sqrt(1 / 2),
-          boxShadow: `2px 2px 5px -2px rgba(0, 0, 0, 0.1)`, // FIXME: hardcode
+          boxShadow: token.boxShadowPopoverArrowBottom, // FIXME: hardcode
           transform: `rotate(-135deg) translateY(-0.5px)`, // FIXME: hardcode
         },
 
