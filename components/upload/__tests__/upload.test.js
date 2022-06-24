@@ -937,10 +937,10 @@ describe('Upload', () => {
     );
 
     rerender(<Upload listType="picture-card" />);
-    expect(container.querySelector('.ant-upload-select-picture-card')).toHaveClass(
+    expect(container.querySelector('.ant-upload-select')).toHaveClass(
       'ant-upload-animate-inline-leave-start',
     );
-    expect(container.querySelector('.ant-upload-select-picture-card')).toHaveStyle({
+    expect(container.querySelector('.ant-upload-select')).toHaveStyle({
       pointerEvents: 'none',
     });
 
@@ -949,8 +949,8 @@ describe('Upload', () => {
       jest.runAllTimers();
     });
 
-    fireEvent.animationEnd(container.querySelector('.ant-upload-select-picture-card'));
-    expect(container.querySelector('.ant-upload-select-picture-card')).not.toHaveClass(
+    fireEvent.animationEnd(container.querySelector('.ant-upload-select'));
+    expect(container.querySelector('.ant-upload-select')).not.toHaveClass(
       'ant-upload-animate-inline-leave-start',
     );
 
