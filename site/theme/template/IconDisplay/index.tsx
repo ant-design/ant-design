@@ -1,14 +1,14 @@
-import * as React from 'react';
 import Icon, * as AntdIcons from '@ant-design/icons';
-import { Radio, Input, Empty } from 'antd';
+import { Empty, Input, Radio } from 'antd';
 import type { RadioChangeEvent } from 'antd/es/radio/interface';
-import { injectIntl } from 'react-intl';
 import debounce from 'lodash/debounce';
+import * as React from 'react';
+import { injectIntl } from 'react-intl';
 import Category from './Category';
-import IconPicSearcher from './IconPicSearcher';
-import { FilledIcon, OutlinedIcon, TwoToneIcon } from './themeIcons';
 import type { Categories, CategoriesKeys } from './fields';
 import { categories } from './fields';
+import IconPicSearcher from './IconPicSearcher';
+import { FilledIcon, OutlinedIcon, TwoToneIcon } from './themeIcons';
 
 export enum ThemeType {
   Filled = 'Filled',
@@ -61,8 +61,8 @@ class IconDisplay extends React.PureComponent<IconDisplayProps, IconDisplayState
     const { searchKey = '', theme } = this.state;
 
     const categoriesResult = Object.keys(categories)
-      .map((key: CategoriesKeys) => {
-        let iconList = categories[key];
+      .map(key => {
+        let iconList = categories[key as CategoriesKeys];
         if (searchKey) {
           const matchKey = searchKey
             // eslint-disable-next-line prefer-regex-literals

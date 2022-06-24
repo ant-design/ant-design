@@ -222,7 +222,7 @@ describe('Typography copy', () => {
     });
 
     it('the first parameter of onCopy is the click event', () => {
-      function onCopy(e: React.MouseEvent<HTMLDivElement>) {
+      function onCopy(e?: React.MouseEvent<HTMLDivElement>) {
         expect(e).not.toBeUndefined();
       }
 

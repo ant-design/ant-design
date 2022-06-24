@@ -1,9 +1,9 @@
-import React from 'react';
-import { axe } from 'jest-axe';
 import { render } from '@testing-library/react';
+import { axe } from 'jest-axe';
+import React from 'react';
 
 // eslint-disable-next-line jest/no-export
-export default function accessibilityTest(Component: React.ComponentType) {
+export default function accessibilityTest(Component: React.ComponentType<any>) {
   describe(`accessibility`, () => {
     it(`component does not have any violations`, async () => {
       jest.useRealTimers();

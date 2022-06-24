@@ -6,7 +6,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, sleep } from '../../../tests/utils';
 import type Countdown from '../Countdown';
-import { formatTimeStr } from '../utils';
+import { countdownValueType, formatTimeStr } from '../utils';
 
 describe('Statistic', () => {
   mountTest(Statistic);
@@ -53,13 +53,15 @@ describe('Statistic', () => {
   });
 
   it('allow negetive precision', () => {
-    [
-      [-1, -1112893.1212, '-1,112,893'],
-      [-2, -1112893.1212, '-1,112,893'],
-      [-3, -1112893.1212, '-1,112,893'],
-      [-1, -1112893, '-1,112,893'],
-      [-1, 1112893, '1,112,893'],
-    ].forEach(([precision, value, expectValue]: [number, number, string]) => {
+    (
+      [
+        [-1, -1112893.1212, '-1,112,893'],
+        [-2, -1112893.1212, '-1,112,893'],
+        [-3, -1112893.1212, '-1,112,893'],
+        [-1, -1112893, '-1,112,893'],
+        [-1, 1112893, '1,112,893'],
+      ] as const
+    ).forEach(([precision, value, expectValue]) => {
       const { container } = render(<Statistic precision={precision} value={value} />);
       expect(container.querySelector('.ant-statistic-content-value-int')!.textContent).toEqual(
         expectValue,
@@ -143,7 +145,7 @@ describe('Statistic', () => {
         const deadline = Date.now() + 10 * 1000;
         let remainingTime;
 
-        const onChange = (value: number) => {
+        const onChange = (value?: countdownValueType) => {
           remainingTime = value;
         };
         render(<Statistic.Countdown value={deadline} onChange={onChange} />);
