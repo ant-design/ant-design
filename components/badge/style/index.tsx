@@ -17,10 +17,11 @@ interface BadgeToken extends FullToken<'Badge'> {
   badgeFontSizeSm: number;
   badgeStatusSize: number;
   badgeShadowSize: number;
+  badgeShadowColor: string;
   badgeProcessingDuration: string;
-  badgeRibbbonOffset: number;
-  badgeRibbbonCornerTransform: string;
-  badgeRibbbonCornerFilter: string;
+  badgeRibbonOffset: number;
+  badgeRibbonCornerTransform: string;
+  badgeRibbonCornerFilter: string;
 }
 
 const antStatusProcessing = new Keyframes('antStatusProcessing', {
@@ -65,7 +66,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
     motionDurationSlow,
     badgeStatusSize,
     marginXS,
-    badgeRibbbonOffset,
+    badgeRibbonOffset,
   } = token;
   const numberPrefixCls = `${antCls}-scroll-number`;
   const ribbonPrefixCls = `${antCls}-ribbon`;
@@ -285,17 +286,17 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
       [`${ribbonPrefixCls}-corner`]: {
         position: 'absolute',
         top: '100%',
-        width: badgeRibbbonOffset,
-        height: badgeRibbbonOffset,
+        width: badgeRibbonOffset,
+        height: badgeRibbonOffset,
         color: 'currentcolor',
-        border: `${badgeRibbbonOffset / 2}px solid`,
-        transform: token.badgeRibbbonCornerTransform,
+        border: `${badgeRibbonOffset / 2}px solid`,
+        transform: token.badgeRibbonCornerTransform,
         transformOrigin: 'top',
-        filter: token.badgeRibbbonCornerFilter,
+        filter: token.badgeRibbonCornerFilter,
       },
       ...statusRibbonPreset,
       [`&${ribbonPrefixCls}-placement-end`]: {
-        insetInlineEnd: -badgeRibbbonOffset,
+        insetInlineEnd: -badgeRibbonOffset,
         borderEndEndRadius: 0,
         [`${ribbonPrefixCls}-corner`]: {
           insetInlineEnd: 0,
@@ -303,7 +304,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
         },
       },
       [`&${ribbonPrefixCls}-placement-start`]: {
-        insetInlineStart: -badgeRibbbonOffset,
+        insetInlineStart: -badgeRibbonOffset,
         borderEndStartRadius: 0,
         [`${ribbonPrefixCls}-corner`]: {
           insetInlineStart: 0,
@@ -345,11 +346,11 @@ export default genComponentStyleHook('Badge', token => {
     badgeFontSizeSm,
     badgeStatusSize,
     badgeProcessingDuration: '1.2s',
-    badgeRibbbonOffset: marginXS,
+    badgeRibbonOffset: marginXS,
 
     // Follow token just by Design. Not related with token
-    badgeRibbbonCornerTransform: 'scaleY(0.75)',
-    badgeRibbbonCornerFilter: `brightness(75%)`,
+    badgeRibbonCornerTransform: 'scaleY(0.75)',
+    badgeRibbonCornerFilter: `brightness(75%)`,
   });
 
   return [genSharedBadgeStyle(badgeToken)];

@@ -1,6 +1,5 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
-import { TinyColor } from '@ctrl/tinycolor';
 
 import type { FullToken, GenerateStyle } from '../../_util/theme';
 import { clearFix, genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
@@ -376,11 +375,7 @@ export default genComponentStyleHook('Card', token => {
   const cardHeadPadding = token.padding;
 
   const cardToken = mergeToken<CardToken>(token, {
-    cardShadow: `
-      0 1px 2px -2px ${new TinyColor('rgba(0, 0, 0, 0.16)').toRgbString()},
-      0 3px 6px 0 ${new TinyColor('rgba(0, 0, 0, 0.12)').toRgbString()},
-      0 5px 12px 4px ${new TinyColor('rgba(0, 0, 0, 0.09)').toRgbString()}
-    `, // FIXME: shadow
+    cardShadow: token.boxShadowCard,
     cardHeadHeight: token.fontSizeLG + cardHeadPadding * 2,
     cardHeadPadding,
     cardPaddingBase: token.paddingLG,

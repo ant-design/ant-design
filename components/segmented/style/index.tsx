@@ -17,7 +17,6 @@ interface SegmentedToken extends FullToken<'Segmented'> {
   segmentedPaddingHorizontal: number;
   segmentedPaddingHorizontalSM: number;
   segmentedContainerPadding: number;
-  segmentedSelectedItemBoxShadow: string;
 }
 
 // ============================== Mixins ==============================
@@ -34,7 +33,7 @@ function getSegmentedItemSelectedStyle(token: SegmentedToken): CSSObject {
   return {
     backgroundColor: token.bgColorSelected,
     borderRadius: token.controlRadius,
-    boxShadow: token.segmentedSelectedItemBoxShadow,
+    boxShadow: token.boxShadowSegmentedSelectedItem,
   };
 }
 
@@ -175,14 +174,7 @@ export default genComponentStyleHook(
   token => {
     const { lineWidthBold, controlLineWidth } = token;
 
-    const segmentedSelectedItemBoxShadow = [
-      `0 2px 8px -2px ${new TinyColor('#000').setAlpha(0.05).toRgbString()}`,
-      `0 1px 4px -1px ${new TinyColor('#000').setAlpha(0.07).toRgbString()}`,
-      `0 0 1px 0 ${new TinyColor('#000').setAlpha(0.08).toRgbString()}`,
-    ].join(',');
-
     const segmentedToken = mergeToken<SegmentedToken>(token, {
-      segmentedSelectedItemBoxShadow,
       segmentedPaddingHorizontal: token.controlPaddingHorizontal - controlLineWidth,
       segmentedPaddingHorizontalSM: token.controlPaddingHorizontalSM - controlLineWidth,
       segmentedContainerPadding: lineWidthBold,

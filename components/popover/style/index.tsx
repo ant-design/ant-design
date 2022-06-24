@@ -93,7 +93,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = token => {
     },
 
     // Arrow Style
-    getArrowStyle(token, popoverBg),
+    getArrowStyle(token, token.colorBgElevated),
   ];
 };
 
