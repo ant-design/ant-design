@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import type { UploadProps as RcUploadProps } from 'rc-upload';
 import RcUpload from 'rc-upload';
-import type { RcFile, UploadProgressEvent } from 'rc-upload/lib/interface';
+import type { UploadProgressEvent } from 'rc-upload/lib/interface';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
@@ -9,6 +9,7 @@ import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
 import warning from '../_util/warning';
 import type {
+  RcFile,
   ShowUploadListInterface,
   UploadChangeParam,
   UploadFile,
@@ -384,7 +385,11 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
           onDragLeave={onFileDrop}
           style={style}
         >
-          <RcUpload {...rcUploadProps} ref={upload} className={`${prefixCls}-btn`}>
+          <RcUpload
+            {...(rcUploadProps as RcUploadProps)}
+            ref={upload}
+            className={`${prefixCls}-btn`}
+          >
             <div className={`${prefixCls}-drag-container`}>{children}</div>
           </RcUpload>
         </div>
@@ -402,7 +407,7 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
 
   const renderUploadButton = (uploadButtonStyle?: React.CSSProperties) => (
     <div className={uploadButtonCls} style={uploadButtonStyle}>
-      <RcUpload {...rcUploadProps} ref={upload} />
+      <RcUpload {...(rcUploadProps as RcUploadProps)} ref={upload} />
     </div>
   );
 

@@ -1,11 +1,15 @@
 import type {
-  RcFile,
+  RcFile as OriRcFile,
   UploadProgressEvent,
   UploadProps as RcUploadProps,
   UploadRequestOption as RcCustomRequestOptions,
 } from 'rc-upload/lib/interface';
 import type * as React from 'react';
 import type { ProgressProps } from '../progress';
+
+export interface RcFile extends OriRcFile {
+  readonly lastModifiedDate: Date;
+}
 
 export type UploadFileStatus = 'error' | 'success' | 'done' | 'uploading' | 'removed';
 
