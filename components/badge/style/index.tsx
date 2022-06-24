@@ -17,10 +17,11 @@ interface BadgeToken extends FullToken<'Badge'> {
   badgeFontSizeSm: number;
   badgeStatusSize: number;
   badgeShadowSize: number;
+  badgeShadowColor: string;
   badgeProcessingDuration: string;
-  badgeRibbbonOffset: number;
-  badgeRibbbonCornerTransform: string;
-  badgeRibbbonCornerFilter: string;
+  badgeRibbonOffset: number;
+  badgeRibbonCornerTransform: string;
+  badgeRibbonCornerFilter: string;
 }
 
 const antStatusProcessing = new Keyframes('antStatusProcessing', {
@@ -65,7 +66,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
     motionDurationSlow,
     badgeStatusSize,
     marginXS,
-    badgeRibbbonOffset,
+    badgeRibbonOffset,
   } = token;
   const numberPrefixCls = `${antCls}-scroll-number`;
   const ribbonPrefixCls = `${antCls}-ribbon`;
@@ -113,7 +114,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
         textAlign: 'center',
         background: token.badgeColor,
         borderRadius: token.badgeHeight / 2,
-        boxShadow: `0 0 0 ${badgeShadowSize}px ${token.colorBgComponent}`,
+        boxShadow: `0 0 0 ${badgeShadowSize}px ${token.badgeShadowColor}`,
         a: {
           color: token.badgeTextColor,
         },
@@ -140,7 +141,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
         height: token.badgeDotSize,
         background: token.badgeColor,
         borderRadius: '100%',
-        boxShadow: `0 0 0 ${badgeShadowSize}px ${token.colorBgComponent}`,
+        boxShadow: `0 0 0 ${badgeShadowSize}px ${token.badgeShadowColor}`,
       },
       [`${componentCls}-dot${numberPrefixCls}`]: {
         transition: `background ${motionDurationSlow}`,
@@ -285,17 +286,17 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
       [`${ribbonPrefixCls}-corner`]: {
         position: 'absolute',
         top: '100%',
-        width: badgeRibbbonOffset,
-        height: badgeRibbbonOffset,
+        width: badgeRibbonOffset,
+        height: badgeRibbonOffset,
         color: 'currentcolor',
-        border: `${badgeRibbbonOffset / 2}px solid`,
-        transform: token.badgeRibbbonCornerTransform,
+        border: `${badgeRibbonOffset / 2}px solid`,
+        transform: token.badgeRibbonCornerTransform,
         transformOrigin: 'top',
-        filter: token.badgeRibbbonCornerFilter,
+        filter: token.badgeRibbonCornerFilter,
       },
       ...statusRibbonPreset,
       [`&${ribbonPrefixCls}-placement-end`]: {
-        insetInlineEnd: -badgeRibbbonOffset,
+        insetInlineEnd: -badgeRibbonOffset,
         borderEndEndRadius: 0,
         [`${ribbonPrefixCls}-corner`]: {
           insetInlineEnd: 0,
@@ -303,7 +304,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
         },
       },
       [`&${ribbonPrefixCls}-placement-start`]: {
-        insetInlineStart: -badgeRibbbonOffset,
+        insetInlineStart: -badgeRibbonOffset,
         borderEndStartRadius: 0,
         [`${ribbonPrefixCls}-corner`]: {
           insetInlineStart: 0,
@@ -316,7 +317,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Badge', token => {
-  const { fontSize, lineHeight, fontSizeSM, controlLineWidth, marginXS } = token;
+  const { fontSize, lineHeight, fontSizeSM, controlLineWidth, marginXS, bgColors } = token;
 
   const badgeFontHeight = Math.round(fontSize * lineHeight);
   const badgeShadowSize = controlLineWidth;
@@ -340,16 +341,17 @@ export default genComponentStyleHook('Badge', token => {
     badgeFontWeight,
     badgeFontSize,
     badgeColor,
+    badgeShadowColor: bgColors['0'],
     badgeHeightSm,
     badgeDotSize,
     badgeFontSizeSm,
     badgeStatusSize,
     badgeProcessingDuration: '1.2s',
-    badgeRibbbonOffset: marginXS,
+    badgeRibbonOffset: marginXS,
 
     // Follow token just by Design. Not related with token
-    badgeRibbbonCornerTransform: 'scaleY(0.75)',
-    badgeRibbbonCornerFilter: `brightness(75%)`,
+    badgeRibbonCornerTransform: 'scaleY(0.75)',
+    badgeRibbonCornerFilter: `brightness(75%)`,
   });
 
   return [genSharedBadgeStyle(badgeToken)];
