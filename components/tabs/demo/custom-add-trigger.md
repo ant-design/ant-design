@@ -43,11 +43,8 @@ const App: React.FC = () => {
     const targetIndex = panes.findIndex((pane) => pane.key === targetKey);
     const newPanes = panes.filter((pane) => pane.key !== targetKey);
     if (newPanes.length && targetKey === activeKey) {
-      const newActiveKey =
-        newPanes[
-          targetIndex === newPanes.length ? targetIndex - 1 : targetIndex
-          ].key;
-      setActiveKey(newActiveKey);
+      const { key } = newPanes[targetIndex === newPanes.length ? targetIndex - 1 : targetIndex];
+      setActiveKey(key);
     }
     setPanes(newPanes);
   };
