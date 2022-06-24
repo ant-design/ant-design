@@ -19,6 +19,7 @@ import { DisabledContextProvider } from './DisabledContext';
 import useTheme from './hooks/useTheme';
 import type { SizeType } from './SizeContext';
 import SizeContext, { SizeContextProvider } from './SizeContext';
+import useGlobalStyle from './style';
 
 export {
   RenderEmptyHandler,
@@ -86,6 +87,7 @@ export interface ConfigProviderProps {
   virtual?: boolean;
   dropdownMatchSelectWidth?: boolean;
   theme?: ThemeConfig;
+  disableGlobalCSS?: boolean;
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -156,7 +158,10 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     iconPrefixCls,
     theme,
     componentDisabled,
+    disableGlobalCSS,
   } = props;
+
+  const wrapSSR = useGlobalStyle(disableGlobalCSS);
 
   const getPrefixCls = React.useCallback(
     (suffixCls: string, customizePrefixCls?: string) => {
@@ -274,7 +279,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     );
   }
 
-  return <ConfigContext.Provider value={memoedConfig}>{childNode}</ConfigContext.Provider>;
+  return wrapSSR(<ConfigContext.Provider value={memoedConfig}>{childNode}</ConfigContext.Provider>);
 };
 
 const ConfigProvider: React.FC<ConfigProviderProps> & {
