@@ -1,6 +1,10 @@
 import { kebabCase } from 'lodash';
 import canUseDom from 'rc-util/lib/Dom/canUseDom';
+import React from 'react';
 import ConfigProvider from '..';
+import { render } from '../../../tests/utils';
+import { useToken } from '../../_util/theme';
+import darkDerivative from '../../_util/theme/themes/dark';
 import { resetWarned } from '../../_util/warning';
 
 let mockCanUseDom = true;
@@ -50,5 +54,18 @@ describe('ConfigProvider.Theme', () => {
     errorSpy.mockRestore();
   });
 
-  it('derivative should work', () => {});
+  it('derivative should work', () => {
+    let tokenRef: any;
+    const Demo = () => {
+      const [, token] = useToken();
+      tokenRef = token;
+      return null;
+    };
+    render(
+      <ConfigProvider theme={{ derivative: darkDerivative }}>
+        <Demo />
+      </ConfigProvider>,
+    );
+    expect(tokenRef?.colorBgComponent).toBe('#141414');
+  });
 });
