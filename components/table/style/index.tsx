@@ -57,6 +57,7 @@ export interface TableToken extends FullToken<'Table'> {
   tableFontSizeSmall: number;
   tableSelectionColumnWidth: number;
   tableExpandIconBg: string;
+  tableExpandColumnWidth: number;
   tableExpandedRowBg: string;
   tableFilterDropdownWidth: number;
   tableFilterDropdownSearchWidth: number;
@@ -181,7 +182,9 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
             `]: {
               [componentCls]: {
                 marginBlock: `-${tablePaddingVertical}px`,
-                marginInline: `${tablePaddingHorizontal * 2}px -${tablePaddingHorizontal}px`,
+                marginInline: `${
+                  token.tableExpandColumnWidth - tablePaddingHorizontal
+                }px -${tablePaddingHorizontal}px`,
                 [`${componentCls}-tbody > tr:last-child > td`]: {
                   borderBottom: 0,
                   '&:first-child, &:last-child': {
@@ -245,6 +248,7 @@ export default genComponentStyleHook(
       radiusBase,
       headerHoverBgColor,
       headerSortActiveBgColor,
+      controlInteractiveSize: checkboxSize,
     } = token;
 
     const baseColorAction = new TinyColor(colorAction);
@@ -305,6 +309,8 @@ export default genComponentStyleHook(
       tableScrollThumbBg: colorTextPlaceholder,
       tableScrollThumbBgHover: colorTextHeading,
       tableScrollBg: colorSplit,
+
+      tableExpandColumnWidth: checkboxSize + 2 * token.padding,
     });
 
     return [
