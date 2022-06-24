@@ -937,8 +937,11 @@ describe('Upload', () => {
     );
 
     rerender(<Upload listType="picture-card" />);
-    expect(container.querySelector('.ant-upload-select')).not.toHaveStyle({
-      display: 'none',
+    expect(container.querySelector('.ant-upload-select')).toHaveClass(
+      'ant-upload-animate-inline-leave-start',
+    );
+    expect(container.querySelector('.ant-upload-select')).toHaveStyle({
+      pointerEvents: 'none',
     });
 
     // Motion leave status change: start > active
@@ -947,10 +950,9 @@ describe('Upload', () => {
     });
 
     fireEvent.animationEnd(container.querySelector('.ant-upload-select'));
-
-    expect(container.querySelector('.ant-upload-select')).toHaveStyle({
-      display: 'none',
-    });
+    expect(container.querySelector('.ant-upload-select')).not.toHaveClass(
+      'ant-upload-animate-inline-leave-start',
+    );
 
     jest.useRealTimers();
   });

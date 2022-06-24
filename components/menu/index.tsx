@@ -91,7 +91,7 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
   );
 
   warning(
-    !!items && !children,
+    'items' in props && !children,
     'Menu',
     '`children` will be removed in next major version. Please use `items` instead.',
   );

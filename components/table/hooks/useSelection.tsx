@@ -271,75 +271,83 @@ export default function useSelection<RecordType>(
     const selectionList: INTERNAL_SELECTION_ITEM[] =
       selections === true ? [SELECTION_ALL, SELECTION_INVERT, SELECTION_NONE] : selections;
 
-    return selectionList.map((selection: INTERNAL_SELECTION_ITEM) => {
-      if (selection === SELECTION_ALL) {
-        return {
-          key: 'all',
-          text: tableLocale.selectionAll,
-          onSelect() {
-            setSelectedKeys(
-              data
-                .map((record, index) => getRowKey(record, index))
-                .filter(key => {
-                  const checkProps = checkboxPropsMap.get(key);
-                  return !checkProps?.disabled || derivedSelectedKeySet.has(key);
-                }),
-              'all',
-            );
-          },
-        };
-      }
-      if (selection === SELECTION_INVERT) {
-        return {
-          key: 'invert',
-          text: tableLocale.selectInvert,
-          onSelect() {
-            const keySet = new Set(derivedSelectedKeySet);
-            pageData.forEach((record, index) => {
-              const key = getRowKey(record, index);
-              const checkProps = checkboxPropsMap.get(key);
-
-              if (!checkProps?.disabled) {
-                if (keySet.has(key)) {
-                  keySet.delete(key);
-                } else {
-                  keySet.add(key);
-                }
-              }
-            });
-
-            const keys = Array.from(keySet);
-            if (onSelectInvert) {
-              warning(
-                false,
-                'Table',
-                '`onSelectInvert` will be removed in future. Please use `onChange` instead.',
+    return selectionList
+      .map((selection: INTERNAL_SELECTION_ITEM) => {
+        if (selection === SELECTION_ALL) {
+          return {
+            key: 'all',
+            text: tableLocale.selectionAll,
+            onSelect() {
+              setSelectedKeys(
+                data
+                  .map((record, index) => getRowKey(record, index))
+                  .filter(key => {
+                    const checkProps = checkboxPropsMap.get(key);
+                    return !checkProps?.disabled || derivedSelectedKeySet.has(key);
+                  }),
+                'all',
               );
-              onSelectInvert(keys);
-            }
-
-            setSelectedKeys(keys, 'invert');
-          },
-        };
-      }
-      if (selection === SELECTION_NONE) {
-        return {
-          key: 'none',
-          text: tableLocale.selectNone,
-          onSelect() {
-            onSelectNone?.();
-            setSelectedKeys(
-              Array.from(derivedSelectedKeySet).filter(key => {
+            },
+          };
+        }
+        if (selection === SELECTION_INVERT) {
+          return {
+            key: 'invert',
+            text: tableLocale.selectInvert,
+            onSelect() {
+              const keySet = new Set(derivedSelectedKeySet);
+              pageData.forEach((record, index) => {
+                const key = getRowKey(record, index);
                 const checkProps = checkboxPropsMap.get(key);
-                return checkProps?.disabled;
-              }),
-              'none',
-            );
-          },
-        };
-      }
-      return selection as SelectionItem;
-    });
+
+                if (!checkProps?.disabled) {
+                  if (keySet.has(key)) {
+                    keySet.delete(key);
+                  } else {
+                    keySet.add(key);
+                  }
+                }
+              });
+
+              const keys = Array.from(keySet);
+              if (onSelectInvert) {
+                warning(
+                  false,
+                  'Table',
+                  '`onSelectInvert` will be removed in future. Please use `onChange` instead.',
+                );
+                onSelectInvert(keys);
+              }
+
+              setSelectedKeys(keys, 'invert');
+            },
+          };
+        }
+        if (selection === SELECTION_NONE) {
+          return {
+            key: 'none',
+            text: tableLocale.selectNone,
+            onSelect() {
+              onSelectNone?.();
+              setSelectedKeys(
+                Array.from(derivedSelectedKeySet).filter(key => {
+                  const checkProps = checkboxPropsMap.get(key);
+                  return checkProps?.disabled;
+                }),
+                'none',
+              );
+            },
+          };
+        }
+        return selection as SelectionItem;
+      })
+      .map(selection => ({
+        ...selection,
+        onSelect: (...rest) => {
+          selection.onSelect?.(...rest);
+          setLastSelectedKey(null);
+        },
+      }));
   }, [selections, derivedSelectedKeySet, pageData, getRowKey, onSelectInvert, setSelectedKeys]);
 
   // ======================= Columns ========================
@@ -393,6 +401,7 @@ export default function useSelection<RecordType>(
         );
 
         setSelectedKeys(keys, 'all');
+        setLastSelectedKey(null);
       };
 
       // ===================== Render =====================
@@ -605,7 +614,11 @@ export default function useSelection<RecordType>(
                     }
                   }
 
-                  setLastSelectedKey(key);
+                  if (checked) {
+                    setLastSelectedKey(null);
+                  } else {
+                    setLastSelectedKey(key);
+                  }
                 }}
               />
             ),
