@@ -10,7 +10,7 @@ import warning from '../_util/warning';
 import RadioGroupContext, { RadioOptionTypeContext } from './context';
 import type { RadioChangeEvent, RadioProps } from './interface';
 
-const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (props, ref) => {
+const InternalRadio: React.ForwardRefRenderFunction<unknown, RadioProps> = (props, ref) => {
   const groupContext = React.useContext(RadioGroupContext);
   const radioOptionTypeContext = React.useContext(RadioOptionTypeContext);
 
@@ -77,7 +77,7 @@ const InternalRadio: React.ForwardRefRenderFunction<HTMLElement, RadioProps> = (
   );
 };
 
-const Radio = React.forwardRef<unknown, RadioProps>(InternalRadio);
+const Radio = React.forwardRef(InternalRadio);
 
 if (process.env.NODE_ENV !== 'production') {
   Radio.displayName = 'Radio';

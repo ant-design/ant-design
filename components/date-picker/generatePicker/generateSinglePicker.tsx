@@ -26,7 +26,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
     status?: InputStatus;
   };
 
-  function getPicker<InnerPickerProps extends DatePickerProps>(
+  function getPicker<InnerPickerProps extends Omit<DatePickerProps, 'picker'>>(
     picker?: PickerMode,
     displayName?: string,
   ) {
@@ -69,7 +69,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
         if (picker) {
           additionalOverrideProps.picker = picker;
         }
-        const mergedPicker = picker || props.picker;
+        const mergedPicker = picker || (props as DatePickerProps).picker;
 
         additionalOverrideProps = {
           ...additionalOverrideProps,
@@ -101,8 +101,8 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
 
         return (
           <LocaleReceiver componentName="DatePicker" defaultLocale={enUS}>
-            {(contextLocale: PickerLocale) => {
-              const locale = { ...contextLocale, ...props.locale };
+            {(contextLocale: PickerLocale | undefined) => {
+              const locale = { ...contextLocale, ...props.locale } as PickerLocale;
 
               return (
                 <RCPicker<DateType>

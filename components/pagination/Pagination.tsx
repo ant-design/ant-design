@@ -89,7 +89,7 @@ const Pagination: React.FC<PaginationProps> = ({
     };
   };
 
-  const renderPagination = (contextLocale: PaginationLocale) => {
+  const renderPagination = (contextLocale: PaginationLocale | undefined) => {
     const locale = { ...contextLocale, ...customLocale };
     const isSmall = size === 'small' || !!(xs && !size && responsive);
     const selectPrefixCls = getPrefixCls('select', customizeSelectPrefixCls);

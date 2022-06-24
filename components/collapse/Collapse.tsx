@@ -1,6 +1,7 @@
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import classNames from 'classnames';
 import RcCollapse from 'rc-collapse';
+import type { CollapseProps as RCCollapseProps } from 'rc-collapse/lib/interface';
 import type { CSSMotionProps } from 'rc-motion';
 import * as React from 'react';
 
@@ -129,6 +130,7 @@ const Collapse: CollapseInterface = props => {
     <RcCollapse
       openMotion={openMotion}
       {...props}
+      onChange={props.onChange as RCCollapseProps['onChange']}
       expandIcon={renderExpandIcon}
       prefixCls={prefixCls}
       className={collapseClassName}

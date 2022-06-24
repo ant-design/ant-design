@@ -52,7 +52,7 @@ const HookModal: React.ForwardRefRenderFunction<HookModalRef, HookModalProps> = 
 
   return (
     <LocaleReceiver componentName="Modal" defaultLocale={defaultLocale.Modal}>
-      {(modalLocale: ModalLocale) => (
+      {(modalLocale: ModalLocale | undefined) => (
         <ConfirmDialog
           prefixCls={prefixCls}
           rootPrefixCls={rootPrefixCls}
@@ -62,10 +62,10 @@ const HookModal: React.ForwardRefRenderFunction<HookModalRef, HookModalProps> = 
           afterClose={afterClose}
           okText={
             innerConfig.okText ||
-            (innerConfig.okCancel ? modalLocale.okText : modalLocale.justOkText)
+            (innerConfig.okCancel ? modalLocale?.okText : modalLocale?.justOkText)
           }
           direction={direction}
-          cancelText={innerConfig.cancelText || modalLocale.cancelText}
+          cancelText={innerConfig.cancelText || modalLocale?.cancelText}
         />
       )}
     </LocaleReceiver>

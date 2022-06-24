@@ -1,5 +1,6 @@
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
+import type { DialogProps } from 'rc-dialog';
 import Dialog from 'rc-dialog';
 import * as React from 'react';
 
@@ -151,12 +152,12 @@ const Modal: React.FC<ModalProps> = props => {
     onOk?.(e);
   };
 
-  const renderFooter = (locale: ModalLocale) => {
+  const renderFooter = (locale: ModalLocale | undefined) => {
     const { okText, okType, cancelText, confirmLoading } = props;
     return (
       <>
         <Button onClick={handleCancel} {...props.cancelButtonProps}>
-          {cancelText || locale.cancelText}
+          {cancelText || locale?.cancelText}
         </Button>
         <Button
           {...convertLegacyProps(okType)}
@@ -164,7 +165,7 @@ const Modal: React.FC<ModalProps> = props => {
           onClick={handleOk}
           {...props.okButtonProps}
         >
-          {okText || locale.okText}
+          {okText || locale?.okText}
         </Button>
       </>
     );
@@ -213,7 +214,7 @@ const Modal: React.FC<ModalProps> = props => {
         footer={footer === undefined ? defaultFooter : footer}
         visible={visible}
         mousePosition={mousePosition}
-        onClose={handleCancel}
+        onClose={handleCancel as DialogProps['onClose']}
         closeIcon={closeIconToRender}
         focusTriggerAfterClose={focusTriggerAfterClose}
         transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}

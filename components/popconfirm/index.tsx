@@ -136,7 +136,9 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
 
   const overlay = (
     <LocaleReceiver componentName="Popconfirm" defaultLocale={defaultLocale.Popconfirm}>
-      {(popconfirmLocale: PopconfirmLocale) => renderOverlay(prefixCls, popconfirmLocale)}
+      {(popconfirmLocale: PopconfirmLocale | undefined) =>
+        renderOverlay(prefixCls, popconfirmLocale!)
+      }
     </LocaleReceiver>
   );
 

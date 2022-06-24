@@ -62,7 +62,7 @@ const Card = React.forwardRef((props: CardProps, ref: React.Ref<HTMLDivElement>)
 
   const isContainGrid = () => {
     let containGrid;
-    React.Children.forEach(props.children, (element: JSX.Element) => {
+    React.Children.forEach(props.children as React.ReactElement, element => {
       if (element && element.type && element.type === Grid) {
         containGrid = true;
       }

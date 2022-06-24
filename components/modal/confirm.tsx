@@ -76,7 +76,7 @@ export default function confirm(config: ModalFuncProps) {
     });
   }
 
-  function close(...args: any[]) {
+  function close(this: unknown, ...args: any[]) {
     currentConfig = {
       ...currentConfig,
       visible: false,

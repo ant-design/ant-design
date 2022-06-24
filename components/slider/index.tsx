@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import type { SliderProps as RcSliderProps } from 'rc-slider';
+import type { SliderProps as RcSliderProps, SliderProps } from 'rc-slider';
 import RcSlider from 'rc-slider';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
@@ -148,7 +148,7 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
 
     return (
       <RcSlider
-        {...(restProps as SliderRangeProps)}
+        {...(restProps as SliderProps)}
         step={restProps.step!}
         range={mergedRange}
         draggableTrack={draggableTrack}
@@ -166,7 +166,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 Slider.defaultProps = {
-  tipFormatter(value: number) {
+  tipFormatter(value?: number) {
     return typeof value === 'number' ? value.toString() : '';
   },
 };

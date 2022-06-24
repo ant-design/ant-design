@@ -117,8 +117,8 @@ export default class Wave extends React.Component<WaveProps> {
       node.appendChild(extraNode);
     }
     ['transition', 'animation'].forEach(name => {
-      node.addEventListener(`${name}start`, this.onTransitionStart);
-      node.addEventListener(`${name}end`, this.onTransitionEnd);
+      node.addEventListener(`${name}start`, this.onTransitionStart as () => void);
+      node.addEventListener(`${name}end`, this.onTransitionEnd as () => void);
     });
   };
 
@@ -203,8 +203,8 @@ export default class Wave extends React.Component<WaveProps> {
       node.removeChild(this.extraNode);
     }
     ['transition', 'animation'].forEach(name => {
-      node.removeEventListener(`${name}start`, this.onTransitionStart);
-      node.removeEventListener(`${name}end`, this.onTransitionEnd);
+      node.removeEventListener(`${name}start`, this.onTransitionStart as () => void);
+      node.removeEventListener(`${name}end`, this.onTransitionEnd as () => void);
     });
   }
 

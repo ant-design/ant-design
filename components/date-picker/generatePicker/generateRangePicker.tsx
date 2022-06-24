@@ -80,8 +80,8 @@ export default function generateRangePicker<DateType>(
 
     return (
       <LocaleReceiver componentName="DatePicker" defaultLocale={enUS}>
-        {(contextLocale: PickerLocale) => {
-          const locale = { ...contextLocale, ...props.locale };
+        {(contextLocale?: PickerLocale) => {
+          const locale = { ...contextLocale, ...props.locale } as PickerLocale;
 
           return (
             <RCRangePicker<DateType>

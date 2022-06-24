@@ -18,7 +18,7 @@ import Row from '../grid/row';
 import { cloneElement, isValidElement } from '../_util/reactNode';
 import { tuple } from '../_util/type';
 import warning from '../_util/warning';
-import type { FormItemStatusContextProps } from './context';
+import type { FormItemStatusContextProps, ReportMetaChange } from './context';
 import { FormContext, FormItemInputContext, NoStyleItemContext } from './context';
 import type { FormItemInputProps } from './FormItemInput';
 import FormItemInput from './FormItemInput';
@@ -326,7 +326,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
           status={mergedValidateStatus}
           help={help}
         >
-          <NoStyleItemContext.Provider value={onSubItemMetaChange}>
+          <NoStyleItemContext.Provider value={onSubItemMetaChange as ReportMetaChange}>
             <FormItemInputContext.Provider value={formItemStatusContext}>
               {baseChildren}
             </FormItemInputContext.Provider>

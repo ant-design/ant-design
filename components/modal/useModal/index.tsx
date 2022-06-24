@@ -106,5 +106,5 @@ export default function useModal(): [Omit<ModalStaticFunctions, 'warn'>, React.R
   );
 
   // eslint-disable-next-line react/jsx-key
-  return [fns, <ElementsHolder ref={holderRef} />];
+  return [fns as Omit<ModalStaticFunctions, 'warn'>, <ElementsHolder ref={holderRef} />];
 }
