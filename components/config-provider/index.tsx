@@ -87,7 +87,7 @@ export interface ConfigProviderProps {
   virtual?: boolean;
   dropdownMatchSelectWidth?: boolean;
   theme?: ThemeConfig;
-  disableGlobalCSS?: boolean;
+  disableGlobalStyle?: boolean;
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -158,10 +158,10 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     iconPrefixCls,
     theme,
     componentDisabled,
-    disableGlobalCSS,
+    disableGlobalStyle,
   } = props;
 
-  const wrapSSR = useGlobalStyle(disableGlobalCSS);
+  const wrapSSR = useGlobalStyle(disableGlobalStyle);
 
   const getPrefixCls = React.useCallback(
     (suffixCls: string, customizePrefixCls?: string) => {
