@@ -14,14 +14,7 @@ When data is in the form of dates, such as schedules, timetables, prices calenda
 
 ## API
 
-**Note:** Part of the Calendar's locale is read from `value`. So, please set the locale of `moment` correctly.
-
 ```jsx
-// The default locale is en-US, if you want to use other locale, just set locale in entry file globally.
-// import moment from 'moment';
-// import 'moment/locale/zh-cn';
-// moment.locale('zh-cn');
-
 <Calendar
   dateCellRender={dateCellRender}
   monthCellRender={monthCellRender}
@@ -51,3 +44,4 @@ When data is in the form of dates, such as schedules, timetables, prices calenda
 ## FAQ
 
 - [How to use Calendar with customize date library like dayjs](/docs/react/replace-moment#Calendar)
+- [How to set locale for date-related components](/components/date-picker/#Localization)

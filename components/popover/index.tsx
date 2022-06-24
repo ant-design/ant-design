@@ -42,7 +42,9 @@ const Popover = React.forwardRef<unknown, PopoverProps>(
   },
 );
 
-Popover.displayName = 'Popover';
+if (process.env.NODE_ENV !== 'production') {
+  Popover.displayName = 'Popover';
+}
 
 Popover.defaultProps = {
   placement: 'top' as TooltipPlacement,

@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
-import { mount } from 'enzyme';
 import {
-  MailOutlined,
-  InboxOutlined,
   AppstoreOutlined,
+  InboxOutlined,
+  MailOutlined,
   PieChartOutlined,
   UserOutlined,
 } from '@ant-design/icons';
+import { mount } from 'enzyme';
+import React, { useState } from 'react';
 import { act } from 'react-dom/test-utils';
 import Menu from '..';
-import Layout from '../../layout';
-import Tooltip from '../../tooltip';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render, fireEvent } from '../../../tests/utils';
+import { fireEvent, render } from '../../../tests/utils';
+import Layout from '../../layout';
+import Tooltip from '../../tooltip';
 import collapseMotion from '../../_util/motion';
 import { noop } from '../../_util/warning';
 
@@ -816,6 +816,7 @@ describe('Menu', () => {
     );
     expect(onOpen).not.toHaveBeenCalled();
     expect(onClose).not.toHaveBeenCalled();
+    errorSpy.mockRestore();
   });
 
   // https://github.com/ant-design/ant-design/issues/18825
@@ -1001,5 +1002,14 @@ describe('Menu', () => {
     );
 
     expect(wrapper.render()).toMatchSnapshot();
+  });
+
+  it('should not warning deprecated message when items={undefined}', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => undefined);
+    mount(<Menu items={undefined} />);
+    expect(errorSpy).not.toHaveBeenCalledWith(
+      expect.stringContaining('`children` will be removed in next major version'),
+    );
+    errorSpy.mockRestore();
   });
 });

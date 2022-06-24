@@ -15,14 +15,7 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/dPQmLq08DI/Calendar.svg
 
 ## API
 
-**注意：**Calendar 部分 locale 是从 value 中读取，所以请先正确设置 moment 的 locale。
-
 ```jsx
-// 默认语言为 en-US，所以如果需要使用其他语言，推荐在入口文件全局设置 locale
-// import moment from 'moment';
-// import 'moment/locale/zh-cn';
-// moment.locale('zh-cn');
-
 <Calendar
   dateCellRender={dateCellRender}
   monthCellRender={monthCellRender}
@@ -52,3 +45,4 @@ cover: https://gw.alipayobjects.com/zos/antfincdn/dPQmLq08DI/Calendar.svg
 ## FAQ
 
 - [如何在 Calendar 中使用自定义日期库（如 dayjs ）](/docs/react/replace-moment#Calendar)
+- [如何给日期类组件配置国际化](/components/date-picker/#%E5%9B%BD%E9%99%85%E5%8C%96%E9%85%8D%E7%BD%AE)

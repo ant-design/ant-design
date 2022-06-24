@@ -1,9 +1,9 @@
-import * as React from 'react';
-import { Circle as RCCircle } from 'rc-progress';
 import { presetPrimaryColors } from '@ant-design/colors';
 import classNames from 'classnames';
-import { validProgress, getSuccessPercent } from './utils';
-import type { ProgressProps, ProgressGradient } from './progress';
+import { Circle as RCCircle } from 'rc-progress';
+import * as React from 'react';
+import type { ProgressGradient, ProgressProps } from './progress';
+import { getSuccessPercent, validProgress } from './utils';
 
 interface CircleProps extends ProgressProps {
   prefixCls: string;

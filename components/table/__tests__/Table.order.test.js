@@ -1,6 +1,6 @@
 import React from 'react';
-import { render } from '../../../tests/utils';
 import Table from '..';
+import { render } from '../../../tests/utils';
 import { resetWarned } from '../../_util/warning';
 
 describe('Table.order', () => {

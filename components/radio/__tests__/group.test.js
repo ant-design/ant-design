@@ -1,6 +1,6 @@
-import React from 'react';
-import { mount, render } from 'enzyme';
 import { render as testLibRender } from '@testing-library/react';
+import { mount, render } from 'enzyme';
+import React from 'react';
 import Radio from '..';
 
 describe('Radio Group', () => {

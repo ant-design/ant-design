@@ -1,9 +1,9 @@
 /* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/fr_FR';
-import DatePicker from '../date-picker/locale/fr_FR';
-import TimePicker from '../time-picker/locale/fr_FR';
 import Calendar from '../calendar/locale/fr_FR';
+import DatePicker from '../date-picker/locale/fr_FR';
 import type { Locale } from '../locale-provider';
+import TimePicker from '../time-picker/locale/fr_FR';
 
 const typeTemplate = "La valeur du champ ${label} n'est pas valide pour le type ${type}";
 

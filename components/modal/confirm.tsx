@@ -1,15 +1,15 @@
-import * as React from 'react';
-import { render as reactRender, unmount as reactUnmount } from 'rc-util/lib/React/render';
-import InfoCircleOutlined from '@ant-design/icons/InfoCircleOutlined';
 import CheckCircleOutlined from '@ant-design/icons/CheckCircleOutlined';
 import CloseCircleOutlined from '@ant-design/icons/CloseCircleOutlined';
 import ExclamationCircleOutlined from '@ant-design/icons/ExclamationCircleOutlined';
-import { getConfirmLocale } from './locale';
-import type { ModalFuncProps } from './Modal';
-import ConfirmDialog from './ConfirmDialog';
+import InfoCircleOutlined from '@ant-design/icons/InfoCircleOutlined';
+import { render as reactRender, unmount as reactUnmount } from 'rc-util/lib/React/render';
+import * as React from 'react';
 import { globalConfig } from '../config-provider';
 import warning from '../_util/warning';
+import ConfirmDialog from './ConfirmDialog';
 import destroyFns from './destroyFns';
+import { getConfirmLocale } from './locale';
+import type { ModalFuncProps } from './Modal';
 
 let defaultRootPrefixCls = '';
 

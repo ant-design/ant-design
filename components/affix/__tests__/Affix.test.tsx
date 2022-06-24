@@ -1,13 +1,13 @@
-import React from 'react';
 import type { ReactWrapper } from 'enzyme';
 import { mount } from 'enzyme';
+import React from 'react';
 import type { AffixProps, AffixState, InternalAffixClass } from '..';
 import Affix from '..';
-import { getObserverEntities } from '../utils';
-import Button from '../../button';
-import rtlTest from '../../../tests/shared/rtlTest';
 import accessibilityTest from '../../../tests/shared/accessibilityTest';
-import { sleep, render } from '../../../tests/utils';
+import rtlTest from '../../../tests/shared/rtlTest';
+import { render, sleep } from '../../../tests/utils';
+import Button from '../../button';
+import { getObserverEntities } from '../utils';
 
 const events: Partial<Record<keyof HTMLElementEventMap, (ev: Partial<Event>) => void>> = {};
 
