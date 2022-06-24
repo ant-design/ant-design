@@ -326,7 +326,6 @@ describe('Table.rowSelection', () => {
     });
     expect(onChange).toHaveBeenLastCalledWith([3, 0, 1, 2]);
     fireEvent.click(allElement());
-    console.log(baseElement.innerHTML);
     expect(onChange).toHaveBeenLastCalledWith([]);
 
     // Reset last select key when select all
