@@ -14,15 +14,11 @@ title:
 There are `primary` button, `default` button, `dashed` button, `text` button and `link` button in antd.
 
 ```tsx
-import { SearchOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import React from 'react';
 
 const App: React.FC = () => (
   <>
-    <Button type="primary" icon={<SearchOutlined />}>
-      <b>Search</b>
-    </Button>
     <Button type="primary">Primary Button</Button>
     <Button>Default Button</Button>
     <Button type="dashed">Dashed Button</Button>
