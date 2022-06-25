@@ -1,11 +1,12 @@
-import * as React from 'react';
 import classNames from 'classnames';
 import RcCheckbox from 'rc-checkbox';
+import * as React from 'react';
 import { useContext } from 'react';
-import { FormItemInputContext } from '../form/context';
-import { GroupContext } from './Group';
 import { ConfigContext } from '../config-provider';
+import { FormItemInputContext } from '../form/context';
 import warning from '../_util/warning';
+import { GroupContext } from './Group';
+
 import useStyle from './style';
 
 export interface AbstractCheckboxProps<T> {
@@ -143,7 +144,8 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
 };
 
 const Checkbox = React.forwardRef<unknown, CheckboxProps>(InternalCheckbox);
-
-Checkbox.displayName = 'Checkbox';
+if (process.env.NODE_ENV !== 'production') {
+  Checkbox.displayName = 'Checkbox';
+}
 
 export default Checkbox;

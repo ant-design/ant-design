@@ -1,8 +1,8 @@
 import FilterFilled from '@ant-design/icons/FilterFilled';
 import classNames from 'classnames';
 import isEqual from 'lodash/isEqual';
-import * as React from 'react';
 import type { FieldDataNode } from 'rc-tree';
+import * as React from 'react';
 import type { FilterState } from '.';
 import { flattenKeys } from '.';
 import Button from '../../../button';
@@ -13,6 +13,7 @@ import Dropdown from '../../../dropdown';
 import Empty from '../../../empty';
 import type { MenuProps } from '../../../menu';
 import Menu from '../../../menu';
+import { OverrideProvider } from '../../../menu/OverrideContext';
 import Radio from '../../../radio';
 import type { EventDataNode } from '../../../tree';
 import Tree from '../../../tree';
@@ -183,21 +184,9 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
 
   // ====================== Open Keys ======================
   const [openKeys, setOpenKeys] = React.useState<string[]>([]);
-  const openRef = React.useRef<number>();
   const onOpenChange = (keys: string[]) => {
-    openRef.current = window.setTimeout(() => {
-      setOpenKeys(keys);
-    });
+    setOpenKeys(keys);
   };
-  const onMenuClick = () => {
-    window.clearTimeout(openRef.current);
-  };
-  React.useEffect(
-    () => () => {
-      window.clearTimeout(openRef.current);
-    },
-    [],
-  );
 
   // search in tree mode column filter
   const [searchValue, setSearchValue] = React.useState('');
@@ -303,6 +292,7 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
     });
 
   let dropdownContent: React.ReactNode;
+
   if (typeof column.filterDropdown === 'function') {
     dropdownContent = column.filterDropdown({
       prefixCls: `${dropdownPrefixCls}-custom`,
@@ -395,7 +385,6 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
             multiple={filterMultiple}
             prefixCls={`${dropdownPrefixCls}-menu`}
             className={dropdownMenuClass}
-            onClick={onMenuClick}
             onSelect={onSelectKeys}
             onDeselect={onSelectKeys}
             selectedKeys={selectedKeys}
@@ -439,6 +428,11 @@ function FilterDropdown<RecordType>(props: FilterDropdownProps<RecordType>) {
         </div>
       </>
     );
+  }
+
+  // We should not block customize Menu with additional props
+  if (column.filterDropdown) {
+    dropdownContent = <OverrideProvider selectable={undefined}>{dropdownContent}</OverrideProvider>;
   }
 
   const menu = (

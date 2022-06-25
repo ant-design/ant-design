@@ -1,8 +1,6 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-import type { GlobalToken } from 'antd/es/_util/theme/interface';
-import type { TokenWithCommonCls } from 'antd/es/_util/theme/util/genComponentStyleHook';
 import type { InputToken } from '../../input/style';
 import {
   genActiveStyle,
@@ -13,6 +11,8 @@ import {
 import { slideDownIn, slideDownOut, slideUpIn, slideUpOut } from '../../style/motion';
 import type { FullToken, GenerateStyle } from '../../_util/theme';
 import { genComponentStyleHook, mergeToken, resetComponent, roundedArrow } from '../../_util/theme';
+import type { GlobalToken } from '../../_util/theme/interface';
+import type { TokenWithCommonCls } from '../../_util/theme/util/genComponentStyleHook';
 
 export interface ComponentToken {
   zIndexPopup: number;
@@ -1132,9 +1132,9 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
           height: token.sizePopupArrow,
           marginInlineStart: token.inputPaddingHorizontal * 1.5,
           background: `linear-gradient(135deg, transparent 40%, ${token.colorBgComponent} 40%)`, // Use linear-gradient to prevent arrow from covering text
-          boxShadow: `2px 2px 6px -2px fade(#000, 10%)`, // use spread radius to hide shadow over popover, FIXME: shadow
+          boxShadow: token.boxShadowPopoverArrowBottom,
           transition: `left ${token.motionDurationSlow} ease-out`,
-          ...roundedArrow(token.sizePopupArrow, 5, token.colorBgComponent),
+          ...roundedArrow(token.sizePopupArrow, 5, token.colorBgElevated),
         },
 
         [`${componentCls}-panel-container`]: {

@@ -1,13 +1,14 @@
-import * as React from 'react';
-import RcSwitch from 'rc-switch';
-import classNames from 'classnames';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
+import classNames from 'classnames';
+import RcSwitch from 'rc-switch';
+import * as React from 'react';
 
-import Wave from '../_util/wave';
 import { ConfigContext } from '../config-provider';
-import SizeContext from '../config-provider/SizeContext';
 import DisabledContext from '../config-provider/DisabledContext';
+import SizeContext from '../config-provider/SizeContext';
 import warning from '../_util/warning';
+import Wave from '../_util/wave';
+
 import useStyle from './style';
 
 export type SwitchSize = 'small' | 'default';
@@ -99,6 +100,8 @@ const Switch = React.forwardRef<unknown, SwitchProps>(
 ) as CompoundedComponent;
 
 Switch.__ANT_SWITCH = true;
-Switch.displayName = 'Switch';
+if (process.env.NODE_ENV !== 'production') {
+  Switch.displayName = 'Switch';
+}
 
 export default Switch;

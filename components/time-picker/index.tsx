@@ -2,8 +2,8 @@ import type { Dayjs } from 'dayjs';
 import * as React from 'react';
 import DatePicker from '../date-picker';
 import type { PickerTimeProps, RangePickerTimeProps } from '../date-picker/generatePicker';
-import warning from '../_util/warning';
 import type { InputStatus } from '../_util/statusUtils';
+import warning from '../_util/warning';
 
 const { TimePicker: InternalTimePicker, RangePicker: InternalRangePicker } = DatePicker;
 
@@ -61,7 +61,9 @@ const TimePicker = React.forwardRef<any, TimePickerProps>(
   },
 );
 
-TimePicker.displayName = 'TimePicker';
+if (process.env.NODE_ENV !== 'production') {
+  TimePicker.displayName = 'TimePicker';
+}
 
 type MergedTimePicker = typeof TimePicker & {
   RangePicker: typeof RangePicker;

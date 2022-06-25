@@ -10,12 +10,12 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = token => {
     controlInteractiveSize: checkboxSize,
     motionDurationSlow,
     controlLineWidth,
-    padding,
     paddingXXS,
     paddingXS,
     controlLineType,
     tableBorderColor,
     tableExpandIconBg,
+    tableExpandColumnWidth,
     radiusBase,
     tablePaddingVertical,
     tablePaddingHorizontal,
@@ -30,7 +30,7 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = token => {
   return {
     [`${componentCls}-wrapper`]: {
       [`${componentCls}-expand-icon-col`]: {
-        width: checkboxSize + padding * 2,
+        width: tableExpandColumnWidth,
       },
 
       [`${componentCls}-row-expand-icon-cell`]: {

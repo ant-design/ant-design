@@ -1,4 +1,5 @@
 import { LikeOutlined, SmileOutlined } from '@ant-design/icons';
+import { act } from '@testing-library/react';
 import * as copyObj from 'copy-to-clipboard';
 import React from 'react';
 import { fireEvent, render, waitFor } from '../../../tests/utils';
@@ -233,7 +234,8 @@ describe('Typography copy', () => {
       fireEvent.click(wrapper.querySelectorAll('.ant-typography-copy')[0]);
     });
 
-    it('copy to clipboard', done => {
+    it('copy to clipboard', () => {
+      jest.useFakeTimers();
       const spy = jest.spyOn(copyObj, 'default');
       const originText = 'origin text.';
       const nextText = 'next text.';
@@ -243,7 +245,7 @@ describe('Typography copy', () => {
           setTimeout(() => {
             setDynamicText(nextText);
           }, 500);
-        });
+        }, []);
         return (
           <Base component="p" copyable>
             {dynamicText}
@@ -254,12 +256,13 @@ describe('Typography copy', () => {
       const copyBtn = wrapper.querySelectorAll('.ant-typography-copy')[0];
       fireEvent.click(copyBtn);
       expect(spy.mock.calls[0][0]).toEqual(originText);
-      setTimeout(() => {
-        spy.mockReset();
-        fireEvent.click(copyBtn);
-        expect(spy.mock.calls[0][0]).toEqual(nextText);
-        done();
-      }, 500);
+      act(() => {
+        jest.runAllTimers();
+      });
+      spy.mockReset();
+      fireEvent.click(copyBtn);
+      expect(spy.mock.calls[0][0]).toEqual(nextText);
+      jest.useRealTimers();
     });
   });
 });

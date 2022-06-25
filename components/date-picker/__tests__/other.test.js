@@ -1,14 +1,14 @@
-import React from 'react';
-import { mount, render } from 'enzyme';
 import dayjs from 'dayjs';
+import 'dayjs/locale/zh-cn';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
+import { mount, render } from 'enzyme';
+import React from 'react';
 import DatePicker from '..';
+import ConfigProvider from '../../config-provider';
 import LocaleProvider from '../../locale-provider';
 import locale from '../../locale-provider/zh_CN';
-import ConfigProvider from '../../config-provider';
 import jaJP from '../../locale/ja_JP';
 import zhTW from '../locale/zh_TW';
-import 'dayjs/locale/zh-cn';
 
 dayjs.extend(customParseFormat);
 

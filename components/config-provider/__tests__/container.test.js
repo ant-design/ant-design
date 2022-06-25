@@ -1,10 +1,10 @@
-import React from 'react';
 import { mount } from 'enzyme';
+import React from 'react';
 import ConfigProvider from '..';
-import DatePicker from '../../date-picker';
-import Slider from '../../slider';
-import Drawer from '../../drawer';
 import Cascader from '../../cascader';
+import DatePicker from '../../date-picker';
+import Drawer from '../../drawer';
+import Slider from '../../slider';
 
 describe('ConfigProvider.GetPopupContainer', () => {
   it('Datepicker', () => {

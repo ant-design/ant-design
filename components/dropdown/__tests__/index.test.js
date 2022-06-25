@@ -1,10 +1,10 @@
-import React from 'react';
 import { mount } from 'enzyme';
+import React from 'react';
 import Dropdown from '..';
-import Menu from '../../menu';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { sleep } from '../../../tests/utils';
+import { act, fireEvent, render, sleep } from '../../../tests/utils';
+import Menu from '../../menu';
 
 describe('Dropdown', () => {
   mountTest(() => (
@@ -98,5 +98,55 @@ describe('Dropdown', () => {
         }),
       }),
     );
+  });
+
+  it('menu item with group', () => {
+    jest.useFakeTimers();
+    const { container } = render(
+      <Dropdown
+        trigger="click"
+        overlay={
+          <Menu
+            items={[
+              {
+                label: 'grp',
+                type: 'group',
+                children: [
+                  {
+                    label: '1',
+                    key: 1,
+                  },
+                ],
+              },
+            ]}
+          />
+        }
+      >
+        <a />
+      </Dropdown>,
+    );
+
+    // Open
+    fireEvent.click(container.querySelector('a'));
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    // Close
+    fireEvent.click(container.querySelector('.ant-dropdown-menu-item'));
+
+    // Force Motion move on
+    for (let i = 0; i < 10; i += 1) {
+      act(() => {
+        jest.runAllTimers();
+      });
+    }
+
+    // Motion End
+    fireEvent.animationEnd(container.querySelector('.ant-slide-up-leave-active'));
+
+    expect(container.querySelector('.ant-dropdown-hidden')).toBeTruthy();
+
+    jest.useRealTimers();
   });
 });

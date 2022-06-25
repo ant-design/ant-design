@@ -1,34 +1,30 @@
-import * as React from 'react';
 import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
 import RcTable, { Summary } from 'rc-table';
+import { convertChildrenToColumns } from 'rc-table/lib/hooks/useColumns';
 import type { TableProps as RcTableProps } from 'rc-table/lib/Table';
 import { INTERNAL_HOOKS } from 'rc-table/lib/Table';
-import { convertChildrenToColumns } from 'rc-table/lib/hooks/useColumns';
-// eslint-disable-next-line import/no-named-as-default
+import omit from 'rc-util/lib/omit';
+import * as React from 'react';
+import { ConfigContext } from '../config-provider/context';
+import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import type { SizeType } from '../config-provider/SizeContext';
+import SizeContext from '../config-provider/SizeContext';
+import useBreakpoint from '../grid/hooks/useBreakpoint';
+import defaultLocale from '../locale/en_US';
+import Pagination from '../pagination';
 import type { SpinProps } from '../spin';
 import Spin from '../spin';
-import Pagination from '../pagination';
 import type { TooltipProps } from '../tooltip';
-import { ConfigContext } from '../config-provider/context';
-import usePagination, { DEFAULT_PAGE_SIZE, getPaginationParam } from './hooks/usePagination';
-import useLazyKVMap from './hooks/useLazyKVMap';
 import type { Breakpoint } from '../_util/responsiveObserve';
-import type {
-  TableRowSelection,
-  GetRowKey,
-  ColumnType,
-  TableCurrentDataSource,
-  SorterResult,
-  GetPopupContainer,
-  ExpandableConfig,
-  ExpandType,
-  SortOrder,
-  TableLocale,
-  TableAction,
-  FilterValue,
-} from './interface';
-import { ColumnsType, TablePaginationConfig } from './interface';
+import scrollTo from '../_util/scrollTo';
+import warning from '../_util/warning';
+import Column from './Column';
+import ColumnGroup from './ColumnGroup';
+import renderExpandIcon from './ExpandIcon';
+import type { FilterState } from './hooks/useFilter';
+import useFilter, { getFilterData } from './hooks/useFilter';
+import useLazyKVMap from './hooks/useLazyKVMap';
+import usePagination, { DEFAULT_PAGE_SIZE, getPaginationParam } from './hooks/usePagination';
 import useSelection, {
   SELECTION_ALL,
   SELECTION_COLUMN,
@@ -37,19 +33,23 @@ import useSelection, {
 } from './hooks/useSelection';
 import type { SortState } from './hooks/useSorter';
 import useSorter, { getSortData } from './hooks/useSorter';
-import type { FilterState } from './hooks/useFilter';
-import useFilter, { getFilterData } from './hooks/useFilter';
 import useTitleColumns from './hooks/useTitleColumns';
-import renderExpandIcon from './ExpandIcon';
-import scrollTo from '../_util/scrollTo';
-import defaultLocale from '../locale/en_US';
-import type { SizeType } from '../config-provider/SizeContext';
-import SizeContext from '../config-provider/SizeContext';
-import Column from './Column';
-import ColumnGroup from './ColumnGroup';
-import warning from '../_util/warning';
-import useBreakpoint from '../grid/hooks/useBreakpoint';
-import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import type {
+  ColumnType,
+  ExpandableConfig,
+  ExpandType,
+  FilterValue,
+  GetPopupContainer,
+  GetRowKey,
+  SorterResult,
+  SortOrder,
+  TableAction,
+  TableCurrentDataSource,
+  TableLocale,
+  TableRowSelection,
+} from './interface';
+import { ColumnsType, TablePaginationConfig } from './interface';
+
 import useStyle from './style';
 
 export { ColumnsType, TablePaginationConfig };

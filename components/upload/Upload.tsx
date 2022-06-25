@@ -1,24 +1,25 @@
-import * as React from 'react';
+import classNames from 'classnames';
 import type { UploadProps as RcUploadProps } from 'rc-upload';
 import RcUpload from 'rc-upload';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import classNames from 'classnames';
-import UploadList from './UploadList';
+import * as React from 'react';
+import { ConfigContext } from '../config-provider';
+import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import defaultLocale from '../locale/default';
+import warning from '../_util/warning';
 import type {
   RcFile,
   ShowUploadListInterface,
-  UploadFile,
-  UploadLocale,
   UploadChangeParam,
-  UploadType,
+  UploadFile,
   UploadListType,
+  UploadLocale,
+  UploadType,
 } from './interface';
 import { UploadProps } from './interface';
+import UploadList from './UploadList';
 import { file2Obj, getFileItem, removeFileItem, updateFileList } from './utils';
-import LocaleReceiver from '../locale-provider/LocaleReceiver';
-import defaultLocale from '../locale/default';
-import { ConfigContext } from '../config-provider';
-import warning from '../_util/warning';
+
 import useStyle from './style';
 
 export const LIST_IGNORE = `__LIST_IGNORE_${Date.now()}__`;
@@ -410,6 +411,8 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     </div>
   );
 
+  const uploadButton = renderUploadButton(children ? undefined : { display: 'none' });
+
   if (listType === 'picture-card') {
     return wrapSSR(
       <span
@@ -421,22 +424,23 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
           hashId,
         )}
       >
-        {renderUploadList(renderUploadButton(), !!children)}
+        {renderUploadList(uploadButton, !!children)}
       </span>,
     );
   }
 
   return wrapSSR(
     <span className={classNames(`${prefixCls}-wrapper`, rtlCls, className, hashId)}>
-      {renderUploadButton(children ? undefined : { display: 'none' })}
+      {uploadButton}
       {renderUploadList()}
     </span>,
   );
 };
 
 const Upload = React.forwardRef<unknown, UploadProps>(InternalUpload);
-
-Upload.displayName = 'Upload';
+if (process.env.NODE_ENV !== 'production') {
+  Upload.displayName = 'Upload';
+}
 
 Upload.defaultProps = {
   type: 'select' as UploadType,

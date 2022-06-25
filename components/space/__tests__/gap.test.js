@@ -1,8 +1,7 @@
 import React from 'react';
-import { render } from '../../../tests/utils';
 import Space from '..';
+import { render } from '../../../tests/utils';
 // eslint-disable-next-line no-unused-vars
-import * as styleChecker from '../../_util/styleChecker';
 
 jest.mock('../../_util/styleChecker', () => ({
   canUseDocElement: () => true,

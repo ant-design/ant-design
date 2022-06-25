@@ -1,13 +1,14 @@
-import * as React from 'react';
 import classNames from 'classnames';
+import * as React from 'react';
 
 import type { ConfigConsumerProps } from '../config-provider';
 import { withConfigConsumer } from '../config-provider/context';
 import Skeleton from '../skeleton';
-import StatisticNumber from './Number';
-import useStyle from './style';
 import type Countdown from './Countdown';
-import type { valueType, FormatConfig } from './utils';
+import StatisticNumber from './Number';
+import type { FormatConfig, valueType } from './utils';
+
+import useStyle from './style';
 
 interface StatisticComponent {
   Countdown: typeof Countdown;

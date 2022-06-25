@@ -1,11 +1,11 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { FullToken } from '../../_util/theme';
-import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
 import type { PickerPanelToken } from '../../date-picker/style';
 import { genPanelStyle, initPickerPanelToken } from '../../date-picker/style';
 import type { InputToken } from '../../input/style';
 import { initInputToken } from '../../input/style';
+import type { FullToken } from '../../_util/theme';
+import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
 
 export interface ComponentToken {
   yearControlWidth: number;

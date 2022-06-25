@@ -1,16 +1,8 @@
-// import '../../style/index.less';
-// import './index.less';
-
-// // style dependencies
-// // deps-lint-skip: tree, form
-// import '../../select/style';
-// import '../../empty/style';
-
 // deps-lint-skip-all
-import type { GenerateStyle, FullToken } from '../../_util/theme';
-import { genComponentStyleHook, mergeToken } from '../../_util/theme';
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
 import { genTreeStyle } from '../../tree/style';
+import type { AliasToken, FullToken, GenerateStyle } from '../../_util/theme';
+import { genComponentStyleHook, mergeToken } from '../../_util/theme';
 
 interface TreeSelectToken extends FullToken<'TreeSelect'> {
   treePrefixCls: string;
@@ -18,7 +10,7 @@ interface TreeSelectToken extends FullToken<'TreeSelect'> {
 
 // =============================== Base ===============================
 const genBaseStyle: GenerateStyle<TreeSelectToken> = token => {
-  const { componentCls, treePrefixCls } = token;
+  const { componentCls, treePrefixCls, colorBgElevated } = token;
   const treeCls = `.${treePrefixCls}`;
 
   return [
@@ -32,7 +24,10 @@ const genBaseStyle: GenerateStyle<TreeSelectToken> = token => {
         },
 
         // ====================== Tree ======================
-        genTreeStyle(treePrefixCls, token),
+        genTreeStyle(
+          treePrefixCls,
+          mergeToken<AliasToken>(token, { colorBgComponent: colorBgElevated }),
+        ),
         {
           [treeCls]: {
             borderRadius: 0,

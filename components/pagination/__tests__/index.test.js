@@ -1,8 +1,8 @@
-import { mount } from 'enzyme';
 import React from 'react';
 import Pagination from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import Select from '../../select';
 
@@ -20,13 +20,15 @@ describe('Pagination', () => {
       }
       return originalElement;
     };
-    const wrapper = mount(<Pagination defaultCurrent={1} total={50} itemRender={itemRender} />);
-    expect(wrapper.find('button').at(0).props().disabled).toBe(true);
+    const { container } = render(
+      <Pagination defaultCurrent={1} total={50} itemRender={itemRender} />,
+    );
+    expect(container.querySelector('button').disabled).toBe(true);
   });
 
   it('should autometically be small when size is not specified', async () => {
-    const wrapper = mount(<Pagination responsive />);
-    expect(wrapper.find('ul').at(0).hasClass('ant-pagination-mini')).toBe(true);
+    const { container } = render(<Pagination responsive />);
+    expect(container.querySelector('ul').className.includes('ant-pagination-mini')).toBe(true);
   });
 
   // https://github.com/ant-design/ant-design/issues/24913
@@ -34,7 +36,7 @@ describe('Pagination', () => {
   it('should onChange called when pageSize change', () => {
     const onChange = jest.fn();
     const onShowSizeChange = jest.fn();
-    const wrapper = mount(
+    const { container } = render(
       <Pagination
         defaultCurrent={1}
         total={500}
@@ -42,9 +44,11 @@ describe('Pagination', () => {
         onShowSizeChange={onShowSizeChange}
       />,
     );
-    wrapper.find('.ant-select-selector').simulate('mousedown');
-    expect(wrapper.find('.ant-select-item-option').length).toBe(4);
-    wrapper.find('.ant-select-item-option').at(1).simulate('click');
+
+    fireEvent.mouseDown(container.querySelector('.ant-select-selector'));
+
+    expect(container.querySelectorAll('.ant-select-item-option').length).toBe(4);
+    fireEvent.click(container.querySelectorAll('.ant-select-item-option')[1]);
     expect(onChange).toHaveBeenCalledWith(1, 20);
   });
 
@@ -55,30 +59,30 @@ describe('Pagination', () => {
 
     CustomSelect.Option = Select.Option;
 
-    const wrapper = mount(
+    const { container } = render(
       <Pagination defaultCurrent={1} total={500} selectComponentClass={CustomSelect} />,
     );
-    expect(wrapper.find('.custom-select').length).toBeTruthy();
+    expect(container.querySelectorAll('.custom-select').length).toBeTruthy();
   });
 
   describe('ConfigProvider', () => {
     it('should be rendered correctly in RTL', () => {
-      const wrapper = mount(
+      const { asFragment } = render(
         <ConfigProvider direction="rtl">
           <Pagination defaultCurrent={1} total={50} />
         </ConfigProvider>,
       );
-      expect(wrapper.render()).toMatchSnapshot();
+      expect(asFragment().firstChild).toMatchSnapshot();
     });
 
     it('should be rendered correctly when componentSize is large', () => {
-      const wrapper = mount(
+      const { container, asFragment } = render(
         <ConfigProvider componentSize="large">
           <Pagination defaultCurrent={1} total={50} showSizeChanger />
         </ConfigProvider>,
       );
-      expect(wrapper.render()).toMatchSnapshot();
-      expect(wrapper.find('.ant-select-lg').length).toBe(0);
+      expect(asFragment().firstChild).toMatchSnapshot();
+      expect(container.querySelectorAll('.ant-select-lg').length).toBe(0);
     });
   });
 });

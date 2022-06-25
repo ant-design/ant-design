@@ -134,6 +134,8 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   );
 });
 
-Row.displayName = 'Row';
+if (process.env.NODE_ENV !== 'production') {
+  Row.displayName = 'Row';
+}
 
 export default Row;

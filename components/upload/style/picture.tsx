@@ -59,7 +59,7 @@ const genPictureStyle: GenerateStyle<UploadToken> = token => {
           // Adjust the color of the error icon : https://github.com/ant-design/ant-design/pull/24160
           [`${itemCls}-thumbnail ${iconCls}`]: {
             [`svg path[fill='#e6f7ff']`]: {
-              fill: token.colorBgError,
+              fill: token.colorErrorBg,
             },
             [`svg path[fill='#1890ff']`]: {
               fill: token.colorError,

@@ -1,20 +1,20 @@
-import * as React from 'react';
-import type { CSSMotionListProps } from 'rc-motion';
-import CSSMotion, { CSSMotionList } from 'rc-motion';
-import classNames from 'classnames';
+import FileTwoTone from '@ant-design/icons/FileTwoTone';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import PaperClipOutlined from '@ant-design/icons/PaperClipOutlined';
 import PictureTwoTone from '@ant-design/icons/PictureTwoTone';
-import FileTwoTone from '@ant-design/icons/FileTwoTone';
-import { cloneElement, isValidElement } from '../../_util/reactNode';
-import { previewImage, isImageUrl } from '../utils';
-import collapseMotion from '../../_util/motion';
-import { ConfigContext } from '../../config-provider';
+import classNames from 'classnames';
+import type { CSSMotionListProps } from 'rc-motion';
+import CSSMotion, { CSSMotionList } from 'rc-motion';
+import * as React from 'react';
 import type { ButtonProps } from '../../button';
 import Button from '../../button';
+import { ConfigContext } from '../../config-provider';
 import useForceUpdate from '../../_util/hooks/useForceUpdate';
+import collapseMotion from '../../_util/motion';
+import { cloneElement, isValidElement } from '../../_util/reactNode';
+import type { InternalUploadFile, UploadFile, UploadListProps, UploadListType } from '../interface';
+import { isImageUrl, previewImage } from '../utils';
 import ListItem from './ListItem';
-import type { UploadListProps, UploadFile, UploadListType, InternalUploadFile } from '../interface';
 
 const listItemMotion: Partial<CSSMotionListProps> = {
   ...collapseMotion,
@@ -246,8 +246,9 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
 };
 
 const UploadList = React.forwardRef<unknown, UploadListProps>(InternalUploadList);
-
-UploadList.displayName = 'UploadList';
+if (process.env.NODE_ENV !== 'production') {
+  UploadList.displayName = 'UploadList';
+}
 
 UploadList.defaultProps = {
   listType: 'text' as UploadListType, // or picture
