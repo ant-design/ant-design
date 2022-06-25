@@ -27,8 +27,10 @@ function alertBabelConfig(rules) {
   });
 }
 
+const port = process.env.DEV_PORT || 8001;
+
 module.exports = {
-  port: 8001,
+  port,
   hash: true,
   source: {
     components: './components',
@@ -192,8 +194,9 @@ module.exports = {
   },
 
   devServerConfig: {
-    public: process.env.DEV_HOST || 'localhost',
+    public: `${process.env.DEV_HOST || 'localhost'}:${port}`,
     disableHostCheck: !!process.env.DEV_HOST,
+    publicPath: '/_site',
   },
 
   htmlTemplateExtraData: {

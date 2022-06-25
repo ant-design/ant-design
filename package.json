@@ -172,7 +172,7 @@
     "@types/jest": "^28.0.0",
     "@types/jest-axe": "^3.5.3",
     "@types/jest-environment-puppeteer": "^5.0.0",
-    "@types/jest-image-snapshot": "^4.1.0",
+    "@types/jest-image-snapshot": "^5.1.0",
     "@types/lodash": "^4.14.139",
     "@types/puppeteer": "^5.4.0",
     "@types/qs": "^6.9.7",
