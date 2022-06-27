@@ -18,7 +18,7 @@ export interface TransferOperationProps {
   oneWay?: boolean;
 }
 
-const Operation: React.FC<TransferOperationProps> = ({
+const Operation = ({
   disabled,
   moveToLeft,
   moveToRight,
@@ -30,7 +30,7 @@ const Operation: React.FC<TransferOperationProps> = ({
   style,
   direction,
   oneWay,
-}) => (
+}: TransferOperationProps) => (
   <div className={className} style={style}>
     <Button
       type="primary"

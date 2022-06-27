@@ -8,12 +8,12 @@ export interface EllipsisTooltipProps {
   children: React.ReactElement;
 }
 
-const EllipsisTooltip: React.FC<EllipsisTooltipProps> = ({
+const EllipsisTooltip = ({
   title,
   enabledEllipsis,
   isEllipsis,
   children,
-}) => {
+}: EllipsisTooltipProps) => {
   if (!title || !enabledEllipsis) {
     return children;
   }

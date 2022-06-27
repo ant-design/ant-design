@@ -10,7 +10,6 @@ import useIsomorphicLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'rc-util/lib/omit';
 import { composeRef } from 'rc-util/lib/ref';
-import type { ReactElement } from 'react';
 import * as React from 'react';
 import { ConfigContext } from '../../config-provider';
 import { useLocaleReceiver } from '../../locale-provider/LocaleReceiver';
@@ -99,21 +98,12 @@ function wrapperDecorations(
   return currentContent;
 }
 
-interface GetNodeProps {
-  dom: React.ReactNode;
-  defaultNode: React.ReactNode;
-  needDom?: boolean;
-}
-
-const GetNode: React.FC<GetNodeProps> = ({ dom, defaultNode, needDom }) => {
+function getNode(dom: React.ReactNode, defaultNode: React.ReactNode, needDom?: boolean) {
   if (dom === true || dom === undefined) {
-    return defaultNode as ReactElement;
+    return defaultNode;
   }
-  if (dom) {
-    return dom as ReactElement;
-  }
-  return needDom ? (defaultNode as ReactElement) : null;
-};
+  return dom || (needDom && defaultNode);
+}
 
 function toList<T>(val: T | T[]): T[] {
   return Array.isArray(val) ? val : [val];
@@ -365,12 +355,10 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
 
   // >>>>>>>>>>> Typography
   // Expand
-  const RenderExpand = () => {
+  const renderExpand = () => {
     const { expandable, symbol } = ellipsisConfig;
 
-    if (!expandable) {
-      return null;
-    }
+    if (!expandable) return null;
 
     let expandContent: React.ReactNode;
     if (symbol) {
@@ -392,10 +380,8 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
   };
 
   // Edit
-  const RenderEdit = () => {
-    if (!enableEdit) {
-      return null;
-    }
+  const renderEdit = () => {
+    if (!enableEdit) return;
 
     const { icon, tooltip } = editConfig;
 
@@ -417,21 +403,17 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
   };
 
   // Copy
-  const RenderCopy = () => {
-    if (!enableCopy) {
-      return null;
-    }
+  const renderCopy = () => {
+    if (!enableCopy) return;
 
     const { tooltips, icon } = copyConfig;
 
     const tooltipNodes = toList(tooltips);
     const iconNodes = toList(icon);
 
-    const copyTitle = copied ? (
-      <GetNode dom={tooltipNodes[1]} defaultNode={textLocale.copied} />
-    ) : (
-      <GetNode dom={tooltipNodes[0]} defaultNode={textLocale.copy} />
-    );
+    const copyTitle = copied
+      ? getNode(tooltipNodes[1], textLocale.copied)
+      : getNode(tooltipNodes[0], textLocale.copy);
     const systemStr = copied ? textLocale.copied : textLocale.copy;
     const ariaLabel = typeof copyTitle === 'string' ? copyTitle : systemStr;
 
@@ -442,20 +424,18 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
           onClick={onCopyClick}
           aria-label={ariaLabel}
         >
-          {copied ? (
-            <GetNode dom={iconNodes[1]} defaultNode={<CheckOutlined />} needDom />
-          ) : (
-            <GetNode dom={iconNodes[0]} defaultNode={<CopyOutlined />} needDom />
-          )}
+          {copied
+            ? getNode(iconNodes[1], <CheckOutlined />, true)
+            : getNode(iconNodes[0], <CopyOutlined />, true)}
         </TransButton>
       </Tooltip>
     );
   };
 
   const renderOperations = (renderExpanded: boolean) => [
-    renderExpanded && <RenderExpand key="renderExpand" />,
-    <RenderEdit key="renderEdit" />,
-    <RenderCopy key="renderCopy" />,
+    renderExpanded && renderExpand(),
+    renderEdit(),
+    renderCopy(),
   ];
 
   const renderEllipsis = (needEllipsis: boolean) => [
@@ -524,6 +504,7 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
                     {renderEllipsis(needEllipsis)}
                   </>,
                 );
+
                 return wrappedContext;
               }}
             </Ellipsis>

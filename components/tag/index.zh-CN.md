@@ -28,7 +28,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/cH1BOLfxC/Tag.svg
 
 ### Tag.CheckableTag
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| checked | 设置标签的选中状态 | boolean | false |
-| onChange | 点击标签时触发的回调 | (checked) => void | - |
+| 参数     | 说明                 | 类型              | 默认值 |
+| -------- | -------------------- | ----------------- | ------ |
+| checked  | 设置标签的选中状态   | boolean           | false  |
+| onChange | 点击标签时触发的回调 | (checked) => void | -      |
