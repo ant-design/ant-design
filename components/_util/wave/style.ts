@@ -1,0 +1,71 @@
+import { Keyframes, useStyleRegister } from '@ant-design/cssinjs';
+import { useContext } from 'react';
+import { ConfigContext } from '../../config-provider';
+import type { AliasToken, GenerateStyle } from '../../theme';
+import { useToken } from '../../theme';
+
+interface WaveToken extends AliasToken {
+  clickAnimatingNode: string;
+  clickAnimatingTrue: string;
+  clickAnimatingWithExtraNodeTrue: string;
+  clickAnimatingWithExtraNodeTrueAfter: string;
+}
+
+const genWaveStyle: GenerateStyle<WaveToken> = token => {
+  const waveEffect = new Keyframes('waveEffect', {
+    '100%': {
+      boxShadow: `0 0 0 6px ${token.colorPrimary}`,
+    },
+  });
+
+  const fadeEffect = new Keyframes('fadeEffect', {
+    '100%': {
+      opacity: 0,
+    },
+  });
+
+  return [
+    {
+      [`${token.clickAnimatingWithExtraNodeTrueAfter},
+      ${token.clickAnimatingNode}`]: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        display: 'block',
+        borderRadius: 'inherit',
+        boxShadow: `0 0 0 0 ${token.colorPrimary}`,
+        opacity: 0.2,
+        animation: `${fadeEffect.getName()} 2s ${
+          token.motionEaseOutCirc
+        }, ${waveEffect.getName()} 0.4s ${token.motionEaseOutCirc}`,
+        animationFillMode: 'forwards',
+        content: '""',
+        pointerEvents: 'none',
+      },
+    },
+    waveEffect,
+    fadeEffect,
+  ];
+};
+
+export default () => {
+  const [theme, token] = useToken();
+  const { getPrefixCls } = useContext(ConfigContext);
+  const rootPrefixCls = getPrefixCls();
+
+  const clickAnimatingTrue = `[${rootPrefixCls}-click-animating='true']`;
+  const clickAnimatingWithoutExtraNodeTrue = `[${rootPrefixCls}-click-animating-without-extra-node='true']`;
+  const clickAnimatingNode = `.${rootPrefixCls}-click-animating-node`;
+
+  const waveToken: WaveToken = {
+    ...token,
+    clickAnimatingNode,
+    clickAnimatingTrue,
+    clickAnimatingWithExtraNodeTrue: clickAnimatingWithoutExtraNodeTrue,
+    clickAnimatingWithExtraNodeTrueAfter: `${clickAnimatingWithoutExtraNodeTrue}::after`,
+  };
+
+  return useStyleRegister({ theme, token, path: ['wave'] }, () => [genWaveStyle(waveToken)]);
+};
