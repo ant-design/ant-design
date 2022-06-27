@@ -1,4 +1,3 @@
-// deps-lint-skip-all
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import capitalize from '../../_util/capitalize';
 import type { FullToken, PresetColorType } from '../../_util/theme';

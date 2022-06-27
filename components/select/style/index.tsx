@@ -1,10 +1,3 @@
-// import '../../style/index.less';
-// import './index.less';
-
-// style dependencies
-import '../../empty/style';
-
-// deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { FullToken, GenerateStyle } from '../../_util/theme';
 import { genComponentStyleHook, mergeToken, resetComponent, resetIcon } from '../../_util/theme';

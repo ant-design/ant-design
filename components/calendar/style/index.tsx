@@ -1,4 +1,3 @@
-// deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { PickerPanelToken } from '../../date-picker/style';
 import { genPanelStyle, initPickerPanelToken } from '../../date-picker/style';

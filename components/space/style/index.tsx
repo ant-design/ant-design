@@ -1,6 +1,5 @@
-// deps-lint-skip-all
-import { genComponentStyleHook } from '../../_util/theme';
 import type { FullToken, GenerateStyle } from '../../_util/theme';
+import { genComponentStyleHook } from '../../_util/theme';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {

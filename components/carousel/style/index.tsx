@@ -1,6 +1,5 @@
-// deps-lint-skip-all
+import type { FullToken, GenerateStyle } from '../../_util/theme';
 import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
-import type { GenerateStyle, FullToken } from '../../_util/theme';
 
 export interface ComponentToken {
   dotWidth: number;

@@ -1,4 +1,3 @@
-// deps-lint-skip-all
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
 import { genTreeStyle } from '../../tree/style';
 import type { AliasToken, FullToken, GenerateStyle } from '../../_util/theme';

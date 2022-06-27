@@ -1,4 +1,3 @@
-// deps-lint-skip-all
 import {
   initMoveMotion,
   initSlideMotion,

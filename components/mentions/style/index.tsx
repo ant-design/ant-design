@@ -1,4 +1,3 @@
-// deps-lint-skip-all
 import type { InputToken } from '../../input/style';
 import {
   genActiveStyle,
