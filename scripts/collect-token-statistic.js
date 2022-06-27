@@ -5,7 +5,7 @@ const React = require('react');
 const ReactDOMServer = require('react-dom/server');
 const fs = require('fs-extra');
 const antd = require('../lib');
-const { statistic } = require('../lib/_util/theme/util/statistic');
+const { statistic } = require('../lib/theme/util/statistic');
 const useMessageStyle = require('../lib/message/style/index').default;
 const useNotificationStyle = require('../lib/notification/style/index').default;
 
@@ -48,12 +48,12 @@ const Notification = () => {
 ReactDOMServer.renderToString(React.createElement(Notification));
 
 (async () => {
-  const libPath = `${process.cwd()}/lib/_util/theme/util/statistic.js`;
+  const libPath = `${process.cwd()}/lib/theme/util/statistic.js`;
   const libContent = await fs.readFile(libPath, 'utf8');
   const newLibContent = `${libContent}\nexports._statistic_build_ = ${JSON.stringify(statistic)}`;
   await fs.writeFile(libPath, newLibContent, 'utf8');
 
-  const esPath = `${process.cwd()}/es/_util/theme/util/statistic.js`;
+  const esPath = `${process.cwd()}/es/theme/util/statistic.js`;
   const esContent = await fs.readFile(esPath, 'utf8');
   const newEsContent = `${esContent}\n_statistic_build_ = ${JSON.stringify(statistic)}`;
   await fs.writeFile(esPath, newEsContent, 'utf8');

@@ -1,5 +1,5 @@
 import type { MenuToken } from '.';
-import type { GenerateStyle } from '../../_util/theme';
+import type { GenerateStyle } from '../../theme';
 
 const getRTLStyle: GenerateStyle<MenuToken> = ({ componentCls, menuArrowOffset }) => ({
   [`${componentCls}-rtl`]: {

@@ -1,8 +1,8 @@
 // deps-lint-skip-all
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
+import type { AliasToken, FullToken, GenerateStyle } from '../../theme';
+import { genComponentStyleHook, mergeToken } from '../../theme';
 import { genTreeStyle } from '../../tree/style';
-import type { AliasToken, FullToken, GenerateStyle } from '../../_util/theme';
-import { genComponentStyleHook, mergeToken } from '../../_util/theme';
 
 interface TreeSelectToken extends FullToken<'TreeSelect'> {
   treePrefixCls: string;

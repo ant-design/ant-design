@@ -8,8 +8,8 @@ import {
   genStatusStyle,
   initInputToken,
 } from '../../input/style';
-import type { FullToken, GenerateStyle } from '../../_util/theme';
-import { genComponentStyleHook, resetComponent } from '../../_util/theme';
+import type { FullToken, GenerateStyle } from '../../theme';
+import { genComponentStyleHook, resetComponent } from '../../theme';
 
 export interface ComponentToken {
   zIndexPopup: number;

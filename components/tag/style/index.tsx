@@ -1,8 +1,8 @@
 // deps-lint-skip-all
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
+import type { FullToken, PresetColorType } from '../../theme';
+import { genComponentStyleHook, mergeToken, PresetColors, resetComponent } from '../../theme';
 import capitalize from '../../_util/capitalize';
-import type { FullToken, PresetColorType } from '../../_util/theme';
-import { genComponentStyleHook, mergeToken, PresetColors, resetComponent } from '../../_util/theme';
 
 interface TagToken extends FullToken<'Tag'> {
   tagFontSize: number;

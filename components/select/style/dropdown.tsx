@@ -8,8 +8,8 @@ import {
   slideUpIn,
   slideUpOut,
 } from '../../style/motion';
-import type { GenerateStyle } from '../../_util/theme';
-import { resetComponent } from '../../_util/theme';
+import type { GenerateStyle } from '../../theme';
+import { resetComponent } from '../../theme';
 
 const genItemStyle: GenerateStyle<SelectToken, CSSObject> = token => {
   const { controlPaddingHorizontal } = token;

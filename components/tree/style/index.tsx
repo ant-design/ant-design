@@ -2,11 +2,11 @@
 // import './index.less';
 
 // deps-lint-skip-all
-import type { CSSObject, CSSInterpolation } from '@ant-design/cssinjs';
+import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
-import type { DerivativeToken } from '../../_util/theme';
-import { resetComponent, genComponentStyleHook, mergeToken } from '../../_util/theme';
 import { getStyle as getCheckboxStyle } from '../../checkbox/style';
+import type { DerivativeToken } from '../../theme';
+import { genComponentStyleHook, mergeToken, resetComponent } from '../../theme';
 
 // ============================ Keyframes =============================
 const treeNodeFX = new Keyframes('ant-tree-node-fx-do-not-use', {

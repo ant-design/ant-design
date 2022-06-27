@@ -1,6 +1,6 @@
 // deps-lint-skip-all
-import type { GenerateStyle, FullToken } from '../../_util/theme';
-import { resetComponent, genComponentStyleHook, mergeToken, resetIcon } from '../../_util/theme';
+import type { FullToken, GenerateStyle } from '../../theme';
+import { genComponentStyleHook, mergeToken, resetComponent, resetIcon } from '../../theme';
 
 type CollapseToken = FullToken<'Collapse'> & {
   collapseContentBg: string;

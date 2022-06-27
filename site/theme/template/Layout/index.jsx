@@ -17,7 +17,7 @@ import * as utils from '../utils';
 import Header from './Header';
 import SiteContext from './SiteContext';
 
-import defaultSeedToken from '../../../../components/_util/theme/themes/seed';
+import defaultSeedToken from '../../../../components/theme/themes/seed';
 import DynamicTheme from './DynamicTheme';
 
 if (typeof window !== 'undefined' && navigator.serviceWorker) {

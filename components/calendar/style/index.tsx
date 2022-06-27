@@ -4,8 +4,8 @@ import type { PickerPanelToken } from '../../date-picker/style';
 import { genPanelStyle, initPickerPanelToken } from '../../date-picker/style';
 import type { InputToken } from '../../input/style';
 import { initInputToken } from '../../input/style';
-import type { FullToken } from '../../_util/theme';
-import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
+import type { FullToken } from '../../theme';
+import { genComponentStyleHook, mergeToken, resetComponent } from '../../theme';
 
 export interface ComponentToken {
   yearControlWidth: number;
