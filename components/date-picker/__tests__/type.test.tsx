@@ -1,4 +1,4 @@
-import type { Moment } from 'moment';
+import type { Dayjs } from 'dayjs';
 import * as React from 'react';
 import DatePicker from '..';
 import type { DatePickRef, RangePickerRef } from '../generatePicker/interface';
@@ -18,7 +18,7 @@ describe('DatePicker.typescript', () => {
 
   // https://github.com/ant-design/ant-design/issues/33417
   it('DatePicker ref methods with forwardRef', () => {
-    const MyDatePicker = React.forwardRef((props, ref: DatePickRef<Moment>) => (
+    const MyDatePicker = React.forwardRef((props, ref: DatePickRef<Dayjs>) => (
       <DatePicker {...props} ref={ref} />
     ));
     const datePicker = (
@@ -45,7 +45,7 @@ describe('DatePicker.typescript', () => {
   });
 
   it('RangePicker ref methods with forwardRef', () => {
-    const MyRangePicker = React.forwardRef((props, ref: RangePickerRef<Moment>) => (
+    const MyRangePicker = React.forwardRef((props, ref: RangePickerRef<Dayjs>) => (
       <DatePicker.RangePicker {...props} ref={ref} />
     ));
     const datePicker = (

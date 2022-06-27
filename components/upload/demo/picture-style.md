@@ -21,15 +21,21 @@ import React from 'react';
 
 const fileList: UploadFile[] = [
   {
-    uid: '-1',
+    uid: '0',
     name: 'xxx.png',
+    status: 'uploading',
+    percent: 33,
+  },
+  {
+    uid: '-1',
+    name: 'yyy.png',
     status: 'done',
     url: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
     thumbUrl: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
   },
   {
     uid: '-2',
-    name: 'yyy.png',
+    name: 'zzz.png',
     status: 'error',
   },
 ];
@@ -64,10 +70,10 @@ export default App;
 .upload-list-inline .ant-upload-list-item {
   float: left;
   width: 200px;
-  margin-right: 8px;
+  margin-inline-end: 8px;
 }
 
-.upload-list-inline [class*='-upload-list-rtl'] .ant-upload-list-item {
+.ant-upload-rtl.upload-list-inline .ant-upload-list-item {
   float: right;
 }
 ```

@@ -22,22 +22,22 @@ When `RangePicker` does not satisfied your requirements, try to implement simila
 
 ```tsx
 import { DatePicker, Space } from 'antd';
-import type { Moment } from 'moment';
+import type { Dayjs } from 'dayjs';
 import React, { useState } from 'react';
 
 const App: React.FC = () => {
-  const [startValue, setStartValue] = useState<Moment | null>(null);
-  const [endValue, setEndValue] = useState<Moment | null>(null);
+  const [startValue, setStartValue] = useState<Dayjs | null>(null);
+  const [endValue, setEndValue] = useState<Dayjs | null>(null);
   const [endOpen, setEndOpen] = useState(false);
 
-  const disabledStartDate = (startDate: Moment) => {
+  const disabledStartDate = (startDate: Dayjs) => {
     if (!startDate || !endValue) {
       return false;
     }
     return startDate.valueOf() > endValue.valueOf();
   };
 
-  const disabledEndDate = (endDate: Moment) => {
+  const disabledEndDate = (endDate: Dayjs) => {
     if (!endDate || !startValue) {
       return false;
     }

@@ -100,7 +100,7 @@ export default App;
   margin: 16px 0 16px 24px;
 }
 
-.site-layout-background {
+#components-layout-demo-top-side-2 .site-layout-background {
   background: #fff;
 }
 ```

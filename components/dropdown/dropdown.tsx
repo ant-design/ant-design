@@ -11,6 +11,7 @@ import { cloneElement } from '../_util/reactNode';
 import { tuple } from '../_util/type';
 import warning from '../_util/warning';
 import DropdownButton from './dropdown-button';
+import useStyle from './style';
 
 const Placements = tuple(
   'topLeft',
@@ -123,6 +124,8 @@ const Dropdown: DropdownInterface = props => {
   } = props;
 
   const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
   const child = React.Children.only(children) as React.ReactElement<any>;
 
   const dropdownTrigger = cloneElement(child, {
@@ -153,7 +156,7 @@ const Dropdown: DropdownInterface = props => {
   });
 
   // =========================== Overlay ============================
-  const overlayClassNameCustomized = classNames(overlayClassName, {
+  const overlayClassNameCustomized = classNames(overlayClassName, hashId, {
     [`${prefixCls}-rtl`]: direction === 'rtl',
   });
 
@@ -207,7 +210,7 @@ const Dropdown: DropdownInterface = props => {
   };
 
   // ============================ Render ============================
-  return (
+  return wrapSSR(
     <RcDropdown
       alignPoint={alignPoint}
       {...props}
@@ -224,7 +227,7 @@ const Dropdown: DropdownInterface = props => {
       onVisibleChange={onInnerVisibleChange}
     >
       {dropdownTrigger}
-    </RcDropdown>
+    </RcDropdown>,
   );
 };
 

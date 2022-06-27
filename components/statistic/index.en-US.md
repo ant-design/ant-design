@@ -33,11 +33,11 @@ Display statistic number.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| format | Format as [moment](http://momentjs.com/) | string | `HH:mm:ss` |  |
+| format | Format as [dayjs](https://day.js.org/) | string | `HH:mm:ss` |  |
 | prefix | The prefix node of value | ReactNode | - |  |
 | suffix | The suffix node of value | ReactNode | - |  |
 | title | Display title | ReactNode | - |  |
-| value | Set target countdown time | number \| moment | - |  |
+| value | Set target countdown time | number \| dayjs | - |  |
 | valueStyle | Set value section style | CSSProperties | - |  |
 | onFinish | Trigger when time's up | () => void | - |  |
 | onChange | Trigger when time's changing | (value: number) => void | - | 4.16.0 |

@@ -12,6 +12,8 @@ import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
 import warning from '../_util/warning';
 
+import useStyle from './style';
+
 export type TabsType = 'line' | 'card' | 'editable-card';
 export type TabsPosition = 'top' | 'right' | 'bottom' | 'left';
 
@@ -34,11 +36,13 @@ function Tabs({
   hideAdd,
   centered,
   addIcon,
+  popupClassName,
   ...props
 }: TabsProps) {
   const { prefixCls: customizePrefixCls, moreIcon = <EllipsisOutlined /> } = props;
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('tabs', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   let editable: EditableConfig | undefined;
   if (type === 'editable-card') {
@@ -59,7 +63,7 @@ function Tabs({
     '`onPrevClick` and `onNextClick` has been removed. Please use `onTabScroll` instead.',
   );
 
-  return (
+  return wrapSSR(
     <SizeContext.Consumer>
       {contextSize => {
         const size = propSize !== undefined ? propSize : contextSize;
@@ -76,14 +80,16 @@ function Tabs({
                 [`${prefixCls}-centered`]: centered,
               },
               className,
+              hashId,
             )}
+            popupClassName={classNames(popupClassName, hashId)}
             editable={editable}
             moreIcon={moreIcon}
             prefixCls={prefixCls}
           />
         );
       }}
-    </SizeContext.Consumer>
+    </SizeContext.Consumer>,
   );
 }
 

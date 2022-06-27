@@ -159,7 +159,7 @@ describe('Upload List', () => {
       jest.runAllTimers();
     });
 
-    expect(container.querySelectorAll('.ant-upload-list-text-container')).toHaveLength(1);
+    expect(container.querySelectorAll('.ant-upload-list-item-container')).toHaveLength(1);
 
     unmount();
 

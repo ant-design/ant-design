@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 const fetch = require('isomorphic-fetch');
 const semver = require('semver');
-const moment = require('moment');
+const dayjs = require('dayjs');
 const inquirer = require('inquirer');
 const chalk = require('chalk');
 const { spawnSync } = require('child_process');
@@ -21,8 +21,8 @@ const SAFE_DAYS_DIFF = 1000 * 60 * 60 * 24 * 3; // 3 days not update seems to be
   const versionList = Object.keys(time)
     .filter(version => semver.valid(version) && !semver.prerelease(version))
     .sort((v1, v2) => {
-      const time1 = moment(time[v1]).valueOf();
-      const time2 = moment(time[v2]).valueOf();
+      const time1 = dayjs(time[v1]).valueOf();
+      const time2 = dayjs(time[v2]).valueOf();
 
       return time2 - time1;
     });
@@ -30,7 +30,7 @@ const SAFE_DAYS_DIFF = 1000 * 60 * 60 * 24 * 3; // 3 days not update seems to be
   // Slice for choosing the latest versions
   const latestVersions = versionList.slice(0, 20).map(version => ({
     publishTime: time[version],
-    timeDiff: moment().diff(moment(time[version])),
+    timeDiff: dayjs().diff(dayjs(time[version])),
     value: version,
   }));
 
@@ -65,7 +65,7 @@ const SAFE_DAYS_DIFF = 1000 * 60 * 60 * 24 * 3; // 3 days not update seems to be
       message: 'Please select Conch Version:',
       choices: latestVersions.map(info => {
         const { value, publishTime } = info;
-        const desc = moment(publishTime).fromNow();
+        const desc = dayjs(publishTime).fromNow();
 
         return {
           ...info,

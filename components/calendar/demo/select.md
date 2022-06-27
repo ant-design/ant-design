@@ -15,20 +15,20 @@ A basic calendar component with Year/Month switch.
 
 ```tsx
 import { Alert, Calendar } from 'antd';
-import type { Moment } from 'moment';
-import moment from 'moment';
+import type { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
 import React, { useState } from 'react';
 
 const App: React.FC = () => {
-  const [value, setValue] = useState(moment('2017-01-25'));
-  const [selectedValue, setSelectedValue] = useState(moment('2017-01-25'));
+  const [value, setValue] = useState(dayjs('2017-01-25'));
+  const [selectedValue, setSelectedValue] = useState(dayjs('2017-01-25'));
 
-  const onSelect = (newValue: Moment) => {
+  const onSelect = (newValue: Dayjs) => {
     setValue(newValue);
     setSelectedValue(newValue);
   };
 
-  const onPanelChange = (newValue: Moment) => {
+  const onPanelChange = (newValue: Dayjs) => {
     setValue(newValue);
   };
 

@@ -15,7 +15,7 @@ Comment can be used as an editor, so the user can customize the contents of the 
 
 ```tsx
 import { Avatar, Button, Comment, Form, Input, List } from 'antd';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import React, { useState } from 'react';
 
 const { TextArea } = Input;
@@ -75,7 +75,7 @@ const App: React.FC = () => {
           author: 'Han Solo',
           avatar: 'https://joeschmoe.io/api/v1/random',
           content: <p>{value}</p>,
-          datetime: moment().fromNow(),
+          datetime: dayjs().fromNow(),
         },
       ]);
     }, 1000);

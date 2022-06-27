@@ -16,8 +16,11 @@ A basic comment with author, avatar, time and actions.
 ```tsx
 import { DislikeFilled, DislikeOutlined, LikeFilled, LikeOutlined } from '@ant-design/icons';
 import { Avatar, Comment, Tooltip } from 'antd';
-import moment from 'moment';
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
 import React, { createElement, useState } from 'react';
+
+dayjs.extend(relativeTime);
 
 const App: React.FC = () => {
   const [likes, setLikes] = useState(0);
@@ -65,8 +68,8 @@ const App: React.FC = () => {
         </p>
       }
       datetime={
-        <Tooltip title={moment().format('YYYY-MM-DD HH:mm:ss')}>
-          <span>{moment().fromNow()}</span>
+        <Tooltip title={dayjs().format('YYYY-MM-DD HH:mm:ss')}>
+          <span>{dayjs().fromNow()}</span>
         </Tooltip>
       }
     />

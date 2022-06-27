@@ -16,6 +16,8 @@ import type { TransferListBodyProps } from './ListBody';
 import Operation from './operation';
 import Search from './search';
 
+import useStyle from './style';
+
 export { TransferListProps } from './list';
 export { TransferOperationProps } from './operation';
 export { TransferSearchProps } from './search';
@@ -104,6 +106,25 @@ interface TransferState {
   sourceSelectedKeys: string[];
   targetSelectedKeys: string[];
 }
+
+interface TransferFCProps {
+  prefixCls: string;
+  className: string;
+  style?: React.CSSProperties;
+  children: React.ReactNode;
+}
+
+const TransferFC: React.FC<TransferFCProps> = props => {
+  const { prefixCls } = props;
+
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
+  return wrapSSR(
+    <div className={classNames(props.className, hashId)} style={props.style}>
+      {props.children}
+    </div>,
+  );
+};
 
 class Transfer<RecordType extends TransferItem = TransferItem> extends React.Component<
   TransferProps<RecordType>,
@@ -400,7 +421,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
             const titles = this.getTitles(locale);
             const selectAllLabels = this.props.selectAllLabels || [];
             return (
-              <div className={cls} style={style}>
+              <TransferFC prefixCls={prefixCls} className={cls} style={style}>
                 <List<KeyWise<RecordType>>
                   prefixCls={`${prefixCls}-list`}
                   titleText={titles[0]}
@@ -462,7 +483,7 @@ class Transfer<RecordType extends TransferItem = TransferItem> extends React.Com
                   pagination={mergedPagination}
                   {...locale}
                 />
-              </div>
+              </TransferFC>
             );
           }}
         </FormItemInputContext.Consumer>

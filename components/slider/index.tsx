@@ -6,6 +6,8 @@ import { ConfigContext } from '../config-provider';
 import type { TooltipPlacement } from '../tooltip';
 import SliderTooltip from './SliderTooltip';
 
+import useStyle from './style';
+
 export type SliderMarks = RcSliderProps['marks'];
 
 interface HandleGeneratorInfo {
@@ -96,9 +98,16 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
     } = props;
     const prefixCls = getPrefixCls('slider', customizePrefixCls);
     const tooltipPrefixCls = getPrefixCls('tooltip', customizeTooltipPrefixCls);
-    const cls = classNames(className, {
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-    });
+
+    const [wrapSSR, hashId] = useStyle(prefixCls);
+
+    const cls = classNames(
+      className,
+      {
+        [`${prefixCls}-rtl`]: direction === 'rtl',
+      },
+      hashId,
+    );
 
     // make reverse default on rtl direction
     if (direction === 'rtl' && !restProps.vertical) {
@@ -146,7 +155,7 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
       );
     };
 
-    return (
+    return wrapSSR(
       <RcSlider
         {...(restProps as SliderRangeProps)}
         step={restProps.step!}
@@ -156,7 +165,7 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
         ref={ref}
         prefixCls={prefixCls}
         handleRender={handleRender}
-      />
+      />,
     );
   },
 );

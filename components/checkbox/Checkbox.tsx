@@ -7,6 +7,8 @@ import { FormItemInputContext } from '../form/context';
 import warning from '../_util/warning';
 import { GroupContext } from './Group';
 
+import useStyle from './style';
+
 export interface AbstractCheckboxProps<T> {
   prefixCls?: string;
   className?: string;
@@ -87,6 +89,8 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
   }, [restProps.value]);
 
   const prefixCls = getPrefixCls('checkbox', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
   const checkboxProps: CheckboxProps = { ...restProps };
   if (checkboxGroup && !skipGroup) {
     checkboxProps.onChange = (...args) => {
@@ -110,12 +114,16 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
       [`${prefixCls}-wrapper-in-form-item`]: isFormItemInput,
     },
     className,
+    hashId,
   );
-  const checkboxClass = classNames({
-    [`${prefixCls}-indeterminate`]: indeterminate,
-  });
+  const checkboxClass = classNames(
+    {
+      [`${prefixCls}-indeterminate`]: indeterminate,
+    },
+    hashId,
+  );
   const ariaChecked = indeterminate ? 'mixed' : undefined;
-  return (
+  return wrapSSR(
     // eslint-disable-next-line jsx-a11y/label-has-associated-control
     <label
       className={classString}
@@ -131,7 +139,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
         ref={ref}
       />
       {children !== undefined && <span>{children}</span>}
-    </label>
+    </label>,
   );
 };
 

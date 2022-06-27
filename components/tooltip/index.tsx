@@ -12,6 +12,8 @@ import getPlacements, { AdjustOverflow, PlacementsConfig } from '../_util/placem
 import { cloneElement, isValidElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 
+import useStyle from './style';
+
 export { AdjustOverflow, PlacementsConfig };
 
 export type TooltipPlacement =
@@ -202,7 +204,7 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     return overlay || title || '';
   };
 
-  const { getPopupContainer, ...otherProps } = props;
+  const { getPopupContainer, overlayStyle, ...otherProps } = props;
 
   const {
     prefixCls: customizePrefixCls,
@@ -215,6 +217,8 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
   } = props;
   const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
+
+  const injectFromPopover = (props as any)['data-popover-inject'];
 
   let tempVisible = visible;
   // Hide tooltip when there is no title
@@ -231,10 +235,17 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     [openClassName || `${prefixCls}-open`]: true,
   });
 
-  const customOverlayClassName = classNames(overlayClassName, {
-    [`${prefixCls}-rtl`]: direction === 'rtl',
-    [`${prefixCls}-${color}`]: color && PresetColorRegex.test(color),
-  });
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls, !injectFromPopover);
+
+  const customOverlayClassName = classNames(
+    overlayClassName,
+    {
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+      [`${prefixCls}-${color}`]: color && PresetColorRegex.test(color),
+    },
+    hashId,
+  );
 
   let formattedOverlayInnerStyle = overlayInnerStyle;
   let arrowContentStyle;
@@ -244,11 +255,15 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
     arrowContentStyle = { '--antd-arrow-background-color': color };
   }
 
-  return (
+  return wrapSSR(
     <RcTooltip
       {...otherProps}
       prefixCls={prefixCls}
       overlayClassName={customOverlayClassName}
+      overlayStyle={{
+        ...arrowContentStyle,
+        ...overlayStyle,
+      }}
       getTooltipContainer={getPopupContainer || getTooltipContainer || getContextPopupContainer}
       ref={ref}
       builtinPlacements={getTooltipPlacements()}
@@ -257,14 +272,14 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
       onVisibleChange={onVisibleChange}
       onPopupAlign={onPopupAlign}
       overlayInnerStyle={formattedOverlayInnerStyle}
-      arrowContent={<span className={`${prefixCls}-arrow-content`} style={arrowContentStyle} />}
+      arrowContent={<span className={`${prefixCls}-arrow-content`} />}
       motion={{
         motionName: getTransitionName(rootPrefixCls, 'zoom-big-fast', props.transitionName),
         motionDeadline: 1000,
       }}
     >
       {tempVisible ? cloneElement(child, { className: childCls }) : child}
-    </RcTooltip>
+    </RcTooltip>,
   );
 });
 

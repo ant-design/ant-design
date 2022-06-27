@@ -50,6 +50,8 @@ import type {
 } from './interface';
 import { ColumnsType, TablePaginationConfig } from './interface';
 
+import useStyle from './style';
+
 export { ColumnsType, TablePaginationConfig };
 
 const EMPTY_LIST: any[] = [];
@@ -492,14 +494,18 @@ function InternalTable<RecordType extends object = any>(
     };
   }
 
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
   const wrapperClassNames = classNames(
     `${prefixCls}-wrapper`,
     {
       [`${prefixCls}-wrapper-rtl`]: direction === 'rtl',
     },
     className,
+    hashId,
   );
-  return (
+  return wrapSSR(
     <div ref={ref} className={wrapperClassNames} style={style}>
       <Spin spinning={false} {...spinProps}>
         {topPaginationNode}
@@ -526,7 +532,7 @@ function InternalTable<RecordType extends object = any>(
         />
         {bottomPaginationNode}
       </Spin>
-    </div>
+    </div>,
   );
 }
 

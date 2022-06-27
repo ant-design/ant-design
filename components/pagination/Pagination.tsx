@@ -11,6 +11,7 @@ import { ConfigContext } from '../config-provider';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import { MiddleSelect, MiniSelect } from './Select';
+import useStyle from './style';
 
 export interface PaginationProps extends RcPaginationProps {
   showQuickJumper?: boolean | { goButton?: React.ReactNode };
@@ -43,6 +44,9 @@ const Pagination: React.FC<PaginationProps> = ({
 
   const { getPrefixCls, direction, pagination = {} } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('pagination', customizePrefixCls);
+
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const mergedShowSizeChanger = showSizeChanger ?? pagination.showSizeChanger;
 
@@ -99,9 +103,10 @@ const Pagination: React.FC<PaginationProps> = ({
         [`${prefixCls}-rtl`]: direction === 'rtl',
       },
       className,
+      hashId,
     );
 
-    return (
+    return wrapSSR(
       <RcPagination
         {...getIconsProps()}
         {...restProps}
@@ -111,7 +116,7 @@ const Pagination: React.FC<PaginationProps> = ({
         selectComponentClass={selectComponentClass || (isSmall ? MiniSelect : MiddleSelect)}
         locale={locale}
         showSizeChanger={mergedShowSizeChanger}
-      />
+      />,
     );
   };
 

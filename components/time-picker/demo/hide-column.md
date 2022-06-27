@@ -15,12 +15,12 @@ While part of `format` is omitted, the corresponding column in panel will disapp
 
 ```tsx
 import { TimePicker } from 'antd';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import React from 'react';
 
 const format = 'HH:mm';
 
-const App: React.FC = () => <TimePicker defaultValue={moment('12:08', format)} format={format} />;
+const App: React.FC = () => <TimePicker defaultValue={dayjs('12:08', format)} format={format} />;
 
 export default App;
 ```

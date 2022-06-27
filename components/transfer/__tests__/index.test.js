@@ -443,7 +443,7 @@ describe('Transfer', () => {
       />,
     );
 
-    const wrapper = component.find('.ant-transfer');
+    const wrapper = component.find('.ant-transfer').last();
     const listSource = component.find('.ant-transfer-list').first();
     const listTarget = component.find('.ant-transfer-list').last();
     const operation = component.find('.ant-transfer-operation').first();

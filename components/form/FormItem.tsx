@@ -27,6 +27,7 @@ import FormItemLabel from './FormItemLabel';
 import useDebounce from './hooks/useDebounce';
 import useFrameState from './hooks/useFrameState';
 import useItemRef from './hooks/useItemRef';
+import useStyle from './style';
 import { getFieldId, toArray } from './util';
 
 const NAME_SPLIT = '__SPLIT__';
@@ -133,6 +134,9 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
   const hasName = hasValidName(name);
 
   const prefixCls = getPrefixCls('form', customizePrefixCls);
+
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   // ========================= MISC =========================
   // Get `noStyle` required info
@@ -282,7 +286,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
     // ======================= Children =======================
     return (
       <Row
-        className={classNames(itemClassName)}
+        className={classNames(itemClassName, hashId)}
         style={style}
         key="row"
         {...omit(restProps, [
@@ -337,7 +341,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
   }
 
   if (!hasName && !isRenderProps && !dependencies) {
-    return renderLayout(children) as JSX.Element;
+    return wrapSSR(renderLayout(children) as JSX.Element);
   }
 
   let variables: Record<string, string> = {};
@@ -351,7 +355,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
   }
 
   // >>>>> With Field
-  return (
+  return wrapSSR(
     <Field
       {...props}
       messageVariables={variables}
@@ -459,7 +463,7 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
 
         return renderLayout(childNode, fieldId, isRequired);
       }}
-    </Field>
+    </Field>,
   );
 }
 

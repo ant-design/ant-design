@@ -17,20 +17,35 @@ Update message content with unique `key`.
 import { Button, message } from 'antd';
 import React from 'react';
 
-const key = 'updatable';
+const App: React.FC = () => {
+  const [messageApi, contextHolder] = message.useMessage();
+  const key = 'updatable';
 
-const openMessage = () => {
-  message.loading({ content: 'Loading...', key });
-  setTimeout(() => {
-    message.success({ content: 'Loaded!', key, duration: 2 });
-  }, 1000);
+  const openMessage = () => {
+    messageApi.open({
+      key,
+      type: 'loading',
+      content: 'Loading...',
+    });
+    setTimeout(() => {
+      messageApi.open({
+        key,
+        type: 'success',
+        content: 'Loaded!',
+        duration: 2,
+      });
+    }, 1000);
+  };
+
+  return (
+    <>
+      {contextHolder}
+      <Button type="primary" onClick={openMessage}>
+        Open the message box
+      </Button>
+    </>
+  );
 };
-
-const App: React.FC = () => (
-  <Button type="primary" onClick={openMessage}>
-    Open the message box
-  </Button>
-);
 
 export default App;
 ```
