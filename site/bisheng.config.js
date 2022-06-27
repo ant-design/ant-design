@@ -196,7 +196,6 @@ module.exports = {
   devServerConfig: {
     public: `${process.env.DEV_HOST || 'localhost'}:${port}`,
     disableHostCheck: !!process.env.DEV_HOST,
-    publicPath: '/_site',
   },
 
   htmlTemplateExtraData: {
