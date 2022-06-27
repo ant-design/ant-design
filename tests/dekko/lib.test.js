@@ -26,7 +26,7 @@ $('lib/*')
   .hasFile('index.d.ts')
   .hasDirectory('style');
 
-$('lib/*/style').hasFile('css.js').hasFile('index.js');
+$('lib/*/style').hasFile('index.js');
 
 // locale
 const filterLocaleFile = filePath => {
