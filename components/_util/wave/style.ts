@@ -35,8 +35,8 @@ const genWaveStyle: GenerateStyle<WaveToken> = token => {
       & ${token.clickAnimatingNode}`]: {
         position: 'absolute',
         top: 0,
-        left: 0,
-        right: 0,
+        insetInlineStart: 0,
+        insetInlineEnd: 0,
         bottom: 0,
         display: 'block',
         borderRadius: 'inherit',
