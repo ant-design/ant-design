@@ -15,6 +15,27 @@ timeline: true
 
 ---
 
+## 4.21.4
+
+`2022-06-27`
+
+- Table
+  - 🐞 修复 Table 展开图标未居中的问题。[#36215](https://github.com/ant-design/ant-design/pull/36215)
+  - 💄 修复 Table 内嵌 Table 时的边距问题。[#36209](https://github.com/ant-design/ant-design/pull/36209)
+  - 🐞 Table 取消选择或批量操作时重置上一次选择的 key。[#34705](https://github.com/ant-design/ant-design/pull/34705) [@Dunqing](https://github.com/Dunqing)
+  - 🐞 修复 Table 过滤列表在某些场景下多级展开无法关闭的问题。[#36132](https://github.com/ant-design/ant-design/pull/36132)
+- 🐞 修复 Upload `listType="picture-card"` 当 children 为空时上传文件按钮没有隐藏的问题。[#36196](https://github.com/ant-design/ant-design/pull/36196)
+- 🐞 修复 Popover 自定义 `color` 时箭头颜色问题。[#36241](https://github.com/ant-design/ant-design/pull/36241) [@MadCcc](https://github.com/MadCcc)
+- 🐞 修复 Menu `item={undefined}` 时会有废弃警告的问题。[#36190](https://github.com/ant-design/ant-design/pull/36190)
+- 💄 修复 Button `loading` 图标的间距丢失的问题。[#36168](https://github.com/ant-design/ant-design/pull/36168)
+- 🐞 修复 Dropdown 中 Menu 分组下的 Item 点击不会关闭的问题。[#36148](https://github.com/ant-design/ant-design/pull/36148)
+- 💄 优化 Slider 拖拽手柄的可交互区域。[#36018](https://github.com/ant-design/ant-design/pull/36018) [@slotDumpling](https://github.com/slotDumpling)
+- 🐞 修复重复添加 readOnly 的 css 类名，它已在 rc-input-number 中被声明了。[#36120](https://github.com/ant-design/ant-design/pull/36120) [@RainyLiao](https://github.com/RainyLiao)
+- 💄 修复 Skeleton 在 `active` 时的背景色样式。[#36116](https://github.com/ant-design/ant-design/pull/36116)
+- TypeScript
+  - 🤖 修复 TreeSelect `switcherIcon` 类型不兼容。[#36189](https://github.com/ant-design/ant-design/pull/36189) [@Dunqing](https://github.com/Dunqing)
+  - 🤖 从 `Upload` 导出类型 `UploadFile`。[#34733](https://github.com/ant-design/ant-design/pull/34733) [@chentsulin](https://github.com/chentsulin)
+
 ## 4.21.3
 
 `2022-06-17`
