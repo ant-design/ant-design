@@ -11,7 +11,7 @@ Here are the frequently asked questions about Ant Design and antd that you shoul
 
 There is currently no plan to add support for Sass/Stylus(etc.) style files, but using tools on Google you can easily convert the provided Less files to your desired style format.
 
-## Is there a difference between undefined and null in the controlled components of antd?
+## Is there a difference between `undefined` and `null` in the controlled components of `antd`?
 
 **Yes. antd will treats `undefined` as uncontrolled but `null` as controlled components which means empty value of it.**
 
