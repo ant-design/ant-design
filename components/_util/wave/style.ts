@@ -1,10 +1,11 @@
 import { Keyframes, useStyleRegister } from '@ant-design/cssinjs';
 import { useContext } from 'react';
 import { ConfigContext } from '../../config-provider';
-import type { AliasToken, GenerateStyle } from '../../theme';
+import type { AliasToken, GenerateStyle, UseComponentStyleResult } from '../../theme';
 import { useToken } from '../../theme';
 
 interface WaveToken extends AliasToken {
+  hashId: string;
   clickAnimatingNode: string;
   clickAnimatingTrue: string;
   clickAnimatingWithExtraNodeTrue: string;
@@ -37,9 +38,9 @@ const genWaveStyle: GenerateStyle<WaveToken> = token => {
         borderRadius: 'inherit',
         boxShadow: `0 0 0 0 ${token.colorPrimary}`,
         opacity: 0.2,
-        animation: `${fadeEffect.getName()} 2s ${
+        animation: `${fadeEffect.getName(token.hashId)} 2s ${
           token.motionEaseOutCirc
-        }, ${waveEffect.getName()} 0.4s ${token.motionEaseOutCirc}`,
+        }, ${waveEffect.getName(token.hashId)} 0.4s ${token.motionEaseOutCirc}`,
         animationFillMode: 'forwards',
         content: '""',
         pointerEvents: 'none',
@@ -50,8 +51,8 @@ const genWaveStyle: GenerateStyle<WaveToken> = token => {
   ];
 };
 
-export default () => {
-  const [theme, token] = useToken();
+export default (): UseComponentStyleResult => {
+  const [theme, token, hashId] = useToken();
   const { getPrefixCls } = useContext(ConfigContext);
   const rootPrefixCls = getPrefixCls();
 
@@ -61,11 +62,15 @@ export default () => {
 
   const waveToken: WaveToken = {
     ...token,
+    hashId,
     clickAnimatingNode,
     clickAnimatingTrue,
     clickAnimatingWithExtraNodeTrue: clickAnimatingWithoutExtraNodeTrue,
     clickAnimatingWithExtraNodeTrueAfter: `${clickAnimatingWithoutExtraNodeTrue}::after`,
   };
 
-  return useStyleRegister({ theme, token, path: ['wave'] }, () => [genWaveStyle(waveToken)]);
+  return [
+    useStyleRegister({ theme, token, hashId, path: ['wave'] }, () => [genWaveStyle(waveToken)]),
+    hashId,
+  ];
 };
