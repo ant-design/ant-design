@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type { RequiredMark } from '../form/Form';
 import type { Locale } from '../locale-provider';
-import type { DerivativeToken, OverrideToken, SeedToken } from '../_util/theme/interface';
+import type { MapToken, OverrideToken, SeedToken } from '../_util/theme/interface';
 import type { DeepPartial } from '../_util/type';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
 import type { SizeType } from './SizeContext';
@@ -26,7 +26,7 @@ export type DirectionType = 'ltr' | 'rtl' | undefined;
 export interface ThemeConfig {
   token?: Partial<SeedToken>;
   override?: DeepPartial<OverrideToken>;
-  derivative?: (token: SeedToken) => DerivativeToken;
+  derivative?: (token: SeedToken) => MapToken;
   hashed?: boolean;
 }
 

@@ -41,6 +41,7 @@ import type { ComponentToken as TooltipComponentToken } from '../../tooltip/styl
 import type { ComponentToken as TransferComponentToken } from '../../transfer/style';
 import type { ComponentToken as TypographyComponentToken } from '../../typography/style';
 import type { ComponentToken as UploadComponentToken } from '../../upload/style';
+import type { DeepPartial } from '../type';
 import type { BgPalettes, TextAlphaPalettes } from './themes/IPalettes';
 
 export const PresetColors = [
@@ -69,12 +70,7 @@ export type ColorPalettes = {
   [key in `${keyof PresetColorType}-${ColorPaletteKeyIndex}`]: string;
 };
 
-export interface OverrideToken {
-  derivative?: Partial<DerivativeToken>;
-  /** @private Internal Usage */
-  alias?: Partial<AliasToken>;
-
-  // Customize component
+export interface ComponentTokenMap {
   Affix?: {};
   Alert?: AlertComponentToken;
   Anchor?: AnchorComponentToken;
@@ -135,8 +131,14 @@ export interface OverrideToken {
   Progress?: ProgressComponentToken;
 }
 
+export interface OverrideToken extends DeepPartial<ComponentTokenMap> {
+  derivative?: Partial<MapToken>;
+  /** @private Internal Usage */
+  alias?: Partial<AliasToken>;
+}
+
 /** Final token which contains the components level override */
-export type GlobalToken = AliasToken & Omit<OverrideToken, 'derivative' | 'alias'>;
+export type GlobalToken = AliasToken & ComponentTokenMap;
 
 // ======================================================================
 // ==                            Seed Token                            ==
@@ -201,10 +203,10 @@ export interface SeedToken extends PresetColorType {
 }
 
 // ======================================================================
-// ==                         Derivative Token                         ==
+// ==                         Map Token                         ==
 // ======================================================================
 // 🔥🔥🔥🔥🔥🔥🔥 DO NOT MODIFY THIS. PLEASE CONTACT DESIGNER. 🔥🔥🔥🔥🔥🔥🔥
-export interface DerivativeToken extends SeedToken, ColorPalettes {
+export interface MapToken extends SeedToken, ColorPalettes {
   // Color
   /** Used for DefaultButton, Switch which has default outline */
   colorDefaultOutline: string;
@@ -281,7 +283,7 @@ export interface DerivativeToken extends SeedToken, ColorPalettes {
 // ======================================================================
 // FIXME: DerivativeToken should part pick
 // 🔥🔥🔥🔥🔥🔥🔥 DO NOT MODIFY THIS. PLEASE CONTACT DESIGNER. 🔥🔥🔥🔥🔥🔥🔥
-export interface AliasToken extends DerivativeToken {
+export interface AliasToken extends MapToken {
   // Font
   fontSizeSM: number;
   fontSize: number;

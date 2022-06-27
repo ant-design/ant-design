@@ -1,9 +1,9 @@
 import { generate } from '@ant-design/colors';
 import { TinyColor } from '@ctrl/tinycolor';
-import type { AliasToken, DerivativeToken, OverrideToken } from '../interface';
+import type { AliasToken, MapToken, OverrideToken } from '../interface';
 
 /** Raw merge of `@ant-design/cssinjs` token. Which need additional process */
-type RawMergedToken = DerivativeToken & OverrideToken;
+type RawMergedToken = MapToken & OverrideToken;
 
 /**
  * Seed (designer) > Derivative (designer) > Alias (developer).
@@ -177,8 +177,6 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     screenXXL,
     screenXXLMin: screenXXL,
     screenXXLMax: screenXXL - 1,
-
-    motionEaseOut: 'cubic-bezier(0.215, 0.61, 0.355, 1)',
 
     // FIXME: component box-shadow, should be removed
     boxShadowPopoverArrow: `3px 3px 7px rgba(0, 0, 0, 0.1)`,
