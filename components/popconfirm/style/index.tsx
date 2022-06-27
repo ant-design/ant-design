@@ -1,6 +1,6 @@
 // deps-lint-skip-all
-import type { FullToken, GenerateStyle } from '../../_util/theme';
-import { genComponentStyleHook } from '../../_util/theme';
+import type { FullToken, GenerateStyle } from '../../theme';
+import { genComponentStyleHook } from '../../theme';
 
 export interface ComponentToken {
   zIndexPopup: number;

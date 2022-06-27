@@ -4,9 +4,9 @@ import { Button, Checkbox, Drawer, Form, Input, InputNumber, Space } from 'antd'
 import * as React from 'react';
 import { useState } from 'react';
 import { useIntl } from 'react-intl';
-import type { SeedToken } from '../../../../../components/_util/theme';
-import { PresetColors } from '../../../../../components/_util/theme/interface';
-import defaultSeedToken from '../../../../../components/_util/theme/themes/seed';
+import type { SeedToken } from '../../../../../components/theme';
+import { PresetColors } from '../../../../../components/theme/interface';
+import defaultSeedToken from '../../../../../components/theme/themes/seed';
 import Diff from './Diff';
 import Preview from './Preview';
 

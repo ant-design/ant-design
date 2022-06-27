@@ -1,6 +1,6 @@
 import type { CSSInterpolation } from '@ant-design/cssinjs';
-import type { GenerateStyle } from '../../_util/theme';
-import { resetComponent } from '../../_util/theme';
+import type { GenerateStyle } from '../../theme';
+import { resetComponent } from '../../theme';
 import type { TableToken } from './index';
 
 const genFilterStyle: GenerateStyle<TableToken, CSSInterpolation> = token => {

@@ -1,8 +1,8 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
-import type { FullToken, GenerateStyle, PresetColorType } from '../../_util/theme';
-import { genComponentStyleHook, mergeToken, PresetColors, resetComponent } from '../../_util/theme';
+import type { FullToken, GenerateStyle, PresetColorType } from '../../theme';
+import { genComponentStyleHook, mergeToken, PresetColors, resetComponent } from '../../theme';
 
 interface BadgeToken extends FullToken<'Badge'> {
   badgeFontHeight: number;

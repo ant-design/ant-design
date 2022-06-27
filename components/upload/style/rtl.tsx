@@ -1,5 +1,5 @@
 import type { UploadToken } from '.';
-import type { GenerateStyle } from '../../_util/theme';
+import type { GenerateStyle } from '../../theme';
 
 // =========================== Motion ===========================
 const genRtlStyle: GenerateStyle<UploadToken> = token => {

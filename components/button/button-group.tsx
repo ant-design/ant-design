@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import type { SizeType } from '../config-provider/SizeContext';
-import { useToken } from '../_util/theme';
+import { useToken } from '../theme';
 import warning from '../_util/warning';
 
 export interface ButtonGroupProps {

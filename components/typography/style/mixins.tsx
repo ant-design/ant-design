@@ -9,10 +9,10 @@
 */
 import { gold } from '@ant-design/colors';
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { GenerateStyle } from '../../_util/theme';
-import { operationUnit } from '../../_util/theme';
-import { initInputToken } from '../../input/style';
 import type { TypographyToken } from '.';
+import { initInputToken } from '../../input/style';
+import type { GenerateStyle } from '../../theme';
+import { operationUnit } from '../../theme';
 
 // eslint-disable-next-line import/prefer-default-export
 const getTitleStyle = (

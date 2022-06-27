@@ -1,13 +1,13 @@
 // deps-lint-skip-all
 import { TinyColor } from '@ctrl/tinycolor';
-import type { FullToken, GenerateStyle, UseComponentStyleResult } from '../../_util/theme';
+import type { FullToken, GenerateStyle, UseComponentStyleResult } from '../../theme';
 import {
   clearFix,
   genComponentStyleHook,
   mergeToken,
   resetComponent,
   resetIcon,
-} from '../../_util/theme';
+} from '../../theme';
 import getHorizontalStyle from './horizontal';
 import getRTLStyle from './rtl';
 import getThemeStyle from './theme';

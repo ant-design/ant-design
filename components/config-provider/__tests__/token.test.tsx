@@ -2,8 +2,8 @@ import classNames from 'classnames';
 import React from 'react';
 import ConfigProvider from '..';
 import { render } from '../../../tests/utils';
-import type { AliasToken } from '../../_util/theme';
-import type { UseCustomStyle, UseToken } from '../../_util/theme/util/useStyle';
+import type { AliasToken } from '../../theme';
+import type { UseCustomStyle, UseToken } from '../../theme/util/useStyle';
 
 const { useCustomToken, useStyle, useCustomStyle } = ConfigProvider;
 

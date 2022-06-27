@@ -3,8 +3,8 @@ import canUseDom from 'rc-util/lib/Dom/canUseDom';
 import React from 'react';
 import ConfigProvider from '..';
 import { render } from '../../../tests/utils';
-import { useToken } from '../../_util/theme';
-import darkDerivative from '../../_util/theme/themes/dark';
+import { useToken } from '../../theme';
+import darkDerivative from '../../theme/themes/dark';
 import { resetWarned } from '../../_util/warning';
 
 let mockCanUseDom = true;

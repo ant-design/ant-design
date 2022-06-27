@@ -1,7 +1,7 @@
 import * as React from 'react';
 import type { RequiredMark } from '../form/Form';
 import type { Locale } from '../locale-provider';
-import type { MapToken, OverrideToken, SeedToken } from '../_util/theme/interface';
+import type { MapToken, OverrideToken, SeedToken } from '../theme/interface';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
 import type { SizeType } from './SizeContext';
 

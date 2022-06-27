@@ -7,8 +7,8 @@ import {
   slideUpIn,
   slideUpOut,
 } from '../../style/motion';
-import type { FullToken, GenerateStyle } from '../../_util/theme';
-import { genComponentStyleHook, mergeToken, resetComponent, roundedArrow } from '../../_util/theme';
+import type { FullToken, GenerateStyle } from '../../theme';
+import { genComponentStyleHook, mergeToken, resetComponent, roundedArrow } from '../../theme';
 import genButtonStyle from './button';
 import genStatusStyle from './status';
 

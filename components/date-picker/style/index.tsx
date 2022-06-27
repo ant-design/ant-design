@@ -9,10 +9,10 @@ import {
   initInputToken,
 } from '../../input/style';
 import { slideDownIn, slideDownOut, slideUpIn, slideUpOut } from '../../style/motion';
-import type { FullToken, GenerateStyle } from '../../_util/theme';
-import { genComponentStyleHook, mergeToken, resetComponent, roundedArrow } from '../../_util/theme';
-import type { GlobalToken } from '../../_util/theme/interface';
-import type { TokenWithCommonCls } from '../../_util/theme/util/genComponentStyleHook';
+import type { FullToken, GenerateStyle } from '../../theme';
+import { genComponentStyleHook, mergeToken, resetComponent, roundedArrow } from '../../theme';
+import type { GlobalToken } from '../../theme/interface';
+import type { TokenWithCommonCls } from '../../theme/util/genComponentStyleHook';
 
 export interface ComponentToken {
   zIndexPopup: number;
