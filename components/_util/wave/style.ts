@@ -8,8 +8,8 @@ interface WaveToken extends AliasToken {
   hashId: string;
   clickAnimatingNode: string;
   clickAnimatingTrue: string;
-  clickAnimatingWithExtraNodeTrue: string;
-  clickAnimatingWithExtraNodeTrueAfter: string;
+  clickAnimatingWithoutExtraNodeTrue: string;
+  clickAnimatingWithoutExtraNodeTrueAfter: string;
 }
 
 const genWaveStyle: GenerateStyle<WaveToken> = token => {
@@ -27,8 +27,12 @@ const genWaveStyle: GenerateStyle<WaveToken> = token => {
 
   return [
     {
-      [`${token.clickAnimatingWithExtraNodeTrueAfter},
-      ${token.clickAnimatingNode}`]: {
+      [`${token.clickAnimatingWithoutExtraNodeTrue},
+      ${token.clickAnimatingTrue}`]: {
+        position: 'relative',
+      },
+      [`${token.clickAnimatingWithoutExtraNodeTrueAfter},
+      & ${token.clickAnimatingNode}`]: {
         position: 'absolute',
         top: 0,
         left: 0,
@@ -65,8 +69,8 @@ export default (): UseComponentStyleResult => {
     hashId,
     clickAnimatingNode,
     clickAnimatingTrue,
-    clickAnimatingWithExtraNodeTrue: clickAnimatingWithoutExtraNodeTrue,
-    clickAnimatingWithExtraNodeTrueAfter: `${clickAnimatingWithoutExtraNodeTrue}::after`,
+    clickAnimatingWithoutExtraNodeTrue,
+    clickAnimatingWithoutExtraNodeTrueAfter: `${clickAnimatingWithoutExtraNodeTrue}::after`,
   };
 
   return [
