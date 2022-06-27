@@ -5,8 +5,8 @@ import version from '../../version';
 import type { DeepPartial } from '../type';
 import type {
   AliasToken,
-  DerivativeToken,
   GlobalToken,
+  MapToken,
   OverrideToken,
   PresetColorType,
   SeedToken,
@@ -50,7 +50,7 @@ export type {
 // ================================ Context =================================
 export const DesignTokenContext = React.createContext<{
   token: Partial<SeedToken>;
-  derivative?: (token: SeedToken) => DerivativeToken;
+  derivative?: (token: SeedToken) => MapToken;
   override?: DeepPartial<OverrideToken>;
   hashed?: string | boolean;
 }>({
@@ -63,7 +63,7 @@ export const DesignTokenContext = React.createContext<{
 const saltPrefix =
   process.env.NODE_ENV === 'production' ? version : `${version}-${new Date().getHours()}`;
 
-export function useToken(): [Theme<SeedToken, DerivativeToken>, GlobalToken, string] {
+export function useToken(): [Theme<SeedToken, MapToken>, GlobalToken, string] {
   const {
     token: rootDesignToken,
     override,

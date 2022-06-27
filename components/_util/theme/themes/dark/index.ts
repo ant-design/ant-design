@@ -1,11 +1,11 @@
 import { generate } from '@ant-design/colors';
 import { TinyColor } from '@ctrl/tinycolor';
-import type { ColorPalettes, DerivativeToken, PresetColorType, SeedToken } from '../../interface';
+import type { ColorPalettes, MapToken, PresetColorType, SeedToken } from '../../interface';
 import { defaultPresetColors } from '../seed';
 import { getFontSizes } from '../shared';
 import { generateBgPalettes, generateTextAlphaPalettes } from './palettes';
 
-export default function derivative(token: SeedToken): DerivativeToken {
+export default function derivative(token: SeedToken): MapToken {
   const {
     colorPrimary,
     colorSuccess,
