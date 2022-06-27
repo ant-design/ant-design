@@ -11,6 +11,16 @@ title: FAQ
 
 暂无计划。事实上你可以使用工具（请自行 Google）将 Less 转换成 Sass/Stylus 等。
 
+## `undefined` 和 `null` 在 `antd` 的受控组件中有区别吗？
+
+**有。antd 约定：`undefined` 是非受控的标志，`null` 作为显式的受控空值。**
+
+在输入元素中，React 认为 `undefined` 和 `null` 都属于非受控的标志。当 `value` 由非空值转化为 `undefined` 或 `null` 时，组件不再受控，这通常是一些意外情况发生的原因。
+
+但在 antd 中，我们定义 `undefined` 为非受控的标志，而 `null` 则作为显式的受控空值。为的是处理 `value` 为复杂数据类型时的清空（如 `allowClear`）置 `value` 为空值等场景。如果需要让组件受控且希望将 `value` 置为空值，请将 `value` 设置为 `null`。
+
+注意：对于类 `Select` 组件的 `options`，我们**强烈不建议**使用 `undefined` 和 `null` 作为 `option` 中的 `value`，请使用 `string | number` 作为 `option` 的 `value`。
+
 ## 当我点击 `Select Dropdown DatePicker TimePicker Popover Popconfirm` 内的另一个 popup 组件时它会消失，如何解决？
 
 该问题在 `3.11.0` 后已经解决。如果你仍在使用旧版本，你可以通过 `<Select getPopupContainer={trigger => trigger.parentElement}>` 来在 Popover 中渲染组件，或者使用其他的 `getXxxxContainer` 参数。
@@ -85,9 +95,9 @@ antd 内部会对 props 进行浅比较实现性能优化。当状态变更，�
 - 2.x: https://ant-design-2x.gitee.io/
 - 1.x: https://ant-design-1x.gitee.io/
 
-## `antd` 会像 `React` 那样提供单文件引入吗？
+## `antd` 可以像 `React` 那样使用单文件引入吗？
 
-是的，[你可以用 script 标签引入](https://ant.design/docs/react/introduce-cn#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%BC%95%E5%85%A5)。但是我们推荐使用 `npm` 来引入 `antd`，这样维护起来更简单方便。
+可以，[你可以用 script 标签引入](https://ant.design/docs/react/introduce-cn#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%BC%95%E5%85%A5)。但是我们推荐使用 `npm` 来引入 `antd`，这样维护起来更简单方便。
 
 ## 在我的网络环境下没法获取到 `icon` 文件。
 

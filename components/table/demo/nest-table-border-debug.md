@@ -16,8 +16,8 @@ To see if bordered style applied to other tables.
 
 ```tsx
 import { DownOutlined } from '@ant-design/icons';
+import type { TableColumnsType } from 'antd';
 import { Badge, Dropdown, Form, Menu, Space, Switch, Table } from 'antd';
-import type { ColumnsType } from 'antd/lib/table';
 import React, { useState } from 'react';
 
 interface DataType {
@@ -93,7 +93,7 @@ const App: React.FC = () => {
     return <Table columns={columns} dataSource={data} pagination={false} bordered={bordered} />;
   };
 
-  const columns: ColumnsType<DataType> = [
+  const columns: TableColumnsType<DataType> = [
     { title: 'Name', dataIndex: 'name', key: 'name' },
     { title: 'Platform', dataIndex: 'platform', key: 'platform' },
     { title: 'Version', dataIndex: 'version', key: 'version' },
@@ -135,7 +135,6 @@ const App: React.FC = () => {
       <Table
         title={() => 'cool'}
         footer={() => 'cool'}
-        className="components-table-demo-nested"
         columns={columns}
         expandable={{ expandedRowRender: createExpandedRowRender(childTableBordered) }}
         dataSource={data}
