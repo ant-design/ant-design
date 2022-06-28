@@ -26,7 +26,7 @@ const genTagStatusStyle = (
     [`${token.componentCls}-${status}`]: {
       color: token[`color${cssVariableType}`],
       background: token[`color${capitalizedCssVariableType}Bg`],
-      borderColor: token[`color${capitalizedCssVariableType}Secondary`],
+      borderColor: token[`color${capitalizedCssVariableType}Border`],
     },
   };
 };
