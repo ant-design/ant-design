@@ -1,6 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import type { TableProps } from 'antd';
-import { Alert, Col, ConfigProvider, Row, Select, Space, Table } from 'antd';
+import { Alert, Col, Row, Select, Space, Table, useDesignToken } from 'antd';
 import * as React from 'react';
 import { statistic } from '../../../../../components/theme';
 
@@ -85,7 +85,7 @@ export default () => {
   );
 
   // Full token
-  const [, token] = ConfigProvider.useToken();
+  const { token } = useDesignToken();
   const tokenList = React.useMemo(
     () =>
       Object.keys(token)
