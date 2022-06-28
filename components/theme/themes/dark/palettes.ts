@@ -18,7 +18,6 @@ export function generateBgPalettes(bgBaseColor: string): BgPalettes {
 export function generateTextAlphaPalettes(textBaseColor: string): TextAlphaPalettes {
   return {
     85: getAlphaColor(textBaseColor, 0.85),
-    75: getAlphaColor(textBaseColor, 0.75), // 目前只有 Color Action 用了
     'light-75': getAlphaColor(textBaseColor, 0.75),
     65: getAlphaColor(textBaseColor, 0.65), // 目前只有 Segment Label 用了
     45: getAlphaColor(textBaseColor, 0.45),

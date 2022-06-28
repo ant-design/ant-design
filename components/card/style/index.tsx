@@ -111,7 +111,7 @@ const genCardActionsStyle: GenerateStyle<CardToken> = (token): CSSObject => {
     margin: 0,
     padding: 0,
     listStyle: 'none',
-    background: token.colorBgComponent,
+    background: token.colorBgContainer,
     borderTop: `${token.controlLineWidth}px ${token.controlLineType} ${colorBorderSecondary}`,
     display: 'flex',
     ...clearFix(),
@@ -193,12 +193,12 @@ const genCardMetaStyle: GenerateStyle<CardToken> = (token): CSSObject => ({
 
 // ============================== Inner ==============================
 const genCardTypeInnerStyle: GenerateStyle<CardToken> = (token): CSSObject => {
-  const { componentCls, cardPaddingBase, colorBgComponentSecondary, cardInnerHeadPadding } = token;
+  const { componentCls, cardPaddingBase, colorBgContainerSecondary, cardInnerHeadPadding } = token;
 
   return {
     [`${componentCls}-head`]: {
       padding: `0 ${cardPaddingBase}px`,
-      background: colorBgComponentSecondary,
+      background: colorBgContainerSecondary,
 
       '&-title': {
         padding: `${cardInnerHeadPadding}px 0`,
@@ -245,7 +245,7 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
       ...resetComponent(token),
 
       position: 'relative',
-      background: token.colorBgComponent,
+      background: token.colorBgContainer,
       borderRadius: token.radiusBase,
 
       [`${componentCls}-head`]: genCardHeadStyle(token),

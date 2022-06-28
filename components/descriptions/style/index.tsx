@@ -184,7 +184,7 @@ const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token: Descripti
 };
 // ============================== Export ==============================
 export default genComponentStyleHook('Descriptions', token => {
-  const descriptionsBg = token.colorBgComponentSecondary;
+  const descriptionsBg = token.colorBgContainerSecondary;
   const descriptionsTitleMarginBottom = token.fontSizeSM * token.lineHeightSM;
   const descriptionsExtraColor = token.colorText;
   const descriptionsSmallPadding = `${token.paddingXS}px ${token.padding}px`;

@@ -214,28 +214,37 @@ export interface MapToken extends SeedToken, ColorPalettes {
   colorPrimaryHover: string;
   colorPrimaryActive: string;
   colorPrimaryOutline: string;
-  colorPrimarySecondary: string; // primary[2]
+  colorPrimaryBorder: string; // primary[2]
   colorPrimaryBorderHover: string;
 
-  colorSuccessSecondary: string;
+  colorSuccessBorder: string;
   colorSuccessBg: string; // success[0]
 
   colorWarningHover: string;
   colorWarningActive: string;
   colorWarningOutline: string;
-  colorWarningSecondary: string;
+  colorWarningBorder: string;
   colorWarningBg: string;
 
   colorErrorHover: string;
   colorErrorActive: string;
   colorErrorOutline: string;
-  colorErrorSecondary: string;
+  colorErrorBorder: string;
   colorErrorBg: string;
 
-  colorInfoSecondary: string;
+  colorInfoBorder: string;
   colorInfoBg: string;
 
   colorHighlight: string;
+
+  /** Color of layout background */
+  colorBgLayout: string;
+  colorBgContent: string;
+  colorBgContentHover: string;
+  /** Color of popup background */
+  colorBgElevated: string;
+  /** Color of component background */
+  colorBgContainer: string;
 
   // Font
   fontSizes: number[];
@@ -336,19 +345,13 @@ export interface AliasToken extends MapToken {
   colorAction: string;
   /** Weak action hover color. Such as `allowClear` or Alert close button */
   colorActionHover: string;
-  colorActionTmp: string;
 
   colorLink: string;
   colorLinkHover: string;
   colorLinkActive: string;
 
-  colorBgContainer: string;
   colorBgContainerSecondary: string;
-  colorBgComponent: string;
-  colorBgComponentSecondary: string;
-  colorBgComponentDisabled: string;
-  colorBgElevated: string;
-  colorBgComponentTmp: string;
+  colorBgContainerDisabled: string;
 
   // =============== Legacy: should be remove ===============
   opacityLoading: number;

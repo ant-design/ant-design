@@ -59,7 +59,7 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
           display: 'none',
           width: anchorBallSize,
           height: anchorBallSize,
-          backgroundColor: token.colorBgComponent,
+          backgroundColor: token.colorBgContainer,
           border: `${lineWidthBold}px solid ${token.colorPrimary}`,
           borderRadius: anchorBallSize,
           transform: 'translateX(-50%)',

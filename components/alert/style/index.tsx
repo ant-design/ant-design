@@ -128,19 +128,19 @@ export const genTypeStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
     componentCls,
 
     colorSuccess,
-    colorSuccessSecondary,
+    colorSuccessBorder,
     colorSuccessBg,
 
     colorWarning,
-    colorWarningSecondary,
+    colorWarningBorder,
     colorWarningBg,
 
     colorError,
-    colorErrorSecondary,
+    colorErrorBorder,
     colorErrorBg,
 
     colorInfo,
-    colorInfoSecondary,
+    colorInfoBorder,
     colorInfoBg,
   } = token;
 
@@ -148,21 +148,21 @@ export const genTypeStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
     [componentCls]: {
       '&-success': genAlertTypeStyle(
         colorSuccessBg,
-        colorSuccessSecondary,
+        colorSuccessBorder,
         colorSuccess,
         token,
         componentCls,
       ),
-      '&-info': genAlertTypeStyle(colorInfoBg, colorInfoSecondary, colorInfo, token, componentCls),
+      '&-info': genAlertTypeStyle(colorInfoBg, colorInfoBorder, colorInfo, token, componentCls),
       '&-warning': genAlertTypeStyle(
         colorWarningBg,
-        colorWarningSecondary,
+        colorWarningBorder,
         colorWarning,
         token,
         componentCls,
       ),
       '&-error': {
-        ...genAlertTypeStyle(colorErrorBg, colorErrorSecondary, colorError, token, componentCls),
+        ...genAlertTypeStyle(colorErrorBg, colorErrorBorder, colorError, token, componentCls),
         [`${componentCls}-description > pre`]: {
           margin: 0,
           padding: 0,

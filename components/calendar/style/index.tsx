@@ -198,8 +198,8 @@ export default genComponentStyleHook(
       {
         calendarCls,
         pickerCellInnerCls: `${token.componentCls}-cell-inner`,
-        calendarFullBg: token.colorBgComponent,
-        calendarFullPanelBg: token.colorBgComponent,
+        calendarFullBg: token.colorBgContainer,
+        calendarFullPanelBg: token.colorBgContainer,
         calendarItemActiveBg: token.controlItemBgActive,
         dateValueHeight: token.controlHeightSM,
         weekHeight: token.controlHeightSM * 0.75,

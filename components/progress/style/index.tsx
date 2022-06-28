@@ -113,7 +113,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token: ProgressToken) => {
         [`${progressCls}-bg::before`]: {
           position: 'absolute',
           inset: 0,
-          background: token.colorBgComponent,
+          background: token.colorBgContainer,
           borderRadius: token.progressLineRadius,
           opacity: 0,
           animationName: antProgressActive,
@@ -259,7 +259,7 @@ export default genComponentStyleHook('Progress', token => {
     progressLineRadius: 100, // magic for capsule shape, should be a very large number
     progressInfoTextColor: token.colorText,
     progressDefaultColor: token.colorInfo,
-    progressRemainingColor: token.colorBgComponentTmp,
+    progressRemainingColor: token.colorBgContent,
     progressStepMarginInlineEnd,
     progressStepMinWidth: progressStepMarginInlineEnd,
     progressActiveMotionDuration: '2.4s',

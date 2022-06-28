@@ -43,7 +43,7 @@ const genCardStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
 
         [`${componentCls}-tab-active`]: {
           color: token.colorPrimary,
-          background: token.colorBgComponent,
+          background: token.colorBgContainer,
         },
 
         [`${componentCls}-ink-bar`]: {
@@ -70,7 +70,7 @@ const genCardStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
           },
 
           [`${componentCls}-tab-active`]: {
-            borderBottomColor: token.colorBgComponent,
+            borderBottomColor: token.colorBgContainer,
           },
         },
       },
@@ -82,7 +82,7 @@ const genCardStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
           },
 
           [`${componentCls}-tab-active`]: {
-            borderTopColor: token.colorBgComponent,
+            borderTopColor: token.colorBgContainer,
           },
         },
       },
@@ -108,7 +108,7 @@ const genCardStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
           [`${componentCls}-tab-active`]: {
             borderRightColor: {
               _skip_check_: true,
-              value: token.colorBgComponent,
+              value: token.colorBgContainer,
             },
           },
         },
@@ -126,7 +126,7 @@ const genCardStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
           [`${componentCls}-tab-active`]: {
             borderLeftColor: {
               _skip_check_: true,
-              value: token.colorBgComponent,
+              value: token.colorBgContainer,
             },
           },
         },
@@ -165,7 +165,7 @@ const genDropdownStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
           value: 'left',
         },
         listStyleType: 'none',
-        backgroundColor: token.colorBgComponent,
+        backgroundColor: token.colorBgContainer,
         backgroundClip: 'padding-box',
         borderRadius: token.radiusBase,
         outline: 'none',
@@ -854,7 +854,7 @@ export default genComponentStyleHook(
       tabsCardHeight,
       tabsCardGutter: token.marginXXS / 2,
       tabsHorizontalGutter: token.marginXL,
-      tabsCardHeadBackground: token.colorBgComponentSecondary,
+      tabsCardHeadBackground: token.colorBgContainerSecondary,
       dropdownEdgeChildVerticalPadding: token.paddingXXS,
       tabsActiveTextShadow: '0 0 0.25px currentcolor',
       tabsDropdownHeight: 200,

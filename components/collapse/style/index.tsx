@@ -233,9 +233,9 @@ const genBorderlessStyle: GenerateStyle<CollapseToken> = token => {
 
 export default genComponentStyleHook('Collapse', token => {
   const collapseToken = mergeToken<CollapseToken>(token, {
-    collapseContentBg: token.colorBgComponent,
+    collapseContentBg: token.colorBgContainer,
     collapseContentPadding: token.padding,
-    collapseHeaderBg: token.colorBgComponentSecondary,
+    collapseHeaderBg: token.colorBgContainerSecondary,
     collapseHeaderPadding: `${token.paddingSM}px ${token.padding}px`,
     collapsePanelBorderRadius: token.radiusBase,
   });

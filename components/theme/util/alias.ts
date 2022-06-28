@@ -48,17 +48,10 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     colorTextPlaceholder: textColors['25'],
     colorTextHeading: textColors['85'],
 
-    colorBgContainer: bgColors['0'],
-    colorBgContainerSecondary: bgColors['26'],
-    colorBgComponent: bgColors['8'],
     // TODO：Menu 用了这个 感觉命名有问题
     // TODO：能不能用透明色？用透明色会造成重叠后变亮的问题，是不是得用实色？
-    colorBgComponentSecondary: textColors['4'],
-    colorBgComponentDisabled: textColors['8'],
-    // 浮窗等组件的背景色 token
-    colorBgElevated: bgColors['12'],
-    // TODO: Slider 和 Progress 需要一个名字
-    colorBgComponentTmp: bgColors['15'],
+    colorBgContainerSecondary: textColors['4'],
+    colorBgContainerDisabled: textColors['8'],
 
     colorLink: mergedToken.colorPrimary,
     colorLinkHover: primaryColors[4],
@@ -66,8 +59,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
 
     // TODO: 确认 Action 的色彩关系
     colorAction: textColors['45'],
-    colorActionHover: textColors['75'],
-    colorActionTmp: textColors['30'],
+    colorActionHover: textColors['85'],
 
     // Split
     colorBorder: bgColors['26'],
@@ -125,10 +117,10 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
 
     opacityLoading: 0.65,
 
-    colorSuccessSecondary: successColors[2],
-    colorWarningSecondary: warningColors[2],
-    colorErrorSecondary: errorColors[2],
-    colorInfoSecondary: infoColors[2],
+    colorSuccessBorder: successColors[2],
+    colorWarningBorder: warningColors[2],
+    colorErrorBorder: errorColors[2],
+    colorInfoBorder: infoColors[2],
 
     linkDecoration: 'none',
     linkHoverDecoration: 'none',

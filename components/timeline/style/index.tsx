@@ -52,7 +52,7 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = token => {
           position: 'absolute',
           width: token.timeLineItemHeadSize,
           height: token.timeLineItemHeadSize,
-          backgroundColor: token.colorBgComponent,
+          backgroundColor: token.colorBgContainer,
           border: `${token.radiusBase}px ${token.lineType} transparent`,
           borderRadius: '50%',
 

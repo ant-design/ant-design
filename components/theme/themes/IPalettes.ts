@@ -1,6 +1,5 @@
 export interface TextAlphaPalettes {
   85: string;
-  75: string;
   65: string;
   45: string;
   30: string;
