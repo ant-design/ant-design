@@ -245,6 +245,28 @@ export interface MapToken extends SeedToken, ColorPalettes {
   colorBgElevated: string;
   /** Color of component background */
   colorBgContainer: string;
+  colorBgContainerSecondary: string;
+  colorBgContainerDisabled: string;
+
+  colorBorder: string;
+  colorBorderSecondary: string;
+  colorSplit: string;
+
+  // Color
+  colorTextSecondary: string;
+  colorTextDisabled: string;
+  /** Placeholder text color */
+  colorTextPlaceholder: string;
+  colorTextHeading: string;
+
+  /** Weak action. Such as `allowClear` or Alert close button */
+  colorAction: string;
+  /** Weak action hover color. Such as `allowClear` or Alert close button */
+  colorActionHover: string;
+
+  colorLink: string;
+  colorLinkHover: string;
+  colorLinkActive: string;
 
   // Font
   fontSizes: number[];
@@ -332,27 +354,6 @@ export interface AliasToken extends MapToken {
   controlInteractiveSize: number;
   controlItemBgActiveDisabled: string; // Note. It also is a color
 
-  // Color
-  colorBorder: string;
-  colorSplit: string;
-  colorTextSecondary: string;
-  colorTextDisabled: string;
-  /** Placeholder text color */
-  colorTextPlaceholder: string;
-  colorTextHeading: string;
-
-  /** Weak action. Such as `allowClear` or Alert close button */
-  colorAction: string;
-  /** Weak action hover color. Such as `allowClear` or Alert close button */
-  colorActionHover: string;
-
-  colorLink: string;
-  colorLinkHover: string;
-  colorLinkActive: string;
-
-  colorBgContainerSecondary: string;
-  colorBgContainerDisabled: string;
-
   // =============== Legacy: should be remove ===============
   opacityLoading: number;
 
@@ -401,7 +402,6 @@ export interface AliasToken extends MapToken {
   screenXXLMax: number;
 
   controlMaskBg: string;
-  colorBorderSecondary: string;
 
   // FIXME: component box-shadow, should be removed
   boxShadowPopoverArrow: string;

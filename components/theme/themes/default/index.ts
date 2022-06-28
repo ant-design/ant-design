@@ -3,7 +3,16 @@ import { TinyColor } from '@ctrl/tinycolor';
 import type { ColorPalettes, MapToken, PresetColorType, SeedToken } from '../../interface';
 import { defaultPresetColors } from '../seed';
 import { getFontSizes } from '../shared';
-import { generateBgPalettes, generateTextAlphaPalettes } from './palettes';
+import genColorMapToken from '../shared/genColorMapToken';
+import {
+  generateBgPalettes,
+  generateErrorPalettes,
+  generateInfoPalettes,
+  generatePrimaryPalettes,
+  generateSuccessPalettes,
+  generateTextAlphaPalettes,
+  generateWarningPalettes,
+} from './palettes';
 
 export default function derivative(token: SeedToken): MapToken {
   const {
@@ -42,13 +51,12 @@ export default function derivative(token: SeedToken): MapToken {
       return prev;
     }, {} as ColorPalettes);
 
-  const primaryColors = generate(colorPrimary);
-  const successColors = generate(colorSuccess);
-  const warningColors = generate(colorWarning);
-  const errorColors = generate(colorError);
-  const infoColors = generate(colorInfo);
+  const primaryColors = generatePrimaryPalettes(colorPrimary);
+  const successColors = generateSuccessPalettes(colorSuccess);
+  const warningColors = generateWarningPalettes(colorWarning);
+  const errorColors = generateErrorPalettes(colorError);
+  const infoColors = generateInfoPalettes(colorInfo);
   const bgColors = generateBgPalettes(colorBg);
-  // FIXME: need seedToken '#000'
   const textColors = generateTextAlphaPalettes('#000');
 
   const fontSizes = getFontSizes(fontSizeBase);
@@ -56,6 +64,20 @@ export default function derivative(token: SeedToken): MapToken {
   return {
     ...token,
     ...colorPalettes,
+
+    // Colors
+    ...genColorMapToken({
+      primaryPalettes: primaryColors,
+      successPalettes: successColors,
+      warningPalettes: warningColors,
+      errorPalettes: errorColors,
+      infoPalettes: infoColors,
+      bgPalettes: bgColors,
+      textAlphaPalettes: textColors,
+    }),
+    colorPrimaryOutline: new TinyColor(colorPrimary).setAlpha(0.2).toRgbString(),
+    colorErrorOutline: new TinyColor(colorError).setAlpha(0.2).toRgbString(),
+    colorWarningOutline: new TinyColor(colorWarning).setAlpha(0.2).toRgbString(),
 
     // motion
     motionDurationFast: `${(motionBase + motionUnit * 1).toFixed(1)}s`,
@@ -87,46 +109,12 @@ export default function derivative(token: SeedToken): MapToken {
     radiusLG: radiusBase * 2,
     radiusXL: radiusBase * 4,
 
-    colorDefaultOutline: textColors['4'],
-
-    colorPrimaryActive: primaryColors[6],
-    colorPrimaryHover: primaryColors[4],
-    colorPrimaryOutline: new TinyColor(colorPrimary).setAlpha(0.2).toRgbString(),
-    colorPrimaryBorder: primaryColors[2],
-    colorPrimaryBorderHover: primaryColors[3],
-
-    colorSuccessBorder: successColors[2],
-    colorSuccessBg: successColors[0],
-
-    colorErrorActive: errorColors[6],
-    colorErrorHover: errorColors[4],
-    colorErrorOutline: new TinyColor(colorError).setAlpha(0.2).toRgbString(),
-    colorErrorBorder: errorColors[2],
-    colorErrorBg: errorColors[0],
-
-    colorWarningActive: warningColors[6],
-    colorWarningHover: warningColors[4],
-    colorWarningOutline: new TinyColor(colorWarning).setAlpha(0.2).toRgbString(),
-    colorWarningBorder: warningColors[2],
-    colorWarningBg: warningColors[0],
-
-    colorInfoBorder: infoColors[2],
-    colorInfoBg: infoColors[0],
-
-    colorHighlight: errorColors[4],
-
-    colorBgLayout: bgColors['0'],
-    colorBgContentHover: bgColors['26'],
-    colorBgContainer: bgColors['8'],
-    colorBgElevated: bgColors['12'],
-    colorBgContent: bgColors['15'],
-
     // control
     controlHeightSM: controlHeight * 0.75,
     controlHeightXS: controlHeight * 0.5,
     controlHeightLG: controlHeight * 1.25,
 
-    // map token
+    // FIXME: should be removed
     bgColors,
     textColors,
   };
