@@ -2,7 +2,7 @@
 import type { TableProps } from 'antd';
 import { Alert, Col, ConfigProvider, Row, Select, Space, Table } from 'antd';
 import * as React from 'react';
-import { statistic } from '../../../../../components/_util/theme';
+import { statistic } from '../../../../../components/theme';
 
 const wrapValue = (value: any) => {
   const string = String(value);

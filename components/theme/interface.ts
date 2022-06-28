@@ -1,46 +1,47 @@
 import type * as React from 'react';
-import type { ComponentToken as AlertComponentToken } from '../../alert/style';
-import type { ComponentToken as AnchorComponentToken } from '../../anchor/style';
-import type { ComponentToken as AvatarComponentToken } from '../../avatar/style';
-import type { ComponentToken as BackTopComponentToken } from '../../back-top/style';
-import type { ComponentToken as ButtonComponentToken } from '../../button/style';
-import type { ComponentToken as CalendarComponentToken } from '../../calendar/style';
-import type { ComponentToken as CarouselComponentToken } from '../../carousel/style';
-import type { ComponentToken as CascaderComponentToken } from '../../cascader/style';
-import type { ComponentToken as CheckboxComponentToken } from '../../checkbox/style';
-import type { ComponentToken as DatePickerComponentToken } from '../../date-picker/style';
-import type { ComponentToken as DividerComponentToken } from '../../divider/style';
-import type { ComponentToken as DropdownComponentToken } from '../../dropdown/style';
-import type { ComponentToken as EmptyComponentToken } from '../../empty/style';
-import type { ComponentToken as ImageComponentToken } from '../../image/style';
-import type { ComponentToken as InputNumberComponentToken } from '../../input-number/style';
-import type { ComponentToken as LayoutComponentToken } from '../../layout/style';
-import type { ComponentToken as ListComponentToken } from '../../list/style';
-import type { ComponentToken as MentionsComponentToken } from '../../mentions/style';
-import type { ComponentToken as MenuComponentToken } from '../../menu/style';
-import type { ComponentToken as MessageComponentToken } from '../../message/style';
-import type { ComponentToken as ModalComponentToken } from '../../modal/style';
-import type { ComponentToken as NotificationComponentToken } from '../../notification/style';
-import type { ComponentToken as PopconfirmComponentToken } from '../../popconfirm/style';
-import type { ComponentToken as PopoverComponentToken } from '../../popover/style';
-import type { ComponentToken as ProgressComponentToken } from '../../progress/style';
-import type { ComponentToken as RadioComponentToken } from '../../radio/style';
-import type { ComponentToken as RateComponentToken } from '../../rate/style';
-import type { ComponentToken as ResultComponentToken } from '../../result/style';
-import type { ComponentToken as SegmentedComponentToken } from '../../segmented/style';
-import type { ComponentToken as SelectComponentToken } from '../../select/style';
-import type { ComponentToken as SkeletonComponentToken } from '../../skeleton/style';
-import type { ComponentToken as SliderComponentToken } from '../../slider/style';
-import type { ComponentToken as SpaceComponentToken } from '../../space/style';
-import type { ComponentToken as SpinComponentToken } from '../../spin/style';
-import type { ComponentToken as StepsComponentToken } from '../../steps/style';
-import type { ComponentToken as TableComponentToken } from '../../table/style';
-import type { ComponentToken as TabsComponentToken } from '../../tabs/style';
-import type { ComponentToken as TimelineComponentToken } from '../../timeline/style';
-import type { ComponentToken as TooltipComponentToken } from '../../tooltip/style';
-import type { ComponentToken as TransferComponentToken } from '../../transfer/style';
-import type { ComponentToken as TypographyComponentToken } from '../../typography/style';
-import type { ComponentToken as UploadComponentToken } from '../../upload/style';
+import type { ComponentToken as AlertComponentToken } from '../alert/style';
+import type { ComponentToken as AnchorComponentToken } from '../anchor/style';
+import type { ComponentToken as AvatarComponentToken } from '../avatar/style';
+import type { ComponentToken as BackTopComponentToken } from '../back-top/style';
+import type { ComponentToken as ButtonComponentToken } from '../button/style';
+import type { ComponentToken as CalendarComponentToken } from '../calendar/style';
+import type { ComponentToken as CarouselComponentToken } from '../carousel/style';
+import type { ComponentToken as CascaderComponentToken } from '../cascader/style';
+import type { ComponentToken as CheckboxComponentToken } from '../checkbox/style';
+import type { ComponentToken as DatePickerComponentToken } from '../date-picker/style';
+import type { ComponentToken as DividerComponentToken } from '../divider/style';
+import type { ComponentToken as DropdownComponentToken } from '../dropdown/style';
+import type { ComponentToken as EmptyComponentToken } from '../empty/style';
+import type { ComponentToken as ImageComponentToken } from '../image/style';
+import type { ComponentToken as InputNumberComponentToken } from '../input-number/style';
+import type { ComponentToken as LayoutComponentToken } from '../layout/style';
+import type { ComponentToken as ListComponentToken } from '../list/style';
+import type { ComponentToken as MentionsComponentToken } from '../mentions/style';
+import type { ComponentToken as MenuComponentToken } from '../menu/style';
+import type { ComponentToken as MessageComponentToken } from '../message/style';
+import type { ComponentToken as ModalComponentToken } from '../modal/style';
+import type { ComponentToken as NotificationComponentToken } from '../notification/style';
+import type { ComponentToken as PopconfirmComponentToken } from '../popconfirm/style';
+import type { ComponentToken as PopoverComponentToken } from '../popover/style';
+import type { ComponentToken as ProgressComponentToken } from '../progress/style';
+import type { ComponentToken as RadioComponentToken } from '../radio/style';
+import type { ComponentToken as RateComponentToken } from '../rate/style';
+import type { ComponentToken as ResultComponentToken } from '../result/style';
+import type { ComponentToken as SegmentedComponentToken } from '../segmented/style';
+import type { ComponentToken as SelectComponentToken } from '../select/style';
+import type { ComponentToken as SkeletonComponentToken } from '../skeleton/style';
+import type { ComponentToken as SliderComponentToken } from '../slider/style';
+import type { ComponentToken as SpaceComponentToken } from '../space/style';
+import type { ComponentToken as SpinComponentToken } from '../spin/style';
+import type { ComponentToken as StepsComponentToken } from '../steps/style';
+import type { ComponentToken as TableComponentToken } from '../table/style';
+import type { ComponentToken as TabsComponentToken } from '../tabs/style';
+import type { ComponentToken as TimelineComponentToken } from '../timeline/style';
+import type { ComponentToken as TooltipComponentToken } from '../tooltip/style';
+import type { ComponentToken as TransferComponentToken } from '../transfer/style';
+import type { ComponentToken as TypographyComponentToken } from '../typography/style';
+import type { ComponentToken as UploadComponentToken } from '../upload/style';
+import type { DeepPartial } from '../_util/type';
 import type { BgPalettes, TextAlphaPalettes } from './themes/IPalettes';
 
 export const PresetColors = [
@@ -69,12 +70,7 @@ export type ColorPalettes = {
   [key in `${keyof PresetColorType}-${ColorPaletteKeyIndex}`]: string;
 };
 
-export interface OverrideToken {
-  derivative?: Partial<DerivativeToken>;
-  /** @private Internal Usage */
-  alias?: Partial<AliasToken>;
-
-  // Customize component
+export interface ComponentTokenMap {
   Affix?: {};
   Alert?: AlertComponentToken;
   Anchor?: AnchorComponentToken;
@@ -135,8 +131,14 @@ export interface OverrideToken {
   Progress?: ProgressComponentToken;
 }
 
+export interface OverrideToken extends DeepPartial<ComponentTokenMap> {
+  derivative?: Partial<MapToken>;
+  /** @private Internal Usage */
+  alias?: Partial<AliasToken>;
+}
+
 /** Final token which contains the components level override */
-export type GlobalToken = AliasToken & Omit<OverrideToken, 'derivative' | 'alias'>;
+export type GlobalToken = AliasToken & ComponentTokenMap;
 
 // ======================================================================
 // ==                            Seed Token                            ==
@@ -201,10 +203,10 @@ export interface SeedToken extends PresetColorType {
 }
 
 // ======================================================================
-// ==                         Derivative Token                         ==
+// ==                         Map Token                         ==
 // ======================================================================
 // 🔥🔥🔥🔥🔥🔥🔥 DO NOT MODIFY THIS. PLEASE CONTACT DESIGNER. 🔥🔥🔥🔥🔥🔥🔥
-export interface DerivativeToken extends SeedToken, ColorPalettes {
+export interface MapToken extends SeedToken, ColorPalettes {
   // Color
   /** Used for DefaultButton, Switch which has default outline */
   colorDefaultOutline: string;
@@ -281,7 +283,7 @@ export interface DerivativeToken extends SeedToken, ColorPalettes {
 // ======================================================================
 // FIXME: DerivativeToken should part pick
 // 🔥🔥🔥🔥🔥🔥🔥 DO NOT MODIFY THIS. PLEASE CONTACT DESIGNER. 🔥🔥🔥🔥🔥🔥🔥
-export interface AliasToken extends DerivativeToken {
+export interface AliasToken extends MapToken {
   // Font
   fontSizeSM: number;
   fontSize: number;

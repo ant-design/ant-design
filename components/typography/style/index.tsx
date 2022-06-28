@@ -1,5 +1,5 @@
-import type { FullToken, GenerateStyle } from '../../_util/theme';
-import { genComponentStyleHook, operationUnit } from '../../_util/theme';
+import type { FullToken, GenerateStyle } from '../../theme';
+import { genComponentStyleHook, operationUnit } from '../../theme';
 import {
   getCopiableStyles,
   getEditableStyles,

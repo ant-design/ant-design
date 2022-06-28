@@ -2,15 +2,15 @@
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { useStyleRegister } from '@ant-design/cssinjs';
 import { useContext } from 'react';
-import { ConfigContext } from '../../../config-provider/context';
+import { ConfigContext } from '../../config-provider/context';
 import type { UseComponentStyleResult } from '../index';
 import { mergeToken, statisticToken, useToken } from '../index';
-import type { GlobalToken, OverrideToken } from '../interface';
+import type { ComponentTokenMap, GlobalToken } from '../interface';
 
-export type OverrideTokenWithoutDerivative = Omit<OverrideToken, 'derivative' | 'alias'>;
+export type OverrideTokenWithoutDerivative = ComponentTokenMap;
 export type OverrideComponent = keyof OverrideTokenWithoutDerivative;
 export type GlobalTokenWithComponent<ComponentName extends OverrideComponent> = GlobalToken &
-  OverrideToken[ComponentName];
+  ComponentTokenMap[ComponentName];
 
 export interface StyleInfo {
   hashId: string;

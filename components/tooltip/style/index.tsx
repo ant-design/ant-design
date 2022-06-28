@@ -5,14 +5,14 @@ import type {
   GenerateStyle,
   PresetColorType,
   UseComponentStyleResult,
-} from '../../_util/theme';
+} from '../../theme';
 import {
   genComponentStyleHook,
   getArrowStyle,
   mergeToken,
   PresetColors,
   resetComponent,
-} from '../../_util/theme';
+} from '../../theme';
 
 export interface ComponentToken {
   zIndexPopup: number;

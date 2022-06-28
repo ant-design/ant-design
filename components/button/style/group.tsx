@@ -1,5 +1,5 @@
-import type { GenerateStyle } from '../../_util/theme';
 import type { ButtonToken } from '.';
+import type { GenerateStyle } from '../../theme';
 
 const genButtonBorderStyle = (buttonTypeCls: string, borderColor: string) => ({
   // Border

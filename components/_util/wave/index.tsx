@@ -1,10 +1,12 @@
 import { updateCSS } from 'rc-util/lib/Dom/dynamicCSS';
 import { composeRef, supportRef } from 'rc-util/lib/ref';
 import * as React from 'react';
-import type { ConfigConsumerProps, CSPConfig } from '../config-provider';
-import { ConfigConsumer, ConfigContext } from '../config-provider';
-import raf from './raf';
-import { cloneElement } from './reactNode';
+import { forwardRef } from 'react';
+import type { ConfigConsumerProps, CSPConfig } from '../../config-provider';
+import { ConfigConsumer, ConfigContext } from '../../config-provider';
+import raf from '../raf';
+import { cloneElement } from '../reactNode';
+import useStyle from './style';
 
 let styleForPseudo: HTMLStyleElement | null;
 
@@ -31,7 +33,7 @@ export interface WaveProps {
   children?: React.ReactNode;
 }
 
-export default class Wave extends React.Component<WaveProps> {
+class InternalWave extends React.Component<WaveProps> {
   static contextType = ConfigContext;
 
   private instance?: {
@@ -226,3 +228,10 @@ export default class Wave extends React.Component<WaveProps> {
     return <ConfigConsumer>{this.renderWave}</ConfigConsumer>;
   }
 }
+
+const Wave = forwardRef<InternalWave, WaveProps>((props, ref) => {
+  useStyle();
+  return <InternalWave ref={ref} {...props} />;
+});
+
+export default Wave;

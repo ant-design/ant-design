@@ -1,17 +1,18 @@
 import { generate } from '@ant-design/colors';
 import { TinyColor } from '@ctrl/tinycolor';
-import type { ColorPalettes, DerivativeToken, PresetColorType, SeedToken } from '../../interface';
+import type { ColorPalettes, MapToken, PresetColorType, SeedToken } from '../../interface';
 import { defaultPresetColors } from '../seed';
 import { getFontSizes } from '../shared';
 import { generateBgPalettes, generateTextAlphaPalettes } from './palettes';
 
-export default function derivative(token: SeedToken): DerivativeToken {
+export default function derivative(token: SeedToken): MapToken {
   const {
     colorPrimary,
     colorSuccess,
     colorWarning,
     colorError,
     colorInfo,
+    colorBg,
     motionUnit,
     motionBase,
     fontSizeBase,
@@ -26,7 +27,7 @@ export default function derivative(token: SeedToken): DerivativeToken {
 
   const colorPalettes = Object.keys(defaultPresetColors)
     .map((colorKey: keyof PresetColorType) => {
-      const colors = generate(token[colorKey], { theme: 'dark' });
+      const colors = generate(token[colorKey]);
 
       return new Array(10).fill(1).reduce((prev, _, i) => {
         prev[`${colorKey}-${i + 1}`] = colors[i];
@@ -41,13 +42,14 @@ export default function derivative(token: SeedToken): DerivativeToken {
       return prev;
     }, {} as ColorPalettes);
 
-  const primaryColors = generate(colorPrimary, { theme: 'dark' });
-  const successColors = generate(colorSuccess, { theme: 'dark' });
-  const warningColors = generate(colorWarning, { theme: 'dark' });
-  const errorColors = generate(colorError, { theme: 'dark' });
-  const infoColors = generate(colorInfo, { theme: 'dark' });
-  const bgColors = generateBgPalettes('#000');
-  const textColors = generateTextAlphaPalettes('#fff');
+  const primaryColors = generate(colorPrimary);
+  const successColors = generate(colorSuccess);
+  const warningColors = generate(colorWarning);
+  const errorColors = generate(colorError);
+  const infoColors = generate(colorInfo);
+  const bgColors = generateBgPalettes(colorBg);
+  // FIXME: need seedToken '#000'
+  const textColors = generateTextAlphaPalettes('#000');
 
   const fontSizes = getFontSizes(fontSizeBase);
 
