@@ -2,7 +2,7 @@ import React from 'react';
 import Carousel from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render, sleep } from '../../../tests/utils';
+import { sleep, render, act } from '../../../tests/utils';
 
 describe('Carousel', () => {
   mountTest(Carousel);
@@ -16,6 +16,14 @@ describe('Carousel', () => {
     jest.useRealTimers();
   });
 
+  function runAllTimersWithAct(times = 1) {
+    for (let i = 0; i < times; i++) {
+      act(() => {
+        jest.runAllTimers();
+      });
+    }
+  }
+
   it('should has innerSlider', () => {
     const ref = React.createRef();
     render(
@@ -27,7 +35,7 @@ describe('Carousel', () => {
     expect(typeof innerSlider.slickNext).toBe('function');
   });
 
-  it('should has prev, next and go function', () => {
+  it('should has prev, next and go function', async () => {
     const ref = React.createRef();
     render(
       <Carousel ref={ref}>
@@ -42,13 +50,16 @@ describe('Carousel', () => {
     expect(typeof goTo).toBe('function');
     expect(ref.current.innerSlider.state.currentSlide).toBe(0);
     ref.current.goTo(2);
-    jest.runAllTimers();
+    runAllTimersWithAct(1);
     expect(ref.current.innerSlider.state.currentSlide).toBe(2);
+    // wait for animation to be finished
+    runAllTimersWithAct(2);
     ref.current.prev();
-    jest.runAllTimers();
+    runAllTimersWithAct(1);
     expect(ref.current.innerSlider.state.currentSlide).toBe(1);
+    runAllTimersWithAct(2);
     ref.current.next();
-    jest.runAllTimers();
+    runAllTimersWithAct(1);
     expect(ref.current.innerSlider.state.currentSlide).toBe(2);
   });
 
@@ -91,6 +102,7 @@ describe('Carousel', () => {
             <div />
           </Carousel>,
         );
+        container.normalize();
         expect(container.firstChild).toMatchSnapshot();
       });
     });
