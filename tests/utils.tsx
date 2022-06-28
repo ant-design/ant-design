@@ -1,11 +1,11 @@
-import MockDate from 'mockdate';
-import type { ReactElement } from 'react';
-import { StrictMode } from 'react';
-import { act } from 'react-dom/test-utils';
 import type { RenderOptions } from '@testing-library/react';
 import { render } from '@testing-library/react';
-import { _rs as onLibResize } from 'rc-resize-observer/lib/utils/observerUtil';
+import MockDate from 'mockdate';
 import { _rs as onEsResize } from 'rc-resize-observer/es/utils/observerUtil';
+import { _rs as onLibResize } from 'rc-resize-observer/lib/utils/observerUtil';
+import type { ReactElement } from 'react';
+import React, { StrictMode } from 'react';
+import { act } from 'react-dom/test-utils';
 
 export function setMockDate(dateString = '2017-09-18T03:30:07.795') {
   MockDate.set(dateString);
@@ -28,6 +28,7 @@ export const sleep = async (timeout = 0) => {
 const customRender = (ui: ReactElement, options?: Omit<RenderOptions, 'wrapper'>) =>
   render(ui, { wrapper: StrictMode, ...options });
 
+export * from '@testing-library/react';
 export { customRender as render };
 
 export const triggerResize = (target: Element) => {
@@ -40,4 +41,14 @@ export const triggerResize = (target: Element) => {
   target.getBoundingClientRect = originGetBoundingClientRect;
 };
 
-export * from '@testing-library/react';
+export function renderHook<T>(func: () => T): { current: T } {
+  const outerRef = React.createRef<T>();
+  const Demo = React.forwardRef((_, ref: any) => {
+    ref.current = func();
+    return null;
+  });
+
+  render(<Demo ref={outerRef} />);
+
+  return outerRef as any;
+}
