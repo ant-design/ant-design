@@ -220,7 +220,7 @@ describe('Wave component', () => {
   it('wave color should inferred if borderTopColor is transparent and borderColor is not', async () => {
     const wrapper = mount(
       <Wave>
-        <button type="button" style={{ borderTopColor: 'transparent', borderColor: 'red' }}>
+        <button type="button" style={{ borderColor: 'red', borderTopColor: 'transparent' }}>
           button
         </button>
       </Wave>,
