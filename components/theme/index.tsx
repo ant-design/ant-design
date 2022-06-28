@@ -71,7 +71,7 @@ export function useToken(): [Theme<SeedToken, MapToken>, GlobalToken, string] {
     hashed,
   } = React.useContext(DesignTokenContext);
 
-  const theme = new Theme(derivative);
+  const theme = React.useMemo(() => new Theme(derivative), [derivative]);
 
   const salt = `${saltPrefix}-${hashed || ''}`;
 
@@ -94,45 +94,3 @@ export type GenerateStyle<
   ComponentToken extends object = AliasToken,
   ReturnType = CSSInterpolation,
 > = (token: ComponentToken) => ReturnType;
-
-export const emptyTheme = new Theme(token => token);
-
-export type CustomTokenOptions<
-  CustomSeedToken extends Record<string, any>,
-  CustomAliasToken extends Record<string, any> = {},
-> = {
-  /** The original tokens, which may affect other tokens. */
-  seedToken?: CustomSeedToken;
-  /** Generate token based on seedToken. */
-  formatToken?: (
-    mergedToken: AliasToken & CustomSeedToken,
-  ) => AliasToken & CustomSeedToken & CustomAliasToken;
-};
-
-/**
- * Generate custom tokens with tokens of ant-design.
- */
-export function useCustomToken<
-  CustomSeedToken extends Record<string, any>,
-  CustomAliasToken extends Record<string, any> = {},
->({
-  seedToken,
-  formatToken: customFormatToken,
-}: CustomTokenOptions<CustomSeedToken, CustomAliasToken>): {
-  token: AliasToken & CustomSeedToken & CustomAliasToken;
-  hashId: string;
-} {
-  const [, antdToken, hashed] = useToken();
-
-  const salt = `${saltPrefix}-${hashed || ''}`;
-
-  const [token, hashId] = useCacheToken(emptyTheme, [antdToken, seedToken ?? {}], {
-    salt,
-    formatToken: customFormatToken,
-  });
-
-  return {
-    token,
-    hashId: hashed ? hashId : '',
-  };
-}
