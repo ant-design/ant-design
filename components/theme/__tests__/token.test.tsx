@@ -1,13 +1,12 @@
 import { Theme } from '@ant-design/cssinjs';
-import { renderHook } from '@testing-library/react-hooks';
 import * as React from 'react';
-import { render } from '../../../tests/utils';
+import { render, renderHook } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import { useDesignToken } from '../export';
 
 describe('Theme', () => {
   it('useTheme', () => {
-    const { result } = renderHook(() => useDesignToken());
+    const result = renderHook(() => useDesignToken());
 
     expect(result.current.theme instanceof Theme).toBeTruthy();
     expect(result.current.hashId).toBeFalsy();
