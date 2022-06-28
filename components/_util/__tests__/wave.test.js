@@ -216,4 +216,20 @@ describe('Wave component', () => {
     expect(styles[0].innerHTML).toContain('--antd-wave-shadow-color: red;');
     wrapper.unmount();
   });
+
+  it('wave color should inferred if borderTopColor is transparent and borderColor is not', async () => {
+    const wrapper = mount(
+      <Wave>
+        <button type="button" style={{ borderTopColor: 'transparent', borderColor: 'red' }}>
+          button
+        </button>
+      </Wave>,
+    );
+    wrapper.find('button').getDOMNode().click();
+    await sleep(200);
+    const styles = wrapper.find('button').getDOMNode().getRootNode().getElementsByTagName('style');
+    expect(styles.length).toBe(1);
+    expect(styles[0].innerHTML).toContain('--antd-wave-shadow-color: red;');
+    wrapper.unmount();
+  });
 });
