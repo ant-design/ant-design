@@ -237,11 +237,13 @@ export interface MapToken extends SeedToken, ColorPalettes {
 
   colorHighlight: string;
 
+  /** Color of layout background */
   colorBgLayout: string;
   colorBgContent: string;
   colorBgContentHover: string;
-  /** Color for popover background */
+  /** Color of popup background */
   colorBgElevated: string;
+  /** Color of component background */
   colorBgContainer: string;
 
   // Font
