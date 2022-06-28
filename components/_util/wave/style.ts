@@ -44,14 +44,18 @@ const genWaveStyle: GenerateStyle<WaveToken> = token => {
         borderRadius: 'inherit',
         boxShadow: `0 0 0 0 var(--antd-wave-shadow-color)`,
         opacity: 0.2,
-        animation: `${fadeEffect.getName(token.hashId)} 2s ${
-          token.motionEaseOutCirc
-        }, ${waveEffect.getName(token.hashId)} 0.4s ${token.motionEaseOutCirc}`,
+        animation: {
+          _skip_check_: true,
+          value: `${fadeEffect.getName(token.hashId)} 2s ${
+            token.motionEaseOutCirc
+          }, ${waveEffect.getName(token.hashId)} 0.4s ${token.motionEaseOutCirc}`,
+        },
         animationFillMode: 'forwards',
         content: '""',
         pointerEvents: 'none',
       },
     },
+    {},
     waveEffect,
     fadeEffect,
   ];

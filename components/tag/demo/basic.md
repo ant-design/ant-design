@@ -28,7 +28,7 @@ const preventDefault = (e: React.MouseEvent<HTMLElement>) => {
 
 const App: React.FC = () => (
   <>
-    <Tag>Tag 1</Tag>
+    <Tag onClick={() => {}}>Tag 1</Tag>
     <Tag>
       <a href="https://github.com/ant-design/ant-design/issues/1862">Link</a>
     </Tag>
