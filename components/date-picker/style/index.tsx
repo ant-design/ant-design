@@ -240,7 +240,7 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
       },
 
       '&::before': {
-        background: token.colorBgComponentDisabled,
+        background: token.colorBgContainerDisabled,
       },
     },
     [`&-disabled:is(&-today) ${pickerCellInnerCls}::before`]: {
@@ -263,7 +263,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
         display: 'inline-flex',
         flexDirection: 'column',
         textAlign: 'center',
-        background: token.colorBgComponent,
+        background: token.colorBgContainer,
         border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
         borderRadius: token.radiusBase,
         outline: 'none',
@@ -779,7 +779,7 @@ const genPickerStatusStyle: GenerateStyle<PickerToken> = token => {
     [componentCls]: {
       '&-status-error&': {
         '&, &:not([disabled]):hover': {
-          backgroundColor: token.colorBgComponent,
+          backgroundColor: token.colorBgContainer,
           borderColor: token.colorError,
         },
 
@@ -796,7 +796,7 @@ const genPickerStatusStyle: GenerateStyle<PickerToken> = token => {
 
       '&-status-warning&': {
         '&, &:not([disabled]):hover': {
-          backgroundColor: token.colorBgComponent,
+          backgroundColor: token.colorBgContainer,
           borderColor: token.colorWarning,
         },
 
@@ -824,7 +824,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
       position: 'relative',
       display: 'inline-flex',
       alignItems: 'center',
-      background: token.colorBgComponent,
+      background: token.colorBgContainer,
       border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
       borderRadius: token.radiusBase,
       transition: `border ${token.motionDurationSlow}, box-shadow ${token.motionDurationSlow}`,
@@ -838,7 +838,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
       },
 
       '&&-disabled': {
-        background: token.colorBgComponentDisabled,
+        background: token.colorBgContainerDisabled,
         borderColor: token.colorBorder,
         cursor: 'not-allowed',
 
@@ -941,7 +941,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
         insetInlineEnd: 0,
         color: token.colorTextDisabled,
         lineHeight: 1,
-        background: token.colorBgComponent,
+        background: token.colorBgContainer,
         transform: 'translateY(-50%)',
         cursor: 'pointer',
         opacity: 0,
@@ -1111,7 +1111,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
           [`${componentCls}-preset > ${antCls}-tag-blue`]: {
             color: token.colorPrimary,
             background: token.controlItemBgActive,
-            borderColor: token.colorPrimarySecondary,
+            borderColor: token.colorPrimaryBorder,
             cursor: 'pointer',
           },
 
@@ -1131,7 +1131,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
           width: token.sizePopupArrow,
           height: token.sizePopupArrow,
           marginInlineStart: token.inputPaddingHorizontal * 1.5,
-          background: `linear-gradient(135deg, transparent 40%, ${token.colorBgComponent} 40%)`, // Use linear-gradient to prevent arrow from covering text
+          background: `linear-gradient(135deg, transparent 40%, ${token.colorBgContainer} 40%)`, // Use linear-gradient to prevent arrow from covering text
           boxShadow: token.boxShadowPopoverArrowBottom,
           transition: `left ${token.motionDurationSlow} ease-out`,
           ...roundedArrow(token.sizePopupArrow, 5, token.colorBgElevated),

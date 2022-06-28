@@ -66,7 +66,7 @@ const genStepsItemStatusStyle = (status: StepItemStatusEnum, token: StepsToken):
   const tailColorKey: keyof StepsToken = `${status}TailColor`;
   return {
     [`${prefix}-${status} ${prefix}-icon`]: {
-      backgroundColor: token.colorBgComponent,
+      backgroundColor: token.colorBgContainer,
       borderColor: token[iconColorKey],
       [`> ${token.componentCls}-icon`]: {
         color: token[iconColorKey],

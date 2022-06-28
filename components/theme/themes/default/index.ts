@@ -92,28 +92,34 @@ export default function derivative(token: SeedToken): MapToken {
     colorPrimaryActive: primaryColors[6],
     colorPrimaryHover: primaryColors[4],
     colorPrimaryOutline: new TinyColor(colorPrimary).setAlpha(0.2).toRgbString(),
-    colorPrimarySecondary: primaryColors[2],
+    colorPrimaryBorder: primaryColors[2],
     colorPrimaryBorderHover: primaryColors[3],
 
-    colorSuccessSecondary: successColors[2],
+    colorSuccessBorder: successColors[2],
     colorSuccessBg: successColors[0],
 
     colorErrorActive: errorColors[6],
     colorErrorHover: errorColors[4],
     colorErrorOutline: new TinyColor(colorError).setAlpha(0.2).toRgbString(),
-    colorErrorSecondary: errorColors[2],
+    colorErrorBorder: errorColors[2],
     colorErrorBg: errorColors[0],
 
     colorWarningActive: warningColors[6],
     colorWarningHover: warningColors[4],
     colorWarningOutline: new TinyColor(colorWarning).setAlpha(0.2).toRgbString(),
-    colorWarningSecondary: warningColors[2],
+    colorWarningBorder: warningColors[2],
     colorWarningBg: warningColors[0],
 
-    colorInfoSecondary: infoColors[2],
+    colorInfoBorder: infoColors[2],
     colorInfoBg: infoColors[0],
 
     colorHighlight: errorColors[4],
+
+    colorBgLayout: bgColors['0'],
+    colorBgContentHover: bgColors['26'],
+    colorBgContainer: bgColors['8'],
+    colorBgElevated: bgColors['12'],
+    colorBgContent: bgColors['15'],
 
     // control
     controlHeightSM: controlHeight * 0.75,

@@ -77,7 +77,7 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = token => {
     colorBorder,
     controlLineWidth,
     radioDotSize,
-    colorBgComponentDisabled,
+    colorBgContainerDisabled,
     colorTextDisabled,
     paddingXS,
     radioDotDisabledColor,
@@ -213,7 +213,7 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = token => {
         cursor: 'not-allowed',
 
         [radioInnerPrefixCls]: {
-          backgroundColor: colorBgComponentDisabled,
+          backgroundColor: colorBgContainerDisabled,
           borderColor: colorBorder,
           cursor: 'not-allowed',
 
@@ -265,7 +265,7 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = token => {
     radioButtonActiveColor,
     radioSolidCheckedColor,
     colorTextDisabled,
-    colorBgComponentDisabled,
+    colorBgContainerDisabled,
     radioDisabledButtonCheckedColor,
     radioDisabledButtonCheckedBg,
   } = token;
@@ -430,13 +430,13 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = token => {
 
       '&-disabled': {
         color: colorTextDisabled,
-        backgroundColor: colorBgComponentDisabled,
+        backgroundColor: colorBgContainerDisabled,
         borderColor: colorBorder,
         cursor: 'not-allowed',
 
         '&:first-child, &:hover': {
           color: colorTextDisabled,
-          backgroundColor: colorBgComponentDisabled,
+          backgroundColor: colorBgContainerDisabled,
           borderColor: colorBorder,
         },
       },
@@ -456,10 +456,10 @@ export default genComponentStyleHook('Radio', token => {
   const {
     padding,
     controlLineWidth,
-    colorBgComponentDisabled,
+    colorBgContainerDisabled,
     paddingXXS,
     colorTextDisabled,
-    colorBgComponent,
+    colorBgContainer,
     fontSize,
     lineHeight,
     fontSizeLG,
@@ -497,14 +497,14 @@ export default genComponentStyleHook('Radio', token => {
     radioDotSize,
     radioDotColor,
     radioDotDisabledColor: colorTextDisabled,
-    radioSolidCheckedColor: colorBgComponent,
-    radioButtonBg: colorBgComponent,
-    radioButtonCheckedBg: colorBgComponent,
+    radioSolidCheckedColor: colorBgContainer,
+    radioButtonBg: colorBgContainer,
+    radioButtonCheckedBg: colorBgContainer,
     radioButtonColor,
     radioButtonHoverColor,
     radioButtonActiveColor,
     radioButtonPaddingHorizontal,
-    radioDisabledButtonCheckedBg: colorBgComponentDisabled,
+    radioDisabledButtonCheckedBg: colorBgContainerDisabled,
     radioDisabledButtonCheckedColor,
     radioWrapperMarginRight,
   });

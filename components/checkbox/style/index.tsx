@@ -98,7 +98,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = token => {
           width: token.checkboxSize,
           height: token.checkboxSize,
           direction: 'ltr',
-          backgroundColor: token.colorBgComponent,
+          backgroundColor: token.colorBgContainer,
           border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
           borderRadius: token.controlRadius,
           borderCollapse: 'separate',
@@ -111,7 +111,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = token => {
             display: 'table',
             width: (token.checkboxSize / 14) * 5,
             height: (token.checkboxSize / 14) * 8,
-            border: `${token.lineWidthBold}px solid ${token.colorBgComponent}`,
+            border: `${token.lineWidthBold}px solid ${token.colorBgContainer}`,
             borderTop: 0,
             borderInlineStart: 0,
             transform: 'rotate(45deg) scale(0) translate(-50%,-50%)',
@@ -220,7 +220,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = token => {
 
         // Wrapper > Checkbox > inner
         [`${checkboxCls}-inner`]: {
-          background: token.colorBgComponentDisabled,
+          background: token.colorBgContainerDisabled,
           borderColor: token.colorBorder,
 
           '&:after': {

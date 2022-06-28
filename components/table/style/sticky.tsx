@@ -19,7 +19,7 @@ const genStickyStyle: GenerateStyle<TableToken, CSSObject> = token => {
         '&-holder': {
           position: 'sticky',
           zIndex: zIndexTableSticky,
-          background: token.colorBgComponent,
+          background: token.colorBgContainer,
         },
 
         '&-scroll': {

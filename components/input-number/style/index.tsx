@@ -39,7 +39,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
     controlHeight,
     inputPaddingHorizontal,
     motionDurationSlow,
-    colorBgComponent,
+    colorBgContainer,
     motionDurationMid,
     colorTextDisabled,
     controlWidth,
@@ -162,7 +162,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           insetInlineEnd: 0,
           width: token.handleWidth,
           height: '100%',
-          background: colorBgComponent,
+          background: colorBgContainer,
           borderStartStartRadius: 0,
           borderStartEndRadius: controlRadius,
           borderEndEndRadius: controlRadius,
@@ -204,7 +204,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
           borderInlineStart: `${controlLineWidth}px ${controlLineType} ${colorBorder}`,
           transition: `all ${motionDurationFast} linear`,
           '&:active': {
-            background: token.colorBgComponentSecondary,
+            background: token.colorBgContainerSecondary,
           },
 
           // Hover
