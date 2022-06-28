@@ -21,25 +21,20 @@ interface PaletteSheets {
 
 type ColorMapToken = Pick<
   MapToken,
-  | 'colorPrimary'
   | 'colorPrimaryHover'
   | 'colorPrimaryActive'
   | 'colorPrimaryBorder'
   | 'colorPrimaryBorderHover'
-  | 'colorSuccess'
   | 'colorSuccessBg'
   | 'colorSuccessBorder'
-  | 'colorError'
   | 'colorErrorBg'
   | 'colorErrorBorder'
   | 'colorErrorHover'
   | 'colorErrorActive'
-  | 'colorWarning'
   | 'colorWarningBg'
   | 'colorWarningBorder'
   | 'colorWarningHover'
   | 'colorWarningActive'
-  | 'colorInfo'
   | 'colorInfoBg'
   | 'colorInfoBorder'
   | 'colorLink'
@@ -76,29 +71,24 @@ export default function genColorMapToken({
   bgPalettes,
 }: PaletteSheets): ColorMapToken {
   return {
-    colorPrimary: primaryPalettes['6'],
     colorPrimaryHover: primaryPalettes['5'],
     colorPrimaryActive: primaryPalettes['7'],
     colorPrimaryBorder: primaryPalettes['3'],
     colorPrimaryBorderHover: primaryPalettes['4'],
 
-    colorSuccess: successPalettes['6'],
     colorSuccessBg: successPalettes['1'],
     colorSuccessBorder: successPalettes['3'],
 
-    colorError: errorPalettes['6'],
     colorErrorBg: errorPalettes['1'],
     colorErrorBorder: errorPalettes['3'],
     colorErrorHover: errorPalettes['5'],
     colorErrorActive: errorPalettes['7'],
 
-    colorWarning: warningPalettes['6'],
     colorWarningBg: warningPalettes['1'],
     colorWarningBorder: warningPalettes['3'],
     colorWarningHover: warningPalettes['5'],
     colorWarningActive: warningPalettes['7'],
 
-    colorInfo: infoPalettes['6'],
     colorInfoBg: infoPalettes['1'],
     colorInfoBorder: infoPalettes['3'],
 
