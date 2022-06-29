@@ -250,8 +250,8 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
 
   // ================================ Dynamic theme ================================
   const memoTheme = React.useMemo(() => {
-    const { derivative, token, ...rest } = mergedTheme || {};
-    const themeObj = derivative ? new V5Theme(derivative) : undefined;
+    const { algorithm, token, ...rest } = mergedTheme || {};
+    const themeObj = algorithm ? new V5Theme(algorithm) : undefined;
 
     return {
       ...rest,

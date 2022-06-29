@@ -1,7 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 import { useToken as useInternalToken } from '.';
-import defaultTheme from './themes/default';
-import darkTheme from './themes/dark';
+import defaultAlgorithm from './themes/default';
+import darkAlgorithm from './themes/dark';
 
 // ZombieJ: We export as object to user but array in internal.
 // This is used to minimize the bundle size for antd package but safe to refactor as object also.
@@ -15,6 +15,6 @@ function useToken() {
 
 export default {
   useToken,
-  defaultTheme,
-  darkTheme,
+  defaultAlgorithm,
+  darkAlgorithm,
 };

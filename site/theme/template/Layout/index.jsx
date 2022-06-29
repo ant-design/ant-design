@@ -291,7 +291,8 @@ export default class Layout extends React.Component {
                 theme={{
                   token: designToken,
                   hashed: hashedStyle,
-                  derivative: v5theme === 'dark' ? antdTheme.darkTheme : antdTheme.defaultTheme,
+                  algorithm:
+                    v5theme === 'dark' ? antdTheme.darkAlgorithm : antdTheme.defaultAlgorithm,
                 }}
               >
                 <Header {...restProps} changeDirection={this.changeDirection} />
