@@ -1,7 +1,7 @@
 import { presetDarkPalettes, presetPalettes } from '@ant-design/colors';
 import { createCache, StyleProvider } from '@ant-design/cssinjs';
 import { setTwoToneColor } from '@ant-design/icons';
-import { ConfigProvider } from 'antd';
+import { ConfigProvider, theme as antdTheme } from 'antd';
 import zhCN from 'antd/lib/locale/zh_CN';
 import { browserHistory } from 'bisheng/router';
 import classNames from 'classnames';
@@ -291,7 +291,7 @@ export default class Layout extends React.Component {
                 theme={{
                   token: designToken,
                   hashed: hashedStyle,
-                  derivative: v5theme,
+                  derivative: v5theme === 'dark' ? antdTheme.darkTheme : antdTheme.defaultTheme,
                 }}
               >
                 <Header {...restProps} changeDirection={this.changeDirection} />
