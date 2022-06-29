@@ -240,8 +240,7 @@ export default genComponentStyleHook('Table', token => {
     colorBgContainer,
     colorBgContent,
     radiusBase,
-    bgColors,
-    textColors,
+    colorBgFillTmp,
     controlInteractiveSize: checkboxSize,
   } = token;
 
@@ -268,8 +267,8 @@ export default genComponentStyleHook('Table', token => {
     tableFooterTextColor: colorTextHeading,
     tableFooterBg: colorBgContainerSecondary,
     tableHeaderCellSplitColor: colorSplit,
-    tableHeaderSortBg: bgColors['15'],
-    tableHeaderSortHoverBg: textColors['12'],
+    tableHeaderSortBg: colorBgContent,
+    tableHeaderSortHoverBg: colorBgFillTmp,
     tableHeaderIconColor: baseColorAction
       .clone()
       .setAlpha(baseColorAction.getAlpha() * opacityLoading)
@@ -280,7 +279,7 @@ export default genComponentStyleHook('Table', token => {
       .toRgbString(),
     tableBodySortBg: colorBgContainerSecondary,
     tableFixedHeaderSortActiveBg: colorBgContent,
-    tableHeaderFilterActiveBg: textColors['12'],
+    tableHeaderFilterActiveBg: colorBgFillTmp,
     tableFilterDropdownBg: colorBgContainer,
     tableRowHoverBg: colorBgContainerSecondary,
     tableSelectedRowBg,

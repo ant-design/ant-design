@@ -74,4 +74,5 @@ export interface BgPalettes {
   'light-12'?: string;
   'light-2'?: string;
   'light-10'?: string;
+  base: string;
 }

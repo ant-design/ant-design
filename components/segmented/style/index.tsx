@@ -171,20 +171,20 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
 export default genComponentStyleHook(
   'Segmented',
   token => {
-    const { lineWidthBold, controlLineWidth, textColors } = token;
+    const { lineWidthBold, controlLineWidth, colorTextLabel, colorText } = token;
 
     const segmentedToken = mergeToken<SegmentedToken>(token, {
       segmentedPaddingHorizontal: token.controlPaddingHorizontal - controlLineWidth,
       segmentedPaddingHorizontalSM: token.controlPaddingHorizontalSM - controlLineWidth,
       segmentedContainerPadding: lineWidthBold,
-      labelColor: textColors['65'],
-      labelColorHover: textColors['85'],
+      labelColor: colorTextLabel,
+      labelColorHover: colorText,
     });
     return [genSegmentedStyle(segmentedToken)];
   },
-  ({ bgColors, textColors }) => ({
-    bgColor: textColors['8'],
-    bgColorHover: textColors['12'],
-    bgColorSelected: bgColors['8'],
+  ({ segmentedBgColor, segmentedBgColorActive, segmentedBgColorHover }) => ({
+    bgColor: segmentedBgColor,
+    bgColorHover: segmentedBgColorHover,
+    bgColorSelected: segmentedBgColorActive,
   }),
 );

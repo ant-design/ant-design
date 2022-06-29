@@ -15,7 +15,7 @@ import {
 } from './palettes';
 
 export default function derivative(token: SeedToken): MapToken {
-  const { colorPrimary, colorSuccess, colorWarning, colorError, colorInfo, colorBg } = token;
+  const { colorPrimary, colorSuccess, colorWarning, colorError, colorInfo, colorBgBase } = token;
 
   const colorPalettes = Object.keys(defaultPresetColors)
     .map((colorKey: keyof PresetColorType) => {
@@ -39,7 +39,7 @@ export default function derivative(token: SeedToken): MapToken {
   const warningColors = generateWarningPalettes(colorWarning);
   const errorColors = generateErrorPalettes(colorError);
   const infoColors = generateInfoPalettes(colorInfo);
-  const bgColors = generateBgPalettes(colorBg);
+  const bgColors = generateBgPalettes(colorBgBase);
   const textColors = generateTextAlphaPalettes('#000');
 
   return {
@@ -61,9 +61,5 @@ export default function derivative(token: SeedToken): MapToken {
     colorWarningOutline: new TinyColor(colorWarning).setAlpha(0.2).toRgbString(),
 
     ...genCommonMapToken(token),
-
-    // FIXME: should be removed
-    bgColors,
-    textColors,
   };
 }

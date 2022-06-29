@@ -30,6 +30,8 @@ export default function genColorMapToken({
 }: PaletteSheets): ColorMapToken {
   return {
     colorPrimaryHover: primaryPalettes['5'],
+    colorPrimaryBg: primaryPalettes['1'],
+    colorPrimaryBgHover: primaryPalettes['0'],
     colorPrimaryActive: primaryPalettes['7'],
     colorPrimaryBorder: primaryPalettes['3'],
     colorPrimaryBorderHover: primaryPalettes['4'],
@@ -54,33 +56,41 @@ export default function genColorMapToken({
     colorLinkHover: primaryPalettes['5'],
     colorLinkActive: primaryPalettes['7'],
 
-    colorDefaultOutline: textAlphaPalettes['4'],
-
     // ============== Background ============== //
     colorBgLayout: bgPalettes['0'],
     colorBgElevated: bgPalettes['12'],
     colorBgContainer: bgPalettes['8'],
+    colorBgContent: bgPalettes['15'],
+
+    colorBgContentHover: bgPalettes['26'],
     colorBgContainerSecondary: textAlphaPalettes['4'],
     colorBgContainerDisabled: textAlphaPalettes['8'],
-    colorBgContent: bgPalettes['15'],
-    colorBgContentHover: bgPalettes['26'],
+
+    colorBgMask: textAlphaPalettes['45'],
+    colorBgItemHover: textAlphaPalettes['8'],
+    colorBgFillTmp: textAlphaPalettes['12'],
+    colorBgTooltipTmp: textAlphaPalettes['85'],
 
     // ============== Split ============== //
     colorBorder: bgPalettes['26'],
     colorBorderSecondary: bgPalettes['19'],
+    colorBorderBg: bgPalettes.base,
     colorSplit: textAlphaPalettes['12'],
 
     // ============== Text ============== //
     colorText: textAlphaPalettes['85'],
     colorTextHeading: textAlphaPalettes['85'],
     colorTextSecondary: textAlphaPalettes['45'],
-    // TODO: 这个 30 估计要改成 25
-    colorTextDisabled: textAlphaPalettes['30'],
-    colorTextPlaceholder: textAlphaPalettes['25'],
+    colorTextDisabled: textAlphaPalettes['25'],
+    colorTextLabel: textAlphaPalettes['65'],
 
     colorAction: textAlphaPalettes['45'],
     colorActionHover: textAlphaPalettes['85'],
 
-    colorHighlight: errorPalettes['5'],
+    buttonColorBgTextHover: textAlphaPalettes['3'],
+    buttonColorBgTextActive: textAlphaPalettes['4'],
+    segmentedBgColor: textAlphaPalettes['8'],
+    segmentedBgColorHover: textAlphaPalettes['12'],
+    segmentedBgColorActive: bgPalettes['8'],
   };
 }
