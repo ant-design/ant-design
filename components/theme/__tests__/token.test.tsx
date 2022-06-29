@@ -2,7 +2,8 @@ import { Theme } from '@ant-design/cssinjs';
 import * as React from 'react';
 import { render, renderHook } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
-import { useDesignToken } from '../export';
+import { getDesignToken, useDesignToken } from '../export';
+import darkMap from '../themes/dark';
 
 describe('Theme', () => {
   it('useTheme', () => {
@@ -43,5 +44,11 @@ describe('Theme', () => {
         colorPrimaryHover: '#ff3029', // It's safe to modify if theme logic changed
       }),
     );
+  });
+
+  it('getDesignToken', () => {
+    const darkToken = getDesignToken({ derivative: darkMap });
+    // MapToken
+    expect(darkToken).toHaveProperty('colorBgElevated', '#1f1f1f');
   });
 });
