@@ -20,6 +20,8 @@ import genComponentStyleHook from './util/genComponentStyleHook';
 import getArrowStyle from './util/placementArrow';
 import statisticToken, { merge as mergeToken, statistic } from './util/statistic';
 
+const defaultTheme = new Theme(defaultDerivative);
+
 export {
   resetComponent,
   resetIcon,
@@ -49,7 +51,7 @@ export type {
 // ================================ Context =================================
 export const DesignTokenContext = React.createContext<{
   token: Partial<SeedToken>;
-  derivative?: (token: SeedToken) => MapToken;
+  theme?: Theme<SeedToken, MapToken>;
   override?: OverrideToken;
   hashed?: string | boolean;
 }>({
@@ -63,19 +65,14 @@ const saltPrefix =
   process.env.NODE_ENV === 'production' ? version : `${version}-${new Date().getHours()}`;
 
 export function useToken(): [Theme<SeedToken, MapToken>, GlobalToken, string] {
-  const {
-    token: rootDesignToken,
-    override,
-    derivative = defaultDerivative,
-    hashed,
-  } = React.useContext(DesignTokenContext);
-
-  const theme = React.useMemo(() => new Theme(derivative), [derivative]);
+  const { token: rootDesignToken, override, hashed, theme } = React.useContext(DesignTokenContext);
 
   const salt = `${saltPrefix}-${hashed || ''}`;
 
+  const mergedTheme = theme || defaultTheme;
+
   const [token, hashId] = useCacheToken<GlobalToken, SeedToken>(
-    theme,
+    mergedTheme,
     [defaultSeedToken, rootDesignToken],
     {
       salt,
@@ -84,7 +81,7 @@ export function useToken(): [Theme<SeedToken, MapToken>, GlobalToken, string] {
     },
   );
 
-  return [theme, token, hashed ? hashId : ''];
+  return [mergedTheme, token, hashed ? hashId : ''];
 }
 
 export type UseComponentStyleResult = [(node: React.ReactNode) => React.ReactElement, string];

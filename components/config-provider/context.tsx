@@ -25,7 +25,7 @@ export type DirectionType = 'ltr' | 'rtl' | undefined;
 export interface ThemeConfig {
   token?: Partial<SeedToken>;
   override?: OverrideToken;
-  derivative?: (token: SeedToken) => MapToken;
+  algorithm?: (token: SeedToken) => MapToken;
   hashed?: boolean;
 }
 

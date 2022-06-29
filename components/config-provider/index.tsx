@@ -1,3 +1,4 @@
+import { Theme as V5Theme } from '@ant-design/cssinjs';
 import IconContext from '@ant-design/icons/lib/components/Context';
 import { FormProvider as RcFormProvider } from 'rc-field-form';
 import type { ValidateMessages } from 'rc-field-form/lib/interface';
@@ -248,17 +249,20 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
   }
 
   // ================================ Dynamic theme ================================
-  const memoTheme = React.useMemo(
-    () => ({
-      ...mergedTheme,
+  const memoTheme = React.useMemo(() => {
+    const { algorithm, token, ...rest } = mergedTheme || {};
+    const themeObj = algorithm ? new V5Theme(algorithm) : undefined;
+
+    return {
+      ...rest,
+      theme: themeObj,
 
       token: {
         ...defaultSeedToken,
-        ...mergedTheme?.token,
+        ...token,
       },
-    }),
-    [mergedTheme],
-  );
+    };
+  }, [mergedTheme]);
 
   if (theme) {
     childNode = (

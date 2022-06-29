@@ -1,6 +1,6 @@
 import { BugOutlined, EyeOutlined } from '@ant-design/icons';
 import { TinyColor } from '@ctrl/tinycolor';
-import { Button, Checkbox, Drawer, Form, Input, InputNumber, Space } from 'antd';
+import { Button, Select, Checkbox, Drawer, Form, Input, InputNumber, Space } from 'antd';
 import * as React from 'react';
 import { useState } from 'react';
 import { useIntl } from 'react-intl';
@@ -83,6 +83,22 @@ export default function DynamicTheme({
           onFinish={onFinish}
           autoComplete="off"
         >
+          <Form.Item name="theme" label="Theme">
+            <Select
+              dropdownStyle={{ zIndex: 9999999999 }}
+              options={[
+                {
+                  label: 'Default',
+                  value: 'default',
+                },
+                {
+                  label: 'Dark',
+                  value: 'dark',
+                },
+              ]}
+            />
+          </Form.Item>
+
           {keys.map((key: keyof typeof defaultToken) => {
             if (PresetColors.includes(key as any)) {
               return null;

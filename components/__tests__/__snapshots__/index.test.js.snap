@@ -67,7 +67,7 @@ Array [
   "Upload",
   "message",
   "notification",
-  "useDesignToken",
+  "theme",
   "version",
 ]
 `;
