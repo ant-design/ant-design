@@ -1,4 +1,4 @@
-import type { MapToken } from '../../interface';
+import type { ColorMapToken } from '../../interface';
 import type {
   BgPalettes,
   ErrorPalettes,
@@ -18,48 +18,6 @@ interface PaletteSheets {
   textAlphaPalettes: TextAlphaPalettes;
   bgPalettes: BgPalettes;
 }
-
-type ColorMapToken = Pick<
-  MapToken,
-  | 'colorPrimaryHover'
-  | 'colorPrimaryActive'
-  | 'colorPrimaryBorder'
-  | 'colorPrimaryBorderHover'
-  | 'colorSuccessBg'
-  | 'colorSuccessBorder'
-  | 'colorErrorBg'
-  | 'colorErrorBorder'
-  | 'colorErrorHover'
-  | 'colorErrorActive'
-  | 'colorWarningBg'
-  | 'colorWarningBorder'
-  | 'colorWarningHover'
-  | 'colorWarningActive'
-  | 'colorInfoBg'
-  | 'colorInfoBorder'
-  | 'colorLink'
-  | 'colorLinkHover'
-  | 'colorLinkActive'
-  | 'colorDefaultOutline'
-  | 'colorBgLayout'
-  | 'colorBgElevated'
-  | 'colorBgContainer'
-  | 'colorBgContainerSecondary'
-  | 'colorBgContainerDisabled'
-  | 'colorBgContent'
-  | 'colorBgContentHover'
-  | 'colorBorder'
-  | 'colorBorderSecondary'
-  | 'colorSplit'
-  | 'colorText'
-  | 'colorTextHeading'
-  | 'colorTextSecondary'
-  | 'colorTextDisabled'
-  | 'colorTextPlaceholder'
-  | 'colorAction'
-  | 'colorActionHover'
-  | 'colorHighlight'
->;
 
 export default function genColorMapToken({
   primaryPalettes,

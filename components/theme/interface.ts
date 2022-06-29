@@ -202,18 +202,13 @@ export interface SeedToken extends PresetColorType {
   opacityImage: number;
 }
 
-// ======================================================================
-// ==                         Map Token                         ==
-// ======================================================================
-// 🔥🔥🔥🔥🔥🔥🔥 DO NOT MODIFY THIS. PLEASE CONTACT DESIGNER. 🔥🔥🔥🔥🔥🔥🔥
-export interface MapToken extends SeedToken, ColorPalettes {
+export interface ColorMapToken {
   // Color
   /** Used for DefaultButton, Switch which has default outline */
   colorDefaultOutline: string;
 
   colorPrimaryHover: string;
   colorPrimaryActive: string;
-  colorPrimaryOutline: string;
   colorPrimaryBorder: string; // primary[2]
   colorPrimaryBorderHover: string;
 
@@ -222,13 +217,11 @@ export interface MapToken extends SeedToken, ColorPalettes {
 
   colorWarningHover: string;
   colorWarningActive: string;
-  colorWarningOutline: string;
   colorWarningBorder: string;
   colorWarningBg: string;
 
   colorErrorHover: string;
   colorErrorActive: string;
-  colorErrorOutline: string;
   colorErrorBorder: string;
   colorErrorBg: string;
 
@@ -253,6 +246,7 @@ export interface MapToken extends SeedToken, ColorPalettes {
   colorSplit: string;
 
   // Color
+  colorText: string;
   colorTextSecondary: string;
   colorTextDisabled: string;
   /** Placeholder text color */
@@ -267,6 +261,16 @@ export interface MapToken extends SeedToken, ColorPalettes {
   colorLink: string;
   colorLinkHover: string;
   colorLinkActive: string;
+}
+
+// ======================================================================
+// ==                         Map Token                         ==
+// ======================================================================
+// 🔥🔥🔥🔥🔥🔥🔥 DO NOT MODIFY THIS. PLEASE CONTACT DESIGNER. 🔥🔥🔥🔥🔥🔥🔥
+export interface MapToken extends SeedToken, ColorPalettes {
+  colorPrimaryOutline: string;
+  colorWarningOutline: string;
+  colorErrorOutline: string;
 
   // Font
   fontSizes: number[];
