@@ -229,7 +229,7 @@ exports[`Table renders empty table with custom emptyText 1`] = `
 </div>
 `;
 
-exports[`Table renders empty table with fixed columns 1`] = `
+exports[`Table renders empty table with fixed columns should work 1`] = `
 <div
   class="ant-table-wrapper"
 >
@@ -452,7 +452,7 @@ exports[`Table renders empty table with fixed columns 1`] = `
                   >
                     <div
                       class="ant-table-expanded-row-fixed"
-                      style="width: 0px; position: sticky; left: 0px; overflow: hidden;"
+                      style="width: 1000px; position: sticky; left: 0px; overflow: hidden;"
                     >
                       <div
                         class="ant-empty ant-empty-normal"
