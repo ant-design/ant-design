@@ -41,7 +41,6 @@ import type { ComponentToken as TooltipComponentToken } from '../tooltip/style';
 import type { ComponentToken as TransferComponentToken } from '../transfer/style';
 import type { ComponentToken as TypographyComponentToken } from '../typography/style';
 import type { ComponentToken as UploadComponentToken } from '../upload/style';
-import type { DeepPartial } from '../_util/type';
 import type { BgPalettes, TextAlphaPalettes } from './themes/IPalettes';
 
 export const PresetColors = [
@@ -131,7 +130,11 @@ export interface ComponentTokenMap {
   Progress?: ProgressComponentToken;
 }
 
-export interface OverrideToken extends DeepPartial<ComponentTokenMap> {
+type OverrideComponentToken = {
+  [key in keyof ComponentTokenMap]: Partial<ComponentTokenMap[key]>;
+};
+
+export interface OverrideToken extends OverrideComponentToken {
   derivative?: Partial<MapToken>;
   /** @private Internal Usage */
   alias?: Partial<AliasToken>;
