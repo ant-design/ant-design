@@ -1,11 +1,11 @@
 import type { RenderOptions } from '@testing-library/react';
 import { render } from '@testing-library/react';
 import MockDate from 'mockdate';
-import { _rs as onEsResize } from 'rc-resize-observer/es/utils/observerUtil';
-import { _rs as onLibResize } from 'rc-resize-observer/lib/utils/observerUtil';
 import type { ReactElement } from 'react';
 import React, { StrictMode } from 'react';
 import { act } from 'react-dom/test-utils';
+import { _rs as onLibResize } from 'rc-resize-observer/lib/utils/observerUtil';
+import { _rs as onEsResize } from 'rc-resize-observer/es/utils/observerUtil';
 
 export function setMockDate(dateString = '2017-09-18T03:30:07.795') {
   MockDate.set(dateString);
@@ -35,8 +35,11 @@ export const triggerResize = (target: Element) => {
   const originGetBoundingClientRect = target.getBoundingClientRect;
 
   target.getBoundingClientRect = () => ({ width: 510, height: 903 } as DOMRect);
-  onLibResize([{ target } as ResizeObserverEntry]);
-  onEsResize([{ target } as ResizeObserverEntry]);
+
+  act(() => {
+    onLibResize([{ target } as ResizeObserverEntry]);
+    onEsResize([{ target } as ResizeObserverEntry]);
+  });
 
   target.getBoundingClientRect = originGetBoundingClientRect;
 };
