@@ -1,6 +1,7 @@
 import React from 'react';
+import { spyElementPrototypes } from 'rc-util/lib/test/domHook';
 import Table from '..';
-import { render } from '../../../tests/utils';
+import { render, triggerResize, waitFor } from '../../../tests/utils';
 
 const columns = [
   { title: 'Column 1', dataIndex: 'address', key: '1' },
@@ -50,11 +51,33 @@ describe('Table', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
-  it('renders empty table with fixed columns', () => {
-    const { asFragment } = render(
-      <Table dataSource={[]} columns={columnsFixed} pagination={false} scroll={{ x: 1 }} />,
-    );
-    expect(asFragment().firstChild).toMatchSnapshot();
+  describe('renders empty table with fixed columns', () => {
+    let domSpy;
+
+    beforeAll(() => {
+      domSpy = spyElementPrototypes(HTMLDivElement, {
+        offsetWidth: {
+          get: () => 1000,
+        },
+      });
+    });
+    afterAll(() => {
+      domSpy.mockRestore();
+    });
+
+    it('should work', async () => {
+      const { container, asFragment } = render(
+        <Table dataSource={[]} columns={columnsFixed} pagination={false} scroll={{ x: 1 }} />,
+      );
+
+      triggerResize(container.querySelector('.ant-table'));
+
+      await waitFor(() => {
+        expect(container.querySelector('.ant-empty')).toBeTruthy();
+      });
+
+      expect(asFragment().firstChild).toMatchSnapshot();
+    });
   });
 
   it('renders empty table with custom emptyText', () => {
