@@ -1,14 +1,14 @@
-import * as React from 'react';
-import TestUtils, { act } from 'react-dom/test-utils';
-import CSSMotion from 'rc-motion';
 import { SmileOutlined } from '@ant-design/icons';
+import CSSMotion from 'rc-motion';
 import { genCSSMotion } from 'rc-motion/lib/CSSMotion';
 import KeyCode from 'rc-util/lib/KeyCode';
 import { resetWarned } from 'rc-util/lib/warning';
+import * as React from 'react';
+import TestUtils, { act } from 'react-dom/test-utils';
 import Modal from '..';
-import destroyFns from '../destroyFns';
 import { sleep } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import destroyFns from '../destroyFns';
 
 globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 

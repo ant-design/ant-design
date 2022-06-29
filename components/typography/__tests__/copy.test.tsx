@@ -1,7 +1,7 @@
-import React from 'react';
 import { LikeOutlined, SmileOutlined } from '@ant-design/icons';
-import * as copyObj from 'copy-to-clipboard';
 import { act } from '@testing-library/react';
+import * as copyObj from 'copy-to-clipboard';
+import React from 'react';
 import { fireEvent, render, waitFor } from '../../../tests/utils';
 
 import Base from '../Base';

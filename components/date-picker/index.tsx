@@ -1,8 +1,8 @@
 import type { Moment } from 'moment';
 import momentGenerateConfig from 'rc-picker/lib/generate/moment';
 import type {
-  PickerProps,
   PickerDateProps,
+  PickerProps,
   RangePickerProps as BaseRangePickerProps,
 } from './generatePicker';
 import generatePicker from './generatePicker';

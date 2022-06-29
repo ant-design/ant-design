@@ -1,9 +1,9 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 import Form from '..';
-import Input from '../../input';
+import { fireEvent, render, sleep } from '../../../tests/utils';
 import Button from '../../button';
-import { sleep, render, fireEvent } from '../../../tests/utils';
+import Input from '../../input';
 
 describe('Form.List', () => {
   async function change(wrapper, index, value) {

@@ -1,7 +1,7 @@
 import React from 'react';
 import Drawer from '..';
+import { fireEvent, render } from '../../../tests/utils';
 import Button from '../../button';
-import { render, fireEvent } from '../../../tests/utils';
 
 class MultiDrawer extends React.Component {
   state = { visible: false, childrenDrawer: false, hasChildren: true };

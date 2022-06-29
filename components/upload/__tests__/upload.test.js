@@ -1,16 +1,16 @@
 /* eslint-disable react/no-string-refs, react/prefer-es6-class */
-import React from 'react';
-import { act } from 'react-dom/test-utils';
 import produce from 'immer';
 import { cloneDeep } from 'lodash';
+import React from 'react';
+import { act } from 'react-dom/test-utils';
 import Upload from '..';
-import Form from '../../form';
-import { getFileItem, removeFileItem, isImageUrl } from '../utils';
-import { setup, teardown } from './mock';
-import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { sleep, render, fireEvent } from '../../../tests/utils';
+import { fireEvent, render, sleep } from '../../../tests/utils';
+import Form from '../../form';
+import { resetWarned } from '../../_util/warning';
+import { getFileItem, isImageUrl, removeFileItem } from '../utils';
+import { setup, teardown } from './mock';
 
 globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 
@@ -937,8 +937,11 @@ describe('Upload', () => {
     );
 
     rerender(<Upload listType="picture-card" />);
-    expect(container.querySelector('.ant-upload-select-picture-card')).not.toHaveStyle({
-      display: 'none',
+    expect(container.querySelector('.ant-upload-select-picture-card')).toHaveClass(
+      'ant-upload-animate-inline-leave-start',
+    );
+    expect(container.querySelector('.ant-upload-select-picture-card')).toHaveStyle({
+      pointerEvents: 'none',
     });
 
     // Motion leave status change: start > active
@@ -947,10 +950,9 @@ describe('Upload', () => {
     });
 
     fireEvent.animationEnd(container.querySelector('.ant-upload-select-picture-card'));
-
-    expect(container.querySelector('.ant-upload-select-picture-card')).toHaveStyle({
-      display: 'none',
-    });
+    expect(container.querySelector('.ant-upload-select-picture-card')).not.toHaveClass(
+      'ant-upload-animate-inline-leave-start',
+    );
 
     jest.useRealTimers();
   });

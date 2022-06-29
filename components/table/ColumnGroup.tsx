@@ -1,6 +1,6 @@
 import type * as React from 'react';
-import type { ColumnType } from './interface';
 import type { ColumnProps } from './Column';
+import type { ColumnType } from './interface';
 
 export interface ColumnGroupProps<RecordType> extends Omit<ColumnType<RecordType>, 'children'> {
   children:

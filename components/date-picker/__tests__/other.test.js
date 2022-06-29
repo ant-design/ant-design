@@ -1,10 +1,10 @@
-import React from 'react';
 import { mount, render } from 'enzyme';
 import moment from 'moment';
+import React from 'react';
 import DatePicker from '..';
+import ConfigProvider from '../../config-provider';
 import LocaleProvider from '../../locale-provider';
 import locale from '../../locale-provider/zh_CN';
-import ConfigProvider from '../../config-provider';
 import jaJP from '../../locale/ja_JP';
 import zhTW from '../locale/zh_TW';
 

@@ -1,9 +1,9 @@
 import React from 'react';
-import { render } from '../../../tests/utils';
 import Drawer from '..';
-import ConfigProvider from '../../config-provider';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 const DrawerTest = ({ getContainer }) => (
   <div>

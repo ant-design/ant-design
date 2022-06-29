@@ -1,26 +1,26 @@
-import * as React from 'react';
-import type { TreeSelectProps as RcTreeSelectProps } from 'rc-tree-select';
-import RcTreeSelect, { TreeNode, SHOW_ALL, SHOW_PARENT, SHOW_CHILD } from 'rc-tree-select';
 import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
-import type { BaseOptionType, DefaultOptionType } from 'rc-tree-select/lib/TreeSelect';
 import type { BaseSelectRef } from 'rc-select';
+import type { TreeSelectProps as RcTreeSelectProps } from 'rc-tree-select';
+import RcTreeSelect, { SHOW_ALL, SHOW_CHILD, SHOW_PARENT, TreeNode } from 'rc-tree-select';
+import type { BaseOptionType, DefaultOptionType } from 'rc-tree-select/lib/TreeSelect';
+import omit from 'rc-util/lib/omit';
+import * as React from 'react';
 import { useContext } from 'react';
 import { ConfigContext } from '../config-provider';
-import warning from '../_util/warning';
-import type { AntTreeNodeProps, TreeProps } from '../tree';
-import type { SwitcherIcon } from '../tree/Tree';
-import getIcons from '../select/utils/iconUtil';
-import renderSwitcherIcon from '../tree/utils/iconUtil';
+import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
-import DisabledContext from '../config-provider/DisabledContext';
-import type { SelectCommonPlacement } from '../_util/motion';
-import { getTransitionName, getTransitionDirection } from '../_util/motion';
 import { FormItemInputContext } from '../form/context';
+import getIcons from '../select/utils/iconUtil';
+import type { AntTreeNodeProps, TreeProps } from '../tree';
+import type { SwitcherIcon } from '../tree/Tree';
+import renderSwitcherIcon from '../tree/utils/iconUtil';
+import type { SelectCommonPlacement } from '../_util/motion';
+import { getTransitionDirection, getTransitionName } from '../_util/motion';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
-import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import warning from '../_util/warning';
 
 type RawValue = string | number;
 
@@ -44,6 +44,7 @@ export interface TreeSelectProps<
     | 'getInputElement'
     | 'backfill'
     | 'treeLine'
+    | 'switcherIcon'
   > {
   suffixIcon?: React.ReactNode;
   size?: SizeType;
@@ -52,7 +53,7 @@ export interface TreeSelectProps<
   bordered?: boolean;
   treeLine?: TreeProps['showLine'];
   status?: InputStatus;
-  switcherIcon?: SwitcherIcon;
+  switcherIcon?: SwitcherIcon | RcTreeSelectProps<ValueType, OptionType>['switcherIcon'];
 }
 
 const InternalTreeSelect = <OptionType extends BaseOptionType | DefaultOptionType = BaseOptionType>(

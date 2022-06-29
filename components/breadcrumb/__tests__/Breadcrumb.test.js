@@ -1,10 +1,9 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import { render } from '../../../tests/utils';
-import Breadcrumb from '../index';
+import accessibilityTest from '../../../tests/shared/accessibilityTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import accessibilityTest from '../../../tests/shared/accessibilityTest';
+import { render } from '../../../tests/utils';
+import Breadcrumb from '../index';
 
 describe('Breadcrumb', () => {
   mountTest(Breadcrumb);
@@ -49,19 +48,19 @@ describe('Breadcrumb', () => {
 
   // https://github.com/ant-design/ant-design/issues/5542
   it('should not display Breadcrumb Item when its children is falsy', () => {
-    const wrapper = mount(
+    const { asFragment } = render(
       <Breadcrumb>
         <Breadcrumb.Item />
         <Breadcrumb.Item>xxx</Breadcrumb.Item>
         <Breadcrumb.Item>yyy</Breadcrumb.Item>
       </Breadcrumb>,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   // https://github.com/ant-design/ant-design/issues/18260
   it('filter React.Fragment', () => {
-    const wrapper = mount(
+    const { asFragment } = render(
       <Breadcrumb separator="">
         <Breadcrumb.Item>Location</Breadcrumb.Item>
         <Breadcrumb.Separator>:</Breadcrumb.Separator>
@@ -71,7 +70,7 @@ describe('Breadcrumb', () => {
         </>
       </Breadcrumb>,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   it('should render a menu', () => {
@@ -106,27 +105,27 @@ describe('Breadcrumb', () => {
         path: 'third',
       },
     ];
-    const wrapper = mount(<Breadcrumb routes={routes} />);
-    expect(wrapper.render()).toMatchSnapshot();
+    const { asFragment } = render(<Breadcrumb routes={routes} />);
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   it('should accept undefined routes', () => {
-    const wrapper = mount(<Breadcrumb routes={undefined} />);
-    expect(wrapper.render()).toMatchSnapshot();
+    const { asFragment } = render(<Breadcrumb routes={undefined} />);
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   it('should support custom attribute', () => {
-    const wrapper = mount(
+    const { asFragment } = render(
       <Breadcrumb data-custom="custom">
         <Breadcrumb.Item data-custom="custom-item">xxx</Breadcrumb.Item>
         <Breadcrumb.Item>yyy</Breadcrumb.Item>
       </Breadcrumb>,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   it('should support React.Fragment and falsy children', () => {
-    const wrapper = mount(
+    const { asFragment } = render(
       <Breadcrumb>
         <>
           <Breadcrumb.Item>yyy</Breadcrumb.Item>
@@ -138,7 +137,7 @@ describe('Breadcrumb', () => {
         {undefined}
       </Breadcrumb>,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   // https://github.com/ant-design/ant-design/issues/25975
@@ -148,13 +147,13 @@ describe('Breadcrumb', () => {
         <Breadcrumb.Item>Mock Node</Breadcrumb.Item>
       </span>
     );
-    const wrapper = mount(
+    const { asFragment } = render(
       <Breadcrumb>
         <Breadcrumb.Item>Location</Breadcrumb.Item>
         <MockComponent />
         <Breadcrumb.Item>Application Center</Breadcrumb.Item>
       </Breadcrumb>,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 });

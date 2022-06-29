@@ -1,9 +1,9 @@
 import React from 'react';
 import Empty from '..';
-import ConfigProvider from '../../config-provider';
-import { render } from '../../../tests/utils';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 describe('Empty', () => {
   mountTest(Empty);

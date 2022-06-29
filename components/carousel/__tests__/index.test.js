@@ -1,9 +1,9 @@
-import React from 'react';
 import { mount } from 'enzyme';
+import React from 'react';
 import Carousel from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { sleep, render } from '../../../tests/utils';
+import { render, sleep } from '../../../tests/utils';
 
 describe('Carousel', () => {
   mountTest(Carousel);

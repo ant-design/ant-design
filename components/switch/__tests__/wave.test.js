@@ -1,7 +1,6 @@
-import React from 'react';
 import { mount } from 'enzyme';
+import React from 'react';
 import Switch from '..';
-import Wave from '../../_util/wave';
 import { sleep } from '../../../tests/utils';
 
 describe('click wave effect', () => {
@@ -16,7 +15,7 @@ describe('click wave effect', () => {
   it('should have click wave effect', async () => {
     const wrapper = mount(<Switch />);
     await click(wrapper);
-    const waveInstance = wrapper.find(Wave).instance();
+    const waveInstance = wrapper.find('InternalWave').instance();
     const resetEffect = jest.spyOn(waveInstance, 'resetEffect');
     await click(wrapper);
     expect(resetEffect).toHaveBeenCalledTimes(1);
