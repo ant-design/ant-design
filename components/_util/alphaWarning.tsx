@@ -32,7 +32,7 @@ if (process.env.NODE_ENV !== 'production' && canUseDom()) {
             style={{ marginInline: 4, color: '#FFF', textDecoration: 'underline' }}
             href="https://github.com/ant-design/ant-design/issues/33862#user-content-alpha-offset"
           >
-            #33862 - What is in alpha?
+            #33862 - What is in experimental?
           </a>
         </p>
       </div>
