@@ -2,7 +2,6 @@ import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { Theme, useCacheToken, useStyleRegister } from '@ant-design/cssinjs';
 import React from 'react';
 import version from '../version';
-import type { DeepPartial } from '../_util/type';
 import type {
   AliasToken,
   GlobalToken,
@@ -51,7 +50,7 @@ export type {
 export const DesignTokenContext = React.createContext<{
   token: Partial<SeedToken>;
   derivative?: (token: SeedToken) => MapToken;
-  override?: DeepPartial<OverrideToken>;
+  override?: OverrideToken;
   hashed?: string | boolean;
 }>({
   token: defaultSeedToken,
