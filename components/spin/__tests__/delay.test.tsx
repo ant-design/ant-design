@@ -6,7 +6,9 @@ import Spin from '..';
 import { sleep } from '../../../tests/utils';
 
 jest.mock('lodash/debounce');
-debounce.mockImplementation(jest.requireActual('lodash/debounce'));
+(debounce as jest.Mock).mockImplementation((...args: any[]) =>
+  jest.requireActual('lodash/debounce')(...args),
+);
 
 describe('delay spinning', () => {
   it("should render with delay when it's mounted with spinning=true and delay", () => {
@@ -35,9 +37,10 @@ describe('delay spinning', () => {
   it('should cancel debounce function when unmount', async () => {
     const debouncedFn = jest.fn();
     const cancel = jest.fn();
-    debouncedFn.cancel = cancel;
-    debounce.mockReturnValueOnce(debouncedFn);
+    (debouncedFn as any).cancel = cancel;
+    (debounce as jest.Mock).mockReturnValueOnce(debouncedFn);
     const { unmount } = render(<Spin spinning delay={100} />);
+
     expect(cancel).not.toHaveBeenCalled();
     unmount();
     expect(cancel).toHaveBeenCalled();
