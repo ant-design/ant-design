@@ -202,18 +202,13 @@ export interface SeedToken extends PresetColorType {
   opacityImage: number;
 }
 
-// ======================================================================
-// ==                         Map Token                         ==
-// ======================================================================
-// 🔥🔥🔥🔥🔥🔥🔥 DO NOT MODIFY THIS. PLEASE CONTACT DESIGNER. 🔥🔥🔥🔥🔥🔥🔥
-export interface MapToken extends SeedToken, ColorPalettes {
+export interface ColorMapToken {
   // Color
   /** Used for DefaultButton, Switch which has default outline */
   colorDefaultOutline: string;
 
   colorPrimaryHover: string;
   colorPrimaryActive: string;
-  colorPrimaryOutline: string;
   colorPrimaryBorder: string; // primary[2]
   colorPrimaryBorderHover: string;
 
@@ -222,13 +217,11 @@ export interface MapToken extends SeedToken, ColorPalettes {
 
   colorWarningHover: string;
   colorWarningActive: string;
-  colorWarningOutline: string;
   colorWarningBorder: string;
   colorWarningBg: string;
 
   colorErrorHover: string;
   colorErrorActive: string;
-  colorErrorOutline: string;
   colorErrorBorder: string;
   colorErrorBg: string;
 
@@ -245,7 +238,32 @@ export interface MapToken extends SeedToken, ColorPalettes {
   colorBgElevated: string;
   /** Color of component background */
   colorBgContainer: string;
+  colorBgContainerSecondary: string;
+  colorBgContainerDisabled: string;
 
+  colorBorder: string;
+  colorBorderSecondary: string;
+  colorSplit: string;
+
+  // Color
+  colorText: string;
+  colorTextSecondary: string;
+  colorTextDisabled: string;
+  /** Placeholder text color */
+  colorTextPlaceholder: string;
+  colorTextHeading: string;
+
+  /** Weak action. Such as `allowClear` or Alert close button */
+  colorAction: string;
+  /** Weak action hover color. Such as `allowClear` or Alert close button */
+  colorActionHover: string;
+
+  colorLink: string;
+  colorLinkHover: string;
+  colorLinkActive: string;
+}
+
+export interface CommonMapToken {
   // Font
   fontSizes: number[];
   lineHeights: number[];
@@ -281,6 +299,16 @@ export interface MapToken extends SeedToken, ColorPalettes {
   controlHeightXS: number;
   controlHeightSM: number;
   controlHeightLG: number;
+}
+
+// ======================================================================
+// ==                         Map Token                         ==
+// ======================================================================
+// 🔥🔥🔥🔥🔥🔥🔥 DO NOT MODIFY THIS. PLEASE CONTACT DESIGNER. 🔥🔥🔥🔥🔥🔥🔥
+export interface MapToken extends SeedToken, ColorPalettes, ColorMapToken, CommonMapToken {
+  colorPrimaryOutline: string;
+  colorWarningOutline: string;
+  colorErrorOutline: string;
 
   // Map Token
   bgColors: BgPalettes;
@@ -332,27 +360,6 @@ export interface AliasToken extends MapToken {
   controlInteractiveSize: number;
   controlItemBgActiveDisabled: string; // Note. It also is a color
 
-  // Color
-  colorBorder: string;
-  colorSplit: string;
-  colorTextSecondary: string;
-  colorTextDisabled: string;
-  /** Placeholder text color */
-  colorTextPlaceholder: string;
-  colorTextHeading: string;
-
-  /** Weak action. Such as `allowClear` or Alert close button */
-  colorAction: string;
-  /** Weak action hover color. Such as `allowClear` or Alert close button */
-  colorActionHover: string;
-
-  colorLink: string;
-  colorLinkHover: string;
-  colorLinkActive: string;
-
-  colorBgContainerSecondary: string;
-  colorBgContainerDisabled: string;
-
   // =============== Legacy: should be remove ===============
   opacityLoading: number;
 
@@ -401,7 +408,6 @@ export interface AliasToken extends MapToken {
   screenXXLMax: number;
 
   controlMaskBg: string;
-  colorBorderSecondary: string;
 
   // FIXME: component box-shadow, should be removed
   boxShadowPopoverArrow: string;

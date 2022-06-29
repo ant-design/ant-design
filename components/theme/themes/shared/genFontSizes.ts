@@ -1,7 +1,5 @@
-/* eslint-disable import/prefer-default-export */
-
 // https://zhuanlan.zhihu.com/p/32746810
-export function getFontSizes(base: number) {
+export default function getFontSizes(base: number) {
   const fontSizes = new Array(10).fill(null).map((_, index) => {
     const i = index - 1;
     const baseSize = base * 2.71828 ** (i / 5);

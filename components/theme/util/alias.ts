@@ -18,7 +18,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     ...derivative,
   };
 
-  const { fontSizes, lineHeights, textColors, bgColors } = mergedToken;
+  const { fontSizes, lineHeights, textColors } = mergedToken;
 
   // FIXME: tmp
   const primaryColors = generate(mergedToken.colorPrimary);
@@ -38,34 +38,6 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
   // Generate alias token
   const aliasToken: AliasToken = {
     ...mergedToken,
-
-    // Colors
-    colorText: textColors['85'],
-    // TODO: 只有 Slider 用了，感觉命名有问题
-    colorTextSecondary: textColors['45'],
-    // TODO: 这个 30 估计要改成 25
-    colorTextDisabled: textColors['30'],
-    colorTextPlaceholder: textColors['25'],
-    colorTextHeading: textColors['85'],
-
-    // TODO：Menu 用了这个 感觉命名有问题
-    // TODO：能不能用透明色？用透明色会造成重叠后变亮的问题，是不是得用实色？
-    colorBgContainerSecondary: textColors['4'],
-    colorBgContainerDisabled: textColors['8'],
-
-    colorLink: mergedToken.colorPrimary,
-    colorLinkHover: primaryColors[4],
-    colorLinkActive: primaryColors[6],
-
-    // TODO: 确认 Action 的色彩关系
-    colorAction: textColors['45'],
-    colorActionHover: textColors['85'],
-
-    // Split
-    colorBorder: bgColors['26'],
-    // TODO：Secondary 在纯实色背景下的颜色和 Split 是一样的
-    colorBorderSecondary: bgColors['19'],
-    colorSplit: textColors['12'],
 
     // Font
     fontSizeSM,
@@ -110,11 +82,6 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     fontWeightStrong: 600,
 
     // 🔥🔥🔥🔥🔥🔥🔥🔥🔥 All TMP Token leaves here 🔥🔥🔥🔥🔥🔥🔥🔥🔥
-    // FIXME: Handle this when derivative is ready
-    // primaryColors,
-    // warningColors,
-    // errorColors,
-
     opacityLoading: 0.65,
 
     colorSuccessBorder: successColors[2],
