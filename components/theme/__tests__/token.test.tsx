@@ -2,11 +2,13 @@ import { Theme } from '@ant-design/cssinjs';
 import * as React from 'react';
 import { render, renderHook } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
-import { useDesignToken } from '../export';
+import theme from '../export';
+
+const { useToken } = theme;
 
 describe('Theme', () => {
   it('useTheme', () => {
-    const result = renderHook(() => useDesignToken());
+    const result = renderHook(() => useToken());
 
     expect(result.current.theme instanceof Theme).toBeTruthy();
     expect(result.current.hashId).toBeFalsy();
@@ -19,12 +21,12 @@ describe('Theme', () => {
 
   it('ConfigProvider with seed', () => {
     const Demo = React.forwardRef((_, ref: any) => {
-      const themeObj = useDesignToken();
+      const themeObj = useToken();
       ref.current = themeObj;
       return null;
     });
 
-    const themeRef = React.createRef<ReturnType<typeof useDesignToken>>();
+    const themeRef = React.createRef<ReturnType<typeof useToken>>();
     render(
       <ConfigProvider
         theme={{

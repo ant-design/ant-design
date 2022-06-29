@@ -53,7 +53,7 @@ type DerivativeFn = (token: SeedToken) => MapToken;
 
 export const DesignTokenContext = React.createContext<{
   token: Partial<SeedToken>;
-  derivative?: 'default' | 'dark' | DerivativeFn;
+  derivative?: DerivativeFn;
   override?: DeepPartial<OverrideToken>;
   hashed?: string | boolean;
 }>({
