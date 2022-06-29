@@ -1,4 +1,3 @@
-import { generate } from '@ant-design/colors';
 import { TinyColor } from '@ctrl/tinycolor';
 import type { AliasToken, MapToken, OverrideToken } from '../interface';
 
@@ -18,14 +17,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     ...derivative,
   };
 
-  const { fontSizes, lineHeights, textColors } = mergedToken;
-
-  // FIXME: tmp
-  const primaryColors = generate(mergedToken.colorPrimary);
-  const infoColors = generate(mergedToken.colorInfo);
-  const successColors = generate(mergedToken.colorSuccess);
-  const warningColors = generate(mergedToken.colorWarning);
-  const errorColors = generate(mergedToken.colorError);
+  const { fontSizes, lineHeights } = mergedToken;
   const screenXS = 480;
   const screenSM = 576;
   const screenMD = 768;
@@ -38,6 +30,9 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
   // Generate alias token
   const aliasToken: AliasToken = {
     ...mergedToken,
+
+    colorTextPlaceholder: mergedToken.colorTextDisabled,
+    colorHighlight: mergedToken.colorError,
 
     // Font
     fontSizeSM,
@@ -62,32 +57,21 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     lineHeightHeading5: lineHeights[2],
 
     // Control
-    // TODO: 确认下 hover 是用 Alpha 还是实色
-    // 暂时确认下来应该用 alpha
     controlLineWidth: mergedToken.lineWidth,
     controlOutlineWidth: mergedToken.lineWidth * 2,
     // Checkbox size and expand icon size
     controlInteractiveSize: mergedToken.controlHeight / 2,
 
-    controlItemBgHover: mergedToken.textColors['8'],
-    controlItemBgActive: primaryColors[0],
-    controlItemBgActiveHover: primaryColors[1],
-    controlItemBgActiveDisabled: textColors['25'],
-    controlMaskBg: textColors['45'],
+    controlItemBgHover: mergedToken.colorBgItemHover,
+    controlItemBgActive: mergedToken.colorPrimaryBg,
+    controlItemBgActiveHover: mergedToken.colorPrimaryBgHover,
+    controlItemBgActiveDisabled: mergedToken.colorTextDisabled,
 
-    // 👀👀👀👀👀👀👀👀👀 Not align with Derivative 👀👀👀👀👀👀👀👀👀
-    // FIXME: @arvinxx handle this
     controlLineType: mergedToken.lineType,
     controlRadius: mergedToken.radiusBase,
     fontWeightStrong: 600,
 
-    // 🔥🔥🔥🔥🔥🔥🔥🔥🔥 All TMP Token leaves here 🔥🔥🔥🔥🔥🔥🔥🔥🔥
     opacityLoading: 0.65,
-
-    colorSuccessBorder: successColors[2],
-    colorWarningBorder: warningColors[2],
-    colorErrorBorder: errorColors[2],
-    colorInfoBorder: infoColors[2],
 
     linkDecoration: 'none',
     linkHoverDecoration: 'none',
@@ -136,6 +120,8 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     screenXXL,
     screenXXLMin: screenXXL,
     screenXXLMax: screenXXL - 1,
+
+    controlTmpOutline: mergedToken.colorBgContainerSecondary,
 
     // FIXME: component box-shadow, should be removed
     boxShadowPopoverArrow: `3px 3px 7px rgba(0, 0, 0, 0.1)`,

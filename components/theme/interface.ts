@@ -41,7 +41,6 @@ import type { ComponentToken as TooltipComponentToken } from '../tooltip/style';
 import type { ComponentToken as TransferComponentToken } from '../transfer/style';
 import type { ComponentToken as TypographyComponentToken } from '../typography/style';
 import type { ComponentToken as UploadComponentToken } from '../upload/style';
-import type { BgPalettes, TextAlphaPalettes } from './themes/IPalettes';
 
 export const PresetColors = [
   'blue',
@@ -154,10 +153,10 @@ export interface SeedToken extends PresetColorType {
   colorWarning: string;
   colorError: string;
   colorInfo: string;
-  colorText: string;
+  colorTextBase: string;
   colorTextLightSolid: string;
   /** Base component background color. Will derivative container background color with this */
-  colorBg: string;
+  colorBgBase: string;
 
   // Font
   fontFamily: string;
@@ -207,10 +206,9 @@ export interface SeedToken extends PresetColorType {
 
 export interface ColorMapToken {
   // Color
-  /** Used for DefaultButton, Switch which has default outline */
-  colorDefaultOutline: string;
-
   colorPrimaryHover: string;
+  colorPrimaryBg: string;
+  colorPrimaryBgHover: string;
   colorPrimaryActive: string;
   colorPrimaryBorder: string; // primary[2]
   colorPrimaryBorderHover: string;
@@ -231,20 +229,20 @@ export interface ColorMapToken {
   colorInfoBorder: string;
   colorInfoBg: string;
 
-  colorHighlight: string;
-
   /** Color of layout background */
   colorBgLayout: string;
   colorBgContent: string;
-  colorBgContentHover: string;
   /** Color of popup background */
   colorBgElevated: string;
   /** Color of component background */
   colorBgContainer: string;
+
+  colorBgContentHover: string;
   colorBgContainerSecondary: string;
   colorBgContainerDisabled: string;
 
   colorBorder: string;
+  colorBorderBg: string;
   colorBorderSecondary: string;
   colorSplit: string;
 
@@ -252,9 +250,8 @@ export interface ColorMapToken {
   colorText: string;
   colorTextSecondary: string;
   colorTextDisabled: string;
-  /** Placeholder text color */
-  colorTextPlaceholder: string;
   colorTextHeading: string;
+  colorTextLabel: string;
 
   /** Weak action. Such as `allowClear` or Alert close button */
   colorAction: string;
@@ -264,6 +261,18 @@ export interface ColorMapToken {
   colorLink: string;
   colorLinkHover: string;
   colorLinkActive: string;
+
+  colorBgMask: string;
+  colorBgItemHover: string;
+  colorBgFillTmp: string;
+  colorBgTooltipTmp: string;
+
+  // FIXME: should be removed
+  buttonColorBgTextHover: string;
+  buttonColorBgTextActive: string;
+  segmentedBgColor: string;
+  segmentedBgColorHover: string;
+  segmentedBgColorActive: string;
 }
 
 export interface CommonMapToken {
@@ -312,18 +321,18 @@ export interface MapToken extends SeedToken, ColorPalettes, ColorMapToken, Commo
   colorPrimaryOutline: string;
   colorWarningOutline: string;
   colorErrorOutline: string;
-
-  // Map Token
-  bgColors: BgPalettes;
-  textColors: TextAlphaPalettes;
 }
 
 // ======================================================================
 // ==                           Alias Token                            ==
 // ======================================================================
-// FIXME: DerivativeToken should part pick
 // 🔥🔥🔥🔥🔥🔥🔥 DO NOT MODIFY THIS. PLEASE CONTACT DESIGNER. 🔥🔥🔥🔥🔥🔥🔥
 export interface AliasToken extends MapToken {
+  /** Placeholder text color */
+  colorTextPlaceholder: string;
+
+  colorHighlight: string;
+
   // Font
   fontSizeSM: number;
   fontSize: number;
@@ -410,7 +419,8 @@ export interface AliasToken extends MapToken {
   screenXXLMin: number;
   screenXXLMax: number;
 
-  controlMaskBg: string;
+  /** Used for DefaultButton, Switch which has default outline */
+  controlTmpOutline: string;
 
   // FIXME: component box-shadow, should be removed
   boxShadowPopoverArrow: string;

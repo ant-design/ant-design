@@ -13,7 +13,7 @@ import { getAlphaColor, getSolidColor } from './colorAlgorithm';
 export function generatePrimaryPalettes(primaryBaseColor: string): PrimaryPalettes {
   const primaryColors = generate(primaryBaseColor, { theme: 'dark' });
   return {
-    0: '#0e161f',
+    0: primaryBaseColor,
     1: primaryColors[0],
     2: primaryColors[1],
     3: primaryColors[2],
@@ -75,6 +75,7 @@ export function generateBgPalettes(bgBaseColor: string): BgPalettes {
     12: getSolidColor(bgBaseColor, 12),
     8: getSolidColor(bgBaseColor, 8),
     0: getSolidColor(bgBaseColor, 0),
+    base: getSolidColor(bgBaseColor, 0),
   };
 }
 

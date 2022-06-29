@@ -136,7 +136,7 @@ const genBaseStyle: GenerateStyle<DrawerToken> = (token: DrawerToken): CSSObject
         insetInlineStart: 0,
         width: '100%',
         height: 0,
-        backgroundColor: token.controlMaskBg,
+        backgroundColor: token.colorBgMask,
         opacity: 0,
         transition: `opacity ${motionDurationSlow} linear, height 0s ease ${motionDurationSlow}`,
         pointerEvents: 'none',

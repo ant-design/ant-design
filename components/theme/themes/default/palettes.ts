@@ -75,6 +75,7 @@ export function generateBgPalettes(bgBaseColor: string): BgPalettes {
     12: getSolidColor(bgBaseColor, 0),
     8: getSolidColor(bgBaseColor, 0),
     0: getSolidColor(bgBaseColor, 4),
+    base: getSolidColor(bgBaseColor, 0),
   };
 }
 

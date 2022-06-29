@@ -64,7 +64,7 @@ export const genModalMaskStyle: GenerateStyle<TokenWithCommonCls<AliasToken>> = 
           ...box('fixed'),
           zIndex: token.zIndexPopupBase,
           height: '100%',
-          backgroundColor: token.controlMaskBg,
+          backgroundColor: token.colorBgMask,
 
           [`${componentCls}-hidden`]: {
             display: 'none',

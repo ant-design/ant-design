@@ -62,9 +62,5 @@ export default function derivative(token: SeedToken): MapToken {
     colorWarningOutline: new TinyColor(colorWarning).setAlpha(0.2).toRgbString(),
 
     ...genCommonMapToken(token),
-
-    // map token
-    bgColors,
-    textColors,
   };
 }

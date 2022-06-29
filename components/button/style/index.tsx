@@ -130,7 +130,7 @@ const genDefaultButtonStyle: GenerateStyle<ButtonToken, CSSObject> = token => ({
   backgroundColor: token.colorBgContainer,
   borderColor: token.colorBorder,
 
-  boxShadow: `0 ${token.controlOutlineWidth}px 0 ${token.colorDefaultOutline}`,
+  boxShadow: `0 ${token.controlOutlineWidth}px 0 ${token.controlTmpOutline}`,
 
   ...genHoverActiveButtonStyle(
     {
@@ -377,12 +377,12 @@ const genSizeLargeButtonStyle: GenerateStyle<ButtonToken> = token => {
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Button', token => {
-  const { textColors } = token;
+  const { buttonColorBgTextHover, buttonColorBgTextActive, controlTmpOutline } = token;
 
   const buttonToken = mergeToken<ButtonToken>(token, {
-    colorBgTextHover: textColors['3'],
-    colorBgTextActive: textColors['4'],
-    colorOutlineDefault: textColors['8'],
+    colorBgTextHover: buttonColorBgTextHover,
+    colorBgTextActive: buttonColorBgTextActive,
+    colorOutlineDefault: controlTmpOutline,
   });
 
   return [

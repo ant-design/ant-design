@@ -369,11 +369,11 @@ export default genComponentStyleHook(
     return [genBaseStyle(skeletonToken)];
   },
   token => {
-    const { textColors } = token;
+    const { colorBgFillTmp, colorTextPlaceholder } = token;
 
     return {
-      color: textColors['12'],
-      colorGradientEnd: textColors['25'],
+      color: colorBgFillTmp,
+      colorGradientEnd: colorTextPlaceholder,
     };
   },
 );

@@ -142,7 +142,7 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = token => {
             zIndex: 1,
             width: `calc(100% - ${token.paddingXS * 2}px)`,
             height: `calc(100% - ${token.paddingXS * 2}px)`,
-            backgroundColor: token.controlMaskBg,
+            backgroundColor: token.colorBgMask,
             opacity: 0,
             transition: `all ${token.motionDurationSlow}`,
             content: '" "',
