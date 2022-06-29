@@ -13,6 +13,7 @@ import type {
 } from './interface';
 import { PresetColors } from './interface';
 import defaultDerivative from './themes/default';
+import darkDerivative from './themes/dark';
 import defaultSeedToken from './themes/seed';
 import { clearFix, operationUnit, resetComponent, resetIcon, roundedArrow } from './util';
 import formatToken from './util/alias';
@@ -48,9 +49,11 @@ export type {
 };
 
 // ================================ Context =================================
+type DerivativeFn = (token: SeedToken) => MapToken;
+
 export const DesignTokenContext = React.createContext<{
   token: Partial<SeedToken>;
-  derivative?: (token: SeedToken) => MapToken;
+  derivative?: 'default' | 'dark' | DerivativeFn;
   override?: DeepPartial<OverrideToken>;
   hashed?: string | boolean;
 }>({
@@ -67,11 +70,20 @@ export function useToken(): [Theme<SeedToken, MapToken>, GlobalToken, string] {
   const {
     token: rootDesignToken,
     override,
-    derivative = defaultDerivative,
+    derivative,
     hashed,
   } = React.useContext(DesignTokenContext);
 
-  const theme = React.useMemo(() => new Theme(derivative), [derivative]);
+  const theme = React.useMemo(() => {
+    let derivativeFn: DerivativeFn = defaultDerivative;
+    if (typeof derivative === 'function') {
+      derivativeFn = derivative;
+    } else if (derivative === 'dark') {
+      derivativeFn = darkDerivative;
+    }
+
+    return new Theme(derivativeFn);
+  }, [derivative]);
 
   const salt = `${saltPrefix}-${hashed || ''}`;
 
