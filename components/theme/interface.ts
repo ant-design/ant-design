@@ -263,15 +263,7 @@ export interface ColorMapToken {
   colorLinkActive: string;
 }
 
-// ======================================================================
-// ==                         Map Token                         ==
-// ======================================================================
-// 🔥🔥🔥🔥🔥🔥🔥 DO NOT MODIFY THIS. PLEASE CONTACT DESIGNER. 🔥🔥🔥🔥🔥🔥🔥
-export interface MapToken extends SeedToken, ColorPalettes {
-  colorPrimaryOutline: string;
-  colorWarningOutline: string;
-  colorErrorOutline: string;
-
+export interface CommonMapToken {
   // Font
   fontSizes: number[];
   lineHeights: number[];
@@ -307,6 +299,16 @@ export interface MapToken extends SeedToken, ColorPalettes {
   controlHeightXS: number;
   controlHeightSM: number;
   controlHeightLG: number;
+}
+
+// ======================================================================
+// ==                         Map Token                         ==
+// ======================================================================
+// 🔥🔥🔥🔥🔥🔥🔥 DO NOT MODIFY THIS. PLEASE CONTACT DESIGNER. 🔥🔥🔥🔥🔥🔥🔥
+export interface MapToken extends SeedToken, ColorPalettes, ColorMapToken, CommonMapToken {
+  colorPrimaryOutline: string;
+  colorWarningOutline: string;
+  colorErrorOutline: string;
 
   // Map Token
   bgColors: BgPalettes;
