@@ -3,25 +3,25 @@ import Switch from '..';
 import { sleep, render, fireEvent } from '../../../tests/utils';
 
 describe('click wave effect', () => {
-  async function click(wrapper: HTMLElement) {
-    fireEvent.click(wrapper.querySelector('.ant-switch')!);
-    wrapper.querySelector('.ant-switch')!.dispatchEvent(new Event('transitionstart'));
+  async function click(container: HTMLElement) {
+    fireEvent.click(container.querySelector('.ant-switch')!);
+    container.querySelector('.ant-switch')!.dispatchEvent(new Event('transitionstart'));
     await sleep(20);
-    wrapper.querySelector('.ant-switch')!.dispatchEvent(new Event('animationend'));
+    container.querySelector('.ant-switch')!.dispatchEvent(new Event('animationend'));
     await sleep(20);
   }
 
   it('should have click wave effect', async () => {
-    const instance = React.createRef<typeof Switch>();
-    const { container } = render(<Switch ref={instance} />);
+    const { container } = render(<Switch />);
     await click(container);
-    const waveInstance = document.querySelector('InternalWave');
-    const resetEffect = jest.spyOn(waveInstance, 'resetEffect');
     await click(container);
-    expect(resetEffect).toHaveBeenCalledTimes(1);
+
+    expect(
+      container.querySelector('.ant-switch')!.getAttribute('ant-switch-click-animating'),
+    ).toBeFalsy();
+
     const event = new Event('animationend');
     Object.assign(event, { animationName: 'fadeEffect' });
     container.querySelector('.ant-switch')!.dispatchEvent(event);
-    resetEffect.mockRestore();
   });
 });

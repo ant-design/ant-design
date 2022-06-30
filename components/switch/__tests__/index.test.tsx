@@ -22,7 +22,8 @@ describe('Switch', () => {
     resetWarned();
 
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-    render(<Switch value />);
+    const props = { value: true } as any;
+    render(<Switch {...props} />);
     expect(errorSpy).toHaveBeenCalledWith(
       'Warning: [antd: Switch] `value` is not a valid prop, do you mean `checked`?',
     );
