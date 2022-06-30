@@ -9,6 +9,15 @@ describe('Collapse', () => {
 
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
+  // fix React concurrent
+  function triggerAllTimer() {
+    for (let i = 0; i < 10; i += 1) {
+      act(() => {
+        jest.runAllTimers();
+      });
+    }
+  }
+
   beforeEach(() => {
     resetWarned();
   });
@@ -107,8 +116,9 @@ describe('Collapse', () => {
 
   it('should end motion when set activeKey while hiding', async () => {
     jest.useFakeTimers();
-    const spiedRAF = jest.spyOn(window, 'requestAnimationFrame');
-    spiedRAF.mockImplementation(cb => setTimeout(cb, 16.66));
+    const spiedRAF = jest
+      .spyOn(window, 'requestAnimationFrame')
+      .mockImplementation(cb => setTimeout(cb, 16.66));
 
     let setActiveKeyOuter: React.Dispatch<React.SetStateAction<React.Key | undefined>>;
     const Test = () => {
@@ -130,8 +140,9 @@ describe('Collapse', () => {
     await act(async () => {
       setActiveKeyOuter('1');
       await Promise.resolve();
-      jest.runAllTimers();
     });
+
+    triggerAllTimer();
 
     expect(container.querySelectorAll('.ant-motion-collapse').length).toBe(0);
 
