@@ -17,6 +17,7 @@ A complete multiple select sample with remote search, debounce fetch, ajax callb
 import { Select, Spin } from 'antd';
 import type { SelectProps } from 'antd/es/select';
 import debounce from 'lodash/debounce';
+import { debounceAsyncResult } from 'high-order-async-utilities';
 import React, { useMemo, useRef, useState } from 'react';
 
 export interface DebounceSelectProps<ValueType = any>
@@ -30,21 +31,13 @@ function DebounceSelect<
 >({ fetchOptions, debounceTimeout = 800, ...props }: DebounceSelectProps<ValueType>) {
   const [fetching, setFetching] = useState(false);
   const [options, setOptions] = useState<ValueType[]>([]);
-  const fetchRef = useRef(0);
 
   const debounceFetcher = useMemo(() => {
     const loadOptions = (value: string) => {
-      fetchRef.current += 1;
-      const fetchId = fetchRef.current;
       setOptions([]);
       setFetching(true);
 
       fetchOptions(value).then(newOptions => {
-        if (fetchId !== fetchRef.current) {
-          // for fetch callback order
-          return;
-        }
-
         setOptions(newOptions);
         setFetching(false);
       });
@@ -86,6 +79,9 @@ async function fetchUserList(username: string): Promise<UserValue[]> {
     );
 }
 
+// for fetch callback order
+const fetchUserListAsyncResultDebounced = debounceAsyncResult(fetchUserList);
+
 const App: React.FC = () => {
   const [value, setValue] = useState<UserValue[]>([]);
 
@@ -94,7 +90,7 @@ const App: React.FC = () => {
       mode="multiple"
       value={value}
       placeholder="Select users"
-      fetchOptions={fetchUserList}
+      fetchOptions={fetchUserListAsyncResultDebounced}
       onChange={newValue => {
         setValue(newValue as UserValue[]);
       }}
