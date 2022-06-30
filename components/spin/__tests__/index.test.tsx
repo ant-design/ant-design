@@ -35,7 +35,7 @@ describe('Spin', () => {
   });
 
   it('if indicator set null should not be render default indicator', () => {
-    const { asFragment } = render(<Spin indicator={null} />);
+    const { asFragment } = render(<Spin indicator={null as any} />);
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
