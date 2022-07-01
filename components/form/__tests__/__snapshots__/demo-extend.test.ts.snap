@@ -1846,14 +1846,15 @@ exports[`renders ./components/form/demo/disabled.md extend context correctly 1`]
           class="ant-form-item-control-input-content"
         >
           <label
-            class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-in-form-item"
+            class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-disabled ant-checkbox-wrapper-in-form-item"
           >
             <span
-              class="ant-checkbox ant-checkbox-checked"
+              class="ant-checkbox ant-checkbox-checked ant-checkbox-disabled"
             >
               <input
                 checked=""
                 class="ant-checkbox-input"
+                disabled=""
                 id="disabled"
                 type="checkbox"
               />
