@@ -12073,13 +12073,14 @@ exports[`ConfigProvider components Checkbox configProvider componentDisabled 1`]
   class="config-checkbox-group"
 >
   <label
-    class="config-checkbox-wrapper"
+    class="config-checkbox-wrapper config-checkbox-wrapper-disabled"
   >
     <span
-      class="config-checkbox"
+      class="config-checkbox config-checkbox-disabled"
     >
       <input
         class="config-checkbox-input"
+        disabled=""
         type="checkbox"
       />
       <span
@@ -27108,13 +27109,14 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                                   class="config-dropdown-menu-title-content"
                                 >
                                   <label
-                                    class="config-checkbox-wrapper"
+                                    class="config-checkbox-wrapper config-checkbox-wrapper-disabled"
                                   >
                                     <span
-                                      class="config-checkbox"
+                                      class="config-checkbox config-checkbox-disabled"
                                     >
                                       <input
                                         class="config-checkbox-input"
+                                        disabled=""
                                         type="checkbox"
                                       />
                                       <span
@@ -38658,13 +38660,14 @@ exports[`ConfigProvider components Transfer configProvider componentDisabled 1`]
       class="config-transfer-list-header"
     >
       <label
-        class="config-checkbox-wrapper config-transfer-list-checkbox"
+        class="config-checkbox-wrapper config-checkbox-wrapper-disabled config-transfer-list-checkbox"
       >
         <span
-          class="config-checkbox"
+          class="config-checkbox config-checkbox-disabled"
         >
           <input
             class="config-checkbox-input"
+            disabled=""
             type="checkbox"
           />
           <span
@@ -38816,13 +38819,14 @@ exports[`ConfigProvider components Transfer configProvider componentDisabled 1`]
       class="config-transfer-list-header"
     >
       <label
-        class="config-checkbox-wrapper config-transfer-list-checkbox"
+        class="config-checkbox-wrapper config-checkbox-wrapper-disabled config-transfer-list-checkbox"
       >
         <span
-          class="config-checkbox"
+          class="config-checkbox config-checkbox-disabled"
         >
           <input
             class="config-checkbox-input"
+            disabled=""
             type="checkbox"
           />
           <span
