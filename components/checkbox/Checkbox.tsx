@@ -6,6 +6,7 @@ import { ConfigContext } from '../config-provider';
 import { FormItemInputContext } from '../form/context';
 import warning from '../_util/warning';
 import { GroupContext } from './Group';
+import DisabledContext from '../config-provider/DisabledContext';
 
 export interface AbstractCheckboxProps<T> {
   prefixCls?: string;
@@ -55,6 +56,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
     onMouseEnter,
     onMouseLeave,
     skipGroup = false,
+    disabled,
     ...restProps
   },
   ref,
@@ -62,6 +64,8 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const checkboxGroup = React.useContext(GroupContext);
   const { isFormItemInput } = useContext(FormItemInputContext);
+  const contextDisabled = useContext(DisabledContext);
+  const mergedDisabled = disabled || checkboxGroup?.disabled || contextDisabled;
 
   const prevValue = React.useRef(restProps.value);
 
@@ -99,7 +103,6 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
     };
     checkboxProps.name = checkboxGroup.name;
     checkboxProps.checked = checkboxGroup.value.indexOf(restProps.value) !== -1;
-    checkboxProps.disabled = restProps.disabled || checkboxGroup.disabled;
   }
   const classString = classNames(
     {
@@ -128,6 +131,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
         {...checkboxProps}
         prefixCls={prefixCls}
         className={checkboxClass}
+        disabled={mergedDisabled}
         ref={ref}
       />
       {children !== undefined && <span>{children}</span>}
