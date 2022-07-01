@@ -12226,6 +12226,7 @@ exports[`ConfigProvider components Collapse configProvider 1`] = `
     class="config-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="config-collapse-header"
       role="button"
@@ -12272,6 +12273,7 @@ exports[`ConfigProvider components Collapse configProvider componentDisabled 1`]
     class="config-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="config-collapse-header"
       role="button"
@@ -12318,6 +12320,7 @@ exports[`ConfigProvider components Collapse configProvider componentSize large 1
     class="config-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="config-collapse-header"
       role="button"
@@ -12364,6 +12367,7 @@ exports[`ConfigProvider components Collapse configProvider componentSize middle 
     class="config-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="config-collapse-header"
       role="button"
@@ -12410,6 +12414,7 @@ exports[`ConfigProvider components Collapse configProvider virtual and dropdownM
     class="ant-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="button"
@@ -12456,6 +12461,7 @@ exports[`ConfigProvider components Collapse normal 1`] = `
     class="ant-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="button"
@@ -12502,6 +12508,7 @@ exports[`ConfigProvider components Collapse prefixCls 1`] = `
     class="prefix-Collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="prefix-Collapse-header"
       role="button"
