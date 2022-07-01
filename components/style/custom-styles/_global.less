@@ -412,13 +412,20 @@ p {
   height: 100%;
 }
 
-// Workspace CSS
+// Workspace CSS start
 
 .four-column-card {
   max-width: 0 -8px;
   > div {
     width: 25%;
     padding: 0 8px;
+    @media screen and (max-width: 1365px) {
+      width: 33.333%;
+      margin-bottom: 16px;
+    }
+    @media screen and (max-width: 1279px) {
+      width: 50%;
+    }
   }
   div.ant-typography {
     margin: 0;
@@ -456,6 +463,77 @@ p {
     line-height: 24px;
     .ant-avatar-string {
       font-size: 12px;
+    }
+  }
+  .ant-avatar-group .ant-avatar:not(:first-child) {
+    margin-left: -4px;
+  }
+}
+
+// media manager CSS start
+
+.media-grid-layout {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -16px;
+  > div {
+    width: 25%;
+    margin-bottom: 32px;
+    padding: 0 16px;
+  }
+  .ant-card-bordered {
+    border: 1px solid #e5e7eb;
+    border-radius: 4px;
+  }
+  .ant-card-body {
+    padding: 12px;
+  }
+  .media-grid-layout-content {
+    p {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0;
+      color: #9ca3af;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 14px;
+      span {
+        padding: 4px 8px;
+        color: @dg500;
+        background: #f3f4f6;
+        border-radius: 4px;
+      }
+    }
+  }
+}
+
+.modal-upload-image {
+  padding: 12px 0;
+  + .modal-upload-image {
+    border-top: 1px solid #e5e7eb;
+  }
+}
+
+.media-view-button {
+  .ant-btn.ant-btn-icon-only {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 5px;
+    background: @white;
+    border: 1px solid @dg700;
+    border-radius: 4px;
+    &:hover,
+    &.active,
+    &:focus {
+      background-color: @dg200;
+      border-color: @dg200;
+      svg path {
+        fill: @white;
+      }
     }
   }
 }

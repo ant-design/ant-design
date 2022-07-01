@@ -26,8 +26,9 @@
   .ant-form-item-explain,
   .ant-form-item-extra {
     height: auto;
-    min-height: auto;
-    margin-top: 8px;
+    min-height: 24px;
+    margin-top: 0;
+    padding-top: 4px;
     font-size: 12px;
     line-height: 14px;
   }
@@ -50,6 +51,10 @@
   height: 34px;
   border: 1px solid @dg700;
   border-radius: 4px;
+}
+
+.ant-select.ant-select-multiple:not(.ant-select-customize-input) .ant-select-selector {
+  height: auto;
 }
 
 // checkbox CSS
@@ -277,7 +282,7 @@
 }
 
 .table-dropdown {
-  width: 120px;
+  width: 140px;
 
   .ant-btn {
     width: 100%;
