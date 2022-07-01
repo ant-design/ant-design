@@ -109,7 +109,7 @@ const InternalCheckbox: React.ForwardRefRenderFunction<HTMLInputElement, Checkbo
       [`${prefixCls}-wrapper`]: true,
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-wrapper-checked`]: checkboxProps.checked,
-      [`${prefixCls}-wrapper-disabled`]: checkboxProps.disabled,
+      [`${prefixCls}-wrapper-disabled`]: mergedDisabled,
       [`${prefixCls}-wrapper-in-form-item`]: isFormItemInput,
     },
     className,
