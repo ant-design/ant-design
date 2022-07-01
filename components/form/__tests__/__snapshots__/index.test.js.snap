@@ -113,7 +113,7 @@ exports[`Form form should support disabled 1`] = `
           class="ant-form-item-control-input-content"
         >
           <label
-            class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item"
+            class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-wrapper-in-form-item"
           >
             <span
               class="ant-checkbox ant-checkbox-disabled"
