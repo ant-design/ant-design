@@ -2,12 +2,7 @@ import React, { useState } from 'react';
 import Sider from '../Sider';
 import { render, fireEvent } from '../../../tests/utils';
 
-const Content = React.forwardRef<{ forceUpdate: VoidFunction }, {}>((_, ref) => {
-  const [, forceUpdate] = useState({});
-  React.useImperativeHandle(ref, () => ({
-    forceUpdate: () => forceUpdate({}),
-  }));
-
+const Content = () => {
   const [breakpoint, setBreakpoint] = useState('sm');
   const toggleBreakpoint = () => {
     if (breakpoint === 'sm') {
@@ -23,7 +18,7 @@ const Content = React.forwardRef<{ forceUpdate: VoidFunction }, {}>((_, ref) => 
       </button>
     </Sider>
   );
-});
+};
 
 it('Dynamic breakpoint in Sider component', () => {
   const add = jest.fn();
