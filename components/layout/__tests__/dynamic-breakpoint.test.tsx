@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 import Sider from '../Sider';
 import { render, fireEvent } from '../../../tests/utils';
 
-const Content = () => {
+const Content = React.forwardRef<{ forceUpdate: VoidFunction }, {}>((_, ref) => {
+  const [, forceUpdate] = useState({});
+  React.useImperativeHandle(ref, () => ({
+    forceUpdate: () => forceUpdate({}),
+  }));
+
   const [breakpoint, setBreakpoint] = useState('sm');
   const toggleBreakpoint = () => {
     if (breakpoint === 'sm') {
@@ -18,30 +23,32 @@ const Content = () => {
       </button>
     </Sider>
   );
-};
+});
 
 it('Dynamic breakpoint in Sider component', () => {
   const add = jest.fn();
   const remove = jest.fn();
-  jest.spyOn(window, 'matchMedia').mockReturnValue({
+  const newMatch = jest.spyOn(window, 'matchMedia').mockReturnValue({
     matches: true,
     addEventListener: add,
     removeEventListener: remove,
   } as any);
 
   const { container } = render(<Content />);
-  const newMatch = window.matchMedia as jest.Mock;
+
+  // Record here since React 18 strict mode will render twice at first mount
+  const originCallTimes = newMatch.mock.calls.length;
+  expect(originCallTimes <= 2).toBeTruthy();
 
   // subscribe at first
-  expect(newMatch.mock.calls.length).toBe(1);
-  expect(add.mock.calls.length).toBe(1);
-  expect(remove.mock.calls.length).toBe(0);
+  expect(add.mock.calls).toHaveLength(originCallTimes);
+  expect(remove.mock.calls).toHaveLength(originCallTimes - 1);
 
   fireEvent.click(container.querySelector('#toggle') as Element);
 
-  expect(newMatch.mock.calls.length).toBe(2);
-  expect(add.mock.calls.length).toBe(2);
-  expect(remove.mock.calls.length).toBe(1);
+  expect(newMatch.mock.calls).toHaveLength(originCallTimes + 1);
+  expect(add.mock.calls).toHaveLength(originCallTimes + 1);
+  expect(remove.mock.calls).toHaveLength(originCallTimes);
 
   jest.restoreAllMocks();
 });
