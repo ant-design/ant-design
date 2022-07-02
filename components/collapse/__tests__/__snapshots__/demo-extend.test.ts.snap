@@ -9,6 +9,7 @@ exports[`renders ./components/collapse/demo/accordion.md extend context correctl
     class="ant-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="tab"
@@ -48,6 +49,7 @@ exports[`renders ./components/collapse/demo/accordion.md extend context correctl
     class="ant-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="tab"
@@ -87,6 +89,7 @@ exports[`renders ./components/collapse/demo/accordion.md extend context correctl
     class="ant-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="tab"
@@ -133,6 +136,7 @@ exports[`renders ./components/collapse/demo/basic.md extend context correctly 1`
     class="ant-collapse-item ant-collapse-item-active"
   >
     <div
+      aria-disabled="false"
       aria-expanded="true"
       class="ant-collapse-header"
       role="button"
@@ -188,6 +192,7 @@ exports[`renders ./components/collapse/demo/basic.md extend context correctly 1`
     class="ant-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="button"
@@ -227,6 +232,7 @@ exports[`renders ./components/collapse/demo/basic.md extend context correctly 1`
     class="ant-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="button"
@@ -273,6 +279,7 @@ exports[`renders ./components/collapse/demo/borderless.md extend context correct
     class="ant-collapse-item ant-collapse-item-active"
   >
     <div
+      aria-disabled="false"
       aria-expanded="true"
       class="ant-collapse-header"
       role="button"
@@ -326,6 +333,7 @@ exports[`renders ./components/collapse/demo/borderless.md extend context correct
     class="ant-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="button"
@@ -365,6 +373,7 @@ exports[`renders ./components/collapse/demo/borderless.md extend context correct
     class="ant-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="button"
@@ -418,6 +427,7 @@ exports[`renders ./components/collapse/demo/collapsible.md extend context correc
         class="ant-collapse-item ant-collapse-item-active"
       >
         <div
+          aria-disabled="false"
           aria-expanded="true"
           class="ant-collapse-header ant-collapse-header-collapsible-only"
         >
@@ -479,6 +489,7 @@ exports[`renders ./components/collapse/demo/collapsible.md extend context correc
         class="ant-collapse-item ant-collapse-item-disabled"
       >
         <div
+          aria-disabled="true"
           aria-expanded="false"
           class="ant-collapse-header"
           role="button"
@@ -527,6 +538,7 @@ exports[`renders ./components/collapse/demo/custom.md extend context correctly 1
     class="ant-collapse-item ant-collapse-item-active site-collapse-custom-panel"
   >
     <div
+      aria-disabled="false"
       aria-expanded="true"
       class="ant-collapse-header"
       role="button"
@@ -582,6 +594,7 @@ exports[`renders ./components/collapse/demo/custom.md extend context correctly 1
     class="ant-collapse-item site-collapse-custom-panel"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="button"
@@ -621,6 +634,7 @@ exports[`renders ./components/collapse/demo/custom.md extend context correctly 1
     class="ant-collapse-item site-collapse-custom-panel"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="button"
@@ -668,6 +682,7 @@ Array [
       class="ant-collapse-item ant-collapse-item-active"
     >
       <div
+        aria-disabled="false"
         aria-expanded="true"
         class="ant-collapse-header"
         role="button"
@@ -747,6 +762,7 @@ Array [
       class="ant-collapse-item"
     >
       <div
+        aria-disabled="false"
         aria-expanded="false"
         class="ant-collapse-header"
         role="button"
@@ -810,6 +826,7 @@ Array [
       class="ant-collapse-item"
     >
       <div
+        aria-disabled="false"
         aria-expanded="false"
         class="ant-collapse-header"
         role="button"
@@ -1027,6 +1044,7 @@ exports[`renders ./components/collapse/demo/ghost.md extend context correctly 1`
     class="ant-collapse-item ant-collapse-item-active"
   >
     <div
+      aria-disabled="false"
       aria-expanded="true"
       class="ant-collapse-header"
       role="button"
@@ -1082,6 +1100,7 @@ exports[`renders ./components/collapse/demo/ghost.md extend context correctly 1`
     class="ant-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="button"
@@ -1121,6 +1140,7 @@ exports[`renders ./components/collapse/demo/ghost.md extend context correctly 1`
     class="ant-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="button"
@@ -1167,6 +1187,7 @@ exports[`renders ./components/collapse/demo/mix.md extend context correctly 1`] 
     class="ant-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="button"
@@ -1206,6 +1227,7 @@ exports[`renders ./components/collapse/demo/mix.md extend context correctly 1`] 
     class="ant-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="button"
@@ -1245,6 +1267,7 @@ exports[`renders ./components/collapse/demo/mix.md extend context correctly 1`] 
     class="ant-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="button"
@@ -1291,6 +1314,7 @@ exports[`renders ./components/collapse/demo/noarrow.md extend context correctly 
     class="ant-collapse-item ant-collapse-item-active"
   >
     <div
+      aria-disabled="false"
       aria-expanded="true"
       class="ant-collapse-header"
       role="button"
@@ -1346,6 +1370,7 @@ exports[`renders ./components/collapse/demo/noarrow.md extend context correctly 
     class="ant-collapse-item ant-collapse-no-arrow"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="button"
