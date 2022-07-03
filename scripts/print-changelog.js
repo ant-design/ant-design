@@ -112,12 +112,16 @@ async function printLog() {
 
       // Use jquery to get full html page since it don't need auth token
       let res;
+      let tryTimes = 0;
       const fetchPullRequest = async () => {
         try {
           res = await fetch(`https://github.com/ant-design/ant-design/pull/${pr}`);
         } catch (err) {
-          console.log(chalk.red(`😬 Fetch error, retrying...`));
-          await fetchPullRequest();
+          tryTimes++;
+          if (tryTimes < 5) {
+            console.log(chalk.red(`😬 Fetch error, retrying...`));
+            await fetchPullRequest();
+          }
         }
       };
       await fetchPullRequest();
@@ -140,6 +144,7 @@ async function printLog() {
           element: $(this),
         });
       });
+
       const english = getDescription(lines.find(line => line.text.includes('🇺🇸 English')));
       const chinese = getDescription(lines.find(line => line.text.includes('🇨🇳 Chinese')));
       if (english) {
