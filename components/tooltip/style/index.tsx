@@ -106,7 +106,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = token => {
     },
 
     // Arrow Style
-    getArrowStyle(token, 'var(--antd-arrow-background-color)', '', false),
+    getArrowStyle(token, 'var(--antd-arrow-background-color)', ''),
   ];
 };
 
