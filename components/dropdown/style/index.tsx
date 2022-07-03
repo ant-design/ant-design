@@ -125,8 +125,6 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
           display: 'block',
           width: sizePopupArrow,
           height: sizePopupArrow,
-          // Use linear-gradient to prevent arrow from covering text
-          background: `linear-gradient(135deg, transparent 40%, ${colorBgElevated} 40%)`,
 
           ...roundedArrow(sizePopupArrow, 5, colorBgElevated),
         },
