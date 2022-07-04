@@ -14,7 +14,7 @@ module.exports = {
 
 // We need compile additional content for antd user
 function finalizeCompile() {
-  if (fs.existsSync(path.join(__dirname, './lib'))) {
+  if (fs.existsSync(path.join(__dirname, './es'))) {
     // Build a entry less file to dist/antd.less
     const componentsPath = path.join(process.cwd(), 'components');
     let componentsLessContent = '';
@@ -30,7 +30,7 @@ function finalizeCompile() {
         }
       });
       fs.writeFileSync(
-        path.join(process.cwd(), 'lib', 'style', 'components.less'),
+        path.join(process.cwd(), 'es', 'style', 'components.less'),
         componentsLessContent,
       );
     });
