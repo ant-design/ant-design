@@ -1,62 +1,46 @@
-/* eslint-disable import/no-unresolved,no-console */
+/* eslint-disable import/no-unresolved,no-console,global-require,import/no-dynamic-require */
 
 const chalk = require('chalk');
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
 const fs = require('fs-extra');
-const antd = require('../lib');
-const { statistic } = require('../lib/theme/util/statistic');
-const useMessageStyle = require('../lib/message/style/index').default;
-const useNotificationStyle = require('../lib/notification/style/index').default;
+const glob = require('glob');
+const path = require('path');
+const { statistic } = require('../components/theme/util/statistic');
 
 console.log(chalk.green(`🔥 Collecting token statistics...`));
-// Automatic rendering
-Object.entries(antd).forEach(([key, component]) => {
-  if (
-    /[A-Z]/.test(key.charAt(0)) &&
-    key !== 'Form' &&
-    key !== 'Dropdown' &&
-    key !== 'Grid' &&
-    key !== 'ConfigProvider'
-  ) {
-    ReactDOMServer.renderToString(React.createElement(component));
-  }
-});
 
 const EmptyElement = React.createElement('div');
 
-// Dropdown
-ReactDOMServer.renderToString(
-  React.createElement(antd.Dropdown, { overlay: EmptyElement }, EmptyElement),
+const styleFiles = glob.sync(
+  path.join(
+    process.cwd(),
+    'components/!(version|config-provider|icon|locale-provider|auto-complete|col|row|page-header|comment|time-picker|)/style/index.tsx',
+  ),
 );
-
-// Form
-ReactDOMServer.renderToString(React.createElement(antd.Form, undefined, EmptyElement));
-
-// message
-const Message = () => {
-  useMessageStyle('message');
-  return EmptyElement;
-};
-ReactDOMServer.renderToString(React.createElement(Message));
-
-// Notification
-const Notification = () => {
-  useNotificationStyle('notification');
-  return EmptyElement;
-};
-ReactDOMServer.renderToString(React.createElement(Notification));
+styleFiles.forEach(file => {
+  console.log(file);
+  let useStyle = () => {};
+  if (file.includes('grid')) {
+    const { useColStyle, useRowStyle } = require(file);
+    useStyle = () => {
+      useRowStyle();
+      useColStyle();
+    };
+  } else {
+    useStyle = require(file).default;
+  }
+  const Component = () => {
+    useStyle('file');
+    return EmptyElement;
+  };
+  ReactDOMServer.renderToString(React.createElement(Component));
+});
 
 (async () => {
-  const libPath = `${process.cwd()}/lib/theme/util/statistic.js`;
-  const libContent = await fs.readFile(libPath, 'utf8');
-  const newLibContent = `${libContent}\nexports._statistic_build_ = ${JSON.stringify(statistic)}`;
-  await fs.writeFile(libPath, newLibContent, 'utf8');
-
-  const esPath = `${process.cwd()}/es/theme/util/statistic.js`;
-  const esContent = await fs.readFile(esPath, 'utf8');
-  const newEsContent = `${esContent}\n_statistic_build_ = ${JSON.stringify(statistic)}`;
-  await fs.writeFile(esPath, newEsContent, 'utf8');
+  const tokenPath = `${process.cwd()}/components/version/token.tsx`;
+  const content = `export default ${JSON.stringify(statistic, null, 2)}`;
+  await fs.writeFile(tokenPath, content, 'utf8');
 
   console.log(chalk.green(`✅  Collecting token statistics done.`));
 })();
