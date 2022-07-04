@@ -168,6 +168,9 @@ jobs:
         with:
           path: es
           key: es-${{ github.sha }}
+
+      - name: lessc mixins
+        run: npx lessc --js ./es/style/mixins/index.less
     needs: compile
 
   style-dist:
@@ -200,6 +203,15 @@ jobs:
         with:
           path: dist
           key: dist-${{ github.sha }}
+
+      - name: lessc default
+        run: npx lessc --js ./dist/antd.less
+
+      - name: lessc dark
+        run: npx lessc --js ./dist/antd.dark.less
+
+      - name: lessc variable
+        run: npx lessc --js ./dist/antd.variable.less
     needs: [compile, dist]
 
   ################################ Test ################################
