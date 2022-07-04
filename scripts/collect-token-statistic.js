@@ -37,28 +37,6 @@ styleFiles.forEach(file => {
   ReactDOMServer.renderToString(React.createElement(Component));
 });
 
-// // Dropdown
-// ReactDOMServer.renderToString(
-//   React.createElement(antd.Dropdown, { overlay: EmptyElement }, EmptyElement),
-// );
-//
-// // Form
-// ReactDOMServer.renderToString(React.createElement(antd.Form, undefined, EmptyElement));
-//
-// // message
-// const Message = () => {
-//   useMessageStyle('message');
-//   return EmptyElement;
-// };
-// ReactDOMServer.renderToString(React.createElement(Message));
-//
-// // Notification
-// const Notification = () => {
-//   useNotificationStyle('notification');
-//   return EmptyElement;
-// };
-// ReactDOMServer.renderToString(React.createElement(Notification));
-
 (async () => {
   const tokenPath = `${process.cwd()}/components/version/token.tsx`;
   const content = `export default ${JSON.stringify(statistic, null, 2)}`;
