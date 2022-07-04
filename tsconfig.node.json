@@ -2,8 +2,6 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "module": "CommonJS",
-    "noImplicitAny": false,
-    "strictNullChecks": false,
     "types": ["node"]
   }
 }
