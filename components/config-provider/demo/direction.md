@@ -44,7 +44,7 @@ import {
   Tree,
   TreeSelect,
 } from 'antd';
-import type { DirectionType } from 'antd/lib/config-provider';
+import type { DirectionType } from 'antd/es/config-provider';
 import React, { useState } from 'react';
 
 const InputGroup = Input.Group;

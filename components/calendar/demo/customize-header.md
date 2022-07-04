@@ -15,7 +15,7 @@ Customize Calendar header content.
 
 ```tsx
 import { Calendar, Col, Radio, Row, Select, Typography } from 'antd';
-import type { CalendarMode } from 'antd/lib/calendar/generateCalendar';
+import type { CalendarMode } from 'antd/es/calendar/generateCalendar';
 import type { Moment } from 'moment';
 import React from 'react';
 

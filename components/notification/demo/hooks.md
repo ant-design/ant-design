@@ -21,7 +21,7 @@ import {
   RadiusUprightOutlined,
 } from '@ant-design/icons';
 import { Button, Divider, notification, Space } from 'antd';
-import type { NotificationPlacement } from 'antd/lib/notification';
+import type { NotificationPlacement } from 'antd/es/notification';
 import React from 'react';
 
 const Context = React.createContext({ name: 'Default' });

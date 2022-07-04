@@ -24,7 +24,7 @@ Control filters and sorters by `filteredValue` and `sortOrder`.
 ```tsx
 import type { TableProps } from 'antd';
 import { Button, Space, Table } from 'antd';
-import type { ColumnsType, FilterValue, SorterResult } from 'antd/lib/table/interface';
+import type { ColumnsType, FilterValue, SorterResult } from 'antd/es/table/interface';
 import React, { useState } from 'react';
 
 interface DataType {
