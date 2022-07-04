@@ -1,5 +1,6 @@
 components/**/*.js
 components/**/*.jsx
+components/version/token.tsx
 !components/*/__tests__/**/*.js
 !components/*/demo/*
 !.*.js
