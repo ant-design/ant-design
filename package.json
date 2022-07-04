@@ -36,7 +36,8 @@
   ],
   "sideEffects": [
     "dist/*",
-    "es/**/style/*"
+    "es/**/style/*",
+    "*.less"
   ],
   "main": "es/index.js",
   "module": "es/index.js",
