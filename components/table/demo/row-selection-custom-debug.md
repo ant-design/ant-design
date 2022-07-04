@@ -16,8 +16,8 @@ Customize selection group.
 
 ```tsx
 import { Table } from 'antd';
-import type { ColumnsType } from 'antd/lib/table';
-import type { TableRowSelection } from 'antd/lib/table/interface';
+import type { ColumnsType } from 'antd/es/table';
+import type { TableRowSelection } from 'antd/es/table/interface';
 import React from 'react';
 
 interface DataType {

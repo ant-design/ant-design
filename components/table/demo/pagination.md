@@ -15,7 +15,7 @@ Table pagination settings.
 
 ```tsx
 import { Radio, Space, Table, Tag } from 'antd';
-import type { ColumnsType } from 'antd/lib/table';
+import type { ColumnsType } from 'antd/es/table';
 import React, { useState } from 'react';
 
 interface DataType {

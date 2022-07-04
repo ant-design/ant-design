@@ -15,7 +15,7 @@ Using `marks` property to mark a graduated slider, use `value` or `defaultValue`
 
 ```tsx
 import { Slider } from 'antd';
-import type { SliderMarks } from 'antd/lib/slider';
+import type { SliderMarks } from 'antd/es/slider';
 import React from 'react';
 
 const marks: SliderMarks = {

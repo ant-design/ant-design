@@ -15,7 +15,7 @@ The most basic usage, tell you how to use checkable, selectable, disabled, defau
 
 ```tsx
 import { Tree } from 'antd';
-import type { DataNode, TreeProps } from 'antd/lib/tree';
+import type { DataNode, TreeProps } from 'antd/es/tree';
 import React from 'react';
 
 const treeData: DataNode[] = [

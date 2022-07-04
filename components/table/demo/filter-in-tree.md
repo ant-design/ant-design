@@ -18,7 +18,7 @@ You can use `filterMode` to change default filter interface, options: `menu`(def
 
 ```tsx
 import { Table } from 'antd';
-import type { ColumnsType, TableProps } from 'antd/lib/table';
+import type { ColumnsType, TableProps } from 'antd/es/table';
 import React from 'react';
 
 interface DataType {

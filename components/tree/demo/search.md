@@ -15,7 +15,7 @@ Searchable Tree.
 
 ```tsx
 import { Input, Tree } from 'antd';
-import type { DataNode } from 'antd/lib/tree';
+import type { DataNode } from 'antd/es/tree';
 import React, { useMemo, useState } from 'react';
 
 const { Search } = Input;

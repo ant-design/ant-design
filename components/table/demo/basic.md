@@ -15,7 +15,7 @@ Simple table with actions.
 
 ```tsx
 import { Space, Table, Tag } from 'antd';
-import type { ColumnsType } from 'antd/lib/table';
+import type { ColumnsType } from 'antd/es/table';
 import React from 'react';
 
 interface DataType {
