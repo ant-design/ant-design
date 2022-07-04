@@ -21,15 +21,15 @@ const seedToken: SeedToken = {
   ...defaultPresetColors,
 
   // Color
-  colorPrimary: '#1890ff',
+  colorPrimary: '',
   colorSuccess: '#52c41a',
   colorWarning: '#faad14',
   colorError: '#ff4d4f',
   colorInfo: '#1890ff',
-  colorTextBase: '#000',
+  colorTextBase: '',
   colorTextLightSolid: '#fff',
 
-  colorBgBase: '#fff',
+  colorBgBase: '',
 
   // Font
   fontFamily: `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,

@@ -13,7 +13,7 @@ import { getAlphaColor, getSolidColor } from './colorAlgorithm';
 export function generatePrimaryPalettes(primaryBaseColor: string): PrimaryPalettes {
   const primaryColors = generate(primaryBaseColor);
   return {
-    0: '#0e161f',
+    0: primaryBaseColor,
     1: primaryColors[0],
     2: primaryColors[1],
     3: primaryColors[2],
