@@ -41,16 +41,16 @@ const App: React.FC = () => {
             months.push(localeData.monthsShort(current));
           }
 
-          for (let index = start; index < end; index++) {
+          for (let i = start; i < end; i++) {
             monthOptions.push(
-              <Select.Option className="month-item" key={`${index}`}>
-                {months[index]}
+              <Select.Option key={i} value={i} className="month-item">
+                {months[i]}
               </Select.Option>,
             );
           }
-          const month = value.month();
-
+          
           const year = value.year();
+          const month = value.month();
           const options = [];
           for (let i = year - 10; i < year + 10; i += 1) {
             options.push(
@@ -78,11 +78,11 @@ const App: React.FC = () => {
                     size="small"
                     dropdownMatchSelectWidth={false}
                     className="my-year-select"
+                    value={year}
                     onChange={newYear => {
-                      const now = value.clone().year(Number(newYear));
+                      const now = value.clone().year(newYear);
                       onChange(now);
                     }}
-                    value={String(year)}
                   >
                     {options}
                   </Select>
@@ -91,11 +91,10 @@ const App: React.FC = () => {
                   <Select
                     size="small"
                     dropdownMatchSelectWidth={false}
-                    value={String(month)}
-                    onChange={selectedMonth => {
-                      const newValue = value.clone();
-                      newValue.month(parseInt(selectedMonth, 10));
-                      onChange(newValue);
+                    value={month}
+                    onChange={newMonth => {
+                      const now = value.clone().month(newMonth);
+                      onChange(now);
                     }}
                   >
                     {monthOptions}
