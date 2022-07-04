@@ -5,6 +5,7 @@ import RcMenu, { ItemGroup } from 'rc-menu';
 import useEvent from 'rc-util/lib/hooks/useEvent';
 import omit from 'rc-util/lib/omit';
 import * as React from 'react';
+import type { ReactNode } from 'react';
 import { forwardRef } from 'react';
 import { ConfigContext } from '../config-provider';
 import type { SiderContextProps } from '../layout/Sider';
@@ -174,7 +175,7 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
           ref={ref}
           rootClassName={classNames(rootClassName, hashId)}
         >
-          {mergedChildren}
+          {mergedChildren as ReactNode}
         </RcMenu>
       </MenuContext.Provider>
     </OverrideContext.Provider>,
