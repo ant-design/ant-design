@@ -42,7 +42,7 @@ export const genActiveStyle = (token: InputToken) => ({
 
 export const genDisabledStyle = (token: InputToken): CSSObject => ({
   color: token.colorTextDisabled,
-  backgroundColor: token.colorBgComponentDisabled,
+  backgroundColor: token.colorBgContainerDisabled,
   borderColor: token.colorBorder,
   boxShadow: 'none',
   cursor: 'not-allowed',
@@ -120,7 +120,7 @@ export const genBasicInputStyle = (token: InputToken): CSSObject => ({
   color: token.colorText,
   fontSize: token.fontSize,
   lineHeight: token.lineHeight,
-  backgroundColor: token.colorBgComponent,
+  backgroundColor: token.colorBgContainer,
   backgroundImage: 'none',
   borderWidth: token.controlLineWidth,
   borderStyle: token.controlLineType,
@@ -246,7 +246,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
         fontWeight: 'normal',
         fontSize: token.fontSize,
         textAlign: 'center',
-        backgroundColor: token.colorBgComponentSecondary,
+        backgroundColor: token.colorBgContainerSecondary,
         border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
         borderRadius: token.controlRadius,
         transition: `all ${token.motionDurationSlow}`,
@@ -514,7 +514,7 @@ const genAllowClearStyle = (token: InputToken): CSSObject => {
     // ========================= Input =========================
     [`.${prefixCls}-clear-icon`]: {
       margin: 0,
-      color: token.colorActionTmp,
+      color: token.colorAction,
       fontSize: token.fontSizeIcon,
       verticalAlign: -1,
       // https://github.com/ant-design/ant-design/pull/18151

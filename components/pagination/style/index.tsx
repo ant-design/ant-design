@@ -60,7 +60,7 @@ const genPaginationDisabledStyle: GenerateStyle<PaginationToken, CSSObject> = to
       cursor: 'not-allowed',
 
       [`${componentCls}-item`]: {
-        background: token.colorBgComponentDisabled,
+        background: token.colorBgContainerDisabled,
         borderColor: token.colorBorder,
         cursor: 'not-allowed',
 
@@ -82,7 +82,7 @@ const genPaginationDisabledStyle: GenerateStyle<PaginationToken, CSSObject> = to
 
       [`${componentCls}-item-link`]: {
         color: token.colorTextDisabled,
-        background: token.colorBgComponentDisabled,
+        background: token.colorBgContainerDisabled,
         borderColor: token.colorBorder,
         cursor: 'not-allowed',
 
@@ -226,7 +226,7 @@ const genPaginationSimpleStyle: GenerateStyle<PaginationToken, CSSObject> = toke
 
         '&[disabled]': {
           color: token.colorTextDisabled,
-          background: token.colorBgComponentDisabled,
+          background: token.colorBgContainerDisabled,
           borderColor: token.colorBorder,
           cursor: 'not-allowed',
         },
@@ -556,15 +556,15 @@ export default genComponentStyleHook('Pagination', token => {
     {
       paginationItemSize: token.controlHeight,
       paginationFontFamily: token.fontFamily,
-      paginationItemBg: token.colorBgComponent,
-      paginationItemBgActive: token.colorBgComponent,
+      paginationItemBg: token.colorBgContainer,
+      paginationItemBgActive: token.colorBgContainer,
       paginationFontWeightActive: token.fontWeightStrong,
       paginationItemSizeSM: token.controlHeightSM,
-      paginationItemInputBg: token.colorBgComponent,
+      paginationItemInputBg: token.colorBgContainer,
       paginationMiniOptionsSizeChangerTop: 0,
       paginationItemDisabledBgActive: token.controlItemBgActiveDisabled,
       paginationItemDisabledColorActive: token.colorTextDisabled,
-      paginationItemLinkBg: token.colorBgComponent,
+      paginationItemLinkBg: token.colorBgContainer,
       inputOutlineOffset: '0 0',
       paginationMiniOptionsMarginInlineStart: token.marginXXS / 2,
       paginationMiniQuickJumperInputWidth: token.controlHeightLG * 1.1,

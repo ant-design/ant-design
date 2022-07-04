@@ -5,8 +5,10 @@ import ConfigProvider from '..';
 import { InputNumber } from '../..';
 import { render } from '../../../tests/utils';
 import { useToken } from '../../theme';
-import darkDerivative from '../../theme/themes/dark';
+import theme from '../../theme/export';
 import { resetWarned } from '../../_util/warning';
+
+const { darkAlgorithm } = theme;
 
 let mockCanUseDom = true;
 
@@ -55,7 +57,7 @@ describe('ConfigProvider.Theme', () => {
     errorSpy.mockRestore();
   });
 
-  it('derivative should work', () => {
+  it('algorithm should work', () => {
     let tokenRef: any;
     const Demo = () => {
       const [, token] = useToken();
@@ -63,11 +65,11 @@ describe('ConfigProvider.Theme', () => {
       return null;
     };
     render(
-      <ConfigProvider theme={{ derivative: darkDerivative }}>
+      <ConfigProvider theme={{ algorithm: darkAlgorithm }}>
         <Demo />
       </ConfigProvider>,
     );
-    expect(tokenRef?.colorBgComponent).toBe('#141414');
+    expect(tokenRef?.colorBgContainer).toBe('#141414');
   });
 
   it('overriding component token should work', () => {

@@ -11,7 +11,6 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
   token: Token,
   colorBg: string,
   showArrowCls?: string,
-  linearGradient: boolean = true,
 ): CSSInterpolation {
   const { componentCls, sizePopupArrow, marginXXS } = token;
 
@@ -22,12 +21,6 @@ export default function getArrowStyle<Token extends TokenWithCommonCls<AliasToke
     [componentCls]: {
       // ============================ Basic ============================
       [`${componentCls}-arrow`]: [
-        linearGradient
-          ? {
-              // Use linear-gradient to prevent arrow from covering text
-              background: `linear-gradient(135deg, transparent 49%, ${colorBg} 50%)`,
-            }
-          : {},
         {
           position: 'absolute',
           zIndex: 1, // lift it up so the menu wouldn't cask shadow on it

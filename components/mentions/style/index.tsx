@@ -31,7 +31,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
     inputPaddingHorizontal,
     inputPaddingVertical,
     fontSize,
-    colorBgComponent,
+    colorBgContainer,
     controlRadius,
     boxShadow,
   } = token;
@@ -140,7 +140,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = token => {
         boxSizing: 'border-box',
         fontSize,
         fontVariant: 'initial',
-        backgroundColor: colorBgComponent,
+        backgroundColor: colorBgContainer,
         borderRadius: controlRadius,
         outline: 'none',
         boxShadow,

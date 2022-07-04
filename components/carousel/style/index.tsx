@@ -209,7 +209,7 @@ const genCarouselStyle: GenerateStyle<CarouselToken> = token => {
             padding: 0,
             color: 'transparent',
             fontSize: 0,
-            background: token.colorBgComponent,
+            background: token.colorBgContainer,
             border: 0,
             borderRadius: 1,
             outline: 'none',
@@ -226,7 +226,7 @@ const genCarouselStyle: GenerateStyle<CarouselToken> = token => {
             width: token.dotWidthActive,
 
             '& button': {
-              background: token.colorBgComponent,
+              background: token.colorBgContainer,
               opacity: 1,
             },
 

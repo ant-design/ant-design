@@ -151,7 +151,7 @@ const genSwitchStyle = (token: SwitchToken): CSSObject => {
       height: token.switchHeight,
       lineHeight: `${token.switchHeight}px`,
       verticalAlign: 'middle',
-      backgroundImage: `linear-gradient(to right, ${token.colorTextDisabled}, ${token.colorTextDisabled}), linear-gradient(to right, ${token.colorBgComponent}, ${token.colorBgComponent})`,
+      backgroundImage: `linear-gradient(to right, ${token.colorTextDisabled}, ${token.colorTextDisabled}), linear-gradient(to right, ${token.colorBgContainer}, ${token.colorBgContainer})`,
       border: '0',
       borderRadius: 100,
       cursor: 'pointer',
@@ -160,7 +160,7 @@ const genSwitchStyle = (token: SwitchToken): CSSObject => {
 
       '&:focus-visible': {
         outline: 0,
-        boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${token.colorDefaultOutline}`,
+        boxShadow: `0 0 0 ${token.controlOutlineWidth}px ${token.controlTmpOutline}`,
       },
 
       [`&${token.componentCls}-checked:focus-visible`]: {
@@ -223,7 +223,7 @@ export default genComponentStyleHook('Switch', token => {
     switchInnerMarginMax: switchPinSize + switchPadding + token.paddingXXS,
     switchPadding,
     switchPinSize,
-    switchBg: token.colorBgComponent,
+    switchBg: token.colorBgContainer,
     switchMinWidthSM: switchPinSizeSM * 2 + switchPadding * 2,
     switchHeightSM,
     switchInnerMarginMinSM: switchPinSizeSM / 2,

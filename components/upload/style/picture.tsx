@@ -99,7 +99,7 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = token => {
         marginBottom: token.marginXS,
         textAlign: 'center',
         verticalAlign: 'top',
-        backgroundColor: token.colorBgComponentSecondary,
+        backgroundColor: token.colorBgContainerSecondary,
         border: `${token.controlLineWidth}px dashed ${token.colorBorder}`,
         borderRadius: token.radiusBase,
         cursor: 'pointer',
@@ -142,7 +142,7 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = token => {
             zIndex: 1,
             width: `calc(100% - ${token.paddingXS * 2}px)`,
             height: `calc(100% - ${token.paddingXS * 2}px)`,
-            backgroundColor: token.controlMaskBg,
+            backgroundColor: token.colorBgMask,
             opacity: 0,
             transition: `all ${token.motionDurationSlow}`,
             content: '" "',
@@ -206,7 +206,7 @@ const genPictureCardStyle: GenerateStyle<UploadToken> = token => {
 
         [`${itemCls}-uploading`]: {
           [`&${itemCls}`]: {
-            backgroundColor: token.colorBgComponentSecondary,
+            backgroundColor: token.colorBgContainerSecondary,
           },
 
           [`&::before, ${iconCls}-eye, ${iconCls}-download, ${iconCls}-delete`]: {

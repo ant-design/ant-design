@@ -15,7 +15,7 @@ interface WaveToken extends AliasToken {
 const genWaveStyle: GenerateStyle<WaveToken> = token => {
   const waveEffect = new Keyframes('waveEffect', {
     '100%': {
-      boxShadow: `0 0 0 6px ${token.colorPrimary}`,
+      boxShadow: `0 0 0 6px var(--antd-wave-shadow-color)`,
     },
   });
 
@@ -29,6 +29,8 @@ const genWaveStyle: GenerateStyle<WaveToken> = token => {
     {
       [`${token.clickAnimatingWithoutExtraNodeTrue},
       ${token.clickAnimatingTrue}`]: {
+        '--antd-wave-shadow-color': token.colorPrimary,
+        '--scroll-bar': 0,
         position: 'relative',
       },
       [`${token.clickAnimatingWithoutExtraNodeTrueAfter},
@@ -40,16 +42,20 @@ const genWaveStyle: GenerateStyle<WaveToken> = token => {
         bottom: 0,
         display: 'block',
         borderRadius: 'inherit',
-        boxShadow: `0 0 0 0 ${token.colorPrimary}`,
+        boxShadow: `0 0 0 0 var(--antd-wave-shadow-color)`,
         opacity: 0.2,
-        animation: `${fadeEffect.getName(token.hashId)} 2s ${
-          token.motionEaseOutCirc
-        }, ${waveEffect.getName(token.hashId)} 0.4s ${token.motionEaseOutCirc}`,
+        animation: {
+          _skip_check_: true,
+          value: `${fadeEffect.getName(token.hashId)} 2s ${
+            token.motionEaseOutCirc
+          }, ${waveEffect.getName(token.hashId)} 0.4s ${token.motionEaseOutCirc}`,
+        },
         animationFillMode: 'forwards',
         content: '""',
         pointerEvents: 'none',
       },
     },
+    {},
     waveEffect,
     fadeEffect,
   ];

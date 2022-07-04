@@ -33,7 +33,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
     dotSize,
     marginFull,
     marginPart,
-    colorBgContainerSecondary,
+    colorBgContentHover,
     antCls,
   } = token;
 
@@ -54,14 +54,14 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
 
       [`${componentCls}-rail`]: {
         position: 'absolute',
-        backgroundColor: token.colorBgComponentTmp,
+        backgroundColor: token.colorBgContent,
         borderRadius: token.controlRadius,
         transition: `background-color ${token.motionDurationSlow}`,
       },
 
       [`${componentCls}-track`]: {
         position: 'absolute',
-        backgroundColor: token.colorPrimarySecondary,
+        backgroundColor: token.colorPrimaryBorder,
         borderRadius: token.controlRadius,
         transition: `background-color ${token.motionDurationSlow}`,
       },
@@ -70,8 +70,8 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         position: 'absolute',
         width: token.handleSize,
         height: token.handleSize,
-        backgroundColor: token.colorBgComponent,
-        border: `${token.lineHandleWidth}px solid ${token.colorPrimarySecondary}`,
+        backgroundColor: token.colorBgContainer,
+        border: `${token.lineHandleWidth}px solid ${token.colorPrimaryBorder}`,
         borderRadius: '50%',
         boxShadow: 'none',
         cursor: 'pointer',
@@ -95,7 +95,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
 
       '&:hover': {
         [`${componentCls}-rail`]: {
-          backgroundColor: colorBgContainerSecondary,
+          backgroundColor: colorBgContentHover,
         },
 
         [`${componentCls}-track`]: {
@@ -103,7 +103,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         },
 
         [`${componentCls}-dot`]: {
-          borderColor: colorBgContainerSecondary,
+          borderColor: colorBgContentHover,
         },
 
         [`${componentCls}-handle${antCls}-tooltip-open`]: {
@@ -152,14 +152,14 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         position: 'absolute',
         width: dotSize,
         height: dotSize,
-        backgroundColor: token.colorBgComponent,
+        backgroundColor: token.colorBgContainer,
         border: `${token.lineHandleWidth}px solid ${token.colorSplit}`,
         borderRadius: '50%',
         cursor: 'pointer',
         transition: `border-color ${token.motionDurationSlow}`,
 
         '&-active': {
-          borderColor: token.colorPrimarySecondary,
+          borderColor: token.colorPrimaryBorder,
         },
       },
 
@@ -167,7 +167,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
         cursor: 'not-allowed',
 
         [`${componentCls}-rail`]: {
-          backgroundColor: `${token.colorBgComponentTmp} !important`,
+          backgroundColor: `${token.colorBgContent} !important`,
         },
 
         [`${componentCls}-track`]: {
@@ -178,7 +178,7 @@ const genBaseStyle: GenerateStyle<SliderToken> = token => {
           ${componentCls}-handle,
           ${componentCls}-dot
         `]: {
-          backgroundColor: token.colorBgComponent,
+          backgroundColor: token.colorBgContainer,
           borderColor: `${token.colorTextDisabled} !important`,
           boxShadow: 'none',
           cursor: 'not-allowed',

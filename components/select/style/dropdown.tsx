@@ -133,7 +133,7 @@ const genSingleStyle: GenerateStyle<SelectToken> = token => {
             },
             '&-disabled': {
               [`&${selectItemCls}-option-selected`]: {
-                backgroundColor: token.colorBgComponentDisabled,
+                backgroundColor: token.colorBgContainerDisabled,
               },
 
               color: token.colorTextDisabled,

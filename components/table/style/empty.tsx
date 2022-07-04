@@ -12,7 +12,7 @@ const genEmptyStyle: GenerateStyle<TableToken, CSSObject> = token => {
         color: token.colorTextDisabled,
 
         '&:hover > td': {
-          background: token.colorBgComponent,
+          background: token.colorBgContainer,
         },
       },
     },

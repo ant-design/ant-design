@@ -1,4 +1,3 @@
-import { generate } from '@ant-design/colors';
 import { TinyColor } from '@ctrl/tinycolor';
 import type { AliasToken, MapToken, OverrideToken } from '../interface';
 
@@ -18,14 +17,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     ...derivative,
   };
 
-  const { fontSizes, lineHeights, textColors, bgColors } = mergedToken;
-
-  // FIXME: tmp
-  const primaryColors = generate(mergedToken.colorPrimary);
-  const infoColors = generate(mergedToken.colorInfo);
-  const successColors = generate(mergedToken.colorSuccess);
-  const warningColors = generate(mergedToken.colorWarning);
-  const errorColors = generate(mergedToken.colorError);
+  const { fontSizes, lineHeights } = mergedToken;
   const screenXS = 480;
   const screenSM = 576;
   const screenMD = 768;
@@ -39,41 +31,8 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
   const aliasToken: AliasToken = {
     ...mergedToken,
 
-    // Colors
-    colorText: textColors['85'],
-    // TODO: 只有 Slider 用了，感觉命名有问题
-    colorTextSecondary: textColors['45'],
-    // TODO: 这个 30 估计要改成 25
-    colorTextDisabled: textColors['30'],
-    colorTextPlaceholder: textColors['25'],
-    colorTextHeading: textColors['85'],
-
-    colorBgContainer: bgColors['0'],
-    colorBgContainerSecondary: bgColors['26'],
-    colorBgComponent: bgColors['8'],
-    // TODO：Menu 用了这个 感觉命名有问题
-    // TODO：能不能用透明色？用透明色会造成重叠后变亮的问题，是不是得用实色？
-    colorBgComponentSecondary: textColors['4'],
-    colorBgComponentDisabled: textColors['8'],
-    // 浮窗等组件的背景色 token
-    colorBgElevated: bgColors['12'],
-    // TODO: Slider 和 Progress 需要一个名字
-    colorBgComponentTmp: bgColors['15'],
-
-    colorLink: mergedToken.colorPrimary,
-    colorLinkHover: primaryColors[4],
-    colorLinkActive: primaryColors[6],
-
-    // TODO: 确认 Action 的色彩关系
-    colorAction: textColors['45'],
-    colorActionHover: textColors['75'],
-    colorActionTmp: textColors['30'],
-
-    // Split
-    colorBorder: bgColors['26'],
-    // TODO：Secondary 在纯实色背景下的颜色和 Split 是一样的
-    colorBorderSecondary: bgColors['19'],
-    colorSplit: textColors['12'],
+    colorTextPlaceholder: mergedToken.colorTextDisabled,
+    colorHighlight: mergedToken.colorError,
 
     // Font
     fontSizeSM,
@@ -98,37 +57,21 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     lineHeightHeading5: lineHeights[2],
 
     // Control
-    // TODO: 确认下 hover 是用 Alpha 还是实色
-    // 暂时确认下来应该用 alpha
     controlLineWidth: mergedToken.lineWidth,
     controlOutlineWidth: mergedToken.lineWidth * 2,
     // Checkbox size and expand icon size
     controlInteractiveSize: mergedToken.controlHeight / 2,
 
-    controlItemBgHover: mergedToken.textColors['8'],
-    controlItemBgActive: primaryColors[0],
-    controlItemBgActiveHover: primaryColors[1],
-    controlItemBgActiveDisabled: textColors['25'],
-    controlMaskBg: textColors['45'],
+    controlItemBgHover: mergedToken.colorBgItemHover,
+    controlItemBgActive: mergedToken.colorPrimaryBg,
+    controlItemBgActiveHover: mergedToken.colorPrimaryBgHover,
+    controlItemBgActiveDisabled: mergedToken.colorTextDisabled,
 
-    // 👀👀👀👀👀👀👀👀👀 Not align with Derivative 👀👀👀👀👀👀👀👀👀
-    // FIXME: @arvinxx handle this
     controlLineType: mergedToken.lineType,
     controlRadius: mergedToken.radiusBase,
     fontWeightStrong: 600,
 
-    // 🔥🔥🔥🔥🔥🔥🔥🔥🔥 All TMP Token leaves here 🔥🔥🔥🔥🔥🔥🔥🔥🔥
-    // FIXME: Handle this when derivative is ready
-    // primaryColors,
-    // warningColors,
-    // errorColors,
-
     opacityLoading: 0.65,
-
-    colorSuccessSecondary: successColors[2],
-    colorWarningSecondary: warningColors[2],
-    colorErrorSecondary: errorColors[2],
-    colorInfoSecondary: infoColors[2],
 
     linkDecoration: 'none',
     linkHoverDecoration: 'none',
@@ -177,6 +120,8 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     screenXXL,
     screenXXLMin: screenXXL,
     screenXXLMax: screenXXL - 1,
+
+    controlTmpOutline: mergedToken.colorBgContainerSecondary,
 
     // FIXME: component box-shadow, should be removed
     boxShadowPopoverArrow: `3px 3px 7px rgba(0, 0, 0, 0.1)`,

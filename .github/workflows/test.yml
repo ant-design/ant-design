@@ -241,12 +241,6 @@ jobs:
           path: node_modules
           key: node_modules-${{ hashFiles('**/package-temp-dir/package-lock.json') }}
 
-      - name: cache lib
-        uses: actions/cache@v3
-        with:
-          path: lib
-          key: lib-${{ github.sha }}
-
       - name: cache es
         uses: actions/cache@v3
         with:
@@ -255,9 +249,6 @@ jobs:
 
       - name: compile
         run: npm run compile
-
-      - name: check
-        run: node ./tests/dekko/lib.test.js
     needs: setup
 
   compiled-module-test:
@@ -266,7 +257,7 @@ jobs:
     strategy:
       matrix:
         react: ['16', '17', '18']
-        module: [lib, es]
+        module: [es]
         shard: ['1/2', '2/2']
     env:
       REACT: ${{ matrix.react }}
