@@ -53,7 +53,7 @@ export default function derivative(token: SeedToken): MapToken {
   return {
     ...token,
     ...colorPalettes,
-
+    colorPrimary: token.colorPrimary || primaryColors['6'],
     // Colors
     ...genColorMapToken({
       primaryPalettes: primaryColors,
