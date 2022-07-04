@@ -93,7 +93,7 @@ module.exports = {
       config.optimization.minimizer = [
         new ESBuildMinifyPlugin({
           // see https://esbuild.github.io/api/#target
-          target: 'chrome58,edge16,firefox57,ie11',
+          target: 'es5',
           css: true,
         }),
       ];
