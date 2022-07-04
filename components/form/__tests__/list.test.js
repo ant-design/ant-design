@@ -185,6 +185,10 @@ describe('Form.List', () => {
         await sleep(100);
         jest.runAllTimers();
       });
+
+      act(() => {
+        jest.runAllTimers();
+      });
     }
 
     await addItem();
