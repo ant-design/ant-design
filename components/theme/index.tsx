@@ -1,5 +1,5 @@
-import type { CSSInterpolation } from '@ant-design/cssinjs';
-import { Theme, useCacheToken, useStyleRegister } from '@ant-design/cssinjs';
+import type { CSSInterpolation, Theme } from '@ant-design/cssinjs';
+import { createTheme, useCacheToken, useStyleRegister } from '@ant-design/cssinjs';
 import React from 'react';
 import version from '../version';
 import type {
@@ -20,7 +20,7 @@ import genComponentStyleHook from './util/genComponentStyleHook';
 import getArrowStyle from './util/placementArrow';
 import statisticToken, { merge as mergeToken, statistic } from './util/statistic';
 
-const defaultTheme = new Theme(defaultDerivative);
+const defaultTheme = createTheme(defaultDerivative);
 
 export {
   resetComponent,

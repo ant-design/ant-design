@@ -1131,7 +1131,6 @@ const genPickerStyle: GenerateStyle<PickerToken> = token => {
           width: token.sizePopupArrow,
           height: token.sizePopupArrow,
           marginInlineStart: token.inputPaddingHorizontal * 1.5,
-          background: `linear-gradient(135deg, transparent 40%, ${token.colorBgContainer} 40%)`, // Use linear-gradient to prevent arrow from covering text
           boxShadow: token.boxShadowPopoverArrowBottom,
           transition: `left ${token.motionDurationSlow} ease-out`,
           ...roundedArrow(token.sizePopupArrow, 5, token.colorBgElevated),
