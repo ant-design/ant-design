@@ -15,8 +15,8 @@ Nested inside a container element for rendering in limited space.
 
 ```tsx
 import { Calendar } from 'antd';
-import type { CalendarMode } from 'antd/lib/calendar/generateCalendar';
 import type { Dayjs } from 'dayjs';
+import type { CalendarMode } from 'antd/es/calendar/generateCalendar';
 import React from 'react';
 
 const App: React.FC = () => {

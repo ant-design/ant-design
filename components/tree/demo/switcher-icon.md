@@ -16,7 +16,7 @@ customize collapse/expand icon of tree node
 ```tsx
 import { DownOutlined } from '@ant-design/icons';
 import { Tree } from 'antd';
-import type { DataNode, TreeProps } from 'antd/lib/tree';
+import type { DataNode, TreeProps } from 'antd/es/tree';
 import React from 'react';
 
 const treeData: DataNode[] = [

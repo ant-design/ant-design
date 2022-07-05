@@ -51,6 +51,10 @@ describe('ConfigProvider.Form', () => {
         await Promise.resolve();
       });
 
+      act(() => {
+        jest.runAllTimers();
+      });
+
       expect(container.querySelector('.ant-form-item-explain')).toHaveTextContent('请输入姓名');
     });
 
@@ -68,6 +72,10 @@ describe('ConfigProvider.Form', () => {
       await act(async () => {
         jest.runAllTimers();
         await Promise.resolve();
+      });
+
+      act(() => {
+        jest.runAllTimers();
       });
 
       const explains = Array.from(container.querySelectorAll('.ant-form-item-explain'));
