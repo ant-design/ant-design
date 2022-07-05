@@ -1,8 +1,8 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { useStyleRegister } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-import type { AliasToken } from '../../_util/theme';
-import { clearFix, useToken } from '../../_util/theme';
+import type { AliasToken } from '../../theme';
+import { clearFix, useToken } from '../../theme';
 import './index.less';
 
 // Reboot
