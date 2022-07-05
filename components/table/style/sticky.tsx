@@ -1,5 +1,5 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { GenerateStyle } from '../../_util/theme';
+import type { GenerateStyle } from '../../theme';
 import type { TableToken } from './index';
 
 const genStickyStyle: GenerateStyle<TableToken, CSSObject> = token => {
@@ -19,7 +19,7 @@ const genStickyStyle: GenerateStyle<TableToken, CSSObject> = token => {
         '&-holder': {
           position: 'sticky',
           zIndex: zIndexTableSticky,
-          background: token.colorBgComponent,
+          background: token.colorBgContainer,
         },
 
         '&-scroll': {

@@ -14,11 +14,11 @@ module.exports = {
 
 // We need compile additional content for antd user
 function finalizeCompile() {
-  if (fs.existsSync(path.join(__dirname, './lib'))) {
+  if (fs.existsSync(path.join(__dirname, './es'))) {
     // Build a entry less file to dist/antd.less
     const componentsPath = path.join(process.cwd(), 'components');
     let componentsLessContent = '';
-    // Build components in one file: lib/style/components.less
+    // Build components in one file: es/style/components.less
     fs.readdir(componentsPath, (err, files) => {
       files.forEach(file => {
         if (fs.existsSync(path.join(componentsPath, file, 'style', 'index.less'))) {
@@ -30,7 +30,7 @@ function finalizeCompile() {
         }
       });
       fs.writeFileSync(
-        path.join(process.cwd(), 'lib', 'style', 'components.less'),
+        path.join(process.cwd(), 'es', 'style', 'components.less'),
         componentsLessContent,
       );
     });
@@ -42,7 +42,7 @@ function buildThemeFile(theme, vars) {
   if (theme !== 'default') {
     fs.writeFileSync(
       path.join(process.cwd(), 'dist', `antd.${theme}.less`),
-      `@import "../lib/style/${theme}.less";\n@import "../lib/style/components.less";`,
+      `@import "../es/style/${theme}.less";\n@import "../es/style/components.less";`,
     );
     // eslint-disable-next-line no-console
     console.log(`Built a entry less file to dist/antd.${theme}.less`);
@@ -78,7 +78,7 @@ function finalizeDist() {
     // Build less entry file: dist/antd.less
     fs.writeFileSync(
       path.join(process.cwd(), 'dist', 'antd.less'),
-      '@import "../lib/style/default.less";\n@import "../lib/style/components.less";',
+      '@import "../es/style/default.less";\n@import "../es/style/components.less";',
     );
     // eslint-disable-next-line no-console
     fs.writeFileSync(
@@ -96,7 +96,7 @@ function finalizeDist() {
       `
 function getThemeVariables(options = {}) {
   let themeVar = {
-    'hack': \`true;@import "\${require.resolve('antd/lib/style/color/colorPalette.less')}";\`,
+    'hack': \`true;@import "\${require.resolve('antd/es/style/color/colorPalette.less')}";\`,
     ...defaultTheme
   };
   if(options.dark) {

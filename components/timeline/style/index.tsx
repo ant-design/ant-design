@@ -1,7 +1,7 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { FullToken, GenerateStyle } from '../../_util/theme';
-import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
+import type { FullToken, GenerateStyle } from '../../theme';
+import { genComponentStyleHook, mergeToken, resetComponent } from '../../theme';
 
 export interface ComponentToken {}
 
@@ -52,7 +52,7 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = token => {
           position: 'absolute',
           width: token.timeLineItemHeadSize,
           height: token.timeLineItemHeadSize,
-          backgroundColor: token.colorBgComponent,
+          backgroundColor: token.colorBgContainer,
           border: `${token.radiusBase}px ${token.lineType} transparent`,
           borderRadius: '50%',
 

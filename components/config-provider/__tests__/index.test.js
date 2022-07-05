@@ -23,7 +23,7 @@ describe('ConfigProvider', () => {
       </ConfigProvider>,
     );
 
-    expect(wrapper.find('Wave').instance().csp).toBe(csp);
+    expect(wrapper.find('InternalWave').instance().csp).toBe(csp);
   });
 
   it('autoInsertSpaceInButton', () => {

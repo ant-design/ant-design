@@ -7,8 +7,8 @@ import {
   slideUpIn,
   slideUpOut,
 } from '../../style/motion';
-import type { FullToken, GenerateStyle } from '../../_util/theme';
-import { genComponentStyleHook, mergeToken, resetComponent, roundedArrow } from '../../_util/theme';
+import type { FullToken, GenerateStyle } from '../../theme';
+import { genComponentStyleHook, mergeToken, resetComponent, roundedArrow } from '../../theme';
 import genButtonStyle from './button';
 import genStatusStyle from './status';
 
@@ -125,8 +125,6 @@ const genBaseStyle: GenerateStyle<DropdownToken> = token => {
           display: 'block',
           width: sizePopupArrow,
           height: sizePopupArrow,
-          // Use linear-gradient to prevent arrow from covering text
-          background: `linear-gradient(135deg, transparent 40%, ${colorBgElevated} 40%)`,
 
           ...roundedArrow(sizePopupArrow, 5, colorBgElevated),
         },

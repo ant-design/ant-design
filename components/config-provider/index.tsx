@@ -1,3 +1,4 @@
+import { createTheme } from '@ant-design/cssinjs';
 import IconContext from '@ant-design/icons/lib/components/Context';
 import { FormProvider as RcFormProvider } from 'rc-field-form';
 import type { ValidateMessages } from 'rc-field-form/lib/interface';
@@ -8,9 +9,8 @@ import type { Locale } from '../locale-provider';
 import LocaleProvider, { ANT_MARK } from '../locale-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
-import { DesignTokenContext, useCustomToken, useToken } from '../_util/theme';
-import defaultSeedToken from '../_util/theme/themes/seed';
-import { useCustomStyle, useStyle } from '../_util/theme/util/useStyle';
+import { DesignTokenContext } from '../theme';
+import defaultSeedToken from '../theme/themes/seed';
 import type { ConfigConsumerProps, CSPConfig, DirectionType, Theme, ThemeConfig } from './context';
 import { ConfigConsumer, ConfigContext, defaultIconPrefixCls } from './context';
 import { registerTheme } from './cssVariables';
@@ -254,17 +254,20 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
   }
 
   // ================================ Dynamic theme ================================
-  const memoTheme = React.useMemo(
-    () => ({
-      ...mergedTheme,
+  const memoTheme = React.useMemo(() => {
+    const { algorithm, token, ...rest } = mergedTheme || {};
+    const themeObj = algorithm ? createTheme(algorithm) : undefined;
+
+    return {
+      ...rest,
+      theme: themeObj,
 
       token: {
         ...defaultSeedToken,
-        ...mergedTheme?.token,
+        ...token,
       },
-    }),
-    [mergedTheme],
-  );
+    };
+  }, [mergedTheme]);
 
   if (theme) {
     childNode = (
@@ -287,10 +290,6 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
   ConfigContext: typeof ConfigContext;
   SizeContext: typeof SizeContext;
   config: typeof setGlobalConfig;
-  useToken: typeof useToken;
-  useStyle: typeof useStyle;
-  useCustomToken: typeof useCustomToken;
-  useCustomStyle: typeof useCustomStyle;
 } = props => (
   <LocaleReceiver>
     {(_, __, legacyLocale) => (
@@ -310,9 +309,5 @@ const ConfigProvider: React.FC<ConfigProviderProps> & {
 ConfigProvider.ConfigContext = ConfigContext;
 ConfigProvider.SizeContext = SizeContext;
 ConfigProvider.config = setGlobalConfig;
-ConfigProvider.useToken = useToken;
-ConfigProvider.useStyle = useStyle;
-ConfigProvider.useCustomToken = useCustomToken;
-ConfigProvider.useCustomStyle = useCustomStyle;
 
 export default ConfigProvider;

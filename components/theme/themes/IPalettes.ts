@@ -1,6 +1,44 @@
+export interface PrimaryPalettes {
+  0: string;
+  1: string;
+  2: string;
+  3: string;
+  4: string;
+  5: string;
+  6: string;
+  7: string;
+}
+
+export interface SuccessPalettes {
+  1: string;
+  3: string;
+  6: string;
+}
+
+export interface WarningPalettes {
+  1: string;
+  3: string;
+  5: string;
+  6: string;
+  7: string;
+}
+
+export interface ErrorPalettes {
+  1: string;
+  3: string;
+  5: string;
+  6: string;
+  7: string;
+}
+
+export interface InfoPalettes {
+  1: string;
+  3: string;
+  6: string;
+}
+
 export interface TextAlphaPalettes {
   85: string;
-  75: string;
   65: string;
   45: string;
   30: string;
@@ -17,6 +55,7 @@ export interface TextAlphaPalettes {
   // 文本 hover 色
   3: string;
 }
+
 export interface BgPalettes {
   // 作为比较重的描边或者填充内容
   26: string;
@@ -35,4 +74,5 @@ export interface BgPalettes {
   'light-12'?: string;
   'light-2'?: string;
   'light-10'?: string;
+  base: string;
 }

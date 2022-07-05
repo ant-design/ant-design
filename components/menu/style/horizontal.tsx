@@ -1,5 +1,5 @@
 import type { MenuThemeToken } from '.';
-import type { GenerateStyle } from '../../_util/theme';
+import type { GenerateStyle } from '../../theme';
 
 const getHorizontalStyle: GenerateStyle<MenuThemeToken> = token => {
   const {

@@ -1,10 +1,12 @@
 import { updateCSS } from 'rc-util/lib/Dom/dynamicCSS';
 import { composeRef, supportRef } from 'rc-util/lib/ref';
 import * as React from 'react';
-import type { ConfigConsumerProps, CSPConfig } from '../config-provider';
-import { ConfigConsumer, ConfigContext } from '../config-provider';
-import raf from './raf';
-import { cloneElement } from './reactNode';
+import { forwardRef } from 'react';
+import type { ConfigConsumerProps, CSPConfig } from '../../config-provider';
+import { ConfigConsumer, ConfigContext } from '../../config-provider';
+import raf from '../raf';
+import { cloneElement } from '../reactNode';
+import useStyle from './style';
 
 let styleForPseudo: HTMLStyleElement | null;
 
@@ -25,13 +27,38 @@ function isNotGrey(color: string) {
   return true;
 }
 
+function isValidWaveColor(color: string) {
+  return (
+    color &&
+    color !== '#ffffff' &&
+    color !== 'rgb(255, 255, 255)' &&
+    isNotGrey(color) &&
+    !/rgba\((?:\d*, ){3}0\)/.test(color) && // any transparent rgba color
+    color !== 'transparent'
+  );
+}
+
+function getTargetWaveColor(node: HTMLElement) {
+  const computedStyle = getComputedStyle(node);
+  const borderTopColor = computedStyle.getPropertyValue('border-top-color');
+  const borderColor = computedStyle.getPropertyValue('border-color');
+  const backgroundColor = computedStyle.getPropertyValue('background-color');
+  if (isValidWaveColor(borderTopColor)) {
+    return borderTopColor;
+  }
+  if (isValidWaveColor(borderColor)) {
+    return borderColor;
+  }
+  return backgroundColor;
+}
+
 export interface WaveProps {
   insertExtraNode?: boolean;
   disabled?: boolean;
   children?: React.ReactNode;
 }
 
-export default class Wave extends React.Component<WaveProps> {
+class InternalWave extends React.Component<WaveProps> {
   static contextType = ConfigContext;
 
   private instance?: {
@@ -88,14 +115,7 @@ export default class Wave extends React.Component<WaveProps> {
     const attributeName = this.getAttributeName();
     node.setAttribute(attributeName, 'true');
     // Not white or transparent or grey
-    if (
-      waveColor &&
-      waveColor !== '#ffffff' &&
-      waveColor !== 'rgb(255, 255, 255)' &&
-      isNotGrey(waveColor) &&
-      !/rgba\((?:\d*, ){3}0\)/.test(waveColor) && // any transparent rgba color
-      waveColor !== 'transparent'
-    ) {
+    if (isValidWaveColor(waveColor)) {
       extraNode.style.borderColor = waveColor;
 
       const nodeRoot = node.getRootNode?.() || node.ownerDocument;
@@ -165,10 +185,7 @@ export default class Wave extends React.Component<WaveProps> {
       }
       this.resetEffect(node);
       // Get wave color from target
-      const waveColor =
-        getComputedStyle(node).getPropertyValue('border-top-color') || // Firefox Compatible
-        getComputedStyle(node).getPropertyValue('border-color') ||
-        getComputedStyle(node).getPropertyValue('background-color');
+      const waveColor = getTargetWaveColor(node);
       this.clickWaveTimeoutId = window.setTimeout(() => this.onClick(node, waveColor), 0);
 
       raf.cancel(this.animationStartId);
@@ -226,3 +243,10 @@ export default class Wave extends React.Component<WaveProps> {
     return <ConfigConsumer>{this.renderWave}</ConfigConsumer>;
   }
 }
+
+const Wave = forwardRef<InternalWave, WaveProps>((props, ref) => {
+  useStyle();
+  return <InternalWave ref={ref} {...props} />;
+});
+
+export default Wave;

@@ -6,8 +6,8 @@ import '../../empty/style';
 
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { FullToken, GenerateStyle } from '../../_util/theme';
-import { genComponentStyleHook, mergeToken, resetComponent, resetIcon } from '../../_util/theme';
+import type { FullToken, GenerateStyle } from '../../theme';
+import { genComponentStyleHook, mergeToken, resetComponent, resetIcon } from '../../theme';
 import genDropdownStyle from './dropdown';
 import genMultipleStyle from './multiple';
 import genSingleStyle from './single';
@@ -27,7 +27,7 @@ const genSelectorStyle: GenerateStyle<SelectToken, CSSObject> = token => {
 
   return {
     position: 'relative',
-    backgroundColor: token.colorBgComponent,
+    backgroundColor: token.colorBgContainer,
     border: `${token.controlLineWidth}px ${token.controlLineType} ${token.colorBorder}`,
     borderRadius: token.controlRadius,
     transition: `all ${token.motionDurationSlow} ${token.motionEaseInOut}`,
@@ -46,11 +46,11 @@ const genSelectorStyle: GenerateStyle<SelectToken, CSSObject> = token => {
 
     [`${componentCls}-disabled&`]: {
       color: token.colorTextDisabled,
-      background: token.colorBgComponentDisabled,
+      background: token.colorBgContainerDisabled,
       cursor: 'not-allowed',
 
       [`${componentCls}-multiple&`]: {
-        background: token.colorBgComponentDisabled,
+        background: token.colorBgContainerDisabled,
       },
 
       input: {
@@ -220,7 +220,7 @@ const genBaseStyle: GenerateStyle<SelectToken> = token => {
         lineHeight: 1,
         textAlign: 'center',
         textTransform: 'none',
-        background: token.colorBgComponent,
+        background: token.colorBgContainer,
         cursor: 'pointer',
         opacity: 0,
         transition: `color ${token.motionDurationSlow} ease, opacity ${token.motionDurationSlow} ease`,

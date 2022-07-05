@@ -1,11 +1,11 @@
 // deps-lint-skip-all
-import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
+import type { FullToken, GenerateStyle } from '../../theme';
+import { genComponentStyleHook, mergeToken, resetComponent } from '../../theme';
 import genDraggerStyle from './dragger';
 import genListStyle from './list';
 import genMotionStyle from './motion';
+import { genPictureCardStyle, genPictureStyle } from './picture';
 import genRtlStyle from './rtl';
-import { genPictureStyle, genPictureCardStyle } from './picture';
-import type { GenerateStyle, FullToken } from '../../_util/theme';
 
 export interface ComponentToken {}
 

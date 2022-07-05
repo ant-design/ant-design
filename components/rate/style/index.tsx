@@ -1,7 +1,7 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { FullToken, GenerateStyle } from '../../_util/theme';
-import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
+import type { FullToken, GenerateStyle } from '../../theme';
+import { genComponentStyleHook, mergeToken, resetComponent } from '../../theme';
 
 export type ComponentToken = {};
 
@@ -123,13 +123,13 @@ const genRateStyle: GenerateStyle<RateToken> = token => {
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Rate', token => {
-  const { textColors } = token;
+  const { colorBgFillTmp } = token;
 
   const rateToken = mergeToken<RateToken>(token, {
     rateStarColor: token['yellow-6'],
     rateStarSize: token.controlHeightLG * 0.5,
     rateStarHoverScale: 'scale(1.1)',
-    defaultColor: textColors['12'],
+    defaultColor: colorBgFillTmp,
   });
   return [genRateStyle(rateToken)];
 });

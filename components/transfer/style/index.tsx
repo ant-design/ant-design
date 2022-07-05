@@ -1,14 +1,14 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
 
-import type { FullToken, GenerateStyle } from '../../_util/theme';
+import type { FullToken, GenerateStyle } from '../../theme';
 import {
   genComponentStyleHook,
   mergeToken,
   operationUnit,
   resetComponent,
   resetIcon,
-} from '../../_util/theme';
+} from '../../theme';
 
 export interface ComponentToken {
   listWidth: number;
@@ -142,7 +142,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
         transferHeaderVerticalPadding - controlLineWidth
       }px ${paddingSM}px ${transferHeaderVerticalPadding}px`,
       color: token.colorText,
-      background: token.colorBgComponent,
+      background: token.colorBgContainer,
       borderBottom: `${controlLineWidth}px ${controlLineType} ${colorSplit}`,
       borderRadius: `${token.radiusBase}px ${token.radiusBase}px 0 0`,
 
@@ -305,7 +305,7 @@ const genTransferStyle: GenerateStyle<TransferToken> = (token: TransferToken): C
 
       [`${componentCls}-disabled`]: {
         [`${componentCls}-list`]: {
-          background: token.colorBgComponentDisabled,
+          background: token.colorBgContainerDisabled,
         },
       },
 

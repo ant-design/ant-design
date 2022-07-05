@@ -1,8 +1,8 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
-import type { FullToken, GenerateStyle } from '../../_util/theme';
-import { genComponentStyleHook, mergeToken } from '../../_util/theme';
+import type { FullToken, GenerateStyle } from '../../theme';
+import { genComponentStyleHook, mergeToken } from '../../theme';
 
 export type ComponentToken = {
   color: string;
@@ -369,11 +369,11 @@ export default genComponentStyleHook(
     return [genBaseStyle(skeletonToken)];
   },
   token => {
-    const { textColors } = token;
+    const { colorBgFillTmp, colorTextPlaceholder } = token;
 
     return {
-      color: textColors['12'],
-      colorGradientEnd: textColors['25'],
+      color: colorBgFillTmp,
+      colorGradientEnd: colorTextPlaceholder,
     };
   },
 );

@@ -1,5 +1,5 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { GenerateStyle } from '../../_util/theme';
+import type { GenerateStyle } from '../../theme';
 import type { TableToken } from './index';
 
 // ========================= Placeholder ==========================
@@ -12,7 +12,7 @@ const genEmptyStyle: GenerateStyle<TableToken, CSSObject> = token => {
         color: token.colorTextDisabled,
 
         '&:hover > td': {
-          background: token.colorBgComponent,
+          background: token.colorBgContainer,
         },
       },
     },

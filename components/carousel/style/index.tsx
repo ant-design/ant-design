@@ -1,6 +1,6 @@
 // deps-lint-skip-all
-import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
-import type { GenerateStyle, FullToken } from '../../_util/theme';
+import type { FullToken, GenerateStyle } from '../../theme';
+import { genComponentStyleHook, mergeToken, resetComponent } from '../../theme';
 
 export interface ComponentToken {
   dotWidth: number;
@@ -210,7 +210,7 @@ const genCarouselStyle: GenerateStyle<CarouselToken> = token => {
             padding: 0,
             color: 'transparent',
             fontSize: 0,
-            background: token.colorBgComponent,
+            background: token.colorBgContainer,
             border: 0,
             borderRadius: 1,
             outline: 'none',
@@ -227,7 +227,7 @@ const genCarouselStyle: GenerateStyle<CarouselToken> = token => {
             width: token.dotWidthActive,
 
             '& button': {
-              background: token.colorBgComponent,
+              background: token.colorBgContainer,
               opacity: 1,
             },
 

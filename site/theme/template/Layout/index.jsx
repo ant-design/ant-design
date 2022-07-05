@@ -1,7 +1,7 @@
 import { presetDarkPalettes, presetPalettes } from '@ant-design/colors';
 import { createCache, StyleProvider } from '@ant-design/cssinjs';
 import { setTwoToneColor } from '@ant-design/icons';
-import { ConfigProvider } from 'antd';
+import { ConfigProvider, theme as antdTheme } from 'antd';
 import zhCN from 'antd/lib/locale/zh_CN';
 import { browserHistory } from 'bisheng/router';
 import classNames from 'classnames';
@@ -17,7 +17,7 @@ import * as utils from '../utils';
 import Header from './Header';
 import SiteContext from './SiteContext';
 
-import defaultSeedToken from '../../../../components/_util/theme/themes/seed';
+import defaultSeedToken from '../../../../components/theme/themes/seed';
 import DynamicTheme from './DynamicTheme';
 
 if (typeof window !== 'undefined' && navigator.serviceWorker) {
@@ -90,6 +90,7 @@ export default class Layout extends React.Component {
       setTheme: this.setTheme,
       direction: 'ltr',
       setIframeTheme: this.setIframeTheme,
+      v5theme: 'default',
       designToken: defaultSeedToken,
       hashedStyle: true,
     };
@@ -242,6 +243,7 @@ export default class Layout extends React.Component {
       theme,
       setTheme,
       setIframeTheme,
+      v5theme,
       designToken,
       hashedStyle,
     } = this.state;
@@ -289,6 +291,8 @@ export default class Layout extends React.Component {
                 theme={{
                   token: designToken,
                   hashed: hashedStyle,
+                  algorithm:
+                    v5theme === 'dark' ? antdTheme.darkAlgorithm : antdTheme.defaultAlgorithm,
                 }}
               >
                 <Header {...restProps} changeDirection={this.changeDirection} />
@@ -297,13 +301,15 @@ export default class Layout extends React.Component {
                 <DynamicTheme
                   componentName={this.props.params?.children?.replace('-cn', '')}
                   defaultToken={{
+                    theme: v5theme,
                     ...designToken,
                     hashed: hashedStyle,
                   }}
                   onChangeTheme={newToken => {
                     console.log('Change Theme:', newToken);
-                    const { hashed, ...restToken } = newToken;
+                    const { hashed, theme, ...restToken } = newToken;
                     this.setState({
+                      v5theme: theme,
                       designToken: restToken,
                       hashedStyle: hashed,
                     });

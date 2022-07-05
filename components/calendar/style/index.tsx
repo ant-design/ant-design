@@ -4,8 +4,8 @@ import type { PickerPanelToken } from '../../date-picker/style';
 import { genPanelStyle, initPickerPanelToken } from '../../date-picker/style';
 import type { InputToken } from '../../input/style';
 import { initInputToken } from '../../input/style';
-import type { FullToken } from '../../_util/theme';
-import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
+import type { FullToken } from '../../theme';
+import { genComponentStyleHook, mergeToken, resetComponent } from '../../theme';
 
 export interface ComponentToken {
   yearControlWidth: number;
@@ -198,8 +198,8 @@ export default genComponentStyleHook(
       {
         calendarCls,
         pickerCellInnerCls: `${token.componentCls}-cell-inner`,
-        calendarFullBg: token.colorBgComponent,
-        calendarFullPanelBg: token.colorBgComponent,
+        calendarFullBg: token.colorBgContainer,
+        calendarFullPanelBg: token.colorBgContainer,
         calendarItemActiveBg: token.controlItemBgActive,
         dateValueHeight: token.controlHeightSM,
         weekHeight: token.controlHeightSM * 0.75,

@@ -1,4 +1,3 @@
-import { TinyColor } from '@ctrl/tinycolor';
 import type { PresetColorType, SeedToken } from '..';
 
 export const defaultPresetColors: PresetColorType = {
@@ -22,15 +21,15 @@ const seedToken: SeedToken = {
   ...defaultPresetColors,
 
   // Color
-  colorPrimary: '#1890ff',
+  colorPrimary: '',
   colorSuccess: '#52c41a',
   colorWarning: '#faad14',
   colorError: '#ff4d4f',
   colorInfo: '#1890ff',
-  colorText: new TinyColor('#000').setAlpha(0.85).toRgbString(),
+  colorTextBase: '',
   colorTextLightSolid: '#fff',
 
-  colorBg: new TinyColor({ h: 0, s: 0, v: 100 }).toHexString(),
+  colorBgBase: '',
 
   // Font
   fontFamily: `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,

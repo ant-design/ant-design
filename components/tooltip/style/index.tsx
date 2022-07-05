@@ -6,14 +6,14 @@ import type {
   GenerateStyle,
   PresetColorType,
   UseComponentStyleResult,
-} from '../../_util/theme';
+} from '../../theme';
 import {
   genComponentStyleHook,
   getArrowStyle,
   mergeToken,
   PresetColors,
   resetComponent,
-} from '../../_util/theme';
+} from '../../theme';
 
 export interface ComponentToken {
   zIndexPopup: number;
@@ -106,7 +106,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = token => {
     },
 
     // Arrow Style
-    getArrowStyle(token, 'var(--antd-arrow-background-color)', '', false),
+    getArrowStyle(token, 'var(--antd-arrow-background-color)', ''),
   ];
 };
 
@@ -132,9 +132,9 @@ export default (prefixCls: string, injectStyle: boolean): UseComponentStyleResul
 
       return [genTooltipStyle(TooltipToken), initZoomMotion(token, 'zoom-big-fast')];
     },
-    ({ zIndexPopupBase, textColors }) => ({
+    ({ zIndexPopupBase, colorBgTooltipTmp }) => ({
       zIndexPopup: zIndexPopupBase + 70,
-      colorBgDefault: textColors['light-75'],
+      colorBgDefault: colorBgTooltipTmp,
     }),
   );
 

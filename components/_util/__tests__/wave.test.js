@@ -1,7 +1,7 @@
 import { mount } from 'enzyme';
 import React from 'react';
 import mountTest from '../../../tests/shared/mountTest';
-import { sleep } from '../../../tests/utils';
+import { render, sleep } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import Wave from '../wave';
 
@@ -49,7 +49,10 @@ describe('Wave component', () => {
   it('wave color is grey', async () => {
     const wrapper = mount(
       <Wave>
-        <button type="button" style={{ borderColor: 'rgb(0, 0, 0)' }}>
+        <button
+          type="button"
+          style={{ borderColor: 'rgb(0, 0, 0)', backgroundColor: 'transparent' }}
+        >
           button
         </button>
       </Wave>,
@@ -146,6 +149,87 @@ describe('Wave component', () => {
     await sleep(0);
     const styles = wrapper.find('button').getDOMNode().getRootNode().getElementsByTagName('style');
     expect(styles[0].getAttribute('nonce')).toBe('YourNonceCode');
+    wrapper.unmount();
+  });
+
+  it('bindAnimationEvent should return when node is null', () => {
+    const ref = React.createRef();
+    render(
+      <Wave ref={ref}>
+        <button type="button" disabled>
+          button
+        </button>
+      </Wave>,
+    );
+    expect(ref.current?.bindAnimationEvent()).toBe(undefined);
+  });
+
+  it('bindAnimationEvent.onClick should return when children is hidden', () => {
+    const ref = React.createRef();
+    render(
+      <Wave ref={ref}>
+        <button type="button" style={{ display: 'none' }}>
+          button
+        </button>
+      </Wave>,
+    );
+    expect(ref.current?.bindAnimationEvent()).toBe(undefined);
+  });
+
+  it('bindAnimationEvent.onClick should return when children is input', () => {
+    const ref = React.createRef();
+    render(
+      <Wave ref={ref}>
+        <input />
+      </Wave>,
+    );
+    expect(ref.current?.bindAnimationEvent()).toBe(undefined);
+  });
+
+  it('should not throw when click it', () => {
+    expect(() => {
+      const wrapper = mount(
+        <Wave>
+          <div />
+        </Wave>,
+      );
+      wrapper.simulate('click');
+    }).not.toThrow();
+  });
+
+  it('should not throw when no children', () => {
+    expect(() => mount(<Wave />)).not.toThrow();
+  });
+
+  it('wave color should inferred if border is transparent and background is not', async () => {
+    const wrapper = mount(
+      <Wave>
+        <button type="button" style={{ borderColor: 'transparent', background: 'red' }}>
+          button
+        </button>
+      </Wave>,
+    );
+    wrapper.find('button').getDOMNode().click();
+    await sleep(200);
+    const styles = wrapper.find('button').getDOMNode().getRootNode().getElementsByTagName('style');
+    expect(styles.length).toBe(1);
+    expect(styles[0].innerHTML).toContain('--antd-wave-shadow-color: red;');
+    wrapper.unmount();
+  });
+
+  it('wave color should inferred if borderTopColor is transparent and borderColor is not', async () => {
+    const wrapper = mount(
+      <Wave>
+        <button type="button" style={{ borderColor: 'red', borderTopColor: 'transparent' }}>
+          button
+        </button>
+      </Wave>,
+    );
+    wrapper.find('button').getDOMNode().click();
+    await sleep(200);
+    const styles = wrapper.find('button').getDOMNode().getRootNode().getElementsByTagName('style');
+    expect(styles.length).toBe(1);
+    expect(styles[0].innerHTML).toContain('--antd-wave-shadow-color: red;');
     wrapper.unmount();
   });
 });

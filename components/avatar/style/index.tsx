@@ -1,7 +1,7 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { FullToken, GenerateStyle } from '../../_util/theme';
-import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
+import type { FullToken, GenerateStyle } from '../../theme';
+import { genComponentStyleHook, mergeToken, resetComponent } from '../../theme';
 
 export interface ComponentToken {}
 
@@ -146,12 +146,12 @@ export default genComponentStyleHook('Avatar', token => {
     fontSizeHeading3,
 
     marginXS,
-    textColors,
-    bgColors,
+    colorBorderBg,
+    colorTextPlaceholder,
   } = token;
 
   const avatarToken = mergeToken<AvatarToken>(token, {
-    avatarBg: textColors['25'],
+    avatarBg: colorTextPlaceholder,
     avatarColor: colorTextLightSolid,
 
     avatarSizeBase: controlHeight,
@@ -164,7 +164,7 @@ export default genComponentStyleHook('Avatar', token => {
     avatarBorderRadius: token.radiusBase,
     avatarGroupOverlapping: marginXS,
     avatarGroupSpace: marginXS,
-    avatarGroupBorderColor: bgColors['0'],
+    avatarGroupBorderColor: colorBorderBg,
   });
 
   return [genBaseStyle(avatarToken), genGroupStyle(avatarToken)];

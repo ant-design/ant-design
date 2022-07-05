@@ -1,8 +1,8 @@
 /* eslint-disable react/no-array-index-key */
 import type { TableProps } from 'antd';
-import { Alert, Col, ConfigProvider, Row, Select, Space, Table } from 'antd';
+import { Alert, Col, Row, Select, Space, Table, theme } from 'antd';
 import * as React from 'react';
-import { statistic } from '../../../../../components/_util/theme';
+import { statistic } from '../../../../../components/theme';
 
 const wrapValue = (value: any) => {
   const string = String(value);
@@ -85,7 +85,7 @@ export default () => {
   );
 
   // Full token
-  const [, token] = ConfigProvider.useToken();
+  const { token } = theme.useToken();
   const tokenList = React.useMemo(
     () =>
       Object.keys(token)

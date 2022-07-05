@@ -8,6 +8,7 @@ exports[`Collapse could override default openMotion 1`] = `
     class="ant-collapse-item ant-collapse-item-active"
   >
     <div
+      aria-disabled="false"
       aria-expanded="true"
       class="ant-collapse-header"
       role="button"
@@ -64,6 +65,7 @@ exports[`Collapse should render extra node of panel 1`] = `
     class="ant-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="button"
@@ -112,6 +114,7 @@ exports[`Collapse should render extra node of panel 1`] = `
     class="ant-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="button"
@@ -167,6 +170,7 @@ exports[`Collapse should support remove expandIcon 1`] = `
     class="ant-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="button"

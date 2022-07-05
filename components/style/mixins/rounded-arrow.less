@@ -36,6 +36,7 @@
     background-repeat: no-repeat;
     background-position: ceil(-@width + 1px) ceil(-@width + 1px);
     content: '';
+    clip-path: inset(33% 33%); // For browsers that do not support path()
     clip-path: path(
       'M @{a-x} @{a-y} A @{outer-radius-without-unit} @{outer-radius-without-unit} 0 0 1 @{b-x} @{b-y} L @{c-x} @{c-y} A @{inner-radius-without-unit} @{inner-radius-without-unit} 0 0 0 @{d-x} @{d-y} L @{e-x} @{e-y} A @{outer-radius-without-unit} @{outer-radius-without-unit} 0 0 1 @{f-x} @{f-y} L @{g-x} @{g-y} L @{h-x} @{h-y} Z'
     );

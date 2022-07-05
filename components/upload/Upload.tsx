@@ -411,6 +411,8 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     </div>
   );
 
+  const uploadButton = renderUploadButton(children ? undefined : { display: 'none' });
+
   if (listType === 'picture-card') {
     return wrapSSR(
       <span
@@ -422,14 +424,14 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
           hashId,
         )}
       >
-        {renderUploadList(renderUploadButton(), !!children)}
+        {renderUploadList(uploadButton, !!children)}
       </span>,
     );
   }
 
   return wrapSSR(
     <span className={classNames(`${prefixCls}-wrapper`, rtlCls, className, hashId)}>
-      {renderUploadButton(children ? undefined : { display: 'none' })}
+      {uploadButton}
       {renderUploadList()}
     </span>,
   );

@@ -7,33 +7,31 @@ debug: true
 ---
 
 ```tsx
-import { Button, ConfigProvider, Space } from 'antd';
+import { ConfigProvider, InputNumber, Space } from 'antd';
 
 export default () => (
   <ConfigProvider
     theme={{
       override: {
-        Button: {
-          colorBgTextHover: 'red',
-          colorBgTextActive: 'blue',
+        InputNumber: {
+          handleWidth: 50,
         },
       },
     }}
   >
     <Space>
-      <Button type="text">Text 1</Button>
+      <InputNumber />
 
       <ConfigProvider
         theme={{
           override: {
-            Button: {
-              colorBgTextHover: 'orange',
-              colorBgTextActive: 'blue',
+            InputNumber: {
+              handleWidth: 25,
             },
           },
         }}
       >
-        <Button type="text">Text 2</Button>
+        <InputNumber />
       </ConfigProvider>
     </Space>
   </ConfigProvider>

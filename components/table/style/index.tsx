@@ -1,8 +1,8 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
-import type { FullToken, GenerateStyle } from '../../_util/theme';
-import { clearFix, genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
+import type { FullToken, GenerateStyle } from '../../theme';
+import { clearFix, genComponentStyleHook, mergeToken, resetComponent } from '../../theme';
 import genBorderedStyle from './bordered';
 import genEllipsisStyle from './ellipsis';
 import genEmptyStyle from './empty';
@@ -53,6 +53,7 @@ export interface TableToken extends FullToken<'Table'> {
   tableFontSizeSmall: number;
   tableSelectionColumnWidth: number;
   tableExpandIconBg: string;
+  tableExpandColumnWidth: number;
   tableExpandedRowBg: string;
   tableFilterDropdownWidth: number;
   tableFilterDropdownSearchWidth: number;
@@ -177,7 +178,9 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = token => {
             `]: {
               [componentCls]: {
                 marginBlock: `-${tablePaddingVertical}px`,
-                marginInline: `${tablePaddingHorizontal * 2}px -${tablePaddingHorizontal}px`,
+                marginInline: `${
+                  token.tableExpandColumnWidth - tablePaddingHorizontal
+                }px -${tablePaddingHorizontal}px`,
                 [`${componentCls}-tbody > tr:last-child > td`]: {
                   borderBottom: 0,
                   '&:first-child, &:last-child': {
@@ -230,15 +233,15 @@ export default genComponentStyleHook('Table', token => {
     paddingXS,
     paddingSM,
     controlHeight,
-    colorBgComponentSecondary,
+    colorBgContainerSecondary,
     colorAction,
     colorActionHover,
     opacityLoading,
-    colorBgComponent,
-    colorBgComponentTmp,
+    colorBgContainer,
+    colorBgContent,
     radiusBase,
-    bgColors,
-    textColors,
+    colorBgFillTmp,
+    controlInteractiveSize: checkboxSize,
   } = token;
 
   const baseColorAction = new TinyColor(colorAction);
@@ -249,7 +252,7 @@ export default genComponentStyleHook('Table', token => {
 
   const tableToken = mergeToken<TableToken>(token, {
     tableFontSize: fontSize,
-    tableBg: colorBgComponent,
+    tableBg: colorBgContainer,
     tableRadius: radiusBase,
 
     tablePaddingVertical: padding,
@@ -260,12 +263,12 @@ export default genComponentStyleHook('Table', token => {
     tablePaddingHorizontalSmall: paddingXS,
     tableBorderColor: colorSplit,
     tableHeaderTextColor: colorTextHeading,
-    tableHeaderBg: colorBgComponentSecondary,
+    tableHeaderBg: colorBgContainerSecondary,
     tableFooterTextColor: colorTextHeading,
-    tableFooterBg: colorBgComponentSecondary,
+    tableFooterBg: colorBgContainerSecondary,
     tableHeaderCellSplitColor: colorSplit,
-    tableHeaderSortBg: bgColors['15'],
-    tableHeaderSortHoverBg: textColors['12'],
+    tableHeaderSortBg: colorBgContent,
+    tableHeaderSortHoverBg: colorBgFillTmp,
     tableHeaderIconColor: baseColorAction
       .clone()
       .setAlpha(baseColorAction.getAlpha() * opacityLoading)
@@ -274,11 +277,11 @@ export default genComponentStyleHook('Table', token => {
       .clone()
       .setAlpha(baseColorActionHover.getAlpha() * opacityLoading)
       .toRgbString(),
-    tableBodySortBg: colorBgComponentSecondary,
-    tableFixedHeaderSortActiveBg: colorBgComponentTmp,
-    tableHeaderFilterActiveBg: textColors['12'],
-    tableFilterDropdownBg: colorBgComponent,
-    tableRowHoverBg: colorBgComponentSecondary,
+    tableBodySortBg: colorBgContainerSecondary,
+    tableFixedHeaderSortActiveBg: colorBgContent,
+    tableHeaderFilterActiveBg: colorBgFillTmp,
+    tableFilterDropdownBg: colorBgContainer,
+    tableRowHoverBg: colorBgContainerSecondary,
     tableSelectedRowBg,
     tableSelectedRowHoverBg: controlItemBgActiveHover,
     zIndexTableFixed,
@@ -286,8 +289,9 @@ export default genComponentStyleHook('Table', token => {
     tableFontSizeMiddle: fontSize,
     tableFontSizeSmall: fontSize,
     tableSelectionColumnWidth: controlHeight,
-    tableExpandIconBg: colorBgComponent,
-    tableExpandedRowBg: colorBgComponentSecondary,
+    tableExpandIconBg: colorBgContainer,
+    tableExpandColumnWidth: checkboxSize + 2 * token.padding,
+    tableExpandedRowBg: colorBgContainerSecondary,
 
     // Dropdown
     tableFilterDropdownWidth: 120,

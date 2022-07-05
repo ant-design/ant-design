@@ -30,9 +30,10 @@ function alertBabelConfig(rules) {
 }
 
 const ssrCssFileName = `ssr-${Date.now()}.css`;
+const port = process.env.DEV_PORT || 8001;
 
 module.exports = {
-  port: 8001,
+  port,
   hash: true,
   source: {
     components: './components',
@@ -202,7 +203,7 @@ module.exports = {
   },
 
   devServerConfig: {
-    public: process.env.DEV_HOST || 'localhost',
+    public: `${process.env.DEV_HOST || 'localhost'}:${port}`,
     disableHostCheck: !!process.env.DEV_HOST,
   },
 

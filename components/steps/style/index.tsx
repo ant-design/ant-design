@@ -1,7 +1,7 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { FullToken, GenerateStyle } from '../../_util/theme';
-import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
+import type { FullToken, GenerateStyle } from '../../theme';
+import { genComponentStyleHook, mergeToken, resetComponent } from '../../theme';
 import genStepsCustomIconStyle from './custom-icon';
 import genStepsLabelPlacementStyle from './label-placement';
 import genStepsNavStyle from './nav';
@@ -66,7 +66,7 @@ const genStepsItemStatusStyle = (status: StepItemStatusEnum, token: StepsToken):
   const tailColorKey: keyof StepsToken = `${status}TailColor`;
   return {
     [`${prefix}-${status} ${prefix}-icon`]: {
-      backgroundColor: token.colorBgComponent,
+      backgroundColor: token.colorBgContainer,
       borderColor: token[iconColorKey],
       [`> ${token.componentCls}-icon`]: {
         color: token[iconColorKey],

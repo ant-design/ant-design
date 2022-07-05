@@ -1,7 +1,7 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { GenerateStyle, FullToken } from '../../_util/theme';
-import { genComponentStyleHook, mergeToken } from '../../_util/theme';
+import type { FullToken, GenerateStyle } from '../../theme';
+import { genComponentStyleHook, mergeToken } from '../../theme';
 
 export interface ComponentToken {
   imageWidth: number;
@@ -80,7 +80,7 @@ const genBaseStyle: GenerateStyle<ResultToken> = (token): CSSObject => {
     [`${componentCls} ${componentCls}-content`]: {
       marginTop: paddingLG,
       padding: `${paddingLG}px ${padding * 2.5}px`,
-      backgroundColor: token.colorBgComponentSecondary,
+      backgroundColor: token.colorBgContainerSecondary,
     },
 
     [`${componentCls} ${componentCls}-extra`]: {

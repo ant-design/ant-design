@@ -1,8 +1,8 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
-import type { FullToken, GenerateStyle } from '../../_util/theme';
-import { genComponentStyleHook, mergeToken } from '../../_util/theme';
+import type { FullToken, GenerateStyle } from '../../theme';
+import { genComponentStyleHook, mergeToken } from '../../theme';
 
 export interface DrawerToken extends FullToken<'Drawer'> {
   drawerFooterPaddingVertical: number;
@@ -136,7 +136,7 @@ const genBaseStyle: GenerateStyle<DrawerToken> = (token: DrawerToken): CSSObject
         insetInlineStart: 0,
         width: '100%',
         height: 0,
-        backgroundColor: token.controlMaskBg,
+        backgroundColor: token.colorBgMask,
         opacity: 0,
         transition: `opacity ${motionDurationSlow} linear, height 0s ease ${motionDurationSlow}`,
         pointerEvents: 'none',

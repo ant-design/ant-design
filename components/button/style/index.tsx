@@ -1,7 +1,7 @@
 // deps-lint-skip-all
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
-import type { FullToken, GenerateStyle } from '../../_util/theme';
-import { genComponentStyleHook, mergeToken } from '../../_util/theme';
+import type { FullToken, GenerateStyle } from '../../theme';
+import { genComponentStyleHook, mergeToken } from '../../theme';
 import genGroupStyle from './group';
 
 /** Component only token. Which will handle additional calculation of alias token */
@@ -105,7 +105,7 @@ const genSolidDisabledButtonStyle: GenerateStyle<ButtonToken, CSSObject> = token
     cursor: 'not-allowed',
     borderColor: token.colorBorder,
     color: token.colorTextDisabled,
-    backgroundColor: token.colorBgComponentDisabled,
+    backgroundColor: token.colorBgContainerDisabled,
     boxShadow: 'none',
   },
 });
@@ -127,10 +127,10 @@ const genPureDisabledButtonStyle: GenerateStyle<ButtonToken, CSSObject> = token 
 const genDefaultButtonStyle: GenerateStyle<ButtonToken, CSSObject> = token => ({
   ...genSolidButtonStyle(token),
 
-  backgroundColor: token.colorBgComponent,
+  backgroundColor: token.colorBgContainer,
   borderColor: token.colorBorder,
 
-  boxShadow: `0 ${token.controlOutlineWidth}px 0 ${token.colorDefaultOutline}`,
+  boxShadow: `0 ${token.controlOutlineWidth}px 0 ${token.controlTmpOutline}`,
 
   ...genHoverActiveButtonStyle(
     {
@@ -145,8 +145,8 @@ const genDefaultButtonStyle: GenerateStyle<ButtonToken, CSSObject> = token => ({
 
   ...genGhostButtonStyle(
     token.componentCls,
-    token.colorBgComponent,
-    token.colorBgComponent,
+    token.colorBgContainer,
+    token.colorBgContainer,
     token.colorTextDisabled,
     token.colorBorder,
   ),
@@ -181,7 +181,7 @@ const genDefaultButtonStyle: GenerateStyle<ButtonToken, CSSObject> = token => ({
 const genPrimaryButtonStyle: GenerateStyle<ButtonToken, CSSObject> = token => ({
   ...genSolidButtonStyle(token),
 
-  color: '#FFF',
+  color: token.colorTextLightSolid,
   backgroundColor: token.colorPrimary,
 
   boxShadow: `0 ${token.controlOutlineWidth}px 0 ${token.colorPrimaryOutline}`,
@@ -377,12 +377,12 @@ const genSizeLargeButtonStyle: GenerateStyle<ButtonToken> = token => {
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Button', token => {
-  const { textColors } = token;
+  const { buttonColorBgTextHover, buttonColorBgTextActive, controlTmpOutline } = token;
 
   const buttonToken = mergeToken<ButtonToken>(token, {
-    colorBgTextHover: textColors['3'],
-    colorBgTextActive: textColors['4'],
-    colorOutlineDefault: textColors['8'],
+    colorBgTextHover: buttonColorBgTextHover,
+    colorBgTextActive: buttonColorBgTextActive,
+    colorOutlineDefault: controlTmpOutline,
   });
 
   return [

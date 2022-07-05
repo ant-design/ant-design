@@ -1,12 +1,11 @@
-import type { CSSInterpolation } from '@ant-design/cssinjs';
-import { Theme, useCacheToken, useStyleRegister } from '@ant-design/cssinjs';
+import type { CSSInterpolation, Theme } from '@ant-design/cssinjs';
+import { createTheme, useCacheToken, useStyleRegister } from '@ant-design/cssinjs';
 import React from 'react';
-import version from '../../version';
-import type { DeepPartial } from '../type';
+import version from '../version';
 import type {
   AliasToken,
-  DerivativeToken,
   GlobalToken,
+  MapToken,
   OverrideToken,
   PresetColorType,
   SeedToken,
@@ -20,6 +19,8 @@ import type { FullToken } from './util/genComponentStyleHook';
 import genComponentStyleHook from './util/genComponentStyleHook';
 import getArrowStyle from './util/placementArrow';
 import statisticToken, { merge as mergeToken, statistic } from './util/statistic';
+
+const defaultTheme = createTheme(defaultDerivative);
 
 export {
   resetComponent,
@@ -50,8 +51,8 @@ export type {
 // ================================ Context =================================
 export const DesignTokenContext = React.createContext<{
   token: Partial<SeedToken>;
-  derivative?: (token: SeedToken) => DerivativeToken;
-  override?: DeepPartial<OverrideToken>;
+  theme?: Theme<SeedToken, MapToken>;
+  override?: OverrideToken;
   hashed?: string | boolean;
 }>({
   token: defaultSeedToken,
@@ -63,20 +64,15 @@ export const DesignTokenContext = React.createContext<{
 const saltPrefix =
   process.env.NODE_ENV === 'production' ? version : `${version}-${new Date().getHours()}`;
 
-export function useToken(): [Theme<SeedToken, DerivativeToken>, GlobalToken, string] {
-  const {
-    token: rootDesignToken,
-    override,
-    derivative = defaultDerivative,
-    hashed,
-  } = React.useContext(DesignTokenContext);
-
-  const theme = new Theme(derivative);
+export function useToken(): [Theme<SeedToken, MapToken>, GlobalToken, string] {
+  const { token: rootDesignToken, override, hashed, theme } = React.useContext(DesignTokenContext);
 
   const salt = `${saltPrefix}-${hashed || ''}`;
 
+  const mergedTheme = theme || defaultTheme;
+
   const [token, hashId] = useCacheToken<GlobalToken, SeedToken>(
-    theme,
+    mergedTheme,
     [defaultSeedToken, rootDesignToken],
     {
       salt,
@@ -85,7 +81,7 @@ export function useToken(): [Theme<SeedToken, DerivativeToken>, GlobalToken, str
     },
   );
 
-  return [theme, token, hashed ? hashId : ''];
+  return [mergedTheme, token, hashed ? hashId : ''];
 }
 
 export type UseComponentStyleResult = [(node: React.ReactNode) => React.ReactElement, string];
@@ -94,45 +90,3 @@ export type GenerateStyle<
   ComponentToken extends object = AliasToken,
   ReturnType = CSSInterpolation,
 > = (token: ComponentToken) => ReturnType;
-
-export const emptyTheme = new Theme(token => token);
-
-export type CustomTokenOptions<
-  CustomSeedToken extends Record<string, any>,
-  CustomAliasToken extends Record<string, any> = {},
-> = {
-  /** The original tokens, which may affect other tokens. */
-  seedToken?: CustomSeedToken;
-  /** Generate token based on seedToken. */
-  formatToken?: (
-    mergedToken: AliasToken & CustomSeedToken,
-  ) => AliasToken & CustomSeedToken & CustomAliasToken;
-};
-
-/**
- * Generate custom tokens with tokens of ant-design.
- */
-export function useCustomToken<
-  CustomSeedToken extends Record<string, any>,
-  CustomAliasToken extends Record<string, any> = {},
->({
-  seedToken,
-  formatToken: customFormatToken,
-}: CustomTokenOptions<CustomSeedToken, CustomAliasToken>): {
-  token: AliasToken & CustomSeedToken & CustomAliasToken;
-  hashId: string;
-} {
-  const [, antdToken, hashed] = useToken();
-
-  const salt = `${saltPrefix}-${hashed || ''}`;
-
-  const [token, hashId] = useCacheToken(emptyTheme, [antdToken, seedToken ?? {}], {
-    salt,
-    formatToken: customFormatToken,
-  });
-
-  return {
-    token,
-    hashId: hashed ? hashId : '',
-  };
-}

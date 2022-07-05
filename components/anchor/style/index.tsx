@@ -1,7 +1,7 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { FullToken, GenerateStyle } from '../../_util/theme';
-import { genComponentStyleHook, mergeToken, resetComponent } from '../../_util/theme';
+import type { FullToken, GenerateStyle } from '../../theme';
+import { genComponentStyleHook, mergeToken, resetComponent } from '../../theme';
 
 export interface ComponentToken {}
 
@@ -59,7 +59,7 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token): CSSObject => {
           display: 'none',
           width: anchorBallSize,
           height: anchorBallSize,
-          backgroundColor: token.colorBgComponent,
+          backgroundColor: token.colorBgContainer,
           border: `${lineWidthBold}px solid ${token.colorPrimary}`,
           borderRadius: anchorBallSize,
           transform: 'translateX(-50%)',

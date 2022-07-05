@@ -1,8 +1,8 @@
 // deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
-import type { FullToken, GenerateStyle, PresetColorType } from '../../_util/theme';
-import { genComponentStyleHook, mergeToken, PresetColors, resetComponent } from '../../_util/theme';
+import type { FullToken, GenerateStyle, PresetColorType } from '../../theme';
+import { genComponentStyleHook, mergeToken, PresetColors, resetComponent } from '../../theme';
 
 interface BadgeToken extends FullToken<'Badge'> {
   badgeFontHeight: number;
@@ -317,13 +317,13 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token: BadgeToken): CSSO
 
 // ============================== Export ==============================
 export default genComponentStyleHook('Badge', token => {
-  const { fontSize, lineHeight, fontSizeSM, controlLineWidth, marginXS, bgColors } = token;
+  const { fontSize, lineHeight, fontSizeSM, controlLineWidth, marginXS, colorBorderBg } = token;
 
   const badgeFontHeight = Math.round(fontSize * lineHeight);
   const badgeShadowSize = controlLineWidth;
   const badgeZIndex = 'auto';
   const badgeHeight = badgeFontHeight - 2 * badgeShadowSize;
-  const badgeTextColor = token.colorBgComponent;
+  const badgeTextColor = token.colorBgContainer;
   const badgeFontWeight = 'normal';
   const badgeFontSize = fontSizeSM;
   const badgeColor = token.colorError;
@@ -341,7 +341,7 @@ export default genComponentStyleHook('Badge', token => {
     badgeFontWeight,
     badgeFontSize,
     badgeColor,
-    badgeShadowColor: bgColors['0'],
+    badgeShadowColor: colorBorderBg,
     badgeHeightSm,
     badgeDotSize,
     badgeFontSizeSm,

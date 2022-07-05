@@ -1,6 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { MenuThemeToken } from '.';
-import type { GenerateStyle } from '../../_util/theme';
+import type { GenerateStyle } from '../../theme';
 
 const getVerticalInlineStyle: GenerateStyle<MenuThemeToken, CSSObject> = token => {
   const { componentCls, menuItemHeight, marginXS, padding, marginXXS, menuArrowSize, fontSize } =

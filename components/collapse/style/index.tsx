@@ -1,6 +1,6 @@
 // deps-lint-skip-all
-import type { GenerateStyle, FullToken } from '../../_util/theme';
-import { resetComponent, genComponentStyleHook, mergeToken, resetIcon } from '../../_util/theme';
+import type { FullToken, GenerateStyle } from '../../theme';
+import { genComponentStyleHook, mergeToken, resetComponent, resetIcon } from '../../theme';
 
 type CollapseToken = FullToken<'Collapse'> & {
   collapseContentBg: string;
@@ -233,9 +233,9 @@ const genBorderlessStyle: GenerateStyle<CollapseToken> = token => {
 
 export default genComponentStyleHook('Collapse', token => {
   const collapseToken = mergeToken<CollapseToken>(token, {
-    collapseContentBg: token.colorBgComponent,
+    collapseContentBg: token.colorBgContainer,
     collapseContentPadding: token.padding,
-    collapseHeaderBg: token.colorBgComponentSecondary,
+    collapseHeaderBg: token.colorBgContainerSecondary,
     collapseHeaderPadding: `${token.paddingSM}px ${token.padding}px`,
     collapsePanelBorderRadius: token.radiusBase,
   });
