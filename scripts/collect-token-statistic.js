@@ -6,6 +6,7 @@ const ReactDOMServer = require('react-dom/server');
 const fs = require('fs-extra');
 const glob = require('glob');
 const path = require('path');
+const ProgressBar = require('progress');
 const { statistic } = require('../components/theme/util/statistic');
 
 console.log(chalk.green(`🔥 Collecting token statistics...`));
@@ -18,8 +19,18 @@ const styleFiles = glob.sync(
     'components/!(version|config-provider|icon|locale-provider|auto-complete|col|row|page-header|comment|time-picker|)/style/index.tsx',
   ),
 );
+
+const bar = new ProgressBar('🚀 Collecting by component: [:bar] :component (:current/:total)', {
+  complete: '=',
+  incomplete: ' ',
+  total: styleFiles.length,
+});
+
 styleFiles.forEach(file => {
-  console.log(file);
+  const pathArr = file.split('/');
+  const styleIndex = pathArr.lastIndexOf('style');
+  const componentName = pathArr[styleIndex - 1];
+  bar.tick(1, { component: componentName });
   let useStyle = () => {};
   if (file.includes('grid')) {
     const { useColStyle, useRowStyle } = require(file);
@@ -42,5 +53,5 @@ styleFiles.forEach(file => {
   const content = `export default ${JSON.stringify(statistic, null, 2)}`;
   await fs.writeFile(tokenPath, content, 'utf8');
 
-  console.log(chalk.green(`✅  Collecting token statistics done.`));
+  console.log(chalk.green(`✅  Collected token statistics successfully, check it in`), tokenPath);
 })();
