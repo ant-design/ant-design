@@ -47,6 +47,13 @@ const App: React.FC = () => (
         <span className="mock-block">Block</span>
       </Space>
     </div>
+    <div className="space-align-block">
+      <Space align="stretch">
+        stretch
+        <Button type="primary">Primary</Button>
+        <span className="mock-block">Block</span>
+      </Space>
+    </div>
   </div>
 );
 
