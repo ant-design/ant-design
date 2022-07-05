@@ -15,7 +15,7 @@ Drag treeNode to insert after the other treeNode or insert into the other parent
 
 ```tsx
 import { Tree } from 'antd';
-import type { DataNode, TreeProps } from 'antd/lib/tree';
+import type { DataNode, TreeProps } from 'antd/es/tree';
 import React, { useState } from 'react';
 
 const x = 3;

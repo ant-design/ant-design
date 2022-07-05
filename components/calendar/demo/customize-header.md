@@ -15,11 +15,11 @@ Customize Calendar header content.
 
 ```tsx
 import { Calendar, Col, Radio, Row, Select, Typography } from 'antd';
-import type { CalendarMode } from 'antd/lib/calendar/generateCalendar';
 import type { Dayjs } from 'dayjs';
 import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
 import dayLocaleData from 'dayjs/plugin/localeData';
+import type { CalendarMode } from 'antd/es/calendar/generateCalendar';
 import React from 'react';
 
 dayjs.extend(dayLocaleData);

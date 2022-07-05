@@ -15,6 +15,17 @@ timeline: true
 
 ---
 
+## 4.21.5
+
+`2022-07-03`
+
+- 🐞 Fix Checkbox cannot be disabled by Form `disabled` prop. [#36345](https://github.com/ant-design/ant-design/pull/36345)
+- 🐞 Fix Button `loading` prop with `null` value. [#36288](https://github.com/ant-design/ant-design/pull/36288) [@kejianfeng](https://github.com/kejianfeng)
+- 🐞 Fix popover arrow compatibility problem on some browsers. [#36266](https://github.com/ant-design/ant-design/pull/36266)
+- 🐞 Fix extra shadow in nested Table. [#36277](https://github.com/ant-design/ant-design/pull/36277)
+- 🐞 Fix that some class name in Divider cannot be customized. [#36271](https://github.com/ant-design/ant-design/pull/36271) [@alanhaledc](https://github.com/alanhaledc)
+- 🇧🇾 Update Belarusian locale. [#36265](https://github.com/ant-design/ant-design/pull/36265)
+
 ## 4.21.4
 
 `2022-06-27`

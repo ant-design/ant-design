@@ -1,0 +1,49 @@
+// ================================================================
+// =                         Border Radius                         =
+// ================================================================
+.@{table-prefix-cls} {
+  /* title + table */
+  &-title {
+    border-radius: @table-border-radius-base @table-border-radius-base 0 0;
+  }
+
+  &-title + &-container {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+
+    table {
+      border-radius: 0;
+
+      > thead > tr:first-child {
+        th:first-child {
+          border-radius: 0;
+        }
+
+        th:last-child {
+          border-radius: 0;
+        }
+      }
+    }
+  }
+
+  /* table */
+  &-container {
+    border-top-left-radius: @table-border-radius-base;
+    border-top-right-radius: @table-border-radius-base;
+
+    table > thead > tr:first-child {
+      th:first-child {
+        border-top-left-radius: @table-border-radius-base;
+      }
+
+      th:last-child {
+        border-top-right-radius: @table-border-radius-base;
+      }
+    }
+  }
+
+  /* table + footer */
+  &-footer {
+    border-radius: 0 0 @table-border-radius-base @table-border-radius-base;
+  }
+}

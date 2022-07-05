@@ -15,7 +15,7 @@ By using `components`, we can integrate table with [react-dnd](https://github.co
 
 ```tsx
 import { Table } from 'antd';
-import type { ColumnsType } from 'antd/lib/table';
+import type { ColumnsType } from 'antd/es/table';
 import update from 'immutability-helper';
 import React, { useCallback, useRef, useState } from 'react';
 import { DndProvider, useDrag, useDrop } from 'react-dnd';

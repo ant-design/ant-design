@@ -29,10 +29,10 @@ import {
   TimePicker,
   Transfer,
 } from 'antd';
-import enUS from 'antd/lib/locale/en_US';
-import zhCN from 'antd/lib/locale/zh_CN';
 import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
+import enUS from 'antd/es/locale/en_US';
+import zhCN from 'antd/es/locale/zh_CN';
 import React, { useState } from 'react';
 
 dayjs.locale('en');
