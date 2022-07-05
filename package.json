@@ -255,6 +255,7 @@
     "prettier": "^2.3.2",
     "prettier-plugin-jsdoc": "^0.3.0",
     "pretty-quick": "^3.0.0",
+    "progress": "^2.0.3",
     "qs": "^6.10.1",
     "rc-footer": "^0.6.6",
     "rc-tween-one": "^3.0.3",
