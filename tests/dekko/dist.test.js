@@ -5,8 +5,6 @@ $('dist')
   .isDirectory()
   .hasFile('antd-with-locales.js')
   .hasFile('antd-with-locales.min.js')
-  .hasFile('antd.css')
-  .hasFile('antd.min.css')
   .hasFile('antd.js')
   .hasFile('antd.min.js')
   .hasFile('dark-theme.js');
