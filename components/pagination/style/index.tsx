@@ -1,4 +1,3 @@
-// deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
 import {
   genBasicInputStyle,

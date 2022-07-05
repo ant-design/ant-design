@@ -1,4 +1,3 @@
-// deps-lint-skip-all
 import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook, mergeToken, resetComponent, resetIcon } from '../../theme';
 

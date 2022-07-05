@@ -1,4 +1,3 @@
-// deps-lint-skip-all
 import { initZoomMotion } from '../../style/motion';
 import type { FullToken, GenerateStyle, PresetColorType } from '../../theme';
 import {

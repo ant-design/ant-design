@@ -1,4 +1,3 @@
-// deps-lint-skip-all
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import type { FullToken, PresetColorType } from '../../theme';
 import { genComponentStyleHook, mergeToken, PresetColors, resetComponent } from '../../theme';

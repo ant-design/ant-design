@@ -1,4 +1,3 @@
-// deps-lint-skip-all
 import { TinyColor } from '@ctrl/tinycolor';
 import type { FullToken, GenerateStyle, UseComponentStyleResult } from '../../theme';
 import {

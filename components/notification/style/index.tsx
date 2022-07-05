@@ -1,4 +1,3 @@
-// deps-lint-skip-all
 import { Keyframes } from '@ant-design/cssinjs';
 import type { FullToken, GenerateStyle } from '../../theme';
 import { genComponentStyleHook, mergeToken, resetComponent } from '../../theme';

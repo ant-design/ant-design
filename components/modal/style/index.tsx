@@ -1,4 +1,3 @@
-// deps-lint-skip-all
 import type React from 'react';
 import { initFadeMotion, initZoomMotion } from '../../style/motion';
 import type { AliasToken, FullToken, GenerateStyle } from '../../theme';

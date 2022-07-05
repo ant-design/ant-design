@@ -24,6 +24,6 @@ req.keys().forEach(mod => {
 });
 
 // Need import for the additional core style
-exports.styleCore = require('../components/style/core/index.less');
+exports.styleCore = require('../components/style/reset.css');
 
 module.exports = require('../components');

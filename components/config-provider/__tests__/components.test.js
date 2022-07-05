@@ -17,7 +17,6 @@ import Carousel from '../../carousel';
 import Cascader from '../../cascader';
 import Checkbox from '../../checkbox';
 import Collapse from '../../collapse';
-import Comment from '../../comment';
 import DatePicker from '../../date-picker';
 import Divider from '../../divider';
 import Drawer from '../../drawer';
@@ -31,7 +30,6 @@ import Layout from '../../layout';
 import List from '../../list';
 import Menu from '../../menu';
 import Modal from '../../modal';
-import PageHeader from '../../page-header';
 import Pagination from '../../pagination';
 import Popconfirm from '../../popconfirm';
 import Popover from '../../popover';
@@ -239,13 +237,6 @@ describe('ConfigProvider', () => {
       </Collapse>
     ));
 
-    // Comment
-    testPair('Comment', props => (
-      <Comment {...props} content="Bamboo">
-        <Comment {...props} content="Light" />
-      </Comment>
-    ));
-
     // DatePicker
     describe('DatePicker', () => {
       testPair('DatePicker', props => (
@@ -411,13 +402,6 @@ describe('ConfigProvider', () => {
       <div>
         <Pagination showSizeChanger showQuickJumper {...props} />
         <Pagination size="small" showSizeChanger showQuickJumper {...props} />
-      </div>
-    ));
-
-    // PageHeader
-    testPair('PageHeader', props => (
-      <div>
-        <PageHeader title="pageHeader" {...props} />
       </div>
     ));
 

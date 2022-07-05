@@ -1,4 +1,3 @@
-// deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
 import type { FullToken, GenerateStyle, PresetColorType } from '../../theme';
