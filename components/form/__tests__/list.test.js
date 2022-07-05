@@ -1,9 +1,9 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 import Form from '..';
-import Input from '../../input';
+import { fireEvent, render, sleep } from '../../../tests/utils';
 import Button from '../../button';
-import { sleep, render, fireEvent } from '../../../tests/utils';
+import Input from '../../input';
 
 describe('Form.List', () => {
   async function change(wrapper, index, value) {
@@ -183,6 +183,10 @@ describe('Form.List', () => {
       await act(async () => {
         operation.add();
         await sleep(100);
+        jest.runAllTimers();
+      });
+
+      act(() => {
         jest.runAllTimers();
       });
     }

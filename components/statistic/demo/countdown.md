@@ -15,7 +15,7 @@ Countdown component.
 
 ```tsx
 import { Col, Row, Statistic } from 'antd';
-import type { countdownValueType } from 'antd/lib/statistic/utils';
+import type { countdownValueType } from 'antd/es/statistic/utils';
 import React from 'react';
 
 const { Countdown } = Statistic;

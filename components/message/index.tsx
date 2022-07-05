@@ -1,17 +1,17 @@
-import * as React from 'react';
+import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
+import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
+import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
+import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
+import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import classNames from 'classnames';
 import RCNotification from 'rc-notification';
 import type {
-  NotificationInstance as RCNotificationInstance,
   NoticeContent,
+  NotificationInstance as RCNotificationInstance,
 } from 'rc-notification/lib/Notification';
-import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
-import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
-import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
-import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
-import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
-import createUseMessage from './hooks/useMessage';
+import * as React from 'react';
 import ConfigProvider, { globalConfig } from '../config-provider';
+import createUseMessage from './hooks/useMessage';
 
 let messageInstance: RCNotificationInstance | null;
 let defaultDuration = 3;

@@ -1,10 +1,10 @@
-import * as React from 'react';
+import classNames from 'classnames';
 import type { SliderProps as RcSliderProps } from 'rc-slider';
 import RcSlider from 'rc-slider';
-import classNames from 'classnames';
+import * as React from 'react';
+import { ConfigContext } from '../config-provider';
 import type { TooltipPlacement } from '../tooltip';
 import SliderTooltip from './SliderTooltip';
-import { ConfigContext } from '../config-provider';
 
 export type SliderMarks = RcSliderProps['marks'];
 
@@ -161,7 +161,9 @@ const Slider = React.forwardRef<unknown, SliderSingleProps | SliderRangeProps>(
   },
 );
 
-Slider.displayName = 'Slider';
+if (process.env.NODE_ENV !== 'production') {
+  Slider.displayName = 'Slider';
+}
 
 Slider.defaultProps = {
   tipFormatter(value: number) {

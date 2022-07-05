@@ -15,6 +15,55 @@ timeline: true
 
 ---
 
+## 4.21.5
+
+`2022-07-03`
+
+- 🐞 修复 Checkbox 不会被 Form `disabled` 属性禁用的问题。[#36345](https://github.com/ant-design/ant-design/pull/36345)
+- 🐞 修复 Button `loading` 属性传入 `null` 时错误问题。[#36288](https://github.com/ant-design/ant-design/pull/36288) [@kejianfeng](https://github.com/kejianfeng)
+- 🐞 修复弹出框箭头在某些浏览器上的兼容性问题。[#36266](https://github.com/ant-design/ant-design/pull/36266)
+- 🐞 修复 Table 滚动阴影在内嵌表格内出现的问题。[#36277](https://github.com/ant-design/ant-design/pull/36277)
+- 🐞 修复 Divider 部分类名无法自定义的问题。[#36271](https://github.com/ant-design/ant-design/pull/36271) [@alanhaledc](https://github.com/alanhaledc)
+- 🇧🇾 调整白俄罗斯国际化语言。[#36265](https://github.com/ant-design/ant-design/pull/36265)
+
+## 4.21.4
+
+`2022-06-27`
+
+- Table
+  - 🐞 修复 Table 展开图标未居中的问题。[#36215](https://github.com/ant-design/ant-design/pull/36215)
+  - 💄 修复 Table 内嵌 Table 时的边距问题。[#36209](https://github.com/ant-design/ant-design/pull/36209)
+  - 🐞 Table 取消选择或批量操作时重置上一次选择的 key。[#34705](https://github.com/ant-design/ant-design/pull/34705) [@Dunqing](https://github.com/Dunqing)
+  - 🐞 修复 Table 过滤列表在某些场景下多级展开无法关闭的问题。[#36132](https://github.com/ant-design/ant-design/pull/36132)
+- 🐞 修复 Upload `listType="picture-card"` 当 children 为空时上传文件按钮没有隐藏的问题。[#36196](https://github.com/ant-design/ant-design/pull/36196)
+- 🐞 修复 Popover 自定义 `color` 时箭头颜色问题。[#36241](https://github.com/ant-design/ant-design/pull/36241) [@MadCcc](https://github.com/MadCcc)
+- 🐞 修复 Menu `item={undefined}` 时会有废弃警告的问题。[#36190](https://github.com/ant-design/ant-design/pull/36190)
+- 💄 修复 Button `loading` 图标的间距丢失的问题。[#36168](https://github.com/ant-design/ant-design/pull/36168)
+- 🐞 修复 Dropdown 中 Menu 分组下的 Item 点击不会关闭的问题。[#36148](https://github.com/ant-design/ant-design/pull/36148)
+- 💄 优化 Slider 拖拽手柄的可交互区域。[#36018](https://github.com/ant-design/ant-design/pull/36018) [@slotDumpling](https://github.com/slotDumpling)
+- 🐞 修复重复添加 readOnly 的 css 类名，它已在 rc-input-number 中被声明了。[#36120](https://github.com/ant-design/ant-design/pull/36120) [@RainyLiao](https://github.com/RainyLiao)
+- 💄 修复 Skeleton 在 `active` 时的背景色样式。[#36116](https://github.com/ant-design/ant-design/pull/36116)
+- TypeScript
+  - 🤖 修复 TreeSelect `switcherIcon` 类型不兼容。[#36189](https://github.com/ant-design/ant-design/pull/36189) [@Dunqing](https://github.com/Dunqing)
+  - 🤖 从 `Upload` 导出类型 `UploadFile`。[#34733](https://github.com/ant-design/ant-design/pull/34733) [@chentsulin](https://github.com/chentsulin)
+
+## 4.21.3
+
+`2022-06-17`
+
+- 🐞 修复 Table 自定义 `filterDropdown` 中使用 Menu 会被修改默认 `selectable` 的问题。[#36098](https://github.com/ant-design/ant-design/pull/36098)
+- 🐞 修复 Input.Textarea 受控时点击清除图标后无法聚焦的问题。[#34728](https://github.com/ant-design/ant-design/pull/34728) [@Pulset](https://github.com/Pulset)
+- TypeScript
+  - 🤖 修复 Tree.DirectoryTree 不支持泛型的问题。[#36092](https://github.com/ant-design/ant-design/pull/36092) [@JaylanChen](https://github.com/JaylanChen)
+  - 🤖 从 `Select` 导出类型 `RefSelectProps`。[#34732](https://github.com/ant-design/ant-design/pull/34732) [@chentsulin](https://github.com/chentsulin)
+  - 🤖 从 Form 导出类型 `FormRule`、`FormListFieldData`、`FormListOperation`。[#34735](https://github.com/ant-design/ant-design/pull/34735) [@chentsulin](https://github.com/chentsulin)
+
+## 4.21.2
+
+`2022-06-15`
+
+- 🐞 修复 Form 有 `noStyle` 属性时校验状态错误的问题。[#36054](https://github.com/ant-design/ant-design/pull/36054)
+
 ## 4.21.1
 
 `2022-06-13`

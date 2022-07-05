@@ -129,6 +129,7 @@
     pointer-events: none;
 
     &-content {
+      --antd-arrow-background-color: @popover-bg;
       position: absolute;
       top: 0;
       right: 0;
@@ -138,10 +139,9 @@
       width: @popover-arrow-width;
       height: @popover-arrow-width;
       margin: auto;
-      background-color: @popover-bg;
       content: '';
       pointer-events: auto;
-      .roundedArrow(@popover-arrow-width, 5px, @popover-bg);
+      .roundedArrow(@popover-arrow-width, 5px);
     }
   }
 

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { render, fireEvent } from '../../../tests/utils';
 import Space from '..';
-import ConfigProvider from '../../config-provider';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { fireEvent, render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 describe('Space', () => {
   mountTest(Space);

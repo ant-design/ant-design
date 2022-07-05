@@ -1,31 +1,31 @@
-import * as React from 'react';
+import LeftOutlined from '@ant-design/icons/LeftOutlined';
+import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
+import RightOutlined from '@ant-design/icons/RightOutlined';
 import classNames from 'classnames';
-import RcCascader from 'rc-cascader';
 import type {
-  SingleCascaderProps as RcSingleCascaderProps,
-  MultipleCascaderProps as RcMultipleCascaderProps,
-  ShowSearchType,
-  FieldNames,
   BaseOptionType,
   DefaultOptionType,
+  FieldNames,
+  MultipleCascaderProps as RcMultipleCascaderProps,
+  ShowSearchType,
+  SingleCascaderProps as RcSingleCascaderProps,
 } from 'rc-cascader';
+import RcCascader from 'rc-cascader';
 import omit from 'rc-util/lib/omit';
-import RightOutlined from '@ant-design/icons/RightOutlined';
-import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
-import LeftOutlined from '@ant-design/icons/LeftOutlined';
+import * as React from 'react';
 import { useContext } from 'react';
-import warning from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
-import DisabledContext from '../config-provider/DisabledContext';
+import { FormItemInputContext } from '../form/context';
 import getIcons from '../select/utils/iconUtil';
 import type { SelectCommonPlacement } from '../_util/motion';
-import { getTransitionName, getTransitionDirection } from '../_util/motion';
-import { FormItemInputContext } from '../form/context';
+import { getTransitionDirection, getTransitionName } from '../_util/motion';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
+import warning from '../_util/warning';
 
 // Align the design since we use `rc-select` in root. This help:
 // - List search content will show all content
@@ -308,8 +308,9 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
   SHOW_PARENT: typeof SHOW_PARENT;
   SHOW_CHILD: typeof SHOW_CHILD;
 };
-
-Cascader.displayName = 'Cascader';
+if (process.env.NODE_ENV !== 'production') {
+  Cascader.displayName = 'Cascader';
+}
 Cascader.SHOW_PARENT = SHOW_PARENT;
 Cascader.SHOW_CHILD = SHOW_CHILD;
 

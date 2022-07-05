@@ -12073,13 +12073,14 @@ exports[`ConfigProvider components Checkbox configProvider componentDisabled 1`]
   class="config-checkbox-group"
 >
   <label
-    class="config-checkbox-wrapper"
+    class="config-checkbox-wrapper config-checkbox-wrapper-disabled"
   >
     <span
-      class="config-checkbox"
+      class="config-checkbox config-checkbox-disabled"
     >
       <input
         class="config-checkbox-input"
+        disabled=""
         type="checkbox"
       />
       <span
@@ -12226,6 +12227,7 @@ exports[`ConfigProvider components Collapse configProvider 1`] = `
     class="config-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="config-collapse-header"
       role="button"
@@ -12272,6 +12274,7 @@ exports[`ConfigProvider components Collapse configProvider componentDisabled 1`]
     class="config-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="config-collapse-header"
       role="button"
@@ -12318,6 +12321,7 @@ exports[`ConfigProvider components Collapse configProvider componentSize large 1
     class="config-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="config-collapse-header"
       role="button"
@@ -12364,6 +12368,7 @@ exports[`ConfigProvider components Collapse configProvider componentSize middle 
     class="config-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="config-collapse-header"
       role="button"
@@ -12410,6 +12415,7 @@ exports[`ConfigProvider components Collapse configProvider virtual and dropdownM
     class="ant-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="button"
@@ -12456,6 +12462,7 @@ exports[`ConfigProvider components Collapse normal 1`] = `
     class="ant-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="button"
@@ -12502,6 +12509,7 @@ exports[`ConfigProvider components Collapse prefixCls 1`] = `
     class="prefix-Collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="prefix-Collapse-header"
       role="button"
@@ -27101,13 +27109,14 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                                   class="config-dropdown-menu-title-content"
                                 >
                                   <label
-                                    class="config-checkbox-wrapper"
+                                    class="config-checkbox-wrapper config-checkbox-wrapper-disabled"
                                   >
                                     <span
-                                      class="config-checkbox"
+                                      class="config-checkbox config-checkbox-disabled"
                                     >
                                       <input
                                         class="config-checkbox-input"
+                                        disabled=""
                                         type="checkbox"
                                       />
                                       <span
@@ -38651,13 +38660,14 @@ exports[`ConfigProvider components Transfer configProvider componentDisabled 1`]
       class="config-transfer-list-header"
     >
       <label
-        class="config-checkbox-wrapper config-transfer-list-checkbox"
+        class="config-checkbox-wrapper config-checkbox-wrapper-disabled config-transfer-list-checkbox"
       >
         <span
-          class="config-checkbox"
+          class="config-checkbox config-checkbox-disabled"
         >
           <input
             class="config-checkbox-input"
+            disabled=""
             type="checkbox"
           />
           <span
@@ -38809,13 +38819,14 @@ exports[`ConfigProvider components Transfer configProvider componentDisabled 1`]
       class="config-transfer-list-header"
     >
       <label
-        class="config-checkbox-wrapper config-transfer-list-checkbox"
+        class="config-checkbox-wrapper config-checkbox-wrapper-disabled config-transfer-list-checkbox"
       >
         <span
-          class="config-checkbox"
+          class="config-checkbox config-checkbox-disabled"
         >
           <input
             class="config-checkbox-input"
+            disabled=""
             type="checkbox"
           />
           <span

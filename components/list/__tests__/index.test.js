@@ -1,8 +1,8 @@
 import React from 'react';
-import { render } from '../../../tests/utils';
 import List from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import { render } from '../../../tests/utils';
 
 describe('List', () => {
   mountTest(List);
