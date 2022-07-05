@@ -23,4 +23,7 @@ req.keys().forEach(mod => {
   }
 });
 
+// Need import for the additional core style
+exports.styleCore = require('../components/style/core/index.less');
+
 module.exports = require('../components');

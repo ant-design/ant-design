@@ -19,7 +19,6 @@ import { DisabledContextProvider } from './DisabledContext';
 import useTheme from './hooks/useTheme';
 import type { SizeType } from './SizeContext';
 import SizeContext, { SizeContextProvider } from './SizeContext';
-import useGlobalStyle from './style';
 
 export {
   RenderEmptyHandler,
@@ -87,7 +86,6 @@ export interface ConfigProviderProps {
   virtual?: boolean;
   dropdownMatchSelectWidth?: boolean;
   theme?: ThemeConfig;
-  disablePresetStyle?: boolean;
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -158,11 +156,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     iconPrefixCls,
     theme,
     componentDisabled,
-    disablePresetStyle,
   } = props;
-
-  const mergedDisablePresetStyle = parentContext.disablePresetStyle || disablePresetStyle;
-  const wrapSSR = useGlobalStyle(mergedDisablePresetStyle);
 
   const getPrefixCls = React.useCallback(
     (suffixCls: string, customizePrefixCls?: string) => {
@@ -190,7 +184,6 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     dropdownMatchSelectWidth,
     getPrefixCls,
     theme: mergedTheme,
-    disableGlobalStyle: mergedDisablePresetStyle,
   };
 
   // Pass the props used by `useContext` directly with child component.
@@ -284,7 +277,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     );
   }
 
-  return wrapSSR(<ConfigContext.Provider value={memoedConfig}>{childNode}</ConfigContext.Provider>);
+  return <ConfigContext.Provider value={memoedConfig}>{childNode}</ConfigContext.Provider>;
 };
 
 const ConfigProvider: React.FC<ConfigProviderProps> & {
