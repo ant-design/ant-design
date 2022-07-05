@@ -29,7 +29,7 @@ describe('global style', () => {
 
   it('nested ConfigProvider disableGlobalStyle should work', () => {
     const { unmount } = render(
-      <ConfigProvider theme={{ token: { colorPrimary: '#003' } }} disableGlobalStyle>
+      <ConfigProvider theme={{ token: { colorPrimary: '#003' } }} disablePresetStyle>
         <ConfigProvider />
       </ConfigProvider>,
     );

@@ -1,3 +1,4 @@
+// deps-lint-skip-all
 import type { CSSObject } from '@ant-design/cssinjs';
 import { useStyleRegister } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';

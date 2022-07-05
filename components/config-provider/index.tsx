@@ -87,7 +87,7 @@ export interface ConfigProviderProps {
   virtual?: boolean;
   dropdownMatchSelectWidth?: boolean;
   theme?: ThemeConfig;
-  disableGlobalStyle?: boolean;
+  disablePresetStyle?: boolean;
 }
 
 interface ProviderChildrenProps extends ConfigProviderProps {
@@ -158,11 +158,11 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     iconPrefixCls,
     theme,
     componentDisabled,
-    disableGlobalStyle,
+    disablePresetStyle,
   } = props;
 
-  const mergedDisableGlobalStyle = parentContext.disableGlobalStyle || disableGlobalStyle;
-  const wrapSSR = useGlobalStyle(mergedDisableGlobalStyle);
+  const mergedDisablePresetStyle = parentContext.disablePresetStyle || disablePresetStyle;
+  const wrapSSR = useGlobalStyle(mergedDisablePresetStyle);
 
   const getPrefixCls = React.useCallback(
     (suffixCls: string, customizePrefixCls?: string) => {
@@ -190,7 +190,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     dropdownMatchSelectWidth,
     getPrefixCls,
     theme: mergedTheme,
-    disableGlobalStyle: mergedDisableGlobalStyle,
+    disableGlobalStyle: mergedDisablePresetStyle,
   };
 
   // Pass the props used by `useContext` directly with child component.
