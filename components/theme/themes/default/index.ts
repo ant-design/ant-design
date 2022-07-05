@@ -15,15 +15,7 @@ import {
 } from './palettes';
 
 export default function derivative(token: SeedToken): MapToken {
-  const {
-    colorPrimary,
-    colorSuccess,
-    colorWarning,
-    colorError,
-    colorInfo,
-    colorBgBase,
-    colorTextBase,
-  } = token;
+  const { colorSuccess, colorWarning, colorError, colorInfo } = token;
 
   const colorPalettes = Object.keys(defaultPresetColors)
     .map((colorKey: keyof PresetColorType) => {
@@ -42,13 +34,17 @@ export default function derivative(token: SeedToken): MapToken {
       return prev;
     }, {} as ColorPalettes);
 
-  const primaryColors = generatePrimaryPalettes(colorPrimary || '#1890ff');
+  const colorPrimary = token.colorPrimary || '#1890ff';
+  const colorBgBase = token.colorBgBase || '#fff';
+  const colorTextBase = token.colorTextBase || '#000';
+
+  const primaryColors = generatePrimaryPalettes(colorPrimary);
   const successColors = generateSuccessPalettes(colorSuccess);
   const warningColors = generateWarningPalettes(colorWarning);
   const errorColors = generateErrorPalettes(colorError);
   const infoColors = generateInfoPalettes(colorInfo);
-  const bgColors = generateBgPalettes(colorBgBase || '#fff');
-  const textColors = generateTextAlphaPalettes(colorTextBase || '#000');
+  const bgColors = generateBgPalettes(colorBgBase);
+  const textColors = generateTextAlphaPalettes(colorTextBase);
 
   return {
     ...token,
