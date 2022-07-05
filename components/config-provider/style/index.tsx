@@ -149,7 +149,7 @@ const genBasicStyle = (token: AliasToken): CSSObject => ({
 
   dd: {
     marginBottom: '0.5em',
-    marginLeft: 0, // Undo browser default
+    marginLeft: { _skip_check_: true, value: 0 }, // Undo browser default
   },
 
   blockquote: {
@@ -301,7 +301,7 @@ const genBasicStyle = (token: AliasToken): CSSObject => ({
     paddingTop: '0.75em',
     paddingBottom: '0.3em',
     color: token.colorTextSecondary,
-    textAlign: 'left',
+    textAlign: { _skip_check_: true, value: 'left' }, // Undo browser default
     captionSide: 'bottom',
   },
 
