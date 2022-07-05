@@ -59,6 +59,7 @@ export interface ConfigConsumerProps {
     colon?: boolean;
   };
   theme?: ThemeConfig;
+  disableGlobalStyle?: boolean;
 }
 
 const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {

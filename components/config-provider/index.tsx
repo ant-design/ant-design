@@ -161,7 +161,8 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     disableGlobalStyle,
   } = props;
 
-  const wrapSSR = useGlobalStyle(disableGlobalStyle);
+  const mergedDisableGlobalStyle = parentContext.disableGlobalStyle || disableGlobalStyle;
+  const wrapSSR = useGlobalStyle(mergedDisableGlobalStyle);
 
   const getPrefixCls = React.useCallback(
     (suffixCls: string, customizePrefixCls?: string) => {
@@ -189,6 +190,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = props => {
     dropdownMatchSelectWidth,
     getPrefixCls,
     theme: mergedTheme,
+    disableGlobalStyle: mergedDisableGlobalStyle,
   };
 
   // Pass the props used by `useContext` directly with child component.

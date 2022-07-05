@@ -478,7 +478,7 @@ const genBasicStyle = (token: AliasToken): CSSObject => ({
 export default (disabled: boolean = false) => {
   const [theme, token] = useToken();
 
-  return useStyleRegister({ theme, token, path: ['global-style'] }, () => {
+  return useStyleRegister({ theme, token, path: [`global-style`] }, () => {
     if (disabled) {
       return [];
     }
