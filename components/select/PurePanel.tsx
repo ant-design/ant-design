@@ -52,5 +52,5 @@ export default function genPurePanel<ComponentProps extends BaseProps>(Component
         />
       </div>
     );
-  };
+  } as typeof Component;
 }
