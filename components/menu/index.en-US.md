@@ -31,6 +31,7 @@ ReactDOM.render(<Alert message="After version 4.20.0, we provide a simpler usage
 const items = [
   { label: 'item 1', key: 'item-1' }, // remember to pass the key prop
   { label: 'item 2', key: 'item-2' }, // which is required
+  { label: 'item 3', key: 'item-3', 'data-x': 'test' }, // Additional custom attributes data-x
   {
     label: 'sub menu',
     key: 'submenu',
@@ -119,7 +120,7 @@ The legacy demo code for version `<4.20.0` could be found at [https://github.com
 #### SubMenuType
 
 | Param | Description | Type | Default value | Version |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- |
 | children | Sub-menus or sub-menu items | [ItemType\[\]](#ItemType) | - |  |
 | disabled | Whether sub-menu is disabled | boolean | false |  |
 | icon | Icon of sub menu | ReactNode | - |  |

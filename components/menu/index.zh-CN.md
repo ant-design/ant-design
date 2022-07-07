@@ -31,7 +31,7 @@ ReactDOM.render(<Alert message="在 4.20.0 版本后，我们提供了 <Menu ite
 // >=4.20.0 可用，推荐的写法 ✅
 const items = [
   { label: '菜单项一', key: 'item-1' }, // 菜单项务必填写 key
-  { label: '菜单项二', key: 'item-2' },
+  { label: '菜单项二', key: 'item-2', 'data-x': 'test' }, // 额外的自定义属性 data-x
   {
     label: '子菜单',
     key: 'submenu',
@@ -120,7 +120,7 @@ return <Menu items={items} />;
 #### SubMenuType
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- |
 | children | 子菜单的菜单项 | [ItemType\[\]](#ItemType) | - |  |
 | disabled | 是否禁用 | boolean | false |  |
 | icon | 菜单图标 | ReactNode | - |  |
