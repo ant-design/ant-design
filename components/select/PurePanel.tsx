@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 
-interface BaseProps {
+export interface BaseProps {
   prefixCls?: string;
   style?: React.CSSProperties;
 }
