@@ -3,7 +3,8 @@ import * as React from 'react';
 import Notification from '../notification';
 
 // Alpha version warning, should remove when published
-if (process.env.NODE_ENV !== 'production' && canUseDom()) {
+/* istanbul ignore next */
+if (process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'test' && canUseDom()) {
   const icon: React.ReactNode = (
     <img
       alt="antd"
