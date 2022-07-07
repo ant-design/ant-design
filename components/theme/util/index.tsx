@@ -15,6 +15,9 @@ export const resetComponent = (token: DerivativeToken): CSSObject => ({
   lineHeight: token.lineHeight,
   listStyle: 'none',
   // font-feature-settings: @font-feature-settings-base;
+  a: {
+    textDecoration: 'none',
+  },
 });
 
 export const resetIcon = (): CSSObject => ({

@@ -21,6 +21,7 @@ import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import getIcons from './utils/iconUtil';
 
 import useStyle from './style';
+import genPurePanel from './PurePanel';
 
 type RawValue = string | number;
 
@@ -221,10 +222,16 @@ const Select = React.forwardRef(InternalSelect) as unknown as (<
   SECRET_COMBOBOX_MODE_DO_NOT_USE: string;
   Option: typeof Option;
   OptGroup: typeof OptGroup;
+  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
 };
+
+// We don't care debug panel
+/* istanbul ignore next */
+const PurePanel = genPurePanel(Select);
 
 Select.SECRET_COMBOBOX_MODE_DO_NOT_USE = SECRET_COMBOBOX_MODE_DO_NOT_USE;
 Select.Option = Option;
 Select.OptGroup = OptGroup;
+Select._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
 export default Select;

@@ -29,6 +29,7 @@ import warning from '../_util/warning';
 
 import useSelectStyle from '../select/style';
 import useStyle from './style';
+import genPurePanel from '../select/PurePanel';
 
 // Align the design since we use `rc-select` in root. This help:
 // - List search content will show all content
@@ -317,11 +318,18 @@ const Cascader = React.forwardRef((props: CascaderProps<any>, ref: React.Ref<Cas
   displayName: string;
   SHOW_PARENT: typeof SHOW_PARENT;
   SHOW_CHILD: typeof SHOW_CHILD;
+  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
 };
 if (process.env.NODE_ENV !== 'production') {
   Cascader.displayName = 'Cascader';
 }
+
+// We don't care debug panel
+/* istanbul ignore next */
+const PurePanel = genPurePanel(Cascader);
+
 Cascader.SHOW_PARENT = SHOW_PARENT;
 Cascader.SHOW_CHILD = SHOW_CHILD;
+Cascader._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
 export default Cascader;
