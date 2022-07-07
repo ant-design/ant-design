@@ -39,7 +39,7 @@
     "es/**/style/*",
     "*.less"
   ],
-  "main": "es/index.js",
+  "main": "dist/antd.js",
   "module": "es/index.js",
   "unpkg": "dist/antd.min.js",
   "typings": "es/index.d.ts",
