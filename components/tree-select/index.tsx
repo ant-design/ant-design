@@ -12,6 +12,7 @@ import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
+import genPurePanel from '../select/PurePanel';
 import useSelectStyle from '../select/style';
 import getIcons from '../select/utils/iconUtil';
 import type { AntTreeNodeProps, TreeProps } from '../tree';
@@ -245,14 +246,20 @@ interface TreeSelectInterface extends InternalTreeSelectType {
   SHOW_ALL: typeof SHOW_ALL;
   SHOW_PARENT: typeof SHOW_PARENT;
   SHOW_CHILD: typeof SHOW_CHILD;
+  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
 }
 
 const TreeSelect = TreeSelectRef as TreeSelectInterface;
+
+// We don't care debug panel
+/* istanbul ignore next */
+const PurePanel = genPurePanel(TreeSelect);
 
 TreeSelect.TreeNode = TreeNode;
 TreeSelect.SHOW_ALL = SHOW_ALL;
 TreeSelect.SHOW_PARENT = SHOW_PARENT;
 TreeSelect.SHOW_CHILD = SHOW_CHILD;
+TreeSelect._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
 export { TreeNode };
 
