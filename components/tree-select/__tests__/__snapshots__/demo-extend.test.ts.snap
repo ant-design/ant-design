@@ -1576,7 +1576,7 @@ exports[`renders ./components/tree-select/demo/render-panel.md extend context co
   style="padding-bottom:0"
 >
   <div
-    class="ant-select ant-tree-select ant-select-single ant-select-show-arrow ant-select-open"
+    class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
     style="width:100%;margin:0"
   >
     <div
@@ -1588,7 +1588,7 @@ exports[`renders ./components/tree-select/demo/render-panel.md extend context co
         <input
           aria-autocomplete="list"
           aria-controls="undefined_list"
-          aria-expanded="true"
+          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="undefined_list"
           autocomplete="off"

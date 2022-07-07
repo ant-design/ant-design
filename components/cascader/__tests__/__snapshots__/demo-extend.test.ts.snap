@@ -1914,7 +1914,7 @@ exports[`renders ./components/cascader/demo/render-panel.md extend context corre
   style="padding-bottom:0"
 >
   <div
-    class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-open"
+    class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
     style="margin:0"
   >
     <div
@@ -1926,7 +1926,7 @@ exports[`renders ./components/cascader/demo/render-panel.md extend context corre
         <input
           aria-autocomplete="list"
           aria-controls="undefined_list"
-          aria-expanded="true"
+          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="undefined_list"
           autocomplete="off"

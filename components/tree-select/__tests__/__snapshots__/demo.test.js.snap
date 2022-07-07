@@ -404,7 +404,7 @@ exports[`renders ./components/tree-select/demo/render-panel.md correctly 1`] = `
   style="padding-bottom:0"
 >
   <div
-    class="ant-select ant-tree-select ant-select-single ant-select-show-arrow ant-select-open"
+    class="ant-select ant-tree-select ant-select-single ant-select-show-arrow"
     style="width:100%;margin:0"
   >
     <div
@@ -416,7 +416,7 @@ exports[`renders ./components/tree-select/demo/render-panel.md correctly 1`] = `
         <input
           aria-autocomplete="list"
           aria-controls="undefined_list"
-          aria-expanded="true"
+          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="undefined_list"
           autocomplete="off"
@@ -435,126 +435,6 @@ exports[`renders ./components/tree-select/demo/render-panel.md correctly 1`] = `
       >
         lucy
       </span>
-    </div>
-    <div>
-      <div
-        class="ant-select-dropdown ant-tree-select-dropdown"
-        style="opacity:0"
-      >
-        <div>
-          <div>
-            <div
-              class="ant-select-tree"
-              role="tree"
-            >
-              <div>
-                <input
-                  aria-label="for screen reader"
-                  disabled=""
-                  style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
-                  value=""
-                />
-              </div>
-              <div
-                aria-hidden="true"
-                class="ant-select-tree-treenode"
-                style="position:absolute;pointer-events:none;visibility:hidden;height:0;overflow:hidden"
-              >
-                <div
-                  class="ant-select-tree-indent"
-                >
-                  <div
-                    class="ant-select-tree-indent-unit"
-                  />
-                </div>
-              </div>
-              <div
-                class="ant-select-tree-list"
-                style="position:relative"
-              >
-                <div
-                  class="ant-select-tree-list-holder"
-                  style="max-height:256px;overflow-y:auto;overflow-anchor:none"
-                >
-                  <div>
-                    <div
-                      class="ant-select-tree-list-holder-inner"
-                      style="display:flex;flex-direction:column"
-                    >
-                      <div
-                        aria-grabbed="false"
-                        class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close"
-                        draggable="false"
-                      >
-                        <span
-                          aria-hidden="true"
-                          class="ant-select-tree-indent"
-                        />
-                        <span
-                          class="ant-select-tree-switcher ant-select-tree-switcher_close"
-                        >
-                          <span
-                            aria-label="caret-down"
-                            class="anticon anticon-caret-down ant-select-tree-switcher-icon"
-                            role="img"
-                          >
-                            <svg
-                              aria-hidden="true"
-                              data-icon="caret-down"
-                              fill="currentColor"
-                              focusable="false"
-                              height="1em"
-                              viewBox="0 0 1024 1024"
-                              width="1em"
-                            >
-                              <path
-                                d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
-                              />
-                            </svg>
-                          </span>
-                        </span>
-                        <span
-                          class="ant-select-tree-node-content-wrapper ant-select-tree-node-content-wrapper-close"
-                          title="Node1"
-                        >
-                          <span
-                            class="ant-select-tree-title"
-                          >
-                            Node1
-                          </span>
-                        </span>
-                      </div>
-                      <div
-                        aria-grabbed="false"
-                        class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
-                        draggable="false"
-                      >
-                        <span
-                          aria-hidden="true"
-                          class="ant-select-tree-indent"
-                        />
-                        <span
-                          class="ant-select-tree-switcher ant-select-tree-switcher-noop"
-                        />
-                        <span
-                          class="ant-select-tree-node-content-wrapper ant-select-tree-node-content-wrapper-normal"
-                          title="Node2"
-                        >
-                          <span
-                            class="ant-select-tree-title"
-                          >
-                            Node2
-                          </span>
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
     <span
       aria-hidden="true"

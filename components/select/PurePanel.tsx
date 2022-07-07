@@ -12,11 +12,15 @@ export default function genPurePanel<ComponentProps extends BaseProps>(Component
     const { prefixCls: customizePrefixCls, style } = props;
     const holderRef = React.useRef<HTMLDivElement>(null);
     const [popupHeight, setPopupHeight] = React.useState(0);
+    const [open, setOpen] = React.useState(false);
 
     const { getPrefixCls } = React.useContext(ConfigContext);
     const prefixCls = getPrefixCls('select', customizePrefixCls);
 
     React.useEffect(() => {
+      // We do not care about ssr
+      setOpen(true);
+
       if (typeof ResizeObserver !== 'undefined') {
         const resizeObserver = new ResizeObserver(entries => {
           const element: HTMLDivElement = entries[0].target as any;
@@ -47,7 +51,7 @@ export default function genPurePanel<ComponentProps extends BaseProps>(Component
             ...style,
             margin: 0,
           }}
-          open
+          open={open}
           getPopupContainer={() => holderRef.current!}
         />
       </div>

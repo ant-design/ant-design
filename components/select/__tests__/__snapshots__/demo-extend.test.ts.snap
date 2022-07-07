@@ -4408,7 +4408,7 @@ exports[`renders ./components/select/demo/render-panel.md extend context correct
   style="padding-bottom:0"
 >
   <div
-    class="ant-select ant-select-single ant-select-show-arrow ant-select-open"
+    class="ant-select ant-select-single ant-select-show-arrow"
     style="width:120px;margin:0"
   >
     <div
@@ -4421,7 +4421,7 @@ exports[`renders ./components/select/demo/render-panel.md extend context correct
           aria-activedescendant="undefined_list_0"
           aria-autocomplete="list"
           aria-controls="undefined_list"
-          aria-expanded="true"
+          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="undefined_list"
           autocomplete="off"

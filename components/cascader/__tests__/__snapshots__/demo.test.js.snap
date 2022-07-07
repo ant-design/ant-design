@@ -808,7 +808,7 @@ exports[`renders ./components/cascader/demo/render-panel.md correctly 1`] = `
   style="padding-bottom:0"
 >
   <div
-    class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-open"
+    class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
     style="margin:0"
   >
     <div
@@ -820,7 +820,7 @@ exports[`renders ./components/cascader/demo/render-panel.md correctly 1`] = `
         <input
           aria-autocomplete="list"
           aria-controls="undefined_list"
-          aria-expanded="true"
+          aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="undefined_list"
           autocomplete="off"
@@ -838,96 +838,6 @@ exports[`renders ./components/cascader/demo/render-panel.md correctly 1`] = `
       >
         Please select
       </span>
-    </div>
-    <div>
-      <div
-        class="ant-select-dropdown ant-cascader-dropdown"
-        style="opacity:0;min-width:auto"
-      >
-        <div>
-          <div
-            class="ant-cascader-menus"
-          >
-            <ul
-              class="ant-cascader-menu"
-              role="menu"
-            >
-              <li
-                aria-checked="false"
-                class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-                data-path-key="zhejiang"
-                role="menuitemcheckbox"
-                title="Zhejiang"
-              >
-                <div
-                  class="ant-cascader-menu-item-content"
-                >
-                  Zhejiang
-                </div>
-                <div
-                  class="ant-cascader-menu-item-expand-icon"
-                >
-                  <span
-                    aria-label="right"
-                    class="anticon anticon-right"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="right"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </li>
-              <li
-                aria-checked="false"
-                class="ant-cascader-menu-item ant-cascader-menu-item-expand"
-                data-path-key="jiangsu"
-                role="menuitemcheckbox"
-                title="Jiangsu"
-              >
-                <div
-                  class="ant-cascader-menu-item-content"
-                >
-                  Jiangsu
-                </div>
-                <div
-                  class="ant-cascader-menu-item-expand-icon"
-                >
-                  <span
-                    aria-label="right"
-                    class="anticon anticon-right"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="right"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
     </div>
     <span
       aria-hidden="true"
