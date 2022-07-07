@@ -6,7 +6,7 @@ describe('Menu.typescript', () => {
     const menu = (
       <Menu
         items={[
-          { key: 'item', title: 'Item' },
+          { key: 'item', title: 'Item', dataTest: 'exercises' },
           {
             key: 'submenu',
             theme: 'light',

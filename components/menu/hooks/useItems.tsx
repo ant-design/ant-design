@@ -14,22 +14,26 @@ interface MenuItemType extends RcMenuItemType {
   danger?: boolean;
   icon?: React.ReactNode;
   title?: string;
+  [key: string]: any;
 }
 
 interface SubMenuType extends Omit<RcSubMenuType, 'children'> {
   icon?: React.ReactNode;
   theme?: 'dark' | 'light';
   children: ItemType[];
+  [key: string]: any;
 }
 
 interface MenuItemGroupType extends Omit<RcMenuItemGroupType, 'children'> {
   children?: ItemType[];
   key?: React.Key;
+  [key: string]: any;
 }
 
 interface MenuDividerType extends RcMenuDividerType {
   dashed?: boolean;
   key?: React.Key;
+  [key: string]: any;
 }
 
 export type ItemType = MenuItemType | SubMenuType | MenuItemGroupType | MenuDividerType | null;
