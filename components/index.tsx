@@ -1,6 +1,4 @@
 /* @remove-on-es-build-begin */
-import './_util/alphaWarning';
-
 // this file is not used if use https://github.com/ant-design/babel-plugin-import
 const ENV = process.env.NODE_ENV;
 if (
