@@ -4,6 +4,7 @@ import { ConfigContext } from '../config-provider';
 import type { AvatarProps } from './Avatar';
 import SkeletonAvatar from './Avatar';
 import SkeletonButton from './Button';
+import SkeletonNode from './Node';
 import Element from './Element';
 import SkeletonImage from './Image';
 import SkeletonInput from './Input';
@@ -177,5 +178,6 @@ Skeleton.Button = SkeletonButton;
 Skeleton.Avatar = SkeletonAvatar;
 Skeleton.Input = SkeletonInput;
 Skeleton.Image = SkeletonImage;
+Skeleton.Node = SkeletonNode;
 
 export default Skeleton;
