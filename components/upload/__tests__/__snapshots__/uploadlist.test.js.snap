@@ -118,7 +118,7 @@ exports[`Upload List itemRender 1`] = `
       class="custom-item-render"
     >
       <span>
-        uid:-1 name: xxx.png status: removed url: https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png  1/2
+        uid:-1 name: xxx.png status: done url: https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png  1/2
       </span>
       <span
         class="custom-item-render-action-remove"
@@ -144,7 +144,7 @@ exports[`Upload List itemRender 1`] = `
       class="custom-item-render"
     >
       <span>
-        uid:-2 name: yyy.png status: removed url: https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png  2/2
+        uid:-2 name: yyy.png status: done url: https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png  2/2
       </span>
       <span
         class="custom-item-render-action-remove"
