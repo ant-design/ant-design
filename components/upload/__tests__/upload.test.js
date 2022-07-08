@@ -669,10 +669,8 @@ describe('Upload', () => {
     const done = jest.fn();
     let callTimes = 0;
 
-    const customRequest = jest.fn(async options => {
+    const customRequest = jest.fn(options => {
       // stop here to make sure new fileList has been set and passed to Upload
-      // eslint-disable-next-line no-promise-executor-return
-      await new Promise(resolve => setTimeout(resolve, 0));
       options.onProgress({ percent: 0 });
       const url = Promise.resolve('https://ant.design');
       options.onProgress({ percent: 100 });
