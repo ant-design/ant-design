@@ -3,6 +3,7 @@
 @import './mixin';
 @import './affix';
 @import './allow-clear';
+@import './status';
 
 @input-prefix-cls: ~'@{ant-prefix}-input';
 
@@ -24,7 +25,7 @@
     }
   }
 
-  &-password-icon {
+  &-password-icon.@{iconfont-css-prefix} {
     color: @text-color-secondary;
     cursor: pointer;
     transition: all 0.3s;
@@ -60,6 +61,23 @@
       content: attr(data-count);
       pointer-events: none;
     }
+
+    &.@{input-prefix-cls}-textarea-in-form-item {
+      &::after {
+        margin-bottom: -22px;
+      }
+    }
+  }
+
+  &-textarea-suffix {
+    position: absolute;
+    top: 0;
+    right: @input-padding-horizontal-base;
+    bottom: 0;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    margin: auto;
   }
 }
 

@@ -4,8 +4,14 @@ on:
   pull_request_target:
     types: [opened, edited, reopened, synchronize]
 
+permissions:
+  contents: read
+
 jobs:
   refuse:
+    permissions:
+      issues: write  # for actions-cool/pr-welcome to create, update & react on issues
+      pull-requests: write  # for actions-cool/pr-welcome to request reviewer
     runs-on: ubuntu-latest
     steps:
       - uses: actions-cool/pr-welcome@v1
@@ -19,6 +25,8 @@ jobs:
           close: true
 
   check-changelog:
+    permissions:
+      pull-requests: write  # for actions-cool/pr-check-fill to create or update PR comments
     runs-on: ubuntu-latest
     steps:
       - name: check fill

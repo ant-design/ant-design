@@ -13,9 +13,10 @@ title:
 
 Using pre & post tabs example.
 
-```jsx
-import { InputNumber, Select, Space, Cascader } from 'antd';
+```tsx
 import { SettingOutlined } from '@ant-design/icons';
+import { Cascader, InputNumber, Select, Space } from 'antd';
+import React from 'react';
 
 const { Option } = Select;
 
@@ -34,7 +35,7 @@ const selectAfter = (
   </Select>
 );
 
-ReactDOM.render(
+const App: React.FC = () => (
   <Space direction="vertical">
     <InputNumber addonBefore="+" addonAfter="$" defaultValue={100} />
     <InputNumber addonBefore={selectBefore} addonAfter={selectAfter} defaultValue={100} />
@@ -43,7 +44,8 @@ ReactDOM.render(
       addonBefore={<Cascader placeholder="cascader" style={{ width: 150 }} />}
       defaultValue={100}
     />
-  </Space>,
-  mountNode,
+  </Space>
 );
+
+export default App;
 ```

@@ -1,15 +1,16 @@
-import * as React from 'react';
-import RcTooltip from 'rc-tooltip';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import { TooltipProps as RcTooltipProps } from 'rc-tooltip/lib/Tooltip';
 import classNames from 'classnames';
-import { placements as Placements } from 'rc-tooltip/lib/placements';
-import getPlacements, { AdjustOverflow, PlacementsConfig } from './placements';
-import { cloneElement, isValidElement } from '../_util/reactNode';
+import RcTooltip from 'rc-tooltip';
+import type { placements as Placements } from 'rc-tooltip/lib/placements';
+import type { TooltipProps as RcTooltipProps } from 'rc-tooltip/lib/Tooltip';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import * as React from 'react';
 import { ConfigContext } from '../config-provider';
-import { PresetColorType, PresetColorTypes } from '../_util/colors';
-import { LiteralUnion } from '../_util/type';
+import type { PresetColorType } from '../_util/colors';
+import { PresetColorTypes } from '../_util/colors';
 import { getTransitionName } from '../_util/motion';
+import getPlacements, { AdjustOverflow, PlacementsConfig } from '../_util/placements';
+import { cloneElement, isValidElement } from '../_util/reactNode';
+import type { LiteralUnion } from '../_util/type';
 
 export { AdjustOverflow, PlacementsConfig };
 
@@ -166,11 +167,11 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
   const onPopupAlign = (domNode: HTMLElement, align: any) => {
     const placements: any = getTooltipPlacements();
     // 当前返回的位置
-    const placement = Object.keys(placements).filter(
+    const placement = Object.keys(placements).find(
       key =>
         placements[key].points[0] === align.points[0] &&
         placements[key].points[1] === align.points[1],
-    )[0];
+    );
     if (!placement) {
       return;
     }
@@ -239,7 +240,8 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
   let arrowContentStyle;
   if (color && !PresetColorRegex.test(color)) {
     formattedOverlayInnerStyle = { ...overlayInnerStyle, background: color };
-    arrowContentStyle = { background: color };
+    // @ts-ignore
+    arrowContentStyle = { '--antd-arrow-background-color': color };
   }
 
   return (
@@ -266,7 +268,9 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
   );
 });
 
-Tooltip.displayName = 'Tooltip';
+if (process.env.NODE_ENV !== 'production') {
+  Tooltip.displayName = 'Tooltip';
+}
 
 Tooltip.defaultProps = {
   placement: 'top' as TooltipPlacement,

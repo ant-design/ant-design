@@ -13,7 +13,7 @@
     top: -0.06em;
     display: inline-block;
     height: 0.9em;
-    margin: 0 8px;
+    margin: 0 @divider-vertical-gutter;
     vertical-align: middle;
     border-top: 0;
     border-left: @border-width-base solid @divider-color;
@@ -114,7 +114,7 @@
       width: 100%;
     }
 
-    .ant-divider-inner-text {
+    .@{divider-prefix-cls}-inner-text {
       padding-left: 0;
     }
   }
@@ -128,7 +128,7 @@
       width: 0;
     }
 
-    .ant-divider-inner-text {
+    .@{divider-prefix-cls}-inner-text {
       padding-right: 0;
     }
   }

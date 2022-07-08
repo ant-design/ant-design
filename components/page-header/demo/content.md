@@ -13,47 +13,47 @@ title:
 
 Show all props provided by PageHeader.
 
-```jsx
-import { PageHeader, Menu, Dropdown, Button, Tag, Typography, Row } from 'antd';
-import { EllipsisOutlined } from '@ant-design/icons';
+```tsx
+import { MoreOutlined } from '@ant-design/icons';
+import { Button, Dropdown, Menu, PageHeader, Row, Tag, Typography } from 'antd';
+import React from 'react';
 
 const { Paragraph } = Typography;
 
 const menu = (
-  <Menu>
-    <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
-        1st menu item
-      </a>
-    </Menu.Item>
-    <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
-        2nd menu item
-      </a>
-    </Menu.Item>
-    <Menu.Item>
-      <a target="_blank" rel="noopener noreferrer" href="http://www.tmall.com/">
-        3rd menu item
-      </a>
-    </Menu.Item>
-  </Menu>
+  <Menu
+    items={[
+      {
+        key: '1',
+        label: (
+          <a target="_blank" rel="noopener noreferrer" href="http://www.alipay.com/">
+            1st menu item
+          </a>
+        ),
+      },
+      {
+        key: '2',
+        label: (
+          <a target="_blank" rel="noopener noreferrer" href="http://www.taobao.com/">
+            2nd menu item
+          </a>
+        ),
+      },
+      {
+        key: '3',
+        label: (
+          <a target="_blank" rel="noopener noreferrer" href="http://www.tmall.com/">
+            3rd menu item
+          </a>
+        ),
+      },
+    ]}
+  />
 );
 
 const DropdownMenu = () => (
-  <Dropdown key="more" overlay={menu}>
-    <Button
-      style={{
-        border: 'none',
-        padding: 0,
-      }}
-    >
-      <EllipsisOutlined
-        style={{
-          fontSize: 20,
-          verticalAlign: 'top',
-        }}
-      />
-    </Button>
+  <Dropdown key="more" overlay={menu} placement="bottomRight">
+    <Button type="text" icon={<MoreOutlined style={{ fontSize: 20 }} />} />
   </Dropdown>
 );
 
@@ -72,7 +72,7 @@ const routes = [
   },
 ];
 
-const IconLink = ({ src, text }) => (
+const IconLink = ({ src, text }: { src: string; text: string }) => (
   <a className="example-link">
     <img className="example-link-icon" src={src} alt={text} />
     {text}
@@ -107,14 +107,17 @@ const content = (
   </>
 );
 
-const Content = ({ children, extraContent }) => (
+const Content: React.FC<{ children: React.ReactNode; extraContent: React.ReactNode }> = ({
+  children,
+  extraContent,
+}) => (
   <Row>
     <div style={{ flex: 1 }}>{children}</div>
     <div className="image">{extraContent}</div>
   </Row>
 );
 
-ReactDOM.render(
+const App: React.FC = () => (
   <PageHeader
     title="Title"
     className="site-page-header"
@@ -142,9 +145,10 @@ ReactDOM.render(
     >
       {content}
     </Content>
-  </PageHeader>,
-  mountNode,
+  </PageHeader>
 );
+
+export default App;
 ```
 
 ```css

@@ -9,10 +9,6 @@ cover: https://gw.alipayobjects.com/zos/alicdn/f-SbcX2Lx/Table.svg
 
 展示行列数据。
 
-## 设计师专属
-
-安装 [Kitchen Sketch 插件 💎](https://kitchen.alipay.com/)，两步就可以自动生成 Ant Design 表格组件。
-
 ## 何时使用
 
 - 当有大量结构化的数据需要展现时；
@@ -59,9 +55,13 @@ const columns = [
 <Table dataSource={dataSource} columns={columns} />;
 ```
 
-## API
+## 相关推荐
 
-另外我们封装了 [ProTable](https://procomponents.ant.design/components/table)，在 `antd` Table 之上扩展了更多便捷易用的功能，内置搜索、筛选、刷新等常用表格行为，并为多种类型数据展示提供了内置格式化，欢迎尝试使用。
+- [Kitchen Sketch 插件 💎](https://kitchen.alipay.com/)：设计师神器，两步自动生成 Ant Design 表格组件。
+- [ProTable](https://procomponents.ant.design/components/table) 高级表格：在 `antd` Table 之上扩展了更多便捷易用的功能，内置搜索、筛选、刷新等常用表格行为，并为多种类型数据展示提供了内置格式化。
+- [S2](https://s2.antv.vision/zh) 多维交叉分析表格：[AntV S2 和 Antd Table 有什么区别？](https://zhuanlan.zhihu.com/p/494995642)
+
+## API
 
 ### Table
 
@@ -69,7 +69,7 @@ const columns = [
 | --- | --- | --- | --- | --- |
 | bordered | 是否展示外边框和列边框 | boolean | false |  |
 | columns | 表格列的配置描述，具体项见下表 | [ColumnsType](#Column)\[] | - |  |
-| components | 覆盖默认的 table 元素 | [TableComponents](https://git.io/fANxz) | - |  |
+| components | 覆盖默认的 table 元素 | [TableComponents](https://github.com/react-component/table/blob/75ee0064e54a4b3215694505870c9d6c817e9e4a/src/interface.ts#L129) | - |  |
 | dataSource | 数据数组 | object\[] | - |  |
 | expandable | 配置展开属性 | [expandable](#expandable) | - |  |
 | footer | 表格尾部 | function(currentPageData) | - |  |
@@ -127,8 +127,8 @@ const columns = [
 | colSpan | 表头列合并,设置为 0 时，不渲染 | number | - |  |
 | dataIndex | 列数据在数据项中对应的路径，支持通过数组查询嵌套路径 | string \| string\[] | - |  |
 | defaultFilteredValue | 默认筛选值 | string\[] | - |  |
+| filterResetToDefaultFilteredValue | 点击重置按钮的时候，是否恢复默认筛选值 | boolean | false |  |
 | defaultSortOrder | 默认排序顺序 | `ascend` \| `descend` | - |  |
-| editable | 是否可编辑 | boolean | false |  |
 | ellipsis | 超过宽度将自动省略，暂不支持和排序筛选一起使用。<br />设置为 `true` 或 `{ showTitle?: boolean }` 时，表格布局将变成 `tableLayout="fixed"`。 | boolean \| { showTitle?: boolean } | false | showTitle: 4.3.0 |
 | filterDropdown | 可以自定义筛选菜单，此函数只负责渲染图层，需要自行编写各种交互 | ReactNode \| (props: [FilterDropdownProps](https://github.com/ant-design/ant-design/blob/ecc54dda839619e921c0ace530408871f0281c2a/components/table/interface.tsx#L79)) => ReactNode | - |  |
 | filterDropdownVisible | 用于控制自定义筛选菜单是否可见 | boolean | - |  |
@@ -137,7 +137,7 @@ const columns = [
 | filterIcon | 自定义 filter 图标。 | ReactNode \| (filtered: boolean) => ReactNode | false |  |
 | filterMultiple | 是否多选 | boolean | true |  |
 | filterMode | 指定筛选菜单的用户界面 | 'menu' \| 'tree' | 'menu' | 4.17.0 |
-| filterSearch | 筛选菜单项是否可搜索 | Boolean | false | 4.17.0 |
+| filterSearch | 筛选菜单项是否可搜索 | boolean \| function(input, record):boolean | false | boolean:4.17.0 function:4.19.0 |
 | filters | 表头的筛选菜单项 | object\[] | - |  |
 | fixed | （IE 下无效）列是否固定，可选 true (等效于 left) `left` `right` | boolean \| string | false |  |
 | key | React 需要的 key，如果已经设置了唯一的 `dataIndex`，可以忽略这个属性 | string | - |  |
@@ -211,11 +211,12 @@ const columns = [
 | defaultSelectedRowKeys | 默认选中项的 key 数组 | string\[] \| number\[] | \[] |  |
 | selections | 自定义选择项 [配置项](#selection), 设为 `true` 时使用默认选择项 | object\[] \| boolean | true |  |
 | type | 多选/单选 | `checkbox` \| `radio` | `checkbox` |  |
-| onChange | 选中项发生变化时的回调 | function(selectedRowKeys, selectedRows) | - |  |
+| onChange | 选中项发生变化时的回调 | function(selectedRowKeys, selectedRows, info: { type }) | - | `info.type`: 4.21.0 |
 | onSelect | 用户手动选择/取消选择某行的回调 | function(record, selected, selectedRows, nativeEvent) | - |  |
 | onSelectAll | 用户手动选择/取消选择所有行的回调 | function(selected, selectedRows, changeRows) | - |  |
 | onSelectInvert | 用户手动选择反选的回调 | function(selectedRowKeys) | - |  |
 | onSelectNone | 用户清空选择的回调 | function() | - |  |
+| onSelectMultiple | 用户使用键盘 shift 选择多行的回调 | function(selected, selectedRows, changeRows) | - |  |
 
 ### scroll
 
@@ -316,3 +317,7 @@ Table 移除了在 v3 中废弃的 `onRowClick`、`onRowDoubleClick`、`onRowMou
 ### 固定列穿透到最上层该怎么办？
 
 固定列通过 `z-index` 属性将其悬浮于非固定列之上，这使得有时候你会发现在 Table 上放置遮罩层时固定列会被透过的情况。为遮罩层设置更高的 `z-index` 覆盖住固定列即可。
+
+### 如何自定义渲染可选列的勾选框（比如增加 Tooltip）？
+
+自 `4.1.0` 起，可以通过 [rowSelection](https://ant.design/components/table-cn/#rowSelection) 的 `renderCell` 属性控制，可以参考此处 [Demo](https://codesandbox.io/s/table-row-tooltip-v79j2v) 实现展示 Tooltip 需求或其他自定义的需求。

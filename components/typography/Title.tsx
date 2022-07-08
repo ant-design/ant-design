@@ -1,7 +1,8 @@
 import * as React from 'react';
-import devWarning from '../_util/devWarning';
-import Base, { BlockProps } from './Base';
 import { tupleNum } from '../_util/type';
+import warning from '../_util/warning';
+import type { BlockProps } from './Base';
+import Base from './Base';
 
 const TITLE_ELE_LIST = tupleNum(1, 2, 3, 4, 5);
 
@@ -13,14 +14,14 @@ export type TitleProps = Omit<
   'strong'
 >;
 
-const Title: React.FC<TitleProps> = props => {
+const Title: React.ForwardRefRenderFunction<HTMLHeadingElement, TitleProps> = (props, ref) => {
   const { level = 1, ...restProps } = props;
   let component: string;
 
   if (TITLE_ELE_LIST.indexOf(level) !== -1) {
     component = `h${level}`;
   } else {
-    devWarning(
+    warning(
       false,
       'Typography.Title',
       'Title only accept `1 | 2 | 3 | 4 | 5` as `level` value. And `5` need 4.6.0+ version.',
@@ -28,7 +29,7 @@ const Title: React.FC<TitleProps> = props => {
     component = 'h1';
   }
 
-  return <Base {...restProps} component={component} />;
+  return <Base ref={ref} {...restProps} component={component} />;
 };
 
-export default Title;
+export default React.forwardRef(Title);

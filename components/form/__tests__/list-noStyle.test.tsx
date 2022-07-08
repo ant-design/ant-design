@@ -1,10 +1,10 @@
-import React from 'react';
 import { mount } from 'enzyme';
+import React from 'react';
 import { act } from 'react-dom/test-utils';
 import Form from '..';
-import Input from '../../input';
 import { sleep } from '../../../tests/utils';
-import { FormListOperation } from '../FormList';
+import Input from '../../input';
+import type { FormListOperation } from '../FormList';
 
 describe('Form.List.NoStyle', () => {
   it('nest error should clean up', async () => {

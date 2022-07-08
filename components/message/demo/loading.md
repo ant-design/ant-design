@@ -13,8 +13,9 @@ title:
 
 Display a global loading indicator, which is dismissed by itself asynchronously.
 
-```jsx
-import { message, Button } from 'antd';
+```tsx
+import { Button, message } from 'antd';
+import React from 'react';
 
 const success = () => {
   const hide = message.loading('Action in progress..', 0);
@@ -22,5 +23,7 @@ const success = () => {
   setTimeout(hide, 2500);
 };
 
-ReactDOM.render(<Button onClick={success}>Display a loading indicator</Button>, mountNode);
+const App: React.FC = () => <Button onClick={success}>Display a loading indicator</Button>;
+
+export default App;
 ```

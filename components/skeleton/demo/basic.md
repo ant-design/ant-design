@@ -13,8 +13,11 @@ title:
 
 Simplest Skeleton usage.
 
-```jsx
+```tsx
 import { Skeleton } from 'antd';
+import React from 'react';
 
-ReactDOM.render(<Skeleton />, mountNode);
+const App: React.FC = () => <Skeleton />;
+
+export default App;
 ```

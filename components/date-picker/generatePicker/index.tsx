@@ -1,22 +1,24 @@
-import { GenerateConfig } from 'rc-picker/lib/generate/index';
-import {
+import type { GenerateConfig } from 'rc-picker/lib/generate/index';
+import type { Locale as RcPickerLocale, PickerMode } from 'rc-picker/lib/interface';
+import type { SharedTimeProps } from 'rc-picker/lib/panels/TimePanel';
+import type {
   PickerBaseProps as RCPickerBaseProps,
   PickerDateProps as RCPickerDateProps,
   PickerTimeProps as RCPickerTimeProps,
 } from 'rc-picker/lib/Picker';
-import { SharedTimeProps } from 'rc-picker/lib/panels/TimePanel';
-import {
+import type {
   RangePickerBaseProps as RCRangePickerBaseProps,
   RangePickerDateProps as RCRangePickerDateProps,
   RangePickerTimeProps as RCRangePickerTimeProps,
 } from 'rc-picker/lib/RangePicker';
-import { PickerMode, Locale as RcPickerLocale } from 'rc-picker/lib/interface';
-import { SizeType } from '../../config-provider/SizeContext';
+import type { SizeType } from '../../config-provider/SizeContext';
+import type { TimePickerLocale } from '../../time-picker';
+import type { InputStatus } from '../../_util/statusUtils';
+import { tuple } from '../../_util/type';
 import PickerButton from '../PickerButton';
 import PickerTag from '../PickerTag';
-import { TimePickerLocale } from '../../time-picker';
-import generateSinglePicker from './generateSinglePicker';
 import generateRangePicker from './generateRangePicker';
+import generateSinglePicker from './generateSinglePicker';
 
 export const Components = { button: PickerButton, rangeItem: PickerTag };
 
@@ -27,13 +29,18 @@ function toArray<T>(list: T | T[]): T[] {
   return Array.isArray(list) ? list : [list];
 }
 
-export function getTimeProps<DateType>(
-  props: { format?: string; picker?: PickerMode } & SharedTimeProps<DateType>,
+export function getTimeProps<DateType, DisabledTime>(
+  props: { format?: string; picker?: PickerMode } & Omit<
+    SharedTimeProps<DateType>,
+    'disabledTime'
+  > & {
+      disabledTime?: DisabledTime;
+    },
 ) {
   const { format, picker, showHour, showMinute, showSecond, use12Hours } = props;
 
   const firstFormat = toArray(format)[0];
-  const showTimeObj: SharedTimeProps<DateType> = { ...props };
+  const showTimeObj = { ...props };
 
   if (firstFormat && typeof firstFormat === 'string') {
     if (!firstFormat.includes('s') && showSecond === undefined) {
@@ -64,17 +71,18 @@ export function getTimeProps<DateType>(
     showTime: showTimeObj,
   };
 }
+const DataPickerPlacements = tuple('bottomLeft', 'bottomRight', 'topLeft', 'topRight');
+type DataPickerPlacement = typeof DataPickerPlacements[number];
 
 type InjectDefaultProps<Props> = Omit<
   Props,
-  | 'locale'
-  | 'generateConfig'
-  | 'hideHeader'
-  | 'components'
+  'locale' | 'generateConfig' | 'hideHeader' | 'components'
 > & {
   locale?: PickerLocale;
   size?: SizeType;
+  placement?: DataPickerPlacement;
   bordered?: boolean;
+  status?: InputStatus;
 };
 
 export type PickerLocale = {
@@ -96,6 +104,7 @@ export type AdditionalPickerLocaleLangProps = {
   monthPlaceholder?: string;
   weekPlaceholder?: string;
   rangeYearPlaceholder?: [string, string];
+  rangeQuarterPlaceholder?: [string, string];
   rangeMonthPlaceholder?: [string, string];
   rangeWeekPlaceholder?: [string, string];
   rangePlaceholder?: [string, string];

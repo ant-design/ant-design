@@ -14,7 +14,7 @@ toc: false
 
 <div class="next-block-use-cards"></div>
 
-- 全新 Sketch 组件包
+- Sketch 组件包
   - https://gw.alipayobjects.com/zos/basement_prod/048ee28f-2c80-4d15-9aa3-4f5ddac50465.svg
   - 桌面组件 Sketch 模板包
   - https://gw.alipayobjects.com/os/antfincdn/EfSt1N5LCk/Ant.Design.Components.4.0.zip
@@ -66,6 +66,10 @@ toc: false
   - https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*dxzdQYWlmjMAAAAAAAAAAAAAARQnAQ
   - 可在「即时设计」在线免费使用的全套组件和模板
   - https://js.design/antd
+- MasterGo 组件包
+  - https://mastergo-local-default.oss-cn-beijing.aliyuncs.com/ant-design-mastergo.svg
+  - 可在「MasterGo」在线免费使用的全套组件和模板
+  - https://mastergo.com/community/?utm_source=antdesign&utm_medium=link&utm_campaign=resource&cata_name=AntDesign
 
 ## 文章
 
@@ -118,11 +122,11 @@ ReactDOM.render(<Articles />, mountNode);
 
 ### UI/UE 设计师
 
-简历和作品集请投递：lindong.lld#antgroup.com
+简历和作品集请投递：jiayin.liu#antgroup.com
 
 > 注明简历来自 ant.design 官网
 
-- 岗位级别：P6/P7/P8
+- 岗位级别：P5/P6/P7/P8
 - 岗位地点：杭州
 - 岗位要求：
   - 至少 3-5 年的工作经验，扎实设计功底；
@@ -137,7 +141,6 @@ ReactDOM.render(<Articles />, mountNode);
   - 参与 Ant Design 的打磨，将其建设成全球卓越的设计体系。
   - 参与 AntV 的打磨，将其建设成全球一流的数据可视化体系。
 - One More Thing ❤️ ：
-
   - 你们总是为世界带去美好，但总是忘却你们也需要美好。我们正在努力打造 [🍳 Kitchen：一款为设计师提效的 Sketch 工具集](https://kitchen.alipay.com/)等专属设计师的产品，让设计真正变成财富。期待志同道合的你，一道给设计行业带来「微小而美好的改变」。
 
 ### 前端工程师
@@ -146,21 +149,20 @@ ReactDOM.render(<Articles />, mountNode);
 
 > 注明简历来自 ant.design 官网
 
-- 岗位级别：P6/P7/P8
-- 岗位地点：杭州
+- 岗位级别：P5/P6/P7/P8
+- 岗位地点：杭州/上海
 - 岗位要求：
   - 在 React 技术栈持续耕耘，情有独钟。
   - 热爱开源。
   - 坚持和善于用技术和工具解决其他问题。
   - 丰富的中后台前端研发经验。
-  - 爱 🐱。
 - 岗位职责：
   - 负责 Ant Design 前端基础设施研发。
   - 负责中后台设计/前端工具体系建设。
 
 ### ADI（Artificial Design Intelligence） 工程师
 
-简历和作品集请投递：lindong.lld#alipay.com
+简历和作品集请投递：jiayin.liu#antgroup.com
 
 > 注明简历来自 ant.design 官网
 

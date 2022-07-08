@@ -52,14 +52,15 @@ Uploading is the process of publishing information (web pages, text, pictures, v
 
 Extends File with additional props.
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| name | File name | string | - |
-| percent | Upload progress percent | number | - |
-| status | Upload status. Show different style when configured | `error` \| `success` \| `done` \| `uploading` \| `removed` | - |
-| thumbUrl | Thumb image url | string | - |
-| uid | unique id. Will auto generate when not provided | string | - |
-| url | Download url | string | - |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| crossOrigin | CORS settings attributes | `'anonymous'` \| `'use-credentials'` \| `''` | - | 4.20.0 |
+| name | File name | string | - | - |
+| percent | Upload progress percent | number | - | - |
+| status | Upload status. Show different style when configured | `error` \| `success` \| `done` \| `uploading` \| `removed` | - | - |
+| thumbUrl | Thumb image url | string | - | - |
+| uid | unique id. Will auto generate when not provided | string | - | - |
+| url | Download url | string | - | - |
 
 ### onChange
 
@@ -114,3 +115,11 @@ See <https://github.com/react-component/upload#customrequest>.
 ### Why does `onChange` sometimes return File object and other times return { originFileObj: File }?
 
 For compatible case, we return File object when `beforeUpload` return `false`. It will merge to `{ originFileObj: File }` in next major version. Current version is compatible to get origin file by `info.file.originFileObj`. You can change this before major release.
+
+### Why sometime Chrome can not upload?
+
+Chrome update will also break native upload. Please restart chrome to finish the upload work. Ref:
+
+- [#32672](https://github.com/ant-design/ant-design/issues/32672)
+- [#32913](https://github.com/ant-design/ant-design/issues/32913)
+- [#33988](https://github.com/ant-design/ant-design/issues/33988)

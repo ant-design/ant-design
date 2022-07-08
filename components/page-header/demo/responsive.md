@@ -14,8 +14,9 @@ title:
 
 Under different screen sizes, there should be different performance
 
-```jsx
-import { PageHeader, Tabs, Button, Statistic, Descriptions } from 'antd';
+```tsx
+import { Button, Descriptions, PageHeader, Statistic, Tabs } from 'antd';
+import React from 'react';
 
 const { TabPane } = Tabs;
 
@@ -52,14 +53,17 @@ const extraContent = (
   </div>
 );
 
-const Content = ({ children, extra }) => (
+const Content: React.FC<{ children: React.ReactNode; extra: React.ReactNode }> = ({
+  children,
+  extra,
+}) => (
   <div className="content">
     <div className="main">{children}</div>
     <div className="extra">{extra}</div>
   </div>
 );
 
-ReactDOM.render(
+const App: React.FC = () => (
   <PageHeader
     className="site-page-header-responsive"
     onBack={() => window.history.back()}
@@ -80,9 +84,10 @@ ReactDOM.render(
     }
   >
     <Content extra={extraContent}>{renderContent()}</Content>
-  </PageHeader>,
-  mountNode,
+  </PageHeader>
 );
+
+export default App;
 ```
 
 <style>

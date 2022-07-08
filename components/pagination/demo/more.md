@@ -13,8 +13,11 @@ title:
 
 More pages.
 
-```jsx
+```tsx
 import { Pagination } from 'antd';
+import React from 'react';
 
-ReactDOM.render(<Pagination defaultCurrent={6} total={500} />, mountNode);
+const App: React.FC = () => <Pagination defaultCurrent={6} total={500} />;
+
+export default App;
 ```

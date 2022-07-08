@@ -241,7 +241,7 @@ Form.List 渲染表单相关操作函数。
 | isFieldsTouched | 检查一组字段是否被用户操作过，`allTouched` 为 `true` 时检查是否所有字段都被操作过 | (nameList?: [NamePath](#NamePath)\[], allTouched?: boolean) => boolean |  |
 | isFieldTouched | 检查对应字段是否被用户操作过 | (name: [NamePath](#NamePath)) => boolean |  |
 | isFieldValidating | 检查对应字段是否正在校验 | (name: [NamePath](#NamePath)) => boolean |  |
-| resetFields | 重置一组字段到 `initialValues` | (fields?: [FieldData](#FieldData)\[]) => void |  |
+| resetFields | 重置一组字段到 `initialValues` | (fields?: [NamePath](#NamePath)\[]) => void |  |
 | scrollToField | 滚动到对应字段位置 | (name: [NamePath](#NamePath), options: [ScrollOptions](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options)) => void |  |
 | setFields | 设置一组字段状态 | (fields: [FieldData](#FieldData)\[]) => void |  |
 | setFieldsValue | 设置表单的值（该值将直接传入 form store 中。如果你不希望传入对象被修改，请克隆后传入） | (values) => void |  |
@@ -277,6 +277,65 @@ validateFields()
     */
   });
 ```
+
+## Hooks
+
+### Form.useForm
+
+`type Form.useForm = (): [FormInstance]`
+
+创建 Form 实例，用于管理所有数据状态。
+
+### Form.useFormInstance
+
+`type Form.useFormInstance = (): FormInstance`
+
+`4.20.0` 新增，获取当前上下文正在使用的 Form 实例，常见于封装子组件消费无需透传 Form 实例：
+
+```tsx
+const Sub = () => {
+  const form = Form.useFormInstance();
+
+  return <Button onClick={() => form.setFieldsValue({})} />;
+};
+
+export default () => {
+  const [form] = Form.useForm();
+
+  return (
+    <Form form={form}>
+      <Sub />
+    </Form>
+  );
+};
+```
+
+### Form.useWatch
+
+`type Form.useWatch = (namePath: NamePath, formInstance: FormInstance): Value`
+
+`4.20.0` 新增，用于直接获取 form 中字段对应的值。通过该 Hooks 可以与诸如 `useSWR` 进行联动从而降低维护成本：
+
+```tsx
+const Demo = () => {
+  const [form] = Form.useForm();
+  const userName = Form.useWatch('username', form);
+
+  const { data: options } = useSWR(`/api/user/${userName}`, fetcher);
+
+  return (
+    <Form form={form}>
+      <Form.Item name="username">
+        <AutoComplete options={options} />
+      </Form.Item>
+    </Form>
+  );
+};
+```
+
+#### 与其他获取数据的方式的区别
+
+Form 仅会对变更的 Field 进行刷新，从而避免完整的组件刷新可能引发的性能问题。因而你无法在 render 阶段通过 `form.getFieldsValue` 来实时获取字段值，而 `useWatch` 提供了一种特定字段访问的方式，从而使得在当前组件中可以直接消费字段的值。同时，如果为了更好的渲染性能，你可以通过 Field 的 renderProps 仅更新需要更新的部分。而当当前组件更新或者 effect 都不需要消费字段值时，则可以通过 `onValuesChange` 将数据抛出，从而避免组件更新。
 
 ### Interface
 
@@ -439,7 +498,7 @@ React 中异步更新会导致受控组件交互行为异常。当用户交互�
 
 ### `setFieldsValue` 不会触发 `onFieldsChange` 和 `onValuesChange`？
 
-是的，change 事件仅当用户交互才会触发。该设计是为了防止在 change 事件中调用 `setFieldsValue` 导致的循环问题。
+是的，change 事件仅当用户交互才会触发。该设计是为了防止在 change 事件中调用 `setFieldsValue` 导致的循环问题。如果仅仅需要组件内消费，可以通过 `useWatch` 或者 `Field.renderProps` 来实现。
 
 ### 有更多参考文档吗？
 

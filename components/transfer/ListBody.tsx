@@ -1,11 +1,12 @@
-import * as React from 'react';
 import classNames from 'classnames';
-import { ElementOf, tuple } from '../_util/type';
+import * as React from 'react';
+import type { KeyWiseTransferItem } from '.';
 import Pagination from '../pagination';
-import { TransferListProps, RenderedItem } from './list';
+import type { ElementOf } from '../_util/type';
+import { tuple } from '../_util/type';
+import type { PaginationType } from './interface';
+import type { RenderedItem, TransferListProps } from './list';
 import ListItem from './ListItem';
-import { PaginationType } from './interface';
-import { KeyWiseTransferItem } from '.';
 
 export const OmitProps = tuple('handleFilter', 'handleClear', 'checkedKeys');
 export type OmitProp = ElementOf<typeof OmitProps>;
@@ -24,6 +25,9 @@ function parsePagination(pagination?: PaginationType) {
 
   const defaultPagination = {
     pageSize: 10,
+    simple: true,
+    showSizeChanger: false,
+    showLessItems: false,
   };
 
   if (typeof pagination === 'object') {
@@ -116,7 +120,9 @@ class ListBody<RecordType extends KeyWiseTransferItem> extends React.Component<
     if (mergedPagination) {
       paginationNode = (
         <Pagination
-          simple
+          simple={mergedPagination.simple}
+          showSizeChanger={mergedPagination.showSizeChanger}
+          showLessItems={mergedPagination.showLessItems}
           size="small"
           disabled={globalDisabled}
           className={`${prefixCls}-pagination`}

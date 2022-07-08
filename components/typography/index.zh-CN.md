@@ -72,13 +72,15 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 
     {
       text: string,
-      onCopy: function,
+      onCopy: function(event),
       icon: ReactNode,
       tooltips: false | [ReactNode, ReactNode],
+      format: 'text/plain' | 'text/html',
     }
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| format | 剪切板数据的 Mime Type | 'text/plain' \| 'text/html' | - | 4.21.0 |
 | icon | 自定义拷贝图标：\[默认图标, 拷贝后的图标] | \[ReactNode, ReactNode] | - | 4.6.0 |
 | text | 拷贝到剪切板里的文本 | string | - |  |
 | tooltips | 自定义提示文案，为 false 时隐藏文案 | \[ReactNode, ReactNode] | \[`复制`, `复制成功`] | 4.4.0 |
@@ -111,7 +113,7 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | onChange | 文本域编辑时触发 | function(event) | - |  |
 | onEnd | 按 ENTER 结束编辑状态时触发 | function | - | 4.14.0 |
 | onStart | 进入编辑中状态时触发 | function | - |  |
-| triggerType | Edit mode trigger - icon, text or both (not specifying icon as trigger hides it) | Array&lt;`icon`\|`text`> | \[`icon`] |  |
+| triggerType | 编辑模式触发器类型，图标、文本或者两者都设置（不设置图标作为触发器时它会隐藏） | Array&lt;`icon`\|`text`> | \[`icon`] |  |
 | enterIcon | 在编辑段中自定义“enter”图标（传递“null”将删除图标） | ReactNode | `<EnterOutlined />` | 4.17.0 |
 
 ### ellipsis

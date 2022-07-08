@@ -39,7 +39,7 @@ import locale from 'antd/es/date-picker/locale/zh_CN';
 // The default locale is en-US, if you want to use other locale, just set locale in entry file globally.
 import moment from 'moment';
 import 'moment/locale/zh-cn';
-import locale from 'antd/lib/locale/zh_CN';
+import locale from 'antd/es/locale/zh_CN';
 
 <ConfigProvider locale={locale}>
   <DatePicker defaultValue={moment('2015-01-01', 'YYYY-MM-DD')} />
@@ -69,9 +69,11 @@ The following APIs are shared by DatePicker, RangePicker.
 | panelRender | Customize panel render | (panelNode) => ReactNode | - | 4.5.0 |
 | picker | Set picker type | `date` \| `week` \| `month` \| `quarter` \| `year` | `date` | `quarter`: 4.1.0 |
 | placeholder | The placeholder of date input | string \| \[string,string] | - |  |
+| placement | The position where the selection box pops up | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
 | popupStyle | To customize the style of the popup calendar | CSSProperties | {} |  |
 | prevIcon | The custom prev icon | ReactNode | - | 4.17.0 |
 | size | To determine the size of the input box, the height of `large` and `small`, are 40px and 24px respectively, while default size is 32px | `large` \| `middle` \| `small` | - |  |
+| status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | style | To customize the style of the input box | CSSProperties | {} |  |
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
 | superNextIcon | The custom super next icon | ReactNode | - | 4.17.0 |

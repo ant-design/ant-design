@@ -1,11 +1,11 @@
-import * as React from 'react';
-import classNames from 'classnames';
 import DeleteOutlined from '@ant-design/icons/DeleteOutlined';
-import { KeyWiseTransferItem, TransferLocale } from '.';
-import defaultLocale from '../locale/default';
+import classNames from 'classnames';
+import * as React from 'react';
+import type { KeyWiseTransferItem, TransferLocale } from '.';
 import Checkbox from '../checkbox';
-import TransButton from '../_util/transButton';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import defaultLocale from '../locale/default';
+import TransButton from '../_util/transButton';
 
 type ListItemProps<RecordType> = {
   renderedText?: string | number;

@@ -7,70 +7,58 @@ title:
 
 ## zh-CN
 
-使用 `dropdownRender` 对下拉菜单进行自由扩展。
+使用 `dropdownRender` 对下拉菜单进行自由扩展。自定义内容点击时会关闭浮层，如果不喜欢关闭，可以添加 `onMouseDown={e => e.preventDefault()}` 进行阻止（更多详情见 [#13448](https://github.com/ant-design/ant-design/issues/13448)）。
 
 ## en-US
 
-Customize the dropdown menu via `dropdownRender`.
+Customize the dropdown menu via `dropdownRender`. Dropdown menu will be closed if click `dropdownRender` area, you can prevent it by wrapping `onMouseDown={e => e.preventDefault()}` (see more at [#13448](https://github.com/ant-design/ant-design/issues/13448)).
 
-```jsx
-import { Select, Divider, Input } from 'antd';
+```tsx
 import { PlusOutlined } from '@ant-design/icons';
+import { Divider, Input, Select, Space, Typography } from 'antd';
+import React, { useState } from 'react';
 
 const { Option } = Select;
 
 let index = 0;
 
-class App extends React.Component {
-  state = {
-    items: ['jack', 'lucy'],
-    name: '',
+const App: React.FC = () => {
+  const [items, setItems] = useState(['jack', 'lucy']);
+  const [name, setName] = useState('');
+
+  const onNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setName(event.target.value);
   };
 
-  onNameChange = event => {
-    this.setState({
-      name: event.target.value,
-    });
+  const addItem = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    setItems([...items, name || `New item ${index++}`]);
+    setName('');
   };
 
-  addItem = () => {
-    console.log('addItem');
-    const { items, name } = this.state;
-    this.setState({
-      items: [...items, name || `New item ${index++}`],
-      name: '',
-    });
-  };
+  return (
+    <Select
+      style={{ width: 300 }}
+      placeholder="custom dropdown render"
+      dropdownRender={menu => (
+        <>
+          {menu}
+          <Divider style={{ margin: '8px 0' }} />
+          <Space align="center" style={{ padding: '0 8px 4px' }}>
+            <Input placeholder="Please enter item" value={name} onChange={onNameChange} />
+            <Typography.Link onClick={addItem} style={{ whiteSpace: 'nowrap' }}>
+              <PlusOutlined /> Add item
+            </Typography.Link>
+          </Space>
+        </>
+      )}
+    >
+      {items.map(item => (
+        <Option key={item}>{item}</Option>
+      ))}
+    </Select>
+  );
+};
 
-  render() {
-    const { items, name } = this.state;
-    return (
-      <Select
-        style={{ width: 240 }}
-        placeholder="custom dropdown render"
-        dropdownRender={menu => (
-          <div>
-            {menu}
-            <Divider style={{ margin: '4px 0' }} />
-            <div style={{ display: 'flex', flexWrap: 'nowrap', padding: 8 }}>
-              <Input style={{ flex: 'auto' }} value={name} onChange={this.onNameChange} />
-              <a
-                style={{ flex: 'none', padding: '8px', display: 'block', cursor: 'pointer' }}
-                onClick={this.addItem}
-              >
-                <PlusOutlined /> Add item
-              </a>
-            </div>
-          </div>
-        )}
-      >
-        {items.map(item => (
-          <Option key={item}>{item}</Option>
-        ))}
-      </Select>
-    );
-  }
-}
-
-ReactDOM.render(<App />, mountNode);
+export default App;
 ```

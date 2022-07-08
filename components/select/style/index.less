@@ -3,6 +3,7 @@
 @import '../../input/style/mixin';
 @import './single';
 @import './multiple';
+@import './status';
 
 @select-prefix-cls: ~'@{ant-prefix}-select';
 @select-height-without-border: @input-height-base - 2 * @border-width-base;
@@ -12,7 +13,7 @@
   position: relative;
   background-color: @select-background;
   border: @border-width-base @border-style-base @select-border-color;
-  border-radius: @border-radius-base;
+  border-radius: @control-border-radius;
   transition: all 0.3s @ease-in-out;
 
   input {
@@ -120,7 +121,8 @@
     position: absolute;
     top: 50%;
     right: @control-padding-horizontal - 1px;
-    width: @font-size-sm;
+    display: flex;
+    align-items: center;
     height: @font-size-sm;
     margin-top: (-@font-size-sm / 2);
     color: @disabled-color;
@@ -144,6 +146,10 @@
 
     .@{select-prefix-cls}-disabled & {
       cursor: not-allowed;
+    }
+
+    > *:not(:last-child) {
+      margin-inline-end: @padding-xs;
     }
   }
 
@@ -314,6 +320,10 @@
     background-color: transparent !important;
     border-color: transparent !important;
     box-shadow: none !important;
+  }
+
+  &&-in-form-item {
+    width: 100%;
   }
 }
 

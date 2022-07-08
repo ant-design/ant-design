@@ -7,6 +7,7 @@ debug: true
 ---
 
 ```jsx
+import React from 'react';
 import { Tree, Switch } from 'antd';
 import { CarryOutOutlined } from '@ant-design/icons';
 
@@ -38,7 +39,7 @@ const generateData = (_level, _preKey, _tns) => {
 };
 generateData(z);
 
-class Demo extends React.Component {
+class App extends React.Component {
   state = {
     gData,
     expandedKeys: ['0-0', '0-0-0', '0-0-0-0'],
@@ -181,5 +182,5 @@ class Demo extends React.Component {
   }
 }
 
-ReactDOM.render(<Demo />, mountNode);
+export default App;
 ```

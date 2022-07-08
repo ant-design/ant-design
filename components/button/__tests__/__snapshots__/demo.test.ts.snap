@@ -11,7 +11,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span>
@@ -57,7 +57,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn ant-btn-block"
+    class="ant-btn ant-btn-default ant-btn-block"
     type="button"
   >
     <span>
@@ -83,6 +83,191 @@ Array [
 ]
 `;
 
+exports[`renders ./components/button/demo/chinese-chars-loading.md correctly 1`] = `
+Array [
+  <button
+    class="ant-btn ant-btn-default ant-btn-loading"
+    type="button"
+  >
+    <span
+      class="ant-btn-loading-icon"
+    >
+      <span
+        aria-label="loading"
+        class="anticon anticon-loading anticon-spin"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="loading"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+          />
+        </svg>
+      </span>
+    </span>
+    <span>
+      部 署
+    </span>
+  </button>,
+  <button
+    class="ant-btn ant-btn-default ant-btn-loading"
+    type="button"
+  >
+    <span
+      class="ant-btn-loading-icon"
+    >
+      <span
+        aria-label="loading"
+        class="anticon anticon-loading anticon-spin"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="loading"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+          />
+        </svg>
+      </span>
+    </span>
+    部署
+  </button>,
+  <button
+    class="ant-btn ant-btn-default ant-btn-loading"
+    type="button"
+  >
+    <span
+      class="ant-btn-loading-icon"
+    >
+      <span
+        aria-label="loading"
+        class="anticon anticon-loading anticon-spin"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="loading"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+          />
+        </svg>
+      </span>
+    </span>
+    <span>
+      部署
+    </span>
+  </button>,
+  <button
+    class="ant-btn ant-btn-default ant-btn-loading"
+    type="button"
+  >
+    <span
+      class="ant-btn-loading-icon"
+    >
+      <span
+        aria-label="loading"
+        class="anticon anticon-loading anticon-spin"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="loading"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+          />
+        </svg>
+      </span>
+    </span>
+    Submit
+  </button>,
+  <button
+    class="ant-btn ant-btn-default ant-btn-loading"
+    type="button"
+  >
+    <span
+      class="ant-btn-loading-icon"
+    >
+      <span
+        aria-label="loading"
+        class="anticon anticon-loading anticon-spin"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="loading"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+          />
+        </svg>
+      </span>
+    </span>
+    部署
+  </button>,
+  <button
+    class="ant-btn ant-btn-default ant-btn-loading"
+    type="button"
+  >
+    <span
+      class="ant-btn-loading-icon"
+    >
+      <span
+        aria-label="loading"
+        class="anticon anticon-loading anticon-spin"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="loading"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="0 0 1024 1024"
+          width="1em"
+        >
+          <path
+            d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+          />
+        </svg>
+      </span>
+    </span>
+    <span>
+      按 钮
+    </span>
+  </button>,
+]
+`;
+
 exports[`renders ./components/button/demo/danger.md correctly 1`] = `
 Array [
   <button
@@ -94,7 +279,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn ant-btn-dangerous"
+    class="ant-btn ant-btn-default ant-btn-dangerous"
     type="button"
   >
     <span>
@@ -149,7 +334,7 @@ Array [
   </button>,
   <br />,
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span>
@@ -157,7 +342,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     disabled=""
     type="button"
   >
@@ -221,7 +406,7 @@ Array [
   </button>,
   <br />,
   <button
-    class="ant-btn ant-btn-dangerous"
+    class="ant-btn ant-btn-default ant-btn-dangerous"
     type="button"
   >
     <span>
@@ -229,7 +414,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn ant-btn-dangerous"
+    class="ant-btn ant-btn-default ant-btn-dangerous"
     disabled=""
     type="button"
   >
@@ -277,7 +462,7 @@ Array [
     class="site-button-ghost-wrapper"
   >
     <button
-      class="ant-btn ant-btn-background-ghost"
+      class="ant-btn ant-btn-default ant-btn-background-ghost"
       type="button"
     >
       <span>
@@ -285,7 +470,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-background-ghost"
+      class="ant-btn ant-btn-default ant-btn-background-ghost"
       disabled=""
       type="button"
     >
@@ -310,7 +495,7 @@ exports[`renders ./components/button/demo/ghost.md correctly 1`] = `
     </span>
   </button>
   <button
-    class="ant-btn ant-btn-background-ghost"
+    class="ant-btn ant-btn-default ant-btn-background-ghost"
     type="button"
   >
     <span>
@@ -339,7 +524,7 @@ exports[`renders ./components/button/demo/ghost.md correctly 1`] = `
 exports[`renders ./components/button/demo/icon.md correctly 1`] = `
 Array [
   <button
-    class="ant-btn ant-btn-primary ant-btn-circle ant-btn-icon-only"
+    class="ant-btn ant-btn-circle ant-btn-primary ant-btn-icon-only"
     type="button"
   >
     <span
@@ -363,7 +548,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn ant-btn-primary ant-btn-circle"
+    class="ant-btn ant-btn-circle ant-btn-primary"
     type="button"
   >
     <span>
@@ -398,7 +583,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn ant-btn-circle ant-btn-icon-only"
+    class="ant-btn ant-btn-circle ant-btn-default ant-btn-icon-only"
     type="button"
   >
     <span
@@ -422,7 +607,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span
@@ -450,7 +635,7 @@ Array [
   </button>,
   <br />,
   <button
-    class="ant-btn ant-btn-circle ant-btn-icon-only"
+    class="ant-btn ant-btn-circle ant-btn-default ant-btn-icon-only"
     type="button"
   >
     <span
@@ -474,7 +659,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span
@@ -501,7 +686,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn ant-btn-dashed ant-btn-circle ant-btn-icon-only"
+    class="ant-btn ant-btn-circle ant-btn-dashed ant-btn-icon-only"
     type="button"
   >
     <span
@@ -552,7 +737,7 @@ Array [
     </span>
   </button>,
   <a
-    class="ant-btn ant-btn-icon-only"
+    class="ant-btn ant-btn-default ant-btn-icon-only"
     href="https://www.google.com"
   >
     <span
@@ -578,7 +763,7 @@ Array [
   <br />,
   <br />,
   <button
-    class="ant-btn ant-btn-primary ant-btn-circle ant-btn-lg ant-btn-icon-only"
+    class="ant-btn ant-btn-circle ant-btn-primary ant-btn-lg ant-btn-icon-only"
     type="button"
   >
     <span
@@ -602,7 +787,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn ant-btn-primary ant-btn-circle ant-btn-lg"
+    class="ant-btn ant-btn-circle ant-btn-primary ant-btn-lg"
     type="button"
   >
     <span>
@@ -637,7 +822,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn ant-btn-circle ant-btn-lg ant-btn-icon-only"
+    class="ant-btn ant-btn-circle ant-btn-default ant-btn-lg ant-btn-icon-only"
     type="button"
   >
     <span
@@ -661,7 +846,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn ant-btn-lg"
+    class="ant-btn ant-btn-default ant-btn-lg"
     type="button"
   >
     <span
@@ -689,7 +874,7 @@ Array [
   </button>,
   <br />,
   <button
-    class="ant-btn ant-btn-circle ant-btn-lg ant-btn-icon-only"
+    class="ant-btn ant-btn-circle ant-btn-default ant-btn-lg ant-btn-icon-only"
     type="button"
   >
     <span
@@ -713,7 +898,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn ant-btn-lg"
+    class="ant-btn ant-btn-default ant-btn-lg"
     type="button"
   >
     <span
@@ -740,7 +925,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn ant-btn-dashed ant-btn-circle ant-btn-lg ant-btn-icon-only"
+    class="ant-btn ant-btn-circle ant-btn-dashed ant-btn-lg ant-btn-icon-only"
     type="button"
   >
     <span
@@ -791,7 +976,7 @@ Array [
     </span>
   </button>,
   <a
-    class="ant-btn ant-btn-lg ant-btn-icon-only"
+    class="ant-btn ant-btn-default ant-btn-lg ant-btn-icon-only"
     href="https://www.google.com"
   >
     <span
@@ -824,7 +1009,7 @@ Array [
       class="ant-btn-group ant-btn-group-sm"
     >
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-sm"
         type="button"
       >
         <span>
@@ -832,7 +1017,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-sm"
         type="button"
       >
         <span>
@@ -844,7 +1029,7 @@ Array [
         style="display:inline-block;cursor:not-allowed"
       >
         <button
-          class="ant-btn ant-btn-primary ant-btn-icon-only"
+          class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
           disabled=""
           style="pointer-events:none"
           type="button"
@@ -871,7 +1056,7 @@ Array [
         </button>
       </span>
       <button
-        class="ant-btn ant-btn-primary ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-sm ant-btn-icon-only"
         type="button"
       >
         <span
@@ -980,7 +1165,7 @@ Array [
       class="ant-btn-group ant-btn-group-lg"
     >
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-lg"
         type="button"
       >
         <span>
@@ -988,7 +1173,7 @@ Array [
         </span>
       </button>
       <button
-        class="ant-btn ant-btn-primary"
+        class="ant-btn ant-btn-primary ant-btn-lg"
         type="button"
       >
         <span>
@@ -1000,7 +1185,7 @@ Array [
         style="display:inline-block;cursor:not-allowed"
       >
         <button
-          class="ant-btn ant-btn-primary ant-btn-icon-only"
+          class="ant-btn ant-btn-primary ant-btn-lg ant-btn-icon-only"
           disabled=""
           style="pointer-events:none"
           type="button"
@@ -1027,7 +1212,7 @@ Array [
         </button>
       </span>
       <button
-        class="ant-btn ant-btn-primary ant-btn-icon-only"
+        class="ant-btn ant-btn-primary ant-btn-lg ant-btn-icon-only"
         type="button"
       >
         <span
@@ -1258,7 +1443,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span>
@@ -1269,7 +1454,7 @@ Array [
     class="ant-btn-group ant-dropdown-button"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -1277,7 +1462,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-icon-only ant-dropdown-trigger"
+      class="ant-btn ant-btn-default ant-btn-icon-only ant-dropdown-trigger"
       type="button"
     >
       <span
@@ -1379,7 +1564,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn ant-btn-lg"
+    class="ant-btn ant-btn-default ant-btn-lg"
     type="button"
   >
     <span>
@@ -1429,7 +1614,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn ant-btn-primary ant-btn-circle ant-btn-lg ant-btn-icon-only"
+    class="ant-btn ant-btn-circle ant-btn-primary ant-btn-lg ant-btn-icon-only"
     type="button"
   >
     <span
@@ -1453,7 +1638,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn ant-btn-primary ant-btn-round ant-btn-lg ant-btn-icon-only"
+    class="ant-btn ant-btn-round ant-btn-primary ant-btn-lg ant-btn-icon-only"
     type="button"
   >
     <span
@@ -1477,7 +1662,7 @@ Array [
     </span>
   </button>,
   <button
-    class="ant-btn ant-btn-primary ant-btn-round ant-btn-lg"
+    class="ant-btn ant-btn-round ant-btn-primary ant-btn-lg"
     type="button"
   >
     <span

@@ -15,12 +15,13 @@ title:
 A relevant icon makes information clearer and more friendly.
 
 ```tsx
-import { Alert } from 'antd';
 import { SmileOutlined } from '@ant-design/icons';
+import { Alert } from 'antd';
+import React from 'react';
 
 const icon = <SmileOutlined />;
 
-ReactDOM.render(
+const App: React.FC = () => (
   <>
     <Alert icon={icon} message="showIcon = false" type="success" />
     <Alert icon={icon} message="Success Tips" type="success" showIcon />
@@ -55,7 +56,8 @@ ReactDOM.render(
       type="error"
       showIcon
     />
-  </>,
-  mountNode,
+  </>
 );
+
+export default App;
 ```

@@ -13,11 +13,12 @@ Switch 失效状态。
 
 Disabled state of `Switch`.
 
-```jsx
-import { Switch, Button } from 'antd';
+```tsx
+import { Button, Switch } from 'antd';
+import React, { useState } from 'react';
 
-const App = () => {
-  const [disabled, setDisabled] = React.useState(true);
+const App: React.FC = () => {
+  const [disabled, setDisabled] = useState(true);
 
   const toggle = () => {
     setDisabled(!disabled);
@@ -34,5 +35,5 @@ const App = () => {
   );
 };
 
-ReactDOM.render(<App />, mountNode);
+export default App;
 ```

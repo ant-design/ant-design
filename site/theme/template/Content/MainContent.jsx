@@ -443,7 +443,7 @@ class MainContent extends Component {
                 meta: {
                   category: 'Components',
                   cover: 'https://gw.alipayobjects.com/zos/antfincdn/N3eU432oA/bianzu%2525209.svg',
-                  filename: 'https://procomponents.ant.design/components/list',
+                  filename: 'https://procomponents.ant.design/components/editable-table',
                   subtitle: '可编辑表格',
                   title: 'EditableProTable',
                   type,
@@ -523,7 +523,7 @@ class MainContent extends Component {
             </section>
             {componentPage && (
               <div className="fixed-widgets">
-                <Dropdown overlay={this.getThemeSwitchMenu()} placement="topCenter">
+                <Dropdown overlay={this.getThemeSwitchMenu()} placement="top">
                   <Avatar className="fixed-widgets-avatar" size={44} icon={<ThemeIcon />} />
                 </Dropdown>
               </div>

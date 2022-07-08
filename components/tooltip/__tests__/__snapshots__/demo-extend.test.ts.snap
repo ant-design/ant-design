@@ -3,7 +3,7 @@
 exports[`renders ./components/tooltip/demo/arrow-point-at-center.md extend context correctly 1`] = `
 Array [
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span>
@@ -13,7 +13,7 @@ Array [
   <div>
     <div
       class="ant-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -35,7 +35,7 @@ Array [
     </div>
   </div>,
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span>
@@ -45,7 +45,7 @@ Array [
   <div>
     <div
       class="ant-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -74,7 +74,7 @@ exports[`renders ./components/tooltip/demo/auto-adjust-overflow.md extend contex
   style="overflow:hidden;position:relative;padding:24px;border:1px solid #e9e9e9"
 >
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span>
@@ -84,7 +84,7 @@ exports[`renders ./components/tooltip/demo/auto-adjust-overflow.md extend contex
   <div>
     <div
       class="ant-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -107,7 +107,7 @@ exports[`renders ./components/tooltip/demo/auto-adjust-overflow.md extend contex
   </div>
   <br />
   <button
-    class="ant-btn"
+    class="ant-btn ant-btn-default"
     type="button"
   >
     <span>
@@ -117,7 +117,7 @@ exports[`renders ./components/tooltip/demo/auto-adjust-overflow.md extend contex
   <div>
     <div
       class="ant-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -149,7 +149,7 @@ Array [
   <div>
     <div
       class="ant-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -187,7 +187,7 @@ Array [
   </div>,
   <div>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -197,7 +197,7 @@ Array [
     <div>
       <div
         class="ant-tooltip ant-tooltip-pink"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -219,7 +219,7 @@ Array [
       </div>
     </div>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -229,7 +229,7 @@ Array [
     <div>
       <div
         class="ant-tooltip ant-tooltip-red"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -251,7 +251,7 @@ Array [
       </div>
     </div>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -261,7 +261,7 @@ Array [
     <div>
       <div
         class="ant-tooltip ant-tooltip-yellow"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -283,7 +283,7 @@ Array [
       </div>
     </div>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -293,7 +293,7 @@ Array [
     <div>
       <div
         class="ant-tooltip ant-tooltip-orange"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -315,7 +315,7 @@ Array [
       </div>
     </div>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -325,7 +325,7 @@ Array [
     <div>
       <div
         class="ant-tooltip ant-tooltip-cyan"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -347,7 +347,7 @@ Array [
       </div>
     </div>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -357,7 +357,7 @@ Array [
     <div>
       <div
         class="ant-tooltip ant-tooltip-green"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -379,7 +379,7 @@ Array [
       </div>
     </div>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -389,7 +389,7 @@ Array [
     <div>
       <div
         class="ant-tooltip ant-tooltip-blue"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -411,7 +411,7 @@ Array [
       </div>
     </div>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -421,7 +421,7 @@ Array [
     <div>
       <div
         class="ant-tooltip ant-tooltip-purple"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -443,7 +443,7 @@ Array [
       </div>
     </div>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -453,7 +453,7 @@ Array [
     <div>
       <div
         class="ant-tooltip ant-tooltip-geekblue"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -475,7 +475,7 @@ Array [
       </div>
     </div>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -485,7 +485,7 @@ Array [
     <div>
       <div
         class="ant-tooltip ant-tooltip-magenta"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -507,7 +507,7 @@ Array [
       </div>
     </div>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -517,7 +517,7 @@ Array [
     <div>
       <div
         class="ant-tooltip ant-tooltip-volcano"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -539,7 +539,7 @@ Array [
       </div>
     </div>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -549,7 +549,7 @@ Array [
     <div>
       <div
         class="ant-tooltip ant-tooltip-gold"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -571,7 +571,7 @@ Array [
       </div>
     </div>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -581,7 +581,7 @@ Array [
     <div>
       <div
         class="ant-tooltip ant-tooltip-lime"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -615,7 +615,7 @@ Array [
   </div>,
   <div>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -625,7 +625,7 @@ Array [
     <div>
       <div
         class="ant-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -635,7 +635,7 @@ Array [
           >
             <span
               class="ant-tooltip-arrow-content"
-              style="background:#f50"
+              style="--antd-arrow-background-color:#f50"
             />
           </div>
           <div
@@ -649,7 +649,7 @@ Array [
       </div>
     </div>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -659,7 +659,7 @@ Array [
     <div>
       <div
         class="ant-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -669,7 +669,7 @@ Array [
           >
             <span
               class="ant-tooltip-arrow-content"
-              style="background:#2db7f5"
+              style="--antd-arrow-background-color:#2db7f5"
             />
           </div>
           <div
@@ -683,7 +683,7 @@ Array [
       </div>
     </div>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -693,7 +693,7 @@ Array [
     <div>
       <div
         class="ant-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -703,7 +703,7 @@ Array [
           >
             <span
               class="ant-tooltip-arrow-content"
-              style="background:#87d068"
+              style="--antd-arrow-background-color:#87d068"
             />
           </div>
           <div
@@ -717,7 +717,7 @@ Array [
       </div>
     </div>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -727,7 +727,7 @@ Array [
     <div>
       <div
         class="ant-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -737,7 +737,7 @@ Array [
           >
             <span
               class="ant-tooltip-arrow-content"
-              style="background:#108ee9"
+              style="--antd-arrow-background-color:#108ee9"
             />
           </div>
           <div
@@ -762,7 +762,7 @@ Array [
   <div>
     <div
       class="ant-tooltip"
-      style="opacity:0;pointer-events:none"
+      style="opacity:0"
     >
       <div
         class="ant-tooltip-content"
@@ -794,7 +794,7 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
     style="margin-left:70px;white-space:nowrap"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -804,7 +804,7 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
     <div>
       <div
         class="ant-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -828,7 +828,7 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
       </div>
     </div>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -838,7 +838,7 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
     <div>
       <div
         class="ant-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -862,7 +862,7 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
       </div>
     </div>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -872,7 +872,7 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
     <div>
       <div
         class="ant-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -900,7 +900,7 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
     style="width:70px;float:left"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -910,7 +910,7 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
     <div>
       <div
         class="ant-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -934,7 +934,7 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
       </div>
     </div>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -944,7 +944,7 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
     <div>
       <div
         class="ant-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -968,7 +968,7 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
       </div>
     </div>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -978,7 +978,7 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
     <div>
       <div
         class="ant-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -1006,7 +1006,7 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
     style="width:70px;margin-left:304px"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -1016,7 +1016,7 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
     <div>
       <div
         class="ant-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -1040,7 +1040,7 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
       </div>
     </div>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -1050,7 +1050,7 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
     <div>
       <div
         class="ant-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -1074,7 +1074,7 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
       </div>
     </div>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -1084,7 +1084,7 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
     <div>
       <div
         class="ant-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -1112,7 +1112,7 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
     style="margin-left:70px;clear:both;white-space:nowrap"
   >
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -1122,7 +1122,7 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
     <div>
       <div
         class="ant-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -1146,7 +1146,7 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
       </div>
     </div>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -1156,7 +1156,7 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
     <div>
       <div
         class="ant-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"
@@ -1180,7 +1180,7 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
       </div>
     </div>
     <button
-      class="ant-btn"
+      class="ant-btn ant-btn-default"
       type="button"
     >
       <span>
@@ -1190,7 +1190,7 @@ exports[`renders ./components/tooltip/demo/placement.md extend context correctly
     <div>
       <div
         class="ant-tooltip"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div
           class="ant-tooltip-content"

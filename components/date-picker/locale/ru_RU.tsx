@@ -2,7 +2,7 @@
 
 import CalendarLocale from 'rc-picker/lib/locale/ru_RU';
 import TimePickerLocale from '../../time-picker/locale/ru_RU';
-import { PickerLocale } from '../generatePicker';
+import type { PickerLocale } from '../generatePicker';
 
 // Merge into a locale object
 const locale: PickerLocale = {

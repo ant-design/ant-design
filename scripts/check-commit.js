@@ -2,7 +2,7 @@
 const chalk = require('chalk');
 const path = require('path');
 const fetch = require('isomorphic-fetch');
-const simpleGit = require('simple-git/promise');
+const simpleGit = require('simple-git');
 
 const cwd = process.cwd();
 const git = simpleGit(cwd);
@@ -44,7 +44,7 @@ async function checkCommit({ files }) {
 
 async function checkRemote() {
   const { remote } = await git.fetch('origin', 'master');
-  if (remote.indexOf('ant-design/ant-design') === -1) {
+  if (remote?.indexOf('ant-design/ant-design') === -1) {
     console.log(
       chalk.yellow('😓 Your remote origin is not ant-design/ant-design, did you fork it?'),
     );

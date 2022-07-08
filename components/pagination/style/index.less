@@ -59,8 +59,18 @@
       }
     }
 
-    &:focus-visible,
     &:hover {
+      border-color: @primary-color;
+      transition: all 0.3s;
+
+      a {
+        color: @primary-color;
+      }
+    }
+
+    // cannot merge with `&:hover`
+    // see https://github.com/ant-design/ant-design/pull/34002
+    &:focus-visible {
       border-color: @primary-color;
       transition: all 0.3s;
 
@@ -78,13 +88,19 @@
         color: @primary-color;
       }
 
-      &:focus-visible,
       &:hover {
         border-color: @primary-5;
       }
 
-      &:focus-visible a,
+      &:focus-visible {
+        border-color: @primary-5;
+      }
+
       &:hover a {
+        color: @primary-5;
+      }
+
+      &:focus-visible a {
         color: @primary-5;
       }
     }
@@ -130,8 +146,16 @@
       }
     }
 
-    &:focus-visible,
     &:hover {
+      .@{pagination-prefix-cls}-item-link-icon {
+        opacity: 1;
+      }
+      .@{pagination-prefix-cls}-item-ellipsis {
+        opacity: 0;
+      }
+    }
+
+    &:focus-visible {
       .@{pagination-prefix-cls}-item-link-icon {
         opacity: 1;
       }
@@ -194,7 +218,11 @@
       transition: all 0.3s;
     }
 
-    &:focus-visible .@{pagination-prefix-cls}-item-link,
+    &:focus-visible .@{pagination-prefix-cls}-item-link {
+      color: @primary-color;
+      border-color: @primary-color;
+    }
+
     &:hover .@{pagination-prefix-cls}-item-link {
       color: @primary-color;
       border-color: @primary-color;
@@ -203,7 +231,15 @@
 
   &-disabled {
     &,
-    &:hover,
+    &:hover {
+      cursor: not-allowed;
+      .@{pagination-prefix-cls}-item-link {
+        color: @disabled-color;
+        border-color: @border-color-base;
+        cursor: not-allowed;
+      }
+    }
+
     &:focus-visible {
       cursor: not-allowed;
       .@{pagination-prefix-cls}-item-link {
@@ -305,34 +341,34 @@
     }
   }
 
-  &.mini &-total-text,
-  &.mini &-simple-pager {
+  &&-mini &-total-text,
+  &&-mini &-simple-pager {
     height: @pagination-item-size-sm;
     line-height: @pagination-item-size-sm;
   }
 
-  &.mini &-item {
+  &&-mini &-item {
     min-width: @pagination-item-size-sm;
     height: @pagination-item-size-sm;
     margin: 0;
     line-height: @pagination-item-size-sm - 2px;
   }
 
-  &.mini &-item:not(&-item-active) {
+  &&-mini &-item:not(&-item-active) {
     background: transparent;
     border-color: transparent;
   }
 
-  &.mini &-prev,
-  &.mini &-next {
+  &&-mini &-prev,
+  &&-mini &-next {
     min-width: @pagination-item-size-sm;
     height: @pagination-item-size-sm;
     margin: 0;
     line-height: @pagination-item-size-sm;
   }
 
-  &.mini &-prev &-item-link,
-  &.mini &-next &-item-link {
+  &&-mini &-prev &-item-link,
+  &&-mini &-next &-item-link {
     background: transparent;
     border-color: transparent;
 
@@ -342,14 +378,14 @@
     }
   }
 
-  &.mini &-jump-prev,
-  &.mini &-jump-next {
+  &&-mini &-jump-prev,
+  &&-mini &-jump-next {
     height: @pagination-item-size-sm;
     margin-right: 0;
     line-height: @pagination-item-size-sm;
   }
 
-  &.mini &-options {
+  &&-mini &-options {
     margin-left: 2px;
 
     &-size-changer {

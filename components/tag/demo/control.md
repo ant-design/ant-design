@@ -13,146 +13,135 @@ title:
 
 Generating a set of Tags by array, you can add and remove dynamically.
 
-```jsx
-import { Tag, Input, Tooltip } from 'antd';
+```tsx
 import { PlusOutlined } from '@ant-design/icons';
+import type { InputRef } from 'antd';
+import { Input, Tag, Tooltip } from 'antd';
+import React, { useEffect, useRef, useState } from 'react';
 
-class EditableTagGroup extends React.Component {
-  state = {
-    tags: ['Unremovable', 'Tag 2', 'Tag 3'],
-    inputVisible: false,
-    inputValue: '',
-    editInputIndex: -1,
-    editInputValue: '',
-  };
+const App: React.FC = () => {
+  const [tags, setTags] = useState<string[]>(['Unremovable', 'Tag 2', 'Tag 3']);
+  const [inputVisible, setInputVisible] = useState(false);
+  const [inputValue, setInputValue] = useState('');
+  const [editInputIndex, setEditInputIndex] = useState(-1);
+  const [editInputValue, setEditInputValue] = useState('');
+  const inputRef = useRef<InputRef>(null);
+  const editInputRef = useRef<InputRef>(null);
 
-  handleClose = removedTag => {
-    const tags = this.state.tags.filter(tag => tag !== removedTag);
-    console.log(tags);
-    this.setState({ tags });
-  };
-
-  showInput = () => {
-    this.setState({ inputVisible: true }, () => this.input.focus());
-  };
-
-  handleInputChange = e => {
-    this.setState({ inputValue: e.target.value });
-  };
-
-  handleInputConfirm = () => {
-    const { inputValue } = this.state;
-    let { tags } = this.state;
-    if (inputValue && tags.indexOf(inputValue) === -1) {
-      tags = [...tags, inputValue];
+  useEffect(() => {
+    if (inputVisible) {
+      inputRef.current?.focus();
     }
-    console.log(tags);
-    this.setState({
-      tags,
-      inputVisible: false,
-      inputValue: '',
-    });
+  }, [inputVisible]);
+
+  useEffect(() => {
+    editInputRef.current?.focus();
+  }, [inputValue]);
+
+  const handleClose = (removedTag: string) => {
+    const newTags = tags.filter(tag => tag !== removedTag);
+    console.log(newTags);
+    setTags(newTags);
   };
 
-  handleEditInputChange = e => {
-    this.setState({ editInputValue: e.target.value });
+  const showInput = () => {
+    setInputVisible(true);
   };
 
-  handleEditInputConfirm = () => {
-    this.setState(({ tags, editInputIndex, editInputValue }) => {
-      const newTags = [...tags];
-      newTags[editInputIndex] = editInputValue;
-
-      return {
-        tags: newTags,
-        editInputIndex: -1,
-        editInputValue: '',
-      };
-    });
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
   };
 
-  saveInputRef = input => {
-    this.input = input;
+  const handleInputConfirm = () => {
+    if (inputValue && tags.indexOf(inputValue) === -1) {
+      setTags([...tags, inputValue]);
+    }
+    setInputVisible(false);
+    setInputValue('');
   };
 
-  saveEditInputRef = input => {
-    this.editInput = input;
+  const handleEditInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEditInputValue(e.target.value);
   };
 
-  render() {
-    const { tags, inputVisible, inputValue, editInputIndex, editInputValue } = this.state;
-    return (
-      <>
-        {tags.map((tag, index) => {
-          if (editInputIndex === index) {
-            return (
-              <Input
-                ref={this.saveEditInputRef}
-                key={tag}
-                size="small"
-                className="tag-input"
-                value={editInputValue}
-                onChange={this.handleEditInputChange}
-                onBlur={this.handleEditInputConfirm}
-                onPressEnter={this.handleEditInputConfirm}
-              />
-            );
-          }
+  const handleEditInputConfirm = () => {
+    const newTags = [...tags];
+    newTags[editInputIndex] = editInputValue;
+    setTags(newTags);
+    setEditInputIndex(-1);
+    setInputValue('');
+  };
 
-          const isLongTag = tag.length > 20;
-
-          const tagElem = (
-            <Tag
-              className="edit-tag"
+  return (
+    <>
+      {tags.map((tag, index) => {
+        if (editInputIndex === index) {
+          return (
+            <Input
+              ref={editInputRef}
               key={tag}
-              closable={index !== 0}
-              onClose={() => this.handleClose(tag)}
-            >
-              <span
-                onDoubleClick={e => {
-                  if (index !== 0) {
-                    this.setState({ editInputIndex: index, editInputValue: tag }, () => {
-                      this.editInput.focus();
-                    });
-                    e.preventDefault();
-                  }
-                }}
-              >
-                {isLongTag ? `${tag.slice(0, 20)}...` : tag}
-              </span>
-            </Tag>
+              size="small"
+              className="tag-input"
+              value={editInputValue}
+              onChange={handleEditInputChange}
+              onBlur={handleEditInputConfirm}
+              onPressEnter={handleEditInputConfirm}
+            />
           );
-          return isLongTag ? (
-            <Tooltip title={tag} key={tag}>
-              {tagElem}
-            </Tooltip>
-          ) : (
-            tagElem
-          );
-        })}
-        {inputVisible && (
-          <Input
-            ref={this.saveInputRef}
-            type="text"
-            size="small"
-            className="tag-input"
-            value={inputValue}
-            onChange={this.handleInputChange}
-            onBlur={this.handleInputConfirm}
-            onPressEnter={this.handleInputConfirm}
-          />
-        )}
-        {!inputVisible && (
-          <Tag className="site-tag-plus" onClick={this.showInput}>
-            <PlusOutlined /> New Tag
-          </Tag>
-        )}
-      </>
-    );
-  }
-}
+        }
 
-ReactDOM.render(<EditableTagGroup />, mountNode);
+        const isLongTag = tag.length > 20;
+
+        const tagElem = (
+          <Tag
+            className="edit-tag"
+            key={tag}
+            closable={index !== 0}
+            onClose={() => handleClose(tag)}
+          >
+            <span
+              onDoubleClick={e => {
+                if (index !== 0) {
+                  setEditInputIndex(index);
+                  setEditInputValue(tag);
+                  e.preventDefault();
+                }
+              }}
+            >
+              {isLongTag ? `${tag.slice(0, 20)}...` : tag}
+            </span>
+          </Tag>
+        );
+        return isLongTag ? (
+          <Tooltip title={tag} key={tag}>
+            {tagElem}
+          </Tooltip>
+        ) : (
+          tagElem
+        );
+      })}
+      {inputVisible && (
+        <Input
+          ref={inputRef}
+          type="text"
+          size="small"
+          className="tag-input"
+          value={inputValue}
+          onChange={handleInputChange}
+          onBlur={handleInputConfirm}
+          onPressEnter={handleInputConfirm}
+        />
+      )}
+      {!inputVisible && (
+        <Tag className="site-tag-plus" onClick={showInput}>
+          <PlusOutlined /> New Tag
+        </Tag>
+      )}
+    </>
+  );
+};
+
+export default App;
 ```
 
 ```css

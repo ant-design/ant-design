@@ -1,16 +1,17 @@
-import * as React from 'react';
 import memoizeOne from 'memoize-one';
-import { ValidateMessages } from 'rc-field-form/lib/interface';
-import devWarning from '../_util/devWarning';
+import type { ValidateMessages } from 'rc-field-form/lib/interface';
+import * as React from 'react';
+import warning from '../_util/warning';
 
-import { ModalLocale, changeConfirmLocale } from '../modal/locale';
-import { TransferLocale as TransferLocaleForEmpty } from '../empty';
-import { PaginationLocale } from '../pagination/Pagination';
-import { TableLocale } from '../table/interface';
-import { PopconfirmLocale } from '../popconfirm';
-import { UploadLocale } from '../upload/interface';
-import { TransferLocale } from '../transfer';
-import { PickerLocale as DatePickerLocale } from '../date-picker/generatePicker';
+import type { PickerLocale as DatePickerLocale } from '../date-picker/generatePicker';
+import type { TransferLocale as TransferLocaleForEmpty } from '../empty';
+import type { ModalLocale } from '../modal/locale';
+import { changeConfirmLocale } from '../modal/locale';
+import type { PaginationLocale } from '../pagination/Pagination';
+import type { PopconfirmLocale } from '../popconfirm';
+import type { TableLocale } from '../table/interface';
+import type { TransferLocale } from '../transfer';
+import type { UploadLocale } from '../upload/interface';
 import LocaleContext from './context';
 
 export const ANT_MARK = 'internalMark';
@@ -61,7 +62,7 @@ export default class LocaleProvider extends React.Component<LocaleProviderProps,
     super(props);
     changeConfirmLocale(props.locale && props.locale.Modal);
 
-    devWarning(
+    warning(
       props._ANT_MARK__ === ANT_MARK,
       'LocaleProvider',
       '`LocaleProvider` is deprecated. Please use `locale` with `ConfigProvider` instead: http://u.ant.design/locale',

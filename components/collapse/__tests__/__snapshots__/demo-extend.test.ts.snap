@@ -2,19 +2,22 @@
 
 exports[`renders ./components/collapse/demo/accordion.md extend context correctly 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-left"
+  class="ant-collapse ant-collapse-icon-position-start"
   role="tablist"
 >
   <div
     class="ant-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="tab"
       tabindex="0"
     >
-      <div>
+      <div
+        class="ant-collapse-expand-icon"
+      >
         <span
           aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
@@ -35,19 +38,26 @@ exports[`renders ./components/collapse/demo/accordion.md extend context correctl
           </svg>
         </span>
       </div>
-      This is panel header 1
+      <span
+        class="ant-collapse-header-text"
+      >
+        This is panel header 1
+      </span>
     </div>
   </div>
   <div
     class="ant-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="tab"
       tabindex="0"
     >
-      <div>
+      <div
+        class="ant-collapse-expand-icon"
+      >
         <span
           aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
@@ -68,19 +78,26 @@ exports[`renders ./components/collapse/demo/accordion.md extend context correctl
           </svg>
         </span>
       </div>
-      This is panel header 2
+      <span
+        class="ant-collapse-header-text"
+      >
+        This is panel header 2
+      </span>
     </div>
   </div>
   <div
     class="ant-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="tab"
       tabindex="0"
     >
-      <div>
+      <div
+        class="ant-collapse-expand-icon"
+      >
         <span
           aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
@@ -101,7 +118,11 @@ exports[`renders ./components/collapse/demo/accordion.md extend context correctl
           </svg>
         </span>
       </div>
-      This is panel header 3
+      <span
+        class="ant-collapse-header-text"
+      >
+        This is panel header 3
+      </span>
     </div>
   </div>
 </div>
@@ -109,18 +130,21 @@ exports[`renders ./components/collapse/demo/accordion.md extend context correctl
 
 exports[`renders ./components/collapse/demo/basic.md extend context correctly 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-left"
+  class="ant-collapse ant-collapse-icon-position-start"
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"
   >
     <div
+      aria-disabled="false"
       aria-expanded="true"
       class="ant-collapse-header"
       role="button"
       tabindex="0"
     >
-      <div>
+      <div
+        class="ant-collapse-expand-icon"
+      >
         <span
           aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
@@ -142,7 +166,11 @@ exports[`renders ./components/collapse/demo/basic.md extend context correctly 1`
           </svg>
         </span>
       </div>
-      This is panel header 1
+      <span
+        class="ant-collapse-header-text"
+      >
+        This is panel header 1
+      </span>
     </div>
     <div
       class="ant-collapse-content ant-collapse-content-active"
@@ -164,12 +192,15 @@ exports[`renders ./components/collapse/demo/basic.md extend context correctly 1`
     class="ant-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="button"
       tabindex="0"
     >
-      <div>
+      <div
+        class="ant-collapse-expand-icon"
+      >
         <span
           aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
@@ -190,19 +221,26 @@ exports[`renders ./components/collapse/demo/basic.md extend context correctly 1`
           </svg>
         </span>
       </div>
-      This is panel header 2
+      <span
+        class="ant-collapse-header-text"
+      >
+        This is panel header 2
+      </span>
     </div>
   </div>
   <div
     class="ant-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="button"
       tabindex="0"
     >
-      <div>
+      <div
+        class="ant-collapse-expand-icon"
+      >
         <span
           aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
@@ -223,7 +261,11 @@ exports[`renders ./components/collapse/demo/basic.md extend context correctly 1`
           </svg>
         </span>
       </div>
-      This is panel header 3
+      <span
+        class="ant-collapse-header-text"
+      >
+        This is panel header 3
+      </span>
     </div>
   </div>
 </div>
@@ -231,18 +273,21 @@ exports[`renders ./components/collapse/demo/basic.md extend context correctly 1`
 
 exports[`renders ./components/collapse/demo/borderless.md extend context correctly 1`] = `
 <div
-  class="ant-collapse ant-collapse-borderless ant-collapse-icon-position-left"
+  class="ant-collapse ant-collapse-icon-position-start ant-collapse-borderless"
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"
   >
     <div
+      aria-disabled="false"
       aria-expanded="true"
       class="ant-collapse-header"
       role="button"
       tabindex="0"
     >
-      <div>
+      <div
+        class="ant-collapse-expand-icon"
+      >
         <span
           aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
@@ -264,7 +309,11 @@ exports[`renders ./components/collapse/demo/borderless.md extend context correct
           </svg>
         </span>
       </div>
-      This is panel header 1
+      <span
+        class="ant-collapse-header-text"
+      >
+        This is panel header 1
+      </span>
     </div>
     <div
       class="ant-collapse-content ant-collapse-content-active"
@@ -284,12 +333,15 @@ exports[`renders ./components/collapse/demo/borderless.md extend context correct
     class="ant-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="button"
       tabindex="0"
     >
-      <div>
+      <div
+        class="ant-collapse-expand-icon"
+      >
         <span
           aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
@@ -310,19 +362,26 @@ exports[`renders ./components/collapse/demo/borderless.md extend context correct
           </svg>
         </span>
       </div>
-      This is panel header 2
+      <span
+        class="ant-collapse-header-text"
+      >
+        This is panel header 2
+      </span>
     </div>
   </div>
   <div
     class="ant-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="button"
       tabindex="0"
     >
-      <div>
+      <div
+        class="ant-collapse-expand-icon"
+      >
         <span
           aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
@@ -343,7 +402,11 @@ exports[`renders ./components/collapse/demo/borderless.md extend context correct
           </svg>
         </span>
       </div>
-      This is panel header 3
+      <span
+        class="ant-collapse-header-text"
+      >
+        This is panel header 3
+      </span>
     </div>
   </div>
 </div>
@@ -358,18 +421,19 @@ exports[`renders ./components/collapse/demo/collapsible.md extend context correc
     style="margin-bottom:8px"
   >
     <div
-      class="ant-collapse ant-collapse-icon-position-left"
+      class="ant-collapse ant-collapse-icon-position-start"
     >
       <div
         class="ant-collapse-item ant-collapse-item-active"
       >
         <div
+          aria-disabled="false"
           aria-expanded="true"
           class="ant-collapse-header ant-collapse-header-collapsible-only"
-          role="button"
-          tabindex="0"
         >
-          <div>
+          <div
+            class="ant-collapse-expand-icon"
+          >
             <span
               aria-label="right"
               class="anticon anticon-right ant-collapse-arrow"
@@ -419,18 +483,21 @@ exports[`renders ./components/collapse/demo/collapsible.md extend context correc
     class="ant-space-item"
   >
     <div
-      class="ant-collapse ant-collapse-icon-position-left"
+      class="ant-collapse ant-collapse-icon-position-start"
     >
       <div
         class="ant-collapse-item ant-collapse-item-disabled"
       >
         <div
+          aria-disabled="true"
           aria-expanded="false"
           class="ant-collapse-header"
           role="button"
           tabindex="-1"
         >
-          <div>
+          <div
+            class="ant-collapse-expand-icon"
+          >
             <span
               aria-label="right"
               class="anticon anticon-right ant-collapse-arrow"
@@ -451,7 +518,11 @@ exports[`renders ./components/collapse/demo/collapsible.md extend context correc
               </svg>
             </span>
           </div>
-          This panel can't be collapsed
+          <span
+            class="ant-collapse-header-text"
+          >
+            This panel can't be collapsed
+          </span>
         </div>
       </div>
     </div>
@@ -461,18 +532,21 @@ exports[`renders ./components/collapse/demo/collapsible.md extend context correc
 
 exports[`renders ./components/collapse/demo/custom.md extend context correctly 1`] = `
 <div
-  class="ant-collapse ant-collapse-borderless ant-collapse-icon-position-left site-collapse-custom-collapse"
+  class="ant-collapse ant-collapse-icon-position-start ant-collapse-borderless site-collapse-custom-collapse"
 >
   <div
     class="ant-collapse-item ant-collapse-item-active site-collapse-custom-panel"
   >
     <div
+      aria-disabled="false"
       aria-expanded="true"
       class="ant-collapse-header"
       role="button"
       tabindex="0"
     >
-      <div>
+      <div
+        class="ant-collapse-expand-icon"
+      >
         <span
           aria-label="caret-right"
           class="anticon anticon-caret-right ant-collapse-arrow"
@@ -494,7 +568,11 @@ exports[`renders ./components/collapse/demo/custom.md extend context correctly 1
           </svg>
         </span>
       </div>
-      This is panel header 1
+      <span
+        class="ant-collapse-header-text"
+      >
+        This is panel header 1
+      </span>
     </div>
     <div
       class="ant-collapse-content ant-collapse-content-active"
@@ -516,12 +594,15 @@ exports[`renders ./components/collapse/demo/custom.md extend context correctly 1
     class="ant-collapse-item site-collapse-custom-panel"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="button"
       tabindex="0"
     >
-      <div>
+      <div
+        class="ant-collapse-expand-icon"
+      >
         <span
           aria-label="caret-right"
           class="anticon anticon-caret-right ant-collapse-arrow"
@@ -542,19 +623,26 @@ exports[`renders ./components/collapse/demo/custom.md extend context correctly 1
           </svg>
         </span>
       </div>
-      This is panel header 2
+      <span
+        class="ant-collapse-header-text"
+      >
+        This is panel header 2
+      </span>
     </div>
   </div>
   <div
     class="ant-collapse-item site-collapse-custom-panel"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="button"
       tabindex="0"
     >
-      <div>
+      <div
+        class="ant-collapse-expand-icon"
+      >
         <span
           aria-label="caret-right"
           class="anticon anticon-caret-right ant-collapse-arrow"
@@ -575,7 +663,11 @@ exports[`renders ./components/collapse/demo/custom.md extend context correctly 1
           </svg>
         </span>
       </div>
-      This is panel header 3
+      <span
+        class="ant-collapse-header-text"
+      >
+        This is panel header 3
+      </span>
     </div>
   </div>
 </div>
@@ -584,18 +676,21 @@ exports[`renders ./components/collapse/demo/custom.md extend context correctly 1
 exports[`renders ./components/collapse/demo/extra.md extend context correctly 1`] = `
 Array [
   <div
-    class="ant-collapse ant-collapse-icon-position-left"
+    class="ant-collapse ant-collapse-icon-position-start"
   >
     <div
       class="ant-collapse-item ant-collapse-item-active"
     >
       <div
+        aria-disabled="false"
         aria-expanded="true"
         class="ant-collapse-header"
         role="button"
         tabindex="0"
       >
-        <div>
+        <div
+          class="ant-collapse-expand-icon"
+        >
           <span
             aria-label="right"
             class="anticon anticon-right ant-collapse-arrow"
@@ -617,7 +712,11 @@ Array [
             </svg>
           </span>
         </div>
-        This is panel header 1
+        <span
+          class="ant-collapse-header-text"
+        >
+          This is panel header 1
+        </span>
         <div
           class="ant-collapse-extra"
         >
@@ -663,12 +762,15 @@ Array [
       class="ant-collapse-item"
     >
       <div
+        aria-disabled="false"
         aria-expanded="false"
         class="ant-collapse-header"
         role="button"
         tabindex="0"
       >
-        <div>
+        <div
+          class="ant-collapse-expand-icon"
+        >
           <span
             aria-label="right"
             class="anticon anticon-right ant-collapse-arrow"
@@ -689,7 +791,11 @@ Array [
             </svg>
           </span>
         </div>
-        This is panel header 2
+        <span
+          class="ant-collapse-header-text"
+        >
+          This is panel header 2
+        </span>
         <div
           class="ant-collapse-extra"
         >
@@ -720,12 +826,15 @@ Array [
       class="ant-collapse-item"
     >
       <div
+        aria-disabled="false"
         aria-expanded="false"
         class="ant-collapse-header"
         role="button"
         tabindex="0"
       >
-        <div>
+        <div
+          class="ant-collapse-expand-icon"
+        >
           <span
             aria-label="right"
             class="anticon anticon-right ant-collapse-arrow"
@@ -746,7 +855,11 @@ Array [
             </svg>
           </span>
         </div>
-        This is panel header 3
+        <span
+          class="ant-collapse-header-text"
+        >
+          This is panel header 3
+        </span>
         <div
           class="ant-collapse-extra"
         >
@@ -806,15 +919,15 @@ Array [
       </span>
       <span
         class="ant-select-selection-item"
-        title="left"
+        title="start"
       >
-        left
+        start
       </span>
     </div>
     <div>
       <div
         class="ant-select-dropdown"
-        style="opacity:0;pointer-events:none"
+        style="opacity:0"
       >
         <div>
           <div
@@ -823,20 +936,20 @@ Array [
             style="height:0;width:0;overflow:hidden"
           >
             <div
-              aria-label="left"
+              aria-label="start"
               aria-selected="true"
               id="undefined_list_0"
               role="option"
             >
-              left
+              start
             </div>
             <div
-              aria-label="right"
+              aria-label="end"
               aria-selected="false"
               id="undefined_list_1"
               role="option"
             >
-              right
+              end
             </div>
           </div>
           <div
@@ -855,12 +968,12 @@ Array [
                   <div
                     aria-selected="true"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                    title="left"
+                    title="start"
                   >
                     <div
                       class="ant-select-item-option-content"
                     >
-                      left
+                      start
                     </div>
                     <span
                       aria-hidden="true"
@@ -872,12 +985,12 @@ Array [
                   <div
                     aria-selected="false"
                     class="ant-select-item ant-select-item-option"
-                    title="right"
+                    title="end"
                   >
                     <div
                       class="ant-select-item-option-content"
                     >
-                      right
+                      end
                     </div>
                     <span
                       aria-hidden="true"
@@ -925,18 +1038,21 @@ Array [
 
 exports[`renders ./components/collapse/demo/ghost.md extend context correctly 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-left ant-collapse-ghost"
+  class="ant-collapse ant-collapse-icon-position-start ant-collapse-ghost"
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"
   >
     <div
+      aria-disabled="false"
       aria-expanded="true"
       class="ant-collapse-header"
       role="button"
       tabindex="0"
     >
-      <div>
+      <div
+        class="ant-collapse-expand-icon"
+      >
         <span
           aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
@@ -958,7 +1074,11 @@ exports[`renders ./components/collapse/demo/ghost.md extend context correctly 1`
           </svg>
         </span>
       </div>
-      This is panel header 1
+      <span
+        class="ant-collapse-header-text"
+      >
+        This is panel header 1
+      </span>
     </div>
     <div
       class="ant-collapse-content ant-collapse-content-active"
@@ -980,12 +1100,15 @@ exports[`renders ./components/collapse/demo/ghost.md extend context correctly 1`
     class="ant-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="button"
       tabindex="0"
     >
-      <div>
+      <div
+        class="ant-collapse-expand-icon"
+      >
         <span
           aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
@@ -1006,19 +1129,26 @@ exports[`renders ./components/collapse/demo/ghost.md extend context correctly 1`
           </svg>
         </span>
       </div>
-      This is panel header 2
+      <span
+        class="ant-collapse-header-text"
+      >
+        This is panel header 2
+      </span>
     </div>
   </div>
   <div
     class="ant-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="button"
       tabindex="0"
     >
-      <div>
+      <div
+        class="ant-collapse-expand-icon"
+      >
         <span
           aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
@@ -1039,7 +1169,11 @@ exports[`renders ./components/collapse/demo/ghost.md extend context correctly 1`
           </svg>
         </span>
       </div>
-      This is panel header 3
+      <span
+        class="ant-collapse-header-text"
+      >
+        This is panel header 3
+      </span>
     </div>
   </div>
 </div>
@@ -1047,18 +1181,21 @@ exports[`renders ./components/collapse/demo/ghost.md extend context correctly 1`
 
 exports[`renders ./components/collapse/demo/mix.md extend context correctly 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-left"
+  class="ant-collapse ant-collapse-icon-position-start"
 >
   <div
     class="ant-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="button"
       tabindex="0"
     >
-      <div>
+      <div
+        class="ant-collapse-expand-icon"
+      >
         <span
           aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
@@ -1079,19 +1216,26 @@ exports[`renders ./components/collapse/demo/mix.md extend context correctly 1`] 
           </svg>
         </span>
       </div>
-      This is panel header 1
+      <span
+        class="ant-collapse-header-text"
+      >
+        This is panel header 1
+      </span>
     </div>
   </div>
   <div
     class="ant-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="button"
       tabindex="0"
     >
-      <div>
+      <div
+        class="ant-collapse-expand-icon"
+      >
         <span
           aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
@@ -1112,19 +1256,26 @@ exports[`renders ./components/collapse/demo/mix.md extend context correctly 1`] 
           </svg>
         </span>
       </div>
-      This is panel header 2
+      <span
+        class="ant-collapse-header-text"
+      >
+        This is panel header 2
+      </span>
     </div>
   </div>
   <div
     class="ant-collapse-item"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="button"
       tabindex="0"
     >
-      <div>
+      <div
+        class="ant-collapse-expand-icon"
+      >
         <span
           aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
@@ -1145,7 +1296,11 @@ exports[`renders ./components/collapse/demo/mix.md extend context correctly 1`] 
           </svg>
         </span>
       </div>
-      This is panel header 3
+      <span
+        class="ant-collapse-header-text"
+      >
+        This is panel header 3
+      </span>
     </div>
   </div>
 </div>
@@ -1153,18 +1308,21 @@ exports[`renders ./components/collapse/demo/mix.md extend context correctly 1`] 
 
 exports[`renders ./components/collapse/demo/noarrow.md extend context correctly 1`] = `
 <div
-  class="ant-collapse ant-collapse-icon-position-left"
+  class="ant-collapse ant-collapse-icon-position-start"
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"
   >
     <div
+      aria-disabled="false"
       aria-expanded="true"
       class="ant-collapse-header"
       role="button"
       tabindex="0"
     >
-      <div>
+      <div
+        class="ant-collapse-expand-icon"
+      >
         <span
           aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
@@ -1186,7 +1344,11 @@ exports[`renders ./components/collapse/demo/noarrow.md extend context correctly 
           </svg>
         </span>
       </div>
-      This is panel header with arrow icon
+      <span
+        class="ant-collapse-header-text"
+      >
+        This is panel header with arrow icon
+      </span>
     </div>
     <div
       class="ant-collapse-content ant-collapse-content-active"
@@ -1208,12 +1370,17 @@ exports[`renders ./components/collapse/demo/noarrow.md extend context correctly 
     class="ant-collapse-item ant-collapse-no-arrow"
   >
     <div
+      aria-disabled="false"
       aria-expanded="false"
       class="ant-collapse-header"
       role="button"
       tabindex="0"
     >
-      This is panel header with no arrow icon
+      <span
+        class="ant-collapse-header-text"
+      >
+        This is panel header with no arrow icon
+      </span>
     </div>
   </div>
 </div>

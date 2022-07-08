@@ -14,12 +14,13 @@ Buggy!
 
 Buggy!
 
-```jsx
+```tsx
 import { Input } from 'antd';
+import React from 'react';
 
 const { TextArea } = Input;
 
-ReactDOM.render(
+const App: React.FC = () => (
   <div style={{ backgroundColor: 'rgba(0, 0, 128, .2)' }}>
     <Input placeholder="Unbordered" bordered={false} />
     <Input placeholder="Unbordered" bordered={false} size="large" />
@@ -28,7 +29,8 @@ ReactDOM.render(
     <Input placeholder="Unbordered" bordered={false} allowClear />
     <Input prefix="￥" suffix="RMB" bordered={false} />
     <Input prefix="￥" suffix="RMB" disabled bordered={false} />
-  </div>,
-  mountNode,
+  </div>
 );
+
+export default App;
 ```

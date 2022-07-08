@@ -1,4 +1,4 @@
-import { InternalNamePath } from './interface';
+import type { InternalNamePath } from './interface';
 
 // form item name black list.  in form ,you can use form.id get the form item element.
 // use object hasOwnProperty will get better performance if black list is longer.

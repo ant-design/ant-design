@@ -1,10 +1,10 @@
-import * as React from 'react';
-import RcDrawer from 'rc-drawer';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import classNames from 'classnames';
-import { ConfigContext, DirectionType } from '../config-provider';
+import RcDrawer from 'rc-drawer';
+import * as React from 'react';
+import { ConfigContext } from '../config-provider';
+import { NoFormStyle } from '../form/context';
 import { tuple } from '../_util/type';
-import useForceUpdate from '../_util/hooks/useForceUpdate';
 
 type DrawerRef = {
   push(): void;
@@ -64,22 +64,13 @@ export interface DrawerProps {
   footer?: React.ReactNode;
   footerStyle?: React.CSSProperties;
   level?: string | string[] | null | undefined;
-  levelMove?:
-    | ILevelMove
-    | ((e: { target: HTMLElement; open: boolean }) => ILevelMove);
-}
-
-export interface IDrawerState {
-  push?: boolean;
-}
-
-interface InternalDrawerProps extends DrawerProps {
-  direction: DirectionType;
+  levelMove?: ILevelMove | ((e: { target: HTMLElement; open: boolean }) => ILevelMove);
+  children?: React.ReactNode;
 }
 
 const defaultPushState: PushState = { distance: 180 };
 
-const Drawer = React.forwardRef<DrawerRef, InternalDrawerProps>(
+const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
   (
     {
       width,
@@ -95,10 +86,9 @@ const Drawer = React.forwardRef<DrawerRef, InternalDrawerProps>(
       closeIcon = <CloseOutlined />,
       bodyStyle,
       drawerStyle,
-      prefixCls,
       className,
-      direction,
-      visible,
+      visible: propsVisible,
+      forceRender,
       children,
       zIndex,
       destroyOnClose,
@@ -108,20 +98,47 @@ const Drawer = React.forwardRef<DrawerRef, InternalDrawerProps>(
       onClose,
       footer,
       footerStyle,
+      prefixCls: customizePrefixCls,
+      getContainer: customizeGetContainer,
       extra,
+      afterVisibleChange,
       ...rest
     },
     ref,
   ) => {
-    const forceUpdate = useForceUpdate();
     const [internalPush, setPush] = React.useState(false);
     const parentDrawer = React.useContext(DrawerContext);
-    const destroyClose = React.useRef<boolean>(false);
+    const destroyCloseRef = React.useRef<boolean>(false);
+
+    const [load, setLoad] = React.useState(false);
+    const [visible, setVisible] = React.useState(false);
+
+    React.useEffect(() => {
+      if (propsVisible) {
+        setLoad(true);
+      } else {
+        setVisible(false);
+      }
+    }, [propsVisible]);
+
+    React.useEffect(() => {
+      if (load && propsVisible) {
+        setVisible(true);
+      }
+    }, [load, propsVisible]);
+
+    const { getPopupContainer, getPrefixCls, direction } = React.useContext(ConfigContext);
+    const prefixCls = getPrefixCls('drawer', customizePrefixCls);
+    const getContainer =
+      // 有可能为 false，所以不能直接判断
+      customizeGetContainer === undefined && getPopupContainer
+        ? () => getPopupContainer(document.body)
+        : customizeGetContainer;
 
     React.useEffect(() => {
       // fix: delete drawer in child and re-render, no push started.
       // <Drawer>{show && <Drawer />}</Drawer>
-      if (visible && parentDrawer) {
+      if (propsVisible && parentDrawer) {
         parentDrawer.push();
       }
 
@@ -160,18 +177,6 @@ const Drawer = React.forwardRef<DrawerRef, InternalDrawerProps>(
     );
 
     React.useImperativeHandle(ref, () => operations, [operations]);
-
-    const isDestroyOnClose = destroyOnClose && !visible;
-
-    const onDestroyTransitionEnd = () => {
-      if (!isDestroyOnClose) {
-        return;
-      }
-      if (!visible) {
-        destroyClose.current = true;
-        forceUpdate();
-      }
-    };
 
     const getOffsetStyle = () => {
       // https://github.com/ant-design/ant-design/issues/24287
@@ -261,28 +266,13 @@ const Drawer = React.forwardRef<DrawerRef, InternalDrawerProps>(
 
     // render drawer body dom
     const renderBody = () => {
-      if (destroyClose.current && !visible) {
+      // destroyCloseRef.current =false Load the body only once by default
+      if (destroyCloseRef.current && !forceRender && !propsVisible) {
         return null;
-      }
-      destroyClose.current = false;
-
-      const containerStyle: React.CSSProperties = {};
-
-      if (isDestroyOnClose) {
-        // Increase the opacity transition, delete children after closing.
-        containerStyle.opacity = 0;
-        containerStyle.transition = 'opacity .3s';
       }
 
       return (
-        <div
-          className={`${prefixCls}-wrapper-body`}
-          style={{
-            ...containerStyle,
-            ...drawerStyle,
-          }}
-          onTransitionEnd={onDestroyTransitionEnd}
-        >
+        <div className={`${prefixCls}-wrapper-body`} style={{ ...drawerStyle }}>
           {renderHeader()}
           <div className={`${prefixCls}-body`} style={bodyStyle}>
             {children}
@@ -303,57 +293,45 @@ const Drawer = React.forwardRef<DrawerRef, InternalDrawerProps>(
 
     return (
       <DrawerContext.Provider value={operations}>
-        <RcDrawer
-          handler={false}
-          {...{
-            placement,
-            prefixCls,
-            maskClosable,
-            level,
-            keyboard,
-            children,
-            onClose,
-            ...rest,
-          }}
-          {...offsetStyle}
-          open={visible}
-          showMask={mask}
-          style={getRcDrawerStyle()}
-          className={drawerClassName}
-        >
-          {renderBody()}
-        </RcDrawer>
+        <NoFormStyle status override>
+          <RcDrawer
+            handler={false}
+            {...{
+              placement,
+              prefixCls,
+              maskClosable,
+              level,
+              keyboard,
+              children,
+              onClose,
+              forceRender,
+              ...rest,
+            }}
+            {...offsetStyle}
+            open={visible || propsVisible}
+            showMask={mask}
+            style={getRcDrawerStyle()}
+            className={drawerClassName}
+            getContainer={getContainer}
+            afterVisibleChange={open => {
+              if (open) {
+                destroyCloseRef.current = false;
+              } else if (destroyOnClose) {
+                destroyCloseRef.current = true;
+                setLoad(false);
+              }
+              afterVisibleChange?.(open);
+            }}
+          >
+            {renderBody()}
+          </RcDrawer>
+        </NoFormStyle>
       </DrawerContext.Provider>
     );
   },
 );
+if (process.env.NODE_ENV !== 'production') {
+  Drawer.displayName = 'Drawer';
+}
 
-Drawer.displayName = 'Drawer';
-
-const DrawerWrapper: React.FC<DrawerProps> = React.forwardRef<DrawerRef, DrawerProps>(
-  (props, ref) => {
-    const { prefixCls: customizePrefixCls, getContainer: customizeGetContainer } = props;
-    const { getPopupContainer, getPrefixCls, direction } = React.useContext(ConfigContext);
-
-    const prefixCls = getPrefixCls('drawer', customizePrefixCls);
-    const getContainer =
-      // 有可能为 false，所以不能直接判断
-      customizeGetContainer === undefined && getPopupContainer
-        ? () => getPopupContainer(document.body)
-        : customizeGetContainer;
-
-    return (
-      <Drawer
-        {...props}
-        ref={ref}
-        prefixCls={prefixCls}
-        getContainer={getContainer}
-        direction={direction}
-      />
-    );
-  },
-);
-
-DrawerWrapper.displayName = 'DrawerWrapper';
-
-export default DrawerWrapper;
+export default Drawer;

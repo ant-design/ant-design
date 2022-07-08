@@ -1,8 +1,9 @@
-import { Moment } from 'moment';
+import type { Moment } from 'moment';
 import * as React from 'react';
 import DatePicker from '../date-picker';
-import { PickerTimeProps, RangePickerTimeProps } from '../date-picker/generatePicker';
-import devWarning from '../_util/devWarning';
+import type { PickerTimeProps, RangePickerTimeProps } from '../date-picker/generatePicker';
+import type { InputStatus } from '../_util/statusUtils';
+import warning from '../_util/warning';
 
 const { TimePicker: InternalTimePicker, RangePicker: InternalRangePicker } = DatePicker;
 
@@ -28,6 +29,7 @@ const RangePicker = React.forwardRef<any, TimeRangePickerProps>((props, ref) => 
 export interface TimePickerProps extends Omit<PickerTimeProps<Moment>, 'picker'> {
   addon?: () => React.ReactNode;
   popupClassName?: string;
+  status?: InputStatus;
 }
 
 const TimePicker = React.forwardRef<any, TimePickerProps>(
@@ -37,7 +39,7 @@ const TimePicker = React.forwardRef<any, TimePickerProps>(
         return renderExtraFooter;
       }
       if (addon) {
-        devWarning(
+        warning(
           false,
           'TimePicker',
           '`addon` is deprecated. Please use `renderExtraFooter` instead.',
@@ -59,7 +61,9 @@ const TimePicker = React.forwardRef<any, TimePickerProps>(
   },
 );
 
-TimePicker.displayName = 'TimePicker';
+if (process.env.NODE_ENV !== 'production') {
+  TimePicker.displayName = 'TimePicker';
+}
 
 type MergedTimePicker = typeof TimePicker & {
   RangePicker: typeof RangePicker;

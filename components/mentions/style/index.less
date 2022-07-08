@@ -1,6 +1,7 @@
 @import '../../style/themes/index';
 @import '../../style/mixins/index';
 @import '../../input/style/mixin';
+@import './status';
 
 @mention-prefix-cls: ~'@{ant-prefix}-mentions';
 
@@ -161,6 +162,17 @@
         }
       }
     }
+  }
+
+  &-suffix {
+    position: absolute;
+    top: 0;
+    right: @input-padding-horizontal-base;
+    bottom: 0;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    margin: auto;
   }
 }
 

@@ -13,8 +13,10 @@ title:
 
 Render radios by configuring `options`. Radio type can also be set through the `optionType` parameter.
 
-```jsx
+```tsx
+import type { RadioChangeEvent } from 'antd';
 import { Radio } from 'antd';
+import React, { useState } from 'react';
 
 const plainOptions = ['Apple', 'Pear', 'Orange'];
 const options = [
@@ -28,70 +30,52 @@ const optionsWithDisabled = [
   { label: 'Orange', value: 'Orange', disabled: true },
 ];
 
-class App extends React.Component {
-  state = {
-    value1: 'Apple',
-    value2: 'Apple',
-    value3: 'Apple',
-    value4: 'Apple',
+const App: React.FC = () => {
+  const [value1, setValue1] = useState('Apple');
+  const [value2, setValue2] = useState('Apple');
+  const [value3, setValue3] = useState('Apple');
+  const [value4, setValue4] = useState('Apple');
+
+  const onChange1 = ({ target: { value } }: RadioChangeEvent) => {
+    console.log('radio1 checked', value);
+    setValue1(value);
   };
 
-  onChange1 = e => {
-    console.log('radio1 checked', e.target.value);
-    this.setState({
-      value1: e.target.value,
-    });
+  const onChange2 = ({ target: { value } }: RadioChangeEvent) => {
+    console.log('radio2 checked', value);
+    setValue2(value);
   };
 
-  onChange2 = e => {
-    console.log('radio2 checked', e.target.value);
-    this.setState({
-      value2: e.target.value,
-    });
+  const onChange3 = ({ target: { value } }: RadioChangeEvent) => {
+    console.log('radio3 checked', value);
+    setValue3(value);
   };
 
-  onChange3 = e => {
-    console.log('radio3 checked', e.target.value);
-    this.setState({
-      value3: e.target.value,
-    });
+  const onChange4 = ({ target: { value } }: RadioChangeEvent) => {
+    console.log('radio4 checked', value);
+    setValue4(value);
   };
 
-  onChange4 = e => {
-    console.log('radio4 checked', e.target.value);
-    this.setState({
-      value4: e.target.value,
-    });
-  };
+  return (
+    <>
+      <Radio.Group options={plainOptions} onChange={onChange1} value={value1} />
+      <br />
+      <Radio.Group options={optionsWithDisabled} onChange={onChange2} value={value2} />
+      <br />
+      <br />
+      <Radio.Group options={options} onChange={onChange3} value={value3} optionType="button" />
+      <br />
+      <br />
+      <Radio.Group
+        options={optionsWithDisabled}
+        onChange={onChange4}
+        value={value4}
+        optionType="button"
+        buttonStyle="solid"
+      />
+    </>
+  );
+};
 
-  render() {
-    const { value1, value2, value3, value4 } = this.state;
-    return (
-      <>
-        <Radio.Group options={plainOptions} onChange={this.onChange1} value={value1} />
-        <br />
-        <Radio.Group options={optionsWithDisabled} onChange={this.onChange2} value={value2} />
-        <br />
-        <br />
-        <Radio.Group
-          options={options}
-          onChange={this.onChange3}
-          value={value3}
-          optionType="button"
-        />
-        <br />
-        <br />
-        <Radio.Group
-          options={optionsWithDisabled}
-          onChange={this.onChange4}
-          value={value4}
-          optionType="button"
-          buttonStyle="solid"
-        />
-      </>
-    );
-  }
-}
-
-ReactDOM.render(<App />, mountNode);
+export default App;
 ```

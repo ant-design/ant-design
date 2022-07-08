@@ -1,118 +1,130 @@
 import React from 'react';
-import { mount } from 'enzyme';
 import Drawer from '..';
-import Button from '../../button';
-
-class DrawerEventTester extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { visible: false };
-  }
-
-  componentDidMount() {
-    this.setState({ visible: true }); // eslint-disable-line react/no-did-mount-set-state
-  }
-
-  onClose = () => {
-    this.setState({
-      visible: false,
-    });
-  };
-
-  open = () => {
-    this.setState({
-      visible: true,
-    });
-  };
-
-  render() {
-    const { visible } = this.state;
-    return (
-      <div>
-        <Button onClick={this.open}>open</Button>
-        <Drawer visible={visible} onClose={this.onClose} getContainer={false} {...this.props}>
-          Here is content of Drawer
-        </Drawer>
-      </div>
-    );
-  }
-}
+import { fireEvent, render } from '../../../tests/utils';
 
 describe('Drawer', () => {
+  const getDrawer = props => (
+    <Drawer visible getContainer={false} {...props}>
+      Here is content of Drawer
+    </Drawer>
+  );
+
   it('render correctly', () => {
-    const wrapper = mount(<DrawerEventTester />);
-    const body = wrapper.find('.ant-drawer-body').exists();
+    const { container, asFragment, rerender } = render(getDrawer());
+    expect(container.querySelector('.ant-drawer-body')).toBeTruthy();
 
-    expect(body).toBe(true);
-    wrapper.find('button.ant-btn').simulate('click');
+    rerender(getDrawer({ visible: false }));
 
-    const content = wrapper.find('.ant-drawer-body').getDOMNode().innerHTML;
-    expect(content).toBe('Here is content of Drawer');
+    expect(container.querySelector('.ant-drawer-body').textContent).toEqual(
+      'Here is content of Drawer',
+    );
 
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(asFragment().firstChild).toMatchSnapshot();
   });
 
   it('mask trigger onClose', () => {
-    const wrapper = mount(<DrawerEventTester />);
+    const onClose = jest.fn();
+    const { container } = render(getDrawer({ onClose }));
 
-    wrapper.find('button.ant-btn').simulate('click');
-    expect(wrapper.instance().state.visible).toBe(true);
-
-    wrapper.find('.ant-drawer-mask').simulate('click');
-    expect(wrapper.instance().state.visible).toBe(false);
+    fireEvent.click(container.querySelector('.ant-drawer-mask'));
+    expect(onClose).toHaveBeenCalled();
   });
 
   it('close button trigger onClose', () => {
-    const wrapper = mount(<DrawerEventTester />);
+    const onClose = jest.fn();
+    const { container } = render(getDrawer({ onClose }));
 
-    wrapper.find('button.ant-btn').simulate('click');
-    expect(wrapper.instance().state.visible).toBe(true);
-
-    wrapper.find('.ant-drawer-close').simulate('click');
-    expect(wrapper.instance().state.visible).toBe(false);
+    fireEvent.click(container.querySelector('.ant-drawer-close'));
+    expect(onClose).toHaveBeenCalled();
   });
 
   it('maskClosable no trigger onClose', () => {
-    const wrapper = mount(<DrawerEventTester maskClosable={false} />);
+    const onClose = jest.fn();
+    const { container } = render(getDrawer({ onClose, maskClosable: false }));
 
-    wrapper.find('button.ant-btn').simulate('click');
-    expect(wrapper.instance().state.visible).toBe(true);
-
-    wrapper.find('.ant-drawer-mask').simulate('click');
-    expect(wrapper.instance().state.visible).toBe(true);
+    fireEvent.click(container.querySelector('.ant-drawer-mask'));
+    expect(onClose).not.toHaveBeenCalled();
   });
 
   it('dom should be removed after close when destroyOnClose is true', () => {
-    const wrapper = mount(<DrawerEventTester destroyOnClose />);
-    wrapper.find('button.ant-btn').simulate('click');
-    expect(wrapper.find('.ant-drawer-wrapper-body').exists()).toBe(true);
+    const { container, rerender } = render(getDrawer({ destroyOnClose: true }));
 
-    wrapper.setState({
-      visible: false,
-    });
-    wrapper.find('.ant-drawer-wrapper-body').simulate('transitionend');
-    expect(wrapper.find('.ant-drawer-wrapper-body').exists()).toBe(false);
+    rerender(getDrawer({ destroyOnClose: true, visible: false }));
+    const ev = new TransitionEvent('transitionend', { bubbles: true });
+    ev.propertyName = 'transform';
+    fireEvent(document.querySelector('.ant-drawer-content-wrapper'), ev);
+
+    expect(container.querySelector('.ant-drawer-wrapper-body')).toBeFalsy();
   });
 
   it('dom should be existed after close when destroyOnClose is false', () => {
-    const wrapper = mount(<DrawerEventTester />);
-    wrapper.find('button.ant-btn').simulate('click');
-    expect(wrapper.find('.ant-drawer-wrapper-body').exists()).toBe(true);
+    const { container, rerender } = render(getDrawer());
+    expect(container.querySelector('.ant-drawer-wrapper-body')).toBeTruthy();
 
-    wrapper.setState({
-      visible: false,
-    });
-    wrapper.find('.ant-drawer-wrapper-body').simulate('transitionend');
-    expect(wrapper.find('.ant-drawer-wrapper-body').exists()).toBe(true);
+    rerender(getDrawer({ visible: false }));
+    const ev = new TransitionEvent('transitionend', { bubbles: true });
+    ev.propertyName = 'transform';
+    fireEvent(document.querySelector('.ant-drawer-content-wrapper'), ev);
+
+    expect(container.querySelector('.ant-drawer-wrapper-body')).toBeTruthy();
   });
+  it('dom should be existed after close twice when getContainer is false', () => {
+    const { container, rerender } = render(getDrawer({ visible: true, getContainer: false }));
+    rerender(getDrawer({ visible: false, getContainer: false }));
+    const ev = new TransitionEvent('transitionend', { bubbles: true });
+    ev.propertyName = 'transform';
+    fireEvent(document.querySelector('.ant-drawer-content-wrapper'), ev);
 
-  it('no mask and no closable', () => {
-    const wrapper = mount(<DrawerEventTester destroyOnClose />);
+    rerender(getDrawer({ visible: true, getContainer: false }));
+    const ev2 = new TransitionEvent('transitionend', { bubbles: true });
+    ev2.propertyName = 'transform';
+    fireEvent(document.querySelector('.ant-drawer-content-wrapper'), ev2);
 
-    wrapper.find('button.ant-btn').simulate('click');
-    expect(wrapper.instance().state.visible).toBe(true);
+    rerender(getDrawer({ visible: false, getContainer: false }));
+    const ev3 = new TransitionEvent('transitionend', { bubbles: true });
+    ev3.propertyName = 'transform';
+    fireEvent(document.querySelector('.ant-drawer-content-wrapper'), ev3);
 
-    wrapper.find('.ant-drawer-close').simulate('click');
-    expect(wrapper.instance().state.visible).toBe(false);
+    expect(container.querySelector('.ant-drawer-wrapper-body')).toBeTruthy();
+  });
+  it('test afterVisibleChange', async () => {
+    const afterVisibleChange = jest.fn();
+    const { rerender } = render(getDrawer({ afterVisibleChange, visible: true }));
+    rerender(getDrawer({ afterVisibleChange, visible: false }));
+    const ev = new TransitionEvent('transitionend', { bubbles: true });
+    ev.propertyName = 'transform';
+    fireEvent(document.querySelector('.ant-drawer-content-wrapper'), ev);
+    expect(afterVisibleChange).toBeCalledTimes(1);
+  });
+  it('should support children ref', () => {
+    const fn = jest.fn();
+
+    const refCallback = ref => {
+      expect(typeof ref).toBe('object');
+      fn();
+    };
+
+    const RefDemo = () => {
+      const ref = React.useRef();
+      const [visible, setVisible] = React.useState(false);
+
+      React.useEffect(() => {
+        if (visible) {
+          refCallback(ref.current);
+        }
+      }, [visible]);
+
+      return (
+        <>
+          <a onClick={() => setVisible(true)}>open</a>
+          <Drawer visible={visible}>
+            <div ref={ref} />
+          </Drawer>
+        </>
+      );
+    };
+    const { container } = render(<RefDemo />);
+    fireEvent.click(container.querySelector('a'));
+    expect(fn).toBeCalled();
   });
 });

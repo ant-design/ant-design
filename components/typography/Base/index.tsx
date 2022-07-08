@@ -1,24 +1,26 @@
-import * as React from 'react';
-import classNames from 'classnames';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import toArray from 'rc-util/lib/Children/toArray';
-import copy from 'copy-to-clipboard';
-import omit from 'rc-util/lib/omit';
-import { composeRef } from 'rc-util/lib/ref';
-import EditOutlined from '@ant-design/icons/EditOutlined';
 import CheckOutlined from '@ant-design/icons/CheckOutlined';
 import CopyOutlined from '@ant-design/icons/CopyOutlined';
+import EditOutlined from '@ant-design/icons/EditOutlined';
+import classNames from 'classnames';
+import copy from 'copy-to-clipboard';
 import ResizeObserver from 'rc-resize-observer';
-import { AutoSizeType } from 'rc-textarea/lib/ResizableTextArea';
+import type { AutoSizeType } from 'rc-textarea/lib/ResizableTextArea';
+import toArray from 'rc-util/lib/Children/toArray';
+import useIsomorphicLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import omit from 'rc-util/lib/omit';
+import { composeRef } from 'rc-util/lib/ref';
+import * as React from 'react';
 import { ConfigContext } from '../../config-provider';
 import { useLocaleReceiver } from '../../locale-provider/LocaleReceiver';
-import TransButton from '../../_util/transButton';
-import { isStyleSupport } from '../../_util/styleChecker';
 import Tooltip from '../../tooltip';
-import Typography, { TypographyProps } from '../Typography';
+import { isStyleSupport } from '../../_util/styleChecker';
+import TransButton from '../../_util/transButton';
 import Editable from '../Editable';
 import useMergedConfig from '../hooks/useMergedConfig';
 import useUpdatedEffect from '../hooks/useUpdatedEffect';
+import type { TypographyProps } from '../Typography';
+import Typography from '../Typography';
 import Ellipsis from './Ellipsis';
 import EllipsisTooltip from './EllipsisTooltip';
 
@@ -26,9 +28,10 @@ export type BaseType = 'secondary' | 'success' | 'warning' | 'danger';
 
 interface CopyConfig {
   text?: string;
-  onCopy?: () => void;
+  onCopy?: (event?: React.MouseEvent<HTMLDivElement>) => void;
   icon?: React.ReactNode;
   tooltips?: boolean | React.ReactNode;
+  format?: 'text/plain' | 'text/html';
 }
 
 interface EditConfig {
@@ -168,8 +171,8 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
     }
   }, [editing]);
 
-  const onEditClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.preventDefault();
+  const onEditClick = (e?: React.MouseEvent<HTMLDivElement>) => {
+    e?.preventDefault();
     triggerEdit(true);
   };
 
@@ -188,17 +191,20 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
   const [copied, setCopied] = React.useState(false);
   const copyIdRef = React.useRef<NodeJS.Timeout>();
 
+  const copyOptions: Pick<CopyConfig, 'format'> = {};
+  if (copyConfig.format) {
+    copyOptions.format = copyConfig.format;
+  }
+
   const cleanCopyId = () => {
     clearTimeout(copyIdRef.current!);
   };
 
-  const onCopyClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.preventDefault();
+  const onCopyClick = (e?: React.MouseEvent<HTMLDivElement>) => {
+    e?.preventDefault();
+    e?.stopPropagation();
 
-    if (copyConfig.text === undefined) {
-      copyConfig.text = String(children);
-    }
-    copy(copyConfig.text || '');
+    copy(copyConfig.text || String(children) || '', copyOptions);
 
     setCopied(true);
 
@@ -208,7 +214,7 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
       setCopied(false);
     }, 3000);
 
-    copyConfig.onCopy?.();
+    copyConfig.onCopy?.(e);
   };
 
   React.useEffect(() => cleanCopyId, []);
@@ -243,7 +249,7 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
     [mergedEnableEllipsis, ellipsisConfig, enableEdit, enableCopy],
   );
 
-  React.useLayoutEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (enableEllipsis && !needMeasureEllipsis) {
       setIsLineClampSupport(isStyleSupport('webkitLineClamp'));
       setIsTextOverflowSupport(isStyleSupport('textOverflow'));
@@ -339,6 +345,7 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
         className={className}
         style={style}
         direction={direction}
+        component={component}
         maxLength={editConfig.maxLength}
         autoSize={editConfig.autoSize}
         enterIcon={editConfig.enterIcon}

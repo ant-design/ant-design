@@ -14,10 +14,12 @@ title:
 Control keyboard behavior by `keyboard`.
 
 ```tsx
-import { InputNumber, Checkbox, Space } from 'antd';
+import { Checkbox, InputNumber, Space } from 'antd';
+import React, { useState } from 'react';
 
-const App = () => {
-  const [keyboard, setKeyboard] = React.useState(true);
+const App: React.FC = () => {
+  const [keyboard, setKeyboard] = useState(true);
+
   return (
     <Space>
       <InputNumber min={1} max={10} keyboard={keyboard} defaultValue={3} />
@@ -33,5 +35,5 @@ const App = () => {
   );
 };
 
-ReactDOM.render(<App />, mountNode);
+export default App;
 ```

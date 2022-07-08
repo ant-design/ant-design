@@ -7,6 +7,7 @@ exports[`Table.sorter renders sorter icon correctly 1`] = `
   <tr>
     <th
       class="ant-table-cell ant-table-column-has-sorters"
+      tabindex="0"
     >
       <div
         class="ant-table-column-sorters"
@@ -96,7 +97,9 @@ exports[`Table.sorter should support defaultOrder in Column 1`] = `
               >
                 <tr>
                   <th
+                    aria-sort="ascending"
                     class="ant-table-cell ant-table-column-sort ant-table-column-has-sorters"
+                    tabindex="0"
                   >
                     <div
                       class="ant-table-column-sorters"

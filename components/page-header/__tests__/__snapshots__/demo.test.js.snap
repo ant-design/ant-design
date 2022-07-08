@@ -58,30 +58,48 @@ Array [
       <span
         class="ant-page-header-heading-extra"
       >
-        <button
-          class="ant-btn"
-          type="button"
+        <div
+          class="ant-space ant-space-horizontal ant-space-align-center"
         >
-          <span>
-            Operation
-          </span>
-        </button>
-        <button
-          class="ant-btn"
-          type="button"
-        >
-          <span>
-            Operation
-          </span>
-        </button>
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            Primary
-          </span>
-        </button>
+          <div
+            class="ant-space-item"
+            style="margin-right:8px"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                Operation
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+            style="margin-right:8px"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                Operation
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+          >
+            <button
+              class="ant-btn ant-btn-primary"
+              type="button"
+            >
+              <span>
+                Primary
+              </span>
+            </button>
+          </div>
+        </div>
       </span>
     </div>
     <div
@@ -272,30 +290,48 @@ Array [
       <span
         class="ant-page-header-heading-extra"
       >
-        <button
-          class="ant-btn"
-          type="button"
+        <div
+          class="ant-space ant-space-horizontal ant-space-align-center"
         >
-          <span>
-            Operation
-          </span>
-        </button>
-        <button
-          class="ant-btn"
-          type="button"
-        >
-          <span>
-            Operation
-          </span>
-        </button>
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            Primary
-          </span>
-        </button>
+          <div
+            class="ant-space-item"
+            style="margin-right:8px"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                Operation
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+            style="margin-right:8px"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                Operation
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+          >
+            <button
+              class="ant-btn ant-btn-primary"
+              type="button"
+            >
+              <span>
+                Primary
+              </span>
+            </button>
+          </div>
+        </div>
       </span>
     </div>
     <div
@@ -455,56 +491,58 @@ exports[`renders ./components/page-header/demo/breadcrumb.md correctly 1`] = `
 <div
   class="ant-page-header site-page-header has-breadcrumb ant-page-header-ghost"
 >
-  <div
+  <nav
     class="ant-breadcrumb"
   >
-    <span>
-      <span
-        class="ant-breadcrumb-link"
-      >
-        <a
-          href="#/index"
+    <ol>
+      <li>
+        <span
+          class="ant-breadcrumb-link"
         >
-          First-level Menu
-        </a>
-      </span>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
-      </span>
-    </span>
-    <span>
-      <span
-        class="ant-breadcrumb-link"
-      >
-        <a
-          href="#/index/first"
-        >
-          Second-level Menu
-        </a>
-      </span>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
-      </span>
-    </span>
-    <span>
-      <span
-        class="ant-breadcrumb-link"
-      >
-        <span>
-          Third-level Menu
+          <a
+            href="#/index"
+          >
+            First-level Menu
+          </a>
         </span>
-      </span>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
-      </span>
-    </span>
-  </div>
+        <span
+          class="ant-breadcrumb-separator"
+        >
+          /
+        </span>
+      </li>
+      <li>
+        <span
+          class="ant-breadcrumb-link"
+        >
+          <a
+            href="#/index/first"
+          >
+            Second-level Menu
+          </a>
+        </span>
+        <span
+          class="ant-breadcrumb-separator"
+        >
+          /
+        </span>
+      </li>
+      <li>
+        <span
+          class="ant-breadcrumb-link"
+        >
+          <span>
+            Third-level Menu
+          </span>
+        </span>
+        <span
+          class="ant-breadcrumb-separator"
+        >
+          /
+        </span>
+      </li>
+    </ol>
+  </nav>
   <div
     class="ant-page-header-heading"
   >
@@ -532,56 +570,58 @@ exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
 <div
   class="ant-page-header site-page-header has-breadcrumb ant-page-header-ghost"
 >
-  <div
+  <nav
     class="ant-breadcrumb"
   >
-    <span>
-      <span
-        class="ant-breadcrumb-link"
-      >
-        <a
-          href="#/index"
+    <ol>
+      <li>
+        <span
+          class="ant-breadcrumb-link"
         >
-          First-level Menu
-        </a>
-      </span>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
-      </span>
-    </span>
-    <span>
-      <span
-        class="ant-breadcrumb-link"
-      >
-        <a
-          href="#/index/first"
-        >
-          Second-level Menu
-        </a>
-      </span>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
-      </span>
-    </span>
-    <span>
-      <span
-        class="ant-breadcrumb-link"
-      >
-        <span>
-          Third-level Menu
+          <a
+            href="#/index"
+          >
+            First-level Menu
+          </a>
         </span>
-      </span>
-      <span
-        class="ant-breadcrumb-separator"
-      >
-        /
-      </span>
-    </span>
-  </div>
+        <span
+          class="ant-breadcrumb-separator"
+        >
+          /
+        </span>
+      </li>
+      <li>
+        <span
+          class="ant-breadcrumb-link"
+        >
+          <a
+            href="#/index/first"
+          >
+            Second-level Menu
+          </a>
+        </span>
+        <span
+          class="ant-breadcrumb-separator"
+        >
+          /
+        </span>
+      </li>
+      <li>
+        <span
+          class="ant-breadcrumb-link"
+        >
+          <span>
+            Third-level Menu
+          </span>
+        </span>
+        <span
+          class="ant-breadcrumb-separator"
+        >
+          /
+        </span>
+      </li>
+    </ol>
+  </nav>
   <div
     class="ant-page-header-heading"
   >
@@ -620,56 +660,78 @@ exports[`renders ./components/page-header/demo/content.md correctly 1`] = `
     <span
       class="ant-page-header-heading-extra"
     >
-      <button
-        class="ant-btn"
-        type="button"
+      <div
+        class="ant-space ant-space-horizontal ant-space-align-center"
       >
-        <span>
-          Operation
-        </span>
-      </button>
-      <button
-        class="ant-btn"
-        type="button"
-      >
-        <span>
-          Operation
-        </span>
-      </button>
-      <button
-        class="ant-btn ant-btn-primary"
-        type="button"
-      >
-        <span>
-          Primary
-        </span>
-      </button>
-      <button
-        class="ant-btn ant-dropdown-trigger"
-        style="border:none;padding:0"
-        type="button"
-      >
-        <span
-          aria-label="ellipsis"
-          class="anticon anticon-ellipsis"
-          role="img"
-          style="font-size:20px;vertical-align:top"
+        <div
+          class="ant-space-item"
+          style="margin-right:8px"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="ellipsis"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
+          <button
+            class="ant-btn ant-btn-default"
+            type="button"
           >
-            <path
-              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-            />
-          </svg>
-        </span>
-      </button>
+            <span>
+              Operation
+            </span>
+          </button>
+        </div>
+        <div
+          class="ant-space-item"
+          style="margin-right:8px"
+        >
+          <button
+            class="ant-btn ant-btn-default"
+            type="button"
+          >
+            <span>
+              Operation
+            </span>
+          </button>
+        </div>
+        <div
+          class="ant-space-item"
+          style="margin-right:8px"
+        >
+          <button
+            class="ant-btn ant-btn-primary"
+            type="button"
+          >
+            <span>
+              Primary
+            </span>
+          </button>
+        </div>
+        <div
+          class="ant-space-item"
+        >
+          <button
+            class="ant-btn ant-btn-text ant-btn-icon-only ant-dropdown-trigger"
+            type="button"
+          >
+            <span
+              aria-label="more"
+              class="anticon anticon-more"
+              role="img"
+              style="font-size:20px"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="more"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M456 231a56 56 0 10112 0 56 56 0 10-112 0zm0 280a56 56 0 10112 0 56 56 0 10-112 0zm0 280a56 56 0 10112 0 56 56 0 10-112 0z"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
     </span>
   </div>
   <div
@@ -798,30 +860,48 @@ exports[`renders ./components/page-header/demo/ghost.md correctly 1`] = `
       <span
         class="ant-page-header-heading-extra"
       >
-        <button
-          class="ant-btn"
-          type="button"
+        <div
+          class="ant-space ant-space-horizontal ant-space-align-center"
         >
-          <span>
-            Operation
-          </span>
-        </button>
-        <button
-          class="ant-btn"
-          type="button"
-        >
-          <span>
-            Operation
-          </span>
-        </button>
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
-        >
-          <span>
-            Primary
-          </span>
-        </button>
+          <div
+            class="ant-space-item"
+            style="margin-right:8px"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                Operation
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+            style="margin-right:8px"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                Operation
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-space-item"
+          >
+            <button
+              class="ant-btn ant-btn-primary"
+              type="button"
+            >
+              <span>
+                Primary
+              </span>
+            </button>
+          </div>
+        </div>
       </span>
     </div>
     <div
@@ -1006,30 +1086,48 @@ exports[`renders ./components/page-header/demo/responsive.md correctly 1`] = `
     <span
       class="ant-page-header-heading-extra"
     >
-      <button
-        class="ant-btn"
-        type="button"
+      <div
+        class="ant-space ant-space-horizontal ant-space-align-center"
       >
-        <span>
-          Operation
-        </span>
-      </button>
-      <button
-        class="ant-btn"
-        type="button"
-      >
-        <span>
-          Operation
-        </span>
-      </button>
-      <button
-        class="ant-btn ant-btn-primary"
-        type="button"
-      >
-        <span>
-          Primary
-        </span>
-      </button>
+        <div
+          class="ant-space-item"
+          style="margin-right:8px"
+        >
+          <button
+            class="ant-btn ant-btn-default"
+            type="button"
+          >
+            <span>
+              Operation
+            </span>
+          </button>
+        </div>
+        <div
+          class="ant-space-item"
+          style="margin-right:8px"
+        >
+          <button
+            class="ant-btn ant-btn-default"
+            type="button"
+          >
+            <span>
+              Operation
+            </span>
+          </button>
+        </div>
+        <div
+          class="ant-space-item"
+        >
+          <button
+            class="ant-btn ant-btn-primary"
+            type="button"
+          >
+            <span>
+              Primary
+            </span>
+          </button>
+        </div>
+      </div>
     </span>
   </div>
   <div

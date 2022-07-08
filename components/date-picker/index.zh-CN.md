@@ -40,7 +40,7 @@ import locale from 'antd/es/date-picker/locale/zh_CN';
 // 默认语言为 en-US，如果你需要设置其他语言，推荐在入口文件全局设置 locale
 import moment from 'moment';
 import 'moment/locale/zh-cn';
-import locale from 'antd/lib/locale/zh_CN';
+import locale from 'antd/es/locale/zh_CN';
 
 <ConfigProvider locale={locale}>
   <DatePicker defaultValue={moment('2015-01-01', 'YYYY-MM-DD')} />
@@ -70,9 +70,11 @@ import locale from 'antd/lib/locale/zh_CN';
 | panelRender | 自定义渲染面板 | (panelNode) => ReactNode | - | 4.5.0 |
 | picker | 设置选择器类型 | `date` \| `week` \| `month` \| `quarter` \| `year` | `date` | `quarter`: 4.1.0 |
 | placeholder | 输入框提示文字 | string \| \[string, string] | - |  |
+| placement | 选择框弹出的位置 | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
 | popupStyle | 额外的弹出日历样式 | CSSProperties | {} |  |
 | prevIcon | 自定义上一个图标 | ReactNode | - | 4.17.0 |
 | size | 输入框大小，`large` 高度为 40px，`small` 为 24px，默认是 32px | `large` \| `middle` \| `small` | - |  |
+| status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | style | 自定义输入框样式 | CSSProperties | {} |  |
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
 | superNextIcon | 自定义 `<<` 切换图标 | ReactNode | - | 4.17.0 |
