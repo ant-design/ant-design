@@ -264,6 +264,10 @@
   position: relative;
   overflow: hidden;
   background: transparent;
+  // fix https://github.com/ant-design/ant-design/issues/36444
+  // https://monshin.github.io/202109/css/safari-border-radius-overflow-hidden/
+  /* stylelint-disable-next-line property-no-vendor-prefix,value-no-vendor-prefix */
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
 
   &::after {
     position: absolute;
