@@ -47,6 +47,7 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
     const rootPrefixCls = getPrefixCls();
 
     if (process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'test') {
+      /* istanbul ignore next */
       warning(
         false,
         'Next',
