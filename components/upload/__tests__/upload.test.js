@@ -518,7 +518,7 @@ describe('Upload', () => {
     });
 
     expect(onChange).toHaveBeenCalled();
-    expect(file.status).toBe('removed');
+    expect(file.status).toBe('uploading');
   });
 
   it('should not stop download when return use onDownload', done => {
