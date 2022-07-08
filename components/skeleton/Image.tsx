@@ -22,8 +22,6 @@ const SkeletonImage = (props: SkeletonImageProps) => {
     className,
   );
 
-  // const cls = classNames(prefixCls, `${prefixCls}-element`, className);
-
   return (
     <div className={cls}>
       <div className={classNames(`${prefixCls}-image`, className)} style={style}>
