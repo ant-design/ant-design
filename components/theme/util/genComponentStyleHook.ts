@@ -46,7 +46,7 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
     const { getPrefixCls, iconPrefixCls } = useContext(ConfigContext);
     const rootPrefixCls = getPrefixCls();
 
-    if (process.env.NODE_ENV !== 'production') {
+    if (process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'test') {
       warning(
         false,
         'Next',
