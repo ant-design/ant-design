@@ -899,7 +899,7 @@ describe('Upload List', () => {
     unmount();
   });
 
-  it('upload image file should be converted to the base64', async () => {
+  it('upload non-svg image file should be converted to the base64', async () => {
     const mockFile = new File([''], 'foo.png', {
       type: 'image/png',
     });
@@ -924,6 +924,37 @@ describe('Upload List', () => {
     });
     await previewFunc(mockFile).then(dataUrl => {
       expect(dataUrl).toEqual('data:image/png;base64,');
+    });
+    unmount();
+  });
+
+  it('upload svg image file should be embedded inline directly in the preview data url', async () => {
+    const mockFile = new File(
+      ['<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><foreignObject x="20" y="20" width="160" height="160"><div xmlns="http://www.w3.org/1999/xhtml">Test</div></foreignObject></svg>'], 
+      'bar.svg', 
+      { type: 'image/svg+xml' },
+    );
+
+    const previewFunc = jest.fn(previewImage);
+
+    const { unmount } = render(
+      <Upload
+        fileList={[
+          {
+            originFileObj: mockFile,
+          },
+        ]}
+        previewFile={previewFunc}
+        locale={{ uploading: 'uploading' }}
+        listType="picture-card"
+      />,
+    );
+
+    await waitFor(() => {
+      expect(previewFunc).toHaveBeenCalled();
+    });
+    await previewFunc(mockFile).then(dataUrl => {
+      expect(dataUrl).toMatch(/^data:image\/svg\+xml;charset=utf-8,<svg.+\/svg>/);
     });
     unmount();
   });
