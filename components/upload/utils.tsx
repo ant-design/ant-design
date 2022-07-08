@@ -112,7 +112,7 @@ export function previewImage(file: File | Blob): Promise<string> {
     };
     img.crossOrigin = "anonymous";
     if (file.type.startsWith("image/svg+xml")) {
-      img.src = `data:image/svg+xml;charset=utf-8,${file}`;
+      img.src = `data:image/svg+xml,${file}`;
     } else {
       img.src = window.URL.createObjectURL(file);
     }

@@ -954,7 +954,7 @@ describe('Upload List', () => {
       expect(previewFunc).toHaveBeenCalled();
     });
     await previewFunc(mockFile).then(dataUrl => {
-      expect(dataUrl).toMatch(/^data:image\/svg\+xml;charset=utf-8,<svg.+\/svg>/);
+      expect(dataUrl).toMatch(/^data:image\/svg\+xml,<svg.+\/svg>/);
     });
     unmount();
   });
