@@ -83,26 +83,12 @@
   }
 
   // With active animation
-  &.@{skeleton-prefix-cls}-active {
-    & .@{skeleton-prefix-cls}-content {
-      .@{skeleton-title-prefix-cls},
-      .@{skeleton-paragraph-prefix-cls} > li {
-        .skeleton-color();
-      }
-    }
-
-    .@{skeleton-avatar-prefix-cls} {
-      .skeleton-color();
-    }
-
-    .@{skeleton-button-prefix-cls} {
-      .skeleton-color();
-    }
-
-    .@{skeleton-input-prefix-cls} {
-      .skeleton-color();
-    }
-
+  &-active {
+    .@{skeleton-title-prefix-cls},
+    .@{skeleton-paragraph-prefix-cls} > li,
+    .@{skeleton-avatar-prefix-cls},
+    .@{skeleton-button-prefix-cls},
+    .@{skeleton-input-prefix-cls},
     .@{skeleton-image-prefix-cls} {
       .skeleton-color();
     }
