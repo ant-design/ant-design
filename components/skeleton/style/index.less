@@ -8,7 +8,7 @@
 @skeleton-button-prefix-cls: ~'@{skeleton-prefix-cls}-button';
 @skeleton-input-prefix-cls: ~'@{skeleton-prefix-cls}-input';
 @skeleton-image-prefix-cls: ~'@{skeleton-prefix-cls}-image';
-@skeleton-block-radius: 4px;
+@skeleton-block-radius: @border-radius-base;
 
 .@{skeleton-prefix-cls} {
   display: table;
@@ -248,12 +248,12 @@
 
 .skeleton-color() {
   position: relative;
-  overflow: hidden;
-  background: transparent;
   // fix https://github.com/ant-design/ant-design/issues/36444
   // https://monshin.github.io/202109/css/safari-border-radius-overflow-hidden/
   /* stylelint-disable-next-line property-no-vendor-prefix,value-no-vendor-prefix */
-  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  z-index: 0;
+  overflow: hidden;
+  background: transparent;
 
   &::after {
     position: absolute;
