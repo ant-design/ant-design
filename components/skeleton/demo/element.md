@@ -64,7 +64,7 @@ const App: React.FC = () => {
       <Skeleton.Input active={active} size={size} block={block} />
       <br />
       <br />
-      <Skeleton.Image />
+      <Skeleton.Image active={active} />
       <Divider />
       <Form layout="inline" style={{ margin: '16px 0' }}>
         <Form.Item label="Active">
