@@ -226,7 +226,7 @@ title: 导航
 
 <img class="preview-img no-padding" align="right" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*QcmiTLXUH1oAAAAAAAAAAABkARQnAQ">
 
-反映当前页面在网站结构中的位置，在少于三个层级是无需展示，此时的全局导航能直接呈现位置。用户可通过面包屑返回上级页面。
+反映当前页面在网站结构中的位置，在少于三个层级时无需展示，此时的全局导航能直接呈现位置。用户可通过面包屑返回上级页面。
 
 #### 返回按钮
 
