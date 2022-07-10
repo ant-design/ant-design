@@ -21,6 +21,7 @@ interface EditableProps {
   autoSize?: boolean | AutoSizeType;
   enterIcon?: React.ReactNode;
   component?: string;
+  closeEdit: () => void;
 }
 
 const Editable: React.FC<EditableProps> = ({
@@ -37,11 +38,13 @@ const Editable: React.FC<EditableProps> = ({
   onEnd,
   component,
   enterIcon = <EnterOutlined />,
+  closeEdit,
 }) => {
   const ref = React.useRef<any>();
 
   const inComposition = React.useRef(false);
   const lastKeyCode = React.useRef<number>();
+  const originalValue = React.useRef<string>(value);
 
   const [current, setCurrent] = React.useState(value);
 
@@ -77,10 +80,6 @@ const Editable: React.FC<EditableProps> = ({
     lastKeyCode.current = keyCode;
   };
 
-  const confirmChange = () => {
-    onSave(current.trim());
-  };
-
   const onKeyUp: React.KeyboardEventHandler<HTMLTextAreaElement> = ({
     keyCode,
     ctrlKey,
@@ -88,6 +87,10 @@ const Editable: React.FC<EditableProps> = ({
     metaKey,
     shiftKey,
   }) => {
+    if (current !== value) {
+      onSave(current);
+    }
+
     // Check if it's a real key
     if (
       lastKeyCode.current === keyCode &&
@@ -98,16 +101,19 @@ const Editable: React.FC<EditableProps> = ({
       !shiftKey
     ) {
       if (keyCode === KeyCode.ENTER) {
-        confirmChange();
+        onSave(current.trim());
         onEnd?.();
+        closeEdit();
       } else if (keyCode === KeyCode.ESC) {
+        onSave(originalValue.current);
         onCancel();
       }
     }
   };
 
   const onBlur: React.FocusEventHandler<HTMLTextAreaElement> = () => {
-    confirmChange();
+    onSave(current.trim());
+    closeEdit();
   };
 
   const textClassName = component ? `${prefixCls}-${component}` : '';

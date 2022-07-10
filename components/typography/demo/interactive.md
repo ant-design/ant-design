@@ -59,12 +59,24 @@ const App: React.FC = () => {
 
   return (
     <>
-      <Paragraph editable={{ onChange: setEditableStr }}>{editableStr}</Paragraph>
+      <Paragraph
+        editable={{
+          onChange: str => {
+            console.log('changed:', str);
+            setEditableStr(str);
+          },
+        }}
+      >
+        {editableStr}
+      </Paragraph>
       <Paragraph
         editable={{
           icon: <HighlightOutlined />,
           tooltip: 'click to edit text',
-          onChange: setCustomIconStr,
+          onChange: str => {
+            console.log('changed:', str);
+            setCustomIconStr(str);
+          },
         }}
       >
         {customIconStr}
@@ -81,7 +93,10 @@ const App: React.FC = () => {
       <Paragraph
         editable={{
           tooltip: 'click to edit text',
-          onChange: setClickTriggerStr,
+          onChange: str => {
+            console.log('changed:', str);
+            setClickTriggerStr(str);
+          },
           triggerType: chooseTrigger,
         }}
       >
@@ -91,7 +106,10 @@ const App: React.FC = () => {
         editable={{
           icon: <HighlightOutlined />,
           tooltip: 'click to edit text',
-          onChange: setCustomEnterIconStr,
+          onChange: str => {
+            console.log('changed:', str);
+            setCustomEnterIconStr(str);
+          },
           enterIcon: <CheckOutlined />,
         }}
       >
@@ -101,18 +119,32 @@ const App: React.FC = () => {
         editable={{
           icon: <HighlightOutlined />,
           tooltip: 'click to edit text',
-          onChange: setNoEnterIconStr,
+          onChange: str => {
+            console.log('changed:', str);
+            setNoEnterIconStr(str);
+          },
           enterIcon: null,
         }}
       >
         {noEnterIconStr}
       </Paragraph>
-      <Paragraph editable={{ tooltip: false, onChange: setHideTooltipStr }}>
+      <Paragraph
+        editable={{
+          tooltip: false,
+          onChange: str => {
+            console.log('changed:', str);
+            setHideTooltipStr(str);
+          },
+        }}
+      >
         {hideTooltipStr}
       </Paragraph>
       <Paragraph
         editable={{
-          onChange: setLengthLimitedStr,
+          onChange: str => {
+            console.log('changed:', str);
+            setLengthLimitedStr(str);
+          },
           maxLength: 50,
           autoSize: { maxRows: 5, minRows: 3 },
         }}

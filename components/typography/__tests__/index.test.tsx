@@ -316,7 +316,7 @@ describe('Typography', () => {
             if (triggerType !== undefined && triggerType.indexOf('text') !== -1) {
               fireEvent.keyDown(wrapper.querySelector('textarea')!, { keyCode: KeyCode.ESC });
               fireEvent.keyUp(wrapper.querySelector('textarea')!, { keyCode: KeyCode.ESC });
-              expect(onChange).not.toHaveBeenCalled();
+              expect(onChange).toHaveBeenCalledWith('Bamboo');
             }
           }
 
@@ -377,17 +377,10 @@ describe('Typography', () => {
         fireEvent.keyUp(wrapper.querySelector('textarea')!, { keyCode: KeyCode.ENTER });
       });
 
-      testStep(
-        { name: 'by esc key' },
-        wrapper => {
-          fireEvent.keyDown(wrapper.querySelector('textarea')!, { keyCode: KeyCode.ESC });
-          fireEvent.keyUp(wrapper.querySelector('textarea')!, { keyCode: KeyCode.ESC });
-        },
-        onChange => {
-          // eslint-disable-next-line jest/no-standalone-expect
-          expect(onChange).not.toHaveBeenCalled();
-        },
-      );
+      testStep({ name: 'by esc key' }, wrapper => {
+        fireEvent.keyDown(wrapper.querySelector('textarea')!, { keyCode: KeyCode.ESC });
+        fireEvent.keyUp(wrapper.querySelector('textarea')!, { keyCode: KeyCode.ESC });
+      });
 
       testStep({ name: 'by blur' }, wrapper => {
         fireEvent.blur(wrapper.querySelector('textarea')!);
@@ -404,6 +397,42 @@ describe('Typography', () => {
       testStep({ name: 'trigger by icon', triggerType: ['icon'] });
       testStep({ name: 'trigger by text', triggerType: ['text'] });
       testStep({ name: 'trigger by both icon and text', triggerType: ['icon', 'text'] });
+
+      it('should trigger onChange when editing', () => {
+        const onChange = jest.fn();
+        const { container: wrapper } = render(
+          <Paragraph editable={{ onChange }}>Bamboo</Paragraph>,
+        );
+        fireEvent.click(wrapper.querySelectorAll('.ant-typography-edit')[0]);
+        fireEvent.change(wrapper.querySelector('textarea')!, {
+          target: { value: 'Bamboo ' },
+        });
+        fireEvent.keyUp(wrapper.querySelector('textarea')!);
+        expect(onChange).toHaveBeenCalledWith('Bamboo ');
+        fireEvent.change(wrapper.querySelector('textarea')!, {
+          target: { value: 'Bamboo1' },
+        });
+        fireEvent.keyUp(wrapper.querySelector('textarea')!);
+        expect(onChange).toHaveBeenCalledWith('Bamboo1');
+        fireEvent.change(wrapper.querySelector('textarea')!, {
+          target: { value: '' },
+        });
+        fireEvent.keyUp(wrapper.querySelector('textarea')!);
+        expect(onChange).toHaveBeenCalledWith('');
+      });
+
+      it('should not trigger onChange when value has no change', () => {
+        const onChange = jest.fn();
+        const { container: wrapper } = render(
+          <Paragraph editable={{ onChange }}>Bamboo</Paragraph>,
+        );
+        fireEvent.click(wrapper.querySelectorAll('.ant-typography-edit')[0]);
+        fireEvent.change(wrapper.querySelector('textarea')!, {
+          target: { value: 'Bamboo' },
+        });
+        fireEvent.keyUp(wrapper.querySelector('textarea')!);
+        expect(onChange).not.toHaveBeenCalled();
+      });
 
       it('should trigger onEnd when type Enter', () => {
         const onEnd = jest.fn();

@@ -165,6 +165,10 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
     setEditing(edit);
   };
 
+  const closeEdit = () => {
+    setEditing(false);
+  };
+
   // Focus edit icon when back
   useUpdatedEffect(() => {
     if (!editing) {
@@ -179,7 +183,6 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
 
   const onEditChange = (value: string) => {
     editConfig.onChange?.(value);
-    triggerEdit(false);
   };
 
   const onEditCancel = () => {
@@ -384,6 +387,7 @@ const Base = React.forwardRef((props: InternalBlockProps, ref: any) => {
         maxLength={editConfig.maxLength}
         autoSize={editConfig.autoSize}
         enterIcon={editConfig.enterIcon}
+        closeEdit={closeEdit}
       />
     );
   }
