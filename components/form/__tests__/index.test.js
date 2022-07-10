@@ -1,19 +1,32 @@
-import React, { Component, useState } from 'react';
 import { mount } from 'enzyme';
+import React, { Component, useState } from 'react';
 import { act } from 'react-dom/test-utils';
 import scrollIntoView from 'scroll-into-view-if-needed';
 import Form from '..';
 import * as Util from '../util';
 
-import Input from '../../input';
 import Button from '../../button';
+import Input from '../../input';
 import Select from '../../select';
+
+import Cascader from '../../cascader';
+import Checkbox from '../../checkbox';
+import DatePicker from '../../date-picker';
+import InputNumber from '../../input-number';
+import Radio from '../../radio';
+import Switch from '../../switch';
+import TreeSelect from '../../tree-select';
 
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { sleep, render, fireEvent } from '../../../tests/utils';
+import { fireEvent, render, sleep } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import Drawer from '../../drawer';
 import zhCN from '../../locale/zh_CN';
+import Modal from '../../modal';
+
+const { RangePicker } = DatePicker;
+const { TextArea } = Input;
 
 jest.mock('scroll-into-view-if-needed');
 
@@ -872,6 +885,79 @@ describe('Form', () => {
     expect(wrapper.find('form').hasClass('ant-form-hide-required-mark')).toBeTruthy();
   });
 
+  it('form should support disabled', () => {
+    const App = () => (
+      <Form labelCol={{ span: 4 }} wrapperCol={{ span: 14 }} layout="horizontal" disabled>
+        <Form.Item label="Form disabled" name="disabled" valuePropName="checked">
+          <Checkbox>disabled</Checkbox>
+        </Form.Item>
+        <Form.Item label="Radio">
+          <Radio.Group>
+            <Radio value="apple"> Apple </Radio>
+            <Radio value="pear"> Pear </Radio>
+          </Radio.Group>
+        </Form.Item>
+        <Form.Item label="Input">
+          <Input />
+        </Form.Item>
+        <Form.Item label="Select">
+          <Select>
+            <Select.Option value="demo">Demo</Select.Option>
+          </Select>
+        </Form.Item>
+        <Form.Item label="TreeSelect">
+          <TreeSelect
+            treeData={[
+              {
+                title: 'Light',
+                value: 'light',
+                children: [{ title: 'Bamboo', value: 'bamboo' }],
+              },
+            ]}
+          />
+        </Form.Item>
+        <Form.Item label="Cascader">
+          <Cascader
+            options={[
+              {
+                value: 'zhejiang',
+                label: 'Zhejiang',
+                children: [
+                  {
+                    value: 'hangzhou',
+                    label: 'Hangzhou',
+                  },
+                ],
+              },
+            ]}
+          />
+        </Form.Item>
+        <Form.Item label="DatePicker">
+          <DatePicker />
+        </Form.Item>
+        <Form.Item label="RangePicker">
+          <RangePicker />
+        </Form.Item>
+        <Form.Item label="InputNumber">
+          <InputNumber />
+        </Form.Item>
+        <Form.Item label="TextArea">
+          <TextArea rows={4} />
+        </Form.Item>
+        <Form.Item label="Switch" valuePropName="checked">
+          <Switch />
+        </Form.Item>
+        <Form.Item label="Button">
+          <Button>Button</Button>
+        </Form.Item>
+      </Form>
+    );
+
+    const wrapper = mount(<App />);
+
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
   it('_internalItemRender api test', () => {
     const wrapper = mount(
       <Form>
@@ -1102,5 +1188,61 @@ describe('Form', () => {
 
     render(<Demo />);
     expect(subFormInstance).toBe(formInstance);
+  });
+
+  it('noStyle should not affect status', () => {
+    const Demo = () => (
+      <Form>
+        <Form.Item validateStatus="error" noStyle>
+          <Select className="custom-select" />
+        </Form.Item>
+        <Form.Item validateStatus="error">
+          <Form.Item noStyle>
+            <Select className="custom-select-b" />
+          </Form.Item>
+        </Form.Item>
+        <Form.Item validateStatus="error">
+          <Form.Item noStyle validateStatus="warning">
+            <Select className="custom-select-c" />
+          </Form.Item>
+        </Form.Item>
+        <Form.Item noStyle>
+          <Form.Item validateStatus="warning">
+            <Select className="custom-select-d" />
+          </Form.Item>
+        </Form.Item>
+      </Form>
+    );
+    const { container } = render(<Demo />);
+    expect(container.querySelector('.custom-select')?.className).not.toContain('status-error');
+    expect(container.querySelector('.custom-select')?.className).not.toContain('in-form-item');
+    expect(container.querySelector('.custom-select-b')?.className).toContain('status-error');
+    expect(container.querySelector('.custom-select-b')?.className).toContain('in-form-item');
+    expect(container.querySelector('.custom-select-c')?.className).toContain('status-error');
+    expect(container.querySelector('.custom-select-c')?.className).toContain('in-form-item');
+    expect(container.querySelector('.custom-select-d')?.className).toContain('status-warning');
+    expect(container.querySelector('.custom-select-d')?.className).toContain('in-form-item');
+  });
+
+  it('should not affect Popup children style', () => {
+    const Demo = () => (
+      <Form>
+        <Form.Item labelCol={4} validateStatus="error">
+          <Modal visible>
+            <Select className="modal-select" />
+          </Modal>
+        </Form.Item>
+        <Form.Item validateStatus="error">
+          <Drawer visible>
+            <Select className="drawer-select" />
+          </Drawer>
+        </Form.Item>
+      </Form>
+    );
+    const { container } = render(<Demo />, { container: document.body });
+    expect(container.querySelector('.modal-select')?.className).not.toContain('in-form-item');
+    expect(container.querySelector('.modal-select')?.className).not.toContain('status-error');
+    expect(container.querySelector('.drawer-select')?.className).not.toContain('in-form-item');
+    expect(container.querySelector('.drawer-select')?.className).not.toContain('status-error');
   });
 });

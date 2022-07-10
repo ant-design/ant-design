@@ -1,9 +1,9 @@
 /* eslint-disable no-template-curly-in-string */
 import Pagination from 'rc-pagination/lib/locale/hi_IN';
-import DatePicker from '../date-picker/locale/hi_IN';
-import TimePicker from '../time-picker/locale/hi_IN';
 import Calendar from '../calendar/locale/hi_IN';
-import { Locale } from '../locale-provider';
+import DatePicker from '../date-picker/locale/hi_IN';
+import type { Locale } from '../locale-provider';
+import TimePicker from '../time-picker/locale/hi_IN';
 
 const typeTemplate = '${label} मान्य ${type} नहीं है';
 

@@ -1,8 +1,9 @@
 import Dragger from './Dragger';
-import InternalUpload, { LIST_IGNORE, UploadProps } from './Upload';
+import type { UploadProps } from './Upload';
+import InternalUpload, { LIST_IGNORE } from './Upload';
 
-export { UploadProps, UploadListProps, UploadChangeParam, RcFile } from './interface';
 export { DraggerProps } from './Dragger';
+export { RcFile, UploadChangeParam, UploadFile, UploadListProps, UploadProps } from './interface';
 
 type InternalUploadType = typeof InternalUpload;
 interface UploadInterface<T = any> extends InternalUploadType {

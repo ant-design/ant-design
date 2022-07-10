@@ -5974,13 +5974,12 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+      class="ant-radio-button-wrapper"
     >
       <span
-        class="ant-radio-button ant-radio-button-checked"
+        class="ant-radio-button"
       >
         <input
-          checked=""
           class="ant-radio-button-input"
           type="radio"
           value="default"

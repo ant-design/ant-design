@@ -1,5 +1,5 @@
-import React from 'react';
 import { mount } from 'enzyme';
+import React from 'react';
 import ConfigProvider from '..';
 import Affix from '../../affix';
 import Anchor from '../../anchor';

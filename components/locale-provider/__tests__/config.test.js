@@ -1,9 +1,9 @@
-import React from 'react';
 import { mount } from 'enzyme';
+import React from 'react';
 import { act } from 'react-dom/test-utils';
-import ConfigProvider from '../../config-provider';
 import { Modal } from '../..';
 import { sleep } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import zhCN from '../zh_CN';
 
 class Demo extends React.Component {

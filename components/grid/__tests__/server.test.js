@@ -1,7 +1,6 @@
-import React from 'react';
 import { mount } from 'enzyme';
+import React from 'react';
 // eslint-disable-next-line no-unused-vars
-import canUseDom from 'rc-util/lib/Dom/canUseDom';
 import { Col, Row } from '..';
 
 jest.mock('rc-util/lib/Dom/canUseDom', () => () => false);

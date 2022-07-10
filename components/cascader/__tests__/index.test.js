@@ -1,12 +1,12 @@
-import React from 'react';
 import { mount } from 'enzyme';
 import KeyCode from 'rc-util/lib/KeyCode';
+import React from 'react';
 import Cascader from '..';
-import ConfigProvider from '../../config-provider';
 import excludeAllWarning from '../../../tests/shared/excludeWarning';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import ConfigProvider from '../../config-provider';
 
 const { SHOW_CHILD, SHOW_PARENT } = Cascader;
 
@@ -512,17 +512,6 @@ describe('Cascader', () => {
 
       expect(errorSpy).toHaveBeenCalledWith(
         'Warning: [antd: Cascader] `popupClassName` is deprecated. Please use `dropdownClassName` instead.',
-      );
-
-      errorSpy.mockRestore();
-    });
-
-    it('displayRender & multiple', () => {
-      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-      mount(<Cascader multiple displayRender={() => null} />);
-
-      expect(errorSpy).toHaveBeenCalledWith(
-        'Warning: [antd: Cascader] `displayRender` not work on `multiple`. Please use `tagRender` instead.',
       );
 
       errorSpy.mockRestore();

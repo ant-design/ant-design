@@ -1,21 +1,22 @@
-import * as React from 'react';
-import classNames from 'classnames';
 import CaretDownOutlined from '@ant-design/icons/CaretDownOutlined';
 import CaretUpOutlined from '@ant-design/icons/CaretUpOutlined';
+import classNames from 'classnames';
 import KeyCode from 'rc-util/lib/KeyCode';
-import {
-  TransformColumns,
-  ColumnsType,
-  Key,
-  ColumnType,
-  SortOrder,
-  CompareFn,
-  ColumnTitleProps,
-  SorterResult,
+import * as React from 'react';
+import type { TooltipProps } from '../../tooltip';
+import Tooltip from '../../tooltip';
+import type {
   ColumnGroupType,
+  ColumnsType,
+  ColumnTitleProps,
+  ColumnType,
+  CompareFn,
+  Key,
+  SorterResult,
+  SortOrder,
   TableLocale,
+  TransformColumns,
 } from '../interface';
-import Tooltip, { TooltipProps } from '../../tooltip';
 import { getColumnKey, getColumnPos, renderColumnTitle } from '../util';
 
 const ASCEND = 'ascend';

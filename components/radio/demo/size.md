@@ -13,10 +13,11 @@ title:
 
 There are three sizes available: large, medium, and small. It can coordinate with input box.
 
-```jsx
+```tsx
 import { Radio } from 'antd';
+import React from 'react';
 
-export default () => (
+const App: React.FC = () => (
   <>
     <Radio.Group defaultValue="a" size="large">
       <Radio.Button value="a">Hangzhou</Radio.Button>
@@ -38,4 +39,6 @@ export default () => (
     </Radio.Group>
   </>
 );
+
+export default App;
 ```

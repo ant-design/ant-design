@@ -28,8 +28,8 @@ exports[`Upload List handle error 1`] = `
     class="ant-upload-list ant-upload-list-text"
   >
     <div
-      class="ant-upload-list-text-container ant-upload-animate-appear ant-upload-animate-appear-active ant-upload-animate"
-      style="height: 0px; opacity: 1;"
+      class="ant-upload-list-text-container"
+      style=""
     >
       <div
         class="ant-upload-list-item ant-upload-list-item-error ant-upload-list-item-list-type-text"
@@ -118,7 +118,7 @@ exports[`Upload List itemRender 1`] = `
       class="custom-item-render"
     >
       <span>
-        uid:-1 name: xxx.png status: removed url: https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png  1/2
+        uid:-1 name: xxx.png status: done url: https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png  1/2
       </span>
       <span
         class="custom-item-render-action-remove"
@@ -144,7 +144,7 @@ exports[`Upload List itemRender 1`] = `
       class="custom-item-render"
     >
       <span>
-        uid:-2 name: yyy.png status: removed url: https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png  2/2
+        uid:-2 name: yyy.png status: done url: https://zos.alipayobjects.com/rmsportal/IQKRngzUuFzJzGzRJXUs.png  2/2
       </span>
       <span
         class="custom-item-render-action-remove"

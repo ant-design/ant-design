@@ -1,10 +1,10 @@
-import React from 'react';
 import { mount } from 'enzyme';
+import React from 'react';
 import PageHeader from '..';
-import Breadcrumb from '../../breadcrumb';
-import ConfigProvider from '../../config-provider';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import Breadcrumb from '../../breadcrumb';
+import ConfigProvider from '../../config-provider';
 
 describe('PageHeader', () => {
   mountTest(PageHeader);

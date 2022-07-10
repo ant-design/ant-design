@@ -1,23 +1,24 @@
-import * as React from 'react';
-import RcUpload, { UploadProps as RcUploadProps } from 'rc-upload';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import classNames from 'classnames';
-import UploadList from './UploadList';
-import {
-  RcFile,
-  ShowUploadListInterface,
-  UploadProps,
-  UploadFile,
-  UploadLocale,
-  UploadChangeParam,
-  UploadType,
-  UploadListType,
-} from './interface';
-import { file2Obj, getFileItem, removeFileItem, updateFileList } from './utils';
+import type { UploadProps as RcUploadProps } from 'rc-upload';
+import RcUpload from 'rc-upload';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import * as React from 'react';
+import { ConfigContext } from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
-import { ConfigContext } from '../config-provider';
-import devWarning from '../_util/devWarning';
+import warning from '../_util/warning';
+import type {
+  RcFile,
+  ShowUploadListInterface,
+  UploadChangeParam,
+  UploadFile,
+  UploadListType,
+  UploadLocale,
+  UploadType,
+} from './interface';
+import { UploadProps } from './interface';
+import UploadList from './UploadList';
+import { file2Obj, getFileItem, removeFileItem, updateFileList } from './utils';
 
 export const LIST_IGNORE = `__LIST_IGNORE_${Date.now()}__`;
 
@@ -58,19 +59,17 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
 
   const upload = React.useRef<any>();
 
-  React.useEffect(() => {
-    devWarning(
-      'fileList' in props || !('value' in props),
-      'Upload',
-      '`value` is not a valid prop, do you mean `fileList`?',
-    );
+  warning(
+    'fileList' in props || !('value' in props),
+    'Upload',
+    '`value` is not a valid prop, do you mean `fileList`?',
+  );
 
-    devWarning(
-      !('transformFile' in props),
-      'Upload',
-      '`transformFile` is deprecated. Please use `beforeUpload` directly.',
-    );
-  }, []);
+  warning(
+    !('transformFile' in props),
+    'Upload',
+    '`transformFile` is deprecated. Please use `beforeUpload` directly.',
+  );
 
   // Control mode will auto fill file uid if not provided
   React.useMemo(() => {
@@ -263,15 +262,8 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
       const removedFileList = removeFileItem(file, mergedFileList);
 
       if (removedFileList) {
-        currentFile = { ...file, status: 'removed' };
-        mergedFileList?.forEach(item => {
-          const matchKey = currentFile.uid !== undefined ? 'uid' : 'name';
-          if (item[matchKey] === currentFile[matchKey] && !Object.isFrozen(item)) {
-            item.status = 'removed';
-          }
-        });
+        currentFile = { ...file };
         upload.current?.abort(currentFile);
-
         onInternalChange(currentFile, removedFileList);
       }
     });
@@ -407,25 +399,28 @@ const InternalUpload: React.ForwardRefRenderFunction<unknown, UploadProps> = (pr
     </div>
   );
 
+  const uploadButton = renderUploadButton(children ? undefined : { display: 'none' });
+
   if (listType === 'picture-card') {
     return (
       <span className={classNames(`${prefixCls}-picture-card-wrapper`, className)}>
-        {renderUploadList(renderUploadButton(), !!children)}
+        {renderUploadList(uploadButton, !!children)}
       </span>
     );
   }
 
   return (
     <span className={className}>
-      {renderUploadButton(children ? undefined : { display: 'none' })}
+      {uploadButton}
       {renderUploadList()}
     </span>
   );
 };
 
 const Upload = React.forwardRef<unknown, UploadProps>(InternalUpload);
-
-Upload.displayName = 'Upload';
+if (process.env.NODE_ENV !== 'production') {
+  Upload.displayName = 'Upload';
+}
 
 Upload.defaultProps = {
   type: 'select' as UploadType,

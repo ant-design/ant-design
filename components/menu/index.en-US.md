@@ -29,11 +29,12 @@ ReactDOM.render(<Alert message="After version 4.20.0, we provide a simpler usage
 ```jsx
 // works when >=4.20.0, recommended ✅
 const items = [
-  { label: 'item 1' },
-  { label: 'item 2' },
+  { label: 'item 1', key: 'item-1' }, // remember to pass the key prop
+  { label: 'item 2', key: 'item-2' }, // which is required
   {
     label: 'sub menu',
-    children: [{ label: 'item 3' }],
+    key: 'submenu',
+    children: [{ label: 'item 3', key: 'submenu-item-1' }],
   },
 ];
 return <Menu items={items} />;
@@ -118,7 +119,7 @@ The legacy demo code for version `<4.20.0` could be found at [https://github.com
 #### SubMenuType
 
 | Param | Description | Type | Default value | Version |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | children | Sub-menus or sub-menu items | [ItemType\[\]](#ItemType) | - |  |
 | disabled | Whether sub-menu is disabled | boolean | false |  |
 | icon | Icon of sub menu | ReactNode | - |  |
@@ -126,7 +127,6 @@ The legacy demo code for version `<4.20.0` could be found at [https://github.com
 | label | Menu label | ReactNode | - |  |
 | popupClassName | Sub-menu class name, not working when `mode="inline"` | string | - |  |
 | popupOffset | Sub-menu offset, not working when `mode="inline"` | \[number, number] | - |  |
-| title | Title of sub menu | ReactNode | - |  |
 | theme | Color theme of the SubMenu (inherits from Menu by default) |  | `light` \| `dark` | - |  |
 | onTitleClick | Callback executed when the sub-menu title is clicked | function({ key, domEvent }) | - |  |
 
@@ -138,7 +138,7 @@ Define `type` as `group` to make as group:
 const groupItem = {
   type: 'group', // Must have
   label: 'My Group',
-  chidlren: [],
+  children: [],
 };
 ```
 

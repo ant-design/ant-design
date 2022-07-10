@@ -1,7 +1,7 @@
-import React from 'react';
 import { mount } from 'enzyme';
-import moment from 'moment';
 import MockDate from 'mockdate';
+import moment from 'moment';
+import React from 'react';
 import DatePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
 

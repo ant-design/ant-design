@@ -13,14 +13,16 @@ title:
 
 The most basic dropdown menu.
 
-```jsx
-import { Menu, Dropdown, Space } from 'antd';
+```tsx
 import { DownOutlined, SmileOutlined } from '@ant-design/icons';
+import { Dropdown, Menu, Space } from 'antd';
+import React from 'react';
 
 const menu = (
   <Menu
     items={[
       {
+        key: '1',
         label: (
           <a target="_blank" rel="noopener noreferrer" href="https://www.antgroup.com">
             1st menu item
@@ -28,6 +30,7 @@ const menu = (
         ),
       },
       {
+        key: '2',
         label: (
           <a target="_blank" rel="noopener noreferrer" href="https://www.aliyun.com">
             2nd menu item (disabled)
@@ -37,6 +40,7 @@ const menu = (
         disabled: true,
       },
       {
+        key: '3',
         label: (
           <a target="_blank" rel="noopener noreferrer" href="https://www.luohanacademy.com">
             3rd menu item (disabled)
@@ -45,6 +49,7 @@ const menu = (
         disabled: true,
       },
       {
+        key: '4',
         danger: true,
         label: 'a danger item',
       },
@@ -52,7 +57,7 @@ const menu = (
   />
 );
 
-export default () => (
+const App: React.FC = () => (
   <Dropdown overlay={menu}>
     <a onClick={e => e.preventDefault()}>
       <Space>
@@ -62,4 +67,6 @@ export default () => (
     </a>
   </Dropdown>
 );
+
+export default App;
 ```

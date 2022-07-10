@@ -1,17 +1,18 @@
-import OriginModal, { ModalFuncProps } from './Modal';
+import type { ModalStaticFunctions } from './confirm';
 import confirm, {
-  withWarn,
+  modalGlobalConfig,
+  withConfirm,
+  withError,
   withInfo,
   withSuccess,
-  withError,
-  withConfirm,
-  ModalStaticFunctions,
-  modalGlobalConfig,
+  withWarn,
 } from './confirm';
-import useModal from './useModal';
 import destroyFns from './destroyFns';
+import type { ModalFuncProps } from './Modal';
+import OriginModal from './Modal';
+import useModal from './useModal';
 
-export { ModalProps, ModalFuncProps } from './Modal';
+export { ModalFuncProps, ModalProps } from './Modal';
 
 function modalWarn(props: ModalFuncProps) {
   return confirm(withWarn(props));
