@@ -312,7 +312,7 @@
     },
     {
       "path": "./dist/antd.dark.min.css",
-      "maxSize": "67 kB"
+      "maxSize": "67.5 kB"
     },
     {
       "path": "./dist/antd.compact.min.css",
