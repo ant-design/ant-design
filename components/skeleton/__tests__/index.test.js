@@ -15,6 +15,7 @@ describe('Skeleton', () => {
   const genSkeletonAvatar = props => mount(<Skeleton.Avatar {...props} />);
   const genSkeletonInput = props => mount(<Skeleton.Input {...props} />);
   const genSkeletonImage = props => mount(<Skeleton.Image {...props} />);
+  const genSkeletonNode = props => mount(<Skeleton.Node {...props} />);
 
   mountTest(Skeleton);
   rtlTest(Skeleton);
@@ -160,6 +161,15 @@ describe('Skeleton', () => {
     it('should render normal', () => {
       const wrapper = genSkeletonImage();
       expect(wrapper.render()).toMatchSnapshot();
+    });
+  });
+
+  describe('custom node element', () => {
+    it('should render normal', () => {
+      const wrapper = genSkeletonNode();
+      expect(wrapper.render()).toMatchSnapshot();
+      const wrapperNode = genSkeletonNode({ children: <span>Custom Content Node</span> });
+      expect(wrapperNode.render()).toMatchSnapshot();
     });
   });
 
