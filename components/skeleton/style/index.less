@@ -8,7 +8,7 @@
 @skeleton-button-prefix-cls: ~'@{skeleton-prefix-cls}-button';
 @skeleton-input-prefix-cls: ~'@{skeleton-prefix-cls}-input';
 @skeleton-image-prefix-cls: ~'@{skeleton-prefix-cls}-image';
-@skeleton-block-radius: 4px;
+@skeleton-block-radius: @border-radius-base;
 
 .@{skeleton-prefix-cls} {
   display: table;
@@ -83,26 +83,12 @@
   }
 
   // With active animation
-  &.@{skeleton-prefix-cls}-active {
-    & .@{skeleton-prefix-cls}-content {
-      .@{skeleton-title-prefix-cls},
-      .@{skeleton-paragraph-prefix-cls} > li {
-        .skeleton-color();
-      }
-    }
-
-    .@{skeleton-avatar-prefix-cls} {
-      .skeleton-color();
-    }
-
-    .@{skeleton-button-prefix-cls} {
-      .skeleton-color();
-    }
-
-    .@{skeleton-input-prefix-cls} {
-      .skeleton-color();
-    }
-
+  &-active {
+    .@{skeleton-title-prefix-cls},
+    .@{skeleton-paragraph-prefix-cls} > li,
+    .@{skeleton-avatar-prefix-cls},
+    .@{skeleton-button-prefix-cls},
+    .@{skeleton-input-prefix-cls},
     .@{skeleton-image-prefix-cls} {
       .skeleton-color();
     }
@@ -262,6 +248,10 @@
 
 .skeleton-color() {
   position: relative;
+  // fix https://github.com/ant-design/ant-design/issues/36444
+  // https://monshin.github.io/202109/css/safari-border-radius-overflow-hidden/
+  /* stylelint-disable-next-line property-no-vendor-prefix,value-no-vendor-prefix */
+  z-index: 0;
   overflow: hidden;
   background: transparent;
 

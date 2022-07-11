@@ -110,10 +110,10 @@ cover: https://gw.alipayobjects.com/zos/alicdn/GOM1KQ24O/Typography.svg
 | maxLength | 编辑中文本域最大长度 | number | - | 4.4.0 |
 | tooltip | 自定义提示文本，为 false 时关闭 | boolean \| ReactNode | `编辑` | 4.6.0 |
 | onCancel | 按 ESC 退出编辑状态时触发 | function | - |  |
-| onChange | 文本域编辑时触发 | function(event) | - |  |
+| onChange | 文本域编辑时触发 | function(value: string) | - |  |
 | onEnd | 按 ENTER 结束编辑状态时触发 | function | - | 4.14.0 |
 | onStart | 进入编辑中状态时触发 | function | - |  |
-| triggerType | Edit mode trigger - icon, text or both (not specifying icon as trigger hides it) | Array&lt;`icon`\|`text`> | \[`icon`] |  |
+| triggerType | 编辑模式触发器类型，图标、文本或者两者都设置（不设置图标作为触发器时它会隐藏） | Array&lt;`icon`\|`text`> | \[`icon`] |  |
 | enterIcon | 在编辑段中自定义“enter”图标（传递“null”将删除图标） | ReactNode | `<EnterOutlined />` | 4.17.0 |
 
 ### ellipsis
