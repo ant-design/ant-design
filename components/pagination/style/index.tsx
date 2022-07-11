@@ -6,7 +6,8 @@ import {
   type InputToken,
 } from '../../input/style';
 import type { FullToken, GenerateStyle } from '../../theme';
-import { genComponentStyleHook, mergeToken, resetComponent } from '../../theme';
+import { genComponentStyleHook, mergeToken } from '../../theme';
+import { resetComponent } from '../../style';
 
 interface PaginationToken extends InputToken<FullToken<'Pagination'>> {
   paginationItemSize: number;

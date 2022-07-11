@@ -9,7 +9,7 @@ import {
   slideUpOut,
 } from '../../style/motion';
 import type { GenerateStyle } from '../../theme';
-import { resetComponent } from '../../theme';
+import { resetComponent } from '../../style';
 
 const genItemStyle: GenerateStyle<SelectToken, CSSObject> = token => {
   const { controlPaddingHorizontal } = token;

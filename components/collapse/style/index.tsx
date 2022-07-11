@@ -1,5 +1,6 @@
 import type { FullToken, GenerateStyle } from '../../theme';
-import { genComponentStyleHook, mergeToken, resetComponent, resetIcon } from '../../theme';
+import { genComponentStyleHook, mergeToken } from '../../theme';
+import { resetComponent, resetIcon } from '../../style';
 
 type CollapseToken = FullToken<'Collapse'> & {
   collapseContentBg: string;

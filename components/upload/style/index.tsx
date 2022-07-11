@@ -1,10 +1,11 @@
 import type { FullToken, GenerateStyle } from '../../theme';
-import { genComponentStyleHook, mergeToken, resetComponent } from '../../theme';
+import { genComponentStyleHook, mergeToken } from '../../theme';
 import genDraggerStyle from './dragger';
 import genListStyle from './list';
 import genMotionStyle from './motion';
 import { genPictureCardStyle, genPictureStyle } from './picture';
 import genRtlStyle from './rtl';
+import { resetComponent } from '../../style';
 
 export interface ComponentToken {}
 

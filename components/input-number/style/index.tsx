@@ -10,7 +10,8 @@ import {
   initInputToken,
 } from '../../input/style';
 import type { FullToken, GenerateStyle } from '../../theme';
-import { genComponentStyleHook, resetComponent, resetIcon } from '../../theme';
+import { genComponentStyleHook } from '../../theme';
+import { resetComponent, resetIcon } from '../../style';
 
 export interface ComponentToken {
   controlWidth: number;

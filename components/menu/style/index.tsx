@@ -1,16 +1,11 @@
 import { TinyColor } from '@ctrl/tinycolor';
 import type { FullToken, GenerateStyle, UseComponentStyleResult } from '../../theme';
-import {
-  clearFix,
-  genComponentStyleHook,
-  mergeToken,
-  resetComponent,
-  resetIcon,
-} from '../../theme';
+import { genComponentStyleHook, mergeToken } from '../../theme';
 import getHorizontalStyle from './horizontal';
 import getRTLStyle from './rtl';
 import getThemeStyle from './theme';
 import getVerticalStyle from './vertical';
+import { clearFix, resetComponent, resetIcon } from '../../style';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {

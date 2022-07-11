@@ -1,6 +1,6 @@
 import type { CSSInterpolation } from '@ant-design/cssinjs';
-import type { AliasToken } from '../interface';
-import type { TokenWithCommonCls } from './genComponentStyleHook';
+import type { AliasToken } from '../theme';
+import type { TokenWithCommonCls } from '../theme/util/genComponentStyleHook';
 import { roundedArrow } from './roundedArrow';
 
 function connectArrowCls(classList: string[], showArrowCls: string = '') {

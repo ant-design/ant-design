@@ -1,7 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { GenerateStyle } from '../../theme';
-import { operationUnit } from '../../theme';
 import type { TableToken } from './index';
+import { operationUnit } from '../../style';
 
 const genExpandStyle: GenerateStyle<TableToken, CSSObject> = token => {
   const {
