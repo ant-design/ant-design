@@ -10,6 +10,7 @@ export interface BaseProps {
 export default function genPurePanel<ComponentProps extends BaseProps>(
   Component: any,
   defaultPrefixCls?: string,
+  getDropdownCls?: (prefixCls: string) => string,
 ) {
   return function PurePanel(props: ComponentProps) {
     const { prefixCls: customizePrefixCls, style } = props;
@@ -31,7 +32,10 @@ export default function genPurePanel<ComponentProps extends BaseProps>(
         });
 
         const interval = setInterval(() => {
-          const popup = holderRef.current?.querySelector(`.${prefixCls}-dropdown`);
+          const dropdownCls = getDropdownCls
+            ? `.${getDropdownCls(prefixCls)}`
+            : `.${prefixCls}-dropdown`;
+          const popup = holderRef.current?.querySelector(dropdownCls);
 
           if (popup) {
             clearInterval(interval);

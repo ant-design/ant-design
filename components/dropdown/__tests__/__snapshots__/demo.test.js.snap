@@ -858,6 +858,16 @@ exports[`renders ./components/dropdown/demo/placement.md correctly 1`] = `
 </div>
 `;
 
+exports[`renders ./components/dropdown/demo/render-panel.md correctly 1`] = `
+<div
+  style="padding-bottom:0;position:relative"
+>
+  <span
+    class="ant-dropdown-trigger"
+  />
+</div>
+`;
+
 exports[`renders ./components/dropdown/demo/selectable.md correctly 1`] = `
 <a
   class="ant-typography ant-dropdown-trigger"

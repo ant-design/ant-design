@@ -6,6 +6,7 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import { OverrideProvider } from '../menu/OverrideContext';
+import genPurePanel from '../select/PurePanel';
 import getPlacements from '../_util/placements';
 import { cloneElement } from '../_util/reactNode';
 import { tuple } from '../_util/type';
@@ -71,6 +72,7 @@ export interface DropdownProps {
 
 interface DropdownInterface extends React.FC<DropdownProps> {
   Button: typeof DropdownButton;
+  _InternalPanelDoNotUseOrYouWillBeFired: typeof WrapPurePanel;
 }
 
 const Dropdown: DropdownInterface = props => {
@@ -237,5 +239,17 @@ Dropdown.defaultProps = {
   mouseEnterDelay: 0.15,
   mouseLeaveDelay: 0.1,
 };
+
+// We don't care debug panel
+const PurePanel = genPurePanel(Dropdown, 'dropdown', prefixCls => prefixCls);
+
+/* istanbul ignore next */
+const WrapPurePanel = (props: DropdownProps) => (
+  <PurePanel {...props}>
+    <span />
+  </PurePanel>
+);
+
+Dropdown._InternalPanelDoNotUseOrYouWillBeFired = WrapPurePanel;
 
 export default Dropdown;
