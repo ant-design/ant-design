@@ -1911,7 +1911,7 @@ Array [
 
 exports[`renders ./components/cascader/demo/render-panel.md extend context correctly 1`] = `
 <div
-  style="padding-bottom:0"
+  style="padding-bottom:0;position:relative"
 >
   <div
     class="ant-select ant-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
