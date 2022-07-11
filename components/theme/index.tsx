@@ -13,22 +13,14 @@ import type {
 import { PresetColors } from './interface';
 import defaultDerivative from './themes/default';
 import defaultSeedToken from './themes/seed';
-import { clearFix, operationUnit, resetComponent, resetIcon, roundedArrow } from './util';
 import formatToken from './util/alias';
 import type { FullToken } from './util/genComponentStyleHook';
 import genComponentStyleHook from './util/genComponentStyleHook';
-import getArrowStyle from './util/placementArrow';
 import statisticToken, { merge as mergeToken, statistic } from './util/statistic';
 
 const defaultTheme = createTheme(defaultDerivative);
 
 export {
-  resetComponent,
-  resetIcon,
-  clearFix,
-  roundedArrow,
-  getArrowStyle,
-  operationUnit,
   // colors
   PresetColors,
   // Statistic

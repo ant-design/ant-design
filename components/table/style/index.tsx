@@ -1,7 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { TinyColor } from '@ctrl/tinycolor';
 import type { FullToken, GenerateStyle } from '../../theme';
-import { clearFix, genComponentStyleHook, mergeToken, resetComponent } from '../../theme';
+import { genComponentStyleHook, mergeToken } from '../../theme';
 import genBorderedStyle from './bordered';
 import genEllipsisStyle from './ellipsis';
 import genEmptyStyle from './empty';
@@ -16,6 +16,7 @@ import genSizeStyle from './size';
 import genSorterStyle from './sorter';
 import genStickyStyle from './sticky';
 import genSummaryStyle from './summary';
+import { clearFix, resetComponent } from '../../style';
 
 export interface ComponentToken {}
 

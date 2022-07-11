@@ -1,5 +1,6 @@
 import type { FullToken, GenerateStyle } from '../../theme';
-import { genComponentStyleHook, mergeToken, resetComponent } from '../../theme';
+import { genComponentStyleHook, mergeToken } from '../../theme';
+import { resetComponent } from '../../style';
 
 export interface ComponentToken {
   dotWidth: number;

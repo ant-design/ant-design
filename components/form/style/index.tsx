@@ -1,7 +1,8 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { zoomIn } from '../../style/motion';
 import type { AliasToken, FullToken, GenerateStyle } from '../../theme';
-import { genComponentStyleHook, mergeToken, resetComponent } from '../../theme';
+import { genComponentStyleHook, mergeToken } from '../../theme';
+import { resetComponent } from '../../style';
 
 interface FormToken extends FullToken<'Form'> {
   formItemCls: string;

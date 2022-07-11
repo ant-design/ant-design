@@ -1,9 +1,8 @@
-import type { CSSInterpolation } from '@ant-design/cssinjs';
 import type { GenerateStyle } from '../../theme';
-import { resetComponent } from '../../theme';
 import type { TableToken } from './index';
+import { resetComponent } from '../../style';
 
-const genFilterStyle: GenerateStyle<TableToken, CSSInterpolation> = token => {
+const genFilterStyle: GenerateStyle<TableToken> = token => {
   const {
     componentCls,
     antCls,

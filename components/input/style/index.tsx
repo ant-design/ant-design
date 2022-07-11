@@ -1,7 +1,8 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { FullToken, GenerateStyle } from '../../theme';
-import { clearFix, genComponentStyleHook, mergeToken, resetComponent } from '../../theme';
+import { genComponentStyleHook, mergeToken } from '../../theme';
 import type { GlobalToken } from '../../theme/interface';
+import { clearFix, resetComponent } from '../../style';
 
 export type InputToken<T extends GlobalToken = FullToken<'Input'>> = T & {
   inputAffixPadding: number;
