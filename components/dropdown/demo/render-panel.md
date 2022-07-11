@@ -4,7 +4,6 @@ title:
   zh-CN: _InternalPanelDoNotUseOrYouWillBeFired
   en-US: _InternalPanelDoNotUseOrYouWillBeFired
 debug: true
-only: true
 ---
 
 ## zh-CN
