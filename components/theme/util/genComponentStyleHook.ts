@@ -98,9 +98,9 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
         });
         flush(component, mergedComponentToken);
         return [
-          styleInterpolation,
           // Generate style for all a tags in antd component
           { [componentCls]: genLinkStyle(token) },
+          styleInterpolation,
         ];
       }),
       hashId,
