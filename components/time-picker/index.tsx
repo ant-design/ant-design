@@ -69,7 +69,7 @@ if (process.env.NODE_ENV !== 'production') {
 // We don't care debug panel
 /* istanbul ignore next */
 const PurePanel = genPurePanel(TimePicker, 'picker');
-(DatePicker as any)._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
+(TimePicker as MergedTimePicker)._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
 type MergedTimePicker = typeof TimePicker & {
   RangePicker: typeof RangePicker;
