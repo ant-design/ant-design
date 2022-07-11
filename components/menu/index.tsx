@@ -176,7 +176,7 @@ const InternalMenu = forwardRef<MenuRef, InternalMenuProps>((props, ref) => {
 });
 
 // We should keep this as ref-able
-class Menu extends React.Component<MenuProps, {}> {
+class Menu<T extends MenuProps = MenuProps> extends React.Component<T, {}> {
   static Divider = MenuDivider;
 
   static Item = Item;
