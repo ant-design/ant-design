@@ -2,6 +2,7 @@ import type { Dayjs } from 'dayjs';
 import * as React from 'react';
 import DatePicker from '../date-picker';
 import type { PickerTimeProps, RangePickerTimeProps } from '../date-picker/generatePicker';
+import genPurePanel from '../select/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
 import warning from '../_util/warning';
 
@@ -65,10 +66,17 @@ if (process.env.NODE_ENV !== 'production') {
   TimePicker.displayName = 'TimePicker';
 }
 
+// We don't care debug panel
+/* istanbul ignore next */
+const PurePanel = genPurePanel(TimePicker, 'picker');
+(TimePicker as MergedTimePicker)._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
+
 type MergedTimePicker = typeof TimePicker & {
   RangePicker: typeof RangePicker;
+  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
 };
 
 (TimePicker as MergedTimePicker).RangePicker = RangePicker;
+(TimePicker as MergedTimePicker)._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
 export default TimePicker as MergedTimePicker;

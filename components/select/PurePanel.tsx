@@ -7,7 +7,10 @@ export interface BaseProps {
 }
 
 /* istanbul ignore next */
-export default function genPurePanel<ComponentProps extends BaseProps>(Component: any) {
+export default function genPurePanel<ComponentProps extends BaseProps>(
+  Component: any,
+  defaultPrefixCls?: string,
+) {
   return function PurePanel(props: ComponentProps) {
     const { prefixCls: customizePrefixCls, style } = props;
     const holderRef = React.useRef<HTMLDivElement>(null);
@@ -15,7 +18,7 @@ export default function genPurePanel<ComponentProps extends BaseProps>(Component
     const [open, setOpen] = React.useState(false);
 
     const { getPrefixCls } = React.useContext(ConfigContext);
-    const prefixCls = getPrefixCls('select', customizePrefixCls);
+    const prefixCls = getPrefixCls(defaultPrefixCls || 'select', customizePrefixCls);
 
     React.useEffect(() => {
       // We do not care about ssr
@@ -44,7 +47,7 @@ export default function genPurePanel<ComponentProps extends BaseProps>(Component
     }, []);
 
     return (
-      <div ref={holderRef} style={{ paddingBottom: popupHeight }}>
+      <div ref={holderRef} style={{ paddingBottom: popupHeight, position: 'relative' }}>
         <Component
           {...props}
           style={{
@@ -52,6 +55,7 @@ export default function genPurePanel<ComponentProps extends BaseProps>(Component
             margin: 0,
           }}
           open={open}
+          visible={open}
           getPopupContainer={() => holderRef.current!}
         />
       </div>

@@ -1,5 +1,6 @@
 import type { Dayjs } from 'dayjs';
 import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
+import genPurePanel from '../select/PurePanel';
 import type {
   PickerDateProps,
   PickerProps,
@@ -14,4 +15,11 @@ export type RangePickerProps = BaseRangePickerProps<Dayjs>;
 
 const DatePicker = generatePicker<Dayjs>(dayjsGenerateConfig);
 
-export default DatePicker;
+// We don't care debug panel
+/* istanbul ignore next */
+const PurePanel = genPurePanel(DatePicker, 'picker');
+(DatePicker as any)._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
+
+export default DatePicker as typeof DatePicker & {
+  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
+};
