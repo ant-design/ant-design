@@ -186,9 +186,10 @@
 
 // Modal
 // --
-@modal-header-padding: 11px @modal-header-padding-horizontal;
+@modal-header-padding-vertical: 11px;
+@modal-header-padding: @modal-header-padding-vertical @modal-header-padding-horizontal;
 @modal-footer-padding-vertical: @padding-sm;
-@modal-header-close-size: 44px;
+@modal-header-close-size: @modal-header-title-line-height + 2 * @modal-header-padding-vertical;
 @modal-confirm-body-padding: 24px 24px 16px;
 
 // Message

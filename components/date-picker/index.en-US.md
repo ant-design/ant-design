@@ -187,6 +187,10 @@ Please refer [replace moment](/docs/react/replace-moment#DatePicker)
 
 DatePicker default set `locale` as `en` in v4. You can config DatePicker `locale` prop or [ConfigProvider `locale`](/components/config-provider) prop instead.
 
+#### Date-related components locale is not working?
+
+See FAQ [Date-related-components-locale-is-not-working?](/docs/react/faq#Date-related-components-locale-is-not-working?)
+
 ### How to modify start day of week?
 
 Please use correct [language](/docs/react/i18n) ([#5605](https://github.com/ant-design/ant-design/issues/5605)), or update moment `locale` config:

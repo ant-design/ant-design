@@ -82,6 +82,10 @@ import 'moment/locale/zh-cn';
 moment.locale('zh-cn');
 ```
 
+#### Date-related components locale is not working?
+
+See FAQ [Date-related-components-locale-is-not-working?](/docs/react/faq#Date-related-components-locale-is-not-working?)
+
 #### Modal throw error when setting `getPopupContainer`?
 
 Related issue: <https://github.com/ant-design/ant-design/issues/19974>

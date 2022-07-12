@@ -1,21 +1,22 @@
 ---
 order: 2.1
 title:
-  zh-CN: 按钮/头像/输入框/图像
-  en-US: Button/Avatar/Input/Image
+  zh-CN: 按钮/头像/输入框/图像/自定义节点
+  en-US: Button/Avatar/Input/Image/Node
 ---
 
 ## zh-CN
 
-骨架按钮、头像、输入框和图像。
+骨架按钮、头像、输入框、图像和自定义节点。
 
 ## en-US
 
-Skeleton Button, Avatar, Input and Image.
+Skeleton Button, Avatar, Input, Image and Node.
 
 ```tsx
 import type { RadioChangeEvent } from 'antd';
 import { Divider, Form, Radio, Skeleton, Space, Switch } from 'antd';
+import { DotChartOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
 
 type SizeType = 'default' | 'small' | 'large';
@@ -64,7 +65,12 @@ const App: React.FC = () => {
       <Skeleton.Input active={active} size={size} block={block} />
       <br />
       <br />
-      <Skeleton.Image />
+      <Space>
+        <Skeleton.Image active={active} />
+        <Skeleton.Node active={active}>
+          <DotChartOutlined style={{ fontSize: 40, color: '#bfbfbf' }} />
+        </Skeleton.Node>
+      </Space>
       <Divider />
       <Form layout="inline" style={{ margin: '16px 0' }}>
         <Form.Item label="Active">
