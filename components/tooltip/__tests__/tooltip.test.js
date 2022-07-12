@@ -9,6 +9,7 @@ import DatePicker from '../../date-picker';
 import Input from '../../input';
 import Group from '../../input/Group';
 import Switch from '../../switch';
+import Radio from '../../radio';
 
 describe('Tooltip', () => {
   mountTest(Tooltip);
@@ -394,6 +395,25 @@ describe('Tooltip', () => {
         onVisibleChange={onVisibleChange}
       >
         <Switch loading defaultChecked />
+      </Tooltip>,
+    );
+    const wrapperEl = container.querySelectorAll('.ant-tooltip-disabled-compatible-wrapper');
+    expect(wrapperEl).toHaveLength(1);
+    fireEvent.mouseEnter(container.getElementsByTagName('span')[0]);
+    expect(onVisibleChange).toHaveBeenLastCalledWith(true);
+    expect(container.querySelector('.ant-tooltip-open')).not.toBeNull();
+  });
+
+  it('should work with disabled Radio', () => {
+    const onVisibleChange = jest.fn();
+    const { container } = render(
+      <Tooltip
+        title="loading tips"
+        mouseEnterDelay={0}
+        mouseLeaveDelay={0}
+        onVisibleChange={onVisibleChange}
+      >
+        <Radio disabled />
       </Tooltip>,
     );
     const wrapperEl = container.querySelectorAll('.ant-tooltip-disabled-compatible-wrapper');
