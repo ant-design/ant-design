@@ -95,6 +95,24 @@ Yes, you can [import `antd` with script tag](https://ant.design/docs/react/intro
 
 If you need some features which should not be included in antd, try to extend antd's component with [HOC](https://gist.github.com/sebmarkbage/ef0bf1f338a7182b6775). [more](https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750#.eeu8q01s1)
 
+## Date-related components locale is not working?
+
+Please check whether import dayjs locale correctly.
+
+```jsx
+import 'dayjs/locale/zh-cn';
+
+dayjs.locale('zh-cn');
+```
+
+Please check whether there is two version of dayjs installed.
+
+```jsx
+npm ls dayjs
+```
+
+If you are using a mismatched version of dayjs with [antd's dayjs](https://github.com/ant-design/ant-design/blob/7dfc80504a36cf8952cd732a1d0c137a16d56fd4/package.json#L125) in your project. That would be a problem cause locale not working.
+
 ## How do I fix dynamic styles while using a Content Security Policy (CSP)?
 
 You can configure `nonce` by [ConfigProvider](/components/config-provider/#Content-Security-Policy).

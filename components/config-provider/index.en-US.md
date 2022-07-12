@@ -73,15 +73,9 @@ ConfigProvider.config({
 
 See [<Adding new language>](/docs/react/i18n#Adding-newplanguage).
 
-#### Does the locale problem still exist in DatePicker even if ConfigProvider `locale` is used?
+#### Date-related components locale is not working?
 
-Please make sure you set dayjs locale or that you don't have two different versions of dayjs.
-
-```js
-import 'dayjs/locale/zh-cn';
-
-dayjs.locale('zh-cn');
-```
+See FAQ [Date-related-components-locale-is-not-working?](/docs/react/faq#Date-related-components-locale-is-not-working?)
 
 #### Modal throw error when setting `getPopupContainer`?
 
