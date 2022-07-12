@@ -792,6 +792,10 @@ const genPickerStatusStyle: GenerateStyle<PickerToken> = token => {
             }),
           ),
         },
+
+        [`${componentCls}-active-bar`]: {
+          background: token.colorError,
+        },
       },
 
       '&-status-warning&': {
@@ -808,6 +812,10 @@ const genPickerStatusStyle: GenerateStyle<PickerToken> = token => {
               colorPrimaryOutline: token.colorWarningOutline,
             }),
           ),
+        },
+
+        [`${componentCls}-active-bar`]: {
+          background: token.colorWarning,
         },
       },
     },
