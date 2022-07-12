@@ -115,6 +115,23 @@ antd 内部会对 props 进行浅比较实现性能优化。当状态变更，�
 
 如果日期组件的国际化仍未生效，请配置 `moment.locale('zh-cn')` 并**检查你本地的 `moment` 版本和 `antd` 依赖的 `moment` 版本是否一致**。
 
+## 为什么时间类组件的国际化 locale 设置不生效？
+
+请检查是否正确设置了 moment 语言包。
+
+```jsx
+import 'moment/locale/zh-cn';
+moment.locale('zh-cn');
+```
+
+如果还有问题，请检查是否有两个版本的 moment 共存？
+
+```jsx
+npm ls moment
+```
+
+一般来说，如果项目中依赖的 moment 版本和 [antd 依赖的 moment 版本](https://github.com/ant-design/ant-design/blob/7dfc80504a36cf8952cd732a1d0c137a16d56fd4/package.json#L125) 无法兼容（semver 无法匹配，比如项目中的 moment 版本写死且较低），则会导致使用两个不同版本的 momenet 实例，这样也会导致国际化失效。
+
 ## 开启了 Content Security Policy (CSP) 如何处理动态样式？
 
 你可以通过 [ConfigProvider](/components/config-provider/#Content-Security-Policy) 来配置 `nonce` 属性。
