@@ -1,6 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { FullToken, GenerateStyle } from '../../theme';
-import { genComponentStyleHook, mergeToken, resetComponent } from '../../theme';
+import { genComponentStyleHook, mergeToken } from '../../theme';
+import { resetComponent } from '../../style';
 
 interface BreadcrumbToken extends FullToken<'Breadcrumb'> {
   breadcrumbBaseColor: string;
@@ -51,7 +52,7 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = token => {
         },
       },
 
-      [`li:last-child ${componentCls}-separator`]: {
+      [`li:last-child > ${componentCls}-separator`]: {
         display: 'none',
       },
 

@@ -1,13 +1,8 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { FullToken, GenerateStyle } from '../../theme';
-import {
-  genComponentStyleHook,
-  mergeToken,
-  operationUnit,
-  resetComponent,
-  resetIcon,
-} from '../../theme';
+import { genComponentStyleHook, mergeToken } from '../../theme';
+import { operationUnit, resetComponent, resetIcon } from '../../style';
 
 export interface ComponentToken {
   listWidth: number;

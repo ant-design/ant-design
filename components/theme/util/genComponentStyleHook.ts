@@ -2,6 +2,7 @@
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 import { useStyleRegister } from '@ant-design/cssinjs';
 import { useContext } from 'react';
+import { genLinkStyle } from '../../style';
 import { ConfigContext } from '../../config-provider/context';
 import type { UseComponentStyleResult } from '../index';
 import { mergeToken, statisticToken, useToken } from '../index';
@@ -74,12 +75,14 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
             mergedComponentToken[key] = overrideComponentToken[key] ?? mergedComponentToken[key];
           });
         }
+
+        const componentCls = `.${prefixCls}`;
         const mergedToken = mergeToken<
           TokenWithCommonCls<GlobalTokenWithComponent<OverrideComponent>>
         >(
           proxyToken,
           {
-            componentCls: `.${prefixCls}`,
+            componentCls,
             prefixCls,
             iconCls: `.${iconPrefixCls}`,
             antCls: `.${rootPrefixCls}`,
@@ -94,7 +97,11 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
           iconPrefixCls,
         });
         flush(component, mergedComponentToken);
-        return styleInterpolation;
+        return [
+          // Generate style for all a tags in antd component
+          { [componentCls]: genLinkStyle(token) },
+          styleInterpolation,
+        ];
       }),
       hashId,
     ];

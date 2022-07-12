@@ -7,9 +7,10 @@ import {
   slideUpOut,
 } from '../../style/motion';
 import type { FullToken, GenerateStyle } from '../../theme';
-import { genComponentStyleHook, mergeToken, resetComponent, roundedArrow } from '../../theme';
+import { genComponentStyleHook, mergeToken } from '../../theme';
 import genButtonStyle from './button';
 import genStatusStyle from './status';
+import { resetComponent, roundedArrow } from '../../style';
 
 export interface ComponentToken {
   zIndexPopup: number;

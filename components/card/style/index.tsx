@@ -1,7 +1,8 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { FullToken, GenerateStyle } from '../../theme';
-import { clearFix, genComponentStyleHook, mergeToken, resetComponent } from '../../theme';
+import { genComponentStyleHook, mergeToken } from '../../theme';
+import { clearFix, resetComponent } from '../../style';
 
 interface CardToken extends FullToken<'Card'> {
   cardShadow: string;

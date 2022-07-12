@@ -1,6 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import type { FullToken, GenerateStyle } from '../../theme';
-import { genComponentStyleHook, mergeToken, resetComponent } from '../../theme';
+import { genComponentStyleHook, mergeToken } from '../../theme';
 import genStepsCustomIconStyle from './custom-icon';
 import genStepsLabelPlacementStyle from './label-placement';
 import genStepsNavStyle from './nav';
@@ -9,6 +9,7 @@ import genStepsProgressDotStyle from './progress-dot';
 import genStepsRTLStyle from './rtl';
 import genStepsSmallStyle from './small';
 import genStepsVerticalStyle from './vertical';
+import { resetComponent } from '../../style';
 
 export interface ComponentToken {
   descriptionWidth: number;

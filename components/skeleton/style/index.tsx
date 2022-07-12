@@ -46,6 +46,10 @@ const genSkeletonElementAvatarSize = (size: number): CSSObject => ({
 
 const genSkeletonColor = (token: SkeletonToken): CSSObject => ({
   position: 'relative',
+  // fix https://github.com/ant-design/ant-design/issues/36444
+  // https://monshin.github.io/202109/css/safari-border-radius-overflow-hidden/
+  /* stylelint-disable-next-line property-no-vendor-prefix,value-no-vendor-prefix */
+  zIndex: 0,
   overflow: 'hidden',
   background: 'transparent',
   '&::after': {
@@ -320,23 +324,14 @@ const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken) => {
     },
     // With active animation
     [`${componentCls}${componentCls}-active`]: {
-      [`${componentCls}-content`]: {
-        [`${skeletonTitleCls}, ${skeletonParagraphCls} > li`]: {
-          ...genSkeletonColor(token),
-        },
-      },
-      [`${skeletonAvatarCls}`]: {
-        ...genSkeletonColor(token),
-      },
-
-      [`${skeletonButtonCls}`]: {
-        ...genSkeletonColor(token),
-      },
-
-      [`${skeletonInputCls}`]: {
-        ...genSkeletonColor(token),
-      },
-      [`${skeletonImageCls}`]: {
+      [`
+        ${skeletonTitleCls},
+        ${skeletonParagraphCls} > li,
+        ${skeletonAvatarCls},
+        ${skeletonButtonCls},
+        ${skeletonInputCls},
+        ${skeletonImageCls}
+      `]: {
         ...genSkeletonColor(token),
       },
     },

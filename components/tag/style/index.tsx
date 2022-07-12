@@ -1,7 +1,9 @@
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
+import type React from 'react';
 import type { FullToken, PresetColorType } from '../../theme';
-import { genComponentStyleHook, mergeToken, PresetColors, resetComponent } from '../../theme';
+import { genComponentStyleHook, mergeToken, PresetColors } from '../../theme';
 import capitalize from '../../_util/capitalize';
+import { resetComponent } from '../../style';
 
 interface TagToken extends FullToken<'Tag'> {
   tagFontSize: number;

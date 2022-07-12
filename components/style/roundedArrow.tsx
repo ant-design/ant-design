@@ -1,10 +1,9 @@
 /* eslint-disable import/prefer-default-export */
 import type { CSSObject } from '@ant-design/cssinjs';
-import seedToken from '../themes/seed';
 
 export const roundedArrow = (width: number, outerRadius: number, bgColor: string): CSSObject => {
   const cornerHeight = outerRadius * (1 - 1 / Math.sqrt(2));
-  const { radiusBase } = seedToken;
+  const radiusBase = 2;
 
   const ax = width - cornerHeight;
   const ay = 2 * width + cornerHeight;

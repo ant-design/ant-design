@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import type { CSSObject } from '@ant-design/cssinjs';
-import type { DerivativeToken } from '..';
+import type { DerivativeToken } from '../theme';
 
 export { operationUnit } from './operationUnit';
 export { roundedArrow } from './roundedArrow';
@@ -15,9 +15,6 @@ export const resetComponent = (token: DerivativeToken): CSSObject => ({
   lineHeight: token.lineHeight,
   listStyle: 'none',
   // font-feature-settings: @font-feature-settings-base;
-  a: {
-    textDecoration: 'none',
-  },
 });
 
 export const resetIcon = (): CSSObject => ({
@@ -59,5 +56,42 @@ export const clearFix = (): CSSObject => ({
     display: 'table',
     clear: 'both',
     content: '""',
+  },
+});
+
+export const genLinkStyle = (token: DerivativeToken): CSSObject => ({
+  a: {
+    color: token.colorLink,
+    textDecoration: token.linkDecoration,
+    backgroundColor: 'transparent', // remove the gray background on active links in IE 10.
+    outline: 'none',
+    cursor: 'pointer',
+    transition: `color ${token.motionDurationSlow}`,
+    '-webkit-text-decoration-skip': 'objects', // remove gaps in links underline in iOS 8+ and Safari 8+.
+
+    '&:hover': {
+      color: token.colorLinkHover,
+    },
+
+    '&:active': {
+      color: token.colorLinkActive,
+    },
+
+    [`&:active,
+  &:hover`]: {
+      textDecoration: token.linkHoverDecoration,
+      outline: 0,
+    },
+
+    // https://github.com/ant-design/ant-design/issues/22503
+    '&:focus': {
+      textDecoration: token.linkFocusDecoration,
+      outline: 0,
+    },
+
+    '&[disabled]': {
+      color: token.colorTextDisabled,
+      cursor: 'not-allowed',
+    },
   },
 });

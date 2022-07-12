@@ -1,8 +1,9 @@
 import type React from 'react';
 import { initFadeMotion, initZoomMotion } from '../../style/motion';
 import type { AliasToken, FullToken, GenerateStyle } from '../../theme';
-import { clearFix, genComponentStyleHook, mergeToken, resetComponent } from '../../theme';
+import { genComponentStyleHook, mergeToken } from '../../theme';
 import type { TokenWithCommonCls } from '../../theme/util/genComponentStyleHook';
+import { clearFix, resetComponent } from '../../style';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {

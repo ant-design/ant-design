@@ -1,12 +1,8 @@
 import { initZoomMotion } from '../../style/motion';
 import type { FullToken, GenerateStyle, PresetColorType } from '../../theme';
-import {
-  genComponentStyleHook,
-  getArrowStyle,
-  mergeToken,
-  PresetColors,
-  resetComponent,
-} from '../../theme';
+import { genComponentStyleHook, mergeToken, PresetColors } from '../../theme';
+import { resetComponent } from '../../style';
+import getArrowStyle from '../../style/placementArrow';
 
 export interface ComponentToken {
   zIndexPopup: number;
