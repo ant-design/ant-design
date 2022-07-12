@@ -1646,13 +1646,17 @@ exports[`Cascader should highlight keyword and filter when search in Cascader 1`
             >
               Z
             </span>
-            hejiang / Hang
+            hejiang
+             / 
+            Hang
             <span
               class="ant-cascader-menu-item-keyword"
             >
               z
             </span>
-            hou / West Lake
+            hou
+             / 
+            West Lake
           </div>
         </li>
         <li
@@ -1664,7 +1668,10 @@ exports[`Cascader should highlight keyword and filter when search in Cascader 1`
           <div
             class="ant-cascader-menu-item-content"
           >
-            Jiangsu / Nanjing / 
+            Jiangsu
+             / 
+            Nanjing
+             / 
             <span
               class="ant-cascader-menu-item-keyword"
             >
@@ -1706,13 +1713,17 @@ exports[`Cascader should highlight keyword and filter when search in Cascader wi
             >
               Z
             </span>
-            hejiang / Hang
+            hejiang
+             / 
+            Hang
             <span
               class="ant-cascader-menu-item-keyword"
             >
               z
             </span>
-            hou / West Lake
+            hou
+             / 
+            West Lake
           </div>
         </li>
         <li
@@ -1729,13 +1740,17 @@ exports[`Cascader should highlight keyword and filter when search in Cascader wi
             >
               Z
             </span>
-            hejiang / Hang
+            hejiang
+             / 
+            Hang
             <span
               class="ant-cascader-menu-item-keyword"
             >
               z
             </span>
-            hou / Xia Sha
+            hou
+             / 
+            Xia Sha
           </div>
         </li>
       </ul>
