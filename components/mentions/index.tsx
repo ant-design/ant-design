@@ -1,12 +1,13 @@
 import classNames from 'classnames';
 import RcMentions from 'rc-mentions';
-import type { MentionsProps as RcMentionsProps } from 'rc-mentions/lib/Mentions';
+import type { MentionsProps, MentionsProps as RcMentionsProps } from 'rc-mentions/lib/Mentions';
 import { composeRef } from 'rc-util/lib/ref';
 // eslint-disable-next-line import/no-named-as-default
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import { FormItemInputContext } from '../form/context';
+import genPurePanel from '../select/PurePanel';
 import Spin from '../spin';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
@@ -49,6 +50,7 @@ interface MentionsEntity {
 interface CompoundedComponent
   extends React.ForwardRefExoticComponent<MentionProps & React.RefAttributes<HTMLElement>> {
   Option: typeof Option;
+  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
   getMentions: (value: string, config?: MentionsConfig) => MentionsEntity[];
 }
 
@@ -178,6 +180,11 @@ if (process.env.NODE_ENV !== 'production') {
   Mentions.displayName = 'Mentions';
 }
 Mentions.Option = Option;
+
+// We don't care debug panel
+/* istanbul ignore next */
+const PurePanel = genPurePanel(Mentions, 'mentions');
+Mentions._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
 Mentions.getMentions = (value: string = '', config: MentionsConfig = {}): MentionsEntity[] => {
   const { prefix = '@', split = ' ' } = config;
