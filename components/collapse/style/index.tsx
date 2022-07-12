@@ -30,6 +30,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = token => {
     marginSM,
     paddingSM,
     motionDurationSlow,
+    fontSizeIcon,
   } = token;
 
   const borderBase = `${controlLineWidth}px ${controlLineType} ${colorBorder}`;
@@ -81,6 +82,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = token => {
 
           [`${componentCls}-arrow`]: {
             ...resetIcon(),
+            fontSize: fontSizeIcon,
 
             svg: {
               transition: `transform ${motionDurationSlow}`,
@@ -231,6 +233,26 @@ const genBorderlessStyle: GenerateStyle<CollapseToken> = token => {
   };
 };
 
+const genMotion: GenerateStyle<CollapseToken> = token => ({
+  [token.componentCls]: {
+    // For common/openAnimation
+    [`${token.antCls}-motion-collapse-legacy`]: {
+      overflow: 'hidden',
+
+      '&-active': {
+        transition: `height ${token.motionDurationMid} ${token.motionEaseInOut},
+        opacity ${token.motionDurationMid} ${token.motionEaseInOut} !important`,
+      },
+    },
+
+    [`${token.antCls}-motion-collapse`]: {
+      overflow: 'hidden',
+      transition: `height ${token.motionDurationMid} ${token.motionEaseInOut},
+        opacity ${token.motionDurationMid} ${token.motionEaseInOut} !important`,
+    },
+  },
+});
+
 export default genComponentStyleHook('Collapse', token => {
   const collapseToken = mergeToken<CollapseToken>(token, {
     collapseContentBg: token.colorBgContainer,
@@ -244,5 +266,6 @@ export default genComponentStyleHook('Collapse', token => {
     genBaseStyle(collapseToken),
     genBorderlessStyle(collapseToken),
     genArrowStyle(collapseToken),
+    genMotion(collapseToken),
   ];
 });
