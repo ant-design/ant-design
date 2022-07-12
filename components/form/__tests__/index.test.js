@@ -24,6 +24,7 @@ import ConfigProvider from '../../config-provider';
 import Drawer from '../../drawer';
 import zhCN from '../../locale/zh_CN';
 import Modal from '../../modal';
+import useFormItemStatus from '../hooks/useFormItemStatus';
 
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
@@ -1244,5 +1245,22 @@ describe('Form', () => {
     expect(container.querySelector('.modal-select')?.className).not.toContain('status-error');
     expect(container.querySelector('.drawer-select')?.className).not.toContain('in-form-item');
     expect(container.querySelector('.drawer-select')?.className).not.toContain('status-error');
+  });
+
+  it('useFormItemStatus should work', () => {
+    const CustomInput = () => {
+      const { status } = useFormItemStatus();
+      return <div className="custom-input">{status}</div>;
+    };
+
+    const { container } = render(
+      <Form>
+        <Form.Item validateStatus="error">
+          <CustomInput />
+        </Form.Item>
+      </Form>,
+    );
+
+    expect(container.querySelector('.custom-input')?.textContent).toBe('error');
   });
 });
