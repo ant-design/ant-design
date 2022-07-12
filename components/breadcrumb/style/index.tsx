@@ -52,7 +52,7 @@ const genBreadcrumbStyle: GenerateStyle<BreadcrumbToken, CSSObject> = token => {
         },
       },
 
-      [`li:last-child ${componentCls}-separator`]: {
+      [`li:last-child > ${componentCls}-separator`]: {
         display: 'none',
       },
 
