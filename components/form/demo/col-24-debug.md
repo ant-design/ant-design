@@ -15,8 +15,27 @@ See issue [#32980](https://github.com/ant-design/ant-design/issues/32980).
 See issue [#32980](https://github.com/ant-design/ant-design/issues/32980).
 
 ```tsx
-import { Button, Form, Input } from 'antd';
+import { Button, Select, Form, Input, Divider } from 'antd';
 import React from 'react';
+
+const sharedItem = (
+  <Form.Item
+    label={<a href="https://github.com/ant-design/ant-design/issues/36459">#36459</a>}
+    initialValue={['bamboo']}
+    name="select"
+    style={{ boxShadow: '0 0 3px red' }}
+  >
+    <Select
+      style={{ width: '70%' }}
+      mode="multiple"
+      options={[
+        { label: 'Bamboo', value: 'bamboo' },
+        { label: 'Little', value: 'little' },
+        { label: 'Light', value: 'light' },
+      ]}
+    />
+  </Form.Item>
+);
 
 const App: React.FC = () => {
   const onFinish = (values: any) => {
@@ -53,6 +72,8 @@ const App: React.FC = () => {
         >
           <Input.Password />
         </Form.Item>
+
+        {sharedItem}
 
         <Form.Item>
           <Button type="primary" htmlType="submit">
@@ -91,6 +112,10 @@ const App: React.FC = () => {
           </Button>
         </Form.Item>
       </Form>
+
+      <Divider />
+
+      <Form layout="vertical">{sharedItem}</Form>
     </>
   );
 };
