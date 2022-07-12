@@ -16,7 +16,7 @@ Large size tabs are usually used in page header, and small size could be used in
 ```tsx
 import type { RadioChangeEvent } from 'antd';
 import { Radio, Tabs } from 'antd';
-import type { SizeType } from 'antd/lib/config-provider/SizeContext';
+import type { SizeType } from 'antd/es/config-provider/SizeContext';
 import React, { useState } from 'react';
 
 const { TabPane } = Tabs;

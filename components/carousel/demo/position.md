@@ -16,7 +16,7 @@ There are 4 position options available.
 ```tsx
 import type { RadioChangeEvent } from 'antd';
 import { Carousel, Radio } from 'antd';
-import type { DotPosition } from 'antd/lib/carousel';
+import type { DotPosition } from 'antd/es/carousel';
 import React, { useState } from 'react';
 
 const contentStyle: React.CSSProperties = {

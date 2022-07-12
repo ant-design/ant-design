@@ -15,7 +15,7 @@ Built-in directory tree. `multiple` support `ctrl(Windows)` / `command(Mac)` sel
 
 ```tsx
 import { Tree } from 'antd';
-import type { DataNode, DirectoryTreeProps } from 'antd/lib/tree';
+import type { DataNode, DirectoryTreeProps } from 'antd/es/tree';
 import React from 'react';
 
 const { DirectoryTree } = Tree;
