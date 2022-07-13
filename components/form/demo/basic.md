@@ -22,7 +22,6 @@ const App: React.FC = () => {
     console.log('Success:', values);
   };
 
-  const { status } = Form.Item.useStatus();
   const onFinishFailed = (errorInfo: any) => {
     console.log('Failed:', errorInfo);
   };
