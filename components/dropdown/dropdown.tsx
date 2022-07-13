@@ -6,7 +6,7 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import { OverrideProvider } from '../menu/OverrideContext';
-import genPurePanel from '../select/PurePanel';
+import genPurePanel from '../_util/PurePanel';
 import getPlacements from '../_util/placements';
 import { cloneElement } from '../_util/reactNode';
 import { tuple } from '../_util/type';

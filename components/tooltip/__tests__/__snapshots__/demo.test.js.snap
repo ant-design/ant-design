@@ -340,3 +340,43 @@ exports[`renders ./components/tooltip/demo/placement.md correctly 1`] = `
   </div>
 </div>
 `;
+
+exports[`renders ./components/tooltip/demo/render-panel.md correctly 1`] = `
+Array [
+  <div
+    class="ant-tooltip ant-tooltip-pure ant-tooltip-placement-top"
+  >
+    <div
+      class="ant-tooltip-content"
+    >
+      <div
+        class="ant-tooltip-arrow"
+      />
+      <div
+        class="ant-tooltip-inner"
+        role="tooltip"
+      >
+        Hello, Pure Panel!
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-tooltip ant-tooltip-pure ant-tooltip-placement-bottomLeft"
+  >
+    <div
+      class="ant-tooltip-content"
+      style="width:200px"
+    >
+      <div
+        class="ant-tooltip-arrow"
+      />
+      <div
+        class="ant-tooltip-inner"
+        role="tooltip"
+      >
+        Hello, Pure Panel!
+      </div>
+    </div>
+  </div>,
+]
+`;

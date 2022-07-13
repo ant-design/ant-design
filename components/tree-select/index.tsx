@@ -12,7 +12,7 @@ import DisabledContext from '../config-provider/DisabledContext';
 import type { SizeType } from '../config-provider/SizeContext';
 import SizeContext from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
-import genPurePanel from '../select/PurePanel';
+import genPurePanel from '../_util/PurePanel';
 import useSelectStyle from '../select/style';
 import getIcons from '../select/utils/iconUtil';
 import type { AntTreeNodeProps, TreeProps } from '../tree';

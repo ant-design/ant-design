@@ -29,7 +29,7 @@ import warning from '../_util/warning';
 
 import useSelectStyle from '../select/style';
 import useStyle from './style';
-import genPurePanel from '../select/PurePanel';
+import genPurePanel from '../_util/PurePanel';
 
 // Align the design since we use `rc-select` in root. This help:
 // - List search content will show all content
