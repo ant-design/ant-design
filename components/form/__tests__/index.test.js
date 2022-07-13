@@ -1251,19 +1251,28 @@ describe('Form', () => {
       Item: { useStatus },
     } = Form;
 
-    const CustomInput = () => {
+    const CustomInput = ({ className }) => {
       const { status } = useStatus();
-      return <div className="custom-input">{status}</div>;
+      return <div className={className}>{String(status)}</div>;
     };
 
     const { container } = render(
       <Form>
         <Form.Item validateStatus="error">
-          <CustomInput />
+          <CustomInput className="custom-input-error" />
         </Form.Item>
+        <Form.Item>
+          <CustomInput className="custom-input" />
+        </Form.Item>
+        <CustomInput className="custom-input-wrong" />
       </Form>,
     );
 
-    expect(container.querySelector('.custom-input')?.textContent).toBe('error');
+    expect(container.querySelector('.custom-input-error')?.textContent).toBe('error');
+    expect(container.querySelector('.custom-input')?.textContent).toBe('');
+    expect(container.querySelector('.custom-input-wrong')?.textContent).toBe('undefined');
+    expect(errorSpy).toHaveBeenCalledWith(
+      expect.stringContaining('Form.Item.useStatus should be used under Form.Item component.'),
+    );
   });
 });
