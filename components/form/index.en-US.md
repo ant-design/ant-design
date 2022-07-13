@@ -338,7 +338,7 @@ const Demo = () => {
 
 ### Form.Item.useStatus
 
-`type Form.useFormItemStatus = (): { status: ValidateStatus }`
+`type Form.useFormItemStatus = (): { status: ValidateStatus | undefined }`
 
 Added in `4.22.0`. Could be used to get validate status of Form.Item. If this hook is not used under Form.Item, `status` would be `undefined`:
 
