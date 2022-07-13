@@ -60,6 +60,15 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
       );
     }
 
+    // Generate style for all a tags in antd component.
+    useStyleRegister({ theme, token, hashId, path: ['Link'] }, () =>
+      hashId
+        ? {
+            '&': genLinkStyle(token),
+          }
+        : genLinkStyle(token),
+    );
+
     return [
       useStyleRegister({ theme, token, hashId, path: [component, prefixCls] }, () => {
         const { token: proxyToken, flush } = statisticToken(token);
@@ -97,11 +106,7 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
           iconPrefixCls,
         });
         flush(component, mergedComponentToken);
-        return [
-          // Generate style for all a tags in antd component
-          { [componentCls]: genLinkStyle(token) },
-          styleInterpolation,
-        ];
+        return styleInterpolation;
       }),
       hashId,
     ];
