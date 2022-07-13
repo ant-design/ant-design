@@ -89,7 +89,8 @@ function getDisabledCompatibleChildren(element: React.ReactElement<any>, prefixC
   const elementType = element.type as any;
   if (
     ((elementType.__ANT_BUTTON === true || element.type === 'button') && element.props.disabled) ||
-    (elementType.__ANT_SWITCH === true && (element.props.disabled || element.props.loading))
+    (elementType.__ANT_SWITCH === true && (element.props.disabled || element.props.loading)) ||
+    (elementType.__ANT_RADIO === true && element.props.disabled)
   ) {
     // Pick some layout related style properties up to span
     // Prevent layout bugs like https://github.com/ant-design/ant-design/issues/5254

@@ -104,6 +104,12 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = token => {
           border: 0,
           visibility: 'hidden',
         },
+
+        [`+ ${componentCls}-cell-content`]: {
+          display: 'inline-block !important',
+          width: `calc(100% - (${expandIconSize}px + ${paddingXS}px))`,
+          verticalAlign: 'top',
+        },
       },
 
       [`${componentCls}-row-indent + ${componentCls}-row-expand-icon`]: {

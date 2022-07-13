@@ -18,9 +18,11 @@ interface CompoundedComponent
   extends React.ForwardRefExoticComponent<RadioProps & React.RefAttributes<HTMLElement>> {
   Group: typeof Group;
   Button: typeof Button;
+  __ANT_RADIO: boolean;
 }
 
 const Radio = InternalRadio as CompoundedComponent;
 Radio.Button = Button;
 Radio.Group = Group;
+Radio.__ANT_RADIO = true;
 export default Radio;
