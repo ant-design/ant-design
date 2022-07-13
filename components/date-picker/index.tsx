@@ -1,6 +1,6 @@
 import type { Dayjs } from 'dayjs';
 import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
-import genPurePanel from '../select/PurePanel';
+import genPurePanel from '../_util/PurePanel';
 import type {
   PickerDateProps,
   PickerProps,

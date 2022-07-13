@@ -10,6 +10,7 @@ import { ConfigContext } from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
 import Popover from '../popover';
+import genPurePanel from '../_util/PurePanel';
 import type { AbstractTooltipProps } from '../tooltip';
 import ActionButton from '../_util/ActionButton';
 import type { RenderFunction } from '../_util/getRenderPropValue';
@@ -163,7 +164,11 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
       })}
     </Popover>,
   );
-});
+}) as React.ForwardRefExoticComponent<
+  React.PropsWithoutRef<PopconfirmProps> & React.RefAttributes<unknown>
+> & {
+  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
+};
 
 Popconfirm.defaultProps = {
   placement: 'top' as PopconfirmProps['placement'],
@@ -172,5 +177,10 @@ Popconfirm.defaultProps = {
   icon: <ExclamationCircleFilled />,
   disabled: false,
 };
+
+// We don't care debug panel
+/* istanbul ignore next */
+const PurePanel = genPurePanel(Popconfirm, 'popover', prefixCls => prefixCls);
+Popconfirm._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
 export default Popconfirm;

@@ -21,7 +21,7 @@ import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import getIcons from './utils/iconUtil';
 
 import useStyle from './style';
-import genPurePanel from './PurePanel';
+import genPurePanel from '../_util/PurePanel';
 
 type RawValue = string | number;
 

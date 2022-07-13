@@ -7,7 +7,7 @@ import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import defaultRenderEmpty from '../config-provider/defaultRenderEmpty';
 import { FormItemInputContext } from '../form/context';
-import genPurePanel from '../select/PurePanel';
+import genPurePanel from '../_util/PurePanel';
 import Spin from '../spin';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
