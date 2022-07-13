@@ -24,7 +24,6 @@ import ConfigProvider from '../../config-provider';
 import Drawer from '../../drawer';
 import zhCN from '../../locale/zh_CN';
 import Modal from '../../modal';
-import useFormItemStatus from '../hooks/useFormItemStatus';
 
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
@@ -1248,8 +1247,12 @@ describe('Form', () => {
   });
 
   it('useFormItemStatus should work', () => {
+    const {
+      Item: { useStatus },
+    } = Form;
+
     const CustomInput = () => {
-      const { status } = useFormItemStatus();
+      const { status } = useStatus();
       return <div className="custom-input">{status}</div>;
     };
 

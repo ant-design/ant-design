@@ -6,7 +6,6 @@ import InternalForm, { FormInstance, FormProps, useForm, useWatch } from './Form
 import Item, { FormItemProps } from './FormItem';
 import List, { FormListFieldData, FormListOperation, FormListProps } from './FormList';
 import useFormInstance from './hooks/useFormInstance';
-import useFormItemStatus from './hooks/useFormItemStatus';
 
 type InternalFormType = typeof InternalForm;
 
@@ -14,7 +13,6 @@ interface FormInterface extends InternalFormType {
   useForm: typeof useForm;
   useFormInstance: typeof useFormInstance;
   useWatch: typeof useWatch;
-  useFormItemStatus: typeof useFormItemStatus;
   Item: typeof Item;
   List: typeof List;
   ErrorList: typeof ErrorList;
@@ -31,7 +29,6 @@ Form.List = List;
 Form.ErrorList = ErrorList;
 Form.useForm = useForm;
 Form.useFormInstance = useFormInstance;
-Form.useFormItemStatus = useFormItemStatus;
 Form.useWatch = useWatch;
 Form.Provider = FormProvider;
 Form.create = () => {

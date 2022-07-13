@@ -335,15 +335,15 @@ const Demo = () => {
 };
 ```
 
-### Form.useFormItemStatus
+### Form.Item.useStatus
 
-`type Form.useFormItemStatus = (): { status: ValidateStatus }`
+`type Form.Item.useStatus = (): { status: ValidateStatus }`
 
 `4.22.0` 新增，可用于自定义组件获取当前 Form.Item 的校验状态：
 
 ```tsx
 const CustomInput = ({ value }) => {
-  const { status } = Form.useFormItemStatus();
+  const { status } = Form.Item.useStatus();
   return <input value={value} className={`custom-input-${status}`} />;
 };
 
