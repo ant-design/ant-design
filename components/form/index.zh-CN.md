@@ -343,7 +343,7 @@ const Demo = () => {
 
 ```tsx
 const CustomInput = ({ value }) => {
-  const { status } = Form.useFormItemStatus;
+  const { status } = Form.useFormItemStatus();
   return <input value={value} className={`custom-input-${status}`} />;
 };
 
