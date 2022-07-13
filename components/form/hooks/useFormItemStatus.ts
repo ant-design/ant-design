@@ -11,9 +11,9 @@ const useFormItemStatus: UseFormItemStatus = () => {
   const { status } = useContext(FormItemInputContext);
 
   warning(
-    status === undefined,
+    status !== undefined,
     'Form.Item',
-    'Form.Item.useStatus should be used under Form.Item component.',
+    `Form.Item.useStatus should be used under Form.Item component. For more information: ${window.location.protocol}//${window.location.host}/components/form-cn/#Form.Item.useStatus`,
   );
 
   return { status };

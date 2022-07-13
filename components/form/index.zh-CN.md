@@ -339,7 +339,7 @@ const Demo = () => {
 
 `type Form.Item.useStatus = (): { status: ValidateStatus | undefined }`
 
-`4.22.0` 新增，可用于获取当前 Form.Item 的校验状态，如果上层没有 Form.Item `status` 将会返回 `undefined`：
+`4.22.0` 新增，可用于获取当前 Form.Item 的校验状态，如果上层没有 Form.Item，`status` 将会返回 `undefined`：
 
 ```tsx
 const CustomInput = ({ value }) => {
