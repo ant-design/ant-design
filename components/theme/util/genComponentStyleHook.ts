@@ -61,13 +61,9 @@ export default function genComponentStyleHook<ComponentName extends OverrideComp
     }
 
     // Generate style for all a tags in antd component.
-    useStyleRegister({ theme, token, hashId, path: ['Link'] }, () =>
-      hashId
-        ? {
-            '&': genLinkStyle(token),
-          }
-        : genLinkStyle(token),
-    );
+    useStyleRegister({ theme, token, hashId, path: ['Link'] }, () => ({
+      '&': genLinkStyle(token),
+    }));
 
     return [
       useStyleRegister({ theme, token, hashId, path: [component, prefixCls] }, () => {
