@@ -478,6 +478,10 @@ const genVerticalStyle: GenerateStyle<FormToken> = token => {
         '&-label > label': {
           height: 'auto',
         },
+
+        [`${componentCls}-item-control`]: {
+          width: '100%',
+        },
       },
     },
 
