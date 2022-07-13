@@ -340,7 +340,7 @@ const Demo = () => {
 
 `type Form.useFormItemStatus = (): { status: ValidateStatus }`
 
-Added in `4.20.0`. Could be used in custom input component to get validate status:
+Added in `4.22.0`. Could be used in custom input component to get validate status:
 
 ```tsx
 const CustomInput = ({ value }) => {
