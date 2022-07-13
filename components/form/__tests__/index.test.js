@@ -2,6 +2,7 @@ import { mount } from 'enzyme';
 import React, { Component, useState } from 'react';
 import { act } from 'react-dom/test-utils';
 import scrollIntoView from 'scroll-into-view-if-needed';
+import classNames from 'classnames';
 import Form from '..';
 import * as Util from '../util';
 
@@ -1246,33 +1247,57 @@ describe('Form', () => {
     expect(container.querySelector('.drawer-select')?.className).not.toContain('status-error');
   });
 
-  it('useFormItemStatus should work', () => {
+  it('Form.Item.useStatus should work', async () => {
     const {
       Item: { useStatus },
     } = Form;
 
-    const CustomInput = ({ className }) => {
+    const CustomInput = ({ className, value }) => {
       const { status } = useStatus();
-      return <div className={className}>{String(status)}</div>;
+      return <div className={classNames(className, `custom-input-status-${status}`)}>{value}</div>;
     };
 
-    const { container } = render(
-      <Form>
-        <Form.Item validateStatus="error">
-          <CustomInput className="custom-input-error" />
-        </Form.Item>
-        <Form.Item>
-          <CustomInput className="custom-input" />
-        </Form.Item>
-        <CustomInput className="custom-input-wrong" />
-      </Form>,
-    );
+    const Demo = () => {
+      const [form] = Form.useForm();
 
-    expect(container.querySelector('.custom-input-error')?.textContent).toBe('error');
-    expect(container.querySelector('.custom-input')?.textContent).toBe('');
-    expect(container.querySelector('.custom-input-wrong')?.textContent).toBe('undefined');
+      return (
+        <Form form={form} name="my-form">
+          <Form.Item name="required" rules={[{ required: true }]}>
+            <CustomInput className="custom-input-required" value="" />
+          </Form.Item>
+          <Form.Item name="warning" validateStatus="warning">
+            <CustomInput className="custom-input-warning" />
+          </Form.Item>
+          <Form.Item name="normal">
+            <CustomInput className="custom-input" />
+          </Form.Item>
+          <CustomInput className="custom-input-wrong" />
+          <Button onClick={() => form.submit()} className="submit-button">
+            Submit
+          </Button>
+        </Form>
+      );
+    };
+
+    const { container } = render(<Demo />);
+
+    expect(container.querySelector('.custom-input-required')?.classList).toContain(
+      'custom-input-status-',
+    );
+    expect(container.querySelector('.custom-input-warning')?.classList).toContain(
+      'custom-input-status-warning',
+    );
+    expect(container.querySelector('.custom-input')?.classList).toContain('custom-input-status-');
+    expect(container.querySelector('.custom-input-wrong')?.classList).toContain(
+      'custom-input-status-undefined',
+    );
     expect(errorSpy).toHaveBeenCalledWith(
       expect.stringContaining('Form.Item.useStatus should be used under Form.Item component.'),
+    );
+    fireEvent.click(container.querySelector('.submit-button'));
+    await sleep(0);
+    expect(container.querySelector('.custom-input-required')?.classList).toContain(
+      'custom-input-status-error',
     );
   });
 });
