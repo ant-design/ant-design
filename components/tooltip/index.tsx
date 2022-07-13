@@ -11,6 +11,7 @@ import { getTransitionName } from '../_util/motion';
 import getPlacements, { AdjustOverflow, PlacementsConfig } from '../_util/placements';
 import { cloneElement, isValidElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
+import PurePanel from './PurePanel';
 
 import useStyle from './style';
 
@@ -282,7 +283,11 @@ const Tooltip = React.forwardRef<unknown, TooltipProps>((props, ref) => {
       {tempVisible ? cloneElement(child, { className: childCls }) : child}
     </RcTooltip>,
   );
-});
+}) as React.ForwardRefExoticComponent<
+  React.PropsWithoutRef<TooltipProps> & React.RefAttributes<unknown>
+> & {
+  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
+};
 
 if (process.env.NODE_ENV !== 'production') {
   Tooltip.displayName = 'Tooltip';
@@ -295,5 +300,7 @@ Tooltip.defaultProps = {
   arrowPointAtCenter: false,
   autoAdjustOverflow: true,
 };
+
+Tooltip._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
 export default Tooltip;

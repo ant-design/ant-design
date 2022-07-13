@@ -102,6 +102,14 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = token => {
 
     // Arrow Style
     getArrowStyle(token, 'var(--antd-arrow-background-color)', ''),
+
+    // Pure Render
+    {
+      [`${componentCls}-pure`]: {
+        position: 'relative',
+        maxWidth: 'none',
+      },
+    },
   ];
 };
 
