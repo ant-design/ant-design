@@ -1291,7 +1291,6 @@ describe('Form', () => {
     expect(container.querySelector('.custom-input-wrong')?.classList).toContain(
       'custom-input-status-undefined',
     );
-    expect(errorSpy).toHaveBeenCalledTimes(1);
     expect(errorSpy).toHaveBeenCalledWith(
       expect.stringContaining('Form.Item.useStatus should be used under Form.Item component.'),
     );
