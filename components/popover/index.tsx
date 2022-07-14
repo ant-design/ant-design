@@ -4,7 +4,6 @@ import { ConfigContext } from '../config-provider';
 import type { AbstractTooltipProps, TooltipPlacement } from '../tooltip';
 import Tooltip from '../tooltip';
 import type { RenderFunction } from '../_util/getRenderPropValue';
-import { getRenderPropValue } from '../_util/getRenderPropValue';
 import { getTransitionName } from '../_util/motion';
 import PurePanel, { getOverlay } from './PurePanel';
 // CSSINJS
