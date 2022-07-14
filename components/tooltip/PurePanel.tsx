@@ -2,17 +2,16 @@ import * as React from 'react';
 import { Popup } from 'rc-tooltip';
 import classNames from 'classnames';
 import type { TooltipProps } from '.';
-import useStyle from './style';
 import { ConfigContext } from '../config-provider';
 
-export interface PurePanelProps extends Omit<TooltipProps, 'title'> {
-  children: React.ReactNode;
-}
+import useStyle from './style';
+
+export interface PurePanelProps extends Omit<TooltipProps, 'children'> {}
 
 // ant-tooltip css-dev-only-do-not-override-w2s56n ant-tooltip-placement-top  ant-tooltip-hidden
 
 export default function PurePanel(props: PurePanelProps) {
-  const { prefixCls: customizePrefixCls, className, placement = 'top' } = props;
+  const { prefixCls: customizePrefixCls, className, placement = 'top', title } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
@@ -28,7 +27,9 @@ export default function PurePanel(props: PurePanelProps) {
         className,
       )}
     >
-      <Popup {...props} className={hashId} prefixCls={prefixCls} />
+      <Popup {...props} className={hashId} prefixCls={prefixCls}>
+        {title}
+      </Popup>
     </div>,
   );
 }

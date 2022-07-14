@@ -89,6 +89,18 @@ const genBaseStyle: GenerateStyle<PopoverToken> = token => {
 
     // Arrow Style
     getArrowStyle(token, token.colorBgElevated),
+
+    // Pure Render
+    {
+      [`${componentCls}-pure`]: {
+        position: 'relative',
+        maxWidth: 'none',
+
+        [`${componentCls}-content`]: {
+          display: 'inline-block',
+        },
+      },
+    },
   ];
 };
 
