@@ -336,6 +336,27 @@ const Demo = () => {
 };
 ```
 
+### Form.Item.useStatus
+
+`type Form.useFormItemStatus = (): { status: ValidateStatus | undefined }`
+
+Added in `4.22.0`. Could be used to get validate status of Form.Item. If this hook is not used under Form.Item, `status` would be `undefined`:
+
+```tsx
+const CustomInput = ({ value }) => {
+  const { status } = Form.Item.useStatus();
+  return <input value={value} className={`custom-input-${status}`} />;
+};
+
+export default () => (
+  <Form>
+    <Form.Item name="username">
+      <CustomInput />
+    </Form.Item>
+  </Form>
+);
+```
+
 #### Difference between other data fetching method
 
 Form only update the Field which changed to avoid full refresh perf issue. Thus you can not get real time value with `getFieldsValue` in render. And `useWatch` will rerender current component to sync with latest value. You can also use Field renderProps to get better performance if only want to do conditional render. If component no need care field value change, you can use `onValuesChange` to give to parent component to avoid current one rerender.

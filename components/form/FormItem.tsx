@@ -13,6 +13,7 @@ import { supportRef } from 'rc-util/lib/ref';
 import type { ReactNode } from 'react';
 import * as React from 'react';
 import { useContext, useMemo } from 'react';
+import useFormItemStatus from './hooks/useFormItemStatus';
 import { ConfigContext } from '../config-provider';
 import Row from '../grid/row';
 import { cloneElement, isValidElement } from '../_util/reactNode';
@@ -99,7 +100,7 @@ const iconMap = {
   validating: LoadingOutlined,
 };
 
-function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElement {
+function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.ReactElement {
   const {
     name,
     noStyle,
@@ -462,5 +463,14 @@ function FormItem<Values = any>(props: FormItemProps<Values>): React.ReactElemen
     </Field>
   );
 }
+
+type InternalFormItemType = typeof InternalFormItem;
+
+interface FormItemInterface extends InternalFormItemType {
+  useStatus: typeof useFormItemStatus;
+}
+
+const FormItem = InternalFormItem as FormItemInterface;
+FormItem.useStatus = useFormItemStatus;
 
 export default FormItem;
