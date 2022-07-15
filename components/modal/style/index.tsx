@@ -249,82 +249,80 @@ const genModalConfirmStyle: GenerateStyle<ModalToken> = token => {
   const confirmComponentCls = `${componentCls}-confirm`;
 
   return {
-    [`${componentCls}-root`]: {
-      [confirmComponentCls]: {
-        '&-rtl': {
-          direction: 'rtl',
-        },
-        [`${token.antCls}-modal-header`]: {
-          display: 'none',
-        },
-        [`${token.antCls}-modal-body`]: {
-          padding: `${token.padding * 2}px ${token.padding * 2}px ${token.paddingLG}px`,
-        },
-        [`${confirmComponentCls}-body-wrapper`]: {
-          ...clearFix(),
-        },
-        [`${confirmComponentCls}-body`]: {
-          display: 'flex',
-          flexWrap: 'wrap',
-          alignItems: 'center',
+    [confirmComponentCls]: {
+      '&-rtl': {
+        direction: 'rtl',
+      },
+      [`${token.antCls}-modal-header`]: {
+        display: 'none',
+      },
+      [`${token.antCls}-modal-body`]: {
+        padding: `${token.padding * 2}px ${token.padding * 2}px ${token.paddingLG}px`,
+      },
+      [`${confirmComponentCls}-body-wrapper`]: {
+        ...clearFix(),
+      },
+      [`${confirmComponentCls}-body`]: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        alignItems: 'center',
 
-          [`${confirmComponentCls}-title`]: {
-            flex: 1,
-            display: 'block',
-            // create BFC to avoid
-            // https://user-images.githubusercontent.com/507615/37702510-ba844e06-2d2d-11e8-9b67-8e19be57f445.png
-            overflow: 'hidden',
-            color: token.colorTextHeading,
-            fontWeight: token.fontWeightStrong,
-            fontSize: token.modalHeaderTitleFontSize,
-            lineHeight: token.modalHeaderTitleLineHeight,
-          },
+        [`${confirmComponentCls}-title`]: {
+          flex: 1,
+          display: 'block',
+          // create BFC to avoid
+          // https://user-images.githubusercontent.com/507615/37702510-ba844e06-2d2d-11e8-9b67-8e19be57f445.png
+          overflow: 'hidden',
+          color: token.colorTextHeading,
+          fontWeight: token.fontWeightStrong,
+          fontSize: token.modalHeaderTitleFontSize,
+          lineHeight: token.modalHeaderTitleLineHeight,
+        },
 
-          [`${confirmComponentCls}-content`]: {
-            marginTop: token.marginXS,
-            color: token.colorText,
-            fontSize: token.fontSizeBase,
+        [`${confirmComponentCls}-content`]: {
+          color: token.colorText,
+          fontSize: token.fontSizeBase,
+        },
+
+        [`> ${token.iconCls}`]: {
+          flex: 'none',
+          marginInlineEnd: token.margin,
+          fontSize: token.modalConfirmIconSize,
+
+          // `content` after `icon` should set marginLeft
+          [`+ ${confirmComponentCls}-title + ${confirmComponentCls}-content`]: {
+            marginInlineStart: token.modalConfirmIconSize + token.margin,
+            marginBlockStart: token.marginXS,
             flexBasis: '100%',
           },
-
-          [`> ${token.iconCls}`]: {
-            flex: 'none',
-            marginInlineEnd: token.margin,
-            fontSize: token.modalConfirmIconSize,
-
-            // `content` after `icon` should set marginLeft
-            [`+ ${confirmComponentCls}-title + ${confirmComponentCls}-content`]: {
-              marginInlineStart: token.modalConfirmIconSize + token.margin,
-            },
-          },
-        },
-        [`${confirmComponentCls}-btns`]: {
-          textAlign: 'end',
-          marginTop: token.marginLG,
-
-          [`${token.antCls}-btn + ${token.antCls}-btn`]: {
-            marginBottom: 0,
-            marginInlineStart: token.marginXS,
-          },
         },
       },
+      [`${confirmComponentCls}-btns`]: {
+        textAlign: 'end',
+        marginTop: token.marginLG,
 
-      [`${confirmComponentCls}-error ${confirmComponentCls}-body > ${token.iconCls}`]: {
-        color: token.colorError,
+        [`${token.antCls}-btn + ${token.antCls}-btn`]: {
+          marginBottom: 0,
+          marginInlineStart: token.marginXS,
+        },
       },
+    },
 
-      [`${confirmComponentCls}-warning ${confirmComponentCls}-body > ${token.iconCls},
+    [`${confirmComponentCls}-error ${confirmComponentCls}-body > ${token.iconCls}`]: {
+      color: token.colorError,
+    },
+
+    [`${confirmComponentCls}-warning ${confirmComponentCls}-body > ${token.iconCls},
         ${confirmComponentCls}-confirm ${confirmComponentCls}-body > ${token.iconCls}`]: {
-        color: token.colorWarning,
-      },
+      color: token.colorWarning,
+    },
 
-      [`${confirmComponentCls}-info ${confirmComponentCls}-body > ${token.iconCls}`]: {
-        color: token.colorInfo,
-      },
+    [`${confirmComponentCls}-info ${confirmComponentCls}-body > ${token.iconCls}`]: {
+      color: token.colorInfo,
+    },
 
-      [`${confirmComponentCls}-success ${confirmComponentCls}-body > ${token.iconCls}`]: {
-        color: token.colorSuccess,
-      },
+    [`${confirmComponentCls}-success ${confirmComponentCls}-body > ${token.iconCls}`]: {
+      color: token.colorSuccess,
     },
   };
 };
