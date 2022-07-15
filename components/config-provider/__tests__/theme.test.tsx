@@ -69,7 +69,7 @@ describe('ConfigProvider.Theme', () => {
         <Demo />
       </ConfigProvider>,
     );
-    expect(tokenRef?.colorBgContainer).toBe('#141414');
+    expect(tokenRef?.colorPrimary).toBe('#177ddc');
   });
 
   it('overriding component token should work', () => {

@@ -76,3 +76,11 @@ export interface BgPalettes {
   'light-10'?: string;
   base: string;
 }
+
+export type GeneratePrimaryPalettes = (primaryBaseColor: string) => PrimaryPalettes;
+export type GenerateSuccessPalettes = (successBaseColor: string) => SuccessPalettes;
+export type GenerateWarningPalettes = (warningBaseColor: string) => WarningPalettes;
+export type GenerateErrorPalettes = (errorBaseColor: string) => ErrorPalettes;
+export type GenerateInfoPalettes = (infoBaseColor: string) => InfoPalettes;
+export type GenerateTextAlphaPalettes = (textBaseColor: string) => TextAlphaPalettes;
+export type GenerateBgPalettes = (bgBaseColor: string) => BgPalettes;
