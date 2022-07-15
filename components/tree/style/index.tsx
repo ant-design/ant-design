@@ -1,6 +1,3 @@
-// import '../../style/index.less';
-// import './index.less';
-
 // deps-lint-skip-all
 import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
@@ -163,6 +160,21 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
           color: 'inherit',
           fontWeight: 500,
         },
+
+        '&-draggable': {
+          [`${treeCls}-draggable-icon`]: {
+            width: treeTitleHeight,
+            lineHeight: `${treeTitleHeight}px`,
+            textAlign: 'center',
+            visibility: 'visible',
+            opacity: 0.2,
+            transition: `opacity ${token.motionDurationSlow}`,
+
+            [`${treeNodeCls}:hover &`]: {
+              opacity: 0.45,
+            },
+          },
+        },
       },
 
       // >>> Indent
@@ -178,15 +190,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
 
       // >>> Drag Handler
       [`${treeCls}-draggable-icon`]: {
-        width: treeTitleHeight,
-        lineHeight: `${treeTitleHeight}px`,
-        textAlign: 'center',
-        opacity: 0.2,
-        transition: `opacity ${token.motionDurationSlow}`,
-
-        [`${treeNodeCls}:hover &`]: {
-          opacity: 0.45,
-        },
+        visibility: 'hidden',
       },
 
       // >>> Switcher
