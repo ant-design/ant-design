@@ -724,7 +724,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                     </div>
                   </th>
                   <th
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-fix-left-all"
                     style="position: sticky; left: 0px;"
                   >
                     Name
@@ -784,7 +784,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                     </label>
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-fix-left-all"
                     style="position: sticky; left: 0px;"
                   >
                     Jack
@@ -816,7 +816,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                     </label>
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-fix-left-all"
                     style="position: sticky; left: 0px;"
                   >
                     Lucy
@@ -848,7 +848,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                     </label>
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-fix-left-all"
                     style="position: sticky; left: 0px;"
                   >
                     Tom
@@ -880,7 +880,7 @@ exports[`Table.rowSelection fix selection column on the left when any other colu
                     </label>
                   </td>
                   <td
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-fix-left-all"
                     style="position: sticky; left: 0px;"
                   >
                     Jerry
