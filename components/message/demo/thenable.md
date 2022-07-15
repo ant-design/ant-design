@@ -1,5 +1,5 @@
 ---
-order: 5
+order: 4
 title:
   zh-CN: Promise 接口
   en-US: Promise interface
@@ -17,14 +17,27 @@ title:
 import { Button, message } from 'antd';
 import React from 'react';
 
-const success = () => {
-  message
-    .loading('Action in progress..', 2.5)
-    .then(() => message.success('Loading finished', 2.5))
-    .then(() => message.info('Loading finished is finished', 2.5));
-};
+const App: React.FC = () => {
+  const [messageApi, contextHolder] = message.useMessage();
 
-const App: React.FC = () => <Button onClick={success}>Display sequential messages</Button>;
+  const success = () => {
+    messageApi
+      .open({
+        type: 'loading',
+        content: 'Action in progress..',
+        duration: 2.5,
+      })
+      .then(() => message.success('Loading finished', 2.5))
+      .then(() => message.info('Loading finished', 2.5));
+  };
+
+  return (
+    <>
+      {contextHolder}
+      <Button onClick={success}>Display sequential messages</Button>
+    </>
+  );
+};
 
 export default App;
 ```

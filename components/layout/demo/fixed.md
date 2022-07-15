@@ -59,7 +59,7 @@ export default App;
   margin: 16px 24px 16px 0;
   background: rgba(255, 255, 255, 0.2);
 }
-.site-layout .site-layout-background {
+#components-layout-demo-fixed .site-layout .site-layout-background {
   background: #fff;
 }
 ```

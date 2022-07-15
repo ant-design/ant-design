@@ -15,12 +15,17 @@ Customize Calendar header content.
 
 ```tsx
 import { Calendar, Col, Radio, Row, Select, Typography } from 'antd';
+import type { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
+import 'dayjs/locale/zh-cn';
+import dayLocaleData from 'dayjs/plugin/localeData';
 import type { CalendarMode } from 'antd/es/calendar/generateCalendar';
-import type { Moment } from 'moment';
 import React from 'react';
 
+dayjs.extend(dayLocaleData);
+
 const App: React.FC = () => {
-  const onPanelChange = (value: Moment, mode: CalendarMode) => {
+  const onPanelChange = (value: Dayjs, mode: CalendarMode) => {
     console.log(value.format('YYYY-MM-DD'), mode);
   };
 
@@ -33,11 +38,11 @@ const App: React.FC = () => {
           const end = 12;
           const monthOptions = [];
 
-          const current = value.clone();
+          let current = value.clone();
           const localeData = value.localeData();
           const months = [];
           for (let i = 0; i < 12; i++) {
-            current.month(i);
+            current = current.month(i);
             months.push(localeData.monthsShort(current));
           }
 
@@ -48,7 +53,7 @@ const App: React.FC = () => {
               </Select.Option>,
             );
           }
-          
+
           const year = value.year();
           const month = value.month();
           const options = [];

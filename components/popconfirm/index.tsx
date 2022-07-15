@@ -1,4 +1,3 @@
-import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import KeyCode from 'rc-util/lib/KeyCode';
@@ -9,7 +8,9 @@ import Popover from '../popover';
 import type { AbstractTooltipProps } from '../tooltip';
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import { cloneElement } from '../_util/reactNode';
-import { Overlay } from './PurePanel';
+import PurePanel, { Overlay } from './PurePanel';
+
+import usePopconfirmStyle from './style';
 
 export interface PopconfirmProps extends AbstractTooltipProps {
   title: React.ReactNode | RenderFunction;
@@ -82,14 +83,14 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
     overlayClassName,
     ...restProps
   } = props;
-  const prefixCls = getPrefixCls('popover', customizePrefixCls);
-  const prefixClsConfirm = getPrefixCls('popconfirm', customizePrefixCls);
-  const overlayClassNames = classNames(prefixClsConfirm, overlayClassName);
+  const prefixCls = getPrefixCls('popconfirm', customizePrefixCls);
+  const overlayClassNames = classNames(prefixCls, overlayClassName);
 
-  return (
+  const [wrapSSR] = usePopconfirmStyle(prefixCls);
+
+  return wrapSSR(
     <Popover
       {...restProps}
-      prefixCls={prefixCls}
       placement={placement}
       onVisibleChange={onVisibleChange}
       visible={visible}
@@ -104,6 +105,7 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
       }
       overlayClassName={overlayClassNames}
       ref={ref as any}
+      data-popover-inject
     >
       {cloneElement(children, {
         onKeyDown: (e: React.KeyboardEvent<any>) => {
@@ -113,16 +115,21 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
           onKeyDown(e);
         },
       })}
-    </Popover>
+    </Popover>,
   );
-});
+}) as React.ForwardRefExoticComponent<
+  React.PropsWithoutRef<PopconfirmProps> & React.RefAttributes<unknown>
+> & {
+  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
+};
 
 Popconfirm.defaultProps = {
-  placement: 'top' as PopconfirmProps['placement'],
   trigger: 'click' as PopconfirmProps['trigger'],
-  okType: 'primary' as PopconfirmProps['okType'],
-  icon: <ExclamationCircleFilled />,
   disabled: false,
 };
+
+// We don't care debug panel
+/* istanbul ignore next */
+Popconfirm._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
 export default Popconfirm;

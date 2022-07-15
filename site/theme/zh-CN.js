@@ -1,6 +1,7 @@
 module.exports = {
   locale: 'zh-CN',
   messages: {
+    'app.theme.switch.dynamic': '动态主题',
     'app.theme.switch.default': '默认主题',
     'app.theme.switch.dark': '暗黑主题',
     'app.theme.switch.compact': '紧凑主题',

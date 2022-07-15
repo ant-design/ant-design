@@ -17,14 +17,14 @@ Basic use case. Users can select or input a date in panel.
 ```tsx
 import { SmileOutlined } from '@ant-design/icons';
 import { DatePicker, Space } from 'antd';
-import type { Moment } from 'moment';
+import type { Dayjs } from 'dayjs';
 import React from 'react';
 
 const smileIcon = <SmileOutlined />;
 const { RangePicker } = DatePicker;
 
-type DatePickerValue = Moment | null;
-type RangePickerValue = [Moment | null, Moment | null] | null;
+type DatePickerValue = Dayjs | null;
+type RangePickerValue = [Dayjs | null, Dayjs | null] | null;
 
 const onChange = (
   date: DatePickerValue | RangePickerValue,

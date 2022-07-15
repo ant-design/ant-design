@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, MemoryRouter, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import { fireEvent, render } from '../../../tests/utils';
 import Breadcrumb from '../index';
-import { render, fireEvent } from '../../../tests/utils';
 
 const Apps = () => (
   <ul className="app-list">

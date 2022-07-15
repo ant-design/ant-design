@@ -13,6 +13,8 @@ import Line from './Line';
 import Steps from './Steps';
 import { getSuccessPercent, validProgress } from './utils';
 
+import useStyle from './style';
+
 const ProgressTypes = tuple('line', 'circle', 'dashboard');
 export type ProgressType = typeof ProgressTypes[number];
 const ProgressStatuses = tuple('normal', 'exception', 'active', 'success');
@@ -97,6 +99,7 @@ const Progress: React.FC<ProgressProps> = (props: ProgressProps) => {
     } else if (progressStatus === 'success') {
       text = isLineType ? <CheckCircleFilled /> : <CheckOutlined />;
     }
+
     return (
       <span className={`${prefixCls}-text`} title={typeof text === 'string' ? text : undefined}>
         {text}
@@ -107,6 +110,7 @@ const Progress: React.FC<ProgressProps> = (props: ProgressProps) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('progress', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
   const progressStatus = getProgressStatus();
   const progressInfo = renderProcessInfo(prefixCls, progressStatus);
 
@@ -159,9 +163,10 @@ const Progress: React.FC<ProgressProps> = (props: ProgressProps) => {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    hashId,
   );
 
-  return (
+  return wrapSSR(
     <div
       {...omit(restProps, [
         'status',
@@ -178,7 +183,7 @@ const Progress: React.FC<ProgressProps> = (props: ProgressProps) => {
       className={classString}
     >
       {progress}
-    </div>
+    </div>,
   );
 };
 

@@ -1,20 +1,24 @@
+import { presetDarkPalettes, presetPalettes } from '@ant-design/colors';
+import { createCache, StyleProvider } from '@ant-design/cssinjs';
+import { setTwoToneColor } from '@ant-design/icons';
+import { ConfigProvider, theme as antdTheme } from 'antd';
+import zhCN from 'antd/lib/locale/zh_CN';
+import { browserHistory } from 'bisheng/router';
+import classNames from 'classnames';
+import 'dayjs/locale/zh-cn';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import classNames from 'classnames';
-import { IntlProvider } from 'react-intl';
-import { presetPalettes, presetDarkPalettes } from '@ant-design/colors';
-import themeSwitcher from 'theme-switcher';
-import { setTwoToneColor } from '@ant-design/icons';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import 'moment/locale/zh-cn';
-import { ConfigProvider } from 'antd';
-import { browserHistory } from 'bisheng/router';
-import zhCN from 'antd/lib/locale/zh_CN';
-import Header from './Header';
-import SiteContext from './SiteContext';
+import { IntlProvider } from 'react-intl';
+import themeSwitcher from 'theme-switcher';
 import enLocale from '../../en-US';
 import cnLocale from '../../zh-CN';
 import * as utils from '../utils';
+import Header from './Header';
+import SiteContext from './SiteContext';
+
+import defaultSeedToken from '../../../../components/theme/themes/seed';
+import DynamicTheme from './DynamicTheme';
 
 if (typeof window !== 'undefined' && navigator.serviceWorker) {
   navigator.serviceWorker.getRegistrations().then(registrations => {
@@ -40,7 +44,7 @@ if (typeof window !== 'undefined') {
   window['@ant-design/icons'] = require('@ant-design/icons');
 
   // Error log statistic
-  window.addEventListener('error', function onError(e) {
+  window.addEventListener('error', e => {
     // Ignore ResizeObserver error
     if (e.message === 'ResizeObserver loop limit exceeded') {
       e.stopPropagation();
@@ -62,10 +66,18 @@ const themeConfig = {
 };
 const { switcher } = themeSwitcher(themeConfig);
 
+// Pass to global since bisheng do not have the process for wrapper
+const styleCache = createCache();
+if (typeof global !== 'undefined') {
+  global.styleCache = styleCache;
+}
+
 export default class Layout extends React.Component {
   static contextType = SiteContext;
 
   isBeforeComponent = false;
+
+  syncIframeThemeId = null;
 
   constructor(props) {
     super(props);
@@ -78,6 +90,9 @@ export default class Layout extends React.Component {
       setTheme: this.setTheme,
       direction: 'ltr',
       setIframeTheme: this.setIframeTheme,
+      v5theme: 'default',
+      designToken: defaultSeedToken,
+      hashedStyle: true,
     };
   }
 
@@ -132,10 +147,25 @@ export default class Layout extends React.Component {
 
     this.updateMobileMode();
     window.addEventListener('resize', this.updateMobileMode);
+
+    // Sync iframe theme with current theme
+    this.syncIframeThemeId = setInterval(() => {
+      const { designToken, hashedStyle } = this.state;
+      const content = JSON.stringify({
+        action: 'sync.theme',
+        designToken,
+        hashed: hashedStyle,
+      });
+
+      document.querySelectorAll('iframe.iframe-demo').forEach(iframe => {
+        iframe.contentWindow.postMessage(content);
+      });
+    }, 1000);
   }
 
   componentWillUnmount() {
     clearTimeout(this.timer);
+    clearInterval(this.syncIframeThemeId);
     window.removeEventListener('resize', this.updateMobileMode);
   }
 
@@ -206,7 +236,17 @@ export default class Layout extends React.Component {
 
   render() {
     const { children, helmetContext = {}, ...restProps } = this.props;
-    const { appLocale, direction, isMobile, theme, setTheme, setIframeTheme } = this.state;
+    const {
+      appLocale,
+      direction,
+      isMobile,
+      theme,
+      setTheme,
+      setIframeTheme,
+      v5theme,
+      designToken,
+      hashedStyle,
+    } = this.state;
     const title =
       appLocale.locale === 'zh-CN'
         ? 'Ant Design - 一套企业级 UI 设计语言和 React 组件库'
@@ -216,45 +256,70 @@ export default class Layout extends React.Component {
         ? '基于 Ant Design 设计体系的 React UI 组件库，用于研发企业级中后台产品。'
         : 'An enterprise-class UI design language and React UI library with a set of high-quality React components, one of best React UI library for enterprises';
     return (
-      <SiteContext.Provider value={{ isMobile, direction, theme, setTheme, setIframeTheme }}>
-        <HelmetProvider context={helmetContext}>
-          <Helmet encodeSpecialCharacters={false}>
-            <html
-              lang={appLocale.locale === 'zh-CN' ? 'zh' : 'en'}
-              data-direction={direction}
-              className={classNames({
-                [`rtl`]: direction === 'rtl',
-              })}
-            />
-            <title>{title}</title>
-            <link
-              rel="apple-touch-icon-precomposed"
-              sizes="144x144"
-              href="https://gw.alipayobjects.com/zos/antfincdn/UmVnt3t4T0/antd.png"
-            />
-            <meta name="description" content={description} />
-            <meta property="og:title" content={title} />
-            <meta property="og:type" content="website" />
-            <meta
-              property="og:image"
-              content="https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png"
-            />
-          </Helmet>
-          <IntlProvider
-            locale={appLocale.locale}
-            messages={appLocale.messages}
-            defaultLocale="en-US"
-          >
-            <ConfigProvider
-              locale={appLocale.locale === 'zh-CN' ? zhCN : null}
-              direction={direction}
+      <StyleProvider cache={styleCache}>
+        <SiteContext.Provider value={{ isMobile, direction, theme, setTheme, setIframeTheme }}>
+          <HelmetProvider context={helmetContext}>
+            <Helmet encodeSpecialCharacters={false}>
+              <html
+                lang={appLocale.locale === 'zh-CN' ? 'zh' : 'en'}
+                data-direction={direction}
+                className={classNames({
+                  [`rtl`]: direction === 'rtl',
+                })}
+              />
+              <title>{title}</title>
+              <link
+                sizes="144x144"
+                href="https://gw.alipayobjects.com/zos/antfincdn/UmVnt3t4T0/antd.png"
+              />
+              <meta name="description" content={description} />
+              <meta property="og:title" content={title} />
+              <meta property="og:type" content="website" />
+              <meta
+                property="og:image"
+                content="https://gw.alipayobjects.com/zos/rmsportal/rlpTLlbMzTNYuZGGCVYM.png"
+              />
+            </Helmet>
+            <IntlProvider
+              locale={appLocale.locale}
+              messages={appLocale.messages}
+              defaultLocale="en-US"
             >
-              <Header {...restProps} changeDirection={this.changeDirection} />
-              {children}
-            </ConfigProvider>
-          </IntlProvider>
-        </HelmetProvider>
-      </SiteContext.Provider>
+              <ConfigProvider
+                locale={appLocale.locale === 'zh-CN' ? zhCN : null}
+                direction={direction}
+                theme={{
+                  token: designToken,
+                  hashed: hashedStyle,
+                  algorithm:
+                    v5theme === 'dark' ? antdTheme.darkAlgorithm : antdTheme.defaultAlgorithm,
+                }}
+              >
+                <Header {...restProps} changeDirection={this.changeDirection} />
+                {children}
+
+                <DynamicTheme
+                  componentName={this.props.params?.children?.replace('-cn', '')}
+                  defaultToken={{
+                    theme: v5theme,
+                    ...designToken,
+                    hashed: hashedStyle,
+                  }}
+                  onChangeTheme={newToken => {
+                    console.log('Change Theme:', newToken);
+                    const { hashed, theme, ...restToken } = newToken;
+                    this.setState({
+                      v5theme: theme,
+                      designToken: restToken,
+                      hashedStyle: hashed,
+                    });
+                  }}
+                />
+              </ConfigProvider>
+            </IntlProvider>
+          </HelmetProvider>
+        </SiteContext.Provider>
+      </StyleProvider>
     );
   }
 }

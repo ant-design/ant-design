@@ -20,6 +20,9 @@ import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import getIcons from './utils/iconUtil';
 
+import useStyle from './style';
+import genPurePanel from '../_util/PurePanel';
+
 type RawValue = string | number;
 
 export { OptionProps, BaseSelectRef as RefSelectProps, BaseOptionType, DefaultOptionType };
@@ -89,6 +92,8 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
   const prefixCls = getPrefixCls('select', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
 
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
   const mode = React.useMemo(() => {
     const { mode: m } = props as InternalSelectProps<OptionType>;
 
@@ -138,9 +143,13 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
 
   const selectProps = omit(props as typeof props & { itemIcon: any }, ['suffixIcon', 'itemIcon']);
 
-  const rcSelectRtlDropdownClassName = classNames(dropdownClassName, {
-    [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
-  });
+  const rcSelectRtlDropdownClassName = classNames(
+    dropdownClassName,
+    {
+      [`${prefixCls}-dropdown-${direction}`]: direction === 'rtl',
+    },
+    hashId,
+  );
 
   const mergedSize = customizeSize || size;
 
@@ -158,6 +167,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
     },
     getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
     className,
+    hashId,
   );
 
   // ===================== Placement =====================
@@ -170,7 +180,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       : ('bottomLeft' as SelectCommonPlacement);
   };
 
-  return (
+  return wrapSSR(
     <RcSelect<any, any>
       ref={ref as any}
       virtual={virtual}
@@ -197,7 +207,7 @@ const InternalSelect = <OptionType extends BaseOptionType | DefaultOptionType = 
       dropdownClassName={rcSelectRtlDropdownClassName}
       showArrow={hasFeedback || showArrow}
       disabled={mergedDisabled}
-    />
+    />,
   );
 };
 
@@ -212,10 +222,16 @@ const Select = React.forwardRef(InternalSelect) as unknown as (<
   SECRET_COMBOBOX_MODE_DO_NOT_USE: string;
   Option: typeof Option;
   OptGroup: typeof OptGroup;
+  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
 };
+
+// We don't care debug panel
+/* istanbul ignore next */
+const PurePanel = genPurePanel(Select);
 
 Select.SECRET_COMBOBOX_MODE_DO_NOT_USE = SECRET_COMBOBOX_MODE_DO_NOT_USE;
 Select.Option = Option;
 Select.OptGroup = OptGroup;
+Select._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
 export default Select;

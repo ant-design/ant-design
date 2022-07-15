@@ -1,6 +1,7 @@
 module.exports = {
   locale: 'en-US',
   messages: {
+    'app.theme.switch.dynamic': 'Dynamic Theme',
     'app.theme.switch.default': 'Default theme',
     'app.theme.switch.dark': 'Dark theme',
     'app.theme.switch.compact': 'Compact theme',

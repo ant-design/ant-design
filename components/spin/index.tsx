@@ -7,6 +7,8 @@ import { ConfigConsumer, ConfigContext } from '../config-provider';
 import { cloneElement, isValidElement } from '../_util/reactNode';
 import { tuple } from '../_util/type';
 
+import useStyle from './style/index';
+
 const SpinSizes = tuple('small', 'default', 'large');
 export type SpinSize = typeof SpinSizes[number];
 export type SpinIndicator = React.ReactElement<HTMLElement>;
@@ -25,6 +27,7 @@ export interface SpinProps {
 }
 
 export interface SpinClassProps extends SpinProps {
+  hashId: string;
   spinPrefixCls: string;
 }
 
@@ -139,6 +142,7 @@ class Spin extends React.Component<SpinClassProps, SpinState> {
   renderSpin = ({ direction }: ConfigConsumerProps) => {
     const {
       spinPrefixCls: prefixCls,
+      hashId,
       className,
       size,
       tip,
@@ -158,6 +162,7 @@ class Spin extends React.Component<SpinClassProps, SpinState> {
         [`${prefixCls}-rtl`]: direction === 'rtl',
       },
       className,
+      hashId,
     );
 
     // fix https://fb.me/react-unknown-prop
@@ -180,7 +185,10 @@ class Spin extends React.Component<SpinClassProps, SpinState> {
         [`${prefixCls}-blur`]: spinning,
       });
       return (
-        <div {...divProps} className={classNames(`${prefixCls}-nested-loading`, wrapperClassName)}>
+        <div
+          {...divProps}
+          className={classNames(`${prefixCls}-nested-loading`, wrapperClassName, hashId)}
+        >
           {spinning && <div key="loading">{spinElement}</div>}
           <div className={containerClassName} key="container">
             {this.props.children}
@@ -202,11 +210,14 @@ const SpinFC: SpinFCType = (props: SpinProps) => {
 
   const spinPrefixCls = getPrefixCls('spin', customizePrefixCls);
 
+  const [wrapSSR, hashId] = useStyle(spinPrefixCls);
+
   const spinClassProps: SpinClassProps = {
     ...props,
     spinPrefixCls,
+    hashId,
   };
-  return <Spin {...spinClassProps} />;
+  return wrapSSR(<Spin {...spinClassProps} />);
 };
 
 SpinFC.setDefaultIndicator = (indicator: React.ReactNode) => {

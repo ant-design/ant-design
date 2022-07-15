@@ -5,6 +5,8 @@ import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import { NoFormStyle } from '../form/context';
 import { tuple } from '../_util/type';
+// CSSINJS
+import useStyle from './style';
 
 type DrawerRef = {
   push(): void;
@@ -129,6 +131,10 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
 
     const { getPopupContainer, getPrefixCls, direction } = React.useContext(ConfigContext);
     const prefixCls = getPrefixCls('drawer', customizePrefixCls);
+
+    // Style
+    const [wrapSSR, hashId] = useStyle(prefixCls);
+
     const getContainer =
       // 有可能为 false，所以不能直接判断
       customizeGetContainer === undefined && getPopupContainer
@@ -288,10 +294,11 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
         [`${prefixCls}-rtl`]: direction === 'rtl',
       },
       className,
+      hashId,
     );
     const offsetStyle = mask ? getOffsetStyle() : {};
 
-    return (
+    return wrapSSR(
       <DrawerContext.Provider value={operations}>
         <NoFormStyle status override>
           <RcDrawer
@@ -326,7 +333,7 @@ const Drawer = React.forwardRef<DrawerRef, DrawerProps>(
             {renderBody()}
           </RcDrawer>
         </NoFormStyle>
-      </DrawerContext.Provider>
+      </DrawerContext.Provider>,
     );
   },
 );

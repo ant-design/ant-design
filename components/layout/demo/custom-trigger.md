@@ -100,7 +100,7 @@ export default App;
   background: rgba(255, 255, 255, 0.3);
 }
 
-.site-layout .site-layout-background {
+#components-layout-demo-custom-trigger .site-layout .site-layout-background {
   background: #fff;
 }
 ```

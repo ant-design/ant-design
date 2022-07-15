@@ -159,7 +159,7 @@ describe('Upload List', () => {
       jest.runAllTimers();
     });
 
-    expect(container.querySelectorAll('.ant-upload-list-text-container')).toHaveLength(1);
+    expect(container.querySelectorAll('.ant-upload-list-item-container')).toHaveLength(1);
 
     unmount();
 
@@ -913,6 +913,35 @@ describe('Upload List', () => {
             originFileObj: mockFile,
           },
         ]}
+        previewFile={previewFunc}
+        locale={{ uploading: 'uploading' }}
+        listType="picture-card"
+      />,
+    );
+
+    await waitFor(() => {
+      expect(previewFunc).toHaveBeenCalled();
+    });
+    await previewFunc(mockFile).then(dataUrl => {
+      expect(dataUrl).toEqual('data:image/png;base64,');
+    });
+    unmount();
+  });
+
+  it('upload svg file with <foreignObject> should not have CORS error', async () => {
+    const mockFile = new File(
+      [
+        '<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><foreignObject x="20" y="20" width="160" height="160"><div xmlns="http://www.w3.org/1999/xhtml">Test</div></foreignObject></svg>',
+      ],
+      'bar.svg',
+      { type: 'image/svg+xml' },
+    );
+
+    const previewFunc = jest.fn(previewImage);
+
+    const { unmount } = render(
+      <Upload
+        fileList={[{ originFileObj: mockFile }]}
         previewFile={previewFunc}
         locale={{ uploading: 'uploading' }}
         listType="picture-card"

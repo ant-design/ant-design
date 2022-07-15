@@ -13,6 +13,8 @@ import warning from '../_util/warning';
 import type { CollapsibleType } from './CollapsePanel';
 import CollapsePanel from './CollapsePanel';
 
+import useStyle from './style';
+
 /** @deprecated Please use `start` | `end` instead */
 type ExpandIconPositionLegacy = 'left' | 'right';
 export type ExpandIconPosition = 'start' | 'end' | ExpandIconPositionLegacy | undefined;
@@ -62,6 +64,7 @@ const Collapse: CollapseInterface = props => {
     expandIconPosition = 'start',
   } = props;
   const prefixCls = getPrefixCls('collapse', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   // Warning if use legacy type `expandIconPosition`
   warning(
@@ -101,6 +104,7 @@ const Collapse: CollapseInterface = props => {
       [`${prefixCls}-ghost`]: !!ghost,
     },
     className,
+    hashId,
   );
   const openMotion: CSSMotionProps = {
     ...collapseMotion,
@@ -125,7 +129,7 @@ const Collapse: CollapseInterface = props => {
     });
   };
 
-  return (
+  return wrapSSR(
     <RcCollapse
       openMotion={openMotion}
       {...props}
@@ -134,7 +138,7 @@ const Collapse: CollapseInterface = props => {
       className={collapseClassName}
     >
       {getItems()}
-    </RcCollapse>
+    </RcCollapse>,
   );
 };
 

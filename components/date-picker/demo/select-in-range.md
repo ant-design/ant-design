@@ -15,19 +15,19 @@ A example shows how to select a dynamic range by using `onCalendarChange` and `d
 
 ```tsx
 import { DatePicker } from 'antd';
-import type { Moment } from 'moment';
+import type { Dayjs } from 'dayjs';
 import React, { useState } from 'react';
 
 const { RangePicker } = DatePicker;
 
-type RangeValue = [Moment | null, Moment | null] | null;
+type RangeValue = [Dayjs | null, Dayjs | null] | null;
 
 const App: React.FC = () => {
   const [dates, setDates] = useState<RangeValue>(null);
   const [hackValue, setHackValue] = useState<RangeValue>(null);
   const [value, setValue] = useState<RangeValue>(null);
 
-  const disabledDate = (current: Moment) => {
+  const disabledDate = (current: Dayjs) => {
     if (!dates) {
       return false;
     }

@@ -73,15 +73,6 @@ ConfigProvider.config({
 
 See [<Adding new language>](/docs/react/i18n#Adding-newplanguage).
 
-#### Does the locale problem still exist in DatePicker even if ConfigProvider `locale` is used?
-
-Please make sure you set moment locale or that you don't have two different versions of moment.
-
-```js
-import 'moment/locale/zh-cn';
-moment.locale('zh-cn');
-```
-
 #### Date-related components locale is not working?
 
 See FAQ [Date-related-components-locale-is-not-working?](/docs/react/faq#Date-related-components-locale-is-not-working?)

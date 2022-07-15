@@ -49,7 +49,10 @@ describe('Wave component', () => {
   it('wave color is grey', async () => {
     const wrapper = mount(
       <Wave>
-        <button type="button" style={{ borderColor: 'rgb(0, 0, 0)' }}>
+        <button
+          type="button"
+          style={{ borderColor: 'rgb(0, 0, 0)', backgroundColor: 'transparent' }}
+        >
           button
         </button>
       </Wave>,
@@ -196,5 +199,37 @@ describe('Wave component', () => {
 
   it('should not throw when no children', () => {
     expect(() => mount(<Wave />)).not.toThrow();
+  });
+
+  it('wave color should inferred if border is transparent and background is not', async () => {
+    const wrapper = mount(
+      <Wave>
+        <button type="button" style={{ borderColor: 'transparent', background: 'red' }}>
+          button
+        </button>
+      </Wave>,
+    );
+    wrapper.find('button').getDOMNode().click();
+    await sleep(200);
+    const styles = wrapper.find('button').getDOMNode().getRootNode().getElementsByTagName('style');
+    expect(styles.length).toBe(1);
+    expect(styles[0].innerHTML).toContain('--antd-wave-shadow-color: red;');
+    wrapper.unmount();
+  });
+
+  it('wave color should inferred if borderTopColor is transparent and borderColor is not', async () => {
+    const wrapper = mount(
+      <Wave>
+        <button type="button" style={{ borderColor: 'red', borderTopColor: 'transparent' }}>
+          button
+        </button>
+      </Wave>,
+    );
+    wrapper.find('button').getDOMNode().click();
+    await sleep(200);
+    const styles = wrapper.find('button').getDOMNode().getRootNode().getElementsByTagName('style');
+    expect(styles.length).toBe(1);
+    expect(styles[0].innerHTML).toContain('--antd-wave-shadow-color: red;');
+    wrapper.unmount();
   });
 });

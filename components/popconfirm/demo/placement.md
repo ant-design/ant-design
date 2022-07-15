@@ -112,17 +112,15 @@ export default App;
 ```
 
 <style>
-.code-box-demo .demo {
+#components-popconfirm-demo-placement .demo {
   overflow: auto;
 }
-.code-box-demo .ant-popover-wrap > a {
+#components-popconfirm-demo-placement .ant-popover-wrap > a {
   margin-right: 8px;
-}
-.code-box-demo .ant-btn {
-  margin-right: 8px;
-  margin-bottom: 8px;
 }
 #components-popconfirm-demo-placement .ant-btn {
+  margin-right: 8px;
+  margin-bottom: 8px;
   width: 70px;
   text-align: center;
   padding: 0;

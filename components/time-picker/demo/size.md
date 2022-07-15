@@ -15,14 +15,14 @@ The input box comes in three sizes. large is used in the form, while the medium 
 
 ```tsx
 import { TimePicker } from 'antd';
-import moment from 'moment';
+import dayjs from 'dayjs';
 import React from 'react';
 
 const App: React.FC = () => (
   <>
-    <TimePicker defaultValue={moment('12:08:23', 'HH:mm:ss')} size="large" />
-    <TimePicker defaultValue={moment('12:08:23', 'HH:mm:ss')} />
-    <TimePicker defaultValue={moment('12:08:23', 'HH:mm:ss')} size="small" />
+    <TimePicker defaultValue={dayjs('12:08:23', 'HH:mm:ss')} size="large" />
+    <TimePicker defaultValue={dayjs('12:08:23', 'HH:mm:ss')} />
+    <TimePicker defaultValue={dayjs('12:08:23', 'HH:mm:ss')} size="small" />
   </>
 );
 

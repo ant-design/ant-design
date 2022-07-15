@@ -16,6 +16,9 @@ import getDataOrAriaProps from '../_util/getDataOrAriaProps';
 import { replaceElement } from '../_util/reactNode';
 import ErrorBoundary from './ErrorBoundary';
 
+// CSSINJS
+import useStyle from './style';
+
 export interface AlertProps {
   /** Type of Alert styles, options:`success`, `info`, `warning`, `error` */
   type?: 'success' | 'info' | 'warning' | 'error';
@@ -126,6 +129,7 @@ const Alert: AlertInterface = ({
   const ref = React.useRef<HTMLElement>();
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('alert', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const handleClose = (e: React.MouseEvent<HTMLButtonElement>) => {
     setClosed(true);
@@ -158,11 +162,12 @@ const Alert: AlertInterface = ({
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    hashId,
   );
 
   const dataOrAriaProps = getDataOrAriaProps(props);
 
-  return (
+  return wrapSSR(
     <CSSMotion
       visible={!closed}
       motionName={`${prefixCls}-motion`}
@@ -207,7 +212,7 @@ const Alert: AlertInterface = ({
           />
         </div>
       )}
-    </CSSMotion>
+    </CSSMotion>,
   );
 };
 

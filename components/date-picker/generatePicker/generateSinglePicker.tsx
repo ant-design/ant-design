@@ -21,9 +21,12 @@ import enUS from '../locale/en_US';
 import { getPlaceholder, transPlacement2DropdownAlign } from '../util';
 import type { CommonPickerMethods, DatePickRef, PickerComponentClass } from './interface';
 
+import useStyle from '../style';
+
 export default function generatePicker<DateType>(generateConfig: GenerateConfig<DateType>) {
   type DatePickerProps = PickerProps<DateType> & {
     status?: InputStatus;
+    hashId?: string;
   };
 
   function getPicker<InnerPickerProps extends DatePickerProps>(
@@ -42,6 +45,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
           placeholder,
           disabled: customDisabled,
           status: customStatus,
+          dropdownClassName,
           ...restProps
         } = props;
 
@@ -55,6 +59,8 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
         const prefixCls = getPrefixCls('picker', customizePrefixCls);
         const innerRef = React.useRef<RCPicker<DateType>>(null);
         const { format, showTime } = props as any;
+
+        const [wrapSSR, hashId] = useStyle(prefixCls);
 
         useImperativeHandle(ref, () => ({
           focus: () => innerRef.current?.focus(),
@@ -99,7 +105,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
           </>
         );
 
-        return (
+        return wrapSSR(
           <LocaleReceiver componentName="DatePicker" defaultLocale={enUS}>
             {(contextLocale: PickerLocale) => {
               const locale = { ...contextLocale, ...props.locale };
@@ -131,6 +137,7 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
                       getMergedStatus(contextStatus, customStatus),
                       hasFeedback,
                     ),
+                    hashId,
                     className,
                   )}
                   prefixCls={prefixCls}
@@ -139,10 +146,11 @@ export default function generatePicker<DateType>(generateConfig: GenerateConfig<
                   components={Components}
                   direction={direction}
                   disabled={mergedDisabled}
+                  dropdownClassName={classNames(hashId, dropdownClassName)}
                 />
               );
             }}
-          </LocaleReceiver>
+          </LocaleReceiver>,
         );
       },
     );

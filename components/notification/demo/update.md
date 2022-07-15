@@ -19,27 +19,33 @@ import React from 'react';
 
 const key = 'updatable';
 
-const openNotification = () => {
-  notification.open({
-    key,
-    message: 'Notification Title',
-    description: 'description.',
-  });
-
-  setTimeout(() => {
-    notification.open({
+const App: React.FC = () => {
+  const [api, contextHolder] = notification.useNotification();
+  const openNotification = () => {
+    api.open({
       key,
-      message: 'New Title',
-      description: 'New description.',
+      message: 'Notification Title',
+      description: 'description.',
     });
-  }, 1000);
-};
 
-const App: React.FC = () => (
-  <Button type="primary" onClick={openNotification}>
-    Open the notification box
-  </Button>
-);
+    setTimeout(() => {
+      api.open({
+        key,
+        message: 'New Title',
+        description: 'New description.',
+      });
+    }, 1000);
+  };
+
+  return (
+    <>
+      {contextHolder}
+      <Button type="primary" onClick={openNotification}>
+        Open the notification box
+      </Button>
+    </>
+  );
+};
 
 export default App;
 ```

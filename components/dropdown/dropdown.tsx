@@ -6,11 +6,13 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import * as React from 'react';
 import { ConfigContext } from '../config-provider';
 import { OverrideProvider } from '../menu/OverrideContext';
+import genPurePanel from '../_util/PurePanel';
 import getPlacements from '../_util/placements';
 import { cloneElement } from '../_util/reactNode';
 import { tuple } from '../_util/type';
 import warning from '../_util/warning';
 import DropdownButton from './dropdown-button';
+import useStyle from './style';
 
 const Placements = tuple(
   'topLeft',
@@ -70,6 +72,7 @@ export interface DropdownProps {
 
 interface DropdownInterface extends React.FC<DropdownProps> {
   Button: typeof DropdownButton;
+  _InternalPanelDoNotUseOrYouWillBeFired: typeof WrapPurePanel;
 }
 
 const Dropdown: DropdownInterface = props => {
@@ -123,6 +126,8 @@ const Dropdown: DropdownInterface = props => {
   } = props;
 
   const prefixCls = getPrefixCls('dropdown', customizePrefixCls);
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
   const child = React.Children.only(children) as React.ReactElement<any>;
 
   const dropdownTrigger = cloneElement(child, {
@@ -153,7 +158,7 @@ const Dropdown: DropdownInterface = props => {
   });
 
   // =========================== Overlay ============================
-  const overlayClassNameCustomized = classNames(overlayClassName, {
+  const overlayClassNameCustomized = classNames(overlayClassName, hashId, {
     [`${prefixCls}-rtl`]: direction === 'rtl',
   });
 
@@ -207,7 +212,7 @@ const Dropdown: DropdownInterface = props => {
   };
 
   // ============================ Render ============================
-  return (
+  return wrapSSR(
     <RcDropdown
       alignPoint={alignPoint}
       {...props}
@@ -224,7 +229,7 @@ const Dropdown: DropdownInterface = props => {
       onVisibleChange={onInnerVisibleChange}
     >
       {dropdownTrigger}
-    </RcDropdown>
+    </RcDropdown>,
   );
 };
 
@@ -234,5 +239,17 @@ Dropdown.defaultProps = {
   mouseEnterDelay: 0.15,
   mouseLeaveDelay: 0.1,
 };
+
+// We don't care debug panel
+const PurePanel = genPurePanel(Dropdown, 'dropdown', prefixCls => prefixCls);
+
+/* istanbul ignore next */
+const WrapPurePanel = (props: DropdownProps) => (
+  <PurePanel {...props}>
+    <span />
+  </PurePanel>
+);
+
+Dropdown._InternalPanelDoNotUseOrYouWillBeFired = WrapPurePanel;
 
 export default Dropdown;

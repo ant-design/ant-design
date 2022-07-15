@@ -12548,293 +12548,6 @@ exports[`ConfigProvider components Collapse prefixCls 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider components Comment configProvider 1`] = `
-<div
-  class="config-comment"
->
-  <div
-    class="config-comment-inner"
-  >
-    <div
-      class="config-comment-content"
-    >
-      <div
-        class="config-comment-content-detail"
-      >
-        Bamboo
-      </div>
-    </div>
-  </div>
-  <div
-    class="config-comment-nested"
-  >
-    <div
-      class="config-comment"
-    >
-      <div
-        class="config-comment-inner"
-      >
-        <div
-          class="config-comment-content"
-        >
-          <div
-            class="config-comment-content-detail"
-          >
-            Light
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`ConfigProvider components Comment configProvider componentDisabled 1`] = `
-<div
-  class="config-comment"
->
-  <div
-    class="config-comment-inner"
-  >
-    <div
-      class="config-comment-content"
-    >
-      <div
-        class="config-comment-content-detail"
-      >
-        Bamboo
-      </div>
-    </div>
-  </div>
-  <div
-    class="config-comment-nested"
-  >
-    <div
-      class="config-comment"
-    >
-      <div
-        class="config-comment-inner"
-      >
-        <div
-          class="config-comment-content"
-        >
-          <div
-            class="config-comment-content-detail"
-          >
-            Light
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`ConfigProvider components Comment configProvider componentSize large 1`] = `
-<div
-  class="config-comment"
->
-  <div
-    class="config-comment-inner"
-  >
-    <div
-      class="config-comment-content"
-    >
-      <div
-        class="config-comment-content-detail"
-      >
-        Bamboo
-      </div>
-    </div>
-  </div>
-  <div
-    class="config-comment-nested"
-  >
-    <div
-      class="config-comment"
-    >
-      <div
-        class="config-comment-inner"
-      >
-        <div
-          class="config-comment-content"
-        >
-          <div
-            class="config-comment-content-detail"
-          >
-            Light
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`ConfigProvider components Comment configProvider componentSize middle 1`] = `
-<div
-  class="config-comment"
->
-  <div
-    class="config-comment-inner"
-  >
-    <div
-      class="config-comment-content"
-    >
-      <div
-        class="config-comment-content-detail"
-      >
-        Bamboo
-      </div>
-    </div>
-  </div>
-  <div
-    class="config-comment-nested"
-  >
-    <div
-      class="config-comment"
-    >
-      <div
-        class="config-comment-inner"
-      >
-        <div
-          class="config-comment-content"
-        >
-          <div
-            class="config-comment-content-detail"
-          >
-            Light
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`ConfigProvider components Comment configProvider virtual and dropdownMatchSelectWidth 1`] = `
-<div
-  class="ant-comment"
->
-  <div
-    class="ant-comment-inner"
-  >
-    <div
-      class="ant-comment-content"
-    >
-      <div
-        class="ant-comment-content-detail"
-      >
-        Bamboo
-      </div>
-    </div>
-  </div>
-  <div
-    class="ant-comment-nested"
-  >
-    <div
-      class="ant-comment"
-    >
-      <div
-        class="ant-comment-inner"
-      >
-        <div
-          class="ant-comment-content"
-        >
-          <div
-            class="ant-comment-content-detail"
-          >
-            Light
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`ConfigProvider components Comment normal 1`] = `
-<div
-  class="ant-comment"
->
-  <div
-    class="ant-comment-inner"
-  >
-    <div
-      class="ant-comment-content"
-    >
-      <div
-        class="ant-comment-content-detail"
-      >
-        Bamboo
-      </div>
-    </div>
-  </div>
-  <div
-    class="ant-comment-nested"
-  >
-    <div
-      class="ant-comment"
-    >
-      <div
-        class="ant-comment-inner"
-      >
-        <div
-          class="ant-comment-content"
-        >
-          <div
-            class="ant-comment-content-detail"
-          >
-            Light
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`ConfigProvider components Comment prefixCls 1`] = `
-<div
-  class="prefix-Comment"
->
-  <div
-    class="prefix-Comment-inner"
-  >
-    <div
-      class="prefix-Comment-content"
-    >
-      <div
-        class="prefix-Comment-content-detail"
-      >
-        Bamboo
-      </div>
-    </div>
-  </div>
-  <div
-    class="prefix-Comment-nested"
-  >
-    <div
-      class="prefix-Comment"
-    >
-      <div
-        class="prefix-Comment-inner"
-      >
-        <div
-          class="prefix-Comment-content"
-        >
-          <div
-            class="prefix-Comment-content-detail"
-          >
-            Light
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`ConfigProvider components DatePicker DatePicker configProvider 1`] = `
 <div>
   <div
@@ -15101,7 +14814,7 @@ exports[`ConfigProvider components Dropdown normal 1`] = `
 
 exports[`ConfigProvider components Dropdown prefixCls 1`] = `
 <div
-  class="ant-btn-group prefix-Dropdown"
+  class="ant-btn-group prefix-Dropdown-button"
 >
   <button
     class="ant-btn ant-btn-default"
@@ -15146,7 +14859,6 @@ exports[`ConfigProvider components Empty configProvider 1`] = `
     class="config-empty-image"
   >
     <svg
-      class="config-empty-img-default"
       height="152"
       viewBox="0 0 184 152"
       width="184"
@@ -15160,36 +14872,37 @@ exports[`ConfigProvider components Empty configProvider 1`] = `
           transform="translate(24 31.67)"
         >
           <ellipse
-            class="config-empty-img-default-ellipse"
             cx="67.797"
             cy="106.89"
+            fill="#F5F5F7"
+            fill-opacity=".8"
             rx="67.797"
             ry="12.668"
           />
           <path
-            class="config-empty-img-default-path-1"
             d="M122.034 69.674L98.109 40.229c-1.148-1.386-2.826-2.225-4.593-2.225h-51.44c-1.766 0-3.444.839-4.592 2.225L13.56 69.674v15.383h108.475V69.674z"
+            fill="#AEB8C2"
           />
           <path
-            class="config-empty-img-default-path-2"
             d="M101.537 86.214L80.63 61.102c-1.001-1.207-2.507-1.867-4.048-1.867H31.724c-1.54 0-3.047.66-4.048 1.867L6.769 86.214v13.792h94.768V86.214z"
+            fill="url(#linearGradient-1)"
             transform="translate(13.56)"
           />
           <path
-            class="config-empty-img-default-path-3"
             d="M33.83 0h67.933a4 4 0 0 1 4 4v93.344a4 4 0 0 1-4 4H33.83a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4z"
+            fill="#F5F5F7"
           />
           <path
-            class="config-empty-img-default-path-4"
             d="M42.678 9.953h50.237a2 2 0 0 1 2 2V36.91a2 2 0 0 1-2 2H42.678a2 2 0 0 1-2-2V11.953a2 2 0 0 1 2-2zM42.94 49.767h49.713a2.262 2.262 0 1 1 0 4.524H42.94a2.262 2.262 0 0 1 0-4.524zM42.94 61.53h49.713a2.262 2.262 0 1 1 0 4.525H42.94a2.262 2.262 0 0 1 0-4.525zM121.813 105.032c-.775 3.071-3.497 5.36-6.735 5.36H20.515c-3.238 0-5.96-2.29-6.734-5.36a7.309 7.309 0 0 1-.222-1.79V69.675h26.318c2.907 0 5.25 2.448 5.25 5.42v.04c0 2.971 2.37 5.37 5.277 5.37h34.785c2.907 0 5.277-2.421 5.277-5.393V75.1c0-2.972 2.343-5.426 5.25-5.426h26.318v33.569c0 .617-.077 1.216-.221 1.789z"
+            fill="#DCE0E6"
           />
         </g>
         <path
-          class="config-empty-img-default-path-5"
           d="M149.121 33.292l-6.83 2.65a1 1 0 0 1-1.317-1.23l1.937-6.207c-2.589-2.944-4.109-6.534-4.109-10.408C138.802 8.102 148.92 0 161.402 0 173.881 0 184 8.102 184 18.097c0 9.995-10.118 18.097-22.599 18.097-4.528 0-8.744-1.066-12.28-2.902z"
+          fill="#DCE0E6"
         />
         <g
-          class="config-empty-img-default-g"
+          fill="#FFF"
           transform="translate(149.65 15.383)"
         >
           <ellipse
@@ -15221,7 +14934,6 @@ exports[`ConfigProvider components Empty configProvider componentDisabled 1`] = 
     class="config-empty-image"
   >
     <svg
-      class="config-empty-img-default"
       height="152"
       viewBox="0 0 184 152"
       width="184"
@@ -15235,36 +14947,37 @@ exports[`ConfigProvider components Empty configProvider componentDisabled 1`] = 
           transform="translate(24 31.67)"
         >
           <ellipse
-            class="config-empty-img-default-ellipse"
             cx="67.797"
             cy="106.89"
+            fill="#F5F5F7"
+            fill-opacity=".8"
             rx="67.797"
             ry="12.668"
           />
           <path
-            class="config-empty-img-default-path-1"
             d="M122.034 69.674L98.109 40.229c-1.148-1.386-2.826-2.225-4.593-2.225h-51.44c-1.766 0-3.444.839-4.592 2.225L13.56 69.674v15.383h108.475V69.674z"
+            fill="#AEB8C2"
           />
           <path
-            class="config-empty-img-default-path-2"
             d="M101.537 86.214L80.63 61.102c-1.001-1.207-2.507-1.867-4.048-1.867H31.724c-1.54 0-3.047.66-4.048 1.867L6.769 86.214v13.792h94.768V86.214z"
+            fill="url(#linearGradient-1)"
             transform="translate(13.56)"
           />
           <path
-            class="config-empty-img-default-path-3"
             d="M33.83 0h67.933a4 4 0 0 1 4 4v93.344a4 4 0 0 1-4 4H33.83a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4z"
+            fill="#F5F5F7"
           />
           <path
-            class="config-empty-img-default-path-4"
             d="M42.678 9.953h50.237a2 2 0 0 1 2 2V36.91a2 2 0 0 1-2 2H42.678a2 2 0 0 1-2-2V11.953a2 2 0 0 1 2-2zM42.94 49.767h49.713a2.262 2.262 0 1 1 0 4.524H42.94a2.262 2.262 0 0 1 0-4.524zM42.94 61.53h49.713a2.262 2.262 0 1 1 0 4.525H42.94a2.262 2.262 0 0 1 0-4.525zM121.813 105.032c-.775 3.071-3.497 5.36-6.735 5.36H20.515c-3.238 0-5.96-2.29-6.734-5.36a7.309 7.309 0 0 1-.222-1.79V69.675h26.318c2.907 0 5.25 2.448 5.25 5.42v.04c0 2.971 2.37 5.37 5.277 5.37h34.785c2.907 0 5.277-2.421 5.277-5.393V75.1c0-2.972 2.343-5.426 5.25-5.426h26.318v33.569c0 .617-.077 1.216-.221 1.789z"
+            fill="#DCE0E6"
           />
         </g>
         <path
-          class="config-empty-img-default-path-5"
           d="M149.121 33.292l-6.83 2.65a1 1 0 0 1-1.317-1.23l1.937-6.207c-2.589-2.944-4.109-6.534-4.109-10.408C138.802 8.102 148.92 0 161.402 0 173.881 0 184 8.102 184 18.097c0 9.995-10.118 18.097-22.599 18.097-4.528 0-8.744-1.066-12.28-2.902z"
+          fill="#DCE0E6"
         />
         <g
-          class="config-empty-img-default-g"
+          fill="#FFF"
           transform="translate(149.65 15.383)"
         >
           <ellipse
@@ -15296,7 +15009,6 @@ exports[`ConfigProvider components Empty configProvider componentSize large 1`] 
     class="config-empty-image"
   >
     <svg
-      class="config-empty-img-default"
       height="152"
       viewBox="0 0 184 152"
       width="184"
@@ -15310,36 +15022,37 @@ exports[`ConfigProvider components Empty configProvider componentSize large 1`] 
           transform="translate(24 31.67)"
         >
           <ellipse
-            class="config-empty-img-default-ellipse"
             cx="67.797"
             cy="106.89"
+            fill="#F5F5F7"
+            fill-opacity=".8"
             rx="67.797"
             ry="12.668"
           />
           <path
-            class="config-empty-img-default-path-1"
             d="M122.034 69.674L98.109 40.229c-1.148-1.386-2.826-2.225-4.593-2.225h-51.44c-1.766 0-3.444.839-4.592 2.225L13.56 69.674v15.383h108.475V69.674z"
+            fill="#AEB8C2"
           />
           <path
-            class="config-empty-img-default-path-2"
             d="M101.537 86.214L80.63 61.102c-1.001-1.207-2.507-1.867-4.048-1.867H31.724c-1.54 0-3.047.66-4.048 1.867L6.769 86.214v13.792h94.768V86.214z"
+            fill="url(#linearGradient-1)"
             transform="translate(13.56)"
           />
           <path
-            class="config-empty-img-default-path-3"
             d="M33.83 0h67.933a4 4 0 0 1 4 4v93.344a4 4 0 0 1-4 4H33.83a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4z"
+            fill="#F5F5F7"
           />
           <path
-            class="config-empty-img-default-path-4"
             d="M42.678 9.953h50.237a2 2 0 0 1 2 2V36.91a2 2 0 0 1-2 2H42.678a2 2 0 0 1-2-2V11.953a2 2 0 0 1 2-2zM42.94 49.767h49.713a2.262 2.262 0 1 1 0 4.524H42.94a2.262 2.262 0 0 1 0-4.524zM42.94 61.53h49.713a2.262 2.262 0 1 1 0 4.525H42.94a2.262 2.262 0 0 1 0-4.525zM121.813 105.032c-.775 3.071-3.497 5.36-6.735 5.36H20.515c-3.238 0-5.96-2.29-6.734-5.36a7.309 7.309 0 0 1-.222-1.79V69.675h26.318c2.907 0 5.25 2.448 5.25 5.42v.04c0 2.971 2.37 5.37 5.277 5.37h34.785c2.907 0 5.277-2.421 5.277-5.393V75.1c0-2.972 2.343-5.426 5.25-5.426h26.318v33.569c0 .617-.077 1.216-.221 1.789z"
+            fill="#DCE0E6"
           />
         </g>
         <path
-          class="config-empty-img-default-path-5"
           d="M149.121 33.292l-6.83 2.65a1 1 0 0 1-1.317-1.23l1.937-6.207c-2.589-2.944-4.109-6.534-4.109-10.408C138.802 8.102 148.92 0 161.402 0 173.881 0 184 8.102 184 18.097c0 9.995-10.118 18.097-22.599 18.097-4.528 0-8.744-1.066-12.28-2.902z"
+          fill="#DCE0E6"
         />
         <g
-          class="config-empty-img-default-g"
+          fill="#FFF"
           transform="translate(149.65 15.383)"
         >
           <ellipse
@@ -15371,7 +15084,6 @@ exports[`ConfigProvider components Empty configProvider componentSize middle 1`]
     class="config-empty-image"
   >
     <svg
-      class="config-empty-img-default"
       height="152"
       viewBox="0 0 184 152"
       width="184"
@@ -15385,36 +15097,37 @@ exports[`ConfigProvider components Empty configProvider componentSize middle 1`]
           transform="translate(24 31.67)"
         >
           <ellipse
-            class="config-empty-img-default-ellipse"
             cx="67.797"
             cy="106.89"
+            fill="#F5F5F7"
+            fill-opacity=".8"
             rx="67.797"
             ry="12.668"
           />
           <path
-            class="config-empty-img-default-path-1"
             d="M122.034 69.674L98.109 40.229c-1.148-1.386-2.826-2.225-4.593-2.225h-51.44c-1.766 0-3.444.839-4.592 2.225L13.56 69.674v15.383h108.475V69.674z"
+            fill="#AEB8C2"
           />
           <path
-            class="config-empty-img-default-path-2"
             d="M101.537 86.214L80.63 61.102c-1.001-1.207-2.507-1.867-4.048-1.867H31.724c-1.54 0-3.047.66-4.048 1.867L6.769 86.214v13.792h94.768V86.214z"
+            fill="url(#linearGradient-1)"
             transform="translate(13.56)"
           />
           <path
-            class="config-empty-img-default-path-3"
             d="M33.83 0h67.933a4 4 0 0 1 4 4v93.344a4 4 0 0 1-4 4H33.83a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4z"
+            fill="#F5F5F7"
           />
           <path
-            class="config-empty-img-default-path-4"
             d="M42.678 9.953h50.237a2 2 0 0 1 2 2V36.91a2 2 0 0 1-2 2H42.678a2 2 0 0 1-2-2V11.953a2 2 0 0 1 2-2zM42.94 49.767h49.713a2.262 2.262 0 1 1 0 4.524H42.94a2.262 2.262 0 0 1 0-4.524zM42.94 61.53h49.713a2.262 2.262 0 1 1 0 4.525H42.94a2.262 2.262 0 0 1 0-4.525zM121.813 105.032c-.775 3.071-3.497 5.36-6.735 5.36H20.515c-3.238 0-5.96-2.29-6.734-5.36a7.309 7.309 0 0 1-.222-1.79V69.675h26.318c2.907 0 5.25 2.448 5.25 5.42v.04c0 2.971 2.37 5.37 5.277 5.37h34.785c2.907 0 5.277-2.421 5.277-5.393V75.1c0-2.972 2.343-5.426 5.25-5.426h26.318v33.569c0 .617-.077 1.216-.221 1.789z"
+            fill="#DCE0E6"
           />
         </g>
         <path
-          class="config-empty-img-default-path-5"
           d="M149.121 33.292l-6.83 2.65a1 1 0 0 1-1.317-1.23l1.937-6.207c-2.589-2.944-4.109-6.534-4.109-10.408C138.802 8.102 148.92 0 161.402 0 173.881 0 184 8.102 184 18.097c0 9.995-10.118 18.097-22.599 18.097-4.528 0-8.744-1.066-12.28-2.902z"
+          fill="#DCE0E6"
         />
         <g
-          class="config-empty-img-default-g"
+          fill="#FFF"
           transform="translate(149.65 15.383)"
         >
           <ellipse
@@ -15446,7 +15159,6 @@ exports[`ConfigProvider components Empty configProvider virtual and dropdownMatc
     class="ant-empty-image"
   >
     <svg
-      class="ant-empty-img-default"
       height="152"
       viewBox="0 0 184 152"
       width="184"
@@ -15460,36 +15172,37 @@ exports[`ConfigProvider components Empty configProvider virtual and dropdownMatc
           transform="translate(24 31.67)"
         >
           <ellipse
-            class="ant-empty-img-default-ellipse"
             cx="67.797"
             cy="106.89"
+            fill="#F5F5F7"
+            fill-opacity=".8"
             rx="67.797"
             ry="12.668"
           />
           <path
-            class="ant-empty-img-default-path-1"
             d="M122.034 69.674L98.109 40.229c-1.148-1.386-2.826-2.225-4.593-2.225h-51.44c-1.766 0-3.444.839-4.592 2.225L13.56 69.674v15.383h108.475V69.674z"
+            fill="#AEB8C2"
           />
           <path
-            class="ant-empty-img-default-path-2"
             d="M101.537 86.214L80.63 61.102c-1.001-1.207-2.507-1.867-4.048-1.867H31.724c-1.54 0-3.047.66-4.048 1.867L6.769 86.214v13.792h94.768V86.214z"
+            fill="url(#linearGradient-1)"
             transform="translate(13.56)"
           />
           <path
-            class="ant-empty-img-default-path-3"
             d="M33.83 0h67.933a4 4 0 0 1 4 4v93.344a4 4 0 0 1-4 4H33.83a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4z"
+            fill="#F5F5F7"
           />
           <path
-            class="ant-empty-img-default-path-4"
             d="M42.678 9.953h50.237a2 2 0 0 1 2 2V36.91a2 2 0 0 1-2 2H42.678a2 2 0 0 1-2-2V11.953a2 2 0 0 1 2-2zM42.94 49.767h49.713a2.262 2.262 0 1 1 0 4.524H42.94a2.262 2.262 0 0 1 0-4.524zM42.94 61.53h49.713a2.262 2.262 0 1 1 0 4.525H42.94a2.262 2.262 0 0 1 0-4.525zM121.813 105.032c-.775 3.071-3.497 5.36-6.735 5.36H20.515c-3.238 0-5.96-2.29-6.734-5.36a7.309 7.309 0 0 1-.222-1.79V69.675h26.318c2.907 0 5.25 2.448 5.25 5.42v.04c0 2.971 2.37 5.37 5.277 5.37h34.785c2.907 0 5.277-2.421 5.277-5.393V75.1c0-2.972 2.343-5.426 5.25-5.426h26.318v33.569c0 .617-.077 1.216-.221 1.789z"
+            fill="#DCE0E6"
           />
         </g>
         <path
-          class="ant-empty-img-default-path-5"
           d="M149.121 33.292l-6.83 2.65a1 1 0 0 1-1.317-1.23l1.937-6.207c-2.589-2.944-4.109-6.534-4.109-10.408C138.802 8.102 148.92 0 161.402 0 173.881 0 184 8.102 184 18.097c0 9.995-10.118 18.097-22.599 18.097-4.528 0-8.744-1.066-12.28-2.902z"
+          fill="#DCE0E6"
         />
         <g
-          class="ant-empty-img-default-g"
+          fill="#FFF"
           transform="translate(149.65 15.383)"
         >
           <ellipse
@@ -15521,7 +15234,6 @@ exports[`ConfigProvider components Empty normal 1`] = `
     class="ant-empty-image"
   >
     <svg
-      class="ant-empty-img-default"
       height="152"
       viewBox="0 0 184 152"
       width="184"
@@ -15535,36 +15247,37 @@ exports[`ConfigProvider components Empty normal 1`] = `
           transform="translate(24 31.67)"
         >
           <ellipse
-            class="ant-empty-img-default-ellipse"
             cx="67.797"
             cy="106.89"
+            fill="#F5F5F7"
+            fill-opacity=".8"
             rx="67.797"
             ry="12.668"
           />
           <path
-            class="ant-empty-img-default-path-1"
             d="M122.034 69.674L98.109 40.229c-1.148-1.386-2.826-2.225-4.593-2.225h-51.44c-1.766 0-3.444.839-4.592 2.225L13.56 69.674v15.383h108.475V69.674z"
+            fill="#AEB8C2"
           />
           <path
-            class="ant-empty-img-default-path-2"
             d="M101.537 86.214L80.63 61.102c-1.001-1.207-2.507-1.867-4.048-1.867H31.724c-1.54 0-3.047.66-4.048 1.867L6.769 86.214v13.792h94.768V86.214z"
+            fill="url(#linearGradient-1)"
             transform="translate(13.56)"
           />
           <path
-            class="ant-empty-img-default-path-3"
             d="M33.83 0h67.933a4 4 0 0 1 4 4v93.344a4 4 0 0 1-4 4H33.83a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4z"
+            fill="#F5F5F7"
           />
           <path
-            class="ant-empty-img-default-path-4"
             d="M42.678 9.953h50.237a2 2 0 0 1 2 2V36.91a2 2 0 0 1-2 2H42.678a2 2 0 0 1-2-2V11.953a2 2 0 0 1 2-2zM42.94 49.767h49.713a2.262 2.262 0 1 1 0 4.524H42.94a2.262 2.262 0 0 1 0-4.524zM42.94 61.53h49.713a2.262 2.262 0 1 1 0 4.525H42.94a2.262 2.262 0 0 1 0-4.525zM121.813 105.032c-.775 3.071-3.497 5.36-6.735 5.36H20.515c-3.238 0-5.96-2.29-6.734-5.36a7.309 7.309 0 0 1-.222-1.79V69.675h26.318c2.907 0 5.25 2.448 5.25 5.42v.04c0 2.971 2.37 5.37 5.277 5.37h34.785c2.907 0 5.277-2.421 5.277-5.393V75.1c0-2.972 2.343-5.426 5.25-5.426h26.318v33.569c0 .617-.077 1.216-.221 1.789z"
+            fill="#DCE0E6"
           />
         </g>
         <path
-          class="ant-empty-img-default-path-5"
           d="M149.121 33.292l-6.83 2.65a1 1 0 0 1-1.317-1.23l1.937-6.207c-2.589-2.944-4.109-6.534-4.109-10.408C138.802 8.102 148.92 0 161.402 0 173.881 0 184 8.102 184 18.097c0 9.995-10.118 18.097-22.599 18.097-4.528 0-8.744-1.066-12.28-2.902z"
+          fill="#DCE0E6"
         />
         <g
-          class="ant-empty-img-default-g"
+          fill="#FFF"
           transform="translate(149.65 15.383)"
         >
           <ellipse
@@ -15596,7 +15309,6 @@ exports[`ConfigProvider components Empty prefixCls 1`] = `
     class="prefix-Empty-image"
   >
     <svg
-      class="ant-empty-img-default"
       height="152"
       viewBox="0 0 184 152"
       width="184"
@@ -15610,36 +15322,37 @@ exports[`ConfigProvider components Empty prefixCls 1`] = `
           transform="translate(24 31.67)"
         >
           <ellipse
-            class="ant-empty-img-default-ellipse"
             cx="67.797"
             cy="106.89"
+            fill="#F5F5F7"
+            fill-opacity=".8"
             rx="67.797"
             ry="12.668"
           />
           <path
-            class="ant-empty-img-default-path-1"
             d="M122.034 69.674L98.109 40.229c-1.148-1.386-2.826-2.225-4.593-2.225h-51.44c-1.766 0-3.444.839-4.592 2.225L13.56 69.674v15.383h108.475V69.674z"
+            fill="#AEB8C2"
           />
           <path
-            class="ant-empty-img-default-path-2"
             d="M101.537 86.214L80.63 61.102c-1.001-1.207-2.507-1.867-4.048-1.867H31.724c-1.54 0-3.047.66-4.048 1.867L6.769 86.214v13.792h94.768V86.214z"
+            fill="url(#linearGradient-1)"
             transform="translate(13.56)"
           />
           <path
-            class="ant-empty-img-default-path-3"
             d="M33.83 0h67.933a4 4 0 0 1 4 4v93.344a4 4 0 0 1-4 4H33.83a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4z"
+            fill="#F5F5F7"
           />
           <path
-            class="ant-empty-img-default-path-4"
             d="M42.678 9.953h50.237a2 2 0 0 1 2 2V36.91a2 2 0 0 1-2 2H42.678a2 2 0 0 1-2-2V11.953a2 2 0 0 1 2-2zM42.94 49.767h49.713a2.262 2.262 0 1 1 0 4.524H42.94a2.262 2.262 0 0 1 0-4.524zM42.94 61.53h49.713a2.262 2.262 0 1 1 0 4.525H42.94a2.262 2.262 0 0 1 0-4.525zM121.813 105.032c-.775 3.071-3.497 5.36-6.735 5.36H20.515c-3.238 0-5.96-2.29-6.734-5.36a7.309 7.309 0 0 1-.222-1.79V69.675h26.318c2.907 0 5.25 2.448 5.25 5.42v.04c0 2.971 2.37 5.37 5.277 5.37h34.785c2.907 0 5.277-2.421 5.277-5.393V75.1c0-2.972 2.343-5.426 5.25-5.426h26.318v33.569c0 .617-.077 1.216-.221 1.789z"
+            fill="#DCE0E6"
           />
         </g>
         <path
-          class="ant-empty-img-default-path-5"
           d="M149.121 33.292l-6.83 2.65a1 1 0 0 1-1.317-1.23l1.937-6.207c-2.589-2.944-4.109-6.534-4.109-10.408C138.802 8.102 148.92 0 161.402 0 173.881 0 184 8.102 184 18.097c0 9.995-10.118 18.097-22.599 18.097-4.528 0-8.744-1.066-12.28-2.902z"
+          fill="#DCE0E6"
         />
         <g
-          class="ant-empty-img-default-g"
+          fill="#FFF"
           transform="translate(149.65 15.383)"
         >
           <ellipse
@@ -18894,167 +18607,6 @@ exports[`ConfigProvider components Modal prefixCls 1`] = `
 </div>
 `;
 
-exports[`ConfigProvider components PageHeader configProvider 1`] = `
-<div>
-  <div
-    class="config-page-header"
-  >
-    <div
-      class="config-page-header-heading"
-    >
-      <div
-        class="config-page-header-heading-left"
-      >
-        <span
-          class="config-page-header-heading-title"
-          title="pageHeader"
-        >
-          pageHeader
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`ConfigProvider components PageHeader configProvider componentDisabled 1`] = `
-<div>
-  <div
-    class="config-page-header config-page-header-ghost"
-  >
-    <div
-      class="config-page-header-heading"
-    >
-      <div
-        class="config-page-header-heading-left"
-      >
-        <span
-          class="config-page-header-heading-title"
-          title="pageHeader"
-        >
-          pageHeader
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`ConfigProvider components PageHeader configProvider componentSize large 1`] = `
-<div>
-  <div
-    class="config-page-header config-page-header-ghost"
-  >
-    <div
-      class="config-page-header-heading"
-    >
-      <div
-        class="config-page-header-heading-left"
-      >
-        <span
-          class="config-page-header-heading-title"
-          title="pageHeader"
-        >
-          pageHeader
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`ConfigProvider components PageHeader configProvider componentSize middle 1`] = `
-<div>
-  <div
-    class="config-page-header config-page-header-ghost"
-  >
-    <div
-      class="config-page-header-heading"
-    >
-      <div
-        class="config-page-header-heading-left"
-      >
-        <span
-          class="config-page-header-heading-title"
-          title="pageHeader"
-        >
-          pageHeader
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`ConfigProvider components PageHeader configProvider virtual and dropdownMatchSelectWidth 1`] = `
-<div>
-  <div
-    class="ant-page-header ant-page-header-ghost"
-  >
-    <div
-      class="ant-page-header-heading"
-    >
-      <div
-        class="ant-page-header-heading-left"
-      >
-        <span
-          class="ant-page-header-heading-title"
-          title="pageHeader"
-        >
-          pageHeader
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`ConfigProvider components PageHeader normal 1`] = `
-<div>
-  <div
-    class="ant-page-header ant-page-header-ghost"
-  >
-    <div
-      class="ant-page-header-heading"
-    >
-      <div
-        class="ant-page-header-heading-left"
-      >
-        <span
-          class="ant-page-header-heading-title"
-          title="pageHeader"
-        >
-          pageHeader
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`ConfigProvider components PageHeader prefixCls 1`] = `
-<div>
-  <div
-    class="prefix-PageHeader prefix-PageHeader-ghost"
-  >
-    <div
-      class="prefix-PageHeader-heading"
-    >
-      <div
-        class="prefix-PageHeader-heading-left"
-      >
-        <span
-          class="prefix-PageHeader-heading-title"
-          title="pageHeader"
-        >
-          pageHeader
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`ConfigProvider components Pagination configProvider 1`] = `
 <div>
   <ul
@@ -21163,10 +20715,10 @@ exports[`ConfigProvider components Popconfirm configProvider 1`] = `
           role="tooltip"
         >
           <div
-            class="config-popover-inner-content"
+            class="config-popconfirm-inner-content"
           >
             <div
-              class="config-popover-message"
+              class="config-popconfirm-message"
             >
               <span
                 aria-label="exclamation-circle"
@@ -21188,11 +20740,11 @@ exports[`ConfigProvider components Popconfirm configProvider 1`] = `
                 </svg>
               </span>
               <div
-                class="config-popover-message-title"
+                class="config-popconfirm-message-title"
               />
             </div>
             <div
-              class="config-popover-buttons"
+              class="config-popconfirm-buttons"
             >
               <button
                 class="config-btn config-btn-default config-btn-sm"
@@ -21246,10 +20798,10 @@ exports[`ConfigProvider components Popconfirm configProvider componentDisabled 1
           role="tooltip"
         >
           <div
-            class="config-popover-inner-content"
+            class="config-popconfirm-inner-content"
           >
             <div
-              class="config-popover-message"
+              class="config-popconfirm-message"
             >
               <span
                 aria-label="exclamation-circle"
@@ -21271,11 +20823,11 @@ exports[`ConfigProvider components Popconfirm configProvider componentDisabled 1
                 </svg>
               </span>
               <div
-                class="config-popover-message-title"
+                class="config-popconfirm-message-title"
               />
             </div>
             <div
-              class="config-popover-buttons"
+              class="config-popconfirm-buttons"
             >
               <button
                 class="config-btn config-btn-default config-btn-sm"
@@ -21331,10 +20883,10 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize large
           role="tooltip"
         >
           <div
-            class="config-popover-inner-content"
+            class="config-popconfirm-inner-content"
           >
             <div
-              class="config-popover-message"
+              class="config-popconfirm-message"
             >
               <span
                 aria-label="exclamation-circle"
@@ -21356,11 +20908,11 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize large
                 </svg>
               </span>
               <div
-                class="config-popover-message-title"
+                class="config-popconfirm-message-title"
               />
             </div>
             <div
-              class="config-popover-buttons"
+              class="config-popconfirm-buttons"
             >
               <button
                 class="config-btn config-btn-default config-btn-sm"
@@ -21414,10 +20966,10 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize middl
           role="tooltip"
         >
           <div
-            class="config-popover-inner-content"
+            class="config-popconfirm-inner-content"
           >
             <div
-              class="config-popover-message"
+              class="config-popconfirm-message"
             >
               <span
                 aria-label="exclamation-circle"
@@ -21439,11 +20991,11 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize middl
                 </svg>
               </span>
               <div
-                class="config-popover-message-title"
+                class="config-popconfirm-message-title"
               />
             </div>
             <div
-              class="config-popover-buttons"
+              class="config-popconfirm-buttons"
             >
               <button
                 class="config-btn config-btn-default config-btn-sm"
@@ -21497,10 +21049,10 @@ exports[`ConfigProvider components Popconfirm configProvider virtual and dropdow
           role="tooltip"
         >
           <div
-            class="ant-popover-inner-content"
+            class="ant-popconfirm-inner-content"
           >
             <div
-              class="ant-popover-message"
+              class="ant-popconfirm-message"
             >
               <span
                 aria-label="exclamation-circle"
@@ -21522,11 +21074,11 @@ exports[`ConfigProvider components Popconfirm configProvider virtual and dropdow
                 </svg>
               </span>
               <div
-                class="ant-popover-message-title"
+                class="ant-popconfirm-message-title"
               />
             </div>
             <div
-              class="ant-popover-buttons"
+              class="ant-popconfirm-buttons"
             >
               <button
                 class="ant-btn ant-btn-default ant-btn-sm"
@@ -21580,10 +21132,10 @@ exports[`ConfigProvider components Popconfirm normal 1`] = `
           role="tooltip"
         >
           <div
-            class="ant-popover-inner-content"
+            class="ant-popconfirm-inner-content"
           >
             <div
-              class="ant-popover-message"
+              class="ant-popconfirm-message"
             >
               <span
                 aria-label="exclamation-circle"
@@ -21605,11 +21157,11 @@ exports[`ConfigProvider components Popconfirm normal 1`] = `
                 </svg>
               </span>
               <div
-                class="ant-popover-message-title"
+                class="ant-popconfirm-message-title"
               />
             </div>
             <div
-              class="ant-popover-buttons"
+              class="ant-popconfirm-buttons"
             >
               <button
                 class="ant-btn ant-btn-default ant-btn-sm"
@@ -21639,27 +21191,27 @@ exports[`ConfigProvider components Popconfirm normal 1`] = `
 exports[`ConfigProvider components Popconfirm prefixCls 1`] = `
 <div>
   <span
-    class="prefix-Popconfirm-open"
+    class="ant-popover-open"
   >
     Bamboo
   </span>
   <div>
     <div
-      class="prefix-Popconfirm prefix-Popconfirm"
+      class="ant-popover prefix-Popconfirm"
       style="opacity:0"
     >
       <div
-        class="prefix-Popconfirm-content"
+        class="ant-popover-content"
       >
         <div
-          class="prefix-Popconfirm-arrow"
+          class="ant-popover-arrow"
         >
           <span
-            class="prefix-Popconfirm-arrow-content"
+            class="ant-popover-arrow-content"
           />
         </div>
         <div
-          class="prefix-Popconfirm-inner"
+          class="ant-popover-inner"
           role="tooltip"
         >
           <div
@@ -26917,7 +26469,6 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                         class="config-empty-image"
                       >
                         <svg
-                          class="config-empty-img-simple"
                           height="41"
                           viewBox="0 0 64 41"
                           width="64"
@@ -26929,22 +26480,22 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                             transform="translate(0 1)"
                           >
                             <ellipse
-                              class="config-empty-img-simple-ellipse"
                               cx="32"
                               cy="33"
+                              fill="#F5F5F5"
                               rx="32"
                               ry="7"
                             />
                             <g
-                              class="config-empty-img-simple-g"
                               fill-rule="nonzero"
+                              stroke="#D9D9D9"
                             >
                               <path
                                 d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                               />
                               <path
-                                class="config-empty-img-simple-path"
                                 d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                fill="#FAFAFA"
                               />
                             </g>
                           </g>
@@ -27220,7 +26771,6 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                         class="config-empty-image"
                       >
                         <svg
-                          class="config-empty-img-simple"
                           height="41"
                           viewBox="0 0 64 41"
                           width="64"
@@ -27232,22 +26782,22 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                             transform="translate(0 1)"
                           >
                             <ellipse
-                              class="config-empty-img-simple-ellipse"
                               cx="32"
                               cy="33"
+                              fill="#F5F5F5"
                               rx="32"
                               ry="7"
                             />
                             <g
-                              class="config-empty-img-simple-g"
                               fill-rule="nonzero"
+                              stroke="#D9D9D9"
                             >
                               <path
                                 d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                               />
                               <path
-                                class="config-empty-img-simple-path"
                                 d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                fill="#FAFAFA"
                               />
                             </g>
                           </g>
@@ -27521,7 +27071,6 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                         class="config-empty-image"
                       >
                         <svg
-                          class="config-empty-img-simple"
                           height="41"
                           viewBox="0 0 64 41"
                           width="64"
@@ -27533,22 +27082,22 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                             transform="translate(0 1)"
                           >
                             <ellipse
-                              class="config-empty-img-simple-ellipse"
                               cx="32"
                               cy="33"
+                              fill="#F5F5F5"
                               rx="32"
                               ry="7"
                             />
                             <g
-                              class="config-empty-img-simple-g"
                               fill-rule="nonzero"
+                              stroke="#D9D9D9"
                             >
                               <path
                                 d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                               />
                               <path
-                                class="config-empty-img-simple-path"
                                 d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                fill="#FAFAFA"
                               />
                             </g>
                           </g>
@@ -27822,7 +27371,6 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                         class="config-empty-image"
                       >
                         <svg
-                          class="config-empty-img-simple"
                           height="41"
                           viewBox="0 0 64 41"
                           width="64"
@@ -27834,22 +27382,22 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                             transform="translate(0 1)"
                           >
                             <ellipse
-                              class="config-empty-img-simple-ellipse"
                               cx="32"
                               cy="33"
+                              fill="#F5F5F5"
                               rx="32"
                               ry="7"
                             />
                             <g
-                              class="config-empty-img-simple-g"
                               fill-rule="nonzero"
+                              stroke="#D9D9D9"
                             >
                               <path
                                 d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                               />
                               <path
-                                class="config-empty-img-simple-path"
                                 d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                fill="#FAFAFA"
                               />
                             </g>
                           </g>
@@ -28123,7 +27671,6 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
                         class="ant-empty-image"
                       >
                         <svg
-                          class="ant-empty-img-simple"
                           height="41"
                           viewBox="0 0 64 41"
                           width="64"
@@ -28135,22 +27682,22 @@ exports[`ConfigProvider components Table configProvider virtual and dropdownMatc
                             transform="translate(0 1)"
                           >
                             <ellipse
-                              class="ant-empty-img-simple-ellipse"
                               cx="32"
                               cy="33"
+                              fill="#F5F5F5"
                               rx="32"
                               ry="7"
                             />
                             <g
-                              class="ant-empty-img-simple-g"
                               fill-rule="nonzero"
+                              stroke="#D9D9D9"
                             >
                               <path
                                 d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                               />
                               <path
-                                class="ant-empty-img-simple-path"
                                 d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                fill="#FAFAFA"
                               />
                             </g>
                           </g>
@@ -28424,7 +27971,6 @@ exports[`ConfigProvider components Table normal 1`] = `
                         class="ant-empty-image"
                       >
                         <svg
-                          class="ant-empty-img-simple"
                           height="41"
                           viewBox="0 0 64 41"
                           width="64"
@@ -28436,22 +27982,22 @@ exports[`ConfigProvider components Table normal 1`] = `
                             transform="translate(0 1)"
                           >
                             <ellipse
-                              class="ant-empty-img-simple-ellipse"
                               cx="32"
                               cy="33"
+                              fill="#F5F5F5"
                               rx="32"
                               ry="7"
                             />
                             <g
-                              class="ant-empty-img-simple-g"
                               fill-rule="nonzero"
+                              stroke="#D9D9D9"
                             >
                               <path
                                 d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                               />
                               <path
-                                class="ant-empty-img-simple-path"
                                 d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                fill="#FAFAFA"
                               />
                             </g>
                           </g>
@@ -28725,7 +28271,6 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                         class="ant-empty-image"
                       >
                         <svg
-                          class="ant-empty-img-simple"
                           height="41"
                           viewBox="0 0 64 41"
                           width="64"
@@ -28737,22 +28282,22 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                             transform="translate(0 1)"
                           >
                             <ellipse
-                              class="ant-empty-img-simple-ellipse"
                               cx="32"
                               cy="33"
+                              fill="#F5F5F5"
                               rx="32"
                               ry="7"
                             />
                             <g
-                              class="ant-empty-img-simple-g"
                               fill-rule="nonzero"
+                              stroke="#D9D9D9"
                             >
                               <path
                                 d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                               />
                               <path
-                                class="ant-empty-img-simple-path"
                                 d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                fill="#FAFAFA"
                               />
                             </g>
                           </g>
@@ -38446,7 +37991,6 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
             class="config-empty-image"
           >
             <svg
-              class="config-empty-img-simple"
               height="41"
               viewBox="0 0 64 41"
               width="64"
@@ -38458,22 +38002,22 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
                 transform="translate(0 1)"
               >
                 <ellipse
-                  class="config-empty-img-simple-ellipse"
                   cx="32"
                   cy="33"
+                  fill="#F5F5F5"
                   rx="32"
                   ry="7"
                 />
                 <g
-                  class="config-empty-img-simple-g"
                   fill-rule="nonzero"
+                  stroke="#D9D9D9"
                 >
                   <path
                     d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                   />
                   <path
-                    class="config-empty-img-simple-path"
                     d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                    fill="#FAFAFA"
                   />
                 </g>
               </g>
@@ -38604,7 +38148,6 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
             class="config-empty-image"
           >
             <svg
-              class="config-empty-img-simple"
               height="41"
               viewBox="0 0 64 41"
               width="64"
@@ -38616,22 +38159,22 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
                 transform="translate(0 1)"
               >
                 <ellipse
-                  class="config-empty-img-simple-ellipse"
                   cx="32"
                   cy="33"
+                  fill="#F5F5F5"
                   rx="32"
                   ry="7"
                 />
                 <g
-                  class="config-empty-img-simple-g"
                   fill-rule="nonzero"
+                  stroke="#D9D9D9"
                 >
                   <path
                     d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                   />
                   <path
-                    class="config-empty-img-simple-path"
                     d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                    fill="#FAFAFA"
                   />
                 </g>
               </g>
@@ -38716,7 +38259,6 @@ exports[`ConfigProvider components Transfer configProvider componentDisabled 1`]
             class="config-empty-image"
           >
             <svg
-              class="config-empty-img-simple"
               height="41"
               viewBox="0 0 64 41"
               width="64"
@@ -38728,22 +38270,22 @@ exports[`ConfigProvider components Transfer configProvider componentDisabled 1`]
                 transform="translate(0 1)"
               >
                 <ellipse
-                  class="config-empty-img-simple-ellipse"
                   cx="32"
                   cy="33"
+                  fill="#F5F5F5"
                   rx="32"
                   ry="7"
                 />
                 <g
-                  class="config-empty-img-simple-g"
                   fill-rule="nonzero"
+                  stroke="#D9D9D9"
                 >
                   <path
                     d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                   />
                   <path
-                    class="config-empty-img-simple-path"
                     d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                    fill="#FAFAFA"
                   />
                 </g>
               </g>
@@ -38875,7 +38417,6 @@ exports[`ConfigProvider components Transfer configProvider componentDisabled 1`]
             class="config-empty-image"
           >
             <svg
-              class="config-empty-img-simple"
               height="41"
               viewBox="0 0 64 41"
               width="64"
@@ -38887,22 +38428,22 @@ exports[`ConfigProvider components Transfer configProvider componentDisabled 1`]
                 transform="translate(0 1)"
               >
                 <ellipse
-                  class="config-empty-img-simple-ellipse"
                   cx="32"
                   cy="33"
+                  fill="#F5F5F5"
                   rx="32"
                   ry="7"
                 />
                 <g
-                  class="config-empty-img-simple-g"
                   fill-rule="nonzero"
+                  stroke="#D9D9D9"
                 >
                   <path
                     d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                   />
                   <path
-                    class="config-empty-img-simple-path"
                     d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                    fill="#FAFAFA"
                   />
                 </g>
               </g>
@@ -38986,7 +38527,6 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
             class="config-empty-image"
           >
             <svg
-              class="config-empty-img-simple"
               height="41"
               viewBox="0 0 64 41"
               width="64"
@@ -38998,22 +38538,22 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
                 transform="translate(0 1)"
               >
                 <ellipse
-                  class="config-empty-img-simple-ellipse"
                   cx="32"
                   cy="33"
+                  fill="#F5F5F5"
                   rx="32"
                   ry="7"
                 />
                 <g
-                  class="config-empty-img-simple-g"
                   fill-rule="nonzero"
+                  stroke="#D9D9D9"
                 >
                   <path
                     d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                   />
                   <path
-                    class="config-empty-img-simple-path"
                     d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                    fill="#FAFAFA"
                   />
                 </g>
               </g>
@@ -39144,7 +38684,6 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
             class="config-empty-image"
           >
             <svg
-              class="config-empty-img-simple"
               height="41"
               viewBox="0 0 64 41"
               width="64"
@@ -39156,22 +38695,22 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
                 transform="translate(0 1)"
               >
                 <ellipse
-                  class="config-empty-img-simple-ellipse"
                   cx="32"
                   cy="33"
+                  fill="#F5F5F5"
                   rx="32"
                   ry="7"
                 />
                 <g
-                  class="config-empty-img-simple-g"
                   fill-rule="nonzero"
+                  stroke="#D9D9D9"
                 >
                   <path
                     d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                   />
                   <path
-                    class="config-empty-img-simple-path"
                     d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                    fill="#FAFAFA"
                   />
                 </g>
               </g>
@@ -39255,7 +38794,6 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
             class="config-empty-image"
           >
             <svg
-              class="config-empty-img-simple"
               height="41"
               viewBox="0 0 64 41"
               width="64"
@@ -39267,22 +38805,22 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
                 transform="translate(0 1)"
               >
                 <ellipse
-                  class="config-empty-img-simple-ellipse"
                   cx="32"
                   cy="33"
+                  fill="#F5F5F5"
                   rx="32"
                   ry="7"
                 />
                 <g
-                  class="config-empty-img-simple-g"
                   fill-rule="nonzero"
+                  stroke="#D9D9D9"
                 >
                   <path
                     d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                   />
                   <path
-                    class="config-empty-img-simple-path"
                     d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                    fill="#FAFAFA"
                   />
                 </g>
               </g>
@@ -39413,7 +38951,6 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
             class="config-empty-image"
           >
             <svg
-              class="config-empty-img-simple"
               height="41"
               viewBox="0 0 64 41"
               width="64"
@@ -39425,22 +38962,22 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
                 transform="translate(0 1)"
               >
                 <ellipse
-                  class="config-empty-img-simple-ellipse"
                   cx="32"
                   cy="33"
+                  fill="#F5F5F5"
                   rx="32"
                   ry="7"
                 />
                 <g
-                  class="config-empty-img-simple-g"
                   fill-rule="nonzero"
+                  stroke="#D9D9D9"
                 >
                   <path
                     d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                   />
                   <path
-                    class="config-empty-img-simple-path"
                     d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                    fill="#FAFAFA"
                   />
                 </g>
               </g>
@@ -39524,7 +39061,6 @@ exports[`ConfigProvider components Transfer configProvider virtual and dropdownM
             class="ant-empty-image"
           >
             <svg
-              class="ant-empty-img-simple"
               height="41"
               viewBox="0 0 64 41"
               width="64"
@@ -39536,22 +39072,22 @@ exports[`ConfigProvider components Transfer configProvider virtual and dropdownM
                 transform="translate(0 1)"
               >
                 <ellipse
-                  class="ant-empty-img-simple-ellipse"
                   cx="32"
                   cy="33"
+                  fill="#F5F5F5"
                   rx="32"
                   ry="7"
                 />
                 <g
-                  class="ant-empty-img-simple-g"
                   fill-rule="nonzero"
+                  stroke="#D9D9D9"
                 >
                   <path
                     d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                   />
                   <path
-                    class="ant-empty-img-simple-path"
                     d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                    fill="#FAFAFA"
                   />
                 </g>
               </g>
@@ -39682,7 +39218,6 @@ exports[`ConfigProvider components Transfer configProvider virtual and dropdownM
             class="ant-empty-image"
           >
             <svg
-              class="ant-empty-img-simple"
               height="41"
               viewBox="0 0 64 41"
               width="64"
@@ -39694,22 +39229,22 @@ exports[`ConfigProvider components Transfer configProvider virtual and dropdownM
                 transform="translate(0 1)"
               >
                 <ellipse
-                  class="ant-empty-img-simple-ellipse"
                   cx="32"
                   cy="33"
+                  fill="#F5F5F5"
                   rx="32"
                   ry="7"
                 />
                 <g
-                  class="ant-empty-img-simple-g"
                   fill-rule="nonzero"
+                  stroke="#D9D9D9"
                 >
                   <path
                     d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                   />
                   <path
-                    class="ant-empty-img-simple-path"
                     d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                    fill="#FAFAFA"
                   />
                 </g>
               </g>
@@ -39793,7 +39328,6 @@ exports[`ConfigProvider components Transfer normal 1`] = `
             class="ant-empty-image"
           >
             <svg
-              class="ant-empty-img-simple"
               height="41"
               viewBox="0 0 64 41"
               width="64"
@@ -39805,22 +39339,22 @@ exports[`ConfigProvider components Transfer normal 1`] = `
                 transform="translate(0 1)"
               >
                 <ellipse
-                  class="ant-empty-img-simple-ellipse"
                   cx="32"
                   cy="33"
+                  fill="#F5F5F5"
                   rx="32"
                   ry="7"
                 />
                 <g
-                  class="ant-empty-img-simple-g"
                   fill-rule="nonzero"
+                  stroke="#D9D9D9"
                 >
                   <path
                     d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                   />
                   <path
-                    class="ant-empty-img-simple-path"
                     d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                    fill="#FAFAFA"
                   />
                 </g>
               </g>
@@ -39951,7 +39485,6 @@ exports[`ConfigProvider components Transfer normal 1`] = `
             class="ant-empty-image"
           >
             <svg
-              class="ant-empty-img-simple"
               height="41"
               viewBox="0 0 64 41"
               width="64"
@@ -39963,22 +39496,22 @@ exports[`ConfigProvider components Transfer normal 1`] = `
                 transform="translate(0 1)"
               >
                 <ellipse
-                  class="ant-empty-img-simple-ellipse"
                   cx="32"
                   cy="33"
+                  fill="#F5F5F5"
                   rx="32"
                   ry="7"
                 />
                 <g
-                  class="ant-empty-img-simple-g"
                   fill-rule="nonzero"
+                  stroke="#D9D9D9"
                 >
                   <path
                     d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                   />
                   <path
-                    class="ant-empty-img-simple-path"
                     d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                    fill="#FAFAFA"
                   />
                 </g>
               </g>
@@ -40062,7 +39595,6 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
             class="ant-empty-image"
           >
             <svg
-              class="ant-empty-img-simple"
               height="41"
               viewBox="0 0 64 41"
               width="64"
@@ -40074,22 +39606,22 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
                 transform="translate(0 1)"
               >
                 <ellipse
-                  class="ant-empty-img-simple-ellipse"
                   cx="32"
                   cy="33"
+                  fill="#F5F5F5"
                   rx="32"
                   ry="7"
                 />
                 <g
-                  class="ant-empty-img-simple-g"
                   fill-rule="nonzero"
+                  stroke="#D9D9D9"
                 >
                   <path
                     d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                   />
                   <path
-                    class="ant-empty-img-simple-path"
                     d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                    fill="#FAFAFA"
                   />
                 </g>
               </g>
@@ -40220,7 +39752,6 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
             class="ant-empty-image"
           >
             <svg
-              class="ant-empty-img-simple"
               height="41"
               viewBox="0 0 64 41"
               width="64"
@@ -40232,22 +39763,22 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
                 transform="translate(0 1)"
               >
                 <ellipse
-                  class="ant-empty-img-simple-ellipse"
                   cx="32"
                   cy="33"
+                  fill="#F5F5F5"
                   rx="32"
                   ry="7"
                 />
                 <g
-                  class="ant-empty-img-simple-g"
                   fill-rule="nonzero"
+                  stroke="#D9D9D9"
                 >
                   <path
                     d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
                   />
                   <path
-                    class="ant-empty-img-simple-path"
                     d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                    fill="#FAFAFA"
                   />
                 </g>
               </g>
@@ -42249,10 +41780,10 @@ exports[`ConfigProvider components TreeSelect prefixCls 1`] = `
 
 exports[`ConfigProvider components Upload configProvider 1`] = `
 <span
-  class=""
+  class="config-upload-wrapper"
 >
   <div
-    class="config-upload config-upload-select config-upload-select-text"
+    class="config-upload config-upload-select"
   >
     <span
       class="config-upload"
@@ -42271,78 +41802,70 @@ exports[`ConfigProvider components Upload configProvider 1`] = `
     class="config-upload-list config-upload-list-text"
   >
     <div
-      class="config-upload-list-text-container"
+      class="config-upload-list-item-container"
     >
       <div
-        class="config-upload-list-item config-upload-list-item-done config-upload-list-item-list-type-text"
+        class="config-upload-list-item config-upload-list-item-done"
       >
         <div
-          class="config-upload-list-item-info"
+          class="config-upload-icon"
         >
           <span
-            class="config-upload-span"
+            aria-label="paper-clip"
+            class="anticon anticon-paper-clip"
+            role="img"
           >
-            <div
-              class="config-upload-text-icon"
+            <svg
+              aria-hidden="true"
+              data-icon="paper-clip"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
             >
-              <span
-                aria-label="paper-clip"
-                class="anticon anticon-paper-clip"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="paper-clip"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M779.3 196.6c-94.2-94.2-247.6-94.2-341.7 0l-261 260.8c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l261-260.8c32.4-32.4 75.5-50.2 121.3-50.2s88.9 17.8 121.2 50.2c32.4 32.4 50.2 75.5 50.2 121.2 0 45.8-17.8 88.8-50.2 121.2l-266 265.9-43.1 43.1c-40.3 40.3-105.8 40.3-146.1 0-19.5-19.5-30.2-45.4-30.2-73s10.7-53.5 30.2-73l263.9-263.8c6.7-6.6 15.5-10.3 24.9-10.3h.1c9.4 0 18.1 3.7 24.7 10.3 6.7 6.7 10.3 15.5 10.3 24.9 0 9.3-3.7 18.1-10.3 24.7L372.4 653c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l215.6-215.6c19.9-19.9 30.8-46.3 30.8-74.4s-11-54.6-30.8-74.4c-41.1-41.1-107.9-41-149 0L463 364 224.8 602.1A172.22 172.22 0 00174 724.8c0 46.3 18.1 89.8 50.8 122.5 33.9 33.8 78.3 50.7 122.7 50.7 44.4 0 88.8-16.9 122.6-50.7l309.2-309C824.8 492.7 850 432 850 367.5c.1-64.6-25.1-125.3-70.7-170.9z"
-                  />
-                </svg>
-              </span>
-            </div>
-            <span
-              class="config-upload-list-item-name"
-              title="xxx.png"
-            >
-              xxx.png
-            </span>
-            <span
-              class="config-upload-list-item-card-actions"
-            >
-              <button
-                class="config-btn config-btn-text config-btn-sm config-btn-icon-only config-upload-list-item-card-actions-btn"
-                title="Remove file"
-                type="button"
-              >
-                <span
-                  aria-label="delete"
-                  class="anticon anticon-delete"
-                  role="img"
-                  tabindex="-1"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="delete"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </span>
+              <path
+                d="M779.3 196.6c-94.2-94.2-247.6-94.2-341.7 0l-261 260.8c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l261-260.8c32.4-32.4 75.5-50.2 121.3-50.2s88.9 17.8 121.2 50.2c32.4 32.4 50.2 75.5 50.2 121.2 0 45.8-17.8 88.8-50.2 121.2l-266 265.9-43.1 43.1c-40.3 40.3-105.8 40.3-146.1 0-19.5-19.5-30.2-45.4-30.2-73s10.7-53.5 30.2-73l263.9-263.8c6.7-6.6 15.5-10.3 24.9-10.3h.1c9.4 0 18.1 3.7 24.7 10.3 6.7 6.7 10.3 15.5 10.3 24.9 0 9.3-3.7 18.1-10.3 24.7L372.4 653c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l215.6-215.6c19.9-19.9 30.8-46.3 30.8-74.4s-11-54.6-30.8-74.4c-41.1-41.1-107.9-41-149 0L463 364 224.8 602.1A172.22 172.22 0 00174 724.8c0 46.3 18.1 89.8 50.8 122.5 33.9 33.8 78.3 50.7 122.7 50.7 44.4 0 88.8-16.9 122.6-50.7l309.2-309C824.8 492.7 850 432 850 367.5c.1-64.6-25.1-125.3-70.7-170.9z"
+              />
+            </svg>
           </span>
         </div>
+        <span
+          class="config-upload-list-item-name"
+          title="xxx.png"
+        >
+          xxx.png
+        </span>
+        <span
+          class="config-upload-list-item-actions"
+        >
+          <button
+            class="config-btn config-btn-text config-btn-sm config-btn-icon-only config-upload-list-item-action"
+            title="Remove file"
+            type="button"
+          >
+            <span
+              aria-label="delete"
+              class="anticon anticon-delete"
+              role="img"
+              tabindex="-1"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="delete"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                />
+              </svg>
+            </span>
+          </button>
+        </span>
       </div>
     </div>
   </div>
@@ -42351,10 +41874,10 @@ exports[`ConfigProvider components Upload configProvider 1`] = `
 
 exports[`ConfigProvider components Upload configProvider componentDisabled 1`] = `
 <span
-  class=""
+  class="config-upload-wrapper"
 >
   <div
-    class="config-upload config-upload-select config-upload-select-text"
+    class="config-upload config-upload-select"
   >
     <span
       class="config-upload"
@@ -42373,79 +41896,71 @@ exports[`ConfigProvider components Upload configProvider componentDisabled 1`] =
     class="config-upload-list config-upload-list-text"
   >
     <div
-      class="config-upload-list-text-container"
+      class="config-upload-list-item-container"
     >
       <div
-        class="config-upload-list-item config-upload-list-item-done config-upload-list-item-list-type-text"
+        class="config-upload-list-item config-upload-list-item-done"
       >
         <div
-          class="config-upload-list-item-info"
+          class="config-upload-icon"
         >
           <span
-            class="config-upload-span"
+            aria-label="paper-clip"
+            class="anticon anticon-paper-clip"
+            role="img"
           >
-            <div
-              class="config-upload-text-icon"
+            <svg
+              aria-hidden="true"
+              data-icon="paper-clip"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
             >
-              <span
-                aria-label="paper-clip"
-                class="anticon anticon-paper-clip"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="paper-clip"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M779.3 196.6c-94.2-94.2-247.6-94.2-341.7 0l-261 260.8c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l261-260.8c32.4-32.4 75.5-50.2 121.3-50.2s88.9 17.8 121.2 50.2c32.4 32.4 50.2 75.5 50.2 121.2 0 45.8-17.8 88.8-50.2 121.2l-266 265.9-43.1 43.1c-40.3 40.3-105.8 40.3-146.1 0-19.5-19.5-30.2-45.4-30.2-73s10.7-53.5 30.2-73l263.9-263.8c6.7-6.6 15.5-10.3 24.9-10.3h.1c9.4 0 18.1 3.7 24.7 10.3 6.7 6.7 10.3 15.5 10.3 24.9 0 9.3-3.7 18.1-10.3 24.7L372.4 653c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l215.6-215.6c19.9-19.9 30.8-46.3 30.8-74.4s-11-54.6-30.8-74.4c-41.1-41.1-107.9-41-149 0L463 364 224.8 602.1A172.22 172.22 0 00174 724.8c0 46.3 18.1 89.8 50.8 122.5 33.9 33.8 78.3 50.7 122.7 50.7 44.4 0 88.8-16.9 122.6-50.7l309.2-309C824.8 492.7 850 432 850 367.5c.1-64.6-25.1-125.3-70.7-170.9z"
-                  />
-                </svg>
-              </span>
-            </div>
-            <span
-              class="config-upload-list-item-name"
-              title="xxx.png"
-            >
-              xxx.png
-            </span>
-            <span
-              class="config-upload-list-item-card-actions"
-            >
-              <button
-                class="config-btn config-btn-text config-btn-sm config-btn-icon-only config-upload-list-item-card-actions-btn"
-                disabled=""
-                title="Remove file"
-                type="button"
-              >
-                <span
-                  aria-label="delete"
-                  class="anticon anticon-delete"
-                  role="img"
-                  tabindex="-1"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="delete"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </span>
+              <path
+                d="M779.3 196.6c-94.2-94.2-247.6-94.2-341.7 0l-261 260.8c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l261-260.8c32.4-32.4 75.5-50.2 121.3-50.2s88.9 17.8 121.2 50.2c32.4 32.4 50.2 75.5 50.2 121.2 0 45.8-17.8 88.8-50.2 121.2l-266 265.9-43.1 43.1c-40.3 40.3-105.8 40.3-146.1 0-19.5-19.5-30.2-45.4-30.2-73s10.7-53.5 30.2-73l263.9-263.8c6.7-6.6 15.5-10.3 24.9-10.3h.1c9.4 0 18.1 3.7 24.7 10.3 6.7 6.7 10.3 15.5 10.3 24.9 0 9.3-3.7 18.1-10.3 24.7L372.4 653c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l215.6-215.6c19.9-19.9 30.8-46.3 30.8-74.4s-11-54.6-30.8-74.4c-41.1-41.1-107.9-41-149 0L463 364 224.8 602.1A172.22 172.22 0 00174 724.8c0 46.3 18.1 89.8 50.8 122.5 33.9 33.8 78.3 50.7 122.7 50.7 44.4 0 88.8-16.9 122.6-50.7l309.2-309C824.8 492.7 850 432 850 367.5c.1-64.6-25.1-125.3-70.7-170.9z"
+              />
+            </svg>
           </span>
         </div>
+        <span
+          class="config-upload-list-item-name"
+          title="xxx.png"
+        >
+          xxx.png
+        </span>
+        <span
+          class="config-upload-list-item-actions"
+        >
+          <button
+            class="config-btn config-btn-text config-btn-sm config-btn-icon-only config-upload-list-item-action"
+            disabled=""
+            title="Remove file"
+            type="button"
+          >
+            <span
+              aria-label="delete"
+              class="anticon anticon-delete"
+              role="img"
+              tabindex="-1"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="delete"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                />
+              </svg>
+            </span>
+          </button>
+        </span>
       </div>
     </div>
   </div>
@@ -42454,10 +41969,10 @@ exports[`ConfigProvider components Upload configProvider componentDisabled 1`] =
 
 exports[`ConfigProvider components Upload configProvider componentSize large 1`] = `
 <span
-  class=""
+  class="config-upload-wrapper"
 >
   <div
-    class="config-upload config-upload-select config-upload-select-text"
+    class="config-upload config-upload-select"
   >
     <span
       class="config-upload"
@@ -42476,78 +41991,70 @@ exports[`ConfigProvider components Upload configProvider componentSize large 1`]
     class="config-upload-list config-upload-list-text"
   >
     <div
-      class="config-upload-list-text-container"
+      class="config-upload-list-item-container"
     >
       <div
-        class="config-upload-list-item config-upload-list-item-done config-upload-list-item-list-type-text"
+        class="config-upload-list-item config-upload-list-item-done"
       >
         <div
-          class="config-upload-list-item-info"
+          class="config-upload-icon"
         >
           <span
-            class="config-upload-span"
+            aria-label="paper-clip"
+            class="anticon anticon-paper-clip"
+            role="img"
           >
-            <div
-              class="config-upload-text-icon"
+            <svg
+              aria-hidden="true"
+              data-icon="paper-clip"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
             >
-              <span
-                aria-label="paper-clip"
-                class="anticon anticon-paper-clip"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="paper-clip"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M779.3 196.6c-94.2-94.2-247.6-94.2-341.7 0l-261 260.8c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l261-260.8c32.4-32.4 75.5-50.2 121.3-50.2s88.9 17.8 121.2 50.2c32.4 32.4 50.2 75.5 50.2 121.2 0 45.8-17.8 88.8-50.2 121.2l-266 265.9-43.1 43.1c-40.3 40.3-105.8 40.3-146.1 0-19.5-19.5-30.2-45.4-30.2-73s10.7-53.5 30.2-73l263.9-263.8c6.7-6.6 15.5-10.3 24.9-10.3h.1c9.4 0 18.1 3.7 24.7 10.3 6.7 6.7 10.3 15.5 10.3 24.9 0 9.3-3.7 18.1-10.3 24.7L372.4 653c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l215.6-215.6c19.9-19.9 30.8-46.3 30.8-74.4s-11-54.6-30.8-74.4c-41.1-41.1-107.9-41-149 0L463 364 224.8 602.1A172.22 172.22 0 00174 724.8c0 46.3 18.1 89.8 50.8 122.5 33.9 33.8 78.3 50.7 122.7 50.7 44.4 0 88.8-16.9 122.6-50.7l309.2-309C824.8 492.7 850 432 850 367.5c.1-64.6-25.1-125.3-70.7-170.9z"
-                  />
-                </svg>
-              </span>
-            </div>
-            <span
-              class="config-upload-list-item-name"
-              title="xxx.png"
-            >
-              xxx.png
-            </span>
-            <span
-              class="config-upload-list-item-card-actions"
-            >
-              <button
-                class="config-btn config-btn-text config-btn-sm config-btn-icon-only config-upload-list-item-card-actions-btn"
-                title="Remove file"
-                type="button"
-              >
-                <span
-                  aria-label="delete"
-                  class="anticon anticon-delete"
-                  role="img"
-                  tabindex="-1"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="delete"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </span>
+              <path
+                d="M779.3 196.6c-94.2-94.2-247.6-94.2-341.7 0l-261 260.8c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l261-260.8c32.4-32.4 75.5-50.2 121.3-50.2s88.9 17.8 121.2 50.2c32.4 32.4 50.2 75.5 50.2 121.2 0 45.8-17.8 88.8-50.2 121.2l-266 265.9-43.1 43.1c-40.3 40.3-105.8 40.3-146.1 0-19.5-19.5-30.2-45.4-30.2-73s10.7-53.5 30.2-73l263.9-263.8c6.7-6.6 15.5-10.3 24.9-10.3h.1c9.4 0 18.1 3.7 24.7 10.3 6.7 6.7 10.3 15.5 10.3 24.9 0 9.3-3.7 18.1-10.3 24.7L372.4 653c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l215.6-215.6c19.9-19.9 30.8-46.3 30.8-74.4s-11-54.6-30.8-74.4c-41.1-41.1-107.9-41-149 0L463 364 224.8 602.1A172.22 172.22 0 00174 724.8c0 46.3 18.1 89.8 50.8 122.5 33.9 33.8 78.3 50.7 122.7 50.7 44.4 0 88.8-16.9 122.6-50.7l309.2-309C824.8 492.7 850 432 850 367.5c.1-64.6-25.1-125.3-70.7-170.9z"
+              />
+            </svg>
           </span>
         </div>
+        <span
+          class="config-upload-list-item-name"
+          title="xxx.png"
+        >
+          xxx.png
+        </span>
+        <span
+          class="config-upload-list-item-actions"
+        >
+          <button
+            class="config-btn config-btn-text config-btn-sm config-btn-icon-only config-upload-list-item-action"
+            title="Remove file"
+            type="button"
+          >
+            <span
+              aria-label="delete"
+              class="anticon anticon-delete"
+              role="img"
+              tabindex="-1"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="delete"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                />
+              </svg>
+            </span>
+          </button>
+        </span>
       </div>
     </div>
   </div>
@@ -42556,10 +42063,10 @@ exports[`ConfigProvider components Upload configProvider componentSize large 1`]
 
 exports[`ConfigProvider components Upload configProvider componentSize middle 1`] = `
 <span
-  class=""
+  class="config-upload-wrapper"
 >
   <div
-    class="config-upload config-upload-select config-upload-select-text"
+    class="config-upload config-upload-select"
   >
     <span
       class="config-upload"
@@ -42578,78 +42085,70 @@ exports[`ConfigProvider components Upload configProvider componentSize middle 1`
     class="config-upload-list config-upload-list-text"
   >
     <div
-      class="config-upload-list-text-container"
+      class="config-upload-list-item-container"
     >
       <div
-        class="config-upload-list-item config-upload-list-item-done config-upload-list-item-list-type-text"
+        class="config-upload-list-item config-upload-list-item-done"
       >
         <div
-          class="config-upload-list-item-info"
+          class="config-upload-icon"
         >
           <span
-            class="config-upload-span"
+            aria-label="paper-clip"
+            class="anticon anticon-paper-clip"
+            role="img"
           >
-            <div
-              class="config-upload-text-icon"
+            <svg
+              aria-hidden="true"
+              data-icon="paper-clip"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
             >
-              <span
-                aria-label="paper-clip"
-                class="anticon anticon-paper-clip"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="paper-clip"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M779.3 196.6c-94.2-94.2-247.6-94.2-341.7 0l-261 260.8c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l261-260.8c32.4-32.4 75.5-50.2 121.3-50.2s88.9 17.8 121.2 50.2c32.4 32.4 50.2 75.5 50.2 121.2 0 45.8-17.8 88.8-50.2 121.2l-266 265.9-43.1 43.1c-40.3 40.3-105.8 40.3-146.1 0-19.5-19.5-30.2-45.4-30.2-73s10.7-53.5 30.2-73l263.9-263.8c6.7-6.6 15.5-10.3 24.9-10.3h.1c9.4 0 18.1 3.7 24.7 10.3 6.7 6.7 10.3 15.5 10.3 24.9 0 9.3-3.7 18.1-10.3 24.7L372.4 653c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l215.6-215.6c19.9-19.9 30.8-46.3 30.8-74.4s-11-54.6-30.8-74.4c-41.1-41.1-107.9-41-149 0L463 364 224.8 602.1A172.22 172.22 0 00174 724.8c0 46.3 18.1 89.8 50.8 122.5 33.9 33.8 78.3 50.7 122.7 50.7 44.4 0 88.8-16.9 122.6-50.7l309.2-309C824.8 492.7 850 432 850 367.5c.1-64.6-25.1-125.3-70.7-170.9z"
-                  />
-                </svg>
-              </span>
-            </div>
-            <span
-              class="config-upload-list-item-name"
-              title="xxx.png"
-            >
-              xxx.png
-            </span>
-            <span
-              class="config-upload-list-item-card-actions"
-            >
-              <button
-                class="config-btn config-btn-text config-btn-sm config-btn-icon-only config-upload-list-item-card-actions-btn"
-                title="Remove file"
-                type="button"
-              >
-                <span
-                  aria-label="delete"
-                  class="anticon anticon-delete"
-                  role="img"
-                  tabindex="-1"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="delete"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </span>
+              <path
+                d="M779.3 196.6c-94.2-94.2-247.6-94.2-341.7 0l-261 260.8c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l261-260.8c32.4-32.4 75.5-50.2 121.3-50.2s88.9 17.8 121.2 50.2c32.4 32.4 50.2 75.5 50.2 121.2 0 45.8-17.8 88.8-50.2 121.2l-266 265.9-43.1 43.1c-40.3 40.3-105.8 40.3-146.1 0-19.5-19.5-30.2-45.4-30.2-73s10.7-53.5 30.2-73l263.9-263.8c6.7-6.6 15.5-10.3 24.9-10.3h.1c9.4 0 18.1 3.7 24.7 10.3 6.7 6.7 10.3 15.5 10.3 24.9 0 9.3-3.7 18.1-10.3 24.7L372.4 653c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l215.6-215.6c19.9-19.9 30.8-46.3 30.8-74.4s-11-54.6-30.8-74.4c-41.1-41.1-107.9-41-149 0L463 364 224.8 602.1A172.22 172.22 0 00174 724.8c0 46.3 18.1 89.8 50.8 122.5 33.9 33.8 78.3 50.7 122.7 50.7 44.4 0 88.8-16.9 122.6-50.7l309.2-309C824.8 492.7 850 432 850 367.5c.1-64.6-25.1-125.3-70.7-170.9z"
+              />
+            </svg>
           </span>
         </div>
+        <span
+          class="config-upload-list-item-name"
+          title="xxx.png"
+        >
+          xxx.png
+        </span>
+        <span
+          class="config-upload-list-item-actions"
+        >
+          <button
+            class="config-btn config-btn-text config-btn-sm config-btn-icon-only config-upload-list-item-action"
+            title="Remove file"
+            type="button"
+          >
+            <span
+              aria-label="delete"
+              class="anticon anticon-delete"
+              role="img"
+              tabindex="-1"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="delete"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                />
+              </svg>
+            </span>
+          </button>
+        </span>
       </div>
     </div>
   </div>
@@ -42658,10 +42157,10 @@ exports[`ConfigProvider components Upload configProvider componentSize middle 1`
 
 exports[`ConfigProvider components Upload configProvider virtual and dropdownMatchSelectWidth 1`] = `
 <span
-  class=""
+  class="ant-upload-wrapper"
 >
   <div
-    class="ant-upload ant-upload-select ant-upload-select-text"
+    class="ant-upload ant-upload-select"
   >
     <span
       class="ant-upload"
@@ -42680,78 +42179,70 @@ exports[`ConfigProvider components Upload configProvider virtual and dropdownMat
     class="ant-upload-list ant-upload-list-text"
   >
     <div
-      class="ant-upload-list-text-container"
+      class="ant-upload-list-item-container"
     >
       <div
-        class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-text"
+        class="ant-upload-list-item ant-upload-list-item-done"
       >
         <div
-          class="ant-upload-list-item-info"
+          class="ant-upload-icon"
         >
           <span
-            class="ant-upload-span"
+            aria-label="paper-clip"
+            class="anticon anticon-paper-clip"
+            role="img"
           >
-            <div
-              class="ant-upload-text-icon"
+            <svg
+              aria-hidden="true"
+              data-icon="paper-clip"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
             >
-              <span
-                aria-label="paper-clip"
-                class="anticon anticon-paper-clip"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="paper-clip"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M779.3 196.6c-94.2-94.2-247.6-94.2-341.7 0l-261 260.8c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l261-260.8c32.4-32.4 75.5-50.2 121.3-50.2s88.9 17.8 121.2 50.2c32.4 32.4 50.2 75.5 50.2 121.2 0 45.8-17.8 88.8-50.2 121.2l-266 265.9-43.1 43.1c-40.3 40.3-105.8 40.3-146.1 0-19.5-19.5-30.2-45.4-30.2-73s10.7-53.5 30.2-73l263.9-263.8c6.7-6.6 15.5-10.3 24.9-10.3h.1c9.4 0 18.1 3.7 24.7 10.3 6.7 6.7 10.3 15.5 10.3 24.9 0 9.3-3.7 18.1-10.3 24.7L372.4 653c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l215.6-215.6c19.9-19.9 30.8-46.3 30.8-74.4s-11-54.6-30.8-74.4c-41.1-41.1-107.9-41-149 0L463 364 224.8 602.1A172.22 172.22 0 00174 724.8c0 46.3 18.1 89.8 50.8 122.5 33.9 33.8 78.3 50.7 122.7 50.7 44.4 0 88.8-16.9 122.6-50.7l309.2-309C824.8 492.7 850 432 850 367.5c.1-64.6-25.1-125.3-70.7-170.9z"
-                  />
-                </svg>
-              </span>
-            </div>
-            <span
-              class="ant-upload-list-item-name"
-              title="xxx.png"
-            >
-              xxx.png
-            </span>
-            <span
-              class="ant-upload-list-item-card-actions"
-            >
-              <button
-                class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
-                title="Remove file"
-                type="button"
-              >
-                <span
-                  aria-label="delete"
-                  class="anticon anticon-delete"
-                  role="img"
-                  tabindex="-1"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="delete"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </span>
+              <path
+                d="M779.3 196.6c-94.2-94.2-247.6-94.2-341.7 0l-261 260.8c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l261-260.8c32.4-32.4 75.5-50.2 121.3-50.2s88.9 17.8 121.2 50.2c32.4 32.4 50.2 75.5 50.2 121.2 0 45.8-17.8 88.8-50.2 121.2l-266 265.9-43.1 43.1c-40.3 40.3-105.8 40.3-146.1 0-19.5-19.5-30.2-45.4-30.2-73s10.7-53.5 30.2-73l263.9-263.8c6.7-6.6 15.5-10.3 24.9-10.3h.1c9.4 0 18.1 3.7 24.7 10.3 6.7 6.7 10.3 15.5 10.3 24.9 0 9.3-3.7 18.1-10.3 24.7L372.4 653c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l215.6-215.6c19.9-19.9 30.8-46.3 30.8-74.4s-11-54.6-30.8-74.4c-41.1-41.1-107.9-41-149 0L463 364 224.8 602.1A172.22 172.22 0 00174 724.8c0 46.3 18.1 89.8 50.8 122.5 33.9 33.8 78.3 50.7 122.7 50.7 44.4 0 88.8-16.9 122.6-50.7l309.2-309C824.8 492.7 850 432 850 367.5c.1-64.6-25.1-125.3-70.7-170.9z"
+              />
+            </svg>
           </span>
         </div>
+        <span
+          class="ant-upload-list-item-name"
+          title="xxx.png"
+        >
+          xxx.png
+        </span>
+        <span
+          class="ant-upload-list-item-actions"
+        >
+          <button
+            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            title="Remove file"
+            type="button"
+          >
+            <span
+              aria-label="delete"
+              class="anticon anticon-delete"
+              role="img"
+              tabindex="-1"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="delete"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                />
+              </svg>
+            </span>
+          </button>
+        </span>
       </div>
     </div>
   </div>
@@ -42760,10 +42251,10 @@ exports[`ConfigProvider components Upload configProvider virtual and dropdownMat
 
 exports[`ConfigProvider components Upload normal 1`] = `
 <span
-  class=""
+  class="ant-upload-wrapper"
 >
   <div
-    class="ant-upload ant-upload-select ant-upload-select-text"
+    class="ant-upload ant-upload-select"
   >
     <span
       class="ant-upload"
@@ -42782,78 +42273,70 @@ exports[`ConfigProvider components Upload normal 1`] = `
     class="ant-upload-list ant-upload-list-text"
   >
     <div
-      class="ant-upload-list-text-container"
+      class="ant-upload-list-item-container"
     >
       <div
-        class="ant-upload-list-item ant-upload-list-item-done ant-upload-list-item-list-type-text"
+        class="ant-upload-list-item ant-upload-list-item-done"
       >
         <div
-          class="ant-upload-list-item-info"
+          class="ant-upload-icon"
         >
           <span
-            class="ant-upload-span"
+            aria-label="paper-clip"
+            class="anticon anticon-paper-clip"
+            role="img"
           >
-            <div
-              class="ant-upload-text-icon"
+            <svg
+              aria-hidden="true"
+              data-icon="paper-clip"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
             >
-              <span
-                aria-label="paper-clip"
-                class="anticon anticon-paper-clip"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="paper-clip"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M779.3 196.6c-94.2-94.2-247.6-94.2-341.7 0l-261 260.8c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l261-260.8c32.4-32.4 75.5-50.2 121.3-50.2s88.9 17.8 121.2 50.2c32.4 32.4 50.2 75.5 50.2 121.2 0 45.8-17.8 88.8-50.2 121.2l-266 265.9-43.1 43.1c-40.3 40.3-105.8 40.3-146.1 0-19.5-19.5-30.2-45.4-30.2-73s10.7-53.5 30.2-73l263.9-263.8c6.7-6.6 15.5-10.3 24.9-10.3h.1c9.4 0 18.1 3.7 24.7 10.3 6.7 6.7 10.3 15.5 10.3 24.9 0 9.3-3.7 18.1-10.3 24.7L372.4 653c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l215.6-215.6c19.9-19.9 30.8-46.3 30.8-74.4s-11-54.6-30.8-74.4c-41.1-41.1-107.9-41-149 0L463 364 224.8 602.1A172.22 172.22 0 00174 724.8c0 46.3 18.1 89.8 50.8 122.5 33.9 33.8 78.3 50.7 122.7 50.7 44.4 0 88.8-16.9 122.6-50.7l309.2-309C824.8 492.7 850 432 850 367.5c.1-64.6-25.1-125.3-70.7-170.9z"
-                  />
-                </svg>
-              </span>
-            </div>
-            <span
-              class="ant-upload-list-item-name"
-              title="xxx.png"
-            >
-              xxx.png
-            </span>
-            <span
-              class="ant-upload-list-item-card-actions"
-            >
-              <button
-                class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-card-actions-btn"
-                title="Remove file"
-                type="button"
-              >
-                <span
-                  aria-label="delete"
-                  class="anticon anticon-delete"
-                  role="img"
-                  tabindex="-1"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="delete"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </span>
+              <path
+                d="M779.3 196.6c-94.2-94.2-247.6-94.2-341.7 0l-261 260.8c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l261-260.8c32.4-32.4 75.5-50.2 121.3-50.2s88.9 17.8 121.2 50.2c32.4 32.4 50.2 75.5 50.2 121.2 0 45.8-17.8 88.8-50.2 121.2l-266 265.9-43.1 43.1c-40.3 40.3-105.8 40.3-146.1 0-19.5-19.5-30.2-45.4-30.2-73s10.7-53.5 30.2-73l263.9-263.8c6.7-6.6 15.5-10.3 24.9-10.3h.1c9.4 0 18.1 3.7 24.7 10.3 6.7 6.7 10.3 15.5 10.3 24.9 0 9.3-3.7 18.1-10.3 24.7L372.4 653c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l215.6-215.6c19.9-19.9 30.8-46.3 30.8-74.4s-11-54.6-30.8-74.4c-41.1-41.1-107.9-41-149 0L463 364 224.8 602.1A172.22 172.22 0 00174 724.8c0 46.3 18.1 89.8 50.8 122.5 33.9 33.8 78.3 50.7 122.7 50.7 44.4 0 88.8-16.9 122.6-50.7l309.2-309C824.8 492.7 850 432 850 367.5c.1-64.6-25.1-125.3-70.7-170.9z"
+              />
+            </svg>
           </span>
         </div>
+        <span
+          class="ant-upload-list-item-name"
+          title="xxx.png"
+        >
+          xxx.png
+        </span>
+        <span
+          class="ant-upload-list-item-actions"
+        >
+          <button
+            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
+            title="Remove file"
+            type="button"
+          >
+            <span
+              aria-label="delete"
+              class="anticon anticon-delete"
+              role="img"
+              tabindex="-1"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="delete"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                />
+              </svg>
+            </span>
+          </button>
+        </span>
       </div>
     </div>
   </div>
@@ -42862,10 +42345,10 @@ exports[`ConfigProvider components Upload normal 1`] = `
 
 exports[`ConfigProvider components Upload prefixCls 1`] = `
 <span
-  class=""
+  class="prefix-Upload-wrapper"
 >
   <div
-    class="prefix-Upload prefix-Upload-select prefix-Upload-select-text"
+    class="prefix-Upload prefix-Upload-select"
   >
     <span
       class="prefix-Upload"
@@ -42884,78 +42367,70 @@ exports[`ConfigProvider components Upload prefixCls 1`] = `
     class="prefix-Upload-list prefix-Upload-list-text"
   >
     <div
-      class="prefix-Upload-list-text-container"
+      class="prefix-Upload-list-item-container"
     >
       <div
-        class="prefix-Upload-list-item prefix-Upload-list-item-done prefix-Upload-list-item-list-type-text"
+        class="prefix-Upload-list-item prefix-Upload-list-item-done"
       >
         <div
-          class="prefix-Upload-list-item-info"
+          class="prefix-Upload-icon"
         >
           <span
-            class="prefix-Upload-span"
+            aria-label="paper-clip"
+            class="anticon anticon-paper-clip"
+            role="img"
           >
-            <div
-              class="prefix-Upload-text-icon"
+            <svg
+              aria-hidden="true"
+              data-icon="paper-clip"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
             >
-              <span
-                aria-label="paper-clip"
-                class="anticon anticon-paper-clip"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="paper-clip"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M779.3 196.6c-94.2-94.2-247.6-94.2-341.7 0l-261 260.8c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l261-260.8c32.4-32.4 75.5-50.2 121.3-50.2s88.9 17.8 121.2 50.2c32.4 32.4 50.2 75.5 50.2 121.2 0 45.8-17.8 88.8-50.2 121.2l-266 265.9-43.1 43.1c-40.3 40.3-105.8 40.3-146.1 0-19.5-19.5-30.2-45.4-30.2-73s10.7-53.5 30.2-73l263.9-263.8c6.7-6.6 15.5-10.3 24.9-10.3h.1c9.4 0 18.1 3.7 24.7 10.3 6.7 6.7 10.3 15.5 10.3 24.9 0 9.3-3.7 18.1-10.3 24.7L372.4 653c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l215.6-215.6c19.9-19.9 30.8-46.3 30.8-74.4s-11-54.6-30.8-74.4c-41.1-41.1-107.9-41-149 0L463 364 224.8 602.1A172.22 172.22 0 00174 724.8c0 46.3 18.1 89.8 50.8 122.5 33.9 33.8 78.3 50.7 122.7 50.7 44.4 0 88.8-16.9 122.6-50.7l309.2-309C824.8 492.7 850 432 850 367.5c.1-64.6-25.1-125.3-70.7-170.9z"
-                  />
-                </svg>
-              </span>
-            </div>
-            <span
-              class="prefix-Upload-list-item-name"
-              title="xxx.png"
-            >
-              xxx.png
-            </span>
-            <span
-              class="prefix-Upload-list-item-card-actions"
-            >
-              <button
-                class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only prefix-Upload-list-item-card-actions-btn"
-                title="Remove file"
-                type="button"
-              >
-                <span
-                  aria-label="delete"
-                  class="anticon anticon-delete"
-                  role="img"
-                  tabindex="-1"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="delete"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                    />
-                  </svg>
-                </span>
-              </button>
-            </span>
+              <path
+                d="M779.3 196.6c-94.2-94.2-247.6-94.2-341.7 0l-261 260.8c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l261-260.8c32.4-32.4 75.5-50.2 121.3-50.2s88.9 17.8 121.2 50.2c32.4 32.4 50.2 75.5 50.2 121.2 0 45.8-17.8 88.8-50.2 121.2l-266 265.9-43.1 43.1c-40.3 40.3-105.8 40.3-146.1 0-19.5-19.5-30.2-45.4-30.2-73s10.7-53.5 30.2-73l263.9-263.8c6.7-6.6 15.5-10.3 24.9-10.3h.1c9.4 0 18.1 3.7 24.7 10.3 6.7 6.7 10.3 15.5 10.3 24.9 0 9.3-3.7 18.1-10.3 24.7L372.4 653c-1.7 1.7-2.6 4-2.6 6.4s.9 4.7 2.6 6.4l36.9 36.9a9 9 0 0012.7 0l215.6-215.6c19.9-19.9 30.8-46.3 30.8-74.4s-11-54.6-30.8-74.4c-41.1-41.1-107.9-41-149 0L463 364 224.8 602.1A172.22 172.22 0 00174 724.8c0 46.3 18.1 89.8 50.8 122.5 33.9 33.8 78.3 50.7 122.7 50.7 44.4 0 88.8-16.9 122.6-50.7l309.2-309C824.8 492.7 850 432 850 367.5c.1-64.6-25.1-125.3-70.7-170.9z"
+              />
+            </svg>
           </span>
         </div>
+        <span
+          class="prefix-Upload-list-item-name"
+          title="xxx.png"
+        >
+          xxx.png
+        </span>
+        <span
+          class="prefix-Upload-list-item-actions"
+        >
+          <button
+            class="ant-btn ant-btn-text ant-btn-sm ant-btn-icon-only prefix-Upload-list-item-action"
+            title="Remove file"
+            type="button"
+          >
+            <span
+              aria-label="delete"
+              class="anticon anticon-delete"
+              role="img"
+              tabindex="-1"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="delete"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                />
+              </svg>
+            </span>
+          </button>
+        </span>
       </div>
     </div>
   </div>

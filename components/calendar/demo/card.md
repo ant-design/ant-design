@@ -15,12 +15,12 @@ Nested inside a container element for rendering in limited space.
 
 ```tsx
 import { Calendar } from 'antd';
+import type { Dayjs } from 'dayjs';
 import type { CalendarMode } from 'antd/es/calendar/generateCalendar';
-import type { Moment } from 'moment';
 import React from 'react';
 
 const App: React.FC = () => {
-  const onPanelChange = (value: Moment, mode: CalendarMode) => {
+  const onPanelChange = (value: Dayjs, mode: CalendarMode) => {
     console.log(value.format('YYYY-MM-DD'), mode);
   };
 

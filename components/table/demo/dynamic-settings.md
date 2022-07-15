@@ -294,7 +294,7 @@ export default App;
 
 <style>
 .components-table-demo-control-bar .ant-form-item {
-  margin-right: 16px;
-  margin-bottom: 8px;
+  margin-right: 16px !important;
+  margin-bottom: 8px !important;
 }
 </style>

@@ -5,6 +5,8 @@ import { ConfigContext } from '../config-provider';
 import type { CheckboxChangeEvent } from './Checkbox';
 import Checkbox from './Checkbox';
 
+import useStyle from './style';
+
 export type CheckboxValueType = string | number | boolean;
 
 export interface CheckboxOptionType {
@@ -113,6 +115,8 @@ const InternalCheckboxGroup: React.ForwardRefRenderFunction<HTMLDivElement, Chec
   const prefixCls = getPrefixCls('checkbox', customizePrefixCls);
   const groupPrefixCls = `${prefixCls}-group`;
 
+  const [wrapSSR, hashId] = useStyle(prefixCls);
+
   const domProps = omit(restProps, ['value', 'disabled']);
 
   if (options && options.length > 0) {
@@ -148,11 +152,12 @@ const InternalCheckboxGroup: React.ForwardRefRenderFunction<HTMLDivElement, Chec
       [`${groupPrefixCls}-rtl`]: direction === 'rtl',
     },
     className,
+    hashId,
   );
-  return (
+  return wrapSSR(
     <div className={classString} style={style} {...domProps} ref={ref}>
       <GroupContext.Provider value={context}>{children}</GroupContext.Provider>
-    </div>
+    </div>,
   );
 };
 

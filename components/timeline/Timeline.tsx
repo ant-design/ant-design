@@ -7,6 +7,9 @@ import { cloneElement } from '../_util/reactNode';
 import type { TimelineItemProps } from './TimelineItem';
 import TimelineItem from './TimelineItem';
 
+// CSSINJS
+import useStyle from './style';
+
 export interface TimelineProps {
   prefixCls?: string;
   className?: string;
@@ -37,6 +40,9 @@ const Timeline: TimelineType = props => {
   } = props;
   const prefixCls = getPrefixCls('timeline', customizePrefixCls);
   const pendingNode = typeof pending === 'boolean' ? null : pending;
+
+  // Style
+  const [wrapSSR, hashId] = useStyle(prefixCls);
 
   const pendingItem = pending ? (
     <TimelineItem pending={!!pending} dot={pendingDot || <LoadingOutlined />}>
@@ -92,10 +98,10 @@ const Timeline: TimelineType = props => {
     className,
   );
 
-  return (
-    <ul {...restProps} className={classString}>
+  return wrapSSR(
+    <ul {...restProps} className={classNames(classString, hashId)}>
       {items}
-    </ul>
+    </ul>,
   );
 };
 

@@ -135,7 +135,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
           customIcon.props.onClick(e);
         }
       },
-      className: `${prefixCls}-list-item-card-actions-btn`,
+      className: `${prefixCls}-list-item-action`,
     };
     if (isValidElement(customIcon)) {
       const btnIcon = cloneElement(customIcon, {
@@ -159,7 +159,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
     handleDownload: onInternalDownload,
   }));
 
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
+  const { getPrefixCls } = React.useContext(ConfigContext);
 
   // ============================= Render =============================
   const prefixCls = getPrefixCls('upload', customizePrefixCls);
@@ -167,7 +167,6 @@ const InternalUploadList: React.ForwardRefRenderFunction<unknown, UploadListProp
   const listClassNames = classNames({
     [`${prefixCls}-list`]: true,
     [`${prefixCls}-list-${listType}`]: true,
-    [`${prefixCls}-list-rtl`]: direction === 'rtl',
   });
 
   // >>> Motion config

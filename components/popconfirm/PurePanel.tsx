@@ -1,4 +1,6 @@
 import * as React from 'react';
+import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
+import classNames from 'classnames';
 import type { PopconfirmProps } from '.';
 import Button from '../button';
 import { convertLegacyProps } from '../button/button';
@@ -7,6 +9,9 @@ import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import defaultLocale from '../locale/default';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
 import { ConfigContext } from '../config-provider';
+import PopoverPurePanel from '../popover/PurePanel';
+
+import useStyle from './style';
 
 export interface PopconfirmLocale {
   okText: string;
@@ -39,8 +44,8 @@ export function Overlay(props: OverlayProps) {
     title,
     cancelText,
     okText,
-    okType,
-    icon,
+    okType = 'primary',
+    icon = <ExclamationCircleFilled />,
     showCancel = true,
     close,
     onConfirm,
@@ -77,5 +82,31 @@ export function Overlay(props: OverlayProps) {
         </div>
       )}
     </LocaleReceiver>
+  );
+}
+
+export interface PurePanelProps
+  extends Omit<OverlayProps, 'prefixCls'>,
+    Pick<PopconfirmProps, 'placement'> {
+  className?: string;
+  style?: React.CSSProperties;
+  prefixCls?: string;
+}
+
+export default function PurePanel(props: PurePanelProps) {
+  const { prefixCls: customizePrefixCls, placement, className, style, ...restProps } = props;
+
+  const { getPrefixCls } = React.useContext(ConfigContext);
+  const prefixCls = getPrefixCls('popconfirm', customizePrefixCls);
+  const [wrapSSR] = useStyle(prefixCls);
+
+  return wrapSSR(
+    <PopoverPurePanel
+      placement={placement}
+      className={classNames(prefixCls, className)}
+      style={style}
+    >
+      <Overlay {...restProps} prefixCls={prefixCls} />
+    </PopoverPurePanel>,
   );
 }

@@ -1,8 +1,11 @@
 import * as React from 'react';
 import type { RequiredMark } from '../form/Form';
 import type { Locale } from '../locale-provider';
+import type { MapToken, OverrideToken, SeedToken } from '../theme/interface';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
 import type { SizeType } from './SizeContext';
+
+export const defaultIconPrefixCls = 'anticon';
 
 export interface Theme {
   primaryColor?: string;
@@ -19,11 +22,18 @@ export interface CSPConfig {
 
 export type DirectionType = 'ltr' | 'rtl' | undefined;
 
+export interface ThemeConfig {
+  token?: Partial<SeedToken>;
+  override?: OverrideToken;
+  algorithm?: (token: SeedToken) => MapToken;
+  hashed?: boolean;
+}
+
 export interface ConfigConsumerProps {
   getTargetContainer?: () => HTMLElement;
   getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
   rootPrefixCls?: string;
-  iconPrefixCls?: string;
+  iconPrefixCls: string;
   getPrefixCls: (suffixCls?: string, customizePrefixCls?: string) => string;
   renderEmpty?: RenderEmptyHandler;
   csp?: CSPConfig;
@@ -48,6 +58,7 @@ export interface ConfigConsumerProps {
     requiredMark?: RequiredMark;
     colon?: boolean;
   };
+  theme?: ThemeConfig;
 }
 
 const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {
@@ -60,6 +71,7 @@ const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) =>
 export const ConfigContext = React.createContext<ConfigConsumerProps>({
   // We provide a default function for Context without provider
   getPrefixCls: defaultGetPrefixCls,
+  iconPrefixCls: defaultIconPrefixCls,
 });
 
 export const ConfigConsumer = ConfigContext.Consumer;

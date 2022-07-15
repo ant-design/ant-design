@@ -8423,7 +8423,7 @@ exports[`renders ./components/form/demo/register.md extend context correctly 1`]
           class="ant-form-item-control-input-content"
         >
           <div
-            class="ant-input-textarea ant-input-textarea-show-count ant-input-textarea-in-form-item"
+            class="ant-input-textarea ant-input-textarea-show-count"
             data-count="0 / 100"
           >
             <textarea
@@ -18568,8 +18568,9 @@ exports[`renders ./components/form/demo/validate-other.md extend context correct
           </div>
           <span
             class="ant-form-text"
+            style="margin-left:8px"
           >
-             machines
+            machines
           </span>
         </div>
       </div>
@@ -19464,10 +19465,10 @@ exports[`renders ./components/form/demo/validate-other.md extend context correct
           class="ant-form-item-control-input-content"
         >
           <span
-            class=""
+            class="ant-upload-wrapper"
           >
             <div
-              class="ant-upload ant-upload-select ant-upload-select-picture"
+              class="ant-upload ant-upload-select"
             >
               <span
                 class="ant-upload"
@@ -19544,7 +19545,9 @@ exports[`renders ./components/form/demo/validate-other.md extend context correct
         <div
           class="ant-form-item-control-input-content"
         >
-          <span>
+          <span
+            class="ant-upload-wrapper"
+          >
             <div
               class="ant-upload ant-upload-drag"
             >
@@ -25658,7 +25661,7 @@ exports[`renders ./components/form/demo/validate-static.md extend context correc
           class="ant-form-item-control-input-content"
         >
           <div
-            class="ant-input-textarea ant-input-textarea-show-count ant-input-textarea-in-form-item ant-input-textarea-status-error ant-input-textarea-has-feedback"
+            class="ant-input-textarea ant-input-textarea-show-count ant-input-textarea-status-error ant-input-textarea-has-feedback"
             data-count="0"
           >
             <span

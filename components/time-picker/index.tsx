@@ -1,7 +1,8 @@
-import type { Moment } from 'moment';
+import type { Dayjs } from 'dayjs';
 import * as React from 'react';
 import DatePicker from '../date-picker';
 import type { PickerTimeProps, RangePickerTimeProps } from '../date-picker/generatePicker';
+import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
 import warning from '../_util/warning';
 
@@ -12,7 +13,7 @@ export interface TimePickerLocale {
   rangePlaceholder?: [string, string];
 }
 
-export interface TimeRangePickerProps extends Omit<RangePickerTimeProps<Moment>, 'picker'> {
+export interface TimeRangePickerProps extends Omit<RangePickerTimeProps<Dayjs>, 'picker'> {
   popupClassName?: string;
 }
 
@@ -26,7 +27,7 @@ const RangePicker = React.forwardRef<any, TimeRangePickerProps>((props, ref) => 
   />
 ));
 
-export interface TimePickerProps extends Omit<PickerTimeProps<Moment>, 'picker'> {
+export interface TimePickerProps extends Omit<PickerTimeProps<Dayjs>, 'picker'> {
   addon?: () => React.ReactNode;
   popupClassName?: string;
   status?: InputStatus;
@@ -65,10 +66,17 @@ if (process.env.NODE_ENV !== 'production') {
   TimePicker.displayName = 'TimePicker';
 }
 
+// We don't care debug panel
+/* istanbul ignore next */
+const PurePanel = genPurePanel(TimePicker, 'picker');
+(TimePicker as MergedTimePicker)._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
+
 type MergedTimePicker = typeof TimePicker & {
   RangePicker: typeof RangePicker;
+  _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
 };
 
 (TimePicker as MergedTimePicker).RangePicker = RangePicker;
+(TimePicker as MergedTimePicker)._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
 export default TimePicker as MergedTimePicker;

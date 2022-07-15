@@ -19,6 +19,8 @@ import enUS from '../locale/en_US';
 import { getRangePlaceholder, transPlacement2DropdownAlign } from '../util';
 import type { CommonPickerMethods, PickerComponentClass } from './interface';
 
+import useStyle from '../style';
+
 export default function generateRangePicker<DateType>(
   generateConfig: GenerateConfig<DateType>,
 ): PickerComponentClass<RangePickerProps<DateType>> {
@@ -38,6 +40,7 @@ export default function generateRangePicker<DateType>(
       bordered = true,
       placeholder,
       status: customStatus,
+      dropdownClassName,
       ...restProps
     } = props;
 
@@ -46,6 +49,8 @@ export default function generateRangePicker<DateType>(
     const prefixCls = getPrefixCls('picker', customizePrefixCls);
     const { format, showTime, picker } = props as any;
     const rootPrefixCls = getPrefixCls();
+
+    const [wrapSSR, hashId] = useStyle(prefixCls);
 
     let additionalOverrideProps: any = {};
     additionalOverrideProps = {
@@ -78,7 +83,7 @@ export default function generateRangePicker<DateType>(
       blur: () => innerRef.current?.blur(),
     }));
 
-    return (
+    return wrapSSR(
       <LocaleReceiver componentName="DatePicker" defaultLocale={enUS}>
         {(contextLocale: PickerLocale) => {
           const locale = { ...contextLocale, ...props.locale };
@@ -114,6 +119,7 @@ export default function generateRangePicker<DateType>(
                   getMergedStatus(contextStatus, customStatus),
                   hasFeedback,
                 ),
+                hashId,
                 className,
               )}
               locale={locale!.lang}
@@ -122,10 +128,11 @@ export default function generateRangePicker<DateType>(
               generateConfig={generateConfig}
               components={Components}
               direction={direction}
+              dropdownClassName={classNames(hashId, dropdownClassName)}
             />
           );
         }}
-      </LocaleReceiver>
+      </LocaleReceiver>,
     );
   });
 

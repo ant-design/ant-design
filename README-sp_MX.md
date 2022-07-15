@@ -68,7 +68,7 @@ Un lenguaje de diseño de interfaz de usuario de clase empresarial y una bibliot
 | --- | --- | --- | --- | --- |
 | IE11, Edge | últimas 2 versiones | últimas 2 versiones | últimas 2 versiones | últimas 2 versiones |
 
-## 📦 Instalar 
+## 📦 Instalar
 
 ```bash
 npm install antd

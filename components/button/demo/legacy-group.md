@@ -47,9 +47,3 @@ const App: React.FC = () => (
 
 export default App;
 ```
-
-```css
-#components-button-demo-legacy-group .ant-btn {
-  margin: 0;
-}
-```
