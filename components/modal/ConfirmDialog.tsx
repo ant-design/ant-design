@@ -155,6 +155,8 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     props.className,
   );
 
+  console.log('ConfirmDialog', props);
+
   return (
     <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={iconPrefixCls} direction={direction}>
       <Dialog
