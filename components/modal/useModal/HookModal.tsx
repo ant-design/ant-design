@@ -60,10 +60,7 @@ const HookModal: React.ForwardRefRenderFunction<HookModalRef, HookModalProps> = 
           close={close}
           visible={visible}
           afterClose={afterClose}
-          okText={
-            innerConfig.okText ||
-            (innerConfig.okCancel ? modalLocale.okText : modalLocale.justOkText)
-          }
+          okText={innerConfig.okText}
           direction={direction}
           cancelText={innerConfig.cancelText || modalLocale.cancelText}
         />

@@ -192,4 +192,8 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
   );
 };
 
+if (process.env.NODE_ENV !== 'production') {
+  ConfirmDialog.displayName = 'ConfirmDialog';
+}
+
 export default ConfirmDialog;
