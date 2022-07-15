@@ -57,7 +57,7 @@
     "prestart": "npm run version",
     "precompile": "npm run version && npm run collect-token-statistic",
     "pretest": "npm run version",
-    "predist": "npm run version && npm run collect-token-statistic",
+    "predist": "npm run version",
     "presite": "npm run version",
     "compile": "npm run clean && antd-tools run compile-experimental",
     "changelog": "node ./scripts/print-changelog",
