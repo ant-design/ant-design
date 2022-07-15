@@ -22,14 +22,8 @@ const { _InternalPanelDoNotUseOrYouWillBeFired: InternalPopconfirm } = Popconfir
 
 const App: React.FC = () => (
   <>
-    <InternalPopconfirm title="Are you OK?" okText="Yes" cancelText="No" />
-    <InternalPopconfirm
-      title="Are you OK?"
-      okText="Yes"
-      cancelText="No"
-      placement="bottomRight"
-      style={{ width: 250 }}
-    />
+    <InternalPopconfirm title="Are you OK?" />
+    <InternalPopconfirm title="Are you OK?" placement="bottomRight" style={{ width: 250 }} />
   </>
 );
 

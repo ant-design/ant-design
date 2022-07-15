@@ -245,7 +245,7 @@ Array [
               type="button"
             >
               <span>
-                No
+                Cancel
               </span>
             </button>
             <button
@@ -253,7 +253,7 @@ Array [
               type="button"
             >
               <span>
-                Yes
+                OK
               </span>
             </button>
           </div>
@@ -314,7 +314,7 @@ Array [
               type="button"
             >
               <span>
-                No
+                Cancel
               </span>
             </button>
             <button
@@ -322,7 +322,7 @@ Array [
               type="button"
             >
               <span>
-                Yes
+                OK
               </span>
             </button>
           </div>
