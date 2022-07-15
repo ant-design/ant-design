@@ -7,11 +7,14 @@ import Button from '../button';
 import { convertLegacyProps } from '../button/button';
 import { ConfigContext } from '../config-provider';
 import LocaleReceiver from '../locale-provider/LocaleReceiver';
+import { ConfirmContent } from './ConfirmDialog';
 import { getConfirmLocale } from './locale';
-import type { ModalProps } from './Modal';
+import type { ModalProps, ModalFuncProps } from './Modal';
 import useStyle from './style';
 
-export interface PurePanelProps extends Omit<PanelProps, 'prefixCls'> {
+export interface PurePanelProps
+  extends Omit<PanelProps, 'prefixCls'>,
+    Pick<ModalFuncProps, 'type'> {
   prefixCls?: string;
   style?: React.CSSProperties;
 }
@@ -79,23 +82,60 @@ export default function PurePanel(props: PurePanelProps) {
     prefixCls: customizePrefixCls,
     className,
     closeIcon,
-    closable = true,
+    closable,
+    type,
+    title,
+    children,
     ...restProps
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
 
+  const rootPrefixCls = getPrefixCls();
   const prefixCls = customizePrefixCls || getPrefixCls('modal');
 
   const [, hashId] = useStyle(prefixCls);
 
+  const confirmPrefixCls = `${prefixCls}-confirm`;
+
+  // Choose target props by confirm mark
+  let additionalProps: Partial<PanelProps> = {};
+  if (type) {
+    additionalProps = {
+      closable: closable ?? false,
+      title: '',
+      footer: '',
+      children: (
+        <ConfirmContent
+          {...props}
+          confirmPrefixCls={confirmPrefixCls}
+          rootPrefixCls={rootPrefixCls}
+          content={children}
+        />
+      ),
+    };
+  } else {
+    additionalProps = {
+      closable: closable ?? true,
+      title,
+      footer: renderFooter(props),
+      children,
+    };
+  }
+
   return (
     <Panel
       prefixCls={prefixCls}
-      className={classNames(hashId, `${prefixCls}-pure-panel`, className)}
+      className={classNames(
+        hashId,
+        `${prefixCls}-pure-panel`,
+        type && confirmPrefixCls,
+        type && `${confirmPrefixCls}-${type}`,
+        className,
+      )}
       {...restProps}
       closeIcon={renderCloseIcon(prefixCls, closeIcon)}
-      footer={renderFooter(props)}
       closable={closable}
+      {...additionalProps}
     />
   );
 }
