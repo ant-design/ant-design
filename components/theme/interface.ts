@@ -215,9 +215,11 @@ export interface ColorMapToken {
   colorPrimaryBorderHover: string;
   colorPrimaryOutline: string;
 
+  colorSuccess: string;
   colorSuccessBorder: string;
   colorSuccessBg: string; // success[0]
 
+  colorWarning: string;
   colorWarningHover: string;
   colorWarningActive: string;
   colorWarningBorder: string;
@@ -231,6 +233,7 @@ export interface ColorMapToken {
   colorErrorBg: string;
   colorErrorOutline: string;
 
+  colorInfo: string;
   colorInfoBorder: string;
   colorInfoBg: string;
 

@@ -33,25 +33,28 @@ export default function genColorMapToken(
   }: PaletteGenerators,
 ): ColorMapToken {
   const {
-    colorSuccess,
-    colorWarning,
+    colorSuccess: colorSuccessBase,
+    colorWarning: colorWarningBase,
     colorError: colorErrorBase,
-    colorInfo,
+    colorInfo: colorInfoBase,
     brandColor,
     colorBgBase,
     colorTextBase,
   } = seed;
 
   const primaryColors = generatePrimaryPalettes(brandColor);
-  const successColors = generateSuccessPalettes(colorSuccess);
-  const warningColors = generateWarningPalettes(colorWarning);
+  const successColors = generateSuccessPalettes(colorSuccessBase);
+  const warningColors = generateWarningPalettes(colorWarningBase);
   const errorColors = generateErrorPalettes(colorErrorBase);
-  const infoColors = generateInfoPalettes(colorInfo);
+  const infoColors = generateInfoPalettes(colorInfoBase);
   const bgColors = generateBgPalettes(colorBgBase);
   const textColors = generateTextAlphaPalettes(colorTextBase);
 
   const colorPrimary = primaryColors['6'];
   const colorError = errorColors['5'];
+  const colorWarning = warningColors['6'];
+  const colorSuccess = successColors['6'];
+  const colorInfo = infoColors['6'];
 
   return {
     colorPrimary,
@@ -63,6 +66,7 @@ export default function genColorMapToken(
     colorPrimaryBorderHover: primaryColors['4'],
     colorPrimaryOutline: new TinyColor(colorPrimary).setAlpha(0.2).toRgbString(),
 
+    colorSuccess,
     colorSuccessBg: successColors['1'],
     colorSuccessBorder: successColors['3'],
 
@@ -73,12 +77,14 @@ export default function genColorMapToken(
     colorErrorActive: errorColors['7'],
     colorErrorOutline: new TinyColor(colorError).setAlpha(0.2).toRgbString(),
 
+    colorWarning,
     colorWarningBg: warningColors['1'],
     colorWarningBorder: warningColors['3'],
     colorWarningHover: warningColors['5'],
     colorWarningActive: warningColors['7'],
     colorWarningOutline: new TinyColor(colorWarning).setAlpha(0.2).toRgbString(),
 
+    colorInfo,
     colorInfoBg: infoColors['1'],
     colorInfoBorder: infoColors['3'],
 
