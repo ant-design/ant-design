@@ -323,87 +323,249 @@ Array [
 
 exports[`renders ./components/modal/demo/render-panel.md correctly 1`] = `
 <div
-  aria-modal="true"
-  class="ant-modal ant-modal-pure-panel"
-  role="dialog"
+  style="display:flex;flex-direction:column;row-gap:16px"
 >
   <div
-    aria-hidden="true"
-    style="width:0;height:0;overflow:hidden;outline:none"
-    tabindex="0"
-  />
-  <div
-    class="ant-modal-content"
+    aria-modal="true"
+    class="ant-modal ant-modal-pure-panel"
+    role="dialog"
+    style="width:100%"
   >
-    <button
-      aria-label="Close"
-      class="ant-modal-close"
-      type="button"
+    <div
+      aria-hidden="true"
+      style="width:0;height:0;overflow:hidden;outline:none"
+      tabindex="0"
+    />
+    <div
+      class="ant-modal-content"
     >
-      <span
-        class="ant-modal-close-x"
+      <button
+        aria-label="Close"
+        class="ant-modal-close"
+        type="button"
       >
         <span
-          aria-label="close"
-          class="anticon anticon-close ant-modal-close-icon"
-          role="img"
+          class="ant-modal-close-x"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="close"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
+          <span
+            aria-label="close"
+            class="anticon anticon-close ant-modal-close-icon"
+            role="img"
           >
-            <path
-              d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-            />
-          </svg>
+            <svg
+              aria-hidden="true"
+              data-icon="close"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+              />
+            </svg>
+          </span>
         </span>
-      </span>
-    </button>
-    <div
-      class="ant-modal-header"
-    >
+      </button>
       <div
-        class="ant-modal-title"
+        class="ant-modal-header"
       >
-        Hello World!
+        <div
+          class="ant-modal-title"
+        >
+          Hello World!
+        </div>
+      </div>
+      <div
+        class="ant-modal-body"
+      >
+        Hello World?!
+      </div>
+      <div
+        class="ant-modal-footer"
+      >
+        <button
+          class="ant-btn ant-btn-default"
+          type="button"
+        >
+          <span>
+            Cancel
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
+        >
+          <span>
+            OK
+          </span>
+        </button>
       </div>
     </div>
     <div
-      class="ant-modal-body"
-    >
-      Hello World?!
-    </div>
-    <div
-      class="ant-modal-footer"
-    >
-      <button
-        class="ant-btn ant-btn-default"
-        type="button"
-      >
-        <span>
-          Cancel
-        </span>
-      </button>
-      <button
-        class="ant-btn ant-btn-primary"
-        type="button"
-      >
-        <span>
-          OK
-        </span>
-      </button>
-    </div>
+      aria-hidden="true"
+      style="width:0;height:0;overflow:hidden;outline:none"
+      tabindex="0"
+    />
   </div>
   <div
-    aria-hidden="true"
-    style="width:0;height:0;overflow:hidden;outline:none"
-    tabindex="0"
-  />
+    aria-modal="true"
+    class="ant-modal ant-modal-pure-panel ant-modal-confirm ant-modal-confirm-success"
+    role="dialog"
+    style="width:200px"
+  >
+    <div
+      aria-hidden="true"
+      style="width:0;height:0;overflow:hidden;outline:none"
+      tabindex="0"
+    />
+    <div
+      class="ant-modal-content"
+    >
+      <div
+        class="ant-modal-body"
+      >
+        <div
+          class="ant-modal-confirm-body-wrapper"
+        >
+          <div
+            class="ant-modal-confirm-body"
+          >
+            <span
+              aria-label="check-circle"
+              class="anticon anticon-check-circle"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="check-circle"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M699 353h-46.9c-10.2 0-19.9 4.9-25.9 13.3L469 584.3l-71.2-98.8c-6-8.3-15.6-13.3-25.9-13.3H325c-6.5 0-10.3 7.4-6.5 12.7l124.6 172.8a31.8 31.8 0 0051.7 0l210.6-292c3.9-5.3.1-12.7-6.4-12.7z"
+                />
+                <path
+                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                />
+              </svg>
+            </span>
+            <div
+              class="ant-modal-confirm-content"
+            >
+              A good news!
+            </div>
+          </div>
+          <div
+            class="ant-modal-confirm-btns"
+          >
+            <button
+              class="ant-btn ant-btn-primary"
+              type="button"
+            >
+              <span>
+                OK
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-hidden="true"
+      style="width:0;height:0;overflow:hidden;outline:none"
+      tabindex="0"
+    />
+  </div>
+  <div
+    aria-modal="true"
+    class="ant-modal ant-modal-pure-panel ant-modal-confirm ant-modal-confirm-confirm"
+    role="dialog"
+    style="width:300px"
+  >
+    <div
+      aria-hidden="true"
+      style="width:0;height:0;overflow:hidden;outline:none"
+      tabindex="0"
+    />
+    <div
+      class="ant-modal-content"
+    >
+      <div
+        class="ant-modal-body"
+      >
+        <div
+          class="ant-modal-confirm-body-wrapper"
+        >
+          <div
+            class="ant-modal-confirm-body"
+          >
+            <span
+              aria-label="exclamation-circle"
+              class="anticon anticon-exclamation-circle"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="exclamation-circle"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                />
+                <path
+                  d="M464 688a48 48 0 1096 0 48 48 0 10-96 0zm24-112h48c4.4 0 8-3.6 8-8V296c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8z"
+                />
+              </svg>
+            </span>
+            <span
+              class="ant-modal-confirm-title"
+            >
+              Confirm This?
+            </span>
+            <div
+              class="ant-modal-confirm-content"
+            >
+              Some descriptions.
+            </div>
+          </div>
+          <div
+            class="ant-modal-confirm-btns"
+          >
+            <button
+              class="ant-btn ant-btn-default"
+              type="button"
+            >
+              <span>
+                Cancel
+              </span>
+            </button>
+            <button
+              class="ant-btn ant-btn-primary"
+              type="button"
+            >
+              <span>
+                OK
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      aria-hidden="true"
+      style="width:0;height:0;overflow:hidden;outline:none"
+      tabindex="0"
+    />
+  </div>
 </div>
 `;
 
