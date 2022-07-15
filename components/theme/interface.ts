@@ -148,7 +148,7 @@ export type GlobalToken = AliasToken & ComponentTokenMap;
 // 🔥🔥🔥🔥🔥🔥🔥 DO NOT MODIFY THIS. PLEASE CONTACT DESIGNER. 🔥🔥🔥🔥🔥🔥🔥
 export interface SeedToken extends PresetColorType {
   // Color
-  colorPrimary: string;
+  brandColor: string;
   colorSuccess: string;
   colorWarning: string;
   colorError: string;
@@ -206,26 +206,34 @@ export interface SeedToken extends PresetColorType {
 
 export interface ColorMapToken {
   // Color
+  colorPrimary: string;
   colorPrimaryHover: string;
   colorPrimaryBg: string;
   colorPrimaryBgHover: string;
   colorPrimaryActive: string;
   colorPrimaryBorder: string; // primary[2]
   colorPrimaryBorderHover: string;
+  colorPrimaryOutline: string;
 
+  colorSuccess: string;
   colorSuccessBorder: string;
   colorSuccessBg: string; // success[0]
 
+  colorWarning: string;
   colorWarningHover: string;
   colorWarningActive: string;
   colorWarningBorder: string;
   colorWarningBg: string;
+  colorWarningOutline: string;
 
+  colorError: string;
   colorErrorHover: string;
   colorErrorActive: string;
   colorErrorBorder: string;
   colorErrorBg: string;
+  colorErrorOutline: string;
 
+  colorInfo: string;
   colorInfoBorder: string;
   colorInfoBg: string;
 
@@ -317,11 +325,7 @@ export interface CommonMapToken {
 // ==                         Map Token                         ==
 // ======================================================================
 // 🔥🔥🔥🔥🔥🔥🔥 DO NOT MODIFY THIS. PLEASE CONTACT DESIGNER. 🔥🔥🔥🔥🔥🔥🔥
-export interface MapToken extends SeedToken, ColorPalettes, ColorMapToken, CommonMapToken {
-  colorPrimaryOutline: string;
-  colorWarningOutline: string;
-  colorErrorOutline: string;
-}
+export interface MapToken extends SeedToken, ColorPalettes, ColorMapToken, CommonMapToken {}
 
 // ======================================================================
 // ==                           Alias Token                            ==

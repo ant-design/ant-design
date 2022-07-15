@@ -31,7 +31,7 @@ describe('Theme', () => {
       <ConfigProvider
         theme={{
           token: {
-            colorPrimary: 'red',
+            brandColor: '#ff0000',
           },
         }}
       >
@@ -41,7 +41,7 @@ describe('Theme', () => {
 
     expect(themeRef.current!.token).toEqual(
       expect.objectContaining({
-        colorPrimary: 'red',
+        colorPrimary: '#ff0000',
         colorPrimaryHover: '#ff3029', // It's safe to modify if theme logic changed
       }),
     );

@@ -16,7 +16,7 @@ describe('ConfigProvider.DynamicTheme', () => {
       <ConfigProvider
         theme={{
           token: {
-            colorPrimary: '#f00',
+            brandColor: '#f00000',
           },
         }}
       >
@@ -30,7 +30,7 @@ describe('ConfigProvider.DynamicTheme', () => {
       dynamicStyles.some(style => {
         const { innerHTML } = style;
         return (
-          innerHTML.includes('.ant-btn-primary') && innerHTML.includes('background-color:#f00')
+          innerHTML.includes('.ant-btn-primary') && innerHTML.includes('background-color:#f00000')
         );
       }),
     ).toBeTruthy();

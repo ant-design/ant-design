@@ -118,7 +118,7 @@ export default function DynamicTheme({
                 node = <Input />;
             }
 
-            const rules: any[] = [{ required: true }];
+            const rules: any[] = [{ required: key !== 'colorTextBase' && key !== 'colorBgBase' }];
             const originColor = new TinyColor(originValue);
             if (originValueType === 'string' && originColor.isValid) {
               rules.push({

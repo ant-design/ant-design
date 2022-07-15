@@ -1,96 +1,132 @@
-import type { ColorMapToken } from '../../interface';
+import { TinyColor } from '@ctrl/tinycolor';
+import type { ColorMapToken, SeedToken } from '../../interface';
 import type {
-  BgPalettes,
-  ErrorPalettes,
-  InfoPalettes,
-  PrimaryPalettes,
-  SuccessPalettes,
-  TextAlphaPalettes,
-  WarningPalettes,
+  GenerateBgPalettes,
+  GenerateErrorPalettes,
+  GenerateInfoPalettes,
+  GeneratePrimaryPalettes,
+  GenerateSuccessPalettes,
+  GenerateTextAlphaPalettes,
+  GenerateWarningPalettes,
 } from '../IPalettes';
 
-interface PaletteSheets {
-  primaryPalettes: PrimaryPalettes;
-  successPalettes: SuccessPalettes;
-  errorPalettes: ErrorPalettes;
-  warningPalettes: WarningPalettes;
-  infoPalettes: InfoPalettes;
-  textAlphaPalettes: TextAlphaPalettes;
-  bgPalettes: BgPalettes;
+interface PaletteGenerators {
+  generatePrimaryPalettes: GeneratePrimaryPalettes;
+  generateSuccessPalettes: GenerateSuccessPalettes;
+  generateErrorPalettes: GenerateErrorPalettes;
+  generateWarningPalettes: GenerateWarningPalettes;
+  generateInfoPalettes: GenerateInfoPalettes;
+  generateTextAlphaPalettes: GenerateTextAlphaPalettes;
+  generateBgPalettes: GenerateBgPalettes;
 }
 
-export default function genColorMapToken({
-  primaryPalettes,
-  successPalettes,
-  errorPalettes,
-  warningPalettes,
-  infoPalettes,
-  textAlphaPalettes,
-  bgPalettes,
-}: PaletteSheets): ColorMapToken {
+export default function genColorMapToken(
+  seed: SeedToken,
+  {
+    generatePrimaryPalettes,
+    generateSuccessPalettes,
+    generateErrorPalettes,
+    generateWarningPalettes,
+    generateInfoPalettes,
+    generateTextAlphaPalettes,
+    generateBgPalettes,
+  }: PaletteGenerators,
+): ColorMapToken {
+  const {
+    colorSuccess: colorSuccessBase,
+    colorWarning: colorWarningBase,
+    colorError: colorErrorBase,
+    colorInfo: colorInfoBase,
+    brandColor,
+    colorBgBase,
+    colorTextBase,
+  } = seed;
+
+  const primaryColors = generatePrimaryPalettes(brandColor);
+  const successColors = generateSuccessPalettes(colorSuccessBase);
+  const warningColors = generateWarningPalettes(colorWarningBase);
+  const errorColors = generateErrorPalettes(colorErrorBase);
+  const infoColors = generateInfoPalettes(colorInfoBase);
+  const bgColors = generateBgPalettes(colorBgBase);
+  const textColors = generateTextAlphaPalettes(colorTextBase);
+
+  const colorPrimary = primaryColors['6'];
+  const colorError = errorColors['5'];
+  const colorWarning = warningColors['6'];
+  const colorSuccess = successColors['6'];
+  const colorInfo = infoColors['6'];
+
   return {
-    colorPrimaryHover: primaryPalettes['5'],
-    colorPrimaryBg: primaryPalettes['1'],
-    colorPrimaryBgHover: primaryPalettes['0'],
-    colorPrimaryActive: primaryPalettes['7'],
-    colorPrimaryBorder: primaryPalettes['3'],
-    colorPrimaryBorderHover: primaryPalettes['4'],
+    colorPrimary,
+    colorPrimaryHover: primaryColors['5'],
+    colorPrimaryBg: primaryColors['1'],
+    colorPrimaryBgHover: primaryColors['0'],
+    colorPrimaryActive: primaryColors['7'],
+    colorPrimaryBorder: primaryColors['3'],
+    colorPrimaryBorderHover: primaryColors['4'],
+    colorPrimaryOutline: new TinyColor(colorPrimary).setAlpha(0.2).toRgbString(),
 
-    colorSuccessBg: successPalettes['1'],
-    colorSuccessBorder: successPalettes['3'],
+    colorSuccess,
+    colorSuccessBg: successColors['1'],
+    colorSuccessBorder: successColors['3'],
 
-    colorErrorBg: errorPalettes['1'],
-    colorErrorBorder: errorPalettes['3'],
-    colorErrorHover: errorPalettes['5'],
-    colorErrorActive: errorPalettes['7'],
+    colorError,
+    colorErrorBg: errorColors['1'],
+    colorErrorBorder: errorColors['3'],
+    colorErrorHover: errorColors['5'],
+    colorErrorActive: errorColors['7'],
+    colorErrorOutline: new TinyColor(colorError).setAlpha(0.2).toRgbString(),
 
-    colorWarningBg: warningPalettes['1'],
-    colorWarningBorder: warningPalettes['3'],
-    colorWarningHover: warningPalettes['5'],
-    colorWarningActive: warningPalettes['7'],
+    colorWarning,
+    colorWarningBg: warningColors['1'],
+    colorWarningBorder: warningColors['3'],
+    colorWarningHover: warningColors['5'],
+    colorWarningActive: warningColors['7'],
+    colorWarningOutline: new TinyColor(colorWarning).setAlpha(0.2).toRgbString(),
 
-    colorInfoBg: infoPalettes['1'],
-    colorInfoBorder: infoPalettes['3'],
+    colorInfo,
+    colorInfoBg: infoColors['1'],
+    colorInfoBorder: infoColors['3'],
 
-    colorLink: primaryPalettes['6'],
-    colorLinkHover: primaryPalettes['5'],
-    colorLinkActive: primaryPalettes['7'],
+    colorLink: primaryColors['6'],
+    colorLinkHover: primaryColors['5'],
+    colorLinkActive: primaryColors['7'],
 
     // ============== Background ============== //
-    colorBgLayout: bgPalettes['0'],
-    colorBgElevated: bgPalettes['12'],
-    colorBgContainer: bgPalettes['8'],
-    colorBgContent: bgPalettes['15'],
+    colorBgLayout: bgColors['0'],
+    colorBgElevated: bgColors['12'],
+    colorBgContainer: bgColors['8'],
+    colorBgContent: bgColors['15'],
 
-    colorBgContentHover: bgPalettes['26'],
-    colorBgContainerSecondary: textAlphaPalettes['4'],
-    colorBgContainerDisabled: textAlphaPalettes['8'],
+    colorBgContentHover: bgColors['26'],
+    colorBgContainerSecondary: textColors['4'],
+    colorBgContainerDisabled: textColors['8'],
 
-    colorBgMask: textAlphaPalettes['45'],
-    colorBgItemHover: textAlphaPalettes['8'],
-    colorBgFillTmp: textAlphaPalettes['12'],
-    colorBgTooltipTmp: textAlphaPalettes['85'],
+    colorBgMask: textColors['45'],
+    colorBgItemHover: textColors['8'],
+    colorBgFillTmp: textColors['12'],
+    colorBgTooltipTmp: textColors['85'],
 
     // ============== Split ============== //
-    colorBorder: bgPalettes['26'],
-    colorBorderSecondary: bgPalettes['19'],
-    colorBorderBg: bgPalettes.base,
-    colorSplit: textAlphaPalettes['12'],
+    colorBorder: bgColors['26'],
+    colorBorderSecondary: bgColors['19'],
+    colorBorderBg: bgColors.base,
+    colorSplit: textColors['12'],
 
     // ============== Text ============== //
-    colorText: textAlphaPalettes['85'],
-    colorTextHeading: textAlphaPalettes['85'],
-    colorTextSecondary: textAlphaPalettes['45'],
-    colorTextDisabled: textAlphaPalettes['25'],
-    colorTextLabel: textAlphaPalettes['65'],
+    colorText: textColors['85'],
+    colorTextHeading: textColors['85'],
+    colorTextSecondary: textColors['45'],
+    colorTextDisabled: textColors['25'],
+    colorTextLabel: textColors['65'],
 
-    colorAction: textAlphaPalettes['45'],
-    colorActionHover: textAlphaPalettes['85'],
+    colorAction: textColors['45'],
+    colorActionHover: textColors['85'],
 
-    buttonColorBgTextHover: textAlphaPalettes['3'],
-    buttonColorBgTextActive: textAlphaPalettes['4'],
-    segmentedBgColor: textAlphaPalettes['8'],
-    segmentedBgColorHover: textAlphaPalettes['12'],
-    segmentedBgColorActive: bgPalettes['8'],
+    buttonColorBgTextHover: textColors['3'],
+    buttonColorBgTextActive: textColors['4'],
+    segmentedBgColor: textColors['8'],
+    segmentedBgColorHover: textColors['12'],
+    segmentedBgColorActive: bgColors['8'],
   };
 }
