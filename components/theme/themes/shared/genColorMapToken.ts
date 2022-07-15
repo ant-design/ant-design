@@ -51,7 +51,7 @@ export default function genColorMapToken(
   const textColors = generateTextAlphaPalettes(colorTextBase);
 
   const colorPrimary = primaryColors['6'];
-  const colorError = errorColors['6'];
+  const colorError = errorColors['5'];
 
   return {
     colorPrimary,
