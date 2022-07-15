@@ -1,4 +1,3 @@
-import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import KeyCode from 'rc-util/lib/KeyCode';
@@ -6,11 +5,10 @@ import * as React from 'react';
 import type { ButtonProps, LegacyButtonType } from '../button/button';
 import { ConfigContext } from '../config-provider';
 import Popover from '../popover';
-import genPurePanel from '../_util/PurePanel';
 import type { AbstractTooltipProps } from '../tooltip';
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import { cloneElement } from '../_util/reactNode';
-import { Overlay } from './PurePanel';
+import PurePanel, { Overlay } from './PurePanel';
 
 import usePopconfirmStyle from './style';
 
@@ -126,16 +124,12 @@ const Popconfirm = React.forwardRef<unknown, PopconfirmProps>((props, ref) => {
 };
 
 Popconfirm.defaultProps = {
-  placement: 'top' as PopconfirmProps['placement'],
   trigger: 'click' as PopconfirmProps['trigger'],
-  okType: 'primary' as PopconfirmProps['okType'],
-  icon: <ExclamationCircleFilled />,
   disabled: false,
 };
 
 // We don't care debug panel
 /* istanbul ignore next */
-const PurePanel = genPurePanel(Popconfirm, 'popover', prefixCls => prefixCls);
 Popconfirm._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
 export default Popconfirm;
