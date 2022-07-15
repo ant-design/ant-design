@@ -9,7 +9,7 @@ import LocaleReceiver from '../locale-provider/LocaleReceiver';
 import ActionButton from '../_util/ActionButton';
 import { getTransitionName } from '../_util/motion';
 import warning from '../_util/warning';
-import type { ModalFuncProps } from './Modal';
+import type { ModalFuncProps, ModalLocale } from './Modal';
 import Dialog from './Modal';
 
 interface ConfirmDialogProps extends ModalFuncProps {
@@ -18,6 +18,9 @@ interface ConfirmDialogProps extends ModalFuncProps {
   autoFocusButton?: null | 'ok' | 'cancel';
   rootPrefixCls: string;
   iconPrefixCls?: string;
+
+  /** @private Internal Usage. Do not override this */
+  locale?: ModalLocale;
 }
 
 export function ConfirmContent(
@@ -38,6 +41,9 @@ export function ConfirmContent(
     rootPrefixCls,
     type,
     okCancel,
+
+    // Legacy for static function usage
+    locale: staticLocale,
   } = props;
 
   warning(
@@ -77,6 +83,8 @@ export function ConfirmContent(
   return (
     <LocaleReceiver componentName="Modal">
       {locale => {
+        const mergedLocale = staticLocale || locale;
+
         const cancelButton = mergedOkCancel && (
           <ActionButton
             actionFn={onCancel}
@@ -85,7 +93,7 @@ export function ConfirmContent(
             buttonProps={cancelButtonProps}
             prefixCls={`${rootPrefixCls}-btn`}
           >
-            {cancelText || locale?.cancelText}
+            {cancelText || mergedLocale?.cancelText}
           </ActionButton>
         );
 
@@ -108,7 +116,7 @@ export function ConfirmContent(
                 buttonProps={okButtonProps}
                 prefixCls={`${rootPrefixCls}-btn`}
               >
-                {okText || (mergedOkCancel ? locale?.okText : locale?.justOkText)}
+                {okText || (mergedOkCancel ? mergedLocale?.okText : mergedLocale?.justOkText)}
               </ActionButton>
             </div>
           </div>
@@ -154,8 +162,6 @@ const ConfirmDialog = (props: ConfirmDialogProps) => {
     { [`${confirmPrefixCls}-rtl`]: direction === 'rtl' },
     props.className,
   );
-
-  console.log('ConfirmDialog', props);
 
   return (
     <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={iconPrefixCls} direction={direction}>

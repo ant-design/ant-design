@@ -64,7 +64,8 @@ export default function confirm(config: ModalFuncProps) {
           prefixCls={prefixCls}
           rootPrefixCls={rootPrefixCls}
           iconPrefixCls={iconPrefixCls}
-          okText={okText || (props.okCancel ? runtimeLocale.okText : runtimeLocale.justOkText)}
+          okText={okText}
+          locale={runtimeLocale}
           cancelText={cancelText || runtimeLocale.cancelText}
         />,
         container,

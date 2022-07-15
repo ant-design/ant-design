@@ -50,8 +50,6 @@ const HookModal: React.ForwardRefRenderFunction<HookModalRef, HookModalProps> = 
     },
   }));
 
-  console.log('HookModal', innerConfig);
-
   return (
     <LocaleReceiver componentName="Modal" defaultLocale={defaultLocale.Modal}>
       {(modalLocale: ModalLocale) => (

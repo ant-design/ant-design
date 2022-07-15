@@ -63,8 +63,6 @@ describe('Locale Provider demo', () => {
       await sleep();
     });
 
-    console.log(document.body.innerHTML);
-
     expect(document.body.querySelectorAll('.ant-btn-primary span')[0].textContent).toBe('确 定');
     Modal.destroyAll();
     jest.useRealTimers();
