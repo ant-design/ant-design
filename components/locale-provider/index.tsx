@@ -8,7 +8,7 @@ import type { TransferLocale as TransferLocaleForEmpty } from '../empty';
 import type { ModalLocale } from '../modal/locale';
 import { changeConfirmLocale } from '../modal/locale';
 import type { PaginationLocale } from '../pagination/Pagination';
-import type { PopconfirmLocale } from '../popconfirm';
+import type { PopconfirmLocale } from '../popconfirm/PurePanel';
 import type { TableLocale } from '../table/interface';
 import type { TransferLocale } from '../transfer';
 import type { UploadLocale } from '../upload/interface';
